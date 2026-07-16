@@ -154,6 +154,7 @@ export default async (req, context) => {
     // Pre-remplissage de la page de paiement avec l'email deja saisi dans l'app
     const customerId = await getOrCreateCustomer(token, email);
 
+    const checkoutId = crypto.randomUUID();
     const requestId = `melunga_${deviceId.slice(0, 40)}_${Date.now()}`;
     const linkPayload = {
       request_id: requestId,
@@ -164,14 +165,8 @@ export default async (req, context) => {
       ...(customerId ? { customer_id: customerId } : {}),
       collectable_shopper_info: { message: false, phone_number: false, reference: false, shipping_address: false },
       metadata: {
-        device_id: deviceId,
-        plan: planKey,
-        access_days: String(plan.days),
-        email: email,
-        password_hash: passwordHash,
-        salt: salt,
-        product: 'melunga_access',
-        country: countryCode || ''
+        checkout_id: checkoutId,
+        product: 'melunga_access'
       }
     };
 
@@ -204,12 +199,16 @@ export default async (req, context) => {
       salt: salt,
       plan: planKey,
       accessDays: plan.days,
+      amount: plan.amount,
+      currency: plan.currency,
       linkId: linkData.id,
+      checkoutId: checkoutId,
       requestId: requestId,
       created: Date.now()
     };
     await store.setJSON('pending:link:' + linkData.id, pending);
     await store.setJSON('pending:device:' + deviceId, pending);
+    await store.setJSON('pending:checkout:' + checkoutId, pending);
     console.log('[create-payment-link] pending enregistre, link id =', linkData.id);
 
     return new Response(JSON.stringify({ url: linkData.url }), {
