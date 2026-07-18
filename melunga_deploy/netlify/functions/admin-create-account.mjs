@@ -68,6 +68,10 @@ export default async (req) => {
       paid: true,
       expiry,
       plan,
+      devices: {
+        desktop: null,
+        mobile: null
+      },
       updated: Date.now(),
       createdBy: 'admin-create-account'
     });

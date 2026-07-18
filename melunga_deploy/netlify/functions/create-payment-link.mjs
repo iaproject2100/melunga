@@ -14,6 +14,12 @@
 
 import crypto from 'node:crypto';
 import { getStore } from '@netlify/blobs';
+import {
+  cleanDeviceId,
+  cleanEmail,
+  deviceLabelFor,
+  deviceTypeFor
+} from './device-access.mjs';
 
 const PBKDF2_ITERATIONS = 100000;
 const PBKDF2_KEYLEN = 32;
@@ -108,15 +114,17 @@ export default async (req, context) => {
     let body = {};
     try { body = await req.json(); } catch (e) { body = {}; }
 
-    const deviceId = (body && body.device_id ? String(body.device_id) : '').slice(0, 128);
+    const deviceId = cleanDeviceId(body && body.device_id);
     if (!deviceId) {
       console.log('[create-payment-link] missing device_id, body =', JSON.stringify(body));
       return new Response(JSON.stringify({ error: 'missing_device_id' }), { status: 400 });
     }
+    const deviceType = deviceTypeFor(req, body && body.device_type);
+    const deviceLabel = deviceLabelFor(req, body && body.device_label, deviceType);
 
     // Email normalise en minuscules : evite les comptes en double a cause
     // des majuscules automatiques des claviers mobiles.
-    const email = (body && body.email ? String(body.email) : '').trim().toLowerCase().slice(0, 254);
+    const email = cleanEmail(body && body.email);
     const password = (body && body.password ? String(body.password) : '');
     if (!email || email.indexOf('@') < 0) {
       return new Response(JSON.stringify({ error: 'invalid_email' }), { status: 400 });
@@ -154,7 +162,6 @@ export default async (req, context) => {
     // Pre-remplissage de la page de paiement avec l'email deja saisi dans l'app
     const customerId = await getOrCreateCustomer(token, email);
 
-    const checkoutId = crypto.randomUUID();
     const requestId = `melunga_${deviceId.slice(0, 40)}_${Date.now()}`;
     const linkPayload = {
       request_id: requestId,
@@ -165,8 +172,16 @@ export default async (req, context) => {
       ...(customerId ? { customer_id: customerId } : {}),
       collectable_shopper_info: { message: false, phone_number: false, reference: false, shipping_address: false },
       metadata: {
-        checkout_id: checkoutId,
-        product: 'melunga_access'
+        device_id: deviceId,
+        device_type: deviceType,
+        device_label: deviceLabel,
+        plan: planKey,
+        access_days: String(plan.days),
+        email: email,
+        password_hash: passwordHash,
+        salt: salt,
+        product: 'melunga_access',
+        country: countryCode || ''
       }
     };
 
@@ -194,21 +209,19 @@ export default async (req, context) => {
     // payment_intent arrivent vides. TTL logique de 48h geree cote webhook.
     const pending = {
       deviceId: deviceId,
+      deviceType: deviceType,
+      deviceLabel: deviceLabel,
       email: email,
       passwordHash: passwordHash,
       salt: salt,
       plan: planKey,
       accessDays: plan.days,
-      amount: plan.amount,
-      currency: plan.currency,
       linkId: linkData.id,
-      checkoutId: checkoutId,
       requestId: requestId,
       created: Date.now()
     };
     await store.setJSON('pending:link:' + linkData.id, pending);
     await store.setJSON('pending:device:' + deviceId, pending);
-    await store.setJSON('pending:checkout:' + checkoutId, pending);
     console.log('[create-payment-link] pending enregistre, link id =', linkData.id);
 
     return new Response(JSON.stringify({ url: linkData.url }), {

@@ -1,84 +1,155 @@
-// netlify/functions/login.mjs
-// Connexion "Deja client" : verifie email + mot de passe contre le compte
-// stocke dans Netlify Blobs, puis debloque l'appareil courant.
-// Recoit du front : { device_id, email, password }
-// Repond : { success: true } ou { success: false, error: '...' }
-//
-// Parametres PBKDF2 : IDENTIQUES a create-payment-link.mjs et
-// admin-create-account.mjs (100000 iterations, 32 octets, sha256, hex).
-
 import crypto from 'node:crypto';
 import { getStore } from '@netlify/blobs';
+import {
+  cleanDeviceId,
+  cleanEmail,
+  deviceLabelFor,
+  deviceTypeFor,
+  ensureDeviceSlots,
+  hashSessionToken,
+  makeDeviceSlot,
+  randomSessionToken,
+  safeDeviceSummary
+} from './device-access.mjs';
+import { jsonResponse, preflight } from './cors.mjs';
 
 const PBKDF2_ITERATIONS = 100000;
 const PBKDF2_KEYLEN = 32;
 const PBKDF2_DIGEST = 'sha256';
 
 export default async (req) => {
+  const preflightResponse = preflight(req);
+  if (preflightResponse) return preflightResponse;
+
   if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ success: false, error: 'method_not_allowed' }), { status: 405 });
+    return jsonResponse(req, { success: false, error: 'method_not_allowed' }, 405);
   }
+
   try {
     let body = {};
-    try { body = await req.json(); } catch (e) { body = {}; }
+    try { body = await req.json(); } catch (_) { body = {}; }
 
-    const deviceId = (body && body.device_id ? String(body.device_id) : '').slice(0, 128);
-    // Normalisation en minuscules : la meme qu'a la creation du compte,
-    // pour neutraliser les majuscules automatiques des claviers mobiles.
-    const email = (body && body.email ? String(body.email) : '').trim().toLowerCase().slice(0, 254);
-    const password = (body && body.password ? String(body.password) : '');
+    const deviceId = cleanDeviceId(body.device_id);
+    const email = cleanEmail(body.email);
+    const password = body.password ? String(body.password) : '';
+    const deviceType = deviceTypeFor(req, body.device_type);
+    const deviceLabel = deviceLabelFor(req, body.device_label, deviceType);
 
-    if (!deviceId || !email || email.indexOf('@') < 0 || !password) {
-      return new Response(JSON.stringify({ success: false, error: 'invalid_credentials' }), { status: 400 });
+    if (!deviceId || !email || !email.includes('@') || !password) {
+      return jsonResponse(req, { success: false, error: 'invalid_credentials' }, 400);
     }
 
     const store = getStore({ name: 'melunga-access', consistency: 'strong' });
-
-    let account = null;
-    try {
-      account = await store.get('email:' + email, { type: 'json' });
-    } catch (e) { account = null; }
+    const accountKey = 'email:' + email;
+    const account = await store.get(accountKey, { type: 'json' }).catch(() => null);
 
     if (!account || !account.passwordHash || !account.salt) {
-      console.log('[login] compte introuvable pour email =', email);
-      return new Response(JSON.stringify({ success: false, error: 'invalid_credentials' }), { status: 401 });
+      return jsonResponse(req, { success: false, error: 'invalid_credentials' }, 401);
     }
 
     const attempt = crypto
       .pbkdf2Sync(password, account.salt, PBKDF2_ITERATIONS, PBKDF2_KEYLEN, PBKDF2_DIGEST)
       .toString('hex');
 
-    const a = Buffer.from(attempt, 'utf8');
-    const b = Buffer.from(String(account.passwordHash), 'utf8');
-    const ok = a.length === b.length && crypto.timingSafeEqual(a, b);
+    const attemptBuffer = Buffer.from(attempt, 'utf8');
+    const expectedBuffer = Buffer.from(String(account.passwordHash), 'utf8');
+    const passwordValid = attemptBuffer.length === expectedBuffer.length
+      && crypto.timingSafeEqual(attemptBuffer, expectedBuffer);
 
-    if (!ok) {
-      console.log('[login] mot de passe incorrect pour email =', email);
-      return new Response(JSON.stringify({ success: false, error: 'invalid_credentials' }), { status: 401 });
+    if (!passwordValid) {
+      return jsonResponse(req, { success: false, error: 'invalid_credentials' }, 401);
     }
 
     if (!account.paid || !account.expiry || account.expiry <= Date.now()) {
-      console.log('[login] abonnement expire pour email =', email);
-      return new Response(JSON.stringify({ success: false, error: 'subscription_expired' }), { status: 403 });
+      return jsonResponse(req, { success: false, error: 'subscription_expired' }, 403);
     }
 
-    // Identifiants valides + abonnement actif -> deblocage de cet appareil,
-    // avec la meme date d'expiration que le compte.
+    const devices = ensureDeviceSlots(account);
+    const occupiedSlot = devices[deviceType];
+
+    if (occupiedSlot && occupiedSlot.deviceId !== deviceId) {
+      return jsonResponse(req, {
+        success: false,
+        error: 'device_limit_reached',
+        device_type: deviceType,
+        existing_device: safeDeviceSummary(occupiedSlot)
+      }, 409);
+    }
+
+    const now = Date.now();
+    const sessionToken = randomSessionToken();
+    const sessionHash = hashSessionToken(sessionToken);
+
+    const newSlot = {
+      ...makeDeviceSlot({
+        deviceId,
+        deviceType,
+        deviceLabel,
+        previousSlot: occupiedSlot,
+        now
+      }),
+      sessionHash
+    };
+
+    devices[deviceType] = newSlot;
+
+    await store.setJSON(accountKey, {
+      ...account,
+      devices,
+      updated: now
+    });
+
+    await store.setJSON('session:' + sessionHash, {
+      email,
+      deviceId,
+      deviceType,
+      created: now,
+      lastSeen: now,
+      expiry: account.expiry
+    });
+
+    /*
+     * Enregistrement compatible avec le check-status historique. Il permet
+     * une migration progressive du site, tout en vérifiant désormais que le
+     * device est bien le slot actif du compte.
+     */
     await store.setJSON(deviceId, {
       paid: true,
       expiry: account.expiry,
       plan: account.plan || 'monthly',
-      email: email,
-      updated: Date.now()
+      email,
+      deviceType,
+      sessionHash,
+      updated: now
     });
-    console.log('[login] connexion reussie, appareil debloque pour email =', email);
 
-    return new Response(JSON.stringify({ success: true }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
+    /*
+     * Une seconde connexion arrivée au même instant peut avoir remplacé ce
+     * slot entre-temps. La relecture évite d'annoncer un succès si ce login
+     * n'est déjà plus le titulaire du slot.
+     */
+    const confirmedAccount = await store.get(accountKey, { type: 'json' }).catch(() => null);
+    const confirmedSlot = ensureDeviceSlots(confirmedAccount)[deviceType];
+    if (!confirmedSlot
+      || confirmedSlot.deviceId !== deviceId
+      || confirmedSlot.sessionHash !== sessionHash) {
+      await store.delete('session:' + sessionHash).catch(() => {});
+      return jsonResponse(req, {
+        success: false,
+        error: 'device_limit_reached',
+        device_type: deviceType
+      }, 409);
+    }
+
+    return jsonResponse(req, {
+      success: true,
+      device_type: deviceType,
+      device_label: deviceLabel,
+      session_token: sessionToken,
+      expiry: account.expiry
     });
   } catch (err) {
     console.error('[login] EXCEPTION:', err);
-    return new Response(JSON.stringify({ success: false, error: 'server_error' }), { status: 500 });
+    return jsonResponse(req, { success: false, error: 'server_error' }, 500);
   }
 };

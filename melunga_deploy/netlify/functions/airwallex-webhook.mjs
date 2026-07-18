@@ -16,6 +16,10 @@
 
 import crypto from 'node:crypto';
 import { getStore } from '@netlify/blobs';
+import {
+  ensureDeviceSlots,
+  makeDeviceSlot
+} from './device-access.mjs';
 
 function baseUrl() {
   return (process.env.AIRWALLEX_ENV || 'demo') === 'live'
@@ -57,7 +61,7 @@ async function sendConfirmationEmail(email, plan) {
         to: [{ email }],
         subject: 'Bienvenue sur Melunga · votre compte est actif',
         htmlContent: `<p>Bonjour,</p>
-<p>Votre abonnement Melunga (${planLabel}) est bien actif. Vous pouvez maintenant utiliser cet email et votre mot de passe pour retrouver votre accès sur n'importe quel appareil, via l'onglet "Déjà client".</p>
+<p>Votre abonnement Melunga (${planLabel}) est bien actif. Vous pouvez maintenant utiliser cet e-mail et votre mot de passe sur un ordinateur et un appareil mobile, via l'onglet « Déjà client ».</p>
 <p>Merci de votre confiance,<br>L'équipe Melunga 梅伦加</p>`
       })
     });
@@ -115,25 +119,23 @@ export default async (req) => {
     const intentId = obj.id || null;
     const store = getStore({ name: 'melunga-access', consistency: 'strong' });
 
-    if (intentId) {
-      const alreadyProcessed = await store.get('processed:intent:' + intentId, { type: 'json' }).catch(() => null);
-      if (alreadyProcessed) {
-        console.log('[airwallex-webhook] intent deja traite =', intentId);
-        return new Response('ok', { status: 200 });
-      }
-    }
-
-    // --- Niveau 1 : identifiant opaque de commande ---
+    // --- Niveau 1 : metadata directes de l'intent ---
     let meta = obj.metadata || {};
     console.log('[airwallex-webhook] metadata recue =', JSON.stringify(meta));
 
     let info = null;
-    if (meta.checkout_id) {
-      const pendingCheckout = await store.get('pending:checkout:' + meta.checkout_id, { type: 'json' }).catch(() => null);
-      if (pendingCheckout && pendingCheckout.deviceId) {
-        info = pendingCheckout;
-        console.log('[airwallex-webhook] infos trouvees via checkout opaque');
-      }
+    if (meta.device_id) {
+      info = {
+        deviceId: meta.device_id,
+        deviceType: meta.device_type || 'desktop',
+        deviceLabel: meta.device_label || null,
+        email: meta.email ? String(meta.email).trim().toLowerCase() : null,
+        passwordHash: meta.password_hash || null,
+        salt: meta.salt || null,
+        plan: meta.plan || 'monthly',
+        accessDays: parseInt(meta.access_days || '30', 10)
+      };
+      console.log('[airwallex-webhook] infos trouvees via metadata intent');
     }
 
     // --- Niveau 2 : pending via payment_link_id du payload ---
@@ -151,12 +153,20 @@ export default async (req) => {
           if (r.ok) {
             const full = await r.json();
             linkId = extractLinkId(full);
-            if (full.metadata && full.metadata.checkout_id) {
-              const pc = await store.get('pending:checkout:' + full.metadata.checkout_id, { type: 'json' }).catch(() => null);
-              if (pc && pc.deviceId) {
-                info = pc;
-                console.log('[airwallex-webhook] infos trouvees via checkout de l\'intent complet');
-              }
+            // bonus : l'intent complet a parfois les metadata que le payload n'avait pas
+            if (!linkId && full.metadata && full.metadata.device_id) {
+              const m = full.metadata;
+              info = {
+                deviceId: m.device_id,
+                deviceType: m.device_type || 'desktop',
+                deviceLabel: m.device_label || null,
+                email: m.email ? String(m.email).trim().toLowerCase() : null,
+                passwordHash: m.password_hash || null,
+                salt: m.salt || null,
+                plan: m.plan || 'monthly',
+                accessDays: parseInt(m.access_days || '30', 10)
+              };
+              console.log('[airwallex-webhook] infos trouvees via metadata de l\'intent complet (API)');
             }
             console.log('[airwallex-webhook] payment_link_id via API =', linkId);
           } else {
@@ -173,6 +183,8 @@ export default async (req) => {
           if (pending && pending.deviceId) {
             info = {
               deviceId: pending.deviceId,
+              deviceType: pending.deviceType || 'desktop',
+              deviceLabel: pending.deviceLabel || null,
               email: pending.email || null,
               passwordHash: pending.passwordHash || null,
               salt: pending.salt || null,
@@ -188,47 +200,64 @@ export default async (req) => {
     }
 
     if (info && info.deviceId) {
-      const receivedAmount = obj.amount == null ? null : Number(obj.amount);
-      const receivedCurrency = obj.currency ? String(obj.currency).toUpperCase() : null;
-      if ((receivedAmount != null && info.amount != null && Number(info.amount) !== receivedAmount)
-          || (receivedCurrency && info.currency && receivedCurrency !== String(info.currency).toUpperCase())) {
-        console.error('[airwallex-webhook] montant ou devise incoherent pour intent =', intentId);
-        return new Response('payment mismatch', { status: 400 });
-      }
-
       const expiry = Date.now() + info.accessDays * 24 * 60 * 60 * 1000;
-
-      // Deblocage de l'appareil qui a paye
-      await store.setJSON(info.deviceId, { paid: true, expiry, plan: info.plan, updated: Date.now() });
-      console.log('[airwallex-webhook] device_id marque paye =', info.deviceId);
 
       // Creation / mise a jour du compte email
       if (info.email && info.passwordHash && info.salt) {
-        await store.setJSON('email:' + info.email, {
+        const accountKey = 'email:' + info.email;
+        const previousAccount = await store.get(accountKey, { type: 'json' }).catch(() => null);
+        const devices = previousAccount && previousAccount.expiry > Date.now()
+          ? ensureDeviceSlots(previousAccount)
+          : ensureDeviceSlots(null);
+        const deviceType = info.deviceType === 'mobile' ? 'mobile' : 'desktop';
+        const previousSlot = devices[deviceType];
+        const now = Date.now();
+
+        devices[deviceType] = makeDeviceSlot({
+          deviceId: info.deviceId,
+          deviceType,
+          deviceLabel: info.deviceLabel || (deviceType === 'mobile' ? 'Appareil mobile' : 'Ordinateur'),
+          previousSlot,
+          now
+        });
+
+        await store.setJSON(info.deviceId, {
+          paid: true,
+          expiry,
+          plan: info.plan,
+          email: info.email,
+          deviceType,
+          updated: now
+        });
+        console.log('[airwallex-webhook] device_id marque paye =', info.deviceId);
+
+        await store.setJSON(accountKey, {
+          ...(previousAccount || {}),
           email: info.email,
           passwordHash: info.passwordHash,
           salt: info.salt,
           paid: true,
           expiry,
           plan: info.plan,
-          updated: Date.now()
+          devices,
+          updated: now
         });
         console.log('[airwallex-webhook] compte cree/mis a jour pour email =', info.email);
         await sendConfirmationEmail(info.email, info.plan);
       } else {
+        await store.setJSON(info.deviceId, {
+          paid: true,
+          expiry,
+          plan: info.plan,
+          updated: Date.now()
+        });
         console.log('[airwallex-webhook] pas d\'email/hash disponibles, compte non cree (appareil debloque)');
       }
 
       // Nettoyage des pending devenus inutiles
       try { await store.delete('pending:device:' + info.deviceId); } catch (e) {}
-      try { if (info.linkId) await store.delete('pending:link:' + info.linkId); } catch (e) {}
-      try { if (info.checkoutId) await store.delete('pending:checkout:' + info.checkoutId); } catch (e) {}
-      if (intentId) {
-        await store.setJSON('processed:intent:' + intentId, { processed: Date.now(), deviceId: info.deviceId });
-      }
     } else {
       console.log('[airwallex-webhook] IMPOSSIBLE d\'identifier le paiement — payload objet =', JSON.stringify(obj).slice(0, 2000));
-      return new Response('payment not identified', { status: 500 });
     }
   }
 

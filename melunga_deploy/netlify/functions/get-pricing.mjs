@@ -6,6 +6,8 @@
 // Zone USD (8,90 USD/mois ou 49 USD/an) : reste du monde, Suisse INCLUSE (la Suisse n'est
 // pas dans l'UE et n'utilise pas l'euro, elle est donc traitee comme "hors Europe" ici).
 
+import { jsonResponse, preflight } from './cors.mjs';
+
 const EUR_COUNTRIES = new Set([
   'AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT',
   'LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE',
@@ -23,10 +25,10 @@ export function pricingForCountry(countryCode) {
 }
 
 export default async (req, context) => {
+  const preflightResponse = preflight(req);
+  if (preflightResponse) return preflightResponse;
+
   const countryCode = (context.geo && context.geo.country && context.geo.country.code) || null;
   const pricing = pricingForCountry(countryCode);
-  return new Response(JSON.stringify({ country: countryCode, ...pricing }), {
-    status: 200,
-    headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }
-  });
+  return jsonResponse(req, { country: countryCode, ...pricing });
 };

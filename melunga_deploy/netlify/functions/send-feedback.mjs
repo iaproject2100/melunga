@@ -2,12 +2,12 @@
 // Reçoit les avis du formulaire 💬 et les envoie à contact@melunga.com via l'API Brevo.
 // Prérequis : variable d'environnement BREVO_API_KEY dans Netlify (Site settings → Environment variables).
 
+import { jsonResponse, preflight } from './cors.mjs';
+
 export default async (req) => {
-  const json = (obj, status = 200) =>
-    new Response(JSON.stringify(obj), {
-      status,
-      headers: { 'Content-Type': 'application/json' }
-    });
+  const preflightResponse = preflight(req);
+  if (preflightResponse) return preflightResponse;
+  const json = (obj, status = 200) => jsonResponse(req, obj, status);
 
   if (req.method !== 'POST') return json({ success: false, error: 'method' }, 405);
 
