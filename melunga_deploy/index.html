@@ -1,0 +1,1735 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Melunga — Maquette bleu nuit</title>
+  <style>
+    :root {
+      --blue: #2189ce;
+      --blue-deep: #176ca4;
+      --blue-soft: #e7f4fc;
+      --orange: #ff7b22;
+      --ink: #19324a;
+      --muted: #647789;
+      --paper: #fffdfa;
+      --cream: #f7efe3;
+      --line: #d8e1e8;
+      --green: #18875e;
+      --shadow: 0 24px 60px rgba(25, 50, 74, .13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 8% 8%, rgba(33, 137, 206, .13), transparent 26rem),
+        radial-gradient(circle at 94% 18%, rgba(255, 123, 34, .12), transparent 23rem),
+        var(--cream);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button,
+    select {
+      font: inherit;
+    }
+
+    button,
+    select {
+      min-height: 46px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 22px auto;
+      overflow: hidden;
+      border: 1px solid rgba(25, 50, 74, .09);
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 95% 4%, rgba(33, 137, 206, .12), transparent 28rem),
+        var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .inner {
+      position: relative;
+      z-index: 1;
+      padding-inline: clamp(20px, 5vw, 64px);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-block: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 auto;
+      display: block;
+      border: 0;
+      border-radius: 50%;
+    }
+
+    .brand-name {
+      color: var(--blue);
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+
+    .brand-cn {
+      color: #9a6a08;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .28em;
+    }
+
+    .site-language {
+      padding-inline: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .74);
+      color: var(--ink);
+    }
+
+    .commercial-banner {
+      display: grid;
+      grid-template-columns: minmax(190px, 1fr) auto auto;
+      align-items: center;
+      gap: 22px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: linear-gradient(120deg, var(--blue-deep), var(--blue));
+      color: white;
+      box-shadow: 0 16px 36px rgba(33, 137, 206, .22);
+    }
+
+    .commercial-promise {
+      display: grid;
+      gap: 4px;
+    }
+
+    .commercial-kicker {
+      color: rgba(255, 255, 255, .76);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .1em;
+    }
+
+    .commercial-promise strong {
+      font-size: 1.08rem;
+    }
+
+    .commercial-prices {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px 12px;
+    }
+
+    .commercial-price {
+      white-space: nowrap;
+      font-size: 1.38rem;
+      font-weight: 900;
+    }
+
+    .commercial-price small {
+      font-size: .74rem;
+      font-weight: 700;
+    }
+
+    .commercial-or {
+      color: rgba(255, 255, 255, .7);
+    }
+
+    .commercial-saving {
+      flex-basis: 100%;
+      color: #fff1c2;
+      font-size: .78rem;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .commercial-button {
+      border-color: white;
+      background: white;
+      color: var(--blue-deep);
+      box-shadow: none;
+      white-space: nowrap;
+    }
+
+    .commercial-button:hover {
+      background: var(--cream);
+      color: var(--blue-deep);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
+      align-items: center;
+      gap: clamp(34px, 7vw, 84px);
+      padding-block: clamp(48px, 8vw, 94px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue-deep);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 15ch;
+      margin-bottom: 22px;
+      font-size: clamp(2.5rem, 6vw, 5.3rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -.035em;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: clamp(1.18rem, 2.5vw, 1.55rem);
+      line-height: 1.25;
+    }
+
+    .hero-subtitle {
+      max-width: 62ch;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2.2vw, 1.24rem);
+      line-height: 1.65;
+    }
+
+    .language-path,
+    .actions,
+    .trust {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .language-path {
+      margin-bottom: 26px;
+    }
+
+    .language-chip {
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .76);
+      font-weight: 700;
+    }
+
+    .arrow {
+      color: var(--muted);
+    }
+
+    .primary-button,
+    .secondary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 20px;
+      border-radius: 14px;
+      font-weight: 800;
+    }
+
+    .primary-button {
+      border: 1px solid var(--blue);
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 12px 28px rgba(33, 137, 206, .24);
+    }
+
+    .primary-button:hover {
+      background: var(--blue-deep);
+    }
+
+    .secondary-button {
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--ink);
+    }
+
+    .trust {
+      margin-top: 15px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .hero-visual {
+      display: grid;
+      gap: 18px;
+      padding: clamp(22px, 4vw, 34px);
+      border: 1px solid rgba(33, 137, 206, .2);
+      border-radius: 26px;
+      background:
+        linear-gradient(145deg, rgba(231, 244, 252, .9), rgba(255, 255, 255, .94));
+      box-shadow: 0 20px 45px rgba(25, 50, 74, .09);
+    }
+
+    .visual-kicker,
+    .section-kicker {
+      color: var(--blue-deep);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .11em;
+    }
+
+    .visual-title {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      line-height: 1.28;
+    }
+
+    .visual-flow {
+      display: grid;
+      gap: 12px;
+    }
+
+    .visual-step {
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(25, 50, 74, .11);
+    }
+
+    .visual-step:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      font-weight: 800;
+    }
+
+    .visual-step span:last-child {
+      color: var(--muted);
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-block: 1px solid var(--line);
+    }
+
+    .pillar {
+      padding: 28px 22px;
+    }
+
+    .pillar + .pillar {
+      border-left: 1px solid var(--line);
+    }
+
+    .pillar-icon {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 14px;
+      border-radius: 14px;
+      background: var(--blue-soft);
+      font-size: 1.2rem;
+    }
+
+    .pillar p {
+      margin-bottom: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .examples {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: center;
+      gap: clamp(34px, 7vw, 80px);
+      padding-block: clamp(62px, 9vw, 108px);
+    }
+
+    .phrase-family {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    .phrase-family,
+    .phonetic-proof {
+      min-width: 0;
+    }
+
+    .phrase-list {
+      margin-block: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .phrase-row {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr);
+      align-items: center;
+      gap: 12px;
+      padding-block: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .phrase-index {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--blue-soft);
+      color: var(--blue-deep);
+      font-weight: 800;
+    }
+
+    .slot {
+      color: var(--blue-deep);
+    }
+
+    .result {
+      padding: 17px;
+      border-left: 4px solid var(--orange);
+      background: rgba(255, 123, 34, .08);
+      line-height: 1.55;
+    }
+
+    .phonetic-proof {
+      padding: clamp(22px, 4vw, 32px);
+      border: 1px solid rgba(33, 137, 206, .22);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(231, 244, 252, .76), rgba(255, 255, 255, .96));
+    }
+
+    .target-phrase {
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .phonetic-label {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    .phonetic {
+      margin-block: 9px 12px;
+      color: var(--blue-deep);
+      font-size: clamp(1.45rem, 4vw, 2.1rem);
+      font-weight: 900;
+      letter-spacing: .035em;
+      overflow-wrap: anywhere;
+    }
+
+    .stress {
+      color: var(--orange);
+    }
+
+    .stress-key {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .stress-sample {
+      padding: 5px 8px;
+      border-radius: 8px;
+      background: var(--orange);
+      color: white;
+      font-weight: 900;
+    }
+
+    .translation {
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .method-statement {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding-block: clamp(28px, 5vw, 48px);
+      border-block: 1px solid var(--line);
+    }
+
+    .statement-mark {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: white;
+      font-size: 1.25rem;
+    }
+
+    .method-statement p {
+      margin-bottom: 0;
+      font-size: clamp(1.15rem, 2.7vw, 1.65rem);
+      font-weight: 750;
+      line-height: 1.45;
+    }
+
+    .method {
+      padding-block: clamp(62px, 9vw, 108px);
+    }
+
+    .method-heading {
+      max-width: 720px;
+      margin-bottom: 34px;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(290px, .82fr);
+      gap: clamp(34px, 7vw, 80px);
+    }
+
+    .method-steps {
+      border-top: 1px solid var(--line);
+    }
+
+    .method-step {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 14px;
+      padding-block: 17px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .method-step strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .method-step p {
+      margin-bottom: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .progression {
+      align-self: start;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .level-track {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 7px;
+      margin-block: 20px;
+    }
+
+    .level {
+      display: grid;
+      place-items: center;
+      min-height: 42px;
+      border-radius: 10px;
+      background: var(--blue-soft);
+      color: var(--blue-deep);
+      font-weight: 800;
+    }
+
+    .level:nth-child(n+5) {
+      background: #cfeafa;
+    }
+
+    .level:nth-child(n+8) {
+      background: #a7d8f4;
+    }
+
+    .progression p {
+      margin-bottom: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .pricing {
+      padding-block: clamp(58px, 9vw, 102px);
+      border-top: 1px solid var(--line);
+    }
+
+    .pricing-top {
+      padding-block: clamp(30px, 5vw, 56px) clamp(52px, 7vw, 80px);
+      border-top: 0;
+    }
+
+    .pricing-heading {
+      max-width: 760px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .pricing-heading p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.6;
+    }
+
+    .market-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .market-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 8px 12px;
+      border: 1px solid rgba(33, 137, 206, .2);
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue-deep);
+      font-size: .86rem;
+      font-weight: 750;
+    }
+
+    .geo-test {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .geo-test select {
+      min-height: 38px;
+      padding-inline: 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: white;
+      color: var(--ink);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      max-width: 820px;
+      margin-inline: auto;
+    }
+
+    .price-plan {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      padding: clamp(24px, 4vw, 34px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .78);
+    }
+
+    .price-plan.best {
+      border-color: var(--blue);
+      background: linear-gradient(145deg, rgba(231, 244, 252, .92), rgba(255, 255, 255, .96));
+      box-shadow: 0 18px 44px rgba(33, 137, 206, .14);
+    }
+
+    .best-label {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: white;
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .06em;
+    }
+
+    .plan-name {
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 850;
+      letter-spacing: .1em;
+    }
+
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .price strong {
+      color: var(--ink);
+      font-size: clamp(2.5rem, 6vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+
+    .price span {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .price-equivalent {
+      margin-top: -12px;
+      color: var(--green);
+      font-weight: 750;
+    }
+
+    .plan-benefits {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .plan-benefits li {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 9px;
+      align-items: start;
+    }
+
+    .plan-benefits li::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .plan-button {
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .pricing-reassurance {
+      max-width: 820px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.55;
+    }
+
+    .pricing-status {
+      min-height: 26px;
+      max-width: 820px;
+      margin: 14px auto 0;
+      color: var(--green);
+      font-weight: 750;
+      text-align: center;
+    }
+
+    .final-cta {
+      display: grid;
+      place-items: center;
+      gap: 14px;
+      padding-block: 48px 62px;
+      text-align: center;
+    }
+
+    .final-cta p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .status {
+      min-height: 24px;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    @media (max-width: 850px) {
+      .commercial-banner {
+        grid-template-columns: 1fr auto;
+      }
+
+      .commercial-button {
+        grid-column: 1 / -1;
+        width: 100%;
+      }
+
+      .hero,
+      .examples,
+      .method-grid,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pillars {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pillar:nth-child(3) {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .pillar:nth-child(4) {
+        border-top: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 16px, 1180px);
+        margin-block: 8px;
+        border-radius: 22px;
+      }
+
+      .topbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .commercial-banner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .commercial-prices {
+        justify-content: center;
+      }
+
+      .site-language {
+        width: 100%;
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .pillars {
+        grid-template-columns: 1fr;
+      }
+
+      .pillar + .pillar,
+      .pillar:nth-child(3),
+      .pillar:nth-child(4) {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .actions .primary-button,
+      .actions .secondary-button {
+        width: 100%;
+      }
+
+      .method-statement {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Variante visuelle : bleu nuit, turquoise, vert menthe et touches dorées. */
+    :root {
+      --blue: #18b5df;
+      --blue-deep: #63d7f4;
+      --blue-soft: rgba(24, 181, 223, .14);
+      --orange: #ffc84a;
+      --ink: #f7fbff;
+      --muted: #b6cad9;
+      --paper: #0b3551;
+      --cream: #061f34;
+      --line: rgba(255, 255, 255, .13);
+      --green: #43d6a1;
+      --shadow: 0 28px 80px rgba(0, 10, 24, .4);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 9% 10%, rgba(255, 207, 77, .6) 0 5px, transparent 6px),
+        radial-gradient(circle at 91% 13%, rgba(255, 207, 77, .36) 0 11px, transparent 12px),
+        radial-gradient(circle at 6% 62%, rgba(255, 207, 77, .7) 0 7px, transparent 8px),
+        radial-gradient(circle at 92% 72%, rgba(255, 207, 77, .55) 0 6px, transparent 7px),
+        radial-gradient(circle at 20% 3%, rgba(44, 148, 188, .13), transparent 19rem),
+        linear-gradient(160deg, #061d31 0%, #0b3551 56%, #08263e 100%);
+      color: var(--ink);
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      border-color: rgba(255, 255, 255, .1);
+      background:
+        radial-gradient(circle at 86% 8%, rgba(255, 201, 74, .13) 0 8px, transparent 9px),
+        radial-gradient(circle at 9% 42%, rgba(24, 181, 223, .12), transparent 22rem),
+        linear-gradient(160deg, rgba(13, 58, 86, .98), rgba(6, 30, 49, .99));
+      box-shadow: var(--shadow);
+    }
+
+    .ambient-bubbles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    /* Bulles STRICTEMENT identiques à l'app Melunga (écran d'accueil océan) :
+       12 bulles générées en JS, tailles/durées aléatoires, dégradé blanc→doré #FFCE3A,
+       montée droite via wlcrise. Mêmes paramètres exacts que production. */
+    .ambient-bubbles span {
+      position: absolute;
+      bottom: -40px;
+      border-radius: 50%;
+      opacity: 0;
+      background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, .5), #FFCE3A);
+      animation: wlcrise linear infinite;
+    }
+
+    @keyframes wlcrise {
+      0%   { transform: translateY(0) scale(.6); opacity: 0; }
+      12%  { opacity: .85; }
+      88%  { opacity: .7; }
+      100% { transform: translateY(-104vh) scale(1); opacity: 0; }
+    }
+
+    .brand-name {
+      color: #ffffff;
+    }
+
+    .brand-cn {
+      color: var(--orange);
+    }
+
+    .topbar {
+      position: relative;
+      justify-content: center;
+      min-height: 174px;
+      padding-top: 6px;
+    }
+
+    .brand {
+      flex-direction: column;
+      gap: 3px;
+      text-align: center;
+    }
+
+    .brand-mark {
+      width: 98px;
+      height: 98px;
+    }
+
+    .brand-name {
+      font-size: 1.95rem;
+      line-height: 1.05;
+    }
+
+    .brand-cn {
+      margin-top: 4px;
+      font-size: .76rem;
+    }
+
+    .site-language {
+      position: absolute;
+      top: 12px;
+      right: 0;
+    }
+
+    .site-language,
+    .geo-test select {
+      border-color: rgba(255, 255, 255, .25);
+      background: rgba(255, 255, 255, .08);
+      color: var(--ink);
+    }
+
+    .site-language option,
+    .geo-test select option {
+      background: #0b3551;
+      color: #ffffff;
+    }
+
+    .commercial-banner {
+      border: 1px solid rgba(67, 214, 161, .38);
+      background: linear-gradient(120deg, rgba(13, 78, 101, .96), rgba(19, 120, 132, .92));
+      box-shadow: 0 18px 44px rgba(0, 12, 28, .28);
+    }
+
+    .commercial-button,
+    .primary-button {
+      border-color: #43d6a1;
+      background: linear-gradient(135deg, #48dda6, #19bcd7);
+      color: #062b3d;
+      box-shadow: 0 14px 32px rgba(35, 204, 173, .2);
+    }
+
+    .commercial-button:hover,
+    .primary-button:hover {
+      background: linear-gradient(135deg, #5de6b2, #32c8e1);
+      color: #062b3d;
+    }
+
+    .secondary-button {
+      border-color: rgba(255, 255, 255, .2);
+      background: rgba(255, 255, 255, .07);
+      color: var(--ink);
+    }
+
+    .eyebrow,
+    .market-label {
+      border-color: rgba(99, 215, 244, .27);
+      background: rgba(24, 181, 223, .13);
+      color: #8ce5fb;
+    }
+
+    .language-chip {
+      border-color: rgba(255, 255, 255, .14);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .hero-visual,
+    .phonetic-proof,
+    .progression,
+    .price-plan {
+      border-color: rgba(255, 255, 255, .14);
+      background: linear-gradient(145deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .035));
+      box-shadow: 0 20px 48px rgba(0, 11, 27, .22);
+      backdrop-filter: blur(10px);
+    }
+
+    .price-plan.best {
+      border-color: rgba(67, 214, 161, .62);
+      background: linear-gradient(145deg, rgba(67, 214, 161, .13), rgba(24, 181, 223, .08));
+      box-shadow: 0 22px 52px rgba(0, 18, 34, .3);
+    }
+
+    .opening-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(330px, .85fr);
+      grid-template-areas:
+        "heading proof"
+        "plans proof"
+        "reassurance proof"
+        "status proof";
+      align-items: center;
+      gap: 18px clamp(24px, 4vw, 48px);
+    }
+
+    .opening-grid .pricing-heading {
+      grid-area: heading;
+      max-width: none;
+      margin: 0 0 10px;
+      text-align: left;
+    }
+
+    .opening-grid .pricing-grid {
+      grid-area: plans;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: none;
+      gap: 14px;
+    }
+
+    .opening-grid .price-plan {
+      gap: 13px;
+      padding: clamp(20px, 2.6vw, 28px);
+    }
+
+    .opening-grid .price strong {
+      font-size: clamp(2.2rem, 4.2vw, 3.7rem);
+    }
+
+    .opening-grid .plan-benefits {
+      gap: 7px;
+      font-size: .9rem;
+    }
+
+    .opening-grid .pricing-reassurance {
+      grid-area: reassurance;
+      margin: 5px 0 0;
+      text-align: left;
+      font-size: .88rem;
+    }
+
+    .opening-grid .pricing-status {
+      grid-area: status;
+      margin: 0;
+      text-align: left;
+    }
+
+    .opening-proof-card {
+      grid-area: proof;
+      align-self: stretch;
+      display: grid;
+      align-content: center;
+      padding: clamp(22px, 3vw, 34px);
+      border: 1px solid rgba(99, 215, 244, .27);
+      border-radius: 26px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, .105), rgba(255, 255, 255, .04));
+      box-shadow: 0 22px 52px rgba(0, 13, 30, .28);
+    }
+
+    .opening-proof-badge {
+      width: fit-content;
+      margin-bottom: 18px;
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 200, 74, .3);
+      border-radius: 999px;
+      color: #ffe396;
+      background: rgba(255, 200, 74, .08);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .07em;
+    }
+
+    .opening-proof-card .target-phrase {
+      margin-bottom: 0;
+      font-size: clamp(1.5rem, 3vw, 2.15rem);
+    }
+
+    .opening-proof-card .translation {
+      font-size: 1.08rem;
+    }
+
+    .opening-proof-note {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: .8rem;
+      line-height: 1.45;
+    }
+
+    .opening-proof-card .secondary-button {
+      width: 100%;
+    }
+
+    .price strong {
+      color: #ffffff;
+    }
+
+    .best-label,
+    .stress-sample,
+    .statement-mark {
+      background: var(--orange);
+      color: #163247;
+    }
+
+    .pillar-icon,
+    .phrase-index,
+    .level,
+    .level:nth-child(n+5),
+    .level:nth-child(n+8) {
+      background: rgba(24, 181, 223, .13);
+      color: #8ce5fb;
+    }
+
+    .level:nth-child(n+5) {
+      background: rgba(67, 214, 161, .13);
+      color: #77e7bc;
+    }
+
+    .level:nth-child(n+8) {
+      background: rgba(255, 200, 74, .14);
+      color: #ffd978;
+    }
+
+    .step-number {
+      background: linear-gradient(145deg, #1bb7df, #20c49c);
+      color: #062b3d;
+    }
+
+    .slot,
+    .phonetic,
+    .visual-kicker,
+    .section-kicker {
+      color: #81e3fa;
+    }
+
+    .result {
+      border-left-color: var(--orange);
+      background: rgba(255, 200, 74, .08);
+    }
+
+    .stress {
+      color: #ffd15b;
+    }
+
+    .pricing,
+    .method-statement,
+    .pillars,
+    .phrase-list,
+    .method-steps,
+    .target-phrase,
+    .visual-step {
+      border-color: var(--line);
+    }
+
+    .final-cta {
+      margin-inline: calc(clamp(20px, 5vw, 64px) * -1);
+      padding-inline: clamp(20px, 5vw, 64px);
+      background: linear-gradient(180deg, transparent, rgba(24, 181, 223, .08));
+    }
+
+    @media (max-width: 560px) {
+      body {
+        background: linear-gradient(160deg, #061d31, #0b3551 62%, #08263e);
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+      }
+
+      .topbar {
+        min-height: 154px;
+        padding-top: 0;
+      }
+
+      .brand-mark {
+        width: 82px;
+        height: 82px;
+      }
+
+      .brand-name {
+        font-size: 1.6rem;
+      }
+
+      .site-language {
+        position: static;
+        width: min(100%, 220px);
+        margin: 9px auto 0;
+      }
+
+      .opening-grid .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .opening-grid .price-plan {
+        gap: 9px;
+        padding: 15px 10px 11px;
+        border-radius: 17px;
+      }
+
+      .opening-grid .best-label {
+        position: static;
+        width: fit-content;
+        padding: 5px 7px;
+        font-size: .58rem;
+      }
+
+      .opening-grid .plan-name {
+        font-size: .64rem;
+        letter-spacing: .055em;
+      }
+
+      .opening-grid .price {
+        display: block;
+      }
+
+      .opening-grid .price strong {
+        display: block;
+        font-size: clamp(1.7rem, 8.5vw, 2.3rem);
+      }
+
+      .opening-grid .price span,
+      .opening-grid .price-equivalent {
+        font-size: .7rem;
+      }
+
+      .opening-grid .plan-benefits {
+        font-size: .7rem;
+      }
+
+      .opening-grid .plan-benefits li:nth-child(n+3) {
+        display: none;
+      }
+
+      .opening-grid .plan-button {
+        min-height: 44px;
+        padding: 9px 6px;
+        border-radius: 12px;
+        font-size: .7rem;
+        line-height: 1.15;
+      }
+    }
+
+    @media (max-width: 940px) {
+      .opening-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "heading"
+          "proof"
+          "plans"
+          "reassurance"
+          "status";
+      }
+
+      .opening-grid .pricing-heading,
+      .opening-grid .pricing-reassurance,
+      .opening-grid .pricing-status {
+        text-align: center;
+      }
+
+      .opening-proof-card {
+        min-height: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ambient-bubbles {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="ambient-bubbles" id="wlcBub" aria-hidden="true"></div>
+    <div class="inner">
+      <header class="topbar">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 200 200" role="img" aria-label="Logo Melunga" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="wlcblue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4FB0E4"/><stop offset="1" stop-color="#1E86C4"/></linearGradient></defs><circle cx="100" cy="100" r="98" fill="url(#wlcblue)"/><circle cx="78" cy="42" r="6" fill="#FFCE3A"/><circle cx="99" cy="32" r="10" fill="#FFCE3A"/><circle cx="88" cy="57" r="4.5" fill="#FFCE3A"/><ellipse cx="44" cy="140" rx="12" ry="20" fill="#9FCBE8" transform="rotate(26 44 140)"/><ellipse cx="45" cy="139" rx="7.5" ry="14" fill="#E3F1FB" transform="rotate(26 45 139)"/><ellipse cx="156" cy="140" rx="12" ry="20" fill="#9FCBE8" transform="rotate(-26 156 140)"/><ellipse cx="155" cy="139" rx="7.5" ry="14" fill="#E3F1FB" transform="rotate(-26 155 139)"/><path d="M100 42 C132 42 154 70 154 102 C154 134 138 168 100 168 C62 168 46 134 46 102 C46 70 68 42 100 42 Z" fill="#fff"/><g fill="#E6F0FA"><ellipse cx="100" cy="156" rx="28" ry="14"/><circle cx="82" cy="157" r="12"/><circle cx="118" cy="157" r="12"/></g><ellipse cx="71" cy="120" rx="11" ry="7" fill="#F6A89F" opacity=".9"/><ellipse cx="129" cy="120" rx="11" ry="7" fill="#F6A89F" opacity=".9"/><ellipse cx="84" cy="108" rx="8" ry="11" fill="#1f2d3a"/><circle cx="87.5" cy="103" r="3.4" fill="#fff"/><circle cx="81" cy="112.5" r="1.5" fill="#fff" opacity=".85"/><ellipse cx="116" cy="108" rx="8" ry="11" fill="#1f2d3a"/><circle cx="119.5" cy="103" r="3.4" fill="#fff"/><circle cx="113" cy="112.5" r="1.5" fill="#fff" opacity=".85"/><path d="M81 130 Q100 151 119 130" stroke="#1f2d3a" stroke-width="4.2" fill="none" stroke-linecap="round"/></svg>
+          <div>
+            <div class="brand-name">Melunga</div>
+            <div class="brand-cn">梅 伦 加</div>
+          </div>
+        </div>
+
+        <select class="site-language" aria-label="Langue du site">
+          <option>🇫🇷 Français</option>
+          <option>🇬🇧 English</option>
+          <option>🇪🇸 Español</option>
+        </select>
+      </header>
+
+      <section class="pricing pricing-top" id="pricing">
+        <div class="opening-grid">
+        <div class="pricing-heading">
+          <span class="section-kicker">UNE SEULE OFFRE, TOUTES LES LANGUES</span>
+          <h2>Toutes les langues Melunga dans un seul abonnement.</h2>
+          <p>Un abonnement donne accès à toutes les langues disponibles, à tous les niveaux L1–L10, à la phonétique native et aux révisions.</p>
+          <div class="market-row">
+            <span class="market-label" data-market-label>Prix pour l’Europe · EUR</span>
+            <label class="geo-test" data-geo-test>
+              Tester une zone
+              <select data-country-test>
+                <option value="FR">Europe · EUR</option>
+                <option value="US">États-Unis · USD</option>
+                <option value="CN">Chine · CNY</option>
+                <option value="JP">Japon · JPY</option>
+                <option value="KR">Corée du Sud · KRW</option>
+                <option value="SG">Singapour · SGD</option>
+                <option value="BR">Reste du monde · USD</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-plan">
+            <span class="plan-name">FORMULE MENSUELLE</span>
+            <div class="price"><strong data-monthly-price>7,90 €</strong><span>/ mois</span></div>
+            <ul class="plan-benefits">
+              <li>Toutes les langues Melunga</li>
+              <li>Tous les niveaux L1 à L10</li>
+              <li>Phonétique native et audio</li>
+              <li>Progression et révisions</li>
+            </ul>
+            <button class="secondary-button plan-button" type="button" data-plan="mensuelle">Choisir la formule mensuelle</button>
+          </article>
+
+          <article class="price-plan best">
+            <span class="best-label">LE PLUS AVANTAGEUX</span>
+            <span class="plan-name">FORMULE ANNUELLE</span>
+            <div class="price"><strong data-yearly-price>42 €</strong><span>/ an</span></div>
+            <div class="price-equivalent" data-yearly-equivalent>Soit seulement 3,50 € par mois</div>
+            <ul class="plan-benefits">
+              <li>Toutes les langues Melunga</li>
+              <li>Tous les niveaux L1 à L10</li>
+              <li>Phonétique native et audio</li>
+              <li>Progression et révisions</li>
+            </ul>
+            <button class="primary-button plan-button" type="button" data-plan="annuelle">Choisir la formule annuelle</button>
+          </article>
+        </div>
+
+        <p class="pricing-reassurance">Vous pouvez apprendre l’anglais, l’espagnol, le chinois, l’italien, le japonais et le coréen sans acheter chaque langue séparément.</p>
+        <div class="pricing-status" data-pricing-status aria-live="polite"></div>
+
+        <article class="opening-proof-card">
+          <span class="opening-proof-badge">✦ LA PREUVE MELUNGA</span>
+          <h2 class="target-phrase">I would like a coffee, please.</h2>
+          <div class="phonetic-label">PHONÉTIQUE ADAPTÉE AU FRANCOPHONE</div>
+          <div class="phonetic"><span class="stress">AÏ</span> WOUD <span class="stress">LAÏK</span> E CO-fi, <span class="stress">PLIZ</span></div>
+          <div class="translation">Je voudrais un café, s’il vous plaît.</div>
+          <div class="opening-proof-note">Les MAJUSCULES montrent l’accentuation. La prononciation est réécrite avec les repères sonores de votre langue maternelle.</div>
+          <button class="secondary-button" type="button" data-speak>🔊 Écouter la phrase native</button>
+          <div class="status" data-status aria-live="polite"></div>
+        </article>
+        </div>
+      </section>
+
+      <section class="hero">
+        <div>
+          <span class="eyebrow">LA MÉTHODE MELUNGA</span>
+          <h1>Apprenez à parler naturellement, phrase après phrase.</h1>
+          <p class="hero-subtitle">Des phrases utiles, une phonétique fondée sur votre langue maternelle et une progression qui vous apprend à construire vos propres phrases.</p>
+
+          <div class="language-path">
+            <span class="language-chip">🇫🇷 Je parle français</span>
+            <span class="arrow">→</span>
+            <span class="language-chip">🇬🇧 J’apprends l’anglais</span>
+          </div>
+
+          <div class="actions">
+            <button class="primary-button" type="button" data-app-cta>Essayer 5 phrases gratuitement</button>
+            <button class="secondary-button" type="button" data-scroll-method>Découvrir la méthode</button>
+          </div>
+
+          <div class="trust">
+            <span>Sans cours de grammaire</span>
+            <span>•</span>
+            <span>Sans carte bancaire</span>
+            <span>•</span>
+            <span>Résultat immédiat</span>
+          </div>
+        </div>
+
+        <aside class="hero-visual">
+          <span class="visual-kicker">DE LA MÉMOIRE À L’EXPRESSION</span>
+          <strong class="visual-title">Une phrase apprise devient un modèle pour en construire beaucoup d’autres.</strong>
+          <div class="visual-flow">
+            <div class="visual-step"><span class="step-number">1</span><span><strong>Écouter</strong><br>la phrase et sa prononciation</span></div>
+            <div class="visual-step"><span class="step-number">2</span><span><strong>Mémoriser</strong><br>le vocabulaire dans sa structure</span></div>
+            <div class="visual-step"><span class="step-number">3</span><span><strong>Recombiner</strong><br>les éléments dans une nouvelle phrase</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="pillars" aria-label="Les quatre forces de Melunga">
+        <article class="pillar">
+          <span class="pillar-icon" aria-hidden="true">💬</span>
+          <h3>Phrases utiles</h3>
+          <p>Des phrases complètes réellement utilisées dans la vie quotidienne.</p>
+        </article>
+        <article class="pillar">
+          <span class="pillar-icon" aria-hidden="true">👂</span>
+          <h3>Phonétique native</h3>
+          <p>La prononciation est écrite avec les repères sonores de votre langue.</p>
+        </article>
+        <article class="pillar">
+          <span class="pillar-icon" aria-hidden="true">📈</span>
+          <h3>Progression L1–L10</h3>
+          <p>La longueur, les structures et les nuances augmentent progressivement.</p>
+        </article>
+        <article class="pillar">
+          <span class="pillar-icon" aria-hidden="true">🧠</span>
+          <h3>Réutilisation</h3>
+          <p>Les phrases mémorisées servent à en produire de nouvelles.</p>
+        </article>
+      </section>
+
+      <section class="examples" id="demo">
+        <article class="phrase-family">
+          <span class="section-kicker">UNE ARCHITECTURE, PLUSIEURS PHRASES</span>
+          <h2>L’apprenant mémorise, remplace et recombine.</h2>
+
+          <div class="phrase-list">
+            <div class="phrase-row"><span class="phrase-index">1</span><strong>Je voudrais <span class="slot">un café</span>.</strong></div>
+            <div class="phrase-row"><span class="phrase-index">2</span><strong>Je voudrais <span class="slot">de l’eau</span>.</strong></div>
+            <div class="phrase-row"><span class="phrase-index">3</span><strong>Je voudrais <span class="slot">réserver une chambre</span>.</strong></div>
+          </div>
+
+          <p class="result"><strong>Résultat :</strong> « Je voudrais + quelque chose » devient une architecture que l’apprenant peut utiliser naturellement dans d’autres situations.</p>
+        </article>
+      </section>
+
+      <section class="method-statement">
+        <span class="statement-mark" aria-hidden="true">✦</span>
+        <p>Melunga a développé une méthode de phonétique native appliquée à des phrases complètes : la prononciation est réécrite avec les repères sonores de la langue maternelle de chaque apprenant, avec une accentuation immédiatement visible.</p>
+      </section>
+
+      <section class="method" id="method">
+        <div class="method-heading">
+          <span class="section-kicker">APPRENDRE COMME ON ACQUIERT UNE LANGUE</span>
+          <h2>Une progression qui transforme la mémoire en expression.</h2>
+        </div>
+
+        <div class="method-grid">
+          <div class="method-steps">
+            <div class="method-step">
+              <span class="step-number">1</span>
+              <div><strong>Écouter et imiter</strong><p>Une phrase naturelle, avec sa voix et sa phonétique.</p></div>
+            </div>
+            <div class="method-step">
+              <span class="step-number">2</span>
+              <div><strong>Mémoriser la phrase complète</strong><p>Le vocabulaire et la structure sont acquis ensemble.</p></div>
+            </div>
+            <div class="method-step">
+              <span class="step-number">3</span>
+              <div><strong>Réviser au bon moment</strong><p>Les phrases fragiles reviennent avant d’être oubliées.</p></div>
+            </div>
+            <div class="method-step">
+              <span class="step-number">4</span>
+              <div><strong>Remplacer et recombiner</strong><p>L’apprenant produit de nouvelles phrases avec les modèles acquis.</p></div>
+            </div>
+          </div>
+
+          <aside class="progression">
+            <span class="section-kicker">DU SIMPLE AU NUANCÉ</span>
+            <div class="level-track" aria-label="Progression de L1 à L10">
+              <span class="level">L1</span><span class="level">L2</span><span class="level">L3</span><span class="level">L4</span><span class="level">L5</span>
+              <span class="level">L6</span><span class="level">L7</span><span class="level">L8</span><span class="level">L9</span><span class="level">L10</span>
+            </div>
+            <p>Phrases autonomes → substitutions → combinaisons → contexte → nuances et relations entre idées.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <h2>Commencez avec une phrase que vous utiliserez vraiment.</h2>
+        <p>5 phrases offertes, puis toutes les langues à partir de <span data-from-price>7,90 €</span> par mois.</p>
+        <button class="primary-button" type="button" data-app-cta>Commencer ma première leçon</button>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    /* Bulles d'ambiance — génération identique à l'app Melunga (production) :
+       12 bulles, taille 6-26px, durée 7-15s, délais négatifs jusqu'à -10s. */
+    (function () {
+      var b = document.getElementById("wlcBub");
+      if (!b) return;
+      for (var i = 0; i < 12; i++) {
+        var s = document.createElement("span");
+        var sz = 6 + Math.random() * 20;
+        s.style.width = sz + "px";
+        s.style.height = sz + "px";
+        s.style.left = (Math.random() * 100) + "%";
+        s.style.animationDuration = (7 + Math.random() * 8) + "s";
+        s.style.animationDelay = (-Math.random() * 10) + "s";
+        b.appendChild(s);
+      }
+    })();
+
+    // Entrée dans l'app : les CTA principaux mènent à app.html (l'application).
+    // Pour utiliser un dossier /app/ à la place, remplacer "app.html" par "app/".
+    document.querySelectorAll("[data-app-cta]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        window.location.href = "app.html";
+      });
+    });
+
+    var scrollMethodBtn = document.querySelector("[data-scroll-method]");
+    if (scrollMethodBtn) {
+      scrollMethodBtn.addEventListener("click", function () {
+        var method = document.getElementById("method");
+        if (method) method.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+
+    var PRICE_MARKETS = {
+      EUR: {
+        label: "Europe · EUR",
+        monthly: "7,90 €",
+        yearly: "42 €",
+        equivalent: "Soit seulement 3,50 € par mois"
+      },
+      USD: {
+        label: "États-Unis / International · USD",
+        monthly: "9 US$",
+        yearly: "49 US$",
+        equivalent: "Soit environ 4,08 US$ par mois"
+      },
+      CNY: {
+        label: "Chine · CNY",
+        monthly: "35 CNY",
+        yearly: "149 CNY",
+        equivalent: "Soit environ 12,42 CNY par mois"
+      },
+      JPY: {
+        label: "Japon · JPY",
+        monthly: "1 490 ¥",
+        yearly: "7 800 ¥",
+        equivalent: "Soit 650 ¥ par mois"
+      },
+      KRW: {
+        label: "Corée du Sud · KRW",
+        monthly: "13 440 ₩",
+        yearly: "71 500 ₩",
+        equivalent: "Soit environ 5 958 ₩ par mois"
+      },
+      SGD: {
+        label: "Singapour · SGD",
+        monthly: "12 SGD",
+        yearly: "62 SGD",
+        equivalent: "Soit environ 5,17 SGD par mois"
+      }
+    };
+
+    var EUROPE_COUNTRIES = new Set([
+      "AT", "BE", "BG", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI",
+      "FR", "GB", "GR", "HR", "HU", "IE", "IS", "IT", "LI", "LT", "LU",
+      "LV", "MC", "MT", "NL", "NO", "PL", "PT", "RO", "SE", "SI", "SK"
+    ]);
+
+    var currentPriceMarket = PRICE_MARKETS.EUR;
+
+    function marketKeyForCountry(countryCode) {
+      var code = (countryCode || "").toUpperCase();
+      if (code === "CN") return "CNY";
+      if (code === "JP") return "JPY";
+      if (code === "KR") return "KRW";
+      if (code === "SG") return "SGD";
+      if (EUROPE_COUNTRIES.has(code)) return "EUR";
+      return "USD";
+    }
+
+    function testSelectorValue(countryCode) {
+      var code = (countryCode || "").toUpperCase();
+      if (["CN", "JP", "KR", "SG"].indexOf(code) !== -1) return code;
+      if (EUROPE_COUNTRIES.has(code)) return "FR";
+      return code === "US" ? "US" : "BR";
+    }
+
+    function applyCountryPricing(countryCode) {
+      var marketKey = marketKeyForCountry(countryCode);
+      currentPriceMarket = PRICE_MARKETS[marketKey];
+
+      document.querySelector("[data-monthly-price]").textContent = currentPriceMarket.monthly;
+      document.querySelector("[data-yearly-price]").textContent = currentPriceMarket.yearly;
+      document.querySelector("[data-yearly-equivalent]").textContent = currentPriceMarket.equivalent;
+      document.querySelector("[data-from-price]").textContent = currentPriceMarket.monthly;
+      document.querySelector("[data-market-label]").textContent = "Prix détecté : " + currentPriceMarket.label;
+
+      var selector = document.querySelector("[data-country-test]");
+      if (selector) selector.value = testSelectorValue(countryCode);
+    }
+
+    function localCountryFallback() {
+      var timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+      if (["Asia/Shanghai", "Asia/Chongqing", "Asia/Urumqi"].indexOf(timeZone) !== -1) return "CN";
+      if (timeZone === "Asia/Tokyo") return "JP";
+      if (timeZone === "Asia/Seoul") return "KR";
+      if (timeZone === "Asia/Singapore") return "SG";
+      if (timeZone.indexOf("Europe/") === 0) return "FR";
+      return "US";
+    }
+
+    async function detectPricingCountry() {
+      var forcedCountry = new URLSearchParams(window.location.search).get("country");
+      if (forcedCountry) {
+        applyCountryPricing(forcedCountry);
+        return;
+      }
+
+      if (window.location.protocol === "file:") {
+        document.querySelector("[data-geo-test]").style.display = "flex";
+        applyCountryPricing(localCountryFallback());
+        return;
+      }
+
+      try {
+        var response = await fetch("/api/geolocation", { cache: "no-store" });
+        if (!response.ok) throw new Error("Géolocalisation indisponible");
+        var geolocation = await response.json();
+        applyCountryPricing(geolocation.country || localCountryFallback());
+      } catch (error) {
+        // /api/geolocation absente ou en échec : on retombe sur la détection
+        // par fuseau horaire (locale) au lieu de forcer USD pour tout le monde.
+        applyCountryPricing(localCountryFallback());
+      }
+    }
+
+    document.querySelector("[data-country-test]").addEventListener("change", function () {
+      applyCountryPricing(this.value);
+    });
+
+    detectPricingCountry();
+
+    // « Choisir la formule » → écran d'abonnement de l'app (le paiement crée le compte
+    // avec email + mot de passe, il se fait donc dans l'app, pas sur cette page).
+    document.querySelectorAll("[data-plan]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var plan = button.getAttribute("data-plan") === "annuelle" ? "annual" : "monthly";
+        window.location.href = "app.html?checkout=" + plan;
+      });
+    });
+
+    document.querySelectorAll("[data-speak]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var card = button.closest("article");
+        var status = card ? card.querySelector("[data-status]") : document.querySelector("[data-status]");
+        if (!("speechSynthesis" in window)) {
+          status.textContent = "La lecture audio n’est pas disponible dans ce navigateur.";
+          return;
+        }
+
+        window.speechSynthesis.cancel();
+        var utterance = new SpeechSynthesisUtterance("I would like a coffee, please.");
+        utterance.lang = "en-GB";
+        utterance.rate = 0.88;
+        utterance.onstart = function () {
+          status.textContent = "Lecture en cours…";
+        };
+        utterance.onend = function () {
+          status.textContent = "Phrase terminée.";
+        };
+        utterance.onerror = function () {
+          status.textContent = "La voix anglaise n’est pas disponible sur cet appareil.";
+        };
+        window.speechSynthesis.speak(utterance);
+      });
+    });
+  </script>
+</body>
+</html>
