@@ -1,0 +1,776 @@
+{
+ "version": 1,
+ "status": "échantillon-à-valider",
+ "studyLanguage": "en",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en anglais",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; th→z/th, h aspiré noté h, -ing→-ing). Anglais britannique standard. Ne remplace pas l'audio.",
+ "reviewStatus": "Rédigé à la main ; relecture par un anglophone conseillée.",
+ "coverageClaim": null,
+ "level": 1,
+ "title": "Premiers contacts",
+ "goal": "Saluer, se présenter, exprimer un besoin, commander simplement.",
+ "reviewPreviousLevels": [],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L1-fr-en-01",
+   "situation": "Se présenter",
+   "model": {
+    "study": "I'm {s}.",
+    "phon": "aïm {s}",
+    "native": "Je suis {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a student",
+      "phon": "eu STYOU-deunt",
+      "native": "étudiant"
+     },
+     "study": "I'm a student.",
+     "phon": "aïm eu STYOU-deunt",
+     "native": "Je suis étudiant."
+    },
+    {
+     "slot": {
+      "study": "French",
+      "phon": "FRÈNTCH",
+      "native": "français"
+     },
+     "study": "I'm French.",
+     "phon": "aïm FRÈNTCH",
+     "native": "Je suis français."
+    },
+    {
+     "slot": {
+      "study": "from Paris",
+      "phon": "from PA-riss",
+      "native": "de Paris"
+     },
+     "study": "I'm from Paris.",
+     "phon": "aïm from PA-riss",
+     "native": "Je suis de Paris."
+    },
+    {
+     "slot": {
+      "study": "on holiday",
+      "phon": "onn HO-li-dé",
+      "native": "en vacances"
+     },
+     "study": "I'm on holiday.",
+     "phon": "aïm onn HO-li-dé",
+     "native": "Je suis en vacances."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-en-02",
+   "situation": "Dire son nom",
+   "model": {
+    "study": "My name is {s}.",
+    "phon": "maï NÉÏM iz {s}",
+    "native": "Je m'appelle {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Mary",
+      "phon": "MÈ-ri",
+      "native": "Marie"
+     },
+     "study": "My name is Mary.",
+     "phon": "maï NÉÏM iz MÈ-ri",
+     "native": "Je m'appelle Marie."
+    },
+    {
+     "slot": {
+      "study": "Paul",
+      "phon": "POL",
+      "native": "Paul"
+     },
+     "study": "My name is Paul.",
+     "phon": "maï NÉÏM iz POL",
+     "native": "Je m'appelle Paul."
+    },
+    {
+     "slot": {
+      "study": "Lin",
+      "phon": "LINN",
+      "native": "Lin"
+     },
+     "study": "My name is Lin.",
+     "phon": "maï NÉÏM iz LINN",
+     "native": "Je m'appelle Lin."
+    },
+    {
+     "slot": {
+      "study": "Ana",
+      "phon": "A-na",
+      "native": "Ana"
+     },
+     "study": "My name is Ana.",
+     "phon": "maï NÉÏM iz A-na",
+     "native": "Je m'appelle Ana."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-en-03",
+   "situation": "Dire ce qu'on veut",
+   "model": {
+    "study": "I want {s}.",
+    "phon": "aï WONT {s}",
+    "native": "Je veux {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a coffee",
+      "phon": "eu KO-fi",
+      "native": "un café"
+     },
+     "study": "I want a coffee.",
+     "phon": "aï WONT eu KO-fi",
+     "native": "Je veux un café."
+    },
+    {
+     "slot": {
+      "study": "some water",
+      "phon": "seum WO-teur",
+      "native": "de l'eau"
+     },
+     "study": "I want some water.",
+     "phon": "aï WONT seum WO-teur",
+     "native": "Je veux de l'eau."
+    },
+    {
+     "slot": {
+      "study": "a ticket",
+      "phon": "eu TI-kit",
+      "native": "un billet"
+     },
+     "study": "I want a ticket.",
+     "phon": "aï WONT eu TI-kit",
+     "native": "Je veux un billet."
+    },
+    {
+     "slot": {
+      "study": "a sandwich",
+      "phon": "eu SANN-douitch",
+      "native": "un sandwich"
+     },
+     "study": "I want a sandwich.",
+     "phon": "aï WONT eu SANN-douitch",
+     "native": "Je veux un sandwich."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-en-04",
+   "situation": "Dire ce dont on a besoin",
+   "model": {
+    "study": "I need {s}.",
+    "phon": "aï NID {s}",
+    "native": "J'ai besoin de {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "help",
+      "phon": "HÈLP",
+      "native": "aide"
+     },
+     "study": "I need help.",
+     "phon": "aï NID HÈLP",
+     "native": "J'ai besoin d'aide."
+    },
+    {
+     "slot": {
+      "study": "a taxi",
+      "phon": "eu TAK-si",
+      "native": "un taxi"
+     },
+     "study": "I need a taxi.",
+     "phon": "aï NID eu TAK-si",
+     "native": "J'ai besoin d'un taxi."
+    },
+    {
+     "slot": {
+      "study": "a doctor",
+      "phon": "eu DOK-teur",
+      "native": "un médecin"
+     },
+     "study": "I need a doctor.",
+     "phon": "aï NID eu DOK-teur",
+     "native": "J'ai besoin d'un médecin."
+    },
+    {
+     "slot": {
+      "study": "the wifi",
+      "phon": "ze OUAÏ-faï",
+      "native": "la wifi"
+     },
+     "study": "I need the wifi.",
+     "phon": "aï NID ze OUAÏ-faï",
+     "native": "J'ai besoin de la wifi."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-en-05",
+   "situation": "Trouver un lieu",
+   "model": {
+    "study": "Where is {s}?",
+    "phon": "OUÈR iz {s}",
+    "native": "Où est {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "the station",
+      "phon": "ze STÉÏ-cheun",
+      "native": "la gare"
+     },
+     "study": "Where is the station?",
+     "phon": "OUÈR iz ze STÉÏ-cheun",
+     "native": "Où est la gare ?"
+    },
+    {
+     "slot": {
+      "study": "the exit",
+      "phon": "zi ÈG-zit",
+      "native": "la sortie"
+     },
+     "study": "Where is the exit?",
+     "phon": "OUÈR iz zi ÈG-zit",
+     "native": "Où est la sortie ?"
+    },
+    {
+     "slot": {
+      "study": "the toilet",
+      "phon": "ze TOÏ-leut",
+      "native": "les toilettes"
+     },
+     "study": "Where is the toilet?",
+     "phon": "OUÈR iz ze TOÏ-leut",
+     "native": "Où est les toilettes ?"
+    },
+    {
+     "slot": {
+      "study": "the metro",
+      "phon": "ze MÈ-tro",
+      "native": "le métro"
+     },
+     "study": "Where is the metro?",
+     "phon": "OUÈR iz ze MÈ-tro",
+     "native": "Où est le métro ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-en-06",
+   "situation": "Dire où l'on va",
+   "model": {
+    "study": "I'm going {s}.",
+    "phon": "aïm GÔ-ing {s}",
+    "native": "Je vais {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "to work",
+      "phon": "tou WEURK",
+      "native": "au travail"
+     },
+     "study": "I'm going to work.",
+     "phon": "aïm GÔ-ing tou WEURK",
+     "native": "Je vais au travail."
+    },
+    {
+     "slot": {
+      "study": "home",
+      "phon": "HÔM",
+      "native": "à la maison"
+     },
+     "study": "I'm going home.",
+     "phon": "aïm GÔ-ing HÔM",
+     "native": "Je vais à la maison."
+    },
+    {
+     "slot": {
+      "study": "to the market",
+      "phon": "tou ze MAR-kit",
+      "native": "au marché"
+     },
+     "study": "I'm going to the market.",
+     "phon": "aïm GÔ-ing tou ze MAR-kit",
+     "native": "Je vais au marché."
+    },
+    {
+     "slot": {
+      "study": "to the hotel",
+      "phon": "tou ze ho-TÈL",
+      "native": "à l'hôtel"
+     },
+     "study": "I'm going to the hotel.",
+     "phon": "aïm GÔ-ing tou ze ho-TÈL",
+     "native": "Je vais à l'hôtel."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-en-07",
+   "situation": "Dire comment on se sent",
+   "model": {
+    "study": "I'm {s}.",
+    "phon": "aïm {s}",
+    "native": "J'ai {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "hungry",
+      "phon": "HANN-gri",
+      "native": "faim"
+     },
+     "study": "I'm hungry.",
+     "phon": "aïm HANN-gri",
+     "native": "J'ai faim."
+    },
+    {
+     "slot": {
+      "study": "thirsty",
+      "phon": "THEUR-sti",
+      "native": "soif"
+     },
+     "study": "I'm thirsty.",
+     "phon": "aïm THEUR-sti",
+     "native": "J'ai soif."
+    },
+    {
+     "slot": {
+      "study": "cold",
+      "phon": "KÔLD",
+      "native": "froid"
+     },
+     "study": "I'm cold.",
+     "phon": "aïm KÔLD",
+     "native": "J'ai froid."
+    },
+    {
+     "slot": {
+      "study": "hot",
+      "phon": "HOT",
+      "native": "chaud"
+     },
+     "study": "I'm hot.",
+     "phon": "aïm HOT",
+     "native": "J'ai chaud."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-en-08",
+   "situation": "Dire ce qu'on aime",
+   "model": {
+    "study": "I like {s}.",
+    "phon": "aï LAÏK {s}",
+    "native": "J'aime {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "coffee",
+      "phon": "KO-fi",
+      "native": "le café"
+     },
+     "study": "I like coffee.",
+     "phon": "aï LAÏK KO-fi",
+     "native": "J'aime le café."
+    },
+    {
+     "slot": {
+      "study": "music",
+      "phon": "MYOU-zik",
+      "native": "la musique"
+     },
+     "study": "I like music.",
+     "phon": "aï LAÏK MYOU-zik",
+     "native": "J'aime la musique."
+    },
+    {
+     "slot": {
+      "study": "walking",
+      "phon": "OUO-king",
+      "native": "marcher"
+     },
+     "study": "I like walking.",
+     "phon": "aï LAÏK OUO-king",
+     "native": "J'aime marcher."
+    },
+    {
+     "slot": {
+      "study": "sport",
+      "phon": "SPORT",
+      "native": "le sport"
+     },
+     "study": "I like sport.",
+     "phon": "aï LAÏK SPORT",
+     "native": "J'aime le sport."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-en-09",
+   "situation": "Commander",
+   "model": {
+    "study": "One {s}, please.",
+    "phon": "OUANN {s}, PLIZ",
+    "native": "Un {s}, s'il vous plaît."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "coffee",
+      "phon": "KO-fi",
+      "native": "café"
+     },
+     "study": "One coffee, please.",
+     "phon": "OUANN KO-fi, PLIZ",
+     "native": "Un café, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "tea",
+      "phon": "TI",
+      "native": "thé"
+     },
+     "study": "One tea, please.",
+     "phon": "OUANN TI, PLIZ",
+     "native": "Un thé, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "orange juice",
+      "phon": "O-rindj DJOUSS",
+      "native": "jus d'orange"
+     },
+     "study": "One orange juice, please.",
+     "phon": "OUANN O-rindj DJOUSS, PLIZ",
+     "native": "Un jus d'orange, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "sandwich",
+      "phon": "SANN-douitch",
+      "native": "sandwich"
+     },
+     "study": "One sandwich, please.",
+     "phon": "OUANN SANN-douitch, PLIZ",
+     "native": "Un sandwich, s'il vous plaît."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-en-10",
+   "situation": "Demander un prix",
+   "model": {
+    "study": "How much is {s}?",
+    "phon": "HAÔ MEUTCH iz {s}",
+    "native": "Combien coûte {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "this",
+      "phon": "ZISS",
+      "native": "ça"
+     },
+     "study": "How much is this?",
+     "phon": "HAÔ MEUTCH iz ZISS",
+     "native": "Combien coûte ça ?"
+    },
+    {
+     "slot": {
+      "study": "the coffee",
+      "phon": "ze KO-fi",
+      "native": "le café"
+     },
+     "study": "How much is the coffee?",
+     "phon": "HAÔ MEUTCH iz ze KO-fi",
+     "native": "Combien coûte le café ?"
+    },
+    {
+     "slot": {
+      "study": "the ticket",
+      "phon": "ze TI-kit",
+      "native": "le billet"
+     },
+     "study": "How much is the ticket?",
+     "phon": "HAÔ MEUTCH iz ze TI-kit",
+     "native": "Combien coûte le billet ?"
+    },
+    {
+     "slot": {
+      "study": "the room",
+      "phon": "ze ROUM",
+      "native": "la chambre"
+     },
+     "study": "How much is the room?",
+     "phon": "HAÔ MEUTCH iz ze ROUM",
+     "native": "Combien coûte la chambre ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L1-fr-en-d1",
+   "situation": "Au café",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hello!",
+     "phon": "hè-LÔ",
+     "native": "Bonjour !"
+    },
+    {
+     "speaker": "B",
+     "study": "Hello. What would you like?",
+     "phon": "hè-LÔ. ouot would you LAÏK",
+     "native": "Bonjour. Vous désirez ?"
+    },
+    {
+     "speaker": "A",
+     "study": "One coffee, please.",
+     "phon": "OUANN KO-fi, PLIZ",
+     "native": "Un café, s'il vous plaît."
+    },
+    {
+     "speaker": "B",
+     "study": "With milk?",
+     "phon": "ouiz MILK",
+     "native": "Avec du lait ?"
+    },
+    {
+     "speaker": "A",
+     "study": "No, thanks. How much is it?",
+     "phon": "NÔ, THANKS. HAÔ MEUTCH iz it",
+     "native": "Non, merci. Combien ça coûte ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Two pounds.",
+     "phon": "TOU PAÔNDZ",
+     "native": "Deux livres."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-en-01",
+    "L1-fr-en-02",
+    "L1-fr-en-03",
+    "L1-fr-en-04"
+   ]
+  },
+  {
+   "id": "L1-fr-en-d2",
+   "situation": "À la gare",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Excuse me, where is the station?",
+     "phon": "ék-SKYOUZ mi, OUÈR iz ze STÉÏ-cheun",
+     "native": "Excusez-moi, où est la gare ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Straight ahead, five minutes.",
+     "phon": "STRÉÏT eu-HÈD, FAÏV MI-nits",
+     "native": "Tout droit, à cinq minutes."
+    },
+    {
+     "speaker": "A",
+     "study": "Thanks. I need a ticket to Brighton.",
+     "phon": "THANKS. aï NID eu TI-kit tou BRAÏ-teun",
+     "native": "Merci. J'ai besoin d'un billet pour Brighton."
+    },
+    {
+     "speaker": "B",
+     "study": "One ticket, ten pounds.",
+     "phon": "OUANN TI-kit, TÈN PAÔNDZ",
+     "native": "Un billet, dix livres."
+    },
+    {
+     "speaker": "A",
+     "study": "Here you are. Thank you very much.",
+     "phon": "HIR you AR. THANK you VÈ-ri MEUTCH",
+     "native": "Voilà. Merci beaucoup."
+    },
+    {
+     "speaker": "B",
+     "study": "Have a good trip!",
+     "phon": "hav eu goud TRIP",
+     "native": "Bon voyage !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-en-01",
+    "L1-fr-en-02",
+    "L1-fr-en-03",
+    "L1-fr-en-04"
+   ]
+  },
+  {
+   "id": "L1-fr-en-d3",
+   "situation": "Première rencontre",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hi, my name is Mary.",
+     "phon": "HAÏ, maï NÉÏM iz MÈ-ri",
+     "native": "Bonjour, je m'appelle Marie."
+    },
+    {
+     "speaker": "B",
+     "study": "Nice to meet you, I'm Paul.",
+     "phon": "NAÏSS tou MIT you, aïm POL",
+     "native": "Enchanté, moi c'est Paul."
+    },
+    {
+     "speaker": "A",
+     "study": "I'm French, from Paris. And you?",
+     "phon": "aïm FRÈNTCH, from PA-riss. and YOU",
+     "native": "Je suis française, de Paris. Et vous ?"
+    },
+    {
+     "speaker": "B",
+     "study": "I'm from here. Are you on holiday?",
+     "phon": "aïm from HIR. ar you onn HO-li-dé",
+     "native": "Je suis d'ici. Vous êtes en vacances ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Yes, I really like the city.",
+     "phon": "YÈS, aï RI-li LAÏK ze SI-ti",
+     "native": "Oui, j'aime beaucoup la ville."
+    },
+    {
+     "speaker": "B",
+     "study": "Great! Welcome!",
+     "phon": "GRÉÏT. OUÈL-keum",
+     "native": "Super ! Bienvenue !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-en-01",
+    "L1-fr-en-02",
+    "L1-fr-en-03",
+    "L1-fr-en-04"
+   ]
+  }
+ ],
+ "readiness": "Se présenter en trois phrases, exprimer un besoin, commander et demander un prix ; comprendre et compléter les trois dialogues. Repère pédagogique, sans certification."
+}
