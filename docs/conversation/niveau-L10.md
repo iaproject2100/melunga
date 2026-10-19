@@ -89,7 +89,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | Phrase | Prononciation | Traduction |
 |---|---|---|
 | I see your point, but **I don't agree**. | aï SI yor POÏNT, beut aï dônt eu-GRI | Je comprends ton point de vue, mais je ne suis pas d'accord. |
-| I see your point, but **what about the cost**. | aï SI yor POÏNT, beut ouot eu-BAÔT ze KOST | Je comprends ton point de vue, mais et le coût, alors. |
+| I see your point, but **think about the cost**. | aï SI yor POÏNT, beut THINK eu-BAÔT ze KOST | Je comprends ton point de vue, mais pense au coût. |
 | I see your point, but **I'd rather wait**. | aï SI yor POÏNT, beut aïd RA-zeur OUÉÏT | Je comprends ton point de vue, mais je préférerais attendre. |
 | I see your point, but **the kids come first**. | aï SI yor POÏNT, beut ze KIDZ KEUM FEURST | Je comprends ton point de vue, mais les enfants passent d'abord. |
 

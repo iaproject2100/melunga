@@ -34,7 +34,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 |---|---|---|
 | In the evening, I **watch TV**. | inn zi IV-ning, aï OUOTCH ti-VI | Le soir, je regarde la télé. |
 | In the evening, I **read a bit**. | inn zi IV-ning, aï RID eu BIT | Le soir, je lis un peu. |
-| In the evening, I **call my parents**. | inn zi IV-ning, aï KOL maï PÈ-reunts | Le soir, je appelle mes parents. |
+| In the evening, I **call my parents**. | inn zi IV-ning, aï KOL maï PÈ-reunts | Le soir, j'appelle mes parents. |
 | In the evening, I **go to bed early**. | inn zi IV-ning, aï GÔ tou BÈD EUR-li | Le soir, je me couche tôt. |
 
 ### L4-fr-en-04 · Famille — modèle « I have {s}. »

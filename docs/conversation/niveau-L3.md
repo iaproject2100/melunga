@@ -27,7 +27,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 
 | Phrase | Prononciation | Traduction |
 |---|---|---|
-| What **do** you do? | ouot dou you DOU | Qu'est-ce que tu fais dans la vie ? |
+| What do you **do for a living**? | ouot dou you DOU for eu LI-ving | Qu'est-ce que tu fais dans la vie ? |
 | What do you **want**? | ouot dou you WONT | Qu'est-ce que tu veux ? |
 | What do you **need**? | ouot dou you NID | De quoi as-tu besoin ? |
 | What do you **think**? | ouot dou you THINK | Qu'est-ce que tu en penses ? |
