@@ -30,7 +30,11 @@
     if (studyLanguage && studyLanguage !== nativeLanguage) {
       window.setTimeout(function () {
         try {
+          // setLang resets the lesson and hides its paywall. Preserve an open checkout.
+          var paywall = document.getElementById('paywall');
+          var checkoutWasOpen = paywall && paywall.style.display === 'block';
           if (typeof window.setLang === 'function') window.setLang(studyLanguage);
+          if (checkoutWasOpen && typeof window.showPaywall === 'function') window.showPaywall();
         } catch (_error) {}
       }, 700);
     }
