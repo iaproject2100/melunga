@@ -84,26 +84,53 @@ async function getOrCreateCustomer(token, email) {
   return null; // sans customer, le lien marche quand meme (email a saisir)
 }
 
-// Tarification geolocalisee : EUR pour UE + EEE + UK, USD pour le reste
-// (Suisse incluse dans la zone USD).
-const EUR_ZONE = new Set([
-  'AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT',
-  'LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE',
-  'IS','LI','NO', // EEE
-  'GB' // Royaume-Uni
-]);
+// Tarification geolocalisee : chaque grand marche paie dans sa devise, le reste du monde en USD.
+// Cette grille DOIT rester identique a priceMarkets / marketForCountry dans index.html.
+const CURRENCY_BY_COUNTRY = {
+  // Zone euro et Union europeenne (+ Islande, Norvege)
+  AT:'EUR',BE:'EUR',BG:'EUR',HR:'EUR',CY:'EUR',CZ:'EUR',DK:'EUR',EE:'EUR',FI:'EUR',FR:'EUR',DE:'EUR',GR:'EUR',
+  HU:'EUR',IE:'EUR',IT:'EUR',LV:'EUR',LT:'EUR',LU:'EUR',MT:'EUR',NL:'EUR',PL:'EUR',PT:'EUR',RO:'EUR',SK:'EUR',
+  SI:'EUR',ES:'EUR',SE:'EUR',IS:'EUR',NO:'EUR',MC:'EUR',
+  CH:'CHF', LI:'CHF',
+  GB:'GBP',
+  CN:'CNY',
+  HK:'HKD',
+  JP:'JPY',
+  KR:'KRW',
+  SG:'SGD',
+  CA:'CAD',
+  AU:'AUD'
+};
+
+const PLANS_BY_CURRENCY = {
+  EUR: { monthly: 7.90,  annual: 42,    titles: ['Melunga · Abonnement mensuel', 'Melunga · Abonnement annuel'] },
+  CHF: { monthly: 7.90,  annual: 42,    titles: ['Melunga · Abonnement mensuel', 'Melunga · Abonnement annuel'] },
+  GBP: { monthly: 6.90,  annual: 36,    titles: ['Melunga · Monthly subscription', 'Melunga · Annual subscription'] },
+  CNY: { monthly: 59,    annual: 299,   titles: ['Melunga · 月度订阅', 'Melunga · 年度订阅'] },
+  HKD: { monthly: 68,    annual: 349,   titles: ['Melunga · Monthly subscription', 'Melunga · Annual subscription'] },
+  JPY: { monthly: 1290,  annual: 6900,  titles: ['Melunga · 月額プラン', 'Melunga · 年額プラン'] },
+  KRW: { monthly: 11900, annual: 59000, titles: ['Melunga · 월간 이용권', 'Melunga · 연간 이용권'] },
+  SGD: { monthly: 11.90, annual: 59,    titles: ['Melunga · Monthly subscription', 'Melunga · Annual subscription'] },
+  CAD: { monthly: 11.90, annual: 59,    titles: ['Melunga · Monthly subscription', 'Melunga · Annual subscription'] },
+  AUD: { monthly: 12.90, annual: 69,    titles: ['Melunga · Monthly subscription', 'Melunga · Annual subscription'] },
+  USD: { monthly: 8.90,  annual: 49,    titles: ['Melunga · Monthly subscription', 'Melunga · Annual subscription'] }
+};
+
+function currencyFor(countryCode) {
+  return CURRENCY_BY_COUNTRY[(countryCode || '').toUpperCase()] || 'USD';
+}
+
+function plansForCurrency(currency) {
+  const p = PLANS_BY_CURRENCY[currency] || PLANS_BY_CURRENCY.USD;
+  const cur = PLANS_BY_CURRENCY[currency] ? currency : 'USD';
+  return {
+    monthly: { amount: p.monthly, currency: cur, days: 30,  title: p.titles[0] },
+    annual:  { amount: p.annual,  currency: cur, days: 365, title: p.titles[1] }
+  };
+}
 
 function plansFor(countryCode) {
-  if (countryCode && EUR_ZONE.has(countryCode)) {
-    return {
-      monthly: { amount: 7.90, currency: 'EUR', days: 30,  title: 'Melunga · Abonnement mensuel' },
-      annual:  { amount: 42.00, currency: 'EUR', days: 365, title: 'Melunga · Abonnement annuel' }
-    };
-  }
-  return {
-    monthly: { amount: 8.90, currency: 'USD', days: 30,  title: 'Melunga · Monthly subscription' },
-    annual:  { amount: 49.00, currency: 'USD', days: 365, title: 'Melunga · Annual subscription' }
-  };
+  return plansForCurrency(currencyFor(countryCode));
 }
 
 export default async (req, context) => {
@@ -185,19 +212,39 @@ export default async (req, context) => {
       }
     };
 
-    const linkRes = await fetch(`${baseUrl()}/api/v1/pa/payment_links/create`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(linkPayload)
-    });
+    const createLink = async (payload) => {
+      const res = await fetch(`${baseUrl()}/api/v1/pa/payment_links/create`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      const text = await res.text();
+      console.log('[create-payment-link] payment_links/create status =', res.status, 'currency =', payload.currency);
+      return { ok: res.ok, text };
+    };
 
-    const linkBodyText = await linkRes.text();
-    console.log('[create-payment-link] payment_links/create status =', linkRes.status);
+    let linkResult = await createLink(linkPayload);
 
-    if (!linkRes.ok) {
+    // Devise locale refusee par le compte Airwallex (non activee) : on retente en USD
+    // afin que le client puisse toujours payer.
+    if (!linkResult.ok && plan.currency !== 'USD') {
+      console.warn('[create-payment-link] devise', plan.currency, 'refusee, repli USD:', linkResult.text.slice(0, 300));
+      const usdPlan = plansForCurrency('USD')[planKey];
+      plan.amount = usdPlan.amount;
+      plan.currency = usdPlan.currency;
+      plan.title = usdPlan.title;
+      linkPayload.amount = plan.amount;
+      linkPayload.currency = plan.currency;
+      linkPayload.title = plan.title;
+      linkPayload.request_id = requestId + '_usd';
+      linkResult = await createLink(linkPayload);
+    }
+
+    const linkBodyText = linkResult.text;
+    if (!linkResult.ok) {
       console.error('[create-payment-link] link creation failed:', linkBodyText);
       return new Response(JSON.stringify({ error: 'link_creation_failed' }), { status: 502 });
     }
@@ -216,6 +263,8 @@ export default async (req, context) => {
       salt: salt,
       plan: planKey,
       accessDays: plan.days,
+      amount: plan.amount,
+      currency: plan.currency,
       linkId: linkData.id,
       requestId: requestId,
       created: Date.now()

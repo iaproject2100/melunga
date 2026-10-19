@@ -529,14 +529,28 @@
     if(!IS_NATIVE_APP){
       Object.keys(premiumTranslations).forEach(locale=>{Object.assign(premiumTranslations[locale],webPremiumTranslations[locale]||webPremiumTranslations.fr);});
     }
-    /* Marchés alignés sur create-payment-link.mjs : Airwallex facture en EUR (zone EUR_ZONE
-       de la fonction) ou en USD (tout le reste, Suisse et Monaco compris). Les montants
-       affichés ici sont exactement ceux débités. */
+    /* Grille tarifaire : chaque grand marché paie dans sa devise, le reste du monde en USD.
+       Cette grille DOIT rester identique à CURRENCY_BY_COUNTRY / PLANS_BY_CURRENCY dans
+       netlify/functions/create-payment-link.mjs — les montants affichés sont ceux débités. */
     const priceMarkets={
       EUR:{label:'Europe · EUR',monthly:'7,90 €',yearly:'42 €',yearlyMonthly:'3,50 €'},
+      CHF:{label:'Suisse · CHF',monthly:'7,90 CHF',yearly:'42 CHF',yearlyMonthly:'3,50 CHF'},
+      GBP:{label:'Royaume-Uni · GBP',monthly:'6,90 £',yearly:'36 £',yearlyMonthly:'3 £'},
+      CNY:{label:'Chine · CNY',monthly:'59 CNY',yearly:'299 CNY',yearlyMonthly:'24,92 CNY'},
+      HKD:{label:'Hong Kong · HKD',monthly:'68 HK$',yearly:'349 HK$',yearlyMonthly:'29,08 HK$'},
+      JPY:{label:'Japon · JPY',monthly:'1 290 ¥',yearly:'6 900 ¥',yearlyMonthly:'575 ¥'},
+      KRW:{label:'Corée du Sud · KRW',monthly:'11 900 ₩',yearly:'59 000 ₩',yearlyMonthly:'4 917 ₩'},
+      SGD:{label:'Singapour · SGD',monthly:'11,90 S$',yearly:'59 S$',yearlyMonthly:'4,92 S$'},
+      CAD:{label:'Canada · CAD',monthly:'11,90 C$',yearly:'59 C$',yearlyMonthly:'4,92 C$'},
+      AUD:{label:'Australie · AUD',monthly:'12,90 A$',yearly:'69 A$',yearlyMonthly:'5,75 A$'},
       USD:{label:'International · USD',monthly:'8,90 US$',yearly:'49 US$',yearlyMonthly:'4,08 US$'}
     };
-    const europeCountries=new Set(['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB']);
+    const currencyByCountry={
+      AT:'EUR',BE:'EUR',BG:'EUR',HR:'EUR',CY:'EUR',CZ:'EUR',DK:'EUR',EE:'EUR',FI:'EUR',FR:'EUR',DE:'EUR',GR:'EUR',
+      HU:'EUR',IE:'EUR',IT:'EUR',LV:'EUR',LT:'EUR',LU:'EUR',MT:'EUR',NL:'EUR',PL:'EUR',PT:'EUR',RO:'EUR',SK:'EUR',
+      SI:'EUR',ES:'EUR',SE:'EUR',IS:'EUR',NO:'EUR',MC:'EUR',
+      CH:'CHF',LI:'CHF',GB:'GBP',CN:'CNY',HK:'HKD',JP:'JPY',KR:'KRW',SG:'SGD',CA:'CAD',AU:'AUD'
+    };
     let currentAppLocale='fr';
     let currentPriceMarket=priceMarkets.EUR;
     let selectedPlan='yearly';
@@ -577,7 +591,7 @@
     function closeAppLanguageMenu(){appLanguageMenu.classList.remove('open');appLanguageMenu.setAttribute('aria-hidden','true');}
     function marketForCountry(countryCode){
       const code=(countryCode||'').toUpperCase();
-      return europeCountries.has(code)?priceMarkets.EUR:priceMarkets.USD;
+      return priceMarkets[currencyByCountry[code]||'USD'];
     }
     function localCountryFallback(){
       const zone=Intl.DateTimeFormat().resolvedOptions().timeZone||'';
@@ -585,6 +599,11 @@
       if(zone==='Asia/Tokyo')return 'JP';
       if(zone==='Asia/Seoul')return 'KR';
       if(zone==='Asia/Singapore')return 'SG';
+      if(zone==='Asia/Hong_Kong')return 'HK';
+      if(zone==='Europe/Zurich'||zone==='Europe/Vaduz')return 'CH';
+      if(zone==='Europe/London')return 'GB';
+      if(zone.startsWith('Australia/'))return 'AU';
+      if(['America/Toronto','America/Vancouver','America/Montreal','America/Edmonton','America/Winnipeg','America/Halifax'].includes(zone))return 'CA';
       if(zone.startsWith('Europe/'))return 'FR';
       return 'US';
     }
