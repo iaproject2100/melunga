@@ -4,164 +4,161 @@ Objectif : Demander poliment, exprimer une condition et négocier simplement.
 
 Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **gras**), 3 dialogues de 6 à 10 répliques. Réutilise les niveaux L1, L2, L3, L4, L5, L6, L7.
 
-## Italien (lecteurs francophones)
+## Japonais (lecteurs francophones)
 
-*Convention phonétique* : Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.
+*Convention phonétique* : Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).
 
-*Statut* : Rédigé à la main ; relecture par un italophone conseillée.
+*Statut* : Relecture linguistique requise (naturel des tournures, lectures des kanji).
 
-### L8-fr-it-01 · Demander poliment (Lei) — modèle « Potrebbe {s}, per favore? »
+### L8-fr-ja-01 · Demander très poliment (keigo de base) — modèle « {s}いただけますか。 »
 
-> Vouvoiement (Lei). Entre amis : « Potresti… ? » (po-TRÉS-ti).
+> Forme en て + いただけますか : plus poli que てもらえますか, pour un inconnu, un commerçant, un supérieur.
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Potrebbe **farmi uno sconto**, per favore? | po-TRÈB-bé FAR-mi OU-no SKON-to, pér fa-VO-ré | Pourriez-vous me faire une réduction, s'il vous plaît ? |
-| Potrebbe **aspettare un momento**, per favore? | po-TRÈB-bé as-pét-TA-ré oun mo-MÉN-to, pér fa-VO-ré | Pourriez-vous attendre un moment, s'il vous plaît ? |
-| Potrebbe **richiamarmi domani**, per favore? | po-TRÈB-bé ri-kia-MAR-mi do-MA-ni, pér fa-VO-ré | Pourriez-vous me rappeler demain, s'il vous plaît ? |
-| Potrebbe **controllare la prenotazione**, per favore? | po-TRÈB-bé kon-trol-LA-ré la pré-no-ta-TSIO-né, pér fa-VO-ré | Pourriez-vous vérifier la réservation, s'il vous plaît ? |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **少し安くして**いただけますか。 | すこしやすくしていただけますか。 | sou-ko-chi ya-sou-kou chi-té i-ta-da-ké-ma-sou ka | Pourriez-vous baisser un peu le prix ? |
+| **もう一度説明して**いただけますか。 | もういちどせつめいしていただけますか。 | mo-o i-tchi-do sé-tsou-mé-i chi-té i-ta-da-ké-ma-sou ka | Pourriez-vous réexpliquer ? |
+| **写真を撮って**いただけますか。 | しゃしんをとっていただけますか。 | cha-chin o tot-té i-ta-da-ké-ma-sou ka | Pourriez-vous prendre une photo ? |
+| **道を教えて**いただけますか。 | みちをおしえていただけますか。 | mi-tchi o o-chi-é-té i-ta-da-ké-ma-sou ka | Pourriez-vous m'indiquer le chemin ? |
 
-### L8-fr-it-02 · Demander la permission — modèle « Potrei {s}? »
+### L8-fr-ja-02 · Condition : si…, j'achète — modèle « {s}たら、買います。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Potrei **pagare con la carta**? | po-TRÈ-i pa-GA-ré kon la KAR-ta | Est-ce que je pourrais payer par carte ? |
-| Potrei **avere una ricevuta**? | po-TRÈ-i a-VÉ-ré OU-na ri-tché-VOU-ta | Est-ce que je pourrais avoir un reçu ? |
-| Potrei **cambiare la data**? | po-TRÈ-i kam-BIA-ré la DA-ta | Est-ce que je pourrais changer la date ? |
-| Potrei **parlare con il responsabile**? | po-TRÈ-i par-LA-ré kon il rés-pon-SA-bi-lé | Est-ce que je pourrais parler au responsable ? |
+> Forme en た + ら : condition ou « quand ». Le morceau s'arrête juste avant たら.
 
-### L8-fr-it-03 · Poser une condition — modèle « Se {s}, pagherò subito. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **安かっ**たら、買います。 | やすかったら、かいます。 | ya-sou-kat-ta-ra, ka-i-ma-sou | Si c'est moins cher, j'achète. |
+| **割引があっ**たら、買います。 | わりびきがあったら、かいます。 | wa-ri-bi-ki ga at-ta-ra, ka-i-ma-sou | S'il y a une remise, j'achète. |
+| **サイズがあっ**たら、買います。 | さいずがあったら、かいます。 | sa-i-zou ga at-ta-ra, ka-i-ma-sou | S'il y a ma taille, j'achète. |
+| **配達でき**たら、買います。 | はいたつできたら、かいます。 | ha-i-ta-tsou dé-ki-ta-ra, ka-i-ma-sou | Si la livraison est possible, j'achète. |
 
-> Vouvoiement (Lei) dans « mi fa », « accetta ».
+### L8-fr-ja-03 · Condition : quand…, je vous appelle — modèle « {s}たら、電話します。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Se **mi fa uno sconto**, pagherò subito. | sé mi fa OU-no SKON-to, pa-gué-RO SOU-bi-to | Si vous me faites une réduction, je paierai tout de suite. |
-| Se **è possibile**, pagherò subito. | sé è pos-SI-bi-lé, pa-gué-RO SOU-bi-to | Si c'est possible, je paierai tout de suite. |
-| Se **accetta la carta**, pagherò subito. | sé at-TCHÈT-ta la KAR-ta, pa-gué-RO SOU-bi-to | Si vous acceptez la carte, je paierai tout de suite. |
-| Se **il prezzo è giusto**, pagherò subito. | sé il PRÈT-tso è DJOUS-to, pa-gué-RO SOU-bi-to | Si le prix est correct, je paierai tout de suite. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **着い**たら、電話します。 | ついたら、でんわします。 | tsou-i-ta-ra, dén-wa chi-ma-sou | Quand j'arrive, je vous appelle. |
+| **終わっ**たら、電話します。 | おわったら、でんわします。 | o-wat-ta-ra, dén-wa chi-ma-sou | Quand j'ai fini, je vous appelle. |
+| **分かっ**たら、電話します。 | わかったら、でんわします。 | wa-kat-ta-ra, dén-wa chi-ma-sou | Quand je sais, je vous appelle. |
+| **時間があっ**たら、電話します。 | じかんがあったら、でんわします。 | dji-kan ga at-ta-ra, dén-wa chi-ma-sou | Si j'ai le temps, je vous appelle. |
 
-### L8-fr-it-04 · Demander si c'est possible — modèle « Sarebbe possibile {s}? »
+### L8-fr-ja-04 · Demander si c'est possible — modèle « {s}ことはできますか。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Sarebbe possibile **avere una camera più grande**? | sa-RÈB-bé pos-SI-bi-lé a-VÉ-ré OU-na KA-mé-ra piou GRAN-dé | Serait-il possible d'avoir une chambre plus grande ? |
-| Sarebbe possibile **pagare domani**? | sa-RÈB-bé pos-SI-bi-lé pa-GA-ré do-MA-ni | Serait-il possible de payer demain ? |
-| Sarebbe possibile **cambiare il volo**? | sa-RÈB-bé pos-SI-bi-lé kam-BIA-ré il VO-lo | Serait-il possible de changer le vol ? |
-| Sarebbe possibile **spostare l'appuntamento**? | sa-RÈB-bé pos-SI-bi-lé spos-TA-ré lap-poun-ta-MÉN-to | Serait-il possible de déplacer le rendez-vous ? |
+> Verbe à la forme du dictionnaire + ことはできますか.
 
-### L8-fr-it-05 · Accepter sous condition — modèle « Va bene, ma solo se {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **予約を変える**ことはできますか。 | よやくをかえることはできますか。 | yo-ya-kou o ka-é-rou ko-to wa dé-ki-ma-sou ka | Est-il possible de changer la réservation ? |
+| **返品する**ことはできますか。 | へんぴんすることはできますか。 | hén-pin sou-rou ko-to wa dé-ki-ma-sou ka | Est-il possible de retourner l'article ? |
+| **カードで払う**ことはできますか。 | かーどではらうことはできますか。 | ka-a-do dé ha-ra-ou ko-to wa dé-ki-ma-sou ka | Est-il possible de payer par carte ? |
+| **来週払う**ことはできますか。 | らいしゅうはらうことはできますか。 | ra-i-chou-ou ha-ra-ou ko-to wa dé-ki-ma-sou ka | Est-il possible de payer la semaine prochaine ? |
 
-> Vouvoiement (Lei) dans « paga », « mi chiama ».
+### L8-fr-ja-05 · Accepter sous condition — modèle « はい、でも{s}なら。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Va bene, ma solo se **paga subito**. | va BÈ-né, ma SO-lo sé PA-ga SOU-bi-to | D'accord, mais seulement si vous payez tout de suite. |
-| Va bene, ma solo se **finiamo entro venerdì**. | va BÈ-né, ma SO-lo sé fi-NIA-mo ÉN-tro vé-nér-DI | D'accord, mais seulement si on finit avant vendredi. |
-| Va bene, ma solo se **il prezzo non cambia**. | va BÈ-né, ma SO-lo sé il PRÈT-tso non KAM-bia | D'accord, mais seulement si le prix ne change pas. |
-| Va bene, ma solo se **mi chiama prima**. | va BÈ-né, ma SO-lo sé mi KIA-ma PRI-ma | D'accord, mais seulement si vous m'appelez avant. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| はい、でも**現金**なら。 | はい、でもげんきんなら。 | ha-i, dé-mo gén-kin na-ra | Oui, mais seulement en espèces. |
+| はい、でも**今日中**なら。 | はい、でもきょうじゅうなら。 | ha-i, dé-mo kyo-o-djou-ou na-ra | Oui, mais seulement aujourd'hui. |
+| はい、でも**二つ**なら。 | はい、でもふたつなら。 | ha-i, dé-mo fou-ta-tsou na-ra | Oui, mais seulement pour deux. |
+| はい、でも**来月**なら。 | はい、でもらいげつなら。 | ha-i, dé-mo ra-i-gé-tsou na-ra | Oui, mais seulement le mois prochain. |
 
-### L8-fr-it-06 · S'excuser et réparer — modèle « Mi dispiace, {s}. »
+### L8-fr-ja-06 · Refuser avec une raison — modèle « すみません、{s}ので、できません。 »
 
-> « Mi dispiace » vaut pour désolé et désolée. « La richiamerò » : vouvoiement.
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| すみません、**規則です**ので、できません。 | すみません、きそくですので、できません。 | sou-mi-ma-sén, ki-so-kou dé-sou no-dé, dé-ki-ma-sén | Désolé, c'est le règlement, donc ce n'est pas possible. |
+| すみません、**時間がない**ので、できません。 | すみません、じかんがないので、できません。 | sou-mi-ma-sén, dji-kan ga na-i no-dé, dé-ki-ma-sén | Désolé, je n'ai pas le temps, donc ce n'est pas possible. |
+| すみません、**在庫がない**ので、できません。 | すみません、ざいこがないので、できません。 | sou-mi-ma-sén, za-i-ko ga na-i no-dé, dé-ki-ma-sén | Désolé, il n'y a plus de stock, donc ce n'est pas possible. |
+| すみません、**予算がない**ので、できません。 | すみません、よさんがないので、できません。 | sou-mi-ma-sén, yo-san ga na-i no-dé, dé-ki-ma-sén | Désolé, je n'ai pas le budget, donc ce n'est pas possible. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Mi dispiace, **lo farò subito**. | mi dis-PIA-tché, lo fa-RO SOU-bi-to | Désolé, je vais le faire tout de suite. |
-| Mi dispiace, **La richiamerò domani**. | mi dis-PIA-tché, la ri-kia-mé-RO do-MA-ni | Désolé, je vous rappellerai demain. |
-| Mi dispiace, **arriverò tra dieci minuti**. | mi dis-PIA-tché, ar-ri-vé-RO tra DIÈ-tchi mi-NOU-ti | Désolé, j'arriverai dans dix minutes. |
-| Mi dispiace, **non succederà più**. | mi dis-PIA-tché, non sout-tché-dé-RA PIOU | Désolé, ça ne se reproduira plus. |
+### L8-fr-ja-07 · S'excuser et réparer — modèle « すみません、すぐ{s}。 »
 
-### L8-fr-it-07 · Demander une réduction, un document — modèle « Mi può fare {s}? »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| すみません、すぐ**直します**。 | すみません、すぐなおします。 | sou-mi-ma-sén, sou-gou na-o-chi-ma-sou | Désolé, je répare tout de suite. |
+| すみません、すぐ**持ってきます**。 | すみません、すぐもってきます。 | sou-mi-ma-sén, sou-gou mot-té ki-ma-sou | Désolé, je l'apporte tout de suite. |
+| すみません、すぐ**確認します**。 | すみません、すぐかくにんします。 | sou-mi-ma-sén, sou-gou ka-kou-nin chi-ma-sou | Désolé, je vérifie tout de suite. |
+| すみません、すぐ**片付けます**。 | すみません、すぐかたづけます。 | sou-mi-ma-sén, sou-gou ka-ta-zou-ké-ma-sou | Désolé, je range tout de suite. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Mi può fare **uno sconto**? | mi pouo FA-ré OU-no SKON-to | Vous pouvez me faire une réduction ? |
-| Mi può fare **un prezzo migliore**? | mi pouo FA-ré oun PRÈT-tso mi-LIO-ré | Vous pouvez me faire un meilleur prix ? |
-| Mi può fare **una fattura**? | mi pouo FA-ré OU-na fat-TOU-ra | Vous pouvez me faire une facture ? |
-| Mi può fare **una copia**? | mi pouo FA-ré OU-na KO-pia | Vous pouvez me faire une copie ? |
+### L8-fr-ja-08 · Demander un délai — modèle « {s}まで待っていただけますか。 »
 
-### L8-fr-it-08 · Demander un délai — modèle « Avrei bisogno di {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **来週**まで待っていただけますか。 | らいしゅうまでまっていただけますか。 | ra-i-chou-ou ma-dé mat-té i-ta-da-ké-ma-sou ka | Pourriez-vous attendre jusqu'à la semaine prochaine ? |
+| **金曜日**まで待っていただけますか。 | きんようびまでまっていただけますか。 | kin-yo-o-bi ma-dé mat-té i-ta-da-ké-ma-sou ka | Pourriez-vous attendre jusqu'à vendredi ? |
+| **月末**まで待っていただけますか。 | げつまつまでまっていただけますか。 | gé-tsou-ma-tsou ma-dé mat-té i-ta-da-ké-ma-sou ka | Pourriez-vous attendre jusqu'à la fin du mois ? |
+| **明日の朝**まで待っていただけますか。 | あしたのあさまでまっていただけますか。 | a-chi-ta no a-sa ma-dé mat-té i-ta-da-ké-ma-sou ka | Pourriez-vous attendre jusqu'à demain matin ? |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Avrei bisogno di **più tempo**. | a-VRÈ-i bi-ZO-gno di piou TÈM-po | J'aurais besoin de plus de temps. |
-| Avrei bisogno di **qualche giorno in più**. | a-VRÈ-i bi-ZO-gno di KOUAL-ké DJOR-no inn PIOU | J'aurais besoin de quelques jours de plus. |
-| Avrei bisogno di **una risposta entro domani**. | a-VRÈ-i bi-ZO-gno di OU-na ris-POS-ta ÉN-tro do-MA-ni | J'aurais besoin d'une réponse avant demain. |
-| Avrei bisogno di **un altro appuntamento**. | a-VRÈ-i bi-ZO-gno di oun AL-tro ap-poun-ta-MÉN-to | J'aurais besoin d'un autre rendez-vous. |
+### L8-fr-ja-09 · Demander quelque chose poliment — modèle « {s}をお願いできますか。 »
 
-### L8-fr-it-09 · Refuser avec une raison — modèle « Purtroppo non posso, {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **領収書**をお願いできますか。 | りょうしゅうしょをおねがいできますか。 | ryo-o-chou-ou-cho o o-né-ga-i dé-ki-ma-sou ka | Pourrais-je vous demander un reçu ? |
+| **割引**をお願いできますか。 | わりびきをおねがいできますか。 | wa-ri-bi-ki o o-né-ga-i dé-ki-ma-sou ka | Pourrais-je vous demander une remise ? |
+| **配達**をお願いできますか。 | はいたつをおねがいできますか。 | ha-i-ta-tsou o o-né-ga-i dé-ki-ma-sou ka | Pourrais-je vous demander la livraison ? |
+| **予約の変更**をお願いできますか。 | よやくのへんこうをおねがいできますか。 | yo-ya-kou no hén-ko-o o o-né-ga-i dé-ki-ma-sou ka | Pourrais-je vous demander un changement de réservation ? |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Purtroppo non posso, **ho già un impegno**. | pour-TROP-po non POS-so, o DJA oun im-PÉ-gno | Malheureusement je ne peux pas, j'ai déjà un engagement. |
-| Purtroppo non posso, **è troppo caro per me**. | pour-TROP-po non POS-so, è TROP-po KA-ro pér MÉ | Malheureusement je ne peux pas, c'est trop cher pour moi. |
-| Purtroppo non posso, **non ho tempo questa settimana**. | pour-TROP-po non POS-so, non o TÈM-po KOUÉS-ta sét-ti-MA-na | Malheureusement je ne peux pas, je n'ai pas le temps cette semaine. |
-| Purtroppo non posso, **devo chiedere a mia moglie**. | pour-TROP-po non POS-so, DÉ-vo KIÈ-dé-ré a MI-a MO-lié | Malheureusement je ne peux pas, je dois demander à ma femme. |
+### L8-fr-ja-10 · Avec les voisins : demander de baisser — modèle « {s}をもう少し小さくしていただけますか。 »
 
-### L8-fr-it-10 · Voisins : demander si ça dérange — modèle « Le dispiace se {s}? »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **音**をもう少し小さくしていただけますか。 | おとをもうすこしちいさくしていただけますか。 | o-to o mo-o sou-ko-chi tchi-i-sa-kou chi-té i-ta-da-ké-ma-sou ka | Pourriez-vous baisser un peu le son ? |
+| **テレビの音**をもう少し小さくしていただけますか。 | てれびのおとをもうすこしちいさくしていただけますか。 | té-ré-bi no o-to o mo-o sou-ko-chi tchi-i-sa-kou chi-té i-ta-da-ké-ma-sou ka | Pourriez-vous baisser un peu le son de la télé ? |
+| **音楽**をもう少し小さくしていただけますか。 | おんがくをもうすこしちいさくしていただけますか。 | on-ga-kou o mo-o sou-ko-chi tchi-i-sa-kou chi-té i-ta-da-ké-ma-sou ka | Pourriez-vous baisser un peu la musique ? |
+| **声**をもう少し小さくしていただけますか。 | こえをもうすこしちいさくしていただけますか。 | ko-é o mo-o sou-ko-chi tchi-i-sa-kou chi-té i-ta-da-ké-ma-sou ka | Pourriez-vous baisser un peu la voix ? |
 
-> Vouvoiement. Entre amis : « Ti dispiace se… ? ».
+### L8-fr-ja-11 · Négocier un prix — modèle « {s}円にしていただけませんか。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Le dispiace se **apro la finestra**? | lé dis-PIA-tché sé A-pro la fi-NÈS-tra | Ça vous dérange si j'ouvre la fenêtre ? |
-| Le dispiace se **faccio una festa sabato**? | lé dis-PIA-tché sé FAT-tcho OU-na FÈS-ta SA-ba-to | Ça vous dérange si je fais une fête samedi ? |
-| Le dispiace se **parcheggio qui**? | lé dis-PIA-tché sé par-KÉD-djo KOUI | Ça vous dérange si je me gare ici ? |
-| Le dispiace se **lascio la bici qui**? | lé dis-PIA-tché sé LA-cho la BI-tchi KOUI | Ça vous dérange si je laisse le vélo ici ? |
+> ていただけませんか (négatif) est encore un peu plus doux que ていただけますか.
 
-### L8-fr-it-11 · Propriétaire : signaler une panne — modèle « Il {s} non funziona. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **五千**円にしていただけませんか。 | ごせんえんにしていただけませんか。 | go-sén én ni chi-té i-ta-da-ké-ma-sén ka | Pourriez-vous me le faire à cinq mille yens ? |
+| **八千**円にしていただけませんか。 | はっせんえんにしていただけませんか。 | has-sén én ni chi-té i-ta-da-ké-ma-sén ka | Pourriez-vous me le faire à huit mille yens ? |
+| **千**円にしていただけませんか。 | せんえんにしていただけませんか。 | sén én ni chi-té i-ta-da-ké-ma-sén ka | Pourriez-vous me le faire à mille yens ? |
+| **二万**円にしていただけませんか。 | にまんえんにしていただけませんか。 | ni-man én ni chi-té i-ta-da-ké-ma-sén ka | Pourriez-vous me le faire à vingt mille yens ? |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Il **riscaldamento** non funziona. | il ris-kal-da-MÉN-to non foun-TSIO-na | Le chauffage ne marche pas. |
-| Il **frigorifero** non funziona. | il fri-go-RI-fé-ro non foun-TSIO-na | Le frigo ne marche pas. |
-| Il **forno** non funziona. | il FOR-no non foun-TSIO-na | Le four ne marche pas. |
-| Il **rubinetto** non funziona. | il rou-bi-NÉT-to non foun-TSIO-na | Le robinet ne marche pas. |
+### L8-fr-ja-12 · Au travail : demander la permission — modèle « {s}もいいですか。 »
 
-### L8-fr-it-12 · Travail : demander quelque chose à son responsable — modèle « Vorrei chiederle {s}. »
+> Forme en て (ou で) + もいいですか : demander la permission. La forme en て/で est dans le morceau.
 
-> Vouvoiement (-le = à vous). Entre amis : « chiederti ».
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **早く帰って**もいいですか。 | はやくかえってもいいですか。 | ha-ya-kou ka-ét-té mo i-i dé-sou ka | Puis-je rentrer tôt ? |
+| **明日休んで**もいいですか。 | あしたやすんでもいいですか。 | a-chi-ta ya-soun-dé mo i-i dé-sou ka | Puis-je prendre congé demain ? |
+| **ここに座って**もいいですか。 | ここにすわってもいいですか。 | ko-ko ni sou-wat-té mo i-i dé-sou ka | Puis-je m'asseoir ici ? |
+| **窓を開けて**もいいですか。 | まどをあけてもいいですか。 | ma-do o a-ké-té mo i-i dé-sou ka | Puis-je ouvrir la fenêtre ? |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Vorrei chiederle **un giorno di ferie**. | vor-RÈÏ KIÈ-dér-lé oun DJOR-no di FÈ-rié | Je voudrais vous demander un jour de congé. |
-| Vorrei chiederle **un aumento**. | vor-RÈÏ KIÈ-dér-lé oun aou-MÉN-to | Je voudrais vous demander une augmentation. |
-| Vorrei chiederle **di lavorare da casa il venerdì**. | vor-RÈÏ KIÈ-dér-lé di la-vo-RA-ré da KA-za il vé-nér-DI | Je voudrais vous demander de travailler de chez moi le vendredi. |
-| Vorrei chiederle **qualche giorno in più**. | vor-RÈÏ KIÈ-dér-lé KOUAL-ké DJOR-no inn PIOU | Je voudrais vous demander quelques jours de plus. |
+### L8-fr-ja-d1 · Au magasin : négocier
 
-### L8-fr-it-d1 · Au marché aux puces : négocier (Lei)
+- **A** : すみません、このテレビはいくらですか。 *(すみません、このてれびはいくらですか。)* — sou-mi-ma-sén, ko-no té-ré-bi wa i-kou-ra dé-sou ka — Excusez-moi, combien coûte cette télévision ?
+- **B** : 八万円です。 *(はちまんえんです。)* — ha-tchi-man én dé-sou — Quatre-vingt mille yens.
+- **A** : 少し高いですね。少し安くしていただけますか。 *(すこしたかいですね。すこしやすくしていただけますか。)* — sou-ko-chi ta-ka-i dé-sou né. sou-ko-chi ya-sou-kou chi-té i-ta-da-ké-ma-sou ka — C'est un peu cher. Pourriez-vous baisser un peu le prix ?
+- **B** : うーん、現金なら、七万五千円にできます。 *(うーん、げんきんなら、ななまんごせんえんにできます。)* — ou-ou-n, gén-kin na-ra, na-na-man-go-sén én ni dé-ki-ma-sou — Hum, en espèces, je peux faire soixante-quinze mille yens.
+- **A** : 配達することはできますか。 *(はいたつすることはできますか。)* — ha-i-ta-tsou sou-rou ko-to wa dé-ki-ma-sou ka — Est-il possible de la faire livrer ?
+- **B** : はい、でも配達は来週なら大丈夫です。 *(はい、でもはいたつはらいしゅうならだいじょうぶです。)* — ha-i, dé-mo ha-i-ta-tsou wa ra-i-chou-ou na-ra da-i-djo-o-bou dé-sou — Oui, mais la livraison, c'est possible seulement la semaine prochaine.
+- **A** : 分かりました。じゃあ、それでお願いします。 *(わかりました。じゃあ、それでおねがいします。)* — wa-ka-ri-ma-chi-ta. dja-a, so-ré dé o-né-ga-i chi-ma-sou — D'accord. Alors, va pour ça.
+- **B** : ありがとうございます。領収書をどうぞ。 *(ありがとうございます。りょうしゅうしょをどうぞ。)* — a-ri-ga-to-o go-za-i-ma-sou. ryo-o-chou-ou-cho o do-o-zo — Merci beaucoup. Voici votre reçu.
 
-- **A** : Buongiorno, quanto costa questa lampada? — bouon-DJOR-no, KOUAN-to KOS-ta KOUÉS-ta LAM-pa-da — Bonjour, combien coûte cette lampe ?
-- **B** : Sessanta euro. — sés-SAN-ta È-ou-ro — Soixante euros.
-- **A** : È un po' cara. Potrebbe farmi uno sconto? — è oun po KA-ra. po-TRÈB-bé FAR-mi OU-no SKON-to — Elle est un peu chère. Pourriez-vous me faire une réduction ?
-- **B** : Mi dispiace, è già un buon prezzo. — mi dis-PIA-tché, è DJA oun bouon PRÈT-tso — Désolé, c'est déjà un bon prix.
-- **A** : Se prendo anche questo specchio, mi fa cento per tutti e due? — sé PRÈN-do AN-ké KOUÉS-to SPÈK-kio, mi fa TCHÈN-to pér TOUT-ti é DOU-é — Si je prends aussi ce miroir, vous me faites cent pour les deux ?
-- **B** : Va bene, ma solo se paga in contanti. — va BÈ-né, ma SO-lo sé PA-ga inn kon-TAN-ti — D'accord, mais seulement si vous payez en espèces.
-- **A** : D'accordo. Potrei avere una ricevuta? — dak-KOR-do. po-TRÈ-i a-VÉ-ré OU-na ri-tché-VOU-ta — D'accord. Est-ce que je pourrais avoir un reçu ?
-- **B** : Certo, gliela scrivo subito. — TCHÈR-to, LIÉ-la SKRI-vo SOU-bi-to — Bien sûr, je vous l'écris tout de suite.
+### L8-fr-ja-d2 · Avec le propriétaire
 
-### L8-fr-it-d2 · Chez la propriétaire (Lei)
+- **A** : すみません、大家さん、お風呂のお湯が出ません。 *(すみません、おおやさん、おふろのおゆがでません。)* — sou-mi-ma-sén, o-o-ya-san, o-fou-ro no o-you ga dé-ma-sén — Excusez-moi, monsieur, il n'y a plus d'eau chaude dans la salle de bain.
+- **B** : すみません、すぐ確認します。いつがいいですか。 *(すみません、すぐかくにんします。いつがいいですか。)* — sou-mi-ma-sén, sou-gou ka-kou-nin chi-ma-sou. i-tsou ga i-i dé-sou ka — Désolé, je vérifie tout de suite. Quand cela vous convient-il ?
+- **A** : 今日の午後、来ていただけますか。 *(きょうのごご、きていただけますか。)* — kyo-o no go-go, ki-té i-ta-da-ké-ma-sou ka — Pourriez-vous venir cet après-midi ?
+- **B** : 今日はちょっと無理ですが、明日の朝なら行けます。 *(きょうはちょっとむりですが、あしたのあさならいけます。)* — kyo-o wa tchot-to mou-ri dé-sou ga, a-chi-ta no a-sa na-ra i-ké-ma-sou — Aujourd'hui, c'est difficile, mais demain matin, je peux venir.
+- **A** : 分かりました。明日の朝お願いします。 *(わかりました。あしたのあさおねがいします。)* — wa-ka-ri-ma-chi-ta. a-chi-ta no a-sa o-né-ga-i chi-ma-sou — D'accord. Demain matin, s'il vous plaît.
+- **B** : はい、九時に行きます。着いたら、電話します。 *(はい、くじにいきます。ついたら、でんわします。)* — ha-i, kou-dji ni i-ki-ma-sou. tsou-i-ta-ra, dén-wa chi-ma-sou — Oui, je viens à neuf heures. Quand j'arrive, je vous appelle.
+- **A** : ありがとうございます。それから、家賃は来週払ってもいいですか。 *(ありがとうございます。それから、やちんはらいしゅうはらってもいいですか。)* — a-ri-ga-to-o go-za-i-ma-sou. so-ré-ka-ra, ya-tchin wa ra-i-chou-ou ha-rat-té mo i-i dé-sou ka — Merci. Et puis, puis-je payer le loyer la semaine prochaine ?
+- **B** : はい、金曜日までなら大丈夫です。 *(はい、きんようびまでならだいじょうぶです。)* — ha-i, kin-yo-o-bi ma-dé na-ra da-i-djo-o-bou dé-sou — Oui, mais seulement jusqu'à vendredi.
 
-- **A** : Buongiorno, signora Bianchi. Il riscaldamento non funziona da ieri. — bouon-DJOR-no, si-GNO-ra BIAN-ki. il ris-kal-da-MÉN-to non foun-TSIO-na da IÈ-ri — Bonjour, madame Bianchi. Le chauffage ne marche pas depuis hier.
-- **B** : Mi dispiace! Chiamerò il tecnico oggi stesso. — mi dis-PIA-tché. kia-mé-RO il TÈK-ni-ko OD-dji STÉS-so — Désolée ! J'appellerai le technicien aujourd'hui même.
-- **A** : Grazie. Sarebbe possibile venire nel pomeriggio? La mattina lavoro. — GRA-tsié. sa-RÈB-bé pos-SI-bi-lé vé-NI-ré nél po-mé-RID-djo. la mat-TI-na la-VO-ro — Merci. Serait-il possible de venir l'après-midi ? Le matin, je travaille.
-- **B** : Glielo chiedo. Se non può oggi, verrà domani. — LIÉ-lo KIÈ-do. sé non pouo OD-dji, vér-RA do-MA-ni — Je le lui demande. S'il ne peut pas aujourd'hui, il viendra demain.
-- **A** : Va bene. Avrei anche un'altra domanda: potrei pagare l'affitto il dieci invece del cinque? — va BÈ-né. a-VRÈ-i AN-ké ou-NAL-tra do-MAN-da. po-TRÈ-i pa-GA-ré laf-FIT-to il DIÈ-tchi in-VÉ-tché dél TCHIN-koué — D'accord. J'aurais aussi une autre question : est-ce que je pourrais payer le loyer le dix au lieu du cinq ?
-- **B** : Va bene, ma solo se mi avvisa ogni mese. — va BÈ-né, ma SO-lo sé mi av-VI-za O-gni MÉ-zé — D'accord, mais seulement si vous me prévenez chaque mois.
-- **A** : Certo, grazie mille. — TCHÈR-to, GRA-tsié MIL-lé — Bien sûr, merci beaucoup.
-- **B** : Di niente. Le faccio sapere per il tecnico. — di NIÈN-té. lé FAT-tcho sa-PÉ-ré pér il TÈK-ni-ko — De rien. Je vous tiens au courant pour le technicien.
+### L8-fr-ja-d3 · Au travail : demander un délai
 
-### L8-fr-it-d3 · Au travail : demander un délai (Lei)
+- **A** : 田中さん、報告書は今日中にできますか。 *(たなかさん、ほうこくしょはきょうじゅうにできますか。)* — ta-na-ka-san, ho-o-ko-kou-cho wa kyo-o-djou-ou ni dé-ki-ma-sou ka — Monsieur Tanaka, le rapport peut-il être prêt aujourd'hui ?
+- **B** : すみません、今日はちょっと難しいです。明日の朝まで待っていただけますか。 *(すみません、きょうはちょっとむずかしいです。あしたのあさまでまっていただけますか。)* — sou-mi-ma-sén, kyo-o wa tchot-to mou-zou-ka-chi-i dé-sou. a-chi-ta no a-sa ma-dé mat-té i-ta-da-ké-ma-sou ka — Désolé, aujourd'hui c'est un peu difficile. Pourriez-vous attendre jusqu'à demain matin ?
+- **A** : うーん、明日の朝なら大丈夫です。でも、十時までにお願いします。 *(うーん、あしたのあさならだいじょうぶです。でも、じゅうじまでにおねがいします。)* — ou-ou-n, a-chi-ta no a-sa na-ra da-i-djo-o-bou dé-sou. dé-mo, djou-ou-dji ma-dé ni o-né-ga-i chi-ma-sou — Hum, demain matin, ça va. Mais avant dix heures, s'il vous plaît.
+- **B** : はい、分かりました。終わったら、すぐメールします。 *(はい、わかりました。おわったら、すぐめーるします。)* — ha-i, wa-ka-ri-ma-chi-ta. o-wat-ta-ra, sou-gou mé-é-rou chi-ma-sou — Oui, d'accord. Quand j'ai fini, je vous envoie un mail tout de suite.
+- **A** : お願いします。 *(おねがいします。)* — o-né-ga-i chi-ma-sou — Merci d'avance.
+- **B** : それから、金曜日に休んでもいいですか。 *(それから、きんようびにやすんでもいいですか。)* — so-ré-ka-ra, kin-yo-o-bi ni ya-soun-dé mo i-i dé-sou ka — Et puis, puis-je prendre congé vendredi ?
+- **A** : はい、でも木曜日までに報告書が終わるなら。 *(はい、でももくようびまでにほうこくしょがおわるなら。)* — ha-i, dé-mo mo-kou-yo-o-bi ma-dé ni ho-o-ko-kou-cho ga o-wa-rou na-ra — Oui, mais seulement si le rapport est terminé d'ici jeudi.
+- **B** : はい、終わります。ありがとうございます。 *(はい、おわります。ありがとうございます。)* — ha-i, o-wa-ri-ma-sou. a-ri-ga-to-o go-za-i-ma-sou — Oui, il sera terminé. Merci beaucoup.
 
-- **A** : Buongiorno, dottor Conti. Avrei bisogno di parlarle del progetto. — bouon-DJOR-no, dot-TOR KON-ti. a-VRÈ-i bi-ZO-gno di par-LAR-lé dél pro-DJÈT-to — Bonjour, monsieur Conti. J'aurais besoin de vous parler du projet.
-- **B** : Certo, mi dica. — TCHÈR-to, mi DI-ka — Bien sûr, dites-moi.
-- **A** : Sarebbe possibile avere qualche giorno in più? — sa-RÈB-bé pos-SI-bi-lé a-VÉ-ré KOUAL-ké DJOR-no inn PIOU — Serait-il possible d'avoir quelques jours de plus ?
-- **B** : Perché? C'è un problema? — pér-KÉ. tchè oun pro-BLÈ-ma — Pourquoi ? Il y a un problème ?
-- **A** : Sì, il cliente ha cambiato idea e dobbiamo rifare una parte. — SI, il kli-ÈN-té a kam-BIA-to i-DÈ-a é dob-BIA-mo ri-FA-ré OU-na PAR-té — Oui, le client a changé d'avis et on doit refaire une partie.
-- **B** : Capisco. Va bene, ma solo se finite entro venerdì prossimo. — ka-PIS-ko. va BÈ-né, ma SO-lo sé fi-NI-té ÉN-tro vé-nér-DI PROS-si-mo — Je comprends. D'accord, mais seulement si vous finissez avant vendredi prochain.
-- **A** : Perfetto. Se ci sono altri problemi, La avviserò subito. — pér-FÈT-to. sé tchi SO-no AL-tri pro-BLÈ-mi, la av-vi-zé-RO SOU-bi-to — Parfait. S'il y a d'autres problèmes, je vous préviendrai tout de suite.
-- **B** : Bene. Mi mandi un aggiornamento mercoledì. — BÈ-né. mi MAN-di oun ad-djor-na-MÉN-to mér-ko-lé-DI — Bien. Envoyez-moi un point d'avancement mercredi.
-- **A** : Certo. Grazie per la comprensione. — TCHÈR-to. GRA-tsié pér la kom-prén-SIO-né — Bien sûr. Merci pour votre compréhension.
-
-*Acquis attendu* : Demander poliment au conditionnel (potrebbe, sarebbe possibile), poser une condition (se… + futur), négocier un prix ou un délai, accepter sous condition, refuser avec une raison et s'excuser en proposant une réparation.
+*Acquis attendu* : Demander poliment avec le keigo de base (ていただけますか, をお願いできますか), exprimer une condition (たら, なら), demander une réduction, un délai ou une permission (てもいいですか), accepter sous condition, refuser avec une raison (ので、できません) et s'excuser en réparant (すみません、すぐ…ます).

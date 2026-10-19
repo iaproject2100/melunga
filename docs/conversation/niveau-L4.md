@@ -4,152 +4,154 @@ Objectif : Décrire son quotidien, ses habitudes et son entourage.
 
 Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **gras**), 3 dialogues de 6 à 10 répliques. Réutilise les niveaux L1, L2, L3.
 
-## Italien (lecteurs francophones)
+## Japonais (lecteurs francophones)
 
-*Convention phonétique* : Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.
+*Convention phonétique* : Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).
 
-*Statut* : Rédigé à la main ; relecture par un italophone conseillée.
+*Statut* : Relecture linguistique requise (naturel des tournures, lectures des kanji).
 
-### L4-fr-it-01 · Habitudes — modèle « Di solito {s}. »
+### L4-fr-ja-01 · Habitudes : d'habitude… — modèle « 普段は{s}。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Di solito **mi alzo alle sette**. | di SO-li-to mi AL-tso AL-lé SÈT-té | D'habitude, je me lève à sept heures. |
-| Di solito **pranzo a casa**. | di SO-li-to PRAN-tso a KA-za | D'habitude, je déjeune à la maison. |
-| Di solito **prendo il treno**. | di SO-li-to PRÈN-do il TRÈ-no | D'habitude, je prends le train. |
-| Di solito **vado a letto presto**. | di SO-li-to VA-do a LÈT-to PRÈS-to | D'habitude, je me couche tôt. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 普段は**七時に起きます**。 | ふだんはしちじにおきます。 | fou-dan wa chi-tchi-dji ni o-ki-ma-sou | D'habitude, je me lève à sept heures. |
+| 普段は**電車で会社に行きます**。 | ふだんはでんしゃでかいしゃにいきます。 | fou-dan wa dén-cha dé ka-i-cha ni i-ki-ma-sou | D'habitude, je vais au travail en train. |
+| 普段は**家で晩ご飯を食べます**。 | ふだんはいえでばんごはんをたべます。 | fou-dan wa i-é dé ban-go-han o ta-bé-ma-sou | D'habitude, je dîne à la maison. |
+| 普段は**十一時に寝ます**。 | ふだんはじゅういちじにねます。 | fou-dan wa djou-ou-i-tchi-dji ni né-ma-sou | D'habitude, je me couche à onze heures. |
 
-### L4-fr-it-02 · Le matin — modèle « La mattina {s}. »
+### L4-fr-ja-02 · Le matin — modèle « 朝は{s}。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| La mattina **bevo un caffè**. | la mat-TI-na BÉ-vo oun kaf-FÈ | Le matin, je bois un café. |
-| La mattina **faccio colazione alle otto**. | la mat-TI-na FAT-tcho ko-la-TSIO-né AL-lé OT-to | Le matin, je prends le petit-déjeuner à huit heures. |
-| La mattina **porto i bambini a scuola**. | la mat-TI-na POR-to i bam-BI-ni a SKOUO-la | Le matin, j'emmène les enfants à l'école. |
-| La mattina **lavoro da casa**. | la mat-TI-na la-VO-ro da KA-za | Le matin, je travaille de chez moi. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 朝は**コーヒーを飲みます**。 | あさはこーひーをのみます。 | a-sa wa ko-o-hi-i o no-mi-ma-sou | Le matin, je bois un café. |
+| 朝は**パンを食べます**。 | あさはぱんをたべます。 | a-sa wa pan o ta-bé-ma-sou | Le matin, je mange du pain. |
+| 朝は**走ります**。 | あさははしります。 | a-sa wa ha-chi-ri-ma-sou | Le matin, je cours. |
+| 朝は**ニュースを読みます**。 | あさはにゅーすをよみます。 | a-sa wa nyou-ou-sou o yo-mi-ma-sou | Le matin, je lis les nouvelles. |
 
-### L4-fr-it-03 · Le soir — modèle « La sera {s}. »
+### L4-fr-ja-03 · Le soir — modèle « 夜は{s}。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| La sera **cucino**. | la SÉ-ra kou-TCHI-no | Le soir, je cuisine. |
-| La sera **guardo un film**. | la SÉ-ra GOUAR-do oun FILM | Le soir, je regarde un film. |
-| La sera **esco con gli amici**. | la SÉ-ra ÈS-ko kon li a-MI-tchi | Le soir, je sors avec des amis. |
-| La sera **leggo un po'**. | la SÉ-ra LÈG-go oun PO | Le soir, je lis un peu. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 夜は**テレビを見ます**。 | よるはてれびをみます。 | yo-rou wa té-ré-bi o mi-ma-sou | Le soir, je regarde la télé. |
+| 夜は**本を読みます**。 | よるはほんをよみます。 | yo-rou wa hon o yo-mi-ma-sou | Le soir, je lis. |
+| 夜は**友達と食事をします**。 | よるはともだちとしょくじをします。 | yo-rou wa to-mo-da-tchi to cho-kou-dji o chi-ma-sou | Le soir, je dîne avec des amis. |
+| 夜は**日本語を勉強します**。 | よるはにほんごをべんきょうします。 | yo-rou wa ni-hon-go o bén-kyo-o chi-ma-sou | Le soir, j'étudie le japonais. |
 
-### L4-fr-it-04 · Famille : avoir — modèle « Ho {s}. »
+### L4-fr-ja-04 · Famille : dire qui on a — modèle « {s}います。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Ho **un fratello**. | o oun fra-TÈL-lo | J'ai un frère. |
-| Ho **due figli**. | o DOU-é FI-li | J'ai deux enfants. |
-| Ho **una sorella più grande**. | o OU-na so-RÈL-la piou GRAN-dé | J'ai une grande sœur. |
-| Ho **un cane**. | o oun KA-né | J'ai un chien. |
+> います pour les êtres vivants (あります pour les objets). Compteurs : 人 (personnes, 一人 / 二人 irréguliers), 匹 (petits animaux).
 
-### L4-fr-it-05 · Logement — modèle « Abito {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **兄が**います。 | あにがいます。 | a-ni ga i-ma-sou | J'ai un grand frère. |
+| **妹が**います。 | いもうとがいます。 | i-mo-o-to ga i-ma-sou | J'ai une petite sœur. |
+| **子供が二人**います。 | こどもがふたりいます。 | ko-do-mo ga fou-ta-ri i-ma-sou | J'ai deux enfants. |
+| **犬が一匹**います。 | いぬがいっぴきいます。 | i-nou ga ip-pi-ki i-ma-sou | J'ai un chien. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Abito **a Milano**. | A-bi-to a mi-LA-no | J'habite à Milan. |
-| Abito **in centro**. | A-bi-to inn TCHÈN-tro | J'habite dans le centre. |
-| Abito **in un piccolo appartamento**. | A-bi-to inn oun PIK-ko-lo ap-par-ta-MÉN-to | J'habite dans un petit appartement. |
-| Abito **con la mia famiglia**. | A-bi-to kon la MI-a fa-MI-lia | J'habite avec ma famille. |
+### L4-fr-ja-05 · Dire où l'on habite — modèle « {s}に住んでいます。 »
 
-### L4-fr-it-06 · Travail — modèle « Lavoro {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **東京**に住んでいます。 | とうきょうにすんでいます。 | to-o-kyo-o ni soun-dé i-ma-sou | J'habite à Tokyo. |
+| **パリ**に住んでいます。 | ぱりにすんでいます。 | pa-ri ni soun-dé i-ma-sou | J'habite à Paris. |
+| **駅の近く**に住んでいます。 | えきのちかくにすんでいます。 | é-ki no tchi-ka-kou ni soun-dé i-ma-sou | J'habite près de la gare. |
+| **小さいアパート**に住んでいます。 | ちいさいあぱーとにすんでいます。 | tchi-i-sa-i a-pa-a-to ni soun-dé i-ma-sou | J'habite dans un petit appartement. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Lavoro **in un ospedale**. | la-VO-ro inn oun os-pé-DA-lé | Je travaille dans un hôpital. |
-| Lavoro **in ufficio**. | la-VO-ro inn ouf-FI-tcho | Je travaille au bureau. |
-| Lavoro **da casa**. | la-VO-ro da KA-za | Je travaille de chez moi. |
-| Lavoro **in un ristorante**. | la-VO-ro inn oun ris-to-RAN-té | Je travaille dans un restaurant. |
+### L4-fr-ja-06 · Dire où l'on travaille — modèle « {s}で働いています。 »
 
-### L4-fr-it-07 · Études — modèle « Studio {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **銀行**で働いています。 | ぎんこうではたらいています。 | gin-ko-o dé ha-ta-ra-i-té i-ma-sou | Je travaille dans une banque. |
+| **病院**で働いています。 | びょういんではたらいています。 | byo-o-in dé ha-ta-ra-i-té i-ma-sou | Je travaille dans un hôpital. |
+| **学校**で働いています。 | がっこうではたらいています。 | gak-ko-o dé ha-ta-ra-i-té i-ma-sou | Je travaille dans une école. |
+| **家**で働いています。 | いえではたらいています。 | i-é dé ha-ta-ra-i-té i-ma-sou | Je travaille à la maison. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Studio **medicina**. | STOU-dio mé-di-TCHI-na | J'étudie la médecine. |
-| Studio **italiano**. | STOU-dio i-ta-LIA-no | J'étudie l'italien. |
-| Studio **all'università**. | STOU-dio al-lou-ni-vér-si-TA | J'étudie à l'université. |
-| Studio **economia**. | STOU-dio é-ko-no-MI-a | J'étudie l'économie. |
+### L4-fr-ja-07 · Dire ce qu'on étudie — modèle « {s}を勉強しています。 »
 
-### L4-fr-it-08 · Fréquence — modèle « {s} vado in palestra. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **日本語**を勉強しています。 | にほんごをべんきょうしています。 | ni-hon-go o bén-kyo-o chi-té i-ma-sou | J'étudie le japonais. |
+| **経済**を勉強しています。 | けいざいをべんきょうしています。 | ké-i-za-i o bén-kyo-o chi-té i-ma-sou | J'étudie l'économie. |
+| **医学**を勉強しています。 | いがくをべんきょうしています。 | i-ga-kou o bén-kyo-o chi-té i-ma-sou | J'étudie la médecine. |
+| **音楽**を勉強しています。 | おんがくをべんきょうしています。 | on-ga-kou o bén-kyo-o chi-té i-ma-sou | J'étudie la musique. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| **Ogni giorno** vado in palestra. | O-gni DJOR-no VA-do inn pa-LÈS-tra | Tous les jours, je vais à la salle de sport. |
-| **Spesso** vado in palestra. | SPÉS-so VA-do inn pa-LÈS-tra | Souvent, je vais à la salle de sport. |
-| **A volte** vado in palestra. | a VOL-té VA-do inn pa-LÈS-tra | Parfois, je vais à la salle de sport. |
-| **Il fine settimana** vado in palestra. | il FI-né sét-ti-MA-na VA-do inn pa-LÈS-tra | Le week-end, je vais à la salle de sport. |
+### L4-fr-ja-08 · Fréquence — modèle « {s}スポーツをします。 »
 
-### L4-fr-it-09 · Famille : elle — modèle « Mia {s} abita a Roma. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **毎日**スポーツをします。 | まいにちすぽーつをします。 | ma-i-ni-tchi sou-po-o-tsou o chi-ma-sou | Je fais du sport tous les jours. |
+| **よく**スポーツをします。 | よくすぽーつをします。 | yo-kou sou-po-o-tsou o chi-ma-sou | Je fais du sport souvent. |
+| **時々**スポーツをします。 | ときどきすぽーつをします。 | to-ki-do-ki sou-po-o-tsou o chi-ma-sou | Je fais du sport parfois. |
+| **週末に**スポーツをします。 | しゅうまつにすぽーつをします。 | chou-ou-ma-tsou ni sou-po-o-tsou o chi-ma-sou | Je fais du sport le week-end. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Mia **madre** abita a Roma. | MI-a MA-dré A-bi-ta a RO-ma | Ma mère habite à Rome. |
-| Mia **sorella** abita a Roma. | MI-a so-RÈL-la A-bi-ta a RO-ma | Ma sœur habite à Rome. |
-| Mia **figlia** abita a Roma. | MI-a FI-lia A-bi-ta a RO-ma | Ma fille habite à Rome. |
-| Mia **nonna** abita a Roma. | MI-a NON-na A-bi-ta a RO-ma | Ma grand-mère habite à Rome. |
+### L4-fr-ja-09 · Décrire son logement — modèle « 家は{s}です。 »
 
-### L4-fr-it-10 · Famille : il — modèle « Mio {s} lavora in banca. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 家は**広い**です。 | いえはひろいです。 | i-é wa hi-ro-i dé-sou | Ma maison est grande. |
+| 家は**静か**です。 | いえはしずかです。 | i-é wa chi-zou-ka dé-sou | Ma maison est calme. |
+| 家は**駅から近い**です。 | いえはえきからちかいです。 | i-é wa é-ki ka-ra tchi-ka-i dé-sou | Ma maison est près de la gare. |
+| 家は**新しい**です。 | いえはあたらしいです。 | i-é wa a-ta-ra-chi-i dé-sou | Ma maison est neuve. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Mio **padre** lavora in banca. | MI-o PA-dré la-VO-ra inn BAN-ka | Mon père travaille dans une banque. |
-| Mio **fratello** lavora in banca. | MI-o fra-TÈL-lo la-VO-ra inn BAN-ka | Mon frère travaille dans une banque. |
-| Mio **marito** lavora in banca. | MI-o ma-RI-to la-VO-ra inn BAN-ka | Mon mari travaille dans une banque. |
-| Mio **figlio** lavora in banca. | MI-o FI-lio la-VO-ra inn BAN-ka | Mon fils travaille dans une banque. |
+### L4-fr-ja-10 · Décrire son quartier — modèle « 近くに{s}があります。 »
 
-### L4-fr-it-11 · Quartier — modèle « Nel mio quartiere c'è {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 近くに**スーパー**があります。 | ちかくにすーぱーがあります。 | tchi-ka-kou ni sou-ou-pa-a ga a-ri-ma-sou | Il y a un supermarché près de chez moi. |
+| 近くに**公園**があります。 | ちかくにこうえんがあります。 | tchi-ka-kou ni ko-o-én ga a-ri-ma-sou | Il y a un parc près de chez moi. |
+| 近くに**コンビニ**があります。 | ちかくにこんびにがあります。 | tchi-ka-kou ni kon-bi-ni ga a-ri-ma-sou | Il y a une supérette près de chez moi. |
+| 近くに**駅**があります。 | ちかくにえきがあります。 | tchi-ka-kou ni é-ki ga a-ri-ma-sou | Il y a une gare près de chez moi. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Nel mio quartiere c'è **un mercato**. | nél MI-o kouar-TIÈ-ré tchè oun mér-KA-to | Dans mon quartier, il y a un marché. |
-| Nel mio quartiere c'è **una bella piazza**. | nél MI-o kouar-TIÈ-ré tchè OU-na BÈL-la PIAT-tsa | Dans mon quartier, il y a une belle place. |
-| Nel mio quartiere c'è **un parco**. | nél MI-o kouar-TIÈ-ré tchè oun PAR-ko | Dans mon quartier, il y a un parc. |
-| Nel mio quartiere c'è **la metro**. | nél MI-o kouar-TIÈ-ré tchè la MÉ-tro | Dans mon quartier, il y a le métro. |
+### L4-fr-ja-11 · Loisirs : les jours de congé — modèle « 休みの日は{s}。 »
 
-### L4-fr-it-12 · Loisirs — modèle « Nel tempo libero {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 休みの日は**映画を見ます**。 | やすみのひはえいがをみます。 | ya-sou-mi no hi wa é-i-ga o mi-ma-sou | Les jours de congé, je regarde des films. |
+| 休みの日は**料理をします**。 | やすみのひはりょうりをします。 | ya-sou-mi no hi wa ryo-o-ri o chi-ma-sou | Les jours de congé, je cuisine. |
+| 休みの日は**散歩をします**。 | やすみのひはさんぽをします。 | ya-sou-mi no hi wa san-po o chi-ma-sou | Les jours de congé, je me promène. |
+| 休みの日は**友達に会います**。 | やすみのひはともだちにあいます。 | ya-sou-mi no hi wa to-mo-da-tchi ni a-i-ma-sou | Les jours de congé, je vois des amis. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Nel tempo libero **faccio sport**. | nél TÈM-po LI-bé-ro FAT-tcho SPORT | Pendant mon temps libre, je fais du sport. |
-| Nel tempo libero **suono la chitarra**. | nél TÈM-po LI-bé-ro SOUO-no la ki-TAR-ra | Pendant mon temps libre, je joue de la guitare. |
-| Nel tempo libero **vado al cinema**. | nél TÈM-po LI-bé-ro VA-do al TCHI-né-ma | Pendant mon temps libre, je vais au cinéma. |
-| Nel tempo libero **viaggio**. | nél TÈM-po LI-bé-ro VIAD-djo | Pendant mon temps libre, je voyage. |
+### L4-fr-ja-12 · Parler d'un proche — modèle « 父は{s}です。 »
 
-### L4-fr-it-d1 · Parler de sa famille (entre amis, tu)
+> 父 / 母 pour ses propres parents ; お父さん / お母さん pour ceux de l'autre.
 
-- **A** : Hai fratelli o sorelle? — A-i fra-TÈL-li o so-RÈL-lé — Tu as des frères et sœurs ?
-- **B** : Sì, ho un fratello e una sorella. E tu? — SI, o oun fra-TÈL-lo é OU-na so-RÈL-la. é TOU — Oui, j'ai un frère et une sœur. Et toi ?
-- **A** : Io ho due figli. — I-o o DOU-é FI-li — Moi, j'ai deux enfants.
-- **B** : Che bello! Quanti anni hanno? — ké BÈL-lo. KOUAN-ti AN-ni AN-no — Super ! Quel âge ont-ils ?
-- **A** : Otto e dodici. Abitiamo vicino a Lione. — OT-to é DO-di-tchi. a-bi-TIA-mo vi-TCHI-no a LIO-né — Huit et douze ans. On habite près de Lyon.
-- **B** : E tua moglie lavora? — é TOU-a MO-lié la-VO-ra — Et ta femme travaille ?
-- **A** : Sì, lavora in un ospedale. — SI, la-VO-ra inn oun os-pé-DA-lé — Oui, elle travaille dans un hôpital.
-- **B** : Anche mia madre lavora in ospedale! — AN-ké MI-a MA-dré la-VO-ra inn os-pé-DA-lé — Ma mère aussi travaille à l'hôpital !
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 父は**医者**です。 | ちちはいしゃです。 | tchi-tchi wa i-cha dé-sou | Mon père est médecin. |
+| 父は**先生**です。 | ちちはせんせいです。 | tchi-tchi wa sén-sé-i dé-sou | Mon père est professeur. |
+| 父は**元気**です。 | ちちはげんきです。 | tchi-tchi wa gén-ki dé-sou | Mon père est en forme. |
+| 父は**六十歳**です。 | ちちはろくじゅっさいです。 | tchi-tchi wa ro-kou-djous-sa-i dé-sou | Mon père a soixante ans. |
 
-### L4-fr-it-d2 · Une journée type (collègues, tu)
+### L4-fr-ja-d1 · Parler de sa famille
 
-- **A** : A che ora ti alzi di solito? — a ké O-ra ti AL-tsi di SO-li-to — Tu te lèves à quelle heure d'habitude ?
-- **B** : Alle sei e mezza. La mattina porto i bambini a scuola. — AL-lé SÈ-i é MÈD-dza. la mat-TI-na POR-to i bam-BI-ni a SKOUO-la — À six heures et demie. Le matin, j'emmène les enfants à l'école.
-- **A** : E poi vai al lavoro in macchina? — é POÏ VA-i al la-VO-ro inn MAK-ki-na — Et ensuite tu vas au travail en voiture ?
-- **B** : No, prendo il treno. E tu? — no, PRÈN-do il TRÈ-no. é TOU — Non, je prends le train. Et toi ?
-- **A** : Io lavoro da casa due giorni a settimana. — I-o la-VO-ro da KA-za DOU-é DJOR-ni a sét-ti-MA-na — Moi, je travaille de chez moi deux jours par semaine.
-- **B** : Che fortuna! E la sera cosa fai? — ké for-TOU-na. é la SÉ-ra KO-za FA-i — Quelle chance ! Et le soir, qu'est-ce que tu fais ?
-- **A** : Spesso vado in palestra, a volte cucino. — SPÉS-so VA-do inn pa-LÈS-tra, a VOL-té kou-TCHI-no — Souvent je vais à la salle de sport, parfois je cuisine.
-- **B** : Io la sera guardo sempre un film. — I-o la SÉ-ra GOUAR-do SÈM-pré oun FILM — Moi, le soir, je regarde toujours un film.
+- **A** : 田中さん、ご家族は何人ですか。 *(たなかさん、ごかぞくはなんにんですか。)* — ta-na-ka-san, go-ka-zo-kou wa nan-nin dé-sou ka — Monsieur Tanaka, vous êtes combien dans votre famille ?
+- **B** : 四人です。妻と子供が二人います。マリーさんは？ *(よにんです。つまとこどもがふたりいます。まりーさんは？)* — yo-nin dé-sou. tsou-ma to ko-do-mo ga fou-ta-ri i-ma-sou. ma-ri-i-san wa — Quatre. J'ai ma femme et deux enfants. Et vous, Marie ?
+- **A** : 私は兄が一人います。パリに住んでいます。 *(わたしはあにがひとりいます。ぱりにすんでいます。)* — wa-ta-chi wa a-ni ga hi-to-ri i-ma-sou. pa-ri ni soun-dé i-ma-sou — Moi, j'ai un grand frère. Il habite à Paris.
+- **B** : お兄さんの仕事は何ですか。 *(おにいさんのしごとはなんですか。)* — o-ni-i-san no chi-go-to wa nan dé-sou ka — Que fait votre frère comme travail ?
+- **A** : 銀行で働いています。 *(ぎんこうではたらいています。)* — gin-ko-o dé ha-ta-ra-i-té i-ma-sou — Il travaille dans une banque.
+- **B** : そうですか。ご両親は？ *(そうですか。ごりょうしんは？)* — so-o dé-sou ka. go-ryo-o-chin wa — Ah bon. Et vos parents ?
+- **A** : 両親はリヨンに住んでいます。父は医者です。 *(りょうしんはりよんにすんでいます。ちちはいしゃです。)* — ryo-o-chin wa ri-yon ni soun-dé i-ma-sou. tchi-tchi wa i-cha dé-sou — Mes parents habitent à Lyon. Mon père est médecin.
+- **B** : いいですね。 *(いいですね。)* — i-i dé-sou né — C'est bien.
 
-### L4-fr-it-d3 · Le nouveau voisin (Lei)
+### L4-fr-ja-d2 · Une journée type
 
-- **A** : Buongiorno, sono il nuovo vicino. Mi chiamo Paolo. — bouon-DJOR-no, SO-no il NOUO-vo vi-TCHI-no. mi KIA-mo PA-o-lo — Bonjour, je suis le nouveau voisin. Je m'appelle Paolo.
-- **B** : Piacere, Anna. Benvenuto! Da dove viene? — pia-TCHÉ-ré, AN-na. bén-vé-NOU-to. da DO-vé VIÈ-né — Enchantée, Anna. Bienvenue ! D'où venez-vous ?
-- **A** : Sono francese, ma lavoro qui a Bologna. — SO-no fran-TCHÉ-zé, ma la-VO-ro KOUI a bo-LO-gna — Je suis français, mais je travaille ici à Bologne.
-- **B** : Che lavoro fa? — ké la-VO-ro FA — Qu'est-ce que vous faites comme travail ?
-- **A** : Sono ingegnere, lavoro in una fabbrica. — SO-no in-djé-GNÈ-ré, la-VO-ro inn OU-na FAB-bri-ka — Je suis ingénieur, je travaille dans une usine.
-- **B** : Il quartiere Le piace? — il kouar-TIÈ-ré lé PIA-tché — Le quartier vous plaît ?
-- **A** : Sì, molto. C'è un mercato qui vicino? — SI, MOL-to. tchè oun mér-KA-to KOUI vi-TCHI-no — Oui, beaucoup. Il y a un marché près d'ici ?
-- **B** : Sì, ogni sabato mattina, in piazza. — SI, O-gni SA-ba-to mat-TI-na, inn PIAT-tsa — Oui, tous les samedis matin, sur la place.
-- **A** : Perfetto, grazie! — pér-FÈT-to, GRA-tsié — Parfait, merci !
+- **A** : ポールさんは普段何時に起きますか。 *(ぽーるさんはふだんなんじにおきますか。)* — po-o-rou-san wa fou-dan nan-dji ni o-ki-ma-sou ka — Paul, à quelle heure vous levez-vous d'habitude ?
+- **B** : 七時に起きます。朝はコーヒーを飲みます。 *(しちじにおきます。あさはこーひーをのみます。)* — chi-tchi-dji ni o-ki-ma-sou. a-sa wa ko-o-hi-i o no-mi-ma-sou — Je me lève à sept heures. Le matin, je bois un café.
+- **A** : 会社にはどうやって行きますか。 *(かいしゃにはどうやっていきますか。)* — ka-i-cha ni wa do-o yat-té i-ki-ma-sou ka — Comment allez-vous au travail ?
+- **B** : 電車で行きます。三十分ぐらいです。 *(でんしゃでいきます。さんじゅっぷんぐらいです。)* — dén-cha dé i-ki-ma-sou. san-djoup-poun gou-ra-i dé-sou — J'y vais en train. Environ trente minutes.
+- **A** : 夜は何をしますか。 *(よるはなにをしますか。)* — yo-rou wa na-ni o chi-ma-sou ka — Que faites-vous le soir ?
+- **B** : 家で晩ご飯を食べて、日本語を勉強します。 *(いえでばんごはんをたべて、にほんごをべんきょうします。)* — i-é dé ban-go-han o ta-bé-té, ni-hon-go o bén-kyo-o chi-ma-sou — Je dîne à la maison, puis j'étudie le japonais.
+- **A** : 毎日ですか。 *(まいにちですか。)* — ma-i-ni-tchi dé-sou ka — Tous les jours ?
+- **B** : いいえ、時々です。週末はよく映画を見ます。 *(いいえ、ときどきです。しゅうまつはよくえいがをみます。)* — i-i-é, to-ki-do-ki dé-sou. chou-ou-ma-tsou wa yo-kou é-i-ga o mi-ma-sou — Non, parfois. Le week-end, je regarde souvent des films.
 
-*Acquis attendu* : Décrire ses habitudes et sa journée avec des fréquences, présenter sa famille, dire où l'on habite et ce que l'on fait comme travail ou études, et poser les mêmes questions à l'autre.
+### L4-fr-ja-d3 · Mon quartier
+
+- **A** : マリーさんはどこに住んでいますか。 *(まりーさんはどこにすんでいますか。)* — ma-ri-i-san wa do-ko ni soun-dé i-ma-sou ka — Marie, où habitez-vous ?
+- **B** : 駅の近くの小さいアパートに住んでいます。 *(えきのちかくのちいさいあぱーとにすんでいます。)* — é-ki no tchi-ka-kou no tchi-i-sa-i a-pa-a-to ni soun-dé i-ma-sou — J'habite dans un petit appartement près de la gare.
+- **A** : 便利ですね。近くに何がありますか。 *(べんりですね。ちかくになにがありますか。)* — bén-ri dé-sou né. tchi-ka-kou ni na-ni ga a-ri-ma-sou ka — C'est pratique. Qu'y a-t-il près de chez vous ?
+- **B** : スーパーとコンビニと公園があります。 *(すーぱーとこんびにとこうえんがあります。)* — sou-ou-pa-a to kon-bi-ni to ko-o-én ga a-ri-ma-sou — Il y a un supermarché, une supérette et un parc.
+- **A** : 静かですか。 *(しずかですか。)* — chi-zou-ka dé-sou ka — C'est calme ?
+- **B** : はい、とても静かです。休みの日は公園を散歩します。 *(はい、とてもしずかです。やすみのひはこうえんをさんぽします。)* — ha-i, to-té-mo chi-zou-ka dé-sou. ya-sou-mi no hi wa ko-o-én o san-po chi-ma-sou — Oui, très calme. Les jours de congé, je me promène dans le parc.
+- **A** : いいですね。私も散歩が好きです。 *(いいですね。わたしもさんぽがすきです。)* — i-i dé-sou né. wa-ta-chi mo san-po ga sou-ki dé-sou — C'est bien. Moi aussi, j'aime me promener.
+
+*Acquis attendu* : Décrire ses habitudes avec la fréquence (毎日, よく, 時々), sa journée (朝は, 夜は), sa famille avec les compteurs de personnes (一人, 二人), son logement et son quartier, et dire où l'on travaille (で働いています) ou ce qu'on étudie (を勉強しています).

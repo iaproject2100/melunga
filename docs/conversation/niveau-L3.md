@@ -4,161 +4,163 @@ Objectif : Poser des questions, répondre et relancer un échange court.
 
 Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **gras**), 3 dialogues de 6 à 10 répliques. Réutilise les niveaux L1, L2.
 
-## Italien (lecteurs francophones)
+## Japonais (lecteurs francophones)
 
-*Convention phonétique* : Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.
+*Convention phonétique* : Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).
 
-*Statut* : Rédigé à la main ; relecture par un italophone conseillée.
+*Statut* : Relecture linguistique requise (naturel des tournures, lectures des kanji).
 
-### L3-fr-it-01 · Demander un service (entre amis) — modèle « Puoi {s}? »
+### L3-fr-ja-01 · Demander un service — modèle « {s}もらえますか。 »
 
-> Tutoiement (tu) : entre amis, collègues proches, jeunes. Avec un inconnu : « Può… ? ».
+> Le verbe est à la forme en て devant もらえますか.
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Puoi **aiutarmi**? | POUO-i a-you-TAR-mi | Tu peux m'aider ? |
-| Puoi **ripetere**? | POUO-i ri-PÈ-té-ré | Tu peux répéter ? |
-| Puoi **parlare più piano**? | POUO-i par-LA-ré piou PIA-no | Tu peux parler plus lentement ? |
-| Puoi **aspettare un momento**? | POUO-i as-pét-TA-ré oun mo-MÉN-to | Tu peux attendre un moment ? |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **書いて**もらえますか。 | かいてもらえますか。 | ka-i-té mo-ra-é-ma-sou ka | Pouvez-vous l'écrire ? |
+| **手伝って**もらえますか。 | てつだってもらえますか。 | té-tsou-dat-té mo-ra-é-ma-sou ka | Pouvez-vous m'aider ? |
+| **待って**もらえますか。 | まってもらえますか。 | mat-té mo-ra-é-ma-sou ka | Pouvez-vous attendre ? |
+| **見せて**もらえますか。 | みせてもらえますか。 | mi-sé-té mo-ra-é-ma-sou ka | Pouvez-vous me le montrer ? |
 
-### L3-fr-it-02 · Demander un service (vouvoiement) — modèle « Può {s}? »
+### L3-fr-ja-02 · Question ouverte : que… ? — modèle « 何を{s}か。 »
 
-> Vouvoiement (Lei) : avec un inconnu, un commerçant, une administration.
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 何を**食べます**か。 | なにをたべますか。 | na-ni o ta-bé-ma-sou ka | Que mangez-vous ? |
+| 何を**飲みます**か。 | なにをのみますか。 | na-ni o no-mi-ma-sou ka | Que buvez-vous ? |
+| 何を**しています**か。 | なにをしていますか。 | na-ni o chi-té i-ma-sou ka | Que faites-vous ? |
+| 何を**探しています**か。 | なにをさがしていますか。 | na-ni o sa-ga-chi-té i-ma-sou ka | Que cherchez-vous ? |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Può **aiutarmi**? | pouo a-you-TAR-mi | Pouvez-vous m'aider ? |
-| Può **scrivere qui**? | pouo SKRI-vé-ré KOUI | Pouvez-vous écrire ici ? |
-| Può **chiamare un taxi**? | pouo kia-MA-ré oun TAK-si | Pouvez-vous appeler un taxi ? |
-| Può **aprire la finestra**? | pouo a-PRI-ré la fi-NÈS-tra | Pouvez-vous ouvrir la fenêtre ? |
+### L3-fr-ja-03 · Relancer avec le nom — modèle « {s}さんは？ »
 
-### L3-fr-it-03 · Question ouverte : quoi — modèle « Cosa {s}? »
+> On relance toujours avec le nom + さん, jamais あなたは？ (trop direct).
 
-> Tutoiement dans les trois premières variantes.
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **ポール**さんは？ | ぽーるさんは？ | po-o-rou-san wa | Et vous, Paul ? |
+| **マリー**さんは？ | まりーさんは？ | ma-ri-i-san wa | Et vous, Marie ? |
+| **田中**さんは？ | たなかさんは？ | ta-na-ka-san wa | Et vous, monsieur Tanaka ? |
+| **鈴木**さんは？ | すずきさんは？ | sou-zou-ki-san wa | Et vous, madame Suzuki ? |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Cosa **fai**? | KO-za FA-i | Qu'est-ce que tu fais ? |
-| Cosa **vuoi**? | KO-za VOUO-i | Qu'est-ce que tu veux ? |
-| Cosa **prendi**? | KO-za PRÈN-di | Qu'est-ce que tu prends ? |
-| Cosa **significa**? | KO-za si-GNI-fi-ka | Qu'est-ce que ça veut dire ? |
+### L3-fr-ja-04 · Question ouverte : pourquoi… ? — modèle « どうして{s}か。 »
 
-### L3-fr-it-04 · Question ouverte : pourquoi — modèle « Perché {s}? »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| どうして**日本に来ました**か。 | どうしてにほんにきましたか。 | do-o-chi-té ni-hon ni ki-ma-chi-ta ka | Pourquoi êtes-vous venu au Japon ? |
+| どうして**遅れました**か。 | どうしておくれましたか。 | do-o-chi-té o-kou-ré-ma-chi-ta ka | Pourquoi étiez-vous en retard ? |
+| どうして**日本語を勉強しています**か。 | どうしてにほんごをべんきょうしていますか。 | do-o-chi-té ni-hon-go o bén-kyo-o chi-té i-ma-sou ka | Pourquoi étudiez-vous le japonais ? |
+| どうして**ここにいます**か。 | どうしてここにいますか。 | do-o-chi-té ko-ko ni i-ma-sou ka | Pourquoi êtes-vous ici ? |
 
-> Tutoiement.
+### L3-fr-ja-05 · Demander un avis simple — modèle « {s}はどうですか。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Perché **sei qui**? | pér-KÉ SÈ-i KOUI | Pourquoi tu es ici ? |
-| Perché **studi l'italiano**? | pér-KÉ STOU-di li-ta-LIA-no | Pourquoi tu étudies l'italien ? |
-| Perché **non vieni**? | pér-KÉ non VIÈ-ni | Pourquoi tu ne viens pas ? |
-| Perché **è chiuso**? | pér-KÉ è KIOU-zo | Pourquoi c'est fermé ? |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **日本**はどうですか。 | にほんはどうですか。 | ni-hon wa do-o dé-sou ka | Comment trouvez-vous le Japon ? |
+| **仕事**はどうですか。 | しごとはどうですか。 | chi-go-to wa do-o dé-sou ka | Comment trouvez-vous le travail ? |
+| **この料理**はどうですか。 | このりょうりはどうですか。 | ko-no ryo-o-ri wa do-o dé-sou ka | Comment trouvez-vous ce plat ? |
+| **新しい家**はどうですか。 | あたらしいいえはどうですか。 | a-ta-ra-chi-i i-é wa do-o dé-sou ka | Comment trouvez-vous la nouvelle maison ? |
 
-### L3-fr-it-05 · Question ouverte : comment — modèle « Come {s}? »
+### L3-fr-ja-06 · Proposer son aide — modèle « {s}ましょうか。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Come **stai**? | KO-mé STA-i | Comment tu vas ? |
-| Come **si dice in italiano**? | KO-mé si DI-tché inn i-ta-LIA-no | Comment on dit en italien ? |
-| Come **si scrive**? | KO-mé si SKRI-vé | Comment ça s'écrit ? |
-| Come **si arriva alla stazione**? | KO-mé si ar-RI-va AL-la sta-TSIO-né | Comment on va à la gare ? |
+> Radical du verbe + ましょうか : proposition polie de faire quelque chose pour l'autre.
 
-### L3-fr-it-06 · Relancer — modèle « Io {s}. E tu? »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **手伝い**ましょうか。 | てつだいましょうか。 | té-tsou-da-i-ma-cho-o ka | Je vous aide ? |
+| **窓を開け**ましょうか。 | まどをあけましょうか。 | ma-do o a-ké-ma-cho-o ka | J'ouvre la fenêtre ? |
+| **写真を撮り**ましょうか。 | しゃしんをとりましょうか。 | cha-chin o to-ri-ma-cho-o ka | Je prends une photo ? |
+| **一緒に行き**ましょうか。 | いっしょにいきましょうか。 | is-cho ni i-ki-ma-cho-o ka | Je vous accompagne ? |
 
-> Avec un inconnu : « E Lei ? » (é LÈÏ).
+### L3-fr-ja-07 · Accepter ou refuser poliment — modèle « {s} »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Io **sono di Lione**. E tu? | I-o SO-no di LIO-né. é TOU | Moi, je suis de Lyon. Et toi ? |
-| Io **lavoro in banca**. E tu? | I-o la-VO-ro inn BAN-ka. é TOU | Moi, je travaille dans une banque. Et toi ? |
-| Io **abito a Parigi**. E tu? | I-o A-bi-to a pa-RI-dji. é TOU | Moi, j'habite à Paris. Et toi ? |
-| Io **studio italiano**. E tu? | I-o STOU-dio i-ta-LIA-no. é TOU | Moi, j'étudie l'italien. Et toi ? |
+> Formules entières. ちょっと… laissé en suspens est le refus poli le plus courant : on ne dit pas « non » directement.
 
-### L3-fr-it-07 · Répondre oui — modèle « Sì, {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **はい、お願いします。** | はい、おねがいします。 | ha-i, o-né-ga-i chi-ma-sou | Oui, s'il vous plaît. |
+| **はい、ぜひ。** | はい、ぜひ。 | ha-i, zé-hi | Oui, avec plaisir. |
+| **いいえ、結構です。** | いいえ、けっこうです。 | i-i-é, kek-ko-o dé-sou | Non, merci. |
+| **すみません、ちょっと…。** | すみません、ちょっと…。 | sou-mi-ma-sén, tchot-to… | Désolé, ce n'est pas possible… |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Sì, **va bene**. | SI, va BÈ-né | Oui, d'accord. |
-| Sì, **volentieri**. | SI, vo-lén-TIÈ-ri | Oui, volontiers. |
-| Sì, **certo**. | SI, TCHÈR-to | Oui, bien sûr. |
-| Sì, **un momento**. | SI, oun mo-MÉN-to | Oui, un instant. |
+### L3-fr-ja-08 · Question fermée — modèle « {s}か。 »
 
-### L3-fr-it-08 · Répondre non — modèle « No, {s}. »
+> Une question fermée = la phrase polie + か, sans changer l'ordre des mots.
 
-> « Mi dispiace » = désolé / désolée (invariable en italien).
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **日本人です**か。 | にほんじんですか。 | ni-hon-djin dé-sou ka | Vous êtes japonais ? |
+| **学生です**か。 | がくせいですか。 | ga-kou-sé-i dé-sou ka | Vous êtes étudiant ? |
+| **時間があります**か。 | じかんがありますか。 | dji-kan ga a-ri-ma-sou ka | Vous avez le temps ? |
+| **分かります**か。 | わかりますか。 | wa-ka-ri-ma-sou ka | Vous comprenez ? |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| No, **grazie**. | no, GRA-tsié | Non, merci. |
-| No, **non posso**. | no, non POS-so | Non, je ne peux pas. |
-| No, **non lo so**. | no, non lo SO | Non, je ne sais pas. |
-| No, **mi dispiace**. | no, mi dis-PIA-tché | Non, désolé. |
+### L3-fr-ja-09 · Dire qu'on ne sait pas — modèle « {s}か分かりません。 »
 
-### L3-fr-it-09 · Proposer (entre amis) — modèle « Ti va {s}? »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **どこ**か分かりません。 | どこかわかりません。 | do-ko ka wa-ka-ri-ma-sén | Je ne sais pas où c'est. |
+| **いつ**か分かりません。 | いつかわかりません。 | i-tsou ka wa-ka-ri-ma-sén | Je ne sais pas quand. |
+| **誰**か分かりません。 | だれかわかりません。 | da-ré ka wa-ka-ri-ma-sén | Je ne sais pas qui c'est. |
+| **いくら**か分かりません。 | いくらかわかりません。 | i-kou-ra ka wa-ka-ri-ma-sén | Je ne sais pas combien ça coûte. |
 
-> Tutoiement. Avec un inconnu : « Le va… ? ».
+### L3-fr-ja-10 · Se dépanner : comment dit-on… ? — modèle « これは{s}で何と言いますか。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Ti va **un caffè**? | ti va oun kaf-FÈ | Ça te dit un café ? |
-| Ti va **di uscire stasera**? | ti va di ou-CHI-ré sta-SÉ-ra | Ça te dit de sortir ce soir ? |
-| Ti va **di mangiare qualcosa**? | ti va di man-DJA-ré koual-KO-za | Ça te dit de manger quelque chose ? |
-| Ti va **una pizza**? | ti va OU-na PIT-tsa | Ça te dit une pizza ? |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| これは**日本語**で何と言いますか。 | これはにほんごでなんといいますか。 | ko-ré wa ni-hon-go dé nan to i-i-ma-sou ka | Comment dit-on ça en japonais ? |
+| これは**英語**で何と言いますか。 | これはえいごでなんといいますか。 | ko-ré wa é-i-go dé nan to i-i-ma-sou ka | Comment dit-on ça en anglais ? |
+| これは**フランス語**で何と言いますか。 | これはふらんすごでなんといいますか。 | ko-ré wa fou-ran-sou-go dé nan to i-i-ma-sou ka | Comment dit-on ça en français ? |
+| これは**韓国語**で何と言いますか。 | これはかんこくごでなんといいますか。 | ko-ré wa kan-ko-kou-go dé nan to i-i-ma-sou ka | Comment dit-on ça en coréen ? |
 
-### L3-fr-it-10 · Demander si l'autre parle une langue — modèle « Parli {s}? »
+### L3-fr-ja-11 · Au travail : dire son métier — modèle « 仕事は{s}です。 »
 
-> Tutoiement. Avec un inconnu : « Parla… ? ».
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 仕事は**エンジニア**です。 | しごとはえんじにあです。 | chi-go-to wa én-dji-ni-a dé-sou | Je travaille comme ingénieur. |
+| 仕事は**先生**です。 | しごとはせんせいです。 | chi-go-to wa sén-sé-i dé-sou | Je travaille comme professeur. |
+| 仕事は**看護師**です。 | しごとはかんごしです。 | chi-go-to wa kan-go-chi dé-sou | Je travaille comme infirmier. |
+| 仕事は**会社員**です。 | しごとはかいしゃいんです。 | chi-go-to wa ka-i-cha-in dé-sou | Je travaille comme employé de bureau. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Parli **inglese**? | PAR-li in-GLÉ-zé | Tu parles anglais ? |
-| Parli **francese**? | PAR-li fran-TCHÉ-zé | Tu parles français ? |
-| Parli **spagnolo**? | PAR-li spa-GNO-lo | Tu parles espagnol ? |
-| Parli **un po' d'italiano**? | PAR-li oun po di-ta-LIA-no | Tu parles un peu italien ? |
+### L3-fr-ja-12 · À table : offrir quelque chose — modèle « {s}はいかがですか。 »
 
-### L3-fr-it-11 · Se dépanner — modèle « {s} »
+> いかがですか est la forme polie de どうですか pour offrir.
 
-> Formules entières à connaître telles quelles. « Scusa » (tu) / « scusi » (Lei).
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **お茶**はいかがですか。 | おちゃはいかがですか。 | o-tcha wa i-ka-ga dé-sou ka | Voulez-vous du thé ? |
+| **もう一杯**はいかがですか。 | もういっぱいはいかがですか。 | mo-o ip-pa-i wa i-ka-ga dé-sou ka | Voulez-vous un autre verre ? |
+| **デザート**はいかがですか。 | でざーとはいかがですか。 | dé-za-a-to wa i-ka-ga dé-sou ka | Voulez-vous un dessert ? |
+| **お水**はいかがですか。 | おみずはいかがですか。 | o-mi-zou wa i-ka-ga dé-sou ka | Voulez-vous de l'eau ? |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| **Non capisco. Puoi ripetere?** | non ka-PIS-ko. POUO-i ri-PÈ-té-ré | Je ne comprends pas. Tu peux répéter ? |
-| **Come, scusi?** | KO-mé, SKOU-zi | Pardon, vous dites ? |
-| **Può parlare più lentamente?** | pouo par-LA-ré piou lén-ta-MÉN-té | Pouvez-vous parler plus lentement ? |
-| **Cosa vuol dire?** | KO-za vouol DI-ré | Qu'est-ce que ça veut dire ? |
+### L3-fr-ja-d1 · Premier contact au travail
 
-### L3-fr-it-d1 · Premier jour au bureau (du Lei au tu)
+- **A** : はじめまして、マリーと言います。フランスから来ました。 *(はじめまして、まりーといいます。ふらんすからきました。)* — ha-dji-mé-ma-chi-té, ma-ri-i to i-i-ma-sou. fou-ran-sou ka-ra ki-ma-chi-ta — Enchantée, je m'appelle Marie. Je viens de France.
+- **B** : はじめまして、田中です。マリーさんの仕事は何ですか。 *(はじめまして、たなかです。まりーさんのしごとはなんですか。)* — ha-dji-mé-ma-chi-té, ta-na-ka dé-sou. ma-ri-i-san no chi-go-to wa nan dé-sou ka — Enchanté, je suis Tanaka. Quel est votre métier, Marie ?
+- **A** : 仕事はエンジニアです。田中さんは？ *(しごとはえんじにあです。たなかさんは？)* — chi-go-to wa én-dji-ni-a dé-sou. ta-na-ka-san wa — Je travaille comme ingénieure. Et vous, monsieur Tanaka ?
+- **B** : 私は会社員です。どうして日本に来ましたか。 *(わたしはかいしゃいんです。どうしてにほんにきましたか。)* — wa-ta-chi wa ka-i-cha-in dé-sou. do-o-chi-té ni-hon ni ki-ma-chi-ta ka — Je suis employé de bureau. Pourquoi êtes-vous venue au Japon ?
+- **A** : 日本語を勉強しています。日本がとても好きです。 *(にほんごをべんきょうしています。にほんがとてもすきです。)* — ni-hon-go o bén-kyo-o chi-té i-ma-sou. ni-hon ga to-té-mo sou-ki dé-sou — J'étudie le japonais. J'aime beaucoup le Japon.
+- **B** : いいですね。日本語は難しいですか。 *(いいですね。にほんごはむずかしいですか。)* — i-i dé-sou né. ni-hon-go wa mou-zou-ka-chi-i dé-sou ka — C'est bien. Le japonais est difficile ?
+- **A** : 少し。もう少しゆっくり話してもらえますか。 *(すこし。もうすこしゆっくりはなしてもらえますか。)* — sou-ko-chi. mo-o sou-ko-chi youk-kou-ri ha-na-chi-té mo-ra-é-ma-sou ka — Un peu. Pouvez-vous parler un peu plus lentement ?
+- **B** : はい、もちろん。 *(はい、もちろん。)* — ha-i, mo-tchi-ron — Oui, bien sûr.
 
-- **A** : Buongiorno, sono Luca, il nuovo collega. — bouon-DJOR-no, SO-no LOU-ka, il NOUO-vo kol-LÈ-ga — Bonjour, je suis Luca, le nouveau collègue.
-- **B** : Piacere, Giulia. Possiamo darci del tu? — pia-TCHÉ-ré, DJOU-lia. pos-SIA-mo DAR-tchi dél TOU — Enchantée, Giulia. On peut se tutoyer ?
-- **A** : Certo! Di dove sei? — TCHÈR-to. di DO-vé SÈ-i — Bien sûr ! Tu es d'où ?
-- **B** : Sono di Torino. E tu? — SO-no di to-RI-no. é TOU — Je suis de Turin. Et toi ?
-- **A** : Io sono francese, di Lione. — I-o SO-no fran-TCHÉ-zé, di LIO-né — Moi, je suis français, de Lyon.
-- **B** : Che bello! Parli bene italiano. — ké BÈL-lo. PAR-li BÈ-né i-ta-LIA-no — Super ! Tu parles bien italien.
-- **A** : Grazie, ma non capisco tutto. Puoi parlare più piano? — GRA-tsié, ma non ka-PIS-ko TOUT-to. POUO-i par-LA-ré piou PIA-no — Merci, mais je ne comprends pas tout. Tu peux parler plus lentement ?
-- **B** : Sì, certo. Ti va un caffè? — SI, TCHÈR-to. ti va oun kaf-FÈ — Oui, bien sûr. Ça te dit un café ?
-- **A** : Volentieri! — vo-lén-TIÈ-ri — Volontiers !
+### L3-fr-ja-d2 · Au restaurant
 
-### L3-fr-it-d2 · Proposer un dîner (entre amis, tu)
+- **A** : すみません、メニューを見せてもらえますか。 *(すみません、めにゅーをみせてもらえますか。)* — sou-mi-ma-sén, mé-nyou-ou o mi-sé-té mo-ra-é-ma-sou ka — Excusez-moi, pouvez-vous me montrer la carte ?
+- **B** : はい、どうぞ。お飲み物はいかがですか。 *(はい、どうぞ。おのみものはいかがですか。)* — ha-i, do-o-zo. o-no-mi-mo-no wa i-ka-ga dé-sou ka — Oui, voilà. Voulez-vous une boisson ?
+- **A** : お茶をお願いします。これは何ですか。 *(おちゃをおねがいします。これはなんですか。)* — o-tcha o o-né-ga-i chi-ma-sou. ko-ré wa nan dé-sou ka — Du thé, s'il vous plaît. Qu'est-ce que c'est, ça ?
+- **B** : 天ぷらです。野菜と魚です。 *(てんぷらです。やさいとさかなです。)* — tén-pou-ra dé-sou. ya-sa-i to sa-ka-na dé-sou — Des tempuras. Des légumes et du poisson.
+- **A** : じゃあ、天ぷらを一つください。 *(じゃあ、てんぷらをひとつください。)* — dja-a, tén-pou-ra o hi-to-tsou kou-da-sa-i — Alors, une portion de tempuras, s'il vous plaît.
+- **B** : かしこまりました。デザートはいかがですか。 *(かしこまりました。でざーとはいかがですか。)* — ka-chi-ko-ma-ri-ma-chi-ta. dé-za-a-to wa i-ka-ga dé-sou ka — Très bien. Voulez-vous un dessert ?
+- **A** : いいえ、結構です。 *(いいえ、けっこうです。)* — i-i-é, kek-ko-o dé-sou — Non, merci.
+- **B** : はい、少々お待ちください。 *(はい、しょうしょうおまちください。)* — ha-i, cho-o-cho-o o-ma-tchi kou-da-sa-i — Bien, un instant, s'il vous plaît.
 
-- **A** : Ciao Anna, cosa fai stasera? — TCHA-o AN-na, KO-za FA-i sta-SÉ-ra — Salut Anna, qu'est-ce que tu fais ce soir ?
-- **B** : Niente di speciale. Perché? — NIÈN-té di spé-TCHA-lé. pér-KÉ — Rien de spécial. Pourquoi ?
-- **A** : Ti va di mangiare una pizza? — ti va di man-DJA-ré OU-na PIT-tsa — Ça te dit de manger une pizza ?
-- **B** : Sì, volentieri! Dove? — SI, vo-lén-TIÈ-ri. DO-vé — Oui, volontiers ! Où ?
-- **A** : Alla pizzeria vicino alla stazione, alle otto. — AL-la pit-tsé-RI-a vi-TCHI-no AL-la sta-TSIO-né, AL-lé OT-to — À la pizzeria près de la gare, à huit heures.
-- **B** : Come, scusa? Puoi ripetere? — KO-mé, SKOU-za. POUO-i ri-PÈ-té-ré — Pardon ? Tu peux répéter ?
-- **A** : Vicino alla stazione, alle otto. — vi-TCHI-no AL-la sta-TSIO-né, AL-lé OT-to — Près de la gare, à huit heures.
-- **B** : Va bene, a stasera! — va BÈ-né, a sta-SÉ-ra — D'accord, à ce soir !
+### L3-fr-ja-d3 · À la poste
 
-### L3-fr-it-d3 · À la pharmacie (Lei)
+- **A** : すみません、これはフランスまでいくらですか。 *(すみません、これはふらんすまでいくらですか。)* — sou-mi-ma-sén, ko-ré wa fou-ran-sou ma-dé i-kou-ra dé-sou ka — Excusez-moi, c'est combien pour la France ?
+- **B** : 手紙ですか。二百円です。 *(てがみですか。にひゃくえんです。)* — té-ga-mi dé-sou ka. ni-hya-kou én dé-sou — Une lettre ? Deux cents yens.
+- **A** : 二百円ですか。切手を二枚ください。 *(にひゃくえんですか。きってをにまいください。)* — ni-hya-kou én dé-sou ka. kit-té o ni-ma-i kou-da-sa-i — Deux cents yens ? Deux timbres, s'il vous plaît.
+- **B** : はい、どうぞ。 *(はい、どうぞ。)* — ha-i, do-o-zo — Oui, voilà.
+- **A** : すみません、ここに何を書きますか。 *(すみません、ここになにをかきますか。)* — sou-mi-ma-sén, ko-ko ni na-ni o ka-ki-ma-sou ka — Pardon, qu'est-ce que j'écris ici ?
+- **B** : 住所と名前です。書きましょうか。 *(じゅうしょとなまえです。かきましょうか。)* — djou-ou-cho to na-ma-é dé-sou. ka-ki-ma-cho-o ka — L'adresse et le nom. Je l'écris pour vous ?
+- **A** : はい、お願いします。ありがとうございます。 *(はい、おねがいします。ありがとうございます。)* — ha-i, o-né-ga-i chi-ma-sou. a-ri-ga-to-o go-za-i-ma-sou — Oui, s'il vous plaît. Merci beaucoup.
+- **B** : どういたしまして。 *(どういたしまして。)* — do-o i-ta-chi-ma-chi-té — Je vous en prie.
 
-- **A** : Buongiorno, ho bisogno di qualcosa per il mal di testa. — bouon-DJOR-no, o bi-ZO-gno di koual-KO-za pér il mal di TÈS-ta — Bonjour, j'ai besoin de quelque chose pour le mal de tête.
-- **B** : Certo. Ha anche la febbre? — TCHÈR-to. a AN-ké la FÈB-bré — Bien sûr. Vous avez aussi de la fièvre ?
-- **A** : Come, scusi? Non capisco. Può ripetere? — KO-mé, SKOU-zi. non ka-PIS-ko. pouo ri-PÈ-té-ré — Pardon ? Je ne comprends pas. Vous pouvez répéter ?
-- **B** : La febbre. Ha caldo? — la FÈB-bré. a KAL-do — La fièvre. Vous avez chaud ?
-- **A** : No, no. Solo mal di testa. — no, no. SO-lo mal di TÈS-ta — Non, non. Juste mal à la tête.
-- **B** : Allora questo, una compressa ogni otto ore. — al-LO-ra KOUÉS-to, OU-na kom-PRÈS-sa O-gni OT-to O-ré — Alors celui-ci, un comprimé toutes les huit heures.
-- **A** : Perfetto. Quanto costa? — pér-FÈT-to. KOUAN-to KOS-ta — Parfait. Combien ça coûte ?
-- **B** : Cinque euro. — TCHIN-koué È-ou-ro — Cinq euros.
-
-*Acquis attendu* : Poser des questions fermées et ouvertes, y répondre, relancer avec « E tu ? / E Lei ? », demander de répéter ou de parler plus lentement, proposer quelque chose et accepter ou refuser poliment.
+*Acquis attendu* : Poser une question fermée (phrase + か) ou ouverte (何を, どうして, どうですか), répondre (oui, non, je ne sais pas), relancer avec le nom + さん, demander un service avec てもらえますか, proposer avec ましょうか et accepter ou refuser poliment.

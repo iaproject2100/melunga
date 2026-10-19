@@ -4,158 +4,161 @@ Objectif : Reformuler, nuancer et résoudre un imprévu.
 
 Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **gras**), 3 dialogues de 6 à 10 répliques. Réutilise les niveaux L1, L2, L3, L4, L5, L6, L7, L8.
 
-## Italien (lecteurs francophones)
+## Japonais (lecteurs francophones)
 
-*Convention phonétique* : Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.
+*Convention phonétique* : Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).
 
-*Statut* : Rédigé à la main ; relecture par un italophone conseillée.
+*Statut* : Relecture linguistique requise (naturel des tournures, lectures des kanji).
 
-### L9-fr-it-01 · Reformuler : c'est-à-dire — modèle « Cioè, {s}. »
+### L9-fr-ja-01 · Reformuler : autrement dit — modèle « つまり、{s}ということです。 »
 
-> « sicuro » au masculin, « sicura » au féminin.
+> Forme neutre devant ということです ; un nom se place directement devant (休みということです).
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Cioè, **non posso venire stasera**. | tcho-È, non POS-so vé-NI-ré sta-SÉ-ra | C'est-à-dire, je ne peux pas venir ce soir. |
-| Cioè, **preferirei un'altra data**. | tcho-È, pré-fé-ri-RÈ-i ou-NAL-tra DA-ta | C'est-à-dire, je préférerais une autre date. |
-| Cioè, **non sono sicuro**. | tcho-È, non SO-no si-KOU-ro | C'est-à-dire, je ne suis pas sûr. |
-| Cioè, **ho bisogno di più tempo**. | tcho-È, o bi-ZO-gno di piou TÈM-po | C'est-à-dire, j'ai besoin de plus de temps. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| つまり、**明日は休み**ということです。 | つまり、あしたはやすみということです。 | tsou-ma-ri, a-chi-ta wa ya-sou-mi to i-ou ko-to dé-sou | Autrement dit, demain c'est fermé. |
+| つまり、**電車が来ない**ということです。 | つまり、でんしゃがこないということです。 | tsou-ma-ri, dén-cha ga ko-na-i to i-ou ko-to dé-sou | Autrement dit, le train ne vient pas. |
+| つまり、**予約が必要**ということです。 | つまり、よやくがひつようということです。 | tsou-ma-ri, yo-ya-kou ga hi-tsou-yo-o to i-ou ko-to dé-sou | Autrement dit, il faut réserver. |
+| つまり、**もう一度来る**ということです。 | つまり、もういちどくるということです。 | tsou-ma-ri, mo-o i-tchi-do kou-rou to i-ou ko-to dé-sou | Autrement dit, je dois revenir. |
 
-### L9-fr-it-02 · Reformuler : ce que je veux dire — modèle « Quello che voglio dire è che {s}. »
+### L9-fr-ja-02 · Reformuler : ce que je veux dire — modèle « 私が言いたいのは、{s}ということです。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Quello che voglio dire è che **il treno è in ritardo**. | KOUÉL-lo ké VO-lio DI-ré è ké il TRÈ-no è inn ri-TAR-do | Ce que je veux dire, c'est que le train est en retard. |
-| Quello che voglio dire è che **non è colpa mia**. | KOUÉL-lo ké VO-lio DI-ré è ké non è KOL-pa MI-a | Ce que je veux dire, c'est que ce n'est pas ma faute. |
-| Quello che voglio dire è che **dobbiamo trovare una soluzione**. | KOUÉL-lo ké VO-lio DI-ré è ké dob-BIA-mo tro-VA-ré OU-na so-lou-TSIO-né | Ce que je veux dire, c'est qu'on doit trouver une solution. |
-| Quello che voglio dire è che **è meglio aspettare**. | KOUÉL-lo ké VO-lio DI-ré è ké è MÈ-lio as-pét-TA-ré | Ce que je veux dire, c'est qu'il vaut mieux attendre. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 私が言いたいのは、**時間が足りない**ということです。 | わたしがいいたいのは、じかんがたりないということです。 | wa-ta-chi ga i-i-ta-i no wa, dji-kan ga ta-ri-na-i to i-ou ko-to dé-sou | Ce que je veux dire, c'est que le temps manque. |
+| 私が言いたいのは、**もう少し休みが必要だ**ということです。 | わたしがいいたいのは、もうすこしやすみがひつようだということです。 | wa-ta-chi ga i-i-ta-i no wa, mo-o sou-ko-chi ya-sou-mi ga hi-tsou-yo-o da to i-ou ko-to dé-sou | Ce que je veux dire, c'est qu'il me faut un peu plus de repos. |
+| 私が言いたいのは、**値段が高すぎる**ということです。 | わたしがいいたいのは、ねだんがたかすぎるということです。 | wa-ta-chi ga i-i-ta-i no wa, né-dan ga ta-ka-sou-gi-rou to i-ou ko-to dé-sou | Ce que je veux dire, c'est que le prix est trop élevé. |
+| 私が言いたいのは、**説明が分かりにくい**ということです。 | わたしがいいたいのは、せつめいがわかりにくいということです。 | wa-ta-chi ga i-i-ta-i no wa, sé-tsou-mé-i ga wa-ka-ri-ni-kou-i to i-ou ko-to dé-sou | Ce que je veux dire, c'est que l'explication est difficile à comprendre. |
 
-### L9-fr-it-03 · Nuancer : pas vraiment — modèle « Non proprio, {s}. »
+### L9-fr-ja-03 · Nuancer : plutôt… — modèle « どちらかと言うと、{s}です。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Non proprio, **è piuttosto complicato**. | non PRO-prio, è piout-TOS-to kom-pli-KA-to | Pas vraiment, c'est plutôt compliqué. |
-| Non proprio, **in parte sì**. | non PRO-prio, inn PAR-té SI | Pas vraiment, en partie oui. |
-| Non proprio, **direi di no**. | non PRO-prio, di-RÈ-i di NO | Pas vraiment, je dirais que non. |
-| Non proprio, **dipende**. | non PRO-prio, di-PÈN-dé | Pas vraiment, ça dépend. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| どちらかと言うと、**賛成**です。 | どちらかというと、さんせいです。 | do-tchi-ra ka to i-ou to, san-sé-i dé-sou | Je dirais plutôt : pour. |
+| どちらかと言うと、**反対**です。 | どちらかというと、はんたいです。 | do-tchi-ra ka to i-ou to, han-ta-i dé-sou | Je dirais plutôt : contre. |
+| どちらかと言うと、**和食の方が好き**です。 | どちらかというと、わしょくのほうがすきです。 | do-tchi-ra ka to i-ou to, wa-cho-kou no ho-o ga sou-ki dé-sou | Je dirais plutôt : je préfère la cuisine japonaise. |
+| どちらかと言うと、**朝の方がいい**です。 | どちらかというと、あさのほうがいいです。 | do-tchi-ra ka to i-ou to, a-sa no ho-o ga i-i dé-sou | Je dirais plutôt : le matin me va mieux. |
 
-### L9-fr-it-04 · Nuancer : plutôt — modèle « È piuttosto {s}. »
+### L9-fr-ja-04 · Nuancer : pas vraiment — modèle « あまり{s}ません。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| È piuttosto **caro**. | è piout-TOS-to KA-ro | C'est plutôt cher. |
-| È piuttosto **lontano**. | è piout-TOS-to lon-TA-no | C'est plutôt loin. |
-| È piuttosto **difficile**. | è piout-TOS-to dif-FI-tchi-lé | C'est plutôt difficile. |
-| È piuttosto **urgente**. | è piout-TOS-to our-DJÈN-té | C'est plutôt urgent. |
+> あまり + négatif = « pas vraiment, pas tellement ».
 
-### L9-fr-it-05 · Incertitude : peut-être — modèle « Forse {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| あまり**分かり**ません。 | あまりわかりません。 | a-ma-ri wa-ka-ri-ma-sén | Je ne comprends pas vraiment. |
+| あまり**覚えてい**ません。 | あまりおぼえていません。 | a-ma-ri o-bo-é-té i-ma-sén | Je ne me souviens pas vraiment. |
+| あまり**疲れてい**ません。 | あまりつかれていません。 | a-ma-ri tsou-ka-ré-té i-ma-sén | Je ne suis pas vraiment fatigué. |
+| あまり**使い**ません。 | あまりつかいません。 | a-ma-ri tsou-ka-i-ma-sén | Je ne l'utilise pas vraiment. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Forse **il treno è in ritardo**. | FOR-sé il TRÈ-no è inn ri-TAR-do | Peut-être que le train est en retard. |
-| Forse **ho sbagliato**. | FOR-sé o zba-LIA-to | Peut-être que je me suis trompé. |
-| Forse **c'è stato un errore**. | FOR-sé tchè STA-to oun ér-RO-ré | Peut-être qu'il y a eu une erreur. |
-| Forse **domani è meglio**. | FOR-sé do-MA-ni è MÈ-lio | Peut-être que demain c'est mieux. |
+### L9-fr-ja-05 · Exprimer l'incertitude — modèle « {s}かもしれません。 »
 
-### L9-fr-it-06 · Incertitude : il se peut que — modèle « Può darsi che {s}. »
+> Forme neutre (ou nom seul) devant かもしれません.
 
-> Subjonctif après « può darsi che » (sia, abbia), comme en français.
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **遅れる**かもしれません。 | おくれるかもしれません。 | o-kou-ré-rou ka-mo chi-ré-ma-sén | Il se peut que je sois en retard. |
+| **電車が止まっている**かもしれません。 | でんしゃがとまっているかもしれません。 | dén-cha ga to-mat-té i-rou ka-mo chi-ré-ma-sén | Il se peut que le train soit arrêté. |
+| **風邪**かもしれません。 | かぜかもしれません。 | ka-zé ka-mo chi-ré-ma-sén | Il se peut que ce soit un rhume. |
+| **間違い**かもしれません。 | まちがいかもしれません。 | ma-tchi-ga-i ka-mo chi-ré-ma-sén | Il se peut que ce soit une erreur. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Può darsi che **il treno sia in ritardo**. | pouo DAR-si ké il TRÈ-no SI-a inn ri-TAR-do | Il se peut que le train soit en retard. |
-| Può darsi che **abbia perso le chiavi**. | pouo DAR-si ké AB-bia PÈR-so lé KIA-vi | Il se peut que j'aie perdu mes clés. |
-| Può darsi che **non ci sia posto**. | pouo DAR-si ké non tchi SI-a POS-to | Il se peut qu'il n'y ait pas de place. |
-| Può darsi che **sia chiuso**. | pouo DAR-si ké SI-a KIOU-zo | Il se peut que ce soit fermé. |
+### L9-fr-ja-06 · Signaler un problème — modèle « 問題があります。{s}。どうしましょうか。 »
 
-### L9-fr-it-07 · Exposer un problème — modèle « C'è un problema: {s}. Cosa possiamo fare? »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 問題があります。**切符をなくしました**。どうしましょうか。 | もんだいがあります。きっぷをなくしました。どうしましょうか。 | mon-da-i ga a-ri-ma-sou. kip-pou o na-kou-chi-ma-chi-ta. do-o chi-ma-cho-o ka | Il y a un problème : j'ai perdu mon billet. Qu'est-ce qu'on fait ? |
+| 問題があります。**電車に乗り遅れました**。どうしましょうか。 | もんだいがあります。でんしゃにのりおくれました。どうしましょうか。 | mon-da-i ga a-ri-ma-sou. dén-cha ni no-ri-o-kou-ré-ma-chi-ta. do-o chi-ma-cho-o ka | Il y a un problème : j'ai raté le train. Qu'est-ce qu'on fait ? |
+| 問題があります。**予約が入っていません**。どうしましょうか。 | もんだいがあります。よやくがはいっていません。どうしましょうか。 | mon-da-i ga a-ri-ma-sou. yo-ya-kou ga ha-it-té i-ma-sén. do-o chi-ma-cho-o ka | Il y a un problème : la réservation n'est pas enregistrée. Qu'est-ce qu'on fait ? |
+| 問題があります。**書類が足りません**。どうしましょうか。 | もんだいがあります。しょるいがたりません。どうしましょうか。 | mon-da-i ga a-ri-ma-sou. cho-rou-i ga ta-ri-ma-sén. do-o chi-ma-cho-o ka | Il y a un problème : il manque un document. Qu'est-ce qu'on fait ? |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| C'è un problema: **il volo è cancellato**. Cosa possiamo fare? | tchè oun pro-BLÈ-ma: il VO-lo è kan-tchél-LA-to. KO-za pos-SIA-mo FA-ré | Il y a un problème : le vol est annulé. Qu'est-ce qu'on peut faire ? |
-| C'è un problema: **ho perso il passaporto**. Cosa possiamo fare? | tchè oun pro-BLÈ-ma: o PÈR-so il pas-sa-POR-to. KO-za pos-SIA-mo FA-ré | Il y a un problème : j'ai perdu mon passeport. Qu'est-ce qu'on peut faire ? |
-| C'è un problema: **la camera non è pronta**. Cosa possiamo fare? | tchè oun pro-BLÈ-ma: la KA-mé-ra non è PRON-ta. KO-za pos-SIA-mo FA-ré | Il y a un problème : la chambre n'est pas prête. Qu'est-ce qu'on peut faire ? |
-| C'è un problema: **il treno non parte**. Cosa possiamo fare? | tchè oun pro-BLÈ-ma: il TRÈ-no non PAR-té. KO-za pos-SIA-mo FA-ré | Il y a un problème : le train ne part pas. Qu'est-ce qu'on peut faire ? |
+### L9-fr-ja-07 · Vérifier la compréhension — modèle « {s}ということですか。 »
 
-### L9-fr-it-08 · Vérifier la compréhension — modèle « Se ho capito bene, {s}? »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **明日は来なくてもいい**ということですか。 | あしたはこなくてもいいということですか。 | a-chi-ta wa ko-na-kou-té mo i-i to i-ou ko-to dé-sou ka | Vous voulez dire que je n'ai pas besoin de venir demain ? |
+| **全部で五千円**ということですか。 | ぜんぶでごせんえんということですか。 | zén-bou dé go-sén én to i-ou ko-to dé-sou ka | Vous voulez dire cinq mille yens en tout ? |
+| **予約はキャンセル**ということですか。 | よやくはきゃんせるということですか。 | yo-ya-kou wa kyan-sé-rou to i-ou ko-to dé-sou ka | Vous voulez dire que la réservation est annulée ? |
+| **薬は食後に飲む**ということですか。 | くすりはしょくごにのむということですか。 | kou-sou-ri wa cho-kou-go ni no-mou to i-ou ko-to dé-sou ka | Vous voulez dire que je prends le médicament après les repas ? |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Se ho capito bene, **devo tornare domani**? | sé o ka-PI-to BÈ-né, DÉ-vo tor-NA-ré do-MA-ni | Si j'ai bien compris, je dois revenir demain ? |
-| Se ho capito bene, **il treno parte dal binario tre**? | sé o ka-PI-to BÈ-né, il TRÈ-no PAR-té dal bi-NA-rio TRÉ | Si j'ai bien compris, le train part du quai trois ? |
-| Se ho capito bene, **non c'è un supplemento**? | sé o ka-PI-to BÈ-né, non tchè oun soup-plé-MÉN-to | Si j'ai bien compris, il n'y a pas de supplément ? |
-| Se ho capito bene, **posso pagare dopo**? | sé o ka-PI-to BÈ-né, POS-so pa-GA-ré DO-po | Si j'ai bien compris, je peux payer après ? |
+### L9-fr-ja-08 · Santé : dire où l'on a mal — modèle « {s}が痛いです。 »
 
-### L9-fr-it-09 · Santé : décrire un symptôme — modèle « Ho {s} da ieri. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **頭**が痛いです。 | あたまがいたいです。 | a-ta-ma ga i-ta-i dé-sou | J'ai mal à la tête. |
+| **お腹**が痛いです。 | おなかがいたいです。 | o-na-ka ga i-ta-i dé-sou | J'ai mal au ventre. |
+| **喉**が痛いです。 | のどがいたいです。 | no-do ga i-ta-i dé-sou | J'ai mal à la gorge. |
+| **歯**が痛いです。 | はがいたいです。 | ha ga i-ta-i dé-sou | J'ai mal aux dents. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Ho **mal di testa** da ieri. | o mal di TÈS-ta da IÈ-ri | J'ai mal à la tête depuis hier. |
-| Ho **la febbre** da ieri. | o la FÈB-bré da IÈ-ri | J'ai de la fièvre depuis hier. |
-| Ho **mal di gola** da ieri. | o mal di GO-la da IÈ-ri | J'ai mal à la gorge depuis hier. |
-| Ho **mal di schiena** da ieri. | o mal di SKIÈ-na da IÈ-ri | J'ai mal au dos depuis hier. |
+### L9-fr-ja-09 · Santé : depuis hier — modèle « 昨日から{s}。 »
 
-### L9-fr-it-10 · Exprimer un doute — modèle « Non sono sicuro che {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 昨日から**熱があります**。 | きのうからねつがあります。 | ki-no-o ka-ra né-tsou ga a-ri-ma-sou | Depuis hier, j'ai de la fièvre. |
+| 昨日から**咳が出ます**。 | きのうからせきがでます。 | ki-no-o ka-ra sé-ki ga dé-ma-sou | Depuis hier, je tousse. |
+| 昨日から**眠れません**。 | きのうからねむれません。 | ki-no-o ka-ra né-mou-ré-ma-sén | Depuis hier, je n'arrive pas à dormir. |
+| 昨日から**食欲がありません**。 | きのうからしょくよくがありません。 | ki-no-o ka-ra cho-kou-yo-kou ga a-ri-ma-sén | Depuis hier, je n'ai pas d'appétit. |
 
-> « sicuro / sicura » selon le locuteur ; subjonctif après « non sono sicuro che ».
+### L9-fr-ja-10 · Nuancer : en partie — modèle « 一部は{s}が、全部ではありません。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Non sono sicuro che **sia aperto**. | non SO-no si-KOU-ro ké SI-a a-PÈR-to | Je ne suis pas sûr que ce soit ouvert. |
-| Non sono sicuro che **funzioni**. | non SO-no si-KOU-ro ké foun-TSIO-ni | Je ne suis pas sûr que ça marche. |
-| Non sono sicuro che **arrivi in tempo**. | non SO-no si-KOU-ro ké ar-RI-vi inn TÈM-po | Je ne suis pas sûr que ça arrive à temps. |
-| Non sono sicuro che **sia una buona idea**. | non SO-no si-KOU-ro ké SI-a OU-na BOUO-na i-DÈ-a | Je ne suis pas sûr que ce soit une bonne idée. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 一部は**分かります**が、全部ではありません。 | いちぶはわかりますが、ぜんぶではありません。 | i-tchi-bou wa wa-ka-ri-ma-sou ga, zén-bou dé wa a-ri-ma-sén | Je comprends en partie, mais pas tout. |
+| 一部は**読みました**が、全部ではありません。 | いちぶはよみましたが、ぜんぶではありません。 | i-tchi-bou wa yo-mi-ma-chi-ta ga, zén-bou dé wa a-ri-ma-sén | J'ai lu en partie, mais pas tout. |
+| 一部は**終わりました**が、全部ではありません。 | いちぶはおわりましたが、ぜんぶではありません。 | i-tchi-bou wa o-wa-ri-ma-chi-ta ga, zén-bou dé wa a-ri-ma-sén | J'ai fini en partie, mais pas tout. |
+| 一部は**覚えています**が、全部ではありません。 | いちぶはおぼえていますが、ぜんぶではありません。 | i-tchi-bou wa o-bo-é-té i-ma-sou ga, zén-bou dé wa a-ri-ma-sén | Je me souviens en partie, mais pas de tout. |
 
-### L9-fr-it-11 · Objet perdu — modèle « Ho perso {s}. »
+### L9-fr-ja-11 · Dire qu'on n'est pas sûr — modèle « {s}かどうか、よく分かりません。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Ho perso **il portafoglio**. | o PÈR-so il por-ta-FO-lio | J'ai perdu mon portefeuille. |
-| Ho perso **le chiavi**. | o PÈR-so lé KIA-vi | J'ai perdu mes clés. |
-| Ho perso **il telefono**. | o PÈR-so il té-LÈ-fo-no | J'ai perdu mon téléphone. |
-| Ho perso **la valigia**. | o PÈR-so la va-LI-dja | J'ai perdu ma valise. |
+> Forme neutre + かどうか = « si … ou non ».
 
-### L9-fr-it-12 · Proposer une solution — modèle « Possiamo {s}? »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **間に合う**かどうか、よく分かりません。 | まにあうかどうか、よくわかりません。 | ma-ni-a-ou ka do-o ka, yo-kou wa-ka-ri-ma-sén | Je ne sais pas trop si j'arriverai à temps. |
+| **正しい**かどうか、よく分かりません。 | ただしいかどうか、よくわかりません。 | ta-da-chi-i ka do-o ka, yo-kou wa-ka-ri-ma-sén | Je ne sais pas trop si c'est juste. |
+| **必要**かどうか、よく分かりません。 | ひつようかどうか、よくわかりません。 | hi-tsou-yo-o ka do-o ka, yo-kou wa-ka-ri-ma-sén | Je ne sais pas trop si c'est nécessaire. |
+| **開いている**かどうか、よく分かりません。 | あいているかどうか、よくわかりません。 | a-i-té i-rou ka do-o ka, yo-kou wa-ka-ri-ma-sén | Je ne sais pas trop si c'est ouvert. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Possiamo **rimandare a domani**? | pos-SIA-mo ri-man-DA-ré a do-MA-ni | Est-ce qu'on peut reporter à demain ? |
-| Possiamo **trovare un'altra soluzione**? | pos-SIA-mo tro-VA-ré ou-NAL-tra so-lou-TSIO-né | Est-ce qu'on peut trouver une autre solution ? |
-| Possiamo **cambiare il biglietto**? | pos-SIA-mo kam-BIA-ré il bi-LIÉT-to | Est-ce qu'on peut changer le billet ? |
-| Possiamo **chiamare il responsabile**? | pos-SIA-mo kia-MA-ré il rés-pon-SA-bi-lé | Est-ce qu'on peut appeler le responsable ? |
+### L9-fr-ja-12 · Proposer une solution prudente — modèle « {s}方がいいかもしれません。 »
 
-### L9-fr-it-d1 · Train annulé (Lei)
+> Forme en た + 方がいい : conseil ; かもしれません l'adoucit encore.
 
-- **A** : Scusi, il treno delle nove per Milano è cancellato? — SKOU-zi, il TRÈ-no DÉL-lé NO-vé pér mi-LA-no è kan-tchél-LA-to — Excusez-moi, le train de neuf heures pour Milan est annulé ?
-- **B** : Sì, purtroppo. C'è uno sciopero. — SI, pour-TROP-po. tchè OU-no CHO-pé-ro — Oui, malheureusement. Il y a une grève.
-- **A** : C'è un problema: ho una riunione alle undici. Cosa possiamo fare? — tchè oun pro-BLÈ-ma: o OU-na riou-NIO-né AL-lé OUN-di-tchi. KO-za pos-SIA-mo FA-ré — Il y a un problème : j'ai une réunion à onze heures. Qu'est-ce qu'on peut faire ?
-- **B** : Può prendere il regionale delle nove e venti, ma arriva alle undici e mezza. — pouo PRÈN-dé-ré il ré-djo-NA-lé DÉL-lé NO-vé é VÉN-ti, ma ar-RI-va AL-lé OUN-di-tchi é MÈD-dza — Vous pouvez prendre le régional de neuf heures vingt, mais il arrive à onze heures et demie.
-- **A** : Se ho capito bene, non c'è niente prima? — sé o ka-PI-to BÈ-né, non tchè NIÈN-té PRI-ma — Si j'ai bien compris, il n'y a rien avant ?
-- **B** : Non proprio. Forse c'è un autobus alle otto e mezza, ma non sono sicuro. — non PRO-prio. FOR-sé tchè oun AOU-to-bous AL-lé OT-to é MÈD-dza, ma non SO-no si-KOU-ro — Pas vraiment. Peut-être qu'il y a un bus à huit heures et demie, mais je ne suis pas sûr.
-- **A** : Va bene, prendo il regionale. Posso cambiare il biglietto? — va BÈ-né, PRÈN-do il ré-djo-NA-lé. POS-so kam-BIA-ré il bi-LIÉT-to — D'accord, je prends le régional. Je peux changer le billet ?
-- **B** : Certo, glielo cambio subito, senza supplemento. — TCHÈR-to, LIÉ-lo KAM-bio SOU-bi-to, SÈN-tsa soup-plé-MÉN-to — Bien sûr, je vous le change tout de suite, sans supplément.
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **次の電車に乗った**方がいいかもしれません。 | つぎのでんしゃにのったほうがいいかもしれません。 | tsou-gi no dén-cha ni not-ta ho-o ga i-i ka-mo chi-ré-ma-sén | Il vaudrait peut-être mieux prendre le prochain train. |
+| **病院に行った**方がいいかもしれません。 | びょういんにいったほうがいいかもしれません。 | byo-o-in ni it-ta ho-o ga i-i ka-mo chi-ré-ma-sén | Il vaudrait peut-être mieux aller à l'hôpital. |
+| **明日もう一度来た**方がいいかもしれません。 | あしたもういちどきたほうがいいかもしれません。 | a-chi-ta mo-o i-tchi-do ki-ta ho-o ga i-i ka-mo chi-ré-ma-sén | Il vaudrait peut-être mieux revenir demain. |
+| **先に電話した**方がいいかもしれません。 | さきにでんわしたほうがいいかもしれません。 | sa-ki ni dén-wa chi-ta ho-o ga i-i ka-mo chi-ré-ma-sén | Il vaudrait peut-être mieux téléphoner d'abord. |
 
-### L9-fr-it-d2 · Chez le médecin (Lei)
+### L9-fr-ja-d1 · À la gare : train manqué
 
-- **A** : Buongiorno, dottore. Ho mal di gola e la febbre da ieri. — bouon-DJOR-no, dot-TO-ré. o mal di GO-la é la FÈB-bré da IÈ-ri — Bonjour, docteur. J'ai mal à la gorge et de la fièvre depuis hier.
-- **B** : Vediamo. Ha anche la tosse? — vé-DIA-mo. a AN-ké la TOS-sé — Voyons. Vous toussez aussi ?
-- **A** : Non proprio, solo un po' la sera. — non PRO-prio, SO-lo oun po la SÉ-ra — Pas vraiment, juste un peu le soir.
-- **B** : Può darsi che sia solo un'influenza. — pouo DAR-si ké SI-a SO-lo ou-nin-flou-ÈN-tsa — Il se peut que ce soit juste une grippe.
-- **A** : Cioè, non è grave? — tcho-È, non è GRA-vé — C'est-à-dire, ce n'est pas grave ?
-- **B** : No. Riposo, molta acqua e queste compresse per cinque giorni. — no. ri-PO-zo, MOL-ta A-koua é KOUÉS-té kom-PRÈS-sé pér TCHIN-koué DJOR-ni — Non. Du repos, beaucoup d'eau et ces comprimés pendant cinq jours.
-- **A** : Se ho capito bene, una compressa al giorno? — sé o ka-PI-to BÈ-né, OU-na kom-PRÈS-sa al DJOR-no — Si j'ai bien compris, un comprimé par jour ?
-- **B** : Due: una la mattina e una la sera. Se non migliora, torni tra una settimana. — DOU-é: OU-na la mat-TI-na é OU-na la SÉ-ra. sé non mi-LIO-ra, TOR-ni tra OU-na sét-ti-MA-na — Deux : un le matin et un le soir. Si ça ne s'améliore pas, revenez dans une semaine.
-- **A** : Grazie, dottore. — GRA-tsié, dot-TO-ré — Merci, docteur.
+- **A** : すみません、問題があります。電車に乗り遅れました。どうしましょうか。 *(すみません、もんだいがあります。でんしゃにのりおくれました。どうしましょうか。)* — sou-mi-ma-sén, mon-da-i ga a-ri-ma-sou. dén-cha ni no-ri-o-kou-ré-ma-chi-ta. do-o chi-ma-cho-o ka — Excusez-moi, il y a un problème : j'ai raté le train. Qu'est-ce que je fais ?
+- **B** : 次の電車は三十分後です。この切符で乗れます。 *(つぎのでんしゃはさんじゅっぷんごです。このきっぷでのれます。)* — tsou-gi no dén-cha wa san-djoup-poun-go dé-sou. ko-no kip-pou dé no-ré-ma-sou — Le prochain train est dans trente minutes. Vous pouvez monter avec ce billet.
+- **A** : つまり、同じ切符でいいということですか。 *(つまり、おなじきっぷでいいということですか。)* — tsou-ma-ri, o-na-dji kip-pou dé i-i to i-ou ko-to dé-sou ka — Autrement dit, vous voulez dire que le même billet suffit ?
+- **B** : はい。でも、指定席は使えないかもしれません。 *(はい。でも、していせきはつかえないかもしれません。)* — ha-i. dé-mo, chi-té-i-sé-ki wa tsou-ka-é-na-i ka-mo chi-ré-ma-sén — Oui. Mais il se peut que vous ne puissiez pas utiliser la place réservée.
+- **A** : 自由席ということですか。 *(じゆうせきということですか。)* — dji-you-ou-sé-ki to i-ou ko-to dé-sou ka — Vous voulez dire en place libre ?
+- **B** : はい、自由席なら大丈夫です。 *(はい、じゆうせきならだいじょうぶです。)* — ha-i, dji-you-ou-sé-ki na-ra da-i-djo-o-bou dé-sou — Oui, en place libre, pas de problème.
+- **A** : 分かりました。間に合うかどうか分かりませんが、行ってみます。 *(わかりました。まにあうかどうかわかりませんが、いってみます。)* — wa-ka-ri-ma-chi-ta. ma-ni-a-ou ka do-o ka wa-ka-ri-ma-sén ga, it-té mi-ma-sou — D'accord. Je ne sais pas si j'arriverai à temps, mais je vais essayer.
+- **B** : 気をつけて。 *(きをつけて。)* — ki o tsou-ké-té — Bonne route.
 
-### L9-fr-it-d3 · Malentendu au travail (collègues, tu)
+### L9-fr-ja-d2 · Chez le médecin
 
-- **A** : Marco, c'è un problema: il cliente dice che la consegna era per oggi. — MAR-ko, tchè oun pro-BLÈ-ma: il kli-ÈN-té DI-tché ké la kon-SÉ-gna È-ra pér OD-dji — Marco, il y a un problème : le client dit que la livraison était pour aujourd'hui.
-- **B** : Come? Io avevo capito venerdì. — KO-mé. I-o a-VÉ-vo ka-PI-to vé-nér-DI — Comment ? Moi, j'avais compris vendredi.
-- **A** : Forse c'è stato un errore nella mail. — FOR-sé tchè STA-to oun ér-RO-ré NÉL-la MÈÏL — Peut-être qu'il y a eu une erreur dans le mail.
-- **B** : Può darsi. Quello che voglio dire è che non è colpa nostra. — pouo DAR-si. KOUÉL-lo ké VO-lio DI-ré è ké non è KOL-pa NOS-tra — C'est possible. Ce que je veux dire, c'est que ce n'est pas notre faute.
-- **A** : In parte sì, in parte no. Cosa possiamo fare? — inn PAR-té SI, inn PAR-té no. KO-za pos-SIA-mo FA-ré — En partie oui, en partie non. Qu'est-ce qu'on peut faire ?
-- **B** : Possiamo consegnare una prima parte oggi e il resto venerdì. — pos-SIA-mo kon-sé-GNA-ré OU-na PRI-ma PAR-té OD-dji é il RÈS-to vé-nér-DI — On peut livrer une première partie aujourd'hui et le reste vendredi.
-- **A** : Se ho capito bene, chiamo il cliente e gli propongo questo? — sé o ka-PI-to BÈ-né, KIA-mo il kli-ÈN-té é li pro-PON-go KOUÉS-to — Si j'ai bien compris, j'appelle le client et je lui propose ça ?
-- **B** : Esatto. E ci scusiamo per il malinteso. — é-ZAT-to. é tchi skou-ZIA-mo pér il ma-lin-TÉ-zo — Exactement. Et on s'excuse pour le malentendu.
+- **A** : どうしましたか。 *(どうしましたか。)* — do-o chi-ma-chi-ta ka — Qu'est-ce qui vous arrive ?
+- **B** : 昨日から熱があります。喉も痛いです。 *(きのうからねつがあります。のどもいたいです。)* — ki-no-o ka-ra né-tsou ga a-ri-ma-sou. no-do mo i-ta-i dé-sou — Depuis hier, j'ai de la fièvre. J'ai aussi mal à la gorge.
+- **A** : 咳は出ますか。 *(せきはでますか。)* — sé-ki wa dé-ma-sou ka — Vous toussez ?
+- **B** : あまり出ません。でも、よく眠れません。 *(あまりでません。でも、よくねむれません。)* — a-ma-ri dé-ma-sén. dé-mo, yo-kou né-mou-ré-ma-sén — Pas vraiment. Mais je dors mal.
+- **A** : 風邪かもしれませんね。薬を出します。 *(かぜかもしれませんね。くすりをだします。)* — ka-zé ka-mo chi-ré-ma-sén né. kou-sou-ri o da-chi-ma-sou — C'est peut-être un rhume. Je vous prescris un médicament.
+- **B** : 薬は食後に飲むということですか。 *(くすりはしょくごにのむということですか。)* — kou-sou-ri wa cho-kou-go ni no-mou to i-ou ko-to dé-sou ka — Vous voulez dire que je le prends après les repas ?
+- **A** : はい、一日三回、食後に。明日は仕事を休んだ方がいいかもしれません。 *(はい、いちにちさんかい、しょくごに。あしたはしごとをやすんだほうがいいかもしれません。)* — ha-i, i-tchi-ni-tchi san-ka-i, cho-kou-go ni. a-chi-ta wa chi-go-to o ya-soun-da ho-o ga i-i ka-mo chi-ré-ma-sén — Oui, trois fois par jour, après les repas. Il vaudrait peut-être mieux ne pas travailler demain.
+- **B** : 分かりました。ありがとうございます。 *(わかりました。ありがとうございます。)* — wa-ka-ri-ma-chi-ta. a-ri-ga-to-o go-za-i-ma-sou — D'accord. Merci beaucoup.
 
-*Acquis attendu* : Reformuler (cioè, quello che voglio dire è…), nuancer (piuttosto, non proprio, in parte), exprimer l'incertitude (forse, può darsi che) et gérer un imprévu en vérifiant qu'on a bien compris.
+### L9-fr-ja-d3 · Au travail : un malentendu
+
+- **A** : 田中さん、会議は明日の十時ということですか。 *(たなかさん、かいぎはあしたのじゅうじということですか。)* — ta-na-ka-san, ka-i-gi wa a-chi-ta no djou-ou-dji to i-ou ko-to dé-sou ka — Monsieur Tanaka, vous voulez dire que la réunion est demain à dix heures ?
+- **B** : いいえ、十時じゃなくて、午後二時です。 *(いいえ、じゅうじじゃなくて、ごごにじです。)* — i-i-é, djou-ou-dji dja na-kou-té, go-go ni-dji dé-sou — Non, pas dix heures : quatorze heures.
+- **A** : すみません、あまり分かりませんでした。つまり、午前中は来なくてもいいということですか。 *(すみません、あまりわかりませんでした。つまり、ごぜんちゅうはこなくてもいいということですか。)* — sou-mi-ma-sén, a-ma-ri wa-ka-ri-ma-sén dé-chi-ta. tsou-ma-ri, go-zén-tchou-ou wa ko-na-kou-té mo i-i to i-ou ko-to dé-sou ka — Pardon, je n'avais pas bien compris. Autrement dit, je n'ai pas besoin de venir le matin ?
+- **B** : いいえ。私が言いたいのは、会議だけが午後に変わったということです。 *(いいえ。わたしがいいたいのは、かいぎだけがごごにかわったということです。)* — i-i-é. wa-ta-chi ga i-i-ta-i no wa, ka-i-gi da-ké ga go-go ni ka-wat-ta to i-ou ko-to dé-sou — Non. Ce que je veux dire, c'est que seule la réunion a été déplacée à l'après-midi.
+- **A** : 分かりました。資料は間に合うかどうか、よく分かりません。 *(わかりました。しりょうはまにあうかどうか、よくわかりません。)* — wa-ka-ri-ma-chi-ta. chi-ryo-o wa ma-ni-a-ou ka do-o ka, yo-kou wa-ka-ri-ma-sén — D'accord. Pour les documents, je ne sais pas trop s'ils seront prêts à temps.
+- **B** : 一部でもいいですよ。全部じゃなくても大丈夫です。 *(いちぶでもいいですよ。ぜんぶじゃなくてもだいじょうぶです。)* — i-tchi-bou dé mo i-i dé-sou yo. zén-bou dja na-kou-té mo da-i-djo-o-bou dé-sou — Une partie suffira. Pas besoin que tout soit prêt.
+- **A** : ありがとうございます。じゃあ、午後二時に。 *(ありがとうございます。じゃあ、ごごにじに。)* — a-ri-ga-to-o go-za-i-ma-sou. dja-a, go-go ni-dji ni — Merci. Alors, à quatorze heures.
+- **B** : はい、お願いします。 *(はい、おねがいします。)* — ha-i, o-né-ga-i chi-ma-sou — Oui, à tout à l'heure.
+
+*Acquis attendu* : Reformuler (つまり…ということです, 私が言いたいのは…), nuancer (どちらかと言うと, あまり…ません, 一部は), exprimer l'incertitude (かもしれません, かどうか分かりません), signaler un problème et demander quoi faire, vérifier la compréhension (…ということですか) et décrire un symptôme.

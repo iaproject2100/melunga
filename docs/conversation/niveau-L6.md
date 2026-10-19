@@ -4,155 +4,160 @@ Objectif : Parler de projets, proposer et organiser une activité.
 
 Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **gras**), 3 dialogues de 6 à 10 répliques. Réutilise les niveaux L1, L2, L3, L4, L5.
 
-## Italien (lecteurs francophones)
+## Japonais (lecteurs francophones)
 
-*Convention phonétique* : Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.
+*Convention phonétique* : Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).
 
-*Statut* : Rédigé à la main ; relecture par un italophone conseillée.
+*Statut* : Relecture linguistique requise (naturel des tournures, lectures des kanji).
 
-### L6-fr-it-01 · Intention — modèle « Ho intenzione di {s}. »
+### L6-fr-ja-01 · Dire son intention — modèle « {s}つもりです。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Ho intenzione di **cambiare lavoro**. | o in-tén-TSIO-né di kam-BIA-ré la-VO-ro | J'ai l'intention de changer de travail. |
-| Ho intenzione di **imparare l'italiano**. | o in-tén-TSIO-né di im-pa-RA-ré li-ta-LIA-no | J'ai l'intention d'apprendre l'italien. |
-| Ho intenzione di **andare in Italia**. | o in-tén-TSIO-né di an-DA-ré inn i-TA-lia | J'ai l'intention d'aller en Italie. |
-| Ho intenzione di **comprare una casa**. | o in-tén-TSIO-né di kom-PRA-ré OU-na KA-za | J'ai l'intention d'acheter une maison. |
+> Verbe à la forme du dictionnaire + つもりです.
 
-### L6-fr-it-02 · Demain (futur) — modèle « Domani {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **週末に京都に行く**つもりです。 | しゅうまつにきょうとにいくつもりです。 | chou-ou-ma-tsou ni kyo-o-to ni i-kou tsou-mo-ri dé-sou | J'ai l'intention d'aller à Kyoto ce week-end. |
+| **来年日本で働く**つもりです。 | らいねんにほんではたらくつもりです。 | ra-i-nén ni-hon dé ha-ta-ra-kou tsou-mo-ri dé-sou | J'ai l'intention de travailler au Japon l'année prochaine. |
+| **今晩早く寝る**つもりです。 | こんばんはやくねるつもりです。 | kon-ban ha-ya-kou né-rou tsou-mo-ri dé-sou | J'ai l'intention de me coucher tôt ce soir. |
+| **新しい車を買う**つもりです。 | あたらしいくるまをかうつもりです。 | a-ta-ra-chi-i kou-rou-ma o ka-ou tsou-mo-ri dé-sou | J'ai l'intention d'acheter une nouvelle voiture. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Domani **andrò a Roma**. | do-MA-ni an-DRO a RO-ma | Demain, j'irai à Rome. |
-| Domani **lavorerò da casa**. | do-MA-ni la-vo-ré-RO da KA-za | Demain, je travaillerai de chez moi. |
-| Domani **vedrò i miei amici**. | do-MA-ni vé-DRO i MIÈ-i a-MI-tchi | Demain, je verrai mes amis. |
-| Domani **partirò presto**. | do-MA-ni par-ti-RO PRÈS-to | Demain, je partirai tôt. |
+### L6-fr-ja-02 · Dire ce qui est prévu — modèle « {s}予定です。 »
 
-### L6-fr-it-03 · Proposer : on pourrait — modèle « Potremmo {s}? »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **三時に出発する**予定です。 | さんじにしゅっぱつするよていです。 | san-dji ni chup-pa-tsou sou-rou yo-té-i dé-sou | Je prévois de partir à trois heures. |
+| **来月引っ越す**予定です。 | らいげつひっこすよていです。 | ra-i-gé-tsou hik-ko-sou yo-té-i dé-sou | Je prévois de déménager le mois prochain. |
+| **友達と晩ご飯を食べる**予定です。 | ともだちとばんごはんをたべるよていです。 | to-mo-da-tchi to ban-go-han o ta-bé-rou yo-té-i dé-sou | Je prévois de dîner avec des amis. |
+| **東京に出張する**予定です。 | とうきょうにしゅっちょうするよていです。 | to-o-kyo-o ni chout-tcho-o sou-rou yo-té-i dé-sou | Je prévois d'aller en déplacement à Tokyo. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Potremmo **andare al cinema**? | po-TRÉM-mo an-DA-ré al TCHI-né-ma | On pourrait aller au cinéma ? |
-| Potremmo **cenare insieme**? | po-TRÉM-mo tché-NA-ré in-SIÈ-mé | On pourrait dîner ensemble ? |
-| Potremmo **vederci domani**? | po-TRÉM-mo vé-DÉR-tchi do-MA-ni | On pourrait se voir demain ? |
-| Potremmo **prendere un caffè**? | po-TRÉM-mo PRÈN-dé-ré oun kaf-FÈ | On pourrait prendre un café ? |
+### L6-fr-ja-03 · Inviter — modèle « {s}ませんか。 »
 
-### L6-fr-it-04 · Proposer : ça te dit (tu) — modèle « Ti va di {s}? »
+> Radical du verbe + ませんか : l'invitation à la forme négative est la plus polie et la plus courante.
 
-> Tutoiement. Avec un inconnu : « Le va di… ? » (lé va di).
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **一緒に昼ご飯を食べ**ませんか。 | いっしょにひるごはんをたべませんか。 | is-cho ni hi-rou-go-han o ta-bé-ma-sén ka | Ça vous dirait de déjeuner ensemble ? |
+| **映画を見に行き**ませんか。 | えいがをみにいきませんか。 | é-i-ga o mi ni i-ki-ma-sén ka | Ça vous dirait d'aller voir un film ? |
+| **コーヒーを飲み**ませんか。 | こーひーをのみませんか。 | ko-o-hi-i o no-mi-ma-sén ka | Ça vous dirait de prendre un café ? |
+| **週末にハイキングに行き**ませんか。 | しゅうまつにはいきんぐにいきませんか。 | chou-ou-ma-tsou ni ha-i-kin-gou ni i-ki-ma-sén ka | Ça vous dirait de faire une randonnée ce week-end ? |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Ti va di **uscire stasera**? | ti va di ou-CHI-ré sta-SÉ-ra | Ça te dit de sortir ce soir ? |
-| Ti va di **venire con noi**? | ti va di vé-NI-ré kon NOÏ | Ça te dit de venir avec nous ? |
-| Ti va di **fare una passeggiata**? | ti va di FA-ré OU-na pas-séd-DJA-ta | Ça te dit de faire une promenade ? |
-| Ti va di **andare al concerto**? | ti va di an-DA-ré al kon-TCHÈR-to | Ça te dit d'aller au concert ? |
+### L6-fr-ja-04 · Fixer un moment — modèle « {s}に会いましょう。 »
 
-### L6-fr-it-05 · Fixer lieu et heure — modèle « Allora, {s} davanti alla stazione. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **土曜日の十時**に会いましょう。 | どようびのじゅうじにあいましょう。 | do-yo-o-bi no djou-ou-dji ni a-i-ma-cho-o | Retrouvons-nous samedi à dix heures. |
+| **明日の午後**に会いましょう。 | あしたのごごにあいましょう。 | a-chi-ta no go-go ni a-i-ma-cho-o | Retrouvons-nous demain après-midi. |
+| **七時**に会いましょう。 | しちじにあいましょう。 | chi-tchi-dji ni a-i-ma-cho-o | Retrouvons-nous à sept heures. |
+| **来週の月曜日**に会いましょう。 | らいしゅうのげつようびにあいましょう。 | ra-i-chou-ou no gé-tsou-yo-o-bi ni a-i-ma-cho-o | Retrouvons-nous lundi prochain. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Allora, **sabato alle dieci** davanti alla stazione. | al-LO-ra, SA-ba-to AL-lé DIÈ-tchi da-VAN-ti AL-la sta-TSIO-né | Alors, samedi à dix heures devant la gare. |
-| Allora, **domani alle sei** davanti alla stazione. | al-LO-ra, do-MA-ni AL-lé SÈ-i da-VAN-ti AL-la sta-TSIO-né | Alors, demain à six heures devant la gare. |
-| Allora, **stasera alle otto** davanti alla stazione. | al-LO-ra, sta-SÉ-ra AL-lé OT-to da-VAN-ti AL-la sta-TSIO-né | Alors, ce soir à huit heures devant la gare. |
-| Allora, **domenica a mezzogiorno** davanti alla stazione. | al-LO-ra, do-MÉ-ni-ka a méd-dzo-DJOR-no da-VAN-ti AL-la sta-TSIO-né | Alors, dimanche à midi devant la gare. |
+### L6-fr-ja-05 · Fixer un lieu — modèle « {s}で待っています。 »
 
-### L6-fr-it-06 · Refuser et proposer autre chose — modèle « Non posso, ma {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **駅の前**で待っています。 | えきのまえでまっています。 | é-ki no ma-é dé mat-té i-ma-sou | Je vous attends devant la gare. |
+| **カフェ**で待っています。 | かふぇでまっています。 | ka-fé dé mat-té i-ma-sou | Je vous attends au café. |
+| **入口**で待っています。 | いりぐちでまっています。 | i-ri-gou-tchi dé mat-té i-ma-sou | Je vous attends à l'entrée. |
+| **ホテルのロビー**で待っています。 | ほてるのろびーでまっています。 | ho-té-rou no ro-bi-i dé mat-té i-ma-sou | Je vous attends dans le hall de l'hôtel. |
 
-> Tutoiement dans « ti chiamo ».
+### L6-fr-ja-06 · Refuser et proposer autre chose — modèle « ちょっと無理ですが、{s}。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Non posso, ma **possiamo vederci domani**. | non POS-so, ma pos-SIA-mo vé-DÉR-tchi do-MA-ni | Je ne peux pas, mais on peut se voir demain. |
-| Non posso, ma **posso venire più tardi**. | non POS-so, ma POS-so vé-NI-ré piou TAR-di | Je ne peux pas, mais je peux venir plus tard. |
-| Non posso, ma **ti chiamo stasera**. | non POS-so, ma ti KIA-mo sta-SÉ-ra | Je ne peux pas, mais je t'appelle ce soir. |
-| Non posso, ma **la prossima volta sì**. | non POS-so, ma la PROS-si-ma VOL-ta SI | Je ne peux pas, mais la prochaine fois, oui. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| ちょっと無理ですが、**日曜日なら大丈夫です**。 | ちょっとむりですが、にちようびならだいじょうぶです。 | tchot-to mou-ri dé-sou ga, ni-tchi-yo-o-bi na-ra da-i-djo-o-bou dé-sou | Là, c'est difficile, mais dimanche, c'est possible. |
+| ちょっと無理ですが、**来週はどうですか**。 | ちょっとむりですが、らいしゅうはどうですか。 | tchot-to mou-ri dé-sou ga, ra-i-chou-ou wa do-o dé-sou ka | Là, c'est difficile, mais la semaine prochaine, ça irait ? |
+| ちょっと無理ですが、**夜なら行けます**。 | ちょっとむりですが、よるならいけます。 | tchot-to mou-ri dé-sou ga, yo-rou na-ra i-ké-ma-sou | Là, c'est difficile, mais le soir, je peux venir. |
+| ちょっと無理ですが、**また今度お願いします**。 | ちょっとむりですが、またこんどおねがいします。 | tchot-to mou-ri dé-sou ga, ma-ta kon-do o-né-ga-i chi-ma-sou | Là, c'est difficile, mais une autre fois, volontiers. |
 
-### L6-fr-it-07 · Souhait — modèle « Mi piacerebbe {s}. »
+### L6-fr-ja-07 · Exprimer un souhait — modèle « {s}たいです。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Mi piacerebbe **visitare Napoli**. | mi pia-tché-RÈB-bé vi-zi-TA-ré NA-po-li | J'aimerais visiter Naples. |
-| Mi piacerebbe **vivere in Italia**. | mi pia-tché-RÈB-bé VI-vé-ré inn i-TA-lia | J'aimerais vivre en Italie. |
-| Mi piacerebbe **venire con te**. | mi pia-tché-RÈB-bé vé-NI-ré kon TÉ | J'aimerais venir avec toi. |
-| Mi piacerebbe **vedere il mare**. | mi pia-tché-RÈB-bé vé-DÉ-ré il MA-ré | J'aimerais voir la mer. |
+> Radical du verbe + たいです. Avec たい, l'objet prend souvent が (寿司が食べたい).
 
-### L6-fr-it-08 · Confirmer — modèle « Allora siamo d'accordo per {s}? »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **日本語が上手になり**たいです。 | にほんごがじょうずになりたいです。 | ni-hon-go ga djo-o-zou ni na-ri-ta-i dé-sou | Je voudrais devenir bon en japonais. |
+| **沖縄に行き**たいです。 | おきなわにいきたいです。 | o-ki-na-wa ni i-ki-ta-i dé-sou | Je voudrais aller à Okinawa. |
+| **新しい仕事を探し**たいです。 | あたらしいしごとをさがしたいです。 | a-ta-ra-chi-i chi-go-to o sa-ga-chi-ta-i dé-sou | Je voudrais chercher un nouveau travail. |
+| **寿司が食べ**たいです。 | すしがたべたいです。 | sou-chi ga ta-bé-ta-i dé-sou | Je voudrais manger des sushis. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Allora siamo d'accordo per **sabato**? | al-LO-ra SIA-mo dak-KOR-do pér SA-ba-to | Alors, on est d'accord pour samedi ? |
-| Allora siamo d'accordo per **domani sera**? | al-LO-ra SIA-mo dak-KOR-do pér do-MA-ni SÉ-ra | Alors, on est d'accord pour demain soir ? |
-| Allora siamo d'accordo per **le dieci**? | al-LO-ra SIA-mo dak-KOR-do pér lé DIÈ-tchi | Alors, on est d'accord pour dix heures ? |
-| Allora siamo d'accordo per **il pranzo di domenica**? | al-LO-ra SIA-mo dak-KOR-do pér il PRAN-tso di do-MÉ-ni-ka | Alors, on est d'accord pour le déjeuner de dimanche ? |
+### L6-fr-ja-08 · Proposer un moment ou un lieu — modèle « {s}はどうですか。 »
 
-### L6-fr-it-09 · Suggérer : et si on… — modèle « Perché non {s}? »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **土曜日**はどうですか。 | どようびはどうですか。 | do-yo-o-bi wa do-o dé-sou ka | Que diriez-vous de samedi ? |
+| **駅前のカフェ**はどうですか。 | えきまえのかふぇはどうですか。 | é-ki-ma-é no ka-fé wa do-o dé-sou ka | Que diriez-vous du café devant la gare ? |
+| **七時**はどうですか。 | しちじはどうですか。 | chi-tchi-dji wa do-o dé-sou ka | Que diriez-vous de sept heures ? |
+| **イタリア料理**はどうですか。 | いたりありょうりはどうですか。 | i-ta-ri-a-ryo-o-ri wa do-o dé-sou ka | Que diriez-vous d'un restaurant italien ? |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Perché non **andiamo al mare**? | pér-KÉ non an-DIA-mo al MA-ré | Et si on allait à la mer ? |
-| Perché non **mangiamo fuori**? | pér-KÉ non man-DJA-mo FOUO-ri | Et si on mangeait dehors ? |
-| Perché non **prendiamo il treno**? | pér-KÉ non prén-DIA-mo il TRÈ-no | Et si on prenait le train ? |
-| Perché non **restiamo a casa**? | pér-KÉ non rés-TIA-mo a KA-za | Et si on restait à la maison ? |
+### L6-fr-ja-09 · Confirmer le rendez-vous — modèle « じゃあ、{s}に。 »
 
-### L6-fr-it-10 · Vouloir — modèle « Voglio {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| じゃあ、**土曜日の十時**に。 | じゃあ、どようびのじゅうじに。 | dja-a, do-yo-o-bi no djou-ou-dji ni | Alors, à samedi dix heures. |
+| じゃあ、**明日**に。 | じゃあ、あしたに。 | dja-a, a-chi-ta ni | Alors, à demain. |
+| じゃあ、**今晩七時**に。 | じゃあ、こんばんしちじに。 | dja-a, kon-ban chi-tchi-dji ni | Alors, à ce soir sept heures. |
+| じゃあ、**来週の月曜日**に。 | じゃあ、らいしゅうのげつようびに。 | dja-a, ra-i-chou-ou no gé-tsou-yo-o-bi ni | Alors, à lundi prochain. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Voglio **imparare a cucinare**. | VO-lio im-pa-RA-ré a kou-tchi-NA-ré | Je veux apprendre à cuisiner. |
-| Voglio **fare un viaggio**. | VO-lio FA-ré oun VIAD-djo | Je veux faire un voyage. |
-| Voglio **riposarmi un po'**. | VO-lio ri-po-ZAR-mi oun PO | Je veux me reposer un peu. |
-| Voglio **trovare un nuovo lavoro**. | VO-lio tro-VA-ré oun NOUO-vo la-VO-ro | Je veux trouver un nouveau travail. |
+### L6-fr-ja-10 · Dire ce qu'on va faire tout de suite — modèle « これから{s}。 »
 
-### L6-fr-it-11 · La semaine prochaine (travail) — modèle « La prossima settimana {s}. »
+> これから + présent poli = futur proche. 行きます = aller quelque part, 帰ります = rentrer chez soi.
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| La prossima settimana **avrò una riunione**. | la PROS-si-ma sét-ti-MA-na a-VRO OU-na riou-NIO-né | La semaine prochaine, j'aurai une réunion. |
-| La prossima settimana **sarò a Milano**. | la PROS-si-ma sét-ti-MA-na sa-RO a mi-LA-no | La semaine prochaine, je serai à Milan. |
-| La prossima settimana **inizierò il nuovo lavoro**. | la PROS-si-ma sét-ti-MA-na i-ni-tsié-RO il NOUO-vo la-VO-ro | La semaine prochaine, je commencerai le nouveau travail. |
-| La prossima settimana **saremo in vacanza**. | la PROS-si-ma sét-ti-MA-na sa-RÉ-mo inn va-KAN-tsa | La semaine prochaine, on sera en vacances. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| これから**駅に行きます**。 | これからえきにいきます。 | ko-ré-ka-ra é-ki ni i-ki-ma-sou | Là, je vais à la gare. |
+| これから**家に帰ります**。 | これからいえにかえります。 | ko-ré-ka-ra i-é ni ka-é-ri-ma-sou | Là, je rentre à la maison. |
+| これから**昼ご飯を食べます**。 | これからひるごはんをたべます。 | ko-ré-ka-ra hi-rou-go-han o ta-bé-ma-sou | Là, je vais déjeuner. |
+| これから**友達に会います**。 | これからともだちにあいます。 | ko-ré-ka-ra to-mo-da-tchi ni a-i-ma-sou | Là, je vais voir un ami. |
 
-### L6-fr-it-12 · Transports — modèle « Prendo {s} delle otto. »
+### L6-fr-ja-11 · Transports : proposer un moyen — modèle « {s}で行きましょう。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Prendo **il treno** delle otto. | PRÈN-do il TRÈ-no DÉL-lé OT-to | Je prends le train de huit heures. |
-| Prendo **l'autobus** delle otto. | PRÈN-do LAOU-to-bous DÉL-lé OT-to | Je prends le bus de huit heures. |
-| Prendo **il volo** delle otto. | PRÈN-do il VO-lo DÉL-lé OT-to | Je prends le vol de huit heures. |
-| Prendo **la metro** delle otto. | PRÈN-do la MÉ-tro DÉL-lé OT-to | Je prends le métro de huit heures. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **電車**で行きましょう。 | でんしゃでいきましょう。 | dén-cha dé i-ki-ma-cho-o | Allons-y en train. |
+| **タクシー**で行きましょう。 | たくしーでいきましょう。 | ta-kou-chi-i dé i-ki-ma-cho-o | Allons-y en taxi. |
+| **バス**で行きましょう。 | ばすでいきましょう。 | ba-sou dé i-ki-ma-cho-o | Allons-y en bus. |
+| **自転車**で行きましょう。 | じてんしゃでいきましょう。 | dji-tén-cha dé i-ki-ma-cho-o | Allons-y à vélo. |
 
-### L6-fr-it-d1 · Organiser une sortie (entre amis, tu)
+### L6-fr-ja-12 · Dire quand on rappelle — modèle « {s}電話します。 »
 
-- **A** : Ti va di fare qualcosa sabato? — ti va di FA-ré koual-KO-za SA-ba-to — Ça te dit de faire quelque chose samedi ?
-- **B** : Sì! Potremmo andare al mare? — SI. po-TRÉM-mo an-DA-ré al MA-ré — Oui ! On pourrait aller à la mer ?
-- **A** : Sabato non posso, ma domenica sì. — SA-ba-to non POS-so, ma do-MÉ-ni-ka SI — Samedi je ne peux pas, mais dimanche oui.
-- **B** : Va bene, domenica. A che ora? — va BÈ-né, do-MÉ-ni-ka. a ké O-ra — D'accord, dimanche. À quelle heure ?
-- **A** : Alle nove davanti alla stazione? Prendiamo il treno delle nove e venti. — AL-lé NO-vé da-VAN-ti AL-la sta-TSIO-né. prén-DIA-mo il TRÈ-no DÉL-lé NO-vé é VÉN-ti — À neuf heures devant la gare ? On prend le train de neuf heures vingt.
-- **B** : Perfetto. Porto io i panini. — pér-FÈT-to. POR-to I-o i pa-NI-ni — Parfait. C'est moi qui apporte les sandwichs.
-- **A** : Ottimo! Allora siamo d'accordo per domenica alle nove. — OT-ti-mo. al-LO-ra SIA-mo dak-KOR-do pér do-MÉ-ni-ka AL-lé NO-vé — Super ! Alors on est d'accord pour dimanche à neuf heures.
-- **B** : Sì, ti chiamo sabato sera per confermare. — SI, ti KIA-mo SA-ba-to SÉ-ra pér kon-fér-MA-ré — Oui, je t'appelle samedi soir pour confirmer.
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **明日の朝に**電話します。 | あしたのあさにでんわします。 | a-chi-ta no a-sa ni dén-wa chi-ma-sou | Je vous appelle demain matin. |
+| **後で**電話します。 | あとででんわします。 | a-to dé dén-wa chi-ma-sou | Je vous appelle plus tard. |
+| **三時に**電話します。 | さんじにでんわします。 | san-dji ni dén-wa chi-ma-sou | Je vous appelle à trois heures. |
+| **今晩**電話します。 | こんばんでんわします。 | kon-ban dén-wa chi-ma-sou | Je vous appelle ce soir. |
 
-### L6-fr-it-d2 · Fixer une réunion (travail, Lei)
+### L6-fr-ja-d1 · Inviter un collègue
 
-- **A** : Buongiorno, dottoressa Rossi. Potremmo vederci la prossima settimana? — bouon-DJOR-no, dot-to-RÉS-sa ROS-si. po-TRÉM-mo vé-DÉR-tchi la PROS-si-ma sét-ti-MA-na — Bonjour, madame Rossi. Pourrions-nous nous voir la semaine prochaine ?
-- **B** : Certo. Martedì mattina va bene? — TCHÈR-to. mar-té-DI mat-TI-na va BÈ-né — Bien sûr. Mardi matin, ça vous va ?
-- **A** : Martedì sarò a Milano. Mercoledì? — mar-té-DI sa-RO a mi-LA-no. mér-ko-lé-DI — Mardi, je serai à Milan. Mercredi ?
-- **B** : Mercoledì alle dieci, nel mio ufficio. — mér-ko-lé-DI AL-lé DIÈ-tchi, nél MI-o ouf-FI-tcho — Mercredi à dix heures, dans mon bureau.
-- **A** : Perfetto. Le mando una mail per confermare. — pér-FÈT-to. lé MAN-do OU-na MÈÏL pér kon-fér-MA-ré — Parfait. Je vous envoie un mail pour confirmer.
-- **B** : Grazie. Ha intenzione di presentare il nuovo progetto? — GRA-tsié. a in-tén-TSIO-né di pré-zén-TA-ré il NOUO-vo pro-DJÈT-to — Merci. Vous avez l'intention de présenter le nouveau projet ?
-- **A** : Sì, e mi piacerebbe avere la Sua opinione. — SI, é mi pia-tché-RÈB-bé a-VÉ-ré la SOU-a o-pi-NIO-né — Oui, et j'aimerais avoir votre avis.
-- **B** : Volentieri. A mercoledì, allora. — vo-lén-TIÈ-ri. a mér-ko-lé-DI, al-LO-ra — Volontiers. À mercredi, alors.
+- **A** : 田中さん、週末は何か予定がありますか。 *(たなかさん、しゅうまつはなにかよていがありますか。)* — ta-na-ka-san, chou-ou-ma-tsou wa na-ni ka yo-té-i ga a-ri-ma-sou ka — Monsieur Tanaka, vous avez quelque chose de prévu ce week-end ?
+- **B** : 土曜日は仕事ですが、日曜日は空いています。 *(どようびはしごとですが、にちようびはあいています。)* — do-yo-o-bi wa chi-go-to dé-sou ga, ni-tchi-yo-o-bi wa a-i-té i-ma-sou — Samedi je travaille, mais dimanche je suis libre.
+- **A** : じゃあ、日曜日に一緒にハイキングに行きませんか。 *(じゃあ、にちようびにいっしょにはいきんぐにいきませんか。)* — dja-a, ni-tchi-yo-o-bi ni is-cho ni ha-i-kin-gou ni i-ki-ma-sén ka — Alors, ça vous dirait de faire une randonnée ensemble dimanche ?
+- **B** : いいですね。ぜひ。何時にどこで会いますか。 *(いいですね。ぜひ。なんじにどこであいますか。)* — i-i dé-sou né. zé-hi. nan-dji ni do-ko dé a-i-ma-sou ka — Avec plaisir. On se retrouve où et à quelle heure ?
+- **A** : 九時に駅の前で待っています。 *(くじにえきのまえでまっています。)* — kou-dji ni é-ki no ma-é dé mat-té i-ma-sou — Je vous attends à neuf heures devant la gare.
+- **B** : 分かりました。お弁当を持って行きましょうか。 *(わかりました。おべんとうをもっていきましょうか。)* — wa-ka-ri-ma-chi-ta. o-bén-to-o o mot-té i-ki-ma-cho-o ka — D'accord. J'apporte un pique-nique ?
+- **A** : はい、お願いします。私は飲み物を買います。 *(はい、おねがいします。わたしはのみものをかいます。)* — ha-i, o-né-ga-i chi-ma-sou. wa-ta-chi wa no-mi-mo-no o ka-i-ma-sou — Oui, s'il vous plaît. Moi, j'achète les boissons.
+- **B** : じゃあ、日曜日の九時に。 *(じゃあ、にちようびのくじに。)* — dja-a, ni-tchi-yo-o-bi no kou-dji ni — Alors, à dimanche neuf heures.
+- **A** : はい、楽しみにしています。 *(はい、たのしみにしています。)* — ha-i, ta-no-chi-mi ni chi-té i-ma-sou — Oui, j'ai hâte.
 
-### L6-fr-it-d3 · À la gare : changement de plan (téléphone, tu)
+### L6-fr-ja-d2 · Refuser et proposer autre chose
 
-- **A** : Pronto, Sara? Sono alla stazione, ma il treno è in ritardo. — PRON-to, SA-ra. SO-no AL-la sta-TSIO-né, ma il TRÈ-no è inn ri-TAR-do — Allô, Sara ? Je suis à la gare, mais le train est en retard.
-- **B** : Oh no! Di quanto? — o NO. di KOUAN-to — Oh non ! De combien ?
-- **A** : Di un'ora. Arriverò verso le nove. — di ou-NO-ra. ar-ri-vé-RO VÈR-so lé NO-vé — D'une heure. J'arriverai vers neuf heures.
-- **B** : Non c'è problema. Ti aspetto al ristorante. — non tchè pro-BLÈ-ma. ti as-PÈT-to al ris-to-RAN-té — Pas de problème. Je t'attends au restaurant.
-- **A** : Perché non prendiamo qualcosa dopo, invece? Una pizza vicino a casa tua? — pér-KÉ non prén-DIA-mo koual-KO-za DO-po, in-VÉ-tché. OU-na PIT-tsa vi-TCHI-no a KA-za TOU-a — Et si on prenait plutôt quelque chose après ? Une pizza près de chez toi ?
-- **B** : Buona idea. Allora ci vediamo alle nove e mezza davanti a casa mia. — BOUO-na i-DÈ-a. al-LO-ra tchi vé-DIA-mo AL-lé NO-vé é MÈD-dza da-VAN-ti a KA-za MI-a — Bonne idée. Alors on se voit à neuf heures et demie devant chez moi.
-- **A** : Perfetto, a dopo! — pér-FÈT-to, a DO-po — Parfait, à tout à l'heure !
-- **B** : A dopo, buon viaggio! — a DO-po, bouon VIAD-djo — À tout à l'heure, bon voyage !
+- **A** : マリーさん、今晩一緒に晩ご飯を食べませんか。 *(まりーさん、こんばんいっしょにばんごはんをたべませんか。)* — ma-ri-i-san, kon-ban is-cho ni ban-go-han o ta-bé-ma-sén ka — Marie, ça vous dirait de dîner ensemble ce soir ?
+- **B** : 今晩はちょっと無理ですが、明日なら大丈夫です。 *(こんばんはちょっとむりですが、あしたならだいじょうぶです。)* — kon-ban wa tchot-to mou-ri dé-sou ga, a-chi-ta na-ra da-i-djo-o-bou dé-sou — Ce soir, c'est difficile, mais demain, c'est possible.
+- **A** : 明日ですね。何が食べたいですか。 *(あしたですね。なにがたべたいですか。)* — a-chi-ta dé-sou né. na-ni ga ta-bé-ta-i dé-sou ka — Demain, donc. Qu'est-ce que vous voudriez manger ?
+- **B** : 寿司が食べたいです。 *(すしがたべたいです。)* — sou-chi ga ta-bé-ta-i dé-sou — Je voudrais manger des sushis.
+- **A** : じゃあ、駅前の寿司屋はどうですか。 *(じゃあ、えきまえのすしやはどうですか。)* — dja-a, é-ki-ma-é no sou-chi-ya wa do-o dé-sou ka — Alors, que diriez-vous du restaurant de sushis devant la gare ?
+- **B** : いいですね。七時に店の前で会いましょう。 *(いいですね。しちじにみせのまえであいましょう。)* — i-i dé-sou né. chi-tchi-dji ni mi-sé no ma-é dé a-i-ma-cho-o — Très bien. Retrouvons-nous à sept heures devant le restaurant.
+- **A** : 分かりました。予約します。 *(わかりました。よやくします。)* — wa-ka-ri-ma-chi-ta. yo-ya-kou chi-ma-sou — D'accord. Je réserve.
+- **B** : ありがとうございます。じゃあ、明日の七時に。 *(ありがとうございます。じゃあ、あしたのしちじに。)* — a-ri-ga-to-o go-za-i-ma-sou. dja-a, a-chi-ta no chi-tchi-dji ni — Merci. Alors, à demain sept heures.
 
-*Acquis attendu* : Parler de ses projets au futur, proposer une activité, fixer un lieu et une heure, refuser en proposant une alternative et confirmer un rendez-vous.
+### L6-fr-ja-d3 · Projets de vacances
+
+- **A** : ポールさん、休みは何をするつもりですか。 *(ぽーるさん、やすみはなにをするつもりですか。)* — po-o-rou-san, ya-sou-mi wa na-ni o sou-rou tsou-mo-ri dé-sou ka — Paul, qu'avez-vous l'intention de faire pendant les vacances ?
+- **B** : 沖縄に行く予定です。海で泳ぎたいです。 *(おきなわにいくよていです。うみでおよぎたいです。)* — o-ki-na-wa ni i-kou yo-té-i dé-sou. ou-mi dé o-yo-gi-ta-i dé-sou — Je prévois d'aller à Okinawa. Je voudrais nager dans la mer.
+- **A** : いいですね！いつ出発しますか。 *(いいですね！いつしゅっぱつしますか。)* — i-i dé-sou né. i-tsou chup-pa-tsou chi-ma-sou ka — Super ! Quand partez-vous ?
+- **B** : 八月一日に出発します。飛行機で行きます。 *(はちがつついたちにしゅっぱつします。ひこうきでいきます。)* — ha-tchi-ga-tsou tsou-i-ta-tchi ni chup-pa-tsou chi-ma-sou. hi-ko-o-ki dé i-ki-ma-sou — Je pars le premier août. J'y vais en avion.
+- **A** : 何日間ですか。 *(なんにちかんですか。)* — nan-ni-tchi-kan dé-sou ka — Pour combien de jours ?
+- **B** : 一週間です。マリーさんは？ *(いっしゅうかんです。まりーさんは？)* — is-chou-ou-kan dé-sou. ma-ri-i-san wa — Une semaine. Et vous, Marie ?
+- **A** : 私は家族がフランスから来ます。一緒に京都に行くつもりです。 *(わたしはかぞくがふらんすからきます。いっしょにきょうとにいくつもりです。)* — wa-ta-chi wa ka-zo-kou ga fou-ran-sou ka-ra ki-ma-sou. is-cho ni kyo-o-to ni i-kou tsou-mo-ri dé-sou — Moi, ma famille vient de France. J'ai l'intention d'aller à Kyoto avec eux.
+- **B** : 楽しみですね。良い旅を！ *(たのしみですね。よいたびを！)* — ta-no-chi-mi dé-sou né. yo-i ta-bi o — Vous devez avoir hâte. Bon voyage !
+
+*Acquis attendu* : Dire une intention ou un projet (つもりです, 予定です), inviter avec ませんか, fixer un moment et un lieu (土曜日の十時に、駅の前で), accepter, refuser poliment avec une alternative (ちょっと無理ですが…なら), exprimer un souhait (たいです) et confirmer un rendez-vous.

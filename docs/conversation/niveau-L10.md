@@ -4,180 +4,169 @@ Objectif : Soutenir une conversation mêlant récit, opinion, argument et clarif
 
 Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **gras**), 3 dialogues de 6 à 10 répliques. Réutilise les niveaux L1, L2, L3, L4, L5, L6, L7, L8, L9.
 
-## Italien (lecteurs francophones)
+## Japonais (lecteurs francophones)
 
-*Convention phonétique* : Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.
+*Convention phonétique* : Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).
 
-*Statut* : Rédigé à la main ; relecture par un italophone conseillée.
+*Statut* : Relecture linguistique requise (naturel des tournures, lectures des kanji).
 
-### L10-fr-it-01 · Peser le pour et le contre — modèle « Da un lato {s}, dall'altro costa troppo. »
+### L10-fr-ja-01 · Peser le pour et le contre — modèle « 一方で{s}が、他方で時間がかかります。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Da un lato **mi piace molto**, dall'altro costa troppo. | da oun LA-to mi PIA-tché MOL-to, dal-LAL-tro KOS-ta TROP-po | D'un côté ça me plaît beaucoup, de l'autre ça coûte trop cher. |
-| Da un lato **è comodo**, dall'altro costa troppo. | da oun LA-to è KO-mo-do, dal-LAL-tro KOS-ta TROP-po | D'un côté c'est pratique, de l'autre ça coûte trop cher. |
-| Da un lato **è una bella città**, dall'altro costa troppo. | da oun LA-to è OU-na BÈL-la tchit-TA, dal-LAL-tro KOS-ta TROP-po | D'un côté c'est une belle ville, de l'autre ça coûte trop cher. |
-| Da un lato **è un buon lavoro**, dall'altro costa troppo. | da oun LA-to è oun bouon la-VO-ro, dal-LAL-tro KOS-ta TROP-po | D'un côté c'est un bon travail, de l'autre ça coûte trop cher. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 一方で**安いです**が、他方で時間がかかります。 | いっぽうでやすいですが、たほうでじかんがかかります。 | ip-po-o dé ya-sou-i dé-sou ga, ta-ho-o dé dji-kan ga ka-ka-ri-ma-sou | D'un côté, c'est bon marché, mais de l'autre, ça prend du temps. |
+| 一方で**便利です**が、他方で時間がかかります。 | いっぽうでべんりですが、たほうでじかんがかかります。 | ip-po-o dé bén-ri dé-sou ga, ta-ho-o dé dji-kan ga ka-ka-ri-ma-sou | D'un côté, c'est pratique, mais de l'autre, ça prend du temps. |
+| 一方で**静かです**が、他方で時間がかかります。 | いっぽうでしずかですが、たほうでじかんがかかります。 | ip-po-o dé chi-zou-ka dé-sou ga, ta-ho-o dé dji-kan ga ka-ka-ri-ma-sou | D'un côté, c'est calme, mais de l'autre, ça prend du temps. |
+| 一方で**楽しいです**が、他方で時間がかかります。 | いっぽうでたのしいですが、たほうでじかんがかかります。 | ip-po-o dé ta-no-chi-i dé-sou ga, ta-ho-o dé dji-kan ga ka-ka-ri-ma-sou | D'un côté, c'est agréable, mais de l'autre, ça prend du temps. |
 
-### L10-fr-it-02 · Concéder — modèle « È vero, ma {s}. »
+### L10-fr-ja-02 · Concéder puis contre-argumenter — modèle « 確かにそうですが、{s}。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| È vero, ma **non è così semplice**. | è VÉ-ro, ma non è ko-ZI SÉM-pli-tché | C'est vrai, mais ce n'est pas si simple. |
-| È vero, ma **dipende dal prezzo**. | è VÉ-ro, ma di-PÈN-dé dal PRÈT-tso | C'est vrai, mais ça dépend du prix. |
-| È vero, ma **io la penso diversamente**. | è VÉ-ro, ma I-o la PÈN-so di-vér-sa-MÉN-té | C'est vrai, mais moi, je pense autrement. |
-| È vero, ma **non abbiamo scelta**. | è VÉ-ro, ma non ab-BIA-mo CHÉL-ta | C'est vrai, mais on n'a pas le choix. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 確かにそうですが、**値段も大切です**。 | たしかにそうですが、ねだんもたいせつです。 | ta-chi-ka ni so-o dé-sou ga, né-dan mo ta-i-sé-tsou dé-sou | C'est vrai, mais le prix compte aussi. |
+| 確かにそうですが、**時間がありません**。 | たしかにそうですが、じかんがありません。 | ta-chi-ka ni so-o dé-sou ga, dji-kan ga a-ri-ma-sén | C'est vrai, mais on n'a pas le temps. |
+| 確かにそうですが、**全員は賛成していません**。 | たしかにそうですが、ぜんいんはさんせいしていません。 | ta-chi-ka ni so-o dé-sou ga, zén-in wa san-sé-i chi-té i-ma-sén | C'est vrai, mais tout le monde n'est pas d'accord. |
+| 確かにそうですが、**他の方法もあります**。 | たしかにそうですが、ほかのほうほうもあります。 | ta-chi-ka ni so-o dé-sou ga, ho-ka no ho-o-ho-o mo a-ri-ma-sou | C'est vrai, mais il y a aussi d'autres moyens. |
 
-### L10-fr-it-03 · Reformuler l'avis de l'autre (tu) — modèle « Se ho capito bene, pensi che {s}. »
+### L10-fr-ja-03 · Reformuler l'avis de l'autre — modèle « つまり、{s}とお考えなんですね。 »
 
-> Tutoiement ; avec un inconnu : « pensa che ». Subjonctif après « pensi che ».
+> お考え (forme respectueuse de 考え) : on parle de l'opinion de l'autre avec déférence.
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Se ho capito bene, pensi che **sia troppo tardi**. | sé o ka-PI-to BÈ-né, PÈN-si ké SI-a TROP-po TAR-di | Si j'ai bien compris, tu penses que c'est trop tard. |
-| Se ho capito bene, pensi che **dovremmo aspettare**. | sé o ka-PI-to BÈ-né, PÈN-si ké do-VRÉM-mo as-pét-TA-ré | Si j'ai bien compris, tu penses qu'on devrait attendre. |
-| Se ho capito bene, pensi che **sia meglio il treno**. | sé o ka-PI-to BÈ-né, PÈN-si ké SI-a MÈ-lio il TRÈ-no | Si j'ai bien compris, tu penses que le train est mieux. |
-| Se ho capito bene, pensi che **io abbia torto**. | sé o ka-PI-to BÈ-né, PÈN-si ké I-o AB-bia TOR-to | Si j'ai bien compris, tu penses que j'ai tort. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| つまり、**値段が高すぎる**とお考えなんですね。 | つまり、ねだんがたかすぎるとおかんがえなんですね。 | tsou-ma-ri, né-dan ga ta-ka-sou-gi-rou to o-kan-ga-é nan dé-sou né | Si je comprends bien, vous pensez que le prix est trop élevé. |
+| つまり、**時間が足りない**とお考えなんですね。 | つまり、じかんがたりないとおかんがえなんですね。 | tsou-ma-ri, dji-kan ga ta-ri-na-i to o-kan-ga-é nan dé-sou né | Si je comprends bien, vous pensez qu'il manque du temps. |
+| つまり、**もっと人が必要だ**とお考えなんですね。 | つまり、もっとひとがひつようだとおかんがえなんですね。 | tsou-ma-ri, mot-to hi-to ga hi-tsou-yo-o da to o-kan-ga-é nan dé-sou né | Si je comprends bien, vous pensez qu'il faut plus de monde. |
+| つまり、**今のままでいい**とお考えなんですね。 | つまり、いまのままでいいとおかんがえなんですね。 | tsou-ma-ri, i-ma no ma-ma dé i-i to o-kan-ga-é nan dé-sou né | Si je comprends bien, vous pensez que c'est bien comme c'est. |
 
-### L10-fr-it-04 · Conclure — modèle « In sintesi, {s}. »
+### L10-fr-ja-04 · Conclure : en résumé — modèle « まとめると、{s}。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| In sintesi, **siamo d'accordo**. | inn SIN-té-zi, SIA-mo dak-KOR-do | En résumé, on est d'accord. |
-| In sintesi, **partiamo sabato**. | inn SIN-té-zi, par-TIA-mo SA-ba-to | En résumé, on part samedi. |
-| In sintesi, **è stato un bel viaggio**. | inn SIN-té-zi, è STA-to oun bél VIAD-djo | En résumé, c'était un beau voyage. |
-| In sintesi, **dobbiamo decidere entro venerdì**. | inn SIN-té-zi, dob-BIA-mo dé-TCHI-dé-ré ÉN-tro vé-nér-DI | En résumé, on doit décider avant vendredi. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| まとめると、**来週もう一度話します**。 | まとめると、らいしゅうもういちどはなします。 | ma-to-mé-rou to, ra-i-chou-ou mo-o i-tchi-do ha-na-chi-ma-sou | En résumé, nous en reparlons la semaine prochaine. |
+| まとめると、**値段を少し下げます**。 | まとめると、ねだんをすこしさげます。 | ma-to-mé-rou to, né-dan o sou-ko-chi sa-gé-ma-sou | En résumé, nous baissons un peu le prix. |
+| まとめると、**計画は来月から始めます**。 | まとめると、けいかくはらいげつからはじめます。 | ma-to-mé-rou to, ké-i-ka-kou wa ra-i-gé-tsou ka-ra ha-dji-mé-ma-sou | En résumé, le projet commence le mois prochain. |
+| まとめると、**問題は二つあります**。 | まとめると、もんだいはふたつあります。 | ma-to-mé-rou to, mon-da-i wa fou-ta-tsou a-ri-ma-sou | En résumé, il y a deux problèmes. |
 
-### L10-fr-it-05 · Prendre congé chaleureusement — modèle « {s} »
+### L10-fr-ja-05 · Prendre congé chaleureusement — modèle « では、そろそろ失礼します。{s} »
 
-> Formules entières à connaître telles quelles (registre amical).
+> 失礼します (littéralement « je commets une impolitesse ») est la formule standard pour partir.
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| **Beh, devo andare. A presto!** | bé, DÉ-vo an-DA-ré. a PRÈS-to | Bon, je dois y aller. À bientôt ! |
-| **È stato un piacere!** | è STA-to oun pia-TCHÉ-ré | C'était un plaisir ! |
-| **Ci sentiamo presto!** | tchi sén-TIA-mo PRÈS-to | On s'appelle bientôt ! |
-| **Salutami tutti!** | sa-LOU-ta-mi TOUT-ti | Embrasse tout le monde de ma part ! |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| では、そろそろ失礼します。**また近いうちに！** | では、そろそろしつれいします。またちかいうちに！ | dé wa, so-ro-so-ro chi-tsou-ré-i chi-ma-sou. ma-ta tchi-ka-i ou-tchi ni | Bon, il est temps que j'y aille. À bientôt ! |
+| では、そろそろ失礼します。**また来週！** | では、そろそろしつれいします。またらいしゅう！ | dé wa, so-ro-so-ro chi-tsou-ré-i chi-ma-sou. ma-ta ra-i-chou-ou | Bon, il est temps que j'y aille. À la semaine prochaine ! |
+| では、そろそろ失礼します。**良い週末を！** | では、そろそろしつれいします。よいしゅうまつを！ | dé wa, so-ro-so-ro chi-tsou-ré-i chi-ma-sou. yo-i chou-ou-ma-tsou o | Bon, il est temps que j'y aille. Bon week-end ! |
+| では、そろそろ失礼します。**皆さんによろしく！** | では、そろそろしつれいします。みなさんによろしく！ | dé wa, so-ro-so-ro chi-tsou-ré-i chi-ma-sou. mi-na-san ni yo-ro-chi-kou | Bon, il est temps que j'y aille. Mes amitiés à tous ! |
 
-### L10-fr-it-06 · Raconter avec émotion — modèle « Quando {s}, ero felicissimo. »
+### L10-fr-ja-06 · Raconter avec émotion : la joie — modèle « {s}とき、本当に嬉しかったです。 »
 
-> Au féminin : « felicissima » (fé-li-TCHIS-si-ma), « sono arrivata ».
+> Forme en た + とき = « quand … (fait accompli) ».
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Quando **sono arrivato a Roma**, ero felicissimo. | KOUAN-do SO-no ar-ri-VA-to a RO-ma, È-ro fé-li-TCHIS-si-mo | Quand je suis arrivé à Rome, j'étais très heureux. |
-| Quando **ho visto il mare**, ero felicissimo. | KOUAN-do o VIS-to il MA-ré, È-ro fé-li-TCHIS-si-mo | Quand j'ai vu la mer, j'étais très heureux. |
-| Quando **ho trovato il lavoro**, ero felicissimo. | KOUAN-do o tro-VA-to il la-VO-ro, È-ro fé-li-TCHIS-si-mo | Quand j'ai trouvé le travail, j'étais très heureux. |
-| Quando **è nata mia figlia**, ero felicissimo. | KOUAN-do è NA-ta MI-a FI-lia, È-ro fé-li-TCHIS-si-mo | Quand ma fille est née, j'étais très heureux. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **日本に着いた**とき、本当に嬉しかったです。 | にほんについたとき、ほんとうにうれしかったです。 | ni-hon ni tsou-i-ta to-ki, hon-to-o ni ou-ré-chi-kat-ta dé-sou | Quand je suis arrivé au Japon, j'étais vraiment heureux. |
+| **試験に合格した**とき、本当に嬉しかったです。 | しけんにごうかくしたとき、ほんとうにうれしかったです。 | chi-kén ni go-o-ka-kou chi-ta to-ki, hon-to-o ni ou-ré-chi-kat-ta dé-sou | Quand j'ai réussi l'examen, j'étais vraiment heureux. |
+| **子供が生まれた**とき、本当に嬉しかったです。 | こどもがうまれたとき、ほんとうにうれしかったです。 | ko-do-mo ga ou-ma-ré-ta to-ki, hon-to-o ni ou-ré-chi-kat-ta dé-sou | Quand mon enfant est né, j'étais vraiment heureux. |
+| **友達に再会した**とき、本当に嬉しかったです。 | ともだちにさいかいしたとき、ほんとうにうれしかったです。 | to-mo-da-tchi ni sa-i-ka-i chi-ta to-ki, hon-to-o ni ou-ré-chi-kat-ta dé-sou | Quand j'ai revu mon ami, j'étais vraiment heureux. |
 
-### L10-fr-it-07 · Défendre un avis — modèle « Sono convinto che {s}. »
+### L10-fr-ja-07 · Raconter avec émotion : l'inquiétude — modèle « {s}とき、とても心配しました。 »
 
-> « convinta » au féminin. Subjonctif (sia, valga) ou futur (funzionerà) selon le sens.
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **財布をなくした**とき、とても心配しました。 | さいふをなくしたとき、とてもしんぱいしました。 | sa-i-fou o na-kou-chi-ta to-ki, to-té-mo chin-pa-i chi-ma-chi-ta | Quand j'ai perdu mon portefeuille, j'étais très inquiet. |
+| **地震があった**とき、とても心配しました。 | じしんがあったとき、とてもしんぱいしました。 | dji-chin ga at-ta to-ki, to-té-mo chin-pa-i chi-ma-chi-ta | Quand il y a eu le séisme, j'étais très inquiet. |
+| **子供が病気になった**とき、とても心配しました。 | こどもがびょうきになったとき、とてもしんぱいしました。 | ko-do-mo ga byo-o-ki ni nat-ta to-ki, to-té-mo chin-pa-i chi-ma-chi-ta | Quand mon enfant est tombé malade, j'étais très inquiet. |
+| **電車が止まった**とき、とても心配しました。 | でんしゃがとまったとき、とてもしんぱいしました。 | dén-cha ga to-mat-ta to-ki, to-té-mo chin-pa-i chi-ma-chi-ta | Quand le train s'est arrêté, j'étais très inquiet. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Sono convinto che **sia la scelta giusta**. | SO-no kon-VIN-to ké SI-a la CHÉL-ta DJOUS-ta | Je suis convaincu que c'est le bon choix. |
-| Sono convinto che **valga la pena**. | SO-no kon-VIN-to ké VAL-ga la PÉ-na | Je suis convaincu que ça vaut la peine. |
-| Sono convinto che **funzionerà**. | SO-no kon-VIN-to ké foun-tsio-né-RA | Je suis convaincu que ça va marcher. |
-| Sono convinto che **abbiamo fatto bene**. | SO-no kon-VIN-to ké ab-BIA-mo FAT-to BÈ-né | Je suis convaincu qu'on a bien fait. |
+### L10-fr-ja-08 · Défendre un avis — modèle « 私は{s}べきだと思います。 »
 
-### L10-fr-it-08 · Concéder puis contre-argumenter (tu) — modèle « Hai ragione, però {s}. »
+> Forme du dictionnaire + べきだ : « devoir, il faudrait » (avis ferme, à adoucir avec と思います).
 
-> Tutoiement ; avec un inconnu : « Ha ragione ».
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 私は**もっと休む**べきだと思います。 | わたしはもっとやすむべきだとおもいます。 | wa-ta-chi wa mot-to ya-sou-mou bé-ki da to o-mo-i-ma-sou | Je pense qu'il faudrait se reposer davantage. |
+| 私は**早く決める**べきだと思います。 | わたしははやくきめるべきだとおもいます。 | wa-ta-chi wa ha-ya-kou ki-mé-rou bé-ki da to o-mo-i-ma-sou | Je pense qu'il faudrait décider vite. |
+| 私は**皆で話し合う**べきだと思います。 | わたしはみんなではなしあうべきだとおもいます。 | wa-ta-chi wa min-na dé ha-na-chi-a-ou bé-ki da to o-mo-i-ma-sou | Je pense qu'il faudrait en discuter tous ensemble. |
+| 私は**計画を変える**べきだと思います。 | わたしはけいかくをかえるべきだとおもいます。 | wa-ta-chi wa ké-i-ka-kou o ka-é-rou bé-ki da to o-mo-i-ma-sou | Je pense qu'il faudrait changer le plan. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Hai ragione, però **costa troppo**. | A-i ra-DJO-né, pé-RO KOS-ta TROP-po | Tu as raison, mais ça coûte trop cher. |
-| Hai ragione, però **non ho tempo**. | A-i ra-DJO-né, pé-RO non o TÈM-po | Tu as raison, mais je n'ai pas le temps. |
-| Hai ragione, però **preferisco aspettare**. | A-i ra-DJO-né, pé-RO pré-fé-RIS-ko as-pét-TA-ré | Tu as raison, mais je préfère attendre. |
-| Hai ragione, però **non sono convinto**. | A-i ra-DJO-né, pé-RO non SO-no kon-VIN-to | Tu as raison, mais je ne suis pas convaincu. |
+### L10-fr-ja-09 · Changer de sujet — modèle « ところで、{s}はどうですか。 »
 
-### L10-fr-it-09 · Clarifier (tu) — modèle « Vuoi dire che {s}? »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| ところで、**仕事**はどうですか。 | ところで、しごとはどうですか。 | to-ko-ro dé, chi-go-to wa do-o dé-sou ka | Au fait, comment va le travail ? |
+| ところで、**ご家族**はどうですか。 | ところで、ごかぞくはどうですか。 | to-ko-ro dé, go-ka-zo-kou wa do-o dé-sou ka | Au fait, comment va votre famille ? |
+| ところで、**新しい家**はどうですか。 | ところで、あたらしいいえはどうですか。 | to-ko-ro dé, a-ta-ra-chi-i i-é wa do-o dé-sou ka | Au fait, comment va la nouvelle maison ? |
+| ところで、**日本語の勉強**はどうですか。 | ところで、にほんごのべんきょうはどうですか。 | to-ko-ro dé, ni-hon-go no bén-kyo-o wa do-o dé-sou ka | Au fait, comment vont vos études de japonais ? |
 
-> Tutoiement ; avec un inconnu : « Vuole dire che… ? ».
+### L10-fr-ja-10 · Comprendre l'autre tout en objectant — modèle « {s}のは分かりますが、難しいと思います。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Vuoi dire che **non vieni**? | VOUO-i DI-ré ké non VIÈ-ni | Tu veux dire que tu ne viens pas ? |
-| Vuoi dire che **è troppo caro**? | VOUO-i DI-ré ké è TROP-po KA-ro | Tu veux dire que c'est trop cher ? |
-| Vuoi dire che **dovremmo cambiare**? | VOUO-i DI-ré ké do-VRÉM-mo kam-BIA-ré | Tu veux dire qu'on devrait changer ? |
-| Vuoi dire che **hai cambiato idea**? | VOUO-i DI-ré ké A-i kam-BIA-to i-DÈ-a | Tu veux dire que tu as changé d'avis ? |
+> Forme neutre + のは分かりますが : on reconnaît le point de vue avant d'objecter.
 
-### L10-fr-it-10 · Changer de sujet (tu) — modèle « A proposito, {s}? »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **言いたい**のは分かりますが、難しいと思います。 | いいたいのはわかりますが、むずかしいとおもいます。 | i-i-ta-i no wa wa-ka-ri-ma-sou ga, mou-zou-ka-chi-i to o-mo-i-ma-sou | Je comprends ce que vous voulez dire, mais je pense que c'est difficile. |
+| **心配な**のは分かりますが、難しいと思います。 | しんぱいなのはわかりますが、むずかしいとおもいます。 | chin-pa-i na no wa wa-ka-ri-ma-sou ga, mou-zou-ka-chi-i to o-mo-i-ma-sou | Je comprends votre inquiétude, mais je pense que c'est difficile. |
+| **急いでいる**のは分かりますが、難しいと思います。 | いそいでいるのはわかりますが、むずかしいとおもいます。 | i-so-i-dé i-rou no wa wa-ka-ri-ma-sou ga, mou-zou-ka-chi-i to o-mo-i-ma-sou | Je comprends que vous soyez pressé, mais je pense que c'est difficile. |
+| **安くしたい**のは分かりますが、難しいと思います。 | やすくしたいのはわかりますが、むずかしいとおもいます。 | ya-sou-kou chi-ta-i no wa wa-ka-ri-ma-sou ga, mou-zou-ka-chi-i to o-mo-i-ma-sou | Je comprends que vous vouliez baisser le prix, mais je pense que c'est difficile. |
 
-> Tutoiement.
+### L10-fr-ja-11 · Ajouter un argument — modèle « それに、{s}。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| A proposito, **hai sentito Marco**? | a pro-PO-zi-to, A-i sén-TI-to MAR-ko | Au fait, tu as eu des nouvelles de Marco ? |
-| A proposito, **come sta tua madre**? | a pro-PO-zi-to, KO-mé sta TOU-a MA-dré | Au fait, comment va ta mère ? |
-| A proposito, **che fai questo fine settimana**? | a pro-PO-zi-to, ké FA-i KOUÉS-to FI-né sét-ti-MA-na | Au fait, qu'est-ce que tu fais ce week-end ? |
-| A proposito, **hai visto la partita**? | a pro-PO-zi-to, A-i VIS-to la par-TI-ta | Au fait, tu as vu le match ? |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| それに、**時間もかかります**。 | それに、じかんもかかります。 | so-ré ni, dji-kan mo ka-ka-ri-ma-sou | En plus, ça prend aussi du temps. |
+| それに、**お金もかかります**。 | それに、おかねもかかります。 | so-ré ni, o-ka-né mo ka-ka-ri-ma-sou | En plus, ça coûte aussi de l'argent. |
+| それに、**天気も悪いです**。 | それに、てんきもわるいです。 | so-ré ni, tén-ki mo wa-rou-i dé-sou | En plus, il fait aussi mauvais. |
+| それに、**皆疲れています**。 | それに、みんなつかれています。 | so-ré ni, min-na tsou-ka-ré-té i-ma-sou | En plus, tout le monde est fatigué. |
 
-### L10-fr-it-11 · Décrire une situation passée — modèle « Era {s}. »
+### L10-fr-ja-12 · Annoncer une décision — modèle « 結局、{s}ことにしました。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Era **una giornata bellissima**. | È-ra OU-na djor-NA-ta bél-LIS-si-ma | C'était une très belle journée. |
-| Era **tardi e pioveva**. | È-ra TAR-di é pio-VÉ-va | C'était tard et il pleuvait. |
-| Era **la prima volta**. | È-ra la PRI-ma VOL-ta | C'était la première fois. |
-| Era **tutto pieno**. | È-ra TOUT-to PIÈ-no | C'était complet. |
+> Forme du dictionnaire + ことにしました : décision prise.
 
-### L10-fr-it-12 · Nommer le problème — modèle « Il problema è che {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 結局、**家を買う**ことにしました。 | けっきょく、いえをかうことにしました。 | kek-kyo-kou, i-é o ka-ou ko-to ni chi-ma-chi-ta | Finalement, nous avons décidé d'acheter la maison. |
+| 結局、**日本に残る**ことにしました。 | けっきょく、にほんにのこることにしました。 | kek-kyo-kou, ni-hon ni no-ko-rou ko-to ni chi-ma-chi-ta | Finalement, nous avons décidé de rester au Japon. |
+| 結局、**仕事を変える**ことにしました。 | けっきょく、しごとをかえることにしました。 | kek-kyo-kou, chi-go-to o ka-é-rou ko-to ni chi-ma-chi-ta | Finalement, nous avons décidé de changer de travail. |
+| 結局、**来年結婚する**ことにしました。 | けっきょく、らいねんけっこんすることにしました。 | kek-kyo-kou, ra-i-nén kek-kon sou-rou ko-to ni chi-ma-chi-ta | Finalement, nous avons décidé de nous marier l'année prochaine. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Il problema è che **costa troppo**. | il pro-BLÈ-ma è ké KOS-ta TROP-po | Le problème, c'est que ça coûte trop cher. |
-| Il problema è che **non abbiamo tempo**. | il pro-BLÈ-ma è ké non ab-BIA-mo TÈM-po | Le problème, c'est qu'on n'a pas le temps. |
-| Il problema è che **è lontano**. | il pro-BLÈ-ma è ké è lon-TA-no | Le problème, c'est que c'est loin. |
-| Il problema è che **nessuno è d'accordo**. | il pro-BLÈ-ma è ké nés-SOU-no è dak-KOR-do | Le problème, c'est que personne n'est d'accord. |
+### L10-fr-ja-d1 · Débat amical : ville ou campagne
 
-### L10-fr-it-13 · Clore un sujet — modèle « Comunque, {s}. »
+- **A** : マリーさんは、都会と田舎とどちらに住みたいですか。 *(まりーさんは、とかいといなかとどちらにすみたいですか。)* — ma-ri-i-san wa, to-ka-i to i-na-ka to do-tchi-ra ni sou-mi-ta-i dé-sou ka — Marie, vous préféreriez vivre en ville ou à la campagne ?
+- **B** : どちらかと言うと田舎です。一方で静かで家が広いですが、他方で仕事が少ないです。 *(どちらかというといなかです。いっぽうでしずかでいえがひろいですが、たほうでしごとがすくないです。)* — do-tchi-ra ka to i-ou to i-na-ka dé-sou. ip-po-o dé chi-zou-ka dé i-é ga hi-ro-i dé-sou ga, ta-ho-o dé chi-go-to ga sou-kou-na-i dé-sou — Plutôt la campagne. D'un côté c'est calme et les maisons sont grandes, mais de l'autre il y a peu de travail.
+- **A** : 確かにそうですが、今はリモートワークもありますよ。 *(たしかにそうですが、いまはりもーとわーくもありますよ。)* — ta-chi-ka ni so-o dé-sou ga, i-ma wa ri-mo-o-to-wa-a-kou mo a-ri-ma-sou yo — C'est vrai, mais maintenant il y a aussi le télétravail.
+- **B** : そうですね。でも、子供の学校が心配です。 *(そうですね。でも、こどものがっこうがしんぱいです。)* — so-o dé-sou né. dé-mo, ko-do-mo no gak-ko-o ga chin-pa-i dé-sou — Oui. Mais l'école des enfants m'inquiète.
+- **A** : つまり、教育が一番大切だとお考えなんですね。 *(つまり、きょういくがいちばんたいせつだとおかんがえなんですね。)* — tsou-ma-ri, kyo-o-i-kou ga i-tchi-ban ta-i-sé-tsou da to o-kan-ga-é nan dé-sou né — Si je comprends bien, vous pensez que l'éducation est le plus important.
+- **B** : はい。それに、病院も遠いです。 *(はい。それに、びょういんもとおいです。)* — ha-i. so-ré ni, byo-o-in mo to-o-i dé-sou — Oui. En plus, l'hôpital est loin.
+- **A** : 私は前は都会に住んでいましたが、今は郊外です。両方のいいところがあります。 *(わたしはまえはとかいにすんでいましたが、いまはこうがいです。りょうほうのいいところがあります。)* — wa-ta-chi wa ma-é wa to-ka-i ni soun-dé i-ma-chi-ta ga, i-ma wa ko-o-ga-i dé-sou. ryo-o-ho-o no i-i to-ko-ro ga a-ri-ma-sou — Moi, avant, j'habitais en ville, mais maintenant je suis en banlieue. On a les avantages des deux.
+- **B** : いいですね。まとめると、郊外が一番いいかもしれませんね。 *(いいですね。まとめると、こうがいがいちばんいいかもしれませんね。)* — i-i dé-sou né. ma-to-mé-rou to, ko-o-ga-i ga i-tchi-ban i-i ka-mo chi-ré-ma-sén né — C'est bien. En résumé, la banlieue est peut-être la meilleure solution.
+- **A** : そう思います。ところで、ご家族はお元気ですか。 *(そうおもいます。ところで、ごかぞくはおげんきですか。)* — so-o o-mo-i-ma-sou. to-ko-ro dé, go-ka-zo-kou wa o-gén-ki dé-sou ka — Je pense aussi. Au fait, comment va votre famille ?
+- **B** : はい、おかげさまで。 *(はい、おかげさまで。)* — ha-i, o-ka-gé-sa-ma dé — Bien, merci.
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Comunque, **ci penso**. | ko-MOUN-koué, tchi PÈN-so | En tout cas, j'y réfléchis. |
-| Comunque, **ne parliamo domani**. | ko-MOUN-koué, né par-LIA-mo do-MA-ni | En tout cas, on en parle demain. |
-| Comunque, **è stata una bella serata**. | ko-MOUN-koué, è STA-ta OU-na BÈL-la sé-RA-ta | En tout cas, c'était une belle soirée. |
-| Comunque, **grazie di tutto**. | ko-MOUN-koué, GRA-tsié di TOUT-to | En tout cas, merci pour tout. |
+### L10-fr-ja-d2 · Raconter un voyage, puis prendre congé
 
-### L10-fr-it-d1 · Déménager ou pas ? (entre amis, tu)
+- **A** : ポールさん、お久しぶりです。沖縄はどうでしたか。 *(ぽーるさん、おひさしぶりです。おきなわはどうでしたか。)* — po-o-rou-san, o-hi-sa-chi-bou-ri dé-sou. o-ki-na-wa wa do-o dé-chi-ta ka — Paul, ça fait longtemps ! Comment était Okinawa ?
+- **B** : 最高でした。海がとてもきれいで、着いたとき、本当に嬉しかったです。 *(さいこうでした。うみがとてもきれいで、ついたとき、ほんとうにうれしかったです。)* — sa-i-ko-o dé-chi-ta. ou-mi ga to-té-mo ki-ré-i dé, tsou-i-ta to-ki, hon-to-o ni ou-ré-chi-kat-ta dé-sou — Formidable. La mer était magnifique ; quand je suis arrivé, j'étais vraiment heureux.
+- **A** : 本当ですか。何日間行きましたか。 *(ほんとうですか。なんにちかんいきましたか。)* — hon-to-o dé-sou ka. nan-ni-tchi-kan i-ki-ma-chi-ta ka — Vraiment ? Vous y êtes resté combien de jours ?
+- **B** : 一週間です。まず那覇を見て、それから島に行きました。でも、台風が来たとき、とても心配しました。 *(いっしゅうかんです。まずなはをみて、それからしまにいきました。でも、たいふうがきたとき、とてもしんぱいしました。)* — is-chou-ou-kan dé-sou. ma-zou na-ha o mi-té, so-ré-ka-ra chi-ma ni i-ki-ma-chi-ta. dé-mo, ta-i-fou-ou ga ki-ta to-ki, to-té-mo chin-pa-i chi-ma-chi-ta — Une semaine. D'abord j'ai visité Naha, puis je suis allé sur les îles. Mais quand le typhon est arrivé, j'étais très inquiet.
+- **A** : 大変でしたね。それで、どうしましたか。 *(たいへんでしたね。それで、どうしましたか。)* — ta-i-hén dé-chi-ta né. so-ré dé, do-o chi-ma-chi-ta ka — Ça a dû être dur. Et alors, qu'avez-vous fait ?
+- **B** : 二日ホテルにいました。その後は天気が良くなりました。 *(ふつかほてるにいました。そのあとはてんきがよくなりました。)* — fou-tsou-ka ho-té-rou ni i-ma-chi-ta. so-no a-to wa tén-ki ga yo-kou na-ri-ma-chi-ta — Je suis resté deux jours à l'hôtel. Après, le temps s'est amélioré.
+- **A** : 良かったですね。私も来年行きたいです。 *(よかったですね。わたしもらいねんいきたいです。)* — yo-kat-ta dé-sou né. wa-ta-chi mo ra-i-nén i-ki-ta-i dé-sou — Tant mieux. Moi aussi, je voudrais y aller l'année prochaine.
+- **B** : ぜひ。夏より秋の方がいいと思いますよ。台風が少ないからです。 *(ぜひ。なつよりあきのほうがいいとおもいますよ。たいふうがすくないからです。)* — zé-hi. na-tsou yo-ri a-ki no ho-o ga i-i to o-mo-i-ma-sou yo. ta-i-fou-ou ga sou-kou-na-i ka-ra dé-sou — Allez-y ! Je pense que l'automne vaut mieux que l'été. Parce qu'il y a moins de typhons.
+- **A** : 分かりました。では、そろそろ失礼します。また近いうちに！ *(わかりました。では、そろそろしつれいします。またちかいうちに！)* — wa-ka-ri-ma-chi-ta. dé wa, so-ro-so-ro chi-tsou-ré-i chi-ma-sou. ma-ta tchi-ka-i ou-tchi ni — D'accord. Bon, il est temps que j'y aille. À bientôt !
+- **B** : はい、また。良い週末を！ *(はい、また。よいしゅうまつを！)* — ha-i, ma-ta. yo-i chou-ou-ma-tsou o — Oui, à bientôt. Bon week-end !
 
-- **A** : Allora, hai deciso? Vai a vivere a Milano? — al-LO-ra, A-i dé-TCHI-zo. VA-i a VI-vé-ré a mi-LA-no — Alors, tu as décidé ? Tu vas vivre à Milan ?
-- **B** : Non ancora. Da un lato è un'ottima occasione, dall'altro tutta la mia vita è qui. — non an-KO-ra. da oun LA-to è ou-NOT-ti-ma ok-ka-ZIO-né, dal-LAL-tro TOUT-ta la MI-a VI-ta è KOUI — Pas encore. D'un côté c'est une excellente occasion, de l'autre toute ma vie est ici.
-- **A** : È vero, ma un lavoro così non capita tutti i giorni. — è VÉ-ro, ma oun la-VO-ro ko-ZI non KA-pi-ta TOUT-ti i DJOR-ni — C'est vrai, mais un travail comme ça, ça n'arrive pas tous les jours.
-- **B** : Lo so. Il problema è che Milano è cara e non conosco nessuno. — lo SO. il pro-BLÈ-ma è ké mi-LA-no è KA-ra é non ko-NOS-ko nés-SOU-no — Je sais. Le problème, c'est que Milan est chère et que je ne connais personne.
-- **A** : Se ho capito bene, pensi che sia troppo rischioso? — sé o ka-PI-to BÈ-né, PÈN-si ké SI-a TROP-po ris-KIO-zo — Si j'ai bien compris, tu penses que c'est trop risqué ?
-- **B** : Non proprio. Ho paura di sentirmi solo, soprattutto all'inizio. — non PRO-prio. o pa-OU-ra di sén-TIR-mi SO-lo, so-prat-TOUT-to al-li-NI-tsio — Pas vraiment. J'ai peur de me sentir seul, surtout au début.
-- **A** : Ti capisco. Quando sono arrivato a Torino, i primi mesi sono stati duri. Poi ho trovato degli amici. — ti ka-PIS-ko. KOUAN-do SO-no ar-ri-VA-to a to-RI-no, i PRI-mi MÉ-zi SO-no STA-ti DOU-ri. POÏ o tro-VA-to DÉ-li a-MI-tchi — Je te comprends. Quand je suis arrivé à Turin, les premiers mois ont été durs. Puis j'ai trouvé des amis.
-- **B** : Hai ragione, però tu eri più giovane. — A-i ra-DJO-né, pé-RO tou È-ri piou DJO-va-né — Tu as raison, mais toi, tu étais plus jeune.
-- **A** : In sintesi, hai ancora bisogno di tempo. Ne parliamo la settimana prossima? — inn SIN-té-zi, A-i an-KO-ra bi-ZO-gno di TÈM-po. né par-LIA-mo la sét-ti-MA-na PROS-si-ma — En résumé, tu as encore besoin de temps. On en reparle la semaine prochaine ?
-- **B** : Sì, grazie. Beh, devo andare. A presto! — SI, GRA-tsié. bé, DÉ-vo an-DA-ré. a PRÈS-to — Oui, merci. Bon, je dois y aller. À bientôt !
+### L10-fr-ja-d3 · Réunion de travail : décider
 
-### L10-fr-it-d2 · Retour de voyage (collègues, tu)
+- **A** : 皆さん、今日の会議は新しい計画についてです。田中さんはどう思いますか。 *(みなさん、きょうのかいぎはあたらしいけいかくについてです。たなかさんはどうおもいますか。)* — mi-na-san, kyo-o no ka-i-gi wa a-ta-ra-chi-i ké-i-ka-kou ni tsou-i-té dé-sou. ta-na-ka-san wa do-o o-mo-i-ma-sou ka — La réunion d'aujourd'hui porte sur le nouveau projet. Monsieur Tanaka, qu'en pensez-vous ?
+- **B** : 私は早く始めるべきだと思います。時間が足りないからです。 *(わたしははやくはじめるべきだとおもいます。じかんがたりないからです。)* — wa-ta-chi wa ha-ya-kou ha-dji-mé-rou bé-ki da to o-mo-i-ma-sou. dji-kan ga ta-ri-na-i ka-ra dé-sou — Je pense qu'il faudrait commencer vite. Parce que le temps manque.
+- **A** : 確かにそうですが、予算の問題があります。 *(たしかにそうですが、よさんのもんだいがあります。)* — ta-chi-ka ni so-o dé-sou ga, yo-san no mon-da-i ga a-ri-ma-sou — C'est vrai, mais il y a un problème de budget.
+- **B** : つまり、お金が足りないとお考えなんですね。 *(つまり、おかねがたりないとおかんがえなんですね。)* — tsou-ma-ri, o-ka-né ga ta-ri-na-i to o-kan-ga-é nan dé-sou né — Si je comprends bien, vous pensez que l'argent manque.
+- **A** : はい。私が言いたいのは、まず小さく始めて、それから大きくするということです。 *(はい。わたしがいいたいのは、まずちいさくはじめて、それからおおきくするということです。)* — ha-i. wa-ta-chi ga i-i-ta-i no wa, ma-zou tchi-i-sa-kou ha-dji-mé-té, so-ré-ka-ra o-o-ki-kou sou-rou to i-ou ko-to dé-sou — Oui. Ce que je veux dire, c'est qu'il faut commencer petit, puis agrandir.
+- **B** : 心配なのは分かりますが、小さく始めると、時間がもっとかかると思います。 *(しんぱいなのはわかりますが、ちいさくはじめると、じかんがもっとかかるとおもいます。)* — chin-pa-i na no wa wa-ka-ri-ma-sou ga, tchi-i-sa-kou ha-dji-mé-rou to, dji-kan ga mot-to ka-ka-rou to o-mo-i-ma-sou — Je comprends votre inquiétude, mais si l'on commence petit, je pense que cela prendra plus de temps.
+- **A** : 一部は賛成です。では、来月から始めて、三か月後にもう一度話しませんか。 *(いちぶはさんせいです。では、らいげつからはじめて、さんかげつごにもういちどはなしませんか。)* — i-tchi-bou wa san-sé-i dé-sou. dé wa, ra-i-gé-tsou ka-ra ha-dji-mé-té, san-ka-gé-tsou-go ni mo-o i-tchi-do ha-na-chi-ma-sén ka — Je suis en partie d'accord. Alors, commençons le mois prochain et reparlons-en dans trois mois, qu'en dites-vous ?
+- **B** : いいですね。それなら大丈夫です。 *(いいですね。それならだいじょうぶです。)* — i-i dé-sou né. so-ré na-ra da-i-djo-o-bou dé-sou — Très bien. Comme ça, ça me va.
+- **A** : まとめると、計画は来月から始めて、三か月後に見直します。 *(まとめると、けいかくはらいげつからはじめて、さんかげつごにみなおします。)* — ma-to-mé-rou to, ké-i-ka-kou wa ra-i-gé-tsou ka-ra ha-dji-mé-té, san-ka-gé-tsou-go ni mi-na-o-chi-ma-sou — En résumé, le projet commence le mois prochain et nous le réexaminons dans trois mois.
+- **B** : はい、ありがとうございます。 *(はい、ありがとうございます。)* — ha-i, a-ri-ga-to-o go-za-i-ma-sou — Oui, merci beaucoup.
 
-- **A** : Bentornata! Com'è andato il viaggio in Sicilia? — bén-tor-NA-ta. ko-MÈ an-DA-to il VIAD-djo inn si-TCHI-lia — Bon retour ! Comment s'est passé le voyage en Sicile ?
-- **B** : Bellissimo! Quando ho visto l'Etna al tramonto, ero felicissima. — bél-LIS-si-mo. KOUAN-do o VIS-to LÈT-na al tra-MON-to, È-ro fé-li-TCHIS-si-ma — Magnifique ! Quand j'ai vu l'Etna au coucher du soleil, j'étais très heureuse.
-- **A** : Che bello! E il cibo? — ké BÈL-lo. é il TCHI-bo — Super ! Et la nourriture ?
-- **B** : Era tutto buonissimo, ma secondo me troppo abbondante. Mangiavamo sempre! — È-ra TOUT-to bouo-NIS-si-mo, ma sé-KON-do mé TROP-po ab-bon-DAN-té. man-dja-VA-mo SÈM-pré — Tout était délicieux, mais à mon avis trop copieux. On mangeait tout le temps !
-- **A** : Io sono convinto che sia il posto migliore d'Italia per mangiare. — I-o SO-no kon-VIN-to ké SI-a il POS-to mi-LIO-ré di-TA-lia pér man-DJA-ré — Moi, je suis convaincu que c'est le meilleur endroit d'Italie pour manger.
-- **B** : È vero, ma il traffico a Palermo è terribile. Un giorno abbiamo perso due ore. — è VÉ-ro, ma il TRAF-fi-ko a pa-LÈR-mo è tér-RI-bi-lé. oun DJOR-no ab-BIA-mo PÈR-so DOU-é O-ré — C'est vrai, mais la circulation à Palerme est terrible. Un jour, on a perdu deux heures.
-- **A** : Vuoi dire che non ci torneresti? — VOUO-i DI-ré ké non tchi tor-né-RÉS-ti — Tu veux dire que tu n'y retournerais pas ?
-- **B** : Al contrario! Ma la prossima volta senza macchina. — al kon-TRA-rio. ma la PROS-si-ma VOL-ta SÈN-tsa MAK-ki-na — Au contraire ! Mais la prochaine fois, sans voiture.
-- **A** : A proposito, hai visto le mail del cliente? — a pro-PO-zi-to, A-i VIS-to lé MÈÏL dél kli-ÈN-té — Au fait, tu as vu les mails du client ?
-- **B** : Non ancora, le guardo subito. Grazie! — non an-KO-ra, lé GOUAR-do SOU-bi-to. GRA-tsié — Pas encore, je les regarde tout de suite. Merci !
-
-### L10-fr-it-d3 · Fin de soirée entre amis (tu)
-
-- **A** : Che bella serata! Grazie per la cena. — ké BÈL-la sé-RA-ta. GRA-tsié pér la TCHÉ-na — Quelle belle soirée ! Merci pour le dîner.
-- **B** : Grazie a te. Allora, cosa ne pensi del film di cui parlavamo? — GRA-tsié a TÉ. al-LO-ra, KO-za né PÈN-si dél FILM di KOUI par-la-VA-mo — Merci à toi. Alors, qu'est-ce que tu penses du film dont on parlait ?
-- **A** : Sinceramente, da un lato è ben fatto, dall'altro è troppo lungo. — sin-tché-ra-MÉN-té, da oun LA-to è bén FAT-to, dal-LAL-tro è TROP-po LOUN-go — Sincèrement, d'un côté il est bien fait, de l'autre il est trop long.
-- **B** : È vero, ma la storia è bellissima. Io ho pianto alla fine! — è VÉ-ro, ma la STO-ria è bél-LIS-si-ma. I-o o PIAN-to AL-la FI-né — C'est vrai, mais l'histoire est magnifique. Moi, j'ai pleuré à la fin !
-- **A** : Davvero? Se ho capito bene, pensi che valga la pena vederlo al cinema. — dav-VÉ-ro. sé o ka-PI-to BÈ-né, PÈN-si ké VAL-ga la PÉ-na vé-DÉR-lo al TCHI-né-ma — Vraiment ? Si j'ai bien compris, tu penses que ça vaut la peine de le voir au cinéma.
-- **B** : Esatto. Hai ragione sulla lunghezza, però non mi sono annoiata un minuto. — é-ZAT-to. A-i ra-DJO-né SOUL-la loun-GUÉT-tsa, pé-RO non mi SO-no an-no-IA-ta oun mi-NOU-to — Exactement. Tu as raison sur la longueur, mais je ne me suis pas ennuyée une minute.
-- **A** : In sintesi, non siamo d'accordo, ma va bene così! — inn SIN-té-zi, non SIA-mo dak-KOR-do, ma va BÈ-né ko-ZI — En résumé, on n'est pas d'accord, mais c'est très bien comme ça !
-- **B** : Come sempre! A proposito, come sta tua madre? — KO-mé SÈM-pré. a pro-PO-zi-to, KO-mé sta TOU-a MA-dré — Comme toujours ! Au fait, comment va ta mère ?
-- **A** : Meglio, grazie. È tornata a casa ieri. Beh, si è fatto tardi, devo andare. — MÈ-lio, GRA-tsié. è tor-NA-ta a KA-za IÈ-ri. bé, si è FAT-to TAR-di, DÉ-vo an-DA-ré — Mieux, merci. Elle est rentrée à la maison hier. Bon, il se fait tard, je dois y aller.
-- **B** : Salutamela! Ci sentiamo presto, buonanotte! — sa-LOU-ta-mé-la. tchi sén-TIA-mo PRÈS-to, bouo-na-NOT-té — Embrasse-la de ma part ! On s'appelle bientôt, bonne nuit !
-
-*Acquis attendu* : Tenir une conversation suivie : raconter avec des repères et des émotions, donner et défendre un avis (da un lato… dall'altro), concéder (è vero, ma…), reformuler l'avis de l'autre, changer de sujet et prendre congé chaleureusement.
+*Acquis attendu* : Tenir une conversation longue : raconter avec repères et émotions (…たとき、嬉しかったです), peser le pour et le contre (一方で…他方で), concéder et contre-argumenter (確かにそうですが), reformuler l'avis de l'autre (…とお考えなんですね), conclure (まとめると), changer de sujet (ところで) et prendre congé chaleureusement (では、そろそろ失礼します).

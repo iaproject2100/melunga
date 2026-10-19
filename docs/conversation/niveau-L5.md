@@ -4,161 +4,163 @@ Objectif : Raconter un événement passé et demander des nouvelles.
 
 Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **gras**), 3 dialogues de 6 à 10 répliques. Réutilise les niveaux L1, L2, L3, L4.
 
-## Italien (lecteurs francophones)
+## Japonais (lecteurs francophones)
 
-*Convention phonétique* : Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.
+*Convention phonétique* : Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).
 
-*Statut* : Rédigé à la main ; relecture par un italophone conseillée.
+*Statut* : Relecture linguistique requise (naturel des tournures, lectures des kanji).
 
-### L5-fr-it-01 · Hier — modèle « Ieri ho {s}. »
+### L5-fr-ja-01 · Raconter : hier… — modèle « 昨日{s}。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Ieri ho **lavorato tutto il giorno**. | IÈ-ri o la-vo-RA-to TOUT-to il DJOR-no | Hier, j'ai travaillé toute la journée. |
-| Ieri ho **mangiato una pizza**. | IÈ-ri o man-DJA-to OU-na PIT-tsa | Hier, j'ai mangé une pizza. |
-| Ieri ho **visto un film**. | IÈ-ri o VIS-to oun FILM | Hier, j'ai vu un film. |
-| Ieri ho **dormito poco**. | IÈ-ri o dor-MI-to PO-ko | Hier, j'ai peu dormi. |
+> Passé poli : ました (positif), ませんでした (négatif).
 
-### L5-fr-it-02 · Dire où l'on est allé — modèle « Sono andato {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 昨日**映画を見ました**。 | きのうえいがをみました。 | ki-no-o é-i-ga o mi-ma-chi-ta | Hier, j'ai vu un film. |
+| 昨日**友達と食事をしました**。 | きのうともだちとしょくじをしました。 | ki-no-o to-mo-da-tchi to cho-kou-dji o chi-ma-chi-ta | Hier, j'ai dîné avec des amis. |
+| 昨日**家で休みました**。 | きのういえでやすみました。 | ki-no-o i-é dé ya-sou-mi-ma-chi-ta | Hier, je me suis reposé à la maison. |
+| 昨日**買い物をしました**。 | きのうかいものをしました。 | ki-no-o ka-i-mo-no o chi-ma-chi-ta | Hier, j'ai fait des courses. |
 
-> Au féminin : « Sono andata » (an-DA-ta) = je suis allée. Le participe s'accorde avec « essere ».
+### L5-fr-ja-02 · Dire où l'on est allé — modèle « {s}に行きました。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Sono andato **al mare**. | SO-no an-DA-to al MA-ré | Je suis allé à la mer. |
-| Sono andato **a Roma**. | SO-no an-DA-to a RO-ma | Je suis allé à Rome. |
-| Sono andato **dal medico**. | SO-no an-DA-to dal MÈ-di-ko | Je suis allé chez le médecin. |
-| Sono andato **a trovare mia nonna**. | SO-no an-DA-to a tro-VA-ré MI-a NON-na | Je suis allé voir ma grand-mère. |
+> allé / allée selon la personne qui parle ; le japonais ne marque pas le genre.
 
-### L5-fr-it-03 · Situer dans le passé — modèle « {s} ho visitato Firenze. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **京都**に行きました。 | きょうとにいきました。 | kyo-o-to ni i-ki-ma-chi-ta | Je suis allé à Kyoto. |
+| **海**に行きました。 | うみにいきました。 | ou-mi ni i-ki-ma-chi-ta | Je suis allé à la mer. |
+| **美術館**に行きました。 | びじゅつかんにいきました。 | bi-djou-tsou-kan ni i-ki-ma-chi-ta | Je suis allé au musée. |
+| **コンサート**に行きました。 | こんさーとにいきました。 | kon-sa-a-to ni i-ki-ma-chi-ta | Je suis allé à un concert. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| **La settimana scorsa** ho visitato Firenze. | la sét-ti-MA-na SKOR-sa o vi-zi-TA-to fi-RÈN-tsé | La semaine dernière, j'ai visité Florence. |
-| **Due giorni fa** ho visitato Firenze. | DOU-é DJOR-ni fa o vi-zi-TA-to fi-RÈN-tsé | Il y a deux jours, j'ai visité Florence. |
-| **L'anno scorso** ho visitato Firenze. | LAN-no SKOR-so o vi-zi-TA-to fi-RÈN-tsé | L'année dernière, j'ai visité Florence. |
-| **Lo scorso fine settimana** ho visitato Firenze. | lo SKOR-so FI-né sét-ti-MA-na o vi-zi-TA-to fi-RÈN-tsé | Le week-end dernier, j'ai visité Florence. |
+### L5-fr-ja-03 · Situer dans le passé — modèle « {s}日本に来ました。 »
 
-### L5-fr-it-04 · Répondre à « Come stai ? » — modèle « Sto {s}, grazie. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **先週**日本に来ました。 | せんしゅうにほんにきました。 | sén-chou-ou ni-hon ni ki-ma-chi-ta | Je suis arrivé au Japon la semaine dernière. |
+| **二日前に**日本に来ました。 | ふつかまえににほんにきました。 | fou-tsou-ka ma-é ni ni-hon ni ki-ma-chi-ta | Je suis arrivé au Japon il y a deux jours. |
+| **先月**日本に来ました。 | せんげつにほんにきました。 | sén-gé-tsou ni-hon ni ki-ma-chi-ta | Je suis arrivé au Japon le mois dernier. |
+| **去年**日本に来ました。 | きょねんにほんにきました。 | kyo-nén ni-hon ni ki-ma-chi-ta | Je suis arrivé au Japon l'année dernière. |
 
-> Pour « je suis fatigué », on dit « Sono stanco / stanca » (avec essere, pas stare).
+### L5-fr-ja-04 · Demander et donner des nouvelles — modèle « {s} »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Sto **bene**, grazie. | sto BÈ-né, GRA-tsié | Je vais bien, merci. |
-| Sto **benissimo**, grazie. | sto bé-NIS-si-mo, GRA-tsié | Je vais très bien, merci. |
-| Sto **così così**, grazie. | sto ko-ZI ko-ZI, GRA-tsié | Je vais comme ci comme ça, merci. |
-| Sto **abbastanza bene**, grazie. | sto ab-bas-TAN-tsa BÈ-né, GRA-tsié | Je vais plutôt bien, merci. |
+> Formules entières. On répond 元気です puis on relance avec le nom + さん (マリーさんは？).
 
-### L5-fr-it-05 · Réagir — modèle « {s} »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **元気ですか。** | げんきですか。 | gén-ki dé-sou ka | Comment allez-vous ? |
+| **最近どうですか。** | さいきんどうですか。 | sa-i-kin do-o dé-sou ka | Quoi de neuf, ces derniers temps ? |
+| **元気です。** | げんきです。 | gén-ki dé-sou | Je vais bien. |
+| **まあまあです。** | まあまあです。 | ma-a-ma-a dé-sou | Comme ci, comme ça. |
 
-> Réactions courtes à connaître telles quelles.
+### L5-fr-ja-05 · Réagir à ce qu'on entend — modèle « {s} »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| **Che bello!** | ké BÈL-lo | Super ! |
-| **Peccato!** | pék-KA-to | Dommage ! |
-| **Davvero?** | dav-VÉ-ro | Vraiment ? |
-| **Che bella notizia!** | ké BÈL-la no-TI-tsia | Quelle bonne nouvelle ! |
+> Formules entières. ね en fin de phrase cherche l'accord de l'autre : il adoucit la réaction.
 
-### L5-fr-it-06 · Enchaîner : d'abord… puis — modèle « Prima {s}, poi siamo usciti. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **いいですね！** | いいですね！ | i-i dé-sou né | C'est super ! |
+| **残念ですね。** | ざんねんですね。 | zan-nén dé-sou né | Dommage. |
+| **本当ですか。** | ほんとうですか。 | hon-to-o dé-sou ka | Vraiment ? |
+| **大変でしたね。** | たいへんでしたね。 | ta-i-hén dé-chi-ta né | Ça a dû être dur. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Prima **abbiamo cenato**, poi siamo usciti. | PRI-ma ab-BIA-mo tché-NA-to, POÏ SIA-mo ou-CHI-ti | D'abord on a dîné, puis on est sortis. |
-| Prima **ho fatto la doccia**, poi siamo usciti. | PRI-ma o FAT-to la DOT-tcha, POÏ SIA-mo ou-CHI-ti | D'abord j'ai pris une douche, puis on est sortis. |
-| Prima **abbiamo bevuto un caffè**, poi siamo usciti. | PRI-ma ab-BIA-mo bé-VOU-to oun kaf-FÈ, POÏ SIA-mo ou-CHI-ti | D'abord on a bu un café, puis on est sortis. |
-| Prima **ho finito il lavoro**, poi siamo usciti. | PRI-ma o fi-NI-to il la-VO-ro, POÏ SIA-mo ou-CHI-ti | D'abord j'ai fini le travail, puis on est sortis. |
+### L5-fr-ja-06 · Enchaîner : d'abord…, puis… — modèle « まず{s}、それから家に帰りました。 »
 
-### L5-fr-it-07 · Enchaîner : après — modèle « Dopo {s}. »
+> Forme en て pour enchaîner deux actions. 帰ります = rentrer chez soi (différent de 行きます).
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Dopo **siamo andati a casa**. | DO-po SIA-mo an-DA-ti a KA-za | Après, on est rentrés à la maison. |
-| Dopo **ho dormito**. | DO-po o dor-MI-to | Après, j'ai dormi. |
-| Dopo **abbiamo fatto una passeggiata**. | DO-po ab-BIA-mo FAT-to OU-na pas-séd-DJA-ta | Après, on a fait une promenade. |
-| Dopo **ho chiamato mia madre**. | DO-po o kia-MA-to MI-a MA-dré | Après, j'ai appelé ma mère. |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| まず**買い物をして**、それから家に帰りました。 | まずかいものをして、それからいえにかえりました。 | ma-zou ka-i-mo-no o chi-té, so-ré-ka-ra i-é ni ka-é-ri-ma-chi-ta | D'abord j'ai fait des courses, puis je suis rentré à la maison. |
+| まず**友達に会って**、それから家に帰りました。 | まずともだちにあって、それからいえにかえりました。 | ma-zou to-mo-da-tchi ni at-té, so-ré-ka-ra i-é ni ka-é-ri-ma-chi-ta | D'abord j'ai vu un ami, puis je suis rentré à la maison. |
+| まず**公園を散歩して**、それから家に帰りました。 | まずこうえんをさんぽして、それからいえにかえりました。 | ma-zou ko-o-én o san-po chi-té, so-ré-ka-ra i-é ni ka-é-ri-ma-chi-ta | D'abord je me suis promené dans le parc, puis je suis rentré à la maison. |
+| まず**昼ご飯を食べて**、それから家に帰りました。 | まずひるごはんをたべて、それからいえにかえりました。 | ma-zou hi-rou-go-han o ta-bé-té, so-ré-ka-ra i-é ni ka-é-ri-ma-chi-ta | D'abord j'ai déjeuné, puis je suis rentré à la maison. |
 
-### L5-fr-it-08 · Demander comment ça s'est passé — modèle « Com'è andata {s}? »
+### L5-fr-ja-07 · Enchaîner : après… — modèle « その後、{s}。 »
 
-> Le participe s'accorde : « Com'è andato il viaggio ? » (ko-MÈ an-DA-to) au masculin.
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| その後、**映画を見ました**。 | そのあと、えいがをみました。 | so-no a-to, é-i-ga o mi-ma-chi-ta | Après, j'ai vu un film. |
+| その後、**寝ました**。 | そのあと、ねました。 | so-no a-to, né-ma-chi-ta | Après, je me suis couché. |
+| その後、**温泉に入りました**。 | そのあと、おんせんにはいりました。 | so-no a-to, on-sén ni ha-i-ri-ma-chi-ta | Après, je suis allé aux bains chauds. |
+| その後、**電車で帰りました**。 | そのあと、でんしゃでかえりました。 | so-no a-to, dén-cha dé ka-é-ri-ma-chi-ta | Après, je suis rentré en train. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Com'è andata **la riunione**? | ko-MÈ an-DA-ta la riou-NIO-né | Comment s'est passée la réunion ? |
-| Com'è andata **la festa**? | ko-MÈ an-DA-ta la FÈS-ta | Comment s'est passée la fête ? |
-| Com'è andata **la giornata**? | ko-MÈ an-DA-ta la djor-NA-ta | Comment s'est passée la journée ? |
-| Com'è andata **la vacanza**? | ko-MÈ an-DA-ta la va-KAN-tsa | Comment se sont passées les vacances ? |
+### L5-fr-ja-08 · Le week-end dernier — modèle « 週末は{s}。 »
 
-### L5-fr-it-09 · Dire ce qu'on n'a pas fait — modèle « Non ho {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| 週末は**何もしませんでした**。 | しゅうまつはなにもしませんでした。 | chou-ou-ma-tsou wa na-ni mo chi-ma-sén dé-chi-ta | Ce week-end, je n'ai rien fait. |
+| 週末は**山に登りました**。 | しゅうまつはやまにのぼりました。 | chou-ou-ma-tsou wa ya-ma ni no-bo-ri-ma-chi-ta | Ce week-end, j'ai fait une randonnée en montagne. |
+| 週末は**家族と過ごしました**。 | しゅうまつはかぞくとすごしました。 | chou-ou-ma-tsou wa ka-zo-kou to sou-go-chi-ma-chi-ta | Ce week-end, j'ai passé du temps en famille. |
+| 週末は**仕事をしました**。 | しゅうまつはしごとをしました。 | chou-ou-ma-tsou wa chi-go-to o chi-ma-chi-ta | Ce week-end, j'ai travaillé. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Non ho **dormito**. | non o dor-MI-to | Je n'ai pas dormi. |
-| Non ho **capito**. | non o ka-PI-to | Je n'ai pas compris. |
-| Non ho **avuto tempo**. | non o a-VOU-to TÈM-po | Je n'ai pas eu le temps. |
-| Non ho **visto niente**. | non o VIS-to NIÈN-té | Je n'ai rien vu. |
+### L5-fr-ja-09 · Demander ce que l'autre a fait — modèle « {s}は何をしましたか。 »
 
-### L5-fr-it-10 · Demander à un ami (tu) — modèle « Hai {s}? »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **昨日**は何をしましたか。 | きのうはなにをしましたか。 | ki-no-o wa na-ni o chi-ma-chi-ta ka | Qu'avez-vous fait hier ? |
+| **週末**は何をしましたか。 | しゅうまつはなにをしましたか。 | chou-ou-ma-tsou wa na-ni o chi-ma-chi-ta ka | Qu'avez-vous fait ce week-end ? |
+| **休みに**は何をしましたか。 | やすみにはなにをしましたか。 | ya-sou-mi ni wa na-ni o chi-ma-chi-ta ka | Qu'avez-vous fait pendant les vacances ? |
+| **誕生日に**は何をしましたか。 | たんじょうびにはなにをしましたか。 | tan-djo-o-bi ni wa na-ni o chi-ma-chi-ta ka | Qu'avez-vous fait pour votre anniversaire ? |
 
-> Tutoiement. Avec un inconnu : « Ha… ? » (a).
+### L5-fr-ja-10 · Demander comment c'était — modèle « {s}はどうでしたか。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| Hai **mangiato**? | A-i man-DJA-to | Tu as mangé ? |
-| Hai **visto Marco**? | A-i VIS-to MAR-ko | Tu as vu Marco ? |
-| Hai **sentito la notizia**? | A-i sén-TI-to la no-TI-tsia | Tu as entendu la nouvelle ? |
-| Hai **passato un buon fine settimana**? | A-i pas-SA-to oun bouon FI-né sét-ti-MA-na | Tu as passé un bon week-end ? |
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **旅行**はどうでしたか。 | りょこうはどうでしたか。 | ryo-ko-o wa do-o dé-chi-ta ka | Comment était le voyage ? |
+| **映画**はどうでしたか。 | えいがはどうでしたか。 | é-i-ga wa do-o dé-chi-ta ka | Comment était le film ? |
+| **試験**はどうでしたか。 | しけんはどうでしたか。 | chi-kén wa do-o dé-chi-ta ka | Comment était l'examen ? |
+| **週末**はどうでしたか。 | しゅうまつはどうでしたか。 | chou-ou-ma-tsou wa do-o dé-chi-ta ka | Comment était le week-end ? |
 
-### L5-fr-it-11 · Vacances — modèle « In vacanza abbiamo {s}. »
+### L5-fr-ja-11 · Dire comment c'était — modèle « {s}かったです。 »
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| In vacanza abbiamo **visitato molti musei**. | inn va-KAN-tsa ab-BIA-mo vi-zi-TA-to MOL-ti mou-ZÈ-i | En vacances, on a visité beaucoup de musées. |
-| In vacanza abbiamo **mangiato benissimo**. | inn va-KAN-tsa ab-BIA-mo man-DJA-to bé-NIS-si-mo | En vacances, on a très bien mangé. |
-| In vacanza abbiamo **fatto il bagno ogni giorno**. | inn va-KAN-tsa ab-BIA-mo FAT-to il BA-gno O-gni DJOR-no | En vacances, on s'est baignés tous les jours. |
-| In vacanza abbiamo **preso il sole**. | inn va-KAN-tsa ab-BIA-mo PRÉ-zo il SO-lé | En vacances, on a pris le soleil. |
+> Adjectif en い au passé : on remplace い par かった, puis です (jamais でした après かった).
 
-### L5-fr-it-12 · Faire un bilan — modèle « È stato {s}. »
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **楽し**かったです。 | たのしかったです。 | ta-no-chi-kat-ta dé-sou | C'était amusant. |
+| **面白**かったです。 | おもしろかったです。 | o-mo-chi-ro-kat-ta dé-sou | C'était intéressant. |
+| **おいし**かったです。 | おいしかったです。 | o-i-chi-kat-ta dé-sou | C'était bon. |
+| **寒**かったです。 | さむかったです。 | sa-mou-kat-ta dé-sou | Il faisait froid. |
 
-| Phrase | Prononciation | Traduction |
-|---|---|---|
-| È stato **bellissimo**. | è STA-to bél-LIS-si-mo | C'était magnifique. |
-| È stato **stancante**. | è STA-to stan-KAN-té | C'était fatigant. |
-| È stato **un bel fine settimana**. | è STA-to oun bél FI-né sét-ti-MA-na | C'était un beau week-end. |
-| È stato **difficile**. | è STA-to dif-FI-tchi-lé | C'était difficile. |
+### L5-fr-ja-12 · Dire qui on a vu — modèle « {s}に会いました。 »
 
-### L5-fr-it-d1 · Retrouvailles (entre amis, tu)
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **友達**に会いました。 | ともだちにあいました。 | to-mo-da-tchi ni a-i-ma-chi-ta | J'ai vu un ami. |
+| **家族**に会いました。 | かぞくにあいました。 | ka-zo-kou ni a-i-ma-chi-ta | J'ai vu ma famille. |
+| **昔の同僚**に会いました。 | むかしのどうりょうにあいました。 | mou-ka-chi no do-o-ryo-o ni a-i-ma-chi-ta | J'ai vu un ancien collègue. |
+| **先生**に会いました。 | せんせいにあいました。 | sén-sé-i ni a-i-ma-chi-ta | J'ai vu mon professeur. |
 
-- **A** : Ciao Marta! Come stai? — TCHA-o MAR-ta. KO-mé STA-i — Salut Marta ! Comment tu vas ?
-- **B** : Bene, grazie! E tu? Novità? — BÈ-né, GRA-tsié. é TOU. no-vi-TA — Bien, merci ! Et toi ? Des nouvelles ?
-- **A** : Sì! La settimana scorsa sono andato a Napoli. — SI. la sét-ti-MA-na SKOR-sa SO-no an-DA-to a NA-po-li — Oui ! La semaine dernière, je suis allé à Naples.
-- **B** : Davvero? Com'è andata? — dav-VÉ-ro. ko-MÈ an-DA-ta — Vraiment ? Comment ça s'est passé ?
-- **A** : Benissimo! Abbiamo mangiato la vera pizza. — bé-NIS-si-mo. ab-BIA-mo man-DJA-to la VÉ-ra PIT-tsa — Très bien ! On a mangé la vraie pizza.
-- **B** : Che bello! Io invece ho lavorato tutto il fine settimana. — ké BÈL-lo. I-o in-VÉ-tché o la-vo-RA-to TOUT-to il FI-né sét-ti-MA-na — Super ! Moi, par contre, j'ai travaillé tout le week-end.
-- **A** : Peccato! Ti va un caffè? Ti racconto tutto. — pék-KA-to. ti va oun kaf-FÈ. ti rak-KON-to TOUT-to — Dommage ! Ça te dit un café ? Je te raconte tout.
-- **B** : Volentieri! — vo-lén-TIÈ-ri — Volontiers !
+### L5-fr-ja-d1 · Retrouvailles
 
-### L5-fr-it-d2 · Lundi au bureau (collègues, tu)
+- **A** : ポールさん、お久しぶりです。元気ですか。 *(ぽーるさん、おひさしぶりです。げんきですか。)* — po-o-rou-san, o-hi-sa-chi-bou-ri dé-sou. gén-ki dé-sou ka — Paul, ça fait longtemps ! Comment allez-vous ?
+- **B** : お久しぶりです。元気です。マリーさんは？ *(おひさしぶりです。げんきです。まりーさんは？)* — o-hi-sa-chi-bou-ri dé-sou. gén-ki dé-sou. ma-ri-i-san wa — Ça fait longtemps ! Je vais bien. Et vous, Marie ?
+- **A** : 元気です。最近どうですか。 *(げんきです。さいきんどうですか。)* — gén-ki dé-sou. sa-i-kin do-o dé-sou ka — Je vais bien. Quoi de neuf, ces derniers temps ?
+- **B** : 先週、京都に行きました。 *(せんしゅう、きょうとにいきました。)* — sén-chou-ou, kyo-o-to ni i-ki-ma-chi-ta — La semaine dernière, je suis allé à Kyoto.
+- **A** : 本当ですか。どうでしたか。 *(ほんとうですか。どうでしたか。)* — hon-to-o dé-sou ka. do-o dé-chi-ta ka — Vraiment ? C'était comment ?
+- **B** : とても良かったです。お寺を見て、それから温泉に入りました。 *(とてもよかったです。おてらをみて、それからおんせんにはいりました。)* — to-té-mo yo-kat-ta dé-sou. o-té-ra o mi-té, so-ré-ka-ra on-sén ni ha-i-ri-ma-chi-ta — C'était très bien. J'ai vu des temples, puis je suis allé aux bains chauds.
+- **A** : いいですね！私は週末、何もしませんでした。 *(いいですね！わたしはしゅうまつ、なにもしませんでした。)* — i-i dé-sou né. wa-ta-chi wa chou-ou-ma-tsou, na-ni mo chi-ma-sén dé-chi-ta — C'est super ! Moi, ce week-end, je n'ai rien fait.
+- **B** : 残念ですね。でも、休みも大切ですよ。 *(ざんねんですね。でも、やすみもたいせつですよ。)* — zan-nén dé-sou né. dé-mo, ya-sou-mi mo ta-i-sé-tsou dé-sou yo — Dommage. Mais le repos aussi, c'est important.
 
-- **A** : Buongiorno! Hai passato un buon fine settimana? — bouon-DJOR-no. A-i pas-SA-to oun bouon FI-né sét-ti-MA-na — Bonjour ! Tu as passé un bon week-end ?
-- **B** : Sì, sabato siamo andati al mare. E tu? — SI, SA-ba-to SIA-mo an-DA-ti al MA-ré. é TOU — Oui, samedi on est allés à la mer. Et toi ?
-- **A** : Io sono rimasto a casa, ho dormito molto. — I-o SO-no ri-MAS-to a KA-za, o dor-MI-to MOL-to — Moi, je suis resté à la maison, j'ai beaucoup dormi.
-- **B** : Hai visto la partita ieri sera? — A-i VIS-to la par-TI-ta IÈ-ri SÉ-ra — Tu as vu le match hier soir ?
-- **A** : No, non ho avuto tempo. Com'è finita? — no, non o a-VOU-to TÈM-po. ko-MÈ fi-NI-ta — Non, je n'ai pas eu le temps. Ça s'est fini comment ?
-- **B** : Due a uno. È stata una bella partita. — DOU-é a OU-no. è STA-ta OU-na BÈL-la par-TI-ta — Deux à un. C'était un beau match.
-- **A** : Peccato! E la riunione di venerdì com'è andata? — pék-KA-to. é la riou-NIO-né di vé-nér-DI ko-MÈ an-DA-ta — Dommage ! Et la réunion de vendredi, comment ça s'est passé ?
-- **B** : Bene, ma è stata lunga. Prima abbiamo parlato del budget, poi del nuovo progetto. — BÈ-né, ma è STA-ta LOUN-ga. PRI-ma ab-BIA-mo par-LA-to dél BAD-djét, POÏ dél NOUO-vo pro-DJÈT-to — Bien, mais c'était long. D'abord on a parlé du budget, puis du nouveau projet.
+### L5-fr-ja-d2 · Le week-end
 
-### L5-fr-it-d3 · Au téléphone avec sa mère (tu)
+- **A** : 田中さん、週末は何をしましたか。 *(たなかさん、しゅうまつはなにをしましたか。)* — ta-na-ka-san, chou-ou-ma-tsou wa na-ni o chi-ma-chi-ta ka — Monsieur Tanaka, qu'avez-vous fait ce week-end ?
+- **B** : 土曜日は買い物をしました。日曜日は家族と山に登りました。 *(どようびはかいものをしました。にちようびはかぞくとやまにのぼりました。)* — do-yo-o-bi wa ka-i-mo-no o chi-ma-chi-ta. ni-tchi-yo-o-bi wa ka-zo-kou to ya-ma ni no-bo-ri-ma-chi-ta — Samedi, j'ai fait des courses. Dimanche, j'ai fait une randonnée en montagne avec ma famille.
+- **A** : 山ですか。大変でしたね。 *(やまですか。たいへんでしたね。)* — ya-ma dé-sou ka. ta-i-hén dé-chi-ta né — En montagne ? Ça a dû être dur.
+- **B** : いいえ、楽しかったです。天気も良かったです。 *(いいえ、たのしかったです。てんきもよかったです。)* — i-i-é, ta-no-chi-kat-ta dé-sou. tén-ki mo yo-kat-ta dé-sou — Non, c'était amusant. Il faisait beau, en plus.
+- **A** : 私は昨日、友達と映画を見ました。 *(わたしはきのう、ともだちとえいがをみました。)* — wa-ta-chi wa ki-no-o, to-mo-da-tchi to é-i-ga o mi-ma-chi-ta — Moi, hier, j'ai vu un film avec des amis.
+- **B** : 何の映画ですか。 *(なんのえいがですか。)* — nan no é-i-ga dé-sou ka — Quel film ?
+- **A** : 日本の映画です。少し難しかったですが、面白かったです。 *(にほんのえいがです。すこしむずかしかったですが、おもしろかったです。)* — ni-hon no é-i-ga dé-sou. sou-ko-chi mou-zou-ka-chi-kat-ta dé-sou ga, o-mo-chi-ro-kat-ta dé-sou — Un film japonais. C'était un peu difficile, mais intéressant.
+- **B** : いいですね。今度私も見ます。 *(いいですね。こんどわたしもみます。)* — i-i dé-sou né. kon-do wa-ta-chi mo mi-ma-sou — C'est bien. Je le verrai aussi, un de ces jours.
 
-- **A** : Pronto, mamma? Come stai? — PRON-to, MAM-ma. KO-mé STA-i — Allô, maman ? Comment tu vas ?
-- **B** : Ciao tesoro! Sto bene. E tu? Dove sei? — TCHA-o té-ZO-ro. sto BÈ-né. é TOU. DO-vé SÈ-i — Bonjour mon chéri ! Je vais bien. Et toi ? Tu es où ?
-- **A** : Sono a Firenze. Ieri ho visitato il Duomo. — SO-no a fi-RÈN-tsé. IÈ-ri o vi-zi-TA-to il DOUO-mo — Je suis à Florence. Hier, j'ai visité le Duomo.
-- **B** : Che bello! E con chi sei? — ké BÈL-lo. é kon KI SÈ-i — Super ! Et tu es avec qui ?
-- **A** : Con Luca. Due giorni fa siamo arrivati in treno. — kon LOU-ka. DOU-é DJOR-ni fa SIA-mo ar-ri-VA-ti inn TRÈ-no — Avec Luca. On est arrivés en train il y a deux jours.
-- **B** : Avete mangiato bene? — a-VÉ-té man-DJA-to BÈ-né — Vous avez bien mangé ?
-- **A** : Sì, benissimo! Dopo ti mando le foto. — SI, bé-NIS-si-mo. DO-po ti MAN-do lé FO-to — Oui, très bien ! Après, je t'envoie les photos.
-- **B** : Bravo. Salutami Luca! — BRA-vo. sa-LOU-ta-mi LOU-ka — Bravo. Dis bonjour à Luca de ma part !
+### L5-fr-ja-d3 · Lundi matin au travail
 
-*Acquis attendu* : Raconter ce qu'on a fait au passé proche, situer dans le temps, enchaîner des actions (prima, poi, dopo), demander des nouvelles et réagir (che bello, peccato, davvero).
+- **A** : おはようございます。 *(おはようございます。)* — o-ha-yo-o go-za-i-ma-sou — Bonjour.
+- **B** : おはようございます。マリーさん、昨日は遅くまで働きましたか。 *(おはようございます。まりーさん、きのうはおそくまではたらきましたか。)* — o-ha-yo-o go-za-i-ma-sou. ma-ri-i-san, ki-no-o wa o-so-kou ma-dé ha-ta-ra-ki-ma-chi-ta ka — Bonjour. Marie, vous avez travaillé tard hier ?
+- **A** : はい、九時まで働きました。それから電車で帰りました。 *(はい、くじまではたらきました。それからでんしゃでかえりました。)* — ha-i, kou-dji ma-dé ha-ta-ra-ki-ma-chi-ta. so-ré-ka-ra dén-cha dé ka-é-ri-ma-chi-ta — Oui, j'ai travaillé jusqu'à neuf heures. Puis je suis rentrée en train.
+- **B** : 大変でしたね。晩ご飯は？ *(たいへんでしたね。ばんごはんは？)* — ta-i-hén dé-chi-ta né. ban-go-han wa — Ça a dû être dur. Et le dîner ?
+- **A** : 家で食べました。その後、すぐ寝ました。 *(いえでたべました。そのあと、すぐねました。)* — i-é dé ta-bé-ma-chi-ta. so-no a-to, sou-gou né-ma-chi-ta — J'ai mangé à la maison. Après, je me suis couchée tout de suite.
+- **B** : 今日は会議が二つあります。 *(きょうはかいぎがふたつあります。)* — kyo-o wa ka-i-gi ga fou-ta-tsou a-ri-ma-sou — Aujourd'hui, il y a deux réunions.
+- **A** : 分かりました。まずコーヒーを飲みます。 *(わかりました。まずこーひーをのみます。)* — wa-ka-ri-ma-chi-ta. ma-zou ko-o-hi-i o no-mi-ma-sou — D'accord. D'abord, je prends un café.
+- **B** : 私もです。 *(わたしもです。)* — wa-ta-chi mo dé-sou — Moi aussi.
+
+*Acquis attendu* : Raconter au passé poli (ました, ませんでした, adjectifs en かったです), situer dans le passé (昨日, 先週, 二日前に), enchaîner des actions avec la forme en て, まず et それから, demander et donner des nouvelles, réagir (いいですね, 残念ですね, 本当ですか).
