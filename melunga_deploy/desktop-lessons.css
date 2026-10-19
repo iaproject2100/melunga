@@ -155,3 +155,10 @@
  html.melunga-lesson-web body.immersif #rateBar.ratebar>button.rok:hover{background:#0b4d33}
  html.melunga-lesson-web body.immersif #rateBar.ratebar>button.rate:focus-visible{outline:3px solid #fff;outline-offset:3px;box-shadow:0 0 0 6px #173e35}
 }
+
+/* Readable level and progress on every lesson background. */
+@media(min-width:1024px){
+ html.melunga-lesson-web body.immersif .desktop-progress-level,
+ html.melunga-lesson-web body.immersif .desktop-progress-count{font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:16px;font-weight:700;line-height:1.25;color:#173e50;background:#f7faf9;border:1px solid #c8d6d0;border-radius:8px;padding:7px 12px;opacity:1;font-variant-numeric:tabular-nums}
+ html.melunga-lesson-web body.immersif .desktop-progress-level{min-width:48px;text-align:center}
+}
