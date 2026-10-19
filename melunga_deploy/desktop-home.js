@@ -5,9 +5,9 @@
   document.documentElement.classList.add('melunga-web');
   const copy = {
   "fr": [
-    "7 LANGUES, UNE MÊME MÉTHODE",
-    "Des phrases utiles<br><em>pour parler au quotidien.</em>",
-    "Écoute une phrase. Aide-toi de la phonétique pour la prononcer. Révise-la pour la retrouver quand tu en as besoin.",
+    "7 LANGUES · LES 80 % QUI COMPTENT",
+    "Apprends l’essentiel d’abord.<br><em>Prononce-le dans ta langue.</em>",
+    "80 % d’une langue tient dans ses mots les plus utilisés : on t’apprend exactement ceux-là. La prononciation est écrite dans ta langue — zéro symbole bizarre à déchiffrer.",
     "Commencer gratuitement",
     "Comment ça marche",
     "Niveau 1 gratuit · sans carte bancaire",
@@ -44,9 +44,9 @@
     "Audio indisponible pour le moment. Réessaie dans l’application."
   ],
   "en": [
-    "7 LANGUAGES, ONE METHOD",
-    "Useful phrases<br><em>for everyday conversations.</em>",
-    "Listen to a phrase. Use phonetic guidance to pronounce it. Review it so you can recall it when you need it.",
+    "7 LANGUAGES · THE 80% THAT MATTERS",
+    "Learn what matters first.<br><em>Pronounce it in your language.</em>",
+    "80% of a language is its most-used words: we teach you exactly those. Pronunciation is written in your own language — no weird symbols to decode.",
     "Start for free",
     "How it works",
     "Level 1 free · no payment card",
@@ -83,9 +83,9 @@
     "Audio is unavailable. Try again in the application."
   ],
   "es": [
-    "7 IDIOMAS, UN MISMO MÉTODO",
-    "Frases útiles<br><em>para hablar a diario.</em>",
-    "Escucha una frase. Usa la ayuda fonética para pronunciarla. Repásala para recordarla cuando la necesites.",
+    "7 IDIOMAS · EL 80 % QUE IMPORTA",
+    "Aprende primero lo esencial.<br><em>Pronúncialo en tu idioma.</em>",
+    "El 80 % de un idioma está en sus palabras más usadas: te enseñamos exactamente esas. La pronunciación está escrita en tu idioma, sin símbolos raros que descifrar.",
     "Empezar gratis",
     "Cómo funciona",
     "Nivel 1 gratis · sin tarjeta",
@@ -122,9 +122,9 @@
     "Audio no disponible. Inténtalo en la aplicación."
   ],
   "zh": [
-    "7 种语言，同一种方法",
-    "实用的句子，<br><em>用于日常交流。</em>",
-    "听一句话。借助发音提示跟读。通过复习，在需要时想起它。",
+    "7 种语言 · 最重要的 80%",
+    "先学最常用的，<br><em>用你的母语读出来。</em>",
+    "一门语言 80% 都在最常用的词里，我们只教这些。发音直接用你的母语标注，无需破译奇怪的符号。",
     "免费开始",
     "如何学习",
     "L1 免费 · 无需银行卡",
@@ -161,9 +161,9 @@
     "音频暂不可用，请在应用中重试。"
   ],
   "it": [
-    "7 LINGUE, UN SOLO METODO",
-    "Frasi utili<br><em>per parlare ogni giorno.</em>",
-    "Ascolta una frase. Usa la guida fonetica per pronunciarla. Ripassala per ricordarla quando serve.",
+    "7 LINGUE · L’80% CHE CONTA",
+    "Impara prima l’essenziale.<br><em>Pronuncialo nella tua lingua.</em>",
+    "L’80% di una lingua sta nelle sue parole più usate: ti insegniamo esattamente quelle. La pronuncia è scritta nella tua lingua, zero simboli strani da decifrare.",
     "Inizia gratis",
     "Come funziona",
     "Livello 1 gratis · senza carta",
@@ -200,9 +200,9 @@
     "Audio non disponibile. Riprova nell’applicazione."
   ],
   "ja": [
-    "7言語、ひとつの学習方法",
-    "実用的な文で、<br><em>日常の会話を。</em>",
-    "文を聞き、発音ガイドを使って声に出しましょう。復習して、必要なときに思い出せるように。",
+    "7言語 · 大切な80%",
+    "まずは本当に使う表現を。<br><em>発音は母語で読める。</em>",
+    "言語の80%は最もよく使われる言葉に含まれます。それだけを教えます。発音はあなたの母語で表記、不思議な記号は一切なし。",
     "無料で始める",
     "学習の流れ",
     "L1 無料 · カード不要",
@@ -239,9 +239,9 @@
     "音声は現在利用できません。アプリでお試しください。"
   ],
   "ko": [
-    "7개 언어, 하나의 학습법",
-    "실용적인 문장으로<br><em>일상에서 대화하세요.</em>",
-    "문장을 듣고 발음 안내에 따라 소리 내어 읽으세요. 필요할 때 떠올릴 수 있도록 복습하세요.",
+    "7개 언어 · 중요한 80%",
+    "가장 많이 쓰는 표현부터.<br><em>발음은 모국어로 읽어요.</em>",
+    "언어의 80%는 가장 자주 쓰는 말에 담겨 있어요. 그것만 가르쳐 드려요. 발음은 당신의 모국어로 표기, 이상한 기호는 전혀 없어요.",
     "무료로 시작",
     "학습 방법",
     "L1 무료 · 카드 불필요",
@@ -285,17 +285,18 @@
     <header class="dh-container dh-header"><a class="dh-brand" href="#"><img src="assets/melunga-logo.png" alt="">Melunga</a><nav class="dh-nav" aria-label="Melunga"><a href="#dh-method">${tr(35)}</a><a href="#dh-pricing">${tr(31)}</a><select class="dh-language" aria-label="Language / Langue"><option value="fr">FR Français</option><option value="en">EN English</option><option value="es">ES Español</option><option value="zh">中文</option><option value="it">IT Italiano</option><option value="ja">日本語</option><option value="ko">한국어</option></select><button class="dh-button dh-small dh-outline" data-go="signin">${tr(30)}</button></nav></header>
     <div class="dh-container">
       <section class="dh-hero" aria-labelledby="dh-title"><div><p class="dh-kicker">${tr(0)}</p><h1 class="dh-title" id="dh-title"></h1><p class="dh-intro">${tr(2)}</p><div class="dh-actions"><button class="dh-button dh-primary" data-dh-free>${tr(3)} <span aria-hidden="true">&rarr;</span></button><a class="dh-button dh-outline" href="#dh-method">${tr(4)}</a></div><p class="dh-fine">${tr(5)}</p></div>
-      <aside class="dh-example"><div class="dh-example-top"><b>${tr(6)}</b><span>L1 · 01</span></div><div class="dh-tabs" role="group" aria-label="Exemples / Examples"><button class="dh-tab" data-dh-example="en" aria-pressed="true">English</button><button class="dh-tab" data-dh-example="es" aria-pressed="false">Español</button><button class="dh-tab" data-dh-example="zh" aria-pressed="false">中文</button></div><div class="dh-card"><p class="dh-card-tag">${tr(7)}</p><p class="dh-phrase" lang="en"></p><p class="dh-phonetic" lang="fr"></p><p class="dh-translation" lang="fr">Je voudrais un peu d’eau.</p><button class="dh-listen" data-dh-listen><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4zM17 8a6 6 0 0 1 0 8M20 5a10 10 0 0 1 0 14"/></svg>${tr(8)}</button></div><p class="dh-example-note" aria-live="polite">${tr(9)}</p></aside></section>
+      <aside class="dh-example"><div class="dh-example-top"><b>${tr(6)}</b><span>L1</span></div><div class="dh-tabs" role="group" aria-label="Exemples / Examples"><button class="dh-tab" data-dh-example="en" aria-pressed="true">English</button><button class="dh-tab" data-dh-example="es" aria-pressed="false">Español</button><button class="dh-tab" data-dh-example="zh" aria-pressed="false">中文</button></div><div class="dh-card"><p class="dh-card-tag">${tr(7)}</p><p class="dh-phrase" lang="en"></p><p class="dh-phonetic" lang="fr"></p><p class="dh-translation" lang="fr"></p><button class="dh-listen" data-dh-listen><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4zM17 8a6 6 0 0 1 0 8M20 5a10 10 0 0 1 0 14"/></svg>${tr(8)}</button></div><p class="dh-example-note" aria-live="polite">${tr(9)}</p></aside></section>
       <div class="dh-languages" aria-label="7 languages"><span>Français</span><span>English</span><span>Español</span><span>中文</span><span>Italiano</span><span>日本語</span><span>한국어</span></div>
       <section class="dh-method" id="dh-method" aria-labelledby="dh-method-title"><p class="dh-section-label">${tr(10)}</p><h2 class="dh-section-title" id="dh-method-title">${tr(11)}</h2><div class="dh-steps">${[12,14,16].map((i,n)=>`<article class="dh-step"><span>0${n+1}</span><h3>${tr(i)}</h3><p>${tr(i+1)}</p></article>`).join('')}</div></section>
       <section class="dh-pricing-wrap" id="dh-pricing" aria-labelledby="dh-pricing-title"><div class="dh-pricing-head"><div><p class="dh-section-label">${tr(18)}</p><h2 class="dh-section-title" id="dh-pricing-title">${tr(19)}</h2></div><p>${tr(20)}</p></div><div class="dh-pricing-grid"><article class="dh-plan"><p class="dh-plan-label">${tr(21)}</p><h3>${tr(22)}</h3><p>${tr(23)}</p><button class="dh-button dh-outline" data-dh-free>${tr(3)}</button></article><article class="dh-plan dh-paid"><p class="dh-plan-label">${tr(24)}</p><h3>${tr(25)}</h3><div class="dh-price"><span data-dh-annual></span> <small>${tr(34)}</small></div><div class="dh-alt-price">${tr(27)} <span data-dh-monthly></span> ${tr(28)}</div><button class="dh-button dh-primary" data-go="premium">${tr(29)}</button></article></div></section>
       <footer class="dh-footer"><span>© Melunga</span><div><a href="terms.html">${tr(32)}</a><a href="privacy.html">${tr(33)}</a><a href="app.html">Melunga</a></div></footer>
     </div>`;
   document.body.prepend(root);
+  // Exemples tirés du deck (phrases complètes, phonétique « pf » réelle des cartes).
   const samples = {
-    en: {text:'I would like some water.',phonetic:'aïe wouD laïk seum WÔ-teur',voice:'en-GB-Wavenet-C',code:'en-GB'},
-    es: {text:'Quisiera un poco de agua.',phonetic:'ki-siÉ-ra oun PO-ko dé A-gwa',voice:'es-ES-Wavenet-F',code:'es-ES'},
-    zh: {text:'我想要一些水。',phonetic:'wo chiang yao i-ssié choué',voice:'cmn-CN-Wavenet-A',code:'cmn-CN'}
+    en: {text:'Can you help me?',phonetic:'kan you HÈLP mi',fr:'Tu peux m’aider ?',voice:'en-GB-Wavenet-C',code:'en-GB'},
+    es: {text:'Necesito ayuda.',phonetic:'né-sé-SSI-to a-YOU-da',fr:'J’ai besoin d’aide.',voice:'es-ES-Wavenet-F',code:'es-ES'},
+    zh: {text:'你能帮我吗？',phonetic:'ni neung bang ouo ma ?',fr:'Tu peux m’aider ?',voice:'cmn-CN-Wavenet-A',code:'cmn-CN'}
   };
   let example = 'en', audio = null, audioTimer = null, audioRun = 0;
   function stopAudio() {
@@ -308,6 +309,7 @@
     root.querySelector('.dh-phrase').textContent = samples[example].text;
     root.querySelector('.dh-phrase').lang = example;
     root.querySelector('.dh-phonetic').textContent = samples[example].phonetic;
+    root.querySelector('.dh-translation').textContent = samples[example].fr;
     root.querySelectorAll('[data-dh-example]').forEach(b => b.setAttribute('aria-pressed',String(b.dataset.dhExample === example)));
   }
   function render() {
