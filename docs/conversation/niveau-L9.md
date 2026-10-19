@@ -18,7 +18,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 |---|---|---|---|
 | つまり、**明日は休み**ということです。 | つまり、あしたはやすみということです。 | tsou-ma-ri, a-chi-ta wa ya-sou-mi to i-ou ko-to dé-sou | Autrement dit, demain c'est fermé. |
 | つまり、**電車が来ない**ということです。 | つまり、でんしゃがこないということです。 | tsou-ma-ri, dén-cha ga ko-na-i to i-ou ko-to dé-sou | Autrement dit, le train ne vient pas. |
-| つまり、**予約が必要**ということです。 | つまり、よやくがひつようということです。 | tsou-ma-ri, yo-ya-kou ga hi-tsou-yo-o to i-ou ko-to dé-sou | Autrement dit, il faut réserver. |
+| つまり、**予約が必要だ**ということです。 | つまり、よやくがひつようだということです。 | tsou-ma-ri, yo-ya-kou ga hi-tsou-yo-o da to i-ou ko-to dé-sou | Autrement dit, il faut réserver. |
 | つまり、**もう一度来る**ということです。 | つまり、もういちどくるということです。 | tsou-ma-ri, mo-o i-tchi-do kou-rou to i-ou ko-to dé-sou | Autrement dit, je dois revenir. |
 
 ### L9-fr-ja-02 · Reformuler : ce que je veux dire — modèle « 私が言いたいのは、{s}ということです。 »
@@ -102,7 +102,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | Phrase | Lecture | Prononciation | Traduction |
 |---|---|---|---|
 | 一部は**分かります**が、全部ではありません。 | いちぶはわかりますが、ぜんぶではありません。 | i-tchi-bou wa wa-ka-ri-ma-sou ga, zén-bou dé wa a-ri-ma-sén | Je comprends en partie, mais pas tout. |
-| 一部は**読みました**が、全部ではありません。 | いちぶはよみましたが、ぜんぶではありません。 | i-tchi-bou wa yo-mi-ma-chi-ta ga, zén-bou dé wa a-ri-ma-sén | J'ai lu en partie, mais pas tout. |
+| 一部は**賛成です**が、全部ではありません。 | いちぶはさんせいですが、ぜんぶではありません。 | i-tchi-bou wa san-sé-i dé-sou ga, zén-bou dé wa a-ri-ma-sén | Je suis d'accord en partie, mais pas sur tout. |
 | 一部は**終わりました**が、全部ではありません。 | いちぶはおわりましたが、ぜんぶではありません。 | i-tchi-bou wa o-wa-ri-ma-chi-ta ga, zén-bou dé wa a-ri-ma-sén | J'ai fini en partie, mais pas tout. |
 | 一部は**覚えています**が、全部ではありません。 | いちぶはおぼえていますが、ぜんぶではありません。 | i-tchi-bou wa o-bo-é-té i-ma-sou ga, zén-bou dé wa a-ri-ma-sén | Je me souviens en partie, mais pas de tout. |
 

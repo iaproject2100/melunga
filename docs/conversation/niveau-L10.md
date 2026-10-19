@@ -96,7 +96,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 |---|---|---|---|
 | ところで、**仕事**はどうですか。 | ところで、しごとはどうですか。 | to-ko-ro dé, chi-go-to wa do-o dé-sou ka | Au fait, comment va le travail ? |
 | ところで、**ご家族**はどうですか。 | ところで、ごかぞくはどうですか。 | to-ko-ro dé, go-ka-zo-kou wa do-o dé-sou ka | Au fait, comment va votre famille ? |
-| ところで、**新しい家**はどうですか。 | ところで、あたらしいいえはどうですか。 | to-ko-ro dé, a-ta-ra-chi-i i-é wa do-o dé-sou ka | Au fait, comment va la nouvelle maison ? |
+| ところで、**新しい家**はどうですか。 | ところで、あたらしいいえはどうですか。 | to-ko-ro dé, a-ta-ra-chi-i i-é wa do-o dé-sou ka | Au fait, la nouvelle maison, ça se passe bien ? |
 | ところで、**日本語の勉強**はどうですか。 | ところで、にほんごのべんきょうはどうですか。 | to-ko-ro dé, ni-hon-go no bén-kyo-o wa do-o dé-sou ka | Au fait, comment vont vos études de japonais ? |
 
 ### L10-fr-ja-10 · Comprendre l'autre tout en objectant — modèle « {s}のは分かりますが、難しいと思います。 »

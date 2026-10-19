@@ -80,8 +80,8 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | Phrase | Lecture | Prononciation | Traduction |
 |---|---|---|---|
 | **毎日**スポーツをします。 | まいにちすぽーつをします。 | ma-i-ni-tchi sou-po-o-tsou o chi-ma-sou | Je fais du sport tous les jours. |
-| **よく**スポーツをします。 | よくすぽーつをします。 | yo-kou sou-po-o-tsou o chi-ma-sou | Je fais du sport souvent. |
-| **時々**スポーツをします。 | ときどきすぽーつをします。 | to-ki-do-ki sou-po-o-tsou o chi-ma-sou | Je fais du sport parfois. |
+| **よく**スポーツをします。 | よくすぽーつをします。 | yo-kou sou-po-o-tsou o chi-ma-sou | Je fais souvent du sport. |
+| **時々**スポーツをします。 | ときどきすぽーつをします。 | to-ki-do-ki sou-po-o-tsou o chi-ma-sou | Je fais parfois du sport. |
 | **週末に**スポーツをします。 | しゅうまつにすぽーつをします。 | chou-ou-ma-tsou ni sou-po-o-tsou o chi-ma-sou | Je fais du sport le week-end. |
 
 ### L4-fr-ja-09 · Décrire son logement — modèle « 家は{s}です。 »

@@ -93,7 +93,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | Phrase | Lecture | Prononciation | Traduction |
 |---|---|---|---|
 | じゃあ、**土曜日の十時**に。 | じゃあ、どようびのじゅうじに。 | dja-a, do-yo-o-bi no djou-ou-dji ni | Alors, à samedi dix heures. |
-| じゃあ、**明日**に。 | じゃあ、あしたに。 | dja-a, a-chi-ta ni | Alors, à demain. |
+| じゃあ、**明日の朝**に。 | じゃあ、あしたのあさに。 | dja-a, a-chi-ta no a-sa ni | Alors, à demain matin. |
 | じゃあ、**今晩七時**に。 | じゃあ、こんばんしちじに。 | dja-a, kon-ban chi-tchi-dji ni | Alors, à ce soir sept heures. |
 | じゃあ、**来週の月曜日**に。 | じゃあ、らいしゅうのげつようびに。 | dja-a, ra-i-chou-ou no gé-tsou-yo-o-bi ni | Alors, à lundi prochain. |
 

@@ -133,7 +133,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 - **A** : すみません、このテレビはいくらですか。 *(すみません、このてれびはいくらですか。)* — sou-mi-ma-sén, ko-no té-ré-bi wa i-kou-ra dé-sou ka — Excusez-moi, combien coûte cette télévision ?
 - **B** : 八万円です。 *(はちまんえんです。)* — ha-tchi-man én dé-sou — Quatre-vingt mille yens.
 - **A** : 少し高いですね。少し安くしていただけますか。 *(すこしたかいですね。すこしやすくしていただけますか。)* — sou-ko-chi ta-ka-i dé-sou né. sou-ko-chi ya-sou-kou chi-té i-ta-da-ké-ma-sou ka — C'est un peu cher. Pourriez-vous baisser un peu le prix ?
-- **B** : うーん、現金なら、七万五千円にできます。 *(うーん、げんきんなら、ななまんごせんえんにできます。)* — ou-ou-n, gén-kin na-ra, na-na-man-go-sén én ni dé-ki-ma-sou — Hum, en espèces, je peux faire soixante-quinze mille yens.
+- **B** : うーん、現金なら、七万五千円にできます。 *(うーん、げんきんなら、ななまんごせんえんにできます。)* — ou-oun, gén-kin na-ra, na-na-man-go-sén én ni dé-ki-ma-sou — Hum, en espèces, je peux faire soixante-quinze mille yens.
 - **A** : 配達することはできますか。 *(はいたつすることはできますか。)* — ha-i-ta-tsou sou-rou ko-to wa dé-ki-ma-sou ka — Est-il possible de la faire livrer ?
 - **B** : はい、でも配達は来週なら大丈夫です。 *(はい、でもはいたつはらいしゅうならだいじょうぶです。)* — ha-i, dé-mo ha-i-ta-tsou wa ra-i-chou-ou na-ra da-i-djo-o-bou dé-sou — Oui, mais la livraison, c'est possible seulement la semaine prochaine.
 - **A** : 分かりました。じゃあ、それでお願いします。 *(わかりました。じゃあ、それでおねがいします。)* — wa-ka-ri-ma-chi-ta. dja-a, so-ré dé o-né-ga-i chi-ma-sou — D'accord. Alors, va pour ça.
@@ -154,7 +154,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 
 - **A** : 田中さん、報告書は今日中にできますか。 *(たなかさん、ほうこくしょはきょうじゅうにできますか。)* — ta-na-ka-san, ho-o-ko-kou-cho wa kyo-o-djou-ou ni dé-ki-ma-sou ka — Monsieur Tanaka, le rapport peut-il être prêt aujourd'hui ?
 - **B** : すみません、今日はちょっと難しいです。明日の朝まで待っていただけますか。 *(すみません、きょうはちょっとむずかしいです。あしたのあさまでまっていただけますか。)* — sou-mi-ma-sén, kyo-o wa tchot-to mou-zou-ka-chi-i dé-sou. a-chi-ta no a-sa ma-dé mat-té i-ta-da-ké-ma-sou ka — Désolé, aujourd'hui c'est un peu difficile. Pourriez-vous attendre jusqu'à demain matin ?
-- **A** : うーん、明日の朝なら大丈夫です。でも、十時までにお願いします。 *(うーん、あしたのあさならだいじょうぶです。でも、じゅうじまでにおねがいします。)* — ou-ou-n, a-chi-ta no a-sa na-ra da-i-djo-o-bou dé-sou. dé-mo, djou-ou-dji ma-dé ni o-né-ga-i chi-ma-sou — Hum, demain matin, ça va. Mais avant dix heures, s'il vous plaît.
+- **A** : うーん、明日の朝なら大丈夫です。でも、十時までにお願いします。 *(うーん、あしたのあさならだいじょうぶです。でも、じゅうじまでにおねがいします。)* — ou-oun, a-chi-ta no a-sa na-ra da-i-djo-o-bou dé-sou. dé-mo, djou-ou-dji ma-dé ni o-né-ga-i chi-ma-sou — Hum, demain matin, ça va. Mais avant dix heures, s'il vous plaît.
 - **B** : はい、分かりました。終わったら、すぐメールします。 *(はい、わかりました。おわったら、すぐめーるします。)* — ha-i, wa-ka-ri-ma-chi-ta. o-wat-ta-ra, sou-gou mé-é-rou chi-ma-sou — Oui, d'accord. Quand j'ai fini, je vous envoie un mail tout de suite.
 - **A** : お願いします。 *(おねがいします。)* — o-né-ga-i chi-ma-sou — Merci d'avance.
 - **B** : それから、金曜日に休んでもいいですか。 *(それから、きんようびにやすんでもいいですか。)* — so-ré-ka-ra, kin-yo-o-bi ni ya-soun-dé mo i-i dé-sou ka — Et puis, puis-je prendre congé vendredi ?

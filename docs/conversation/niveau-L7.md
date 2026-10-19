@@ -136,7 +136,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 - **B** : こちらの方が軽いです。でも、あちらの方が安いです。 *(こちらのほうがかるいです。でも、あちらのほうがやすいです。)* — ko-tchi-ra no ho-o ga ka-rou-i dé-sou. dé-mo, a-tchi-ra no ho-o ga ya-sou-i dé-sou — Celui-ci est plus léger. Mais celui-là est moins cher.
 - **A** : いくらですか。 *(いくらですか。)* — i-kou-ra dé-sou ka — Combien coûtent-ils ?
 - **B** : こちらは八千円で、あちらは五千円です。 *(こちらははっせんえんで、あちらはごせんえんです。)* — ko-tchi-ra wa has-sén én dé, a-tchi-ra wa go-sén én dé-sou — Celui-ci huit mille yens, celui-là cinq mille.
-- **A** : うーん。私は軽い方が好きです。毎日使うからです。 *(うーん。わたしはかるいほうがすきです。まいにちつかうからです。)* — ou-ou-n. wa-ta-chi wa ka-rou-i ho-o ga sou-ki dé-sou. ma-i-ni-tchi tsou-ka-ou ka-ra dé-sou — Hum. Je préfère le plus léger. Parce que je l'utiliserai tous les jours.
+- **A** : うーん。私は軽い方が好きです。毎日使うからです。 *(うーん。わたしはかるいほうがすきです。まいにちつかうからです。)* — ou-oun. wa-ta-chi wa ka-rou-i ho-o ga sou-ki dé-sou. ma-i-ni-tchi tsou-ka-ou ka-ra dé-sou — Hum. Je préfère le plus léger. Parce que je l'utiliserai tous les jours.
 - **B** : そうですね。こちらは色も三つあります。 *(そうですね。こちらはいろもみっつあります。)* — so-o dé-sou né. ko-tchi-ra wa i-ro mo mit-tsou a-ri-ma-sou — Bon choix. Celui-ci existe aussi en trois couleurs.
 - **A** : じゃあ、黒いのをください。 *(じゃあ、くろいのをください。)* — dja-a, kou-ro-i no o kou-da-sa-i — Alors, je prends le noir.
 - **B** : ありがとうございます。 *(ありがとうございます。)* — a-ri-ga-to-o go-za-i-ma-sou — Merci beaucoup.
