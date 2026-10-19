@@ -129,25 +129,25 @@
 
   /* ---------- Libellés d'interface (langue native) ---------- */
   var UI = {
-    fr: { title: 'Atelier de phrases', sub: 'Une structure + un temps + une action = une phrase complète.', structure: 'Structure', tense: 'Temps', action: 'Action', listen: '🔊 Écouter', random: '🎲 Au hasard', variants: 'La même action aux 4 temps', menu: 'Atelier de phrases', phon: 'Phonétique',
+    fr: { title: 'Mes phrases', sub: 'Une structure + un temps + une action = une phrase complète.', structure: 'Structure', tense: 'Temps', action: 'Action', listen: '🔊 Écouter', random: '🎲 Au hasard', variants: 'La même action aux 4 temps', menu: 'Mes phrases', phon: 'Phonétique',
           tenses: { pres: 'présent', pas: 'passé', fut: 'futur', cond: 'conditionnel' },
           themes: { manger: 'Manger & boire', deplacements: 'Se déplacer', quotidien: 'Quotidien', demarches: 'Démarches', achats: 'Achats', travail: 'Travail', logement: 'Logement', sante: 'Santé', social: 'Social' } },
-    en: { title: 'Sentence workshop', sub: 'A structure + a tense + an action = a complete sentence.', structure: 'Structure', tense: 'Tense', action: 'Action', listen: '🔊 Listen', random: '🎲 Random', variants: 'Same action, 4 tenses', menu: 'Sentence workshop', phon: 'Pronunciation',
+    en: { title: 'My sentences', sub: 'A structure + a tense + an action = a complete sentence.', structure: 'Structure', tense: 'Tense', action: 'Action', listen: '🔊 Listen', random: '🎲 Random', variants: 'Same action, 4 tenses', menu: 'My sentences', phon: 'Pronunciation',
           tenses: { pres: 'present', pas: 'past', fut: 'future', cond: 'conditional' },
           themes: { manger: 'Food & drink', deplacements: 'Getting around', quotidien: 'Daily life', demarches: 'Errands', achats: 'Shopping', travail: 'Work', logement: 'Housing', sante: 'Health', social: 'Social' } },
-    zh: { title: '造句工坊', sub: '结构 + 时态 + 动作 = 完整的句子。', structure: '结构', tense: '时态', action: '动作', listen: '🔊 听', random: '🎲 随机', variants: '同一动作的 4 个时态', menu: '造句工坊', phon: '发音',
+    zh: { title: '我的句子', sub: '结构 + 时态 + 动作 = 完整的句子。', structure: '结构', tense: '时态', action: '动作', listen: '🔊 听', random: '🎲 随机', variants: '同一动作的 4 个时态', menu: '我的句子', phon: '发音',
           tenses: { pres: '现在', pas: '过去', fut: '将来', cond: '条件式' },
           themes: { manger: '饮食', deplacements: '出行', quotidien: '日常', demarches: '办事', achats: '购物', travail: '工作', logement: '住房', sante: '健康', social: '社交' } },
-    es: { title: 'Taller de frases', sub: 'Una estructura + un tiempo + una acción = una frase completa.', structure: 'Estructura', tense: 'Tiempo', action: 'Acción', listen: '🔊 Escuchar', random: '🎲 Al azar', variants: 'La misma acción en 4 tiempos', menu: 'Taller de frases', phon: 'Pronunciación',
+    es: { title: 'Mis frases', sub: 'Una estructura + un tiempo + una acción = una frase completa.', structure: 'Estructura', tense: 'Tiempo', action: 'Acción', listen: '🔊 Escuchar', random: '🎲 Al azar', variants: 'La misma acción en 4 tiempos', menu: 'Mis frases', phon: 'Pronunciación',
           tenses: { pres: 'presente', pas: 'pasado', fut: 'futuro', cond: 'condicional' },
           themes: { manger: 'Comer y beber', deplacements: 'Desplazarse', quotidien: 'Día a día', demarches: 'Gestiones', achats: 'Compras', travail: 'Trabajo', logement: 'Vivienda', sante: 'Salud', social: 'Social' } },
-    it: { title: 'Officina delle frasi', sub: 'Una struttura + un tempo + un’azione = una frase completa.', structure: 'Struttura', tense: 'Tempo', action: 'Azione', listen: '🔊 Ascolta', random: '🎲 A caso', variants: 'La stessa azione in 4 tempi', menu: 'Officina delle frasi', phon: 'Pronuncia',
+    it: { title: 'Le mie frasi', sub: 'Una struttura + un tempo + un’azione = una frase completa.', structure: 'Struttura', tense: 'Tempo', action: 'Azione', listen: '🔊 Ascolta', random: '🎲 A caso', variants: 'La stessa azione in 4 tempi', menu: 'Le mie frasi', phon: 'Pronuncia',
           tenses: { pres: 'presente', pas: 'passato', fut: 'futuro', cond: 'condizionale' },
           themes: { manger: 'Mangiare e bere', deplacements: 'Spostarsi', quotidien: 'Quotidiano', demarches: 'Pratiche', achats: 'Acquisti', travail: 'Lavoro', logement: 'Casa', sante: 'Salute', social: 'Sociale' } },
-    ja: { title: '文章工房', sub: '構文 + 時制 + 動作 = 完全な文。', structure: '構文', tense: '時制', action: '動作', listen: '🔊 聞く', random: '🎲 ランダム', variants: '同じ動作を4つの時制で', menu: '文章工房', phon: '発音',
+    ja: { title: '自分の文', sub: '構文 + 時制 + 動作 = 完全な文。', structure: '構文', tense: '時制', action: '動作', listen: '🔊 聞く', random: '🎲 ランダム', variants: '同じ動作を4つの時制で', menu: '自分の文', phon: '発音',
           tenses: { pres: '現在', pas: '過去', fut: '未来', cond: '条件法' },
           themes: { manger: '飲食', deplacements: '移動', quotidien: '日常', demarches: '手続き', achats: '買い物', travail: '仕事', logement: '住まい', sante: '健康', social: '交流' } },
-    ko: { title: '문장 공방', sub: '구조 + 시제 + 행동 = 완전한 문장.', structure: '구조', tense: '시제', action: '행동', listen: '🔊 듣기', random: '🎲 무작위', variants: '같은 행동, 4가지 시제', menu: '문장 공방', phon: '발음',
+    ko: { title: '내 문장', sub: '구조 + 시제 + 행동 = 완전한 문장.', structure: '구조', tense: '시제', action: '행동', listen: '🔊 듣기', random: '🎲 무작위', variants: '같은 행동, 4가지 시제', menu: '내 문장', phon: '발음',
           tenses: { pres: '현재', pas: '과거', fut: '미래', cond: '조건법' },
           themes: { manger: '먹고 마시기', deplacements: '이동', quotidien: '일상', demarches: '볼일', achats: '쇼핑', travail: '일', logement: '주거', sante: '건강', social: '사교' } }
   };
@@ -298,11 +298,9 @@
   window.openConstruire = open;
   window.closeConstruire = close;
 
-  /* ---------- Entrée de menu : visible seulement si des données existent pour la langue étudiée ---------- */
+  /* ---------- Entrée sur la carte de leçon : visible seulement si des données existent pour la langue étudiée ---------- */
   function syncMenu() {
     var has = !!data();
-    var b = document.getElementById('btnBuild');
-    if (b) { b.style.display = has ? '' : 'none'; var lbl = b.querySelector('span'); if (lbl) lbl.textContent = L().menu; }
     syncEntry(has);
   }
   /* Entrée visible sur la page de leçon : pastille en haut de la carte */
