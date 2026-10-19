@@ -168,135 +168,93 @@
     return { text: text, phon: phon, fr: frm };
   }
 
-  /* ---------- État ---------- */
-  var state = { s: 0, t: 'pres', a: 0 };
-
-  /* ---------- Styles ---------- */
-  var css = document.createElement('style');
-  css.textContent = [
-    '.cxPanel{position:fixed;inset:0;z-index:960;background:rgba(0,0,0,.4);display:none;align-items:flex-end;justify-content:center}',
-    '.cxPanel.on{display:flex}',
-    '.cxSheet{background:var(--card,#fff);color:var(--ink,#23262B);width:100%;max-width:560px;border-radius:22px 22px 0 0;padding:18px 18px calc(22px + env(safe-area-inset-bottom));max-height:92dvh;overflow-y:auto;overscroll-behavior:contain;box-shadow:0 -12px 40px rgba(0,0,0,.25)}',
-    '@media(min-width:960px){.cxPanel{align-items:center}.cxSheet{border-radius:22px;max-height:88vh}}',
-    '.cxHead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}',
-    '.cxHead b{font-size:19px}.cxSub{font-size:12.5px;color:var(--soft,#8C8273);margin:0 0 14px}',
-    '.cxClose{border:0;background:rgba(127,127,127,.15);color:inherit;width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer}',
-    '.cxLbl{font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--soft,#8C8273);margin:12px 0 7px}',
-    '.cxChips{display:flex;flex-wrap:wrap;gap:7px}',
-    '.cxChip{border:1.5px solid var(--line,#ECE3D4);background:transparent;color:inherit;border-radius:999px;padding:8px 13px;font:inherit;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap}',
-    '.cxChip.on{background:var(--accent,#C8102E);border-color:var(--accent,#C8102E);color:#fff}',
-    '.cxActions{max-height:28vh;overflow-y:auto;padding:2px 2px 6px;margin-top:2px}',
-    '.cxTheme{font-size:11px;font-weight:800;color:var(--soft,#8C8273);margin:10px 0 5px;text-transform:uppercase;letter-spacing:.8px}',
-    '.cxCard{margin:4px 0 6px;border-radius:18px;padding:18px 16px;background:linear-gradient(160deg,rgba(30,127,168,.14),rgba(30,127,168,.04));border:1px solid rgba(30,127,168,.25);text-align:center}',
-    '.cxText{font-size:26px;font-weight:800;line-height:1.2;margin:0 0 12px}',
-    '.cxPhonBox{display:inline-block;background:rgba(255,255,255,.55);border:1px solid rgba(0,0,0,.06);border-radius:14px;padding:10px 16px;margin:0 0 10px}',
-    '.cxPhonLbl{display:block;font-size:10.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--soft,#8C8273);margin-bottom:3px}',
-    '.cxPhon{font-size:22px;font-weight:800;color:var(--blue,#1E7FA8);letter-spacing:.2px}',
-    '.cxFr{font-size:15px;color:var(--soft,#8C8273);margin:0 0 14px}',
-    '.cxBtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}',
-    '.cxBtn{border:0;border-radius:999px;padding:12px 20px;font:inherit;font-weight:800;font-size:15px;cursor:pointer;background:var(--accent,#C8102E);color:#fff}',
-    '.cxBtn.alt{background:rgba(127,127,127,.15);color:inherit}',
-    '.cxBtn.playing{opacity:.7}',
-    '.cxVar{margin-top:16px;border-top:1px solid var(--line,#ECE3D4);padding-top:10px}',
-    '.cxVarRow{display:grid;grid-template-columns:auto 1fr auto;gap:8px 10px;align-items:center;padding:7px 0;border-bottom:1px dashed rgba(127,127,127,.2);font-size:14px}',
-    '.cxVarRow:last-child{border-bottom:0}',
-    '.cxVarT{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--soft,#8C8273);min-width:70px}',
-    '.cxVarEs{font-weight:700}.cxVarEs small{display:block;font-weight:600;color:var(--blue,#1E7FA8);font-size:12.5px}',
-    '.cxVarPlay{border:0;background:rgba(127,127,127,.15);color:inherit;border-radius:50%;width:32px;height:32px;cursor:pointer}',
-    '.cxEntry{position:absolute;top:14px;left:50%;transform:translateX(-50%);z-index:6;display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.14);color:inherit;border-radius:999px;padding:8px 14px;font:inherit;font-size:13px;font-weight:800;letter-spacing:.2px;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 6px 18px rgba(0,0,0,.14);white-space:nowrap}',
-    '.cxEntry:active{transform:translateX(-50%) scale(.97)}',
-    'body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,.18)}'
-  ].join('\n');
+  /* Everyday practice: example → replace one part → recall a new sentence. */
+  var places = [
+    ['al mercado','al mér-KA-do','au marché'],
+    ['al trabajo','al tra-BA-kho','au travail'],
+    ['al cine','al SSI-né','au cinéma'],
+    ['a la estación','a la és-ta-SSION','à la gare'],
+    ['al supermercado','al ssou-pér-mér-KA-do','au supermarché'],
+    ['a casa','a KA-ssa','à la maison']
+  ];
+  var families = [
+    {id:'places',head:'Je vais…',example:'Je vais au marché.',icon:'🚶'},
+    {id:'voy_a',head:'Je vais…',example:'Je vais manger quelque chose.',icon:'🍽',items:[0,14,20,22,10,52]},
+    {id:'quiero',head:'Je veux…',example:'Je veux prendre un café.',icon:'☕',items:[1,6,5,34,41,15]},
+    {id:'necesito',head:"J’ai besoin de…",example:"J’ai besoin de me reposer.",icon:'🏠',items:[17,16,18,24,27,49]},
+    {id:'tengo_que',head:'Je dois…',example:'Je dois faire les courses.',icon:'🛍',items:[14,37,46,25,38,20]},
+    {id:'puedes',head:'Tu peux… ?',example:'Tu peux attendre ici ?',icon:'🤝',items:[57,19,55,48,58,59]}
+  ];
+  var practice = {step:1,family:0,item:0,tense:'pres',revealed:false};
+  var panel=null, previousFocus=null;
+  var css=document.createElement('style');
+  css.textContent=`
+.cxPanel{position:fixed;inset:0;z-index:960;background:rgba(0,0,0,.48);display:none;align-items:center;justify-content:center}
+.cxPanel.on{display:flex}
+.cxSheet{box-sizing:border-box;background:var(--card,#fff);color:var(--ink,#23262b);width:100%;height:100dvh;padding:calc(18px + env(safe-area-inset-top)) 20px calc(24px + env(safe-area-inset-bottom));overflow:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:24px}
+@media(min-width:768px){.cxSheet{height:auto;max-height:90dvh;max-width:580px;border-radius:24px;padding:26px}}
+.cxHead{display:flex;align-items:center;justify-content:space-between;gap:12px}.cxHead b{font-size:19px}.cxIcon{border:0;border-radius:50%;background:rgba(127,127,127,.14);color:inherit;width:42px;height:42px;font-size:24px;cursor:pointer;flex-shrink:0}
+.cxDots{display:flex;gap:7px;justify-content:center}.cxDots i{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.18}.cxDots i.on{opacity:1;background:var(--accent,#167d9b);width:24px;border-radius:8px}
+.cxChoices{display:grid;gap:10px}.cxChoice{display:flex;align-items:center;gap:14px;width:100%;text-align:left;border:1px solid var(--line,#d7dfe0);border-radius:16px;padding:19px 16px;background:transparent;color:inherit;font:700 17px/1.4 system-ui;cursor:pointer}.cxChoice span{flex:1}.cxChoice.selected{border:2px solid var(--accent,#167d9b);background:rgba(127,127,127,.08)}
+.cxCard{text-align:center;padding:24px 4px;display:grid;gap:16px}.cxText{font-size:clamp(27px,6vw,36px);line-height:1.25;font-weight:800;margin:0;overflow-wrap:anywhere}.cxPart{color:inherit;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:7px}.cxPhon{font-size:21px;line-height:1.5;font-weight:750;color:inherit;margin:0}.cxFr{font-size:18px;line-height:1.5;margin:0}.cxBtn{align-self:center;border:0;border-radius:16px;padding:16px 25px;background:var(--ink,#173e50);color:var(--card,#fff);font:750 17px system-ui;cursor:pointer;min-height:52px}.cxNext{width:100%;margin-top:auto}.cxGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.cxGrid .cxChoice{font-size:15px;padding:15px 12px}.cxPrompt{text-align:center;font-size:30px;font-weight:800;margin:14px 0}.cxSelect{width:100%;min-height:56px;border:1px solid var(--line,#d7dfe0);border-radius:14px;background:var(--card,#fff);color:inherit;font:700 18px system-ui;padding:12px}.cxAgain{background:transparent;color:inherit;border:1px solid var(--line,#d7dfe0)}
+.cxEntry{position:absolute;top:14px;left:50%;transform:translateX(-50%);z-index:6;display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.14);color:inherit;border-radius:999px;padding:8px 14px;font:inherit;font-size:13px;font-weight:800;letter-spacing:.2px;cursor:pointer;backdrop-filter:blur(8px);box-shadow:0 6px 18px rgba(0,0,0,.14);white-space:nowrap}
+body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,.18)}
+.cxSheet button:focus-visible,.cxSheet select:focus-visible{outline:3px solid var(--blue,#1e7fa8);outline-offset:3px}
+`;
   document.head.appendChild(css);
-
-  /* ---------- Rendu ---------- */
-  var panel = null;
-  function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
-
-  function ensurePanel() {
-    if (panel) return panel;
-    panel = el('div', 'cxPanel');
-    panel.addEventListener('click', function (e) { if (e.target === panel) close(); });
-    document.body.appendChild(panel);
-    return panel;
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+  function button(cls,text,fn){var b=el('button',cls,text);b.type='button';b.onclick=fn;return b;}
+  function family(){return families[practice.family];}
+  function items(){return family().id==='places'?places:family().items.map(function(i){return data().actions[i];});}
+  function result(){
+    var item=items()[practice.item];
+    if(family().id==='places')return{text:'Voy '+item[0]+'.',phon:'BOY '+item[1],fr:'Je vais '+item[2]+'.'};
+    var st=data().structures.find(function(s){return s.id===family().id;});
+    return build(data(),st,practice.tense,item);
   }
-
-  function render() {
-    var D = data(); if (!D) return;
-    var T = L();
-    var st = D.structures[state.s];
-    var items = st.takes === 'noun' ? D.nouns : D.actions;
-    if (state.a >= items.length) state.a = 0;
-    var item = items[state.a];
-    var r = build(D, st, state.t, item);
-    var showFr = (typeof nat === 'string' ? nat : 'fr') === 'fr';
-
-    var sheet = el('div', 'cxSheet');
-    var head = el('div', 'cxHead'); head.appendChild(el('b', null, '🧩 ' + T.title));
-    var x = el('button', 'cxClose', '✕'); x.onclick = close; head.appendChild(x); sheet.appendChild(head);
-    sheet.appendChild(el('p', 'cxSub', T.sub));
-    var card = el('div', 'cxCard');
-    card.appendChild(el('p', 'cxText', r.text));
-    var pb = el('div', 'cxPhonBox'); pb.appendChild(el('span', 'cxPhonLbl', T.phon)); pb.appendChild(el('span', 'cxPhon', r.phon)); card.appendChild(pb);
-    if (showFr) card.appendChild(el('p', 'cxFr', r.fr));
-    var btns = el('div', 'cxBtns');
-    var play = el('button', 'cxBtn', T.listen);
-    play.onclick = function () { say(r.text, play); };
-    var rnd = el('button', 'cxBtn alt', T.random);
-    rnd.onclick = function () { state.s = Math.floor(Math.random() * D.structures.length); state.t = D.tenses[Math.floor(Math.random() * D.tenses.length)]; var its = D.structures[state.s].takes === 'noun' ? D.nouns : D.actions; state.a = Math.floor(Math.random() * its.length); render(); };
-    btns.appendChild(play); btns.appendChild(rnd); card.appendChild(btns);
+  function ensurePanel(){
+    if(panel)return panel;
+    panel=el('div','cxPanel');panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');panel.setAttribute('aria-label',L().title);
+    // A swipe inside this exercise must never rate the lesson underneath it.
+    ['touchstart','touchend','pointerdown','pointerup'].forEach(function(type){panel.addEventListener(type,function(e){e.stopPropagation();},{passive:true});});
+    panel.addEventListener('click',function(e){if(e.target===panel)close();});
+    panel.addEventListener('keydown',function(e){e.stopPropagation();if(e.key==='Escape'){e.preventDefault();close();}if(e.key==='Tab'){var focusable=panel.querySelectorAll('button,select,[tabindex="0"]'),first=focusable[0],last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+    document.body.appendChild(panel);return panel;
+  }
+  function showPhrase(sheet,reveal){
+    var r=result(),card=el('div','cxCard');card.setAttribute('aria-live','polite');
+    if(reveal){
+      var text=el('p','cxText');
+      if(family().id==='places'){text.append(document.createTextNode('Voy '),el('span','cxPart',items()[practice.item][0]+'.'));}
+      else{var st=data().structures.find(function(s){return s.id===family().id;});var head=st.es[practice.tense][0];text.append(document.createTextNode(head+' '),el('span','cxPart',r.text.slice(head.length+1)));}
+      card.append(text,el('p','cxPhon',r.phon),el('p','cxFr',r.fr),button('cxBtn',L().listen,function(){say(r.text,this);}));
+    }else card.appendChild(el('p','cxPrompt','…'));
     sheet.appendChild(card);
-
-
-    sheet.appendChild(el('div', 'cxLbl', T.structure));
-    var sc = el('div', 'cxChips');
-    D.structures.forEach(function (s, i) {
-      var c = el('button', 'cxChip' + (i === state.s ? ' on' : ''), s.label);
-      c.onclick = function () { var wasNoun = D.structures[state.s].takes === 'noun'; state.s = i; if (wasNoun !== (s.takes === 'noun')) state.a = 0; render(); };
-      sc.appendChild(c);
-    });
-    sheet.appendChild(sc);
-
-    sheet.appendChild(el('div', 'cxLbl', T.tense));
-    var tc = el('div', 'cxChips');
-    D.tenses.forEach(function (t) {
-      var c = el('button', 'cxChip' + (t === state.t ? ' on' : ''), T.tenses[t]);
-      c.onclick = function () { state.t = t; render(); };
-      tc.appendChild(c);
-    });
-    sheet.appendChild(tc);
-
-    sheet.appendChild(el('div', 'cxLbl', T.action));
-    var ac = el('div', 'cxActions'); var lastTheme = null; var chips = null;
-    items.forEach(function (a, i) {
-      if (a[3] !== lastTheme) { lastTheme = a[3]; ac.appendChild(el('div', 'cxTheme', T.themes[a[3]] || a[3])); chips = el('div', 'cxChips'); ac.appendChild(chips); }
-      var c = el('button', 'cxChip' + (i === state.a ? ' on' : ''), showFr ? a[2] : a[0]);
-      c.onclick = function () { state.a = i; render(); };
-      chips.appendChild(c);
-    });
-    sheet.appendChild(ac);
-
-    var v = el('div', 'cxVar'); v.appendChild(el('div', 'cxLbl', T.variants));
-    D.tenses.forEach(function (t) {
-      var rr = build(D, st, t, item);
-      var row = el('div', 'cxVarRow');
-      row.appendChild(el('span', 'cxVarT', T.tenses[t]));
-      row.appendChild(el('span', 'cxVarEs', rr.text + '<small>' + rr.phon + (showFr ? ' · ' + rr.fr : '') + '</small>'));
-      var p = el('button', 'cxVarPlay', '🔊'); p.onclick = function () { say(rr.text, p); }; row.appendChild(p);
-      v.appendChild(row);
-    });
-    sheet.appendChild(v);
-
-    var P = ensurePanel(); P.innerHTML = ''; P.appendChild(sheet);
   }
-
-  function say(text, btn) {
-    try { if (typeof speak === 'function') { speak(text, btn); setTimeout(function () { btn.classList.remove('playing'); }, 4000); } } catch (e) {}
+  function render(){
+    if(!data())return;
+    var sheet=el('section','cxSheet'),head=el('div','cxHead');
+    head.append(button('cxIcon','‹',function(){if(practice.step===1)close();else{practice.step--;render();}}),el('b',null,L().title),button('cxIcon','×',close));sheet.appendChild(head);
+    var dots=el('div','cxDots');dots.setAttribute('aria-label','Étape '+practice.step+' sur 3');for(var i=1;i<=3;i++)dots.appendChild(el('i',i===practice.step?'on':''));sheet.appendChild(dots);
+    if(practice.step===1){
+      var choices=el('div','cxChoices');families.forEach(function(f,i){var b=button('cxChoice','',function(){practice.family=i;practice.item=0;practice.tense='pres';practice.step=2;render();});b.append(el('span',null,f.icon+'  '+f.example),el('b',null,'›'));choices.appendChild(b);});sheet.appendChild(choices);
+    }else if(practice.step===2){
+      showPhrase(sheet,true);
+      var grid=el('div','cxGrid');items().forEach(function(item,i){grid.appendChild(button('cxChoice'+(i===practice.item?' selected':''),item[2],function(){practice.item=i;render();}));});sheet.appendChild(grid);
+      sheet.appendChild(button('cxBtn cxNext','À moi d’essayer →',function(){practice.step=3;practice.item=(practice.item+1)%items().length;practice.revealed=false;render();}));
+    }else{
+      sheet.appendChild(el('p','cxPrompt',family().head));
+      var select=el('select','cxSelect');select.setAttribute('aria-label','Ma phrase');items().forEach(function(item,i){var option=el('option',null,item[2]);option.value=i;select.appendChild(option);});select.value=practice.item;select.onchange=function(){practice.item=Number(select.value);practice.revealed=false;render();};sheet.appendChild(select);
+      if(!practice.revealed)sheet.appendChild(button('cxBtn','Dire en espagnol',function(){practice.revealed=true;render();}));
+      else showPhrase(sheet,true);
+      sheet.appendChild(button('cxBtn cxAgain cxNext','Une autre ↻',function(){practice.item=(practice.item+1)%items().length;practice.revealed=false;render();}));
+    }
+    var P=ensurePanel();P.replaceChildren(sheet);sheet.scrollTop=0;head.querySelector('button').focus({preventScroll:true});
   }
-  function open() { if (!data()) return; render(); ensurePanel().classList.add('on'); }
-  function close() { if (panel) panel.classList.remove('on'); }
-  window.openConstruire = open;
-  window.closeConstruire = close;
+  function say(text,btn){if(typeof speak==='function')speak(text,btn);}
+  function open(){if(!data())return;previousFocus=document.activeElement;practice.step=1;ensurePanel().classList.add('on');render();}
+  function close(){if(panel)panel.classList.remove('on');if(previousFocus&&previousFocus.isConnected)previousFocus.focus({preventScroll:true});}
+  window.openConstruire=open;window.closeConstruire=close;
 
   /* ---------- Entrée sur la carte de leçon : visible seulement si des données existent pour la langue étudiée ---------- */
   function syncMenu() {
