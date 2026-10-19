@@ -2982,13 +2982,16 @@ function sectorLabel(c){ return (SECTORLABELS[nat]&&SECTORLABELS[nat][c]) || c; 
 
 var GTTS=function(tl){ return 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl='+tl+'&q='; };
 var VOICES = {
-  fr:{female:['Celine','/.netlify/functions/tts?voice=fr-FR-Wavenet-F&lang=fr-FR',GTTS('fr')],male:['Mathieu','/.netlify/functions/tts?voice=fr-FR-Wavenet-G&lang=fr-FR',GTTS('fr')]},
-  en:{female:['Amy','/.netlify/functions/tts?voice=en-GB-Wavenet-C&lang=en-GB',GTTS('en')],male:['Joey','/.netlify/functions/tts?voice=en-GB-Wavenet-D&lang=en-GB',GTTS('en')]},
-  es:{female:['Lucia','/.netlify/functions/tts?voice=es-ES-Wavenet-F&lang=es-ES',GTTS('es')],male:['Enrique','Sergio','/.netlify/functions/tts?voice=es-ES-Wavenet-E&lang=es-ES',GTTS('es')]},
-  zh:{female:['Zhiyu','/.netlify/functions/tts?voice=cmn-CN-Wavenet-A&lang=cmn-CN',GTTS('zh-CN')],male:['/.netlify/functions/tts?voice=cmn-CN-Wavenet-B&lang=cmn-CN',GTTS('zh-CN')]},
-  it:{female:['Carla','Bianca','/.netlify/functions/tts?voice=it-IT-Wavenet-E&lang=it-IT',GTTS('it')],male:['Giorgio','/.netlify/functions/tts?voice=it-IT-Wavenet-F&lang=it-IT',GTTS('it')]},
-  ja:{female:['Mizuki','/.netlify/functions/tts?voice=ja-JP-Wavenet-B&lang=ja-JP',GTTS('ja')],male:['Takumi','/.netlify/functions/tts?voice=ja-JP-Wavenet-C&lang=ja-JP',GTTS('ja')]},
-  ko:{female:['Seoyeon','/.netlify/functions/tts?voice=ko-KR-Wavenet-A&lang=ko-KR',GTTS('ko')],male:['/.netlify/functions/tts?voice=ko-KR-Wavenet-C&lang=ko-KR',GTTS('ko')]}
+  /* Ordre des sources : 1) voix Google WaveNet via la fonction Netlify (qualité, mise en cache),
+     2) Google Translate (gratuit), 3) StreamElements en dernier recours — ce service externe
+     peut renvoyer un clip d'erreur identique pour tous les mots. */
+  fr:{female:['/.netlify/functions/tts?voice=fr-FR-Wavenet-F&lang=fr-FR',GTTS('fr'),'Celine'],male:['/.netlify/functions/tts?voice=fr-FR-Wavenet-G&lang=fr-FR',GTTS('fr'),'Mathieu']},
+  en:{female:['/.netlify/functions/tts?voice=en-GB-Wavenet-C&lang=en-GB',GTTS('en'),'Amy'],male:['/.netlify/functions/tts?voice=en-GB-Wavenet-D&lang=en-GB',GTTS('en'),'Joey']},
+  es:{female:['/.netlify/functions/tts?voice=es-ES-Wavenet-F&lang=es-ES',GTTS('es'),'Lucia'],male:['/.netlify/functions/tts?voice=es-ES-Wavenet-E&lang=es-ES',GTTS('es'),'Enrique','Sergio']},
+  zh:{female:['/.netlify/functions/tts?voice=cmn-CN-Wavenet-A&lang=cmn-CN',GTTS('zh-CN'),'Zhiyu'],male:['/.netlify/functions/tts?voice=cmn-CN-Wavenet-B&lang=cmn-CN',GTTS('zh-CN')]},
+  it:{female:['/.netlify/functions/tts?voice=it-IT-Wavenet-E&lang=it-IT',GTTS('it'),'Carla','Bianca'],male:['/.netlify/functions/tts?voice=it-IT-Wavenet-F&lang=it-IT',GTTS('it'),'Giorgio']},
+  ja:{female:['/.netlify/functions/tts?voice=ja-JP-Wavenet-B&lang=ja-JP',GTTS('ja'),'Mizuki'],male:['/.netlify/functions/tts?voice=ja-JP-Wavenet-C&lang=ja-JP',GTTS('ja'),'Takumi']},
+  ko:{female:['/.netlify/functions/tts?voice=ko-KR-Wavenet-A&lang=ko-KR',GTTS('ko'),'Seoyeon'],male:['/.netlify/functions/tts?voice=ko-KR-Wavenet-C&lang=ko-KR',GTTS('ko')]}
 };
 var TTSLANG= { fr:'fr-FR', en:'en-GB', es:'es-ES', zh:'zh-CN', it:'it-IT', ja:'ja-JP', ko:'ko-KR' };
 var HELLO  = { fr:{female:'Bonjour, je suis Céline.',male:'Bonjour, je suis Mathieu.'},
