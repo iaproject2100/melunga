@@ -129,25 +129,25 @@
 
   /* ---------- Libellés d'interface (langue native) ---------- */
   var UI = {
-    fr: { title: 'Construire', sub: 'Une structure + un temps + une action = une phrase complète.', structure: 'Structure', tense: 'Temps', action: 'Action', listen: '🔊 Écouter', random: '🎲 Au hasard', variants: 'La même action aux 4 temps', menu: 'Construire', phon: 'Phonétique',
+    fr: { title: 'Atelier de phrases', sub: 'Une structure + un temps + une action = une phrase complète.', structure: 'Structure', tense: 'Temps', action: 'Action', listen: '🔊 Écouter', random: '🎲 Au hasard', variants: 'La même action aux 4 temps', menu: 'Atelier de phrases', phon: 'Phonétique',
           tenses: { pres: 'présent', pas: 'passé', fut: 'futur', cond: 'conditionnel' },
           themes: { manger: 'Manger & boire', deplacements: 'Se déplacer', quotidien: 'Quotidien', demarches: 'Démarches', achats: 'Achats', travail: 'Travail', logement: 'Logement', sante: 'Santé', social: 'Social' } },
-    en: { title: 'Build', sub: 'A structure + a tense + an action = a complete sentence.', structure: 'Structure', tense: 'Tense', action: 'Action', listen: '🔊 Listen', random: '🎲 Random', variants: 'Same action, 4 tenses', menu: 'Build', phon: 'Pronunciation',
+    en: { title: 'Sentence workshop', sub: 'A structure + a tense + an action = a complete sentence.', structure: 'Structure', tense: 'Tense', action: 'Action', listen: '🔊 Listen', random: '🎲 Random', variants: 'Same action, 4 tenses', menu: 'Sentence workshop', phon: 'Pronunciation',
           tenses: { pres: 'present', pas: 'past', fut: 'future', cond: 'conditional' },
           themes: { manger: 'Food & drink', deplacements: 'Getting around', quotidien: 'Daily life', demarches: 'Errands', achats: 'Shopping', travail: 'Work', logement: 'Housing', sante: 'Health', social: 'Social' } },
-    zh: { title: '造句', sub: '结构 + 时态 + 动作 = 完整的句子。', structure: '结构', tense: '时态', action: '动作', listen: '🔊 听', random: '🎲 随机', variants: '同一动作的 4 个时态', menu: '造句', phon: '发音',
+    zh: { title: '造句工坊', sub: '结构 + 时态 + 动作 = 完整的句子。', structure: '结构', tense: '时态', action: '动作', listen: '🔊 听', random: '🎲 随机', variants: '同一动作的 4 个时态', menu: '造句工坊', phon: '发音',
           tenses: { pres: '现在', pas: '过去', fut: '将来', cond: '条件式' },
           themes: { manger: '饮食', deplacements: '出行', quotidien: '日常', demarches: '办事', achats: '购物', travail: '工作', logement: '住房', sante: '健康', social: '社交' } },
-    es: { title: 'Construir', sub: 'Una estructura + un tiempo + una acción = una frase completa.', structure: 'Estructura', tense: 'Tiempo', action: 'Acción', listen: '🔊 Escuchar', random: '🎲 Al azar', variants: 'La misma acción en 4 tiempos', menu: 'Construir', phon: 'Pronunciación',
+    es: { title: 'Taller de frases', sub: 'Una estructura + un tiempo + una acción = una frase completa.', structure: 'Estructura', tense: 'Tiempo', action: 'Acción', listen: '🔊 Escuchar', random: '🎲 Al azar', variants: 'La misma acción en 4 tiempos', menu: 'Taller de frases', phon: 'Pronunciación',
           tenses: { pres: 'presente', pas: 'pasado', fut: 'futuro', cond: 'condicional' },
           themes: { manger: 'Comer y beber', deplacements: 'Desplazarse', quotidien: 'Día a día', demarches: 'Gestiones', achats: 'Compras', travail: 'Trabajo', logement: 'Vivienda', sante: 'Salud', social: 'Social' } },
-    it: { title: 'Costruire', sub: 'Una struttura + un tempo + un’azione = una frase completa.', structure: 'Struttura', tense: 'Tempo', action: 'Azione', listen: '🔊 Ascolta', random: '🎲 A caso', variants: 'La stessa azione in 4 tempi', menu: 'Costruire', phon: 'Pronuncia',
+    it: { title: 'Officina delle frasi', sub: 'Una struttura + un tempo + un’azione = una frase completa.', structure: 'Struttura', tense: 'Tempo', action: 'Azione', listen: '🔊 Ascolta', random: '🎲 A caso', variants: 'La stessa azione in 4 tempi', menu: 'Officina delle frasi', phon: 'Pronuncia',
           tenses: { pres: 'presente', pas: 'passato', fut: 'futuro', cond: 'condizionale' },
           themes: { manger: 'Mangiare e bere', deplacements: 'Spostarsi', quotidien: 'Quotidiano', demarches: 'Pratiche', achats: 'Acquisti', travail: 'Lavoro', logement: 'Casa', sante: 'Salute', social: 'Sociale' } },
-    ja: { title: '組み立てる', sub: '構文 + 時制 + 動作 = 完全な文。', structure: '構文', tense: '時制', action: '動作', listen: '🔊 聞く', random: '🎲 ランダム', variants: '同じ動作を4つの時制で', menu: '組み立てる', phon: '発音',
+    ja: { title: '文章工房', sub: '構文 + 時制 + 動作 = 完全な文。', structure: '構文', tense: '時制', action: '動作', listen: '🔊 聞く', random: '🎲 ランダム', variants: '同じ動作を4つの時制で', menu: '文章工房', phon: '発音',
           tenses: { pres: '現在', pas: '過去', fut: '未来', cond: '条件法' },
           themes: { manger: '飲食', deplacements: '移動', quotidien: '日常', demarches: '手続き', achats: '買い物', travail: '仕事', logement: '住まい', sante: '健康', social: '交流' } },
-    ko: { title: '문장 만들기', sub: '구조 + 시제 + 행동 = 완전한 문장.', structure: '구조', tense: '시제', action: '행동', listen: '🔊 듣기', random: '🎲 무작위', variants: '같은 행동, 4가지 시제', menu: '문장 만들기', phon: '발음',
+    ko: { title: '문장 공방', sub: '구조 + 시제 + 행동 = 완전한 문장.', structure: '구조', tense: '시제', action: '행동', listen: '🔊 듣기', random: '🎲 무작위', variants: '같은 행동, 4가지 시제', menu: '문장 공방', phon: '발음',
           tenses: { pres: '현재', pas: '과거', fut: '미래', cond: '조건법' },
           themes: { manger: '먹고 마시기', deplacements: '이동', quotidien: '일상', demarches: '볼일', achats: '쇼핑', travail: '일', logement: '주거', sante: '건강', social: '사교' } }
   };
@@ -202,7 +202,10 @@
     '.cxVarRow:last-child{border-bottom:0}',
     '.cxVarT{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--soft,#8C8273);min-width:70px}',
     '.cxVarEs{font-weight:700}.cxVarEs small{display:block;font-weight:600;color:var(--blue,#1E7FA8);font-size:12.5px}',
-    '.cxVarPlay{border:0;background:rgba(127,127,127,.15);color:inherit;border-radius:50%;width:32px;height:32px;cursor:pointer}'
+    '.cxVarPlay{border:0;background:rgba(127,127,127,.15);color:inherit;border-radius:50%;width:32px;height:32px;cursor:pointer}',
+    '.cxEntry{position:absolute;top:14px;left:50%;transform:translateX(-50%);z-index:6;display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.14);color:inherit;border-radius:999px;padding:8px 14px;font:inherit;font-size:13px;font-weight:800;letter-spacing:.2px;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 6px 18px rgba(0,0,0,.14);white-space:nowrap}',
+    '.cxEntry:active{transform:translateX(-50%) scale(.97)}',
+    'body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,.18)}'
   ].join('\n');
   document.head.appendChild(css);
 
@@ -229,7 +232,7 @@
     var showFr = (typeof nat === 'string' ? nat : 'fr') === 'fr';
 
     var sheet = el('div', 'cxSheet');
-    var head = el('div', 'cxHead'); head.appendChild(el('b', null, '🧱 ' + T.title));
+    var head = el('div', 'cxHead'); head.appendChild(el('b', null, '🧩 ' + T.title));
     var x = el('button', 'cxClose', '✕'); x.onclick = close; head.appendChild(x); sheet.appendChild(head);
     sheet.appendChild(el('p', 'cxSub', T.sub));
     var card = el('div', 'cxCard');
@@ -297,9 +300,26 @@
 
   /* ---------- Entrée de menu : visible seulement si des données existent pour la langue étudiée ---------- */
   function syncMenu() {
-    var b = document.getElementById('btnBuild'); if (!b) return;
-    b.style.display = data() ? '' : 'none';
-    var lbl = b.querySelector('span'); if (lbl) lbl.textContent = L().menu;
+    var has = !!data();
+    var b = document.getElementById('btnBuild');
+    if (b) { b.style.display = has ? '' : 'none'; var lbl = b.querySelector('span'); if (lbl) lbl.textContent = L().menu; }
+    syncEntry(has);
+  }
+  /* Entrée visible sur la page de leçon : pastille en haut de la carte */
+  function syncEntry(has) {
+    var card = document.getElementById('card'); if (!card) return;
+    var e = document.getElementById('cxEntry');
+    if (!has) { if (e) e.style.display = 'none'; return; }
+    if (!e) {
+      e = document.createElement('button'); e.id = 'cxEntry'; e.className = 'cxEntry'; e.type = 'button';
+      e.addEventListener('click', function (ev) { ev.stopPropagation(); ev.preventDefault(); open(); });
+      e.addEventListener('touchstart', function (ev) { ev.stopPropagation(); }, { passive: true });
+      e.addEventListener('pointerdown', function (ev) { ev.stopPropagation(); });
+      if (getComputedStyle(card).position === 'static') card.style.position = 'relative';
+      card.appendChild(e);
+    }
+    e.style.display = '';
+    e.textContent = '🧩 ' + L().menu;
   }
   function install() {
     syncMenu();
@@ -308,6 +328,11 @@
       window.toggleUMenu = function () { syncMenu(); return orig.apply(this, arguments); };
       window.toggleUMenu.__cx = true;
     }
+    var origShow = window.show;
+    if (typeof origShow === 'function' && !origShow.__cx) {
+      window.show = function () { var r = origShow.apply(this, arguments); syncMenu(); return r; };
+      window.show.__cx = true;
+    }
     var origSet = window.setLang;
     if (typeof origSet === 'function' && !origSet.__cx) {
       window.setLang = function () { var r = origSet.apply(this, arguments); syncMenu(); return r; };
@@ -315,4 +340,5 @@
     }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', install, { once: true }); else install();
+  setTimeout(syncMenu, 1200); setTimeout(syncMenu, 3000);
 })();
