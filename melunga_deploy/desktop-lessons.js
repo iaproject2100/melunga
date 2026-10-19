@@ -18,6 +18,21 @@
   const languageText = document.createElement('span');
   languageName.append(languageFlag,languageText);
   progress.append(languageName,levelName,phraseNumber); stage.append(progress);
+  const languageTools = document.createElement('div');
+  languageTools.className = 'mobile-language-tools';
+  languageTools.style.display = 'contents';
+  progress.insertBefore(languageTools,languageName);
+  languageTools.append(languageName);
+  const palette = document.getElementById('colorBtn');
+  const paletteParent = palette && palette.parentNode;
+  const paletteNext = palette && palette.nextSibling;
+  function placePalette() {
+    if (!palette) return;
+    if (!desktop.matches) languageTools.append(palette);
+    else paletteParent.insertBefore(palette,paletteNext);
+  }
+  desktop.addEventListener('change',placePalette);
+  placePalette();
   function openMobileLanguageMenu(event) {
     if (desktop.matches) return;
     if (event.type === 'keydown' && event.key !== 'Enter' && event.key !== ' ') return;

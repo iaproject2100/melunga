@@ -10,11 +10,12 @@
  html.melunga-lesson-web body.immersif .top .utilbar{position:fixed;top:calc(12px + env(safe-area-inset-top));right:12px;left:auto;bottom:auto;pointer-events:auto}
  html.melunga-lesson-web body.immersif .utrigger{width:36px;height:36px;background:#e6ede9}
  html.melunga-lesson-web body.immersif .utrigger .blines i{background:#244f42}
- html.melunga-lesson-web body.immersif .colorbtn{position:fixed;top:calc(15px + env(safe-area-inset-top));left:60px;right:auto;width:30px;height:30px;background:transparent;box-shadow:none}
+ html.melunga-lesson-web body.immersif .colorbtn{position:static;inset:auto;flex:0 0 36px;width:36px;height:36px;background:transparent;box-shadow:none}
  html.melunga-lesson-web body.immersif .colorbtn .cwheel{width:24px;height:24px}
  html.melunga-lesson-web body.immersif .countrow,
  html.melunga-lesson-web body.immersif .progwrap{display:none!important}
  html.melunga-lesson-web body.immersif .desktop-progress{position:fixed;top:calc(62px + env(safe-area-inset-top));left:14px;right:14px;z-index:166;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;height:38px;font-family:Inter,ui-sans-serif,system-ui,sans-serif;line-height:1.3;color:#344f50}
+ html.melunga-lesson-web body.immersif .mobile-language-tools{display:flex!important;grid-column:2;grid-row:1;align-items:center;justify-content:center;gap:8px}
  html.melunga-lesson-web body.immersif .desktop-progress-language{grid-column:2;grid-row:1;display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px;font-weight:700;color:#173e50;text-transform:capitalize;cursor:pointer}
  html.melunga-lesson-web body.immersif .desktop-progress-language:focus-visible{outline:2px solid #187a68;outline-offset:4px;border-radius:4px}
  html.melunga-lesson-web body.immersif .desktop-language-flag{width:27px;height:18px;min-width:27px;display:inline-block;border-radius:3px;box-shadow:0 0 0 1px #c8d6d0;background-size:cover;background-position:center}
