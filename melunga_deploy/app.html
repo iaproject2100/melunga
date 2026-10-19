@@ -2982,13 +2982,16 @@ function sectorLabel(c){ return (SECTORLABELS[nat]&&SECTORLABELS[nat][c]) || c; 
 
 var GTTS=function(tl){ return 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl='+tl+'&q='; };
 var VOICES = {
-  fr:{female:['Celine',GTTS('fr')],male:['Mathieu',GTTS('fr')]},
-  en:{female:['Amy',GTTS('en')],male:['Joey',GTTS('en')]},
-  es:{female:['Lucia',GTTS('es')],male:['Enrique','Sergio','/.netlify/functions/tts?voice=es-ES-Wavenet-E&lang=es-ES',GTTS('es')]},
-  zh:{female:['Zhiyu','/.netlify/functions/tts?voice=cmn-CN-Wavenet-A&lang=cmn-CN',GTTS('zh-CN')],male:['/.netlify/functions/tts?voice=cmn-CN-Wavenet-B&lang=cmn-CN',GTTS('zh-CN')]},
-  it:{female:['Carla','Bianca',GTTS('it')],male:['Giorgio',GTTS('it')]},
-  ja:{female:['Mizuki','/.netlify/functions/tts?voice=ja-JP-Wavenet-B&lang=ja-JP',GTTS('ja')],male:['Takumi','/.netlify/functions/tts?voice=ja-JP-Wavenet-C&lang=ja-JP',GTTS('ja')]},
-  ko:{female:['Seoyeon','/.netlify/functions/tts?voice=ko-KR-Wavenet-A&lang=ko-KR',GTTS('ko')],male:['/.netlify/functions/tts?voice=ko-KR-Wavenet-C&lang=ko-KR',GTTS('ko')]}
+  /* Ordre des sources : 1) voix Google WaveNet via la fonction Netlify (qualité, mise en cache),
+     2) Google Translate (gratuit), 3) StreamElements en dernier recours — ce service externe
+     peut renvoyer un clip d'erreur identique pour tous les mots. */
+  fr:{female:['/.netlify/functions/tts?voice=fr-FR-Wavenet-F&lang=fr-FR',GTTS('fr'),'Celine'],male:['/.netlify/functions/tts?voice=fr-FR-Wavenet-G&lang=fr-FR',GTTS('fr'),'Mathieu']},
+  en:{female:['/.netlify/functions/tts?voice=en-GB-Wavenet-C&lang=en-GB',GTTS('en'),'Amy'],male:['/.netlify/functions/tts?voice=en-GB-Wavenet-D&lang=en-GB',GTTS('en'),'Joey']},
+  es:{female:['/.netlify/functions/tts?voice=es-ES-Wavenet-F&lang=es-ES',GTTS('es'),'Lucia'],male:['/.netlify/functions/tts?voice=es-ES-Wavenet-E&lang=es-ES',GTTS('es'),'Enrique','Sergio']},
+  zh:{female:['/.netlify/functions/tts?voice=cmn-CN-Wavenet-A&lang=cmn-CN',GTTS('zh-CN'),'Zhiyu'],male:['/.netlify/functions/tts?voice=cmn-CN-Wavenet-B&lang=cmn-CN',GTTS('zh-CN')]},
+  it:{female:['/.netlify/functions/tts?voice=it-IT-Wavenet-E&lang=it-IT',GTTS('it'),'Carla','Bianca'],male:['/.netlify/functions/tts?voice=it-IT-Wavenet-F&lang=it-IT',GTTS('it'),'Giorgio']},
+  ja:{female:['/.netlify/functions/tts?voice=ja-JP-Wavenet-B&lang=ja-JP',GTTS('ja'),'Mizuki'],male:['/.netlify/functions/tts?voice=ja-JP-Wavenet-C&lang=ja-JP',GTTS('ja'),'Takumi']},
+  ko:{female:['/.netlify/functions/tts?voice=ko-KR-Wavenet-A&lang=ko-KR',GTTS('ko'),'Seoyeon'],male:['/.netlify/functions/tts?voice=ko-KR-Wavenet-C&lang=ko-KR',GTTS('ko')]}
 };
 var TTSLANG= { fr:'fr-FR', en:'en-GB', es:'es-ES', zh:'zh-CN', it:'it-IT', ja:'ja-JP', ko:'ko-KR' };
 var HELLO  = { fr:{female:'Bonjour, je suis Céline.',male:'Bonjour, je suis Mathieu.'},
@@ -4233,7 +4236,10 @@ var IS_IOS_AUDIO=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platfo
 var speechPreloads={}, speechPreloadOrder=[];
 function speechSource(text,voice){
   if(voice.charAt(0)==='/'){
-    return voice+'&rate='+(slowMode?'0.75':'1')+'&text='+encodeURIComponent(text);
+    /* Application native (Capacitor) : la page est servie depuis https://localhost,
+       une URL relative /.netlify/... n'atteindrait jamais le serveur. */
+    var ttsBase=(location.hostname==='localhost'||location.protocol!=='https:')?'https://melunga.com':'';
+    return ttsBase+voice+'&rate='+(slowMode?'0.75':'1')+'&text='+encodeURIComponent(text);
   }
   if(voice.slice(0,4)==='http') return voice+encodeURIComponent(text);
   return 'https://api.streamelements.com/kappa/v2/speech?voice='+encodeURIComponent(voice)+'&text='+encodeURIComponent(text);

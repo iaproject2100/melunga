@@ -20,6 +20,7 @@ import {
   ensureDeviceSlots,
   makeDeviceSlot
 } from './device-access.mjs';
+import { expectedAmount } from './pricing-table.mjs';
 
 function baseUrl() {
   return (process.env.AIRWALLEX_ENV || 'demo') === 'live'
@@ -133,7 +134,9 @@ export default async (req) => {
         passwordHash: meta.password_hash || null,
         salt: meta.salt || null,
         plan: meta.plan || 'monthly',
-        accessDays: parseInt(meta.access_days || '30', 10)
+        accessDays: parseInt(meta.access_days || '30', 10),
+        amount: meta.amount != null ? Number(meta.amount) : null,
+        currency: meta.currency || null
       };
       console.log('[airwallex-webhook] infos trouvees via metadata intent');
     }
@@ -164,7 +167,9 @@ export default async (req) => {
                 passwordHash: m.password_hash || null,
                 salt: m.salt || null,
                 plan: m.plan || 'monthly',
-                accessDays: parseInt(m.access_days || '30', 10)
+                accessDays: parseInt(m.access_days || '30', 10),
+                amount: m.amount != null ? Number(m.amount) : null,
+                currency: m.currency || null
               };
               console.log('[airwallex-webhook] infos trouvees via metadata de l\'intent complet (API)');
             }
@@ -189,7 +194,9 @@ export default async (req) => {
               passwordHash: pending.passwordHash || null,
               salt: pending.salt || null,
               plan: pending.plan || 'monthly',
-              accessDays: pending.accessDays || 30
+              accessDays: pending.accessDays || 30,
+              amount: pending.amount != null ? Number(pending.amount) : null,
+              currency: pending.currency || null
             };
             console.log('[airwallex-webhook] infos trouvees via pending:link:', linkId);
           }
@@ -197,6 +204,32 @@ export default async (req) => {
           console.log('[airwallex-webhook] aucun pending pour link', linkId);
         }
       }
+    }
+
+    // --- Controle du montant et de la devise reellement payes ---
+    // On compare ce qu'Airwallex a encaisse (captured_amount, sinon amount / currency) a ce qui etait attendu
+    // pour ce lien (enregistre par create-payment-link). Pour un lien ancien sans montant
+    // enregistre, on retombe sur la grille tarifaire via le plan et la devise encaissee.
+    if (info && info.deviceId) {
+      // Documentation PaymentIntent : `amount` = montant de la commande demande,
+      // `captured_amount` = montant effectivement capture. On controle l'encaissement reel.
+      const paidAmount = Number.isFinite(Number(obj.captured_amount)) && obj.captured_amount != null
+        ? Number(obj.captured_amount)
+        : Number(obj.amount);
+      const paidCurrency = String(obj.currency || '').toUpperCase();
+      const expectedCurrency = info.currency ? String(info.currency).toUpperCase() : paidCurrency;
+      const expected = (info.amount != null && Number.isFinite(info.amount))
+        ? info.amount
+        : expectedAmount(info.plan, expectedCurrency);
+      const amountOk = Number.isFinite(paidAmount) && expected != null && Math.abs(paidAmount - expected) < 0.005;
+      const currencyOk = !!paidCurrency && paidCurrency === expectedCurrency;
+      if (!amountOk || !currencyOk) {
+        console.error('[airwallex-webhook] PAIEMENT REFUSE : montant/devise inattendus. recu =',
+          paidAmount, paidCurrency, 'attendu =', expected, expectedCurrency, 'intent =', intentId, 'device =', info.deviceId);
+        // 200 pour eviter les re-livraisons ; l'acces n'est PAS active, a traiter manuellement.
+        return new Response('amount mismatch', { status: 200 });
+      }
+      console.log('[airwallex-webhook] montant verifie =', paidAmount, paidCurrency);
     }
 
     if (info && info.deviceId) {

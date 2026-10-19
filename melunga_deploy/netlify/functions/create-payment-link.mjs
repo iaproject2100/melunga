@@ -20,6 +20,7 @@ import {
   deviceLabelFor,
   deviceTypeFor
 } from './device-access.mjs';
+import { plansFor, plansForCurrency } from './pricing-table.mjs';
 
 const PBKDF2_ITERATIONS = 100000;
 const PBKDF2_KEYLEN = 32;
@@ -82,28 +83,6 @@ async function getOrCreateCustomer(token, email) {
     console.error('[create-payment-link] getOrCreateCustomer echec:', e);
   }
   return null; // sans customer, le lien marche quand meme (email a saisir)
-}
-
-// Tarification geolocalisee : EUR pour UE + EEE + UK, USD pour le reste
-// (Suisse incluse dans la zone USD).
-const EUR_ZONE = new Set([
-  'AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT',
-  'LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE',
-  'IS','LI','NO', // EEE
-  'GB' // Royaume-Uni
-]);
-
-function plansFor(countryCode) {
-  if (countryCode && EUR_ZONE.has(countryCode)) {
-    return {
-      monthly: { amount: 7.90, currency: 'EUR', days: 30,  title: 'Melunga · Abonnement mensuel' },
-      annual:  { amount: 42.00, currency: 'EUR', days: 365, title: 'Melunga · Abonnement annuel' }
-    };
-  }
-  return {
-    monthly: { amount: 8.90, currency: 'USD', days: 30,  title: 'Melunga · Monthly subscription' },
-    annual:  { amount: 49.00, currency: 'USD', days: 365, title: 'Melunga · Annual subscription' }
-  };
 }
 
 export default async (req, context) => {
@@ -177,6 +156,8 @@ export default async (req, context) => {
         device_label: deviceLabel,
         plan: planKey,
         access_days: String(plan.days),
+        amount: String(plan.amount),
+        currency: plan.currency,
         email: email,
         password_hash: passwordHash,
         salt: salt,
@@ -185,19 +166,56 @@ export default async (req, context) => {
       }
     };
 
-    const linkRes = await fetch(`${baseUrl()}/api/v1/pa/payment_links/create`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(linkPayload)
-    });
+    const createLink = async (payload) => {
+      try {
+        const res = await fetch(`${baseUrl()}/api/v1/pa/payment_links/create`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+        const text = await res.text();
+        console.log('[create-payment-link] payment_links/create status =', res.status, 'currency =', payload.currency);
+        return { ok: res.ok, status: res.status, text };
+      } catch (networkError) {
+        // Timeout / reseau : issue inconnue cote Airwallex, on ne retente pas (502 au client).
+        console.error('[create-payment-link] payment_links/create injoignable:', networkError);
+        return { ok: false, status: 0, text: 'network_error' };
+      }
+    };
 
-    const linkBodyText = await linkRes.text();
-    console.log('[create-payment-link] payment_links/create status =', linkRes.status);
+    let linkResult = await createLink(linkPayload);
 
-    if (!linkRes.ok) {
+    // Repli USD UNIQUEMENT si Airwallex refuse explicitement la devise locale, identifie par le
+    // code d'erreur structure de l'API Payments (documentation « Error response codes ») :
+    //   { code: 'currency_not_supported', message: 'The currency $currency is not supported.' }
+    // ou une validation_error dont la source est le champ currency.
+    // Une erreur ambigue (5xx, timeout) n'entraine aucune seconde creation : le premier lien
+    // a pu etre cree.
+    const airwallexError = (() => { try { return JSON.parse(linkResult.text || '{}'); } catch (_e) { return {}; } })();
+    const currencyRefused = !linkResult.ok
+      && linkResult.status >= 400 && linkResult.status < 500
+      && (airwallexError.code === 'currency_not_supported'
+          || (airwallexError.code === 'validation_error' && String(airwallexError.source || '').toLowerCase() === 'currency'));
+    if (currencyRefused && plan.currency !== 'USD') {
+      console.warn('[create-payment-link] devise', plan.currency, 'refusee par Airwallex, repli USD:', linkResult.text.slice(0, 300));
+      const usdPlan = plansForCurrency('USD')[planKey];
+      plan.amount = usdPlan.amount;
+      plan.currency = usdPlan.currency;
+      plan.title = usdPlan.title;
+      linkPayload.amount = plan.amount;
+      linkPayload.currency = plan.currency;
+      linkPayload.title = plan.title;
+      linkPayload.metadata.amount = String(plan.amount);
+      linkPayload.metadata.currency = plan.currency;
+      linkPayload.request_id = requestId + '_usd';
+      linkResult = await createLink(linkPayload);
+    }
+
+    const linkBodyText = linkResult.text;
+    if (!linkResult.ok) {
       console.error('[create-payment-link] link creation failed:', linkBodyText);
       return new Response(JSON.stringify({ error: 'link_creation_failed' }), { status: 502 });
     }
@@ -216,6 +234,8 @@ export default async (req, context) => {
       salt: salt,
       plan: planKey,
       accessDays: plan.days,
+      amount: plan.amount,
+      currency: plan.currency,
       linkId: linkData.id,
       requestId: requestId,
       created: Date.now()

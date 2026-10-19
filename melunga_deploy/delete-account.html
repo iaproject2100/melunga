@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Supprimer mon compte · Melunga</title>
+  <meta name="robots" content="noindex,follow">
+  <style>
+    :root{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#eef8ff;background:#0b3553}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 18% 15%,rgba(238,194,75,.18),transparent 22%),linear-gradient(155deg,#0b3553,#071f35);display:grid;place-items:center;padding:24px}
+    main{width:min(520px,100%);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:28px;padding:28px;box-shadow:0 28px 70px rgba(0,0,0,.28);backdrop-filter:blur(12px)}
+    .brand{text-align:center;margin-bottom:24px}.logo{display:block;width:84px;height:84px;object-fit:contain;margin:auto}.brand strong{display:block;font-size:30px;margin-top:10px}.brand small{color:#f1cf68;letter-spacing:.45em}
+    h1{font-size:28px;margin:0 0 10px}p{color:#c6d9e6;line-height:1.55}.warning{background:#fff3dc;color:#5e3810;border-radius:18px;padding:14px 16px;font-size:14px;margin:18px 0}
+    label{display:block;font-weight:800;margin:15px 0 7px}input{width:100%;border:1px solid rgba(255,255,255,.2);border-radius:15px;background:rgba(255,255,255,.1);color:white;padding:14px 15px;font:inherit}input::placeholder{color:#a9bdc9}
+    button{width:100%;border:0;border-radius:17px;padding:15px;font:inherit;font-weight:900;cursor:pointer}.delete{background:#e84d5b;color:white;margin-top:20px}.delete:disabled{opacity:.6}.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.links a{color:#9edcff;font-size:13px}.status{min-height:22px;text-align:center;font-weight:800;margin-top:15px}.success{color:#72e3b4}.error{color:#ffb0b7}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand"><img class="logo" src="melunga-logo.png" alt="Logo Melunga"><strong>Melunga</strong><small>梅 伦 加</small></div>
+    <h1>Supprimer mon compte</h1>
+    <p>Cette page permet de supprimer définitivement ton compte Melunga, ta progression et les appareils associés.</p>
+    <div class="warning"><strong>Important :</strong> la suppression du compte est irréversible. Elle ne résilie pas automatiquement un abonnement Google Play ou App Store. Résilie d’abord l’abonnement depuis ta boutique si nécessaire.</div>
+    <form id="deleteForm">
+      <label for="email">Adresse e-mail du compte</label>
+      <input id="email" type="email" autocomplete="email" required placeholder="nom@exemple.com">
+      <label for="password">Mot de passe</label>
+      <input id="password" type="password" autocomplete="current-password" required placeholder="Ton mot de passe">
+      <button class="delete" id="deleteButton" type="submit">Supprimer définitivement mon compte</button>
+    </form>
+    <div class="links">
+      <a href="https://play.google.com/store/account/subscriptions">Gérer Google Play</a>
+      <a href="https://apps.apple.com/account/subscriptions">Gérer l’App Store</a>
+      <a href="/">Retour à Melunga</a>
+    </div>
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+  </main>
+  <script>
+    document.getElementById('deleteForm').addEventListener('submit',async function(event){
+      event.preventDefault();
+      if(!confirm('Confirmer la suppression définitive du compte et de la progression ?'))return;
+      var button=document.getElementById('deleteButton');
+      var status=document.getElementById('status');
+      button.disabled=true;status.className='status';status.textContent='Suppression en cours…';
+      try{
+        var response=await fetch('/.netlify/functions/delete-account',{
+          method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({confirm:true,email:document.getElementById('email').value,password:document.getElementById('password').value})
+        });
+        var data=await response.json().catch(function(){return {};});
+        if(!response.ok||!data.success)throw new Error(data.error||'delete_failed');
+        document.getElementById('deleteForm').remove();
+        status.className='status success';
+        status.textContent='Ton compte et ta progression ont été supprimés.';
+      }catch(error){
+        button.disabled=false;status.className='status error';
+        status.textContent=error.message==='invalid_credentials'?'E-mail ou mot de passe incorrect.':'Suppression impossible pour le moment. Réessaie.';
+      }
+    });
+  </script>
+</body>
+</html>
