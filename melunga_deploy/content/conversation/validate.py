@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Vérifie les fichiers de contenu conversation : champs manquants, {s} résiduels,
 identifiants en double, références de dialogues, minimums (10 modèles × 4 variantes, 3 dialogues de 6 à 10 répliques).
-Usage : python3 validate.py [dossier]"""
+Usage : python3 validate.py [dossier] [langue étudiée à vérifier seule, ex. es]"""
 import json, glob, os, sys
 D = sys.argv[1] if len(sys.argv) > 1 else os.path.dirname(os.path.abspath(__file__))
 REQ = ("study", "phon", "native")
@@ -9,7 +9,9 @@ LANGS = ("fr", "en", "es", "zh", "it", "ja", "ko")
 studied = set()
 errs = []
 ids = set()
+ONLY = sys.argv[2] if len(sys.argv) > 2 else None
 for f in sorted(glob.glob(f"{D}/L*-*.json")):
+    if ONLY and not f.endswith(f"-{ONLY}.json"): continue
     doc = json.load(open(f, encoding="utf-8")); n = os.path.basename(f)
     need_reading = doc["studyLanguage"] in ("zh", "ja", "ko")
     def chk(e, where):
@@ -68,5 +70,5 @@ if os.path.exists(f"{D}/matrix.json"):
         for r in l.get("reuse", []):
             if not isinstance(r, int) or not 1 <= r < l["level"]: errs.append(f"matrix.json L{l['level']}: réutilisation invalide {r!r}")
     if not errs: print("matrix.json: niveaux 1 à 10, 7 langues")
-if studied and studied != set(LANGS): errs.append(f"langues étudiées présentes {sorted(studied)} ≠ {sorted(LANGS)}")
+if not ONLY and studied and studied != set(LANGS): errs.append(f"langues étudiées présentes {sorted(studied)} ≠ {sorted(LANGS)}")
 print("\n".join(errs) if errs else "✔ aucune erreur"); sys.exit(1 if errs else 0)
