@@ -1,0 +1,1013 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "zh",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en chinois",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle",
+  "reading": "pinyin avec tons"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (style du deck : ouo = 我, chr = 是, dzaï = 在). Les tons ne sont pas notés dans l'approximation : se reporter au pinyin (champ reading) et à l'audio. Mandarin standard, caractères simplifiés.",
+ "reviewStatus": "Relecture linguistique requise (tons, naturel des tournures).",
+ "coverageClaim": null,
+ "level": 4,
+ "title": "Mon quotidien",
+ "goal": "Décrire son quotidien, ses habitudes et son entourage.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L4-fr-zh-01",
+   "situation": "Habitudes",
+   "model": {
+    "study": "我平时{s}。",
+    "reading": "wǒ píngshí {s}.",
+    "phon": "ouo ping-chr {s}",
+    "native": "D'habitude, je {s}.",
+    "note": "Pas de conjugaison : 平时 (d'habitude) suffit à marquer l'habitude."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "七点起床",
+      "reading": "qī diǎn qǐchuáng",
+      "phon": "tchi tièn tchi-tchouang",
+      "native": "me lève à sept heures"
+     },
+     "study": "我平时七点起床。",
+     "phon": "ouo ping-chr tchi tièn tchi-tchouang",
+     "native": "D'habitude, je me lève à sept heures.",
+     "reading": "wǒ píngshí qī diǎn qǐchuáng."
+    },
+    {
+     "slot": {
+      "study": "坐地铁上班",
+      "reading": "zuò dìtiě shàngbān",
+      "phon": "tsouo ti-tié chang-pan",
+      "native": "vais au travail en métro"
+     },
+     "study": "我平时坐地铁上班。",
+     "phon": "ouo ping-chr tsouo ti-tié chang-pan",
+     "native": "D'habitude, je vais au travail en métro.",
+     "reading": "wǒ píngshí zuò dìtiě shàngbān."
+    },
+    {
+     "slot": {
+      "study": "在家吃饭",
+      "reading": "zài jiā chī fàn",
+      "phon": "dzaï tia tchr fan",
+      "native": "mange à la maison"
+     },
+     "study": "我平时在家吃饭。",
+     "phon": "ouo ping-chr dzaï tia tchr fan",
+     "native": "D'habitude, je mange à la maison.",
+     "reading": "wǒ píngshí zài jiā chī fàn."
+    },
+    {
+     "slot": {
+      "study": "很晚睡觉",
+      "reading": "hěn wǎn shuìjiào",
+      "phon": "heun ouan chouèï-tiao",
+      "native": "me couche tard"
+     },
+     "study": "我平时很晚睡觉。",
+     "phon": "ouo ping-chr heun ouan chouèï-tiao",
+     "native": "D'habitude, je me couche tard.",
+     "reading": "wǒ píngshí hěn wǎn shuìjiào."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-zh-02",
+   "situation": "Le matin",
+   "model": {
+    "study": "早上我{s}。",
+    "reading": "zǎoshang wǒ {s}.",
+    "phon": "tsao-chang ouo {s}",
+    "native": "Le matin, je {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "喝一杯咖啡",
+      "reading": "hē yì bēi kāfēi",
+      "phon": "heu i peï ka-feï",
+      "native": "bois un café"
+     },
+     "study": "早上我喝一杯咖啡。",
+     "phon": "tsao-chang ouo heu i peï ka-feï",
+     "native": "Le matin, je bois un café.",
+     "reading": "zǎoshang wǒ hē yì bēi kāfēi."
+    },
+    {
+     "slot": {
+      "study": "跑步",
+      "reading": "pǎobù",
+      "phon": "pao-pou",
+      "native": "cours"
+     },
+     "study": "早上我跑步。",
+     "phon": "tsao-chang ouo pao-pou",
+     "native": "Le matin, je cours.",
+     "reading": "zǎoshang wǒ pǎobù."
+    },
+    {
+     "slot": {
+      "study": "送孩子上学",
+      "reading": "sòng háizi shàngxué",
+      "phon": "song haï-tseu chang-süé",
+      "native": "emmène les enfants à l'école"
+     },
+     "study": "早上我送孩子上学。",
+     "phon": "tsao-chang ouo song haï-tseu chang-süé",
+     "native": "Le matin, je emmène les enfants à l'école.",
+     "reading": "zǎoshang wǒ sòng háizi shàngxué."
+    },
+    {
+     "slot": {
+      "study": "看新闻",
+      "reading": "kàn xīnwén",
+      "phon": "kan sinn-ouenn",
+      "native": "regarde les infos"
+     },
+     "study": "早上我看新闻。",
+     "phon": "tsao-chang ouo kan sinn-ouenn",
+     "native": "Le matin, je regarde les infos.",
+     "reading": "zǎoshang wǒ kàn xīnwén."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-zh-03",
+   "situation": "Le soir",
+   "model": {
+    "study": "晚上我{s}。",
+    "reading": "wǎnshang wǒ {s}.",
+    "phon": "ouan-chang ouo {s}",
+    "native": "Le soir, je {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "做饭",
+      "reading": "zuò fàn",
+      "phon": "tsouo fan",
+      "native": "fais la cuisine"
+     },
+     "study": "晚上我做饭。",
+     "phon": "ouan-chang ouo tsouo fan",
+     "native": "Le soir, je fais la cuisine.",
+     "reading": "wǎnshang wǒ zuò fàn."
+    },
+    {
+     "slot": {
+      "study": "看电视",
+      "reading": "kàn diànshì",
+      "phon": "kan tièn-chr",
+      "native": "regarde la télé"
+     },
+     "study": "晚上我看电视。",
+     "phon": "ouan-chang ouo kan tièn-chr",
+     "native": "Le soir, je regarde la télé.",
+     "reading": "wǎnshang wǒ kàn diànshì."
+    },
+    {
+     "slot": {
+      "study": "学中文",
+      "reading": "xué Zhōngwén",
+      "phon": "süé djong-ouenn",
+      "native": "apprends le chinois"
+     },
+     "study": "晚上我学中文。",
+     "phon": "ouan-chang ouo süé djong-ouenn",
+     "native": "Le soir, je apprends le chinois.",
+     "reading": "wǎnshang wǒ xué Zhōngwén."
+    },
+    {
+     "slot": {
+      "study": "和朋友聊天",
+      "reading": "hé péngyou liáotiān",
+      "phon": "heu peng-yeou liao-tièn",
+      "native": "discute avec des amis"
+     },
+     "study": "晚上我和朋友聊天。",
+     "phon": "ouan-chang ouo heu peng-yeou liao-tièn",
+     "native": "Le soir, je discute avec des amis.",
+     "reading": "wǎnshang wǒ hé péngyou liáotiān."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-zh-04",
+   "situation": "Famille",
+   "model": {
+    "study": "我有{s}。",
+    "reading": "wǒ yǒu {s}.",
+    "phon": "ouo yeou {s}",
+    "native": "J'ai {s}.",
+    "note": "Frères et sœurs se distinguent par l'âge : 哥哥 / 弟弟 (grand / petit frère), 姐姐 / 妹妹 (grande / petite sœur). Classificateur 只 pour les animaux."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "一个哥哥",
+      "reading": "yí ge gēge",
+      "phon": "i keu keu-keu",
+      "native": "un grand frère"
+     },
+     "study": "我有一个哥哥。",
+     "phon": "ouo yeou i keu keu-keu",
+     "native": "J'ai un grand frère.",
+     "reading": "wǒ yǒu yí ge gēge."
+    },
+    {
+     "slot": {
+      "study": "两个孩子",
+      "reading": "liǎng ge háizi",
+      "phon": "liang keu haï-tseu",
+      "native": "deux enfants"
+     },
+     "study": "我有两个孩子。",
+     "phon": "ouo yeou liang keu haï-tseu",
+     "native": "J'ai deux enfants.",
+     "reading": "wǒ yǒu liǎng ge háizi."
+    },
+    {
+     "slot": {
+      "study": "一个妹妹",
+      "reading": "yí ge mèimei",
+      "phon": "i keu meï-meï",
+      "native": "une petite sœur"
+     },
+     "study": "我有一个妹妹。",
+     "phon": "ouo yeou i keu meï-meï",
+     "native": "J'ai une petite sœur.",
+     "reading": "wǒ yǒu yí ge mèimei."
+    },
+    {
+     "slot": {
+      "study": "一只猫",
+      "reading": "yì zhī māo",
+      "phon": "i djr mao",
+      "native": "un chat"
+     },
+     "study": "我有一只猫。",
+     "phon": "ouo yeou i djr mao",
+     "native": "J'ai un chat.",
+     "reading": "wǒ yǒu yì zhī māo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-zh-05",
+   "situation": "Logement",
+   "model": {
+    "study": "我住在{s}。",
+    "reading": "wǒ zhù zài {s}.",
+    "phon": "ouo djou dzaï {s}",
+    "native": "J'habite {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "巴黎",
+      "reading": "Bālí",
+      "phon": "pa-li",
+      "native": "à Paris"
+     },
+     "study": "我住在巴黎。",
+     "phon": "ouo djou dzaï pa-li",
+     "native": "J'habite à Paris.",
+     "reading": "wǒ zhù zài Bālí."
+    },
+    {
+     "slot": {
+      "study": "一个小公寓",
+      "reading": "yí ge xiǎo gōngyù",
+      "phon": "i keu siao kong-yü",
+      "native": "dans un petit appartement"
+     },
+     "study": "我住在一个小公寓。",
+     "phon": "ouo djou dzaï i keu siao kong-yü",
+     "native": "J'habite dans un petit appartement.",
+     "reading": "wǒ zhù zài yí ge xiǎo gōngyù."
+    },
+    {
+     "slot": {
+      "study": "市中心",
+      "reading": "shì zhōngxīn",
+      "phon": "chr djong-sinn",
+      "native": "dans le centre-ville"
+     },
+     "study": "我住在市中心。",
+     "phon": "ouo djou dzaï chr djong-sinn",
+     "native": "J'habite dans le centre-ville.",
+     "reading": "wǒ zhù zài shì zhōngxīn."
+    },
+    {
+     "slot": {
+      "study": "郊区",
+      "reading": "jiāoqū",
+      "phon": "tiao-tchü",
+      "native": "en banlieue"
+     },
+     "study": "我住在郊区。",
+     "phon": "ouo djou dzaï tiao-tchü",
+     "native": "J'habite en banlieue.",
+     "reading": "wǒ zhù zài jiāoqū."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-zh-06",
+   "situation": "Travail",
+   "model": {
+    "study": "我在{s}工作。",
+    "reading": "wǒ zài {s} gōngzuò.",
+    "phon": "ouo dzaï {s} kong-tsouo",
+    "native": "Je travaille {s}.",
+    "note": "家 est aussi le classificateur des entreprises et commerces (一家银行, 一家餐厅)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "一家银行",
+      "reading": "yì jiā yínháng",
+      "phon": "i tia yinn-hang",
+      "native": "dans une banque"
+     },
+     "study": "我在一家银行工作。",
+     "phon": "ouo dzaï i tia yinn-hang kong-tsouo",
+     "native": "Je travaille dans une banque.",
+     "reading": "wǒ zài yì jiā yínháng gōngzuò."
+    },
+    {
+     "slot": {
+      "study": "医院",
+      "reading": "yīyuàn",
+      "phon": "i-yuèn",
+      "native": "à l'hôpital"
+     },
+     "study": "我在医院工作。",
+     "phon": "ouo dzaï i-yuèn kong-tsouo",
+     "native": "Je travaille à l'hôpital.",
+     "reading": "wǒ zài yīyuàn gōngzuò."
+    },
+    {
+     "slot": {
+      "study": "学校",
+      "reading": "xuéxiào",
+      "phon": "süé-siao",
+      "native": "dans une école"
+     },
+     "study": "我在学校工作。",
+     "phon": "ouo dzaï süé-siao kong-tsouo",
+     "native": "Je travaille dans une école.",
+     "reading": "wǒ zài xuéxiào gōngzuò."
+    },
+    {
+     "slot": {
+      "study": "家里",
+      "reading": "jiālǐ",
+      "phon": "tia-li",
+      "native": "à la maison"
+     },
+     "study": "我在家里工作。",
+     "phon": "ouo dzaï tia-li kong-tsouo",
+     "native": "Je travaille à la maison.",
+     "reading": "wǒ zài jiālǐ gōngzuò."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-zh-07",
+   "situation": "Études",
+   "model": {
+    "study": "我学{s}。",
+    "reading": "wǒ xué {s}.",
+    "phon": "ouo süé {s}",
+    "native": "J'étudie {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "中文",
+      "reading": "Zhōngwén",
+      "phon": "djong-ouenn",
+      "native": "le chinois"
+     },
+     "study": "我学中文。",
+     "phon": "ouo süé djong-ouenn",
+     "native": "J'étudie le chinois.",
+     "reading": "wǒ xué Zhōngwén."
+    },
+    {
+     "slot": {
+      "study": "经济",
+      "reading": "jīngjì",
+      "phon": "ting-ti",
+      "native": "l'économie"
+     },
+     "study": "我学经济。",
+     "phon": "ouo süé ting-ti",
+     "native": "J'étudie l'économie.",
+     "reading": "wǒ xué jīngjì."
+    },
+    {
+     "slot": {
+      "study": "医学",
+      "reading": "yīxué",
+      "phon": "i-süé",
+      "native": "la médecine"
+     },
+     "study": "我学医学。",
+     "phon": "ouo süé i-süé",
+     "native": "J'étudie la médecine.",
+     "reading": "wǒ xué yīxué."
+    },
+    {
+     "slot": {
+      "study": "音乐",
+      "reading": "yīnyuè",
+      "phon": "inn-yué",
+      "native": "la musique"
+     },
+     "study": "我学音乐。",
+     "phon": "ouo süé inn-yué",
+     "native": "J'étudie la musique.",
+     "reading": "wǒ xué yīnyuè."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-zh-08",
+   "situation": "Fréquence",
+   "model": {
+    "study": "我{s}运动。",
+    "reading": "wǒ {s} yùndòng.",
+    "phon": "ouo {s} yun-tong",
+    "native": "Je fais du sport {s}.",
+    "note": "L'adverbe de fréquence se place entre le sujet et le verbe."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "每天",
+      "reading": "měi tiān",
+      "phon": "meï tièn",
+      "native": "tous les jours"
+     },
+     "study": "我每天运动。",
+     "phon": "ouo meï tièn yun-tong",
+     "native": "Je fais du sport tous les jours.",
+     "reading": "wǒ měi tiān yùndòng."
+    },
+    {
+     "slot": {
+      "study": "经常",
+      "reading": "jīngcháng",
+      "phon": "ting-tchang",
+      "native": "souvent"
+     },
+     "study": "我经常运动。",
+     "phon": "ouo ting-tchang yun-tong",
+     "native": "Je fais du sport souvent.",
+     "reading": "wǒ jīngcháng yùndòng."
+    },
+    {
+     "slot": {
+      "study": "有时候",
+      "reading": "yǒu shíhou",
+      "phon": "yeou chr-heou",
+      "native": "parfois"
+     },
+     "study": "我有时候运动。",
+     "phon": "ouo yeou chr-heou yun-tong",
+     "native": "Je fais du sport parfois.",
+     "reading": "wǒ yǒu shíhou yùndòng."
+    },
+    {
+     "slot": {
+      "study": "很少",
+      "reading": "hěn shǎo",
+      "phon": "heun chao",
+      "native": "rarement"
+     },
+     "study": "我很少运动。",
+     "phon": "ouo heun chao yun-tong",
+     "native": "Je fais du sport rarement.",
+     "reading": "wǒ hěn shǎo yùndòng."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-zh-09",
+   "situation": "Quartier",
+   "model": {
+    "study": "我家附近有{s}。",
+    "reading": "wǒ jiā fùjìn yǒu {s}.",
+    "phon": "ouo tia fou-tinn yeou {s}",
+    "native": "Près de chez moi, il y a {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "一个公园",
+      "reading": "yí ge gōngyuán",
+      "phon": "i keu kong-yuèn",
+      "native": "un parc"
+     },
+     "study": "我家附近有一个公园。",
+     "phon": "ouo tia fou-tinn yeou i keu kong-yuèn",
+     "native": "Près de chez moi, il y a un parc.",
+     "reading": "wǒ jiā fùjìn yǒu yí ge gōngyuán."
+    },
+    {
+     "slot": {
+      "study": "一个超市",
+      "reading": "yí ge chāoshì",
+      "phon": "i keu tchao-chr",
+      "native": "un supermarché"
+     },
+     "study": "我家附近有一个超市。",
+     "phon": "ouo tia fou-tinn yeou i keu tchao-chr",
+     "native": "Près de chez moi, il y a un supermarché.",
+     "reading": "wǒ jiā fùjìn yǒu yí ge chāoshì."
+    },
+    {
+     "slot": {
+      "study": "地铁站",
+      "reading": "dìtiězhàn",
+      "phon": "ti-tié-djan",
+      "native": "une station de métro"
+     },
+     "study": "我家附近有地铁站。",
+     "phon": "ouo tia fou-tinn yeou ti-tié-djan",
+     "native": "Près de chez moi, il y a une station de métro.",
+     "reading": "wǒ jiā fùjìn yǒu dìtiězhàn."
+    },
+    {
+     "slot": {
+      "study": "很多餐厅",
+      "reading": "hěn duō cāntīng",
+      "phon": "heun douo tsan-ting",
+      "native": "beaucoup de restaurants"
+     },
+     "study": "我家附近有很多餐厅。",
+     "phon": "ouo tia fou-tinn yeou heun douo tsan-ting",
+     "native": "Près de chez moi, il y a beaucoup de restaurants.",
+     "reading": "wǒ jiā fùjìn yǒu hěn duō cāntīng."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-zh-10",
+   "situation": "Le week-end",
+   "model": {
+    "study": "周末我{s}。",
+    "reading": "zhōumò wǒ {s}.",
+    "phon": "djo-mo ouo {s}",
+    "native": "Le week-end, je {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "去看父母",
+      "reading": "qù kàn fùmǔ",
+      "phon": "tchü kan fou-mou",
+      "native": "vais voir mes parents"
+     },
+     "study": "周末我去看父母。",
+     "phon": "djo-mo ouo tchü kan fou-mou",
+     "native": "Le week-end, je vais voir mes parents.",
+     "reading": "zhōumò wǒ qù kàn fùmǔ."
+    },
+    {
+     "slot": {
+      "study": "打篮球",
+      "reading": "dǎ lánqiú",
+      "phon": "ta lan-tchiou",
+      "native": "joue au basket"
+     },
+     "study": "周末我打篮球。",
+     "phon": "djo-mo ouo ta lan-tchiou",
+     "native": "Le week-end, je joue au basket.",
+     "reading": "zhōumò wǒ dǎ lánqiú."
+    },
+    {
+     "slot": {
+      "study": "在家休息",
+      "reading": "zài jiā xiūxi",
+      "phon": "dzaï tia siou-si",
+      "native": "me repose à la maison"
+     },
+     "study": "周末我在家休息。",
+     "phon": "djo-mo ouo dzaï tia siou-si",
+     "native": "Le week-end, je me repose à la maison.",
+     "reading": "zhōumò wǒ zài jiā xiūxi."
+    },
+    {
+     "slot": {
+      "study": "和家人去公园",
+      "reading": "hé jiārén qù gōngyuán",
+      "phon": "heu tia-jeun tchü kong-yuèn",
+      "native": "vais au parc avec ma famille"
+     },
+     "study": "周末我和家人去公园。",
+     "phon": "djo-mo ouo heu tia-jeun tchü kong-yuèn",
+     "native": "Le week-end, je vais au parc avec ma famille.",
+     "reading": "zhōumò wǒ hé jiārén qù gōngyuán."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-zh-11",
+   "situation": "Parler d'un proche",
+   "model": {
+    "study": "我{s}是老师。",
+    "reading": "wǒ {s} shì lǎoshī.",
+    "phon": "ouo {s} chr lao-chr",
+    "native": "{s} est professeur.",
+    "note": "Pour les proches, on dit 我妈妈 sans 的 (« ma mère »)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "妈妈",
+      "reading": "māma",
+      "phon": "ma-ma",
+      "native": "ma mère"
+     },
+     "study": "我妈妈是老师。",
+     "phon": "ouo ma-ma chr lao-chr",
+     "native": "Ma mère est professeur.",
+     "reading": "wǒ māma shì lǎoshī."
+    },
+    {
+     "slot": {
+      "study": "爸爸",
+      "reading": "bàba",
+      "phon": "pa-pa",
+      "native": "mon père"
+     },
+     "study": "我爸爸是老师。",
+     "phon": "ouo pa-pa chr lao-chr",
+     "native": "Mon père est professeur.",
+     "reading": "wǒ bàba shì lǎoshī."
+    },
+    {
+     "slot": {
+      "study": "哥哥",
+      "reading": "gēge",
+      "phon": "keu-keu",
+      "native": "mon grand frère"
+     },
+     "study": "我哥哥是老师。",
+     "phon": "ouo keu-keu chr lao-chr",
+     "native": "Mon grand frère est professeur.",
+     "reading": "wǒ gēge shì lǎoshī."
+    },
+    {
+     "slot": {
+      "study": "妻子",
+      "reading": "qīzi",
+      "phon": "tchi-tseu",
+      "native": "ma femme"
+     },
+     "study": "我妻子是老师。",
+     "phon": "ouo tchi-tseu chr lao-chr",
+     "native": "Ma femme est professeur.",
+     "reading": "wǒ qīzi shì lǎoshī."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L4-fr-zh-d1",
+   "situation": "Parler de sa famille",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "你有兄弟姐妹吗？",
+     "reading": "nǐ yǒu xiōngdì jiěmèi ma?",
+     "phon": "ni yeou siong-ti tié-meï ma ?",
+     "native": "Tu as des frères et sœurs ?"
+    },
+    {
+     "speaker": "B",
+     "study": "有，我有一个哥哥和一个妹妹。你呢？",
+     "reading": "yǒu, wǒ yǒu yí ge gēge hé yí ge mèimei. nǐ ne?",
+     "phon": "yeou, ouo yeou i keu keu-keu heu i keu meï-meï. ni neu ?",
+     "native": "Oui, j'ai un grand frère et une petite sœur. Et toi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "我有两个孩子。",
+     "reading": "wǒ yǒu liǎng ge háizi.",
+     "phon": "ouo yeou liang keu haï-tseu",
+     "native": "J'ai deux enfants."
+    },
+    {
+     "speaker": "B",
+     "study": "他们多大？",
+     "reading": "tāmen duō dà?",
+     "phon": "ta-meun douo ta ?",
+     "native": "Ils ont quel âge ?"
+    },
+    {
+     "speaker": "A",
+     "study": "女儿十岁，儿子七岁。",
+     "reading": "nǚ'ér shí suì, érzi qī suì.",
+     "phon": "nü-eur chr soueï, eur-tseu tchi soueï",
+     "native": "Ma fille a dix ans, mon fils sept ans."
+    },
+    {
+     "speaker": "B",
+     "study": "你们住在哪里？",
+     "reading": "nǐmen zhù zài nǎlǐ?",
+     "phon": "ni-meun djou dzaï na-li ?",
+     "native": "Vous habitez où ?"
+    },
+    {
+     "speaker": "A",
+     "study": "我们住在市中心，一个小公寓。",
+     "reading": "wǒmen zhù zài shì zhōngxīn, yí ge xiǎo gōngyù.",
+     "phon": "ouo-meun djou dzaï chr djong-sinn, i keu siao kong-yü",
+     "native": "On habite dans le centre-ville, dans un petit appartement."
+    },
+    {
+     "speaker": "B",
+     "study": "我住在郊区，附近有一个大公园。",
+     "reading": "wǒ zhù zài jiāoqū, fùjìn yǒu yí ge dà gōngyuán.",
+     "phon": "ouo djou dzaï tiao-tchü, fou-tinn yeou i keu ta kong-yuèn",
+     "native": "Moi, j'habite en banlieue, il y a un grand parc à côté."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L4-fr-zh-01",
+    "L4-fr-zh-02",
+    "L4-fr-zh-03",
+    "L4-fr-zh-04"
+   ]
+  },
+  {
+   "id": "L4-fr-zh-d2",
+   "situation": "Une journée de travail",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "你做什么工作？",
+     "reading": "nǐ zuò shénme gōngzuò?",
+     "phon": "ni tsouo cheun-meu kong-tsouo ?",
+     "native": "Qu'est-ce que tu fais comme travail ?"
+    },
+    {
+     "speaker": "B",
+     "study": "我在一家银行工作。你呢？",
+     "reading": "wǒ zài yì jiā yínháng gōngzuò. nǐ ne?",
+     "phon": "ouo dzaï i tia yinn-hang kong-tsouo. ni neu ?",
+     "native": "Je travaille dans une banque. Et toi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "我是老师，在学校工作。你几点上班？",
+     "reading": "wǒ shì lǎoshī, zài xuéxiào gōngzuò. nǐ jǐ diǎn shàngbān?",
+     "phon": "ouo chr lao-chr, dzaï süé-siao kong-tsouo. ni ti tièn chang-pan ?",
+     "native": "Je suis prof, je travaille dans une école. Tu commences à quelle heure ?"
+    },
+    {
+     "speaker": "B",
+     "study": "我平时八点半上班，六点下班。",
+     "reading": "wǒ píngshí bā diǎn bàn shàngbān, liù diǎn xiàbān.",
+     "phon": "ouo ping-chr pa tièn pan chang-pan, liou tièn sia-pan",
+     "native": "D'habitude je commence à huit heures et demie et je finis à six heures."
+    },
+    {
+     "speaker": "A",
+     "study": "你怎么去公司？",
+     "reading": "nǐ zěnme qù gōngsī?",
+     "phon": "ni tseun-meu tchü kong-seu ?",
+     "native": "Comment tu vas au bureau ?"
+    },
+    {
+     "speaker": "B",
+     "study": "坐地铁，大概三十分钟。",
+     "reading": "zuò dìtiě, dàgài sānshí fēnzhōng.",
+     "phon": "tsouo ti-tié, ta-kaï san-chr feun-djong",
+     "native": "En métro, environ trente minutes."
+    },
+    {
+     "speaker": "A",
+     "study": "中午你在哪里吃饭？",
+     "reading": "zhōngwǔ nǐ zài nǎlǐ chī fàn?",
+     "phon": "djong-ou ni dzaï na-li tchr fan ?",
+     "native": "À midi, tu manges où ?"
+    },
+    {
+     "speaker": "B",
+     "study": "经常在公司附近的小餐厅。",
+     "reading": "jīngcháng zài gōngsī fùjìn de xiǎo cāntīng.",
+     "phon": "ting-tchang dzaï kong-seu fou-tinn deu siao tsan-ting",
+     "native": "Souvent dans un petit restaurant près du bureau."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L4-fr-zh-01",
+    "L4-fr-zh-02",
+    "L4-fr-zh-03",
+    "L4-fr-zh-04"
+   ]
+  },
+  {
+   "id": "L4-fr-zh-d3",
+   "situation": "Le week-end et les loisirs",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "周末你平时做什么？",
+     "reading": "zhōumò nǐ píngshí zuò shénme?",
+     "phon": "djo-mo ni ping-chr tsouo cheun-meu ?",
+     "native": "Qu'est-ce que tu fais d'habitude le week-end ?"
+    },
+    {
+     "speaker": "B",
+     "study": "早上我跑步，下午和朋友打篮球。",
+     "reading": "zǎoshang wǒ pǎobù, xiàwǔ hé péngyou dǎ lánqiú.",
+     "phon": "tsao-chang ouo pao-pou, sia-ou heu peng-yeou ta lan-tchiou",
+     "native": "Le matin je cours, l'après-midi je joue au basket avec des amis."
+    },
+    {
+     "speaker": "A",
+     "study": "你经常运动吗？",
+     "reading": "nǐ jīngcháng yùndòng ma?",
+     "phon": "ni ting-tchang yun-tong ma ?",
+     "native": "Tu fais souvent du sport ?"
+    },
+    {
+     "speaker": "B",
+     "study": "每天！你呢？",
+     "reading": "měi tiān! nǐ ne?",
+     "phon": "meï tièn ! ni neu ?",
+     "native": "Tous les jours ! Et toi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "我很少运动。周末我在家休息，晚上看电视。",
+     "reading": "wǒ hěn shǎo yùndòng. zhōumò wǒ zài jiā xiūxi, wǎnshang kàn diànshì.",
+     "phon": "ouo heun chao yun-tong. djo-mo ouo dzaï tia siou-si, ouan-chang kan tièn-chr",
+     "native": "Moi, je fais rarement du sport. Le week-end je me repose à la maison et le soir je regarde la télé."
+    },
+    {
+     "speaker": "B",
+     "study": "你喜欢看什么？",
+     "reading": "nǐ xǐhuan kàn shénme?",
+     "phon": "ni si-houan kan cheun-meu ?",
+     "native": "Qu'est-ce que tu aimes regarder ?"
+    },
+    {
+     "speaker": "A",
+     "study": "中国电影。我学中文。",
+     "reading": "Zhōngguó diànyǐng. wǒ xué Zhōngwén.",
+     "phon": "djong-kouo tièn-ying. ouo süé djong-ouenn",
+     "native": "Des films chinois. J'apprends le chinois."
+    },
+    {
+     "speaker": "B",
+     "study": "太好了！我们这个周末一起看电影，好吗？",
+     "reading": "tài hǎo le! wǒmen zhège zhōumò yìqǐ kàn diànyǐng, hǎo ma?",
+     "phon": "taï hao leu ! ouo-meun djeu-keu djo-mo i-tchi kan tièn-ying, hao ma ?",
+     "native": "Super ! On regarde un film ensemble ce week-end, d'accord ?"
+    },
+    {
+     "speaker": "A",
+     "study": "好啊！",
+     "reading": "hǎo a!",
+     "phon": "hao a !",
+     "native": "D'accord !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L4-fr-zh-01",
+    "L4-fr-zh-02",
+    "L4-fr-zh-03",
+    "L4-fr-zh-04"
+   ]
+  }
+ ],
+ "readiness": "L'apprenant sait décrire ses habitudes avec 平时 et les adverbes de fréquence (每天, 经常, 有时候, 很少), découper sa journée (早上, 晚上, 周末), présenter sa famille avec 有 et le bon terme de parenté, dire où il habite (住在), où il travaille (在…工作) et ce qu'il étudie (学)."
+}

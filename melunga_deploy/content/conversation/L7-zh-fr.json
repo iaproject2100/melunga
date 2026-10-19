@@ -1,0 +1,937 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "fr",
+ "nativeLanguage": "zh",
+ "fields": {
+  "study": "phrase en français",
+  "phon": "prononciation écrite pour sinophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "用汉字标注法语读音（沿用词库风格：美西 = merci，诺 = non）。汉字只是近似，请以音频为准。法语无声调；重音不在单词上，而是落在一个节奏组（短语或句子）的最后一个音节，并略微拉长。",
+ "reviewStatus": "需语言校对（汉字注音的近似程度、译文自然度）。",
+ "coverageClaim": null,
+ "level": 7,
+ "title": "Expliquer et comparer",
+ "goal": "Expliquer une raison, comparer et exprimer une préférence.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L7-zh-fr-01",
+   "situation": "说明原因",
+   "model": {
+    "study": "Je prends le métro parce que {s}.",
+    "phon": "热 普朗 勒 梅特罗 帕尔斯 克 {s}",
+    "native": "我坐地铁，因为{s}。",
+    "note": "« parce que » = 因为，放在理由前面。遇到元音要缩成 parce qu'（parce qu'il pleut）。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "c'est rapide",
+      "phon": "赛 拉皮德",
+      "native": "快"
+     },
+     "study": "Je prends le métro parce que c'est rapide.",
+     "phon": "热 普朗 勒 梅特罗 帕尔斯 克 赛 拉皮德",
+     "native": "我坐地铁，因为快。"
+    },
+    {
+     "slot": {
+      "study": "c'est moins cher",
+      "phon": "赛 穆安 谢尔",
+      "native": "更便宜"
+     },
+     "study": "Je prends le métro parce que c'est moins cher.",
+     "phon": "热 普朗 勒 梅特罗 帕尔斯 克 赛 穆安 谢尔",
+     "native": "我坐地铁，因为更便宜。"
+    },
+    {
+     "slot": {
+      "study": "je n'ai pas de voiture",
+      "phon": "热 内 帕 德 瓦蒂尔",
+      "native": "我没有车"
+     },
+     "study": "Je prends le métro parce que je n'ai pas de voiture.",
+     "phon": "热 普朗 勒 梅特罗 帕尔斯 克 热 内 帕 德 瓦蒂尔",
+     "native": "我坐地铁，因为我没有车。"
+    },
+    {
+     "slot": {
+      "study": "les routes sont bouchées",
+      "phon": "莱 鲁特 松 布谢",
+      "native": "路上堵车"
+     },
+     "study": "Je prends le métro parce que les routes sont bouchées.",
+     "phon": "热 普朗 勒 梅特罗 帕尔斯 克 莱 鲁特 松 布谢",
+     "native": "我坐地铁，因为路上堵车。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-zh-fr-02",
+   "situation": "比较：更",
+   "model": {
+    "study": "Le train est plus {s} que la voiture.",
+    "phon": "勒 特兰 埃 普吕 {s} 克 拉 瓦蒂尔",
+    "native": "火车比汽车{s}。",
+    "note": "法语“A 比 B 更 X”说成 A est plus X que B：形容词在中间，que 引出被比较的一方。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "rapide",
+      "phon": "拉皮德",
+      "native": "快"
+     },
+     "study": "Le train est plus rapide que la voiture.",
+     "phon": "勒 特兰 埃 普吕 拉皮德 克 拉 瓦蒂尔",
+     "native": "火车比汽车快。"
+    },
+    {
+     "slot": {
+      "study": "cher",
+      "phon": "谢尔",
+      "native": "贵"
+     },
+     "study": "Le train est plus cher que la voiture.",
+     "phon": "勒 特兰 埃 普吕 谢尔 克 拉 瓦蒂尔",
+     "native": "火车比汽车贵。"
+    },
+    {
+     "slot": {
+      "study": "confortable",
+      "phon": "孔福尔塔布勒",
+      "native": "舒服"
+     },
+     "study": "Le train est plus confortable que la voiture.",
+     "phon": "勒 特兰 埃 普吕 孔福尔塔布勒 克 拉 瓦蒂尔",
+     "native": "火车比汽车舒服。"
+    },
+    {
+     "slot": {
+      "study": "pratique",
+      "phon": "普拉蒂克",
+      "native": "方便"
+     },
+     "study": "Le train est plus pratique que la voiture.",
+     "phon": "勒 特兰 埃 普吕 普拉蒂克 克 拉 瓦蒂尔",
+     "native": "火车比汽车方便。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-zh-fr-03",
+   "situation": "比较：不如",
+   "model": {
+    "study": "Cet appartement est moins {s} que l'autre.",
+    "phon": "赛 塔帕尔特芒 埃 穆安 {s} 克 洛特尔",
+    "native": "这套公寓没有另一套{s}。",
+    "note": "« moins … que » = 不如 / 没有……那么。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "grand",
+      "phon": "格朗",
+      "native": "大"
+     },
+     "study": "Cet appartement est moins grand que l'autre.",
+     "phon": "赛 塔帕尔特芒 埃 穆安 格朗 克 洛特尔",
+     "native": "这套公寓没有另一套大。"
+    },
+    {
+     "slot": {
+      "study": "cher",
+      "phon": "谢尔",
+      "native": "贵"
+     },
+     "study": "Cet appartement est moins cher que l'autre.",
+     "phon": "赛 塔帕尔特芒 埃 穆安 谢尔 克 洛特尔",
+     "native": "这套公寓没有另一套贵。"
+    },
+    {
+     "slot": {
+      "study": "bruyant",
+      "phon": "布吕扬",
+      "native": "吵"
+     },
+     "study": "Cet appartement est moins bruyant que l'autre.",
+     "phon": "赛 塔帕尔特芒 埃 穆安 布吕扬 克 洛特尔",
+     "native": "这套公寓没有另一套吵。"
+    },
+    {
+     "slot": {
+      "study": "lumineux",
+      "phon": "吕米讷",
+      "native": "亮"
+     },
+     "study": "Cet appartement est moins lumineux que l'autre.",
+     "phon": "赛 塔帕尔特芒 埃 穆安 吕米讷 克 洛特尔",
+     "native": "这套公寓没有另一套亮。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-zh-fr-04",
+   "situation": "比较：一样",
+   "model": {
+    "study": "Ici, c'est aussi {s} qu'à Shanghai.",
+    "phon": "伊西，赛 奥西 {s} 卡 上海",
+    "native": "这里和上海一样{s}。",
+    "note": "« aussi … que » = 和……一样。que 在元音前缩成 qu'（qu'à）。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "cher",
+      "phon": "谢尔",
+      "native": "贵"
+     },
+     "study": "Ici, c'est aussi cher qu'à Shanghai.",
+     "phon": "伊西，赛 奥西 谢尔 卡 上海",
+     "native": "这里和上海一样贵。"
+    },
+    {
+     "slot": {
+      "study": "animé",
+      "phon": "阿尼梅",
+      "native": "热闹"
+     },
+     "study": "Ici, c'est aussi animé qu'à Shanghai.",
+     "phon": "伊西，赛 奥西 阿尼梅 卡 上海",
+     "native": "这里和上海一样热闹。"
+    },
+    {
+     "slot": {
+      "study": "grand",
+      "phon": "格朗",
+      "native": "大"
+     },
+     "study": "Ici, c'est aussi grand qu'à Shanghai.",
+     "phon": "伊西，赛 奥西 格朗 卡 上海",
+     "native": "这里和上海一样大。"
+    },
+    {
+     "slot": {
+      "study": "beau",
+      "phon": "博",
+      "native": "美"
+     },
+     "study": "Ici, c'est aussi beau qu'à Shanghai.",
+     "phon": "伊西，赛 奥西 博 卡 上海",
+     "native": "这里和上海一样美。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-zh-fr-05",
+   "situation": "偏好与理由",
+   "model": {
+    "study": "Je préfère cuisiner parce que {s}.",
+    "phon": "热 普雷费尔 居伊吉内 帕尔斯 克 {s}",
+    "native": "我更喜欢自己做饭，因为{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "c'est moins cher",
+      "phon": "赛 穆安 谢尔",
+      "native": "更便宜"
+     },
+     "study": "Je préfère cuisiner parce que c'est moins cher.",
+     "phon": "热 普雷费尔 居伊吉内 帕尔斯 克 赛 穆安 谢尔",
+     "native": "我更喜欢自己做饭，因为更便宜。"
+    },
+    {
+     "slot": {
+      "study": "c'est meilleur",
+      "phon": "赛 梅耶尔",
+      "native": "更好吃"
+     },
+     "study": "Je préfère cuisiner parce que c'est meilleur.",
+     "phon": "热 普雷费尔 居伊吉内 帕尔斯 克 赛 梅耶尔",
+     "native": "我更喜欢自己做饭，因为更好吃。"
+    },
+    {
+     "slot": {
+      "study": "j'aime ça",
+      "phon": "热姆 萨",
+      "native": "我喜欢"
+     },
+     "study": "Je préfère cuisiner parce que j'aime ça.",
+     "phon": "热 普雷费尔 居伊吉内 帕尔斯 克 热姆 萨",
+     "native": "我更喜欢自己做饭，因为我喜欢。"
+    },
+    {
+     "slot": {
+      "study": "c'est plus sain",
+      "phon": "赛 普吕 桑",
+      "native": "更健康"
+     },
+     "study": "Je préfère cuisiner parce que c'est plus sain.",
+     "phon": "热 普雷费尔 居伊吉内 帕尔斯 克 赛 普吕 桑",
+     "native": "我更喜欢自己做饭，因为更健康。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-zh-fr-06",
+   "situation": "说看法",
+   "model": {
+    "study": "Je trouve que {s}.",
+    "phon": "热 特鲁夫 克 {s}",
+    "native": "我觉得{s}。",
+    "note": "« Je trouve que » / « Je pense que » = 我觉得。que 在元音前缩成 qu'（Je trouve qu'il est gentil）。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "c'est trop cher",
+      "phon": "赛 特罗 谢尔",
+      "native": "太贵了"
+     },
+     "study": "Je trouve que c'est trop cher.",
+     "phon": "热 特鲁夫 克 赛 特罗 谢尔",
+     "native": "我觉得太贵了。"
+    },
+    {
+     "slot": {
+      "study": "ce quartier est agréable",
+      "phon": "瑟 卡尔蒂耶 埃 塔格雷阿布勒",
+      "native": "这个街区很舒服"
+     },
+     "study": "Je trouve que ce quartier est agréable.",
+     "phon": "热 特鲁夫 克 瑟 卡尔蒂耶 埃 塔格雷阿布勒",
+     "native": "我觉得这个街区很舒服。"
+    },
+    {
+     "slot": {
+      "study": "le travail est intéressant",
+      "phon": "勒 特拉瓦伊 埃 坦泰雷桑",
+      "native": "这份工作很有意思"
+     },
+     "study": "Je trouve que le travail est intéressant.",
+     "phon": "热 特鲁夫 克 勒 特拉瓦伊 埃 坦泰雷桑",
+     "native": "我觉得这份工作很有意思。"
+    },
+    {
+     "slot": {
+      "study": "la vie est chère ici",
+      "phon": "拉 维 埃 谢尔 伊西",
+      "native": "这里生活费很贵"
+     },
+     "study": "Je trouve que la vie est chère ici.",
+     "phon": "热 特鲁夫 克 拉 维 埃 谢尔 伊西",
+     "native": "我觉得这里生活费很贵。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-zh-fr-07",
+   "situation": "依我看",
+   "model": {
+    "study": "À mon avis, {s}.",
+    "phon": "阿 蒙 阿维，{s}",
+    "native": "依我看，{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "c'est une bonne idée",
+      "phon": "赛 蒂讷 波 尼代",
+      "native": "这是个好主意"
+     },
+     "study": "À mon avis, c'est une bonne idée.",
+     "phon": "阿 蒙 阿维，赛 蒂讷 波 尼代",
+     "native": "依我看，这是个好主意。"
+    },
+    {
+     "slot": {
+      "study": "c'est trop loin",
+      "phon": "赛 特罗 卢安",
+      "native": "太远了"
+     },
+     "study": "À mon avis, c'est trop loin.",
+     "phon": "阿 蒙 阿维，赛 特罗 卢安",
+     "native": "依我看，太远了。"
+    },
+    {
+     "slot": {
+      "study": "le bleu est plus joli",
+      "phon": "勒 布勒 埃 普吕 若利",
+      "native": "蓝色的更好看"
+     },
+     "study": "À mon avis, le bleu est plus joli.",
+     "phon": "阿 蒙 阿维，勒 布勒 埃 普吕 若利",
+     "native": "依我看，蓝色的更好看。"
+    },
+    {
+     "slot": {
+      "study": "il faut attendre",
+      "phon": "伊尔 福 阿唐德尔",
+      "native": "应该等一等"
+     },
+     "study": "À mon avis, il faut attendre.",
+     "phon": "阿 蒙 阿维，伊尔 福 阿唐德尔",
+     "native": "依我看，应该等一等。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-zh-fr-08",
+   "situation": "以前的习惯",
+   "model": {
+    "study": "Avant, je {s}. Maintenant, c'est différent.",
+    "phon": "阿旺，热 {s}。曼特囊，赛 迪费朗",
+    "native": "以前我{s}。现在不一样了。",
+    "note": "未完成过去时（词尾 -ais：travaillais, fumais）表示过去的习惯。中文只需加“以前”。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "travaillais la nuit",
+      "phon": "特拉瓦耶 拉 尼",
+      "native": "上夜班"
+     },
+     "study": "Avant, je travaillais la nuit. Maintenant, c'est différent.",
+     "phon": "阿旺，热 特拉瓦耶 拉 尼。曼特囊，赛 迪费朗",
+     "native": "以前我上夜班。现在不一样了。"
+    },
+    {
+     "slot": {
+      "study": "fumais",
+      "phon": "菲梅",
+      "native": "抽烟"
+     },
+     "study": "Avant, je fumais. Maintenant, c'est différent.",
+     "phon": "阿旺，热 菲梅。曼特囊，赛 迪费朗",
+     "native": "以前我抽烟。现在不一样了。"
+    },
+    {
+     "slot": {
+      "study": "prenais la voiture",
+      "phon": "普勒内 拉 瓦蒂尔",
+      "native": "开车"
+     },
+     "study": "Avant, je prenais la voiture. Maintenant, c'est différent.",
+     "phon": "阿旺，热 普勒内 拉 瓦蒂尔。曼特囊，赛 迪费朗",
+     "native": "以前我开车。现在不一样了。"
+    },
+    {
+     "slot": {
+      "study": "mangeais beaucoup de viande",
+      "phon": "芒热 博库 德 维扬德",
+      "native": "吃很多肉"
+     },
+     "study": "Avant, je mangeais beaucoup de viande. Maintenant, c'est différent.",
+     "phon": "阿旺，热 芒热 博库 德 维扬德。曼特囊，赛 迪费朗",
+     "native": "以前我吃很多肉。现在不一样了。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-zh-fr-09",
+   "situation": "现在的情况",
+   "model": {
+    "study": "Maintenant, je {s}.",
+    "phon": "曼特囊，热 {s}",
+    "native": "现在我{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "fais du sport",
+      "phon": "费 迪 斯波尔",
+      "native": "运动"
+     },
+     "study": "Maintenant, je fais du sport.",
+     "phon": "曼特囊，热 费 迪 斯波尔",
+     "native": "现在我运动。"
+    },
+    {
+     "slot": {
+      "study": "vis en ville",
+      "phon": "维 昂 维尔",
+      "native": "住在城里"
+     },
+     "study": "Maintenant, je vis en ville.",
+     "phon": "曼特囊，热 维 昂 维尔",
+     "native": "现在我住在城里。"
+    },
+    {
+     "slot": {
+      "study": "travaille à la maison",
+      "phon": "特拉瓦伊 阿 拉 梅宗",
+      "native": "在家工作"
+     },
+     "study": "Maintenant, je travaille à la maison.",
+     "phon": "曼特囊，热 特拉瓦伊 阿 拉 梅宗",
+     "native": "现在我在家工作。"
+    },
+    {
+     "slot": {
+      "study": "mange moins",
+      "phon": "芒日 穆安",
+      "native": "吃得少了"
+     },
+     "study": "Maintenant, je mange moins.",
+     "phon": "曼特囊，热 芒日 穆安",
+     "native": "现在我吃得少了。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-zh-fr-10",
+   "situation": "为了什么",
+   "model": {
+    "study": "Je fais ça pour {s}.",
+    "phon": "热 费 萨 普尔 {s}",
+    "native": "我这么做是为了{s}。",
+    "note": "« pour » + 名词或动词原形 = 为了。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "ma santé",
+      "phon": "马 桑泰",
+      "native": "健康"
+     },
+     "study": "Je fais ça pour ma santé.",
+     "phon": "热 费 萨 普尔 马 桑泰",
+     "native": "我这么做是为了健康。"
+    },
+    {
+     "slot": {
+      "study": "mes enfants",
+      "phon": "梅 藏方",
+      "native": "孩子"
+     },
+     "study": "Je fais ça pour mes enfants.",
+     "phon": "热 费 萨 普尔 梅 藏方",
+     "native": "我这么做是为了孩子。"
+    },
+    {
+     "slot": {
+      "study": "gagner du temps",
+      "phon": "嘎涅 迪 唐",
+      "native": "节省时间"
+     },
+     "study": "Je fais ça pour gagner du temps.",
+     "phon": "热 费 萨 普尔 嘎涅 迪 唐",
+     "native": "我这么做是为了节省时间。"
+    },
+    {
+     "slot": {
+      "study": "économiser",
+      "phon": "埃科诺米泽",
+      "native": "省钱"
+     },
+     "study": "Je fais ça pour économiser.",
+     "phon": "热 费 萨 普尔 埃科诺米泽",
+     "native": "我这么做是为了省钱。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-zh-fr-11",
+   "situation": "所以",
+   "model": {
+    "study": "Il pleut, c'est pour ça que {s}.",
+    "phon": "伊尔 普勒，赛 普尔 萨 克 {s}",
+    "native": "下雨了，所以{s}。",
+    "note": "« c'est pour ça que » = 所以 / 正因为这样。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "je reste à la maison",
+      "phon": "热 雷斯特 阿 拉 梅宗",
+      "native": "我待在家里"
+     },
+     "study": "Il pleut, c'est pour ça que je reste à la maison.",
+     "phon": "伊尔 普勒，赛 普尔 萨 克 热 雷斯特 阿 拉 梅宗",
+     "native": "下雨了，所以我待在家里。"
+    },
+    {
+     "slot": {
+      "study": "on prend le bus",
+      "phon": "翁 普朗 勒 比斯",
+      "native": "我们坐公交"
+     },
+     "study": "Il pleut, c'est pour ça que on prend le bus.",
+     "phon": "伊尔 普勒，赛 普尔 萨 克 翁 普朗 勒 比斯",
+     "native": "下雨了，所以我们坐公交。"
+    },
+    {
+     "slot": {
+      "study": "je suis en retard",
+      "phon": "热 绥 昂 勒塔尔",
+      "native": "我迟到了"
+     },
+     "study": "Il pleut, c'est pour ça que je suis en retard.",
+     "phon": "伊尔 普勒，赛 普尔 萨 克 热 绥 昂 勒塔尔",
+     "native": "下雨了，所以我迟到了。"
+    },
+    {
+     "slot": {
+      "study": "le match est annulé",
+      "phon": "勒 马奇 埃 塔尼吕莱",
+      "native": "比赛取消了"
+     },
+     "study": "Il pleut, c'est pour ça que le match est annulé.",
+     "phon": "伊尔 普勒，赛 普尔 萨 克 勒 马奇 埃 塔尼吕莱",
+     "native": "下雨了，所以比赛取消了。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-zh-fr-12",
+   "situation": "最高级",
+   "model": {
+    "study": "C'est le restaurant le plus {s} du quartier.",
+    "phon": "赛 勒 雷斯托朗 勒 普吕 {s} 迪 卡尔蒂耶",
+    "native": "这是这个街区最{s}的餐厅。",
+    "note": "« le plus » + 形容词 = 最……。阴性名词用 la plus（la rue la plus calme）。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "cher",
+      "phon": "谢尔",
+      "native": "贵"
+     },
+     "study": "C'est le restaurant le plus cher du quartier.",
+     "phon": "赛 勒 雷斯托朗 勒 普吕 谢尔 迪 卡尔蒂耶",
+     "native": "这是这个街区最贵的餐厅。"
+    },
+    {
+     "slot": {
+      "study": "connu",
+      "phon": "科尼",
+      "native": "有名"
+     },
+     "study": "C'est le restaurant le plus connu du quartier.",
+     "phon": "赛 勒 雷斯托朗 勒 普吕 科尼 迪 卡尔蒂耶",
+     "native": "这是这个街区最有名的餐厅。"
+    },
+    {
+     "slot": {
+      "study": "proche",
+      "phon": "普罗什",
+      "native": "近"
+     },
+     "study": "C'est le restaurant le plus proche du quartier.",
+     "phon": "赛 勒 雷斯托朗 勒 普吕 普罗什 迪 卡尔蒂耶",
+     "native": "这是这个街区最近的餐厅。"
+    },
+    {
+     "slot": {
+      "study": "agréable",
+      "phon": "阿格雷阿布勒",
+      "native": "舒服"
+     },
+     "study": "C'est le restaurant le plus agréable du quartier.",
+     "phon": "赛 勒 雷斯托朗 勒 普吕 阿格雷阿布勒 迪 卡尔蒂耶",
+     "native": "这是这个街区最舒服的餐厅。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L7-zh-fr-d1",
+   "situation": "在商店比较",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Bonjour, je cherche un téléphone. Vous pouvez m'aider ?",
+     "phon": "蓬茹尔，热 谢尔什 安 泰莱丰。武 普韦 梅代",
+     "native": "您好，我想买一部手机。您能帮我吗？"
+    },
+    {
+     "speaker": "B",
+     "study": "Bien sûr. Celui-ci est très bien, et celui-là est moins cher.",
+     "phon": "比安 叙尔。瑟吕伊西 埃 特雷 比安，埃 瑟吕伊拉 埃 穆安 谢尔",
+     "native": "当然。这个很好，那个更便宜。"
+    },
+    {
+     "speaker": "A",
+     "study": "Quelle est la différence ?",
+     "phon": "凯 莱 拉 迪费朗斯",
+     "native": "区别是什么？"
+    },
+    {
+     "speaker": "B",
+     "study": "Celui-ci est plus rapide et l'écran est plus grand.",
+     "phon": "瑟吕伊西 埃 普吕 拉皮德 埃 莱克朗 埃 普吕 格朗",
+     "native": "这个更快，屏幕也更大。"
+    },
+    {
+     "speaker": "A",
+     "study": "Je trouve que c'est trop cher. Je préfère celui-là parce que c'est suffisant pour moi.",
+     "phon": "热 特鲁夫 克 赛 特罗 谢尔。热 普雷费尔 瑟吕伊拉 帕尔斯 克 赛 苏菲桑 普尔 穆瓦",
+     "native": "我觉得这个太贵了。我更喜欢那个，因为对我来说够用了。"
+    },
+    {
+     "speaker": "B",
+     "study": "À mon avis, c'est un bon choix.",
+     "phon": "阿 蒙 阿维，赛 坦 蓬 舒瓦",
+     "native": "依我看，这是个好选择。"
+    },
+    {
+     "speaker": "A",
+     "study": "D'accord, je vais prendre celui-là.",
+     "phon": "达科尔，热 维 普朗德尔 瑟吕伊拉",
+     "native": "好，我要那个。"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L7-zh-fr-01",
+    "L7-zh-fr-02",
+    "L7-zh-fr-03",
+    "L7-zh-fr-04"
+   ]
+  },
+  {
+   "id": "L7-zh-fr-d2",
+   "situation": "选餐厅",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "On mange où ce soir ? Italien ou chinois ?",
+     "phon": "翁 芒日 乌 瑟 斯瓦尔？伊塔利安 乌 希努瓦",
+     "native": "今晚在哪儿吃？意大利菜还是中国菜？"
+    },
+    {
+     "speaker": "B",
+     "study": "Je préfère le chinois parce que c'est moins cher.",
+     "phon": "热 普雷费尔 勒 希努瓦 帕尔斯 克 赛 穆安 谢尔",
+     "native": "我更喜欢中国菜，因为更便宜。"
+    },
+    {
+     "speaker": "A",
+     "study": "Oui, mais l'italien est plus proche.",
+     "phon": "威，梅 利塔利安 埃 普吕 普罗什",
+     "native": "对，不过意大利餐厅更近。"
+    },
+    {
+     "speaker": "B",
+     "study": "C'est vrai. Et c'est le restaurant le plus connu du quartier.",
+     "phon": "赛 弗雷。埃 赛 勒 雷斯托朗 勒 普吕 科尼 迪 卡尔蒂耶",
+     "native": "没错。而且那是这个街区最有名的餐厅。"
+    },
+    {
+     "speaker": "A",
+     "study": "Je trouve que les pâtes sont très bonnes là-bas.",
+     "phon": "热 特鲁夫 克 莱 帕特 松 特雷 波讷 拉巴",
+     "native": "我觉得那里的意大利面很好吃。"
+    },
+    {
+     "speaker": "B",
+     "study": "D'accord, on va à l'italien. Mais la prochaine fois, c'est moi qui choisis !",
+     "phon": "达科尔，翁 瓦 阿 利塔利安。梅 拉 普罗申 夫瓦，赛 穆瓦 基 舒瓦吉",
+     "native": "好，我们去意大利餐厅。不过下次我来选！"
+    },
+    {
+     "speaker": "A",
+     "study": "Ça marche !",
+     "phon": "萨 马尔什",
+     "native": "行！"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L7-zh-fr-01",
+    "L7-zh-fr-02",
+    "L7-zh-fr-03",
+    "L7-zh-fr-04"
+   ]
+  },
+  {
+   "id": "L7-zh-fr-d3",
+   "situation": "聊工作的变化",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Tu travailles toujours à Paris ?",
+     "phon": "蒂 特拉瓦伊 图茹尔 阿 巴黎",
+     "native": "你还在巴黎工作吗？"
+    },
+    {
+     "speaker": "B",
+     "study": "Non. Avant, je travaillais à Paris, maintenant je travaille à la maison.",
+     "phon": "诺。阿旺，热 特拉瓦耶 阿 巴黎，曼特囊 热 特拉瓦伊 阿 拉 梅宗",
+     "native": "不了。以前我在巴黎工作，现在我在家工作。"
+    },
+    {
+     "speaker": "A",
+     "study": "Vraiment ? Pourquoi ?",
+     "phon": "弗雷芒？普尔克瓦",
+     "native": "真的吗？为什么？"
+    },
+    {
+     "speaker": "B",
+     "study": "Parce que je perdais deux heures par jour dans le train.",
+     "phon": "帕尔斯 克 热 佩尔代 德 泽尔 帕尔 茹尔 当 勒 特兰",
+     "native": "因为我以前每天在火车上要花两个小时。"
+    },
+    {
+     "speaker": "A",
+     "study": "Et c'est mieux ?",
+     "phon": "埃 赛 米厄",
+     "native": "那现在更好吗？"
+    },
+    {
+     "speaker": "B",
+     "study": "Oui, c'est plus calme et moins fatigant. Je fais ça pour ma santé.",
+     "phon": "威，赛 普吕 卡尔姆 埃 穆安 法蒂冈。热 费 萨 普尔 马 桑泰",
+     "native": "是的，更安静，也没那么累。我这么做是为了健康。"
+    },
+    {
+     "speaker": "A",
+     "study": "À mon avis, tu as raison. Moi, avant, je prenais la voiture ; maintenant je fais du vélo.",
+     "phon": "阿 蒙 阿维，蒂 阿 雷宗。穆瓦，阿旺，热 普勒内 拉 瓦蒂尔；曼特囊 热 费 迪 维洛",
+     "native": "依我看，你是对的。我以前开车，现在骑自行车。"
+    },
+    {
+     "speaker": "B",
+     "study": "C'est bien ! C'est plus sain et c'est pour ça que tu es en forme.",
+     "phon": "赛 比安！赛 普吕 桑 埃 赛 普尔 萨 克 蒂 埃 昂 福尔姆",
+     "native": "真好！更健康，所以你才这么有精神。"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L7-zh-fr-01",
+    "L7-zh-fr-02",
+    "L7-zh-fr-03",
+    "L7-zh-fr-04"
+   ]
+  }
+ ],
+ "readiness": "能用 « parce que / pour / c'est pour ça que » 解释原因，用 « plus / moins / aussi … que » 和最高级进行比较，说出有理由的偏好，用 « Je trouve que / À mon avis » 发表看法，并用未完成过去时对比以前和现在。"
+}

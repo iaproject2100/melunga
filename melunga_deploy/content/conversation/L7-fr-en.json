@@ -1,0 +1,1008 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "en",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en anglais",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; th→z/th, h aspiré noté h, -ing→-ing). Anglais britannique standard. Ne remplace pas l'audio.",
+ "reviewStatus": "Rédigé à la main ; relecture par un anglophone conseillée.",
+ "coverageClaim": null,
+ "level": 7,
+ "title": "Expliquer et comparer",
+ "goal": "Expliquer une raison, comparer et exprimer une préférence.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L7-fr-en-01",
+   "situation": "Justifier",
+   "model": {
+    "study": "I'm late because {s}.",
+    "phon": "aïm LÉÏT bi-KOZ {s}",
+    "native": "Je suis en retard parce que {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "the train was late",
+      "phon": "ze TRÉÏN ouoz LÉÏT",
+      "native": "le train avait du retard"
+     },
+     "study": "I'm late because the train was late.",
+     "phon": "aïm LÉÏT bi-KOZ ze TRÉÏN ouoz LÉÏT",
+     "native": "Je suis en retard parce que le train avait du retard."
+    },
+    {
+     "slot": {
+      "study": "I missed the bus",
+      "phon": "aï MIST ze BEUSS",
+      "native": "j'ai raté le bus"
+     },
+     "study": "I'm late because I missed the bus.",
+     "phon": "aïm LÉÏT bi-KOZ aï MIST ze BEUSS",
+     "native": "Je suis en retard parce que j'ai raté le bus."
+    },
+    {
+     "slot": {
+      "study": "there was a lot of traffic",
+      "phon": "zèr ouoz eu LOT ov TRA-fik",
+      "native": "il y avait beaucoup de circulation"
+     },
+     "study": "I'm late because there was a lot of traffic.",
+     "phon": "aïm LÉÏT bi-KOZ zèr ouoz eu LOT ov TRA-fik",
+     "native": "Je suis en retard parce qu'il y avait beaucoup de circulation."
+    },
+    {
+     "slot": {
+      "study": "I couldn't find a parking space",
+      "phon": "aï KOU-deunt FAÏND eu PAR-king SPÉÏSS",
+      "native": "je n'ai pas trouvé de place pour me garer"
+     },
+     "study": "I'm late because I couldn't find a parking space.",
+     "phon": "aïm LÉÏT bi-KOZ aï KOU-deunt FAÏND eu PAR-king SPÉÏSS",
+     "native": "Je suis en retard parce que je n'ai pas trouvé de place pour me garer."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-en-02",
+   "situation": "Comparer (plus)",
+   "model": {
+    "study": "This one is {s} than that one.",
+    "phon": "ZISS ouann iz {s} zan ZAT ouann",
+    "native": "Celui-ci est {s} que celui-là.",
+    "note": "Adjectifs courts : -er (cheaper, bigger) ; adjectifs longs : more + adjectif (more comfortable) ; good → better."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "cheaper",
+      "phon": "TCHI-peur",
+      "native": "moins cher"
+     },
+     "study": "This one is cheaper than that one.",
+     "phon": "ZISS ouann iz TCHI-peur zan ZAT ouann",
+     "native": "Celui-ci est moins cher que celui-là."
+    },
+    {
+     "slot": {
+      "study": "bigger",
+      "phon": "BI-gueur",
+      "native": "plus grand"
+     },
+     "study": "This one is bigger than that one.",
+     "phon": "ZISS ouann iz BI-gueur zan ZAT ouann",
+     "native": "Celui-ci est plus grand que celui-là."
+    },
+    {
+     "slot": {
+      "study": "better",
+      "phon": "BÈ-teur",
+      "native": "meilleur"
+     },
+     "study": "This one is better than that one.",
+     "phon": "ZISS ouann iz BÈ-teur zan ZAT ouann",
+     "native": "Celui-ci est meilleur que celui-là."
+    },
+    {
+     "slot": {
+      "study": "more comfortable",
+      "phon": "MOR KEUM-feu-teu-beul",
+      "native": "plus confortable"
+     },
+     "study": "This one is more comfortable than that one.",
+     "phon": "ZISS ouann iz MOR KEUM-feu-teu-beul zan ZAT ouann",
+     "native": "Celui-ci est plus confortable que celui-là."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-en-03",
+   "situation": "Comparer (moins)",
+   "model": {
+    "study": "The flat is less {s} than the house.",
+    "phon": "ze FLAT iz LÈSS {s} zan ze HAÔSS",
+    "native": "L'appartement est moins {s} que la maison."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "expensive",
+      "phon": "ik-SPÈN-siv",
+      "native": "cher"
+     },
+     "study": "The flat is less expensive than the house.",
+     "phon": "ze FLAT iz LÈSS ik-SPÈN-siv zan ze HAÔSS",
+     "native": "L'appartement est moins cher que la maison."
+    },
+    {
+     "slot": {
+      "study": "noisy",
+      "phon": "NOÏ-zi",
+      "native": "bruyant"
+     },
+     "study": "The flat is less noisy than the house.",
+     "phon": "ze FLAT iz LÈSS NOÏ-zi zan ze HAÔSS",
+     "native": "L'appartement est moins bruyant que la maison."
+    },
+    {
+     "slot": {
+      "study": "bright",
+      "phon": "BRAÏT",
+      "native": "lumineux"
+     },
+     "study": "The flat is less bright than the house.",
+     "phon": "ze FLAT iz LÈSS BRAÏT zan ze HAÔSS",
+     "native": "L'appartement est moins lumineux que la maison."
+    },
+    {
+     "slot": {
+      "study": "far from work",
+      "phon": "FAR from WEURK",
+      "native": "loin du travail"
+     },
+     "study": "The flat is less far from work than the house.",
+     "phon": "ze FLAT iz LÈSS FAR from WEURK zan ze HAÔSS",
+     "native": "L'appartement est moins loin du travail que la maison."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-en-04",
+   "situation": "Préférence argumentée",
+   "model": {
+    "study": "I prefer {s} because it's quicker.",
+    "phon": "aï pri-FEUR {s} bi-KOZ its KOUI-keur",
+    "native": "Je préfère {s} parce que c'est plus rapide."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "the train",
+      "phon": "ze TRÉÏN",
+      "native": "le train"
+     },
+     "study": "I prefer the train because it's quicker.",
+     "phon": "aï pri-FEUR ze TRÉÏN bi-KOZ its KOUI-keur",
+     "native": "Je préfère le train parce que c'est plus rapide."
+    },
+    {
+     "slot": {
+      "study": "cooking at home",
+      "phon": "KOU-king at HÔM",
+      "native": "cuisiner à la maison"
+     },
+     "study": "I prefer cooking at home because it's quicker.",
+     "phon": "aï pri-FEUR KOU-king at HÔM bi-KOZ its KOUI-keur",
+     "native": "Je préfère cuisiner à la maison parce que c'est plus rapide."
+    },
+    {
+     "slot": {
+      "study": "paying by card",
+      "phon": "PÉÏ-ing baï KARD",
+      "native": "payer par carte"
+     },
+     "study": "I prefer paying by card because it's quicker.",
+     "phon": "aï pri-FEUR PÉÏ-ing baï KARD bi-KOZ its KOUI-keur",
+     "native": "Je préfère payer par carte parce que c'est plus rapide."
+    },
+    {
+     "slot": {
+      "study": "shopping online",
+      "phon": "CHO-ping onn-LAÏN",
+      "native": "acheter en ligne"
+     },
+     "study": "I prefer shopping online because it's quicker.",
+     "phon": "aï pri-FEUR CHO-ping onn-LAÏN bi-KOZ its KOUI-keur",
+     "native": "Je préfère acheter en ligne parce que c'est plus rapide."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-en-05",
+   "situation": "Donner un avis",
+   "model": {
+    "study": "I think {s}.",
+    "phon": "aï THINK {s}",
+    "native": "Je trouve que {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "it's too expensive",
+      "phon": "its tou ik-SPÈN-siv",
+      "native": "c'est trop cher"
+     },
+     "study": "I think it's too expensive.",
+     "phon": "aï THINK its tou ik-SPÈN-siv",
+     "native": "Je trouve que c'est trop cher."
+    },
+    {
+     "slot": {
+      "study": "this restaurant is better",
+      "phon": "ZISS RÈS-treunt iz BÈ-teur",
+      "native": "ce restaurant est meilleur"
+     },
+     "study": "I think this restaurant is better.",
+     "phon": "aï THINK ZISS RÈS-treunt iz BÈ-teur",
+     "native": "Je trouve que ce restaurant est meilleur."
+    },
+    {
+     "slot": {
+      "study": "the red one looks nicer",
+      "phon": "ze RÈD ouann LOUKS NAÏ-seur",
+      "native": "le rouge est plus joli"
+     },
+     "study": "I think the red one looks nicer.",
+     "phon": "aï THINK ze RÈD ouann LOUKS NAÏ-seur",
+     "native": "Je trouve que le rouge est plus joli."
+    },
+    {
+     "slot": {
+      "study": "we should wait",
+      "phon": "oui choud OUÉÏT",
+      "native": "on devrait attendre"
+     },
+     "study": "I think we should wait.",
+     "phon": "aï THINK oui choud OUÉÏT",
+     "native": "Je trouve qu'on devrait attendre."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-en-06",
+   "situation": "À mon avis",
+   "model": {
+    "study": "In my opinion, {s}.",
+    "phon": "inn maï eu-PI-nyeun, {s}",
+    "native": "À mon avis, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "the centre is too noisy",
+      "phon": "ze SÈN-teur iz tou NOÏ-zi",
+      "native": "le centre est trop bruyant"
+     },
+     "study": "In my opinion, the centre is too noisy.",
+     "phon": "inn maï eu-PI-nyeun, ze SÈN-teur iz tou NOÏ-zi",
+     "native": "À mon avis, le centre est trop bruyant."
+    },
+    {
+     "slot": {
+      "study": "it's a good deal",
+      "phon": "its eu goud DIL",
+      "native": "c'est une bonne affaire"
+     },
+     "study": "In my opinion, it's a good deal.",
+     "phon": "inn maï eu-PI-nyeun, its eu goud DIL",
+     "native": "À mon avis, c'est une bonne affaire."
+    },
+    {
+     "slot": {
+      "study": "the old office was nicer",
+      "phon": "zi ÔLD O-fiss ouoz NAÏ-seur",
+      "native": "l'ancien bureau était plus agréable"
+     },
+     "study": "In my opinion, the old office was nicer.",
+     "phon": "inn maï eu-PI-nyeun, zi ÔLD O-fiss ouoz NAÏ-seur",
+     "native": "À mon avis, l'ancien bureau était plus agréable."
+    },
+    {
+     "slot": {
+      "study": "the fish is fresher here",
+      "phon": "ze FICH iz FRÈ-cheur HIR",
+      "native": "le poisson est plus frais ici"
+     },
+     "study": "In my opinion, the fish is fresher here.",
+     "phon": "inn maï eu-PI-nyeun, ze FICH iz FRÈ-cheur HIR",
+     "native": "À mon avis, le poisson est plus frais ici."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-en-07",
+   "situation": "Avant, maintenant",
+   "model": {
+    "study": "I used to {s}, now I work from home.",
+    "phon": "aï YOUST tou {s}, naô aï WEURK from HÔM",
+    "native": "Avant, je {s} ; maintenant je travaille à la maison.",
+    "note": "« used to » + verbe = habitude passée qui a cessé ; se traduit par l'imparfait + « avant »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "take the train every day",
+      "phon": "TÉÏK ze TRÉÏN ÈV-ri DÉÏ",
+      "native": "prenais le train tous les jours"
+     },
+     "study": "I used to take the train every day, now I work from home.",
+     "phon": "aï YOUST tou TÉÏK ze TRÉÏN ÈV-ri DÉÏ, naô aï WEURK from HÔM",
+     "native": "Avant, je prenais le train tous les jours ; maintenant je travaille à la maison."
+    },
+    {
+     "slot": {
+      "study": "work in an office",
+      "phon": "WEURK inn eun O-fiss",
+      "native": "travaillais dans un bureau"
+     },
+     "study": "I used to work in an office, now I work from home.",
+     "phon": "aï YOUST tou WEURK inn eun O-fiss, naô aï WEURK from HÔM",
+     "native": "Avant, je travaillais dans un bureau ; maintenant je travaille à la maison."
+    },
+    {
+     "slot": {
+      "study": "get up at six",
+      "phon": "GÈT EUP at SIKS",
+      "native": "me levais à six heures"
+     },
+     "study": "I used to get up at six, now I work from home.",
+     "phon": "aï YOUST tou GÈT EUP at SIKS, naô aï WEURK from HÔM",
+     "native": "Avant, je me levais à six heures ; maintenant je travaille à la maison."
+    },
+    {
+     "slot": {
+      "study": "live in the city centre",
+      "phon": "LIV inn ze SI-ti SÈN-teur",
+      "native": "habitais en centre-ville"
+     },
+     "study": "I used to live in the city centre, now I work from home.",
+     "phon": "aï YOUST tou LIV inn ze SI-ti SÈN-teur, naô aï WEURK from HÔM",
+     "native": "Avant, j'habitais en centre-ville ; maintenant je travaille à la maison."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-en-08",
+   "situation": "Ce qui a changé",
+   "model": {
+    "study": "I used to eat out a lot, now I {s}.",
+    "phon": "aï YOUST tou IT AÔT eu LOT, naô aï {s}",
+    "native": "Avant, je mangeais souvent au restaurant ; maintenant je {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "cook every evening",
+      "phon": "KOUK ÈV-ri IV-ning",
+      "native": "cuisine tous les soirs"
+     },
+     "study": "I used to eat out a lot, now I cook every evening.",
+     "phon": "aï YOUST tou IT AÔT eu LOT, naô aï KOUK ÈV-ri IV-ning",
+     "native": "Avant, je mangeais souvent au restaurant ; maintenant je cuisine tous les soirs."
+    },
+    {
+     "slot": {
+      "study": "eat at home",
+      "phon": "IT at HÔM",
+      "native": "mange à la maison"
+     },
+     "study": "I used to eat out a lot, now I eat at home.",
+     "phon": "aï YOUST tou IT AÔT eu LOT, naô aï IT at HÔM",
+     "native": "Avant, je mangeais souvent au restaurant ; maintenant je mange à la maison."
+    },
+    {
+     "slot": {
+      "study": "go to the market",
+      "phon": "GÔ tou ze MAR-kit",
+      "native": "vais au marché"
+     },
+     "study": "I used to eat out a lot, now I go to the market.",
+     "phon": "aï YOUST tou IT AÔT eu LOT, naô aï GÔ tou ze MAR-kit",
+     "native": "Avant, je mangeais souvent au restaurant ; maintenant je vais au marché."
+    },
+    {
+     "slot": {
+      "study": "only go out at the weekend",
+      "phon": "ÔN-li GÔ AÔT at ze ouik-ÈND",
+      "native": "ne sors que le week-end"
+     },
+     "study": "I used to eat out a lot, now I only go out at the weekend.",
+     "phon": "aï YOUST tou IT AÔT eu LOT, naô aï ÔN-li GÔ AÔT at ze ouik-ÈND",
+     "native": "Avant, je mangeais souvent au restaurant ; maintenant je ne sors que le week-end."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-en-09",
+   "situation": "Demander la raison",
+   "model": {
+    "study": "Why do you prefer {s}?",
+    "phon": "OUAÏ dou you pri-FEUR {s}",
+    "native": "Pourquoi tu préfères {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "this one",
+      "phon": "ZISS ouann",
+      "native": "celui-ci"
+     },
+     "study": "Why do you prefer this one?",
+     "phon": "OUAÏ dou you pri-FEUR ZISS ouann",
+     "native": "Pourquoi tu préfères celui-ci ?"
+    },
+    {
+     "slot": {
+      "study": "the small flat",
+      "phon": "ze SMOL FLAT",
+      "native": "le petit appartement"
+     },
+     "study": "Why do you prefer the small flat?",
+     "phon": "OUAÏ dou you pri-FEUR ze SMOL FLAT",
+     "native": "Pourquoi tu préfères le petit appartement ?"
+    },
+    {
+     "slot": {
+      "study": "working at night",
+      "phon": "WEUR-king at NAÏT",
+      "native": "travailler la nuit"
+     },
+     "study": "Why do you prefer working at night?",
+     "phon": "OUAÏ dou you pri-FEUR WEUR-king at NAÏT",
+     "native": "Pourquoi tu préfères travailler la nuit ?"
+    },
+    {
+     "slot": {
+      "study": "tea",
+      "phon": "TI",
+      "native": "le thé"
+     },
+     "study": "Why do you prefer tea?",
+     "phon": "OUAÏ dou you pri-FEUR TI",
+     "native": "Pourquoi tu préfères le thé ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-en-10",
+   "situation": "C'est pour ça",
+   "model": {
+    "study": "That's why {s}.",
+    "phon": "zats OUAÏ {s}",
+    "native": "C'est pour ça que {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "I moved",
+      "phon": "aï MOUVD",
+      "native": "j'ai déménagé"
+     },
+     "study": "That's why I moved.",
+     "phon": "zats OUAÏ aï MOUVD",
+     "native": "C'est pour ça que j'ai déménagé."
+    },
+    {
+     "slot": {
+      "study": "I take the bus",
+      "phon": "aï TÉÏK ze BEUSS",
+      "native": "je prends le bus"
+     },
+     "study": "That's why I take the bus.",
+     "phon": "zats OUAÏ aï TÉÏK ze BEUSS",
+     "native": "C'est pour ça que je prends le bus."
+    },
+    {
+     "slot": {
+      "study": "we eat at home",
+      "phon": "oui IT at HÔM",
+      "native": "on mange à la maison"
+     },
+     "study": "That's why we eat at home.",
+     "phon": "zats OUAÏ oui IT at HÔM",
+     "native": "C'est pour ça qu'on mange à la maison."
+    },
+    {
+     "slot": {
+      "study": "it's cheaper",
+      "phon": "its TCHI-peur",
+      "native": "c'est moins cher"
+     },
+     "study": "That's why it's cheaper.",
+     "phon": "zats OUAÏ its TCHI-peur",
+     "native": "C'est pour ça que c'est moins cher."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-en-11",
+   "situation": "Aussi… que",
+   "model": {
+    "study": "It's as {s} as the other one.",
+    "phon": "its az {s} az zi EU-zeur ouann",
+    "native": "C'est aussi {s} que l'autre."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "good",
+      "phon": "GOUD",
+      "native": "bien"
+     },
+     "study": "It's as good as the other one.",
+     "phon": "its az GOUD az zi EU-zeur ouann",
+     "native": "C'est aussi bien que l'autre."
+    },
+    {
+     "slot": {
+      "study": "expensive",
+      "phon": "ik-SPÈN-siv",
+      "native": "cher"
+     },
+     "study": "It's as expensive as the other one.",
+     "phon": "its az ik-SPÈN-siv az zi EU-zeur ouann",
+     "native": "C'est aussi cher que l'autre."
+    },
+    {
+     "slot": {
+      "study": "big",
+      "phon": "BIG",
+      "native": "grand"
+     },
+     "study": "It's as big as the other one.",
+     "phon": "its az BIG az zi EU-zeur ouann",
+     "native": "C'est aussi grand que l'autre."
+    },
+    {
+     "slot": {
+      "study": "nice",
+      "phon": "NAÏSS",
+      "native": "joli"
+     },
+     "study": "It's as nice as the other one.",
+     "phon": "its az NAÏSS az zi EU-zeur ouann",
+     "native": "C'est aussi joli que l'autre."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-en-12",
+   "situation": "Le meilleur",
+   "model": {
+    "study": "It's the {s} in town.",
+    "phon": "its ze {s} inn TAÔN",
+    "native": "C'est le {s} de la ville."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "best restaurant",
+      "phon": "BÈST RÈS-treunt",
+      "native": "meilleur restaurant"
+     },
+     "study": "It's the best restaurant in town.",
+     "phon": "its ze BÈST RÈS-treunt inn TAÔN",
+     "native": "C'est le meilleur restaurant de la ville."
+    },
+    {
+     "slot": {
+      "study": "cheapest shop",
+      "phon": "TCHI-pist CHOP",
+      "native": "magasin le moins cher"
+     },
+     "study": "It's the cheapest shop in town.",
+     "phon": "its ze TCHI-pist CHOP inn TAÔN",
+     "native": "C'est le magasin le moins cher de la ville."
+    },
+    {
+     "slot": {
+      "study": "biggest market",
+      "phon": "BI-guist MAR-kit",
+      "native": "plus grand marché"
+     },
+     "study": "It's the biggest market in town.",
+     "phon": "its ze BI-guist MAR-kit inn TAÔN",
+     "native": "C'est le plus grand marché de la ville."
+    },
+    {
+     "slot": {
+      "study": "nicest neighbourhood",
+      "phon": "NAÏ-sist NÉÏ-beu-houd",
+      "native": "plus beau quartier"
+     },
+     "study": "It's the nicest neighbourhood in town.",
+     "phon": "its ze NAÏ-sist NÉÏ-beu-houd inn TAÔN",
+     "native": "C'est le plus beau quartier de la ville."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-en-13",
+   "situation": "Au restaurant, un avis",
+   "model": {
+    "study": "The food here is {s}.",
+    "phon": "ze FOUD HIR iz {s}",
+    "native": "La cuisine ici est {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "better than before",
+      "phon": "BÈ-teur zan bi-FOR",
+      "native": "meilleure qu'avant"
+     },
+     "study": "The food here is better than before.",
+     "phon": "ze FOUD HIR iz BÈ-teur zan bi-FOR",
+     "native": "La cuisine ici est meilleure qu'avant."
+    },
+    {
+     "slot": {
+      "study": "too salty for me",
+      "phon": "tou SOL-ti for mi",
+      "native": "trop salée pour moi"
+     },
+     "study": "The food here is too salty for me.",
+     "phon": "ze FOUD HIR iz tou SOL-ti for mi",
+     "native": "La cuisine ici est trop salée pour moi."
+    },
+    {
+     "slot": {
+      "study": "really good value",
+      "phon": "RI-li goud VA-lyou",
+      "native": "d'un très bon rapport qualité-prix"
+     },
+     "study": "The food here is really good value.",
+     "phon": "ze FOUD HIR iz RI-li goud VA-lyou",
+     "native": "La cuisine ici est d'un très bon rapport qualité-prix."
+    },
+    {
+     "slot": {
+      "study": "a bit expensive",
+      "phon": "eu bit ik-SPÈN-siv",
+      "native": "un peu chère"
+     },
+     "study": "The food here is a bit expensive.",
+     "phon": "ze FOUD HIR iz eu bit ik-SPÈN-siv",
+     "native": "La cuisine ici est un peu chère."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L7-fr-en-d1",
+   "situation": "Au magasin, choisir",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Which one do you prefer?",
+     "phon": "OUITCH ouann dou you pri-FEUR",
+     "native": "Lequel tu préfères ?"
+    },
+    {
+     "speaker": "B",
+     "study": "I prefer the blue one because it's bigger.",
+     "phon": "aï pri-FEUR ze BLOU ouann bi-KOZ its BI-gueur",
+     "native": "Je préfère le bleu parce qu'il est plus grand."
+    },
+    {
+     "speaker": "A",
+     "study": "But it's more expensive than the grey one.",
+     "phon": "beut its MOR ik-SPÈN-siv zan ze GRÉÏ ouann",
+     "native": "Mais il est plus cher que le gris."
+    },
+    {
+     "speaker": "B",
+     "study": "I think it's a good deal. It's better quality.",
+     "phon": "aï THINK its eu goud DIL. its BÈ-teur KOUO-li-ti",
+     "native": "Je trouve que c'est une bonne affaire. C'est de meilleure qualité."
+    },
+    {
+     "speaker": "A",
+     "study": "In my opinion, the grey one is as good as the blue one.",
+     "phon": "inn maï eu-PI-nyeun, ze GRÉÏ ouann iz az GOUD az ze BLOU ouann",
+     "native": "À mon avis, le gris est aussi bien que le bleu."
+    },
+    {
+     "speaker": "B",
+     "study": "Maybe. Why do you prefer the grey one?",
+     "phon": "MÉÏ-bi. OUAÏ dou you pri-FEUR ze GRÉÏ ouann",
+     "native": "Peut-être. Pourquoi tu préfères le gris ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Because it's cheaper and lighter.",
+     "phon": "bi-KOZ its TCHI-peur and LAÏ-teur",
+     "native": "Parce qu'il est moins cher et plus léger."
+    },
+    {
+     "speaker": "B",
+     "study": "OK, you're right. Let's take the grey one.",
+     "phon": "ô-KÉÏ, yor RAÏT. lèts TÉÏK ze GRÉÏ ouann",
+     "native": "D'accord, tu as raison. Prenons le gris."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L7-fr-en-01",
+    "L7-fr-en-02",
+    "L7-fr-en-03",
+    "L7-fr-en-04"
+   ]
+  },
+  {
+   "id": "L7-fr-en-d2",
+   "situation": "Au travail, nouveau rythme",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "You look tired, Paul.",
+     "phon": "you LOUK TAÏ-eurd, POL",
+     "native": "Tu as l'air fatigué, Paul."
+    },
+    {
+     "speaker": "B",
+     "study": "Yes, I'm late because the train was late again.",
+     "phon": "YÈS, aïm LÉÏT bi-KOZ ze TRÉÏN ouoz LÉÏT eu-GUÈNN",
+     "native": "Oui, je suis en retard parce que le train avait encore du retard."
+    },
+    {
+     "speaker": "A",
+     "study": "Why don't you work from home?",
+     "phon": "OUAÏ dônt you WEURK from HÔM",
+     "native": "Pourquoi tu ne travailles pas à la maison ?"
+    },
+    {
+     "speaker": "B",
+     "study": "I used to work from home, now I come to the office every day.",
+     "phon": "aï YOUST tou WEURK from HÔM, naô aï KEUM tou zi O-fiss ÈV-ri DÉÏ",
+     "native": "Avant, je travaillais à la maison ; maintenant je viens au bureau tous les jours."
+    },
+    {
+     "speaker": "A",
+     "study": "Why?",
+     "phon": "OUAÏ",
+     "native": "Pourquoi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Because the new project needs the whole team. That's why I take the early train.",
+     "phon": "bi-KOZ ze NYOU PRO-djèkt NIDZ ze HÔL TIM. zats OUAÏ aï TÉÏK zi EUR-li TRÉÏN",
+     "native": "Parce que le nouveau projet a besoin de toute l'équipe. C'est pour ça que je prends le train tôt."
+    },
+    {
+     "speaker": "A",
+     "study": "I think two days at home would be better.",
+     "phon": "aï THINK TOU DÉÏZ at HÔM woud bi BÈ-teur",
+     "native": "Je trouve que deux jours à la maison, ce serait mieux."
+    },
+    {
+     "speaker": "B",
+     "study": "In my opinion too. I'm going to ask the boss.",
+     "phon": "inn maï eu-PI-nyeun TOU. aïm GÔ-ing tou ASK ze BOSS",
+     "native": "À mon avis aussi. Je vais demander au chef."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L7-fr-en-01",
+    "L7-fr-en-02",
+    "L7-fr-en-03",
+    "L7-fr-en-04"
+   ]
+  },
+  {
+   "id": "L7-fr-en-d3",
+   "situation": "Choisir un logement",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "So, the flat or the house?",
+     "phon": "SÔ, ze FLAT or ze HAÔSS",
+     "native": "Alors, l'appartement ou la maison ?"
+    },
+    {
+     "speaker": "B",
+     "study": "The flat is less expensive than the house.",
+     "phon": "ze FLAT iz LÈSS ik-SPÈN-siv zan ze HAÔSS",
+     "native": "L'appartement est moins cher que la maison."
+    },
+    {
+     "speaker": "A",
+     "study": "That's true, but the house is bigger and quieter.",
+     "phon": "zats TROU, beut ze HAÔSS iz BI-gueur and KOUAÏ-eu-teur",
+     "native": "C'est vrai, mais la maison est plus grande et plus calme."
+    },
+    {
+     "speaker": "B",
+     "study": "I prefer the flat because it's closer to work.",
+     "phon": "aï pri-FEUR ze FLAT bi-KOZ its KLÔ-seur tou WEURK",
+     "native": "Je préfère l'appartement parce qu'il est plus près du travail."
+    },
+    {
+     "speaker": "A",
+     "study": "We used to live in the centre, and it was too noisy.",
+     "phon": "oui YOUST tou LIV inn ze SÈN-teur, and it ouoz tou NOÏ-zi",
+     "native": "Avant, on habitait dans le centre, et c'était trop bruyant."
+    },
+    {
+     "speaker": "B",
+     "study": "Now it's different, the street is quiet.",
+     "phon": "naô its DI-freunt, ze STRIT iz KOUAÏ-eut",
+     "native": "Maintenant c'est différent, la rue est calme."
+    },
+    {
+     "speaker": "A",
+     "study": "In my opinion, the house is a better deal for the family.",
+     "phon": "inn maï eu-PI-nyeun, ze HAÔSS iz eu BÈ-teur DIL for ze FA-mi-li",
+     "native": "À mon avis, la maison est une meilleure affaire pour la famille."
+    },
+    {
+     "speaker": "B",
+     "study": "OK. Shall we visit it again on Saturday?",
+     "phon": "ô-KÉÏ. chal oui VI-zit it eu-GUÈNN onn SA-teur-dé",
+     "native": "D'accord. On la revisite samedi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Good idea.",
+     "phon": "goud aï-DI-a",
+     "native": "Bonne idée."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L7-fr-en-01",
+    "L7-fr-en-02",
+    "L7-fr-en-03",
+    "L7-fr-en-04"
+   ]
+  }
+ ],
+ "readiness": "L'apprenant justifie un choix avec « because », compare deux options (plus, moins, aussi… que), donne un avis simple et explique un changement d'habitude avec « used to »."
+}

@@ -1,0 +1,947 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "en",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en anglais",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; th→z/th, h aspiré noté h, -ing→-ing). Anglais britannique standard. Ne remplace pas l'audio.",
+ "reviewStatus": "Rédigé à la main ; relecture par un anglophone conseillée.",
+ "coverageClaim": null,
+ "level": 6,
+ "title": "Projets et propositions",
+ "goal": "Parler de projets, proposer et organiser une activité.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L6-fr-en-01",
+   "situation": "Projets",
+   "model": {
+    "study": "I'm going to {s}.",
+    "phon": "aïm GÔ-ing tou {s}",
+    "native": "Je vais {s}.",
+    "note": "« going to » + verbe = projet ; à distinguer de « I'm going to the market » (lieu, niveau 1)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "visit my parents",
+      "phon": "VI-zit maï PÈ-reunts",
+      "native": "rendre visite à mes parents"
+     },
+     "study": "I'm going to visit my parents.",
+     "phon": "aïm GÔ-ing tou VI-zit maï PÈ-reunts",
+     "native": "Je vais rendre visite à mes parents."
+    },
+    {
+     "slot": {
+      "study": "look for a new flat",
+      "phon": "LOUK for eu NYOU FLAT",
+      "native": "chercher un nouvel appartement"
+     },
+     "study": "I'm going to look for a new flat.",
+     "phon": "aïm GÔ-ing tou LOUK for eu NYOU FLAT",
+     "native": "Je vais chercher un nouvel appartement."
+    },
+    {
+     "slot": {
+      "study": "learn to drive",
+      "phon": "LEURN tou DRAÏV",
+      "native": "apprendre à conduire"
+     },
+     "study": "I'm going to learn to drive.",
+     "phon": "aïm GÔ-ing tou LEURN tou DRAÏV",
+     "native": "Je vais apprendre à conduire."
+    },
+    {
+     "slot": {
+      "study": "stay at home this weekend",
+      "phon": "STÉÏ at HÔM ZISS ouik-ÈND",
+      "native": "rester à la maison ce week-end"
+     },
+     "study": "I'm going to stay at home this weekend.",
+     "phon": "aïm GÔ-ing tou STÉÏ at HÔM ZISS ouik-ÈND",
+     "native": "Je vais rester à la maison ce week-end."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-en-02",
+   "situation": "Proposer",
+   "model": {
+    "study": "Do you feel like {s}?",
+    "phon": "dou you FIL laïk {s}",
+    "native": "Ça te dit de {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "going to the cinema",
+      "phon": "GÔ-ing tou ze SI-neu-ma",
+      "native": "aller au cinéma"
+     },
+     "study": "Do you feel like going to the cinema?",
+     "phon": "dou you FIL laïk GÔ-ing tou ze SI-neu-ma",
+     "native": "Ça te dit d'aller au cinéma ?"
+    },
+    {
+     "slot": {
+      "study": "having a drink",
+      "phon": "HA-ving eu DRINK",
+      "native": "prendre un verre"
+     },
+     "study": "Do you feel like having a drink?",
+     "phon": "dou you FIL laïk HA-ving eu DRINK",
+     "native": "Ça te dit de prendre un verre ?"
+    },
+    {
+     "slot": {
+      "study": "playing tennis",
+      "phon": "PLÉÏ-ing TÈ-niss",
+      "native": "jouer au tennis"
+     },
+     "study": "Do you feel like playing tennis?",
+     "phon": "dou you FIL laïk PLÉÏ-ing TÈ-niss",
+     "native": "Ça te dit de jouer au tennis ?"
+    },
+    {
+     "slot": {
+      "study": "eating out tonight",
+      "phon": "I-ting AÔT tou-NAÏT",
+      "native": "manger au restaurant ce soir"
+     },
+     "study": "Do you feel like eating out tonight?",
+     "phon": "dou you FIL laïk I-ting AÔT tou-NAÏT",
+     "native": "Ça te dit de manger au restaurant ce soir ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-en-03",
+   "situation": "Fixer lieu et heure",
+   "model": {
+    "study": "Let's say {s}.",
+    "phon": "lèts SÉÏ {s}",
+    "native": "Disons {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Saturday at ten",
+      "phon": "SA-teur-dé at TÈN",
+      "native": "samedi à dix heures"
+     },
+     "study": "Let's say Saturday at ten.",
+     "phon": "lèts SÉÏ SA-teur-dé at TÈN",
+     "native": "Disons samedi à dix heures."
+    },
+    {
+     "slot": {
+      "study": "in front of the station",
+      "phon": "inn FREUNT ov ze STÉÏ-cheun",
+      "native": "devant la gare"
+     },
+     "study": "Let's say in front of the station.",
+     "phon": "lèts SÉÏ inn FREUNT ov ze STÉÏ-cheun",
+     "native": "Disons devant la gare."
+    },
+    {
+     "slot": {
+      "study": "tomorrow at noon, at the café",
+      "phon": "tou-MO-rô at NOUN, at ze KA-fé",
+      "native": "demain à midi, au café"
+     },
+     "study": "Let's say tomorrow at noon, at the café.",
+     "phon": "lèts SÉÏ tou-MO-rô at NOUN, at ze KA-fé",
+     "native": "Disons demain à midi, au café."
+    },
+    {
+     "slot": {
+      "study": "Friday evening at my place",
+      "phon": "FRAÏ-dé IV-ning at maï PLÉÏSS",
+      "native": "vendredi soir chez moi"
+     },
+     "study": "Let's say Friday evening at my place.",
+     "phon": "lèts SÉÏ FRAÏ-dé IV-ning at maï PLÉÏSS",
+     "native": "Disons vendredi soir chez moi."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-en-04",
+   "situation": "Refuser et proposer autre chose",
+   "model": {
+    "study": "I can't, but {s}.",
+    "phon": "aï KANT, beut {s}",
+    "native": "Je ne peux pas, mais {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Sunday is fine",
+      "phon": "SEUNN-dé iz FAÏN",
+      "native": "dimanche, c'est bon"
+     },
+     "study": "I can't, but Sunday is fine.",
+     "phon": "aï KANT, beut SEUNN-dé iz FAÏN",
+     "native": "Je ne peux pas, mais dimanche, c'est bon."
+    },
+    {
+     "slot": {
+      "study": "maybe next week",
+      "phon": "MÉÏ-bi NÈKST OUIK",
+      "native": "peut-être la semaine prochaine"
+     },
+     "study": "I can't, but maybe next week.",
+     "phon": "aï KANT, beut MÉÏ-bi NÈKST OUIK",
+     "native": "Je ne peux pas, mais peut-être la semaine prochaine."
+    },
+    {
+     "slot": {
+      "study": "I'm free on Friday",
+      "phon": "aïm FRI onn FRAÏ-dé",
+      "native": "je suis libre vendredi"
+     },
+     "study": "I can't, but I'm free on Friday.",
+     "phon": "aï KANT, beut aïm FRI onn FRAÏ-dé",
+     "native": "Je ne peux pas, mais je suis libre vendredi."
+    },
+    {
+     "slot": {
+      "study": "we can meet later",
+      "phon": "oui kann MIT LÉÏ-teur",
+      "native": "on peut se voir plus tard"
+     },
+     "study": "I can't, but we can meet later.",
+     "phon": "aï KANT, beut oui kann MIT LÉÏ-teur",
+     "native": "Je ne peux pas, mais on peut se voir plus tard."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-en-05",
+   "situation": "Souhait",
+   "model": {
+    "study": "I'd really like to {s}.",
+    "phon": "aïd RI-li LAÏK tou {s}",
+    "native": "J'aimerais vraiment {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "see the sea",
+      "phon": "SI ze SI",
+      "native": "voir la mer"
+     },
+     "study": "I'd really like to see the sea.",
+     "phon": "aïd RI-li LAÏK tou SI ze SI",
+     "native": "J'aimerais vraiment voir la mer."
+    },
+    {
+     "slot": {
+      "study": "travel more",
+      "phon": "TRA-veul MOR",
+      "native": "voyager plus"
+     },
+     "study": "I'd really like to travel more.",
+     "phon": "aïd RI-li LAÏK tou TRA-veul MOR",
+     "native": "J'aimerais vraiment voyager plus."
+    },
+    {
+     "slot": {
+      "study": "change jobs",
+      "phon": "TCHÉÏNDJ DJOBZ",
+      "native": "changer de travail"
+     },
+     "study": "I'd really like to change jobs.",
+     "phon": "aïd RI-li LAÏK tou TCHÉÏNDJ DJOBZ",
+     "native": "J'aimerais vraiment changer de travail."
+    },
+    {
+     "slot": {
+      "study": "learn Spanish",
+      "phon": "LEURN SPA-nich",
+      "native": "apprendre l'espagnol"
+     },
+     "study": "I'd really like to learn Spanish.",
+     "phon": "aïd RI-li LAÏK tou LEURN SPA-nich",
+     "native": "J'aimerais vraiment apprendre l'espagnol."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-en-06",
+   "situation": "Accepter, confirmer",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Réponses entières pour accepter une proposition ou décliner."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Good idea!",
+      "phon": "goud aï-DI-a",
+      "native": "Bonne idée !"
+     },
+     "study": "Good idea!",
+     "phon": "goud aï-DI-a",
+     "native": "Bonne idée !"
+    },
+    {
+     "slot": {
+      "study": "That works for me.",
+      "phon": "zat WEURKS for mi",
+      "native": "Ça me va."
+     },
+     "study": "That works for me.",
+     "phon": "zat WEURKS for mi",
+     "native": "Ça me va."
+    },
+    {
+     "slot": {
+      "study": "Sounds great.",
+      "phon": "SAÔNDZ GRÉÏT",
+      "native": "Ça a l'air super."
+     },
+     "study": "Sounds great.",
+     "phon": "SAÔNDZ GRÉÏT",
+     "native": "Ça a l'air super."
+    },
+    {
+     "slot": {
+      "study": "Sorry, I'm busy that day.",
+      "phon": "SO-ri, aïm BI-zi zat DÉÏ",
+      "native": "Désolé(e), je suis pris(e) ce jour-là."
+     },
+     "study": "Sorry, I'm busy that day.",
+     "phon": "SO-ri, aïm BI-zi zat DÉÏ",
+     "native": "Désolé(e), je suis pris(e) ce jour-là."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-en-07",
+   "situation": "Confirmer un rendez-vous",
+   "model": {
+    "study": "So, {s}?",
+    "phon": "SÔ, {s}",
+    "native": "Donc, {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Saturday at ten",
+      "phon": "SA-teur-dé at TÈN",
+      "native": "samedi à dix heures"
+     },
+     "study": "So, Saturday at ten?",
+     "phon": "SÔ, SA-teur-dé at TÈN",
+     "native": "Donc, samedi à dix heures ?"
+    },
+    {
+     "slot": {
+      "study": "in front of the cinema",
+      "phon": "inn FREUNT ov ze SI-neu-ma",
+      "native": "devant le cinéma"
+     },
+     "study": "So, in front of the cinema?",
+     "phon": "SÔ, inn FREUNT ov ze SI-neu-ma",
+     "native": "Donc, devant le cinéma ?"
+    },
+    {
+     "slot": {
+      "study": "we meet at your place",
+      "phon": "oui MIT at yor PLÉÏSS",
+      "native": "on se retrouve chez toi"
+     },
+     "study": "So, we meet at your place?",
+     "phon": "SÔ, oui MIT at yor PLÉÏSS",
+     "native": "Donc, on se retrouve chez toi ?"
+    },
+    {
+     "slot": {
+      "study": "you book the table",
+      "phon": "you BOUK ze TÉÏ-beul",
+      "native": "tu réserves la table"
+     },
+     "study": "So, you book the table?",
+     "phon": "SÔ, you BOUK ze TÉÏ-beul",
+     "native": "Donc, tu réserves la table ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-en-08",
+   "situation": "Transports",
+   "model": {
+    "study": "We're going to take {s}.",
+    "phon": "ouir GÔ-ing tou TÉÏK {s}",
+    "native": "On va prendre {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "the train at nine",
+      "phon": "ze TRÉÏN at NAÏN",
+      "native": "le train de neuf heures"
+     },
+     "study": "We're going to take the train at nine.",
+     "phon": "ouir GÔ-ing tou TÉÏK ze TRÉÏN at NAÏN",
+     "native": "On va prendre le train de neuf heures."
+    },
+    {
+     "slot": {
+      "study": "a taxi from the airport",
+      "phon": "eu TAK-si from zi ÈR-port",
+      "native": "un taxi depuis l'aéroport"
+     },
+     "study": "We're going to take a taxi from the airport.",
+     "phon": "ouir GÔ-ing tou TÉÏK eu TAK-si from zi ÈR-port",
+     "native": "On va prendre un taxi depuis l'aéroport."
+    },
+    {
+     "slot": {
+      "study": "the bus to the beach",
+      "phon": "ze BEUSS tou ze BITCH",
+      "native": "le bus pour la plage"
+     },
+     "study": "We're going to take the bus to the beach.",
+     "phon": "ouir GÔ-ing tou TÉÏK ze BEUSS tou ze BITCH",
+     "native": "On va prendre le bus pour la plage."
+    },
+    {
+     "slot": {
+      "study": "my car",
+      "phon": "maï KAR",
+      "native": "ma voiture"
+     },
+     "study": "We're going to take my car.",
+     "phon": "ouir GÔ-ing tou TÉÏK maï KAR",
+     "native": "On va prendre ma voiture."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-en-09",
+   "situation": "Au travail, planning",
+   "model": {
+    "study": "Next week I have {s}.",
+    "phon": "NÈKST OUIK aï HAV {s}",
+    "native": "La semaine prochaine, j'ai {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a meeting in London",
+      "phon": "eu MI-ting inn LEUN-deun",
+      "native": "une réunion à Londres"
+     },
+     "study": "Next week I have a meeting in London.",
+     "phon": "NÈKST OUIK aï HAV eu MI-ting inn LEUN-deun",
+     "native": "La semaine prochaine, j'ai une réunion à Londres."
+    },
+    {
+     "slot": {
+      "study": "two days off",
+      "phon": "TOU DÉÏZ OF",
+      "native": "deux jours de congé"
+     },
+     "study": "Next week I have two days off.",
+     "phon": "NÈKST OUIK aï HAV TOU DÉÏZ OF",
+     "native": "La semaine prochaine, j'ai deux jours de congé."
+    },
+    {
+     "slot": {
+      "study": "an interview",
+      "phon": "eun INN-teur-vyou",
+      "native": "un entretien"
+     },
+     "study": "Next week I have an interview.",
+     "phon": "NÈKST OUIK aï HAV eun INN-teur-vyou",
+     "native": "La semaine prochaine, j'ai un entretien."
+    },
+    {
+     "slot": {
+      "study": "a lot of work",
+      "phon": "eu LOT ov WEURK",
+      "native": "beaucoup de travail"
+     },
+     "study": "Next week I have a lot of work.",
+     "phon": "NÈKST OUIK aï HAV eu LOT ov WEURK",
+     "native": "La semaine prochaine, j'ai beaucoup de travail."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-en-10",
+   "situation": "Quand ?",
+   "model": {
+    "study": "When are you going to {s}?",
+    "phon": "OUÈN ar you GÔ-ing tou {s}",
+    "native": "Quand est-ce que tu vas {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "come",
+      "phon": "KEUM",
+      "native": "venir"
+     },
+     "study": "When are you going to come?",
+     "phon": "OUÈN ar you GÔ-ing tou KEUM",
+     "native": "Quand est-ce que tu vas venir ?"
+    },
+    {
+     "slot": {
+      "study": "move",
+      "phon": "MOUV",
+      "native": "déménager"
+     },
+     "study": "When are you going to move?",
+     "phon": "OUÈN ar you GÔ-ing tou MOUV",
+     "native": "Quand est-ce que tu vas déménager ?"
+    },
+    {
+     "slot": {
+      "study": "call him",
+      "phon": "KOL him",
+      "native": "l'appeler"
+     },
+     "study": "When are you going to call him?",
+     "phon": "OUÈN ar you GÔ-ing tou KOL him",
+     "native": "Quand est-ce que tu vas l'appeler ?"
+    },
+    {
+     "slot": {
+      "study": "decide",
+      "phon": "di-SAÏD",
+      "native": "décider"
+     },
+     "study": "When are you going to decide?",
+     "phon": "OUÈN ar you GÔ-ing tou di-SAÏD",
+     "native": "Quand est-ce que tu vas décider ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-en-11",
+   "situation": "Intention",
+   "model": {
+    "study": "I'm planning to {s}.",
+    "phon": "aïm PLA-ning tou {s}",
+    "native": "J'ai l'intention de {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "go to Scotland in June",
+      "phon": "GÔ tou SKOT-leund inn DJOUN",
+      "native": "aller en Écosse en juin"
+     },
+     "study": "I'm planning to go to Scotland in June.",
+     "phon": "aïm PLA-ning tou GÔ tou SKOT-leund inn DJOUN",
+     "native": "J'ai l'intention d'aller en Écosse en juin."
+    },
+    {
+     "slot": {
+      "study": "buy a bike",
+      "phon": "BAÏ eu BAÏK",
+      "native": "acheter un vélo"
+     },
+     "study": "I'm planning to buy a bike.",
+     "phon": "aïm PLA-ning tou BAÏ eu BAÏK",
+     "native": "J'ai l'intention d'acheter un vélo."
+    },
+    {
+     "slot": {
+      "study": "work less",
+      "phon": "WEURK LÈSS",
+      "native": "travailler moins"
+     },
+     "study": "I'm planning to work less.",
+     "phon": "aïm PLA-ning tou WEURK LÈSS",
+     "native": "J'ai l'intention de travailler moins."
+    },
+    {
+     "slot": {
+      "study": "start a course",
+      "phon": "START eu KORSS",
+      "native": "commencer une formation"
+     },
+     "study": "I'm planning to start a course.",
+     "phon": "aïm PLA-ning tou START eu KORSS",
+     "native": "J'ai l'intention de commencer une formation."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-en-12",
+   "situation": "Inviter (vouvoiement)",
+   "model": {
+    "study": "Would you like to {s}?",
+    "phon": "would you LAÏK tou {s}",
+    "native": "Voulez-vous {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "join us",
+      "phon": "DJOÏN euss",
+      "native": "vous joindre à nous"
+     },
+     "study": "Would you like to join us?",
+     "phon": "would you LAÏK tou DJOÏN euss",
+     "native": "Voulez-vous vous joindre à nous ?"
+    },
+    {
+     "slot": {
+      "study": "come to dinner on Saturday",
+      "phon": "KEUM tou DI-neur onn SA-teur-dé",
+      "native": "venir dîner samedi"
+     },
+     "study": "Would you like to come to dinner on Saturday?",
+     "phon": "would you LAÏK tou KEUM tou DI-neur onn SA-teur-dé",
+     "native": "Voulez-vous venir dîner samedi ?"
+    },
+    {
+     "slot": {
+      "study": "see the new office",
+      "phon": "SI ze NYOU O-fiss",
+      "native": "voir le nouveau bureau"
+     },
+     "study": "Would you like to see the new office?",
+     "phon": "would you LAÏK tou SI ze NYOU O-fiss",
+     "native": "Voulez-vous voir le nouveau bureau ?"
+    },
+    {
+     "slot": {
+      "study": "meet at nine instead",
+      "phon": "MIT at NAÏN inn-STÈD",
+      "native": "qu'on se voie plutôt à neuf heures"
+     },
+     "study": "Would you like to meet at nine instead?",
+     "phon": "would you LAÏK tou MIT at NAÏN inn-STÈD",
+     "native": "Voulez-vous qu'on se voie plutôt à neuf heures ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L6-fr-en-d1",
+   "situation": "Organiser une sortie",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hi Ana! Do you feel like going to the cinema this weekend?",
+     "phon": "HAÏ A-na. dou you FIL laïk GÔ-ing tou ze SI-neu-ma ZISS ouik-ÈND",
+     "native": "Salut Ana ! Ça te dit d'aller au cinéma ce week-end ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Good idea! When?",
+     "phon": "goud aï-DI-a. OUÈN",
+     "native": "Bonne idée ! Quand ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Saturday at eight?",
+     "phon": "SA-teur-dé at ÉÏT",
+     "native": "Samedi à huit heures ?"
+    },
+    {
+     "speaker": "B",
+     "study": "I can't on Saturday, I'm going to visit my parents. But Sunday is fine.",
+     "phon": "aï KANT onn SA-teur-dé, aïm GÔ-ing tou VI-zit maï PÈ-reunts. beut SEUNN-dé iz FAÏN",
+     "native": "Je ne peux pas samedi, je vais rendre visite à mes parents. Mais dimanche, c'est bon."
+    },
+    {
+     "speaker": "A",
+     "study": "OK, Sunday at six, in front of the cinema?",
+     "phon": "ô-KÉÏ, SEUNN-dé at SIKS, inn FREUNT ov ze SI-neu-ma",
+     "native": "D'accord, dimanche à six heures, devant le cinéma ?"
+    },
+    {
+     "speaker": "B",
+     "study": "That works for me. Shall we eat something after?",
+     "phon": "zat WEURKS for mi. chal oui IT SEUM-thing AF-teur",
+     "native": "Ça me va. On mange quelque chose après ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Yes, sure. I'll book a table.",
+     "phon": "YÈS, CHOUR. aïl BOUK eu TÉÏ-beul",
+     "native": "Oui, d'accord. Je réserve une table."
+    },
+    {
+     "speaker": "B",
+     "study": "Perfect. See you on Sunday!",
+     "phon": "PEUR-fikt. SI you onn SEUNN-dé",
+     "native": "Parfait. À dimanche !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L6-fr-en-01",
+    "L6-fr-en-02",
+    "L6-fr-en-03",
+    "L6-fr-en-04"
+   ]
+  },
+  {
+   "id": "L6-fr-en-d2",
+   "situation": "Au bureau, la semaine prochaine",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Paul, are you free on Tuesday?",
+     "phon": "POL, ar you FRI onn TYOUZ-dé",
+     "native": "Paul, tu es libre mardi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Let me see… No, next week I have a meeting in London.",
+     "phon": "lèt mi SI… NÔ, NÈKST OUIK aï HAV eu MI-ting inn LEUN-deun",
+     "native": "Attends, je regarde… Non, la semaine prochaine j'ai une réunion à Londres."
+    },
+    {
+     "speaker": "A",
+     "study": "When are you going to come back?",
+     "phon": "OUÈN ar you GÔ-ing tou KEUM BAK",
+     "native": "Quand est-ce que tu vas rentrer ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Wednesday evening. I'm going to take the train at six.",
+     "phon": "OUÈNZ-dé IV-ning. aïm GÔ-ing tou TÉÏK ze TRÉÏN at SIKS",
+     "native": "Mercredi soir. Je vais prendre le train de six heures."
+    },
+    {
+     "speaker": "A",
+     "study": "Then let's say Thursday at ten, in my office?",
+     "phon": "zèn lèts SÉÏ THEURZ-dé at TÈN, inn maï O-fiss",
+     "native": "Alors disons jeudi à dix heures, dans mon bureau ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Thursday at ten is fine. What's it about?",
+     "phon": "THEURZ-dé at TÈN iz FAÏN. ouots it eu-BAÔT",
+     "native": "Jeudi à dix heures, c'est bon. C'est à quel sujet ?"
+    },
+    {
+     "speaker": "A",
+     "study": "The new project. I'd like to start in September.",
+     "phon": "ze NYOU PRO-djèkt. aïd LAÏK tou START inn sèp-TÈM-beur",
+     "native": "Le nouveau projet. J'aimerais commencer en septembre."
+    },
+    {
+     "speaker": "B",
+     "study": "Sounds great. See you on Thursday.",
+     "phon": "SAÔNDZ GRÉÏT. SI you onn THEURZ-dé",
+     "native": "Ça a l'air super. À jeudi."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L6-fr-en-01",
+    "L6-fr-en-02",
+    "L6-fr-en-03",
+    "L6-fr-en-04"
+   ]
+  },
+  {
+   "id": "L6-fr-en-d3",
+   "situation": "Projets de vacances",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "What are you going to do this summer?",
+     "phon": "ouot ar you GÔ-ing tou DOU ZISS SEU-meur",
+     "native": "Qu'est-ce que tu vas faire cet été ?"
+    },
+    {
+     "speaker": "B",
+     "study": "I'm planning to go to Scotland in June.",
+     "phon": "aïm PLA-ning tou GÔ tou SKOT-leund inn DJOUN",
+     "native": "J'ai l'intention d'aller en Écosse en juin."
+    },
+    {
+     "speaker": "A",
+     "study": "Nice! By car?",
+     "phon": "NAÏSS. baï KAR",
+     "native": "Super ! En voiture ?"
+    },
+    {
+     "speaker": "B",
+     "study": "No, we're going to take the train. I'd really like to see the lakes.",
+     "phon": "NÔ, ouir GÔ-ing tou TÉÏK ze TRÉÏN. aïd RI-li LAÏK tou SI ze LÉÏKS",
+     "native": "Non, on va prendre le train. J'aimerais vraiment voir les lacs."
+    },
+    {
+     "speaker": "A",
+     "study": "Do you feel like having a drink before you go?",
+     "phon": "dou you FIL laïk HA-ving eu DRINK bi-FOR you GÔ",
+     "native": "Ça te dit de prendre un verre avant de partir ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Yes, sure. Friday evening at my place?",
+     "phon": "YÈS, CHOUR. FRAÏ-dé IV-ning at maï PLÉÏSS",
+     "native": "Oui, d'accord. Vendredi soir chez moi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "I can't on Friday, but Thursday works for me.",
+     "phon": "aï KANT onn FRAÏ-dé, beut THEURZ-dé WEURKS for mi",
+     "native": "Je ne peux pas vendredi, mais jeudi, ça me va."
+    },
+    {
+     "speaker": "B",
+     "study": "So, Thursday at seven?",
+     "phon": "SÔ, THEURZ-dé at SÈ-veun",
+     "native": "Donc, jeudi à sept heures ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Perfect. See you then!",
+     "phon": "PEUR-fikt. SI you ZÈN",
+     "native": "Parfait. À jeudi, alors !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L6-fr-en-01",
+    "L6-fr-en-02",
+    "L6-fr-en-03",
+    "L6-fr-en-04"
+   ]
+  }
+ ],
+ "readiness": "L'apprenant annonce ce qu'il va faire, propose une activité avec un lieu et une heure, accepte, refuse en proposant une alternative et confirme un rendez-vous."
+}

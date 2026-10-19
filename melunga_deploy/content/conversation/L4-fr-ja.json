@@ -1,0 +1,1065 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "ja",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en japonais",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle",
+  "reading": "lecture en hiragana"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).",
+ "reviewStatus": "Relecture linguistique requise (naturel des tournures, lectures des kanji).",
+ "coverageClaim": null,
+ "level": 4,
+ "title": "Mon quotidien",
+ "goal": "Décrire son quotidien, ses habitudes et son entourage.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L4-fr-ja-01",
+   "situation": "Habitudes : d'habitude…",
+   "model": {
+    "study": "普段は{s}。",
+    "reading": "ふだんは{s}。",
+    "phon": "fou-dan wa {s}",
+    "native": "D'habitude, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "七時に起きます",
+      "reading": "しちじにおきます",
+      "phon": "chi-tchi-dji ni o-ki-ma-sou",
+      "native": "je me lève à sept heures"
+     },
+     "study": "普段は七時に起きます。",
+     "phon": "fou-dan wa chi-tchi-dji ni o-ki-ma-sou",
+     "native": "D'habitude, je me lève à sept heures.",
+     "reading": "ふだんはしちじにおきます。"
+    },
+    {
+     "slot": {
+      "study": "電車で会社に行きます",
+      "reading": "でんしゃでかいしゃにいきます",
+      "phon": "dén-cha dé ka-i-cha ni i-ki-ma-sou",
+      "native": "je vais au travail en train"
+     },
+     "study": "普段は電車で会社に行きます。",
+     "phon": "fou-dan wa dén-cha dé ka-i-cha ni i-ki-ma-sou",
+     "native": "D'habitude, je vais au travail en train.",
+     "reading": "ふだんはでんしゃでかいしゃにいきます。"
+    },
+    {
+     "slot": {
+      "study": "家で晩ご飯を食べます",
+      "reading": "いえでばんごはんをたべます",
+      "phon": "i-é dé ban-go-han o ta-bé-ma-sou",
+      "native": "je dîne à la maison"
+     },
+     "study": "普段は家で晩ご飯を食べます。",
+     "phon": "fou-dan wa i-é dé ban-go-han o ta-bé-ma-sou",
+     "native": "D'habitude, je dîne à la maison.",
+     "reading": "ふだんはいえでばんごはんをたべます。"
+    },
+    {
+     "slot": {
+      "study": "十一時に寝ます",
+      "reading": "じゅういちじにねます",
+      "phon": "djou-ou-i-tchi-dji ni né-ma-sou",
+      "native": "je me couche à onze heures"
+     },
+     "study": "普段は十一時に寝ます。",
+     "phon": "fou-dan wa djou-ou-i-tchi-dji ni né-ma-sou",
+     "native": "D'habitude, je me couche à onze heures.",
+     "reading": "ふだんはじゅういちじにねます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-ja-02",
+   "situation": "Le matin",
+   "model": {
+    "study": "朝は{s}。",
+    "reading": "あさは{s}。",
+    "phon": "a-sa wa {s}",
+    "native": "Le matin, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "コーヒーを飲みます",
+      "reading": "こーひーをのみます",
+      "phon": "ko-o-hi-i o no-mi-ma-sou",
+      "native": "je bois un café"
+     },
+     "study": "朝はコーヒーを飲みます。",
+     "phon": "a-sa wa ko-o-hi-i o no-mi-ma-sou",
+     "native": "Le matin, je bois un café.",
+     "reading": "あさはこーひーをのみます。"
+    },
+    {
+     "slot": {
+      "study": "パンを食べます",
+      "reading": "ぱんをたべます",
+      "phon": "pan o ta-bé-ma-sou",
+      "native": "je mange du pain"
+     },
+     "study": "朝はパンを食べます。",
+     "phon": "a-sa wa pan o ta-bé-ma-sou",
+     "native": "Le matin, je mange du pain.",
+     "reading": "あさはぱんをたべます。"
+    },
+    {
+     "slot": {
+      "study": "走ります",
+      "reading": "はしります",
+      "phon": "ha-chi-ri-ma-sou",
+      "native": "je cours"
+     },
+     "study": "朝は走ります。",
+     "phon": "a-sa wa ha-chi-ri-ma-sou",
+     "native": "Le matin, je cours.",
+     "reading": "あさははしります。"
+    },
+    {
+     "slot": {
+      "study": "ニュースを読みます",
+      "reading": "にゅーすをよみます",
+      "phon": "nyou-ou-sou o yo-mi-ma-sou",
+      "native": "je lis les nouvelles"
+     },
+     "study": "朝はニュースを読みます。",
+     "phon": "a-sa wa nyou-ou-sou o yo-mi-ma-sou",
+     "native": "Le matin, je lis les nouvelles.",
+     "reading": "あさはにゅーすをよみます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-ja-03",
+   "situation": "Le soir",
+   "model": {
+    "study": "夜は{s}。",
+    "reading": "よるは{s}。",
+    "phon": "yo-rou wa {s}",
+    "native": "Le soir, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "テレビを見ます",
+      "reading": "てれびをみます",
+      "phon": "té-ré-bi o mi-ma-sou",
+      "native": "je regarde la télé"
+     },
+     "study": "夜はテレビを見ます。",
+     "phon": "yo-rou wa té-ré-bi o mi-ma-sou",
+     "native": "Le soir, je regarde la télé.",
+     "reading": "よるはてれびをみます。"
+    },
+    {
+     "slot": {
+      "study": "本を読みます",
+      "reading": "ほんをよみます",
+      "phon": "hon o yo-mi-ma-sou",
+      "native": "je lis"
+     },
+     "study": "夜は本を読みます。",
+     "phon": "yo-rou wa hon o yo-mi-ma-sou",
+     "native": "Le soir, je lis.",
+     "reading": "よるはほんをよみます。"
+    },
+    {
+     "slot": {
+      "study": "友達と食事をします",
+      "reading": "ともだちとしょくじをします",
+      "phon": "to-mo-da-tchi to cho-kou-dji o chi-ma-sou",
+      "native": "je dîne avec des amis"
+     },
+     "study": "夜は友達と食事をします。",
+     "phon": "yo-rou wa to-mo-da-tchi to cho-kou-dji o chi-ma-sou",
+     "native": "Le soir, je dîne avec des amis.",
+     "reading": "よるはともだちとしょくじをします。"
+    },
+    {
+     "slot": {
+      "study": "日本語を勉強します",
+      "reading": "にほんごをべんきょうします",
+      "phon": "ni-hon-go o bén-kyo-o chi-ma-sou",
+      "native": "j'étudie le japonais"
+     },
+     "study": "夜は日本語を勉強します。",
+     "phon": "yo-rou wa ni-hon-go o bén-kyo-o chi-ma-sou",
+     "native": "Le soir, j'étudie le japonais.",
+     "reading": "よるはにほんごをべんきょうします。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-ja-04",
+   "situation": "Famille : dire qui on a",
+   "model": {
+    "study": "{s}います。",
+    "reading": "{s}います。",
+    "phon": "{s} i-ma-sou",
+    "native": "J'ai {s}.",
+    "note": "います pour les êtres vivants (あります pour les objets). Compteurs : 人 (personnes, 一人 / 二人 irréguliers), 匹 (petits animaux)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "兄が",
+      "reading": "あにが",
+      "phon": "a-ni ga",
+      "native": "un grand frère"
+     },
+     "study": "兄がいます。",
+     "phon": "a-ni ga i-ma-sou",
+     "native": "J'ai un grand frère.",
+     "reading": "あにがいます。"
+    },
+    {
+     "slot": {
+      "study": "妹が",
+      "reading": "いもうとが",
+      "phon": "i-mo-o-to ga",
+      "native": "une petite sœur"
+     },
+     "study": "妹がいます。",
+     "phon": "i-mo-o-to ga i-ma-sou",
+     "native": "J'ai une petite sœur.",
+     "reading": "いもうとがいます。"
+    },
+    {
+     "slot": {
+      "study": "子供が二人",
+      "reading": "こどもがふたり",
+      "phon": "ko-do-mo ga fou-ta-ri",
+      "native": "deux enfants"
+     },
+     "study": "子供が二人います。",
+     "phon": "ko-do-mo ga fou-ta-ri i-ma-sou",
+     "native": "J'ai deux enfants.",
+     "reading": "こどもがふたりいます。"
+    },
+    {
+     "slot": {
+      "study": "犬が一匹",
+      "reading": "いぬがいっぴき",
+      "phon": "i-nou ga ip-pi-ki",
+      "native": "un chien"
+     },
+     "study": "犬が一匹います。",
+     "phon": "i-nou ga ip-pi-ki i-ma-sou",
+     "native": "J'ai un chien.",
+     "reading": "いぬがいっぴきいます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-ja-05",
+   "situation": "Dire où l'on habite",
+   "model": {
+    "study": "{s}に住んでいます。",
+    "reading": "{s}にすんでいます。",
+    "phon": "{s} ni soun-dé i-ma-sou",
+    "native": "J'habite {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "東京",
+      "reading": "とうきょう",
+      "phon": "to-o-kyo-o",
+      "native": "à Tokyo"
+     },
+     "study": "東京に住んでいます。",
+     "phon": "to-o-kyo-o ni soun-dé i-ma-sou",
+     "native": "J'habite à Tokyo.",
+     "reading": "とうきょうにすんでいます。"
+    },
+    {
+     "slot": {
+      "study": "パリ",
+      "reading": "ぱり",
+      "phon": "pa-ri",
+      "native": "à Paris"
+     },
+     "study": "パリに住んでいます。",
+     "phon": "pa-ri ni soun-dé i-ma-sou",
+     "native": "J'habite à Paris.",
+     "reading": "ぱりにすんでいます。"
+    },
+    {
+     "slot": {
+      "study": "駅の近く",
+      "reading": "えきのちかく",
+      "phon": "é-ki no tchi-ka-kou",
+      "native": "près de la gare"
+     },
+     "study": "駅の近くに住んでいます。",
+     "phon": "é-ki no tchi-ka-kou ni soun-dé i-ma-sou",
+     "native": "J'habite près de la gare.",
+     "reading": "えきのちかくにすんでいます。"
+    },
+    {
+     "slot": {
+      "study": "小さいアパート",
+      "reading": "ちいさいあぱーと",
+      "phon": "tchi-i-sa-i a-pa-a-to",
+      "native": "dans un petit appartement"
+     },
+     "study": "小さいアパートに住んでいます。",
+     "phon": "tchi-i-sa-i a-pa-a-to ni soun-dé i-ma-sou",
+     "native": "J'habite dans un petit appartement.",
+     "reading": "ちいさいあぱーとにすんでいます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-ja-06",
+   "situation": "Dire où l'on travaille",
+   "model": {
+    "study": "{s}で働いています。",
+    "reading": "{s}ではたらいています。",
+    "phon": "{s} dé ha-ta-ra-i-té i-ma-sou",
+    "native": "Je travaille {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "銀行",
+      "reading": "ぎんこう",
+      "phon": "gin-ko-o",
+      "native": "dans une banque"
+     },
+     "study": "銀行で働いています。",
+     "phon": "gin-ko-o dé ha-ta-ra-i-té i-ma-sou",
+     "native": "Je travaille dans une banque.",
+     "reading": "ぎんこうではたらいています。"
+    },
+    {
+     "slot": {
+      "study": "病院",
+      "reading": "びょういん",
+      "phon": "byo-o-in",
+      "native": "dans un hôpital"
+     },
+     "study": "病院で働いています。",
+     "phon": "byo-o-in dé ha-ta-ra-i-té i-ma-sou",
+     "native": "Je travaille dans un hôpital.",
+     "reading": "びょういんではたらいています。"
+    },
+    {
+     "slot": {
+      "study": "学校",
+      "reading": "がっこう",
+      "phon": "gak-ko-o",
+      "native": "dans une école"
+     },
+     "study": "学校で働いています。",
+     "phon": "gak-ko-o dé ha-ta-ra-i-té i-ma-sou",
+     "native": "Je travaille dans une école.",
+     "reading": "がっこうではたらいています。"
+    },
+    {
+     "slot": {
+      "study": "家",
+      "reading": "いえ",
+      "phon": "i-é",
+      "native": "à la maison"
+     },
+     "study": "家で働いています。",
+     "phon": "i-é dé ha-ta-ra-i-té i-ma-sou",
+     "native": "Je travaille à la maison.",
+     "reading": "いえではたらいています。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-ja-07",
+   "situation": "Dire ce qu'on étudie",
+   "model": {
+    "study": "{s}を勉強しています。",
+    "reading": "{s}をべんきょうしています。",
+    "phon": "{s} o bén-kyo-o chi-té i-ma-sou",
+    "native": "J'étudie {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "日本語",
+      "reading": "にほんご",
+      "phon": "ni-hon-go",
+      "native": "le japonais"
+     },
+     "study": "日本語を勉強しています。",
+     "phon": "ni-hon-go o bén-kyo-o chi-té i-ma-sou",
+     "native": "J'étudie le japonais.",
+     "reading": "にほんごをべんきょうしています。"
+    },
+    {
+     "slot": {
+      "study": "経済",
+      "reading": "けいざい",
+      "phon": "ké-i-za-i",
+      "native": "l'économie"
+     },
+     "study": "経済を勉強しています。",
+     "phon": "ké-i-za-i o bén-kyo-o chi-té i-ma-sou",
+     "native": "J'étudie l'économie.",
+     "reading": "けいざいをべんきょうしています。"
+    },
+    {
+     "slot": {
+      "study": "医学",
+      "reading": "いがく",
+      "phon": "i-ga-kou",
+      "native": "la médecine"
+     },
+     "study": "医学を勉強しています。",
+     "phon": "i-ga-kou o bén-kyo-o chi-té i-ma-sou",
+     "native": "J'étudie la médecine.",
+     "reading": "いがくをべんきょうしています。"
+    },
+    {
+     "slot": {
+      "study": "音楽",
+      "reading": "おんがく",
+      "phon": "on-ga-kou",
+      "native": "la musique"
+     },
+     "study": "音楽を勉強しています。",
+     "phon": "on-ga-kou o bén-kyo-o chi-té i-ma-sou",
+     "native": "J'étudie la musique.",
+     "reading": "おんがくをべんきょうしています。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-ja-08",
+   "situation": "Fréquence",
+   "model": {
+    "study": "{s}スポーツをします。",
+    "reading": "{s}すぽーつをします。",
+    "phon": "{s} sou-po-o-tsou o chi-ma-sou",
+    "native": "Je fais du sport {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "毎日",
+      "reading": "まいにち",
+      "phon": "ma-i-ni-tchi",
+      "native": "tous les jours"
+     },
+     "study": "毎日スポーツをします。",
+     "phon": "ma-i-ni-tchi sou-po-o-tsou o chi-ma-sou",
+     "native": "Je fais du sport tous les jours.",
+     "reading": "まいにちすぽーつをします。"
+    },
+    {
+     "slot": {
+      "study": "よく",
+      "reading": "よく",
+      "phon": "yo-kou",
+      "native": "souvent"
+     },
+     "study": "よくスポーツをします。",
+     "phon": "yo-kou sou-po-o-tsou o chi-ma-sou",
+     "native": "Je fais du sport souvent.",
+     "reading": "よくすぽーつをします。"
+    },
+    {
+     "slot": {
+      "study": "時々",
+      "reading": "ときどき",
+      "phon": "to-ki-do-ki",
+      "native": "parfois"
+     },
+     "study": "時々スポーツをします。",
+     "phon": "to-ki-do-ki sou-po-o-tsou o chi-ma-sou",
+     "native": "Je fais du sport parfois.",
+     "reading": "ときどきすぽーつをします。"
+    },
+    {
+     "slot": {
+      "study": "週末に",
+      "reading": "しゅうまつに",
+      "phon": "chou-ou-ma-tsou ni",
+      "native": "le week-end"
+     },
+     "study": "週末にスポーツをします。",
+     "phon": "chou-ou-ma-tsou ni sou-po-o-tsou o chi-ma-sou",
+     "native": "Je fais du sport le week-end.",
+     "reading": "しゅうまつにすぽーつをします。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-ja-09",
+   "situation": "Décrire son logement",
+   "model": {
+    "study": "家は{s}です。",
+    "reading": "いえは{s}です。",
+    "phon": "i-é wa {s} dé-sou",
+    "native": "Ma maison est {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "広い",
+      "reading": "ひろい",
+      "phon": "hi-ro-i",
+      "native": "grande"
+     },
+     "study": "家は広いです。",
+     "phon": "i-é wa hi-ro-i dé-sou",
+     "native": "Ma maison est grande.",
+     "reading": "いえはひろいです。"
+    },
+    {
+     "slot": {
+      "study": "静か",
+      "reading": "しずか",
+      "phon": "chi-zou-ka",
+      "native": "calme"
+     },
+     "study": "家は静かです。",
+     "phon": "i-é wa chi-zou-ka dé-sou",
+     "native": "Ma maison est calme.",
+     "reading": "いえはしずかです。"
+    },
+    {
+     "slot": {
+      "study": "駅から近い",
+      "reading": "えきからちかい",
+      "phon": "é-ki ka-ra tchi-ka-i",
+      "native": "près de la gare"
+     },
+     "study": "家は駅から近いです。",
+     "phon": "i-é wa é-ki ka-ra tchi-ka-i dé-sou",
+     "native": "Ma maison est près de la gare.",
+     "reading": "いえはえきからちかいです。"
+    },
+    {
+     "slot": {
+      "study": "新しい",
+      "reading": "あたらしい",
+      "phon": "a-ta-ra-chi-i",
+      "native": "neuve"
+     },
+     "study": "家は新しいです。",
+     "phon": "i-é wa a-ta-ra-chi-i dé-sou",
+     "native": "Ma maison est neuve.",
+     "reading": "いえはあたらしいです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-ja-10",
+   "situation": "Décrire son quartier",
+   "model": {
+    "study": "近くに{s}があります。",
+    "reading": "ちかくに{s}があります。",
+    "phon": "tchi-ka-kou ni {s} ga a-ri-ma-sou",
+    "native": "Il y a {s} près de chez moi."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "スーパー",
+      "reading": "すーぱー",
+      "phon": "sou-ou-pa-a",
+      "native": "un supermarché"
+     },
+     "study": "近くにスーパーがあります。",
+     "phon": "tchi-ka-kou ni sou-ou-pa-a ga a-ri-ma-sou",
+     "native": "Il y a un supermarché près de chez moi.",
+     "reading": "ちかくにすーぱーがあります。"
+    },
+    {
+     "slot": {
+      "study": "公園",
+      "reading": "こうえん",
+      "phon": "ko-o-én",
+      "native": "un parc"
+     },
+     "study": "近くに公園があります。",
+     "phon": "tchi-ka-kou ni ko-o-én ga a-ri-ma-sou",
+     "native": "Il y a un parc près de chez moi.",
+     "reading": "ちかくにこうえんがあります。"
+    },
+    {
+     "slot": {
+      "study": "コンビニ",
+      "reading": "こんびに",
+      "phon": "kon-bi-ni",
+      "native": "une supérette"
+     },
+     "study": "近くにコンビニがあります。",
+     "phon": "tchi-ka-kou ni kon-bi-ni ga a-ri-ma-sou",
+     "native": "Il y a une supérette près de chez moi.",
+     "reading": "ちかくにこんびにがあります。"
+    },
+    {
+     "slot": {
+      "study": "駅",
+      "reading": "えき",
+      "phon": "é-ki",
+      "native": "une gare"
+     },
+     "study": "近くに駅があります。",
+     "phon": "tchi-ka-kou ni é-ki ga a-ri-ma-sou",
+     "native": "Il y a une gare près de chez moi.",
+     "reading": "ちかくにえきがあります。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-ja-11",
+   "situation": "Loisirs : les jours de congé",
+   "model": {
+    "study": "休みの日は{s}。",
+    "reading": "やすみのひは{s}。",
+    "phon": "ya-sou-mi no hi wa {s}",
+    "native": "Les jours de congé, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "映画を見ます",
+      "reading": "えいがをみます",
+      "phon": "é-i-ga o mi-ma-sou",
+      "native": "je regarde des films"
+     },
+     "study": "休みの日は映画を見ます。",
+     "phon": "ya-sou-mi no hi wa é-i-ga o mi-ma-sou",
+     "native": "Les jours de congé, je regarde des films.",
+     "reading": "やすみのひはえいがをみます。"
+    },
+    {
+     "slot": {
+      "study": "料理をします",
+      "reading": "りょうりをします",
+      "phon": "ryo-o-ri o chi-ma-sou",
+      "native": "je cuisine"
+     },
+     "study": "休みの日は料理をします。",
+     "phon": "ya-sou-mi no hi wa ryo-o-ri o chi-ma-sou",
+     "native": "Les jours de congé, je cuisine.",
+     "reading": "やすみのひはりょうりをします。"
+    },
+    {
+     "slot": {
+      "study": "散歩をします",
+      "reading": "さんぽをします",
+      "phon": "san-po o chi-ma-sou",
+      "native": "je me promène"
+     },
+     "study": "休みの日は散歩をします。",
+     "phon": "ya-sou-mi no hi wa san-po o chi-ma-sou",
+     "native": "Les jours de congé, je me promène.",
+     "reading": "やすみのひはさんぽをします。"
+    },
+    {
+     "slot": {
+      "study": "友達に会います",
+      "reading": "ともだちにあいます",
+      "phon": "to-mo-da-tchi ni a-i-ma-sou",
+      "native": "je vois des amis"
+     },
+     "study": "休みの日は友達に会います。",
+     "phon": "ya-sou-mi no hi wa to-mo-da-tchi ni a-i-ma-sou",
+     "native": "Les jours de congé, je vois des amis.",
+     "reading": "やすみのひはともだちにあいます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-ja-12",
+   "situation": "Parler d'un proche",
+   "model": {
+    "study": "父は{s}です。",
+    "reading": "ちちは{s}です。",
+    "phon": "tchi-tchi wa {s} dé-sou",
+    "native": "Mon père est {s}.",
+    "note": "父 / 母 pour ses propres parents ; お父さん / お母さん pour ceux de l'autre."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "医者",
+      "reading": "いしゃ",
+      "phon": "i-cha",
+      "native": "médecin"
+     },
+     "study": "父は医者です。",
+     "phon": "tchi-tchi wa i-cha dé-sou",
+     "native": "Mon père est médecin.",
+     "reading": "ちちはいしゃです。"
+    },
+    {
+     "slot": {
+      "study": "先生",
+      "reading": "せんせい",
+      "phon": "sén-sé-i",
+      "native": "professeur"
+     },
+     "study": "父は先生です。",
+     "phon": "tchi-tchi wa sén-sé-i dé-sou",
+     "native": "Mon père est professeur.",
+     "reading": "ちちはせんせいです。"
+    },
+    {
+     "slot": {
+      "study": "元気",
+      "reading": "げんき",
+      "phon": "gén-ki",
+      "native": "en forme"
+     },
+     "study": "父は元気です。",
+     "phon": "tchi-tchi wa gén-ki dé-sou",
+     "native": "Mon père est en forme.",
+     "reading": "ちちはげんきです。"
+    },
+    {
+     "slot": {
+      "study": "六十歳",
+      "reading": "ろくじゅっさい",
+      "phon": "ro-kou-djous-sa-i",
+      "native": "soixante ans"
+     },
+     "study": "父は六十歳です。",
+     "phon": "tchi-tchi wa ro-kou-djous-sa-i dé-sou",
+     "native": "Mon père a soixante ans.",
+     "reading": "ちちはろくじゅっさいです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L4-fr-ja-d1",
+   "situation": "Parler de sa famille",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "田中さん、ご家族は何人ですか。",
+     "reading": "たなかさん、ごかぞくはなんにんですか。",
+     "phon": "ta-na-ka-san, go-ka-zo-kou wa nan-nin dé-sou ka",
+     "native": "Monsieur Tanaka, vous êtes combien dans votre famille ?"
+    },
+    {
+     "speaker": "B",
+     "study": "四人です。妻と子供が二人います。マリーさんは？",
+     "reading": "よにんです。つまとこどもがふたりいます。まりーさんは？",
+     "phon": "yo-nin dé-sou. tsou-ma to ko-do-mo ga fou-ta-ri i-ma-sou. ma-ri-i-san wa",
+     "native": "Quatre. J'ai ma femme et deux enfants. Et vous, Marie ?"
+    },
+    {
+     "speaker": "A",
+     "study": "私は兄が一人います。パリに住んでいます。",
+     "reading": "わたしはあにがひとりいます。ぱりにすんでいます。",
+     "phon": "wa-ta-chi wa a-ni ga hi-to-ri i-ma-sou. pa-ri ni soun-dé i-ma-sou",
+     "native": "Moi, j'ai un grand frère. Il habite à Paris."
+    },
+    {
+     "speaker": "B",
+     "study": "お兄さんの仕事は何ですか。",
+     "reading": "おにいさんのしごとはなんですか。",
+     "phon": "o-ni-i-san no chi-go-to wa nan dé-sou ka",
+     "native": "Que fait votre frère comme travail ?"
+    },
+    {
+     "speaker": "A",
+     "study": "銀行で働いています。",
+     "reading": "ぎんこうではたらいています。",
+     "phon": "gin-ko-o dé ha-ta-ra-i-té i-ma-sou",
+     "native": "Il travaille dans une banque."
+    },
+    {
+     "speaker": "B",
+     "study": "そうですか。ご両親は？",
+     "reading": "そうですか。ごりょうしんは？",
+     "phon": "so-o dé-sou ka. go-ryo-o-chin wa",
+     "native": "Ah bon. Et vos parents ?"
+    },
+    {
+     "speaker": "A",
+     "study": "両親はリヨンに住んでいます。父は医者です。",
+     "reading": "りょうしんはりよんにすんでいます。ちちはいしゃです。",
+     "phon": "ryo-o-chin wa ri-yon ni soun-dé i-ma-sou. tchi-tchi wa i-cha dé-sou",
+     "native": "Mes parents habitent à Lyon. Mon père est médecin."
+    },
+    {
+     "speaker": "B",
+     "study": "いいですね。",
+     "reading": "いいですね。",
+     "phon": "i-i dé-sou né",
+     "native": "C'est bien."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L4-fr-ja-01",
+    "L4-fr-ja-02",
+    "L4-fr-ja-03",
+    "L4-fr-ja-04"
+   ]
+  },
+  {
+   "id": "L4-fr-ja-d2",
+   "situation": "Une journée type",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "ポールさんは普段何時に起きますか。",
+     "reading": "ぽーるさんはふだんなんじにおきますか。",
+     "phon": "po-o-rou-san wa fou-dan nan-dji ni o-ki-ma-sou ka",
+     "native": "Paul, à quelle heure vous levez-vous d'habitude ?"
+    },
+    {
+     "speaker": "B",
+     "study": "七時に起きます。朝はコーヒーを飲みます。",
+     "reading": "しちじにおきます。あさはこーひーをのみます。",
+     "phon": "chi-tchi-dji ni o-ki-ma-sou. a-sa wa ko-o-hi-i o no-mi-ma-sou",
+     "native": "Je me lève à sept heures. Le matin, je bois un café."
+    },
+    {
+     "speaker": "A",
+     "study": "会社にはどうやって行きますか。",
+     "reading": "かいしゃにはどうやっていきますか。",
+     "phon": "ka-i-cha ni wa do-o yat-té i-ki-ma-sou ka",
+     "native": "Comment allez-vous au travail ?"
+    },
+    {
+     "speaker": "B",
+     "study": "電車で行きます。三十分ぐらいです。",
+     "reading": "でんしゃでいきます。さんじゅっぷんぐらいです。",
+     "phon": "dén-cha dé i-ki-ma-sou. san-djoup-poun gou-ra-i dé-sou",
+     "native": "J'y vais en train. Environ trente minutes."
+    },
+    {
+     "speaker": "A",
+     "study": "夜は何をしますか。",
+     "reading": "よるはなにをしますか。",
+     "phon": "yo-rou wa na-ni o chi-ma-sou ka",
+     "native": "Que faites-vous le soir ?"
+    },
+    {
+     "speaker": "B",
+     "study": "家で晩ご飯を食べて、日本語を勉強します。",
+     "reading": "いえでばんごはんをたべて、にほんごをべんきょうします。",
+     "phon": "i-é dé ban-go-han o ta-bé-té, ni-hon-go o bén-kyo-o chi-ma-sou",
+     "native": "Je dîne à la maison, puis j'étudie le japonais."
+    },
+    {
+     "speaker": "A",
+     "study": "毎日ですか。",
+     "reading": "まいにちですか。",
+     "phon": "ma-i-ni-tchi dé-sou ka",
+     "native": "Tous les jours ?"
+    },
+    {
+     "speaker": "B",
+     "study": "いいえ、時々です。週末はよく映画を見ます。",
+     "reading": "いいえ、ときどきです。しゅうまつはよくえいがをみます。",
+     "phon": "i-i-é, to-ki-do-ki dé-sou. chou-ou-ma-tsou wa yo-kou é-i-ga o mi-ma-sou",
+     "native": "Non, parfois. Le week-end, je regarde souvent des films."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L4-fr-ja-01",
+    "L4-fr-ja-02",
+    "L4-fr-ja-03",
+    "L4-fr-ja-04"
+   ]
+  },
+  {
+   "id": "L4-fr-ja-d3",
+   "situation": "Mon quartier",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "マリーさんはどこに住んでいますか。",
+     "reading": "まりーさんはどこにすんでいますか。",
+     "phon": "ma-ri-i-san wa do-ko ni soun-dé i-ma-sou ka",
+     "native": "Marie, où habitez-vous ?"
+    },
+    {
+     "speaker": "B",
+     "study": "駅の近くの小さいアパートに住んでいます。",
+     "reading": "えきのちかくのちいさいあぱーとにすんでいます。",
+     "phon": "é-ki no tchi-ka-kou no tchi-i-sa-i a-pa-a-to ni soun-dé i-ma-sou",
+     "native": "J'habite dans un petit appartement près de la gare."
+    },
+    {
+     "speaker": "A",
+     "study": "便利ですね。近くに何がありますか。",
+     "reading": "べんりですね。ちかくになにがありますか。",
+     "phon": "bén-ri dé-sou né. tchi-ka-kou ni na-ni ga a-ri-ma-sou ka",
+     "native": "C'est pratique. Qu'y a-t-il près de chez vous ?"
+    },
+    {
+     "speaker": "B",
+     "study": "スーパーとコンビニと公園があります。",
+     "reading": "すーぱーとこんびにとこうえんがあります。",
+     "phon": "sou-ou-pa-a to kon-bi-ni to ko-o-én ga a-ri-ma-sou",
+     "native": "Il y a un supermarché, une supérette et un parc."
+    },
+    {
+     "speaker": "A",
+     "study": "静かですか。",
+     "reading": "しずかですか。",
+     "phon": "chi-zou-ka dé-sou ka",
+     "native": "C'est calme ?"
+    },
+    {
+     "speaker": "B",
+     "study": "はい、とても静かです。休みの日は公園を散歩します。",
+     "reading": "はい、とてもしずかです。やすみのひはこうえんをさんぽします。",
+     "phon": "ha-i, to-té-mo chi-zou-ka dé-sou. ya-sou-mi no hi wa ko-o-én o san-po chi-ma-sou",
+     "native": "Oui, très calme. Les jours de congé, je me promène dans le parc."
+    },
+    {
+     "speaker": "A",
+     "study": "いいですね。私も散歩が好きです。",
+     "reading": "いいですね。わたしもさんぽがすきです。",
+     "phon": "i-i dé-sou né. wa-ta-chi mo san-po ga sou-ki dé-sou",
+     "native": "C'est bien. Moi aussi, j'aime me promener."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L4-fr-ja-01",
+    "L4-fr-ja-02",
+    "L4-fr-ja-03",
+    "L4-fr-ja-04"
+   ]
+  }
+ ],
+ "readiness": "Décrire ses habitudes avec la fréquence (毎日, よく, 時々), sa journée (朝は, 夜は), sa famille avec les compteurs de personnes (一人, 二人), son logement et son quartier, et dire où l'on travaille (で働いています) ou ce qu'on étudie (を勉強しています)."
+}

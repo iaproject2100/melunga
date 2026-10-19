@@ -1,0 +1,952 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "en",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en anglais",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; th→z/th, h aspiré noté h, -ing→-ing). Anglais britannique standard. Ne remplace pas l'audio.",
+ "reviewStatus": "Rédigé à la main ; relecture par un anglophone conseillée.",
+ "coverageClaim": null,
+ "level": 3,
+ "title": "Échanger",
+ "goal": "Poser des questions, répondre et relancer un échange court.",
+ "reviewPreviousLevels": [
+  1,
+  2
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L3-fr-en-01",
+   "situation": "Demander un service",
+   "model": {
+    "study": "Can you {s}?",
+    "phon": "kann you {s}",
+    "native": "Vous pouvez {s} ?",
+    "note": "« Can you » vaut pour « tu peux » comme pour « vous pouvez » : l'anglais ne distingue pas."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "help me",
+      "phon": "HÈLP mi",
+      "native": "m'aider"
+     },
+     "study": "Can you help me?",
+     "phon": "kann you HÈLP mi",
+     "native": "Vous pouvez m'aider ?"
+    },
+    {
+     "slot": {
+      "study": "speak slowly",
+      "phon": "SPIK SLÔ-li",
+      "native": "parler lentement"
+     },
+     "study": "Can you speak slowly?",
+     "phon": "kann you SPIK SLÔ-li",
+     "native": "Vous pouvez parler lentement ?"
+    },
+    {
+     "slot": {
+      "study": "write it down",
+      "phon": "RAÏT it DAÔN",
+      "native": "l'écrire"
+     },
+     "study": "Can you write it down?",
+     "phon": "kann you RAÏT it DAÔN",
+     "native": "Vous pouvez l'écrire ?"
+    },
+    {
+     "slot": {
+      "study": "call me later",
+      "phon": "KOL mi LÉÏ-teur",
+      "native": "m'appeler plus tard"
+     },
+     "study": "Can you call me later?",
+     "phon": "kann you KOL mi LÉÏ-teur",
+     "native": "Vous pouvez m'appeler plus tard ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-en-02",
+   "situation": "Question ouverte",
+   "model": {
+    "study": "What do you {s}?",
+    "phon": "ouot dou you {s}",
+    "native": "Qu'est-ce que tu {s} ?",
+    "note": "Tutoiement dans la traduction : entre amis ou collègues proches."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "do",
+      "phon": "DOU",
+      "native": "fais"
+     },
+     "study": "What do you do?",
+     "phon": "ouot dou you DOU",
+     "native": "Qu'est-ce que tu fais dans la vie ?"
+    },
+    {
+     "slot": {
+      "study": "want",
+      "phon": "WONT",
+      "native": "veux"
+     },
+     "study": "What do you want?",
+     "phon": "ouot dou you WONT",
+     "native": "Qu'est-ce que tu veux ?"
+    },
+    {
+     "slot": {
+      "study": "need",
+      "phon": "NID",
+      "native": "as besoin"
+     },
+     "study": "What do you need?",
+     "phon": "ouot dou you NID",
+     "native": "De quoi as-tu besoin ?"
+    },
+    {
+     "slot": {
+      "study": "think",
+      "phon": "THINK",
+      "native": "en penses"
+     },
+     "study": "What do you think?",
+     "phon": "ouot dou you THINK",
+     "native": "Qu'est-ce que tu en penses ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-en-03",
+   "situation": "Relancer",
+   "model": {
+    "study": "I'm {s}. And you?",
+    "phon": "aïm {s}. and YOU",
+    "native": "Je suis {s}. Et vous ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "from Lyon",
+      "phon": "from li-ONN",
+      "native": "de Lyon"
+     },
+     "study": "I'm from Lyon. And you?",
+     "phon": "aïm from li-ONN. and YOU",
+     "native": "Je suis de Lyon. Et vous ?"
+    },
+    {
+     "slot": {
+      "study": "a teacher",
+      "phon": "eu TI-tcheur",
+      "native": "professeur"
+     },
+     "study": "I'm a teacher. And you?",
+     "phon": "aïm eu TI-tcheur. and YOU",
+     "native": "Je suis professeur. Et vous ?"
+    },
+    {
+     "slot": {
+      "study": "here for work",
+      "phon": "HIR for WEURK",
+      "native": "ici pour le travail"
+     },
+     "study": "I'm here for work. And you?",
+     "phon": "aïm HIR for WEURK. and YOU",
+     "native": "Je suis ici pour le travail. Et vous ?"
+    },
+    {
+     "slot": {
+      "study": "fine",
+      "phon": "FAÏN",
+      "native": "en forme"
+     },
+     "study": "I'm fine. And you?",
+     "phon": "aïm FAÏN. and YOU",
+     "native": "Je vais bien. Et vous ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-en-04",
+   "situation": "Se dépanner",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Formules entières à connaître telles quelles pour ne pas perdre le fil."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "I don't understand. Can you repeat?",
+      "phon": "aï dônt eun-deur-STAND. kann you ri-PIT",
+      "native": "Je ne comprends pas. Vous pouvez répéter ?"
+     },
+     "study": "I don't understand. Can you repeat?",
+     "phon": "aï dônt eun-deur-STAND. kann you ri-PIT",
+     "native": "Je ne comprends pas. Vous pouvez répéter ?"
+    },
+    {
+     "slot": {
+      "study": "Sorry, what does that mean?",
+      "phon": "SO-ri, ouot deuz zat MIN",
+      "native": "Pardon, qu'est-ce que ça veut dire ?"
+     },
+     "study": "Sorry, what does that mean?",
+     "phon": "SO-ri, ouot deuz zat MIN",
+     "native": "Pardon, qu'est-ce que ça veut dire ?"
+    },
+    {
+     "slot": {
+      "study": "Can you say that again, slowly?",
+      "phon": "kann you SÉÏ zat eu-GUÈNN, SLÔ-li",
+      "native": "Vous pouvez redire ça, lentement ?"
+     },
+     "study": "Can you say that again, slowly?",
+     "phon": "kann you SÉÏ zat eu-GUÈNN, SLÔ-li",
+     "native": "Vous pouvez redire ça, lentement ?"
+    },
+    {
+     "slot": {
+      "study": "How do you say « merci » in English?",
+      "phon": "HAÔ dou you SÉÏ « merci » inn ING-glich",
+      "native": "Comment dit-on « merci » en anglais ?"
+     },
+     "study": "How do you say « merci » in English?",
+     "phon": "HAÔ dou you SÉÏ « merci » inn ING-glich",
+     "native": "Comment dit-on « merci » en anglais ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-en-05",
+   "situation": "Proposer",
+   "model": {
+    "study": "Shall we {s}?",
+    "phon": "chal oui {s}",
+    "native": "On {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "have a coffee",
+      "phon": "HAV eu KO-fi",
+      "native": "prend un café"
+     },
+     "study": "Shall we have a coffee?",
+     "phon": "chal oui HAV eu KO-fi",
+     "native": "On prend un café ?"
+    },
+    {
+     "slot": {
+      "study": "go",
+      "phon": "GÔ",
+      "native": "y va"
+     },
+     "study": "Shall we go?",
+     "phon": "chal oui GÔ",
+     "native": "On y va ?"
+    },
+    {
+     "slot": {
+      "study": "eat here",
+      "phon": "IT HIR",
+      "native": "mange ici"
+     },
+     "study": "Shall we eat here?",
+     "phon": "chal oui IT HIR",
+     "native": "On mange ici ?"
+    },
+    {
+     "slot": {
+      "study": "start",
+      "phon": "START",
+      "native": "commence"
+     },
+     "study": "Shall we start?",
+     "phon": "chal oui START",
+     "native": "On commence ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-en-06",
+   "situation": "Accepter, refuser",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Réponses courtes pour accepter, décliner ou gagner du temps."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Yes, sure.",
+      "phon": "YÈS, CHOUR",
+      "native": "Oui, d'accord."
+     },
+     "study": "Yes, sure.",
+     "phon": "YÈS, CHOUR",
+     "native": "Oui, d'accord."
+    },
+    {
+     "slot": {
+      "study": "No, thanks.",
+      "phon": "NÔ, THANKS",
+      "native": "Non, merci."
+     },
+     "study": "No, thanks.",
+     "phon": "NÔ, THANKS",
+     "native": "Non, merci."
+    },
+    {
+     "slot": {
+      "study": "I don't know.",
+      "phon": "aï dônt NÔ",
+      "native": "Je ne sais pas."
+     },
+     "study": "I don't know.",
+     "phon": "aï dônt NÔ",
+     "native": "Je ne sais pas."
+    },
+    {
+     "slot": {
+      "study": "Sorry, I can't.",
+      "phon": "SO-ri, aï KANT",
+      "native": "Désolé(e), je ne peux pas."
+     },
+     "study": "Sorry, I can't.",
+     "phon": "SO-ri, aï KANT",
+     "native": "Désolé(e), je ne peux pas."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-en-07",
+   "situation": "Question fermée",
+   "model": {
+    "study": "Do you {s}?",
+    "phon": "dou you {s}",
+    "native": "Est-ce que vous {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "speak English",
+      "phon": "SPIK ING-glich",
+      "native": "parlez anglais"
+     },
+     "study": "Do you speak English?",
+     "phon": "dou you SPIK ING-glich",
+     "native": "Est-ce que vous parlez anglais ?"
+    },
+    {
+     "slot": {
+      "study": "live here",
+      "phon": "LIV HIR",
+      "native": "habitez ici"
+     },
+     "study": "Do you live here?",
+     "phon": "dou you LIV HIR",
+     "native": "Est-ce que vous habitez ici ?"
+    },
+    {
+     "slot": {
+      "study": "have children",
+      "phon": "HAV TCHIL-dreun",
+      "native": "avez des enfants"
+     },
+     "study": "Do you have children?",
+     "phon": "dou you HAV TCHIL-dreun",
+     "native": "Est-ce que vous avez des enfants ?"
+    },
+    {
+     "slot": {
+      "study": "like it",
+      "phon": "LAÏK it",
+      "native": "aimez ça"
+     },
+     "study": "Do you like it?",
+     "phon": "dou you LAÏK it",
+     "native": "Est-ce que vous aimez ça ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-en-08",
+   "situation": "Demander comment",
+   "model": {
+    "study": "How do you {s}?",
+    "phon": "HAÔ dou you {s}",
+    "native": "Comment {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "say that in English",
+      "phon": "SÉÏ zat inn ING-glich",
+      "native": "dit-on ça en anglais"
+     },
+     "study": "How do you say that in English?",
+     "phon": "HAÔ dou you SÉÏ zat inn ING-glich",
+     "native": "Comment dit-on ça en anglais ?"
+    },
+    {
+     "slot": {
+      "study": "spell it",
+      "phon": "SPÈL it",
+      "native": "ça s'écrit"
+     },
+     "study": "How do you spell it?",
+     "phon": "HAÔ dou you SPÈL it",
+     "native": "Comment ça s'écrit ?"
+    },
+    {
+     "slot": {
+      "study": "get to the centre",
+      "phon": "GÈT tou ze SÈN-teur",
+      "native": "va-t-on au centre"
+     },
+     "study": "How do you get to the centre?",
+     "phon": "HAÔ dou you GÈT tou ze SÈN-teur",
+     "native": "Comment va-t-on au centre ?"
+    },
+    {
+     "slot": {
+      "study": "pronounce it",
+      "phon": "preu-NAÔNSS it",
+      "native": "ça se prononce"
+     },
+     "study": "How do you pronounce it?",
+     "phon": "HAÔ dou you preu-NAÔNSS it",
+     "native": "Comment ça se prononce ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-en-09",
+   "situation": "Demander pourquoi",
+   "model": {
+    "study": "Why {s}?",
+    "phon": "OUAÏ {s}",
+    "native": "Pourquoi {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "not",
+      "phon": "NOT",
+      "native": "pas"
+     },
+     "study": "Why not?",
+     "phon": "OUAÏ NOT",
+     "native": "Pourquoi pas ?"
+    },
+    {
+     "slot": {
+      "study": "are you here",
+      "phon": "ar you HIR",
+      "native": "êtes-vous ici"
+     },
+     "study": "Why are you here?",
+     "phon": "OUAÏ ar you HIR",
+     "native": "Pourquoi êtes-vous ici ?"
+    },
+    {
+     "slot": {
+      "study": "is it closed",
+      "phon": "iz it KLÔZD",
+      "native": "c'est fermé"
+     },
+     "study": "Why is it closed?",
+     "phon": "OUAÏ iz it KLÔZD",
+     "native": "Pourquoi c'est fermé ?"
+    },
+    {
+     "slot": {
+      "study": "do you ask",
+      "phon": "dou you ASK",
+      "native": "demandez-vous"
+     },
+     "study": "Why do you ask?",
+     "phon": "OUAÏ dou you ASK",
+     "native": "Pourquoi demandez-vous ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-en-10",
+   "situation": "Au travail, premier contact",
+   "model": {
+    "study": "Nice to meet you, I'm {s}.",
+    "phon": "NAÏSS tou MIT you, aïm {s}",
+    "native": "Enchanté(e), je suis {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "the new engineer",
+      "phon": "ze NYOU èn-dji-NIR",
+      "native": "le nouvel ingénieur"
+     },
+     "study": "Nice to meet you, I'm the new engineer.",
+     "phon": "NAÏSS tou MIT you, aïm ze NYOU èn-dji-NIR",
+     "native": "Enchanté(e), je suis le nouvel ingénieur."
+    },
+    {
+     "slot": {
+      "study": "Mary, from the Paris office",
+      "phon": "MÈ-ri, from ze PA-riss O-fiss",
+      "native": "Marie, du bureau de Paris"
+     },
+     "study": "Nice to meet you, I'm Mary, from the Paris office.",
+     "phon": "NAÏSS tou MIT you, aïm MÈ-ri, from ze PA-riss O-fiss",
+     "native": "Enchanté(e), je suis Marie, du bureau de Paris."
+    },
+    {
+     "slot": {
+      "study": "here for the meeting",
+      "phon": "HIR for ze MI-ting",
+      "native": "ici pour la réunion"
+     },
+     "study": "Nice to meet you, I'm here for the meeting.",
+     "phon": "NAÏSS tou MIT you, aïm HIR for ze MI-ting",
+     "native": "Enchanté(e), je suis ici pour la réunion."
+    },
+    {
+     "slot": {
+      "study": "Paul's colleague",
+      "phon": "POLZ KO-lig",
+      "native": "le collègue de Paul"
+     },
+     "study": "Nice to meet you, I'm Paul's colleague.",
+     "phon": "NAÏSS tou MIT you, aïm POLZ KO-lig",
+     "native": "Enchanté(e), je suis le collègue de Paul."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-en-11",
+   "situation": "Démarches simples",
+   "model": {
+    "study": "I'd like to {s}.",
+    "phon": "aïd LAÏK tou {s}",
+    "native": "Je voudrais {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "open an account",
+      "phon": "Ô-peun eun eu-KAÔNT",
+      "native": "ouvrir un compte"
+     },
+     "study": "I'd like to open an account.",
+     "phon": "aïd LAÏK tou Ô-peun eun eu-KAÔNT",
+     "native": "Je voudrais ouvrir un compte."
+    },
+    {
+     "slot": {
+      "study": "make an appointment",
+      "phon": "MÉÏK eun eu-POÏNT-meunt",
+      "native": "prendre rendez-vous"
+     },
+     "study": "I'd like to make an appointment.",
+     "phon": "aïd LAÏK tou MÉÏK eun eu-POÏNT-meunt",
+     "native": "Je voudrais prendre rendez-vous."
+    },
+    {
+     "slot": {
+      "study": "register",
+      "phon": "RÈ-djis-teur",
+      "native": "m'inscrire"
+     },
+     "study": "I'd like to register.",
+     "phon": "aïd LAÏK tou RÈ-djis-teur",
+     "native": "Je voudrais m'inscrire."
+    },
+    {
+     "slot": {
+      "study": "ask a question",
+      "phon": "ASK eu KOUÈS-tcheun",
+      "native": "poser une question"
+     },
+     "study": "I'd like to ask a question.",
+     "phon": "aïd LAÏK tou ASK eu KOUÈS-tcheun",
+     "native": "Je voudrais poser une question."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-en-12",
+   "situation": "Au restaurant",
+   "model": {
+    "study": "Would you like {s}?",
+    "phon": "would you LAÏK {s}",
+    "native": "Vous voulez {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "some more",
+      "phon": "seum MOR",
+      "native": "encore un peu"
+     },
+     "study": "Would you like some more?",
+     "phon": "would you LAÏK seum MOR",
+     "native": "Vous voulez encore un peu ?"
+    },
+    {
+     "slot": {
+      "study": "a dessert",
+      "phon": "eu di-ZEURT",
+      "native": "un dessert"
+     },
+     "study": "Would you like a dessert?",
+     "phon": "would you LAÏK eu di-ZEURT",
+     "native": "Vous voulez un dessert ?"
+    },
+    {
+     "slot": {
+      "study": "something to drink",
+      "phon": "SEUM-thing tou DRINK",
+      "native": "quelque chose à boire"
+     },
+     "study": "Would you like something to drink?",
+     "phon": "would you LAÏK SEUM-thing tou DRINK",
+     "native": "Vous voulez quelque chose à boire ?"
+    },
+    {
+     "slot": {
+      "study": "the menu",
+      "phon": "ze MÈ-nyou",
+      "native": "la carte"
+     },
+     "study": "Would you like the menu?",
+     "phon": "would you LAÏK ze MÈ-nyou",
+     "native": "Vous voulez la carte ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L3-fr-en-d1",
+   "situation": "Premier jour au travail",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hi, I'm Paul. Nice to meet you.",
+     "phon": "HAÏ, aïm POL. NAÏSS tou MIT you",
+     "native": "Salut, je suis Paul. Enchanté."
+    },
+    {
+     "speaker": "B",
+     "study": "Nice to meet you. I'm Ana, the new engineer.",
+     "phon": "NAÏSS tou MIT you. aïm A-na, ze NYOU èn-dji-NIR",
+     "native": "Enchantée. Je suis Ana, la nouvelle ingénieure."
+    },
+    {
+     "speaker": "A",
+     "study": "Where are you from, Ana?",
+     "phon": "OUÈR ar you FROM, A-na",
+     "native": "D'où venez-vous, Ana ?"
+    },
+    {
+     "speaker": "B",
+     "study": "From Lyon. And you?",
+     "phon": "from li-ONN. and YOU",
+     "native": "De Lyon. Et vous ?"
+    },
+    {
+     "speaker": "A",
+     "study": "I'm from Manchester. Do you live here?",
+     "phon": "aïm from MANN-tchès-teur. dou you LIV HIR",
+     "native": "Je suis de Manchester. Vous habitez ici ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Yes, near the station. Sorry, can you speak slowly?",
+     "phon": "YÈS, NIR ze STÉÏ-cheun. SO-ri, kann you SPIK SLÔ-li",
+     "native": "Oui, près de la gare. Pardon, vous pouvez parler lentement ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Of course. Shall we have a coffee?",
+     "phon": "ov KORSS. chal oui HAV eu KO-fi",
+     "native": "Bien sûr. On prend un café ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Yes, sure!",
+     "phon": "YÈS, CHOUR",
+     "native": "Oui, d'accord !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L3-fr-en-01",
+    "L3-fr-en-02",
+    "L3-fr-en-03",
+    "L3-fr-en-04"
+   ]
+  },
+  {
+   "id": "L3-fr-en-d2",
+   "situation": "Au restaurant entre amis",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "What do you want?",
+     "phon": "ouot dou you WONT",
+     "native": "Qu'est-ce que tu veux ?"
+    },
+    {
+     "speaker": "B",
+     "study": "I don't know. What is « pie »?",
+     "phon": "aï dônt NÔ. ouot iz PAÏ",
+     "native": "Je ne sais pas. C'est quoi, « pie » ?"
+    },
+    {
+     "speaker": "A",
+     "study": "It's like a tart. Do you like meat?",
+     "phon": "its laïk eu TART. dou you LAÏK MIT",
+     "native": "C'est comme une tourte. Tu aimes la viande ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Not really. I prefer fish.",
+     "phon": "not RI-li. aï pri-FEUR FICH",
+     "native": "Pas vraiment. Je préfère le poisson."
+    },
+    {
+     "speaker": "A",
+     "study": "Then the fish and chips. Would you like something to drink?",
+     "phon": "ZÈN ze FICH and TCHIPS. would you LAÏK SEUM-thing tou DRINK",
+     "native": "Alors le fish and chips. Tu veux quelque chose à boire ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Some water, please. And you?",
+     "phon": "seum WO-teur, PLIZ. and YOU",
+     "native": "De l'eau, s'il te plaît. Et toi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "A tea. Shall we order?",
+     "phon": "eu TI. chal oui OR-deur",
+     "native": "Un thé. On commande ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Yes, sure.",
+     "phon": "YÈS, CHOUR",
+     "native": "Oui, d'accord."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L3-fr-en-01",
+    "L3-fr-en-02",
+    "L3-fr-en-03",
+    "L3-fr-en-04"
+   ]
+  },
+  {
+   "id": "L3-fr-en-d3",
+   "situation": "Une inscription",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hello. I'd like to register, please.",
+     "phon": "hè-LÔ. aïd LAÏK tou RÈ-djis-teur, PLIZ",
+     "native": "Bonjour. Je voudrais m'inscrire, s'il vous plaît."
+    },
+    {
+     "speaker": "B",
+     "study": "Of course. What's your name?",
+     "phon": "ov KORSS. ouots yor NÉÏM",
+     "native": "Bien sûr. Quel est votre nom ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Mary Durand.",
+     "phon": "MÈ-ri dou-RAND",
+     "native": "Mary Durand."
+    },
+    {
+     "speaker": "B",
+     "study": "How do you spell it?",
+     "phon": "HAÔ dou you SPÈL it",
+     "native": "Comment ça s'écrit ?"
+    },
+    {
+     "speaker": "A",
+     "study": "D-U-R-A-N-D.",
+     "phon": "DI-YOU-AR-ÉÏ-ÈN-DI",
+     "native": "D-U-R-A-N-D."
+    },
+    {
+     "speaker": "B",
+     "study": "Thanks. Do you have your passport?",
+     "phon": "THANKS. dou you HAV yor PASS-port",
+     "native": "Merci. Vous avez votre passeport ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sorry, I don't understand. Can you repeat?",
+     "phon": "SO-ri, aï dônt eun-deur-STAND. kann you ri-PIT",
+     "native": "Pardon, je ne comprends pas. Vous pouvez répéter ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Your passport, please.",
+     "phon": "yor PASS-port, PLIZ",
+     "native": "Votre passeport, s'il vous plaît."
+    },
+    {
+     "speaker": "A",
+     "study": "Ah, yes. Here you are.",
+     "phon": "A, YÈS. HIR you AR",
+     "native": "Ah, oui. Voilà."
+    },
+    {
+     "speaker": "B",
+     "study": "Perfect, thank you.",
+     "phon": "PEUR-fikt, THANK you",
+     "native": "Parfait, merci."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L3-fr-en-01",
+    "L3-fr-en-02",
+    "L3-fr-en-03",
+    "L3-fr-en-04"
+   ]
+  }
+ ],
+ "readiness": "L'apprenant pose une question fermée ou ouverte, y répond, relance avec « And you? », demande de répéter ou de parler lentement et propose ou décline poliment une activité."
+}

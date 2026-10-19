@@ -1,0 +1,1015 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "en",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en anglais",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; th→z/th, h aspiré noté h, -ing→-ing). Anglais britannique standard. Ne remplace pas l'audio.",
+ "reviewStatus": "Rédigé à la main ; relecture par un anglophone conseillée.",
+ "coverageClaim": null,
+ "level": 4,
+ "title": "Mon quotidien",
+ "goal": "Décrire son quotidien, ses habitudes et son entourage.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L4-fr-en-01",
+   "situation": "Habitudes",
+   "model": {
+    "study": "I usually {s}.",
+    "phon": "aï YOU-jou-eu-li {s}",
+    "native": "D'habitude, je {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "get up at seven",
+      "phon": "GÈT EUP at SÈ-veun",
+      "native": "me lève à sept heures"
+     },
+     "study": "I usually get up at seven.",
+     "phon": "aï YOU-jou-eu-li GÈT EUP at SÈ-veun",
+     "native": "D'habitude, je me lève à sept heures."
+    },
+    {
+     "slot": {
+      "study": "work from home",
+      "phon": "WEURK from HÔM",
+      "native": "travaille à la maison"
+     },
+     "study": "I usually work from home.",
+     "phon": "aï YOU-jou-eu-li WEURK from HÔM",
+     "native": "D'habitude, je travaille à la maison."
+    },
+    {
+     "slot": {
+      "study": "cook in the evening",
+      "phon": "KOUK inn zi IV-ning",
+      "native": "cuisine le soir"
+     },
+     "study": "I usually cook in the evening.",
+     "phon": "aï YOU-jou-eu-li KOUK inn zi IV-ning",
+     "native": "D'habitude, je cuisine le soir."
+    },
+    {
+     "slot": {
+      "study": "take the bus",
+      "phon": "TÉÏK ze BEUSS",
+      "native": "prends le bus"
+     },
+     "study": "I usually take the bus.",
+     "phon": "aï YOU-jou-eu-li TÉÏK ze BEUSS",
+     "native": "D'habitude, je prends le bus."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-en-02",
+   "situation": "Le matin",
+   "model": {
+    "study": "In the morning, I {s}.",
+    "phon": "inn ze MOR-ning, aï {s}",
+    "native": "Le matin, je {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "have breakfast with my kids",
+      "phon": "HAV BRÈK-feust ouiz maï KIDZ",
+      "native": "prends le petit-déjeuner avec mes enfants"
+     },
+     "study": "In the morning, I have breakfast with my kids.",
+     "phon": "inn ze MOR-ning, aï HAV BRÈK-feust ouiz maï KIDZ",
+     "native": "Le matin, je prends le petit-déjeuner avec mes enfants."
+    },
+    {
+     "slot": {
+      "study": "go for a run",
+      "phon": "GÔ for eu REUNN",
+      "native": "vais courir"
+     },
+     "study": "In the morning, I go for a run.",
+     "phon": "inn ze MOR-ning, aï GÔ for eu REUNN",
+     "native": "Le matin, je vais courir."
+    },
+    {
+     "slot": {
+      "study": "check my emails",
+      "phon": "TCHÈK maï I-méïlz",
+      "native": "regarde mes e-mails"
+     },
+     "study": "In the morning, I check my emails.",
+     "phon": "inn ze MOR-ning, aï TCHÈK maï I-méïlz",
+     "native": "Le matin, je regarde mes e-mails."
+    },
+    {
+     "slot": {
+      "study": "drink a big coffee",
+      "phon": "DRINK eu BIG KO-fi",
+      "native": "bois un grand café"
+     },
+     "study": "In the morning, I drink a big coffee.",
+     "phon": "inn ze MOR-ning, aï DRINK eu BIG KO-fi",
+     "native": "Le matin, je bois un grand café."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-en-03",
+   "situation": "Le soir",
+   "model": {
+    "study": "In the evening, I {s}.",
+    "phon": "inn zi IV-ning, aï {s}",
+    "native": "Le soir, je {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "watch TV",
+      "phon": "OUOTCH ti-VI",
+      "native": "regarde la télé"
+     },
+     "study": "In the evening, I watch TV.",
+     "phon": "inn zi IV-ning, aï OUOTCH ti-VI",
+     "native": "Le soir, je regarde la télé."
+    },
+    {
+     "slot": {
+      "study": "read a bit",
+      "phon": "RID eu BIT",
+      "native": "lis un peu"
+     },
+     "study": "In the evening, I read a bit.",
+     "phon": "inn zi IV-ning, aï RID eu BIT",
+     "native": "Le soir, je lis un peu."
+    },
+    {
+     "slot": {
+      "study": "call my parents",
+      "phon": "KOL maï PÈ-reunts",
+      "native": "appelle mes parents"
+     },
+     "study": "In the evening, I call my parents.",
+     "phon": "inn zi IV-ning, aï KOL maï PÈ-reunts",
+     "native": "Le soir, je appelle mes parents."
+    },
+    {
+     "slot": {
+      "study": "go to bed early",
+      "phon": "GÔ tou BÈD EUR-li",
+      "native": "me couche tôt"
+     },
+     "study": "In the evening, I go to bed early.",
+     "phon": "inn zi IV-ning, aï GÔ tou BÈD EUR-li",
+     "native": "Le soir, je me couche tôt."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-en-04",
+   "situation": "Famille",
+   "model": {
+    "study": "I have {s}.",
+    "phon": "aï HAV {s}",
+    "native": "J'ai {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a brother and a sister",
+      "phon": "eu BREU-zeur and eu SIS-teur",
+      "native": "un frère et une sœur"
+     },
+     "study": "I have a brother and a sister.",
+     "phon": "aï HAV eu BREU-zeur and eu SIS-teur",
+     "native": "J'ai un frère et une sœur."
+    },
+    {
+     "slot": {
+      "study": "two kids",
+      "phon": "TOU KIDZ",
+      "native": "deux enfants"
+     },
+     "study": "I have two kids.",
+     "phon": "aï HAV TOU KIDZ",
+     "native": "J'ai deux enfants."
+    },
+    {
+     "slot": {
+      "study": "a big family",
+      "phon": "eu BIG FA-mi-li",
+      "native": "une grande famille"
+     },
+     "study": "I have a big family.",
+     "phon": "aï HAV eu BIG FA-mi-li",
+     "native": "J'ai une grande famille."
+    },
+    {
+     "slot": {
+      "study": "a dog",
+      "phon": "eu DOG",
+      "native": "un chien"
+     },
+     "study": "I have a dog.",
+     "phon": "aï HAV eu DOG",
+     "native": "J'ai un chien."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-en-05",
+   "situation": "Logement",
+   "model": {
+    "study": "I live {s}.",
+    "phon": "aï LIV {s}",
+    "native": "J'habite {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "in Valencia",
+      "phon": "inn va-LÈN-si-a",
+      "native": "à Valence"
+     },
+     "study": "I live in Valencia.",
+     "phon": "aï LIV inn va-LÈN-si-a",
+     "native": "J'habite à Valence."
+    },
+    {
+     "slot": {
+      "study": "in a flat",
+      "phon": "inn eu FLAT",
+      "native": "dans un appartement"
+     },
+     "study": "I live in a flat.",
+     "phon": "aï LIV inn eu FLAT",
+     "native": "J'habite dans un appartement."
+    },
+    {
+     "slot": {
+      "study": "with my family",
+      "phon": "ouiz maï FA-mi-li",
+      "native": "avec ma famille"
+     },
+     "study": "I live with my family.",
+     "phon": "aï LIV ouiz maï FA-mi-li",
+     "native": "J'habite avec ma famille."
+    },
+    {
+     "slot": {
+      "study": "near the centre",
+      "phon": "NIR ze SÈN-teur",
+      "native": "près du centre"
+     },
+     "study": "I live near the centre.",
+     "phon": "aï LIV NIR ze SÈN-teur",
+     "native": "J'habite près du centre."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-en-06",
+   "situation": "Travail",
+   "model": {
+    "study": "I work {s}.",
+    "phon": "aï WEURK {s}",
+    "native": "Je travaille {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "in a bank",
+      "phon": "inn eu BANK",
+      "native": "dans une banque"
+     },
+     "study": "I work in a bank.",
+     "phon": "aï WEURK inn eu BANK",
+     "native": "Je travaille dans une banque."
+    },
+    {
+     "slot": {
+      "study": "from home",
+      "phon": "from HÔM",
+      "native": "à la maison"
+     },
+     "study": "I work from home.",
+     "phon": "aï WEURK from HÔM",
+     "native": "Je travaille à la maison."
+    },
+    {
+     "slot": {
+      "study": "in a school",
+      "phon": "inn eu SKOUL",
+      "native": "dans une école"
+     },
+     "study": "I work in a school.",
+     "phon": "aï WEURK inn eu SKOUL",
+     "native": "Je travaille dans une école."
+    },
+    {
+     "slot": {
+      "study": "for a small company",
+      "phon": "for eu SMOL KEUM-peu-ni",
+      "native": "pour une petite entreprise"
+     },
+     "study": "I work for a small company.",
+     "phon": "aï WEURK for eu SMOL KEUM-peu-ni",
+     "native": "Je travaille pour une petite entreprise."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-en-07",
+   "situation": "Études",
+   "model": {
+    "study": "I study {s}.",
+    "phon": "aï STEU-di {s}",
+    "native": "J'étudie {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "English",
+      "phon": "ING-glich",
+      "native": "l'anglais"
+     },
+     "study": "I study English.",
+     "phon": "aï STEU-di ING-glich",
+     "native": "J'étudie l'anglais."
+    },
+    {
+     "slot": {
+      "study": "at university",
+      "phon": "at you-ni-VEUR-si-ti",
+      "native": "à l'université"
+     },
+     "study": "I study at university.",
+     "phon": "aï STEU-di at you-ni-VEUR-si-ti",
+     "native": "J'étudie à l'université."
+    },
+    {
+     "slot": {
+      "study": "business",
+      "phon": "BIZ-niss",
+      "native": "le commerce"
+     },
+     "study": "I study business.",
+     "phon": "aï STEU-di BIZ-niss",
+     "native": "J'étudie le commerce."
+    },
+    {
+     "slot": {
+      "study": "medicine",
+      "phon": "MÈD-sinn",
+      "native": "la médecine"
+     },
+     "study": "I study medicine.",
+     "phon": "aï STEU-di MÈD-sinn",
+     "native": "J'étudie la médecine."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-en-08",
+   "situation": "Fréquence",
+   "model": {
+    "study": "I go to the gym {s}.",
+    "phon": "aï GÔ tou ze DJIM {s}",
+    "native": "Je vais à la salle de sport {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "every day",
+      "phon": "ÈV-ri DÉÏ",
+      "native": "tous les jours"
+     },
+     "study": "I go to the gym every day.",
+     "phon": "aï GÔ tou ze DJIM ÈV-ri DÉÏ",
+     "native": "Je vais à la salle de sport tous les jours."
+    },
+    {
+     "slot": {
+      "study": "often",
+      "phon": "O-feun",
+      "native": "souvent"
+     },
+     "study": "I go to the gym often.",
+     "phon": "aï GÔ tou ze DJIM O-feun",
+     "native": "Je vais souvent à la salle de sport."
+    },
+    {
+     "slot": {
+      "study": "twice a week",
+      "phon": "TOUAÏSS eu OUIK",
+      "native": "deux fois par semaine"
+     },
+     "study": "I go to the gym twice a week.",
+     "phon": "aï GÔ tou ze DJIM TOUAÏSS eu OUIK",
+     "native": "Je vais à la salle de sport deux fois par semaine."
+    },
+    {
+     "slot": {
+      "study": "at the weekend",
+      "phon": "at ze ouik-ÈND",
+      "native": "le week-end"
+     },
+     "study": "I go to the gym at the weekend.",
+     "phon": "aï GÔ tou ze DJIM at ze ouik-ÈND",
+     "native": "Je vais à la salle de sport le week-end."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-en-09",
+   "situation": "Parfois",
+   "model": {
+    "study": "I sometimes {s}.",
+    "phon": "aï SEUM-taïmz {s}",
+    "native": "Parfois, je {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "eat out",
+      "phon": "IT AÔT",
+      "native": "mange au restaurant"
+     },
+     "study": "I sometimes eat out.",
+     "phon": "aï SEUM-taïmz IT AÔT",
+     "native": "Parfois, je mange au restaurant."
+    },
+    {
+     "slot": {
+      "study": "work late",
+      "phon": "WEURK LÉÏT",
+      "native": "travaille tard"
+     },
+     "study": "I sometimes work late.",
+     "phon": "aï SEUM-taïmz WEURK LÉÏT",
+     "native": "Parfois, je travaille tard."
+    },
+    {
+     "slot": {
+      "study": "walk to work",
+      "phon": "OUOK tou WEURK",
+      "native": "vais au travail à pied"
+     },
+     "study": "I sometimes walk to work.",
+     "phon": "aï SEUM-taïmz OUOK tou WEURK",
+     "native": "Parfois, je vais au travail à pied."
+    },
+    {
+     "slot": {
+      "study": "visit my grandmother",
+      "phon": "VI-zit maï GRAND-meu-zeur",
+      "native": "rends visite à ma grand-mère"
+     },
+     "study": "I sometimes visit my grandmother.",
+     "phon": "aï SEUM-taïmz VI-zit maï GRAND-meu-zeur",
+     "native": "Parfois, je rends visite à ma grand-mère."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-en-10",
+   "situation": "Quartier",
+   "model": {
+    "study": "My neighbourhood is {s}.",
+    "phon": "maï NÉÏ-beu-houd iz {s}",
+    "native": "Mon quartier est {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "quiet",
+      "phon": "KOUAÏ-eut",
+      "native": "calme"
+     },
+     "study": "My neighbourhood is quiet.",
+     "phon": "maï NÉÏ-beu-houd iz KOUAÏ-eut",
+     "native": "Mon quartier est calme."
+    },
+    {
+     "slot": {
+      "study": "very lively",
+      "phon": "VÈ-ri LAÏV-li",
+      "native": "très animé"
+     },
+     "study": "My neighbourhood is very lively.",
+     "phon": "maï NÉÏ-beu-houd iz VÈ-ri LAÏV-li",
+     "native": "Mon quartier est très animé."
+    },
+    {
+     "slot": {
+      "study": "close to the sea",
+      "phon": "KLÔSS tou ze SI",
+      "native": "près de la mer"
+     },
+     "study": "My neighbourhood is close to the sea.",
+     "phon": "maï NÉÏ-beu-houd iz KLÔSS tou ze SI",
+     "native": "Mon quartier est près de la mer."
+    },
+    {
+     "slot": {
+      "study": "full of shops",
+      "phon": "foul ov CHOPS",
+      "native": "plein de magasins"
+     },
+     "study": "My neighbourhood is full of shops.",
+     "phon": "maï NÉÏ-beu-houd iz foul ov CHOPS",
+     "native": "Mon quartier est plein de magasins."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-en-11",
+   "situation": "Les proches",
+   "model": {
+    "study": "{s} works in a hospital.",
+    "phon": "{s} WEURKS inn eu HOS-pi-teul",
+    "native": "{s} travaille dans un hôpital."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "My wife",
+      "phon": "maï OUAÏF",
+      "native": "Ma femme"
+     },
+     "study": "My wife works in a hospital.",
+     "phon": "maï OUAÏF WEURKS inn eu HOS-pi-teul",
+     "native": "Ma femme travaille dans un hôpital."
+    },
+    {
+     "slot": {
+      "study": "My husband",
+      "phon": "maï HEUZ-beund",
+      "native": "Mon mari"
+     },
+     "study": "My husband works in a hospital.",
+     "phon": "maï HEUZ-beund WEURKS inn eu HOS-pi-teul",
+     "native": "Mon mari travaille dans un hôpital."
+    },
+    {
+     "slot": {
+      "study": "My sister",
+      "phon": "maï SIS-teur",
+      "native": "Ma sœur"
+     },
+     "study": "My sister works in a hospital.",
+     "phon": "maï SIS-teur WEURKS inn eu HOS-pi-teul",
+     "native": "Ma sœur travaille dans un hôpital."
+    },
+    {
+     "slot": {
+      "study": "My son",
+      "phon": "maï SEUNN",
+      "native": "Mon fils"
+     },
+     "study": "My son works in a hospital.",
+     "phon": "maï SEUNN WEURKS inn eu HOS-pi-teul",
+     "native": "Mon fils travaille dans un hôpital."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-en-12",
+   "situation": "Loisirs",
+   "model": {
+    "study": "At the weekend, I {s}.",
+    "phon": "at ze ouik-ÈND, aï {s}",
+    "native": "Le week-end, je {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "play football",
+      "phon": "PLÉÏ FOUT-bol",
+      "native": "joue au foot"
+     },
+     "study": "At the weekend, I play football.",
+     "phon": "at ze ouik-ÈND, aï PLÉÏ FOUT-bol",
+     "native": "Le week-end, je joue au foot."
+    },
+    {
+     "slot": {
+      "study": "see my friends",
+      "phon": "SI maï FRÈNDZ",
+      "native": "vois mes amis"
+     },
+     "study": "At the weekend, I see my friends.",
+     "phon": "at ze ouik-ÈND, aï SI maï FRÈNDZ",
+     "native": "Le week-end, je vois mes amis."
+    },
+    {
+     "slot": {
+      "study": "go to the market",
+      "phon": "GÔ tou ze MAR-kit",
+      "native": "vais au marché"
+     },
+     "study": "At the weekend, I go to the market.",
+     "phon": "at ze ouik-ÈND, aï GÔ tou ze MAR-kit",
+     "native": "Le week-end, je vais au marché."
+    },
+    {
+     "slot": {
+      "study": "relax at home",
+      "phon": "ri-LAKS at HÔM",
+      "native": "me repose à la maison"
+     },
+     "study": "At the weekend, I relax at home.",
+     "phon": "at ze ouik-ÈND, aï ri-LAKS at HÔM",
+     "native": "Le week-end, je me repose à la maison."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-en-13",
+   "situation": "Décrire son logement",
+   "model": {
+    "study": "My flat has {s}.",
+    "phon": "maï FLAT haz {s}",
+    "native": "Mon appartement a {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "two bedrooms",
+      "phon": "TOU BÈD-roumz",
+      "native": "deux chambres"
+     },
+     "study": "My flat has two bedrooms.",
+     "phon": "maï FLAT haz TOU BÈD-roumz",
+     "native": "Mon appartement a deux chambres."
+    },
+    {
+     "slot": {
+      "study": "a small balcony",
+      "phon": "eu SMOL BAL-keu-ni",
+      "native": "un petit balcon"
+     },
+     "study": "My flat has a small balcony.",
+     "phon": "maï FLAT haz eu SMOL BAL-keu-ni",
+     "native": "Mon appartement a un petit balcon."
+    },
+    {
+     "slot": {
+      "study": "a big kitchen",
+      "phon": "eu BIG KI-tcheun",
+      "native": "une grande cuisine"
+     },
+     "study": "My flat has a big kitchen.",
+     "phon": "maï FLAT haz eu BIG KI-tcheun",
+     "native": "Mon appartement a une grande cuisine."
+    },
+    {
+     "slot": {
+      "study": "a view of the sea",
+      "phon": "eu VYOU ov ze SI",
+      "native": "une vue sur la mer"
+     },
+     "study": "My flat has a view of the sea.",
+     "phon": "maï FLAT haz eu VYOU ov ze SI",
+     "native": "Mon appartement a une vue sur la mer."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L4-fr-en-d1",
+   "situation": "Pause café entre collègues",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "What do you do, Ana?",
+     "phon": "ouot dou you DOU, A-na",
+     "native": "Qu'est-ce que tu fais dans la vie, Ana ?"
+    },
+    {
+     "speaker": "B",
+     "study": "I work in a bank. And you?",
+     "phon": "aï WEURK inn eu BANK. and YOU",
+     "native": "Je travaille dans une banque. Et toi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "I'm a teacher. I work in a school near here.",
+     "phon": "aïm eu TI-tcheur. aï WEURK inn eu SKOUL NIR HIR",
+     "native": "Je suis prof. Je travaille dans une école près d'ici."
+    },
+    {
+     "speaker": "B",
+     "study": "Do you live in the centre?",
+     "phon": "dou you LIV inn ze SÈN-teur",
+     "native": "Tu habites dans le centre ?"
+    },
+    {
+     "speaker": "A",
+     "study": "No, I live in a flat near the sea, with my family.",
+     "phon": "NÔ, aï LIV inn eu FLAT NIR ze SI, ouiz maï FA-mi-li",
+     "native": "Non, j'habite dans un appartement près de la mer, avec ma famille."
+    },
+    {
+     "speaker": "B",
+     "study": "Nice! Do you have children?",
+     "phon": "NAÏSS. dou you HAV TCHIL-dreun",
+     "native": "Super ! Tu as des enfants ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Yes, two kids. In the morning, I take them to school.",
+     "phon": "YÈS, TOU KIDZ. inn ze MOR-ning, aï TÉÏK zèm tou SKOUL",
+     "native": "Oui, deux enfants. Le matin, je les emmène à l'école."
+    },
+    {
+     "speaker": "B",
+     "study": "And in the evening?",
+     "phon": "and inn zi IV-ning",
+     "native": "Et le soir ?"
+    },
+    {
+     "speaker": "A",
+     "study": "I usually cook, then I read a bit.",
+     "phon": "aï YOU-jou-eu-li KOUK, zèn aï RID eu BIT",
+     "native": "D'habitude je cuisine, puis je lis un peu."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L4-fr-en-01",
+    "L4-fr-en-02",
+    "L4-fr-en-03",
+    "L4-fr-en-04"
+   ]
+  },
+  {
+   "id": "L4-fr-en-d2",
+   "situation": "Chez un ami",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Welcome! This is my flat.",
+     "phon": "OUÈL-keum. ZISS iz maï FLAT",
+     "native": "Bienvenue ! C'est mon appartement."
+    },
+    {
+     "speaker": "B",
+     "study": "It's lovely. Is it big?",
+     "phon": "its LEUV-li. iz it BIG",
+     "native": "Il est très joli. Il est grand ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Not really. It has two bedrooms and a small balcony.",
+     "phon": "not RI-li. it haz TOU BÈD-roumz and eu SMOL BAL-keu-ni",
+     "native": "Pas vraiment. Il a deux chambres et un petit balcon."
+    },
+    {
+     "speaker": "B",
+     "study": "And the neighbourhood?",
+     "phon": "and ze NÉÏ-beu-houd",
+     "native": "Et le quartier ?"
+    },
+    {
+     "speaker": "A",
+     "study": "It's quiet, but there's a market every Saturday.",
+     "phon": "its KOUAÏ-eut, beut zèrz eu MAR-kit ÈV-ri SA-teur-dé",
+     "native": "Il est calme, mais il y a un marché tous les samedis."
+    },
+    {
+     "speaker": "B",
+     "study": "Do you often go?",
+     "phon": "dou you O-feun GÔ",
+     "native": "Tu y vas souvent ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Every week. I like cooking at the weekend.",
+     "phon": "ÈV-ri OUIK. aï LAÏK KOU-king at ze ouik-ÈND",
+     "native": "Toutes les semaines. J'aime cuisiner le week-end."
+    },
+    {
+     "speaker": "B",
+     "study": "Me too! Shall we cook together on Saturday?",
+     "phon": "mi TOU. chal oui KOUK tou-GUÈ-zeur onn SA-teur-dé",
+     "native": "Moi aussi ! On cuisine ensemble samedi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Yes, sure!",
+     "phon": "YÈS, CHOUR",
+     "native": "Oui, d'accord !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L4-fr-en-01",
+    "L4-fr-en-02",
+    "L4-fr-en-03",
+    "L4-fr-en-04"
+   ]
+  },
+  {
+   "id": "L4-fr-en-d3",
+   "situation": "Parler de sa famille",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Do you have a big family, Paul?",
+     "phon": "dou you HAV eu BIG FA-mi-li, POL",
+     "native": "Tu as une grande famille, Paul ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Yes. I have a brother and two sisters.",
+     "phon": "YÈS. aï HAV eu BREU-zeur and TOU SIS-teurz",
+     "native": "Oui. J'ai un frère et deux sœurs."
+    },
+    {
+     "speaker": "A",
+     "study": "Do they live here?",
+     "phon": "dou zéï LIV HIR",
+     "native": "Ils habitent ici ?"
+    },
+    {
+     "speaker": "B",
+     "study": "My brother lives in London. My sisters live in Leeds, with my parents.",
+     "phon": "maï BREU-zeur LIVZ inn LEUN-deun. maï SIS-teurz LIV inn LIDZ, ouiz maï PÈ-reunts",
+     "native": "Mon frère habite à Londres. Mes sœurs habitent à Leeds, avec mes parents."
+    },
+    {
+     "speaker": "A",
+     "study": "What does your brother do?",
+     "phon": "ouot deuz yor BREU-zeur DOU",
+     "native": "Que fait ton frère ?"
+    },
+    {
+     "speaker": "B",
+     "study": "He's a doctor. He works in a hospital.",
+     "phon": "hiz eu DOK-teur. hi WEURKS inn eu HOS-pi-teul",
+     "native": "Il est médecin. Il travaille dans un hôpital."
+    },
+    {
+     "speaker": "A",
+     "study": "Do you see him often?",
+     "phon": "dou you SI him O-feun",
+     "native": "Tu le vois souvent ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sometimes. I call him every Sunday. And you, do you have brothers or sisters?",
+     "phon": "SEUM-taïmz. aï KOL him ÈV-ri SEUNN-dé. and YOU, dou you HAV BREU-zeurz or SIS-teurz",
+     "native": "Parfois. Je l'appelle tous les dimanches. Et toi, tu as des frères et sœurs ?"
+    },
+    {
+     "speaker": "A",
+     "study": "No, I'm an only child.",
+     "phon": "NÔ, aïm eun ÔN-li TCHAÏLD",
+     "native": "Non, je suis enfant unique."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L4-fr-en-01",
+    "L4-fr-en-02",
+    "L4-fr-en-03",
+    "L4-fr-en-04"
+   ]
+  }
+ ],
+ "readiness": "L'apprenant décrit ses habitudes avec des repères de fréquence, parle de sa famille, de son logement et de son travail ou de ses études, et pose les mêmes questions à l'autre."
+}

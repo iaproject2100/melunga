@@ -1,0 +1,1006 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "ko",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en coréen",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle",
+  "reading": "romanisation révisée"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : gam-sa-ham-ni-da ; eo = ㅓ, eu = ㅡ). Le champ reading donne la romanisation révisée. Registre poli (-요). Les particules (이/가, 을/를, 이에요/예요) sont incluses dans le morceau remplaçable.",
+ "reviewStatus": "Relecture linguistique requise (particules, naturel des tournures).",
+ "coverageClaim": null,
+ "level": 3,
+ "title": "Échanger",
+ "goal": "Poser des questions, répondre et relancer un échange court.",
+ "reviewPreviousLevels": [
+  1,
+  2
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L3-fr-ko-01",
+   "situation": "Demander un service",
+   "model": {
+    "study": "{s} 줄 수 있어요?",
+    "reading": "{s} jul su isseoyo?",
+    "phon": "{s} djoul sou i-sseo-yo ?",
+    "native": "Vous pouvez {s} ?",
+    "note": "-아/어 줄 수 있어요? : « pouvez-vous (me) … ? » ; le verbe est à la forme en -아/어."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "도와",
+      "reading": "dowa",
+      "phon": "do-oua",
+      "native": "m'aider"
+     },
+     "study": "도와 줄 수 있어요?",
+     "phon": "do-oua djoul sou i-sseo-yo ?",
+     "native": "Vous pouvez m'aider ?",
+     "reading": "dowa jul su isseoyo?"
+    },
+    {
+     "slot": {
+      "study": "다시 말해",
+      "reading": "dasi malhae",
+      "phon": "da-si mal-hè",
+      "native": "répéter"
+     },
+     "study": "다시 말해 줄 수 있어요?",
+     "phon": "da-si mal-hè djoul sou i-sseo-yo ?",
+     "native": "Vous pouvez répéter ?",
+     "reading": "dasi malhae jul su isseoyo?"
+    },
+    {
+     "slot": {
+      "study": "천천히 말해",
+      "reading": "cheoncheonhi malhae",
+      "phon": "tcheon-tcheon-hi mal-hè",
+      "native": "parler lentement"
+     },
+     "study": "천천히 말해 줄 수 있어요?",
+     "phon": "tcheon-tcheon-hi mal-hè djoul sou i-sseo-yo ?",
+     "native": "Vous pouvez parler lentement ?",
+     "reading": "cheoncheonhi malhae jul su isseoyo?"
+    },
+    {
+     "slot": {
+      "study": "사진 찍어",
+      "reading": "sajin jjigeo",
+      "phon": "sa-djin tchi-geo",
+      "native": "prendre une photo"
+     },
+     "study": "사진 찍어 줄 수 있어요?",
+     "phon": "sa-djin tchi-geo djoul sou i-sseo-yo ?",
+     "native": "Vous pouvez prendre une photo ?",
+     "reading": "sajin jjigeo jul su isseoyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-ko-02",
+   "situation": "Question ouverte",
+   "model": {
+    "study": "뭘 {s}?",
+    "reading": "mwol {s}?",
+    "phon": "moueol {s} ?",
+    "native": "Qu'est-ce que vous {s} ?",
+    "note": "뭘 = 무엇을 (« quoi » + 을). Le sujet « vous » n'est pas exprimé."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "먹어요",
+      "reading": "meogeoyo",
+      "phon": "meo-geo-yo",
+      "native": "mangez"
+     },
+     "study": "뭘 먹어요?",
+     "phon": "moueol meo-geo-yo ?",
+     "native": "Qu'est-ce que vous mangez ?",
+     "reading": "mwol meogeoyo?"
+    },
+    {
+     "slot": {
+      "study": "해요",
+      "reading": "haeyo",
+      "phon": "hè-yo",
+      "native": "faites"
+     },
+     "study": "뭘 해요?",
+     "phon": "moueol hè-yo ?",
+     "native": "Qu'est-ce que vous faites ?",
+     "reading": "mwol haeyo?"
+    },
+    {
+     "slot": {
+      "study": "좋아해요",
+      "reading": "joahaeyo",
+      "phon": "djo-a-hè-yo",
+      "native": "aimez"
+     },
+     "study": "뭘 좋아해요?",
+     "phon": "moueol djo-a-hè-yo ?",
+     "native": "Qu'est-ce que vous aimez ?",
+     "reading": "mwol joahaeyo?"
+    },
+    {
+     "slot": {
+      "study": "찾아요",
+      "reading": "chajayo",
+      "phon": "tcha-dja-yo",
+      "native": "cherchez"
+     },
+     "study": "뭘 찾아요?",
+     "phon": "moueol tcha-dja-yo ?",
+     "native": "Qu'est-ce que vous cherchez ?",
+     "reading": "mwol chajayo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-ko-03",
+   "situation": "Relancer",
+   "model": {
+    "study": "{s} 씨는요?",
+    "reading": "{s} ssineunyo?",
+    "phon": "{s} ssi-neu-nyo ?",
+    "native": "Et vous, {s} ?",
+    "note": "On relance avec le prénom + 씨는요?, jamais avec 당신은요?."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "마리",
+      "reading": "mari",
+      "phon": "ma-ri",
+      "native": "Marie"
+     },
+     "study": "마리 씨는요?",
+     "phon": "ma-ri ssi-neu-nyo ?",
+     "native": "Et vous, Marie ?",
+     "reading": "mari ssineunyo?"
+    },
+    {
+     "slot": {
+      "study": "폴",
+      "reading": "pol",
+      "phon": "pol",
+      "native": "Paul"
+     },
+     "study": "폴 씨는요?",
+     "phon": "pol ssi-neu-nyo ?",
+     "native": "Et vous, Paul ?",
+     "reading": "pol ssineunyo?"
+    },
+    {
+     "slot": {
+      "study": "민수",
+      "reading": "minsu",
+      "phon": "min-sou",
+      "native": "Minsu"
+     },
+     "study": "민수 씨는요?",
+     "phon": "min-sou ssi-neu-nyo ?",
+     "native": "Et vous, Minsu ?",
+     "reading": "minsu ssineunyo?"
+    },
+    {
+     "slot": {
+      "study": "지은",
+      "reading": "jieun",
+      "phon": "dji-eun",
+      "native": "Jieun"
+     },
+     "study": "지은 씨는요?",
+     "phon": "dji-eun ssi-neu-nyo ?",
+     "native": "Et vous, Jieun ?",
+     "reading": "jieun ssineunyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-ko-04",
+   "situation": "Demander son chemin",
+   "model": {
+    "study": "{s} 어떻게 가요?",
+    "reading": "{s} eotteoke gayo?",
+    "phon": "{s} eo-tteo-kè ga-yo ?",
+    "native": "Comment on va {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "역에",
+      "reading": "yeoge",
+      "phon": "yeo-gè",
+      "native": "à la gare"
+     },
+     "study": "역에 어떻게 가요?",
+     "phon": "yeo-gè eo-tteo-kè ga-yo ?",
+     "native": "Comment on va à la gare ?",
+     "reading": "yeoge eotteoke gayo?"
+    },
+    {
+     "slot": {
+      "study": "공항에",
+      "reading": "gonghang-e",
+      "phon": "gong-hang-è",
+      "native": "à l'aéroport"
+     },
+     "study": "공항에 어떻게 가요?",
+     "phon": "gong-hang-è eo-tteo-kè ga-yo ?",
+     "native": "Comment on va à l'aéroport ?",
+     "reading": "gonghang-e eotteoke gayo?"
+    },
+    {
+     "slot": {
+      "study": "시내에",
+      "reading": "sinaee",
+      "phon": "si-nè-è",
+      "native": "au centre-ville"
+     },
+     "study": "시내에 어떻게 가요?",
+     "phon": "si-nè-è eo-tteo-kè ga-yo ?",
+     "native": "Comment on va au centre-ville ?",
+     "reading": "sinaee eotteoke gayo?"
+    },
+    {
+     "slot": {
+      "study": "호텔에",
+      "reading": "hotere",
+      "phon": "ho-tè-rè",
+      "native": "à l'hôtel"
+     },
+     "study": "호텔에 어떻게 가요?",
+     "phon": "ho-tè-rè eo-tteo-kè ga-yo ?",
+     "native": "Comment on va à l'hôtel ?",
+     "reading": "hotere eotteoke gayo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-ko-05",
+   "situation": "Proposer",
+   "model": {
+    "study": "같이 {s}?",
+    "reading": "gachi {s}?",
+    "phon": "ga-tchi {s} ?",
+    "native": "On {s} ensemble ?",
+    "note": "Le présent en -요 avec intonation montante sert de proposition."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "먹어요",
+      "reading": "meogeoyo",
+      "phon": "meo-geo-yo",
+      "native": "mange"
+     },
+     "study": "같이 먹어요?",
+     "phon": "ga-tchi meo-geo-yo ?",
+     "native": "On mange ensemble ?",
+     "reading": "gachi meogeoyo?"
+    },
+    {
+     "slot": {
+      "study": "가요",
+      "reading": "gayo",
+      "phon": "ga-yo",
+      "native": "y va"
+     },
+     "study": "같이 가요?",
+     "phon": "ga-tchi ga-yo ?",
+     "native": "On y va ensemble ?",
+     "reading": "gachi gayo?"
+    },
+    {
+     "slot": {
+      "study": "커피 마셔요",
+      "reading": "keopi masyeoyo",
+      "phon": "keo-pi ma-chyeo-yo",
+      "native": "prend un café"
+     },
+     "study": "같이 커피 마셔요?",
+     "phon": "ga-tchi keo-pi ma-chyeo-yo ?",
+     "native": "On prend un café ensemble ?",
+     "reading": "gachi keopi masyeoyo?"
+    },
+    {
+     "slot": {
+      "study": "영화 봐요",
+      "reading": "yeonghwa bwayo",
+      "phon": "yeong-houa boua-yo",
+      "native": "voit un film"
+     },
+     "study": "같이 영화 봐요?",
+     "phon": "ga-tchi yeong-houa boua-yo ?",
+     "native": "On voit un film ensemble ?",
+     "reading": "gachi yeonghwa bwayo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-ko-06",
+   "situation": "Accepter ou refuser",
+   "model": {
+    "study": "{s}",
+    "reading": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Réponses toutes faites à une proposition ; 괜찮아요 sert à refuser poliment."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "네, 좋아요.",
+      "reading": "ne, joayo.",
+      "phon": "nè, djo-a-yo",
+      "native": "Oui, d'accord."
+     },
+     "study": "네, 좋아요.",
+     "phon": "nè, djo-a-yo",
+     "native": "Oui, d'accord.",
+     "reading": "ne, joayo."
+    },
+    {
+     "slot": {
+      "study": "아니요, 괜찮아요.",
+      "reading": "aniyo, gwaenchanayo.",
+      "phon": "a-ni-yo, gouèn-tcha-na-yo",
+      "native": "Non, merci."
+     },
+     "study": "아니요, 괜찮아요.",
+     "phon": "a-ni-yo, gouèn-tcha-na-yo",
+     "native": "Non, merci.",
+     "reading": "aniyo, gwaenchanayo."
+    },
+    {
+     "slot": {
+      "study": "글쎄요, 잘 모르겠어요.",
+      "reading": "geulsseyo, jal moreugesseoyo.",
+      "phon": "geul-ssè-yo, djal mo-reu-gè-sseo-yo",
+      "native": "Euh, je ne sais pas trop."
+     },
+     "study": "글쎄요, 잘 모르겠어요.",
+     "phon": "geul-ssè-yo, djal mo-reu-gè-sseo-yo",
+     "native": "Euh, je ne sais pas trop.",
+     "reading": "geulsseyo, jal moreugesseoyo."
+    },
+    {
+     "slot": {
+      "study": "다음에요.",
+      "reading": "daeumeyo.",
+      "phon": "da-eu-mè-yo",
+      "native": "Une autre fois."
+     },
+     "study": "다음에요.",
+     "phon": "da-eu-mè-yo",
+     "native": "Une autre fois.",
+     "reading": "daeumeyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-ko-07",
+   "situation": "Question fermée",
+   "model": {
+    "study": "{s} 아세요?",
+    "reading": "{s} aseyo?",
+    "phon": "{s} a-sè-yo ?",
+    "native": "Vous connaissez {s} ?",
+    "note": "아세요 : forme honorifique de 알아요 (savoir, connaître) pour s'adresser à quelqu'un."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "이 식당",
+      "reading": "i sikdang",
+      "phon": "i sik-dang",
+      "native": "ce restaurant"
+     },
+     "study": "이 식당 아세요?",
+     "phon": "i sik-dang a-sè-yo ?",
+     "native": "Vous connaissez ce restaurant ?",
+     "reading": "i sikdang aseyo?"
+    },
+    {
+     "slot": {
+      "study": "길",
+      "reading": "gil",
+      "phon": "gil",
+      "native": "le chemin"
+     },
+     "study": "길 아세요?",
+     "phon": "gil a-sè-yo ?",
+     "native": "Vous connaissez le chemin ?",
+     "reading": "gil aseyo?"
+    },
+    {
+     "slot": {
+      "study": "이 노래",
+      "reading": "i norae",
+      "phon": "i no-rè",
+      "native": "cette chanson"
+     },
+     "study": "이 노래 아세요?",
+     "phon": "i no-rè a-sè-yo ?",
+     "native": "Vous connaissez cette chanson ?",
+     "reading": "i norae aseyo?"
+    },
+    {
+     "slot": {
+      "study": "민수 씨",
+      "reading": "minsu ssi",
+      "phon": "min-sou ssi",
+      "native": "Minsu"
+     },
+     "study": "민수 씨 아세요?",
+     "phon": "min-sou ssi a-sè-yo ?",
+     "native": "Vous connaissez Minsu ?",
+     "reading": "minsu ssi aseyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-ko-08",
+   "situation": "Goûts",
+   "model": {
+    "study": "{s} 좋아해요?",
+    "reading": "{s} joahaeyo?",
+    "phon": "{s} djo-a-hè-yo ?",
+    "native": "Vous aimez {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "한국 음식을",
+      "reading": "hanguk eumsigeul",
+      "phon": "han-gouk eum-si-geul",
+      "native": "la cuisine coréenne"
+     },
+     "study": "한국 음식을 좋아해요?",
+     "phon": "han-gouk eum-si-geul djo-a-hè-yo ?",
+     "native": "Vous aimez la cuisine coréenne ?",
+     "reading": "hanguk eumsigeul joahaeyo?"
+    },
+    {
+     "slot": {
+      "study": "운동을",
+      "reading": "undong-eul",
+      "phon": "oun-dong-eul",
+      "native": "le sport"
+     },
+     "study": "운동을 좋아해요?",
+     "phon": "oun-dong-eul djo-a-hè-yo ?",
+     "native": "Vous aimez le sport ?",
+     "reading": "undong-eul joahaeyo?"
+    },
+    {
+     "slot": {
+      "study": "음악을",
+      "reading": "eumageul",
+      "phon": "eu-ma-geul",
+      "native": "la musique"
+     },
+     "study": "음악을 좋아해요?",
+     "phon": "eu-ma-geul djo-a-hè-yo ?",
+     "native": "Vous aimez la musique ?",
+     "reading": "eumageul joahaeyo?"
+    },
+    {
+     "slot": {
+      "study": "여행을",
+      "reading": "yeohaeng-eul",
+      "phon": "yeo-hèng-eul",
+      "native": "voyager"
+     },
+     "study": "여행을 좋아해요?",
+     "phon": "yeo-hèng-eul djo-a-hè-yo ?",
+     "native": "Vous aimez voyager ?",
+     "reading": "yeohaeng-eul joahaeyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-ko-09",
+   "situation": "Démarches simples",
+   "model": {
+    "study": "{s} 어떻게 해요?",
+    "reading": "{s} eotteoke haeyo?",
+    "phon": "{s} eo-tteo-kè hè-yo ?",
+    "native": "{s}, comment on fait ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "예약은",
+      "reading": "yeyageun",
+      "phon": "yè-ya-geun",
+      "native": "la réservation"
+     },
+     "study": "예약은 어떻게 해요?",
+     "phon": "yè-ya-geun eo-tteo-kè hè-yo ?",
+     "native": "La réservation, comment on fait ?",
+     "reading": "yeyageun eotteoke haeyo?"
+    },
+    {
+     "slot": {
+      "study": "환불은",
+      "reading": "hwanbureun",
+      "phon": "houan-bou-reun",
+      "native": "le remboursement"
+     },
+     "study": "환불은 어떻게 해요?",
+     "phon": "houan-bou-reun eo-tteo-kè hè-yo ?",
+     "native": "Le remboursement, comment on fait ?",
+     "reading": "hwanbureun eotteoke haeyo?"
+    },
+    {
+     "slot": {
+      "study": "결제는",
+      "reading": "gyeoljeneun",
+      "phon": "gyeol-djè-neun",
+      "native": "le paiement"
+     },
+     "study": "결제는 어떻게 해요?",
+     "phon": "gyeol-djè-neun eo-tteo-kè hè-yo ?",
+     "native": "Le paiement, comment on fait ?",
+     "reading": "gyeoljeneun eotteoke haeyo?"
+    },
+    {
+     "slot": {
+      "study": "등록은",
+      "reading": "deungnogeun",
+      "phon": "deung-no-geun",
+      "native": "l'inscription"
+     },
+     "study": "등록은 어떻게 해요?",
+     "phon": "deung-no-geun eo-tteo-kè hè-yo ?",
+     "native": "L'inscription, comment on fait ?",
+     "reading": "deungnogeun eotteoke haeyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-ko-10",
+   "situation": "Se dépanner",
+   "model": {
+    "study": "{s} 무슨 뜻이에요?",
+    "reading": "{s} museun tteusieyo?",
+    "phon": "{s} mou-seun tteu-si-è-yo ?",
+    "native": "{s}, qu'est-ce que ça veut dire ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "이거",
+      "reading": "igeo",
+      "phon": "i-geo",
+      "native": "ça"
+     },
+     "study": "이거 무슨 뜻이에요?",
+     "phon": "i-geo mou-seun tteu-si-è-yo ?",
+     "native": "Ça, qu'est-ce que ça veut dire ?",
+     "reading": "igeo museun tteusieyo?"
+    },
+    {
+     "slot": {
+      "study": "이 단어",
+      "reading": "i daneo",
+      "phon": "i da-neo",
+      "native": "ce mot"
+     },
+     "study": "이 단어 무슨 뜻이에요?",
+     "phon": "i da-neo mou-seun tteu-si-è-yo ?",
+     "native": "Ce mot, qu'est-ce que ça veut dire ?",
+     "reading": "i daneo museun tteusieyo?"
+    },
+    {
+     "slot": {
+      "study": "이 문장",
+      "reading": "i munjang",
+      "phon": "i moun-djang",
+      "native": "cette phrase"
+     },
+     "study": "이 문장 무슨 뜻이에요?",
+     "phon": "i moun-djang mou-seun tteu-si-è-yo ?",
+     "native": "Cette phrase, qu'est-ce que ça veut dire ?",
+     "reading": "i munjang museun tteusieyo?"
+    },
+    {
+     "slot": {
+      "study": "이 표시",
+      "reading": "i pyosi",
+      "phon": "i pyo-si",
+      "native": "ce signe"
+     },
+     "study": "이 표시 무슨 뜻이에요?",
+     "phon": "i pyo-si mou-seun tteu-si-è-yo ?",
+     "native": "Ce signe, qu'est-ce que ça veut dire ?",
+     "reading": "i pyosi museun tteusieyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-ko-11",
+   "situation": "Demander d'où, où",
+   "model": {
+    "study": "어디에서 {s}?",
+    "reading": "eodieseo {s}?",
+    "phon": "eo-di-è-seo {s} ?",
+    "native": "Vous {s} où ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "왔어요",
+      "reading": "wasseoyo",
+      "phon": "oua-sseo-yo",
+      "native": "venez"
+     },
+     "study": "어디에서 왔어요?",
+     "phon": "eo-di-è-seo oua-sseo-yo ?",
+     "native": "Vous venez d'où ?",
+     "reading": "eodieseo wasseoyo?"
+    },
+    {
+     "slot": {
+      "study": "살아요",
+      "reading": "sarayo",
+      "phon": "sa-ra-yo",
+      "native": "habitez"
+     },
+     "study": "어디에서 살아요?",
+     "phon": "eo-di-è-seo sa-ra-yo ?",
+     "native": "Vous habitez où ?",
+     "reading": "eodieseo sarayo?"
+    },
+    {
+     "slot": {
+      "study": "일해요",
+      "reading": "ilhaeyo",
+      "phon": "il-hè-yo",
+      "native": "travaillez"
+     },
+     "study": "어디에서 일해요?",
+     "phon": "eo-di-è-seo il-hè-yo ?",
+     "native": "Vous travaillez où ?",
+     "reading": "eodieseo ilhaeyo?"
+    },
+    {
+     "slot": {
+      "study": "공부해요",
+      "reading": "gongbuhaeyo",
+      "phon": "gong-bou-hè-yo",
+      "native": "étudiez"
+     },
+     "study": "어디에서 공부해요?",
+     "phon": "eo-di-è-seo gong-bou-hè-yo ?",
+     "native": "Vous étudiez où ?",
+     "reading": "eodieseo gongbuhaeyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L3-fr-ko-d1",
+   "situation": "Premier jour au travail",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "안녕하세요, 저는 마리예요. 오늘 처음 왔어요.",
+     "reading": "annyeonghaseyo, jeoneun mariyeyo. oneul cheoeum wasseoyo.",
+     "phon": "an-nyeong-ha-sè-yo, djeo-neun ma-ri-yè-yo. o-neul tcheo-eum oua-sseo-yo",
+     "native": "Bonjour, je suis Marie. C'est mon premier jour."
+    },
+    {
+     "speaker": "B",
+     "study": "반갑습니다, 저는 민수예요. 어디에서 왔어요?",
+     "reading": "bangapseumnida, jeoneun minsuyeyo. eodieseo wasseoyo?",
+     "phon": "ban-gap-seum-ni-da, djeo-neun min-sou-yè-yo. eo-di-è-seo oua-sseo-yo ?",
+     "native": "Enchanté, je suis Minsu. Vous venez d'où ?"
+    },
+    {
+     "speaker": "A",
+     "study": "프랑스에서 왔어요. 민수 씨는 어디에서 일해요?",
+     "reading": "peurangseueseo wasseoyo. minsu ssineun eodieseo ilhaeyo?",
+     "phon": "peu-rang-seu-è-seo oua-sseo-yo. min-sou ssi-neun eo-di-è-seo il-hè-yo ?",
+     "native": "De France. Et vous, Minsu, vous travaillez où ?"
+    },
+    {
+     "speaker": "B",
+     "study": "저는 이 층에서 일해요. 마리 씨는요?",
+     "reading": "jeoneun i cheung-eseo ilhaeyo. mari ssineunyo?",
+     "phon": "djeo-neun i tcheung-è-seo il-hè-yo. ma-ri ssi-neu-nyo ?",
+     "native": "Moi, je travaille à cet étage. Et vous, Marie ?"
+    },
+    {
+     "speaker": "A",
+     "study": "저는 삼 층에서 일해요. 점심 같이 먹어요?",
+     "reading": "jeoneun sam cheung-eseo ilhaeyo. jeomsim gachi meogeoyo?",
+     "phon": "djeo-neun sam tcheung-è-seo il-hè-yo. djeom-sim ga-tchi meo-geo-yo ?",
+     "native": "Au troisième. On déjeune ensemble ?"
+    },
+    {
+     "speaker": "B",
+     "study": "네, 좋아요! 뭘 좋아해요?",
+     "reading": "ne, joayo! mwol joahaeyo?",
+     "phon": "nè, djo-a-yo ! moueol djo-a-hè-yo ?",
+     "native": "Oui, avec plaisir ! Qu'est-ce que vous aimez ?"
+    },
+    {
+     "speaker": "A",
+     "study": "한국 음식을 좋아해요.",
+     "reading": "hanguk eumsigeul joahaeyo.",
+     "phon": "han-gouk eum-si-geul djo-a-hè-yo",
+     "native": "J'aime la cuisine coréenne."
+    },
+    {
+     "speaker": "B",
+     "study": "그럼 열두 시에 일 층에서 봐요.",
+     "reading": "geureom yeoldu sie il cheung-eseo bwayo.",
+     "phon": "geu-reom yeol-dou si-è il tcheung-è-seo boua-yo",
+     "native": "Alors, à midi au rez-de-chaussée."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L3-fr-ko-01",
+    "L3-fr-ko-02",
+    "L3-fr-ko-03",
+    "L3-fr-ko-04"
+   ]
+  },
+  {
+   "id": "L3-fr-ko-d2",
+   "situation": "Au restaurant",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "실례합니다, 메뉴 좀 줄 수 있어요?",
+     "reading": "sillyehamnida, menyu jom jul su isseoyo?",
+     "phon": "sil-lyè-ham-ni-da, mè-nyou djom djoul sou i-sseo-yo ?",
+     "native": "Excusez-moi, vous pouvez me donner le menu ?"
+    },
+    {
+     "speaker": "B",
+     "study": "네, 여기 있어요.",
+     "reading": "ne, yeogi isseoyo.",
+     "phon": "nè, yeo-gi i-sseo-yo",
+     "native": "Oui, le voilà."
+    },
+    {
+     "speaker": "A",
+     "study": "이거 무슨 뜻이에요?",
+     "reading": "igeo museun tteusieyo?",
+     "phon": "i-geo mou-seun tteu-si-è-yo ?",
+     "native": "Ça, qu'est-ce que ça veut dire ?"
+    },
+    {
+     "speaker": "B",
+     "study": "비빔밥이에요. 밥하고 야채예요.",
+     "reading": "bibimbabieyo. bapago yachaeyeyo.",
+     "phon": "bi-bim-ba-bi-è-yo. ba-pa-go ya-tchè-yè-yo",
+     "native": "C'est du bibimbap. Du riz et des légumes."
+    },
+    {
+     "speaker": "A",
+     "study": "매워요?",
+     "reading": "maewoyo?",
+     "phon": "mè-oueo-yo ?",
+     "native": "C'est épicé ?"
+    },
+    {
+     "speaker": "B",
+     "study": "조금 매워요. 괜찮아요?",
+     "reading": "jogeum maewoyo. gwaenchanayo?",
+     "phon": "djo-geum mè-oueo-yo. gouèn-tcha-na-yo ?",
+     "native": "Un peu. Ça va ?"
+    },
+    {
+     "speaker": "A",
+     "study": "네, 괜찮아요. 비빔밥 하나 주세요. 그리고 물 한 잔 주세요.",
+     "reading": "ne, gwaenchanayo. bibimbap hana juseyo. geurigo mul han jan juseyo.",
+     "phon": "nè, gouèn-tcha-na-yo. bi-bim-bap ha-na djou-sè-yo. geu-ri-go moul han djan djou-sè-yo",
+     "native": "Oui, ça va. Un bibimbap, s'il vous plaît. Et un verre d'eau."
+    },
+    {
+     "speaker": "B",
+     "study": "네, 잠시만요.",
+     "reading": "ne, jamsimanyo.",
+     "phon": "nè, djam-si-ma-nyo",
+     "native": "D'accord, un instant."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L3-fr-ko-01",
+    "L3-fr-ko-02",
+    "L3-fr-ko-03",
+    "L3-fr-ko-04"
+   ]
+  },
+  {
+   "id": "L3-fr-ko-d3",
+   "situation": "À la réception de l'hôtel",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "저기요, 와이파이는 어떻게 해요?",
+     "reading": "jeogiyo, waipaineun eotteoke haeyo?",
+     "phon": "djeo-gi-yo, oua-i-pa-i-neun eo-tteo-kè hè-yo ?",
+     "native": "Excusez-moi, la wifi, comment on fait ?"
+    },
+    {
+     "speaker": "B",
+     "study": "비밀번호가 필요해요. 여기 있어요.",
+     "reading": "bimilbeonhoga piryohaeyo. yeogi isseoyo.",
+     "phon": "bi-mil-beon-ho-ga pi-ryo-hè-yo. yeo-gi i-sseo-yo",
+     "native": "Il faut un mot de passe. Le voici."
+    },
+    {
+     "speaker": "A",
+     "study": "잘 모르겠어요. 다시 말해 주세요.",
+     "reading": "jal moreugesseoyo. dasi malhae juseyo.",
+     "phon": "djal mo-reu-gè-sseo-yo. da-si mal-hè djou-sè-yo",
+     "native": "Je ne comprends pas bien. Répétez, s'il vous plaît."
+    },
+    {
+     "speaker": "B",
+     "study": "천천히요. 이 번호예요.",
+     "reading": "cheoncheonhiyo. i beonhoyeyo.",
+     "phon": "tcheon-tcheon-hi-yo. i beon-ho-yè-yo",
+     "native": "Doucement, alors. C'est ce numéro."
+    },
+    {
+     "speaker": "A",
+     "study": "아, 네. 감사합니다. 그리고 아침은 몇 시예요?",
+     "reading": "a, ne. gamsahamnida. geurigo achimeun myeot siyeyo?",
+     "phon": "a, nè. gam-sa-ham-ni-da. geu-ri-go a-tchi-meun myeot si-yè-yo ?",
+     "native": "Ah, d'accord. Merci. Et le petit-déjeuner est à quelle heure ?"
+    },
+    {
+     "speaker": "B",
+     "study": "일곱 시부터 열 시까지예요.",
+     "reading": "ilgop sibuteo yeol sikkajiyeyo.",
+     "phon": "il-gop si-bou-teo yeol si-kka-dji-yè-yo",
+     "native": "De sept heures à dix heures."
+    },
+    {
+     "speaker": "A",
+     "study": "어디에서 먹어요?",
+     "reading": "eodieseo meogeoyo?",
+     "phon": "eo-di-è-seo meo-geo-yo ?",
+     "native": "On mange où ?"
+    },
+    {
+     "speaker": "B",
+     "study": "이 층 식당에서요.",
+     "reading": "i cheung sikdang-eseoyo.",
+     "phon": "i tcheung sik-dang-è-seo-yo",
+     "native": "Au restaurant du deuxième étage."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L3-fr-ko-01",
+    "L3-fr-ko-02",
+    "L3-fr-ko-03",
+    "L3-fr-ko-04"
+   ]
+  }
+ ],
+ "readiness": "L'apprenant pose des questions fermées et ouvertes, y répond, relance par le prénom + 씨는요?, demande un service ou une répétition, et propose / accepte / refuse poliment."
+}

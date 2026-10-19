@@ -1,0 +1,943 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "en",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en anglais",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; th→z/th, h aspiré noté h, -ing→-ing). Anglais britannique standard. Ne remplace pas l'audio.",
+ "reviewStatus": "Rédigé à la main ; relecture par un anglophone conseillée.",
+ "coverageClaim": null,
+ "level": 8,
+ "title": "Demander et négocier",
+ "goal": "Demander poliment, exprimer une condition et négocier simplement.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L8-fr-en-01",
+   "situation": "Demande polie",
+   "model": {
+    "study": "Could you {s}, please?",
+    "phon": "koud you {s}, PLIZ",
+    "native": "Pourriez-vous {s}, s'il vous plaît ?",
+    "note": "« Could you » est la demande polie standard, avec un inconnu comme avec un collègue."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "send me the invoice",
+      "phon": "SÈND mi zi INN-voïss",
+      "native": "m'envoyer la facture"
+     },
+     "study": "Could you send me the invoice, please?",
+     "phon": "koud you SÈND mi zi INN-voïss, PLIZ",
+     "native": "Pourriez-vous m'envoyer la facture, s'il vous plaît ?"
+    },
+    {
+     "slot": {
+      "study": "check the price",
+      "phon": "TCHÈK ze PRAÏSS",
+      "native": "vérifier le prix"
+     },
+     "study": "Could you check the price, please?",
+     "phon": "koud you TCHÈK ze PRAÏSS, PLIZ",
+     "native": "Pourriez-vous vérifier le prix, s'il vous plaît ?"
+    },
+    {
+     "slot": {
+      "study": "give me a discount",
+      "phon": "GUIV mi eu DIS-kaônt",
+      "native": "me faire une réduction"
+     },
+     "study": "Could you give me a discount, please?",
+     "phon": "koud you GUIV mi eu DIS-kaônt, PLIZ",
+     "native": "Pourriez-vous me faire une réduction, s'il vous plaît ?"
+    },
+    {
+     "slot": {
+      "study": "fix the heating",
+      "phon": "FIKS ze HI-ting",
+      "native": "réparer le chauffage"
+     },
+     "study": "Could you fix the heating, please?",
+     "phon": "koud you FIKS ze HI-ting, PLIZ",
+     "native": "Pourriez-vous réparer le chauffage, s'il vous plaît ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-en-02",
+   "situation": "Est-ce que je pourrais",
+   "model": {
+    "study": "Could I {s}?",
+    "phon": "koud aï {s}",
+    "native": "Est-ce que je pourrais {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "pay later",
+      "phon": "PÉÏ LÉÏ-teur",
+      "native": "payer plus tard"
+     },
+     "study": "Could I pay later?",
+     "phon": "koud aï PÉÏ LÉÏ-teur",
+     "native": "Est-ce que je pourrais payer plus tard ?"
+    },
+    {
+     "slot": {
+      "study": "try it on",
+      "phon": "TRAÏ it ONN",
+      "native": "l'essayer"
+     },
+     "study": "Could I try it on?",
+     "phon": "koud aï TRAÏ it ONN",
+     "native": "Est-ce que je pourrais l'essayer ?"
+    },
+    {
+     "slot": {
+      "study": "change the date",
+      "phon": "TCHÉÏNDJ ze DÉÏT",
+      "native": "changer la date"
+     },
+     "study": "Could I change the date?",
+     "phon": "koud aï TCHÉÏNDJ ze DÉÏT",
+     "native": "Est-ce que je pourrais changer la date ?"
+    },
+    {
+     "slot": {
+      "study": "speak to the manager",
+      "phon": "SPIK tou ze MA-ni-djeur",
+      "native": "parler au responsable"
+     },
+     "study": "Could I speak to the manager?",
+     "phon": "koud aï SPIK tou ze MA-ni-djeur",
+     "native": "Est-ce que je pourrais parler au responsable ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-en-03",
+   "situation": "Condition (achat)",
+   "model": {
+    "study": "If {s}, I'll take it.",
+    "phon": "if {s}, aïl TÉÏK it",
+    "native": "Si {s}, je le prends."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "you give me a discount",
+      "phon": "you GUIV mi eu DIS-kaônt",
+      "native": "vous me faites une réduction"
+     },
+     "study": "If you give me a discount, I'll take it.",
+     "phon": "if you GUIV mi eu DIS-kaônt, aïl TÉÏK it",
+     "native": "Si vous me faites une réduction, je le prends."
+    },
+    {
+     "slot": {
+      "study": "it's under fifty pounds",
+      "phon": "its EUN-deur FIF-ti PAÔNDZ",
+      "native": "c'est moins de cinquante livres"
+     },
+     "study": "If it's under fifty pounds, I'll take it.",
+     "phon": "if its EUN-deur FIF-ti PAÔNDZ, aïl TÉÏK it",
+     "native": "Si c'est moins de cinquante livres, je le prends."
+    },
+    {
+     "slot": {
+      "study": "delivery is free",
+      "phon": "di-LI-veu-ri iz FRI",
+      "native": "la livraison est gratuite"
+     },
+     "study": "If delivery is free, I'll take it.",
+     "phon": "if di-LI-veu-ri iz FRI, aïl TÉÏK it",
+     "native": "Si la livraison est gratuite, je le prends."
+    },
+    {
+     "slot": {
+      "study": "you have it in black",
+      "phon": "you HAV it inn BLAK",
+      "native": "vous l'avez en noir"
+     },
+     "study": "If you have it in black, I'll take it.",
+     "phon": "if you HAV it inn BLAK, aïl TÉÏK it",
+     "native": "Si vous l'avez en noir, je le prends."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-en-04",
+   "situation": "Condition (paiement)",
+   "model": {
+    "study": "If you {s}, I'll pay today.",
+    "phon": "if you {s}, aïl PÉÏ tou-DÉÏ",
+    "native": "Si vous {s}, je paie aujourd'hui."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "lower the price",
+      "phon": "LÔ-eur ze PRAÏSS",
+      "native": "baissez le prix"
+     },
+     "study": "If you lower the price, I'll pay today.",
+     "phon": "if you LÔ-eur ze PRAÏSS, aïl PÉÏ tou-DÉÏ",
+     "native": "Si vous baissez le prix, je paie aujourd'hui."
+    },
+    {
+     "slot": {
+      "study": "deliver tomorrow",
+      "phon": "di-LI-veur tou-MO-rô",
+      "native": "livrez demain"
+     },
+     "study": "If you deliver tomorrow, I'll pay today.",
+     "phon": "if you di-LI-veur tou-MO-rô, aïl PÉÏ tou-DÉÏ",
+     "native": "Si vous livrez demain, je paie aujourd'hui."
+    },
+    {
+     "slot": {
+      "study": "include the cables",
+      "phon": "inn-KLOUD ze KÉÏ-beulz",
+      "native": "incluez les câbles"
+     },
+     "study": "If you include the cables, I'll pay today.",
+     "phon": "if you inn-KLOUD ze KÉÏ-beulz, aïl PÉÏ tou-DÉÏ",
+     "native": "Si vous incluez les câbles, je paie aujourd'hui."
+    },
+    {
+     "slot": {
+      "study": "give me a receipt",
+      "phon": "GUIV mi eu ri-SIT",
+      "native": "me donnez un reçu"
+     },
+     "study": "If you give me a receipt, I'll pay today.",
+     "phon": "if you GUIV mi eu ri-SIT, aïl PÉÏ tou-DÉÏ",
+     "native": "Si vous me donnez un reçu, je paie aujourd'hui."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-en-05",
+   "situation": "Ce serait possible ?",
+   "model": {
+    "study": "Would it be possible to {s}?",
+    "phon": "would it bi PO-si-beul tou {s}",
+    "native": "Ce serait possible de {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "get a refund",
+      "phon": "GÈT eu RI-feund",
+      "native": "être remboursé"
+     },
+     "study": "Would it be possible to get a refund?",
+     "phon": "would it bi PO-si-beul tou GÈT eu RI-feund",
+     "native": "Ce serait possible d'être remboursé ?"
+    },
+    {
+     "slot": {
+      "study": "move the appointment",
+      "phon": "MOUV zi eu-POÏNT-meunt",
+      "native": "déplacer le rendez-vous"
+     },
+     "study": "Would it be possible to move the appointment?",
+     "phon": "would it bi PO-si-beul tou MOUV zi eu-POÏNT-meunt",
+     "native": "Ce serait possible de déplacer le rendez-vous ?"
+    },
+    {
+     "slot": {
+      "study": "have an extra week",
+      "phon": "HAV eun ÈK-stra OUIK",
+      "native": "avoir une semaine de plus"
+     },
+     "study": "Would it be possible to have an extra week?",
+     "phon": "would it bi PO-si-beul tou HAV eun ÈK-stra OUIK",
+     "native": "Ce serait possible d'avoir une semaine de plus ?"
+    },
+    {
+     "slot": {
+      "study": "pay in three instalments",
+      "phon": "PÉÏ inn THRI inn-STOL-meunts",
+      "native": "payer en trois fois"
+     },
+     "study": "Would it be possible to pay in three instalments?",
+     "phon": "would it bi PO-si-beul tou PÉÏ inn THRI inn-STOL-meunts",
+     "native": "Ce serait possible de payer en trois fois ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-en-06",
+   "situation": "Accepter sous condition",
+   "model": {
+    "study": "OK, but only if {s}.",
+    "phon": "ô-KÉÏ, beut ÔN-li if {s}",
+    "native": "D'accord, mais seulement si {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "you pay in cash",
+      "phon": "you PÉÏ inn KACH",
+      "native": "vous payez en espèces"
+     },
+     "study": "OK, but only if you pay in cash.",
+     "phon": "ô-KÉÏ, beut ÔN-li if you PÉÏ inn KACH",
+     "native": "D'accord, mais seulement si vous payez en espèces."
+    },
+    {
+     "slot": {
+      "study": "it's ready by Friday",
+      "phon": "its RÈ-di baï FRAÏ-dé",
+      "native": "c'est prêt d'ici vendredi"
+     },
+     "study": "OK, but only if it's ready by Friday.",
+     "phon": "ô-KÉÏ, beut ÔN-li if its RÈ-di baï FRAÏ-dé",
+     "native": "D'accord, mais seulement si c'est prêt d'ici vendredi."
+    },
+    {
+     "slot": {
+      "study": "you sign today",
+      "phon": "you SAÏN tou-DÉÏ",
+      "native": "vous signez aujourd'hui"
+     },
+     "study": "OK, but only if you sign today.",
+     "phon": "ô-KÉÏ, beut ÔN-li if you SAÏN tou-DÉÏ",
+     "native": "D'accord, mais seulement si vous signez aujourd'hui."
+    },
+    {
+     "slot": {
+      "study": "the price stays the same",
+      "phon": "ze PRAÏSS STÉÏZ ze SÉÏM",
+      "native": "le prix reste le même"
+     },
+     "study": "OK, but only if the price stays the same.",
+     "phon": "ô-KÉÏ, beut ÔN-li if ze PRAÏSS STÉÏZ ze SÉÏM",
+     "native": "D'accord, mais seulement si le prix reste le même."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-en-07",
+   "situation": "S'excuser et réparer",
+   "model": {
+    "study": "I'm sorry, I'll {s}.",
+    "phon": "aïm SO-ri, aïl {s}",
+    "native": "Je suis désolé(e), je vais {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "fix it right away",
+      "phon": "FIKS it raït eu-OUÉÏ",
+      "native": "le réparer tout de suite"
+     },
+     "study": "I'm sorry, I'll fix it right away.",
+     "phon": "aïm SO-ri, aïl FIKS it raït eu-OUÉÏ",
+     "native": "Je suis désolé(e), je vais le réparer tout de suite."
+    },
+    {
+     "slot": {
+      "study": "send it again",
+      "phon": "SÈND it eu-GUÈNN",
+      "native": "le renvoyer"
+     },
+     "study": "I'm sorry, I'll send it again.",
+     "phon": "aïm SO-ri, aïl SÈND it eu-GUÈNN",
+     "native": "Je suis désolé(e), je vais le renvoyer."
+    },
+    {
+     "slot": {
+      "study": "call you back in five minutes",
+      "phon": "KOL you BAK inn FAÏV MI-nits",
+      "native": "vous rappeler dans cinq minutes"
+     },
+     "study": "I'm sorry, I'll call you back in five minutes.",
+     "phon": "aïm SO-ri, aïl KOL you BAK inn FAÏV MI-nits",
+     "native": "Je suis désolé(e), je vais vous rappeler dans cinq minutes."
+    },
+    {
+     "slot": {
+      "study": "pay for the damage",
+      "phon": "PÉÏ for ze DA-midj",
+      "native": "payer les dégâts"
+     },
+     "study": "I'm sorry, I'll pay for the damage.",
+     "phon": "aïm SO-ri, aïl PÉÏ for ze DA-midj",
+     "native": "Je suis désolé(e), je vais payer les dégâts."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-en-08",
+   "situation": "Négocier un prix",
+   "model": {
+    "study": "Could you do it for {s}?",
+    "phon": "koud you DOU it for {s}",
+    "native": "Vous pourriez me le faire à {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "forty",
+      "phon": "FOR-ti",
+      "native": "quarante"
+     },
+     "study": "Could you do it for forty?",
+     "phon": "koud you DOU it for FOR-ti",
+     "native": "Vous pourriez me le faire à quarante ?"
+    },
+    {
+     "slot": {
+      "study": "a hundred pounds",
+      "phon": "eu HEUN-dreud PAÔNDZ",
+      "native": "cent livres"
+     },
+     "study": "Could you do it for a hundred pounds?",
+     "phon": "koud you DOU it for eu HEUN-dreud PAÔNDZ",
+     "native": "Vous pourriez me le faire à cent livres ?"
+    },
+    {
+     "slot": {
+      "study": "half price",
+      "phon": "HAF PRAÏSS",
+      "native": "moitié prix"
+     },
+     "study": "Could you do it for half price?",
+     "phon": "koud you DOU it for HAF PRAÏSS",
+     "native": "Vous pourriez me le faire à moitié prix ?"
+    },
+    {
+     "slot": {
+      "study": "the same price as last year",
+      "phon": "ze SÉÏM PRAÏSS az LAST YIR",
+      "native": "le même prix que l'année dernière"
+     },
+     "study": "Could you do it for the same price as last year?",
+     "phon": "koud you DOU it for ze SÉÏM PRAÏSS az LAST YIR",
+     "native": "Vous pourriez me le faire au même prix que l'année dernière ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-en-09",
+   "situation": "Refuser avec une raison",
+   "model": {
+    "study": "I'm afraid I can't, because {s}.",
+    "phon": "aïm eu-FRÉÏD aï KANT, bi-KOZ {s}",
+    "native": "Je crains que ce ne soit pas possible, parce que {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "it's already the sale price",
+      "phon": "its ol-RÈ-di ze SÉÏL PRAÏSS",
+      "native": "c'est déjà le prix soldé"
+     },
+     "study": "I'm afraid I can't, because it's already the sale price.",
+     "phon": "aïm eu-FRÉÏD aï KANT, bi-KOZ its ol-RÈ-di ze SÉÏL PRAÏSS",
+     "native": "Je crains que ce ne soit pas possible, parce que c'est déjà le prix soldé."
+    },
+    {
+     "slot": {
+      "study": "I don't decide",
+      "phon": "aï dônt di-SAÏD",
+      "native": "ce n'est pas moi qui décide"
+     },
+     "study": "I'm afraid I can't, because I don't decide.",
+     "phon": "aïm eu-FRÉÏD aï KANT, bi-KOZ aï dônt di-SAÏD",
+     "native": "Je crains que ce ne soit pas possible, parce que ce n'est pas moi qui décide."
+    },
+    {
+     "slot": {
+      "study": "the rules are strict",
+      "phon": "ze ROULZ ar STRIKT",
+      "native": "les règles sont strictes"
+     },
+     "study": "I'm afraid I can't, because the rules are strict.",
+     "phon": "aïm eu-FRÉÏD aï KANT, bi-KOZ ze ROULZ ar STRIKT",
+     "native": "Je crains que ce ne soit pas possible, parce que les règles sont strictes."
+    },
+    {
+     "slot": {
+      "study": "we're fully booked",
+      "phon": "ouir FOU-li BOUKT",
+      "native": "nous sommes complets"
+     },
+     "study": "I'm afraid I can't, because we're fully booked.",
+     "phon": "aïm eu-FRÉÏD aï KANT, bi-KOZ ouir FOU-li BOUKT",
+     "native": "Je crains que ce ne soit pas possible, parce que nous sommes complets."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-en-10",
+   "situation": "Demander un délai",
+   "model": {
+    "study": "Could I have {s}?",
+    "phon": "koud aï HAV {s}",
+    "native": "Est-ce que je pourrais avoir {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a few more days",
+      "phon": "eu FYOU MOR DÉÏZ",
+      "native": "quelques jours de plus"
+     },
+     "study": "Could I have a few more days?",
+     "phon": "koud aï HAV eu FYOU MOR DÉÏZ",
+     "native": "Est-ce que je pourrais avoir quelques jours de plus ?"
+    },
+    {
+     "slot": {
+      "study": "until Monday",
+      "phon": "eun-TIL MEUNN-dé",
+      "native": "jusqu'à lundi"
+     },
+     "study": "Could I have until Monday?",
+     "phon": "koud aï HAV eun-TIL MEUNN-dé",
+     "native": "Est-ce que je pourrais avoir jusqu'à lundi ?"
+    },
+    {
+     "slot": {
+      "study": "a written quote",
+      "phon": "eu RI-teun KOUÔT",
+      "native": "un devis écrit"
+     },
+     "study": "Could I have a written quote?",
+     "phon": "koud aï HAV eu RI-teun KOUÔT",
+     "native": "Est-ce que je pourrais avoir un devis écrit ?"
+    },
+    {
+     "slot": {
+      "study": "another appointment",
+      "phon": "eu-NEU-zeur eu-POÏNT-meunt",
+      "native": "un autre rendez-vous"
+     },
+     "study": "Could I have another appointment?",
+     "phon": "koud aï HAV eu-NEU-zeur eu-POÏNT-meunt",
+     "native": "Est-ce que je pourrais avoir un autre rendez-vous ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-en-11",
+   "situation": "Voisins, propriétaire",
+   "model": {
+    "study": "Would you mind {s}?",
+    "phon": "would you MAÏND {s}",
+    "native": "Cela vous dérangerait de {s} ?",
+    "note": "« Would you mind » + verbe en -ing : demande très polie, souvent entre voisins."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "turning the music down",
+      "phon": "TEUR-ning ze MYOU-zik DAÔN",
+      "native": "baisser la musique"
+     },
+     "study": "Would you mind turning the music down?",
+     "phon": "would you MAÏND TEUR-ning ze MYOU-zik DAÔN",
+     "native": "Cela vous dérangerait de baisser la musique ?"
+    },
+    {
+     "slot": {
+      "study": "moving your car",
+      "phon": "MOU-ving yor KAR",
+      "native": "déplacer votre voiture"
+     },
+     "study": "Would you mind moving your car?",
+     "phon": "would you MAÏND MOU-ving yor KAR",
+     "native": "Cela vous dérangerait de déplacer votre voiture ?"
+    },
+    {
+     "slot": {
+      "study": "coming back later",
+      "phon": "KEU-ming BAK LÉÏ-teur",
+      "native": "repasser plus tard"
+     },
+     "study": "Would you mind coming back later?",
+     "phon": "would you MAÏND KEU-ming BAK LÉÏ-teur",
+     "native": "Cela vous dérangerait de repasser plus tard ?"
+    },
+    {
+     "slot": {
+      "study": "signing here",
+      "phon": "SAÏ-ning HIR",
+      "native": "signer ici"
+     },
+     "study": "Would you mind signing here?",
+     "phon": "would you MAÏND SAÏ-ning HIR",
+     "native": "Cela vous dérangerait de signer ici ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-en-12",
+   "situation": "Démarches en ligne",
+   "model": {
+    "study": "Is it possible to {s} online?",
+    "phon": "iz it PO-si-beul tou {s} onn-LAÏN",
+    "native": "C'est possible de {s} en ligne ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "renew my card",
+      "phon": "ri-NYOU maï KARD",
+      "native": "renouveler ma carte"
+     },
+     "study": "Is it possible to renew my card online?",
+     "phon": "iz it PO-si-beul tou ri-NYOU maï KARD onn-LAÏN",
+     "native": "C'est possible de renouveler ma carte en ligne ?"
+    },
+    {
+     "slot": {
+      "study": "book an appointment",
+      "phon": "BOUK eun eu-POÏNT-meunt",
+      "native": "prendre rendez-vous"
+     },
+     "study": "Is it possible to book an appointment online?",
+     "phon": "iz it PO-si-beul tou BOUK eun eu-POÏNT-meunt onn-LAÏN",
+     "native": "C'est possible de prendre rendez-vous en ligne ?"
+    },
+    {
+     "slot": {
+      "study": "pay the fine",
+      "phon": "PÉÏ ze FAÏN",
+      "native": "payer l'amende"
+     },
+     "study": "Is it possible to pay the fine online?",
+     "phon": "iz it PO-si-beul tou PÉÏ ze FAÏN onn-LAÏN",
+     "native": "C'est possible de payer l'amende en ligne ?"
+    },
+    {
+     "slot": {
+      "study": "send the documents",
+      "phon": "SÈND ze DO-kyou-meunts",
+      "native": "envoyer les documents"
+     },
+     "study": "Is it possible to send the documents online?",
+     "phon": "iz it PO-si-beul tou SÈND ze DO-kyou-meunts onn-LAÏN",
+     "native": "C'est possible d'envoyer les documents en ligne ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L8-fr-en-d1",
+   "situation": "Négocier au marché",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Excuse me, how much is this lamp?",
+     "phon": "ék-SKYOUZ mi, HAÔ MEUTCH iz ZISS LAMP",
+     "native": "Excusez-moi, combien coûte cette lampe ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sixty pounds.",
+     "phon": "SIK-sti PAÔNDZ",
+     "native": "Soixante livres."
+    },
+    {
+     "speaker": "A",
+     "study": "That's a bit expensive. Could you do it for forty?",
+     "phon": "zats eu bit ik-SPÈN-siv. koud you DOU it for FOR-ti",
+     "native": "C'est un peu cher. Vous pourriez me la faire à quarante ?"
+    },
+    {
+     "speaker": "B",
+     "study": "I'm afraid I can't, because it's already the sale price. Fifty-five.",
+     "phon": "aïm eu-FRÉÏD aï KANT, bi-KOZ its ol-RÈ-di ze SÉÏL PRAÏSS. FIF-ti FAÏV",
+     "native": "Je crains que ce ne soit pas possible, parce que c'est déjà le prix soldé. Cinquante-cinq."
+    },
+    {
+     "speaker": "A",
+     "study": "If you give me the small one too, I'll take both.",
+     "phon": "if you GUIV mi ze SMOL ouann TOU, aïl TÉÏK BÔTH",
+     "native": "Si vous me donnez la petite aussi, je prends les deux."
+    },
+    {
+     "speaker": "B",
+     "study": "OK, but only if you pay in cash.",
+     "phon": "ô-KÉÏ, beut ÔN-li if you PÉÏ inn KACH",
+     "native": "D'accord, mais seulement si vous payez en espèces."
+    },
+    {
+     "speaker": "A",
+     "study": "Fine. Could I have a receipt, please?",
+     "phon": "FAÏN. koud aï HAV eu ri-SIT, PLIZ",
+     "native": "Très bien. Est-ce que je pourrais avoir un reçu, s'il vous plaît ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Of course. Here you are.",
+     "phon": "ov KORSS. HIR you AR",
+     "native": "Bien sûr. Voilà."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L8-fr-en-01",
+    "L8-fr-en-02",
+    "L8-fr-en-03",
+    "L8-fr-en-04"
+   ]
+  },
+  {
+   "id": "L8-fr-en-d2",
+   "situation": "Avec le propriétaire",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hello, Mr Brown. The heating isn't working again.",
+     "phon": "hè-LÔ, MIS-teur BRAÔN. ze HI-ting I-zeunt WEUR-king eu-GUÈNN",
+     "native": "Bonjour, M. Brown. Le chauffage ne marche plus."
+    },
+    {
+     "speaker": "B",
+     "study": "I'm sorry, I'll call the plumber today.",
+     "phon": "aïm SO-ri, aïl KOL ze PLEU-meur tou-DÉÏ",
+     "native": "Je suis désolé, je vais appeler le plombier aujourd'hui."
+    },
+    {
+     "speaker": "A",
+     "study": "Could you fix it before the weekend? It's very cold.",
+     "phon": "koud you FIKS it bi-FOR ze ouik-ÈND. its VÈ-ri KÔLD",
+     "native": "Pourriez-vous le réparer avant le week-end ? Il fait très froid."
+    },
+    {
+     "speaker": "B",
+     "study": "I'll try. If he can't come tomorrow, I'll bring you an electric heater.",
+     "phon": "aïl TRAÏ. if hi KANT KEUM tou-MO-rô, aïl BRING you eun i-LÈK-trik HI-teur",
+     "native": "Je vais essayer. S'il ne peut pas venir demain, je vous apporte un radiateur électrique."
+    },
+    {
+     "speaker": "A",
+     "study": "Thank you. And would it be possible to pay the rent a few days late this month?",
+     "phon": "THANK you. and would it bi PO-si-beul tou PÉÏ ze RÈNT eu FYOU DÉÏZ LÉÏT ZISS MEUNTH",
+     "native": "Merci. Et ce serait possible de payer le loyer quelques jours en retard ce mois-ci ?"
+    },
+    {
+     "speaker": "B",
+     "study": "OK, but only if it's paid by the tenth.",
+     "phon": "ô-KÉÏ, beut ÔN-li if its PÉÏD baï ze TÈNTH",
+     "native": "D'accord, mais seulement s'il est payé d'ici le dix."
+    },
+    {
+     "speaker": "A",
+     "study": "That works for me. Thanks a lot.",
+     "phon": "zat WEURKS for mi. THANKS eu LOT",
+     "native": "Ça me va. Merci beaucoup."
+    },
+    {
+     "speaker": "B",
+     "study": "You're welcome. I'll call you back after the plumber.",
+     "phon": "yor OUÈL-keum. aïl KOL you BAK AF-teur ze PLEU-meur",
+     "native": "Je vous en prie. Je vous rappelle après le passage du plombier."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L8-fr-en-01",
+    "L8-fr-en-02",
+    "L8-fr-en-03",
+    "L8-fr-en-04"
+   ]
+  },
+  {
+   "id": "L8-fr-en-d3",
+   "situation": "Au travail, demander un délai",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Mary, is the report ready?",
+     "phon": "MÈ-ri, iz ze ri-PORT RÈ-di",
+     "native": "Marie, le rapport est prêt ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Not yet. Could I have until Monday?",
+     "phon": "not YÈT. koud aï HAV eun-TIL MEUNN-dé",
+     "native": "Pas encore. Est-ce que je pourrais avoir jusqu'à lundi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Why? The client wants it on Friday.",
+     "phon": "OUAÏ. ze KLAÏ-eunt WONTS it onn FRAÏ-dé",
+     "native": "Pourquoi ? Le client le veut vendredi."
+    },
+    {
+     "speaker": "B",
+     "study": "Because I'm still waiting for the figures. I'm sorry, I'll send them a reminder right away.",
+     "phon": "bi-KOZ aïm stil OUÉÏ-ting for ze FI-gueurz. aïm SO-ri, aïl SÈND zèm eu ri-MAÏN-deur raït eu-OUÉÏ",
+     "native": "Parce que j'attends encore les chiffres. Je suis désolée, je vais leur envoyer un rappel tout de suite."
+    },
+    {
+     "speaker": "A",
+     "study": "OK, but only if the first part is ready on Friday.",
+     "phon": "ô-KÉÏ, beut ÔN-li if ze FEURST PART iz RÈ-di onn FRAÏ-dé",
+     "native": "D'accord, mais seulement si la première partie est prête vendredi."
+    },
+    {
+     "speaker": "B",
+     "study": "Yes, sure. If I get the figures tomorrow, I'll finish on Friday.",
+     "phon": "YÈS, CHOUR. if aï GÈT ze FI-gueurz tou-MO-rô, aïl FI-nich onn FRAÏ-dé",
+     "native": "Oui, d'accord. Si j'ai les chiffres demain, je finis vendredi."
+    },
+    {
+     "speaker": "A",
+     "study": "Could you also send me a short summary tonight?",
+     "phon": "koud you OL-sô SÈND mi eu CHORT SEU-meu-ri tou-NAÏT",
+     "native": "Pourriez-vous aussi m'envoyer un court résumé ce soir ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Of course.",
+     "phon": "ov KORSS",
+     "native": "Bien sûr."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L8-fr-en-01",
+    "L8-fr-en-02",
+    "L8-fr-en-03",
+    "L8-fr-en-04"
+   ]
+  }
+ ],
+ "readiness": "L'apprenant formule une demande polie avec « could », pose une condition avec « if », demande un délai, une réduction ou un changement, accepte sous condition, refuse en donnant une raison et s'excuse en proposant une réparation."
+}

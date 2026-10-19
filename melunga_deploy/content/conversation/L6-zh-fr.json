@@ -1,0 +1,944 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "fr",
+ "nativeLanguage": "zh",
+ "fields": {
+  "study": "phrase en français",
+  "phon": "prononciation écrite pour sinophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "用汉字标注法语读音（沿用词库风格：美西 = merci，诺 = non）。汉字只是近似，请以音频为准。法语无声调；重音不在单词上，而是落在一个节奏组（短语或句子）的最后一个音节，并略微拉长。",
+ "reviewStatus": "需语言校对（汉字注音的近似程度、译文自然度）。",
+ "coverageClaim": null,
+ "level": 6,
+ "title": "Projets et propositions",
+ "goal": "Parler de projets, proposer et organiser une activité.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L6-zh-fr-01",
+   "situation": "说打算",
+   "model": {
+    "study": "Je vais {s}.",
+    "phon": "热 维 {s}",
+    "native": "我打算{s}。",
+    "note": "« aller » + 动词原形 = 将要 / 打算（近将来时）。注意和第一级的 « Je vais à … »（去某地）区分。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "partir en vacances",
+      "phon": "帕尔蒂尔 昂 瓦康斯",
+      "native": "去度假"
+     },
+     "study": "Je vais partir en vacances.",
+     "phon": "热 维 帕尔蒂尔 昂 瓦康斯",
+     "native": "我打算去度假。"
+    },
+    {
+     "slot": {
+      "study": "chercher un travail",
+      "phon": "谢尔谢 安 特拉瓦伊",
+      "native": "找工作"
+     },
+     "study": "Je vais chercher un travail.",
+     "phon": "热 维 谢尔谢 安 特拉瓦伊",
+     "native": "我打算找工作。"
+    },
+    {
+     "slot": {
+      "study": "déménager",
+      "phon": "德梅纳热",
+      "native": "搬家"
+     },
+     "study": "Je vais déménager.",
+     "phon": "热 维 德梅纳热",
+     "native": "我打算搬家。"
+    },
+    {
+     "slot": {
+      "study": "apprendre à conduire",
+      "phon": "阿普朗德尔 阿 孔迪尔",
+      "native": "学开车"
+     },
+     "study": "Je vais apprendre à conduire.",
+     "phon": "热 维 阿普朗德尔 阿 孔迪尔",
+     "native": "我打算学开车。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-zh-fr-02",
+   "situation": "明天的安排",
+   "model": {
+    "study": "Demain, on va {s}.",
+    "phon": "德曼，翁 瓦 {s}",
+    "native": "明天我们去{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "visiter le musée",
+      "phon": "维吉泰 勒 缪泽",
+      "native": "参观博物馆"
+     },
+     "study": "Demain, on va visiter le musée.",
+     "phon": "德曼，翁 瓦 维吉泰 勒 缪泽",
+     "native": "明天我们去参观博物馆。"
+    },
+    {
+     "slot": {
+      "study": "faire du vélo",
+      "phon": "费尔 迪 维洛",
+      "native": "骑自行车"
+     },
+     "study": "Demain, on va faire du vélo.",
+     "phon": "德曼，翁 瓦 费尔 迪 维洛",
+     "native": "明天我们去骑自行车。"
+    },
+    {
+     "slot": {
+      "study": "voir un match",
+      "phon": "瓦尔 安 马奇",
+      "native": "看比赛"
+     },
+     "study": "Demain, on va voir un match.",
+     "phon": "德曼，翁 瓦 瓦尔 安 马奇",
+     "native": "明天我们去看比赛。"
+    },
+    {
+     "slot": {
+      "study": "dîner chez Paul",
+      "phon": "迪内 谢 保罗",
+      "native": "保罗家吃晚饭"
+     },
+     "study": "Demain, on va dîner chez Paul.",
+     "phon": "德曼，翁 瓦 迪内 谢 保罗",
+     "native": "明天我们去保罗家吃晚饭。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-zh-fr-03",
+   "situation": "提议",
+   "model": {
+    "study": "On pourrait {s} ?",
+    "phon": "翁 普雷 {s}",
+    "native": "我们可以{s}吗？",
+    "note": "« pourrait » 是 pouvoir 的条件式，用来委婉提议。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "aller au cinéma",
+      "phon": "阿莱 奥 西内马",
+      "native": "去看电影"
+     },
+     "study": "On pourrait aller au cinéma ?",
+     "phon": "翁 普雷 阿莱 奥 西内马",
+     "native": "我们可以去看电影吗？"
+    },
+    {
+     "slot": {
+      "study": "se voir samedi",
+      "phon": "瑟 瓦尔 萨姆迪",
+      "native": "星期六见面"
+     },
+     "study": "On pourrait se voir samedi ?",
+     "phon": "翁 普雷 瑟 瓦尔 萨姆迪",
+     "native": "我们可以星期六见面吗？"
+    },
+    {
+     "slot": {
+      "study": "prendre un verre",
+      "phon": "普朗德尔 安 维尔",
+      "native": "喝一杯"
+     },
+     "study": "On pourrait prendre un verre ?",
+     "phon": "翁 普雷 普朗德尔 安 维尔",
+     "native": "我们可以喝一杯吗？"
+    },
+    {
+     "slot": {
+      "study": "partir plus tôt",
+      "phon": "帕尔蒂尔 普吕 托",
+      "native": "早点出发"
+     },
+     "study": "On pourrait partir plus tôt ?",
+     "phon": "翁 普雷 帕尔蒂尔 普吕 托",
+     "native": "我们可以早点出发吗？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-zh-fr-04",
+   "situation": "问想不想",
+   "model": {
+    "study": "Ça te dit de {s} ?",
+    "phon": "萨 特 迪 德 {s}",
+    "native": "你想{s}吗？",
+    "note": "对陌生人或长辈说 « Ça vous dit de … ? »。« de » 遇到元音要缩成 d'（Ça te dit d'aller…）。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "venir avec nous",
+      "phon": "弗尼尔 阿维克 努",
+      "native": "和我们一起来"
+     },
+     "study": "Ça te dit de venir avec nous ?",
+     "phon": "萨 特 迪 德 弗尼尔 阿维克 努",
+     "native": "你想和我们一起来吗？"
+    },
+    {
+     "slot": {
+      "study": "manger japonais",
+      "phon": "芒热 扎波内",
+      "native": "吃日本菜"
+     },
+     "study": "Ça te dit de manger japonais ?",
+     "phon": "萨 特 迪 德 芒热 扎波内",
+     "native": "你想吃日本菜吗？"
+    },
+    {
+     "slot": {
+      "study": "faire une balade",
+      "phon": "费尔 于讷 巴拉德",
+      "native": "去散步"
+     },
+     "study": "Ça te dit de faire une balade ?",
+     "phon": "萨 特 迪 德 费尔 于讷 巴拉德",
+     "native": "你想去散步吗？"
+    },
+    {
+     "slot": {
+      "study": "sortir ce soir",
+      "phon": "索尔蒂尔 瑟 斯瓦尔",
+      "native": "今晚出去"
+     },
+     "study": "Ça te dit de sortir ce soir ?",
+     "phon": "萨 特 迪 德 索尔蒂尔 瑟 斯瓦尔",
+     "native": "你想今晚出去吗？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-zh-fr-05",
+   "situation": "定时间地点",
+   "model": {
+    "study": "Rendez-vous {s}.",
+    "phon": "朗代武 {s}",
+    "native": "我们{s}见。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "samedi à dix heures",
+      "phon": "萨姆迪 阿 迪 泽尔",
+      "native": "星期六十点"
+     },
+     "study": "Rendez-vous samedi à dix heures.",
+     "phon": "朗代武 萨姆迪 阿 迪 泽尔",
+     "native": "我们星期六十点见。"
+    },
+    {
+     "slot": {
+      "study": "devant la gare",
+      "phon": "德旺 拉 嘎尔",
+      "native": "火车站前面"
+     },
+     "study": "Rendez-vous devant la gare.",
+     "phon": "朗代武 德旺 拉 嘎尔",
+     "native": "我们火车站前面见。"
+    },
+    {
+     "slot": {
+      "study": "à l'entrée du parc",
+      "phon": "阿 朗特雷 迪 帕尔克",
+      "native": "公园门口"
+     },
+     "study": "Rendez-vous à l'entrée du parc.",
+     "phon": "朗代武 阿 朗特雷 迪 帕尔克",
+     "native": "我们公园门口见。"
+    },
+    {
+     "slot": {
+      "study": "demain midi au bureau",
+      "phon": "德曼 米迪 奥 比罗",
+      "native": "明天中午在办公室"
+     },
+     "study": "Rendez-vous demain midi au bureau.",
+     "phon": "朗代武 德曼 米迪 奥 比罗",
+     "native": "我们明天中午在办公室见。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-zh-fr-06",
+   "situation": "不能去，但是",
+   "model": {
+    "study": "Je ne peux pas, mais {s}.",
+    "phon": "热 讷 珀 帕，梅 {s}",
+    "native": "我去不了，不过{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "dimanche c'est possible",
+      "phon": "迪芒什 赛 波西布勒",
+      "native": "星期天可以"
+     },
+     "study": "Je ne peux pas, mais dimanche c'est possible.",
+     "phon": "热 讷 珀 帕，梅 迪芒什 赛 波西布勒",
+     "native": "我去不了，不过星期天可以。"
+    },
+    {
+     "slot": {
+      "study": "je suis libre demain",
+      "phon": "热 绥 利布尔 德曼",
+      "native": "我明天有空"
+     },
+     "study": "Je ne peux pas, mais je suis libre demain.",
+     "phon": "热 讷 珀 帕，梅 热 绥 利布尔 德曼",
+     "native": "我去不了，不过我明天有空。"
+    },
+    {
+     "slot": {
+      "study": "on peut se voir plus tard",
+      "phon": "翁 珀 瑟 瓦尔 普吕 塔尔",
+      "native": "我们可以晚点见"
+     },
+     "study": "Je ne peux pas, mais on peut se voir plus tard.",
+     "phon": "热 讷 珀 帕，梅 翁 珀 瑟 瓦尔 普吕 塔尔",
+     "native": "我去不了，不过我们可以晚点见。"
+    },
+    {
+     "slot": {
+      "study": "merci pour l'invitation",
+      "phon": "美西 普尔 兰维塔西翁",
+      "native": "谢谢你的邀请"
+     },
+     "study": "Je ne peux pas, mais merci pour l'invitation.",
+     "phon": "热 讷 珀 帕，梅 美西 普尔 兰维塔西翁",
+     "native": "我去不了，不过谢谢你的邀请。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-zh-fr-07",
+   "situation": "表达愿望",
+   "model": {
+    "study": "J'aimerais {s}.",
+    "phon": "热姆雷 {s}",
+    "native": "我想{s}。",
+    "note": "« J'aimerais » 是条件式，表达委婉的愿望，比 « Je veux » 客气得多。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "visiter la Chine",
+      "phon": "维吉泰 拉 希讷",
+      "native": "去中国看看"
+     },
+     "study": "J'aimerais visiter la Chine.",
+     "phon": "热姆雷 维吉泰 拉 希讷",
+     "native": "我想去中国看看。"
+    },
+    {
+     "slot": {
+      "study": "apprendre le piano",
+      "phon": "阿普朗德尔 勒 皮亚诺",
+      "native": "学钢琴"
+     },
+     "study": "J'aimerais apprendre le piano.",
+     "phon": "热姆雷 阿普朗德尔 勒 皮亚诺",
+     "native": "我想学钢琴。"
+    },
+    {
+     "slot": {
+      "study": "changer de travail",
+      "phon": "尚热 德 特拉瓦伊",
+      "native": "换工作"
+     },
+     "study": "J'aimerais changer de travail.",
+     "phon": "热姆雷 尚热 德 特拉瓦伊",
+     "native": "我想换工作。"
+    },
+    {
+     "slot": {
+      "study": "habiter près de la mer",
+      "phon": "阿比泰 普雷 德 拉 梅尔",
+      "native": "住在海边"
+     },
+     "study": "J'aimerais habiter près de la mer.",
+     "phon": "热姆雷 阿比泰 普雷 德 拉 梅尔",
+     "native": "我想住在海边。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-zh-fr-08",
+   "situation": "接受提议",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "接受邀请的常用短句，整句记住。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Bonne idée !",
+      "phon": "波 尼代",
+      "native": "好主意！"
+     },
+     "study": "Bonne idée !",
+     "phon": "波 尼代",
+     "native": "好主意！"
+    },
+    {
+     "slot": {
+      "study": "Ça marche.",
+      "phon": "萨 马尔什",
+      "native": "行。"
+     },
+     "study": "Ça marche.",
+     "phon": "萨 马尔什",
+     "native": "行。"
+    },
+    {
+     "slot": {
+      "study": "Avec plaisir, à samedi !",
+      "phon": "阿维克 普莱吉尔，阿 萨姆迪",
+      "native": "很乐意，周六见！"
+     },
+     "study": "Avec plaisir, à samedi !",
+     "phon": "阿维克 普莱吉尔，阿 萨姆迪",
+     "native": "很乐意，周六见！"
+    },
+    {
+     "slot": {
+      "study": "Pourquoi pas ?",
+      "phon": "普尔克瓦 帕",
+      "native": "为什么不呢？"
+     },
+     "study": "Pourquoi pas ?",
+     "phon": "普尔克瓦 帕",
+     "native": "为什么不呢？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-zh-fr-09",
+   "situation": "另提建议",
+   "model": {
+    "study": "Plutôt {s}, si tu veux.",
+    "phon": "普吕托 {s}，西 蒂 弗",
+    "native": "不如{s}吧，你看呢？"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "dimanche",
+      "phon": "迪芒什",
+      "native": "星期天"
+     },
+     "study": "Plutôt dimanche, si tu veux.",
+     "phon": "普吕托 迪芒什，西 蒂 弗",
+     "native": "不如星期天吧，你看呢？"
+    },
+    {
+     "slot": {
+      "study": "le soir",
+      "phon": "勒 斯瓦尔",
+      "native": "晚上"
+     },
+     "study": "Plutôt le soir, si tu veux.",
+     "phon": "普吕托 勒 斯瓦尔，西 蒂 弗",
+     "native": "不如晚上吧，你看呢？"
+    },
+    {
+     "slot": {
+      "study": "chez moi",
+      "phon": "谢 穆瓦",
+      "native": "在我家"
+     },
+     "study": "Plutôt chez moi, si tu veux.",
+     "phon": "普吕托 谢 穆瓦，西 蒂 弗",
+     "native": "不如在我家吧，你看呢？"
+    },
+    {
+     "slot": {
+      "study": "la semaine prochaine",
+      "phon": "拉 瑟曼 普罗申",
+      "native": "下周"
+     },
+     "study": "Plutôt la semaine prochaine, si tu veux.",
+     "phon": "普吕托 拉 瑟曼 普罗申，西 蒂 弗",
+     "native": "不如下周吧，你看呢？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-zh-fr-10",
+   "situation": "确认约定",
+   "model": {
+    "study": "On dit {s}, alors ?",
+    "phon": "翁 迪 {s}，阿洛尔",
+    "native": "那就定{s}，对吧？"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "samedi",
+      "phon": "萨姆迪",
+      "native": "星期六"
+     },
+     "study": "On dit samedi, alors ?",
+     "phon": "翁 迪 萨姆迪，阿洛尔",
+     "native": "那就定星期六，对吧？"
+    },
+    {
+     "slot": {
+      "study": "dix heures",
+      "phon": "迪 泽尔",
+      "native": "十点"
+     },
+     "study": "On dit dix heures, alors ?",
+     "phon": "翁 迪 迪 泽尔，阿洛尔",
+     "native": "那就定十点，对吧？"
+    },
+    {
+     "slot": {
+      "study": "devant la gare",
+      "phon": "德旺 拉 嘎尔",
+      "native": "火车站前面"
+     },
+     "study": "On dit devant la gare, alors ?",
+     "phon": "翁 迪 德旺 拉 嘎尔，阿洛尔",
+     "native": "那就定火车站前面，对吧？"
+    },
+    {
+     "slot": {
+      "study": "demain soir",
+      "phon": "德曼 斯瓦尔",
+      "native": "明天晚上"
+     },
+     "study": "On dit demain soir, alors ?",
+     "phon": "翁 迪 德曼 斯瓦尔，阿洛尔",
+     "native": "那就定明天晚上，对吧？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-zh-fr-11",
+   "situation": "交通安排",
+   "model": {
+    "study": "Je prends {s}.",
+    "phon": "热 普朗 {s}",
+    "native": "我坐{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "le train de huit heures",
+      "phon": "勒 特兰 德 于伊 特尔",
+      "native": "八点的火车"
+     },
+     "study": "Je prends le train de huit heures.",
+     "phon": "热 普朗 勒 特兰 德 于伊 特尔",
+     "native": "我坐八点的火车。"
+    },
+    {
+     "slot": {
+      "study": "le bus",
+      "phon": "勒 比斯",
+      "native": "公交车"
+     },
+     "study": "Je prends le bus.",
+     "phon": "热 普朗 勒 比斯",
+     "native": "我坐公交车。"
+    },
+    {
+     "slot": {
+      "study": "un taxi",
+      "phon": "安 塔克西",
+      "native": "出租车"
+     },
+     "study": "Je prends un taxi.",
+     "phon": "热 普朗 安 塔克西",
+     "native": "我坐出租车。"
+    },
+    {
+     "slot": {
+      "study": "l'avion de demain",
+      "phon": "拉维翁 德 德曼",
+      "native": "明天的飞机"
+     },
+     "study": "Je prends l'avion de demain.",
+     "phon": "热 普朗 拉维翁 德 德曼",
+     "native": "我坐明天的飞机。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-zh-fr-12",
+   "situation": "问有没有空",
+   "model": {
+    "study": "Tu es libre {s} ?",
+    "phon": "蒂 埃 利布尔 {s}",
+    "native": "你{s}有空吗？"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "ce soir",
+      "phon": "瑟 斯瓦尔",
+      "native": "今晚"
+     },
+     "study": "Tu es libre ce soir ?",
+     "phon": "蒂 埃 利布尔 瑟 斯瓦尔",
+     "native": "你今晚有空吗？"
+    },
+    {
+     "slot": {
+      "study": "samedi",
+      "phon": "萨姆迪",
+      "native": "星期六"
+     },
+     "study": "Tu es libre samedi ?",
+     "phon": "蒂 埃 利布尔 萨姆迪",
+     "native": "你星期六有空吗？"
+    },
+    {
+     "slot": {
+      "study": "la semaine prochaine",
+      "phon": "拉 瑟曼 普罗申",
+      "native": "下周"
+     },
+     "study": "Tu es libre la semaine prochaine ?",
+     "phon": "蒂 埃 利布尔 拉 瑟曼 普罗申",
+     "native": "你下周有空吗？"
+    },
+    {
+     "slot": {
+      "study": "demain après-midi",
+      "phon": "德曼 阿普雷米迪",
+      "native": "明天下午"
+     },
+     "study": "Tu es libre demain après-midi ?",
+     "phon": "蒂 埃 利布尔 德曼 阿普雷米迪",
+     "native": "你明天下午有空吗？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L6-zh-fr-d1",
+   "situation": "约看电影",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Salut Paul ! Tu es libre samedi ?",
+     "phon": "萨吕 保罗！蒂 埃 利布尔 萨姆迪",
+     "native": "嗨，保罗！你星期六有空吗？"
+    },
+    {
+     "speaker": "B",
+     "study": "Samedi, je ne peux pas, mais dimanche c'est possible.",
+     "phon": "萨姆迪，热 讷 珀 帕，梅 迪芒什 赛 波西布勒",
+     "native": "星期六不行，不过星期天可以。"
+    },
+    {
+     "speaker": "A",
+     "study": "D'accord. Ça te dit d'aller au cinéma ?",
+     "phon": "达科尔。萨 特 迪 达莱 奥 西内马",
+     "native": "好。你想去看电影吗？"
+    },
+    {
+     "speaker": "B",
+     "study": "Bonne idée ! Il y a un nouveau film français.",
+     "phon": "波 尼代！伊 利 亚 安 努沃 菲尔姆 弗朗赛",
+     "native": "好主意！有一部新的法国电影。"
+    },
+    {
+     "speaker": "A",
+     "study": "Super. On pourrait manger ensemble avant ?",
+     "phon": "苏佩尔。翁 普雷 芒热 昂桑布勒 阿旺",
+     "native": "太好了。我们可以先一起吃饭吗？"
+    },
+    {
+     "speaker": "B",
+     "study": "Pourquoi pas ? Plutôt japonais, si tu veux.",
+     "phon": "普尔克瓦 帕？普吕托 扎波内，西 蒂 弗",
+     "native": "为什么不呢？不如吃日本菜吧，你看呢？"
+    },
+    {
+     "speaker": "A",
+     "study": "Ça marche. Rendez-vous à midi devant le cinéma.",
+     "phon": "萨 马尔什。朗代武 阿 米迪 德旺 勒 西内马",
+     "native": "行。中午电影院门口见。"
+    },
+    {
+     "speaker": "B",
+     "study": "On dit dimanche midi, alors. À dimanche !",
+     "phon": "翁 迪 迪芒什 米迪，阿洛尔。阿 迪芒什",
+     "native": "那就定星期天中午。星期天见！"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L6-zh-fr-01",
+    "L6-zh-fr-02",
+    "L6-zh-fr-03",
+    "L6-zh-fr-04"
+   ]
+  },
+  {
+   "id": "L6-zh-fr-d2",
+   "situation": "安排工作会议",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Bonjour Madame Martin. Je voudrais fixer une réunion avec vous.",
+     "phon": "蓬茹尔 马达姆 马尔坦。热 武德雷 菲克塞 于讷 雷于尼翁 阿维克 武",
+     "native": "您好，马丁女士。我想和您约一个会议。"
+    },
+    {
+     "speaker": "B",
+     "study": "Bien sûr. Vous êtes libre quand ?",
+     "phon": "比安 叙尔。武 泽特 利布尔 康",
+     "native": "当然。您什么时候有空？"
+    },
+    {
+     "speaker": "A",
+     "study": "Demain après-midi, ça vous dit ?",
+     "phon": "德曼 阿普雷米迪，萨 武 迪",
+     "native": "明天下午，您觉得怎么样？"
+    },
+    {
+     "speaker": "B",
+     "study": "Demain, je ne peux pas, mais jeudi matin je suis libre.",
+     "phon": "德曼，热 讷 珀 帕，梅 热迪 马坦 热 绥 利布尔",
+     "native": "明天不行，不过星期四上午我有空。"
+    },
+    {
+     "speaker": "A",
+     "study": "Très bien. Jeudi à dix heures, dans votre bureau ?",
+     "phon": "特雷 比安。热迪 阿 迪 泽尔，当 沃特尔 比罗",
+     "native": "好的。星期四十点，在您办公室？"
+    },
+    {
+     "speaker": "B",
+     "study": "Parfait. Je vais préparer les documents.",
+     "phon": "帕尔费。热 维 普雷帕雷 莱 多居芒",
+     "native": "太好了。我会把文件准备好。"
+    },
+    {
+     "speaker": "A",
+     "study": "Merci beaucoup. À jeudi !",
+     "phon": "美西 博库。阿 热迪",
+     "native": "非常感谢。星期四见！"
+    },
+    {
+     "speaker": "B",
+     "study": "À jeudi, bonne journée.",
+     "phon": "阿 热迪，波讷 茹尔内",
+     "native": "星期四见，祝您愉快。"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L6-zh-fr-01",
+    "L6-zh-fr-02",
+    "L6-zh-fr-03",
+    "L6-zh-fr-04"
+   ]
+  },
+  {
+   "id": "L6-zh-fr-d3",
+   "situation": "车站碰头",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Allô Lin ? Tu arrives quand demain ?",
+     "phon": "阿罗 林？蒂 阿里夫 康 德曼",
+     "native": "喂，林？你明天几点到？"
+    },
+    {
+     "speaker": "B",
+     "study": "Je prends le train de huit heures. J'arrive à dix heures.",
+     "phon": "热 普朗 勒 特兰 德 于伊 特尔。扎里夫 阿 迪 泽尔",
+     "native": "我坐八点的火车。十点到。"
+    },
+    {
+     "speaker": "A",
+     "study": "D'accord. Rendez-vous devant la gare ?",
+     "phon": "达科尔。朗代武 德旺 拉 嘎尔",
+     "native": "好。火车站前面见？"
+    },
+    {
+     "speaker": "B",
+     "study": "Plutôt à l'intérieur, si tu veux. Il va pleuvoir.",
+     "phon": "普吕托 阿 兰泰里厄尔，西 蒂 弗。伊尔 瓦 普勒瓦尔",
+     "native": "不如在里面吧，你看呢？明天要下雨。"
+    },
+    {
+     "speaker": "A",
+     "study": "Ça marche. Et après, on va visiter le musée ?",
+     "phon": "萨 马尔什。埃 阿普雷，翁 瓦 维吉泰 勒 缪泽",
+     "native": "行。然后我们去参观博物馆？"
+    },
+    {
+     "speaker": "B",
+     "study": "Oui, j'aimerais bien. Et le soir, on dîne chez toi ?",
+     "phon": "威，热姆雷 比安。埃 勒 斯瓦尔，翁 迪讷 谢 图瓦",
+     "native": "好，我很想去。晚上我们在你家吃晚饭？"
+    },
+    {
+     "speaker": "A",
+     "study": "Avec plaisir ! Je vais faire la cuisine.",
+     "phon": "阿维克 普莱吉尔！热 维 费尔 拉 居伊吉讷",
+     "native": "很乐意！我来做饭。"
+    },
+    {
+     "speaker": "B",
+     "study": "Super. À demain, dix heures !",
+     "phon": "苏佩尔。阿 德曼，迪 泽尔",
+     "native": "太好了。明天十点见！"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L6-zh-fr-01",
+    "L6-zh-fr-02",
+    "L6-zh-fr-03",
+    "L6-zh-fr-04"
+   ]
+  }
+ ],
+ "readiness": "能用 « Je vais + 动词 » 说打算，用 « On pourrait / Ça te dit de » 提议活动，定下时间和地点，接受、婉拒或另提建议，确认约定，并用 « J'aimerais » 表达愿望。"
+}

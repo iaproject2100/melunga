@@ -1,0 +1,941 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "it",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en italien",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.",
+ "reviewStatus": "Rédigé à la main ; relecture par un italophone conseillée.",
+ "coverageClaim": null,
+ "level": 6,
+ "title": "Projets et propositions",
+ "goal": "Parler de projets, proposer et organiser une activité.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L6-fr-it-01",
+   "situation": "Intention",
+   "model": {
+    "study": "Ho intenzione di {s}.",
+    "phon": "o in-tén-TSIO-né di {s}",
+    "native": "J'ai l'intention de {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "cambiare lavoro",
+      "phon": "kam-BIA-ré la-VO-ro",
+      "native": "changer de travail"
+     },
+     "study": "Ho intenzione di cambiare lavoro.",
+     "phon": "o in-tén-TSIO-né di kam-BIA-ré la-VO-ro",
+     "native": "J'ai l'intention de changer de travail."
+    },
+    {
+     "slot": {
+      "study": "imparare l'italiano",
+      "phon": "im-pa-RA-ré li-ta-LIA-no",
+      "native": "apprendre l'italien"
+     },
+     "study": "Ho intenzione di imparare l'italiano.",
+     "phon": "o in-tén-TSIO-né di im-pa-RA-ré li-ta-LIA-no",
+     "native": "J'ai l'intention d'apprendre l'italien."
+    },
+    {
+     "slot": {
+      "study": "andare in Italia",
+      "phon": "an-DA-ré inn i-TA-lia",
+      "native": "aller en Italie"
+     },
+     "study": "Ho intenzione di andare in Italia.",
+     "phon": "o in-tén-TSIO-né di an-DA-ré inn i-TA-lia",
+     "native": "J'ai l'intention d'aller en Italie."
+    },
+    {
+     "slot": {
+      "study": "comprare una casa",
+      "phon": "kom-PRA-ré OU-na KA-za",
+      "native": "acheter une maison"
+     },
+     "study": "Ho intenzione di comprare una casa.",
+     "phon": "o in-tén-TSIO-né di kom-PRA-ré OU-na KA-za",
+     "native": "J'ai l'intention d'acheter une maison."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-it-02",
+   "situation": "Demain (futur)",
+   "model": {
+    "study": "Domani {s}.",
+    "phon": "do-MA-ni {s}",
+    "native": "Demain, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "andrò a Roma",
+      "phon": "an-DRO a RO-ma",
+      "native": "j'irai à Rome"
+     },
+     "study": "Domani andrò a Roma.",
+     "phon": "do-MA-ni an-DRO a RO-ma",
+     "native": "Demain, j'irai à Rome."
+    },
+    {
+     "slot": {
+      "study": "lavorerò da casa",
+      "phon": "la-vo-ré-RO da KA-za",
+      "native": "je travaillerai de chez moi"
+     },
+     "study": "Domani lavorerò da casa.",
+     "phon": "do-MA-ni la-vo-ré-RO da KA-za",
+     "native": "Demain, je travaillerai de chez moi."
+    },
+    {
+     "slot": {
+      "study": "vedrò i miei amici",
+      "phon": "vé-DRO i MIÈ-i a-MI-tchi",
+      "native": "je verrai mes amis"
+     },
+     "study": "Domani vedrò i miei amici.",
+     "phon": "do-MA-ni vé-DRO i MIÈ-i a-MI-tchi",
+     "native": "Demain, je verrai mes amis."
+    },
+    {
+     "slot": {
+      "study": "partirò presto",
+      "phon": "par-ti-RO PRÈS-to",
+      "native": "je partirai tôt"
+     },
+     "study": "Domani partirò presto.",
+     "phon": "do-MA-ni par-ti-RO PRÈS-to",
+     "native": "Demain, je partirai tôt."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-it-03",
+   "situation": "Proposer : on pourrait",
+   "model": {
+    "study": "Potremmo {s}?",
+    "phon": "po-TRÉM-mo {s}",
+    "native": "On pourrait {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "andare al cinema",
+      "phon": "an-DA-ré al TCHI-né-ma",
+      "native": "aller au cinéma"
+     },
+     "study": "Potremmo andare al cinema?",
+     "phon": "po-TRÉM-mo an-DA-ré al TCHI-né-ma",
+     "native": "On pourrait aller au cinéma ?"
+    },
+    {
+     "slot": {
+      "study": "cenare insieme",
+      "phon": "tché-NA-ré in-SIÈ-mé",
+      "native": "dîner ensemble"
+     },
+     "study": "Potremmo cenare insieme?",
+     "phon": "po-TRÉM-mo tché-NA-ré in-SIÈ-mé",
+     "native": "On pourrait dîner ensemble ?"
+    },
+    {
+     "slot": {
+      "study": "vederci domani",
+      "phon": "vé-DÉR-tchi do-MA-ni",
+      "native": "se voir demain"
+     },
+     "study": "Potremmo vederci domani?",
+     "phon": "po-TRÉM-mo vé-DÉR-tchi do-MA-ni",
+     "native": "On pourrait se voir demain ?"
+    },
+    {
+     "slot": {
+      "study": "prendere un caffè",
+      "phon": "PRÈN-dé-ré oun kaf-FÈ",
+      "native": "prendre un café"
+     },
+     "study": "Potremmo prendere un caffè?",
+     "phon": "po-TRÉM-mo PRÈN-dé-ré oun kaf-FÈ",
+     "native": "On pourrait prendre un café ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-it-04",
+   "situation": "Proposer : ça te dit (tu)",
+   "model": {
+    "study": "Ti va di {s}?",
+    "phon": "ti va di {s}",
+    "native": "Ça te dit de {s} ?",
+    "note": "Tutoiement. Avec un inconnu : « Le va di… ? » (lé va di)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "uscire stasera",
+      "phon": "ou-CHI-ré sta-SÉ-ra",
+      "native": "sortir ce soir"
+     },
+     "study": "Ti va di uscire stasera?",
+     "phon": "ti va di ou-CHI-ré sta-SÉ-ra",
+     "native": "Ça te dit de sortir ce soir ?"
+    },
+    {
+     "slot": {
+      "study": "venire con noi",
+      "phon": "vé-NI-ré kon NOÏ",
+      "native": "venir avec nous"
+     },
+     "study": "Ti va di venire con noi?",
+     "phon": "ti va di vé-NI-ré kon NOÏ",
+     "native": "Ça te dit de venir avec nous ?"
+    },
+    {
+     "slot": {
+      "study": "fare una passeggiata",
+      "phon": "FA-ré OU-na pas-séd-DJA-ta",
+      "native": "faire une promenade"
+     },
+     "study": "Ti va di fare una passeggiata?",
+     "phon": "ti va di FA-ré OU-na pas-séd-DJA-ta",
+     "native": "Ça te dit de faire une promenade ?"
+    },
+    {
+     "slot": {
+      "study": "andare al concerto",
+      "phon": "an-DA-ré al kon-TCHÈR-to",
+      "native": "aller au concert"
+     },
+     "study": "Ti va di andare al concerto?",
+     "phon": "ti va di an-DA-ré al kon-TCHÈR-to",
+     "native": "Ça te dit d'aller au concert ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-it-05",
+   "situation": "Fixer lieu et heure",
+   "model": {
+    "study": "Allora, {s} davanti alla stazione.",
+    "phon": "al-LO-ra, {s} da-VAN-ti AL-la sta-TSIO-né",
+    "native": "Alors, {s} devant la gare."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "sabato alle dieci",
+      "phon": "SA-ba-to AL-lé DIÈ-tchi",
+      "native": "samedi à dix heures"
+     },
+     "study": "Allora, sabato alle dieci davanti alla stazione.",
+     "phon": "al-LO-ra, SA-ba-to AL-lé DIÈ-tchi da-VAN-ti AL-la sta-TSIO-né",
+     "native": "Alors, samedi à dix heures devant la gare."
+    },
+    {
+     "slot": {
+      "study": "domani alle sei",
+      "phon": "do-MA-ni AL-lé SÈ-i",
+      "native": "demain à six heures"
+     },
+     "study": "Allora, domani alle sei davanti alla stazione.",
+     "phon": "al-LO-ra, do-MA-ni AL-lé SÈ-i da-VAN-ti AL-la sta-TSIO-né",
+     "native": "Alors, demain à six heures devant la gare."
+    },
+    {
+     "slot": {
+      "study": "stasera alle otto",
+      "phon": "sta-SÉ-ra AL-lé OT-to",
+      "native": "ce soir à huit heures"
+     },
+     "study": "Allora, stasera alle otto davanti alla stazione.",
+     "phon": "al-LO-ra, sta-SÉ-ra AL-lé OT-to da-VAN-ti AL-la sta-TSIO-né",
+     "native": "Alors, ce soir à huit heures devant la gare."
+    },
+    {
+     "slot": {
+      "study": "domenica a mezzogiorno",
+      "phon": "do-MÉ-ni-ka a méd-dzo-DJOR-no",
+      "native": "dimanche à midi"
+     },
+     "study": "Allora, domenica a mezzogiorno davanti alla stazione.",
+     "phon": "al-LO-ra, do-MÉ-ni-ka a méd-dzo-DJOR-no da-VAN-ti AL-la sta-TSIO-né",
+     "native": "Alors, dimanche à midi devant la gare."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-it-06",
+   "situation": "Refuser et proposer autre chose",
+   "model": {
+    "study": "Non posso, ma {s}.",
+    "phon": "non POS-so, ma {s}",
+    "native": "Je ne peux pas, mais {s}.",
+    "note": "Tutoiement dans « ti chiamo »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "possiamo vederci domani",
+      "phon": "pos-SIA-mo vé-DÉR-tchi do-MA-ni",
+      "native": "on peut se voir demain"
+     },
+     "study": "Non posso, ma possiamo vederci domani.",
+     "phon": "non POS-so, ma pos-SIA-mo vé-DÉR-tchi do-MA-ni",
+     "native": "Je ne peux pas, mais on peut se voir demain."
+    },
+    {
+     "slot": {
+      "study": "posso venire più tardi",
+      "phon": "POS-so vé-NI-ré piou TAR-di",
+      "native": "je peux venir plus tard"
+     },
+     "study": "Non posso, ma posso venire più tardi.",
+     "phon": "non POS-so, ma POS-so vé-NI-ré piou TAR-di",
+     "native": "Je ne peux pas, mais je peux venir plus tard."
+    },
+    {
+     "slot": {
+      "study": "ti chiamo stasera",
+      "phon": "ti KIA-mo sta-SÉ-ra",
+      "native": "je t'appelle ce soir"
+     },
+     "study": "Non posso, ma ti chiamo stasera.",
+     "phon": "non POS-so, ma ti KIA-mo sta-SÉ-ra",
+     "native": "Je ne peux pas, mais je t'appelle ce soir."
+    },
+    {
+     "slot": {
+      "study": "la prossima volta sì",
+      "phon": "la PROS-si-ma VOL-ta SI",
+      "native": "la prochaine fois, oui"
+     },
+     "study": "Non posso, ma la prossima volta sì.",
+     "phon": "non POS-so, ma la PROS-si-ma VOL-ta SI",
+     "native": "Je ne peux pas, mais la prochaine fois, oui."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-it-07",
+   "situation": "Souhait",
+   "model": {
+    "study": "Mi piacerebbe {s}.",
+    "phon": "mi pia-tché-RÈB-bé {s}",
+    "native": "J'aimerais {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "visitare Napoli",
+      "phon": "vi-zi-TA-ré NA-po-li",
+      "native": "visiter Naples"
+     },
+     "study": "Mi piacerebbe visitare Napoli.",
+     "phon": "mi pia-tché-RÈB-bé vi-zi-TA-ré NA-po-li",
+     "native": "J'aimerais visiter Naples."
+    },
+    {
+     "slot": {
+      "study": "vivere in Italia",
+      "phon": "VI-vé-ré inn i-TA-lia",
+      "native": "vivre en Italie"
+     },
+     "study": "Mi piacerebbe vivere in Italia.",
+     "phon": "mi pia-tché-RÈB-bé VI-vé-ré inn i-TA-lia",
+     "native": "J'aimerais vivre en Italie."
+    },
+    {
+     "slot": {
+      "study": "venire con te",
+      "phon": "vé-NI-ré kon TÉ",
+      "native": "venir avec toi"
+     },
+     "study": "Mi piacerebbe venire con te.",
+     "phon": "mi pia-tché-RÈB-bé vé-NI-ré kon TÉ",
+     "native": "J'aimerais venir avec toi."
+    },
+    {
+     "slot": {
+      "study": "vedere il mare",
+      "phon": "vé-DÉ-ré il MA-ré",
+      "native": "voir la mer"
+     },
+     "study": "Mi piacerebbe vedere il mare.",
+     "phon": "mi pia-tché-RÈB-bé vé-DÉ-ré il MA-ré",
+     "native": "J'aimerais voir la mer."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-it-08",
+   "situation": "Confirmer",
+   "model": {
+    "study": "Allora siamo d'accordo per {s}?",
+    "phon": "al-LO-ra SIA-mo dak-KOR-do pér {s}",
+    "native": "Alors, on est d'accord pour {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "sabato",
+      "phon": "SA-ba-to",
+      "native": "samedi"
+     },
+     "study": "Allora siamo d'accordo per sabato?",
+     "phon": "al-LO-ra SIA-mo dak-KOR-do pér SA-ba-to",
+     "native": "Alors, on est d'accord pour samedi ?"
+    },
+    {
+     "slot": {
+      "study": "domani sera",
+      "phon": "do-MA-ni SÉ-ra",
+      "native": "demain soir"
+     },
+     "study": "Allora siamo d'accordo per domani sera?",
+     "phon": "al-LO-ra SIA-mo dak-KOR-do pér do-MA-ni SÉ-ra",
+     "native": "Alors, on est d'accord pour demain soir ?"
+    },
+    {
+     "slot": {
+      "study": "le dieci",
+      "phon": "lé DIÈ-tchi",
+      "native": "dix heures"
+     },
+     "study": "Allora siamo d'accordo per le dieci?",
+     "phon": "al-LO-ra SIA-mo dak-KOR-do pér lé DIÈ-tchi",
+     "native": "Alors, on est d'accord pour dix heures ?"
+    },
+    {
+     "slot": {
+      "study": "il pranzo di domenica",
+      "phon": "il PRAN-dzo di do-MÉ-ni-ka",
+      "native": "le déjeuner de dimanche"
+     },
+     "study": "Allora siamo d'accordo per il pranzo di domenica?",
+     "phon": "al-LO-ra SIA-mo dak-KOR-do pér il PRAN-dzo di do-MÉ-ni-ka",
+     "native": "Alors, on est d'accord pour le déjeuner de dimanche ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-it-09",
+   "situation": "Suggérer : et si on…",
+   "model": {
+    "study": "Perché non {s}?",
+    "phon": "pér-KÉ non {s}",
+    "native": "Et si on {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "andiamo al mare",
+      "phon": "an-DIA-mo al MA-ré",
+      "native": "allait à la mer"
+     },
+     "study": "Perché non andiamo al mare?",
+     "phon": "pér-KÉ non an-DIA-mo al MA-ré",
+     "native": "Et si on allait à la mer ?"
+    },
+    {
+     "slot": {
+      "study": "mangiamo fuori",
+      "phon": "man-DJA-mo FOUO-ri",
+      "native": "mangeait dehors"
+     },
+     "study": "Perché non mangiamo fuori?",
+     "phon": "pér-KÉ non man-DJA-mo FOUO-ri",
+     "native": "Et si on mangeait dehors ?"
+    },
+    {
+     "slot": {
+      "study": "prendiamo il treno",
+      "phon": "prén-DIA-mo il TRÈ-no",
+      "native": "prenait le train"
+     },
+     "study": "Perché non prendiamo il treno?",
+     "phon": "pér-KÉ non prén-DIA-mo il TRÈ-no",
+     "native": "Et si on prenait le train ?"
+    },
+    {
+     "slot": {
+      "study": "restiamo a casa",
+      "phon": "rés-TIA-mo a KA-za",
+      "native": "restait à la maison"
+     },
+     "study": "Perché non restiamo a casa?",
+     "phon": "pér-KÉ non rés-TIA-mo a KA-za",
+     "native": "Et si on restait à la maison ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-it-10",
+   "situation": "Vouloir",
+   "model": {
+    "study": "Voglio {s}.",
+    "phon": "VO-lio {s}",
+    "native": "Je veux {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "imparare a cucinare",
+      "phon": "im-pa-RA-ré a kou-tchi-NA-ré",
+      "native": "apprendre à cuisiner"
+     },
+     "study": "Voglio imparare a cucinare.",
+     "phon": "VO-lio im-pa-RA-ré a kou-tchi-NA-ré",
+     "native": "Je veux apprendre à cuisiner."
+    },
+    {
+     "slot": {
+      "study": "fare un viaggio",
+      "phon": "FA-ré oun VIAD-djo",
+      "native": "faire un voyage"
+     },
+     "study": "Voglio fare un viaggio.",
+     "phon": "VO-lio FA-ré oun VIAD-djo",
+     "native": "Je veux faire un voyage."
+    },
+    {
+     "slot": {
+      "study": "riposarmi un po'",
+      "phon": "ri-po-ZAR-mi oun PO",
+      "native": "me reposer un peu"
+     },
+     "study": "Voglio riposarmi un po'.",
+     "phon": "VO-lio ri-po-ZAR-mi oun PO",
+     "native": "Je veux me reposer un peu."
+    },
+    {
+     "slot": {
+      "study": "trovare un nuovo lavoro",
+      "phon": "tro-VA-ré oun NOUO-vo la-VO-ro",
+      "native": "trouver un nouveau travail"
+     },
+     "study": "Voglio trovare un nuovo lavoro.",
+     "phon": "VO-lio tro-VA-ré oun NOUO-vo la-VO-ro",
+     "native": "Je veux trouver un nouveau travail."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-it-11",
+   "situation": "La semaine prochaine (travail)",
+   "model": {
+    "study": "La prossima settimana {s}.",
+    "phon": "la PROS-si-ma sét-ti-MA-na {s}",
+    "native": "La semaine prochaine, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "avrò una riunione",
+      "phon": "a-VRO OU-na riou-NIO-né",
+      "native": "j'aurai une réunion"
+     },
+     "study": "La prossima settimana avrò una riunione.",
+     "phon": "la PROS-si-ma sét-ti-MA-na a-VRO OU-na riou-NIO-né",
+     "native": "La semaine prochaine, j'aurai une réunion."
+    },
+    {
+     "slot": {
+      "study": "sarò a Milano",
+      "phon": "sa-RO a mi-LA-no",
+      "native": "je serai à Milan"
+     },
+     "study": "La prossima settimana sarò a Milano.",
+     "phon": "la PROS-si-ma sét-ti-MA-na sa-RO a mi-LA-no",
+     "native": "La semaine prochaine, je serai à Milan."
+    },
+    {
+     "slot": {
+      "study": "inizierò il nuovo lavoro",
+      "phon": "i-ni-tsié-RO il NOUO-vo la-VO-ro",
+      "native": "je commencerai le nouveau travail"
+     },
+     "study": "La prossima settimana inizierò il nuovo lavoro.",
+     "phon": "la PROS-si-ma sét-ti-MA-na i-ni-tsié-RO il NOUO-vo la-VO-ro",
+     "native": "La semaine prochaine, je commencerai le nouveau travail."
+    },
+    {
+     "slot": {
+      "study": "saremo in vacanza",
+      "phon": "sa-RÉ-mo inn va-KAN-tsa",
+      "native": "on sera en vacances"
+     },
+     "study": "La prossima settimana saremo in vacanza.",
+     "phon": "la PROS-si-ma sét-ti-MA-na sa-RÉ-mo inn va-KAN-tsa",
+     "native": "La semaine prochaine, on sera en vacances."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-it-12",
+   "situation": "Transports",
+   "model": {
+    "study": "Prendo {s} delle otto.",
+    "phon": "PRÈN-do {s} DÉL-lé OT-to",
+    "native": "Je prends {s} de huit heures."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "il treno",
+      "phon": "il TRÈ-no",
+      "native": "le train"
+     },
+     "study": "Prendo il treno delle otto.",
+     "phon": "PRÈN-do il TRÈ-no DÉL-lé OT-to",
+     "native": "Je prends le train de huit heures."
+    },
+    {
+     "slot": {
+      "study": "l'autobus",
+      "phon": "LAOU-to-bous",
+      "native": "le bus"
+     },
+     "study": "Prendo l'autobus delle otto.",
+     "phon": "PRÈN-do LAOU-to-bous DÉL-lé OT-to",
+     "native": "Je prends le bus de huit heures."
+    },
+    {
+     "slot": {
+      "study": "il volo",
+      "phon": "il VO-lo",
+      "native": "le vol"
+     },
+     "study": "Prendo il volo delle otto.",
+     "phon": "PRÈN-do il VO-lo DÉL-lé OT-to",
+     "native": "Je prends le vol de huit heures."
+    },
+    {
+     "slot": {
+      "study": "la metro",
+      "phon": "la MÉ-tro",
+      "native": "le métro"
+     },
+     "study": "Prendo la metro delle otto.",
+     "phon": "PRÈN-do la MÉ-tro DÉL-lé OT-to",
+     "native": "Je prends le métro de huit heures."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L6-fr-it-d1",
+   "situation": "Organiser une sortie (entre amis, tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Ti va di fare qualcosa sabato?",
+     "phon": "ti va di FA-ré koual-KO-za SA-ba-to",
+     "native": "Ça te dit de faire quelque chose samedi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sì! Potremmo andare al mare?",
+     "phon": "SI. po-TRÉM-mo an-DA-ré al MA-ré",
+     "native": "Oui ! On pourrait aller à la mer ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sabato non posso, ma domenica sì.",
+     "phon": "SA-ba-to non POS-so, ma do-MÉ-ni-ka SI",
+     "native": "Samedi je ne peux pas, mais dimanche oui."
+    },
+    {
+     "speaker": "B",
+     "study": "Va bene, domenica. A che ora?",
+     "phon": "va BÈ-né, do-MÉ-ni-ka. a ké O-ra",
+     "native": "D'accord, dimanche. À quelle heure ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Alle nove davanti alla stazione? Prendiamo il treno delle nove e venti.",
+     "phon": "AL-lé NO-vé da-VAN-ti AL-la sta-TSIO-né. prén-DIA-mo il TRÈ-no DÉL-lé NO-vé é VÉN-ti",
+     "native": "À neuf heures devant la gare ? On prend le train de neuf heures vingt."
+    },
+    {
+     "speaker": "B",
+     "study": "Perfetto. Porto io i panini.",
+     "phon": "pér-FÈT-to. POR-to I-o i pa-NI-ni",
+     "native": "Parfait. C'est moi qui apporte les sandwichs."
+    },
+    {
+     "speaker": "A",
+     "study": "Ottimo! Allora siamo d'accordo per domenica alle nove.",
+     "phon": "OT-ti-mo. al-LO-ra SIA-mo dak-KOR-do pér do-MÉ-ni-ka AL-lé NO-vé",
+     "native": "Super ! Alors on est d'accord pour dimanche à neuf heures."
+    },
+    {
+     "speaker": "B",
+     "study": "Sì, ti chiamo sabato sera per confermare.",
+     "phon": "SI, ti KIA-mo SA-ba-to SÉ-ra pér kon-fér-MA-ré",
+     "native": "Oui, je t'appelle samedi soir pour confirmer."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L6-fr-it-01",
+    "L6-fr-it-02",
+    "L6-fr-it-03",
+    "L6-fr-it-04"
+   ]
+  },
+  {
+   "id": "L6-fr-it-d2",
+   "situation": "Fixer une réunion (travail, Lei)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, dottoressa Rossi. Potremmo vederci la prossima settimana?",
+     "phon": "bouon-DJOR-no, dot-to-RÉS-sa ROS-si. po-TRÉM-mo vé-DÉR-tchi la PROS-si-ma sét-ti-MA-na",
+     "native": "Bonjour, madame Rossi. Pourrions-nous nous voir la semaine prochaine ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Certo. Martedì mattina va bene?",
+     "phon": "TCHÈR-to. mar-té-DI mat-TI-na va BÈ-né",
+     "native": "Bien sûr. Mardi matin, ça vous va ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Martedì sarò a Milano. Mercoledì?",
+     "phon": "mar-té-DI sa-RO a mi-LA-no. mér-ko-lé-DI",
+     "native": "Mardi, je serai à Milan. Mercredi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Mercoledì alle dieci, nel mio ufficio.",
+     "phon": "mér-ko-lé-DI AL-lé DIÈ-tchi, nél MI-o ouf-FI-tcho",
+     "native": "Mercredi à dix heures, dans mon bureau."
+    },
+    {
+     "speaker": "A",
+     "study": "Perfetto. Le mando una mail per confermare.",
+     "phon": "pér-FÈT-to. lé MAN-do OU-na MÈÏL pér kon-fér-MA-ré",
+     "native": "Parfait. Je vous envoie un mail pour confirmer."
+    },
+    {
+     "speaker": "B",
+     "study": "Grazie. Ha intenzione di presentare il nuovo progetto?",
+     "phon": "GRA-tsié. a in-tén-TSIO-né di pré-zén-TA-ré il NOUO-vo pro-DJÈT-to",
+     "native": "Merci. Vous avez l'intention de présenter le nouveau projet ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sì, e mi piacerebbe avere la Sua opinione.",
+     "phon": "SI, é mi pia-tché-RÈB-bé a-VÉ-ré la SOU-a o-pi-NIO-né",
+     "native": "Oui, et j'aimerais avoir votre avis."
+    },
+    {
+     "speaker": "B",
+     "study": "Volentieri. A mercoledì, allora.",
+     "phon": "vo-lén-TIÈ-ri. a mér-ko-lé-DI, al-LO-ra",
+     "native": "Volontiers. À mercredi, alors."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L6-fr-it-01",
+    "L6-fr-it-02",
+    "L6-fr-it-03",
+    "L6-fr-it-04"
+   ]
+  },
+  {
+   "id": "L6-fr-it-d3",
+   "situation": "À la gare : changement de plan (téléphone, tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Pronto, Sara? Sono alla stazione, ma il treno è in ritardo.",
+     "phon": "PRON-to, SA-ra. SO-no AL-la sta-TSIO-né, ma il TRÈ-no è inn ri-TAR-do",
+     "native": "Allô, Sara ? Je suis à la gare, mais le train est en retard."
+    },
+    {
+     "speaker": "B",
+     "study": "Oh no! Di quanto?",
+     "phon": "o NO. di KOUAN-to",
+     "native": "Oh non ! De combien ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Di un'ora. Arriverò verso le nove.",
+     "phon": "di ou-NO-ra. ar-ri-vé-RO VÈR-so lé NO-vé",
+     "native": "D'une heure. J'arriverai vers neuf heures."
+    },
+    {
+     "speaker": "B",
+     "study": "Non c'è problema. Ti aspetto al ristorante.",
+     "phon": "non tchè pro-BLÈ-ma. ti as-PÈT-to al ris-to-RAN-té",
+     "native": "Pas de problème. Je t'attends au restaurant."
+    },
+    {
+     "speaker": "A",
+     "study": "Perché non prendiamo qualcosa dopo, invece? Una pizza vicino a casa tua?",
+     "phon": "pér-KÉ non prén-DIA-mo koual-KO-za DO-po, in-VÉ-tché. OU-na PIT-tsa vi-TCHI-no a KA-za TOU-a",
+     "native": "Et si on prenait plutôt quelque chose après ? Une pizza près de chez toi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Buona idea. Allora ci vediamo alle nove e mezza davanti a casa mia.",
+     "phon": "BOUO-na i-DÈ-a. al-LO-ra tchi vé-DIA-mo AL-lé NO-vé é MÈD-dza da-VAN-ti a KA-za MI-a",
+     "native": "Bonne idée. Alors on se voit à neuf heures et demie devant chez moi."
+    },
+    {
+     "speaker": "A",
+     "study": "Perfetto, a dopo!",
+     "phon": "pér-FÈT-to, a DO-po",
+     "native": "Parfait, à tout à l'heure !"
+    },
+    {
+     "speaker": "B",
+     "study": "A dopo, buon viaggio!",
+     "phon": "a DO-po, bouon VIAD-djo",
+     "native": "À tout à l'heure, bon voyage !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L6-fr-it-01",
+    "L6-fr-it-02",
+    "L6-fr-it-03",
+    "L6-fr-it-04"
+   ]
+  }
+ ],
+ "readiness": "Parler de ses projets au futur, proposer une activité, fixer un lieu et une heure, refuser en proposant une alternative et confirmer un rendez-vous."
+}
