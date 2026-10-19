@@ -2712,8 +2712,14 @@ body.immersif.pile-droite .stage {
   document.documentElement.appendChild(st);
   function addCover(){ if(document.getElementById('bootCover'))return; var c=document.createElement('div'); c.id='bootCover'; c.innerHTML='<i></i>'; (document.body||document.documentElement).appendChild(c); }
   if(document.body) addCover(); else document.addEventListener('DOMContentLoaded', addCover);
-  // Sécurité : retire le voile au bout de 2,5 s quoi qu'il arrive
-  setTimeout(function(){ var c=document.getElementById('bootCover'); if(c){ c.classList.add('hide'); setTimeout(function(){ if(c.parentNode) c.parentNode.removeChild(c); },300); } }, 2500);
+  // Never expose the uninitialized lesson on a slow connection.
+  setTimeout(function(){
+    var c=document.getElementById('bootCover'); if(!c || c.classList.contains('hide')) return;
+    var retry=document.createElement('button'); retry.type='button';
+    retry.textContent='Chargement plus long que prévu · Réessayer';
+    retry.style.cssText='margin:20px;padding:14px;border:0;border-radius:12px;background:#fff;color:#173e50;font:600 16px system-ui';
+    retry.onclick=function(){location.reload();}; c.appendChild(retry);
+  },15000);
   window.__removeBootCover=function(){ var c=document.getElementById('bootCover'); if(c){ c.classList.add('hide'); setTimeout(function(){ if(c.parentNode) c.parentNode.removeChild(c); },300); } };
 }catch(e){}})();
 </script>
@@ -5110,11 +5116,14 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
         if(typeof wlcSetSite==='function') wlcSetSite(lang);
         if(typeof wlcGoStep2==='function') wlcGoStep2();
         else if(typeof dismissWelcome==='function') dismissWelcome();
-      }catch(e){}
-      try{ if(window.__removeBootCover) window.__removeBootCover(); }catch(e){}
+        var study=q.get('study');
+        if(study && study!==lang && typeof setLang==='function') setLang(study);
+        if(typeof pool==='undefined' || !pool.length) return;
+        if(window.__removeBootCover) window.__removeBootCover();
+      }catch(e){ console.error('Lesson startup failed',e); }
     }
-    if(document.readyState==='complete'){ setTimeout(goLesson,300); }
-    else { window.addEventListener('load', function(){ setTimeout(goLesson,300); }); }
+    if(document.readyState!=='loading') goLesson();
+    else document.addEventListener('DOMContentLoaded',goLesson,{once:true});
   }catch(e){}
 })();
 </script>
