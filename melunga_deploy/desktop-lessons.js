@@ -18,16 +18,6 @@
   const languageText = document.createElement('span');
   languageName.append(languageFlag,languageText);
   progress.append(languageName,levelName,phraseNumber); stage.append(progress);
-  function openMobileLanguageMenu(event) {
-    if (desktop.matches) return;
-    if (event.type === 'keydown' && event.key !== 'Enter' && event.key !== ' ') return;
-    event.preventDefault(); event.stopPropagation();
-    const originalChip = document.getElementById('studyLang');
-    if (originalChip) originalChip.click();
-  }
-  languageName.setAttribute('role','button'); languageName.tabIndex = 0;
-  languageName.addEventListener('click',openMobileLanguageMenu);
-  languageName.addEventListener('keydown',openMobileLanguageMenu);
   const icons = ['🌐','📊','📚','🔁','🔊'];
   const hiddenLegacyValues = new Map();
   const labels = {
@@ -60,8 +50,14 @@
       if (label.textContent !== values[index]) label.textContent = values[index];
     });
   }
-  function updateLessonProgress() {
-    if (desktop.matches) { languageName.removeAttribute('role'); languageName.removeAttribute('tabindex'); } else { languageName.setAttribute('role','button'); languageName.tabIndex = 0; }
+  const originalFit = window.fitCard;
+  window.fitCard = function () {
+    const card = document.getElementById('card');
+    if (!desktop.matches || !document.body.classList.contains('immersif')) { if (card) card.style.removeProperty('--learning-text-size');
+      hiddenLegacyValues.forEach(function (saved,element) { if (saved.value) element.style.setProperty('display',saved.value,saved.priority); else element.style.removeProperty('display'); });
+      hiddenLegacyValues.clear();
+      return originalFit.apply(this,arguments); }
+    labelControls();
     const locale = typeof nat === 'string' ? nat : 'fr';
     const language = typeof lang === 'string' ? lang : 'en';
     let displayLanguage = language;
@@ -74,16 +70,6 @@
     phraseNumber.textContent = (typeof idx === 'number' ? idx + 1 : 1) + ' / ' + (typeof pool !== 'undefined' ? pool.length : 0);
     phraseNumber.setAttribute('aria-label',document.getElementById('count').textContent);
 
-  }
-  const originalFit = window.fitCard;
-  window.fitCard = function () {
-    const card = document.getElementById('card');
-    updateLessonProgress();
-    if (!desktop.matches || !document.body.classList.contains('immersif')) { if (card) card.style.removeProperty('--learning-text-size');
-      hiddenLegacyValues.forEach(function (saved,element) { if (saved.value) element.style.setProperty('display',saved.value,saved.priority); else element.style.removeProperty('display'); });
-      hiddenLegacyValues.clear();
-      return originalFit.apply(this,arguments); }
-    labelControls();
     const phrase = document.getElementById('fr'), phonetic = document.getElementById('phon');
     if (!phrase) return;
     const length = phrase.textContent.length;
