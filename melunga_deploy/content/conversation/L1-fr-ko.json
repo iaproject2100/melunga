@@ -1,5 +1,6 @@
 {
- "version": 1,
+ "version": 2,
+ "format": "conversation-generic",
  "status": "échantillon-à-valider",
  "studyLanguage": "ko",
  "nativeLanguage": "fr",
@@ -342,7 +343,7 @@
      },
      "study": "화장실이 어디예요?",
      "phon": "houa-djang-sil-i eo-di-yé-yo ?",
-     "native": "Où est les toilettes ?",
+     "native": "Où sont les toilettes ?",
      "reading": "hwajangsiri eodiyeyo?"
     },
     {
@@ -713,6 +714,76 @@
     ],
     "recall": 3
    }
+  },
+  {
+   "id": "L1-fr-ko-11",
+   "situation": "Se dépanner",
+   "model": {
+    "study": "{s}",
+    "reading": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Formules de secours : phrases entières à connaître telles quelles pour tenir un échange."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "이해 못 했어요.",
+      "reading": "ihae mot haesseoyo.",
+      "phon": "i-hè mot hè-sseo-yo",
+      "native": "Je ne comprends pas."
+     },
+     "study": "이해 못 했어요.",
+     "phon": "i-hè mot hè-sseo-yo",
+     "native": "Je ne comprends pas.",
+     "reading": "ihae mot haesseoyo."
+    },
+    {
+     "slot": {
+      "study": "다시 말해 주세요.",
+      "reading": "dasi malhae juseyo.",
+      "phon": "ta-si mal-hè djou-sé-yo",
+      "native": "Répétez, s'il vous plaît."
+     },
+     "study": "다시 말해 주세요.",
+     "phon": "ta-si mal-hè djou-sé-yo",
+     "native": "Répétez, s'il vous plaît.",
+     "reading": "dasi malhae juseyo."
+    },
+    {
+     "slot": {
+      "study": "천천히 말해 주세요.",
+      "reading": "cheoncheonhi malhae juseyo.",
+      "phon": "tcheon-tcheon-hi mal-hè djou-sé-yo",
+      "native": "Plus lentement, s'il vous plaît."
+     },
+     "study": "천천히 말해 주세요.",
+     "phon": "tcheon-tcheon-hi mal-hè djou-sé-yo",
+     "native": "Plus lentement, s'il vous plaît.",
+     "reading": "cheoncheonhi malhae juseyo."
+    },
+    {
+     "slot": {
+      "study": "프랑스어 할 수 있어요?",
+      "reading": "peurangseueo hal su isseoyo?",
+      "phon": "peu-rang-seu-eo hal sou i-sseo-yo",
+      "native": "Parlez-vous français ?"
+     },
+     "study": "프랑스어 할 수 있어요?",
+     "phon": "peu-rang-seu-eo hal sou i-sseo-yo",
+     "native": "Parlez-vous français ?",
+     "reading": "peurangseueo hal su isseoyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
   }
  ],
  "dialogues": [
@@ -846,10 +917,10 @@
     },
     {
      "speaker": "A",
-     "study": "저는 프랑스 사람이에요, 파리에서 왔어요. 당신은요?",
-     "reading": "jeoneun peurangseu saram-ieyo, pari-eseo wasseoyo. dangsineunyo?",
-     "phon": "djeo-neun peu-rang-seu sa-ram-i-é-yo, pa-ri-é-sseo oua-sseo-yo. dang-sin-eun-yo",
-     "native": "Je suis française, de Paris. Et vous ?"
+     "study": "저는 프랑스 사람이에요, 파리에서 왔어요. 어디에서 오셨어요?",
+     "reading": "jeoneun peurangseu saram-ieyo, pari-eseo wasseoyo. eodieseo osyeosseoyo?",
+     "phon": "djeo-neun peu-rang-seu sa-ram-i-é-yo, pa-ri-é-sseo oua-sseo-yo. eo-di-é-sseo o-chyeo-sseo-yo",
+     "native": "Je suis française, de Paris. Et vous, vous venez d'où ?"
     },
     {
      "speaker": "B",

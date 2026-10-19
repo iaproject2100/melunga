@@ -1,6 +1,6 @@
 # Échantillon L1 « Premiers contacts » — 7 langues étudiées
 
-Objectif L1 : saluer, se présenter, exprimer un besoin, commander simplement. Pour chaque langue : 10 modèles × 4 variantes (le morceau remplaçable est en **gras**), 3 dialogues de 6 répliques. Langue maternelle : français pour six langues ; chinois pour le français (public principal).
+Objectif L1 : saluer, se présenter, exprimer un besoin, commander simplement. Pour chaque langue : 11 modèles × 4 variantes (10 structures + formules de secours) (le morceau remplaçable est en **gras**), 3 dialogues de 6 répliques. Langue maternelle : français pour six langues ; chinois pour le français (public principal).
 
 Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si applicable) · prononciation écrite pour le lecteur · traduction.
 
@@ -17,7 +17,7 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 | Soy **estudiante**. | SOY és-tou-DIAN-té | Je suis étudiant. |
 | Soy **francés**. | SOY fran-SSÉS | Je suis français. |
 | Soy **de París**. | SOY dé pa-RIS | Je suis de Paris. |
-| Soy **de vacaciones**. | SOY dé ba-ka-SSIO-nés | Je suis en vacances. |
+| Soy **profesor**. | SOY pro-fé-SSOR | Je suis professeur. |
 
 ### L1-fr-es-02 · Dire son nom — modèle « Me llamo {s}. »
 
@@ -41,10 +41,10 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 
 | Phrase | Prononciation | Traduction |
 |---|---|---|
-| Necesito **ayuda**. | né-sé-SSI-to a-YOU-da | J'ai besoin d'aide. |
-| Necesito **un taxi**. | né-sé-SSI-to oun TAK-ssi | J'ai besoin d'un taxi. |
-| Necesito **un médico**. | né-sé-SSI-to oun MÉ-di-ko | J'ai besoin d'un médecin. |
-| Necesito **wifi**. | né-sé-SSI-to OUI-fi | J'ai besoin de la wifi. |
+| Necesito **ayuda**. | né-ssé-SSI-to a-YOU-da | J'ai besoin d'aide. |
+| Necesito **un taxi**. | né-ssé-SSI-to oun TAK-ssi | J'ai besoin d'un taxi. |
+| Necesito **un médico**. | né-ssé-SSI-to oun MÉ-di-ko | J'ai besoin d'un médecin. |
+| Necesito **wifi**. | né-ssé-SSI-to OUI-fi | J'ai besoin de la wifi. |
 
 ### L1-fr-es-05 · Trouver un lieu — modèle « ¿Dónde está {s}? »
 
@@ -52,7 +52,7 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 |---|---|---|
 | ¿Dónde está **la estación**? | DON-dé és-TA la és-ta-SSION | Où est la gare ? |
 | ¿Dónde está **la salida**? | DON-dé és-TA la ssa-LI-da | Où est la sortie ? |
-| ¿Dónde está **el baño**? | DON-dé és-TA él BA-gno | Où est les toilettes ? |
+| ¿Dónde está **el baño**? | DON-dé és-TA él BA-gno | Où sont les toilettes ? |
 | ¿Dónde está **el metro**? | DON-dé és-TA él MÉ-tro | Où est le métro ? |
 
 ### L1-fr-es-06 · Dire où l'on va — modèle « Voy {s}. »
@@ -100,6 +100,15 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 | ¿Cuánto cuesta **el billete**? | KOUAN-to KOUÉS-ta él bi-YÉ-té | Combien coûte le billet ? |
 | ¿Cuánto cuesta **la habitación**? | KOUAN-to KOUÉS-ta la a-bi-ta-SSION | Combien coûte la chambre ? |
 
+### L1-fr-es-11 · Se dépanner — modèle « {s} »
+
+| Phrase | Prononciation | Traduction |
+|---|---|---|
+| **No entiendo.** | no én-TIÉN-do | Je ne comprends pas. |
+| **¿Puede repetir, por favor?** | POUÉ-dé rré-pé-TIR, por fa-BOR | Pouvez-vous répéter, s'il vous plaît ? |
+| **Más despacio, por favor.** | mas dés-PA-ssio, por fa-BOR | Plus lentement, s'il vous plaît. |
+| **¿Habla francés?** | A-bla fran-SSÉS | Parlez-vous français ? |
+
 ### L1-fr-es-d1 · Au café
 
 - **A** : ¡Hola! — O-la — Bonjour !
@@ -113,7 +122,7 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 
 - **A** : Perdone, ¿dónde está la estación? — pér-DO-né, DON-dé és-TA la és-ta-SSION — Excusez-moi, où est la gare ?
 - **B** : Todo recto, a cinco minutos. — TO-do RRÉK-to, a SSIN-ko mi-NOU-tos — Tout droit, à cinq minutes.
-- **A** : Gracias. Necesito un billete para Valencia. — GRA-ssias. né-sé-SSI-to oun bi-YÉ-té PA-ra ba-LÉN-ssia — Merci. J'ai besoin d'un billet pour Valence.
+- **A** : Gracias. Necesito un billete para Valencia. — GRA-ssias. né-ssé-SSI-to oun bi-YÉ-té PA-ra ba-LÉN-ssia — Merci. J'ai besoin d'un billet pour Valence.
 - **B** : Un billete, diez euros. — oun bi-YÉ-té, DIÉSS É-ou-ros — Un billet, dix euros.
 - **A** : Aquí tiene. Muchas gracias. — a-KI TIÉ-né. MOU-tchas GRA-ssias — Voilà. Merci beaucoup.
 - **B** : ¡Buen viaje! — bouén BIA-khé — Bon voyage !
@@ -175,7 +184,7 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 |---|---|---|
 | Where is **the station**? | OUÈR iz ze STÉÏ-cheun | Où est la gare ? |
 | Where is **the exit**? | OUÈR iz zi ÈG-zit | Où est la sortie ? |
-| Where is **the toilet**? | OUÈR iz ze TOÏ-leut | Où est les toilettes ? |
+| Where is **the toilet**? | OUÈR iz ze TOÏ-leut | Où sont les toilettes ? |
 | Where is **the metro**? | OUÈR iz ze MÈ-tro | Où est le métro ? |
 
 ### L1-fr-en-06 · Dire où l'on va — modèle « I'm going {s}. »
@@ -222,6 +231,15 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 | How much is **the coffee**? | HAÔ MEUTCH iz ze KO-fi | Combien coûte le café ? |
 | How much is **the ticket**? | HAÔ MEUTCH iz ze TI-kit | Combien coûte le billet ? |
 | How much is **the room**? | HAÔ MEUTCH iz ze ROUM | Combien coûte la chambre ? |
+
+### L1-fr-en-11 · Se dépanner — modèle « {s} »
+
+| Phrase | Prononciation | Traduction |
+|---|---|---|
+| **I don't understand.** | aï dônt eun-deur-STAND | Je ne comprends pas. |
+| **Could you repeat, please?** | koud you ri-PIT, PLIZ | Pouvez-vous répéter, s'il vous plaît ? |
+| **Slower, please.** | SLÔ-eur, PLIZ | Plus lentement, s'il vous plaît. |
+| **Do you speak French?** | dou you SPIK FRÈNTCH | Parlez-vous français ? |
 
 ### L1-fr-en-d1 · Au café
 
@@ -298,7 +316,7 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 |---|---|---|---|
 | **火车站**在哪里？ | huǒchēzhàn zài nǎlǐ? | houo-tcheu-djan dzaï na-li ? | Où est la gare ? |
 | **出口**在哪里？ | chūkǒu zài nǎlǐ? | tchou-kou dzaï na-li ? | Où est la sortie ? |
-| **洗手间**在哪里？ | xǐshǒujiān zài nǎlǐ? | si-chou-tièn dzaï na-li ? | Où est les toilettes ? |
+| **洗手间**在哪里？ | xǐshǒujiān zài nǎlǐ? | si-chou-tièn dzaï na-li ? | Où sont les toilettes ? |
 | **地铁**在哪里？ | dìtiě zài nǎlǐ? | ti-tié dzaï na-li ? | Où est le métro ? |
 
 ### L1-fr-zh-06 · Dire où l'on va — modèle « 我去{s}。 »
@@ -345,6 +363,15 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 | **咖啡**多少钱？ | kāfēi duōshao qián? | ka-feï douo-chao tchyèn ? | Combien coûte le café ? |
 | **票**多少钱？ | piào duōshao qián? | piao douo-chao tchyèn ? | Combien coûte le billet ? |
 | **房间**多少钱？ | fángjiān duōshao qián? | fang-tièn douo-chao tchyèn ? | Combien coûte la chambre ? |
+
+### L1-fr-zh-11 · Se dépanner — modèle « {s} »
+
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **我不懂。** | wǒ bù dǒng. | ouo pou tong | Je ne comprends pas. |
+| **请再说一遍。** | qǐng zài shuō yí biàn. | tching dzaï chouo i pièn | Répétez, s'il vous plaît. |
+| **请说慢一点。** | qǐng shuō màn yìdiǎn. | tching chouo man i-tièn | Plus lentement, s'il vous plaît. |
+| **你会说法语吗？** | nǐ huì shuō Fǎyǔ ma? | ni houeï chouo fa-yu ma ? | Parlez-vous français ? |
 
 ### L1-fr-zh-d1 · Au café
 
@@ -421,7 +448,7 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 |---|---|---|
 | Dov'è **la stazione**? | do-VÈ la sta-TSIO-né | Où est la gare ? |
 | Dov'è **l'uscita**? | do-VÈ lou-CHI-ta | Où est la sortie ? |
-| Dov'è **il bagno**? | do-VÈ il BA-gno | Où est les toilettes ? |
+| Dov'è **il bagno**? | do-VÈ il BA-gno | Où sont les toilettes ? |
 | Dov'è **la metro**? | do-VÈ la MÉ-tro | Où est le métro ? |
 
 ### L1-fr-it-06 · Dire où l'on va — modèle « Vado {s}. »
@@ -469,6 +496,15 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 | Quanto costa **il biglietto**? | KOUAN-to KOS-ta il bi-LIÉT-to | Combien coûte le billet ? |
 | Quanto costa **la camera**? | KOUAN-to KOS-ta la KA-mé-ra | Combien coûte la chambre ? |
 
+### L1-fr-it-11 · Se dépanner — modèle « {s} »
+
+| Phrase | Prononciation | Traduction |
+|---|---|---|
+| **Non capisco.** | non ka-PIS-ko | Je ne comprends pas. |
+| **Può ripetere, per favore?** | pouo ri-PÈ-té-ré, pér fa-VO-ré | Pouvez-vous répéter, s'il vous plaît ? |
+| **Più lentamente, per favore.** | piou lén-ta-MÉN-té, pér fa-VO-ré | Plus lentement, s'il vous plaît. |
+| **Parla francese?** | PAR-la fran-TCHÉ-zé | Parlez-vous français ? |
+
 ### L1-fr-it-d1 · Au café
 
 - **A** : Buongiorno! — bouon-DJOR-no — Bonjour !
@@ -498,7 +534,7 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 
 ## Japonais (lecteurs francophones)
 
-*Convention phonétique* : Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelles longues doublées (ô, ii). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).
+*Convention phonétique* : Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).
 
 *Statut* : Relecture linguistique requise (naturel des tournures, lectures des kanji).
 
@@ -508,15 +544,15 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 |---|---|---|---|
 | 私は**学生**です。 | わたしはがくせいです。 | wa-ta-chi wa ga-kou-sé-i dé-sou | Je suis étudiant. |
 | 私は**フランス人**です。 | わたしはふらんすじんです。 | wa-ta-chi wa fou-ran-sou-djin dé-sou | Je suis français. |
-| 私は**パリ出身**です。 | わたしはぱりしゅっしんです。 | wa-ta-chi wa pa-ri chou-chin dé-sou | Je suis de Paris. |
-| 私は**休暇中**です。 | わたしはきゅうかちゅうです。 | wa-ta-chi wa kyou-ka-tchou dé-sou | Je suis en vacances. |
+| 私は**パリ出身**です。 | わたしはぱりしゅっしんです。 | wa-ta-chi wa pa-ri chouc-chin dé-sou | Je suis de Paris. |
+| 私は**休暇中**です。 | わたしはきゅうかちゅうです。 | wa-ta-chi wa kyou-ou-ka-tchou-ou dé-sou | Je suis en vacances. |
 
 ### L1-fr-ja-02 · Dire son nom — modèle « {s}と言います。 »
 
 | Phrase | Lecture | Prononciation | Traduction |
 |---|---|---|---|
-| **マリー**と言います。 | まりーといいます。 | ma-rii to i-i-ma-sou | Je m'appelle Marie. |
-| **ポール**と言います。 | ぽーるといいます。 | pô-rou to i-i-ma-sou | Je m'appelle Paul. |
+| **マリー**と言います。 | まりーといいます。 | ma-ri-i to i-i-ma-sou | Je m'appelle Marie. |
+| **ポール**と言います。 | ぽーるといいます。 | po-o-rou to i-i-ma-sou | Je m'appelle Paul. |
 | **リン**と言います。 | りんといいます。 | rin to i-i-ma-sou | Je m'appelle Lin. |
 | **アナ**と言います。 | あなといいます。 | a-na to i-i-ma-sou | Je m'appelle Ana. |
 
@@ -524,7 +560,7 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 
 | Phrase | Lecture | Prononciation | Traduction |
 |---|---|---|---|
-| **コーヒー**をください。 | こーひーをください。 | kô-hii o kou-da-sa-i | Je veux un café. |
+| **コーヒー**をください。 | こーひーをください。 | ko-o-hi-i o kou-da-sa-i | Je veux un café. |
 | **水**をください。 | みずをください。 | mi-zou o kou-da-sa-i | Je veux de l'eau. |
 | **切符**をください。 | きっぷをください。 | kip-pou o kou-da-sa-i | Je veux un billet. |
 | **サンドイッチ**をください。 | さんどいっちをください。 | san-do-it-tchi o kou-da-sa-i | Je veux un sandwich. |
@@ -533,10 +569,10 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 
 | Phrase | Lecture | Prononciation | Traduction |
 |---|---|---|---|
-| **助け**が必要です。 | たすけがひつようです。 | ta-sou-ké ga hi-tsou-yô dé-sou | J'ai besoin d'aide. |
-| **タクシー**が必要です。 | たくしーがひつようです。 | ta-kou-chii ga hi-tsou-yô dé-sou | J'ai besoin d'un taxi. |
-| **医者**が必要です。 | いしゃがひつようです。 | i-cha ga hi-tsou-yô dé-sou | J'ai besoin d'un médecin. |
-| **Wi-Fi**が必要です。 | わいふぁいがひつようです。 | oua-i-fa-i ga hi-tsou-yô dé-sou | J'ai besoin de la wifi. |
+| **助け**が必要です。 | たすけがひつようです。 | ta-sou-ké ga hi-tsou-yo-o dé-sou | J'ai besoin d'aide. |
+| **タクシー**が必要です。 | たくしーがひつようです。 | ta-kou-chi-i ga hi-tsou-yo-o dé-sou | J'ai besoin d'un taxi. |
+| **医者**が必要です。 | いしゃがひつようです。 | i-cha ga hi-tsou-yo-o dé-sou | J'ai besoin d'un médecin. |
+| **Wi-Fi**が必要です。 | わいふぁいがひつようです。 | oua-i-fa-i ga hi-tsou-yo-o dé-sou | J'ai besoin de la wifi. |
 
 ### L1-fr-ja-05 · Trouver un lieu — modèle « {s}はどこですか。 »
 
@@ -544,7 +580,7 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 |---|---|---|---|
 | **駅**はどこですか。 | えきはどこですか。 | é-ki wa do-ko dé-sou ka | Où est la gare ? |
 | **出口**はどこですか。 | でぐちはどこですか。 | dé-gou-tchi wa do-ko dé-sou ka | Où est la sortie ? |
-| **トイレ**はどこですか。 | といれはどこですか。 | to-i-ré wa do-ko dé-sou ka | Où est les toilettes ? |
+| **トイレ**はどこですか。 | といれはどこですか。 | to-i-ré wa do-ko dé-sou ka | Où sont les toilettes ? |
 | **地下鉄**はどこですか。 | ちかてつはどこですか。 | tchi-ka-té-tsou wa do-ko dé-sou ka | Où est le métro ? |
 
 ### L1-fr-ja-06 · Dire où l'on va — modèle « {s}に行きます。 »
@@ -552,7 +588,7 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 | Phrase | Lecture | Prononciation | Traduction |
 |---|---|---|---|
 | **会社**に行きます。 | かいしゃにいきます。 | ka-i-cha ni i-ki-ma-sou | Je vais au travail. |
-| **家**に行きます。 | いえにいきます。 | i-é ni i-ki-ma-sou | Je vais à la maison. |
+| **駅**に行きます。 | えきにいきます。 | é-ki ni i-ki-ma-sou | Je vais à la gare. |
 | **市場**に行きます。 | いちばにいきます。 | i-tchi-ba ni i-ki-ma-sou | Je vais au marché. |
 | **ホテル**に行きます。 | ほてるにいきます。 | ho-té-rou ni i-ki-ma-sou | Je vais à l'hôtel. |
 
@@ -569,18 +605,18 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 
 | Phrase | Lecture | Prononciation | Traduction |
 |---|---|---|---|
-| **コーヒー**が好きです。 | こーひーがすきです。 | kô-hii ga sou-ki dé-sou | J'aime le café. |
+| **コーヒー**が好きです。 | こーひーがすきです。 | ko-o-hi-i ga sou-ki dé-sou | J'aime le café. |
 | **音楽**が好きです。 | おんがくがすきです。 | on-ga-kou ga sou-ki dé-sou | J'aime la musique. |
 | **散歩**が好きです。 | さんぽがすきです。 | san-po ga sou-ki dé-sou | J'aime marcher. |
-| **スポーツ**が好きです。 | すぽーつがすきです。 | sou-pô-tsou ga sou-ki dé-sou | J'aime le sport. |
+| **スポーツ**が好きです。 | すぽーつがすきです。 | sou-po-o-tsou ga sou-ki dé-sou | J'aime le sport. |
 
 ### L1-fr-ja-09 · Commander — modèle « {s}をお願いします。 »
 
 | Phrase | Lecture | Prononciation | Traduction |
 |---|---|---|---|
-| **コーヒー**をお願いします。 | こーひーをおねがいします。 | kô-hii o o-né-ga-i chi-ma-sou | Un café, s'il vous plaît. |
+| **コーヒー**をお願いします。 | こーひーをおねがいします。 | ko-o-hi-i o o-né-ga-i chi-ma-sou | Un café, s'il vous plaît. |
 | **お茶**をお願いします。 | おちゃをおねがいします。 | o-tcha o o-né-ga-i chi-ma-sou | Un thé, s'il vous plaît. |
-| **オレンジジュース**をお願いします。 | おれんじじゅーすをおねがいします。 | o-ren-dji djou-sou o o-né-ga-i chi-ma-sou | Un jus d'orange, s'il vous plaît. |
+| **オレンジジュース**をお願いします。 | おれんじじゅーすをおねがいします。 | o-ren-dji djou-ou-sou o o-né-ga-i chi-ma-sou | Un jus d'orange, s'il vous plaît. |
 | **サンドイッチ**をお願いします。 | さんどいっちをおねがいします。 | san-do-it-tchi o o-né-ga-i chi-ma-sou | Un sandwich, s'il vous plaît. |
 
 ### L1-fr-ja-10 · Demander un prix — modèle « {s}はいくらですか。 »
@@ -588,36 +624,45 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 | Phrase | Lecture | Prononciation | Traduction |
 |---|---|---|---|
 | **これ**はいくらですか。 | これはいくらですか。 | ko-ré wa i-kou-ra dé-sou ka | Combien coûte ça ? |
-| **コーヒー**はいくらですか。 | こーひーはいくらですか。 | kô-hii wa i-kou-ra dé-sou ka | Combien coûte le café ? |
+| **コーヒー**はいくらですか。 | こーひーはいくらですか。 | ko-o-hi-i wa i-kou-ra dé-sou ka | Combien coûte le café ? |
 | **切符**はいくらですか。 | きっぷはいくらですか。 | kip-pou wa i-kou-ra dé-sou ka | Combien coûte le billet ? |
 | **部屋**はいくらですか。 | へやはいくらですか。 | hé-ya wa i-kou-ra dé-sou ka | Combien coûte la chambre ? |
+
+### L1-fr-ja-11 · Se dépanner — modèle « {s} »
+
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **分かりません。** | わかりません。 | wa-ka-ri-ma-sén | Je ne comprends pas. |
+| **もう一度お願いします。** | もういちどおねがいします。 | mo-o i-tchi-do o-né-ga-i chi-ma-sou | Répétez, s'il vous plaît. |
+| **ゆっくりお願いします。** | ゆっくりおねがいします。 | youk-kou-ri o-né-ga-i chi-ma-sou | Plus lentement, s'il vous plaît. |
+| **フランス語が話せますか。** | ふらんすごがはなせますか。 | fou-ran-sou-go ga ha-na-sé-ma-sou ka | Parlez-vous français ? |
 
 ### L1-fr-ja-d1 · Au café
 
 - **A** : こんにちは！ *(こんにちは！)* — kon-ni-tchi-wa — Bonjour !
-- **B** : こんにちは。ご注文は？ *(こんにちは。ごちゅうもんは？)* — kon-ni-tchi-wa. go-tchou-mon wa — Bonjour. Vous désirez ?
-- **A** : コーヒーをお願いします。 *(こーひーをおねがいします。)* — kô-hii o o-né-ga-i chi-ma-sou — Un café, s'il vous plaît.
+- **B** : こんにちは。ご注文は？ *(こんにちは。ごちゅうもんは？)* — kon-ni-tchi-wa. go-tchou-ou-mon wa — Bonjour. Vous désirez ?
+- **A** : コーヒーをお願いします。 *(こーひーをおねがいします。)* — ko-o-hi-i o o-né-ga-i chi-ma-sou — Un café, s'il vous plaît.
 - **B** : ミルクは？ *(みるくは？)* — mi-rou-kou wa — Avec du lait ?
-- **A** : いいえ、結構です。いくらですか。 *(いいえ、けっこうです。いくらですか。)* — i-i-é, kék-kô dé-sou. i-kou-ra dé-sou ka — Non, merci. Combien ça coûte ?
+- **A** : いいえ、結構です。いくらですか。 *(いいえ、けっこうです。いくらですか。)* — i-i-é, kek-ko-o dé-sou. i-kou-ra dé-sou ka — Non, merci. Combien ça coûte ?
 - **B** : 三百円です。 *(さんびゃくえんです。)* — san-bya-kou én dé-sou — Trois cents yens.
 
 ### L1-fr-ja-d2 · À la gare
 
 - **A** : すみません、駅はどこですか。 *(すみません、えきはどこですか。)* — sou-mi-ma-sén, é-ki wa do-ko dé-sou ka — Excusez-moi, où est la gare ?
 - **B** : まっすぐ、五分です。 *(まっすぐ、ごふんです。)* — mas-sou-gou, go-foun dé-sou — Tout droit, à cinq minutes.
-- **A** : ありがとう。大阪までの切符が必要です。 *(ありがとう。おおさかまでのきっぷがひつようです。)* — a-ri-ga-tô. ô-sa-ka ma-dé no kip-pou ga hi-tsou-yô dé-sou — Merci. J'ai besoin d'un billet pour Osaka.
+- **A** : ありがとう。大阪までの切符が必要です。 *(ありがとう。おおさかまでのきっぷがひつようです。)* — a-ri-ga-to-o. o-o-sa-ka ma-dé no kip-pou ga hi-tsou-yo-o dé-sou — Merci. J'ai besoin d'un billet pour Osaka.
 - **B** : 切符一枚、千円です。 *(きっぷいちまい、せんえんです。)* — kip-pou i-tchi-ma-i, sén én dé-sou — Un billet, mille yens.
-- **A** : はい、どうぞ。ありがとうございます。 *(はい、どうぞ。ありがとうございます。)* — ha-i, dô-zo. a-ri-ga-tô go-za-i-ma-sou — Voilà. Merci beaucoup.
+- **A** : はい、どうぞ。ありがとうございます。 *(はい、どうぞ。ありがとうございます。)* — ha-i, do-o-zo. a-ri-ga-to-o go-za-i-ma-sou — Voilà. Merci beaucoup.
 - **B** : 良い旅を！ *(よいたびを！)* — yo-i ta-bi o — Bon voyage !
 
 ### L1-fr-ja-d3 · Première rencontre
 
-- **A** : こんにちは、マリーと言います。 *(こんにちは、まりーといいます。)* — kon-ni-tchi-wa, ma-rii to i-i-ma-sou — Bonjour, je m'appelle Marie.
-- **B** : はじめまして、ポールです。 *(はじめまして、ぽーるです。)* — ha-dji-mé-ma-chi-té, pô-rou dé-sou — Enchanté, moi c'est Paul.
-- **A** : フランス人で、パリ出身です。あなたは？ *(ふらんすじんで、ぱりしゅっしんです。あなたは？)* — fou-ran-sou-djin dé, pa-ri chou-chin dé-sou. a-na-ta wa — Je suis française, de Paris. Et vous ?
-- **B** : ここの出身です。休暇中ですか。 *(ここのしゅっしんです。きゅうかちゅうですか。)* — ko-ko no chou-chin dé-sou. kyou-ka-tchou dé-sou ka — Je suis d'ici. Vous êtes en vacances ?
+- **A** : こんにちは、マリーと言います。 *(こんにちは、まりーといいます。)* — kon-ni-tchi-wa, ma-ri-i to i-i-ma-sou — Bonjour, je m'appelle Marie.
+- **B** : はじめまして、ポールです。 *(はじめまして、ぽーるです。)* — ha-dji-mé-ma-chi-té, po-o-rou dé-sou — Enchanté, moi c'est Paul.
+- **A** : フランス人で、パリ出身です。ポールさんは？ *(ふらんすじんで、ぱりしゅっしんです。ぽーるさんは？)* — fou-ran-sou-djin dé, pa-ri chouc-chin dé-sou. po-o-rou-san wa — Je suis française, de Paris. Et vous, Paul ?
+- **B** : ここの出身です。休暇中ですか。 *(ここのしゅっしんです。きゅうかちゅうですか。)* — ko-ko no chouc-chin dé-sou. kyou-ou-ka-tchou-ou dé-sou ka — Je suis d'ici. Vous êtes en vacances ?
 - **A** : はい、この町がとても好きです。 *(はい、このまちがとてもすきです。)* — ha-i, ko-no ma-tchi ga to-té-mo sou-ki dé-sou — Oui, j'aime beaucoup la ville.
-- **B** : いいですね！ようこそ！ *(いいですね！ようこそ！)* — ii dé-sou né. yô-ko-so — Super ! Bienvenue !
+- **B** : いいですね！ようこそ！ *(いいですね！ようこそ！)* — i-i dé-sou né. yo-o-ko-so — Super ! Bienvenue !
 
 ## Coréen (lecteurs francophones)
 
@@ -667,7 +712,7 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 |---|---|---|---|
 | **역이** 어디예요? | yeogi eodiyeyo? | yeog-i eo-di-yé-yo ? | Où est la gare ? |
 | **출구가** 어디예요? | chulguga eodiyeyo? | tchoul-gou-ga eo-di-yé-yo ? | Où est la sortie ? |
-| **화장실이** 어디예요? | hwajangsiri eodiyeyo? | houa-djang-sil-i eo-di-yé-yo ? | Où est les toilettes ? |
+| **화장실이** 어디예요? | hwajangsiri eodiyeyo? | houa-djang-sil-i eo-di-yé-yo ? | Où sont les toilettes ? |
 | **지하철이** 어디예요? | jihacheori eodiyeyo? | dji-ha-tcheol-i eo-di-yé-yo ? | Où est le métro ? |
 
 ### L1-fr-ko-06 · Dire où l'on va — modèle « {s} 가요. »
@@ -715,6 +760,15 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 | **표** 얼마예요? | pyo eolmayeyo? | pyo eol-ma-yé-yo ? | Combien coûte le billet ? |
 | **방** 얼마예요? | bang eolmayeyo? | bang eol-ma-yé-yo ? | Combien coûte la chambre ? |
 
+### L1-fr-ko-11 · Se dépanner — modèle « {s} »
+
+| Phrase | Lecture | Prononciation | Traduction |
+|---|---|---|---|
+| **이해 못 했어요.** | ihae mot haesseoyo. | i-hè mot hè-sseo-yo | Je ne comprends pas. |
+| **다시 말해 주세요.** | dasi malhae juseyo. | ta-si mal-hè djou-sé-yo | Répétez, s'il vous plaît. |
+| **천천히 말해 주세요.** | cheoncheonhi malhae juseyo. | tcheon-tcheon-hi mal-hè djou-sé-yo | Plus lentement, s'il vous plaît. |
+| **프랑스어 할 수 있어요?** | peurangseueo hal su isseoyo? | peu-rang-seu-eo hal sou i-sseo-yo | Parlez-vous français ? |
+
 ### L1-fr-ko-d1 · Au café
 
 - **A** : 안녕하세요! *(annyeonghaseyo!)* — an-nyeong-ha-sé-yo — Bonjour !
@@ -737,14 +791,14 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 
 - **A** : 안녕하세요, 제 이름은 마리예요. *(annyeonghaseyo, je ireumeun mari-yeyo.)* — an-nyeong-ha-sé-yo, djé i-reum-eun ma-ri-yé-yo — Bonjour, je m'appelle Marie.
 - **B** : 반갑습니다, 저는 폴이에요. *(bangapseumnida, jeoneun pol-ieyo.)* — ban-gap-seum-ni-da, djeo-neun pol-i-é-yo — Enchanté, moi c'est Paul.
-- **A** : 저는 프랑스 사람이에요, 파리에서 왔어요. 당신은요? *(jeoneun peurangseu saram-ieyo, pari-eseo wasseoyo. dangsineunyo?)* — djeo-neun peu-rang-seu sa-ram-i-é-yo, pa-ri-é-sseo oua-sseo-yo. dang-sin-eun-yo — Je suis française, de Paris. Et vous ?
+- **A** : 저는 프랑스 사람이에요, 파리에서 왔어요. 어디에서 오셨어요? *(jeoneun peurangseu saram-ieyo, pari-eseo wasseoyo. eodieseo osyeosseoyo?)* — djeo-neun peu-rang-seu sa-ram-i-é-yo, pa-ri-é-sseo oua-sseo-yo. eo-di-é-sseo o-chyeo-sseo-yo — Je suis française, de Paris. Et vous, vous venez d'où ?
 - **B** : 저는 여기 사람이에요. 휴가 중이에요? *(jeoneun yeogi saram-ieyo. hyuga jung-ieyo?)* — djeo-neun yeo-gi sa-ram-i-é-yo. hyou-ga djoung-i-é-yo — Je suis d'ici. Vous êtes en vacances ?
 - **A** : 네, 이 도시를 정말 좋아해요. *(ne, i dosireul jeongmal joahaeyo.)* — né, i do-si-reul djeong-mal djo-a-hè-yo — Oui, j'aime beaucoup la ville.
 - **B** : 좋네요! 환영해요! *(jonneyo! hwanyeonghaeyo!)* — djon-né-yo. houan-yeong-hè-yo — Super ! Bienvenue !
 
 ## Français (lecteurs sinophones)
 
-*Convention phonétique* : 用汉字标注法语读音（沿用词库风格：美西 = merci，诺 = non）。汉字只是近似，请以音频为准。法语无声调，重音落在词尾。
+*Convention phonétique* : 用汉字标注法语读音（沿用词库风格：美西 = merci，诺 = non）。汉字只是近似，请以音频为准。法语无声调；重音不在单词上，而是落在一个节奏组（短语或句子）的最后一个音节，并略微拉长。
 
 *Statut* : 需语言校对（汉字注音的近似程度、译文自然度）。
 
@@ -775,14 +829,14 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 | Je veux **un billet**. | 热 弗 安 比耶 | 我要一张票。 |
 | Je veux **un sandwich**. | 热 弗 安 桑德维奇 | 我要一个三明治。 |
 
-### L1-zh-fr-04 · 说需要什么 — modèle « J'ai besoin de {s}. »
+### L1-zh-fr-04 · 说需要什么 — modèle « J'ai besoin {s}. »
 
 | Phrase | Prononciation | Traduction |
 |---|---|---|
-| J'ai besoin de **aide**. | 热 贝祖安 德 埃德 | 我需要帮助。 |
-| J'ai besoin de **un taxi**. | 热 贝祖安 德 安 塔克西 | 我需要一辆出租车。 |
-| J'ai besoin de **un médecin**. | 热 贝祖安 德 安 梅德森 | 我需要医生。 |
-| J'ai besoin de **la wifi**. | 热 贝祖安 德 拉 维菲 | 我需要无线网。 |
+| J'ai besoin **d'aide**. | 热 贝祖安 代德 | 我需要帮助。 |
+| J'ai besoin **d'un taxi**. | 热 贝祖安 丹 塔克西 | 我需要一辆出租车。 |
+| J'ai besoin **d'un médecin**. | 热 贝祖安 丹 梅德森 | 我需要医生。 |
+| J'ai besoin **de la wifi**. | 热 贝祖安 德 拉 维菲 | 我需要无线网。 |
 
 ### L1-zh-fr-05 · 找地方 — modèle « Où est {s} ? »
 
@@ -798,7 +852,7 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 | Phrase | Prononciation | Traduction |
 |---|---|---|
 | Je vais **au travail**. | 热 维 奥 特拉瓦伊 | 我去上班。 |
-| Je vais **à la maison**. | 热 维 阿 拉 梅宗 | 我去家。 |
+| Je vais **à la gare**. | 热 维 阿 拉 嘎尔 | 我去火车站。 |
 | Je vais **au marché**. | 热 维 奥 马尔谢 | 我去市场。 |
 | Je vais **à l'hôtel**. | 热 维 阿 洛泰尔 | 我去酒店。 |
 
@@ -837,6 +891,15 @@ Colonnes : phrase étudiée · lecture (pinyin / hiragana / romanisation, si app
 | Combien coûte **le café** ? | 孔比安 库特 勒 卡菲 | 咖啡多少钱？ |
 | Combien coûte **le billet** ? | 孔比安 库特 勒 比耶 | 票多少钱？ |
 | Combien coûte **la chambre** ? | 孔比安 库特 拉 尚布尔 | 房间多少钱？ |
+
+### L1-zh-fr-11 · 求助 — modèle « {s} »
+
+| Phrase | Prononciation | Traduction |
+|---|---|---|
+| **Je ne comprends pas.** | 热 讷 孔普朗 帕 | 我不懂。 |
+| **Répétez, s'il vous plaît.** | 雷佩泰，西尔 武 普莱 | 请再说一遍。 |
+| **Plus lentement, s'il vous plaît.** | 普吕 朗特芒，西尔 武 普莱 | 请说慢一点。 |
+| **Parlez-vous chinois ?** | 帕尔莱 武 希努瓦 | 您会说中文吗？ |
 
 ### L1-zh-fr-d1 · 在咖啡馆
 

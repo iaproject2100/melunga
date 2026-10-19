@@ -1,5 +1,6 @@
 {
- "version": 1,
+ "version": 2,
+ "format": "conversation-generic",
  "status": "échantillon-à-valider",
  "studyLanguage": "fr",
  "nativeLanguage": "zh",
@@ -8,7 +9,7 @@
   "phon": "prononciation écrite pour sinophones",
   "native": "traduction en langue maternelle"
  },
- "phoneticConvention": "用汉字标注法语读音（沿用词库风格：美西 = merci，诺 = non）。汉字只是近似，请以音频为准。法语无声调，重音落在词尾。",
+ "phoneticConvention": "用汉字标注法语读音（沿用词库风格：美西 = merci，诺 = non）。汉字只是近似，请以音频为准。法语无声调；重音不在单词上，而是落在一个节奏组（短语或句子）的最后一个音节，并略微拉长。",
  "reviewStatus": "需语言校对（汉字注音的近似程度、译文自然度）。",
  "coverageClaim": null,
  "level": 1,
@@ -206,45 +207,46 @@
    "id": "L1-zh-fr-04",
    "situation": "说需要什么",
    "model": {
-    "study": "J'ai besoin de {s}.",
-    "phon": "热 贝祖安 德 {s}",
-    "native": "我需要{s}。"
+    "study": "J'ai besoin {s}.",
+    "phon": "热 贝祖安 {s}",
+    "native": "我需要{s}。",
+    "note": "« de » s'élide devant une voyelle (d'aide) : l'article est donc inclus dans le morceau remplaçable."
    },
    "variants": [
     {
      "slot": {
-      "study": "aide",
-      "phon": "埃德",
+      "study": "d'aide",
+      "phon": "代德",
       "native": "帮助"
      },
-     "study": "J'ai besoin de aide.",
-     "phon": "热 贝祖安 德 埃德",
+     "study": "J'ai besoin d'aide.",
+     "phon": "热 贝祖安 代德",
      "native": "我需要帮助。"
     },
     {
      "slot": {
-      "study": "un taxi",
-      "phon": "安 塔克西",
+      "study": "d'un taxi",
+      "phon": "丹 塔克西",
       "native": "一辆出租车"
      },
-     "study": "J'ai besoin de un taxi.",
-     "phon": "热 贝祖安 德 安 塔克西",
+     "study": "J'ai besoin d'un taxi.",
+     "phon": "热 贝祖安 丹 塔克西",
      "native": "我需要一辆出租车。"
     },
     {
      "slot": {
-      "study": "un médecin",
-      "phon": "安 梅德森",
+      "study": "d'un médecin",
+      "phon": "丹 梅德森",
       "native": "医生"
      },
-     "study": "J'ai besoin de un médecin.",
-     "phon": "热 贝祖安 德 安 梅德森",
+     "study": "J'ai besoin d'un médecin.",
+     "phon": "热 贝祖安 丹 梅德森",
      "native": "我需要医生。"
     },
     {
      "slot": {
-      "study": "la wifi",
-      "phon": "拉 维菲",
+      "study": "de la wifi",
+      "phon": "德 拉 维菲",
       "native": "无线网"
      },
      "study": "J'ai besoin de la wifi.",
@@ -343,13 +345,13 @@
     },
     {
      "slot": {
-      "study": "à la maison",
-      "phon": "阿 拉 梅宗",
-      "native": "家"
+      "study": "à la gare",
+      "phon": "阿 拉 嘎尔",
+      "native": "火车站"
      },
-     "study": "Je vais à la maison.",
-     "phon": "热 维 阿 拉 梅宗",
-     "native": "我去家。"
+     "study": "Je vais à la gare.",
+     "phon": "热 维 阿 拉 嘎尔",
+     "native": "我去火车站。"
     },
     {
      "slot": {
@@ -610,6 +612,67 @@
      "study": "Combien coûte la chambre ?",
      "phon": "孔比安 库特 拉 尚布尔",
      "native": "房间多少钱？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-zh-fr-11",
+   "situation": "求助",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "求助用语：整句记住即可，用来维持对话。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Je ne comprends pas.",
+      "phon": "热 讷 孔普朗 帕",
+      "native": "我不懂。"
+     },
+     "study": "Je ne comprends pas.",
+     "phon": "热 讷 孔普朗 帕",
+     "native": "我不懂。"
+    },
+    {
+     "slot": {
+      "study": "Répétez, s'il vous plaît.",
+      "phon": "雷佩泰，西尔 武 普莱",
+      "native": "请再说一遍。"
+     },
+     "study": "Répétez, s'il vous plaît.",
+     "phon": "雷佩泰，西尔 武 普莱",
+     "native": "请再说一遍。"
+    },
+    {
+     "slot": {
+      "study": "Plus lentement, s'il vous plaît.",
+      "phon": "普吕 朗特芒，西尔 武 普莱",
+      "native": "请说慢一点。"
+     },
+     "study": "Plus lentement, s'il vous plaît.",
+     "phon": "普吕 朗特芒，西尔 武 普莱",
+     "native": "请说慢一点。"
+    },
+    {
+     "slot": {
+      "study": "Parlez-vous chinois ?",
+      "phon": "帕尔莱 武 希努瓦",
+      "native": "您会说中文吗？"
+     },
+     "study": "Parlez-vous chinois ?",
+     "phon": "帕尔莱 武 希努瓦",
+     "native": "您会说中文吗？"
     }
    ],
    "practice": {

@@ -1,5 +1,6 @@
 {
- "version": 1,
+ "version": 2,
+ "format": "conversation-generic",
  "status": "échantillon-à-valider",
  "studyLanguage": "es",
  "nativeLanguage": "fr",
@@ -63,13 +64,13 @@
     },
     {
      "slot": {
-      "study": "de vacaciones",
-      "phon": "dé ba-ka-SSIO-nés",
-      "native": "en vacances"
+      "study": "profesor",
+      "phon": "pro-fé-SSOR",
+      "native": "professeur"
      },
-     "study": "Soy de vacaciones.",
-     "phon": "SOY dé ba-ka-SSIO-nés",
-     "native": "Je suis en vacances."
+     "study": "Soy profesor.",
+     "phon": "SOY pro-fé-SSOR",
+     "native": "Je suis professeur."
     }
    ],
    "practice": {
@@ -207,7 +208,7 @@
    "situation": "Dire ce dont on a besoin",
    "model": {
     "study": "Necesito {s}.",
-    "phon": "né-sé-SSI-to {s}",
+    "phon": "né-ssé-SSI-to {s}",
     "native": "J'ai besoin de {s}."
    },
    "variants": [
@@ -218,7 +219,7 @@
       "native": "aide"
      },
      "study": "Necesito ayuda.",
-     "phon": "né-sé-SSI-to a-YOU-da",
+     "phon": "né-ssé-SSI-to a-YOU-da",
      "native": "J'ai besoin d'aide."
     },
     {
@@ -228,7 +229,7 @@
       "native": "un taxi"
      },
      "study": "Necesito un taxi.",
-     "phon": "né-sé-SSI-to oun TAK-ssi",
+     "phon": "né-ssé-SSI-to oun TAK-ssi",
      "native": "J'ai besoin d'un taxi."
     },
     {
@@ -238,7 +239,7 @@
       "native": "un médecin"
      },
      "study": "Necesito un médico.",
-     "phon": "né-sé-SSI-to oun MÉ-di-ko",
+     "phon": "né-ssé-SSI-to oun MÉ-di-ko",
      "native": "J'ai besoin d'un médecin."
     },
     {
@@ -248,7 +249,7 @@
       "native": "la wifi"
      },
      "study": "Necesito wifi.",
-     "phon": "né-sé-SSI-to OUI-fi",
+     "phon": "né-ssé-SSI-to OUI-fi",
      "native": "J'ai besoin de la wifi."
     }
    ],
@@ -299,7 +300,7 @@
      },
      "study": "¿Dónde está el baño?",
      "phon": "DON-dé és-TA él BA-gno",
-     "native": "Où est les toilettes ?"
+     "native": "Où sont les toilettes ?"
     },
     {
      "slot": {
@@ -621,6 +622,67 @@
     ],
     "recall": 3
    }
+  },
+  {
+   "id": "L1-fr-es-11",
+   "situation": "Se dépanner",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Formules de secours : phrases entières à connaître telles quelles pour tenir un échange."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "No entiendo.",
+      "phon": "no én-TIÉN-do",
+      "native": "Je ne comprends pas."
+     },
+     "study": "No entiendo.",
+     "phon": "no én-TIÉN-do",
+     "native": "Je ne comprends pas."
+    },
+    {
+     "slot": {
+      "study": "¿Puede repetir, por favor?",
+      "phon": "POUÉ-dé rré-pé-TIR, por fa-BOR",
+      "native": "Pouvez-vous répéter, s'il vous plaît ?"
+     },
+     "study": "¿Puede repetir, por favor?",
+     "phon": "POUÉ-dé rré-pé-TIR, por fa-BOR",
+     "native": "Pouvez-vous répéter, s'il vous plaît ?"
+    },
+    {
+     "slot": {
+      "study": "Más despacio, por favor.",
+      "phon": "mas dés-PA-ssio, por fa-BOR",
+      "native": "Plus lentement, s'il vous plaît."
+     },
+     "study": "Más despacio, por favor.",
+     "phon": "mas dés-PA-ssio, por fa-BOR",
+     "native": "Plus lentement, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "¿Habla francés?",
+      "phon": "A-bla fran-SSÉS",
+      "native": "Parlez-vous français ?"
+     },
+     "study": "¿Habla francés?",
+     "phon": "A-bla fran-SSÉS",
+     "native": "Parlez-vous français ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
   }
  ],
  "dialogues": [
@@ -692,7 +754,7 @@
     {
      "speaker": "A",
      "study": "Gracias. Necesito un billete para Valencia.",
-     "phon": "GRA-ssias. né-sé-SSI-to oun bi-YÉ-té PA-ra ba-LÉN-ssia",
+     "phon": "GRA-ssias. né-ssé-SSI-to oun bi-YÉ-té PA-ra ba-LÉN-ssia",
      "native": "Merci. J'ai besoin d'un billet pour Valence."
     },
     {

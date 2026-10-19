@@ -35,12 +35,13 @@ Proposition à valider avant production. La difficulté progresse par **capacit�
 - demander où se trouve un lieu
 - demander un prix
 - remercier, s'excuser
+- se dépanner (je ne comprends pas, répétez, plus lentement)
 
 **Structures par langue** (le trait ___ marque la partie remplaçable) :
 
 | Langue | Structures |
 |---|---|
-| Français | Je suis ___ · Je m'appelle ___ · Je veux ___ · J'ai besoin de ___ · Où est ___ ? · Je vais ___ · J'ai ___ (faim, soif) · J'aime ___ · Un ___, s'il vous plaît · Combien coûte ___ ? |
+| Français | Je suis ___ · Je m'appelle ___ · Je veux ___ · J'ai besoin de ___ · Où est ___ ? · Je vais ___ · J'ai ___ (faim, soif) · J'aime ___ · Un ___, s'il vous plaît · Combien coûte ___ ? · Je ne comprends pas. / Répétez, s'il vous plaît. |
 | Anglais | I'm ___ · My name is ___ · I want ___ · I need ___ · Where is ___? · I'm going to ___ · I'm ___ (hungry, cold) · I like ___ · A ___, please · How much is ___? |
 | Espagnol | Soy ___ · Me llamo ___ · Quiero ___ · Necesito ___ · ¿Dónde está ___? · Voy a ___ · Tengo ___ (hambre, frío) · Me gusta ___ · Un ___, por favor · ¿Cuánto cuesta ___? |
 | Chinois (mandarin, simplifié) | 我是___ · 我叫___ · 我要___ · 我需要___ · ___在哪里？ · 我去___ · 我___ (饿了 / 渴了 / 冷 / 热) · 我喜欢___ · 请给我___ · ___多少钱？ |
@@ -155,7 +156,7 @@ Proposition à valider avant production. La difficulté progresse par **capacit�
 | Coréen | 어제 ___었어요/았어요 · ___에 갔어요 · 지난주 / 이틀 전 · 잘 지내요? 별일 없어요? — 네, 잘 지내요. 당신은요? · 먼저…, 그다음에…, 그 후에… |
 
 **Adaptations** :
-- *Chinois (mandarin, simplifié)* : Le passé se marque par 了 et les repères temporels, pas par une conjugaison.
+- *Chinois (mandarin, simplifié)* : Pas de conjugaison : la chronologie est portée par les repères temporels (昨天, 上个星期). 了 n'est pas un marqueur général du passé : dans les exemples retenus il marque l'accompli d'une action (我去了___) ou un changement d'état ; on l'explique sur ces cas précis.
 - *Espagnol* : Indefinido pour les événements ponctuels ; l'imparfait arrive au niveau 7 (raisons, habitudes passées).
 
 ### L6 · Projets et propositions

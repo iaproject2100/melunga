@@ -1,5 +1,6 @@
 {
- "version": 1,
+ "version": 2,
+ "format": "conversation-generic",
  "status": "échantillon-à-valider",
  "studyLanguage": "ja",
  "nativeLanguage": "fr",
@@ -9,7 +10,7 @@
   "native": "traduction en langue maternelle",
   "reading": "lecture en hiragana"
  },
- "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelles longues doublées (ô, ii). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).",
+ "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).",
  "reviewStatus": "Relecture linguistique requise (naturel des tournures, lectures des kanji).",
  "coverageClaim": null,
  "level": 1,
@@ -61,11 +62,11 @@
      "slot": {
       "study": "パリ出身",
       "reading": "ぱりしゅっしん",
-      "phon": "pa-ri chou-chin",
+      "phon": "pa-ri chouc-chin",
       "native": "de Paris"
      },
      "study": "私はパリ出身です。",
-     "phon": "wa-ta-chi wa pa-ri chou-chin dé-sou",
+     "phon": "wa-ta-chi wa pa-ri chouc-chin dé-sou",
      "native": "Je suis de Paris.",
      "reading": "わたしはぱりしゅっしんです。"
     },
@@ -73,11 +74,11 @@
      "slot": {
       "study": "休暇中",
       "reading": "きゅうかちゅう",
-      "phon": "kyou-ka-tchou",
+      "phon": "kyou-ou-ka-tchou-ou",
       "native": "en vacances"
      },
      "study": "私は休暇中です。",
-     "phon": "wa-ta-chi wa kyou-ka-tchou dé-sou",
+     "phon": "wa-ta-chi wa kyou-ou-ka-tchou-ou dé-sou",
      "native": "Je suis en vacances.",
      "reading": "わたしはきゅうかちゅうです。"
     }
@@ -106,11 +107,11 @@
      "slot": {
       "study": "マリー",
       "reading": "まりー",
-      "phon": "ma-rii",
+      "phon": "ma-ri-i",
       "native": "Marie"
      },
      "study": "マリーと言います。",
-     "phon": "ma-rii to i-i-ma-sou",
+     "phon": "ma-ri-i to i-i-ma-sou",
      "native": "Je m'appelle Marie.",
      "reading": "まりーといいます。"
     },
@@ -118,11 +119,11 @@
      "slot": {
       "study": "ポール",
       "reading": "ぽーる",
-      "phon": "pô-rou",
+      "phon": "po-o-rou",
       "native": "Paul"
      },
      "study": "ポールと言います。",
-     "phon": "pô-rou to i-i-ma-sou",
+     "phon": "po-o-rou to i-i-ma-sou",
      "native": "Je m'appelle Paul.",
      "reading": "ぽーるといいます。"
     },
@@ -175,11 +176,11 @@
      "slot": {
       "study": "コーヒー",
       "reading": "こーひー",
-      "phon": "kô-hii",
+      "phon": "ko-o-hi-i",
       "native": "un café"
      },
      "study": "コーヒーをください。",
-     "phon": "kô-hii o kou-da-sa-i",
+     "phon": "ko-o-hi-i o kou-da-sa-i",
      "native": "Je veux un café.",
      "reading": "こーひーをください。"
     },
@@ -236,7 +237,7 @@
    "model": {
     "study": "{s}が必要です。",
     "reading": "{s}がひつようです。",
-    "phon": "{s} ga hi-tsou-yô dé-sou",
+    "phon": "{s} ga hi-tsou-yo-o dé-sou",
     "native": "J'ai besoin de {s}."
    },
    "variants": [
@@ -248,7 +249,7 @@
       "native": "aide"
      },
      "study": "助けが必要です。",
-     "phon": "ta-sou-ké ga hi-tsou-yô dé-sou",
+     "phon": "ta-sou-ké ga hi-tsou-yo-o dé-sou",
      "native": "J'ai besoin d'aide.",
      "reading": "たすけがひつようです。"
     },
@@ -256,11 +257,11 @@
      "slot": {
       "study": "タクシー",
       "reading": "たくしー",
-      "phon": "ta-kou-chii",
+      "phon": "ta-kou-chi-i",
       "native": "un taxi"
      },
      "study": "タクシーが必要です。",
-     "phon": "ta-kou-chii ga hi-tsou-yô dé-sou",
+     "phon": "ta-kou-chi-i ga hi-tsou-yo-o dé-sou",
      "native": "J'ai besoin d'un taxi.",
      "reading": "たくしーがひつようです。"
     },
@@ -272,7 +273,7 @@
       "native": "un médecin"
      },
      "study": "医者が必要です。",
-     "phon": "i-cha ga hi-tsou-yô dé-sou",
+     "phon": "i-cha ga hi-tsou-yo-o dé-sou",
      "native": "J'ai besoin d'un médecin.",
      "reading": "いしゃがひつようです。"
     },
@@ -284,7 +285,7 @@
       "native": "la wifi"
      },
      "study": "Wi-Fiが必要です。",
-     "phon": "oua-i-fa-i ga hi-tsou-yô dé-sou",
+     "phon": "oua-i-fa-i ga hi-tsou-yo-o dé-sou",
      "native": "J'ai besoin de la wifi.",
      "reading": "わいふぁいがひつようです。"
     }
@@ -342,7 +343,7 @@
      },
      "study": "トイレはどこですか。",
      "phon": "to-i-ré wa do-ko dé-sou ka",
-     "native": "Où est les toilettes ?",
+     "native": "Où sont les toilettes ?",
      "reading": "といれはどこですか。"
     },
     {
@@ -392,15 +393,15 @@
     },
     {
      "slot": {
-      "study": "家",
-      "reading": "いえ",
-      "phon": "i-é",
-      "native": "à la maison"
+      "study": "駅",
+      "reading": "えき",
+      "phon": "é-ki",
+      "native": "à la gare"
      },
-     "study": "家に行きます。",
-     "phon": "i-é ni i-ki-ma-sou",
-     "native": "Je vais à la maison.",
-     "reading": "いえにいきます。"
+     "study": "駅に行きます。",
+     "phon": "é-ki ni i-ki-ma-sou",
+     "native": "Je vais à la gare.",
+     "reading": "えきにいきます。"
     },
     {
      "slot": {
@@ -521,11 +522,11 @@
      "slot": {
       "study": "コーヒー",
       "reading": "こーひー",
-      "phon": "kô-hii",
+      "phon": "ko-o-hi-i",
       "native": "le café"
      },
      "study": "コーヒーが好きです。",
-     "phon": "kô-hii ga sou-ki dé-sou",
+     "phon": "ko-o-hi-i ga sou-ki dé-sou",
      "native": "J'aime le café.",
      "reading": "こーひーがすきです。"
     },
@@ -557,11 +558,11 @@
      "slot": {
       "study": "スポーツ",
       "reading": "すぽーつ",
-      "phon": "sou-pô-tsou",
+      "phon": "sou-po-o-tsou",
       "native": "le sport"
      },
      "study": "スポーツが好きです。",
-     "phon": "sou-pô-tsou ga sou-ki dé-sou",
+     "phon": "sou-po-o-tsou ga sou-ki dé-sou",
      "native": "J'aime le sport.",
      "reading": "すぽーつがすきです。"
     }
@@ -590,11 +591,11 @@
      "slot": {
       "study": "コーヒー",
       "reading": "こーひー",
-      "phon": "kô-hii",
+      "phon": "ko-o-hi-i",
       "native": "café"
      },
      "study": "コーヒーをお願いします。",
-     "phon": "kô-hii o o-né-ga-i chi-ma-sou",
+     "phon": "ko-o-hi-i o o-né-ga-i chi-ma-sou",
      "native": "Un café, s'il vous plaît.",
      "reading": "こーひーをおねがいします。"
     },
@@ -614,11 +615,11 @@
      "slot": {
       "study": "オレンジジュース",
       "reading": "おれんじじゅーす",
-      "phon": "o-ren-dji djou-sou",
+      "phon": "o-ren-dji djou-ou-sou",
       "native": "jus d'orange"
      },
      "study": "オレンジジュースをお願いします。",
-     "phon": "o-ren-dji djou-sou o o-né-ga-i chi-ma-sou",
+     "phon": "o-ren-dji djou-ou-sou o o-né-ga-i chi-ma-sou",
      "native": "Un jus d'orange, s'il vous plaît.",
      "reading": "おれんじじゅーすをおねがいします。"
     },
@@ -671,11 +672,11 @@
      "slot": {
       "study": "コーヒー",
       "reading": "こーひー",
-      "phon": "kô-hii",
+      "phon": "ko-o-hi-i",
       "native": "le café"
      },
      "study": "コーヒーはいくらですか。",
-     "phon": "kô-hii wa i-kou-ra dé-sou ka",
+     "phon": "ko-o-hi-i wa i-kou-ra dé-sou ka",
      "native": "Combien coûte le café ?",
      "reading": "こーひーはいくらですか。"
     },
@@ -713,6 +714,76 @@
     ],
     "recall": 3
    }
+  },
+  {
+   "id": "L1-fr-ja-11",
+   "situation": "Se dépanner",
+   "model": {
+    "study": "{s}",
+    "reading": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Formules de secours : phrases entières à connaître telles quelles pour tenir un échange."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "分かりません。",
+      "reading": "わかりません。",
+      "phon": "wa-ka-ri-ma-sén",
+      "native": "Je ne comprends pas."
+     },
+     "study": "分かりません。",
+     "phon": "wa-ka-ri-ma-sén",
+     "native": "Je ne comprends pas.",
+     "reading": "わかりません。"
+    },
+    {
+     "slot": {
+      "study": "もう一度お願いします。",
+      "reading": "もういちどおねがいします。",
+      "phon": "mo-o i-tchi-do o-né-ga-i chi-ma-sou",
+      "native": "Répétez, s'il vous plaît."
+     },
+     "study": "もう一度お願いします。",
+     "phon": "mo-o i-tchi-do o-né-ga-i chi-ma-sou",
+     "native": "Répétez, s'il vous plaît.",
+     "reading": "もういちどおねがいします。"
+    },
+    {
+     "slot": {
+      "study": "ゆっくりお願いします。",
+      "reading": "ゆっくりおねがいします。",
+      "phon": "youk-kou-ri o-né-ga-i chi-ma-sou",
+      "native": "Plus lentement, s'il vous plaît."
+     },
+     "study": "ゆっくりお願いします。",
+     "phon": "youk-kou-ri o-né-ga-i chi-ma-sou",
+     "native": "Plus lentement, s'il vous plaît.",
+     "reading": "ゆっくりおねがいします。"
+    },
+    {
+     "slot": {
+      "study": "フランス語が話せますか。",
+      "reading": "ふらんすごがはなせますか。",
+      "phon": "fou-ran-sou-go ga ha-na-sé-ma-sou ka",
+      "native": "Parlez-vous français ?"
+     },
+     "study": "フランス語が話せますか。",
+     "phon": "fou-ran-sou-go ga ha-na-sé-ma-sou ka",
+     "native": "Parlez-vous français ?",
+     "reading": "ふらんすごがはなせますか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
   }
  ],
  "dialogues": [
@@ -731,14 +802,14 @@
      "speaker": "B",
      "study": "こんにちは。ご注文は？",
      "reading": "こんにちは。ごちゅうもんは？",
-     "phon": "kon-ni-tchi-wa. go-tchou-mon wa",
+     "phon": "kon-ni-tchi-wa. go-tchou-ou-mon wa",
      "native": "Bonjour. Vous désirez ?"
     },
     {
      "speaker": "A",
      "study": "コーヒーをお願いします。",
      "reading": "こーひーをおねがいします。",
-     "phon": "kô-hii o o-né-ga-i chi-ma-sou",
+     "phon": "ko-o-hi-i o o-né-ga-i chi-ma-sou",
      "native": "Un café, s'il vous plaît."
     },
     {
@@ -752,7 +823,7 @@
      "speaker": "A",
      "study": "いいえ、結構です。いくらですか。",
      "reading": "いいえ、けっこうです。いくらですか。",
-     "phon": "i-i-é, kék-kô dé-sou. i-kou-ra dé-sou ka",
+     "phon": "i-i-é, kek-ko-o dé-sou. i-kou-ra dé-sou ka",
      "native": "Non, merci. Combien ça coûte ?"
     },
     {
@@ -793,7 +864,7 @@
      "speaker": "A",
      "study": "ありがとう。大阪までの切符が必要です。",
      "reading": "ありがとう。おおさかまでのきっぷがひつようです。",
-     "phon": "a-ri-ga-tô. ô-sa-ka ma-dé no kip-pou ga hi-tsou-yô dé-sou",
+     "phon": "a-ri-ga-to-o. o-o-sa-ka ma-dé no kip-pou ga hi-tsou-yo-o dé-sou",
      "native": "Merci. J'ai besoin d'un billet pour Osaka."
     },
     {
@@ -807,7 +878,7 @@
      "speaker": "A",
      "study": "はい、どうぞ。ありがとうございます。",
      "reading": "はい、どうぞ。ありがとうございます。",
-     "phon": "ha-i, dô-zo. a-ri-ga-tô go-za-i-ma-sou",
+     "phon": "ha-i, do-o-zo. a-ri-ga-to-o go-za-i-ma-sou",
      "native": "Voilà. Merci beaucoup."
     },
     {
@@ -834,28 +905,28 @@
      "speaker": "A",
      "study": "こんにちは、マリーと言います。",
      "reading": "こんにちは、まりーといいます。",
-     "phon": "kon-ni-tchi-wa, ma-rii to i-i-ma-sou",
+     "phon": "kon-ni-tchi-wa, ma-ri-i to i-i-ma-sou",
      "native": "Bonjour, je m'appelle Marie."
     },
     {
      "speaker": "B",
      "study": "はじめまして、ポールです。",
      "reading": "はじめまして、ぽーるです。",
-     "phon": "ha-dji-mé-ma-chi-té, pô-rou dé-sou",
+     "phon": "ha-dji-mé-ma-chi-té, po-o-rou dé-sou",
      "native": "Enchanté, moi c'est Paul."
     },
     {
      "speaker": "A",
-     "study": "フランス人で、パリ出身です。あなたは？",
-     "reading": "ふらんすじんで、ぱりしゅっしんです。あなたは？",
-     "phon": "fou-ran-sou-djin dé, pa-ri chou-chin dé-sou. a-na-ta wa",
-     "native": "Je suis française, de Paris. Et vous ?"
+     "study": "フランス人で、パリ出身です。ポールさんは？",
+     "reading": "ふらんすじんで、ぱりしゅっしんです。ぽーるさんは？",
+     "phon": "fou-ran-sou-djin dé, pa-ri chouc-chin dé-sou. po-o-rou-san wa",
+     "native": "Je suis française, de Paris. Et vous, Paul ?"
     },
     {
      "speaker": "B",
      "study": "ここの出身です。休暇中ですか。",
      "reading": "ここのしゅっしんです。きゅうかちゅうですか。",
-     "phon": "ko-ko no chou-chin dé-sou. kyou-ka-tchou dé-sou ka",
+     "phon": "ko-ko no chouc-chin dé-sou. kyou-ou-ka-tchou-ou dé-sou ka",
      "native": "Je suis d'ici. Vous êtes en vacances ?"
     },
     {
@@ -869,7 +940,7 @@
      "speaker": "B",
      "study": "いいですね！ようこそ！",
      "reading": "いいですね！ようこそ！",
-     "phon": "ii dé-sou né. yô-ko-so",
+     "phon": "i-i dé-sou né. yo-o-ko-so",
      "native": "Super ! Bienvenue !"
     }
    ],
