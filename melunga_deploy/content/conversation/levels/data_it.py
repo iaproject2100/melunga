@@ -340,7 +340,7 @@ LEVELS = {
    ("Donner un avis : à mon avis", {"study":"Secondo me, {s}.","phon":"sé-KON-do mé, {s}","native":"À mon avis, {s}."},
     [{"study":"è troppo caro","phon":"è TROP-po KA-ro","native":"c'est trop cher"},{"study":"questo ristorante è migliore","phon":"KOUÉS-to ris-to-RAN-té è mi-LIO-ré","native":"ce restaurant est meilleur"},{"study":"il vino rosso è più buono","phon":"il VI-no ROS-so è piou BOUO-no","native":"le vin rouge est meilleur"},{"study":"è una buona idea","phon":"è OU-na BOUO-na i-DÈ-a","native":"c'est une bonne idée"}]),
    ("Avant / maintenant", {"study":"Prima {s}, adesso lavoro da casa.","phon":"PRI-ma {s}, a-DÈS-so la-VO-ro da KA-za","native":"Avant, {s}, maintenant je travaille de chez moi."},
-    [{"study":"lavoravo in ufficio","phon":"la-vo-RA-vo inn ouf-FI-tcho","native":"je travaillais au bureau"},{"study":"prendevo il treno ogni giorno","phon":"prén-DÉ-vo il TRÈ-no O-gni DJOR-no","native":"je prenais le train tous les jours"},{"study":"abitavo in centro","phon":"a-bi-TA-vo inn TCHÈN-tro","native":"j'habitais dans le centre"},{"study":"viaggiavo molto","phon":"viad-DJA-vo MOL-to","native":"je voyageais beaucoup"}]),
+    [{"study":"lavoravo in ufficio","phon":"la-vo-RA-vo inn ouf-FI-tcho","native":"je travaillais au bureau"},{"study":"prendevo il treno ogni giorno","phon":"prén-DÉ-vo il TRÈ-no O-gni DJOR-no","native":"je prenais le train tous les jours"},{"study":"andavo in ufficio ogni giorno","phon":"an-DA-vo inn ouf-FI-tcho O-gni DJOR-no","native":"j'allais au bureau tous les jours"},{"study":"viaggiavo molto","phon":"viad-DJA-vo MOL-to","native":"je voyageais beaucoup"}]),
    ("Achats : expliquer son choix", {"study":"Lo compro perché {s}.","phon":"lo KOM-pro pér-KÉ {s}","native":"Je l'achète parce que {s}."},
     [{"study":"è in offerta","phon":"è inn of-FÈR-ta","native":"c'est en promotion"},{"study":"mi piace il colore","phon":"mi PIA-tché il ko-LO-ré","native":"j'aime la couleur"},{"study":"è di buona qualità","phon":"è di BOUO-na koua-li-TA","native":"c'est de bonne qualité"},{"study":"ne ho bisogno","phon":"né o bi-ZO-gno","native":"j'en ai besoin"}]),
    ("Repas : donner son avis", {"study":"Per me è {s}.","phon":"pér MÉ è {s}","native":"Pour moi, c'est {s}."},
@@ -482,7 +482,7 @@ LEVELS = {
   "dialogues": [
    ("Train annulé (Lei)", [
     ("A","Scusi, il treno delle nove per Milano è cancellato?","SKOU-zi, il TRÈ-no DÉL-lé NO-vé pér mi-LA-no è kan-tchél-LA-to","Excusez-moi, le train de neuf heures pour Milan est annulé ?"),
-    ("B","Sì, purtroppo. C'è uno sciopero.","SI, pour-TROP-po. tchè OU-no cho-PÈ-ro","Oui, malheureusement. Il y a une grève."),
+    ("B","Sì, purtroppo. C'è uno sciopero.","SI, pour-TROP-po. tchè OU-no CHO-pé-ro","Oui, malheureusement. Il y a une grève."),
     ("A","C'è un problema: ho una riunione alle undici. Cosa possiamo fare?","tchè oun pro-BLÈ-ma: o OU-na riou-NIO-né AL-lé OUN-di-tchi. KO-za pos-SIA-mo FA-ré","Il y a un problème : j'ai une réunion à onze heures. Qu'est-ce qu'on peut faire ?"),
     ("B","Può prendere il regionale delle nove e venti, ma arriva alle undici e mezza.","pouo PRÈN-dé-ré il ré-djo-NA-lé DÉL-lé NO-vé é VÉN-ti, ma ar-RI-va AL-lé OUN-di-tchi é MÈD-dza","Vous pouvez prendre le régional de neuf heures vingt, mais il arrive à onze heures et demie."),
     ("A","Se ho capito bene, non c'è niente prima?","sé o ka-PI-to BÈ-né, non tchè NIÈN-té PRI-ma","Si j'ai bien compris, il n'y a rien avant ?"),
@@ -542,7 +542,7 @@ LEVELS = {
     [{"study":"una giornata bellissima","phon":"OU-na djor-NA-ta bél-LIS-si-ma","native":"une très belle journée"},{"study":"tardi e pioveva","phon":"TAR-di é pio-VÉ-va","native":"tard et il pleuvait"},{"study":"la prima volta","phon":"la PRI-ma VOL-ta","native":"la première fois"},{"study":"tutto pieno","phon":"TOUT-to PIÈ-no","native":"complet"}]),
    ("Nommer le problème", {"study":"Il problema è che {s}.","phon":"il pro-BLÈ-ma è ké {s}","native":"Le problème, c'est que {s}."},
     [{"study":"costa troppo","phon":"KOS-ta TROP-po","native":"ça coûte trop cher"},{"study":"non abbiamo tempo","phon":"non ab-BIA-mo TÈM-po","native":"on n'a pas le temps"},{"study":"è lontano","phon":"è lon-TA-no","native":"c'est loin"},{"study":"nessuno è d'accordo","phon":"nés-SOU-no è dak-KOR-do","native":"personne n'est d'accord"}]),
-   ("Clore un sujet", {"study":"Comunque, {s}.","phon":"ko-MOUN-koué, {s}","native":"De toute façon, {s}."},
+   ("Clore un sujet", {"study":"Comunque, {s}.","phon":"ko-MOUN-koué, {s}","native":"En tout cas, {s}."},
     [{"study":"ci penso","phon":"tchi PÈN-so","native":"j'y réfléchis"},{"study":"ne parliamo domani","phon":"né par-LIA-mo do-MA-ni","native":"on en parle demain"},{"study":"è stata una bella serata","phon":"è STA-ta OU-na BÈL-la sé-RA-ta","native":"c'était une belle soirée"},{"study":"grazie di tutto","phon":"GRA-tsié di TOUT-to","native":"merci pour tout"}]),
   ],
   "dialogues": [
