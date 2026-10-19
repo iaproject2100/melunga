@@ -20,6 +20,7 @@ import {
   deviceLabelFor,
   deviceTypeFor
 } from './device-access.mjs';
+import { plansFor, plansForCurrency } from './pricing-table.mjs';
 
 const PBKDF2_ITERATIONS = 100000;
 const PBKDF2_KEYLEN = 32;
@@ -82,55 +83,6 @@ async function getOrCreateCustomer(token, email) {
     console.error('[create-payment-link] getOrCreateCustomer echec:', e);
   }
   return null; // sans customer, le lien marche quand meme (email a saisir)
-}
-
-// Tarification geolocalisee : chaque grand marche paie dans sa devise, le reste du monde en USD.
-// Cette grille DOIT rester identique a priceMarkets / marketForCountry dans index.html.
-const CURRENCY_BY_COUNTRY = {
-  // Zone euro et Union europeenne (+ Islande, Norvege)
-  AT:'EUR',BE:'EUR',BG:'EUR',HR:'EUR',CY:'EUR',CZ:'EUR',DK:'EUR',EE:'EUR',FI:'EUR',FR:'EUR',DE:'EUR',GR:'EUR',
-  HU:'EUR',IE:'EUR',IT:'EUR',LV:'EUR',LT:'EUR',LU:'EUR',MT:'EUR',NL:'EUR',PL:'EUR',PT:'EUR',RO:'EUR',SK:'EUR',
-  SI:'EUR',ES:'EUR',SE:'EUR',IS:'EUR',NO:'EUR',MC:'EUR',
-  CH:'CHF', LI:'CHF',
-  GB:'GBP',
-  CN:'CNY',
-  HK:'HKD',
-  JP:'JPY',
-  KR:'KRW',
-  SG:'SGD',
-  CA:'CAD',
-  AU:'AUD'
-};
-
-const PLANS_BY_CURRENCY = {
-  EUR: { monthly: 7.90,  annual: 42,    titles: ['Melunga · Abonnement mensuel', 'Melunga · Abonnement annuel'] },
-  CHF: { monthly: 7.90,  annual: 42,    titles: ['Melunga · Abonnement mensuel', 'Melunga · Abonnement annuel'] },
-  GBP: { monthly: 6.90,  annual: 36,    titles: ['Melunga · Monthly subscription', 'Melunga · Annual subscription'] },
-  CNY: { monthly: 59,    annual: 299,   titles: ['Melunga · 月度订阅', 'Melunga · 年度订阅'] },
-  HKD: { monthly: 68,    annual: 349,   titles: ['Melunga · Monthly subscription', 'Melunga · Annual subscription'] },
-  JPY: { monthly: 1290,  annual: 6900,  titles: ['Melunga · 月額プラン', 'Melunga · 年額プラン'] },
-  KRW: { monthly: 11900, annual: 59000, titles: ['Melunga · 월간 이용권', 'Melunga · 연간 이용권'] },
-  SGD: { monthly: 11.90, annual: 59,    titles: ['Melunga · Monthly subscription', 'Melunga · Annual subscription'] },
-  CAD: { monthly: 11.90, annual: 59,    titles: ['Melunga · Monthly subscription', 'Melunga · Annual subscription'] },
-  AUD: { monthly: 12.90, annual: 69,    titles: ['Melunga · Monthly subscription', 'Melunga · Annual subscription'] },
-  USD: { monthly: 8.90,  annual: 49,    titles: ['Melunga · Monthly subscription', 'Melunga · Annual subscription'] }
-};
-
-function currencyFor(countryCode) {
-  return CURRENCY_BY_COUNTRY[(countryCode || '').toUpperCase()] || 'USD';
-}
-
-function plansForCurrency(currency) {
-  const p = PLANS_BY_CURRENCY[currency] || PLANS_BY_CURRENCY.USD;
-  const cur = PLANS_BY_CURRENCY[currency] ? currency : 'USD';
-  return {
-    monthly: { amount: p.monthly, currency: cur, days: 30,  title: p.titles[0] },
-    annual:  { amount: p.annual,  currency: cur, days: 365, title: p.titles[1] }
-  };
-}
-
-function plansFor(countryCode) {
-  return plansForCurrency(currencyFor(countryCode));
 }
 
 export default async (req, context) => {
@@ -204,6 +156,8 @@ export default async (req, context) => {
         device_label: deviceLabel,
         plan: planKey,
         access_days: String(plan.days),
+        amount: String(plan.amount),
+        currency: plan.currency,
         email: email,
         password_hash: passwordHash,
         salt: salt,
@@ -223,15 +177,19 @@ export default async (req, context) => {
       });
       const text = await res.text();
       console.log('[create-payment-link] payment_links/create status =', res.status, 'currency =', payload.currency);
-      return { ok: res.ok, text };
+      return { ok: res.ok, status: res.status, text };
     };
 
     let linkResult = await createLink(linkPayload);
 
-    // Devise locale refusee par le compte Airwallex (non activee) : on retente en USD
-    // afin que le client puisse toujours payer.
-    if (!linkResult.ok && plan.currency !== 'USD') {
-      console.warn('[create-payment-link] devise', plan.currency, 'refusee, repli USD:', linkResult.text.slice(0, 300));
+    // Repli USD UNIQUEMENT si Airwallex refuse explicitement la devise locale (4xx dont le
+    // message cite la devise : devise non activee sur le compte). Une erreur ambigue
+    // (5xx, timeout) n'entraine aucune seconde creation : le premier lien a pu etre cree.
+    const currencyRefused = !linkResult.ok
+      && linkResult.status >= 400 && linkResult.status < 500
+      && /currenc/i.test(linkResult.text || '');
+    if (currencyRefused && plan.currency !== 'USD') {
+      console.warn('[create-payment-link] devise', plan.currency, 'refusee par Airwallex, repli USD:', linkResult.text.slice(0, 300));
       const usdPlan = plansForCurrency('USD')[planKey];
       plan.amount = usdPlan.amount;
       plan.currency = usdPlan.currency;
@@ -239,6 +197,8 @@ export default async (req, context) => {
       linkPayload.amount = plan.amount;
       linkPayload.currency = plan.currency;
       linkPayload.title = plan.title;
+      linkPayload.metadata.amount = String(plan.amount);
+      linkPayload.metadata.currency = plan.currency;
       linkPayload.request_id = requestId + '_usd';
       linkResult = await createLink(linkPayload);
     }
