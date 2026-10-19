@@ -529,15 +529,14 @@
     if(!IS_NATIVE_APP){
       Object.keys(premiumTranslations).forEach(locale=>{Object.assign(premiumTranslations[locale],webPremiumTranslations[locale]||webPremiumTranslations.fr);});
     }
+    /* Marchés alignés sur create-payment-link.mjs : Airwallex facture en EUR (zone EUR_ZONE
+       de la fonction) ou en USD (tout le reste, Suisse et Monaco compris). Les montants
+       affichés ici sont exactement ceux débités. */
     const priceMarkets={
       EUR:{label:'Europe · EUR',monthly:'7,90 €',yearly:'42 €',yearlyMonthly:'3,50 €'},
-      USD:{label:'USA / International · USD',monthly:'9 US$',yearly:'49 US$',yearlyMonthly:'4,08 US$'},
-      CNY:{label:'Chine · CNY',monthly:'35 CNY',yearly:'149 CNY',yearlyMonthly:'12,42 CNY'},
-      JPY:{label:'Japon · JPY',monthly:'1 490 ¥',yearly:'7 800 ¥',yearlyMonthly:'650 ¥'},
-      KRW:{label:'Corée du Sud · KRW',monthly:'13 440 ₩',yearly:'71 500 ₩',yearlyMonthly:'5 958 ₩'},
-      SGD:{label:'Singapour · SGD',monthly:'12 SGD',yearly:'62 SGD',yearlyMonthly:'5,17 SGD'}
+      USD:{label:'International · USD',monthly:'8,90 US$',yearly:'49 US$',yearlyMonthly:'4,08 US$'}
     };
-    const europeCountries=new Set(['AT','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR','GB','GR','HR','HU','IE','IS','IT','LI','LT','LU','LV','MC','MT','NL','NO','PL','PT','RO','SE','SI','SK']);
+    const europeCountries=new Set(['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB']);
     let currentAppLocale='fr';
     let currentPriceMarket=priceMarkets.EUR;
     let selectedPlan='yearly';
@@ -578,12 +577,7 @@
     function closeAppLanguageMenu(){appLanguageMenu.classList.remove('open');appLanguageMenu.setAttribute('aria-hidden','true');}
     function marketForCountry(countryCode){
       const code=(countryCode||'').toUpperCase();
-      if(code==='CN')return priceMarkets.CNY;
-      if(code==='JP')return priceMarkets.JPY;
-      if(code==='KR')return priceMarkets.KRW;
-      if(code==='SG')return priceMarkets.SGD;
-      if(europeCountries.has(code))return priceMarkets.EUR;
-      return priceMarkets.USD;
+      return europeCountries.has(code)?priceMarkets.EUR:priceMarkets.USD;
     }
     function localCountryFallback(){
       const zone=Intl.DateTimeFormat().resolvedOptions().timeZone||'';
