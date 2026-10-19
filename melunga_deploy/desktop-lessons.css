@@ -36,17 +36,11 @@
  html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b{position:fixed!important;top:24px!important;bottom:24px!important;left:24px!important;right:auto!important;transform:none!important;width:280px!important;height:calc(100dvh - 48px)!important;max-height:none!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;border-radius:20px!important;overflow-y:auto!important;overflow-x:hidden!important;box-shadow:0 8px 36px rgba(0,0,0,.09)!important;z-index:170}
  html.melunga-lesson-web body.immersif #ctrlDrawer .menu-b-close{display:none!important}
  html.melunga-lesson-web body.immersif #ctrlDrawer .selmenu{max-height:54dvh}
- html.melunga-lesson-web body.immersif .desktop-next{order:4;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:12px;line-height:1.6;color:var(--soft);padding:0 4px}
- html.melunga-lesson-web body.immersif .desktop-next button{font:inherit;font-size:14px;font-weight:700;border:1px solid rgba(125,135,150,.3);background:rgba(125,135,150,.12);color:var(--ink);border-radius:10px;padding:12px 20px;cursor:pointer}
- html.melunga-lesson-web body.immersif .desktop-next button:hover{background:rgba(125,135,150,.25)}
- html.melunga-lesson-web body.immersif .desktop-next button:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
  html.melunga-lesson-web body.immersif .foot{display:none}
  @media(min-width:1600px){html.melunga-lesson-web body.immersif .wrap{margin-left:calc(50vw - 472px);width:calc(50vw + 144px);max-width:1140px!important}html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b{left:calc(50vw - 776px)!important}html.melunga-lesson-web body.immersif .backbtn{left:calc(50vw - 452px)!important}}
  @media(max-height:760px){html.melunga-lesson-web body.immersif #card.card{min-height:340px;padding-block:25px}html.melunga-lesson-web body.immersif .top{min-height:70px;padding-block:14px}html.melunga-lesson-web body.immersif .main{padding-top:14px}}
 }
-.desktop-next{display:none}
 /* Keep the added navigation row visible only in the desktop lesson layout. */
-@media(min-width:1024px){html.melunga-lesson-web body.immersif .desktop-next{display:flex}}
 
 .desktop-control-label{display:none}
 @media(min-width:1024px){
@@ -123,4 +117,30 @@
  html.melunga-lesson-web body.immersif .desktop-progress-level{grid-column:1;grid-row:1;justify-self:start;padding:0;border:0;font-size:13px}
  html.melunga-lesson-web body.immersif .desktop-progress-count{grid-column:3;grid-row:1;justify-self:end;margin:0;font-size:13px}
  html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .desktop-control-icon{flex-basis:24px;font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif;font-size:21px;line-height:1.2}
+}
+
+/* One-screen desktop lessons. Settings scroll independently only when expanded. */
+@media(min-width:1024px){
+ html.melunga-lesson-web body.immersif{height:100dvh!important;min-height:0;overflow:hidden!important}
+ html.melunga-lesson-web body.immersif .wrap{height:100dvh!important;min-height:0!important;display:grid;grid-template-rows:clamp(76px,10dvh,104px) minmax(0,1fr)}
+ html.melunga-lesson-web body.immersif .top{height:100%;min-height:0!important;padding:8px 70px}
+ html.melunga-lesson-web body.immersif .top .lockup{min-height:0}
+ html.melunga-lesson-web body.immersif .main{height:100%;min-height:0;padding:10px 0 18px!important}
+ html.melunga-lesson-web body.immersif .main .stage{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:44px minmax(0,1fr) 52px;gap:12px;height:100%!important;min-height:0!important}
+ html.melunga-lesson-web body.immersif .desktop-progress{grid-row:1;grid-column:1;min-height:0}
+ html.melunga-lesson-web body.immersif #card.card{grid-row:2;grid-column:1;height:100%!important;min-height:0!important;max-height:100%!important;padding:clamp(12px,2.5dvh,28px) clamp(24px,3vw,52px);overflow:auto!important;overscroll-behavior:contain;scrollbar-width:thin;cursor:grab;user-select:none;transition:transform .18s ease}
+ html.melunga-lesson-web body.immersif #card.card.desktop-dragging{transition:none;cursor:grabbing;z-index:2}
+ html.melunga-lesson-web body.immersif #card.card #fr{margin-bottom:clamp(8px,1.5dvh,16px)}
+ html.melunga-lesson-web body.immersif #card.card .phonrow{padding:24px 42px 10px;margin:0 auto clamp(8px,1.5dvh,16px);min-height:0}
+ html.melunga-lesson-web body.immersif #card.card .listen{margin-top:clamp(10px,2dvh,20px);min-height:42px;padding:10px 20px;cursor:pointer}
+ html.melunga-lesson-web body.immersif #card.card .speed{margin-top:8px}
+ html.melunga-lesson-web body.immersif #card.card .heard:empty{display:none}
+ html.melunga-lesson-web body.immersif #rateBar.ratebar{grid-row:3;grid-column:1;min-height:0;gap:12px}
+ html.melunga-lesson-web body.immersif #rateBar.ratebar>button.rate{height:100%;min-height:0;padding-block:10px!important}
+ @media(max-height:700px){
+  html.melunga-lesson-web body.immersif .top .lockup svg{width:44px!important;height:44px!important;flex-basis:44px!important}
+  html.melunga-lesson-web body.immersif .top .wordmark{font-size:28px!important}
+  html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b{top:14px!important;bottom:14px!important;height:calc(100dvh - 28px)!important;padding-block:12px!important}
+  html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid{gap:2px!important;padding-block:8px!important;margin-block:4px!important}
+ }
 }

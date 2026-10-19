@@ -3,24 +3,8 @@
   if (window.Capacitor && typeof window.Capacitor.isNativePlatform === 'function' && window.Capacitor.isNativePlatform()) return;
   document.documentElement.classList.add('melunga-lesson-web');
   const desktop = window.matchMedia('(min-width:1024px)');
-  const copy = {
-    fr: ['Phrase suivante', 'Écoute, puis répète à voix haute.'],
-    en: ['Next phrase', 'Listen, then repeat aloud.'],
-    es: ['Siguiente frase', 'Escucha y repite en voz alta.'],
-    zh: ['下一句', '听录音，然后大声跟读。'],
-    it: ['Frase successiva', 'Ascolta, poi ripeti ad alta voce.'],
-    ja: ['次の文', '聞いてから、声に出して繰り返しましょう。'],
-    ko: ['다음 문장', '듣고 소리 내어 따라 하세요.']
-  };
   const stage = document.querySelector('.main .stage');
   if (!stage || typeof window.fitCard !== 'function') return;
-  const row = document.createElement('div');
-  row.className = 'desktop-next';
-  const hint = document.createElement('span');
-  const next = document.createElement('button');
-  next.type = 'button';
-  next.addEventListener('click', function () { if (typeof window.next === 'function') window.next(); });
-  row.append(hint,next); stage.append(row);
   const progress = document.createElement('div');
   progress.className = 'desktop-progress';
   const languageName = document.createElement('span');
@@ -68,8 +52,6 @@
   }
   const originalFit = window.fitCard;
   window.fitCard = function () {
-    const t = copy[typeof nat === 'string' ? nat : 'fr'] || copy.fr;
-    hint.textContent = t[1]; next.textContent = t[0] + ' →';
     const card = document.getElementById('card');
     if (!desktop.matches || !document.body.classList.contains('immersif')) { if (card) card.style.removeProperty('--learning-text-size');
       hiddenLegacyValues.forEach(function (saved,element) { if (saved.value) element.style.setProperty('display',saved.value,saved.priority); else element.style.removeProperty('display'); });
@@ -93,10 +75,57 @@
     const length = phrase.textContent.length;
     const longest = Math.max(length,phonetic ? phonetic.textContent.length : 0,(document.getElementById('cn').textContent || '').length);
     if (card) card.style.setProperty('--learning-text-size',(longest > 150 ? 24 : longest > 90 ? 28 : 36) + 'px');
-    const paywall = document.getElementById('paywall');
-    row.style.visibility = paywall && paywall.style.display === 'block' ? 'hidden' : '';
+    // Fit the three learning lines together; keep controls inside the viewport.
+    let size = longest > 150 ? 24 : longest > 90 ? 28 : 36;
+    while (card && card.scrollHeight > card.clientHeight + 1 && size > 16) {
+      size -= 2; card.style.setProperty('--learning-text-size',size + 'px');
+    }
   };
-  desktop.addEventListener('change',function () { window.fitCard(); });
+  const learningCard = document.getElementById('card');
+  let drag = null, suppressClickUntil = 0;
+  function resetDrag() {
+    if (!drag) return null;
+    const state = drag; drag = null;
+    learningCard.classList.remove('desktop-dragging');
+    learningCard.style.removeProperty('transform');
+    if (learningCard.hasPointerCapture(state.id)) learningCard.releasePointerCapture(state.id);
+    return state;
+  }
+  learningCard.addEventListener('pointerdown',function (event) {
+    if (!desktop.matches || !document.body.classList.contains('immersif') || event.button !== 0 || event.pointerType === 'touch') return;
+    if (event.target.closest('button,input,textarea,select,a,.earicon,.pytgl,[contenteditable="true"]')) return;
+    if (document.getElementById('paywall').style.display === 'block') return;
+    drag = {id:event.pointerId,x:event.clientX,y:event.clientY,dx:0,dy:0,moved:false};
+    learningCard.setPointerCapture(event.pointerId);
+  });
+  learningCard.addEventListener('pointermove',function (event) {
+    if (!drag || drag.id !== event.pointerId) return;
+    drag.dx = event.clientX - drag.x; drag.dy = event.clientY - drag.y;
+    if (Math.hypot(drag.dx,drag.dy) < 6 && !drag.moved) return;
+    drag.moved = true;
+    learningCard.classList.add('desktop-dragging');
+    const x = Math.max(-160,Math.min(160,drag.dx * .6));
+    const y = Math.max(-110,Math.min(110,drag.dy * .6));
+    learningCard.style.transform = 'translate(' + x + 'px,' + y + 'px) rotate(' + (x / 90) + 'deg)';
+    event.preventDefault();
+  });
+  learningCard.addEventListener('pointerup',function (event) {
+    if (!drag || drag.id !== event.pointerId) return;
+    const state = resetDrag();
+    if (!state.moved) return;
+    suppressClickUntil = performance.now() + 300;
+    const horizontal = Math.abs(state.dx) >= 70 && Math.abs(state.dx) > Math.abs(state.dy) * 1.2;
+    const vertical = Math.abs(state.dy) >= 65 && Math.abs(state.dy) > Math.abs(state.dx) * 1.2;
+    if (!horizontal && !vertical) return;
+    if ((horizontal && state.dx < 0) || (vertical && state.dy < 0)) window.next();
+    else if (typeof window.navGate !== 'function' || window.navGate()) window.prev();
+  });
+  learningCard.addEventListener('pointercancel',resetDrag);
+  learningCard.addEventListener('lostpointercapture',resetDrag);
+  learningCard.addEventListener('click',function (event) {
+    if (performance.now() < suppressClickUntil) { event.preventDefault(); event.stopImmediatePropagation(); }
+  },true);
+  desktop.addEventListener('change',function () { resetDrag(); window.fitCard(); });
   // Existing rendering calls fitCard after changes of language, mode and phrase.
   if (document.readyState === 'complete') window.fitCard();
   else window.addEventListener('load',function () { window.fitCard(); });
