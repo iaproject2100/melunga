@@ -1,0 +1,1010 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "es",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en espagnol",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; v→b, ll→y, j/ge/gi→KH, c/z→ss, que→ké). Variante à seseo et yeísmo. Ne remplace pas l'audio.",
+ "reviewStatus": "Généré par règles à partir de briques validées ; relecture par un hispanophone conseillée.",
+ "coverageClaim": null,
+ "level": 7,
+ "title": "Expliquer et comparer",
+ "goal": "Expliquer une raison, comparer et exprimer une préférence.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L7-fr-es-01",
+   "situation": "Justifier",
+   "model": {
+    "study": "Estudio español porque {s}.",
+    "phon": "és-TOU-dio és-pa-GNOL por-KÉ {s}",
+    "native": "J'étudie l'espagnol parce que {s}.",
+    "note": "« porque » (en un mot, sans accent) = parce que ; « ¿por qué? » = pourquoi."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "vivo en Valencia",
+      "phon": "BI-bo én ba-LÉN-ssia",
+      "native": "j'habite à Valence"
+     },
+     "study": "Estudio español porque vivo en Valencia.",
+     "phon": "és-TOU-dio és-pa-GNOL por-KÉ BI-bo én ba-LÉN-ssia",
+     "native": "J'étudie l'espagnol parce que j'habite à Valence."
+    },
+    {
+     "slot": {
+      "study": "me gusta viajar",
+      "phon": "mé GOUS-ta bia-KHAR",
+      "native": "j'aime voyager"
+     },
+     "study": "Estudio español porque me gusta viajar.",
+     "phon": "és-TOU-dio és-pa-GNOL por-KÉ mé GOUS-ta bia-KHAR",
+     "native": "J'étudie l'espagnol parce que j'aime voyager."
+    },
+    {
+     "slot": {
+      "study": "lo necesito para el trabajo",
+      "phon": "lo né-ssé-SSI-to PA-ra él tra-BA-kho",
+      "native": "j'en ai besoin pour le travail"
+     },
+     "study": "Estudio español porque lo necesito para el trabajo.",
+     "phon": "és-TOU-dio és-pa-GNOL por-KÉ lo né-ssé-SSI-to PA-ra él tra-BA-kho",
+     "native": "J'étudie l'espagnol parce que j'en ai besoin pour le travail."
+    },
+    {
+     "slot": {
+      "study": "mi pareja es española",
+      "phon": "mi pa-RÉ-kha és és-pa-GNO-la",
+      "native": "ma compagne est espagnole"
+     },
+     "study": "Estudio español porque mi pareja es española.",
+     "phon": "és-TOU-dio és-pa-GNOL por-KÉ mi pa-RÉ-kha és és-pa-GNO-la",
+     "native": "J'étudie l'espagnol parce que ma compagne est espagnole."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-es-02",
+   "situation": "Comparer (plus)",
+   "model": {
+    "study": "El tren es más {s} que el coche.",
+    "phon": "él TRÉN és mas {s} ké él KO-tché",
+    "native": "Le train est plus {s} que la voiture."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "rápido",
+      "phon": "RRA-pi-do",
+      "native": "rapide"
+     },
+     "study": "El tren es más rápido que el coche.",
+     "phon": "él TRÉN és mas RRA-pi-do ké él KO-tché",
+     "native": "Le train est plus rapide que la voiture."
+    },
+    {
+     "slot": {
+      "study": "cómodo",
+      "phon": "KO-mo-do",
+      "native": "confortable"
+     },
+     "study": "El tren es más cómodo que el coche.",
+     "phon": "él TRÉN és mas KO-mo-do ké él KO-tché",
+     "native": "Le train est plus confortable que la voiture."
+    },
+    {
+     "slot": {
+      "study": "caro",
+      "phon": "KA-ro",
+      "native": "cher"
+     },
+     "study": "El tren es más caro que el coche.",
+     "phon": "él TRÉN és mas KA-ro ké él KO-tché",
+     "native": "Le train est plus cher que la voiture."
+    },
+    {
+     "slot": {
+      "study": "tranquilo",
+      "phon": "tran-KI-lo",
+      "native": "tranquille"
+     },
+     "study": "El tren es más tranquilo que el coche.",
+     "phon": "él TRÉN és mas tran-KI-lo ké él KO-tché",
+     "native": "Le train est plus tranquille que la voiture."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-es-03",
+   "situation": "Comparer (moins)",
+   "model": {
+    "study": "Este piso es menos {s} que el otro.",
+    "phon": "ÉS-té PI-sso és MÉ-nos {s} ké él O-tro",
+    "native": "Cet appartement est moins {s} que l'autre."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "caro",
+      "phon": "KA-ro",
+      "native": "cher"
+     },
+     "study": "Este piso es menos caro que el otro.",
+     "phon": "ÉS-té PI-sso és MÉ-nos KA-ro ké él O-tro",
+     "native": "Cet appartement est moins cher que l'autre."
+    },
+    {
+     "slot": {
+      "study": "luminoso",
+      "phon": "lou-mi-NO-sso",
+      "native": "lumineux"
+     },
+     "study": "Este piso es menos luminoso que el otro.",
+     "phon": "ÉS-té PI-sso és MÉ-nos lou-mi-NO-sso ké él O-tro",
+     "native": "Cet appartement est moins lumineux que l'autre."
+    },
+    {
+     "slot": {
+      "study": "ruidoso",
+      "phon": "rroui-DO-sso",
+      "native": "bruyant"
+     },
+     "study": "Este piso es menos ruidoso que el otro.",
+     "phon": "ÉS-té PI-sso és MÉ-nos rroui-DO-sso ké él O-tro",
+     "native": "Cet appartement est moins bruyant que l'autre."
+    },
+    {
+     "slot": {
+      "study": "céntrico",
+      "phon": "SSÉN-tri-ko",
+      "native": "central"
+     },
+     "study": "Este piso es menos céntrico que el otro.",
+     "phon": "ÉS-té PI-sso és MÉ-nos SSÉN-tri-ko ké él O-tro",
+     "native": "Cet appartement est moins central que l'autre."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-es-04",
+   "situation": "Préférence argumentée",
+   "model": {
+    "study": "Prefiero {s} porque es más barato.",
+    "phon": "pré-FIÉ-ro {s} por-KÉ és mas ba-RA-to",
+    "native": "Je préfère {s} parce que c'est moins cher."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "el mercado",
+      "phon": "él mér-KA-do",
+      "native": "le marché"
+     },
+     "study": "Prefiero el mercado porque es más barato.",
+     "phon": "pré-FIÉ-ro él mér-KA-do por-KÉ és mas ba-RA-to",
+     "native": "Je préfère le marché parce que c'est moins cher."
+    },
+    {
+     "slot": {
+      "study": "cocinar en casa",
+      "phon": "ko-ssi-NAR én KA-ssa",
+      "native": "cuisiner à la maison"
+     },
+     "study": "Prefiero cocinar en casa porque es más barato.",
+     "phon": "pré-FIÉ-ro ko-ssi-NAR én KA-ssa por-KÉ és mas ba-RA-to",
+     "native": "Je préfère cuisiner à la maison parce que c'est moins cher."
+    },
+    {
+     "slot": {
+      "study": "ir en autobús",
+      "phon": "IR én aou-to-BOUS",
+      "native": "y aller en bus"
+     },
+     "study": "Prefiero ir en autobús porque es más barato.",
+     "phon": "pré-FIÉ-ro IR én aou-to-BOUS por-KÉ és mas ba-RA-to",
+     "native": "Je préfère y aller en bus parce que c'est moins cher."
+    },
+    {
+     "slot": {
+      "study": "este hotel",
+      "phon": "ÉS-té o-TÉL",
+      "native": "cet hôtel"
+     },
+     "study": "Prefiero este hotel porque es más barato.",
+     "phon": "pré-FIÉ-ro ÉS-té o-TÉL por-KÉ és mas ba-RA-to",
+     "native": "Je préfère cet hôtel parce que c'est moins cher."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-es-05",
+   "situation": "Donner un avis",
+   "model": {
+    "study": "Creo que {s}.",
+    "phon": "KRÉ-o ké {s}",
+    "native": "Je crois que {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "es una buena idea",
+      "phon": "és OU-na BOUÉ-na i-DÉ-a",
+      "native": "c'est une bonne idée"
+     },
+     "study": "Creo que es una buena idea.",
+     "phon": "KRÉ-o ké és OU-na BOUÉ-na i-DÉ-a",
+     "native": "Je crois que c'est une bonne idée."
+    },
+    {
+     "slot": {
+      "study": "el restaurante está cerrado",
+      "phon": "él rrés-taou-RAN-té és-TA ssé-RRA-do",
+      "native": "le restaurant est fermé"
+     },
+     "study": "Creo que el restaurante está cerrado.",
+     "phon": "KRÉ-o ké él rrés-taou-RAN-té és-TA ssé-RRA-do",
+     "native": "Je crois que le restaurant est fermé."
+    },
+    {
+     "slot": {
+      "study": "tienes razón",
+      "phon": "TIÉ-nés rra-SSON",
+      "native": "tu as raison"
+     },
+     "study": "Creo que tienes razón.",
+     "phon": "KRÉ-o ké TIÉ-nés rra-SSON",
+     "native": "Je crois que tu as raison."
+    },
+    {
+     "slot": {
+      "study": "va a llover",
+      "phon": "ba a yo-BÉR",
+      "native": "il va pleuvoir"
+     },
+     "study": "Creo que va a llover.",
+     "phon": "KRÉ-o ké ba a yo-BÉR",
+     "native": "Je crois qu'il va pleuvoir."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-es-06",
+   "situation": "Point de vue personnel",
+   "model": {
+    "study": "Para mí, {s}.",
+    "phon": "PA-ra MI, {s}",
+    "native": "Pour moi, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "lo más importante es la familia",
+      "phon": "lo MAS im-por-TAN-té és la fa-MI-lia",
+      "native": "le plus important, c'est la famille"
+     },
+     "study": "Para mí, lo más importante es la familia.",
+     "phon": "PA-ra MI, lo MAS im-por-TAN-té és la fa-MI-lia",
+     "native": "Pour moi, le plus important, c'est la famille."
+    },
+    {
+     "slot": {
+      "study": "este barrio es el mejor",
+      "phon": "ÉS-té BA-rrio és él mé-KHOR",
+      "native": "ce quartier est le meilleur"
+     },
+     "study": "Para mí, este barrio es el mejor.",
+     "phon": "PA-ra MI, ÉS-té BA-rrio és él mé-KHOR",
+     "native": "Pour moi, ce quartier est le meilleur."
+    },
+    {
+     "slot": {
+      "study": "la comida española es muy buena",
+      "phon": "la ko-MI-da és-pa-GNO-la és mouy BOUÉ-na",
+      "native": "la cuisine espagnole est très bonne"
+     },
+     "study": "Para mí, la comida española es muy buena.",
+     "phon": "PA-ra MI, la ko-MI-da és-pa-GNO-la és mouy BOUÉ-na",
+     "native": "Pour moi, la cuisine espagnole est très bonne."
+    },
+    {
+     "slot": {
+      "study": "trabajar desde casa es más práctico",
+      "phon": "tra-ba-KHAR DÉS-dé KA-ssa és mas PRAK-ti-ko",
+      "native": "travailler depuis chez soi est plus pratique"
+     },
+     "study": "Para mí, trabajar desde casa es más práctico.",
+     "phon": "PA-ra MI, tra-ba-KHAR DÉS-dé KA-ssa és mas PRAK-ti-ko",
+     "native": "Pour moi, travailler depuis chez soi est plus pratique."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-es-07",
+   "situation": "Habitude passée",
+   "model": {
+    "study": "Antes {s}, ahora ya no.",
+    "phon": "AN-tés {s}, a-O-ra ya NO",
+    "native": "Avant, {s}, plus maintenant.",
+    "note": "Imparfait (imperfecto) pour une habitude passée ; « ya no » = ne… plus."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "fumaba",
+      "phon": "fou-MA-ba",
+      "native": "je fumais"
+     },
+     "study": "Antes fumaba, ahora ya no.",
+     "phon": "AN-tés fou-MA-ba, a-O-ra ya NO",
+     "native": "Avant, je fumais, plus maintenant."
+    },
+    {
+     "slot": {
+      "study": "vivía en París",
+      "phon": "bi-BI-a én pa-RIS",
+      "native": "j'habitais à Paris"
+     },
+     "study": "Antes vivía en París, ahora ya no.",
+     "phon": "AN-tés bi-BI-a én pa-RIS, a-O-ra ya NO",
+     "native": "Avant, j'habitais à Paris, plus maintenant."
+    },
+    {
+     "slot": {
+      "study": "trabajaba en una tienda",
+      "phon": "tra-ba-KHA-ba én OU-na TIÉN-da",
+      "native": "je travaillais dans un magasin"
+     },
+     "study": "Antes trabajaba en una tienda, ahora ya no.",
+     "phon": "AN-tés tra-ba-KHA-ba én OU-na TIÉN-da, a-O-ra ya NO",
+     "native": "Avant, je travaillais dans un magasin, plus maintenant."
+    },
+    {
+     "slot": {
+      "study": "comía mucha carne",
+      "phon": "ko-MI-a MOU-tcha KAR-né",
+      "native": "je mangeais beaucoup de viande"
+     },
+     "study": "Antes comía mucha carne, ahora ya no.",
+     "phon": "AN-tés ko-MI-a MOU-tcha KAR-né, a-O-ra ya NO",
+     "native": "Avant, je mangeais beaucoup de viande, plus maintenant."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-es-08",
+   "situation": "Changement",
+   "model": {
+    "study": "Ahora {s} más que antes.",
+    "phon": "a-O-ra {s} MAS ké AN-tés",
+    "native": "Maintenant, {s} plus qu'avant."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "cocino",
+      "phon": "ko-SSI-no",
+      "native": "je cuisine"
+     },
+     "study": "Ahora cocino más que antes.",
+     "phon": "a-O-ra ko-SSI-no MAS ké AN-tés",
+     "native": "Maintenant, je cuisine plus qu'avant."
+    },
+    {
+     "slot": {
+      "study": "salgo",
+      "phon": "SSAL-go",
+      "native": "je sors"
+     },
+     "study": "Ahora salgo más que antes.",
+     "phon": "a-O-ra SSAL-go MAS ké AN-tés",
+     "native": "Maintenant, je sors plus qu'avant."
+    },
+    {
+     "slot": {
+      "study": "leo",
+      "phon": "LÉ-o",
+      "native": "je lis"
+     },
+     "study": "Ahora leo más que antes.",
+     "phon": "a-O-ra LÉ-o MAS ké AN-tés",
+     "native": "Maintenant, je lis plus qu'avant."
+    },
+    {
+     "slot": {
+      "study": "descanso",
+      "phon": "dés-KAN-sso",
+      "native": "je me repose"
+     },
+     "study": "Ahora descanso más que antes.",
+     "phon": "a-O-ra dés-KAN-sso MAS ké AN-tés",
+     "native": "Maintenant, je me repose plus qu'avant."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-es-09",
+   "situation": "Comparer avec « mejor »",
+   "model": {
+    "study": "{s} es mejor que el mío.",
+    "phon": "{s} és mé-KHOR ké él MI-o",
+    "native": "{s} est meilleur que le mien.",
+    "note": "« mejor » ne change pas au féminin : « Tu casa es mejor que la mía »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Tu coche",
+      "phon": "tou KO-tché",
+      "native": "Ta voiture"
+     },
+     "study": "Tu coche es mejor que el mío.",
+     "phon": "tou KO-tché és mé-KHOR ké él MI-o",
+     "native": "Ta voiture est meilleure que la mienne."
+    },
+    {
+     "slot": {
+      "study": "Este café",
+      "phon": "ÉS-té ka-FÉ",
+      "native": "Ce café"
+     },
+     "study": "Este café es mejor que el mío.",
+     "phon": "ÉS-té ka-FÉ és mé-KHOR ké él MI-o",
+     "native": "Ce café est meilleur que le mien."
+    },
+    {
+     "slot": {
+      "study": "Su ordenador",
+      "phon": "sou or-dé-na-DOR",
+      "native": "Son ordinateur"
+     },
+     "study": "Su ordenador es mejor que el mío.",
+     "phon": "sou or-dé-na-DOR és mé-KHOR ké él MI-o",
+     "native": "Son ordinateur est meilleur que le mien."
+    },
+    {
+     "slot": {
+      "study": "Este plan",
+      "phon": "ÉS-té PLAN",
+      "native": "Ce plan"
+     },
+     "study": "Este plan es mejor que el mío.",
+     "phon": "ÉS-té PLAN és mé-KHOR ké él MI-o",
+     "native": "Ce plan est meilleur que le mien."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-es-10",
+   "situation": "Expliquer une raison (familier)",
+   "model": {
+    "study": "Es que {s}.",
+    "phon": "és ké {s}",
+    "native": "C'est que {s}.",
+    "note": "Formule très courante pour justifier un refus ou un retard. Au féminin : « cansada »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "no tengo tiempo",
+      "phon": "no TÉN-go TIÉM-po",
+      "native": "je n'ai pas le temps"
+     },
+     "study": "Es que no tengo tiempo.",
+     "phon": "és ké no TÉN-go TIÉM-po",
+     "native": "C'est que je n'ai pas le temps."
+    },
+    {
+     "slot": {
+      "study": "estoy muy cansado",
+      "phon": "és-TOY mouy kan-SSA-do",
+      "native": "je suis très fatigué"
+     },
+     "study": "Es que estoy muy cansado.",
+     "phon": "és ké és-TOY mouy kan-SSA-do",
+     "native": "C'est que je suis très fatigué."
+    },
+    {
+     "slot": {
+      "study": "es demasiado caro",
+      "phon": "és dé-ma-SSIA-do KA-ro",
+      "native": "c'est trop cher"
+     },
+     "study": "Es que es demasiado caro.",
+     "phon": "és ké és dé-ma-SSIA-do KA-ro",
+     "native": "C'est que c'est trop cher."
+    },
+    {
+     "slot": {
+      "study": "prefiero quedarme en casa",
+      "phon": "pré-FIÉ-ro ké-DAR-mé én KA-ssa",
+      "native": "je préfère rester à la maison"
+     },
+     "study": "Es que prefiero quedarme en casa.",
+     "phon": "és ké pré-FIÉ-ro ké-DAR-mé én KA-ssa",
+     "native": "C'est que je préfère rester à la maison."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-es-11",
+   "situation": "Souligner un avantage",
+   "model": {
+    "study": "Lo bueno es que {s}.",
+    "phon": "lo BOUÉ-no és ké {s}",
+    "native": "Ce qui est bien, c'est que {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "está cerca del trabajo",
+      "phon": "és-TA SSÉR-ka dél tra-BA-kho",
+      "native": "c'est près du travail"
+     },
+     "study": "Lo bueno es que está cerca del trabajo.",
+     "phon": "lo BOUÉ-no és ké és-TA SSÉR-ka dél tra-BA-kho",
+     "native": "Ce qui est bien, c'est que c'est près du travail."
+    },
+    {
+     "slot": {
+      "study": "tiene mucha luz",
+      "phon": "TIÉ-né MOU-tcha LOUSS",
+      "native": "il y a beaucoup de lumière"
+     },
+     "study": "Lo bueno es que tiene mucha luz.",
+     "phon": "lo BOUÉ-no és ké TIÉ-né MOU-tcha LOUSS",
+     "native": "Ce qui est bien, c'est qu'il y a beaucoup de lumière."
+    },
+    {
+     "slot": {
+      "study": "es barato",
+      "phon": "és ba-RA-to",
+      "native": "c'est bon marché"
+     },
+     "study": "Lo bueno es que es barato.",
+     "phon": "lo BOUÉ-no és ké és ba-RA-to",
+     "native": "Ce qui est bien, c'est que c'est bon marché."
+    },
+    {
+     "slot": {
+      "study": "hay un parque al lado",
+      "phon": "AY oun PAR-ké al LA-do",
+      "native": "il y a un parc à côté"
+     },
+     "study": "Lo bueno es que hay un parque al lado.",
+     "phon": "lo BOUÉ-no és ké AY oun PAR-ké al LA-do",
+     "native": "Ce qui est bien, c'est qu'il y a un parc à côté."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-es-12",
+   "situation": "Dire ce qu'on en pense",
+   "model": {
+    "study": "Me parece {s}.",
+    "phon": "mé pa-RÉ-ssé {s}",
+    "native": "Je trouve ça {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "caro",
+      "phon": "KA-ro",
+      "native": "cher"
+     },
+     "study": "Me parece caro.",
+     "phon": "mé pa-RÉ-ssé KA-ro",
+     "native": "Je trouve ça cher."
+    },
+    {
+     "slot": {
+      "study": "muy interesante",
+      "phon": "mouy in-té-ré-SSAN-té",
+      "native": "très intéressant"
+     },
+     "study": "Me parece muy interesante.",
+     "phon": "mé pa-RÉ-ssé mouy in-té-ré-SSAN-té",
+     "native": "Je trouve ça très intéressant."
+    },
+    {
+     "slot": {
+      "study": "una buena idea",
+      "phon": "OU-na BOUÉ-na i-DÉ-a",
+      "native": "une bonne idée"
+     },
+     "study": "Me parece una buena idea.",
+     "phon": "mé pa-RÉ-ssé OU-na BOUÉ-na i-DÉ-a",
+     "native": "Je trouve que c'est une bonne idée."
+    },
+    {
+     "slot": {
+      "study": "demasiado lejos",
+      "phon": "dé-ma-SSIA-do LÉ-khos",
+      "native": "trop loin"
+     },
+     "study": "Me parece demasiado lejos.",
+     "phon": "mé pa-RÉ-ssé dé-ma-SSIA-do LÉ-khos",
+     "native": "Je trouve ça trop loin."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-es-13",
+   "situation": "Aimer mieux",
+   "model": {
+    "study": "Me gusta más {s}.",
+    "phon": "mé GOUS-ta MAS {s}",
+    "native": "J'aime mieux {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "el pescado que la carne",
+      "phon": "él pés-KA-do ké la KAR-né",
+      "native": "le poisson que la viande"
+     },
+     "study": "Me gusta más el pescado que la carne.",
+     "phon": "mé GOUS-ta MAS él pés-KA-do ké la KAR-né",
+     "native": "J'aime mieux le poisson que la viande."
+    },
+    {
+     "slot": {
+      "study": "cocinar que salir a cenar",
+      "phon": "ko-ssi-NAR ké ssa-LIR a ssé-NAR",
+      "native": "cuisiner que sortir dîner"
+     },
+     "study": "Me gusta más cocinar que salir a cenar.",
+     "phon": "mé GOUS-ta MAS ko-ssi-NAR ké ssa-LIR a ssé-NAR",
+     "native": "J'aime mieux cuisiner que sortir dîner."
+    },
+    {
+     "slot": {
+      "study": "el verano que el invierno",
+      "phon": "él bé-RA-no ké él in-BIÉR-no",
+      "native": "l'été que l'hiver"
+     },
+     "study": "Me gusta más el verano que el invierno.",
+     "phon": "mé GOUS-ta MAS él bé-RA-no ké él in-BIÉR-no",
+     "native": "J'aime mieux l'été que l'hiver."
+    },
+    {
+     "slot": {
+      "study": "vivir en el centro que en las afueras",
+      "phon": "bi-BIR én él SSÉN-tro ké én las a-FOUÉ-ras",
+      "native": "vivre au centre qu'en banlieue"
+     },
+     "study": "Me gusta más vivir en el centro que en las afueras.",
+     "phon": "mé GOUS-ta MAS bi-BIR én él SSÉN-tro ké én las a-FOUÉ-ras",
+     "native": "J'aime mieux vivre au centre qu'en banlieue."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L7-fr-es-d1",
+   "situation": "Choisir un appartement",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "¿Qué piso prefieres, el del centro o el de las afueras?",
+     "phon": "ké PI-sso pré-FIÉ-rés, él dél SSÉN-tro o él dé las a-FOUÉ-ras",
+     "native": "Quel appartement tu préfères, celui du centre ou celui de la banlieue ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Prefiero el del centro porque está cerca del trabajo.",
+     "phon": "pré-FIÉ-ro él dél SSÉN-tro por-KÉ és-TA SSÉR-ka dél tra-BA-kho",
+     "native": "Je préfère celui du centre parce qu'il est près du travail."
+    },
+    {
+     "speaker": "A",
+     "study": "Pero es más caro que el otro.",
+     "phon": "PÉ-ro és mas KA-ro ké él O-tro",
+     "native": "Mais il est plus cher que l'autre."
+    },
+    {
+     "speaker": "B",
+     "study": "Es verdad, pero es menos ruidoso y tiene más luz.",
+     "phon": "és bér-DAD, PÉ-ro és MÉ-nos rroui-DO-sso i TIÉ-né mas LOUSS",
+     "native": "C'est vrai, mais il est moins bruyant et il a plus de lumière."
+    },
+    {
+     "speaker": "A",
+     "study": "¿Y el barrio?",
+     "phon": "i él BA-rrio",
+     "native": "Et le quartier ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Lo bueno es que hay un mercado y un parque al lado.",
+     "phon": "lo BOUÉ-no és ké AY oun mér-KA-do i oun PAR-ké al LA-do",
+     "native": "Ce qui est bien, c'est qu'il y a un marché et un parc à côté."
+    },
+    {
+     "speaker": "A",
+     "study": "Creo que tienes razón.",
+     "phon": "KRÉ-o ké TIÉ-nés rra-SSON",
+     "native": "Je crois que tu as raison."
+    },
+    {
+     "speaker": "B",
+     "study": "Antes vivía en las afueras y perdía mucho tiempo en el coche.",
+     "phon": "AN-tés bi-BI-a én las a-FOUÉ-ras i pér-DI-a MOU-tcho TIÉM-po én él KO-tché",
+     "native": "Avant, j'habitais en banlieue et je perdais beaucoup de temps en voiture."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L7-fr-es-01",
+    "L7-fr-es-02",
+    "L7-fr-es-03",
+    "L7-fr-es-04"
+   ]
+  },
+  {
+   "id": "L7-fr-es-d2",
+   "situation": "Au restaurant",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "¿Qué te parece este restaurante?",
+     "phon": "ké té pa-RÉ-ssé ÉS-té rrés-taou-RAN-té",
+     "native": "Qu'est-ce que tu penses de ce restaurant ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Me parece muy bueno, pero un poco caro.",
+     "phon": "mé pa-RÉ-ssé mouy BOUÉ-no, PÉ-ro oun PO-ko KA-ro",
+     "native": "Je le trouve très bon, mais un peu cher."
+    },
+    {
+     "speaker": "A",
+     "study": "¿Qué vas a pedir?",
+     "phon": "ké bas a pé-DIR",
+     "native": "Qu'est-ce que tu vas commander ?"
+    },
+    {
+     "speaker": "B",
+     "study": "El pescado. Me gusta más el pescado que la carne.",
+     "phon": "él pés-KA-do. mé GOUS-ta MAS él pés-KA-do ké la KAR-né",
+     "native": "Le poisson. J'aime mieux le poisson que la viande."
+    },
+    {
+     "speaker": "A",
+     "study": "Yo prefiero la paella porque es más típica.",
+     "phon": "yo pré-FIÉ-ro la pa-É-ya por-KÉ és mas TI-pi-ka",
+     "native": "Moi, je préfère la paella parce que c'est plus typique."
+    },
+    {
+     "speaker": "B",
+     "study": "Buena idea. ¿Y de beber?",
+     "phon": "BOUÉ-na i-DÉ-a. i dé bé-BÉR",
+     "native": "Bonne idée. Et à boire ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Para mí, agua. Antes bebía vino en la comida, ahora ya no.",
+     "phon": "PA-ra MI, A-goua. AN-tés bé-BI-a BI-no én la ko-MI-da, a-O-ra ya NO",
+     "native": "Pour moi, de l'eau. Avant, je buvais du vin au déjeuner, plus maintenant."
+    },
+    {
+     "speaker": "B",
+     "study": "Yo también bebo menos que antes.",
+     "phon": "yo tam-BIÉN BÉ-bo MÉ-nos ké AN-tés",
+     "native": "Moi aussi, je bois moins qu'avant."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L7-fr-es-01",
+    "L7-fr-es-02",
+    "L7-fr-es-03",
+    "L7-fr-es-04"
+   ]
+  },
+  {
+   "id": "L7-fr-es-d3",
+   "situation": "Télétravail ou bureau",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "¿Trabajas desde casa?",
+     "phon": "tra-BA-khas DÉS-dé KA-ssa",
+     "native": "Tu travailles depuis chez toi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sí, tres días por semana. Para mí, es más práctico.",
+     "phon": "SI, trés DI-as por ssé-MA-na. PA-ra MI, és mas PRAK-ti-ko",
+     "native": "Oui, trois jours par semaine. Pour moi, c'est plus pratique."
+    },
+    {
+     "speaker": "A",
+     "study": "¿Por qué?",
+     "phon": "por KÉ",
+     "native": "Pourquoi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Es que pierdo menos tiempo en el transporte y estoy más tranquilo.",
+     "phon": "és ké PIÉR-do MÉ-nos TIÉM-po én él trans-POR-té i és-TOY mas tran-KI-lo",
+     "native": "C'est que je perds moins de temps dans les transports et je suis plus tranquille."
+    },
+    {
+     "speaker": "A",
+     "study": "Yo prefiero ir a la oficina porque veo a mis compañeros.",
+     "phon": "yo pré-FIÉ-ro IR a la o-fi-SSI-na por-KÉ BÉ-o a mis kom-pa-GNÉ-ros",
+     "native": "Moi, je préfère aller au bureau parce que je vois mes collègues."
+    },
+    {
+     "speaker": "B",
+     "study": "Te entiendo. Lo bueno es que ahora podemos elegir.",
+     "phon": "té én-TIÉN-do. lo BOUÉ-no és ké a-O-ra po-DÉ-mos é-lé-KHIR",
+     "native": "Je te comprends. Ce qui est bien, c'est que maintenant on peut choisir."
+    },
+    {
+     "speaker": "A",
+     "study": "Antes trabajaba todos los días en la oficina y llegaba a casa muy tarde.",
+     "phon": "AN-tés tra-ba-KHA-ba TO-dos los DI-as én la o-fi-SSI-na i yé-GA-ba a KA-ssa mouy TAR-dé",
+     "native": "Avant, je travaillais tous les jours au bureau et je rentrais très tard à la maison."
+    },
+    {
+     "speaker": "B",
+     "study": "Ahora descansas más que antes, ¿no?",
+     "phon": "a-O-ra dés-KAN-ssas MAS ké AN-tés, NO",
+     "native": "Maintenant tu te reposes plus qu'avant, non ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sí, mucho más.",
+     "phon": "SI, MOU-tcho MAS",
+     "native": "Oui, beaucoup plus."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L7-fr-es-01",
+    "L7-fr-es-02",
+    "L7-fr-es-03",
+    "L7-fr-es-04"
+   ]
+  }
+ ],
+ "readiness": "Justifier un choix (porque, es que), comparer (más / menos… que, mejor), donner un avis simple (creo que, me parece, para mí) et décrire une habitude passée à l'imparfait pour expliquer un changement."
+}
