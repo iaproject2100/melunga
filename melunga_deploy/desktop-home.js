@@ -41,7 +41,19 @@
     "Confidentialité",
     "par an",
     "Méthode",
-    "Audio indisponible pour le moment. Réessaie dans l’application."
+    "Audio indisponible pour le moment. Réessaie dans l’application.",
+    "Niveau 1 complet, 7 langues",
+    "Phonétique dans ta langue + audio",
+    "Révisions intelligentes",
+    "Tous les niveaux, L1 à L10",
+    "Les 7 langues incluses",
+    "Accès 30 jours · sans reconduction",
+    "Accès 1 an · sans reconduction",
+    "Économise {pct}",
+    "Le plus populaire",
+    "soit {m} / {unit}",
+    "Choisir l’annuel",
+    "Choisir le mensuel"
   ],
   "en": [
     "7 LANGUAGES · THE 80% THAT MATTERS",
@@ -80,7 +92,19 @@
     "Privacy",
     "per year",
     "Method",
-    "Audio is unavailable. Try again in the application."
+    "Audio is unavailable. Try again in the application.",
+    "Full Level 1, 7 languages",
+    "Phonetics in your language + audio",
+    "Smart reviews",
+    "All levels, L1 to L10",
+    "All 7 languages included",
+    "30-day access · no renewal",
+    "1-year access · no renewal",
+    "Save {pct}",
+    "Most popular",
+    "that’s {m} / {unit}",
+    "Choose yearly",
+    "Choose monthly"
   ],
   "es": [
     "7 IDIOMAS · EL 80 % QUE IMPORTA",
@@ -119,7 +143,19 @@
     "Privacidad",
     "al año",
     "Método",
-    "Audio no disponible. Inténtalo en la aplicación."
+    "Audio no disponible. Inténtalo en la aplicación.",
+    "Nivel 1 completo, 7 idiomas",
+    "Fonética en tu idioma + audio",
+    "Repasos inteligentes",
+    "Todos los niveles, L1 a L10",
+    "Los 7 idiomas incluidos",
+    "Acceso 30 días · sin renovación",
+    "Acceso 1 año · sin renovación",
+    "Ahorra {pct}",
+    "El más popular",
+    "es decir {m} / {unit}",
+    "Elegir anual",
+    "Elegir mensual"
   ],
   "zh": [
     "7 种语言 · 最重要的 80%",
@@ -158,7 +194,19 @@
     "隐私",
     "每年",
     "方法",
-    "音频暂不可用，请在应用中重试。"
+    "音频暂不可用，请在应用中重试。",
+    "完整 L1 · 7 种语言",
+    "母语注音 + 真人发音",
+    "智能复习",
+    "全部等级 L1–L10",
+    "包含全部 7 种语言",
+    "30 天权益 · 不自动续费",
+    "1 年权益 · 不自动续费",
+    "节省 {pct}",
+    "最受欢迎",
+    "相当于每{unit} {m}",
+    "选择年度",
+    "选择月度"
   ],
   "it": [
     "7 LINGUE · L’80% CHE CONTA",
@@ -197,7 +245,19 @@
     "Privacy",
     "all’anno",
     "Metodo",
-    "Audio non disponibile. Riprova nell’applicazione."
+    "Audio non disponibile. Riprova nell’applicazione.",
+    "Livello 1 completo, 7 lingue",
+    "Fonetica nella tua lingua + audio",
+    "Ripassi intelligenti",
+    "Tutti i livelli, da L1 a L10",
+    "Tutte le 7 lingue incluse",
+    "Accesso 30 giorni · senza rinnovo",
+    "Accesso 1 anno · senza rinnovo",
+    "Risparmia {pct}",
+    "Il più scelto",
+    "cioè {m} / {unit}",
+    "Scegli annuale",
+    "Scegli mensile"
   ],
   "ja": [
     "7言語 · 大切な80%",
@@ -236,7 +296,19 @@
     "プライバシー",
     "年額",
     "学習方法",
-    "音声は現在利用できません。アプリでお試しください。"
+    "音声は現在利用できません。アプリでお試しください。",
+    "レベル1すべて · 7言語",
+    "母語での発音表記 + 音声",
+    "スマート復習",
+    "全レベル L1〜L10",
+    "7言語すべて含む",
+    "30日間 · 自動更新なし",
+    "1年間 · 自動更新なし",
+    "{pct} お得",
+    "一番人気",
+    "{unit}あたり {m}",
+    "年間を選ぶ",
+    "月間を選ぶ"
   ],
   "ko": [
     "7개 언어 · 중요한 80%",
@@ -275,7 +347,19 @@
     "개인정보",
     "연간",
     "학습 방법",
-    "지금은 음성을 사용할 수 없습니다. 앱에서 다시 시도하세요."
+    "지금은 음성을 사용할 수 없습니다. 앱에서 다시 시도하세요.",
+    "레벨 1 전체 · 7개 언어",
+    "모국어 발음 표기 + 음성",
+    "스마트 복습",
+    "모든 레벨 L1–L10",
+    "7개 언어 모두 포함",
+    "30일 이용 · 자동 갱신 없음",
+    "1년 이용 · 자동 갱신 없음",
+    "{pct} 절약",
+    "가장 인기",
+    "{unit} {m} 꼴",
+    "연간 선택",
+    "월간 선택"
   ]
 };
   const root = document.createElement('main');
@@ -288,7 +372,14 @@
       <aside class="dh-example"><div class="dh-example-top"><b>${tr(6)}</b><span>L1</span></div><div class="dh-tabs" role="group" aria-label="Exemples / Examples"><button class="dh-tab" data-dh-example="en" aria-pressed="true">English</button><button class="dh-tab" data-dh-example="es" aria-pressed="false">Español</button><button class="dh-tab" data-dh-example="zh" aria-pressed="false">中文</button></div><div class="dh-card"><p class="dh-card-tag">${tr(7)}</p><p class="dh-phrase" lang="en"></p><p class="dh-phonetic" lang="fr"></p><p class="dh-translation" lang="fr"></p><button class="dh-listen" data-dh-listen><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4zM17 8a6 6 0 0 1 0 8M20 5a10 10 0 0 1 0 14"/></svg>${tr(8)}</button></div><p class="dh-example-note" aria-live="polite">${tr(9)}</p></aside></section>
       <div class="dh-languages" aria-label="7 languages"><span>Français</span><span>English</span><span>Español</span><span>中文</span><span>Italiano</span><span>日本語</span><span>한국어</span></div>
       <section class="dh-method" id="dh-method" aria-labelledby="dh-method-title"><p class="dh-section-label">${tr(10)}</p><h2 class="dh-section-title" id="dh-method-title">${tr(11)}</h2><div class="dh-steps">${[12,14,16].map((i,n)=>`<article class="dh-step"><span>0${n+1}</span><h3>${tr(i)}</h3><p>${tr(i+1)}</p></article>`).join('')}</div></section>
-      <section class="dh-pricing-wrap" id="dh-pricing" aria-labelledby="dh-pricing-title"><div class="dh-pricing-head"><div><p class="dh-section-label">${tr(18)}</p><h2 class="dh-section-title" id="dh-pricing-title">${tr(19)}</h2></div><p>${tr(20)}</p></div><div class="dh-pricing-grid"><article class="dh-plan"><p class="dh-plan-label">${tr(21)}</p><h3>${tr(22)}</h3><p>${tr(23)}</p><button class="dh-button dh-outline" data-dh-free>${tr(3)}</button></article><article class="dh-plan dh-paid"><p class="dh-plan-label">${tr(24)}</p><h3>${tr(25)}</h3><div class="dh-prices"><div class="dh-price"><span data-dh-annual></span><small>${tr(34)}</small></div><span class="dh-price-or">${tr(27)}</span><div class="dh-price"><span data-dh-monthly></span><small>${tr(28)}</small></div></div><button class="dh-button dh-primary" data-go="premium">${tr(29)}</button></article></div></section>
+      <section class="dh-pricing-wrap" id="dh-pricing" aria-labelledby="dh-pricing-title">
+        <div class="dh-pricing-head"><p class="dh-section-label">${tr(18)}</p><h2 class="dh-section-title" id="dh-pricing-title">${tr(19)}</h2><p class="dh-pricing-note">${tr(20)}</p></div>
+        <div class="dh-pricing-grid">
+          <article class="dh-plan"><p class="dh-plan-label">${tr(21)}</p><h3>${tr(22)}</h3><div class="dh-plan-price"><strong>0 €</strong></div><p class="dh-plan-sub">${tr(23)}</p><ul class="dh-features"><li>${tr(37)}</li><li>${tr(38)}</li><li>${tr(39)}</li></ul><button class="dh-button dh-outline" data-dh-free>${tr(3)}</button></article>
+          <article class="dh-plan"><p class="dh-plan-label" data-dh-monthly-label></p><h3 data-dh-text="42"></h3><div class="dh-plan-price"><strong data-dh-monthly></strong><span data-dh-text="28"></span></div><p class="dh-plan-sub">&nbsp;</p><ul class="dh-features"><li>${tr(40)}</li><li>${tr(41)}</li><li>${tr(38)}</li></ul><button class="dh-button dh-outline" data-dh-plan="monthly">${tr(48)}</button></article>
+          <article class="dh-plan dh-paid dh-best"><span class="dh-best-badge">${tr(45)}</span><p class="dh-plan-label" data-dh-yearly-label></p><h3 data-dh-text="43"></h3><div class="dh-plan-price"><strong data-dh-annual></strong><span data-dh-text="34"></span></div><p class="dh-plan-sub"><span data-dh-equivalent></span> <em class="dh-save" data-dh-save></em></p><ul class="dh-features"><li>${tr(40)}</li><li>${tr(41)}</li><li>${tr(38)}</li></ul><button class="dh-button dh-primary" data-dh-plan="yearly">${tr(47)}</button></article>
+        </div>
+      </section>
       <footer class="dh-footer"><span>© Melunga</span><div><a href="terms.html">${tr(32)}</a><a href="privacy.html">${tr(33)}</a><a href="app.html">Melunga</a></div></footer>
     </div>`;
   document.body.prepend(root);
@@ -318,9 +409,19 @@
     root.querySelectorAll('[data-dh-text]').forEach(el => { el.textContent = t[Number(el.dataset.dhText)]; });
     root.querySelector('#dh-title').innerHTML = t[1]; // Static, owned translation markup only.
     root.querySelector('.dh-language').value = locale;
+    const pt = (typeof premiumTranslations !== 'undefined' && premiumTranslations[locale]) || {};
+    root.querySelector('[data-dh-yearly-label]').textContent = pt.yearly || 'Annuel';
+    root.querySelector('[data-dh-monthly-label]').textContent = pt.monthly || 'Mensuel';
     if (typeof currentPriceMarket !== 'undefined') {
       root.querySelector('[data-dh-annual]').textContent = currentPriceMarket.yearly;
       root.querySelector('[data-dh-monthly]').textContent = currentPriceMarket.monthly;
+      const unit = {fr:'mois',en:'month',es:'mes',zh:'月',it:'mese',ja:'月',ko:'월'}[locale] || 'mois';
+      root.querySelector('[data-dh-equivalent]').textContent = currentPriceMarket.yearlyMonthly
+        ? t[46].replace('{m}', currentPriceMarket.yearlyMonthly).replace('{unit}', unit) : '';
+      const num = v => parseFloat(String(v).replace(/\s/g,'').replace(',','.').replace(/[^\d.]/g,''));
+      const m = num(currentPriceMarket.monthly), y = num(currentPriceMarket.yearly);
+      const pct = (m > 0 && y > 0) ? Math.round((1 - y / (12 * m)) * 100) : 0;
+      root.querySelector('[data-dh-save]').textContent = pct > 0 ? t[44].replace('{pct}', pct + ' %') : '';
     }
   }
   // Reuse the existing country and language decisions, including asynchronous geolocation.
@@ -333,6 +434,14 @@
     applyAppLanguage(this.value, option ? option.dataset.appLanguageLabel : this.value);
   });
   root.addEventListener('click', function (e) {
+    const planBtn = e.target.closest('[data-dh-plan]');
+    if (planBtn) {
+      const choice = document.querySelector(`.screen[data-screen="premium"] [data-plan="${planBtn.dataset.dhPlan}"]`);
+      if (choice) choice.click();
+      const goPremium = document.querySelector('.screen[data-screen="method"] [data-go="premium"]');
+      if (goPremium) goPremium.click(); else if (typeof go === 'function') go('premium');
+      return;
+    }
     if (e.target.closest('[data-dh-free]')) { selectedAccess = 'free'; go('language'); }
     const tab = e.target.closest('[data-dh-example]');
     if (tab) { example = tab.dataset.dhExample; renderSample(); render(); }

@@ -64,26 +64,32 @@
  .dh-step>span{font-size:12px;color:#278371;font-weight:800;letter-spacing:2px}
  .dh-step h3{font-size:21px;margin:17px 0 12px;font-weight:750;letter-spacing:-.4px}
  .dh-step p{font-size:15px;line-height:1.75;margin:0;color:#6a7d83}
- .dh-pricing-wrap{background:#edf2e9;border-radius:30px;padding:44px;margin-bottom:56px}
- .dh-pricing-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:30px}
- .dh-pricing-head h2{margin-bottom:0}
- .dh-pricing-head>p{color:#60776b;font-size:13px;max-width:260px;line-height:1.7;margin:0}
- .dh-pricing-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:20px}
- .dh-plan{padding:28px;background:#fffefa;border-radius:18px;display:flex;flex-direction:column;align-items:start}
- .dh-plan.dh-paid{background:#123e50;color:#fff}
- .dh-plan-label{margin:0 0 12px;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;font-weight:750;color:#6c8d7b}
+ .dh-pricing-wrap{background:#edf2e9;border-radius:30px;padding:48px 44px 44px;margin-bottom:56px}
+ .dh-pricing-head{text-align:center;max-width:620px;margin:0 auto 34px}
+ .dh-pricing-head h2{margin-bottom:10px}
+ .dh-pricing-note{color:#60776b;font-size:14px;line-height:1.7;margin:0}
+ .dh-pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+ .dh-plan{position:relative;padding:30px 28px 28px;background:#fffefa;border-radius:20px;display:flex;flex-direction:column;align-items:stretch;border:1px solid #e3e8df}
+ .dh-plan.dh-paid{background:#123e50;color:#fff;border-color:#123e50}
+ .dh-plan.dh-best{box-shadow:0 18px 44px rgba(18,62,80,.22);transform:translateY(-8px);border:2px solid #1bc39a}
+ .dh-best-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);padding:6px 14px;border-radius:999px;background:#1bc39a;color:#063f39;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+ .dh-plan-label{margin:0 0 8px;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;font-weight:750;color:#6c8d7b}
  .dh-paid .dh-plan-label{color:#7ce2bf}
- .dh-plan h3{margin:0 0 16px;font-size:26px;letter-spacing:-.6px}
- .dh-plan p{font-size:14px;line-height:1.7;margin:0 0 22px;color:#708078}
- .dh-paid p{color:#c0d2d6}
- .dh-plan .dh-button{margin-top:auto}
- .dh-prices{display:flex;flex-wrap:wrap;gap:14px 40px;align-items:flex-end;margin:0 0 22px}
- .dh-price{display:flex;flex-direction:column;gap:4px;font-size:35px;font-weight:750;letter-spacing:-1px;margin:0}
- .dh-price small{font-size:14px;font-weight:450;letter-spacing:0;color:#bed4d6}
- .dh-price-or{align-self:center;font-size:13px;color:#c0d2d6;padding-bottom:22px}
+ .dh-plan h3{margin:0 0 18px;font-size:20px;letter-spacing:-.4px;min-height:2.4em}
+ .dh-plan-price{display:flex;align-items:baseline;gap:8px;margin:0 0 6px}
+ .dh-plan-price strong{font-size:44px;font-weight:800;letter-spacing:-1.6px;line-height:1}
+ .dh-plan-price span{font-size:14px;color:#708078}
+ .dh-paid .dh-plan-price span{color:#c0d2d6}
+ .dh-plan-sub{font-size:14px;line-height:1.6;margin:0 0 20px;color:#708078;min-height:1.6em}
+ .dh-paid .dh-plan-sub{color:#c0d2d6}
+ .dh-save{font-style:normal;display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:rgba(26,195,153,.18);color:#7ce2bf;font-size:12px;font-weight:800}
+ .dh-features{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.5}
+ .dh-features li{display:flex;gap:10px;align-items:flex-start}
+ .dh-features li:before{content:'';flex:0 0 18px;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#1bc39a url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23063f39' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/11px no-repeat}
+ .dh-plan .dh-button{margin-top:auto;width:100%}
  .dh-footer{border-top:1px solid #e1e6dd;padding:24px 0 32px;display:flex;align-items:center;justify-content:space-between;color:#7c8e90;font-size:12px;gap:20px}
  .dh-footer div{display:flex;gap:20px}.dh-footer a{color:inherit;text-decoration:none}.dh-footer a:hover{text-decoration:underline}
- @media(max-width:1100px){.dh-container{width:calc(100% - 64px)}.dh-hero{gap:40px;padding-top:55px}.dh-title{font-size:50px}.dh-nav{gap:18px}.dh-example{padding:20px}.dh-intro{font-size:17px}}
+ @media(max-width:1100px){.dh-container{width:calc(100% - 64px)}.dh-hero{gap:40px;padding-top:55px}.dh-pricing-grid{grid-template-columns:1fr}.dh-plan.dh-best{transform:none}.dh-title{font-size:50px}.dh-nav{gap:18px}.dh-example{padding:20px}.dh-intro{font-size:17px}}
 }
 @media(prefers-reduced-motion:reduce){html.melunga-web{scroll-behavior:auto}.desktop-home *{transition:none!important}}
 
