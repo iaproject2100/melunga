@@ -2982,11 +2982,11 @@ function sectorLabel(c){ return (SECTORLABELS[nat]&&SECTORLABELS[nat][c]) || c; 
 
 var GTTS=function(tl){ return 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl='+tl+'&q='; };
 var VOICES = {
-  fr:{female:['Celine',GTTS('fr')],male:['Mathieu',GTTS('fr')]},
-  en:{female:['Amy',GTTS('en')],male:['Joey',GTTS('en')]},
-  es:{female:['Lucia',GTTS('es')],male:['Enrique','Sergio','/.netlify/functions/tts?voice=es-ES-Wavenet-E&lang=es-ES',GTTS('es')]},
+  fr:{female:['Celine','/.netlify/functions/tts?voice=fr-FR-Wavenet-F&lang=fr-FR',GTTS('fr')],male:['Mathieu','/.netlify/functions/tts?voice=fr-FR-Wavenet-G&lang=fr-FR',GTTS('fr')]},
+  en:{female:['Amy','/.netlify/functions/tts?voice=en-GB-Wavenet-C&lang=en-GB',GTTS('en')],male:['Joey','/.netlify/functions/tts?voice=en-GB-Wavenet-D&lang=en-GB',GTTS('en')]},
+  es:{female:['Lucia','/.netlify/functions/tts?voice=es-ES-Wavenet-F&lang=es-ES',GTTS('es')],male:['Enrique','Sergio','/.netlify/functions/tts?voice=es-ES-Wavenet-E&lang=es-ES',GTTS('es')]},
   zh:{female:['Zhiyu','/.netlify/functions/tts?voice=cmn-CN-Wavenet-A&lang=cmn-CN',GTTS('zh-CN')],male:['/.netlify/functions/tts?voice=cmn-CN-Wavenet-B&lang=cmn-CN',GTTS('zh-CN')]},
-  it:{female:['Carla','Bianca',GTTS('it')],male:['Giorgio',GTTS('it')]},
+  it:{female:['Carla','Bianca','/.netlify/functions/tts?voice=it-IT-Wavenet-E&lang=it-IT',GTTS('it')],male:['Giorgio','/.netlify/functions/tts?voice=it-IT-Wavenet-F&lang=it-IT',GTTS('it')]},
   ja:{female:['Mizuki','/.netlify/functions/tts?voice=ja-JP-Wavenet-B&lang=ja-JP',GTTS('ja')],male:['Takumi','/.netlify/functions/tts?voice=ja-JP-Wavenet-C&lang=ja-JP',GTTS('ja')]},
   ko:{female:['Seoyeon','/.netlify/functions/tts?voice=ko-KR-Wavenet-A&lang=ko-KR',GTTS('ko')],male:['/.netlify/functions/tts?voice=ko-KR-Wavenet-C&lang=ko-KR',GTTS('ko')]}
 };
@@ -4233,7 +4233,10 @@ var IS_IOS_AUDIO=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platfo
 var speechPreloads={}, speechPreloadOrder=[];
 function speechSource(text,voice){
   if(voice.charAt(0)==='/'){
-    return voice+'&rate='+(slowMode?'0.75':'1')+'&text='+encodeURIComponent(text);
+    /* Application native (Capacitor) : la page est servie depuis https://localhost,
+       une URL relative /.netlify/... n'atteindrait jamais le serveur. */
+    var ttsBase=(location.hostname==='localhost'||location.protocol!=='https:')?'https://melunga.com':'';
+    return ttsBase+voice+'&rate='+(slowMode?'0.75':'1')+'&text='+encodeURIComponent(text);
   }
   if(voice.slice(0,4)==='http') return voice+encodeURIComponent(text);
   return 'https://api.streamelements.com/kappa/v2/speech?voice='+encodeURIComponent(voice)+'&text='+encodeURIComponent(text);
