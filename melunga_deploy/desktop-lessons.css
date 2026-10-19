@@ -60,3 +60,52 @@
  html.melunga-lesson-web body.immersif #card.card .phonrow{height:auto!important;max-height:none!important;flex-shrink:0}
  html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .selmenu{flex-basis:100%;width:100%;max-width:100%;min-width:0}
 }
+
+/* Refined desktop chrome: one centred brand, one progress row, flat navigation. */
+.desktop-progress,.desktop-control-icon{display:none}
+@media(min-width:1024px){
+ html.melunga-lesson-web body.immersif .top{display:grid;place-items:center;min-height:104px;padding:20px 76px;border-bottom:1px solid rgba(125,135,150,.18)}
+ html.melunga-lesson-web body.immersif .top .lockup{position:static!important;inset:auto!important;transform:none!important;width:max-content!important;max-width:none!important;min-height:60px;margin:0 auto!important;display:flex!important;align-items:center;justify-content:center;gap:13px}
+ html.melunga-lesson-web body.immersif .top .lockup svg{width:58px!important;height:58px!important;flex:0 0 58px!important}
+ html.melunga-lesson-web body.immersif .top .wordmark{font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:34px!important;font-weight:750;letter-spacing:-.7px;line-height:1.1;color:var(--ink)}
+ html.melunga-lesson-web body.immersif .top .wordmark .cn{font-size:12px!important;letter-spacing:5px;margin-top:6px;color:var(--soft)}
+ html.melunga-lesson-web body.immersif .backbtn{top:33px!important}
+ html.melunga-lesson-web body.immersif .colorbtn{top:33px}
+ html.melunga-lesson-web body.immersif .main{padding-top:18px}
+ html.melunga-lesson-web body.immersif .main .stage{min-height:calc(100dvh - 146px)!important}
+ html.melunga-lesson-web body.immersif .countrow,
+ html.melunga-lesson-web body.immersif .progwrap{display:none!important}
+ html.melunga-lesson-web body.immersif .desktop-progress{display:flex;order:0;align-items:center;gap:12px;min-height:30px;padding:0 6px;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:13px;line-height:1.5;color:var(--soft);font-weight:400;letter-spacing:0}
+ html.melunga-lesson-web body.immersif .desktop-progress-language{text-transform:capitalize;font-weight:600;color:var(--ink)}
+ html.melunga-lesson-web body.immersif .desktop-progress-level{padding-left:12px;border-left:1px solid rgba(125,135,150,.3)}
+ html.melunga-lesson-web body.immersif .desktop-progress-count{margin-left:auto;font-variant-numeric:tabular-nums}
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b{top:24px!important;bottom:24px!important;background:#f8faf9!important;border:1px solid #dfe7e3!important;box-shadow:none!important;border-radius:16px!important;scrollbar-width:thin;scrollbar-color:#cdd8d2 transparent;padding:20px 14px!important}
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-head,
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-continue{display:none!important}
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:14px 0!important;margin:8px 0!important;gap:5px!important;border-top:1px solid #e0e7e3!important;border-bottom:1px solid #e0e7e3!important}
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid #selLang,
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid #selLv,
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid #selRb,
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid #selRev,
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid #selVoice{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:8px!important;min-height:48px!important;gap:12px!important;padding:11px 10px!important;position:relative!important}
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid .selbox.circ:hover,
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid .selbox.circ.open{background:#eaf0ec!important}
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid .selbox.circ .ball,
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid .selbox.circ .ballarr{display:none!important}
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .desktop-control-icon{display:flex;align-items:center;justify-content:center;flex:0 0 20px;color:#527369}
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .desktop-control-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .desktop-control-label{color:#304f45;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:13px;font-weight:500}
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid .selbox.circ::after{content:'›';position:absolute;right:12px;top:10px;color:#90a59b;font-size:18px;font-weight:400;background:transparent;border:0;box-shadow:none}
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b #btnHome,
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b #btnFb,
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b #btnLogout{border:0!important;box-shadow:none!important;background:transparent!important;border-radius:8px!important;min-height:44px;padding:12px 10px!important;font-family:Inter,ui-sans-serif,system-ui,sans-serif!important;font-size:13px!important;font-weight:500!important;color:#304f45!important}
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .uitem:hover{background:#eaf0ec!important}
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .selmenu{background:#fff!important;border-color:#dfe7e3!important;border-radius:10px!important;box-shadow:none!important}
+ @media(max-height:760px){html.melunga-lesson-web body.immersif .top{min-height:88px;padding-block:12px}html.melunga-lesson-web body.immersif .top .lockup svg{width:50px;height:50px;flex-basis:50px}html.melunga-lesson-web body.immersif .backbtn{top:25px!important}html.melunga-lesson-web body.immersif .colorbtn{top:25px}}
+}
+
+@media(min-width:1024px){
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid .selbox.circ::before,
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid .selarr,
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid .selv{display:none!important}
+}

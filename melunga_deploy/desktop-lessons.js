@@ -21,6 +21,22 @@
   next.type = 'button';
   next.addEventListener('click', function () { if (typeof window.next === 'function') window.next(); });
   row.append(hint,next); stage.append(row);
+  const progress = document.createElement('div');
+  progress.className = 'desktop-progress';
+  const languageName = document.createElement('span');
+  const levelName = document.createElement('span');
+  const phraseNumber = document.createElement('span');
+  languageName.className = 'desktop-progress-language';
+  levelName.className = 'desktop-progress-level';
+  phraseNumber.className = 'desktop-progress-count';
+  progress.append(languageName,levelName,phraseNumber); stage.append(progress);
+  const icons = [
+    '<circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4a16 16 0 0 1 0 16 16 16 0 0 1 0-16z"/>',
+    '<path d="M4 20V14h5v-5h5V4h6v16z"/>',
+    '<path d="M3 7h7l2-3h8v16H3zM3 8h17"/>',
+    '<path d="M20 7v5h-5M4 17v-5h5M5 8a7 7 0 0 1 12-3l3 3M4 16l3 3a7 7 0 0 0 12-3"/>',
+    '<path d="M4 9h4l5-4v14l-5-4H4zM17 8a6 6 0 0 1 0 8"/>'
+  ];
   const labels = {
     fr:['Langue','Niveau','Thèmes','Révisions et exercices','Voix'],
     en:['Language','Level','Topics','Review and practice','Voice'],
@@ -34,6 +50,13 @@
     const values = labels[typeof nat === 'string' ? nat : 'fr'] || labels.fr;
     ['selLang','selLv','selRb','selRev','selVoice'].forEach(function (id,index) {
       const control = document.getElementById(id); if (!control) return;
+      let icon = control.querySelector('.desktop-control-icon');
+      if (!icon) {
+        icon = document.createElement('span'); icon.className = 'desktop-control-icon';
+        icon.setAttribute('aria-hidden','true');
+        icon.innerHTML = '<svg viewBox="0 0 24 24">' + icons[index] + '</svg>';
+        control.insertBefore(icon,control.firstChild);
+      }
       let label = control.querySelector('.desktop-control-label');
       if (!label) { label = document.createElement('span'); label.className = 'desktop-control-label'; control.insertBefore(label,control.querySelector('.selmenu')); }
       if (label.textContent !== values[index]) label.textContent = values[index];
@@ -46,6 +69,17 @@
     const card = document.getElementById('card');
     if (!desktop.matches || !document.body.classList.contains('immersif')) { if (card) card.style.removeProperty('--learning-text-size'); return originalFit.apply(this,arguments); }
     labelControls();
+    const locale = typeof nat === 'string' ? nat : 'fr';
+    const language = typeof lang === 'string' ? lang : 'en';
+    let displayLanguage = language;
+    try { displayLanguage = new Intl.DisplayNames([locale],{type:'language'}).of(language); } catch (_error) {}
+    if (languageName.textContent !== displayLanguage) languageName.textContent = displayLanguage;
+    const level = document.getElementById('ballLv');
+    if (levelName.textContent !== (level ? level.textContent : 'L1')) levelName.textContent = level ? level.textContent : 'L1';
+    levelName.setAttribute('aria-label',document.getElementById('currentLevel').textContent);
+    phraseNumber.textContent = (typeof idx === 'number' ? idx + 1 : 1) + ' / ' + (typeof pool !== 'undefined' ? pool.length : 0);
+    phraseNumber.setAttribute('aria-label',document.getElementById('count').textContent);
+
     const phrase = document.getElementById('fr'), phonetic = document.getElementById('phon');
     if (!phrase) return;
     const length = phrase.textContent.length;
