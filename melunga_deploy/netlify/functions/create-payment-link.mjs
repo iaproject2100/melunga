@@ -167,27 +167,38 @@ export default async (req, context) => {
     };
 
     const createLink = async (payload) => {
-      const res = await fetch(`${baseUrl()}/api/v1/pa/payment_links/create`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
-      const text = await res.text();
-      console.log('[create-payment-link] payment_links/create status =', res.status, 'currency =', payload.currency);
-      return { ok: res.ok, status: res.status, text };
+      try {
+        const res = await fetch(`${baseUrl()}/api/v1/pa/payment_links/create`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+        const text = await res.text();
+        console.log('[create-payment-link] payment_links/create status =', res.status, 'currency =', payload.currency);
+        return { ok: res.ok, status: res.status, text };
+      } catch (networkError) {
+        // Timeout / reseau : issue inconnue cote Airwallex, on ne retente pas (502 au client).
+        console.error('[create-payment-link] payment_links/create injoignable:', networkError);
+        return { ok: false, status: 0, text: 'network_error' };
+      }
     };
 
     let linkResult = await createLink(linkPayload);
 
-    // Repli USD UNIQUEMENT si Airwallex refuse explicitement la devise locale (4xx dont le
-    // message cite la devise : devise non activee sur le compte). Une erreur ambigue
-    // (5xx, timeout) n'entraine aucune seconde creation : le premier lien a pu etre cree.
+    // Repli USD UNIQUEMENT si Airwallex refuse explicitement la devise locale, identifie par le
+    // code d'erreur structure de l'API Payments (documentation « Error response codes ») :
+    //   { code: 'currency_not_supported', message: 'The currency $currency is not supported.' }
+    // ou une validation_error dont la source est le champ currency.
+    // Une erreur ambigue (5xx, timeout) n'entraine aucune seconde creation : le premier lien
+    // a pu etre cree.
+    const airwallexError = (() => { try { return JSON.parse(linkResult.text || '{}'); } catch (_e) { return {}; } })();
     const currencyRefused = !linkResult.ok
       && linkResult.status >= 400 && linkResult.status < 500
-      && /currenc/i.test(linkResult.text || '');
+      && (airwallexError.code === 'currency_not_supported'
+          || (airwallexError.code === 'validation_error' && String(airwallexError.source || '').toLowerCase() === 'currency'));
     if (currencyRefused && plan.currency !== 'USD') {
       console.warn('[create-payment-link] devise', plan.currency, 'refusee par Airwallex, repli USD:', linkResult.text.slice(0, 300));
       const usdPlan = plansForCurrency('USD')[planKey];

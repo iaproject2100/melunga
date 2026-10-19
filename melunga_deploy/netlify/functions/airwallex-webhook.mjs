@@ -207,11 +207,15 @@ export default async (req) => {
     }
 
     // --- Controle du montant et de la devise reellement payes ---
-    // On compare ce qu'Airwallex a encaisse (obj.amount / obj.currency) a ce qui etait attendu
+    // On compare ce qu'Airwallex a encaisse (captured_amount, sinon amount / currency) a ce qui etait attendu
     // pour ce lien (enregistre par create-payment-link). Pour un lien ancien sans montant
     // enregistre, on retombe sur la grille tarifaire via le plan et la devise encaissee.
     if (info && info.deviceId) {
-      const paidAmount = Number(obj.amount);
+      // Documentation PaymentIntent : `amount` = montant de la commande demande,
+      // `captured_amount` = montant effectivement capture. On controle l'encaissement reel.
+      const paidAmount = Number.isFinite(Number(obj.captured_amount)) && obj.captured_amount != null
+        ? Number(obj.captured_amount)
+        : Number(obj.amount);
       const paidCurrency = String(obj.currency || '').toUpperCase();
       const expectedCurrency = info.currency ? String(info.currency).toUpperCase() : paidCurrency;
       const expected = (info.amount != null && Number.isFinite(info.amount))
