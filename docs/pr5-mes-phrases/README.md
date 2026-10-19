@@ -34,3 +34,7 @@ Les gestes du panneau sont isolés de la leçon derrière. Fermeture avec Échap
 - Vérification d’identité du bloc original contenant `CONSTRUIRE`, `UI` et `build()`.
 
 Limites : parcours éditorial en français ; ne constitue pas une nouvelle traduction des sept langues. Aucun APK/AAB construit et aucune écoute réelle de service audio distant dans ces tests. Branche à revoir avant fusion.
+
+## Contenu progressif à intégrer
+
+[Parcourir les six paliers et leurs exemples](contenu-progressif.md). La banque `melunga_deploy/content/conversation-fr-es.json` contient 108 phrases, 36 modèles et 24 répliques de dialogue, avec traductions et phonétique. Elle est préparée séparément : aucun changement des niveaux existants ni affichage automatique de ce nouveau contenu.
