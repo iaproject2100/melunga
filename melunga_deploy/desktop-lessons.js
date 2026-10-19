@@ -29,14 +29,13 @@
   languageName.className = 'desktop-progress-language';
   levelName.className = 'desktop-progress-level';
   phraseNumber.className = 'desktop-progress-count';
+  const languageFlag = document.createElement('span');
+  languageFlag.setAttribute('aria-hidden','true');
+  const languageText = document.createElement('span');
+  languageName.append(languageFlag,languageText);
   progress.append(languageName,levelName,phraseNumber); stage.append(progress);
-  const icons = [
-    '<circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4a16 16 0 0 1 0 16 16 16 0 0 1 0-16z"/>',
-    '<path d="M4 20V14h5v-5h5V4h6v16z"/>',
-    '<path d="M3 7h7l2-3h8v16H3zM3 8h17"/>',
-    '<path d="M20 7v5h-5M4 17v-5h5M5 8a7 7 0 0 1 12-3l3 3M4 16l3 3a7 7 0 0 0 12-3"/>',
-    '<path d="M4 9h4l5-4v14l-5-4H4zM17 8a6 6 0 0 1 0 8"/>'
-  ];
+  const icons = ['🌐','📊','📚','🔁','🔊'];
+  const hiddenLegacyValues = new Map();
   const labels = {
     fr:['Langue','Niveau','Thèmes','Révisions et exercices','Voix'],
     en:['Language','Level','Topics','Review and practice','Voice'],
@@ -54,8 +53,13 @@
       if (!icon) {
         icon = document.createElement('span'); icon.className = 'desktop-control-icon';
         icon.setAttribute('aria-hidden','true');
-        icon.innerHTML = '<svg viewBox="0 0 24 24">' + icons[index] + '</svg>';
+        icon.textContent = icons[index];
         control.insertBefore(icon,control.firstChild);
+      }
+      const legacyValue = control.querySelector('.selv');
+      if (legacyValue) {
+        if (!hiddenLegacyValues.has(legacyValue)) hiddenLegacyValues.set(legacyValue,{value:legacyValue.style.getPropertyValue('display'),priority:legacyValue.style.getPropertyPriority('display')});
+        legacyValue.style.setProperty('display','none','important');
       }
       let label = control.querySelector('.desktop-control-label');
       if (!label) { label = document.createElement('span'); label.className = 'desktop-control-label'; control.insertBefore(label,control.querySelector('.selmenu')); }
@@ -67,13 +71,17 @@
     const t = copy[typeof nat === 'string' ? nat : 'fr'] || copy.fr;
     hint.textContent = t[1]; next.textContent = t[0] + ' →';
     const card = document.getElementById('card');
-    if (!desktop.matches || !document.body.classList.contains('immersif')) { if (card) card.style.removeProperty('--learning-text-size'); return originalFit.apply(this,arguments); }
+    if (!desktop.matches || !document.body.classList.contains('immersif')) { if (card) card.style.removeProperty('--learning-text-size');
+      hiddenLegacyValues.forEach(function (saved,element) { if (saved.value) element.style.setProperty('display',saved.value,saved.priority); else element.style.removeProperty('display'); });
+      hiddenLegacyValues.clear();
+      return originalFit.apply(this,arguments); }
     labelControls();
     const locale = typeof nat === 'string' ? nat : 'fr';
     const language = typeof lang === 'string' ? lang : 'en';
     let displayLanguage = language;
     try { displayLanguage = new Intl.DisplayNames([locale],{type:'language'}).of(language); } catch (_error) {}
-    if (languageName.textContent !== displayLanguage) languageName.textContent = displayLanguage;
+    if (languageText.textContent !== displayLanguage) languageText.textContent = displayLanguage;
+    languageFlag.className = 'menu-b-flag desktop-language-flag flag-' + language;
     const level = document.getElementById('ballLv');
     if (levelName.textContent !== (level ? level.textContent : 'L1')) levelName.textContent = level ? level.textContent : 'L1';
     levelName.setAttribute('aria-label',document.getElementById('currentLevel').textContent);

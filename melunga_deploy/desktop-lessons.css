@@ -114,3 +114,13 @@
  html.melunga-lesson-web body.immersif .top .wordmark,
  html.melunga-lesson-web body.immersif .top .wordmark .cn{position:static!important;inset:auto!important;transform:none!important;scale:1!important;zoom:1!important}
 }
+
+/* Coloured navigation cues and a centred language with a platform-independent flag. */
+@media(min-width:1024px){
+ html.melunga-lesson-web body.immersif .desktop-progress{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);min-height:44px;gap:16px}
+ html.melunga-lesson-web body.immersif .desktop-progress-language{grid-column:2;grid-row:1;display:flex;align-items:center;justify-content:center;gap:12px;font-size:19px;font-weight:650;line-height:1.4;color:var(--ink)}
+ html.melunga-lesson-web body.immersif .desktop-progress-language .desktop-language-flag{display:inline-block;width:34px;height:23px;min-width:34px;border-radius:4px;box-shadow:0 0 0 1px rgba(125,135,150,.2);background-size:cover;background-position:center}
+ html.melunga-lesson-web body.immersif .desktop-progress-level{grid-column:1;grid-row:1;justify-self:start;padding:0;border:0;font-size:13px}
+ html.melunga-lesson-web body.immersif .desktop-progress-count{grid-column:3;grid-row:1;justify-self:end;margin:0;font-size:13px}
+ html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .desktop-control-icon{flex-basis:24px;font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif;font-size:21px;line-height:1.2}
+}
