@@ -1,0 +1,58 @@
+/* Lot B browser checks. NODE_PATH must expose playwright-core; CHROMIUM_PATH is optional. */
+const {chromium}=require('playwright-core');
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
+const root=path.resolve(__dirname,'..');
+(async()=>{
+ const server=http.createServer((req,res)=>{const p=path.join(root,new URL(req.url,'http://local').pathname);if(!p.startsWith(root+path.sep)||!fs.existsSync(p)||!fs.statSync(p).isFile()){res.writeHead(404);res.end();return;}res.setHeader('Content-Type',p.endsWith('.js')?'text/javascript':p.endsWith('.css')?'text/css':p.endsWith('.json')?'application/json':'text/html');fs.createReadStream(p).pipe(res);});
+ await new Promise(r=>server.listen(0,'127.0.0.1',r));
+ const base='http://127.0.0.1:'+server.address().port;
+ let browser;
+ try{
+ browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
+ async function open(nat,study,width=390,height=844,production=false){
+  const context=await browser.newContext({viewport:{width,height},isMobile:width<1000,hasTouch:width<1000});
+  const p=await context.newPage(),errors=[];let mode='ok';
+  p.on('pageerror',e=>errors.push(e.message));
+  await context.route('**/*',async route=>{const u=new URL(route.request().url());
+   if(u.pathname.includes('/.netlify/'))return route.fulfill({json:{paid:false}});
+   if(u.pathname.startsWith('/content/conversation/')){
+    if(mode==='network')return route.abort();
+    if(mode==='invalid')return route.fulfill({json:{version:2}});
+    const name=path.basename(u.pathname),file=path.join(root,'content/conversation',name);
+    if(mode==='missing'||!fs.existsSync(file))return route.fulfill({status:404,body:''});
+    if(mode==='slow-es'&&name.includes('-fr-es'))await new Promise(r=>setTimeout(r,500));
+    return route.fulfill({contentType:'application/json',body:fs.readFileSync(file)});
+   }
+   if(production&&u.hostname==='melunga.com')return route.fulfill({response:await route.fetch({url:base+u.pathname+u.search})});
+   if(u.origin!==base)return route.abort();return route.continue();
+  });
+  await p.goto((production?'https://melunga.com':base)+'/app.html?start=1&lang='+nat+'&study='+study);
+  await p.waitForTimeout(1000);
+  return{p,context,errors,setMode:x=>{mode=x;}};
+ }
+ for(const [nat,study]of [['fr','es'],['fr','en'],['fr','zh'],['fr','it'],['fr','ja'],['fr','ko'],['zh','fr']]){
+  const {p,context,errors}=await open(nat,study);const doc=JSON.parse(fs.readFileSync(path.join(root,'content/conversation','L1-'+nat+'-'+study+'.json')));
+  await p.locator('#cxEntry').click();await p.locator('.cxModel').first().waitFor();assert.equal(await p.locator('.cxModel').count(),doc.units.length);
+  await p.locator('.cxModel').first().click();assert.equal(await p.locator('.cxText').textContent(),doc.units[0].variants[0].study);
+  assert.equal(await p.locator('.cxPart').textContent(),doc.units[0].variants[0].slot.study);
+  if(['zh','ja','ko'].includes(study))assert.equal(await p.locator('.cxReading').textContent(),doc.units[0].variants[0].reading);
+  await p.locator('.cxGrid button').nth(1).click();assert.equal(await p.locator('.cxText').textContent(),doc.units[0].variants[1].study);
+  await p.locator('.cxNext').click();assert.equal(await p.locator('.cxText').count(),0);assert.equal(await p.locator('.cxPhon').count(),0);assert.equal(await p.locator('.cxReading').count(),0);
+  await p.locator('.cxSelect').selectOption('3');await p.locator('.cxSheet>.cxBtn:not(.cxAgain)').click();assert.equal(await p.locator('.cxText').textContent(),doc.units[0].variants[3].study);
+  await p.evaluate(()=>{window.audioChecks=[];window.speak=t=>audioChecks.push(t);});await p.locator('.cxCard button').click();assert.deepEqual(await p.evaluate(()=>audioChecks),[doc.units[0].variants[3].study]);
+  const before=await p.evaluate(()=>[idx,localStorage.getItem('ox_known_'+lang)]);
+  await p.locator('.cxText').evaluate(e=>{e.dispatchEvent(new TouchEvent('touchstart',{bubbles:true,touches:[new Touch({identifier:1,target:e,clientX:20,clientY:200})]}));e.dispatchEvent(new TouchEvent('touchend',{bubbles:true,changedTouches:[new Touch({identifier:1,target:e,clientX:190,clientY:200})]}));});
+  assert.deepEqual(await p.evaluate(()=>[idx,localStorage.getItem('ox_known_'+lang)]),before);
+  await p.keyboard.press('Escape');assert(!await p.locator('.cxPanel').evaluate(e=>e.classList.contains('on')));assert.equal(await p.evaluate(()=>document.activeElement.id),'cxEntry');assert.deepEqual(errors,[]);
+  console.log('PASS pair',nat,study,'complete variants, reading, recall, audio argument, gestures, focus');await context.close();
+ }
+ for(const [width,height]of [[320,568],[1440,900]]){
+  const {p,context,errors}=await open('fr','es',width,height);await p.locator('#cxEntry').click();await p.locator('.cxModel').first().waitFor();await p.locator('#cxLevel').selectOption('10');await p.waitForFunction(()=>document.querySelector('.cxModelExample')?.textContent.includes('D’un')||document.querySelector('.cxModelExample')?.textContent.includes("D'un"));
+  await p.locator('.cxModel').first().click();assert(await p.locator('.cxSheet').evaluate(e=>e.scrollWidth<=e.clientWidth+1));assert(await p.locator('.cxSheet').evaluate(e=>e.getBoundingClientRect().bottom<=innerHeight+1));assert.deepEqual(errors,[]);console.log('PASS viewport and L10',width,height);await context.close();
+ }
+ {const {p,context,errors,setMode}=await open('fr','es');setMode('network');await p.locator('#cxEntry').click();await p.locator('[role=alert]').waitFor();setMode('invalid');await p.locator('.cxSheet>.cxBtn').click();await p.locator('[role=alert]').waitFor();setMode('ok');await p.locator('.cxSheet>.cxBtn').click();await p.locator('.cxModel').first().waitFor();
+  await p.keyboard.press('Escape');await p.evaluate(()=>ConversationContent.clearCache());setMode('slow-es');await p.locator('#cxEntry').click();await p.evaluate(()=>setLang('ja'));await p.locator('.cxModel').first().waitFor();await p.waitForTimeout(700);await p.locator('.cxModel').first().click();assert((await p.locator('.cxText').textContent()).includes('です'));await p.evaluate(()=>setNat('en'));assert(!await p.locator('.cxPanel').evaluate(e=>e.classList.contains('on')));assert(!await p.locator('#cxEntry').isVisible());assert.deepEqual(errors,[]);console.log('PASS network/invalid retry and stale selection/unsupported pair');await context.close();}
+ {const {p,context,setMode}=await open('fr','es');setMode('missing');await p.locator('#cxEntry').click();await p.waitForTimeout(300);assert(!await p.locator('#cxEntry').isVisible());assert(!await p.locator('.cxPanel').evaluate(e=>e.classList.contains('on')));console.log('PASS missing content');await context.close();}
+ {const {p,context,errors}=await open('fr','es',390,844,true);await p.locator('#cxEntry').click();await p.locator('.cxModel').first().waitFor();assert(await p.locator('#cxLevel option[value="2"]').isDisabled());await p.evaluate(()=>{isPaid=true;closeConstruire();openConstruire();});await p.locator('.cxModel').first().waitFor();assert(!await p.locator('#cxLevel option[value="2"]').isDisabled());assert.deepEqual(errors,[]);console.log('PASS public free/Premium access unchanged');await context.close();}
+ }finally{if(browser)await browser.close();await new Promise(r=>server.close(r));}
+})().catch(e=>{console.error(e);process.exitCode=1;});
