@@ -43,12 +43,42 @@ const root=path.resolve(__dirname,'..');
   const before=await p.evaluate(()=>[idx,localStorage.getItem('ox_known_'+lang)]);
   await p.locator('.cxText').evaluate(e=>{e.dispatchEvent(new TouchEvent('touchstart',{bubbles:true,touches:[new Touch({identifier:1,target:e,clientX:20,clientY:200})]}));e.dispatchEvent(new TouchEvent('touchend',{bubbles:true,changedTouches:[new Touch({identifier:1,target:e,clientX:190,clientY:200})]}));});
   assert.deepEqual(await p.evaluate(()=>[idx,localStorage.getItem('ox_known_'+lang)]),before);
+  await p.locator('.cxConverse').click();await p.locator('#cxDialogue').waitFor();
+  assert.equal(await p.locator('#cxDialogue option').count(),doc.dialogues.length);
+  assert.equal(await p.locator('.cxTurnText').textContent(),doc.dialogues[0].turns[0].study);
+  await p.locator('.cxTurnNext').click();
+  assert.equal(await p.locator('.cxTurnText').count(),0);assert.equal(await p.locator('.cxPhon').count(),0);assert.equal(await p.locator('.cxReading').count(),0);assert.equal(await p.locator('.cxTurnListen').count(),0);
+  assert.equal(await p.locator('.cxDialogueCard .cxFr').textContent(),doc.dialogues[0].turns[1].native);
+  const dialogueBefore=await p.evaluate(()=>[idx,localStorage.getItem('ox_known_'+lang)]);
+  await p.locator('.cxDialogueCard .cxFr').evaluate(e=>{e.dispatchEvent(new TouchEvent('touchstart',{bubbles:true,touches:[new Touch({identifier:1,target:e,clientX:20,clientY:200})]}));e.dispatchEvent(new TouchEvent('touchend',{bubbles:true,changedTouches:[new Touch({identifier:1,target:e,clientX:190,clientY:200})]}));});
+  assert.deepEqual(await p.evaluate(()=>[idx,localStorage.getItem('ox_known_'+lang)]),dialogueBefore);
+
+  if(process.env.SCREENSHOT_DIR&&nat==='fr'&&study==='es'){fs.mkdirSync(process.env.SCREENSHOT_DIR,{recursive:true});await p.screenshot({path:path.join(process.env.SCREENSHOT_DIR,'2-role-masque.png')});}
+  await p.locator('.cxTurnReveal').click();assert.equal(await p.locator('.cxTurnText').textContent(),doc.dialogues[0].turns[1].study);await p.locator('.cxTurnListen').click();assert.equal(await p.evaluate(()=>audioChecks.at(-1)),doc.dialogues[0].turns[1].study);
+  await p.locator('.cxTurnPrevious').click();await p.locator('#cxHiddenRole').selectOption('A');assert.equal(await p.locator('.cxTurnText').count(),0);
+  await p.locator('#cxHiddenRole').selectOption('');
+  if(process.env.SCREENSHOT_DIR&&nat==='fr'&&study==='es')await p.screenshot({path:path.join(process.env.SCREENSHOT_DIR,'1-replique.png')});
+  for(let di=0;di<doc.dialogues.length;di++){
+   await p.locator('#cxDialogue').selectOption(String(di));
+   for(let ti=0;ti<doc.dialogues[di].turns.length;ti++){
+    const turn=doc.dialogues[di].turns[ti];assert.equal(await p.locator('.cxTurnText').textContent(),turn.study);
+    if(turn.reading)assert.equal(await p.locator('.cxReading').textContent(),turn.reading);
+    assert(await p.locator('.cxSheet').evaluate(e=>e.scrollWidth<=e.clientWidth+1));
+    if(ti<doc.dialogues[di].turns.length-1)await p.locator('.cxTurnNext').click();
+   }
+  }
+  await p.locator('.cxTurnNext').click();assert.equal(await p.locator('#cxDialogue').count(),0);assert(await p.locator('.cxConverse').isVisible());
+  await p.locator('.cxConverse').click();await p.locator('.cxHead .cxIcon').first().click();assert.equal(await p.locator('#cxDialogue').count(),0);
+  await p.locator('.cxConverse').click();
   await p.keyboard.press('Escape');assert(!await p.locator('.cxPanel').evaluate(e=>e.classList.contains('on')));assert.equal(await p.evaluate(()=>document.activeElement.id),'cxEntry');assert.deepEqual(errors,[]);
-  console.log('PASS pair',nat,study,'complete variants, reading, recall, audio argument, gestures, focus');await context.close();
+  console.log('PASS pair',nat,study,'variants, recall, all 3 dialogues, hidden roles, reading, audio, back/done/Escape, gestures, focus');await context.close();
  }
  for(const [width,height]of [[320,568],[1440,900]]){
   const {p,context,errors}=await open('fr','es',width,height);await p.locator('#cxEntry').click();await p.locator('.cxModel').first().waitFor();await p.locator('#cxLevel').selectOption('10');await p.waitForFunction(()=>document.querySelector('.cxModelExample')?.textContent.includes('D’un')||document.querySelector('.cxModelExample')?.textContent.includes("D'un"));
-  await p.locator('.cxModel').first().click();assert(await p.locator('.cxSheet').evaluate(e=>e.scrollWidth<=e.clientWidth+1));assert(await p.locator('.cxSheet').evaluate(e=>e.getBoundingClientRect().bottom<=innerHeight+1));assert.deepEqual(errors,[]);console.log('PASS viewport and L10',width,height);await context.close();
+  await p.locator('.cxModel').first().click();assert(await p.locator('.cxSheet').evaluate(e=>e.scrollWidth<=e.clientWidth+1));assert(await p.locator('.cxSheet').evaluate(e=>e.getBoundingClientRect().bottom<=innerHeight+1));await p.locator('.cxNext').click();await p.locator('.cxConverse').click();await p.locator('#cxHiddenRole').selectOption('');
+  const longDialogue=JSON.parse(fs.readFileSync(path.join(root,'content/conversation/L10-fr-es.json'))).dialogues[0];
+  for(let ti=0;ti<longDialogue.turns.length;ti++){assert.equal(await p.locator('.cxTurnText').textContent(),longDialogue.turns[ti].study);assert(await p.locator('.cxSheet').evaluate(e=>e.scrollWidth<=e.clientWidth+1));if(ti<longDialogue.turns.length-1)await p.locator('.cxTurnNext').click();}
+  assert.deepEqual(errors,[]);console.log('PASS viewport, L10 and full dialogue',width,height);await context.close();
  }
  {const {p,context,errors,setMode}=await open('fr','es');setMode('network');await p.locator('#cxEntry').click();await p.locator('[role=alert]').waitFor();setMode('invalid');await p.locator('.cxSheet>.cxBtn').click();await p.locator('[role=alert]').waitFor();setMode('ok');await p.locator('.cxSheet>.cxBtn').click();await p.locator('.cxModel').first().waitFor();
   await p.keyboard.press('Escape');await p.evaluate(()=>ConversationContent.clearCache());setMode('slow-es');await p.locator('#cxEntry').click();await p.evaluate(()=>setLang('ja'));await p.locator('.cxModel').first().waitFor();await p.waitForTimeout(700);await p.locator('.cxModel').first().click();assert((await p.locator('.cxText').textContent()).includes('です'));await p.evaluate(()=>setNat('en'));assert(!await p.locator('.cxPanel').evaluate(e=>e.classList.contains('on')));assert(!await p.locator('#cxEntry').isVisible());assert.deepEqual(errors,[]);console.log('PASS network/invalid retry and stale selection/unsupported pair');await context.close();}

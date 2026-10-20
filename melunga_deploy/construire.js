@@ -279,9 +279,9 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
   function renderConversation(){
     if(!panel||!panel.classList.contains('on')||conversation.pair!==currentPair())return;
     var sheet=el('section','cxSheet'),head=el('div','cxHead');
-    var back=button('cxIcon','‹',function(){if(conversation.step===1)close();else{conversation.step--;conversation.revealed=false;renderConversation();}});back.setAttribute('aria-label',BText('back'));
+    var back=button('cxIcon','‹',function(){if(conversation.step===1)close();else{conversation.step=conversation.step===4?(conversation.dialogueReturn||1):conversation.step-1;conversation.revealed=false;renderConversation();}});back.setAttribute('aria-label',BText('back'));
     var title=el('b',null,L().title),dismiss=button('cxIcon','×',close);dismiss.setAttribute('aria-label',BText('close'));head.append(back,title,dismiss);sheet.appendChild(head);
-    var dots=el('div','cxDots');dots.setAttribute('aria-label',BText('step')+' '+conversation.step+' '+BText('of')+' 3');for(var i=1;i<=3;i++)dots.appendChild(el('i',i===conversation.step?'on':''));sheet.appendChild(dots);
+    var dots=el('div','cxDots');dots.setAttribute('aria-label',BText('step')+' '+conversation.step+' '+BText('of')+' 4');for(var i=1;i<=4;i++)dots.appendChild(el('i',i===conversation.step?'on':''));sheet.appendChild(dots);
     if(conversation.step===1){
       var levelLabel=el('label','cxLevelLabel',BText('level'));levelLabel.htmlFor='cxLevel';
       var levelSelect=el('select','cxSelect');levelSelect.id='cxLevel';
@@ -293,21 +293,63 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
     else if(conversation.missing){var missing=el('p','cxStatus',BText('missing'));missing.setAttribute('role','status');sheet.appendChild(missing);}
     else if(conversation.data){
       if(conversation.step===1){
+        if(conversation.data.dialogues.length)sheet.appendChild(dialogueButton());
         var choices=el('div','cxChoices');conversation.data.units.forEach(function(u,index){var example=u.variants[discoveryIndex(u)];var choice=button('cxChoice cxModel','',function(){conversation.unit=index;conversation.variant=discoveryIndex(u);conversation.step=2;conversation.revealed=false;renderConversation();});choice.append(el('span','cxModelText',u.situation),el('small','cxModelExample',example.native),el('b',null,'›'));choices.appendChild(choice);});sheet.appendChild(choices);
       }else if(conversation.step===2){
         showConversationPhrase(sheet);
         var grid=el('div','cxGrid');activeUnit().variants.forEach(function(v,index){var choice=button('cxChoice'+(index===conversation.variant?' selected':''),v.slot.native,function(){conversation.variant=index;renderConversation();});choice.setAttribute('aria-pressed',String(index===conversation.variant));grid.appendChild(choice);});sheet.appendChild(grid);
         sheet.appendChild(button('cxBtn cxNext',BText('try'),function(){conversation.step=3;conversation.variant=(conversation.variant+1)%activeUnit().variants.length;conversation.revealed=false;renderConversation();}));
-      }else{
+      }else if(conversation.step===3){
         var v=activeVariant();
         var choices=el('select','cxSelect');choices.setAttribute('aria-label',BText('phrase'));activeUnit().variants.forEach(function(x,index){var option=el('option',null,x.slot.native);option.value=index;choices.appendChild(option);});choices.value=conversation.variant;choices.onchange=function(){conversation.variant=Number(choices.value);conversation.revealed=false;renderConversation();};sheet.appendChild(choices);
         if(conversation.revealed)showConversationPhrase(sheet);
         else{var prompt=el('p','cxPrompt',v.native);prompt.lang=conversation.data.nativeLanguage;sheet.append(prompt,button('cxBtn',BText('reveal'),function(){conversation.revealed=true;renderConversation();}));}
         sheet.appendChild(button('cxBtn cxAgain cxNext',BText('another'),function(){conversation.variant=(conversation.variant+1)%activeUnit().variants.length;conversation.revealed=false;renderConversation();}));
-      }
+        if(conversation.data.dialogues.length)sheet.appendChild(dialogueButton());
+      }else if(conversation.step===4){renderDialogue(sheet);}
     }
     panel.replaceChildren(sheet);panel.setAttribute('aria-label',L().title);title.tabIndex=-1;title.focus({preventScroll:true});
   }
+  function enterDialogue(){
+    if(!conversation.data||!conversation.data.dialogues.length)return;
+    conversation.dialogueReturn=conversation.step;
+    conversation.step=4;conversation.dialogue=0;conversation.turn=0;conversation.hiddenRole='B';conversation.turnRevealed=false;
+    renderConversation();
+  }
+  function dialogueButton(){return button('cxBtn cxAgain cxConverse',BText('stepConverse'),enterDialogue);}
+  function renderDialogue(sheet){
+    var dialogues=conversation.data.dialogues;
+    if(!dialogues.length)return;
+    var selected=dialogues[conversation.dialogue],turn=selected.turns[conversation.turn];
+    var label=el('label','cxLevelLabel',BText('dialogue'));label.htmlFor='cxDialogue';
+    var select=el('select','cxSelect');select.id='cxDialogue';
+    dialogues.forEach(function(d,index){var option=el('option',null,d.situation||BText('dialogue')+' '+(index+1));option.value=index;select.appendChild(option);});
+    select.value=conversation.dialogue;select.onchange=function(){conversation.dialogue=Number(select.value);conversation.turn=0;conversation.turnRevealed=false;renderConversation();};sheet.append(label,select);
+    var roleLabel=el('label','cxLevelLabel',BText('hideRole'));roleLabel.htmlFor='cxHiddenRole';
+    var roles=el('select','cxSelect');roles.id='cxHiddenRole';
+    [['',BText('showAll')],['A',BText('roleA')],['B',BText('roleB')]].forEach(function(r){var option=el('option',null,r[1]);option.value=r[0];roles.appendChild(option);});
+    roles.value=conversation.hiddenRole;roles.onchange=function(){conversation.hiddenRole=roles.value;conversation.turnRevealed=false;renderConversation();};sheet.append(roleLabel,roles);
+    var hidden=turn.speaker===conversation.hiddenRole&&!conversation.turnRevealed;
+    var card=el('div','cxCard cxDialogueCard');card.setAttribute('aria-live','polite');
+    card.appendChild(el('small','cxSpeaker',BText(turn.speaker==='A'?'roleA':'roleB')+' · '+(conversation.turn+1)+' / '+selected.turns.length));
+    if(hidden){
+      card.appendChild(el('p','cxPrompt',BText('yourTurn')));
+      var cue=el('p','cxFr',turn.native);cue.lang=conversation.data.nativeLanguage;card.appendChild(cue);
+      card.appendChild(button('cxBtn cxTurnReveal',BText('reveal'),function(){conversation.turnRevealed=true;renderConversation();}));
+    }else{
+      var phrase=el('p','cxText cxTurnText',turn.study);phrase.lang=conversation.data.studyLanguage;card.appendChild(phrase);
+      if(turn.reading){var kind={zh:'pinyin',ja:'kana',ko:'romanization'}[conversation.data.studyLanguage]||'reading';card.appendChild(el('small','cxReadingLabel',BText(kind)));card.appendChild(el('p','cxReading',turn.reading));}
+      var translation=el('p','cxFr',turn.native);translation.lang=conversation.data.nativeLanguage;
+      card.append(el('p','cxPhon',turn.phon),translation,button('cxBtn cxTurnListen',BText('listen'),function(){if(conversation.pair===currentPair())say(turn.study,this);}));
+    }
+    sheet.appendChild(card);
+    var nav=el('div','cxTurnNav');
+    var prev=button('cxBtn cxAgain cxTurnPrevious',BText('back'),function(){if(conversation.turn>0){conversation.turn--;conversation.turnRevealed=false;renderConversation();}});prev.disabled=conversation.turn===0;
+    var last=conversation.turn===selected.turns.length-1;
+    var next=button('cxBtn cxTurnNext',BText(last?'done':'next'),function(){if(last){conversation.step=conversation.dialogueReturn||1;}else conversation.turn++;conversation.turnRevealed=false;renderConversation();});
+    nav.append(prev,next);sheet.appendChild(nav);
+  }
+
   function showConversationPhrase(sheet){
     var v=activeVariant(),card=el('div','cxCard'),text=el('p','cxText');text.lang=conversation.data.studyLanguage;card.setAttribute('aria-live','polite');
     // Only mark the slot; never rebuild an inflected or contracted sentence from its template.
@@ -339,7 +381,7 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
     previousFocus=document.activeElement;ensurePanel().classList.add('on');loadConversationLevel(1);
   };
   close=function(){selectionSerial++;conversation.pair=null;legacyClose();};
-  var extraCss=document.createElement('style');extraCss.textContent='.cxModel{display:grid;grid-template-columns:1fr auto;gap:6px 12px}.cxModelText{grid-column:1}.cxModelExample{grid-column:1;font:400 15px/1.5 system-ui;overflow-wrap:anywhere}.cxModel>b{grid-column:2;grid-row:1/3}.cxReadingLabel{font:600 12px system-ui;margin-bottom:-10px}.cxReading{font:500 17px/1.5 system-ui;margin:0;overflow-wrap:anywhere}.cxLevelLabel{font:700 15px system-ui;margin-bottom:-16px}.cxStatus{text-align:center;font:500 17px/1.5 system-ui}.cxSheet>select{flex-shrink:0}.cxModel,.cxGrid .cxChoice{min-width:0;overflow-wrap:anywhere}';document.head.appendChild(extraCss);
+  var extraCss=document.createElement('style');extraCss.textContent='.cxConverse{width:100%}.cxTurnNav{display:flex;gap:12px;margin-top:auto}.cxTurnNav>button{flex:1;min-width:0}.cxTurnNav button:disabled{opacity:.4;cursor:default}.cxDialogueCard{gap:14px;padding:12px 0}.cxDialogueCard .cxText{font-size:clamp(23px,5vw,30px)}.cxSpeaker{font:700 14px system-ui}.cxDialogueCard .cxPrompt{font-size:24px;margin:0}.cxModel{display:grid;grid-template-columns:1fr auto;gap:6px 12px}.cxModelText{grid-column:1}.cxModelExample{grid-column:1;font:400 15px/1.5 system-ui;overflow-wrap:anywhere}.cxModel>b{grid-column:2;grid-row:1/3}.cxReadingLabel{font:600 12px system-ui;margin-bottom:-10px}.cxReading{font:500 17px/1.5 system-ui;margin:0;overflow-wrap:anywhere}.cxLevelLabel{font:700 15px system-ui;margin-bottom:-16px}.cxStatus{text-align:center;font:500 17px/1.5 system-ui}.cxSheet>select{flex-shrink:0}.cxModel,.cxGrid .cxChoice{min-width:0;overflow-wrap:anywhere}';document.head.appendChild(extraCss);
 
   window.openConstruire=open;window.closeConstruire=close;
 
