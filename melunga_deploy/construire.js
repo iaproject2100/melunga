@@ -270,6 +270,8 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
   function hasContentPair(){var loader=contentLoader(),parts=currentPair().split('|');return loader?loader.isPairAvailable(parts[0],parts[1])&&!unavailablePairs[currentPair()]:!!data();}
   function previewLevels(){
     var nativeApp=window.Capacitor&&typeof window.Capacitor.isNativePlatform==='function'&&window.Capacitor.isNativePlatform();
+    // Build d'essai (APK « Melunga TEST ») : tous les niveaux ouverts pour l'évaluation du contenu ; aucun droit modifié dans l'application publiée.
+    if(typeof window.MELUNGA_TEST_BUILD==='string'&&window.MELUNGA_TEST_BUILD)return true;
     return !nativeApp && (/^deploy-preview-\d+--/.test(location.hostname)||location.hostname==='127.0.0.1'||location.hostname==='localhost');
   }
   function canUseLevel(n){return n===1||previewLevels()||(typeof isPaid!=='undefined'&&isPaid===true);}
