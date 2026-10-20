@@ -20,9 +20,9 @@
    Règle : l'interface affiche toujours les phrases complètes (variants[i].*, turns[i].*), jamais le gabarit rempli.
    Le gabarit model.study sert seulement à repérer le morceau remplaçable (slot.study dans study). */
 (function (root, factory) {
-  if (typeof module === 'object' && module.exports) module.exports = factory();
-  else root.ConversationContent = factory();
-})(typeof self !== 'undefined' ? self : this, function () {
+  if (typeof module === 'object' && module.exports) module.exports = factory(root);
+  else root.ConversationContent = factory(root);
+})(typeof self !== 'undefined' ? self : this, function (root) {
   'use strict';
   var FILES_BASE = 'content/conversation/';
   /* Couples publiés (langue maternelle → langues étudiées). Un fichier absent (404) reste traité comme indisponible. */
@@ -38,6 +38,8 @@
      https://localhost, une URL relative n'atteindrait jamais le serveur. */
   function origin() {
     if (typeof cfg.origin === 'string') return cfg.origin;
+    /* Configuration de test explicite (APK d'essai pointant sur un aperçu Netlify) : window.MELUNGA_CONTENT_ORIGIN = 'https://deploy-preview-7--….netlify.app/' */
+    if (root && typeof root.MELUNGA_CONTENT_ORIGIN === 'string' && root.MELUNGA_CONTENT_ORIGIN) return root.MELUNGA_CONTENT_ORIGIN.replace(/\/?$/, '/');
     if (typeof location === 'undefined') return '';
     return (location.hostname === 'localhost' || location.protocol !== 'https:') ? 'https://melunga.com/' : '';
   }

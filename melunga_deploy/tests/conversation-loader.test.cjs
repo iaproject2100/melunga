@@ -100,6 +100,10 @@ function fileFetch(opts = {}) {
   global.location = { hostname: '127.0.0.1', protocol: 'http:' };
   check('http local → URL absolue (même règle que speechSource)', /^https:\/\/melunga\.com\//.test(CC.levelUrl('zh', 'fr', 2)));
 
+  console.log('9. Origine de test explicite (APK d\'essai)');
+  CC.configure({ origin: null }); global.MELUNGA_CONTENT_ORIGIN = 'https://deploy-preview-7--chic-dragon-e2baf2.netlify.app'; global.location = { hostname: 'localhost', protocol: 'https:' };
+  check('MELUNGA_CONTENT_ORIGIN prime sur la règle native', CC.levelUrl('fr', 'es', 1) === 'https://deploy-preview-7--chic-dragon-e2baf2.netlify.app/content/conversation/L1-fr-es.json', CC.levelUrl('fr', 'es', 1));
+  delete global.MELUNGA_CONTENT_ORIGIN;
   console.log(failures ? `\n✘ ${failures} échec(s)` : '\n✔ tous les tests simulés passent');
   process.exit(failures ? 1 : 0);
 })();
