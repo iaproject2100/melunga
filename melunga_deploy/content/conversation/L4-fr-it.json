@@ -1,0 +1,945 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "it",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en italien",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.",
+ "reviewStatus": "Rédigé à la main ; relecture par un italophone conseillée.",
+ "coverageClaim": null,
+ "level": 4,
+ "title": "Mon quotidien",
+ "goal": "Décrire son quotidien, ses habitudes et son entourage.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L4-fr-it-01",
+   "situation": "Habitudes",
+   "model": {
+    "study": "Di solito {s}.",
+    "phon": "di SO-li-to {s}",
+    "native": "D'habitude, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "mi alzo alle sette",
+      "phon": "mi AL-tso AL-lé SÈT-té",
+      "native": "je me lève à sept heures"
+     },
+     "study": "Di solito mi alzo alle sette.",
+     "phon": "di SO-li-to mi AL-tso AL-lé SÈT-té",
+     "native": "D'habitude, je me lève à sept heures."
+    },
+    {
+     "slot": {
+      "study": "pranzo a casa",
+      "phon": "PRAN-tso a KA-za",
+      "native": "je déjeune à la maison"
+     },
+     "study": "Di solito pranzo a casa.",
+     "phon": "di SO-li-to PRAN-tso a KA-za",
+     "native": "D'habitude, je déjeune à la maison."
+    },
+    {
+     "slot": {
+      "study": "prendo il treno",
+      "phon": "PRÈN-do il TRÈ-no",
+      "native": "je prends le train"
+     },
+     "study": "Di solito prendo il treno.",
+     "phon": "di SO-li-to PRÈN-do il TRÈ-no",
+     "native": "D'habitude, je prends le train."
+    },
+    {
+     "slot": {
+      "study": "vado a letto presto",
+      "phon": "VA-do a LÈT-to PRÈS-to",
+      "native": "je me couche tôt"
+     },
+     "study": "Di solito vado a letto presto.",
+     "phon": "di SO-li-to VA-do a LÈT-to PRÈS-to",
+     "native": "D'habitude, je me couche tôt."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-it-02",
+   "situation": "Le matin",
+   "model": {
+    "study": "La mattina {s}.",
+    "phon": "la mat-TI-na {s}",
+    "native": "Le matin, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "bevo un caffè",
+      "phon": "BÉ-vo oun kaf-FÈ",
+      "native": "je bois un café"
+     },
+     "study": "La mattina bevo un caffè.",
+     "phon": "la mat-TI-na BÉ-vo oun kaf-FÈ",
+     "native": "Le matin, je bois un café."
+    },
+    {
+     "slot": {
+      "study": "faccio colazione alle otto",
+      "phon": "FAT-tcho ko-la-TSIO-né AL-lé OT-to",
+      "native": "je prends le petit-déjeuner à huit heures"
+     },
+     "study": "La mattina faccio colazione alle otto.",
+     "phon": "la mat-TI-na FAT-tcho ko-la-TSIO-né AL-lé OT-to",
+     "native": "Le matin, je prends le petit-déjeuner à huit heures."
+    },
+    {
+     "slot": {
+      "study": "porto i bambini a scuola",
+      "phon": "POR-to i bam-BI-ni a SKOUO-la",
+      "native": "j'emmène les enfants à l'école"
+     },
+     "study": "La mattina porto i bambini a scuola.",
+     "phon": "la mat-TI-na POR-to i bam-BI-ni a SKOUO-la",
+     "native": "Le matin, j'emmène les enfants à l'école."
+    },
+    {
+     "slot": {
+      "study": "lavoro da casa",
+      "phon": "la-VO-ro da KA-za",
+      "native": "je travaille de chez moi"
+     },
+     "study": "La mattina lavoro da casa.",
+     "phon": "la mat-TI-na la-VO-ro da KA-za",
+     "native": "Le matin, je travaille de chez moi."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-it-03",
+   "situation": "Le soir",
+   "model": {
+    "study": "La sera {s}.",
+    "phon": "la SÉ-ra {s}",
+    "native": "Le soir, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "cucino",
+      "phon": "kou-TCHI-no",
+      "native": "je cuisine"
+     },
+     "study": "La sera cucino.",
+     "phon": "la SÉ-ra kou-TCHI-no",
+     "native": "Le soir, je cuisine."
+    },
+    {
+     "slot": {
+      "study": "guardo un film",
+      "phon": "GOUAR-do oun FILM",
+      "native": "je regarde un film"
+     },
+     "study": "La sera guardo un film.",
+     "phon": "la SÉ-ra GOUAR-do oun FILM",
+     "native": "Le soir, je regarde un film."
+    },
+    {
+     "slot": {
+      "study": "esco con gli amici",
+      "phon": "ÈS-ko kon li a-MI-tchi",
+      "native": "je sors avec des amis"
+     },
+     "study": "La sera esco con gli amici.",
+     "phon": "la SÉ-ra ÈS-ko kon li a-MI-tchi",
+     "native": "Le soir, je sors avec des amis."
+    },
+    {
+     "slot": {
+      "study": "leggo un po'",
+      "phon": "LÈG-go oun PO",
+      "native": "je lis un peu"
+     },
+     "study": "La sera leggo un po'.",
+     "phon": "la SÉ-ra LÈG-go oun PO",
+     "native": "Le soir, je lis un peu."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-it-04",
+   "situation": "Famille : avoir",
+   "model": {
+    "study": "Ho {s}.",
+    "phon": "o {s}",
+    "native": "J'ai {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "un fratello",
+      "phon": "oun fra-TÈL-lo",
+      "native": "un frère"
+     },
+     "study": "Ho un fratello.",
+     "phon": "o oun fra-TÈL-lo",
+     "native": "J'ai un frère."
+    },
+    {
+     "slot": {
+      "study": "due figli",
+      "phon": "DOU-é FI-li",
+      "native": "deux enfants"
+     },
+     "study": "Ho due figli.",
+     "phon": "o DOU-é FI-li",
+     "native": "J'ai deux enfants."
+    },
+    {
+     "slot": {
+      "study": "una sorella più grande",
+      "phon": "OU-na so-RÈL-la piou GRAN-dé",
+      "native": "une grande sœur"
+     },
+     "study": "Ho una sorella più grande.",
+     "phon": "o OU-na so-RÈL-la piou GRAN-dé",
+     "native": "J'ai une grande sœur."
+    },
+    {
+     "slot": {
+      "study": "un cane",
+      "phon": "oun KA-né",
+      "native": "un chien"
+     },
+     "study": "Ho un cane.",
+     "phon": "o oun KA-né",
+     "native": "J'ai un chien."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-it-05",
+   "situation": "Logement",
+   "model": {
+    "study": "Abito {s}.",
+    "phon": "A-bi-to {s}",
+    "native": "J'habite {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a Milano",
+      "phon": "a mi-LA-no",
+      "native": "à Milan"
+     },
+     "study": "Abito a Milano.",
+     "phon": "A-bi-to a mi-LA-no",
+     "native": "J'habite à Milan."
+    },
+    {
+     "slot": {
+      "study": "in centro",
+      "phon": "inn TCHÈN-tro",
+      "native": "dans le centre"
+     },
+     "study": "Abito in centro.",
+     "phon": "A-bi-to inn TCHÈN-tro",
+     "native": "J'habite dans le centre."
+    },
+    {
+     "slot": {
+      "study": "in un piccolo appartamento",
+      "phon": "inn oun PIK-ko-lo ap-par-ta-MÉN-to",
+      "native": "dans un petit appartement"
+     },
+     "study": "Abito in un piccolo appartamento.",
+     "phon": "A-bi-to inn oun PIK-ko-lo ap-par-ta-MÉN-to",
+     "native": "J'habite dans un petit appartement."
+    },
+    {
+     "slot": {
+      "study": "con la mia famiglia",
+      "phon": "kon la MI-a fa-MI-lia",
+      "native": "avec ma famille"
+     },
+     "study": "Abito con la mia famiglia.",
+     "phon": "A-bi-to kon la MI-a fa-MI-lia",
+     "native": "J'habite avec ma famille."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-it-06",
+   "situation": "Travail",
+   "model": {
+    "study": "Lavoro {s}.",
+    "phon": "la-VO-ro {s}",
+    "native": "Je travaille {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "in un ospedale",
+      "phon": "inn oun os-pé-DA-lé",
+      "native": "dans un hôpital"
+     },
+     "study": "Lavoro in un ospedale.",
+     "phon": "la-VO-ro inn oun os-pé-DA-lé",
+     "native": "Je travaille dans un hôpital."
+    },
+    {
+     "slot": {
+      "study": "in ufficio",
+      "phon": "inn ouf-FI-tcho",
+      "native": "au bureau"
+     },
+     "study": "Lavoro in ufficio.",
+     "phon": "la-VO-ro inn ouf-FI-tcho",
+     "native": "Je travaille au bureau."
+    },
+    {
+     "slot": {
+      "study": "da casa",
+      "phon": "da KA-za",
+      "native": "de chez moi"
+     },
+     "study": "Lavoro da casa.",
+     "phon": "la-VO-ro da KA-za",
+     "native": "Je travaille de chez moi."
+    },
+    {
+     "slot": {
+      "study": "in un ristorante",
+      "phon": "inn oun ris-to-RAN-té",
+      "native": "dans un restaurant"
+     },
+     "study": "Lavoro in un ristorante.",
+     "phon": "la-VO-ro inn oun ris-to-RAN-té",
+     "native": "Je travaille dans un restaurant."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-it-07",
+   "situation": "Études",
+   "model": {
+    "study": "Studio {s}.",
+    "phon": "STOU-dio {s}",
+    "native": "J'étudie {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "medicina",
+      "phon": "mé-di-TCHI-na",
+      "native": "la médecine"
+     },
+     "study": "Studio medicina.",
+     "phon": "STOU-dio mé-di-TCHI-na",
+     "native": "J'étudie la médecine."
+    },
+    {
+     "slot": {
+      "study": "italiano",
+      "phon": "i-ta-LIA-no",
+      "native": "l'italien"
+     },
+     "study": "Studio italiano.",
+     "phon": "STOU-dio i-ta-LIA-no",
+     "native": "J'étudie l'italien."
+    },
+    {
+     "slot": {
+      "study": "all'università",
+      "phon": "al-lou-ni-vér-si-TA",
+      "native": "à l'université"
+     },
+     "study": "Studio all'università.",
+     "phon": "STOU-dio al-lou-ni-vér-si-TA",
+     "native": "J'étudie à l'université."
+    },
+    {
+     "slot": {
+      "study": "economia",
+      "phon": "é-ko-no-MI-a",
+      "native": "l'économie"
+     },
+     "study": "Studio economia.",
+     "phon": "STOU-dio é-ko-no-MI-a",
+     "native": "J'étudie l'économie."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-it-08",
+   "situation": "Fréquence",
+   "model": {
+    "study": "{s} vado in palestra.",
+    "phon": "{s} VA-do inn pa-LÈS-tra",
+    "native": "{s}, je vais à la salle de sport."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Ogni giorno",
+      "phon": "O-gni DJOR-no",
+      "native": "Tous les jours"
+     },
+     "study": "Ogni giorno vado in palestra.",
+     "phon": "O-gni DJOR-no VA-do inn pa-LÈS-tra",
+     "native": "Tous les jours, je vais à la salle de sport."
+    },
+    {
+     "slot": {
+      "study": "Spesso",
+      "phon": "SPÉS-so",
+      "native": "Souvent"
+     },
+     "study": "Spesso vado in palestra.",
+     "phon": "SPÉS-so VA-do inn pa-LÈS-tra",
+     "native": "Souvent, je vais à la salle de sport."
+    },
+    {
+     "slot": {
+      "study": "A volte",
+      "phon": "a VOL-té",
+      "native": "Parfois"
+     },
+     "study": "A volte vado in palestra.",
+     "phon": "a VOL-té VA-do inn pa-LÈS-tra",
+     "native": "Parfois, je vais à la salle de sport."
+    },
+    {
+     "slot": {
+      "study": "Il fine settimana",
+      "phon": "il FI-né sét-ti-MA-na",
+      "native": "Le week-end"
+     },
+     "study": "Il fine settimana vado in palestra.",
+     "phon": "il FI-né sét-ti-MA-na VA-do inn pa-LÈS-tra",
+     "native": "Le week-end, je vais à la salle de sport."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-it-09",
+   "situation": "Famille : elle",
+   "model": {
+    "study": "Mia {s} abita a Roma.",
+    "phon": "MI-a {s} A-bi-ta a RO-ma",
+    "native": "Ma {s} habite à Rome."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "madre",
+      "phon": "MA-dré",
+      "native": "mère"
+     },
+     "study": "Mia madre abita a Roma.",
+     "phon": "MI-a MA-dré A-bi-ta a RO-ma",
+     "native": "Ma mère habite à Rome."
+    },
+    {
+     "slot": {
+      "study": "sorella",
+      "phon": "so-RÈL-la",
+      "native": "sœur"
+     },
+     "study": "Mia sorella abita a Roma.",
+     "phon": "MI-a so-RÈL-la A-bi-ta a RO-ma",
+     "native": "Ma sœur habite à Rome."
+    },
+    {
+     "slot": {
+      "study": "figlia",
+      "phon": "FI-lia",
+      "native": "fille"
+     },
+     "study": "Mia figlia abita a Roma.",
+     "phon": "MI-a FI-lia A-bi-ta a RO-ma",
+     "native": "Ma fille habite à Rome."
+    },
+    {
+     "slot": {
+      "study": "nonna",
+      "phon": "NON-na",
+      "native": "grand-mère"
+     },
+     "study": "Mia nonna abita a Roma.",
+     "phon": "MI-a NON-na A-bi-ta a RO-ma",
+     "native": "Ma grand-mère habite à Rome."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-it-10",
+   "situation": "Famille : il",
+   "model": {
+    "study": "Mio {s} lavora in banca.",
+    "phon": "MI-o {s} la-VO-ra inn BAN-ka",
+    "native": "Mon {s} travaille dans une banque."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "padre",
+      "phon": "PA-dré",
+      "native": "père"
+     },
+     "study": "Mio padre lavora in banca.",
+     "phon": "MI-o PA-dré la-VO-ra inn BAN-ka",
+     "native": "Mon père travaille dans une banque."
+    },
+    {
+     "slot": {
+      "study": "fratello",
+      "phon": "fra-TÈL-lo",
+      "native": "frère"
+     },
+     "study": "Mio fratello lavora in banca.",
+     "phon": "MI-o fra-TÈL-lo la-VO-ra inn BAN-ka",
+     "native": "Mon frère travaille dans une banque."
+    },
+    {
+     "slot": {
+      "study": "marito",
+      "phon": "ma-RI-to",
+      "native": "mari"
+     },
+     "study": "Mio marito lavora in banca.",
+     "phon": "MI-o ma-RI-to la-VO-ra inn BAN-ka",
+     "native": "Mon mari travaille dans une banque."
+    },
+    {
+     "slot": {
+      "study": "figlio",
+      "phon": "FI-lio",
+      "native": "fils"
+     },
+     "study": "Mio figlio lavora in banca.",
+     "phon": "MI-o FI-lio la-VO-ra inn BAN-ka",
+     "native": "Mon fils travaille dans une banque."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-it-11",
+   "situation": "Quartier",
+   "model": {
+    "study": "Nel mio quartiere c'è {s}.",
+    "phon": "nél MI-o kouar-TIÈ-ré tchè {s}",
+    "native": "Dans mon quartier, il y a {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "un mercato",
+      "phon": "oun mér-KA-to",
+      "native": "un marché"
+     },
+     "study": "Nel mio quartiere c'è un mercato.",
+     "phon": "nél MI-o kouar-TIÈ-ré tchè oun mér-KA-to",
+     "native": "Dans mon quartier, il y a un marché."
+    },
+    {
+     "slot": {
+      "study": "una bella piazza",
+      "phon": "OU-na BÈL-la PIAT-tsa",
+      "native": "une belle place"
+     },
+     "study": "Nel mio quartiere c'è una bella piazza.",
+     "phon": "nél MI-o kouar-TIÈ-ré tchè OU-na BÈL-la PIAT-tsa",
+     "native": "Dans mon quartier, il y a une belle place."
+    },
+    {
+     "slot": {
+      "study": "un parco",
+      "phon": "oun PAR-ko",
+      "native": "un parc"
+     },
+     "study": "Nel mio quartiere c'è un parco.",
+     "phon": "nél MI-o kouar-TIÈ-ré tchè oun PAR-ko",
+     "native": "Dans mon quartier, il y a un parc."
+    },
+    {
+     "slot": {
+      "study": "la metro",
+      "phon": "la MÉ-tro",
+      "native": "le métro"
+     },
+     "study": "Nel mio quartiere c'è la metro.",
+     "phon": "nél MI-o kouar-TIÈ-ré tchè la MÉ-tro",
+     "native": "Dans mon quartier, il y a le métro."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-fr-it-12",
+   "situation": "Loisirs",
+   "model": {
+    "study": "Nel tempo libero {s}.",
+    "phon": "nél TÈM-po LI-bé-ro {s}",
+    "native": "Pendant mon temps libre, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "faccio sport",
+      "phon": "FAT-tcho SPORT",
+      "native": "je fais du sport"
+     },
+     "study": "Nel tempo libero faccio sport.",
+     "phon": "nél TÈM-po LI-bé-ro FAT-tcho SPORT",
+     "native": "Pendant mon temps libre, je fais du sport."
+    },
+    {
+     "slot": {
+      "study": "suono la chitarra",
+      "phon": "SOUO-no la ki-TAR-ra",
+      "native": "je joue de la guitare"
+     },
+     "study": "Nel tempo libero suono la chitarra.",
+     "phon": "nél TÈM-po LI-bé-ro SOUO-no la ki-TAR-ra",
+     "native": "Pendant mon temps libre, je joue de la guitare."
+    },
+    {
+     "slot": {
+      "study": "vado al cinema",
+      "phon": "VA-do al TCHI-né-ma",
+      "native": "je vais au cinéma"
+     },
+     "study": "Nel tempo libero vado al cinema.",
+     "phon": "nél TÈM-po LI-bé-ro VA-do al TCHI-né-ma",
+     "native": "Pendant mon temps libre, je vais au cinéma."
+    },
+    {
+     "slot": {
+      "study": "viaggio",
+      "phon": "VIAD-djo",
+      "native": "je voyage"
+     },
+     "study": "Nel tempo libero viaggio.",
+     "phon": "nél TÈM-po LI-bé-ro VIAD-djo",
+     "native": "Pendant mon temps libre, je voyage."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L4-fr-it-d1",
+   "situation": "Parler de sa famille (entre amis, tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hai fratelli o sorelle?",
+     "phon": "A-i fra-TÈL-li o so-RÈL-lé",
+     "native": "Tu as des frères et sœurs ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sì, ho un fratello e una sorella. E tu?",
+     "phon": "SI, o oun fra-TÈL-lo é OU-na so-RÈL-la. é TOU",
+     "native": "Oui, j'ai un frère et une sœur. Et toi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Io ho due figli.",
+     "phon": "I-o o DOU-é FI-li",
+     "native": "Moi, j'ai deux enfants."
+    },
+    {
+     "speaker": "B",
+     "study": "Che bello! Quanti anni hanno?",
+     "phon": "ké BÈL-lo. KOUAN-ti AN-ni AN-no",
+     "native": "Super ! Quel âge ont-ils ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Otto e dodici. Abitiamo vicino a Lione.",
+     "phon": "OT-to é DO-di-tchi. a-bi-TIA-mo vi-TCHI-no a LIO-né",
+     "native": "Huit et douze ans. On habite près de Lyon."
+    },
+    {
+     "speaker": "B",
+     "study": "E tua moglie lavora?",
+     "phon": "é TOU-a MO-lié la-VO-ra",
+     "native": "Et ta femme travaille ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sì, lavora in un ospedale.",
+     "phon": "SI, la-VO-ra inn oun os-pé-DA-lé",
+     "native": "Oui, elle travaille dans un hôpital."
+    },
+    {
+     "speaker": "B",
+     "study": "Anche mia madre lavora in ospedale!",
+     "phon": "AN-ké MI-a MA-dré la-VO-ra inn os-pé-DA-lé",
+     "native": "Ma mère aussi travaille à l'hôpital !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L3-fr-it-06",
+    "L4-fr-it-04"
+   ]
+  },
+  {
+   "id": "L4-fr-it-d2",
+   "situation": "Une journée type (collègues, tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "A che ora ti alzi di solito?",
+     "phon": "a ké O-ra ti AL-tsi di SO-li-to",
+     "native": "Tu te lèves à quelle heure d'habitude ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Alle sei e mezza. La mattina porto i bambini a scuola.",
+     "phon": "AL-lé SÈ-i é MÈD-dza. la mat-TI-na POR-to i bam-BI-ni a SKOUO-la",
+     "native": "À six heures et demie. Le matin, j'emmène les enfants à l'école."
+    },
+    {
+     "speaker": "A",
+     "study": "E poi vai al lavoro in macchina?",
+     "phon": "é POÏ VA-i al la-VO-ro inn MAK-ki-na",
+     "native": "Et ensuite tu vas au travail en voiture ?"
+    },
+    {
+     "speaker": "B",
+     "study": "No, prendo il treno. E tu?",
+     "phon": "no, PRÈN-do il TRÈ-no. é TOU",
+     "native": "Non, je prends le train. Et toi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Io lavoro da casa due giorni a settimana.",
+     "phon": "I-o la-VO-ro da KA-za DOU-é DJOR-ni a sét-ti-MA-na",
+     "native": "Moi, je travaille de chez moi deux jours par semaine."
+    },
+    {
+     "speaker": "B",
+     "study": "Che fortuna! E la sera cosa fai?",
+     "phon": "ké for-TOU-na. é la SÉ-ra KO-za FA-i",
+     "native": "Quelle chance ! Et le soir, qu'est-ce que tu fais ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Spesso vado in palestra, a volte cucino.",
+     "phon": "SPÉS-so VA-do inn pa-LÈS-tra, a VOL-té kou-TCHI-no",
+     "native": "Souvent je vais à la salle de sport, parfois je cuisine."
+    },
+    {
+     "speaker": "B",
+     "study": "Io la sera guardo sempre un film.",
+     "phon": "I-o la SÉ-ra GOUAR-do SÈM-pré oun FILM",
+     "native": "Moi, le soir, je regarde toujours un film."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-it-06",
+    "L2-fr-it-12",
+    "L3-fr-it-03",
+    "L3-fr-it-06",
+    "L4-fr-it-01",
+    "L4-fr-it-02",
+    "L4-fr-it-03",
+    "L4-fr-it-06",
+    "L4-fr-it-08"
+   ]
+  },
+  {
+   "id": "L4-fr-it-d3",
+   "situation": "Le nouveau voisin (Lei)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, sono il nuovo vicino. Mi chiamo Paolo.",
+     "phon": "bouon-DJOR-no, SO-no il NOUO-vo vi-TCHI-no. mi KIA-mo PA-o-lo",
+     "native": "Bonjour, je suis le nouveau voisin. Je m'appelle Paolo."
+    },
+    {
+     "speaker": "B",
+     "study": "Piacere, Anna. Benvenuto! Da dove viene?",
+     "phon": "pia-TCHÉ-ré, AN-na. bén-vé-NOU-to. da DO-vé VIÈ-né",
+     "native": "Enchantée, Anna. Bienvenue ! D'où venez-vous ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sono francese, ma lavoro qui a Bologna.",
+     "phon": "SO-no fran-TCHÉ-zé, ma la-VO-ro KOUI a bo-LO-gna",
+     "native": "Je suis français, mais je travaille ici à Bologne."
+    },
+    {
+     "speaker": "B",
+     "study": "Che lavoro fa?",
+     "phon": "ké la-VO-ro FA",
+     "native": "Qu'est-ce que vous faites comme travail ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sono ingegnere, lavoro in una fabbrica.",
+     "phon": "SO-no in-djé-GNÈ-ré, la-VO-ro inn OU-na FAB-bri-ka",
+     "native": "Je suis ingénieur, je travaille dans une usine."
+    },
+    {
+     "speaker": "B",
+     "study": "Il quartiere Le piace?",
+     "phon": "il kouar-TIÈ-ré lé PIA-tché",
+     "native": "Le quartier vous plaît ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sì, molto. C'è un mercato qui vicino?",
+     "phon": "SI, MOL-to. tchè oun mér-KA-to KOUI vi-TCHI-no",
+     "native": "Oui, beaucoup. Il y a un marché près d'ici ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sì, ogni sabato mattina, in piazza.",
+     "phon": "SI, O-gni SA-ba-to mat-TI-na, inn PIAT-tsa",
+     "native": "Oui, tous les samedis matin, sur la place."
+    },
+    {
+     "speaker": "A",
+     "study": "Perfetto, grazie!",
+     "phon": "pér-FÈT-to, GRA-tsié",
+     "native": "Parfait, merci !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-it-01",
+    "L1-fr-it-02",
+    "L4-fr-it-06"
+   ]
+  }
+ ],
+ "readiness": "Décrire ses habitudes et sa journée avec des fréquences, présenter sa famille, dire où l'on habite et ce que l'on fait comme travail ou études, et poser les mêmes questions à l'autre."
+}

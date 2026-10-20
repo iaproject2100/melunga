@@ -1,0 +1,951 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "es",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en espagnol",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; v→b, ll→y, j/ge/gi→KH, c/z→ss, que→ké). Variante à seseo et yeísmo. Ne remplace pas l'audio.",
+ "reviewStatus": "Généré par règles à partir de briques validées ; relecture par un hispanophone conseillée.",
+ "coverageClaim": null,
+ "level": 3,
+ "title": "Échanger",
+ "goal": "Poser des questions, répondre et relancer un échange court.",
+ "reviewPreviousLevels": [
+  1,
+  2
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L3-fr-es-01",
+   "situation": "Demander un service à un ami",
+   "model": {
+    "study": "¿Puedes {s}?",
+    "phon": "POUÉ-dés {s}",
+    "native": "Tu peux {s} ?",
+    "note": "« ¿Puedes… ? » (tú) entre amis ; avec un inconnu : « ¿Puede… ? » (usted), voir le modèle suivant."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "repetir",
+      "phon": "rré-pé-TIR",
+      "native": "répéter"
+     },
+     "study": "¿Puedes repetir?",
+     "phon": "POUÉ-dés rré-pé-TIR",
+     "native": "Tu peux répéter ?"
+    },
+    {
+     "slot": {
+      "study": "hablar más despacio",
+      "phon": "a-BLAR mas dés-PA-ssio",
+      "native": "parler plus lentement"
+     },
+     "study": "¿Puedes hablar más despacio?",
+     "phon": "POUÉ-dés a-BLAR mas dés-PA-ssio",
+     "native": "Tu peux parler plus lentement ?"
+    },
+    {
+     "slot": {
+      "study": "ayudarme",
+      "phon": "a-you-DAR-mé",
+      "native": "m'aider"
+     },
+     "study": "¿Puedes ayudarme?",
+     "phon": "POUÉ-dés a-you-DAR-mé",
+     "native": "Tu peux m'aider ?"
+    },
+    {
+     "slot": {
+      "study": "esperar un momento",
+      "phon": "és-pé-RAR oun mo-MÉN-to",
+      "native": "attendre un moment"
+     },
+     "study": "¿Puedes esperar un momento?",
+     "phon": "POUÉ-dés és-pé-RAR oun mo-MÉN-to",
+     "native": "Tu peux attendre un moment ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-es-02",
+   "situation": "Demander un service à un inconnu",
+   "model": {
+    "study": "¿Puede {s}, por favor?",
+    "phon": "POUÉ-dé {s}, por fa-BOR",
+    "native": "Pouvez-vous {s}, s'il vous plaît ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "escribirlo",
+      "phon": "és-kri-BIR-lo",
+      "native": "l'écrire"
+     },
+     "study": "¿Puede escribirlo, por favor?",
+     "phon": "POUÉ-dé és-kri-BIR-lo, por fa-BOR",
+     "native": "Pouvez-vous l'écrire, s'il vous plaît ?"
+    },
+    {
+     "slot": {
+      "study": "repetirlo",
+      "phon": "rré-pé-TIR-lo",
+      "native": "le répéter"
+     },
+     "study": "¿Puede repetirlo, por favor?",
+     "phon": "POUÉ-dé rré-pé-TIR-lo, por fa-BOR",
+     "native": "Pouvez-vous le répéter, s'il vous plaît ?"
+    },
+    {
+     "slot": {
+      "study": "decirme dónde está el banco",
+      "phon": "dé-SSIR-mé DON-dé és-TA él BAN-ko",
+      "native": "me dire où est la banque"
+     },
+     "study": "¿Puede decirme dónde está el banco, por favor?",
+     "phon": "POUÉ-dé dé-SSIR-mé DON-dé és-TA él BAN-ko, por fa-BOR",
+     "native": "Pouvez-vous me dire où est la banque, s'il vous plaît ?"
+    },
+    {
+     "slot": {
+      "study": "llamar a un taxi",
+      "phon": "ya-MAR a oun TAK-ssi",
+      "native": "appeler un taxi"
+     },
+     "study": "¿Puede llamar a un taxi, por favor?",
+     "phon": "POUÉ-dé ya-MAR a oun TAK-ssi, por fa-BOR",
+     "native": "Pouvez-vous appeler un taxi, s'il vous plaît ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-es-03",
+   "situation": "Question ouverte",
+   "model": {
+    "study": "¿Qué {s}?",
+    "phon": "ké {s}",
+    "native": "Qu'est-ce que {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "haces",
+      "phon": "A-ssés",
+      "native": "tu fais"
+     },
+     "study": "¿Qué haces?",
+     "phon": "ké A-ssés",
+     "native": "Qu'est-ce que tu fais ?"
+    },
+    {
+     "slot": {
+      "study": "quieres",
+      "phon": "KIÉ-rés",
+      "native": "tu veux"
+     },
+     "study": "¿Qué quieres?",
+     "phon": "ké KIÉ-rés",
+     "native": "Qu'est-ce que tu veux ?"
+    },
+    {
+     "slot": {
+      "study": "estudias",
+      "phon": "és-TOU-dias",
+      "native": "tu étudies"
+     },
+     "study": "¿Qué estudias?",
+     "phon": "ké és-TOU-dias",
+     "native": "Qu'est-ce que tu étudies ?"
+    },
+    {
+     "slot": {
+      "study": "recomienda",
+      "phon": "rré-ko-MIÉN-da",
+      "native": "vous recommandez"
+     },
+     "study": "¿Qué recomienda?",
+     "phon": "ké rré-ko-MIÉN-da",
+     "native": "Qu'est-ce que vous recommandez ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-es-04",
+   "situation": "Relancer",
+   "model": {
+    "study": "Yo {s}. ¿Y tú?",
+    "phon": "yo {s}. i TOU",
+    "native": "Moi, {s}. Et toi ?",
+    "note": "Avec usted : « ¿Y usted? » (i ous-TÉD)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "soy de Lyon",
+      "phon": "SOY dé LION",
+      "native": "je suis de Lyon"
+     },
+     "study": "Yo soy de Lyon. ¿Y tú?",
+     "phon": "yo SOY dé LION. i TOU",
+     "native": "Moi, je suis de Lyon. Et toi ?"
+    },
+    {
+     "slot": {
+      "study": "trabajo en un hospital",
+      "phon": "tra-BA-kho én oun os-pi-TAL",
+      "native": "je travaille dans un hôpital"
+     },
+     "study": "Yo trabajo en un hospital. ¿Y tú?",
+     "phon": "yo tra-BA-kho én oun os-pi-TAL. i TOU",
+     "native": "Moi, je travaille dans un hôpital. Et toi ?"
+    },
+    {
+     "slot": {
+      "study": "vivo aquí",
+      "phon": "BI-bo a-KI",
+      "native": "j'habite ici"
+     },
+     "study": "Yo vivo aquí. ¿Y tú?",
+     "phon": "yo BI-bo a-KI. i TOU",
+     "native": "Moi, j'habite ici. Et toi ?"
+    },
+    {
+     "slot": {
+      "study": "estudio español",
+      "phon": "és-TOU-dio és-pa-GNOL",
+      "native": "j'étudie l'espagnol"
+     },
+     "study": "Yo estudio español. ¿Y tú?",
+     "phon": "yo és-TOU-dio és-pa-GNOL. i TOU",
+     "native": "Moi, j'étudie l'espagnol. Et toi ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-es-05",
+   "situation": "Se dépanner",
+   "model": {
+    "study": "Perdona, no entiendo {s}.",
+    "phon": "pér-DO-na, no én-TIÉN-do {s}",
+    "native": "Pardon, je ne comprends pas {s}.",
+    "note": "« Perdona » (tú) ; « Perdone » (usted) avec un inconnu."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "esta palabra",
+      "phon": "ÉS-ta pa-LA-bra",
+      "native": "ce mot"
+     },
+     "study": "Perdona, no entiendo esta palabra.",
+     "phon": "pér-DO-na, no én-TIÉN-do ÉS-ta pa-LA-bra",
+     "native": "Pardon, je ne comprends pas ce mot."
+    },
+    {
+     "slot": {
+      "study": "la pregunta",
+      "phon": "la pré-GOUN-ta",
+      "native": "la question"
+     },
+     "study": "Perdona, no entiendo la pregunta.",
+     "phon": "pér-DO-na, no én-TIÉN-do la pré-GOUN-ta",
+     "native": "Pardon, je ne comprends pas la question."
+    },
+    {
+     "slot": {
+      "study": "bien",
+      "phon": "BIÉN",
+      "native": "bien"
+     },
+     "study": "Perdona, no entiendo bien.",
+     "phon": "pér-DO-na, no én-TIÉN-do BIÉN",
+     "native": "Pardon, je ne comprends pas bien."
+    },
+    {
+     "slot": {
+      "study": "el menú",
+      "phon": "él mé-NOU",
+      "native": "le menu"
+     },
+     "study": "Perdona, no entiendo el menú.",
+     "phon": "pér-DO-na, no én-TIÉN-do él mé-NOU",
+     "native": "Pardon, je ne comprends pas le menu."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-es-06",
+   "situation": "Proposer",
+   "model": {
+    "study": "¿{s}?",
+    "phon": "{s}",
+    "native": "On {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Tomamos un café",
+      "phon": "to-MA-mos oun ka-FÉ",
+      "native": "prend un café"
+     },
+     "study": "¿Tomamos un café?",
+     "phon": "to-MA-mos oun ka-FÉ",
+     "native": "On prend un café ?"
+    },
+    {
+     "slot": {
+      "study": "Comemos juntos",
+      "phon": "ko-MÉ-mos KHOUN-tos",
+      "native": "mange ensemble"
+     },
+     "study": "¿Comemos juntos?",
+     "phon": "ko-MÉ-mos KHOUN-tos",
+     "native": "On mange ensemble ?"
+    },
+    {
+     "slot": {
+      "study": "Vamos al cine",
+      "phon": "BA-mos al SSI-né",
+      "native": "va au cinéma"
+     },
+     "study": "¿Vamos al cine?",
+     "phon": "BA-mos al SSI-né",
+     "native": "On va au cinéma ?"
+    },
+    {
+     "slot": {
+      "study": "Quedamos mañana",
+      "phon": "ké-DA-mos ma-GNA-na",
+      "native": "se voit demain"
+     },
+     "study": "¿Quedamos mañana?",
+     "phon": "ké-DA-mos ma-GNA-na",
+     "native": "On se voit demain ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-es-07",
+   "situation": "Accepter ou refuser",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Réponses courtes à connaître telles quelles."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Sí, vale.",
+      "phon": "SI, BA-lé",
+      "native": "Oui, d'accord."
+     },
+     "study": "Sí, vale.",
+     "phon": "SI, BA-lé",
+     "native": "Oui, d'accord."
+    },
+    {
+     "slot": {
+      "study": "No, gracias.",
+      "phon": "no, GRA-ssias",
+      "native": "Non, merci."
+     },
+     "study": "No, gracias.",
+     "phon": "no, GRA-ssias",
+     "native": "Non, merci."
+    },
+    {
+     "slot": {
+      "study": "No sé.",
+      "phon": "no SSÉ",
+      "native": "Je ne sais pas."
+     },
+     "study": "No sé.",
+     "phon": "no SSÉ",
+     "native": "Je ne sais pas."
+    },
+    {
+     "slot": {
+      "study": "Lo siento, no puedo.",
+      "phon": "lo SSIÉN-to, no POUÉ-do",
+      "native": "Désolé, je ne peux pas."
+     },
+     "study": "Lo siento, no puedo.",
+     "phon": "lo SSIÉN-to, no POUÉ-do",
+     "native": "Désolé, je ne peux pas."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-es-08",
+   "situation": "Question fermée",
+   "model": {
+    "study": "¿Tienes {s}?",
+    "phon": "TIÉ-nés {s}",
+    "native": "Tu as {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "tiempo",
+      "phon": "TIÉM-po",
+      "native": "le temps"
+     },
+     "study": "¿Tienes tiempo?",
+     "phon": "TIÉ-nés TIÉM-po",
+     "native": "Tu as le temps ?"
+    },
+    {
+     "slot": {
+      "study": "hambre",
+      "phon": "AM-bré",
+      "native": "faim"
+     },
+     "study": "¿Tienes hambre?",
+     "phon": "TIÉ-nés AM-bré",
+     "native": "Tu as faim ?"
+    },
+    {
+     "slot": {
+      "study": "hermanos",
+      "phon": "ér-MA-nos",
+      "native": "des frères et sœurs"
+     },
+     "study": "¿Tienes hermanos?",
+     "phon": "TIÉ-nés ér-MA-nos",
+     "native": "Tu as des frères et sœurs ?"
+    },
+    {
+     "slot": {
+      "study": "coche",
+      "phon": "KO-tché",
+      "native": "une voiture"
+     },
+     "study": "¿Tienes coche?",
+     "phon": "TIÉ-nés KO-tché",
+     "native": "Tu as une voiture ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-es-09",
+   "situation": "Demander comment",
+   "model": {
+    "study": "¿Cómo {s}?",
+    "phon": "KO-mo {s}",
+    "native": "Comment {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "se dice esto en español",
+      "phon": "sé DI-ssé ÉS-to én és-pa-GNOL",
+      "native": "on dit ça en espagnol"
+     },
+     "study": "¿Cómo se dice esto en español?",
+     "phon": "KO-mo sé DI-ssé ÉS-to én és-pa-GNOL",
+     "native": "Comment on dit ça en espagnol ?"
+    },
+    {
+     "slot": {
+      "study": "se escribe",
+      "phon": "sé és-KRI-bé",
+      "native": "ça s'écrit"
+     },
+     "study": "¿Cómo se escribe?",
+     "phon": "KO-mo sé és-KRI-bé",
+     "native": "Comment ça s'écrit ?"
+    },
+    {
+     "slot": {
+      "study": "estás",
+      "phon": "és-TAS",
+      "native": "tu vas"
+     },
+     "study": "¿Cómo estás?",
+     "phon": "KO-mo és-TAS",
+     "native": "Comment tu vas ?"
+    },
+    {
+     "slot": {
+      "study": "se llega al centro",
+      "phon": "sé YÉ-ga al SSÉN-tro",
+      "native": "on va au centre"
+     },
+     "study": "¿Cómo se llega al centro?",
+     "phon": "KO-mo sé YÉ-ga al SSÉN-tro",
+     "native": "Comment on va au centre ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-es-10",
+   "situation": "Demander pourquoi",
+   "model": {
+    "study": "¿Por qué {s}?",
+    "phon": "por KÉ {s}",
+    "native": "Pourquoi {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "estudias español",
+      "phon": "és-TOU-dias és-pa-GNOL",
+      "native": "tu étudies l'espagnol"
+     },
+     "study": "¿Por qué estudias español?",
+     "phon": "por KÉ és-TOU-dias és-pa-GNOL",
+     "native": "Pourquoi tu étudies l'espagnol ?"
+    },
+    {
+     "slot": {
+      "study": "no vienes",
+      "phon": "no BIÉ-nés",
+      "native": "tu ne viens pas"
+     },
+     "study": "¿Por qué no vienes?",
+     "phon": "por KÉ no BIÉ-nés",
+     "native": "Pourquoi tu ne viens pas ?"
+    },
+    {
+     "slot": {
+      "study": "está cerrado",
+      "phon": "és-TA ssé-RRA-do",
+      "native": "c'est fermé"
+     },
+     "study": "¿Por qué está cerrado?",
+     "phon": "por KÉ és-TA ssé-RRA-do",
+     "native": "Pourquoi c'est fermé ?"
+    },
+    {
+     "slot": {
+      "study": "no",
+      "phon": "NO",
+      "native": "pas"
+     },
+     "study": "¿Por qué no?",
+     "phon": "por KÉ NO",
+     "native": "Pourquoi pas ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-es-11",
+   "situation": "Demander où",
+   "model": {
+    "study": "¿Dónde {s}?",
+    "phon": "DON-dé {s}",
+    "native": "Où {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "vives",
+      "phon": "BI-bés",
+      "native": "tu habites"
+     },
+     "study": "¿Dónde vives?",
+     "phon": "DON-dé BI-bés",
+     "native": "Où tu habites ?"
+    },
+    {
+     "slot": {
+      "study": "trabajas",
+      "phon": "tra-BA-khas",
+      "native": "tu travailles"
+     },
+     "study": "¿Dónde trabajas?",
+     "phon": "DON-dé tra-BA-khas",
+     "native": "Où tu travailles ?"
+    },
+    {
+     "slot": {
+      "study": "está el baño",
+      "phon": "és-TA él BA-gno",
+      "native": "sont les toilettes"
+     },
+     "study": "¿Dónde está el baño?",
+     "phon": "DON-dé és-TA él BA-gno",
+     "native": "Où sont les toilettes ?"
+    },
+    {
+     "slot": {
+      "study": "quedamos",
+      "phon": "ké-DA-mos",
+      "native": "est-ce qu'on se retrouve"
+     },
+     "study": "¿Dónde quedamos?",
+     "phon": "DON-dé ké-DA-mos",
+     "native": "Où est-ce qu'on se retrouve ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-es-12",
+   "situation": "Premier contact au travail",
+   "model": {
+    "study": "Hablo {s}.",
+    "phon": "A-blo {s}",
+    "native": "Je parle {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "francés",
+      "phon": "fran-SSÉS",
+      "native": "français"
+     },
+     "study": "Hablo francés.",
+     "phon": "A-blo fran-SSÉS",
+     "native": "Je parle français."
+    },
+    {
+     "slot": {
+      "study": "un poco de español",
+      "phon": "oun PO-ko dé és-pa-GNOL",
+      "native": "un peu espagnol"
+     },
+     "study": "Hablo un poco de español.",
+     "phon": "A-blo oun PO-ko dé és-pa-GNOL",
+     "native": "Je parle un peu espagnol."
+    },
+    {
+     "slot": {
+      "study": "inglés",
+      "phon": "in-GLÉS",
+      "native": "anglais"
+     },
+     "study": "Hablo inglés.",
+     "phon": "A-blo in-GLÉS",
+     "native": "Je parle anglais."
+    },
+    {
+     "slot": {
+      "study": "tres idiomas",
+      "phon": "trés i-DIO-mas",
+      "native": "trois langues"
+     },
+     "study": "Hablo tres idiomas.",
+     "phon": "A-blo trés i-DIO-mas",
+     "native": "Je parle trois langues."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L3-fr-es-d1",
+   "situation": "Premier jour au travail",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hola, soy Marta, la nueva.",
+     "phon": "O-la, SOY MAR-ta, la NOUÉ-ba",
+     "native": "Bonjour, je suis Marta, la nouvelle."
+    },
+    {
+     "speaker": "B",
+     "study": "Encantado, Marta. Yo soy Luis. ¿De dónde eres?",
+     "phon": "én-kan-TA-do, MAR-ta. yo SOY LOUIS. dé DON-dé É-rés",
+     "native": "Enchanté, Marta. Moi, c'est Luis. D'où es-tu ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Soy de Lyon. ¿Y tú?",
+     "phon": "SOY dé LION. i TOU",
+     "native": "Je suis de Lyon. Et toi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Soy de aquí, de Sevilla. ¿Qué haces en la empresa?",
+     "phon": "SOY dé a-KI, dé ssé-BI-ya. ké A-ssés én la ém-PRÉ-ssa",
+     "native": "Je suis d'ici, de Séville. Qu'est-ce que tu fais dans l'entreprise ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Trabajo en contabilidad. ¿Y tú?",
+     "phon": "tra-BA-kho én kon-ta-bi-li-DAD. i TOU",
+     "native": "Je travaille à la comptabilité. Et toi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Yo soy informático. ¿Tomamos un café?",
+     "phon": "yo SOY in-for-MA-ti-ko. to-MA-mos oun ka-FÉ",
+     "native": "Moi, je suis informaticien. On prend un café ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sí, vale. ¿Dónde?",
+     "phon": "SI, BA-lé. DON-dé",
+     "native": "Oui, d'accord. Où ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Abajo, hay una cafetería.",
+     "phon": "a-BA-kho, AY OU-na ka-fé-té-RI-a",
+     "native": "En bas, il y a une cafétéria."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L2-fr-es-06",
+    "L3-fr-es-03",
+    "L3-fr-es-04",
+    "L3-fr-es-06",
+    "L3-fr-es-07",
+    "L3-fr-es-11"
+   ]
+  },
+  {
+   "id": "L3-fr-es-d2",
+   "situation": "Au restaurant",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Perdone, ¿qué recomienda?",
+     "phon": "pér-DO-né, ké rré-ko-MIÉN-da",
+     "native": "Excusez-moi, qu'est-ce que vous recommandez ?"
+    },
+    {
+     "speaker": "B",
+     "study": "La paella, está muy buena.",
+     "phon": "la pa-É-ya, és-TA mouy BOUÉ-na",
+     "native": "La paella, elle est très bonne."
+    },
+    {
+     "speaker": "A",
+     "study": "Perdone, no entiendo. ¿Puede repetir?",
+     "phon": "pér-DO-né, no én-TIÉN-do. POUÉ-dé rré-pé-TIR",
+     "native": "Pardon, je ne comprends pas. Pouvez-vous répéter ?"
+    },
+    {
+     "speaker": "B",
+     "study": "La paella: arroz con pescado.",
+     "phon": "la pa-É-ya: a-RROSS kon pés-KA-do",
+     "native": "La paella : du riz avec du poisson."
+    },
+    {
+     "speaker": "A",
+     "study": "Ah, vale. ¿Tiene menú del día?",
+     "phon": "A, BA-lé. TIÉ-né mé-NOU dél DI-a",
+     "native": "Ah, d'accord. Vous avez un menu du jour ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sí, doce euros.",
+     "phon": "SI, DO-ssé É-ou-ros",
+     "native": "Oui, douze euros."
+    },
+    {
+     "speaker": "A",
+     "study": "Para mí, el menú, por favor.",
+     "phon": "PA-ra MI, él mé-NOU, por fa-BOR",
+     "native": "Pour moi, le menu, s'il vous plaît."
+    },
+    {
+     "speaker": "B",
+     "study": "Muy bien. ¿Y para beber?",
+     "phon": "mouy BIÉN. i PA-ra bé-BÉR",
+     "native": "Très bien. Et comme boisson ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Agua, gracias.",
+     "phon": "A-goua, GRA-ssias",
+     "native": "De l'eau, merci."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-es-09",
+    "L1-fr-es-11",
+    "L2-fr-es-03",
+    "L2-fr-es-09",
+    "L3-fr-es-03"
+   ]
+  },
+  {
+   "id": "L3-fr-es-d3",
+   "situation": "Une démarche simple",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buenos días. Necesito una tarjeta de transporte.",
+     "phon": "BOUÉ-nos DI-as. né-ssé-SSI-to OU-na tar-KHÉ-ta dé trans-POR-té",
+     "native": "Bonjour. J'ai besoin d'une carte de transport."
+    },
+    {
+     "speaker": "B",
+     "study": "¿Tiene una foto?",
+     "phon": "TIÉ-né OU-na FO-to",
+     "native": "Vous avez une photo ?"
+    },
+    {
+     "speaker": "A",
+     "study": "No. ¿Dónde hay una tienda de fotos?",
+     "phon": "NO. DON-dé AY OU-na TIÉN-da dé FO-tos",
+     "native": "Non. Où y a-t-il une boutique de photos ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Aquí al lado, a la izquierda.",
+     "phon": "a-KI al LA-do, a la iss-KIÉR-da",
+     "native": "Juste à côté, à gauche."
+    },
+    {
+     "speaker": "A",
+     "study": "¿Puede escribirlo, por favor?",
+     "phon": "POUÉ-dé és-kri-BIR-lo, por fa-BOR",
+     "native": "Pouvez-vous l'écrire, s'il vous plaît ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Claro. Aquí tiene.",
+     "phon": "KLA-ro. a-KI TIÉ-né",
+     "native": "Bien sûr. Voilà."
+    },
+    {
+     "speaker": "A",
+     "study": "Gracias. ¿Cuánto cuesta la tarjeta?",
+     "phon": "GRA-ssias. KOUAN-to KOUÉS-ta la tar-KHÉ-ta",
+     "native": "Merci. Combien coûte la carte ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Cinco euros.",
+     "phon": "SSIN-ko É-ou-ros",
+     "native": "Cinq euros."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-es-04",
+    "L1-fr-es-09",
+    "L1-fr-es-10",
+    "L2-fr-es-06",
+    "L3-fr-es-02",
+    "L3-fr-es-11"
+   ]
+  }
+ ],
+ "readiness": "Poser une question fermée ou ouverte (qué, cómo, por qué, dónde), y répondre, relancer avec « ¿Y tú? », demander un service en tú ou en usted, proposer une activité et accepter ou refuser poliment."
+}

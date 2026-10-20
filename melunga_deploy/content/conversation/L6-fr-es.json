@@ -1,0 +1,1020 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "es",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en espagnol",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; v→b, ll→y, j/ge/gi→KH, c/z→ss, que→ké). Variante à seseo et yeísmo. Ne remplace pas l'audio.",
+ "reviewStatus": "Généré par règles à partir de briques validées ; relecture par un hispanophone conseillée.",
+ "coverageClaim": null,
+ "level": 6,
+ "title": "Projets et propositions",
+ "goal": "Parler de projets, proposer et organiser une activité.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L6-fr-es-01",
+   "situation": "Dire ce qu'on va faire",
+   "model": {
+    "study": "Voy a {s}.",
+    "phon": "BOY a {s}",
+    "native": "Je vais {s}.",
+    "note": "« Voy a + infinitif » = futur proche ; ne pas confondre avec « Voy a + lieu » (L1)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "viajar a Italia en verano",
+      "phon": "bia-KHAR a i-TA-lia én bé-RA-no",
+      "native": "voyager en Italie cet été"
+     },
+     "study": "Voy a viajar a Italia en verano.",
+     "phon": "BOY a bia-KHAR a i-TA-lia én bé-RA-no",
+     "native": "Je vais voyager en Italie cet été."
+    },
+    {
+     "slot": {
+      "study": "cambiar de trabajo",
+      "phon": "kam-BIAR dé tra-BA-kho",
+      "native": "changer de travail"
+     },
+     "study": "Voy a cambiar de trabajo.",
+     "phon": "BOY a kam-BIAR dé tra-BA-kho",
+     "native": "Je vais changer de travail."
+    },
+    {
+     "slot": {
+      "study": "estudiar español este año",
+      "phon": "és-tou-DIAR és-pa-GNOL ÉS-té A-gno",
+      "native": "étudier l'espagnol cette année"
+     },
+     "study": "Voy a estudiar español este año.",
+     "phon": "BOY a és-tou-DIAR és-pa-GNOL ÉS-té A-gno",
+     "native": "Je vais étudier l'espagnol cette année."
+    },
+    {
+     "slot": {
+      "study": "hacer la compra esta tarde",
+      "phon": "a-SSÉR la KOM-pra ÉS-ta TAR-dé",
+      "native": "faire les courses cet après-midi"
+     },
+     "study": "Voy a hacer la compra esta tarde.",
+     "phon": "BOY a a-SSÉR la KOM-pra ÉS-ta TAR-dé",
+     "native": "Je vais faire les courses cet après-midi."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-es-02",
+   "situation": "Proposer une activité",
+   "model": {
+    "study": "¿Te apetece {s}?",
+    "phon": "té a-pé-TÉ-ssé {s}",
+    "native": "Ça te dit de {s} ?",
+    "note": "Avec usted : « ¿Le apetece… ? »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "ir al cine",
+      "phon": "IR al SSI-né",
+      "native": "aller au cinéma"
+     },
+     "study": "¿Te apetece ir al cine?",
+     "phon": "té a-pé-TÉ-ssé IR al SSI-né",
+     "native": "Ça te dit d'aller au cinéma ?"
+    },
+    {
+     "slot": {
+      "study": "cenar fuera",
+      "phon": "ssé-NAR FOUÉ-ra",
+      "native": "dîner dehors"
+     },
+     "study": "¿Te apetece cenar fuera?",
+     "phon": "té a-pé-TÉ-ssé ssé-NAR FOUÉ-ra",
+     "native": "Ça te dit de dîner dehors ?"
+    },
+    {
+     "slot": {
+      "study": "dar un paseo",
+      "phon": "dar oun pa-SSÉ-o",
+      "native": "faire une promenade"
+     },
+     "study": "¿Te apetece dar un paseo?",
+     "phon": "té a-pé-TÉ-ssé dar oun pa-SSÉ-o",
+     "native": "Ça te dit de faire une promenade ?"
+    },
+    {
+     "slot": {
+      "study": "tomar algo",
+      "phon": "to-MAR AL-go",
+      "native": "prendre un verre"
+     },
+     "study": "¿Te apetece tomar algo?",
+     "phon": "té a-pé-TÉ-ssé to-MAR AL-go",
+     "native": "Ça te dit de prendre un verre ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-es-03",
+   "situation": "Suggérer",
+   "model": {
+    "study": "¿Podríamos {s}?",
+    "phon": "po-DRI-a-mos {s}",
+    "native": "On pourrait {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "quedar el sábado",
+      "phon": "ké-DAR él SSA-ba-do",
+      "native": "se voir samedi"
+     },
+     "study": "¿Podríamos quedar el sábado?",
+     "phon": "po-DRI-a-mos ké-DAR él SSA-ba-do",
+     "native": "On pourrait se voir samedi ?"
+    },
+    {
+     "slot": {
+      "study": "cambiar la hora",
+      "phon": "kam-BIAR la O-ra",
+      "native": "changer l'heure"
+     },
+     "study": "¿Podríamos cambiar la hora?",
+     "phon": "po-DRI-a-mos kam-BIAR la O-ra",
+     "native": "On pourrait changer l'heure ?"
+    },
+    {
+     "slot": {
+      "study": "vernos en otro sitio",
+      "phon": "BÉR-nos én O-tro SSI-tio",
+      "native": "se voir ailleurs"
+     },
+     "study": "¿Podríamos vernos en otro sitio?",
+     "phon": "po-DRI-a-mos BÉR-nos én O-tro SSI-tio",
+     "native": "On pourrait se voir ailleurs ?"
+    },
+    {
+     "slot": {
+      "study": "hablar mañana",
+      "phon": "a-BLAR ma-GNA-na",
+      "native": "en parler demain"
+     },
+     "study": "¿Podríamos hablar mañana?",
+     "phon": "po-DRI-a-mos a-BLAR ma-GNA-na",
+     "native": "On pourrait en parler demain ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-es-04",
+   "situation": "Fixer un moment ou un lieu",
+   "model": {
+    "study": "Quedamos {s}.",
+    "phon": "ké-DA-mos {s}",
+    "native": "On se retrouve {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "el sábado a las diez",
+      "phon": "él SSA-ba-do a las DIÉSS",
+      "native": "samedi à dix heures"
+     },
+     "study": "Quedamos el sábado a las diez.",
+     "phon": "ké-DA-mos él SSA-ba-do a las DIÉSS",
+     "native": "On se retrouve samedi à dix heures."
+    },
+    {
+     "slot": {
+      "study": "delante de la estación",
+      "phon": "dé-LAN-té dé la és-ta-SSION",
+      "native": "devant la gare"
+     },
+     "study": "Quedamos delante de la estación.",
+     "phon": "ké-DA-mos dé-LAN-té dé la és-ta-SSION",
+     "native": "On se retrouve devant la gare."
+    },
+    {
+     "slot": {
+      "study": "en la puerta del cine",
+      "phon": "én la POUÉR-ta dél SSI-né",
+      "native": "à l'entrée du cinéma"
+     },
+     "study": "Quedamos en la puerta del cine.",
+     "phon": "ké-DA-mos én la POUÉR-ta dél SSI-né",
+     "native": "On se retrouve à l'entrée du cinéma."
+    },
+    {
+     "slot": {
+      "study": "el domingo por la tarde",
+      "phon": "él do-MIN-go por la TAR-dé",
+      "native": "dimanche après-midi"
+     },
+     "study": "Quedamos el domingo por la tarde.",
+     "phon": "ké-DA-mos él do-MIN-go por la TAR-dé",
+     "native": "On se retrouve dimanche après-midi."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-es-05",
+   "situation": "Refuser et proposer autre chose",
+   "model": {
+    "study": "No puedo, pero {s}.",
+    "phon": "no POUÉ-do, PÉ-ro {s}",
+    "native": "Je ne peux pas, mais {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "mañana sí",
+      "phon": "ma-GNA-na SI",
+      "native": "demain oui"
+     },
+     "study": "No puedo, pero mañana sí.",
+     "phon": "no POUÉ-do, PÉ-ro ma-GNA-na SI",
+     "native": "Je ne peux pas, mais demain oui."
+    },
+    {
+     "slot": {
+      "study": "podemos quedar el viernes",
+      "phon": "po-DÉ-mos ké-DAR él BIÉR-nés",
+      "native": "on peut se voir vendredi"
+     },
+     "study": "No puedo, pero podemos quedar el viernes.",
+     "phon": "no POUÉ-do, PÉ-ro po-DÉ-mos ké-DAR él BIÉR-nés",
+     "native": "Je ne peux pas, mais on peut se voir vendredi."
+    },
+    {
+     "slot": {
+      "study": "te llamo luego",
+      "phon": "té YA-mo LOUÉ-go",
+      "native": "je t'appelle plus tard"
+     },
+     "study": "No puedo, pero te llamo luego.",
+     "phon": "no POUÉ-do, PÉ-ro té YA-mo LOUÉ-go",
+     "native": "Je ne peux pas, mais je t'appelle plus tard."
+    },
+    {
+     "slot": {
+      "study": "otro día me apunto",
+      "phon": "O-tro DI-a mé a-POUN-to",
+      "native": "un autre jour je suis partant"
+     },
+     "study": "No puedo, pero otro día me apunto.",
+     "phon": "no POUÉ-do, PÉ-ro O-tro DI-a mé a-POUN-to",
+     "native": "Je ne peux pas, mais un autre jour je suis partant."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-es-06",
+   "situation": "Exprimer un souhait",
+   "model": {
+    "study": "Me gustaría {s}.",
+    "phon": "mé gous-ta-RI-a {s}",
+    "native": "J'aimerais {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "aprender a cocinar",
+      "phon": "a-prén-DÉR a ko-ssi-NAR",
+      "native": "apprendre à cuisiner"
+     },
+     "study": "Me gustaría aprender a cocinar.",
+     "phon": "mé gous-ta-RI-a a-prén-DÉR a ko-ssi-NAR",
+     "native": "J'aimerais apprendre à cuisiner."
+    },
+    {
+     "slot": {
+      "study": "visitar Granada",
+      "phon": "bi-ssi-TAR gra-NA-da",
+      "native": "visiter Grenade"
+     },
+     "study": "Me gustaría visitar Granada.",
+     "phon": "mé gous-ta-RI-a bi-ssi-TAR gra-NA-da",
+     "native": "J'aimerais visiter Grenade."
+    },
+    {
+     "slot": {
+      "study": "trabajar en el extranjero",
+      "phon": "tra-ba-KHAR én él éks-tran-KHÉ-ro",
+      "native": "travailler à l'étranger"
+     },
+     "study": "Me gustaría trabajar en el extranjero.",
+     "phon": "mé gous-ta-RI-a tra-ba-KHAR én él éks-tran-KHÉ-ro",
+     "native": "J'aimerais travailler à l'étranger."
+    },
+    {
+     "slot": {
+      "study": "tener más tiempo libre",
+      "phon": "té-NÉR mas TIÉM-po LI-bré",
+      "native": "avoir plus de temps libre"
+     },
+     "study": "Me gustaría tener más tiempo libre.",
+     "phon": "mé gous-ta-RI-a té-NÉR mas TIÉM-po LI-bré",
+     "native": "J'aimerais avoir plus de temps libre."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-es-07",
+   "situation": "Confirmer un rendez-vous",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Formules à connaître telles quelles."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Entonces, ¿quedamos así?",
+      "phon": "én-TON-ssés, ké-DA-mos a-SSI",
+      "native": "Alors, c'est entendu ?"
+     },
+     "study": "Entonces, ¿quedamos así?",
+     "phon": "én-TON-ssés, ké-DA-mos a-SSI",
+     "native": "Alors, c'est entendu ?"
+    },
+    {
+     "slot": {
+      "study": "Perfecto, nos vemos el sábado.",
+      "phon": "pér-FÉK-to, nos BÉ-mos él SSA-ba-do",
+      "native": "Parfait, on se voit samedi."
+     },
+     "study": "Perfecto, nos vemos el sábado.",
+     "phon": "pér-FÉK-to, nos BÉ-mos él SSA-ba-do",
+     "native": "Parfait, on se voit samedi."
+    },
+    {
+     "slot": {
+      "study": "Te confirmo esta noche.",
+      "phon": "té kon-FIR-mo ÉS-ta NO-tché",
+      "native": "Je te confirme ce soir."
+     },
+     "study": "Te confirmo esta noche.",
+     "phon": "té kon-FIR-mo ÉS-ta NO-tché",
+     "native": "Je te confirme ce soir."
+    },
+    {
+     "slot": {
+      "study": "¿Sigue en pie lo de mañana?",
+      "phon": "SSI-gué én PIÉ lo dé ma-GNA-na",
+      "native": "C'est toujours bon pour demain ?"
+     },
+     "study": "¿Sigue en pie lo de mañana?",
+     "phon": "SSI-gué én PIÉ lo dé ma-GNA-na",
+     "native": "C'est toujours bon pour demain ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-es-08",
+   "situation": "Accepter",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Réponses positives à connaître telles quelles."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "¡Vale, genial!",
+      "phon": "BA-lé, khé-NIAL",
+      "native": "D'accord, génial !"
+     },
+     "study": "¡Vale, genial!",
+     "phon": "BA-lé, khé-NIAL",
+     "native": "D'accord, génial !"
+    },
+    {
+     "slot": {
+      "study": "Me parece bien.",
+      "phon": "mé pa-RÉ-ssé BIÉN",
+      "native": "Ça me va."
+     },
+     "study": "Me parece bien.",
+     "phon": "mé pa-RÉ-ssé BIÉN",
+     "native": "Ça me va."
+    },
+    {
+     "slot": {
+      "study": "Sí, me apetece mucho.",
+      "phon": "SI, mé a-pé-TÉ-ssé MOU-tcho",
+      "native": "Oui, ça me dit beaucoup."
+     },
+     "study": "Sí, me apetece mucho.",
+     "phon": "SI, mé a-pé-TÉ-ssé MOU-tcho",
+     "native": "Oui, ça me dit beaucoup."
+    },
+    {
+     "slot": {
+      "study": "Buena idea.",
+      "phon": "BOUÉ-na i-DÉ-a",
+      "native": "Bonne idée."
+     },
+     "study": "Buena idea.",
+     "phon": "BOUÉ-na i-DÉ-a",
+     "native": "Bonne idée."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-es-09",
+   "situation": "Dire ce qu'on doit faire",
+   "model": {
+    "study": "Tengo que {s}.",
+    "phon": "TÉN-go ké {s}",
+    "native": "Je dois {s}.",
+    "note": "« coger » (prendre un transport) s'emploie en Espagne ; en Amérique latine on dit « tomar »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "trabajar el sábado",
+      "phon": "tra-ba-KHAR él SSA-ba-do",
+      "native": "travailler samedi"
+     },
+     "study": "Tengo que trabajar el sábado.",
+     "phon": "TÉN-go ké tra-ba-KHAR él SSA-ba-do",
+     "native": "Je dois travailler samedi."
+    },
+    {
+     "slot": {
+      "study": "ir al dentista",
+      "phon": "IR al dén-TIS-ta",
+      "native": "aller chez le dentiste"
+     },
+     "study": "Tengo que ir al dentista.",
+     "phon": "TÉN-go ké IR al dén-TIS-ta",
+     "native": "Je dois aller chez le dentiste."
+    },
+    {
+     "slot": {
+      "study": "coger el tren de las ocho",
+      "phon": "ko-KHÉR él TRÉN dé las O-tcho",
+      "native": "prendre le train de huit heures"
+     },
+     "study": "Tengo que coger el tren de las ocho.",
+     "phon": "TÉN-go ké ko-KHÉR él TRÉN dé las O-tcho",
+     "native": "Je dois prendre le train de huit heures."
+    },
+    {
+     "slot": {
+      "study": "terminar un informe",
+      "phon": "tér-mi-NAR oun in-FOR-mé",
+      "native": "finir un rapport"
+     },
+     "study": "Tengo que terminar un informe.",
+     "phon": "TÉN-go ké tér-mi-NAR oun in-FOR-mé",
+     "native": "Je dois finir un rapport."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-es-10",
+   "situation": "Transports",
+   "model": {
+    "study": "El tren sale {s}.",
+    "phon": "él TRÉN SSA-lé {s}",
+    "native": "Le train part {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a las nueve",
+      "phon": "a las NOUÉ-bé",
+      "native": "à neuf heures"
+     },
+     "study": "El tren sale a las nueve.",
+     "phon": "él TRÉN SSA-lé a las NOUÉ-bé",
+     "native": "Le train part à neuf heures."
+    },
+    {
+     "slot": {
+      "study": "dentro de diez minutos",
+      "phon": "DÉN-tro dé DIÉSS mi-NOU-tos",
+      "native": "dans dix minutes"
+     },
+     "study": "El tren sale dentro de diez minutos.",
+     "phon": "él TRÉN SSA-lé DÉN-tro dé DIÉSS mi-NOU-tos",
+     "native": "Le train part dans dix minutes."
+    },
+    {
+     "slot": {
+      "study": "del andén dos",
+      "phon": "dél an-DÉN DOS",
+      "native": "du quai deux"
+     },
+     "study": "El tren sale del andén dos.",
+     "phon": "él TRÉN SSA-lé dél an-DÉN DOS",
+     "native": "Le train part du quai deux."
+    },
+    {
+     "slot": {
+      "study": "mañana temprano",
+      "phon": "ma-GNA-na tém-PRA-no",
+      "native": "demain tôt"
+     },
+     "study": "El tren sale mañana temprano.",
+     "phon": "él TRÉN SSA-lé ma-GNA-na tém-PRA-no",
+     "native": "Le train part demain tôt."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-es-11",
+   "situation": "Demander les projets de l'autre",
+   "model": {
+    "study": "¿Qué vas a hacer {s}?",
+    "phon": "ké bas a a-SSÉR {s}",
+    "native": "Qu'est-ce que tu vas faire {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "este fin de semana",
+      "phon": "ÉS-té FIN dé ssé-MA-na",
+      "native": "ce week-end"
+     },
+     "study": "¿Qué vas a hacer este fin de semana?",
+     "phon": "ké bas a a-SSÉR ÉS-té FIN dé ssé-MA-na",
+     "native": "Qu'est-ce que tu vas faire ce week-end ?"
+    },
+    {
+     "slot": {
+      "study": "esta noche",
+      "phon": "ÉS-ta NO-tché",
+      "native": "ce soir"
+     },
+     "study": "¿Qué vas a hacer esta noche?",
+     "phon": "ké bas a a-SSÉR ÉS-ta NO-tché",
+     "native": "Qu'est-ce que tu vas faire ce soir ?"
+    },
+    {
+     "slot": {
+      "study": "en vacaciones",
+      "phon": "én ba-ka-SSIO-nés",
+      "native": "pendant les vacances"
+     },
+     "study": "¿Qué vas a hacer en vacaciones?",
+     "phon": "ké bas a a-SSÉR én ba-ka-SSIO-nés",
+     "native": "Qu'est-ce que tu vas faire pendant les vacances ?"
+    },
+    {
+     "slot": {
+      "study": "después del trabajo",
+      "phon": "dés-POUÉS dél tra-BA-kho",
+      "native": "après le travail"
+     },
+     "study": "¿Qué vas a hacer después del trabajo?",
+     "phon": "ké bas a a-SSÉR dés-POUÉS dél tra-BA-kho",
+     "native": "Qu'est-ce que tu vas faire après le travail ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-es-12",
+   "situation": "Au travail",
+   "model": {
+    "study": "La reunión es {s}.",
+    "phon": "la rré-ou-NION és {s}",
+    "native": "La réunion est {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "el lunes a las nueve",
+      "phon": "él LOU-nés a las NOUÉ-bé",
+      "native": "lundi à neuf heures"
+     },
+     "study": "La reunión es el lunes a las nueve.",
+     "phon": "la rré-ou-NION és él LOU-nés a las NOUÉ-bé",
+     "native": "La réunion est lundi à neuf heures."
+    },
+    {
+     "slot": {
+      "study": "en la sala grande",
+      "phon": "én la SSA-la GRAN-dé",
+      "native": "dans la grande salle"
+     },
+     "study": "La reunión es en la sala grande.",
+     "phon": "la rré-ou-NION és én la SSA-la GRAN-dé",
+     "native": "La réunion est dans la grande salle."
+    },
+    {
+     "slot": {
+      "study": "por videollamada",
+      "phon": "por bi-dé-o-ya-MA-da",
+      "native": "en visio"
+     },
+     "study": "La reunión es por videollamada.",
+     "phon": "la rré-ou-NION és por bi-dé-o-ya-MA-da",
+     "native": "La réunion est en visio."
+    },
+    {
+     "slot": {
+      "study": "la semana que viene",
+      "phon": "la ssé-MA-na ké BIÉ-né",
+      "native": "la semaine prochaine"
+     },
+     "study": "La reunión es la semana que viene.",
+     "phon": "la rré-ou-NION és la ssé-MA-na ké BIÉ-né",
+     "native": "La réunion est la semaine prochaine."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-es-13",
+   "situation": "Exprimer une intention",
+   "model": {
+    "study": "Pienso {s}.",
+    "phon": "PIÉN-sso {s}",
+    "native": "Je compte {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "quedarme en casa",
+      "phon": "ké-DAR-mé én KA-ssa",
+      "native": "rester à la maison"
+     },
+     "study": "Pienso quedarme en casa.",
+     "phon": "PIÉN-sso ké-DAR-mé én KA-ssa",
+     "native": "Je compte rester à la maison."
+    },
+    {
+     "slot": {
+      "study": "ir en coche",
+      "phon": "IR én KO-tché",
+      "native": "y aller en voiture"
+     },
+     "study": "Pienso ir en coche.",
+     "phon": "PIÉN-sso IR én KO-tché",
+     "native": "Je compte y aller en voiture."
+    },
+    {
+     "slot": {
+      "study": "invitar a Marta",
+      "phon": "in-bi-TAR a MAR-ta",
+      "native": "inviter Marta"
+     },
+     "study": "Pienso invitar a Marta.",
+     "phon": "PIÉN-sso in-bi-TAR a MAR-ta",
+     "native": "Je compte inviter Marta."
+    },
+    {
+     "slot": {
+      "study": "volver pronto",
+      "phon": "bol-BÉR PRON-to",
+      "native": "rentrer tôt"
+     },
+     "study": "Pienso volver pronto.",
+     "phon": "PIÉN-sso bol-BÉR PRON-to",
+     "native": "Je compte rentrer tôt."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L6-fr-es-d1",
+   "situation": "Organiser une sortie",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "¿Qué vas a hacer este fin de semana?",
+     "phon": "ké bas a a-SSÉR ÉS-té FIN dé ssé-MA-na",
+     "native": "Qu'est-ce que tu vas faire ce week-end ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Nada especial. ¿Por qué?",
+     "phon": "NA-da és-pé-SSIAL. por KÉ",
+     "native": "Rien de spécial. Pourquoi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "¿Te apetece ir al cine el sábado?",
+     "phon": "té a-pé-TÉ-ssé IR al SSI-né él SSA-ba-do",
+     "native": "Ça te dit d'aller au cinéma samedi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "El sábado no puedo, pero el domingo sí.",
+     "phon": "él SSA-ba-do no POUÉ-do, PÉ-ro él do-MIN-go SI",
+     "native": "Samedi je ne peux pas, mais dimanche oui."
+    },
+    {
+     "speaker": "A",
+     "study": "Vale. ¿Quedamos el domingo a las seis?",
+     "phon": "BA-lé. ké-DA-mos él do-MIN-go a las SSÉIS",
+     "native": "D'accord. On se retrouve dimanche à six heures ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Me parece bien. ¿Dónde?",
+     "phon": "mé pa-RÉ-ssé BIÉN. DON-dé",
+     "native": "Ça me va. Où ?"
+    },
+    {
+     "speaker": "A",
+     "study": "En la puerta del cine, en la plaza.",
+     "phon": "én la POUÉR-ta dél SSI-né, én la PLA-ssa",
+     "native": "À l'entrée du cinéma, sur la place."
+    },
+    {
+     "speaker": "B",
+     "study": "Perfecto. Te confirmo esta noche.",
+     "phon": "pér-FÉK-to. té kon-FIR-mo ÉS-ta NO-tché",
+     "native": "Parfait. Je te confirme ce soir."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L2-fr-es-06",
+    "L3-fr-es-03",
+    "L3-fr-es-10",
+    "L3-fr-es-11",
+    "L6-fr-es-02",
+    "L6-fr-es-04",
+    "L6-fr-es-05",
+    "L6-fr-es-07",
+    "L6-fr-es-08",
+    "L6-fr-es-11"
+   ]
+  },
+  {
+   "id": "L6-fr-es-d2",
+   "situation": "Déplacer une réunion",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hola, Luis. La reunión es el lunes a las nueve.",
+     "phon": "O-la, LOUIS. la rré-ou-NION és él LOU-nés a las NOUÉ-bé",
+     "native": "Salut, Luis. La réunion est lundi à neuf heures."
+    },
+    {
+     "speaker": "B",
+     "study": "El lunes tengo que ir al dentista. ¿Podríamos cambiar la hora?",
+     "phon": "él LOU-nés TÉN-go ké IR al dén-TIS-ta. po-DRI-a-mos kam-BIAR la O-ra",
+     "native": "Lundi je dois aller chez le dentiste. On pourrait changer l'heure ?"
+    },
+    {
+     "speaker": "A",
+     "study": "¿A las once?",
+     "phon": "a las ON-ssé",
+     "native": "À onze heures ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sí, a las once me va bien.",
+     "phon": "SI, a las ON-ssé mé ba BIÉN",
+     "native": "Oui, onze heures, ça me va."
+    },
+    {
+     "speaker": "A",
+     "study": "¿En la sala grande o por videollamada?",
+     "phon": "én la SSA-la GRAN-dé o por bi-dé-o-ya-MA-da",
+     "native": "Dans la grande salle ou en visio ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Por videollamada, voy a trabajar desde casa.",
+     "phon": "por bi-dé-o-ya-MA-da, BOY a tra-ba-KHAR DÉS-dé KA-ssa",
+     "native": "En visio, je vais travailler depuis chez moi."
+    },
+    {
+     "speaker": "A",
+     "study": "De acuerdo, te envío el enlace.",
+     "phon": "dé a-KOUÉR-do, té én-BI-o él én-LA-ssé",
+     "native": "D'accord, je t'envoie le lien."
+    },
+    {
+     "speaker": "B",
+     "study": "Gracias, hasta el lunes.",
+     "phon": "GRA-ssias, AS-ta él LOU-nés",
+     "native": "Merci, à lundi."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-es-07",
+    "L4-fr-es-04",
+    "L6-fr-es-01",
+    "L6-fr-es-03",
+    "L6-fr-es-09",
+    "L6-fr-es-12"
+   ]
+  },
+  {
+   "id": "L6-fr-es-d3",
+   "situation": "Acheter un billet de train",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Quiero viajar a Sevilla el viernes. ¿Qué tren hay?",
+     "phon": "KIÉ-ro bia-KHAR a ssé-BI-ya él BIÉR-nés. ké TRÉN AY",
+     "native": "Je veux aller à Séville vendredi. Quel train y a-t-il ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Hay uno a las ocho y otro a las diez y media.",
+     "phon": "AY OU-no a las O-tcho i O-tro a las DIÉSS i MÉ-dia",
+     "native": "Il y en a un à huit heures et un autre à dix heures et demie."
+    },
+    {
+     "speaker": "A",
+     "study": "Prefiero el de las ocho. ¿De qué andén sale?",
+     "phon": "pré-FIÉ-ro él dé las O-tcho. dé ké an-DÉN SSA-lé",
+     "native": "Je préfère celui de huit heures. De quel quai part-il ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Del andén tres. ¿Ida y vuelta?",
+     "phon": "dél an-DÉN TRÉS. I-da i BOUÉL-ta",
+     "native": "Du quai trois. Aller-retour ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sí, voy a volver el domingo por la tarde.",
+     "phon": "SI, BOY a bol-BÉR él do-MIN-go por la TAR-dé",
+     "native": "Oui, je vais rentrer dimanche après-midi."
+    },
+    {
+     "speaker": "B",
+     "study": "¿A qué hora le gustaría volver?",
+     "phon": "a ké O-ra lé gous-ta-RI-a bol-BÉR",
+     "native": "À quelle heure aimeriez-vous rentrer ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sobre las seis.",
+     "phon": "SSO-bré las SSÉIS",
+     "native": "Vers six heures."
+    },
+    {
+     "speaker": "B",
+     "study": "Hay uno a las seis y cuarto. Son ochenta euros.",
+     "phon": "AY OU-no a las SSÉIS i KOUAR-to. son o-TCHÉN-ta É-ou-ros",
+     "native": "Il y en a un à six heures et quart. Ça fait quatre-vingts euros."
+    },
+    {
+     "speaker": "A",
+     "study": "Perfecto. Aquí tiene.",
+     "phon": "pér-FÉK-to. a-KI TIÉ-né",
+     "native": "Parfait. Voilà."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-es-03",
+    "L2-fr-es-05",
+    "L2-fr-es-06",
+    "L2-fr-es-08",
+    "L3-fr-es-03",
+    "L6-fr-es-01"
+   ]
+  }
+ ],
+ "readiness": "Parler de ses projets (voy a, pienso, me gustaría, tengo que), proposer une activité, fixer ou déplacer un moment et un lieu, accepter, refuser avec une alternative et confirmer un rendez-vous."
+}

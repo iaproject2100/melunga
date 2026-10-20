@@ -1,0 +1,939 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "en",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en anglais",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; th→z/th, h aspiré noté h, -ing→-ing). Anglais britannique standard. Ne remplace pas l'audio.",
+ "reviewStatus": "Rédigé à la main ; relecture par un anglophone conseillée.",
+ "coverageClaim": null,
+ "level": 2,
+ "title": "Préciser",
+ "goal": "Préciser une quantité, une préférence, un lieu ou un moment.",
+ "reviewPreviousLevels": [
+  1
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L2-fr-en-01",
+   "situation": "Au café",
+   "model": {
+    "study": "I'd like {s}, please.",
+    "phon": "aïd LAÏK {s}, PLIZ",
+    "native": "Je voudrais {s}, s'il vous plaît."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "two coffees",
+      "phon": "TOU KO-fiz",
+      "native": "deux cafés"
+     },
+     "study": "I'd like two coffees, please.",
+     "phon": "aïd LAÏK TOU KO-fiz, PLIZ",
+     "native": "Je voudrais deux cafés, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "some water",
+      "phon": "seum WO-teur",
+      "native": "un peu d'eau"
+     },
+     "study": "I'd like some water, please.",
+     "phon": "aïd LAÏK seum WO-teur, PLIZ",
+     "native": "Je voudrais un peu d'eau, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "a little milk",
+      "phon": "eu LI-teul MILK",
+      "native": "un peu de lait"
+     },
+     "study": "I'd like a little milk, please.",
+     "phon": "aïd LAÏK eu LI-teul MILK, PLIZ",
+     "native": "Je voudrais un peu de lait, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "the bill",
+      "phon": "ze BIL",
+      "native": "l'addition"
+     },
+     "study": "I'd like the bill, please.",
+     "phon": "aïd LAÏK ze BIL, PLIZ",
+     "native": "Je voudrais l'addition, s'il vous plaît."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-en-02",
+   "situation": "Au restaurant",
+   "model": {
+    "study": "A table for {s}, please.",
+    "phon": "eu TÉÏ-beul for {s}, PLIZ",
+    "native": "Une table pour {s}, s'il vous plaît."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "two",
+      "phon": "TOU",
+      "native": "deux"
+     },
+     "study": "A table for two, please.",
+     "phon": "eu TÉÏ-beul for TOU, PLIZ",
+     "native": "Une table pour deux, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "three",
+      "phon": "THRI",
+      "native": "trois"
+     },
+     "study": "A table for three, please.",
+     "phon": "eu TÉÏ-beul for THRI, PLIZ",
+     "native": "Une table pour trois, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "four",
+      "phon": "FOR",
+      "native": "quatre"
+     },
+     "study": "A table for four, please.",
+     "phon": "eu TÉÏ-beul for FOR, PLIZ",
+     "native": "Une table pour quatre, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "one",
+      "phon": "OUANN",
+      "native": "une personne"
+     },
+     "study": "A table for one, please.",
+     "phon": "eu TÉÏ-beul for OUANN, PLIZ",
+     "native": "Une table pour une personne, s'il vous plaît."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-en-03",
+   "situation": "Situer un lieu",
+   "model": {
+    "study": "It's {s}.",
+    "phon": "its {s}",
+    "native": "C'est {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "here",
+      "phon": "HIR",
+      "native": "ici"
+     },
+     "study": "It's here.",
+     "phon": "its HIR",
+     "native": "C'est ici."
+    },
+    {
+     "slot": {
+      "study": "over there",
+      "phon": "Ô-veur ZÈR",
+      "native": "là-bas"
+     },
+     "study": "It's over there.",
+     "phon": "its Ô-veur ZÈR",
+     "native": "C'est là-bas."
+    },
+    {
+     "slot": {
+      "study": "near the station",
+      "phon": "NIR ze STÉÏ-cheun",
+      "native": "près de la gare"
+     },
+     "study": "It's near the station.",
+     "phon": "its NIR ze STÉÏ-cheun",
+     "native": "C'est près de la gare."
+    },
+    {
+     "slot": {
+      "study": "on the left",
+      "phon": "onn ze LÈFT",
+      "native": "à gauche"
+     },
+     "study": "It's on the left.",
+     "phon": "its onn ze LÈFT",
+     "native": "C'est à gauche."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-en-04",
+   "situation": "Fixer un moment",
+   "model": {
+    "study": "Let's meet {s}.",
+    "phon": "lèts MIT {s}",
+    "native": "On se retrouve {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "at eight",
+      "phon": "at ÉÏT",
+      "native": "à huit heures"
+     },
+     "study": "Let's meet at eight.",
+     "phon": "lèts MIT at ÉÏT",
+     "native": "On se retrouve à huit heures."
+    },
+    {
+     "slot": {
+      "study": "tonight",
+      "phon": "tou-NAÏT",
+      "native": "ce soir"
+     },
+     "study": "Let's meet tonight.",
+     "phon": "lèts MIT tou-NAÏT",
+     "native": "On se retrouve ce soir."
+    },
+    {
+     "slot": {
+      "study": "tomorrow",
+      "phon": "tou-MO-rô",
+      "native": "demain"
+     },
+     "study": "Let's meet tomorrow.",
+     "phon": "lèts MIT tou-MO-rô",
+     "native": "On se retrouve demain."
+    },
+    {
+     "slot": {
+      "study": "at noon",
+      "phon": "at NOUN",
+      "native": "à midi"
+     },
+     "study": "Let's meet at noon.",
+     "phon": "lèts MIT at NOUN",
+     "native": "On se retrouve à midi."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-en-05",
+   "situation": "Préférence",
+   "model": {
+    "study": "I prefer {s}.",
+    "phon": "aï pri-FEUR {s}",
+    "native": "Je préfère {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "tea",
+      "phon": "TI",
+      "native": "le thé"
+     },
+     "study": "I prefer tea.",
+     "phon": "aï pri-FEUR TI",
+     "native": "Je préfère le thé."
+    },
+    {
+     "slot": {
+      "study": "the window seat",
+      "phon": "ze OUINN-dô SIT",
+      "native": "la place côté fenêtre"
+     },
+     "study": "I prefer the window seat.",
+     "phon": "aï pri-FEUR ze OUINN-dô SIT",
+     "native": "Je préfère la place côté fenêtre."
+    },
+    {
+     "slot": {
+      "study": "the blue one",
+      "phon": "ze BLOU ouann",
+      "native": "le bleu"
+     },
+     "study": "I prefer the blue one.",
+     "phon": "aï pri-FEUR ze BLOU ouann",
+     "native": "Je préfère le bleu."
+    },
+    {
+     "slot": {
+      "study": "the morning train",
+      "phon": "ze MOR-ning TRÉÏN",
+      "native": "le train du matin"
+     },
+     "study": "I prefer the morning train.",
+     "phon": "aï pri-FEUR ze MOR-ning TRÉÏN",
+     "native": "Je préfère le train du matin."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-en-06",
+   "situation": "Demander lequel",
+   "model": {
+    "study": "Which {s}?",
+    "phon": "OUITCH {s}",
+    "native": "Quel {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "one",
+      "phon": "OUANN",
+      "native": "lequel"
+     },
+     "study": "Which one?",
+     "phon": "OUITCH OUANN",
+     "native": "Lequel ?"
+    },
+    {
+     "slot": {
+      "study": "train",
+      "phon": "TRÉÏN",
+      "native": "train"
+     },
+     "study": "Which train?",
+     "phon": "OUITCH TRÉÏN",
+     "native": "Quel train ?"
+    },
+    {
+     "slot": {
+      "study": "day",
+      "phon": "DÉÏ",
+      "native": "jour"
+     },
+     "study": "Which day?",
+     "phon": "OUITCH DÉÏ",
+     "native": "Quel jour ?"
+    },
+    {
+     "slot": {
+      "study": "size",
+      "phon": "SAÏZ",
+      "native": "taille"
+     },
+     "study": "Which size?",
+     "phon": "OUITCH SAÏZ",
+     "native": "Quelle taille ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-en-07",
+   "situation": "Demander quand",
+   "model": {
+    "study": "When is {s}?",
+    "phon": "OUÈN iz {s}",
+    "native": "C'est quand, {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "the train",
+      "phon": "ze TRÉÏN",
+      "native": "le train"
+     },
+     "study": "When is the train?",
+     "phon": "OUÈN iz ze TRÉÏN",
+     "native": "C'est quand, le train ?"
+    },
+    {
+     "slot": {
+      "study": "the meeting",
+      "phon": "ze MI-ting",
+      "native": "la réunion"
+     },
+     "study": "When is the meeting?",
+     "phon": "OUÈN iz ze MI-ting",
+     "native": "C'est quand, la réunion ?"
+    },
+    {
+     "slot": {
+      "study": "breakfast",
+      "phon": "BRÈK-feust",
+      "native": "le petit-déjeuner"
+     },
+     "study": "When is breakfast?",
+     "phon": "OUÈN iz BRÈK-feust",
+     "native": "C'est quand, le petit-déjeuner ?"
+    },
+    {
+     "slot": {
+      "study": "the next bus",
+      "phon": "ze NÈKST BEUSS",
+      "native": "le prochain bus"
+     },
+     "study": "When is the next bus?",
+     "phon": "OUÈN iz ze NÈKST BEUSS",
+     "native": "C'est quand, le prochain bus ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-en-08",
+   "situation": "Demander où",
+   "model": {
+    "study": "Where can I {s}?",
+    "phon": "OUÈR kann aï {s}",
+    "native": "Où est-ce que je peux {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "buy a ticket",
+      "phon": "BAÏ eu TI-kit",
+      "native": "acheter un billet"
+     },
+     "study": "Where can I buy a ticket?",
+     "phon": "OUÈR kann aï BAÏ eu TI-kit",
+     "native": "Où est-ce que je peux acheter un billet ?"
+    },
+    {
+     "slot": {
+      "study": "pay",
+      "phon": "PÉÏ",
+      "native": "payer"
+     },
+     "study": "Where can I pay?",
+     "phon": "OUÈR kann aï PÉÏ",
+     "native": "Où est-ce que je peux payer ?"
+    },
+    {
+     "slot": {
+      "study": "find a taxi",
+      "phon": "FAÏND eu TAK-si",
+      "native": "trouver un taxi"
+     },
+     "study": "Where can I find a taxi?",
+     "phon": "OUÈR kann aï FAÏND eu TAK-si",
+     "native": "Où est-ce que je peux trouver un taxi ?"
+    },
+    {
+     "slot": {
+      "study": "get the bus",
+      "phon": "GÈT ze BEUSS",
+      "native": "prendre le bus"
+     },
+     "study": "Where can I get the bus?",
+     "phon": "OUÈR kann aï GÈT ze BEUSS",
+     "native": "Où est-ce que je peux prendre le bus ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-en-09",
+   "situation": "Il y a… ?",
+   "model": {
+    "study": "Is there {s}?",
+    "phon": "iz ZÈR {s}",
+    "native": "Il y a {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a pharmacy near here",
+      "phon": "eu FAR-meu-si NIR HIR",
+      "native": "une pharmacie près d'ici"
+     },
+     "study": "Is there a pharmacy near here?",
+     "phon": "iz ZÈR eu FAR-meu-si NIR HIR",
+     "native": "Il y a une pharmacie près d'ici ?"
+    },
+    {
+     "slot": {
+      "study": "a bus to the airport",
+      "phon": "eu BEUSS tou zi ÈR-port",
+      "native": "un bus pour l'aéroport"
+     },
+     "study": "Is there a bus to the airport?",
+     "phon": "iz ZÈR eu BEUSS tou zi ÈR-port",
+     "native": "Il y a un bus pour l'aéroport ?"
+    },
+    {
+     "slot": {
+      "study": "a free table",
+      "phon": "eu FRI TÉÏ-beul",
+      "native": "une table libre"
+     },
+     "study": "Is there a free table?",
+     "phon": "iz ZÈR eu FRI TÉÏ-beul",
+     "native": "Il y a une table libre ?"
+    },
+    {
+     "slot": {
+      "study": "wifi here",
+      "phon": "OUAÏ-faï HIR",
+      "native": "du wifi ici"
+     },
+     "study": "Is there wifi here?",
+     "phon": "iz ZÈR OUAÏ-faï HIR",
+     "native": "Il y a du wifi ici ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-en-10",
+   "situation": "Quantité",
+   "model": {
+    "study": "Just {s}, please.",
+    "phon": "DJEUST {s}, PLIZ",
+    "native": "Juste {s}, s'il vous plaît."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a little",
+      "phon": "eu LI-teul",
+      "native": "un peu"
+     },
+     "study": "Just a little, please.",
+     "phon": "DJEUST eu LI-teul, PLIZ",
+     "native": "Juste un peu, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "one",
+      "phon": "OUANN",
+      "native": "un"
+     },
+     "study": "Just one, please.",
+     "phon": "DJEUST OUANN, PLIZ",
+     "native": "Juste un, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "two",
+      "phon": "TOU",
+      "native": "deux"
+     },
+     "study": "Just two, please.",
+     "phon": "DJEUST TOU, PLIZ",
+     "native": "Juste deux, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "a bit more",
+      "phon": "eu bit MOR",
+      "native": "un peu plus"
+     },
+     "study": "Just a bit more, please.",
+     "phon": "DJEUST eu bit MOR, PLIZ",
+     "native": "Juste un peu plus, s'il vous plaît."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-en-11",
+   "situation": "Achats",
+   "model": {
+    "study": "Do you have {s}?",
+    "phon": "dou you HAV {s}",
+    "native": "Vous avez {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a bigger size",
+      "phon": "eu BI-gueur SAÏZ",
+      "native": "une taille au-dessus"
+     },
+     "study": "Do you have a bigger size?",
+     "phon": "dou you HAV eu BI-gueur SAÏZ",
+     "native": "Vous avez une taille au-dessus ?"
+    },
+    {
+     "slot": {
+      "study": "this in red",
+      "phon": "ZISS inn RÈD",
+      "native": "ça en rouge"
+     },
+     "study": "Do you have this in red?",
+     "phon": "dou you HAV ZISS inn RÈD",
+     "native": "Vous avez ça en rouge ?"
+    },
+    {
+     "slot": {
+      "study": "a smaller one",
+      "phon": "eu SMO-leur ouann",
+      "native": "un plus petit"
+     },
+     "study": "Do you have a smaller one?",
+     "phon": "dou you HAV eu SMO-leur ouann",
+     "native": "Vous avez un plus petit ?"
+    },
+    {
+     "slot": {
+      "study": "a bag",
+      "phon": "eu BAG",
+      "native": "un sac"
+     },
+     "study": "Do you have a bag?",
+     "phon": "dou you HAV eu BAG",
+     "native": "Vous avez un sac ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-en-12",
+   "situation": "À la gare",
+   "model": {
+    "study": "Which platform for {s}?",
+    "phon": "OUITCH PLAT-form for {s}",
+    "native": "Quel quai pour {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "London",
+      "phon": "LEUN-deun",
+      "native": "Londres"
+     },
+     "study": "Which platform for London?",
+     "phon": "OUITCH PLAT-form for LEUN-deun",
+     "native": "Quel quai pour Londres ?"
+    },
+    {
+     "slot": {
+      "study": "the airport",
+      "phon": "zi ÈR-port",
+      "native": "l'aéroport"
+     },
+     "study": "Which platform for the airport?",
+     "phon": "OUITCH PLAT-form for zi ÈR-port",
+     "native": "Quel quai pour l'aéroport ?"
+    },
+    {
+     "slot": {
+      "study": "the nine o'clock train",
+      "phon": "ze NAÏN eu-KLOK TRÉÏN",
+      "native": "le train de neuf heures"
+     },
+     "study": "Which platform for the nine o'clock train?",
+     "phon": "OUITCH PLAT-form for ze NAÏN eu-KLOK TRÉÏN",
+     "native": "Quel quai pour le train de neuf heures ?"
+    },
+    {
+     "slot": {
+      "study": "Brighton",
+      "phon": "BRAÏ-teun",
+      "native": "Brighton"
+     },
+     "study": "Which platform for Brighton?",
+     "phon": "OUITCH PLAT-form for BRAÏ-teun",
+     "native": "Quel quai pour Brighton ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L2-fr-en-d1",
+   "situation": "Au café",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hello! A table for two, please.",
+     "phon": "hè-LÔ. eu TÉÏ-beul for TOU, PLIZ",
+     "native": "Bonjour ! Une table pour deux, s'il vous plaît."
+    },
+    {
+     "speaker": "B",
+     "study": "Of course. Here or over there?",
+     "phon": "ov KORSS. HIR or Ô-veur ZÈR",
+     "native": "Bien sûr. Ici ou là-bas ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Over there, near the window.",
+     "phon": "Ô-veur ZÈR, NIR ze OUINN-dô",
+     "native": "Là-bas, près de la fenêtre."
+    },
+    {
+     "speaker": "B",
+     "study": "What would you like?",
+     "phon": "ouot would you LAÏK",
+     "native": "Vous désirez ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Two coffees and some water, please.",
+     "phon": "TOU KO-fiz and seum WO-teur, PLIZ",
+     "native": "Deux cafés et un peu d'eau, s'il vous plaît."
+    },
+    {
+     "speaker": "B",
+     "study": "With milk?",
+     "phon": "ouiz MILK",
+     "native": "Avec du lait ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Just a little, please.",
+     "phon": "DJEUST eu LI-teul, PLIZ",
+     "native": "Juste un peu, s'il vous plaît."
+    },
+    {
+     "speaker": "B",
+     "study": "Right away.",
+     "phon": "raït eu-OUÉÏ",
+     "native": "Tout de suite."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-en-09",
+    "L2-fr-en-02",
+    "L2-fr-en-10"
+   ]
+  },
+  {
+   "id": "L2-fr-en-d2",
+   "situation": "Au magasin",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Excuse me, do you have this in blue?",
+     "phon": "ék-SKYOUZ mi, dou you HAV ZISS inn BLOU",
+     "native": "Excusez-moi, vous avez ça en bleu ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Yes. Which size?",
+     "phon": "YÈS. OUITCH SAÏZ",
+     "native": "Oui. Quelle taille ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Medium, please.",
+     "phon": "MI-di-eum, PLIZ",
+     "native": "Medium, s'il vous plaît."
+    },
+    {
+     "speaker": "B",
+     "study": "Here you are.",
+     "phon": "HIR you AR",
+     "native": "Voilà."
+    },
+    {
+     "speaker": "A",
+     "study": "How much is it?",
+     "phon": "HAÔ MEUTCH iz it",
+     "native": "Combien ça coûte ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Twenty pounds.",
+     "phon": "TOUÈN-ti PAÔNDZ",
+     "native": "Vingt livres."
+    },
+    {
+     "speaker": "A",
+     "study": "I prefer the blue one. I'll take it.",
+     "phon": "aï pri-FEUR ze BLOU ouann. aïl TÉÏK it",
+     "native": "Je préfère le bleu. Je le prends."
+    },
+    {
+     "speaker": "B",
+     "study": "Thank you. Cash or card?",
+     "phon": "THANK you. KACH or KARD",
+     "native": "Merci. Espèces ou carte ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Card, please.",
+     "phon": "KARD, PLIZ",
+     "native": "Carte, s'il vous plaît."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-en-09",
+    "L1-fr-en-10",
+    "L2-fr-en-05",
+    "L2-fr-en-06",
+    "L2-fr-en-11"
+   ]
+  },
+  {
+   "id": "L2-fr-en-d3",
+   "situation": "Fixer un rendez-vous",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hello, Paul. Are you free tomorrow?",
+     "phon": "hè-LÔ, POL. ar you FRI tou-MO-rô",
+     "native": "Salut, Paul. Tu es libre demain ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Yes. When?",
+     "phon": "YÈS. OUÈN",
+     "native": "Oui. Quand ?"
+    },
+    {
+     "speaker": "A",
+     "study": "At eight, for dinner?",
+     "phon": "at ÉÏT, for DI-neur",
+     "native": "À huit heures, pour dîner ?"
+    },
+    {
+     "speaker": "B",
+     "study": "I prefer seven. Where?",
+     "phon": "aï pri-FEUR SÈ-veun. OUÈR",
+     "native": "Je préfère sept heures. Où ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Near the station. Is there a good restaurant?",
+     "phon": "NIR ze STÉÏ-cheun. iz ZÈR eu goud RÈS-treunt",
+     "native": "Près de la gare. Il y a un bon restaurant ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Yes, an Italian one, just over there.",
+     "phon": "YÈS, eun i-TA-li-eun ouann, DJEUST Ô-veur ZÈR",
+     "native": "Oui, un italien, juste là-bas."
+    },
+    {
+     "speaker": "A",
+     "study": "Perfect. Seven o'clock, then.",
+     "phon": "PEUR-fikt. SÈ-veun eu-KLOK, ZÈN",
+     "native": "Parfait. Sept heures, alors."
+    },
+    {
+     "speaker": "B",
+     "study": "See you tomorrow!",
+     "phon": "SI you tou-MO-rô",
+     "native": "À demain !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L2-fr-en-05",
+    "L2-fr-en-09"
+   ]
+  }
+ ],
+ "readiness": "L'apprenant précise une quantité, un lieu, un moment et une préférence simples ; il demande « lequel, quand, où » et comprend les réponses courtes dans un café, un magasin ou une gare."
+}

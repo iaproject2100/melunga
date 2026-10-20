@@ -1,0 +1,1081 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "ja",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en japonais",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle",
+  "reading": "lecture en hiragana"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).",
+ "reviewStatus": "Relecture linguistique requise (naturel des tournures, lectures des kanji).",
+ "coverageClaim": null,
+ "level": 5,
+ "title": "Raconter",
+ "goal": "Raconter un événement passé et demander des nouvelles.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L5-fr-ja-01",
+   "situation": "Raconter : hier…",
+   "model": {
+    "study": "昨日{s}。",
+    "reading": "きのう{s}。",
+    "phon": "ki-no-o {s}",
+    "native": "Hier, {s}.",
+    "note": "Passé poli : ました (positif), ませんでした (négatif)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "映画を見ました",
+      "reading": "えいがをみました",
+      "phon": "é-i-ga o mi-ma-chi-ta",
+      "native": "j'ai vu un film"
+     },
+     "study": "昨日映画を見ました。",
+     "phon": "ki-no-o é-i-ga o mi-ma-chi-ta",
+     "native": "Hier, j'ai vu un film.",
+     "reading": "きのうえいがをみました。"
+    },
+    {
+     "slot": {
+      "study": "友達と食事をしました",
+      "reading": "ともだちとしょくじをしました",
+      "phon": "to-mo-da-tchi to cho-kou-dji o chi-ma-chi-ta",
+      "native": "j'ai dîné avec des amis"
+     },
+     "study": "昨日友達と食事をしました。",
+     "phon": "ki-no-o to-mo-da-tchi to cho-kou-dji o chi-ma-chi-ta",
+     "native": "Hier, j'ai dîné avec des amis.",
+     "reading": "きのうともだちとしょくじをしました。"
+    },
+    {
+     "slot": {
+      "study": "家で休みました",
+      "reading": "いえでやすみました",
+      "phon": "i-é dé ya-sou-mi-ma-chi-ta",
+      "native": "je me suis reposé à la maison"
+     },
+     "study": "昨日家で休みました。",
+     "phon": "ki-no-o i-é dé ya-sou-mi-ma-chi-ta",
+     "native": "Hier, je me suis reposé à la maison.",
+     "reading": "きのういえでやすみました。"
+    },
+    {
+     "slot": {
+      "study": "買い物をしました",
+      "reading": "かいものをしました",
+      "phon": "ka-i-mo-no o chi-ma-chi-ta",
+      "native": "j'ai fait des courses"
+     },
+     "study": "昨日買い物をしました。",
+     "phon": "ki-no-o ka-i-mo-no o chi-ma-chi-ta",
+     "native": "Hier, j'ai fait des courses.",
+     "reading": "きのうかいものをしました。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-ja-02",
+   "situation": "Dire où l'on est allé",
+   "model": {
+    "study": "{s}に行きました。",
+    "reading": "{s}にいきました。",
+    "phon": "{s} ni i-ki-ma-chi-ta",
+    "native": "Je suis allé {s}.",
+    "note": "allé / allée selon la personne qui parle ; le japonais ne marque pas le genre."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "京都",
+      "reading": "きょうと",
+      "phon": "kyo-o-to",
+      "native": "à Kyoto"
+     },
+     "study": "京都に行きました。",
+     "phon": "kyo-o-to ni i-ki-ma-chi-ta",
+     "native": "Je suis allé à Kyoto.",
+     "reading": "きょうとにいきました。"
+    },
+    {
+     "slot": {
+      "study": "海",
+      "reading": "うみ",
+      "phon": "ou-mi",
+      "native": "à la mer"
+     },
+     "study": "海に行きました。",
+     "phon": "ou-mi ni i-ki-ma-chi-ta",
+     "native": "Je suis allé à la mer.",
+     "reading": "うみにいきました。"
+    },
+    {
+     "slot": {
+      "study": "美術館",
+      "reading": "びじゅつかん",
+      "phon": "bi-djou-tsou-kan",
+      "native": "au musée"
+     },
+     "study": "美術館に行きました。",
+     "phon": "bi-djou-tsou-kan ni i-ki-ma-chi-ta",
+     "native": "Je suis allé au musée.",
+     "reading": "びじゅつかんにいきました。"
+    },
+    {
+     "slot": {
+      "study": "コンサート",
+      "reading": "こんさーと",
+      "phon": "kon-sa-a-to",
+      "native": "à un concert"
+     },
+     "study": "コンサートに行きました。",
+     "phon": "kon-sa-a-to ni i-ki-ma-chi-ta",
+     "native": "Je suis allé à un concert.",
+     "reading": "こんさーとにいきました。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-ja-03",
+   "situation": "Situer dans le passé",
+   "model": {
+    "study": "{s}日本に来ました。",
+    "reading": "{s}にほんにきました。",
+    "phon": "{s} ni-hon ni ki-ma-chi-ta",
+    "native": "Je suis arrivé au Japon {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "先週",
+      "reading": "せんしゅう",
+      "phon": "sén-chou-ou",
+      "native": "la semaine dernière"
+     },
+     "study": "先週日本に来ました。",
+     "phon": "sén-chou-ou ni-hon ni ki-ma-chi-ta",
+     "native": "Je suis arrivé au Japon la semaine dernière.",
+     "reading": "せんしゅうにほんにきました。"
+    },
+    {
+     "slot": {
+      "study": "二日前に",
+      "reading": "ふつかまえに",
+      "phon": "fou-tsou-ka ma-é ni",
+      "native": "il y a deux jours"
+     },
+     "study": "二日前に日本に来ました。",
+     "phon": "fou-tsou-ka ma-é ni ni-hon ni ki-ma-chi-ta",
+     "native": "Je suis arrivé au Japon il y a deux jours.",
+     "reading": "ふつかまえににほんにきました。"
+    },
+    {
+     "slot": {
+      "study": "先月",
+      "reading": "せんげつ",
+      "phon": "sén-gé-tsou",
+      "native": "le mois dernier"
+     },
+     "study": "先月日本に来ました。",
+     "phon": "sén-gé-tsou ni-hon ni ki-ma-chi-ta",
+     "native": "Je suis arrivé au Japon le mois dernier.",
+     "reading": "せんげつにほんにきました。"
+    },
+    {
+     "slot": {
+      "study": "去年",
+      "reading": "きょねん",
+      "phon": "kyo-nén",
+      "native": "l'année dernière"
+     },
+     "study": "去年日本に来ました。",
+     "phon": "kyo-nén ni-hon ni ki-ma-chi-ta",
+     "native": "Je suis arrivé au Japon l'année dernière.",
+     "reading": "きょねんにほんにきました。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-ja-04",
+   "situation": "Demander et donner des nouvelles",
+   "model": {
+    "study": "{s}",
+    "reading": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Formules entières. On répond 元気です puis on relance avec le nom + さん (マリーさんは？)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "元気ですか。",
+      "reading": "げんきですか。",
+      "phon": "gén-ki dé-sou ka",
+      "native": "Comment allez-vous ?"
+     },
+     "study": "元気ですか。",
+     "phon": "gén-ki dé-sou ka",
+     "native": "Comment allez-vous ?",
+     "reading": "げんきですか。"
+    },
+    {
+     "slot": {
+      "study": "最近どうですか。",
+      "reading": "さいきんどうですか。",
+      "phon": "sa-i-kin do-o dé-sou ka",
+      "native": "Quoi de neuf, ces derniers temps ?"
+     },
+     "study": "最近どうですか。",
+     "phon": "sa-i-kin do-o dé-sou ka",
+     "native": "Quoi de neuf, ces derniers temps ?",
+     "reading": "さいきんどうですか。"
+    },
+    {
+     "slot": {
+      "study": "元気です。",
+      "reading": "げんきです。",
+      "phon": "gén-ki dé-sou",
+      "native": "Je vais bien."
+     },
+     "study": "元気です。",
+     "phon": "gén-ki dé-sou",
+     "native": "Je vais bien.",
+     "reading": "げんきです。"
+    },
+    {
+     "slot": {
+      "study": "まあまあです。",
+      "reading": "まあまあです。",
+      "phon": "ma-a-ma-a dé-sou",
+      "native": "Comme ci, comme ça."
+     },
+     "study": "まあまあです。",
+     "phon": "ma-a-ma-a dé-sou",
+     "native": "Comme ci, comme ça.",
+     "reading": "まあまあです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-ja-05",
+   "situation": "Réagir à ce qu'on entend",
+   "model": {
+    "study": "{s}",
+    "reading": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Formules entières. ね en fin de phrase cherche l'accord de l'autre : il adoucit la réaction."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "いいですね！",
+      "reading": "いいですね！",
+      "phon": "i-i dé-sou né",
+      "native": "C'est super !"
+     },
+     "study": "いいですね！",
+     "phon": "i-i dé-sou né",
+     "native": "C'est super !",
+     "reading": "いいですね！"
+    },
+    {
+     "slot": {
+      "study": "残念ですね。",
+      "reading": "ざんねんですね。",
+      "phon": "zan-nén dé-sou né",
+      "native": "Dommage."
+     },
+     "study": "残念ですね。",
+     "phon": "zan-nén dé-sou né",
+     "native": "Dommage.",
+     "reading": "ざんねんですね。"
+    },
+    {
+     "slot": {
+      "study": "本当ですか。",
+      "reading": "ほんとうですか。",
+      "phon": "hon-to-o dé-sou ka",
+      "native": "Vraiment ?"
+     },
+     "study": "本当ですか。",
+     "phon": "hon-to-o dé-sou ka",
+     "native": "Vraiment ?",
+     "reading": "ほんとうですか。"
+    },
+    {
+     "slot": {
+      "study": "大変でしたね。",
+      "reading": "たいへんでしたね。",
+      "phon": "ta-i-hén dé-chi-ta né",
+      "native": "Ça a dû être dur."
+     },
+     "study": "大変でしたね。",
+     "phon": "ta-i-hén dé-chi-ta né",
+     "native": "Ça a dû être dur.",
+     "reading": "たいへんでしたね。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-ja-06",
+   "situation": "Enchaîner : d'abord…, puis…",
+   "model": {
+    "study": "まず{s}、それから家に帰りました。",
+    "reading": "まず{s}、それからいえにかえりました。",
+    "phon": "ma-zou {s}, so-ré-ka-ra i-é ni ka-é-ri-ma-chi-ta",
+    "native": "D'abord {s}, puis je suis rentré à la maison.",
+    "note": "Forme en て pour enchaîner deux actions. 帰ります = rentrer chez soi (différent de 行きます)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "買い物をして",
+      "reading": "かいものをして",
+      "phon": "ka-i-mo-no o chi-té",
+      "native": "j'ai fait des courses"
+     },
+     "study": "まず買い物をして、それから家に帰りました。",
+     "phon": "ma-zou ka-i-mo-no o chi-té, so-ré-ka-ra i-é ni ka-é-ri-ma-chi-ta",
+     "native": "D'abord j'ai fait des courses, puis je suis rentré à la maison.",
+     "reading": "まずかいものをして、それからいえにかえりました。"
+    },
+    {
+     "slot": {
+      "study": "友達に会って",
+      "reading": "ともだちにあって",
+      "phon": "to-mo-da-tchi ni at-té",
+      "native": "j'ai vu un ami"
+     },
+     "study": "まず友達に会って、それから家に帰りました。",
+     "phon": "ma-zou to-mo-da-tchi ni at-té, so-ré-ka-ra i-é ni ka-é-ri-ma-chi-ta",
+     "native": "D'abord j'ai vu un ami, puis je suis rentré à la maison.",
+     "reading": "まずともだちにあって、それからいえにかえりました。"
+    },
+    {
+     "slot": {
+      "study": "公園を散歩して",
+      "reading": "こうえんをさんぽして",
+      "phon": "ko-o-én o san-po chi-té",
+      "native": "je me suis promené dans le parc"
+     },
+     "study": "まず公園を散歩して、それから家に帰りました。",
+     "phon": "ma-zou ko-o-én o san-po chi-té, so-ré-ka-ra i-é ni ka-é-ri-ma-chi-ta",
+     "native": "D'abord je me suis promené dans le parc, puis je suis rentré à la maison.",
+     "reading": "まずこうえんをさんぽして、それからいえにかえりました。"
+    },
+    {
+     "slot": {
+      "study": "昼ご飯を食べて",
+      "reading": "ひるごはんをたべて",
+      "phon": "hi-rou-go-han o ta-bé-té",
+      "native": "j'ai déjeuné"
+     },
+     "study": "まず昼ご飯を食べて、それから家に帰りました。",
+     "phon": "ma-zou hi-rou-go-han o ta-bé-té, so-ré-ka-ra i-é ni ka-é-ri-ma-chi-ta",
+     "native": "D'abord j'ai déjeuné, puis je suis rentré à la maison.",
+     "reading": "まずひるごはんをたべて、それからいえにかえりました。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-ja-07",
+   "situation": "Enchaîner : après…",
+   "model": {
+    "study": "その後、{s}。",
+    "reading": "そのあと、{s}。",
+    "phon": "so-no a-to, {s}",
+    "native": "Après, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "映画を見ました",
+      "reading": "えいがをみました",
+      "phon": "é-i-ga o mi-ma-chi-ta",
+      "native": "j'ai vu un film"
+     },
+     "study": "その後、映画を見ました。",
+     "phon": "so-no a-to, é-i-ga o mi-ma-chi-ta",
+     "native": "Après, j'ai vu un film.",
+     "reading": "そのあと、えいがをみました。"
+    },
+    {
+     "slot": {
+      "study": "寝ました",
+      "reading": "ねました",
+      "phon": "né-ma-chi-ta",
+      "native": "je me suis couché"
+     },
+     "study": "その後、寝ました。",
+     "phon": "so-no a-to, né-ma-chi-ta",
+     "native": "Après, je me suis couché.",
+     "reading": "そのあと、ねました。"
+    },
+    {
+     "slot": {
+      "study": "温泉に入りました",
+      "reading": "おんせんにはいりました",
+      "phon": "on-sén ni ha-i-ri-ma-chi-ta",
+      "native": "je suis allé aux bains chauds"
+     },
+     "study": "その後、温泉に入りました。",
+     "phon": "so-no a-to, on-sén ni ha-i-ri-ma-chi-ta",
+     "native": "Après, je suis allé aux bains chauds.",
+     "reading": "そのあと、おんせんにはいりました。"
+    },
+    {
+     "slot": {
+      "study": "電車で帰りました",
+      "reading": "でんしゃでかえりました",
+      "phon": "dén-cha dé ka-é-ri-ma-chi-ta",
+      "native": "je suis rentré en train"
+     },
+     "study": "その後、電車で帰りました。",
+     "phon": "so-no a-to, dén-cha dé ka-é-ri-ma-chi-ta",
+     "native": "Après, je suis rentré en train.",
+     "reading": "そのあと、でんしゃでかえりました。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-ja-08",
+   "situation": "Le week-end dernier",
+   "model": {
+    "study": "週末は{s}。",
+    "reading": "しゅうまつは{s}。",
+    "phon": "chou-ou-ma-tsou wa {s}",
+    "native": "Ce week-end, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "何もしませんでした",
+      "reading": "なにもしませんでした",
+      "phon": "na-ni mo chi-ma-sén dé-chi-ta",
+      "native": "je n'ai rien fait"
+     },
+     "study": "週末は何もしませんでした。",
+     "phon": "chou-ou-ma-tsou wa na-ni mo chi-ma-sén dé-chi-ta",
+     "native": "Ce week-end, je n'ai rien fait.",
+     "reading": "しゅうまつはなにもしませんでした。"
+    },
+    {
+     "slot": {
+      "study": "山に登りました",
+      "reading": "やまにのぼりました",
+      "phon": "ya-ma ni no-bo-ri-ma-chi-ta",
+      "native": "j'ai fait une randonnée en montagne"
+     },
+     "study": "週末は山に登りました。",
+     "phon": "chou-ou-ma-tsou wa ya-ma ni no-bo-ri-ma-chi-ta",
+     "native": "Ce week-end, j'ai fait une randonnée en montagne.",
+     "reading": "しゅうまつはやまにのぼりました。"
+    },
+    {
+     "slot": {
+      "study": "家族と過ごしました",
+      "reading": "かぞくとすごしました",
+      "phon": "ka-zo-kou to sou-go-chi-ma-chi-ta",
+      "native": "j'ai passé du temps en famille"
+     },
+     "study": "週末は家族と過ごしました。",
+     "phon": "chou-ou-ma-tsou wa ka-zo-kou to sou-go-chi-ma-chi-ta",
+     "native": "Ce week-end, j'ai passé du temps en famille.",
+     "reading": "しゅうまつはかぞくとすごしました。"
+    },
+    {
+     "slot": {
+      "study": "仕事をしました",
+      "reading": "しごとをしました",
+      "phon": "chi-go-to o chi-ma-chi-ta",
+      "native": "j'ai travaillé"
+     },
+     "study": "週末は仕事をしました。",
+     "phon": "chou-ou-ma-tsou wa chi-go-to o chi-ma-chi-ta",
+     "native": "Ce week-end, j'ai travaillé.",
+     "reading": "しゅうまつはしごとをしました。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-ja-09",
+   "situation": "Demander ce que l'autre a fait",
+   "model": {
+    "study": "{s}は何をしましたか。",
+    "reading": "{s}はなにをしましたか。",
+    "phon": "{s} wa na-ni o chi-ma-chi-ta ka",
+    "native": "Qu'avez-vous fait {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "昨日",
+      "reading": "きのう",
+      "phon": "ki-no-o",
+      "native": "hier"
+     },
+     "study": "昨日は何をしましたか。",
+     "phon": "ki-no-o wa na-ni o chi-ma-chi-ta ka",
+     "native": "Qu'avez-vous fait hier ?",
+     "reading": "きのうはなにをしましたか。"
+    },
+    {
+     "slot": {
+      "study": "週末",
+      "reading": "しゅうまつ",
+      "phon": "chou-ou-ma-tsou",
+      "native": "ce week-end"
+     },
+     "study": "週末は何をしましたか。",
+     "phon": "chou-ou-ma-tsou wa na-ni o chi-ma-chi-ta ka",
+     "native": "Qu'avez-vous fait ce week-end ?",
+     "reading": "しゅうまつはなにをしましたか。"
+    },
+    {
+     "slot": {
+      "study": "休みに",
+      "reading": "やすみに",
+      "phon": "ya-sou-mi ni",
+      "native": "pendant les vacances"
+     },
+     "study": "休みには何をしましたか。",
+     "phon": "ya-sou-mi ni wa na-ni o chi-ma-chi-ta ka",
+     "native": "Qu'avez-vous fait pendant les vacances ?",
+     "reading": "やすみにはなにをしましたか。"
+    },
+    {
+     "slot": {
+      "study": "誕生日に",
+      "reading": "たんじょうびに",
+      "phon": "tan-djo-o-bi ni",
+      "native": "pour votre anniversaire"
+     },
+     "study": "誕生日には何をしましたか。",
+     "phon": "tan-djo-o-bi ni wa na-ni o chi-ma-chi-ta ka",
+     "native": "Qu'avez-vous fait pour votre anniversaire ?",
+     "reading": "たんじょうびにはなにをしましたか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-ja-10",
+   "situation": "Demander comment c'était",
+   "model": {
+    "study": "{s}はどうでしたか。",
+    "reading": "{s}はどうでしたか。",
+    "phon": "{s} wa do-o dé-chi-ta ka",
+    "native": "Comment était {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "旅行",
+      "reading": "りょこう",
+      "phon": "ryo-ko-o",
+      "native": "le voyage"
+     },
+     "study": "旅行はどうでしたか。",
+     "phon": "ryo-ko-o wa do-o dé-chi-ta ka",
+     "native": "Comment était le voyage ?",
+     "reading": "りょこうはどうでしたか。"
+    },
+    {
+     "slot": {
+      "study": "映画",
+      "reading": "えいが",
+      "phon": "é-i-ga",
+      "native": "le film"
+     },
+     "study": "映画はどうでしたか。",
+     "phon": "é-i-ga wa do-o dé-chi-ta ka",
+     "native": "Comment était le film ?",
+     "reading": "えいがはどうでしたか。"
+    },
+    {
+     "slot": {
+      "study": "試験",
+      "reading": "しけん",
+      "phon": "chi-kén",
+      "native": "l'examen"
+     },
+     "study": "試験はどうでしたか。",
+     "phon": "chi-kén wa do-o dé-chi-ta ka",
+     "native": "Comment était l'examen ?",
+     "reading": "しけんはどうでしたか。"
+    },
+    {
+     "slot": {
+      "study": "週末",
+      "reading": "しゅうまつ",
+      "phon": "chou-ou-ma-tsou",
+      "native": "le week-end"
+     },
+     "study": "週末はどうでしたか。",
+     "phon": "chou-ou-ma-tsou wa do-o dé-chi-ta ka",
+     "native": "Comment était le week-end ?",
+     "reading": "しゅうまつはどうでしたか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-ja-11",
+   "situation": "Dire comment c'était",
+   "model": {
+    "study": "{s}かったです。",
+    "reading": "{s}かったです。",
+    "phon": "{s}-kat-ta dé-sou",
+    "native": "C'était {s}.",
+    "note": "Adjectif en い au passé : on remplace い par かった, puis です (jamais でした après かった)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "楽し",
+      "reading": "たのし",
+      "phon": "ta-no-chi",
+      "native": "amusant"
+     },
+     "study": "楽しかったです。",
+     "phon": "ta-no-chi-kat-ta dé-sou",
+     "native": "C'était amusant.",
+     "reading": "たのしかったです。"
+    },
+    {
+     "slot": {
+      "study": "面白",
+      "reading": "おもしろ",
+      "phon": "o-mo-chi-ro",
+      "native": "intéressant"
+     },
+     "study": "面白かったです。",
+     "phon": "o-mo-chi-ro-kat-ta dé-sou",
+     "native": "C'était intéressant.",
+     "reading": "おもしろかったです。"
+    },
+    {
+     "slot": {
+      "study": "おいし",
+      "reading": "おいし",
+      "phon": "o-i-chi",
+      "native": "bon"
+     },
+     "study": "おいしかったです。",
+     "phon": "o-i-chi-kat-ta dé-sou",
+     "native": "C'était bon.",
+     "reading": "おいしかったです。"
+    },
+    {
+     "slot": {
+      "study": "寒",
+      "reading": "さむ",
+      "phon": "sa-mou",
+      "native": "froid"
+     },
+     "study": "寒かったです。",
+     "phon": "sa-mou-kat-ta dé-sou",
+     "native": "Il faisait froid.",
+     "reading": "さむかったです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-ja-12",
+   "situation": "Dire qui on a vu",
+   "model": {
+    "study": "{s}に会いました。",
+    "reading": "{s}にあいました。",
+    "phon": "{s} ni a-i-ma-chi-ta",
+    "native": "J'ai vu {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "友達",
+      "reading": "ともだち",
+      "phon": "to-mo-da-tchi",
+      "native": "un ami"
+     },
+     "study": "友達に会いました。",
+     "phon": "to-mo-da-tchi ni a-i-ma-chi-ta",
+     "native": "J'ai vu un ami.",
+     "reading": "ともだちにあいました。"
+    },
+    {
+     "slot": {
+      "study": "家族",
+      "reading": "かぞく",
+      "phon": "ka-zo-kou",
+      "native": "ma famille"
+     },
+     "study": "家族に会いました。",
+     "phon": "ka-zo-kou ni a-i-ma-chi-ta",
+     "native": "J'ai vu ma famille.",
+     "reading": "かぞくにあいました。"
+    },
+    {
+     "slot": {
+      "study": "昔の同僚",
+      "reading": "むかしのどうりょう",
+      "phon": "mou-ka-chi no do-o-ryo-o",
+      "native": "un ancien collègue"
+     },
+     "study": "昔の同僚に会いました。",
+     "phon": "mou-ka-chi no do-o-ryo-o ni a-i-ma-chi-ta",
+     "native": "J'ai vu un ancien collègue.",
+     "reading": "むかしのどうりょうにあいました。"
+    },
+    {
+     "slot": {
+      "study": "先生",
+      "reading": "せんせい",
+      "phon": "sén-sé-i",
+      "native": "mon professeur"
+     },
+     "study": "先生に会いました。",
+     "phon": "sén-sé-i ni a-i-ma-chi-ta",
+     "native": "J'ai vu mon professeur.",
+     "reading": "せんせいにあいました。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L5-fr-ja-d1",
+   "situation": "Retrouvailles",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "ポールさん、お久しぶりです。元気ですか。",
+     "reading": "ぽーるさん、おひさしぶりです。げんきですか。",
+     "phon": "po-o-rou-san, o-hi-sa-chi-bou-ri dé-sou. gén-ki dé-sou ka",
+     "native": "Paul, ça fait longtemps ! Comment allez-vous ?"
+    },
+    {
+     "speaker": "B",
+     "study": "お久しぶりです。元気です。マリーさんは？",
+     "reading": "おひさしぶりです。げんきです。まりーさんは？",
+     "phon": "o-hi-sa-chi-bou-ri dé-sou. gén-ki dé-sou. ma-ri-i-san wa",
+     "native": "Ça fait longtemps ! Je vais bien. Et vous, Marie ?"
+    },
+    {
+     "speaker": "A",
+     "study": "元気です。最近どうですか。",
+     "reading": "げんきです。さいきんどうですか。",
+     "phon": "gén-ki dé-sou. sa-i-kin do-o dé-sou ka",
+     "native": "Je vais bien. Quoi de neuf, ces derniers temps ?"
+    },
+    {
+     "speaker": "B",
+     "study": "先週、京都に行きました。",
+     "reading": "せんしゅう、きょうとにいきました。",
+     "phon": "sén-chou-ou, kyo-o-to ni i-ki-ma-chi-ta",
+     "native": "La semaine dernière, je suis allé à Kyoto."
+    },
+    {
+     "speaker": "A",
+     "study": "本当ですか。どうでしたか。",
+     "reading": "ほんとうですか。どうでしたか。",
+     "phon": "hon-to-o dé-sou ka. do-o dé-chi-ta ka",
+     "native": "Vraiment ? C'était comment ?"
+    },
+    {
+     "speaker": "B",
+     "study": "とても良かったです。お寺を見て、それから温泉に入りました。",
+     "reading": "とてもよかったです。おてらをみて、それからおんせんにはいりました。",
+     "phon": "to-té-mo yo-kat-ta dé-sou. o-té-ra o mi-té, so-ré-ka-ra on-sén ni ha-i-ri-ma-chi-ta",
+     "native": "C'était très bien. J'ai vu des temples, puis je suis allé aux bains chauds."
+    },
+    {
+     "speaker": "A",
+     "study": "いいですね！私は週末、何もしませんでした。",
+     "reading": "いいですね！わたしはしゅうまつ、なにもしませんでした。",
+     "phon": "i-i dé-sou né. wa-ta-chi wa chou-ou-ma-tsou, na-ni mo chi-ma-sén dé-chi-ta",
+     "native": "C'est super ! Moi, ce week-end, je n'ai rien fait."
+    },
+    {
+     "speaker": "B",
+     "study": "残念ですね。でも、休みも大切ですよ。",
+     "reading": "ざんねんですね。でも、やすみもたいせつですよ。",
+     "phon": "zan-nén dé-sou né. dé-mo, ya-sou-mi mo ta-i-sé-tsou dé-sou yo",
+     "native": "Dommage. Mais le repos aussi, c'est important."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-ja-01",
+    "L3-fr-ja-03",
+    "L5-fr-ja-02",
+    "L5-fr-ja-04",
+    "L5-fr-ja-05",
+    "L5-fr-ja-11"
+   ]
+  },
+  {
+   "id": "L5-fr-ja-d2",
+   "situation": "Le week-end",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "田中さん、週末は何をしましたか。",
+     "reading": "たなかさん、しゅうまつはなにをしましたか。",
+     "phon": "ta-na-ka-san, chou-ou-ma-tsou wa na-ni o chi-ma-chi-ta ka",
+     "native": "Monsieur Tanaka, qu'avez-vous fait ce week-end ?"
+    },
+    {
+     "speaker": "B",
+     "study": "土曜日は買い物をしました。日曜日は家族と山に登りました。",
+     "reading": "どようびはかいものをしました。にちようびはかぞくとやまにのぼりました。",
+     "phon": "do-yo-o-bi wa ka-i-mo-no o chi-ma-chi-ta. ni-tchi-yo-o-bi wa ka-zo-kou to ya-ma ni no-bo-ri-ma-chi-ta",
+     "native": "Samedi, j'ai fait des courses. Dimanche, j'ai fait une randonnée en montagne avec ma famille."
+    },
+    {
+     "speaker": "A",
+     "study": "山ですか。大変でしたね。",
+     "reading": "やまですか。たいへんでしたね。",
+     "phon": "ya-ma dé-sou ka. ta-i-hén dé-chi-ta né",
+     "native": "En montagne ? Ça a dû être dur."
+    },
+    {
+     "speaker": "B",
+     "study": "いいえ、楽しかったです。天気も良かったです。",
+     "reading": "いいえ、たのしかったです。てんきもよかったです。",
+     "phon": "i-i-é, ta-no-chi-kat-ta dé-sou. tén-ki mo yo-kat-ta dé-sou",
+     "native": "Non, c'était amusant. Il faisait beau, en plus."
+    },
+    {
+     "speaker": "A",
+     "study": "私は昨日、友達と映画を見ました。",
+     "reading": "わたしはきのう、ともだちとえいがをみました。",
+     "phon": "wa-ta-chi wa ki-no-o, to-mo-da-tchi to é-i-ga o mi-ma-chi-ta",
+     "native": "Moi, hier, j'ai vu un film avec des amis."
+    },
+    {
+     "speaker": "B",
+     "study": "何の映画ですか。",
+     "reading": "なんのえいがですか。",
+     "phon": "nan no é-i-ga dé-sou ka",
+     "native": "Quel film ?"
+    },
+    {
+     "speaker": "A",
+     "study": "日本の映画です。少し難しかったですが、面白かったです。",
+     "reading": "にほんのえいがです。すこしむずかしかったですが、おもしろかったです。",
+     "phon": "ni-hon no é-i-ga dé-sou. sou-ko-chi mou-zou-ka-chi-kat-ta dé-sou ga, o-mo-chi-ro-kat-ta dé-sou",
+     "native": "Un film japonais. C'était un peu difficile, mais intéressant."
+    },
+    {
+     "speaker": "B",
+     "study": "いいですね。今度私も見ます。",
+     "reading": "いいですね。こんどわたしもみます。",
+     "phon": "i-i dé-sou né. kon-do wa-ta-chi mo mi-ma-sou",
+     "native": "C'est bien. Je le verrai aussi, un de ces jours."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L3-fr-ja-02",
+    "L5-fr-ja-01",
+    "L5-fr-ja-05",
+    "L5-fr-ja-08",
+    "L5-fr-ja-09",
+    "L5-fr-ja-11"
+   ]
+  },
+  {
+   "id": "L5-fr-ja-d3",
+   "situation": "Lundi matin au travail",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "おはようございます。",
+     "reading": "おはようございます。",
+     "phon": "o-ha-yo-o go-za-i-ma-sou",
+     "native": "Bonjour."
+    },
+    {
+     "speaker": "B",
+     "study": "おはようございます。マリーさん、昨日は遅くまで働きましたか。",
+     "reading": "おはようございます。まりーさん、きのうはおそくまではたらきましたか。",
+     "phon": "o-ha-yo-o go-za-i-ma-sou. ma-ri-i-san, ki-no-o wa o-so-kou ma-dé ha-ta-ra-ki-ma-chi-ta ka",
+     "native": "Bonjour. Marie, vous avez travaillé tard hier ?"
+    },
+    {
+     "speaker": "A",
+     "study": "はい、九時まで働きました。それから電車で帰りました。",
+     "reading": "はい、くじまではたらきました。それからでんしゃでかえりました。",
+     "phon": "ha-i, kou-dji ma-dé ha-ta-ra-ki-ma-chi-ta. so-ré-ka-ra dén-cha dé ka-é-ri-ma-chi-ta",
+     "native": "Oui, j'ai travaillé jusqu'à neuf heures. Puis je suis rentrée en train."
+    },
+    {
+     "speaker": "B",
+     "study": "大変でしたね。晩ご飯は？",
+     "reading": "たいへんでしたね。ばんごはんは？",
+     "phon": "ta-i-hén dé-chi-ta né. ban-go-han wa",
+     "native": "Ça a dû être dur. Et le dîner ?"
+    },
+    {
+     "speaker": "A",
+     "study": "家で食べました。その後、すぐ寝ました。",
+     "reading": "いえでたべました。そのあと、すぐねました。",
+     "phon": "i-é dé ta-bé-ma-chi-ta. so-no a-to, sou-gou né-ma-chi-ta",
+     "native": "J'ai mangé à la maison. Après, je me suis couchée tout de suite."
+    },
+    {
+     "speaker": "B",
+     "study": "今日は会議が二つあります。",
+     "reading": "きょうはかいぎがふたつあります。",
+     "phon": "kyo-o wa ka-i-gi ga fou-ta-tsou a-ri-ma-sou",
+     "native": "Aujourd'hui, il y a deux réunions."
+    },
+    {
+     "speaker": "A",
+     "study": "分かりました。まずコーヒーを飲みます。",
+     "reading": "わかりました。まずこーひーをのみます。",
+     "phon": "wa-ka-ri-ma-chi-ta. ma-zou ko-o-hi-i o no-mi-ma-sou",
+     "native": "D'accord. D'abord, je prends un café."
+    },
+    {
+     "speaker": "B",
+     "study": "私もです。",
+     "reading": "わたしもです。",
+     "phon": "wa-ta-chi mo dé-sou",
+     "native": "Moi aussi."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L4-fr-ja-04",
+    "L5-fr-ja-01",
+    "L5-fr-ja-05",
+    "L5-fr-ja-07"
+   ]
+  }
+ ],
+ "readiness": "Raconter au passé poli (ました, ませんでした, adjectifs en かったです), situer dans le passé (昨日, 先週, 二日前に), enchaîner des actions avec la forme en て, まず et それから, demander et donner des nouvelles, réagir (いいですね, 残念ですね, 本当ですか)."
+}

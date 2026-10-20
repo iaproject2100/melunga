@@ -1,0 +1,1033 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "en",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en anglais",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; th→z/th, h aspiré noté h, -ing→-ing). Anglais britannique standard. Ne remplace pas l'audio.",
+ "reviewStatus": "Rédigé à la main ; relecture par un anglophone conseillée.",
+ "coverageClaim": null,
+ "level": 9,
+ "title": "Nuancer et résoudre",
+ "goal": "Reformuler, nuancer et résoudre un imprévu.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L9-fr-en-01",
+   "situation": "Reformuler",
+   "model": {
+    "study": "In other words, {s}.",
+    "phon": "inn EU-zeur WEURDZ, {s}",
+    "native": "Autrement dit, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "the train is cancelled",
+      "phon": "ze TRÉÏN iz KAN-seuld",
+      "native": "le train est annulé"
+     },
+     "study": "In other words, the train is cancelled.",
+     "phon": "inn EU-zeur WEURDZ, ze TRÉÏN iz KAN-seuld",
+     "native": "Autrement dit, le train est annulé."
+    },
+    {
+     "slot": {
+      "study": "I have to come back tomorrow",
+      "phon": "aï hav tou KEUM BAK tou-MO-rô",
+      "native": "je dois revenir demain"
+     },
+     "study": "In other words, I have to come back tomorrow.",
+     "phon": "inn EU-zeur WEURDZ, aï hav tou KEUM BAK tou-MO-rô",
+     "native": "Autrement dit, je dois revenir demain."
+    },
+    {
+     "slot": {
+      "study": "it's not covered",
+      "phon": "its not KEU-veurd",
+      "native": "ce n'est pas pris en charge"
+     },
+     "study": "In other words, it's not covered.",
+     "phon": "inn EU-zeur WEURDZ, its not KEU-veurd",
+     "native": "Autrement dit, ce n'est pas pris en charge."
+    },
+    {
+     "slot": {
+      "study": "we need another form",
+      "phon": "oui NID eu-NEU-zeur FORM",
+      "native": "il nous faut un autre formulaire"
+     },
+     "study": "In other words, we need another form.",
+     "phon": "inn EU-zeur WEURDZ, oui NID eu-NEU-zeur FORM",
+     "native": "Autrement dit, il nous faut un autre formulaire."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-en-02",
+   "situation": "Ce que je veux dire",
+   "model": {
+    "study": "What I mean is {s}.",
+    "phon": "ouot aï MIN iz {s}",
+    "native": "Ce que je veux dire, c'est que {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "I'm not angry, just tired",
+      "phon": "aïm not ANG-gri, djeust TAÏ-eurd",
+      "native": "je ne suis pas fâché(e), juste fatigué(e)"
+     },
+     "study": "What I mean is I'm not angry, just tired.",
+     "phon": "ouot aï MIN iz aïm not ANG-gri, djeust TAÏ-eurd",
+     "native": "Ce que je veux dire, c'est que je ne suis pas fâché(e), juste fatigué(e)."
+    },
+    {
+     "slot": {
+      "study": "the dates don't work for me",
+      "phon": "ze DÉÏTS dônt WEURK for mi",
+      "native": "les dates ne me conviennent pas"
+     },
+     "study": "What I mean is the dates don't work for me.",
+     "phon": "ouot aï MIN iz ze DÉÏTS dônt WEURK for mi",
+     "native": "Ce que je veux dire, c'est que les dates ne me conviennent pas."
+    },
+    {
+     "slot": {
+      "study": "it hurts when I walk",
+      "phon": "it HEURTS ouèn aï OUOK",
+      "native": "j'ai mal quand je marche"
+     },
+     "study": "What I mean is it hurts when I walk.",
+     "phon": "ouot aï MIN iz it HEURTS ouèn aï OUOK",
+     "native": "Ce que je veux dire, c'est que j'ai mal quand je marche."
+    },
+    {
+     "slot": {
+      "study": "we need more time",
+      "phon": "oui NID MOR TAÏM",
+      "native": "il nous faut plus de temps"
+     },
+     "study": "What I mean is we need more time.",
+     "phon": "ouot aï MIN iz oui NID MOR TAÏM",
+     "native": "Ce que je veux dire, c'est qu'il nous faut plus de temps."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-en-03",
+   "situation": "Nuancer",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Réponses nuancées entières, à placer telles quelles."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Not really.",
+      "phon": "not RI-li",
+      "native": "Pas vraiment."
+     },
+     "study": "Not really.",
+     "phon": "not RI-li",
+     "native": "Pas vraiment."
+    },
+    {
+     "slot": {
+      "study": "Partly.",
+      "phon": "PART-li",
+      "native": "En partie."
+     },
+     "study": "Partly.",
+     "phon": "PART-li",
+     "native": "En partie."
+    },
+    {
+     "slot": {
+      "study": "More or less.",
+      "phon": "MOR or LÈSS",
+      "native": "Plus ou moins."
+     },
+     "study": "More or less.",
+     "phon": "MOR or LÈSS",
+     "native": "Plus ou moins."
+    },
+    {
+     "slot": {
+      "study": "Rather the opposite.",
+      "phon": "RA-zeur zi O-peu-zit",
+      "native": "Plutôt le contraire."
+     },
+     "study": "Rather the opposite.",
+     "phon": "RA-zeur zi O-peu-zit",
+     "native": "Plutôt le contraire."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-en-04",
+   "situation": "Plutôt (corriger, nuancer)",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "« Plutôt » n'a pas un seul équivalent : it's more… (correction : c'est plutôt X que Y), I'd rather… (préférence), it's quite / fairly… (degré), actually (rectification). Phrases entières à apprendre telles quelles."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "It's more a question of time.",
+      "phon": "its MOR eu KOUÈS-tcheun ov TAÏM",
+      "native": "C'est plutôt une question de temps."
+     },
+     "study": "It's more a question of time.",
+     "phon": "its MOR eu KOUÈS-tcheun ov TAÏM",
+     "native": "C'est plutôt une question de temps."
+    },
+    {
+     "slot": {
+      "study": "Actually, it's the other way round.",
+      "phon": "AK-tchou-eu-li, its zi EU-zeur OUÉÏ RAÔND",
+      "native": "En fait, c'est plutôt l'inverse."
+     },
+     "study": "Actually, it's the other way round.",
+     "phon": "AK-tchou-eu-li, its zi EU-zeur OUÉÏ RAÔND",
+     "native": "En fait, c'est plutôt l'inverse."
+    },
+    {
+     "slot": {
+      "study": "It's quite a small problem.",
+      "phon": "its KOUAÏT eu SMOL PRO-bleum",
+      "native": "C'est plutôt un petit problème."
+     },
+     "study": "It's quite a small problem.",
+     "phon": "its KOUAÏT eu SMOL PRO-bleum",
+     "native": "C'est plutôt un petit problème."
+    },
+    {
+     "slot": {
+      "study": "I'd rather wait.",
+      "phon": "aïd RA-zeur OUÉÏT",
+      "native": "Je préfère attendre."
+     },
+     "study": "I'd rather wait.",
+     "phon": "aïd RA-zeur OUÉÏT",
+     "native": "Je préfère attendre."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-en-05",
+   "situation": "Peut-être",
+   "model": {
+    "study": "Maybe {s}.",
+    "phon": "MÉÏ-bi {s}",
+    "native": "Peut-être que {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "it's the wrong platform",
+      "phon": "its ze RONG PLAT-form",
+      "native": "c'est le mauvais quai"
+     },
+     "study": "Maybe it's the wrong platform.",
+     "phon": "MÉÏ-bi its ze RONG PLAT-form",
+     "native": "Peut-être que c'est le mauvais quai."
+    },
+    {
+     "slot": {
+      "study": "I left it in the taxi",
+      "phon": "aï LÈFT it inn ze TAK-si",
+      "native": "je l'ai laissé dans le taxi"
+     },
+     "study": "Maybe I left it in the taxi.",
+     "phon": "MÉÏ-bi aï LÈFT it inn ze TAK-si",
+     "native": "Peut-être que je l'ai laissé dans le taxi."
+    },
+    {
+     "slot": {
+      "study": "the office is closed today",
+      "phon": "zi O-fiss iz KLÔZD tou-DÉÏ",
+      "native": "le bureau est fermé aujourd'hui"
+     },
+     "study": "Maybe the office is closed today.",
+     "phon": "MÉÏ-bi zi O-fiss iz KLÔZD tou-DÉÏ",
+     "native": "Peut-être que le bureau est fermé aujourd'hui."
+    },
+    {
+     "slot": {
+      "study": "it's just a cold",
+      "phon": "its djeust eu KÔLD",
+      "native": "c'est juste un rhume"
+     },
+     "study": "Maybe it's just a cold.",
+     "phon": "MÉÏ-bi its djeust eu KÔLD",
+     "native": "Peut-être que c'est juste un rhume."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-en-06",
+   "situation": "Il se peut que",
+   "model": {
+    "study": "It might be {s}.",
+    "phon": "it MAÏT bi {s}",
+    "native": "Il se peut que ce soit {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a mistake",
+      "phon": "eu mis-TÉÏK",
+      "native": "une erreur"
+     },
+     "study": "It might be a mistake.",
+     "phon": "it MAÏT bi eu mis-TÉÏK",
+     "native": "Il se peut que ce soit une erreur."
+    },
+    {
+     "slot": {
+      "study": "the battery",
+      "phon": "ze BA-teu-ri",
+      "native": "la batterie"
+     },
+     "study": "It might be the battery.",
+     "phon": "it MAÏT bi ze BA-teu-ri",
+     "native": "Il se peut que ce soit la batterie."
+    },
+    {
+     "slot": {
+      "study": "too late",
+      "phon": "tou LÉÏT",
+      "native": "trop tard"
+     },
+     "study": "It might be too late.",
+     "phon": "it MAÏT bi tou LÉÏT",
+     "native": "Il se peut que ce soit trop tard."
+    },
+    {
+     "slot": {
+      "study": "an allergy",
+      "phon": "eun A-leur-dji",
+      "native": "une allergie"
+     },
+     "study": "It might be an allergy.",
+     "phon": "it MAÏT bi eun A-leur-dji",
+     "native": "Il se peut que ce soit une allergie."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-en-07",
+   "situation": "Incertitude",
+   "model": {
+    "study": "I'm not sure {s}.",
+    "phon": "aïm not CHOUR {s}",
+    "native": "Je ne suis pas sûr(e) {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "it's the right address",
+      "phon": "its ze RAÏT eu-DRÈSS",
+      "native": "que ce soit la bonne adresse"
+     },
+     "study": "I'm not sure it's the right address.",
+     "phon": "aïm not CHOUR its ze RAÏT eu-DRÈSS",
+     "native": "Je ne suis pas sûr(e) que ce soit la bonne adresse."
+    },
+    {
+     "slot": {
+      "study": "I understand",
+      "phon": "aï eun-deur-STAND",
+      "native": "de comprendre"
+     },
+     "study": "I'm not sure I understand.",
+     "phon": "aïm not CHOUR aï eun-deur-STAND",
+     "native": "Je ne suis pas sûr(e) de comprendre."
+    },
+    {
+     "slot": {
+      "study": "he got my message",
+      "phon": "hi GOT maï MÈ-sidj",
+      "native": "qu'il ait eu mon message"
+     },
+     "study": "I'm not sure he got my message.",
+     "phon": "aïm not CHOUR hi GOT maï MÈ-sidj",
+     "native": "Je ne suis pas sûr(e) qu'il ait eu mon message."
+    },
+    {
+     "slot": {
+      "study": "we have time",
+      "phon": "oui HAV TAÏM",
+      "native": "qu'on ait le temps"
+     },
+     "study": "I'm not sure we have time.",
+     "phon": "aïm not CHOUR oui HAV TAÏM",
+     "native": "Je ne suis pas sûr(e) qu'on ait le temps."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-en-08",
+   "situation": "Exposer un problème",
+   "model": {
+    "study": "There's a problem: {s}. What can we do?",
+    "phon": "zèrz eu PRO-bleum : {s}. ouot kann oui DOU",
+    "native": "Il y a un problème : {s}. Qu'est-ce qu'on peut faire ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "my flight is delayed",
+      "phon": "maï FLAÏT iz di-LÉÏD",
+      "native": "mon vol est retardé"
+     },
+     "study": "There's a problem: my flight is delayed. What can we do?",
+     "phon": "zèrz eu PRO-bleum : maï FLAÏT iz di-LÉÏD. ouot kann oui DOU",
+     "native": "Il y a un problème : mon vol est retardé. Qu'est-ce qu'on peut faire ?"
+    },
+    {
+     "slot": {
+      "study": "the room is double-booked",
+      "phon": "ze ROUM iz DEU-beul BOUKT",
+      "native": "la chambre est réservée deux fois"
+     },
+     "study": "There's a problem: the room is double-booked. What can we do?",
+     "phon": "zèrz eu PRO-bleum : ze ROUM iz DEU-beul BOUKT. ouot kann oui DOU",
+     "native": "Il y a un problème : la chambre est réservée deux fois. Qu'est-ce qu'on peut faire ?"
+    },
+    {
+     "slot": {
+      "study": "I've lost my passport",
+      "phon": "aïv LOST maï PASS-port",
+      "native": "j'ai perdu mon passeport"
+     },
+     "study": "There's a problem: I've lost my passport. What can we do?",
+     "phon": "zèrz eu PRO-bleum : aïv LOST maï PASS-port. ouot kann oui DOU",
+     "native": "Il y a un problème : j'ai perdu mon passeport. Qu'est-ce qu'on peut faire ?"
+    },
+    {
+     "slot": {
+      "study": "the payment didn't go through",
+      "phon": "ze PÉÏ-meunt DI-deunt GÔ THROU",
+      "native": "le paiement n'est pas passé"
+     },
+     "study": "There's a problem: the payment didn't go through. What can we do?",
+     "phon": "zèrz eu PRO-bleum : ze PÉÏ-meunt DI-deunt GÔ THROU. ouot kann oui DOU",
+     "native": "Il y a un problème : le paiement n'est pas passé. Qu'est-ce qu'on peut faire ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-en-09",
+   "situation": "Vérifier la compréhension",
+   "model": {
+    "study": "If I understand correctly, {s}?",
+    "phon": "if aï eun-deur-STAND keu-RÈKT-li, {s}",
+    "native": "Si j'ai bien compris, {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "I need to take the next train",
+      "phon": "aï NID tou TÉÏK ze NÈKST TRÉÏN",
+      "native": "je dois prendre le prochain train"
+     },
+     "study": "If I understand correctly, I need to take the next train?",
+     "phon": "if aï eun-deur-STAND keu-RÈKT-li, aï NID tou TÉÏK ze NÈKST TRÉÏN",
+     "native": "Si j'ai bien compris, je dois prendre le prochain train ?"
+    },
+    {
+     "slot": {
+      "study": "the appointment is at ten, not nine",
+      "phon": "zi eu-POÏNT-meunt iz at TÈN, not NAÏN",
+      "native": "le rendez-vous est à dix heures, pas à neuf"
+     },
+     "study": "If I understand correctly, the appointment is at ten, not nine?",
+     "phon": "if aï eun-deur-STAND keu-RÈKT-li, zi eu-POÏNT-meunt iz at TÈN, not NAÏN",
+     "native": "Si j'ai bien compris, le rendez-vous est à dix heures, pas à neuf ?"
+    },
+    {
+     "slot": {
+      "study": "I take one tablet a day",
+      "phon": "aï TÉÏK OUANN TAB-leut eu DÉÏ",
+      "native": "je prends un comprimé par jour"
+     },
+     "study": "If I understand correctly, I take one tablet a day?",
+     "phon": "if aï eun-deur-STAND keu-RÈKT-li, aï TÉÏK OUANN TAB-leut eu DÉÏ",
+     "native": "Si j'ai bien compris, je prends un comprimé par jour ?"
+    },
+    {
+     "slot": {
+      "study": "you'll call me back tomorrow",
+      "phon": "youl KOL mi BAK tou-MO-rô",
+      "native": "vous me rappelez demain"
+     },
+     "study": "If I understand correctly, you'll call me back tomorrow?",
+     "phon": "if aï eun-deur-STAND keu-RÈKT-li, youl KOL mi BAK tou-MO-rô",
+     "native": "Si j'ai bien compris, vous me rappelez demain ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-en-10",
+   "situation": "Santé",
+   "model": {
+    "study": "I've got {s}.",
+    "phon": "aïv GOT {s}",
+    "native": "J'ai {s}.",
+    "note": "« I've got » (britannique courant) = « I have »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a headache",
+      "phon": "eu HÈD-éïk",
+      "native": "mal à la tête"
+     },
+     "study": "I've got a headache.",
+     "phon": "aïv GOT eu HÈD-éïk",
+     "native": "J'ai mal à la tête."
+    },
+    {
+     "slot": {
+      "study": "a sore throat",
+      "phon": "eu SOR THRÔT",
+      "native": "mal à la gorge"
+     },
+     "study": "I've got a sore throat.",
+     "phon": "aïv GOT eu SOR THRÔT",
+     "native": "J'ai mal à la gorge."
+    },
+    {
+     "slot": {
+      "study": "a temperature",
+      "phon": "eu TÈM-preu-tcheur",
+      "native": "de la fièvre"
+     },
+     "study": "I've got a temperature.",
+     "phon": "aïv GOT eu TÈM-preu-tcheur",
+     "native": "J'ai de la fièvre."
+    },
+    {
+     "slot": {
+      "study": "stomach ache",
+      "phon": "STEU-meuk ÉÏK",
+      "native": "mal au ventre"
+     },
+     "study": "I've got stomach ache.",
+     "phon": "aïv GOT STEU-meuk ÉÏK",
+     "native": "J'ai mal au ventre."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-en-11",
+   "situation": "Erreur, objet perdu",
+   "model": {
+    "study": "Sorry, I think {s}.",
+    "phon": "SO-ri, aï THINK {s}",
+    "native": "Pardon, je crois que {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "I left my bag on the bus",
+      "phon": "aï LÈFT maï BAG onn ze BEUSS",
+      "native": "j'ai laissé mon sac dans le bus"
+     },
+     "study": "Sorry, I think I left my bag on the bus.",
+     "phon": "SO-ri, aï THINK aï LÈFT maï BAG onn ze BEUSS",
+     "native": "Pardon, je crois que j'ai laissé mon sac dans le bus."
+    },
+    {
+     "slot": {
+      "study": "there's a mistake on the bill",
+      "phon": "zèrz eu mis-TÉÏK onn ze BIL",
+      "native": "il y a une erreur sur l'addition"
+     },
+     "study": "Sorry, I think there's a mistake on the bill.",
+     "phon": "SO-ri, aï THINK zèrz eu mis-TÉÏK onn ze BIL",
+     "native": "Pardon, je crois qu'il y a une erreur sur l'addition."
+    },
+    {
+     "slot": {
+      "study": "I took the wrong train",
+      "phon": "aï TOUK ze RONG TRÉÏN",
+      "native": "je me suis trompé(e) de train"
+     },
+     "study": "Sorry, I think I took the wrong train.",
+     "phon": "SO-ri, aï THINK aï TOUK ze RONG TRÉÏN",
+     "native": "Pardon, je crois que je me suis trompé(e) de train."
+    },
+    {
+     "slot": {
+      "study": "you gave me the wrong change",
+      "phon": "you GUÉÏV mi ze RONG TCHÉÏNDJ",
+      "native": "vous vous êtes trompé en me rendant la monnaie"
+     },
+     "study": "Sorry, I think you gave me the wrong change.",
+     "phon": "SO-ri, aï THINK you GUÉÏV mi ze RONG TCHÉÏNDJ",
+     "native": "Pardon, je crois que vous vous êtes trompé en me rendant la monnaie."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-en-12",
+   "situation": "Proposer une solution",
+   "model": {
+    "study": "Could we {s} instead?",
+    "phon": "koud oui {s} inn-STÈD",
+    "native": "On pourrait plutôt {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "take the bus",
+      "phon": "TÉÏK ze BEUSS",
+      "native": "prendre le bus"
+     },
+     "study": "Could we take the bus instead?",
+     "phon": "koud oui TÉÏK ze BEUSS inn-STÈD",
+     "native": "On pourrait plutôt prendre le bus ?"
+    },
+    {
+     "slot": {
+      "study": "meet on Thursday",
+      "phon": "MIT onn THEURZ-dé",
+      "native": "se voir jeudi"
+     },
+     "study": "Could we meet on Thursday instead?",
+     "phon": "koud oui MIT onn THEURZ-dé inn-STÈD",
+     "native": "On pourrait plutôt se voir jeudi ?"
+    },
+    {
+     "slot": {
+      "study": "do it by phone",
+      "phon": "DOU it baï FÔN",
+      "native": "le faire par téléphone"
+     },
+     "study": "Could we do it by phone instead?",
+     "phon": "koud oui DOU it baï FÔN inn-STÈD",
+     "native": "On pourrait plutôt le faire par téléphone ?"
+    },
+    {
+     "slot": {
+      "study": "change the room",
+      "phon": "TCHÉÏNDJ ze ROUM",
+      "native": "changer de chambre"
+     },
+     "study": "Could we change the room instead?",
+     "phon": "koud oui TCHÉÏNDJ ze ROUM inn-STÈD",
+     "native": "On pourrait plutôt changer de chambre ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-en-13",
+   "situation": "Transports, retard",
+   "model": {
+    "study": "{s} is delayed by twenty minutes.",
+    "phon": "{s} iz di-LÉÏD baï TOUÈN-ti MI-nits",
+    "native": "{s} a vingt minutes de retard."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "The train to Leeds",
+      "phon": "ze TRÉÏN tou LIDZ",
+      "native": "Le train pour Leeds"
+     },
+     "study": "The train to Leeds is delayed by twenty minutes.",
+     "phon": "ze TRÉÏN tou LIDZ iz di-LÉÏD baï TOUÈN-ti MI-nits",
+     "native": "Le train pour Leeds a vingt minutes de retard."
+    },
+    {
+     "slot": {
+      "study": "The flight to Paris",
+      "phon": "ze FLAÏT tou PA-riss",
+      "native": "Le vol pour Paris"
+     },
+     "study": "The flight to Paris is delayed by twenty minutes.",
+     "phon": "ze FLAÏT tou PA-riss iz di-LÉÏD baï TOUÈN-ti MI-nits",
+     "native": "Le vol pour Paris a vingt minutes de retard."
+    },
+    {
+     "slot": {
+      "study": "The next bus",
+      "phon": "ze NÈKST BEUSS",
+      "native": "Le prochain bus"
+     },
+     "study": "The next bus is delayed by twenty minutes.",
+     "phon": "ze NÈKST BEUSS iz di-LÉÏD baï TOUÈN-ti MI-nits",
+     "native": "Le prochain bus a vingt minutes de retard."
+    },
+    {
+     "slot": {
+      "study": "My connection",
+      "phon": "maï keu-NÈK-cheun",
+      "native": "Ma correspondance"
+     },
+     "study": "My connection is delayed by twenty minutes.",
+     "phon": "maï keu-NÈK-cheun iz di-LÉÏD baï TOUÈN-ti MI-nits",
+     "native": "Ma correspondance a vingt minutes de retard."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L9-fr-en-d1",
+   "situation": "À la gare, train annulé",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Excuse me, the 9:15 to Leeds isn't on the board.",
+     "phon": "ék-SKYOUZ mi, ze NAÏN fif-TIN tou LIDZ I-zeunt onn ze BORD",
+     "native": "Excusez-moi, le 9 h 15 pour Leeds n'est pas sur le tableau."
+    },
+    {
+     "speaker": "B",
+     "study": "I'm sorry, that train is cancelled.",
+     "phon": "aïm SO-ri, zat TRÉÏN iz KAN-seuld",
+     "native": "Je suis désolé, ce train est annulé."
+    },
+    {
+     "speaker": "A",
+     "study": "In other words, I have to take the next one?",
+     "phon": "inn EU-zeur WEURDZ, aï hav tou TÉÏK ze NÈKST ouann",
+     "native": "Autrement dit, je dois prendre le suivant ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Not really. The next one is delayed too. Maybe the bus is quicker.",
+     "phon": "not RI-li. ze NÈKST ouann iz di-LÉÏD TOU. MÉÏ-bi ze BEUSS iz KOUI-keur",
+     "native": "Pas vraiment. Le suivant a aussi du retard. Peut-être que le bus est plus rapide."
+    },
+    {
+     "speaker": "A",
+     "study": "There's a problem: I have a meeting at eleven. What can we do?",
+     "phon": "zèrz eu PRO-bleum : aï HAV eu MI-ting at i-LÈ-veun. ouot kann oui DOU",
+     "native": "Il y a un problème : j'ai une réunion à onze heures. Qu'est-ce qu'on peut faire ?"
+    },
+    {
+     "speaker": "B",
+     "study": "You could take the 9:40 to York and change there.",
+     "phon": "you koud TÉÏK ze NAÏN FOR-ti tou YORK and TCHÉÏNDJ ZÈR",
+     "native": "Vous pourriez prendre le 9 h 40 pour York et changer là-bas."
+    },
+    {
+     "speaker": "A",
+     "study": "If I understand correctly, I arrive in Leeds around half past ten?",
+     "phon": "if aï eun-deur-STAND keu-RÈKT-li, aï eu-RAÏV inn LIDZ eu-RAÔND HAF past TÈN",
+     "native": "Si j'ai bien compris, j'arrive à Leeds vers dix heures et demie ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Yes, more or less. Your ticket is still valid.",
+     "phon": "YÈS, MOR or LÈSS. yor TI-kit iz stil VA-lid",
+     "native": "Oui, plus ou moins. Votre billet reste valable."
+    },
+    {
+     "speaker": "A",
+     "study": "Thank you very much.",
+     "phon": "THANK you VÈ-ri MEUTCH",
+     "native": "Merci beaucoup."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L4-fr-en-04",
+    "L9-fr-en-01",
+    "L9-fr-en-03",
+    "L9-fr-en-05",
+    "L9-fr-en-08",
+    "L9-fr-en-09"
+   ]
+  },
+  {
+   "id": "L9-fr-en-d2",
+   "situation": "Chez le médecin",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Good morning. What's the problem?",
+     "phon": "goud MOR-ning. ouots ze PRO-bleum",
+     "native": "Bonjour. Qu'est-ce qui ne va pas ?"
+    },
+    {
+     "speaker": "B",
+     "study": "I've got a sore throat and a headache.",
+     "phon": "aïv GOT eu SOR THRÔT and eu HÈD-éïk",
+     "native": "J'ai mal à la gorge et mal à la tête."
+    },
+    {
+     "speaker": "A",
+     "study": "Have you got a temperature?",
+     "phon": "hav you GOT eu TÈM-preu-tcheur",
+     "native": "Vous avez de la fièvre ?"
+    },
+    {
+     "speaker": "B",
+     "study": "I'm not sure. Maybe a little, last night.",
+     "phon": "aïm not CHOUR. MÉÏ-bi eu LI-teul, LAST NAÏT",
+     "native": "Je ne suis pas sûre. Peut-être un peu, hier soir."
+    },
+    {
+     "speaker": "A",
+     "study": "It might be just a cold. Do you feel very tired?",
+     "phon": "it MAÏT bi djeust eu KÔLD. dou you FIL VÈ-ri TAÏ-eurd",
+     "native": "Il se peut que ce soit juste un rhume. Vous vous sentez très fatiguée ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Partly. What I mean is, I can work, but it hurts when I swallow.",
+     "phon": "PART-li. ouot aï MIN iz, aï kann WEURK, beut it HEURTS ouèn aï SOUO-lô",
+     "native": "En partie. Ce que je veux dire, c'est que je peux travailler, mais j'ai mal quand j'avale."
+    },
+    {
+     "speaker": "A",
+     "study": "Take one tablet twice a day, and rest.",
+     "phon": "TÉÏK OUANN TAB-leut TOUAÏSS eu DÉÏ, and RÈST",
+     "native": "Prenez un comprimé deux fois par jour, et reposez-vous."
+    },
+    {
+     "speaker": "B",
+     "study": "If I understand correctly, one in the morning and one in the evening?",
+     "phon": "if aï eun-deur-STAND keu-RÈKT-li, OUANN inn ze MOR-ning and OUANN inn zi IV-ning",
+     "native": "Si j'ai bien compris, un le matin et un le soir ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Exactly. Come back if it's not better in a week.",
+     "phon": "ig-ZAKT-li. KEUM BAK if its not BÈ-teur inn eu OUIK",
+     "native": "Exactement. Revenez si ça ne va pas mieux dans une semaine."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L2-fr-en-03",
+    "L3-fr-en-07",
+    "L9-fr-en-02",
+    "L9-fr-en-03",
+    "L9-fr-en-05",
+    "L9-fr-en-06",
+    "L9-fr-en-07",
+    "L9-fr-en-09",
+    "L9-fr-en-10"
+   ]
+  },
+  {
+   "id": "L9-fr-en-d3",
+   "situation": "À l'hôtel, erreur de réservation",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Good evening. I have a booking, name Durand.",
+     "phon": "goud IV-ning. aï HAV eu BOU-king, NÉÏM dou-RAND",
+     "native": "Bonsoir. J'ai une réservation au nom de Durand."
+    },
+    {
+     "speaker": "B",
+     "study": "One moment… I'm sorry, there's a problem: the room is double-booked.",
+     "phon": "OUANN MÔ-meunt… aïm SO-ri, zèrz eu PRO-bleum : ze ROUM iz DEU-beul BOUKT",
+     "native": "Un instant… Je suis désolé, il y a un problème : la chambre est réservée deux fois."
+    },
+    {
+     "speaker": "A",
+     "study": "In other words, you don't have a room for me?",
+     "phon": "inn EU-zeur WEURDZ, you dônt HAV eu ROUM for mi",
+     "native": "Autrement dit, vous n'avez pas de chambre pour moi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Not exactly. We have a smaller room, or a bigger one at a higher price.",
+     "phon": "not ig-ZAKT-li. oui HAV eu SMO-leur ROUM, or eu BI-gueur ouann at eu HAÏ-eur PRAÏSS",
+     "native": "Pas exactement. Nous avons une chambre plus petite, ou une plus grande à un prix plus élevé."
+    },
+    {
+     "speaker": "A",
+     "study": "Could I have the bigger one at the same price instead? It's your mistake.",
+     "phon": "koud aï HAV ze BI-gueur ouann at ze SÉÏM PRAÏSS inn-STÈD. its yor mis-TÉÏK",
+     "native": "Est-ce que je pourrais plutôt avoir la plus grande au même prix ? C'est votre erreur."
+    },
+    {
+     "speaker": "B",
+     "study": "Let me ask the manager… Yes, that's possible.",
+     "phon": "lèt mi ASK ze MA-ni-djeur… YÈS, zats PO-si-beul",
+     "native": "Je demande au responsable… Oui, c'est possible."
+    },
+    {
+     "speaker": "A",
+     "study": "If I understand correctly, the bigger room, same price, breakfast included?",
+     "phon": "if aï eun-deur-STAND keu-RÈKT-li, ze BI-gueur ROUM, SÉÏM PRAÏSS, BRÈK-feust inn-KLOU-did",
+     "native": "Si j'ai bien compris, la grande chambre, même prix, petit-déjeuner compris ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Exactly. I'm sorry again.",
+     "phon": "ig-ZAKT-li. aïm SO-ri eu-GUÈNN",
+     "native": "Exactement. Encore désolé."
+    },
+    {
+     "speaker": "A",
+     "study": "No problem, thank you.",
+     "phon": "nô PRO-bleum, THANK you",
+     "native": "Pas de problème, merci."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L2-fr-en-03",
+    "L4-fr-en-04",
+    "L5-fr-en-05",
+    "L8-fr-en-02",
+    "L8-fr-en-10",
+    "L9-fr-en-01",
+    "L9-fr-en-09"
+   ]
+  }
+ ],
+ "readiness": "L'apprenant reformule et nuance ce qu'il dit, exprime l'incertitude, expose un problème (retard, erreur, objet perdu) et vérifie qu'il a bien compris la solution proposée."
+}

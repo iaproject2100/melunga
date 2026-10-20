@@ -1,0 +1,954 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "fr",
+ "nativeLanguage": "zh",
+ "fields": {
+  "study": "phrase en français",
+  "phon": "prononciation écrite pour sinophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "用汉字标注法语读音（沿用词库风格：美西 = merci，诺 = non）。汉字只是近似，请以音频为准。法语无声调；重音不在单词上，而是落在一个节奏组（短语或句子）的最后一个音节，并略微拉长。",
+ "reviewStatus": "需语言校对（汉字注音的近似程度、译文自然度）。",
+ "coverageClaim": null,
+ "level": 4,
+ "title": "Mon quotidien",
+ "goal": "Décrire son quotidien, ses habitudes et son entourage.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L4-zh-fr-01",
+   "situation": "日常习惯",
+   "model": {
+    "study": "D'habitude, je {s}.",
+    "phon": "达比蒂德，热 {s}",
+    "native": "我平时{s}。",
+    "note": "« je » 后面的动词如果以元音开头，要缩写成 j'（j'habite, j'aime）。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "me lève à sept heures",
+      "phon": "默 莱夫 阿 赛 特尔",
+      "native": "七点起床"
+     },
+     "study": "D'habitude, je me lève à sept heures.",
+     "phon": "达比蒂德，热 默 莱夫 阿 赛 特尔",
+     "native": "我平时七点起床。"
+    },
+    {
+     "slot": {
+      "study": "prends le métro",
+      "phon": "普朗 勒 梅特罗",
+      "native": "坐地铁"
+     },
+     "study": "D'habitude, je prends le métro.",
+     "phon": "达比蒂德，热 普朗 勒 梅特罗",
+     "native": "我平时坐地铁。"
+    },
+    {
+     "slot": {
+      "study": "mange à la maison",
+      "phon": "芒日 阿 拉 梅宗",
+      "native": "在家吃饭"
+     },
+     "study": "D'habitude, je mange à la maison.",
+     "phon": "达比蒂德，热 芒日 阿 拉 梅宗",
+     "native": "我平时在家吃饭。"
+    },
+    {
+     "slot": {
+      "study": "travaille le samedi",
+      "phon": "特拉瓦伊 勒 萨姆迪",
+      "native": "星期六上班"
+     },
+     "study": "D'habitude, je travaille le samedi.",
+     "phon": "达比蒂德，热 特拉瓦伊 勒 萨姆迪",
+     "native": "我平时星期六上班。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-zh-fr-02",
+   "situation": "早上",
+   "model": {
+    "study": "Le matin, je {s}.",
+    "phon": "勒 马坦，热 {s}",
+    "native": "早上我{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "bois un café",
+      "phon": "布瓦 安 卡菲",
+      "native": "喝一杯咖啡"
+     },
+     "study": "Le matin, je bois un café.",
+     "phon": "勒 马坦，热 布瓦 安 卡菲",
+     "native": "早上我喝一杯咖啡。"
+    },
+    {
+     "slot": {
+      "study": "fais du sport",
+      "phon": "费 迪 斯波尔",
+      "native": "运动"
+     },
+     "study": "Le matin, je fais du sport.",
+     "phon": "勒 马坦，热 费 迪 斯波尔",
+     "native": "早上我运动。"
+    },
+    {
+     "slot": {
+      "study": "lis les nouvelles",
+      "phon": "利 莱 努韦尔",
+      "native": "看新闻"
+     },
+     "study": "Le matin, je lis les nouvelles.",
+     "phon": "勒 马坦，热 利 莱 努韦尔",
+     "native": "早上我看新闻。"
+    },
+    {
+     "slot": {
+      "study": "prends une douche",
+      "phon": "普朗 于讷 杜什",
+      "native": "洗澡"
+     },
+     "study": "Le matin, je prends une douche.",
+     "phon": "勒 马坦，热 普朗 于讷 杜什",
+     "native": "早上我洗澡。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-zh-fr-03",
+   "situation": "晚上",
+   "model": {
+    "study": "Le soir, je {s}.",
+    "phon": "勒 斯瓦尔，热 {s}",
+    "native": "晚上我{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "regarde la télé",
+      "phon": "勒嘎尔德 拉 泰莱",
+      "native": "看电视"
+     },
+     "study": "Le soir, je regarde la télé.",
+     "phon": "勒 斯瓦尔，热 勒嘎尔德 拉 泰莱",
+     "native": "晚上我看电视。"
+    },
+    {
+     "slot": {
+      "study": "cuisine",
+      "phon": "居伊吉讷",
+      "native": "做饭"
+     },
+     "study": "Le soir, je cuisine.",
+     "phon": "勒 斯瓦尔，热 居伊吉讷",
+     "native": "晚上我做饭。"
+    },
+    {
+     "slot": {
+      "study": "sors avec des amis",
+      "phon": "索尔 阿维克 德 扎米",
+      "native": "和朋友出去"
+     },
+     "study": "Le soir, je sors avec des amis.",
+     "phon": "勒 斯瓦尔，热 索尔 阿维克 德 扎米",
+     "native": "晚上我和朋友出去。"
+    },
+    {
+     "slot": {
+      "study": "me couche tôt",
+      "phon": "默 库什 托",
+      "native": "早睡"
+     },
+     "study": "Le soir, je me couche tôt.",
+     "phon": "勒 斯瓦尔，热 默 库什 托",
+     "native": "晚上我早睡。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-zh-fr-04",
+   "situation": "家人",
+   "model": {
+    "study": "J'ai {s}.",
+    "phon": "热 {s}",
+    "native": "我有{s}。",
+    "note": "法语的 frère / sœur 不分年纪：哥哥弟弟都是 frère，姐姐妹妹都是 sœur。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "un frère",
+      "phon": "安 弗雷尔",
+      "native": "一个哥哥"
+     },
+     "study": "J'ai un frère.",
+     "phon": "热 安 弗雷尔",
+     "native": "我有一个哥哥。"
+    },
+    {
+     "slot": {
+      "study": "deux enfants",
+      "phon": "德 藏方",
+      "native": "两个孩子"
+     },
+     "study": "J'ai deux enfants.",
+     "phon": "热 德 藏方",
+     "native": "我有两个孩子。"
+    },
+    {
+     "slot": {
+      "study": "une sœur",
+      "phon": "于讷 瑟尔",
+      "native": "一个妹妹"
+     },
+     "study": "J'ai une sœur.",
+     "phon": "热 于讷 瑟尔",
+     "native": "我有一个妹妹。"
+    },
+    {
+     "slot": {
+      "study": "un chien",
+      "phon": "安 希安",
+      "native": "一条狗"
+     },
+     "study": "J'ai un chien.",
+     "phon": "热 安 希安",
+     "native": "我有一条狗。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-zh-fr-05",
+   "situation": "住处",
+   "model": {
+    "study": "J'habite {s}.",
+    "phon": "扎比特 {s}",
+    "native": "我住在{s}。",
+    "note": "« J'habite » 是 je + habite 的缩写，h 不发音。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "à Lyon",
+      "phon": "阿 里昂",
+      "native": "里昂"
+     },
+     "study": "J'habite à Lyon.",
+     "phon": "扎比特 阿 里昂",
+     "native": "我住在里昂。"
+    },
+    {
+     "slot": {
+      "study": "dans un appartement",
+      "phon": "当 赞 阿帕尔特芒",
+      "native": "一套公寓里"
+     },
+     "study": "J'habite dans un appartement.",
+     "phon": "扎比特 当 赞 阿帕尔特芒",
+     "native": "我住在一套公寓里。"
+    },
+    {
+     "slot": {
+      "study": "près du centre",
+      "phon": "普雷 迪 桑特尔",
+      "native": "市中心附近"
+     },
+     "study": "J'habite près du centre.",
+     "phon": "扎比特 普雷 迪 桑特尔",
+     "native": "我住在市中心附近。"
+    },
+    {
+     "slot": {
+      "study": "avec ma famille",
+      "phon": "阿维克 马 法米伊",
+      "native": "和家人一起"
+     },
+     "study": "J'habite avec ma famille.",
+     "phon": "扎比特 阿维克 马 法米伊",
+     "native": "我和家人住在一起。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-zh-fr-06",
+   "situation": "工作地点",
+   "model": {
+    "study": "Je travaille {s}.",
+    "phon": "热 特拉瓦伊 {s}",
+    "native": "我在{s}工作。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "dans une banque",
+      "phon": "当 聚讷 邦克",
+      "native": "一家银行"
+     },
+     "study": "Je travaille dans une banque.",
+     "phon": "热 特拉瓦伊 当 聚讷 邦克",
+     "native": "我在一家银行工作。"
+    },
+    {
+     "slot": {
+      "study": "à l'hôpital",
+      "phon": "阿 洛皮塔尔",
+      "native": "医院"
+     },
+     "study": "Je travaille à l'hôpital.",
+     "phon": "热 特拉瓦伊 阿 洛皮塔尔",
+     "native": "我在医院工作。"
+    },
+    {
+     "slot": {
+      "study": "à la maison",
+      "phon": "阿 拉 梅宗",
+      "native": "家"
+     },
+     "study": "Je travaille à la maison.",
+     "phon": "热 特拉瓦伊 阿 拉 梅宗",
+     "native": "我在家工作。"
+    },
+    {
+     "slot": {
+      "study": "dans un restaurant",
+      "phon": "当 赞 雷斯托朗",
+      "native": "一家餐厅"
+     },
+     "study": "Je travaille dans un restaurant.",
+     "phon": "热 特拉瓦伊 当 赞 雷斯托朗",
+     "native": "我在一家餐厅工作。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-zh-fr-07",
+   "situation": "学习",
+   "model": {
+    "study": "J'étudie {s}.",
+    "phon": "热蒂迪 {s}",
+    "native": "我学{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "le français",
+      "phon": "勒 弗朗赛",
+      "native": "法语"
+     },
+     "study": "J'étudie le français.",
+     "phon": "热蒂迪 勒 弗朗赛",
+     "native": "我学法语。"
+    },
+    {
+     "slot": {
+      "study": "la médecine",
+      "phon": "拉 梅德西讷",
+      "native": "医学"
+     },
+     "study": "J'étudie la médecine.",
+     "phon": "热蒂迪 拉 梅德西讷",
+     "native": "我学医学。"
+    },
+    {
+     "slot": {
+      "study": "à l'université",
+      "phon": "阿 吕尼韦尔西泰",
+      "native": "大学"
+     },
+     "study": "J'étudie à l'université.",
+     "phon": "热蒂迪 阿 吕尼韦尔西泰",
+     "native": "我在大学读书。"
+    },
+    {
+     "slot": {
+      "study": "le soir",
+      "phon": "勒 斯瓦尔",
+      "native": "晚上"
+     },
+     "study": "J'étudie le soir.",
+     "phon": "热蒂迪 勒 斯瓦尔",
+     "native": "我晚上上课。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-zh-fr-08",
+   "situation": "频率",
+   "model": {
+    "study": "Je fais du sport {s}.",
+    "phon": "热 费 迪 斯波尔 {s}",
+    "native": "我{s}运动。",
+    "note": "频率词一般放在句尾或动词后面：Je fais souvent du sport. 也可以。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "tous les jours",
+      "phon": "图 莱 茹尔",
+      "native": "每天"
+     },
+     "study": "Je fais du sport tous les jours.",
+     "phon": "热 费 迪 斯波尔 图 莱 茹尔",
+     "native": "我每天运动。"
+    },
+    {
+     "slot": {
+      "study": "souvent",
+      "phon": "苏旺",
+      "native": "经常"
+     },
+     "study": "Je fais du sport souvent.",
+     "phon": "热 费 迪 斯波尔 苏旺",
+     "native": "我经常运动。"
+    },
+    {
+     "slot": {
+      "study": "parfois",
+      "phon": "帕尔夫瓦",
+      "native": "有时候"
+     },
+     "study": "Je fais du sport parfois.",
+     "phon": "热 费 迪 斯波尔 帕尔夫瓦",
+     "native": "我有时候运动。"
+    },
+    {
+     "slot": {
+      "study": "le week-end",
+      "phon": "勒 维肯德",
+      "native": "周末"
+     },
+     "study": "Je fais du sport le week-end.",
+     "phon": "热 费 迪 斯波尔 勒 维肯德",
+     "native": "我周末运动。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-zh-fr-09",
+   "situation": "职业",
+   "model": {
+    "study": "Je travaille comme {s}.",
+    "phon": "热 特拉瓦伊 科姆 {s}",
+    "native": "我是{s}。",
+    "note": "职业名词有阴阳性：serveur / serveuse，infirmier / infirmière。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "ingénieur",
+      "phon": "安热尼厄尔",
+      "native": "工程师"
+     },
+     "study": "Je travaille comme ingénieur.",
+     "phon": "热 特拉瓦伊 科姆 安热尼厄尔",
+     "native": "我是工程师。"
+    },
+    {
+     "slot": {
+      "study": "serveur",
+      "phon": "赛尔弗尔",
+      "native": "服务员"
+     },
+     "study": "Je travaille comme serveur.",
+     "phon": "热 特拉瓦伊 科姆 赛尔弗尔",
+     "native": "我是服务员。"
+    },
+    {
+     "slot": {
+      "study": "professeur",
+      "phon": "普罗费瑟尔",
+      "native": "老师"
+     },
+     "study": "Je travaille comme professeur.",
+     "phon": "热 特拉瓦伊 科姆 普罗费瑟尔",
+     "native": "我是老师。"
+    },
+    {
+     "slot": {
+      "study": "infirmière",
+      "phon": "安菲尔米埃尔",
+      "native": "护士"
+     },
+     "study": "Je travaille comme infirmière.",
+     "phon": "热 特拉瓦伊 科姆 安菲尔米埃尔",
+     "native": "我是护士。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-zh-fr-10",
+   "situation": "我的街区",
+   "model": {
+    "study": "Dans mon quartier, il y a {s}.",
+    "phon": "当 蒙 卡尔蒂耶，伊 利 亚 {s}",
+    "native": "我住的街区有{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "un marché",
+      "phon": "安 马尔谢",
+      "native": "一个市场"
+     },
+     "study": "Dans mon quartier, il y a un marché.",
+     "phon": "当 蒙 卡尔蒂耶，伊 利 亚 安 马尔谢",
+     "native": "我住的街区有一个市场。"
+    },
+    {
+     "slot": {
+      "study": "beaucoup de cafés",
+      "phon": "博库 德 卡菲",
+      "native": "很多咖啡馆"
+     },
+     "study": "Dans mon quartier, il y a beaucoup de cafés.",
+     "phon": "当 蒙 卡尔蒂耶，伊 利 亚 博库 德 卡菲",
+     "native": "我住的街区有很多咖啡馆。"
+    },
+    {
+     "slot": {
+      "study": "une école",
+      "phon": "于 内科尔",
+      "native": "一所学校"
+     },
+     "study": "Dans mon quartier, il y a une école.",
+     "phon": "当 蒙 卡尔蒂耶，伊 利 亚 于 内科尔",
+     "native": "我住的街区有一所学校。"
+    },
+    {
+     "slot": {
+      "study": "un parc",
+      "phon": "安 帕尔克",
+      "native": "一个公园"
+     },
+     "study": "Dans mon quartier, il y a un parc.",
+     "phon": "当 蒙 卡尔蒂耶，伊 利 亚 安 帕尔克",
+     "native": "我住的街区有一个公园。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-zh-fr-11",
+   "situation": "家庭成员在哪里",
+   "model": {
+    "study": "{s} habite à Paris.",
+    "phon": "{s} 阿比特 阿 巴黎",
+    "native": "{s}住在巴黎。",
+    "note": "« mon / ma » = 我的，跟着后面名词的阴阳性变：mon père，ma mère。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Mon père",
+      "phon": "蒙 佩尔",
+      "native": "我爸爸"
+     },
+     "study": "Mon père habite à Paris.",
+     "phon": "蒙 佩尔 阿比特 阿 巴黎",
+     "native": "我爸爸住在巴黎。"
+    },
+    {
+     "slot": {
+      "study": "Ma mère",
+      "phon": "马 梅尔",
+      "native": "我妈妈"
+     },
+     "study": "Ma mère habite à Paris.",
+     "phon": "马 梅尔 阿比特 阿 巴黎",
+     "native": "我妈妈住在巴黎。"
+    },
+    {
+     "slot": {
+      "study": "Mon frère",
+      "phon": "蒙 弗雷尔",
+      "native": "我哥哥"
+     },
+     "study": "Mon frère habite à Paris.",
+     "phon": "蒙 弗雷尔 阿比特 阿 巴黎",
+     "native": "我哥哥住在巴黎。"
+    },
+    {
+     "slot": {
+      "study": "Ma fille",
+      "phon": "马 菲伊",
+      "native": "我女儿"
+     },
+     "study": "Ma fille habite à Paris.",
+     "phon": "马 菲伊 阿比特 阿 巴黎",
+     "native": "我女儿住在巴黎。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-zh-fr-12",
+   "situation": "下班时间",
+   "model": {
+    "study": "Je finis le travail {s}.",
+    "phon": "热 菲尼 勒 特拉瓦伊 {s}",
+    "native": "我{s}下班。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "à six heures",
+      "phon": "阿 西 泽尔",
+      "native": "六点"
+     },
+     "study": "Je finis le travail à six heures.",
+     "phon": "热 菲尼 勒 特拉瓦伊 阿 西 泽尔",
+     "native": "我六点下班。"
+    },
+    {
+     "slot": {
+      "study": "tard",
+      "phon": "塔尔",
+      "native": "很晚"
+     },
+     "study": "Je finis le travail tard.",
+     "phon": "热 菲尼 勒 特拉瓦伊 塔尔",
+     "native": "我很晚下班。"
+    },
+    {
+     "slot": {
+      "study": "à midi le vendredi",
+      "phon": "阿 米迪 勒 旺德勒迪",
+      "native": "星期五中午"
+     },
+     "study": "Je finis le travail à midi le vendredi.",
+     "phon": "热 菲尼 勒 特拉瓦伊 阿 米迪 勒 旺德勒迪",
+     "native": "我星期五中午下班。"
+    },
+    {
+     "slot": {
+      "study": "vers dix-huit heures",
+      "phon": "维尔 迪 维 特尔",
+      "native": "十八点左右"
+     },
+     "study": "Je finis le travail vers dix-huit heures.",
+     "phon": "热 菲尼 勒 特拉瓦伊 维尔 迪 维 特尔",
+     "native": "我十八点左右下班。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L4-zh-fr-d1",
+   "situation": "聊家庭",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Tu as des frères et sœurs ?",
+     "phon": "蒂 阿 德 弗雷尔 埃 瑟尔",
+     "native": "你有兄弟姐妹吗？"
+    },
+    {
+     "speaker": "B",
+     "study": "Oui, j'ai un frère et une sœur. Et toi ?",
+     "phon": "威，热 安 弗雷尔 埃 于讷 瑟尔。埃 图瓦",
+     "native": "有，我有一个哥哥和一个妹妹。你呢？"
+    },
+    {
+     "speaker": "A",
+     "study": "Moi, j'ai deux enfants, une fille et un garçon.",
+     "phon": "穆瓦，热 德 藏方，于讷 菲伊 埃 安 嘎尔松",
+     "native": "我有两个孩子，一个女儿一个儿子。"
+    },
+    {
+     "speaker": "B",
+     "study": "Ils ont quel âge ?",
+     "phon": "伊尔 宗 凯 拉日",
+     "native": "他们多大了？"
+    },
+    {
+     "speaker": "A",
+     "study": "Ma fille a dix ans et mon fils a six ans.",
+     "phon": "马 菲伊 阿 迪 藏 埃 蒙 菲斯 阿 西 藏",
+     "native": "我女儿十岁，儿子六岁。"
+    },
+    {
+     "speaker": "B",
+     "study": "Et tes parents, ils habitent où ?",
+     "phon": "埃 泰 帕朗，伊尔 扎比特 乌",
+     "native": "你父母住在哪里？"
+    },
+    {
+     "speaker": "A",
+     "study": "Ils habitent à Shanghai. Je les appelle tous les dimanches.",
+     "phon": "伊尔 扎比特 阿 上海。热 莱 扎佩尔 图 莱 迪芒什",
+     "native": "他们住在上海。我每个星期天都给他们打电话。"
+    },
+    {
+     "speaker": "B",
+     "study": "C'est bien. Ma mère habite près d'ici.",
+     "phon": "赛 比安。马 梅尔 阿比特 普雷 迪西",
+     "native": "真好。我妈妈就住在附近。"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L1-zh-fr-07",
+    "L2-zh-fr-03",
+    "L3-zh-fr-07",
+    "L4-zh-fr-04"
+   ]
+  },
+  {
+   "id": "L4-zh-fr-d2",
+   "situation": "聊工作和一天",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Qu'est-ce que tu fais dans la vie ?",
+     "phon": "凯斯 克 蒂 费 当 拉 维",
+     "native": "你是做什么工作的？"
+    },
+    {
+     "speaker": "B",
+     "study": "Je travaille comme infirmière, à l'hôpital.",
+     "phon": "热 特拉瓦伊 科姆 安菲尔米埃尔，阿 洛皮塔尔",
+     "native": "我是护士，在医院工作。"
+    },
+    {
+     "speaker": "A",
+     "study": "Tu commences tôt ?",
+     "phon": "蒂 科芒斯 托",
+     "native": "你上班很早吗？"
+    },
+    {
+     "speaker": "B",
+     "study": "Oui, d'habitude je me lève à six heures et je prends le bus.",
+     "phon": "威，达比蒂德 热 默 莱夫 阿 西 泽尔 埃 热 普朗 勒 比斯",
+     "native": "是的，我平时六点起床，然后坐公交。"
+    },
+    {
+     "speaker": "A",
+     "study": "Et le soir, qu'est-ce que tu fais ?",
+     "phon": "埃 勒 斯瓦尔，凯斯 克 蒂 费",
+     "native": "那晚上你做什么？"
+    },
+    {
+     "speaker": "B",
+     "study": "Je cuisine, et parfois je sors avec des amis. Et toi ?",
+     "phon": "热 居伊吉讷，埃 帕尔夫瓦 热 索尔 阿维克 德 扎米。埃 图瓦",
+     "native": "我做饭，有时候和朋友出去。你呢？"
+    },
+    {
+     "speaker": "A",
+     "study": "Moi, j'étudie le français le soir, trois fois par semaine.",
+     "phon": "穆瓦，热蒂迪 勒 弗朗赛 勒 斯瓦尔，特鲁瓦 夫瓦 帕尔 瑟曼",
+     "native": "我晚上学法语，一周三次。"
+    },
+    {
+     "speaker": "B",
+     "study": "Tous les jours un peu, c'est bien !",
+     "phon": "图 莱 茹尔 安 珀，赛 比安",
+     "native": "每天学一点，很好！"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L2-zh-fr-03",
+    "L3-zh-fr-03",
+    "L3-zh-fr-07",
+    "L4-zh-fr-06",
+    "L4-zh-fr-07",
+    "L4-zh-fr-09"
+   ]
+  },
+  {
+   "id": "L4-zh-fr-d3",
+   "situation": "聊住处",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Tu habites où ?",
+     "phon": "蒂 阿比特 乌",
+     "native": "你住在哪里？"
+    },
+    {
+     "speaker": "B",
+     "study": "J'habite dans un appartement près du centre.",
+     "phon": "扎比特 当 赞 阿帕尔特芒 普雷 迪 桑特尔",
+     "native": "我住在市中心附近的一套公寓里。"
+    },
+    {
+     "speaker": "A",
+     "study": "C'est grand ?",
+     "phon": "赛 格朗",
+     "native": "大吗？"
+    },
+    {
+     "speaker": "B",
+     "study": "Non, c'est petit, mais j'aime beaucoup mon quartier.",
+     "phon": "诺，赛 珀蒂，梅 热姆 博库 蒙 卡尔蒂耶",
+     "native": "不大，很小，但我很喜欢我住的街区。"
+    },
+    {
+     "speaker": "A",
+     "study": "Il y a quoi dans ton quartier ?",
+     "phon": "伊 利 亚 克瓦 当 通 卡尔蒂耶",
+     "native": "你的街区有什么？"
+    },
+    {
+     "speaker": "B",
+     "study": "Il y a un marché, un parc et beaucoup de cafés.",
+     "phon": "伊 利 亚 安 马尔谢，安 帕尔克 埃 博库 德 卡菲",
+     "native": "有一个市场、一个公园和很多咖啡馆。"
+    },
+    {
+     "speaker": "A",
+     "study": "Et tu vas au travail comment ?",
+     "phon": "埃 蒂 瓦 奥 特拉瓦伊 科芒",
+     "native": "那你怎么去上班？"
+    },
+    {
+     "speaker": "B",
+     "study": "À pied, c'est à dix minutes. Et toi ?",
+     "phon": "阿 皮耶，赛 阿 迪 米纽特。埃 图瓦",
+     "native": "走路，十分钟就到。你呢？"
+    },
+    {
+     "speaker": "A",
+     "study": "Moi, je prends le métro tous les jours.",
+     "phon": "穆瓦，热 普朗 勒 梅特罗 图 莱 茹尔",
+     "native": "我每天坐地铁。"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L1-zh-fr-07",
+    "L1-zh-fr-08",
+    "L2-zh-fr-03",
+    "L2-zh-fr-08",
+    "L3-zh-fr-07",
+    "L4-zh-fr-04",
+    "L4-zh-fr-05"
+   ]
+  }
+ ],
+ "readiness": "能描述自己的日常作息（早上、晚上、周末）和频率（每天、经常、有时候），介绍家人、住处、街区和工作或学习情况，并回答关于日常生活的简单提问。"
+}

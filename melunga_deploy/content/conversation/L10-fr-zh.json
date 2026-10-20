@@ -1,0 +1,1142 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "zh",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en chinois",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle",
+  "reading": "pinyin avec tons"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (style du deck : ouo = 我, chr = 是, dzaï = 在). Les tons ne sont pas notés dans l'approximation : se reporter au pinyin (champ reading) et à l'audio. Mandarin standard, caractères simplifiés.",
+ "reviewStatus": "Relecture linguistique requise (tons, naturel des tournures).",
+ "coverageClaim": null,
+ "level": 10,
+ "title": "Tenir une conversation",
+ "goal": "Soutenir une conversation mêlant récit, opinion, argument et clarification.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L10-fr-zh-01",
+   "situation": "Peser le pour et le contre",
+   "model": {
+    "study": "一方面{s}，另一方面比较贵。",
+    "reading": "yì fāngmiàn {s}, lìng yì fāngmiàn bǐjiào guì.",
+    "phon": "i fang-mièn {s}, ling i fang-mièn pi-tiao koueï",
+    "native": "D'un côté {s}, de l'autre c'est plutôt cher.",
+    "note": "一方面… 另一方面… structure l'argumentation en deux volets."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "很方便",
+      "reading": "hěn fāngbiàn",
+      "phon": "heun fang-pièn",
+      "native": "c'est très pratique"
+     },
+     "study": "一方面很方便，另一方面比较贵。",
+     "phon": "i fang-mièn heun fang-pièn, ling i fang-mièn pi-tiao koueï",
+     "native": "D'un côté c'est très pratique, de l'autre c'est plutôt cher.",
+     "reading": "yì fāngmiàn hěn fāngbiàn, lìng yì fāngmiàn bǐjiào guì."
+    },
+    {
+     "slot": {
+      "study": "离公司很近",
+      "reading": "lí gōngsī hěn jìn",
+      "phon": "li kong-seu heun tinn",
+      "native": "c'est tout près du bureau"
+     },
+     "study": "一方面离公司很近，另一方面比较贵。",
+     "phon": "i fang-mièn li kong-seu heun tinn, ling i fang-mièn pi-tiao koueï",
+     "native": "D'un côté c'est tout près du bureau, de l'autre c'est plutôt cher.",
+     "reading": "yì fāngmiàn lí gōngsī hěn jìn, lìng yì fāngmiàn bǐjiào guì."
+    },
+    {
+     "slot": {
+      "study": "房子很大",
+      "reading": "fángzi hěn dà",
+      "phon": "fang-tseu heun ta",
+      "native": "l'appartement est grand"
+     },
+     "study": "一方面房子很大，另一方面比较贵。",
+     "phon": "i fang-mièn fang-tseu heun ta, ling i fang-mièn pi-tiao koueï",
+     "native": "D'un côté l'appartement est grand, de l'autre c'est plutôt cher.",
+     "reading": "yì fāngmiàn fángzi hěn dà, lìng yì fāngmiàn bǐjiào guì."
+    },
+    {
+     "slot": {
+      "study": "质量很好",
+      "reading": "zhìliàng hěn hǎo",
+      "phon": "djr-liang heun hao",
+      "native": "la qualité est très bonne"
+     },
+     "study": "一方面质量很好，另一方面比较贵。",
+     "phon": "i fang-mièn djr-liang heun hao, ling i fang-mièn pi-tiao koueï",
+     "native": "D'un côté la qualité est très bonne, de l'autre c'est plutôt cher.",
+     "reading": "yì fāngmiàn zhìliàng hěn hǎo, lìng yì fāngmiàn bǐjiào guì."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-fr-zh-02",
+   "situation": "Concéder",
+   "model": {
+    "study": "是没错，但是{s}。",
+    "reading": "shì méi cuò, dànshì {s}.",
+    "phon": "chr meï tsouo, tan-chr {s}",
+    "native": "C'est vrai, mais {s}.",
+    "note": "是没错 (« ce n'est pas faux ») concède avant d'objecter avec 但是. 太远了 : 了 exclamatif de 太…了."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "太远了",
+      "reading": "tài yuǎn le",
+      "phon": "taï yuèn leu",
+      "native": "c'est trop loin"
+     },
+     "study": "是没错，但是太远了。",
+     "phon": "chr meï tsouo, tan-chr taï yuèn leu",
+     "native": "C'est vrai, mais c'est trop loin.",
+     "reading": "shì méi cuò, dànshì tài yuǎn le."
+    },
+    {
+     "slot": {
+      "study": "我没有时间",
+      "reading": "wǒ méiyǒu shíjiān",
+      "phon": "ouo meï-yeou chr-tièn",
+      "native": "je n'ai pas le temps"
+     },
+     "study": "是没错，但是我没有时间。",
+     "phon": "chr meï tsouo, tan-chr ouo meï-yeou chr-tièn",
+     "native": "C'est vrai, mais je n'ai pas le temps.",
+     "reading": "shì méi cuò, dànshì wǒ méiyǒu shíjiān."
+    },
+    {
+     "slot": {
+      "study": "现在还不急",
+      "reading": "xiànzài hái bù jí",
+      "phon": "sièn-dzaï haï pou ti",
+      "native": "ce n'est pas encore urgent"
+     },
+     "study": "是没错，但是现在还不急。",
+     "phon": "chr meï tsouo, tan-chr sièn-dzaï haï pou ti",
+     "native": "C'est vrai, mais ce n'est pas encore urgent.",
+     "reading": "shì méi cuò, dànshì xiànzài hái bù jí."
+    },
+    {
+     "slot": {
+      "study": "我们得先问问老板",
+      "reading": "wǒmen děi xiān wènwen lǎobǎn",
+      "phon": "ouo-meun deï sièn ouenn-ouenn lao-pan",
+      "native": "il faut d'abord demander au patron"
+     },
+     "study": "是没错，但是我们得先问问老板。",
+     "phon": "chr meï tsouo, tan-chr ouo-meun deï sièn ouenn-ouenn lao-pan",
+     "native": "C'est vrai, mais il faut d'abord demander au patron.",
+     "reading": "shì méi cuò, dànshì wǒmen děi xiān wènwen lǎobǎn."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-fr-zh-03",
+   "situation": "Reformuler l'avis de l'autre",
+   "model": {
+    "study": "如果我理解得对，你觉得{s}？",
+    "reading": "rúguǒ wǒ lǐjiě de duì, nǐ juéde {s}?",
+    "phon": "jou-kouo ouo li-tié deu toueï, ni tiué-deu {s} ?",
+    "native": "Si je comprends bien, tu penses que {s} ?",
+    "note": "理解得对 : 得 relie le verbe à son appréciation (« comprendre correctement »)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "我们应该等一等",
+      "reading": "wǒmen yīnggāi děng yi děng",
+      "phon": "ouo-meun ying-kaï teng i teng",
+      "native": "nous devrions attendre un peu"
+     },
+     "study": "如果我理解得对，你觉得我们应该等一等？",
+     "phon": "jou-kouo ouo li-tié deu toueï, ni tiué-deu ouo-meun ying-kaï teng i teng ?",
+     "native": "Si je comprends bien, tu penses que nous devrions attendre un peu ?",
+     "reading": "rúguǒ wǒ lǐjiě de duì, nǐ juéde wǒmen yīnggāi děng yi děng?"
+    },
+    {
+     "slot": {
+      "study": "这个方案更好",
+      "reading": "zhège fāng'àn gèng hǎo",
+      "phon": "djeu-keu fang-an keng hao",
+      "native": "ce projet est meilleur"
+     },
+     "study": "如果我理解得对，你觉得这个方案更好？",
+     "phon": "jou-kouo ouo li-tié deu toueï, ni tiué-deu djeu-keu fang-an keng hao ?",
+     "native": "Si je comprends bien, tu penses que ce projet est meilleur ?",
+     "reading": "rúguǒ wǒ lǐjiě de duì, nǐ juéde zhège fāng'àn gèng hǎo?"
+    },
+    {
+     "slot": {
+      "study": "现在不是好时机",
+      "reading": "xiànzài bú shì hǎo shíjī",
+      "phon": "sièn-dzaï pou chr hao chr-ti",
+      "native": "ce n'est pas le bon moment"
+     },
+     "study": "如果我理解得对，你觉得现在不是好时机？",
+     "phon": "jou-kouo ouo li-tié deu toueï, ni tiué-deu sièn-dzaï pou chr hao chr-ti ?",
+     "native": "Si je comprends bien, tu penses que ce n'est pas le bon moment ?",
+     "reading": "rúguǒ wǒ lǐjiě de duì, nǐ juéde xiànzài bú shì hǎo shíjī?"
+    },
+    {
+     "slot": {
+      "study": "他不会同意",
+      "reading": "tā bú huì tóngyì",
+      "phon": "ta pou houeï tong-i",
+      "native": "il ne sera pas d'accord"
+     },
+     "study": "如果我理解得对，你觉得他不会同意？",
+     "phon": "jou-kouo ouo li-tié deu toueï, ni tiué-deu ta pou houeï tong-i ?",
+     "native": "Si je comprends bien, tu penses qu'il ne sera pas d'accord ?",
+     "reading": "rúguǒ wǒ lǐjiě de duì, nǐ juéde tā bú huì tóngyì?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-fr-zh-04",
+   "situation": "Résumer",
+   "model": {
+    "study": "总的来说，{s}。",
+    "reading": "zǒng de lái shuō, {s}.",
+    "phon": "tsong deu laï chouo, {s}",
+    "native": "Pour résumer, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "这次旅行很成功",
+      "reading": "zhè cì lǚxíng hěn chénggōng",
+      "phon": "djeu tseu lü-sing heun tcheng-kong",
+      "native": "ce voyage a été une réussite"
+     },
+     "study": "总的来说，这次旅行很成功。",
+     "phon": "tsong deu laï chouo, djeu tseu lü-sing heun tcheng-kong",
+     "native": "Pour résumer, ce voyage a été une réussite.",
+     "reading": "zǒng de lái shuō, zhè cì lǚxíng hěn chénggōng."
+    },
+    {
+     "slot": {
+      "study": "我们都同意",
+      "reading": "wǒmen dōu tóngyì",
+      "phon": "ouo-meun tou tong-i",
+      "native": "nous sommes tous d'accord"
+     },
+     "study": "总的来说，我们都同意。",
+     "phon": "tsong deu laï chouo, ouo-meun tou tong-i",
+     "native": "Pour résumer, nous sommes tous d'accord.",
+     "reading": "zǒng de lái shuō, wǒmen dōu tóngyì."
+    },
+    {
+     "slot": {
+      "study": "问题不大",
+      "reading": "wèntí bú dà",
+      "phon": "ouenn-ti pou ta",
+      "native": "ce n'est pas un gros problème"
+     },
+     "study": "总的来说，问题不大。",
+     "phon": "tsong deu laï chouo, ouenn-ti pou ta",
+     "native": "Pour résumer, ce n'est pas un gros problème.",
+     "reading": "zǒng de lái shuō, wèntí bú dà."
+    },
+    {
+     "slot": {
+      "study": "还需要再讨论",
+      "reading": "hái xūyào zài tǎolùn",
+      "phon": "haï sü-yao dzaï tao-louenn",
+      "native": "il faut encore en discuter"
+     },
+     "study": "总的来说，还需要再讨论。",
+     "phon": "tsong deu laï chouo, haï sü-yao dzaï tao-louenn",
+     "native": "Pour résumer, il faut encore en discuter.",
+     "reading": "zǒng de lái shuō, hái xūyào zài tǎolùn."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-fr-zh-05",
+   "situation": "Prendre congé",
+   "model": {
+    "study": "好了，我得走了。{s}！",
+    "reading": "hǎo le, wǒ děi zǒu le. {s}!",
+    "phon": "hao leu, ouo deï tsou leu. {s} !",
+    "native": "Bon, je dois y aller. {s} !",
+    "note": "好了 et 我得走了 : 了 marque un changement de situation (« bon, c'est le moment »). 得 (děi) = devoir."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "回头见",
+      "reading": "huítóu jiàn",
+      "phon": "houeï-teou tièn",
+      "native": "À plus tard"
+     },
+     "study": "好了，我得走了。回头见！",
+     "phon": "hao leu, ouo deï tsou leu. houeï-teou tièn !",
+     "native": "Bon, je dois y aller. À plus tard !",
+     "reading": "hǎo le, wǒ děi zǒu le. huítóu jiàn!"
+    },
+    {
+     "slot": {
+      "study": "明天见",
+      "reading": "míngtiān jiàn",
+      "phon": "ming-tièn tièn",
+      "native": "À demain"
+     },
+     "study": "好了，我得走了。明天见！",
+     "phon": "hao leu, ouo deï tsou leu. ming-tièn tièn !",
+     "native": "Bon, je dois y aller. À demain !",
+     "reading": "hǎo le, wǒ děi zǒu le. míngtiān jiàn!"
+    },
+    {
+     "slot": {
+      "study": "保重",
+      "reading": "bǎozhòng",
+      "phon": "pao-djong",
+      "native": "Prends soin de toi"
+     },
+     "study": "好了，我得走了。保重！",
+     "phon": "hao leu, ouo deï tsou leu. pao-djong !",
+     "native": "Bon, je dois y aller. Prends soin de toi !",
+     "reading": "hǎo le, wǒ děi zǒu le. bǎozhòng!"
+    },
+    {
+     "slot": {
+      "study": "代我问候你家人",
+      "reading": "dài wǒ wènhòu nǐ jiārén",
+      "phon": "taï ouo ouenn-heou ni tia-jeun",
+      "native": "Salue ta famille de ma part"
+     },
+     "study": "好了，我得走了。代我问候你家人！",
+     "phon": "hao leu, ouo deï tsou leu. taï ouo ouenn-heou ni tia-jeun !",
+     "native": "Bon, je dois y aller. Salue ta famille de ma part !",
+     "reading": "hǎo le, wǒ děi zǒu le. dài wǒ wènhòu nǐ jiārén!"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-fr-zh-06",
+   "situation": "Raconter avec émotion",
+   "model": {
+    "study": "我那时候真的很{s}。",
+    "reading": "wǒ nà shíhou zhēn de hěn {s}.",
+    "phon": "ouo na chr-heou djeun deu heun {s}",
+    "native": "À ce moment-là, j'étais vraiment {s}.",
+    "note": "那时候 situe le récit ; l'émotion est un adjectif prédicatif (pas de verbe « être »)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "紧张",
+      "reading": "jǐnzhāng",
+      "phon": "tinn-djang",
+      "native": "stressé(e)"
+     },
+     "study": "我那时候真的很紧张。",
+     "phon": "ouo na chr-heou djeun deu heun tinn-djang",
+     "native": "À ce moment-là, j'étais vraiment stressé(e).",
+     "reading": "wǒ nà shíhou zhēn de hěn jǐnzhāng."
+    },
+    {
+     "slot": {
+      "study": "高兴",
+      "reading": "gāoxìng",
+      "phon": "kao-sing",
+      "native": "content(e)"
+     },
+     "study": "我那时候真的很高兴。",
+     "phon": "ouo na chr-heou djeun deu heun kao-sing",
+     "native": "À ce moment-là, j'étais vraiment content(e).",
+     "reading": "wǒ nà shíhou zhēn de hěn gāoxìng."
+    },
+    {
+     "slot": {
+      "study": "感动",
+      "reading": "gǎndòng",
+      "phon": "kan-tong",
+      "native": "ému(e)"
+     },
+     "study": "我那时候真的很感动。",
+     "phon": "ouo na chr-heou djeun deu heun kan-tong",
+     "native": "À ce moment-là, j'étais vraiment ému(e).",
+     "reading": "wǒ nà shíhou zhēn de hěn gǎndòng."
+    },
+    {
+     "slot": {
+      "study": "失望",
+      "reading": "shīwàng",
+      "phon": "chr-ouang",
+      "native": "déçu(e)"
+     },
+     "study": "我那时候真的很失望。",
+     "phon": "ouo na chr-heou djeun deu heun chr-ouang",
+     "native": "À ce moment-là, j'étais vraiment déçu(e).",
+     "reading": "wǒ nà shíhou zhēn de hěn shīwàng."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-fr-zh-07",
+   "situation": "Maintenir son avis",
+   "model": {
+    "study": "我还是觉得{s}。",
+    "reading": "wǒ háishi juéde {s}.",
+    "phon": "ouo haï-chr tiué-deu {s}",
+    "native": "Je continue à penser que {s}.",
+    "note": "还是 = « quand même, malgré tout » : on maintient sa position après une objection."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "这个办法最好",
+      "reading": "zhège bànfǎ zuì hǎo",
+      "phon": "djeu-keu pan-fa tsoueï hao",
+      "native": "cette solution est la meilleure"
+     },
+     "study": "我还是觉得这个办法最好。",
+     "phon": "ouo haï-chr tiué-deu djeu-keu pan-fa tsoueï hao",
+     "native": "Je continue à penser que cette solution est la meilleure.",
+     "reading": "wǒ háishi juéde zhège bànfǎ zuì hǎo."
+    },
+    {
+     "slot": {
+      "study": "我们应该早点出发",
+      "reading": "wǒmen yīnggāi zǎo diǎn chūfā",
+      "phon": "ouo-meun ying-kaï tsao tièn tchou-fa",
+      "native": "nous devrions partir plus tôt"
+     },
+     "study": "我还是觉得我们应该早点出发。",
+     "phon": "ouo haï-chr tiué-deu ouo-meun ying-kaï tsao tièn tchou-fa",
+     "native": "Je continue à penser que nous devrions partir plus tôt.",
+     "reading": "wǒ háishi juéde wǒmen yīnggāi zǎo diǎn chūfā."
+    },
+    {
+     "slot": {
+      "study": "价格太高",
+      "reading": "jiàgé tài gāo",
+      "phon": "tia-keu taï kao",
+      "native": "le prix est trop élevé"
+     },
+     "study": "我还是觉得价格太高。",
+     "phon": "ouo haï-chr tiué-deu tia-keu taï kao",
+     "native": "Je continue à penser que le prix est trop élevé.",
+     "reading": "wǒ háishi juéde jiàgé tài gāo."
+    },
+    {
+     "slot": {
+      "study": "值得试一试",
+      "reading": "zhíde shì yi shì",
+      "phon": "djr-deu chr i chr",
+      "native": "ça vaut le coup d'essayer"
+     },
+     "study": "我还是觉得值得试一试。",
+     "phon": "ouo haï-chr tiué-deu djr-deu chr i chr",
+     "native": "Je continue à penser que ça vaut le coup d'essayer.",
+     "reading": "wǒ háishi juéde zhíde shì yi shì."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-fr-zh-08",
+   "situation": "Changer de sujet",
+   "model": {
+    "study": "对了，{s}？",
+    "reading": "duì le, {s}?",
+    "phon": "toueï leu, {s} ?",
+    "native": "Au fait, {s} ?",
+    "note": "对了 = « au fait » (expression figée : ce 了 ne s'analyse plus). 过 après le verbe = expérience vécue (去过 = être déjà allé). 好些了 : 了 = changement d'état (elle va mieux qu'avant)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "你的新工作怎么样",
+      "reading": "nǐ de xīn gōngzuò zěnmeyàng",
+      "phon": "ni deu sinn kong-tsouo tseun-meu-yang",
+      "native": "comment ça se passe, ton nouveau travail"
+     },
+     "study": "对了，你的新工作怎么样？",
+     "phon": "toueï leu, ni deu sinn kong-tsouo tseun-meu-yang ?",
+     "native": "Au fait, comment ça se passe, ton nouveau travail ?",
+     "reading": "duì le, nǐ de xīn gōngzuò zěnmeyàng?"
+    },
+    {
+     "slot": {
+      "study": "你妈妈好些了吗",
+      "reading": "nǐ māma hǎo xiē le ma",
+      "phon": "ni ma-ma hao sié leu ma",
+      "native": "ta mère va mieux"
+     },
+     "study": "对了，你妈妈好些了吗？",
+     "phon": "toueï leu, ni ma-ma hao sié leu ma ?",
+     "native": "Au fait, ta mère va mieux ?",
+     "reading": "duì le, nǐ māma hǎo xiē le ma?"
+    },
+    {
+     "slot": {
+      "study": "周末你有什么打算",
+      "reading": "zhōumò nǐ yǒu shénme dǎsuàn",
+      "phon": "djo-mo ni yeou cheun-meu ta-souan",
+      "native": "qu'est-ce que tu as prévu ce week-end"
+     },
+     "study": "对了，周末你有什么打算？",
+     "phon": "toueï leu, djo-mo ni yeou cheun-meu ta-souan ?",
+     "native": "Au fait, qu'est-ce que tu as prévu ce week-end ?",
+     "reading": "duì le, zhōumò nǐ yǒu shénme dǎsuàn?"
+    },
+    {
+     "slot": {
+      "study": "你去过西安吗",
+      "reading": "nǐ qù guo Xī'ān ma",
+      "phon": "ni tchü kouo si-an ma",
+      "native": "tu es déjà allé(e) à Xi'an"
+     },
+     "study": "对了，你去过西安吗？",
+     "phon": "toueï leu, ni tchü kouo si-an ma ?",
+     "native": "Au fait, tu es déjà allé(e) à Xi'an ?",
+     "reading": "duì le, nǐ qù guo Xī'ān ma?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-fr-zh-09",
+   "situation": "Contre-argumenter",
+   "model": {
+    "study": "话是这么说，不过{s}。",
+    "reading": "huà shì zhème shuō, búguò {s}.",
+    "phon": "houa chr djeu-meu chouo, pou-kouo {s}",
+    "native": "On peut dire ça, mais {s}.",
+    "note": "话是这么说 (« c'est ce qu'on dit ») concède en apparence avant de relancer avec 不过."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "风险也不小",
+      "reading": "fēngxiǎn yě bù xiǎo",
+      "phon": "feng-sièn yé pou siao",
+      "native": "le risque n'est pas négligeable non plus"
+     },
+     "study": "话是这么说，不过风险也不小。",
+     "phon": "houa chr djeu-meu chouo, pou-kouo feng-sièn yé pou siao",
+     "native": "On peut dire ça, mais le risque n'est pas négligeable non plus.",
+     "reading": "huà shì zhème shuō, búguò fēngxiǎn yě bù xiǎo."
+    },
+    {
+     "slot": {
+      "study": "我们没有那么多钱",
+      "reading": "wǒmen méiyǒu nàme duō qián",
+      "phon": "ouo-meun meï-yeou na-meu douo tchyèn",
+      "native": "nous n'avons pas autant d'argent"
+     },
+     "study": "话是这么说，不过我们没有那么多钱。",
+     "phon": "houa chr djeu-meu chouo, pou-kouo ouo-meun meï-yeou na-meu douo tchyèn",
+     "native": "On peut dire ça, mais nous n'avons pas autant d'argent.",
+     "reading": "huà shì zhème shuō, búguò wǒmen méiyǒu nàme duō qián."
+    },
+    {
+     "slot": {
+      "study": "时间不够",
+      "reading": "shíjiān bú gòu",
+      "phon": "chr-tièn pou keou",
+      "native": "le temps manque"
+     },
+     "study": "话是这么说，不过时间不够。",
+     "phon": "houa chr djeu-meu chouo, pou-kouo chr-tièn pou keou",
+     "native": "On peut dire ça, mais le temps manque.",
+     "reading": "huà shì zhème shuō, búguò shíjiān bú gòu."
+    },
+    {
+     "slot": {
+      "study": "他的经验更多",
+      "reading": "tā de jīngyàn gèng duō",
+      "phon": "ta deu ting-yèn keng douo",
+      "native": "il a plus d'expérience"
+     },
+     "study": "话是这么说，不过他的经验更多。",
+     "phon": "houa chr djeu-meu chouo, pou-kouo ta deu ting-yèn keng douo",
+     "native": "On peut dire ça, mais il a plus d'expérience.",
+     "reading": "huà shì zhème shuō, búguò tā de jīngyàn gèng duō."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-fr-zh-10",
+   "situation": "Ce qui a marqué",
+   "model": {
+    "study": "最让我{s}的是那里的人。",
+    "reading": "zuì ràng wǒ {s} de shì nàlǐ de rén.",
+    "phon": "tsoueï jang ouo {s} deu chr na-li deu jeun",
+    "native": "Ce qui m'a le plus {s}, ce sont les gens là-bas.",
+    "note": "最让我…的是… = « ce qui m'a le plus… c'est… » ; 让 = faire éprouver."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "感动",
+      "reading": "gǎndòng",
+      "phon": "kan-tong",
+      "native": "touché(e)"
+     },
+     "study": "最让我感动的是那里的人。",
+     "phon": "tsoueï jang ouo kan-tong deu chr na-li deu jeun",
+     "native": "Ce qui m'a le plus touché(e), ce sont les gens là-bas.",
+     "reading": "zuì ràng wǒ gǎndòng de shì nàlǐ de rén."
+    },
+    {
+     "slot": {
+      "study": "惊讶",
+      "reading": "jīngyà",
+      "phon": "ting-ya",
+      "native": "surpris(e)"
+     },
+     "study": "最让我惊讶的是那里的人。",
+     "phon": "tsoueï jang ouo ting-ya deu chr na-li deu jeun",
+     "native": "Ce qui m'a le plus surpris(e), ce sont les gens là-bas.",
+     "reading": "zuì ràng wǒ jīngyà de shì nàlǐ de rén."
+    },
+    {
+     "slot": {
+      "study": "高兴",
+      "reading": "gāoxìng",
+      "phon": "kao-sing",
+      "native": "fait plaisir"
+     },
+     "study": "最让我高兴的是那里的人。",
+     "phon": "tsoueï jang ouo kao-sing deu chr na-li deu jeun",
+     "native": "Ce qui m'a le plus fait plaisir, ce sont les gens là-bas.",
+     "reading": "zuì ràng wǒ gāoxìng de shì nàlǐ de rén."
+    },
+    {
+     "slot": {
+      "study": "难忘",
+      "reading": "nánwàng",
+      "phon": "nan-ouang",
+      "native": "marqué(e)"
+     },
+     "study": "最让我难忘的是那里的人。",
+     "phon": "tsoueï jang ouo nan-ouang deu chr na-li deu jeun",
+     "native": "Ce qui m'a le plus marqué(e), ce sont les gens là-bas.",
+     "reading": "zuì ràng wǒ nánwàng de shì nàlǐ de rén."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-fr-zh-11",
+   "situation": "Clarifier son propos",
+   "model": {
+    "study": "我不是这个意思，我是说{s}。",
+    "reading": "wǒ bú shì zhège yìsi, wǒ shì shuō {s}.",
+    "phon": "ouo pou chr djeu-keu i-seu, ouo chr chouo {s}",
+    "native": "Ce n'est pas ce que je veux dire, je veux dire que {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "我们可以再等等",
+      "reading": "wǒmen kěyǐ zài děngdeng",
+      "phon": "ouo-meun keu-i dzaï teng-teng",
+      "native": "nous pouvons encore attendre un peu"
+     },
+     "study": "我不是这个意思，我是说我们可以再等等。",
+     "phon": "ouo pou chr djeu-keu i-seu, ouo chr chouo ouo-meun keu-i dzaï teng-teng",
+     "native": "Ce n'est pas ce que je veux dire, je veux dire que nous pouvons encore attendre un peu.",
+     "reading": "wǒ bú shì zhège yìsi, wǒ shì shuō wǒmen kěyǐ zài děngdeng."
+    },
+    {
+     "slot": {
+      "study": "价格可以商量",
+      "reading": "jiàgé kěyǐ shāngliang",
+      "phon": "tia-keu keu-i chang-liang",
+      "native": "le prix est négociable"
+     },
+     "study": "我不是这个意思，我是说价格可以商量。",
+     "phon": "ouo pou chr djeu-keu i-seu, ouo chr chouo tia-keu keu-i chang-liang",
+     "native": "Ce n'est pas ce que je veux dire, je veux dire que le prix est négociable.",
+     "reading": "wǒ bú shì zhège yìsi, wǒ shì shuō jiàgé kěyǐ shāngliang."
+    },
+    {
+     "slot": {
+      "study": "我需要更多信息",
+      "reading": "wǒ xūyào gèng duō xìnxī",
+      "phon": "ouo sü-yao keng douo sinn-si",
+      "native": "j'ai besoin de plus d'informations"
+     },
+     "study": "我不是这个意思，我是说我需要更多信息。",
+     "phon": "ouo pou chr djeu-keu i-seu, ouo chr chouo ouo sü-yao keng douo sinn-si",
+     "native": "Ce n'est pas ce que je veux dire, je veux dire que j'ai besoin de plus d'informations.",
+     "reading": "wǒ bú shì zhège yìsi, wǒ shì shuō wǒ xūyào gèng duō xìnxī."
+    },
+    {
+     "slot": {
+      "study": "这不是你的错",
+      "reading": "zhè bú shì nǐ de cuò",
+      "phon": "djeu pou chr ni deu tsouo",
+      "native": "ce n'est pas ta faute"
+     },
+     "study": "我不是这个意思，我是说这不是你的错。",
+     "phon": "ouo pou chr djeu-keu i-seu, ouo chr chouo djeu pou chr ni deu tsouo",
+     "native": "Ce n'est pas ce que je veux dire, je veux dire que ce n'est pas ta faute.",
+     "reading": "wǒ bú shì zhège yìsi, wǒ shì shuō zhè bú shì nǐ de cuò."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-fr-zh-12",
+   "situation": "Conclure chaleureusement",
+   "model": {
+    "study": "今天聊得很开心，{s}。",
+    "reading": "jīntiān liáo de hěn kāixīn, {s}.",
+    "phon": "tinn-tièn liao deu heun kaï-sinn, {s}",
+    "native": "J'ai passé un très bon moment à discuter, {s}.",
+    "note": "聊得很开心 : 得 relie 聊 (bavarder) à l'appréciation 很开心."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "下次再聊",
+      "reading": "xià cì zài liáo",
+      "phon": "sia tseu dzaï liao",
+      "native": "on en reparle la prochaine fois"
+     },
+     "study": "今天聊得很开心，下次再聊。",
+     "phon": "tinn-tièn liao deu heun kaï-sinn, sia tseu dzaï liao",
+     "native": "J'ai passé un très bon moment à discuter, on en reparle la prochaine fois.",
+     "reading": "jīntiān liáo de hěn kāixīn, xià cì zài liáo."
+    },
+    {
+     "slot": {
+      "study": "有空常联系",
+      "reading": "yǒu kòng cháng liánxì",
+      "phon": "yeou kong tchang lièn-si",
+      "native": "restons en contact"
+     },
+     "study": "今天聊得很开心，有空常联系。",
+     "phon": "tinn-tièn liao deu heun kaï-sinn, yeou kong tchang lièn-si",
+     "native": "J'ai passé un très bon moment à discuter, restons en contact.",
+     "reading": "jīntiān liáo de hěn kāixīn, yǒu kòng cháng liánxì."
+    },
+    {
+     "slot": {
+      "study": "替我向大家问好",
+      "reading": "tì wǒ xiàng dàjiā wènhǎo",
+      "phon": "ti ouo siang ta-tia ouenn-hao",
+      "native": "salue tout le monde de ma part"
+     },
+     "study": "今天聊得很开心，替我向大家问好。",
+     "phon": "tinn-tièn liao deu heun kaï-sinn, ti ouo siang ta-tia ouenn-hao",
+     "native": "J'ai passé un très bon moment à discuter, salue tout le monde de ma part.",
+     "reading": "jīntiān liáo de hěn kāixīn, tì wǒ xiàng dàjiā wènhǎo."
+    },
+    {
+     "slot": {
+      "study": "路上小心",
+      "reading": "lùshang xiǎoxīn",
+      "phon": "lou-chang siao-sinn",
+      "native": "fais attention sur la route"
+     },
+     "study": "今天聊得很开心，路上小心。",
+     "phon": "tinn-tièn liao deu heun kaï-sinn, lou-chang siao-sinn",
+     "native": "J'ai passé un très bon moment à discuter, fais attention sur la route.",
+     "reading": "jīntiān liáo de hěn kāixīn, lùshang xiǎoxīn."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L10-fr-zh-d1",
+   "situation": "Changer de travail ?",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "最近怎么样？听说你想换工作？",
+     "reading": "zuìjìn zěnmeyàng? tīngshuō nǐ xiǎng huàn gōngzuò?",
+     "phon": "tsoueï-tinn tseun-meu-yang ? ting-chouo ni siang houan kong-tsouo ?",
+     "native": "Quoi de neuf ? J'ai entendu dire que tu voulais changer de travail ?"
+    },
+    {
+     "speaker": "B",
+     "study": "对。一方面现在的公司很稳定，另一方面工资太低了。",
+     "reading": "duì. yì fāngmiàn xiànzài de gōngsī hěn wěndìng, lìng yì fāngmiàn gōngzī tài dī le.",
+     "phon": "toueï. i fang-mièn sièn-dzaï deu kong-seu heun ouenn-ting, ling i fang-mièn kong-tseu taï ti leu",
+     "native": "Oui. D'un côté ma boîte actuelle est stable, de l'autre le salaire est trop bas."
+    },
+    {
+     "speaker": "A",
+     "study": "如果我理解得对，你觉得现在是好时机？",
+     "reading": "rúguǒ wǒ lǐjiě de duì, nǐ juéde xiànzài shì hǎo shíjī?",
+     "phon": "jou-kouo ouo li-tié deu toueï, ni tiué-deu sièn-dzaï chr hao chr-ti ?",
+     "native": "Si je comprends bien, tu penses que c'est le bon moment ?"
+    },
+    {
+     "speaker": "B",
+     "study": "我还是觉得值得试一试。上个月我面试了两家公司。",
+     "reading": "wǒ háishi juéde zhíde shì yi shì. shàng ge yuè wǒ miànshì le liǎng jiā gōngsī.",
+     "phon": "ouo haï-chr tiué-deu djr-deu chr i chr. chang keu yué ouo mièn-chr leu liang tia kong-seu",
+     "native": "Je continue à penser que ça vaut le coup. Le mois dernier j'ai passé des entretiens dans deux entreprises."
+    },
+    {
+     "speaker": "A",
+     "study": "真的吗？感觉怎么样？",
+     "reading": "zhēn de ma? gǎnjué zěnmeyàng?",
+     "phon": "djeun deu ma ? kan-tiué tseun-meu-yang ?",
+     "native": "Vraiment ? Comment ça s'est passé ?"
+    },
+    {
+     "speaker": "B",
+     "study": "我那时候真的很紧张，不过第二家很有意思。",
+     "reading": "wǒ nà shíhou zhēn de hěn jǐnzhāng, búguò dì-èr jiā hěn yǒu yìsi.",
+     "phon": "ouo na chr-heou djeun deu heun tinn-djang, pou-kouo ti-eur tia heun yeou i-seu",
+     "native": "J'étais vraiment stressé, mais la deuxième était très intéressante."
+    },
+    {
+     "speaker": "A",
+     "study": "是没错，但是新公司风险也不小。",
+     "reading": "shì méi cuò, dànshì xīn gōngsī fēngxiǎn yě bù xiǎo.",
+     "phon": "chr meï tsouo, tan-chr sinn kong-seu feng-sièn yé pou siao",
+     "native": "C'est vrai, mais une nouvelle boîte, ce n'est pas sans risque."
+    },
+    {
+     "speaker": "B",
+     "study": "话是这么说，不过我已经三十五岁了，不想再等了。",
+     "reading": "huà shì zhème shuō, búguò wǒ yǐjīng sānshíwǔ suì le, bù xiǎng zài děng le.",
+     "phon": "houa chr djeu-meu chouo, pou-kouo ouo i-ting san-chr-ou soueï leu, pou siang dzaï teng leu",
+     "native": "On peut dire ça, mais j'ai déjà trente-cinq ans, je ne veux plus attendre."
+    },
+    {
+     "speaker": "A",
+     "study": "总的来说，你已经决定了。",
+     "reading": "zǒng de lái shuō, nǐ yǐjīng juédìng le.",
+     "phon": "tsong deu laï chouo, ni i-ting tiué-ting leu",
+     "native": "Pour résumer, tu as déjà décidé."
+    },
+    {
+     "speaker": "B",
+     "study": "差不多。对了，你周末有空吗？一起吃饭聊聊。",
+     "reading": "chàbuduō. duì le, nǐ zhōumò yǒu kòng ma? yìqǐ chī fàn liáoliao.",
+     "phon": "tcha-pou-douo. toueï leu, ni djo-mo yeou kong ma ? i-tchi tchr fan liao-liao",
+     "native": "À peu près. Au fait, tu es libre ce week-end ? On mange ensemble et on en reparle."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L5-fr-zh-04",
+    "L5-fr-zh-05",
+    "L6-fr-zh-09",
+    "L10-fr-zh-02",
+    "L10-fr-zh-03",
+    "L10-fr-zh-04",
+    "L10-fr-zh-06",
+    "L10-fr-zh-07",
+    "L10-fr-zh-08",
+    "L10-fr-zh-09"
+   ]
+  },
+  {
+   "id": "L10-fr-zh-d2",
+   "situation": "Retour de voyage",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "你的西安之行怎么样？",
+     "reading": "nǐ de Xī'ān zhī xíng zěnmeyàng?",
+     "phon": "ni deu si-an djr sing tseun-meu-yang ?",
+     "native": "Alors, ton voyage à Xi'an ?"
+    },
+    {
+     "speaker": "B",
+     "study": "太好了！最让我感动的是那里的人，特别热情。",
+     "reading": "tài hǎo le! zuì ràng wǒ gǎndòng de shì nàlǐ de rén, tèbié rèqíng.",
+     "phon": "taï hao leu ! tsoueï jang ouo kan-tong deu chr na-li deu jeun, teu-pié jeu-tching",
+     "native": "Génial ! Ce qui m'a le plus touchée, ce sont les gens, tellement chaleureux."
+    },
+    {
+     "speaker": "A",
+     "study": "你坐高铁去的吗？",
+     "reading": "nǐ zuò gāotiě qù de ma?",
+     "phon": "ni tsouo kao-tié tchü deu ma ?",
+     "native": "Tu y es allée en TGV ?"
+    },
+    {
+     "speaker": "B",
+     "study": "对，五个小时。先去了兵马俑，然后在老城走了一天。",
+     "reading": "duì, wǔ ge xiǎoshí. xiān qù le Bīngmǎyǒng, ránhòu zài lǎo chéng zǒu le yì tiān.",
+     "phon": "toueï, ou keu siao-chr. sièn tchü leu ping-ma-yong, jan-heou dzaï lao tcheng tsou leu i tièn",
+     "native": "Oui, cinq heures. D'abord l'armée de terre cuite, puis une journée à marcher dans la vieille ville."
+    },
+    {
+     "speaker": "A",
+     "study": "我觉得坐飞机更快。",
+     "reading": "wǒ juéde zuò fēijī gèng kuài.",
+     "phon": "ouo tiué-deu tsouo feï-ti keng kouaï",
+     "native": "Je trouve que l'avion est plus rapide."
+    },
+    {
+     "speaker": "B",
+     "study": "是没错，但是高铁更方便，而且可以看风景。",
+     "reading": "shì méi cuò, dànshì gāotiě gèng fāngbiàn, érqiě kěyǐ kàn fēngjǐng.",
+     "phon": "chr meï tsouo, tan-chr kao-tié keng fang-pièn, eur-tchié keu-i kan feng-ting",
+     "native": "C'est vrai, mais le TGV est plus pratique, et on voit le paysage."
+    },
+    {
+     "speaker": "A",
+     "study": "如果我理解得对，你觉得慢一点也值得？",
+     "reading": "rúguǒ wǒ lǐjiě de duì, nǐ juéde màn yìdiǎn yě zhíde?",
+     "phon": "jou-kouo ouo li-tié deu toueï, ni tiué-deu man i-tièn yé djr-deu ?",
+     "native": "Si je comprends bien, tu penses que ça vaut le coup même si c'est plus lent ?"
+    },
+    {
+     "speaker": "B",
+     "study": "对。一方面便宜，另一方面不用去机场。",
+     "reading": "duì. yì fāngmiàn piányi, lìng yì fāngmiàn búyòng qù jīchǎng.",
+     "phon": "toueï. i fang-mièn pièn-i, ling i fang-mièn pou-yong tchü ti-tchang",
+     "native": "Oui. D'un côté c'est moins cher, de l'autre pas besoin d'aller à l'aéroport."
+    },
+    {
+     "speaker": "A",
+     "study": "好吧，下次我也试试。好了，我得走了，回头见！",
+     "reading": "hǎo ba, xià cì wǒ yě shìshi. hǎo le, wǒ děi zǒu le, huítóu jiàn!",
+     "phon": "hao pa, sia tseu ouo yé chr-chr. hao leu, ouo deï tsou leu, houeï-teou tièn !",
+     "native": "Bon, la prochaine fois j'essaierai aussi. Allez, je dois y aller, à plus !"
+    },
+    {
+     "speaker": "B",
+     "study": "回头见，路上小心！",
+     "reading": "huítóu jiàn, lùshang xiǎoxīn!",
+     "phon": "houeï-teou tièn, lou-chang siao-sinn !",
+     "native": "À plus, fais attention sur la route !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L5-fr-zh-05",
+    "L7-fr-zh-06",
+    "L8-fr-zh-09",
+    "L10-fr-zh-02",
+    "L10-fr-zh-03",
+    "L10-fr-zh-05",
+    "L10-fr-zh-10"
+   ]
+  },
+  {
+   "id": "L10-fr-zh-d3",
+   "situation": "Entre voisins",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "李太太，您好。我想跟您说一件事。",
+     "reading": "Lǐ tàitai, nín hǎo. wǒ xiǎng gēn nín shuō yí jiàn shì.",
+     "phon": "li taï-taï, ninn hao. ouo siang keun ninn chouo i tièn chr",
+     "native": "Bonjour, Madame Li. Je voudrais vous parler de quelque chose."
+    },
+    {
+     "speaker": "B",
+     "study": "您说。",
+     "reading": "nín shuō.",
+     "phon": "ninn chouo",
+     "native": "Je vous écoute."
+    },
+    {
+     "speaker": "A",
+     "study": "最近晚上楼上声音比较大，孩子睡不着。",
+     "reading": "zuìjìn wǎnshang lóushàng shēngyīn bǐjiào dà, háizi shuì bu zháo.",
+     "phon": "tsoueï-tinn ouan-chang leou-chang cheng-inn pi-tiao ta, haï-tseu chouèï pou djao",
+     "native": "Ces derniers temps, le soir, il y a pas mal de bruit au-dessus, les enfants n'arrivent pas à dormir."
+    },
+    {
+     "speaker": "B",
+     "study": "不好意思！是我儿子在练钢琴。",
+     "reading": "bù hǎoyìsi! shì wǒ érzi zài liàn gāngqín.",
+     "phon": "pou hao-i-seu ! chr ouo eur-tseu dzaï lièn kang-tchinn",
+     "native": "Oh, désolée ! C'est mon fils qui travaille son piano."
+    },
+    {
+     "speaker": "A",
+     "study": "我不是这个意思，我是说能不能早一点练？",
+     "reading": "wǒ bú shì zhège yìsi, wǒ shì shuō néng bu néng zǎo yìdiǎn liàn?",
+     "phon": "ouo pou chr djeu-keu i-seu, ouo chr chouo neng pou neng tsao i-tièn lièn ?",
+     "native": "Ce n'est pas un reproche, je veux dire : est-ce qu'il pourrait répéter un peu plus tôt ?"
+    },
+    {
+     "speaker": "B",
+     "study": "话是这么说，不过他六点才放学。",
+     "reading": "huà shì zhème shuō, búguò tā liù diǎn cái fàngxué.",
+     "phon": "houa chr djeu-meu chouo, pou-kouo ta liou tièn tsaï fang-süé",
+     "native": "Je comprends, mais il ne sort de l'école qu'à six heures."
+    },
+    {
+     "speaker": "A",
+     "study": "如果我理解得对，您觉得八点以前比较难？",
+     "reading": "rúguǒ wǒ lǐjiě de duì, nín juéde bā diǎn yǐqián bǐjiào nán?",
+     "phon": "jou-kouo ouo li-tié deu toueï, ninn tiué-deu pa tièn i-tchyèn pi-tiao nan ?",
+     "native": "Si je comprends bien, avant huit heures c'est plutôt difficile ?"
+    },
+    {
+     "speaker": "B",
+     "study": "对。但是九点以后不练，可以吗？",
+     "reading": "duì. dànshì jiǔ diǎn yǐhòu bú liàn, kěyǐ ma?",
+     "phon": "toueï. tan-chr tiou tièn i-heou pou lièn, keu-i ma ?",
+     "native": "Oui. Mais pas de piano après neuf heures, ça vous irait ?"
+    },
+    {
+     "speaker": "A",
+     "study": "可以，太好了。总的来说，问题不大。",
+     "reading": "kěyǐ, tài hǎo le. zǒng de lái shuō, wèntí bú dà.",
+     "phon": "keu-i, taï hao leu. tsong deu laï chouo, ouenn-ti pou ta",
+     "native": "Oui, parfait. Pour résumer, ce n'est pas un gros problème."
+    },
+    {
+     "speaker": "B",
+     "study": "谢谢您的理解。代我问候您家人！",
+     "reading": "xièxie nín de lǐjiě. dài wǒ wènhòu nín jiārén!",
+     "phon": "sié-sié ninn deu li-tié. taï ouo ouenn-heou ninn tia-jeun !",
+     "native": "Merci de votre compréhension. Saluez votre famille de ma part !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-zh-01",
+    "L3-fr-zh-08",
+    "L5-fr-zh-05",
+    "L6-fr-zh-06",
+    "L8-fr-zh-09",
+    "L8-fr-zh-10",
+    "L10-fr-zh-04",
+    "L10-fr-zh-09",
+    "L10-fr-zh-11"
+   ]
+  }
+ ],
+ "readiness": "L'apprenant sait soutenir une conversation longue : raconter avec des repères et des émotions (那时候, 真的很…), peser le pour et le contre (一方面… 另一方面…), concéder puis objecter (是没错，但是… / 话是这么说，不过…), reformuler l'avis de l'autre (如果我理解得对), maintenir ou clarifier le sien (我还是觉得, 我不是这个意思), changer de sujet (对了), résumer (总的来说) et prendre congé chaleureusement."
+}

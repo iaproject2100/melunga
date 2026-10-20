@@ -1,0 +1,833 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "échantillon-à-valider",
+ "studyLanguage": "it",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en italien",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.",
+ "reviewStatus": "Rédigé à la main ; relecture par un italophone conseillée.",
+ "coverageClaim": null,
+ "level": 1,
+ "title": "Premiers contacts",
+ "goal": "Saluer, se présenter, exprimer un besoin, commander simplement.",
+ "reviewPreviousLevels": [],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L1-fr-it-01",
+   "situation": "Se présenter",
+   "model": {
+    "study": "Sono {s}.",
+    "phon": "SO-no {s}",
+    "native": "Je suis {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "studente",
+      "phon": "stou-DÈN-té",
+      "native": "étudiant"
+     },
+     "study": "Sono studente.",
+     "phon": "SO-no stou-DÈN-té",
+     "native": "Je suis étudiant."
+    },
+    {
+     "slot": {
+      "study": "francese",
+      "phon": "fran-TCHÉ-zé",
+      "native": "français"
+     },
+     "study": "Sono francese.",
+     "phon": "SO-no fran-TCHÉ-zé",
+     "native": "Je suis français."
+    },
+    {
+     "slot": {
+      "study": "di Parigi",
+      "phon": "di pa-RI-dji",
+      "native": "de Paris"
+     },
+     "study": "Sono di Parigi.",
+     "phon": "SO-no di pa-RI-dji",
+     "native": "Je suis de Paris."
+    },
+    {
+     "slot": {
+      "study": "in vacanza",
+      "phon": "inn va-KAN-tsa",
+      "native": "en vacances"
+     },
+     "study": "Sono in vacanza.",
+     "phon": "SO-no inn va-KAN-tsa",
+     "native": "Je suis en vacances."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-it-02",
+   "situation": "Dire son nom",
+   "model": {
+    "study": "Mi chiamo {s}.",
+    "phon": "mi KIA-mo {s}",
+    "native": "Je m'appelle {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Maria",
+      "phon": "ma-RI-a",
+      "native": "Marie"
+     },
+     "study": "Mi chiamo Maria.",
+     "phon": "mi KIA-mo ma-RI-a",
+     "native": "Je m'appelle Marie."
+    },
+    {
+     "slot": {
+      "study": "Paolo",
+      "phon": "PA-o-lo",
+      "native": "Paul"
+     },
+     "study": "Mi chiamo Paolo.",
+     "phon": "mi KIA-mo PA-o-lo",
+     "native": "Je m'appelle Paul."
+    },
+    {
+     "slot": {
+      "study": "Lin",
+      "phon": "LIN",
+      "native": "Lin"
+     },
+     "study": "Mi chiamo Lin.",
+     "phon": "mi KIA-mo LIN",
+     "native": "Je m'appelle Lin."
+    },
+    {
+     "slot": {
+      "study": "Anna",
+      "phon": "AN-na",
+      "native": "Ana"
+     },
+     "study": "Mi chiamo Anna.",
+     "phon": "mi KIA-mo AN-na",
+     "native": "Je m'appelle Ana."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-it-03",
+   "situation": "Dire ce qu'on veut",
+   "model": {
+    "study": "Vorrei {s}.",
+    "phon": "vor-RÈÏ {s}",
+    "native": "Je voudrais {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "un caffè",
+      "phon": "oun kaf-FÈ",
+      "native": "un café"
+     },
+     "study": "Vorrei un caffè.",
+     "phon": "vor-RÈÏ oun kaf-FÈ",
+     "native": "Je voudrais un café."
+    },
+    {
+     "slot": {
+      "study": "dell'acqua",
+      "phon": "dél-LA-koua",
+      "native": "de l'eau"
+     },
+     "study": "Vorrei dell'acqua.",
+     "phon": "vor-RÈÏ dél-LA-koua",
+     "native": "Je voudrais de l'eau."
+    },
+    {
+     "slot": {
+      "study": "un biglietto",
+      "phon": "oun bi-LIÉT-to",
+      "native": "un billet"
+     },
+     "study": "Vorrei un biglietto.",
+     "phon": "vor-RÈÏ oun bi-LIÉT-to",
+     "native": "Je voudrais un billet."
+    },
+    {
+     "slot": {
+      "study": "un panino",
+      "phon": "oun pa-NI-no",
+      "native": "un sandwich"
+     },
+     "study": "Vorrei un panino.",
+     "phon": "vor-RÈÏ oun pa-NI-no",
+     "native": "Je voudrais un sandwich."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-it-04",
+   "situation": "Dire ce dont on a besoin",
+   "model": {
+    "study": "Ho bisogno di {s}.",
+    "phon": "o bi-ZO-gno di {s}",
+    "native": "J'ai besoin de {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "aiuto",
+      "phon": "a-YOU-to",
+      "native": "aide"
+     },
+     "study": "Ho bisogno di aiuto.",
+     "phon": "o bi-ZO-gno di a-YOU-to",
+     "native": "J'ai besoin d'aide."
+    },
+    {
+     "slot": {
+      "study": "un taxi",
+      "phon": "oun TAK-si",
+      "native": "un taxi"
+     },
+     "study": "Ho bisogno di un taxi.",
+     "phon": "o bi-ZO-gno di oun TAK-si",
+     "native": "J'ai besoin d'un taxi."
+    },
+    {
+     "slot": {
+      "study": "un medico",
+      "phon": "oun MÈ-di-ko",
+      "native": "un médecin"
+     },
+     "study": "Ho bisogno di un medico.",
+     "phon": "o bi-ZO-gno di oun MÈ-di-ko",
+     "native": "J'ai besoin d'un médecin."
+    },
+    {
+     "slot": {
+      "study": "wifi",
+      "phon": "OUAÏ-faï",
+      "native": "la wifi"
+     },
+     "study": "Ho bisogno di wifi.",
+     "phon": "o bi-ZO-gno di OUAÏ-faï",
+     "native": "J'ai besoin de la wifi."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-it-05",
+   "situation": "Trouver un lieu",
+   "model": {
+    "study": "Dov'è {s}?",
+    "phon": "do-VÈ {s}",
+    "native": "Où est {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "la stazione",
+      "phon": "la sta-TSIO-né",
+      "native": "la gare"
+     },
+     "study": "Dov'è la stazione?",
+     "phon": "do-VÈ la sta-TSIO-né",
+     "native": "Où est la gare ?"
+    },
+    {
+     "slot": {
+      "study": "l'uscita",
+      "phon": "lou-CHI-ta",
+      "native": "la sortie"
+     },
+     "study": "Dov'è l'uscita?",
+     "phon": "do-VÈ lou-CHI-ta",
+     "native": "Où est la sortie ?"
+    },
+    {
+     "slot": {
+      "study": "il bagno",
+      "phon": "il BA-gno",
+      "native": "les toilettes"
+     },
+     "study": "Dov'è il bagno?",
+     "phon": "do-VÈ il BA-gno",
+     "native": "Où sont les toilettes ?"
+    },
+    {
+     "slot": {
+      "study": "la metro",
+      "phon": "la MÉ-tro",
+      "native": "le métro"
+     },
+     "study": "Dov'è la metro?",
+     "phon": "do-VÈ la MÉ-tro",
+     "native": "Où est le métro ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-it-06",
+   "situation": "Dire où l'on va",
+   "model": {
+    "study": "Vado {s}.",
+    "phon": "VA-do {s}",
+    "native": "Je vais {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "al lavoro",
+      "phon": "al la-VO-ro",
+      "native": "au travail"
+     },
+     "study": "Vado al lavoro.",
+     "phon": "VA-do al la-VO-ro",
+     "native": "Je vais au travail."
+    },
+    {
+     "slot": {
+      "study": "a casa",
+      "phon": "a KA-za",
+      "native": "à la maison"
+     },
+     "study": "Vado a casa.",
+     "phon": "VA-do a KA-za",
+     "native": "Je vais à la maison."
+    },
+    {
+     "slot": {
+      "study": "al mercato",
+      "phon": "al mér-KA-to",
+      "native": "au marché"
+     },
+     "study": "Vado al mercato.",
+     "phon": "VA-do al mér-KA-to",
+     "native": "Je vais au marché."
+    },
+    {
+     "slot": {
+      "study": "in albergo",
+      "phon": "inn al-BÈR-go",
+      "native": "à l'hôtel"
+     },
+     "study": "Vado in albergo.",
+     "phon": "VA-do inn al-BÈR-go",
+     "native": "Je vais à l'hôtel."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-it-07",
+   "situation": "Dire comment on se sent",
+   "model": {
+    "study": "Ho {s}.",
+    "phon": "O {s}",
+    "native": "J'ai {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "fame",
+      "phon": "FA-mé",
+      "native": "faim"
+     },
+     "study": "Ho fame.",
+     "phon": "O FA-mé",
+     "native": "J'ai faim."
+    },
+    {
+     "slot": {
+      "study": "sete",
+      "phon": "SÉ-té",
+      "native": "soif"
+     },
+     "study": "Ho sete.",
+     "phon": "O SÉ-té",
+     "native": "J'ai soif."
+    },
+    {
+     "slot": {
+      "study": "freddo",
+      "phon": "FRÉD-do",
+      "native": "froid"
+     },
+     "study": "Ho freddo.",
+     "phon": "O FRÉD-do",
+     "native": "J'ai froid."
+    },
+    {
+     "slot": {
+      "study": "caldo",
+      "phon": "KAL-do",
+      "native": "chaud"
+     },
+     "study": "Ho caldo.",
+     "phon": "O KAL-do",
+     "native": "J'ai chaud."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-it-08",
+   "situation": "Dire ce qu'on aime",
+   "model": {
+    "study": "Mi piace {s}.",
+    "phon": "mi PIA-tché {s}",
+    "native": "J'aime {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "il caffè",
+      "phon": "il kaf-FÈ",
+      "native": "le café"
+     },
+     "study": "Mi piace il caffè.",
+     "phon": "mi PIA-tché il kaf-FÈ",
+     "native": "J'aime le café."
+    },
+    {
+     "slot": {
+      "study": "la musica",
+      "phon": "la MOU-zi-ka",
+      "native": "la musique"
+     },
+     "study": "Mi piace la musica.",
+     "phon": "mi PIA-tché la MOU-zi-ka",
+     "native": "J'aime la musique."
+    },
+    {
+     "slot": {
+      "study": "camminare",
+      "phon": "kam-mi-NA-ré",
+      "native": "marcher"
+     },
+     "study": "Mi piace camminare.",
+     "phon": "mi PIA-tché kam-mi-NA-ré",
+     "native": "J'aime marcher."
+    },
+    {
+     "slot": {
+      "study": "lo sport",
+      "phon": "lo SPORT",
+      "native": "le sport"
+     },
+     "study": "Mi piace lo sport.",
+     "phon": "mi PIA-tché lo SPORT",
+     "native": "J'aime le sport."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-it-09",
+   "situation": "Commander",
+   "model": {
+    "study": "Un {s}, per favore.",
+    "phon": "oun {s}, pér fa-VO-ré",
+    "native": "Un {s}, s'il vous plaît."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "caffè",
+      "phon": "kaf-FÈ",
+      "native": "café"
+     },
+     "study": "Un caffè, per favore.",
+     "phon": "oun kaf-FÈ, pér fa-VO-ré",
+     "native": "Un café, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "tè",
+      "phon": "TÈ",
+      "native": "thé"
+     },
+     "study": "Un tè, per favore.",
+     "phon": "oun TÈ, pér fa-VO-ré",
+     "native": "Un thé, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "succo d'arancia",
+      "phon": "SOUK-ko da-RAN-tcha",
+      "native": "jus d'orange"
+     },
+     "study": "Un succo d'arancia, per favore.",
+     "phon": "oun SOUK-ko da-RAN-tcha, pér fa-VO-ré",
+     "native": "Un jus d'orange, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "panino",
+      "phon": "pa-NI-no",
+      "native": "sandwich"
+     },
+     "study": "Un panino, per favore.",
+     "phon": "oun pa-NI-no, pér fa-VO-ré",
+     "native": "Un sandwich, s'il vous plaît."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-it-10",
+   "situation": "Demander un prix",
+   "model": {
+    "study": "Quanto costa {s}?",
+    "phon": "KOUAN-to KOS-ta {s}",
+    "native": "Combien coûte {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "questo",
+      "phon": "KOUÉS-to",
+      "native": "ça"
+     },
+     "study": "Quanto costa questo?",
+     "phon": "KOUAN-to KOS-ta KOUÉS-to",
+     "native": "Combien coûte ça ?"
+    },
+    {
+     "slot": {
+      "study": "il caffè",
+      "phon": "il kaf-FÈ",
+      "native": "le café"
+     },
+     "study": "Quanto costa il caffè?",
+     "phon": "KOUAN-to KOS-ta il kaf-FÈ",
+     "native": "Combien coûte le café ?"
+    },
+    {
+     "slot": {
+      "study": "il biglietto",
+      "phon": "il bi-LIÉT-to",
+      "native": "le billet"
+     },
+     "study": "Quanto costa il biglietto?",
+     "phon": "KOUAN-to KOS-ta il bi-LIÉT-to",
+     "native": "Combien coûte le billet ?"
+    },
+    {
+     "slot": {
+      "study": "la camera",
+      "phon": "la KA-mé-ra",
+      "native": "la chambre"
+     },
+     "study": "Quanto costa la camera?",
+     "phon": "KOUAN-to KOS-ta la KA-mé-ra",
+     "native": "Combien coûte la chambre ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-it-11",
+   "situation": "Se dépanner",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Formules de secours : phrases entières à connaître telles quelles pour tenir un échange."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Non capisco.",
+      "phon": "non ka-PIS-ko",
+      "native": "Je ne comprends pas."
+     },
+     "study": "Non capisco.",
+     "phon": "non ka-PIS-ko",
+     "native": "Je ne comprends pas."
+    },
+    {
+     "slot": {
+      "study": "Può ripetere, per favore?",
+      "phon": "pouo ri-PÈ-té-ré, pér fa-VO-ré",
+      "native": "Pouvez-vous répéter, s'il vous plaît ?"
+     },
+     "study": "Può ripetere, per favore?",
+     "phon": "pouo ri-PÈ-té-ré, pér fa-VO-ré",
+     "native": "Pouvez-vous répéter, s'il vous plaît ?"
+    },
+    {
+     "slot": {
+      "study": "Più lentamente, per favore.",
+      "phon": "piou lén-ta-MÉN-té, pér fa-VO-ré",
+      "native": "Plus lentement, s'il vous plaît."
+     },
+     "study": "Più lentamente, per favore.",
+     "phon": "piou lén-ta-MÉN-té, pér fa-VO-ré",
+     "native": "Plus lentement, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "Parla francese?",
+      "phon": "PAR-la fran-TCHÉ-zé",
+      "native": "Parlez-vous français ?"
+     },
+     "study": "Parla francese?",
+     "phon": "PAR-la fran-TCHÉ-zé",
+     "native": "Parlez-vous français ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L1-fr-it-d1",
+   "situation": "Au café",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno!",
+     "phon": "bouon-DJOR-no",
+     "native": "Bonjour !"
+    },
+    {
+     "speaker": "B",
+     "study": "Buongiorno. Cosa desidera?",
+     "phon": "bouon-DJOR-no. KO-za dé-ZI-dé-ra",
+     "native": "Bonjour. Vous désirez ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Un caffè, per favore.",
+     "phon": "oun kaf-FÈ, pér fa-VO-ré",
+     "native": "Un café, s'il vous plaît."
+    },
+    {
+     "speaker": "B",
+     "study": "Con latte?",
+     "phon": "kon LAT-té",
+     "native": "Avec du lait ?"
+    },
+    {
+     "speaker": "A",
+     "study": "No, grazie. Quanto costa?",
+     "phon": "no, GRA-tsié. KOUAN-to KOS-ta",
+     "native": "Non, merci. Combien ça coûte ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Due euro.",
+     "phon": "DOU-é È-ou-ro",
+     "native": "Deux euros."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-it-09",
+    "L1-fr-it-10"
+   ]
+  },
+  {
+   "id": "L1-fr-it-d2",
+   "situation": "À la gare",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Scusi, dov'è la stazione?",
+     "phon": "SKOU-zi, do-VÈ la sta-TSIO-né",
+     "native": "Excusez-moi, où est la gare ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sempre dritto, cinque minuti.",
+     "phon": "SÈM-pré DRIT-to, TCHIN-koué mi-NOU-ti",
+     "native": "Tout droit, à cinq minutes."
+    },
+    {
+     "speaker": "A",
+     "study": "Grazie. Ho bisogno di un biglietto per Firenze.",
+     "phon": "GRA-tsié. o bi-ZO-gno di oun bi-LIÉT-to pér fi-RÈN-tsé",
+     "native": "Merci. J'ai besoin d'un billet pour Florence."
+    },
+    {
+     "speaker": "B",
+     "study": "Un biglietto, dieci euro.",
+     "phon": "oun bi-LIÉT-to, DIÈ-tchi È-ou-ro",
+     "native": "Un billet, dix euros."
+    },
+    {
+     "speaker": "A",
+     "study": "Ecco. Grazie mille.",
+     "phon": "ÈK-ko. GRA-tsié MIL-lé",
+     "native": "Voilà. Merci beaucoup."
+    },
+    {
+     "speaker": "B",
+     "study": "Buon viaggio!",
+     "phon": "bouon VIAD-djo",
+     "native": "Bon voyage !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-it-04",
+    "L1-fr-it-05"
+   ]
+  },
+  {
+   "id": "L1-fr-it-d3",
+   "situation": "Première rencontre",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Ciao, mi chiamo Maria.",
+     "phon": "TCHA-o, mi KIA-mo ma-RI-a",
+     "native": "Bonjour, je m'appelle Marie."
+    },
+    {
+     "speaker": "B",
+     "study": "Piacere, io sono Paolo.",
+     "phon": "pia-TCHÉ-ré, I-o SO-no PA-o-lo",
+     "native": "Enchanté, moi c'est Paul."
+    },
+    {
+     "speaker": "A",
+     "study": "Sono francese, di Parigi. E Lei?",
+     "phon": "SO-no fran-TCHÉ-zé, di pa-RI-dji. é LÈÏ",
+     "native": "Je suis française, de Paris. Et vous ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sono di qui. È in vacanza?",
+     "phon": "SO-no di KOUI. è inn va-KAN-tsa",
+     "native": "Je suis d'ici. Vous êtes en vacances ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sì, mi piace molto la città.",
+     "phon": "SI, mi PIA-tché MOL-to la tchit-TA",
+     "native": "Oui, j'aime beaucoup la ville."
+    },
+    {
+     "speaker": "B",
+     "study": "Che bello! Benvenuta!",
+     "phon": "ké BÈL-lo. bén-vé-NOU-ta",
+     "native": "Super ! Bienvenue !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-it-01",
+    "L1-fr-it-02",
+    "L1-fr-it-08"
+   ]
+  }
+ ],
+ "readiness": "Se présenter en trois phrases, exprimer un besoin, commander et demander un prix ; comprendre et compléter les trois dialogues. Repère pédagogique, sans certification."
+}

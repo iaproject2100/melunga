@@ -1,0 +1,1092 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "ko",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en coréen",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle",
+  "reading": "romanisation révisée"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : gam-sa-ham-ni-da ; eo = ㅓ, eu = ㅡ). Le champ reading donne la romanisation révisée. Registre poli (-요). Les particules (이/가, 을/를, 이에요/예요) sont incluses dans le morceau remplaçable.",
+ "reviewStatus": "Relecture linguistique requise (particules, naturel des tournures).",
+ "coverageClaim": null,
+ "level": 8,
+ "title": "Demander et négocier",
+ "goal": "Demander poliment, exprimer une condition et négocier simplement.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L8-fr-ko-01",
+   "situation": "Demande polie",
+   "model": {
+    "study": "{s} 주시겠어요?",
+    "reading": "{s} jusigesseoyo?",
+    "phon": "{s} djou-si-gè-sseo-yo ?",
+    "native": "Pourriez-vous {s} ?",
+    "note": "-아/어 주시겠어요? : demande très polie ; -시- est la marque honorifique. 말씀하다 = forme honorifique de 말하다 ; 좀 adoucit la demande."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "좀 도와",
+      "reading": "jom dowa",
+      "phon": "djom do-oua",
+      "native": "m'aider"
+     },
+     "study": "좀 도와 주시겠어요?",
+     "phon": "djom do-oua djou-si-gè-sseo-yo ?",
+     "native": "Pourriez-vous m'aider ?",
+     "reading": "jom dowa jusigesseoyo?"
+    },
+    {
+     "slot": {
+      "study": "영수증 좀",
+      "reading": "yeongsujeung jom",
+      "phon": "yeong-sou-djeung djom",
+      "native": "le reçu"
+     },
+     "study": "영수증 좀 주시겠어요?",
+     "phon": "yeong-sou-djeung djom djou-si-gè-sseo-yo ?",
+     "native": "Pourriez-vous me donner le reçu ?",
+     "reading": "yeongsujeung jom jusigesseoyo?"
+    },
+    {
+     "slot": {
+      "study": "다시 한번 말씀해",
+      "reading": "dasi hanbeon malsseumhae",
+      "phon": "da-si han-beon mal-sseum-hè",
+      "native": "répéter"
+     },
+     "study": "다시 한번 말씀해 주시겠어요?",
+     "phon": "da-si han-beon mal-sseum-hè djou-si-gè-sseo-yo ?",
+     "native": "Pourriez-vous répéter ?",
+     "reading": "dasi hanbeon malsseumhae jusigesseoyo?"
+    },
+    {
+     "slot": {
+      "study": "조금만 기다려",
+      "reading": "jogeumman gidaryeo",
+      "phon": "djo-geum-man gi-da-ryeo",
+      "native": "attendre un instant"
+     },
+     "study": "조금만 기다려 주시겠어요?",
+     "phon": "djo-geum-man gi-da-ryeo djou-si-gè-sseo-yo ?",
+     "native": "Pourriez-vous attendre un instant ?",
+     "reading": "jogeumman gidaryeo jusigesseoyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-ko-02",
+   "situation": "Demander si c'est possible",
+   "model": {
+    "study": "{s} 수 있을까요?",
+    "reading": "{s} su isseulkkayo?",
+    "phon": "{s} sou i-sseul-kka-yo ?",
+    "native": "Serait-il possible de {s} ?",
+    "note": "-(으)ㄹ 수 있을까요? : « serait-il possible de… ? », plus doux que -(으)ㄹ 수 있어요?."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "할인해 주실",
+      "reading": "harinhae jusil",
+      "phon": "ha-rin-hè djou-sil",
+      "native": "faire une réduction"
+     },
+     "study": "할인해 주실 수 있을까요?",
+     "phon": "ha-rin-hè djou-sil sou i-sseul-kka-yo ?",
+     "native": "Serait-il possible de faire une réduction ?",
+     "reading": "harinhae jusil su isseulkkayo?"
+    },
+    {
+     "slot": {
+      "study": "날짜를 바꿀",
+      "reading": "naljjareul bakkul",
+      "phon": "nal-tcha-reul ba-kkoul",
+      "native": "changer la date"
+     },
+     "study": "날짜를 바꿀 수 있을까요?",
+     "phon": "nal-tcha-reul ba-kkoul sou i-sseul-kka-yo ?",
+     "native": "Serait-il possible de changer la date ?",
+     "reading": "naljjareul bakkul su isseulkkayo?"
+    },
+    {
+     "slot": {
+      "study": "환불받을",
+      "reading": "hwanbulbadeul",
+      "phon": "houan-boul-ba-deul",
+      "native": "être remboursé(e)"
+     },
+     "study": "환불받을 수 있을까요?",
+     "phon": "houan-boul-ba-deul sou i-sseul-kka-yo ?",
+     "native": "Serait-il possible d'être remboursé(e) ?",
+     "reading": "hwanbulbadeul su isseulkkayo?"
+    },
+    {
+     "slot": {
+      "study": "조금 늦게 낼",
+      "reading": "jogeum neutge nael",
+      "phon": "djo-geum neut-gè nèl",
+      "native": "payer un peu plus tard"
+     },
+     "study": "조금 늦게 낼 수 있을까요?",
+     "phon": "djo-geum neut-gè nèl sou i-sseul-kka-yo ?",
+     "native": "Serait-il possible de payer un peu plus tard ?",
+     "reading": "jogeum neutge nael su isseulkkayo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-ko-03",
+   "situation": "Condition d'achat",
+   "model": {
+    "study": "{s} 살게요.",
+    "reading": "{s} salgeyo.",
+    "phon": "{s} sal-gè-yo",
+    "native": "{s}, je le prends.",
+    "note": "-(으)면 = « si / quand » ; -(으)ㄹ게요 = engagement du locuteur (« je vais…, promis »)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "조금 깎아 주시면",
+      "reading": "jogeum kkakka jusimyeon",
+      "phon": "djo-geum kka-kka djou-si-myeon",
+      "native": "Si vous baissez un peu le prix"
+     },
+     "study": "조금 깎아 주시면 살게요.",
+     "phon": "djo-geum kka-kka djou-si-myeon sal-gè-yo",
+     "native": "Si vous baissez un peu le prix, je le prends.",
+     "reading": "jogeum kkakka jusimyeon salgeyo."
+    },
+    {
+     "slot": {
+      "study": "배송이 무료면",
+      "reading": "baesong-i muryomyeon",
+      "phon": "bè-song-i mou-ryo-myeon",
+      "native": "Si la livraison est gratuite"
+     },
+     "study": "배송이 무료면 살게요.",
+     "phon": "bè-song-i mou-ryo-myeon sal-gè-yo",
+     "native": "Si la livraison est gratuite, je le prends.",
+     "reading": "baesong-i muryomyeon salgeyo."
+    },
+    {
+     "slot": {
+      "study": "다른 색이 있으면",
+      "reading": "dareun saegi isseumyeon",
+      "phon": "da-reun sè-gi i-sseu-myeon",
+      "native": "S'il y a une autre couleur"
+     },
+     "study": "다른 색이 있으면 살게요.",
+     "phon": "da-reun sè-gi i-sseu-myeon sal-gè-yo",
+     "native": "S'il y a une autre couleur, je le prends.",
+     "reading": "dareun saegi isseumyeon salgeyo."
+    },
+    {
+     "slot": {
+      "study": "내일까지 받을 수 있으면",
+      "reading": "naeilkkaji badeul su isseumyeon",
+      "phon": "nè-il-kka-dji ba-deul sou i-sseu-myeon",
+      "native": "Si je peux le recevoir d'ici demain"
+     },
+     "study": "내일까지 받을 수 있으면 살게요.",
+     "phon": "nè-il-kka-dji ba-deul sou i-sseu-myeon sal-gè-yo",
+     "native": "Si je peux le recevoir d'ici demain, je le prends.",
+     "reading": "naeilkkaji badeul su isseumyeon salgeyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-ko-04",
+   "situation": "Promettre sous condition",
+   "model": {
+    "study": "{s} 연락할게요.",
+    "reading": "{s} yeollakalgeyo.",
+    "phon": "{s} yeol-la-kal-gè-yo",
+    "native": "{s}, je vous contacterai."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "문제가 있으면",
+      "reading": "munjega isseumyeon",
+      "phon": "moun-djè-ga i-sseu-myeon",
+      "native": "S'il y a un problème"
+     },
+     "study": "문제가 있으면 연락할게요.",
+     "phon": "moun-djè-ga i-sseu-myeon yeol-la-kal-gè-yo",
+     "native": "S'il y a un problème, je vous contacterai.",
+     "reading": "munjega isseumyeon yeollakalgeyo."
+    },
+    {
+     "slot": {
+      "study": "시간이 되면",
+      "reading": "sigani doemyeon",
+      "phon": "si-ga-ni douè-myeon",
+      "native": "Si j'ai le temps"
+     },
+     "study": "시간이 되면 연락할게요.",
+     "phon": "si-ga-ni douè-myeon yeol-la-kal-gè-yo",
+     "native": "Si j'ai le temps, je vous contacterai.",
+     "reading": "sigani doemyeon yeollakalgeyo."
+    },
+    {
+     "slot": {
+      "study": "도착하면",
+      "reading": "dochakamyeon",
+      "phon": "do-tcha-ka-myeon",
+      "native": "Quand j'arrive"
+     },
+     "study": "도착하면 연락할게요.",
+     "phon": "do-tcha-ka-myeon yeol-la-kal-gè-yo",
+     "native": "Quand j'arrive, je vous contacterai.",
+     "reading": "dochakamyeon yeollakalgeyo."
+    },
+    {
+     "slot": {
+      "study": "결정하면",
+      "reading": "gyeoljeonghamyeon",
+      "phon": "gyeol-djeong-ha-myeon",
+      "native": "Quand j'aurai décidé"
+     },
+     "study": "결정하면 연락할게요.",
+     "phon": "gyeol-djeong-ha-myeon yeol-la-kal-gè-yo",
+     "native": "Quand j'aurai décidé, je vous contacterai.",
+     "reading": "gyeoljeonghamyeon yeollakalgeyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-ko-05",
+   "situation": "Accepter sous condition",
+   "model": {
+    "study": "네, 하지만 {s}.",
+    "reading": "ne, hajiman {s}.",
+    "phon": "nè, ha-dji-man {s}",
+    "native": "D'accord, mais {s}.",
+    "note": "-(으)면요 : la condition seule, terminée par 요, suffit comme réponse."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "가격이 같으면요",
+      "reading": "gagyeogi gateumyeonnyo",
+      "phon": "ga-gyeo-gi ga-teu-myeon-nyo",
+      "native": "seulement si le prix est le même"
+     },
+     "study": "네, 하지만 가격이 같으면요.",
+     "phon": "nè, ha-dji-man ga-gyeo-gi ga-teu-myeon-nyo",
+     "native": "D'accord, mais seulement si le prix est le même.",
+     "reading": "ne, hajiman gagyeogi gateumyeonnyo."
+    },
+    {
+     "slot": {
+      "study": "내일까지 되면요",
+      "reading": "naeilkkaji doemyeonnyo",
+      "phon": "nè-il-kka-dji douè-myeon-nyo",
+      "native": "seulement si c'est possible d'ici demain"
+     },
+     "study": "네, 하지만 내일까지 되면요.",
+     "phon": "nè, ha-dji-man nè-il-kka-dji douè-myeon-nyo",
+     "native": "D'accord, mais seulement si c'est possible d'ici demain.",
+     "reading": "ne, hajiman naeilkkaji doemyeonnyo."
+    },
+    {
+     "slot": {
+      "study": "영수증이 있으면요",
+      "reading": "yeongsujeung-i isseumyeonnyo",
+      "phon": "yeong-sou-djeung-i i-sseu-myeon-nyo",
+      "native": "seulement si vous avez le reçu"
+     },
+     "study": "네, 하지만 영수증이 있으면요.",
+     "phon": "nè, ha-dji-man yeong-sou-djeung-i i-sseu-myeon-nyo",
+     "native": "D'accord, mais seulement si vous avez le reçu.",
+     "reading": "ne, hajiman yeongsujeung-i isseumyeonnyo."
+    },
+    {
+     "slot": {
+      "study": "다른 사람이 없으면요",
+      "reading": "dareun sarami eopseumyeonnyo",
+      "phon": "da-reun sa-ra-mi eop-seu-myeon-nyo",
+      "native": "seulement s'il n'y a personne d'autre"
+     },
+     "study": "네, 하지만 다른 사람이 없으면요.",
+     "phon": "nè, ha-dji-man da-reun sa-ra-mi eop-seu-myeon-nyo",
+     "native": "D'accord, mais seulement s'il n'y a personne d'autre.",
+     "reading": "ne, hajiman dareun sarami eopseumyeonnyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-ko-06",
+   "situation": "Refuser avec une raison",
+   "model": {
+    "study": "죄송하지만 {s} 안 돼요.",
+    "reading": "joesonghajiman {s} an dwaeyo.",
+    "phon": "djouè-song-ha-dji-man {s} an douè-yo",
+    "native": "Désolé(e), mais {s}, ce n'est pas possible.",
+    "note": "안 돼요 = « ce n'est pas possible / ça ne va pas » ; 죄송하지만 est plus formel que 미안하지만."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "환불은",
+      "reading": "hwanbureun",
+      "phon": "houan-bou-reun",
+      "native": "le remboursement"
+     },
+     "study": "죄송하지만 환불은 안 돼요.",
+     "phon": "djouè-song-ha-dji-man houan-bou-reun an douè-yo",
+     "native": "Désolé(e), mais le remboursement, ce n'est pas possible.",
+     "reading": "joesonghajiman hwanbureun an dwaeyo."
+    },
+    {
+     "slot": {
+      "study": "할인은",
+      "reading": "harineun",
+      "phon": "ha-ri-neun",
+      "native": "la réduction"
+     },
+     "study": "죄송하지만 할인은 안 돼요.",
+     "phon": "djouè-song-ha-dji-man ha-ri-neun an douè-yo",
+     "native": "Désolé(e), mais la réduction, ce n'est pas possible.",
+     "reading": "joesonghajiman harineun an dwaeyo."
+    },
+    {
+     "slot": {
+      "study": "오늘은",
+      "reading": "oneureun",
+      "phon": "o-neu-reun",
+      "native": "aujourd'hui"
+     },
+     "study": "죄송하지만 오늘은 안 돼요.",
+     "phon": "djouè-song-ha-dji-man o-neu-reun an douè-yo",
+     "native": "Désolé(e), mais aujourd'hui, ce n'est pas possible.",
+     "reading": "joesonghajiman oneureun an dwaeyo."
+    },
+    {
+     "slot": {
+      "study": "그건",
+      "reading": "geugeon",
+      "phon": "geu-geon",
+      "native": "ça"
+     },
+     "study": "죄송하지만 그건 안 돼요.",
+     "phon": "djouè-song-ha-dji-man geu-geon an douè-yo",
+     "native": "Désolé(e), mais ça, ce n'est pas possible.",
+     "reading": "joesonghajiman geugeon an dwaeyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-ko-07",
+   "situation": "S'excuser et réparer",
+   "model": {
+    "study": "죄송해요, 바로 {s}.",
+    "reading": "joesonghaeyo, baro {s}.",
+    "phon": "djouè-song-hè-yo, ba-ro {s}",
+    "native": "Désolé(e), je {s} tout de suite.",
+    "note": "드리다 : forme humble de 주다 (« faire pour vous ») ; 바로 = tout de suite."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "고칠게요",
+      "reading": "gochilgeyo",
+      "phon": "go-tchil-gè-yo",
+      "native": "répare"
+     },
+     "study": "죄송해요, 바로 고칠게요.",
+     "phon": "djouè-song-hè-yo, ba-ro go-tchil-gè-yo",
+     "native": "Désolé(e), je répare tout de suite.",
+     "reading": "joesonghaeyo, baro gochilgeyo."
+    },
+    {
+     "slot": {
+      "study": "바꿔 드릴게요",
+      "reading": "bakkwo deurilgeyo",
+      "phon": "ba-kkweo deu-ril-gè-yo",
+      "native": "vous l'échange"
+     },
+     "study": "죄송해요, 바로 바꿔 드릴게요.",
+     "phon": "djouè-song-hè-yo, ba-ro ba-kkweo deu-ril-gè-yo",
+     "native": "Désolé(e), je vous l'échange tout de suite.",
+     "reading": "joesonghaeyo, baro bakkwo deurilgeyo."
+    },
+    {
+     "slot": {
+      "study": "확인할게요",
+      "reading": "hwaginhalgeyo",
+      "phon": "houa-gin-hal-gè-yo",
+      "native": "vérifie"
+     },
+     "study": "죄송해요, 바로 확인할게요.",
+     "phon": "djouè-song-hè-yo, ba-ro houa-gin-hal-gè-yo",
+     "native": "Désolé(e), je vérifie tout de suite.",
+     "reading": "joesonghaeyo, baro hwaginhalgeyo."
+    },
+    {
+     "slot": {
+      "study": "다시 보내 드릴게요",
+      "reading": "dasi bonae deurilgeyo",
+      "phon": "da-si bo-nè deu-ril-gè-yo",
+      "native": "vous le renvoie"
+     },
+     "study": "죄송해요, 바로 다시 보내 드릴게요.",
+     "phon": "djouè-song-hè-yo, ba-ro da-si bo-nè deu-ril-gè-yo",
+     "native": "Désolé(e), je vous le renvoie tout de suite.",
+     "reading": "joesonghaeyo, baro dasi bonae deurilgeyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-ko-08",
+   "situation": "Démarches",
+   "model": {
+    "study": "{s} 어떻게 해야 해요?",
+    "reading": "{s} eotteoke haeya haeyo?",
+    "phon": "{s} eo-tteo-kè hè-ya hè-yo ?",
+    "native": "{s}, qu'est-ce que je dois faire ?",
+    "note": "-(으)려면 = « si l'on veut… / pour… » ; -아/어야 해요 = devoir."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "비자를 연장하려면",
+      "reading": "bijareul yeonjangharyeomyeon",
+      "phon": "bi-dja-reul yeon-djang-ha-ryeo-myeon",
+      "native": "Pour prolonger mon visa"
+     },
+     "study": "비자를 연장하려면 어떻게 해야 해요?",
+     "phon": "bi-dja-reul yeon-djang-ha-ryeo-myeon eo-tteo-kè hè-ya hè-yo ?",
+     "native": "Pour prolonger mon visa, qu'est-ce que je dois faire ?",
+     "reading": "bijareul yeonjangharyeomyeon eotteoke haeya haeyo?"
+    },
+    {
+     "slot": {
+      "study": "계좌를 만들려면",
+      "reading": "gyejwareul mandeullyeomyeon",
+      "phon": "gyè-djoua-reul man-deul-lyeo-myeon",
+      "native": "Pour ouvrir un compte"
+     },
+     "study": "계좌를 만들려면 어떻게 해야 해요?",
+     "phon": "gyè-djoua-reul man-deul-lyeo-myeon eo-tteo-kè hè-ya hè-yo ?",
+     "native": "Pour ouvrir un compte, qu'est-ce que je dois faire ?",
+     "reading": "gyejwareul mandeullyeomyeon eotteoke haeya haeyo?"
+    },
+    {
+     "slot": {
+      "study": "주소를 바꾸려면",
+      "reading": "jusoreul bakkuryeomyeon",
+      "phon": "djou-so-reul ba-kkou-ryeo-myeon",
+      "native": "Pour changer d'adresse"
+     },
+     "study": "주소를 바꾸려면 어떻게 해야 해요?",
+     "phon": "djou-so-reul ba-kkou-ryeo-myeon eo-tteo-kè hè-ya hè-yo ?",
+     "native": "Pour changer d'adresse, qu'est-ce que je dois faire ?",
+     "reading": "jusoreul bakkuryeomyeon eotteoke haeya haeyo?"
+    },
+    {
+     "slot": {
+      "study": "진료를 예약하려면",
+      "reading": "jillyoreul yeyakaryeomyeon",
+      "phon": "djil-lyo-reul yè-ya-ka-ryeo-myeon",
+      "native": "Pour prendre rendez-vous chez le médecin"
+     },
+     "study": "진료를 예약하려면 어떻게 해야 해요?",
+     "phon": "djil-lyo-reul yè-ya-ka-ryeo-myeon eo-tteo-kè hè-ya hè-yo ?",
+     "native": "Pour prendre rendez-vous chez le médecin, qu'est-ce que je dois faire ?",
+     "reading": "jillyoreul yeyakaryeomyeon eotteoke haeya haeyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-ko-09",
+   "situation": "Voisins",
+   "model": {
+    "study": "{s} 조금만 조용히 해 주시겠어요?",
+    "reading": "{s} jogeumman joyonghi hae jusigesseoyo?",
+    "phon": "{s} djo-geum-man djo-yong-hi hè djou-si-gè-sseo-yo ?",
+    "native": "Pourriez-vous faire un peu moins de bruit {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "밤에는",
+      "reading": "bameneun",
+      "phon": "ba-mè-neun",
+      "native": "la nuit"
+     },
+     "study": "밤에는 조금만 조용히 해 주시겠어요?",
+     "phon": "ba-mè-neun djo-geum-man djo-yong-hi hè djou-si-gè-sseo-yo ?",
+     "native": "Pourriez-vous faire un peu moins de bruit la nuit ?",
+     "reading": "bameneun jogeumman joyonghi hae jusigesseoyo?"
+    },
+    {
+     "slot": {
+      "study": "열 시 이후에는",
+      "reading": "yeol si ihueneun",
+      "phon": "yeol si i-hou-è-neun",
+      "native": "après vingt-deux heures"
+     },
+     "study": "열 시 이후에는 조금만 조용히 해 주시겠어요?",
+     "phon": "yeol si i-hou-è-neun djo-geum-man djo-yong-hi hè djou-si-gè-sseo-yo ?",
+     "native": "Pourriez-vous faire un peu moins de bruit après vingt-deux heures ?",
+     "reading": "yeol si ihueneun jogeumman joyonghi hae jusigesseoyo?"
+    },
+    {
+     "slot": {
+      "study": "주말 아침에는",
+      "reading": "jumal achimeneun",
+      "phon": "djou-mal a-tchi-mè-neun",
+      "native": "le week-end matin"
+     },
+     "study": "주말 아침에는 조금만 조용히 해 주시겠어요?",
+     "phon": "djou-mal a-tchi-mè-neun djo-geum-man djo-yong-hi hè djou-si-gè-sseo-yo ?",
+     "native": "Pourriez-vous faire un peu moins de bruit le week-end matin ?",
+     "reading": "jumal achimeneun jogeumman joyonghi hae jusigesseoyo?"
+    },
+    {
+     "slot": {
+      "study": "지금",
+      "reading": "jigeum",
+      "phon": "dji-geum",
+      "native": "maintenant"
+     },
+     "study": "지금 조금만 조용히 해 주시겠어요?",
+     "phon": "dji-geum djo-geum-man djo-yong-hi hè djou-si-gè-sseo-yo ?",
+     "native": "Pourriez-vous faire un peu moins de bruit maintenant ?",
+     "reading": "jigeum jogeumman joyonghi hae jusigesseoyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-ko-10",
+   "situation": "Propriétaire",
+   "model": {
+    "study": "{s} 고쳐 주실 수 있을까요?",
+    "reading": "{s} gocheo jusil su isseulkkayo?",
+    "phon": "{s} go-tcheo djou-sil sou i-sseul-kka-yo ?",
+    "native": "Pourriez-vous réparer {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "보일러를",
+      "reading": "boilleoreul",
+      "phon": "bo-il-leo-reul",
+      "native": "la chaudière"
+     },
+     "study": "보일러를 고쳐 주실 수 있을까요?",
+     "phon": "bo-il-leo-reul go-tcheo djou-sil sou i-sseul-kka-yo ?",
+     "native": "Pourriez-vous réparer la chaudière ?",
+     "reading": "boilleoreul gocheo jusil su isseulkkayo?"
+    },
+    {
+     "slot": {
+      "study": "수도꼭지를",
+      "reading": "sudokkokjireul",
+      "phon": "sou-do-kkok-dji-reul",
+      "native": "le robinet"
+     },
+     "study": "수도꼭지를 고쳐 주실 수 있을까요?",
+     "phon": "sou-do-kkok-dji-reul go-tcheo djou-sil sou i-sseul-kka-yo ?",
+     "native": "Pourriez-vous réparer le robinet ?",
+     "reading": "sudokkokjireul gocheo jusil su isseulkkayo?"
+    },
+    {
+     "slot": {
+      "study": "문을",
+      "reading": "muneul",
+      "phon": "mou-neul",
+      "native": "la porte"
+     },
+     "study": "문을 고쳐 주실 수 있을까요?",
+     "phon": "mou-neul go-tcheo djou-sil sou i-sseul-kka-yo ?",
+     "native": "Pourriez-vous réparer la porte ?",
+     "reading": "muneul gocheo jusil su isseulkkayo?"
+    },
+    {
+     "slot": {
+      "study": "에어컨을",
+      "reading": "eeokeoneul",
+      "phon": "è-eo-keo-neul",
+      "native": "la climatisation"
+     },
+     "study": "에어컨을 고쳐 주실 수 있을까요?",
+     "phon": "è-eo-keo-neul go-tcheo djou-sil sou i-sseul-kka-yo ?",
+     "native": "Pourriez-vous réparer la climatisation ?",
+     "reading": "eeokeoneul gocheo jusil su isseulkkayo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-ko-11",
+   "situation": "Demander un délai",
+   "model": {
+    "study": "{s} 더 주시겠어요?",
+    "reading": "{s} deo jusigesseoyo?",
+    "phon": "{s} deo djou-si-gè-sseo-yo ?",
+    "native": "Pourriez-vous me donner {s} ?",
+    "note": "더 (« plus ») suit la quantité : 하루 더, 며칠 더."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "시간을 조금",
+      "reading": "siganeul jogeum",
+      "phon": "si-ga-neul djo-geum",
+      "native": "un peu plus de temps"
+     },
+     "study": "시간을 조금 더 주시겠어요?",
+     "phon": "si-ga-neul djo-geum deo djou-si-gè-sseo-yo ?",
+     "native": "Pourriez-vous me donner un peu plus de temps ?",
+     "reading": "siganeul jogeum deo jusigesseoyo?"
+    },
+    {
+     "slot": {
+      "study": "하루만",
+      "reading": "haruman",
+      "phon": "ha-rou-man",
+      "native": "juste un jour de plus"
+     },
+     "study": "하루만 더 주시겠어요?",
+     "phon": "ha-rou-man deo djou-si-gè-sseo-yo ?",
+     "native": "Pourriez-vous me donner juste un jour de plus ?",
+     "reading": "haruman deo jusigesseoyo?"
+    },
+    {
+     "slot": {
+      "study": "일주일",
+      "reading": "iljuil",
+      "phon": "il-djou-il",
+      "native": "une semaine de plus"
+     },
+     "study": "일주일 더 주시겠어요?",
+     "phon": "il-djou-il deo djou-si-gè-sseo-yo ?",
+     "native": "Pourriez-vous me donner une semaine de plus ?",
+     "reading": "iljuil deo jusigesseoyo?"
+    },
+    {
+     "slot": {
+      "study": "며칠",
+      "reading": "myeochil",
+      "phon": "myeo-tchil",
+      "native": "quelques jours de plus"
+     },
+     "study": "며칠 더 주시겠어요?",
+     "phon": "myeo-tchil deo djou-si-gè-sseo-yo ?",
+     "native": "Pourriez-vous me donner quelques jours de plus ?",
+     "reading": "myeochil deo jusigesseoyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-ko-12",
+   "situation": "Demander une permission au travail",
+   "model": {
+    "study": "{s} 될까요?",
+    "reading": "{s} doelkkayo?",
+    "phon": "{s} douèl-kka-yo ?",
+    "native": "Est-ce que je pourrais {s} ?",
+    "note": "-아/어도 될까요? : demande de permission polie (« est-ce que ça irait si… ? »)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "내일 재택근무해도",
+      "reading": "naeil jaetaekgeunmuhaedo",
+      "phon": "nè-il djè-tèk-geun-mou-hè-do",
+      "native": "télétravailler demain"
+     },
+     "study": "내일 재택근무해도 될까요?",
+     "phon": "nè-il djè-tèk-geun-mou-hè-do douèl-kka-yo ?",
+     "native": "Est-ce que je pourrais télétravailler demain ?",
+     "reading": "naeil jaetaekgeunmuhaedo doelkkayo?"
+    },
+    {
+     "slot": {
+      "study": "조금 일찍 퇴근해도",
+      "reading": "jogeum iljjik toegeunhaedo",
+      "phon": "djo-geum il-tchik touè-geun-hè-do",
+      "native": "partir un peu plus tôt"
+     },
+     "study": "조금 일찍 퇴근해도 될까요?",
+     "phon": "djo-geum il-tchik touè-geun-hè-do douèl-kka-yo ?",
+     "native": "Est-ce que je pourrais partir un peu plus tôt ?",
+     "reading": "jogeum iljjik toegeunhaedo doelkkayo?"
+    },
+    {
+     "slot": {
+      "study": "휴가를 금요일에 써도",
+      "reading": "hyugareul geumyoire sseodo",
+      "phon": "hyou-ga-reul geu-myo-i-rè sseo-do",
+      "native": "prendre mon congé vendredi"
+     },
+     "study": "휴가를 금요일에 써도 될까요?",
+     "phon": "hyou-ga-reul geu-myo-i-rè sseo-do douèl-kka-yo ?",
+     "native": "Est-ce que je pourrais prendre mon congé vendredi ?",
+     "reading": "hyugareul geumyoire sseodo doelkkayo?"
+    },
+    {
+     "slot": {
+      "study": "회의를 미뤄도",
+      "reading": "hoeuireul mirwodo",
+      "phon": "houè-eui-reul mi-rweo-do",
+      "native": "reporter la réunion"
+     },
+     "study": "회의를 미뤄도 될까요?",
+     "phon": "houè-eui-reul mi-rweo-do douèl-kka-yo ?",
+     "native": "Est-ce que je pourrais reporter la réunion ?",
+     "reading": "hoeuireul mirwodo doelkkayo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L8-fr-ko-d1",
+   "situation": "Négocier dans une boutique",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "이 신발 얼마예요?",
+     "reading": "i sinbal eolmayeyo?",
+     "phon": "i sin-bal eol-ma-yè-yo ?",
+     "native": "Ces chaussures, c'est combien ?"
+    },
+    {
+     "speaker": "B",
+     "study": "팔만 원이에요.",
+     "reading": "palman wonieyo.",
+     "phon": "pal-man oueo-ni-è-yo",
+     "native": "Quatre-vingt mille wons."
+    },
+    {
+     "speaker": "A",
+     "study": "좀 비싸네요. 조금 깎아 주실 수 있을까요?",
+     "reading": "jom bissaneyo. jogeum kkakka jusil su isseulkkayo?",
+     "phon": "djom bi-ssa-nè-yo. djo-geum kka-kka djou-sil sou i-sseul-kka-yo ?",
+     "native": "C'est un peu cher. Serait-il possible de baisser un peu le prix ?"
+    },
+    {
+     "speaker": "B",
+     "study": "죄송하지만 할인은 안 돼요. 하지만 두 켤레 사시면 십 퍼센트 할인해 드릴게요.",
+     "reading": "joesonghajiman harineun an dwaeyo. hajiman du kyeolle sasimyeon sip peosenteu harinhae deurilgeyo.",
+     "phon": "djouè-song-ha-dji-man ha-ri-neun an douè-yo. ha-dji-man dou kyeol-lè sa-si-myeon sip peo-sèn-teu ha-rin-hè deu-ril-gè-yo",
+     "native": "Désolé, mais la réduction, ce n'est pas possible. Mais si vous en prenez deux paires, je vous fais dix pour cent."
+    },
+    {
+     "speaker": "A",
+     "study": "음, 다른 색이 있으면 두 켤레 살게요.",
+     "reading": "eum, dareun saegi isseumyeon du kyeolle salgeyo.",
+     "phon": "eum, da-reun sè-gi i-sseu-myeon dou kyeol-lè sal-gè-yo",
+     "native": "Hmm, s'il y a une autre couleur, j'en prends deux paires."
+    },
+    {
+     "speaker": "B",
+     "study": "네, 검은색하고 흰색이 있어요.",
+     "reading": "ne, geomeunsaekago huinsaegi isseoyo.",
+     "phon": "nè, geo-meun-sè-ka-go hin-sè-gi i-sseo-yo",
+     "native": "Oui, il y a du noir et du blanc."
+    },
+    {
+     "speaker": "A",
+     "study": "그럼 두 켤레 주세요. 영수증도 주시겠어요?",
+     "reading": "geureom du kyeolle juseyo. yeongsujeungdo jusigesseoyo?",
+     "phon": "geu-reom dou kyeol-lè djou-sè-yo. yeong-sou-djeung-do djou-si-gè-sseo-yo ?",
+     "native": "Alors deux paires, s'il vous plaît. Pourriez-vous me donner le reçu aussi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "네, 여기 있어요. 감사합니다.",
+     "reading": "ne, yeogi isseoyo. gamsahamnida.",
+     "phon": "nè, yeo-gi i-sseo-yo. gam-sa-ham-ni-da",
+     "native": "Oui, le voici. Merci."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-ko-03",
+    "L1-fr-ko-10",
+    "L2-fr-ko-01",
+    "L2-fr-ko-09",
+    "L4-fr-ko-04",
+    "L8-fr-ko-01",
+    "L8-fr-ko-02",
+    "L8-fr-ko-03",
+    "L8-fr-ko-06"
+   ]
+  },
+  {
+   "id": "L8-fr-ko-d2",
+   "situation": "Appeler le propriétaire",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "여보세요, 삼 층 마리예요. 보일러가 고장 났어요.",
+     "reading": "yeoboseyo, sam cheung mariyeyo. boilleoga gojang nasseoyo.",
+     "phon": "yeo-bo-sè-yo, sam tcheung ma-ri-yè-yo. bo-il-leo-ga go-djang na-sseo-yo",
+     "native": "Allô, c'est Marie, du troisième. La chaudière est en panne."
+    },
+    {
+     "speaker": "B",
+     "study": "아, 죄송해요. 언제부터요?",
+     "reading": "a, joesonghaeyo. eonjebuteoyo?",
+     "phon": "a, djouè-song-hè-yo. eon-djè-bou-teo-yo ?",
+     "native": "Ah, désolé. Depuis quand ?"
+    },
+    {
+     "speaker": "A",
+     "study": "어제 저녁부터요. 뜨거운 물이 안 나와요. 빨리 고쳐 주실 수 있을까요?",
+     "reading": "eoje jeonyeokbuteoyo. tteugeoun muri an nawayo. ppalli gocheo jusil su isseulkkayo?",
+     "phon": "eo-djè djeo-nyeok-bou-teo-yo. tteu-geo-oun mou-ri an na-oua-yo. ppal-li go-tcheo djou-sil sou i-sseul-kka-yo ?",
+     "native": "Depuis hier soir. Il n'y a plus d'eau chaude. Pourriez-vous la réparer rapidement ?"
+    },
+    {
+     "speaker": "B",
+     "study": "네, 내일 오전에 기사님이 갈 거예요. 집에 계세요?",
+     "reading": "ne, naeil ojeone gisanimi gal geoyeyo. jibe gyeseyo?",
+     "phon": "nè, nè-il o-djeo-nè gi-sa-ni-mi gal geo-yè-yo. dji-bè gyè-sè-yo ?",
+     "native": "Oui, un technicien passera demain matin. Vous serez chez vous ?"
+    },
+    {
+     "speaker": "A",
+     "study": "내일 오전에는 회사에 가야 해요. 오후에 와 주시겠어요?",
+     "reading": "naeil ojeoneneun hoesae gaya haeyo. ohue wa jusigesseoyo?",
+     "phon": "nè-il o-djeo-nè-neun houè-sa-è ga-ya hè-yo. o-hou-è oua djou-si-gè-sseo-yo ?",
+     "native": "Demain matin je dois aller au bureau. Pourriez-vous venir l'après-midi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "네, 하지만 세 시 이후면요.",
+     "reading": "ne, hajiman se si ihumyeonnyo.",
+     "phon": "nè, ha-dji-man sè si i-hou-myeon-nyo",
+     "native": "D'accord, mais seulement après quinze heures."
+    },
+    {
+     "speaker": "A",
+     "study": "괜찮아요. 세 시 반에 집에 있을게요.",
+     "reading": "gwaenchanayo. se si bane jibe isseulgeyo.",
+     "phon": "gouèn-tcha-na-yo. sè si ba-nè dji-bè i-sseul-gè-yo",
+     "native": "Ça me va. Je serai à la maison à quinze heures trente."
+    },
+    {
+     "speaker": "B",
+     "study": "네, 죄송해요. 내일 다시 연락할게요.",
+     "reading": "ne, joesonghaeyo. naeil dasi yeollakalgeyo.",
+     "phon": "nè, djouè-song-hè-yo. nè-il da-si yeol-la-kal-gè-yo",
+     "native": "Entendu, désolé. Je vous rappelle demain."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L5-fr-ko-01",
+    "L6-fr-ko-01",
+    "L6-fr-ko-09",
+    "L8-fr-ko-01",
+    "L8-fr-ko-02",
+    "L8-fr-ko-04",
+    "L8-fr-ko-05",
+    "L8-fr-ko-10"
+   ]
+  },
+  {
+   "id": "L8-fr-ko-d3",
+   "situation": "Demander un congé",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "팀장님, 잠깐 시간 괜찮으세요?",
+     "reading": "timjangnim, jamkkan sigan gwaenchaneuseyo?",
+     "phon": "tim-djang-nim, djam-kkan si-gan gouèn-tcha-neu-sè-yo ?",
+     "native": "Chef, vous avez un instant ?"
+    },
+    {
+     "speaker": "B",
+     "study": "네, 말씀하세요.",
+     "reading": "ne, malsseumhaseyo.",
+     "phon": "nè, mal-sseum-ha-sè-yo",
+     "native": "Oui, je vous écoute."
+    },
+    {
+     "speaker": "A",
+     "study": "다음 주 금요일에 휴가를 써도 될까요? 비자를 연장해야 해요.",
+     "reading": "daeum ju geumyoire hyugareul sseodo doelkkayo? bijareul yeonjanghaeya haeyo.",
+     "phon": "da-eum djou geu-myo-i-rè hyou-ga-reul sseo-do douèl-kka-yo ? bi-dja-reul yeon-djang-hè-ya hè-yo",
+     "native": "Est-ce que je pourrais prendre un congé vendredi prochain ? Je dois prolonger mon visa."
+    },
+    {
+     "speaker": "B",
+     "study": "금요일에 회의가 있는데요.",
+     "reading": "geumyoire hoeuiga inneundeyo.",
+     "phon": "geu-myo-i-rè houè-eui-ga in-neun-dè-yo",
+     "native": "Mais il y a une réunion vendredi."
+    },
+    {
+     "speaker": "A",
+     "study": "그럼 목요일로 바꿀 수 있을까요?",
+     "reading": "geureom mogyoillo bakkul su isseulkkayo?",
+     "phon": "geu-reom mo-gyo-il-lo ba-kkoul sou i-sseul-kka-yo ?",
+     "native": "Alors, serait-il possible de le déplacer au jeudi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "네, 목요일은 괜찮아요. 하지만 자료는 수요일까지 보내 주세요.",
+     "reading": "ne, mogyoireun gwaenchanayo. hajiman jaryoneun suyoilkkaji bonae juseyo.",
+     "phon": "nè, mo-gyo-i-reun gouèn-tcha-na-yo. ha-dji-man dja-ryo-neun sou-yo-il-kka-dji bo-nè djou-sè-yo",
+     "native": "Oui, jeudi ça va. Mais envoyez-moi les documents d'ici mercredi."
+    },
+    {
+     "speaker": "A",
+     "study": "네, 수요일까지 보낼게요. 감사합니다.",
+     "reading": "ne, suyoilkkaji bonaelgeyo. gamsahamnida.",
+     "phon": "nè, sou-yo-il-kka-dji bo-nèl-gè-yo. gam-sa-ham-ni-da",
+     "native": "D'accord, je vous les envoie d'ici mercredi. Merci."
+    },
+    {
+     "speaker": "B",
+     "study": "문제가 있으면 바로 연락하세요.",
+     "reading": "munjega isseumyeon baro yeollakaseyo.",
+     "phon": "moun-djè-ga i-sseu-myeon ba-ro yeol-la-ka-sè-yo",
+     "native": "S'il y a un problème, prévenez-moi tout de suite."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-ko-03",
+    "L2-fr-ko-01",
+    "L8-fr-ko-02",
+    "L8-fr-ko-12"
+   ]
+  }
+ ],
+ "readiness": "L'apprenant formule une demande très polie (-아/어 주시겠어요?, -(으)ㄹ 수 있을까요?), pose une condition avec -(으)면 et s'engage avec -(으)ㄹ게요, accepte sous condition ou refuse avec une raison, s'excuse et propose une réparation, demande une permission avec -아/어도 될까요?."
+}

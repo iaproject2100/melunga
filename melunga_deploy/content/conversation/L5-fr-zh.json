@@ -1,0 +1,1016 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "zh",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en chinois",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle",
+  "reading": "pinyin avec tons"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (style du deck : ouo = 我, chr = 是, dzaï = 在). Les tons ne sont pas notés dans l'approximation : se reporter au pinyin (champ reading) et à l'audio. Mandarin standard, caractères simplifiés.",
+ "reviewStatus": "Relecture linguistique requise (tons, naturel des tournures).",
+ "coverageClaim": null,
+ "level": 5,
+ "title": "Raconter",
+ "goal": "Raconter un événement passé et demander des nouvelles.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L5-fr-zh-01",
+   "situation": "Hier",
+   "model": {
+    "study": "昨天我{s}了。",
+    "reading": "zuótiān wǒ {s} le.",
+    "phon": "tsouo-tièn ouo {s} leu",
+    "native": "Hier, j'ai {s}.",
+    "note": "了 en fin de phrase indique que l'action est accomplie, menée à son terme. Ce n'est pas une marque de passé : c'est 昨天 qui situe dans le temps. Au négatif, on emploie 没 sans 了 : 昨天我没工作."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "看电影",
+      "reading": "kàn diànyǐng",
+      "phon": "kan tièn-ying",
+      "native": "vu un film"
+     },
+     "study": "昨天我看电影了。",
+     "phon": "tsouo-tièn ouo kan tièn-ying leu",
+     "native": "Hier, j'ai vu un film.",
+     "reading": "zuótiān wǒ kàn diànyǐng le."
+    },
+    {
+     "slot": {
+      "study": "工作",
+      "reading": "gōngzuò",
+      "phon": "kong-tsouo",
+      "native": "travaillé"
+     },
+     "study": "昨天我工作了。",
+     "phon": "tsouo-tièn ouo kong-tsouo leu",
+     "native": "Hier, j'ai travaillé.",
+     "reading": "zuótiān wǒ gōngzuò le."
+    },
+    {
+     "slot": {
+      "study": "见朋友",
+      "reading": "jiàn péngyou",
+      "phon": "tièn peng-yeou",
+      "native": "vu des amis"
+     },
+     "study": "昨天我见朋友了。",
+     "phon": "tsouo-tièn ouo tièn peng-yeou leu",
+     "native": "Hier, j'ai vu des amis.",
+     "reading": "zuótiān wǒ jiàn péngyou le."
+    },
+    {
+     "slot": {
+      "study": "休息",
+      "reading": "xiūxi",
+      "phon": "siou-si",
+      "native": "me suis reposé(e)"
+     },
+     "study": "昨天我休息了。",
+     "phon": "tsouo-tièn ouo siou-si leu",
+     "native": "Hier, je me suis reposé(e).",
+     "reading": "zuótiān wǒ xiūxi le."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-zh-02",
+   "situation": "Je suis allé(e)",
+   "model": {
+    "study": "我去了{s}。",
+    "reading": "wǒ qù le {s}.",
+    "phon": "ouo tchü leu {s}",
+    "native": "Je suis allé(e) {s}.",
+    "note": "了 placé juste après le verbe (去了) marque l'accompli de cette action précise."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "长城",
+      "reading": "Chángchéng",
+      "phon": "tchang-tcheng",
+      "native": "à la Grande Muraille"
+     },
+     "study": "我去了长城。",
+     "phon": "ouo tchü leu tchang-tcheng",
+     "native": "Je suis allé(e) à la Grande Muraille.",
+     "reading": "wǒ qù le Chángchéng."
+    },
+    {
+     "slot": {
+      "study": "上海",
+      "reading": "Shànghǎi",
+      "phon": "chang-haï",
+      "native": "à Shanghai"
+     },
+     "study": "我去了上海。",
+     "phon": "ouo tchü leu chang-haï",
+     "native": "Je suis allé(e) à Shanghai.",
+     "reading": "wǒ qù le Shànghǎi."
+    },
+    {
+     "slot": {
+      "study": "一个很好的餐厅",
+      "reading": "yí ge hěn hǎo de cāntīng",
+      "phon": "i keu heun hao deu tsan-ting",
+      "native": "dans un très bon restaurant"
+     },
+     "study": "我去了一个很好的餐厅。",
+     "phon": "ouo tchü leu i keu heun hao deu tsan-ting",
+     "native": "Je suis allé(e) dans un très bon restaurant.",
+     "reading": "wǒ qù le yí ge hěn hǎo de cāntīng."
+    },
+    {
+     "slot": {
+      "study": "朋友家",
+      "reading": "péngyou jiā",
+      "phon": "peng-yeou tia",
+      "native": "chez un ami"
+     },
+     "study": "我去了朋友家。",
+     "phon": "ouo tchü leu peng-yeou tia",
+     "native": "Je suis allé(e) chez un ami.",
+     "reading": "wǒ qù le péngyou jiā."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-zh-03",
+   "situation": "Repères dans le passé",
+   "model": {
+    "study": "{s}我去了北京。",
+    "reading": "{s} wǒ qù le Běijīng.",
+    "phon": "{s} ouo tchü leu peï-ting",
+    "native": "{s}, je suis allé(e) à Pékin.",
+    "note": "Le repère temporel ouvre la phrase ; 上 = précédent (上个星期, 上个月), 前 = il y a (两天前)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "上个星期",
+      "reading": "shàng ge xīngqī",
+      "phon": "chang keu sing-tchi",
+      "native": "La semaine dernière"
+     },
+     "study": "上个星期我去了北京。",
+     "phon": "chang keu sing-tchi ouo tchü leu peï-ting",
+     "native": "La semaine dernière, je suis allé(e) à Pékin.",
+     "reading": "shàng ge xīngqī wǒ qù le Běijīng."
+    },
+    {
+     "slot": {
+      "study": "两天前",
+      "reading": "liǎng tiān qián",
+      "phon": "liang tièn tchyèn",
+      "native": "Il y a deux jours"
+     },
+     "study": "两天前我去了北京。",
+     "phon": "liang tièn tchyèn ouo tchü leu peï-ting",
+     "native": "Il y a deux jours, je suis allé(e) à Pékin.",
+     "reading": "liǎng tiān qián wǒ qù le Běijīng."
+    },
+    {
+     "slot": {
+      "study": "去年",
+      "reading": "qùnián",
+      "phon": "tchü-nièn",
+      "native": "L'année dernière"
+     },
+     "study": "去年我去了北京。",
+     "phon": "tchü-nièn ouo tchü leu peï-ting",
+     "native": "L'année dernière, je suis allé(e) à Pékin.",
+     "reading": "qùnián wǒ qù le Běijīng."
+    },
+    {
+     "slot": {
+      "study": "上个月",
+      "reading": "shàng ge yuè",
+      "phon": "chang keu yué",
+      "native": "Le mois dernier"
+     },
+     "study": "上个月我去了北京。",
+     "phon": "chang keu yué ouo tchü leu peï-ting",
+     "native": "Le mois dernier, je suis allé(e) à Pékin.",
+     "reading": "shàng ge yuè wǒ qù le Běijīng."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-zh-04",
+   "situation": "Demander des nouvelles",
+   "model": {
+    "study": "{s}",
+    "reading": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Formules à connaître telles quelles. 还好 = « ça va, pas mal » ; 怎么样 = « comment ça se passe ? »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "你好吗？",
+      "reading": "nǐ hǎo ma?",
+      "phon": "ni hao ma ?",
+      "native": "Comment ça va ?"
+     },
+     "study": "你好吗？",
+     "phon": "ni hao ma ?",
+     "native": "Comment ça va ?",
+     "reading": "nǐ hǎo ma?"
+    },
+    {
+     "slot": {
+      "study": "最近怎么样？",
+      "reading": "zuìjìn zěnmeyàng?",
+      "phon": "tsoueï-tinn tseun-meu-yang ?",
+      "native": "Quoi de neuf ces derniers temps ?"
+     },
+     "study": "最近怎么样？",
+     "phon": "tsoueï-tinn tseun-meu-yang ?",
+     "native": "Quoi de neuf ces derniers temps ?",
+     "reading": "zuìjìn zěnmeyàng?"
+    },
+    {
+     "slot": {
+      "study": "还好，你呢？",
+      "reading": "hái hǎo, nǐ ne?",
+      "phon": "haï hao, ni neu ?",
+      "native": "Ça va, et toi ?"
+     },
+     "study": "还好，你呢？",
+     "phon": "haï hao, ni neu ?",
+     "native": "Ça va, et toi ?",
+     "reading": "hái hǎo, nǐ ne?"
+    },
+    {
+     "slot": {
+      "study": "工作怎么样？",
+      "reading": "gōngzuò zěnmeyàng?",
+      "phon": "kong-tsouo tseun-meu-yang ?",
+      "native": "Et le travail, ça va ?"
+     },
+     "study": "工作怎么样？",
+     "phon": "kong-tsouo tseun-meu-yang ?",
+     "native": "Et le travail, ça va ?",
+     "reading": "gōngzuò zěnmeyàng?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-zh-05",
+   "situation": "Réagir",
+   "model": {
+    "study": "{s}",
+    "reading": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Réactions à connaître telles quelles. Dans 太好了 / 太可惜了, 了 fait partie de la tournure exclamative 太…了 (« tellement… ! ») : rien à voir avec une action accomplie."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "太好了！",
+      "reading": "tài hǎo le!",
+      "phon": "taï hao leu !",
+      "native": "C'est super !"
+     },
+     "study": "太好了！",
+     "phon": "taï hao leu !",
+     "native": "C'est super !",
+     "reading": "tài hǎo le!"
+    },
+    {
+     "slot": {
+      "study": "真的吗？",
+      "reading": "zhēn de ma?",
+      "phon": "djeun deu ma ?",
+      "native": "Vraiment ?"
+     },
+     "study": "真的吗？",
+     "phon": "djeun deu ma ?",
+     "native": "Vraiment ?",
+     "reading": "zhēn de ma?"
+    },
+    {
+     "slot": {
+      "study": "太可惜了！",
+      "reading": "tài kěxī le!",
+      "phon": "taï keu-si leu !",
+      "native": "Quel dommage !"
+     },
+     "study": "太可惜了！",
+     "phon": "taï keu-si leu !",
+     "native": "Quel dommage !",
+     "reading": "tài kěxī le!"
+    },
+    {
+     "slot": {
+      "study": "不错！",
+      "reading": "búcuò!",
+      "phon": "pou-tsouo !",
+      "native": "Pas mal !"
+     },
+     "study": "不错！",
+     "phon": "pou-tsouo !",
+     "native": "Pas mal !",
+     "reading": "búcuò!"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-zh-06",
+   "situation": "Enchaîner : d'abord, puis",
+   "model": {
+    "study": "昨天我们先{s}，然后去了公园。",
+    "reading": "zuótiān wǒmen xiān {s}, ránhòu qù le gōngyuán.",
+    "phon": "tsouo-tièn ouo-meun sièn {s}, jan-heou tchü leu kong-yuèn",
+    "native": "Hier, on a d'abord {s}, puis on est allés au parc.",
+    "note": "先… 然后… enchaîne deux actions ; 了 n'est pas obligatoire sur chaque verbe d'une suite, il marque l'accompli là où on veut insister."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "吃早饭",
+      "reading": "chī zǎofàn",
+      "phon": "tchr tsao-fan",
+      "native": "pris le petit-déjeuner"
+     },
+     "study": "昨天我们先吃早饭，然后去了公园。",
+     "phon": "tsouo-tièn ouo-meun sièn tchr tsao-fan, jan-heou tchü leu kong-yuèn",
+     "native": "Hier, on a d'abord pris le petit-déjeuner, puis on est allés au parc.",
+     "reading": "zuótiān wǒmen xiān chī zǎofàn, ránhòu qù le gōngyuán."
+    },
+    {
+     "slot": {
+      "study": "买东西",
+      "reading": "mǎi dōngxi",
+      "phon": "maï tong-si",
+      "native": "fait des courses"
+     },
+     "study": "昨天我们先买东西，然后去了公园。",
+     "phon": "tsouo-tièn ouo-meun sièn maï tong-si, jan-heou tchü leu kong-yuèn",
+     "native": "Hier, on a d'abord fait des courses, puis on est allés au parc.",
+     "reading": "zuótiān wǒmen xiān mǎi dōngxi, ránhòu qù le gōngyuán."
+    },
+    {
+     "slot": {
+      "study": "看了一个展览",
+      "reading": "kàn le yí ge zhǎnlǎn",
+      "phon": "kan leu i keu djan-lan",
+      "native": "vu une exposition"
+     },
+     "study": "昨天我们先看了一个展览，然后去了公园。",
+     "phon": "tsouo-tièn ouo-meun sièn kan leu i keu djan-lan, jan-heou tchü leu kong-yuèn",
+     "native": "Hier, on a d'abord vu une exposition, puis on est allés au parc.",
+     "reading": "zuótiān wǒmen xiān kàn le yí ge zhǎnlǎn, ránhòu qù le gōngyuán."
+    },
+    {
+     "slot": {
+      "study": "喝咖啡",
+      "reading": "hē kāfēi",
+      "phon": "heu ka-feï",
+      "native": "pris un café"
+     },
+     "study": "昨天我们先喝咖啡，然后去了公园。",
+     "phon": "tsouo-tièn ouo-meun sièn heu ka-feï, jan-heou tchü leu kong-yuèn",
+     "native": "Hier, on a d'abord pris un café, puis on est allés au parc.",
+     "reading": "zuótiān wǒmen xiān hē kāfēi, ránhòu qù le gōngyuán."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-zh-07",
+   "situation": "Enchaîner : après",
+   "model": {
+    "study": "后来我{s}。",
+    "reading": "hòulái wǒ {s}.",
+    "phon": "heou-laï ouo {s}",
+    "native": "Après, je {s}.",
+    "note": "后来 = « ensuite, plus tard » dans un récit. 了 final : action accomplie (回家了 = je suis bien rentré)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "回家了",
+      "reading": "huí jiā le",
+      "phon": "houeï tia leu",
+      "native": "suis rentré(e)"
+     },
+     "study": "后来我回家了。",
+     "phon": "heou-laï ouo houeï tia leu",
+     "native": "Après, je suis rentré(e).",
+     "reading": "hòulái wǒ huí jiā le."
+    },
+    {
+     "slot": {
+      "study": "睡觉了",
+      "reading": "shuìjiào le",
+      "phon": "chouèï-tiao leu",
+      "native": "me suis couché(e)"
+     },
+     "study": "后来我睡觉了。",
+     "phon": "heou-laï ouo chouèï-tiao leu",
+     "native": "Après, je me suis couché(e).",
+     "reading": "hòulái wǒ shuìjiào le."
+    },
+    {
+     "slot": {
+      "study": "很累",
+      "reading": "hěn lèi",
+      "phon": "heun leï",
+      "native": "étais très fatigué(e)"
+     },
+     "study": "后来我很累。",
+     "phon": "heou-laï ouo heun leï",
+     "native": "Après, j'étais très fatigué(e).",
+     "reading": "hòulái wǒ hěn lèi."
+    },
+    {
+     "slot": {
+      "study": "坐出租车回酒店了",
+      "reading": "zuò chūzūchē huí jiǔdiàn le",
+      "phon": "tsouo tchou-tsou-tcheu houeï tiou-tièn leu",
+      "native": "suis rentré(e) à l'hôtel en taxi"
+     },
+     "study": "后来我坐出租车回酒店了。",
+     "phon": "heou-laï ouo tsouo tchou-tsou-tcheu houeï tiou-tièn leu",
+     "native": "Après, je suis rentré(e) à l'hôtel en taxi.",
+     "reading": "hòulái wǒ zuò chūzūchē huí jiǔdiàn le."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-zh-08",
+   "situation": "Demander ce que l'autre a fait",
+   "model": {
+    "study": "你{s}做了什么？",
+    "reading": "nǐ {s} zuò le shénme?",
+    "phon": "ni {s} tsouo leu cheun-meu ?",
+    "native": "Qu'est-ce que tu as fait {s} ?",
+    "note": "做了什么 : 了 après le verbe (action accomplie), 什么 à la place du complément."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "昨天",
+      "reading": "zuótiān",
+      "phon": "tsouo-tièn",
+      "native": "hier"
+     },
+     "study": "你昨天做了什么？",
+     "phon": "ni tsouo-tièn tsouo leu cheun-meu ?",
+     "native": "Qu'est-ce que tu as fait hier ?",
+     "reading": "nǐ zuótiān zuò le shénme?"
+    },
+    {
+     "slot": {
+      "study": "周末",
+      "reading": "zhōumò",
+      "phon": "djo-mo",
+      "native": "ce week-end"
+     },
+     "study": "你周末做了什么？",
+     "phon": "ni djo-mo tsouo leu cheun-meu ?",
+     "native": "Qu'est-ce que tu as fait ce week-end ?",
+     "reading": "nǐ zhōumò zuò le shénme?"
+    },
+    {
+     "slot": {
+      "study": "假期",
+      "reading": "jiàqī",
+      "phon": "tia-tchi",
+      "native": "pendant les vacances"
+     },
+     "study": "你假期做了什么？",
+     "phon": "ni tia-tchi tsouo leu cheun-meu ?",
+     "native": "Qu'est-ce que tu as fait pendant les vacances ?",
+     "reading": "nǐ jiàqī zuò le shénme?"
+    },
+    {
+     "slot": {
+      "study": "昨晚",
+      "reading": "zuówǎn",
+      "phon": "tsouo-ouan",
+      "native": "hier soir"
+     },
+     "study": "你昨晚做了什么？",
+     "phon": "ni tsouo-ouan tsouo leu cheun-meu ?",
+     "native": "Qu'est-ce que tu as fait hier soir ?",
+     "reading": "nǐ zuówǎn zuò le shénme?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-zh-09",
+   "situation": "Changement d'état",
+   "model": {
+    "study": "我{s}了。",
+    "reading": "wǒ {s} le.",
+    "phon": "ouo {s} leu",
+    "native": "Je {s}.",
+    "note": "Ici 了 marque un changement d'état : la situation est nouvelle (je suis fatigué maintenant, ça y est j'ai compris). Même mot, autre emploi que l'accompli du type 我去了."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "到",
+      "reading": "dào",
+      "phon": "tao",
+      "native": "suis arrivé(e)"
+     },
+     "study": "我到了。",
+     "phon": "ouo tao leu",
+     "native": "Je suis arrivé(e).",
+     "reading": "wǒ dào le."
+    },
+    {
+     "slot": {
+      "study": "累",
+      "reading": "lèi",
+      "phon": "leï",
+      "native": "suis fatigué(e)"
+     },
+     "study": "我累了。",
+     "phon": "ouo leï leu",
+     "native": "Je suis fatigué(e).",
+     "reading": "wǒ lèi le."
+    },
+    {
+     "slot": {
+      "study": "懂",
+      "reading": "dǒng",
+      "phon": "tong",
+      "native": "comprends"
+     },
+     "study": "我懂了。",
+     "phon": "ouo tong leu",
+     "native": "Ça y est, je comprends.",
+     "reading": "wǒ dǒng le."
+    },
+    {
+     "slot": {
+      "study": "好",
+      "reading": "hǎo",
+      "phon": "hao",
+      "native": "vais mieux"
+     },
+     "study": "我好了。",
+     "phon": "ouo hao leu",
+     "native": "Je vais mieux.",
+     "reading": "wǒ hǎo le."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-zh-10",
+   "situation": "Avec qui",
+   "model": {
+    "study": "我和{s}一起去了。",
+    "reading": "wǒ hé {s} yìqǐ qù le.",
+    "phon": "ouo heu {s} i-tchi tchü leu",
+    "native": "J'y suis allé(e) avec {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "朋友",
+      "reading": "péngyou",
+      "phon": "peng-yeou",
+      "native": "des amis"
+     },
+     "study": "我和朋友一起去了。",
+     "phon": "ouo heu peng-yeou i-tchi tchü leu",
+     "native": "J'y suis allé(e) avec des amis.",
+     "reading": "wǒ hé péngyou yìqǐ qù le."
+    },
+    {
+     "slot": {
+      "study": "家人",
+      "reading": "jiārén",
+      "phon": "tia-jeun",
+      "native": "ma famille"
+     },
+     "study": "我和家人一起去了。",
+     "phon": "ouo heu tia-jeun i-tchi tchü leu",
+     "native": "J'y suis allé(e) avec ma famille.",
+     "reading": "wǒ hé jiārén yìqǐ qù le."
+    },
+    {
+     "slot": {
+      "study": "同事",
+      "reading": "tóngshì",
+      "phon": "tong-chr",
+      "native": "des collègues"
+     },
+     "study": "我和同事一起去了。",
+     "phon": "ouo heu tong-chr i-tchi tchü leu",
+     "native": "J'y suis allé(e) avec des collègues.",
+     "reading": "wǒ hé tóngshì yìqǐ qù le."
+    },
+    {
+     "slot": {
+      "study": "我女儿",
+      "reading": "wǒ nǚ'ér",
+      "phon": "ouo nü-eur",
+      "native": "ma fille"
+     },
+     "study": "我和我女儿一起去了。",
+     "phon": "ouo heu ouo nü-eur i-tchi tchü leu",
+     "native": "J'y suis allé(e) avec ma fille.",
+     "reading": "wǒ hé wǒ nǚ'ér yìqǐ qù le."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-zh-11",
+   "situation": "Ce qu'on n'a pas fait",
+   "model": {
+    "study": "我没{s}。",
+    "reading": "wǒ méi {s}.",
+    "phon": "ouo meï {s}",
+    "native": "Je n'ai pas {s}.",
+    "note": "La négation d'une action passée se fait avec 没 (ou 没有), jamais avec 不, et sans 了."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "去",
+      "reading": "qù",
+      "phon": "tchü",
+      "native": "pu y aller"
+     },
+     "study": "我没去。",
+     "phon": "ouo meï tchü",
+     "native": "Je n'y suis pas allé(e).",
+     "reading": "wǒ méi qù."
+    },
+    {
+     "slot": {
+      "study": "看",
+      "reading": "kàn",
+      "phon": "kan",
+      "native": "regardé"
+     },
+     "study": "我没看。",
+     "phon": "ouo meï kan",
+     "native": "Je n'ai pas regardé.",
+     "reading": "wǒ méi kàn."
+    },
+    {
+     "slot": {
+      "study": "吃早饭",
+      "reading": "chī zǎofàn",
+      "phon": "tchr tsao-fan",
+      "native": "pris de petit-déjeuner"
+     },
+     "study": "我没吃早饭。",
+     "phon": "ouo meï tchr tsao-fan",
+     "native": "Je n'ai pas pris de petit-déjeuner.",
+     "reading": "wǒ méi chī zǎofàn."
+    },
+    {
+     "slot": {
+      "study": "睡好",
+      "reading": "shuì hǎo",
+      "phon": "chouèï hao",
+      "native": "bien dormi"
+     },
+     "study": "我没睡好。",
+     "phon": "ouo meï chouèï hao",
+     "native": "Je n'ai pas bien dormi.",
+     "reading": "wǒ méi shuì hǎo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L5-fr-zh-d1",
+   "situation": "Retrouvailles",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "嗨，玛丽！最近怎么样？",
+     "reading": "hāi, Mǎlì! zuìjìn zěnmeyàng?",
+     "phon": "haï, ma-li ! tsoueï-tinn tseun-meu-yang ?",
+     "native": "Salut Marie ! Quoi de neuf ?"
+    },
+    {
+     "speaker": "B",
+     "study": "还好，你呢？",
+     "reading": "hái hǎo, nǐ ne?",
+     "phon": "haï hao, ni neu ?",
+     "native": "Ça va, et toi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "很好。周末你做了什么？",
+     "reading": "hěn hǎo. zhōumò nǐ zuò le shénme?",
+     "phon": "heun hao. djo-mo ni tsouo leu cheun-meu ?",
+     "native": "Très bien. Qu'est-ce que tu as fait ce week-end ?"
+    },
+    {
+     "speaker": "B",
+     "study": "我去了长城！",
+     "reading": "wǒ qù le Chángchéng!",
+     "phon": "ouo tchü leu tchang-tcheng !",
+     "native": "Je suis allée à la Grande Muraille !"
+    },
+    {
+     "speaker": "A",
+     "study": "真的吗？和谁去的？",
+     "reading": "zhēn de ma? hé shéi qù de?",
+     "phon": "djeun deu ma ? heu cheï tchü deu ?",
+     "native": "Vraiment ? Avec qui ?"
+    },
+    {
+     "speaker": "B",
+     "study": "和同事一起。先坐火车，然后走了两个小时。",
+     "reading": "hé tóngshì yìqǐ. xiān zuò huǒchē, ránhòu zǒu le liǎng ge xiǎoshí.",
+     "phon": "heu tong-chr i-tchi. sièn tsouo houo-tcheu, jan-heou tsou leu liang keu siao-chr",
+     "native": "Avec des collègues. D'abord le train, puis on a marché deux heures."
+    },
+    {
+     "speaker": "A",
+     "study": "太好了！累不累？",
+     "reading": "tài hǎo le! lèi bu lèi?",
+     "phon": "taï hao leu ! leï pou leï ?",
+     "native": "Super ! Tu étais fatiguée ?"
+    },
+    {
+     "speaker": "B",
+     "study": "很累，后来我睡了十个小时！",
+     "reading": "hěn lèi, hòulái wǒ shuì le shí ge xiǎoshí!",
+     "phon": "heun leï, heou-laï ouo chouèï leu chr keu siao-chr !",
+     "native": "Très ! Après, j'ai dormi dix heures !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-zh-06",
+    "L3-fr-zh-02",
+    "L5-fr-zh-02",
+    "L5-fr-zh-04",
+    "L5-fr-zh-05",
+    "L5-fr-zh-07",
+    "L5-fr-zh-08"
+   ]
+  },
+  {
+   "id": "L5-fr-zh-d2",
+   "situation": "Lundi matin au bureau",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "早上好！周末过得怎么样？",
+     "reading": "zǎoshang hǎo! zhōumò guò de zěnmeyàng?",
+     "phon": "tsao-chang hao ! djo-mo kouo deu tseun-meu-yang ?",
+     "native": "Bonjour ! Tu as passé un bon week-end ?"
+    },
+    {
+     "speaker": "B",
+     "study": "不错。星期六我和家人去了公园，星期天在家休息。你呢？",
+     "reading": "búcuò. xīngqīliù wǒ hé jiārén qù le gōngyuán, xīngqītiān zài jiā xiūxi. nǐ ne?",
+     "phon": "pou-tsouo. sing-tchi-liou ouo heu tia-jeun tchü leu kong-yuèn, sing-tchi-tièn dzaï tia siou-si. ni neu ?",
+     "native": "Pas mal. Samedi je suis allé au parc avec ma famille, dimanche je me suis reposé à la maison. Et toi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "我工作了。",
+     "reading": "wǒ gōngzuò le.",
+     "phon": "ouo kong-tsouo leu",
+     "native": "Moi, j'ai travaillé."
+    },
+    {
+     "speaker": "B",
+     "study": "真的吗？太可惜了！",
+     "reading": "zhēn de ma? tài kěxī le!",
+     "phon": "djeun deu ma ? taï keu-si leu !",
+     "native": "Vraiment ? Quel dommage !"
+    },
+    {
+     "speaker": "A",
+     "study": "是啊。上个星期的项目没做完。",
+     "reading": "shì a. shàng ge xīngqī de xiàngmù méi zuò wán.",
+     "phon": "chr a. chang keu sing-tchi deu siang-mou meï tsouo ouan",
+     "native": "Oui. Le projet de la semaine dernière n'était pas fini."
+    },
+    {
+     "speaker": "B",
+     "study": "现在做完了吗？",
+     "reading": "xiànzài zuò wán le ma?",
+     "phon": "sièn-dzaï tsouo ouan leu ma ?",
+     "native": "Et maintenant, c'est fini ?"
+    },
+    {
+     "speaker": "A",
+     "study": "做完了！",
+     "reading": "zuò wán le!",
+     "phon": "tsouo ouan leu !",
+     "native": "C'est fini !"
+    },
+    {
+     "speaker": "B",
+     "study": "太好了！中午我请你吃饭。",
+     "reading": "tài hǎo le! zhōngwǔ wǒ qǐng nǐ chī fàn.",
+     "phon": "taï hao leu ! djong-ou ouo tching ni tchr fan",
+     "native": "Super ! Ce midi, je t'invite à déjeuner."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L3-fr-zh-05",
+    "L5-fr-zh-05"
+   ]
+  },
+  {
+   "id": "L5-fr-zh-d3",
+   "situation": "Raconter ses vacances",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "你的假期怎么样？",
+     "reading": "nǐ de jiàqī zěnmeyàng?",
+     "phon": "ni deu tia-tchi tseun-meu-yang ?",
+     "native": "Comment se sont passées tes vacances ?"
+    },
+    {
+     "speaker": "B",
+     "study": "很好！我去了上海，住了一个星期。",
+     "reading": "hěn hǎo! wǒ qù le Shànghǎi, zhù le yí ge xīngqī.",
+     "phon": "heun hao ! ouo tchü leu chang-haï, djou leu i keu sing-tchi",
+     "native": "Très bien ! Je suis allée à Shanghai, j'y suis restée une semaine."
+    },
+    {
+     "speaker": "A",
+     "study": "你做了什么？",
+     "reading": "nǐ zuò le shénme?",
+     "phon": "ni tsouo leu cheun-meu ?",
+     "native": "Qu'est-ce que tu as fait ?"
+    },
+    {
+     "speaker": "B",
+     "study": "先看了朋友，然后去了博物馆，后来还坐了船。",
+     "reading": "xiān kàn le péngyou, ránhòu qù le bówùguǎn, hòulái hái zuò le chuán.",
+     "phon": "sièn kan leu peng-yeou, jan-heou tchü leu po-ou-kouan, heou-laï haï tsouo leu tchouan",
+     "native": "D'abord j'ai vu des amis, puis je suis allée au musée, et après j'ai même pris le bateau."
+    },
+    {
+     "speaker": "A",
+     "study": "天气好吗？",
+     "reading": "tiānqì hǎo ma?",
+     "phon": "tièn-tchi hao ma ?",
+     "native": "Il a fait beau ?"
+    },
+    {
+     "speaker": "B",
+     "study": "前三天很好，后来下雨了。",
+     "reading": "qián sān tiān hěn hǎo, hòulái xià yǔ le.",
+     "phon": "tchyèn san tièn heun hao, heou-laï sia yü leu",
+     "native": "Les trois premiers jours oui, après il s'est mis à pleuvoir."
+    },
+    {
+     "speaker": "A",
+     "study": "太可惜了。你什么时候回来的？",
+     "reading": "tài kěxī le. nǐ shénme shíhou huílái de?",
+     "phon": "taï keu-si leu. ni cheun-meu chr-heou houeï-laï deu ?",
+     "native": "Dommage. Tu es rentrée quand ?"
+    },
+    {
+     "speaker": "B",
+     "study": "两天前。我还有点累。",
+     "reading": "liǎng tiān qián. wǒ hái yǒudiǎn lèi.",
+     "phon": "liang tièn tchyèn. ouo haï yeou-tièn leï",
+     "native": "Il y a deux jours. Je suis encore un peu fatiguée."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-zh-06",
+    "L2-fr-zh-08",
+    "L3-fr-zh-02",
+    "L3-fr-zh-11",
+    "L5-fr-zh-02",
+    "L5-fr-zh-05",
+    "L5-fr-zh-08"
+   ]
+  }
+ ],
+ "readiness": "L'apprenant sait raconter ce qu'il a fait en s'appuyant sur les repères temporels (昨天, 上个星期, 两天前) et sur 了 (accompli après le verbe ou en fin de phrase, changement d'état), nier au passé avec 没, enchaîner avec 先… 然后… 后来…, demander des nouvelles et réagir (太好了, 真的吗, 太可惜了)."
+}

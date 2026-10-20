@@ -1,0 +1,1079 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "ko",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en coréen",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle",
+  "reading": "romanisation révisée"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : gam-sa-ham-ni-da ; eo = ㅓ, eu = ㅡ). Le champ reading donne la romanisation révisée. Registre poli (-요). Les particules (이/가, 을/를, 이에요/예요) sont incluses dans le morceau remplaçable.",
+ "reviewStatus": "Relecture linguistique requise (particules, naturel des tournures).",
+ "coverageClaim": null,
+ "level": 7,
+ "title": "Expliquer et comparer",
+ "goal": "Expliquer une raison, comparer et exprimer une préférence.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L7-fr-ko-01",
+   "situation": "Donner une raison",
+   "model": {
+    "study": "{s} 집에 있었어요.",
+    "reading": "{s} jibe isseosseoyo.",
+    "phon": "{s} dji-bè i-sseo-sseo-yo",
+    "native": "Je suis resté(e) à la maison {s}.",
+    "note": "-아서/어서 : « parce que, et donc » ; la cause précède la conséquence et n'est pas conjuguée au passé."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "피곤해서",
+      "reading": "pigonhaeseo",
+      "phon": "pi-gon-hè-seo",
+      "native": "parce que j'étais fatigué(e)"
+     },
+     "study": "피곤해서 집에 있었어요.",
+     "phon": "pi-gon-hè-seo dji-bè i-sseo-sseo-yo",
+     "native": "Je suis resté(e) à la maison parce que j'étais fatigué(e).",
+     "reading": "pigonhaeseo jibe isseosseoyo."
+    },
+    {
+     "slot": {
+      "study": "비가 와서",
+      "reading": "biga waseo",
+      "phon": "bi-ga oua-seo",
+      "native": "parce qu'il pleuvait"
+     },
+     "study": "비가 와서 집에 있었어요.",
+     "phon": "bi-ga oua-seo dji-bè i-sseo-sseo-yo",
+     "native": "Je suis resté(e) à la maison parce qu'il pleuvait.",
+     "reading": "biga waseo jibe isseosseoyo."
+    },
+    {
+     "slot": {
+      "study": "아파서",
+      "reading": "apaseo",
+      "phon": "a-pa-seo",
+      "native": "parce que j'étais malade"
+     },
+     "study": "아파서 집에 있었어요.",
+     "phon": "a-pa-seo dji-bè i-sseo-sseo-yo",
+     "native": "Je suis resté(e) à la maison parce que j'étais malade.",
+     "reading": "apaseo jibe isseosseoyo."
+    },
+    {
+     "slot": {
+      "study": "일이 많아서",
+      "reading": "iri manaseo",
+      "phon": "i-ri ma-na-seo",
+      "native": "parce que j'avais beaucoup de travail"
+     },
+     "study": "일이 많아서 집에 있었어요.",
+     "phon": "i-ri ma-na-seo dji-bè i-sseo-sseo-yo",
+     "native": "Je suis resté(e) à la maison parce que j'avais beaucoup de travail.",
+     "reading": "iri manaseo jibe isseosseoyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-ko-02",
+   "situation": "Expliquer un retard",
+   "model": {
+    "study": "{s} 늦었어요.",
+    "reading": "{s} neujeosseoyo.",
+    "phon": "{s} neu-djeo-sseo-yo",
+    "native": "Je suis en retard {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "길이 막혀서",
+      "reading": "giri makyeoseo",
+      "phon": "gi-ri ma-kyeo-seo",
+      "native": "à cause des embouteillages"
+     },
+     "study": "길이 막혀서 늦었어요.",
+     "phon": "gi-ri ma-kyeo-seo neu-djeo-sseo-yo",
+     "native": "Je suis en retard à cause des embouteillages.",
+     "reading": "giri makyeoseo neujeosseoyo."
+    },
+    {
+     "slot": {
+      "study": "버스를 놓쳐서",
+      "reading": "beoseureul notcheoseo",
+      "phon": "beo-seu-reul not-tcheo-seo",
+      "native": "parce que j'ai raté le bus"
+     },
+     "study": "버스를 놓쳐서 늦었어요.",
+     "phon": "beo-seu-reul not-tcheo-seo neu-djeo-sseo-yo",
+     "native": "Je suis en retard parce que j'ai raté le bus.",
+     "reading": "beoseureul notcheoseo neujeosseoyo."
+    },
+    {
+     "slot": {
+      "study": "늦게 일어나서",
+      "reading": "neutge ireonaseo",
+      "phon": "neut-gè i-reo-na-seo",
+      "native": "parce que je me suis levé(e) tard"
+     },
+     "study": "늦게 일어나서 늦었어요.",
+     "phon": "neut-gè i-reo-na-seo neu-djeo-sseo-yo",
+     "native": "Je suis en retard parce que je me suis levé(e) tard.",
+     "reading": "neutge ireonaseo neujeosseoyo."
+    },
+    {
+     "slot": {
+      "study": "회의가 길어져서",
+      "reading": "hoeuiga gireojeoseo",
+      "phon": "houè-eui-ga gi-reo-djeo-seo",
+      "native": "parce que la réunion a duré"
+     },
+     "study": "회의가 길어져서 늦었어요.",
+     "phon": "houè-eui-ga gi-reo-djeo-seo neu-djeo-sseo-yo",
+     "native": "Je suis en retard parce que la réunion a duré.",
+     "reading": "hoeuiga gireojeoseo neujeosseoyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-ko-03",
+   "situation": "Comparer un prix",
+   "model": {
+    "study": "이게 {s}보다 더 비싸요.",
+    "reading": "ige {s}boda deo bissayo.",
+    "phon": "i-gè {s}-bo-da deo bi-ssa-yo",
+    "native": "Celui-ci est plus cher que {s}.",
+    "note": "A이/가 B보다 더 + adjectif : « A est plus … que B » ; 보다 se colle au terme de comparaison."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "저것",
+      "reading": "jeogeot",
+      "phon": "djeo-geot",
+      "native": "celui-là"
+     },
+     "study": "이게 저것보다 더 비싸요.",
+     "phon": "i-gè djeo-geot-bo-da deo bi-ssa-yo",
+     "native": "Celui-ci est plus cher que celui-là.",
+     "reading": "ige jeogeotboda deo bissayo."
+    },
+    {
+     "slot": {
+      "study": "커피",
+      "reading": "keopi",
+      "phon": "keo-pi",
+      "native": "le café"
+     },
+     "study": "이게 커피보다 더 비싸요.",
+     "phon": "i-gè keo-pi-bo-da deo bi-ssa-yo",
+     "native": "Celui-ci est plus cher que le café.",
+     "reading": "ige keopiboda deo bissayo."
+    },
+    {
+     "slot": {
+      "study": "지하철표",
+      "reading": "jihacheolpyo",
+      "phon": "dji-ha-tcheol-pyo",
+      "native": "le ticket de métro"
+     },
+     "study": "이게 지하철표보다 더 비싸요.",
+     "phon": "i-gè dji-ha-tcheol-pyo-bo-da deo bi-ssa-yo",
+     "native": "Celui-ci est plus cher que le ticket de métro.",
+     "reading": "ige jihacheolpyoboda deo bissayo."
+    },
+    {
+     "slot": {
+      "study": "기차표",
+      "reading": "gichapyo",
+      "phon": "gi-tcha-pyo",
+      "native": "le billet de train"
+     },
+     "study": "이게 기차표보다 더 비싸요.",
+     "phon": "i-gè gi-tcha-pyo-bo-da deo bi-ssa-yo",
+     "native": "Celui-ci est plus cher que le billet de train.",
+     "reading": "ige gichapyoboda deo bissayo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-ko-04",
+   "situation": "Comparer une vitesse",
+   "model": {
+    "study": "지하철이 {s}보다 더 빨라요.",
+    "reading": "jihacheori {s}boda deo ppallayo.",
+    "phon": "dji-ha-tcheo-ri {s}-bo-da deo ppal-la-yo",
+    "native": "Le métro est plus rapide que {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "버스",
+      "reading": "beoseu",
+      "phon": "beo-seu",
+      "native": "le bus"
+     },
+     "study": "지하철이 버스보다 더 빨라요.",
+     "phon": "dji-ha-tcheo-ri beo-seu-bo-da deo ppal-la-yo",
+     "native": "Le métro est plus rapide que le bus.",
+     "reading": "jihacheori beoseuboda deo ppallayo."
+    },
+    {
+     "slot": {
+      "study": "택시",
+      "reading": "taeksi",
+      "phon": "tèk-si",
+      "native": "le taxi"
+     },
+     "study": "지하철이 택시보다 더 빨라요.",
+     "phon": "dji-ha-tcheo-ri tèk-si-bo-da deo ppal-la-yo",
+     "native": "Le métro est plus rapide que le taxi.",
+     "reading": "jihacheori taeksiboda deo ppallayo."
+    },
+    {
+     "slot": {
+      "study": "자전거",
+      "reading": "jajeongeo",
+      "phon": "dja-djeon-geo",
+      "native": "le vélo"
+     },
+     "study": "지하철이 자전거보다 더 빨라요.",
+     "phon": "dji-ha-tcheo-ri dja-djeon-geo-bo-da deo ppal-la-yo",
+     "native": "Le métro est plus rapide que le vélo.",
+     "reading": "jihacheori jajeongeoboda deo ppallayo."
+    },
+    {
+     "slot": {
+      "study": "걷는 것",
+      "reading": "geonneun geot",
+      "phon": "geon-neun geot",
+      "native": "la marche"
+     },
+     "study": "지하철이 걷는 것보다 더 빨라요.",
+     "phon": "dji-ha-tcheo-ri geon-neun geot-bo-da deo ppal-la-yo",
+     "native": "Le métro est plus rapide que la marche.",
+     "reading": "jihacheori geonneun geotboda deo ppallayo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-ko-05",
+   "situation": "Préférence argumentée",
+   "model": {
+    "study": "저는 {s} 더 좋아해요. 더 편하거든요.",
+    "reading": "jeoneun {s} deo joahaeyo. deo pyeonhageodeunnyo.",
+    "phon": "djeo-neun {s} deo djo-a-hè-yo. deo pyeon-ha-geo-deun-nyo",
+    "native": "Je préfère {s}. C'est plus pratique.",
+    "note": "-거든요 donne la raison après coup (« c'est que… ») ; très courant à l'oral."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "지하철을",
+      "reading": "jihacheoreul",
+      "phon": "dji-ha-tcheo-reul",
+      "native": "le métro"
+     },
+     "study": "저는 지하철을 더 좋아해요. 더 편하거든요.",
+     "phon": "djeo-neun dji-ha-tcheo-reul deo djo-a-hè-yo. deo pyeon-ha-geo-deun-nyo",
+     "native": "Je préfère le métro. C'est plus pratique.",
+     "reading": "jeoneun jihacheoreul deo joahaeyo. deo pyeonhageodeunnyo."
+    },
+    {
+     "slot": {
+      "study": "아파트를",
+      "reading": "apateureul",
+      "phon": "a-pa-teu-reul",
+      "native": "les appartements"
+     },
+     "study": "저는 아파트를 더 좋아해요. 더 편하거든요.",
+     "phon": "djeo-neun a-pa-teu-reul deo djo-a-hè-yo. deo pyeon-ha-geo-deun-nyo",
+     "native": "Je préfère les appartements. C'est plus pratique.",
+     "reading": "jeoneun apateureul deo joahaeyo. deo pyeonhageodeunnyo."
+    },
+    {
+     "slot": {
+      "study": "이 카페를",
+      "reading": "i kapereul",
+      "phon": "i ka-pè-reul",
+      "native": "ce café"
+     },
+     "study": "저는 이 카페를 더 좋아해요. 더 편하거든요.",
+     "phon": "djeo-neun i ka-pè-reul deo djo-a-hè-yo. deo pyeon-ha-geo-deun-nyo",
+     "native": "Je préfère ce café. C'est plus pratique.",
+     "reading": "jeoneun i kapereul deo joahaeyo. deo pyeonhageodeunnyo."
+    },
+    {
+     "slot": {
+      "study": "온라인 쇼핑을",
+      "reading": "ollain syoping-eul",
+      "phon": "ol-la-in chyo-ping-eul",
+      "native": "les achats en ligne"
+     },
+     "study": "저는 온라인 쇼핑을 더 좋아해요. 더 편하거든요.",
+     "phon": "djeo-neun ol-la-in chyo-ping-eul deo djo-a-hè-yo. deo pyeon-ha-geo-deun-nyo",
+     "native": "Je préfère les achats en ligne. C'est plus pratique.",
+     "reading": "jeoneun ollain syoping-eul deo joahaeyo. deo pyeonhageodeunnyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-ko-06",
+   "situation": "Supposer",
+   "model": {
+    "study": "{s} 것 같아요.",
+    "reading": "{s} geot gatayo.",
+    "phon": "{s} geot ga-ta-yo",
+    "native": "Je crois que {s}.",
+    "note": "-(으)ㄹ 것 같아요 : supposition sur l'avenir ou l'incertain ; -(으)ㄴ 것 같아요 : impression sur un état présent (adjectif)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "비가 올",
+      "reading": "biga ol",
+      "phon": "bi-ga ol",
+      "native": "il va pleuvoir"
+     },
+     "study": "비가 올 것 같아요.",
+     "phon": "bi-ga ol geot ga-ta-yo",
+     "native": "Je crois qu'il va pleuvoir.",
+     "reading": "biga ol geot gatayo."
+    },
+    {
+     "slot": {
+      "study": "좀 비싼",
+      "reading": "jom bissan",
+      "phon": "djom bi-ssan",
+      "native": "c'est un peu cher"
+     },
+     "study": "좀 비싼 것 같아요.",
+     "phon": "djom bi-ssan geot ga-ta-yo",
+     "native": "Je crois que c'est un peu cher.",
+     "reading": "jom bissan geot gatayo."
+    },
+    {
+     "slot": {
+      "study": "맛있을",
+      "reading": "masisseul",
+      "phon": "ma-si-sseul",
+      "native": "ça doit être bon"
+     },
+     "study": "맛있을 것 같아요.",
+     "phon": "ma-si-sseul geot ga-ta-yo",
+     "native": "Je crois que ça doit être bon.",
+     "reading": "masisseul geot gatayo."
+    },
+    {
+     "slot": {
+      "study": "그 사람이 바쁜",
+      "reading": "geu sarami bappeun",
+      "phon": "geu sa-ra-mi ba-ppeun",
+      "native": "il est occupé"
+     },
+     "study": "그 사람이 바쁜 것 같아요.",
+     "phon": "geu sa-ra-mi ba-ppeun geot ga-ta-yo",
+     "native": "Je crois qu'il est occupé.",
+     "reading": "geu sarami bappeun geot gatayo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-ko-07",
+   "situation": "Donner son avis",
+   "model": {
+    "study": "제 생각에는 {s}",
+    "reading": "je saenggageneun {s}",
+    "phon": "djè sèng-ga-gè-neun {s}",
+    "native": "À mon avis, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "이게 더 나아요.",
+      "reading": "ige deo naayo.",
+      "phon": "i-gè deo na-a-yo",
+      "native": "celui-ci est mieux"
+     },
+     "study": "제 생각에는 이게 더 나아요.",
+     "phon": "djè sèng-ga-gè-neun i-gè deo na-a-yo",
+     "native": "À mon avis, celui-ci est mieux.",
+     "reading": "je saenggageneun ige deo naayo."
+    },
+    {
+     "slot": {
+      "study": "너무 비싸요.",
+      "reading": "neomu bissayo.",
+      "phon": "neo-mou bi-ssa-yo",
+      "native": "c'est trop cher"
+     },
+     "study": "제 생각에는 너무 비싸요.",
+     "phon": "djè sèng-ga-gè-neun neo-mou bi-ssa-yo",
+     "native": "À mon avis, c'est trop cher.",
+     "reading": "je saenggageneun neomu bissayo."
+    },
+    {
+     "slot": {
+      "study": "좋은 생각이에요.",
+      "reading": "joeun saenggagieyo.",
+      "phon": "djo-eun sèng-ga-gi-è-yo",
+      "native": "c'est une bonne idée"
+     },
+     "study": "제 생각에는 좋은 생각이에요.",
+     "phon": "djè sèng-ga-gè-neun djo-eun sèng-ga-gi-è-yo",
+     "native": "À mon avis, c'est une bonne idée.",
+     "reading": "je saenggageneun joeun saenggagieyo."
+    },
+    {
+     "slot": {
+      "study": "시간이 더 필요해요.",
+      "reading": "sigani deo piryohaeyo.",
+      "phon": "si-ga-ni deo pi-ryo-hè-yo",
+      "native": "il faut plus de temps"
+     },
+     "study": "제 생각에는 시간이 더 필요해요.",
+     "phon": "djè sèng-ga-gè-neun si-ga-ni deo pi-ryo-hè-yo",
+     "native": "À mon avis, il faut plus de temps.",
+     "reading": "je saenggageneun sigani deo piryohaeyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-ko-08",
+   "situation": "Avant et maintenant",
+   "model": {
+    "study": "예전에는 {s}, 지금은 안 그래요.",
+    "reading": "yejeoneneun {s}, jigeumeun an geuraeyo.",
+    "phon": "yè-djeo-nè-neun {s}, dji-geu-meun an geu-rè-yo",
+    "native": "Avant, {s}, mais maintenant ce n'est plus le cas.",
+    "note": "-았/었는데 : contexte passé suivi d'un contraste (« avant… mais »)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "담배를 피웠는데",
+      "reading": "dambaereul piwonneunde",
+      "phon": "dam-bè-reul pi-oueon-neun-dè",
+      "native": "je fumais"
+     },
+     "study": "예전에는 담배를 피웠는데, 지금은 안 그래요.",
+     "phon": "yè-djeo-nè-neun dam-bè-reul pi-oueon-neun-dè, dji-geu-meun an geu-rè-yo",
+     "native": "Avant, je fumais, mais maintenant ce n'est plus le cas.",
+     "reading": "yejeoneneun dambaereul piwonneunde, jigeumeun an geuraeyo."
+    },
+    {
+     "slot": {
+      "study": "고기를 많이 먹었는데",
+      "reading": "gogireul mani meogeonneunde",
+      "phon": "go-gi-reul ma-ni meo-geon-neun-dè",
+      "native": "je mangeais beaucoup de viande"
+     },
+     "study": "예전에는 고기를 많이 먹었는데, 지금은 안 그래요.",
+     "phon": "yè-djeo-nè-neun go-gi-reul ma-ni meo-geon-neun-dè, dji-geu-meun an geu-rè-yo",
+     "native": "Avant, je mangeais beaucoup de viande, mais maintenant ce n'est plus le cas.",
+     "reading": "yejeoneneun gogireul mani meogeonneunde, jigeumeun an geuraeyo."
+    },
+    {
+     "slot": {
+      "study": "늦게 잤는데",
+      "reading": "neutge janneunde",
+      "phon": "neut-gè djan-neun-dè",
+      "native": "je me couchais tard"
+     },
+     "study": "예전에는 늦게 잤는데, 지금은 안 그래요.",
+     "phon": "yè-djeo-nè-neun neut-gè djan-neun-dè, dji-geu-meun an geu-rè-yo",
+     "native": "Avant, je me couchais tard, mais maintenant ce n'est plus le cas.",
+     "reading": "yejeoneneun neutge janneunde, jigeumeun an geuraeyo."
+    },
+    {
+     "slot": {
+      "study": "운동을 안 했는데",
+      "reading": "undong-eul an haenneunde",
+      "phon": "oun-dong-eul an hèn-neun-dè",
+      "native": "je ne faisais pas de sport"
+     },
+     "study": "예전에는 운동을 안 했는데, 지금은 안 그래요.",
+     "phon": "yè-djeo-nè-neun oun-dong-eul an hèn-neun-dè, dji-geu-meun an geu-rè-yo",
+     "native": "Avant, je ne faisais pas de sport, mais maintenant ce n'est plus le cas.",
+     "reading": "yejeoneneun undong-eul an haenneunde, jigeumeun an geuraeyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-ko-09",
+   "situation": "Changement de vie",
+   "model": {
+    "study": "예전에는 {s} 살았는데, 지금은 서울에 살아요.",
+    "reading": "yejeoneneun {s} saranneunde, jigeumeun seoure sarayo.",
+    "phon": "yè-djeo-nè-neun {s} sa-ran-neun-dè, dji-geu-meun seo-ou-rè sa-ra-yo",
+    "native": "Avant, j'habitais {s}, maintenant j'habite à Séoul."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "파리에",
+      "reading": "parie",
+      "phon": "pa-ri-è",
+      "native": "à Paris"
+     },
+     "study": "예전에는 파리에 살았는데, 지금은 서울에 살아요.",
+     "phon": "yè-djeo-nè-neun pa-ri-è sa-ran-neun-dè, dji-geu-meun seo-ou-rè sa-ra-yo",
+     "native": "Avant, j'habitais à Paris, maintenant j'habite à Séoul.",
+     "reading": "yejeoneneun parie saranneunde, jigeumeun seoure sarayo."
+    },
+    {
+     "slot": {
+      "study": "시골에",
+      "reading": "sigore",
+      "phon": "si-go-rè",
+      "native": "à la campagne"
+     },
+     "study": "예전에는 시골에 살았는데, 지금은 서울에 살아요.",
+     "phon": "yè-djeo-nè-neun si-go-rè sa-ran-neun-dè, dji-geu-meun seo-ou-rè sa-ra-yo",
+     "native": "Avant, j'habitais à la campagne, maintenant j'habite à Séoul.",
+     "reading": "yejeoneneun sigore saranneunde, jigeumeun seoure sarayo."
+    },
+    {
+     "slot": {
+      "study": "부모님하고",
+      "reading": "bumonimhago",
+      "phon": "bou-mo-nim-ha-go",
+      "native": "avec mes parents"
+     },
+     "study": "예전에는 부모님하고 살았는데, 지금은 서울에 살아요.",
+     "phon": "yè-djeo-nè-neun bou-mo-nim-ha-go sa-ran-neun-dè, dji-geu-meun seo-ou-rè sa-ra-yo",
+     "native": "Avant, j'habitais avec mes parents, maintenant j'habite à Séoul.",
+     "reading": "yejeoneneun bumonimhago saranneunde, jigeumeun seoure sarayo."
+    },
+    {
+     "slot": {
+      "study": "작은 집에",
+      "reading": "jageun jibe",
+      "phon": "dja-geun dji-bè",
+      "native": "dans une petite maison"
+     },
+     "study": "예전에는 작은 집에 살았는데, 지금은 서울에 살아요.",
+     "phon": "yè-djeo-nè-neun dja-geun dji-bè sa-ran-neun-dè, dji-geu-meun seo-ou-rè sa-ra-yo",
+     "native": "Avant, j'habitais dans une petite maison, maintenant j'habite à Séoul.",
+     "reading": "yejeoneneun jageun jibe saranneunde, jigeumeun seoure sarayo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-ko-10",
+   "situation": "Justifier un achat",
+   "model": {
+    "study": "{s} 이걸 샀어요.",
+    "reading": "{s} igeol sasseoyo.",
+    "phon": "{s} i-geol sa-sseo-yo",
+    "native": "J'ai acheté celui-ci {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "싸서",
+      "reading": "ssaseo",
+      "phon": "ssa-seo",
+      "native": "parce qu'il n'était pas cher"
+     },
+     "study": "싸서 이걸 샀어요.",
+     "phon": "ssa-seo i-geol sa-sseo-yo",
+     "native": "J'ai acheté celui-ci parce qu'il n'était pas cher.",
+     "reading": "ssaseo igeol sasseoyo."
+    },
+    {
+     "slot": {
+      "study": "색이 예뻐서",
+      "reading": "saegi yeppeoseo",
+      "phon": "sè-gi yè-ppeo-seo",
+      "native": "parce que la couleur est jolie"
+     },
+     "study": "색이 예뻐서 이걸 샀어요.",
+     "phon": "sè-gi yè-ppeo-seo i-geol sa-sseo-yo",
+     "native": "J'ai acheté celui-ci parce que la couleur est jolie.",
+     "reading": "saegi yeppeoseo igeol sasseoyo."
+    },
+    {
+     "slot": {
+      "study": "가벼워서",
+      "reading": "gabyeowoseo",
+      "phon": "ga-byeo-oueo-seo",
+      "native": "parce qu'il est léger"
+     },
+     "study": "가벼워서 이걸 샀어요.",
+     "phon": "ga-byeo-oueo-seo i-geol sa-sseo-yo",
+     "native": "J'ai acheté celui-ci parce qu'il est léger.",
+     "reading": "gabyeowoseo igeol sasseoyo."
+    },
+    {
+     "slot": {
+      "study": "세일해서",
+      "reading": "seilhaeseo",
+      "phon": "sè-il-hè-seo",
+      "native": "parce qu'il était en solde"
+     },
+     "study": "세일해서 이걸 샀어요.",
+     "phon": "sè-il-hè-seo i-geol sa-sseo-yo",
+     "native": "J'ai acheté celui-ci parce qu'il était en solde.",
+     "reading": "seilhaeseo igeol sasseoyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-ko-11",
+   "situation": "Moins que prévu",
+   "model": {
+    "study": "{s} 생각보다 싸요.",
+    "reading": "{s} saenggakboda ssayo.",
+    "phon": "{s} sèng-gak-bo-da ssa-yo",
+    "native": "{s} coûte moins cher que je pensais.",
+    "note": "생각보다 = « que ce que je pensais » (litt. « par rapport à ma pensée »)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "집세가",
+      "reading": "jipsega",
+      "phon": "djip-sè-ga",
+      "native": "le loyer"
+     },
+     "study": "집세가 생각보다 싸요.",
+     "phon": "djip-sè-ga sèng-gak-bo-da ssa-yo",
+     "native": "Le loyer coûte moins cher que je pensais.",
+     "reading": "jipsega saenggakboda ssayo."
+    },
+    {
+     "slot": {
+      "study": "음식이",
+      "reading": "eumsigi",
+      "phon": "eum-si-gi",
+      "native": "la nourriture"
+     },
+     "study": "음식이 생각보다 싸요.",
+     "phon": "eum-si-gi sèng-gak-bo-da ssa-yo",
+     "native": "La nourriture coûte moins cher que je pensais.",
+     "reading": "eumsigi saenggakboda ssayo."
+    },
+    {
+     "slot": {
+      "study": "교통비가",
+      "reading": "gyotongbiga",
+      "phon": "gyo-tong-bi-ga",
+      "native": "le transport"
+     },
+     "study": "교통비가 생각보다 싸요.",
+     "phon": "gyo-tong-bi-ga sèng-gak-bo-da ssa-yo",
+     "native": "Le transport coûte moins cher que je pensais.",
+     "reading": "gyotongbiga saenggakboda ssayo."
+    },
+    {
+     "slot": {
+      "study": "밥값이",
+      "reading": "bapgapsi",
+      "phon": "bap-gap-si",
+      "native": "un repas"
+     },
+     "study": "밥값이 생각보다 싸요.",
+     "phon": "bap-gap-si sèng-gak-bo-da ssa-yo",
+     "native": "Un repas coûte moins cher que je pensais.",
+     "reading": "bapgapsi saenggakboda ssayo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-ko-12",
+   "situation": "Changer de travail",
+   "model": {
+    "study": "{s} 회사를 옮겼어요.",
+    "reading": "{s} hoesareul olgyeosseoyo.",
+    "phon": "{s} houè-sa-reul ol-gyeo-sseo-yo",
+    "native": "J'ai changé d'entreprise {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "월급이 적어서",
+      "reading": "wolgeubi jeogeoseo",
+      "phon": "oueol-geu-bi djeo-geo-seo",
+      "native": "parce que le salaire était bas"
+     },
+     "study": "월급이 적어서 회사를 옮겼어요.",
+     "phon": "oueol-geu-bi djeo-geo-seo houè-sa-reul ol-gyeo-sseo-yo",
+     "native": "J'ai changé d'entreprise parce que le salaire était bas.",
+     "reading": "wolgeubi jeogeoseo hoesareul olgyeosseoyo."
+    },
+    {
+     "slot": {
+      "study": "집에서 멀어서",
+      "reading": "jibeseo meoreoseo",
+      "phon": "dji-bè-seo meo-reo-seo",
+      "native": "parce que c'était loin de chez moi"
+     },
+     "study": "집에서 멀어서 회사를 옮겼어요.",
+     "phon": "dji-bè-seo meo-reo-seo houè-sa-reul ol-gyeo-sseo-yo",
+     "native": "J'ai changé d'entreprise parce que c'était loin de chez moi.",
+     "reading": "jibeseo meoreoseo hoesareul olgyeosseoyo."
+    },
+    {
+     "slot": {
+      "study": "일이 너무 많아서",
+      "reading": "iri neomu manaseo",
+      "phon": "i-ri neo-mou ma-na-seo",
+      "native": "parce qu'il y avait trop de travail"
+     },
+     "study": "일이 너무 많아서 회사를 옮겼어요.",
+     "phon": "i-ri neo-mou ma-na-seo houè-sa-reul ol-gyeo-sseo-yo",
+     "native": "J'ai changé d'entreprise parce qu'il y avait trop de travail.",
+     "reading": "iri neomu manaseo hoesareul olgyeosseoyo."
+    },
+    {
+     "slot": {
+      "study": "새 일을 하고 싶어서",
+      "reading": "sae ireul hago sipeoseo",
+      "phon": "sè i-reul ha-go si-peo-seo",
+      "native": "parce que je voulais faire autre chose"
+     },
+     "study": "새 일을 하고 싶어서 회사를 옮겼어요.",
+     "phon": "sè i-reul ha-go si-peo-seo houè-sa-reul ol-gyeo-sseo-yo",
+     "native": "J'ai changé d'entreprise parce que je voulais faire autre chose.",
+     "reading": "sae ireul hago sipeoseo hoesareul olgyeosseoyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L7-fr-ko-d1",
+   "situation": "Choisir un sac",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "이 가방 어때요?",
+     "reading": "i gabang eottaeyo?",
+     "phon": "i ga-bang eo-ttè-yo ?",
+     "native": "Ce sac, qu'est-ce que vous en pensez ?"
+    },
+    {
+     "speaker": "B",
+     "study": "예뻐요. 그런데 좀 비싼 것 같아요.",
+     "reading": "yeppeoyo. geureonde jom bissan geot gatayo.",
+     "phon": "yè-ppeo-yo. geu-reon-dè djom bi-ssan geot ga-ta-yo",
+     "native": "Il est joli. Mais je crois qu'il est un peu cher."
+    },
+    {
+     "speaker": "A",
+     "study": "저것보다 더 비싸요?",
+     "reading": "jeogeotboda deo bissayo?",
+     "phon": "djeo-geot-bo-da deo bi-ssa-yo ?",
+     "native": "Plus cher que celui-là ?"
+    },
+    {
+     "speaker": "B",
+     "study": "네, 이게 저것보다 이만 원 더 비싸요.",
+     "reading": "ne, ige jeogeotboda iman won deo bissayo.",
+     "phon": "nè, i-gè djeo-geot-bo-da i-man oueon deo bi-ssa-yo",
+     "native": "Oui, celui-ci coûte vingt mille wons de plus."
+    },
+    {
+     "speaker": "A",
+     "study": "그래도 저는 이게 더 좋아요. 더 가볍거든요.",
+     "reading": "geuraedo jeoneun ige deo joayo. deo gabyeopgeodeunnyo.",
+     "phon": "geu-rè-do djeo-neun i-gè deo djo-a-yo. deo ga-byeop-geo-deun-nyo",
+     "native": "Quand même, je préfère celui-ci. Il est plus léger."
+    },
+    {
+     "speaker": "B",
+     "study": "그럼 이걸로 사세요. 제 생각에는 색도 더 예뻐요.",
+     "reading": "geureom igeollo saseyo. je saenggageneun saekdo deo yeppeoyo.",
+     "phon": "geu-reom i-geol-lo sa-sè-yo. djè sèng-ga-gè-neun sèk-do deo yè-ppeo-yo",
+     "native": "Alors prenez celui-ci. À mon avis, la couleur est plus jolie aussi."
+    },
+    {
+     "speaker": "A",
+     "study": "네, 이걸로 할래요.",
+     "reading": "ne, igeollo hallaeyo.",
+     "phon": "nè, i-geol-lo hal-lè-yo",
+     "native": "Oui, je prends celui-ci."
+    },
+    {
+     "speaker": "B",
+     "study": "좋은 선택이에요!",
+     "reading": "joeun seontaegieyo!",
+     "phon": "djo-eun seon-tè-gi-è-yo !",
+     "native": "Bon choix !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-ko-01",
+    "L2-fr-ko-07",
+    "L2-fr-ko-11",
+    "L6-fr-ko-06",
+    "L7-fr-ko-06",
+    "L7-fr-ko-07"
+   ]
+  },
+  {
+   "id": "L7-fr-ko-d2",
+   "situation": "Au restaurant, parler d'alimentation",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "고기 안 먹어요?",
+     "reading": "gogi an meogeoyo?",
+     "phon": "go-gi an meo-geo-yo ?",
+     "native": "Vous ne mangez pas de viande ?"
+    },
+    {
+     "speaker": "B",
+     "study": "네, 예전에는 많이 먹었는데, 지금은 안 먹어요.",
+     "reading": "ne, yejeoneneun mani meogeonneunde, jigeumeun an meogeoyo.",
+     "phon": "nè, yè-djeo-nè-neun ma-ni meo-geon-neun-dè, dji-geu-meun an meo-geo-yo",
+     "native": "Non. Avant j'en mangeais beaucoup, mais plus maintenant."
+    },
+    {
+     "speaker": "A",
+     "study": "왜요?",
+     "reading": "waeyo?",
+     "phon": "ouè-yo ?",
+     "native": "Pourquoi ?"
+    },
+    {
+     "speaker": "B",
+     "study": "건강 때문에요. 채소가 고기보다 더 건강한 것 같아요.",
+     "reading": "geongang ttaemuneyo. chaesoga gogiboda deo geonganghan geot gatayo.",
+     "phon": "geon-gang ttè-mou-nè-yo. tchè-so-ga go-gi-bo-da deo geon-gang-han geot ga-ta-yo",
+     "native": "Pour la santé. Je crois que les légumes sont plus sains que la viande."
+    },
+    {
+     "speaker": "A",
+     "study": "그래서 이 식당에 자주 와요?",
+     "reading": "geuraeseo i sikdang-e jaju wayo?",
+     "phon": "geu-rè-seo i sik-dang-è dja-djou oua-yo ?",
+     "native": "C'est pour ça que vous venez souvent dans ce restaurant ?"
+    },
+    {
+     "speaker": "B",
+     "study": "네, 채소 요리가 많아서 자주 와요. 그리고 생각보다 싸요.",
+     "reading": "ne, chaeso yoriga manaseo jaju wayo. geurigo saenggakboda ssayo.",
+     "phon": "nè, tchè-so yo-ri-ga ma-na-seo dja-djou oua-yo. geu-ri-go sèng-gak-bo-da ssa-yo",
+     "native": "Oui, il y a beaucoup de plats de légumes. Et c'est moins cher que je pensais."
+    },
+    {
+     "speaker": "A",
+     "study": "저도 비빔밥을 더 좋아해요. 맛있거든요.",
+     "reading": "jeodo bibimbabeul deo joahaeyo. masitgeodeunnyo.",
+     "phon": "djeo-do bi-bim-ba-beul deo djo-a-hè-yo. ma-sit-geo-deun-nyo",
+     "native": "Moi aussi je préfère le bibimbap. C'est bon."
+    },
+    {
+     "speaker": "B",
+     "study": "그럼 오늘은 비빔밥 두 개 시켜요.",
+     "reading": "geureom oneureun bibimbap du gae sikyeoyo.",
+     "phon": "geu-reom o-neu-reun bi-bim-bap dou gè si-kyeo-yo",
+     "native": "Alors aujourd'hui, on commande deux bibimbaps."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-ko-08",
+    "L3-fr-ko-08",
+    "L7-fr-ko-06",
+    "L7-fr-ko-11"
+   ]
+  },
+  {
+   "id": "L7-fr-ko-d3",
+   "situation": "Déménager ou pas",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "요즘 왜 이렇게 피곤해 보여요?",
+     "reading": "yojeum wae ireoke pigonhae boyeoyo?",
+     "phon": "yo-djeum ouè i-reo-kè pi-gon-hè bo-yeo-yo ?",
+     "native": "Pourquoi vous avez l'air si fatigué ces temps-ci ?"
+    },
+    {
+     "speaker": "B",
+     "study": "회사가 집에서 멀어서 매일 두 시간 걸려요.",
+     "reading": "hoesaga jibeseo meoreoseo maeil du sigan geollyeoyo.",
+     "phon": "houè-sa-ga dji-bè-seo meo-reo-seo mè-il dou si-gan geol-lyeo-yo",
+     "native": "Le bureau est loin de chez moi, ça me prend deux heures par jour."
+    },
+    {
+     "speaker": "A",
+     "study": "와, 힘들겠네요. 이사할 거예요?",
+     "reading": "wa, himdeulgenneyo. isahal geoyeyo?",
+     "phon": "oua, him-deul-gèn-nè-yo. i-sa-hal geo-yè-yo ?",
+     "native": "Oh, ça doit être dur. Vous allez déménager ?"
+    },
+    {
+     "speaker": "B",
+     "study": "네, 생각 중이에요. 회사 근처는 집세가 더 비싸요.",
+     "reading": "ne, saenggak jung-ieyo. hoesa geuncheoneun jipsega deo bissayo.",
+     "phon": "nè, sèng-gak djoung-i-è-yo. houè-sa geun-tcheo-neun djip-sè-ga deo bi-ssa-yo",
+     "native": "Oui, j'y réfléchis. Près du bureau, les loyers sont plus chers."
+    },
+    {
+     "speaker": "A",
+     "study": "그래도 시간이 더 중요한 것 같아요.",
+     "reading": "geuraedo sigani deo jung-yohan geot gatayo.",
+     "phon": "geu-rè-do si-ga-ni deo djoung-yo-han geot ga-ta-yo",
+     "native": "Quand même, je crois que le temps est plus important."
+    },
+    {
+     "speaker": "B",
+     "study": "맞아요. 예전에는 회사 근처에 살았는데, 그때가 더 편했어요.",
+     "reading": "majayo. yejeoneneun hoesa geuncheoe saranneunde, geuttaega deo pyeonhaesseoyo.",
+     "phon": "ma-dja-yo. yè-djeo-nè-neun houè-sa geun-tcheo-è sa-ran-neun-dè, geu-ttè-ga deo pyeon-hè-sseo-yo",
+     "native": "C'est vrai. Avant j'habitais près du bureau, c'était plus pratique."
+    },
+    {
+     "speaker": "A",
+     "study": "제 생각에는 빨리 이사하는 게 좋아요.",
+     "reading": "je saenggageneun ppalli isahaneun ge joayo.",
+     "phon": "djè sèng-ga-gè-neun ppal-li i-sa-ha-neun gè djo-a-yo",
+     "native": "À mon avis, il vaut mieux déménager vite."
+    },
+    {
+     "speaker": "B",
+     "study": "네, 이번 달에 집을 볼 거예요.",
+     "reading": "ne, ibeon dare jibeul bol geoyeyo.",
+     "phon": "nè, i-beon da-rè dji-beul bol geo-yè-yo",
+     "native": "Oui, je vais visiter des logements ce mois-ci."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L7-fr-ko-06",
+    "L7-fr-ko-07"
+   ]
+  }
+ ],
+ "readiness": "L'apprenant justifie avec -아서/어서 et -거든요, compare avec 보다 더, donne un avis (제 생각에는, -것 같아요) et oppose une habitude passée à la situation actuelle (예전에는 -았/었는데, 지금은)."
+}

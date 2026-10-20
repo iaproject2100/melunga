@@ -1,0 +1,1075 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "ko",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en coréen",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle",
+  "reading": "romanisation révisée"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : gam-sa-ham-ni-da ; eo = ㅓ, eu = ㅡ). Le champ reading donne la romanisation révisée. Registre poli (-요). Les particules (이/가, 을/를, 이에요/예요) sont incluses dans le morceau remplaçable.",
+ "reviewStatus": "Relecture linguistique requise (particules, naturel des tournures).",
+ "coverageClaim": null,
+ "level": 2,
+ "title": "Préciser",
+ "goal": "Préciser une quantité, une préférence, un lieu ou un moment.",
+ "reviewPreviousLevels": [
+  1
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L2-fr-ko-01",
+   "situation": "Au café",
+   "model": {
+    "study": "{s} 주세요.",
+    "reading": "{s} juseyo.",
+    "phon": "{s} djou-sè-yo",
+    "native": "Je voudrais {s}, s'il vous plaît.",
+    "note": "Compteurs : 잔 (verres, tasses), 개 (objets), 장 (billets, feuilles). Nombres natifs devant un compteur : 하나→한, 둘→두, 셋→세, 넷→네."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "커피 두 잔",
+      "reading": "keopi du jan",
+      "phon": "keo-pi dou djan",
+      "native": "deux cafés"
+     },
+     "study": "커피 두 잔 주세요.",
+     "phon": "keo-pi dou djan djou-sè-yo",
+     "native": "Je voudrais deux cafés, s'il vous plaît.",
+     "reading": "keopi du jan juseyo."
+    },
+    {
+     "slot": {
+      "study": "물 한 잔",
+      "reading": "mul han jan",
+      "phon": "moul han djan",
+      "native": "un verre d'eau"
+     },
+     "study": "물 한 잔 주세요.",
+     "phon": "moul han djan djou-sè-yo",
+     "native": "Je voudrais un verre d'eau, s'il vous plaît.",
+     "reading": "mul han jan juseyo."
+    },
+    {
+     "slot": {
+      "study": "빵 세 개",
+      "reading": "ppang se gae",
+      "phon": "ppang sè gè",
+      "native": "trois pains"
+     },
+     "study": "빵 세 개 주세요.",
+     "phon": "ppang sè gè djou-sè-yo",
+     "native": "Je voudrais trois pains, s'il vous plaît.",
+     "reading": "ppang se gae juseyo."
+    },
+    {
+     "slot": {
+      "study": "표 두 장",
+      "reading": "pyo du jang",
+      "phon": "pyo dou djang",
+      "native": "deux billets"
+     },
+     "study": "표 두 장 주세요.",
+     "phon": "pyo dou djang djou-sè-yo",
+     "native": "Je voudrais deux billets, s'il vous plaît.",
+     "reading": "pyo du jang juseyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-ko-02",
+   "situation": "Au restaurant",
+   "model": {
+    "study": "{s} 조금 주세요.",
+    "reading": "{s} jogeum juseyo.",
+    "phon": "{s} djo-geum djou-sè-yo",
+    "native": "Un peu de {s}, s'il vous plaît."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "물",
+      "reading": "mul",
+      "phon": "moul",
+      "native": "eau"
+     },
+     "study": "물 조금 주세요.",
+     "phon": "moul djo-geum djou-sè-yo",
+     "native": "Un peu d'eau, s'il vous plaît.",
+     "reading": "mul jogeum juseyo."
+    },
+    {
+     "slot": {
+      "study": "소금",
+      "reading": "sogeum",
+      "phon": "so-geum",
+      "native": "sel"
+     },
+     "study": "소금 조금 주세요.",
+     "phon": "so-geum djo-geum djou-sè-yo",
+     "native": "Un peu de sel, s'il vous plaît.",
+     "reading": "sogeum jogeum juseyo."
+    },
+    {
+     "slot": {
+      "study": "밥",
+      "reading": "bap",
+      "phon": "bap",
+      "native": "riz"
+     },
+     "study": "밥 조금 주세요.",
+     "phon": "bap djo-geum djou-sè-yo",
+     "native": "Un peu de riz, s'il vous plaît.",
+     "reading": "bap jogeum juseyo."
+    },
+    {
+     "slot": {
+      "study": "김치",
+      "reading": "gimchi",
+      "phon": "gim-tchi",
+      "native": "kimchi"
+     },
+     "study": "김치 조금 주세요.",
+     "phon": "gim-tchi djo-geum djou-sè-yo",
+     "native": "Un peu de kimchi, s'il vous plaît.",
+     "reading": "gimchi jogeum juseyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-ko-03",
+   "situation": "Trouver un lieu",
+   "model": {
+    "study": "화장실은 {s} 있어요.",
+    "reading": "hwajangsireun {s} isseoyo.",
+    "phon": "houa-djang-si-reun {s} i-sseo-yo",
+    "native": "Les toilettes sont {s}.",
+    "note": "에 (lieu où l'on se trouve) fait partie du morceau remplaçable : 여기에, 옆에."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "여기에",
+      "reading": "yeogie",
+      "phon": "yeo-gi-è",
+      "native": "ici"
+     },
+     "study": "화장실은 여기에 있어요.",
+     "phon": "houa-djang-si-reun yeo-gi-è i-sseo-yo",
+     "native": "Les toilettes sont ici.",
+     "reading": "hwajangsireun yeogie isseoyo."
+    },
+    {
+     "slot": {
+      "study": "저기에",
+      "reading": "jeogie",
+      "phon": "djeo-gi-è",
+      "native": "là-bas"
+     },
+     "study": "화장실은 저기에 있어요.",
+     "phon": "houa-djang-si-reun djeo-gi-è i-sseo-yo",
+     "native": "Les toilettes sont là-bas.",
+     "reading": "hwajangsireun jeogie isseoyo."
+    },
+    {
+     "slot": {
+      "study": "이 층에",
+      "reading": "i cheung-e",
+      "phon": "i tcheung-è",
+      "native": "à cet étage"
+     },
+     "study": "화장실은 이 층에 있어요.",
+     "phon": "houa-djang-si-reun i tcheung-è i-sseo-yo",
+     "native": "Les toilettes sont à cet étage.",
+     "reading": "hwajangsireun i cheung-e isseoyo."
+    },
+    {
+     "slot": {
+      "study": "카페 옆에",
+      "reading": "kape yeope",
+      "phon": "ka-pè yeo-pè",
+      "native": "à côté du café"
+     },
+     "study": "화장실은 카페 옆에 있어요.",
+     "phon": "houa-djang-si-reun ka-pè yeo-pè i-sseo-yo",
+     "native": "Les toilettes sont à côté du café.",
+     "reading": "hwajangsireun kape yeope isseoyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-ko-04",
+   "situation": "Situer dans l'espace",
+   "model": {
+    "study": "{s} 가까워요.",
+    "reading": "{s} gakkawoyo.",
+    "phon": "{s} ga-kka-oueo-yo",
+    "native": "C'est près {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "여기서",
+      "reading": "yeogiseo",
+      "phon": "yeo-gi-seo",
+      "native": "d'ici"
+     },
+     "study": "여기서 가까워요.",
+     "phon": "yeo-gi-seo ga-kka-oueo-yo",
+     "native": "C'est près d'ici.",
+     "reading": "yeogiseo gakkawoyo."
+    },
+    {
+     "slot": {
+      "study": "역에서",
+      "reading": "yeogeseo",
+      "phon": "yeo-gè-seo",
+      "native": "de la gare"
+     },
+     "study": "역에서 가까워요.",
+     "phon": "yeo-gè-seo ga-kka-oueo-yo",
+     "native": "C'est près de la gare.",
+     "reading": "yeogeseo gakkawoyo."
+    },
+    {
+     "slot": {
+      "study": "호텔에서",
+      "reading": "hotereseo",
+      "phon": "ho-tè-rè-seo",
+      "native": "de l'hôtel"
+     },
+     "study": "호텔에서 가까워요.",
+     "phon": "ho-tè-rè-seo ga-kka-oueo-yo",
+     "native": "C'est près de l'hôtel.",
+     "reading": "hotereseo gakkawoyo."
+    },
+    {
+     "slot": {
+      "study": "학교에서",
+      "reading": "hakgyoeseo",
+      "phon": "hak-gyo-è-seo",
+      "native": "de l'école"
+     },
+     "study": "학교에서 가까워요.",
+     "phon": "hak-gyo-è-seo ga-kka-oueo-yo",
+     "native": "C'est près de l'école.",
+     "reading": "hakgyoeseo gakkawoyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-ko-05",
+   "situation": "Rendez-vous",
+   "model": {
+    "study": "{s} 만나요.",
+    "reading": "{s} mannayo.",
+    "phon": "{s} man-na-yo",
+    "native": "On se voit {s}.",
+    "note": "Les heures se disent avec les nombres natifs (한 시, 두 시, 여덟 시), les minutes avec les nombres sino-coréens (삼십 분)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "여덟 시에",
+      "reading": "yeodeol sie",
+      "phon": "yeo-deol si-è",
+      "native": "à huit heures"
+     },
+     "study": "여덟 시에 만나요.",
+     "phon": "yeo-deol si-è man-na-yo",
+     "native": "On se voit à huit heures.",
+     "reading": "yeodeol sie mannayo."
+    },
+    {
+     "slot": {
+      "study": "오늘 저녁에",
+      "reading": "oneul jeonyeoge",
+      "phon": "o-neul djeo-nyeo-gè",
+      "native": "ce soir"
+     },
+     "study": "오늘 저녁에 만나요.",
+     "phon": "o-neul djeo-nyeo-gè man-na-yo",
+     "native": "On se voit ce soir.",
+     "reading": "oneul jeonyeoge mannayo."
+    },
+    {
+     "slot": {
+      "study": "내일",
+      "reading": "naeil",
+      "phon": "nè-il",
+      "native": "demain"
+     },
+     "study": "내일 만나요.",
+     "phon": "nè-il man-na-yo",
+     "native": "On se voit demain.",
+     "reading": "naeil mannayo."
+    },
+    {
+     "slot": {
+      "study": "역 앞에서",
+      "reading": "yeok apeseo",
+      "phon": "yeok a-pè-seo",
+      "native": "devant la gare"
+     },
+     "study": "역 앞에서 만나요.",
+     "phon": "yeok a-pè-seo man-na-yo",
+     "native": "On se voit devant la gare.",
+     "reading": "yeok apeseo mannayo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-ko-06",
+   "situation": "Transports",
+   "model": {
+    "study": "기차는 {s} 출발해요.",
+    "reading": "gichaneun {s} chulbalhaeyo.",
+    "phon": "gi-tcha-neun {s} tchoul-bal-hè-yo",
+    "native": "Le train part {s}.",
+    "note": "십 분 : nombre sino-coréen (일, 이, 삼… 십) pour les minutes."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "아홉 시에",
+      "reading": "ahop sie",
+      "phon": "a-hop si-è",
+      "native": "à neuf heures"
+     },
+     "study": "기차는 아홉 시에 출발해요.",
+     "phon": "gi-tcha-neun a-hop si-è tchoul-bal-hè-yo",
+     "native": "Le train part à neuf heures.",
+     "reading": "gichaneun ahop sie chulbalhaeyo."
+    },
+    {
+     "slot": {
+      "study": "지금",
+      "reading": "jigeum",
+      "phon": "dji-geum",
+      "native": "maintenant"
+     },
+     "study": "기차는 지금 출발해요.",
+     "phon": "gi-tcha-neun dji-geum tchoul-bal-hè-yo",
+     "native": "Le train part maintenant.",
+     "reading": "gichaneun jigeum chulbalhaeyo."
+    },
+    {
+     "slot": {
+      "study": "십 분 후에",
+      "reading": "sip bun hue",
+      "phon": "sip boun hou-è",
+      "native": "dans dix minutes"
+     },
+     "study": "기차는 십 분 후에 출발해요.",
+     "phon": "gi-tcha-neun sip boun hou-è tchoul-bal-hè-yo",
+     "native": "Le train part dans dix minutes.",
+     "reading": "gichaneun sip bun hue chulbalhaeyo."
+    },
+    {
+     "slot": {
+      "study": "내일 아침에",
+      "reading": "naeil achime",
+      "phon": "nè-il a-tchi-mè",
+      "native": "demain matin"
+     },
+     "study": "기차는 내일 아침에 출발해요.",
+     "phon": "gi-tcha-neun nè-il a-tchi-mè tchoul-bal-hè-yo",
+     "native": "Le train part demain matin.",
+     "reading": "gichaneun naeil achime chulbalhaeyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-ko-07",
+   "situation": "Préférence",
+   "model": {
+    "study": "저는 {s} 더 좋아요.",
+    "reading": "jeoneun {s} deo joayo.",
+    "phon": "djeo-neun {s} deo djo-a-yo",
+    "native": "Je préfère {s}.",
+    "note": "Litt. « pour moi, X est mieux » : X porte 이/가 (가 après voyelle, 이 après consonne)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "커피가",
+      "reading": "keopiga",
+      "phon": "keo-pi-ga",
+      "native": "le café"
+     },
+     "study": "저는 커피가 더 좋아요.",
+     "phon": "djeo-neun keo-pi-ga deo djo-a-yo",
+     "native": "Je préfère le café.",
+     "reading": "jeoneun keopiga deo joayo."
+    },
+    {
+     "slot": {
+      "study": "이게",
+      "reading": "ige",
+      "phon": "i-gè",
+      "native": "celui-ci"
+     },
+     "study": "저는 이게 더 좋아요.",
+     "phon": "djeo-neun i-gè deo djo-a-yo",
+     "native": "Je préfère celui-ci.",
+     "reading": "jeoneun ige deo joayo."
+    },
+    {
+     "slot": {
+      "study": "창가 자리가",
+      "reading": "changga jariga",
+      "phon": "tchang-ga dja-ri-ga",
+      "native": "la place côté fenêtre"
+     },
+     "study": "저는 창가 자리가 더 좋아요.",
+     "phon": "djeo-neun tchang-ga dja-ri-ga deo djo-a-yo",
+     "native": "Je préfère la place côté fenêtre.",
+     "reading": "jeoneun changga jariga deo joayo."
+    },
+    {
+     "slot": {
+      "study": "지하철이",
+      "reading": "jihacheori",
+      "phon": "dji-ha-tcheo-ri",
+      "native": "le métro"
+     },
+     "study": "저는 지하철이 더 좋아요.",
+     "phon": "djeo-neun dji-ha-tcheo-ri deo djo-a-yo",
+     "native": "Je préfère le métro.",
+     "reading": "jeoneun jihacheori deo joayo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-ko-08",
+   "situation": "Demander une précision",
+   "model": {
+    "study": "{s}요?",
+    "reading": "{s}yo?",
+    "phon": "{s}-yo ?",
+    "native": "{s} ?",
+    "note": "Un mot interrogatif + 요 suffit pour une question courte et polie."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "어느 거",
+      "reading": "eoneu geo",
+      "phon": "eo-neu geo",
+      "native": "Lequel"
+     },
+     "study": "어느 거요?",
+     "phon": "eo-neu geo-yo ?",
+     "native": "Lequel ?",
+     "reading": "eoneu geoyo?"
+    },
+    {
+     "slot": {
+      "study": "언제",
+      "reading": "eonje",
+      "phon": "eon-djè",
+      "native": "Quand"
+     },
+     "study": "언제요?",
+     "phon": "eon-djè-yo ?",
+     "native": "Quand ?",
+     "reading": "eonjeyo?"
+    },
+    {
+     "slot": {
+      "study": "어디",
+      "reading": "eodi",
+      "phon": "eo-di",
+      "native": "Où"
+     },
+     "study": "어디요?",
+     "phon": "eo-di-yo ?",
+     "native": "Où ?",
+     "reading": "eodiyo?"
+    },
+    {
+     "slot": {
+      "study": "몇 시",
+      "reading": "myeot si",
+      "phon": "myeot si",
+      "native": "À quelle heure"
+     },
+     "study": "몇 시요?",
+     "phon": "myeot si-yo ?",
+     "native": "À quelle heure ?",
+     "reading": "myeot siyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-ko-09",
+   "situation": "Achats",
+   "model": {
+    "study": "{s} 있어요?",
+    "reading": "{s} isseoyo?",
+    "phon": "{s} i-sseo-yo ?",
+    "native": "Vous avez {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "더 큰 사이즈",
+      "reading": "deo keun saijeu",
+      "phon": "deo keun sa-i-djeu",
+      "native": "une taille plus grande"
+     },
+     "study": "더 큰 사이즈 있어요?",
+     "phon": "deo keun sa-i-djeu i-sseo-yo ?",
+     "native": "Vous avez une taille plus grande ?",
+     "reading": "deo keun saijeu isseoyo?"
+    },
+    {
+     "slot": {
+      "study": "다른 색",
+      "reading": "dareun saek",
+      "phon": "da-reun sèk",
+      "native": "une autre couleur"
+     },
+     "study": "다른 색 있어요?",
+     "phon": "da-reun sèk i-sseo-yo ?",
+     "native": "Vous avez une autre couleur ?",
+     "reading": "dareun saek isseoyo?"
+    },
+    {
+     "slot": {
+      "study": "물",
+      "reading": "mul",
+      "phon": "moul",
+      "native": "de l'eau"
+     },
+     "study": "물 있어요?",
+     "phon": "moul i-sseo-yo ?",
+     "native": "Vous avez de l'eau ?",
+     "reading": "mul isseoyo?"
+    },
+    {
+     "slot": {
+      "study": "자리",
+      "reading": "jari",
+      "phon": "dja-ri",
+      "native": "une table"
+     },
+     "study": "자리 있어요?",
+     "phon": "dja-ri i-sseo-yo ?",
+     "native": "Vous avez une table ?",
+     "reading": "jari isseoyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-ko-10",
+   "situation": "Quantité",
+   "model": {
+    "study": "이거 {s} 주세요.",
+    "reading": "igeo {s} juseyo.",
+    "phon": "i-geo {s} djou-sè-yo",
+    "native": "J'en voudrais {s}, s'il vous plaît."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "하나",
+      "reading": "hana",
+      "phon": "ha-na",
+      "native": "un"
+     },
+     "study": "이거 하나 주세요.",
+     "phon": "i-geo ha-na djou-sè-yo",
+     "native": "J'en voudrais un, s'il vous plaît.",
+     "reading": "igeo hana juseyo."
+    },
+    {
+     "slot": {
+      "study": "두 개",
+      "reading": "du gae",
+      "phon": "dou gè",
+      "native": "deux"
+     },
+     "study": "이거 두 개 주세요.",
+     "phon": "i-geo dou gè djou-sè-yo",
+     "native": "J'en voudrais deux, s'il vous plaît.",
+     "reading": "igeo du gae juseyo."
+    },
+    {
+     "slot": {
+      "study": "세 개",
+      "reading": "se gae",
+      "phon": "sè gè",
+      "native": "trois"
+     },
+     "study": "이거 세 개 주세요.",
+     "phon": "i-geo sè gè djou-sè-yo",
+     "native": "J'en voudrais trois, s'il vous plaît.",
+     "reading": "igeo se gae juseyo."
+    },
+    {
+     "slot": {
+      "study": "조금만",
+      "reading": "jogeumman",
+      "phon": "djo-geum-man",
+      "native": "juste un peu"
+     },
+     "study": "이거 조금만 주세요.",
+     "phon": "i-geo djo-geum-man djou-sè-yo",
+     "native": "J'en voudrais juste un peu, s'il vous plaît.",
+     "reading": "igeo jogeumman juseyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-ko-11",
+   "situation": "Proposer un moment ou un lieu",
+   "model": {
+    "study": "{s} 어때요?",
+    "reading": "{s} eottaeyo?",
+    "phon": "{s} eo-ttè-yo ?",
+    "native": "{s}, ça vous va ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "이 식당",
+      "reading": "i sikdang",
+      "phon": "i sik-dang",
+      "native": "ce restaurant"
+     },
+     "study": "이 식당 어때요?",
+     "phon": "i sik-dang eo-ttè-yo ?",
+     "native": "Ce restaurant, ça vous va ?",
+     "reading": "i sikdang eottaeyo?"
+    },
+    {
+     "slot": {
+      "study": "저녁 일곱 시",
+      "reading": "jeonyeok ilgop si",
+      "phon": "djeo-nyeok il-gop si",
+      "native": "dix-neuf heures"
+     },
+     "study": "저녁 일곱 시 어때요?",
+     "phon": "djeo-nyeok il-gop si eo-ttè-yo ?",
+     "native": "Dix-neuf heures, ça vous va ?",
+     "reading": "jeonyeok ilgop si eottaeyo?"
+    },
+    {
+     "slot": {
+      "study": "내일",
+      "reading": "naeil",
+      "phon": "nè-il",
+      "native": "demain"
+     },
+     "study": "내일 어때요?",
+     "phon": "nè-il eo-ttè-yo ?",
+     "native": "Demain, ça vous va ?",
+     "reading": "naeil eottaeyo?"
+    },
+    {
+     "slot": {
+      "study": "여기",
+      "reading": "yeogi",
+      "phon": "yeo-gi",
+      "native": "ici"
+     },
+     "study": "여기 어때요?",
+     "phon": "yeo-gi eo-ttè-yo ?",
+     "native": "Ici, ça vous va ?",
+     "reading": "yeogi eottaeyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-ko-12",
+   "situation": "Demander l'heure d'un événement",
+   "model": {
+    "study": "{s} 몇 시예요?",
+    "reading": "{s} myeot siyeyo?",
+    "phon": "{s} myeot si-yè-yo ?",
+    "native": "{s} est à quelle heure ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "출발이",
+      "reading": "chulbari",
+      "phon": "tchoul-ba-ri",
+      "native": "le départ"
+     },
+     "study": "출발이 몇 시예요?",
+     "phon": "tchoul-ba-ri myeot si-yè-yo ?",
+     "native": "Le départ est à quelle heure ?",
+     "reading": "chulbari myeot siyeyo?"
+    },
+    {
+     "slot": {
+      "study": "도착이",
+      "reading": "dochagi",
+      "phon": "do-tcha-gi",
+      "native": "l'arrivée"
+     },
+     "study": "도착이 몇 시예요?",
+     "phon": "do-tcha-gi myeot si-yè-yo ?",
+     "native": "L'arrivée est à quelle heure ?",
+     "reading": "dochagi myeot siyeyo?"
+    },
+    {
+     "slot": {
+      "study": "회의가",
+      "reading": "hoeuiga",
+      "phon": "houè-eui-ga",
+      "native": "la réunion"
+     },
+     "study": "회의가 몇 시예요?",
+     "phon": "houè-eui-ga myeot si-yè-yo ?",
+     "native": "La réunion est à quelle heure ?",
+     "reading": "hoeuiga myeot siyeyo?"
+    },
+    {
+     "slot": {
+      "study": "약속이",
+      "reading": "yaksogi",
+      "phon": "yak-so-gi",
+      "native": "le rendez-vous"
+     },
+     "study": "약속이 몇 시예요?",
+     "phon": "yak-so-gi myeot si-yè-yo ?",
+     "native": "Le rendez-vous est à quelle heure ?",
+     "reading": "yaksogi myeot siyeyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L2-fr-ko-d1",
+   "situation": "Au café",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "안녕하세요. 커피 두 잔 주세요.",
+     "reading": "annyeonghaseyo. keopi du jan juseyo.",
+     "phon": "an-nyeong-ha-sè-yo. keo-pi dou djan djou-sè-yo",
+     "native": "Bonjour. Deux cafés, s'il vous plaît."
+    },
+    {
+     "speaker": "B",
+     "study": "네. 따뜻한 거요, 차가운 거요?",
+     "reading": "ne. ttatteutan geoyo, chagaun geoyo?",
+     "phon": "nè. tta-tteu-tan geo-yo, tcha-ga-oun geo-yo ?",
+     "native": "Oui. Chaud ou froid ?"
+    },
+    {
+     "speaker": "A",
+     "study": "따뜻한 거요. 그리고 물 조금 주세요.",
+     "reading": "ttatteutan geoyo. geurigo mul jogeum juseyo.",
+     "phon": "tta-tteu-tan geo-yo. geu-ri-go moul djo-geum djou-sè-yo",
+     "native": "Chaud. Et un peu d'eau, s'il vous plaît."
+    },
+    {
+     "speaker": "B",
+     "study": "네, 여기 있어요.",
+     "reading": "ne, yeogi isseoyo.",
+     "phon": "nè, yeo-gi i-sseo-yo",
+     "native": "Voilà."
+    },
+    {
+     "speaker": "A",
+     "study": "화장실이 어디예요?",
+     "reading": "hwajangsiri eodiyeyo?",
+     "phon": "houa-djang-si-ri eo-di-yè-yo ?",
+     "native": "Où sont les toilettes ?"
+    },
+    {
+     "speaker": "B",
+     "study": "저기 계단 옆에 있어요.",
+     "reading": "jeogi gyedan yeope isseoyo.",
+     "phon": "djeo-gi gyè-dan yeo-pè i-sseo-yo",
+     "native": "Là-bas, à côté de l'escalier."
+    },
+    {
+     "speaker": "A",
+     "study": "감사합니다. 얼마예요?",
+     "reading": "gamsahamnida. eolmayeyo?",
+     "phon": "gam-sa-ham-ni-da. eol-ma-yè-yo ?",
+     "native": "Merci. Ça fait combien ?"
+    },
+    {
+     "speaker": "B",
+     "study": "팔천 원이에요.",
+     "reading": "palcheon wonieyo.",
+     "phon": "pal-tcheon oueo-ni-è-yo",
+     "native": "Huit mille wons."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-ko-03",
+    "L1-fr-ko-05",
+    "L1-fr-ko-10",
+    "L2-fr-ko-01",
+    "L2-fr-ko-02",
+    "L2-fr-ko-09"
+   ]
+  },
+  {
+   "id": "L2-fr-ko-d2",
+   "situation": "À la gare",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "실례합니다, 부산 가는 표 두 장 주세요.",
+     "reading": "sillyehamnida, busan ganeun pyo du jang juseyo.",
+     "phon": "sil-lyè-ham-ni-da, bou-san ga-neun pyo dou djang djou-sè-yo",
+     "native": "Excusez-moi, deux billets pour Busan, s'il vous plaît."
+    },
+    {
+     "speaker": "B",
+     "study": "몇 시 기차요?",
+     "reading": "myeot si gichayo?",
+     "phon": "myeot si gi-tcha-yo ?",
+     "native": "Le train de quelle heure ?"
+    },
+    {
+     "speaker": "A",
+     "study": "다음 기차요. 몇 시에 출발해요?",
+     "reading": "daeum gichayo. myeot sie chulbalhaeyo?",
+     "phon": "da-eum gi-tcha-yo. myeot si-è tchoul-bal-hè-yo ?",
+     "native": "Le prochain. Il part à quelle heure ?"
+    },
+    {
+     "speaker": "B",
+     "study": "열 시에 출발해요. 십 분 후예요.",
+     "reading": "yeol sie chulbalhaeyo. sip bun huyeyo.",
+     "phon": "yeol si-è tchoul-bal-hè-yo. sip boun hou-yè-yo",
+     "native": "Il part à dix heures. Dans dix minutes."
+    },
+    {
+     "speaker": "A",
+     "study": "창가 자리가 더 좋아요.",
+     "reading": "changga jariga deo joayo.",
+     "phon": "tchang-ga dja-ri-ga deo djo-a-yo",
+     "native": "Je préfère une place côté fenêtre."
+    },
+    {
+     "speaker": "B",
+     "study": "네, 창가 자리요. 삼만 원이에요.",
+     "reading": "ne, changga jariyo. samman wonieyo.",
+     "phon": "nè, tchang-ga dja-ri-yo. sam-man oueo-ni-è-yo",
+     "native": "D'accord, côté fenêtre. Trente mille wons."
+    },
+    {
+     "speaker": "A",
+     "study": "여기요. 몇 번 플랫폼이에요?",
+     "reading": "yeogiyo. myeot beon peullaetpomieyo?",
+     "phon": "yeo-gi-yo. myeot beon peul-lèt-po-mi-è-yo ?",
+     "native": "Voilà. C'est quel quai ?"
+    },
+    {
+     "speaker": "B",
+     "study": "삼 번이에요. 저기예요.",
+     "reading": "sam beonieyo. jeogiyeyo.",
+     "phon": "sam beo-ni-è-yo. djeo-gi-yè-yo",
+     "native": "Le quai trois. C'est là-bas."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-ko-03",
+    "L2-fr-ko-01"
+   ]
+  },
+  {
+   "id": "L2-fr-ko-d3",
+   "situation": "Fixer un rendez-vous",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "마리 씨, 내일 시간 있어요?",
+     "reading": "mari ssi, naeil sigan isseoyo?",
+     "phon": "ma-ri ssi, nè-il si-gan i-sseo-yo ?",
+     "native": "Marie, vous avez du temps demain ?"
+    },
+    {
+     "speaker": "B",
+     "study": "네, 있어요. 언제요?",
+     "reading": "ne, isseoyo. eonjeyo?",
+     "phon": "nè, i-sseo-yo. eon-djè-yo ?",
+     "native": "Oui. Quand ?"
+    },
+    {
+     "speaker": "A",
+     "study": "저녁 일곱 시 어때요?",
+     "reading": "jeonyeok ilgop si eottaeyo?",
+     "phon": "djeo-nyeok il-gop si eo-ttè-yo ?",
+     "native": "Dix-neuf heures, ça vous va ?"
+    },
+    {
+     "speaker": "B",
+     "study": "좋아요. 어디에서 만나요?",
+     "reading": "joayo. eodieseo mannayo?",
+     "phon": "djo-a-yo. eo-di-è-seo man-na-yo ?",
+     "native": "D'accord. On se voit où ?"
+    },
+    {
+     "speaker": "A",
+     "study": "역 앞에서 만나요. 역 근처에 좋은 식당이 있어요.",
+     "reading": "yeok apeseo mannayo. yeok geuncheoe joeun sikdang-i isseoyo.",
+     "phon": "yeok a-pè-seo man-na-yo. yeok geun-tcheo-è djo-eun sik-dang-i i-sseo-yo",
+     "native": "Devant la gare. Il y a un bon restaurant près de la gare."
+    },
+    {
+     "speaker": "B",
+     "study": "어느 식당이요?",
+     "reading": "eoneu sikdang-iyo?",
+     "phon": "eo-neu sik-dang-i-yo ?",
+     "native": "Lequel ?"
+    },
+    {
+     "speaker": "A",
+     "study": "한식당이에요. 호텔에서 가까워요.",
+     "reading": "hansikdang-ieyo. hotereseo gakkawoyo.",
+     "phon": "han-sik-dang-i-è-yo. ho-tè-rè-seo ga-kka-oueo-yo",
+     "native": "Un restaurant coréen. C'est près de l'hôtel."
+    },
+    {
+     "speaker": "B",
+     "study": "네, 내일 일곱 시에 봐요!",
+     "reading": "ne, naeil ilgop sie bwayo!",
+     "phon": "nè, nè-il il-gop si-è boua-yo !",
+     "native": "D'accord, à demain dix-neuf heures !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L2-fr-ko-04",
+    "L2-fr-ko-05",
+    "L2-fr-ko-08",
+    "L2-fr-ko-09",
+    "L2-fr-ko-11"
+   ]
+  }
+ ],
+ "readiness": "L'apprenant commande une quantité précise avec le bon compteur, situe un lieu (ici, là-bas, à côté de), donne une heure ou un moment, exprime une préférence simple et demande une précision (lequel, quand, où)."
+}

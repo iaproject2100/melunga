@@ -1,0 +1,835 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "échantillon-à-valider",
+ "studyLanguage": "fr",
+ "nativeLanguage": "zh",
+ "fields": {
+  "study": "phrase en français",
+  "phon": "prononciation écrite pour sinophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "用汉字标注法语读音（沿用词库风格：美西 = merci，诺 = non）。汉字只是近似，请以音频为准。法语无声调；重音不在单词上，而是落在一个节奏组（短语或句子）的最后一个音节，并略微拉长。",
+ "reviewStatus": "需语言校对（汉字注音的近似程度、译文自然度）。",
+ "coverageClaim": null,
+ "level": 1,
+ "title": "Premiers contacts",
+ "goal": "Saluer, se présenter, exprimer un besoin, commander simplement.",
+ "reviewPreviousLevels": [],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L1-zh-fr-01",
+   "situation": "自我介绍",
+   "model": {
+    "study": "Je suis {s}.",
+    "phon": "热 绥 {s}",
+    "native": "我是{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "étudiant",
+      "phon": "埃居迪昂",
+      "native": "学生"
+     },
+     "study": "Je suis étudiant.",
+     "phon": "热 绥 埃居迪昂",
+     "native": "我是学生。"
+    },
+    {
+     "slot": {
+      "study": "français",
+      "phon": "弗朗赛",
+      "native": "法国人"
+     },
+     "study": "Je suis français.",
+     "phon": "热 绥 弗朗赛",
+     "native": "我是法国人。"
+    },
+    {
+     "slot": {
+      "study": "de Paris",
+      "phon": "德 巴黎",
+      "native": "巴黎人"
+     },
+     "study": "Je suis de Paris.",
+     "phon": "热 绥 德 巴黎",
+     "native": "我是巴黎人。"
+    },
+    {
+     "slot": {
+      "study": "en vacances",
+      "phon": "昂 瓦康斯",
+      "native": "来度假的"
+     },
+     "study": "Je suis en vacances.",
+     "phon": "热 绥 昂 瓦康斯",
+     "native": "我是来度假的。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-zh-fr-02",
+   "situation": "说出名字",
+   "model": {
+    "study": "Je m'appelle {s}.",
+    "phon": "热 马佩尔 {s}",
+    "native": "我叫{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Marie",
+      "phon": "玛丽",
+      "native": "玛丽"
+     },
+     "study": "Je m'appelle Marie.",
+     "phon": "热 马佩尔 玛丽",
+     "native": "我叫玛丽。"
+    },
+    {
+     "slot": {
+      "study": "Paul",
+      "phon": "保罗",
+      "native": "保罗"
+     },
+     "study": "Je m'appelle Paul.",
+     "phon": "热 马佩尔 保罗",
+     "native": "我叫保罗。"
+    },
+    {
+     "slot": {
+      "study": "Lin",
+      "phon": "林",
+      "native": "林"
+     },
+     "study": "Je m'appelle Lin.",
+     "phon": "热 马佩尔 林",
+     "native": "我叫林。"
+    },
+    {
+     "slot": {
+      "study": "Ana",
+      "phon": "安娜",
+      "native": "安娜"
+     },
+     "study": "Je m'appelle Ana.",
+     "phon": "热 马佩尔 安娜",
+     "native": "我叫安娜。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-zh-fr-03",
+   "situation": "说想要什么",
+   "model": {
+    "study": "Je veux {s}.",
+    "phon": "热 弗 {s}",
+    "native": "我要{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "un café",
+      "phon": "安 卡菲",
+      "native": "一杯咖啡"
+     },
+     "study": "Je veux un café.",
+     "phon": "热 弗 安 卡菲",
+     "native": "我要一杯咖啡。"
+    },
+    {
+     "slot": {
+      "study": "de l'eau",
+      "phon": "德 罗",
+      "native": "水"
+     },
+     "study": "Je veux de l'eau.",
+     "phon": "热 弗 德 罗",
+     "native": "我要水。"
+    },
+    {
+     "slot": {
+      "study": "un billet",
+      "phon": "安 比耶",
+      "native": "一张票"
+     },
+     "study": "Je veux un billet.",
+     "phon": "热 弗 安 比耶",
+     "native": "我要一张票。"
+    },
+    {
+     "slot": {
+      "study": "un sandwich",
+      "phon": "安 桑德维奇",
+      "native": "一个三明治"
+     },
+     "study": "Je veux un sandwich.",
+     "phon": "热 弗 安 桑德维奇",
+     "native": "我要一个三明治。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-zh-fr-04",
+   "situation": "说需要什么",
+   "model": {
+    "study": "J'ai besoin {s}.",
+    "phon": "热 贝祖安 {s}",
+    "native": "我需要{s}。",
+    "note": "« de » s'élide devant une voyelle (d'aide) : l'article est donc inclus dans le morceau remplaçable."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "d'aide",
+      "phon": "代德",
+      "native": "帮助"
+     },
+     "study": "J'ai besoin d'aide.",
+     "phon": "热 贝祖安 代德",
+     "native": "我需要帮助。"
+    },
+    {
+     "slot": {
+      "study": "d'un taxi",
+      "phon": "丹 塔克西",
+      "native": "一辆出租车"
+     },
+     "study": "J'ai besoin d'un taxi.",
+     "phon": "热 贝祖安 丹 塔克西",
+     "native": "我需要一辆出租车。"
+    },
+    {
+     "slot": {
+      "study": "d'un médecin",
+      "phon": "丹 梅德森",
+      "native": "医生"
+     },
+     "study": "J'ai besoin d'un médecin.",
+     "phon": "热 贝祖安 丹 梅德森",
+     "native": "我需要医生。"
+    },
+    {
+     "slot": {
+      "study": "de la wifi",
+      "phon": "德 拉 维菲",
+      "native": "无线网"
+     },
+     "study": "J'ai besoin de la wifi.",
+     "phon": "热 贝祖安 德 拉 维菲",
+     "native": "我需要无线网。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-zh-fr-05",
+   "situation": "找地方",
+   "model": {
+    "study": "Où est {s} ?",
+    "phon": "乌 埃 {s}",
+    "native": "{s}在哪里？"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "la gare",
+      "phon": "拉 嘎尔",
+      "native": "火车站"
+     },
+     "study": "Où est la gare ?",
+     "phon": "乌 埃 拉 嘎尔",
+     "native": "火车站在哪里？"
+    },
+    {
+     "slot": {
+      "study": "la sortie",
+      "phon": "拉 索尔蒂",
+      "native": "出口"
+     },
+     "study": "Où est la sortie ?",
+     "phon": "乌 埃 拉 索尔蒂",
+     "native": "出口在哪里？"
+    },
+    {
+     "slot": {
+      "study": "le métro",
+      "phon": "勒 梅特罗",
+      "native": "地铁"
+     },
+     "study": "Où est le métro ?",
+     "phon": "乌 埃 勒 梅特罗",
+     "native": "地铁在哪里？"
+    },
+    {
+     "slot": {
+      "study": "l'hôtel",
+      "phon": "洛泰尔",
+      "native": "酒店"
+     },
+     "study": "Où est l'hôtel ?",
+     "phon": "乌 埃 洛泰尔",
+     "native": "酒店在哪里？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-zh-fr-06",
+   "situation": "说要去哪里",
+   "model": {
+    "study": "Je vais {s}.",
+    "phon": "热 维 {s}",
+    "native": "我去{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "au travail",
+      "phon": "奥 特拉瓦伊",
+      "native": "上班"
+     },
+     "study": "Je vais au travail.",
+     "phon": "热 维 奥 特拉瓦伊",
+     "native": "我去上班。"
+    },
+    {
+     "slot": {
+      "study": "à la gare",
+      "phon": "阿 拉 嘎尔",
+      "native": "火车站"
+     },
+     "study": "Je vais à la gare.",
+     "phon": "热 维 阿 拉 嘎尔",
+     "native": "我去火车站。"
+    },
+    {
+     "slot": {
+      "study": "au marché",
+      "phon": "奥 马尔谢",
+      "native": "市场"
+     },
+     "study": "Je vais au marché.",
+     "phon": "热 维 奥 马尔谢",
+     "native": "我去市场。"
+    },
+    {
+     "slot": {
+      "study": "à l'hôtel",
+      "phon": "阿 洛泰尔",
+      "native": "酒店"
+     },
+     "study": "Je vais à l'hôtel.",
+     "phon": "热 维 阿 洛泰尔",
+     "native": "我去酒店。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-zh-fr-07",
+   "situation": "说感受",
+   "model": {
+    "study": "J'ai {s}.",
+    "phon": "热 {s}",
+    "native": "我{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "faim",
+      "phon": "方",
+      "native": "饿了"
+     },
+     "study": "J'ai faim.",
+     "phon": "热 方",
+     "native": "我饿了。"
+    },
+    {
+     "slot": {
+      "study": "soif",
+      "phon": "斯瓦夫",
+      "native": "渴了"
+     },
+     "study": "J'ai soif.",
+     "phon": "热 斯瓦夫",
+     "native": "我渴了。"
+    },
+    {
+     "slot": {
+      "study": "froid",
+      "phon": "弗鲁瓦",
+      "native": "冷"
+     },
+     "study": "J'ai froid.",
+     "phon": "热 弗鲁瓦",
+     "native": "我冷。"
+    },
+    {
+     "slot": {
+      "study": "chaud",
+      "phon": "绍",
+      "native": "热"
+     },
+     "study": "J'ai chaud.",
+     "phon": "热 绍",
+     "native": "我热。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-zh-fr-08",
+   "situation": "说喜欢什么",
+   "model": {
+    "study": "J'aime {s}.",
+    "phon": "热姆 {s}",
+    "native": "我喜欢{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "le café",
+      "phon": "勒 卡菲",
+      "native": "咖啡"
+     },
+     "study": "J'aime le café.",
+     "phon": "热姆 勒 卡菲",
+     "native": "我喜欢咖啡。"
+    },
+    {
+     "slot": {
+      "study": "la musique",
+      "phon": "拉 缪吉克",
+      "native": "音乐"
+     },
+     "study": "J'aime la musique.",
+     "phon": "热姆 拉 缪吉克",
+     "native": "我喜欢音乐。"
+    },
+    {
+     "slot": {
+      "study": "marcher",
+      "phon": "马尔谢",
+      "native": "走路"
+     },
+     "study": "J'aime marcher.",
+     "phon": "热姆 马尔谢",
+     "native": "我喜欢走路。"
+    },
+    {
+     "slot": {
+      "study": "le sport",
+      "phon": "勒 斯波尔",
+      "native": "运动"
+     },
+     "study": "J'aime le sport.",
+     "phon": "热姆 勒 斯波尔",
+     "native": "我喜欢运动。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-zh-fr-09",
+   "situation": "点单",
+   "model": {
+    "study": "Un {s}, s'il vous plaît.",
+    "phon": "安 {s}，西尔 武 普莱",
+    "native": "请给我{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "café",
+      "phon": "卡菲",
+      "native": "一杯咖啡"
+     },
+     "study": "Un café, s'il vous plaît.",
+     "phon": "安 卡菲，西尔 武 普莱",
+     "native": "请给我一杯咖啡。"
+    },
+    {
+     "slot": {
+      "study": "thé",
+      "phon": "泰",
+      "native": "一杯茶"
+     },
+     "study": "Un thé, s'il vous plaît.",
+     "phon": "安 泰，西尔 武 普莱",
+     "native": "请给我一杯茶。"
+    },
+    {
+     "slot": {
+      "study": "jus d'orange",
+      "phon": "居 多朗日",
+      "native": "一杯橙汁"
+     },
+     "study": "Un jus d'orange, s'il vous plaît.",
+     "phon": "安 居 多朗日，西尔 武 普莱",
+     "native": "请给我一杯橙汁。"
+    },
+    {
+     "slot": {
+      "study": "sandwich",
+      "phon": "桑德维奇",
+      "native": "一个三明治"
+     },
+     "study": "Un sandwich, s'il vous plaît.",
+     "phon": "安 桑德维奇，西尔 武 普莱",
+     "native": "请给我一个三明治。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-zh-fr-10",
+   "situation": "问价格",
+   "model": {
+    "study": "Combien coûte {s} ?",
+    "phon": "孔比安 库特 {s}",
+    "native": "{s}多少钱？"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "ça",
+      "phon": "萨",
+      "native": "这个"
+     },
+     "study": "Combien coûte ça ?",
+     "phon": "孔比安 库特 萨",
+     "native": "这个多少钱？"
+    },
+    {
+     "slot": {
+      "study": "le café",
+      "phon": "勒 卡菲",
+      "native": "咖啡"
+     },
+     "study": "Combien coûte le café ?",
+     "phon": "孔比安 库特 勒 卡菲",
+     "native": "咖啡多少钱？"
+    },
+    {
+     "slot": {
+      "study": "le billet",
+      "phon": "勒 比耶",
+      "native": "票"
+     },
+     "study": "Combien coûte le billet ?",
+     "phon": "孔比安 库特 勒 比耶",
+     "native": "票多少钱？"
+    },
+    {
+     "slot": {
+      "study": "la chambre",
+      "phon": "拉 尚布尔",
+      "native": "房间"
+     },
+     "study": "Combien coûte la chambre ?",
+     "phon": "孔比安 库特 拉 尚布尔",
+     "native": "房间多少钱？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-zh-fr-11",
+   "situation": "求助",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "求助用语：整句记住即可，用来维持对话。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Je ne comprends pas.",
+      "phon": "热 讷 孔普朗 帕",
+      "native": "我不懂。"
+     },
+     "study": "Je ne comprends pas.",
+     "phon": "热 讷 孔普朗 帕",
+     "native": "我不懂。"
+    },
+    {
+     "slot": {
+      "study": "Répétez, s'il vous plaît.",
+      "phon": "雷佩泰，西尔 武 普莱",
+      "native": "请再说一遍。"
+     },
+     "study": "Répétez, s'il vous plaît.",
+     "phon": "雷佩泰，西尔 武 普莱",
+     "native": "请再说一遍。"
+    },
+    {
+     "slot": {
+      "study": "Plus lentement, s'il vous plaît.",
+      "phon": "普吕 朗特芒，西尔 武 普莱",
+      "native": "请说慢一点。"
+     },
+     "study": "Plus lentement, s'il vous plaît.",
+     "phon": "普吕 朗特芒，西尔 武 普莱",
+     "native": "请说慢一点。"
+    },
+    {
+     "slot": {
+      "study": "Parlez-vous chinois ?",
+      "phon": "帕尔莱 武 希努瓦",
+      "native": "您会说中文吗？"
+     },
+     "study": "Parlez-vous chinois ?",
+     "phon": "帕尔莱 武 希努瓦",
+     "native": "您会说中文吗？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L1-zh-fr-d1",
+   "situation": "在咖啡馆",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Bonjour !",
+     "phon": "蓬茹尔",
+     "native": "你好！"
+    },
+    {
+     "speaker": "B",
+     "study": "Bonjour. Vous désirez ?",
+     "phon": "蓬茹尔。武 德吉雷",
+     "native": "你好。您要什么？"
+    },
+    {
+     "speaker": "A",
+     "study": "Un café, s'il vous plaît.",
+     "phon": "安 卡菲，西尔 武 普莱",
+     "native": "请给我一杯咖啡。"
+    },
+    {
+     "speaker": "B",
+     "study": "Avec du lait ?",
+     "phon": "阿维克 迪 莱",
+     "native": "加牛奶吗？"
+    },
+    {
+     "speaker": "A",
+     "study": "Non, merci. Combien ça coûte ?",
+     "phon": "诺，美西。孔比安 萨 库特",
+     "native": "不用，谢谢。多少钱？"
+    },
+    {
+     "speaker": "B",
+     "study": "Deux euros.",
+     "phon": "德 厄罗",
+     "native": "两欧元。"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L1-zh-fr-09"
+   ]
+  },
+  {
+   "id": "L1-zh-fr-d2",
+   "situation": "在火车站",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Excusez-moi, où est la gare ?",
+     "phon": "埃克斯居泽 穆瓦，乌 埃 拉 嘎尔",
+     "native": "请问，火车站在哪里？"
+    },
+    {
+     "speaker": "B",
+     "study": "Tout droit, à cinq minutes.",
+     "phon": "图 德鲁瓦，阿 散克 米纽特",
+     "native": "一直走，五分钟。"
+    },
+    {
+     "speaker": "A",
+     "study": "Merci. J'ai besoin d'un billet pour Lyon.",
+     "phon": "美西。热 贝祖安 丹 比耶 普尔 里昂",
+     "native": "谢谢。我需要一张去里昂的票。"
+    },
+    {
+     "speaker": "B",
+     "study": "Un billet, dix euros.",
+     "phon": "安 比耶，迪 厄罗",
+     "native": "一张票，十欧元。"
+    },
+    {
+     "speaker": "A",
+     "study": "Voilà. Merci beaucoup.",
+     "phon": "瓦拉。美西 博库",
+     "native": "给您。非常感谢。"
+    },
+    {
+     "speaker": "B",
+     "study": "Bon voyage !",
+     "phon": "蓬 瓦亚日",
+     "native": "一路顺风！"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L1-zh-fr-04",
+    "L1-zh-fr-05",
+    "L1-zh-fr-07"
+   ]
+  },
+  {
+   "id": "L1-zh-fr-d3",
+   "situation": "初次见面",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Bonjour, je m'appelle Lin.",
+     "phon": "蓬茹尔，热 马佩尔 林",
+     "native": "你好，我叫林。"
+    },
+    {
+     "speaker": "B",
+     "study": "Enchanté, moi c'est Paul.",
+     "phon": "昂尚泰，穆瓦 赛 保罗",
+     "native": "很高兴认识你，我是保罗。"
+    },
+    {
+     "speaker": "A",
+     "study": "Je suis chinoise, de Shanghai. Et vous ?",
+     "phon": "热 绥 希努瓦兹，德 上海。埃 武",
+     "native": "我是中国人，上海人。您呢？"
+    },
+    {
+     "speaker": "B",
+     "study": "Je suis d'ici. Vous êtes en vacances ?",
+     "phon": "热 绥 迪西。武 泽特 昂 瓦康斯",
+     "native": "我是本地人。您来度假吗？"
+    },
+    {
+     "speaker": "A",
+     "study": "Oui, j'aime beaucoup la ville.",
+     "phon": "威，热姆 博库 拉 维尔",
+     "native": "是的，我很喜欢这个城市。"
+    },
+    {
+     "speaker": "B",
+     "study": "Super ! Bienvenue !",
+     "phon": "苏佩尔！比安弗尼",
+     "native": "太好了！欢迎！"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L1-zh-fr-01",
+    "L1-zh-fr-02",
+    "L1-zh-fr-07",
+    "L1-zh-fr-08"
+   ]
+  }
+ ],
+ "readiness": "Se présenter en trois phrases, exprimer un besoin, commander et demander un prix ; comprendre et compléter les trois dialogues. Repère pédagogique, sans certification."
+}
