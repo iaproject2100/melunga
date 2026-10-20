@@ -1,0 +1,580 @@
+/*
+ * Présentation mobile Melunga — version C (Immersion).
+ *
+ * Cette feuille ne remplace pas les couleurs choisies dans Melunga :
+ * elle utilise les variables dynamiques --bg, --card, --ink, --accent, etc.
+ * Les majuscules de la phonétique sont des données pédagogiques et doivent
+ * rester strictement inchangées.
+ */
+
+@media (max-width: 859px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    font-synthesis: none;
+  }
+
+  body.immersif {
+    height: 100dvh;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body.immersif .wrap {
+    height: 100dvh;
+    min-height: 100dvh;
+    overflow: hidden;
+  }
+
+  body.immersif .top {
+    position: fixed;
+    z-index: 159;
+    top: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+  }
+
+  body.immersif .top .utilbar {
+    pointer-events: auto;
+  }
+
+  .stage {
+    padding-inline: 14px;
+  }
+
+  #card.card {
+    border-radius: 30px;
+    padding: clamp(24px, 6vh, 42px) 18px 24px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, .14);
+  }
+
+  /* Carte vitrée de la maquette C, adaptée aux fonds sombres. */
+  body.immersif #card.card {
+    background: rgba(8, 27, 43, .46) !important;
+    border: 1px solid rgba(255, 255, 255, .15) !important;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, .22) !important;
+    -webkit-backdrop-filter: blur(11px);
+    backdrop-filter: blur(11px);
+  }
+
+  /* Même présentation sur les fonds clairs choisis par le client. */
+  body.immersif.ambclair #card.card {
+    background: rgba(255, 255, 255, .46) !important;
+    border-color: rgba(35, 40, 50, .13) !important;
+    box-shadow: 0 18px 42px rgba(45, 37, 31, .13) !important;
+  }
+
+  body.immersif .stage {
+    padding-top: calc(86px + env(safe-area-inset-top));
+    padding-bottom: calc(92px + env(safe-area-inset-bottom));
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  body.immersif .countrow {
+    position: fixed;
+    z-index: 158;
+    top: calc(6px + env(safe-area-inset-top));
+    left: 64px;
+    right: 64px;
+    min-height: 46px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    pointer-events: none;
+  }
+
+  body.immersif .study-lang {
+    color: #dbe9f3;
+    font-size: 11px;
+    line-height: 1.15;
+    font-weight: 750;
+    letter-spacing: .2px;
+    white-space: nowrap;
+  }
+
+  body.immersif.ambclair .study-lang {
+    color: #4d5968;
+  }
+
+  body.immersif .count {
+    position: static;
+    color: #b4c9da;
+    font-size: 10px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: none;
+  }
+
+  body.immersif.ambclair .count {
+    color: rgba(35, 40, 50, .68);
+  }
+
+  body.immersif .progwrap {
+    position: fixed;
+    z-index: 157;
+    top: calc(58px + env(safe-area-inset-top));
+    left: 72px;
+    right: 72px;
+    width: auto;
+    max-width: 360px;
+    height: 6px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .16);
+  }
+
+  body.immersif.ambclair .progwrap {
+    background: rgba(35, 40, 50, .14);
+  }
+
+  body.immersif .progbar {
+    border-radius: inherit;
+    background: var(--accent);
+  }
+
+  /* Les anciens sélecteurs ne sont plus affichés comme des pastilles. */
+  body.immersif .selbar.circbar {
+    display: none !important;
+  }
+
+  body.immersif .wrap::after {
+    height: 90px;
+  }
+
+  body.immersif .backbtn,
+  body.immersif.pile-bas .backbtn,
+  body.immersif.pile-gauche .backbtn {
+    top: calc(10px + env(safe-area-inset-top));
+    bottom: auto;
+    left: 12px;
+  }
+
+  body.immersif .ratebar,
+  body.immersif.pile-bas .ratebar,
+  body.immersif.pile-gauche .ratebar,
+  body.immersif.pile-droite .ratebar {
+    left: 12px;
+    right: 12px;
+    bottom: calc(14px + env(safe-area-inset-bottom));
+    padding: 0;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  body.immersif .ratebar .rate {
+    width: auto;
+    min-width: 132px;
+    height: 50px;
+    padding: 0 18px;
+    gap: 8px;
+    border-radius: 16px;
+    font-size: 20px;
+    font-family: "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 800;
+  }
+
+  body.immersif .ratebar .rate-label {
+    font-size: 14px;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  body.immersif .ratebar .rko {
+    color: #ffcf9e;
+    background: rgba(255, 159, 67, .22);
+  }
+
+  body.immersif .ratebar .rok {
+    color: #a6f4c5;
+    background: rgba(34, 197, 94, .22);
+  }
+
+  body.immersif.ambclair .ratebar .rko {
+    color: #8a4a12;
+    background: rgba(200, 110, 20, .17);
+  }
+
+  body.immersif.ambclair .ratebar .rok {
+    color: #12633c;
+    background: rgba(20, 140, 70, .15);
+  }
+
+  .fr,
+  body.immersif .fr {
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+      "Noto Sans SC", sans-serif;
+    font-size: 30px;
+    line-height: 1.18;
+    font-weight: 720;
+    letter-spacing: -.55px;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+
+  /*
+   * La phonétique devient un bloc très lisible.
+   * text-transform:none garantit que les lettres accentuées par des
+   * MAJUSCULES restent exactement comme elles ont été saisies.
+   */
+  .phonrow,
+  body.immersif .phonrow {
+    position: relative;
+    width: min(100%, 330px);
+    min-height: 76px;
+    margin: 18px auto 0;
+    padding: 27px 50px 12px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0;
+    border-radius: 15px;
+    border: 1px solid rgba(126, 211, 248, .28);
+    background: rgba(84, 190, 237, .13);
+    text-align: center;
+  }
+
+  .phonrow::before {
+    content: "PHONÉTIQUE";
+    position: absolute;
+    top: 9px;
+    left: 14px;
+    right: 50px;
+    color: #8ebfd3;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+      sans-serif;
+    font-size: 10px;
+    line-height: 1;
+    font-weight: 850;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  .phon,
+  body.immersif .phon {
+    margin: 0;
+    color: #9ee4ff;
+    font-family: "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+    font-size: 19px !important;
+    line-height: 1.35;
+    font-weight: 820;
+    letter-spacing: .35px;
+    text-transform: none !important;
+    font-variant-caps: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .earicon {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, .11);
+    font-size: 20px;
+    line-height: 1;
+    opacity: 1;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body.ambclair .phonrow,
+  body.immersif.ambclair .phonrow {
+    border-color: rgba(30, 127, 168, .28);
+    background: rgba(232, 242, 249, .90);
+  }
+
+  body.ambclair .phonrow::before,
+  body.immersif.ambclair .phonrow::before {
+    color: #466b87;
+  }
+
+  body.ambclair .phon,
+  body.immersif.ambclair .phon {
+    color: #123d60;
+  }
+
+  body.ambclair .earicon,
+  body.immersif.ambclair .earicon {
+    background: rgba(30, 127, 168, .13);
+  }
+
+  .cn,
+  body.immersif .cn {
+    max-width: 340px;
+    margin: 18px auto 0;
+    color: var(--soft);
+    font-size: 19px !important;
+    line-height: 1.35;
+    font-weight: 620;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+
+  body.immersif .cn {
+    color: #dbe9f3;
+  }
+
+  body.immersif.ambclair .cn {
+    color: #4d5968;
+  }
+
+  .pytgl {
+    min-height: 42px;
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .listen,
+  body.immersif .listen {
+    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
+    height: 60px;
+    min-height: 60px;
+    margin-top: 22px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--accent) !important;
+    color: #fff;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .22);
+  }
+
+  .listen::before,
+  body.immersif .listen::before {
+    font-size: 25px;
+  }
+
+  .selbox.circ .ball,
+  .themebtn,
+  .infobtn,
+  .backbtn,
+  .ratebar .rate {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .count {
+    font-size: 12px;
+  }
+
+  @media (max-height: 720px) {
+    body.immersif .stage {
+      padding-top: calc(80px + env(safe-area-inset-top));
+      padding-bottom: calc(80px + env(safe-area-inset-bottom));
+    }
+
+    #card.card {
+      padding-top: 20px;
+      padding-bottom: 18px;
+    }
+
+    .phonrow,
+    body.immersif .phonrow {
+      margin-top: 13px;
+      min-height: 70px;
+      padding-top: 25px;
+      padding-bottom: 9px;
+    }
+
+    .cn,
+    body.immersif .cn {
+      margin-top: 13px;
+    }
+
+    .listen,
+    body.immersif .listen {
+      width: 54px;
+      min-width: 54px;
+      max-width: 54px;
+      height: 54px;
+      min-height: 54px;
+      margin-top: 15px;
+    }
+
+    body.immersif .ratebar .rate {
+      min-width: 118px;
+      height: 46px;
+      padding-inline: 14px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* Ajustements de l'application Android : en-tête allégé et thème accessible. */
+@media (max-width: 859px) {
+  body.immersif .top .lockup {
+    display: none !important;
+  }
+
+  body.immersif .top {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  body.immersif .countrow {
+    top: calc(10px + env(safe-area-inset-top)) !important;
+  }
+
+  body.immersif .progwrap {
+    top: calc(58px + env(safe-area-inset-top)) !important;
+  }
+
+  body.immersif .stage,
+  body.immersif.pile-bas .stage,
+  body.immersif.pile-haut .stage,
+  body.immersif.pile-gauche .stage,
+  body.immersif.pile-droite .stage {
+    padding-top: calc(102px + env(safe-area-inset-top)) !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.immersif .themebtn {
+    display: grid !important;
+    place-items: center;
+    position: fixed;
+    z-index: 170;
+    top: calc(72px + env(safe-area-inset-top));
+    right: 14px;
+    left: auto;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,.10);
+    box-shadow: 0 7px 18px rgba(0,0,0,.14);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+    opacity: .76;
+  }
+
+  body.immersif .themebtn:active {
+    transform: scale(.92) rotate(12deg);
+  }
+
+  .theme-wheel-app {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: conic-gradient(
+      rgba(255,81,75,.86) 0deg 45deg,
+      rgba(255,192,59,.86) 45deg 90deg,
+      rgba(0,199,104,.86) 90deg 135deg,
+      rgba(42,157,220,.86) 135deg 180deg,
+      rgba(43,86,219,.86) 180deg 225deg,
+      rgba(103,31,205,.86) 225deg 270deg,
+      rgba(229,70,158,.86) 270deg 315deg,
+      rgba(255,83,91,.86) 315deg 360deg
+    );
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.22);
+  }
+
+  .theme-wheel-app::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.36);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  }
+
+  body.immersif #card.card {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: min(58dvh, 500px);
+    overflow: visible;
+  }
+
+  body.immersif .ratebar .rate {
+    height: auto;
+    min-height: 50px;
+    padding-block: 10px;
+  }
+
+  body.immersif .umenupop,
+  body.immersif .ctrldrawer,
+  body.immersif .tpanel .tsheet,
+  body.immersif .hiwPanel .hiwSheet {
+    max-height: calc(100dvh - env(safe-area-inset-top) - 20px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+/* Quand Android utilise de très grands caractères, aucun bouton ne disparaît. */
+@media (max-width: 420px) {
+  body.immersif .countrow {
+    left: 52px;
+    right: 52px;
+    gap: 5px;
+  }
+
+  body.immersif .study-lang,
+  body.immersif .count,
+  body.immersif .level-now {
+    max-width: 31vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  body.immersif .ratebar {
+    align-items: stretch;
+  }
+
+  body.immersif .ratebar .rate {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
+    white-space: normal;
+    line-height: 1.15;
+  }
+
+  body.immersif .ratebar .rate-label {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
