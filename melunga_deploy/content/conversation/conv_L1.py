@@ -11,7 +11,7 @@ Les modèles contiennent {s} à l'emplacement du morceau remplaçable.
 """
 import json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from conv_build import find_reuses
+from conv_build import find_reuses, LEVEL_TITLES
 import roles
 REPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".."))
 OUT_DIR = f"{REPO}/melunga_deploy/content/conversation"
@@ -238,7 +238,7 @@ def build(study, D):
         "fields": {"study": f"phrase en {NAMES[study].lower()}", "phon": f"prononciation écrite pour {NAT_NAMES[nat]}", "native": "traduction en langue maternelle",
                    **({"reading": {"zh": "pinyin avec tons", "ja": "lecture en hiragana", "ko": "romanisation révisée"}[study]} if study in ("zh", "ja", "ko") else {})},
         "phoneticConvention": D["phonConv"], "reviewStatus": D["review"], "coverageClaim": None,
-        "level": L1["level"], "title": L1["title"], "goal": L1["goal"], "reviewPreviousLevels": [],
+        "level": 1, "title": (LEVEL_TITLES.get(nat, {}).get("titles") or [L1["title"]])[0] if nat != "fr" else L1["title"], "goal": (LEVEL_TITLES.get(nat, {}).get("goals") or [L1["goal"]])[0] if nat != "fr" else L1["goal"], "reviewPreviousLevels": [],
         "exercisePath": ["découvrir", "remplacer", "essayer sans réponse visible", "converser"],
         "units": units, "dialogues": dialogues,
         "readiness": "Se présenter en trois phrases, exprimer un besoin, commander et demander un prix ; comprendre et compléter les trois dialogues. Repère pédagogique, sans certification."

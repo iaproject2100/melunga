@@ -82,11 +82,11 @@ if os.path.exists(f"{D}/matrix.json"):
         for r in l.get("reuse", []):
             if not isinstance(r, int) or not 1 <= r < l["level"]: errs.append(f"matrix.json L{l['level']}: réutilisation invalide {r!r}")
     if not errs: print("matrix.json: niveaux 1 à 10, 7 langues")
-PAIRS = {("fr", g) for g in LANGS if g != "fr"} | {("zh", "fr")}
+PAIRS = {("fr", g) for g in LANGS if g != "fr"} | {("zh", "fr")} | {(n, g) for (_, n, g) in files_seen}  # couples obligatoires + tout couple présent (10 niveaux exigés)
 if not ONLY:
     missing = [f"L{lv}-{nat}-{g}" for lv in range(1, 11) for nat, g in sorted(PAIRS) if (lv, nat, g) not in files_seen]
-    if missing: errs.append(f"fichiers manquants ({len(missing)}/70) : {', '.join(missing[:10])}{'…' if len(missing) > 10 else ''}")
-    else: print("70 fichiers présents : 10 niveaux × 7 couples de langues")
+    if missing: errs.append(f"fichiers manquants ({len(missing)}/{10 * len(PAIRS)}) : {', '.join(missing[:10])}{'…' if len(missing) > 10 else ''}")
+    else: print(f"{10 * len(PAIRS)} fichiers présents : 10 niveaux × {len(PAIRS)} couples de langues")
 if warns: print("avertissements :\n" + "\n".join(warns))
 if not ONLY and studied and studied != set(LANGS): errs.append(f"langues étudiées présentes {sorted(studied)} ≠ {sorted(LANGS)}")
 print("\n".join(errs) if errs else "✔ aucune erreur"); sys.exit(1 if errs else 0)
