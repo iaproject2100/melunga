@@ -26,7 +26,7 @@ Faire tourner le mode « Mes phrases » (3 étapes actuelles : exemple → rempl
 Évaluation des acquis, déblocage par niveau, exercices notés, autres langues maternelles (en, es, zh lecteurs d'autres langues), Google Play / facturation.
 
 ## Risques et garde-fous
-- Poids : 70 fichiers ≈ 1,2 Mo au total, ~15–20 Ko chacun → chargement par niveau, pas de préchargement global.
+- Poids : 70 fichiers ≈ 2,1 Mo au total (indentés), ~30 Ko chacun → chargement par niveau, pas de préchargement global.
 - Audio : `speak(text)` reçoit toujours `study` (jamais `phon`) ; pour zh, le TTS reçoit les caractères, pas le pinyin.
 - Régression du mode actuel : `construire.js` garde l'ancien chemin tant que le chargeur ne répond pas (bascule par constante `USE_CONVERSATION_FILES`), retirée au lot final.
 - Tests : `validate.py` reste la porte d'entrée des contenus ; les tests Playwright existants (`construire.js`, `lesson-shot.js`) sont adaptés et non supprimés.
