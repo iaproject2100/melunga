@@ -164,14 +164,17 @@ const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
   // Native simulated only: desktop adaptation is skipped, original native header controls used.
   {
    const {page:p,context,errors,languageTrigger,levelTrigger}=await open({native:true});
-   await p.addStyleTag({content:fs.readFileSync(path.resolve(root,'../tools/apk-test/mobile-app.css'),'utf8')});
+   const nativeCss=path.resolve(root,'../tools/apk-test/mobile-app.css');
+   // The production branch has no APK project. Keep the native parent's
+   // pointer-events constraint covered there too, without shipping APK assets.
+   await p.addStyleTag({content:fs.existsSync(nativeCss)?fs.readFileSync(nativeCss,'utf8'):'.countrow{pointer-events:none}'});
    assert.equal(await p.locator('.desktop-progress').count(),0,'native simulation skips desktop header adaptation');
    await p.locator(languageTrigger).click();await opened(p,'language');await closeEscape(p,languageTrigger);
    await p.locator(levelTrigger).click();await opened(p,'level');
    assert.equal(await p.locator('.lesson-picker-option').count(),10);await p.keyboard.press('End');
    assert.equal(await p.evaluate(()=>document.activeElement.dataset.value),'L10');
    await closeEscape(p,levelTrigger);assert.deepEqual(errors,[]);
-   console.log('PASS Capacitor simulation with real APK CSS: native language/header level clicks, scrolling and Escape focus');await context.close();
+   console.log('PASS Capacitor simulation: native language/header level clicks with parent pointer-events constraint, scrolling and Escape focus');await context.close();
   }
  }finally{if(browser)await browser.close();await new Promise(resolve=>server.close(resolve));}
 })().catch(error=>{console.error(error);process.exitCode=1;});

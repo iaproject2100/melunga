@@ -1,6 +1,6 @@
-# Sélecteurs de langues et de niveaux — essai local
+# Sélecteurs de langues et de niveaux
 
-Branche `ui/language-level-selectors`, basée sur `feat/conversation-integration` au commit `d59b98d`. Travail indépendant des retouches pédagogiques en attente de relecture. Aucun envoi distant, fusion ou déploiement.
+Essai validé par Kartech, puis lot isolé sur la base de production `main` au commit `3e25e73` pour sa mise en ligne. Les retouches pédagogiques et le chantier `feat/conversation-integration` ne sont pas inclus.
 
 ## Comportement préparé
 
@@ -22,9 +22,10 @@ Le branchement couvre `.desktop-progress-language` et `.desktop-progress-level` 
 ```sh
 node --check melunga_deploy/lesson-pickers.js
 NODE_PATH=/tmp/melunga-review-tools/node_modules node melunga_deploy/tests/lesson-pickers.test.cjs
-NODE_PATH=/tmp/melunga-review-tools/node_modules node melunga_deploy/tests/conversation-ui.test.cjs
 ```
 
 Les tests ciblés utilisent Chromium, des appels réseau simulés et un serveur local. Ils vérifient notamment le fond opaque, les dix niveaux, le défilement jusqu'à L10 sur 320×568, les commandes au clavier, le focus, les vrais glissements tactiles, l'invariance des cartes et archives pendant les gestes, la sélection Premium et le maintien du paywall gratuit. Formats contrôlés : 320×568, 390×844 et 1440×900, plus le branchement Capacitor simulé.
 
-La suite conversation vérifie les sept couples actifs et les parcours existants. Les fichiers de contenu sont identiques à la base. Aucun nouvel APK n'est construit et aucun essai sur appareil réel n'est revendiqué : le contrôle Android devra être fait sur le prochain APK d'essai.
+Sur la branche d'essai `ui/language-level-selectors`, la suite conversation a également vérifié les sept couples actifs et leurs parcours. Cette suite et les fonctionnalités de conversation ne sont pas introduites dans `main` par ce lot. Les fichiers de contenu sont identiques à la base de production.
+
+Le test Capacitor utilise la feuille CSS de l'APK si elle est disponible dans le checkout ; sur `main`, il reproduit la contrainte pertinente du parent natif (`pointer-events:none`) et contrôle les vrais clics sur ses enfants. Aucun nouvel APK n'est construit et aucun essai sur appareil réel n'est revendiqué : le contrôle Android devra être fait sur le prochain APK d'essai.
