@@ -225,7 +225,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | **It's more a question of time.** | its MOR eu KOUÈS-tcheun ov TAÏM | C'est plutôt une question de temps. |
 | **Actually, it's the other way round.** | AK-tchou-eu-li, its zi EU-zeur OUÉÏ RAÔND | En fait, c'est plutôt l'inverse. |
 | **It's quite a small problem.** | its KOUAÏT eu SMOL PRO-bleum | C'est plutôt un petit problème. |
-| **I'd rather wait.** | aïd RA-zeur OUÉÏT | Je préfère plutôt attendre. |
+| **I'd rather wait.** | aïd RA-zeur OUÉÏT | Je préfère attendre. |
 
 ### L9-fr-en-05 · Peut-être — modèle « Maybe {s}. »
 

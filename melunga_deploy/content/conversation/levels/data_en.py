@@ -731,7 +731,7 @@ LEVELS[9] = {
    [{"study":"It's more a question of time.","phon":"its MOR eu KOUÈS-tcheun ov TAÏM","native":"C'est plutôt une question de temps."},
     {"study":"Actually, it's the other way round.","phon":"AK-tchou-eu-li, its zi EU-zeur OUÉÏ RAÔND","native":"En fait, c'est plutôt l'inverse."},
     {"study":"It's quite a small problem.","phon":"its KOUAÏT eu SMOL PRO-bleum","native":"C'est plutôt un petit problème."},
-    {"study":"I'd rather wait.","phon":"aïd RA-zeur OUÉÏT","native":"Je préfère plutôt attendre."}]),
+    {"study":"I'd rather wait.","phon":"aïd RA-zeur OUÉÏT","native":"Je préfère attendre."}]),
   ("Peut-être", {"study":"Maybe {s}.","phon":"MÉÏ-bi {s}","native":"Peut-être que {s}."},
    [{"study":"it's the wrong platform","phon":"its ze RONG PLAT-form","native":"c'est le mauvais quai"},
     {"study":"I left it in the taxi","phon":"aï LÈFT it inn ze TAK-si","native":"je l'ai laissé dans le taxi"},

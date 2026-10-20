@@ -1,6 +1,6 @@
 # Contenus de conversation — niveaux 1 à 10, 7 langues
 
-État : **matrice des 10 niveaux + contenus L1 à L10 pour les 7 langues étudiées (70 fichiers), en relecture.** Totaux : 840 modèles, 3 360 variantes, 210 dialogues (1 725 répliques). Feu vert éditorial Codex sur L1 ; L2–L10 rédigés selon les règles corrigées ; aucune validation native exhaustive, aucune fusion ni déploiement.
+État : **matrice des 10 niveaux + contenus L1 à L10 pour les 7 langues étudiées (70 fichiers), en relecture.** Totaux : 841 modèles, 3 364 variantes, 210 dialogues (1 725 répliques). Feu vert éditorial Codex sur L1 ; L2–L10 rédigés selon les règles corrigées ; aucune validation native exhaustive, aucune fusion ni déploiement.
 Aucune modification de l'interface ni des données existantes (`conversation-fr-es.json` de Codex est conservé tel quel).
 
 ## Fichiers
@@ -14,7 +14,7 @@ Aucune modification de l'interface ni des données existantes (`conversation-fr-
 - `dialogues[]` : `id` `L<niveau>-<nat>-<étude>-d<n>`, 6 à 10 `turns` (A/B), `practice`, `reuses` (modèles réutilisés).
 - Racine : `phoneticConvention` (choix documentés), `reviewStatus` (vérifié / relecture requise), `coverageClaim: null` (aucune promesse de « 80 % »), `readiness` (repère pédagogique).
 - `<champ>Full` (optionnel, dans la source du générateur : `nativeFull`, `studyFull`, `readingFull`, `phonFull`) : phrase complète qui remplace l'assemblage mécanique quand celui-ci est faux (accord, pluriel, élision, particule : « Où **sont** les toilettes ? », « 어디**에** 살아요? »). Règle : la phrase complète fait autorité ; on vérifie chaque phrase, pas seulement chaque brique.
-- `dialogues[].reuses` : modèles réellement réutilisés (détection : une variante complète ou tous les fragments fixes du gabarit apparaissent dans une réplique, niveaux ≤ courant). `validate.py` exige au moins un modèle réutilisé par dialogue, vérifie les références vers les niveaux antérieurs et la présence des 70 fichiers (10 niveaux × 7 couples) ; avertit si un niveau ne réutilise aucun niveau antérieur.
+- `dialogues[].reuses` : modèles réutilisés, détectés par une heuristique textuelle ( une variante complète ou tous les fragments fixes du gabarit apparaissent dans une réplique, niveaux ≤ courant) — **à vérifier avant tout usage pour évaluer les acquis ou débloquer des niveaux**. `validate.py` exige au moins un modèle réutilisé par dialogue, vérifie les références vers les niveaux antérieurs et la présence des 70 fichiers (10 niveaux × 7 couples) ; avertit si un niveau ne réutilise aucun niveau antérieur.
 
 ## Différence avec `conversation-fr-es.json` (Codex) — adaptateur à prévoir
 | Fichier initial (`version: 1`) | PR #6 (`version: 2`, `format: conversation-generic`) |
