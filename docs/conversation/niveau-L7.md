@@ -204,9 +204,18 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | The flat is less **expensive** than the house. | ze FLAT iz LÈSS ik-SPÈN-siv zan ze HAÔSS | L'appartement est moins cher que la maison. |
 | The flat is less **noisy** than the house. | ze FLAT iz LÈSS NOÏ-zi zan ze HAÔSS | L'appartement est moins bruyant que la maison. |
 | The flat is less **bright** than the house. | ze FLAT iz LÈSS BRAÏT zan ze HAÔSS | L'appartement est moins lumineux que la maison. |
-| The flat is less **far from work** than the house. | ze FLAT iz LÈSS FAR from WEURK zan ze HAÔSS | L'appartement est moins loin du travail que la maison. |
+| The flat is less **convenient** than the house. | ze FLAT iz LÈSS keun-VI-nieunt zan ze HAÔSS | L'appartement est moins pratique que la maison. |
 
-### L7-fr-en-04 · Préférence argumentée — modèle « I prefer {s} because it's quicker. »
+### L7-fr-en-04 · Comparer (plus proche) — modèle « The flat is closer to {s} than the house. »
+
+| Phrase | Prononciation | Traduction |
+|---|---|---|
+| The flat is closer to **work** than the house. | ze FLAT iz KLÔ-seur tou WEURK zan ze HAÔSS | L'appartement est plus près du travail que la maison. |
+| The flat is closer to **the station** than the house. | ze FLAT iz KLÔ-seur tou ze STÉÏ-cheun zan ze HAÔSS | L'appartement est plus près de la gare que la maison. |
+| The flat is closer to **the school** than the house. | ze FLAT iz KLÔ-seur tou ze SKOUL zan ze HAÔSS | L'appartement est plus près de l'école que la maison. |
+| The flat is closer to **the city centre** than the house. | ze FLAT iz KLÔ-seur tou ze SI-ti SÈN-teur zan ze HAÔSS | L'appartement est plus près du centre-ville que la maison. |
+
+### L7-fr-en-05 · Préférence argumentée — modèle « I prefer {s} because it's quicker. »
 
 | Phrase | Prononciation | Traduction |
 |---|---|---|
@@ -215,7 +224,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | I prefer **paying by card** because it's quicker. | aï pri-FEUR PÉÏ-ing baï KARD bi-KOZ its KOUI-keur | Je préfère payer par carte parce que c'est plus rapide. |
 | I prefer **shopping online** because it's quicker. | aï pri-FEUR CHO-ping onn-LAÏN bi-KOZ its KOUI-keur | Je préfère acheter en ligne parce que c'est plus rapide. |
 
-### L7-fr-en-05 · Donner un avis — modèle « I think {s}. »
+### L7-fr-en-06 · Donner un avis — modèle « I think {s}. »
 
 | Phrase | Prononciation | Traduction |
 |---|---|---|
@@ -224,7 +233,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | I think **the red one looks nicer**. | aï THINK ze RÈD ouann LOUKS NAÏ-seur | Je trouve que le rouge est plus joli. |
 | I think **we should wait**. | aï THINK oui choud OUÉÏT | Je trouve qu'on devrait attendre. |
 
-### L7-fr-en-06 · À mon avis — modèle « In my opinion, {s}. »
+### L7-fr-en-07 · À mon avis — modèle « In my opinion, {s}. »
 
 | Phrase | Prononciation | Traduction |
 |---|---|---|
@@ -233,7 +242,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | In my opinion, **the old office was nicer**. | inn maï eu-PI-nyeun, zi ÔLD O-fiss ouoz NAÏ-seur | À mon avis, l'ancien bureau était plus agréable. |
 | In my opinion, **the fish is fresher here**. | inn maï eu-PI-nyeun, ze FICH iz FRÈ-cheur HIR | À mon avis, le poisson est plus frais ici. |
 
-### L7-fr-en-07 · Avant, maintenant — modèle « I used to {s}, now I work from home. »
+### L7-fr-en-08 · Avant, maintenant — modèle « I used to {s}, now I work from home. »
 
 > « used to » + verbe = habitude passée qui a cessé ; se traduit par l'imparfait + « avant ».
 
@@ -244,7 +253,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | I used to **get up at six**, now I work from home. | aï YOUST tou GÈT EUP at SIKS, naô aï WEURK from HÔM | Avant, je me levais à six heures ; maintenant je travaille à la maison. |
 | I used to **live in the city centre**, now I work from home. | aï YOUST tou LIV inn ze SI-ti SÈN-teur, naô aï WEURK from HÔM | Avant, j'habitais en centre-ville ; maintenant je travaille à la maison. |
 
-### L7-fr-en-08 · Ce qui a changé — modèle « I used to eat out a lot, now I {s}. »
+### L7-fr-en-09 · Ce qui a changé — modèle « I used to eat out a lot, now I {s}. »
 
 | Phrase | Prononciation | Traduction |
 |---|---|---|
@@ -253,7 +262,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | I used to eat out a lot, now I **go to the market**. | aï YOUST tou IT AÔT eu LOT, naô aï GÔ tou ze MAR-kit | Avant, je mangeais souvent au restaurant ; maintenant je vais au marché. |
 | I used to eat out a lot, now I **only go out at the weekend**. | aï YOUST tou IT AÔT eu LOT, naô aï ÔN-li GÔ AÔT at ze ouik-ÈND | Avant, je mangeais souvent au restaurant ; maintenant je ne sors que le week-end. |
 
-### L7-fr-en-09 · Demander la raison — modèle « Why do you prefer {s}? »
+### L7-fr-en-10 · Demander la raison — modèle « Why do you prefer {s}? »
 
 | Phrase | Prononciation | Traduction |
 |---|---|---|
@@ -262,7 +271,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | Why do you prefer **working at night**? | OUAÏ dou you pri-FEUR WEUR-king at NAÏT | Pourquoi tu préfères travailler la nuit ? |
 | Why do you prefer **tea**? | OUAÏ dou you pri-FEUR TI | Pourquoi tu préfères le thé ? |
 
-### L7-fr-en-10 · C'est pour ça — modèle « That's why {s}. »
+### L7-fr-en-11 · C'est pour ça — modèle « That's why {s}. »
 
 | Phrase | Prononciation | Traduction |
 |---|---|---|
@@ -271,7 +280,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | That's why **we eat at home**. | zats OUAÏ oui IT at HÔM | C'est pour ça qu'on mange à la maison. |
 | That's why **it's cheaper**. | zats OUAÏ its TCHI-peur | C'est pour ça que c'est moins cher. |
 
-### L7-fr-en-11 · Aussi… que — modèle « It's as {s} as the other one. »
+### L7-fr-en-12 · Aussi… que — modèle « It's as {s} as the other one. »
 
 | Phrase | Prononciation | Traduction |
 |---|---|---|
@@ -280,7 +289,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | It's as **big** as the other one. | its az BIG az zi EU-zeur ouann | C'est aussi grand que l'autre. |
 | It's as **nice** as the other one. | its az NAÏSS az zi EU-zeur ouann | C'est aussi joli que l'autre. |
 
-### L7-fr-en-12 · Le meilleur — modèle « It's the {s} in town. »
+### L7-fr-en-13 · Le meilleur — modèle « It's the {s} in town. »
 
 | Phrase | Prononciation | Traduction |
 |---|---|---|
@@ -289,7 +298,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | It's the **biggest market** in town. | its ze BI-guist MAR-kit inn TAÔN | C'est le plus grand marché de la ville. |
 | It's the **nicest neighbourhood** in town. | its ze NAÏ-sist NÉÏ-beu-houd inn TAÔN | C'est le plus beau quartier de la ville. |
 
-### L7-fr-en-13 · Au restaurant, un avis — modèle « The food here is {s}. »
+### L7-fr-en-14 · Au restaurant, un avis — modèle « The food here is {s}. »
 
 | Phrase | Prononciation | Traduction |
 |---|---|---|
@@ -400,16 +409,16 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | 我觉得**中文不难**。 | wǒ juéde Zhōngwén bù nán. | ouo tiué-deu djong-ouenn pou nan | Je trouve que le chinois n'est pas difficile. |
 | 我觉得**他说得对**。 | wǒ juéde tā shuō de duì. | ouo tiué-deu ta chouo deu toueï | Je trouve qu'il a raison. |
 
-### L7-fr-zh-07 · Avant, maintenant plus — modèle « 以前我{s}，现在不了。 »
+### L7-fr-zh-07 · Avant, maintenant plus — modèle « 以前我{s} »
 
-> 以前 (avant) suffit à décrire une habitude passée. 不了 : 了 marque le changement d'état — « ce n'est plus le cas ».
+> 以前 (avant) suffit à décrire une habitude passée. La seconde partie reprend le verbe avec 不…了 : 了 marque le changement d'état — « ce n'est plus le cas ». Le verbe doit être répété (现在不抽了, 现在不住在那里了), on ne dit pas 现在不了 seul.
 
 | Phrase | Lecture | Prononciation | Traduction |
 |---|---|---|---|
-| 以前我**抽烟**，现在不了。 | yǐqián wǒ chōuyān, xiànzài bù le. | i-tchyèn ouo tcheou-yèn, sièn-dzaï pou leu | Avant, je fumais, maintenant plus. |
-| 以前我**经常加班**，现在不了。 | yǐqián wǒ jīngcháng jiābān, xiànzài bù le. | i-tchyèn ouo ting-tchang tia-pan, sièn-dzaï pou leu | Avant, je faisais souvent des heures sup, maintenant plus. |
-| 以前我**住在郊区**，现在不了。 | yǐqián wǒ zhù zài jiāoqū, xiànzài bù le. | i-tchyèn ouo djou dzaï tiao-tchü, sièn-dzaï pou leu | Avant, j'habitais en banlieue, maintenant plus. |
-| 以前我**每天喝咖啡**，现在不了。 | yǐqián wǒ měi tiān hē kāfēi, xiànzài bù le. | i-tchyèn ouo meï tièn heu ka-feï, sièn-dzaï pou leu | Avant, je buvais du café tous les jours, maintenant plus. |
+| 以前我**抽烟，现在不抽了。** | yǐqián wǒ chōuyān, xiànzài bù chōu le. | i-tchyèn ouo tcheou-yèn, sièn-dzaï pou tcheou leu | Avant, je fumais, maintenant je ne fume plus. |
+| 以前我**经常加班，现在不加班了。** | yǐqián wǒ jīngcháng jiābān, xiànzài bù jiābān le. | i-tchyèn ouo ting-tchang tia-pan, sièn-dzaï pou tia-pan leu | Avant, je faisais souvent des heures sup, maintenant je n'en fais plus. |
+| 以前我**住在郊区，现在不住在那里了。** | yǐqián wǒ zhù zài jiāoqū, xiànzài bú zhù zài nàlǐ le. | i-tchyèn ouo djou dzaï tiao-tchü, sièn-dzaï pou djou dzaï na-li leu | Avant, j'habitais en banlieue, maintenant je n'y habite plus. |
+| 以前我**每天喝咖啡，现在不喝了。** | yǐqián wǒ měi tiān hē kāfēi, xiànzài bù hē le. | i-tchyèn ouo meï tièn heu ka-feï, sièn-dzaï pou heu leu | Avant, je buvais du café tous les jours, maintenant je n'en bois plus. |
 
 ### L7-fr-zh-08 · Ce qui a changé — modèle « 现在我{s}了。 »
 

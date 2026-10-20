@@ -9,7 +9,9 @@ Schéma générique (une entrée = {study, phon, native[, reading]}) :
   reading : aide de lecture propre à la langue étudiée (pinyin + tons · hiragana · romanisation RR)
 Les modèles contiennent {s} à l'emplacement du morceau remplaçable.
 """
-import json, os, re
+import json, os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from conv_build import find_reuses
 REPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".."))
 OUT_DIR = f"{REPO}/melunga_deploy/content/conversation"
 OUT_MD = f"{REPO}/docs/conversation/echantillon-L1.md"
@@ -227,7 +229,7 @@ def build(study, D):
             else: T.append({"speaker": t[0], "study": t[1], "phon": t[2], "native": t[3]})
         dialogues.append({"id": f"L1-{nat}-{study}-d{j}", "situation": (DIALOG_SITU_ZH if nat == "zh" else DIALOG_SITU)[j-1], "turns": T,
                           "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle." if nat == "fr" else "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
-                          "reuses": [u["id"] for u in units][:4]})
+                          "reuses": find_reuses(T, {1: units}, 1)})
     return {
         "version": 2, "format": "conversation-generic", "status": "échantillon-à-valider", "studyLanguage": study, "nativeLanguage": nat,
         "fields": {"study": f"phrase en {NAMES[study].lower()}", "phon": f"prononciation écrite pour {NAT_NAMES[nat]}", "native": "traduction en langue maternelle",

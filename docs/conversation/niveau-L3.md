@@ -375,7 +375,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 |---|---|---|---|
 | 我**是法国人**。你呢？ | wǒ shì Fǎguó rén. nǐ ne? | ouo chr fa-kouo jeun. ni neu ? | Moi, je suis français(e). Et toi ? |
 | 我**喝咖啡**。你呢？ | wǒ hē kāfēi. nǐ ne? | ouo heu ka-feï. ni neu ? | Moi, je prends un café. Et toi ? |
-| 我**住在上海**。你呢？ | wǒ zhù zài Shànghǎi. nǐ ne? | ouo djou dzaï chang-haï. ni neu ? | Moi, je habite à Shanghai. Et toi ? |
+| 我**住在上海**。你呢？ | wǒ zhù zài Shànghǎi. nǐ ne? | ouo djou dzaï chang-haï. ni neu ? | Moi, j'habite à Shanghai. Et toi ? |
 | 我**很好**。你呢？ | wǒ hěn hǎo. nǐ ne? | ouo heun hao. ni neu ? | Moi, je vais bien. Et toi ? |
 
 ### L3-fr-zh-06 · Se dépanner — modèle « 我不懂。可以{s}吗？ »
@@ -916,10 +916,12 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 
 ### L3-fr-ko-11 · Demander d'où, où — modèle « 어디에서 {s}? »
 
+> 에서 marque le lieu d'une action (travailler, étudier) ou la provenance (왔어요) ; avec 살다 (habiter) on emploie 에 : 어디에 살아요?
+
 | Phrase | Lecture | Prononciation | Traduction |
 |---|---|---|---|
 | 어디에서 **왔어요**? | eodieseo wasseoyo? | eo-di-è-seo oua-sseo-yo ? | Vous venez d'où ? |
-| 어디에서 **살아요**? | eodieseo sarayo? | eo-di-è-seo sa-ra-yo ? | Vous habitez où ? |
+| 어디에 **살아요**? | eodie sarayo? | eo-di-è sa-ra-yo ? | Vous habitez où ? |
 | 어디에서 **일해요**? | eodieseo ilhaeyo? | eo-di-è-seo il-hè-yo ? | Vous travaillez où ? |
 | 어디에서 **공부해요**? | eodieseo gongbuhaeyo? | eo-di-è-seo gong-bou-hè-yo ? | Vous étudiez où ? |
 

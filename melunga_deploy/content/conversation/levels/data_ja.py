@@ -45,7 +45,7 @@ LEVELS = {
     [_s("コーヒー", "こーひー", "ko-o-hi-i", "le café"),
      _s("お茶", "おちゃ", "o-tcha", "le thé"),
      _s("窓側の席", "まどがわのせき", "ma-do-ga-wa no sé-ki", "la place côté fenêtre"),
-     _s("赤い", "あかい", "a-ka-i", "le rouge")]),
+     _s("赤", "あか", "a-ka", "le rouge")]),
    ("Demander lequel",
     _m("{s}はどれですか。", "{s}はどれですか。", "{s} wa do-ré dé-sou ka", "Lequel est {s} ?"),
     [_s("私の切符", "わたしのきっぷ", "wa-ta-chi no kip-pou", "mon billet"),

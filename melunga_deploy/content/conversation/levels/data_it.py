@@ -519,7 +519,7 @@ LEVELS = {
  10: {
   "units": [
    ("Peser le pour et le contre", {"study":"Da un lato {s}, dall'altro costa troppo.","phon":"da oun LA-to {s}, dal-LAL-tro KOS-ta TROP-po","native":"D'un côté {s}, de l'autre ça coûte trop cher."},
-    [{"study":"mi piace molto","phon":"mi PIA-tché MOL-to","native":"ça me plaît beaucoup"},{"study":"è comodo","phon":"è KO-mo-do","native":"c'est pratique"},{"study":"è una bella città","phon":"è OU-na BÈL-la tchit-TA","native":"c'est une belle ville"},{"study":"è un buon lavoro","phon":"è oun bouon la-VO-ro","native":"c'est un bon travail"}]),
+    [{"study":"mi piace molto","phon":"mi PIA-tché MOL-to","native":"ça me plaît beaucoup"},{"study":"è comodo","phon":"è KO-mo-do","native":"c'est pratique"},{"study":"è una bella città","phon":"è OU-na BÈL-la tchit-TA","native":"c'est une belle ville"},{"study":"è vicino al mare","phon":"è vi-TCHI-no al MA-ré","native":"c'est près de la mer"}]),
    ("Concéder", {"study":"È vero, ma {s}.","phon":"è VÉ-ro, ma {s}","native":"C'est vrai, mais {s}."},
     [{"study":"non è così semplice","phon":"non è ko-ZI SÉM-pli-tché","native":"ce n'est pas si simple"},{"study":"dipende dal prezzo","phon":"di-PÈN-dé dal PRÈT-tso","native":"ça dépend du prix"},{"study":"io la penso diversamente","phon":"I-o la PÈN-so di-vér-sa-MÉN-té","native":"moi, je pense autrement"},{"study":"non abbiamo scelta","phon":"non ab-BIA-mo CHÉL-ta","native":"on n'a pas le choix"}]),
    ("Reformuler l'avis de l'autre (tu)", {"study":"Se ho capito bene, pensi che {s}.","phon":"sé o ka-PI-to BÈ-né, PÈN-si ké {s}","native":"Si j'ai bien compris, tu penses que {s}.","note":"Tutoiement ; avec un inconnu : « pensa che ». Subjonctif après « pensi che »."},

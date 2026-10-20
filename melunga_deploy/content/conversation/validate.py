@@ -8,7 +8,9 @@ REQ = ("study", "phon", "native")
 LANGS = ("fr", "en", "es", "zh", "it", "ja", "ko")
 studied = set()
 errs = []
+warns = []
 ids = set()
+files_seen = set()
 ONLY = sys.argv[2] if len(sys.argv) > 2 else None
 for f in sorted(glob.glob(f"{D}/L*-*.json")):
     if ONLY and not f.endswith(f"-{ONLY}.json"): continue
@@ -46,6 +48,9 @@ for f in sorted(glob.glob(f"{D}/L*-*.json")):
     dl = doc["dialogues"]
     if len(dl) < 3: errs.append(f"{n}: {len(dl)} dialogues (< 3)")
     uids = {u["id"] for u in units}
+    for lv in range(1, doc["level"]):  # modèles des niveaux antérieurs du même couple de langues
+        pf = f"{D}/L{lv}-{doc['nativeLanguage']}-{doc['studyLanguage']}.json"
+        if os.path.exists(pf): uids |= {u["id"] for u in json.load(open(pf, encoding="utf-8"))["units"]}
     for d in dl:
         if d["id"] in ids: errs.append(f"{n} {d['id']}: identifiant en double")
         ids.add(d["id"])
@@ -55,7 +60,10 @@ for f in sorted(glob.glob(f"{D}/L*-*.json")):
             if t.get("speaker") not in ("A", "B"): errs.append(f"{n} {d['id']}#{i}: speaker invalide")
         for r in d.get("reuses", []):
             if r not in uids: errs.append(f"{n} {d['id']}: réutilise un modèle inconnu {r}")
-    studied.add(doc["studyLanguage"])
+        if not d.get("reuses"): errs.append(f"{n} {d['id']}: aucun modèle réutilisé détecté")
+    if doc["level"] > 1 and not any(int(r.split("-")[0][1:]) < doc["level"] for d in dl for r in d.get("reuses", [])):
+        warns.append(f"{n}: aucun dialogue ne réutilise un niveau antérieur")
+    studied.add(doc["studyLanguage"]); files_seen.add((doc["level"], doc["nativeLanguage"], doc["studyLanguage"]))
     print(f"{n}: {len(units)} modèles, {sum(len(u['variants']) for u in units)} variantes, {len(dl)} dialogues, {sum(len(d['turns']) for d in dl)} répliques")
 if os.path.exists(f"{D}/matrix.json"):
     mx = json.load(open(f"{D}/matrix.json", encoding="utf-8"))
@@ -70,5 +78,11 @@ if os.path.exists(f"{D}/matrix.json"):
         for r in l.get("reuse", []):
             if not isinstance(r, int) or not 1 <= r < l["level"]: errs.append(f"matrix.json L{l['level']}: réutilisation invalide {r!r}")
     if not errs: print("matrix.json: niveaux 1 à 10, 7 langues")
+PAIRS = {("fr", g) for g in LANGS if g != "fr"} | {("zh", "fr")}
+if not ONLY:
+    missing = [f"L{lv}-{nat}-{g}" for lv in range(1, 11) for nat, g in sorted(PAIRS) if (lv, nat, g) not in files_seen]
+    if missing: errs.append(f"fichiers manquants ({len(missing)}/70) : {', '.join(missing[:10])}{'…' if len(missing) > 10 else ''}")
+    else: print("70 fichiers présents : 10 niveaux × 7 couples de langues")
+if warns: print("avertissements :\n" + "\n".join(warns))
 if not ONLY and studied and studied != set(LANGS): errs.append(f"langues étudiées présentes {sorted(studied)} ≠ {sorted(LANGS)}")
 print("\n".join(errs) if errs else "✔ aucune erreur"); sys.exit(1 if errs else 0)

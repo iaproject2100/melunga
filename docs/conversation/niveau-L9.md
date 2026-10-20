@@ -216,14 +216,16 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | **More or less.** | MOR or LÈSS | Plus ou moins. |
 | **Rather the opposite.** | RA-zeur zi O-peu-zit | Plutôt le contraire. |
 
-### L9-fr-en-04 · Plutôt — modèle « It's rather {s}. »
+### L9-fr-en-04 · Plutôt (corriger, nuancer) — modèle « {s} »
+
+> « Plutôt » n'a pas un seul équivalent : it's more… (correction : c'est plutôt X que Y), I'd rather… (préférence), it's quite / fairly… (degré), actually (rectification). Phrases entières à apprendre telles quelles.
 
 | Phrase | Prononciation | Traduction |
 |---|---|---|
-| It's rather **a question of time**. | its RA-zeur eu KOUÈS-tcheun ov TAÏM | C'est plutôt une question de temps. |
-| It's rather **the other way round**. | its RA-zeur zi EU-zeur OUÉÏ RAÔND | C'est plutôt l'inverse. |
-| It's rather **a small problem**. | its RA-zeur eu SMOL PRO-bleum | C'est plutôt un petit problème. |
-| It's rather **good news**. | its RA-zeur goud NYOUZ | C'est plutôt une bonne nouvelle. |
+| **It's more a question of time.** | its MOR eu KOUÈS-tcheun ov TAÏM | C'est plutôt une question de temps. |
+| **Actually, it's the other way round.** | AK-tchou-eu-li, its zi EU-zeur OUÉÏ RAÔND | En fait, c'est plutôt l'inverse. |
+| **It's quite a small problem.** | its KOUAÏT eu SMOL PRO-bleum | C'est plutôt un petit problème. |
+| **I'd rather wait.** | aïd RA-zeur OUÉÏT | Je préfère plutôt attendre. |
 
 ### L9-fr-en-05 · Peut-être — modèle « Maybe {s}. »
 

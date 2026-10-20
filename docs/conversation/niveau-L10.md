@@ -532,7 +532,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | Da un lato **mi piace molto**, dall'altro costa troppo. | da oun LA-to mi PIA-tché MOL-to, dal-LAL-tro KOS-ta TROP-po | D'un côté ça me plaît beaucoup, de l'autre ça coûte trop cher. |
 | Da un lato **è comodo**, dall'altro costa troppo. | da oun LA-to è KO-mo-do, dal-LAL-tro KOS-ta TROP-po | D'un côté c'est pratique, de l'autre ça coûte trop cher. |
 | Da un lato **è una bella città**, dall'altro costa troppo. | da oun LA-to è OU-na BÈL-la tchit-TA, dal-LAL-tro KOS-ta TROP-po | D'un côté c'est une belle ville, de l'autre ça coûte trop cher. |
-| Da un lato **è un buon lavoro**, dall'altro costa troppo. | da oun LA-to è oun bouon la-VO-ro, dal-LAL-tro KOS-ta TROP-po | D'un côté c'est un bon travail, de l'autre ça coûte trop cher. |
+| Da un lato **è vicino al mare**, dall'altro costa troppo. | da oun LA-to è vi-TCHI-no al MA-ré, dal-LAL-tro KOS-ta TROP-po | D'un côté c'est près de la mer, de l'autre ça coûte trop cher. |
 
 ### L10-fr-it-02 · Concéder — modèle « È vero, ma {s}. »
 

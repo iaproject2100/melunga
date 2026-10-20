@@ -672,7 +672,7 @@ Pour chaque langue : ≥ 10 modèles × 4 variantes (morceau remplaçable en **g
 | **コーヒー**の方が好きです。 | こーひーのほうがすきです。 | ko-o-hi-i no ho-o ga sou-ki dé-sou | Je préfère le café. |
 | **お茶**の方が好きです。 | おちゃのほうがすきです。 | o-tcha no ho-o ga sou-ki dé-sou | Je préfère le thé. |
 | **窓側の席**の方が好きです。 | まどがわのせきのほうがすきです。 | ma-do-ga-wa no sé-ki no ho-o ga sou-ki dé-sou | Je préfère la place côté fenêtre. |
-| **赤い**の方が好きです。 | あかいのほうがすきです。 | a-ka-i no ho-o ga sou-ki dé-sou | Je préfère le rouge. |
+| **赤**の方が好きです。 | あかのほうがすきです。 | a-ka no ho-o ga sou-ki dé-sou | Je préfère le rouge. |
 
 ### L2-fr-ja-05 · Demander lequel — modèle « {s}はどれですか。 »
 

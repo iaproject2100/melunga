@@ -7,7 +7,7 @@ Données : levels/data_<étude>.py exposant NAT, PHON_CONV, REVIEW, LEVELS.
     "readiness": "…",
   }
   model = {"study": "… {s} …", "phon": "… {s} …", "native": "… {s} …"[, "reading": "… {s} …"][, "note": "…"]}
-  slot  = {"study", "phon", "native"[, "reading"][, "nativeFull"]}   — nativeFull : traduction complète si l'assemblage ne suffit pas
+  slot  = {"study", "phon", "native"[, "reading"][, "<champ>Full"]}  — <champ>Full (nativeFull, studyFull, readingFull, phonFull) : phrase complète qui remplace l'assemblage mécanique quand celui-ci est faux (accord, élision, particule)
   turn  = (speaker, study, phon, native)  ou  (speaker, study, reading, phon, native) pour zh/ja/ko
 Sortie : melunga_deploy/content/conversation/L<n>-<nat>-<étude>.json et docs/conversation/niveau-L<n>.md
 """
@@ -36,18 +36,39 @@ def compose(model, slot, nat):
     e = {}
     for k in ("study", "phon", "native", "reading"):
         if k in model:
-            e[k] = (slot.get("nativeFull") or native_fill(model[k], slot[k], nat)) if k == "native" else fill(model[k], slot[k])
+            full = slot.get(k + "Full")  # la phrase complète fait autorité sur l'assemblage mécanique
+            e[k] = full or (native_fill(model[k], slot[k], nat) if k == "native" else fill(model[k], slot[k]))
             e[k] = re.sub(PUNCT, r"\1", e[k])
     return e
 
-def build(level, study, D):
+_END = re.compile(r"[\s.?!。？！,，、]+$")
+def _norm(x): return _END.sub("", x.strip()).lower()
+
+def find_reuses(turns, units_by_level, level):
+    """Modèles réellement réutilisés par un dialogue : une variante complète apparaît dans une réplique,
+    ou tous les fragments fixes du gabarit (hors {s}) apparaissent dans la même réplique.
+    units_by_level : {niveau: [unit, …]} pour le même couple de langues, niveaux ≤ level."""
+    found = []
+    texts = [t["study"].lower() for t in turns]
+    for lv in sorted(k for k in units_by_level if k <= level):
+        for u in units_by_level[lv]:
+            frags = [_norm(f) for f in u["model"]["study"].split("{s}")]
+            frags = [f for f in frags if len(f) >= (2 if re.search(r"[\u3040-\u9fff\uac00-\ud7af]", f) else 4)]
+            hit = False
+            for tx in texts:
+                if any(_norm(v["study"]) and _norm(v["study"]) in tx for v in u["variants"]): hit = True; break
+                if frags and all(f in tx for f in frags): hit = True; break
+            if hit and u["id"] not in found: found.append(u["id"])
+    return found
+
+def build(level, study, D, prev_units=None):
     nat, meta, L = D.NAT, LEVEL_META[level], D.LEVELS[level]
     units = []
     for i, (situation, model, slots) in enumerate(L["units"], 1):
         m = dict(model)
         if m["study"] == "{s}" and "note" not in m:
             m["note"] = "Phrase entière à apprendre telle quelle (la langue n'isole pas un morceau remplaçable ici)."
-        variants = [dict(slot={k: v for k, v in sl.items() if k != "nativeFull"}, **compose(model, sl, nat)) for sl in slots]
+        variants = [dict(slot={k: v for k, v in sl.items() if not k.endswith("Full")}, **compose(model, sl, nat)) for sl in slots]
         units.append({"id": f"L{level}-{nat}-{study}-{i:02d}", "situation": situation, "model": m, "variants": variants,
                       "practice": {"discover": 0, "replace": list(range(1, len(variants))), "recall": len(variants) - 1}})
     uids = [u["id"] for u in units]
@@ -56,7 +77,7 @@ def build(level, study, D):
         T = [({"speaker": t[0], "study": t[1], "reading": t[2], "phon": t[3], "native": t[4]} if len(t) == 5 else {"speaker": t[0], "study": t[1], "phon": t[2], "native": t[3]}) for t in turns]
         dialogues.append({"id": f"L{level}-{nat}-{study}-d{j}", "situation": situation, "turns": T,
                           "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle." if nat == "fr" else "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
-                          "reuses": uids[:4]})
+                          "reuses": find_reuses(T, {**(prev_units or {}), level: units}, level)})
     return {"version": 2, "format": "conversation-generic", "status": "à-valider", "studyLanguage": study, "nativeLanguage": nat,
             "fields": {"study": f"phrase en {NAMES[study].lower()}", "phon": f"prononciation écrite pour {NAT_NAMES[nat]}", "native": "traduction en langue maternelle", **({"reading": READING[study]} if study in READING else {})},
             "phoneticConvention": D.PHON_CONV, "reviewStatus": D.REVIEW, "coverageClaim": None,
@@ -93,11 +114,16 @@ if __name__ == "__main__":
     langs = sys.argv[1].split(",") if len(sys.argv) > 1 else ["es", "en", "zh", "it", "ja", "ko", "fr"]
     levels = [int(x) for x in sys.argv[2].split(",")] if len(sys.argv) > 2 else list(range(2, 11))
     mods = {g: importlib.import_module(f"data_{g}") for g in langs if os.path.exists(f"{HERE}/levels/data_{g}.py")}
+    prev = {g: {} for g in mods}
+    for g, D in mods.items():
+        for lv in range(1, min(levels)):
+            f = f"{OUT_DIR}/L{lv}-{D.NAT}-{g}.json"
+            if os.path.exists(f): prev[g][lv] = json.load(open(f, encoding="utf-8"))["units"]
     for level in levels:
         docs = {}
         for g, D in mods.items():
             if level not in D.LEVELS: continue
-            doc = build(level, g, D); docs[g] = doc
+            doc = build(level, g, D, prev[g]); docs[g] = doc; prev[g][level] = doc["units"]
             json.dump(doc, open(f"{OUT_DIR}/L{level}-{D.NAT}-{g}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
             print(f"L{level}-{D.NAT}-{g}.json  {len(doc['units'])} modèles · {sum(len(u['variants']) for u in doc['units'])} variantes · {len(doc['dialogues'])} dialogues · {sum(len(d['turns']) for d in doc['dialogues'])} répliques")
         if docs: write_level_doc(level, docs)

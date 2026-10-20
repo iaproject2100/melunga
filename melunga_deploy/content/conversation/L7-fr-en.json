@@ -192,13 +192,13 @@
     },
     {
      "slot": {
-      "study": "far from work",
-      "phon": "FAR from WEURK",
-      "native": "loin du travail"
+      "study": "convenient",
+      "phon": "keun-VI-nieunt",
+      "native": "pratique"
      },
-     "study": "The flat is less far from work than the house.",
-     "phon": "ze FLAT iz LÈSS FAR from WEURK zan ze HAÔSS",
-     "native": "L'appartement est moins loin du travail que la maison."
+     "study": "The flat is less convenient than the house.",
+     "phon": "ze FLAT iz LÈSS keun-VI-nieunt zan ze HAÔSS",
+     "native": "L'appartement est moins pratique que la maison."
     }
    ],
    "practice": {
@@ -213,6 +213,66 @@
   },
   {
    "id": "L7-fr-en-04",
+   "situation": "Comparer (plus proche)",
+   "model": {
+    "study": "The flat is closer to {s} than the house.",
+    "phon": "ze FLAT iz KLÔ-seur tou {s} zan ze HAÔSS",
+    "native": "L'appartement est plus près {s} que la maison."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "work",
+      "phon": "WEURK",
+      "native": "du travail"
+     },
+     "study": "The flat is closer to work than the house.",
+     "phon": "ze FLAT iz KLÔ-seur tou WEURK zan ze HAÔSS",
+     "native": "L'appartement est plus près du travail que la maison."
+    },
+    {
+     "slot": {
+      "study": "the station",
+      "phon": "ze STÉÏ-cheun",
+      "native": "de la gare"
+     },
+     "study": "The flat is closer to the station than the house.",
+     "phon": "ze FLAT iz KLÔ-seur tou ze STÉÏ-cheun zan ze HAÔSS",
+     "native": "L'appartement est plus près de la gare que la maison."
+    },
+    {
+     "slot": {
+      "study": "the school",
+      "phon": "ze SKOUL",
+      "native": "de l'école"
+     },
+     "study": "The flat is closer to the school than the house.",
+     "phon": "ze FLAT iz KLÔ-seur tou ze SKOUL zan ze HAÔSS",
+     "native": "L'appartement est plus près de l'école que la maison."
+    },
+    {
+     "slot": {
+      "study": "the city centre",
+      "phon": "ze SI-ti SÈN-teur",
+      "native": "du centre-ville"
+     },
+     "study": "The flat is closer to the city centre than the house.",
+     "phon": "ze FLAT iz KLÔ-seur tou ze SI-ti SÈN-teur zan ze HAÔSS",
+     "native": "L'appartement est plus près du centre-ville que la maison."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-en-05",
    "situation": "Préférence argumentée",
    "model": {
     "study": "I prefer {s} because it's quicker.",
@@ -272,7 +332,7 @@
    }
   },
   {
-   "id": "L7-fr-en-05",
+   "id": "L7-fr-en-06",
    "situation": "Donner un avis",
    "model": {
     "study": "I think {s}.",
@@ -332,7 +392,7 @@
    }
   },
   {
-   "id": "L7-fr-en-06",
+   "id": "L7-fr-en-07",
    "situation": "À mon avis",
    "model": {
     "study": "In my opinion, {s}.",
@@ -392,7 +452,7 @@
    }
   },
   {
-   "id": "L7-fr-en-07",
+   "id": "L7-fr-en-08",
    "situation": "Avant, maintenant",
    "model": {
     "study": "I used to {s}, now I work from home.",
@@ -453,7 +513,7 @@
    }
   },
   {
-   "id": "L7-fr-en-08",
+   "id": "L7-fr-en-09",
    "situation": "Ce qui a changé",
    "model": {
     "study": "I used to eat out a lot, now I {s}.",
@@ -513,7 +573,7 @@
    }
   },
   {
-   "id": "L7-fr-en-09",
+   "id": "L7-fr-en-10",
    "situation": "Demander la raison",
    "model": {
     "study": "Why do you prefer {s}?",
@@ -573,7 +633,7 @@
    }
   },
   {
-   "id": "L7-fr-en-10",
+   "id": "L7-fr-en-11",
    "situation": "C'est pour ça",
    "model": {
     "study": "That's why {s}.",
@@ -633,7 +693,7 @@
    }
   },
   {
-   "id": "L7-fr-en-11",
+   "id": "L7-fr-en-12",
    "situation": "Aussi… que",
    "model": {
     "study": "It's as {s} as the other one.",
@@ -693,7 +753,7 @@
    }
   },
   {
-   "id": "L7-fr-en-12",
+   "id": "L7-fr-en-13",
    "situation": "Le meilleur",
    "model": {
     "study": "It's the {s} in town.",
@@ -753,7 +813,7 @@
    }
   },
   {
-   "id": "L7-fr-en-13",
+   "id": "L7-fr-en-14",
    "situation": "Au restaurant, un avis",
    "model": {
     "study": "The food here is {s}.",
@@ -869,10 +929,13 @@
    ],
    "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
    "reuses": [
-    "L7-fr-en-01",
-    "L7-fr-en-02",
-    "L7-fr-en-03",
-    "L7-fr-en-04"
+    "L2-fr-en-03",
+    "L2-fr-en-05",
+    "L2-fr-en-06",
+    "L3-fr-en-07",
+    "L7-fr-en-06",
+    "L7-fr-en-07",
+    "L7-fr-en-10"
    ]
   },
   {
@@ -930,10 +993,13 @@
    ],
    "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
    "reuses": [
+    "L1-fr-en-06",
+    "L5-fr-en-05",
+    "L6-fr-en-01",
     "L7-fr-en-01",
-    "L7-fr-en-02",
-    "L7-fr-en-03",
-    "L7-fr-en-04"
+    "L7-fr-en-06",
+    "L7-fr-en-07",
+    "L7-fr-en-11"
    ]
   },
   {
@@ -997,10 +1063,13 @@
    ],
    "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
    "reuses": [
-    "L7-fr-en-01",
-    "L7-fr-en-02",
+    "L2-fr-en-03",
+    "L2-fr-en-05",
+    "L3-fr-en-05",
+    "L5-fr-en-05",
+    "L6-fr-en-06",
     "L7-fr-en-03",
-    "L7-fr-en-04"
+    "L7-fr-en-07"
    ]
   }
  ],
