@@ -23,7 +23,9 @@ Les phrases nouvelles proposées comme ponts (chinois : 我要水 / 我要茶 / 
 
 ## 2. Deux mesures que j'ajoute
 
-Le dossier démontre le problème par des exemples. Je l'ai quantifié sur les 70 fichiers, pour donner un point de départ chiffré et un moyen de constater le progrès. Indicateur volontairement grossier : part des *briques* (mots, ou caractères pour zh/ja) d'un niveau jamais rencontrées aux niveaux précédents du même couple. Il ne mesure pas les structures, seulement le lexique.
+Le dossier démontre le problème par des exemples. Je l'ai quantifié sur les 70 fichiers, pour donner un point de départ chiffré et un moyen de constater le progrès. Indicateur volontairement grossier : part des *briques* (mots, ou caractères pour zh/ja) d'un niveau jamais rencontrées aux niveaux précédents du même couple.
+
+**Ce que ces chiffres ne sont pas.** Ils comptent des **types écrits**, pas de la compréhension : un mot déjà vu n'est pas un mot compris, un mot nouveau n'est pas forcément un obstacle (il peut être transparent, illustré ou porté par le contexte), et la forme écrite ignore les structures, les particules et l'oral. Ils ne mesurent donc aucun apprentissage. Leur seul usage légitime est **comparatif** : entre niveaux, entre couples de langues, et avant / après réorganisation.
 
 **Briques nouvelles par niveau (moyenne des sept couples)**
 
@@ -62,7 +64,9 @@ Ces deux tableaux donnent une cible mesurable sans rien promettre sur l'apprenti
 
 **4.4 — Le rôle de « Mes phrases » doit être tranché avant toute réalisation.** Dans la maquette, « Mon parcours » L1–L10 devient la colonne vertébrale et « Mes phrases » un atelier de consolidation. Mais aujourd'hui, le contenu L1–L10 **est** celui de Mes phrases (841 modèles, 3 364 variantes, 210 dialogues, rôles, réutilisations). Si l'on crée un parcours L1–L10 distinct, on recrée la duplication que l'audit dénonce. Ma recommandation : **les fichiers conversation deviennent la colonne vertébrale du parcours**, les familles guidées deviennent la sélection de cartes à l'intérieur de chaque étape, et les catalogues restent la bibliothèque. Un seul chemin, trois réserves.
 
-**4.5 — Le coréen est en retard sur deux plans**, pas un seul : pas de configuration dans le parcours guidé, et le contenu conversation est celui qui réemploie le moins (77 % de briques nouvelles en L2, dialogues L1 préparés à 18 %). À traiter ensemble.
+**4.5 — Le coréen est en retard sur deux plans**, pas un seul : pas de configuration dans le parcours guidé, et le contenu conversation est celui qui réemploie le moins (77 % de briques nouvelles en L2 ; sur l'ensemble des dialogues L1, 36 % des types sont préparés par les variantes, contre 49 à 63 % pour les autres couples). À traiter ensemble.
+
+> *Correction du 20/10, après relecture de Codex :* une version antérieure de ce paragraphe annonçait « dialogues L1 préparés à 18 % ». Ce chiffre ne vaut que pour **un** dialogue, `L1-fr-ko-d2` (À la gare, 4 types préparés sur 22). Le détail réel : d1 Au café 31 %, d2 À la gare 18 %, d3 Première rencontre 52 %, ensemble 36 %. L'erreur portait sur ce seul paragraphe ; les tableaux du §2 étaient corrects.
 
 ## 5. Ce que je propose d'ajouter
 
