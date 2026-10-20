@@ -1,0 +1,966 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "zh",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en chinois",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle",
+  "reading": "pinyin avec tons"
+ },
+ "phoneticConvention": "English approximation in the style of the Melunga deck (phe field): dway-boo-chee = 对不起, may gwahn-shee = 没关系, ching = 请. Syllables of one word are joined with hyphens, words are separated by spaces. Tones are not shown: see the pinyin (reading field) and the audio. Standard Mandarin, simplified characters.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended. Linguistic review required (tones, naturalness of phrasing).",
+ "coverageClaim": null,
+ "level": 1,
+ "title": "First contacts",
+ "goal": "Greet, introduce yourself, express a need, order simply.",
+ "reviewPreviousLevels": [],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L1-en-zh-01",
+   "situation": "Introducing yourself",
+   "model": {
+    "study": "我是{s}。",
+    "phon": "woh shr {s}.",
+    "native": "I'm {s}.",
+    "reading": "wǒ shì {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "学生",
+      "phon": "shyweh-shung",
+      "native": "a student",
+      "reading": "xuéshēng"
+     },
+     "study": "我是学生。",
+     "phon": "woh shr shyweh-shung.",
+     "native": "I'm a student.",
+     "reading": "wǒ shì xuéshēng."
+    },
+    {
+     "slot": {
+      "study": "法国人",
+      "phon": "fah-gwoh run",
+      "native": "French",
+      "reading": "Fǎguó rén"
+     },
+     "study": "我是法国人。",
+     "phon": "woh shr fah-gwoh run.",
+     "native": "I'm French.",
+     "reading": "wǒ shì Fǎguó rén."
+    },
+    {
+     "slot": {
+      "study": "巴黎人",
+      "phon": "bah-lee run",
+      "native": "from Paris",
+      "reading": "Bālí rén"
+     },
+     "study": "我是巴黎人。",
+     "phon": "woh shr bah-lee run.",
+     "native": "I'm from Paris.",
+     "reading": "wǒ shì Bālí rén."
+    },
+    {
+     "slot": {
+      "study": "来度假的",
+      "phon": "leye doo-jyah duh",
+      "native": "here on vacation",
+      "reading": "lái dùjià de"
+     },
+     "study": "我是来度假的。",
+     "phon": "woh shr leye doo-jyah duh.",
+     "native": "I'm here on vacation.",
+     "reading": "wǒ shì lái dùjià de."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-en-zh-02",
+   "situation": "Saying your name",
+   "model": {
+    "study": "我叫{s}。",
+    "phon": "woh jyow {s}.",
+    "native": "My name is {s}.",
+    "reading": "wǒ jiào {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "玛丽",
+      "phon": "mah-lee",
+      "native": "Mary",
+      "reading": "Mǎlì"
+     },
+     "study": "我叫玛丽。",
+     "phon": "woh jyow mah-lee.",
+     "native": "My name is Mary.",
+     "reading": "wǒ jiào Mǎlì."
+    },
+    {
+     "slot": {
+      "study": "保罗",
+      "phon": "bow-lwoh",
+      "native": "Paul",
+      "reading": "Bǎoluó"
+     },
+     "study": "我叫保罗。",
+     "phon": "woh jyow bow-lwoh.",
+     "native": "My name is Paul.",
+     "reading": "wǒ jiào Bǎoluó."
+    },
+    {
+     "slot": {
+      "study": "林",
+      "phon": "leen",
+      "native": "Lin",
+      "reading": "Lín"
+     },
+     "study": "我叫林。",
+     "phon": "woh jyow leen.",
+     "native": "My name is Lin.",
+     "reading": "wǒ jiào Lín."
+    },
+    {
+     "slot": {
+      "study": "安娜",
+      "phon": "ahn-nah",
+      "native": "Anna",
+      "reading": "Ānnà"
+     },
+     "study": "我叫安娜。",
+     "phon": "woh jyow ahn-nah.",
+     "native": "My name is Anna.",
+     "reading": "wǒ jiào Ānnà."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-en-zh-03",
+   "situation": "Saying what you want",
+   "model": {
+    "study": "我要{s}。",
+    "phon": "woh yow {s}.",
+    "native": "I want {s}.",
+    "reading": "wǒ yào {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "一杯咖啡",
+      "phon": "ee bay kah-fay",
+      "native": "a coffee",
+      "reading": "yì bēi kāfēi"
+     },
+     "study": "我要一杯咖啡。",
+     "phon": "woh yow ee bay kah-fay.",
+     "native": "I want a coffee.",
+     "reading": "wǒ yào yì bēi kāfēi."
+    },
+    {
+     "slot": {
+      "study": "水",
+      "phon": "shway",
+      "native": "water",
+      "reading": "shuǐ"
+     },
+     "study": "我要水。",
+     "phon": "woh yow shway.",
+     "native": "I want water.",
+     "reading": "wǒ yào shuǐ."
+    },
+    {
+     "slot": {
+      "study": "一张票",
+      "phon": "ee jahng pyow",
+      "native": "a ticket",
+      "reading": "yì zhāng piào"
+     },
+     "study": "我要一张票。",
+     "phon": "woh yow ee jahng pyow.",
+     "native": "I want a ticket.",
+     "reading": "wǒ yào yì zhāng piào."
+    },
+    {
+     "slot": {
+      "study": "一个三明治",
+      "phon": "ee guh sahn-ming-jr",
+      "native": "a sandwich",
+      "reading": "yí ge sānmíngzhì"
+     },
+     "study": "我要一个三明治。",
+     "phon": "woh yow ee guh sahn-ming-jr.",
+     "native": "I want a sandwich.",
+     "reading": "wǒ yào yí ge sānmíngzhì."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-en-zh-04",
+   "situation": "Saying what you need",
+   "model": {
+    "study": "我需要{s}。",
+    "phon": "woh shyu-yow {s}.",
+    "native": "I need {s}.",
+    "reading": "wǒ xūyào {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "帮助",
+      "phon": "bahng-joo",
+      "native": "help",
+      "reading": "bāngzhù"
+     },
+     "study": "我需要帮助。",
+     "phon": "woh shyu-yow bahng-joo.",
+     "native": "I need help.",
+     "reading": "wǒ xūyào bāngzhù."
+    },
+    {
+     "slot": {
+      "study": "出租车",
+      "phon": "choo-dzoo-chuh",
+      "native": "a taxi",
+      "reading": "chūzūchē"
+     },
+     "study": "我需要出租车。",
+     "phon": "woh shyu-yow choo-dzoo-chuh.",
+     "native": "I need a taxi.",
+     "reading": "wǒ xūyào chūzūchē."
+    },
+    {
+     "slot": {
+      "study": "医生",
+      "phon": "ee-shung",
+      "native": "a doctor",
+      "reading": "yīshēng"
+     },
+     "study": "我需要医生。",
+     "phon": "woh shyu-yow ee-shung.",
+     "native": "I need a doctor.",
+     "reading": "wǒ xūyào yīshēng."
+    },
+    {
+     "slot": {
+      "study": "无线网",
+      "phon": "oo-shyen-wahng",
+      "native": "wifi",
+      "reading": "wúxiànwǎng"
+     },
+     "study": "我需要无线网。",
+     "phon": "woh shyu-yow oo-shyen-wahng.",
+     "native": "I need wifi.",
+     "reading": "wǒ xūyào wúxiànwǎng."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-en-zh-05",
+   "situation": "Finding a place",
+   "model": {
+    "study": "{s}在哪里？",
+    "phon": "{s} dzeye nah-lee?",
+    "native": "Where is {s}?",
+    "reading": "{s} zài nǎlǐ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "火车站",
+      "phon": "hwoh-chuh-jahn",
+      "native": "the train station",
+      "reading": "huǒchēzhàn"
+     },
+     "study": "火车站在哪里？",
+     "phon": "hwoh-chuh-jahn dzeye nah-lee?",
+     "native": "Where is the train station?",
+     "reading": "huǒchēzhàn zài nǎlǐ?"
+    },
+    {
+     "slot": {
+      "study": "出口",
+      "phon": "choo-koh",
+      "native": "the exit",
+      "reading": "chūkǒu"
+     },
+     "study": "出口在哪里？",
+     "phon": "choo-koh dzeye nah-lee?",
+     "native": "Where is the exit?",
+     "reading": "chūkǒu zài nǎlǐ?"
+    },
+    {
+     "slot": {
+      "study": "洗手间",
+      "phon": "shee-shoh-jyen",
+      "native": "the restroom",
+      "reading": "xǐshǒujiān"
+     },
+     "study": "洗手间在哪里？",
+     "phon": "shee-shoh-jyen dzeye nah-lee?",
+     "native": "Where is the restroom?",
+     "reading": "xǐshǒujiān zài nǎlǐ?"
+    },
+    {
+     "slot": {
+      "study": "地铁",
+      "phon": "dee-tyeh",
+      "native": "the subway",
+      "reading": "dìtiě"
+     },
+     "study": "地铁在哪里？",
+     "phon": "dee-tyeh dzeye nah-lee?",
+     "native": "Where is the subway?",
+     "reading": "dìtiě zài nǎlǐ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-en-zh-06",
+   "situation": "Saying where you're going",
+   "model": {
+    "study": "我去{s}。",
+    "phon": "woh chyu {s}.",
+    "native": "I'm going to {s}.",
+    "reading": "wǒ qù {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "公司",
+      "phon": "goong-suh",
+      "native": "the office",
+      "reading": "gōngsī"
+     },
+     "study": "我去公司。",
+     "phon": "woh chyu goong-suh.",
+     "native": "I'm going to the office.",
+     "reading": "wǒ qù gōngsī."
+    },
+    {
+     "slot": {
+      "study": "市场",
+      "phon": "shr-chahng",
+      "native": "the market",
+      "reading": "shìchǎng"
+     },
+     "study": "我去市场。",
+     "phon": "woh chyu shr-chahng.",
+     "native": "I'm going to the market.",
+     "reading": "wǒ qù shìchǎng."
+    },
+    {
+     "slot": {
+      "study": "酒店",
+      "phon": "jyoh-dyen",
+      "native": "the hotel",
+      "reading": "jiǔdiàn"
+     },
+     "study": "我去酒店。",
+     "phon": "woh chyu jyoh-dyen.",
+     "native": "I'm going to the hotel.",
+     "reading": "wǒ qù jiǔdiàn."
+    },
+    {
+     "slot": {
+      "study": "车站",
+      "phon": "chuh-jahn",
+      "native": "the station",
+      "reading": "chēzhàn"
+     },
+     "study": "我去车站。",
+     "phon": "woh chyu chuh-jahn.",
+     "native": "I'm going to the station.",
+     "reading": "wǒ qù chēzhàn."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-en-zh-07",
+   "situation": "Saying how you feel",
+   "model": {
+    "study": "我{s}。",
+    "phon": "woh {s}.",
+    "native": "I'm {s}.",
+    "reading": "wǒ {s}.",
+    "note": "In 饿了 / 渴了, 了 signals a change of state: I've become hungry, I'm hungry now. With 很冷 / 很热, 很 simply links the subject to the adjective (no verb 'to be')."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "饿了",
+      "phon": "uh luh",
+      "native": "hungry",
+      "reading": "è le"
+     },
+     "study": "我饿了。",
+     "phon": "woh uh luh.",
+     "native": "I'm hungry.",
+     "reading": "wǒ è le."
+    },
+    {
+     "slot": {
+      "study": "渴了",
+      "phon": "kuh luh",
+      "native": "thirsty",
+      "reading": "kě le"
+     },
+     "study": "我渴了。",
+     "phon": "woh kuh luh.",
+     "native": "I'm thirsty.",
+     "reading": "wǒ kě le."
+    },
+    {
+     "slot": {
+      "study": "很冷",
+      "phon": "hun lung",
+      "native": "cold",
+      "reading": "hěn lěng"
+     },
+     "study": "我很冷。",
+     "phon": "woh hun lung.",
+     "native": "I'm cold.",
+     "reading": "wǒ hěn lěng."
+    },
+    {
+     "slot": {
+      "study": "很热",
+      "phon": "hun ruh",
+      "native": "hot",
+      "reading": "hěn rè"
+     },
+     "study": "我很热。",
+     "phon": "woh hun ruh.",
+     "native": "I'm hot.",
+     "reading": "wǒ hěn rè."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-en-zh-08",
+   "situation": "Saying what you like",
+   "model": {
+    "study": "我喜欢{s}。",
+    "phon": "woh shee-hwahn {s}.",
+    "native": "I like {s}.",
+    "reading": "wǒ xǐhuan {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "咖啡",
+      "phon": "kah-fay",
+      "native": "coffee",
+      "reading": "kāfēi"
+     },
+     "study": "我喜欢咖啡。",
+     "phon": "woh shee-hwahn kah-fay.",
+     "native": "I like coffee.",
+     "reading": "wǒ xǐhuan kāfēi."
+    },
+    {
+     "slot": {
+      "study": "音乐",
+      "phon": "een-yweh",
+      "native": "music",
+      "reading": "yīnyuè"
+     },
+     "study": "我喜欢音乐。",
+     "phon": "woh shee-hwahn een-yweh.",
+     "native": "I like music.",
+     "reading": "wǒ xǐhuan yīnyuè."
+    },
+    {
+     "slot": {
+      "study": "走路",
+      "phon": "dzoh-loo",
+      "native": "walking",
+      "reading": "zǒulù"
+     },
+     "study": "我喜欢走路。",
+     "phon": "woh shee-hwahn dzoh-loo.",
+     "native": "I like walking.",
+     "reading": "wǒ xǐhuan zǒulù."
+    },
+    {
+     "slot": {
+      "study": "运动",
+      "phon": "yun-doong",
+      "native": "sports",
+      "reading": "yùndòng"
+     },
+     "study": "我喜欢运动。",
+     "phon": "woh shee-hwahn yun-doong.",
+     "native": "I like sports.",
+     "reading": "wǒ xǐhuan yùndòng."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-en-zh-09",
+   "situation": "Ordering",
+   "model": {
+    "study": "请给我{s}。",
+    "phon": "ching gay woh {s}.",
+    "native": "{s}, please.",
+    "reading": "qǐng gěi wǒ {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "一杯咖啡",
+      "phon": "ee bay kah-fay",
+      "native": "a coffee",
+      "reading": "yì bēi kāfēi"
+     },
+     "study": "请给我一杯咖啡。",
+     "phon": "ching gay woh ee bay kah-fay.",
+     "native": "A coffee, please.",
+     "reading": "qǐng gěi wǒ yì bēi kāfēi."
+    },
+    {
+     "slot": {
+      "study": "一杯茶",
+      "phon": "ee bay chah",
+      "native": "a tea",
+      "reading": "yì bēi chá"
+     },
+     "study": "请给我一杯茶。",
+     "phon": "ching gay woh ee bay chah.",
+     "native": "A tea, please.",
+     "reading": "qǐng gěi wǒ yì bēi chá."
+    },
+    {
+     "slot": {
+      "study": "一杯橙汁",
+      "phon": "ee bay chung-jr",
+      "native": "an orange juice",
+      "reading": "yì bēi chéngzhī"
+     },
+     "study": "请给我一杯橙汁。",
+     "phon": "ching gay woh ee bay chung-jr.",
+     "native": "An orange juice, please.",
+     "reading": "qǐng gěi wǒ yì bēi chéngzhī."
+    },
+    {
+     "slot": {
+      "study": "一个三明治",
+      "phon": "ee guh sahn-ming-jr",
+      "native": "a sandwich",
+      "reading": "yí ge sānmíngzhì"
+     },
+     "study": "请给我一个三明治。",
+     "phon": "ching gay woh ee guh sahn-ming-jr.",
+     "native": "A sandwich, please.",
+     "reading": "qǐng gěi wǒ yí ge sānmíngzhì."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-en-zh-10",
+   "situation": "Asking the price",
+   "model": {
+    "study": "{s}多少钱？",
+    "phon": "{s} dwoh-show chyen?",
+    "native": "How much is {s}?",
+    "reading": "{s} duōshao qián?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "这个",
+      "phon": "juh-guh",
+      "native": "this",
+      "reading": "zhège"
+     },
+     "study": "这个多少钱？",
+     "phon": "juh-guh dwoh-show chyen?",
+     "native": "How much is this?",
+     "reading": "zhège duōshao qián?"
+    },
+    {
+     "slot": {
+      "study": "咖啡",
+      "phon": "kah-fay",
+      "native": "the coffee",
+      "reading": "kāfēi"
+     },
+     "study": "咖啡多少钱？",
+     "phon": "kah-fay dwoh-show chyen?",
+     "native": "How much is the coffee?",
+     "reading": "kāfēi duōshao qián?"
+    },
+    {
+     "slot": {
+      "study": "票",
+      "phon": "pyow",
+      "native": "the ticket",
+      "reading": "piào"
+     },
+     "study": "票多少钱？",
+     "phon": "pyow dwoh-show chyen?",
+     "native": "How much is the ticket?",
+     "reading": "piào duōshao qián?"
+    },
+    {
+     "slot": {
+      "study": "房间",
+      "phon": "fahng-jyen",
+      "native": "the room",
+      "reading": "fángjiān"
+     },
+     "study": "房间多少钱？",
+     "phon": "fahng-jyen dwoh-show chyen?",
+     "native": "How much is the room?",
+     "reading": "fángjiān duōshao qián?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-en-zh-11",
+   "situation": "Getting by",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "reading": "{s}",
+    "note": "Survival phrases: whole sentences to learn as they are, so you can keep an exchange going."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "我不懂。",
+      "phon": "woh boo doong.",
+      "native": "I don't understand.",
+      "reading": "wǒ bù dǒng."
+     },
+     "study": "我不懂。",
+     "phon": "woh boo doong.",
+     "native": "I don't understand.",
+     "reading": "wǒ bù dǒng."
+    },
+    {
+     "slot": {
+      "study": "请再说一遍。",
+      "phon": "ching dzeye shwoh ee byen.",
+      "native": "Could you say that again, please?",
+      "reading": "qǐng zài shuō yí biàn."
+     },
+     "study": "请再说一遍。",
+     "phon": "ching dzeye shwoh ee byen.",
+     "native": "Could you say that again, please?",
+     "reading": "qǐng zài shuō yí biàn."
+    },
+    {
+     "slot": {
+      "study": "请说慢一点。",
+      "phon": "ching shwoh mahn ee-dyen.",
+      "native": "Could you speak more slowly, please?",
+      "reading": "qǐng shuō màn yìdiǎn."
+     },
+     "study": "请说慢一点。",
+     "phon": "ching shwoh mahn ee-dyen.",
+     "native": "Could you speak more slowly, please?",
+     "reading": "qǐng shuō màn yìdiǎn."
+    },
+    {
+     "slot": {
+      "study": "你会说法语吗？",
+      "phon": "nee hway shwoh fah-yu mah?",
+      "native": "Do you speak French?",
+      "reading": "nǐ huì shuō Fǎyǔ ma?"
+     },
+     "study": "你会说法语吗？",
+     "phon": "nee hway shwoh fah-yu mah?",
+     "native": "Do you speak French?",
+     "reading": "nǐ huì shuō Fǎyǔ ma?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L1-en-zh-d1",
+   "situation": "At the café",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "你好！",
+     "reading": "nǐ hǎo!",
+     "phon": "nee how!",
+     "native": "Hello!"
+    },
+    {
+     "speaker": "B",
+     "study": "你好。您要什么？",
+     "reading": "nǐ hǎo. nín yào shénme?",
+     "phon": "nee how. neen yow shun-muh?",
+     "native": "Hello. What would you like?"
+    },
+    {
+     "speaker": "A",
+     "study": "请给我一杯咖啡。",
+     "reading": "qǐng gěi wǒ yì bēi kāfēi.",
+     "phon": "ching gay woh ee bay kah-fay.",
+     "native": "A coffee, please."
+    },
+    {
+     "speaker": "B",
+     "study": "加牛奶吗？",
+     "reading": "jiā niúnǎi ma?",
+     "phon": "jyah nyoh-neye mah?",
+     "native": "With milk?"
+    },
+    {
+     "speaker": "A",
+     "study": "不用，谢谢。多少钱？",
+     "reading": "búyòng, xièxie. duōshao qián?",
+     "phon": "boo-yoong, shyeh-shyeh. dwoh-show chyen?",
+     "native": "No, thanks. How much is it?"
+    },
+    {
+     "speaker": "B",
+     "study": "二十块。",
+     "reading": "èrshí kuài.",
+     "phon": "ar-shr kwye.",
+     "native": "Twenty yuan."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-zh-09",
+    "L1-en-zh-10"
+   ],
+   "roles": {
+    "A": "Customer",
+    "B": "Waiter"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L1-en-zh-d2",
+   "situation": "At the station",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "请问，火车站在哪里？",
+     "reading": "qǐngwèn, huǒchēzhàn zài nǎlǐ?",
+     "phon": "ching-wun, hwoh-chuh-jahn dzeye nah-lee?",
+     "native": "Excuse me, where is the train station?"
+    },
+    {
+     "speaker": "B",
+     "study": "一直走，五分钟。",
+     "reading": "yìzhí zǒu, wǔ fēnzhōng.",
+     "phon": "ee-jr dzoh, oo fun-joong.",
+     "native": "Straight ahead, five minutes."
+    },
+    {
+     "speaker": "A",
+     "study": "谢谢。我需要一张去上海的票。",
+     "reading": "xièxie. wǒ xūyào yì zhāng qù Shànghǎi de piào.",
+     "phon": "shyeh-shyeh. woh shyu-yow ee jahng chyu shahng-heye duh pyow.",
+     "native": "Thank you. I need a ticket to Shanghai."
+    },
+    {
+     "speaker": "B",
+     "study": "一张票，一百块。",
+     "reading": "yì zhāng piào, yìbǎi kuài.",
+     "phon": "ee jahng pyow, ee-beye kwye.",
+     "native": "One ticket, one hundred yuan."
+    },
+    {
+     "speaker": "A",
+     "study": "给您。非常感谢。",
+     "reading": "gěi nín. fēicháng gǎnxiè.",
+     "phon": "gay neen. fay-chahng gahn-shyeh.",
+     "native": "Here you are. Thank you very much."
+    },
+    {
+     "speaker": "B",
+     "study": "一路顺风！",
+     "reading": "yílù shùnfēng!",
+     "phon": "ee-loo shwun-fung!",
+     "native": "Have a good trip!"
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-zh-04",
+    "L1-en-zh-05"
+   ],
+   "roles": {
+    "A": "Traveler",
+    "B": "Clerk"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L1-en-zh-d3",
+   "situation": "Meeting for the first time",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "你好，我叫玛丽。",
+     "reading": "nǐ hǎo, wǒ jiào Mǎlì.",
+     "phon": "nee how, woh jyow mah-lee.",
+     "native": "Hello, my name is Mary."
+    },
+    {
+     "speaker": "B",
+     "study": "很高兴认识你，我是保罗。",
+     "reading": "hěn gāoxìng rènshi nǐ, wǒ shì Bǎoluó.",
+     "phon": "hun gow-shing run-shr nee, woh shr bow-lwoh.",
+     "native": "Nice to meet you, I'm Paul."
+    },
+    {
+     "speaker": "A",
+     "study": "我是法国人，巴黎人。你呢？",
+     "reading": "wǒ shì Fǎguó rén, Bālí rén. nǐ ne?",
+     "phon": "woh shr fah-gwoh run, bah-lee run. nee nuh?",
+     "native": "I'm French, from Paris. And you?"
+    },
+    {
+     "speaker": "B",
+     "study": "我是本地人。你来度假吗？",
+     "reading": "wǒ shì běndì rén. nǐ lái dùjià ma?",
+     "phon": "woh shr bun-dee run. nee leye doo-jyah mah?",
+     "native": "I'm from here. Are you here on vacation?"
+    },
+    {
+     "speaker": "A",
+     "study": "是的，我很喜欢这个城市。",
+     "reading": "shì de, wǒ hěn xǐhuan zhège chéngshì.",
+     "phon": "shr duh, woh hun shee-hwahn juh-guh chung-shr.",
+     "native": "Yes, I really like this city."
+    },
+    {
+     "speaker": "B",
+     "study": "太好了！欢迎！",
+     "reading": "tài hǎo le! huānyíng!",
+     "phon": "teye how luh! hwahn-ing!",
+     "native": "Great! Welcome!"
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-zh-01",
+    "L1-en-zh-02"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A new acquaintance"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Introduce yourself in three sentences, say what you need, order something and ask a price; understand and complete the three dialogues. A learning milestone, not a certification."
+}

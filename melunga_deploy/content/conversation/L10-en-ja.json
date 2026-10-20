@@ -1,0 +1,1163 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "ja",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en japonais",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle",
+  "reading": "lecture en hiragana"
+ },
+ "phoneticConvention": "Syllable-by-syllable romaji for English readers, in the deck's style (so-o-de-su, ko-wa-i-de-su). Read each syllable as in Spanish or Italian: a as in 'father', i as in 'machine', u as in 'put', e as in 'bet', o as in 'go'. A long vowel is written twice (ko-o-hi-i, to-o-kyo-o); ん is its own beat written n (su-mi-ma-se-n, ko-n-ni-chi-wa); a doubled consonant closes the syllable before it (kip-pu, chot-to, kek-ko-o). The u of de-su / ma-su is almost silent ('dess', 'mass'); r is a light tap between r and l; g is always hard. The reading field gives the hiragana. Polite register (です / ます) throughout.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended; linguistic review required (naturalness of phrasing, kanji readings).",
+ "coverageClaim": null,
+ "level": 10,
+ "title": "Holding a conversation",
+ "goal": "Hold a conversation mixing narrative, opinion, argument and clarification.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L10-en-ja-01",
+   "situation": "Weighing pros and cons",
+   "model": {
+    "study": "一方で{s}が、他方で時間がかかります。",
+    "phon": "ip-po-o de {s} ga, ta-ho-o de ji-ka-n ga ka-ka-ri-ma-su",
+    "native": "On the one hand {s}, but on the other it takes time.",
+    "reading": "いっぽうで{s}が、たほうでじかんがかかります。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "安いです",
+      "phon": "ya-su-i de-su",
+      "native": "it's cheap",
+      "reading": "やすいです"
+     },
+     "study": "一方で安いですが、他方で時間がかかります。",
+     "phon": "ip-po-o de ya-su-i de-su ga, ta-ho-o de ji-ka-n ga ka-ka-ri-ma-su",
+     "native": "On the one hand it's cheap, but on the other it takes time.",
+     "reading": "いっぽうでやすいですが、たほうでじかんがかかります。"
+    },
+    {
+     "slot": {
+      "study": "便利です",
+      "phon": "be-n-ri de-su",
+      "native": "it's convenient",
+      "reading": "べんりです"
+     },
+     "study": "一方で便利ですが、他方で時間がかかります。",
+     "phon": "ip-po-o de be-n-ri de-su ga, ta-ho-o de ji-ka-n ga ka-ka-ri-ma-su",
+     "native": "On the one hand it's convenient, but on the other it takes time.",
+     "reading": "いっぽうでべんりですが、たほうでじかんがかかります。"
+    },
+    {
+     "slot": {
+      "study": "静かです",
+      "phon": "shi-zu-ka de-su",
+      "native": "it's quiet",
+      "reading": "しずかです"
+     },
+     "study": "一方で静かですが、他方で時間がかかります。",
+     "phon": "ip-po-o de shi-zu-ka de-su ga, ta-ho-o de ji-ka-n ga ka-ka-ri-ma-su",
+     "native": "On the one hand it's quiet, but on the other it takes time.",
+     "reading": "いっぽうでしずかですが、たほうでじかんがかかります。"
+    },
+    {
+     "slot": {
+      "study": "楽しいです",
+      "phon": "ta-no-shi-i de-su",
+      "native": "it's enjoyable",
+      "reading": "たのしいです"
+     },
+     "study": "一方で楽しいですが、他方で時間がかかります。",
+     "phon": "ip-po-o de ta-no-shi-i de-su ga, ta-ho-o de ji-ka-n ga ka-ka-ri-ma-su",
+     "native": "On the one hand it's enjoyable, but on the other it takes time.",
+     "reading": "いっぽうでたのしいですが、たほうでじかんがかかります。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-en-ja-02",
+   "situation": "Conceding, then counter-arguing",
+   "model": {
+    "study": "確かにそうですが、{s}。",
+    "phon": "ta-shi-ka ni so-o de-su ga, {s}",
+    "native": "That's true, but {s}.",
+    "reading": "たしかにそうですが、{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "値段も大切です",
+      "phon": "ne-da-n mo ta-i-se-tsu de-su",
+      "native": "the price matters too",
+      "reading": "ねだんもたいせつです"
+     },
+     "study": "確かにそうですが、値段も大切です。",
+     "phon": "ta-shi-ka ni so-o de-su ga, ne-da-n mo ta-i-se-tsu de-su",
+     "native": "That's true, but the price matters too.",
+     "reading": "たしかにそうですが、ねだんもたいせつです。"
+    },
+    {
+     "slot": {
+      "study": "時間がありません",
+      "phon": "ji-ka-n ga a-ri-ma-se-n",
+      "native": "we don't have time",
+      "reading": "じかんがありません"
+     },
+     "study": "確かにそうですが、時間がありません。",
+     "phon": "ta-shi-ka ni so-o de-su ga, ji-ka-n ga a-ri-ma-se-n",
+     "native": "That's true, but we don't have time.",
+     "reading": "たしかにそうですが、じかんがありません。"
+    },
+    {
+     "slot": {
+      "study": "全員は賛成していません",
+      "phon": "ze-n-i-n wa sa-n-se-i shi-te i-ma-se-n",
+      "native": "not everyone agrees",
+      "reading": "ぜんいんはさんせいしていません"
+     },
+     "study": "確かにそうですが、全員は賛成していません。",
+     "phon": "ta-shi-ka ni so-o de-su ga, ze-n-i-n wa sa-n-se-i shi-te i-ma-se-n",
+     "native": "That's true, but not everyone agrees.",
+     "reading": "たしかにそうですが、ぜんいんはさんせいしていません。"
+    },
+    {
+     "slot": {
+      "study": "他の方法もあります",
+      "phon": "ho-ka no ho-o-ho-o mo a-ri-ma-su",
+      "native": "there are other ways too",
+      "reading": "ほかのほうほうもあります"
+     },
+     "study": "確かにそうですが、他の方法もあります。",
+     "phon": "ta-shi-ka ni so-o de-su ga, ho-ka no ho-o-ho-o mo a-ri-ma-su",
+     "native": "That's true, but there are other ways too.",
+     "reading": "たしかにそうですが、ほかのほうほうもあります。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-en-ja-03",
+   "situation": "Rephrasing the other person's view",
+   "model": {
+    "study": "つまり、{s}とお考えなんですね。",
+    "phon": "tsu-ma-ri, {s} to o-ka-n-ga-e na-n de-su ne",
+    "native": "So if I understand you, you think {s}.",
+    "reading": "つまり、{s}とおかんがえなんですね。",
+    "note": "お考え (respectful form of 考え): you refer to the other person's opinion with deference."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "値段が高すぎる",
+      "phon": "ne-da-n ga ta-ka-su-gi-ru",
+      "native": "the price is too high",
+      "reading": "ねだんがたかすぎる"
+     },
+     "study": "つまり、値段が高すぎるとお考えなんですね。",
+     "phon": "tsu-ma-ri, ne-da-n ga ta-ka-su-gi-ru to o-ka-n-ga-e na-n de-su ne",
+     "native": "So if I understand you, you think the price is too high.",
+     "reading": "つまり、ねだんがたかすぎるとおかんがえなんですね。"
+    },
+    {
+     "slot": {
+      "study": "時間が足りない",
+      "phon": "ji-ka-n ga ta-ri-na-i",
+      "native": "there isn't enough time",
+      "reading": "じかんがたりない"
+     },
+     "study": "つまり、時間が足りないとお考えなんですね。",
+     "phon": "tsu-ma-ri, ji-ka-n ga ta-ri-na-i to o-ka-n-ga-e na-n de-su ne",
+     "native": "So if I understand you, you think there isn't enough time.",
+     "reading": "つまり、じかんがたりないとおかんがえなんですね。"
+    },
+    {
+     "slot": {
+      "study": "もっと人が必要だ",
+      "phon": "mot-to hi-to ga hi-tsu-yo-o da",
+      "native": "we need more people",
+      "reading": "もっとひとがひつようだ"
+     },
+     "study": "つまり、もっと人が必要だとお考えなんですね。",
+     "phon": "tsu-ma-ri, mot-to hi-to ga hi-tsu-yo-o da to o-ka-n-ga-e na-n de-su ne",
+     "native": "So if I understand you, you think we need more people.",
+     "reading": "つまり、もっとひとがひつようだとおかんがえなんですね。"
+    },
+    {
+     "slot": {
+      "study": "今のままでいい",
+      "phon": "i-ma no ma-ma de i-i",
+      "native": "it's fine as it is",
+      "reading": "いまのままでいい"
+     },
+     "study": "つまり、今のままでいいとお考えなんですね。",
+     "phon": "tsu-ma-ri, i-ma no ma-ma de i-i to o-ka-n-ga-e na-n de-su ne",
+     "native": "So if I understand you, you think it's fine as it is.",
+     "reading": "つまり、いまのままでいいとおかんがえなんですね。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-en-ja-04",
+   "situation": "Concluding: to sum up",
+   "model": {
+    "study": "まとめると、{s}。",
+    "phon": "ma-to-me-ru to, {s}",
+    "native": "To sum up, {s}.",
+    "reading": "まとめると、{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "来週もう一度話します",
+      "phon": "ra-i-shu-u mo-o i-chi-do ha-na-shi-ma-su",
+      "native": "we'll talk again next week",
+      "reading": "らいしゅうもういちどはなします"
+     },
+     "study": "まとめると、来週もう一度話します。",
+     "phon": "ma-to-me-ru to, ra-i-shu-u mo-o i-chi-do ha-na-shi-ma-su",
+     "native": "To sum up, we'll talk again next week.",
+     "reading": "まとめると、らいしゅうもういちどはなします。"
+    },
+    {
+     "slot": {
+      "study": "値段を少し下げます",
+      "phon": "ne-da-n o su-ko-shi sa-ge-ma-su",
+      "native": "we'll lower the price a little",
+      "reading": "ねだんをすこしさげます"
+     },
+     "study": "まとめると、値段を少し下げます。",
+     "phon": "ma-to-me-ru to, ne-da-n o su-ko-shi sa-ge-ma-su",
+     "native": "To sum up, we'll lower the price a little.",
+     "reading": "まとめると、ねだんをすこしさげます。"
+    },
+    {
+     "slot": {
+      "study": "計画は来月から始めます",
+      "phon": "ke-i-ka-ku wa ra-i-ge-tsu ka-ra ha-ji-me-ma-su",
+      "native": "the project starts next month",
+      "reading": "けいかくはらいげつからはじめます"
+     },
+     "study": "まとめると、計画は来月から始めます。",
+     "phon": "ma-to-me-ru to, ke-i-ka-ku wa ra-i-ge-tsu ka-ra ha-ji-me-ma-su",
+     "native": "To sum up, the project starts next month.",
+     "reading": "まとめると、けいかくはらいげつからはじめます。"
+    },
+    {
+     "slot": {
+      "study": "問題は二つあります",
+      "phon": "mo-n-da-i wa fu-ta-tsu a-ri-ma-su",
+      "native": "there are two problems",
+      "reading": "もんだいはふたつあります"
+     },
+     "study": "まとめると、問題は二つあります。",
+     "phon": "ma-to-me-ru to, mo-n-da-i wa fu-ta-tsu a-ri-ma-su",
+     "native": "To sum up, there are two problems.",
+     "reading": "まとめると、もんだいはふたつあります。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-en-ja-05",
+   "situation": "Taking leave warmly",
+   "model": {
+    "study": "では、そろそろ失礼します。{s}",
+    "phon": "de wa, so-ro-so-ro shi-tsu-re-i shi-ma-su. {s}",
+    "native": "Well, it's about time I went. {s}",
+    "reading": "では、そろそろしつれいします。{s}",
+    "note": "失礼します (literally 'I'm being rude') is the standard phrase for leaving."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "また近いうちに！",
+      "phon": "ma-ta chi-ka-i u-chi ni",
+      "native": "See you soon!",
+      "reading": "またちかいうちに！"
+     },
+     "study": "では、そろそろ失礼します。また近いうちに！",
+     "phon": "de wa, so-ro-so-ro shi-tsu-re-i shi-ma-su. ma-ta chi-ka-i u-chi ni",
+     "native": "Well, it's about time I went. See you soon!",
+     "reading": "では、そろそろしつれいします。またちかいうちに！"
+    },
+    {
+     "slot": {
+      "study": "また来週！",
+      "phon": "ma-ta ra-i-shu-u",
+      "native": "See you next week!",
+      "reading": "またらいしゅう！"
+     },
+     "study": "では、そろそろ失礼します。また来週！",
+     "phon": "de wa, so-ro-so-ro shi-tsu-re-i shi-ma-su. ma-ta ra-i-shu-u",
+     "native": "Well, it's about time I went. See you next week!",
+     "reading": "では、そろそろしつれいします。またらいしゅう！"
+    },
+    {
+     "slot": {
+      "study": "良い週末を！",
+      "phon": "yo-i shu-u-ma-tsu o",
+      "native": "Have a good weekend!",
+      "reading": "よいしゅうまつを！"
+     },
+     "study": "では、そろそろ失礼します。良い週末を！",
+     "phon": "de wa, so-ro-so-ro shi-tsu-re-i shi-ma-su. yo-i shu-u-ma-tsu o",
+     "native": "Well, it's about time I went. Have a good weekend!",
+     "reading": "では、そろそろしつれいします。よいしゅうまつを！"
+    },
+    {
+     "slot": {
+      "study": "皆さんによろしく！",
+      "phon": "mi-na-sa-n ni yo-ro-shi-ku",
+      "native": "My regards to everyone!",
+      "reading": "みなさんによろしく！"
+     },
+     "study": "では、そろそろ失礼します。皆さんによろしく！",
+     "phon": "de wa, so-ro-so-ro shi-tsu-re-i shi-ma-su. mi-na-sa-n ni yo-ro-shi-ku",
+     "native": "Well, it's about time I went. My regards to everyone!",
+     "reading": "では、そろそろしつれいします。みなさんによろしく！"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-en-ja-06",
+   "situation": "Telling with emotion: joy",
+   "model": {
+    "study": "{s}とき、本当に嬉しかったです。",
+    "phon": "{s} to-ki, ho-n-to-o ni u-re-shi-kat-ta de-su",
+    "native": "{s}, I was really happy.",
+    "reading": "{s}とき、ほんとうにうれしかったです。",
+    "note": "た-form + とき = 'when … (a completed event)'."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "日本に着いた",
+      "phon": "ni-ho-n ni tsu-i-ta",
+      "native": "When I arrived in Japan",
+      "reading": "にほんについた"
+     },
+     "study": "日本に着いたとき、本当に嬉しかったです。",
+     "phon": "ni-ho-n ni tsu-i-ta to-ki, ho-n-to-o ni u-re-shi-kat-ta de-su",
+     "native": "When I arrived in Japan, I was really happy.",
+     "reading": "にほんについたとき、ほんとうにうれしかったです。"
+    },
+    {
+     "slot": {
+      "study": "試験に合格した",
+      "phon": "shi-ke-n ni go-o-ka-ku shi-ta",
+      "native": "When I passed the exam",
+      "reading": "しけんにごうかくした"
+     },
+     "study": "試験に合格したとき、本当に嬉しかったです。",
+     "phon": "shi-ke-n ni go-o-ka-ku shi-ta to-ki, ho-n-to-o ni u-re-shi-kat-ta de-su",
+     "native": "When I passed the exam, I was really happy.",
+     "reading": "しけんにごうかくしたとき、ほんとうにうれしかったです。"
+    },
+    {
+     "slot": {
+      "study": "子供が生まれた",
+      "phon": "ko-do-mo ga u-ma-re-ta",
+      "native": "When my child was born",
+      "reading": "こどもがうまれた"
+     },
+     "study": "子供が生まれたとき、本当に嬉しかったです。",
+     "phon": "ko-do-mo ga u-ma-re-ta to-ki, ho-n-to-o ni u-re-shi-kat-ta de-su",
+     "native": "When my child was born, I was really happy.",
+     "reading": "こどもがうまれたとき、ほんとうにうれしかったです。"
+    },
+    {
+     "slot": {
+      "study": "友達に再会した",
+      "phon": "to-mo-da-chi ni sa-i-ka-i shi-ta",
+      "native": "When I saw my friend again",
+      "reading": "ともだちにさいかいした"
+     },
+     "study": "友達に再会したとき、本当に嬉しかったです。",
+     "phon": "to-mo-da-chi ni sa-i-ka-i shi-ta to-ki, ho-n-to-o ni u-re-shi-kat-ta de-su",
+     "native": "When I saw my friend again, I was really happy.",
+     "reading": "ともだちにさいかいしたとき、ほんとうにうれしかったです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-en-ja-07",
+   "situation": "Telling with emotion: worry",
+   "model": {
+    "study": "{s}とき、とても心配しました。",
+    "phon": "{s} to-ki, to-te-mo shi-n-pa-i shi-ma-shi-ta",
+    "native": "{s}, I was very worried.",
+    "reading": "{s}とき、とてもしんぱいしました。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "財布をなくした",
+      "phon": "sa-i-fu o na-ku-shi-ta",
+      "native": "When I lost my wallet",
+      "reading": "さいふをなくした"
+     },
+     "study": "財布をなくしたとき、とても心配しました。",
+     "phon": "sa-i-fu o na-ku-shi-ta to-ki, to-te-mo shi-n-pa-i shi-ma-shi-ta",
+     "native": "When I lost my wallet, I was very worried.",
+     "reading": "さいふをなくしたとき、とてもしんぱいしました。"
+    },
+    {
+     "slot": {
+      "study": "地震があった",
+      "phon": "ji-shi-n ga at-ta",
+      "native": "When the earthquake happened",
+      "reading": "じしんがあった"
+     },
+     "study": "地震があったとき、とても心配しました。",
+     "phon": "ji-shi-n ga at-ta to-ki, to-te-mo shi-n-pa-i shi-ma-shi-ta",
+     "native": "When the earthquake happened, I was very worried.",
+     "reading": "じしんがあったとき、とてもしんぱいしました。"
+    },
+    {
+     "slot": {
+      "study": "子供が病気になった",
+      "phon": "ko-do-mo ga byo-o-ki ni nat-ta",
+      "native": "When my child fell ill",
+      "reading": "こどもがびょうきになった"
+     },
+     "study": "子供が病気になったとき、とても心配しました。",
+     "phon": "ko-do-mo ga byo-o-ki ni nat-ta to-ki, to-te-mo shi-n-pa-i shi-ma-shi-ta",
+     "native": "When my child fell ill, I was very worried.",
+     "reading": "こどもがびょうきになったとき、とてもしんぱいしました。"
+    },
+    {
+     "slot": {
+      "study": "電車が止まった",
+      "phon": "de-n-sha ga to-mat-ta",
+      "native": "When the train stopped",
+      "reading": "でんしゃがとまった"
+     },
+     "study": "電車が止まったとき、とても心配しました。",
+     "phon": "de-n-sha ga to-mat-ta to-ki, to-te-mo shi-n-pa-i shi-ma-shi-ta",
+     "native": "When the train stopped, I was very worried.",
+     "reading": "でんしゃがとまったとき、とてもしんぱいしました。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-en-ja-08",
+   "situation": "Defending an opinion",
+   "model": {
+    "study": "私は{s}べきだと思います。",
+    "phon": "wa-ta-shi wa {s} be-ki da to o-mo-i-ma-su",
+    "native": "I think we should {s}.",
+    "reading": "わたしは{s}べきだとおもいます。",
+    "note": "Dictionary form + べきだ: 'should, ought to' (a firm opinion, softened with と思います)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "もっと休む",
+      "phon": "mot-to ya-su-mu",
+      "native": "rest more",
+      "reading": "もっとやすむ"
+     },
+     "study": "私はもっと休むべきだと思います。",
+     "phon": "wa-ta-shi wa mot-to ya-su-mu be-ki da to o-mo-i-ma-su",
+     "native": "I think we should rest more.",
+     "reading": "わたしはもっとやすむべきだとおもいます。"
+    },
+    {
+     "slot": {
+      "study": "早く決める",
+      "phon": "ha-ya-ku ki-me-ru",
+      "native": "decide quickly",
+      "reading": "はやくきめる"
+     },
+     "study": "私は早く決めるべきだと思います。",
+     "phon": "wa-ta-shi wa ha-ya-ku ki-me-ru be-ki da to o-mo-i-ma-su",
+     "native": "I think we should decide quickly.",
+     "reading": "わたしははやくきめるべきだとおもいます。"
+    },
+    {
+     "slot": {
+      "study": "皆で話し合う",
+      "phon": "mi-n-na de ha-na-shi-a-u",
+      "native": "talk it over all together",
+      "reading": "みんなではなしあう"
+     },
+     "study": "私は皆で話し合うべきだと思います。",
+     "phon": "wa-ta-shi wa mi-n-na de ha-na-shi-a-u be-ki da to o-mo-i-ma-su",
+     "native": "I think we should talk it over all together.",
+     "reading": "わたしはみんなではなしあうべきだとおもいます。"
+    },
+    {
+     "slot": {
+      "study": "計画を変える",
+      "phon": "ke-i-ka-ku o ka-e-ru",
+      "native": "change the plan",
+      "reading": "けいかくをかえる"
+     },
+     "study": "私は計画を変えるべきだと思います。",
+     "phon": "wa-ta-shi wa ke-i-ka-ku o ka-e-ru be-ki da to o-mo-i-ma-su",
+     "native": "I think we should change the plan.",
+     "reading": "わたしはけいかくをかえるべきだとおもいます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-en-ja-09",
+   "situation": "Changing the subject",
+   "model": {
+    "study": "ところで、{s}はどうですか。",
+    "phon": "to-ko-ro de, {s} wa do-o de-su ka",
+    "native": "By the way, how is {s}?",
+    "reading": "ところで、{s}はどうですか。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "仕事",
+      "phon": "shi-go-to",
+      "native": "work",
+      "reading": "しごと"
+     },
+     "study": "ところで、仕事はどうですか。",
+     "phon": "to-ko-ro de, shi-go-to wa do-o de-su ka",
+     "native": "By the way, how is work?",
+     "reading": "ところで、しごとはどうですか。"
+    },
+    {
+     "slot": {
+      "study": "ご家族",
+      "phon": "go-ka-zo-ku",
+      "native": "your family",
+      "reading": "ごかぞく"
+     },
+     "study": "ところで、ご家族はどうですか。",
+     "phon": "to-ko-ro de, go-ka-zo-ku wa do-o de-su ka",
+     "native": "By the way, how is your family?",
+     "reading": "ところで、ごかぞくはどうですか。"
+    },
+    {
+     "slot": {
+      "study": "新しい家",
+      "phon": "a-ta-ra-shi-i i-e",
+      "native": "the new house",
+      "reading": "あたらしいいえ"
+     },
+     "study": "ところで、新しい家はどうですか。",
+     "phon": "to-ko-ro de, a-ta-ra-shi-i i-e wa do-o de-su ka",
+     "native": "By the way, how is the new house?",
+     "reading": "ところで、あたらしいいえはどうですか。"
+    },
+    {
+     "slot": {
+      "study": "日本語の勉強",
+      "phon": "ni-ho-n-go no be-n-kyo-o",
+      "native": "your Japanese studies",
+      "reading": "にほんごのべんきょう"
+     },
+     "study": "ところで、日本語の勉強はどうですか。",
+     "phon": "to-ko-ro de, ni-ho-n-go no be-n-kyo-o wa do-o de-su ka",
+     "native": "By the way, how are your Japanese studies going?",
+     "reading": "ところで、にほんごのべんきょうはどうですか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-en-ja-10",
+   "situation": "Understanding the other person while objecting",
+   "model": {
+    "study": "{s}のは分かりますが、難しいと思います。",
+    "phon": "{s} no wa wa-ka-ri-ma-su ga, mu-zu-ka-shi-i to o-mo-i-ma-su",
+    "native": "I understand {s}, but I think it's difficult.",
+    "reading": "{s}のはわかりますが、むずかしいとおもいます。",
+    "note": "Plain form + のは分かりますが: you acknowledge the other person's point before objecting."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "言いたい",
+      "phon": "i-i-ta-i",
+      "native": "what you mean",
+      "reading": "いいたい"
+     },
+     "study": "言いたいのは分かりますが、難しいと思います。",
+     "phon": "i-i-ta-i no wa wa-ka-ri-ma-su ga, mu-zu-ka-shi-i to o-mo-i-ma-su",
+     "native": "I understand what you mean, but I think it's difficult.",
+     "reading": "いいたいのはわかりますが、むずかしいとおもいます。"
+    },
+    {
+     "slot": {
+      "study": "心配な",
+      "phon": "shi-n-pa-i na",
+      "native": "your concern",
+      "reading": "しんぱいな"
+     },
+     "study": "心配なのは分かりますが、難しいと思います。",
+     "phon": "shi-n-pa-i na no wa wa-ka-ri-ma-su ga, mu-zu-ka-shi-i to o-mo-i-ma-su",
+     "native": "I understand your concern, but I think it's difficult.",
+     "reading": "しんぱいなのはわかりますが、むずかしいとおもいます。"
+    },
+    {
+     "slot": {
+      "study": "急いでいる",
+      "phon": "i-so-i-de i-ru",
+      "native": "that you're in a hurry",
+      "reading": "いそいでいる"
+     },
+     "study": "急いでいるのは分かりますが、難しいと思います。",
+     "phon": "i-so-i-de i-ru no wa wa-ka-ri-ma-su ga, mu-zu-ka-shi-i to o-mo-i-ma-su",
+     "native": "I understand that you're in a hurry, but I think it's difficult.",
+     "reading": "いそいでいるのはわかりますが、むずかしいとおもいます。"
+    },
+    {
+     "slot": {
+      "study": "安くしたい",
+      "phon": "ya-su-ku shi-ta-i",
+      "native": "that you want a lower price",
+      "reading": "やすくしたい"
+     },
+     "study": "安くしたいのは分かりますが、難しいと思います。",
+     "phon": "ya-su-ku shi-ta-i no wa wa-ka-ri-ma-su ga, mu-zu-ka-shi-i to o-mo-i-ma-su",
+     "native": "I understand that you want a lower price, but I think it's difficult.",
+     "reading": "やすくしたいのはわかりますが、むずかしいとおもいます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-en-ja-11",
+   "situation": "Adding an argument",
+   "model": {
+    "study": "それに、{s}。",
+    "phon": "so-re ni, {s}",
+    "native": "Besides, {s}.",
+    "reading": "それに、{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "時間もかかります",
+      "phon": "ji-ka-n mo ka-ka-ri-ma-su",
+      "native": "it takes time too",
+      "reading": "じかんもかかります"
+     },
+     "study": "それに、時間もかかります。",
+     "phon": "so-re ni, ji-ka-n mo ka-ka-ri-ma-su",
+     "native": "Besides, it takes time too.",
+     "reading": "それに、じかんもかかります。"
+    },
+    {
+     "slot": {
+      "study": "お金もかかります",
+      "phon": "o-ka-ne mo ka-ka-ri-ma-su",
+      "native": "it costs money too",
+      "reading": "おかねもかかります"
+     },
+     "study": "それに、お金もかかります。",
+     "phon": "so-re ni, o-ka-ne mo ka-ka-ri-ma-su",
+     "native": "Besides, it costs money too.",
+     "reading": "それに、おかねもかかります。"
+    },
+    {
+     "slot": {
+      "study": "天気も悪いです",
+      "phon": "te-n-ki mo wa-ru-i de-su",
+      "native": "the weather is bad too",
+      "reading": "てんきもわるいです"
+     },
+     "study": "それに、天気も悪いです。",
+     "phon": "so-re ni, te-n-ki mo wa-ru-i de-su",
+     "native": "Besides, the weather is bad too.",
+     "reading": "それに、てんきもわるいです。"
+    },
+    {
+     "slot": {
+      "study": "皆疲れています",
+      "phon": "mi-n-na tsu-ka-re-te i-ma-su",
+      "native": "everyone is tired",
+      "reading": "みんなつかれています"
+     },
+     "study": "それに、皆疲れています。",
+     "phon": "so-re ni, mi-n-na tsu-ka-re-te i-ma-su",
+     "native": "Besides, everyone is tired.",
+     "reading": "それに、みんなつかれています。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L10-en-ja-12",
+   "situation": "Announcing a decision",
+   "model": {
+    "study": "結局、{s}ことにしました。",
+    "phon": "kek-kyo-ku, {s} ko-to ni shi-ma-shi-ta",
+    "native": "In the end, we decided to {s}.",
+    "reading": "けっきょく、{s}ことにしました。",
+    "note": "Dictionary form + ことにしました: a decision that has been made."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "家を買う",
+      "phon": "i-e o ka-u",
+      "native": "buy the house",
+      "reading": "いえをかう"
+     },
+     "study": "結局、家を買うことにしました。",
+     "phon": "kek-kyo-ku, i-e o ka-u ko-to ni shi-ma-shi-ta",
+     "native": "In the end, we decided to buy the house.",
+     "reading": "けっきょく、いえをかうことにしました。"
+    },
+    {
+     "slot": {
+      "study": "日本に残る",
+      "phon": "ni-ho-n ni no-ko-ru",
+      "native": "stay in Japan",
+      "reading": "にほんにのこる"
+     },
+     "study": "結局、日本に残ることにしました。",
+     "phon": "kek-kyo-ku, ni-ho-n ni no-ko-ru ko-to ni shi-ma-shi-ta",
+     "native": "In the end, we decided to stay in Japan.",
+     "reading": "けっきょく、にほんにのこることにしました。"
+    },
+    {
+     "slot": {
+      "study": "仕事を変える",
+      "phon": "shi-go-to o ka-e-ru",
+      "native": "change jobs",
+      "reading": "しごとをかえる"
+     },
+     "study": "結局、仕事を変えることにしました。",
+     "phon": "kek-kyo-ku, shi-go-to o ka-e-ru ko-to ni shi-ma-shi-ta",
+     "native": "In the end, we decided to change jobs.",
+     "reading": "けっきょく、しごとをかえることにしました。"
+    },
+    {
+     "slot": {
+      "study": "来年結婚する",
+      "phon": "ra-i-ne-n kek-ko-n su-ru",
+      "native": "get married next year",
+      "reading": "らいねんけっこんする"
+     },
+     "study": "結局、来年結婚することにしました。",
+     "phon": "kek-kyo-ku, ra-i-ne-n kek-ko-n su-ru ko-to ni shi-ma-shi-ta",
+     "native": "In the end, we decided to get married next year.",
+     "reading": "けっきょく、らいねんけっこんすることにしました。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L10-en-ja-d1",
+   "situation": "Friendly debate: city or countryside",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "マリーさんは、都会と田舎とどちらに住みたいですか。",
+     "reading": "まりーさんは、とかいといなかとどちらにすみたいですか。",
+     "phon": "ma-ri-i-sa-n wa, to-ka-i to i-na-ka to do-chi-ra ni su-mi-ta-i de-su ka",
+     "native": "Marie, would you rather live in the city or in the countryside?"
+    },
+    {
+     "speaker": "B",
+     "study": "どちらかと言うと田舎です。一方で静かで家が広いですが、他方で仕事が少ないです。",
+     "reading": "どちらかというといなかです。いっぽうでしずかでいえがひろいですが、たほうでしごとがすくないです。",
+     "phon": "do-chi-ra ka to i-u to i-na-ka de-su. ip-po-o de shi-zu-ka de i-e ga hi-ro-i de-su ga, ta-ho-o de shi-go-to ga su-ku-na-i de-su",
+     "native": "If anything, the countryside. On the one hand it's quiet and the houses are big, but on the other there are few jobs."
+    },
+    {
+     "speaker": "A",
+     "study": "確かにそうですが、今はリモートワークもありますよ。",
+     "reading": "たしかにそうですが、いまはりもーとわーくもありますよ。",
+     "phon": "ta-shi-ka ni so-o de-su ga, i-ma wa ri-mo-o-to-wa-a-ku mo a-ri-ma-su yo",
+     "native": "That's true, but these days there's remote work too."
+    },
+    {
+     "speaker": "B",
+     "study": "そうですね。でも、子供の学校が心配です。",
+     "reading": "そうですね。でも、こどものがっこうがしんぱいです。",
+     "phon": "so-o de-su ne. de-mo, ko-do-mo no gak-ko-o ga shi-n-pa-i de-su",
+     "native": "Yes. But I worry about the children's school."
+    },
+    {
+     "speaker": "A",
+     "study": "つまり、教育が一番大切だとお考えなんですね。",
+     "reading": "つまり、きょういくがいちばんたいせつだとおかんがえなんですね。",
+     "phon": "tsu-ma-ri, kyo-o-i-ku ga i-chi-ba-n ta-i-se-tsu da to o-ka-n-ga-e na-n de-su ne",
+     "native": "So if I understand you, you think education is the most important thing."
+    },
+    {
+     "speaker": "B",
+     "study": "はい。それに、病院も遠いです。",
+     "reading": "はい。それに、びょういんもとおいです。",
+     "phon": "ha-i. so-re ni, byo-o-i-n mo to-o-i de-su",
+     "native": "Yes. Besides, the hospital is far away too."
+    },
+    {
+     "speaker": "A",
+     "study": "私は前は都会に住んでいましたが、今は郊外です。両方のいいところがあります。",
+     "reading": "わたしはまえはとかいにすんでいましたが、いまはこうがいです。りょうほうのいいところがあります。",
+     "phon": "wa-ta-shi wa ma-e wa to-ka-i ni su-n-de i-ma-shi-ta ga, i-ma wa ko-o-ga-i de-su. ryo-o-ho-o no i-i to-ko-ro ga a-ri-ma-su",
+     "native": "I used to live in the city, but now I'm in the suburbs. You get the best of both."
+    },
+    {
+     "speaker": "B",
+     "study": "いいですね。まとめると、郊外が一番いいかもしれませんね。",
+     "reading": "いいですね。まとめると、こうがいがいちばんいいかもしれませんね。",
+     "phon": "i-i de-su ne. ma-to-me-ru to, ko-o-ga-i ga i-chi-ba-n i-i ka-mo shi-re-ma-se-n ne",
+     "native": "That's nice. To sum up, the suburbs might be the best option."
+    },
+    {
+     "speaker": "A",
+     "study": "そう思います。ところで、ご家族はお元気ですか。",
+     "reading": "そうおもいます。ところで、ごかぞくはおげんきですか。",
+     "phon": "so-o o-mo-i-ma-su. to-ko-ro de, go-ka-zo-ku wa o-ge-n-ki de-su ka",
+     "native": "I think so too. By the way, how is your family?"
+    },
+    {
+     "speaker": "B",
+     "study": "はい、おかげさまで。",
+     "reading": "はい、おかげさまで。",
+     "phon": "ha-i, o-ka-ge-sa-ma de",
+     "native": "Fine, thank you."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-ja-01",
+    "L3-en-ja-03",
+    "L4-en-ja-04",
+    "L5-en-ja-04",
+    "L5-en-ja-05",
+    "L6-en-ja-07",
+    "L9-en-ja-03",
+    "L9-en-ja-05",
+    "L10-en-ja-02",
+    "L10-en-ja-03",
+    "L10-en-ja-04",
+    "L10-en-ja-11"
+   ],
+   "roles": {
+    "A": "A friend",
+    "B": "You"
+   },
+   "learnerRole": "B"
+  },
+  {
+   "id": "L10-en-ja-d2",
+   "situation": "Telling about a trip, then taking leave",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "ポールさん、お久しぶりです。沖縄はどうでしたか。",
+     "reading": "ぽーるさん、おひさしぶりです。おきなわはどうでしたか。",
+     "phon": "po-o-ru-sa-n, o-hi-sa-shi-bu-ri de-su. o-ki-na-wa wa do-o de-shi-ta ka",
+     "native": "Paul, it's been a while! How was Okinawa?"
+    },
+    {
+     "speaker": "B",
+     "study": "最高でした。海がとてもきれいで、着いたとき、本当に嬉しかったです。",
+     "reading": "さいこうでした。うみがとてもきれいで、ついたとき、ほんとうにうれしかったです。",
+     "phon": "sa-i-ko-o de-shi-ta. u-mi ga to-te-mo ki-re-i de, tsu-i-ta to-ki, ho-n-to-o ni u-re-shi-kat-ta de-su",
+     "native": "It was wonderful. The sea was beautiful, and when I arrived, I was really happy."
+    },
+    {
+     "speaker": "A",
+     "study": "本当ですか。何日間行きましたか。",
+     "reading": "ほんとうですか。なんにちかんいきましたか。",
+     "phon": "ho-n-to-o de-su ka. na-n-ni-chi-ka-n i-ki-ma-shi-ta ka",
+     "native": "Really? How many days did you go for?"
+    },
+    {
+     "speaker": "B",
+     "study": "一週間です。まず那覇を見て、それから島に行きました。でも、台風が来たとき、とても心配しました。",
+     "reading": "いっしゅうかんです。まずなはをみて、それからしまにいきました。でも、たいふうがきたとき、とてもしんぱいしました。",
+     "phon": "is-shu-u-ka-n de-su. ma-zu na-ha o mi-te, so-re-ka-ra shi-ma ni i-ki-ma-shi-ta. de-mo, ta-i-fu-u ga ki-ta to-ki, to-te-mo shi-n-pa-i shi-ma-shi-ta",
+     "native": "One week. First I saw Naha, then I went to the islands. But when the typhoon came, I was very worried."
+    },
+    {
+     "speaker": "A",
+     "study": "大変でしたね。それで、どうしましたか。",
+     "reading": "たいへんでしたね。それで、どうしましたか。",
+     "phon": "ta-i-he-n de-shi-ta ne. so-re de, do-o shi-ma-shi-ta ka",
+     "native": "That must have been hard. So what did you do?"
+    },
+    {
+     "speaker": "B",
+     "study": "二日ホテルにいました。その後は天気が良くなりました。",
+     "reading": "ふつかほてるにいました。そのあとはてんきがよくなりました。",
+     "phon": "fu-tsu-ka ho-te-ru ni i-ma-shi-ta. so-no a-to wa te-n-ki ga yo-ku na-ri-ma-shi-ta",
+     "native": "I stayed in the hotel for two days. After that, the weather got better."
+    },
+    {
+     "speaker": "A",
+     "study": "良かったですね。私も来年行きたいです。",
+     "reading": "よかったですね。わたしもらいねんいきたいです。",
+     "phon": "yo-kat-ta de-su ne. wa-ta-shi mo ra-i-ne-n i-ki-ta-i de-su",
+     "native": "I'm glad. I'd like to go next year too."
+    },
+    {
+     "speaker": "B",
+     "study": "ぜひ。夏より秋の方がいいと思いますよ。台風が少ないからです。",
+     "reading": "ぜひ。なつよりあきのほうがいいとおもいますよ。たいふうがすくないからです。",
+     "phon": "ze-hi. na-tsu yo-ri a-ki no ho-o ga i-i to o-mo-i-ma-su yo. ta-i-fu-u ga su-ku-na-i ka-ra de-su",
+     "native": "Do! I think autumn is better than summer. Because there are fewer typhoons."
+    },
+    {
+     "speaker": "A",
+     "study": "分かりました。では、そろそろ失礼します。また近いうちに！",
+     "reading": "わかりました。では、そろそろしつれいします。またちかいうちに！",
+     "phon": "wa-ka-ri-ma-shi-ta. de wa, so-ro-so-ro shi-tsu-re-i shi-ma-su. ma-ta chi-ka-i u-chi ni",
+     "native": "All right. Well, it's about time I went. See you soon!"
+    },
+    {
+     "speaker": "B",
+     "study": "はい、また。良い週末を！",
+     "reading": "はい、また。よいしゅうまつを！",
+     "phon": "ha-i, ma-ta. yo-i shu-u-ma-tsu o",
+     "native": "Yes, see you. Have a good weekend!"
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L4-en-ja-04",
+    "L5-en-ja-02",
+    "L5-en-ja-05",
+    "L5-en-ja-07",
+    "L5-en-ja-10",
+    "L5-en-ja-11",
+    "L6-en-ja-07",
+    "L7-en-ja-06",
+    "L7-en-ja-07",
+    "L10-en-ja-05",
+    "L10-en-ja-06",
+    "L10-en-ja-07"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Paul"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L10-en-ja-d3",
+   "situation": "Work meeting: deciding",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "皆さん、今日の会議は新しい計画についてです。田中さんはどう思いますか。",
+     "reading": "みなさん、きょうのかいぎはあたらしいけいかくについてです。たなかさんはどうおもいますか。",
+     "phon": "mi-na-sa-n, kyo-o no ka-i-gi wa a-ta-ra-shi-i ke-i-ka-ku ni tsu-i-te de-su. ta-na-ka-sa-n wa do-o o-mo-i-ma-su ka",
+     "native": "Everyone, today's meeting is about the new project. Mr Tanaka, what do you think?"
+    },
+    {
+     "speaker": "B",
+     "study": "私は早く始めるべきだと思います。時間が足りないからです。",
+     "reading": "わたしははやくはじめるべきだとおもいます。じかんがたりないからです。",
+     "phon": "wa-ta-shi wa ha-ya-ku ha-ji-me-ru be-ki da to o-mo-i-ma-su. ji-ka-n ga ta-ri-na-i ka-ra de-su",
+     "native": "I think we should start quickly. Because there isn't enough time."
+    },
+    {
+     "speaker": "A",
+     "study": "確かにそうですが、予算の問題があります。",
+     "reading": "たしかにそうですが、よさんのもんだいがあります。",
+     "phon": "ta-shi-ka ni so-o de-su ga, yo-sa-n no mo-n-da-i ga a-ri-ma-su",
+     "native": "That's true, but there's a budget problem."
+    },
+    {
+     "speaker": "B",
+     "study": "つまり、お金が足りないとお考えなんですね。",
+     "reading": "つまり、おかねがたりないとおかんがえなんですね。",
+     "phon": "tsu-ma-ri, o-ka-ne ga ta-ri-na-i to o-ka-n-ga-e na-n de-su ne",
+     "native": "So if I understand you, you think there isn't enough money."
+    },
+    {
+     "speaker": "A",
+     "study": "はい。私が言いたいのは、まず小さく始めて、それから大きくするということです。",
+     "reading": "はい。わたしがいいたいのは、まずちいさくはじめて、それからおおきくするということです。",
+     "phon": "ha-i. wa-ta-shi ga i-i-ta-i no wa, ma-zu chi-i-sa-ku ha-ji-me-te, so-re-ka-ra o-o-ki-ku su-ru to i-u ko-to de-su",
+     "native": "Yes. What I mean is that we should start small, then scale up."
+    },
+    {
+     "speaker": "B",
+     "study": "心配なのは分かりますが、小さく始めると、時間がもっとかかると思います。",
+     "reading": "しんぱいなのはわかりますが、ちいさくはじめると、じかんがもっとかかるとおもいます。",
+     "phon": "shi-n-pa-i na no wa wa-ka-ri-ma-su ga, chi-i-sa-ku ha-ji-me-ru to, ji-ka-n ga mot-to ka-ka-ru to o-mo-i-ma-su",
+     "native": "I understand your concern, but if we start small, I think it will take more time."
+    },
+    {
+     "speaker": "A",
+     "study": "一部は賛成です。では、来月から始めて、三か月後にもう一度話しませんか。",
+     "reading": "いちぶはさんせいです。では、らいげつからはじめて、さんかげつごにもういちどはなしませんか。",
+     "phon": "i-chi-bu wa sa-n-se-i de-su. de wa, ra-i-ge-tsu ka-ra ha-ji-me-te, sa-n-ka-ge-tsu-go ni mo-o i-chi-do ha-na-shi-ma-se-n ka",
+     "native": "I partly agree. So, shall we start next month and talk again in three months?"
+    },
+    {
+     "speaker": "B",
+     "study": "いいですね。それなら大丈夫です。",
+     "reading": "いいですね。それならだいじょうぶです。",
+     "phon": "i-i de-su ne. so-re na-ra da-i-jo-o-bu de-su",
+     "native": "Sounds good. In that case, that's fine with me."
+    },
+    {
+     "speaker": "A",
+     "study": "まとめると、計画は来月から始めて、三か月後に見直します。",
+     "reading": "まとめると、けいかくはらいげつからはじめて、さんかげつごにみなおします。",
+     "phon": "ma-to-me-ru to, ke-i-ka-ku wa ra-i-ge-tsu ka-ra ha-ji-me-te, sa-n-ka-ge-tsu-go ni mi-na-o-shi-ma-su",
+     "native": "To sum up, the project starts next month and we'll review it in three months."
+    },
+    {
+     "speaker": "B",
+     "study": "はい、ありがとうございます。",
+     "reading": "はい、ありがとうございます。",
+     "phon": "ha-i, a-ri-ga-to-o go-za-i-ma-su",
+     "native": "Yes, thank you very much."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-ja-01",
+    "L3-en-ja-03",
+    "L4-en-ja-04",
+    "L5-en-ja-05",
+    "L6-en-ja-03",
+    "L7-en-ja-06",
+    "L7-en-ja-07",
+    "L9-en-ja-02",
+    "L10-en-ja-02",
+    "L10-en-ja-03",
+    "L10-en-ja-04",
+    "L10-en-ja-08"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Mr Tanaka"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Hold a long conversation: tell what happened with time markers and emotions (…たとき、嬉しかったです), weigh pros and cons (一方で…他方で), concede and counter-argue (確かにそうですが), rephrase the other person's view (…とお考えなんですね), conclude (まとめると), change the subject (ところで) and take leave warmly (では、そろそろ失礼します)."
+}

@@ -1,0 +1,1104 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "ja",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en japonais",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle",
+  "reading": "lecture en hiragana"
+ },
+ "phoneticConvention": "Syllable-by-syllable romaji for English readers, in the deck's style (so-o-de-su, ko-wa-i-de-su). Read each syllable as in Spanish or Italian: a as in 'father', i as in 'machine', u as in 'put', e as in 'bet', o as in 'go'. A long vowel is written twice (ko-o-hi-i, to-o-kyo-o); ん is its own beat written n (su-mi-ma-se-n, ko-n-ni-chi-wa); a doubled consonant closes the syllable before it (kip-pu, chot-to, kek-ko-o). The u of de-su / ma-su is almost silent ('dess', 'mass'); r is a light tap between r and l; g is always hard. The reading field gives the hiragana. Polite register (です / ます) throughout.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended; linguistic review required (naturalness of phrasing, kanji readings).",
+ "coverageClaim": null,
+ "level": 8,
+ "title": "Asking and negotiating",
+ "goal": "Ask politely, express a condition and negotiate simply.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L8-en-ja-01",
+   "situation": "Asking very politely (basic keigo)",
+   "model": {
+    "study": "{s}いただけますか。",
+    "phon": "{s} i-ta-da-ke-ma-su ka",
+    "native": "Could you possibly {s}?",
+    "reading": "{s}いただけますか。",
+    "note": "て-form + いただけますか: more polite than てもらえますか, for a stranger, a shopkeeper or a superior."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "少し安くして",
+      "phon": "su-ko-shi ya-su-ku shi-te",
+      "native": "lower the price a little",
+      "reading": "すこしやすくして"
+     },
+     "study": "少し安くしていただけますか。",
+     "phon": "su-ko-shi ya-su-ku shi-te i-ta-da-ke-ma-su ka",
+     "native": "Could you possibly lower the price a little?",
+     "reading": "すこしやすくしていただけますか。"
+    },
+    {
+     "slot": {
+      "study": "もう一度説明して",
+      "phon": "mo-o i-chi-do se-tsu-me-i shi-te",
+      "native": "explain it once more",
+      "reading": "もういちどせつめいして"
+     },
+     "study": "もう一度説明していただけますか。",
+     "phon": "mo-o i-chi-do se-tsu-me-i shi-te i-ta-da-ke-ma-su ka",
+     "native": "Could you possibly explain it once more?",
+     "reading": "もういちどせつめいしていただけますか。"
+    },
+    {
+     "slot": {
+      "study": "写真を撮って",
+      "phon": "sha-shi-n o tot-te",
+      "native": "take a photo",
+      "reading": "しゃしんをとって"
+     },
+     "study": "写真を撮っていただけますか。",
+     "phon": "sha-shi-n o tot-te i-ta-da-ke-ma-su ka",
+     "native": "Could you possibly take a photo?",
+     "reading": "しゃしんをとっていただけますか。"
+    },
+    {
+     "slot": {
+      "study": "道を教えて",
+      "phon": "mi-chi o o-shi-e-te",
+      "native": "tell me the way",
+      "reading": "みちをおしえて"
+     },
+     "study": "道を教えていただけますか。",
+     "phon": "mi-chi o o-shi-e-te i-ta-da-ke-ma-su ka",
+     "native": "Could you possibly tell me the way?",
+     "reading": "みちをおしえていただけますか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-ja-02",
+   "situation": "Condition: if…, I'll buy it",
+   "model": {
+    "study": "{s}たら、買います。",
+    "phon": "{s}-ta-ra, ka-i-ma-su",
+    "native": "{s}, I'll buy it.",
+    "reading": "{s}たら、かいます。",
+    "note": "た-form + ら: a condition, or 'when'. The chunk stops just before たら."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "安かっ",
+      "phon": "ya-su-kat",
+      "native": "If it's cheaper",
+      "reading": "やすかっ"
+     },
+     "study": "安かったら、買います。",
+     "phon": "ya-su-kat-ta-ra, ka-i-ma-su",
+     "native": "If it's cheaper, I'll buy it.",
+     "reading": "やすかったら、かいます。"
+    },
+    {
+     "slot": {
+      "study": "割引があっ",
+      "phon": "wa-ri-bi-ki ga at",
+      "native": "If there's a discount",
+      "reading": "わりびきがあっ"
+     },
+     "study": "割引があったら、買います。",
+     "phon": "wa-ri-bi-ki ga at-ta-ra, ka-i-ma-su",
+     "native": "If there's a discount, I'll buy it.",
+     "reading": "わりびきがあったら、かいます。"
+    },
+    {
+     "slot": {
+      "study": "サイズがあっ",
+      "phon": "sa-i-zu ga at",
+      "native": "If you have my size",
+      "reading": "さいずがあっ"
+     },
+     "study": "サイズがあったら、買います。",
+     "phon": "sa-i-zu ga at-ta-ra, ka-i-ma-su",
+     "native": "If you have my size, I'll buy it.",
+     "reading": "さいずがあったら、かいます。"
+    },
+    {
+     "slot": {
+      "study": "配達でき",
+      "phon": "ha-i-ta-tsu de-ki",
+      "native": "If you can deliver",
+      "reading": "はいたつでき"
+     },
+     "study": "配達できたら、買います。",
+     "phon": "ha-i-ta-tsu de-ki-ta-ra, ka-i-ma-su",
+     "native": "If you can deliver, I'll buy it.",
+     "reading": "はいたつできたら、かいます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-ja-03",
+   "situation": "Condition: when…, I'll call you",
+   "model": {
+    "study": "{s}たら、電話します。",
+    "phon": "{s}-ta-ra, de-n-wa shi-ma-su",
+    "native": "{s}, I'll call you.",
+    "reading": "{s}たら、でんわします。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "着い",
+      "phon": "tsu-i",
+      "native": "When I arrive",
+      "reading": "つい"
+     },
+     "study": "着いたら、電話します。",
+     "phon": "tsu-i-ta-ra, de-n-wa shi-ma-su",
+     "native": "When I arrive, I'll call you.",
+     "reading": "ついたら、でんわします。"
+    },
+    {
+     "slot": {
+      "study": "終わっ",
+      "phon": "o-wat",
+      "native": "When I've finished",
+      "reading": "おわっ"
+     },
+     "study": "終わったら、電話します。",
+     "phon": "o-wat-ta-ra, de-n-wa shi-ma-su",
+     "native": "When I've finished, I'll call you.",
+     "reading": "おわったら、でんわします。"
+    },
+    {
+     "slot": {
+      "study": "分かっ",
+      "phon": "wa-kat",
+      "native": "Once I know",
+      "reading": "わかっ"
+     },
+     "study": "分かったら、電話します。",
+     "phon": "wa-kat-ta-ra, de-n-wa shi-ma-su",
+     "native": "Once I know, I'll call you.",
+     "reading": "わかったら、でんわします。"
+    },
+    {
+     "slot": {
+      "study": "時間があっ",
+      "phon": "ji-ka-n ga at",
+      "native": "If I have time",
+      "reading": "じかんがあっ"
+     },
+     "study": "時間があったら、電話します。",
+     "phon": "ji-ka-n ga at-ta-ra, de-n-wa shi-ma-su",
+     "native": "If I have time, I'll call you.",
+     "reading": "じかんがあったら、でんわします。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-ja-04",
+   "situation": "Asking whether it's possible",
+   "model": {
+    "study": "{s}ことはできますか。",
+    "phon": "{s} ko-to wa de-ki-ma-su ka",
+    "native": "Is it possible to {s}?",
+    "reading": "{s}ことはできますか。",
+    "note": "Dictionary form of the verb + ことはできますか."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "予約を変える",
+      "phon": "yo-ya-ku o ka-e-ru",
+      "native": "change the booking",
+      "reading": "よやくをかえる"
+     },
+     "study": "予約を変えることはできますか。",
+     "phon": "yo-ya-ku o ka-e-ru ko-to wa de-ki-ma-su ka",
+     "native": "Is it possible to change the booking?",
+     "reading": "よやくをかえることはできますか。"
+    },
+    {
+     "slot": {
+      "study": "返品する",
+      "phon": "he-n-pi-n su-ru",
+      "native": "return the item",
+      "reading": "へんぴんする"
+     },
+     "study": "返品することはできますか。",
+     "phon": "he-n-pi-n su-ru ko-to wa de-ki-ma-su ka",
+     "native": "Is it possible to return the item?",
+     "reading": "へんぴんすることはできますか。"
+    },
+    {
+     "slot": {
+      "study": "カードで払う",
+      "phon": "ka-a-do de ha-ra-u",
+      "native": "pay by card",
+      "reading": "かーどではらう"
+     },
+     "study": "カードで払うことはできますか。",
+     "phon": "ka-a-do de ha-ra-u ko-to wa de-ki-ma-su ka",
+     "native": "Is it possible to pay by card?",
+     "reading": "かーどではらうことはできますか。"
+    },
+    {
+     "slot": {
+      "study": "来週払う",
+      "phon": "ra-i-shu-u ha-ra-u",
+      "native": "pay next week",
+      "reading": "らいしゅうはらう"
+     },
+     "study": "来週払うことはできますか。",
+     "phon": "ra-i-shu-u ha-ra-u ko-to wa de-ki-ma-su ka",
+     "native": "Is it possible to pay next week?",
+     "reading": "らいしゅうはらうことはできますか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-ja-05",
+   "situation": "Accepting on a condition",
+   "model": {
+    "study": "はい、でも{s}なら。",
+    "phon": "ha-i, de-mo {s} na-ra",
+    "native": "Yes, but only {s}.",
+    "reading": "はい、でも{s}なら。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "現金",
+      "phon": "ge-n-ki-n",
+      "native": "in cash",
+      "reading": "げんきん"
+     },
+     "study": "はい、でも現金なら。",
+     "phon": "ha-i, de-mo ge-n-ki-n na-ra",
+     "native": "Yes, but only in cash.",
+     "reading": "はい、でもげんきんなら。"
+    },
+    {
+     "slot": {
+      "study": "今日中",
+      "phon": "kyo-o-ju-u",
+      "native": "today",
+      "reading": "きょうじゅう"
+     },
+     "study": "はい、でも今日中なら。",
+     "phon": "ha-i, de-mo kyo-o-ju-u na-ra",
+     "native": "Yes, but only today.",
+     "reading": "はい、でもきょうじゅうなら。"
+    },
+    {
+     "slot": {
+      "study": "二つ",
+      "phon": "fu-ta-tsu",
+      "native": "for two",
+      "reading": "ふたつ"
+     },
+     "study": "はい、でも二つなら。",
+     "phon": "ha-i, de-mo fu-ta-tsu na-ra",
+     "native": "Yes, but only for two.",
+     "reading": "はい、でもふたつなら。"
+    },
+    {
+     "slot": {
+      "study": "来月",
+      "phon": "ra-i-ge-tsu",
+      "native": "next month",
+      "reading": "らいげつ"
+     },
+     "study": "はい、でも来月なら。",
+     "phon": "ha-i, de-mo ra-i-ge-tsu na-ra",
+     "native": "Yes, but only next month.",
+     "reading": "はい、でもらいげつなら。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-ja-06",
+   "situation": "Declining with a reason",
+   "model": {
+    "study": "すみません、{s}ので、できません。",
+    "phon": "su-mi-ma-se-n, {s} no-de, de-ki-ma-se-n",
+    "native": "Sorry, {s}, so that's not possible.",
+    "reading": "すみません、{s}ので、できません。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "規則です",
+      "phon": "ki-so-ku de-su",
+      "native": "it's the rules",
+      "reading": "きそくです"
+     },
+     "study": "すみません、規則ですので、できません。",
+     "phon": "su-mi-ma-se-n, ki-so-ku de-su no-de, de-ki-ma-se-n",
+     "native": "Sorry, it's the rules, so that's not possible.",
+     "reading": "すみません、きそくですので、できません。"
+    },
+    {
+     "slot": {
+      "study": "時間がない",
+      "phon": "ji-ka-n ga na-i",
+      "native": "I don't have time",
+      "reading": "じかんがない"
+     },
+     "study": "すみません、時間がないので、できません。",
+     "phon": "su-mi-ma-se-n, ji-ka-n ga na-i no-de, de-ki-ma-se-n",
+     "native": "Sorry, I don't have time, so that's not possible.",
+     "reading": "すみません、じかんがないので、できません。"
+    },
+    {
+     "slot": {
+      "study": "在庫がない",
+      "phon": "za-i-ko ga na-i",
+      "native": "it's out of stock",
+      "reading": "ざいこがない"
+     },
+     "study": "すみません、在庫がないので、できません。",
+     "phon": "su-mi-ma-se-n, za-i-ko ga na-i no-de, de-ki-ma-se-n",
+     "native": "Sorry, it's out of stock, so that's not possible.",
+     "reading": "すみません、ざいこがないので、できません。"
+    },
+    {
+     "slot": {
+      "study": "予算がない",
+      "phon": "yo-sa-n ga na-i",
+      "native": "I don't have the budget",
+      "reading": "よさんがない"
+     },
+     "study": "すみません、予算がないので、できません。",
+     "phon": "su-mi-ma-se-n, yo-sa-n ga na-i no-de, de-ki-ma-se-n",
+     "native": "Sorry, I don't have the budget, so that's not possible.",
+     "reading": "すみません、よさんがないので、できません。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-ja-07",
+   "situation": "Apologising and putting it right",
+   "model": {
+    "study": "すみません、すぐ{s}。",
+    "phon": "su-mi-ma-se-n, su-gu {s}",
+    "native": "Sorry, I'll {s} right away.",
+    "reading": "すみません、すぐ{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "直します",
+      "phon": "na-o-shi-ma-su",
+      "native": "fix it",
+      "reading": "なおします"
+     },
+     "study": "すみません、すぐ直します。",
+     "phon": "su-mi-ma-se-n, su-gu na-o-shi-ma-su",
+     "native": "Sorry, I'll fix it right away.",
+     "reading": "すみません、すぐなおします。"
+    },
+    {
+     "slot": {
+      "study": "持ってきます",
+      "phon": "mot-te ki-ma-su",
+      "native": "bring it",
+      "reading": "もってきます"
+     },
+     "study": "すみません、すぐ持ってきます。",
+     "phon": "su-mi-ma-se-n, su-gu mot-te ki-ma-su",
+     "native": "Sorry, I'll bring it right away.",
+     "reading": "すみません、すぐもってきます。"
+    },
+    {
+     "slot": {
+      "study": "確認します",
+      "phon": "ka-ku-ni-n shi-ma-su",
+      "native": "check",
+      "reading": "かくにんします"
+     },
+     "study": "すみません、すぐ確認します。",
+     "phon": "su-mi-ma-se-n, su-gu ka-ku-ni-n shi-ma-su",
+     "native": "Sorry, I'll check right away.",
+     "reading": "すみません、すぐかくにんします。"
+    },
+    {
+     "slot": {
+      "study": "片付けます",
+      "phon": "ka-ta-zu-ke-ma-su",
+      "native": "tidy up",
+      "reading": "かたづけます"
+     },
+     "study": "すみません、すぐ片付けます。",
+     "phon": "su-mi-ma-se-n, su-gu ka-ta-zu-ke-ma-su",
+     "native": "Sorry, I'll tidy up right away.",
+     "reading": "すみません、すぐかたづけます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-ja-08",
+   "situation": "Asking for more time",
+   "model": {
+    "study": "{s}まで待っていただけますか。",
+    "phon": "{s} ma-de mat-te i-ta-da-ke-ma-su ka",
+    "native": "Could you wait until {s}?",
+    "reading": "{s}までまっていただけますか。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "来週",
+      "phon": "ra-i-shu-u",
+      "native": "next week",
+      "reading": "らいしゅう"
+     },
+     "study": "来週まで待っていただけますか。",
+     "phon": "ra-i-shu-u ma-de mat-te i-ta-da-ke-ma-su ka",
+     "native": "Could you wait until next week?",
+     "reading": "らいしゅうまでまっていただけますか。"
+    },
+    {
+     "slot": {
+      "study": "金曜日",
+      "phon": "ki-n-yo-o-bi",
+      "native": "Friday",
+      "reading": "きんようび"
+     },
+     "study": "金曜日まで待っていただけますか。",
+     "phon": "ki-n-yo-o-bi ma-de mat-te i-ta-da-ke-ma-su ka",
+     "native": "Could you wait until Friday?",
+     "reading": "きんようびまでまっていただけますか。"
+    },
+    {
+     "slot": {
+      "study": "月末",
+      "phon": "ge-tsu-ma-tsu",
+      "native": "the end of the month",
+      "reading": "げつまつ"
+     },
+     "study": "月末まで待っていただけますか。",
+     "phon": "ge-tsu-ma-tsu ma-de mat-te i-ta-da-ke-ma-su ka",
+     "native": "Could you wait until the end of the month?",
+     "reading": "げつまつまでまっていただけますか。"
+    },
+    {
+     "slot": {
+      "study": "明日の朝",
+      "phon": "a-shi-ta no a-sa",
+      "native": "tomorrow morning",
+      "reading": "あしたのあさ"
+     },
+     "study": "明日の朝まで待っていただけますか。",
+     "phon": "a-shi-ta no a-sa ma-de mat-te i-ta-da-ke-ma-su ka",
+     "native": "Could you wait until tomorrow morning?",
+     "reading": "あしたのあさまでまっていただけますか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-ja-09",
+   "situation": "Asking for something politely",
+   "model": {
+    "study": "{s}をお願いできますか。",
+    "phon": "{s} o o-ne-ga-i de-ki-ma-su ka",
+    "native": "Could I ask you for {s}?",
+    "reading": "{s}をおねがいできますか。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "領収書",
+      "phon": "ryo-o-shu-u-sho",
+      "native": "a receipt",
+      "reading": "りょうしゅうしょ"
+     },
+     "study": "領収書をお願いできますか。",
+     "phon": "ryo-o-shu-u-sho o o-ne-ga-i de-ki-ma-su ka",
+     "native": "Could I ask you for a receipt?",
+     "reading": "りょうしゅうしょをおねがいできますか。"
+    },
+    {
+     "slot": {
+      "study": "割引",
+      "phon": "wa-ri-bi-ki",
+      "native": "a discount",
+      "reading": "わりびき"
+     },
+     "study": "割引をお願いできますか。",
+     "phon": "wa-ri-bi-ki o o-ne-ga-i de-ki-ma-su ka",
+     "native": "Could I ask you for a discount?",
+     "reading": "わりびきをおねがいできますか。"
+    },
+    {
+     "slot": {
+      "study": "配達",
+      "phon": "ha-i-ta-tsu",
+      "native": "delivery",
+      "reading": "はいたつ"
+     },
+     "study": "配達をお願いできますか。",
+     "phon": "ha-i-ta-tsu o o-ne-ga-i de-ki-ma-su ka",
+     "native": "Could I ask you for delivery?",
+     "reading": "はいたつをおねがいできますか。"
+    },
+    {
+     "slot": {
+      "study": "予約の変更",
+      "phon": "yo-ya-ku no he-n-ko-o",
+      "native": "a change of booking",
+      "reading": "よやくのへんこう"
+     },
+     "study": "予約の変更をお願いできますか。",
+     "phon": "yo-ya-ku no he-n-ko-o o o-ne-ga-i de-ki-ma-su ka",
+     "native": "Could I ask you for a change of booking?",
+     "reading": "よやくのへんこうをおねがいできますか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-ja-10",
+   "situation": "With the neighbours: asking to turn it down",
+   "model": {
+    "study": "{s}をもう少し小さくしていただけますか。",
+    "phon": "{s} o mo-o su-ko-shi chi-i-sa-ku shi-te i-ta-da-ke-ma-su ka",
+    "native": "Could you turn {s} down a little?",
+    "reading": "{s}をもうすこしちいさくしていただけますか。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "音",
+      "phon": "o-to",
+      "native": "the sound",
+      "reading": "おと"
+     },
+     "study": "音をもう少し小さくしていただけますか。",
+     "phon": "o-to o mo-o su-ko-shi chi-i-sa-ku shi-te i-ta-da-ke-ma-su ka",
+     "native": "Could you turn the sound down a little?",
+     "reading": "おとをもうすこしちいさくしていただけますか。"
+    },
+    {
+     "slot": {
+      "study": "テレビの音",
+      "phon": "te-re-bi no o-to",
+      "native": "the TV",
+      "reading": "てれびのおと"
+     },
+     "study": "テレビの音をもう少し小さくしていただけますか。",
+     "phon": "te-re-bi no o-to o mo-o su-ko-shi chi-i-sa-ku shi-te i-ta-da-ke-ma-su ka",
+     "native": "Could you turn the TV down a little?",
+     "reading": "てれびのおとをもうすこしちいさくしていただけますか。"
+    },
+    {
+     "slot": {
+      "study": "音楽",
+      "phon": "o-n-ga-ku",
+      "native": "the music",
+      "reading": "おんがく"
+     },
+     "study": "音楽をもう少し小さくしていただけますか。",
+     "phon": "o-n-ga-ku o mo-o su-ko-shi chi-i-sa-ku shi-te i-ta-da-ke-ma-su ka",
+     "native": "Could you turn the music down a little?",
+     "reading": "おんがくをもうすこしちいさくしていただけますか。"
+    },
+    {
+     "slot": {
+      "study": "声",
+      "phon": "ko-e",
+      "native": "your voice",
+      "reading": "こえ"
+     },
+     "study": "声をもう少し小さくしていただけますか。",
+     "phon": "ko-e o mo-o su-ko-shi chi-i-sa-ku shi-te i-ta-da-ke-ma-su ka",
+     "native": "Could you keep your voice down a little?",
+     "reading": "こえをもうすこしちいさくしていただけますか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-ja-11",
+   "situation": "Negotiating a price",
+   "model": {
+    "study": "{s}円にしていただけませんか。",
+    "phon": "{s} e-n ni shi-te i-ta-da-ke-ma-se-n ka",
+    "native": "Could you make it {s} yen?",
+    "reading": "{s}えんにしていただけませんか。",
+    "note": "ていただけませんか (negative) is a little softer still than ていただけますか."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "五千",
+      "phon": "go-se-n",
+      "native": "five thousand",
+      "reading": "ごせん"
+     },
+     "study": "五千円にしていただけませんか。",
+     "phon": "go-se-n e-n ni shi-te i-ta-da-ke-ma-se-n ka",
+     "native": "Could you make it five thousand yen?",
+     "reading": "ごせんえんにしていただけませんか。"
+    },
+    {
+     "slot": {
+      "study": "八千",
+      "phon": "has-se-n",
+      "native": "eight thousand",
+      "reading": "はっせん"
+     },
+     "study": "八千円にしていただけませんか。",
+     "phon": "has-se-n e-n ni shi-te i-ta-da-ke-ma-se-n ka",
+     "native": "Could you make it eight thousand yen?",
+     "reading": "はっせんえんにしていただけませんか。"
+    },
+    {
+     "slot": {
+      "study": "千",
+      "phon": "se-n",
+      "native": "one thousand",
+      "reading": "せん"
+     },
+     "study": "千円にしていただけませんか。",
+     "phon": "se-n e-n ni shi-te i-ta-da-ke-ma-se-n ka",
+     "native": "Could you make it one thousand yen?",
+     "reading": "せんえんにしていただけませんか。"
+    },
+    {
+     "slot": {
+      "study": "二万",
+      "phon": "ni-ma-n",
+      "native": "twenty thousand",
+      "reading": "にまん"
+     },
+     "study": "二万円にしていただけませんか。",
+     "phon": "ni-ma-n e-n ni shi-te i-ta-da-ke-ma-se-n ka",
+     "native": "Could you make it twenty thousand yen?",
+     "reading": "にまんえんにしていただけませんか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-ja-12",
+   "situation": "At work: asking permission",
+   "model": {
+    "study": "{s}もいいですか。",
+    "phon": "{s} mo i-i de-su ka",
+    "native": "May I {s}?",
+    "reading": "{s}もいいですか。",
+    "note": "て-form (or で) + もいいですか: asking permission. The て/で-form is part of the chunk."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "早く帰って",
+      "phon": "ha-ya-ku ka-et-te",
+      "native": "leave early",
+      "reading": "はやくかえって"
+     },
+     "study": "早く帰ってもいいですか。",
+     "phon": "ha-ya-ku ka-et-te mo i-i de-su ka",
+     "native": "May I leave early?",
+     "reading": "はやくかえってもいいですか。"
+    },
+    {
+     "slot": {
+      "study": "明日休んで",
+      "phon": "a-shi-ta ya-su-n-de",
+      "native": "take tomorrow off",
+      "reading": "あしたやすんで"
+     },
+     "study": "明日休んでもいいですか。",
+     "phon": "a-shi-ta ya-su-n-de mo i-i de-su ka",
+     "native": "May I take tomorrow off?",
+     "reading": "あしたやすんでもいいですか。"
+    },
+    {
+     "slot": {
+      "study": "ここに座って",
+      "phon": "ko-ko ni su-wat-te",
+      "native": "sit here",
+      "reading": "ここにすわって"
+     },
+     "study": "ここに座ってもいいですか。",
+     "phon": "ko-ko ni su-wat-te mo i-i de-su ka",
+     "native": "May I sit here?",
+     "reading": "ここにすわってもいいですか。"
+    },
+    {
+     "slot": {
+      "study": "窓を開けて",
+      "phon": "ma-do o a-ke-te",
+      "native": "open the window",
+      "reading": "まどをあけて"
+     },
+     "study": "窓を開けてもいいですか。",
+     "phon": "ma-do o a-ke-te mo i-i de-su ka",
+     "native": "May I open the window?",
+     "reading": "まどをあけてもいいですか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L8-en-ja-d1",
+   "situation": "In the shop: negotiating",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "すみません、このテレビはいくらですか。",
+     "reading": "すみません、このてれびはいくらですか。",
+     "phon": "su-mi-ma-se-n, ko-no te-re-bi wa i-ku-ra de-su ka",
+     "native": "Excuse me, how much is this TV?"
+    },
+    {
+     "speaker": "B",
+     "study": "八万円です。",
+     "reading": "はちまんえんです。",
+     "phon": "ha-chi-ma-n e-n de-su",
+     "native": "Eighty thousand yen."
+    },
+    {
+     "speaker": "A",
+     "study": "少し高いですね。少し安くしていただけますか。",
+     "reading": "すこしたかいですね。すこしやすくしていただけますか。",
+     "phon": "su-ko-shi ta-ka-i de-su ne. su-ko-shi ya-su-ku shi-te i-ta-da-ke-ma-su ka",
+     "native": "That's a bit expensive. Could you lower the price a little?"
+    },
+    {
+     "speaker": "B",
+     "study": "うーん、現金なら、七万五千円にできます。",
+     "reading": "うーん、げんきんなら、ななまんごせんえんにできます。",
+     "phon": "u-u-n, ge-n-ki-n na-ra, na-na-ma-n-go-se-n e-n ni de-ki-ma-su",
+     "native": "Hmm, in cash, I can make it seventy-five thousand yen."
+    },
+    {
+     "speaker": "A",
+     "study": "配達することはできますか。",
+     "reading": "はいたつすることはできますか。",
+     "phon": "ha-i-ta-tsu su-ru ko-to wa de-ki-ma-su ka",
+     "native": "Is it possible to have it delivered?"
+    },
+    {
+     "speaker": "B",
+     "study": "はい、でも配達は来週なら大丈夫です。",
+     "reading": "はい、でもはいたつはらいしゅうならだいじょうぶです。",
+     "phon": "ha-i, de-mo ha-i-ta-tsu wa ra-i-shu-u na-ra da-i-jo-o-bu de-su",
+     "native": "Yes, but delivery is only possible next week."
+    },
+    {
+     "speaker": "A",
+     "study": "分かりました。じゃあ、それでお願いします。",
+     "reading": "わかりました。じゃあ、それでおねがいします。",
+     "phon": "wa-ka-ri-ma-shi-ta. ja-a, so-re de o-ne-ga-i shi-ma-su",
+     "native": "All right. Then I'll go with that."
+    },
+    {
+     "speaker": "B",
+     "study": "ありがとうございます。領収書をどうぞ。",
+     "reading": "ありがとうございます。りょうしゅうしょをどうぞ。",
+     "phon": "a-ri-ga-to-o go-za-i-ma-su. ryo-o-shu-u-sho o do-o-zo",
+     "native": "Thank you very much. Here's your receipt."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-ja-10",
+    "L2-en-ja-10",
+    "L4-en-ja-04",
+    "L6-en-ja-09",
+    "L8-en-ja-01",
+    "L8-en-ja-04",
+    "L8-en-ja-05"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Shop assistant"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L8-en-ja-d2",
+   "situation": "With the landlord",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "すみません、大家さん、お風呂のお湯が出ません。",
+     "reading": "すみません、おおやさん、おふろのおゆがでません。",
+     "phon": "su-mi-ma-se-n, o-o-ya-sa-n, o-fu-ro no o-yu ga de-ma-se-n",
+     "native": "Excuse me, sir, there's no hot water in the bathroom."
+    },
+    {
+     "speaker": "B",
+     "study": "すみません、すぐ確認します。いつがいいですか。",
+     "reading": "すみません、すぐかくにんします。いつがいいですか。",
+     "phon": "su-mi-ma-se-n, su-gu ka-ku-ni-n shi-ma-su. i-tsu ga i-i de-su ka",
+     "native": "Sorry, I'll check right away. When would suit you?"
+    },
+    {
+     "speaker": "A",
+     "study": "今日の午後、来ていただけますか。",
+     "reading": "きょうのごご、きていただけますか。",
+     "phon": "kyo-o no go-go, ki-te i-ta-da-ke-ma-su ka",
+     "native": "Could you come this afternoon?"
+    },
+    {
+     "speaker": "B",
+     "study": "今日はちょっと無理ですが、明日の朝なら行けます。",
+     "reading": "きょうはちょっとむりですが、あしたのあさならいけます。",
+     "phon": "kyo-o wa chot-to mu-ri de-su ga, a-shi-ta no a-sa na-ra i-ke-ma-su",
+     "native": "Today is a bit difficult, but I can come tomorrow morning."
+    },
+    {
+     "speaker": "A",
+     "study": "分かりました。明日の朝お願いします。",
+     "reading": "わかりました。あしたのあさおねがいします。",
+     "phon": "wa-ka-ri-ma-shi-ta. a-shi-ta no a-sa o-ne-ga-i shi-ma-su",
+     "native": "All right. Tomorrow morning, please."
+    },
+    {
+     "speaker": "B",
+     "study": "はい、九時に行きます。着いたら、電話します。",
+     "reading": "はい、くじにいきます。ついたら、でんわします。",
+     "phon": "ha-i, ku-ji ni i-ki-ma-su. tsu-i-ta-ra, de-n-wa shi-ma-su",
+     "native": "Yes, I'll come at nine. When I arrive, I'll call you."
+    },
+    {
+     "speaker": "A",
+     "study": "ありがとうございます。それから、家賃は来週払ってもいいですか。",
+     "reading": "ありがとうございます。それから、やちんはらいしゅうはらってもいいですか。",
+     "phon": "a-ri-ga-to-o go-za-i-ma-su. so-re-ka-ra, ya-chi-n wa ra-i-shu-u ha-rat-te mo i-i de-su ka",
+     "native": "Thank you. Also, may I pay the rent next week?"
+    },
+    {
+     "speaker": "B",
+     "study": "はい、金曜日までなら大丈夫です。",
+     "reading": "はい、きんようびまでならだいじょうぶです。",
+     "phon": "ha-i, ki-n-yo-o-bi ma-de na-ra da-i-jo-o-bu de-su",
+     "native": "Yes, but only until Friday."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-ja-06",
+    "L2-en-ja-10",
+    "L4-en-ja-04",
+    "L6-en-ja-06",
+    "L6-en-ja-12",
+    "L8-en-ja-01",
+    "L8-en-ja-03",
+    "L8-en-ja-07",
+    "L8-en-ja-12"
+   ],
+   "roles": {
+    "A": "Tenant",
+    "B": "Landlord"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L8-en-ja-d3",
+   "situation": "At work: asking for more time",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "田中さん、報告書は今日中にできますか。",
+     "reading": "たなかさん、ほうこくしょはきょうじゅうにできますか。",
+     "phon": "ta-na-ka-sa-n, ho-o-ko-ku-sho wa kyo-o-ju-u ni de-ki-ma-su ka",
+     "native": "Mr Tanaka, can the report be done today?"
+    },
+    {
+     "speaker": "B",
+     "study": "すみません、今日はちょっと難しいです。明日の朝まで待っていただけますか。",
+     "reading": "すみません、きょうはちょっとむずかしいです。あしたのあさまでまっていただけますか。",
+     "phon": "su-mi-ma-se-n, kyo-o wa chot-to mu-zu-ka-shi-i de-su. a-shi-ta no a-sa ma-de mat-te i-ta-da-ke-ma-su ka",
+     "native": "Sorry, today is a bit difficult. Could you wait until tomorrow morning?"
+    },
+    {
+     "speaker": "A",
+     "study": "うーん、明日の朝なら大丈夫です。でも、十時までにお願いします。",
+     "reading": "うーん、あしたのあさならだいじょうぶです。でも、じゅうじまでにおねがいします。",
+     "phon": "u-u-n, a-shi-ta no a-sa na-ra da-i-jo-o-bu de-su. de-mo, ju-u-ji ma-de ni o-ne-ga-i shi-ma-su",
+     "native": "Hmm, tomorrow morning is fine. But by ten o'clock, please."
+    },
+    {
+     "speaker": "B",
+     "study": "はい、分かりました。終わったら、すぐメールします。",
+     "reading": "はい、わかりました。おわったら、すぐめーるします。",
+     "phon": "ha-i, wa-ka-ri-ma-shi-ta. o-wat-ta-ra, su-gu me-e-ru shi-ma-su",
+     "native": "Yes, understood. When I've finished, I'll email you right away."
+    },
+    {
+     "speaker": "A",
+     "study": "お願いします。",
+     "reading": "おねがいします。",
+     "phon": "o-ne-ga-i shi-ma-su",
+     "native": "Thank you."
+    },
+    {
+     "speaker": "B",
+     "study": "それから、金曜日に休んでもいいですか。",
+     "reading": "それから、きんようびにやすんでもいいですか。",
+     "phon": "so-re-ka-ra, ki-n-yo-o-bi ni ya-su-n-de mo i-i de-su ka",
+     "native": "Also, may I take Friday off?"
+    },
+    {
+     "speaker": "A",
+     "study": "はい、でも木曜日までに報告書が終わるなら。",
+     "reading": "はい、でももくようびまでにほうこくしょがおわるなら。",
+     "phon": "ha-i, de-mo mo-ku-yo-o-bi ma-de ni ho-o-ko-ku-sho ga o-wa-ru na-ra",
+     "native": "Yes, but only if the report is finished by Thursday."
+    },
+    {
+     "speaker": "B",
+     "study": "はい、終わります。ありがとうございます。",
+     "reading": "はい、おわります。ありがとうございます。",
+     "phon": "ha-i, o-wa-ri-ma-su. a-ri-ga-to-o go-za-i-ma-su",
+     "native": "Yes, it will be. Thank you very much."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L2-en-ja-10",
+    "L4-en-ja-04",
+    "L8-en-ja-01",
+    "L8-en-ja-05",
+    "L8-en-ja-08",
+    "L8-en-ja-12"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Mr Tanaka"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Ask politely with basic keigo (ていただけますか, をお願いできますか), express a condition (たら, なら), ask for a discount, more time or permission (てもいいですか), accept on a condition, decline with a reason (ので、できません) and apologise while putting things right (すみません、すぐ…ます)."
+}

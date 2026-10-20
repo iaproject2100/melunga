@@ -1,0 +1,965 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "it",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en italien",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximate respelling for English readers (CAPITALS = stressed syllable; vowels ah / eh / ee / oh / oo; c+e/i → ch, g+e/i → j, gn → ny, gl → ly, sc+e/i → sh, z → ts / dz; double consonants held longer, e.g. kaf-FEH). No substitute for the audio.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended.",
+ "coverageClaim": null,
+ "level": 5,
+ "title": "Telling what happened",
+ "goal": "Tell about a past event and ask for news.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L5-en-it-01",
+   "situation": "Yesterday",
+   "model": {
+    "study": "Ieri ho {s}.",
+    "phon": "YEH-ree oh {s}",
+    "native": "Yesterday I {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "lavorato tutto il giorno",
+      "phon": "lah-voh-RAH-toh TOOT-toh eel JOR-noh",
+      "native": "worked all day"
+     },
+     "study": "Ieri ho lavorato tutto il giorno.",
+     "phon": "YEH-ree oh lah-voh-RAH-toh TOOT-toh eel JOR-noh",
+     "native": "Yesterday I worked all day."
+    },
+    {
+     "slot": {
+      "study": "mangiato una pizza",
+      "phon": "mahn-JAH-toh OO-nah PEET-tsah",
+      "native": "had a pizza"
+     },
+     "study": "Ieri ho mangiato una pizza.",
+     "phon": "YEH-ree oh mahn-JAH-toh OO-nah PEET-tsah",
+     "native": "Yesterday I had a pizza."
+    },
+    {
+     "slot": {
+      "study": "visto un film",
+      "phon": "VEES-toh oon FEELM",
+      "native": "watched a film"
+     },
+     "study": "Ieri ho visto un film.",
+     "phon": "YEH-ree oh VEES-toh oon FEELM",
+     "native": "Yesterday I watched a film."
+    },
+    {
+     "slot": {
+      "study": "dormito poco",
+      "phon": "dor-MEE-toh POH-koh",
+      "native": "didn't sleep much"
+     },
+     "study": "Ieri ho dormito poco.",
+     "phon": "YEH-ree oh dor-MEE-toh POH-koh",
+     "native": "Yesterday I didn't sleep much."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-it-02",
+   "situation": "Saying where you went",
+   "model": {
+    "study": "Sono andato {s}.",
+    "phon": "SOH-noh ahn-DAH-toh {s}",
+    "native": "I went {s}.",
+    "note": "A woman says \"Sono andata\" (ahn-DAH-tah): with \"essere\", the past participle agrees with the subject."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "al mare",
+      "phon": "ahl MAH-reh",
+      "native": "to the seaside"
+     },
+     "study": "Sono andato al mare.",
+     "phon": "SOH-noh ahn-DAH-toh ahl MAH-reh",
+     "native": "I went to the seaside."
+    },
+    {
+     "slot": {
+      "study": "a Roma",
+      "phon": "ah ROH-mah",
+      "native": "to Rome"
+     },
+     "study": "Sono andato a Roma.",
+     "phon": "SOH-noh ahn-DAH-toh ah ROH-mah",
+     "native": "I went to Rome."
+    },
+    {
+     "slot": {
+      "study": "dal medico",
+      "phon": "dahl MEH-dee-koh",
+      "native": "to the doctor's"
+     },
+     "study": "Sono andato dal medico.",
+     "phon": "SOH-noh ahn-DAH-toh dahl MEH-dee-koh",
+     "native": "I went to the doctor's."
+    },
+    {
+     "slot": {
+      "study": "a trovare mia nonna",
+      "phon": "ah troh-VAH-reh MEE-ah NOHN-nah",
+      "native": "to see my grandmother"
+     },
+     "study": "Sono andato a trovare mia nonna.",
+     "phon": "SOH-noh ahn-DAH-toh ah troh-VAH-reh MEE-ah NOHN-nah",
+     "native": "I went to see my grandmother."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-it-03",
+   "situation": "Placing things in the past",
+   "model": {
+    "study": "{s} ho visitato Firenze.",
+    "phon": "{s} oh vee-zee-TAH-toh fee-REHN-tseh",
+    "native": "{s} I visited Florence."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "La settimana scorsa",
+      "phon": "lah seht-tee-MAH-nah SKOR-sah",
+      "native": "Last week"
+     },
+     "study": "La settimana scorsa ho visitato Firenze.",
+     "phon": "lah seht-tee-MAH-nah SKOR-sah oh vee-zee-TAH-toh fee-REHN-tseh",
+     "native": "Last week I visited Florence."
+    },
+    {
+     "slot": {
+      "study": "Due giorni fa",
+      "phon": "DOO-eh JOR-nee fah",
+      "native": "Two days ago"
+     },
+     "study": "Due giorni fa ho visitato Firenze.",
+     "phon": "DOO-eh JOR-nee fah oh vee-zee-TAH-toh fee-REHN-tseh",
+     "native": "Two days ago I visited Florence."
+    },
+    {
+     "slot": {
+      "study": "L'anno scorso",
+      "phon": "LAHN-noh SKOR-soh",
+      "native": "Last year"
+     },
+     "study": "L'anno scorso ho visitato Firenze.",
+     "phon": "LAHN-noh SKOR-soh oh vee-zee-TAH-toh fee-REHN-tseh",
+     "native": "Last year I visited Florence."
+    },
+    {
+     "slot": {
+      "study": "Lo scorso fine settimana",
+      "phon": "loh SKOR-soh FEE-neh seht-tee-MAH-nah",
+      "native": "Last weekend"
+     },
+     "study": "Lo scorso fine settimana ho visitato Firenze.",
+     "phon": "loh SKOR-soh FEE-neh seht-tee-MAH-nah oh vee-zee-TAH-toh fee-REHN-tseh",
+     "native": "Last weekend I visited Florence."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-it-04",
+   "situation": "Answering \"Come stai?\"",
+   "model": {
+    "study": "Sto {s}, grazie.",
+    "phon": "stoh {s}, GRAH-tsyeh",
+    "native": "I'm {s}, thanks.",
+    "note": "For \"I'm tired\", Italian uses \"Sono stanco / stanca\" (with essere, not stare)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "bene",
+      "phon": "BEH-neh",
+      "native": "fine"
+     },
+     "study": "Sto bene, grazie.",
+     "phon": "stoh BEH-neh, GRAH-tsyeh",
+     "native": "I'm fine, thanks."
+    },
+    {
+     "slot": {
+      "study": "benissimo",
+      "phon": "beh-NEES-see-moh",
+      "native": "very well"
+     },
+     "study": "Sto benissimo, grazie.",
+     "phon": "stoh beh-NEES-see-moh, GRAH-tsyeh",
+     "native": "I'm very well, thanks."
+    },
+    {
+     "slot": {
+      "study": "così così",
+      "phon": "koh-ZEE koh-ZEE",
+      "native": "so-so"
+     },
+     "study": "Sto così così, grazie.",
+     "phon": "stoh koh-ZEE koh-ZEE, GRAH-tsyeh",
+     "native": "I'm so-so, thanks."
+    },
+    {
+     "slot": {
+      "study": "abbastanza bene",
+      "phon": "ahb-bahs-TAHN-tsah BEH-neh",
+      "native": "pretty well"
+     },
+     "study": "Sto abbastanza bene, grazie.",
+     "phon": "stoh ahb-bahs-TAHN-tsah BEH-neh, GRAH-tsyeh",
+     "native": "I'm pretty well, thanks."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-it-05",
+   "situation": "Reacting",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Short reactions to learn as they are."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Che bello!",
+      "phon": "keh BEHL-loh",
+      "native": "How nice!"
+     },
+     "study": "Che bello!",
+     "phon": "keh BEHL-loh",
+     "native": "How nice!"
+    },
+    {
+     "slot": {
+      "study": "Peccato!",
+      "phon": "pehk-KAH-toh",
+      "native": "What a shame!"
+     },
+     "study": "Peccato!",
+     "phon": "pehk-KAH-toh",
+     "native": "What a shame!"
+    },
+    {
+     "slot": {
+      "study": "Davvero?",
+      "phon": "dahv-VEH-roh",
+      "native": "Really?"
+     },
+     "study": "Davvero?",
+     "phon": "dahv-VEH-roh",
+     "native": "Really?"
+    },
+    {
+     "slot": {
+      "study": "Che bella notizia!",
+      "phon": "keh BEHL-lah noh-TEE-tsyah",
+      "native": "What great news!"
+     },
+     "study": "Che bella notizia!",
+     "phon": "keh BEHL-lah noh-TEE-tsyah",
+     "native": "What great news!"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-it-06",
+   "situation": "Sequencing: first… then",
+   "model": {
+    "study": "Prima {s}, poi siamo usciti.",
+    "phon": "PREE-mah {s}, POY SYAH-moh oo-SHEE-tee",
+    "native": "First {s}, then we went out."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "abbiamo cenato",
+      "phon": "ahb-BYAH-moh cheh-NAH-toh",
+      "native": "we had dinner"
+     },
+     "study": "Prima abbiamo cenato, poi siamo usciti.",
+     "phon": "PREE-mah ahb-BYAH-moh cheh-NAH-toh, POY SYAH-moh oo-SHEE-tee",
+     "native": "First we had dinner, then we went out."
+    },
+    {
+     "slot": {
+      "study": "ho fatto la doccia",
+      "phon": "oh FAHT-toh lah DOHT-chah",
+      "native": "I took a shower"
+     },
+     "study": "Prima ho fatto la doccia, poi siamo usciti.",
+     "phon": "PREE-mah oh FAHT-toh lah DOHT-chah, POY SYAH-moh oo-SHEE-tee",
+     "native": "First I took a shower, then we went out."
+    },
+    {
+     "slot": {
+      "study": "abbiamo bevuto un caffè",
+      "phon": "ahb-BYAH-moh beh-VOO-toh oon kahf-FEH",
+      "native": "we had a coffee"
+     },
+     "study": "Prima abbiamo bevuto un caffè, poi siamo usciti.",
+     "phon": "PREE-mah ahb-BYAH-moh beh-VOO-toh oon kahf-FEH, POY SYAH-moh oo-SHEE-tee",
+     "native": "First we had a coffee, then we went out."
+    },
+    {
+     "slot": {
+      "study": "ho finito il lavoro",
+      "phon": "oh fee-NEE-toh eel lah-VOH-roh",
+      "native": "I finished work"
+     },
+     "study": "Prima ho finito il lavoro, poi siamo usciti.",
+     "phon": "PREE-mah oh fee-NEE-toh eel lah-VOH-roh, POY SYAH-moh oo-SHEE-tee",
+     "native": "First I finished work, then we went out."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-it-07",
+   "situation": "Sequencing: afterwards",
+   "model": {
+    "study": "Dopo {s}.",
+    "phon": "DOH-poh {s}",
+    "native": "Afterwards {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "siamo andati a casa",
+      "phon": "SYAH-moh ahn-DAH-tee ah KAH-zah",
+      "native": "we went home"
+     },
+     "study": "Dopo siamo andati a casa.",
+     "phon": "DOH-poh SYAH-moh ahn-DAH-tee ah KAH-zah",
+     "native": "Afterwards we went home."
+    },
+    {
+     "slot": {
+      "study": "ho dormito",
+      "phon": "oh dor-MEE-toh",
+      "native": "I slept"
+     },
+     "study": "Dopo ho dormito.",
+     "phon": "DOH-poh oh dor-MEE-toh",
+     "native": "Afterwards I slept."
+    },
+    {
+     "slot": {
+      "study": "abbiamo fatto una passeggiata",
+      "phon": "ahb-BYAH-moh FAHT-toh OO-nah pahs-sehd-JAH-tah",
+      "native": "we went for a walk"
+     },
+     "study": "Dopo abbiamo fatto una passeggiata.",
+     "phon": "DOH-poh ahb-BYAH-moh FAHT-toh OO-nah pahs-sehd-JAH-tah",
+     "native": "Afterwards we went for a walk."
+    },
+    {
+     "slot": {
+      "study": "ho chiamato mia madre",
+      "phon": "oh kyah-MAH-toh MEE-ah MAH-dreh",
+      "native": "I called my mother"
+     },
+     "study": "Dopo ho chiamato mia madre.",
+     "phon": "DOH-poh oh kyah-MAH-toh MEE-ah MAH-dreh",
+     "native": "Afterwards I called my mother."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-it-08",
+   "situation": "Asking how it went",
+   "model": {
+    "study": "Com'è andata {s}?",
+    "phon": "koh-MEH ahn-DAH-tah {s}",
+    "native": "How did {s} go?",
+    "note": "The participle agrees: \"Com'è andato il viaggio?\" (koh-MEH ahn-DAH-toh) with a masculine noun."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "la riunione",
+      "phon": "lah ryoo-NYOH-neh",
+      "native": "the meeting"
+     },
+     "study": "Com'è andata la riunione?",
+     "phon": "koh-MEH ahn-DAH-tah lah ryoo-NYOH-neh",
+     "native": "How did the meeting go?"
+    },
+    {
+     "slot": {
+      "study": "la festa",
+      "phon": "lah FEHS-tah",
+      "native": "the party"
+     },
+     "study": "Com'è andata la festa?",
+     "phon": "koh-MEH ahn-DAH-tah lah FEHS-tah",
+     "native": "How did the party go?"
+    },
+    {
+     "slot": {
+      "study": "la giornata",
+      "phon": "lah jor-NAH-tah",
+      "native": "your day"
+     },
+     "study": "Com'è andata la giornata?",
+     "phon": "koh-MEH ahn-DAH-tah lah jor-NAH-tah",
+     "native": "How did your day go?"
+    },
+    {
+     "slot": {
+      "study": "la vacanza",
+      "phon": "lah vah-KAHN-tsah",
+      "native": "the holiday"
+     },
+     "study": "Com'è andata la vacanza?",
+     "phon": "koh-MEH ahn-DAH-tah lah vah-KAHN-tsah",
+     "native": "How did the holiday go?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-it-09",
+   "situation": "Saying what you didn't do",
+   "model": {
+    "study": "Non ho {s}.",
+    "phon": "nohn oh {s}",
+    "native": "I didn't {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "dormito",
+      "phon": "dor-MEE-toh",
+      "native": "sleep"
+     },
+     "study": "Non ho dormito.",
+     "phon": "nohn oh dor-MEE-toh",
+     "native": "I didn't sleep."
+    },
+    {
+     "slot": {
+      "study": "capito",
+      "phon": "kah-PEE-toh",
+      "native": "understand"
+     },
+     "study": "Non ho capito.",
+     "phon": "nohn oh kah-PEE-toh",
+     "native": "I didn't understand."
+    },
+    {
+     "slot": {
+      "study": "avuto tempo",
+      "phon": "ah-VOO-toh TEHM-poh",
+      "native": "have time"
+     },
+     "study": "Non ho avuto tempo.",
+     "phon": "nohn oh ah-VOO-toh TEHM-poh",
+     "native": "I didn't have time."
+    },
+    {
+     "slot": {
+      "study": "visto niente",
+      "phon": "VEES-toh NYEHN-teh",
+      "native": "see anything"
+     },
+     "study": "Non ho visto niente.",
+     "phon": "nohn oh VEES-toh NYEHN-teh",
+     "native": "I didn't see anything."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-it-10",
+   "situation": "Asking a friend (tu)",
+   "model": {
+    "study": "Hai {s}?",
+    "phon": "AH-ee {s}",
+    "native": "Have you {s}?",
+    "note": "Informal \"tu\". With a stranger: \"Ha…?\" (ah)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "mangiato",
+      "phon": "mahn-JAH-toh",
+      "native": "eaten"
+     },
+     "study": "Hai mangiato?",
+     "phon": "AH-ee mahn-JAH-toh",
+     "native": "Have you eaten?"
+    },
+    {
+     "slot": {
+      "study": "visto Marco",
+      "phon": "VEES-toh MAR-koh",
+      "native": "seen Marco"
+     },
+     "study": "Hai visto Marco?",
+     "phon": "AH-ee VEES-toh MAR-koh",
+     "native": "Have you seen Marco?"
+    },
+    {
+     "slot": {
+      "study": "sentito la notizia",
+      "phon": "sehn-TEE-toh lah noh-TEE-tsyah",
+      "native": "heard the news"
+     },
+     "study": "Hai sentito la notizia?",
+     "phon": "AH-ee sehn-TEE-toh lah noh-TEE-tsyah",
+     "native": "Have you heard the news?"
+    },
+    {
+     "slot": {
+      "study": "passato un buon fine settimana",
+      "phon": "pahs-SAH-toh oon bwohn FEE-neh seht-tee-MAH-nah",
+      "native": "had a good weekend"
+     },
+     "study": "Hai passato un buon fine settimana?",
+     "phon": "AH-ee pahs-SAH-toh oon bwohn FEE-neh seht-tee-MAH-nah",
+     "native": "Did you have a good weekend?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-it-11",
+   "situation": "Holidays",
+   "model": {
+    "study": "In vacanza abbiamo {s}.",
+    "phon": "een vah-KAHN-tsah ahb-BYAH-moh {s}",
+    "native": "On holiday we {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "visitato molti musei",
+      "phon": "vee-zee-TAH-toh MOHL-tee moo-ZEH-ee",
+      "native": "visited lots of museums"
+     },
+     "study": "In vacanza abbiamo visitato molti musei.",
+     "phon": "een vah-KAHN-tsah ahb-BYAH-moh vee-zee-TAH-toh MOHL-tee moo-ZEH-ee",
+     "native": "On holiday we visited lots of museums."
+    },
+    {
+     "slot": {
+      "study": "mangiato benissimo",
+      "phon": "mahn-JAH-toh beh-NEES-see-moh",
+      "native": "ate really well"
+     },
+     "study": "In vacanza abbiamo mangiato benissimo.",
+     "phon": "een vah-KAHN-tsah ahb-BYAH-moh mahn-JAH-toh beh-NEES-see-moh",
+     "native": "On holiday we ate really well."
+    },
+    {
+     "slot": {
+      "study": "fatto il bagno ogni giorno",
+      "phon": "FAHT-toh eel BAH-nyoh OH-nyee JOR-noh",
+      "native": "went swimming every day"
+     },
+     "study": "In vacanza abbiamo fatto il bagno ogni giorno.",
+     "phon": "een vah-KAHN-tsah ahb-BYAH-moh FAHT-toh eel BAH-nyoh OH-nyee JOR-noh",
+     "native": "On holiday we went swimming every day."
+    },
+    {
+     "slot": {
+      "study": "preso il sole",
+      "phon": "PREH-zoh eel SOH-leh",
+      "native": "sunbathed"
+     },
+     "study": "In vacanza abbiamo preso il sole.",
+     "phon": "een vah-KAHN-tsah ahb-BYAH-moh PREH-zoh eel SOH-leh",
+     "native": "On holiday we sunbathed."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-it-12",
+   "situation": "Summing up",
+   "model": {
+    "study": "È stato {s}.",
+    "phon": "eh STAH-toh {s}",
+    "native": "It was {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "bellissimo",
+      "phon": "behl-LEES-see-moh",
+      "native": "wonderful"
+     },
+     "study": "È stato bellissimo.",
+     "phon": "eh STAH-toh behl-LEES-see-moh",
+     "native": "It was wonderful."
+    },
+    {
+     "slot": {
+      "study": "stancante",
+      "phon": "stahn-KAHN-teh",
+      "native": "tiring"
+     },
+     "study": "È stato stancante.",
+     "phon": "eh STAH-toh stahn-KAHN-teh",
+     "native": "It was tiring."
+    },
+    {
+     "slot": {
+      "study": "un bel fine settimana",
+      "phon": "oon behl FEE-neh seht-tee-MAH-nah",
+      "native": "a lovely weekend"
+     },
+     "study": "È stato un bel fine settimana.",
+     "phon": "eh STAH-toh oon behl FEE-neh seht-tee-MAH-nah",
+     "native": "It was a lovely weekend."
+    },
+    {
+     "slot": {
+      "study": "difficile",
+      "phon": "deef-FEE-chee-leh",
+      "native": "difficult"
+     },
+     "study": "È stato difficile.",
+     "phon": "eh STAH-toh deef-FEE-chee-leh",
+     "native": "It was difficult."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L5-en-it-d1",
+   "situation": "Catching up (friends, tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Ciao Marta! Come stai?",
+     "phon": "CHAH-oh MAR-tah. KOH-meh STAH-ee",
+     "native": "Hi Marta! How are you?"
+    },
+    {
+     "speaker": "B",
+     "study": "Bene, grazie! E tu? Novità?",
+     "phon": "BEH-neh, GRAH-tsyeh. eh TOO. noh-vee-TAH",
+     "native": "Fine, thanks! And you? Any news?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sì! La settimana scorsa sono andato a Napoli.",
+     "phon": "SEE. lah seht-tee-MAH-nah SKOR-sah SOH-noh ahn-DAH-toh ah NAH-poh-lee",
+     "native": "Yes! Last week I went to Naples."
+    },
+    {
+     "speaker": "B",
+     "study": "Davvero? Com'è andata?",
+     "phon": "dahv-VEH-roh. koh-MEH ahn-DAH-tah",
+     "native": "Really? How was it?"
+    },
+    {
+     "speaker": "A",
+     "study": "Benissimo! Abbiamo mangiato la vera pizza.",
+     "phon": "beh-NEES-see-moh. ahb-BYAH-moh mahn-JAH-toh lah VEH-rah PEET-tsah",
+     "native": "Great! We ate real pizza."
+    },
+    {
+     "speaker": "B",
+     "study": "Che bello! Io invece ho lavorato tutto il fine settimana.",
+     "phon": "keh BEHL-loh. EE-oh een-VEH-cheh oh lah-voh-RAH-toh TOOT-toh eel FEE-neh seht-tee-MAH-nah",
+     "native": "How nice! I, on the other hand, worked all weekend."
+    },
+    {
+     "speaker": "A",
+     "study": "Peccato! Ti va un caffè? Ti racconto tutto.",
+     "phon": "pehk-KAH-toh. tee vah oon kahf-FEH. tee rahk-KOHN-toh TOOT-toh",
+     "native": "What a shame! Do you feel like a coffee? I'll tell you everything."
+    },
+    {
+     "speaker": "B",
+     "study": "Volentieri!",
+     "phon": "voh-lehn-TYEH-ree",
+     "native": "I'd love to!"
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-it-01",
+    "L3-en-it-05",
+    "L3-en-it-09",
+    "L5-en-it-02",
+    "L5-en-it-04",
+    "L5-en-it-05",
+    "L5-en-it-08"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A friend"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L5-en-it-d2",
+   "situation": "Monday at the office (colleagues, tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno! Hai passato un buon fine settimana?",
+     "phon": "bwohn-JOR-noh. AH-ee pahs-SAH-toh oon bwohn FEE-neh seht-tee-MAH-nah",
+     "native": "Morning! Did you have a good weekend?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sì, sabato siamo andati al mare. E tu?",
+     "phon": "SEE, SAH-bah-toh SYAH-moh ahn-DAH-tee ahl MAH-reh. eh TOO",
+     "native": "Yes, on Saturday we went to the seaside. And you?"
+    },
+    {
+     "speaker": "A",
+     "study": "Io sono rimasto a casa, ho dormito molto.",
+     "phon": "EE-oh SOH-noh ree-MAHS-toh ah KAH-zah, oh dor-MEE-toh MOHL-toh",
+     "native": "I stayed at home, I slept a lot."
+    },
+    {
+     "speaker": "B",
+     "study": "Hai visto la partita ieri sera?",
+     "phon": "AH-ee VEES-toh lah par-TEE-tah YEH-ree SEH-rah",
+     "native": "Did you see the match last night?"
+    },
+    {
+     "speaker": "A",
+     "study": "No, non ho avuto tempo. Com'è finita?",
+     "phon": "noh, nohn oh ah-VOO-toh TEHM-poh. koh-MEH fee-NEE-tah",
+     "native": "No, I didn't have time. How did it end?"
+    },
+    {
+     "speaker": "B",
+     "study": "Due a uno. È stata una bella partita.",
+     "phon": "DOO-eh ah OO-noh. eh STAH-tah OO-nah BEHL-lah par-TEE-tah",
+     "native": "Two–one. It was a good match."
+    },
+    {
+     "speaker": "A",
+     "study": "Peccato! E la riunione di venerdì com'è andata?",
+     "phon": "pehk-KAH-toh. eh lah ryoo-NYOH-neh dee veh-nehr-DEE koh-MEH ahn-DAH-tah",
+     "native": "Shame! And how did Friday's meeting go?"
+    },
+    {
+     "speaker": "B",
+     "study": "Bene, ma è stata lunga. Prima abbiamo parlato del budget, poi del nuovo progetto.",
+     "phon": "BEH-neh, mah eh STAH-tah LOON-gah. PREE-mah ahb-BYAH-moh par-LAH-toh dehl BAHD-jeht, POY dehl NWOH-voh proh-JEHT-toh",
+     "native": "Fine, but it was long. First we talked about the budget, then about the new project."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-it-01",
+    "L3-en-it-06",
+    "L5-en-it-05",
+    "L5-en-it-08",
+    "L5-en-it-09",
+    "L5-en-it-10"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A colleague"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L5-en-it-d3",
+   "situation": "On the phone with your mother (tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Pronto, mamma? Come stai?",
+     "phon": "PROHN-toh, MAHM-mah. KOH-meh STAH-ee",
+     "native": "Hello, Mum? How are you?"
+    },
+    {
+     "speaker": "B",
+     "study": "Ciao tesoro! Sto bene. E tu? Dove sei?",
+     "phon": "CHAH-oh teh-ZOH-roh. stoh BEH-neh. eh TOO. DOH-veh SEH-ee",
+     "native": "Hi sweetheart! I'm fine. And you? Where are you?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sono a Firenze. Ieri ho visitato il Duomo.",
+     "phon": "SOH-noh ah fee-REHN-tseh. YEH-ree oh vee-zee-TAH-toh eel DWOH-moh",
+     "native": "I'm in Florence. Yesterday I visited the Duomo."
+    },
+    {
+     "speaker": "B",
+     "study": "Che bello! E con chi sei?",
+     "phon": "keh BEHL-loh. eh kohn KEE SEH-ee",
+     "native": "How nice! And who are you with?"
+    },
+    {
+     "speaker": "A",
+     "study": "Con Luca. Due giorni fa siamo arrivati in treno.",
+     "phon": "kohn LOO-kah. DOO-eh JOR-nee fah SYAH-moh ar-ree-VAH-tee een TREH-noh",
+     "native": "With Luca. We arrived by train two days ago."
+    },
+    {
+     "speaker": "B",
+     "study": "Avete mangiato bene?",
+     "phon": "ah-VEH-teh mahn-JAH-toh BEH-neh",
+     "native": "Did you eat well?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sì, benissimo! Dopo ti mando le foto.",
+     "phon": "SEE, beh-NEES-see-moh. DOH-poh tee MAHN-doh leh FOH-toh",
+     "native": "Yes, really well! I'll send you the photos later."
+    },
+    {
+     "speaker": "B",
+     "study": "Bravo. Salutami Luca!",
+     "phon": "BRAH-voh. sah-LOO-tah-mee LOO-kah",
+     "native": "Good. Say hi to Luca for me!"
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-it-01",
+    "L3-en-it-05",
+    "L3-en-it-06",
+    "L5-en-it-01",
+    "L5-en-it-05",
+    "L5-en-it-07"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Your mother"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Tell what you did in the recent past, place it in time, sequence actions (prima, poi, dopo), ask for news and react (che bello, peccato, davvero)."
+}

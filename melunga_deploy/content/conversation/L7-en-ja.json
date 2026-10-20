@@ -1,0 +1,1105 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "ja",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en japonais",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle",
+  "reading": "lecture en hiragana"
+ },
+ "phoneticConvention": "Syllable-by-syllable romaji for English readers, in the deck's style (so-o-de-su, ko-wa-i-de-su). Read each syllable as in Spanish or Italian: a as in 'father', i as in 'machine', u as in 'put', e as in 'bet', o as in 'go'. A long vowel is written twice (ko-o-hi-i, to-o-kyo-o); ん is its own beat written n (su-mi-ma-se-n, ko-n-ni-chi-wa); a doubled consonant closes the syllable before it (kip-pu, chot-to, kek-ko-o). The u of de-su / ma-su is almost silent ('dess', 'mass'); r is a light tap between r and l; g is always hard. The reading field gives the hiragana. Polite register (です / ます) throughout.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended; linguistic review required (naturalness of phrasing, kanji readings).",
+ "coverageClaim": null,
+ "level": 7,
+ "title": "Explaining and comparing",
+ "goal": "Explain a reason, compare and express a preference.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L7-en-ja-01",
+   "situation": "Giving a reason (から)",
+   "model": {
+    "study": "{s}から、今日は家にいます。",
+    "phon": "{s} ka-ra, kyo-o wa i-e ni i-ma-su",
+    "native": "{s}, so I'm staying home today.",
+    "reading": "{s}から、きょうはいえにいます。",
+    "note": "The reason comes first, followed by から; the polite form before から sounds natural in speech."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "雨です",
+      "phon": "a-me de-su",
+      "native": "It's raining",
+      "reading": "あめです"
+     },
+     "study": "雨ですから、今日は家にいます。",
+     "phon": "a-me de-su ka-ra, kyo-o wa i-e ni i-ma-su",
+     "native": "It's raining, so I'm staying home today.",
+     "reading": "あめですから、きょうはいえにいます。"
+    },
+    {
+     "slot": {
+      "study": "疲れています",
+      "phon": "tsu-ka-re-te i-ma-su",
+      "native": "I'm tired",
+      "reading": "つかれています"
+     },
+     "study": "疲れていますから、今日は家にいます。",
+     "phon": "tsu-ka-re-te i-ma-su ka-ra, kyo-o wa i-e ni i-ma-su",
+     "native": "I'm tired, so I'm staying home today.",
+     "reading": "つかれていますから、きょうはいえにいます。"
+    },
+    {
+     "slot": {
+      "study": "風邪をひきました",
+      "phon": "ka-ze o hi-ki-ma-shi-ta",
+      "native": "I've caught a cold",
+      "reading": "かぜをひきました"
+     },
+     "study": "風邪をひきましたから、今日は家にいます。",
+     "phon": "ka-ze o hi-ki-ma-shi-ta ka-ra, kyo-o wa i-e ni i-ma-su",
+     "native": "I've caught a cold, so I'm staying home today.",
+     "reading": "かぜをひきましたから、きょうはいえにいます。"
+    },
+    {
+     "slot": {
+      "study": "子供が病気です",
+      "phon": "ko-do-mo ga byo-o-ki de-su",
+      "native": "My child is ill",
+      "reading": "こどもがびょうきです"
+     },
+     "study": "子供が病気ですから、今日は家にいます。",
+     "phon": "ko-do-mo ga byo-o-ki de-su ka-ra, kyo-o wa i-e ni i-ma-su",
+     "native": "My child is ill, so I'm staying home today.",
+     "reading": "こどもがびょうきですから、きょうはいえにいます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-ja-02",
+   "situation": "Justifying a purchase",
+   "model": {
+    "study": "{s}から、これを買います。",
+    "phon": "{s} ka-ra, ko-re o ka-i-ma-su",
+    "native": "I'll buy this one because {s}.",
+    "reading": "{s}から、これをかいます。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "安いです",
+      "phon": "ya-su-i de-su",
+      "native": "it's cheap",
+      "reading": "やすいです"
+     },
+     "study": "安いですから、これを買います。",
+     "phon": "ya-su-i de-su ka-ra, ko-re o ka-i-ma-su",
+     "native": "I'll buy this one because it's cheap.",
+     "reading": "やすいですから、これをかいます。"
+    },
+    {
+     "slot": {
+      "study": "軽いです",
+      "phon": "ka-ru-i de-su",
+      "native": "it's light",
+      "reading": "かるいです"
+     },
+     "study": "軽いですから、これを買います。",
+     "phon": "ka-ru-i de-su ka-ra, ko-re o ka-i-ma-su",
+     "native": "I'll buy this one because it's light.",
+     "reading": "かるいですから、これをかいます。"
+    },
+    {
+     "slot": {
+      "study": "色がきれいです",
+      "phon": "i-ro ga ki-re-i de-su",
+      "native": "the colour is pretty",
+      "reading": "いろがきれいです"
+     },
+     "study": "色がきれいですから、これを買います。",
+     "phon": "i-ro ga ki-re-i de-su ka-ra, ko-re o ka-i-ma-su",
+     "native": "I'll buy this one because the colour is pretty.",
+     "reading": "いろがきれいですから、これをかいます。"
+    },
+    {
+     "slot": {
+      "study": "便利です",
+      "phon": "be-n-ri de-su",
+      "native": "it's handy",
+      "reading": "べんりです"
+     },
+     "study": "便利ですから、これを買います。",
+     "phon": "be-n-ri de-su ka-ra, ko-re o ka-i-ma-su",
+     "native": "I'll buy this one because it's handy.",
+     "reading": "べんりですから、これをかいます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-ja-03",
+   "situation": "Comparing two objects",
+   "model": {
+    "study": "これは{s}より安いです。",
+    "phon": "ko-re wa {s} yo-ri ya-su-i de-su",
+    "native": "This one is cheaper than {s}.",
+    "reading": "これは{s}よりやすいです。",
+    "note": "A は B より + adjective: 'A is more … than B'. The adjective itself doesn't change."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "あれ",
+      "phon": "a-re",
+      "native": "that one",
+      "reading": "あれ"
+     },
+     "study": "これはあれより安いです。",
+     "phon": "ko-re wa a-re yo-ri ya-su-i de-su",
+     "native": "This one is cheaper than that one.",
+     "reading": "これはあれよりやすいです。"
+    },
+    {
+     "slot": {
+      "study": "前の",
+      "phon": "ma-e no",
+      "native": "the old one",
+      "reading": "まえの"
+     },
+     "study": "これは前のより安いです。",
+     "phon": "ko-re wa ma-e no yo-ri ya-su-i de-su",
+     "native": "This one is cheaper than the old one.",
+     "reading": "これはまえのよりやすいです。"
+    },
+    {
+     "slot": {
+      "study": "新しいモデル",
+      "phon": "a-ta-ra-shi-i mo-de-ru",
+      "native": "the new model",
+      "reading": "あたらしいもでる"
+     },
+     "study": "これは新しいモデルより安いです。",
+     "phon": "ko-re wa a-ta-ra-shi-i mo-de-ru yo-ri ya-su-i de-su",
+     "native": "This one is cheaper than the new model.",
+     "reading": "これはあたらしいもでるよりやすいです。"
+    },
+    {
+     "slot": {
+      "study": "デパートのもの",
+      "phon": "de-pa-a-to no mo-no",
+      "native": "the one from the department store",
+      "reading": "でぱーとのもの"
+     },
+     "study": "これはデパートのものより安いです。",
+     "phon": "ko-re wa de-pa-a-to no mo-no yo-ri ya-su-i de-su",
+     "native": "This one is cheaper than the one from the department store.",
+     "reading": "これはでぱーとのものよりやすいです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-ja-04",
+   "situation": "Comparing two cities",
+   "model": {
+    "study": "東京は大阪より{s}です。",
+    "phon": "to-o-kyo-o wa o-o-sa-ka yo-ri {s} de-su",
+    "native": "Tokyo is {s} than Osaka.",
+    "reading": "とうきょうはおおさかより{s}です。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "大きい",
+      "phon": "o-o-ki-i",
+      "native": "bigger",
+      "reading": "おおきい"
+     },
+     "study": "東京は大阪より大きいです。",
+     "phon": "to-o-kyo-o wa o-o-sa-ka yo-ri o-o-ki-i de-su",
+     "native": "Tokyo is bigger than Osaka.",
+     "reading": "とうきょうはおおさかよりおおきいです。"
+    },
+    {
+     "slot": {
+      "study": "にぎやか",
+      "phon": "ni-gi-ya-ka",
+      "native": "livelier",
+      "reading": "にぎやか"
+     },
+     "study": "東京は大阪よりにぎやかです。",
+     "phon": "to-o-kyo-o wa o-o-sa-ka yo-ri ni-gi-ya-ka de-su",
+     "native": "Tokyo is livelier than Osaka.",
+     "reading": "とうきょうはおおさかよりにぎやかです。"
+    },
+    {
+     "slot": {
+      "study": "高い",
+      "phon": "ta-ka-i",
+      "native": "more expensive",
+      "reading": "たかい"
+     },
+     "study": "東京は大阪より高いです。",
+     "phon": "to-o-kyo-o wa o-o-sa-ka yo-ri ta-ka-i de-su",
+     "native": "Tokyo is more expensive than Osaka.",
+     "reading": "とうきょうはおおさかよりたかいです。"
+    },
+    {
+     "slot": {
+      "study": "寒い",
+      "phon": "sa-mu-i",
+      "native": "colder",
+      "reading": "さむい"
+     },
+     "study": "東京は大阪より寒いです。",
+     "phon": "to-o-kyo-o wa o-o-sa-ka yo-ri sa-mu-i de-su",
+     "native": "Tokyo is colder than Osaka.",
+     "reading": "とうきょうはおおさかよりさむいです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-ja-05",
+   "situation": "Preference with an opinion",
+   "model": {
+    "study": "{s}の方が便利だと思います。",
+    "phon": "{s} no ho-o ga be-n-ri da to o-mo-i-ma-su",
+    "native": "I think {s} is more convenient.",
+    "reading": "{s}のほうがべんりだとおもいます。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "電車",
+      "phon": "de-n-sha",
+      "native": "the train",
+      "reading": "でんしゃ"
+     },
+     "study": "電車の方が便利だと思います。",
+     "phon": "de-n-sha no ho-o ga be-n-ri da to o-mo-i-ma-su",
+     "native": "I think the train is more convenient.",
+     "reading": "でんしゃのほうがべんりだとおもいます。"
+    },
+    {
+     "slot": {
+      "study": "自転車",
+      "phon": "ji-te-n-sha",
+      "native": "the bike",
+      "reading": "じてんしゃ"
+     },
+     "study": "自転車の方が便利だと思います。",
+     "phon": "ji-te-n-sha no ho-o ga be-n-ri da to o-mo-i-ma-su",
+     "native": "I think the bike is more convenient.",
+     "reading": "じてんしゃのほうがべんりだとおもいます。"
+    },
+    {
+     "slot": {
+      "study": "大きい家",
+      "phon": "o-o-ki-i i-e",
+      "native": "a big house",
+      "reading": "おおきいいえ"
+     },
+     "study": "大きい家の方が便利だと思います。",
+     "phon": "o-o-ki-i i-e no ho-o ga be-n-ri da to o-mo-i-ma-su",
+     "native": "I think a big house is more convenient.",
+     "reading": "おおきいいえのほうがべんりだとおもいます。"
+    },
+    {
+     "slot": {
+      "study": "スマホ",
+      "phon": "su-ma-ho",
+      "native": "a smartphone",
+      "reading": "すまほ"
+     },
+     "study": "スマホの方が便利だと思います。",
+     "phon": "su-ma-ho no ho-o ga be-n-ri da to o-mo-i-ma-su",
+     "native": "I think a smartphone is more convenient.",
+     "reading": "すまほのほうがべんりだとおもいます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-ja-06",
+   "situation": "Answering 'why': because…",
+   "model": {
+    "study": "{s}からです。",
+    "phon": "{s} ka-ra de-su",
+    "native": "Because {s}.",
+    "reading": "{s}からです。",
+    "note": "Plain form before からです: bare い-adjective, noun or な-adjective + だ, plain verb."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "安い",
+      "phon": "ya-su-i",
+      "native": "it's cheaper",
+      "reading": "やすい"
+     },
+     "study": "安いからです。",
+     "phon": "ya-su-i ka-ra de-su",
+     "native": "Because it's cheaper.",
+     "reading": "やすいからです。"
+    },
+    {
+     "slot": {
+      "study": "近い",
+      "phon": "chi-ka-i",
+      "native": "it's closer",
+      "reading": "ちかい"
+     },
+     "study": "近いからです。",
+     "phon": "chi-ka-i ka-ra de-su",
+     "native": "Because it's closer.",
+     "reading": "ちかいからです。"
+    },
+    {
+     "slot": {
+      "study": "静かだ",
+      "phon": "shi-zu-ka da",
+      "native": "it's quieter",
+      "reading": "しずかだ"
+     },
+     "study": "静かだからです。",
+     "phon": "shi-zu-ka da ka-ra de-su",
+     "native": "Because it's quieter.",
+     "reading": "しずかだからです。"
+    },
+    {
+     "slot": {
+      "study": "時間がない",
+      "phon": "ji-ka-n ga na-i",
+      "native": "I don't have time",
+      "reading": "じかんがない"
+     },
+     "study": "時間がないからです。",
+     "phon": "ji-ka-n ga na-i ka-ra de-su",
+     "native": "Because I don't have time.",
+     "reading": "じかんがないからです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-ja-07",
+   "situation": "Giving your opinion",
+   "model": {
+    "study": "{s}と思います。",
+    "phon": "{s} to o-mo-i-ma-su",
+    "native": "I think {s}.",
+    "reading": "{s}とおもいます。",
+    "note": "Plain form before と思います."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "いい",
+      "phon": "i-i",
+      "native": "it's good",
+      "reading": "いい"
+     },
+     "study": "いいと思います。",
+     "phon": "i-i to o-mo-i-ma-su",
+     "native": "I think it's good.",
+     "reading": "いいとおもいます。"
+    },
+    {
+     "slot": {
+      "study": "高すぎる",
+      "phon": "ta-ka-su-gi-ru",
+      "native": "it's too expensive",
+      "reading": "たかすぎる"
+     },
+     "study": "高すぎると思います。",
+     "phon": "ta-ka-su-gi-ru to o-mo-i-ma-su",
+     "native": "I think it's too expensive.",
+     "reading": "たかすぎるとおもいます。"
+    },
+    {
+     "slot": {
+      "study": "難しい",
+      "phon": "mu-zu-ka-shi-i",
+      "native": "it's difficult",
+      "reading": "むずかしい"
+     },
+     "study": "難しいと思います。",
+     "phon": "mu-zu-ka-shi-i to o-mo-i-ma-su",
+     "native": "I think it's difficult.",
+     "reading": "むずかしいとおもいます。"
+    },
+    {
+     "slot": {
+      "study": "大丈夫だ",
+      "phon": "da-i-jo-o-bu da",
+      "native": "it'll be fine",
+      "reading": "だいじょうぶだ"
+     },
+     "study": "大丈夫だと思います。",
+     "phon": "da-i-jo-o-bu da to o-mo-i-ma-su",
+     "native": "I think it'll be fine.",
+     "reading": "だいじょうぶだとおもいます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-ja-08",
+   "situation": "Explaining a change of habit",
+   "model": {
+    "study": "前は{s}いましたが、今はしません。",
+    "phon": "ma-e wa {s} i-ma-shi-ta ga, i-ma wa shi-ma-se-n",
+    "native": "I used to {s}, but I don't anymore.",
+    "reading": "まえは{s}いましたが、いまはしません。",
+    "note": "て-form + いました: a past habit; が links the two parts by contrasting them."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "タバコを吸って",
+      "phon": "ta-ba-ko o sut-te",
+      "native": "smoke",
+      "reading": "たばこをすって"
+     },
+     "study": "前はタバコを吸っていましたが、今はしません。",
+     "phon": "ma-e wa ta-ba-ko o sut-te i-ma-shi-ta ga, i-ma wa shi-ma-se-n",
+     "native": "I used to smoke, but I don't anymore.",
+     "reading": "まえはたばこをすっていましたが、いまはしません。"
+    },
+    {
+     "slot": {
+      "study": "毎日お酒を飲んで",
+      "phon": "ma-i-ni-chi o-sa-ke o no-n-de",
+      "native": "drink every day",
+      "reading": "まいにちおさけをのんで"
+     },
+     "study": "前は毎日お酒を飲んでいましたが、今はしません。",
+     "phon": "ma-e wa ma-i-ni-chi o-sa-ke o no-n-de i-ma-shi-ta ga, i-ma wa shi-ma-se-n",
+     "native": "I used to drink every day, but I don't anymore.",
+     "reading": "まえはまいにちおさけをのんでいましたが、いまはしません。"
+    },
+    {
+     "slot": {
+      "study": "夜遅くまで働いて",
+      "phon": "yo-ru o-so-ku ma-de ha-ta-ra-i-te",
+      "native": "work late at night",
+      "reading": "よるおそくまではたらいて"
+     },
+     "study": "前は夜遅くまで働いていましたが、今はしません。",
+     "phon": "ma-e wa yo-ru o-so-ku ma-de ha-ta-ra-i-te i-ma-shi-ta ga, i-ma wa shi-ma-se-n",
+     "native": "I used to work late at night, but I don't anymore.",
+     "reading": "まえはよるおそくまではたらいていましたが、いまはしません。"
+    },
+    {
+     "slot": {
+      "study": "肉をたくさん食べて",
+      "phon": "ni-ku o ta-ku-sa-n ta-be-te",
+      "native": "eat a lot of meat",
+      "reading": "にくをたくさんたべて"
+     },
+     "study": "前は肉をたくさん食べていましたが、今はしません。",
+     "phon": "ma-e wa ni-ku o ta-ku-sa-n ta-be-te i-ma-shi-ta ga, i-ma wa shi-ma-se-n",
+     "native": "I used to eat a lot of meat, but I don't anymore.",
+     "reading": "まえはにくをたくさんたべていましたが、いまはしません。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-ja-09",
+   "situation": "Before / now: where you live",
+   "model": {
+    "study": "前は{s}に住んでいましたが、今は東京に住んでいます。",
+    "phon": "ma-e wa {s} ni su-n-de i-ma-shi-ta ga, i-ma wa to-o-kyo-o ni su-n-de i-ma-su",
+    "native": "I used to live {s}, but now I live in Tokyo.",
+    "reading": "まえは{s}にすんでいましたが、いまはとうきょうにすんでいます。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "パリ",
+      "phon": "pa-ri",
+      "native": "in Paris",
+      "reading": "ぱり"
+     },
+     "study": "前はパリに住んでいましたが、今は東京に住んでいます。",
+     "phon": "ma-e wa pa-ri ni su-n-de i-ma-shi-ta ga, i-ma wa to-o-kyo-o ni su-n-de i-ma-su",
+     "native": "I used to live in Paris, but now I live in Tokyo.",
+     "reading": "まえはぱりにすんでいましたが、いまはとうきょうにすんでいます。"
+    },
+    {
+     "slot": {
+      "study": "田舎",
+      "phon": "i-na-ka",
+      "native": "in the countryside",
+      "reading": "いなか"
+     },
+     "study": "前は田舎に住んでいましたが、今は東京に住んでいます。",
+     "phon": "ma-e wa i-na-ka ni su-n-de i-ma-shi-ta ga, i-ma wa to-o-kyo-o ni su-n-de i-ma-su",
+     "native": "I used to live in the countryside, but now I live in Tokyo.",
+     "reading": "まえはいなかにすんでいましたが、いまはとうきょうにすんでいます。"
+    },
+    {
+     "slot": {
+      "study": "大阪",
+      "phon": "o-o-sa-ka",
+      "native": "in Osaka",
+      "reading": "おおさか"
+     },
+     "study": "前は大阪に住んでいましたが、今は東京に住んでいます。",
+     "phon": "ma-e wa o-o-sa-ka ni su-n-de i-ma-shi-ta ga, i-ma wa to-o-kyo-o ni su-n-de i-ma-su",
+     "native": "I used to live in Osaka, but now I live in Tokyo.",
+     "reading": "まえはおおさかにすんでいましたが、いまはとうきょうにすんでいます。"
+    },
+    {
+     "slot": {
+      "study": "両親の家",
+      "phon": "ryo-o-shi-n no i-e",
+      "native": "at my parents' place",
+      "reading": "りょうしんのいえ"
+     },
+     "study": "前は両親の家に住んでいましたが、今は東京に住んでいます。",
+     "phon": "ma-e wa ryo-o-shi-n no i-e ni su-n-de i-ma-shi-ta ga, i-ma wa to-o-kyo-o ni su-n-de i-ma-su",
+     "native": "I used to live at my parents' place, but now I live in Tokyo.",
+     "reading": "まえはりょうしんのいえにすんでいましたが、いまはとうきょうにすんでいます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-ja-10",
+   "situation": "Saying what matters most",
+   "model": {
+    "study": "私にとって{s}が一番大切です。",
+    "phon": "wa-ta-shi ni tot-te {s} ga i-chi-ba-n ta-i-se-tsu de-su",
+    "native": "For me, {s} is the most important thing.",
+    "reading": "わたしにとって{s}がいちばんたいせつです。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "家族",
+      "phon": "ka-zo-ku",
+      "native": "family",
+      "reading": "かぞく"
+     },
+     "study": "私にとって家族が一番大切です。",
+     "phon": "wa-ta-shi ni tot-te ka-zo-ku ga i-chi-ba-n ta-i-se-tsu de-su",
+     "native": "For me, family is the most important thing.",
+     "reading": "わたしにとってかぞくがいちばんたいせつです。"
+    },
+    {
+     "slot": {
+      "study": "健康",
+      "phon": "ke-n-ko-o",
+      "native": "health",
+      "reading": "けんこう"
+     },
+     "study": "私にとって健康が一番大切です。",
+     "phon": "wa-ta-shi ni tot-te ke-n-ko-o ga i-chi-ba-n ta-i-se-tsu de-su",
+     "native": "For me, health is the most important thing.",
+     "reading": "わたしにとってけんこうがいちばんたいせつです。"
+    },
+    {
+     "slot": {
+      "study": "時間",
+      "phon": "ji-ka-n",
+      "native": "time",
+      "reading": "じかん"
+     },
+     "study": "私にとって時間が一番大切です。",
+     "phon": "wa-ta-shi ni tot-te ji-ka-n ga i-chi-ba-n ta-i-se-tsu de-su",
+     "native": "For me, time is the most important thing.",
+     "reading": "わたしにとってじかんがいちばんたいせつです。"
+    },
+    {
+     "slot": {
+      "study": "値段",
+      "phon": "ne-da-n",
+      "native": "the price",
+      "reading": "ねだん"
+     },
+     "study": "私にとって値段が一番大切です。",
+     "phon": "wa-ta-shi ni tot-te ne-da-n ga i-chi-ba-n ta-i-se-tsu de-su",
+     "native": "For me, the price is the most important thing.",
+     "reading": "わたしにとってねだんがいちばんたいせつです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-ja-11",
+   "situation": "At work: explaining why you're leaving",
+   "model": {
+    "study": "{s}ので、早く帰ります。",
+    "phon": "{s} no-de, ha-ya-ku ka-e-ri-ma-su",
+    "native": "I'm leaving early because {s}.",
+    "reading": "{s}ので、はやくかえります。",
+    "note": "ので is a little softer than から for explaining; plain form before it."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "子供を迎えに行く",
+      "phon": "ko-do-mo o mu-ka-e ni i-ku",
+      "native": "I'm picking up my child",
+      "reading": "こどもをむかえにいく"
+     },
+     "study": "子供を迎えに行くので、早く帰ります。",
+     "phon": "ko-do-mo o mu-ka-e ni i-ku no-de, ha-ya-ku ka-e-ri-ma-su",
+     "native": "I'm leaving early because I'm picking up my child.",
+     "reading": "こどもをむかえにいくので、はやくかえります。"
+    },
+    {
+     "slot": {
+      "study": "歯医者の予約がある",
+      "phon": "ha-i-sha no yo-ya-ku ga a-ru",
+      "native": "I have a dentist's appointment",
+      "reading": "はいしゃのよやくがある"
+     },
+     "study": "歯医者の予約があるので、早く帰ります。",
+     "phon": "ha-i-sha no yo-ya-ku ga a-ru no-de, ha-ya-ku ka-e-ri-ma-su",
+     "native": "I'm leaving early because I have a dentist's appointment.",
+     "reading": "はいしゃのよやくがあるので、はやくかえります。"
+    },
+    {
+     "slot": {
+      "study": "頭が痛い",
+      "phon": "a-ta-ma ga i-ta-i",
+      "native": "I have a headache",
+      "reading": "あたまがいたい"
+     },
+     "study": "頭が痛いので、早く帰ります。",
+     "phon": "a-ta-ma ga i-ta-i no-de, ha-ya-ku ka-e-ri-ma-su",
+     "native": "I'm leaving early because I have a headache.",
+     "reading": "あたまがいたいので、はやくかえります。"
+    },
+    {
+     "slot": {
+      "study": "明日早い",
+      "phon": "a-shi-ta ha-ya-i",
+      "native": "I have an early start tomorrow",
+      "reading": "あしたはやい"
+     },
+     "study": "明日早いので、早く帰ります。",
+     "phon": "a-shi-ta ha-ya-i no-de, ha-ya-ku ka-e-ri-ma-su",
+     "native": "I'm leaving early because I have an early start tomorrow.",
+     "reading": "あしたはやいので、はやくかえります。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-ja-12",
+   "situation": "Saying what you like best of all",
+   "model": {
+    "study": "{s}が一番好きです。",
+    "phon": "{s} ga i-chi-ba-n su-ki de-su",
+    "native": "I like {s} best.",
+    "reading": "{s}がいちばんすきです。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "寿司",
+      "phon": "su-shi",
+      "native": "sushi",
+      "reading": "すし"
+     },
+     "study": "寿司が一番好きです。",
+     "phon": "su-shi ga i-chi-ba-n su-ki de-su",
+     "native": "I like sushi best.",
+     "reading": "すしがいちばんすきです。"
+    },
+    {
+     "slot": {
+      "study": "春",
+      "phon": "ha-ru",
+      "native": "spring",
+      "reading": "はる"
+     },
+     "study": "春が一番好きです。",
+     "phon": "ha-ru ga i-chi-ba-n su-ki de-su",
+     "native": "I like spring best.",
+     "reading": "はるがいちばんすきです。"
+    },
+    {
+     "slot": {
+      "study": "京都",
+      "phon": "kyo-o-to",
+      "native": "Kyoto",
+      "reading": "きょうと"
+     },
+     "study": "京都が一番好きです。",
+     "phon": "kyo-o-to ga i-chi-ba-n su-ki de-su",
+     "native": "I like Kyoto best.",
+     "reading": "きょうとがいちばんすきです。"
+    },
+    {
+     "slot": {
+      "study": "日本の音楽",
+      "phon": "ni-ho-n no o-n-ga-ku",
+      "native": "Japanese music",
+      "reading": "にほんのおんがく"
+     },
+     "study": "日本の音楽が一番好きです。",
+     "phon": "ni-ho-n no o-n-ga-ku ga i-chi-ba-n su-ki de-su",
+     "native": "I like Japanese music best.",
+     "reading": "にほんのおんがくがいちばんすきです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L7-en-ja-d1",
+   "situation": "In a shop: comparing",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "すみません、このかばんとあのかばん、どちらがいいと思いますか。",
+     "reading": "すみません、このかばんとあのかばん、どちらがいいとおもいますか。",
+     "phon": "su-mi-ma-se-n, ko-no ka-ba-n to a-no ka-ba-n, do-chi-ra ga i-i to o-mo-i-ma-su ka",
+     "native": "Excuse me, this bag and that one, which do you think is better?"
+    },
+    {
+     "speaker": "B",
+     "study": "こちらの方が軽いです。でも、あちらの方が安いです。",
+     "reading": "こちらのほうがかるいです。でも、あちらのほうがやすいです。",
+     "phon": "ko-chi-ra no ho-o ga ka-ru-i de-su. de-mo, a-chi-ra no ho-o ga ya-su-i de-su",
+     "native": "This one is lighter. But that one is cheaper."
+    },
+    {
+     "speaker": "A",
+     "study": "いくらですか。",
+     "reading": "いくらですか。",
+     "phon": "i-ku-ra de-su ka",
+     "native": "How much are they?"
+    },
+    {
+     "speaker": "B",
+     "study": "こちらは八千円で、あちらは五千円です。",
+     "reading": "こちらははっせんえんで、あちらはごせんえんです。",
+     "phon": "ko-chi-ra wa has-se-n e-n de, a-chi-ra wa go-se-n e-n de-su",
+     "native": "This one is eight thousand yen, and that one is five thousand."
+    },
+    {
+     "speaker": "A",
+     "study": "うーん。私は軽い方が好きです。毎日使うからです。",
+     "reading": "うーん。わたしはかるいほうがすきです。まいにちつかうからです。",
+     "phon": "u-u-n. wa-ta-shi wa ka-ru-i ho-o ga su-ki de-su. ma-i-ni-chi tsu-ka-u ka-ra de-su",
+     "native": "Hmm. I prefer the lighter one. Because I'll use it every day."
+    },
+    {
+     "speaker": "B",
+     "study": "そうですね。こちらは色も三つあります。",
+     "reading": "そうですね。こちらはいろもみっつあります。",
+     "phon": "so-o de-su ne. ko-chi-ra wa i-ro mo mit-tsu a-ri-ma-su",
+     "native": "Good choice. This one also comes in three colours."
+    },
+    {
+     "speaker": "A",
+     "study": "じゃあ、黒いのをください。",
+     "reading": "じゃあ、くろいのをください。",
+     "phon": "ja-a, ku-ro-i no o ku-da-sa-i",
+     "native": "Then I'll take the black one."
+    },
+    {
+     "speaker": "B",
+     "study": "ありがとうございます。",
+     "reading": "ありがとうございます。",
+     "phon": "a-ri-ga-to-o go-za-i-ma-su",
+     "native": "Thank you very much."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-ja-01",
+    "L1-en-ja-03",
+    "L1-en-ja-08",
+    "L2-en-ja-01",
+    "L4-en-ja-04",
+    "L6-en-ja-09",
+    "L7-en-ja-06",
+    "L7-en-ja-07"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Shop assistant"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L7-en-ja-d2",
+   "situation": "At the restaurant: a reasoned preference",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "マリーさんは和食と洋食とどちらが好きですか。",
+     "reading": "まりーさんはわしょくとようしょくとどちらがすきですか。",
+     "phon": "ma-ri-i-sa-n wa wa-sho-ku to yo-o-sho-ku to do-chi-ra ga su-ki de-su ka",
+     "native": "Marie, which do you prefer, Japanese or Western food?"
+    },
+    {
+     "speaker": "B",
+     "study": "和食の方が好きです。健康にいいと思うからです。",
+     "reading": "わしょくのほうがすきです。けんこうにいいとおもうからです。",
+     "phon": "wa-sho-ku no ho-o ga su-ki de-su. ke-n-ko-o ni i-i to o-mo-u ka-ra de-su",
+     "native": "I prefer Japanese food. Because I think it's good for your health."
+    },
+    {
+     "speaker": "A",
+     "study": "前はどうでしたか。",
+     "reading": "まえはどうでしたか。",
+     "phon": "ma-e wa do-o de-shi-ta ka",
+     "native": "What about before?"
+    },
+    {
+     "speaker": "B",
+     "study": "前は肉をたくさん食べていましたが、今は魚をよく食べます。",
+     "reading": "まえはにくをたくさんたべていましたが、いまはさかなをよくたべます。",
+     "phon": "ma-e wa ni-ku o ta-ku-sa-n ta-be-te i-ma-shi-ta ga, i-ma wa sa-ka-na o yo-ku ta-be-ma-su",
+     "native": "I used to eat a lot of meat, but now I often eat fish."
+    },
+    {
+     "speaker": "A",
+     "study": "いいですね。私は料理が下手ですから、よく外で食べます。",
+     "reading": "いいですね。わたしはりょうりがへたですから、よくそとでたべます。",
+     "phon": "i-i de-su ne. wa-ta-shi wa ryo-o-ri ga he-ta de-su ka-ra, yo-ku so-to de ta-be-ma-su",
+     "native": "That's good. I'm a bad cook, so I often eat out."
+    },
+    {
+     "speaker": "B",
+     "study": "外食は高くないですか。",
+     "reading": "がいしょくはたかくないですか。",
+     "phon": "ga-i-sho-ku wa ta-ka-ku na-i de-su ka",
+     "native": "Isn't eating out expensive?"
+    },
+    {
+     "speaker": "A",
+     "study": "日本はフランスより安いと思います。",
+     "reading": "にほんはふらんすよりやすいとおもいます。",
+     "phon": "ni-ho-n wa fu-ra-n-su yo-ri ya-su-i to o-mo-i-ma-su",
+     "native": "I think Japan is cheaper than France."
+    },
+    {
+     "speaker": "B",
+     "study": "そうですね。確かに安いです。",
+     "reading": "そうですね。たしかにやすいです。",
+     "phon": "so-o de-su ne. ta-shi-ka ni ya-su-i de-su",
+     "native": "That's true. It is indeed cheaper."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-ja-01",
+    "L1-en-ja-08",
+    "L2-en-ja-04",
+    "L3-en-ja-03",
+    "L4-en-ja-04",
+    "L5-en-ja-05",
+    "L5-en-ja-10",
+    "L7-en-ja-06",
+    "L7-en-ja-07"
+   ],
+   "roles": {
+    "A": "A friend",
+    "B": "You"
+   },
+   "learnerRole": "B"
+  },
+  {
+   "id": "L7-en-ja-d3",
+   "situation": "At work: explaining a choice",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "田中さん、今日は早く帰りますか。",
+     "reading": "たなかさん、きょうははやくかえりますか。",
+     "phon": "ta-na-ka-sa-n, kyo-o wa ha-ya-ku ka-e-ri-ma-su ka",
+     "native": "Mr Tanaka, are you leaving early today?"
+    },
+    {
+     "speaker": "B",
+     "study": "はい、子供を迎えに行くので、五時に帰ります。",
+     "reading": "はい、こどもをむかえにいくので、ごじにかえります。",
+     "phon": "ha-i, ko-do-mo o mu-ka-e ni i-ku no-de, go-ji ni ka-e-ri-ma-su",
+     "native": "Yes, I'm picking up my child, so I'm leaving at five."
+    },
+    {
+     "speaker": "A",
+     "study": "そうですか。田中さんは車で来ますか。",
+     "reading": "そうですか。たなかさんはくるまできますか。",
+     "phon": "so-o de-su ka. ta-na-ka-sa-n wa ku-ru-ma de ki-ma-su ka",
+     "native": "I see. Do you come by car?"
+    },
+    {
+     "speaker": "B",
+     "study": "いいえ、電車で来ます。電車の方が速いと思います。",
+     "reading": "いいえ、でんしゃできます。でんしゃのほうがはやいとおもいます。",
+     "phon": "i-i-e, de-n-sha de ki-ma-su. de-n-sha no ho-o ga ha-ya-i to o-mo-i-ma-su",
+     "native": "No, I come by train. I think the train is faster."
+    },
+    {
+     "speaker": "A",
+     "study": "私は自転車です。安いし、健康にいいからです。",
+     "reading": "わたしはじてんしゃです。やすいし、けんこうにいいからです。",
+     "phon": "wa-ta-shi wa ji-te-n-sha de-su. ya-su-i shi, ke-n-ko-o ni i-i ka-ra de-su",
+     "native": "I come by bike. Because it's cheap and good for your health."
+    },
+    {
+     "speaker": "B",
+     "study": "いいですね。前は私も自転車に乗っていましたが、今は遠いので電車です。",
+     "reading": "いいですね。まえはわたしもじてんしゃにのっていましたが、いまはとおいのででんしゃです。",
+     "phon": "i-i de-su ne. ma-e wa wa-ta-shi mo ji-te-n-sha ni not-te i-ma-shi-ta ga, i-ma wa to-o-i no-de de-n-sha de-su",
+     "native": "That's nice. I used to ride a bike too, but now it's far, so I take the train."
+    },
+    {
+     "speaker": "A",
+     "study": "引っ越しましたか。",
+     "reading": "ひっこしましたか。",
+     "phon": "hik-ko-shi-ma-shi-ta ka",
+     "native": "Did you move?"
+    },
+    {
+     "speaker": "B",
+     "study": "はい、去年、郊外に引っ越しました。静かで、家が広いです。",
+     "reading": "はい、きょねん、こうがいにひっこしました。しずかで、いえがひろいです。",
+     "phon": "ha-i, kyo-ne-n, ko-o-ga-i ni hik-ko-shi-ma-shi-ta. shi-zu-ka de, i-e ga hi-ro-i de-su",
+     "native": "Yes, last year I moved to the suburbs. It's quiet and the house is big."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-ja-01",
+    "L3-en-ja-03",
+    "L4-en-ja-04",
+    "L5-en-ja-05",
+    "L7-en-ja-06",
+    "L7-en-ja-07"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Mr Tanaka"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Justify with から and ので, compare with より and の方が, give an opinion (と思います) and a reasoned preference (の方が好きです。…からです), explain a change (前は…ていましたが、今は…)."
+}

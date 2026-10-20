@@ -1,0 +1,913 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "it",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en italien",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximate respelling for English readers (CAPITALS = stressed syllable; vowels ah / eh / ee / oh / oo; c+e/i → ch, g+e/i → j, gn → ny, gl → ly, sc+e/i → sh, z → ts / dz; double consonants held longer, e.g. kaf-FEH). No substitute for the audio.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended.",
+ "coverageClaim": null,
+ "level": 3,
+ "title": "Exchanging",
+ "goal": "Ask questions, answer and keep a short exchange going.",
+ "reviewPreviousLevels": [
+  1,
+  2
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L3-en-it-01",
+   "situation": "Asking a favour (friends)",
+   "model": {
+    "study": "Puoi {s}?",
+    "phon": "PWOH-ee {s}",
+    "native": "Can you {s}?",
+    "note": "Informal \"tu\" form: with friends, close colleagues, young people. With a stranger: \"Può…?\" (the formal \"Lei\" form, next model)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "aiutarmi",
+      "phon": "ah-yoo-TAR-mee",
+      "native": "help me"
+     },
+     "study": "Puoi aiutarmi?",
+     "phon": "PWOH-ee ah-yoo-TAR-mee",
+     "native": "Can you help me?"
+    },
+    {
+     "slot": {
+      "study": "ripetere",
+      "phon": "ree-PEH-teh-reh",
+      "native": "repeat that"
+     },
+     "study": "Puoi ripetere?",
+     "phon": "PWOH-ee ree-PEH-teh-reh",
+     "native": "Can you repeat that?"
+    },
+    {
+     "slot": {
+      "study": "parlare più piano",
+      "phon": "par-LAH-reh pyoo PYAH-noh",
+      "native": "speak more slowly"
+     },
+     "study": "Puoi parlare più piano?",
+     "phon": "PWOH-ee par-LAH-reh pyoo PYAH-noh",
+     "native": "Can you speak more slowly?"
+    },
+    {
+     "slot": {
+      "study": "aspettare un momento",
+      "phon": "ahs-peht-TAH-reh oon moh-MEHN-toh",
+      "native": "wait a moment"
+     },
+     "study": "Puoi aspettare un momento?",
+     "phon": "PWOH-ee ahs-peht-TAH-reh oon moh-MEHN-toh",
+     "native": "Can you wait a moment?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-it-02",
+   "situation": "Asking a favour (formal)",
+   "model": {
+    "study": "Può {s}?",
+    "phon": "pwoh {s}",
+    "native": "Could you {s}?",
+    "note": "Formal \"Lei\" form: with a stranger, a shopkeeper, an office."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "aiutarmi",
+      "phon": "ah-yoo-TAR-mee",
+      "native": "help me"
+     },
+     "study": "Può aiutarmi?",
+     "phon": "pwoh ah-yoo-TAR-mee",
+     "native": "Could you help me?"
+    },
+    {
+     "slot": {
+      "study": "scrivere qui",
+      "phon": "SKREE-veh-reh KWEE",
+      "native": "write it here"
+     },
+     "study": "Può scrivere qui?",
+     "phon": "pwoh SKREE-veh-reh KWEE",
+     "native": "Could you write it here?"
+    },
+    {
+     "slot": {
+      "study": "chiamare un taxi",
+      "phon": "kyah-MAH-reh oon TAHK-see",
+      "native": "call a taxi"
+     },
+     "study": "Può chiamare un taxi?",
+     "phon": "pwoh kyah-MAH-reh oon TAHK-see",
+     "native": "Could you call a taxi?"
+    },
+    {
+     "slot": {
+      "study": "aprire la finestra",
+      "phon": "ah-PREE-reh lah fee-NEHS-trah",
+      "native": "open the window"
+     },
+     "study": "Può aprire la finestra?",
+     "phon": "pwoh ah-PREE-reh lah fee-NEHS-trah",
+     "native": "Could you open the window?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-it-03",
+   "situation": "Open question: what",
+   "model": {
+    "study": "Cosa {s}?",
+    "phon": "KOH-zah {s}",
+    "native": "What {s}?",
+    "note": "Informal \"tu\" in the first three variants."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "fai",
+      "phon": "FAH-ee",
+      "native": "are you doing"
+     },
+     "study": "Cosa fai?",
+     "phon": "KOH-zah FAH-ee",
+     "native": "What are you doing?"
+    },
+    {
+     "slot": {
+      "study": "vuoi",
+      "phon": "VWOH-ee",
+      "native": "do you want"
+     },
+     "study": "Cosa vuoi?",
+     "phon": "KOH-zah VWOH-ee",
+     "native": "What do you want?"
+    },
+    {
+     "slot": {
+      "study": "prendi",
+      "phon": "PREHN-dee",
+      "native": "are you having"
+     },
+     "study": "Cosa prendi?",
+     "phon": "KOH-zah PREHN-dee",
+     "native": "What are you having?"
+    },
+    {
+     "slot": {
+      "study": "significa",
+      "phon": "see-NYEE-fee-kah",
+      "native": "does it mean"
+     },
+     "study": "Cosa significa?",
+     "phon": "KOH-zah see-NYEE-fee-kah",
+     "native": "What does it mean?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-it-04",
+   "situation": "Open question: why",
+   "model": {
+    "study": "Perché {s}?",
+    "phon": "pehr-KEH {s}",
+    "native": "Why {s}?",
+    "note": "Informal \"tu\"."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "sei qui",
+      "phon": "SEH-ee KWEE",
+      "native": "are you here"
+     },
+     "study": "Perché sei qui?",
+     "phon": "pehr-KEH SEH-ee KWEE",
+     "native": "Why are you here?"
+    },
+    {
+     "slot": {
+      "study": "studi l'italiano",
+      "phon": "STOO-dee lee-tah-LYAH-noh",
+      "native": "are you studying Italian"
+     },
+     "study": "Perché studi l'italiano?",
+     "phon": "pehr-KEH STOO-dee lee-tah-LYAH-noh",
+     "native": "Why are you studying Italian?"
+    },
+    {
+     "slot": {
+      "study": "non vieni",
+      "phon": "nohn VYEH-nee",
+      "native": "aren't you coming"
+     },
+     "study": "Perché non vieni?",
+     "phon": "pehr-KEH nohn VYEH-nee",
+     "native": "Why aren't you coming?"
+    },
+    {
+     "slot": {
+      "study": "è chiuso",
+      "phon": "eh KYOO-zoh",
+      "native": "is it closed"
+     },
+     "study": "Perché è chiuso?",
+     "phon": "pehr-KEH eh KYOO-zoh",
+     "native": "Why is it closed?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-it-05",
+   "situation": "Open question: how",
+   "model": {
+    "study": "Come {s}?",
+    "phon": "KOH-meh {s}",
+    "native": "How {s}?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "stai",
+      "phon": "STAH-ee",
+      "native": "are you"
+     },
+     "study": "Come stai?",
+     "phon": "KOH-meh STAH-ee",
+     "native": "How are you?"
+    },
+    {
+     "slot": {
+      "study": "si dice in italiano",
+      "phon": "see DEE-cheh een ee-tah-LYAH-noh",
+      "native": "do you say it in Italian"
+     },
+     "study": "Come si dice in italiano?",
+     "phon": "KOH-meh see DEE-cheh een ee-tah-LYAH-noh",
+     "native": "How do you say it in Italian?"
+    },
+    {
+     "slot": {
+      "study": "si scrive",
+      "phon": "see SKREE-veh",
+      "native": "do you spell it"
+     },
+     "study": "Come si scrive?",
+     "phon": "KOH-meh see SKREE-veh",
+     "native": "How do you spell it?"
+    },
+    {
+     "slot": {
+      "study": "si arriva alla stazione",
+      "phon": "see ar-REE-vah AHL-lah stah-TSYOH-neh",
+      "native": "do you get to the station"
+     },
+     "study": "Come si arriva alla stazione?",
+     "phon": "KOH-meh see ar-REE-vah AHL-lah stah-TSYOH-neh",
+     "native": "How do you get to the station?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-it-06",
+   "situation": "Bouncing the question back",
+   "model": {
+    "study": "Io {s}. E tu?",
+    "phon": "EE-oh {s}. eh TOO",
+    "native": "{s}. And you?",
+    "note": "With a stranger: \"E Lei?\" (eh LAY)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "sono di Lione",
+      "phon": "SOH-noh dee LYOH-neh",
+      "native": "I'm from Lyon"
+     },
+     "study": "Io sono di Lione. E tu?",
+     "phon": "EE-oh SOH-noh dee LYOH-neh. eh TOO",
+     "native": "I'm from Lyon. And you?"
+    },
+    {
+     "slot": {
+      "study": "lavoro in banca",
+      "phon": "lah-VOH-roh een BAHN-kah",
+      "native": "I work in a bank"
+     },
+     "study": "Io lavoro in banca. E tu?",
+     "phon": "EE-oh lah-VOH-roh een BAHN-kah. eh TOO",
+     "native": "I work in a bank. And you?"
+    },
+    {
+     "slot": {
+      "study": "abito a Parigi",
+      "phon": "AH-bee-toh ah pah-REE-jee",
+      "native": "I live in Paris"
+     },
+     "study": "Io abito a Parigi. E tu?",
+     "phon": "EE-oh AH-bee-toh ah pah-REE-jee. eh TOO",
+     "native": "I live in Paris. And you?"
+    },
+    {
+     "slot": {
+      "study": "studio italiano",
+      "phon": "STOO-dyoh ee-tah-LYAH-noh",
+      "native": "I'm studying Italian"
+     },
+     "study": "Io studio italiano. E tu?",
+     "phon": "EE-oh STOO-dyoh ee-tah-LYAH-noh. eh TOO",
+     "native": "I'm studying Italian. And you?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-it-07",
+   "situation": "Saying yes",
+   "model": {
+    "study": "Sì, {s}.",
+    "phon": "SEE, {s}",
+    "native": "Yes, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "va bene",
+      "phon": "vah BEH-neh",
+      "native": "OK"
+     },
+     "study": "Sì, va bene.",
+     "phon": "SEE, vah BEH-neh",
+     "native": "Yes, OK."
+    },
+    {
+     "slot": {
+      "study": "volentieri",
+      "phon": "voh-lehn-TYEH-ree",
+      "native": "I'd love to"
+     },
+     "study": "Sì, volentieri.",
+     "phon": "SEE, voh-lehn-TYEH-ree",
+     "native": "Yes, I'd love to."
+    },
+    {
+     "slot": {
+      "study": "certo",
+      "phon": "CHEHR-toh",
+      "native": "of course"
+     },
+     "study": "Sì, certo.",
+     "phon": "SEE, CHEHR-toh",
+     "native": "Yes, of course."
+    },
+    {
+     "slot": {
+      "study": "un momento",
+      "phon": "oon moh-MEHN-toh",
+      "native": "one moment"
+     },
+     "study": "Sì, un momento.",
+     "phon": "SEE, oon moh-MEHN-toh",
+     "native": "Yes, one moment."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-it-08",
+   "situation": "Saying no",
+   "model": {
+    "study": "No, {s}.",
+    "phon": "noh, {s}",
+    "native": "No, {s}.",
+    "note": "\"Mi dispiace\" = I'm sorry (the same form whoever is speaking)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "grazie",
+      "phon": "GRAH-tsyeh",
+      "native": "thank you"
+     },
+     "study": "No, grazie.",
+     "phon": "noh, GRAH-tsyeh",
+     "native": "No, thank you."
+    },
+    {
+     "slot": {
+      "study": "non posso",
+      "phon": "nohn POHS-soh",
+      "native": "I can't"
+     },
+     "study": "No, non posso.",
+     "phon": "noh, nohn POHS-soh",
+     "native": "No, I can't."
+    },
+    {
+     "slot": {
+      "study": "non lo so",
+      "phon": "nohn loh SOH",
+      "native": "I don't know"
+     },
+     "study": "No, non lo so.",
+     "phon": "noh, nohn loh SOH",
+     "native": "No, I don't know."
+    },
+    {
+     "slot": {
+      "study": "mi dispiace",
+      "phon": "mee dees-PYAH-cheh",
+      "native": "I'm sorry"
+     },
+     "study": "No, mi dispiace.",
+     "phon": "noh, mee dees-PYAH-cheh",
+     "native": "No, I'm sorry."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-it-09",
+   "situation": "Suggesting (friends)",
+   "model": {
+    "study": "Ti va {s}?",
+    "phon": "tee vah {s}",
+    "native": "Do you feel like {s}?",
+    "note": "Informal \"tu\". With a stranger: \"Le va…?\"."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "un caffè",
+      "phon": "oon kahf-FEH",
+      "native": "a coffee"
+     },
+     "study": "Ti va un caffè?",
+     "phon": "tee vah oon kahf-FEH",
+     "native": "Do you feel like a coffee?"
+    },
+    {
+     "slot": {
+      "study": "di uscire stasera",
+      "phon": "dee oo-SHEE-reh stah-SEH-rah",
+      "native": "going out tonight"
+     },
+     "study": "Ti va di uscire stasera?",
+     "phon": "tee vah dee oo-SHEE-reh stah-SEH-rah",
+     "native": "Do you feel like going out tonight?"
+    },
+    {
+     "slot": {
+      "study": "di mangiare qualcosa",
+      "phon": "dee mahn-JAH-reh kwahl-KOH-zah",
+      "native": "eating something"
+     },
+     "study": "Ti va di mangiare qualcosa?",
+     "phon": "tee vah dee mahn-JAH-reh kwahl-KOH-zah",
+     "native": "Do you feel like eating something?"
+    },
+    {
+     "slot": {
+      "study": "una pizza",
+      "phon": "OO-nah PEET-tsah",
+      "native": "a pizza"
+     },
+     "study": "Ti va una pizza?",
+     "phon": "tee vah OO-nah PEET-tsah",
+     "native": "Do you feel like a pizza?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-it-10",
+   "situation": "Asking if someone speaks a language",
+   "model": {
+    "study": "Parli {s}?",
+    "phon": "PAR-lee {s}",
+    "native": "Do you speak {s}?",
+    "note": "Informal \"tu\". With a stranger: \"Parla…?\"."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "inglese",
+      "phon": "een-GLEH-zeh",
+      "native": "English"
+     },
+     "study": "Parli inglese?",
+     "phon": "PAR-lee een-GLEH-zeh",
+     "native": "Do you speak English?"
+    },
+    {
+     "slot": {
+      "study": "francese",
+      "phon": "frahn-CHEH-zeh",
+      "native": "French"
+     },
+     "study": "Parli francese?",
+     "phon": "PAR-lee frahn-CHEH-zeh",
+     "native": "Do you speak French?"
+    },
+    {
+     "slot": {
+      "study": "spagnolo",
+      "phon": "spah-NYOH-loh",
+      "native": "Spanish"
+     },
+     "study": "Parli spagnolo?",
+     "phon": "PAR-lee spah-NYOH-loh",
+     "native": "Do you speak Spanish?"
+    },
+    {
+     "slot": {
+      "study": "un po' d'italiano",
+      "phon": "oon poh dee-tah-LYAH-noh",
+      "native": "a little Italian"
+     },
+     "study": "Parli un po' d'italiano?",
+     "phon": "PAR-lee oon poh dee-tah-LYAH-noh",
+     "native": "Do you speak a little Italian?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-it-11",
+   "situation": "Getting by",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Whole phrases to learn as they are. \"Scusa\" (tu) / \"scusi\" (Lei)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Non capisco. Puoi ripetere?",
+      "phon": "nohn kah-PEES-koh. PWOH-ee ree-PEH-teh-reh",
+      "native": "I don't understand. Can you repeat that?"
+     },
+     "study": "Non capisco. Puoi ripetere?",
+     "phon": "nohn kah-PEES-koh. PWOH-ee ree-PEH-teh-reh",
+     "native": "I don't understand. Can you repeat that?"
+    },
+    {
+     "slot": {
+      "study": "Come, scusi?",
+      "phon": "KOH-meh, SKOO-zee",
+      "native": "Sorry, what was that?"
+     },
+     "study": "Come, scusi?",
+     "phon": "KOH-meh, SKOO-zee",
+     "native": "Sorry, what was that?"
+    },
+    {
+     "slot": {
+      "study": "Può parlare più lentamente?",
+      "phon": "pwoh par-LAH-reh pyoo lehn-tah-MEHN-teh",
+      "native": "Could you speak more slowly?"
+     },
+     "study": "Può parlare più lentamente?",
+     "phon": "pwoh par-LAH-reh pyoo lehn-tah-MEHN-teh",
+     "native": "Could you speak more slowly?"
+    },
+    {
+     "slot": {
+      "study": "Cosa vuol dire?",
+      "phon": "KOH-zah vwohl DEE-reh",
+      "native": "What does that mean?"
+     },
+     "study": "Cosa vuol dire?",
+     "phon": "KOH-zah vwohl DEE-reh",
+     "native": "What does that mean?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L3-en-it-d1",
+   "situation": "First day at the office (from Lei to tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, sono Luca, il nuovo collega.",
+     "phon": "bwohn-JOR-noh, SOH-noh LOO-kah, eel NWOH-voh kohl-LEH-gah",
+     "native": "Hello, I'm Luca, the new colleague."
+    },
+    {
+     "speaker": "B",
+     "study": "Piacere, Giulia. Possiamo darci del tu?",
+     "phon": "pyah-CHEH-reh, JOO-lyah. pohs-SYAH-moh DAR-chee dehl TOO",
+     "native": "Nice to meet you, Giulia. Shall we use \"tu\"?"
+    },
+    {
+     "speaker": "A",
+     "study": "Certo! Di dove sei?",
+     "phon": "CHEHR-toh. dee DOH-veh SEH-ee",
+     "native": "Of course! Where are you from?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sono di Torino. E tu?",
+     "phon": "SOH-noh dee toh-REE-noh. eh TOO",
+     "native": "I'm from Turin. And you?"
+    },
+    {
+     "speaker": "A",
+     "study": "Io sono francese, di Lione.",
+     "phon": "EE-oh SOH-noh frahn-CHEH-zeh, dee LYOH-neh",
+     "native": "I'm French, from Lyon."
+    },
+    {
+     "speaker": "B",
+     "study": "Che bello! Parli bene italiano.",
+     "phon": "keh BEHL-loh. PAR-lee BEH-neh ee-tah-LYAH-noh",
+     "native": "How nice! You speak Italian well."
+    },
+    {
+     "speaker": "A",
+     "study": "Grazie, ma non capisco tutto. Puoi parlare più piano?",
+     "phon": "GRAH-tsyeh, mah nohn kah-PEES-koh TOOT-toh. PWOH-ee par-LAH-reh pyoo PYAH-noh",
+     "native": "Thanks, but I don't understand everything. Can you speak more slowly?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sì, certo. Ti va un caffè?",
+     "phon": "SEE, CHEHR-toh. tee vah oon kahf-FEH",
+     "native": "Yes, of course. Do you feel like a coffee?"
+    },
+    {
+     "speaker": "A",
+     "study": "Volentieri!",
+     "phon": "voh-lehn-TYEH-ree",
+     "native": "I'd love to!"
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-it-01",
+    "L1-en-it-11",
+    "L3-en-it-01",
+    "L3-en-it-06",
+    "L3-en-it-07",
+    "L3-en-it-09",
+    "L3-en-it-10"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A colleague"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L3-en-it-d2",
+   "situation": "Suggesting dinner (friends, tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Ciao Anna, cosa fai stasera?",
+     "phon": "CHAH-oh AHN-nah, KOH-zah FAH-ee stah-SEH-rah",
+     "native": "Hi Anna, what are you doing tonight?"
+    },
+    {
+     "speaker": "B",
+     "study": "Niente di speciale. Perché?",
+     "phon": "NYEHN-teh dee speh-CHAH-leh. pehr-KEH",
+     "native": "Nothing special. Why?"
+    },
+    {
+     "speaker": "A",
+     "study": "Ti va di mangiare una pizza?",
+     "phon": "tee vah dee mahn-JAH-reh OO-nah PEET-tsah",
+     "native": "Do you feel like having a pizza?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sì, volentieri! Dove?",
+     "phon": "SEE, voh-lehn-TYEH-ree. DOH-veh",
+     "native": "Yes, I'd love to! Where?"
+    },
+    {
+     "speaker": "A",
+     "study": "Alla pizzeria vicino alla stazione, alle otto.",
+     "phon": "AHL-lah peet-tseh-REE-ah vee-CHEE-noh AHL-lah stah-TSYOH-neh, AHL-leh OHT-toh",
+     "native": "At the pizzeria near the station, at eight."
+    },
+    {
+     "speaker": "B",
+     "study": "Come, scusa? Puoi ripetere?",
+     "phon": "KOH-meh, SKOO-zah. PWOH-ee ree-PEH-teh-reh",
+     "native": "Sorry, what? Can you repeat that?"
+    },
+    {
+     "speaker": "A",
+     "study": "Vicino alla stazione, alle otto.",
+     "phon": "vee-CHEE-noh AHL-lah stah-TSYOH-neh, AHL-leh OHT-toh",
+     "native": "Near the station, at eight."
+    },
+    {
+     "speaker": "B",
+     "study": "Va bene, a stasera!",
+     "phon": "vah BEH-neh, ah stah-SEH-rah",
+     "native": "OK, see you tonight!"
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L3-en-it-01",
+    "L3-en-it-03",
+    "L3-en-it-04",
+    "L3-en-it-05",
+    "L3-en-it-07",
+    "L3-en-it-09"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A friend"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L3-en-it-d3",
+   "situation": "At the pharmacy (Lei)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, ho bisogno di qualcosa per il mal di testa.",
+     "phon": "bwohn-JOR-noh, oh bee-ZOH-nyoh dee kwahl-KOH-zah pehr eel mahl dee TEHS-tah",
+     "native": "Hello, I need something for a headache."
+    },
+    {
+     "speaker": "B",
+     "study": "Certo. Ha anche la febbre?",
+     "phon": "CHEHR-toh. ah AHN-keh lah FEHB-breh",
+     "native": "Of course. Do you also have a fever?"
+    },
+    {
+     "speaker": "A",
+     "study": "Come, scusi? Non capisco. Può ripetere?",
+     "phon": "KOH-meh, SKOO-zee. nohn kah-PEES-koh. pwoh ree-PEH-teh-reh",
+     "native": "Sorry, what? I don't understand. Could you repeat that?"
+    },
+    {
+     "speaker": "B",
+     "study": "La febbre. Ha caldo?",
+     "phon": "lah FEHB-breh. ah KAHL-doh",
+     "native": "A fever. Do you feel hot?"
+    },
+    {
+     "speaker": "A",
+     "study": "No, no. Solo mal di testa.",
+     "phon": "noh, noh. SOH-loh mahl dee TEHS-tah",
+     "native": "No, no. Just a headache."
+    },
+    {
+     "speaker": "B",
+     "study": "Allora questo, una compressa ogni otto ore.",
+     "phon": "ahl-LOH-rah KWEHS-toh, OO-nah kohm-PREHS-sah OH-nyee OHT-toh OH-reh",
+     "native": "Then this one, one tablet every eight hours."
+    },
+    {
+     "speaker": "A",
+     "study": "Perfetto. Quanto costa?",
+     "phon": "pehr-FEHT-toh. KWAHN-toh KOHS-tah",
+     "native": "Perfect. How much is it?"
+    },
+    {
+     "speaker": "B",
+     "study": "Cinque euro.",
+     "phon": "CHEEN-kweh EH-oo-roh",
+     "native": "Five euros."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-it-04",
+    "L1-en-it-10",
+    "L1-en-it-11",
+    "L3-en-it-03",
+    "L3-en-it-05",
+    "L3-en-it-11"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Pharmacist"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Ask closed and open questions and answer them, bounce the question back with \"E tu? / E Lei?\", ask someone to repeat or slow down, suggest something and accept or decline politely."
+}

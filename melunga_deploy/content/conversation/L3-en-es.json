@@ -1,0 +1,966 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "es",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en espagnol",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximate English respelling for English-speaking readers (CAPITALS = stressed syllable; vowels ah / eh / ee / oh / oo; j and g before e/i → kh as in Scottish 'loch'; ñ → ny; ll → y; c before e/i and z → s; r is rolled; monosyllables in capitals). Standard Castilian with seseo and yeísmo. No substitute for the audio.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended.",
+ "coverageClaim": null,
+ "level": 3,
+ "title": "Exchanging",
+ "goal": "Ask questions, answer and keep a short exchange going.",
+ "reviewPreviousLevels": [
+  1,
+  2
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L3-en-es-01",
+   "situation": "Asking a friend for a favour",
+   "model": {
+    "study": "¿Puedes {s}?",
+    "phon": "POOEH-dehs {s}",
+    "native": "Can you {s}?",
+    "note": "'¿Puedes…?' (tú) with friends; with a stranger, '¿Puede…?' (usted): see the next model."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "repetir",
+      "phon": "reh-peh-TEER",
+      "native": "repeat that"
+     },
+     "study": "¿Puedes repetir?",
+     "phon": "POOEH-dehs reh-peh-TEER",
+     "native": "Can you repeat that?"
+    },
+    {
+     "slot": {
+      "study": "hablar más despacio",
+      "phon": "ah-BLAHR MAHS dehs-PAH-seeoh",
+      "native": "speak more slowly"
+     },
+     "study": "¿Puedes hablar más despacio?",
+     "phon": "POOEH-dehs ah-BLAHR MAHS dehs-PAH-seeoh",
+     "native": "Can you speak more slowly?"
+    },
+    {
+     "slot": {
+      "study": "ayudarme",
+      "phon": "ah-yoo-DAHR-meh",
+      "native": "help me"
+     },
+     "study": "¿Puedes ayudarme?",
+     "phon": "POOEH-dehs ah-yoo-DAHR-meh",
+     "native": "Can you help me?"
+    },
+    {
+     "slot": {
+      "study": "esperar un momento",
+      "phon": "ehs-peh-RAHR OON moh-MEHN-toh",
+      "native": "wait a moment"
+     },
+     "study": "¿Puedes esperar un momento?",
+     "phon": "POOEH-dehs ehs-peh-RAHR OON moh-MEHN-toh",
+     "native": "Can you wait a moment?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-es-02",
+   "situation": "Asking a stranger for a favour",
+   "model": {
+    "study": "¿Puede {s}, por favor?",
+    "phon": "POOEH-deh {s}, POHR fah-VOHR",
+    "native": "Could you {s}, please?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "escribirlo",
+      "phon": "ehs-kree-BEER-loh",
+      "native": "write it down"
+     },
+     "study": "¿Puede escribirlo, por favor?",
+     "phon": "POOEH-deh ehs-kree-BEER-loh, POHR fah-VOHR",
+     "native": "Could you write it down, please?"
+    },
+    {
+     "slot": {
+      "study": "repetirlo",
+      "phon": "reh-peh-TEER-loh",
+      "native": "repeat that"
+     },
+     "study": "¿Puede repetirlo, por favor?",
+     "phon": "POOEH-deh reh-peh-TEER-loh, POHR fah-VOHR",
+     "native": "Could you repeat that, please?"
+    },
+    {
+     "slot": {
+      "study": "decirme dónde está el banco",
+      "phon": "deh-SEER-meh DOHN-deh ehs-TAH EHL BAHN-koh",
+      "native": "tell me where the bank is"
+     },
+     "study": "¿Puede decirme dónde está el banco, por favor?",
+     "phon": "POOEH-deh deh-SEER-meh DOHN-deh ehs-TAH EHL BAHN-koh, POHR fah-VOHR",
+     "native": "Could you tell me where the bank is, please?"
+    },
+    {
+     "slot": {
+      "study": "llamar a un taxi",
+      "phon": "yah-MAHR AH OON TAHK-see",
+      "native": "call a taxi"
+     },
+     "study": "¿Puede llamar a un taxi, por favor?",
+     "phon": "POOEH-deh yah-MAHR AH OON TAHK-see, POHR fah-VOHR",
+     "native": "Could you call a taxi, please?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-es-03",
+   "situation": "Open question",
+   "model": {
+    "study": "¿Qué {s}?",
+    "phon": "KEH {s}",
+    "native": "What {s}?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "haces",
+      "phon": "AH-sehs",
+      "native": "are you doing"
+     },
+     "study": "¿Qué haces?",
+     "phon": "KEH AH-sehs",
+     "native": "What are you doing?"
+    },
+    {
+     "slot": {
+      "study": "quieres",
+      "phon": "KEEEH-rehs",
+      "native": "do you want"
+     },
+     "study": "¿Qué quieres?",
+     "phon": "KEH KEEEH-rehs",
+     "native": "What do you want?"
+    },
+    {
+     "slot": {
+      "study": "estudias",
+      "phon": "ehs-TOO-deeahs",
+      "native": "are you studying"
+     },
+     "study": "¿Qué estudias?",
+     "phon": "KEH ehs-TOO-deeahs",
+     "native": "What are you studying?"
+    },
+    {
+     "slot": {
+      "study": "recomienda",
+      "phon": "reh-koh-MEEEHN-dah",
+      "native": "do you recommend"
+     },
+     "study": "¿Qué recomienda?",
+     "phon": "KEH reh-koh-MEEEHN-dah",
+     "native": "What do you recommend?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-es-04",
+   "situation": "Turning the question back",
+   "model": {
+    "study": "Yo {s}. ¿Y tú?",
+    "phon": "YOH {s}. EE TOO",
+    "native": "{s}. And you?",
+    "note": "With usted: '¿Y usted?' (EE oos-TEHD)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "soy de Lyon",
+      "phon": "SOHEE DEH LYOHN",
+      "native": "I'm from Lyon"
+     },
+     "study": "Yo soy de Lyon. ¿Y tú?",
+     "phon": "YOH SOHEE DEH LYOHN. EE TOO",
+     "native": "I'm from Lyon. And you?"
+    },
+    {
+     "slot": {
+      "study": "trabajo en un hospital",
+      "phon": "trah-BAH-khoh EHN OON ohs-pee-TAHL",
+      "native": "I work in a hospital"
+     },
+     "study": "Yo trabajo en un hospital. ¿Y tú?",
+     "phon": "YOH trah-BAH-khoh EHN OON ohs-pee-TAHL. EE TOO",
+     "native": "I work in a hospital. And you?"
+    },
+    {
+     "slot": {
+      "study": "vivo aquí",
+      "phon": "VEE-voh ah-KEE",
+      "native": "I live here"
+     },
+     "study": "Yo vivo aquí. ¿Y tú?",
+     "phon": "YOH VEE-voh ah-KEE. EE TOO",
+     "native": "I live here. And you?"
+    },
+    {
+     "slot": {
+      "study": "estudio español",
+      "phon": "ehs-TOO-deeoh ehs-pah-NYOHL",
+      "native": "I'm studying Spanish"
+     },
+     "study": "Yo estudio español. ¿Y tú?",
+     "phon": "YOH ehs-TOO-deeoh ehs-pah-NYOHL. EE TOO",
+     "native": "I'm studying Spanish. And you?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-es-05",
+   "situation": "Getting by",
+   "model": {
+    "study": "Perdona, no entiendo {s}.",
+    "phon": "pehr-DOH-nah, NOH ehn-TEEEHN-doh {s}",
+    "native": "Sorry, I don't understand {s}.",
+    "note": "'Perdona' (tú); 'Perdone' (usted) with a stranger."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "esta palabra",
+      "phon": "EHS-tah pah-LAH-brah",
+      "native": "this word"
+     },
+     "study": "Perdona, no entiendo esta palabra.",
+     "phon": "pehr-DOH-nah, NOH ehn-TEEEHN-doh EHS-tah pah-LAH-brah",
+     "native": "Sorry, I don't understand this word."
+    },
+    {
+     "slot": {
+      "study": "la pregunta",
+      "phon": "LAH preh-GOON-tah",
+      "native": "the question"
+     },
+     "study": "Perdona, no entiendo la pregunta.",
+     "phon": "pehr-DOH-nah, NOH ehn-TEEEHN-doh LAH preh-GOON-tah",
+     "native": "Sorry, I don't understand the question."
+    },
+    {
+     "slot": {
+      "study": "bien",
+      "phon": "BEEEHN",
+      "native": "well"
+     },
+     "study": "Perdona, no entiendo bien.",
+     "phon": "pehr-DOH-nah, NOH ehn-TEEEHN-doh BEEEHN",
+     "native": "Sorry, I don't quite understand."
+    },
+    {
+     "slot": {
+      "study": "el menú",
+      "phon": "EHL meh-NOO",
+      "native": "the menu"
+     },
+     "study": "Perdona, no entiendo el menú.",
+     "phon": "pehr-DOH-nah, NOH ehn-TEEEHN-doh EHL meh-NOO",
+     "native": "Sorry, I don't understand the menu."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-es-06",
+   "situation": "Suggesting",
+   "model": {
+    "study": "¿{s}?",
+    "phon": "{s}",
+    "native": "Shall we {s}?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Tomamos un café",
+      "phon": "toh-MAH-mohs OON kah-FEH",
+      "native": "have a coffee"
+     },
+     "study": "¿Tomamos un café?",
+     "phon": "toh-MAH-mohs OON kah-FEH",
+     "native": "Shall we have a coffee?"
+    },
+    {
+     "slot": {
+      "study": "Comemos juntos",
+      "phon": "koh-MEH-mohs KHOON-tohs",
+      "native": "eat together"
+     },
+     "study": "¿Comemos juntos?",
+     "phon": "koh-MEH-mohs KHOON-tohs",
+     "native": "Shall we eat together?"
+    },
+    {
+     "slot": {
+      "study": "Vamos al cine",
+      "phon": "VAH-mohs AHL SEE-neh",
+      "native": "go to the cinema"
+     },
+     "study": "¿Vamos al cine?",
+     "phon": "VAH-mohs AHL SEE-neh",
+     "native": "Shall we go to the cinema?"
+    },
+    {
+     "slot": {
+      "study": "Quedamos mañana",
+      "phon": "keh-DAH-mohs mah-NYAH-nah",
+      "native": "meet tomorrow"
+     },
+     "study": "¿Quedamos mañana?",
+     "phon": "keh-DAH-mohs mah-NYAH-nah",
+     "native": "Shall we meet tomorrow?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-es-07",
+   "situation": "Accepting or declining",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Short answers to learn as they are."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Sí, vale.",
+      "phon": "SEE, VAH-leh",
+      "native": "Yes, OK."
+     },
+     "study": "Sí, vale.",
+     "phon": "SEE, VAH-leh",
+     "native": "Yes, OK."
+    },
+    {
+     "slot": {
+      "study": "No, gracias.",
+      "phon": "NOH, GRAH-seeahs",
+      "native": "No, thanks."
+     },
+     "study": "No, gracias.",
+     "phon": "NOH, GRAH-seeahs",
+     "native": "No, thanks."
+    },
+    {
+     "slot": {
+      "study": "No sé.",
+      "phon": "NOH SEH",
+      "native": "I don't know."
+     },
+     "study": "No sé.",
+     "phon": "NOH SEH",
+     "native": "I don't know."
+    },
+    {
+     "slot": {
+      "study": "Lo siento, no puedo.",
+      "phon": "LOH SEEEHN-toh, NOH POOEH-doh",
+      "native": "Sorry, I can't."
+     },
+     "study": "Lo siento, no puedo.",
+     "phon": "LOH SEEEHN-toh, NOH POOEH-doh",
+     "native": "Sorry, I can't."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-es-08",
+   "situation": "Yes/no question",
+   "model": {
+    "study": "¿Tienes {s}?",
+    "phon": "TEEEH-nehs {s}",
+    "native": "Do you have {s}?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "tiempo",
+      "phon": "TEEEHM-poh",
+      "native": "time"
+     },
+     "study": "¿Tienes tiempo?",
+     "phon": "TEEEH-nehs TEEEHM-poh",
+     "native": "Do you have time?"
+    },
+    {
+     "slot": {
+      "study": "hambre",
+      "phon": "AHM-breh",
+      "native": "hungry"
+     },
+     "study": "¿Tienes hambre?",
+     "phon": "TEEEH-nehs AHM-breh",
+     "native": "Are you hungry?"
+    },
+    {
+     "slot": {
+      "study": "hermanos",
+      "phon": "ehr-MAH-nohs",
+      "native": "brothers or sisters"
+     },
+     "study": "¿Tienes hermanos?",
+     "phon": "TEEEH-nehs ehr-MAH-nohs",
+     "native": "Do you have brothers or sisters?"
+    },
+    {
+     "slot": {
+      "study": "coche",
+      "phon": "KOH-cheh",
+      "native": "a car"
+     },
+     "study": "¿Tienes coche?",
+     "phon": "TEEEH-nehs KOH-cheh",
+     "native": "Do you have a car?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-es-09",
+   "situation": "Asking how",
+   "model": {
+    "study": "¿Cómo {s}?",
+    "phon": "KOH-moh {s}",
+    "native": "How {s}?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "se dice esto en español",
+      "phon": "SEH DEE-seh EHS-toh EHN ehs-pah-NYOHL",
+      "native": "do you say this in Spanish"
+     },
+     "study": "¿Cómo se dice esto en español?",
+     "phon": "KOH-moh SEH DEE-seh EHS-toh EHN ehs-pah-NYOHL",
+     "native": "How do you say this in Spanish?"
+    },
+    {
+     "slot": {
+      "study": "se escribe",
+      "phon": "SEH ehs-KREE-beh",
+      "native": "do you spell it"
+     },
+     "study": "¿Cómo se escribe?",
+     "phon": "KOH-moh SEH ehs-KREE-beh",
+     "native": "How do you spell it?"
+    },
+    {
+     "slot": {
+      "study": "estás",
+      "phon": "ehs-TAHS",
+      "native": "are you"
+     },
+     "study": "¿Cómo estás?",
+     "phon": "KOH-moh ehs-TAHS",
+     "native": "How are you?"
+    },
+    {
+     "slot": {
+      "study": "se llega al centro",
+      "phon": "SEH YEH-gah AHL SEHN-troh",
+      "native": "do you get to the centre"
+     },
+     "study": "¿Cómo se llega al centro?",
+     "phon": "KOH-moh SEH YEH-gah AHL SEHN-troh",
+     "native": "How do you get to the centre?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-es-10",
+   "situation": "Asking why",
+   "model": {
+    "study": "¿Por qué {s}?",
+    "phon": "POHR KEH {s}",
+    "native": "Why {s}?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "estudias español",
+      "phon": "ehs-TOO-deeahs ehs-pah-NYOHL",
+      "native": "are you studying Spanish"
+     },
+     "study": "¿Por qué estudias español?",
+     "phon": "POHR KEH ehs-TOO-deeahs ehs-pah-NYOHL",
+     "native": "Why are you studying Spanish?"
+    },
+    {
+     "slot": {
+      "study": "no vienes",
+      "phon": "NOH VEEEH-nehs",
+      "native": "aren't you coming"
+     },
+     "study": "¿Por qué no vienes?",
+     "phon": "POHR KEH NOH VEEEH-nehs",
+     "native": "Why aren't you coming?"
+    },
+    {
+     "slot": {
+      "study": "está cerrado",
+      "phon": "ehs-TAH seh-RRAH-doh",
+      "native": "is it closed"
+     },
+     "study": "¿Por qué está cerrado?",
+     "phon": "POHR KEH ehs-TAH seh-RRAH-doh",
+     "native": "Why is it closed?"
+    },
+    {
+     "slot": {
+      "study": "no",
+      "phon": "NOH",
+      "native": "not"
+     },
+     "study": "¿Por qué no?",
+     "phon": "POHR KEH NOH",
+     "native": "Why not?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-es-11",
+   "situation": "Asking where",
+   "model": {
+    "study": "¿Dónde {s}?",
+    "phon": "DOHN-deh {s}",
+    "native": "Where {s}?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "vives",
+      "phon": "VEE-vehs",
+      "native": "do you live"
+     },
+     "study": "¿Dónde vives?",
+     "phon": "DOHN-deh VEE-vehs",
+     "native": "Where do you live?"
+    },
+    {
+     "slot": {
+      "study": "trabajas",
+      "phon": "trah-BAH-khahs",
+      "native": "do you work"
+     },
+     "study": "¿Dónde trabajas?",
+     "phon": "DOHN-deh trah-BAH-khahs",
+     "native": "Where do you work?"
+    },
+    {
+     "slot": {
+      "study": "está el baño",
+      "phon": "ehs-TAH EHL BAH-nyoh",
+      "native": "is the bathroom"
+     },
+     "study": "¿Dónde está el baño?",
+     "phon": "DOHN-deh ehs-TAH EHL BAH-nyoh",
+     "native": "Where is the bathroom?"
+    },
+    {
+     "slot": {
+      "study": "quedamos",
+      "phon": "keh-DAH-mohs",
+      "native": "shall we meet"
+     },
+     "study": "¿Dónde quedamos?",
+     "phon": "DOHN-deh keh-DAH-mohs",
+     "native": "Where shall we meet?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-es-12",
+   "situation": "First contact at work",
+   "model": {
+    "study": "Hablo {s}.",
+    "phon": "AH-bloh {s}",
+    "native": "I speak {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "francés",
+      "phon": "frahn-SEHS",
+      "native": "French"
+     },
+     "study": "Hablo francés.",
+     "phon": "AH-bloh frahn-SEHS",
+     "native": "I speak French."
+    },
+    {
+     "slot": {
+      "study": "un poco de español",
+      "phon": "OON POH-koh DEH ehs-pah-NYOHL",
+      "native": "a little Spanish"
+     },
+     "study": "Hablo un poco de español.",
+     "phon": "AH-bloh OON POH-koh DEH ehs-pah-NYOHL",
+     "native": "I speak a little Spanish."
+    },
+    {
+     "slot": {
+      "study": "inglés",
+      "phon": "een-GLEHS",
+      "native": "English"
+     },
+     "study": "Hablo inglés.",
+     "phon": "AH-bloh een-GLEHS",
+     "native": "I speak English."
+    },
+    {
+     "slot": {
+      "study": "tres idiomas",
+      "phon": "TREHS ee-DEEOH-mahs",
+      "native": "three languages"
+     },
+     "study": "Hablo tres idiomas.",
+     "phon": "AH-bloh TREHS ee-DEEOH-mahs",
+     "native": "I speak three languages."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L3-en-es-d1",
+   "situation": "First day at work",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hola, soy Marta, la nueva.",
+     "phon": "OH-lah, SOHEE MAHR-tah, LAH NOOEH-vah",
+     "native": "Hi, I'm Marta, I'm new here."
+    },
+    {
+     "speaker": "B",
+     "study": "Encantado, Marta. Yo soy Luis. ¿De dónde eres?",
+     "phon": "ehn-kahn-TAH-doh, MAHR-tah. YOH SOHEE LOOEES. DEH DOHN-deh EH-rehs",
+     "native": "Nice to meet you, Marta. I'm Luis. Where are you from?"
+    },
+    {
+     "speaker": "A",
+     "study": "Soy de Lyon. ¿Y tú?",
+     "phon": "SOHEE DEH LYOHN. EE TOO",
+     "native": "I'm from Lyon. And you?"
+    },
+    {
+     "speaker": "B",
+     "study": "Soy de aquí, de Sevilla. ¿Qué haces en la empresa?",
+     "phon": "SOHEE DEH ah-KEE, DEH seh-VEE-yah. KEH AH-sehs EHN LAH ehm-PREH-sah",
+     "native": "I'm from here, from Seville. What do you do in the company?"
+    },
+    {
+     "speaker": "A",
+     "study": "Trabajo en contabilidad. ¿Y tú?",
+     "phon": "trah-BAH-khoh EHN kohn-tah-bee-lee-DAHD. EE TOO",
+     "native": "I work in accounting. And you?"
+    },
+    {
+     "speaker": "B",
+     "study": "Yo soy informático. ¿Tomamos un café?",
+     "phon": "YOH SOHEE een-fohr-MAH-tee-koh. toh-MAH-mohs OON kah-FEH",
+     "native": "I'm in IT. Shall we have a coffee?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sí, vale. ¿Dónde?",
+     "phon": "SEE, VAH-leh. DOHN-deh",
+     "native": "Yes, OK. Where?"
+    },
+    {
+     "speaker": "B",
+     "study": "Abajo, hay una cafetería.",
+     "phon": "ah-BAH-khoh, AHEE OO-nah kah-feh-teh-REE-ah",
+     "native": "Downstairs, there's a cafeteria."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L2-en-es-06",
+    "L3-en-es-03",
+    "L3-en-es-04",
+    "L3-en-es-06",
+    "L3-en-es-07",
+    "L3-en-es-11"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A colleague"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L3-en-es-d2",
+   "situation": "At the restaurant",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Perdone, ¿qué recomienda?",
+     "phon": "pehr-DOH-neh, KEH reh-koh-MEEEHN-dah",
+     "native": "Excuse me, what do you recommend?"
+    },
+    {
+     "speaker": "B",
+     "study": "La paella, está muy buena.",
+     "phon": "LAH pah-EH-yah, ehs-TAH MOOEE BOOEH-nah",
+     "native": "The paella, it's very good."
+    },
+    {
+     "speaker": "A",
+     "study": "Perdone, no entiendo. ¿Puede repetir?",
+     "phon": "pehr-DOH-neh, NOH ehn-TEEEHN-doh. POOEH-deh reh-peh-TEER",
+     "native": "Sorry, I don't understand. Could you repeat that?"
+    },
+    {
+     "speaker": "B",
+     "study": "La paella: arroz con pescado.",
+     "phon": "LAH pah-EH-yah, ah-RROHS KOHN pehs-KAH-doh",
+     "native": "Paella: rice with fish."
+    },
+    {
+     "speaker": "A",
+     "study": "Ah, vale. ¿Tiene menú del día?",
+     "phon": "AH, VAH-leh. TEEEH-neh meh-NOO DEHL DEE-ah",
+     "native": "Ah, OK. Do you have a set menu?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sí, doce euros.",
+     "phon": "SEE, DOH-seh EHOO-rohs",
+     "native": "Yes, twelve euros."
+    },
+    {
+     "speaker": "A",
+     "study": "Para mí, el menú, por favor.",
+     "phon": "PAH-rah MEE, EHL meh-NOO, POHR fah-VOHR",
+     "native": "For me, the set menu, please."
+    },
+    {
+     "speaker": "B",
+     "study": "Muy bien. ¿Y para beber?",
+     "phon": "MOOEE BEEEHN. EE PAH-rah beh-BEHR",
+     "native": "Very good. And to drink?"
+    },
+    {
+     "speaker": "A",
+     "study": "Agua, gracias.",
+     "phon": "AH-gooah, GRAH-seeahs",
+     "native": "Water, thanks."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-es-09",
+    "L1-en-es-11",
+    "L2-en-es-03",
+    "L2-en-es-09",
+    "L3-en-es-03"
+   ],
+   "roles": {
+    "A": "Customer",
+    "B": "Waiter"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L3-en-es-d3",
+   "situation": "A simple errand",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buenos días. Necesito una tarjeta de transporte.",
+     "phon": "BOOEH-nohs DEE-ahs. neh-seh-SEE-toh OO-nah tahr-KHEH-tah DEH trahns-POHR-teh",
+     "native": "Good morning. I need a travel card."
+    },
+    {
+     "speaker": "B",
+     "study": "¿Tiene una foto?",
+     "phon": "TEEEH-neh OO-nah FOH-toh",
+     "native": "Do you have a photo?"
+    },
+    {
+     "speaker": "A",
+     "study": "No. ¿Dónde hay una tienda de fotos?",
+     "phon": "NOH. DOHN-deh AHEE OO-nah TEEEHN-dah DEH FOH-tohs",
+     "native": "No. Where is there a photo shop?"
+    },
+    {
+     "speaker": "B",
+     "study": "Aquí al lado, a la izquierda.",
+     "phon": "ah-KEE AHL LAH-doh, AH LAH ees-KEEEHR-dah",
+     "native": "Right next door, on the left."
+    },
+    {
+     "speaker": "A",
+     "study": "¿Puede escribirlo, por favor?",
+     "phon": "POOEH-deh ehs-kree-BEER-loh, POHR fah-VOHR",
+     "native": "Could you write it down, please?"
+    },
+    {
+     "speaker": "B",
+     "study": "Claro. Aquí tiene.",
+     "phon": "KLAH-roh. ah-KEE TEEEH-neh",
+     "native": "Of course. Here you are."
+    },
+    {
+     "speaker": "A",
+     "study": "Gracias. ¿Cuánto cuesta la tarjeta?",
+     "phon": "GRAH-seeahs. KOOAHN-toh KOOEHS-tah LAH tahr-KHEH-tah",
+     "native": "Thanks. How much is the card?"
+    },
+    {
+     "speaker": "B",
+     "study": "Cinco euros.",
+     "phon": "SEEN-koh EHOO-rohs",
+     "native": "Five euros."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-es-04",
+    "L1-en-es-09",
+    "L1-en-es-10",
+    "L2-en-es-06",
+    "L3-en-es-02",
+    "L3-en-es-11"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Clerk"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Ask a yes/no or open question (qué, cómo, por qué, dónde) and answer one, turn a question back with '¿Y tú?', ask for a favour using tú or usted, suggest an activity and accept or decline politely."
+}

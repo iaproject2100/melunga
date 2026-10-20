@@ -1,0 +1,962 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "it",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en italien",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximate respelling for English readers (CAPITALS = stressed syllable; vowels ah / eh / ee / oh / oo; c+e/i → ch, g+e/i → j, gn → ny, gl → ly, sc+e/i → sh, z → ts / dz; double consonants held longer, e.g. kaf-FEH). No substitute for the audio.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended.",
+ "coverageClaim": null,
+ "level": 7,
+ "title": "Explaining and comparing",
+ "goal": "Explain a reason, compare and express a preference.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L7-en-it-01",
+   "situation": "Giving a reason",
+   "model": {
+    "study": "Non vengo perché {s}.",
+    "phon": "nohn VEHN-goh pehr-KEH {s}",
+    "native": "I'm not coming because {s}.",
+    "note": "\"stanco\" for a man, \"stanca\" for a woman."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "sono stanco",
+      "phon": "SOH-noh STAHN-koh",
+      "native": "I'm tired"
+     },
+     "study": "Non vengo perché sono stanco.",
+     "phon": "nohn VEHN-goh pehr-KEH SOH-noh STAHN-koh",
+     "native": "I'm not coming because I'm tired."
+    },
+    {
+     "slot": {
+      "study": "devo lavorare",
+      "phon": "DEH-voh lah-voh-RAH-reh",
+      "native": "I have to work"
+     },
+     "study": "Non vengo perché devo lavorare.",
+     "phon": "nohn VEHN-goh pehr-KEH DEH-voh lah-voh-RAH-reh",
+     "native": "I'm not coming because I have to work."
+    },
+    {
+     "slot": {
+      "study": "ho un appuntamento",
+      "phon": "oh oon ahp-poon-tah-MEHN-toh",
+      "native": "I have an appointment"
+     },
+     "study": "Non vengo perché ho un appuntamento.",
+     "phon": "nohn VEHN-goh pehr-KEH oh oon ahp-poon-tah-MEHN-toh",
+     "native": "I'm not coming because I have an appointment."
+    },
+    {
+     "slot": {
+      "study": "non sto bene",
+      "phon": "nohn stoh BEH-neh",
+      "native": "I'm not feeling well"
+     },
+     "study": "Non vengo perché non sto bene.",
+     "phon": "nohn VEHN-goh pehr-KEH nohn stoh BEH-neh",
+     "native": "I'm not coming because I'm not feeling well."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-it-02",
+   "situation": "Comparing: more… than",
+   "model": {
+    "study": "Il treno è più {s} della macchina.",
+    "phon": "eel TREH-noh eh pyoo {s} DEHL-lah MAHK-kee-nah",
+    "native": "The train is {s} than the car."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "veloce",
+      "phon": "veh-LOH-cheh",
+      "native": "faster"
+     },
+     "study": "Il treno è più veloce della macchina.",
+     "phon": "eel TREH-noh eh pyoo veh-LOH-cheh DEHL-lah MAHK-kee-nah",
+     "native": "The train is faster than the car."
+    },
+    {
+     "slot": {
+      "study": "comodo",
+      "phon": "KOH-moh-doh",
+      "native": "more comfortable"
+     },
+     "study": "Il treno è più comodo della macchina.",
+     "phon": "eel TREH-noh eh pyoo KOH-moh-doh DEHL-lah MAHK-kee-nah",
+     "native": "The train is more comfortable than the car."
+    },
+    {
+     "slot": {
+      "study": "caro",
+      "phon": "KAH-roh",
+      "native": "more expensive"
+     },
+     "study": "Il treno è più caro della macchina.",
+     "phon": "eel TREH-noh eh pyoo KAH-roh DEHL-lah MAHK-kee-nah",
+     "native": "The train is more expensive than the car."
+    },
+    {
+     "slot": {
+      "study": "ecologico",
+      "phon": "eh-koh-LOH-jee-koh",
+      "native": "greener"
+     },
+     "study": "Il treno è più ecologico della macchina.",
+     "phon": "eel TREH-noh eh pyoo eh-koh-LOH-jee-koh DEHL-lah MAHK-kee-nah",
+     "native": "The train is greener than the car."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-it-03",
+   "situation": "Comparing: less… than",
+   "model": {
+    "study": "Questo è meno {s} di quello.",
+    "phon": "KWEHS-toh eh MEH-noh {s} dee KWEHL-loh",
+    "native": "This one is less {s} than that one."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "caro",
+      "phon": "KAH-roh",
+      "native": "expensive"
+     },
+     "study": "Questo è meno caro di quello.",
+     "phon": "KWEHS-toh eh MEH-noh KAH-roh dee KWEHL-loh",
+     "native": "This one is less expensive than that one."
+    },
+    {
+     "slot": {
+      "study": "grande",
+      "phon": "GRAHN-deh",
+      "native": "big"
+     },
+     "study": "Questo è meno grande di quello.",
+     "phon": "KWEHS-toh eh MEH-noh GRAHN-deh dee KWEHL-loh",
+     "native": "This one is smaller than that one."
+    },
+    {
+     "slot": {
+      "study": "pesante",
+      "phon": "peh-ZAHN-teh",
+      "native": "heavy"
+     },
+     "study": "Questo è meno pesante di quello.",
+     "phon": "KWEHS-toh eh MEH-noh peh-ZAHN-teh dee KWEHL-loh",
+     "native": "This one is lighter than that one."
+    },
+    {
+     "slot": {
+      "study": "bello",
+      "phon": "BEHL-loh",
+      "native": "nice"
+     },
+     "study": "Questo è meno bello di quello.",
+     "phon": "KWEHS-toh eh MEH-noh BEHL-loh dee KWEHL-loh",
+     "native": "This one isn't as nice as that one."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-it-04",
+   "situation": "Preference with a reason",
+   "model": {
+    "study": "Preferisco {s} perché costa meno.",
+    "phon": "preh-feh-REES-koh {s} pehr-KEH KOHS-tah MEH-noh",
+    "native": "I prefer {s} because it costs less."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "il treno",
+      "phon": "eel TREH-noh",
+      "native": "the train"
+     },
+     "study": "Preferisco il treno perché costa meno.",
+     "phon": "preh-feh-REES-koh eel TREH-noh pehr-KEH KOHS-tah MEH-noh",
+     "native": "I prefer the train because it costs less."
+    },
+    {
+     "slot": {
+      "study": "il mercato",
+      "phon": "eel mehr-KAH-toh",
+      "native": "the market"
+     },
+     "study": "Preferisco il mercato perché costa meno.",
+     "phon": "preh-feh-REES-koh eel mehr-KAH-toh pehr-KEH KOHS-tah MEH-noh",
+     "native": "I prefer the market because it costs less."
+    },
+    {
+     "slot": {
+      "study": "cucinare a casa",
+      "phon": "koo-chee-NAH-reh ah KAH-zah",
+      "native": "cooking at home"
+     },
+     "study": "Preferisco cucinare a casa perché costa meno.",
+     "phon": "preh-feh-REES-koh koo-chee-NAH-reh ah KAH-zah pehr-KEH KOHS-tah MEH-noh",
+     "native": "I prefer cooking at home because it costs less."
+    },
+    {
+     "slot": {
+      "study": "l'autobus",
+      "phon": "LOW-toh-boos",
+      "native": "the bus"
+     },
+     "study": "Preferisco l'autobus perché costa meno.",
+     "phon": "preh-feh-REES-koh LOW-toh-boos pehr-KEH KOHS-tah MEH-noh",
+     "native": "I prefer the bus because it costs less."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-it-05",
+   "situation": "Giving an opinion: I think",
+   "model": {
+    "study": "Penso che {s}.",
+    "phon": "PEHN-soh keh {s}",
+    "native": "I think {s}.",
+    "note": "After \"penso che\", Italian uses the subjunctive (sia, abbia)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "sia una buona idea",
+      "phon": "SEE-ah OO-nah BWOH-nah ee-DEH-ah",
+      "native": "it's a good idea"
+     },
+     "study": "Penso che sia una buona idea.",
+     "phon": "PEHN-soh keh SEE-ah OO-nah BWOH-nah ee-DEH-ah",
+     "native": "I think it's a good idea."
+    },
+    {
+     "slot": {
+      "study": "sia troppo caro",
+      "phon": "SEE-ah TROHP-poh KAH-roh",
+      "native": "it's too expensive"
+     },
+     "study": "Penso che sia troppo caro.",
+     "phon": "PEHN-soh keh SEE-ah TROHP-poh KAH-roh",
+     "native": "I think it's too expensive."
+    },
+    {
+     "slot": {
+      "study": "tu abbia ragione",
+      "phon": "too AHB-byah rah-JOH-neh",
+      "native": "you're right"
+     },
+     "study": "Penso che tu abbia ragione.",
+     "phon": "PEHN-soh keh too AHB-byah rah-JOH-neh",
+     "native": "I think you're right."
+    },
+    {
+     "slot": {
+      "study": "sia meglio aspettare",
+      "phon": "SEE-ah MEH-lyoh ahs-peht-TAH-reh",
+      "native": "it's better to wait"
+     },
+     "study": "Penso che sia meglio aspettare.",
+     "phon": "PEHN-soh keh SEE-ah MEH-lyoh ahs-peht-TAH-reh",
+     "native": "I think it's better to wait."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-it-06",
+   "situation": "Giving an opinion: in my opinion",
+   "model": {
+    "study": "Secondo me, {s}.",
+    "phon": "seh-KOHN-doh meh, {s}",
+    "native": "In my opinion, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "è troppo caro",
+      "phon": "eh TROHP-poh KAH-roh",
+      "native": "it's too expensive"
+     },
+     "study": "Secondo me, è troppo caro.",
+     "phon": "seh-KOHN-doh meh, eh TROHP-poh KAH-roh",
+     "native": "In my opinion, it's too expensive."
+    },
+    {
+     "slot": {
+      "study": "questo ristorante è migliore",
+      "phon": "KWEHS-toh rees-toh-RAHN-teh eh mee-LYOH-reh",
+      "native": "this restaurant is better"
+     },
+     "study": "Secondo me, questo ristorante è migliore.",
+     "phon": "seh-KOHN-doh meh, KWEHS-toh rees-toh-RAHN-teh eh mee-LYOH-reh",
+     "native": "In my opinion, this restaurant is better."
+    },
+    {
+     "slot": {
+      "study": "il vino rosso è più buono",
+      "phon": "eel VEE-noh ROHS-soh eh pyoo BWOH-noh",
+      "native": "the red wine is nicer"
+     },
+     "study": "Secondo me, il vino rosso è più buono.",
+     "phon": "seh-KOHN-doh meh, eel VEE-noh ROHS-soh eh pyoo BWOH-noh",
+     "native": "In my opinion, the red wine is nicer."
+    },
+    {
+     "slot": {
+      "study": "è una buona idea",
+      "phon": "eh OO-nah BWOH-nah ee-DEH-ah",
+      "native": "it's a good idea"
+     },
+     "study": "Secondo me, è una buona idea.",
+     "phon": "seh-KOHN-doh meh, eh OO-nah BWOH-nah ee-DEH-ah",
+     "native": "In my opinion, it's a good idea."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-it-07",
+   "situation": "Before / now",
+   "model": {
+    "study": "Prima {s}, adesso lavoro da casa.",
+    "phon": "PREE-mah {s}, ah-DEHS-soh lah-VOH-roh dah KAH-zah",
+    "native": "{s}, now I work from home."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "lavoravo in ufficio",
+      "phon": "lah-voh-RAH-voh een oof-FEE-choh",
+      "native": "I used to work in an office"
+     },
+     "study": "Prima lavoravo in ufficio, adesso lavoro da casa.",
+     "phon": "PREE-mah lah-voh-RAH-voh een oof-FEE-choh, ah-DEHS-soh lah-VOH-roh dah KAH-zah",
+     "native": "I used to work in an office, now I work from home."
+    },
+    {
+     "slot": {
+      "study": "prendevo il treno ogni giorno",
+      "phon": "prehn-DEH-voh eel TREH-noh OH-nyee JOR-noh",
+      "native": "I used to take the train every day"
+     },
+     "study": "Prima prendevo il treno ogni giorno, adesso lavoro da casa.",
+     "phon": "PREE-mah prehn-DEH-voh eel TREH-noh OH-nyee JOR-noh, ah-DEHS-soh lah-VOH-roh dah KAH-zah",
+     "native": "I used to take the train every day, now I work from home."
+    },
+    {
+     "slot": {
+      "study": "andavo in ufficio ogni giorno",
+      "phon": "ahn-DAH-voh een oof-FEE-choh OH-nyee JOR-noh",
+      "native": "I used to go to the office every day"
+     },
+     "study": "Prima andavo in ufficio ogni giorno, adesso lavoro da casa.",
+     "phon": "PREE-mah ahn-DAH-voh een oof-FEE-choh OH-nyee JOR-noh, ah-DEHS-soh lah-VOH-roh dah KAH-zah",
+     "native": "I used to go to the office every day, now I work from home."
+    },
+    {
+     "slot": {
+      "study": "viaggiavo molto",
+      "phon": "vyahd-JAH-voh MOHL-toh",
+      "native": "I used to travel a lot"
+     },
+     "study": "Prima viaggiavo molto, adesso lavoro da casa.",
+     "phon": "PREE-mah vyahd-JAH-voh MOHL-toh, ah-DEHS-soh lah-VOH-roh dah KAH-zah",
+     "native": "I used to travel a lot, now I work from home."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-it-08",
+   "situation": "Shopping: explaining your choice",
+   "model": {
+    "study": "Lo compro perché {s}.",
+    "phon": "loh KOHM-proh pehr-KEH {s}",
+    "native": "I'm buying it because {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "è in offerta",
+      "phon": "eh een ohf-FEHR-tah",
+      "native": "it's on sale"
+     },
+     "study": "Lo compro perché è in offerta.",
+     "phon": "loh KOHM-proh pehr-KEH eh een ohf-FEHR-tah",
+     "native": "I'm buying it because it's on sale."
+    },
+    {
+     "slot": {
+      "study": "mi piace il colore",
+      "phon": "mee PYAH-cheh eel koh-LOH-reh",
+      "native": "I like the colour"
+     },
+     "study": "Lo compro perché mi piace il colore.",
+     "phon": "loh KOHM-proh pehr-KEH mee PYAH-cheh eel koh-LOH-reh",
+     "native": "I'm buying it because I like the colour."
+    },
+    {
+     "slot": {
+      "study": "è di buona qualità",
+      "phon": "eh dee BWOH-nah kwah-lee-TAH",
+      "native": "it's good quality"
+     },
+     "study": "Lo compro perché è di buona qualità.",
+     "phon": "loh KOHM-proh pehr-KEH eh dee BWOH-nah kwah-lee-TAH",
+     "native": "I'm buying it because it's good quality."
+    },
+    {
+     "slot": {
+      "study": "ne ho bisogno",
+      "phon": "neh oh bee-ZOH-nyoh",
+      "native": "I need it"
+     },
+     "study": "Lo compro perché ne ho bisogno.",
+     "phon": "loh KOHM-proh pehr-KEH neh oh bee-ZOH-nyoh",
+     "native": "I'm buying it because I need it."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-it-09",
+   "situation": "Meals: giving your opinion",
+   "model": {
+    "study": "Per me è {s}.",
+    "phon": "pehr MEH eh {s}",
+    "native": "For me it's {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "troppo salato",
+      "phon": "TROHP-poh sah-LAH-toh",
+      "native": "too salty"
+     },
+     "study": "Per me è troppo salato.",
+     "phon": "pehr MEH eh TROHP-poh sah-LAH-toh",
+     "native": "For me it's too salty."
+    },
+    {
+     "slot": {
+      "study": "perfetto",
+      "phon": "pehr-FEHT-toh",
+      "native": "perfect"
+     },
+     "study": "Per me è perfetto.",
+     "phon": "pehr MEH eh pehr-FEHT-toh",
+     "native": "For me it's perfect."
+    },
+    {
+     "slot": {
+      "study": "un po' piccante",
+      "phon": "oon poh peek-KAHN-teh",
+      "native": "a bit spicy"
+     },
+     "study": "Per me è un po' piccante.",
+     "phon": "pehr MEH eh oon poh peek-KAHN-teh",
+     "native": "For me it's a bit spicy."
+    },
+    {
+     "slot": {
+      "study": "troppo dolce",
+      "phon": "TROHP-poh DOHL-cheh",
+      "native": "too sweet"
+     },
+     "study": "Per me è troppo dolce.",
+     "phon": "pehr MEH eh TROHP-poh DOHL-cheh",
+     "native": "For me it's too sweet."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-it-10",
+   "situation": "Comparing: as… as",
+   "model": {
+    "study": "È {s} come il mio.",
+    "phon": "eh {s} KOH-meh eel MEE-oh",
+    "native": "It's as {s} as mine."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "grande",
+      "phon": "GRAHN-deh",
+      "native": "big"
+     },
+     "study": "È grande come il mio.",
+     "phon": "eh GRAHN-deh KOH-meh eel MEE-oh",
+     "native": "It's as big as mine."
+    },
+    {
+     "slot": {
+      "study": "bello",
+      "phon": "BEHL-loh",
+      "native": "nice"
+     },
+     "study": "È bello come il mio.",
+     "phon": "eh BEHL-loh KOH-meh eel MEE-oh",
+     "native": "It's as nice as mine."
+    },
+    {
+     "slot": {
+      "study": "caro",
+      "phon": "KAH-roh",
+      "native": "expensive"
+     },
+     "study": "È caro come il mio.",
+     "phon": "eh KAH-roh KOH-meh eel MEE-oh",
+     "native": "It's as expensive as mine."
+    },
+    {
+     "slot": {
+      "study": "vecchio",
+      "phon": "VEHK-kyoh",
+      "native": "old"
+     },
+     "study": "È vecchio come il mio.",
+     "phon": "eh VEHK-kyoh KOH-meh eel MEE-oh",
+     "native": "It's as old as mine."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-it-11",
+   "situation": "That's why",
+   "model": {
+    "study": "È per questo che {s}.",
+    "phon": "eh pehr KWEHS-toh keh {s}",
+    "native": "That's why {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "sono in ritardo",
+      "phon": "SOH-noh een ree-TAR-doh",
+      "native": "I'm late"
+     },
+     "study": "È per questo che sono in ritardo.",
+     "phon": "eh pehr KWEHS-toh keh SOH-noh een ree-TAR-doh",
+     "native": "That's why I'm late."
+    },
+    {
+     "slot": {
+      "study": "ho cambiato lavoro",
+      "phon": "oh kahm-BYAH-toh lah-VOH-roh",
+      "native": "I changed jobs"
+     },
+     "study": "È per questo che ho cambiato lavoro.",
+     "phon": "eh pehr KWEHS-toh keh oh kahm-BYAH-toh lah-VOH-roh",
+     "native": "That's why I changed jobs."
+    },
+    {
+     "slot": {
+      "study": "non mangio carne",
+      "phon": "nohn MAHN-joh KAR-neh",
+      "native": "I don't eat meat"
+     },
+     "study": "È per questo che non mangio carne.",
+     "phon": "eh pehr KWEHS-toh keh nohn MAHN-joh KAR-neh",
+     "native": "That's why I don't eat meat."
+    },
+    {
+     "slot": {
+      "study": "preferisco il treno",
+      "phon": "preh-feh-REES-koh eel TREH-noh",
+      "native": "I prefer the train"
+     },
+     "study": "È per questo che preferisco il treno.",
+     "phon": "eh pehr KWEHS-toh keh preh-feh-REES-koh eel TREH-noh",
+     "native": "That's why I prefer the train."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-it-12",
+   "situation": "Asking the difference",
+   "model": {
+    "study": "Qual è la differenza tra {s}?",
+    "phon": "kwah-LEH lah deef-feh-REHN-tsah trah {s}",
+    "native": "What's the difference between {s}?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "questo e quello",
+      "phon": "KWEHS-toh eh KWEHL-loh",
+      "native": "this one and that one"
+     },
+     "study": "Qual è la differenza tra questo e quello?",
+     "phon": "kwah-LEH lah deef-feh-REHN-tsah trah KWEHS-toh eh KWEHL-loh",
+     "native": "What's the difference between this one and that one?"
+    },
+    {
+     "slot": {
+      "study": "i due menù",
+      "phon": "ee DOO-eh meh-NOO",
+      "native": "the two menus"
+     },
+     "study": "Qual è la differenza tra i due menù?",
+     "phon": "kwah-LEH lah deef-feh-REHN-tsah trah ee DOO-eh meh-NOO",
+     "native": "What's the difference between the two menus?"
+    },
+    {
+     "slot": {
+      "study": "il treno e l'autobus",
+      "phon": "eel TREH-noh eh LOW-toh-boos",
+      "native": "the train and the bus"
+     },
+     "study": "Qual è la differenza tra il treno e l'autobus?",
+     "phon": "kwah-LEH lah deef-feh-REHN-tsah trah eel TREH-noh eh LOW-toh-boos",
+     "native": "What's the difference between the train and the bus?"
+    },
+    {
+     "slot": {
+      "study": "le due camere",
+      "phon": "leh DOO-eh KAH-meh-reh",
+      "native": "the two rooms"
+     },
+     "study": "Qual è la differenza tra le due camere?",
+     "phon": "kwah-LEH lah deef-feh-REHN-tsah trah leh DOO-eh KAH-meh-reh",
+     "native": "What's the difference between the two rooms?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L7-en-it-d1",
+   "situation": "In a shop: choosing a jacket (Lei)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, cerco una giacca. Qual è la differenza tra queste due?",
+     "phon": "bwohn-JOR-noh, CHEHR-koh OO-nah JAHK-kah. kwah-LEH lah deef-feh-REHN-tsah trah KWEHS-teh DOO-eh",
+     "native": "Hello, I'm looking for a jacket. What's the difference between these two?"
+    },
+    {
+     "speaker": "B",
+     "study": "Questa è di lana, quella è di cotone.",
+     "phon": "KWEHS-tah eh dee LAH-nah, KWEHL-lah eh dee koh-TOH-neh",
+     "native": "This one is wool, that one is cotton."
+    },
+    {
+     "speaker": "A",
+     "study": "E quale costa meno?",
+     "phon": "eh KWAH-leh KOHS-tah MEH-noh",
+     "native": "And which one costs less?"
+    },
+    {
+     "speaker": "B",
+     "study": "Quella di cotone è meno cara, ma la lana è più calda.",
+     "phon": "KWEHL-lah dee koh-TOH-neh eh MEH-noh KAH-rah, mah lah LAH-nah eh pyoo KAHL-dah",
+     "native": "The cotton one is cheaper, but wool is warmer."
+    },
+    {
+     "speaker": "A",
+     "study": "Preferisco quella di lana perché fa freddo.",
+     "phon": "preh-feh-REES-koh KWEHL-lah dee LAH-nah pehr-KEH fah FREHD-doh",
+     "native": "I prefer the wool one because it's cold."
+    },
+    {
+     "speaker": "B",
+     "study": "Secondo me è la scelta giusta. Che taglia porta?",
+     "phon": "seh-KOHN-doh meh eh lah SHEHL-tah JOOS-tah. keh TAH-lyah POR-tah",
+     "native": "In my opinion that's the right choice. What size are you?"
+    },
+    {
+     "speaker": "A",
+     "study": "La media. Posso provarla?",
+     "phon": "lah MEH-dyah. POHS-soh proh-VAR-lah",
+     "native": "Medium. Can I try it on?"
+    },
+    {
+     "speaker": "B",
+     "study": "Certo, il camerino è là in fondo.",
+     "phon": "CHEHR-toh, eel kah-meh-REE-noh eh LAH een FOHN-doh",
+     "native": "Of course, the fitting room is at the back."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L2-en-it-04",
+    "L2-en-it-05",
+    "L2-en-it-08",
+    "L3-en-it-04",
+    "L7-en-it-06",
+    "L7-en-it-12"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Shop assistant"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L7-en-it-d2",
+   "situation": "At the restaurant: what to have (friends, tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Cosa prendi? Io penso che il pesce sia buonissimo qui.",
+     "phon": "KOH-zah PREHN-dee. EE-oh PEHN-soh keh eel PEH-sheh SEE-ah bwoh-NEES-see-moh KWEE",
+     "native": "What are you having? I think the fish is excellent here."
+    },
+    {
+     "speaker": "B",
+     "study": "Secondo me la pasta è migliore, e costa meno.",
+     "phon": "seh-KOHN-doh meh lah PAHS-tah eh mee-LYOH-reh, eh KOHS-tah MEH-noh",
+     "native": "In my opinion the pasta is better, and it costs less."
+    },
+    {
+     "speaker": "A",
+     "study": "È vero, ma io non mangio pasta la sera.",
+     "phon": "eh VEH-roh, mah EE-oh nohn MAHN-joh PAHS-tah lah SEH-rah",
+     "native": "True, but I don't eat pasta in the evening."
+    },
+    {
+     "speaker": "B",
+     "study": "Perché?",
+     "phon": "pehr-KEH",
+     "native": "Why?"
+    },
+    {
+     "speaker": "A",
+     "study": "Perché prima mangiavo troppo e dormivo male. Adesso mangio leggero.",
+     "phon": "pehr-KEH PREE-mah mahn-JAH-voh TROHP-poh eh dor-MEE-voh MAH-leh. ah-DEHS-soh MAHN-joh lehd-JEH-roh",
+     "native": "Because I used to eat too much and sleep badly. Now I eat light."
+    },
+    {
+     "speaker": "B",
+     "study": "Capisco. Allora per te il pesce, per me la pasta.",
+     "phon": "kah-PEES-koh. ahl-LOH-rah pehr TEH eel PEH-sheh, pehr MEH lah PAHS-tah",
+     "native": "I see. So fish for you, pasta for me."
+    },
+    {
+     "speaker": "A",
+     "study": "E da bere? Il vino bianco è più leggero del rosso.",
+     "phon": "eh dah BEH-reh. eel VEE-noh BYAHN-koh eh pyoo lehd-JEH-roh dehl ROHS-soh",
+     "native": "And to drink? The white wine is lighter than the red."
+    },
+    {
+     "speaker": "B",
+     "study": "Va bene, bianco.",
+     "phon": "vah BEH-neh, BYAHN-koh",
+     "native": "OK, white."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L2-en-it-02",
+    "L3-en-it-03",
+    "L3-en-it-04",
+    "L4-en-it-03",
+    "L7-en-it-05",
+    "L7-en-it-06"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A friend"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L7-en-it-d3",
+   "situation": "Why did you move? (friends, tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Allora, perché hai cambiato casa?",
+     "phon": "ahl-LOH-rah, pehr-KEH AH-ee kahm-BYAH-toh KAH-zah",
+     "native": "So, why did you move house?"
+    },
+    {
+     "speaker": "B",
+     "study": "Perché prima abitavo in centro ed era troppo caro.",
+     "phon": "pehr-KEH PREE-mah ah-bee-TAH-voh een CHEHN-troh ehd EH-rah TROHP-poh KAH-roh",
+     "native": "Because I used to live in the centre and it was too expensive."
+    },
+    {
+     "speaker": "A",
+     "study": "E adesso dove abiti?",
+     "phon": "eh ah-DEHS-soh DOH-veh AH-bee-tee",
+     "native": "And where do you live now?"
+    },
+    {
+     "speaker": "B",
+     "study": "In periferia. La casa è più grande e meno cara.",
+     "phon": "een peh-ree-feh-REE-ah. lah KAH-zah eh pyoo GRAHN-deh eh MEH-noh KAH-rah",
+     "native": "In the suburbs. The house is bigger and cheaper."
+    },
+    {
+     "speaker": "A",
+     "study": "Ma è più lontano dal lavoro, no?",
+     "phon": "mah eh pyoo lohn-TAH-noh dahl lah-VOH-roh, noh",
+     "native": "But it's further from work, isn't it?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sì, ma prendo il treno. È più comodo della macchina.",
+     "phon": "SEE, mah PREHN-doh eel TREH-noh. eh pyoo KOH-moh-doh DEHL-lah MAHK-kee-nah",
+     "native": "Yes, but I take the train. It's more comfortable than the car."
+    },
+    {
+     "speaker": "A",
+     "study": "Penso che tu abbia ragione. Io preferisco il centro perché esco spesso.",
+     "phon": "PEHN-soh keh too AHB-byah rah-JOH-neh. EE-oh preh-feh-REES-koh eel CHEHN-troh pehr-KEH EHS-koh SPEHS-soh",
+     "native": "I think you're right. I prefer the centre because I go out a lot."
+    },
+    {
+     "speaker": "B",
+     "study": "Capisco. Dipende dalla vita che fai.",
+     "phon": "kah-PEES-koh. dee-PEHN-deh DAHL-lah VEE-tah keh FAH-ee",
+     "native": "I see. It depends on the life you lead."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L2-en-it-05",
+    "L2-en-it-12",
+    "L3-en-it-04",
+    "L4-en-it-06",
+    "L7-en-it-05"
+   ],
+   "roles": {
+    "A": "A friend",
+    "B": "You"
+   },
+   "learnerRole": "B"
+  }
+ ],
+ "readiness": "Give reasons with \"perché\", compare (più / meno / come), give a simple opinion (penso che, secondo me) and contrast a past habit with the present situation (prima… adesso…)."
+}

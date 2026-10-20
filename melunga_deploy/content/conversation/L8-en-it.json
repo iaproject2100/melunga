@@ -1,0 +1,975 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "it",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en italien",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximate respelling for English readers (CAPITALS = stressed syllable; vowels ah / eh / ee / oh / oo; c+e/i → ch, g+e/i → j, gn → ny, gl → ly, sc+e/i → sh, z → ts / dz; double consonants held longer, e.g. kaf-FEH). No substitute for the audio.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended.",
+ "coverageClaim": null,
+ "level": 8,
+ "title": "Asking and negotiating",
+ "goal": "Ask politely, express a condition and negotiate simply.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L8-en-it-01",
+   "situation": "Asking politely (Lei)",
+   "model": {
+    "study": "Potrebbe {s}, per favore?",
+    "phon": "poh-TREHB-beh {s}, pehr fah-VOH-reh",
+    "native": "Could you {s}, please?",
+    "note": "Formal \"Lei\". With friends: \"Potresti…?\" (poh-TREHS-tee)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "farmi uno sconto",
+      "phon": "FAR-mee OO-noh SKOHN-toh",
+      "native": "give me a discount"
+     },
+     "study": "Potrebbe farmi uno sconto, per favore?",
+     "phon": "poh-TREHB-beh FAR-mee OO-noh SKOHN-toh, pehr fah-VOH-reh",
+     "native": "Could you give me a discount, please?"
+    },
+    {
+     "slot": {
+      "study": "aspettare un momento",
+      "phon": "ahs-peht-TAH-reh oon moh-MEHN-toh",
+      "native": "wait a moment"
+     },
+     "study": "Potrebbe aspettare un momento, per favore?",
+     "phon": "poh-TREHB-beh ahs-peht-TAH-reh oon moh-MEHN-toh, pehr fah-VOH-reh",
+     "native": "Could you wait a moment, please?"
+    },
+    {
+     "slot": {
+      "study": "richiamarmi domani",
+      "phon": "ree-kyah-MAR-mee doh-MAH-nee",
+      "native": "call me back tomorrow"
+     },
+     "study": "Potrebbe richiamarmi domani, per favore?",
+     "phon": "poh-TREHB-beh ree-kyah-MAR-mee doh-MAH-nee, pehr fah-VOH-reh",
+     "native": "Could you call me back tomorrow, please?"
+    },
+    {
+     "slot": {
+      "study": "controllare la prenotazione",
+      "phon": "kohn-trohl-LAH-reh lah preh-noh-tah-TSYOH-neh",
+      "native": "check the booking"
+     },
+     "study": "Potrebbe controllare la prenotazione, per favore?",
+     "phon": "poh-TREHB-beh kohn-trohl-LAH-reh lah preh-noh-tah-TSYOH-neh, pehr fah-VOH-reh",
+     "native": "Could you check the booking, please?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-it-02",
+   "situation": "Asking permission",
+   "model": {
+    "study": "Potrei {s}?",
+    "phon": "poh-TREH-ee {s}",
+    "native": "Could I {s}?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "pagare con la carta",
+      "phon": "pah-GAH-reh kohn lah KAR-tah",
+      "native": "pay by card"
+     },
+     "study": "Potrei pagare con la carta?",
+     "phon": "poh-TREH-ee pah-GAH-reh kohn lah KAR-tah",
+     "native": "Could I pay by card?"
+    },
+    {
+     "slot": {
+      "study": "avere una ricevuta",
+      "phon": "ah-VEH-reh OO-nah ree-cheh-VOO-tah",
+      "native": "have a receipt"
+     },
+     "study": "Potrei avere una ricevuta?",
+     "phon": "poh-TREH-ee ah-VEH-reh OO-nah ree-cheh-VOO-tah",
+     "native": "Could I have a receipt?"
+    },
+    {
+     "slot": {
+      "study": "cambiare la data",
+      "phon": "kahm-BYAH-reh lah DAH-tah",
+      "native": "change the date"
+     },
+     "study": "Potrei cambiare la data?",
+     "phon": "poh-TREH-ee kahm-BYAH-reh lah DAH-tah",
+     "native": "Could I change the date?"
+    },
+    {
+     "slot": {
+      "study": "parlare con il responsabile",
+      "phon": "par-LAH-reh kohn eel rehs-pohn-SAH-bee-leh",
+      "native": "speak to the manager"
+     },
+     "study": "Potrei parlare con il responsabile?",
+     "phon": "poh-TREH-ee par-LAH-reh kohn eel rehs-pohn-SAH-bee-leh",
+     "native": "Could I speak to the manager?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-it-03",
+   "situation": "Setting a condition",
+   "model": {
+    "study": "Se {s}, pagherò subito.",
+    "phon": "seh {s}, pah-geh-ROH SOO-bee-toh",
+    "native": "If {s}, I'll pay right away.",
+    "note": "Formal \"Lei\" in \"mi fa\", \"accetta\"."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "mi fa uno sconto",
+      "phon": "mee fah OO-noh SKOHN-toh",
+      "native": "you give me a discount"
+     },
+     "study": "Se mi fa uno sconto, pagherò subito.",
+     "phon": "seh mee fah OO-noh SKOHN-toh, pah-geh-ROH SOO-bee-toh",
+     "native": "If you give me a discount, I'll pay right away."
+    },
+    {
+     "slot": {
+      "study": "è possibile",
+      "phon": "eh pohs-SEE-bee-leh",
+      "native": "it's possible"
+     },
+     "study": "Se è possibile, pagherò subito.",
+     "phon": "seh eh pohs-SEE-bee-leh, pah-geh-ROH SOO-bee-toh",
+     "native": "If it's possible, I'll pay right away."
+    },
+    {
+     "slot": {
+      "study": "accetta la carta",
+      "phon": "aht-CHEHT-tah lah KAR-tah",
+      "native": "you take cards"
+     },
+     "study": "Se accetta la carta, pagherò subito.",
+     "phon": "seh aht-CHEHT-tah lah KAR-tah, pah-geh-ROH SOO-bee-toh",
+     "native": "If you take cards, I'll pay right away."
+    },
+    {
+     "slot": {
+      "study": "il prezzo è giusto",
+      "phon": "eel PREHT-tsoh eh JOOS-toh",
+      "native": "the price is right"
+     },
+     "study": "Se il prezzo è giusto, pagherò subito.",
+     "phon": "seh eel PREHT-tsoh eh JOOS-toh, pah-geh-ROH SOO-bee-toh",
+     "native": "If the price is right, I'll pay right away."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-it-04",
+   "situation": "Asking if it's possible",
+   "model": {
+    "study": "Sarebbe possibile {s}?",
+    "phon": "sah-REHB-beh pohs-SEE-bee-leh {s}",
+    "native": "Would it be possible to {s}?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "avere una camera più grande",
+      "phon": "ah-VEH-reh OO-nah KAH-meh-rah pyoo GRAHN-deh",
+      "native": "have a bigger room"
+     },
+     "study": "Sarebbe possibile avere una camera più grande?",
+     "phon": "sah-REHB-beh pohs-SEE-bee-leh ah-VEH-reh OO-nah KAH-meh-rah pyoo GRAHN-deh",
+     "native": "Would it be possible to have a bigger room?"
+    },
+    {
+     "slot": {
+      "study": "pagare domani",
+      "phon": "pah-GAH-reh doh-MAH-nee",
+      "native": "pay tomorrow"
+     },
+     "study": "Sarebbe possibile pagare domani?",
+     "phon": "sah-REHB-beh pohs-SEE-bee-leh pah-GAH-reh doh-MAH-nee",
+     "native": "Would it be possible to pay tomorrow?"
+    },
+    {
+     "slot": {
+      "study": "cambiare il volo",
+      "phon": "kahm-BYAH-reh eel VOH-loh",
+      "native": "change the flight"
+     },
+     "study": "Sarebbe possibile cambiare il volo?",
+     "phon": "sah-REHB-beh pohs-SEE-bee-leh kahm-BYAH-reh eel VOH-loh",
+     "native": "Would it be possible to change the flight?"
+    },
+    {
+     "slot": {
+      "study": "spostare l'appuntamento",
+      "phon": "spohs-TAH-reh lahp-poon-tah-MEHN-toh",
+      "native": "move the appointment"
+     },
+     "study": "Sarebbe possibile spostare l'appuntamento?",
+     "phon": "sah-REHB-beh pohs-SEE-bee-leh spohs-TAH-reh lahp-poon-tah-MEHN-toh",
+     "native": "Would it be possible to move the appointment?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-it-05",
+   "situation": "Accepting on condition",
+   "model": {
+    "study": "Va bene, ma solo se {s}.",
+    "phon": "vah BEH-neh, mah SOH-loh seh {s}",
+    "native": "All right, but only if {s}.",
+    "note": "Formal \"Lei\" in \"paga\", \"mi chiama\"."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "paga subito",
+      "phon": "PAH-gah SOO-bee-toh",
+      "native": "you pay right away"
+     },
+     "study": "Va bene, ma solo se paga subito.",
+     "phon": "vah BEH-neh, mah SOH-loh seh PAH-gah SOO-bee-toh",
+     "native": "All right, but only if you pay right away."
+    },
+    {
+     "slot": {
+      "study": "finiamo entro venerdì",
+      "phon": "fee-NYAH-moh EHN-troh veh-nehr-DEE",
+      "native": "we finish by Friday"
+     },
+     "study": "Va bene, ma solo se finiamo entro venerdì.",
+     "phon": "vah BEH-neh, mah SOH-loh seh fee-NYAH-moh EHN-troh veh-nehr-DEE",
+     "native": "All right, but only if we finish by Friday."
+    },
+    {
+     "slot": {
+      "study": "il prezzo non cambia",
+      "phon": "eel PREHT-tsoh nohn KAHM-byah",
+      "native": "the price doesn't change"
+     },
+     "study": "Va bene, ma solo se il prezzo non cambia.",
+     "phon": "vah BEH-neh, mah SOH-loh seh eel PREHT-tsoh nohn KAHM-byah",
+     "native": "All right, but only if the price doesn't change."
+    },
+    {
+     "slot": {
+      "study": "mi chiama prima",
+      "phon": "mee KYAH-mah PREE-mah",
+      "native": "you call me first"
+     },
+     "study": "Va bene, ma solo se mi chiama prima.",
+     "phon": "vah BEH-neh, mah SOH-loh seh mee KYAH-mah PREE-mah",
+     "native": "All right, but only if you call me first."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-it-06",
+   "situation": "Apologising and making up for it",
+   "model": {
+    "study": "Mi dispiace, {s}.",
+    "phon": "mee dees-PYAH-cheh, {s}",
+    "native": "I'm sorry, {s}.",
+    "note": "\"Mi dispiace\" is the same whoever is speaking. \"La richiamerò\" is the formal \"Lei\" form."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "lo farò subito",
+      "phon": "loh fah-ROH SOO-bee-toh",
+      "native": "I'll do it right away"
+     },
+     "study": "Mi dispiace, lo farò subito.",
+     "phon": "mee dees-PYAH-cheh, loh fah-ROH SOO-bee-toh",
+     "native": "I'm sorry, I'll do it right away."
+    },
+    {
+     "slot": {
+      "study": "La richiamerò domani",
+      "phon": "lah ree-kyah-meh-ROH doh-MAH-nee",
+      "native": "I'll call you back tomorrow"
+     },
+     "study": "Mi dispiace, La richiamerò domani.",
+     "phon": "mee dees-PYAH-cheh, lah ree-kyah-meh-ROH doh-MAH-nee",
+     "native": "I'm sorry, I'll call you back tomorrow."
+    },
+    {
+     "slot": {
+      "study": "arriverò tra dieci minuti",
+      "phon": "ar-ree-veh-ROH trah DYEH-chee mee-NOO-tee",
+      "native": "I'll be there in ten minutes"
+     },
+     "study": "Mi dispiace, arriverò tra dieci minuti.",
+     "phon": "mee dees-PYAH-cheh, ar-ree-veh-ROH trah DYEH-chee mee-NOO-tee",
+     "native": "I'm sorry, I'll be there in ten minutes."
+    },
+    {
+     "slot": {
+      "study": "non succederà più",
+      "phon": "nohn soot-cheh-deh-RAH PYOO",
+      "native": "it won't happen again"
+     },
+     "study": "Mi dispiace, non succederà più.",
+     "phon": "mee dees-PYAH-cheh, nohn soot-cheh-deh-RAH PYOO",
+     "native": "I'm sorry, it won't happen again."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-it-07",
+   "situation": "Asking for a discount or a document",
+   "model": {
+    "study": "Mi può fare {s}?",
+    "phon": "mee pwoh FAH-reh {s}",
+    "native": "Could you give me {s}?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "uno sconto",
+      "phon": "OO-noh SKOHN-toh",
+      "native": "a discount"
+     },
+     "study": "Mi può fare uno sconto?",
+     "phon": "mee pwoh FAH-reh OO-noh SKOHN-toh",
+     "native": "Could you give me a discount?"
+    },
+    {
+     "slot": {
+      "study": "un prezzo migliore",
+      "phon": "oon PREHT-tsoh mee-LYOH-reh",
+      "native": "a better price"
+     },
+     "study": "Mi può fare un prezzo migliore?",
+     "phon": "mee pwoh FAH-reh oon PREHT-tsoh mee-LYOH-reh",
+     "native": "Could you give me a better price?"
+    },
+    {
+     "slot": {
+      "study": "una fattura",
+      "phon": "OO-nah faht-TOO-rah",
+      "native": "an invoice"
+     },
+     "study": "Mi può fare una fattura?",
+     "phon": "mee pwoh FAH-reh OO-nah faht-TOO-rah",
+     "native": "Could you give me an invoice?"
+    },
+    {
+     "slot": {
+      "study": "una copia",
+      "phon": "OO-nah KOH-pyah",
+      "native": "a copy"
+     },
+     "study": "Mi può fare una copia?",
+     "phon": "mee pwoh FAH-reh OO-nah KOH-pyah",
+     "native": "Could you give me a copy?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-it-08",
+   "situation": "Asking for more time",
+   "model": {
+    "study": "Avrei bisogno di {s}.",
+    "phon": "ah-VREH-ee bee-ZOH-nyoh dee {s}",
+    "native": "I'd need {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "più tempo",
+      "phon": "pyoo TEHM-poh",
+      "native": "more time"
+     },
+     "study": "Avrei bisogno di più tempo.",
+     "phon": "ah-VREH-ee bee-ZOH-nyoh dee pyoo TEHM-poh",
+     "native": "I'd need more time."
+    },
+    {
+     "slot": {
+      "study": "qualche giorno in più",
+      "phon": "KWAHL-keh JOR-noh een PYOO",
+      "native": "a few more days"
+     },
+     "study": "Avrei bisogno di qualche giorno in più.",
+     "phon": "ah-VREH-ee bee-ZOH-nyoh dee KWAHL-keh JOR-noh een PYOO",
+     "native": "I'd need a few more days."
+    },
+    {
+     "slot": {
+      "study": "una risposta entro domani",
+      "phon": "OO-nah rees-POHS-tah EHN-troh doh-MAH-nee",
+      "native": "an answer by tomorrow"
+     },
+     "study": "Avrei bisogno di una risposta entro domani.",
+     "phon": "ah-VREH-ee bee-ZOH-nyoh dee OO-nah rees-POHS-tah EHN-troh doh-MAH-nee",
+     "native": "I'd need an answer by tomorrow."
+    },
+    {
+     "slot": {
+      "study": "un altro appuntamento",
+      "phon": "oon AHL-troh ahp-poon-tah-MEHN-toh",
+      "native": "another appointment"
+     },
+     "study": "Avrei bisogno di un altro appuntamento.",
+     "phon": "ah-VREH-ee bee-ZOH-nyoh dee oon AHL-troh ahp-poon-tah-MEHN-toh",
+     "native": "I'd need another appointment."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-it-09",
+   "situation": "Declining with a reason",
+   "model": {
+    "study": "Purtroppo non posso, {s}.",
+    "phon": "poor-TROHP-poh nohn POHS-soh, {s}",
+    "native": "Unfortunately I can't, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "ho già un impegno",
+      "phon": "oh JAH oon eem-PEH-nyoh",
+      "native": "I already have a commitment"
+     },
+     "study": "Purtroppo non posso, ho già un impegno.",
+     "phon": "poor-TROHP-poh nohn POHS-soh, oh JAH oon eem-PEH-nyoh",
+     "native": "Unfortunately I can't, I already have a commitment."
+    },
+    {
+     "slot": {
+      "study": "è troppo caro per me",
+      "phon": "eh TROHP-poh KAH-roh pehr MEH",
+      "native": "it's too expensive for me"
+     },
+     "study": "Purtroppo non posso, è troppo caro per me.",
+     "phon": "poor-TROHP-poh nohn POHS-soh, eh TROHP-poh KAH-roh pehr MEH",
+     "native": "Unfortunately I can't, it's too expensive for me."
+    },
+    {
+     "slot": {
+      "study": "non ho tempo questa settimana",
+      "phon": "nohn oh TEHM-poh KWEHS-tah seht-tee-MAH-nah",
+      "native": "I don't have time this week"
+     },
+     "study": "Purtroppo non posso, non ho tempo questa settimana.",
+     "phon": "poor-TROHP-poh nohn POHS-soh, nohn oh TEHM-poh KWEHS-tah seht-tee-MAH-nah",
+     "native": "Unfortunately I can't, I don't have time this week."
+    },
+    {
+     "slot": {
+      "study": "devo chiedere a mia moglie",
+      "phon": "DEH-voh KYEH-deh-reh ah MEE-ah MOH-lyeh",
+      "native": "I have to ask my wife"
+     },
+     "study": "Purtroppo non posso, devo chiedere a mia moglie.",
+     "phon": "poor-TROHP-poh nohn POHS-soh, DEH-voh KYEH-deh-reh ah MEE-ah MOH-lyeh",
+     "native": "Unfortunately I can't, I have to ask my wife."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-it-10",
+   "situation": "Neighbours: asking if it's a problem",
+   "model": {
+    "study": "Le dispiace se {s}?",
+    "phon": "leh dees-PYAH-cheh seh {s}",
+    "native": "Do you mind if {s}?",
+    "note": "Formal \"Lei\". With friends: \"Ti dispiace se…?\"."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "apro la finestra",
+      "phon": "AH-proh lah fee-NEHS-trah",
+      "native": "I open the window"
+     },
+     "study": "Le dispiace se apro la finestra?",
+     "phon": "leh dees-PYAH-cheh seh AH-proh lah fee-NEHS-trah",
+     "native": "Do you mind if I open the window?"
+    },
+    {
+     "slot": {
+      "study": "faccio una festa sabato",
+      "phon": "FAHT-choh OO-nah FEHS-tah SAH-bah-toh",
+      "native": "I have a party on Saturday"
+     },
+     "study": "Le dispiace se faccio una festa sabato?",
+     "phon": "leh dees-PYAH-cheh seh FAHT-choh OO-nah FEHS-tah SAH-bah-toh",
+     "native": "Do you mind if I have a party on Saturday?"
+    },
+    {
+     "slot": {
+      "study": "parcheggio qui",
+      "phon": "par-KEHD-joh KWEE",
+      "native": "I park here"
+     },
+     "study": "Le dispiace se parcheggio qui?",
+     "phon": "leh dees-PYAH-cheh seh par-KEHD-joh KWEE",
+     "native": "Do you mind if I park here?"
+    },
+    {
+     "slot": {
+      "study": "lascio la bici qui",
+      "phon": "LAH-shoh lah BEE-chee KWEE",
+      "native": "I leave my bike here"
+     },
+     "study": "Le dispiace se lascio la bici qui?",
+     "phon": "leh dees-PYAH-cheh seh LAH-shoh lah BEE-chee KWEE",
+     "native": "Do you mind if I leave my bike here?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-it-11",
+   "situation": "Landlord: reporting a fault",
+   "model": {
+    "study": "Il {s} non funziona.",
+    "phon": "eel {s} nohn foon-TSYOH-nah",
+    "native": "The {s} isn't working."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "riscaldamento",
+      "phon": "rees-kahl-dah-MEHN-toh",
+      "native": "heating"
+     },
+     "study": "Il riscaldamento non funziona.",
+     "phon": "eel rees-kahl-dah-MEHN-toh nohn foon-TSYOH-nah",
+     "native": "The heating isn't working."
+    },
+    {
+     "slot": {
+      "study": "frigorifero",
+      "phon": "free-goh-REE-feh-roh",
+      "native": "fridge"
+     },
+     "study": "Il frigorifero non funziona.",
+     "phon": "eel free-goh-REE-feh-roh nohn foon-TSYOH-nah",
+     "native": "The fridge isn't working."
+    },
+    {
+     "slot": {
+      "study": "forno",
+      "phon": "FOR-noh",
+      "native": "oven"
+     },
+     "study": "Il forno non funziona.",
+     "phon": "eel FOR-noh nohn foon-TSYOH-nah",
+     "native": "The oven isn't working."
+    },
+    {
+     "slot": {
+      "study": "rubinetto",
+      "phon": "roo-bee-NEHT-toh",
+      "native": "tap"
+     },
+     "study": "Il rubinetto non funziona.",
+     "phon": "eel roo-bee-NEHT-toh nohn foon-TSYOH-nah",
+     "native": "The tap isn't working."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-en-it-12",
+   "situation": "Work: asking your manager for something",
+   "model": {
+    "study": "Vorrei chiederle {s}.",
+    "phon": "vor-RAY KYEH-dehr-leh {s}",
+    "native": "I'd like to ask you {s}.",
+    "note": "Formal \"Lei\" (-le = to you). With friends: \"chiederti\"."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "un giorno di ferie",
+      "phon": "oon JOR-noh dee FEH-ryeh",
+      "native": "for a day off"
+     },
+     "study": "Vorrei chiederle un giorno di ferie.",
+     "phon": "vor-RAY KYEH-dehr-leh oon JOR-noh dee FEH-ryeh",
+     "native": "I'd like to ask you for a day off."
+    },
+    {
+     "slot": {
+      "study": "un aumento",
+      "phon": "oon ow-MEHN-toh",
+      "native": "for a raise"
+     },
+     "study": "Vorrei chiederle un aumento.",
+     "phon": "vor-RAY KYEH-dehr-leh oon ow-MEHN-toh",
+     "native": "I'd like to ask you for a raise."
+    },
+    {
+     "slot": {
+      "study": "di lavorare da casa il venerdì",
+      "phon": "dee lah-voh-RAH-reh dah KAH-zah eel veh-nehr-DEE",
+      "native": "if I can work from home on Fridays"
+     },
+     "study": "Vorrei chiederle di lavorare da casa il venerdì.",
+     "phon": "vor-RAY KYEH-dehr-leh dee lah-voh-RAH-reh dah KAH-zah eel veh-nehr-DEE",
+     "native": "I'd like to ask you if I can work from home on Fridays."
+    },
+    {
+     "slot": {
+      "study": "qualche giorno in più",
+      "phon": "KWAHL-keh JOR-noh een PYOO",
+      "native": "for a few more days"
+     },
+     "study": "Vorrei chiederle qualche giorno in più.",
+     "phon": "vor-RAY KYEH-dehr-leh KWAHL-keh JOR-noh een PYOO",
+     "native": "I'd like to ask you for a few more days."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L8-en-it-d1",
+   "situation": "At the flea market: haggling (Lei)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, quanto costa questa lampada?",
+     "phon": "bwohn-JOR-noh, KWAHN-toh KOHS-tah KWEHS-tah LAHM-pah-dah",
+     "native": "Hello, how much is this lamp?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sessanta euro.",
+     "phon": "sehs-SAHN-tah EH-oo-roh",
+     "native": "Sixty euros."
+    },
+    {
+     "speaker": "A",
+     "study": "È un po' cara. Potrebbe farmi uno sconto?",
+     "phon": "eh oon poh KAH-rah. poh-TREHB-beh FAR-mee OO-noh SKOHN-toh",
+     "native": "It's a bit expensive. Could you give me a discount?"
+    },
+    {
+     "speaker": "B",
+     "study": "Mi dispiace, è già un buon prezzo.",
+     "phon": "mee dees-PYAH-cheh, eh JAH oon bwohn PREHT-tsoh",
+     "native": "I'm sorry, it's already a good price."
+    },
+    {
+     "speaker": "A",
+     "study": "Se prendo anche questo specchio, mi fa cento per tutti e due?",
+     "phon": "seh PREHN-doh AHN-keh KWEHS-toh SPEHK-kyoh, mee fah CHEHN-toh pehr TOOT-tee eh DOO-eh",
+     "native": "If I take this mirror too, will you do a hundred for both?"
+    },
+    {
+     "speaker": "B",
+     "study": "Va bene, ma solo se paga in contanti.",
+     "phon": "vah BEH-neh, mah SOH-loh seh PAH-gah een kohn-TAHN-tee",
+     "native": "All right, but only if you pay cash."
+    },
+    {
+     "speaker": "A",
+     "study": "D'accordo. Potrei avere una ricevuta?",
+     "phon": "dahk-KOR-doh. poh-TREH-ee ah-VEH-reh OO-nah ree-cheh-VOO-tah",
+     "native": "Deal. Could I have a receipt?"
+    },
+    {
+     "speaker": "B",
+     "study": "Certo, gliela scrivo subito.",
+     "phon": "CHEHR-toh, LYEH-lah SKREE-voh SOO-bee-toh",
+     "native": "Of course, I'll write it for you right away."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-it-10",
+    "L2-en-it-12",
+    "L8-en-it-02",
+    "L8-en-it-05",
+    "L8-en-it-06"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Stallholder"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L8-en-it-d2",
+   "situation": "At the landlady's (Lei)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, signora Bianchi. Il riscaldamento non funziona da ieri.",
+     "phon": "bwohn-JOR-noh, see-NYOH-rah BYAHN-kee. eel rees-kahl-dah-MEHN-toh nohn foon-TSYOH-nah dah YEH-ree",
+     "native": "Good morning, Mrs Bianchi. The heating hasn't been working since yesterday."
+    },
+    {
+     "speaker": "B",
+     "study": "Mi dispiace! Chiamerò il tecnico oggi stesso.",
+     "phon": "mee dees-PYAH-cheh. kyah-meh-ROH eel TEHK-nee-koh OHD-jee STEHS-soh",
+     "native": "I'm sorry! I'll call the technician today."
+    },
+    {
+     "speaker": "A",
+     "study": "Grazie. Sarebbe possibile venire nel pomeriggio? La mattina lavoro.",
+     "phon": "GRAH-tsyeh. sah-REHB-beh pohs-SEE-bee-leh veh-NEE-reh nehl poh-meh-REED-joh. lah maht-TEE-nah lah-VOH-roh",
+     "native": "Thank you. Would it be possible to come in the afternoon? I work in the morning."
+    },
+    {
+     "speaker": "B",
+     "study": "Glielo chiedo. Se non può oggi, verrà domani.",
+     "phon": "LYEH-loh KYEH-doh. seh nohn pwoh OHD-jee, vehr-RAH doh-MAH-nee",
+     "native": "I'll ask him. If he can't today, he'll come tomorrow."
+    },
+    {
+     "speaker": "A",
+     "study": "Va bene. Avrei anche un'altra domanda: potrei pagare l'affitto il dieci invece del cinque?",
+     "phon": "vah BEH-neh. ah-VREH-ee AHN-keh oo-NAHL-trah doh-MAHN-dah. poh-TREH-ee pah-GAH-reh lahf-FEET-toh eel DYEH-chee een-VEH-cheh dehl CHEEN-kweh",
+     "native": "All right. I'd also have another question: could I pay the rent on the 10th instead of the 5th?"
+    },
+    {
+     "speaker": "B",
+     "study": "Va bene, ma solo se mi avvisa ogni mese.",
+     "phon": "vah BEH-neh, mah SOH-loh seh mee ahv-VEE-zah OH-nyee MEH-zeh",
+     "native": "All right, but only if you let me know every month."
+    },
+    {
+     "speaker": "A",
+     "study": "Certo, grazie mille.",
+     "phon": "CHEHR-toh, GRAH-tsyeh MEEL-leh",
+     "native": "Of course, thank you very much."
+    },
+    {
+     "speaker": "B",
+     "study": "Di niente. Le faccio sapere per il tecnico.",
+     "phon": "dee NYEHN-teh. leh FAHT-choh sah-PEH-reh pehr eel TEHK-nee-koh",
+     "native": "You're welcome. I'll let you know about the technician."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L4-en-it-02",
+    "L4-en-it-06",
+    "L5-en-it-04",
+    "L6-en-it-02",
+    "L8-en-it-02",
+    "L8-en-it-04",
+    "L8-en-it-05",
+    "L8-en-it-06",
+    "L8-en-it-11"
+   ],
+   "roles": {
+    "A": "Tenant",
+    "B": "Landlady"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L8-en-it-d3",
+   "situation": "At work: asking for more time (Lei)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, dottor Conti. Avrei bisogno di parlarle del progetto.",
+     "phon": "bwohn-JOR-noh, doht-TOR KOHN-tee. ah-VREH-ee bee-ZOH-nyoh dee par-LAR-leh dehl proh-JEHT-toh",
+     "native": "Good morning, Mr Conti. I'd need to talk to you about the project."
+    },
+    {
+     "speaker": "B",
+     "study": "Certo, mi dica.",
+     "phon": "CHEHR-toh, mee DEE-kah",
+     "native": "Of course, go ahead."
+    },
+    {
+     "speaker": "A",
+     "study": "Sarebbe possibile avere qualche giorno in più?",
+     "phon": "sah-REHB-beh pohs-SEE-bee-leh ah-VEH-reh KWAHL-keh JOR-noh een PYOO",
+     "native": "Would it be possible to have a few more days?"
+    },
+    {
+     "speaker": "B",
+     "study": "Perché? C'è un problema?",
+     "phon": "pehr-KEH. cheh oon proh-BLEH-mah",
+     "native": "Why? Is there a problem?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sì, il cliente ha cambiato idea e dobbiamo rifare una parte.",
+     "phon": "SEE, eel klee-EHN-teh ah kahm-BYAH-toh ee-DEH-ah eh dohb-BYAH-moh ree-FAH-reh OO-nah PAR-teh",
+     "native": "Yes, the client has changed their mind and we have to redo part of it."
+    },
+    {
+     "speaker": "B",
+     "study": "Capisco. Va bene, ma solo se finite entro venerdì prossimo.",
+     "phon": "kah-PEES-koh. vah BEH-neh, mah SOH-loh seh fee-NEE-teh EHN-troh veh-nehr-DEE PROHS-see-moh",
+     "native": "I see. All right, but only if you finish by next Friday."
+    },
+    {
+     "speaker": "A",
+     "study": "Perfetto. Se ci sono altri problemi, La avviserò subito.",
+     "phon": "pehr-FEHT-toh. seh chee SOH-noh AHL-tree proh-BLEH-mee, lah ahv-vee-zeh-ROH SOO-bee-toh",
+     "native": "Perfect. If there are any other problems, I'll let you know right away."
+    },
+    {
+     "speaker": "B",
+     "study": "Bene. Mi mandi un aggiornamento mercoledì.",
+     "phon": "BEH-neh. mee MAHN-dee oon ahd-jor-nah-MEHN-toh mehr-koh-leh-DEE",
+     "native": "Good. Send me an update on Wednesday."
+    },
+    {
+     "speaker": "A",
+     "study": "Certo. Grazie per la comprensione.",
+     "phon": "CHEHR-toh. GRAH-tsyeh pehr lah kohm-prehn-SYOH-neh",
+     "native": "Of course. Thank you for understanding."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-it-01",
+    "L3-en-it-04",
+    "L8-en-it-04",
+    "L8-en-it-05",
+    "L8-en-it-08"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Manager"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Ask politely with the conditional (potrebbe, sarebbe possibile), set a condition (se… + future), negotiate a price or a deadline, accept on condition, decline with a reason and apologise while offering to put things right."
+}
