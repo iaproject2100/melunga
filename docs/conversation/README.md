@@ -24,7 +24,7 @@ Aucune modification de l'interface ni des données existantes (`conversation-fr-
 | `model` = début de phrase | `model` = gabarit avec `{s}` |
 | — | `note`, `reviewStatus`, `coverageClaim`, `reuses` |
 
-Avant intégration dans l'application, un adaptateur (côté chargement ou script de conversion) rendra les deux formats équivalents : `es→study`, `pf→phon`, `fr→native`, `dialogue→dialogues[0]`, gabarit reconstitué en remplaçant `variants[i].slot.es` par `{s}` dans `variants[i].es`. Le fichier initial est conservé tel quel.
+`adapt.py` convertit le format initial vers le format générique (`python3 adapt.py to-generic ../conversation-fr-es.json <dossier>`) : `es→study`, `pf→phon`, `fr→native`, `dialogue→dialogues[0]`, gabarit reconstitué en remplaçant `slot.es` par `{s}` dans la première variante, `sourceId` conservé. Testé sur `conversation-fr-es.json` : 6 niveaux × 6 modèles convertis, tous les gabarits reconstitués, structure acceptée par `validate.py` (seuls les minimums éditoriaux du fichier initial — 3 variantes, 4 répliques — ressortent). Le fichier initial est conservé tel quel ; le chargeur de l'application pourra appliquer la même correspondance en JS.
 
 ## Choix linguistiques (L1)
 - 11e modèle « Se dépanner » dès L1 : *Je ne comprends pas / Répétez / Plus lentement / Parlez-vous français ?* (phrases entières).
