@@ -260,7 +260,7 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
   var conversation = {step:1,level:1,unit:0,variant:0,revealed:false,data:null,loading:false,error:false,missing:false,pair:null};
   var selectionSerial = 0, unavailablePairs = Object.create(null);
   var B_LABELS = {
-    fr:{level:'Niveau',model:'Situation',loading:'Chargement…',error:'Impossible de charger ce contenu.',retry:'Réessayer',missing:'Ce niveau n’est pas disponible.',try:'À moi d’essayer →',reveal:'Afficher la phrase',another:'Une autre ↻',phrase:'Ma phrase',back:'Retour',close:'Fermer',step:'Étape',of:'sur',premium:'Premium',reading:'Lecture',pinyin:'Pinyin',kana:'Kana',romanization:'Romanisation',reviewNotice:'Contenu en relecture linguistique : la prononciation écrite et certaines tournures peuvent encore évoluer.',phonHint:'La prononciation écrite est une aide, pas un remplacement de l’audio.',pronunciation:'Prononciation'},
+    fr:{level:'Niveau',model:'Situation',loading:'Chargement…',error:'Impossible de charger ce contenu.',retry:'Réessayer',missing:'Ce niveau n’est pas disponible.',try:'À moi d’essayer →',reveal:'Afficher la phrase',another:'Une autre ↻',phrase:'Ma phrase',back:'Retour',close:'Fermer',step:'Étape',of:'sur',premium:'Premium',reading:'Lecture',pinyin:'Pinyin',kana:'Kana',romanization:'Romanisation',reviewNotice:'Contenu en relecture linguistique : la prononciation écrite et certaines tournures peuvent encore évoluer.',phonHint:'La prononciation écrite est une aide, pas un remplacement de l’audio.',pronunciation:'Phonétique'},
     zh:{level:'级别',model:'情境',loading:'正在加载…',error:'无法加载内容。',retry:'重试',missing:'此级别暂不可用。',try:'我来试试 →',reveal:'显示句子',another:'换一句 ↻',phrase:'我的句子',back:'返回',close:'关闭',step:'步骤',of:'/',premium:'高级版',reading:'读音',pinyin:'拼音',kana:'假名',romanization:'罗马字',reviewNotice:'内容仍在语言校对中：注音和部分表达可能会调整。',phonHint:'汉字注音只是辅助，请以音频为准。',pronunciation:'发音'}
   };
   // Lot D may supply window.ConversationLabels[nat]; no changes to this file are required.
@@ -372,7 +372,7 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
       var phrase=el('p','cxText cxTurnText',turn.study);phrase.lang=conversation.data.studyLanguage;card.appendChild(phrase);
       if(turn.reading){var kind={zh:'pinyin',ja:'kana',ko:'romanization'}[conversation.data.studyLanguage]||'reading';card.appendChild(el('small','cxReadingLabel',BText(kind)));card.appendChild(el('p','cxReading',turn.reading));}
       var translation=el('p','cxFr',turn.native);translation.lang=conversation.data.nativeLanguage;
-      card.append(el('p','cxPhon',turn.phon),translation,button('cxBtn cxTurnListen',BText('listen'),function(){if(conversation.pair===currentPair())say(turn.study,this);}));
+      card.append(phonBox(turn.phon,turn.study),translation,button('cxBtn cxTurnListen',BText('listen'),function(){if(conversation.pair===currentPair())say(turn.study,this);}));
     }
     sheet.appendChild(card);
     var nav=el('div','cxTurnNav');
@@ -382,6 +382,14 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
     nav.append(prev,next);sheet.appendChild(nav);
   }
 
+  /* Encadré « Phonétique » comme sur la carte de leçon : libellé, prononciation, oreille qui lit la phrase. */
+  function phonBox(phon,text){
+    var box=el('div','phonrow cxPhonrow');box.setAttribute('data-phonetic-label',BText('pronunciation'));
+    var ear=el('span','earicon','👂');ear.setAttribute('role','button');ear.setAttribute('aria-label',BText('listen'));ear.tabIndex=0;
+    var play=function(e){e.stopPropagation();if(conversation.pair===currentPair())say(text,ear);};ear.onclick=play;ear.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play(e);}};
+    var ph=el('div','phon cxPhon',phon);ph.setAttribute('aria-label',BText('pronunciation'));
+    box.append(ear,ph);return box;
+  }
   function showConversationPhrase(sheet){
     var v=activeVariant(),card=el('div','cxCard'),text=el('p','cxText');text.lang=conversation.data.studyLanguage;card.setAttribute('aria-live','polite');
     // Only mark the slot; never rebuild an inflected or contracted sentence from its template.
@@ -390,7 +398,7 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
     else text.textContent=v.study;
     card.appendChild(text);
     if(v.reading){var readingKind={zh:'pinyin',ja:'kana',ko:'romanization'}[conversation.data.studyLanguage]||'reading';card.appendChild(el('small','cxReadingLabel',BText(readingKind)));var reading=el('p','cxReading',v.reading);reading.setAttribute('aria-label',BText(readingKind));card.appendChild(reading);}
-    card.append(el('p','cxPhon',v.phon),el('p','cxFr',v.native),button('cxBtn',L().listen,function(){if(conversation.pair===currentPair())say(v.study,this);}));sheet.appendChild(card);
+    card.append(phonBox(v.phon,v.study),el('p','cxFr',v.native),button('cxBtn',L().listen,function(){if(conversation.pair===currentPair())say(v.study,this);}));sheet.appendChild(card);
   }
   function loadConversationLevel(n,resumeUnitId){
     if(!Number.isInteger(n)||n<1||n>10||!canUseLevel(n))return;
@@ -421,7 +429,7 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
     previousFocus=document.activeElement;ensurePanel().classList.add('on');resumeConversation();
   };
   close=function(){selectionSerial++;conversation.pair=null;legacyClose();};
-  var extraCss=document.createElement('style');extraCss.textContent='.cxNotice{border:1px solid var(--line,#d7dfe0);border-radius:14px;padding:10px 14px;font:500 14px/1.45 system-ui;opacity:.92}.cxNotice summary{cursor:pointer;list-style:none;font-weight:600}.cxNotice summary::-webkit-details-marker{display:none}.cxNoticeText{margin:8px 0 0;font-weight:400;opacity:.85}.cxNoticeStatus{margin:8px 0 0;font-size:12px;opacity:.65}.cxConverse{width:100%}.cxTurnNav{display:flex;gap:12px;margin-top:auto}.cxTurnNav>button{flex:1;min-width:0}.cxTurnNav button:disabled{opacity:.4;cursor:default}.cxDialogueCard{gap:14px;padding:12px 0}.cxDialogueCard .cxText{font-size:clamp(23px,5vw,30px)}.cxSpeaker{font:700 14px system-ui}.cxDialogueCard .cxPrompt{font-size:24px;margin:0}.cxModel{display:grid;grid-template-columns:1fr auto;gap:6px 12px}.cxModelText{grid-column:1}.cxModelExample{grid-column:1;font:400 15px/1.5 system-ui;overflow-wrap:anywhere}.cxModel>b{grid-column:2;grid-row:1/3}.cxReadingLabel{font:600 12px system-ui;margin-bottom:-10px}.cxReading{font:500 17px/1.5 system-ui;margin:0;overflow-wrap:anywhere}.cxLevelLabel{font:700 15px system-ui;margin-bottom:-16px}.cxStatus{text-align:center;font:500 17px/1.5 system-ui}.cxSheet>select{flex-shrink:0}.cxModel,.cxGrid .cxChoice{min-width:0;overflow-wrap:anywhere}';document.head.appendChild(extraCss);
+  var extraCss=document.createElement('style');extraCss.textContent='.cxCard .cxPhonrow{margin:4px auto 0;width:min(100%,360px)}.cxCard .cxPhonrow .cxPhon{font-size:19px!important;margin:0;color:inherit}.cxCard .cxPhonrow .earicon{cursor:pointer}.cxNotice{border:1px solid var(--line,#d7dfe0);border-radius:14px;padding:10px 14px;font:500 14px/1.45 system-ui;opacity:.92}.cxNotice summary{cursor:pointer;list-style:none;font-weight:600}.cxNotice summary::-webkit-details-marker{display:none}.cxNoticeText{margin:8px 0 0;font-weight:400;opacity:.85}.cxNoticeStatus{margin:8px 0 0;font-size:12px;opacity:.65}.cxConverse{width:100%}.cxTurnNav{display:flex;gap:12px;margin-top:auto}.cxTurnNav>button{flex:1;min-width:0}.cxTurnNav button:disabled{opacity:.4;cursor:default}.cxDialogueCard{gap:14px;padding:12px 0}.cxDialogueCard .cxText{font-size:clamp(23px,5vw,30px)}.cxSpeaker{font:700 14px system-ui}.cxDialogueCard .cxPrompt{font-size:24px;margin:0}.cxModel{display:grid;grid-template-columns:1fr auto;gap:6px 12px}.cxModelText{grid-column:1}.cxModelExample{grid-column:1;font:400 15px/1.5 system-ui;overflow-wrap:anywhere}.cxModel>b{grid-column:2;grid-row:1/3}.cxReadingLabel{font:600 12px system-ui;margin-bottom:-10px}.cxReading{font:500 17px/1.5 system-ui;margin:0;overflow-wrap:anywhere}.cxLevelLabel{font:700 15px system-ui;margin-bottom:-16px}.cxStatus{text-align:center;font:500 17px/1.5 system-ui}.cxSheet>select{flex-shrink:0}.cxModel,.cxGrid .cxChoice{min-width:0;overflow-wrap:anywhere}';document.head.appendChild(extraCss);
 
   window.openConstruire=open;window.closeConstruire=close;
 

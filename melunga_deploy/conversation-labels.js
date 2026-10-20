@@ -11,7 +11,7 @@
     fr: {
       /* contrat lot B (construire.js › BText) */ model: 'Situation', error: 'Impossible de charger ce contenu.', missing: 'Ce niveau n’est pas disponible.', try: 'À moi d’essayer →', phrase: 'Ma phrase', step: 'Étape', of: 'sur', premium: 'Premium', reading: 'Lecture', pinyin: 'Pinyin', kana: 'Kana', romanization: 'Romanisation',
       level: 'Niveau', levels: 'Niveaux', situation: 'Situation', example: 'Exemple', model: 'Phrase modèle', variants: 'Quatre façons de le dire', replaced: 'Le morceau qui change',
-      listen: '🔊 Écouter', slow: '🐢 Lentement', translation: 'Traduction', pronunciation: 'Prononciation',
+      listen: '🔊 Écouter', slow: '🐢 Lentement', translation: 'Traduction', pronunciation: 'Phonétique',
       stepDiscover: 'Découvrir', stepReplace: 'Remplacer', stepRecall: 'À moi d’essayer', stepConverse: 'Converser',
       tryIt: 'À moi d’essayer →', sayIt: 'Dire en {lang}', reveal: 'Voir la phrase', another: 'Une autre ↻', next: 'Suivant →', back: 'Retour', close: 'Fermer', done: 'Terminé ✓',
       recallPrompt: 'Comment dis-tu : « {native} » ?', hidden: '…', yourTurn: 'À toi de répondre', hideRole: 'Masquer un rôle', showAll: 'Tout afficher', roleA: 'Personne A', roleB: 'Personne B',
