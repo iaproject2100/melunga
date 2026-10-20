@@ -264,7 +264,7 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
     zh:{level:'级别',model:'情境',loading:'正在加载…',error:'无法加载内容。',retry:'重试',missing:'此级别暂不可用。',try:'我来试试 →',reveal:'显示句子',another:'换一句 ↻',phrase:'我的句子',back:'返回',close:'关闭',step:'步骤',of:'/',premium:'高级版',reading:'读音',pinyin:'拼音',kana:'假名',romanization:'罗马字',reviewNotice:'内容仍在语言校对中：注音和部分表达可能会调整。',phonHint:'汉字注音只是辅助，请以音频为准。',pronunciation:'发音'}
   };
   // Lot D may supply window.ConversationLabels[nat]; no changes to this file are required.
-  function BText(key){var locale=typeof nat==='string'?nat:'fr';var supplied=window.ConversationLabels&&window.ConversationLabels[locale];return supplied&&supplied[key]||(B_LABELS[locale]||B_LABELS.fr)[key]||key;}
+  function BText(key){var locale=typeof nat==='string'?nat:'fr';var supplied=window.ConversationLabels&&window.ConversationLabels[locale];return supplied&&typeof supplied[key]==='string'?supplied[key]:(B_LABELS[locale]||B_LABELS.fr)[key]||key;}
   function contentLoader(){return USE_CONVERSATION_FILES && window.ConversationContent;}
   function currentPair(){return (typeof nat==='string'?nat:'fr')+'|'+(typeof lang==='string'?lang:'');}
   function hasContentPair(){var loader=contentLoader(),parts=currentPair().split('|');return loader?loader.isPairAvailable(parts[0],parts[1])&&!unavailablePairs[currentPair()]:!!data();}
@@ -273,6 +273,25 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
     return !nativeApp && (/^deploy-preview-\d+--/.test(location.hostname)||location.hostname==='127.0.0.1'||location.hostname==='localhost');
   }
   function canUseLevel(n){return n===1||previewLevels()||(typeof isPaid!=='undefined'&&isPaid===true);}
+  /* Lot E: resume position only, never a score or an entitlement. */
+  function resumeKey(){return 'melunga_conversation_resume_v1:'+currentPair().replace('|',':');}
+  function readResume(){
+    try{
+      var saved=JSON.parse(localStorage.getItem(resumeKey())||'null');
+      if(saved&&saved.version===1&&Number.isInteger(saved.level)&&saved.level>=1&&saved.level<=10){
+        return {level:saved.level,unitId:typeof saved.unitId==='string'?saved.unitId:null};
+      }
+    }catch(_error){}
+    return {level:1,unitId:null};
+  }
+  function saveResume(unitId){
+    if(!conversation.data||conversation.pair!==currentPair())return;
+    try{localStorage.setItem(resumeKey(),JSON.stringify({version:1,level:conversation.data.level,unitId:unitId||null}));}catch(_error){}
+  }
+  function resumeConversation(){
+    var saved=readResume(),allowed=canUseLevel(saved.level);
+    loadConversationLevel(allowed?saved.level:1,allowed?saved.unitId:null);
+  }
   function activeUnit(){return conversation.data&&conversation.data.units[conversation.unit];}
   function activeVariant(){var u=activeUnit();return u&&u.variants[conversation.variant];}
   function discoveryIndex(u){var i=u.practice&&u.practice.discover;return Number.isInteger(i)&&i>=0&&i<u.variants.length?i:0;}
@@ -288,14 +307,14 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
       for(var n=1;n<=10;n++){var option=el('option',null,BText('level')+' '+n+(canUseLevel(n)?'':' · '+BText('premium')));option.value=n;option.disabled=!canUseLevel(n);levelSelect.appendChild(option);}
       levelSelect.value=conversation.level;levelSelect.onchange=function(){loadConversationLevel(Number(levelSelect.value));};sheet.append(levelLabel,levelSelect);
     }
-    if(conversation.data&&conversation.step===1&&!conversation.loading)appendReviewNotice(sheet,conversation.data);
+    if(conversation.data&&!conversation.loading)appendReviewNotice(sheet,conversation.data);
     if(conversation.loading){var loading=el('p','cxStatus',BText('loading'));loading.setAttribute('role','status');sheet.appendChild(loading);}
-    else if(conversation.error){var error=el('p','cxStatus',BText('error'));error.setAttribute('role','alert');sheet.append(error,button('cxBtn',BText('retry'),function(){loadConversationLevel(conversation.level);}));}
+    else if(conversation.error){var error=el('p','cxStatus',BText('error'));error.setAttribute('role','alert');sheet.append(error,button('cxBtn',BText('retry'),function(){loadConversationLevel(conversation.level,conversation.pendingResumeUnit);}));}
     else if(conversation.missing){var missing=el('p','cxStatus',BText('missing'));missing.setAttribute('role','status');sheet.appendChild(missing);}
     else if(conversation.data){
       if(conversation.step===1){
         if(conversation.data.dialogues.length)sheet.appendChild(dialogueButton());
-        var choices=el('div','cxChoices');conversation.data.units.forEach(function(u,index){var example=u.variants[discoveryIndex(u)];var choice=button('cxChoice cxModel','',function(){conversation.unit=index;conversation.variant=discoveryIndex(u);conversation.step=2;conversation.revealed=false;renderConversation();});choice.append(el('span','cxModelText',u.situation),el('small','cxModelExample',example.native),el('b',null,'›'));choices.appendChild(choice);});sheet.appendChild(choices);
+        var choices=el('div','cxChoices');conversation.data.units.forEach(function(u,index){var example=u.variants[discoveryIndex(u)];var choice=button('cxChoice cxModel','',function(){conversation.unit=index;conversation.variant=discoveryIndex(u);saveResume(u.id);conversation.step=2;conversation.revealed=false;renderConversation();});choice.append(el('span','cxModelText',u.situation),el('small','cxModelExample',example.native),el('b',null,'›'));choices.appendChild(choice);});sheet.appendChild(choices);
       }else if(conversation.step===2){
         showConversationPhrase(sheet);
         var grid=el('div','cxGrid');activeUnit().variants.forEach(function(v,index){var choice=button('cxChoice'+(index===conversation.variant?' selected':''),v.slot.native,function(){conversation.variant=index;renderConversation();});choice.setAttribute('aria-pressed',String(index===conversation.variant));grid.appendChild(choice);});sheet.appendChild(grid);
@@ -371,14 +390,22 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
     if(v.reading){var readingKind={zh:'pinyin',ja:'kana',ko:'romanization'}[conversation.data.studyLanguage]||'reading';card.appendChild(el('small','cxReadingLabel',BText(readingKind)));var reading=el('p','cxReading',v.reading);reading.setAttribute('aria-label',BText(readingKind));card.appendChild(reading);}
     card.append(el('p','cxPhon',v.phon),el('p','cxFr',v.native),button('cxBtn',L().listen,function(){if(conversation.pair===currentPair())say(v.study,this);}));sheet.appendChild(card);
   }
-  function loadConversationLevel(n){
+  function loadConversationLevel(n,resumeUnitId){
     if(!Number.isInteger(n)||n<1||n>10||!canUseLevel(n))return;
     var loader=contentLoader(),pair=currentPair(),parts=pair.split('|'),serial=++selectionSerial;
-    conversation.level=n;conversation.pair=pair;conversation.step=1;conversation.data=null;conversation.loading=true;conversation.error=false;conversation.missing=false;renderConversation();
+    conversation.pendingResumeUnit=resumeUnitId||null;conversation.level=n;conversation.pair=pair;conversation.step=1;conversation.data=null;conversation.loading=true;conversation.error=false;conversation.missing=false;renderConversation();
     loader.loadLevel(parts[0],parts[1],n).then(function(result){
       if(serial!==selectionSerial||pair!==currentPair()||!panel||!panel.classList.contains('on'))return;
+      if(!canUseLevel(n)){loadConversationLevel(1);return;}
       conversation.loading=false;
-      if(result.status==='ok'){conversation.data=result.data;conversation.unit=0;conversation.variant=discoveryIndex(result.data.units[0]);}
+      if(result.status==='ok'){
+        conversation.data=result.data;
+        var restored=result.data.units.findIndex(function(u){return u.id===resumeUnitId;});
+        conversation.unit=restored>=0?restored:0;
+        conversation.variant=discoveryIndex(result.data.units[conversation.unit]);
+        conversation.revealed=false;conversation.step=restored>=0?2:1;
+        saveResume(restored>=0?result.data.units[restored].id:null);
+      }
       else if(result.status==='unavailable'){
         conversation.missing=true;
         if(n===1){unavailablePairs[pair]=true;close();syncEntry(false);return;}
@@ -389,7 +416,7 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
   open=function(){
     if(!contentLoader()){legacyOpen();return;}
     if(!hasContentPair())return;
-    previousFocus=document.activeElement;ensurePanel().classList.add('on');loadConversationLevel(1);
+    previousFocus=document.activeElement;ensurePanel().classList.add('on');resumeConversation();
   };
   close=function(){selectionSerial++;conversation.pair=null;legacyClose();};
   var extraCss=document.createElement('style');extraCss.textContent='.cxNotice{border:1px solid var(--line,#d7dfe0);border-radius:14px;padding:10px 14px;font:500 14px/1.45 system-ui;opacity:.92}.cxNotice summary{cursor:pointer;list-style:none;font-weight:600}.cxNotice summary::-webkit-details-marker{display:none}.cxNoticeText{margin:8px 0 0;font-weight:400;opacity:.85}.cxNoticeStatus{margin:8px 0 0;font-size:12px;opacity:.65}.cxConverse{width:100%}.cxTurnNav{display:flex;gap:12px;margin-top:auto}.cxTurnNav>button{flex:1;min-width:0}.cxTurnNav button:disabled{opacity:.4;cursor:default}.cxDialogueCard{gap:14px;padding:12px 0}.cxDialogueCard .cxText{font-size:clamp(23px,5vw,30px)}.cxSpeaker{font:700 14px system-ui}.cxDialogueCard .cxPrompt{font-size:24px;margin:0}.cxModel{display:grid;grid-template-columns:1fr auto;gap:6px 12px}.cxModelText{grid-column:1}.cxModelExample{grid-column:1;font:400 15px/1.5 system-ui;overflow-wrap:anywhere}.cxModel>b{grid-column:2;grid-row:1/3}.cxReadingLabel{font:600 12px system-ui;margin-bottom:-10px}.cxReading{font:500 17px/1.5 system-ui;margin:0;overflow-wrap:anywhere}.cxLevelLabel{font:700 15px system-ui;margin-bottom:-16px}.cxStatus{text-align:center;font:500 17px/1.5 system-ui}.cxSheet>select{flex-shrink:0}.cxModel,.cxGrid .cxChoice{min-width:0;overflow-wrap:anywhere}';document.head.appendChild(extraCss);
@@ -400,7 +427,7 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
   function syncMenu() {
     var has = hasContentPair();
     if(contentLoader() && panel && panel.classList.contains('on') && conversation.pair && conversation.pair!==currentPair()){
-      if(has)loadConversationLevel(1);else close();
+      if(has)resumeConversation();else close();
     }
     syncEntry(has);
   }

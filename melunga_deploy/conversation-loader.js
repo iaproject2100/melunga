@@ -172,7 +172,7 @@
   function loadLevel(nat, study, level) {
     level = Number(level);
     if (!isPairAvailable(nat, study)) return Promise.resolve(unavailable('pair'));
-    if (!(level >= 1 && level <= LEVELS)) return Promise.resolve(unavailable('level'));
+    if (!(Number.isInteger(level) && level >= 1 && level <= LEVELS)) return Promise.resolve(unavailable('level'));
     var k = key(nat, study, level);
     if (cache[k]) return Promise.resolve({ status: 'ok', data: cache[k], fromCache: true });
     if (pending[k]) return pending[k];

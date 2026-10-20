@@ -9,3 +9,7 @@
 ## Vérification
 - `node --check melunga_deploy/construire.js` ; `node melunga_deploy/tests/conversation-loader.test.cjs` ; test UI de Codex `conversation-ui.test.cjs` : tous passent.
 - Playwright (serveur local) : fr→ja, fr→zh, zh→fr → encart présent (texte fr / zh selon la langue maternelle, statut du fichier affiché) ; fr→es → aucun encart ; liste des situations et bouton « Converser » intacts ; aucune erreur JS.
+
+## Complément de la revue Codex (lot E)
+
+L’encart reste désormais présent aux étapes 1 à 4, y compris lorsqu’une reprise locale ouvre directement un modèle. Les conditions de statut et les libellés sont inchangés.

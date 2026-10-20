@@ -64,6 +64,7 @@ function fileFetch(opts = {}) {
   CC.clearCache(); CC.configure({ fetch: fileFetch(), origin: '' });
   check('couple non publié (en→fr) → unavailable/pair', (await CC.loadLevel('en', 'fr', 1)).reason === 'pair');
   check('niveau 11 → unavailable/level', (await CC.loadLevel('fr', 'es', 11)).reason === 'level');
+  check('niveau fractionnaire → unavailable/level', (await CC.loadLevel('fr', 'es', 1.5)).reason === 'level');
   CC.clearCache(); CC.configure({ fetch: async () => ({ ok: false, status: 404, json: async () => ({}) }), origin: '' });
   check('fichier 404 → unavailable/missing (pastille masquée, pas de message)', (await CC.loadLevel('fr', 'es', 1)).reason === 'missing');
 
