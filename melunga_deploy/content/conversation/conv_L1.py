@@ -12,6 +12,7 @@ Les modèles contiennent {s} à l'emplacement du morceau remplaçable.
 import json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from conv_build import find_reuses
+import roles
 REPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".."))
 OUT_DIR = f"{REPO}/melunga_deploy/content/conversation"
 OUT_MD = f"{REPO}/docs/conversation/echantillon-L1.md"
@@ -230,6 +231,8 @@ def build(study, D):
         dialogues.append({"id": f"L1-{nat}-{study}-d{j}", "situation": (DIALOG_SITU_ZH if nat == "zh" else DIALOG_SITU)[j-1], "turns": T,
                           "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle." if nat == "fr" else "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
                           "reuses": find_reuses(T, {1: units}, 1)})
+        r = roles.assign(nat, (DIALOG_SITU_ZH if nat == "zh" else DIALOG_SITU)[j-1])
+        if r: dialogues[-1].update(roles={"A": r[0], "B": r[1]}, learnerRole=r[2])
     return {
         "version": 2, "format": "conversation-generic", "status": "échantillon-à-valider", "studyLanguage": study, "nativeLanguage": nat,
         "fields": {"study": f"phrase en {NAMES[study].lower()}", "phon": f"prononciation écrite pour {NAT_NAMES[nat]}", "native": "traduction en langue maternelle",

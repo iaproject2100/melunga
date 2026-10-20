@@ -61,6 +61,10 @@ for f in sorted(glob.glob(f"{D}/L*-*.json")):
         for r in d.get("reuses", []):
             if r not in uids: errs.append(f"{n} {d['id']}: réutilise un modèle inconnu {r}")
         if not d.get("reuses"): errs.append(f"{n} {d['id']}: aucun modèle réutilisé détecté")
+        r = d.get("roles")
+        if r is not None:
+            if not (isinstance(r, dict) and r.get("A") and r.get("B") and r["A"] != r["B"]): errs.append(f"{n} {d['id']}: roles invalides {r!r}")
+            if d.get("learnerRole") not in ("A", "B"): errs.append(f"{n} {d['id']}: learnerRole doit valoir A ou B")
     if doc["level"] > 1 and not any(int(r.split("-")[0][1:]) < doc["level"] for d in dl for r in d.get("reuses", [])):
         warns.append(f"{n}: aucun dialogue ne réutilise un niveau antérieur")
     studied.add(doc["studyLanguage"]); files_seen.add((doc["level"], doc["nativeLanguage"], doc["studyLanguage"]))

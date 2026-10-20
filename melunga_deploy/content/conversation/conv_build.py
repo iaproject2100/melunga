@@ -12,6 +12,8 @@ Données : levels/data_<étude>.py exposant NAT, PHON_CONV, REVIEW, LEVELS.
 Sortie : melunga_deploy/content/conversation/L<n>-<nat>-<étude>.json et docs/conversation/niveau-L<n>.md
 """
 import json, os, re, sys, importlib
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import roles
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 OUT_DIR = HERE
@@ -78,6 +80,8 @@ def build(level, study, D, prev_units=None):
         dialogues.append({"id": f"L{level}-{nat}-{study}-d{j}", "situation": situation, "turns": T,
                           "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle." if nat == "fr" else "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
                           "reuses": find_reuses(T, {**(prev_units or {}), level: units}, level)})
+        r = roles.assign(nat, situation)
+        if r: dialogues[-1].update(roles={"A": r[0], "B": r[1]}, learnerRole=r[2])
     return {"version": 2, "format": "conversation-generic", "status": "à-valider", "studyLanguage": study, "nativeLanguage": nat,
             "fields": {"study": f"phrase en {NAMES[study].lower()}", "phon": f"prononciation écrite pour {NAT_NAMES[nat]}", "native": "traduction en langue maternelle", **({"reading": READING[study]} if study in READING else {})},
             "phoneticConvention": D.PHON_CONV, "reviewStatus": D.REVIEW, "coverageClaim": None,
