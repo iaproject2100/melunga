@@ -342,10 +342,15 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
     var conv=el('p','cxNoticeText',data.phoneticConvention||'');var hint=el('p','cxNoticeText',BText('phonHint'));var status=el('p','cxNoticeStatus',data.reviewStatus||'');
     box.append(sum,conv,hint,status);sheet.appendChild(box);
   }
+  function dialogueRoleName(dialogue,role){
+    var name=dialogue.roles&&dialogue.roles[role];
+    return typeof name==='string'&&name.trim()?name:BText(role==='A'?'roleA':'roleB');
+  }
+  function defaultHiddenRole(dialogue){return dialogue.learnerRole==='A'||dialogue.learnerRole==='B'?dialogue.learnerRole:'B';}
   function enterDialogue(){
     if(!conversation.data||!conversation.data.dialogues.length)return;
     conversation.dialogueReturn=conversation.step;
-    conversation.step=4;conversation.dialogue=0;conversation.turn=0;conversation.hiddenRole='B';conversation.turnRevealed=false;
+    conversation.step=4;conversation.dialogue=0;conversation.turn=0;conversation.hiddenRole=defaultHiddenRole(conversation.data.dialogues[0]);conversation.turnRevealed=false;
     renderConversation();
   }
   function dialogueButton(){return button('cxBtn cxAgain cxConverse',BText('stepConverse'),enterDialogue);}
@@ -356,14 +361,14 @@ body.ambclair .cxEntry{background:rgba(55,45,65,.10);border-color:rgba(55,45,65,
     var label=el('label','cxLevelLabel',BText('dialogue'));label.htmlFor='cxDialogue';
     var select=el('select','cxSelect');select.id='cxDialogue';
     dialogues.forEach(function(d,index){var option=el('option',null,d.situation||BText('dialogue')+' '+(index+1));option.value=index;select.appendChild(option);});
-    select.value=conversation.dialogue;select.onchange=function(){conversation.dialogue=Number(select.value);conversation.turn=0;conversation.turnRevealed=false;renderConversation();};sheet.append(label,select);
+    select.value=conversation.dialogue;select.onchange=function(){conversation.dialogue=Number(select.value);conversation.turn=0;conversation.hiddenRole=defaultHiddenRole(dialogues[conversation.dialogue]);conversation.turnRevealed=false;renderConversation();};sheet.append(label,select);
     var roleLabel=el('label','cxLevelLabel',BText('hideRole'));roleLabel.htmlFor='cxHiddenRole';
     var roles=el('select','cxSelect');roles.id='cxHiddenRole';
-    [['',BText('showAll')],['A',BText('roleA')],['B',BText('roleB')]].forEach(function(r){var option=el('option',null,r[1]);option.value=r[0];roles.appendChild(option);});
+    [['',BText('showAll')],['A',dialogueRoleName(selected,'A')],['B',dialogueRoleName(selected,'B')]].forEach(function(r){var option=el('option',null,r[1]);option.value=r[0];roles.appendChild(option);});
     roles.value=conversation.hiddenRole;roles.onchange=function(){conversation.hiddenRole=roles.value;conversation.turnRevealed=false;renderConversation();};sheet.append(roleLabel,roles);
     var hidden=turn.speaker===conversation.hiddenRole&&!conversation.turnRevealed;
     var card=el('div','cxCard cxDialogueCard');card.setAttribute('aria-live','polite');
-    card.appendChild(el('small','cxSpeaker',BText(turn.speaker==='A'?'roleA':'roleB')+' · '+(conversation.turn+1)+' / '+selected.turns.length));
+    card.appendChild(el('small','cxSpeaker',dialogueRoleName(selected,turn.speaker)+' · '+(conversation.turn+1)+' / '+selected.turns.length));
     if(hidden){
       card.appendChild(el('p','cxPrompt',BText('yourTurn')));
       var cue=el('p','cxFr',turn.native);cue.lang=conversation.data.nativeLanguage;card.appendChild(cue);

@@ -40,12 +40,16 @@ const root=path.resolve(__dirname,'..');
   await p.locator('.cxGrid button').nth(1).click();assert.equal(await p.locator('.cxText').textContent(),doc.units[0].variants[1].study);
   await p.locator('.cxNext').click();assert.equal(await p.locator('.cxText').count(),0);assert.equal(await p.locator('.cxPhon').count(),0);assert.equal(await p.locator('.cxReading').count(),0);
   await p.locator('.cxSelect').selectOption('3');await p.locator('.cxSheet>.cxBtn:not(.cxAgain)').click();assert.equal(await p.locator('.cxText').textContent(),doc.units[0].variants[3].study);
-  await p.evaluate(()=>{window.audioChecks=[];window.speak=t=>audioChecks.push(t);});await p.locator('.cxCard button').click();assert.deepEqual(await p.evaluate(()=>audioChecks),[doc.units[0].variants[3].study]);
+  await p.evaluate(()=>{window.audioChecks=[];window.speak=t=>audioChecks.push(t);});await p.locator('.cxCard > button.cxBtn').click();assert.deepEqual(await p.evaluate(()=>audioChecks),[doc.units[0].variants[3].study]);
   const before=await p.evaluate(()=>[idx,localStorage.getItem('ox_known_'+lang)]);
   await p.locator('.cxText').evaluate(e=>{e.dispatchEvent(new TouchEvent('touchstart',{bubbles:true,touches:[new Touch({identifier:1,target:e,clientX:20,clientY:200})]}));e.dispatchEvent(new TouchEvent('touchend',{bubbles:true,changedTouches:[new Touch({identifier:1,target:e,clientX:190,clientY:200})]}));});
   assert.deepEqual(await p.evaluate(()=>[idx,localStorage.getItem('ox_known_'+lang)]),before);
   await p.locator('.cxConverse').click();await p.locator('#cxDialogue').waitFor();
   assert.equal(await p.locator('#cxDialogue option').count(),doc.dialogues.length);
+  assert.equal(await p.locator('#cxHiddenRole').inputValue(),doc.dialogues[0].learnerRole);
+  assert.equal(await p.locator('#cxHiddenRole option[value="A"]').textContent(),doc.dialogues[0].roles.A);
+  if(doc.dialogues[0].learnerRole==='A')assert.equal(await p.locator('.cxTurnText').count(),0);
+  await p.locator('#cxHiddenRole').selectOption('B');
   assert.equal(await p.locator('.cxTurnText').textContent(),doc.dialogues[0].turns[0].study);
   await p.locator('.cxTurnNext').click();
   assert.equal(await p.locator('.cxTurnText').count(),0);assert.equal(await p.locator('.cxPhon').count(),0);assert.equal(await p.locator('.cxReading').count(),0);assert.equal(await p.locator('.cxTurnListen').count(),0);
@@ -60,7 +64,7 @@ const root=path.resolve(__dirname,'..');
   await p.locator('#cxHiddenRole').selectOption('');
   if(process.env.SCREENSHOT_DIR&&nat==='fr'&&study==='es')await p.screenshot({path:path.join(process.env.SCREENSHOT_DIR,'1-replique.png')});
   for(let di=0;di<doc.dialogues.length;di++){
-   await p.locator('#cxDialogue').selectOption(String(di));
+   await p.locator('#cxDialogue').selectOption(String(di));assert.equal(await p.locator('#cxHiddenRole').inputValue(),doc.dialogues[di].learnerRole);await p.locator('#cxHiddenRole').selectOption('');
    for(let ti=0;ti<doc.dialogues[di].turns.length;ti++){
     const turn=doc.dialogues[di].turns[ti];assert.equal(await p.locator('.cxTurnText').textContent(),turn.study);
     if(turn.reading)assert.equal(await p.locator('.cxReading').textContent(),turn.reading);

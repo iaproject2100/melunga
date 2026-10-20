@@ -48,3 +48,7 @@ Limites : pas d'écoute du service distant ni d'essai APK physique. Le lot F (st
 ## Passage de relais à Claude
 
 Le fichier `construire.js` est disponible pour F après le commit du lot C. Points d'insertion : `renderConversation()` construit la feuille puis appelle `renderDialogue(sheet)` pour l'étape 4 ; le contenu courant est dans `conversation.data`. Prévoir la mention aussi dans ce parcours. Les libellés `reviewNotice` et `phonHint` sont déjà fournis par le lot D.
+
+## Rôles nommés — après réception de l’APK v3
+
+Le rendu lit désormais `roles.A` / `roles.B` (dans la langue maternelle du fichier). `learnerRole` détermine le rôle masqué à l’entrée et lors du changement de dialogue. Les fichiers antérieurs gardent les libellés Personne A/B et le rôle B masqué. Les tests parcourent les sept couples, vérifient les noms et le rôle initial ; les phrases complètes restent inchangées. L’APK v3 reçu ne contient pas encore ce raccordement UI.
