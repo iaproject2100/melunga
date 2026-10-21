@@ -3,7 +3,7 @@
 À la demande de Kartech : supprimer les émojis scolaires et les libellés permanents du menu. Cette version reste sur la branche d’essai, sans modification du site en production.
 
 - Icônes SVG sobres : accueil, langue, niveau, thèmes, révisions, audio et avis.
-- Rail étroit sur ordinateur ; vignettes dans le tiroir sur mobile.
+- Rail étroit sur ordinateur ; même colonne d’icônes sur mobile à l’ouverture du menu.
 - Noms disponibles au survol et au clavier, avec traduction dans les sept langues du lecteur. La langue, le niveau et la voix courants sont conservés dans les noms accessibles.
 - Thème choisi, drapeau de la leçon, palette, phonétique et oreille conservés.
 
@@ -19,4 +19,4 @@ La simulation Capacitor conserve les dimensions, la typographie et les couleurs 
 
 ![Ordinateur clair](ordinateur-clair.png)
 
-![Menu mobile](mobile-aurore.png)
+![Menu mobile en colonne](mobile-colonne/mobile-aurore.png)

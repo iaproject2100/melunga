@@ -165,22 +165,80 @@ body.immersif #ctrlDrawer.lesson-tools .lesson-control:focus-visible{
 }
 
 @media(max-width:1023px){
- /* Keep the mobile drawer shell, header, dismissal and theme palette intact.
-    Only its five quick actions become a compact three-plus-two icon grid. */
- html body.immersif #ctrlDrawer.menu-b.lesson-tools .menu-b-quick-grid{
-  display:grid!important;
-  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ /* The desktop icon column becomes a compact mobile rail on menu opening.
+    Keep the existing drawer handlers and viewport-fixed choice menus. */
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools{
+  top:calc(68px + env(safe-area-inset-top))!important;
+  bottom:calc(16px + env(safe-area-inset-bottom))!important;
+  left:auto!important;
+  right:-116px!important;
+  width:104px!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:calc(100dvh - 84px - env(safe-area-inset-top) - env(safe-area-inset-bottom))!important;
+  padding:10px 14px!important;
+  display:flex!important;
+  flex-direction:column!important;
   align-items:center!important;
-  justify-items:center!important;
-  gap:10px!important;
-  padding:12px 6px!important;
+  gap:6px!important;
+  border:1px solid var(--gc-line,var(--line,#d9d1c6))!important;
+  border-radius:24px!important;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain;
+  touch-action:pan-y;
+  scroll-padding-top:60px;
+  scroll-padding-bottom:8px;
+  scrollbar-width:thin;
+  visibility:hidden;
+  pointer-events:none;
+  transition:right .22s ease,visibility 0s linear .22s;
+ }
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools.open{
+  right:12px!important;
+  visibility:visible;
+  pointer-events:auto;
+  transition-delay:0s;
+ }
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools :is(.menu-b-head,.menu-b-top){display:contents!important}
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools :is(.menu-b-heading,.menu-b-level,.menu-b-progress-copy,.menu-b-track,.menu-b-continue,.csect){display:none!important}
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools .menu-b-close{
+  position:sticky;
+  top:0;
+  z-index:1;
+  display:grid!important;
+  place-items:center;
+  flex:0 0 44px;
+  width:44px;
+  height:44px;
+  min-height:44px;
+  margin:0 0 2px;
+  padding:0;
+  color:var(--gc-ink,var(--ink,#23262b))!important;
+  background:var(--gc-base,var(--bg,#f7f3ec))!important;
+  border:1px solid var(--gc-line,var(--line,#d9d1c6));
+  border-radius:50%;
+ }
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools .menu-b-quick-grid{
+  display:flex!important;
+  flex-direction:column!important;
+  flex:none!important;
+  width:100%!important;
+  align-items:center!important;
+  gap:6px!important;
+  padding:12px 0!important;
+  margin:4px 0!important;
   background:transparent!important;
   border:0!important;
+  border-top:1px solid var(--gc-line,var(--line,#d9d1c6))!important;
+  border-bottom:1px solid var(--gc-line,var(--line,#d9d1c6))!important;
+  border-radius:0!important;
   box-shadow:none!important;
  }
- html body.immersif #ctrlDrawer.menu-b.lesson-tools .menu-b-quick-grid :is(#selLang,#selLv,#selRb,#selRev,#selVoice){
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools .menu-b-quick-grid :is(#selLang,#selLv,#selRb,#selRev,#selVoice),
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools :is(#btnHome,#btnFb,#btnLogout){
   display:flex!important;
-  flex:none!important;
+  flex:0 0 56px!important;
   flex-direction:row!important;
   flex-wrap:nowrap!important;
   align-items:center!important;
@@ -189,14 +247,21 @@ body.immersif #ctrlDrawer.lesson-tools .lesson-control:focus-visible{
   min-width:56px!important;
   min-height:56px!important;
   height:56px!important;
-  margin:0!important;
+  margin:0 auto!important;
   padding:0!important;
   gap:0!important;
   border:0!important;
   background:transparent!important;
   box-shadow:none!important;
  }
- html body.immersif #ctrlDrawer.menu-b.lesson-tools :is(#btnHome,#btnFb,#btnLogout){margin:6px!important}
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools .selmenu{flex:none!important}
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools .lesson-control-icon{
+  flex-basis:56px;
+  width:56px;
+  min-width:56px;
+  height:56px;
+ }
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools .lesson-control-icon>svg{width:30px;height:30px}
 }
 
 @media(prefers-reduced-motion:no-preference){

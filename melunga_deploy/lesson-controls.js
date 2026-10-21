@@ -128,6 +128,10 @@
   },true);
   window.addEventListener('resize',hideTip);
   drawer.addEventListener('scroll',hideTip,{passive:true});
+  // Scrolling the tool rail must not navigate or rate the lesson behind it.
+  ['touchstart','touchmove','touchend','touchcancel'].forEach(function (type) {
+    drawer.addEventListener(type,function (event) { event.stopPropagation(); },{passive:true});
+  });
   let pending = false;
   new MutationObserver(function () {
     if (pending) return;
