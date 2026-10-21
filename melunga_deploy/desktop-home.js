@@ -385,6 +385,32 @@
   const flag = code => `<span class="home-flag home-flag-${code}" aria-hidden="true"></span>`;
   const root = document.createElement('main');
   root.className = 'desktop-home';
+  const desktopChoices = window.matchMedia('(min-width:960px)');
+  const languageStep = document.querySelector('[data-screen="language"]');
+  const courseLaunch = languageStep.querySelector('[data-launch-course]');
+  const originalCourseLabel = courseLaunch.textContent;
+  const studyChoices = Array.from(languageStep.querySelectorAll('[data-study-language]'));
+  studyChoices.forEach(function (choice) {
+    const flag = document.createElement('span');
+    flag.className = 'desktop-study-flag home-flag home-flag-' + choice.dataset.studyLanguage;
+    flag.setAttribute('aria-hidden','true');
+    choice.querySelector('.flag').append(flag);
+  });
+  function renderLanguageChoice() {
+    const locale = typeof currentAppLocale === 'string' ? currentAppLocale : 'fr';
+    const text = desktopChoices.matches && selectedAccess === 'free' ? (copy[locale] || copy.fr)[3] : originalCourseLabel;
+    if (courseLaunch.textContent !== text) courseLaunch.textContent = text;
+    studyChoices.forEach(function (choice) {
+      if (desktopChoices.matches) choice.setAttribute('aria-pressed',String(choice.classList.contains('selected')));
+      else choice.removeAttribute('aria-pressed');
+    });
+  }
+  const originalGo = window.go;
+  window.go = function () { const result = originalGo.apply(this,arguments); renderLanguageChoice(); return result; };
+  desktopChoices.addEventListener('change',renderLanguageChoice);
+  document.addEventListener('click',function (event) {
+    if (event.target.closest('[data-study-language]')) renderLanguageChoice();
+  });
   const tr = i => `<span data-dh-text="${i}"></span>`;
   root.innerHTML = `
     <header class="dh-container dh-header"><a class="dh-brand" href="#"><img src="assets/melunga-logo.png" alt="">Melunga</a><nav class="dh-nav" aria-label="Melunga"><a href="#dh-method">${tr(35)}</a><a href="#dh-pricing">${tr(31)}</a><label class="dh-language-picker"><span class="home-flag home-flag-fr" data-dh-native-flag aria-hidden="true"></span><select class="dh-language" aria-label="Langue du site">${Object.entries(languageNames).map(([code,name])=>`<option value="${code}">${name}</option>`).join('')}</select><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg></label><button type="button" class="dh-button dh-small dh-primary dh-header-free" data-dh-free>${tr(3)}</button><button class="dh-button dh-small dh-outline" data-go="signin">${tr(30)}</button></nav></header>
@@ -425,6 +451,7 @@
     root.querySelectorAll('[data-dh-example]').forEach(b => b.setAttribute('aria-pressed',String(b.dataset.dhExample === example)));
   }
   function render() {
+    renderLanguageChoice();
     const locale = typeof currentAppLocale === 'string' ? currentAppLocale : 'fr';
     const t = copy[locale] || copy.fr;
     root.querySelectorAll('[data-dh-text]').forEach(el => { el.textContent = t[Number(el.dataset.dhText)]; });
