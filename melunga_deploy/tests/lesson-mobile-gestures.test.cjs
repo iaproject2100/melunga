@@ -36,6 +36,18 @@ const report={short:[],long:{},errors:[]};
    await delay(1150);return {page,context};
   }
   async function settle(page){await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));await delay(180);}
+  async function swipeFrom(page,selector,{duration=200,ghost=false}={}){
+   await page.locator(selector).scrollIntoViewIfNeeded();await settle(page);
+   const r=await page.locator(selector).boundingBox(),x=r.x+r.width/2,y=r.y+r.height/2;
+   const client=await page.context().newCDPSession(page);
+   await client.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});
+   for(let i=1;i<=8;i++){
+    await client.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x,y:y-100*i/8}]});await delay(duration/8);
+   }
+   await client.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+   if(ghost)await page.locator(selector).dispatchEvent('click',{bubbles:true,cancelable:true,detail:1});
+   await client.detach();await delay(350);
+  }
   async function swipe(page,direction='up',cancel=false){
    const r=await page.locator('#card').boundingBox();
    const x=r.x+r.width*.9;
@@ -71,6 +83,39 @@ const report={short:[],long:{},errors:[]};
    report.short.push({width,height,study,nat,passed:true});await context.close();
   }
 
+  // Regression: this actual Spanish card must work from the centre and audio,
+  // rather than only from the empty right-hand margin used by basic checks.
+  const spanish=await open(390,600,'es'),sample='Por eso prefiero venir temprano.';
+  await spanish.page.evaluate(()=>{window.__plays=0;window.playCurrent=()=>{window.__plays+=1;};});
+  async function sampleCard(){
+   await spanish.page.evaluate(sample=>{idx=pool.findIndex(card=>card.t===sample);if(idx<0)throw Error('Missing Spanish sample');show();document.getElementById('card').scrollTop=0;},sample);
+   await settle(spanish.page);return state(spanish.page);
+  }
+  for(const[selector,duration]of[['#phon',200],['#cn',1200],['#listen',200],['.earicon',200]]){
+   const before=await sampleCard(),plays=await spanish.page.evaluate(()=>window.__plays);
+   await swipeFrom(spanish.page,selector,{duration,ghost:selector==='#listen'||selector==='.earicon'});
+   assert.equal(await spanish.page.evaluate(()=>idx),before.idx+1,'Spanish sample: swipe from '+selector+' advances, including a slow gesture');
+   assert.deepEqual((await state(spanish.page)).notes,before.notes,'Spanish sample: vertical gestures do not rate');
+   assert.equal(await spanish.page.evaluate(()=>window.__plays),plays,'swiping an audio control does not play it');
+  }
+  const beforeTap=await sampleCard();
+  await spanish.page.locator('#listen').tap();await spanish.page.locator('.earicon').tap();
+  assert.equal(await spanish.page.evaluate(()=>window.__plays),2,'new deliberate taps still play the button and ear');
+  assert.deepEqual(await state(spanish.page),beforeTap,'audio taps do not navigate or rate');
+  if(output)await spanish.page.screenshot({path:path.join(output,'espagnol-phrase-signalee.png')});
+  await spanish.page.evaluate(()=>startSelfTest());await settle(spanish.page);
+  await spanish.page.locator('#card').tap({position:{x:30,y:100}});
+  assert(await spanish.page.evaluate(()=>revealed),'fresh tap after a swipe reveals the recall answer');
+  await spanish.page.evaluate(()=>{startSelfTest();window._justDragged=true;});await settle(spanish.page);
+  await spanish.page.locator('#card').dispatchEvent('click',{detail:0,bubbles:true,cancelable:true});
+  assert(await spanish.page.evaluate(()=>revealed),'keyboard/programmatic activation is not swallowed by touch-click protection');
+  await spanish.context.close();
+  const pinyin=await open(390,600),beforePinyin=await state(pinyin.page),pinyinValue=await pinyin.page.evaluate(()=>pinyinOn);
+  await swipeFrom(pinyin.page,'#pytgl',{ghost:true});
+  assert.equal(await pinyin.page.evaluate(()=>idx),beforePinyin.idx+1,'vertical swipe can start on Pinyin');
+  assert.equal(await pinyin.page.evaluate(()=>pinyinOn),pinyinValue,'Pinyin swipe does not toggle the setting');
+  await pinyin.context.close();report.spanishSample={centre:true,slowSwipe:true,audioSwipe:true,audioTap:true,pinyinSwipe:true};
+
   const {page,context}=await open(390,600);
   // Stress rendered content only; the catalogue and access rights are untouched.
   await page.evaluate(()=>{
@@ -88,7 +133,7 @@ const report={short:[],long:{},errors:[]};
   await scrollTo(page,100);await swipe(page);
   assert(await page.locator('#card').evaluate(e=>e.scrollTop>100),'native scrolling works in the middle');
   assert.deepEqual(await state(page),original,'native scrolling neither navigates nor rates');
-  await page.locator('#card').evaluate(e=>{e.scrollTop=e.scrollHeight-e.clientHeight-15});await settle(page);await swipe(page);
+  await page.locator('#card').evaluate(e=>{e.scrollTop=e.scrollHeight-e.clientHeight-60});await settle(page);await swipe(page);
   assert(await page.locator('#card').evaluate(e=>e.scrollHeight-e.clientHeight-e.scrollTop<=1),'reading can reach the bottom');
   assert.deepEqual(await state(page),original,'reaching the bottom in the same gesture does not navigate');
   await swipe(page,'up',true);
@@ -96,8 +141,8 @@ const report={short:[],long:{},errors:[]};
   await swipe(page,'down');
   assert(await page.locator('#card').evaluate(e=>e.scrollHeight-e.clientHeight-e.scrollTop>1),'reverse gesture at the bottom reads earlier text');
   assert.deepEqual(await state(page),original,'reverse reading does not navigate');
-  await scrollTo(page,'bottom');await swipe(page);
-  assert.equal(await page.evaluate(()=>idx),original.idx+1,'a new upward swipe from the bottom advances once');
+  await page.locator('#card').evaluate(e=>{e.scrollTop=e.scrollHeight-e.clientHeight-parseFloat(getComputedStyle(e).paddingBottom)+1;});await settle(page);await swipe(page);
+  assert.equal(await page.evaluate(()=>idx),original.idx+1,'a new upward swipe from the useful bottom advances without scrolling empty padding');
   assert.equal(await page.locator('#card').evaluate(e=>e.scrollTop),0,'next card starts at the top');
   assert.deepEqual((await state(page)).notes,original.notes,'boundary navigation does not rate');
   report.long={reading:true,nativePan:true,cancelSafe:true,bottomNavigation:true,toolsProtected:true};

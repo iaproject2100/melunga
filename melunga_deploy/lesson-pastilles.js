@@ -26,20 +26,26 @@
     it:'Colore, temi e ripasso',ja:'色、テーマ、復習',ko:'색상, 주제 및 복습'
   };
   let active = false;
-  let gesture = null, scrollPending = false;
+  let gesture = null, scrollPending = false, suppressTouchClickUntil = 0;
+  function scrollState() {
+    const max = Math.max(0,card.scrollHeight - card.clientHeight);
+    const top = Math.max(0,Math.min(max,card.scrollTop));
+    // Once the last control is visible, an empty bottom padding is not unread content.
+    const bottomGap = (parseFloat(getComputedStyle(card).paddingBottom) || 0) + 2;
+    return {max:max,top:top,scrolling:active && max > 2,atTop:top <= 2,atBottom:max - top <= bottomGap};
+  }
   function scrollMode() {
     scrollPending = false;
-    const max = Math.max(0,card.scrollHeight - card.clientHeight);
-    const scrolling = active && max > 2;
-    card.classList.toggle('lesson-card-scrollable',scrolling);
-    card.classList.toggle('lesson-scroll-edge',scrolling && (card.scrollTop <= 1 || card.scrollTop >= max - 1));
+    const state = scrollState();
+    card.classList.toggle('lesson-card-scrollable',state.scrolling);
+    card.classList.toggle('lesson-scroll-edge',state.scrolling && (state.atTop || state.atBottom));
   }
   function queueScrollMode() {
     if (scrollPending) return;
     scrollPending = true;
     requestAnimationFrame(scrollMode);
   }
-  card.addEventListener('scroll',queueScrollMode,{passive:true});
+  card.addEventListener('scroll',scrollMode,{passive:true});
   if (typeof ResizeObserver === 'function') {
     const observer = new ResizeObserver(queueScrollMode);
     observer.observe(card);
@@ -47,12 +53,15 @@
   }
   card.addEventListener('touchstart',function (event) {
     gesture = null;
-    if (!active || event.touches.length !== 1 || event.target.closest('button,input,textarea,select,a,.earicon,.pytgl,[contenteditable]')) return;
+    if (!active) return;
+    suppressTouchClickUntil = 0;
+    window._justDragged = false;
+    if (event.touches.length !== 1) return;
+    const control = event.target.closest('button,input,textarea,select,a,.earicon,.pytgl,[contenteditable]');
+    if (control && !control.matches('#listen,.earicon,#pytgl')) return;
     const touch = event.touches[0];
-    const max = Math.max(0,card.scrollHeight - card.clientHeight);
-    const top = Math.max(0,Math.min(max,card.scrollTop));
-    const scrolling = card.classList.contains('lesson-card-scrollable');
-    gesture = {x:touch.clientX,y:touch.clientY,dx:0,dy:0,time:Date.now(),top:top,max:max,scrolling:scrolling,manual:!scrolling || card.classList.contains('lesson-scroll-edge')};
+    const state = scrollState();
+    gesture = {x:touch.clientX,y:touch.clientY,dx:0,dy:0,top:state.top,max:state.max,scrolling:state.scrolling,atTop:state.atTop,atBottom:state.atBottom,control:!!control,manual:!state.scrolling || state.atTop || state.atBottom};
   },{passive:true});
   card.addEventListener('touchmove',function (event) {
     if (!gesture) return;
@@ -68,20 +77,33 @@
   card.addEventListener('touchend',function (event) {
     const state = gesture; gesture = null;
     if (!state || event.touches.length || !active) return;
-    if (Math.abs(state.dx) > 15 || Math.abs(state.dy) > 15) window._justDragged = true;
+    const touch = event.changedTouches[0];
+    if (touch) { state.dx = touch.clientX - state.x; state.dy = touch.clientY - state.y; }
+    if (Math.abs(state.dx) > 15 || Math.abs(state.dy) > 15) {
+      window._justDragged = true;
+      suppressTouchClickUntil = Date.now() + 600;
+    }
     if (!state.manual) return;
-    if (Date.now() - state.time > 800 && Math.abs(state.dy) < 120 && Math.abs(state.dx) < 120) return;
     const vertical = Math.abs(state.dy) >= 70 && Math.abs(state.dy) > Math.abs(state.dx) * 1.2;
-    const forward = vertical && state.dy < 0 && (!state.scrolling || state.top >= state.max - 1);
-    const back = vertical && state.dy > 0 && (!state.scrolling || state.top <= 1);
+    const forward = vertical && state.dy < 0 && (!state.scrolling || state.atBottom);
+    const back = vertical && state.dy > 0 && (!state.scrolling || state.atTop);
     if (forward || back) {
       card.scrollTop = 0;
       if (forward) window.next(); else window.prevOrHome();
       queueScrollMode();
-    } else if (!state.scrolling && Math.abs(state.dx) >= 80 && Math.abs(state.dy) < 60) {
+    } else if (!state.control && !state.scrolling && Math.abs(state.dx) >= 80 && Math.abs(state.dy) < 60) {
       window.rateCard(state.dx > 0);
     }
   },{passive:true});
+  card.addEventListener('click',function (event) {
+    if (!active) return;
+    if (event.detail === 0) { window._justDragged = false; return; }
+    if (Date.now() > suppressTouchClickUntil) return;
+    suppressTouchClickUntil = 0;
+    window._justDragged = false;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  },true);
   function append(parent,child) {
     if (child && child.parentNode !== parent) parent.append(child);
   }
