@@ -22,3 +22,11 @@ Les couleurs suivent l’ambiance choisie. La phonétique et l’oreille sont co
 - Géométrie des contenus pédagogiques sur ordinateur et dans une simulation Capacitor comparée à `745d4c0`, sans changement ; aucune erreur JavaScript relevée.
 
 Les captures et rapports détaillés de cette session sont dans `/tmp/melunga-pastilles-publication/`. Aucun nouvel APK ni AAB n’est produit par cette publication web ; la simulation Capacitor ne remplace pas un essai Android réel.
+
+## Ajustement des pastilles et du retour
+
+À la demande de Kartech, les fonds des pastilles de commande et du bouton ☰ sont translucides : l’ambiance apparaît à travers, avec des pictogrammes et textes qui restent opaques. Une surface plus lisible est conservée lorsque l’utilisateur demande moins de transparence dans son système. Aucun flou ni filtre n’est ajouté aux ancêtres des menus.
+
+Le bouton de retour `#backBtn` est masqué sur les versions web ordinateur et mobile. Les gestionnaires de navigation, le menu Accueil/Avis et les contenus sont conservés.
+
+Vérification sur quatre vues (390 × 844 et 320 × 568 sur téléphone ; 1440 × 900 sur ordinateur), en ambiances néon et claire : transparence effective des pastilles, flèche absente, absence de débordement horizontal, menus Langue/Voix/Accueil/Avis accessibles et aucune erreur JavaScript. Relecture visuelle indépendante. Captures et rapport dans `/tmp/melunga-pastilles-translucides/`.

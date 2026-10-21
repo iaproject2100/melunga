@@ -371,3 +371,30 @@ html.lesson-pastilles-ready body.immersif .lesson-control-level{
 @media(prefers-reduced-transparency:reduce){
  html.lesson-pastilles-ready body.immersif :is(.lesson-control-icon,.desktop-progress-level,.desktop-progress-language){background:var(--gc-base,var(--bg,#f7f3ec))}
 }
+
+/* Clear glass circles reveal the chosen ambience; the pictograms stay solid.
+   Background alpha does not create a fixed-position container for the menus. */
+html.lesson-pastilles-ready.melunga-lesson-web body.immersif{
+ --pastille-glass:rgba(255,255,255,.12);
+ --pastille-glass-hover:rgba(255,255,255,.22);
+}
+html.lesson-pastilles-ready.melunga-lesson-web body.immersif.ambclair{
+ --pastille-glass:rgba(255,255,255,.22);
+ --pastille-glass-hover:rgba(255,255,255,.36);
+}
+html.lesson-pastilles-ready.melunga-lesson-web body.immersif :is(.desktop-progress-level,.desktop-progress-language,.lesson-control-icon,#colorBtn,.utrigger){
+ background:var(--pastille-glass)!important;
+ border:1px solid var(--gc-line,var(--line,#d9d1c6));
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 3px 12px rgba(3,10,20,.035);
+}
+html.lesson-pastilles-ready.melunga-lesson-web body.immersif :is(.desktop-progress-level,.desktop-progress-language,#colorBtn,.utrigger):hover,
+html.lesson-pastilles-ready.melunga-lesson-web body.immersif .lesson-control:is(:hover,.open,[aria-expanded=true])>.lesson-control-icon{
+ background:var(--pastille-glass-hover)!important;
+}
+/* The visible return arrow is removed on both web formats; existing swipe,
+   keyboard navigation and the Home menu retain their behaviour. */
+html.melunga-lesson-web body #backBtn{display:none!important}
+
+@media(prefers-reduced-transparency:reduce){
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif :is(.desktop-progress-level,.desktop-progress-language,.lesson-control-icon,#colorBtn,.utrigger){background:var(--gc-base,var(--bg,#f7f3ec))!important}
+}
