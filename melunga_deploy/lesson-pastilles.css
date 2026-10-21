@@ -269,12 +269,16 @@ html.lesson-pastilles-ready body.immersif .lesson-control-level{
   justify-content:safe center;
   flex:initial;
   gap:0;
-  overflow:auto;
+  overflow:hidden;
+  touch-action:none;
+  touch-action:pinch-zoom;
   overscroll-behavior:contain;
   scrollbar-width:none;
   border-radius:28px;
  }
  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card::-webkit-scrollbar{display:none;width:0;height:0}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card.lesson-card-scrollable{overflow:auto}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card.lesson-card-scrollable:not(.lesson-scroll-edge){touch-action:pan-y pinch-zoom}
  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card :is(#fr,#phon,#cn){flex-shrink:0;font-size:var(--mobile-lesson-size,28px)!important;line-height:1.3!important}
  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card #fr{margin:0 auto}
  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card .phonrow{flex:0 0 auto;width:100%;min-height:64px;height:auto;margin:16px auto 0;padding:26px 48px 10px 12px;border-radius:18px}

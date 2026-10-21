@@ -26,6 +26,62 @@
     it:'Colore, temi e ripasso',ja:'色、テーマ、復習',ko:'색상, 주제 및 복습'
   };
   let active = false;
+  let gesture = null, scrollPending = false;
+  function scrollMode() {
+    scrollPending = false;
+    const max = Math.max(0,card.scrollHeight - card.clientHeight);
+    const scrolling = active && max > 2;
+    card.classList.toggle('lesson-card-scrollable',scrolling);
+    card.classList.toggle('lesson-scroll-edge',scrolling && (card.scrollTop <= 1 || card.scrollTop >= max - 1));
+  }
+  function queueScrollMode() {
+    if (scrollPending) return;
+    scrollPending = true;
+    requestAnimationFrame(scrollMode);
+  }
+  card.addEventListener('scroll',queueScrollMode,{passive:true});
+  if (typeof ResizeObserver === 'function') {
+    const observer = new ResizeObserver(queueScrollMode);
+    observer.observe(card);
+    Array.from(card.children).forEach(function (child) { observer.observe(child); });
+  }
+  card.addEventListener('touchstart',function (event) {
+    gesture = null;
+    if (!active || event.touches.length !== 1 || event.target.closest('button,input,textarea,select,a,.earicon,.pytgl,[contenteditable]')) return;
+    const touch = event.touches[0];
+    const max = Math.max(0,card.scrollHeight - card.clientHeight);
+    const top = Math.max(0,Math.min(max,card.scrollTop));
+    const scrolling = card.classList.contains('lesson-card-scrollable');
+    gesture = {x:touch.clientX,y:touch.clientY,dx:0,dy:0,time:Date.now(),top:top,max:max,scrolling:scrolling,manual:!scrolling || card.classList.contains('lesson-scroll-edge')};
+  },{passive:true});
+  card.addEventListener('touchmove',function (event) {
+    if (!gesture) return;
+    if (event.touches.length !== 1) { gesture = null; return; }
+    gesture.dx = event.touches[0].clientX - gesture.x;
+    gesture.dy = event.touches[0].clientY - gesture.y;
+    if (!gesture.manual) return;
+    if (gesture.scrolling && Math.abs(gesture.dy) > Math.abs(gesture.dx)) {
+      card.scrollTop = Math.max(0,Math.min(gesture.max,gesture.top - gesture.dy));
+    }
+  },{passive:true});
+  card.addEventListener('touchcancel',function () { gesture = null; queueScrollMode(); },{passive:true});
+  card.addEventListener('touchend',function (event) {
+    const state = gesture; gesture = null;
+    if (!state || event.touches.length || !active) return;
+    if (Math.abs(state.dx) > 15 || Math.abs(state.dy) > 15) window._justDragged = true;
+    if (!state.manual) return;
+    if (Date.now() - state.time > 800 && Math.abs(state.dy) < 120 && Math.abs(state.dx) < 120) return;
+    const vertical = Math.abs(state.dy) >= 70 && Math.abs(state.dy) > Math.abs(state.dx) * 1.2;
+    const forward = vertical && state.dy < 0 && (!state.scrolling || state.top >= state.max - 1);
+    const back = vertical && state.dy > 0 && (!state.scrolling || state.top <= 1);
+    if (forward || back) {
+      card.scrollTop = 0;
+      if (forward) window.next(); else window.prevOrHome();
+      queueScrollMode();
+    } else if (!state.scrolling && Math.abs(state.dx) >= 80 && Math.abs(state.dy) < 60) {
+      window.rateCard(state.dx > 0);
+    }
+  },{passive:true});
   function append(parent,child) {
     if (child && child.parentNode !== parent) parent.append(child);
   }
@@ -57,6 +113,8 @@
     }
     // The legacy wrapper remains for desktop; CSS makes it contents on mobile.
     if (languageTools) languageTools.classList.toggle('mobile-pastilles-language',active);
+    if (!active) gesture = null;
+    queueScrollMode();
   }
   window.placeLessonPastilles = place;
   document.documentElement.classList.add('lesson-pastilles-ready');
@@ -90,9 +148,16 @@
       const translation = document.getElementById('cn');
       const longest = Math.max(...[phrase,phon,translation].map(function (node) { return node ? node.textContent.length : 0; }));
       const base = innerHeight < 680 ? 28 : 36;
-      const size = longest > 180 ? 20 : longest > 100 ? 22 : longest > 65 ? 25 : base;
+      let size = longest > 180 ? 20 : longest > 100 ? 22 : longest > 65 ? 25 : base;
       card.style.setProperty('--mobile-lesson-size',size + 'px');
+      // Pinyin must not turn a short phrase into a scrolling card by a few pixels.
+      const minimum = Math.min(size,24);
+      while (size > minimum && card.scrollHeight > card.clientHeight + 2) {
+        size -= 1;
+        card.style.setProperty('--mobile-lesson-size',size + 'px');
+      }
     }
+    queueScrollMode();
     return result;
   };
   let pending = false;
