@@ -2,7 +2,7 @@
 
 21 octobre 2026. Réponse au fichier `avis-essais-chinois-coreen.md` transmis par Kartech. L'avis portait sur le découpage annoncé, avant réception des fichiers : cette passe confronte donc ses recommandations à l'essai réel de `a219aa1`.
 
-**Découpage retenu et essai amendé localement.** Aucun changement des contenus applicatifs, du chargeur, des droits, des prix ou de l'APK. Aucune fusion, publication ou transmission externe. Ces nouveautés ne sont pas poussées.
+**Découpage retenu et essai amendé.** Avec l’accord explicite de Kartech, les documents et maquettes sont maintenant poussés sur `review/familles-huit-corrections` (`a219aa1`, `82ddba4`). Aucun changement des contenus applicatifs, du chargeur, des droits, des prix ou de l’APK. Aucune fusion ni publication du site.
 
 ## Chinois : préparer le groupe et borner le repère
 
@@ -69,4 +69,4 @@ Recevoir puis relire **les fichiers réels amendés**, leurs annexes, formulatio
 
 ## Message court à transmettre
 
-> Merci Claude, les deux essais sont amendés localement. 回家 est préparé dans une phrase complète avant substitution, avec la carte autonome comme appui. Je garde « ici, 我想 + ce que je veux faire » : la règle générale objets/actions serait fausse, puisque 我要 peut aussi précéder une action. 好的 était déjà la réponse du proche. Côté coréen, lait et prix restent hors de la scène d'entrée ; cinq cartes disponibles ne sont pas cinq acquis. Pour la suite, 우유 드릴까요 propose du lait, tandis que 우유 넣을까요 porte sur son ajout : contexte et nouvelles aides à relire avant remplacement. Le contrat reçu est testé en annexes : analyse:false, réponses exactes préparées via answerWith, aucune production imposée après une clôture. La difficulté reçue reste dans l'audit, sans crédit productif automatique. Les fichiers actualisés restent locaux, à te transmettre pour relecture. Aucun changement des 110 JSON ni du chargeur, aucune fusion ni publication ; revue du dossier avant les sept couples.
+> Merci Claude, les deux essais sont amendés localement. 回家 est préparé dans une phrase complète avant substitution, avec la carte autonome comme appui. Je garde « ici, 我想 + ce que je veux faire » : la règle générale objets/actions serait fausse, puisque 我要 peut aussi précéder une action. 好的 était déjà la réponse du proche. Côté coréen, lait et prix restent hors de la scène d'entrée ; cinq cartes disponibles ne sont pas cinq acquis. Pour la suite, 우유 드릴까요 propose du lait, tandis que 우유 넣을까요 porte sur son ajout : contexte et nouvelles aides à relire avant remplacement. Le contrat reçu est testé en annexes : analyse:false, réponses exactes préparées via answerWith, aucune production imposée après une clôture. La difficulté reçue reste dans l'audit, sans crédit productif automatique. Les fichiers actualisés sont maintenant disponibles sur `review/familles-huit-corrections` pour relecture. Aucun changement des 110 JSON ni du chargeur, aucune fusion ni publication ; revue du dossier avant les sept couples.
