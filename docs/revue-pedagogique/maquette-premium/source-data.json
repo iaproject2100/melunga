@@ -1,0 +1,2094 @@
+{
+  "provenance": {
+    "date": "2026-10-20",
+    "commit": "674888e1fa9b829637f9ed48173781d762c54247",
+    "purpose": "Maquette isolée uniquement : aucun droit ni paiement modifié.",
+    "turnIndexConvention": "zero-based",
+    "selection": "Dialogue d1 ; L1 tour 2 ; L2 contexte tour 0 (sens natif seulement), puis aperçu joué des tours adjacents 1 et 2. Les phrases complètes et leurs aides sont copiées sans modification.",
+    "interfaceLabels": "French labels are separate from exact source roles/situations.",
+    "pricing": {
+      "file": "melunga_deploy/netlify/functions/pricing-table.mjs",
+      "sha256": "0d2e5c6c6a8b70225bd8912ed5215858da382cc34ce1025cafcf6cd18ffafa0b",
+      "country": "FR",
+      "note": "Marché France web uniquement. Ni prix Google Play ni géolocalisation simulés."
+    },
+    "limits": [
+      "L2 preview is a proposed demonstration, not an access change in the live application.",
+      "The source dialogues contain linguistic review notices; this extraction is not a native-language certification.",
+      "Synthetic browser audio, if used by the prototype, must read study, never phon or reading."
+    ],
+    "l2ContextUsage": "Afficher uniquement le sens natif du tour 0 comme contexte avant les tours 1–2 ; aucune nouvelle phrase à produire."
+  },
+  "demo": {
+    "pairs": [
+      {
+        "id": "fr-es",
+        "label": "🇪🇸 Espagnol",
+        "readerLabel": "Francophone",
+        "studyCode": "es",
+        "nativeCode": "fr",
+        "sourceL1": {
+          "file": "melunga_deploy/content/conversation/L1-fr-es.json",
+          "dialogueId": "L1-fr-es-d1",
+          "turnIndexes": [
+            2
+          ]
+        },
+        "sourceL2": {
+          "file": "melunga_deploy/content/conversation/L2-fr-es.json",
+          "dialogueId": "L2-fr-es-d1",
+          "turnIndexes": [
+            0,
+            1,
+            2
+          ],
+          "previewPlayedTurnIndexes": [
+            1,
+            2
+          ],
+          "contextTurnIndex": 0
+        },
+        "l1": {
+          "speaker": "A",
+          "study": "Un café, por favor.",
+          "phon": "oun ka-FÉ, por fa-BOR",
+          "native": "Un café, s'il vous plaît.",
+          "turnIndex": 2,
+          "role": "Client",
+          "roleInterface": "Client"
+        },
+        "preview": [
+          {
+            "speaker": "B",
+            "study": "Sí, ¿para cuántos?",
+            "phon": "SI, PA-ra KOUAN-tos",
+            "native": "Oui, pour combien de personnes ?",
+            "turnIndex": 1,
+            "role": "Serveur",
+            "roleInterface": "Serveur"
+          },
+          {
+            "speaker": "A",
+            "study": "Para dos, por favor.",
+            "phon": "PA-ra DOS, por fa-BOR",
+            "native": "Pour deux, s'il vous plaît.",
+            "turnIndex": 2,
+            "role": "Client",
+            "roleInterface": "Client"
+          }
+        ],
+        "l1Dialogue": {
+          "id": "L1-fr-es-d1",
+          "situation": "Au café",
+          "turns": [
+            {
+              "speaker": "A",
+              "study": "¡Hola!",
+              "phon": "O-la",
+              "native": "Bonjour !",
+              "turnIndex": 0,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "Hola. ¿Qué desea?",
+              "phon": "O-la. ké dé-SSÉ-a",
+              "native": "Bonjour. Vous désirez ?",
+              "turnIndex": 1,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            },
+            {
+              "speaker": "A",
+              "study": "Un café, por favor.",
+              "phon": "oun ka-FÉ, por fa-BOR",
+              "native": "Un café, s'il vous plaît.",
+              "turnIndex": 2,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "¿Con leche?",
+              "phon": "kon LÉ-tché",
+              "native": "Avec du lait ?",
+              "turnIndex": 3,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            },
+            {
+              "speaker": "A",
+              "study": "No, gracias. ¿Cuánto cuesta?",
+              "phon": "no, GRA-ssias. KOUAN-to KOUÉS-ta",
+              "native": "Non, merci. Combien ça coûte ?",
+              "turnIndex": 4,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "Dos euros.",
+              "phon": "dos É-ou-ros",
+              "native": "Deux euros.",
+              "turnIndex": 5,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            }
+          ],
+          "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+          "reuses": [
+            "L1-fr-es-09",
+            "L1-fr-es-10"
+          ],
+          "roles": {
+            "A": "Client",
+            "B": "Serveur"
+          },
+          "learnerRole": "A",
+          "interfaceSituation": "Au café",
+          "rolesInterface": {
+            "A": "Client",
+            "B": "Serveur"
+          }
+        },
+        "l2Situation": "Au restaurant",
+        "l2SourceSituation": "Au restaurant",
+        "reviewStatus": {
+          "l1": "Généré par règles à partir de briques validées ; relecture par un hispanophone conseillée.",
+          "l2": "Généré par règles à partir de briques validées ; relecture par un hispanophone conseillée."
+        },
+        "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; v→b, ll→y, j/ge/gi→KH, c/z→ss, que→ké). Variante à seseo et yeísmo. Ne remplace pas l'audio.",
+        "previewContext": {
+          "speaker": "A",
+          "study": "Buenas tardes. ¿Hay mesa libre?",
+          "phon": "BOUÉ-nas TAR-dés. AY MÉ-ssa LI-bré",
+          "native": "Bonsoir. Il y a une table libre ?",
+          "turnIndex": 0,
+          "role": "Client",
+          "roleInterface": "Client"
+        }
+      },
+      {
+        "id": "fr-en",
+        "label": "🇬🇧 Anglais",
+        "readerLabel": "Francophone",
+        "studyCode": "en",
+        "nativeCode": "fr",
+        "sourceL1": {
+          "file": "melunga_deploy/content/conversation/L1-fr-en.json",
+          "dialogueId": "L1-fr-en-d1",
+          "turnIndexes": [
+            2
+          ]
+        },
+        "sourceL2": {
+          "file": "melunga_deploy/content/conversation/L2-fr-en.json",
+          "dialogueId": "L2-fr-en-d1",
+          "turnIndexes": [
+            0,
+            1,
+            2
+          ],
+          "previewPlayedTurnIndexes": [
+            1,
+            2
+          ],
+          "contextTurnIndex": 0
+        },
+        "l1": {
+          "speaker": "A",
+          "study": "One coffee, please.",
+          "phon": "OUANN KO-fi, PLIZ",
+          "native": "Un café, s'il vous plaît.",
+          "turnIndex": 2,
+          "role": "Client",
+          "roleInterface": "Client"
+        },
+        "preview": [
+          {
+            "speaker": "B",
+            "study": "Of course. Here or over there?",
+            "phon": "ov KORSS. HIR or Ô-veur ZÈR",
+            "native": "Bien sûr. Ici ou là-bas ?",
+            "turnIndex": 1,
+            "role": "Serveur",
+            "roleInterface": "Serveur"
+          },
+          {
+            "speaker": "A",
+            "study": "Over there, near the window.",
+            "phon": "Ô-veur ZÈR, NIR ze OUINN-dô",
+            "native": "Là-bas, près de la fenêtre.",
+            "turnIndex": 2,
+            "role": "Client",
+            "roleInterface": "Client"
+          }
+        ],
+        "l1Dialogue": {
+          "id": "L1-fr-en-d1",
+          "situation": "Au café",
+          "turns": [
+            {
+              "speaker": "A",
+              "study": "Hello!",
+              "phon": "hè-LÔ",
+              "native": "Bonjour !",
+              "turnIndex": 0,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "Hello. What would you like?",
+              "phon": "hè-LÔ. ouot would you LAÏK",
+              "native": "Bonjour. Vous désirez ?",
+              "turnIndex": 1,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            },
+            {
+              "speaker": "A",
+              "study": "One coffee, please.",
+              "phon": "OUANN KO-fi, PLIZ",
+              "native": "Un café, s'il vous plaît.",
+              "turnIndex": 2,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "With milk?",
+              "phon": "ouiz MILK",
+              "native": "Avec du lait ?",
+              "turnIndex": 3,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            },
+            {
+              "speaker": "A",
+              "study": "No, thanks. How much is it?",
+              "phon": "NÔ, THANKS. HAÔ MEUTCH iz it",
+              "native": "Non, merci. Combien ça coûte ?",
+              "turnIndex": 4,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "Two pounds.",
+              "phon": "TOU PAÔNDZ",
+              "native": "Deux livres.",
+              "turnIndex": 5,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            }
+          ],
+          "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+          "reuses": [
+            "L1-fr-en-09",
+            "L1-fr-en-10"
+          ],
+          "roles": {
+            "A": "Client",
+            "B": "Serveur"
+          },
+          "learnerRole": "A",
+          "interfaceSituation": "Au café",
+          "rolesInterface": {
+            "A": "Client",
+            "B": "Serveur"
+          }
+        },
+        "l2Situation": "Au café",
+        "l2SourceSituation": "Au café",
+        "reviewStatus": {
+          "l1": "Rédigé à la main ; relecture par un anglophone conseillée.",
+          "l2": "Rédigé à la main ; relecture par un anglophone conseillée."
+        },
+        "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; th→z/th, h aspiré noté h, -ing→-ing). Anglais britannique standard. Ne remplace pas l'audio.",
+        "previewContext": {
+          "speaker": "A",
+          "study": "Hello! A table for two, please.",
+          "phon": "hè-LÔ. eu TÉÏ-beul for TOU, PLIZ",
+          "native": "Bonjour ! Une table pour deux, s'il vous plaît.",
+          "turnIndex": 0,
+          "role": "Client",
+          "roleInterface": "Client"
+        }
+      },
+      {
+        "id": "fr-zh",
+        "label": "🇨🇳 Chinois",
+        "readerLabel": "Francophone",
+        "studyCode": "zh",
+        "nativeCode": "fr",
+        "sourceL1": {
+          "file": "melunga_deploy/content/conversation/L1-fr-zh.json",
+          "dialogueId": "L1-fr-zh-d1",
+          "turnIndexes": [
+            2
+          ]
+        },
+        "sourceL2": {
+          "file": "melunga_deploy/content/conversation/L2-fr-zh.json",
+          "dialogueId": "L2-fr-zh-d1",
+          "turnIndexes": [
+            0,
+            1,
+            2
+          ],
+          "previewPlayedTurnIndexes": [
+            1,
+            2
+          ],
+          "contextTurnIndex": 0
+        },
+        "l1": {
+          "speaker": "A",
+          "study": "请给我一杯咖啡。",
+          "reading": "qǐng gěi wǒ yì bēi kāfēi.",
+          "phon": "tching gueï ouo i peï ka-feï",
+          "native": "Un café, s'il vous plaît.",
+          "turnIndex": 2,
+          "role": "Client",
+          "roleInterface": "Client"
+        },
+        "preview": [
+          {
+            "speaker": "B",
+            "study": "有。几位？",
+            "reading": "yǒu. jǐ wèi?",
+            "phon": "yeou. ti oueï ?",
+            "native": "Oui. Combien de personnes ?",
+            "turnIndex": 1,
+            "role": "Serveur",
+            "roleInterface": "Serveur"
+          },
+          {
+            "speaker": "A",
+            "study": "两位。我们想要靠窗的座位。",
+            "reading": "liǎng wèi. wǒmen xiǎng yào kào chuāng de zuòwèi.",
+            "phon": "liang oueï. ouo-meun siang yao kao tchouang deu tsouo-oueï",
+            "native": "Deux. Nous voudrions une table côté fenêtre.",
+            "turnIndex": 2,
+            "role": "Client",
+            "roleInterface": "Client"
+          }
+        ],
+        "l1Dialogue": {
+          "id": "L1-fr-zh-d1",
+          "situation": "Au café",
+          "turns": [
+            {
+              "speaker": "A",
+              "study": "你好！",
+              "reading": "nǐ hǎo!",
+              "phon": "ni hao !",
+              "native": "Bonjour !",
+              "turnIndex": 0,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "你好。您要什么？",
+              "reading": "nǐ hǎo. nín yào shénme?",
+              "phon": "ni hao. ninn yao cheun-meu ?",
+              "native": "Bonjour. Vous désirez ?",
+              "turnIndex": 1,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            },
+            {
+              "speaker": "A",
+              "study": "请给我一杯咖啡。",
+              "reading": "qǐng gěi wǒ yì bēi kāfēi.",
+              "phon": "tching gueï ouo i peï ka-feï",
+              "native": "Un café, s'il vous plaît.",
+              "turnIndex": 2,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "加牛奶吗？",
+              "reading": "jiā niúnǎi ma?",
+              "phon": "tia niou-naï ma ?",
+              "native": "Avec du lait ?",
+              "turnIndex": 3,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            },
+            {
+              "speaker": "A",
+              "study": "不用，谢谢。多少钱？",
+              "reading": "búyòng, xièxie. duōshao qián?",
+              "phon": "pou-yong, sié-sié. douo-chao tchyèn ?",
+              "native": "Non, merci. Combien ça coûte ?",
+              "turnIndex": 4,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "二十块。",
+              "reading": "èrshí kuài.",
+              "phon": "eur-chr kouaï",
+              "native": "Vingt yuans.",
+              "turnIndex": 5,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            }
+          ],
+          "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+          "reuses": [
+            "L1-fr-zh-09",
+            "L1-fr-zh-10"
+          ],
+          "roles": {
+            "A": "Client",
+            "B": "Serveur"
+          },
+          "learnerRole": "A",
+          "interfaceSituation": "Au café",
+          "rolesInterface": {
+            "A": "Client",
+            "B": "Serveur"
+          }
+        },
+        "l2Situation": "Au restaurant",
+        "l2SourceSituation": "Au restaurant",
+        "reviewStatus": {
+          "l1": "Relecture linguistique requise (tons, naturel des tournures).",
+          "l2": "Relecture linguistique requise (tons, naturel des tournures)."
+        },
+        "phoneticConvention": "Approximation pour lecteurs francophones (style du deck : ouo = 我, chr = 是, dzaï = 在). Les tons ne sont pas notés dans l'approximation : se reporter au pinyin (champ reading) et à l'audio. Mandarin standard, caractères simplifiés.",
+        "previewContext": {
+          "speaker": "A",
+          "study": "你好，有位子吗？",
+          "reading": "nǐ hǎo, yǒu wèizi ma?",
+          "phon": "ni hao, yeou oueï-tseu ma ?",
+          "native": "Bonjour, vous avez de la place ?",
+          "turnIndex": 0,
+          "role": "Client",
+          "roleInterface": "Client"
+        }
+      },
+      {
+        "id": "fr-it",
+        "label": "🇮🇹 Italien",
+        "readerLabel": "Francophone",
+        "studyCode": "it",
+        "nativeCode": "fr",
+        "sourceL1": {
+          "file": "melunga_deploy/content/conversation/L1-fr-it.json",
+          "dialogueId": "L1-fr-it-d1",
+          "turnIndexes": [
+            2
+          ]
+        },
+        "sourceL2": {
+          "file": "melunga_deploy/content/conversation/L2-fr-it.json",
+          "dialogueId": "L2-fr-it-d1",
+          "turnIndexes": [
+            0,
+            1,
+            2
+          ],
+          "previewPlayedTurnIndexes": [
+            1,
+            2
+          ],
+          "contextTurnIndex": 0
+        },
+        "l1": {
+          "speaker": "A",
+          "study": "Un caffè, per favore.",
+          "phon": "oun kaf-FÈ, pér fa-VO-ré",
+          "native": "Un café, s'il vous plaît.",
+          "turnIndex": 2,
+          "role": "Client",
+          "roleInterface": "Client"
+        },
+        "preview": [
+          {
+            "speaker": "B",
+            "study": "Subito. Qualcos'altro?",
+            "phon": "SOU-bi-to. koual-ko-ZAL-tro",
+            "native": "Tout de suite. Autre chose ?",
+            "turnIndex": 1,
+            "role": "Serveur",
+            "roleInterface": "Serveur"
+          },
+          {
+            "speaker": "A",
+            "study": "Sì, un po' d'acqua e un cornetto.",
+            "phon": "SI, oun po DA-koua é oun kor-NÉT-to",
+            "native": "Oui, un peu d'eau et un croissant.",
+            "turnIndex": 2,
+            "role": "Client",
+            "roleInterface": "Client"
+          }
+        ],
+        "l1Dialogue": {
+          "id": "L1-fr-it-d1",
+          "situation": "Au café",
+          "turns": [
+            {
+              "speaker": "A",
+              "study": "Buongiorno!",
+              "phon": "bouon-DJOR-no",
+              "native": "Bonjour !",
+              "turnIndex": 0,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "Buongiorno. Cosa desidera?",
+              "phon": "bouon-DJOR-no. KO-za dé-ZI-dé-ra",
+              "native": "Bonjour. Vous désirez ?",
+              "turnIndex": 1,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            },
+            {
+              "speaker": "A",
+              "study": "Un caffè, per favore.",
+              "phon": "oun kaf-FÈ, pér fa-VO-ré",
+              "native": "Un café, s'il vous plaît.",
+              "turnIndex": 2,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "Con latte?",
+              "phon": "kon LAT-té",
+              "native": "Avec du lait ?",
+              "turnIndex": 3,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            },
+            {
+              "speaker": "A",
+              "study": "No, grazie. Quanto costa?",
+              "phon": "no, GRA-tsié. KOUAN-to KOS-ta",
+              "native": "Non, merci. Combien ça coûte ?",
+              "turnIndex": 4,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "Due euro.",
+              "phon": "DOU-é È-ou-ro",
+              "native": "Deux euros.",
+              "turnIndex": 5,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            }
+          ],
+          "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+          "reuses": [
+            "L1-fr-it-09",
+            "L1-fr-it-10"
+          ],
+          "roles": {
+            "A": "Client",
+            "B": "Serveur"
+          },
+          "learnerRole": "A",
+          "interfaceSituation": "Au café",
+          "rolesInterface": {
+            "A": "Client",
+            "B": "Serveur"
+          }
+        },
+        "l2Situation": "Au bar",
+        "l2SourceSituation": "Au bar",
+        "reviewStatus": {
+          "l1": "Rédigé à la main ; relecture par un italophone conseillée.",
+          "l2": "Rédigé à la main ; relecture par un italophone conseillée."
+        },
+        "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.",
+        "previewContext": {
+          "speaker": "A",
+          "study": "Buongiorno! Vorrei due caffè, per favore.",
+          "phon": "bouon-DJOR-no. vor-RÈÏ DOU-é kaf-FÈ, pér fa-VO-ré",
+          "native": "Bonjour ! Je voudrais deux cafés, s'il vous plaît.",
+          "turnIndex": 0,
+          "role": "Client",
+          "roleInterface": "Client"
+        }
+      },
+      {
+        "id": "fr-ja",
+        "label": "🇯🇵 Japonais",
+        "readerLabel": "Francophone",
+        "studyCode": "ja",
+        "nativeCode": "fr",
+        "sourceL1": {
+          "file": "melunga_deploy/content/conversation/L1-fr-ja.json",
+          "dialogueId": "L1-fr-ja-d1",
+          "turnIndexes": [
+            2
+          ]
+        },
+        "sourceL2": {
+          "file": "melunga_deploy/content/conversation/L2-fr-ja.json",
+          "dialogueId": "L2-fr-ja-d1",
+          "turnIndexes": [
+            0,
+            1,
+            2
+          ],
+          "previewPlayedTurnIndexes": [
+            1,
+            2
+          ],
+          "contextTurnIndex": 0
+        },
+        "l1": {
+          "speaker": "A",
+          "study": "コーヒーをお願いします。",
+          "reading": "こーひーをおねがいします。",
+          "phon": "ko-o-hi-i o o-né-ga-i chi-ma-sou",
+          "native": "Un café, s'il vous plaît.",
+          "turnIndex": 2,
+          "role": "Client",
+          "roleInterface": "Client"
+        },
+        "preview": [
+          {
+            "speaker": "B",
+            "study": "はい。ホットですか、アイスですか。",
+            "reading": "はい。ほっとですか、あいすですか。",
+            "phon": "ha-i. hot-to dé-sou ka, a-i-sou dé-sou ka",
+            "native": "Oui. Chauds ou glacés ?",
+            "turnIndex": 1,
+            "role": "Serveur",
+            "roleInterface": "Serveur"
+          },
+          {
+            "speaker": "A",
+            "study": "ホットをお願いします。それから、サンドイッチはありますか。",
+            "reading": "ほっとをおねがいします。それから、さんどいっちはありますか。",
+            "phon": "hot-to o o-né-ga-i chi-ma-sou. so-ré-ka-ra, san-do-it-tchi wa a-ri-ma-sou ka",
+            "native": "Chauds, s'il vous plaît. Et puis, avez-vous des sandwichs ?",
+            "turnIndex": 2,
+            "role": "Client",
+            "roleInterface": "Client"
+          }
+        ],
+        "l1Dialogue": {
+          "id": "L1-fr-ja-d1",
+          "situation": "Au café",
+          "turns": [
+            {
+              "speaker": "A",
+              "study": "こんにちは！",
+              "reading": "こんにちは！",
+              "phon": "kon-ni-tchi-wa",
+              "native": "Bonjour !",
+              "turnIndex": 0,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "こんにちは。ご注文は？",
+              "reading": "こんにちは。ごちゅうもんは？",
+              "phon": "kon-ni-tchi-wa. go-tchou-ou-mon wa",
+              "native": "Bonjour. Vous désirez ?",
+              "turnIndex": 1,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            },
+            {
+              "speaker": "A",
+              "study": "コーヒーをお願いします。",
+              "reading": "こーひーをおねがいします。",
+              "phon": "ko-o-hi-i o o-né-ga-i chi-ma-sou",
+              "native": "Un café, s'il vous plaît.",
+              "turnIndex": 2,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "ミルクは？",
+              "reading": "みるくは？",
+              "phon": "mi-rou-kou wa",
+              "native": "Avec du lait ?",
+              "turnIndex": 3,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            },
+            {
+              "speaker": "A",
+              "study": "いいえ、結構です。いくらですか。",
+              "reading": "いいえ、けっこうです。いくらですか。",
+              "phon": "i-i-é, kek-ko-o dé-sou. i-kou-ra dé-sou ka",
+              "native": "Non, merci. Combien ça coûte ?",
+              "turnIndex": 4,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "三百円です。",
+              "reading": "さんびゃくえんです。",
+              "phon": "san-bya-kou én dé-sou",
+              "native": "Trois cents yens.",
+              "turnIndex": 5,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            }
+          ],
+          "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+          "reuses": [
+            "L1-fr-ja-09"
+          ],
+          "roles": {
+            "A": "Client",
+            "B": "Serveur"
+          },
+          "learnerRole": "A",
+          "interfaceSituation": "Au café",
+          "rolesInterface": {
+            "A": "Client",
+            "B": "Serveur"
+          }
+        },
+        "l2Situation": "Au café",
+        "l2SourceSituation": "Au café",
+        "reviewStatus": {
+          "l1": "Relecture linguistique requise (naturel des tournures, lectures des kanji).",
+          "l2": "Relecture linguistique requise (naturel des tournures, lectures des kanji)."
+        },
+        "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).",
+        "previewContext": {
+          "speaker": "A",
+          "study": "すみません、コーヒーを二つください。",
+          "reading": "すみません、こーひーをふたつください。",
+          "phon": "sou-mi-ma-sén, ko-o-hi-i o fou-ta-tsou kou-da-sa-i",
+          "native": "Excusez-moi, deux cafés, s'il vous plaît.",
+          "turnIndex": 0,
+          "role": "Client",
+          "roleInterface": "Client"
+        }
+      },
+      {
+        "id": "fr-ko",
+        "label": "🇰🇷 Coréen",
+        "readerLabel": "Francophone",
+        "studyCode": "ko",
+        "nativeCode": "fr",
+        "sourceL1": {
+          "file": "melunga_deploy/content/conversation/L1-fr-ko.json",
+          "dialogueId": "L1-fr-ko-d1",
+          "turnIndexes": [
+            2
+          ]
+        },
+        "sourceL2": {
+          "file": "melunga_deploy/content/conversation/L2-fr-ko.json",
+          "dialogueId": "L2-fr-ko-d1",
+          "turnIndexes": [
+            0,
+            1,
+            2
+          ],
+          "previewPlayedTurnIndexes": [
+            1,
+            2
+          ],
+          "contextTurnIndex": 0
+        },
+        "l1": {
+          "speaker": "A",
+          "study": "커피 하나 주세요.",
+          "reading": "keopi hana juseyo.",
+          "phon": "keo-pi ha-na djou-sé-yo",
+          "native": "Un café, s'il vous plaît.",
+          "turnIndex": 2,
+          "role": "Client",
+          "roleInterface": "Client"
+        },
+        "preview": [
+          {
+            "speaker": "B",
+            "study": "네. 따뜻한 거요, 차가운 거요?",
+            "reading": "ne. ttatteutan geoyo, chagaun geoyo?",
+            "phon": "nè. tta-tteu-tan geo-yo, tcha-ga-oun geo-yo ?",
+            "native": "Oui. Chaud ou froid ?",
+            "turnIndex": 1,
+            "role": "Serveur",
+            "roleInterface": "Serveur"
+          },
+          {
+            "speaker": "A",
+            "study": "따뜻한 거요. 그리고 물 조금 주세요.",
+            "reading": "ttatteutan geoyo. geurigo mul jogeum juseyo.",
+            "phon": "tta-tteu-tan geo-yo. geu-ri-go moul djo-geum djou-sè-yo",
+            "native": "Chaud. Et un peu d'eau, s'il vous plaît.",
+            "turnIndex": 2,
+            "role": "Client",
+            "roleInterface": "Client"
+          }
+        ],
+        "l1Dialogue": {
+          "id": "L1-fr-ko-d1",
+          "situation": "Au café",
+          "turns": [
+            {
+              "speaker": "A",
+              "study": "안녕하세요!",
+              "reading": "annyeonghaseyo!",
+              "phon": "an-nyeong-ha-sé-yo",
+              "native": "Bonjour !",
+              "turnIndex": 0,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "안녕하세요. 뭐 드릴까요?",
+              "reading": "annyeonghaseyo. mwo deurilkkayo?",
+              "phon": "an-nyeong-ha-sé-yo. mwo deu-ril-kka-yo",
+              "native": "Bonjour. Vous désirez ?",
+              "turnIndex": 1,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            },
+            {
+              "speaker": "A",
+              "study": "커피 하나 주세요.",
+              "reading": "keopi hana juseyo.",
+              "phon": "keo-pi ha-na djou-sé-yo",
+              "native": "Un café, s'il vous plaît.",
+              "turnIndex": 2,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "우유 넣을까요?",
+              "reading": "uyu neoeulkkayo?",
+              "phon": "ou-you neo-eul-kka-yo",
+              "native": "Avec du lait ?",
+              "turnIndex": 3,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            },
+            {
+              "speaker": "A",
+              "study": "아니요, 괜찮아요. 얼마예요?",
+              "reading": "aniyo, gwaenchanayo. eolmayeyo?",
+              "phon": "a-ni-yo, kouèn-tchan-a-yo. eol-ma-yé-yo",
+              "native": "Non, merci. Combien ça coûte ?",
+              "turnIndex": 4,
+              "role": "Client",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "삼천 원이에요.",
+              "reading": "samcheon won-ieyo.",
+              "phon": "sam-tcheon ouon-i-é-yo",
+              "native": "Trois mille wons.",
+              "turnIndex": 5,
+              "role": "Serveur",
+              "roleInterface": "Serveur"
+            }
+          ],
+          "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+          "reuses": [
+            "L1-fr-ko-03",
+            "L1-fr-ko-09",
+            "L1-fr-ko-10"
+          ],
+          "roles": {
+            "A": "Client",
+            "B": "Serveur"
+          },
+          "learnerRole": "A",
+          "interfaceSituation": "Au café",
+          "rolesInterface": {
+            "A": "Client",
+            "B": "Serveur"
+          }
+        },
+        "l2Situation": "Au café",
+        "l2SourceSituation": "Au café",
+        "reviewStatus": {
+          "l1": "Relecture linguistique requise (particules, naturel des tournures).",
+          "l2": "Relecture linguistique requise (particules, naturel des tournures)."
+        },
+        "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : gam-sa-ham-ni-da ; eo = ㅓ, eu = ㅡ). Le champ reading donne la romanisation révisée. Registre poli (-요). Les particules (이/가, 을/를, 이에요/예요) sont incluses dans le morceau remplaçable.",
+        "previewContext": {
+          "speaker": "A",
+          "study": "안녕하세요. 커피 두 잔 주세요.",
+          "reading": "annyeonghaseyo. keopi du jan juseyo.",
+          "phon": "an-nyeong-ha-sè-yo. keo-pi dou djan djou-sè-yo",
+          "native": "Bonjour. Deux cafés, s'il vous plaît.",
+          "turnIndex": 0,
+          "role": "Client",
+          "roleInterface": "Client"
+        }
+      },
+      {
+        "id": "zh-fr",
+        "label": "🇫🇷 Français",
+        "readerLabel": "Sinophone",
+        "studyCode": "fr",
+        "nativeCode": "zh",
+        "sourceL1": {
+          "file": "melunga_deploy/content/conversation/L1-zh-fr.json",
+          "dialogueId": "L1-zh-fr-d1",
+          "turnIndexes": [
+            2
+          ]
+        },
+        "sourceL2": {
+          "file": "melunga_deploy/content/conversation/L2-zh-fr.json",
+          "dialogueId": "L2-zh-fr-d1",
+          "turnIndexes": [
+            0,
+            1,
+            2
+          ],
+          "previewPlayedTurnIndexes": [
+            1,
+            2
+          ],
+          "contextTurnIndex": 0
+        },
+        "l1": {
+          "speaker": "A",
+          "study": "Un café, s'il vous plaît.",
+          "phon": "安 卡菲，西尔 武 普莱",
+          "native": "请给我一杯咖啡。",
+          "turnIndex": 2,
+          "role": "顾客",
+          "roleInterface": "Client"
+        },
+        "preview": [
+          {
+            "speaker": "B",
+            "study": "Bien sûr. Ici ou là-bas, près de la fenêtre ?",
+            "phon": "比安 叙尔。伊西 乌 拉巴，普雷 德 拉 弗内特尔",
+            "native": "好的。这里还是那边靠窗？",
+            "turnIndex": 1,
+            "role": "服务员",
+            "roleInterface": "Serveur"
+          },
+          {
+            "speaker": "A",
+            "study": "Près de la fenêtre. Je voudrais deux cafés, s'il vous plaît.",
+            "phon": "普雷 德 拉 弗内特尔。热 武德雷 德 卡菲，西尔 武 普莱",
+            "native": "靠窗。我想要两杯咖啡。",
+            "turnIndex": 2,
+            "role": "顾客",
+            "roleInterface": "Client"
+          }
+        ],
+        "l1Dialogue": {
+          "id": "L1-zh-fr-d1",
+          "situation": "在咖啡馆",
+          "turns": [
+            {
+              "speaker": "A",
+              "study": "Bonjour !",
+              "phon": "蓬茹尔",
+              "native": "你好！",
+              "turnIndex": 0,
+              "role": "顾客",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "Bonjour. Vous désirez ?",
+              "phon": "蓬茹尔。武 德吉雷",
+              "native": "你好。您要什么？",
+              "turnIndex": 1,
+              "role": "服务员",
+              "roleInterface": "Serveur"
+            },
+            {
+              "speaker": "A",
+              "study": "Un café, s'il vous plaît.",
+              "phon": "安 卡菲，西尔 武 普莱",
+              "native": "请给我一杯咖啡。",
+              "turnIndex": 2,
+              "role": "顾客",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "Avec du lait ?",
+              "phon": "阿维克 迪 莱",
+              "native": "加牛奶吗？",
+              "turnIndex": 3,
+              "role": "服务员",
+              "roleInterface": "Serveur"
+            },
+            {
+              "speaker": "A",
+              "study": "Non, merci. Combien ça coûte ?",
+              "phon": "诺，美西。孔比安 萨 库特",
+              "native": "不用，谢谢。多少钱？",
+              "turnIndex": 4,
+              "role": "顾客",
+              "roleInterface": "Client"
+            },
+            {
+              "speaker": "B",
+              "study": "Deux euros.",
+              "phon": "德 厄罗",
+              "native": "两欧元。",
+              "turnIndex": 5,
+              "role": "服务员",
+              "roleInterface": "Serveur"
+            }
+          ],
+          "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+          "reuses": [
+            "L1-zh-fr-09"
+          ],
+          "roles": {
+            "A": "顾客",
+            "B": "服务员"
+          },
+          "learnerRole": "A",
+          "interfaceSituation": "Au café",
+          "rolesInterface": {
+            "A": "Client",
+            "B": "Serveur"
+          }
+        },
+        "l2Situation": "Au restaurant",
+        "l2SourceSituation": "在餐厅",
+        "reviewStatus": {
+          "l1": "需语言校对（汉字注音的近似程度、译文自然度）。",
+          "l2": "需语言校对（汉字注音的近似程度、译文自然度）。"
+        },
+        "phoneticConvention": "用汉字标注法语读音（沿用词库风格：美西 = merci，诺 = non）。汉字只是近似，请以音频为准。法语无声调；重音不在单词上，而是落在一个节奏组（短语或句子）的最后一个音节，并略微拉长。",
+        "previewContext": {
+          "speaker": "A",
+          "study": "Bonjour, une table pour deux, s'il vous plaît.",
+          "phon": "蓬茹尔，于讷 塔布勒 普尔 德，西尔 武 普莱",
+          "native": "你好，请给我们一张两人桌。",
+          "turnIndex": 0,
+          "role": "顾客",
+          "roleInterface": "Client"
+        }
+      }
+    ],
+    "webPricing": {
+      "monthlyDisplay": "7,90 €",
+      "annualDisplay": "42 €",
+      "monthlyDays": 30,
+      "annualDays": 365,
+      "currency": "EUR",
+      "country": "FR"
+    }
+  },
+  "sources": [
+    {
+      "file": "melunga_deploy/content/conversation/L1-fr-es.json",
+      "sha256": "40b3c9794273dc44e133ea0705ac36644b87abf11df34e4cdb02192ea0b5816b",
+      "level": 1,
+      "nativeLanguage": "fr",
+      "studyLanguage": "es",
+      "reviewStatus": "Généré par règles à partir de briques validées ; relecture par un hispanophone conseillée.",
+      "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; v→b, ll→y, j/ge/gi→KH, c/z→ss, que→ké). Variante à seseo et yeísmo. Ne remplace pas l'audio.",
+      "dialogue": {
+        "id": "L1-fr-es-d1",
+        "situation": "Au café",
+        "turns": [
+          {
+            "speaker": "A",
+            "study": "¡Hola!",
+            "phon": "O-la",
+            "native": "Bonjour !"
+          },
+          {
+            "speaker": "B",
+            "study": "Hola. ¿Qué desea?",
+            "phon": "O-la. ké dé-SSÉ-a",
+            "native": "Bonjour. Vous désirez ?"
+          },
+          {
+            "speaker": "A",
+            "study": "Un café, por favor.",
+            "phon": "oun ka-FÉ, por fa-BOR",
+            "native": "Un café, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "¿Con leche?",
+            "phon": "kon LÉ-tché",
+            "native": "Avec du lait ?"
+          },
+          {
+            "speaker": "A",
+            "study": "No, gracias. ¿Cuánto cuesta?",
+            "phon": "no, GRA-ssias. KOUAN-to KOUÉS-ta",
+            "native": "Non, merci. Combien ça coûte ?"
+          },
+          {
+            "speaker": "B",
+            "study": "Dos euros.",
+            "phon": "dos É-ou-ros",
+            "native": "Deux euros."
+          }
+        ],
+        "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+        "reuses": [
+          "L1-fr-es-09",
+          "L1-fr-es-10"
+        ],
+        "roles": {
+          "A": "Client",
+          "B": "Serveur"
+        },
+        "learnerRole": "A"
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-fr-es.json",
+      "sha256": "da3d7e68f2e51ded5a5fb0e16d228ab1f48d76aa35c68f499fa5fcf244f26bf3",
+      "level": 2,
+      "nativeLanguage": "fr",
+      "studyLanguage": "es",
+      "reviewStatus": "Généré par règles à partir de briques validées ; relecture par un hispanophone conseillée.",
+      "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; v→b, ll→y, j/ge/gi→KH, c/z→ss, que→ké). Variante à seseo et yeísmo. Ne remplace pas l'audio.",
+      "dialogue": {
+        "id": "L2-fr-es-d1",
+        "situation": "Au restaurant",
+        "turns": [
+          {
+            "speaker": "A",
+            "study": "Buenas tardes. ¿Hay mesa libre?",
+            "phon": "BOUÉ-nas TAR-dés. AY MÉ-ssa LI-bré",
+            "native": "Bonsoir. Il y a une table libre ?"
+          },
+          {
+            "speaker": "B",
+            "study": "Sí, ¿para cuántos?",
+            "phon": "SI, PA-ra KOUAN-tos",
+            "native": "Oui, pour combien de personnes ?"
+          },
+          {
+            "speaker": "A",
+            "study": "Para dos, por favor.",
+            "phon": "PA-ra DOS, por fa-BOR",
+            "native": "Pour deux, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "¿Aquí o allí, cerca de la ventana?",
+            "phon": "a-KI o a-YI, SSÉR-ka dé la bén-TA-na",
+            "native": "Ici ou là-bas, près de la fenêtre ?"
+          },
+          {
+            "speaker": "A",
+            "study": "Prefiero la ventana.",
+            "phon": "pré-FIÉ-ro la bén-TA-na",
+            "native": "Je préfère la fenêtre."
+          },
+          {
+            "speaker": "B",
+            "study": "Muy bien. ¿Qué desean?",
+            "phon": "mouy BIÉN. ké dé-SSÉ-an",
+            "native": "Très bien. Vous désirez ?"
+          },
+          {
+            "speaker": "A",
+            "study": "Quisiera dos cafés y un poco de agua.",
+            "phon": "ki-SSIÉ-ra dos ka-FÉS i oun PO-ko dé A-goua",
+            "native": "Je voudrais deux cafés et un peu d'eau."
+          },
+          {
+            "speaker": "B",
+            "study": "Ahora mismo.",
+            "phon": "a-O-ra MIS-mo",
+            "native": "Tout de suite."
+          }
+        ],
+        "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+        "reuses": [
+          "L1-fr-es-09",
+          "L2-fr-es-05",
+          "L2-fr-es-07"
+        ],
+        "roles": {
+          "A": "Client",
+          "B": "Serveur"
+        },
+        "learnerRole": "A"
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L1-fr-en.json",
+      "sha256": "af4a52abde3257e2ee65dd0b313a293bb9dadd9947a7779448103e7aaf8aecd7",
+      "level": 1,
+      "nativeLanguage": "fr",
+      "studyLanguage": "en",
+      "reviewStatus": "Rédigé à la main ; relecture par un anglophone conseillée.",
+      "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; th→z/th, h aspiré noté h, -ing→-ing). Anglais britannique standard. Ne remplace pas l'audio.",
+      "dialogue": {
+        "id": "L1-fr-en-d1",
+        "situation": "Au café",
+        "turns": [
+          {
+            "speaker": "A",
+            "study": "Hello!",
+            "phon": "hè-LÔ",
+            "native": "Bonjour !"
+          },
+          {
+            "speaker": "B",
+            "study": "Hello. What would you like?",
+            "phon": "hè-LÔ. ouot would you LAÏK",
+            "native": "Bonjour. Vous désirez ?"
+          },
+          {
+            "speaker": "A",
+            "study": "One coffee, please.",
+            "phon": "OUANN KO-fi, PLIZ",
+            "native": "Un café, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "With milk?",
+            "phon": "ouiz MILK",
+            "native": "Avec du lait ?"
+          },
+          {
+            "speaker": "A",
+            "study": "No, thanks. How much is it?",
+            "phon": "NÔ, THANKS. HAÔ MEUTCH iz it",
+            "native": "Non, merci. Combien ça coûte ?"
+          },
+          {
+            "speaker": "B",
+            "study": "Two pounds.",
+            "phon": "TOU PAÔNDZ",
+            "native": "Deux livres."
+          }
+        ],
+        "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+        "reuses": [
+          "L1-fr-en-09",
+          "L1-fr-en-10"
+        ],
+        "roles": {
+          "A": "Client",
+          "B": "Serveur"
+        },
+        "learnerRole": "A"
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-fr-en.json",
+      "sha256": "14582bbbe9ccf85db5a21c16bb0b26eec6470843736b4871483334eb14461338",
+      "level": 2,
+      "nativeLanguage": "fr",
+      "studyLanguage": "en",
+      "reviewStatus": "Rédigé à la main ; relecture par un anglophone conseillée.",
+      "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; th→z/th, h aspiré noté h, -ing→-ing). Anglais britannique standard. Ne remplace pas l'audio.",
+      "dialogue": {
+        "id": "L2-fr-en-d1",
+        "situation": "Au café",
+        "turns": [
+          {
+            "speaker": "A",
+            "study": "Hello! A table for two, please.",
+            "phon": "hè-LÔ. eu TÉÏ-beul for TOU, PLIZ",
+            "native": "Bonjour ! Une table pour deux, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "Of course. Here or over there?",
+            "phon": "ov KORSS. HIR or Ô-veur ZÈR",
+            "native": "Bien sûr. Ici ou là-bas ?"
+          },
+          {
+            "speaker": "A",
+            "study": "Over there, near the window.",
+            "phon": "Ô-veur ZÈR, NIR ze OUINN-dô",
+            "native": "Là-bas, près de la fenêtre."
+          },
+          {
+            "speaker": "B",
+            "study": "What would you like?",
+            "phon": "ouot would you LAÏK",
+            "native": "Vous désirez ?"
+          },
+          {
+            "speaker": "A",
+            "study": "Two coffees and some water, please.",
+            "phon": "TOU KO-fiz and seum WO-teur, PLIZ",
+            "native": "Deux cafés et un peu d'eau, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "With milk?",
+            "phon": "ouiz MILK",
+            "native": "Avec du lait ?"
+          },
+          {
+            "speaker": "A",
+            "study": "Just a little, please.",
+            "phon": "DJEUST eu LI-teul, PLIZ",
+            "native": "Juste un peu, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "Right away.",
+            "phon": "raït eu-OUÉÏ",
+            "native": "Tout de suite."
+          }
+        ],
+        "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+        "reuses": [
+          "L1-fr-en-09",
+          "L2-fr-en-02",
+          "L2-fr-en-10"
+        ],
+        "roles": {
+          "A": "Client",
+          "B": "Serveur"
+        },
+        "learnerRole": "A"
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L1-fr-zh.json",
+      "sha256": "798b987d60f6a95a9e4fa869e22e8fae949d4ce62c273b887aeb95e4c4466147",
+      "level": 1,
+      "nativeLanguage": "fr",
+      "studyLanguage": "zh",
+      "reviewStatus": "Relecture linguistique requise (tons, naturel des tournures).",
+      "phoneticConvention": "Approximation pour lecteurs francophones (style du deck : ouo = 我, chr = 是, dzaï = 在). Les tons ne sont pas notés dans l'approximation : se reporter au pinyin (champ reading) et à l'audio. Mandarin standard, caractères simplifiés.",
+      "dialogue": {
+        "id": "L1-fr-zh-d1",
+        "situation": "Au café",
+        "turns": [
+          {
+            "speaker": "A",
+            "study": "你好！",
+            "reading": "nǐ hǎo!",
+            "phon": "ni hao !",
+            "native": "Bonjour !"
+          },
+          {
+            "speaker": "B",
+            "study": "你好。您要什么？",
+            "reading": "nǐ hǎo. nín yào shénme?",
+            "phon": "ni hao. ninn yao cheun-meu ?",
+            "native": "Bonjour. Vous désirez ?"
+          },
+          {
+            "speaker": "A",
+            "study": "请给我一杯咖啡。",
+            "reading": "qǐng gěi wǒ yì bēi kāfēi.",
+            "phon": "tching gueï ouo i peï ka-feï",
+            "native": "Un café, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "加牛奶吗？",
+            "reading": "jiā niúnǎi ma?",
+            "phon": "tia niou-naï ma ?",
+            "native": "Avec du lait ?"
+          },
+          {
+            "speaker": "A",
+            "study": "不用，谢谢。多少钱？",
+            "reading": "búyòng, xièxie. duōshao qián?",
+            "phon": "pou-yong, sié-sié. douo-chao tchyèn ?",
+            "native": "Non, merci. Combien ça coûte ?"
+          },
+          {
+            "speaker": "B",
+            "study": "二十块。",
+            "reading": "èrshí kuài.",
+            "phon": "eur-chr kouaï",
+            "native": "Vingt yuans."
+          }
+        ],
+        "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+        "reuses": [
+          "L1-fr-zh-09",
+          "L1-fr-zh-10"
+        ],
+        "roles": {
+          "A": "Client",
+          "B": "Serveur"
+        },
+        "learnerRole": "A"
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-fr-zh.json",
+      "sha256": "384340dc305f9a71c4ce2d576a03768378d818643fda9c6a5e41f859288fff40",
+      "level": 2,
+      "nativeLanguage": "fr",
+      "studyLanguage": "zh",
+      "reviewStatus": "Relecture linguistique requise (tons, naturel des tournures).",
+      "phoneticConvention": "Approximation pour lecteurs francophones (style du deck : ouo = 我, chr = 是, dzaï = 在). Les tons ne sont pas notés dans l'approximation : se reporter au pinyin (champ reading) et à l'audio. Mandarin standard, caractères simplifiés.",
+      "dialogue": {
+        "id": "L2-fr-zh-d1",
+        "situation": "Au restaurant",
+        "turns": [
+          {
+            "speaker": "A",
+            "study": "你好，有位子吗？",
+            "reading": "nǐ hǎo, yǒu wèizi ma?",
+            "phon": "ni hao, yeou oueï-tseu ma ?",
+            "native": "Bonjour, vous avez de la place ?"
+          },
+          {
+            "speaker": "B",
+            "study": "有。几位？",
+            "reading": "yǒu. jǐ wèi?",
+            "phon": "yeou. ti oueï ?",
+            "native": "Oui. Combien de personnes ?"
+          },
+          {
+            "speaker": "A",
+            "study": "两位。我们想要靠窗的座位。",
+            "reading": "liǎng wèi. wǒmen xiǎng yào kào chuāng de zuòwèi.",
+            "phon": "liang oueï. ouo-meun siang yao kao tchouang deu tsouo-oueï",
+            "native": "Deux. Nous voudrions une table côté fenêtre."
+          },
+          {
+            "speaker": "B",
+            "study": "好的，在那里。你们喝什么？",
+            "reading": "hǎo de, zài nàlǐ. nǐmen hē shénme?",
+            "phon": "hao deu, dzaï na-li. ni-meun heu cheun-meu ?",
+            "native": "D'accord, c'est là-bas. Qu'est-ce que vous buvez ?"
+          },
+          {
+            "speaker": "A",
+            "study": "两杯茶，还有一点水。",
+            "reading": "liǎng bēi chá, hái yǒu yìdiǎn shuǐ.",
+            "phon": "liang peï tcha, haï yeou i-tièn chouèï",
+            "native": "Deux thés, et un peu d'eau."
+          },
+          {
+            "speaker": "B",
+            "study": "热茶还是冰茶？",
+            "reading": "rè chá háishi bīng chá?",
+            "phon": "jeu tcha haï-chr ping tcha ?",
+            "native": "Thé chaud ou thé glacé ?"
+          },
+          {
+            "speaker": "A",
+            "study": "热的，谢谢。",
+            "reading": "rè de, xièxie.",
+            "phon": "jeu deu, sié-sié",
+            "native": "Chaud, merci."
+          },
+          {
+            "speaker": "B",
+            "study": "好，马上来。",
+            "reading": "hǎo, mǎshàng lái.",
+            "phon": "hao, ma-chang laï",
+            "native": "Bien, ça arrive tout de suite."
+          }
+        ],
+        "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+        "reuses": [
+          "L2-fr-zh-05",
+          "L2-fr-zh-09"
+        ],
+        "roles": {
+          "A": "Client",
+          "B": "Serveur"
+        },
+        "learnerRole": "A"
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L1-fr-it.json",
+      "sha256": "f6e7d13b1525ca6aa1fff83730ec1d6a7b22ce7aac6e3c57a290d34be40fc5c9",
+      "level": 1,
+      "nativeLanguage": "fr",
+      "studyLanguage": "it",
+      "reviewStatus": "Rédigé à la main ; relecture par un italophone conseillée.",
+      "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.",
+      "dialogue": {
+        "id": "L1-fr-it-d1",
+        "situation": "Au café",
+        "turns": [
+          {
+            "speaker": "A",
+            "study": "Buongiorno!",
+            "phon": "bouon-DJOR-no",
+            "native": "Bonjour !"
+          },
+          {
+            "speaker": "B",
+            "study": "Buongiorno. Cosa desidera?",
+            "phon": "bouon-DJOR-no. KO-za dé-ZI-dé-ra",
+            "native": "Bonjour. Vous désirez ?"
+          },
+          {
+            "speaker": "A",
+            "study": "Un caffè, per favore.",
+            "phon": "oun kaf-FÈ, pér fa-VO-ré",
+            "native": "Un café, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "Con latte?",
+            "phon": "kon LAT-té",
+            "native": "Avec du lait ?"
+          },
+          {
+            "speaker": "A",
+            "study": "No, grazie. Quanto costa?",
+            "phon": "no, GRA-tsié. KOUAN-to KOS-ta",
+            "native": "Non, merci. Combien ça coûte ?"
+          },
+          {
+            "speaker": "B",
+            "study": "Due euro.",
+            "phon": "DOU-é È-ou-ro",
+            "native": "Deux euros."
+          }
+        ],
+        "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+        "reuses": [
+          "L1-fr-it-09",
+          "L1-fr-it-10"
+        ],
+        "roles": {
+          "A": "Client",
+          "B": "Serveur"
+        },
+        "learnerRole": "A"
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-fr-it.json",
+      "sha256": "57fafff18447b6e71eb9a195181f127109182a651c14e48eec7a4774a06d0bd1",
+      "level": 2,
+      "nativeLanguage": "fr",
+      "studyLanguage": "it",
+      "reviewStatus": "Rédigé à la main ; relecture par un italophone conseillée.",
+      "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.",
+      "dialogue": {
+        "id": "L2-fr-it-d1",
+        "situation": "Au bar",
+        "turns": [
+          {
+            "speaker": "A",
+            "study": "Buongiorno! Vorrei due caffè, per favore.",
+            "phon": "bouon-DJOR-no. vor-RÈÏ DOU-é kaf-FÈ, pér fa-VO-ré",
+            "native": "Bonjour ! Je voudrais deux cafés, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "Subito. Qualcos'altro?",
+            "phon": "SOU-bi-to. koual-ko-ZAL-tro",
+            "native": "Tout de suite. Autre chose ?"
+          },
+          {
+            "speaker": "A",
+            "study": "Sì, un po' d'acqua e un cornetto.",
+            "phon": "SI, oun po DA-koua é oun kor-NÉT-to",
+            "native": "Oui, un peu d'eau et un croissant."
+          },
+          {
+            "speaker": "B",
+            "study": "Quale cornetto? Semplice o alla crema?",
+            "phon": "KOUA-lé kor-NÉT-to. SÉM-pli-tché o AL-la KRÈ-ma",
+            "native": "Quel croissant ? Nature ou à la crème ?"
+          },
+          {
+            "speaker": "A",
+            "study": "Alla crema. Quanto costa?",
+            "phon": "AL-la KRÈ-ma. KOUAN-to KOS-ta",
+            "native": "À la crème. Combien ça coûte ?"
+          },
+          {
+            "speaker": "B",
+            "study": "Quattro euro e cinquanta.",
+            "phon": "KOUAT-tro È-ou-ro é tchin-KOUAN-ta",
+            "native": "Quatre euros cinquante."
+          },
+          {
+            "speaker": "A",
+            "study": "Ecco. Grazie!",
+            "phon": "ÈK-ko. GRA-tsié",
+            "native": "Voilà. Merci !"
+          },
+          {
+            "speaker": "B",
+            "study": "Grazie a Lei, buona giornata!",
+            "phon": "GRA-tsié a LÈÏ, BOUO-na djor-NA-ta",
+            "native": "Merci à vous, bonne journée !"
+          }
+        ],
+        "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+        "reuses": [
+          "L1-fr-it-03",
+          "L1-fr-it-09",
+          "L1-fr-it-10",
+          "L2-fr-it-01",
+          "L2-fr-it-08"
+        ],
+        "roles": {
+          "A": "Client",
+          "B": "Serveur"
+        },
+        "learnerRole": "A"
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L1-fr-ja.json",
+      "sha256": "fad1f7e9091586ddc33ccafcac9133bc31826fe1eb017eda217b0e17017ac2bc",
+      "level": 1,
+      "nativeLanguage": "fr",
+      "studyLanguage": "ja",
+      "reviewStatus": "Relecture linguistique requise (naturel des tournures, lectures des kanji).",
+      "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).",
+      "dialogue": {
+        "id": "L1-fr-ja-d1",
+        "situation": "Au café",
+        "turns": [
+          {
+            "speaker": "A",
+            "study": "こんにちは！",
+            "reading": "こんにちは！",
+            "phon": "kon-ni-tchi-wa",
+            "native": "Bonjour !"
+          },
+          {
+            "speaker": "B",
+            "study": "こんにちは。ご注文は？",
+            "reading": "こんにちは。ごちゅうもんは？",
+            "phon": "kon-ni-tchi-wa. go-tchou-ou-mon wa",
+            "native": "Bonjour. Vous désirez ?"
+          },
+          {
+            "speaker": "A",
+            "study": "コーヒーをお願いします。",
+            "reading": "こーひーをおねがいします。",
+            "phon": "ko-o-hi-i o o-né-ga-i chi-ma-sou",
+            "native": "Un café, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "ミルクは？",
+            "reading": "みるくは？",
+            "phon": "mi-rou-kou wa",
+            "native": "Avec du lait ?"
+          },
+          {
+            "speaker": "A",
+            "study": "いいえ、結構です。いくらですか。",
+            "reading": "いいえ、けっこうです。いくらですか。",
+            "phon": "i-i-é, kek-ko-o dé-sou. i-kou-ra dé-sou ka",
+            "native": "Non, merci. Combien ça coûte ?"
+          },
+          {
+            "speaker": "B",
+            "study": "三百円です。",
+            "reading": "さんびゃくえんです。",
+            "phon": "san-bya-kou én dé-sou",
+            "native": "Trois cents yens."
+          }
+        ],
+        "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+        "reuses": [
+          "L1-fr-ja-09"
+        ],
+        "roles": {
+          "A": "Client",
+          "B": "Serveur"
+        },
+        "learnerRole": "A"
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-fr-ja.json",
+      "sha256": "19bf3502281f537d39826503f7a3929bcdb0fb39edf2e5488c294049bca496cc",
+      "level": 2,
+      "nativeLanguage": "fr",
+      "studyLanguage": "ja",
+      "reviewStatus": "Relecture linguistique requise (naturel des tournures, lectures des kanji).",
+      "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).",
+      "dialogue": {
+        "id": "L2-fr-ja-d1",
+        "situation": "Au café",
+        "turns": [
+          {
+            "speaker": "A",
+            "study": "すみません、コーヒーを二つください。",
+            "reading": "すみません、こーひーをふたつください。",
+            "phon": "sou-mi-ma-sén, ko-o-hi-i o fou-ta-tsou kou-da-sa-i",
+            "native": "Excusez-moi, deux cafés, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "はい。ホットですか、アイスですか。",
+            "reading": "はい。ほっとですか、あいすですか。",
+            "phon": "ha-i. hot-to dé-sou ka, a-i-sou dé-sou ka",
+            "native": "Oui. Chauds ou glacés ?"
+          },
+          {
+            "speaker": "A",
+            "study": "ホットをお願いします。それから、サンドイッチはありますか。",
+            "reading": "ほっとをおねがいします。それから、さんどいっちはありますか。",
+            "phon": "hot-to o o-né-ga-i chi-ma-sou. so-ré-ka-ra, san-do-it-tchi wa a-ri-ma-sou ka",
+            "native": "Chauds, s'il vous plaît. Et puis, avez-vous des sandwichs ?"
+          },
+          {
+            "speaker": "B",
+            "study": "はい、あそこにあります。",
+            "reading": "はい、あそこにあります。",
+            "phon": "ha-i, a-so-ko ni a-ri-ma-sou",
+            "native": "Oui, ils sont là-bas."
+          },
+          {
+            "speaker": "A",
+            "study": "じゃあ、サンドイッチを一つください。",
+            "reading": "じゃあ、さんどいっちをひとつください。",
+            "phon": "dja-a, san-do-it-tchi o hi-to-tsou kou-da-sa-i",
+            "native": "Alors, un sandwich, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "かしこまりました。全部で千二百円です。",
+            "reading": "かしこまりました。ぜんぶでせんにひゃくえんです。",
+            "phon": "ka-chi-ko-ma-ri-ma-chi-ta. zén-bou dé sén-ni-hya-kou én dé-sou",
+            "native": "Très bien. Ça fait mille deux cents yens en tout."
+          },
+          {
+            "speaker": "A",
+            "study": "はい、どうぞ。",
+            "reading": "はい、どうぞ。",
+            "phon": "ha-i, do-o-zo",
+            "native": "Voilà."
+          },
+          {
+            "speaker": "B",
+            "study": "ありがとうございます。",
+            "reading": "ありがとうございます。",
+            "phon": "a-ri-ga-to-o go-za-i-ma-sou",
+            "native": "Merci beaucoup."
+          }
+        ],
+        "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+        "reuses": [
+          "L1-fr-ja-09",
+          "L2-fr-ja-01",
+          "L2-fr-ja-02",
+          "L2-fr-ja-06",
+          "L2-fr-ja-10"
+        ],
+        "roles": {
+          "A": "Client",
+          "B": "Serveur"
+        },
+        "learnerRole": "A"
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L1-fr-ko.json",
+      "sha256": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+      "level": 1,
+      "nativeLanguage": "fr",
+      "studyLanguage": "ko",
+      "reviewStatus": "Relecture linguistique requise (particules, naturel des tournures).",
+      "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : gam-sa-ham-ni-da ; eo = ㅓ, eu = ㅡ). Le champ reading donne la romanisation révisée. Registre poli (-요). Les particules (이/가, 을/를, 이에요/예요) sont incluses dans le morceau remplaçable.",
+      "dialogue": {
+        "id": "L1-fr-ko-d1",
+        "situation": "Au café",
+        "turns": [
+          {
+            "speaker": "A",
+            "study": "안녕하세요!",
+            "reading": "annyeonghaseyo!",
+            "phon": "an-nyeong-ha-sé-yo",
+            "native": "Bonjour !"
+          },
+          {
+            "speaker": "B",
+            "study": "안녕하세요. 뭐 드릴까요?",
+            "reading": "annyeonghaseyo. mwo deurilkkayo?",
+            "phon": "an-nyeong-ha-sé-yo. mwo deu-ril-kka-yo",
+            "native": "Bonjour. Vous désirez ?"
+          },
+          {
+            "speaker": "A",
+            "study": "커피 하나 주세요.",
+            "reading": "keopi hana juseyo.",
+            "phon": "keo-pi ha-na djou-sé-yo",
+            "native": "Un café, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "우유 넣을까요?",
+            "reading": "uyu neoeulkkayo?",
+            "phon": "ou-you neo-eul-kka-yo",
+            "native": "Avec du lait ?"
+          },
+          {
+            "speaker": "A",
+            "study": "아니요, 괜찮아요. 얼마예요?",
+            "reading": "aniyo, gwaenchanayo. eolmayeyo?",
+            "phon": "a-ni-yo, kouèn-tchan-a-yo. eol-ma-yé-yo",
+            "native": "Non, merci. Combien ça coûte ?"
+          },
+          {
+            "speaker": "B",
+            "study": "삼천 원이에요.",
+            "reading": "samcheon won-ieyo.",
+            "phon": "sam-tcheon ouon-i-é-yo",
+            "native": "Trois mille wons."
+          }
+        ],
+        "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+        "reuses": [
+          "L1-fr-ko-03",
+          "L1-fr-ko-09",
+          "L1-fr-ko-10"
+        ],
+        "roles": {
+          "A": "Client",
+          "B": "Serveur"
+        },
+        "learnerRole": "A"
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-fr-ko.json",
+      "sha256": "47e44f74f91949b731d67f92c0b63b41ba0000e48c6eca4cd716138b04d26778",
+      "level": 2,
+      "nativeLanguage": "fr",
+      "studyLanguage": "ko",
+      "reviewStatus": "Relecture linguistique requise (particules, naturel des tournures).",
+      "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : gam-sa-ham-ni-da ; eo = ㅓ, eu = ㅡ). Le champ reading donne la romanisation révisée. Registre poli (-요). Les particules (이/가, 을/를, 이에요/예요) sont incluses dans le morceau remplaçable.",
+      "dialogue": {
+        "id": "L2-fr-ko-d1",
+        "situation": "Au café",
+        "turns": [
+          {
+            "speaker": "A",
+            "study": "안녕하세요. 커피 두 잔 주세요.",
+            "reading": "annyeonghaseyo. keopi du jan juseyo.",
+            "phon": "an-nyeong-ha-sè-yo. keo-pi dou djan djou-sè-yo",
+            "native": "Bonjour. Deux cafés, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "네. 따뜻한 거요, 차가운 거요?",
+            "reading": "ne. ttatteutan geoyo, chagaun geoyo?",
+            "phon": "nè. tta-tteu-tan geo-yo, tcha-ga-oun geo-yo ?",
+            "native": "Oui. Chaud ou froid ?"
+          },
+          {
+            "speaker": "A",
+            "study": "따뜻한 거요. 그리고 물 조금 주세요.",
+            "reading": "ttatteutan geoyo. geurigo mul jogeum juseyo.",
+            "phon": "tta-tteu-tan geo-yo. geu-ri-go moul djo-geum djou-sè-yo",
+            "native": "Chaud. Et un peu d'eau, s'il vous plaît."
+          },
+          {
+            "speaker": "B",
+            "study": "네, 여기 있어요.",
+            "reading": "ne, yeogi isseoyo.",
+            "phon": "nè, yeo-gi i-sseo-yo",
+            "native": "Voilà."
+          },
+          {
+            "speaker": "A",
+            "study": "화장실이 어디예요?",
+            "reading": "hwajangsiri eodiyeyo?",
+            "phon": "houa-djang-si-ri eo-di-yè-yo ?",
+            "native": "Où sont les toilettes ?"
+          },
+          {
+            "speaker": "B",
+            "study": "저기 계단 옆에 있어요.",
+            "reading": "jeogi gyedan yeope isseoyo.",
+            "phon": "djeo-gi gyè-dan yeo-pè i-sseo-yo",
+            "native": "Là-bas, à côté de l'escalier."
+          },
+          {
+            "speaker": "A",
+            "study": "감사합니다. 얼마예요?",
+            "reading": "gamsahamnida. eolmayeyo?",
+            "phon": "gam-sa-ham-ni-da. eol-ma-yè-yo ?",
+            "native": "Merci. Ça fait combien ?"
+          },
+          {
+            "speaker": "B",
+            "study": "팔천 원이에요.",
+            "reading": "palcheon wonieyo.",
+            "phon": "pal-tcheon oueo-ni-è-yo",
+            "native": "Huit mille wons."
+          }
+        ],
+        "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+        "reuses": [
+          "L1-fr-ko-03",
+          "L1-fr-ko-05",
+          "L1-fr-ko-10",
+          "L2-fr-ko-01",
+          "L2-fr-ko-02",
+          "L2-fr-ko-09"
+        ],
+        "roles": {
+          "A": "Client",
+          "B": "Serveur"
+        },
+        "learnerRole": "A"
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L1-zh-fr.json",
+      "sha256": "170c3a0d576edd3a619b4560040e1a346246769e66530a582ce448d0699b1753",
+      "level": 1,
+      "nativeLanguage": "zh",
+      "studyLanguage": "fr",
+      "reviewStatus": "需语言校对（汉字注音的近似程度、译文自然度）。",
+      "phoneticConvention": "用汉字标注法语读音（沿用词库风格：美西 = merci，诺 = non）。汉字只是近似，请以音频为准。法语无声调；重音不在单词上，而是落在一个节奏组（短语或句子）的最后一个音节，并略微拉长。",
+      "dialogue": {
+        "id": "L1-zh-fr-d1",
+        "situation": "在咖啡馆",
+        "turns": [
+          {
+            "speaker": "A",
+            "study": "Bonjour !",
+            "phon": "蓬茹尔",
+            "native": "你好！"
+          },
+          {
+            "speaker": "B",
+            "study": "Bonjour. Vous désirez ?",
+            "phon": "蓬茹尔。武 德吉雷",
+            "native": "你好。您要什么？"
+          },
+          {
+            "speaker": "A",
+            "study": "Un café, s'il vous plaît.",
+            "phon": "安 卡菲，西尔 武 普莱",
+            "native": "请给我一杯咖啡。"
+          },
+          {
+            "speaker": "B",
+            "study": "Avec du lait ?",
+            "phon": "阿维克 迪 莱",
+            "native": "加牛奶吗？"
+          },
+          {
+            "speaker": "A",
+            "study": "Non, merci. Combien ça coûte ?",
+            "phon": "诺，美西。孔比安 萨 库特",
+            "native": "不用，谢谢。多少钱？"
+          },
+          {
+            "speaker": "B",
+            "study": "Deux euros.",
+            "phon": "德 厄罗",
+            "native": "两欧元。"
+          }
+        ],
+        "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+        "reuses": [
+          "L1-zh-fr-09"
+        ],
+        "roles": {
+          "A": "顾客",
+          "B": "服务员"
+        },
+        "learnerRole": "A"
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-zh-fr.json",
+      "sha256": "122e8a450416c2923d380a613febebd3f8a29c78cf00fc931a992c0df59b8902",
+      "level": 2,
+      "nativeLanguage": "zh",
+      "studyLanguage": "fr",
+      "reviewStatus": "需语言校对（汉字注音的近似程度、译文自然度）。",
+      "phoneticConvention": "用汉字标注法语读音（沿用词库风格：美西 = merci，诺 = non）。汉字只是近似，请以音频为准。法语无声调；重音不在单词上，而是落在一个节奏组（短语或句子）的最后一个音节，并略微拉长。",
+      "dialogue": {
+        "id": "L2-zh-fr-d1",
+        "situation": "在餐厅",
+        "turns": [
+          {
+            "speaker": "A",
+            "study": "Bonjour, une table pour deux, s'il vous plaît.",
+            "phon": "蓬茹尔，于讷 塔布勒 普尔 德，西尔 武 普莱",
+            "native": "你好，请给我们一张两人桌。"
+          },
+          {
+            "speaker": "B",
+            "study": "Bien sûr. Ici ou là-bas, près de la fenêtre ?",
+            "phon": "比安 叙尔。伊西 乌 拉巴，普雷 德 拉 弗内特尔",
+            "native": "好的。这里还是那边靠窗？"
+          },
+          {
+            "speaker": "A",
+            "study": "Près de la fenêtre. Je voudrais deux cafés, s'il vous plaît.",
+            "phon": "普雷 德 拉 弗内特尔。热 武德雷 德 卡菲，西尔 武 普莱",
+            "native": "靠窗。我想要两杯咖啡。"
+          },
+          {
+            "speaker": "B",
+            "study": "Avec du lait ?",
+            "phon": "阿维克 迪 莱",
+            "native": "加牛奶吗？"
+          },
+          {
+            "speaker": "A",
+            "study": "Un avec du lait, un sans. Et un peu d'eau.",
+            "phon": "安 阿维克 迪 莱，安 桑。埃 安 珀 多",
+            "native": "一杯加牛奶，一杯不加。还要一点水。"
+          },
+          {
+            "speaker": "B",
+            "study": "Très bien. Autre chose ?",
+            "phon": "特雷 比安。奥特尔 绍兹",
+            "native": "好的。还要别的吗？"
+          },
+          {
+            "speaker": "A",
+            "study": "Non, merci. L'addition, c'est combien ?",
+            "phon": "诺，美西。拉迪西翁，赛 孔比安",
+            "native": "不用了，谢谢。一共多少钱？"
+          },
+          {
+            "speaker": "B",
+            "study": "Six euros.",
+            "phon": "西 泽罗",
+            "native": "六欧元。"
+          }
+        ],
+        "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+        "reuses": [
+          "L1-zh-fr-09",
+          "L2-zh-fr-01",
+          "L2-zh-fr-03",
+          "L2-zh-fr-11"
+        ],
+        "roles": {
+          "A": "顾客",
+          "B": "服务员"
+        },
+        "learnerRole": "A"
+      }
+    }
+  ]
+}

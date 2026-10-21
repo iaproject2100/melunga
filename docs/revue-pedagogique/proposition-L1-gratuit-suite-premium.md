@@ -6,6 +6,8 @@ L1 est gratuit. Il doit faire comprendre la méthode, permettre une première r�
 
 Ce document amende la proposition précédente de « L1 large ». Kartech n'a pas validé globalement les quatre choix de parcours. Aucun volume définitif, prix, droit ou changement de niveau n'est décidé ici.
 
+Suite de la discussion : Kartech demande un outil pour donner envie d'accéder à Premium. Le prototype isolé `maquette-premium/` montre la prochaine conversation et son offre, avec un retour gratuit. Il ne remplace pas les centaines de cartes actuelles par la sélection de six à neuf phrases proposée pour un premier essai. La réduction éventuelle de l'offre reste une décision distincte ; voir `reponse-neuvieme-famille-offre-gratuite.md` pour les chiffres et les deux options.
+
 ## Proposition : un L1 court, varié et complet à petite échelle
 
 Concevoir le parcours gratuit pour montrer toute la boucle : une phrase comprise à l'écoute, une imitation, un remplacement préparé, un petit échange. Éviter d'en faire un inventaire à épuiser avant de découvrir L2.
@@ -61,4 +63,4 @@ Commencer par l'observation d'essais sur téléphone, ordinateur et application 
 
 ## Suite proposée
 
-Faire valider ce compromis et les autres choix encore ouverts, puis demander à Claude une première sélection et une maquette du L1 gratuit avec aperçu de L2 pour deux couples représentatifs, avant généralisation aux sept couples actifs. Le premier essai ne vaut pas publication ; relecture croisée et validation de Kartech précèdent toute réalisation en ligne.
+Faire valider ce compromis et les autres choix encore ouverts, puis demander à Claude une première sélection pédagogique des mini-scènes L1 pour deux couples représentatifs, avant généralisation aux sept couples actifs. Cette future sélection est distincte de la maquette d'incitation `maquette-premium/`, déjà préparée pour sept couples à partir des dialogues existants. Le premier essai ne vaut pas publication ; relecture croisée et validation de Kartech précèdent toute réalisation en ligne.

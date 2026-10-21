@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Melunga — Ma prochaine conversation · Maquette</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="review-strip"><span>Maquette · aucun achat</span><label>Support <select id="surfaceSelect"><option value="web">Site internet</option><option value="native">Application Android</option></select></label></div>
+  <header class="brandbar">
+    <a class="brand" href="index.html" aria-label="Melunga"><img class="brand-symbol" src="logo.png" alt="" width="43" height="43"><span>Melunga<small>梅 伦 加</small></span></a>
+    <label class="language-choice"><span>J’apprends</span><select id="pairSelect" aria-label="Langue étudiée"></select></label>
+  </header>
+  <main id="previewPage" class="flow-shell">
+    <section class="story">
+      <span class="eyebrow">Après votre premier échange · L1</span>
+      <h1>Votre prochaine<br class="desktop-only"> conversation.</h1>
+      <p class="intro">Préciser votre demande. <br>Répondre avec plus de liberté.</p>
+      <div class="known-card"><span class="known-icon" aria-hidden="true">✓</span><div><span class="small-label">Votre point de départ</span><p id="knownStudy" class="known-study"></p><p id="knownNative" class="known-native"></p></div></div>
+      <p class="reader-note" id="readerNote"></p>
+      <div class="desktop-benefit"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Les phrases se réutilisent.<br><strong>Les échanges s’enrichissent.</strong></p></div>
+    </section>
+    <section class="next-card" aria-label="Aperçu de votre prochaine conversation">
+      <div class="card-heading"><span class="level-pill">L2 · Aperçu</span><span class="situation" id="situation"></span></div>
+      <p class="scene-context" id="sceneContext"></p>
+      <div class="turn-tabs" role="group" aria-label="Répliques de l’aperçu"><button type="button" id="receivedTab" aria-pressed="true">On me demande</button><button type="button" id="replyTab" aria-pressed="false">Je réponds</button></div>
+      <article class="turn-card">
+        <p id="previewRole" class="turn-role"></p>
+        <p id="previewStudy" class="turn-study"></p>
+        <p id="previewReading" class="turn-reading" hidden></p>
+        <p id="previewPhon" class="turn-phon"></p>
+        <p id="previewNative" class="turn-native"></p>
+        <button type="button" id="previewListen" class="listen-button"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z" fill="currentColor"/></svg>Écouter</button>
+      </article>
+      <p class="next-benefit">Une question comprise. Une réponse préparée.<br>Et une nouvelle situation à vivre.</p>
+    </section>
+    <section class="premium-actions" aria-label="Continuer votre apprentissage">
+      <p>Continuez votre parcours <strong>de L2 à L10</strong>.</p>
+      <button type="button" id="premiumOpen" class="primary">Voir l’offre Premium <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button type="button" id="continueFree" class="quiet">Continuer gratuitement</button>
+    </section>
+  </main>
+  <main id="freePage" class="free-page" hidden>
+    <span class="eyebrow">L1 · Gratuit</span><h1>Votre échange au café.</h1><p class="intro">Réécoutez et reprenez à votre rythme.</p>
+    <div id="freeDialogue" class="free-dialogue"></div>
+    <button type="button" id="returnPreview" class="primary">Voir ma prochaine conversation <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </main>
+  <dialog id="offerPanel" class="offer-panel" aria-labelledby="offerTitle">
+    <header class="offer-heading"><button type="button" id="offerBack" class="icon-button" aria-label="Fermer l’offre">←</button><span class="eyebrow">Melunga Premium</span><span></span></header>
+    <div class="offer-content"><h2 id="offerTitle">Donnez une suite<br>à vos conversations.</h2><p class="offer-intro">Les niveaux L2 à L10, les phrases à assembler<br class="desktop-only"> et les dialogues pour les mettre en pratique.</p>
+      <div id="webOffer"><div class="plans"><button type="button" data-plan="monthly" class="plan"><span class="plan-label">30 jours</span><strong id="monthlyPrice"></strong><span>Un premier pas vers la suite</span></button><button type="button" data-plan="annual" class="plan"><span class="plan-label">365 jours</span><strong id="annualPrice"></strong><span>Pour avancer à votre rythme</span></button></div><p class="terms">Paiement unique · sans reconduction automatique.</p></div>
+      <div id="nativeOffer" hidden><div class="store-card"><strong>Votre offre dans Google Play</strong><p>Consultez le prix et les conditions avant de confirmer.</p></div><button type="button" id="storeContinue" class="primary">Consulter l’offre Google Play</button></div>
+      <p class="offer-note" id="marketNote">Exemple de prix : France · EUR</p><p id="demoChoice" class="demo-choice" role="status" aria-live="polite"></p>
+      <button type="button" id="offerFree" class="quiet">Revenir à mon apprentissage gratuit</button>
+    </div>
+  </dialog>
+  <div id="audioStatus" class="audio-status" role="status" aria-live="polite"></div>
+</body>
+</html>
