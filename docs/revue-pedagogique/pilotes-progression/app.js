@@ -122,6 +122,9 @@
     const native = element('p','native',item.native);
     native.lang = pilot().pair.native;
     card.append(native);
+    // Proposal notes may describe the model. Keep them out of the recall DOM
+    // for every role, not only when the learner card itself is masked.
+    if (!state.modelHidden && item.editorialNote) card.append(element('p','utterance-editorial-note',item.editorialNote));
     const support = renderFocusBrick(focusBrick);
     if (support) card.append(support);
     return card;
@@ -212,7 +215,7 @@
   });
   byId('previous-step').addEventListener('click',function () { move(state.stepIndex - 1); });
   byId('next-step').addEventListener('click',function () { move(state.stepIndex + 1); });
-  byId('source-line').textContent = 'Source ' + String(data.sourceCommit || '').slice(0,7) + ' · Contenus à relire';
+  byId('source-line').textContent = 'Source ' + String(data.sourceCommit || '').slice(0,7) + ' · Propositions locales à relire';
   window.addEventListener('pagehide',stopAudio);
   render();
 })();

@@ -1,56 +1,57 @@
-# Contrat `received` — annexe d'essai par couple
+# Contrat `received` — annexe d’essai, version 2
 
-21 octobre 2026. Version documentaire 1, hors des contenus publiés. Elle précise la proposition du 20 octobre et l'avis de Claude. **Ce n'est pas une nouvelle version du chargeur.** Aucun niveau, fichier conversation, droit ou prix n'est changé.
+Cette version répond à la relecture `113b247`. Elle reste documentaire, hors des contenus publiés : aucun changement du chargeur, des 110 JSON, des droits ou des prix. La version 1 désignait l’introduction du reçu par un nom ambigu et ne pouvait référencer une réponse du catalogue ; la version 2 rend ces deux points explicites.
 
-Les deux fichiers `received-fr-zh.json` et `received-fr-ko.json` décrivent des **recompositions pilotes**. `sceneId` désigne le pilote, pas un dialogue original réécrit. `sourceCommit` est un repère de provenance ; les contrôles utiles contre un décalage portent aussi sur les références, le texte et les aides.
+Les fichiers `received-fr-zh.json` et `received-fr-ko.json` décrivent des **recompositions pilotes**. Leur `sceneId` ne prétend pas désigner un dialogue original réécrit. `sourceCommit` reste un repère de provenance ; les références, valeurs originales et aides présentées restent contrôlées séparément.
 
-## Sources et compréhension
+## Source reçue et première présentation
 
-Une source `dialogueTurn` précise niveau, dialogue, rôle apprenant, index zéro et texte attendu. Le validateur relit le dialogue : le tour reçu doit appartenir à l'autre rôle. A n'est pas présumé être l'apprenant.
+`source.type: dialogueTurn` précise niveau, dialogue, rôle apprenant, index zéro et texte attendu. Le validateur relit le dialogue : le tour reçu doit appartenir à l’autre rôle. A n’est pas présumé être l’apprenant. Le coréen conserve le tour complet avec salutation, sans créer d’extrait prétendument original.
 
-Une source `catalogue` précise langue, index et texte attendu, puis reprend les aides pour le bon lecteur. Cela permet 好的 sans faux `dialogueId`. L'annexe ne maintient pas une seconde traduction ou phonétique : la maquette reprend celles de la source enregistrée. `reading` est requis pour zh/ja/ko, optionnel pour les autres langues.
+`source.type: catalogue` précise langue, index et texte attendu. Les aides sont celles du lecteur concerné. Cela permet les questions et clôtures chinoises, ainsi que 네., sans faux `dialogueId`.
 
-`analyse:false` signifie **compréhension globale à cette étape**, sans exiger de produire ou d'analyser la grammaire. Cela ne certifie aucun acquis et n'interdit pas un approfondissement ultérieur. Le badge **À comprendre** distingue le reçu. L'aide reste accessible et le rappel concerne seulement `kind:learner`.
+**`introducedInStep`** nomme la première présentation entière du reçu, avant la scène. Le script vérifie cette première occurrence ; le simple fait de se référencer à une étape quelconque ne suffit pas. La salutation isolée ayant disparu, aucun lien de préparation partielle n’est nécessaire dans ces pilotes. Pour en ajouter un ailleurs, concevoir une référence distincte, et ne pas confondre connaissance d’un morceau et compréhension de toute la phrase.
 
-## Réponse exacte et préparation prévue
+`analyse:false` signifie compréhension globale à cette étape. L’aide reste accessible et le badge **À comprendre** distingue le reçu. Cela ne certifie pas la compréhension et n’interdit pas de produire ou d’analyser la formule plus tard.
 
-Pour `안녕하세요. 뭐 드릴까요?`, le mini-pilote utilise :
+## Répondre avec une source exacte préparée
+
+`answerWith` référence le registre source de la maquette :
 
 ```json
+"introducedInStep": "zh-received-question",
 "analyse": false,
 "countsAsProduction": false,
-"preparedInStep": "ko-received",
 "replyRequired": true,
 "answerWith": [
   {
-    "unitId": "L1-fr-ko-03",
-    "variantIndex": 0,
-    "expectedStudy": "커피 주세요.",
-    "preparedInStep": "ko-understand"
-  },
-  {
-    "unitId": "L1-fr-ko-03",
-    "variantIndex": 1,
-    "expectedStudy": "물 주세요.",
-    "preparedInStep": "ko-substitute"
+    "utteranceId": "zh-deck-416",
+    "expectedStudy": "我想回家",
+    "preparedInStep": "zh-prepare-home"
   }
 ]
 ```
 
-Une référence identifie une variante entière. Son passage doit contenir cette phrase et précéder la scène dans le **plan**. Cela ne prouve pas que l'utilisateur l'a écoutée ou apprise. Chaque occurrence de question doit être suivie d'une réponse productive autorisée. Les choix réemploient des phrases complètes et leurs aides, sans assemblage de phonétique.
+L’annexe réelle autorise aussi le repos. Les réponses coréennes utilisent les identifiants enregistrés des variantes complètes 03/v0 et 03/v1. Le registre contient leur provenance typée, les aides et le couple ; une carte n’est pas transformée en fausse unité conversation pour entrer dans le contrat.
 
-Cette version référence des variantes comme réponses. Une réponse venant d'un tour plutôt que d'une variante demandera une référence typée de tour ; ne pas lui attribuer de faux `unitId`. Aucun besoin de ce second type pour ces deux pilotes.
+**`preparedInStep` reste sur la réponse** : il désigne le passage qui contient cette phrase entière avant l’échange, selon le plan. Cela ne prouve pas que l’utilisateur l’a écoutée ou apprise. Chaque occurrence de question doit être suivie d’une réponse productive autorisée. Tous les choix de cette petite scène doivent être couverts ; pour plusieurs questions d’intentions différentes, prévoir des choix rattachés à un tour précis plutôt que réutiliser implicitement ceux de toute la scène.
+
+Les pilotes actuels ont un seul cycle par scène : **question reçue → réponse préparée → clôture reçue**. Les scripts vérifient cet ordre, après comprendre/imiter/préparer/remplacer. La souplesse future du parcours ne découle pas d’un nombre obligatoire de huit étapes.
 
 ## Clôture explicite
 
-Pour 好的 : `analyse:false`, `countsAsProduction:false`, `preparedInStep:"zh-received"`, **`replyRequired:false`, `answerWith:[]`**. Une liste absente est une omission, pas une clôture implicite. Dans cette version, une clôture sans réponse termine la scène. Aucun quota ne force une production inutile.
+Pour 好的 et 네. : `replyRequired:false`, **`answerWith:[]`**, avec leur propre `introducedInStep`. Une liste absente est une omission, pas une clôture implicite. Une clôture sans réponse termine cette petite scène. Aucun quota ne force une réplique supplémentaire.
+
+## Valeurs originales et propositions affichées
+
+Les sources enregistrent `original` séparément de `expected` (présentation de l’essai). `editorial-amendments.json` déclare trois propositions, limitées à `phon` ou `native` : leur valeur source exacte, valeur proposée et raison sont contrôlées. Changer une source inattendue ou le texte étudié est refusé. La carte du catalogue et les fichiers conversation ne sont pas modifiés.
+
+Le prototype indique les propositions à l’écran. Ces notes, les aides et la phrase de l’apprenant sont retirées du DOM au rappel ; les répliques reçues restent accessibles. La copie de la provenance n’est pas une certification native.
 
 ## Contrôles et limites
 
-`python3 prepare.py --check` contrôle les sources, l'appui, les annexes et l'export. `python3 -B test_received_contract.py` vérifie les erreurs : couple mélangé, mauvais rôle, source ou aide changée, index inexistant, unité non précisée, préparation tardive, réponse avant la question, répétition sans réponse, clôture contournée et crédit productif attribué au reçu. Un cas utilise `L10-fr-ko-d2`, apprenant B : fixture de rôle uniquement, pas séquence L10 nouvellement livrée.
+`python3 prepare.py --check` contrôle sources, propositions, annexes, ordre des phases, cycles et export autonome. `python3 -B test_received_contract.py` vérifie les références cassées, les choix d’une autre langue, les aides divergentes, l’ordre des réponses, un reçu répété sans réponse, les introductions mal nommées, le retour prématuré à l’échange et les demi-cycles. Un cas relit `L10-fr-ko-d2`, dont l’apprenant est B : fixture de rôle uniquement, pas un nouveau parcours L10.
 
-Une erreur empêche la régénération documentaire silencieuse avec une mauvaise source. L'application actuelle ne charge pas ces annexes ; son comportement reste inchangé. Le script ne valide ni naturel, tons/sons, pertinence sémantique ni efficacité pédagogique. Relecture humaine et essais restent nécessaires.
+Le reçu ne devient pas un acquis productif ; sa difficulté reste dans l’audit de réception. Les mesures historiques, l’accès et les droits restent inchangés. Aucun script ne vérifie l’exposition réelle, le sens compris, la pertinence sémantique, les tons/sons ou l’efficacité pédagogique. Relecture humaine, écoute réelle et essais restent nécessaires.
 
-Séparer **production préparée** et **réception** dans les éventuels bilans. Le reçu n'est pas une phrase maîtrisée en production ; sa difficulté ne disparaît pas de l'audit du dialogue. Mesures historiques, accès et suivi de maîtrise restent inchangés.
-
-Avant les sept couples : relire annexes et pilotes réels, puis convenir du contrat de la future couche séquence, du changement de rôle et du repli si l'annexe manque. Cette intégration est un lot distinct soumis à validation de Kartech.
+Avant les sept couples : relire ces pilotes et les propositions canoniques avec Kartech. L’application actuelle ne charge pas ces annexes ; la couche séquence, le changement de rôle et le repli si l’annexe manque feront l’objet d’un lot distinct.

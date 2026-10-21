@@ -1,12 +1,37 @@
 {
-  "version": 1,
+  "version": 2,
   "status": "proposition-locale-a-relire",
-  "sourceCommit": "a219aa10d2e59f0a229f5891da8d86e4eafcefb9",
+  "sourceCommit": "db01b1c8eb99db237a56663253f31ee41c40ca67",
   "nativeLanguage": "fr",
   "studyLanguage": "zh",
   "sceneId": "fr-zh-envie",
   "sceneType": "recomposition-pilote",
   "received": [
+    {
+      "utteranceId": "zh-deck-511",
+      "source": {
+        "type": "catalogue",
+        "language": "zh",
+        "sourceIndex": 511,
+        "expectedStudy": "你想好了吗？"
+      },
+      "analyse": false,
+      "countsAsProduction": false,
+      "introducedInStep": "zh-received-question",
+      "replyRequired": true,
+      "answerWith": [
+        {
+          "utteranceId": "zh-deck-226",
+          "expectedStudy": "我想休息",
+          "preparedInStep": "zh-understand"
+        },
+        {
+          "utteranceId": "zh-deck-416",
+          "expectedStudy": "我想回家",
+          "preparedInStep": "zh-prepare-home"
+        }
+      ]
+    },
     {
       "utteranceId": "zh-deck-2173",
       "source": {
@@ -17,7 +42,7 @@
       },
       "analyse": false,
       "countsAsProduction": false,
-      "preparedInStep": "zh-received",
+      "introducedInStep": "zh-received",
       "replyRequired": false,
       "answerWith": []
     }

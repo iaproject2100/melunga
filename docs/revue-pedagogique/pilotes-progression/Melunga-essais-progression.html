@@ -77,6 +77,7 @@ h2:focus { outline: none; }
 .ear-button.single { padding-right: 13px; border-radius: 25px; font-size: 12px; font-weight: 700; }
 .reading { margin: 10px 2px 0; color: var(--muted); font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
 .native { margin: 21px 0 0; color: #354f5c; font-size: 18px; line-height: 1.55; overflow-wrap: anywhere; }
+.utterance-editorial-note { margin: 12px 0 0; padding-left: 10px; border-left: 2px solid #c5bca8; color: var(--muted); font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
 .focus-brick { margin-top: 23px; padding-top: 18px; border-top: 1px solid var(--line); }
 .brick-label { margin: 0 0 10px; color: var(--teal); font-size: 11px; font-weight: 700; letter-spacing: .5px; }
 .brick-content { display: flex; align-items: baseline; flex-wrap: wrap; gap: 5px 13px; }
@@ -204,7 +205,38 @@ h2:focus { outline: none; }
 <script>
 window.ProgressionPilotData = {
   "status": "proposition-locale-a-relire",
-  "sourceCommit": "a219aa10d2e59f0a229f5891da8d86e4eafcefb9",
+  "sourceCommit": "db01b1c8eb99db237a56663253f31ee41c40ca67",
+  "editorialAmendments": {
+    "status": "propositions-locales-sans-modification-des-sources",
+    "count": 3,
+    "sourceFilesChanged": false,
+    "changes": [
+      {
+        "id": "zh-xiu-diphtongue",
+        "utteranceId": "zh-deck-226",
+        "field": "phon",
+        "expectedSource": "ouo chyang chyo chi",
+        "proposed": "ouo chyang chyoou chi",
+        "reason": "Proposition relue par Claude pour mieux conserver la finale de xiū ; écouter et relire avec un locuteur. La carte du catalogue reste inchangée."
+      },
+      {
+        "id": "ko-coffee-polite-request",
+        "utteranceId": "L1-fr-ko-03-v0",
+        "field": "native",
+        "expectedSource": "Je veux un café.",
+        "proposed": "Un café, s’il vous plaît.",
+        "reason": "Rendre la fonction de demande polie de 주세요 dans l'essai ; correction de la source L1-03 et de ses générateurs en attente de décision."
+      },
+      {
+        "id": "ko-water-polite-request",
+        "utteranceId": "L1-fr-ko-03-v1",
+        "field": "native",
+        "expectedSource": "Je veux de l'eau.",
+        "proposed": "De l’eau, s’il vous plaît.",
+        "reason": "Rendre la fonction de demande polie de 주세요 dans l'essai ; aucun fichier conversation modifié."
+      }
+    ]
+  },
   "pilots": [
     {
       "id": "fr-zh-envie",
@@ -213,107 +245,56 @@ window.ProgressionPilotData = {
         "study": "zh"
       },
       "title": "Dire ce que tu veux faire",
-      "levelLabel": "Classement L2 provisoire",
-      "goal": "Exprimer une envie, changer l’action, comprendre une réponse d’accord.",
+      "levelLabel": "Essai de progression · niveau à positionner",
+      "goal": "Après la promenade, choisir entre se reposer et rentrer, puis dire son choix à un proche.",
       "steps": [
         {
           "id": "zh-understand",
+          "stage": "understand",
           "phase": "Comprendre",
           "title": "Tu veux te reposer",
           "instruction": "Après une promenade, tu souhaites faire une pause. Écoute la phrase et retrouve son sens.",
-          "novelty": "Ici, 我想 sert à dire ce que tu veux faire. Aucun acquis en 需要 n’est supposé. Les usages de 我要 et 我想要 se reprennent séparément, pas comme trois constructions nouvelles à cette première écoute.",
+          "novelty": "Ici, 我想 sert à dire ce que tu veux faire. Les autres usages du vouloir ne sont pas ajoutés à cette première écoute. Phonétique chyoou proposée localement, sans modifier le catalogue.",
           "utterances": [
             {
               "id": "zh-deck-226",
               "study": "我想休息",
-              "phon": "ouo chyang chyo chi",
+              "phon": "ouo chyang chyoou chi",
               "native": "je veux me reposer",
               "reading": "wǒ xiǎng xiū xi",
               "role": "Toi",
-              "kind": "learner"
+              "kind": "learner",
+              "editorialNote": "Phonétique proposée pour cet essai"
             }
           ]
         },
         {
           "id": "zh-imitate",
+          "stage": "imitate",
           "phase": "Imiter",
           "title": "Redis la même envie",
           "instruction": "Écoute, puis répète si tu le souhaites. Garde la phonétique à portée de main.",
-          "novelty": "Aucune phrase nouvelle.",
+          "novelty": "Même phrase complète, sans nouveauté.",
           "utterances": [
             {
               "id": "zh-deck-226",
               "study": "我想休息",
-              "phon": "ouo chyang chyo chi",
+              "phon": "ouo chyang chyoou chi",
               "native": "je veux me reposer",
               "reading": "wǒ xiǎng xiū xi",
               "role": "Toi",
-              "kind": "learner"
+              "kind": "learner",
+              "editorialNote": "Phonétique proposée pour cet essai"
             }
           ]
-        },
-        {
-          "id": "zh-received",
-          "phase": "Comprendre l’autre",
-          "title": "Ton proche est d’accord",
-          "instruction": "Écoute ce qu’il te répond. Tu n’as pas de nouvelle demande à construire.",
-          "novelty": "Une réponse reçue en contexte : d’accord.",
-          "utterances": [
-            {
-              "id": "zh-deck-2173",
-              "study": "好的",
-              "phon": "hao deu",
-              "native": "d'accord",
-              "reading": "hǎo de",
-              "role": "Un proche",
-              "kind": "received",
-              "analyse": false,
-              "countsAsProduction": false,
-              "replyRequired": false,
-              "answerWith": [],
-              "preparedInStep": "zh-received"
-            }
-          ]
-        },
-        {
-          "id": "zh-visible",
-          "phase": "Échanger",
-          "title": "Ton premier échange visible",
-          "instruction": "Écoute les deux rôles dans l’ordre.",
-          "novelty": "Réemploi des deux phrases déjà présentées.",
-          "utterances": [
-            {
-              "id": "zh-deck-226",
-              "study": "我想休息",
-              "phon": "ouo chyang chyo chi",
-              "native": "je veux me reposer",
-              "reading": "wǒ xiǎng xiū xi",
-              "role": "Toi",
-              "kind": "learner"
-            },
-            {
-              "id": "zh-deck-2173",
-              "study": "好的",
-              "phon": "hao deu",
-              "native": "d'accord",
-              "reading": "hǎo de",
-              "role": "Un proche",
-              "kind": "received",
-              "analyse": false,
-              "countsAsProduction": false,
-              "replyRequired": false,
-              "answerWith": [],
-              "preparedInStep": "zh-received"
-            }
-          ],
-          "scene": true
         },
         {
           "id": "zh-prepare-home",
+          "stage": "prepareReplacement",
           "phase": "Préparer la suite",
           "title": "Tu veux rentrer à la maison",
           "instruction": "Écoute la phrase entière. Repère ensuite le morceau qui veut dire « rentrer à la maison ».",
-          "novelty": "回家 est préparé dans une phrase complète avant de le substituer à 休息. La carte autonome sert d’appui ; 家 et 家里 ne deviennent pas de nouveaux prérequis.",
+          "novelty": "回家 est préparé dans une phrase complète avant substitution. La carte autonome sert d’appui, pas de leçon de mot isolé.",
           "utterances": [
             {
               "id": "zh-deck-416",
@@ -337,19 +318,21 @@ window.ProgressionPilotData = {
         },
         {
           "id": "zh-substitute",
+          "stage": "replace",
           "phase": "Remplacer",
-          "title": "Cette fois, tu veux rentrer",
-          "instruction": "Compare les deux phrases déjà écoutées. Le début reste identique ; l’action change.",
-          "novelty": "回家, maintenant préparé, remplace 休息. L’emplacement accueille une action complète, pas n’importe quel mot.",
+          "title": "Une autre action, le même début",
+          "instruction": "Compare les deux phrases. Le début reste identique ; l’action change.",
+          "novelty": "休息 et 回家 sont deux groupes d’action préparés. Pas de nouveau temps ni de nouvelle personne.",
           "utterances": [
             {
               "id": "zh-deck-226",
               "study": "我想休息",
-              "phon": "ouo chyang chyo chi",
+              "phon": "ouo chyang chyoou chi",
               "native": "je veux me reposer",
               "reading": "wǒ xiǎng xiū xi",
               "role": "Toi",
-              "kind": "learner"
+              "kind": "learner",
+              "editorialNote": "Phonétique proposée pour cet essai"
             },
             {
               "id": "zh-deck-416",
@@ -363,18 +346,103 @@ window.ProgressionPilotData = {
           ]
         },
         {
-          "id": "zh-choice",
-          "phase": "Choisir et réutiliser",
-          "title": "À toi de choisir ton envie",
-          "instruction": "Choisis ton intention. Tu peux garder le modèle ou essayer sans lui, puis retrouver l’aide.",
-          "novelty": "Choix personnel entre deux groupes préparés ; pas de nouvelle structure.",
+          "id": "zh-received-question",
+          "stage": "receive",
+          "phase": "Comprendre l’autre",
+          "title": "Ton proche te laisse choisir",
+          "instruction": "Tu hésites entre te reposer et rentrer. Écoute la question de ton proche : il te demande si tu as décidé.",
+          "novelty": "你想好了吗？ est reçu entier dans cette situation ; pas de production ou d’analyse de 想好, 了 ou 吗 demandée.",
           "utterances": [
             {
-              "id": "zh-deck-226",
-              "study": "我想休息",
-              "phon": "ouo chyang chyo chi",
-              "native": "je veux me reposer",
-              "reading": "wǒ xiǎng xiū xi",
+              "id": "zh-deck-511",
+              "study": "你想好了吗？",
+              "phon": "ni chyang hao le ma?",
+              "native": "Tu as décidé ?",
+              "reading": "nǐ xiǎng hǎo le ma?",
+              "role": "Un proche",
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": true,
+              "answerWith": [
+                {
+                  "utteranceId": "zh-deck-226",
+                  "expectedStudy": "我想休息",
+                  "preparedInStep": "zh-understand"
+                },
+                {
+                  "utteranceId": "zh-deck-416",
+                  "expectedStudy": "我想回家",
+                  "preparedInStep": "zh-prepare-home"
+                }
+              ],
+              "introducedInStep": "zh-received-question"
+            }
+          ]
+        },
+        {
+          "id": "zh-received",
+          "stage": "receive",
+          "phase": "Comprendre l’autre",
+          "title": "Ton proche accepte ton choix",
+          "instruction": "Écoute sa réponse possible. Tu n’as pas de nouvelle phrase à construire.",
+          "novelty": "好的 est une clôture possible de cette scène, pas une réaction garantie de tout interlocuteur.",
+          "utterances": [
+            {
+              "id": "zh-deck-2173",
+              "study": "好的",
+              "phon": "hao deu",
+              "native": "d'accord",
+              "reading": "hǎo de",
+              "role": "Un proche",
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": false,
+              "answerWith": [],
+              "introducedInStep": "zh-received"
+            }
+          ]
+        },
+        {
+          "id": "zh-visible",
+          "stage": "scene",
+          "phase": "Échanger",
+          "title": "Écoute l’échange complet",
+          "instruction": "Ton proche pose sa question, tu dis ton choix, puis il te répond.",
+          "novelty": "Le cycle vient après le remplacement : question reçue, réponse préparée, clôture reçue.",
+          "utterances": [
+            {
+              "id": "zh-deck-511",
+              "study": "你想好了吗？",
+              "phon": "ni chyang hao le ma?",
+              "native": "Tu as décidé ?",
+              "reading": "nǐ xiǎng hǎo le ma?",
+              "role": "Un proche",
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": true,
+              "answerWith": [
+                {
+                  "utteranceId": "zh-deck-226",
+                  "expectedStudy": "我想休息",
+                  "preparedInStep": "zh-understand"
+                },
+                {
+                  "utteranceId": "zh-deck-416",
+                  "expectedStudy": "我想回家",
+                  "preparedInStep": "zh-prepare-home"
+                }
+              ],
+              "introducedInStep": "zh-received-question"
+            },
+            {
+              "id": "zh-deck-416",
+              "study": "我想回家",
+              "phon": "ouo chyang houèï djya",
+              "native": "je veux rentrer à la maison",
+              "reading": "wǒ xiǎng huí jiā",
               "role": "Toi",
               "kind": "learner"
             },
@@ -390,25 +458,71 @@ window.ProgressionPilotData = {
               "countsAsProduction": false,
               "replyRequired": false,
               "answerWith": [],
-              "preparedInStep": "zh-received"
+              "introducedInStep": "zh-received"
+            }
+          ],
+          "scene": true
+        },
+        {
+          "id": "zh-choice",
+          "stage": "recall",
+          "phase": "Choisir et réutiliser",
+          "title": "À toi de choisir ton envie",
+          "instruction": "Choisis ton intention. Tu peux garder le modèle ou essayer sans lui, puis retrouver l’aide.",
+          "novelty": "Choix entre deux réponses préparées ; même question et même clôture.",
+          "utterances": [
+            {
+              "id": "zh-deck-511",
+              "study": "你想好了吗？",
+              "phon": "ni chyang hao le ma?",
+              "native": "Tu as décidé ?",
+              "reading": "nǐ xiǎng hǎo le ma?",
+              "role": "Un proche",
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": true,
+              "answerWith": [
+                {
+                  "utteranceId": "zh-deck-226",
+                  "expectedStudy": "我想休息",
+                  "preparedInStep": "zh-understand"
+                },
+                {
+                  "utteranceId": "zh-deck-416",
+                  "expectedStudy": "我想回家",
+                  "preparedInStep": "zh-prepare-home"
+                }
+              ],
+              "introducedInStep": "zh-received-question"
+            },
+            {
+              "id": "zh-deck-416",
+              "study": "我想回家",
+              "phon": "ouo chyang houèï djya",
+              "native": "je veux rentrer à la maison",
+              "reading": "wǒ xiǎng huí jiā",
+              "role": "Toi",
+              "kind": "learner"
+            },
+            {
+              "id": "zh-deck-2173",
+              "study": "好的",
+              "phon": "hao deu",
+              "native": "d'accord",
+              "reading": "hǎo de",
+              "role": "Un proche",
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": false,
+              "answerWith": [],
+              "introducedInStep": "zh-received"
             }
           ],
           "scene": true,
           "recall": true,
           "choices": [
-            {
-              "id": "rest",
-              "label": "Me reposer",
-              "utterance": {
-                "id": "zh-deck-226",
-                "study": "我想休息",
-                "phon": "ouo chyang chyo chi",
-                "native": "je veux me reposer",
-                "reading": "wǒ xiǎng xiū xi",
-                "role": "Toi",
-                "kind": "learner"
-              }
-            },
             {
               "id": "home",
               "label": "Rentrer à la maison",
@@ -420,6 +534,20 @@ window.ProgressionPilotData = {
                 "reading": "wǒ xiǎng huí jiā",
                 "role": "Toi",
                 "kind": "learner"
+              }
+            },
+            {
+              "id": "rest",
+              "label": "Me reposer",
+              "utterance": {
+                "id": "zh-deck-226",
+                "study": "我想休息",
+                "phon": "ouo chyang chyoou chi",
+                "native": "je veux me reposer",
+                "reading": "wǒ xiǎng xiū xi",
+                "role": "Toi",
+                "kind": "learner",
+                "editorialNote": "Phonétique proposée pour cet essai"
               }
             }
           ]
@@ -433,87 +561,115 @@ window.ProgressionPilotData = {
         "study": "ko"
       },
       "title": "Commander une boisson",
-      "levelLabel": "Essai du chemin L1",
-      "goal": "Demander une boisson, en changer, comprendre ce que demande le serveur.",
+      "levelLabel": "Essai de progression · niveau à positionner",
+      "goal": "Demander du café ou de l’eau, comprendre le serveur et sa confirmation.",
       "steps": [
         {
           "id": "ko-understand",
+          "stage": "understand",
           "phase": "Comprendre",
           "title": "Tu demandes un café",
           "instruction": "Au café, tu souhaites commander. Écoute la demande complète et retrouve son sens.",
-          "novelty": "Première demande complète, sans quantité ni ajout.",
+          "novelty": "Demande polie sans quantité ni ajout. Traduction française proposée dans cet essai ; L1-03 source reste inchangé.",
           "utterances": [
             {
               "id": "L1-fr-ko-03-v0",
               "study": "커피 주세요.",
               "phon": "keo-pi djou-sé-yo",
-              "native": "Je veux un café.",
+              "native": "Un café, s’il vous plaît.",
               "reading": "keopi juseyo.",
               "role": "Client",
-              "kind": "learner"
+              "kind": "learner",
+              "editorialNote": "Traduction proposée pour cet essai"
             }
           ]
         },
         {
           "id": "ko-imitate",
+          "stage": "imitate",
           "phase": "Imiter",
           "title": "Redis la même demande",
           "instruction": "Écoute, puis répète si tu le souhaites.",
-          "novelty": "Aucune phrase nouvelle.",
+          "novelty": "Même phrase complète, sans nouveauté.",
           "utterances": [
             {
               "id": "L1-fr-ko-03-v0",
               "study": "커피 주세요.",
               "phon": "keo-pi djou-sé-yo",
-              "native": "Je veux un café.",
+              "native": "Un café, s’il vous plaît.",
               "reading": "keopi juseyo.",
               "role": "Client",
-              "kind": "learner"
+              "kind": "learner",
+              "editorialNote": "Traduction proposée pour cet essai"
             }
           ]
         },
         {
-          "id": "ko-substitute",
-          "phase": "Remplacer",
+          "id": "ko-prepare-water",
+          "stage": "prepareReplacement",
+          "phase": "Préparer la suite",
           "title": "Tu préfères de l’eau",
-          "instruction": "Écoute la phrase entière. Seule la boisson change.",
-          "novelty": "물 remplace 커피 ; 주세요 reste identique.",
+          "instruction": "Écoute la phrase entière. Repère ensuite le morceau qui désigne l’eau.",
+          "novelty": "Le groupe vient de slot[1] de l’unité 03 et reste secondaire à la phrase complète.",
           "utterances": [
             {
               "id": "L1-fr-ko-03-v1",
               "study": "물 주세요.",
               "phon": "moul djou-sé-yo",
-              "native": "Je veux de l'eau.",
+              "native": "De l’eau, s’il vous plaît.",
               "reading": "mul juseyo.",
               "role": "Client",
-              "kind": "learner"
+              "kind": "learner",
+              "editorialNote": "Traduction proposée pour cet essai"
             }
-          ]
+          ],
+          "focusBrick": {
+            "id": "L1-fr-ko-03-v1-slot",
+            "study": "물",
+            "phon": "moul",
+            "native": "de l'eau",
+            "reading": "mul",
+            "role": "La boisson à réutiliser",
+            "kind": "brick"
+          }
         },
         {
-          "id": "ko-greeting",
-          "phase": "Comprendre l’autre",
-          "title": "On te salue",
-          "instruction": "Écoute la salutation avant de découvrir la question du serveur.",
-          "novelty": "Une salutation reçue ; sa présence ailleurs ne prouve pas qu’elle est connue.",
+          "id": "ko-substitute",
+          "stage": "replace",
+          "phase": "Remplacer",
+          "title": "Une autre boisson, la même demande",
+          "instruction": "Compare les deux demandes. Seule la boisson change.",
+          "novelty": "물 remplace 커피 ; 주세요 reste identique. La politesse n’est pas une construction réservée à L2.",
           "utterances": [
             {
-              "id": "L1-fr-ko-d1-t0",
-              "study": "안녕하세요!",
-              "phon": "an-nyeong-ha-sé-yo",
-              "native": "Bonjour !",
-              "reading": "annyeonghaseyo!",
-              "role": "Une personne au café",
-              "kind": "support"
+              "id": "L1-fr-ko-03-v0",
+              "study": "커피 주세요.",
+              "phon": "keo-pi djou-sé-yo",
+              "native": "Un café, s’il vous plaît.",
+              "reading": "keopi juseyo.",
+              "role": "Client",
+              "kind": "learner",
+              "editorialNote": "Traduction proposée pour cet essai"
+            },
+            {
+              "id": "L1-fr-ko-03-v1",
+              "study": "물 주세요.",
+              "phon": "moul djou-sé-yo",
+              "native": "De l’eau, s’il vous plaît.",
+              "reading": "mul juseyo.",
+              "role": "Client",
+              "kind": "learner",
+              "editorialNote": "Traduction proposée pour cet essai"
             }
           ]
         },
         {
           "id": "ko-received",
+          "stage": "receive",
           "phase": "Comprendre l’autre",
           "title": "Le serveur te demande ton choix",
-          "instruction": "Écoute et comprends cette question en situation. Tu n’as pas à la construire toi-même.",
-          "novelty": "Question reçue comme bloc de compréhension ; la salutation vient d’être présentée.",
+          "instruction": "Le serveur te salue et te demande ce que tu désires. Écoute sa réplique entière.",
+          "novelty": "Un seul interlocuteur. Le tour source entier est appris globalement ; aucune salutation isolée n’est ajoutée ni aucun extrait fabriqué.",
           "utterances": [
             {
               "id": "L1-fr-ko-d1-t1",
@@ -528,28 +684,51 @@ window.ProgressionPilotData = {
               "replyRequired": true,
               "answerWith": [
                 {
-                  "unitId": "L1-fr-ko-03",
-                  "variantIndex": 0,
+                  "utteranceId": "L1-fr-ko-03-v0",
                   "expectedStudy": "커피 주세요.",
                   "preparedInStep": "ko-understand"
                 },
                 {
-                  "unitId": "L1-fr-ko-03",
-                  "variantIndex": 1,
+                  "utteranceId": "L1-fr-ko-03-v1",
                   "expectedStudy": "물 주세요.",
-                  "preparedInStep": "ko-substitute"
+                  "preparedInStep": "ko-prepare-water"
                 }
               ],
-              "preparedInStep": "ko-received"
+              "introducedInStep": "ko-received"
+            }
+          ]
+        },
+        {
+          "id": "ko-received-closing",
+          "stage": "receive",
+          "phase": "Comprendre l’autre",
+          "title": "Le serveur confirme",
+          "instruction": "Écoute sa confirmation possible après ta demande.",
+          "novelty": "네. est reçu ici comme accusé de réception de la commande. Son emploi comme réponse produite sera un autre passage.",
+          "utterances": [
+            {
+              "id": "ko-deck-1",
+              "study": "네.",
+              "phon": "né",
+              "native": "Oui.",
+              "reading": "ne",
+              "role": "Serveur",
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": false,
+              "answerWith": [],
+              "introducedInStep": "ko-received-closing"
             }
           ]
         },
         {
           "id": "ko-visible",
+          "stage": "scene",
           "phase": "Échanger",
-          "title": "Une demande avec sa réponse",
-          "instruction": "Écoute le serveur, puis la réponse du client. Les deux sont visibles au premier passage.",
-          "novelty": "Les deux répliques ont été préparées séparément.",
+          "title": "Écoute l’échange complet",
+          "instruction": "Le serveur te demande ton choix, le client commande, puis le serveur confirme.",
+          "novelty": "Question, réponse préparée et clôture, sans lait, prix ou quantité nouvelle.",
           "utterances": [
             {
               "id": "L1-fr-ko-d1-t1",
@@ -564,38 +743,52 @@ window.ProgressionPilotData = {
               "replyRequired": true,
               "answerWith": [
                 {
-                  "unitId": "L1-fr-ko-03",
-                  "variantIndex": 0,
+                  "utteranceId": "L1-fr-ko-03-v0",
                   "expectedStudy": "커피 주세요.",
                   "preparedInStep": "ko-understand"
                 },
                 {
-                  "unitId": "L1-fr-ko-03",
-                  "variantIndex": 1,
+                  "utteranceId": "L1-fr-ko-03-v1",
                   "expectedStudy": "물 주세요.",
-                  "preparedInStep": "ko-substitute"
+                  "preparedInStep": "ko-prepare-water"
                 }
               ],
-              "preparedInStep": "ko-received"
+              "introducedInStep": "ko-received"
             },
             {
               "id": "L1-fr-ko-03-v0",
               "study": "커피 주세요.",
               "phon": "keo-pi djou-sé-yo",
-              "native": "Je veux un café.",
+              "native": "Un café, s’il vous plaît.",
               "reading": "keopi juseyo.",
               "role": "Client",
-              "kind": "learner"
+              "kind": "learner",
+              "editorialNote": "Traduction proposée pour cet essai"
+            },
+            {
+              "id": "ko-deck-1",
+              "study": "네.",
+              "phon": "né",
+              "native": "Oui.",
+              "reading": "ne",
+              "role": "Serveur",
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": false,
+              "answerWith": [],
+              "introducedInStep": "ko-received-closing"
             }
           ],
           "scene": true
         },
         {
           "id": "ko-choice",
+          "stage": "recall",
           "phase": "Choisir et réutiliser",
           "title": "Commande selon ton envie",
           "instruction": "Choisis la boisson. Essaie avec le modèle ou sans lui ; tu peux toujours retrouver l’aide.",
-          "novelty": "Choix entre deux demandes préparées. Aucun lait, prix ou compteur nouveau.",
+          "novelty": "Le modèle peut être masqué volontairement, les deux répliques reçues restent visibles.",
           "utterances": [
             {
               "id": "L1-fr-ko-d1-t1",
@@ -610,28 +803,41 @@ window.ProgressionPilotData = {
               "replyRequired": true,
               "answerWith": [
                 {
-                  "unitId": "L1-fr-ko-03",
-                  "variantIndex": 0,
+                  "utteranceId": "L1-fr-ko-03-v0",
                   "expectedStudy": "커피 주세요.",
                   "preparedInStep": "ko-understand"
                 },
                 {
-                  "unitId": "L1-fr-ko-03",
-                  "variantIndex": 1,
+                  "utteranceId": "L1-fr-ko-03-v1",
                   "expectedStudy": "물 주세요.",
-                  "preparedInStep": "ko-substitute"
+                  "preparedInStep": "ko-prepare-water"
                 }
               ],
-              "preparedInStep": "ko-received"
+              "introducedInStep": "ko-received"
             },
             {
               "id": "L1-fr-ko-03-v0",
               "study": "커피 주세요.",
               "phon": "keo-pi djou-sé-yo",
-              "native": "Je veux un café.",
+              "native": "Un café, s’il vous plaît.",
               "reading": "keopi juseyo.",
               "role": "Client",
-              "kind": "learner"
+              "kind": "learner",
+              "editorialNote": "Traduction proposée pour cet essai"
+            },
+            {
+              "id": "ko-deck-1",
+              "study": "네.",
+              "phon": "né",
+              "native": "Oui.",
+              "reading": "ne",
+              "role": "Serveur",
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": false,
+              "answerWith": [],
+              "introducedInStep": "ko-received-closing"
             }
           ],
           "scene": true,
@@ -644,10 +850,11 @@ window.ProgressionPilotData = {
                 "id": "L1-fr-ko-03-v0",
                 "study": "커피 주세요.",
                 "phon": "keo-pi djou-sé-yo",
-                "native": "Je veux un café.",
+                "native": "Un café, s’il vous plaît.",
                 "reading": "keopi juseyo.",
                 "role": "Client",
-                "kind": "learner"
+                "kind": "learner",
+                "editorialNote": "Traduction proposée pour cet essai"
               }
             },
             {
@@ -657,10 +864,11 @@ window.ProgressionPilotData = {
                 "id": "L1-fr-ko-03-v1",
                 "study": "물 주세요.",
                 "phon": "moul djou-sé-yo",
-                "native": "Je veux de l'eau.",
+                "native": "De l’eau, s’il vous plaît.",
                 "reading": "mul juseyo.",
                 "role": "Client",
-                "kind": "learner"
+                "kind": "learner",
+                "editorialNote": "Traduction proposée pour cet essai"
               }
             }
           ]
@@ -798,6 +1006,9 @@ window.ProgressionPilotData = {
     const native = element('p','native',item.native);
     native.lang = pilot().pair.native;
     card.append(native);
+    // Proposal notes may describe the model. Keep them out of the recall DOM
+    // for every role, not only when the learner card itself is masked.
+    if (!state.modelHidden && item.editorialNote) card.append(element('p','utterance-editorial-note',item.editorialNote));
     const support = renderFocusBrick(focusBrick);
     if (support) card.append(support);
     return card;
@@ -888,7 +1099,7 @@ window.ProgressionPilotData = {
   });
   byId('previous-step').addEventListener('click',function () { move(state.stepIndex - 1); });
   byId('next-step').addEventListener('click',function () { move(state.stepIndex + 1); });
-  byId('source-line').textContent = 'Source ' + String(data.sourceCommit || '').slice(0,7) + ' · Contenus à relire';
+  byId('source-line').textContent = 'Source ' + String(data.sourceCommit || '').slice(0,7) + ' · Propositions locales à relire';
   window.addEventListener('pagehide',stopAudio);
   render();
 })();

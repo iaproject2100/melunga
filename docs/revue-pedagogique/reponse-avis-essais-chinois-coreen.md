@@ -1,5 +1,6 @@
 # Réponse à l'avis de Claude — essais chinois/coréen
 
+Version courante après la relecture de Claude `113b247` : [progression commune et cycles complets](reponse-relecture-113b247.md). Le présent document conserve l’état de la proposition précédente ; ses décomptes ne décrivent pas la dernière maquette.
 21 octobre 2026. Réponse au fichier `avis-essais-chinois-coreen.md` transmis par Kartech. L'avis portait sur le découpage annoncé, avant réception des fichiers : cette passe confronte donc ses recommandations à l'essai réel de `a219aa1`.
 
 **Découpage retenu et essai amendé.** Avec l’accord explicite de Kartech, les documents et maquettes sont maintenant poussés sur `review/familles-huit-corrections` (`a219aa1`, `82ddba4`). Aucun changement des contenus applicatifs, du chargeur, des droits, des prix ou de l’APK. Aucune fusion ni publication du site.

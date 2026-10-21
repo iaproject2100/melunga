@@ -1,0 +1,102 @@
+{
+  "sourceCommit": "db01b1c8eb99db237a56663253f31ee41c40ca67",
+  "scope": {
+    "catalogueCards": 4903,
+    "conversationPair": "fr→zh",
+    "pairFiles": 10,
+    "repositoryLevelFiles": 110,
+    "pairs": {
+      "en→es": 10,
+      "en→it": 10,
+      "en→ja": 10,
+      "en→zh": 10,
+      "fr→en": 10,
+      "fr→es": 10,
+      "fr→it": 10,
+      "fr→ja": 10,
+      "fr→ko": 10,
+      "fr→zh": 10,
+      "zh→fr": 10
+    }
+  },
+  "method": "Exact Unicode word-boundary tokens, case-sensitive. Catalogue: phf per card. Conversation: model/variant/turn phon, excluding slots in the headline count.",
+  "counts": {
+    "chyang": {
+      "catalogueCardsContainingToken": 170,
+      "catalogueTokenOccurrences": 184,
+      "conversationFieldsExcludingSlots": 0,
+      "conversationByFieldType": {},
+      "conversationTokenOccurrencesExcludingSlots": 0
+    },
+    "siang": {
+      "catalogueCardsContainingToken": 1,
+      "catalogueTokenOccurrences": 1,
+      "conversationFieldsExcludingSlots": 24,
+      "conversationByFieldType": {
+        "variant": 11,
+        "slot": 3,
+        "turn": 11,
+        "model": 2
+      },
+      "conversationTokenOccurrencesExcludingSlots": 24
+    },
+    "tchu": {
+      "catalogueCardsContainingToken": 155,
+      "catalogueTokenOccurrences": 157,
+      "conversationFieldsExcludingSlots": 0,
+      "conversationByFieldType": {},
+      "conversationTokenOccurrencesExcludingSlots": 0
+    },
+    "tchü": {
+      "catalogueCardsContainingToken": 0,
+      "catalogueTokenOccurrences": 0,
+      "conversationFieldsExcludingSlots": 77,
+      "conversationByFieldType": {
+        "model": 7,
+        "variant": 47,
+        "turn": 23,
+        "slot": 20
+      },
+      "conversationTokenOccurrencesExcludingSlots": 78
+    },
+    "si-houan": {
+      "catalogueCardsContainingToken": 0,
+      "catalogueTokenOccurrences": 0,
+      "conversationFieldsExcludingSlots": 31,
+      "conversationByFieldType": {
+        "model": 4,
+        "variant": 19,
+        "turn": 8,
+        "slot": 3
+      },
+      "conversationTokenOccurrencesExcludingSlots": 31
+    },
+    "chi-houan": {
+      "catalogueCardsContainingToken": 0,
+      "catalogueTokenOccurrences": 0,
+      "conversationFieldsExcludingSlots": 0,
+      "conversationByFieldType": {},
+      "conversationTokenOccurrencesExcludingSlots": 0
+    }
+  },
+  "distinctCandidateFieldsForReview": 55,
+  "limitations": [
+    "Counts of notation fields, not counts of one Chinese word or acquired skills.",
+    "Models include templates; the same phrase may occur in several fields.",
+    "Tokens are not automatically aligned with source characters.",
+    "No replacement performed; reader-specific and native review required."
+  ],
+  "sha256": {
+    "melunga_deploy/app.html": "945a8befad41fd70c7dbbd29ea91d863451a15e750456aee4de73df3fcaf11bb",
+    "melunga_deploy/content/conversation/L1-fr-zh.json": "798b987d60f6a95a9e4fa869e22e8fae949d4ce62c273b887aeb95e4c4466147",
+    "melunga_deploy/content/conversation/L10-fr-zh.json": "fa702fc08d4debce4a3bb353da954efb624058794f351d97ba404d0ea66302f2",
+    "melunga_deploy/content/conversation/L2-fr-zh.json": "384340dc305f9a71c4ce2d576a03768378d818643fda9c6a5e41f859288fff40",
+    "melunga_deploy/content/conversation/L3-fr-zh.json": "e9a98a2abf44e80cc25c5da593d4798deeb60b88f142994ea952d0be39ebe7f8",
+    "melunga_deploy/content/conversation/L4-fr-zh.json": "4afac71b61e6b2ea190bb3eccc0d09f0b367a83cbd3eb68e78233ef0c0b8dfe0",
+    "melunga_deploy/content/conversation/L5-fr-zh.json": "a62ba696b68d04290742004c95b5ac40cf8c87e1eca402439c83b3406fbe8ae8",
+    "melunga_deploy/content/conversation/L6-fr-zh.json": "2ff7f027d64800304da224fffb83a413268677373064d8c36029abe7c4730808",
+    "melunga_deploy/content/conversation/L7-fr-zh.json": "a1a06b0162b579daf5528ab6602edb780c765a0491e06232a1d5952b7fb3cf07",
+    "melunga_deploy/content/conversation/L8-fr-zh.json": "572fa041e3c1a23ad15e5463a32b34ebb1491561798c4638274922f725744fab",
+    "melunga_deploy/content/conversation/L9-fr-zh.json": "a35202569ca3728b0961962f8b5aa37e35905018f9901c7e36c7bc8ed620431e"
+  }
+}

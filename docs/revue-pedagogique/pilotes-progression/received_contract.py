@@ -35,7 +35,7 @@ def validate_received(root, pilots, sources, contracts):
     seen = set()
     pending = []
     for contract in contracts:
-        require(type(contract.get('version')) is int and contract['version'] == 1, 'Unsupported received version')
+        require(type(contract.get('version')) is int and contract['version'] == 2, 'Unsupported received version')
         require(bool(re.fullmatch(r'[a-f0-9]{40}', contract.get('sourceCommit', ''))), 'Invalid source commit')
         require(contract.get('sceneType') == 'recomposition-pilote', 'Pilot and original dialogue must remain distinct')
         pilot = by_pilot.get(contract.get('sceneId'))
@@ -80,15 +80,18 @@ def validate_received(root, pilots, sources, contracts):
                 require(turn['speaker'] in ('A', 'B') and turn['speaker'] != role, 'Received turn belongs to learner')
                 require(source.get('dialogueId') == dialogue['id'] and source.get('turnIndex') == index,
                         'Dialogue source reference mismatch')
-                require(all(turn.get(f) == phrase.get(f) for f in ('study', 'phon', 'native', 'reading')),
+                require(all(turn.get(f) == source.get('original', phrase).get(f) for f in ('study', 'phon', 'native', 'reading')),
                         'Original turn or its aids changed')
             else:
                 raise ValueError('Unknown received source type')
             require(entry.get('analyse') is False, 'Received must be presented as a whole')
             require(entry.get('countsAsProduction') is False, 'Received cannot count as production')
-            preparation = entry.get('preparedInStep')
-            require(preparation in steps, 'Unknown received preparation step')
-            require(any(u['id'] == uid for u in steps[preparation]['utterances']), 'Received preparation does not present the source')
+            require('preparedInStep' not in entry, 'Use introducedInStep for a received presentation')
+            preparation = entry.get('introducedInStep')
+            require(preparation in steps, 'Unknown received introduction step')
+            require(any(u['id'] == uid for u in steps[preparation]['utterances']), 'Received introduction does not present the source')
+            first_presentation = min(order[s['id']] for s in pilot['steps'] if any(u['id'] == uid for u in s['utterances']))
+            require(order[preparation] == first_presentation, 'introducedInStep must identify the first presentation')
             scenes = [s for s in pilot['steps'] if s.get('scene') and any(u['id'] == uid for u in s['utterances'])]
             require(bool(scenes), 'Received source is not used in any scene')
             first_scene = min(order[s['id']] for s in scenes)
@@ -99,11 +102,10 @@ def validate_received(root, pilots, sources, contracts):
             require(bool(answers) == entry['replyRequired'], 'Reply requirement and answer list disagree')
             answer_ids = set()
             for answer in answers:
-                candidates = [s for s in sources if s.get('unitId') == answer.get('unitId') and
-                              s.get('variantIndex') == answer.get('variantIndex') and 'unitId' in s]
-                require(type(answer.get('variantIndex')) is int and len(candidates) == 1,
-                        'Answer must identify one exact variant')
-                candidate = candidates[0]
+                require(set(answer) == {'utteranceId', 'expectedStudy', 'preparedInStep'},
+                        'Answer must identify one registered whole phrase and its preparation')
+                candidate = by_source.get(answer.get('utteranceId'))
+                require(candidate is not None, 'Unknown exact answer source')
                 require((candidate.get('nativeLanguage'), candidate.get('studyLanguage')) ==
                         (pilot['pair']['native'], pilot['pair']['study']), 'Answer source pair mismatch')
                 require(candidate['expected']['kind'] == 'learner', 'Answer is not a productive phrase')
@@ -133,7 +135,7 @@ def validate_received(root, pilots, sources, contracts):
     require(seen == used, 'Missing or unused received contract')
     # Apply only after all contracts pass. No partial annotation on failure.
     for phrase, entry in pending:
-        for field in ('analyse', 'countsAsProduction', 'replyRequired', 'answerWith', 'preparedInStep'):
+        for field in ('analyse', 'countsAsProduction', 'replyRequired', 'answerWith', 'introducedInStep'):
             phrase[field] = entry[field]
     return {'scenes': len(contracts), 'receivedSources': len(pending),
             'answerReferences': sum(len(e['answerWith']) for _, e in pending),

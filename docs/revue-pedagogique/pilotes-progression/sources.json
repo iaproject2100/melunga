@@ -1,7 +1,7 @@
 {
-  "status": "references-exactes-non-validation-native",
-  "sourceCommit": "a219aa10d2e59f0a229f5891da8d86e4eafcefb9",
-  "uniqueSources": 8,
+  "status": "provenance-verifiee-avec-propositions-locales-declarees",
+  "sourceCommit": "db01b1c8eb99db237a56663253f31ee41c40ca67",
+  "uniqueSources": 10,
   "pairs": [
     {
       "native": "fr",
@@ -29,12 +29,29 @@
       "expected": {
         "id": "zh-deck-226",
         "study": "我想休息",
-        "phon": "ouo chyang chyo chi",
+        "phon": "ouo chyang chyoou chi",
         "native": "je veux me reposer",
         "reading": "wǒ xiǎng xiū xi",
         "role": "Toi",
-        "kind": "learner"
-      }
+        "kind": "learner",
+        "editorialNote": "Phonétique proposée pour cet essai"
+      },
+      "original": {
+        "study": "我想休息",
+        "phon": "ouo chyang chyo chi",
+        "native": "je veux me reposer",
+        "reading": "wǒ xiǎng xiū xi"
+      },
+      "editorialChanges": [
+        {
+          "id": "zh-xiu-diphtongue",
+          "utteranceId": "zh-deck-226",
+          "field": "phon",
+          "expectedSource": "ouo chyang chyo chi",
+          "proposed": "ouo chyang chyoou chi",
+          "reason": "Proposition relue par Claude pour mieux conserver la finale de xiū ; écouter et relire avec un locuteur. La carte du catalogue reste inchangée."
+        }
+      ]
     },
     {
       "id": "zh-deck-416",
@@ -57,6 +74,12 @@
         "reading": "wǒ xiǎng huí jiā",
         "role": "Toi",
         "kind": "learner"
+      },
+      "original": {
+        "study": "我想回家",
+        "phon": "ouo chyang houèï djya",
+        "native": "je veux rentrer à la maison",
+        "reading": "wǒ xiǎng huí jiā"
       }
     },
     {
@@ -80,6 +103,57 @@
         "reading": "huí jiā",
         "role": "Le morceau à réutiliser",
         "kind": "brick"
+      },
+      "original": {
+        "study": "回家",
+        "phon": "houèï djya",
+        "native": "rentrer à la maison",
+        "reading": "huí jiā"
+      }
+    },
+    {
+      "id": "zh-deck-511",
+      "file": "melunga_deploy/app.html",
+      "nativeLanguage": "fr",
+      "studyLanguage": "zh",
+      "locator": "DECKS.zh[511]",
+      "historicalLevel": 3,
+      "fields": {
+        "study": "t",
+        "phon": "phf",
+        "native": "frm",
+        "reading": "py"
+      },
+      "expected": {
+        "id": "zh-deck-511",
+        "study": "你想好了吗？",
+        "phon": "ni chyang hao le ma?",
+        "native": "Tu as décidé ?",
+        "reading": "nǐ xiǎng hǎo le ma?",
+        "role": "Un proche",
+        "kind": "received",
+        "analyse": false,
+        "countsAsProduction": false,
+        "replyRequired": true,
+        "answerWith": [
+          {
+            "utteranceId": "zh-deck-226",
+            "expectedStudy": "我想休息",
+            "preparedInStep": "zh-understand"
+          },
+          {
+            "utteranceId": "zh-deck-416",
+            "expectedStudy": "我想回家",
+            "preparedInStep": "zh-prepare-home"
+          }
+        ],
+        "introducedInStep": "zh-received-question"
+      },
+      "original": {
+        "study": "你想好了吗？",
+        "phon": "ni chyang hao le ma?",
+        "native": "Tu as décidé ?",
+        "reading": "nǐ xiǎng hǎo le ma?"
       }
     },
     {
@@ -107,7 +181,13 @@
         "countsAsProduction": false,
         "replyRequired": false,
         "answerWith": [],
-        "preparedInStep": "zh-received"
+        "introducedInStep": "zh-received"
+      },
+      "original": {
+        "study": "好的",
+        "phon": "hao deu",
+        "native": "d'accord",
+        "reading": "hǎo de"
       }
     },
     {
@@ -116,16 +196,33 @@
       "nativeLanguage": "fr",
       "studyLanguage": "ko",
       "unitId": "L1-fr-ko-03",
-      "variantIndex": 0,
       "expected": {
         "id": "L1-fr-ko-03-v0",
         "study": "커피 주세요.",
         "phon": "keo-pi djou-sé-yo",
-        "native": "Je veux un café.",
+        "native": "Un café, s’il vous plaît.",
         "reading": "keopi juseyo.",
         "role": "Client",
-        "kind": "learner"
-      }
+        "kind": "learner",
+        "editorialNote": "Traduction proposée pour cet essai"
+      },
+      "variantIndex": 0,
+      "original": {
+        "study": "커피 주세요.",
+        "phon": "keo-pi djou-sé-yo",
+        "native": "Je veux un café.",
+        "reading": "keopi juseyo."
+      },
+      "editorialChanges": [
+        {
+          "id": "ko-coffee-polite-request",
+          "utteranceId": "L1-fr-ko-03-v0",
+          "field": "native",
+          "expectedSource": "Je veux un café.",
+          "proposed": "Un café, s’il vous plaît.",
+          "reason": "Rendre la fonction de demande polie de 주세요 dans l'essai ; correction de la source L1-03 et de ses générateurs en attente de décision."
+        }
+      ]
     },
     {
       "id": "L1-fr-ko-03-v1",
@@ -133,34 +230,55 @@
       "nativeLanguage": "fr",
       "studyLanguage": "ko",
       "unitId": "L1-fr-ko-03",
-      "variantIndex": 1,
       "expected": {
         "id": "L1-fr-ko-03-v1",
         "study": "물 주세요.",
         "phon": "moul djou-sé-yo",
-        "native": "Je veux de l'eau.",
+        "native": "De l’eau, s’il vous plaît.",
         "reading": "mul juseyo.",
         "role": "Client",
-        "kind": "learner"
-      }
+        "kind": "learner",
+        "editorialNote": "Traduction proposée pour cet essai"
+      },
+      "variantIndex": 1,
+      "original": {
+        "study": "물 주세요.",
+        "phon": "moul djou-sé-yo",
+        "native": "Je veux de l'eau.",
+        "reading": "mul juseyo."
+      },
+      "editorialChanges": [
+        {
+          "id": "ko-water-polite-request",
+          "utteranceId": "L1-fr-ko-03-v1",
+          "field": "native",
+          "expectedSource": "Je veux de l'eau.",
+          "proposed": "De l’eau, s’il vous plaît.",
+          "reason": "Rendre la fonction de demande polie de 주세요 dans l'essai ; aucun fichier conversation modifié."
+        }
+      ]
     },
     {
-      "id": "L1-fr-ko-d1-t0",
+      "id": "L1-fr-ko-03-v1-slot",
       "file": "melunga_deploy/content/conversation/L1-fr-ko.json",
       "nativeLanguage": "fr",
       "studyLanguage": "ko",
-      "dialogueId": "L1-fr-ko-d1",
-      "turnIndex": 0,
-      "speaker": "A",
-      "learnerRole": "A",
+      "unitId": "L1-fr-ko-03",
       "expected": {
-        "id": "L1-fr-ko-d1-t0",
-        "study": "안녕하세요!",
-        "phon": "an-nyeong-ha-sé-yo",
-        "native": "Bonjour !",
-        "reading": "annyeonghaseyo!",
-        "role": "Une personne au café",
-        "kind": "support"
+        "id": "L1-fr-ko-03-v1-slot",
+        "study": "물",
+        "phon": "moul",
+        "native": "de l'eau",
+        "reading": "mul",
+        "role": "La boisson à réutiliser",
+        "kind": "brick"
+      },
+      "slotOfVariant": 1,
+      "original": {
+        "study": "물",
+        "phon": "moul",
+        "native": "de l'eau",
+        "reading": "mul"
       }
     },
     {
@@ -185,19 +303,57 @@
         "replyRequired": true,
         "answerWith": [
           {
-            "unitId": "L1-fr-ko-03",
-            "variantIndex": 0,
+            "utteranceId": "L1-fr-ko-03-v0",
             "expectedStudy": "커피 주세요.",
             "preparedInStep": "ko-understand"
           },
           {
-            "unitId": "L1-fr-ko-03",
-            "variantIndex": 1,
+            "utteranceId": "L1-fr-ko-03-v1",
             "expectedStudy": "물 주세요.",
-            "preparedInStep": "ko-substitute"
+            "preparedInStep": "ko-prepare-water"
           }
         ],
-        "preparedInStep": "ko-received"
+        "introducedInStep": "ko-received"
+      },
+      "original": {
+        "study": "안녕하세요. 뭐 드릴까요?",
+        "phon": "an-nyeong-ha-sé-yo. mwo deu-ril-kka-yo",
+        "native": "Bonjour. Vous désirez ?",
+        "reading": "annyeonghaseyo. mwo deurilkkayo?"
+      }
+    },
+    {
+      "id": "ko-deck-1",
+      "file": "melunga_deploy/app.html",
+      "nativeLanguage": "fr",
+      "studyLanguage": "ko",
+      "locator": "DECKS.ko[1]",
+      "historicalLevel": 1,
+      "fields": {
+        "study": "t",
+        "phon": "pf",
+        "native": "frm",
+        "reading": "py"
+      },
+      "expected": {
+        "id": "ko-deck-1",
+        "study": "네.",
+        "phon": "né",
+        "native": "Oui.",
+        "reading": "ne",
+        "role": "Serveur",
+        "kind": "received",
+        "analyse": false,
+        "countsAsProduction": false,
+        "replyRequired": false,
+        "answerWith": [],
+        "introducedInStep": "ko-received-closing"
+      },
+      "original": {
+        "study": "네.",
+        "phon": "né",
+        "native": "Oui.",
+        "reading": "ne"
       }
     }
   ],
@@ -205,23 +361,67 @@
     "melunga_deploy/app.html": "945a8befad41fd70c7dbbd29ea91d863451a15e750456aee4de73df3fcaf11bb",
     "melunga_deploy/content/conversation/L1-fr-ko.json": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97"
   },
+  "editorialAmendments": {
+    "status": "propositions-locales-sans-modification-des-sources",
+    "count": 3,
+    "sourceFilesChanged": false,
+    "changes": [
+      {
+        "id": "zh-xiu-diphtongue",
+        "utteranceId": "zh-deck-226",
+        "field": "phon",
+        "expectedSource": "ouo chyang chyo chi",
+        "proposed": "ouo chyang chyoou chi",
+        "reason": "Proposition relue par Claude pour mieux conserver la finale de xiū ; écouter et relire avec un locuteur. La carte du catalogue reste inchangée."
+      },
+      {
+        "id": "ko-coffee-polite-request",
+        "utteranceId": "L1-fr-ko-03-v0",
+        "field": "native",
+        "expectedSource": "Je veux un café.",
+        "proposed": "Un café, s’il vous plaît.",
+        "reason": "Rendre la fonction de demande polie de 주세요 dans l'essai ; correction de la source L1-03 et de ses générateurs en attente de décision."
+      },
+      {
+        "id": "ko-water-polite-request",
+        "utteranceId": "L1-fr-ko-03-v1",
+        "field": "native",
+        "expectedSource": "Je veux de l'eau.",
+        "proposed": "De l’eau, s’il vous plaît.",
+        "reason": "Rendre la fonction de demande polie de 주세요 dans l'essai ; aucun fichier conversation modifié."
+      }
+    ]
+  },
   "receivedContracts": {
     "scenes": 2,
-    "receivedSources": 2,
-    "answerReferences": 2,
-    "noReplyClosings": 1,
+    "receivedSources": 4,
+    "answerReferences": 4,
+    "noReplyClosings": 2,
+    "learnerAcquisitionValidated": false
+  },
+  "progression": {
+    "sharedOrder": [
+      "understand",
+      "imitate",
+      "prepareReplacement",
+      "replace",
+      "receive",
+      "scene",
+      "recall"
+    ],
+    "completePilotScenes": 4,
     "learnerAcquisitionValidated": false
   },
   "plannedSourcesByUse": {
     "learner": 4,
-    "received": 2,
-    "support": 1,
-    "brick": 1
+    "received": 4,
+    "brick": 2
   },
   "limitations": [
     "Deux pilotes seulement, pas une correction complète L1–L10.",
     "Mini-échanges recomposés, pas de dialogues source remplacés.",
-    "Phonétiques copiées ; relecture native et écoute réelle requises.",
+    "Trois corrections locales proposées et tracées ; sources inchangées.",
+    "Relecture native et écoute réelle requises.",
     "Ni compréhension, ni prononciation, ni maîtrise évaluées."
   ]
 }

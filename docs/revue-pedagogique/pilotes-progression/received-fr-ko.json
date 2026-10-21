@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "status": "proposition-locale-a-relire",
-  "sourceCommit": "a219aa10d2e59f0a229f5891da8d86e4eafcefb9",
+  "sourceCommit": "db01b1c8eb99db237a56663253f31ee41c40ca67",
   "nativeLanguage": "fr",
   "studyLanguage": "ko",
   "sceneId": "fr-ko-demande",
@@ -19,22 +19,34 @@
       },
       "analyse": false,
       "countsAsProduction": false,
-      "preparedInStep": "ko-received",
+      "introducedInStep": "ko-received",
       "replyRequired": true,
       "answerWith": [
         {
-          "unitId": "L1-fr-ko-03",
-          "variantIndex": 0,
+          "utteranceId": "L1-fr-ko-03-v0",
           "expectedStudy": "커피 주세요.",
           "preparedInStep": "ko-understand"
         },
         {
-          "unitId": "L1-fr-ko-03",
-          "variantIndex": 1,
+          "utteranceId": "L1-fr-ko-03-v1",
           "expectedStudy": "물 주세요.",
-          "preparedInStep": "ko-substitute"
+          "preparedInStep": "ko-prepare-water"
         }
       ]
+    },
+    {
+      "utteranceId": "ko-deck-1",
+      "source": {
+        "type": "catalogue",
+        "language": "ko",
+        "sourceIndex": 1,
+        "expectedStudy": "네."
+      },
+      "analyse": false,
+      "countsAsProduction": false,
+      "introducedInStep": "ko-received-closing",
+      "replyRequired": false,
+      "answerWith": []
     }
   ]
 }

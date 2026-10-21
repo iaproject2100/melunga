@@ -1,5 +1,6 @@
 # Reprise du contenu avec Claude — deux premiers essais de progression
 
+Version courante après la relecture de Claude `113b247` : [progression commune et cycles complets](reponse-relecture-113b247.md). Le présent document conserve l’état de la proposition précédente ; ses décomptes ne décrivent pas la dernière maquette.
 21 octobre 2026. **Proposition locale à relire**, sur `review/familles-huit-corrections`. Aucun fichier de `melunga_deploy`, catalogue, chargeur, prix ou droit n'est modifié par ce lot. Aucun essai APK ni publication. Les propositions de parcours et d'offre ne deviennent pas des décisions par leur présence dans ce document.
 
 Actualisation après l'avis de Claude : voir [la réponse et les amendements](reponse-avis-essais-chinois-coreen.md). Le pilote prépare maintenant 回家 avant substitution et formalise les reçus dans deux annexes d'essai. Les décomptes ci-dessous sont actualisés.

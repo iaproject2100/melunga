@@ -1,28 +1,70 @@
 {
   "checkedOn": "2026-10-21",
-  "sourceCommit": "a219aa10d2e59f0a229f5891da8d86e4eafcefb9",
+  "sourceCommit": "db01b1c8eb99db237a56663253f31ee41c40ca67",
   "sourceReferences": {
-    "count": 8,
-    "completePhrases": 7,
-    "supportGroups": 1,
+    "count": 10,
+    "completePhrases": 8,
+    "supportGroups": 2,
     "supportIsStandaloneMainPhrase": false
+  },
+  "sourceAnchors": {
+    "sourceCommit": "db01b1c8eb99db237a56663253f31ee41c40ca67",
+    "sourceReferences": 10,
+    "completePhrases": 8,
+    "supportGroups": 2,
+    "pilots": [
+      {
+        "id": "fr-zh-envie",
+        "steps": 8
+      },
+      {
+        "id": "fr-ko-demande",
+        "steps": 8
+      }
+    ],
+    "scenes": 4,
+    "checkedOccurrences": 32,
+    "editorialAmendments": [
+      {
+        "id": "zh-xiu-diphtongue",
+        "utteranceId": "zh-deck-226",
+        "field": "phon",
+        "raw": "ouo chyang chyo chi",
+        "proposed": "ouo chyang chyoou chi"
+      },
+      {
+        "id": "ko-coffee-polite-request",
+        "utteranceId": "L1-fr-ko-03-v0",
+        "field": "native",
+        "raw": "Je veux un café.",
+        "proposed": "Un café, s’il vous plaît."
+      },
+      {
+        "id": "ko-water-polite-request",
+        "utteranceId": "L1-fr-ko-03-v1",
+        "field": "native",
+        "raw": "Je veux de l'eau.",
+        "proposed": "De l’eau, s’il vous plaît."
+      }
+    ],
+    "sourceRawAndProposalSeparated": true
   },
   "prototype": {
     "views": [
       {
         "width": 320,
         "height": 568,
-        "steps": 14
+        "steps": 16
       },
       {
         "width": 390,
         "height": 844,
-        "steps": 14
+        "steps": 16
       },
       {
         "width": 1440,
         "height": 900,
-        "steps": 14
+        "steps": 16
       }
     ],
     "errors": [],
@@ -34,17 +76,17 @@
       {
         "width": 320,
         "height": 568,
-        "steps": 14
+        "steps": 16
       },
       {
         "width": 390,
         "height": 844,
-        "steps": 14
+        "steps": 16
       },
       {
         "width": 1440,
         "height": 900,
-        "steps": 14
+        "steps": 16
       }
     ],
     "errors": [],
@@ -52,11 +94,13 @@
     "writes": []
   },
   "checks": [
-    "14 étapes sur chaque format, phrases et aides principales identiques aux données",
-    "Badge À comprendre sur toutes les répliques reçues ; elles restent visibles au rappel",
-    "Appui 回家 secondaire sous la phrase complète, texte et aides exacts, sans collage",
+    "16 étapes, soit huit par pilote, sur chaque format ; valeurs affichées identiques à data.js",
+    "Question, réponse apprenant et clôture dans les quatre scènes visible/rappel des deux pilotes",
+    "Badge À comprendre sur toutes les répliques reçues, y compris la clôture ; elles restent visibles au rappel",
+    "Appuis 回家 et 물 secondaires sous la phrase complète, textes et aides exacts, sans collage",
+    "Trois propositions locales étiquetées ; valeurs brutes et propositions distinctes dans la provenance hors interface",
     "Audio simulé : phrase complète ou groupe complet exact et langue zh-CN/ko-KR",
-    "Réponse apprenant retirée du DOM au rappel ; choix conservant le masquage ; restauration de l’aide",
+    "Réponse apprenant et notes de proposition retirées du DOM au rappel ; choix conservant le masquage ; restauration de l’aide",
     "Fixture uniquement en mémoire : appui fourni au rappel retiré du DOM avec le modèle",
     "Oreilles au moins 44 px, clavier, absence de débordement horizontal"
   ],
