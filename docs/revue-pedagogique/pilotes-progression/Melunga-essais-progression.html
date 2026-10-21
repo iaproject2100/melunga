@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Melunga · Essais de progression</title>
+  <style>
+:root {
+  color-scheme: light;
+  --ink: #193c48;
+  --muted: #526875;
+  --line: rgba(52, 82, 98, .16);
+  --blue: #235c77;
+  --teal: #206d62;
+  --warm: #f4eadc;
+  --glass: rgba(255, 255, 255, .68);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  background: #f4f1e9;
+  color: var(--ink);
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 280px; background: radial-gradient(ellipse at 8% 0, #efddc5 0, transparent 43%), radial-gradient(ellipse at 100% 25%, #dceaf0 0, transparent 50%), #f5f3ec; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; cursor: pointer; }
+button:disabled { cursor: default; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid #256d80; outline-offset: 4px; }
+[hidden] { display: none !important; }
+.skip-link { position: fixed; top: 8px; left: 8px; z-index: 10; transform: translateY(-180%); padding: 12px; border-radius: 10px; background: #fff; color: var(--ink); }
+.skip-link:focus { transform: none; }
+.page-shell { width: min(1100px, calc(100% - 80px)); margin: 0 auto; padding-bottom: 20px; }
+.page-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 112px; border-bottom: 1px solid var(--line); }
+.brand { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); font-weight: 760; font-size: 24px; letter-spacing: -.7px; text-decoration: none; }
+.brand > svg { width: 43px; height: 43px; padding: 9px; border: 1px solid rgba(255,255,255,.9); border-radius: 14px; background: rgba(255,255,255,.5); color: var(--blue); box-shadow: 0 4px 18px rgba(36,67,73,.04); }
+.brand small { display: block; margin-top: 2px; color: var(--muted); font-size: 12px; font-weight: 500; letter-spacing: .1px; }
+.local-mark { padding: 7px 11px; border: 1px solid var(--line); border-radius: 20px; color: var(--muted); background: rgba(255,255,255,.35); font-size: 12px; white-space: nowrap; }
+.pilot-switch { display: inline-flex; flex-wrap: wrap; gap: 6px; margin: 28px 0 36px; padding: 5px; border: 1px solid rgba(255,255,255,.9); border-radius: 16px; background: rgba(255,255,255,.44); }
+.pilot-button { display: flex; align-items: center; gap: 11px; min-height: 50px; padding: 10px 19px; border: 1px solid transparent; border-radius: 11px; background: transparent; color: var(--muted); text-align: left; font-size: 14px; font-weight: 650; }
+.pilot-button[aria-pressed="true"] { background: #fffdfa; border-color: #e1e7e4; color: var(--ink); box-shadow: 0 3px 10px rgba(26,58,72,.05); }
+.language-code { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: #e7eef1; color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .8px; }
+.pilot-button[aria-pressed="true"] .language-code { background: #e2eee7; color: var(--teal); }
+.workspace { display: grid; grid-template-columns: 240px minmax(0,1fr); align-items: start; gap: 52px; }
+.route-panel { padding: 11px 0; }
+.eyebrow { margin: 0 0 15px; color: var(--teal); font-size: 11px; font-weight: 750; letter-spacing: 1px; text-transform: uppercase; }
+h1 { margin: 0 0 19px; font-size: 33px; font-weight: 650; letter-spacing: -1.2px; line-height: 1.14; text-wrap: balance; }
+.route-goal { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.65; }
+.route-rule { width: 36px; height: 1px; background: #a5b9b6; margin: 27px 0 19px; }
+.route-note { color: var(--muted); font-size: 13px; line-height: 1.7; }
+.lesson-panel { min-width: 0; }
+.step-header { margin: 0 0 23px; }
+.step-meta { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin: 0 0 14px; font-size: 12px; color: var(--muted); }
+#step-phase { color: var(--blue); font-weight: 750; }
+#step-count { font-variant-numeric: tabular-nums; }
+h2 { margin: 0 0 11px; font-size: 25px; line-height: 1.25; font-weight: 650; letter-spacing: -.6px; }
+h2:focus { outline: none; }
+.instruction { max-width: 610px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.intention-choices { display: flex; flex-wrap: wrap; gap: 9px; margin: 0 0 16px; }
+.intention-button { min-height: 46px; padding: 11px 16px; border: 1px solid #c1d0cf; border-radius: 12px; background: rgba(255,255,255,.52); color: var(--ink); font-size: 14px; font-weight: 650; }
+.intention-button[aria-pressed="true"] { border-color: var(--teal); background: #e5f0e8; color: #20584f; box-shadow: inset 0 0 0 1px var(--teal); }
+.recall-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 0 0 15px; }
+.quiet-button { min-height: 44px; padding: 10px 14px; border: 1px solid #c3d0d1; border-radius: 12px; background: rgba(255,255,255,.6); color: var(--blue); font-size: 13px; font-weight: 650; }
+#recall-state { color: var(--muted); font-size: 12px; }
+.utterance-list { display: grid; gap: 15px; margin: 0; padding: 0; list-style: none; }
+.utterance-card { min-width: 0; padding: 25px 28px 24px; border: 1px solid rgba(255,255,255,.92); border-radius: 23px; background: var(--glass); box-shadow: 0 12px 40px rgba(39,66,75,.045); }
+.utterance-card[data-kind="received"] { background: rgba(236,244,247,.8); border-color: rgba(209,226,232,.9); }
+.utterance-role { margin: 0 0 18px; color: var(--muted); font-size: 12px; font-weight: 650; }
+.study { margin: 0 0 21px; color: var(--ink); font-size: clamp(30px, 3.2vw, 43px); font-weight: 650; line-height: 1.4; overflow-wrap: anywhere; word-break: normal; }
+.study[lang="ko"] { word-break: keep-all; }
+.phonetic-row { display: flex; align-items: center; gap: 12px; padding: 13px 14px; border: 1px solid #d4e2db; border-radius: 13px; background: rgba(234,242,234,.72); }
+.phonetic { flex: 1; min-width: 0; margin: 0; color: #285c51; font-size: 21px; line-height: 1.5; font-weight: 600; overflow-wrap: anywhere; }
+.ear-button { display: flex; flex: none; align-items: center; justify-content: center; gap: 8px; min-width: 44px; min-height: 44px; padding: 0; border: 1px solid #bfd3c7; border-radius: 50%; background: rgba(255,255,255,.9); color: var(--ink); }
+.ear-button > .ear { display: grid; place-items: center; width: 42px; height: 42px; font-size: 24px; }
+.ear-button:hover { border-color: #4b8c76; background: #fff; }
+.ear-button.single { padding-right: 13px; border-radius: 25px; font-size: 12px; font-weight: 700; }
+.reading { margin: 10px 2px 0; color: var(--muted); font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.native { margin: 21px 0 0; color: #354f5c; font-size: 18px; line-height: 1.55; overflow-wrap: anywhere; }
+.masked { border-style: dashed; border-color: #b8c9c6; background: rgba(251,248,240,.75); }
+.recall-label { color: var(--teal); margin: 0 0 10px; font-size: 11px; font-weight: 750; letter-spacing: .6px; text-transform: uppercase; }
+.masked .native { margin: 0; color: var(--ink); font-size: 25px; line-height: 1.45; }
+.recall-prompt { margin: 14px 0 0; color: var(--muted); font-size: 14px; }
+.audio-status { margin: 10px 2px 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.audio-status:empty { display: none; }
+.step-navigation { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 24px 0 0; }
+.step-navigation button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-width: 116px; min-height: 48px; padding: 11px 18px; border: 1px solid #bccdce; border-radius: 13px; font-size: 14px; font-weight: 650; }
+.step-navigation svg { flex: none; width: 19px; height: 19px; }
+.back-button { color: var(--ink); background: rgba(255,255,255,.4); }
+.next-button { color: #fff; background: var(--blue); border-color: var(--blue) !important; }
+.next-button:hover:not(:disabled) { background: #16485f; }
+.step-navigation button:disabled { color: #77858b; background: rgba(255,255,255,.35); border-color: #d3dcd9 !important; }
+.editorial { margin: 24px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.editorial summary { display: list-item; width: fit-content; min-height: 32px; cursor: pointer; }
+.editorial p { margin: 5px 0 0; padding: 12px 15px; border-left: 2px solid #b9ccc6; background: rgba(255,255,255,.3); overflow-wrap: anywhere; }
+.page-footer { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 7px 20px; margin: 43px 0 0; padding: 21px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.6; }
+.page-footer p { margin: 0; }
+.source-line { font-variant-numeric: tabular-nums; }
+@media (min-width: 1000px) { .utterance-card { backdrop-filter: blur(10px); } }
+@media (max-width: 850px) {
+  .page-shell { width: min(690px, calc(100% - 40px)); }
+  .page-header { min-height: 91px; }
+  .pilot-switch { margin: 21px 0 25px; }
+  .workspace { grid-template-columns: minmax(0,1fr); gap: 25px; }
+  .route-panel { padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+  .eyebrow { margin-bottom: 10px; }
+  h1 { margin-bottom: 10px; font-size: 28px; }
+  .route-goal { max-width: 550px; font-size: 14px; line-height: 1.55; }
+  .route-rule, .route-note { display: none; }
+  .study { font-size: 35px; }
+  .page-footer { margin-top: 29px; }
+}
+@media (max-width: 430px) {
+  .page-shell { width: calc(100% - 32px); }
+  .brand { font-size: 22px; }
+  .brand small { font-size: 11px; }
+  .brand > svg { width: 39px; height: 39px; padding: 8px; border-radius: 12px; }
+  .local-mark { font-size: 10px; padding: 6px 8px; }
+  .pilot-switch { display: flex; width: 100%; gap: 4px; }
+  .pilot-button { flex: 1 1 0; min-width: 0; padding: 8px 10px; gap: 8px; font-size: 13px; }
+  .language-code { width: 26px; height: 28px; flex: none; }
+  h1 { font-size: 25px; }
+  h2 { font-size: 23px; }
+  .instruction { font-size: 14px; }
+  .utterance-card { padding: 21px 17px; border-radius: 19px; }
+  .study { font-size: 31px; margin-bottom: 17px; }
+  .phonetic-row { padding: 10px; gap: 8px; }
+  .phonetic { font-size: 19px; }
+  .ear-button.single { padding-right: 0; border-radius: 50%; }
+  .ear-button.single .listen-label { display: none; }
+  .native { font-size: 17px; margin-top: 16px; }
+  .masked .native { font-size: 23px; }
+  .intention-button { flex: 1 1 auto; padding-inline: 12px; }
+  .step-navigation button { min-width: 108px; padding-inline: 13px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  button { transition: background-color .15s, border-color .15s; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .utterance-card, .pilot-switch, .quiet-button { background: #fffdf8; backdrop-filter: none; }
+  .utterance-card[data-kind="received"] { background: #edf4f5; }
+}
+
+</style>
+
+
+</head>
+<body>
+  <a class="skip-link" href="#step-title">Aller à la phrase</a>
+  <div class="page-shell">
+    <header class="page-header">
+      <a class="brand" href="" aria-label="Melunga, début de la maquette">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 24V11a3 3 0 0 1 5.5-1.7L16 17l5.5-7.7A3 3 0 0 1 27 11v13" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Melunga<small>Atelier de progression</small></span>
+      </a>
+      <span class="local-mark">Essai local</span>
+    </header>
+
+    <div class="pilot-switch" id="pilot-switch" role="group" aria-label="Choisir un parcours d’essai"></div>
+
+    <main class="workspace" id="workspace">
+      <aside class="route-panel" aria-labelledby="pilot-title">
+        <p class="eyebrow" id="pilot-level"></p>
+        <h1 id="pilot-title">Les parcours se préparent.</h1>
+        <p class="route-goal" id="pilot-goal"></p>
+        <div class="route-rule" aria-hidden="true"></div>
+        <p class="route-note">Avance à ton rythme.<br>L’aide reste à portée de main.</p>
+      </aside>
+
+      <section class="lesson-panel" aria-labelledby="step-title">
+        <header class="step-header">
+          <div class="step-meta"><span id="step-phase"></span><span id="step-count"></span></div>
+          <h2 id="step-title" tabindex="-1"></h2>
+          <p class="instruction" id="step-instruction"></p>
+        </header>
+        <div class="intention-choices" id="intention-choices" role="group" aria-label="Choisir ton intention" hidden></div>
+        <div class="recall-actions" id="recall-actions" hidden>
+          <button class="quiet-button" id="recall-toggle" type="button" aria-controls="utterance-list">Essayer sans modèle</button>
+          <span id="recall-state" aria-live="polite"></span>
+        </div>
+        <ol class="utterance-list" id="utterance-list"></ol>
+        <p class="audio-status" id="audio-status" role="status" aria-live="polite"></p>
+        <nav class="step-navigation" aria-label="Navigation entre les étapes">
+          <button class="back-button" id="previous-step" type="button"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Retour</button>
+          <button class="next-button" id="next-step" type="button">Suivant<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m10 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </nav>
+        <details class="editorial" id="editorial"><summary>Détail pour Claude</summary><p id="novelty"></p></details>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>Maquette locale pour relecture — aucun contenu publié.</p>
+      <p class="source-line" id="source-line"></p>
+    </footer>
+  </div>
+<script>
+window.ProgressionPilotData = {
+  "status": "proposition-locale-a-relire",
+  "sourceCommit": "f30eb821a21e7df67a0646e0c61674f7fba16c79",
+  "pilots": [
+    {
+      "id": "fr-zh-envie",
+      "pair": {
+        "native": "fr",
+        "study": "zh"
+      },
+      "title": "Dire ce que tu veux faire",
+      "levelLabel": "Classement L2 provisoire",
+      "goal": "Exprimer une envie, changer l’action, comprendre une réponse d’accord.",
+      "steps": [
+        {
+          "id": "zh-understand",
+          "phase": "Comprendre",
+          "title": "Tu veux te reposer",
+          "instruction": "Après une promenade, tu souhaites faire une pause. Écoute la phrase et retrouve son sens.",
+          "novelty": "Première phrase entière : ne suppose aucun acquis en 需要.",
+          "utterances": [
+            {
+              "id": "zh-deck-226",
+              "study": "我想休息",
+              "phon": "ouo chyang chyo chi",
+              "native": "je veux me reposer",
+              "reading": "wǒ xiǎng xiū xi",
+              "role": "Toi",
+              "kind": "learner"
+            }
+          ]
+        },
+        {
+          "id": "zh-imitate",
+          "phase": "Imiter",
+          "title": "Redis la même envie",
+          "instruction": "Écoute, puis répète si tu le souhaites. Garde la phonétique à portée de main.",
+          "novelty": "Aucune phrase nouvelle.",
+          "utterances": [
+            {
+              "id": "zh-deck-226",
+              "study": "我想休息",
+              "phon": "ouo chyang chyo chi",
+              "native": "je veux me reposer",
+              "reading": "wǒ xiǎng xiū xi",
+              "role": "Toi",
+              "kind": "learner"
+            }
+          ]
+        },
+        {
+          "id": "zh-received",
+          "phase": "Comprendre l’autre",
+          "title": "Ton proche est d’accord",
+          "instruction": "Écoute ce qu’il te répond. Tu n’as pas de nouvelle demande à construire.",
+          "novelty": "Une réponse reçue en contexte : d’accord.",
+          "utterances": [
+            {
+              "id": "zh-deck-2173",
+              "study": "好的",
+              "phon": "hao deu",
+              "native": "d'accord",
+              "reading": "hǎo de",
+              "role": "Un proche",
+              "kind": "received"
+            }
+          ]
+        },
+        {
+          "id": "zh-visible",
+          "phase": "Échanger",
+          "title": "Ton premier échange visible",
+          "instruction": "Écoute les deux rôles dans l’ordre.",
+          "novelty": "Réemploi des deux phrases déjà présentées.",
+          "utterances": [
+            {
+              "id": "zh-deck-226",
+              "study": "我想休息",
+              "phon": "ouo chyang chyo chi",
+              "native": "je veux me reposer",
+              "reading": "wǒ xiǎng xiū xi",
+              "role": "Toi",
+              "kind": "learner"
+            },
+            {
+              "id": "zh-deck-2173",
+              "study": "好的",
+              "phon": "hao deu",
+              "native": "d'accord",
+              "reading": "hǎo de",
+              "role": "Un proche",
+              "kind": "received"
+            }
+          ],
+          "scene": true
+        },
+        {
+          "id": "zh-substitute",
+          "phase": "Remplacer",
+          "title": "Cette fois, tu veux rentrer",
+          "instruction": "Écoute la nouvelle phrase entière. Le début reste identique ; l’action change.",
+          "novelty": "Le groupe 回家 remplace 休息 ; ne change ni le temps ni la personne.",
+          "utterances": [
+            {
+              "id": "zh-deck-416",
+              "study": "我想回家",
+              "phon": "ouo chyang houèï djya",
+              "native": "je veux rentrer à la maison",
+              "reading": "wǒ xiǎng huí jiā",
+              "role": "Toi",
+              "kind": "learner"
+            }
+          ]
+        },
+        {
+          "id": "zh-choice",
+          "phase": "Choisir et réutiliser",
+          "title": "À toi de choisir ton envie",
+          "instruction": "Choisis ton intention. Tu peux garder le modèle ou essayer sans lui, puis retrouver l’aide.",
+          "novelty": "Choix personnel entre deux groupes préparés ; pas de nouvelle structure.",
+          "utterances": [
+            {
+              "id": "zh-deck-226",
+              "study": "我想休息",
+              "phon": "ouo chyang chyo chi",
+              "native": "je veux me reposer",
+              "reading": "wǒ xiǎng xiū xi",
+              "role": "Toi",
+              "kind": "learner"
+            },
+            {
+              "id": "zh-deck-2173",
+              "study": "好的",
+              "phon": "hao deu",
+              "native": "d'accord",
+              "reading": "hǎo de",
+              "role": "Un proche",
+              "kind": "received"
+            }
+          ],
+          "scene": true,
+          "recall": true,
+          "choices": [
+            {
+              "id": "rest",
+              "label": "Me reposer",
+              "utterance": {
+                "id": "zh-deck-226",
+                "study": "我想休息",
+                "phon": "ouo chyang chyo chi",
+                "native": "je veux me reposer",
+                "reading": "wǒ xiǎng xiū xi",
+                "role": "Toi",
+                "kind": "learner"
+              }
+            },
+            {
+              "id": "home",
+              "label": "Rentrer à la maison",
+              "utterance": {
+                "id": "zh-deck-416",
+                "study": "我想回家",
+                "phon": "ouo chyang houèï djya",
+                "native": "je veux rentrer à la maison",
+                "reading": "wǒ xiǎng huí jiā",
+                "role": "Toi",
+                "kind": "learner"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fr-ko-demande",
+      "pair": {
+        "native": "fr",
+        "study": "ko"
+      },
+      "title": "Commander une boisson",
+      "levelLabel": "Essai du chemin L1",
+      "goal": "Demander une boisson, en changer, comprendre ce que demande le serveur.",
+      "steps": [
+        {
+          "id": "ko-understand",
+          "phase": "Comprendre",
+          "title": "Tu demandes un café",
+          "instruction": "Au café, tu souhaites commander. Écoute la demande complète et retrouve son sens.",
+          "novelty": "Première demande complète, sans quantité ni ajout.",
+          "utterances": [
+            {
+              "id": "L1-fr-ko-03-v0",
+              "study": "커피 주세요.",
+              "phon": "keo-pi djou-sé-yo",
+              "native": "Je veux un café.",
+              "reading": "keopi juseyo.",
+              "role": "Client",
+              "kind": "learner"
+            }
+          ]
+        },
+        {
+          "id": "ko-imitate",
+          "phase": "Imiter",
+          "title": "Redis la même demande",
+          "instruction": "Écoute, puis répète si tu le souhaites.",
+          "novelty": "Aucune phrase nouvelle.",
+          "utterances": [
+            {
+              "id": "L1-fr-ko-03-v0",
+              "study": "커피 주세요.",
+              "phon": "keo-pi djou-sé-yo",
+              "native": "Je veux un café.",
+              "reading": "keopi juseyo.",
+              "role": "Client",
+              "kind": "learner"
+            }
+          ]
+        },
+        {
+          "id": "ko-substitute",
+          "phase": "Remplacer",
+          "title": "Tu préfères de l’eau",
+          "instruction": "Écoute la phrase entière. Seule la boisson change.",
+          "novelty": "물 remplace 커피 ; 주세요 reste identique.",
+          "utterances": [
+            {
+              "id": "L1-fr-ko-03-v1",
+              "study": "물 주세요.",
+              "phon": "moul djou-sé-yo",
+              "native": "Je veux de l'eau.",
+              "reading": "mul juseyo.",
+              "role": "Client",
+              "kind": "learner"
+            }
+          ]
+        },
+        {
+          "id": "ko-greeting",
+          "phase": "Comprendre l’autre",
+          "title": "On te salue",
+          "instruction": "Écoute la salutation avant de découvrir la question du serveur.",
+          "novelty": "Une salutation reçue ; sa présence ailleurs ne prouve pas qu’elle est connue.",
+          "utterances": [
+            {
+              "id": "L1-fr-ko-d1-t0",
+              "study": "안녕하세요!",
+              "phon": "an-nyeong-ha-sé-yo",
+              "native": "Bonjour !",
+              "reading": "annyeonghaseyo!",
+              "role": "Une personne au café",
+              "kind": "support"
+            }
+          ]
+        },
+        {
+          "id": "ko-received",
+          "phase": "Comprendre l’autre",
+          "title": "Le serveur te demande ton choix",
+          "instruction": "Écoute et comprends cette question en situation. Tu n’as pas à la construire toi-même.",
+          "novelty": "Question reçue comme bloc de compréhension ; la salutation vient d’être présentée.",
+          "utterances": [
+            {
+              "id": "L1-fr-ko-d1-t1",
+              "study": "안녕하세요. 뭐 드릴까요?",
+              "phon": "an-nyeong-ha-sé-yo. mwo deu-ril-kka-yo",
+              "native": "Bonjour. Vous désirez ?",
+              "reading": "annyeonghaseyo. mwo deurilkkayo?",
+              "role": "Serveur",
+              "kind": "received"
+            }
+          ]
+        },
+        {
+          "id": "ko-visible",
+          "phase": "Échanger",
+          "title": "Une demande avec sa réponse",
+          "instruction": "Écoute le serveur, puis la réponse du client. Les deux sont visibles au premier passage.",
+          "novelty": "Les deux répliques ont été préparées séparément.",
+          "utterances": [
+            {
+              "id": "L1-fr-ko-d1-t1",
+              "study": "안녕하세요. 뭐 드릴까요?",
+              "phon": "an-nyeong-ha-sé-yo. mwo deu-ril-kka-yo",
+              "native": "Bonjour. Vous désirez ?",
+              "reading": "annyeonghaseyo. mwo deurilkkayo?",
+              "role": "Serveur",
+              "kind": "received"
+            },
+            {
+              "id": "L1-fr-ko-03-v0",
+              "study": "커피 주세요.",
+              "phon": "keo-pi djou-sé-yo",
+              "native": "Je veux un café.",
+              "reading": "keopi juseyo.",
+              "role": "Client",
+              "kind": "learner"
+            }
+          ],
+          "scene": true
+        },
+        {
+          "id": "ko-choice",
+          "phase": "Choisir et réutiliser",
+          "title": "Commande selon ton envie",
+          "instruction": "Choisis la boisson. Essaie avec le modèle ou sans lui ; tu peux toujours retrouver l’aide.",
+          "novelty": "Choix entre deux demandes préparées. Aucun lait, prix ou compteur nouveau.",
+          "utterances": [
+            {
+              "id": "L1-fr-ko-d1-t1",
+              "study": "안녕하세요. 뭐 드릴까요?",
+              "phon": "an-nyeong-ha-sé-yo. mwo deu-ril-kka-yo",
+              "native": "Bonjour. Vous désirez ?",
+              "reading": "annyeonghaseyo. mwo deurilkkayo?",
+              "role": "Serveur",
+              "kind": "received"
+            },
+            {
+              "id": "L1-fr-ko-03-v0",
+              "study": "커피 주세요.",
+              "phon": "keo-pi djou-sé-yo",
+              "native": "Je veux un café.",
+              "reading": "keopi juseyo.",
+              "role": "Client",
+              "kind": "learner"
+            }
+          ],
+          "scene": true,
+          "recall": true,
+          "choices": [
+            {
+              "id": "coffee",
+              "label": "Un café",
+              "utterance": {
+                "id": "L1-fr-ko-03-v0",
+                "study": "커피 주세요.",
+                "phon": "keo-pi djou-sé-yo",
+                "native": "Je veux un café.",
+                "reading": "keopi juseyo.",
+                "role": "Client",
+                "kind": "learner"
+              }
+            },
+            {
+              "id": "water",
+              "label": "De l’eau",
+              "utterance": {
+                "id": "L1-fr-ko-03-v1",
+                "study": "물 주세요.",
+                "phon": "moul djou-sé-yo",
+                "native": "Je veux de l'eau.",
+                "reading": "mul juseyo.",
+                "role": "Client",
+                "kind": "learner"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+;document.currentScript.remove();
+
+</script>
+<script>
+(function () {
+  'use strict';
+  const data = window.ProgressionPilotData;
+  const byId = id => document.getElementById(id);
+  const languageNames = {zh:'Chinois',ko:'Coréen'};
+  const speechLanguages = {zh:'zh-CN',ko:'ko-KR'};
+  const state = {pilotIndex:0,stepIndex:0,choiceId:null,modelHidden:false};
+  let audioRun = 0;
+
+  function element(tag,className,text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== undefined && text !== null) node.textContent = String(text);
+    return node;
+  }
+  function pilot() { return data.pilots[state.pilotIndex]; }
+  function step() { return pilot().steps[state.stepIndex]; }
+  function utterances() {
+    const current = step();
+    const choices = current.choices || [];
+    const choice = choices.find(item => item.id === state.choiceId) || choices[0];
+    return (current.utterances || []).map(item => item.kind === 'learner' && choice ? choice.utterance : item);
+  }
+  function stopAudio() {
+    audioRun += 1;
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    byId('audio-status').textContent = '';
+  }
+  function speak(item) {
+    // Hidden learner phrases have no audio control. This guard also protects
+    // against a queued click from a control removed by a later render.
+    if (state.modelHidden && item.kind === 'learner') return;
+    stopAudio();
+    if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) {
+      byId('audio-status').textContent = 'L’écoute système n’est pas disponible sur cet appareil.';
+      return;
+    }
+    const run = audioRun;
+    const language = speechLanguages[pilot().pair.study] || pilot().pair.study;
+    const speech = new SpeechSynthesisUtterance(item.study);
+    speech.lang = language;
+    const voices = window.speechSynthesis.getVoices();
+    const matches = voices.filter(voice => voice.lang.toLowerCase().startsWith(pilot().pair.study));
+    const voice = matches.find(candidate => candidate.localService) || matches[0];
+    if (voice) speech.voice = voice;
+    speech.onstart = function () { if (run === audioRun) byId('audio-status').textContent = 'Lecture en cours…'; };
+    speech.onend = function () { if (run === audioRun) byId('audio-status').textContent = ''; };
+    speech.onerror = function () { if (run === audioRun) byId('audio-status').textContent = 'Cette voix n’est pas disponible sur cet appareil.'; };
+    window.speechSynthesis.speak(speech);
+  }
+  function audioButton(item,single) {
+    const button = element('button','ear-button' + (single ? ' single' : ''));
+    button.type = 'button';
+    button.setAttribute('aria-label','Écouter la phrase de ' + (item.role || 'ce rôle') + ' en ' + (languageNames[pilot().pair.study] || pilot().pair.study).toLowerCase());
+    const ear = element('span','ear','👂');
+    ear.setAttribute('aria-hidden','true');
+    button.append(ear);
+    if (single) button.append(element('span','listen-label','Écouter'));
+    button.addEventListener('click',function () { speak(item); });
+    return button;
+  }
+  function renderUtterance(item,single) {
+    const hidden = state.modelHidden && item.kind === 'learner';
+    const card = element('li','utterance-card' + (hidden ? ' masked' : ''));
+    card.dataset.kind = item.kind || '';
+    card.dataset.utteranceId = item.id || '';
+    card.append(element('p','utterance-role',item.role || ''));
+    if (hidden) {
+      card.append(element('p','recall-label','Ton intention'));
+      const intention = element('p','native',item.native);
+      intention.lang = pilot().pair.native;
+      card.append(intention,element('p','recall-prompt','À toi de le dire à voix haute.'));
+      // Do not put the missing answer in a hidden node, title or data attribute.
+      return card;
+    }
+    const studied = element('p','study',item.study);
+    studied.lang = pilot().pair.study;
+    const row = element('div','phonetic-row');
+    const phon = element('p','phonetic',item.phon);
+    phon.lang = pilot().pair.native;
+    row.append(phon,audioButton(item,single));
+    card.append(studied,row);
+    if (item.reading) {
+      const label = pilot().pair.study === 'zh' ? 'Pinyin' : 'Romanisation';
+      const reading = element('p','reading');
+      reading.append(element('span','reading-label',label + ' · '));
+      const text = element('span','reading-text',item.reading);
+      text.lang = pilot().pair.study;
+      reading.append(text);
+      card.append(reading);
+    }
+    const native = element('p','native',item.native);
+    native.lang = pilot().pair.native;
+    card.append(native);
+    return card;
+  }
+  function renderChoices() {
+    const choices = step().choices || [];
+    const group = byId('intention-choices');
+    group.hidden = choices.length === 0;
+    group.replaceChildren();
+    choices.forEach(function (choice,index) {
+      const button = element('button','intention-button',choice.label);
+      button.type = 'button';
+      button.dataset.choiceId = choice.id;
+      button.setAttribute('aria-pressed',String(choice.id === (state.choiceId || choices[0].id)));
+      button.addEventListener('click',function () {
+        state.choiceId = choice.id;
+        render('choice');
+      });
+      group.append(button);
+    });
+  }
+  function render(focus) {
+    stopAudio();
+    const currentPilot = pilot(), currentStep = step();
+    document.querySelectorAll('.pilot-button').forEach(function (button,index) {
+      button.setAttribute('aria-pressed',String(index === state.pilotIndex));
+    });
+    byId('pilot-level').textContent = currentPilot.levelLabel;
+    byId('pilot-title').textContent = currentPilot.title;
+    byId('pilot-goal').textContent = currentPilot.goal;
+    byId('step-phase').textContent = currentStep.phase;
+    byId('step-count').textContent = 'Étape ' + (state.stepIndex + 1) + ' / ' + currentPilot.steps.length;
+    byId('step-title').textContent = currentStep.title;
+    byId('step-instruction').textContent = currentStep.instruction;
+    renderChoices();
+    const canRecall = Boolean(currentStep.recall && utterances().some(item => item.kind === 'learner'));
+    byId('recall-actions').hidden = !canRecall;
+    byId('recall-toggle').textContent = state.modelHidden ? 'Réafficher l’aide' : 'Essayer sans modèle';
+    byId('recall-toggle').setAttribute('aria-pressed',String(state.modelHidden));
+    byId('recall-state').textContent = canRecall && state.modelHidden ? 'Le sens reste visible.' : '';
+    const items = utterances();
+    byId('utterance-list').replaceChildren(...items.map(item => renderUtterance(item,items.length === 1)));
+    byId('previous-step').disabled = state.stepIndex === 0;
+    byId('next-step').disabled = state.stepIndex === currentPilot.steps.length - 1;
+    // Editorial notes can quote target-language words. Remove them while the
+    // learner model is hidden rather than merely collapsing the details.
+    byId('editorial').hidden = state.modelHidden || !currentStep.novelty;
+    byId('editorial').open = false;
+    byId('novelty').textContent = state.modelHidden ? '' : currentStep.novelty || '';
+    if (focus === 'step') {
+      byId('step-title').focus({preventScroll:true});
+      byId('step-title').scrollIntoView({block:'start',behavior:'auto'});
+    } else if (focus === 'choice') {
+      Array.from(byId('intention-choices').children).find(button => button.dataset.choiceId === state.choiceId)?.focus({preventScroll:true});
+    } else if (focus === 'recall') byId('recall-toggle').focus({preventScroll:true});
+  }
+  function move(index) {
+    state.stepIndex = Math.max(0,Math.min(pilot().steps.length - 1,index));
+    state.modelHidden = false;
+    state.choiceId = null;
+    render('step');
+  }
+  if (!data || !Array.isArray(data.pilots) || !data.pilots.length) {
+    byId('step-title').textContent = 'Les contenus d’essai ne sont pas encore disponibles.';
+    byId('step-instruction').textContent = 'Le fichier data.js doit accompagner cette maquette.';
+    byId('previous-step').disabled = true;
+    byId('next-step').disabled = true;
+    return;
+  }
+  data.pilots.forEach(function (item,index) {
+    const button = element('button','pilot-button');
+    button.type = 'button';
+    button.append(element('span','language-code',item.pair.study.toUpperCase()),element('span','pilot-name',languageNames[item.pair.study] || item.pair.study));
+    button.setAttribute('aria-label',(languageNames[item.pair.study] || item.pair.study) + ' — ' + item.title);
+    button.addEventListener('click',function () {
+      state.pilotIndex = index;
+      state.stepIndex = 0;
+      state.choiceId = null;
+      state.modelHidden = false;
+      render('step');
+    });
+    byId('pilot-switch').append(button);
+  });
+  byId('recall-toggle').addEventListener('click',function () {
+    state.modelHidden = !state.modelHidden;
+    render('recall');
+  });
+  byId('previous-step').addEventListener('click',function () { move(state.stepIndex - 1); });
+  byId('next-step').addEventListener('click',function () { move(state.stepIndex + 1); });
+  byId('source-line').textContent = 'Source ' + String(data.sourceCommit || '').slice(0,7) + ' · Contenus à relire';
+  window.addEventListener('pagehide',stopAudio);
+  render();
+})();
+
+;document.currentScript.remove();
+
+</script>
+</body>
+</html>
