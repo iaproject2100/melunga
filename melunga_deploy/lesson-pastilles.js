@@ -35,6 +35,7 @@
     progress.classList.toggle('mobile-lesson-commands',active);
     toolbar.hidden = !active;
     if (active) {
+      palette.classList.remove('desktop-rail-palette');
       if (voice && voice.parentNode !== progress) progress.insertBefore(voice,number);
       [palette,themes,review].forEach(function (control) { append(toolbar,control); });
       const locale = typeof nat === 'string' ? nat : 'fr';
@@ -45,8 +46,14 @@
       ['selLang','selLv','selRb','selRev','selVoice'].forEach(function (id) {
         append(grid,document.getElementById(id));
       });
-      const rate = document.getElementById('rateBar');
-      if (palette.parentNode !== stage) stage.insertBefore(palette,rate);
+      if (!mobile.matches && document.body.classList.contains('immersif')) {
+        palette.classList.add('desktop-rail-palette');
+        if (palette.parentNode !== grid || palette.nextElementSibling !== themes) grid.insertBefore(palette,themes);
+      } else {
+        palette.classList.remove('desktop-rail-palette');
+        const rate = document.getElementById('rateBar');
+        if (palette.parentNode !== stage) stage.insertBefore(palette,rate);
+      }
     }
     // The legacy wrapper remains for desktop; CSS makes it contents on mobile.
     if (languageTools) languageTools.classList.toggle('mobile-pastilles-language',active);

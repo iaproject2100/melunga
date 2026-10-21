@@ -30,3 +30,9 @@ Les captures et rapports détaillés de cette session sont dans `/tmp/melunga-pa
 Le bouton de retour `#backBtn` est masqué sur les versions web ordinateur et mobile. Les gestionnaires de navigation, le menu Accueil/Avis et les contenus sont conservés.
 
 Vérification sur quatre vues (390 × 844 et 320 × 568 sur téléphone ; 1440 × 900 sur ordinateur), en ambiances néon et claire : transparence effective des pastilles, flèche absente, absence de débordement horizontal, menus Langue/Voix/Accueil/Avis accessibles et aucune erreur JavaScript. Relecture visuelle indépendante. Captures et rapport dans `/tmp/melunga-pastilles-translucides/`.
+
+## Palette unique dans le rail ordinateur
+
+À la demande de Kartech, sur ordinateur uniquement, les doublons Langue et Niveau du rail sont masqués et remplacés par la pastille Couleur existante. Cette même pastille quitte le coin supérieur droit, sans duplication. L’ordre visible devient Accueil, Couleur, Thèmes, Révisions, Voix, Avis. La langue et le niveau restent sélectionnables dans la barre au-dessus de la leçon, au clic et au clavier ; le petit chevron du niveau est masqué. Les boutons sources et leurs contrôles d’accès restent présents.
+
+Vérification Chromium à 1440 × 900 en ambiance claire et 1024 × 768 en ambiance néon : palette unique et fonctionnelle, sélection de langue au clavier, accès à L10 au clavier, maintien du paywall pour L2 sans droit payant, menus Thèmes/Révisions/Voix dans le viewport, aller-retour ordinateur/téléphone et aucune erreur JavaScript. À 390 × 844 et 320 × 568, géométrie, couleurs et typographie des commandes et de la leçon comparées à `647fb7c` : identiques. Captures et rapport dans `/tmp/melunga-rail-palette/`.

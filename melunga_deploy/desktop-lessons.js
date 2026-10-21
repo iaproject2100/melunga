@@ -77,7 +77,7 @@
     });
   }
   function updateLessonProgress() {
-    if (desktop.matches) { languageName.removeAttribute('role'); languageName.removeAttribute('tabindex'); } else { languageName.setAttribute('role','button'); languageName.tabIndex = 0; }
+    languageName.setAttribute('role','button'); languageName.tabIndex = 0;
     const locale = typeof nat === 'string' ? nat : 'fr';
     const language = typeof lang === 'string' ? lang : 'en';
     let displayLanguage = language;

@@ -395,6 +395,20 @@ html.lesson-pastilles-ready.melunga-lesson-web body.immersif .lesson-control:is(
    keyboard navigation and the Home menu retain their behaviour. */
 html.melunga-lesson-web body #backBtn{display:none!important}
 
+/* Desktop keeps language and level in the progress row. A single colour
+   button replaces their duplicate icons in the rail. Mobile is unchanged. */
+@media(min-width:1024px){
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools .menu-b-quick-grid :is(#selLang,#selLv){display:none!important}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools #colorBtn.desktop-rail-palette{
+  position:static!important;inset:auto!important;
+  display:grid!important;place-items:center;align-self:center;
+  flex:0 0 52px;width:52px!important;min-width:52px;height:52px!important;min-height:52px;
+  margin:2px auto!important;padding:0;border-radius:50%;cursor:pointer;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools #colorBtn .cwheel{width:28px;height:28px}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif .desktop-progress-level::after{display:none!important;content:none!important}
+}
+
 @media(prefers-reduced-transparency:reduce){
  html.lesson-pastilles-ready.melunga-lesson-web body.immersif :is(.desktop-progress-level,.desktop-progress-language,.lesson-control-icon,#colorBtn,.utrigger){background:var(--gc-base,var(--bg,#f7f3ec))!important}
 }
