@@ -16,7 +16,7 @@
   dialog.id = 'lessonPicker';
   dialog.className = 'lesson-picker';
   dialog.setAttribute('aria-labelledby','lessonPickerTitle');
-  dialog.innerHTML = '<header class="lesson-picker-head"><button class="lesson-picker-back" type="button"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="m14 5-7 7 7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><h2 class="lesson-picker-title" id="lessonPickerTitle"></h2></header><div class="lesson-picker-list"></div>';
+  dialog.innerHTML = '<header class="lesson-picker-head"><h2 class="lesson-picker-title" id="lessonPickerTitle"></h2><button class="lesson-picker-back" type="button"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button></header><div class="lesson-picker-list"></div>';
   document.body.append(dialog);
   const title = dialog.querySelector('.lesson-picker-title');
   const back = dialog.querySelector('.lesson-picker-back');
@@ -25,12 +25,50 @@
 
   function labels() { return copy[typeof nat === 'string' ? nat : 'fr'] || copy.fr; }
 
+  function visibleTrigger(kind,preferred) {
+    function visible(element) {
+      if (!element || !element.isConnected) return false;
+      const drawer = element.closest('#ctrlDrawer');
+      // A closing mobile drawer is briefly on screen during its transition.
+      // Only the persistent desktop sidebar remains a valid anchor when closed.
+      const persistentSidebar = document.documentElement.classList.contains('melunga-lesson-web') &&
+        document.body.classList.contains('immersif') && matchMedia('(min-width:1024px)').matches;
+      if (drawer && !drawer.classList.contains('open') && !persistentSidebar) return false;
+      const rect = element.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0 && rect.right > 0 && rect.left < innerWidth &&
+        rect.bottom > 0 && rect.top < innerHeight && getComputedStyle(element).visibility !== 'hidden';
+    }
+    if (visible(preferred)) return preferred;
+    return Array.from(document.querySelectorAll(kind === 'language' ? languageTriggers : levelTriggers)).find(visible) || null;
+  }
+
+  function position() {
+    if (!dialog.open) return;
+    const margin = 16, gap = 8;
+    const trigger = visibleTrigger(dialog.dataset.kind,launcher);
+    const anchor = trigger ? trigger.getBoundingClientRect() : {left:innerWidth / 2,width:0,top:innerHeight / 2,bottom:innerHeight / 2};
+    const below = innerHeight - margin - anchor.bottom - gap;
+    const above = anchor.top - margin - gap;
+    const placeBelow = below >= 220 || below >= above;
+    const available = placeBelow ? below : above;
+    const centered = available < 220;
+    const space = Math.max(0,Math.min(440,centered ? innerHeight - 2 * margin : available));
+    dialog.style.setProperty('--picker-space',space + 'px');
+    const rect = dialog.getBoundingClientRect();
+    const clamp = (value,max) => Math.max(margin,Math.min(value,max));
+    const left = clamp(anchor.left + (anchor.width - rect.width) / 2,innerWidth - margin - rect.width);
+    const top = clamp(centered ? (innerHeight - rect.height) / 2 : placeBelow ? anchor.bottom + gap : anchor.top - gap - rect.height,innerHeight - margin - rect.height);
+    dialog.style.left = left + 'px';
+    dialog.style.top = top + 'px';
+  }
+
   function close() {
     if (dialog.open) dialog.close();
     document.documentElement.classList.remove('lesson-picker-open');
     if (launcher) {
       launcher.setAttribute('aria-expanded','false');
-      if (launcher.isConnected) launcher.focus({preventScroll:true});
+      const visible = visibleTrigger(dialog.dataset.kind,launcher);
+      if (visible) visible.focus({preventScroll:true});
       launcher = null;
     }
   }
@@ -102,11 +140,12 @@
       const row = option(source,kind);
       if (row) list.append(row);
     });
-    launcher = trigger;
+    launcher = visibleTrigger(kind,trigger) || trigger;
     launcher.setAttribute('aria-expanded','true');
     dialog.dataset.kind = kind;
     document.documentElement.classList.add('lesson-picker-open');
     dialog.showModal();
+    position();
     const current = list.querySelector('[aria-current=true]') || list.firstElementChild;
     if (current) {
       current.focus({preventScroll:true});
@@ -156,6 +195,18 @@
   },true);
 
   back.addEventListener('click',close);
+  function outside(event) {
+    if (event.target !== dialog) return false;
+    const rect = dialog.getBoundingClientRect();
+    return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
+  }
+  let pressedOutside = false;
+  dialog.addEventListener('pointerdown',function (event) { pressedOutside = outside(event); });
+  dialog.addEventListener('click',function (event) {
+    if (pressedOutside && outside(event)) close();
+    pressedOutside = false;
+  });
+  window.addEventListener('resize',position);
   // Scrolling a choice list must never trigger the lesson's document swipes.
   ['touchstart','touchmove','touchend','touchcancel'].forEach(function (type) {
     dialog.addEventListener(type,function (event) { event.stopPropagation(); },{passive:true});
