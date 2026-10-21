@@ -2696,6 +2696,8 @@ body.immersif.pile-droite .stage {
 <link rel="stylesheet" href="desktop-lessons.css">
 <link rel="stylesheet" href="mobile-lessons.css">
 <link rel="stylesheet" href="lesson-pickers.css">
+<link rel="stylesheet" href="lesson-chrome.css">
+<link rel="stylesheet" href="lesson-controls.css">
 </head>
 <body>
 <script>
@@ -4693,19 +4695,19 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
     }
   }
 
-  function applyLightMenuPalette(drawer) {
+  function applyMenuPalette(drawer) {
     drawer.querySelectorAll(".selbox .selk").forEach(function (label) {
-      label.style.setProperty("color", "#2d2635", "important");
+      label.style.setProperty("color", "var(--menu-ink, #2d2635)", "important");
     });
     drawer.querySelectorAll(".selbox .selv").forEach(function (value) {
-      value.style.setProperty("color", "#1d5777", "important");
-      value.style.setProperty("background", "rgba(66,157,207,.16)", "important");
+      value.style.setProperty("color", "var(--menu-muted, #1d5777)", "important");
+      value.style.setProperty("background", "var(--menu-pill, rgba(66,157,207,.16))", "important");
       value.style.setProperty("padding", "4px 8px", "important");
       value.style.setProperty("border-radius", "999px", "important");
     });
     drawer.querySelectorAll(".selbox .ball").forEach(function (icon) {
-      icon.style.setProperty("color", "#1d5777", "important");
-      icon.style.setProperty("background", "rgba(66,157,207,.16)", "important");
+      icon.style.setProperty("color", "var(--menu-ink, #1d5777)", "important");
+      icon.style.setProperty("background", "var(--menu-pill, rgba(66,157,207,.16))", "important");
     });
   }
 
@@ -4782,7 +4784,7 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
       levelIcon.style.setProperty("width", "42px", "important");
       levelIcon.style.setProperty("height", "32px", "important");
       levelIcon.style.setProperty("border-radius", "10px", "important");
-      levelIcon.style.setProperty("background", "rgba(66,157,207,.16)", "important");
+      levelIcon.style.setProperty("background", "var(--menu-pill, rgba(66,157,207,.16))", "important");
       levelIcon.style.removeProperty("clip-path");
       var levelText = document.getElementById("ballLv");
       if (levelText) levelText.style.setProperty("display", "none", "important");
@@ -4821,7 +4823,7 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
       catIcon.style.setProperty("width", "42px", "important");
       catIcon.style.setProperty("height", "32px", "important");
       catIcon.style.setProperty("border-radius", "10px", "important");
-      catIcon.style.setProperty("background", "rgba(66,157,207,.16)", "important");
+      catIcon.style.setProperty("background", "var(--menu-pill, rgba(66,157,207,.16))", "important");
       catIcon.style.removeProperty("clip-path");
     }
 
@@ -4846,7 +4848,7 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
     var navCopy = NAV_COPY[nativeCode] || NAV_COPY.fr;
     installNavigationTranslations();
     drawer.classList.add("menu-b");
-    applyLightMenuPalette(drawer);
+    applyMenuPalette(drawer);
 
     var header = drawer.querySelector(".menu-b-head");
     if (!header) {
@@ -5133,5 +5135,6 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
 <script src="entry-bridge.js"></script>
 <script src="desktop-lessons.js"></script>
 <script src="lesson-pickers.js"></script>
+<script src="lesson-controls.js"></script>
 </body>
 </html>
