@@ -1,0 +1,214 @@
+/* SVG-only lesson controls. The enhancement class is added only after JS has
+   installed names/icons, so the legacy chrome remains a usable fallback. */
+html body.immersif #ctrlDrawer.menu-b.lesson-tools :is(.desktop-control-icon,.desktop-control-label,.ball,.ballarr,.selk,.selv,.selarr,.menu-b-quick-caption,.lesson-control-legacy,#homeLbl,#fbBtnLbl,#logoutLbl){display:none!important}
+html body.immersif #ctrlDrawer.menu-b.lesson-tools .lesson-control{
+ position:relative;
+ display:inline-flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ gap:0!important;
+ width:56px!important;
+ min-width:56px!important;
+ min-height:56px!important;
+ height:56px!important;
+ padding:0!important;
+ border:0!important;
+ border-radius:19px!important;
+ background:transparent!important;
+ color:var(--gc-ink,var(--ink,#23262b))!important;
+ box-shadow:none!important;
+ cursor:pointer;
+ text-decoration:none;
+ -webkit-tap-highlight-color:transparent;
+ overflow:visible;
+}
+html body.immersif #ctrlDrawer.menu-b.lesson-tools .lesson-control::before,
+html body.immersif #ctrlDrawer.menu-b.lesson-tools .lesson-control::after{content:none!important;display:none!important}
+body.immersif #ctrlDrawer.lesson-tools .lesson-control-icon{
+ display:grid!important;
+ place-items:center;
+ flex:0 0 52px;
+ width:52px;
+ min-width:52px;
+ height:52px;
+ margin:0;
+ border:1px solid var(--gc-line,var(--line,#d9d1c6));
+ border-radius:18px;
+ color:var(--gc-ink,var(--ink,#23262b));
+ background:linear-gradient(145deg,var(--gc-glint,transparent),transparent 64%),var(--gc-pill,var(--bg,#f7f3ec));
+ box-shadow:inset 0 1px 0 var(--gc-glint,transparent),0 3px 10px rgba(3,10,20,.055);
+ pointer-events:none;
+}
+body.immersif #ctrlDrawer.lesson-tools .lesson-control-icon>svg{
+ display:block;
+ width:27px;
+ height:27px;
+ flex:none;
+ fill:none;
+ stroke:currentColor;
+ stroke-width:1.8;
+ stroke-linecap:round;
+ stroke-linejoin:round;
+}
+body.immersif #ctrlDrawer.lesson-tools .lesson-control:is(:hover,.open,[aria-expanded=true])>.lesson-control-icon{
+ color:var(--gc-ink,var(--ink,#23262b));
+ background:var(--gc-selected,var(--bg,#f7f3ec));
+ border-color:var(--gc-muted,var(--ink,#23262b));
+ box-shadow:inset 0 1px 0 var(--gc-glint,transparent),0 4px 14px rgba(3,10,20,.09);
+}
+body.immersif #ctrlDrawer.lesson-tools .lesson-control:focus-visible{
+ outline:2px solid var(--gc-ink,var(--ink,#23262b))!important;
+ outline-offset:3px;
+}
+/* A portal outside the scrolling drawer avoids clipped labels. JS controls
+   visibility and viewport coordinates; hidden must always win. */
+.lesson-control-tooltip{
+ position:fixed;
+ z-index:500;
+ max-width:200px;
+ width:max-content;
+ box-sizing:border-box;
+ padding:8px 12px;
+ border:1px solid var(--gc-line,var(--line,#d9d1c6));
+ border-radius:10px;
+ color:var(--gc-ink,var(--ink,#23262b));
+ background:var(--gc-base,var(--bg,#f7f3ec));
+ box-shadow:0 6px 20px rgba(3,10,20,.16);
+ font:600 13px/1.4 Inter,ui-sans-serif,system-ui,sans-serif;
+ white-space:normal;
+ overflow-wrap:anywhere;
+ pointer-events:none;
+}
+.lesson-control-tooltip[hidden]{display:none!important}
+
+@media(min-width:1024px){
+ html.lesson-tools-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools{
+  top:24px!important;
+  bottom:24px!important;
+  left:24px!important;
+  right:auto!important;
+  width:104px!important;
+  height:calc(100dvh - 48px)!important;
+  max-height:none!important;
+  padding:16px 14px!important;
+  border-radius:24px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  gap:8px!important;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;
+ }
+ html.lesson-tools-ready.melunga-lesson-web body.immersif .wrap{
+  width:calc(100% - 176px)!important;
+  max-width:none!important;
+  margin-left:148px!important;
+  margin-right:28px!important;
+ }
+ html.lesson-tools-ready.melunga-lesson-web body.immersif .backbtn{left:168px!important}
+ html.lesson-tools-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools :is(.menu-b-head,.menu-b-continue,.csect){display:none!important}
+ html.lesson-tools-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools .menu-b-quick-grid{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  flex:none!important;
+  width:100%!important;
+  gap:8px!important;
+  margin:4px 0!important;
+  padding:12px 0!important;
+  border:0!important;
+  border-top:1px solid var(--gc-line,var(--line,#d9d1c6))!important;
+  border-bottom:1px solid var(--gc-line,var(--line,#d9d1c6))!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+ }
+ html.lesson-tools-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools .menu-b-quick-grid :is(#selLang,#selLv,#selRb,#selRev,#selVoice),
+ html.lesson-tools-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools :is(#btnHome,#btnFb,#btnLogout){
+  display:flex!important;
+  flex:0 0 56px!important;
+  flex-direction:row!important;
+  flex-wrap:nowrap!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:56px!important;
+  min-width:56px!important;
+  min-height:56px!important;
+  height:56px!important;
+  padding:0!important;
+  margin:0 auto!important;
+  gap:0!important;
+  border:0!important;
+  border-radius:19px!important;
+  background:transparent!important;
+  box-shadow:none!important;
+ }
+ /* Expanded legacy submenus remain fixed by their JS viewport positioning.
+    Do not give the drawer a transform or filter to create a new container. */
+ html.lesson-tools-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools .selmenu{flex:none!important}
+ @media(min-width:1600px){
+  html.lesson-tools-ready.melunga-lesson-web body.immersif .wrap{
+   width:calc(100% - 176px)!important;
+   max-width:1320px!important;
+   margin-left:max(148px,calc(50vw - 600px))!important;
+   margin-right:auto!important;
+  }
+  html.lesson-tools-ready.melunga-lesson-web body.immersif .backbtn{left:max(168px,calc(50vw - 580px))!important}
+  html.lesson-tools-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools{left:24px!important}
+ }
+ @media(max-height:680px){
+  html.lesson-tools-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools{padding-block:10px!important;gap:4px!important}
+  html.lesson-tools-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools .menu-b-quick-grid{gap:4px!important;padding-block:8px!important}
+ }
+}
+
+@media(max-width:1023px){
+ /* Keep the mobile drawer shell, header, dismissal and theme palette intact.
+    Only its five quick actions become a compact three-plus-two icon grid. */
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools .menu-b-quick-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  align-items:center!important;
+  justify-items:center!important;
+  gap:10px!important;
+  padding:12px 6px!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+ }
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools .menu-b-quick-grid :is(#selLang,#selLv,#selRb,#selRev,#selVoice){
+  display:flex!important;
+  flex:none!important;
+  flex-direction:row!important;
+  flex-wrap:nowrap!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:56px!important;
+  min-width:56px!important;
+  min-height:56px!important;
+  height:56px!important;
+  margin:0!important;
+  padding:0!important;
+  gap:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+ }
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools :is(#btnHome,#btnFb,#btnLogout){margin:6px!important}
+}
+
+@media(prefers-reduced-motion:no-preference){
+ body.immersif #ctrlDrawer.lesson-tools .lesson-control-icon{transition:background-color .15s,border-color .15s,box-shadow .15s}
+}
+@media(prefers-reduced-motion:reduce){
+ body.immersif #ctrlDrawer.lesson-tools .lesson-control,
+ body.immersif #ctrlDrawer.lesson-tools .lesson-control-icon{transition:none!important;animation:none!important}
+}
+@media(prefers-reduced-transparency:reduce){
+ body.immersif #ctrlDrawer.lesson-tools .lesson-control-icon{background:var(--gc-base,var(--bg,#f7f3ec))}
+}
+/* Do not expose account-only actions whose existing handler hides them. */
+html.lesson-tools-ready body.immersif #ctrlDrawer.menu-b.lesson-tools #btnLogout:is([hidden],[style*="display:none"],[style*="display: none"]),
+html body.immersif #ctrlDrawer.menu-b.lesson-tools #btnLogout:is([hidden],[style*="display:none"],[style*="display: none"]){display:none!important}
