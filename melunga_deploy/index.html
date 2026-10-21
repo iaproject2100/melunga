@@ -158,7 +158,7 @@
           <span class="site-bubble" style="--x:86%;--s:12px;--d:21s;--delay:-11s;--drift:-22px"></span>
           <span class="site-bubble" style="--x:94%;--s:26px;--d:25s;--delay:-19s;--drift:30px"></span>
         </div>
-        <div class="topline"><span></span><button class="lang-pill" data-open-app-language aria-label="Choisir la langue de l’application">FR Français⌄</button></div>
+        <div class="topline"><span></span><button class="lang-pill" data-open-app-language aria-label="Choisir la langue de l’application"><span class="home-flag home-flag-fr" aria-hidden="true"></span><span>Français⌄</span></button></div>
         <div class="brand"><img src="assets/melunga-logo.png" alt="Logo Melunga"><div class="brand-name">Melunga</div></div>
         <div class="welcome-copy">
           <div class="eyebrow" data-welcome-i18n="eyebrow">Apprends à parler naturellement</div>
@@ -712,7 +712,11 @@
       currentAppLocale=locale;
       document.querySelectorAll('[data-welcome-i18n]').forEach(element=>{const value=texts[element.dataset.welcomeI18n];if(value!==undefined)element.innerHTML=value;});
       document.documentElement.lang=locale;
-      appLanguageButton.textContent=`${label}⌄`;
+      const languageNames={fr:'Français',en:'English',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어'};
+      const flag=document.createElement('span');flag.className='home-flag home-flag-'+(languageNames[locale]?locale:'fr');flag.setAttribute('aria-hidden','true');
+      const name=document.createElement('span');name.textContent=(languageNames[locale]||label)+'⌄';
+      appLanguageButton.replaceChildren(flag,name);
+      appLanguageButton.setAttribute('aria-label',texts.languageTitle||'Langue de l’application');
       renderWelcomePrice();
       applyPremiumLanguage();
       try{localStorage.setItem('melunga-app-language',JSON.stringify({locale,label}));}catch(_e){}
