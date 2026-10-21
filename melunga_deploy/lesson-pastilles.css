@@ -255,17 +255,26 @@ html.lesson-pastilles-ready body.immersif .lesson-control-level{
   min-height:0;
   max-height:100%;
   margin:0;
-  padding:78px 14px 14px;
+  /* A non-scrolling top band clips the lesson below the separate tools.
+     Padding alone would scroll away and let text pass behind the icons. */
+  --card-tools-band:78px;
+  border-top:var(--card-tools-band) solid transparent!important;
+  background-clip:border-box!important;
+  outline:1px solid var(--gc-line,var(--line,#d9d1c6));
+  outline-offset:-1px;
+  padding:1px 14px 14px;
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  justify-content:flex-start;
+  justify-content:safe center;
   flex:initial;
   gap:0;
   overflow:auto;
   overscroll-behavior:contain;
-  scrollbar-width:thin;
+  scrollbar-width:none;
   border-radius:28px;
  }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card::-webkit-scrollbar{display:none;width:0;height:0}
  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card :is(#fr,#phon,#cn){flex-shrink:0;font-size:var(--mobile-lesson-size,28px)!important;line-height:1.3!important}
  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card #fr{margin:0 auto}
  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card .phonrow{flex:0 0 auto;width:100%;min-height:64px;height:auto;margin:16px auto 0;padding:26px 48px 10px 12px;border-radius:18px}
@@ -356,7 +365,7 @@ html.lesson-pastilles-ready body.immersif .lesson-control-level{
   html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles :is(.mobile-card-tools,.mobile-lesson-commands) .lesson-control-icon>svg{width:25px;height:25px}
   html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .mobile-card-tools #colorBtn{width:46px;min-width:46px;height:46px}
   html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .mobile-card-tools #colorBtn .cwheel{width:26px;height:26px}
-  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card{padding:66px 12px 10px;border-radius:25px}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card{--card-tools-band:66px;padding:1px 12px 10px;border-radius:25px}
   html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card .phonrow{min-height:58px;margin-top:10px;padding-top:23px;padding-bottom:8px}
   html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card #cn{margin-top:9px}
   html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card .listen{width:46px;min-width:46px;max-width:46px;height:46px;min-height:46px;margin-top:11px}
