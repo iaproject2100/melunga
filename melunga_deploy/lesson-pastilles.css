@@ -1,0 +1,373 @@
+/* V5 web enhancement. Native and the legacy fallback retain their layout.
+   Mobile tools are siblings of the learning card so their fixed menus have
+   no transformed/filtered card ancestor. Theme colours remain inherited. */
+ .mobile-menu-label{display:none}
+html.lesson-pastilles-ready body.immersif{
+ --pastille-voice:#b7a1eb;
+ --pastille-topics:#79d9c9;
+ --pastille-review:#f0cf72;
+}
+html.lesson-pastilles-ready body.immersif.ambclair{
+ --pastille-voice:#7252ae;
+ --pastille-topics:#176e60;
+ --pastille-review:#946200;
+}
+html.lesson-pastilles-ready body.immersif .lesson-control-icon{
+ border-radius:50%!important;
+ color:var(--gc-ink,var(--ink,#23262b));
+}
+html.lesson-pastilles-ready body.immersif #selVoice .lesson-control-icon{color:var(--pastille-voice)}
+html.lesson-pastilles-ready body.immersif #selRb .lesson-control-icon{color:var(--pastille-topics)}
+html.lesson-pastilles-ready body.immersif #selRev .lesson-control-icon{color:var(--pastille-review)}
+html.lesson-pastilles-ready body.immersif .lesson-control-flag{
+ display:block;
+ width:30px;
+ height:21px;
+ border-radius:3px;
+ background-size:cover;
+ background-position:center;
+ box-shadow:0 0 0 1px var(--gc-line,var(--line,#d9d1c6));
+}
+html.lesson-pastilles-ready body.immersif .lesson-control-level{
+ color:var(--pastille-review);
+ font:750 19px/1 Inter,ui-sans-serif,system-ui,sans-serif;
+ font-variant-numeric:tabular-nums;
+}
+
+@media(min-width:1024px){
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif .mobile-card-tools{display:none!important}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif #ctrlDrawer.lesson-tools .lesson-control-icon{border-radius:50%!important}
+}
+
+@media(max-width:1023px){
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles{
+  height:100vh;
+  height:100dvh;
+  min-height:0;
+  overflow:hidden;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .wrap{
+  width:100%;
+  max-width:680px!important;
+  height:100vh!important;
+  height:100dvh!important;
+  min-height:0!important;
+  margin:0 auto!important;
+  padding:0!important;
+  display:grid;
+  grid-template-rows:calc(72px + env(safe-area-inset-top)) minmax(0,1fr);
+  overflow:visible;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .top{
+  position:relative!important;
+  inset:auto!important;
+  width:100%;
+  height:100%!important;
+  min-height:0!important;
+  padding:0!important;
+  border:0;
+  background:transparent;
+  pointer-events:none;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .top .lockup{
+  top:calc(14px + env(safe-area-inset-top));
+  min-height:38px;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .top .lockup svg{width:42px!important;height:42px!important;flex-basis:42px!important}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .top .lockup .wordmark{font-size:25px!important}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .backbtn{
+  top:calc(17px + env(safe-area-inset-top))!important;
+  left:16px!important;
+  width:40px;
+  height:40px;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .top .utilbar{
+  top:calc(17px + env(safe-area-inset-top));
+  right:16px;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .utrigger{width:40px;height:40px}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .main{
+  min-height:0;
+  height:100%;
+  padding:0 16px calc(12px + env(safe-area-inset-bottom))!important;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .main .stage{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  grid-template-rows:64px minmax(0,1fr) 52px;
+  align-items:stretch;
+  gap:12px;
+  width:100%;
+  max-width:none!important;
+  min-width:0;
+  height:100%!important;
+  min-height:0!important;
+  padding:0!important;
+  margin:0;
+  overflow:visible;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .mobile-lesson-commands{
+  position:relative;
+  inset:auto;
+  grid-row:1;
+  grid-column:1;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  align-items:center;
+  justify-items:center;
+  gap:0;
+  width:100%;
+  height:100%;
+  min-height:0;
+  padding:0 0 5px;
+  border-bottom:2px solid var(--gc-line,var(--line,#d9d1c6));
+  z-index:166;
+  touch-action:pan-y;
+  overscroll-behavior:contain;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .mobile-language-tools{display:contents!important}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles :is(.desktop-progress-level,.desktop-progress-language){
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  justify-self:center;
+  grid-row:1;
+  width:52px;
+  min-width:52px;
+  min-height:52px;
+  height:52px;
+  padding:0;
+  margin:0;
+  border:1px solid var(--gc-line,var(--line,#d9d1c6));
+  border-radius:50%;
+  color:var(--gc-ink,var(--ink,#23262b));
+  background:var(--gc-surface,var(--bg,#f7f3ec));
+  box-shadow:inset 0 1px 0 var(--gc-glint,transparent),0 3px 12px rgba(3,10,20,.04);
+  font:700 18px/1 Inter,ui-sans-serif,system-ui,sans-serif;
+  cursor:pointer;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .desktop-progress-level{grid-column:1}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .desktop-progress-level::after{display:none;content:none}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .desktop-progress-language{grid-column:2;gap:0}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .desktop-progress-language>span:not(.desktop-language-flag){display:none!important}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .desktop-language-flag{width:29px;height:20px;min-width:29px;border-radius:3px}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .desktop-progress-count{
+  grid-column:4;
+  grid-row:1;
+  justify-self:center;
+  width:auto;
+  min-width:0;
+  min-height:0;
+  height:auto;
+  margin:0;
+  padding:0;
+  border:0;
+  border-radius:0;
+  color:var(--gc-ink,var(--ink,#23262b));
+  background:transparent;
+  box-shadow:none;
+  font:750 16px/1.3 Inter,ui-sans-serif,system-ui,sans-serif;
+  white-space:nowrap;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .mobile-lesson-commands #selVoice{grid-column:3;grid-row:1;justify-self:center}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .mobile-card-tools{
+  position:relative;
+  grid-row:2;
+  grid-column:1;
+  align-self:start;
+  justify-self:stretch;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:center;
+  justify-items:center;
+  height:52px;
+  margin:12px 10px 0;
+  z-index:167;
+  pointer-events:auto;
+  touch-action:pan-y;
+  overscroll-behavior:contain;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles :is(.mobile-card-tools,.mobile-lesson-commands) .lesson-control{
+  position:relative!important;
+  display:flex!important;
+  flex:none!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:52px!important;
+  min-width:52px!important;
+  min-height:52px!important;
+  height:52px!important;
+  margin:0!important;
+  padding:0!important;
+  gap:0!important;
+  border:0!important;
+  border-radius:50%!important;
+  color:var(--gc-ink,var(--ink,#23262b));
+  background:transparent!important;
+  box-shadow:none!important;
+  pointer-events:auto;
+  cursor:pointer;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles :is(.mobile-card-tools,.mobile-lesson-commands) .lesson-control-icon{
+  display:grid!important;
+  place-items:center;
+  flex:0 0 52px;
+  width:52px;
+  min-width:52px;
+  height:52px;
+  margin:0;
+  border:1px solid var(--gc-line,var(--line,#d9d1c6));
+  border-radius:50%!important;
+  background:var(--gc-surface,var(--bg,#f7f3ec));
+  box-shadow:inset 0 1px 0 var(--gc-glint,transparent);
+  pointer-events:none;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles :is(.mobile-card-tools,.mobile-lesson-commands) .lesson-control-icon>svg{display:block;width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles :is(.mobile-card-tools,.mobile-lesson-commands) .lesson-control:is(:hover,.open,[aria-expanded=true])>.lesson-control-icon{background:var(--gc-selected,var(--bg,#f7f3ec));border-color:var(--gc-muted,var(--ink,#23262b))}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles :is(.mobile-card-tools,.mobile-lesson-commands) :is(.ball,.selk,.selv,.ballarr,.selarr,.desktop-control-label,.desktop-control-icon,.menu-b-quick-caption,.lesson-control-legacy){display:none!important}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .mobile-card-tools #colorBtn{
+  position:static;
+  inset:auto;
+  display:grid;
+  place-items:center;
+  width:52px;
+  min-width:52px;
+  height:52px;
+  margin:0;
+  padding:0;
+  border:1px solid var(--gc-line,var(--line,#d9d1c6));
+  border-radius:50%;
+  background:var(--gc-surface,var(--bg,#f7f3ec));
+  box-shadow:inset 0 1px 0 var(--gc-glint,transparent);
+  pointer-events:auto;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .mobile-card-tools #colorBtn .cwheel{width:28px;height:28px}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles :is(.desktop-progress-level,.desktop-progress-language,.mobile-card-tools #colorBtn,.lesson-control):focus-visible{outline:2px solid var(--gc-ink,var(--ink,#23262b));outline-offset:3px}
+
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card{
+  grid-row:2;
+  grid-column:1;
+  align-self:stretch;
+  width:100%;
+  max-width:none;
+  height:100%;
+  min-height:0;
+  max-height:100%;
+  margin:0;
+  padding:78px 14px 14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  flex:initial;
+  gap:0;
+  overflow:auto;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;
+  border-radius:28px;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card :is(#fr,#phon,#cn){flex-shrink:0;font-size:var(--mobile-lesson-size,28px)!important;line-height:1.3!important}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card #fr{margin:0 auto}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card .phonrow{flex:0 0 auto;width:100%;min-height:64px;height:auto;margin:16px auto 0;padding:26px 48px 10px 12px;border-radius:18px}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card #cn{margin:14px auto 0}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card .listen{width:56px;min-width:56px;max-width:56px;min-height:56px;height:56px;margin:17px auto 0;flex:0 0 auto}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card .speed{flex:0 0 auto;margin-top:8px}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card .sep{display:none}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card:is(.content-long,.content-very-long){justify-content:flex-start}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #rateBar.ratebar{
+  position:static!important;
+  inset:auto!important;
+  grid-row:3;
+  grid-column:1;
+  align-self:stretch;
+  width:100%!important;
+  max-width:none;
+  height:52px;
+  margin:0!important;
+  padding:0!important;
+  gap:10px;
+  transform:none!important;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #rateBar.ratebar>button.rate{width:100%;height:100%;min-height:0;padding:8px 10px!important;border-radius:17px}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #rateBar.ratebar .rate-label{font-size:14px;line-height:1.3}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles :is(.countrow,.progwrap,.nav,.swipehint){display:none!important}
+
+ /* Small account menu: the learning tools now have their own visible homes. */
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #ctrlDrawer.menu-b.lesson-tools{
+  position:fixed!important;
+  top:calc(72px + env(safe-area-inset-top))!important;
+  bottom:auto!important;
+  left:auto!important;
+  right:-260px!important;
+  width:215px!important;
+  height:auto!important;
+  max-height:calc(100dvh - 96px - env(safe-area-inset-top) - env(safe-area-inset-bottom))!important;
+  margin:0;
+  padding:10px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:8px!important;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+  border-radius:23px!important;
+  background:var(--gc-base,var(--bg,#f7f3ec))!important;
+  scroll-padding:8px;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #ctrlDrawer.menu-b.lesson-tools.open{right:16px!important}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #ctrlDrawer.lesson-tools :is(.menu-b-heading,.menu-b-level,.menu-b-progress-copy,.menu-b-track,.menu-b-continue,.csect,.menu-b-quick-grid,#selLang,#selLv,#selAmb,#selPos,#btnInfoMenu){display:none!important}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #ctrlDrawer.lesson-tools :is(.menu-b-head,.menu-b-top){display:contents!important}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #ctrlDrawer.lesson-tools .menu-b-close{position:static;align-self:flex-end;flex:0 0 36px;width:36px;height:36px;min-height:36px;margin:0 0 2px;z-index:1}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #ctrlDrawer.menu-b.lesson-tools :is(#btnHome,#btnFb,#btnLogout){
+  display:flex!important;
+  flex:0 0 auto!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  width:100%!important;
+  min-width:0!important;
+  min-height:48px!important;
+  height:auto!important;
+  margin:0!important;
+  padding:6px 8px!important;
+  gap:10px!important;
+  background:var(--gc-pill,var(--bg,#f7f3ec))!important;
+  border:1px solid var(--gc-line,var(--line,#d9d1c6))!important;
+  border-radius:15px!important;
+ }
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #ctrlDrawer.lesson-tools :is(#btnHome,#btnFb,#btnLogout) .lesson-control-icon{flex:0 0 28px;width:28px;min-width:28px;height:28px;background:transparent;border:0;box-shadow:none}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #ctrlDrawer.lesson-tools :is(#btnHome,#btnFb,#btnLogout) .lesson-control-icon>svg{width:24px;height:24px}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #ctrlDrawer.lesson-tools .mobile-menu-label{display:block!important;min-width:0;color:var(--gc-ink,var(--ink,#23262b));font:650 14px/1.3 Inter,ui-sans-serif,system-ui,sans-serif}
+ html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #ctrlDrawer.menu-b.lesson-tools #btnLogout:is([hidden],[style*="display:none"],[style*="display: none"]){display:none!important}
+
+ @media(max-height:680px){
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .wrap{grid-template-rows:calc(64px + env(safe-area-inset-top)) minmax(0,1fr)}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .top .lockup{top:calc(10px + env(safe-area-inset-top))}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .top .lockup svg{width:36px!important;height:36px!important;flex-basis:36px!important}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .top .lockup .wordmark{font-size:22px!important}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .backbtn{top:calc(13px + env(safe-area-inset-top))!important}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .top .utilbar{top:calc(13px + env(safe-area-inset-top))}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .main{padding:0 10px calc(8px + env(safe-area-inset-bottom))!important}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .main .stage{grid-template-rows:56px minmax(0,1fr) 48px;gap:8px}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles :is(.desktop-progress-level,.desktop-progress-language){width:46px;min-width:46px;min-height:46px;height:46px;font-size:16px}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .desktop-progress-count{font-size:14px}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .mobile-card-tools{height:44px;margin-top:10px}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles :is(.mobile-card-tools,.mobile-lesson-commands) .lesson-control{width:46px!important;min-width:46px!important;min-height:46px!important;height:46px!important}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles :is(.mobile-card-tools,.mobile-lesson-commands) .lesson-control-icon{flex-basis:46px;width:46px;min-width:46px;height:46px}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles :is(.mobile-card-tools,.mobile-lesson-commands) .lesson-control-icon>svg{width:25px;height:25px}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .mobile-card-tools #colorBtn{width:46px;min-width:46px;height:46px}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles .mobile-card-tools #colorBtn .cwheel{width:26px;height:26px}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card{padding:66px 12px 10px;border-radius:25px}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card .phonrow{min-height:58px;margin-top:10px;padding-top:23px;padding-bottom:8px}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card #cn{margin-top:9px}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #card.card .listen{width:46px;min-width:46px;max-width:46px;height:46px;min-height:46px;margin-top:11px}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #rateBar.ratebar{height:48px}
+  html.lesson-pastilles-ready.melunga-lesson-web body.immersif.lesson-mobile-pastilles #rateBar.ratebar .rate-label{font-size:14px}
+ }
+}
+
+@media(prefers-reduced-motion:reduce){
+ html.lesson-pastilles-ready body.immersif .lesson-control-icon{transition:none!important;animation:none!important}
+}
+@media(prefers-reduced-transparency:reduce){
+ html.lesson-pastilles-ready body.immersif :is(.lesson-control-icon,.desktop-progress-level,.desktop-progress-language){background:var(--gc-base,var(--bg,#f7f3ec))}
+}

@@ -27,6 +27,7 @@
   const paletteParent = palette && palette.parentNode;
   const paletteNext = palette && palette.nextSibling;
   function placePalette() {
+    if (typeof window.placeLessonPastilles === 'function') { window.placeLessonPastilles(); return; }
     if (!palette) return;
     if (!desktop.matches) languageTools.append(palette);
     else paletteParent.insertBefore(palette,paletteNext);

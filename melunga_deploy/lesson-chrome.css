@@ -90,7 +90,7 @@ body.immersif #ctrlDrawer.menu-b .selbox.circ .selv::after{color:var(--gc-muted)
 body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid #selRev .caphat .c1{fill:var(--gc-ink)!important;stroke:var(--gc-ink)!important}
 body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid #selRev .caphat :is(.c2,.c3){stroke:var(--gc-ink)!important}
 body.immersif #ctrlDrawer.menu-b .menu-b-quick-grid #selRev .caphat .c4{fill:var(--gc-ink)!important}
-body.immersif #ctrlDrawer.menu-b .selmenu{
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu{
  width:min(380px,calc(100vw - 32px))!important;
  max-width:calc(100vw - 32px)!important;
  max-height:min(580px,calc(100dvh - 48px))!important;
@@ -99,16 +99,16 @@ body.immersif #ctrlDrawer.menu-b .selmenu{
  border-color:var(--gc-line)!important;
  box-shadow:0 12px 32px rgba(3,10,20,.16)!important;
 }
-body.immersif #ctrlDrawer.menu-b .selmenu button{
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu button{
  color:var(--gc-ink)!important;
  background:var(--gc-pill)!important;
  border-color:var(--gc-line)!important;
 }
-body.immersif #ctrlDrawer.menu-b .selmenu :is(small,.vgrouplabel,.famhead){color:var(--gc-muted)!important}
-body.immersif #ctrlDrawer.menu-b .selmenu :is(button:hover,button.active,button.on){background:var(--gc-selected)!important}
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu :is(small,.vgrouplabel,.famhead){color:var(--gc-muted)!important}
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu :is(button:hover,button.active,button.on){background:var(--gc-selected)!important}
 /* Themes use the existing expandable groups in a readable, narrow list. */
-body.immersif #ctrlDrawer.menu-b .selmenu .rubcols{flex-direction:column;gap:10px}
-body.immersif #ctrlDrawer.menu-b .selmenu .rubcolhd{
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu .rubcols{flex-direction:column;gap:10px}
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu .rubcolhd{
  justify-content:space-between;
  min-height:44px;
  margin-bottom:6px;
@@ -124,18 +124,18 @@ body.immersif #ctrlDrawer.menu-b .selmenu .rubcolhd{
  letter-spacing:0;
  text-align:left;
 }
-body.immersif #ctrlDrawer.menu-b .selmenu .rc-q .rubcolhd{border-left-color:#1d9e70}
-body.immersif #ctrlDrawer.menu-b .selmenu .rc-v .rubcolhd{border-left-color:#e8862b}
-body.immersif #ctrlDrawer.menu-b .selmenu .rc-b .rubcolhd{border-left-color:#1e7fa8}
-body.immersif #ctrlDrawer.menu-b .selmenu .rubcolhd .rchar{font-size:12px;opacity:1}
-body.immersif #ctrlDrawer.menu-b .selmenu .rubs>.lv{
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu .rc-q .rubcolhd{border-left-color:#1d9e70}
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu .rc-v .rubcolhd{border-left-color:#e8862b}
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu .rc-b .rubcolhd{border-left-color:#1e7fa8}
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu .rubcolhd .rchar{font-size:12px;opacity:1}
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu .rubs>.lv{
  min-height:48px;
  padding:10px 12px;
  margin-bottom:6px;
  font-size:14px;
  line-height:1.3;
 }
-body.immersif #ctrlDrawer.menu-b .selmenu .rubcol .lv{
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu .rubcol .lv{
  display:grid;
  grid-template-columns:28px minmax(0,1fr) 20px;
  align-items:center;
@@ -147,13 +147,13 @@ body.immersif #ctrlDrawer.menu-b .selmenu .rubcol .lv{
  line-height:1.3;
  text-align:left;
 }
-body.immersif #ctrlDrawer.menu-b .selmenu .rubs .lv .remo{font-size:22px;margin:0}
-body.immersif #ctrlDrawer.menu-b .selmenu .rubcol .lv .remo{grid-column:1;grid-row:1 / span 2}
-body.immersif #ctrlDrawer.menu-b .selmenu .rubs .lv small{display:block;font-size:12px;line-height:1.3}
-body.immersif #ctrlDrawer.menu-b .selmenu .rubcol .lv small{grid-column:2;grid-row:2}
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu .rubs .lv .remo{font-size:22px;margin:0}
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu .rubcol .lv .remo{grid-column:1;grid-row:1 / span 2}
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu .rubs .lv small{display:block;font-size:12px;line-height:1.3}
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu .rubcol .lv small{grid-column:2;grid-row:2}
 /* These legacy buttons store their main label in <small>, without a title. */
-body.immersif #ctrlDrawer.menu-b .selmenu .rubcol .lv:is(.pack,.sec) small{grid-row:1 / span 2;font-size:14px;color:var(--gc-ink)!important}
-body.immersif #ctrlDrawer.menu-b .selmenu .rubcol .lv .lockico{grid-column:3;grid-row:1 / span 2;font-size:14px}
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu .rubcol .lv:is(.pack,.sec) small{grid-row:1 / span 2;font-size:14px;color:var(--gc-ink)!important}
+body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu .rubcol .lv .lockico{grid-column:3;grid-row:1 / span 2;font-size:14px}
 body.immersif #ctrlDrawer.menu-b :is(button,.selbox,[role=button]):focus-visible{
  outline:2px solid var(--gc-ink)!important;
  outline-offset:3px;
@@ -262,7 +262,7 @@ body.immersif :is(#currentLevel,#count){
   background:var(--gc-hover)!important;
   border-color:var(--gc-line)!important;
  }
- html.melunga-lesson-web body.immersif #ctrlDrawer.menu-b .selmenu{
+ html.melunga-lesson-web body.immersif :is(#ctrlDrawer.menu-b,.mobile-lesson-commands,.mobile-card-tools) .selmenu{
   width:min(380px,calc(100vw - 32px))!important;
   max-width:calc(100vw - 32px)!important;
   color:var(--gc-ink)!important;

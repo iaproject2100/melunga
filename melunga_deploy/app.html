@@ -2698,6 +2698,7 @@ body.immersif.pile-droite .stage {
 <link rel="stylesheet" href="lesson-pickers.css">
 <link rel="stylesheet" href="lesson-chrome.css">
 <link rel="stylesheet" href="lesson-controls.css">
+<link rel="stylesheet" href="lesson-pastilles.css">
 </head>
 <body>
 <script>
@@ -4054,6 +4055,7 @@ function next(){ if(!navGate()) return; if(pool.length){selfTest=false;revealed=
   var c=document.getElementById('card'); if(!c) return;
   var x0=null,y0=null,dx=0,dy=0,t0=0;
   c.addEventListener('touchstart',function(e){
+    if(document.body.classList.contains('lesson-mobile-pastilles') && c.scrollHeight>c.clientHeight+2){ x0=null; return; }
     if(!e.touches||!e.touches.length) return;
     if(e.target && (e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'||e.target.tagName==='BUTTON')) return;
     var t=e.touches[0]; x0=t.clientX; y0=t.clientY; dx=0; dy=0; t0=Date.now();
@@ -4834,6 +4836,7 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
     drawer.querySelectorAll(".csect").forEach(function (section) {
       section.style.setProperty("display", "none", "important");
     });
+    if (typeof window.placeLessonPastilles === "function") window.placeLessonPastilles();
   }
 
   function refreshMenuB() {
@@ -5136,5 +5139,6 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
 <script src="desktop-lessons.js"></script>
 <script src="lesson-pickers.js"></script>
 <script src="lesson-controls.js"></script>
+<script src="lesson-pastilles.js"></script>
 </body>
 </html>
