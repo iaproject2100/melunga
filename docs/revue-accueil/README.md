@@ -1,6 +1,6 @@
 # Accueil Melunga — langues, lisibilité et premier essai
 
-Proposition pour Kartech et Claude, le 21 octobre 2026. Branche `review/accueil-lisibilite`, basée sur `main` à `e0caf7219dc67767c60c1796fd1806e32211eb18`. Les changements sont préparés pour revue ; aucune fusion ni publication du site n'est réalisée. L'APK reste reporté.
+Proposition validée par Kartech le 21 octobre 2026. Branche de revue `review/accueil-lisibilite`, basée initialement sur `main` à `e0caf7219dc67767c60c1796fd1806e32211eb18`. Après cette validation, Kartech a explicitement demandé la mise à jour du site et de l'application. Les trois fichiers web validés ont été publiés sur `main` au commit `94f1c4f1ce41ee115f608d28883e83a7b6fe226d`. Un APK d'essai v4 est maintenant préparé séparément ; voir `publication.md` et `android/README.md`.
 
 ## Les trois demandes
 
@@ -20,7 +20,7 @@ Les exemples existants n'ont pas été réécrits : anglais, espagnol et chinois
 
 - Sur ordinateur, le site conserve sa page large et ses actions existantes : gratuit, connexion et choix d'accès.
 - Sur mobile, l'accueil existant conserve son organisation. Le bouton de langue reçoit le même drapeau en couleur et le nom de la langue. Il n'est pas remplacé par la page d'ordinateur.
-- Le conteneur natif continue d'ignorer la présentation desktop et ses conditions de paiement web. Le rendu du bouton de langue est préparé dans la source commune, mais aucun APK n'a été construit ni testé sur appareil.
+- Le conteneur natif continue d'ignorer la présentation desktop et ses conditions de paiement web. Le rendu du bouton de langue est inclus dans le nouvel APK d'essai v4, préparé après l'autorisation de mise à jour ; aucun essai sur appareil n'est encore déclaré réalisé.
 - Les leçons, catalogues, contenus conversation, fichiers de paiement et droits ne sont pas modifiés.
 
 ## Vérification
@@ -42,4 +42,4 @@ Les captures mobiles sont prises au repos, en français et menu fermé. La véri
 
 ![Accueil proposé sur ordinateur](captures/accueil-ordinateur.png)
 
-Validation de Kartech et revue de Claude avant toute intégration à `main` ou mise en ligne.
+La mise en ligne de ce lot a été expressément autorisée par Kartech. Les autres propositions pédagogiques et la maquette « Ma prochaine conversation » ne sont pas intégrées par cette publication. Les prochains changements restent à présenter et relire séparément.
