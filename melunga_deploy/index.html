@@ -171,7 +171,7 @@
           <span class="site-bubble" style="--x:86%;--s:12px;--d:21s;--delay:-11s;--drift:-22px"></span>
           <span class="site-bubble" style="--x:94%;--s:26px;--d:25s;--delay:-19s;--drift:30px"></span>
         </div>
-        <div class="topline"><span></span><button class="lang-pill" data-open-app-language aria-label="Choisir la langue de l’application"><span class="home-flag home-flag-fr" aria-hidden="true"></span><span>Français⌄</span></button></div>
+        <div class="topline"><span></span><button type="button" class="home-start" data-select-access="free" data-welcome-i18n="tryFree">Essayer gratuitement</button><button class="lang-pill" data-open-app-language aria-label="Choisir la langue de l’application"><span class="home-flag home-flag-fr" aria-hidden="true"></span><span>Français⌄</span></button></div>
         <div class="brand"><img src="assets/melunga-logo.png" alt="Logo Melunga"><div class="brand-name">Melunga</div></div>
         <div class="welcome-copy">
           <div class="eyebrow" data-welcome-i18n="eyebrow">Apprends à parler naturellement</div>
@@ -180,7 +180,7 @@
           <small data-welcome-i18n="note">Toutes les langues incluses</small>
         </div>
         <div class="cta-stack">
-          <button class="primary" data-go="method" data-welcome-i18n="create">Découvrir Melunga gratuitement</button>
+          <button class="primary" data-go="method" data-welcome-i18n="create">Voir un exemple</button>
           <button class="secondary" data-go="signin" data-welcome-i18n="signin">J’ai déjà un compte</button>
         </div>
         <div class="app-language-backdrop" id="appLanguageMenu" aria-hidden="true">
@@ -511,13 +511,13 @@
       Coréen:{target:'물 좀 주세요.',phonetic:'moul djoûm djou-SÉ-yo'}
     };
     const welcomeTranslations={
-      fr:{eyebrow:'Apprends à parler naturellement',note:'Toutes les langues incluses',create:'Découvrir Melunga gratuitement',signin:'J’ai déjà un compte',languageTitle:'Langue de l’application'},
-      en:{eyebrow:'Learn to speak naturally',note:'All languages included',create:'Discover Melunga for free',signin:'I already have an account',languageTitle:'App language'},
-      es:{eyebrow:'Aprende a hablar de forma natural',note:'Todos los idiomas incluidos',create:'Descubrir Melunga gratis',signin:'Ya tengo una cuenta',languageTitle:'Idioma de la aplicación'},
-      zh:{eyebrow:'自然地学会开口说',note:'包含所有语言',create:'免费体验 Melunga',signin:'我已有账户',languageTitle:'应用语言'},
-      it:{eyebrow:'Impara a parlare in modo naturale',note:'Tutte le lingue incluse',create:'Scopri Melunga gratis',signin:'Ho già un account',languageTitle:'Lingua dell’app'},
-      ja:{eyebrow:'自然に話せるようになろう',note:'すべての言語が含まれます',create:'Melungaを無料で体験',signin:'すでにアカウントを持っています',languageTitle:'アプリの言語'},
-      ko:{eyebrow:'자연스럽게 말하는 법을 배우세요',note:'모든 언어 포함',create:'Melunga 무료 체험',signin:'이미 계정이 있어요',languageTitle:'앱 언어'}
+      fr:{eyebrow:'Apprends à parler naturellement',note:'Toutes les langues incluses',create:'Voir un exemple',tryFree:'Essayer gratuitement',signin:'J’ai déjà un compte',languageTitle:'Langue de l’application'},
+      en:{eyebrow:'Learn to speak naturally',note:'All languages included',create:'See an example',tryFree:'Try for free',signin:'I already have an account',languageTitle:'App language'},
+      es:{eyebrow:'Aprende a hablar de forma natural',note:'Todos los idiomas incluidos',create:'Ver un ejemplo',tryFree:'Probar gratis',signin:'Ya tengo una cuenta',languageTitle:'Idioma de la aplicación'},
+      zh:{eyebrow:'自然地学会开口说',note:'包含所有语言',create:'查看示例',tryFree:'免费体验',signin:'我已有账户',languageTitle:'应用语言'},
+      it:{eyebrow:'Impara a parlare in modo naturale',note:'Tutte le lingue incluse',create:'Vedi un esempio',tryFree:'Prova gratis',signin:'Ho già un account',languageTitle:'Lingua dell’app'},
+      ja:{eyebrow:'自然に話せるようになろう',note:'すべての言語が含まれます',create:'例を見る',tryFree:'無料で試す',signin:'すでにアカウントを持っています',languageTitle:'アプリの言語'},
+      ko:{eyebrow:'자연스럽게 말하는 법을 배우세요',note:'모든 언어 포함',create:'예시 보기',tryFree:'무료로 체험하기',signin:'이미 계정이 있어요',languageTitle:'앱 언어'}
     };
     const premiumTranslations={
       fr:{step:'TON ACCÈS MELUNGA',badge:'★ 7 jours Premium offerts',title:'Choisis ton accès Melunga',subtitle:'Les prix sont affichés dans ta devise par Google Play.',storeNote:'Tarifs localisés fournis directement par Google Play.',monthly:'Mensuel',monthlyNote:'Après les 7 jours gratuits · sans engagement',yearly:'Annuel',recommended:'Recommandé',freeSeparator:'Ou, sans abonnement',free:'Continuer gratuitement avec L1',trialCta:'Commencer mes 7 jours gratuits',monthlyCta:'Commencer mes 7 jours gratuits'},
