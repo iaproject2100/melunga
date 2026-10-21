@@ -112,3 +112,69 @@
  .dh-button.dh-primary{box-shadow:none}
  .dh-pricing-wrap{border-radius:18px}
 }
+
+/* Shared language marks match the lessons, including desktop browsers without flag emoji. */
+.home-flag{display:inline-block;flex:none;width:28px;min-width:28px;height:19px;border-radius:3px;box-shadow:0 0 0 1px #183e5026;background-size:cover;background-position:center}
+.home-flag-fr {
+  background: linear-gradient(90deg, #0055a4 0 33.333%, #fff 33.333% 66.666%, #ef4135 66.666%);
+}
+.home-flag-en {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23012169'/%3E%3Cpath d='M0 0l60 40M60 0L0 40' stroke='%23fff' stroke-width='9'/%3E%3Cpath d='M0 0l60 40M60 0L0 40' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v40M0 20h60' stroke='%23fff' stroke-width='13'/%3E%3Cpath d='M30 0v40M0 20h60' stroke='%23C8102E' stroke-width='7'/%3E%3C/svg%3E");
+}
+.home-flag-es {
+  background: linear-gradient(#aa151b 0 25%, #f1bf00 25% 75%, #aa151b 75%);
+}
+.home-flag-zh {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23DE2910'/%3E%3Cpath fill='%23FFDE00' d='M12 5l2.2 6.7h7l-5.7 4.1 2.2 6.7-5.7-4.1-5.7 4.1 2.2-6.7-5.7-4.1h7z'/%3E%3C/svg%3E");
+}
+.home-flag-it {
+  background: linear-gradient(90deg, #009246 0 33.333%, #fff 33.333% 66.666%, #ce2b37 66.666%);
+}
+.home-flag-ja {
+  background: radial-gradient(circle at 50% 50%, #bc002d 0 29%, transparent 30%), #fff;
+}
+.home-flag-ko {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='white'/%3E%3Ccircle cx='30' cy='20' r='10' fill='%23cd2e3a'/%3E%3Cpath d='M20 20a10 10 0 0 0 20 0 5 5 0 0 1-10 0 5 5 0 0 0-10 0' fill='%230047a0'/%3E%3Cg stroke='%23111' stroke-width='2'%3E%3Cpath d='M10 8l8 5m-9 0l8 5M42 27l8 5m-9-10l8 5'/%3E%3C/g%3E%3C/svg%3E");
+}
+.lang-pill{display:inline-flex;align-items:center;justify-content:center;gap:9px}
+
+/* Review: stronger hierarchy using the existing layout and actions. */
+@media(min-width:960px){
+ .dh-nav{gap:20px}
+ .dh-language-picker{position:relative;display:inline-flex;align-items:center;border:1px solid #a9cfd0;border-radius:14px;background:#eaf5f4}
+ .dh-language-picker>.home-flag{position:absolute;left:12px;top:50%;transform:translateY(-50%);pointer-events:none}
+ .dh-language{appearance:none;-webkit-appearance:none;max-width:none;min-height:48px;padding:10px 36px 10px 51px;border:0;border-radius:14px;background:transparent;color:#153e50;font-size:14px;font-weight:750;cursor:pointer}
+ .dh-language-picker>svg{position:absolute;right:12px;width:16px;height:16px;fill:none;stroke:#27565e;stroke-width:2;pointer-events:none}
+ .dh-language-picker:focus-within{outline:3px solid #168e9b;outline-offset:4px}.dh-language:focus-visible{outline:0}
+ .dh-hero{gap:56px;padding-block:50px 48px}
+ .dh-intro{color:#365362;line-height:1.65;font-weight:500}
+ .dh-fine{display:flex;align-items:center;gap:8px;color:#205e4f;font-size:14px;font-weight:650;line-height:1.5;margin-top:14px}
+ .dh-fine>svg{flex:none;width:22px;height:22px;padding:3px;border-radius:50%;background:#dcefe4;fill:none;stroke:#18664f;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+ .dh-example-top{font-size:14px;color:#254f51}.dh-example-top>span{border-radius:8px;background:#d9ebe0;color:#215b47;font-weight:750;padding:3px 8px}
+ .dh-tabs{flex-wrap:wrap;gap:7px}
+ .dh-tab{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:8px 10px;background:#fffefa;border:2px solid #cfdfd7;color:#284d56;font-size:13px;font-weight:650}
+ .dh-tab[aria-pressed="true"]{background:#ddf3eb;border-color:#18836a;color:#104e40;box-shadow:none}
+ .dh-card{padding:24px}
+ .dh-card-tag{color:#46675e;font-size:11px;margin-bottom:14px}
+ .dh-phrase{min-height:0;margin-bottom:18px;overflow-wrap:anywhere}
+ .dh-phonetic-area{padding:14px;margin-bottom:14px;border:1px solid #c8dfd5;border-radius:12px;background:#eef7f0}
+ .dh-trial-prompt{display:flex;align-items:center;gap:8px;margin:0 0 12px;color:#174e46;font-size:14px;font-weight:750;line-height:1.4}
+ .dh-action-step{display:inline-grid;place-items:center;flex:none;width:24px;height:24px;border-radius:50%;background:#146e59;color:#fff;font-size:13px;font-weight:800;letter-spacing:0}
+ .dh-phonetic-row{display:flex;align-items:center;gap:12px}
+ .dh-phonetic{flex:1;min-width:0;padding:0;background:transparent;margin:0;color:#16644f;font-size:20px;font-weight:750;overflow-wrap:anywhere}
+ .dh-ear{display:grid;place-items:center;flex:none;width:44px;height:44px;padding:0;border:1px solid #aacdbd;border-radius:50%;background:#fff;color:#153e50;font-size:25px;cursor:pointer}.dh-ear:hover{background:#dcefe4}
+ .dh-translation{color:#365962;font-size:16px;font-weight:500;line-height:1.5;margin-bottom:18px}
+ .dh-listen{min-height:48px;font-size:14px;padding:12px 16px}.dh-listen .dh-action-step{background:#e2f4e9;color:#134f40}
+ .dh-example-note{color:#345c52;font-size:14px;font-weight:500;min-height:0;margin:14px 2px 0}
+ .dh-languages{gap:12px;color:#365362;font-size:14px}
+ .dh-language-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #d4e3da;border-radius:999px;background:#f1f6f0;font-weight:600}
+ .dh-section-label{color:#26705f;font-size:12px}
+ .dh-step>span{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#dcf0e4;color:#1c6652;font-size:14px;letter-spacing:0}
+ .dh-step h3{margin-top:14px}.dh-step p{color:#3f5b64;font-size:16px;font-weight:500;line-height:1.65}
+ .dh-pricing-note{color:#31574d;font-size:15px;font-weight:600}
+ .dh-plan-label{color:#466854}.dh-plan-sub,.dh-plan-price span{color:#405e65}
+ .dh-paid .dh-plan-price span,.dh-paid .dh-plan-sub{color:#d4e6e8}
+ .dh-best-badge{max-width:calc(100% - 20px);text-align:center;font-size:10px;padding-inline:12px}
+ .dh-footer{color:#3d5c67;font-size:14px;font-weight:500}.dh-footer a{display:inline-flex;align-items:center;min-height:44px;text-underline-offset:4px}
+ @media(max-width:1100px){.dh-nav{gap:14px}.dh-hero{gap:32px}.dh-example{padding:18px}.dh-card{padding:20px}.dh-language{padding-right:31px;padding-left:48px}.dh-tab{padding-inline:8px;gap:6px}}
+}

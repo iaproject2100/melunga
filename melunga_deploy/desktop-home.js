@@ -5,16 +5,16 @@
   document.documentElement.classList.add('melunga-web');
   const copy = {
   "fr": [
-    "7 LANGUES · LES 80 % QUI COMPTENT",
+    "7 LANGUES · DES PHRASES DU QUOTIDIEN",
     "Apprends l’essentiel d’abord.<br><em>Prononce-le dans ta langue.</em>",
-    "80 % d’une langue tient dans ses mots les plus utilisés : on t’apprend exactement ceux-là. La prononciation est écrite dans ta langue — zéro symbole bizarre à déchiffrer.",
+    "Des phrases utiles pour les situations de tous les jours. Lis la prononciation avec les repères de ta langue, puis écoute pour affiner les sons.",
     "Commencer gratuitement",
     "Comment ça marche",
     "Niveau 1 gratuit · sans carte bancaire",
     "Essaie avec une première phrase",
     "AU QUOTIDIEN",
-    "Écouter la phrase",
-    "La phonétique en français t’aide à te lancer. Écoute ensuite la phrase pour affiner ta prononciation.",
+    "Écouter et comparer",
+    "Phonétique et traduction de cet exemple : français.",
     "COMMENT ÇA MARCHE",
     "Écoute. Répète. Réutilise.",
     "Écoute",
@@ -50,22 +50,23 @@
     "Accès 30 jours · sans reconduction",
     "Accès 1 an · sans reconduction",
     "Économise {pct}",
-    "Le plus populaire",
+    "Pratique toute l’année",
     "soit {m} / {unit}",
     "Choisir l’annuel",
-    "Choisir le mensuel"
+    "Choisir le mensuel",
+    "Lis la phonétique à voix haute."
   ],
   "en": [
-    "7 LANGUAGES · THE 80% THAT MATTERS",
+    "7 LANGUAGES · EVERYDAY PHRASES",
     "Learn what matters first.<br><em>Pronounce it in your language.</em>",
-    "80% of a language is its most-used words: we teach you exactly those. Pronunciation is written in your own language — no weird symbols to decode.",
+    "Useful phrases for everyday situations. Read pronunciation using familiar sounds, then listen to refine how you say each phrase.",
     "Start for free",
     "How it works",
     "Level 1 free · no payment card",
     "Try a first phrase",
     "EVERYDAY LIFE",
-    "Listen to the phrase",
-    "This example uses French phonetic guidance. Listen to refine your pronunciation.",
+    "Listen and compare",
+    "This example uses French phonetic guidance and translation.",
     "HOW IT WORKS",
     "Listen. Repeat. Use.",
     "Listen",
@@ -101,22 +102,23 @@
     "30-day access · no renewal",
     "1-year access · no renewal",
     "Save {pct}",
-    "Most popular",
+    "Practise all year",
     "that’s {m} / {unit}",
     "Choose yearly",
-    "Choose monthly"
+    "Choose monthly",
+    "Read the French phonetic guide aloud."
   ],
   "es": [
-    "7 IDIOMAS · EL 80 % QUE IMPORTA",
+    "7 IDIOMAS · FRASES DEL DÍA A DÍA",
     "Aprende primero lo esencial.<br><em>Pronúncialo en tu idioma.</em>",
-    "El 80 % de un idioma está en sus palabras más usadas: te enseñamos exactamente esas. La pronunciación está escrita en tu idioma, sin símbolos raros que descifrar.",
+    "Frases útiles para situaciones cotidianas. Lee la pronunciación con los sonidos de tu idioma y escucha para afinarla.",
     "Empezar gratis",
     "Cómo funciona",
     "Nivel 1 gratis · sin tarjeta",
     "Prueba una primera frase",
     "VIDA COTIDIANA",
-    "Escuchar la frase",
-    "Este ejemplo usa fonética para francófonos. Escucha para mejorar tu pronunciación.",
+    "Escuchar y comparar",
+    "Este ejemplo usa fonética y traducción para francófonos.",
     "CÓMO FUNCIONA",
     "Escucha. Repite. Utiliza.",
     "Escucha",
@@ -152,22 +154,23 @@
     "Acceso 30 días · sin renovación",
     "Acceso 1 año · sin renovación",
     "Ahorra {pct}",
-    "El más popular",
+    "Practica todo el año",
     "es decir {m} / {unit}",
     "Elegir anual",
-    "Elegir mensual"
+    "Elegir mensual",
+    "Lee en voz alta la guía fonética francesa."
   ],
   "zh": [
-    "7 种语言 · 最重要的 80%",
+    "7 种语言 · 日常实用句子",
     "先学最常用的，<br><em>用你的母语读出来。</em>",
-    "一门语言 80% 都在最常用的词里，我们只教这些。发音直接用你的母语标注，无需破译奇怪的符号。",
+    "从日常生活中实用的句子开始。借助母语中熟悉的声音读出发音提示，再听音频，逐步调整发音。",
     "免费开始",
     "如何学习",
     "L1 免费 · 无需银行卡",
     "试试第一个句子",
     "日常生活",
-    "听句子",
-    "本示例使用面向法语使用者的发音提示。听录音来改善发音。",
+    "听音频并对照",
+    "本示例的发音提示和翻译面向法语使用者。",
     "如何学习",
     "听。跟读。使用。",
     "听",
@@ -203,22 +206,23 @@
     "30 天权益 · 不自动续费",
     "1 年权益 · 不自动续费",
     "节省 {pct}",
-    "最受欢迎",
+    "全年练习",
     "相当于每{unit} {m}",
     "选择年度",
-    "选择月度"
+    "选择月度",
+    "大声读出法语发音提示。"
   ],
   "it": [
-    "7 LINGUE · L’80% CHE CONTA",
+    "7 LINGUE · FRASI DI OGNI GIORNO",
     "Impara prima l’essenziale.<br><em>Pronuncialo nella tua lingua.</em>",
-    "L’80% di una lingua sta nelle sue parole più usate: ti insegniamo esattamente quelle. La pronuncia è scritta nella tua lingua, zero simboli strani da decifrare.",
+    "Frasi utili per le situazioni di ogni giorno. Leggi la pronuncia con i suoni della tua lingua, poi ascolta per migliorarla.",
     "Inizia gratis",
     "Come funziona",
     "Livello 1 gratis · senza carta",
     "Prova una prima frase",
     "VITA QUOTIDIANA",
-    "Ascolta la frase",
-    "Questo esempio usa la fonetica per francofoni. Ascolta per migliorare la pronuncia.",
+    "Ascolta e confronta",
+    "Questo esempio usa fonetica e traduzione per francofoni.",
     "COME FUNZIONA",
     "Ascolta. Ripeti. Usa.",
     "Ascolta",
@@ -254,22 +258,23 @@
     "Accesso 30 giorni · senza rinnovo",
     "Accesso 1 anno · senza rinnovo",
     "Risparmia {pct}",
-    "Il più scelto",
+    "Esercitati tutto l’anno",
     "cioè {m} / {unit}",
     "Scegli annuale",
-    "Scegli mensile"
+    "Scegli mensile",
+    "Leggi ad alta voce la guida fonetica francese."
   ],
   "ja": [
-    "7言語 · 大切な80%",
+    "7言語 · 毎日使える文",
     "まずは本当に使う表現を。<br><em>発音は母語で読める。</em>",
-    "言語の80%は最もよく使われる言葉に含まれます。それだけを教えます。発音はあなたの母語で表記、不思議な記号は一切なし。",
+    "毎日の場面で使える文から。母語でなじみのある音を手がかりに読み、音声を聞いて発音を確かめましょう。",
     "無料で始める",
     "学習の流れ",
     "L1 無料 · カード不要",
     "最初の文を試す",
     "日常会話",
-    "文を聞く",
-    "この例はフランス語話者向けの発音表記です。音声を聞いて発音を磨きましょう。",
+    "音声を聞いて比べる",
+    "この例の発音表記と訳はフランス語話者向けです。",
     "学習の流れ",
     "聞く。繰り返す。使う。",
     "聞く",
@@ -305,22 +310,23 @@
     "30日間 · 自動更新なし",
     "1年間 · 自動更新なし",
     "{pct} お得",
-    "一番人気",
+    "一年を通して練習",
     "{unit}あたり {m}",
     "年間を選ぶ",
-    "月間を選ぶ"
+    "月間を選ぶ",
+    "フランス語話者向けの発音表記を声に出して読もう。"
   ],
   "ko": [
-    "7개 언어 · 중요한 80%",
+    "7개 언어 · 일상에서 쓰는 문장",
     "가장 많이 쓰는 표현부터.<br><em>발음은 모국어로 읽어요.</em>",
-    "언어의 80%는 가장 자주 쓰는 말에 담겨 있어요. 그것만 가르쳐 드려요. 발음은 당신의 모국어로 표기, 이상한 기호는 전혀 없어요.",
+    "일상에서 쓰는 유용한 문장부터 배워요. 모국어의 익숙한 소리를 바탕으로 발음을 읽고, 음성을 들으며 다듬어 보세요.",
     "무료로 시작",
     "학습 방법",
     "L1 무료 · 카드 불필요",
     "첫 문장 체험하기",
     "일상 회화",
-    "문장 듣기",
-    "이 예시는 프랑스어 사용자를 위한 발음 안내입니다. 음성을 듣고 발음을 익히세요.",
+    "듣고 비교하기",
+    "이 예시의 발음 안내와 번역은 프랑스어 사용자를 위한 것입니다.",
     "학습 방법",
     "듣고, 반복하고, 사용해요.",
     "듣기",
@@ -356,21 +362,36 @@
     "30일 이용 · 자동 갱신 없음",
     "1년 이용 · 자동 갱신 없음",
     "{pct} 절약",
-    "가장 인기",
+    "일 년 내내 연습",
     "{unit} {m} 꼴",
     "연간 선택",
-    "월간 선택"
+    "월간 선택",
+    "프랑스어 발음 안내를 소리 내어 읽어 보세요."
   ]
 };
+  const languageNames = {fr:'Français',en:'English',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어'};
+  const languageControlLabels = {
+    fr:['Langue du site','Langue de l’exemple'],en:['Website language','Example language'],
+    es:['Idioma del sitio','Idioma del ejemplo'],zh:['网站语言','示例语言'],
+    it:['Lingua del sito','Lingua dell’esempio'],ja:['サイトの言語','例文の言語'],
+    ko:['사이트 언어','예문 언어']
+  };
+  const exampleNames = {
+    fr:{en:'Anglais',es:'Espagnol',zh:'Chinois'},en:{en:'English',es:'Spanish',zh:'Chinese'},
+    es:{en:'Inglés',es:'Español',zh:'Chino'},zh:{en:'英语',es:'西班牙语',zh:'中文'},
+    it:{en:'Inglese',es:'Spagnolo',zh:'Cinese'},ja:{en:'英語',es:'スペイン語',zh:'中国語'},
+    ko:{en:'영어',es:'스페인어',zh:'중국어'}
+  };
+  const flag = code => `<span class="home-flag home-flag-${code}" aria-hidden="true"></span>`;
   const root = document.createElement('main');
   root.className = 'desktop-home';
   const tr = i => `<span data-dh-text="${i}"></span>`;
   root.innerHTML = `
-    <header class="dh-container dh-header"><a class="dh-brand" href="#"><img src="assets/melunga-logo.png" alt="">Melunga</a><nav class="dh-nav" aria-label="Melunga"><a href="#dh-method">${tr(35)}</a><a href="#dh-pricing">${tr(31)}</a><select class="dh-language" aria-label="Language / Langue"><option value="fr">FR Français</option><option value="en">EN English</option><option value="es">ES Español</option><option value="zh">中文</option><option value="it">IT Italiano</option><option value="ja">日本語</option><option value="ko">한국어</option></select><button class="dh-button dh-small dh-outline" data-go="signin">${tr(30)}</button></nav></header>
+    <header class="dh-container dh-header"><a class="dh-brand" href="#"><img src="assets/melunga-logo.png" alt="">Melunga</a><nav class="dh-nav" aria-label="Melunga"><a href="#dh-method">${tr(35)}</a><a href="#dh-pricing">${tr(31)}</a><label class="dh-language-picker"><span class="home-flag home-flag-fr" data-dh-native-flag aria-hidden="true"></span><select class="dh-language" aria-label="Langue du site">${Object.entries(languageNames).map(([code,name])=>`<option value="${code}">${name}</option>`).join('')}</select><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg></label><button class="dh-button dh-small dh-outline" data-go="signin">${tr(30)}</button></nav></header>
     <div class="dh-container">
-      <section class="dh-hero" aria-labelledby="dh-title"><div><p class="dh-kicker">${tr(0)}</p><h1 class="dh-title" id="dh-title"></h1><p class="dh-intro">${tr(2)}</p><div class="dh-actions"><button class="dh-button dh-primary" data-dh-free>${tr(3)} <span aria-hidden="true">&rarr;</span></button><a class="dh-button dh-outline" href="#dh-method">${tr(4)}</a></div><p class="dh-fine">${tr(5)}</p></div>
-      <aside class="dh-example"><div class="dh-example-top"><b>${tr(6)}</b><span>L1</span></div><div class="dh-tabs" role="group" aria-label="Exemples / Examples"><button class="dh-tab" data-dh-example="en" aria-pressed="true">English</button><button class="dh-tab" data-dh-example="es" aria-pressed="false">Español</button><button class="dh-tab" data-dh-example="zh" aria-pressed="false">中文</button></div><div class="dh-card"><p class="dh-card-tag">${tr(7)}</p><p class="dh-phrase" lang="en"></p><p class="dh-phonetic" lang="fr"></p><p class="dh-translation" lang="fr"></p><button class="dh-listen" data-dh-listen><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4zM17 8a6 6 0 0 1 0 8M20 5a10 10 0 0 1 0 14"/></svg>${tr(8)}</button></div><p class="dh-example-note" aria-live="polite">${tr(9)}</p></aside></section>
-      <div class="dh-languages" aria-label="7 languages"><span>Français</span><span>English</span><span>Español</span><span>中文</span><span>Italiano</span><span>日本語</span><span>한국어</span></div>
+      <section class="dh-hero" aria-labelledby="dh-title"><div><p class="dh-kicker">${tr(0)}</p><h1 class="dh-title" id="dh-title"></h1><p class="dh-intro">${tr(2)}</p><div class="dh-actions"><button class="dh-button dh-primary" data-dh-free>${tr(3)} <span aria-hidden="true">&rarr;</span></button><a class="dh-button dh-outline" href="#dh-method">${tr(4)}</a></div><p class="dh-fine"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10 3 3 7-7"/></svg>${tr(5)}</p></div>
+      <aside class="dh-example"><div class="dh-example-top"><b>${tr(6)}</b><span>L1</span></div><div class="dh-tabs" role="group" aria-label="Langue de l’exemple"><button class="dh-tab" data-dh-example="en" aria-pressed="true">${flag('en')}<span data-dh-example-name="en">English</span></button><button class="dh-tab" data-dh-example="es" aria-pressed="false">${flag('es')}<span data-dh-example-name="es">Español</span></button><button class="dh-tab" data-dh-example="zh" aria-pressed="false">${flag('zh')}<span data-dh-example-name="zh">中文</span></button></div><div class="dh-card"><p class="dh-card-tag">${tr(7)}</p><p class="dh-phrase" lang="en"></p><div class="dh-phonetic-area"><p class="dh-trial-prompt"><span class="dh-action-step">1</span>${tr(49)}</p><div class="dh-phonetic-row"><p class="dh-phonetic" lang="fr"></p><button type="button" class="dh-ear" data-dh-listen aria-label="Écouter et comparer"><span aria-hidden="true">👂</span></button></div></div><p class="dh-translation" lang="fr"></p><button type="button" class="dh-listen" data-dh-listen><span class="dh-action-step">2</span>${tr(8)}</button></div><p class="dh-example-note" aria-live="polite">${tr(9)}</p></aside></section>
+      <div class="dh-languages" aria-label="7 languages">${Object.entries(languageNames).map(([code,name])=>`<span class="dh-language-tag">${flag(code)}${name}</span>`).join('')}</div>
       <section class="dh-method" id="dh-method" aria-labelledby="dh-method-title"><p class="dh-section-label">${tr(10)}</p><h2 class="dh-section-title" id="dh-method-title">${tr(11)}</h2><div class="dh-steps">${[12,14,16].map((i,n)=>`<article class="dh-step"><span>0${n+1}</span><h3>${tr(i)}</h3><p>${tr(i+1)}</p></article>`).join('')}</div></section>
       <section class="dh-pricing-wrap" id="dh-pricing" aria-labelledby="dh-pricing-title">
         <div class="dh-pricing-head"><p class="dh-section-label">${tr(18)}</p><h2 class="dh-section-title" id="dh-pricing-title">${tr(19)}</h2><p class="dh-pricing-note">${tr(20)}</p></div>
@@ -409,6 +430,12 @@
     root.querySelectorAll('[data-dh-text]').forEach(el => { el.textContent = t[Number(el.dataset.dhText)]; });
     root.querySelector('#dh-title').innerHTML = t[1]; // Static, owned translation markup only.
     root.querySelector('.dh-language').value = locale;
+    const controlLabels = languageControlLabels[locale] || languageControlLabels.fr;
+    root.querySelector('.dh-language').setAttribute('aria-label', controlLabels[0]);
+    root.querySelector('.dh-tabs').setAttribute('aria-label', controlLabels[1]);
+    root.querySelector('[data-dh-native-flag]').className = 'home-flag home-flag-' + (languageNames[locale] ? locale : 'fr');
+    root.querySelectorAll('[data-dh-example-name]').forEach(el => { el.textContent = (exampleNames[locale] || exampleNames.fr)[el.dataset.dhExampleName]; });
+    root.querySelectorAll('[data-dh-listen]').forEach(el => { el.setAttribute('aria-label', t[8]); });
     const pt = (typeof premiumTranslations !== 'undefined' && premiumTranslations[locale]) || {};
     root.querySelector('[data-dh-yearly-label]').textContent = pt.yearly || 'Annuel';
     root.querySelector('[data-dh-monthly-label]').textContent = pt.monthly || 'Mensuel';
