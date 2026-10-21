@@ -1,5 +1,7 @@
 # Préparer les répliques reçues — proposition à discuter avec Claude
 
+Actualisation du 21 octobre : [contrat annexe testé sur les deux pilotes](pilotes-progression/contrat-received-essai.md) et [réponse à l'avis de Claude](reponse-avis-essais-chinois-coreen.md). Le texte ci-dessous conserve la proposition initiale du 20 octobre.
+
 20 octobre 2026. Document de proposition uniquement, destiné à la branche de revue. Aucun changement des contenus, de l’application, du chargeur ou des droits ; aucun déploiement. Le travail APK reste reporté. Lecture de `L1-fr-zh.json`, du contrat du lot A et de la réponse locale aux mesures de Claude.
 
 ## Décision pédagogique proposée

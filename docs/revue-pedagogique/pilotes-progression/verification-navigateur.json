@@ -1,21 +1,28 @@
 {
   "checkedOn": "2026-10-21",
+  "sourceCommit": "a219aa10d2e59f0a229f5891da8d86e4eafcefb9",
+  "sourceReferences": {
+    "count": 8,
+    "completePhrases": 7,
+    "supportGroups": 1,
+    "supportIsStandaloneMainPhrase": false
+  },
   "prototype": {
     "views": [
       {
         "width": 320,
         "height": 568,
-        "steps": 13
+        "steps": 14
       },
       {
         "width": 390,
         "height": 844,
-        "steps": 13
+        "steps": 14
       },
       {
         "width": 1440,
         "height": 900,
-        "steps": 13
+        "steps": 14
       }
     ],
     "errors": [],
@@ -27,24 +34,33 @@
       {
         "width": 320,
         "height": 568,
-        "steps": 13
+        "steps": 14
       },
       {
         "width": 390,
         "height": 844,
-        "steps": 13
+        "steps": 14
       },
       {
         "width": 1440,
         "height": 900,
-        "steps": 13
+        "steps": 14
       }
     ],
     "errors": [],
     "external": [],
     "writes": []
   },
-  "audio": "Simulation : texte complet et langue, sans validation de voix réelle.",
+  "checks": [
+    "14 étapes sur chaque format, phrases et aides principales identiques aux données",
+    "Badge À comprendre sur toutes les répliques reçues ; elles restent visibles au rappel",
+    "Appui 回家 secondaire sous la phrase complète, texte et aides exacts, sans collage",
+    "Audio simulé : phrase complète ou groupe complet exact et langue zh-CN/ko-KR",
+    "Réponse apprenant retirée du DOM au rappel ; choix conservant le masquage ; restauration de l’aide",
+    "Fixture uniquement en mémoire : appui fourni au rappel retiré du DOM avec le modèle",
+    "Oreilles au moins 44 px, clavier, absence de débordement horizontal"
+  ],
+  "audio": "Simulation : texte complet de la phrase ou du groupe et langue, sans validation de voix réelle.",
   "nativeValidation": false,
   "pedagogicalEffectivenessTested": false,
   "apkTested": false

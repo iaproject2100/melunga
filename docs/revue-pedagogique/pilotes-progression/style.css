@@ -56,7 +56,9 @@ h2:focus { outline: none; }
 .utterance-list { display: grid; gap: 15px; margin: 0; padding: 0; list-style: none; }
 .utterance-card { min-width: 0; padding: 25px 28px 24px; border: 1px solid rgba(255,255,255,.92); border-radius: 23px; background: var(--glass); box-shadow: 0 12px 40px rgba(39,66,75,.045); }
 .utterance-card[data-kind="received"] { background: rgba(236,244,247,.8); border-color: rgba(209,226,232,.9); }
-.utterance-role { margin: 0 0 18px; color: var(--muted); font-size: 12px; font-weight: 650; }
+.utterance-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 12px; margin: 0 0 18px; }
+.utterance-role { margin: 0; color: var(--muted); font-size: 12px; font-weight: 650; }
+.received-badge { padding: 4px 8px; border: 1px solid #bfd4df; border-radius: 20px; color: #2c5b70; background: rgba(255,255,255,.6); font-size: 11px; font-weight: 650; }
 .study { margin: 0 0 21px; color: var(--ink); font-size: clamp(30px, 3.2vw, 43px); font-weight: 650; line-height: 1.4; overflow-wrap: anywhere; word-break: normal; }
 .study[lang="ko"] { word-break: keep-all; }
 .phonetic-row { display: flex; align-items: center; gap: 12px; padding: 13px 14px; border: 1px solid #d4e2db; border-radius: 13px; background: rgba(234,242,234,.72); }
@@ -67,6 +69,14 @@ h2:focus { outline: none; }
 .ear-button.single { padding-right: 13px; border-radius: 25px; font-size: 12px; font-weight: 700; }
 .reading { margin: 10px 2px 0; color: var(--muted); font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
 .native { margin: 21px 0 0; color: #354f5c; font-size: 18px; line-height: 1.55; overflow-wrap: anywhere; }
+.focus-brick { margin-top: 23px; padding-top: 18px; border-top: 1px solid var(--line); }
+.brick-label { margin: 0 0 10px; color: var(--teal); font-size: 11px; font-weight: 700; letter-spacing: .5px; }
+.brick-content { display: flex; align-items: baseline; flex-wrap: wrap; gap: 5px 13px; }
+.brick-study { margin: 0; color: var(--ink); font-size: 25px; line-height: 1.4; font-weight: 650; overflow-wrap: anywhere; }
+.brick-native { margin: 0; color: #354f5c; font-size: 15px; line-height: 1.5; overflow-wrap: anywhere; }
+.brick-phonetic-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 7px; }
+.brick-phonetic { min-width: 0; margin: 0; color: #285c51; font-size: 17px; line-height: 1.5; font-weight: 600; overflow-wrap: anywhere; }
+.brick-reading { margin-top: 3px; }
 .masked { border-style: dashed; border-color: #b8c9c6; background: rgba(251,248,240,.75); }
 .recall-label { color: var(--teal); margin: 0 0 10px; font-size: 11px; font-weight: 750; letter-spacing: .6px; text-transform: uppercase; }
 .masked .native { margin: 0; color: var(--ink); font-size: 25px; line-height: 1.45; }

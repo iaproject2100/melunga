@@ -29,7 +29,7 @@
   function speak(item) {
     // Hidden learner phrases have no audio control. This guard also protects
     // against a queued click from a control removed by a later render.
-    if (state.modelHidden && item.kind === 'learner') return;
+    if (state.modelHidden && (item.kind === 'learner' || item.kind === 'brick')) return;
     stopAudio();
     if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) {
       byId('audio-status').textContent = 'L’écoute système n’est pas disponible sur cet appareil.';
@@ -51,7 +51,8 @@
   function audioButton(item,single) {
     const button = element('button','ear-button' + (single ? ' single' : ''));
     button.type = 'button';
-    button.setAttribute('aria-label','Écouter la phrase de ' + (item.role || 'ce rôle') + ' en ' + (languageNames[pilot().pair.study] || pilot().pair.study).toLowerCase());
+    const label = item.kind === 'brick' ? 'Écouter le morceau à réutiliser' : 'Écouter la phrase de ' + (item.role || 'ce rôle');
+    button.setAttribute('aria-label',label + ' en ' + (languageNames[pilot().pair.study] || pilot().pair.study).toLowerCase());
     const ear = element('span','ear','👂');
     ear.setAttribute('aria-hidden','true');
     button.append(ear);
@@ -59,12 +60,41 @@
     button.addEventListener('click',function () { speak(item); });
     return button;
   }
-  function renderUtterance(item,single) {
+  function renderFocusBrick(item) {
+    if (!item || state.modelHidden) return null;
+    const support = element('section','focus-brick');
+    support.setAttribute('aria-label',item.role || 'Le morceau à réutiliser');
+    support.append(element('p','brick-label','Appui'));
+    const content = element('div','brick-content');
+    const studied = element('p','brick-study',item.study);
+    studied.lang = pilot().pair.study;
+    const native = element('p','brick-native',item.native);
+    native.lang = pilot().pair.native;
+    content.append(studied,native);
+    const row = element('div','brick-phonetic-row');
+    const phon = element('p','brick-phonetic',item.phon);
+    phon.lang = pilot().pair.native;
+    row.append(phon,audioButton(item,false));
+    support.append(content,row);
+    if (item.reading) {
+      const reading = element('p','reading brick-reading');
+      reading.append(element('span','reading-label',(pilot().pair.study === 'zh' ? 'Pinyin' : 'Romanisation') + ' · '));
+      const text = element('span','reading-text',item.reading);
+      text.lang = pilot().pair.study;
+      reading.append(text);
+      support.append(reading);
+    }
+    return support;
+  }
+  function renderUtterance(item,single,focusBrick) {
     const hidden = state.modelHidden && item.kind === 'learner';
     const card = element('li','utterance-card' + (hidden ? ' masked' : ''));
     card.dataset.kind = item.kind || '';
     card.dataset.utteranceId = item.id || '';
-    card.append(element('p','utterance-role',item.role || ''));
+    const heading = element('div','utterance-heading');
+    heading.append(element('p','utterance-role',item.role || ''));
+    if (item.kind === 'received') heading.append(element('span','received-badge','À comprendre'));
+    card.append(heading);
     if (hidden) {
       card.append(element('p','recall-label','Ton intention'));
       const intention = element('p','native',item.native);
@@ -92,6 +122,8 @@
     const native = element('p','native',item.native);
     native.lang = pilot().pair.native;
     card.append(native);
+    const support = renderFocusBrick(focusBrick);
+    if (support) card.append(support);
     return card;
   }
   function renderChoices() {
@@ -131,7 +163,8 @@
     byId('recall-toggle').setAttribute('aria-pressed',String(state.modelHidden));
     byId('recall-state').textContent = canRecall && state.modelHidden ? 'Le sens reste visible.' : '';
     const items = utterances();
-    byId('utterance-list').replaceChildren(...items.map(item => renderUtterance(item,items.length === 1)));
+    const supportIndex = items.findIndex(item => item.kind === 'learner');
+    byId('utterance-list').replaceChildren(...items.map((item,index) => renderUtterance(item,items.length === 1,index === supportIndex ? currentStep.focusBrick : null)));
     byId('previous-step').disabled = state.stepIndex === 0;
     byId('next-step').disabled = state.stepIndex === currentPilot.steps.length - 1;
     // Editorial notes can quote target-language words. Remove them while the

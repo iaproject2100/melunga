@@ -64,7 +64,9 @@ h2:focus { outline: none; }
 .utterance-list { display: grid; gap: 15px; margin: 0; padding: 0; list-style: none; }
 .utterance-card { min-width: 0; padding: 25px 28px 24px; border: 1px solid rgba(255,255,255,.92); border-radius: 23px; background: var(--glass); box-shadow: 0 12px 40px rgba(39,66,75,.045); }
 .utterance-card[data-kind="received"] { background: rgba(236,244,247,.8); border-color: rgba(209,226,232,.9); }
-.utterance-role { margin: 0 0 18px; color: var(--muted); font-size: 12px; font-weight: 650; }
+.utterance-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 12px; margin: 0 0 18px; }
+.utterance-role { margin: 0; color: var(--muted); font-size: 12px; font-weight: 650; }
+.received-badge { padding: 4px 8px; border: 1px solid #bfd4df; border-radius: 20px; color: #2c5b70; background: rgba(255,255,255,.6); font-size: 11px; font-weight: 650; }
 .study { margin: 0 0 21px; color: var(--ink); font-size: clamp(30px, 3.2vw, 43px); font-weight: 650; line-height: 1.4; overflow-wrap: anywhere; word-break: normal; }
 .study[lang="ko"] { word-break: keep-all; }
 .phonetic-row { display: flex; align-items: center; gap: 12px; padding: 13px 14px; border: 1px solid #d4e2db; border-radius: 13px; background: rgba(234,242,234,.72); }
@@ -75,6 +77,14 @@ h2:focus { outline: none; }
 .ear-button.single { padding-right: 13px; border-radius: 25px; font-size: 12px; font-weight: 700; }
 .reading { margin: 10px 2px 0; color: var(--muted); font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
 .native { margin: 21px 0 0; color: #354f5c; font-size: 18px; line-height: 1.55; overflow-wrap: anywhere; }
+.focus-brick { margin-top: 23px; padding-top: 18px; border-top: 1px solid var(--line); }
+.brick-label { margin: 0 0 10px; color: var(--teal); font-size: 11px; font-weight: 700; letter-spacing: .5px; }
+.brick-content { display: flex; align-items: baseline; flex-wrap: wrap; gap: 5px 13px; }
+.brick-study { margin: 0; color: var(--ink); font-size: 25px; line-height: 1.4; font-weight: 650; overflow-wrap: anywhere; }
+.brick-native { margin: 0; color: #354f5c; font-size: 15px; line-height: 1.5; overflow-wrap: anywhere; }
+.brick-phonetic-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 7px; }
+.brick-phonetic { min-width: 0; margin: 0; color: #285c51; font-size: 17px; line-height: 1.5; font-weight: 600; overflow-wrap: anywhere; }
+.brick-reading { margin-top: 3px; }
 .masked { border-style: dashed; border-color: #b8c9c6; background: rgba(251,248,240,.75); }
 .recall-label { color: var(--teal); margin: 0 0 10px; font-size: 11px; font-weight: 750; letter-spacing: .6px; text-transform: uppercase; }
 .masked .native { margin: 0; color: var(--ink); font-size: 25px; line-height: 1.45; }
@@ -194,7 +204,7 @@ h2:focus { outline: none; }
 <script>
 window.ProgressionPilotData = {
   "status": "proposition-locale-a-relire",
-  "sourceCommit": "f30eb821a21e7df67a0646e0c61674f7fba16c79",
+  "sourceCommit": "a219aa10d2e59f0a229f5891da8d86e4eafcefb9",
   "pilots": [
     {
       "id": "fr-zh-envie",
@@ -211,7 +221,7 @@ window.ProgressionPilotData = {
           "phase": "Comprendre",
           "title": "Tu veux te reposer",
           "instruction": "Après une promenade, tu souhaites faire une pause. Écoute la phrase et retrouve son sens.",
-          "novelty": "Première phrase entière : ne suppose aucun acquis en 需要.",
+          "novelty": "Ici, 我想 sert à dire ce que tu veux faire. Aucun acquis en 需要 n’est supposé. Les usages de 我要 et 我想要 se reprennent séparément, pas comme trois constructions nouvelles à cette première écoute.",
           "utterances": [
             {
               "id": "zh-deck-226",
@@ -256,7 +266,12 @@ window.ProgressionPilotData = {
               "native": "d'accord",
               "reading": "hǎo de",
               "role": "Un proche",
-              "kind": "received"
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": false,
+              "answerWith": [],
+              "preparedInStep": "zh-received"
             }
           ]
         },
@@ -283,18 +298,59 @@ window.ProgressionPilotData = {
               "native": "d'accord",
               "reading": "hǎo de",
               "role": "Un proche",
-              "kind": "received"
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": false,
+              "answerWith": [],
+              "preparedInStep": "zh-received"
             }
           ],
           "scene": true
         },
         {
+          "id": "zh-prepare-home",
+          "phase": "Préparer la suite",
+          "title": "Tu veux rentrer à la maison",
+          "instruction": "Écoute la phrase entière. Repère ensuite le morceau qui veut dire « rentrer à la maison ».",
+          "novelty": "回家 est préparé dans une phrase complète avant de le substituer à 休息. La carte autonome sert d’appui ; 家 et 家里 ne deviennent pas de nouveaux prérequis.",
+          "utterances": [
+            {
+              "id": "zh-deck-416",
+              "study": "我想回家",
+              "phon": "ouo chyang houèï djya",
+              "native": "je veux rentrer à la maison",
+              "reading": "wǒ xiǎng huí jiā",
+              "role": "Toi",
+              "kind": "learner"
+            }
+          ],
+          "focusBrick": {
+            "id": "zh-deck-2988",
+            "study": "回家",
+            "phon": "houèï djya",
+            "native": "rentrer à la maison",
+            "reading": "huí jiā",
+            "role": "Le morceau à réutiliser",
+            "kind": "brick"
+          }
+        },
+        {
           "id": "zh-substitute",
           "phase": "Remplacer",
           "title": "Cette fois, tu veux rentrer",
-          "instruction": "Écoute la nouvelle phrase entière. Le début reste identique ; l’action change.",
-          "novelty": "Le groupe 回家 remplace 休息 ; ne change ni le temps ni la personne.",
+          "instruction": "Compare les deux phrases déjà écoutées. Le début reste identique ; l’action change.",
+          "novelty": "回家, maintenant préparé, remplace 休息. L’emplacement accueille une action complète, pas n’importe quel mot.",
           "utterances": [
+            {
+              "id": "zh-deck-226",
+              "study": "我想休息",
+              "phon": "ouo chyang chyo chi",
+              "native": "je veux me reposer",
+              "reading": "wǒ xiǎng xiū xi",
+              "role": "Toi",
+              "kind": "learner"
+            },
             {
               "id": "zh-deck-416",
               "study": "我想回家",
@@ -329,7 +385,12 @@ window.ProgressionPilotData = {
               "native": "d'accord",
               "reading": "hǎo de",
               "role": "Un proche",
-              "kind": "received"
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": false,
+              "answerWith": [],
+              "preparedInStep": "zh-received"
             }
           ],
           "scene": true,
@@ -461,7 +522,25 @@ window.ProgressionPilotData = {
               "native": "Bonjour. Vous désirez ?",
               "reading": "annyeonghaseyo. mwo deurilkkayo?",
               "role": "Serveur",
-              "kind": "received"
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": true,
+              "answerWith": [
+                {
+                  "unitId": "L1-fr-ko-03",
+                  "variantIndex": 0,
+                  "expectedStudy": "커피 주세요.",
+                  "preparedInStep": "ko-understand"
+                },
+                {
+                  "unitId": "L1-fr-ko-03",
+                  "variantIndex": 1,
+                  "expectedStudy": "물 주세요.",
+                  "preparedInStep": "ko-substitute"
+                }
+              ],
+              "preparedInStep": "ko-received"
             }
           ]
         },
@@ -479,7 +558,25 @@ window.ProgressionPilotData = {
               "native": "Bonjour. Vous désirez ?",
               "reading": "annyeonghaseyo. mwo deurilkkayo?",
               "role": "Serveur",
-              "kind": "received"
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": true,
+              "answerWith": [
+                {
+                  "unitId": "L1-fr-ko-03",
+                  "variantIndex": 0,
+                  "expectedStudy": "커피 주세요.",
+                  "preparedInStep": "ko-understand"
+                },
+                {
+                  "unitId": "L1-fr-ko-03",
+                  "variantIndex": 1,
+                  "expectedStudy": "물 주세요.",
+                  "preparedInStep": "ko-substitute"
+                }
+              ],
+              "preparedInStep": "ko-received"
             },
             {
               "id": "L1-fr-ko-03-v0",
@@ -507,7 +604,25 @@ window.ProgressionPilotData = {
               "native": "Bonjour. Vous désirez ?",
               "reading": "annyeonghaseyo. mwo deurilkkayo?",
               "role": "Serveur",
-              "kind": "received"
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": true,
+              "answerWith": [
+                {
+                  "unitId": "L1-fr-ko-03",
+                  "variantIndex": 0,
+                  "expectedStudy": "커피 주세요.",
+                  "preparedInStep": "ko-understand"
+                },
+                {
+                  "unitId": "L1-fr-ko-03",
+                  "variantIndex": 1,
+                  "expectedStudy": "물 주세요.",
+                  "preparedInStep": "ko-substitute"
+                }
+              ],
+              "preparedInStep": "ko-received"
             },
             {
               "id": "L1-fr-ko-03-v0",
@@ -590,7 +705,7 @@ window.ProgressionPilotData = {
   function speak(item) {
     // Hidden learner phrases have no audio control. This guard also protects
     // against a queued click from a control removed by a later render.
-    if (state.modelHidden && item.kind === 'learner') return;
+    if (state.modelHidden && (item.kind === 'learner' || item.kind === 'brick')) return;
     stopAudio();
     if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) {
       byId('audio-status').textContent = 'L’écoute système n’est pas disponible sur cet appareil.';
@@ -612,7 +727,8 @@ window.ProgressionPilotData = {
   function audioButton(item,single) {
     const button = element('button','ear-button' + (single ? ' single' : ''));
     button.type = 'button';
-    button.setAttribute('aria-label','Écouter la phrase de ' + (item.role || 'ce rôle') + ' en ' + (languageNames[pilot().pair.study] || pilot().pair.study).toLowerCase());
+    const label = item.kind === 'brick' ? 'Écouter le morceau à réutiliser' : 'Écouter la phrase de ' + (item.role || 'ce rôle');
+    button.setAttribute('aria-label',label + ' en ' + (languageNames[pilot().pair.study] || pilot().pair.study).toLowerCase());
     const ear = element('span','ear','👂');
     ear.setAttribute('aria-hidden','true');
     button.append(ear);
@@ -620,12 +736,41 @@ window.ProgressionPilotData = {
     button.addEventListener('click',function () { speak(item); });
     return button;
   }
-  function renderUtterance(item,single) {
+  function renderFocusBrick(item) {
+    if (!item || state.modelHidden) return null;
+    const support = element('section','focus-brick');
+    support.setAttribute('aria-label',item.role || 'Le morceau à réutiliser');
+    support.append(element('p','brick-label','Appui'));
+    const content = element('div','brick-content');
+    const studied = element('p','brick-study',item.study);
+    studied.lang = pilot().pair.study;
+    const native = element('p','brick-native',item.native);
+    native.lang = pilot().pair.native;
+    content.append(studied,native);
+    const row = element('div','brick-phonetic-row');
+    const phon = element('p','brick-phonetic',item.phon);
+    phon.lang = pilot().pair.native;
+    row.append(phon,audioButton(item,false));
+    support.append(content,row);
+    if (item.reading) {
+      const reading = element('p','reading brick-reading');
+      reading.append(element('span','reading-label',(pilot().pair.study === 'zh' ? 'Pinyin' : 'Romanisation') + ' · '));
+      const text = element('span','reading-text',item.reading);
+      text.lang = pilot().pair.study;
+      reading.append(text);
+      support.append(reading);
+    }
+    return support;
+  }
+  function renderUtterance(item,single,focusBrick) {
     const hidden = state.modelHidden && item.kind === 'learner';
     const card = element('li','utterance-card' + (hidden ? ' masked' : ''));
     card.dataset.kind = item.kind || '';
     card.dataset.utteranceId = item.id || '';
-    card.append(element('p','utterance-role',item.role || ''));
+    const heading = element('div','utterance-heading');
+    heading.append(element('p','utterance-role',item.role || ''));
+    if (item.kind === 'received') heading.append(element('span','received-badge','À comprendre'));
+    card.append(heading);
     if (hidden) {
       card.append(element('p','recall-label','Ton intention'));
       const intention = element('p','native',item.native);
@@ -653,6 +798,8 @@ window.ProgressionPilotData = {
     const native = element('p','native',item.native);
     native.lang = pilot().pair.native;
     card.append(native);
+    const support = renderFocusBrick(focusBrick);
+    if (support) card.append(support);
     return card;
   }
   function renderChoices() {
@@ -692,7 +839,8 @@ window.ProgressionPilotData = {
     byId('recall-toggle').setAttribute('aria-pressed',String(state.modelHidden));
     byId('recall-state').textContent = canRecall && state.modelHidden ? 'Le sens reste visible.' : '';
     const items = utterances();
-    byId('utterance-list').replaceChildren(...items.map(item => renderUtterance(item,items.length === 1)));
+    const supportIndex = items.findIndex(item => item.kind === 'learner');
+    byId('utterance-list').replaceChildren(...items.map((item,index) => renderUtterance(item,items.length === 1,index === supportIndex ? currentStep.focusBrick : null)));
     byId('previous-step').disabled = state.stepIndex === 0;
     byId('next-step').disabled = state.stepIndex === currentPilot.steps.length - 1;
     // Editorial notes can quote target-language words. Remove them while the

@@ -12,6 +12,7 @@ ROOT = HERE.parents[2]
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(ROOT / 'tools/pedagogy'))
 from refresh_family_metadata import extract_object
+from received_contract import validate_received
 
 
 def prepare():
@@ -30,6 +31,7 @@ def prepare():
                   'phon': card['phf'], 'native': card['frm'],
                   'reading': card['py'], 'role': role, 'kind': kind}
         sources.append({'id': record['id'], 'file': 'melunga_deploy/app.html',
+                        'nativeLanguage': 'fr', 'studyLanguage': 'zh',
                         'locator': f'DECKS.zh[{index}]', 'historicalLevel': card['lv'],
                         'fields': {'study': 't', 'phon': 'phf', 'native': 'frm', 'reading': 'py'},
                         'expected': record})
@@ -42,6 +44,7 @@ def prepare():
                   **{k: phrase[k] for k in ['study', 'phon', 'native', 'reading']},
                   'role': 'Client', 'kind': 'learner'}
         sources.append({'id': record['id'], 'file': str(conversation_path.relative_to(ROOT)),
+                        'nativeLanguage': 'fr', 'studyLanguage': 'ko',
                         'unitId': unit_id, 'variantIndex': index, 'expected': record})
         return record
 
@@ -53,6 +56,7 @@ def prepare():
                   **{k: phrase[k] for k in ['study', 'phon', 'native', 'reading']},
                   'role': role, 'kind': kind}
         sources.append({'id': record['id'], 'file': str(conversation_path.relative_to(ROOT)),
+                        'nativeLanguage': 'fr', 'studyLanguage': 'ko',
                         'dialogueId': dialogue['id'], 'turnIndex': index,
                         'speaker': phrase['speaker'], 'learnerRole': dialogue['learnerRole'],
                         'expected': record})
@@ -60,6 +64,7 @@ def prepare():
 
     rest = deck('我想休息')
     home = deck('我想回家')
+    home_brick = deck('回家', 'Le morceau à réutiliser', 'brick')
     okay = deck('好的', 'Un proche', 'received')
     coffee = ko_variant('L1-fr-ko-03', 0)
     water = ko_variant('L1-fr-ko-03', 1)
@@ -77,7 +82,7 @@ def prepare():
          'steps': [
              step('zh-understand', 'Comprendre', 'Tu veux te reposer',
                   'Après une promenade, tu souhaites faire une pause. Écoute la phrase et retrouve son sens.',
-                  'Première phrase entière : ne suppose aucun acquis en 需要.', [rest]),
+                  'Ici, 我想 sert à dire ce que tu veux faire. Aucun acquis en 需要 n’est supposé. Les usages de 我要 et 我想要 se reprennent séparément, pas comme trois constructions nouvelles à cette première écoute.', [rest]),
              step('zh-imitate', 'Imiter', 'Redis la même envie',
                   'Écoute, puis répète si tu le souhaites. Garde la phonétique à portée de main.',
                   'Aucune phrase nouvelle.', [rest]),
@@ -87,9 +92,13 @@ def prepare():
              step('zh-visible', 'Échanger', 'Ton premier échange visible',
                   'Écoute les deux rôles dans l’ordre.',
                   'Réemploi des deux phrases déjà présentées.', [rest, okay], scene=True),
+             step('zh-prepare-home', 'Préparer la suite', 'Tu veux rentrer à la maison',
+                  'Écoute la phrase entière. Repère ensuite le morceau qui veut dire « rentrer à la maison ».',
+                  '回家 est préparé dans une phrase complète avant de le substituer à 休息. La carte autonome sert d’appui ; 家 et 家里 ne deviennent pas de nouveaux prérequis.',
+                  [home], focusBrick=home_brick),
              step('zh-substitute', 'Remplacer', 'Cette fois, tu veux rentrer',
-                  'Écoute la nouvelle phrase entière. Le début reste identique ; l’action change.',
-                  'Le groupe 回家 remplace 休息 ; ne change ni le temps ni la personne.', [home]),
+                  'Compare les deux phrases déjà écoutées. Le début reste identique ; l’action change.',
+                  '回家, maintenant préparé, remplace 休息. L’emplacement accueille une action complète, pas n’importe quel mot.', [rest, home]),
              step('zh-choice', 'Choisir et réutiliser', 'À toi de choisir ton envie',
                   'Choisis ton intention. Tu peux garder le modèle ou essayer sans lui, puis retrouver l’aide.',
                   'Choix personnel entre deux groupes préparés ; pas de nouvelle structure.',
@@ -125,6 +134,9 @@ def prepare():
                   choices=[{'id': 'coffee', 'label': 'Un café', 'utterance': coffee},
                            {'id': 'water', 'label': 'De l’eau', 'utterance': water}])]}
     ]
+    contract_paths = [HERE / f'received-{p["pair"]["native"]}-{p["pair"]["study"]}.json' for p in pilots]
+    contracts = [json.loads(path.read_text()) for path in contract_paths]
+    received_check = validate_received(ROOT, pilots, sources, contracts)
     for source in sources:
         for field in ('study', 'phon', 'native', 'reading'):
             if not source['expected'][field].strip():
@@ -139,6 +151,9 @@ def prepare():
               'pairs': [p['pair'] for p in pilots], 'sources': sources,
               'sourceSha256': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                                for p in (app_path, conversation_path)},
+              'receivedContracts': received_check,
+              'plannedSourcesByUse': {kind: sum(s['expected']['kind'] == kind for s in sources)
+                                     for kind in ('learner', 'received', 'support', 'brick')},
               'limitations': ['Deux pilotes seulement, pas une correction complète L1–L10.',
                               'Mini-échanges recomposés, pas de dialogues source remplacés.',
                               'Phonétiques copiées ; relecture native et écoute réelle requises.',
@@ -186,7 +201,8 @@ def main():
             export.write_text(standalone)
     print(json.dumps({'mode': 'check' if args.check else 'prepare',
                       'pilots': len(data['pilots']), 'steps': sum(len(p['steps']) for p in data['pilots']),
-                      'sourcePhrases': len(report['sources']), 'sourceMatch': True,
+                      'sourceEntries': len(report['sources']), 'sourceMatch': True,
+                      'receivedContracts': report['receivedContracts'],
                       'nativeValidation': False}, ensure_ascii=False))
 
 

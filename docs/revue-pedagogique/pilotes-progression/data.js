@@ -1,6 +1,6 @@
 window.ProgressionPilotData = {
   "status": "proposition-locale-a-relire",
-  "sourceCommit": "f30eb821a21e7df67a0646e0c61674f7fba16c79",
+  "sourceCommit": "a219aa10d2e59f0a229f5891da8d86e4eafcefb9",
   "pilots": [
     {
       "id": "fr-zh-envie",
@@ -17,7 +17,7 @@ window.ProgressionPilotData = {
           "phase": "Comprendre",
           "title": "Tu veux te reposer",
           "instruction": "Après une promenade, tu souhaites faire une pause. Écoute la phrase et retrouve son sens.",
-          "novelty": "Première phrase entière : ne suppose aucun acquis en 需要.",
+          "novelty": "Ici, 我想 sert à dire ce que tu veux faire. Aucun acquis en 需要 n’est supposé. Les usages de 我要 et 我想要 se reprennent séparément, pas comme trois constructions nouvelles à cette première écoute.",
           "utterances": [
             {
               "id": "zh-deck-226",
@@ -62,7 +62,12 @@ window.ProgressionPilotData = {
               "native": "d'accord",
               "reading": "hǎo de",
               "role": "Un proche",
-              "kind": "received"
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": false,
+              "answerWith": [],
+              "preparedInStep": "zh-received"
             }
           ]
         },
@@ -89,18 +94,59 @@ window.ProgressionPilotData = {
               "native": "d'accord",
               "reading": "hǎo de",
               "role": "Un proche",
-              "kind": "received"
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": false,
+              "answerWith": [],
+              "preparedInStep": "zh-received"
             }
           ],
           "scene": true
         },
         {
+          "id": "zh-prepare-home",
+          "phase": "Préparer la suite",
+          "title": "Tu veux rentrer à la maison",
+          "instruction": "Écoute la phrase entière. Repère ensuite le morceau qui veut dire « rentrer à la maison ».",
+          "novelty": "回家 est préparé dans une phrase complète avant de le substituer à 休息. La carte autonome sert d’appui ; 家 et 家里 ne deviennent pas de nouveaux prérequis.",
+          "utterances": [
+            {
+              "id": "zh-deck-416",
+              "study": "我想回家",
+              "phon": "ouo chyang houèï djya",
+              "native": "je veux rentrer à la maison",
+              "reading": "wǒ xiǎng huí jiā",
+              "role": "Toi",
+              "kind": "learner"
+            }
+          ],
+          "focusBrick": {
+            "id": "zh-deck-2988",
+            "study": "回家",
+            "phon": "houèï djya",
+            "native": "rentrer à la maison",
+            "reading": "huí jiā",
+            "role": "Le morceau à réutiliser",
+            "kind": "brick"
+          }
+        },
+        {
           "id": "zh-substitute",
           "phase": "Remplacer",
           "title": "Cette fois, tu veux rentrer",
-          "instruction": "Écoute la nouvelle phrase entière. Le début reste identique ; l’action change.",
-          "novelty": "Le groupe 回家 remplace 休息 ; ne change ni le temps ni la personne.",
+          "instruction": "Compare les deux phrases déjà écoutées. Le début reste identique ; l’action change.",
+          "novelty": "回家, maintenant préparé, remplace 休息. L’emplacement accueille une action complète, pas n’importe quel mot.",
           "utterances": [
+            {
+              "id": "zh-deck-226",
+              "study": "我想休息",
+              "phon": "ouo chyang chyo chi",
+              "native": "je veux me reposer",
+              "reading": "wǒ xiǎng xiū xi",
+              "role": "Toi",
+              "kind": "learner"
+            },
             {
               "id": "zh-deck-416",
               "study": "我想回家",
@@ -135,7 +181,12 @@ window.ProgressionPilotData = {
               "native": "d'accord",
               "reading": "hǎo de",
               "role": "Un proche",
-              "kind": "received"
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": false,
+              "answerWith": [],
+              "preparedInStep": "zh-received"
             }
           ],
           "scene": true,
@@ -267,7 +318,25 @@ window.ProgressionPilotData = {
               "native": "Bonjour. Vous désirez ?",
               "reading": "annyeonghaseyo. mwo deurilkkayo?",
               "role": "Serveur",
-              "kind": "received"
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": true,
+              "answerWith": [
+                {
+                  "unitId": "L1-fr-ko-03",
+                  "variantIndex": 0,
+                  "expectedStudy": "커피 주세요.",
+                  "preparedInStep": "ko-understand"
+                },
+                {
+                  "unitId": "L1-fr-ko-03",
+                  "variantIndex": 1,
+                  "expectedStudy": "물 주세요.",
+                  "preparedInStep": "ko-substitute"
+                }
+              ],
+              "preparedInStep": "ko-received"
             }
           ]
         },
@@ -285,7 +354,25 @@ window.ProgressionPilotData = {
               "native": "Bonjour. Vous désirez ?",
               "reading": "annyeonghaseyo. mwo deurilkkayo?",
               "role": "Serveur",
-              "kind": "received"
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": true,
+              "answerWith": [
+                {
+                  "unitId": "L1-fr-ko-03",
+                  "variantIndex": 0,
+                  "expectedStudy": "커피 주세요.",
+                  "preparedInStep": "ko-understand"
+                },
+                {
+                  "unitId": "L1-fr-ko-03",
+                  "variantIndex": 1,
+                  "expectedStudy": "물 주세요.",
+                  "preparedInStep": "ko-substitute"
+                }
+              ],
+              "preparedInStep": "ko-received"
             },
             {
               "id": "L1-fr-ko-03-v0",
@@ -313,7 +400,25 @@ window.ProgressionPilotData = {
               "native": "Bonjour. Vous désirez ?",
               "reading": "annyeonghaseyo. mwo deurilkkayo?",
               "role": "Serveur",
-              "kind": "received"
+              "kind": "received",
+              "analyse": false,
+              "countsAsProduction": false,
+              "replyRequired": true,
+              "answerWith": [
+                {
+                  "unitId": "L1-fr-ko-03",
+                  "variantIndex": 0,
+                  "expectedStudy": "커피 주세요.",
+                  "preparedInStep": "ko-understand"
+                },
+                {
+                  "unitId": "L1-fr-ko-03",
+                  "variantIndex": 1,
+                  "expectedStudy": "물 주세요.",
+                  "preparedInStep": "ko-substitute"
+                }
+              ],
+              "preparedInStep": "ko-received"
             },
             {
               "id": "L1-fr-ko-03-v0",

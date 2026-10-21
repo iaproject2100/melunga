@@ -2,6 +2,8 @@
 
 21 octobre 2026. **Proposition locale à relire**, sur `review/familles-huit-corrections`. Aucun fichier de `melunga_deploy`, catalogue, chargeur, prix ou droit n'est modifié par ce lot. Aucun essai APK ni publication. Les propositions de parcours et d'offre ne deviennent pas des décisions par leur présence dans ce document.
 
+Actualisation après l'avis de Claude : voir [la réponse et les amendements](reponse-avis-essais-chinois-coreen.md). Le pilote prépare maintenant 回家 avant substitution et formalise les reçus dans deux annexes d'essai. Les décomptes ci-dessous sont actualisés.
+
 ## Ce qui est déjà réglé
 
 Après vérification des branches distantes, `2cdc312` et `b5ea64c` sont déjà disponibles dans `origin/review/familles-huit-corrections`, avec la maquette commerciale jusqu'à `f30eb82`. Claude n'a pas à attendre ces deux commits pour relire les retouches et les références. La revue de Claude sur l'autre branche s'arrête à `99d027a` dans le dépôt consulté.
@@ -25,7 +27,8 @@ Le premier passage est visible. L'essai sans modèle est volontaire et réversib
 | Comprendre puis imiter | 我想休息 | je veux me reposer | Première phrase en contexte, pas de transformation demandée |
 | Préparer ce que répond le proche | 好的 | d'accord | Une réponse à comprendre, pas une nouvelle demande à produire |
 | Écouter l'échange visible | 我想休息 → 好的 | envie → accord | Reprise de ce qui vient d'être présenté |
-| Préparer une variante | 我想回家 | je veux rentrer à la maison | Seul le groupe d'action change ; écoute de la phrase complète |
+| Préparer la suite | 我想回家, avec appui 回家 | je veux rentrer à la maison | Phrase entière puis repérage du groupe avant substitution |
+| Remplacer | 我想休息 / 我想回家 | repos / retour | Comparer les deux phrases ; seul le groupe préparé change |
 | Choisir son intention | repos **ou** retour, puis 好的 | Deux choix préparés | Réemploi avec modèle, ou essai volontaire sans lui |
 
 Références : `DECKS.zh[226]`, `[2173]`, `[416]`. Aides sources exactes, respectivement :
@@ -74,7 +77,7 @@ Le dialogue entier au café comporte ensuite le lait, le refus + la demande de p
 
 La maquette présente les répliques de l'autre rôle et en prépare le sens avant de proposer de répondre sans modèle. Leur exposition ne prouve pas leur compréhension. Dans le pilote coréen, le tour reçu provient exactement de `L1-fr-ko-d1`, `learnerRole=A`, `turnIndex=1`, `expectedStudy="안녕하세요. 뭐 드릴까요?"`. Cela ne signifie pas que tous les tours du dialogue source sont préparés.
 
-Le chinois de cette première maquette utilise des cartes du catalogue, pas un dialogue conversation existant. Ne pas lui inventer un `dialogueId` pour le faire entrer dans `received`. Le scénario recomposé doit d'abord être relu comme tel. Le contrat documentaire par couple de [proposition-repliques-recues.md](proposition-repliques-recues.md) reste la référence ; aucun contrat du chargeur ni des 110 fichiers n'est changé.
+Le chinois de cette première maquette utilise des cartes du catalogue, pas un dialogue conversation existant. Ne pas lui inventer un `dialogueId` pour le faire entrer dans `received`. Le scénario recomposé doit d'abord être relu comme tel. La proposition initiale est précisée dans [le contrat annexe d'essai](pilotes-progression/contrat-received-essai.md), avec `analyse:false`, réponses exactes et clôture sans réponse imposée. Aucun contrat du chargeur ni des 110 fichiers n'est changé.
 
 ## L1 gratuit et intérêt de la suite
 
@@ -115,7 +118,7 @@ Pour les langues à accords/conjugaisons, préparer ces adaptations avec la subs
 
 ## Livraison et vérification
 
-La [maquette locale](pilotes-progression/index.html) contient deux pilotes, treize passages et sept phrases sources distinctes, jamais fabriquées par concaténation. Les [références vérifiables](pilotes-progression/sources.json) relient texte, traduction, phonétique et lecture aux sources. `prepare.py --check` vérifie l'identité de ces données ; il ne note ni la pédagogie ni la langue.
+La [maquette locale](pilotes-progression/index.html) contient deux pilotes, quatorze passages et huit références (sept phrases/répliques et un groupe d'appui), jamais fabriquées par concaténation. Les [références vérifiables](pilotes-progression/sources.json) relient texte, traduction, phonétique et lecture aux sources. `prepare.py --check` vérifie l'identité des données et les annexes reçues ; il ne note ni la pédagogie ni la langue.
 
 La documentation et les fichiers sont hors de `melunga_deploy`. Ces nouveaux essais restent locaux ; ils ne sont pas encore poussés sur la branche distante. Aucun changement applicatif, aucune fusion, aucun déploiement ni message externe à Claude dans ce lot.
 
