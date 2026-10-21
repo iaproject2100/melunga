@@ -12,6 +12,7 @@ const captures = process.env.MELUNGA_PREMIUM_CAPTURES || '/tmp/melunga-premium-r
 const prefix = '/docs/revue-pedagogique/maquette-premium/';
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.png':'image/png', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.webp':'image/webp' };
 const normalize = value => String(value).replace(/\s+/g, ' ').trim();
+const speechLanguages = {fr:'fr-FR',en:'en-GB',es:'es-ES',zh:'zh-CN',it:'it-IT',ja:'ja-JP',ko:'ko-KR'};
 const server = http.createServer((req, res) => {
   let pathname;
   try { pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname); }
@@ -75,12 +76,12 @@ async function noHorizontalOverflow(page, context) {
   for (const box of dimensions.dialogs) assert(box.left >= -1 && box.right <= dimensions.width + 1, context + ': dialog exceeds viewport');
 }
 
-async function reachable(page, selector, label) {
+async function reachable(page, selector, label, minimumTarget = 32) {
   const node = page.locator(selector);
   await node.scrollIntoViewIfNeeded();
   assert(await node.isVisible(), label + ' must remain visible');
   const box = await node.boundingBox();
-  assert(box && box.width >= 32 && box.height >= 32, label + ' needs a usable touch target');
+  assert(box && box.width >= minimumTarget && box.height >= minimumTarget, label + ' needs a usable touch target');
   const viewport = page.viewportSize();
   assert(box.x >= -1 && box.x + box.width <= viewport.width + 1 && box.y >= -1 && box.y + box.height <= viewport.height + 1, label + ' must be reachable within viewport');
 }
@@ -147,6 +148,15 @@ async function reachable(page, selector, label) {
           await reachable(page,'#previewListen','Audio preview');
           await page.click('#previewListen');
           assert.equal(await page.evaluate(()=>window.__demoSpoken.text),item.study,'Audio uses original studied phrase');
+          assert.equal(await page.evaluate(()=>window.__demoSpoken.lang),speechLanguages[expected.studyCode],'Audio uses studied language');
+          await reachable(page,'#previewPhonListen','Phonetic ear',44);
+          assert(await page.locator('#previewPhonListen').evaluate(ear => ear.tagName === 'BUTTON' && ear.parentElement.contains(document.getElementById('previewPhon'))),'Phonetic ear must be a button beside the current phonetic text');
+          await page.evaluate(()=>{window.__demoSpoken=null;});
+          await page.click('#previewPhonListen');
+          const spokenFromEar = await page.evaluate(()=>window.__demoSpoken);
+          assert(spokenFromEar,'Phonetic ear must trigger a fresh speech action');
+          assert.equal(spokenFromEar.text,item.study,'Phonetic ear speaks original studied text, not the phonetic aid');
+          assert.equal(spokenFromEar.lang,speechLanguages[expected.studyCode],'Phonetic ear uses studied language');
           await noHorizontalOverflow(page,'pair ' + pair.value + ' ' + viewport.width);
         }
       }
@@ -154,6 +164,18 @@ async function reachable(page, selector, label) {
       await page.locator('#premiumOpen').scrollIntoViewIfNeeded();
       await page.evaluate(() => window.scrollTo(0,0));
       if (viewport.width !== 320) await page.screenshot({path:path.join(captures, viewport.width < 1024 ? 'phone-module.png' : 'desktop-module.png'),fullPage:false});
+      if (viewport.width === 390) {
+        const initialAudioBounds = await page.evaluate(() => ({
+          audioBottom:document.getElementById('previewListen').getBoundingClientRect().bottom,
+          premiumTop:document.querySelector('.premium-actions').getBoundingClientRect().top,
+          earBottom:document.getElementById('previewPhonListen').getBoundingClientRect().bottom,
+          scrollY:window.scrollY
+        }));
+        console.log('390x844 at scroll 0: ' + JSON.stringify({...initialAudioBounds,overlap:Math.max(0,initialAudioBounds.audioBottom-initialAudioBounds.premiumTop)}));
+        await page.locator('.turn-card').evaluate(card=>card.scrollIntoView({block:'center'}));
+        await page.locator('.turn-card').screenshot({path:path.join(captures,'phone-pronunciation.png')});
+        await page.evaluate(()=>window.scrollTo(0,0));
+      }
       await reachable(page,'#premiumOpen','Premium offer');
       await page.click('#premiumOpen');
       assert(await page.locator('#offerPanel').isVisible(),'Offer must open');
@@ -197,6 +219,17 @@ async function reachable(page, selector, label) {
       await page.click('#returnPreview');
       await reachable(page,'#continueFree','Continue free');
       await page.click('#continueFree');
+      const freePair = demo.pairs.find(item=>item.id===pairs[0].value);
+      assert.equal(await page.locator('#freeDialogue .phonetic-ear').count(),freePair.l1Dialogue.turns.length,'Each free dialogue turn keeps its phonetic ear');
+      const freeEarSelector = '#freeDialogue .free-turn:first-child .phonetic-ear';
+      await reachable(page,freeEarSelector,'Free lesson phonetic ear',44);
+      assert(await page.locator(freeEarSelector).evaluate(ear => ear.tagName === 'BUTTON' && !!ear.parentElement.querySelector('.turn-phon')),'Free ear stays associated with its phonetic line');
+      await page.evaluate(()=>{window.__demoSpoken=null;});
+      await page.click(freeEarSelector);
+      const freeSpoken = await page.evaluate(()=>window.__demoSpoken);
+      assert(freeSpoken,'Free ear triggers a new speech action');
+      assert.equal(freeSpoken.text,freePair.l1Dialogue.turns[0].study,'Free ear speaks its source turn');
+      assert.equal(freeSpoken.lang,speechLanguages[freePair.studyCode],'Free ear uses studied language');
       await reachable(page,'#returnPreview','Return from free lesson');
       await page.click('#returnPreview');
       assert(await page.locator('#premiumOpen').isVisible(),'Return should restore the preview module');
@@ -207,8 +240,8 @@ async function reachable(page, selector, label) {
     }
     assert.equal(mutations.length,0,'No purchase or write request may be attempted: ' + JSON.stringify(mutations));
     assert.equal(unexpectedErrors.length,0,'No JavaScript errors: ' + JSON.stringify(unexpectedErrors));
-    assert(audio.length >= 42,'Audio preview actions should reach the browser speech/audio mechanism');
-    console.log('PASS: 7 pairs, 3 viewport sizes, exact source entries, web/native pricing separation, free return, keyboard/focus, no rights or payment writes.');
+    assert(audio.length >= 87,'Audio preview actions should reach the browser speech/audio mechanism');
+    console.log('PASS: 7 pairs, 3 viewport sizes, exact source entries and 44px phonetic ears, web/native pricing separation, free return, keyboard/focus, no rights or payment writes.');
     console.log('Exact data comparisons: ' + checkedSourceTurns + ' source-turn references per run (including recap repetitions).');
     console.log('Screenshots: ' + captures);
   } finally {

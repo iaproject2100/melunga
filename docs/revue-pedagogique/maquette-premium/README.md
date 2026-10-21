@@ -6,6 +6,8 @@ Proposition pour Kartech et Claude. Ce prototype se trouve dans les documents de
 
 Après une première expérience L1, montrer le point de départ concret, puis une nouvelle situation L2. La personne écoute ce qu'on lui dit et découvre une réponse préparée, avec phonétique et sens. Elle peut consulter Premium ou revenir à un échange gratuit.
 
+L'oreille 👂 reste placée à côté de la phonétique, dans l'aperçu et dans les répliques L1. C'est un bouton qui relit la phrase originale dans la langue étudiée, comme l'oreille existante de l'application ; la transcription phonétique n'est pas envoyée à une voix de la langue du lecteur. Le bouton principal Écouter reste disponible.
+
 L'incitation tient à la suite visible de son apprentissage. Il n'y a ni compte à rebours, offre inventée, certificat de maîtrise ni obligation de terminer le catalogue pour voir L2. Les offres existantes restent la référence et aucune conversion n'est prédite.
 
 ## Utilisation locale
@@ -41,6 +43,8 @@ Commande : `node docs/revue-pedagogique/maquette-premium/verify.cjs` depuis la r
 
 Résultat : **PASS** pour sept couples à 390 × 844, 320 × 568 et 1440 × 900. Les soixante-dix références de tours correspondent aux sources, y compris les lectures zh/ja/ko lorsqu'elles sont fournies. Les deux répliques, leurs aides et le texte complet transmis à la synthèse ont été contrôlés.
 
+Ajout demandé par Kartech : les oreilles de l'aperçu sont contrôlées pour chaque couple et chaque réplique, avec une cible de 44 pixels et une lecture du texte étudié dans sa langue. Le retour L1 conserve une oreille près de chaque phonétique ; la lecture du premier tour y est également vérifiée.
+
 L'offre web conserve ses périodes et ses prix ; le mode Android n'invente pas ceux de Google Play. Les retours gratuits, Échap et la restitution du focus fonctionnent. Aucun débordement horizontal, erreur JavaScript, appel d'achat ni écriture de droits n'a été relevé. Sur mobile, le dialogue d'offre couvre tout l'écran, avec un fond opaque.
 
 L'audio a été simulé pour vérifier le texte transmis : la qualité sonore réelle et l'intégration native ne sont pas certifiées. Le mode Android de cette maquette est une présentation dans le navigateur, pas un essai APK.
@@ -49,5 +53,6 @@ Captures du véritable viewport, sans sélection d'offre :
 
 - [Aperçu sur téléphone](captures/phone-module.png) · [Offre web sur téléphone](captures/phone-offer.png)
 - [Aperçu sur ordinateur](captures/desktop-module.png) · [Offre web sur ordinateur](captures/desktop-offer.png)
+- [Détail de la phonétique avec l'oreille](captures/phone-pronunciation.png)
 
 ![Aperçu sur téléphone](captures/phone-module.png)

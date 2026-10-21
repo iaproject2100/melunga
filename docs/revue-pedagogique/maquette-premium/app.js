@@ -52,7 +52,16 @@
         const element=document.createElement('p');element.className=className;element.textContent=text;
         if(key==='study')element.lang=pair().studyCode;
         if(key==='native')element.lang=pair().nativeCode;
-        article.append(element);
+        if(key==='phon'){
+          const aid=document.createElement('div');aid.className='phonetic-aid';
+          const copy=document.createElement('div');copy.className='phonetic-copy';
+          const label=document.createElement('span');label.className='phonetic-label';label.textContent='Phonétique';
+          copy.append(label,element);
+          const ear=document.createElement('button');ear.type='button';ear.className='phonetic-ear';
+          ear.setAttribute('aria-label','Écouter la prononciation');ear.title='Écouter la prononciation';
+          const icon=document.createElement('span');icon.setAttribute('aria-hidden','true');icon.textContent='👂';ear.append(icon);
+          ear.addEventListener('click',()=>listen(item,ear));aid.append(copy,ear);article.append(aid);
+        }else article.append(element);
       }
       const audio=document.createElement('button');audio.type='button';audio.className='listen-button';
       audio.innerHTML='<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z" fill="currentColor"/></svg>Écouter';
@@ -96,6 +105,7 @@
   $('receivedTab').addEventListener('click',()=>{stopAudio();turn=0;renderTurn();});
   $('replyTab').addEventListener('click',()=>{stopAudio();turn=1;renderTurn();event('preview_reply_viewed',{pair:pair().id});});
   $('previewListen').addEventListener('click',()=>listen(pair().preview[turn],$('previewListen')));
+  $('previewPhonListen').addEventListener('click',()=>listen(pair().preview[turn],$('previewPhonListen')));
   $('premiumOpen').addEventListener('click',openOffer);
   $('offerBack').addEventListener('click',closeOffer);
   offer.addEventListener('cancel',e=>{e.preventDefault();closeOffer();});
