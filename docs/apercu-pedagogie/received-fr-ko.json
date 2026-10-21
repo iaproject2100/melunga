@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "status": "proposition-locale-a-relire",
+  "sourceCommit": "a219aa10d2e59f0a229f5891da8d86e4eafcefb9",
+  "nativeLanguage": "fr",
+  "studyLanguage": "ko",
+  "sceneId": "fr-ko-demande",
+  "sceneType": "recomposition-pilote",
+  "received": [
+    {
+      "utteranceId": "L1-fr-ko-d1-t1",
+      "source": {
+        "type": "dialogueTurn",
+        "level": 1,
+        "dialogueId": "L1-fr-ko-d1",
+        "learnerRole": "A",
+        "turnIndex": 1,
+        "expectedStudy": "안녕하세요. 뭐 드릴까요?"
+      },
+      "analyse": false,
+      "countsAsProduction": false,
+      "preparedInStep": "ko-received",
+      "replyRequired": true,
+      "answerWith": [
+        {
+          "unitId": "L1-fr-ko-03",
+          "variantIndex": 0,
+          "expectedStudy": "커피 주세요.",
+          "preparedInStep": "ko-understand"
+        },
+        {
+          "unitId": "L1-fr-ko-03",
+          "variantIndex": 1,
+          "expectedStudy": "물 주세요.",
+          "preparedInStep": "ko-substitute"
+        }
+      ]
+    }
+  ]
+}

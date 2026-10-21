@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Melunga · Essais de progression</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="data.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#step-title">Aller à la phrase</a>
+  <div class="page-shell">
+    <header class="page-header">
+      <a class="brand" href="./index.html" aria-label="Melunga, début de la maquette">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 24V11a3 3 0 0 1 5.5-1.7L16 17l5.5-7.7A3 3 0 0 1 27 11v13" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Melunga<small>Atelier de progression</small></span>
+      </a>
+      <span class="local-mark">Aperçu de test</span>
+    </header>
+
+    <div class="pilot-switch" id="pilot-switch" role="group" aria-label="Choisir un parcours d’essai"></div>
+
+    <p class="preview-source-note">Traduction source conservée : « Je veux… » pour 주세요, qui est une demande polie ; même réserve pour ください.</p>
+
+    <main class="workspace" id="workspace">
+      <aside class="route-panel" aria-labelledby="pilot-title">
+        <p class="eyebrow" id="pilot-level"></p>
+        <h1 id="pilot-title">Les parcours se préparent.</h1>
+        <p class="route-goal" id="pilot-goal"></p>
+        <div class="route-rule" aria-hidden="true"></div>
+        <p class="route-note">Avance à ton rythme.<br>L’aide reste à portée de main.</p>
+      </aside>
+
+      <section class="lesson-panel" aria-labelledby="step-title">
+        <header class="step-header">
+          <div class="step-meta"><span id="step-phase"></span><span id="step-count"></span></div>
+          <h2 id="step-title" tabindex="-1"></h2>
+          <p class="instruction" id="step-instruction"></p>
+        </header>
+        <div class="intention-choices" id="intention-choices" role="group" aria-label="Choisir ton intention" hidden></div>
+        <div class="recall-actions" id="recall-actions" hidden>
+          <button class="quiet-button" id="recall-toggle" type="button" aria-controls="utterance-list">Essayer sans modèle</button>
+          <span id="recall-state" aria-live="polite"></span>
+        </div>
+        <ol class="utterance-list" id="utterance-list"></ol>
+        <p class="audio-status" id="audio-status" role="status" aria-live="polite"></p>
+        <nav class="step-navigation" aria-label="Navigation entre les étapes">
+          <button class="back-button" id="previous-step" type="button"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Retour</button>
+          <button class="next-button" id="next-step" type="button">Suivant<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m10 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </nav>
+        <details class="editorial" id="editorial"><summary>Détail pour Claude</summary><p id="novelty"></p></details>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>Comparaison pour relecture — le site public reste inchangé.</p>
+      <p class="source-line" id="source-line"></p>
+    </footer>
+  </div>
+</body>
+</html>
