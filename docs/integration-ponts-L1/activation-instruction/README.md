@@ -20,7 +20,7 @@ L’obligation Python ajoutée précédemment est retirée. Le contrôle devient
 
 Le contrôle conserve l’égalité manifeste → empreintes → liste générée. Il ne vérifie aucun fichier de preuve humaine. Les tests croisent les résultats Node et Python pour les 128 sélections possibles des sept couples, et rejettent un script non régénéré ou une scène changée.
 
-L’aperçu doit confirmer les paramètres réels du site et la disponibilité du fichier au build, avant toute fusion. Son résultat sera consigné dans `apercu-netlify.json`. L’ouverture d’une PR brouillon sert à cette vérification et n’autorise pas sa fusion.
+Netlify a construit avec succès l’[aperçu de la PR brouillon #9](https://deploy-preview-9--chic-dragon-e2baf2.netlify.app), sur le commit `a1d20dc`. Le résultat est conservé dans [apercu-netlify.json](apercu-netlify.json). La lecture directe de l’aperçu et des journaux Netlify est refusée par le proxy de cet environnement (403) : le résultat de build est confirmé via GitHub, sans prétendre à une visite du site hébergé ni à une lecture de ses logs. Les essais navigateur sont locaux. Aucun contournement du proxy ou changement de politique réseau n’est effectué. La PR reste en brouillon et n’autorise pas sa fusion.
 
 ## Contrôles et livraison
 
