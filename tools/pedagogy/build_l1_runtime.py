@@ -16,7 +16,7 @@ import sys
 sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_COMMIT = "30e7d40a8af3f51ee186bf83f983596b8ca8798f"
-STATUS = "integration-review-not-production-approved"
+STATUS = "owner-instruction-activated"
 OUTPUT = Path("melunga_deploy/content/l1-cafe.json")
 PLAN = "docs/progression-complete/l1-bridges.json"
 MAIN_BANK = "docs/progression-complete/banque-phrases.json"
@@ -274,7 +274,7 @@ def build_bundle(sources):
                 "Unexpected source bank inventories")
         bank = unique_rows(sources[MAIN_BANK]["entries"] + sources[FRAGMENTS]["entries"])
         return {"version": 1, "sourceCommit": SOURCE_COMMIT, "status": STATUS,
-                "nativeReviewPending": True, "doesNotChangeAccess": True,
+                "nativeReviewPending": False, "doesNotChangeAccess": True,
                 "sourceFilesSha256": dict(SOURCE_SHA256),
                 "pairs": [build_pair(pair, scene, sources, bank) for pair, scene in zip(PAIRS, scenes)]}
     except (KeyError, IndexError, TypeError) as error:
@@ -301,7 +301,7 @@ def main(argv=None):
             temporary = target.with_suffix(".json.tmp")
             temporary.write_bytes(expected)
             temporary.replace(target)
-        print(f"{'Checked' if args.check else 'Built'} {OUTPUT}: 7 pairs, 49 exact phrases; native review pending")
+        print(f"{'Checked' if args.check else 'Built'} {OUTPUT}: 7 pairs, 49 exact phrases; {STATUS}")
         return 0
     except (OSError, ValueError, subprocess.CalledProcessError) as error:
         print(str(error), file=sys.stderr)

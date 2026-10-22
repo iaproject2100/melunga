@@ -46,8 +46,8 @@ class RuntimeTests(unittest.TestCase):
         # This oracle reads Git directly and does not use the builder's resolver,
         # source-copy helper, split constants or returned bundle as its source.
         self.assertEqual(self.bundle["sourceCommit"], COMMIT)
-        self.assertEqual(self.bundle["status"], "integration-review-not-production-approved")
-        self.assertIs(self.bundle["nativeReviewPending"], True)
+        self.assertEqual(self.bundle["status"], "owner-instruction-activated")
+        self.assertIs(self.bundle["nativeReviewPending"], False)
         self.assertIs(self.bundle["doesNotChangeAccess"], True)
         self.assertEqual([pair["id"] for pair in self.bundle["pairs"]], list(PAIRS))
         bank = json.loads(git_bytes("docs/progression-complete/banque-phrases.json"))["entries"]

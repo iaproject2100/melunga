@@ -1,8 +1,10 @@
 # L1 café runtime contract
 
 This review bundle contains exactly seven reader/study pairs (`fr-en`, `fr-es`,
-`fr-it`, `fr-zh`, `fr-ja`, `fr-ko`, `zh-fr`). Native review is pending. Integration
-does not approve production, certify acquisition, or grade answers. Existing
+`fr-it`, `fr-zh`, `fr-ja`, `fr-ko`, `zh-fr`). Activation follows the owner's direct
+instruction; individual native-review evidence is no longer an activation gate.
+Integration does not certify acquisition or grade answers. Production deployment
+remains separate from the preview. Existing
 entitlements and prices are preserved; the seven added scenes are free L1 content
 for paying and non-paying users, an explicit extension of the free offering.
 
@@ -23,8 +25,12 @@ commit. No preview generator, unmerged PR, local source checkout, or other
 conversation file is needed. The client fetches only `content/l1-cafe.json`.
 
 The bundle has `version: 1`, `sourceCommit`, `sourceFilesSha256`,
-`status: "integration-review-not-production-approved"`, `nativeReviewPending: true`,
+`status: "owner-instruction-activated"`, `nativeReviewPending: false`,
 `doesNotChangeAccess: true`, and `pairs`.
+
+These two top-level flags describe the current activation policy. They do not
+certify an independently recorded native review. `sourceCommit` remains exactly
+`30e7d40a8af3f51ee186bf83f983596b8ca8798f`, as required by the player's validator.
 
 Each pair contains `id` (native-study), `nativeLanguage`, `studyLanguage`, `level: 1`,
 canonical `roles` and `learnerRole: "A"`, `sourceDialogueId`, `dialogueId`, and
@@ -51,7 +57,8 @@ separators; normalization or trimming would invalidate them.
 
 Each pair also retains the two complete approved `bridgeUnits` (three steps each),
 11 `preparation` steps, three scene `steps`, three `received` contracts, and the
-pending `nativeReview` object. Every `utterance`, `utteranceId`, and phase `turns`
+source-snapshot `nativeReview` object. That per-scene object is historical and is
+not used to enable the scene. Every `utterance`, `utteranceId`, and phase `turns`
 reference resolves against the seven phrase IDs. Bridge units prepare greeting
 and refusal as whole expressions. The separate exact price question is prepared
 in the scene; unit 10 does not implicitly prepare it.

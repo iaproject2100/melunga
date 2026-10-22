@@ -12,7 +12,7 @@ Kartech demande : « codex peut faire sauter l exigence de preuve et activer que
 
 Le lot ne change aucun tarif, droit L2–L10, catalogue ou autre parcours. Il n’intègre pas le reclassement L1–L10, ni les propositions italien L8, registre japonais/coréen ou phonétique chinoise.
 
-Le paquet de contenu immuable conserve les marqueurs de revue de son instantané d’origine (`nativeReviewPending`, notamment). Ils ne décident pas de l’activation et ne sont pas transformés en certification native. L’état courant est porté par le manifeste version 2 et son instruction directe.
+Le paquet porte désormais `status: "owner-instruction-activated"` et `nativeReviewPending: false`. Ces deux marqueurs de haut niveau décrivent l’activation actuelle ; les objets de scène et leurs métadonnées de source restent intacts. La [correction des marqueurs](suivi-marqueurs/README.md) conserve les sept empreintes et les instructions déjà données. Elle ne transforme pas les formulaires vierges en certifications natives.
 
 ## Build Netlify
 
@@ -25,5 +25,7 @@ Netlify a construit avec succès l’[aperçu de la PR brouillon #9](https://dep
 ## Contrôles et livraison
 
 Les résultats locaux sont dans `checks.json`, les essais du joueur dans [tests-navigateur.json](tests-navigateur.json). Les tests utilisent un navigateur Chromium de bureau et un mobile émulé, avec comptes et audio simulés ; ils ne constituent pas une écoute ou un essai sur appareil physique.
+
+Claude a ensuite récupéré les fichiers servis par l’aperçu et confirmé les sept activations ainsi que les phrases, aides et lectures coréennes. Sa [relecture](suivi-marqueurs/verification-claude.md) lève la réserve d’exploitation. **Aucune scène complète n’a encore été parcourue dans un navigateur sur l’aperçu déployé, ni par Codex ni par Claude.** Les 27 scénarios et 448 étapes restent des essais locaux. Le [parcours téléphone à essayer](suivi-marqueurs/README.md) est indiqué séparément et n’est pas déclaré réussi.
 
 Aucun des justificatifs facultatifs n’est ajouté aux conditions de cette activation. La mise en production reste distincte du changement préparé sur `review/integration-ponts-L1`. Aucun APK n’est construit.
