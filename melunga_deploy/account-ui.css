@@ -1,0 +1,79 @@
+/* Account forms share the chosen site ambience on every screen size. */
+#accountBackdrop{
+ position:fixed;inset:0;z-index:590;
+ background:rgba(0,0,0,.12);
+ touch-action:none;
+}
+#accountBackdrop[hidden]{display:none}
+html.account-open,body.account-open{overscroll-behavior:none}
+body.account-open{overflow:hidden}
+#paywall.paywall{
+ --account-wash:var(--bg,#f7f3ec);
+ --account-field:var(--card,#fff);
+ --account-muted:var(--ink,#23262b);
+ --account-border:var(--line,#d9d1c6);
+ --account-selected:var(--card,#fff);
+ --account-gradient:linear-gradient(var(--bg,#f7f3ec),var(--bg,#f7f3ec));
+ z-index:600;
+ width:min(440px,calc(100vw - 32px));
+ max-height:calc(100vh - 32px);
+ max-height:calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+ padding:28px 22px 22px;
+ color:var(--ink,#23262b);
+ background:linear-gradient(var(--account-wash),var(--account-wash)),var(--account-gradient);
+ background-attachment:fixed;
+ border:1px solid var(--account-border);
+ border-radius:26px;
+ box-shadow:0 18px 60px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.18);
+ overscroll-behavior:contain;
+ touch-action:pan-y;
+ scrollbar-width:thin;
+ scrollbar-color:var(--account-border) transparent;
+ color-scheme:light;
+}
+body.immersif #paywall{--account-gradient:var(--immgrad,linear-gradient(var(--bg),var(--bg)))}
+body:not(.ambclair) #paywall{color-scheme:dark}
+@supports(background:color-mix(in srgb,black,white)){
+ #paywall.paywall{
+  --account-wash:color-mix(in srgb,var(--bg,#f7f3ec) 64%,transparent);
+  --account-field:color-mix(in srgb,var(--bg,#f7f3ec) 85%,var(--card,#fff) 15%);
+  --account-muted:color-mix(in srgb,var(--ink,#23262b) 82%,var(--bg,#f7f3ec) 18%);
+  --account-border:color-mix(in srgb,var(--ink,#23262b) 28%,var(--bg,#f7f3ec) 72%);
+  --account-selected:color-mix(in srgb,var(--accent,#1e7fa8) 18%,var(--account-field) 82%);
+ }
+}
+#paywall .lk{font-size:34px;margin:0 0 8px}
+#paywall h3{padding-inline:18px;margin-bottom:20px;color:var(--ink);font:800 23px/1.35 Inter,'Noto Sans SC',sans-serif}
+#paywall .pwClose{
+ top:8px;right:8px;width:44px;height:44px;
+ background:transparent;color:var(--ink);
+}
+#paywall .pwTabs{gap:4px;padding:4px;background:var(--account-field);border:1px solid var(--account-border);border-radius:16px}
+#paywall .pwTab{
+ min-height:46px;padding:10px 6px;
+ color:var(--account-muted);border:1px solid transparent;border-radius:12px;
+ line-height:1.35;font-family:inherit;
+}
+#paywall .pwTab.on{color:var(--ink);background:var(--account-selected);border-color:var(--account-border);box-shadow:inset 0 -2px var(--accent,#1e7fa8)}
+#paywall .pwInput{
+ min-height:50px;font:400 16px/1.4 Inter,'Noto Sans SC',sans-serif;
+ color:var(--ink);background:var(--account-field);border-color:var(--account-border);
+}
+#paywall .pwInput::placeholder{color:var(--account-muted);opacity:1}
+#paywall .pwPlans{padding-top:4px}
+#paywall .pwPlan{min-width:0;background:var(--account-field);border-color:var(--account-border);color:var(--ink)}
+#paywall .pwPlanBest{background:var(--account-selected);border-color:var(--accent,#1e7fa8)}
+#paywall .pwPlanPrice,#paywall .pwPlanBest .pwPlanPrice{color:var(--ink)}
+#paywall .pwPlanLabel,#paywall p,#paywall .free{color:var(--account-muted)}
+#paywall .pwLoginBtn{
+ min-height:50px;margin-top:6px;background:var(--ink);color:var(--bg);
+ font-family:inherit;border:1px solid var(--account-border);
+}
+#paywall :is(button,input,a):focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+html body #ctrlDrawer #btnAuth[hidden]{display:none!important}
+@media(max-width:360px){
+ #paywall.paywall{padding:26px 16px 18px;border-radius:22px}
+ #paywall h3{font-size:21px}
+ #paywall .pwPlanPrice{font-size:24px}
+}
+@media(prefers-reduced-transparency:reduce){#paywall.paywall{--account-wash:var(--bg,#f7f3ec)}}

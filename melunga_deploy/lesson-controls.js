@@ -3,13 +3,13 @@
   const drawer = document.getElementById('ctrlDrawer');
   if (!drawer) return;
   const names = {
-    fr:['Accueil','Langue','Niveau','Thèmes','Révisions et exercices','Voix','Avis','Déconnexion'],
-    en:['Home','Language','Level','Topics','Review and practice','Voice','Feedback','Sign out'],
-    es:['Inicio','Idioma','Nivel','Temas','Repaso y práctica','Voz','Opiniones','Cerrar sesión'],
-    zh:['主页','语言','级别','主题','复习与练习','声音','反馈','退出登录'],
-    it:['Home','Lingua','Livello','Temi','Ripasso ed esercizi','Voce','Parere','Esci'],
-    ja:['ホーム','言語','レベル','テーマ','復習と練習','音声','フィードバック','ログアウト'],
-    ko:['홈','언어','레벨','주제','복습 및 연습','음성','피드백','로그아웃']
+    fr:['Accueil','Langue','Niveau','Thèmes','Révisions et exercices','Voix','Avis','Déconnexion','Se connecter / Créer un compte'],
+    en:['Home','Language','Level','Topics','Review and practice','Voice','Feedback','Sign out','Sign in / Create account'],
+    es:['Inicio','Idioma','Nivel','Temas','Repaso y práctica','Voz','Opiniones','Cerrar sesión','Iniciar sesión / Crear cuenta'],
+    zh:['主页','语言','级别','主题','复习与练习','声音','反馈','退出登录','登录 / 注册账号'],
+    it:['Home','Lingua','Livello','Temi','Ripasso ed esercizi','Voce','Parere','Esci','Accedi / Crea un account'],
+    ja:['ホーム','言語','レベル','テーマ','復習と練習','音声','フィードバック','ログアウト','ログイン / アカウント作成'],
+    ko:['홈','언어','레벨','주제','복습 및 연습','음성','피드백','로그아웃','로그인 / 계정 만들기']
   };
   const items = [
     ['btnHome','<path d="m4 11 8-7 8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/>'],
@@ -19,7 +19,8 @@
     ['selRev','<path d="m1.5 8 10.5-5 10.5 5L12 13Z" fill="currentColor" stroke="none"/><path d="M6 12v6c3 3 9 3 12 0v-6l-6 3Z" fill="currentColor" stroke="none"/><path d="M22.5 8v10"/><circle cx="22.5" cy="19" r="1" fill="currentColor" stroke="none"/>'],
     ['selVoice','<circle cx="8" cy="7" r="3"/><path d="M2.5 20v-3a5.5 5.5 0 0 1 11 0v3M16 8a5 5 0 0 1 0 6m3-9a9 9 0 0 1 0 12"/>'],
     ['btnFb','<path d="M20.5 11.5a8.5 8.5 0 0 1-12 7.8L3 21l1.7-5.5A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M7.5 11.5h.01M12 11.5h.01M16.5 11.5h.01" stroke-width="2.8"/>'],
-    ['btnLogout','<path d="M9 4H4v16h5m6-13 5 5-5 5m-7-5h12"/>']
+    ['btnLogout','<path d="M9 4H4v16h5m6-13 5 5-5 5m-7-5h12"/>'],
+    ['btnAuth','<circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 10-4M15 17h7m-3-3 3 3-3 3"/>']
   ];
   const tip = document.createElement('div');
   tip.id = 'lessonControlTip';
@@ -75,7 +76,7 @@
         control.addEventListener('click',function () { hideTip(); returnTo = control; });
       }
       // Preserve the original translated labels and values in the DOM.
-      control.querySelectorAll('.ball,.selk,.selv,.desktop-control-icon,.desktop-control-label,.menu-b-quick-caption,#homeLbl,#fbBtnLbl,#logoutLbl').forEach(function (element) {
+      control.querySelectorAll('.ball,.selk,.selv,.desktop-control-icon,.desktop-control-label,.menu-b-quick-caption,#homeLbl,#fbBtnLbl,#logoutLbl,#authLbl').forEach(function (element) {
         element.style.setProperty('display','none','important');
       });
       Array.from(control.childNodes).forEach(function (node) {
@@ -105,7 +106,7 @@
         if (!badge) { visual.innerHTML = '<span class="lesson-control-level"></span>'; badge = visual.firstChild; }
         if (badge.textContent !== text) badge.textContent = text;
       }
-      if (['btnHome','btnFb','btnLogout'].includes(item[0])) {
+      if (['btnHome','btnFb','btnLogout','btnAuth'].includes(item[0])) {
         let menuLabel = control.querySelector('.mobile-menu-label');
         if (!menuLabel) { menuLabel = document.createElement('span'); menuLabel.className = 'mobile-menu-label'; control.append(menuLabel); }
         if (menuLabel.textContent !== copy[index]) menuLabel.textContent = copy[index];

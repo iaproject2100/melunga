@@ -126,7 +126,7 @@ body.immersif #ctrlDrawer.lesson-tools .lesson-control:focus-visible{
   box-shadow:none!important;
  }
  html.lesson-tools-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools .menu-b-quick-grid :is(#selLang,#selLv,#selRb,#selRev,#selVoice),
- html.lesson-tools-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools :is(#btnHome,#btnFb,#btnLogout){
+ html.lesson-tools-ready.melunga-lesson-web body.immersif #ctrlDrawer.menu-b.lesson-tools :is(#btnHome,#btnFb,#btnAuth,#btnLogout){
   display:flex!important;
   flex:0 0 56px!important;
   flex-direction:row!important;
@@ -236,7 +236,7 @@ body.immersif #ctrlDrawer.lesson-tools .lesson-control:focus-visible{
   box-shadow:none!important;
  }
  html body.immersif #ctrlDrawer.menu-b.lesson-tools .menu-b-quick-grid :is(#selLang,#selLv,#selRb,#selRev,#selVoice),
- html body.immersif #ctrlDrawer.menu-b.lesson-tools :is(#btnHome,#btnFb,#btnLogout){
+ html body.immersif #ctrlDrawer.menu-b.lesson-tools :is(#btnHome,#btnFb,#btnAuth,#btnLogout){
   display:flex!important;
   flex:0 0 56px!important;
   flex-direction:row!important;
@@ -275,5 +275,5 @@ body.immersif #ctrlDrawer.lesson-tools .lesson-control:focus-visible{
  body.immersif #ctrlDrawer.lesson-tools .lesson-control-icon{background:var(--gc-base,var(--bg,#f7f3ec))}
 }
 /* Do not expose account-only actions whose existing handler hides them. */
-html.lesson-tools-ready body.immersif #ctrlDrawer.menu-b.lesson-tools #btnLogout:is([hidden],[style*="display:none"],[style*="display: none"]),
-html body.immersif #ctrlDrawer.menu-b.lesson-tools #btnLogout:is([hidden],[style*="display:none"],[style*="display: none"]){display:none!important}
+html.lesson-tools-ready body.immersif #ctrlDrawer.menu-b.lesson-tools :is(#btnAuth,#btnLogout):is([hidden],[style*="display:none"],[style*="display: none"]),
+html body.immersif #ctrlDrawer.menu-b.lesson-tools :is(#btnAuth,#btnLogout):is([hidden],[style*="display:none"],[style*="display: none"]){display:none!important}

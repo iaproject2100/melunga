@@ -449,7 +449,7 @@ body.immersif .listen{background:rgba(255,255,255,.14);}
 .nav .next{border:none;border-radius:16px;background:linear-gradient(180deg,#7BE495,#3DBE6E);color:#04321f;font-weight:900;box-shadow:0 5px 0 #2E9E58;}
 .nav .next:active{background:linear-gradient(180deg,#7BE495,#3DBE6E);transform:translateY(3px);box-shadow:0 2px 0 #2E9E58;}
 .lockico{font-size:10px;margin-top:1px;line-height:1;}
-.paywall{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:min(92vw,440px);max-height:88vh;overflow-y:auto;-webkit-overflow-scrolling:touch;z-index:400;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 20px;text-align:center;box-shadow:0 0 0 100vmax rgba(6,16,30,.92),0 20px 60px rgba(0,0,0,.5);}
+.paywall{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:min(92vw,440px);max-height:88vh;overflow-y:auto;-webkit-overflow-scrolling:touch;z-index:400;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 20px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.18);}
 .pwClose{position:absolute;top:10px;right:12px;width:36px;height:36px;border:none;border-radius:50%;background:rgba(0,0,0,.06);color:var(--ink);font-size:18px;line-height:1;cursor:pointer;z-index:2;}
 .pwClose:hover{background:rgba(0,0,0,.12);}
 .paywall .lk{font-size:42px;margin-bottom:8px;}
@@ -2699,6 +2699,7 @@ body.immersif.pile-droite .stage {
 <link rel="stylesheet" href="lesson-chrome.css">
 <link rel="stylesheet" href="lesson-controls.css">
 <link rel="stylesheet" href="lesson-pastilles.css">
+<link rel="stylesheet" href="account-ui.css">
 </head>
 <body>
 <script>
@@ -2790,7 +2791,7 @@ body.immersif.pile-droite .stage {
     </div>
     <div class="tag" id="tagLine">一门语言80%都在最常用的词里，我们只教这些</div>
     <div class="tagSub" id="tagSubLine">发音直接用你的母语标注 · 无需破译奇怪符号</div>
-    <div class="utilbar"><div class="umenu" id="umenu"><button class="utrigger" onclick="toggleUMenu(event)" aria-label="Menu"><span class="blines"><i></i><i></i><i></i></span><span id="umenuLbl" style="display:none">Menu</span></button><div class="umenupop" id="umenupop"><button class="uitem" id="btnHome" onclick="closeUMenu();goHome()">🏠<span id="homeLbl"></span></button><button class="uitem" id="btnSettings" onclick="closeUMenu();openTheme()">⚙️<span id="setLbl">Réglages</span></button><button class="uitem" id="btnInfoMenu" onclick="closeUMenu();openHowItWorks()">ℹ️<span id="infoLbl">Infos</span></button><button class="uitem" id="btnFb" onclick="closeUMenu();openFeedback()">💬<span id="fbBtnLbl"></span></button><button class="uitem" id="btnLogout" onclick="closeUMenu();doLogout()" style="display:none">🚪<span id="logoutLbl"></span></button></div></div></div>
+    <div class="utilbar"><div class="umenu" id="umenu"><button class="utrigger" onclick="toggleUMenu(event)" aria-label="Menu"><span class="blines"><i></i><i></i><i></i></span><span id="umenuLbl" style="display:none">Menu</span></button><div class="umenupop" id="umenupop"><button class="uitem" id="btnHome" onclick="closeUMenu();goHome()">🏠<span id="homeLbl"></span></button><button class="uitem" id="btnSettings" onclick="closeUMenu();openTheme()">⚙️<span id="setLbl">Réglages</span></button><button class="uitem" id="btnInfoMenu" onclick="closeUMenu();openHowItWorks()">ℹ️<span id="infoLbl">Infos</span></button><button class="uitem" id="btnFb" onclick="closeUMenu();openFeedback()">💬<span id="fbBtnLbl"></span></button><button class="uitem" id="btnAuth" type="button" onclick="openAccount()"><span id="authLbl">Se connecter / Créer un compte</span></button><button class="uitem" id="btnLogout" onclick="closeUMenu();doLogout()" style="display:none">🚪<span id="logoutLbl"></span></button></div></div></div>
   </div>
 
   <div class="ctrlveil" id="ctrlVeil" onclick="closeCtrlDrawer()"></div>
@@ -3105,6 +3106,8 @@ function updateUtilBar(){
   var sl=document.getElementById('setLbl'); if(sl){ var SL={fr:'Réglages',en:'Settings',es:'Ajustes',zh:'设置'}; sl.textContent=(SL[nat]||'Réglages'); }
   var il=document.getElementById('infoLbl'); if(il){ var IL={fr:'Infos',en:'How it works',es:'Cómo funciona',zh:'方法说明'}; il.textContent=(IL[nat]||'Infos'); }
   if(b) b.style.display = isPaid ? 'flex' : 'none';
+  var a=document.getElementById('btnAuth'); if(a) a.hidden=!!isPaid;
+  if(typeof window.refreshAccountMenu==='function') window.refreshAccountMenu();
 }
 function goHome(){
   // Retour à la page d'accueil marketing (melunga.com / index.html)
@@ -3379,7 +3382,7 @@ function buildCtrlDrawer(){
   sect(L.audio); mvSel('selVoice');
   sect(L.display); mvSel('selAmb',L.amb); mvSel('selPos',L.pos);
   var sp=document.createElement('div'); sp.style.height='6px'; d.appendChild(sp);
-  mvItem('btnInfoMenu'); mvItem('btnFb'); mvItem('btnLogout');
+  mvItem('btnInfoMenu'); mvItem('btnFb'); mvItem('btnAuth'); mvItem('btnLogout');
   var st=document.getElementById('btnSettings'); if(st) st.style.display='none';
   d.querySelectorAll('.selbox .selk').forEach(function(k){
     ['display','block','position','static','font-size','15px','max-width','none','transform','none','overflow','visible','letter-spacing','0','text-transform','none','opacity','1'].forEach(function(_,i,a){ if(i%2===0) k.style.setProperty(a[i],a[i+1],'important'); });
@@ -3579,8 +3582,9 @@ async function loginExisting(){
     var data = await res.json();
     if(data && data.success){
       isPaid = true;
-      var pw=document.getElementById('paywall'); if(pw) pw.style.display='none';
+      hidePaywall();
       buildLevels();
+      updateUtilBar();
     } else {
       if(btn) btn.disabled = false;
       var errKey = (data && data.error==='subscription_expired') ? 'subExpired' : 'loginError';
@@ -5140,5 +5144,6 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
 <script src="lesson-pickers.js"></script>
 <script src="lesson-controls.js"></script>
 <script src="lesson-pastilles.js"></script>
+<script src="account-ui.js"></script>
 </body>
 </html>
