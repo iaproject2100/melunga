@@ -1,0 +1,747 @@
+{
+  "pair": "zh-fr",
+  "baseline": "99478df",
+  "status": "editorial-metadata-proposals-for-cross-review",
+  "publicationApproved": false,
+  "nativeValidation": false,
+  "doesNotMeasureAcquisition": true,
+  "sourcePolicy": "exact-canonical-source-copies-no-phonetic-reading-or-access-change",
+  "sourceFilesSha256": {
+    "melunga_deploy/content/conversation/L1-zh-fr.json": "170c3a0d576edd3a619b4560040e1a346246769e66530a582ce448d0699b1753",
+    "melunga_deploy/content/conversation/L2-zh-fr.json": "122e8a450416c2923d380a613febebd3f8a29c78cf00fc931a992c0df59b8902",
+    "melunga_deploy/content/conversation/L3-zh-fr.json": "9137541b3f2c4fbc7c72b6ae8c7d24993d7515003dc875b7107754b5bf87e2ae",
+    "melunga_deploy/content/conversation/L4-zh-fr.json": "3c719e767e60bcecbc609c7b4c1d43b80821faedb375aeaf8f6d6917e87159be",
+    "melunga_deploy/content/conversation/L5-zh-fr.json": "061f53bf97aa1ca8af9c4fbb2b31bbfe49ec30fbec431f831f4e6a8ebb688bf3",
+    "melunga_deploy/content/conversation/L6-zh-fr.json": "e566395bd4137b45cdc8fc05a83883d9f318d22ce4e8e8a608b427e8a5677fb9",
+    "melunga_deploy/content/conversation/L7-zh-fr.json": "4c442d5a94c9d53a8e342e3f9fbadeb53e125c6ec065285b435bc60b4fb4d955",
+    "melunga_deploy/content/conversation/L8-zh-fr.json": "32b6c5b3551f598a37f8f18268f42232f8ec31e2bac96e4453feb89b8875f7ec",
+    "melunga_deploy/content/conversation/L9-zh-fr.json": "3feb462a765f6d0632019143b70c44611f997e9b3f46f80a5edca619fbe6937a",
+    "melunga_deploy/content/conversation/L10-zh-fr.json": "fbb9ba77618cf1f4469f9f17f8c09bbfa6fc9a7f36d2a8e5fc4aa7b8fa638fcd"
+  },
+  "summary": {
+    "reviewedL9Units": 11,
+    "amendedRows": 7,
+    "addedPlannedPrerequisites": 12,
+    "newLevelMoves": 0,
+    "newOrderChanges": 0,
+    "noveltyRatioImpact": "none; same phrases, levels and order",
+    "scope": "Planned links to earlier exact source phrases; not a catalogue-to-runtime bridge and not an acquisition check."
+  },
+  "units": [
+    {
+      "unitId": "L9-zh-fr-01",
+      "decision": "amend",
+      "rationale": "Ajouter les antécédents effectifs de je dois et il faut à la préparation prévue. Autrement dit introduit la reformulation ; les quatre propositions sont toujours présentées entières, notamment document et le passage de il faut attendre à il faut un autre document.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Autrement dit, le train est annulé.",
+          "native": "换句话说，火车取消了。",
+          "phon": "奥特勒芒 迪，勒 特兰 埃 塔尼吕莱"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Autrement dit, je dois attendre demain.",
+          "native": "换句话说，我得等到明天。",
+          "phon": "奥特勒芒 迪，热 杜瓦 阿唐德尔 德曼"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Autrement dit, ce n'est pas possible.",
+          "native": "换句话说，这不可能。",
+          "phon": "奥特勒芒 迪，瑟 内 帕 波西布勒"
+        },
+        {
+          "variantIndex": 3,
+          "study": "Autrement dit, il faut un autre document.",
+          "native": "换句话说，需要另一份文件。",
+          "phon": "奥特勒芒 迪，伊尔 福 安 诺特尔 多居芒"
+        }
+      ],
+      "addedPrerequisites": [
+        "L8-zh-fr-06",
+        "L7-zh-fr-07"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "unitId": "L8-zh-fr-06",
+          "sourceFile": "melunga_deploy/content/conversation/L8-zh-fr.json",
+          "proposedLevel": 6,
+          "variantIndex": 3,
+          "study": "Non, désolé, je dois demander à mon chef.",
+          "native": "不行，抱歉，我得问一下我的上司。",
+          "phon": "诺，德佐莱，热 杜瓦 德芒代 阿 蒙 谢夫",
+          "relation": "Reprise du groupe je dois, déjà présenté au L6, avec un autre infinitif et une autre situation."
+        },
+        {
+          "unitId": "L7-zh-fr-07",
+          "sourceFile": "melunga_deploy/content/conversation/L7-zh-fr.json",
+          "proposedLevel": 7,
+          "variantIndex": 3,
+          "study": "À mon avis, il faut attendre.",
+          "native": "依我看，应该等一等。",
+          "phon": "阿 蒙 阿维，伊尔 福 阿唐德尔",
+          "relation": "Reprise du groupe il faut attendre ; il faut un autre document n’est pas une simple substitution du même type de complément."
+        }
+      ],
+      "baselinePatchFields": {
+        "plannedPrerequisites": [
+          "L7-zh-fr-11",
+          "L8-zh-fr-03"
+        ],
+        "rationale": "Placement fondé sur l’usage communicatif et la construction : Reformuler une information avec Autrement dit. Les phrases sources sont reprises entières avant l’exercice, sans classement par longueur.",
+        "gaps": [
+          "Les clauses reformulées sont montrées entières ; ne pas déduire je dois et il faut de la seule locution Autrement dit."
+        ]
+      },
+      "proposedPatch": {
+        "plannedPrerequisites": [
+          "L8-zh-fr-06",
+          "L7-zh-fr-07",
+          "L7-zh-fr-11",
+          "L8-zh-fr-03"
+        ],
+        "rationale": "Ajouter les antécédents effectifs de je dois et il faut à la préparation prévue. Autrement dit introduit la reformulation ; les quatre propositions sont toujours présentées entières, notamment document et le passage de il faut attendre à il faut un autre document.",
+        "gaps": [
+          "Les clauses reformulées sont montrées entières ; ne pas déduire je dois et il faut de la seule locution Autrement dit. Les liens vers je dois et il faut enregistrent des reprises de groupes sources, non la production autonome de nouvelles propositions ni la maîtrise de leur phonétique."
+        ]
+      }
+    },
+    {
+      "unitId": "L9-zh-fr-07",
+      "decision": "amend",
+      "rationale": "Relier explicitement la reprise de compris au passé L5 et celle de rendez-vous aux rendez-vous L6. Le cadre Si j’ai bien compris est appris entier comme vérification ; il n’est pas déduit du si conditionnel. Revenir, prochain et gratuit sont présentés dans leurs propositions complètes.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Si j'ai bien compris, je dois revenir demain ?",
+          "native": "如果我没理解错，我得明天再来？",
+          "phon": "西 热 比安 孔普里，热 杜瓦 勒弗尼尔 德曼"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Si j'ai bien compris, le prochain train est à midi ?",
+          "native": "如果我没理解错，下一班火车是中午？",
+          "phon": "西 热 比安 孔普里，勒 普罗申 特兰 埃 阿 米迪"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Si j'ai bien compris, il faut prendre rendez-vous ?",
+          "native": "如果我没理解错，需要预约？",
+          "phon": "西 热 比安 孔普里，伊尔 福 普朗德尔 朗代武"
+        },
+        {
+          "variantIndex": 3,
+          "study": "Si j'ai bien compris, c'est gratuit ?",
+          "native": "如果我没理解错，是免费的？",
+          "phon": "西 热 比安 孔普里，赛 格拉蒂"
+        }
+      ],
+      "addedPrerequisites": [
+        "L5-zh-fr-08",
+        "L6-zh-fr-05"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "unitId": "L5-zh-fr-08",
+          "sourceFile": "melunga_deploy/content/conversation/L5-zh-fr.json",
+          "proposedLevel": 5,
+          "variantIndex": 1,
+          "study": "Je n'ai pas compris.",
+          "native": "我没有听懂。",
+          "phon": "热 内 帕 孔普里",
+          "relation": "Le participe compris figure déjà dans le passé composé négatif ; Si j’ai bien compris reste une locution de vérification nouvelle."
+        },
+        {
+          "unitId": "L6-zh-fr-05",
+          "sourceFile": "melunga_deploy/content/conversation/L6-zh-fr.json",
+          "proposedLevel": 6,
+          "variantIndex": 3,
+          "study": "Rendez-vous demain midi au bureau.",
+          "native": "我们明天中午在办公室见。",
+          "phon": "朗代武 德曼 米迪 奥 比罗",
+          "relation": "Rendez-vous et le contexte bureau/midi sont déjà présentés ; prendre rendez-vous constitue ici un groupe nouveau, préparé dans la phrase entière."
+        }
+      ],
+      "baselinePatchFields": {
+        "plannedPrerequisites": [
+          "L9-zh-fr-01",
+          "L3-zh-fr-08"
+        ],
+        "rationale": "Placement fondé sur l’usage communicatif et la construction : Vérifier sa compréhension. Les phrases sources sont reprises entières avant l’exercice, sans classement par longueur.",
+        "gaps": [
+          "Si j’ai bien compris sert une vérification, non une condition de négociation. Les informations à confirmer sont préparées par occurrence."
+        ]
+      },
+      "proposedPatch": {
+        "plannedPrerequisites": [
+          "L3-zh-fr-08",
+          "L5-zh-fr-08",
+          "L6-zh-fr-05",
+          "L9-zh-fr-01"
+        ],
+        "rationale": "Relier explicitement la reprise de compris au passé L5 et celle de rendez-vous aux rendez-vous L6. Le cadre Si j’ai bien compris est appris entier comme vérification ; il n’est pas déduit du si conditionnel. Revenir, prochain et gratuit sont présentés dans leurs propositions complètes.",
+        "gaps": [
+          "Si j’ai bien compris sert une vérification, non une condition de négociation. Les informations à confirmer sont préparées par occurrence. Compris a un antécédent au passé composé négatif, non la locution positive de vérification. Rendez-vous a un antécédent nominal ; prendre rendez-vous et les informations à confirmer restent à préparer ici."
+        ]
+      }
+    },
+    {
+      "unitId": "L9-zh-fr-04",
+      "decision": "amend",
+      "rationale": "Rattacher j’ai fait une erreur au cadre passé j’ai fait déjà rencontré au L5. Peut-être que, une erreur et les états fermé/occupé sont présentés dans les phrases entières avant réponse ou rappel ; aucun remplacement de temps n’est supposé acquis.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Peut-être que le bus est en retard.",
+          "native": "也许公交车晚点了。",
+          "phon": "珀泰特尔 克 勒 比斯 埃 昂 勒塔尔"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Peut-être que j'ai fait une erreur.",
+          "native": "也许我弄错了。",
+          "phon": "珀泰特尔 克 热 费 于 内勒尔"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Peut-être que c'est fermé le dimanche.",
+          "native": "也许星期天不开门。",
+          "phon": "珀泰特尔 克 赛 费尔梅 勒 迪芒什"
+        },
+        {
+          "variantIndex": 3,
+          "study": "Peut-être que le médecin est occupé.",
+          "native": "也许医生在忙。",
+          "phon": "珀泰特尔 克 勒 梅德森 埃 托居佩"
+        }
+      ],
+      "addedPrerequisites": [
+        "L5-zh-fr-09"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "unitId": "L5-zh-fr-09",
+          "sourceFile": "melunga_deploy/content/conversation/L5-zh-fr.json",
+          "proposedLevel": 5,
+          "variantIndex": 3,
+          "study": "J'ai fait une promenade.",
+          "native": "我散步了。",
+          "phon": "热 费 于讷 普罗姆纳德",
+          "relation": "Le groupe j’ai fait suivi d’un groupe nominal apparaît déjà ; une erreur est le groupe nominal nouveau."
+        }
+      ],
+      "baselinePatchFields": {
+        "plannedPrerequisites": [
+          "L3-zh-fr-08",
+          "L7-zh-fr-06"
+        ],
+        "rationale": "Placement fondé sur l’usage communicatif et la construction : Émettre une hypothèse avec Peut-être que. Les phrases sources sont reprises entières avant l’exercice, sans classement par longueur.",
+        "gaps": [
+          "Les propositions hypothétiques changent temps et prédicat ; montrer chacune avant production."
+        ]
+      },
+      "proposedPatch": {
+        "plannedPrerequisites": [
+          "L3-zh-fr-08",
+          "L5-zh-fr-09",
+          "L7-zh-fr-06"
+        ],
+        "rationale": "Rattacher j’ai fait une erreur au cadre passé j’ai fait déjà rencontré au L5. Peut-être que, une erreur et les états fermé/occupé sont présentés dans les phrases entières avant réponse ou rappel ; aucun remplacement de temps n’est supposé acquis.",
+        "gaps": [
+          "Les propositions hypothétiques changent temps et prédicat ; montrer chacune avant production. Le passé j’ai fait est une reprise prévue ; son nouveau complément une erreur, les autres prédicats et le cadre Peut-être que ne sont pas réputés préparés par la seule présence antérieure de Peut-être."
+        ]
+      }
+    },
+    {
+      "unitId": "L9-zh-fr-12",
+      "decision": "amend",
+      "rationale": "Ajouter les reprises sourcées de il y a et du groupe facture avant le signalement d’une erreur. Je crois qu’il y a est un nouvel enchâssement appris entier ; la première comparaison conserve les groupes d’emplacement complets sur mon billet / dans la date.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Je crois qu'il y a une erreur dans la facture.",
+          "native": "我想账单上有个错误。",
+          "phon": "热 克鲁瓦 基 利 亚 于 内勒尔 当 拉 法克蒂尔"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Je crois qu'il y a une erreur sur mon billet.",
+          "native": "我想我的票上有个错误。",
+          "phon": "热 克鲁瓦 基 利 亚 于 内勒尔 叙尔 蒙 比耶"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Je crois qu'il y a une erreur dans la date.",
+          "native": "我想日期上有个错误。",
+          "phon": "热 克鲁瓦 基 利 亚 于 内勒尔 当 拉 达特"
+        },
+        {
+          "variantIndex": 3,
+          "study": "Je crois qu'il y a une erreur dans mon nom.",
+          "native": "我想我的名字上有个错误。",
+          "phon": "热 克鲁瓦 基 利 亚 于 内勒尔 当 蒙 农"
+        }
+      ],
+      "addedPrerequisites": [
+        "L2-zh-fr-08",
+        "L8-zh-fr-08"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "unitId": "L2-zh-fr-08",
+          "sourceFile": "melunga_deploy/content/conversation/L2-zh-fr.json",
+          "proposedLevel": 2,
+          "variantIndex": 0,
+          "study": "Il y a du wifi ?",
+          "native": "有无线网吗？",
+          "phon": "伊 利 亚 迪 维菲",
+          "relation": "Le cadre il y a est déjà présenté ; son enchâssement dans Je crois qu’il y a reste nouveau."
+        },
+        {
+          "unitId": "L8-zh-fr-08",
+          "sourceFile": "melunga_deploy/content/conversation/L8-zh-fr.json",
+          "proposedLevel": 8,
+          "variantIndex": 2,
+          "study": "Il me faudrait une facture.",
+          "native": "我需要一张发票。",
+          "phon": "伊尔 默 福德雷 于讷 法克蒂尔",
+          "relation": "Le groupe une facture a déjà été présenté entier, avant sa reprise dans la facture."
+        }
+      ],
+      "baselinePatchFields": {
+        "plannedPrerequisites": [
+          "L9-zh-fr-01",
+          "L9-zh-fr-07"
+        ],
+        "rationale": "Placement fondé sur l’usage communicatif et la construction : Signaler une erreur et son emplacement. Les phrases sources sont reprises entières avant l’exercice, sans classement par longueur.",
+        "gaps": [
+          "La première paire sur mon billet / dans la date remplace un groupe entier d’emplacement. Le changement de préposition est contenu dans le groupe préparé, sans règle libre."
+        ]
+      },
+      "proposedPatch": {
+        "plannedPrerequisites": [
+          "L2-zh-fr-08",
+          "L8-zh-fr-08",
+          "L9-zh-fr-01",
+          "L9-zh-fr-07"
+        ],
+        "rationale": "Ajouter les reprises sourcées de il y a et du groupe facture avant le signalement d’une erreur. Je crois qu’il y a est un nouvel enchâssement appris entier ; la première comparaison conserve les groupes d’emplacement complets sur mon billet / dans la date.",
+        "gaps": [
+          "La première paire sur mon billet / dans la date remplace un groupe entier d’emplacement. Le changement de préposition est contenu dans le groupe préparé, sans règle libre. Le cadre il y a et le groupe une facture ont des antécédents ; crois, erreur, sur mon billet et dans mon nom ne s’en déduisent pas. Les groupes d’emplacement sont présentés entiers."
+        ]
+      }
+    },
+    {
+      "unitId": "L9-zh-fr-06",
+      "decision": "amend",
+      "rationale": "Relier les incidents aux antécédents du passé avec être et de est annulé. Présenter chaque incident en entier puis la demande Qu’est-ce qu’on peut faire ? ; le féminin arrivée et le participe perdu ne sont pas déduits des mots déjà rencontrés.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Il y a un problème : j'ai perdu mon billet. Qu'est-ce qu'on peut faire ?",
+          "native": "有个问题：我把票弄丢了。我们怎么办？",
+          "phon": "伊 利 亚 安 普罗布莱姆：热 佩尔迪 蒙 比耶。凯斯 孔 珀 费尔"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Il y a un problème : le train est annulé. Qu'est-ce qu'on peut faire ?",
+          "native": "有个问题：火车取消了。我们怎么办？",
+          "phon": "伊 利 亚 安 普罗布莱姆：勒 特兰 埃 塔尼吕莱。凯斯 孔 珀 费尔"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Il y a un problème : ma valise n'est pas arrivée. Qu'est-ce qu'on peut faire ?",
+          "native": "有个问题：我的行李箱没到。我们怎么办？",
+          "phon": "伊 利 亚 安 普罗布莱姆：马 瓦利兹 内 帕 阿里韦。凯斯 孔 珀 费尔"
+        },
+        {
+          "variantIndex": 3,
+          "study": "Il y a un problème : le rendez-vous est annulé. Qu'est-ce qu'on peut faire ?",
+          "native": "有个问题：预约取消了。我们怎么办？",
+          "phon": "伊 利 亚 安 普罗布莱姆：勒 朗代武 埃 塔尼吕莱。凯斯 孔 珀 费尔"
+        }
+      ],
+      "addedPrerequisites": [
+        "L5-zh-fr-12",
+        "L7-zh-fr-11"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "unitId": "L5-zh-fr-12",
+          "sourceFile": "melunga_deploy/content/conversation/L5-zh-fr.json",
+          "proposedLevel": 5,
+          "variantIndex": 0,
+          "study": "Je suis arrivé hier soir.",
+          "native": "我昨天晚上到的。",
+          "phon": "热 绥 扎里韦 耶尔 斯瓦尔",
+          "relation": "Le passé avec être et arrivé est déjà présenté, au masculin ; ma valise n’est pas arrivée ajoute sujet, négation et accord féminin."
+        },
+        {
+          "unitId": "L7-zh-fr-11",
+          "sourceFile": "melunga_deploy/content/conversation/L7-zh-fr.json",
+          "proposedLevel": 8,
+          "variantIndex": 3,
+          "study": "Il pleut, c'est pour ça que le match est annulé.",
+          "native": "下雨了，所以比赛取消了。",
+          "phon": "伊尔 普勒，赛 普尔 萨 克 勒 马奇 埃 塔尼吕莱",
+          "relation": "Le groupe est annulé figure dans une conséquence avant les incidents de transport et de rendez-vous."
+        }
+      ],
+      "baselinePatchFields": {
+        "plannedPrerequisites": [
+          "L9-zh-fr-12",
+          "L3-zh-fr-01"
+        ],
+        "rationale": "Placement fondé sur l’usage communicatif et la construction : Exposer un problème puis demander une solution. Les phrases sources sont reprises entières avant l’exercice, sans classement par longueur.",
+        "gaps": [
+          "La demande Qu’est-ce qu’on peut faire ? suit le problème complet ; les incidents à raconter ont chacun leur forme verbale et leur réception."
+        ]
+      },
+      "proposedPatch": {
+        "plannedPrerequisites": [
+          "L3-zh-fr-01",
+          "L5-zh-fr-12",
+          "L7-zh-fr-11",
+          "L9-zh-fr-12"
+        ],
+        "rationale": "Relier les incidents aux antécédents du passé avec être et de est annulé. Présenter chaque incident en entier puis la demande Qu’est-ce qu’on peut faire ? ; le féminin arrivée et le participe perdu ne sont pas déduits des mots déjà rencontrés.",
+        "gaps": [
+          "La demande Qu’est-ce qu’on peut faire ? suit le problème complet ; les incidents à raconter ont chacun leur forme verbale et leur réception. Arrivé au masculin et est annulé ont des antécédents, mais ma valise n’est pas arrivée ajoute l’accord et la négation ; j’ai perdu introduit un autre participe. Les incidents complets et leur question sont préparés ici."
+        ]
+      }
+    },
+    {
+      "unitId": "L9-zh-fr-10",
+      "decision": "amend",
+      "rationale": "Après On pourrait au L6, Peut-être que et les problèmes L9, reprendre le groupe revenir demain de la vérification antérieure du même niveau. Les autres solutions sont montrées entières ; service client et remboursement restent des groupes lexicaux nouveaux.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "On pourrait peut-être prendre le prochain train.",
+          "native": "也许我们可以坐下一班火车。",
+          "phon": "翁 普雷 珀泰特尔 普朗德尔 勒 普罗申 特兰"
+        },
+        {
+          "variantIndex": 1,
+          "study": "On pourrait peut-être appeler le service client.",
+          "native": "也许我们可以打给客服。",
+          "phon": "翁 普雷 珀泰特尔 阿普莱 勒 塞尔维斯 克利扬"
+        },
+        {
+          "variantIndex": 2,
+          "study": "On pourrait peut-être demander un remboursement.",
+          "native": "也许我们可以要求退款。",
+          "phon": "翁 普雷 珀泰特尔 德芒代 安 朗布尔斯芒"
+        },
+        {
+          "variantIndex": 3,
+          "study": "On pourrait peut-être revenir demain matin.",
+          "native": "也许我们可以明天早上再来。",
+          "phon": "翁 普雷 珀泰特尔 勒弗尼尔 德曼 马坦"
+        }
+      ],
+      "addedPrerequisites": [
+        "L9-zh-fr-07"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "unitId": "L9-zh-fr-07",
+          "sourceFile": "melunga_deploy/content/conversation/L9-zh-fr.json",
+          "proposedLevel": 9,
+          "variantIndex": 0,
+          "study": "Si j'ai bien compris, je dois revenir demain ?",
+          "native": "如果我没理解错，我得明天再来？",
+          "phon": "西 热 比安 孔普里，热 杜瓦 勒弗尼尔 德曼",
+          "relation": "Le groupe infinitif revenir demain est déjà présenté au début du même L9 ; il est repris après On pourrait peut-être."
+        }
+      ],
+      "baselinePatchFields": {
+        "plannedPrerequisites": [
+          "L6-zh-fr-03",
+          "L9-zh-fr-04",
+          "L9-zh-fr-06"
+        ],
+        "rationale": "Placement fondé sur l’usage communicatif et la construction : Proposer une solution possible avec On pourrait peut-être. Les phrases sources sont reprises entières avant l’exercice, sans classement par longueur.",
+        "gaps": [
+          "La modalisation peut-être se combine à une proposition déjà préparée ; les solutions nouvelles sont montrées avec leurs compléments."
+        ]
+      },
+      "proposedPatch": {
+        "plannedPrerequisites": [
+          "L6-zh-fr-03",
+          "L9-zh-fr-07",
+          "L9-zh-fr-04",
+          "L9-zh-fr-06"
+        ],
+        "rationale": "Après On pourrait au L6, Peut-être que et les problèmes L9, reprendre le groupe revenir demain de la vérification antérieure du même niveau. Les autres solutions sont montrées entières ; service client et remboursement restent des groupes lexicaux nouveaux.",
+        "gaps": [
+          "La modalisation peut-être se combine à une proposition déjà préparée ; les solutions nouvelles sont montrées avec leurs compléments. Le groupe revenir demain est disponible plus tôt dans L9, ce que la mesure agrégée par niveau ne distingue pas. Service client et remboursement doivent être introduits ici ; rembourser au L6 n’établit pas à lui seul la production du nom remboursement."
+        ]
+      }
+    },
+    {
+      "unitId": "L8-zh-fr-11",
+      "decision": "amend",
+      "rationale": "Conserver l’unité au L9 après les conditions L8. Rendre explicites Je préfère avec infinitif et envoyer, déjà présentés. Les quatre suites restent des expressions distinctes : par carte et e-mail sont introduits dans leurs groupes, viendrai comme futur simple, envoyez-moi comme impératif avec pronom, sans inférer ces formes de je vais ou m’envoyer.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Si c'est possible, je préfère payer par carte.",
+          "native": "如果可以的话，我想刷卡。",
+          "phon": "西 赛 波西布勒，热 普雷费尔 佩耶 帕尔 卡尔特"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Si c'est possible, je viendrai demain.",
+          "native": "如果可以的话，我明天来。",
+          "phon": "西 赛 波西布勒，热 维安德雷 德曼"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Si c'est possible, envoyez-moi un e-mail.",
+          "native": "如果可以的话，请给我发邮件。",
+          "phon": "西 赛 波西布勒，昂瓦耶 穆瓦 安 伊梅尔"
+        },
+        {
+          "variantIndex": 3,
+          "study": "Si c'est possible, on signe aujourd'hui.",
+          "native": "如果可以的话，我们今天就签。",
+          "phon": "西 赛 波西布勒，翁 西涅 奥茹尔迪"
+        }
+      ],
+      "addedPrerequisites": [
+        "L7-zh-fr-05",
+        "L8-zh-fr-01"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "unitId": "L7-zh-fr-05",
+          "sourceFile": "melunga_deploy/content/conversation/L7-zh-fr.json",
+          "proposedLevel": 7,
+          "variantIndex": 0,
+          "study": "Je préfère cuisiner parce que c'est moins cher.",
+          "native": "我更喜欢自己做饭，因为更便宜。",
+          "phon": "热 普雷费尔 居伊吉内 帕尔斯 克 赛 穆安 谢尔",
+          "relation": "Je préfère suivi d’un infinitif est déjà présenté ; payer par carte reste le groupe infinitif nouveau."
+        },
+        {
+          "unitId": "L8-zh-fr-01",
+          "sourceFile": "melunga_deploy/content/conversation/L8-zh-fr.json",
+          "proposedLevel": 6,
+          "variantIndex": 0,
+          "study": "Pourriez-vous m'envoyer le contrat ?",
+          "native": "您能否把合同发给我？",
+          "phon": "普里耶 武 芒瓦耶 勒 孔特拉",
+          "relation": "L’infinitif envoyer est déjà présenté dans une demande ; envoyez-moi change forme verbale et placement du pronom."
+        }
+      ],
+      "baselinePatchFields": {
+        "plannedPrerequisites": [
+          "L8-zh-fr-03",
+          "L8-zh-fr-04",
+          "L6-zh-fr-01"
+        ],
+        "rationale": "Si c’est possible, je viendrai / envoyez-moi change futur simple, impératif et personne. Cette combinaison est reportée après les conditions L8 et travaillée en expressions entières, avec lacunes déclarées.",
+        "gaps": [
+          "Je viendrai est un futur simple ; envoyez-moi est un impératif avec clitique. Aucun cadre précédent je vais ne les prouve. L’éventuel travail productif général reste une lacune explicite."
+        ]
+      },
+      "proposedPatch": {
+        "plannedPrerequisites": [
+          "L6-zh-fr-01",
+          "L8-zh-fr-01",
+          "L7-zh-fr-05",
+          "L8-zh-fr-04",
+          "L8-zh-fr-03"
+        ],
+        "rationale": "Conserver l’unité au L9 après les conditions L8. Rendre explicites Je préfère avec infinitif et envoyer, déjà présentés. Les quatre suites restent des expressions distinctes : par carte et e-mail sont introduits dans leurs groupes, viendrai comme futur simple, envoyez-moi comme impératif avec pronom, sans inférer ces formes de je vais ou m’envoyer.",
+        "gaps": [
+          "Je viendrai est un futur simple ; envoyez-moi est un impératif avec clitique. Aucun cadre précédent je vais ne les prouve. L’éventuel travail productif général reste une lacune explicite. Les antécédents Je préfère cuisiner et m’envoyer sont des reprises écrites sourcées, non une garantie phonétique ni la maîtrise de payer par carte ou envoyez-moi. Le futur simple, l’impératif avec pronom et on signe restent préparés dans leurs phrases entières."
+        ]
+      }
+    }
+  ],
+  "surfaceFormReview": [
+    {
+      "type": "aies",
+      "earlierSource": {
+        "unitId": "L1-zh-fr-04",
+        "sourceFile": "melunga_deploy/content/conversation/L1-zh-fr.json",
+        "proposedLevel": 1,
+        "variantIndex": 0,
+        "study": "J'ai besoin d'aide.",
+        "native": "我需要帮助。",
+        "phon": "热 贝祖安 代德"
+      },
+      "limit": "avoir déjà rencontré ; aies et le cadre subjonctif ne sont pas préparés par ai."
+    },
+    {
+      "type": "arrivée",
+      "earlierSource": {
+        "unitId": "L5-zh-fr-12",
+        "sourceFile": "melunga_deploy/content/conversation/L5-zh-fr.json",
+        "proposedLevel": 5,
+        "variantIndex": 0,
+        "study": "Je suis arrivé hier soir.",
+        "native": "我昨天晚上到的。",
+        "phon": "热 绥 扎里韦 耶尔 斯瓦尔"
+      },
+      "limit": "arrivé existe au masculin ; le féminin avec sujet valise et la négation sont nouveaux."
+    },
+    {
+      "type": "avons",
+      "earlierSource": {
+        "unitId": "L1-zh-fr-04",
+        "sourceFile": "melunga_deploy/content/conversation/L1-zh-fr.json",
+        "proposedLevel": 1,
+        "variantIndex": 0,
+        "study": "J'ai besoin d'aide.",
+        "native": "我需要帮助。",
+        "phon": "热 贝祖安 代德"
+      },
+      "limit": "avoir besoin existe avec j’ai ; nous avons besoin change la personne et la flexion."
+    },
+    {
+      "type": "bon",
+      "earlierSource": {
+        "unitId": "L6-zh-fr-08",
+        "sourceFile": "melunga_deploy/content/conversation/L6-zh-fr.json",
+        "proposedLevel": 6,
+        "variantIndex": 0,
+        "study": "Bonne idée !",
+        "native": "好主意！",
+        "phon": "波 尼代"
+      },
+      "limit": "bonne existe ; le masculin bon et le groupe le bon guichet restent à présenter."
+    },
+    {
+      "type": "envoyez",
+      "earlierSource": {
+        "unitId": "L8-zh-fr-01",
+        "sourceFile": "melunga_deploy/content/conversation/L8-zh-fr.json",
+        "proposedLevel": 6,
+        "variantIndex": 0,
+        "study": "Pourriez-vous m'envoyer le contrat ?",
+        "native": "您能否把合同发给我？",
+        "phon": "普里耶 武 芒瓦耶 勒 孔特拉"
+      },
+      "limit": "envoyer existe ; l’impératif et le pronom de envoyez-moi ne se déduisent pas de m’envoyer."
+    },
+    {
+      "type": "prochain",
+      "earlierSource": {
+        "unitId": "L6-zh-fr-12",
+        "sourceFile": "melunga_deploy/content/conversation/L6-zh-fr.json",
+        "proposedLevel": 6,
+        "variantIndex": 2,
+        "study": "Tu es libre la semaine prochaine ?",
+        "native": "你下周有空吗？",
+        "phon": "蒂 埃 利布尔 拉 瑟曼 普罗申"
+      },
+      "limit": "prochaine existe avec semaine ; le prochain train change le groupe et le genre."
+    },
+    {
+      "type": "sois",
+      "earlierSource": {
+        "unitId": "L1-zh-fr-01",
+        "sourceFile": "melunga_deploy/content/conversation/L1-zh-fr.json",
+        "proposedLevel": 1,
+        "variantIndex": 0,
+        "study": "Je suis étudiant.",
+        "native": "我是学生。",
+        "phon": "热 绥 埃居迪昂"
+      },
+      "limit": "être existe au présent ; le subjonctif sois est une forme nouvelle."
+    },
+    {
+      "type": "soit",
+      "earlierSource": {
+        "unitId": "L1-zh-fr-05",
+        "sourceFile": "melunga_deploy/content/conversation/L1-zh-fr.json",
+        "proposedLevel": 1,
+        "variantIndex": 0,
+        "study": "Où est la gare ?",
+        "native": "火车站在哪里？",
+        "phon": "乌 埃 拉 嘎尔"
+      },
+      "limit": "être existe au présent ; le subjonctif soit et soit annulé restent nouveaux."
+    },
+    {
+      "type": "venu",
+      "earlierSource": {
+        "unitId": "L3-zh-fr-02",
+        "sourceFile": "melunga_deploy/content/conversation/L3-zh-fr.json",
+        "proposedLevel": 3,
+        "variantIndex": 0,
+        "study": "Tu peux venir ?",
+        "native": "你能来吗？",
+        "phon": "蒂 珀 弗尼尔"
+      },
+      "limit": "venir existe à l’infinitif ; le participe venu et merci d’être venu restent nouveaux."
+    },
+    {
+      "type": "viendrai",
+      "earlierSource": {
+        "unitId": "L3-zh-fr-02",
+        "sourceFile": "melunga_deploy/content/conversation/L3-zh-fr.json",
+        "proposedLevel": 3,
+        "variantIndex": 0,
+        "study": "Tu peux venir ?",
+        "native": "你能来吗？",
+        "phon": "蒂 珀 弗尼尔"
+      },
+      "limit": "venir existe à l’infinitif ; le futur simple viendrai ne se déduit pas du futur proche."
+    }
+  ],
+  "otherNewSurfaceTypes": [
+    "autrement",
+    "bruit",
+    "carte",
+    "chauffage",
+    "client",
+    "crois",
+    "document",
+    "déranger",
+    "erreur",
+    "excusez",
+    "fermé",
+    "formulaire",
+    "gratuit",
+    "grave",
+    "guichet",
+    "nom",
+    "occupé",
+    "ouvert",
+    "par",
+    "perdu",
+    "problème",
+    "raison",
+    "remboursement",
+    "revenir",
+    "service",
+    "signe",
+    "suffit",
+    "sur",
+    "urgent",
+    "valise",
+    "vol",
+    "élevé"
+  ],
+  "tokenizerSplitTypes": {
+    "types": [
+      "e",
+      "mail"
+    ],
+    "wholeSource": {
+      "unitId": "L8-zh-fr-11",
+      "sourceFile": "melunga_deploy/content/conversation/L8-zh-fr.json",
+      "proposedLevel": 9,
+      "variantIndex": 2,
+      "study": "Si c'est possible, envoyez-moi un e-mail.",
+      "native": "如果可以的话，请给我发邮件。",
+      "phon": "西 赛 波西布勒，昂瓦耶 穆瓦 安 伊梅尔"
+    },
+    "interpretation": "One source group e-mail, split into two letter-only types; still new lexical material."
+  }
+}

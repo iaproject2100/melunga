@@ -1,0 +1,4848 @@
+{
+  "version": 1,
+  "baseline": "99478df",
+  "status": "triage-editorial-pending-native-review",
+  "pair": "zh-fr",
+  "scope": "Exact 102 existing annotations, not an independent diagnosis of 102 errors or pronunciation defects",
+  "doesNotMeasureAcquisition": true,
+  "publicationApproved": false,
+  "nativeValidation": false,
+  "noCanonicalOrEditorialChanges": true,
+  "method": {
+    "onePrimaryCategoryPerAnnotation": true,
+    "classificationBasis": "Manual reading of each exact annotation and its four canonical variants; categories describe follow-up work, not severity or correctness.",
+    "nativeReviewZeroMeaning": "No existing annotation is primarily a diagnosis of native pronunciation accuracy. This is not evidence that the phonetics are accurate.",
+    "preparedWholePhraseMeaning": "The current runtime presents exact whole variants. A caution about free generalisation is not automatically a missing understand/imitate screen."
+  },
+  "counts": {
+    "allPairsAnnotationCount": 330,
+    "byPair": {
+      "fr-en": 38,
+      "fr-es": 49,
+      "fr-it": 21,
+      "fr-ko": 27,
+      "zh-fr": 102,
+      "fr-zh": 43,
+      "fr-ja": 50
+    },
+    "pairAnnotationCount": 102,
+    "unitsWithAnnotations": 102,
+    "identicalAnnotationDuplicates": 0,
+    "primaryCategories": {
+      "structural-caution": 73,
+      "reception-dialogue": 21,
+      "source-register-review": 3,
+      "preparation-missing": 5,
+      "native-review": 0
+    }
+  },
+  "editorialFileSha256": "56d993c184a4caec4bd2accca38b9fe37549c297b937769017c0561c03ddbc2a",
+  "sourceFilesSha256": {
+    "melunga_deploy/content/conversation/L1-zh-fr.json": "170c3a0d576edd3a619b4560040e1a346246769e66530a582ce448d0699b1753",
+    "melunga_deploy/content/conversation/L2-zh-fr.json": "122e8a450416c2923d380a613febebd3f8a29c78cf00fc931a992c0df59b8902",
+    "melunga_deploy/content/conversation/L3-zh-fr.json": "9137541b3f2c4fbc7c72b6ae8c7d24993d7515003dc875b7107754b5bf87e2ae",
+    "melunga_deploy/content/conversation/L4-zh-fr.json": "3c719e767e60bcecbc609c7b4c1d43b80821faedb375aeaf8f6d6917e87159be",
+    "melunga_deploy/content/conversation/L5-zh-fr.json": "061f53bf97aa1ca8af9c4fbb2b31bbfe49ec30fbec431f831f4e6a8ebb688bf3",
+    "melunga_deploy/content/conversation/L6-zh-fr.json": "e566395bd4137b45cdc8fc05a83883d9f318d22ce4e8e8a608b427e8a5677fb9",
+    "melunga_deploy/content/conversation/L7-zh-fr.json": "4c442d5a94c9d53a8e342e3f9fbadeb53e125c6ec065285b435bc60b4fb4d955",
+    "melunga_deploy/content/conversation/L8-zh-fr.json": "32b6c5b3551f598a37f8f18268f42232f8ec31e2bac96e4453feb89b8875f7ec",
+    "melunga_deploy/content/conversation/L9-zh-fr.json": "3feb462a765f6d0632019143b70c44611f997e9b3f46f80a5edca619fbe6937a",
+    "melunga_deploy/content/conversation/L10-zh-fr.json": "fbb9ba77618cf1f4469f9f17f8c09bbfa6fc9a7f36d2a8e5fc4aa7b8fa638fcd"
+  },
+  "annotations": [
+    {
+      "annotationIndex": 1,
+      "unitId": "L1-zh-fr-11",
+      "gapIndex": 0,
+      "text": "Quatre actes distincts : négation d’incompréhension, impératif de répétition, demande de débit, question de langue. Pas de cadre productif unique.",
+      "primaryCategory": "structural-caution",
+      "reason": "Quatre fonctions communicatives sont distinguées ; aucune omission phonétique n’est alléguée.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L1-zh-fr.json",
+        "unitId": "L1-zh-fr-11",
+        "sourceLevel": 1
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je ne comprends pas.",
+            "native": "我不懂。",
+            "phon": "热 讷 孔普朗 帕"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Répétez, s'il vous plaît.",
+            "native": "请再说一遍。",
+            "phon": "雷佩泰，西尔 武 普莱"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Plus lentement, s'il vous plaît.",
+            "native": "请说慢一点。",
+            "phon": "普吕 朗特芒，西尔 武 普莱"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Parlez-vous chinois ?",
+            "native": "您会说中文吗？",
+            "phon": "帕尔莱 武 希努瓦"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 2,
+      "unitId": "L1-zh-fr-03",
+      "gapIndex": 0,
+      "text": "Un café / un sandwich est la première paire. De l’eau change le groupe déterminant et doit rester une phrase préparée séparément.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le groupe nominal change de détermination ; la contrainte porte sur la généralisation de la première paire.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L1-zh-fr.json",
+        "unitId": "L1-zh-fr-03",
+        "sourceLevel": 1
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je veux un café.",
+            "native": "我要一杯咖啡。",
+            "phon": "热 弗 安 卡菲"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je veux de l'eau.",
+            "native": "我要水。",
+            "phon": "热 弗 德 罗"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je veux un billet.",
+            "native": "我要一张票。",
+            "phon": "热 弗 安 比耶"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je veux un sandwich.",
+            "native": "我要一个三明治。",
+            "phon": "热 弗 安 桑德维奇"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 3,
+      "unitId": "L1-zh-fr-04",
+      "gapIndex": 0,
+      "text": "Le groupe d’un taxi / d’un médecin comprend de et l’article ; d’aide et de la wifi ne sont pas produits en recollant des morceaux.",
+      "primaryCategory": "structural-caution",
+      "reason": "La réserve conserve préposition et déterminant dans le groupe entier ; elle ne diagnostique pas la transcription.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L1-zh-fr.json",
+        "unitId": "L1-zh-fr-04",
+        "sourceLevel": 1
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "J'ai besoin d'aide.",
+            "native": "我需要帮助。",
+            "phon": "热 贝祖安 代德"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "J'ai besoin d'un taxi.",
+            "native": "我需要一辆出租车。",
+            "phon": "热 贝祖安 丹 塔克西"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "J'ai besoin d'un médecin.",
+            "native": "我需要医生。",
+            "phon": "热 贝祖安 丹 梅德森"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "J'ai besoin de la wifi.",
+            "native": "我需要无线网。",
+            "phon": "热 贝祖安 德 拉 维菲"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 4,
+      "unitId": "L1-zh-fr-01",
+      "gapIndex": 0,
+      "text": "Les variantes passent d’attribut étudiant/français à de Paris et en vacances : ne pas étendre un seul nom interchangeable aux quatre.",
+      "primaryCategory": "structural-caution",
+      "reason": "Attribut, origine et état circonstanciel n’occupent pas la même fonction après être.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L1-zh-fr.json",
+        "unitId": "L1-zh-fr-01",
+        "sourceLevel": 1
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je suis étudiant.",
+            "native": "我是学生。",
+            "phon": "热 绥 埃居迪昂"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je suis français.",
+            "native": "我是法国人。",
+            "phon": "热 绥 弗朗赛"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je suis de Paris.",
+            "native": "我是巴黎人。",
+            "phon": "热 绥 德 巴黎"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je suis en vacances.",
+            "native": "我是来度假的。",
+            "phon": "热 绥 昂 瓦康斯"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 5,
+      "unitId": "L1-zh-fr-06",
+      "gapIndex": 0,
+      "text": "La première paire conserve au ; à la gare et à l’hôtel préparent d’autres groupes complets sans règle de contraction supposée acquise.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le groupe prépositionnel complet est la cible ; une règle de contraction productive n’est pas acquise par déclaration.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L1-zh-fr.json",
+        "unitId": "L1-zh-fr-06",
+        "sourceLevel": 1
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je vais au travail.",
+            "native": "我去上班。",
+            "phon": "热 维 奥 特拉瓦伊"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je vais à la gare.",
+            "native": "我去火车站。",
+            "phon": "热 维 阿 拉 嘎尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je vais au marché.",
+            "native": "我去市场。",
+            "phon": "热 维 奥 马尔谢"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je vais à l'hôtel.",
+            "native": "我去酒店。",
+            "phon": "热 维 阿 洛泰尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 6,
+      "unitId": "L1-zh-fr-10",
+      "gapIndex": 0,
+      "text": "La forme nue Combien ça coûte ? du dialogue café n’est pas une variante de cette unité. Sa préparation exacte relève du pont L1 séparé.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "La question nue appartient au dialogue, pas aux quatre variantes ; son pont exact relève du lot L1 séparé.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L1-zh-fr.json",
+        "unitId": "L1-zh-fr-10",
+        "sourceLevel": 1
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Combien coûte ça ?",
+            "native": "这个多少钱？",
+            "phon": "孔比安 库特 萨"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Combien coûte le café ?",
+            "native": "咖啡多少钱？",
+            "phon": "孔比安 库特 勒 卡菲"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Combien coûte le billet ?",
+            "native": "票多少钱？",
+            "phon": "孔比安 库特 勒 比耶"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Combien coûte la chambre ?",
+            "native": "房间多少钱？",
+            "phon": "孔比安 库特 拉 尚布尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 7,
+      "unitId": "L1-zh-fr-08",
+      "gapIndex": 0,
+      "text": "Le premier changement est le café / le sport. La musique et marcher ne servent pas à affirmer l’équivalence générale nom/infinitif.",
+      "primaryCategory": "structural-caution",
+      "reason": "Nom et infinitif ne sont pas assimilés ; seule la première paire nominale est retenue.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L1-zh-fr.json",
+        "unitId": "L1-zh-fr-08",
+        "sourceLevel": 1
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "J'aime le café.",
+            "native": "我喜欢咖啡。",
+            "phon": "热姆 勒 卡菲"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "J'aime la musique.",
+            "native": "我喜欢音乐。",
+            "phon": "热姆 拉 缪吉克"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "J'aime marcher.",
+            "native": "我喜欢走路。",
+            "phon": "热姆 马尔谢"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "J'aime le sport.",
+            "native": "我喜欢运动。",
+            "phon": "热姆 勒 斯波尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 8,
+      "unitId": "L4-zh-fr-04",
+      "gapIndex": 0,
+      "text": "L’avoir de faim/soif en L1 n’est pas une preuve de l’avoir possessif : l’usage est introduit ici. Deux enfants change aussi quantité et nombre.",
+      "primaryCategory": "structural-caution",
+      "reason": "La locution avoir faim et la possession sont des usages différents, même avec les mêmes deux premiers mots.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L4-zh-fr.json",
+        "unitId": "L4-zh-fr-04",
+        "sourceLevel": 4
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "J'ai un frère.",
+            "native": "我有一个哥哥。",
+            "phon": "热 安 弗雷尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "J'ai deux enfants.",
+            "native": "我有两个孩子。",
+            "phon": "热 德 藏方"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "J'ai une sœur.",
+            "native": "我有一个妹妹。",
+            "phon": "热 于讷 瑟尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "J'ai un chien.",
+            "native": "我有一条狗。",
+            "phon": "热 安 希安"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 9,
+      "unitId": "L9-zh-fr-08",
+      "gapIndex": 0,
+      "text": "La première paire à la tête / à la gorge garde à la. Au ventre et aux dents préparent d’autres groupes entiers sans contraction inventée.",
+      "primaryCategory": "structural-caution",
+      "reason": "La contrainte porte sur les groupes prépositionnels contractés, non sur un énoncé manquant.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L9-zh-fr.json",
+        "unitId": "L9-zh-fr-08",
+        "sourceLevel": 9
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "J'ai mal à la tête.",
+            "native": "我头疼。",
+            "phon": "热 马尔 阿 拉 泰特"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "J'ai mal au ventre.",
+            "native": "我肚子疼。",
+            "phon": "热 马尔 奥 旺特尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "J'ai mal à la gorge.",
+            "native": "我嗓子疼。",
+            "phon": "热 马尔 阿 拉 高尔日"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "J'ai mal aux dents.",
+            "native": "我牙疼。",
+            "phon": "热 马尔 奥 当"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 10,
+      "unitId": "L2-zh-fr-03",
+      "gapIndex": 0,
+      "text": "Le premier changement ne porte que sur ici / là-bas ; près de la gare et à gauche sont présentés entiers ensuite.",
+      "primaryCategory": "structural-caution",
+      "reason": "La première opposition de repères spatiaux reste limitée ; les autres lieux sont des phrases distinctes à préparer.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L2-zh-fr.json",
+        "unitId": "L2-zh-fr-03",
+        "sourceLevel": 2
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "C'est ici.",
+            "native": "在这里。",
+            "phon": "赛 伊西"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "C'est là-bas.",
+            "native": "在那边。",
+            "phon": "赛 拉巴"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "C'est près de la gare.",
+            "native": "在火车站附近。",
+            "phon": "赛 普雷 德 拉 嘎尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "C'est à gauche.",
+            "native": "在左边。",
+            "phon": "赛 阿 高什"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 11,
+      "unitId": "L4-zh-fr-05",
+      "gapIndex": 0,
+      "text": "À Lyon, dans un appartement, près du centre et avec ma famille précisent des aspects différents du domicile ; ne pas les présenter comme réponses équivalentes à une question unique.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "Le choix d’une réponse dépend de la question réelle ; cette contrainte devra être vérifiée en contexte dialogué.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L4-zh-fr.json",
+        "unitId": "L4-zh-fr-05",
+        "sourceLevel": 4
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "J'habite à Lyon.",
+            "native": "我住在里昂。",
+            "phon": "扎比特 阿 里昂"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "J'habite dans un appartement.",
+            "native": "我住在一套公寓里。",
+            "phon": "扎比特 当 赞 阿帕尔特芒"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "J'habite près du centre.",
+            "native": "我住在市中心附近。",
+            "phon": "扎比特 普雷 迪 桑特尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "J'habite avec ma famille.",
+            "native": "我和家人住在一起。",
+            "phon": "扎比特 阿维克 马 法米伊"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 12,
+      "unitId": "L2-zh-fr-09",
+      "gapIndex": 0,
+      "text": "Le contenu d’Encore peut porter sur une quantité, un autre produit ou une attente ; ces fonctions ne sont pas quatre mots équivalents.",
+      "primaryCategory": "structural-caution",
+      "reason": "Encore accomplit plusieurs actes ; l’annotation empêche de les traiter comme une permutation unique.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L2-zh-fr.json",
+        "unitId": "L2-zh-fr-09",
+        "sourceLevel": 2
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Encore un peu de pain, s'il vous plaît.",
+            "native": "请再来一点面包。",
+            "phon": "昂科尔 安 珀 德 潘，西尔 武 普莱"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Encore un café, s'il vous plaît.",
+            "native": "请再来一杯咖啡。",
+            "phon": "昂科尔 安 卡菲，西尔 武 普莱"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Encore de l'eau, s'il vous plaît.",
+            "native": "请再来一些水。",
+            "phon": "昂科尔 德 罗，西尔 武 普莱"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Encore deux minutes, s'il vous plaît.",
+            "native": "请再等两分钟。",
+            "phon": "昂科尔 德 米纽特，西尔 武 普莱"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 13,
+      "unitId": "L2-zh-fr-01",
+      "gapIndex": 0,
+      "text": "Deux cafés, un peu d’eau, une table pour deux et l’addition cumulent quantité, déterminant et service ; aucune paire n’est déclarée première substitution simple.",
+      "primaryCategory": "structural-caution",
+      "reason": "Quantité, détermination et service varient ; le traitement en expressions entières est une décision de présentation.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L2-zh-fr.json",
+        "unitId": "L2-zh-fr-01",
+        "sourceLevel": 2
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je voudrais deux cafés, s'il vous plaît.",
+            "native": "我想要两杯咖啡。",
+            "phon": "热 武德雷 德 卡菲，西尔 武 普莱"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je voudrais un peu d'eau, s'il vous plaît.",
+            "native": "我想要一点水。",
+            "phon": "热 武德雷 安 珀 多，西尔 武 普莱"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je voudrais une table pour deux, s'il vous plaît.",
+            "native": "我想要一张两人桌。",
+            "phon": "热 武德雷 于讷 塔布勒 普尔 德，西尔 武 普莱"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je voudrais l'addition, s'il vous plaît.",
+            "native": "麻烦结账。",
+            "phon": "热 武德雷 拉迪西翁，西尔 武 普莱"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 14,
+      "unitId": "L2-zh-fr-05",
+      "gapIndex": 0,
+      "text": "Le premier changement ce matin / demain matin conserve le départ au présent ; dans cinq minutes requiert son propre repère de délai.",
+      "primaryCategory": "structural-caution",
+      "reason": "Un repère de délai diffère d’un moment ; la réserve n’affirme pas qu’une variante source est absente.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L2-zh-fr.json",
+        "unitId": "L2-zh-fr-05",
+        "sourceLevel": 2
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Le train part à dix heures.",
+            "native": "火车十点出发。",
+            "phon": "勒 特兰 帕尔 阿 迪 泽尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Le train part dans cinq minutes.",
+            "native": "火车五分钟后出发。",
+            "phon": "勒 特兰 帕尔 当 散克 米纽特"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Le train part ce matin.",
+            "native": "火车今天早上出发。",
+            "phon": "勒 特兰 帕尔 瑟 马坦"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Le train part demain matin.",
+            "native": "火车明天早上出发。",
+            "phon": "勒 特兰 帕尔 德曼 马坦"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 15,
+      "unitId": "L2-zh-fr-06",
+      "gapIndex": 0,
+      "text": "Thé, fenêtre, bus et demain ne répondent pas à une même question de choix située. Distinguer les contextes ; ne pas greffer automatiquement les quatre dans un dialogue.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "Les quatre préférences ne répondent pas à la même question ; aucune greffe automatique en dialogue n’est autorisée.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L2-zh-fr.json",
+        "unitId": "L2-zh-fr-06",
+        "sourceLevel": 2
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je préfère le thé.",
+            "native": "我更喜欢茶。",
+            "phon": "热 普雷费尔 勒 泰"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je préfère la fenêtre.",
+            "native": "我更喜欢靠窗的位置。",
+            "phon": "热 普雷费尔 拉 弗内特尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je préfère le bus.",
+            "native": "我更喜欢公交车。",
+            "phon": "热 普雷费尔 勒 比斯"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je préfère demain.",
+            "native": "我更想明天。",
+            "phon": "热 普雷费尔 德曼"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 16,
+      "unitId": "L2-zh-fr-10",
+      "gapIndex": 0,
+      "text": "Pour deux personnes, pour ce soir, pour emporter et pour moi ne jouent pas la même fonction. Ne pas transformer le pour commun en règle unique.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le partage de pour ne fournit pas une fonction syntaxique ou intention unique.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L2-zh-fr.json",
+        "unitId": "L2-zh-fr-10",
+        "sourceLevel": 2
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "C'est pour deux personnes.",
+            "native": "是两个人的。",
+            "phon": "赛 普尔 德 佩尔索讷"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "C'est pour ce soir.",
+            "native": "是今晚的。",
+            "phon": "赛 普尔 瑟 斯瓦尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "C'est pour emporter.",
+            "native": "是带走的。",
+            "phon": "赛 普尔 昂波尔泰"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "C'est pour moi.",
+            "native": "是给我的。",
+            "phon": "赛 普尔 穆瓦"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 17,
+      "unitId": "L2-zh-fr-08",
+      "gapIndex": 0,
+      "text": "Du wifi, une pharmacie près d’ici, un menu en anglais et des toilettes changent déterminant, nombre et expansions. Apprendre les questions entières.",
+      "primaryCategory": "structural-caution",
+      "reason": "Détermination, nombre et expansions restent liés aux questions entières.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L2-zh-fr.json",
+        "unitId": "L2-zh-fr-08",
+        "sourceLevel": 2
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Il y a du wifi ?",
+            "native": "有无线网吗？",
+            "phon": "伊 利 亚 迪 维菲"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Il y a une pharmacie près d'ici ?",
+            "native": "附近有药店吗？",
+            "phon": "伊 利 亚 于讷 法尔马西 普雷 迪西"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Il y a un menu en anglais ?",
+            "native": "有英文菜单吗？",
+            "phon": "伊 利 亚 安 默尼 昂 囊格莱"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Il y a des toilettes ?",
+            "native": "有洗手间吗？",
+            "phon": "伊 利 亚 德 图瓦莱特"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 18,
+      "unitId": "L2-zh-fr-07",
+      "gapIndex": 0,
+      "text": "Lequel, Quand, Où ça et À quelle heure n’ont pas un cadre grammatical commun à remplir.",
+      "primaryCategory": "structural-caution",
+      "reason": "Les interrogatifs sont différents ; il s’agit d’une restriction de famille, pas d’une erreur de source.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L2-zh-fr.json",
+        "unitId": "L2-zh-fr-07",
+        "sourceLevel": 2
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Lequel ?",
+            "native": "哪一个？",
+            "phon": "勒凯尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Quand ?",
+            "native": "什么时候？",
+            "phon": "康"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Où ça ?",
+            "native": "在哪儿？",
+            "phon": "乌 萨"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "À quelle heure ?",
+            "native": "几点？",
+            "phon": "阿 凯 勒尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 19,
+      "unitId": "L2-zh-fr-11",
+      "gapIndex": 0,
+      "text": "La dislocation Celui-ci, c’est combien ? est préparée entière ; les syntagmes chambre pour une nuit et deux billets ne sont pas implicitement connus par le seul cadre c’est combien.",
+      "primaryCategory": "structural-caution",
+      "reason": "La construction disloquée et les compléments longs sont présentés entiers ; leur présence n’autorise pas une généralisation libre.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L2-zh-fr.json",
+        "unitId": "L2-zh-fr-11",
+        "sourceLevel": 2
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Celui-ci, c'est combien ?",
+            "native": "这个多少钱？",
+            "phon": "瑟吕伊西，赛 孔比安"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Le menu, c'est combien ?",
+            "native": "套餐多少钱？",
+            "phon": "勒 默尼，赛 孔比安"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "La chambre pour une nuit, c'est combien ?",
+            "native": "一晚的房间多少钱？",
+            "phon": "拉 尚布尔 普尔 于讷 尼，赛 孔比安"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Deux billets, c'est combien ?",
+            "native": "两张票多少钱？",
+            "phon": "德 比耶，赛 孔比安"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 20,
+      "unitId": "L3-zh-fr-01",
+      "gapIndex": 0,
+      "text": "Aider, répéter, parler et écrire ont des compléments différents ; préparer les quatre demandes plutôt qu’un verbe nu librement permutable.",
+      "primaryCategory": "structural-caution",
+      "reason": "Chaque verbe exige ses compléments ; la préparation des phrases entières ne vaut pas libre substitution de verbes nus.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L3-zh-fr.json",
+        "unitId": "L3-zh-fr-01",
+        "sourceLevel": 3
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Vous pouvez m'aider ?",
+            "native": "您可以帮我吗？",
+            "phon": "武 普韦 梅代"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Vous pouvez répéter ?",
+            "native": "您可以再说一遍吗？",
+            "phon": "武 普韦 雷佩泰"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Vous pouvez parler plus lentement ?",
+            "native": "您可以说慢一点吗？",
+            "phon": "武 普韦 帕尔莱 普吕 朗特芒"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Vous pouvez écrire ça ?",
+            "native": "您可以把这个写下来吗？",
+            "phon": "武 普韦 埃克里尔 萨"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 21,
+      "unitId": "L3-zh-fr-02",
+      "gapIndex": 0,
+      "text": "Le passage vous/tu change forme et registre. Venir, attendre, montrer et appeler ne sont pas une simple liste de noms dans la même phrase.",
+      "primaryCategory": "source-register-review",
+      "reason": "Le tutoiement est à situer par rapport aux demandes en vous rencontrées ailleurs ; l’annotation vise forme et registre, pas une faute prouvée.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L3-zh-fr.json",
+        "unitId": "L3-zh-fr-02",
+        "sourceLevel": 3
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Tu peux venir ?",
+            "native": "你能来吗？",
+            "phon": "蒂 珀 弗尼尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Tu peux attendre une minute ?",
+            "native": "你能等一分钟吗？",
+            "phon": "蒂 珀 阿唐德尔 于讷 米纽特"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Tu peux me montrer ?",
+            "native": "你能给我看看吗？",
+            "phon": "蒂 珀 默 蒙特雷"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Tu peux appeler un taxi ?",
+            "native": "你能叫一辆出租车吗？",
+            "phon": "蒂 珀 阿普莱 安 塔克西"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 22,
+      "unitId": "L3-zh-fr-03",
+      "gapIndex": 0,
+      "text": "Fais, veux, manges et cherches sont des formes verbales à préparer chacune ; un Qu’est-ce que commun ne les enseigne pas.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le début interrogatif commun ne prépare pas les différentes conjugaisons.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L3-zh-fr.json",
+        "unitId": "L3-zh-fr-03",
+        "sourceLevel": 3
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Qu'est-ce que tu fais ?",
+            "native": "你做什么？",
+            "phon": "凯斯 克 蒂 费"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Qu'est-ce que tu veux ?",
+            "native": "你想要什么？",
+            "phon": "凯斯 克 蒂 弗"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Qu'est-ce que tu manges ?",
+            "native": "你吃什么？",
+            "phon": "凯斯 克 蒂 芒日"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Qu'est-ce que tu cherches ?",
+            "native": "你找什么？",
+            "phon": "凯斯 克 蒂 谢尔什"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 23,
+      "unitId": "L3-zh-fr-04",
+      "gapIndex": 0,
+      "text": "Le modèle avec vous reçoit faites, voulez, prenez et cherchez. La connaissance de la question avec tu ne prouve pas ces conjugaisons.",
+      "primaryCategory": "structural-caution",
+      "reason": "Les formes avec vous sont distinctes de celles avec tu ; la réserve évite une compétence présumée.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L3-zh-fr.json",
+        "unitId": "L3-zh-fr-04",
+        "sourceLevel": 3
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Qu'est-ce que vous faites ?",
+            "native": "您做什么？",
+            "phon": "凯斯 克 武 费特"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Qu'est-ce que vous voulez ?",
+            "native": "您想要什么？",
+            "phon": "凯斯 克 武 武莱"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Qu'est-ce que vous prenez ?",
+            "native": "您点什么？",
+            "phon": "凯斯 克 武 普勒内"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Qu'est-ce que vous cherchez ?",
+            "native": "您找什么？",
+            "phon": "凯斯 克 武 谢尔谢"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 24,
+      "unitId": "L3-zh-fr-06",
+      "gapIndex": 0,
+      "text": "Comment ça va, comment tu t’appelles, comment on dit et comment ça s’écrit sont quatre constructions, dont la pronominale s’écrit.",
+      "primaryCategory": "structural-caution",
+      "reason": "Les interrogations en comment ont des constructions différentes, dont la pronominale.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L3-zh-fr.json",
+        "unitId": "L3-zh-fr-06",
+        "sourceLevel": 3
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Comment ça va ?",
+            "native": "你好吗？",
+            "phon": "科芒 萨 瓦"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Comment tu t'appelles ?",
+            "native": "你叫什么名字？",
+            "phon": "科芒 蒂 塔佩尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Comment on dit ça en français ?",
+            "native": "这个用法语怎么说？",
+            "phon": "科芒 翁 迪 萨 昂 弗朗赛"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Comment ça s'écrit ?",
+            "native": "这个怎么写？",
+            "phon": "科芒 萨 塞克里"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 25,
+      "unitId": "L3-zh-fr-07",
+      "gapIndex": 0,
+      "text": "L’unité précédente d’habiter est désormais avant cette reprise. Je vais bien ne découle pas du mouvement Je vais à la gare.",
+      "primaryCategory": "structural-caution",
+      "reason": "Aller bien exprime un état et aller à un lieu un mouvement ; leur ressemblance écrite ne suffit pas.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L3-zh-fr.json",
+        "unitId": "L3-zh-fr-07",
+        "sourceLevel": 3
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Moi, je suis étudiant. Et toi ?",
+            "native": "我是学生。你呢？",
+            "phon": "穆瓦，热 绥 泽蒂迪昂。埃 图瓦"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Moi, j'habite à Lyon. Et toi ?",
+            "native": "我住在里昂。你呢？",
+            "phon": "穆瓦，扎比特 阿 里昂。埃 图瓦"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Moi, j'aime le thé. Et toi ?",
+            "native": "我喜欢茶。你呢？",
+            "phon": "穆瓦，热姆 勒 泰。埃 图瓦"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Moi, je vais bien. Et toi ?",
+            "native": "我很好。你呢？",
+            "phon": "穆瓦，热 维 比安。埃 图瓦"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 26,
+      "unitId": "L2-zh-fr-02",
+      "gapIndex": 0,
+      "text": "Celui-ci et celle-là changent le genre démonstratif ; les deux et le petit introduisent d’autres désignations. Préparer les phrases complètes plutôt qu’une règle universelle de choix.",
+      "primaryCategory": "structural-caution",
+      "reason": "Démonstratifs et groupes de désignation varient en genre et en fonction.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L2-zh-fr.json",
+        "unitId": "L2-zh-fr-02",
+        "sourceLevel": 2
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je vais prendre celui-ci.",
+            "native": "我要这个。",
+            "phon": "热 维 普朗德尔 瑟吕伊西"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je vais prendre celle-là.",
+            "native": "我要那个。",
+            "phon": "热 维 普朗德尔 赛尔拉"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je vais prendre les deux.",
+            "native": "两个我都要。",
+            "phon": "热 维 普朗德尔 莱 德"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je vais prendre le petit.",
+            "native": "我要小的那个。",
+            "phon": "热 维 普朗德尔 勒 珀蒂"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 27,
+      "unitId": "L3-zh-fr-08",
+      "gapIndex": 0,
+      "text": "Les réponses ne se remplacent pas mécaniquement après toute question : accord, refus, ignorance et incertitude dépendent de l’intention.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "Accord, refus et incertitude ne sont pas des réponses interchangeables à toute question.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L3-zh-fr.json",
+        "unitId": "L3-zh-fr-08",
+        "sourceLevel": 3
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Oui, bien sûr.",
+            "native": "当然可以。",
+            "phon": "威，比安 叙尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Non, désolé.",
+            "native": "不行，抱歉。",
+            "phon": "诺，德佐莱"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je ne sais pas.",
+            "native": "我不知道。",
+            "phon": "热 讷 赛 帕"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Peut-être.",
+            "native": "也许吧。",
+            "phon": "珀泰特尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 28,
+      "unitId": "L3-zh-fr-11",
+      "gapIndex": 0,
+      "text": "Accepter, refuser, remercier et reporter une invitation constituent des actes différents, à contextualiser.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "Accepter, décliner et reporter une invitation nécessitent un contexte de proposition.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L3-zh-fr.json",
+        "unitId": "L3-zh-fr-11",
+        "sourceLevel": 3
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Oui, d'accord.",
+            "native": "好的。",
+            "phon": "威，达科尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Non, merci.",
+            "native": "不用了，谢谢。",
+            "phon": "诺，美西"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Avec plaisir !",
+            "native": "很乐意！",
+            "phon": "阿维克 普莱吉尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Une autre fois, peut-être.",
+            "native": "下次吧。",
+            "phon": "于 诺特尔 夫瓦，珀泰特尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 29,
+      "unitId": "L3-zh-fr-10",
+      "gapIndex": 0,
+      "text": "On va, on prend, on y va et on commence changent construction et y. L’invitation est travaillée comme quatre expressions, pas comme un nom variable.",
+      "primaryCategory": "structural-caution",
+      "reason": "Les propositions avec on gardent des verbes et le pronom y propres à leur phrase.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L3-zh-fr.json",
+        "unitId": "L3-zh-fr-10",
+        "sourceLevel": 3
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "On va au restaurant ?",
+            "native": "我们去餐厅，好吗？",
+            "phon": "翁 瓦 奥 雷斯托朗"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "On prend un café ?",
+            "native": "我们喝杯咖啡，好吗？",
+            "phon": "翁 普朗 安 卡菲"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "On y va ?",
+            "native": "我们走，好吗？",
+            "phon": "翁 伊 瓦"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "On commence ?",
+            "native": "我们开始，好吗？",
+            "phon": "翁 科芒斯"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 30,
+      "unitId": "L3-zh-fr-09",
+      "gapIndex": 0,
+      "text": "Le tutoiement/vouvoiement et les formules de réparation gardent leurs phrases complètes ; le nom de l’unité ne prouve pas la préparation d’un dialogue masqué.",
+      "primaryCategory": "source-register-review",
+      "reason": "Tu et vous, ainsi que les formules de réparation, doivent être situés ; aucun registre universel n’est présumé.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L3-zh-fr.json",
+        "unitId": "L3-zh-fr-09",
+        "sourceLevel": 3
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je ne comprends pas. Tu peux répéter ?",
+            "native": "我不懂。你能再说一遍吗？",
+            "phon": "热 讷 孔普朗 帕。蒂 珀 雷佩泰"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je ne comprends pas. Vous pouvez répéter ?",
+            "native": "我不懂。您能再说一遍吗？",
+            "phon": "热 讷 孔普朗 帕。武 普韦 雷佩泰"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je ne comprends pas. Plus lentement, s'il te plaît.",
+            "native": "我不懂。请慢一点。",
+            "phon": "热 讷 孔普朗 帕。普吕 朗特芒，西尔 特 普莱"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je ne comprends pas. Ça veut dire quoi ?",
+            "native": "我不懂。这是什么意思？",
+            "phon": "热 讷 孔普朗 帕。萨 弗 迪尔 克瓦"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 31,
+      "unitId": "L4-zh-fr-06",
+      "gapIndex": 0,
+      "text": "Les prépositions dans, à et à la maison restent dans les phrases de lieu entières.",
+      "primaryCategory": "structural-caution",
+      "reason": "Les prépositions appartiennent aux groupes de lieu entiers.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L4-zh-fr.json",
+        "unitId": "L4-zh-fr-06",
+        "sourceLevel": 4
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je travaille dans une banque.",
+            "native": "我在一家银行工作。",
+            "phon": "热 特拉瓦伊 当 聚讷 邦克"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je travaille à l'hôpital.",
+            "native": "我在医院工作。",
+            "phon": "热 特拉瓦伊 阿 洛皮塔尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je travaille à la maison.",
+            "native": "我在家工作。",
+            "phon": "热 特拉瓦伊 阿 拉 梅宗"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je travaille dans un restaurant.",
+            "native": "我在一家餐厅工作。",
+            "phon": "热 特拉瓦伊 当 赞 雷斯托朗"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 32,
+      "unitId": "L4-zh-fr-07",
+      "gapIndex": 0,
+      "text": "La première paire est limitée aux disciplines le français / la médecine, articles compris. À l’université et le soir ajoutent d’autres fonctions et sont préparés séparément.",
+      "primaryCategory": "structural-caution",
+      "reason": "La première paire porte sur les études ; lieu et horaire restent des fonctions distinctes.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L4-zh-fr.json",
+        "unitId": "L4-zh-fr-07",
+        "sourceLevel": 4
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "J'étudie le français.",
+            "native": "我学法语。",
+            "phon": "热蒂迪 勒 弗朗赛"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "J'étudie la médecine.",
+            "native": "我学医学。",
+            "phon": "热蒂迪 拉 梅德西讷"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "J'étudie à l'université.",
+            "native": "我在大学读书。",
+            "phon": "热蒂迪 阿 吕尼韦尔西泰"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "J'étudie le soir.",
+            "native": "我晚上上课。",
+            "phon": "热蒂迪 勒 斯瓦尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 33,
+      "unitId": "L4-zh-fr-02",
+      "gapIndex": 0,
+      "text": "Les actions du matin changent verbes et compléments ; ne pas appeler cela une seule substitution lexicale.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le changement des actions du matin entraîne plusieurs verbes et compléments.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L4-zh-fr.json",
+        "unitId": "L4-zh-fr-02",
+        "sourceLevel": 4
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Le matin, je bois un café.",
+            "native": "早上我喝一杯咖啡。",
+            "phon": "勒 马坦，热 布瓦 安 卡菲"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Le matin, je fais du sport.",
+            "native": "早上我运动。",
+            "phon": "勒 马坦，热 费 迪 斯波尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Le matin, je lis les nouvelles.",
+            "native": "早上我看新闻。",
+            "phon": "勒 马坦，热 利 莱 努韦尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Le matin, je prends une douche.",
+            "native": "早上我洗澡。",
+            "phon": "勒 马坦，热 普朗 于讷 杜什"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 34,
+      "unitId": "L4-zh-fr-03",
+      "gapIndex": 0,
+      "text": "Me couche est une nouvelle forme pronominale dans la série. La voir dans une phrase entière ne valide pas tous les verbes pronominaux.",
+      "primaryCategory": "structural-caution",
+      "reason": "La forme pronominale se coucher ne prépare pas automatiquement la classe des verbes pronominaux.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L4-zh-fr.json",
+        "unitId": "L4-zh-fr-03",
+        "sourceLevel": 4
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Le soir, je regarde la télé.",
+            "native": "晚上我看电视。",
+            "phon": "勒 斯瓦尔，热 勒嘎尔德 拉 泰莱"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Le soir, je cuisine.",
+            "native": "晚上我做饭。",
+            "phon": "勒 斯瓦尔，热 居伊吉讷"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Le soir, je sors avec des amis.",
+            "native": "晚上我和朋友出去。",
+            "phon": "勒 斯瓦尔，热 索尔 阿维克 德 扎米"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Le soir, je me couche tôt.",
+            "native": "晚上我早睡。",
+            "phon": "勒 斯瓦尔，热 默 库什 托"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 35,
+      "unitId": "L4-zh-fr-01",
+      "gapIndex": 0,
+      "text": "Me lève introduit une forme pronominale ; prends, mange et travaille ne la préparent pas. Préparer l’action entière avant l’adverbe d’habitude.",
+      "primaryCategory": "structural-caution",
+      "reason": "La forme me lève est nouvelle dans son action entière ; les autres actions ne la préparent pas mécaniquement.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L4-zh-fr.json",
+        "unitId": "L4-zh-fr-01",
+        "sourceLevel": 4
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "D'habitude, je me lève à sept heures.",
+            "native": "我平时七点起床。",
+            "phon": "达比蒂德，热 默 莱夫 阿 赛 特尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "D'habitude, je prends le métro.",
+            "native": "我平时坐地铁。",
+            "phon": "达比蒂德，热 普朗 勒 梅特罗"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "D'habitude, je mange à la maison.",
+            "native": "我平时在家吃饭。",
+            "phon": "达比蒂德，热 芒日 阿 拉 梅宗"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "D'habitude, je travaille le samedi.",
+            "native": "我平时星期六上班。",
+            "phon": "达比蒂德，热 特拉瓦伊 勒 萨姆迪"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 36,
+      "unitId": "L4-zh-fr-08",
+      "gapIndex": 0,
+      "text": "La première paire souvent / parfois fait varier une fréquence. Tous les jours et le week-end restent des compléments entiers.",
+      "primaryCategory": "structural-caution",
+      "reason": "Les adverbes et groupes temporels gardent leurs emplois propres.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L4-zh-fr.json",
+        "unitId": "L4-zh-fr-08",
+        "sourceLevel": 4
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je fais du sport tous les jours.",
+            "native": "我每天运动。",
+            "phon": "热 费 迪 斯波尔 图 莱 茹尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je fais du sport souvent.",
+            "native": "我经常运动。",
+            "phon": "热 费 迪 斯波尔 苏旺"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je fais du sport parfois.",
+            "native": "我有时候运动。",
+            "phon": "热 费 迪 斯波尔 帕尔夫瓦"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je fais du sport le week-end.",
+            "native": "我周末运动。",
+            "phon": "热 费 迪 斯波尔 勒 维肯德"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 37,
+      "unitId": "L4-zh-fr-12",
+      "gapIndex": 0,
+      "text": "Six heures, tard, midi le vendredi et vers dix-huit heures introduisent précision, jour et approximation ; les préparer comme emplois distincts.",
+      "primaryCategory": "structural-caution",
+      "reason": "Précision, récurrence hebdomadaire et approximation ne forment pas une seule variation.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L4-zh-fr.json",
+        "unitId": "L4-zh-fr-12",
+        "sourceLevel": 4
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je finis le travail à six heures.",
+            "native": "我六点下班。",
+            "phon": "热 菲尼 勒 特拉瓦伊 阿 西 泽尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je finis le travail tard.",
+            "native": "我很晚下班。",
+            "phon": "热 菲尼 勒 特拉瓦伊 塔尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je finis le travail à midi le vendredi.",
+            "native": "我星期五中午下班。",
+            "phon": "热 菲尼 勒 特拉瓦伊 阿 米迪 勒 旺德勒迪"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je finis le travail vers dix-huit heures.",
+            "native": "我十八点左右下班。",
+            "phon": "热 菲尼 勒 特拉瓦伊 维尔 迪 维 特尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 38,
+      "unitId": "L4-zh-fr-10",
+      "gapIndex": 0,
+      "text": "La première paire un marché / un parc évite de cumuler fréquence et quantité. Beaucoup de cafés est une extension propre.",
+      "primaryCategory": "structural-caution",
+      "reason": "La première paire retient un même groupe nominal ; l’extension de quantité est distinguée.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L4-zh-fr.json",
+        "unitId": "L4-zh-fr-10",
+        "sourceLevel": 4
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Dans mon quartier, il y a un marché.",
+            "native": "我住的街区有一个市场。",
+            "phon": "当 蒙 卡尔蒂耶，伊 利 亚 安 马尔谢"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Dans mon quartier, il y a beaucoup de cafés.",
+            "native": "我住的街区有很多咖啡馆。",
+            "phon": "当 蒙 卡尔蒂耶，伊 利 亚 博库 德 卡菲"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Dans mon quartier, il y a une école.",
+            "native": "我住的街区有一所学校。",
+            "phon": "当 蒙 卡尔蒂耶，伊 利 亚 于 内科尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Dans mon quartier, il y a un parc.",
+            "native": "我住的街区有一个公园。",
+            "phon": "当 蒙 卡尔蒂耶，伊 利 亚 安 帕尔克"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 39,
+      "unitId": "L4-zh-fr-11",
+      "gapIndex": 0,
+      "text": "La première paire Mon père / Mon frère garde le sujet masculin singulier ; Ma mère et Ma fille conservent leur groupe complet.",
+      "primaryCategory": "structural-caution",
+      "reason": "La première paire garde le sujet masculin singulier ; les autres groupes sont préparés entiers.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L4-zh-fr.json",
+        "unitId": "L4-zh-fr-11",
+        "sourceLevel": 4
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Mon père habite à Paris.",
+            "native": "我爸爸住在巴黎。",
+            "phon": "蒙 佩尔 阿比特 阿 巴黎"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Ma mère habite à Paris.",
+            "native": "我妈妈住在巴黎。",
+            "phon": "马 梅尔 阿比特 阿 巴黎"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Mon frère habite à Paris.",
+            "native": "我哥哥住在巴黎。",
+            "phon": "蒙 弗雷尔 阿比特 阿 巴黎"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Ma fille habite à Paris.",
+            "native": "我女儿住在巴黎。",
+            "phon": "马 菲伊 阿比特 阿 巴黎"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 40,
+      "unitId": "L7-zh-fr-09",
+      "gapIndex": 0,
+      "text": "La variante je mange moins est une expression entière ; la quantité moins n’est pas présumée une comparaison générale maîtrisée.",
+      "primaryCategory": "structural-caution",
+      "reason": "La quantité dans je mange moins ne prouve pas toute la comparaison productive.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L7-zh-fr.json",
+        "unitId": "L7-zh-fr-09",
+        "sourceLevel": 7
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Maintenant, je fais du sport.",
+            "native": "现在我运动。",
+            "phon": "曼特囊，热 费 迪 斯波尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Maintenant, je vis en ville.",
+            "native": "现在我住在城里。",
+            "phon": "曼特囊，热 维 昂 维尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Maintenant, je travaille à la maison.",
+            "native": "现在我在家工作。",
+            "phon": "曼特囊，热 特拉瓦伊 阿 拉 梅宗"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Maintenant, je mange moins.",
+            "native": "现在我吃得少了。",
+            "phon": "曼特囊，热 芒日 穆安"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 41,
+      "unitId": "L3-zh-fr-05",
+      "gapIndex": 0,
+      "text": "La capacité à poser pourquoi ne prépare pas toute réponse causale : les répliques reçues de raison devront être introduites avant un nouvel échange.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "La question pourquoi doit recevoir une raison pertinente effectivement préparée avant le dialogue.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L3-zh-fr.json",
+        "unitId": "L3-zh-fr-05",
+        "sourceLevel": 3
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Pourquoi tu pars ?",
+            "native": "你为什么要走？",
+            "phon": "普尔克瓦 蒂 帕尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Pourquoi tu ris ?",
+            "native": "你为什么笑？",
+            "phon": "普尔克瓦 蒂 里"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Pourquoi tu apprends le français ?",
+            "native": "你为什么学法语？",
+            "phon": "普尔克瓦 蒂 阿普朗 勒 弗朗赛"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Pourquoi tu es ici ?",
+            "native": "你为什么在这里？",
+            "phon": "普尔克瓦 蒂 埃 伊西"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 42,
+      "unitId": "L9-zh-fr-09",
+      "gapIndex": 0,
+      "text": "Depuis hier, allergique à et il me faut ne sont pas déduits de J’ai mal. Ils restent trois introductions entières à la suite de l’état général.",
+      "primaryCategory": "structural-caution",
+      "reason": "Allergie, durée et besoin constituent des introductions distinctes ; elles ne découlent pas de avoir mal.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L9-zh-fr.json",
+        "unitId": "L9-zh-fr-09",
+        "sourceLevel": 9
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je ne me sens pas bien.",
+            "native": "我感觉不舒服。",
+            "phon": "热 讷 默 桑 帕 比安"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "J'ai de la fièvre depuis hier.",
+            "native": "我从昨天开始发烧。",
+            "phon": "热 德 拉 菲埃弗尔 德皮 耶尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je suis allergique à la pénicilline.",
+            "native": "我对青霉素过敏。",
+            "phon": "热 绥 扎莱尔日克 阿 拉 佩尼西林"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Il me faut une ordonnance ?",
+            "native": "需要处方吗？",
+            "phon": "伊尔 默 福 于 诺尔多囊斯"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 43,
+      "unitId": "L5-zh-fr-01",
+      "gapIndex": 0,
+      "text": "Les participes et constructions d’objet ne sont pas déduits du titre passé. Cette première série est préparée entière sans générer auxiliaire + phonétique de participe.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le titre passé ne prépare pas les participes et compléments ; la réserve porte sur la construction productive.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L5-zh-fr.json",
+        "unitId": "L5-zh-fr-01",
+        "sourceLevel": 5
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Hier, j'ai travaillé.",
+            "native": "昨天我工作了。",
+            "phon": "耶尔，热 特拉瓦耶"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Hier, j'ai mangé au restaurant.",
+            "native": "昨天我在餐厅吃饭了。",
+            "phon": "耶尔，热 芒热 奥 雷斯托朗"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Hier, j'ai vu un film.",
+            "native": "昨天我看了一部电影。",
+            "phon": "耶尔，热 维 安 菲尔姆"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Hier, j'ai dormi dix heures.",
+            "native": "昨天我睡了十个小时。",
+            "phon": "耶尔，热 多尔米 迪 泽尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 44,
+      "unitId": "L5-zh-fr-09",
+      "gapIndex": 0,
+      "text": "Faire du sport, faire les courses, faire la cuisine et faire une promenade sont des collocations distinctes. Ne pas faire du nom objet un choix libre de tout nom.",
+      "primaryCategory": "structural-caution",
+      "reason": "Les collocations de faire sont distinctes ; le nom suivant faire n’est pas un emplacement libre.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L5-zh-fr.json",
+        "unitId": "L5-zh-fr-09",
+        "sourceLevel": 5
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "J'ai fait du sport.",
+            "native": "我运动了。",
+            "phon": "热 费 迪 斯波尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "J'ai fait les courses.",
+            "native": "我买东西了。",
+            "phon": "热 费 莱 库尔斯"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "J'ai fait la cuisine.",
+            "native": "我做饭了。",
+            "phon": "热 费 拉 居伊吉讷"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "J'ai fait une promenade.",
+            "native": "我散步了。",
+            "phon": "热 费 于讷 普罗姆纳德"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 45,
+      "unitId": "L5-zh-fr-02",
+      "gapIndex": 0,
+      "text": "Allé est la forme écrite masculine source. La variante destinée à une autre identité grammaticale n’est pas inventée ni certifiée par ce lot.",
+      "primaryCategory": "preparation-missing",
+      "reason": "La source ne fournit ici que allé au masculin ; une forme destinée à une autre identité grammaticale reste à sourcer séparément.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L5-zh-fr.json",
+        "unitId": "L5-zh-fr-02",
+        "sourceLevel": 5
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je suis allé au cinéma.",
+            "native": "我去了电影院。",
+            "phon": "热 绥 扎莱 奥 西内马"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je suis allé chez des amis.",
+            "native": "我去了朋友家。",
+            "phon": "热 绥 扎莱 谢 德 扎米"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je suis allé à la plage.",
+            "native": "我去了海滩。",
+            "phon": "热 绥 扎莱 阿 拉 普拉日"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je suis allé en Chine.",
+            "native": "我去了中国。",
+            "phon": "热 绥 扎莱 昂 希讷"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 46,
+      "unitId": "L5-zh-fr-12",
+      "gapIndex": 0,
+      "text": "Arrivé est la forme écrite masculine source, conservée. Les groupes de temps peuvent varier sans fabriquer de nouvelle conjugaison.",
+      "primaryCategory": "preparation-missing",
+      "reason": "La source ne fournit ici que arrivé au masculin ; la variation grammaticale non écrite n’est pas préparée par le changement d’horaire.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L5-zh-fr.json",
+        "unitId": "L5-zh-fr-12",
+        "sourceLevel": 5
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je suis arrivé hier soir.",
+            "native": "我昨天晚上到的。",
+            "phon": "热 绥 扎里韦 耶尔 斯瓦尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je suis arrivé il y a trois jours.",
+            "native": "我三天前到的。",
+            "phon": "热 绥 扎里韦 伊 利 亚 特鲁瓦 茹尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je suis arrivé lundi.",
+            "native": "我星期一到的。",
+            "phon": "热 绥 扎里韦 兰迪"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je suis arrivé ce matin.",
+            "native": "我今天早上到的。",
+            "phon": "热 绥 扎里韦 瑟 马坦"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 47,
+      "unitId": "L5-zh-fr-07",
+      "gapIndex": 0,
+      "text": "Avec ma famille et chez mes parents portent sur accompagnement et lieu ; le cadre passé reste entier, sans raccourci de préposition.",
+      "primaryCategory": "structural-caution",
+      "reason": "Accompagnement et lieu conservent des groupes prépositionnels différents.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L5-zh-fr.json",
+        "unitId": "L5-zh-fr-07",
+        "sourceLevel": 5
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "J'ai passé le week-end avec ma famille.",
+            "native": "我和家人过了周末。",
+            "phon": "热 帕塞 勒 维肯德 阿维克 马 法米伊"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "J'ai passé le week-end chez mes parents.",
+            "native": "我在父母家过了周末。",
+            "phon": "热 帕塞 勒 维肯德 谢 梅 帕朗"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "J'ai passé le week-end à la maison.",
+            "native": "我在家过了周末。",
+            "phon": "热 帕塞 勒 维肯德 阿 拉 梅宗"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "J'ai passé le week-end à Paris.",
+            "native": "我在巴黎过了周末。",
+            "phon": "热 帕塞 勒 维肯德 阿 巴黎"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 48,
+      "unitId": "L7-zh-fr-08",
+      "gapIndex": 0,
+      "text": "Imparfait d’habitude et passé composé d’événement restent distincts. Travaillais, fumais, prenais et mangeais sont préparés entiers.",
+      "primaryCategory": "structural-caution",
+      "reason": "Habitude à l’imparfait et événement au passé composé ne sont pas des formes équivalentes.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L7-zh-fr.json",
+        "unitId": "L7-zh-fr-08",
+        "sourceLevel": 7
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Avant, je travaillais la nuit. Maintenant, c'est différent.",
+            "native": "以前我上夜班。现在不一样了。",
+            "phon": "阿旺，热 特拉瓦耶 拉 尼。曼特囊，赛 迪费朗"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Avant, je fumais. Maintenant, c'est différent.",
+            "native": "以前我抽烟。现在不一样了。",
+            "phon": "阿旺，热 菲梅。曼特囊，赛 迪费朗"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Avant, je prenais la voiture. Maintenant, c'est différent.",
+            "native": "以前我开车。现在不一样了。",
+            "phon": "阿旺，热 普勒内 拉 瓦蒂尔。曼特囊，赛 迪费朗"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Avant, je mangeais beaucoup de viande. Maintenant, c'est différent.",
+            "native": "以前我吃很多肉。现在不一样了。",
+            "phon": "阿旺，热 芒热 博库 德 维扬德。曼特囊，赛 迪费朗"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 49,
+      "unitId": "L5-zh-fr-08",
+      "gapIndex": 0,
+      "text": "Dormi, compris, fini et eu le temps demandent chacun une préparation ; la négation du passé ne découle pas de Je ne comprends pas.",
+      "primaryCategory": "structural-caution",
+      "reason": "La négation du passé contient des participes propres ; la réserve refuse une dérivation depuis le présent.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L5-zh-fr.json",
+        "unitId": "L5-zh-fr-08",
+        "sourceLevel": 5
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je n'ai pas dormi.",
+            "native": "我没有睡觉。",
+            "phon": "热 内 帕 多尔米"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je n'ai pas compris.",
+            "native": "我没有听懂。",
+            "phon": "热 内 帕 孔普里"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je n'ai pas fini.",
+            "native": "我没有做完。",
+            "phon": "热 内 帕 菲尼"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je n'ai pas eu le temps.",
+            "native": "我没有时间。",
+            "phon": "热 内 帕 于 勒 唐"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 50,
+      "unitId": "L5-zh-fr-11",
+      "gapIndex": 0,
+      "text": "La question d’expérience et chaque participe sont montrés en phrases entières. Tu as déjà ne suffit pas à préparer une nouvelle réponse personnelle.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "Poser la question d’expérience ne prépare pas toutes les réponses personnelles possibles de l’interlocuteur.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L5-zh-fr.json",
+        "unitId": "L5-zh-fr-11",
+        "sourceLevel": 5
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Tu as déjà visité Paris ?",
+            "native": "你去过巴黎吗？",
+            "phon": "蒂 阿 德扎 维吉泰 巴黎"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Tu as déjà mangé des escargots ?",
+            "native": "你吃过蜗牛吗？",
+            "phon": "蒂 阿 德扎 芒热 德 泽斯卡尔戈"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Tu as déjà pris le TGV ?",
+            "native": "你坐过高铁吗？",
+            "phon": "蒂 阿 德扎 普里 勒 泰热韦"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Tu as déjà vu ce film ?",
+            "native": "你看过这部电影吗？",
+            "phon": "蒂 阿 德扎 维 瑟 菲尔姆"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 51,
+      "unitId": "L5-zh-fr-04",
+      "gapIndex": 0,
+      "text": "La question Comment s’est passé ton week-end ? n’est pas préparée par le seul Ça va ; la réception doit porter sur sa forme entière.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "La réception de la question de récit doit être préparée entière si elle est employée ; Ça va ne la couvre pas.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L5-zh-fr.json",
+        "unitId": "L5-zh-fr-04",
+        "sourceLevel": 5
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Ça va ?",
+            "native": "你好吗？",
+            "phon": "萨 瓦"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Quoi de neuf ?",
+            "native": "最近有什么新鲜事？",
+            "phon": "克瓦 德 讷夫"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Ça va, et toi ?",
+            "native": "还好，你呢？",
+            "phon": "萨 瓦，埃 图瓦"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Comment s'est passé ton week-end ?",
+            "native": "你周末过得怎么样？",
+            "phon": "科芒 赛 帕塞 通 维肯德"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 52,
+      "unitId": "L5-zh-fr-05",
+      "gapIndex": 0,
+      "text": "Super, Dommage, Vraiment et Quelle chance n’ont ni la même forme ni la même réaction. Le contexte décide de la réponse.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "Les réactions aux nouvelles dépendent de l’événement entendu.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L5-zh-fr.json",
+        "unitId": "L5-zh-fr-05",
+        "sourceLevel": 5
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "C'est super !",
+            "native": "太棒了！",
+            "phon": "赛 苏佩尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Dommage !",
+            "native": "真可惜！",
+            "phon": "多马日"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Vraiment ?",
+            "native": "真的吗？",
+            "phon": "弗雷芒"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Quelle chance !",
+            "native": "真幸运！",
+            "phon": "凯尔 尚斯"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 53,
+      "unitId": "L5-zh-fr-06",
+      "gapIndex": 0,
+      "text": "D’abord/Puis/Après/Enfin et les événements changent ensemble ; ne pas déclarer un remplacement unique entre quatre phrases différentes.",
+      "primaryCategory": "structural-caution",
+      "reason": "Connecteur et événement changent ensemble ; les phrases restent des expressions entières.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L5-zh-fr.json",
+        "unitId": "L5-zh-fr-06",
+        "sourceLevel": 5
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "D'abord, j'ai pris le train.",
+            "native": "首先，我坐了火车。",
+            "phon": "达博尔，热 普里 勒 特兰"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Puis, j'ai visité le musée.",
+            "native": "然后，我参观了博物馆。",
+            "phon": "皮，热 维吉泰 勒 缪泽"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Après, j'ai mangé avec des amis.",
+            "native": "之后，我和朋友一起吃了饭。",
+            "phon": "阿普雷，热 芒热 阿维克 德 扎米"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Enfin, je suis rentré à l'hôtel.",
+            "native": "最后，我回到了酒店。",
+            "phon": "昂凡，热 绥 朗特雷 阿 洛泰尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 54,
+      "unitId": "L6-zh-fr-01",
+      "gapIndex": 0,
+      "text": "Je vais au travail (mouvement + lieu) et je vais partir (intention + infinitif) sont deux constructions ; apprendre la seconde entière.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le mouvement suivi d’un lieu et le futur proche suivi d’un infinitif sont deux constructions.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L6-zh-fr.json",
+        "unitId": "L6-zh-fr-01",
+        "sourceLevel": 6
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je vais partir en vacances.",
+            "native": "我打算去度假。",
+            "phon": "热 维 帕尔蒂尔 昂 瓦康斯"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je vais chercher un travail.",
+            "native": "我打算找工作。",
+            "phon": "热 维 谢尔谢 安 特拉瓦伊"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je vais déménager.",
+            "native": "我打算搬家。",
+            "phon": "热 维 德梅纳热"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je vais apprendre à conduire.",
+            "native": "我打算学开车。",
+            "phon": "热 维 阿普朗德尔 阿 孔迪尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 55,
+      "unitId": "L6-zh-fr-02",
+      "gapIndex": 0,
+      "text": "On va implique sa propre forme avec on ; faire du vélo et dîner chez Paul ne sont pas connus du seul projet je vais.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le projet avec on et ses groupes verbaux sont préparés indépendamment de je vais.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L6-zh-fr.json",
+        "unitId": "L6-zh-fr-02",
+        "sourceLevel": 6
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Demain, on va visiter le musée.",
+            "native": "明天我们去参观博物馆。",
+            "phon": "德曼，翁 瓦 维吉泰 勒 缪泽"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Demain, on va faire du vélo.",
+            "native": "明天我们去骑自行车。",
+            "phon": "德曼，翁 瓦 费尔 迪 维洛"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Demain, on va voir un match.",
+            "native": "明天我们去看比赛。",
+            "phon": "德曼，翁 瓦 瓦尔 安 马奇"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Demain, on va dîner chez Paul.",
+            "native": "明天我们去保罗家吃晚饭。",
+            "phon": "德曼，翁 瓦 迪内 谢 保罗"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 56,
+      "unitId": "L6-zh-fr-07",
+      "gapIndex": 0,
+      "text": "J’aimerais marque ici le souhait. Son rapprochement avec Je voudrais ne démontre pas un système conditionnel complet.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le souhait avec aimerais ne démontre pas le système du conditionnel.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L6-zh-fr.json",
+        "unitId": "L6-zh-fr-07",
+        "sourceLevel": 6
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "J'aimerais visiter la Chine.",
+            "native": "我想去中国看看。",
+            "phon": "热姆雷 维吉泰 拉 希讷"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "J'aimerais apprendre le piano.",
+            "native": "我想学钢琴。",
+            "phon": "热姆雷 阿普朗德尔 勒 皮亚诺"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "J'aimerais changer de travail.",
+            "native": "我想换工作。",
+            "phon": "热姆雷 尚热 德 特拉瓦伊"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "J'aimerais habiter près de la mer.",
+            "native": "我想住在海边。",
+            "phon": "热姆雷 阿比泰 普雷 德 拉 梅尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 57,
+      "unitId": "L6-zh-fr-03",
+      "gapIndex": 0,
+      "text": "Se voir et partir plus tôt ajoutent pronominal et comparaison. Ne pas les déclarer appris parce que On pourrait est répété.",
+      "primaryCategory": "structural-caution",
+      "reason": "Les formes pronominales et comparatives des propositions ne découlent pas du seul pourrait.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L6-zh-fr.json",
+        "unitId": "L6-zh-fr-03",
+        "sourceLevel": 6
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "On pourrait aller au cinéma ?",
+            "native": "我们可以去看电影吗？",
+            "phon": "翁 普雷 阿莱 奥 西内马"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "On pourrait se voir samedi ?",
+            "native": "我们可以星期六见面吗？",
+            "phon": "翁 普雷 瑟 瓦尔 萨姆迪"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "On pourrait prendre un verre ?",
+            "native": "我们可以喝一杯吗？",
+            "phon": "翁 普雷 普朗德尔 安 维尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "On pourrait partir plus tôt ?",
+            "native": "我们可以早点出发吗？",
+            "phon": "翁 普雷 帕尔蒂尔 普吕 托"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 58,
+      "unitId": "L8-zh-fr-01",
+      "gapIndex": 0,
+      "text": "Les objets clitiques m’/me et les autres compléments sont liés à leur phrase. Aucune nouvelle phrase ni nouvelle phonétique n’est construite par collage.",
+      "primaryCategory": "structural-caution",
+      "reason": "Clitiques et compléments restent attachés à leur phrase ; l’annotation ne déclare aucun défaut de phonétique.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L8-zh-fr.json",
+        "unitId": "L8-zh-fr-01",
+        "sourceLevel": 8
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Pourriez-vous m'envoyer le contrat ?",
+            "native": "您能否把合同发给我？",
+            "phon": "普里耶 武 芒瓦耶 勒 孔特拉"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Pourriez-vous baisser le prix ?",
+            "native": "您能否降一点价？",
+            "phon": "普里耶 武 贝塞 勒 普里"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Pourriez-vous me rappeler demain ?",
+            "native": "您能否明天给我回电话？",
+            "phon": "普里耶 武 默 拉普莱 德曼"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Pourriez-vous vérifier ma réservation ?",
+            "native": "您能否核对一下我的预订？",
+            "phon": "普里耶 武 韦里菲耶 马 雷泽尔瓦西翁"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 59,
+      "unitId": "L8-zh-fr-02",
+      "gapIndex": 0,
+      "text": "Le changement de personne et l’atténuation sont montrés en demandes complètes ; la permutation pourrait/pourriez n’est pas une substitution de nom.",
+      "primaryCategory": "structural-caution",
+      "reason": "Personne et atténuation ne se réduisent pas à changer le nom d’un objet.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L8-zh-fr.json",
+        "unitId": "L8-zh-fr-02",
+        "sourceLevel": 8
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Est-ce que je pourrais payer plus tard ?",
+            "native": "我可以晚点付款吗？",
+            "phon": "埃斯 克 热 普雷 佩耶 普吕 塔尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Est-ce que je pourrais essayer ?",
+            "native": "我可以试一下吗？",
+            "phon": "埃斯 克 热 普雷 埃塞耶"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Est-ce que je pourrais changer la date ?",
+            "native": "我可以改日期吗？",
+            "phon": "埃斯 克 热 普雷 尚热 拉 达特"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Est-ce que je pourrais parler au responsable ?",
+            "native": "我可以和负责人谈谈吗？",
+            "phon": "埃斯 克 热 普雷 帕尔莱 奥 雷斯蓬萨布勒"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 60,
+      "unitId": "L6-zh-fr-04",
+      "gapIndex": 0,
+      "text": "La locution Ça te dit de et les verbes de proposition sont présentés entiers avant usage, sans découpe phonétique.",
+      "primaryCategory": "structural-caution",
+      "reason": "La locution de proposition est présentée entière ; sa segmentation sonore n’est pas autorisée.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L6-zh-fr.json",
+        "unitId": "L6-zh-fr-04",
+        "sourceLevel": 6
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Ça te dit de venir avec nous ?",
+            "native": "你想和我们一起来吗？",
+            "phon": "萨 特 迪 德 弗尼尔 阿维克 努"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Ça te dit de manger japonais ?",
+            "native": "你想吃日本菜吗？",
+            "phon": "萨 特 迪 德 芒热 扎波内"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Ça te dit de faire une balade ?",
+            "native": "你想去散步吗？",
+            "phon": "萨 特 迪 德 费尔 于讷 巴拉德"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Ça te dit de sortir ce soir ?",
+            "native": "你想今晚出去吗？",
+            "phon": "萨 特 迪 德 索尔蒂尔 瑟 斯瓦尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 61,
+      "unitId": "L6-zh-fr-05",
+      "gapIndex": 0,
+      "text": "Un horaire et un lieu ne sont pas deux réponses équivalentes à une question précise ; les deux précisions du rendez-vous sont travaillées séparément.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "Horaire et lieu répondent à des demandes de précision différentes.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L6-zh-fr.json",
+        "unitId": "L6-zh-fr-05",
+        "sourceLevel": 6
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Rendez-vous samedi à dix heures.",
+            "native": "我们星期六十点见。",
+            "phon": "朗代武 萨姆迪 阿 迪 泽尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Rendez-vous devant la gare.",
+            "native": "我们火车站前面见。",
+            "phon": "朗代武 德旺 拉 嘎尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Rendez-vous à l'entrée du parc.",
+            "native": "我们公园门口见。",
+            "phon": "朗代武 阿 朗特雷 迪 帕尔克"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Rendez-vous demain midi au bureau.",
+            "native": "我们明天中午在办公室见。",
+            "phon": "朗代武 德曼 米迪 奥 比罗"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 62,
+      "unitId": "L6-zh-fr-08",
+      "gapIndex": 0,
+      "text": "Le sens de Bonne idée, Ça marche, Avec plaisir et Pourquoi pas est présenté par contexte, pas par une case interchangeable unique.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "Les marques d’acceptation et de plaisir sont choisies selon le contexte reçu.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L6-zh-fr.json",
+        "unitId": "L6-zh-fr-08",
+        "sourceLevel": 6
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Bonne idée !",
+            "native": "好主意！",
+            "phon": "波 尼代"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Ça marche.",
+            "native": "行。",
+            "phon": "萨 马尔什"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Avec plaisir, à samedi !",
+            "native": "很乐意，周六见！",
+            "phon": "阿维克 普莱吉尔，阿 萨姆迪"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Pourquoi pas ?",
+            "native": "为什么不呢？",
+            "phon": "普尔克瓦 帕"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 63,
+      "unitId": "L8-zh-fr-06",
+      "gapIndex": 0,
+      "text": "La dernière raison Je dois demander à mon chef comporte une obligation nouvelle à préparer entière.",
+      "primaryCategory": "structural-caution",
+      "reason": "La nouvelle obligation dans la raison est à introduire entière ; cela ne prouve pas une lacune phonétique.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L8-zh-fr.json",
+        "unitId": "L8-zh-fr-06",
+        "sourceLevel": 8
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Non, désolé, c'est trop cher pour moi.",
+            "native": "不行，抱歉，这对我来说太贵了。",
+            "phon": "诺，德佐莱，赛 特罗 谢尔 普尔 穆瓦"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Non, désolé, je n'ai pas le temps.",
+            "native": "不行，抱歉，我没有时间。",
+            "phon": "诺，德佐莱，热 内 帕 勒 唐"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Non, désolé, ce n'est pas possible aujourd'hui.",
+            "native": "不行，抱歉，今天不行。",
+            "phon": "诺，德佐莱，瑟 内 帕 波西布勒 奥茹尔迪"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Non, désolé, je dois demander à mon chef.",
+            "native": "不行，抱歉，我得问一下我的上司。",
+            "phon": "诺，德佐莱，热 杜瓦 德芒代 阿 蒙 谢夫"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 64,
+      "unitId": "L6-zh-fr-06",
+      "gapIndex": 0,
+      "text": "Les variantes 0–2 offrent une alternative ; la variante 3 remercie sans proposer d’autre moment. Ne pas les noter comme une même opération.",
+      "primaryCategory": "structural-caution",
+      "reason": "Refuser avec alternative et remercier sans alternative sont deux actes différents.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L6-zh-fr.json",
+        "unitId": "L6-zh-fr-06",
+        "sourceLevel": 6
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je ne peux pas, mais dimanche c'est possible.",
+            "native": "我去不了，不过星期天可以。",
+            "phon": "热 讷 珀 帕，梅 迪芒什 赛 波西布勒"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je ne peux pas, mais je suis libre demain.",
+            "native": "我去不了，不过我明天有空。",
+            "phon": "热 讷 珀 帕，梅 热 绥 利布尔 德曼"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je ne peux pas, mais on peut se voir plus tard.",
+            "native": "我去不了，不过我们可以晚点见。",
+            "phon": "热 讷 珀 帕，梅 翁 珀 瑟 瓦尔 普吕 塔尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je ne peux pas, mais merci pour l'invitation.",
+            "native": "我去不了，不过谢谢你的邀请。",
+            "phon": "热 讷 珀 帕，梅 美西 普尔 兰维塔西翁"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 65,
+      "unitId": "L6-zh-fr-09",
+      "gapIndex": 0,
+      "text": "Si tu veux reste d’abord une formule entière d’atténuation, pas une démonstration que toute condition en si est préparée.",
+      "primaryCategory": "structural-caution",
+      "reason": "Si tu veux est d’abord une formule, sans compétence conditionnelle universelle supposée.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L6-zh-fr.json",
+        "unitId": "L6-zh-fr-09",
+        "sourceLevel": 6
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Plutôt dimanche, si tu veux.",
+            "native": "不如星期天吧，你看呢？",
+            "phon": "普吕托 迪芒什，西 蒂 弗"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Plutôt le soir, si tu veux.",
+            "native": "不如晚上吧，你看呢？",
+            "phon": "普吕托 勒 斯瓦尔，西 蒂 弗"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Plutôt chez moi, si tu veux.",
+            "native": "不如在我家吧，你看呢？",
+            "phon": "普吕托 谢 穆瓦，西 蒂 弗"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Plutôt la semaine prochaine, si tu veux.",
+            "native": "不如下周吧，你看呢？",
+            "phon": "普吕托 拉 瑟曼 普罗申，西 蒂 弗"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 66,
+      "unitId": "L7-zh-fr-10",
+      "gapIndex": 0,
+      "text": "Pour ma santé et pour gagner du temps ne servent pas à enseigner une substitution universelle nom/infinitif.",
+      "primaryCategory": "structural-caution",
+      "reason": "Nom et infinitif de but ne sont pas rendus équivalents par pour.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L7-zh-fr.json",
+        "unitId": "L7-zh-fr-10",
+        "sourceLevel": 7
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je fais ça pour ma santé.",
+            "native": "我这么做是为了健康。",
+            "phon": "热 费 萨 普尔 马 桑泰"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je fais ça pour mes enfants.",
+            "native": "我这么做是为了孩子。",
+            "phon": "热 费 萨 普尔 梅 藏方"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je fais ça pour gagner du temps.",
+            "native": "我这么做是为了节省时间。",
+            "phon": "热 费 萨 普尔 嘎涅 迪 唐"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je fais ça pour économiser.",
+            "native": "我这么做是为了省钱。",
+            "phon": "热 费 萨 普尔 埃科诺米泽"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 67,
+      "unitId": "L8-zh-fr-07",
+      "gapIndex": 0,
+      "text": "Vous rembourser, réparer ça et baisser le son changent objet, pronom et collocation ; le futur proche commun ne les rend pas équivalents.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le futur proche commun ne dispense pas de préparer objets, pronoms et collocations.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L8-zh-fr.json",
+        "unitId": "L8-zh-fr-07",
+        "sourceLevel": 8
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je suis désolé, je vais réparer ça.",
+            "native": "对不起，我马上修好。",
+            "phon": "热 绥 德佐莱，热 维 雷帕雷 萨"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je suis désolé, je vais vous rembourser.",
+            "native": "对不起，我马上退款给您。",
+            "phon": "热 绥 德佐莱，热 维 武 朗布尔塞"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je suis désolé, je vais baisser le son.",
+            "native": "对不起，我马上把声音调小。",
+            "phon": "热 绥 德佐莱，热 维 贝塞 勒 松"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je suis désolé, je vais vérifier tout de suite.",
+            "native": "对不起，我马上查一下。",
+            "phon": "热 绥 德佐莱，热 维 韦里菲耶 图 德 绥特"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 68,
+      "unitId": "L7-zh-fr-06",
+      "gapIndex": 0,
+      "text": "C’est, ce quartier et le travail changent les propositions d’avis ; la production de chacune est préparée, pas présumée du Je trouve que.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le cadre d’avis ne suffit pas à préparer toutes les propositions complétives.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L7-zh-fr.json",
+        "unitId": "L7-zh-fr-06",
+        "sourceLevel": 7
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je trouve que c'est trop cher.",
+            "native": "我觉得太贵了。",
+            "phon": "热 特鲁夫 克 赛 特罗 谢尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je trouve que ce quartier est agréable.",
+            "native": "我觉得这个街区很舒服。",
+            "phon": "热 特鲁夫 克 瑟 卡尔蒂耶 埃 塔格雷阿布勒"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je trouve que le travail est intéressant.",
+            "native": "我觉得这份工作很有意思。",
+            "phon": "热 特鲁夫 克 勒 特拉瓦伊 埃 坦泰雷桑"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je trouve que la vie est chère ici.",
+            "native": "我觉得这里生活费很贵。",
+            "phon": "热 特鲁夫 克 拉 维 埃 谢尔 伊西"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 69,
+      "unitId": "L7-zh-fr-12",
+      "gapIndex": 0,
+      "text": "Le superlatif avec le plus et l’ensemble du quartier est une opération distincte du comparatif plus… que.",
+      "primaryCategory": "structural-caution",
+      "reason": "Superlatif et comparatif ont des structures propres.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L7-zh-fr.json",
+        "unitId": "L7-zh-fr-12",
+        "sourceLevel": 7
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "C'est le restaurant le plus cher du quartier.",
+            "native": "这是这个街区最贵的餐厅。",
+            "phon": "赛 勒 雷斯托朗 勒 普吕 谢尔 迪 卡尔蒂耶"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "C'est le restaurant le plus connu du quartier.",
+            "native": "这是这个街区最有名的餐厅。",
+            "phon": "赛 勒 雷斯托朗 勒 普吕 科尼 迪 卡尔蒂耶"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "C'est le restaurant le plus proche du quartier.",
+            "native": "这是这个街区最近的餐厅。",
+            "phon": "赛 勒 雷斯托朗 勒 普吕 普罗什 迪 卡尔蒂耶"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "C'est le restaurant le plus agréable du quartier.",
+            "native": "这是这个街区最舒服的餐厅。",
+            "phon": "赛 勒 雷斯托朗 勒 普吕 阿格雷阿布勒 迪 卡尔蒂耶"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 70,
+      "unitId": "L7-zh-fr-07",
+      "gapIndex": 0,
+      "text": "Le bleu est plus joli vient après la comparaison. Il faut attendre reste une expression à préparer, non une obligation déjà connue par le mot avis.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le groupe comparatif et l’expression d’obligation sont deux introductions distinctes.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L7-zh-fr.json",
+        "unitId": "L7-zh-fr-07",
+        "sourceLevel": 7
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "À mon avis, c'est une bonne idée.",
+            "native": "依我看，这是个好主意。",
+            "phon": "阿 蒙 阿维，赛 蒂讷 波 尼代"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "À mon avis, c'est trop loin.",
+            "native": "依我看，太远了。",
+            "phon": "阿 蒙 阿维，赛 特罗 卢安"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "À mon avis, le bleu est plus joli.",
+            "native": "依我看，蓝色的更好看。",
+            "phon": "阿 蒙 阿维，勒 布勒 埃 普吕 若利"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "À mon avis, il faut attendre.",
+            "native": "依我看，应该等一等。",
+            "phon": "阿 蒙 阿维，伊尔 福 阿唐德尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 71,
+      "unitId": "L9-zh-fr-03",
+      "gapIndex": 0,
+      "text": "Les réponses brèves sont nuancées par le contexte ; aucune mesure de longueur ne prouve leur facilité.",
+      "primaryCategory": "structural-caution",
+      "reason": "Une réponse brève peut être nuancée ; la longueur seule ne caractérise pas sa difficulté.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L9-zh-fr.json",
+        "unitId": "L9-zh-fr-03",
+        "sourceLevel": 9
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Plutôt oui.",
+            "native": "应该算是吧。",
+            "phon": "普吕托 威"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Pas vraiment.",
+            "native": "不太是。",
+            "phon": "帕 弗雷芒"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "En partie.",
+            "native": "部分是。",
+            "phon": "昂 帕尔蒂"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Ça dépend.",
+            "native": "看情况。",
+            "phon": "萨 德庞"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 72,
+      "unitId": "L7-zh-fr-01",
+      "gapIndex": 0,
+      "text": "La cause à produire et les deux propositions doivent être préparées séparément dans les étapes. Les routes sont bouchées et je n’ai pas de voiture ajoutent des formes non prouvées par le cadre parce que.",
+      "primaryCategory": "preparation-missing",
+      "reason": "La composition libre de deux propositions causales manque d’appuis séparés déclarés ; les phrases longues existent et sont proposées entières.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L7-zh-fr.json",
+        "unitId": "L7-zh-fr-01",
+        "sourceLevel": 7
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je prends le métro parce que c'est rapide.",
+            "native": "我坐地铁，因为很快。",
+            "phon": "热 普朗 勒 梅特罗 帕尔斯 克 赛 拉皮德"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je prends le métro parce que c'est moins cher.",
+            "native": "我坐地铁，因为更便宜。",
+            "phon": "热 普朗 勒 梅特罗 帕尔斯 克 赛 穆安 谢尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je prends le métro parce que je n'ai pas de voiture.",
+            "native": "我坐地铁，因为我没有车。",
+            "phon": "热 普朗 勒 梅特罗 帕尔斯 克 热 内 帕 德 瓦蒂尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je prends le métro parce que les routes sont bouchées.",
+            "native": "我坐地铁，因为路上堵车。",
+            "phon": "热 普朗 勒 梅特罗 帕尔斯 克 莱 鲁特 松 布谢"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 73,
+      "unitId": "L7-zh-fr-05",
+      "gapIndex": 0,
+      "text": "Meilleur n’est pas une forme régulière déduite de plus/moins cher. Les quatre raisons restent entières avant toute combinaison.",
+      "primaryCategory": "structural-caution",
+      "reason": "L’irrégulier meilleur et les raisons complètes ne sont pas déduits d’une comparaison régulière.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L7-zh-fr.json",
+        "unitId": "L7-zh-fr-05",
+        "sourceLevel": 7
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je préfère cuisiner parce que c'est moins cher.",
+            "native": "我更喜欢自己做饭，因为更便宜。",
+            "phon": "热 普雷费尔 居伊吉内 帕尔斯 克 赛 穆安 谢尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je préfère cuisiner parce que c'est meilleur.",
+            "native": "我更喜欢自己做饭，因为更好吃。",
+            "phon": "热 普雷费尔 居伊吉内 帕尔斯 克 赛 梅耶尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je préfère cuisiner parce que j'aime ça.",
+            "native": "我更喜欢自己做饭，因为我喜欢。",
+            "phon": "热 普雷费尔 居伊吉内 帕尔斯 克 热姆 萨"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je préfère cuisiner parce que c'est plus sain.",
+            "native": "我更喜欢自己做饭，因为更健康。",
+            "phon": "热 普雷费尔 居伊吉内 帕尔斯 克 赛 普吕 桑"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 74,
+      "unitId": "L7-zh-fr-11",
+      "gapIndex": 0,
+      "text": "Le match est annulé ajoute une forme passive ou d’état à préparer comme phrase entière. La transformation cause/conséquence n’efface pas ce besoin.",
+      "primaryCategory": "structural-caution",
+      "reason": "La forme passive ou d’état demeure une introduction propre dans la conséquence.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L7-zh-fr.json",
+        "unitId": "L7-zh-fr-11",
+        "sourceLevel": 7
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Il pleut, c'est pour ça que je reste à la maison.",
+            "native": "下雨了，所以我待在家里。",
+            "phon": "伊尔 普勒，赛 普尔 萨 克 热 雷斯特 阿 拉 梅宗"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Il pleut, c'est pour ça que tout le monde prend le bus.",
+            "native": "下雨了，所以大家都坐公交。",
+            "phon": "伊尔 普勒，赛 普尔 萨 克 图 勒 蒙德 普朗 勒 比斯"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Il pleut, c'est pour ça que je suis en retard.",
+            "native": "下雨了，所以我迟到了。",
+            "phon": "伊尔 普勒，赛 普尔 萨 克 热 绥 昂 勒塔尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Il pleut, c'est pour ça que le match est annulé.",
+            "native": "下雨了，所以比赛取消了。",
+            "phon": "伊尔 普勒，赛 普尔 萨 克 勒 马奇 埃 塔尼吕莱"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 75,
+      "unitId": "L8-zh-fr-04",
+      "gapIndex": 0,
+      "text": "Cette nouvelle locution atténuée est introduite comme phrase entière ; les compléments d’aménagement ne sont pas connus par le seul Ce serait possible de.",
+      "primaryCategory": "structural-caution",
+      "reason": "Une nouvelle atténuation et ses compléments sont proposés entiers, sans généralisation depuis le début commun.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L8-zh-fr.json",
+        "unitId": "L8-zh-fr-04",
+        "sourceLevel": 8
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Ce serait possible de livrer demain ?",
+            "native": "有没有可能明天送货？",
+            "phon": "瑟 瑟雷 波西布勒 德 利弗雷 德曼"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Ce serait possible de payer en trois fois ?",
+            "native": "有没有可能分三次付？",
+            "phon": "瑟 瑟雷 波西布勒 德 佩耶 昂 特鲁瓦 夫瓦"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Ce serait possible de reporter la réunion ?",
+            "native": "有没有可能推迟会议？",
+            "phon": "瑟 瑟雷 波西布勒 德 勒波尔泰 拉 雷于尼翁"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Ce serait possible de faire une réduction ?",
+            "native": "有没有可能打个折？",
+            "phon": "瑟 瑟雷 波西布勒 德 费尔 于讷 雷迪克西翁"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 76,
+      "unitId": "L8-zh-fr-08",
+      "gapIndex": 0,
+      "text": "La première paire un reçu / une facture est un remplacement de groupe nominal entier, article inclus. Délai d’une semaine et réponse avant vendredi ajoutent d’autres précisions.",
+      "primaryCategory": "structural-caution",
+      "reason": "La première paire garde article et nom comme groupe entier ; délai et date sont des précisions différentes.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L8-zh-fr.json",
+        "unitId": "L8-zh-fr-08",
+        "sourceLevel": 8
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Il me faudrait un reçu.",
+            "native": "我需要一张收据。",
+            "phon": "伊尔 默 福德雷 安 勒絮"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Il me faudrait un délai d'une semaine.",
+            "native": "我需要一个星期的宽限。",
+            "phon": "伊尔 默 福德雷 安 德莱 迪讷 瑟曼"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Il me faudrait une facture.",
+            "native": "我需要一张发票。",
+            "phon": "伊尔 默 福德雷 于讷 法克蒂尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Il me faudrait votre réponse avant vendredi.",
+            "native": "我需要您星期五前的答复。",
+            "phon": "伊尔 默 福德雷 沃特尔 雷蓬斯 阿旺 旺德勒迪"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 77,
+      "unitId": "L8-zh-fr-03",
+      "gapIndex": 0,
+      "text": "Les conditions changent sujet, pouvoir et voix ; les quatre phrases sont préparées comme expressions complètes avant choix d’une condition.",
+      "primaryCategory": "structural-caution",
+      "reason": "Les conditions changent personne, modalité et voix ; elles ne forment pas une seule permutation.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L8-zh-fr.json",
+        "unitId": "L8-zh-fr-03",
+        "sourceLevel": 8
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Si le loyer baisse un peu, je prends l'appartement.",
+            "native": "如果房租降一点，我就租这套公寓。",
+            "phon": "西 勒 卢瓦耶 贝斯 安 珀，热 普朗 拉帕尔特芒"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Si je peux venir avec mon chien, je prends l'appartement.",
+            "native": "如果我可以带狗，我就租这套公寓。",
+            "phon": "西 热 珀 弗尼尔 阿维克 蒙 希安，热 普朗 拉帕尔特芒"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Si les charges sont comprises, je prends l'appartement.",
+            "native": "如果费用全包，我就租这套公寓。",
+            "phon": "西 莱 沙尔日 松 孔普里兹，热 普朗 拉帕尔特芒"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Si c'est libre en mars, je prends l'appartement.",
+            "native": "如果三月就能入住，我就租这套公寓。",
+            "phon": "西 赛 利布尔 昂 马尔斯，热 普朗 拉帕尔特芒"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 78,
+      "unitId": "L8-zh-fr-05",
+      "gapIndex": 0,
+      "text": "La condition en seulement si est liée à la réponse de la scène ; les clauses source ne sont pas greffées indifféremment après toute demande.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "La condition acceptée doit être pertinente pour la demande réellement reçue.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L8-zh-fr.json",
+        "unitId": "L8-zh-fr-05",
+        "sourceLevel": 8
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "D'accord, mais seulement si vous livrez cette semaine.",
+            "native": "好，但是只有您这周送货才行。",
+            "phon": "达科尔，梅 瑟勒芒 西 武 利弗雷 赛特 瑟曼"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "D'accord, mais seulement si le prix reste le même.",
+            "native": "好，但是只有价格不变才行。",
+            "phon": "达科尔，梅 瑟勒芒 西 勒 普里 雷斯特 勒 梅姆"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "D'accord, mais seulement si c'est écrit dans le contrat.",
+            "native": "好，但是只有写进合同才行。",
+            "phon": "达科尔，梅 瑟勒芒 西 赛 泰克里 当 勒 孔特拉"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "D'accord, mais seulement si je peux annuler.",
+            "native": "好，但是只有我可以取消才行。",
+            "phon": "达科尔，梅 瑟勒芒 西 热 珀 阿尼莱"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 79,
+      "unitId": "L8-zh-fr-09",
+      "gapIndex": 0,
+      "text": "Les demandes de dernier prix, condition de quantité et proposition chiffrée sont des actes distincts. Cinquante euros doit être présenté entier, non déduit du nombre deux.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "Prix chiffré, condition et demande de réduction sont des actes à contextualiser dans la négociation.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L8-zh-fr.json",
+        "unitId": "L8-zh-fr-09",
+        "sourceLevel": 8
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "C'est votre dernier prix ?",
+            "native": "这是您的最低价了吗？",
+            "phon": "赛 沃特尔 代尔尼耶 普里"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Vous pouvez me faire un prix ?",
+            "native": "能给我优惠点吗？",
+            "phon": "武 普韦 默 费尔 安 普里"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Si je prends les deux, c'est combien ?",
+            "native": "如果我买两个，多少钱？",
+            "phon": "西 热 普朗 莱 德，赛 孔比安"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je vous propose cinquante euros.",
+            "native": "我出五十欧元。",
+            "phon": "热 武 普罗波兹 散康 特罗"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 80,
+      "unitId": "L9-zh-fr-01",
+      "gapIndex": 0,
+      "text": "Les clauses reformulées sont montrées entières ; ne pas déduire je dois et il faut de la seule locution Autrement dit.",
+      "primaryCategory": "structural-caution",
+      "reason": "Reformuler ne prépare pas automatiquement toutes les obligations de la proposition reformulée.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L9-zh-fr.json",
+        "unitId": "L9-zh-fr-01",
+        "sourceLevel": 9
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Autrement dit, le train est annulé.",
+            "native": "换句话说，火车取消了。",
+            "phon": "奥特勒芒 迪，勒 特兰 埃 塔尼吕莱"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Autrement dit, je dois attendre demain.",
+            "native": "换句话说，我得等到明天。",
+            "phon": "奥特勒芒 迪，热 杜瓦 阿唐德尔 德曼"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Autrement dit, ce n'est pas possible.",
+            "native": "换句话说，这不可能。",
+            "phon": "奥特勒芒 迪，瑟 内 帕 波西布勒"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Autrement dit, il faut un autre document.",
+            "native": "换句话说，需要另一份文件。",
+            "phon": "奥特勒芒 迪，伊尔 福 安 诺特尔 多居芒"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 81,
+      "unitId": "L9-zh-fr-02",
+      "gapIndex": 0,
+      "text": "La structure Ce que je veux dire est une mise en relief propre, distincte de Je veux un café.",
+      "primaryCategory": "structural-caution",
+      "reason": "La mise en relief est distincte de la demande simple avec vouloir.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L9-zh-fr.json",
+        "unitId": "L9-zh-fr-02",
+        "sourceLevel": 9
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Ce que je veux dire, c'est que je ne suis pas d'accord.",
+            "native": "我的意思是，我不同意。",
+            "phon": "瑟 克 热 弗 迪尔，赛 克 热 讷 绥 帕 达科尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Ce que je veux dire, c'est que ce n'est pas urgent.",
+            "native": "我的意思是，这不急。",
+            "phon": "瑟 克 热 弗 迪尔，赛 克 瑟 内 帕 于尔让"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Ce que je veux dire, c'est que nous avons besoin de temps.",
+            "native": "我的意思是，我们需要时间。",
+            "phon": "瑟 克 热 弗 迪尔，赛 克 努 扎翁 贝祖安 德 唐"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Ce que je veux dire, c'est que le prix est trop élevé.",
+            "native": "我的意思是，价格太高了。",
+            "phon": "瑟 克 热 弗 迪尔，赛 克 勒 普里 埃 特罗 佩勒韦"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 82,
+      "unitId": "L9-zh-fr-07",
+      "gapIndex": 0,
+      "text": "Si j’ai bien compris sert une vérification, non une condition de négociation. Les informations à confirmer sont préparées par occurrence.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "La confirmation doit reprendre l’information effectivement reçue ; son si n’est pas celui de la condition.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L9-zh-fr.json",
+        "unitId": "L9-zh-fr-07",
+        "sourceLevel": 9
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Si j'ai bien compris, je dois revenir demain ?",
+            "native": "如果我没理解错，我得明天再来？",
+            "phon": "西 热 比安 孔普里，热 杜瓦 勒弗尼尔 德曼"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Si j'ai bien compris, le prochain train est à midi ?",
+            "native": "如果我没理解错，下一班火车是中午？",
+            "phon": "西 热 比安 孔普里，勒 普罗申 特兰 埃 阿 米迪"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Si j'ai bien compris, il faut prendre rendez-vous ?",
+            "native": "如果我没理解错，需要预约？",
+            "phon": "西 热 比安 孔普里，伊尔 福 普朗德尔 朗代武"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Si j'ai bien compris, c'est gratuit ?",
+            "native": "如果我没理解错，是免费的？",
+            "phon": "西 热 比安 孔普里，赛 格拉蒂"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 83,
+      "unitId": "L9-zh-fr-11",
+      "gapIndex": 0,
+      "text": "Si introduit ici une interrogative indirecte, pas la condition des scènes L8. Je ne sais pas constitue une reprise, non une preuve du cadre complet.",
+      "primaryCategory": "structural-caution",
+      "reason": "La question indirecte en si est distinguée de la condition de négociation.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L9-zh-fr.json",
+        "unitId": "L9-zh-fr-11",
+        "sourceLevel": 9
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je ne sais pas si c'est le bon guichet.",
+            "native": "我不知道是不是这个窗口。",
+            "phon": "热 讷 赛 帕 西 赛 勒 蓬 吉谢"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je ne sais pas si le bureau est ouvert.",
+            "native": "我不知道办公室开不开门。",
+            "phon": "热 讷 赛 帕 西 勒 比罗 埃 图韦尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je ne sais pas si j'ai le bon formulaire.",
+            "native": "我不知道我拿的表格对不对。",
+            "phon": "热 讷 赛 帕 西 热 勒 蓬 福尔米莱尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je ne sais pas si ça suffit.",
+            "native": "我不知道这够不够。",
+            "phon": "热 讷 赛 帕 西 萨 苏菲"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 84,
+      "unitId": "L9-zh-fr-04",
+      "gapIndex": 0,
+      "text": "Les propositions hypothétiques changent temps et prédicat ; montrer chacune avant production.",
+      "primaryCategory": "structural-caution",
+      "reason": "Les hypothèses changent temps et prédicats ; leur présentation entière ne prouve pas une transformation libre.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L9-zh-fr.json",
+        "unitId": "L9-zh-fr-04",
+        "sourceLevel": 9
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Peut-être que le bus est en retard.",
+            "native": "也许公交车晚点了。",
+            "phon": "珀泰特尔 克 勒 比斯 埃 昂 勒塔尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Peut-être que j'ai fait une erreur.",
+            "native": "也许我弄错了。",
+            "phon": "珀泰特尔 克 热 费 于 内勒尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Peut-être que c'est fermé le dimanche.",
+            "native": "也许星期天不开门。",
+            "phon": "珀泰特尔 克 赛 费尔梅 勒 迪芒什"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Peut-être que le médecin est occupé.",
+            "native": "也许医生在忙。",
+            "phon": "珀泰特尔 克 勒 梅德森 埃 托居佩"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 85,
+      "unitId": "L9-zh-fr-05",
+      "gapIndex": 0,
+      "text": "Sois, soit, aies et soit annulé relèvent de formes distinctes au subjonctif. Peut-être que ne les prépare pas automatiquement ; une généralisation reste à étayer.",
+      "primaryCategory": "preparation-missing",
+      "reason": "La généralisation productive du subjonctif est explicitement non étayée, bien que quatre phrases sources soient offertes.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L9-zh-fr.json",
+        "unitId": "L9-zh-fr-05",
+        "sourceLevel": 9
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Il se peut que je sois en retard.",
+            "native": "有可能我会迟到。",
+            "phon": "伊尔 瑟 珀 克 热 斯瓦 昂 勒塔尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Il se peut que ce soit fermé.",
+            "native": "有可能关门了。",
+            "phon": "伊尔 瑟 珀 克 瑟 斯瓦 费尔梅"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Il se peut que tu aies raison.",
+            "native": "有可能你是对的。",
+            "phon": "伊尔 瑟 珀 克 蒂 埃 雷宗"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Il se peut que le vol soit annulé.",
+            "native": "有可能航班被取消。",
+            "phon": "伊尔 瑟 珀 克 勒 沃尔 斯瓦 塔尼吕莱"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 86,
+      "unitId": "L9-zh-fr-12",
+      "gapIndex": 0,
+      "text": "La première paire sur mon billet / dans la date remplace un groupe entier d’emplacement. Le changement de préposition est contenu dans le groupe préparé, sans règle libre.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le groupe de localisation reste entier, avec sa préposition.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L9-zh-fr.json",
+        "unitId": "L9-zh-fr-12",
+        "sourceLevel": 9
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je crois qu'il y a une erreur dans la facture.",
+            "native": "我想账单上有个错误。",
+            "phon": "热 克鲁瓦 基 利 亚 于 内勒尔 当 拉 法克蒂尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je crois qu'il y a une erreur sur mon billet.",
+            "native": "我想我的票上有个错误。",
+            "phon": "热 克鲁瓦 基 利 亚 于 内勒尔 叙尔 蒙 比耶"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je crois qu'il y a une erreur dans la date.",
+            "native": "我想日期上有个错误。",
+            "phon": "热 克鲁瓦 基 利 亚 于 内勒尔 当 拉 达特"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je crois qu'il y a une erreur dans mon nom.",
+            "native": "我想我的名字上有个错误。",
+            "phon": "热 克鲁瓦 基 利 亚 于 内勒尔 当 蒙 农"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 87,
+      "unitId": "L9-zh-fr-06",
+      "gapIndex": 0,
+      "text": "La demande Qu’est-ce qu’on peut faire ? suit le problème complet ; les incidents à raconter ont chacun leur forme verbale et leur réception.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "La demande de solution ne vaut qu’après un incident compris et une réception adaptée.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L9-zh-fr.json",
+        "unitId": "L9-zh-fr-06",
+        "sourceLevel": 9
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Il y a un problème : j'ai perdu mon billet. Qu'est-ce qu'on peut faire ?",
+            "native": "有个问题：我把票弄丢了。我们怎么办？",
+            "phon": "伊 利 亚 安 普罗布莱姆：热 佩尔迪 蒙 比耶。凯斯 孔 珀 费尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Il y a un problème : le train est annulé. Qu'est-ce qu'on peut faire ?",
+            "native": "有个问题：火车取消了。我们怎么办？",
+            "phon": "伊 利 亚 安 普罗布莱姆：勒 特兰 埃 塔尼吕莱。凯斯 孔 珀 费尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Il y a un problème : ma valise n'est pas arrivée. Qu'est-ce qu'on peut faire ?",
+            "native": "有个问题：我的行李箱没到。我们怎么办？",
+            "phon": "伊 利 亚 安 普罗布莱姆：马 瓦利兹 内 帕 阿里韦。凯斯 孔 珀 费尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Il y a un problème : le rendez-vous est annulé. Qu'est-ce qu'on peut faire ?",
+            "native": "有个问题：预约取消了。我们怎么办？",
+            "phon": "伊 利 亚 安 普罗布莱姆：勒 朗代武 埃 塔尼吕莱。凯斯 孔 珀 费尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 88,
+      "unitId": "L9-zh-fr-10",
+      "gapIndex": 0,
+      "text": "La modalisation peut-être se combine à une proposition déjà préparée ; les solutions nouvelles sont montrées avec leurs compléments.",
+      "primaryCategory": "structural-caution",
+      "reason": "Une modalisation connue ne prépare pas automatiquement chaque nouvelle solution et ses compléments.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L9-zh-fr.json",
+        "unitId": "L9-zh-fr-10",
+        "sourceLevel": 9
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "On pourrait peut-être prendre le prochain train.",
+            "native": "也许我们可以坐下一班火车。",
+            "phon": "翁 普雷 珀泰特尔 普朗德尔 勒 普罗申 特兰"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "On pourrait peut-être appeler le service client.",
+            "native": "也许我们可以打给客服。",
+            "phon": "翁 普雷 珀泰特尔 阿普莱 勒 塞尔维斯 克利扬"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "On pourrait peut-être demander un remboursement.",
+            "native": "也许我们可以要求退款。",
+            "phon": "翁 普雷 珀泰特尔 德芒代 安 朗布尔斯芒"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "On pourrait peut-être revenir demain matin.",
+            "native": "也许我们可以明天早上再来。",
+            "phon": "翁 普雷 珀泰特尔 勒弗尼尔 德曼 马坦"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 89,
+      "unitId": "L8-zh-fr-10",
+      "gapIndex": 0,
+      "text": "L’infinitif passé de merci d’être venu n’est pas préparé par le présent Le chauffage ne marche pas ; quatre actes et registres à préparer séparément.",
+      "primaryCategory": "source-register-review",
+      "reason": "La série mêle actes et registres, et contient un infinitif passé ; c’est à vérifier en contexte, sans déclarer les phrases fautives.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L8-zh-fr.json",
+        "unitId": "L8-zh-fr-10",
+        "sourceLevel": 8
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Excusez-moi de vous déranger.",
+            "native": "不好意思打扰您。",
+            "phon": "埃克斯居泽 穆瓦 德 武 德朗热"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Il y a beaucoup de bruit le soir.",
+            "native": "晚上噪音很大。",
+            "phon": "伊 利 亚 博库 德 布吕 勒 斯瓦尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Le chauffage ne marche pas.",
+            "native": "暖气坏了。",
+            "phon": "勒 绍法日 讷 马尔什 帕"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Ce n'est pas grave, merci d'être venu.",
+            "native": "没关系，谢谢您过来。",
+            "phon": "瑟 内 帕 格拉夫，美西 代特尔 弗尼"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 90,
+      "unitId": "L8-zh-fr-11",
+      "gapIndex": 0,
+      "text": "Je viendrai est un futur simple ; envoyez-moi est un impératif avec clitique. Aucun cadre précédent je vais ne les prouve. L’éventuel travail productif général reste une lacune explicite.",
+      "primaryCategory": "preparation-missing",
+      "reason": "Le futur simple et l’impératif avec clitique ne sont pas préparés par le seul futur proche ; la généralisation productive demeure ouverte.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L8-zh-fr.json",
+        "unitId": "L8-zh-fr-11",
+        "sourceLevel": 8
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Si c'est possible, je préfère payer par carte.",
+            "native": "如果可以的话，我想刷卡。",
+            "phon": "西 赛 波西布勒，热 普雷费尔 佩耶 帕尔 卡尔特"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Si c'est possible, je viendrai demain.",
+            "native": "如果可以的话，我明天来。",
+            "phon": "西 赛 波西布勒，热 维安德雷 德曼"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Si c'est possible, envoyez-moi un e-mail.",
+            "native": "如果可以的话，请给我发邮件。",
+            "phon": "西 赛 波西布勒，昂瓦耶 穆瓦 安 伊梅尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Si c'est possible, on signe aujourd'hui.",
+            "native": "如果可以的话，我们今天就签。",
+            "phon": "西 赛 波西布勒，翁 西涅 奥茹尔迪"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 91,
+      "unitId": "L10-zh-fr-09",
+      "gapIndex": 0,
+      "text": "La même formule simple peut consolider une discussion avancée. Elle n’est pas comptée comme une structure nouvelle à acquérir en L10.",
+      "primaryCategory": "structural-caution",
+      "reason": "Une reprise simple peut servir une discussion avancée ; ce n’est pas une nouveauté grammaticale mesurable par le niveau.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L10-zh-fr.json",
+        "unitId": "L10-zh-fr-09",
+        "sourceLevel": 10
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Tu as tout à fait raison.",
+            "native": "你说得完全对。",
+            "phon": "蒂 阿 图 塔 费 雷宗"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je suis d'accord avec toi.",
+            "native": "我同意你的看法。",
+            "phon": "热 绥 达科尔 阿维克 图瓦"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Là, je ne suis pas d'accord.",
+            "native": "这一点我不同意。",
+            "phon": "拉，热 讷 绥 帕 达科尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "C'est une question de point de vue.",
+            "native": "这是看问题角度的问题。",
+            "phon": "赛 蒂讷 凯斯蒂翁 德 普安 德 维"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 92,
+      "unitId": "L10-zh-fr-02",
+      "gapIndex": 0,
+      "text": "Chaque objection a un prédicat propre ; le mais commun ne suffit pas à sa préparation.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le lien mais ne prépare pas le prédicat de chaque objection.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L10-zh-fr.json",
+        "unitId": "L10-zh-fr-02",
+        "sourceLevel": 10
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "C'est vrai, mais ce n'est pas si simple.",
+            "native": "没错，但是没那么简单。",
+            "phon": "赛 弗雷，梅 瑟 内 帕 西 散普勒"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "C'est vrai, mais ça coûte cher.",
+            "native": "没错，但是很花钱。",
+            "phon": "赛 弗雷，梅 萨 库特 谢尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "C'est vrai, mais tout le monde ne peut pas.",
+            "native": "没错，但是不是人人都能。",
+            "phon": "赛 弗雷，梅 图 勒 蒙德 讷 珀 帕"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "C'est vrai, mais il faut du temps.",
+            "native": "没错，但是需要时间。",
+            "phon": "赛 弗雷，梅 伊尔 福 迪 唐"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 93,
+      "unitId": "L10-zh-fr-01",
+      "gapIndex": 0,
+      "text": "Les deux propositions et la concession sont reprises avant choix d’arguments ; la variation ne devient pas une production spontanée certifiée.",
+      "primaryCategory": "structural-caution",
+      "reason": "Lire les deux propositions ne certifie pas une argumentation spontanée.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L10-zh-fr.json",
+        "unitId": "L10-zh-fr-01",
+        "sourceLevel": 10
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "D'un côté, c'est pratique ; de l'autre, c'est cher.",
+            "native": "一方面很方便；另一方面，很贵。",
+            "phon": "丹 科泰，赛 普拉蒂克；德 洛特尔，赛 谢尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "D'un côté, c'est pratique ; de l'autre, ça prend du temps.",
+            "native": "一方面很方便；另一方面，费时间。",
+            "phon": "丹 科泰，赛 普拉蒂克；德 洛特尔，萨 普朗 迪 唐"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "D'un côté, c'est pratique ; de l'autre, ce n'est pas très sain.",
+            "native": "一方面很方便；另一方面，不太健康。",
+            "phon": "丹 科泰，赛 普拉蒂克；德 洛特尔，瑟 内 帕 特雷 桑"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "D'un côté, c'est pratique ; de l'autre, on dépend des horaires.",
+            "native": "一方面很方便；另一方面，得看时刻表。",
+            "phon": "丹 科泰，赛 普拉蒂克；德 洛特尔，翁 德庞 德 佐雷尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 94,
+      "unitId": "L10-zh-fr-08",
+      "gapIndex": 0,
+      "text": "Reconnaître puis maintenir un avis suppose deux intentions et des réponses pertinentes, pas seulement la lecture d’une phrase longue.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "Reconnaître puis maintenir un avis suppose un désaccord réel et des réponses pertinentes.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L10-zh-fr.json",
+        "unitId": "L10-zh-fr-08",
+        "sourceLevel": 10
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Je comprends, mais je pense quand même que c'est trop tôt.",
+            "native": "我理解，但我还是觉得太早了。",
+            "phon": "热 孔普朗，梅 热 庞斯 康 梅姆 克 赛 特罗 托"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Je comprends, mais je pense quand même que ça vaut le coup.",
+            "native": "我理解，但我还是觉得值得。",
+            "phon": "热 孔普朗，梅 热 庞斯 康 梅姆 克 萨 沃 勒 库"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Je comprends, mais je pense quand même que tu devrais essayer.",
+            "native": "我理解，但我还是觉得你应该试试。",
+            "phon": "热 孔普朗，梅 热 庞斯 康 梅姆 克 蒂 德弗雷 埃塞耶"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Je comprends, mais je pense quand même que c'est le bon moment.",
+            "native": "我理解，但我还是觉得现在正是时候。",
+            "phon": "热 孔普朗，梅 热 庞斯 康 梅姆 克 赛 勒 蓬 莫芒"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 95,
+      "unitId": "L10-zh-fr-03",
+      "gapIndex": 0,
+      "text": "Le point de vue de l’autre doit être reçu avant sa reformulation. Nous devrions attendre est une nuance à préparer, non une permission déduite de pourrait.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "Le point de vue doit d’abord être reçu ; sa reformulation et la nuance devrions ne sont pas des permissions interchangeables.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L10-zh-fr.json",
+        "unitId": "L10-zh-fr-03",
+        "sourceLevel": 10
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Si je comprends bien, tu penses que c'est une bonne idée.",
+            "native": "如果我理解得对，你觉得这是个好主意。",
+            "phon": "西 热 孔普朗 比安，蒂 庞斯 克 赛 蒂讷 波 尼代"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Si je comprends bien, tu penses que la ville est trop chère.",
+            "native": "如果我理解得对，你觉得这个城市太贵了。",
+            "phon": "西 热 孔普朗 比安，蒂 庞斯 克 拉 维尔 埃 特罗 谢尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Si je comprends bien, tu penses que le télétravail est mieux.",
+            "native": "如果我理解得对，你觉得远程办公更好。",
+            "phon": "西 热 孔普朗 比安，蒂 庞斯 克 勒 泰莱特拉瓦伊 埃 米厄"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Si je comprends bien, tu penses que nous devrions attendre.",
+            "native": "如果我理解得对，你觉得我们应该等。",
+            "phon": "西 热 孔普朗 比安，蒂 庞斯 克 努 德弗里翁 阿唐德尔"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 96,
+      "unitId": "L10-zh-fr-12",
+      "gapIndex": 0,
+      "text": "Je voulais dire introduit une reformulation de son intention avec un passé et une mise en relief. Une similitude avec Ce que je veux dire ne vaut pas identité de forme.",
+      "primaryCategory": "structural-caution",
+      "reason": "La reformulation passée est distincte du présent malgré un sens proche.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L10-zh-fr.json",
+        "unitId": "L10-zh-fr-12",
+        "sourceLevel": 10
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Ce n'est pas ce que je voulais dire. Je voulais dire que c'est compliqué.",
+            "native": "我不是这个意思。我想说的是，这很复杂。",
+            "phon": "瑟 内 帕 瑟 克 热 武莱 迪尔。热 武莱 迪尔 克 赛 孔普利凯"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Ce n'est pas ce que je voulais dire. Je voulais dire que ça dépend des jours.",
+            "native": "我不是这个意思。我想说的是，要看哪天。",
+            "phon": "瑟 内 帕 瑟 克 热 武莱 迪尔。热 武莱 迪尔 克 萨 德庞 德 茹尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Ce n'est pas ce que je voulais dire. Je voulais dire que je ne suis pas contre.",
+            "native": "我不是这个意思。我想说的是，我不反对。",
+            "phon": "瑟 内 帕 瑟 克 热 武莱 迪尔。热 武莱 迪尔 克 热 讷 绥 帕 孔特尔"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Ce n'est pas ce que je voulais dire. Je voulais dire que chacun fait comme il veut.",
+            "native": "我不是这个意思。我想说的是，各人随意。",
+            "phon": "瑟 内 帕 瑟 克 热 武莱 迪尔。热 武莱 迪尔 克 沙康 费 科 米尔 弗"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 97,
+      "unitId": "L10-zh-fr-06",
+      "gapIndex": 0,
+      "text": "La subordination quand relie un événement et un arrière-plan ; une question Quand ? en L2 ne prépare pas cette combinaison.",
+      "primaryCategory": "structural-caution",
+      "reason": "Le quand subordonnant d’un récit ne dérive pas de la seule question de moment.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L10-zh-fr.json",
+        "unitId": "L10-zh-fr-06",
+        "sourceLevel": 10
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Quand je suis arrivé, j'étais très content.",
+            "native": "我刚到的时候，非常高兴。",
+            "phon": "康 热 绥 扎里韦，热泰 特雷 孔当"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Quand je suis arrivé, j'étais un peu perdu.",
+            "native": "我刚到的时候，有点不知所措。",
+            "phon": "康 热 绥 扎里韦，热泰 安 珀 佩尔迪"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Quand je suis arrivé, j'étais fatigué mais heureux.",
+            "native": "我刚到的时候，很累但很开心。",
+            "phon": "康 热 绥 扎里韦，热泰 法蒂盖 梅 厄勒"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Quand je suis arrivé, j'étais stressé.",
+            "native": "我刚到的时候，很紧张。",
+            "phon": "康 热 绥 扎里韦，热泰 斯特雷塞"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 98,
+      "unitId": "L10-zh-fr-10",
+      "gapIndex": 0,
+      "text": "La première paire la cuisine / la langue garde le groupe la + nom. Les groupes plus longs et le relatif Ce qui sont préparés dans leurs phrases entières.",
+      "primaryCategory": "structural-caution",
+      "reason": "La première paire nominale ne prépare pas par elle-même le relatif et les groupes plus longs.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L10-zh-fr.json",
+        "unitId": "L10-zh-fr-10",
+        "sourceLevel": 10
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Ce qui m'a le plus marqué, c'est la gentillesse des gens.",
+            "native": "给我印象最深的是人们的热情。",
+            "phon": "瑟 基 马 勒 普吕 马尔凯，赛 拉 让蒂耶斯 德 让"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Ce qui m'a le plus marqué, c'est la cuisine.",
+            "native": "给我印象最深的是美食。",
+            "phon": "瑟 基 马 勒 普吕 马尔凯，赛 拉 居伊吉讷"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Ce qui m'a le plus marqué, c'est le rythme de vie.",
+            "native": "给我印象最深的是生活节奏。",
+            "phon": "瑟 基 马 勒 普吕 马尔凯，赛 勒 里特姆 德 维"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Ce qui m'a le plus marqué, c'est la langue.",
+            "native": "给我印象最深的是语言。",
+            "phon": "瑟 基 马 勒 普吕 马尔凯，赛 拉 朗格"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 99,
+      "unitId": "L10-zh-fr-11",
+      "gapIndex": 0,
+      "text": "L’exemple doit appuyer l’argument effectivement discuté ; ce ne sont pas quatre réponses valables à tout thème.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "L’exemple doit soutenir l’argument réellement discuté.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L10-zh-fr.json",
+        "unitId": "L10-zh-fr-11",
+        "sourceLevel": 10
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Par exemple, hier j'ai attendu une heure.",
+            "native": "比如说，昨天我等了一个小时。",
+            "phon": "帕尔 埃格藏普勒，耶尔 热 阿唐迪 于 讷尔"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Par exemple, le loyer a augmenté.",
+            "native": "比如说，房租涨了。",
+            "phon": "帕尔 埃格藏普勒，勒 卢瓦耶 阿 奥格芒泰"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Par exemple, mes collègues travaillent de chez eux.",
+            "native": "比如说，我的同事都在家办公。",
+            "phon": "帕尔 埃格藏普勒，梅 科莱格 特拉瓦伊 德 谢 厄"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Par exemple, personne ne répond au téléphone.",
+            "native": "比如说，没人接电话。",
+            "phon": "帕尔 埃格藏普勒，佩尔索讷 讷 雷蓬 奥 泰莱丰"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 100,
+      "unitId": "L10-zh-fr-07",
+      "gapIndex": 0,
+      "text": "Au fait introduit une relance adaptée à la conversation réelle ; les quatre questions ne sont pas libres de contexte.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "La relance dépend de la conversation en cours, et non d’une liste libre de questions.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L10-zh-fr.json",
+        "unitId": "L10-zh-fr-07",
+        "sourceLevel": 10
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Au fait, tu as des nouvelles de Paul ?",
+            "native": "对了，你有保罗的消息吗？",
+            "phon": "奥 费，蒂 阿 德 努韦尔 德 保罗"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Au fait, comment va ta mère ?",
+            "native": "对了，你妈妈怎么样？",
+            "phon": "奥 费，科芒 瓦 塔 梅尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Au fait, tu pars toujours en Chine cet été ?",
+            "native": "对了，你今年夏天还去中国吗？",
+            "phon": "奥 费，蒂 帕尔 图茹尔 昂 希讷 赛 泰泰"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Au fait, on se voit quand ?",
+            "native": "对了，我们什么时候见面？",
+            "phon": "奥 费，翁 瑟 瓦 康"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 101,
+      "unitId": "L10-zh-fr-04",
+      "gapIndex": 0,
+      "text": "Résumer est une fonction discursive de fin d’échange ; la brièveté de certaines phrases ne justifie pas de supprimer ce réemploi avancé.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "Le résumé intervient dans un échange déjà construit ; une phrase courte peut y remplir une fonction avancée.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L10-zh-fr.json",
+        "unitId": "L10-zh-fr-04",
+        "sourceLevel": 10
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Pour résumer, on part samedi.",
+            "native": "总的来说，我们星期六出发。",
+            "phon": "普尔 雷居梅，翁 帕尔 萨姆迪"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "Pour résumer, tout le monde est d'accord.",
+            "native": "总的来说，大家都同意。",
+            "phon": "普尔 雷居梅，图 勒 蒙 德 达科尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "Pour résumer, c'est trop risqué.",
+            "native": "总的来说，风险太大。",
+            "phon": "普尔 雷居梅，赛 特罗 里斯凯"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Pour résumer, je préfère rester ici.",
+            "native": "总的来说，我更想留在这里。",
+            "phon": "普尔 雷居梅，热 普雷费尔 雷斯泰 伊西"
+          }
+        }
+      ]
+    },
+    {
+      "annotationIndex": 102,
+      "unitId": "L10-zh-fr-05",
+      "gapIndex": 0,
+      "text": "Se quitter, proposer un rappel et transmettre une salutation sont quatre actes ; pas une famille de mots finaux interchangeables.",
+      "primaryCategory": "reception-dialogue",
+      "reason": "Se quitter, rappeler et transmettre une salutation répondent à des fins d’échange différentes.",
+      "source": {
+        "file": "melunga_deploy/content/conversation/L10-zh-fr.json",
+        "unitId": "L10-zh-fr-05",
+        "sourceLevel": 10
+      },
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "copy": {
+            "study": "Bon, je dois y aller. À bientôt !",
+            "native": "好了，我得走了。回头见！",
+            "phon": "蓬，热 杜瓦 伊 阿莱。阿 比安托"
+          }
+        },
+        {
+          "variantIndex": 1,
+          "copy": {
+            "study": "C'était un plaisir de te voir.",
+            "native": "见到你真高兴。",
+            "phon": "赛泰 安 普莱吉尔 德 特 瓦尔"
+          }
+        },
+        {
+          "variantIndex": 2,
+          "copy": {
+            "study": "On se rappelle cette semaine ?",
+            "native": "这周再通电话？",
+            "phon": "翁 瑟 拉佩尔 赛特 瑟曼"
+          }
+        },
+        {
+          "variantIndex": 3,
+          "copy": {
+            "study": "Embrasse ta famille de ma part.",
+            "native": "替我向你家人问好。",
+            "phon": "昂布拉斯 塔 法米伊 德 马 帕尔"
+          }
+        }
+      ]
+    }
+  ]
+}

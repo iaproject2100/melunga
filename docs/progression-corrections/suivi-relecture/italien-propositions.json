@@ -1,0 +1,462 @@
+{
+  "pair": "fr-it",
+  "baseline": "99478df",
+  "status": "editorial-followup-proposal-not-applied",
+  "summary": {
+    "sourceUnits": 120,
+    "baselineMoves": 19,
+    "baselineGapCount": 21,
+    "L8Units": 10,
+    "L8UnitsWithDeclaredGaps": 6,
+    "proposedLevelMoves": 0,
+    "sameLevelOrderingRepairs": 5,
+    "explicitDependencyRepairs": 4,
+    "lengthDefinition": "Nombre de tokens Unicode \\w+ dans chaque variante study (apostrophes séparées), moyenne de toutes les variantes, non mesure de difficulté.",
+    "lengthMeans": {
+      "1": {
+        "source": 3.3636363636363638,
+        "proposed99478df": 3.3636363636363638
+      },
+      "2": {
+        "source": 4.173076923076923,
+        "proposed99478df": 3.8392857142857144
+      },
+      "3": {
+        "source": 3.3636363636363638,
+        "proposed99478df": 3.517857142857143
+      },
+      "4": {
+        "source": 4.729166666666667,
+        "proposed99478df": 5.159090909090909
+      },
+      "5": {
+        "source": 4.604166666666667,
+        "proposed99478df": 4.8125
+      },
+      "6": {
+        "source": 5.395833333333333,
+        "proposed99478df": 5.321428571428571
+      },
+      "7": {
+        "source": 6.416666666666667,
+        "proposed99478df": 6.25
+      },
+      "8": {
+        "source": 5.875,
+        "proposed99478df": 6.1
+      },
+      "9": {
+        "source": 6.166666666666667,
+        "proposed99478df": 6.525
+      },
+      "10": {
+        "source": 6.096153846153846,
+        "proposed99478df": 6.291666666666667
+      }
+    },
+    "flaggedLengthDrops": [
+      {
+        "edge": "L2>L3",
+        "sourceDrop": 0.8094405594405596,
+        "proposedDrop": 0.3214285714285716,
+        "difference": -0.488011988011988,
+        "direction": "smaller"
+      },
+      {
+        "edge": "L4>L5",
+        "sourceDrop": 0.125,
+        "proposedDrop": 0.34659090909090917,
+        "difference": 0.22159090909090917,
+        "direction": "larger"
+      },
+      {
+        "edge": "L7>L8",
+        "sourceDrop": 0.541666666666667,
+        "proposedDrop": 0.15000000000000036,
+        "difference": -0.3916666666666666,
+        "direction": "smaller"
+      },
+      {
+        "edge": "L9>L10",
+        "sourceDrop": 0.07051282051282115,
+        "proposedDrop": 0.2333333333333334,
+        "difference": 0.16282051282051224,
+        "direction": "larger"
+      }
+    ],
+    "dialogueUnprepared55Percent": "Mesure de dialogues source inchangés ; non corrigée par ce classement d’unités.",
+    "L8Lexical52To54Percent": "Autre mesure de corpus, sans équivalence avec 55% en dialogue ; non recalculée ni réputée corrigée."
+  },
+  "units": [
+    {
+      "unitId": "L3-fr-it-04",
+      "decision": "amend",
+      "rationale": "Décalage d’ordre à niveau constant pour présenter les comparaisons avant les variantes comparatives de Secondo me.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Perché sei qui?"
+        }
+      ],
+      "proposedPatch": {
+        "order": 2
+      }
+    },
+    {
+      "unitId": "L7-fr-it-01",
+      "decision": "amend",
+      "rationale": "Décalage d’ordre à niveau constant pour présenter les comparaisons avant les variantes comparatives de Secondo me.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Non vengo perché sono stanco."
+        }
+      ],
+      "proposedPatch": {
+        "order": 3
+      }
+    },
+    {
+      "unitId": "L7-fr-it-03",
+      "decision": "amend",
+      "rationale": "Décalage d’ordre à niveau constant pour présenter les comparaisons avant les variantes comparatives de Secondo me.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Questo è meno caro di quello."
+        }
+      ],
+      "proposedPatch": {
+        "order": 4
+      }
+    },
+    {
+      "unitId": "L7-fr-it-02",
+      "decision": "amend",
+      "rationale": "Décalage d’ordre à niveau constant pour présenter les comparaisons avant les variantes comparatives de Secondo me.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Il treno è più veloce della macchina."
+        }
+      ],
+      "proposedPatch": {
+        "order": 5
+      }
+    },
+    {
+      "unitId": "L7-fr-it-06",
+      "decision": "amend",
+      "rationale": "Secondo me contient déjà migliore et più buono ; l’unité était présentée en deuxième position, avant les comparaisons meno/più. La déplacer après L7-03 et L7-02 prépare la fonction comparative sans prétendre fournir le lexème irrégulier migliore.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Secondo me, è troppo caro."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Secondo me, questo ristorante è migliore."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Secondo me, il vino rosso è più buono."
+        }
+      ],
+      "proposedPatch": {
+        "order": 6,
+        "plannedPrerequisites": [
+          "L7-fr-it-09",
+          "L7-fr-it-03",
+          "L7-fr-it-02"
+        ],
+        "rationale": "Opération conservée et placée par fonction : Donner un avis avec Secondo me et quatre propositions entières. Les références antérieures donnent des phrases à reprendre ; les nouveautés de cette unité sont d’abord offertes dans leurs phrases entières. Aucune substitution unique n’est revendiquée pour les quatre variantes ; elles sont préparées comme expressions entières. Les comparaisons meno/più sont maintenant présentées avant les variantes qui les réemploient dans un avis.",
+        "gaps": [
+          "migliore et più buono sont présentés dans leurs phrases exactes ; les comparaisons régulières meno/più ne préparent pas à elles seules cette forme lexicale et son emploi."
+        ]
+      }
+    },
+    {
+      "unitId": "L8-fr-it-03",
+      "decision": "amend",
+      "rationale": "La condition Se mi fa uno sconto réemploie la remise déjà rencontrée dans Mi può fare uno sconto. Ajouter ce lien lexical précis à l’antécédent de futur et au refus ; il n’atteste ni acquisition du mot ni conversion de fare en fa.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Se mi fa uno sconto, pagherò subito."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Se accetta la carta, pagherò subito."
+        }
+      ],
+      "proposedPatch": {
+        "plannedPrerequisites": [
+          "L6-fr-it-02",
+          "L8-fr-it-09",
+          "L8-fr-it-07"
+        ],
+        "rationale": "Opération conservée et placée par fonction : Lier une condition concrète à la promesse future pagherò subito. Les références antérieures donnent des phrases à reprendre ; les nouveautés de cette unité sont d’abord offertes dans leurs phrases entières. Aucune substitution unique n’est revendiquée pour les quatre variantes ; elles sont préparées comme expressions entières. Réemployer sconto après la demande nominale de L8-07 ; fa, accetta et pagherò restent introduits dans leurs phrases sources entières."
+      }
+    },
+    {
+      "unitId": "L8-fr-it-05",
+      "decision": "amend",
+      "rationale": "La variante finiamo entro venerdì demande le repère de délai entro déjà présent dans una risposta entro domani. Ajouter cette reprise prévue, sans déclarer connue la clause entière ou ses formes verbales.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 1,
+          "study": "Va bene, ma solo se finiamo entro venerdì."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Va bene, ma solo se il prezzo non cambia."
+        }
+      ],
+      "proposedPatch": {
+        "plannedPrerequisites": [
+          "L8-fr-it-03",
+          "L3-fr-it-07",
+          "L8-fr-it-08"
+        ],
+        "rationale": "Opération conservée et placée par fonction : Accepter uniquement sous condition, après la condition simple et une réponse d'accord. Les références antérieures donnent des phrases à reprendre ; les nouveautés de cette unité sont d’abord offertes dans leurs phrases entières. Aucune substitution unique n’est revendiquée pour les quatre variantes ; elles sont préparées comme expressions entières. La contrainte de délai reprend le repère entro présenté dans L8-08, sans supposer préparées les nouvelles propositions conditionnelles."
+      }
+    },
+    {
+      "unitId": "L8-fr-it-10",
+      "decision": "amend",
+      "rationale": "La fonction de permission de Le dispiace se est rapprochée de Potrei, plutôt que déclarée préparée par le seul se de Va bene ma solo se. Le problème de polarité et de réponse reçue reste entièrement ouvert.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Le dispiace se apro la finestra?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Le dispiace se parcheggio qui?"
+        }
+      ],
+      "proposedPatch": {
+        "plannedPrerequisites": [
+          "L3-fr-it-02",
+          "L8-fr-it-02"
+        ],
+        "rationale": "Opération conservée et placée par fonction : Demander la permission avec Le dispiace se et préparer l'interprétation de la réponse. Les références antérieures donnent des phrases à reprendre ; les nouveautés de cette unité sont d’abord offertes dans leurs phrases entières. Aucune substitution unique n’est revendiquée pour les quatre variantes ; elles sont préparées comme expressions entières. Reprendre la permission personnelle de Potrei et la demande formelle Può ; Le dispiace se est une formule nouvelle à préparer entière, pas une permutation de la condition solo se."
+      }
+    },
+    {
+      "unitId": "L2-fr-it-11",
+      "decision": "retain",
+      "rationale": "Le cadre de petite quantité et per favore allonge la phrase sans multiplier à lui seul les transformations productives ; garder cet usage en L2, préparé comme demande entière.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Un po' di zucchero, per favore."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Un po' di latte, per favore."
+        }
+      ],
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L3-fr-it-03",
+      "decision": "retain",
+      "rationale": "Cosa fai / vuoi / prendi / significa sont courts mais changent le verbe et l’intention. Leur longueur inférieure aux demandes de L2 ne justifie pas de les présenter comme plus faciles ni de remonter artificiellement ces demandes.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Cosa fai?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Cosa vuoi?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Cosa prendi?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "Cosa significa?"
+        }
+      ],
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L4-fr-it-11",
+      "decision": "retain",
+      "rationale": "Nel mio quartiere porte un cadre locatif de plusieurs mots ; sa longueur est liée au contexte de description, avant le récit. La réduire en changeant seulement de niveau ne prépare aucun temps nouveau.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Nel mio quartiere c'è un mercato."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Nel mio quartiere c'è un parco."
+        }
+      ],
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L5-fr-it-09",
+      "decision": "retain",
+      "rationale": "Non ho capito est court mais requiert un auxiliaire et un participe ; la phrase de routine plus longue ne prépare pas cette morphologie. Conserver le récit passé après les activités courantes.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Non ho dormito."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Non ho capito."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Non ho visto niente."
+        }
+      ],
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L7-fr-it-12",
+      "decision": "retain",
+      "rationale": "La question Qual è la differenza tra... a un cadre fixe long, qui gonfle la moyenne L7 sans prouver davantage d’opérations nouvelles dans son groupe nominal.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Qual è la differenza tra questo e quello?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Qual è la differenza tra i due menù?"
+        }
+      ],
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L7-fr-it-07",
+      "decision": "retain",
+      "rationale": "Le contraste passé-habitude/présent justifie une préparation particulière ; le déplacer en L8 seulement pour supprimer le pic ne prépare pas lavoravo/prendevo/andavo/viaggiavo. Garder le placement candidat et signaler la nécessité d’un pont de forme avant généralisation productive ; les quatre phrases restent entraînables entières.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Prima lavoravo in ufficio, adesso lavoro da casa."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Prima prendevo il treno ogni giorno, adesso lavoro da casa."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Prima andavo in ufficio ogni giorno, adesso lavoro da casa."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Prima viaggiavo molto, adesso lavoro da casa."
+        }
+      ],
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L8-fr-it-07",
+      "decision": "retain",
+      "rationale": "Les demandes nominales Mi può fare sont relativement courtes, mais fattura/copia/sconto/prezzo migliore changent le domaine lexical ; leur brièveté ne prépare pas les mots. Conserver le premier choix limité fattura/copia, sans déclarer le lexique résolu.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Mi può fare uno sconto?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Mi può fare un prezzo migliore?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Mi può fare una fattura?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "Mi può fare una copia?"
+        }
+      ],
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L8-fr-it-12",
+      "decision": "retain",
+      "rationale": "Vorrei chiederle condense registre et clitique. La variante avec di lavorare change en outre le type de complément ; elle reste une expression entière malgré une longueur moyenne faible.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Vorrei chiederle un giorno di ferie."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Vorrei chiederle di lavorare da casa il venerdì."
+        }
+      ],
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L9-fr-it-02",
+      "decision": "retain",
+      "rationale": "Quello che voglio dire è che constitue une longue enveloppe de reformulation. Ce cadre allonge L9 sans prouver que chaque mot du contenu est nouveau.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Quello che voglio dire è che il treno è in ritardo."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Quello che voglio dire è che è meglio aspettare."
+        }
+      ],
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L10-fr-it-05",
+      "decision": "retain",
+      "rationale": "Les clôtures courtes de L10 sont des emplois discursifs hétérogènes, dont Salutami tutti avec impératif/clitique. Les avancer en bloc pour augmenter la moyenne L10 ne résout ni rôle ni formes ; une éventuelle entrée précoce devrait être variante par variante.",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Beh, devo andare. A presto!"
+        },
+        {
+          "variantIndex": 1,
+          "study": "È stato un piacere!"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Ci sentiamo presto!"
+        },
+        {
+          "variantIndex": 3,
+          "study": "Salutami tutti!"
+        }
+      ],
+      "proposedPatch": null
+    }
+  ],
+  "sourceCandidates": [
+    {
+      "type": "catalogue-candidate-not-integrated",
+      "file": "melunga_deploy/app.html",
+      "deck": "it",
+      "sourceIndex": 4020,
+      "sourceLevel": 7,
+      "study": "Prima lavoravo a Parigi.",
+      "native": "Avant, je travaillais à Paris.",
+      "phoneticField": "pf",
+      "phon": "pri-ma la-vo-ra-vo a pa-ri-dji",
+      "scope": "Seule la forme lavoravo reçoit ici une phrase autonome existante ; aucun pendant autonome prendevo/andavo/viaggiavo n’a été trouvé dans le catalogue. Ne pas considérer ce candidat comme affiché ou entraîné par le runtime courant."
+    }
+  ],
+  "interpretation": [
+    "Les huit propositions modifient uniquement ordre, liens et réserves éditoriaux ; aucune phrase, traduction, aide ou source n’est modifiée.",
+    "Un lien indique un ordre de reprise prévu ; il ne certifie ni acquisition ni préparation de toutes les variantes.",
+    "Aucune nouvelle affectation de niveau n’est proposée pour lisser la longueur."
+  ]
+}

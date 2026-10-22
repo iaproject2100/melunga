@@ -1,0 +1,4392 @@
+{
+  "pair": "fr-es",
+  "baseline": "99478df",
+  "status": "propositions-pour-revue-non-appliquees",
+  "sourcePolicy": "exact-studied-phrase-evidence-no-source-edit",
+  "applyTogether": [
+    "L7-fr-es-01",
+    "L7-fr-es-04"
+  ],
+  "summary": {
+    "unitCountAllLevels": 127,
+    "reviewedUnitRowsLevels2to9": 104,
+    "baselineLevelMoves": 18,
+    "amendedRows": 5,
+    "newProposedLevelMoves": 0,
+    "baselineGaps": 49,
+    "baselineGapUnitCount": 49,
+    "metric": "Moyenne des mots des quatre variantes entières ; même poids par variante et par unité, chaque unité ayant quatre variantes.",
+    "formula": "len(re.findall(r\"[^\\W\\d_]+(?:['’][^\\W\\d_]+)?\", study, re.U))",
+    "sourceMeans": {
+      "1": 3.1363636363636362,
+      "2": 4.423076923076923,
+      "3": 3.4583333333333335,
+      "4": 4.980769230769231,
+      "5": 4.634615384615385,
+      "6": 5.25,
+      "7": 6.730769230769231,
+      "8": 5.826923076923077,
+      "9": 5.634615384615385,
+      "10": 6.980769230769231
+    },
+    "proposed99478dfMeans": {
+      "1": 3.1363636363636362,
+      "2": 4.2368421052631575,
+      "3": 3.5714285714285716,
+      "4": 5.458333333333333,
+      "5": 4.634615384615385,
+      "6": 5.4,
+      "7": 6.791666666666667,
+      "8": 6.1875,
+      "9": 6.0227272727272725,
+      "10": 7.083333333333333
+    },
+    "descendingEdges": [
+      {
+        "leftLevel": 2,
+        "rightLevel": 3,
+        "beforeGapWords": 0.9647435897435899,
+        "afterGapWords": 0.6654135338345859,
+        "gapChangeWords": -0.29933005590900397,
+        "sameDescendingSign": true
+      },
+      {
+        "leftLevel": 4,
+        "rightLevel": 5,
+        "beforeGapWords": 0.3461538461538458,
+        "afterGapWords": 0.823717948717948,
+        "gapChangeWords": 0.4775641025641022,
+        "sameDescendingSign": true
+      },
+      {
+        "leftLevel": 7,
+        "rightLevel": 8,
+        "beforeGapWords": 0.9038461538461542,
+        "afterGapWords": 0.604166666666667,
+        "gapChangeWords": -0.2996794871794872,
+        "sameDescendingSign": true
+      },
+      {
+        "leftLevel": 8,
+        "rightLevel": 9,
+        "beforeGapWords": 0.19230769230769162,
+        "afterGapWords": 0.16477272727272751,
+        "gapChangeWords": -0.02753496503496411,
+        "sameDescendingSign": true
+      }
+    ],
+    "interpretation": "Les quatre signes descendants persistent ; trois écarts de longueur diminuent et celui de L4-L5 augmente. Les correctifs proposés portent sur les dépendances et des nouveautés non signalées, pas sur un aplatissement de courbe.",
+    "notClaimed": [
+      "progressivité mesurée de difficulté",
+      "résolution du taux de briques non préparées en dialogue",
+      "validation native",
+      "acquisition"
+    ],
+    "unchanged": [
+      "sources",
+      "phonétiques et lectures",
+      "répartition L1",
+      "conditions d’accès",
+      "unités et quatre variantes"
+    ]
+  },
+  "units": [
+    {
+      "unitId": "L2-fr-es-02",
+      "sourceLevel": 2,
+      "proposedLevel": 2,
+      "order": 1,
+      "decision": "retain",
+      "focus": "Préciser une quantité au marché",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L2-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Quiero tres entradas, por favor."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Quiero un kilo de naranjas, por favor."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Quiero medio kilo de tomates, por favor."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Quiero una botella de agua, por favor."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          7,
+          7,
+          7
+        ],
+        "unitMeanWords": 6.5,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L2-fr-es-09",
+      "sourceLevel": 2,
+      "proposedLevel": 2,
+      "order": 2,
+      "decision": "retain",
+      "focus": "Commander pour soi avec para mí",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L2-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Para mí, el pescado."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Para mí, la ensalada."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Para mí, una cerveza."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Para mí, lo mismo."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "unitMeanWords": 4.0,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L2-fr-es-10",
+      "sourceLevel": 2,
+      "proposedLevel": 2,
+      "order": 3,
+      "decision": "retain",
+      "focus": "Demander une quantité supplémentaire",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L2-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Un poco más de pan, por favor."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Un poco más de agua, por favor."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Un poco más de vino, por favor."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Un poco más de tiempo, por favor."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "unitMeanWords": 7.0,
+        "fixedFrameWords": 6,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L2-fr-es-01",
+      "sourceLevel": 2,
+      "proposedLevel": 2,
+      "order": 4,
+      "decision": "retain",
+      "focus": "Atténuer une demande avec quisiera",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L2-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Quisiera dos cafés, por favor."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Quisiera un poco de agua, por favor."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Quisiera la cuenta, por favor."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Quisiera una mesa para dos, por favor."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          7,
+          5,
+          7
+        ],
+        "unitMeanWords": 6.0,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L2-fr-es-03",
+      "sourceLevel": 2,
+      "proposedLevel": 2,
+      "order": 5,
+      "decision": "retain",
+      "focus": "Répondre à une question de localisation",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L2-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Está aquí."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Está allí."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Está cerca de la estación."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Está lejos del centro."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          2,
+          2,
+          5,
+          4
+        ],
+        "unitMeanWords": 3.25,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L4-fr-es-05",
+      "sourceLevel": 4,
+      "proposedLevel": 2,
+      "order": 6,
+      "decision": "retain",
+      "focus": "Dire où et avec qui l’on habite",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L4-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Vivo en Valencia."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Vivo en un piso pequeño."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Vivo con mi familia."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Vivo cerca del centro."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          3,
+          5,
+          4,
+          4
+        ],
+        "unitMeanWords": 4.0,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L4-fr-es-06",
+      "sourceLevel": 4,
+      "proposedLevel": 2,
+      "order": 7,
+      "decision": "retain",
+      "focus": "Dire où et comment l’on travaille",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L4-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Trabajo en un hospital."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Trabajo en una oficina."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Trabajo desde casa."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Trabajo de camarero."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          4,
+          3,
+          3
+        ],
+        "unitMeanWords": 3.5,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L4-fr-es-07",
+      "sourceLevel": 4,
+      "proposedLevel": 2,
+      "order": 8,
+      "decision": "retain",
+      "focus": "Présenter ses études",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L4-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Estudio medicina."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Estudio español por las tardes."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Estudio en la universidad."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Estudio derecho."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          2,
+          5,
+          4,
+          2
+        ],
+        "unitMeanWords": 3.25,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L4-fr-es-04",
+      "sourceLevel": 4,
+      "proposedLevel": 2,
+      "order": 9,
+      "decision": "retain",
+      "focus": "Parler de sa famille avec tengo",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L4-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Tengo un hermano."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Tengo dos hijos."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Tengo una hermana mayor."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Tengo un perro."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          3,
+          3,
+          4,
+          3
+        ],
+        "unitMeanWords": 3.25,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L4-fr-es-13",
+      "sourceLevel": 4,
+      "proposedLevel": 2,
+      "order": 10,
+      "decision": "retain",
+      "focus": "Dire son métier avec soy",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L4-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Soy enfermera."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Soy ingeniero."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Soy profesora de francés."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Soy estudiante de medicina."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          2,
+          2,
+          4,
+          4
+        ],
+        "unitMeanWords": 3.0,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L2-fr-es-06",
+      "sourceLevel": 2,
+      "proposedLevel": 2,
+      "order": 11,
+      "decision": "retain",
+      "focus": "Choisir la question de précision pertinente",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L2-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Cuál?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Cuándo?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Dónde?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿A qué hora?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "unitMeanWords": 1.5,
+        "fixedFrameWords": 0,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L2-fr-es-07",
+      "sourceLevel": 2,
+      "proposedLevel": 2,
+      "order": 12,
+      "decision": "retain",
+      "focus": "Demander l’existence d’un service avec hay",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L2-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Hay una farmacia cerca?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Hay wifi?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Hay mesa libre?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Hay un tren a Madrid esta tarde?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          2,
+          3,
+          7
+        ],
+        "unitMeanWords": 4.0,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L2-fr-es-11",
+      "sourceLevel": 2,
+      "proposedLevel": 2,
+      "order": 13,
+      "decision": "retain",
+      "focus": "Identifier une information de transport",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L2-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Cuál es el andén?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Cuál es la salida?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Cuál es el precio?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Cuál es mi asiento?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "unitMeanWords": 4.0,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L2-fr-es-13",
+      "sourceLevel": 2,
+      "proposedLevel": 2,
+      "order": 14,
+      "decision": "retain",
+      "focus": "Énoncer le moment d’un rendez-vous",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L2-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "La cita es a las diez."
+        },
+        {
+          "variantIndex": 1,
+          "study": "La cita es mañana por la tarde."
+        },
+        {
+          "variantIndex": 2,
+          "study": "La cita es el martes."
+        },
+        {
+          "variantIndex": 3,
+          "study": "La cita es ahora."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          7,
+          5,
+          4
+        ],
+        "unitMeanWords": 5.5,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L6-fr-es-10",
+      "sourceLevel": 6,
+      "proposedLevel": 2,
+      "order": 15,
+      "decision": "retain",
+      "focus": "Énoncer le moment ou le lieu de départ du train",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L6-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "El tren sale a las nueve."
+        },
+        {
+          "variantIndex": 1,
+          "study": "El tren sale dentro de diez minutos."
+        },
+        {
+          "variantIndex": 2,
+          "study": "El tren sale del andén dos."
+        },
+        {
+          "variantIndex": 3,
+          "study": "El tren sale mañana temprano."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          7,
+          6,
+          5
+        ],
+        "unitMeanWords": 6.0,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L2-fr-es-04",
+      "sourceLevel": 2,
+      "proposedLevel": 2,
+      "order": 16,
+      "decision": "retain",
+      "focus": "Proposer un moment de rencontre",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L2-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Nos vemos a las ocho."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Nos vemos esta noche."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Nos vemos mañana."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Nos vemos el lunes."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          4,
+          3,
+          4
+        ],
+        "unitMeanWords": 4.0,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L2-fr-es-05",
+      "sourceLevel": 2,
+      "proposedLevel": 2,
+      "order": 17,
+      "decision": "retain",
+      "focus": "Choisir une préférence",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L2-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Prefiero el té."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Prefiero la ventana."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Prefiero el tren."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Prefiero por la mañana."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          3,
+          3,
+          3,
+          4
+        ],
+        "unitMeanWords": 3.25,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L8-fr-es-09",
+      "sourceLevel": 8,
+      "proposedLevel": 2,
+      "order": 18,
+      "decision": "retain",
+      "focus": "Demander une durée supplémentaire",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L8-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Necesito una semana más."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Necesito dos días más."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Necesito un poco de tiempo más."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Necesito un mes más."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          4,
+          6,
+          4
+        ],
+        "unitMeanWords": 4.5,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L9-fr-es-10",
+      "sourceLevel": 9,
+      "proposedLevel": 2,
+      "order": 19,
+      "decision": "retain",
+      "focus": "Nommer un symptôme avec me duele",
+      "rationale": "Placement conservé après réexamen. Les précisions nominales, quantités et groupes temporels allongent des formules stables. Conserver cette fonction ne signifie pas que leur longueur mesure leur difficulté ; leurs groupes sont présentés entiers.",
+      "sourceFile": "melunga_deploy/content/conversation/L9-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Me duele la cabeza."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Me duele el estómago."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Me duele la garganta."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Me duele la espalda."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "unitMeanWords": 4.0,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.05263157894736842,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L3-fr-es-07",
+      "sourceLevel": 3,
+      "proposedLevel": 3,
+      "order": 1,
+      "decision": "retain",
+      "focus": "Accepter ou refuser comme expressions distinctes",
+      "rationale": "Placement conservé après réexamen. Les questions courtes espagnoles portent souvent une personne/conjugaison nouvelle malgré leur faible longueur. Le placement après les déclarations correspondantes est conservé ; la forme courte ne justifie pas un retour avant ses réponses.",
+      "sourceFile": "melunga_deploy/content/conversation/L3-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Sí, vale."
+        },
+        {
+          "variantIndex": 1,
+          "study": "No, gracias."
+        },
+        {
+          "variantIndex": 2,
+          "study": "No sé."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Lo siento, no puedo."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          2,
+          2,
+          2,
+          4
+        ],
+        "unitMeanWords": 2.5,
+        "fixedFrameWords": 0,
+        "weightAtProposedLevel": 0.07142857142857142,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L3-fr-es-04",
+      "sourceLevel": 3,
+      "proposedLevel": 3,
+      "order": 2,
+      "decision": "retain",
+      "focus": "Relancer après une information personnelle",
+      "rationale": "Placement conservé après réexamen. Les questions courtes espagnoles portent souvent une personne/conjugaison nouvelle malgré leur faible longueur. Le placement après les déclarations correspondantes est conservé ; la forme courte ne justifie pas un retour avant ses réponses.",
+      "sourceFile": "melunga_deploy/content/conversation/L3-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Yo soy de Lyon. ¿Y tú?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Yo trabajo en un hospital. ¿Y tú?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Yo vivo aquí. ¿Y tú?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "Yo estudio español. ¿Y tú?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          7,
+          5,
+          5
+        ],
+        "unitMeanWords": 5.75,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.07142857142857142,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L3-fr-es-08",
+      "sourceLevel": 3,
+      "proposedLevel": 3,
+      "order": 3,
+      "decision": "retain",
+      "focus": "Poser une question fermée avec tienes",
+      "rationale": "Placement conservé après réexamen. Les questions courtes espagnoles portent souvent une personne/conjugaison nouvelle malgré leur faible longueur. Le placement après les déclarations correspondantes est conservé ; la forme courte ne justifie pas un retour avant ses réponses.",
+      "sourceFile": "melunga_deploy/content/conversation/L3-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Tienes tiempo?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Tienes hambre?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Tienes hermanos?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Tienes coche?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "unitMeanWords": 2.0,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.07142857142857142,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L3-fr-es-03",
+      "sourceLevel": 3,
+      "proposedLevel": 3,
+      "order": 4,
+      "decision": "retain",
+      "focus": "Poser une question ouverte située",
+      "rationale": "Placement conservé après réexamen. Les questions courtes espagnoles portent souvent une personne/conjugaison nouvelle malgré leur faible longueur. Le placement après les déclarations correspondantes est conservé ; la forme courte ne justifie pas un retour avant ses réponses.",
+      "sourceFile": "melunga_deploy/content/conversation/L3-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Qué haces?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Qué quieres?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Qué estudias?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Qué recomienda?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "unitMeanWords": 2.0,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.07142857142857142,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L3-fr-es-11",
+      "sourceLevel": 3,
+      "proposedLevel": 3,
+      "order": 5,
+      "decision": "retain",
+      "focus": "Interroger sur le lieu de vie ou d’activité",
+      "rationale": "Placement conservé après réexamen. Les questions courtes espagnoles portent souvent une personne/conjugaison nouvelle malgré leur faible longueur. Le placement après les déclarations correspondantes est conservé ; la forme courte ne justifie pas un retour avant ses réponses.",
+      "sourceFile": "melunga_deploy/content/conversation/L3-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Dónde vives?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Dónde trabajas?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Dónde está el baño?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Dónde quedamos?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          2,
+          2,
+          4,
+          2
+        ],
+        "unitMeanWords": 2.5,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.07142857142857142,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L2-fr-es-08",
+      "sourceLevel": 2,
+      "proposedLevel": 3,
+      "order": 6,
+      "decision": "retain",
+      "focus": "Demander l’heure d’un événement",
+      "rationale": "Placement conservé après réexamen. Les questions courtes espagnoles portent souvent une personne/conjugaison nouvelle malgré leur faible longueur. Le placement après les déclarations correspondantes est conservé ; la forme courte ne justifie pas un retour avant ses réponses.",
+      "sourceFile": "melunga_deploy/content/conversation/L2-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿A qué hora sale el tren?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿A qué hora abre la tienda?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿A qué hora cierra el museo?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿A qué hora empieza la película?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "unitMeanWords": 6.0,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.07142857142857142,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L2-fr-es-12",
+      "sourceLevel": 2,
+      "proposedLevel": 3,
+      "order": 7,
+      "decision": "retain",
+      "focus": "Demander quand un événement a lieu",
+      "rationale": "Placement conservé après réexamen. Les questions courtes espagnoles portent souvent une personne/conjugaison nouvelle malgré leur faible longueur. Le placement après les déclarations correspondantes est conservé ; la forme courte ne justifie pas un retour avant ses réponses.",
+      "sourceFile": "melunga_deploy/content/conversation/L2-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Cuándo llega?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Cuándo abren?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Cuándo es la cita?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Cuándo vuelve?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          2,
+          2,
+          4,
+          2
+        ],
+        "unitMeanWords": 2.5,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.07142857142857142,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L3-fr-es-01",
+      "sourceLevel": 3,
+      "proposedLevel": 3,
+      "order": 8,
+      "decision": "retain",
+      "focus": "Demander un service à un proche avec puedes",
+      "rationale": "Placement conservé après réexamen. Les questions courtes espagnoles portent souvent une personne/conjugaison nouvelle malgré leur faible longueur. Le placement après les déclarations correspondantes est conservé ; la forme courte ne justifie pas un retour avant ses réponses.",
+      "sourceFile": "melunga_deploy/content/conversation/L3-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Puedes repetir?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Puedes hablar más despacio?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Puedes ayudarme?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Puedes esperar un momento?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          2,
+          4,
+          2,
+          4
+        ],
+        "unitMeanWords": 3.0,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.07142857142857142,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L3-fr-es-02",
+      "sourceLevel": 3,
+      "proposedLevel": 3,
+      "order": 9,
+      "decision": "retain",
+      "focus": "Demander un service à un inconnu avec puede",
+      "rationale": "Placement conservé après réexamen. Les questions courtes espagnoles portent souvent une personne/conjugaison nouvelle malgré leur faible longueur. Le placement après les déclarations correspondantes est conservé ; la forme courte ne justifie pas un retour avant ses réponses.",
+      "sourceFile": "melunga_deploy/content/conversation/L3-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Puede escribirlo, por favor?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Puede repetirlo, por favor?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Puede decirme dónde está el banco, por favor?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Puede llamar a un taxi, por favor?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          4,
+          8,
+          7
+        ],
+        "unitMeanWords": 5.75,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.07142857142857142,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L3-fr-es-05",
+      "sourceLevel": 3,
+      "proposedLevel": 3,
+      "order": 10,
+      "decision": "retain",
+      "focus": "Signaler précisément une incompréhension",
+      "rationale": "Placement conservé après réexamen. Les questions courtes espagnoles portent souvent une personne/conjugaison nouvelle malgré leur faible longueur. Le placement après les déclarations correspondantes est conservé ; la forme courte ne justifie pas un retour avant ses réponses.",
+      "sourceFile": "melunga_deploy/content/conversation/L3-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Perdona, no entiendo esta palabra."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Perdona, no entiendo la pregunta."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Perdona, no entiendo bien."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Perdona, no entiendo el menú."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          5,
+          4,
+          5
+        ],
+        "unitMeanWords": 4.75,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.07142857142857142,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L3-fr-es-09",
+      "sourceLevel": 3,
+      "proposedLevel": 3,
+      "order": 11,
+      "decision": "retain",
+      "focus": "Demander comment avec plusieurs expressions entières",
+      "rationale": "Placement conservé après réexamen. Les questions courtes espagnoles portent souvent une personne/conjugaison nouvelle malgré leur faible longueur. Le placement après les déclarations correspondantes est conservé ; la forme courte ne justifie pas un retour avant ses réponses.",
+      "sourceFile": "melunga_deploy/content/conversation/L3-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Cómo se dice esto en español?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Cómo se escribe?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Cómo estás?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Cómo se llega al centro?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          3,
+          2,
+          5
+        ],
+        "unitMeanWords": 4.0,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.07142857142857142,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L3-fr-es-06",
+      "sourceLevel": 3,
+      "proposedLevel": 3,
+      "order": 12,
+      "decision": "retain",
+      "focus": "Proposer une activité comme expression entière",
+      "rationale": "Placement conservé après réexamen. Les questions courtes espagnoles portent souvent une personne/conjugaison nouvelle malgré leur faible longueur. Le placement après les déclarations correspondantes est conservé ; la forme courte ne justifie pas un retour avant ses réponses.",
+      "sourceFile": "melunga_deploy/content/conversation/L3-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Tomamos un café?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Comemos juntos?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Vamos al cine?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Quedamos mañana?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          3,
+          2,
+          3,
+          2
+        ],
+        "unitMeanWords": 2.5,
+        "fixedFrameWords": 0,
+        "weightAtProposedLevel": 0.07142857142857142,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L3-fr-es-10",
+      "sourceLevel": 3,
+      "proposedLevel": 3,
+      "order": 13,
+      "decision": "retain",
+      "focus": "Demander pourquoi",
+      "rationale": "Placement conservé après réexamen. Les questions courtes espagnoles portent souvent une personne/conjugaison nouvelle malgré leur faible longueur. Le placement après les déclarations correspondantes est conservé ; la forme courte ne justifie pas un retour avant ses réponses.",
+      "sourceFile": "melunga_deploy/content/conversation/L3-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Por qué estudias español?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Por qué no vienes?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Por qué está cerrado?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Por qué no?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          4,
+          4,
+          3
+        ],
+        "unitMeanWords": 3.75,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.07142857142857142,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L3-fr-es-12",
+      "sourceLevel": 3,
+      "proposedLevel": 3,
+      "order": 14,
+      "decision": "retain",
+      "focus": "Dire quelles langues on parle",
+      "rationale": "Placement conservé après réexamen. Les questions courtes espagnoles portent souvent une personne/conjugaison nouvelle malgré leur faible longueur. Le placement après les déclarations correspondantes est conservé ; la forme courte ne justifie pas un retour avant ses réponses.",
+      "sourceFile": "melunga_deploy/content/conversation/L3-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Hablo francés."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Hablo un poco de español."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Hablo inglés."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Hablo tres idiomas."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          2,
+          5,
+          2,
+          3
+        ],
+        "unitMeanWords": 3.0,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.07142857142857142,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L4-fr-es-11",
+      "sourceLevel": 4,
+      "proposedLevel": 4,
+      "order": 1,
+      "decision": "retain",
+      "focus": "Dire ce qu’il y a dans son quartier",
+      "rationale": "Placement conservé après réexamen. Les repères temporels et spatiaux répétés, puis les objets de la routine, rendent ces présents descriptifs longs. Les cinq déclarations personnelles simples sont déjà avancées en L2 ; on ne les réintroduit pas ici pour réduire artificiellement la moyenne.",
+      "sourceFile": "melunga_deploy/content/conversation/L4-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "En mi barrio hay un mercado."
+        },
+        {
+          "variantIndex": 1,
+          "study": "En mi barrio hay muchos bares."
+        },
+        {
+          "variantIndex": 2,
+          "study": "En mi barrio hay un parque."
+        },
+        {
+          "variantIndex": 3,
+          "study": "En mi barrio hay una parada de metro."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          6,
+          6,
+          8
+        ],
+        "unitMeanWords": 6.5,
+        "fixedFrameWords": 4,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L4-fr-es-10",
+      "sourceLevel": 4,
+      "proposedLevel": 4,
+      "order": 2,
+      "decision": "retain",
+      "focus": "Décrire son logement avec tiene",
+      "rationale": "Placement conservé après réexamen. Les repères temporels et spatiaux répétés, puis les objets de la routine, rendent ces présents descriptifs longs. Les cinq déclarations personnelles simples sont déjà avancées en L2 ; on ne les réintroduit pas ici pour réduire artificiellement la moyenne.",
+      "sourceFile": "melunga_deploy/content/conversation/L4-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Mi piso tiene dos habitaciones."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Mi piso tiene un balcón."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Mi piso tiene mucha luz."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Mi piso tiene una cocina grande."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          5,
+          5,
+          6
+        ],
+        "unitMeanWords": 5.25,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L4-fr-es-09",
+      "sourceLevel": 4,
+      "proposedLevel": 4,
+      "order": 3,
+      "decision": "retain",
+      "focus": "Parler du lieu de vie d’un proche",
+      "rationale": "Placement conservé après réexamen. Les repères temporels et spatiaux répétés, puis les objets de la routine, rendent ces présents descriptifs longs. Les cinq déclarations personnelles simples sont déjà avancées en L2 ; on ne les réintroduit pas ici pour réduire artificiellement la moyenne.",
+      "sourceFile": "melunga_deploy/content/conversation/L4-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Mi hermano vive en Madrid."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Mi madre vive en Madrid."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Mi hijo mayor vive en Madrid."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Mi abuela vive en Madrid."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          5,
+          6,
+          5
+        ],
+        "unitMeanWords": 5.25,
+        "fixedFrameWords": 4,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L4-fr-es-01",
+      "sourceLevel": 4,
+      "proposedLevel": 4,
+      "order": 4,
+      "decision": "retain",
+      "focus": "Situer une habitude avec normalmente",
+      "rationale": "Placement conservé après réexamen. Les repères temporels et spatiaux répétés, puis les objets de la routine, rendent ces présents descriptifs longs. Les cinq déclarations personnelles simples sont déjà avancées en L2 ; on ne les réintroduit pas ici pour réduire artificiellement la moyenne.",
+      "sourceFile": "melunga_deploy/content/conversation/L4-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Normalmente me levanto a las siete."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Normalmente como en casa."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Normalmente trabajo hasta las seis."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Normalmente ceno tarde."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          4,
+          5,
+          3
+        ],
+        "unitMeanWords": 4.5,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L4-fr-es-02",
+      "sourceLevel": 4,
+      "proposedLevel": 4,
+      "order": 5,
+      "decision": "retain",
+      "focus": "Décrire une activité du matin",
+      "rationale": "Placement conservé après réexamen. Les repères temporels et spatiaux répétés, puis les objets de la routine, rendent ces présents descriptifs longs. Les cinq déclarations personnelles simples sont déjà avancées en L2 ; on ne les réintroduit pas ici pour réduire artificiellement la moyenne.",
+      "sourceFile": "melunga_deploy/content/conversation/L4-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Por la mañana desayuno café con leche."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Por la mañana voy al trabajo en metro."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Por la mañana llevo a los niños al colegio."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Por la mañana hago deporte."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          7,
+          8,
+          9,
+          5
+        ],
+        "unitMeanWords": 7.25,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L4-fr-es-03",
+      "sourceLevel": 4,
+      "proposedLevel": 4,
+      "order": 6,
+      "decision": "retain",
+      "focus": "Décrire une activité du soir",
+      "rationale": "Placement conservé après réexamen. Les repères temporels et spatiaux répétés, puis les objets de la routine, rendent ces présents descriptifs longs. Les cinq déclarations personnelles simples sont déjà avancées en L2 ; on ne les réintroduit pas ici pour réduire artificiellement la moyenne.",
+      "sourceFile": "melunga_deploy/content/conversation/L4-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Por la noche veo la tele."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Por la noche leo un poco."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Por la noche salgo con amigos."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Por la noche me acuesto pronto."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "unitMeanWords": 6.0,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L4-fr-es-12",
+      "sourceLevel": 4,
+      "proposedLevel": 4,
+      "order": 7,
+      "decision": "retain",
+      "focus": "Décrire une activité de week-end",
+      "rationale": "Placement conservé après réexamen. Les repères temporels et spatiaux répétés, puis les objets de la routine, rendent ces présents descriptifs longs. Les cinq déclarations personnelles simples sont déjà avancées en L2 ; on ne les réintroduit pas ici pour réduire artificiellement la moyenne.",
+      "sourceFile": "melunga_deploy/content/conversation/L4-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Los fines de semana descanso."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Los fines de semana voy a la playa."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Los fines de semana veo a mi familia."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Los fines de semana cocino para mis amigos."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          8,
+          8,
+          8
+        ],
+        "unitMeanWords": 7.25,
+        "fixedFrameWords": 4,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L4-fr-es-08",
+      "sourceLevel": 4,
+      "proposedLevel": 4,
+      "order": 8,
+      "decision": "retain",
+      "focus": "Préciser une fréquence",
+      "rationale": "Placement conservé après réexamen. Les repères temporels et spatiaux répétés, puis les objets de la routine, rendent ces présents descriptifs longs. Les cinq déclarations personnelles simples sont déjà avancées en L2 ; on ne les réintroduit pas ici pour réduire artificiellement la moyenne.",
+      "sourceFile": "melunga_deploy/content/conversation/L4-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Todos los días voy al gimnasio."
+        },
+        {
+          "variantIndex": 1,
+          "study": "A menudo voy al gimnasio."
+        },
+        {
+          "variantIndex": 2,
+          "study": "A veces voy al gimnasio."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Los fines de semana voy al gimnasio."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          5,
+          5,
+          7
+        ],
+        "unitMeanWords": 5.75,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L8-fr-es-01",
+      "sourceLevel": 8,
+      "proposedLevel": 4,
+      "order": 9,
+      "decision": "retain",
+      "focus": "Demander un service poliment avec podría",
+      "rationale": "Placement conservé après réexamen. Les repères temporels et spatiaux répétés, puis les objets de la routine, rendent ces présents descriptifs longs. Les cinq déclarations personnelles simples sont déjà avancées en L2 ; on ne les réintroduit pas ici pour réduire artificiellement la moyenne.",
+      "sourceFile": "melunga_deploy/content/conversation/L8-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Podría ayudarme, por favor?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Podría enviarme la factura, por favor?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Podría hacerme un descuento, por favor?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Podría darme más tiempo, por favor?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          6,
+          6,
+          6
+        ],
+        "unitMeanWords": 5.5,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L8-fr-es-02",
+      "sourceLevel": 8,
+      "proposedLevel": 4,
+      "order": 10,
+      "decision": "retain",
+      "focus": "Demander une permission avec podría",
+      "rationale": "Placement conservé après réexamen. Les repères temporels et spatiaux répétés, puis les objets de la routine, rendent ces présents descriptifs longs. Les cinq déclarations personnelles simples sont déjà avancées en L2 ; on ne les réintroduit pas ici pour réduire artificiellement la moyenne.",
+      "sourceFile": "melunga_deploy/content/conversation/L8-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Podría pagar con tarjeta?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Podría cambiar la fecha?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Podría ver otro modelo?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Podría hablar con el responsable?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          4,
+          4,
+          5
+        ],
+        "unitMeanWords": 4.25,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L8-fr-es-13",
+      "sourceLevel": 8,
+      "proposedLevel": 4,
+      "order": 11,
+      "decision": "retain",
+      "focus": "Présenter le but d’une démarche avec vengo a",
+      "rationale": "Placement conservé après réexamen. Les repères temporels et spatiaux répétés, puis les objets de la routine, rendent ces présents descriptifs longs. Les cinq déclarations personnelles simples sont déjà avancées en L2 ; on ne les réintroduit pas ici pour réduire artificiellement la moyenne.",
+      "sourceFile": "melunga_deploy/content/conversation/L8-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Vengo a renovar mi tarjeta."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Vengo a recoger un documento."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Vengo a pedir una cita."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Vengo a presentar una reclamación."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "unitMeanWords": 5.0,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L9-fr-es-13",
+      "sourceLevel": 9,
+      "proposedLevel": 4,
+      "order": 12,
+      "decision": "retain",
+      "focus": "Dire ce qui manque avec falta",
+      "rationale": "Placement conservé après réexamen. Les repères temporels et spatiaux répétés, puis les objets de la routine, rendent ces présents descriptifs longs. Les cinq déclarations personnelles simples sont déjà avancées en L2 ; on ne les réintroduit pas ici pour réduire artificiellement la moyenne.",
+      "sourceFile": "melunga_deploy/content/conversation/L9-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Falta una firma."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Falta un documento."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Falta la fecha."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Falta el sello."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "unitMeanWords": 3.0,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L5-fr-es-01",
+      "sourceLevel": 5,
+      "proposedLevel": 5,
+      "order": 1,
+      "decision": "retain",
+      "focus": "Raconter une action achevée avec ayer",
+      "rationale": "Placement conservé après réexamen. Le prétérit et les réactions au récit sont fréquemment courts. Les expressions de réaction restent avec ce réemploi discursif ; les allonger ou les déplacer uniquement pour rendre la moyenne croissante serait une autre opération.",
+      "sourceFile": "melunga_deploy/content/conversation/L5-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Ayer trabajé mucho."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Ayer comí con mis padres."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Ayer vi una película."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Ayer no salí de casa."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          3,
+          5,
+          4,
+          5
+        ],
+        "unitMeanWords": 4.25,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.07692307692307693,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L5-fr-es-02",
+      "sourceLevel": 5,
+      "proposedLevel": 5,
+      "order": 2,
+      "decision": "retain",
+      "focus": "Dire où l’on est allé avec fui",
+      "rationale": "Placement conservé après réexamen. Le prétérit et les réactions au récit sont fréquemment courts. Les expressions de réaction restent avec ce réemploi discursif ; les allonger ou les déplacer uniquement pour rendre la moyenne croissante serait une autre opération.",
+      "sourceFile": "melunga_deploy/content/conversation/L5-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Fui a la playa."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Fui al médico."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Fui a Barcelona."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Fui al cine con Ana."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          3,
+          3,
+          5
+        ],
+        "unitMeanWords": 3.75,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.07692307692307693,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L5-fr-es-03",
+      "sourceLevel": 5,
+      "proposedLevel": 5,
+      "order": 3,
+      "decision": "retain",
+      "focus": "Situer une présence passée avec estuve",
+      "rationale": "Placement conservé après réexamen. Le prétérit et les réactions au récit sont fréquemment courts. Les expressions de réaction restent avec ce réemploi discursif ; les allonger ou les déplacer uniquement pour rendre la moyenne croissante serait une autre opération.",
+      "sourceFile": "melunga_deploy/content/conversation/L5-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "La semana pasada estuve en Madrid."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Hace dos días estuve en Madrid."
+        },
+        {
+          "variantIndex": 2,
+          "study": "El mes pasado estuve en Madrid."
+        },
+        {
+          "variantIndex": 3,
+          "study": "El año pasado estuve en Madrid."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "unitMeanWords": 6.0,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.07692307692307693,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L5-fr-es-11",
+      "sourceLevel": 5,
+      "proposedLevel": 5,
+      "order": 4,
+      "decision": "retain",
+      "focus": "Raconter sa matinée de travail",
+      "rationale": "Placement conservé après réexamen. Le prétérit et les réactions au récit sont fréquemment courts. Les expressions de réaction restent avec ce réemploi discursif ; les allonger ou les déplacer uniquement pour rendre la moyenne croissante serait une autre opération.",
+      "sourceFile": "melunga_deploy/content/conversation/L5-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Esta mañana llegué tarde al trabajo."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Esta mañana tuve una reunión."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Esta mañana perdí el autobús."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Esta mañana hablé con el jefe."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          5,
+          5,
+          6
+        ],
+        "unitMeanWords": 5.5,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.07692307692307693,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L5-fr-es-09",
+      "sourceLevel": 5,
+      "proposedLevel": 5,
+      "order": 5,
+      "decision": "retain",
+      "focus": "Raconter ses vacances",
+      "rationale": "Placement conservé après réexamen. Le prétérit et les réactions au récit sont fréquemment courts. Les expressions de réaction restent avec ce réemploi discursif ; les allonger ou les déplacer uniquement pour rendre la moyenne croissante serait une autre opération.",
+      "sourceFile": "melunga_deploy/content/conversation/L5-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "En las vacaciones viajamos a Portugal."
+        },
+        {
+          "variantIndex": 1,
+          "study": "En las vacaciones descansé mucho."
+        },
+        {
+          "variantIndex": 2,
+          "study": "En las vacaciones conocí a gente nueva."
+        },
+        {
+          "variantIndex": 3,
+          "study": "En las vacaciones hizo muy buen tiempo."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          5,
+          7,
+          7
+        ],
+        "unitMeanWords": 6.25,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.07692307692307693,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L5-fr-es-08",
+      "sourceLevel": 5,
+      "proposedLevel": 5,
+      "order": 6,
+      "decision": "retain",
+      "focus": "Poursuivre le récit avec después",
+      "rationale": "Placement conservé après réexamen. Le prétérit et les réactions au récit sont fréquemment courts. Les expressions de réaction restent avec ce réemploi discursif ; les allonger ou les déplacer uniquement pour rendre la moyenne croissante serait une autre opération.",
+      "sourceFile": "melunga_deploy/content/conversation/L5-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Después volvimos a casa."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Después llamé a mi madre."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Después me acosté."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Después tomamos un café."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          5,
+          3,
+          4
+        ],
+        "unitMeanWords": 4.0,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.07692307692307693,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L5-fr-es-07",
+      "sourceLevel": 5,
+      "proposedLevel": 5,
+      "order": 7,
+      "decision": "retain",
+      "focus": "Enchaîner deux actions passées",
+      "rationale": "Placement conservé après réexamen. Le prétérit et les réactions au récit sont fréquemment courts. Les expressions de réaction restent avec ce réemploi discursif ; les allonger ou les déplacer uniquement pour rendre la moyenne croissante serait une autre opération.",
+      "sourceFile": "melunga_deploy/content/conversation/L5-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Primero visitamos el museo y luego fuimos a cenar."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Primero dimos un paseo y luego fuimos a cenar."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Primero tomamos algo y luego fuimos a cenar."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Primero fuimos de compras y luego fuimos a cenar."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          9,
+          9,
+          8,
+          9
+        ],
+        "unitMeanWords": 8.75,
+        "fixedFrameWords": 6,
+        "weightAtProposedLevel": 0.07692307692307693,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L5-fr-es-10",
+      "sourceLevel": 5,
+      "proposedLevel": 5,
+      "order": 8,
+      "decision": "retain",
+      "focus": "Demander ce que l’autre a fait",
+      "rationale": "Placement conservé après réexamen. Le prétérit et les réactions au récit sont fréquemment courts. Les expressions de réaction restent avec ce réemploi discursif ; les allonger ou les déplacer uniquement pour rendre la moyenne croissante serait une autre opération.",
+      "sourceFile": "melunga_deploy/content/conversation/L5-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Qué hiciste ayer?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Qué hiciste el fin de semana?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Qué hiciste anoche?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Qué hiciste en Navidad?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          3,
+          6,
+          3,
+          4
+        ],
+        "unitMeanWords": 4.0,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.07692307692307693,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L5-fr-es-13",
+      "sourceLevel": 5,
+      "proposedLevel": 5,
+      "order": 9,
+      "decision": "retain",
+      "focus": "Dire ce que l’on a particulièrement aimé",
+      "rationale": "Placement conservé après réexamen. Le prétérit et les réactions au récit sont fréquemment courts. Les expressions de réaction restent avec ce réemploi discursif ; les allonger ou les déplacer uniquement pour rendre la moyenne croissante serait une autre opération.",
+      "sourceFile": "melunga_deploy/content/conversation/L5-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Me encantó el viaje."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Me encantó la playa."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Me encantó el museo."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Me encantó la fiesta."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "unitMeanWords": 4.0,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.07692307692307693,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L5-fr-es-12",
+      "sourceLevel": 5,
+      "proposedLevel": 5,
+      "order": 10,
+      "decision": "retain",
+      "focus": "Demander si un événement a plu",
+      "rationale": "Placement conservé après réexamen. Le prétérit et les réactions au récit sont fréquemment courts. Les expressions de réaction restent avec ce réemploi discursif ; les allonger ou les déplacer uniquement pour rendre la moyenne croissante serait une autre opération.",
+      "sourceFile": "melunga_deploy/content/conversation/L5-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Te gustó la película?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Te gustó la ciudad?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Te gustó el concierto?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Te gustó la comida?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "unitMeanWords": 4.0,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.07692307692307693,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L5-fr-es-04",
+      "sourceLevel": 5,
+      "proposedLevel": 5,
+      "order": 11,
+      "decision": "retain",
+      "focus": "Demander des nouvelles",
+      "rationale": "Placement conservé après réexamen. Le prétérit et les réactions au récit sont fréquemment courts. Les expressions de réaction restent avec ce réemploi discursif ; les allonger ou les déplacer uniquement pour rendre la moyenne croissante serait une autre opération.",
+      "sourceFile": "melunga_deploy/content/conversation/L5-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Qué tal?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Qué hay de nuevo?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Cómo te fue?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Qué tal el fin de semana?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          2,
+          4,
+          3,
+          6
+        ],
+        "unitMeanWords": 3.75,
+        "fixedFrameWords": 0,
+        "weightAtProposedLevel": 0.07692307692307693,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L5-fr-es-05",
+      "sourceLevel": 5,
+      "proposedLevel": 5,
+      "order": 12,
+      "decision": "retain",
+      "focus": "Répondre à des nouvelles puis relancer",
+      "rationale": "Placement conservé après réexamen. Le prétérit et les réactions au récit sont fréquemment courts. Les expressions de réaction restent avec ce réemploi discursif ; les allonger ou les déplacer uniquement pour rendre la moyenne croissante serait une autre opération.",
+      "sourceFile": "melunga_deploy/content/conversation/L5-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Bien, ¿y tú?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Muy bien, ¿y tú?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Regular, ¿y tú?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "Cansado, pero bien, ¿y tú?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          3,
+          4,
+          3,
+          5
+        ],
+        "unitMeanWords": 3.75,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.07692307692307693,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L5-fr-es-06",
+      "sourceLevel": 5,
+      "proposedLevel": 5,
+      "order": 13,
+      "decision": "retain",
+      "focus": "Réagir à une nouvelle avec des expressions distinctes",
+      "rationale": "Placement conservé après réexamen. Le prétérit et les réactions au récit sont fréquemment courts. Les expressions de réaction restent avec ce réemploi discursif ; les allonger ou les déplacer uniquement pour rendre la moyenne croissante serait une autre opération.",
+      "sourceFile": "melunga_deploy/content/conversation/L5-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¡Qué bien!"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¡Qué pena!"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿De verdad?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¡No me digas!"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          2,
+          2,
+          2,
+          3
+        ],
+        "unitMeanWords": 2.25,
+        "fixedFrameWords": 0,
+        "weightAtProposedLevel": 0.07692307692307693,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L7-fr-es-07",
+      "sourceLevel": 7,
+      "proposedLevel": 6,
+      "order": 1,
+      "decision": "retain",
+      "focus": "Décrire une ancienne habitude à l’imparfait",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L7-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Antes fumaba, ahora ya no."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Antes vivía en París, ahora ya no."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Antes trabajaba en una tienda, ahora ya no."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Antes comía mucha carne, ahora ya no."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          7,
+          8,
+          7
+        ],
+        "unitMeanWords": 6.75,
+        "fixedFrameWords": 4,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L7-fr-es-08",
+      "sourceLevel": 7,
+      "proposedLevel": 6,
+      "order": 2,
+      "decision": "retain",
+      "focus": "Comparer sa pratique actuelle à avant",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L7-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Ahora cocino más que antes."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Ahora salgo más que antes."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Ahora leo más que antes."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Ahora descanso más que antes."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "unitMeanWords": 5.0,
+        "fixedFrameWords": 4,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L6-fr-es-01",
+      "sourceLevel": 6,
+      "proposedLevel": 6,
+      "order": 3,
+      "decision": "retain",
+      "focus": "Présenter un projet avec voy a",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L6-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Voy a viajar a Italia en verano."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Voy a cambiar de trabajo."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Voy a estudiar español este año."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Voy a hacer la compra esta tarde."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          7,
+          5,
+          6,
+          7
+        ],
+        "unitMeanWords": 6.25,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L6-fr-es-13",
+      "sourceLevel": 6,
+      "proposedLevel": 6,
+      "order": 4,
+      "decision": "retain",
+      "focus": "Présenter une intention avec pienso et un infinitif",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L6-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Pienso quedarme en casa."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Pienso ir en coche."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Pienso invitar a Marta."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Pienso volver pronto."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          4,
+          4,
+          3
+        ],
+        "unitMeanWords": 3.75,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L6-fr-es-09",
+      "sourceLevel": 6,
+      "proposedLevel": 6,
+      "order": 5,
+      "decision": "retain",
+      "focus": "Exprimer une obligation avec tengo que",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L6-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Tengo que trabajar el sábado."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Tengo que ir al dentista."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Tengo que coger el tren de las ocho."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Tengo que terminar un informe."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          5,
+          8,
+          5
+        ],
+        "unitMeanWords": 5.75,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L6-fr-es-11",
+      "sourceLevel": 6,
+      "proposedLevel": 6,
+      "order": 6,
+      "decision": "retain",
+      "focus": "Demander les projets de l’autre",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L6-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Qué vas a hacer este fin de semana?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Qué vas a hacer esta noche?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Qué vas a hacer en vacaciones?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Qué vas a hacer después del trabajo?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          8,
+          6,
+          6,
+          7
+        ],
+        "unitMeanWords": 6.75,
+        "fixedFrameWords": 4,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L6-fr-es-06",
+      "sourceLevel": 6,
+      "proposedLevel": 6,
+      "order": 7,
+      "decision": "retain",
+      "focus": "Exprimer un souhait avec me gustaría",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L6-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Me gustaría aprender a cocinar."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Me gustaría visitar Granada."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Me gustaría trabajar en el extranjero."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Me gustaría tener más tiempo libre."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          4,
+          6,
+          6
+        ],
+        "unitMeanWords": 5.25,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L6-fr-es-02",
+      "sourceLevel": 6,
+      "proposedLevel": 6,
+      "order": 8,
+      "decision": "retain",
+      "focus": "Proposer une activité avec te apetece",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L6-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Te apetece ir al cine?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Te apetece cenar fuera?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Te apetece dar un paseo?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Te apetece tomar algo?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          4,
+          5,
+          4
+        ],
+        "unitMeanWords": 4.5,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L6-fr-es-08",
+      "sourceLevel": 6,
+      "proposedLevel": 6,
+      "order": 9,
+      "decision": "retain",
+      "focus": "Accepter une proposition",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L6-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¡Vale, genial!"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Me parece bien."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Sí, me apetece mucho."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Buena idea."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          2,
+          3,
+          4,
+          2
+        ],
+        "unitMeanWords": 2.75,
+        "fixedFrameWords": 0,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L6-fr-es-05",
+      "sourceLevel": 6,
+      "proposedLevel": 6,
+      "order": 10,
+      "decision": "retain",
+      "focus": "Refuser puis proposer une autre possibilité",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L6-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "No puedo, pero mañana sí."
+        },
+        {
+          "variantIndex": 1,
+          "study": "No puedo, pero podemos quedar el viernes."
+        },
+        {
+          "variantIndex": 2,
+          "study": "No puedo, pero te llamo luego."
+        },
+        {
+          "variantIndex": 3,
+          "study": "No puedo, pero otro día me apunto."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          7,
+          6,
+          7
+        ],
+        "unitMeanWords": 6.25,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L6-fr-es-04",
+      "sourceLevel": 6,
+      "proposedLevel": 6,
+      "order": 11,
+      "decision": "retain",
+      "focus": "Fixer le moment ou le lieu d’une rencontre",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L6-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Quedamos el sábado a las diez."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Quedamos delante de la estación."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Quedamos en la puerta del cine."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Quedamos el domingo por la tarde."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          5,
+          6,
+          6
+        ],
+        "unitMeanWords": 5.75,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L6-fr-es-12",
+      "sourceLevel": 6,
+      "proposedLevel": 6,
+      "order": 12,
+      "decision": "retain",
+      "focus": "Préciser les modalités d’une réunion",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L6-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "La reunión es el lunes a las nueve."
+        },
+        {
+          "variantIndex": 1,
+          "study": "La reunión es en la sala grande."
+        },
+        {
+          "variantIndex": 2,
+          "study": "La reunión es por videollamada."
+        },
+        {
+          "variantIndex": 3,
+          "study": "La reunión es la semana que viene."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          8,
+          7,
+          5,
+          7
+        ],
+        "unitMeanWords": 6.75,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L6-fr-es-07",
+      "sourceLevel": 6,
+      "proposedLevel": 6,
+      "order": 13,
+      "decision": "retain",
+      "focus": "Confirmer un rendez-vous avec des expressions distinctes",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L6-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Entonces, ¿quedamos así?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Perfecto, nos vemos el sábado."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Te confirmo esta noche."
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Sigue en pie lo de mañana?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          3,
+          5,
+          4,
+          6
+        ],
+        "unitMeanWords": 4.5,
+        "fixedFrameWords": 0,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L8-fr-es-07",
+      "sourceLevel": 8,
+      "proposedLevel": 6,
+      "order": 14,
+      "decision": "retain",
+      "focus": "S’excuser puis annoncer une réparation avec voy a",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L8-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Lo siento, voy a arreglarlo ahora mismo."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Lo siento, voy a llamar al técnico."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Lo siento, voy a devolverle el dinero."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Lo siento, voy a cambiarlo por otro."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "unitMeanWords": 7.0,
+        "fixedFrameWords": 4,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L6-fr-es-03",
+      "sourceLevel": 6,
+      "proposedLevel": 6,
+      "order": 15,
+      "decision": "retain",
+      "focus": "Suggérer un arrangement avec podríamos",
+      "rationale": "Placement conservé après réexamen. Les projets, invitations, refus et alternatives forment la préparation fonctionnelle de la négociation. La place reste définie par ce réemploi, sans imposer une longueur minimale.",
+      "sourceFile": "melunga_deploy/content/conversation/L6-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Podríamos quedar el sábado?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Podríamos cambiar la hora?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Podríamos vernos en otro sitio?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Podríamos hablar mañana?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          4,
+          5,
+          3
+        ],
+        "unitMeanWords": 4.0,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.06666666666666667,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L7-fr-es-12",
+      "sourceLevel": 7,
+      "proposedLevel": 7,
+      "order": 1,
+      "decision": "retain",
+      "focus": "Exprimer une évaluation avec me parece",
+      "rationale": "Placement conservé après réexamen. Les comparatifs imposent souvent un cadre fixe long et les raisons deux propositions. Cela explique leur poids dans la moyenne ; les nouvelles conditions et demandes enchâssées de L8 ne deviennent pas plus simples parce qu’elles sont courtes.",
+      "sourceFile": "melunga_deploy/content/conversation/L7-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Me parece caro."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Me parece muy interesante."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Me parece una buena idea."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Me parece demasiado lejos."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          3,
+          4,
+          5,
+          4
+        ],
+        "unitMeanWords": 4.0,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L7-fr-es-05",
+      "sourceLevel": 7,
+      "proposedLevel": 7,
+      "order": 2,
+      "decision": "retain",
+      "focus": "Introduire son avis avec creo que",
+      "rationale": "Placement conservé après réexamen. Les comparatifs imposent souvent un cadre fixe long et les raisons deux propositions. Cela explique leur poids dans la moyenne ; les nouvelles conditions et demandes enchâssées de L8 ne deviennent pas plus simples parce qu’elles sont courtes.",
+      "sourceFile": "melunga_deploy/content/conversation/L7-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Creo que es una buena idea."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Creo que el restaurante está cerrado."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Creo que tienes razón."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Creo que va a llover."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          6,
+          4,
+          5
+        ],
+        "unitMeanWords": 5.25,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L7-fr-es-02",
+      "sourceLevel": 7,
+      "proposedLevel": 7,
+      "order": 3,
+      "decision": "retain",
+      "focus": "Comparer avec más que",
+      "rationale": "Placement conservé après réexamen. Les comparatifs imposent souvent un cadre fixe long et les raisons deux propositions. Cela explique leur poids dans la moyenne ; les nouvelles conditions et demandes enchâssées de L8 ne deviennent pas plus simples parce qu’elles sont courtes.",
+      "sourceFile": "melunga_deploy/content/conversation/L7-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "El tren es más rápido que el coche."
+        },
+        {
+          "variantIndex": 1,
+          "study": "El tren es más cómodo que el coche."
+        },
+        {
+          "variantIndex": 2,
+          "study": "El tren es más caro que el coche."
+        },
+        {
+          "variantIndex": 3,
+          "study": "El tren es más tranquilo que el coche."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "unitMeanWords": 8.0,
+        "fixedFrameWords": 7,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L7-fr-es-03",
+      "sourceLevel": 7,
+      "proposedLevel": 7,
+      "order": 4,
+      "decision": "retain",
+      "focus": "Comparer avec menos que",
+      "rationale": "Placement conservé après réexamen. Les comparatifs imposent souvent un cadre fixe long et les raisons deux propositions. Cela explique leur poids dans la moyenne ; les nouvelles conditions et demandes enchâssées de L8 ne deviennent pas plus simples parce qu’elles sont courtes.",
+      "sourceFile": "melunga_deploy/content/conversation/L7-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Este piso es menos caro que el otro."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Este piso es menos luminoso que el otro."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Este piso es menos ruidoso que el otro."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Este piso es menos céntrico que el otro."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "unitMeanWords": 8.0,
+        "fixedFrameWords": 7,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L7-fr-es-09",
+      "sourceLevel": 7,
+      "proposedLevel": 7,
+      "order": 5,
+      "decision": "retain",
+      "focus": "Comparer avec mejor et un possessif",
+      "rationale": "Placement conservé après réexamen. Les comparatifs imposent souvent un cadre fixe long et les raisons deux propositions. Cela explique leur poids dans la moyenne ; les nouvelles conditions et demandes enchâssées de L8 ne deviennent pas plus simples parce qu’elles sont courtes.",
+      "sourceFile": "melunga_deploy/content/conversation/L7-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Tu coche es mejor que el mío."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Este café es mejor que el mío."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Su ordenador es mejor que el mío."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Este plan es mejor que el mío."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "unitMeanWords": 7.0,
+        "fixedFrameWords": 5,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L7-fr-es-13",
+      "sourceLevel": 7,
+      "proposedLevel": 7,
+      "order": 6,
+      "decision": "retain",
+      "focus": "Comparer deux préférences avec me gusta más",
+      "rationale": "Placement conservé après réexamen. Les comparatifs imposent souvent un cadre fixe long et les raisons deux propositions. Cela explique leur poids dans la moyenne ; les nouvelles conditions et demandes enchâssées de L8 ne deviennent pas plus simples parce qu’elles sont courtes.",
+      "sourceFile": "melunga_deploy/content/conversation/L7-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Me gusta más el pescado que la carne."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Me gusta más cocinar que salir a cenar."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Me gusta más el verano que el invierno."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Me gusta más vivir en el centro que en las afueras."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          8,
+          8,
+          8,
+          11
+        ],
+        "unitMeanWords": 8.75,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L7-fr-es-04",
+      "sourceLevel": 7,
+      "proposedLevel": 7,
+      "order": 7,
+      "decision": "amend",
+      "focus": "Justifier une préférence par une raison",
+      "rationale": "Ordre/préparation précisés dans le patch ci-dessous. Les comparatifs imposent souvent un cadre fixe long et les raisons deux propositions. Cela explique leur poids dans la moyenne ; les nouvelles conditions et demandes enchâssées de L8 ne deviennent pas plus simples parce qu’elles sont courtes.",
+      "sourceFile": "melunga_deploy/content/conversation/L7-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Prefiero el mercado porque es más barato."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Prefiero cocinar en casa porque es más barato."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Prefiero ir en autobús porque es más barato."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Prefiero este hotel porque es más barato."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          7,
+          8,
+          8,
+          7
+        ],
+        "unitMeanWords": 7.5,
+        "fixedFrameWords": 5,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": {
+        "order": 8,
+        "plannedPrerequisites": [
+          "L2-fr-es-05",
+          "L7-fr-es-02",
+          "L7-fr-es-01"
+        ],
+        "rationale": "La raison comparative suit préférence simple et más ... que. La cause de L7-01 est proposée auparavant, puis reprise ici avec le comparatif déjà rencontré : la préparation ne repose plus sur la seule présence de prefiero et de más."
+      }
+    },
+    {
+      "unitId": "L7-fr-es-01",
+      "sourceLevel": 7,
+      "proposedLevel": 7,
+      "order": 8,
+      "decision": "amend",
+      "focus": "Expliquer pourquoi on étudie une langue",
+      "rationale": "Ordre/préparation précisés dans le patch ci-dessous. Les comparatifs imposent souvent un cadre fixe long et les raisons deux propositions. Cela explique leur poids dans la moyenne ; les nouvelles conditions et demandes enchâssées de L8 ne deviennent pas plus simples parce qu’elles sont courtes.",
+      "sourceFile": "melunga_deploy/content/conversation/L7-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Estudio español porque vivo en Valencia."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Estudio español porque me gusta viajar."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Estudio español porque lo necesito para el trabajo."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Estudio español porque mi pareja es española."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          6,
+          8,
+          7
+        ],
+        "unitMeanWords": 6.75,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": {
+        "order": 7,
+        "rationale": "Préparer expliquer pourquoi on étudie une langue dans la progression de son intention, puis réemployer les phrases entières. La série est présentée comme expressions complètes ; sa ressemblance écrite ne constitue pas une substitution validée. Le réexamen place cette cause en contexte connu avant la préférence justifiée qui la combine à un comparatif ; il ne prétend pas que toutes les propositions après porque sont acquises."
+      }
+    },
+    {
+      "unitId": "L7-fr-es-10",
+      "sourceLevel": 7,
+      "proposedLevel": 7,
+      "order": 9,
+      "decision": "retain",
+      "focus": "Introduire une explication avec es que",
+      "rationale": "Placement conservé après réexamen. Les comparatifs imposent souvent un cadre fixe long et les raisons deux propositions. Cela explique leur poids dans la moyenne ; les nouvelles conditions et demandes enchâssées de L8 ne deviennent pas plus simples parce qu’elles sont courtes.",
+      "sourceFile": "melunga_deploy/content/conversation/L7-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Es que no tengo tiempo."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Es que estoy muy cansado."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Es que es demasiado caro."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Es que prefiero quedarme en casa."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          5,
+          5,
+          6
+        ],
+        "unitMeanWords": 5.25,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L7-fr-es-11",
+      "sourceLevel": 7,
+      "proposedLevel": 7,
+      "order": 10,
+      "decision": "retain",
+      "focus": "Souligner un avantage avec lo bueno es que",
+      "rationale": "Placement conservé après réexamen. Les comparatifs imposent souvent un cadre fixe long et les raisons deux propositions. Cela explique leur poids dans la moyenne ; les nouvelles conditions et demandes enchâssées de L8 ne deviennent pas plus simples parce qu’elles sont courtes.",
+      "sourceFile": "melunga_deploy/content/conversation/L7-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Lo bueno es que está cerca del trabajo."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Lo bueno es que tiene mucha luz."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Lo bueno es que es barato."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Lo bueno es que hay un parque al lado."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          8,
+          7,
+          6,
+          9
+        ],
+        "unitMeanWords": 7.5,
+        "fixedFrameWords": 4,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L7-fr-es-06",
+      "sourceLevel": 7,
+      "proposedLevel": 7,
+      "order": 11,
+      "decision": "retain",
+      "focus": "Présenter un point de vue personnel",
+      "rationale": "Placement conservé après réexamen. Les comparatifs imposent souvent un cadre fixe long et les raisons deux propositions. Cela explique leur poids dans la moyenne ; les nouvelles conditions et demandes enchâssées de L8 ne deviennent pas plus simples parce qu’elles sont courtes.",
+      "sourceFile": "melunga_deploy/content/conversation/L7-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Para mí, lo más importante es la familia."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Para mí, este barrio es el mejor."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Para mí, la comida española es muy buena."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Para mí, trabajar desde casa es más práctico."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          8,
+          7,
+          8,
+          8
+        ],
+        "unitMeanWords": 7.75,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L10-fr-es-10",
+      "sourceLevel": 10,
+      "proposedLevel": 7,
+      "order": 12,
+      "decision": "retain",
+      "focus": "Exprimer un accord",
+      "rationale": "Placement conservé après réexamen. Les comparatifs imposent souvent un cadre fixe long et les raisons deux propositions. Cela explique leur poids dans la moyenne ; les nouvelles conditions et demandes enchâssées de L8 ne deviennent pas plus simples parce qu’elles sont courtes.",
+      "sourceFile": "melunga_deploy/content/conversation/L10-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Estoy de acuerdo con eso."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Estoy de acuerdo con tu idea."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Estoy de acuerdo con Marta."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Estoy de acuerdo con lo que dices."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          6,
+          5,
+          7
+        ],
+        "unitMeanWords": 5.75,
+        "fixedFrameWords": 4,
+        "weightAtProposedLevel": 0.08333333333333333,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L8-fr-es-08",
+      "sourceLevel": 8,
+      "proposedLevel": 8,
+      "order": 1,
+      "decision": "retain",
+      "focus": "Négocier le prix par plusieurs expressions entières",
+      "rationale": "Placement conservé après réexamen. Les conditions concrètes, l’atténuation et les groupes clitiques demandent une préparation spécifique, même si le cadre peut être plus court qu’un comparatif L7. Les réserves ne sont pas réputées résolues par le placement.",
+      "sourceFile": "melunga_deploy/content/conversation/L8-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Es el precio final?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Me puede hacer un descuento?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Es demasiado caro para mí."
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Cuál es su mejor precio?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          5,
+          5,
+          5
+        ],
+        "unitMeanWords": 4.75,
+        "fixedFrameWords": 0,
+        "weightAtProposedLevel": 0.125,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L8-fr-es-12",
+      "sourceLevel": 8,
+      "proposedLevel": 8,
+      "order": 2,
+      "decision": "amend",
+      "focus": "Refuser avec une explication entière",
+      "rationale": "Ordre/préparation précisés dans le patch ci-dessous. Les conditions concrètes, l’atténuation et les groupes clitiques demandent une préparation spécifique, même si le cadre peut être plus court qu’un comparatif L7. Les réserves ne sont pas réputées résolues par le placement.",
+      "sourceFile": "melunga_deploy/content/conversation/L8-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Lo siento, pero no es posible."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Lo siento, pero ya está vendido."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Lo siento, pero no depende de mí."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Lo siento, pero el plazo ya ha pasado."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          6,
+          7,
+          8
+        ],
+        "unitMeanWords": 6.75,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.125,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": {
+        "gaps": [
+          "el plazo ya ha pasado apporte un passé composé distinct des prétérits L5 ; préparer cette quatrième phrase séparément.",
+          "« Lo siento, pero ya está vendido. » contient un résultat exprimé par está + participe ; la localisation Está aquí et les prétérits L5 ne préparent pas cette valeur. Présenter cette réplique entière, sans généralisation automatique."
+        ],
+        "rationale": "Le refus plus développé réemploie le refus bref et la justification déjà préparés. La série est présentée comme expressions complètes ; sa ressemblance écrite ne constitue pas une substitution validée. Le réexamen distingue les résultats/participes et le passé composé de cette série des refus courts : la longueur commune ne prouve pas une même opération."
+      }
+    },
+    {
+      "unitId": "L8-fr-es-05",
+      "sourceLevel": 8,
+      "proposedLevel": 8,
+      "order": 3,
+      "decision": "retain",
+      "focus": "Demander un aménagement avec sería posible",
+      "rationale": "Placement conservé après réexamen. Les conditions concrètes, l’atténuation et les groupes clitiques demandent une préparation spécifique, même si le cadre peut être plus court qu’un comparatif L7. Les réserves ne sont pas réputées résolues par le placement.",
+      "sourceFile": "melunga_deploy/content/conversation/L8-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Sería posible pagar en dos veces?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Sería posible entregarlo mañana?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Sería posible cambiar de habitación?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Sería posible aplazar la cita?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          4,
+          5,
+          5
+        ],
+        "unitMeanWords": 5.0,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.125,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L8-fr-es-11",
+      "sourceLevel": 8,
+      "proposedLevel": 8,
+      "order": 4,
+      "decision": "retain",
+      "focus": "Demander un geste avec le importaría",
+      "rationale": "Placement conservé après réexamen. Les conditions concrètes, l’atténuation et les groupes clitiques demandent une préparation spécifique, même si le cadre peut être plus court qu’un comparatif L7. Les réserves ne sont pas réputées résolues par le placement.",
+      "sourceFile": "melunga_deploy/content/conversation/L8-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Perdone, ¿le importaría bajar la música?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Perdone, ¿le importaría mover el coche?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Perdone, ¿le importaría cerrar la puerta?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "Perdone, ¿le importaría recoger mi paquete?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "unitMeanWords": 6.0,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.125,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L8-fr-es-03",
+      "sourceLevel": 8,
+      "proposedLevel": 8,
+      "order": 5,
+      "decision": "retain",
+      "focus": "Conditionner un achat avec si et le présent",
+      "rationale": "Placement conservé après réexamen. Les conditions concrètes, l’atténuation et les groupes clitiques demandent une préparation spécifique, même si le cadre peut être plus court qu’un comparatif L7. Les réserves ne sont pas réputées résolues par le placement.",
+      "sourceFile": "melunga_deploy/content/conversation/L8-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Si me hace un descuento, lo compro."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Si está en oferta, lo compro."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Si lo tiene en azul, lo compro."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Si puedo devolverlo, lo compro."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          7,
+          6,
+          7,
+          5
+        ],
+        "unitMeanWords": 6.25,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.125,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L8-fr-es-06",
+      "sourceLevel": 8,
+      "proposedLevel": 8,
+      "order": 6,
+      "decision": "amend",
+      "focus": "Accepter sous une condition explicite",
+      "rationale": "Ordre/préparation précisés dans le patch ci-dessous. Les conditions concrètes, l’atténuation et les groupes clitiques demandent une préparation spécifique, même si le cadre peut être plus court qu’un comparatif L7. Les réserves ne sont pas réputées résolues par le placement.",
+      "sourceFile": "melunga_deploy/content/conversation/L8-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Vale, pero solo si me lo confirma por escrito."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Vale, pero solo si el precio no cambia."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Vale, pero solo si es antes del viernes."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Vale, pero solo si incluye el transporte."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          9,
+          8,
+          8,
+          7
+        ],
+        "unitMeanWords": 8.0,
+        "fixedFrameWords": 4,
+        "weightAtProposedLevel": 0.125,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": {
+        "gaps": [
+          "La variante « Vale, pero solo si me lo confirma por escrito. » ajoute le groupe double me lo et por escrito. Un clitique isolé (escribirlo/ayudarme) ne prépare pas ce groupe ; présenter et imiter la réplique entière avant de demander cette réponse."
+        ],
+        "rationale": "Préparer accepter sous une condition explicite dans la progression de son intention, puis réemployer les phrases entières. La série est présentée comme expressions complètes ; sa ressemblance écrite ne constitue pas une substitution validée. Le réexamen conserve le placement après la condition concrète, mais explicite le double clitique et le lexique du tour qui étaient absents des réserves."
+      }
+    },
+    {
+      "unitId": "L8-fr-es-04",
+      "sourceLevel": 8,
+      "proposedLevel": 8,
+      "order": 7,
+      "decision": "retain",
+      "focus": "Combiner une condition présente avec te llamaré",
+      "rationale": "Placement conservé après réexamen. Les conditions concrètes, l’atténuation et les groupes clitiques demandent une préparation spécifique, même si le cadre peut être plus court qu’un comparatif L7. Les réserves ne sont pas réputées résolues par le placement.",
+      "sourceFile": "melunga_deploy/content/conversation/L8-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Si hay algún problema, te llamaré."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Si termino pronto, te llamaré."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Si cambia algo, te llamaré."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Si llego tarde, te llamaré."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          5,
+          5,
+          5
+        ],
+        "unitMeanWords": 5.25,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.125,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L8-fr-es-10",
+      "sourceLevel": 8,
+      "proposedLevel": 8,
+      "order": 8,
+      "decision": "amend",
+      "focus": "Formuler une question indirecte avec quería preguntarle si",
+      "rationale": "Ordre/préparation précisés dans le patch ci-dessous. Les conditions concrètes, l’atténuation et les groupes clitiques demandent une préparation spécifique, même si le cadre peut être plus court qu’un comparatif L7. Les réserves ne sont pas réputées résolues par le placement.",
+      "sourceFile": "melunga_deploy/content/conversation/L8-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Quería preguntarle si puedo tener un gato."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Quería preguntarle si es posible pintar la habitación."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Quería preguntarle si puede arreglar la calefacción."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Quería preguntarle si podemos pagar el día cinco."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          7,
+          8,
+          7,
+          8
+        ],
+        "unitMeanWords": 7.5,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.125,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": {
+        "plannedPrerequisites": [
+          "L7-fr-es-07",
+          "L8-fr-es-02",
+          "L3-fr-es-02"
+        ],
+        "gaps": [
+          "si introduit ici une question indirecte et non la condition d’achat : ne pas enseigner une frontière par simple mot commun.",
+          "La demande de service enchâssée « ¿Puede decirme dónde está el banco, por favor? » sert de reprise fonctionnelle, pas de règle permettant de dériver une interrogation totale avec si. Quería est ici une atténuation de la demande : connaître fumaba ne prépare pas à lui seul cette valeur. La phrase entière conserve ses étapes propres de compréhension et d’imitation."
+        ],
+        "rationale": "La demande indirecte vient après une demande de service enchâssée et une demande atténuée déjà rencontrées. La série est présentée comme expressions complètes ; sa ressemblance écrite ne constitue pas une substitution validée. La référence à la condition Si…te llamaré est retirée : le si de la demande enchâssée a une autre fonction. La reprise d’une demande de service enchâssée L3-02 est explicite, sans déclarer équivalents dónde et si. L’imparfait habituel antérieur ne suffit pas à préparer la valeur atténuative de quería."
+      }
+    },
+    {
+      "unitId": "L9-fr-es-03",
+      "sourceLevel": 9,
+      "proposedLevel": 9,
+      "order": 1,
+      "decision": "retain",
+      "focus": "Nuancer une réponse comme expression entière",
+      "rationale": "Placement conservé après réexamen. L’incertitude, le subjonctif et la réparation peuvent être très courts. Les conserver après leurs cadres préparatoires a un motif structurel, sans prétendre que leur longueur doit dépasser toute demande de L8.",
+      "sourceFile": "melunga_deploy/content/conversation/L9-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Más bien no."
+        },
+        {
+          "variantIndex": 1,
+          "study": "No mucho."
+        },
+        {
+          "variantIndex": 2,
+          "study": "En parte, sí."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Depende."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          3,
+          2,
+          3,
+          1
+        ],
+        "unitMeanWords": 2.25,
+        "fixedFrameWords": 0,
+        "weightAtProposedLevel": 0.09090909090909091,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L9-fr-es-04",
+      "sourceLevel": 9,
+      "proposedLevel": 9,
+      "order": 2,
+      "decision": "retain",
+      "focus": "Requalifier un problème avec más bien",
+      "rationale": "Placement conservé après réexamen. L’incertitude, le subjonctif et la réparation peuvent être très courts. Les conserver après leurs cadres préparatoires a un motif structurel, sans prétendre que leur longueur doit dépasser toute demande de L8.",
+      "sourceFile": "melunga_deploy/content/conversation/L9-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Es más bien un problema de tiempo."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Es más bien una cuestión de dinero."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Es más bien culpa mía."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Es más bien un malentendido."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          7,
+          7,
+          5,
+          5
+        ],
+        "unitMeanWords": 6.0,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.09090909090909091,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L9-fr-es-05",
+      "sourceLevel": 9,
+      "proposedLevel": 9,
+      "order": 3,
+      "decision": "retain",
+      "focus": "Introduire une hypothèse avec quizás",
+      "rationale": "Placement conservé après réexamen. L’incertitude, le subjonctif et la réparation peuvent être très courts. Les conserver après leurs cadres préparatoires a un motif structurel, sans prétendre que leur longueur doit dépasser toute demande de L8.",
+      "sourceFile": "melunga_deploy/content/conversation/L9-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Quizás el tren llega tarde."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Quizás tienes razón."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Quizás es mejor esperar."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Quizás hay otra solución."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          3,
+          4,
+          4
+        ],
+        "unitMeanWords": 4.0,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.09090909090909091,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L9-fr-es-12",
+      "sourceLevel": 9,
+      "proposedLevel": 9,
+      "order": 4,
+      "decision": "retain",
+      "focus": "Exprimer un doute sur une information",
+      "rationale": "Placement conservé après réexamen. L’incertitude, le subjonctif et la réparation peuvent être très courts. Les conserver après leurs cadres préparatoires a un motif structurel, sans prétendre que leur longueur doit dépasser toute demande de L8.",
+      "sourceFile": "melunga_deploy/content/conversation/L9-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "No estoy seguro de la hora."
+        },
+        {
+          "variantIndex": 1,
+          "study": "No estoy seguro de la dirección."
+        },
+        {
+          "variantIndex": 2,
+          "study": "No estoy seguro de poder venir."
+        },
+        {
+          "variantIndex": 3,
+          "study": "No estoy seguro de entenderlo."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          6,
+          6,
+          6,
+          5
+        ],
+        "unitMeanWords": 5.75,
+        "fixedFrameWords": 4,
+        "weightAtProposedLevel": 0.09090909090909091,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L9-fr-es-01",
+      "sourceLevel": 9,
+      "proposedLevel": 9,
+      "order": 5,
+      "decision": "retain",
+      "focus": "Reformuler avec es decir",
+      "rationale": "Placement conservé après réexamen. L’incertitude, le subjonctif et la réparation peuvent être très courts. Les conserver après leurs cadres préparatoires a un motif structurel, sans prétendre que leur longueur doit dépasser toute demande de L8.",
+      "sourceFile": "melunga_deploy/content/conversation/L9-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Es decir, llegamos mañana."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Es decir, no hay vuelo hoy."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Es decir, tengo que pagar otra vez."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Es decir, la cita es el martes."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          6,
+          7,
+          7
+        ],
+        "unitMeanWords": 6.0,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.09090909090909091,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L9-fr-es-07",
+      "sourceLevel": 9,
+      "proposedLevel": 9,
+      "order": 6,
+      "decision": "retain",
+      "focus": "Exposer un incident",
+      "rationale": "Placement conservé après réexamen. L’incertitude, le subjonctif et la réparation peuvent être très courts. Les conserver après leurs cadres préparatoires a un motif structurel, sans prétendre que leur longueur doit dépasser toute demande de L8.",
+      "sourceFile": "melunga_deploy/content/conversation/L9-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Hay un problema: he perdido la maleta."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Hay un problema: el vuelo está cancelado."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Hay un problema: la factura está mal."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Hay un problema: no tengo la receta."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "unitMeanWords": 7.0,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.09090909090909091,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L9-fr-es-11",
+      "sourceLevel": 9,
+      "proposedLevel": 9,
+      "order": 7,
+      "decision": "retain",
+      "focus": "Signaler un imprévu dans les transports",
+      "rationale": "Placement conservé après réexamen. L’incertitude, le subjonctif et la réparation peuvent être très courts. Les conserver après leurs cadres préparatoires a un motif structurel, sans prétendre que leur longueur doit dépasser toute demande de L8.",
+      "sourceFile": "melunga_deploy/content/conversation/L9-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Perdone, he perdido el tren."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Perdone, me he equivocado de andén."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Perdone, creo que este asiento es el mío."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Perdone, mi vuelo tiene retraso."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          5,
+          6,
+          8,
+          5
+        ],
+        "unitMeanWords": 6.0,
+        "fixedFrameWords": 1,
+        "weightAtProposedLevel": 0.09090909090909091,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L9-fr-es-08",
+      "sourceLevel": 9,
+      "proposedLevel": 9,
+      "order": 8,
+      "decision": "retain",
+      "focus": "Demander une solution avec qué podemos hacer",
+      "rationale": "Placement conservé après réexamen. L’incertitude, le subjonctif et la réparation peuvent être très courts. Les conserver après leurs cadres préparatoires a un motif structurel, sans prétendre que leur longueur doit dépasser toute demande de L8.",
+      "sourceFile": "melunga_deploy/content/conversation/L9-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "¿Qué podemos hacer ahora?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "¿Qué podemos hacer con el billete?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "¿Qué podemos hacer para solucionarlo?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "¿Qué podemos hacer en este caso?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          6,
+          5,
+          6
+        ],
+        "unitMeanWords": 5.25,
+        "fixedFrameWords": 3,
+        "weightAtProposedLevel": 0.09090909090909091,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L9-fr-es-06",
+      "sourceLevel": 9,
+      "proposedLevel": 9,
+      "order": 9,
+      "decision": "retain",
+      "focus": "Exprimer une éventualité avec puede que et le subjonctif",
+      "rationale": "Placement conservé après réexamen. L’incertitude, le subjonctif et la réparation peuvent être très courts. Les conserver après leurs cadres préparatoires a un motif structurel, sans prétendre que leur longueur doit dépasser toute demande de L8.",
+      "sourceFile": "melunga_deploy/content/conversation/L9-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Puede que llegue tarde."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Puede que esté cerrado."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Puede que sea un error."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Puede que tenga que cancelar."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          4,
+          4,
+          5,
+          5
+        ],
+        "unitMeanWords": 4.5,
+        "fixedFrameWords": 2,
+        "weightAtProposedLevel": 0.09090909090909091,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L9-fr-es-09",
+      "sourceLevel": 9,
+      "proposedLevel": 9,
+      "order": 10,
+      "decision": "retain",
+      "focus": "Vérifier la compréhension avant d’agir",
+      "rationale": "Placement conservé après réexamen. L’incertitude, le subjonctif et la réparation peuvent être très courts. Les conserver après leurs cadres préparatoires a un motif structurel, sans prétendre que leur longueur doit dépasser toute demande de L8.",
+      "sourceFile": "melunga_deploy/content/conversation/L9-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Si he entendido bien, tengo que volver mañana, ¿no?"
+        },
+        {
+          "variantIndex": 1,
+          "study": "Si he entendido bien, el tren sale a las nueve, ¿no?"
+        },
+        {
+          "variantIndex": 2,
+          "study": "Si he entendido bien, no hay que pagar nada, ¿no?"
+        },
+        {
+          "variantIndex": 3,
+          "study": "Si he entendido bien, la cita es con el doctor López, ¿no?"
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          9,
+          11,
+          10,
+          12
+        ],
+        "unitMeanWords": 10.5,
+        "fixedFrameWords": 5,
+        "weightAtProposedLevel": 0.09090909090909091,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    },
+    {
+      "unitId": "L9-fr-es-02",
+      "sourceLevel": 9,
+      "proposedLevel": 9,
+      "order": 11,
+      "decision": "retain",
+      "focus": "Préciser ce que l’on veut dire",
+      "rationale": "Placement conservé après réexamen. L’incertitude, le subjonctif et la réparation peuvent être très courts. Les conserver après leurs cadres préparatoires a un motif structurel, sans prétendre que leur longueur doit dépasser toute demande de L8.",
+      "sourceFile": "melunga_deploy/content/conversation/L9-fr-es.json",
+      "sourceEvidence": [
+        {
+          "variantIndex": 0,
+          "study": "Lo que quiero decir es que no estoy de acuerdo."
+        },
+        {
+          "variantIndex": 1,
+          "study": "Lo que quiero decir es que necesito más información."
+        },
+        {
+          "variantIndex": 2,
+          "study": "Lo que quiero decir es que es demasiado tarde."
+        },
+        {
+          "variantIndex": 3,
+          "study": "Lo que quiero decir es que prefiero esperar."
+        }
+      ],
+      "descriptiveContribution": {
+        "variantWordCounts": [
+          10,
+          9,
+          9,
+          8
+        ],
+        "unitMeanWords": 9.0,
+        "fixedFrameWords": 6,
+        "weightAtProposedLevel": 0.09090909090909091,
+        "warning": "Longueur de texte, pas difficulté ni acquisition."
+      },
+      "proposedPatch": null
+    }
+  ]
+}

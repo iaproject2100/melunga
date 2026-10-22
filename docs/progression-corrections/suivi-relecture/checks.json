@@ -1,0 +1,79 @@
+{
+  "scope": "Vérification locale du suivi de la relecture de 99478df ; aucune publication",
+  "runtimeSha256": "bbebf82188509ffbd89f13b91eca07aa392be3f9c3581d3b17676fbffbc20c06",
+  "runtimeCounts": {
+    "pairs": 7,
+    "levelCells": 70,
+    "units": 841,
+    "phrases": 3364,
+    "movedUnits": 122,
+    "declaredFirstSubstitutions": 319,
+    "wholeExpressionUnits": 522,
+    "plannedPrerequisiteLinks": 1372,
+    "reportedGaps": 341,
+    "newStudiedPhrases": 0,
+    "newPhonetics": 0
+  },
+  "commands": [
+    "python3 -B -m unittest discover -s tools/pedagogy -p 'test_progression_corrections.py'",
+    "python3 -B -m unittest discover -s tools/pedagogy -p 'test_reclassement*.py'",
+    "python3 -B tools/pedagogy/guard_phonetics.py --check",
+    "NODE_PATH=/tmp/melunga-review-tools/node_modules CHROMIUM_PATH=/usr/bin/chromium node docs/progression-corrections/maquette/verify.cjs",
+    "python3 -B tools/pedagogy/export_progression_corrections.py /workspace/exports/melunga-progression-L1-L10.html"
+  ],
+  "pythonTests": {
+    "existingProgression": 21,
+    "lengthMetrics": 13,
+    "noveltyMetrics": 14,
+    "editorialDecisions": 8,
+    "total": 56,
+    "errors": 0
+  },
+  "phoneticGuard": {
+    "sourcePreserved": true,
+    "cards": 32115,
+    "levelFiles": 110,
+    "protectedJsonFiles": 112,
+    "checkedBanks": 1,
+    "bankEntries": 7989,
+    "differentAidCollisionsForReview": 11,
+    "nativeValidation": false,
+    "errors": []
+  },
+  "browser": {
+    "report": "../verification-navigateur.json",
+    "viewports": 3,
+    "steps": 23664,
+    "phraseRenders": 75081,
+    "earActivations": 32190,
+    "recallChoices": 10092,
+    "failedFetchAndRetry": true,
+    "errors": [],
+    "externalRequests": [],
+    "writeRequests": []
+  },
+  "targetedCaptures": {
+    "report": "verification-ciblee.json",
+    "captures": 6,
+    "visuallyInspected": 6,
+    "widths": [
+      390,
+      1440
+    ]
+  },
+  "portable": {
+    "report": "../verification-portable.json",
+    "sha256": "f2a8fc4872b57d9a76d80bdd2e2f4b9355a66725285d9937505d283580e32054",
+    "bytes": 3232711,
+    "httpSelfContained": true,
+    "embeddedRuntimeExact": true,
+    "earsChecked": 7,
+    "fileProtocolCheck": "unavailable-browser-administrator-policy"
+  },
+  "limitations": [
+    "Les contrôles ne mesurent ni acquisition ni progressivité linguistique réelle.",
+    "Aucune relecture native ni qualité vocale réelle attestée.",
+    "Les onze collisions d’aides restent déclarées, sans harmonisation.",
+    "Le contrôle file:// est indisponible par politique du navigateur ; l’export autonome est contrôlé en HTTP local, sans ressources supplémentaires."
+  ]
+}
