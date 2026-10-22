@@ -114,6 +114,7 @@ function protectCanonicalContent(){
   }
   async function exactPhrase(page,pair,step){
    const phrase=pair.phrases.find(p=>p.id===step.id),s=await state(page),view=await snapshot(page);
+   const ear=page.locator('#card .phonrow .earicon');
    assert.equal(s.currentPhraseId,step.id,'source utterance selected');
    assert.equal(s.hidden,step.hidden,'only learner in final pass starts hidden');
    assert.equal(view.native,phrase.native,'native intention copied exactly');
@@ -122,12 +123,20 @@ function protectCanonicalContent(){
    assert.equal(view.reading,step.hidden?'':(phrase.reading||''),'original reading exact or absent');
    assert(view.pageWidth<=view.width+1,'actual lesson does not overflow horizontally');
    await controlsFit(page);
+   assert(await ear.isVisible(),'ear remains accessible on every active dialogue phrase');
+   assert.equal(await ear.evaluate(node=>node.tagName),'BUTTON','active ear uses native button keyboard semantics');
+   const earBox=await ear.boundingBox();
+   assert(earBox&&earBox.width>=44&&earBox.height>=44,'ear has a 44px listening target');
    if(phrase.kind==='received'){
     assert(!s.hidden,'received never hidden');
     assert(!view.reveal,'received never needs learner model reveal');
     assert(!/À toi de parler|轮到你说/.test(view.phase),'received heading never assigns learner production');
     assert(/comprends|听懂/.test(view.instruction),'received instruction explicitly asks for comprehension');
     assert(!/répète|imite|à toi|repeat|imitate/i.test(view.instruction.replace(/Tu n’as pas à répéter sa phrase\./,'')),'received never asks for production');
+    await ear.click();
+    assert.equal((await snapshot(page)).audio.at(-1),phrase.study,'received ear reads the exact server phrase');
+    assert.equal((await state(page)).stepIndex,s.stepIndex,'received listening does not advance or change the turn');
+    assert.equal((await snapshot(page)).reveal,false,'received listening never creates a learner model prompt');
    }
    if(step.hidden){
     assert(view.reveal,'help can be restored');
@@ -135,7 +144,27 @@ function protectCanonicalContent(){
     assert(!view.immchip.includes(phrase.study),'immersive chip does not disclose learner answer');
     const before=view.audio.length;
     await page.evaluate(()=>playCurrent());
-    assert.equal((await snapshot(page)).audio.length,before,'listening does not disclose a hidden learner answer');
+    assert.equal((await snapshot(page)).audio.length,before,'implicit listening never discloses a hidden learner answer');
+    assert.equal((await state(page)).hidden,true,'implicit listening never restores the model');
+    await ear.click();
+    const earHelp=await snapshot(page);
+    assert.equal((await state(page)).hidden,false,'explicit ear is a request to restore help');
+    assert.equal(earHelp.study,phrase.study,'ear assistance restores exact study text');
+    assert.equal(earHelp.phon,phrase.phon,'ear assistance restores exact phonetic aid');
+    assert.equal(earHelp.reading,phrase.reading||'','ear assistance restores the optional original reading');
+    assert.equal(earHelp.audio.length,before+1,'explicit ear triggers one listening request');
+    assert.equal(earHelp.audio.at(-1),phrase.study,'ear assistance reads the study text, never phonetics');
+    await page.locator('#l1CafeReveal').click();
+    assert.equal((await state(page)).hidden,true,'model can be hidden again after ear assistance');
+    assert.equal((await snapshot(page)).study,'','hiding help clears the source text again');
+    assert.equal((await snapshot(page)).phon,'','hiding help clears the phonetic aid again');
+    assert.equal((await snapshot(page)).reading,'','hiding help clears the reading again');
+    await ear.focus();
+    await page.keyboard.press('Enter');
+    assert.equal((await state(page)).hidden,false,'keyboard activation of the ear restores the model');
+    assert.equal((await snapshot(page)).audio.at(-1),phrase.study,'keyboard ear reads exact source text');
+    await page.locator('#l1CafeReveal').click();
+    assert.equal((await state(page)).hidden,true,'keyboard help can also be hidden again');
     await page.locator('#l1CafeReveal').click();
     const helped=await snapshot(page);
     assert.equal(helped.study,phrase.study,'help restores the exact original phrase');
@@ -177,6 +206,7 @@ function protectCanonicalContent(){
     await page.evaluate(()=>setMode('all'));
     assert.equal(await page.evaluate(()=>MelungaL1Cafe.active()),false);
     assert.equal(await page.evaluate(()=>mode),'all');
+    assert.equal(await page.locator('#card .phonrow .earicon').evaluate(node=>node.tagName),'SPAN','leaving the sequence restores the original classic ear element');
     assert(await page.evaluate(()=>pool.length>0&&document.getElementById('fr').textContent===pool[idx].t),'classic lesson restored');
     await page.evaluate(()=>setMode('L2'));
     await page.locator('#paywall').waitFor({state:'visible'});

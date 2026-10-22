@@ -10,6 +10,8 @@ Vérifications locales sur Chromium, le 22 octobre 2026, dans l’application r�
 | Entrée utilisable | Ouverture du menu des thèmes puis clic sur « Premier échange · L1 » sur mobile et ordinateur |
 | Compréhension et production | Les trois répliques reçues restent visibles ; leurs instructions ne demandent pas de les produire |
 | Sans modèle | Les quatre répliques de l’apprenant sont retirées du DOM de la carte, phonétique et lecture comprises ; aide réaffichable exacte ; aperçu classique vidé |
+| Oreille pendant le rappel | Visible et utilisable au clavier, cible d’au moins 44 px ; un appui explicite rétablit le modèle exact puis lit la phrase ; 56 cas de rappel vérifiés sur les sept couples et les deux formats |
+| Oreille des répliques reçues | Directement active, sans masquer, changer de rôle ou avancer ; 168 activations vérifiées |
 | Écoute | L’argument envoyé au moteur est le texte étudié exact, jamais la phonétique ; une phrase masquée n’est pas lue sans restauration de l’aide |
 | Gestes et boutons | Navigation, borne de début, fin sans boucle ; geste tactile horizontal réel ; aucune écriture dans les phrases connues/à revoir, le SRS ou les droits |
 | Retour aux leçons | Cartes classiques restaurées, y compris après sélection d’un niveau verrouillé ; L2 reste soumis aux droits existants |
@@ -27,6 +29,12 @@ Les deux suites existantes suivantes passent également sur les fichiers finaux 
 - `lesson-mobile-gestures.test.cjs` : neuf configurations de langue/écran, cartes longues, défilement interne, passage à la phrase suivante, commandes protégées et gestes espagnols.
 
 Le test d’intégration compare aussi les déclarations complètes `DECKS`, `PEDAGOGY_FAMILIES` et `FREE_LV` à la base de production : elles sont identiques. Aucun fichier de tarification, de paiement ou de gestion des droits n’est modifié. L’adaptation de `native-speech.js` empêche uniquement qu’une reconnaissance classique tardive ou déclenchée pendant la scène y produise un score ; aucun APK n’est construit.
+
+Le suivi de la relecture de Claude conserve les 448 étapes et les neuf scénarios annexes réussis, sans erreur JavaScript, avec les contrôles d’oreille ci-dessus. Les captures sont actualisées. La commande classique de l’oreille est restaurée à la sortie ; son remplacement par un bouton accessible est limité à la nouvelle rubrique.
+
+Une suite supplémentaire, `lesson-async-safety.test.cjs`, vérifie **neuf scénarios réussis hors de la rubrique L1**, sans erreur JavaScript : classement actuel et périmé, résultats et relances de reconnaissance actuels et périmés, essais de voix actuels, reprises et synthèses retardées périmées. Elle est détaillée dans [correctifs-transverses.md](correctifs-transverses.md). Le lot inclut bien trois corrections communes ; il n’est pas purement additif.
+
+Les sept scènes ajoutées sont gratuites pour les utilisateurs non payants. La conservation de `FREE_LV` et des droits existants ne doit pas masquer cet enrichissement de l’offre L1.
 
 ## Captures de l’application
 

@@ -35,6 +35,9 @@
     if (nodes) return;
     var card = el('card');
     if (!card) throw new Error('lesson-card-missing');
+    var originalEar = card.querySelector('.earicon');
+    var ear = document.createElement('button'); ear.type = 'button'; ear.className = 'earicon'; ear.textContent = '👂';
+    ear.addEventListener('click', function (event) { event.stopPropagation(); listen(ear); });
     var header = document.createElement('div'); header.id = 'l1CafeHeader'; header.className = 'l1-cafe-ui';
     var phase = document.createElement('div'); phase.id = 'l1CafePhase';
     var role = document.createElement('div'); role.id = 'l1CafeRole';
@@ -54,7 +57,8 @@
     actions.append(revealButton, retry, restart);
     card.append(status, actions);
     nodes = {header:header,phase:phase,role:role,instruction:instruction,context:context,
-      exit:exit,reading:reading,status:status,actions:actions,reveal:revealButton,retry:retry,restart:restart};
+      exit:exit,reading:reading,status:status,actions:actions,reveal:revealButton,retry:retry,restart:restart,
+      ear:ear,originalEar:originalEar};
   }
   function validate(bundle) {
     if (!bundle || bundle.version !== 1 || bundle.sourceCommit !== sourceCommit ||
@@ -168,6 +172,7 @@
     if (running) stop();
     if (!available(window.nat, window.lang)) return Promise.resolve(false);
     ensureNodes(); saved = snapshot(); running = true; complete = false; position = 0; helped = false;
+    if (nodes.originalEar && nodes.originalEar.parentNode) nodes.originalEar.replaceWith(nodes.ear);
     // A recognition session from a classic card must release the microphone.
     try {
       var previousRecognition = window.rec;
@@ -203,6 +208,7 @@
     document.body.classList.remove('l1-cafe-active');
     var card = el('card'); if (card) { card.classList.remove('l1-cafe-hidden','l1-cafe-finished'); card.removeAttribute('data-l1-cafe-phase'); }
     if (nodes) {
+      if (nodes.ear.parentNode && nodes.originalEar) nodes.ear.replaceWith(nodes.originalEar);
       nodes.reading.textContent = ''; nodes.status.textContent = ''; nodes.phase.textContent = '';
       nodes.role.textContent = ''; nodes.instruction.textContent = ''; nodes.context.textContent = '';
     }
@@ -267,6 +273,8 @@
     var progress=el('progBar'); if(progress)progress.style.width=complete?'100%':(sequence.length?Math.round((position+1)/sequence.length*100):0)+'%';
     var nav=el('nav'); if(nav)nav.style.display=''; var ratebar=el('rateBar'); if(ratebar)ratebar.style.display='flex';
     var listenButton=el('listen'); if(listenButton) { listenButton.style.display=mask||loading||failed||complete?'none':''; listenButton.setAttribute('aria-label',text('Écouter la phrase','听这句话')); }
+    nodes.ear.disabled=loading||failed||complete;
+    nodes.ear.setAttribute('aria-label',mask?text('Retrouver le modèle et écouter la phrase','查看范例并听这句话'):text('Écouter la phrase','听这句话'));
     if(loading||failed) {
       nodes.phase.textContent=text('Premier échange · L1','第一次对话 · L1'); nodes.role.textContent=''; nodes.context.textContent='';
       nodes.instruction.textContent=failed?text('L’échange n’a pas pu se charger. Réessaie ou reviens aux leçons.','对话加载失败。请重试或返回课程。'):text('Chargement de l’échange…','正在加载对话…');
@@ -302,7 +310,13 @@
     helped=false; render();
   }
   function listen(btn) {
-    if(!running||loading||failed||complete||hidden()||modalOpen())return;
+    if(!running||loading||failed||complete||modalOpen())return;
+    if(hidden()) {
+      // Listening is explicit help: keep the ear available without silently
+      // treating an assisted reply as recall. Background controls cannot reveal it.
+      if(btn!==nodes.ear)return;
+      helped=true;render();
+    }
     var step=sequence[position]; if(step && typeof window.speak==='function')window.speak(step.phrase.study,btn||el('listen'));
   }
   function reveal() { if(running&&!modalOpen()&&!complete&&!loading&&!failed) { helped=true;render(); } }

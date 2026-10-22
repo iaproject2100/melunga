@@ -2,7 +2,9 @@
 
 This review bundle contains exactly seven reader/study pairs (`fr-en`, `fr-es`,
 `fr-it`, `fr-zh`, `fr-ja`, `fr-ko`, `zh-fr`). Native review is pending. Integration
-does not approve production, certify acquisition, grade answers, or change access.
+does not approve production, certify acquisition, or grade answers. Existing
+entitlements and prices are preserved; the seven added scenes are free L1 content
+for paying and non-paying users, an explicit extension of the free offering.
 
 Rebuild and verify from the repository root:
 
@@ -59,6 +61,14 @@ The three scene phases are `listen-whole-dialogue`, `reply-with-help`, and
 restorable. Welcome accepts the prepared order; the milk question accepts only
 the prepared refusal; the amount requires no reply. Received content neither
 requires learner production nor counts as production.
+
+During learner recall, the ear remains visible and keyboard accessible. An
+explicit activation restores the exact model and its aids, then reads the study
+phrase. This is help, with no grade or mastery claim. Generic background audio
+calls do not reveal a hidden answer. On received turns the ear reads directly;
+received content is never hidden. The `doesNotChangeAccess` flag describes the
+preservation of existing entitlements; it must not be read as saying that the
+new free L1 entry offers no additional content.
 
 The builder writes only `melunga_deploy/content/l1-cafe.json`; `--check` writes
 nothing and requires byte-identical output. Tests independently read the pinned

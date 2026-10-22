@@ -20,10 +20,14 @@ body.l1-cafe-active #card.card :is(#fr,#phon,#cn){white-space:pre-wrap;overflow-
 body.l1-cafe-active #card.card #fr{margin:8px auto 0!important}
 body.l1-cafe-active #card.card .phonrow{margin:12px auto 0!important}
 body.l1-cafe-active #card.card #cn{margin:10px auto 0!important}
-body.l1-cafe-active #card.l1-cafe-hidden .phonrow,
 body.l1-cafe-active #card.l1-cafe-hidden #fr,
 body.l1-cafe-active #card.l1-cafe-finished .phonrow,
 body.l1-cafe-active #card.l1-cafe-finished #fr{display:none!important}
+body.l1-cafe-active #card.card .earicon{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;width:44px;height:44px;padding:0;border:0;font-family:inherit;color:inherit}
+body.l1-cafe-active #card.card.l1-cafe-hidden .phonrow{display:flex!important;flex:0 0 auto;align-items:center;justify-content:center;width:64px;min-width:64px;min-height:64px;padding:10px!important;background:transparent;border:0}
+body.l1-cafe-active #card.l1-cafe-hidden .phonrow::before{display:none!important}
+body.l1-cafe-active #card.l1-cafe-hidden .earicon{position:static!important;transform:none!important;flex:0 0 44px}
+body.l1-cafe-active #card.card .earicon:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 body.l1-cafe-active .l1-cafe-ui[hidden],body.l1-cafe-active #l1CafeActions>[hidden]{display:none!important}
 body.l1-cafe-active #rateBar button:disabled{opacity:.55;cursor:default}
 body.l1-cafe-active :is(#l1CafeExit,#l1CafeReveal,#l1CafeRetry,#l1CafeRestart):focus-visible{outline:2px solid currentColor;outline-offset:3px}
