@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Melunga — atelier des conversations</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#lesson-title">Aller à la phrase</a>
+  <div class="page-shell">
+    <header class="page-header">
+      <a class="brand" href="index.html" aria-label="Melunga, accueil de la maquette"><span class="brand-symbol" aria-hidden="true">M</span><span>Melunga<small>Atelier des conversations</small></span></a>
+      <span class="review-mark">Proposition à relire</span>
+    </header>
+    <nav id="language-selector" class="language-selector" aria-label="Langue à pratiquer"></nav>
+    <p id="context-line" class="context-line"></p>
+    <nav id="level-selector" class="level-selector" aria-label="Niveau proposé"></nav>
+    <p id="load-status" class="load-status" role="status">Préparation des phrases…</p>
+    <main class="workspace" id="workspace" hidden>
+      <aside class="unit-panel" aria-label="Choisir une situation">
+        <p class="eyebrow" id="level-label"></p>
+        <h1 id="level-title"></h1>
+        <p id="level-goal" class="level-goal"></p>
+        <div id="unit-list" class="unit-list"></div>
+        <details id="dialogue-picker" class="dialogue-picker">
+          <summary>Les conversations du niveau</summary>
+          <div id="dialogue-list" class="dialogue-list"></div>
+        </details>
+      </aside>
+      <section class="lesson-panel" aria-labelledby="lesson-title">
+        <div class="step-heading"><p id="phase-label"></p><span id="step-count"></span></div>
+        <h2 id="lesson-title" tabindex="-1"></h2>
+        <p id="step-instruction" class="step-instruction"></p>
+        <div class="variation-tools"><button id="all-variants" type="button" class="quiet-button" aria-pressed="false" hidden>Toutes les variantes</button></div>
+        <button id="leave-dialogue" type="button" class="quiet-button" hidden>Revenir aux phrases</button>
+        <div id="intention-choices" class="intention-choices" role="group" aria-label="Choisir son intention" hidden></div>
+        <div id="recall-actions" class="recall-actions" hidden><button id="recall-toggle" type="button" class="quiet-button" aria-pressed="false">Essayer sans modèle</button><span id="recall-state"></span></div>
+        <ol id="phrase-list" class="phrase-list"></ol>
+        <button id="scene-audio" type="button" class="scene-audio-button" hidden>Écouter l’échange</button>
+        <p id="audio-status" class="audio-status" role="status"></p>
+        <section id="transfer-task" class="transfer-task" aria-labelledby="transfer-title" hidden><h3 id="transfer-title">À toi de construire</h3><p id="transfer-prompt"></p></section>
+        <div class="step-navigation"><button id="previous-step" type="button" class="back-button">← Retour</button><button id="next-step" type="button" class="next-button">Suivant →</button></div>
+        <details id="source-details" class="source-details"><summary>Détails pour la relecture</summary><div id="source-content"></div></details>
+      </section>
+    </main>
+    <div id="empty-state" class="empty-state" hidden></div>
+    <footer class="page-footer"><p>Maquette locale pour relecture — aucun contenu publié.</p><p>Navigation libre, sans score ni déblocage.</p></footer>
+  </div>
+</body>
+</html>
