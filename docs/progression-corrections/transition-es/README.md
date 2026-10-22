@@ -42,6 +42,8 @@ La [proposition de libellé pour `L3-fr-es-05`](proposition-libelle-L3-05.json) 
 
 ## Revue et publication
 
+La [relecture suivante de Claude](../suite-validation/verification-claude-transition-es.md) accepte ce lot sans réserve. La [trace indépendante jointe](../suite-validation/trace-es-verifiee.md) précise son ordre effectif : « Normalmente como en casa » introduit encore `normalmente` (une forme, pas zéro). Le zéro de son tableau appartient à un autre ordre ; les agrégats sont identiques. Aucun ordre ni fichier d’exécution n’est modifié à la suite de ce constat.
+
 Les [contrôles et commandes](checks.json) donnent **80 tests Python réussis**, **23 682 étapes navigateur** et **32 208 activations simulées d’oreille**, sans erreur. Les 11 488 champs de variantes et les neuf champs des trois supports sont comparés à des sources Git indépendantes du compilateur. Le rappel conserve ses quatre choix, et trois cas de supports invalides sont refusés avant présentation.
 
 Le [rapport portable et les six captures](verification-portable.json) contrôlent un fichier autonome par HTTP local : un document, aucune ressource supplémentaire, sept couples et trois oreilles de support. Les captures ont été ouvertes et inspectées à 390 et 1440 pixels de largeur ; elles ne constituent pas un essai sur téléphone physique. L’ouverture directe `file://` n’est pas testée, sans contournement de la politique du navigateur.

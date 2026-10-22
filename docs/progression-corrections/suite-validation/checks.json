@@ -1,0 +1,18 @@
+{
+  "baseline": "cb3e22d442a62421f3449518df93559569f29709",
+  "scope": "documentation-and-unapplied-proposals-only",
+  "canonicalFilesCompared": 113,
+  "byteDifferences": 0,
+  "runtimeSha256": "311f20f83fe5e47219948b794e2d0477cb0935fea1e81c0015393dc921fbb78d",
+  "checks": [
+    "git diff --exit-code cb3e22d -- melunga_deploy tools/pedagogy docs/progression-corrections/parcours-corriges.json docs/progression-corrections/maquette",
+    "git apply --check docs/progression-corrections/suite-validation/registre-ja-ko-proposition.patch",
+    "JSON parsing for five review data files",
+    "git diff --cached --check"
+  ],
+  "browserTestsRerun": false,
+  "browserReason": "No execution file changed; prior cb3e22d reports remain historical evidence at that revision.",
+  "sourcePatchApplied": false,
+  "merged": false,
+  "deployed": false
+}

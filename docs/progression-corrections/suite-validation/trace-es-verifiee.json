@@ -1,0 +1,619 @@
+{
+  "scope": "Independent read-only replay of cb3e22d and the chronology described in Claude section 3",
+  "baselineCommit": "a4f1ec4e31e436546e775597845ff570476356a8",
+  "reviewedCommit": "cb3e22d442a62421f3449518df93559569f29709",
+  "reviewedRuntimeSha256": "311f20f83fe5e47219948b794e2d0477cb0935fea1e81c0015393dc921fbb78d",
+  "previousRuntimeSha256": "bbebf82188509ffbd89f13b91eca07aa392be3f9c3581d3b17676fbffbc20c06",
+  "claudeReviewSha256": "221a58a4b0520c94ba69524c883ea3f64ef6ce5b7ba7ea298c6c98b26c2605eb",
+  "method": {
+    "scope": "four whole unit variants in all L1-L3 plus previous L4 units; actual understand/imitate step order inside the target unit",
+    "tokenizer": "set(re.findall(r'[^\\W\\d_]+', study.lower(), re.UNICODE))",
+    "initialStockMeaning": "Forms present in the declared plan, not demonstrated learner acquisition.",
+    "imitation": "Adds no new written type when immediately repeating the same whole phrase.",
+    "independence": "No import from the compiler or the existing transition audit; data read with git show at pinned commits."
+  },
+  "sourceChecks": {
+    "spanishVariantFieldsExact": 1524,
+    "catalogueSupportFieldsExact": 9,
+    "supports": [
+      {
+        "unitId": "L4-fr-es-01",
+        "sourceIndex": 264,
+        "phraseId": "catalogue:DECKS.es:264:reader-fr",
+        "fieldsExact": true,
+        "understandBeforeImitateBeforeTarget": true
+      },
+      {
+        "unitId": "L4-fr-es-01",
+        "sourceIndex": 283,
+        "phraseId": "catalogue:DECKS.es:283:reader-fr",
+        "fieldsExact": true,
+        "understandBeforeImitateBeforeTarget": true
+      },
+      {
+        "unitId": "L4-fr-es-03",
+        "sourceIndex": 542,
+        "phraseId": "catalogue:DECKS.es:542:reader-fr",
+        "fieldsExact": true,
+        "understandBeforeImitateBeforeTarget": true
+      }
+    ]
+  },
+  "oldUnit": {
+    "variantOrder": [
+      2,
+      1,
+      3,
+      0
+    ],
+    "previousUnitIds": [
+      "L1-fr-es-02",
+      "L1-fr-es-01",
+      "L1-fr-es-11",
+      "L1-fr-es-07",
+      "L1-fr-es-03",
+      "L1-fr-es-09",
+      "L1-fr-es-04",
+      "L1-fr-es-05",
+      "L1-fr-es-06",
+      "L1-fr-es-08",
+      "L1-fr-es-10",
+      "L2-fr-es-02",
+      "L2-fr-es-09",
+      "L2-fr-es-10",
+      "L2-fr-es-01",
+      "L2-fr-es-03",
+      "L4-fr-es-05",
+      "L4-fr-es-06",
+      "L4-fr-es-07",
+      "L4-fr-es-04",
+      "L4-fr-es-13",
+      "L2-fr-es-06",
+      "L2-fr-es-07",
+      "L2-fr-es-11",
+      "L2-fr-es-13",
+      "L6-fr-es-10",
+      "L2-fr-es-04",
+      "L2-fr-es-05",
+      "L8-fr-es-09",
+      "L9-fr-es-10",
+      "L3-fr-es-07",
+      "L3-fr-es-04",
+      "L3-fr-es-08",
+      "L3-fr-es-03",
+      "L3-fr-es-11",
+      "L2-fr-es-08",
+      "L2-fr-es-12",
+      "L3-fr-es-01",
+      "L3-fr-es-02",
+      "L3-fr-es-05",
+      "L3-fr-es-09",
+      "L3-fr-es-06",
+      "L3-fr-es-10",
+      "L3-fr-es-12",
+      "L4-fr-es-11",
+      "L4-fr-es-10",
+      "L4-fr-es-09"
+    ],
+    "writtenTypesBeforeUnit": 235,
+    "writtenStockBeforeUnitSha256": "f533e65b88716dfdb3e8c9898da6bbdeb5a9a4ad0b572f1c14a1a600f39279c1",
+    "steps": [
+      {
+        "stepOrdinal": 1,
+        "stepId": "L4-fr-es-01-understand-2",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v2",
+        "study": "Normalmente trabajo hasta las seis.",
+        "newTypes": [
+          "hasta",
+          "normalmente",
+          "seis"
+        ],
+        "newTypeCount": 3
+      },
+      {
+        "stepOrdinal": 2,
+        "stepId": "L4-fr-es-01-imitate-2",
+        "kind": "imitate",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v2",
+        "study": "Normalmente trabajo hasta las seis.",
+        "newTypes": [],
+        "newTypeCount": 0
+      },
+      {
+        "stepOrdinal": 3,
+        "stepId": "L4-fr-es-01-understand-1",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v1",
+        "study": "Normalmente como en casa.",
+        "newTypes": [
+          "como"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "stepOrdinal": 4,
+        "stepId": "L4-fr-es-01-imitate-1",
+        "kind": "imitate",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v1",
+        "study": "Normalmente como en casa.",
+        "newTypes": [],
+        "newTypeCount": 0
+      },
+      {
+        "stepOrdinal": 5,
+        "stepId": "L4-fr-es-01-understand-3",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v3",
+        "study": "Normalmente ceno tarde.",
+        "newTypes": [
+          "ceno"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "stepOrdinal": 6,
+        "stepId": "L4-fr-es-01-imitate-3",
+        "kind": "imitate",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v3",
+        "study": "Normalmente ceno tarde.",
+        "newTypes": [],
+        "newTypeCount": 0
+      },
+      {
+        "stepOrdinal": 7,
+        "stepId": "L4-fr-es-01-understand-0",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v0",
+        "study": "Normalmente me levanto a las siete.",
+        "newTypes": [
+          "levanto",
+          "siete"
+        ],
+        "newTypeCount": 2
+      },
+      {
+        "stepOrdinal": 8,
+        "stepId": "L4-fr-es-01-imitate-0",
+        "kind": "imitate",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v0",
+        "study": "Normalmente me levanto a las siete.",
+        "newTypes": [],
+        "newTypeCount": 0
+      }
+    ],
+    "firstPresentations": [
+      {
+        "stepOrdinal": 1,
+        "stepId": "L4-fr-es-01-understand-2",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v2",
+        "study": "Normalmente trabajo hasta las seis.",
+        "newTypes": [
+          "hasta",
+          "normalmente",
+          "seis"
+        ],
+        "newTypeCount": 3
+      },
+      {
+        "stepOrdinal": 3,
+        "stepId": "L4-fr-es-01-understand-1",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v1",
+        "study": "Normalmente como en casa.",
+        "newTypes": [
+          "como"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "stepOrdinal": 5,
+        "stepId": "L4-fr-es-01-understand-3",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v3",
+        "study": "Normalmente ceno tarde.",
+        "newTypes": [
+          "ceno"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "stepOrdinal": 7,
+        "stepId": "L4-fr-es-01-understand-0",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v0",
+        "study": "Normalmente me levanto a las siete.",
+        "newTypes": [
+          "levanto",
+          "siete"
+        ],
+        "newTypeCount": 2
+      }
+    ],
+    "maxNewTypesPerPresentation": 3,
+    "totalIntroducedTypes": 7
+  },
+  "deliveredUnit": {
+    "variantOrder": [
+      1,
+      2,
+      3,
+      0
+    ],
+    "previousUnitIds": [
+      "L1-fr-es-02",
+      "L1-fr-es-01",
+      "L1-fr-es-11",
+      "L1-fr-es-07",
+      "L1-fr-es-03",
+      "L1-fr-es-09",
+      "L1-fr-es-04",
+      "L1-fr-es-05",
+      "L1-fr-es-06",
+      "L1-fr-es-08",
+      "L1-fr-es-10",
+      "L2-fr-es-02",
+      "L2-fr-es-09",
+      "L2-fr-es-10",
+      "L2-fr-es-01",
+      "L2-fr-es-03",
+      "L4-fr-es-05",
+      "L4-fr-es-06",
+      "L4-fr-es-07",
+      "L4-fr-es-04",
+      "L4-fr-es-13",
+      "L2-fr-es-06",
+      "L2-fr-es-07",
+      "L2-fr-es-11",
+      "L2-fr-es-13",
+      "L6-fr-es-10",
+      "L2-fr-es-04",
+      "L2-fr-es-05",
+      "L8-fr-es-09",
+      "L9-fr-es-10",
+      "L3-fr-es-07",
+      "L3-fr-es-04",
+      "L3-fr-es-08",
+      "L3-fr-es-03",
+      "L3-fr-es-11",
+      "L2-fr-es-08",
+      "L2-fr-es-12",
+      "L3-fr-es-01",
+      "L3-fr-es-02",
+      "L3-fr-es-05",
+      "L3-fr-es-09",
+      "L3-fr-es-06",
+      "L3-fr-es-10",
+      "L3-fr-es-12",
+      "L4-fr-es-11",
+      "L4-fr-es-10",
+      "L4-fr-es-09"
+    ],
+    "writtenTypesBeforeUnit": 235,
+    "writtenStockBeforeUnitSha256": "f533e65b88716dfdb3e8c9898da6bbdeb5a9a4ad0b572f1c14a1a600f39279c1",
+    "steps": [
+      {
+        "stepOrdinal": 1,
+        "stepId": "L4-fr-es-01-preparation-264-understand",
+        "kind": "understand",
+        "preparation": true,
+        "phraseId": "catalogue:DECKS.es:264:reader-fr",
+        "study": "Como en casa.",
+        "newTypes": [
+          "como"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "stepOrdinal": 2,
+        "stepId": "L4-fr-es-01-preparation-264-imitate",
+        "kind": "imitate",
+        "preparation": true,
+        "phraseId": "catalogue:DECKS.es:264:reader-fr",
+        "study": "Como en casa.",
+        "newTypes": [],
+        "newTypeCount": 0
+      },
+      {
+        "stepOrdinal": 3,
+        "stepId": "L4-fr-es-01-understand-1",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v1",
+        "study": "Normalmente como en casa.",
+        "newTypes": [
+          "normalmente"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "stepOrdinal": 4,
+        "stepId": "L4-fr-es-01-imitate-1",
+        "kind": "imitate",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v1",
+        "study": "Normalmente como en casa.",
+        "newTypes": [],
+        "newTypeCount": 0
+      },
+      {
+        "stepOrdinal": 5,
+        "stepId": "L4-fr-es-01-understand-2",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v2",
+        "study": "Normalmente trabajo hasta las seis.",
+        "newTypes": [
+          "hasta",
+          "seis"
+        ],
+        "newTypeCount": 2
+      },
+      {
+        "stepOrdinal": 6,
+        "stepId": "L4-fr-es-01-imitate-2",
+        "kind": "imitate",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v2",
+        "study": "Normalmente trabajo hasta las seis.",
+        "newTypes": [],
+        "newTypeCount": 0
+      },
+      {
+        "stepOrdinal": 7,
+        "stepId": "L4-fr-es-01-understand-3",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v3",
+        "study": "Normalmente ceno tarde.",
+        "newTypes": [
+          "ceno"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "stepOrdinal": 8,
+        "stepId": "L4-fr-es-01-imitate-3",
+        "kind": "imitate",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v3",
+        "study": "Normalmente ceno tarde.",
+        "newTypes": [],
+        "newTypeCount": 0
+      },
+      {
+        "stepOrdinal": 9,
+        "stepId": "L4-fr-es-01-preparation-283-understand",
+        "kind": "understand",
+        "preparation": true,
+        "phraseId": "catalogue:DECKS.es:283:reader-fr",
+        "study": "Me levanto temprano.",
+        "newTypes": [
+          "levanto"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "stepOrdinal": 10,
+        "stepId": "L4-fr-es-01-preparation-283-imitate",
+        "kind": "imitate",
+        "preparation": true,
+        "phraseId": "catalogue:DECKS.es:283:reader-fr",
+        "study": "Me levanto temprano.",
+        "newTypes": [],
+        "newTypeCount": 0
+      },
+      {
+        "stepOrdinal": 11,
+        "stepId": "L4-fr-es-01-understand-0",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v0",
+        "study": "Normalmente me levanto a las siete.",
+        "newTypes": [
+          "siete"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "stepOrdinal": 12,
+        "stepId": "L4-fr-es-01-imitate-0",
+        "kind": "imitate",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v0",
+        "study": "Normalmente me levanto a las siete.",
+        "newTypes": [],
+        "newTypeCount": 0
+      }
+    ],
+    "firstPresentations": [
+      {
+        "stepOrdinal": 1,
+        "stepId": "L4-fr-es-01-preparation-264-understand",
+        "kind": "understand",
+        "preparation": true,
+        "phraseId": "catalogue:DECKS.es:264:reader-fr",
+        "study": "Como en casa.",
+        "newTypes": [
+          "como"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "stepOrdinal": 3,
+        "stepId": "L4-fr-es-01-understand-1",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v1",
+        "study": "Normalmente como en casa.",
+        "newTypes": [
+          "normalmente"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "stepOrdinal": 5,
+        "stepId": "L4-fr-es-01-understand-2",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v2",
+        "study": "Normalmente trabajo hasta las seis.",
+        "newTypes": [
+          "hasta",
+          "seis"
+        ],
+        "newTypeCount": 2
+      },
+      {
+        "stepOrdinal": 7,
+        "stepId": "L4-fr-es-01-understand-3",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v3",
+        "study": "Normalmente ceno tarde.",
+        "newTypes": [
+          "ceno"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "stepOrdinal": 9,
+        "stepId": "L4-fr-es-01-preparation-283-understand",
+        "kind": "understand",
+        "preparation": true,
+        "phraseId": "catalogue:DECKS.es:283:reader-fr",
+        "study": "Me levanto temprano.",
+        "newTypes": [
+          "levanto"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "stepOrdinal": 11,
+        "stepId": "L4-fr-es-01-understand-0",
+        "kind": "understand",
+        "preparation": false,
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v0",
+        "study": "Normalmente me levanto a las siete.",
+        "newTypes": [
+          "siete"
+        ],
+        "newTypeCount": 1
+      }
+    ],
+    "maxNewTypesPerPresentation": 2,
+    "totalIntroducedTypes": 7
+  },
+  "orderInClaudeTable": {
+    "status": "hypothetical alternative, not delivered runtime order",
+    "firstPresentations": [
+      {
+        "phraseId": "catalogue:DECKS.es:283:reader-fr",
+        "study": "Me levanto temprano.",
+        "newTypes": [
+          "levanto"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v0",
+        "study": "Normalmente me levanto a las siete.",
+        "newTypes": [
+          "normalmente",
+          "siete"
+        ],
+        "newTypeCount": 2
+      },
+      {
+        "phraseId": "catalogue:DECKS.es:264:reader-fr",
+        "study": "Como en casa.",
+        "newTypes": [
+          "como"
+        ],
+        "newTypeCount": 1
+      },
+      {
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v1",
+        "study": "Normalmente como en casa.",
+        "newTypes": [],
+        "newTypeCount": 0
+      },
+      {
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v2",
+        "study": "Normalmente trabajo hasta las seis.",
+        "newTypes": [
+          "hasta",
+          "seis"
+        ],
+        "newTypeCount": 2
+      },
+      {
+        "phraseId": "L4-fr-es.json:L4-fr-es-01:v3",
+        "study": "Normalmente ceno tarde.",
+        "newTypes": [
+          "ceno"
+        ],
+        "newTypeCount": 1
+      }
+    ],
+    "maxNewTypesPerPresentation": 2,
+    "totalIntroducedTypes": 7
+  },
+  "global": {
+    "old": {
+      "variantOnlyL3": {
+        "level": 3,
+        "newTypeCount": 59,
+        "typeCount": 103
+      },
+      "variantOnlyL4": {
+        "level": 4,
+        "newTypeCount": 70,
+        "typeCount": 110
+      },
+      "l4MaxNewTypesPerPresentation": 4,
+      "l4TotalIntroducedTypes": 70
+    },
+    "delivered": {
+      "variantOnlyL3": {
+        "level": 3,
+        "newTypeCount": 59,
+        "typeCount": 103
+      },
+      "variantOnlyL4": {
+        "level": 4,
+        "newTypeCount": 70,
+        "typeCount": 110
+      },
+      "l4MaxNewTypesPerPresentation": 4,
+      "l4TotalIntroducedTypes": 70
+    }
+  },
+  "conclusion": {
+    "aggregateClaimsConfirmed": true,
+    "deliveredNormalmenteComoNewTypes": [
+      "normalmente"
+    ],
+    "deliveredNormalmenteComoNewTypeCount": 1,
+    "claudeZeroAppliesToAlternativeOrder": true,
+    "noRuntimeOrderChangeRequiredByThisAudit": true
+  },
+  "limitations": [
+    "Written first occurrences do not prove listening, comprehension or acquisition.",
+    "This audit does not reassess native phrasing or speech quality.",
+    "No source, runtime or previously reviewed report is modified."
+  ]
+}

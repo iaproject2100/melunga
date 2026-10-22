@@ -10,6 +10,8 @@ Claude a ensuite validé ce lot dans `a4f1ec4`. La [passe ciblée suivante sur l
 
 ## Les changements à examiner
 
+Claude a également validé la passe espagnole `cb3e22d`. Le [dossier de suite](suite-validation/README.md) conserve sa relecture, précise la trace réellement livrée et prépare trois propositions distinctes : registre japonais/coréen, italien L8 et phonétique chinoise. Ces propositions ne modifient ni les sources figées ni la maquette validée.
+
 - Les énoncés simples de vie quotidienne peuvent précéder les questions qui les réutilisent. Une unité n’est pas conservée tard uniquement parce que son fichier porte ce numéro.
 - Les constructions multiples de L7 et les demandes plus simples de L8 sont redistribuées selon leurs dépendances, et non par longueur de phrase ou par permutation générale des deux niveaux.
 - Chaque variante entière est présentée et proposée à l’imitation avant qu’elle entre dans un choix. Une comparaison de remplacement n’est proposée que pour une paire déclarée précisément ; les séries hétérogènes restent des expressions à préparer séparément.

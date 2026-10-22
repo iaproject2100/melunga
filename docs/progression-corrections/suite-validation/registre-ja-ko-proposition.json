@@ -1,0 +1,372 @@
+{
+  "version": 1,
+  "status": "proposal-only-source-files-not-modified",
+  "baselineCommit": "cb3e22d442a62421f3449518df93559569f29709",
+  "nativeReview": "pending-cross-review-not-certified",
+  "publicationApproved": false,
+  "doesNotMeasureAcquisition": true,
+  "scope": {
+    "sourceFiles": 2,
+    "units": 2,
+    "nativeFieldChanges": 10,
+    "nonNativeFieldChanges": 0,
+    "studyChanges": 0,
+    "phonChanges": 0,
+    "readingChanges": 0,
+    "slotChanges": 0,
+    "levelChanges": 0,
+    "unitOrderChanges": 0,
+    "accessChanges": 0
+  },
+  "recommendation": {
+    "templateNativeAfter": "Je voudrais {s}, s'il vous plaît.",
+    "reason": "Rendre la demande polie déjà portée par ください / 주세요 dès la première rencontre, en conservant les groupes natifs et leur modèle littéralement réutilisable.",
+    "notNewGrammar": "Le conditionnel français sert de traduction idiomatique ; aucune nouvelle forme japonaise ou coréenne ni progression universelle de politesse n’est déduite. L2 prépare quantité et compteurs, non une première politesse."
+  },
+  "sourceFilesSha256": {
+    "melunga_deploy/content/conversation/L1-fr-ja.json": "fad1f7e9091586ddc33ccafcac9133bc31826fe1eb017eda217b0e17017ac2bc",
+    "melunga_deploy/content/conversation/L2-fr-ja.json": "19bf3502281f537d39826503f7a3929bcdb0fb39edf2e5488c294049bca496cc",
+    "melunga_deploy/content/conversation/L1-fr-ko.json": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+    "melunga_deploy/content/conversation/L2-fr-ko.json": "47e44f74f91949b731d67f92c0b63b41ba0000e48c6eca4cd716138b04d26778"
+  },
+  "files": [
+    {
+      "pair": "fr-ja",
+      "unitId": "L1-fr-ja-03",
+      "sourceFile": "melunga_deploy/content/conversation/L1-fr-ja.json",
+      "unitIndex": 2,
+      "beforeSha256": "fad1f7e9091586ddc33ccafcac9133bc31826fe1eb017eda217b0e17017ac2bc",
+      "afterVirtualSha256": "b97e1394722ef55eba01c1250d3da056c15cc32dd991b249046ae074588d7007",
+      "sourceBytes": 26079,
+      "virtualBytes": 26189,
+      "changes": [
+        {
+          "path": "/units/2/model/native",
+          "before": "Je veux {s}.",
+          "after": "Je voudrais {s}, s'il vous plaît."
+        },
+        {
+          "path": "/units/2/variants/0/native",
+          "before": "Je veux un café.",
+          "after": "Je voudrais un café, s'il vous plaît."
+        },
+        {
+          "path": "/units/2/variants/1/native",
+          "before": "Je veux de l'eau.",
+          "after": "Je voudrais de l'eau, s'il vous plaît."
+        },
+        {
+          "path": "/units/2/variants/2/native",
+          "before": "Je veux un billet.",
+          "after": "Je voudrais un billet, s'il vous plaît."
+        },
+        {
+          "path": "/units/2/variants/3/native",
+          "before": "Je veux un sandwich.",
+          "after": "Je voudrais un sandwich, s'il vous plaît."
+        }
+      ],
+      "verification": {
+        "nativeLeafChanges": 5,
+        "nonNativeLeafChanges": 0,
+        "jsonShapeIdentical": true,
+        "allOtherLeafValuesIdentical": true,
+        "protectedStudyPhonReadingLeafValuesUnchanged": 354,
+        "slotLeafValuesUnchanged": 176,
+        "otherNativeLeafValuesUnchanged": 113,
+        "targetUnitStudyPhonReadingExact": true,
+        "targetUnitSlotsExact": true,
+        "nativeTemplateMatchesFourUnchangedSlots": true
+      }
+    },
+    {
+      "pair": "fr-ko",
+      "unitId": "L1-fr-ko-03",
+      "sourceFile": "melunga_deploy/content/conversation/L1-fr-ko.json",
+      "unitIndex": 2,
+      "beforeSha256": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+      "afterVirtualSha256": "360a849a08b34a92efd1cc4149ea492e0dbf6b174caa4e53cad59481b6dc6d6f",
+      "sourceBytes": 24448,
+      "virtualBytes": 24558,
+      "changes": [
+        {
+          "path": "/units/2/model/native",
+          "before": "Je veux {s}.",
+          "after": "Je voudrais {s}, s'il vous plaît."
+        },
+        {
+          "path": "/units/2/variants/0/native",
+          "before": "Je veux un café.",
+          "after": "Je voudrais un café, s'il vous plaît."
+        },
+        {
+          "path": "/units/2/variants/1/native",
+          "before": "Je veux de l'eau.",
+          "after": "Je voudrais de l'eau, s'il vous plaît."
+        },
+        {
+          "path": "/units/2/variants/2/native",
+          "before": "Je veux un billet.",
+          "after": "Je voudrais un billet, s'il vous plaît."
+        },
+        {
+          "path": "/units/2/variants/3/native",
+          "before": "Je veux un sandwich.",
+          "after": "Je voudrais un sandwich, s'il vous plaît."
+        }
+      ],
+      "verification": {
+        "nativeLeafChanges": 5,
+        "nonNativeLeafChanges": 0,
+        "jsonShapeIdentical": true,
+        "allOtherLeafValuesIdentical": true,
+        "protectedStudyPhonReadingLeafValuesUnchanged": 354,
+        "slotLeafValuesUnchanged": 176,
+        "otherNativeLeafValuesUnchanged": 113,
+        "targetUnitStudyPhonReadingExact": true,
+        "targetUnitSlotsExact": true,
+        "nativeTemplateMatchesFourUnchangedSlots": true
+      }
+    }
+  ],
+  "references": [
+    {
+      "file": "melunga_deploy/content/conversation/L1-fr-ja.json",
+      "unitId": "L1-fr-ja-09",
+      "model": {
+        "study": "{s}をお願いします。",
+        "reading": "{s}をおねがいします。",
+        "phon": "{s} o o-né-ga-i chi-ma-sou",
+        "native": "Un {s}, s'il vous plaît."
+      },
+      "variants": [
+        {
+          "study": "コーヒーをお願いします。",
+          "native": "Un café, s'il vous plaît.",
+          "phon": "ko-o-hi-i o o-né-ga-i chi-ma-sou",
+          "reading": "こーひーをおねがいします。"
+        },
+        {
+          "study": "お茶をお願いします。",
+          "native": "Un thé, s'il vous plaît.",
+          "phon": "o-tcha o o-né-ga-i chi-ma-sou",
+          "reading": "おちゃをおねがいします。"
+        },
+        {
+          "study": "オレンジジュースをお願いします。",
+          "native": "Un jus d'orange, s'il vous plaît.",
+          "phon": "o-ren-dji djou-ou-sou o o-né-ga-i chi-ma-sou",
+          "reading": "おれんじじゅーすをおねがいします。"
+        },
+        {
+          "study": "サンドイッチをお願いします。",
+          "native": "Un sandwich, s'il vous plaît.",
+          "phon": "san-do-it-tchi o o-né-ga-i chi-ma-sou",
+          "reading": "さんどいっちをおねがいします。"
+        }
+      ]
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-fr-ja.json",
+      "unitId": "L2-fr-ja-01",
+      "model": {
+        "study": "{s}ください。",
+        "reading": "{s}ください。",
+        "phon": "{s} kou-da-sa-i",
+        "native": "{s}, s'il vous plaît.",
+        "note": "Le compteur suit le nom + を : つ (objets), 杯 (verres, tasses), 枚 (objets plats comme les billets)."
+      },
+      "variants": [
+        {
+          "study": "コーヒーを二つください。",
+          "native": "Deux cafés, s'il vous plaît.",
+          "phon": "ko-o-hi-i o fou-ta-tsou kou-da-sa-i",
+          "reading": "こーひーをふたつください。"
+        },
+        {
+          "study": "水を一つください。",
+          "native": "Une eau, s'il vous plaît.",
+          "phon": "mi-zou o hi-to-tsou kou-da-sa-i",
+          "reading": "みずをひとつください。"
+        },
+        {
+          "study": "お茶を一杯ください。",
+          "native": "Une tasse de thé, s'il vous plaît.",
+          "phon": "o-tcha o ip-pa-i kou-da-sa-i",
+          "reading": "おちゃをいっぱいください。"
+        },
+        {
+          "study": "切符を二枚ください。",
+          "native": "Deux billets, s'il vous plaît.",
+          "phon": "kip-pou o ni-ma-i kou-da-sa-i",
+          "reading": "きっぷをにまいください。"
+        }
+      ]
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-fr-ja.json",
+      "dialogueId": "L2-fr-ja-d1",
+      "turnIndex": 0,
+      "role": "Client",
+      "turn": {
+        "speaker": "A",
+        "study": "すみません、コーヒーを二つください。",
+        "reading": "すみません、こーひーをふたつください。",
+        "phon": "sou-mi-ma-sén, ko-o-hi-i o fou-ta-tsou kou-da-sa-i",
+        "native": "Excusez-moi, deux cafés, s'il vous plaît."
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-fr-ja.json",
+      "dialogueId": "L2-fr-ja-d1",
+      "turnIndex": 4,
+      "role": "Client",
+      "turn": {
+        "speaker": "A",
+        "study": "じゃあ、サンドイッチを一つください。",
+        "reading": "じゃあ、さんどいっちをひとつください。",
+        "phon": "dja-a, san-do-it-tchi o hi-to-tsou kou-da-sa-i",
+        "native": "Alors, un sandwich, s'il vous plaît."
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-fr-ja.json",
+      "dialogueId": "L2-fr-ja-d2",
+      "turnIndex": 4,
+      "role": "Voyageur",
+      "turn": {
+        "speaker": "A",
+        "study": "切符を二枚ください。",
+        "reading": "きっぷをにまいください。",
+        "phon": "kip-pou o ni-ma-i kou-da-sa-i",
+        "native": "Deux billets, s'il vous plaît."
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L1-fr-ko.json",
+      "unitId": "L1-fr-ko-09",
+      "model": {
+        "study": "{s} 하나 주세요.",
+        "reading": "{s} hana juseyo.",
+        "phon": "{s} ha-na djou-sé-yo",
+        "native": "Un {s}, s'il vous plaît."
+      },
+      "variants": [
+        {
+          "study": "커피 하나 주세요.",
+          "native": "Un café, s'il vous plaît.",
+          "phon": "keo-pi ha-na djou-sé-yo",
+          "reading": "keopi hana juseyo."
+        },
+        {
+          "study": "차 하나 주세요.",
+          "native": "Un thé, s'il vous plaît.",
+          "phon": "tcha ha-na djou-sé-yo",
+          "reading": "cha hana juseyo."
+        },
+        {
+          "study": "오렌지 주스 하나 주세요.",
+          "native": "Un jus d'orange, s'il vous plaît.",
+          "phon": "o-ren-dji djou-seu ha-na djou-sé-yo",
+          "reading": "orenji juseu hana juseyo."
+        },
+        {
+          "study": "샌드위치 하나 주세요.",
+          "native": "Un sandwich, s'il vous plaît.",
+          "phon": "ssèn-deu-oui-tchi ha-na djou-sé-yo",
+          "reading": "saendeuwichi hana juseyo."
+        }
+      ]
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L1-fr-ko.json",
+      "dialogueId": "L1-fr-ko-d1",
+      "turnIndex": 2,
+      "role": "Client",
+      "turn": {
+        "speaker": "A",
+        "study": "커피 하나 주세요.",
+        "reading": "keopi hana juseyo.",
+        "phon": "keo-pi ha-na djou-sé-yo",
+        "native": "Un café, s'il vous plaît."
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-fr-ko.json",
+      "unitId": "L2-fr-ko-01",
+      "model": {
+        "study": "{s} 주세요.",
+        "reading": "{s} juseyo.",
+        "phon": "{s} djou-sè-yo",
+        "native": "Je voudrais {s}, s'il vous plaît.",
+        "note": "Compteurs : 잔 (verres, tasses), 개 (objets), 장 (billets, feuilles). Nombres natifs devant un compteur : 하나→한, 둘→두, 셋→세, 넷→네."
+      },
+      "variants": [
+        {
+          "study": "커피 두 잔 주세요.",
+          "native": "Je voudrais deux cafés, s'il vous plaît.",
+          "phon": "keo-pi dou djan djou-sè-yo",
+          "reading": "keopi du jan juseyo."
+        },
+        {
+          "study": "물 한 잔 주세요.",
+          "native": "Je voudrais un verre d'eau, s'il vous plaît.",
+          "phon": "moul han djan djou-sè-yo",
+          "reading": "mul han jan juseyo."
+        },
+        {
+          "study": "빵 세 개 주세요.",
+          "native": "Je voudrais trois pains, s'il vous plaît.",
+          "phon": "ppang sè gè djou-sè-yo",
+          "reading": "ppang se gae juseyo."
+        },
+        {
+          "study": "표 두 장 주세요.",
+          "native": "Je voudrais deux billets, s'il vous plaît.",
+          "phon": "pyo dou djang djou-sè-yo",
+          "reading": "pyo du jang juseyo."
+        }
+      ]
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-fr-ko.json",
+      "dialogueId": "L2-fr-ko-d1",
+      "turnIndex": 0,
+      "role": "Client",
+      "turn": {
+        "speaker": "A",
+        "study": "안녕하세요. 커피 두 잔 주세요.",
+        "reading": "annyeonghaseyo. keopi du jan juseyo.",
+        "phon": "an-nyeong-ha-sè-yo. keo-pi dou djan djou-sè-yo",
+        "native": "Bonjour. Deux cafés, s'il vous plaît."
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-fr-ko.json",
+      "dialogueId": "L2-fr-ko-d1",
+      "turnIndex": 2,
+      "role": "Client",
+      "turn": {
+        "speaker": "A",
+        "study": "따뜻한 거요. 그리고 물 조금 주세요.",
+        "reading": "ttatteutan geoyo. geurigo mul jogeum juseyo.",
+        "phon": "tta-tteu-tan geo-yo. geu-ri-go moul djo-geum djou-sè-yo",
+        "native": "Chaud. Et un peu d'eau, s'il vous plaît."
+      }
+    },
+    {
+      "file": "melunga_deploy/content/conversation/L2-fr-ko.json",
+      "dialogueId": "L2-fr-ko-d2",
+      "turnIndex": 0,
+      "role": "Voyageur",
+      "turn": {
+        "speaker": "A",
+        "study": "실례합니다, 부산 가는 표 두 장 주세요.",
+        "reading": "sillyehamnida, busan ganeun pyo du jang juseyo.",
+        "phon": "sil-lyè-ham-ni-da, bou-san ga-neun pyo dou djang djou-sè-yo",
+        "native": "Excusez-moi, deux billets pour Busan, s'il vous plaît."
+      }
+    }
+  ],
+  "guardBoundary": "Ce patch n’est pas appliqué : la garde de sources bcd108d du dossier validé demeure intacte. Un lot source distinct devra intégrer explicitement la correction et recalculer ses références, sans réécrire les aides."
+}
