@@ -2700,6 +2700,7 @@ body.immersif.pile-droite .stage {
 <link rel="stylesheet" href="lesson-controls.css">
 <link rel="stylesheet" href="lesson-pastilles.css">
 <link rel="stylesheet" href="account-ui.css">
+<link rel="stylesheet" href="l1-cafe.css">
 </head>
 <body>
 <script>
@@ -3259,7 +3260,10 @@ function touchStreak(){ var t=_ymd(new Date()); if(STREAK.last===t) return; var 
 function renderStreak(){ var el=document.getElementById('streak'),nn=document.getElementById('streakN'); if(!el) return; var n=streakAlive()?(STREAK.n||0):0; if(nn) nn.textContent=n; el.style.display=n>0?'':'none'; }
 var FREE_LV=[1];
 function isFreeCard(d){return FREE_LV.indexOf(d.lv)>-1;}
-function isLockedMode(m){ if(isPaid) return false; if(m==='all'||m==='path'||m==='L1'||m==='basics'||m==='vocab'||m==='review'||m==='recall'||m==='again'||m==='known') return false; return true; }
+function isLockedMode(m){ if(isPaid) return false; if(m==='l1-cafe') return !(window.MelungaL1Cafe && window.MelungaL1Cafe.available(nat,lang)); if(m==='all'||m==='path'||m==='L1'||m==='basics'||m==='vocab'||m==='review'||m==='recall'||m==='again'||m==='known') return false; return true; }
+
+// The L1 exchange owns its sequence; classic card ratings never apply to it.
+function l1CafeActive(){ return !!(window.MelungaL1Cafe && window.MelungaL1Cafe.active()); }
 
 var SOURCING_TH=['biz','textile','elec','furniture','lighting','toys','shoes','bags','machinery'];
 function sourcingRelevant(){
@@ -3302,6 +3306,11 @@ function buildLevels(){
   var rubHtml='<button class="lv on" onclick="setMode(\'all\',this)">'+T('all')+'<small>'+(isPaid?deck.length+' '+T('sentences'):T('free'))+'</small></button>';
   var _pathUi=PATH_UI[nat]||PATH_UI.fr;
   rubHtml+='<button class="lv path" onclick="setMode(\'path\',this)"><span class="remo">🧩</span>'+_pathUi.title+'<small>'+_pathUi.sub+'</small></button>';
+  if(window.MelungaL1Cafe && window.MelungaL1Cafe.available(nat,lang)){
+    var cafeTitle=nat==='zh'?'第一次交流 · L1':'Premier échange · L1';
+    var cafeSub=nat==='zh'?'在咖啡馆：先理解，再回答':'Au café : comprendre, puis répondre';
+    rubHtml+='<button id="l1CafeEntry" data-l1-cafe-entry class="lv path" onclick="setMode(\'l1-cafe\',this)"><span class="remo" aria-hidden="true">☕</span>'+cafeTitle+'<small>'+cafeSub+'</small></button>';
+  }
   // QUOTIDIEN
   var q='';
   if(deck.some(function(d){return d.cat==='basics';})) q+='<button class="lv basics" onclick="setMode(\'basics\',this)">'+emoLabel(T('basics'))+'<small>'+T('basicsSub')+'</small>'+lk('basics')+'</button>';
@@ -3436,6 +3445,7 @@ if(typeof document!=='undefined'){ document.addEventListener('click',function(e)
 
 
 function setMode(m,btn){
+  if(l1CafeActive()) window.MelungaL1Cafe.stop();
   mode=m;
   document.querySelectorAll('.lv').forEach(function(b){b.classList.remove('on');});
   document.querySelectorAll('.mbtn').forEach(function(b){b.classList.remove('on');});
@@ -3445,6 +3455,11 @@ function setMode(m,btn){
   try{ updateSelLabels(m,btn); closeSels(); }catch(e){}
   if(isLockedMode(m)){ showPaywall(); return; }
   hidePaywall();
+  if(m==='l1-cafe'){
+    revealed=false; selfTest=false;
+    window.MelungaL1Cafe.start();
+    return;
+  }
   var deck=activeDeck();
   if(m==='all') pool=deck.slice();
   else if(m==='path'){
@@ -3856,11 +3871,13 @@ function setVoice(g,btn){
   document.getElementById('vF').classList.toggle('on', g==='female');
   document.getElementById('vM').classList.toggle('on', g==='male');
   try{ updateVoiceLabel(); }catch(e){}
+  if(l1CafeActive()) return;
   var sample=(HELLO[lang]&&HELLO[lang][g]) || (pool.length?clean(pool[idx].t):'');
   speak(sample, null);
 }
 
 function show(){
+  if(l1CafeActive()){ window.MelungaL1Cafe.render(); return; }
   if(!pool.length) return;
   var d=pool[idx];
   var _lb=document.getElementById('listen'); if(_lb) _lb.style.display='';
@@ -3971,7 +3988,7 @@ function animCard(dir){
   void c.offsetWidth;
   c.classList.add(cls);
 }
-function prev(){ if(pool.length){selfTest=false;revealed=false;idx=(idx-1+pool.length)%pool.length;show();animCard(-1);touchStreak();} }
+function prev(){ if(l1CafeActive()){ window.MelungaL1Cafe.prev(); return; } if(pool.length){selfTest=false;revealed=false;idx=(idx-1+pool.length)%pool.length;show();animCard(-1);touchStreak();} }
 /* ===== Tri des cartes : ✓ rangée / ↩ elle revient (idée de la fille de Kartech) ===== */
 function _againLoad(){ try{ return JSON.parse(localStorage.getItem('ox_again_'+lang)||'{}'); }catch(e){ return {}; } }
 function _againSave(k){ try{ localStorage.setItem('ox_again_'+lang, JSON.stringify(k)); }catch(e){} }
@@ -3986,12 +4003,15 @@ function toastMsg(txt){
   clearTimeout(window._hhT); window._hhT=setTimeout(function(){ el.classList.remove('on'); },1400);
 }
 function rateCard(known){
+  if(l1CafeActive()){ window.MelungaL1Cafe.rateCard(known); return; }
   if(!pool.length || mode==='review' || mode==='recall') return;
   if(!navGate()) return;
+  var ratedPool=pool, ratedMode=mode, ratedLang=lang, ratedNat=nat, ratedIdx=idx, ratedCard=pool[idx];
   var c=document.getElementById('card');
   if(c) c.classList.add(known?'toKnown':'toAgain');
   setTimeout(function(){
     if(c){ c.classList.remove('toKnown'); c.classList.remove('toAgain'); }
+    if(l1CafeActive() || pool!==ratedPool || mode!==ratedMode || lang!==ratedLang || nat!==ratedNat || idx!==ratedIdx || pool[idx]!==ratedCard) return;
     var cur=pool.splice(idx,1)[0];
     var _ky=srsKey(cur);
     if(known){
@@ -4019,6 +4039,7 @@ function rateCard(known){
   },300);
 }
 function prevOrHome(){
+  if(l1CafeActive()){ window.MelungaL1Cafe.prev(); return; }
   if(!navGate()) return;
   if(idx>0){ prev(); return; }
   var now=Date.now();
@@ -4031,7 +4052,7 @@ function prevOrHome(){
   clearTimeout(window._hhT); window._hhT=setTimeout(function(){ el.classList.remove('on'); },1500);
 }
 function navGate(){ var n=Date.now(); if(n-(window._navT||0)<250) return false; window._navT=n; return true; }
-function next(){ if(!navGate()) return; if(pool.length){selfTest=false;revealed=false;idx=(idx+1)%pool.length;show();animCard(1);touchStreak();} }
+function next(){ if(l1CafeActive()){ window.MelungaL1Cafe.next(); return; } if(!navGate()) return; if(pool.length){selfTest=false;revealed=false;idx=(idx+1)%pool.length;show();animCard(1);touchStreak();} }
 (function(){
   var sy=null,sx=null,st=0;
   document.addEventListener('touchstart',function(e){
@@ -4096,11 +4117,12 @@ var SRS={}; try{ SRS=JSON.parse(localStorage.getItem('melunga_srs')||'{}'); }cat
 function saveSRS(){ try{ localStorage.setItem('melunga_srs',JSON.stringify(SRS)); }catch(e){} }
 function srsKey(d){ return lang+'|'+d.t; }
 var revealed=false, selfTest=false;
-function cardTap(){ if(window._justDragged){ window._justDragged=false; return; } if((mode==='review'||selfTest) && !revealed){ revealed=true; show(); } }
-function startSelfTest(){ if(!pool.length) return; selfTest=true; revealed=false; show(); }
+function cardTap(){ if(window._justDragged){ window._justDragged=false; return; } if(l1CafeActive()){ window.MelungaL1Cafe.cardTap(); return; } if((mode==='review'||selfTest) && !revealed){ revealed=true; show(); } }
+function startSelfTest(){ if(l1CafeActive()){ window.MelungaL1Cafe.selfTest(); return; } if(!pool.length) return; selfTest=true; revealed=false; show(); }
 function accessible(d){ try{ return isPaid || isFreeCard(d); }catch(e){ return true; } }
 function dueCount(){ var now=Date.now(),n=0,dk=activeDeck(); for(var i=0;i<dk.length;i++){ var s=SRS[srsKey(dk[i])]; if(s&&s.due<=now&&accessible(dk[i])) n++; } return n; }
 function rate(grade){
+  if(l1CafeActive()) return;
   if((mode!=='review'&&mode!=='recall')||!pool.length) return;
   touchStreak();
   var d=pool[idx], k=srsKey(d), s=SRS[k]||{iv:0,ease:2.5,reps:0};
@@ -4170,6 +4192,7 @@ var rec=null, zhTry=0;
 var ZH_CODES=['zh-CN','cmn-Hans-CN','zh'];
 function startRec(ev){
   if(ev&&ev.stopPropagation) ev.stopPropagation();
+  if(l1CafeActive()){ window.MelungaL1Cafe.selfTest(); return; }
   if(ev){ zhTry=0; window._micRetried=false; }
   var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   var mic=document.getElementById('mic'), heard=document.getElementById('heard');
@@ -4178,6 +4201,8 @@ function startRec(ev){
   // Opera/Brave desktop exposent l'API mais n'ont pas de backend de reconnaissance vocale → message clair
   if((/ OPR\//.test(navigator.userAgent)||!!navigator.brave) && !/Android/i.test(navigator.userAgent)){ if(mic){ mic.textContent=T('speak'); mic.classList.remove('rec'); } if(heard) heard.textContent=T('micUseChrome')+micDiag(); return; }
   if(!pool.length) return; var d=pool[idx];
+  var recognitionPool=pool, recognitionMode=mode, recognitionLang=lang, recognitionNat=nat;
+  function currentRecognition(){ return !l1CafeActive() && pool===recognitionPool && pool[idx]===d && mode===recognitionMode && lang===recognitionLang && nat===recognitionNat; }
   // couper tout audio en cours pour ne pas polluer le micro
   try{ if(curAudio){curAudio.pause();curAudio.src='';curAudio=null;} }catch(_){}
   try{ if(window.speechSynthesis) window.speechSynthesis.cancel(); }catch(_){}
@@ -4188,6 +4213,7 @@ function startRec(ev){
   if(mic){ mic.textContent=T('micListening'); mic.classList.add('rec'); } if(heard) heard.textContent='';
   var gotFinal=false;
   rec.onresult=function(e){
+    if(!currentRecognition()) return;
     var alts=[], interim='';
     for(var ri=0;ri<e.results.length;ri++){
       var r=e.results[ri];
@@ -4220,18 +4246,19 @@ function startRec(ev){
     }
   };
   rec.onerror=function(e){
+    if(!currentRecognition()) return;
     var err=(e&&e.error)||'';
     if(err==='aborted') return;
     // chinois : le pack vocal Android peut préférer un autre code → on réessaie
     if(lang==='zh' && zhTry<ZH_CODES.length-1 && (err==='language-not-supported'||err==='service-not-allowed')){
       zhTry++; try{ rec.abort(); }catch(_){}
-      setTimeout(function(){ startRec(); },150); return;
+      setTimeout(function(){ if(currentRecognition()) startRec(); },150); return;
     }
     // silence : une relance automatique, l'utilisateur n'a pas eu le temps de parler
     if(err==='no-speech' && !window._micRetried){
       window._micRetried=true;
       if(heard) heard.textContent=T('micNoSpeech');
-      setTimeout(function(){ startRec(); },200); return;
+      setTimeout(function(){ if(currentRecognition()) startRec(); },200); return;
     }
     if(mic){ mic.textContent=T('speak'); mic.classList.remove('rec'); }
     if(heard){
@@ -4242,7 +4269,7 @@ function startRec(ev){
       else if(err) heard.textContent=T('micGenericErr')+' : '+err+micDiag();
     }
   };
-  rec.onend=function(){ if(mic&&mic.classList.contains('rec')){mic.textContent=T('micAgain');mic.classList.remove('rec');} };
+  rec.onend=function(){ if(currentRecognition() && mic&&mic.classList.contains('rec')){mic.textContent=T('micAgain');mic.classList.remove('rec');} };
   try{ rec.start(); }catch(e){}
 }
 
@@ -4300,23 +4327,32 @@ function setSpeed(slow,btn){
   document.getElementById('sN').classList.toggle('on', !slow);
   document.getElementById('sS').classList.toggle('on', slow);
   try{ updateVoiceLabel(); }catch(e){}
+  if(l1CafeActive()) return;
   if(pool.length) speak(clean(pool[idx].t), null);
 }
-function playCurrent(btn){ if(pool.length){ touchStreak(); speak(clean(pool[idx].t), btn); } }
+function playCurrent(btn){ if(l1CafeActive()){ window.MelungaL1Cafe.listen(btn); return; } if(pool.length){ touchStreak(); speak(clean(pool[idx].t), btn); } }
 var _audioUnlocked=false;
 function unlockAudio(){
   if(_audioUnlocked) return; _audioUnlocked=true;
   try{ var a=new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA='); a.volume=0; var p=a.play(); if(p&&p.catch)p.catch(function(){}); }catch(e){}
   try{ if(window.speechSynthesis){ var w=new SpeechSynthesisUtterance(' '); w.volume=0; window.speechSynthesis.speak(w); } }catch(e){}
 }
+var speechGeneration=0;
+function cancelCurrentSpeech(){
+  speechGeneration++;
+  try{ if(curAudio){ curAudio.onplaying=null; curAudio.onended=null; curAudio.onerror=null; curAudio.pause(); curAudio.currentTime=0; curAudio=null; } }catch(e){}
+  try{ if(window.speechSynthesis) window.speechSynthesis.cancel(); }catch(e){}
+  document.querySelectorAll('.playing').forEach(function(el){el.classList.remove('playing');});
+}
 function speak(text,btn){
   if(!text) return;
+  cancelCurrentSpeech();
   if(btn) btn.classList.add('playing');
   unlockAudio();
   try{ if(curAudio){curAudio.pause();curAudio.currentTime=0;curAudio=null;} }catch(e){}
   try{ if(window.speechSynthesis) window.speechSynthesis.cancel(); }catch(e){}
   var list=(VOICES[lang][gender]||[]).filter(function(v){ return !deadVoice[v]; });
-  trySE(text,btn,list,0);
+  trySE(text,btn,list,0,speechGeneration);
 }
 // Essaie chaque source candidate ; si aucune ne repond, repli sur la synthese du systeme.
 // Une source commencant par '/' est une URL directe (fonction serverless), sinon un nom de voix StreamElements.
@@ -4344,10 +4380,11 @@ function _probeSeCors(u){
       .catch(function(){ try{ localStorage.setItem('ox_seboost','0'); }catch(e){} });
   }catch(e){}
 }
-function trySE(text,btn,list,i){
-  if(i>=list.length){ if(btn)btn.classList.remove('playing'); fallback(text); return; }
+function trySE(text,btn,list,i,playbackToken){
+  if(playbackToken!==speechGeneration) return;
+  if(i>=list.length){ if(btn)btn.classList.remove('playing'); fallback(text,playbackToken); return; }
   var voice=list[i], advanced=false;
-  function next(){ if(advanced) return; advanced=true; deadVoice[voice]=true; curAudio=null; trySE(text,btn,list,i+1); }
+  function next(){ if(advanced || playbackToken!==speechGeneration) return; advanced=true; deadVoice[voice]=true; curAudio=null; trySE(text,btn,list,i+1,playbackToken); }
   var src=speechSource(text,voice);
   var _bst=_seBoostState();
   if(_bst===null) _probeSeCors(src);
@@ -4380,10 +4417,12 @@ function pickVoice(vs,pre,g){
   for(j=0;j<cands.length;j++){ s=(cands[j].name||'')+' '+(cands[j].voiceURI||''); if(!avoid.test(s)) return cands[j]; }
   return cands[0]||null;
 }
-function fallback(text){
+function fallback(text,playbackToken){
+  if(playbackToken!==speechGeneration) return;
   var hd=document.getElementById('heard');
   if(!window.speechSynthesis){ if(hd) hd.textContent = T('audioUnavailable'); return; }
   function go(){
+    if(playbackToken!==speechGeneration) return;
     try{
       window.speechSynthesis.cancel();
       var u=new SpeechSynthesisUtterance(text);
@@ -4394,8 +4433,8 @@ function fallback(text){
       var pre=TTSLANG[lang].slice(0,2).toLowerCase();
       var v=pickVoice(window.speechSynthesis.getVoices(),pre,gender);
       if(v) u.voice=v;
-      u.onstart=function(){ if(hd && hd.textContent===T('audioUnavailable')) hd.textContent=''; };
-      u.onerror=function(ev){ var er=(ev&&ev.error)||''; if(er==='interrupted'||er==='canceled') return; if(hd) hd.textContent = T('audioUnavailable'); };
+      u.onstart=function(){ if(playbackToken===speechGeneration && hd && hd.textContent===T('audioUnavailable')) hd.textContent=''; };
+      u.onerror=function(ev){ if(playbackToken!==speechGeneration) return; var er=(ev&&ev.error)||''; if(er==='interrupted'||er==='canceled') return; if(hd) hd.textContent = T('audioUnavailable'); };
       window.speechSynthesis.speak(u);
     }catch(e){ if(hd) hd.textContent = T('audioUnavailable'); }
   }
@@ -5145,5 +5184,6 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
 <script src="lesson-controls.js"></script>
 <script src="lesson-pastilles.js"></script>
 <script src="account-ui.js"></script>
+<script src="l1-cafe.js"></script>
 </body>
 </html>
