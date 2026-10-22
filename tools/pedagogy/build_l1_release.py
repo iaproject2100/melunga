@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Build the per-scene release list from recorded human decisions.
+"""Build the per-scene release list from the owner's direct instruction.
 
-This records no review or approval. Empty/pending decisions enable nothing.
-Evidence and scene hashes prevent carrying a decision onto changed material.
+No named reviewer or separate evidence file is required. Scene fingerprints
+still prevent carrying an activation instruction onto changed material.
 """
 
 import argparse
@@ -29,25 +29,9 @@ def scene_sha256(scene):
     return hashlib.sha256(raw).hexdigest()
 
 
-def verify_decision(decision, statuses, root, label, scene_hash):
-    require(isinstance(decision, dict) and decision.get("status") in statuses, f"{label}: invalid status")
-    if decision["status"] != "approved":
-        return False
-    require(decision.get("sceneSha256") == scene_hash, f"{label}: decision belongs to another scene version")
-    evidence = decision.get("evidence")
-    require(isinstance(evidence, dict), f"{label}: evidence required")
-    path = evidence.get("file")
-    require(isinstance(path, str) and path.strip(), f"{label}: evidence file required")
-    relative = Path(path)
-    require(not relative.is_absolute() and ".." not in relative.parts, f"{label}: evidence must be repository-relative")
-    location = (root / relative).resolve()
-    require(location.is_relative_to(root.resolve()) and location.is_file(), f"{label}: evidence file missing")
-    require(hashlib.sha256(location.read_bytes()).hexdigest() == evidence.get("sha256"), f"{label}: evidence hash mismatch")
-    return True
-
-
-def release_pairs(manifest, bundle, root=ROOT):
-    require(isinstance(manifest, dict) and manifest.get("version") == 1, "Invalid release manifest")
+def release_pairs(manifest, bundle):
+    require(isinstance(manifest, dict) and manifest.get("version") == 2
+            and manifest.get("activationPolicy") == "owner-instruction-only", "Invalid release manifest")
     require(isinstance(bundle, dict) and bundle.get("version") == 1 and isinstance(bundle.get("pairs"), list), "Invalid scene bundle")
     scenes = bundle["pairs"]
     require(len(scenes) == len(PAIRS) and all(isinstance(p, dict) for p in scenes), "Seven scenes required")
@@ -58,12 +42,12 @@ def release_pairs(manifest, bundle, root=ROOT):
     activated = []
     for row, scene in zip(rows, scenes):
         pair = row["id"]
-        require(row.get("sceneSha256") == scene_sha256(scene), f"{pair}: scene changed; review and approval must be renewed")
-        scene_hash = scene_sha256(scene)
-        reviewed = verify_decision(row.get("nativeReview"), {"pending", "changes-requested", "approved"}, root, f"{pair} native review", scene_hash)
-        approved = verify_decision(row.get("kartechApproval"), {"pending", "approved", "withheld"}, root, f"{pair} Kartech approval", scene_hash)
-        require(not approved or reviewed, f"{pair}: publication approval requires a favorable native review")
-        if reviewed and approved:
+        require(row.get("sceneSha256") == scene_sha256(scene), f"{pair}: scene changed; update its snapshot and owner instruction")
+        decision = row.get("kartechApproval")
+        require(isinstance(decision, dict) and decision.get("status") in {"pending", "approved", "withheld"}, f"{pair}: invalid owner decision")
+        if decision["status"] == "approved":
+            require(decision.get("method") == "direct-instruction" and decision.get("actor") == "Kartech", f"{pair}: direct owner instruction required")
+            require(decision.get("sceneSha256") == scene_sha256(scene), f"{pair}: owner instruction belongs to another scene version")
             activated.append(pair)
     return activated
 

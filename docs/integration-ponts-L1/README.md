@@ -4,7 +4,7 @@ Ce lot relie les sept scènes vérifiées par Claude à la **carte de leçon de 
 
 ## Ce que verra l’apprenant
 
-Le [suivi de publication par langue](publication-par-langue/README.md) ajoute maintenant une sélection indépendante pour chaque scène. **Les sept validations natives et accords de publication restent en attente : aucune scène n’est activée dans la configuration livrée.** Le comportement décrit ci-dessous est celui des scènes une fois activées ; les tests locaux peuvent l’exercer sans changer cette configuration.
+Le [lot d’activation sur instruction directe](activation-instruction/README.md) ouvre maintenant les sept scènes dans la branche de revue. Kartech a supprimé l’exigence de justificatifs nominatifs ; le [manifeste par langue](publication-par-langue/statut.json) enregistre sa décision. Les formulaires restent facultatifs et aucune preuve native individuelle n’est inventée. La fusion et la mise en production ne sont pas effectuées par ce changement.
 
 Dans les thèmes, à côté du parcours guidé, « Premier échange · L1 » ouvre la scène du café pour le couple de langues sélectionné. Les couples disponibles sont français → anglais, espagnol, italien, chinois, japonais, coréen, et chinois → français.
 
@@ -44,15 +44,15 @@ NODE_PATH=/tmp/melunga-review-tools/node_modules node melunga_deploy/tests/l1-ca
 NODE_PATH=/tmp/melunga-review-tools/node_modules node melunga_deploy/tests/lesson-async-safety.test.cjs
 ```
 
-Pour vérifier la configuration livrée, servir `melunga_deploy` avec un serveur HTTP et ouvrir `app.html?start=1` : aucune entrée « Premier échange · L1 » n’apparaît tant que ses validations sont en attente. Les tests navigateur de revue injectent une liste d’activation locale afin de parcourir les scènes, la sortie vers les cartes et les sélecteurs sur ordinateur et téléphone. Ils ne changent pas les décisions livrées.
+Pour vérifier la configuration livrée, servir `melunga_deploy` avec un serveur HTTP et ouvrir `app.html?start=1` : « Premier échange · L1 » apparaît dans les rubriques des sept couples. Les tests navigateur utilisent cette configuration réelle, puis des listes locales vides ou partielles pour vérifier la fermeture et l’indépendance des langues.
 
 Le contrat du paquet est décrit dans [runtime-contract.md](runtime-contract.md). La relecture indépendante du contenu est conservée dans [verification-claude.md](verification-claude.md). Les résultats d’intégration sont consignés dans [validation.md](validation.md).
 
 ## Points de revue avant publication
 
-La relecture native des sept scènes reste en attente. Elle doit vérifier le refus détaché, le naturel et l’intonation des échanges, notamment `結構です` en japonais et `괜찮아요` comme refus en coréen. Les contrôles techniques et la revue de Claude ne remplacent pas cette relecture.
+Une validation native est rapportée dans le message transmis par Kartech. Les pièces jointes de consignation restent vierges ; elles ne sont pas transformées en comptes rendus remplis. Sur son instruction explicite, leur dépôt nominatif n’est plus une condition d’activation. Les contrôles techniques ne sont pas présentés comme une certification linguistique.
 
-Une [fiche de relecture native à remplir](relecture-native-a-remplir.md) rassemble les 49 répliques exactes et les vérifications par langue. Toutes ses validations restent vierges.
+Une [fiche de relecture native à remplir](relecture-native-a-remplir.md) rassemble les 49 répliques exactes et les vérifications par langue. Ce modèle de collecte reste vierge et facultatif.
 
 Le registre de « Je veux » dans les unités historiques et les écarts de conventions phonétiques entre corpus restent des sujets séparés. Les changer ici contredirait la conservation exacte demandée.
 

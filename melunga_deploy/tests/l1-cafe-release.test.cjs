@@ -16,11 +16,11 @@ const repository=path.dirname(root);
 const bundle=JSON.parse(fs.readFileSync(path.join(root,'content/l1-cafe.json'),'utf8'));
 const pairIds=bundle.pairs.map(pair=>pair.id);
 const releasePath=path.join(root,'l1-cafe-release.js');
-const reportPath=path.join(repository,'docs/integration-ponts-L1/publication-par-langue/tests-navigateur.json');
+const reportPath=path.join(repository,'docs/integration-ponts-L1/activation-instruction/tests-navigateur.json');
 const hash=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
-const report={version:1,status:'running',scope:'local-browser-fixtures-only',baseline:execFileSync('git',['rev-parse','HEAD'],{cwd:repository,encoding:'utf8'}).trim(),
- publicationApproved:false,nativeReviewClaimed:false,shippedActivationFixtureModified:false,
+const report={version:1,status:'running',scope:'local-browser-delivered-owner-activation-and-reversible-fixtures',baseline:execFileSync('git',['rev-parse','HEAD'],{cwd:repository,encoding:'utf8'}).trim(),
+ publicationPerformed:false,nativeReviewClaimed:false,shippedActivationFixtureModified:false,
  limitations:['Chromium with mobile viewport/touch emulation; no physical device or native app execution.','mobile-runtime.js is neutralized by a local fixture, matching the integration harness.','Speech is spied to check the exact study-text argument; actual sound output is not assessed.'],
  shippedReleaseSha256Before:hash(releasePath),bundlePairs:pairIds,
  scenarios:[],browserErrors:[],accountOrPaymentRequests:[],cafeStepsChecked:0,directStartRefusals:0,indirectEntryRefusals:0};
@@ -116,14 +116,56 @@ const report={version:1,status:'running',scope:'local-browser-fixtures-only',bas
    report.cafeStepsChecked++;
   }
 
-  // Exercise the delivered empty allowlist, not a test-authored replacement.
+  // Exercise the delivered all-pair selection without overriding its script.
+  // The owner instruction supplies editorial authorization; this test supplies
+  // no native review, approval identity or substitute evidence document.
   for(const [width,height] of [[390,844],[1440,900]]){
    const {context,page,requests}=await open(width,height);
    const shipped=await page.evaluate(()=>({version:MelungaL1CafeRelease.version,pairs:Array.from(MelungaL1CafeRelease.pairs)}));
-   assert.deepEqual(shipped,{version:1,pairs:[]},'the shipped artifact activates no language');
+   assert.deepEqual(shipped,{version:1,pairs:pairIds},'the shipped artifact activates the seven owner-selected pairs');
+   for(const pair of bundle.pairs)for(const paid of [false,true]){
+    await select(page,pair,paid);
+    assert.equal(await page.evaluate(()=>isPaid),paid,'paid state is explicit');
+    assert.equal(await page.evaluate(()=>MelungaL1Cafe.available(nat,lang)),true,'delivered scene is available: '+pair.id);
+    assert.equal(await page.locator('#l1CafeEntry,[data-l1-cafe-entry]').count(),1,'delivered scene is offered in the actual lesson menu');
+    assert.equal(await page.evaluate(()=>MelungaL1Cafe.start()),true,'direct start accepts the owner-selected scene in either paid state');
+    assert.equal((await page.evaluate(()=>MelungaL1Cafe.state())).total,32,'direct start loads the complete scene');
+    assert.equal(await page.locator('#paywall').isVisible(),false,'direct start opens no checkout');
+    await page.evaluate(()=>setMode('all'));
+    assert.equal(await page.evaluate(()=>MelungaL1Cafe.active()),false,'direct-start exit stops the scene');
+    assert(await page.evaluate(()=>pool.length>0&&document.getElementById('fr').textContent===pool[idx].t),'direct-start exit restores the classic card');
+    await page.evaluate(()=>setMode('l1-cafe'));
+    await page.waitForFunction(()=>{const state=MelungaL1Cafe.state();return MelungaL1Cafe.active()&&!state.loading&&!state.error&&state.total>0;});
+    const state=await page.evaluate(()=>MelungaL1Cafe.state());
+    assert.equal(state.total,32,'all actual preparation/dialogue steps are present');
+    assert.equal(await page.locator('#paywall').isVisible(),false,'delivered scene requires no checkout');
+    if(!paid){
+     await checkEar(page,pair,0,false);
+     const recallStart=pair.preparation.length+pair.steps.slice(0,2).reduce((n,pass)=>n+pass.turns.length,0);
+     await checkEar(page,pair,recallStart+pair.phrases.findIndex(p=>p.kind==='learner'),true);
+     await checkEar(page,pair,recallStart+pair.phrases.findIndex(p=>p.kind==='received'),false);
+    }else{
+     const first=pair.phrases.find(phrase=>phrase.id===state.currentPhraseId);
+     assert.equal(await page.locator('#fr').textContent(),first.study,'paid start displays the exact same source study');
+     assert.equal(await page.locator('#phon').textContent(),first.phon,'paid start displays the exact same source phonetic aid');
+    }
+    await page.evaluate(()=>setMode('all'));
+    assert.equal(await page.evaluate(()=>MelungaL1Cafe.active()),false,'exit stops the delivered scene');
+    assert.equal(await page.evaluate(()=>mode),'all','exit restores the classic mode');
+    assert.equal(await page.locator('#card .phonrow .earicon').evaluate(node=>node.tagName),'SPAN','exit restores the original classic ear');
+    assert(await page.evaluate(()=>pool.length>0&&document.getElementById('fr').textContent===pool[idx].t),'exit restores an exact classic card');
+   }
+   assert.equal(requests.bundle,1,'all seven delivered scenes share the complete bundle without per-pair edits');
+   report.scenarios.push({kind:'delivered-all-pairs',width,height,activatedPairsChecked:7,paidStates:[false,true],entryMethods:['direct-start','setMode'],bundleRequests:1,earOnPreparationRecallReceived:true,classicExit:true});
+   await context.close();
+  }
+
+  // Reversible editorial selection still permits withholding every scene.
+  for(const [width,height] of [[390,844],[1440,900]]){
+   const {context,page,requests}=await open(width,height,{value:{version:1,pairs:[]}});
    for(const pair of bundle.pairs)for(const paid of [false,true])await unavailable(page,pair,paid);
-   assert.equal(requests.bundle,0,'inactive languages never request the café content');
-   report.scenarios.push({kind:'delivered-empty-allowlist',width,height,unreleasedPairsChecked:7,paidStates:[false,true],bundleRequests:0});
+   assert.equal(requests.bundle,0,'an empty selection never requests the scene content');
+   report.scenarios.push({kind:'empty-selection-fixture',width,height,unreleasedPairsChecked:7,paidStates:[false,true],bundleRequests:0});
    await context.close();
   }
 
