@@ -6,6 +6,7 @@
 const {chromium}=require('playwright-core');
 const assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),crypto=require('node:crypto');
+const {execFileSync}=require('node:child_process');
 const review=path.resolve(__dirname,'..'),repository=path.resolve(review,'../..');
 const output=process.env.SCREENSHOT_DIR||path.join(review,'captures');
 const runtime=JSON.parse(fs.readFileSync(path.join(review,'parcours-corriges.json'),'utf8'));
@@ -21,10 +22,48 @@ for(const pair of runtime.pairs){
  }
 }
 assert.equal(Object.keys(sourceById).length,3364);
+// Parse the protected literal independently of the Python compiler and runtime.
+function literalObject(text,marker){
+ const markerIndex=text.indexOf(marker);assert.ok(markerIndex>=0,'catalogue literal exists');
+ const start=text.indexOf('{',text.indexOf('=',markerIndex));let depth=0,quoted=false,escaped=false;
+ for(let index=start;index<text.length;index++){
+  const char=text[index];
+  if(quoted){if(escaped)escaped=false;else if(char==='\\')escaped=true;else if(char==='"')quoted=false;continue;}
+  if(char==='"'){quoted=true;continue;}
+  if(char==='{')depth++;
+  if(char==='}'&&--depth===0)return JSON.parse(text.slice(start,index+1));
+ }
+ throw Error('catalogue literal has no complete object');
+}
+const catalogueCommit='bcd108dff5c5931f935f70f694a040d235403b64';
+const catalogue=literalObject(execFileSync('git',['-C',repository,'show',catalogueCommit+':melunga_deploy/app.html'],
+ {encoding:'utf8',maxBuffer:32*1024*1024}),'var DECKS =').es;
+const expectedSupports=new Map([
+ ['L4-fr-es-01:264',1],['L4-fr-es-01:283',0],['L4-fr-es-03:542',3]
+]);
+const supportSourceById={},foundSupports=new Map();
+for(const pair of runtime.pairs)for(const level of pair.levels)for(const unit of level.units){
+ for(const preparation of unit.preparations||[]){
+  const source=preparation.source,key=unit.unitId+':'+source.index;
+  assert.equal(pair.id,'fr-es');assert.equal(level.level,4);assert.ok(expectedSupports.has(key),'only selected preparations exist');
+  assert.ok(!foundSupports.has(key),'one occurrence for each selected preparation');foundSupports.set(key,preparation.beforeVariantIndex);
+  assert.deepEqual(source,{type:'catalogue-card',file:'melunga_deploy/app.html',collection:'DECKS.es',index:source.index,indexBase:0,
+   sourceCommit:catalogueCommit,sourceLevel:catalogue[source.index].lv,readerLanguage:'fr',studyLanguage:'es',fieldMap:{study:'t',native:'frm',phon:'pf'}});
+  const card=catalogue[source.index],id=`catalogue:DECKS.es:${source.index}:reader-fr`;
+  const phrase={id,study:card.t,native:card.frm,phon:card.pf};assert.deepEqual(preparation.phrase,phrase,'exact independent catalogue copy');
+  if(supportSourceById[id])assert.deepEqual(supportSourceById[id],phrase);supportSourceById[id]=phrase;
+  const positions=new Map(unit.steps.map((step,index)=>[step.id,index]));
+  const understand=positions.get(preparation.understoodInStep),imitate=positions.get(preparation.imitatedInStep);
+  assert.equal(imitate,understand+1,'support imitation follows its hearing');
+  assert.equal(positions.get(`${unit.unitId}-understand-${preparation.beforeVariantIndex}`),imitate+1,'target follows prepared clause');
+ }
+}
+assert.deepEqual(foundSupports,expectedSupports);
 const tracked=['parcours-corriges.json','maquette/index.html','maquette/app.js','maquette/style.css'];
 const hashes=()=>Object.fromEntries(tracked.map(name=>[name,crypto.createHash('sha256').update(fs.readFileSync(path.join(review,name))).digest('hex')]));
 const report={scope:'Maquette de revue locale ; aucune publication',runtimeSha256:hashes()['parcours-corriges.json'],
- runtimeCounts:runtime.counts,sourceVariantCount:Object.keys(sourceById).length,viewports:[],errors:[],externalRequests:[],writeRequests:[],
+ runtimeCounts:runtime.counts,sourceVariantCount:Object.keys(sourceById).length,sourceCataloguePreparationCount:Object.keys(supportSourceById).length,
+ viewports:[],errors:[],externalRequests:[],writeRequests:[],
  limits:'Sources et ordre éditorial vérifiés ; acquisition humaine, qualité vocale réelle et validation native non démontrées.'};
 
 (async()=>{
@@ -58,6 +97,7 @@ const report={scope:'Maquette de revue locale ; aucune publication',runtimeSha25
     if(!['GET','HEAD'].includes(request.method()))report.writeRequests.push({method:request.method(),path:url.pathname});
     if(url.origin!==base){report.externalRequests.push(url.origin+url.pathname);return route.abort();}
     if(fixture.fail&&url.pathname.endsWith('/parcours-corriges.json'))return route.fulfill({status:503,body:'fixture unavailable'});
+    if(fixture.data&&url.pathname.endsWith('/parcours-corriges.json'))return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(fixture.data)});
     return route.continue();
    });
    const page=await context.newPage();page.on('pageerror',error=>report.errors.push(error.message));
@@ -68,14 +108,16 @@ const report={scope:'Maquette de revue locale ; aucune publication',runtimeSha25
    assert.equal(await page.evaluate(()=>ProgressionCorrections.ready),true);
    await page.locator('#workspace').waitFor({state:'visible'});
    assert.equal(await page.locator('#pair-select option').count(),7);
-   const viewportReport={width,height,cells:0,units:0,steps:0,phraseRenders:0,ears:0,recalls:0,choices:0};
+   const viewportReport={width,height,cells:0,units:0,steps:0,phraseRenders:0,ears:0,recalls:0,choices:0,preparationSteps:0};
    for(const pair of runtime.pairs){
     const expected={...pair,levels:pair.levels.map(level=>({...level,units:level.units.map(unit=>({
-     unitId:unit.unitId,steps:unit.steps,phrases:Object.fromEntries(unit.phrases.map(phrase=>[phrase.id,sourceById[phrase.id]])),
+     unitId:unit.unitId,steps:unit.steps,preparations:unit.preparations||[],variantIds:unit.phrases.map(phrase=>phrase.id),
+     phrases:Object.fromEntries(unit.phrases.map(phrase=>[phrase.id,sourceById[phrase.id]])
+      .concat((unit.preparations||[]).map(preparation=>[preparation.phrase.id,supportSourceById[preparation.phrase.id]]))),
     }))}))};
     const result=await page.evaluate(({expected,language})=>{
      const api=window.ProgressionCorrections,$=id=>document.getElementById(id);
-     const totals={cells:0,units:0,steps:0,phraseRenders:0,ears:0,recalls:0,choices:0};
+     const totals={cells:0,units:0,steps:0,phraseRenders:0,ears:0,recalls:0,choices:0,preparationSteps:0};
      function check(value,message){if(!value)throw Error(expected.id+': '+message);}
      function equal(actual,wanted,message){check(actual===wanted,message+' ('+JSON.stringify(actual)+' vs '+JSON.stringify(wanted)+')');}
      function change(id,value){const control=$(id);control.value=String(value);control.dispatchEvent(new Event('change',{bubbles:true}));}
@@ -121,12 +163,25 @@ const report={scope:'Maquette de revue locale ; aucune publication',runtimeSha25
        change('unit-select',unit.unitId);equal(api.getState().unitId,unit.unitId,'real situation control updates state');
        equal(api.getState().stepCount,unit.steps.length,'whole declared sequence reachable');
        check($('prev-step').disabled,'first step has a start boundary');
+       const understoodSupports=new Set(),imitatedSupports=new Set();
        for(let index=0;index<unit.steps.length;index++){
         const step=unit.steps[index],state=api.getState();equal(state.stepIndex,index,'source step order');equal(state.kind,step.kind,'source phase order');
         const ids=step.kind==='choose-and-recall'?[step.choices[0]]:step.utterance?[step.utterance]:step.choices;
         equal(JSON.stringify(state.phraseIds),JSON.stringify(ids),'phase uses only declared phrase IDs');verify(ids,unit.phrases,false);
+        if(step.preparationId){
+         const preparation=unit.preparations.find(item=>item.id===step.preparationId);check(preparation,'source support occurrence exists');
+         equal(step.utterance,preparation.phrase.id,'actual support step displays its own source clause');
+         if(step.kind==='understand')understoodSupports.add(preparation.id);
+         else{equal(step.kind,'imitate','support has no false test phase');check(understoodSupports.has(preparation.id),'support is heard before imitation');imitatedSupports.add(preparation.id);}
+         totals.preparationSteps++;
+        }else{
+         unit.preparations.filter(item=>step.id===`${unit.unitId}-understand-${item.beforeVariantIndex}`).forEach(item=>{
+          check(understoodSupports.has(item.id)&&imitatedSupports.has(item.id),'target cannot appear before real support presentations');
+         });
+        }
         if(step.kind==='choose-and-recall'){
          equal($('intention-choices').children.length,step.choices.length,'all whole-phrase choices remain accessible');
+         check(step.choices.every(id=>unit.variantIds.includes(id)),'catalogue supports do not become extra recall choices');
          for(const choiceId of step.choices){
           Array.from($('intention-choices').children).find(button=>button.dataset.choiceId===choiceId).click();
           verify([choiceId],unit.phrases,false);$('recall-toggle').click();check(api.getState().hidden,'recall can hide the learner model');verify([choiceId],unit.phrases,true);
@@ -146,7 +201,7 @@ const report={scope:'Maquette de revue locale ; aucune publication',runtimeSha25
     for(const [key,value]of Object.entries(result))viewportReport[key]+=value;
     console.log(`PASS ${pair.id} ${width}×${height}: ${result.units} units, ${result.steps} steps, ${result.recalls} recall choices`);
    }
-   assert.equal(viewportReport.cells,70);assert.equal(viewportReport.units,841);assert.equal(viewportReport.recalls,3364);
+   assert.equal(viewportReport.cells,70);assert.equal(viewportReport.units,841);assert.equal(viewportReport.recalls,3364);assert.equal(viewportReport.preparationSteps,6);
    assert.deepEqual(await page.evaluate(()=>window.__reviewStorageWrites),[],'the review writes no rights or acquired state');
    async function capture(pairId,level,name,hidden=false){
     await page.evaluate(({pairId,level,hidden})=>{ProgressionCorrections.select(pairId,level);if(hidden){while(!document.getElementById('next-step').disabled)ProgressionCorrections.next();document.getElementById('recall-toggle').click();}window.scrollTo(0,0);},{pairId,level,hidden});
@@ -160,6 +215,23 @@ const report={scope:'Maquette de revue locale ; aucune publication',runtimeSha25
   await page.locator('#error-box').waitFor({state:'visible'});fixture.fail=false;await page.locator('#retry-load').click();
   assert.equal(await page.evaluate(()=>ProgressionCorrections.ready),true);
   await page.locator('#workspace').waitFor({state:'visible'});await context.close();report.failedFetchAndRetry=true;
+  report.invalidPreparationCases=[];
+  for(const name of ['missing-support','support-after-target','support-as-extra-recall']){
+   const malformed=JSON.parse(JSON.stringify(runtime));
+   const unit=malformed.pairs.find(pair=>pair.id==='fr-es').levels.find(level=>level.level===4).units.find(unit=>unit.unitId==='L4-fr-es-01');
+   const support=unit.preparations[0];
+   if(name==='missing-support')unit.preparations.shift();
+   else if(name==='support-as-extra-recall')unit.steps.at(-1).choices.push(support.phrase.id);
+   else{
+    const index=unit.steps.findIndex(step=>step.id===support.understoodInStep);
+    unit.steps.push(...unit.steps.splice(index,2));
+   }
+   const invalid=await contextFor(390,844,{data:malformed});
+   assert.equal(await invalid.page.evaluate(()=>ProgressionCorrections.ready),false,name+' must fail before the learner sees the route');
+   await invalid.page.locator('#error-box').waitFor({state:'visible'});
+   assert.equal(await invalid.page.locator('#workspace').isVisible(),false);
+   report.invalidPreparationCases.push({name,rejectedBeforePresentation:true});await invalid.context.close();
+  }
   assert.deepEqual(report.errors,[]);assert.deepEqual(report.externalRequests,[]);assert.deepEqual(report.writeRequests,[]);
   assert.deepEqual(hashes(),before,'browser verification leaves the runtime and preview files unchanged');
   fs.writeFileSync(path.join(review,'verification-navigateur.json'),JSON.stringify(report,null,2)+'\n');

@@ -27661,7 +27661,7 @@
                   1
                 ],
                 "invariant": "Perdona, no entiendo {s}.",
-                "changedPart": "le nom dans le groupe la + nom ; groupe source présenté entier dans les deux phrases avant le choix",
+                "changedPart": "le groupe nominal objet entier, déterminant compris et appris avec chaque groupe : esta palabra puis la pregunta ; aucun déterminant invariant n’est supposé",
                 "additionalOperations": []
               },
               "plannedPrerequisites": [
@@ -29021,8 +29021,8 @@
               "focus": "Situer une habitude avec normalmente",
               "presentation": "whole-expression",
               "variantOrder": [
-                2,
                 1,
+                2,
                 3,
                 0
               ],
@@ -29030,9 +29030,69 @@
               "plannedPrerequisites": [
                 "L4-fr-es-06"
               ],
-              "rationale": "Préparer situer une habitude avec normalmente dans la progression de son intention, puis réemployer les phrases entières. La série est présentée comme expressions complètes ; sa ressemblance écrite ne constitue pas une substitution validée. La découverte commence par la phrase de travail, dont trabajo en première personne a été rencontré en L2, puis présente séparément les autres habitudes ; elle ne commence plus par la forme pronominale me levanto.",
+              "rationale": "Préparer situer une habitude avec normalmente dans la progression de son intention, puis réemployer les phrases entières. La série est présentée comme expressions complètes ; sa ressemblance écrite ne constitue pas une substitution validée. La découverte commence par la phrase de travail, dont trabajo en première personne a été rencontré en L2, puis présente séparément les autres habitudes ; elle ne commence plus par la forme pronominale me levanto. L’essai de transition présente d’abord Como en casa depuis le catalogue, puis sa reprise dans Normalmente como en casa. Me levanto temprano est ensuite proposé avant Normalmente me levanto a las siete : seule la forme pronominale est reprise ; le repère Normalmente et le complément a las siete gardent leur préparation entière. Les deux supports ont leurs propres étapes de compréhension et d’imitation ; leur présence ne déclare aucune acquisition.",
               "gaps": [
                 "Normalmente, hasta las seis et les prédicats como/ceno/me levanto demandent leur écoute en phrases entières. Le présent travail antérieur ne prépare ni les nouveaux verbes ni la valeur pronominale de me levanto ; aucune transformation automatique de trabajo n’est proposée."
+              ],
+              "preparations": [
+                {
+                  "id": "L4-fr-es-01-preparation-264",
+                  "beforeVariantIndex": 1,
+                  "source": {
+                    "type": "catalogue-card",
+                    "file": "melunga_deploy/app.html",
+                    "collection": "DECKS.es",
+                    "index": 264,
+                    "indexBase": 0,
+                    "sourceCommit": "bcd108dff5c5931f935f70f694a040d235403b64",
+                    "sourceLevel": 2,
+                    "readerLanguage": "fr",
+                    "studyLanguage": "es",
+                    "fieldMap": {
+                      "study": "t",
+                      "native": "frm",
+                      "phon": "pf"
+                    }
+                  },
+                  "phrase": {
+                    "id": "catalogue:DECKS.es:264:reader-fr",
+                    "study": "Como en casa.",
+                    "native": "je mange à la maison",
+                    "phon": "KO-mo én KA-ssa"
+                  },
+                  "understoodInStep": "L4-fr-es-01-preparation-264-understand",
+                  "imitatedInStep": "L4-fr-es-01-preparation-264-imitate",
+                  "rationale": "Présenter et proposer à l’imitation la proposition entière Como en casa avant sa reprise avec Normalmente ; aucun modèle ni aide n’est assemblé."
+                },
+                {
+                  "id": "L4-fr-es-01-preparation-283",
+                  "beforeVariantIndex": 0,
+                  "source": {
+                    "type": "catalogue-card",
+                    "file": "melunga_deploy/app.html",
+                    "collection": "DECKS.es",
+                    "index": 283,
+                    "indexBase": 0,
+                    "sourceCommit": "bcd108dff5c5931f935f70f694a040d235403b64",
+                    "sourceLevel": 2,
+                    "readerLanguage": "fr",
+                    "studyLanguage": "es",
+                    "fieldMap": {
+                      "study": "t",
+                      "native": "frm",
+                      "phon": "pf"
+                    }
+                  },
+                  "phrase": {
+                    "id": "catalogue:DECKS.es:283:reader-fr",
+                    "study": "Me levanto temprano.",
+                    "native": "je me lève tôt",
+                    "phon": "mé lé-BAN-to tém-PRA-no"
+                  },
+                  "understoodInStep": "L4-fr-es-01-preparation-283-understand",
+                  "imitatedInStep": "L4-fr-es-01-preparation-283-imitate",
+                  "rationale": "Présenter Me levanto temprano avant la nouvelle phrase de routine. Le support prépare une occurrence de me levanto ; temprano ne prépare ni Normalmente ni a las siete, présentés dans la phrase cible entière."
+                }
               ],
               "source": {
                 "file": "melunga_deploy/content/conversation/L4-fr-es.json",
@@ -29072,16 +29132,18 @@
               ],
               "steps": [
                 {
-                  "id": "L4-fr-es-01-understand-2",
+                  "id": "L4-fr-es-01-preparation-264-understand",
                   "kind": "understand",
-                  "utterance": "L4-fr-es.json:L4-fr-es-01:v2",
+                  "utterance": "catalogue:DECKS.es:264:reader-fr",
+                  "preparationId": "L4-fr-es-01-preparation-264",
                   "wholePhrase": true,
                   "requiresProduction": false
                 },
                 {
-                  "id": "L4-fr-es-01-imitate-2",
+                  "id": "L4-fr-es-01-preparation-264-imitate",
                   "kind": "imitate",
-                  "utterance": "L4-fr-es.json:L4-fr-es-01:v2",
+                  "utterance": "catalogue:DECKS.es:264:reader-fr",
+                  "preparationId": "L4-fr-es-01-preparation-264",
                   "wholePhrase": true,
                   "requiresProduction": true
                 },
@@ -29100,6 +29162,20 @@
                   "requiresProduction": true
                 },
                 {
+                  "id": "L4-fr-es-01-understand-2",
+                  "kind": "understand",
+                  "utterance": "L4-fr-es.json:L4-fr-es-01:v2",
+                  "wholePhrase": true,
+                  "requiresProduction": false
+                },
+                {
+                  "id": "L4-fr-es-01-imitate-2",
+                  "kind": "imitate",
+                  "utterance": "L4-fr-es.json:L4-fr-es-01:v2",
+                  "wholePhrase": true,
+                  "requiresProduction": true
+                },
+                {
                   "id": "L4-fr-es-01-understand-3",
                   "kind": "understand",
                   "utterance": "L4-fr-es.json:L4-fr-es-01:v3",
@@ -29110,6 +29186,22 @@
                   "id": "L4-fr-es-01-imitate-3",
                   "kind": "imitate",
                   "utterance": "L4-fr-es.json:L4-fr-es-01:v3",
+                  "wholePhrase": true,
+                  "requiresProduction": true
+                },
+                {
+                  "id": "L4-fr-es-01-preparation-283-understand",
+                  "kind": "understand",
+                  "utterance": "catalogue:DECKS.es:283:reader-fr",
+                  "preparationId": "L4-fr-es-01-preparation-283",
+                  "wholePhrase": true,
+                  "requiresProduction": false
+                },
+                {
+                  "id": "L4-fr-es-01-preparation-283-imitate",
+                  "kind": "imitate",
+                  "utterance": "catalogue:DECKS.es:283:reader-fr",
+                  "preparationId": "L4-fr-es-01-preparation-283",
                   "wholePhrase": true,
                   "requiresProduction": true
                 },
@@ -29131,21 +29223,21 @@
                   "id": "L4-fr-es-01-choose",
                   "kind": "choose-and-recall",
                   "choices": [
-                    "L4-fr-es.json:L4-fr-es-01:v2",
                     "L4-fr-es.json:L4-fr-es-01:v1",
+                    "L4-fr-es.json:L4-fr-es-01:v2",
                     "L4-fr-es.json:L4-fr-es-01:v3",
                     "L4-fr-es.json:L4-fr-es-01:v0"
                   ],
                   "preparedChoices": [
                     {
-                      "utteranceId": "L4-fr-es.json:L4-fr-es-01:v2",
-                      "understoodInStep": "L4-fr-es-01-understand-2",
-                      "imitatedInStep": "L4-fr-es-01-imitate-2"
-                    },
-                    {
                       "utteranceId": "L4-fr-es.json:L4-fr-es-01:v1",
                       "understoodInStep": "L4-fr-es-01-understand-1",
                       "imitatedInStep": "L4-fr-es-01-imitate-1"
+                    },
+                    {
+                      "utteranceId": "L4-fr-es.json:L4-fr-es-01:v2",
+                      "understoodInStep": "L4-fr-es-01-understand-2",
+                      "imitatedInStep": "L4-fr-es-01-imitate-2"
                     },
                     {
                       "utteranceId": "L4-fr-es.json:L4-fr-es-01:v3",
@@ -29326,18 +29418,49 @@
               "focus": "Décrire une activité du soir",
               "presentation": "whole-expression",
               "variantOrder": [
+                3,
                 0,
                 1,
-                2,
-                3
+                2
               ],
               "firstSubstitution": null,
               "plannedPrerequisites": [
                 "L4-fr-es-01"
               ],
-              "rationale": "Préparer décrire une activité du soir dans la progression de son intention, puis réemployer les phrases entières. La série est présentée comme expressions complètes ; sa ressemblance écrite ne constitue pas une substitution validée. Les activités du soir sont quatre expressions à entendre et imiter ; le lien avec les habitudes du matin n’est pas une règle de conjugaison.",
+              "rationale": "Préparer décrire une activité du soir dans la progression de son intention, puis réemployer les phrases entières. La série est présentée comme expressions complètes ; sa ressemblance écrite ne constitue pas une substitution validée. Les activités du soir sont quatre expressions à entendre et imiter ; le lien avec les habitudes du matin n’est pas une règle de conjugaison. L’essai commence par la proposition Me acuesto pronto présentée et proposée à l’imitation depuis le catalogue, puis par sa reprise avec Por la noche. Les trois autres activités restent trois expressions entières distinctes, sans dérivation de leur verbe ou phonétique depuis acuesto.",
               "gaps": [
                 "Veo, leo, salgo et me acuesto ajoutent leurs formes et leurs objets ; me levanto dans l’unité précédente ne prépare pas par dérivation me acuesto. Préparer chaque réplique entière avant son rappel. Les cartes de routine du catalogue sont seulement des ponts possibles pour un prochain lot, pas une exposition déjà déclarée."
+              ],
+              "preparations": [
+                {
+                  "id": "L4-fr-es-03-preparation-542",
+                  "beforeVariantIndex": 3,
+                  "source": {
+                    "type": "catalogue-card",
+                    "file": "melunga_deploy/app.html",
+                    "collection": "DECKS.es",
+                    "index": 542,
+                    "indexBase": 0,
+                    "sourceCommit": "bcd108dff5c5931f935f70f694a040d235403b64",
+                    "sourceLevel": 3,
+                    "readerLanguage": "fr",
+                    "studyLanguage": "es",
+                    "fieldMap": {
+                      "study": "t",
+                      "native": "frm",
+                      "phon": "pf"
+                    }
+                  },
+                  "phrase": {
+                    "id": "catalogue:DECKS.es:542:reader-fr",
+                    "study": "Me acuesto pronto.",
+                    "native": "je me couche tôt",
+                    "phon": "mé a-KOUÉS-to PRON-to"
+                  },
+                  "understoodInStep": "L4-fr-es-03-preparation-542-understand",
+                  "imitatedInStep": "L4-fr-es-03-preparation-542-imitate",
+                  "rationale": "Présenter et proposer à l’imitation la proposition entière Me acuesto pronto avant sa reprise avec Por la noche. Le repère du soir demeure préparé dans la phrase cible ; aucun répertoire déjà acquis n’est supposé."
+                }
               ],
               "source": {
                 "file": "melunga_deploy/content/conversation/L4-fr-es.json",
@@ -29376,6 +29499,36 @@
                 }
               ],
               "steps": [
+                {
+                  "id": "L4-fr-es-03-preparation-542-understand",
+                  "kind": "understand",
+                  "utterance": "catalogue:DECKS.es:542:reader-fr",
+                  "preparationId": "L4-fr-es-03-preparation-542",
+                  "wholePhrase": true,
+                  "requiresProduction": false
+                },
+                {
+                  "id": "L4-fr-es-03-preparation-542-imitate",
+                  "kind": "imitate",
+                  "utterance": "catalogue:DECKS.es:542:reader-fr",
+                  "preparationId": "L4-fr-es-03-preparation-542",
+                  "wholePhrase": true,
+                  "requiresProduction": true
+                },
+                {
+                  "id": "L4-fr-es-03-understand-3",
+                  "kind": "understand",
+                  "utterance": "L4-fr-es.json:L4-fr-es-03:v3",
+                  "wholePhrase": true,
+                  "requiresProduction": false
+                },
+                {
+                  "id": "L4-fr-es-03-imitate-3",
+                  "kind": "imitate",
+                  "utterance": "L4-fr-es.json:L4-fr-es-03:v3",
+                  "wholePhrase": true,
+                  "requiresProduction": true
+                },
                 {
                   "id": "L4-fr-es-03-understand-0",
                   "kind": "understand",
@@ -29419,29 +29572,20 @@
                   "requiresProduction": true
                 },
                 {
-                  "id": "L4-fr-es-03-understand-3",
-                  "kind": "understand",
-                  "utterance": "L4-fr-es.json:L4-fr-es-03:v3",
-                  "wholePhrase": true,
-                  "requiresProduction": false
-                },
-                {
-                  "id": "L4-fr-es-03-imitate-3",
-                  "kind": "imitate",
-                  "utterance": "L4-fr-es.json:L4-fr-es-03:v3",
-                  "wholePhrase": true,
-                  "requiresProduction": true
-                },
-                {
                   "id": "L4-fr-es-03-choose",
                   "kind": "choose-and-recall",
                   "choices": [
+                    "L4-fr-es.json:L4-fr-es-03:v3",
                     "L4-fr-es.json:L4-fr-es-03:v0",
                     "L4-fr-es.json:L4-fr-es-03:v1",
-                    "L4-fr-es.json:L4-fr-es-03:v2",
-                    "L4-fr-es.json:L4-fr-es-03:v3"
+                    "L4-fr-es.json:L4-fr-es-03:v2"
                   ],
                   "preparedChoices": [
+                    {
+                      "utteranceId": "L4-fr-es.json:L4-fr-es-03:v3",
+                      "understoodInStep": "L4-fr-es-03-understand-3",
+                      "imitatedInStep": "L4-fr-es-03-imitate-3"
+                    },
                     {
                       "utteranceId": "L4-fr-es.json:L4-fr-es-03:v0",
                       "understoodInStep": "L4-fr-es-03-understand-0",
@@ -29456,11 +29600,6 @@
                       "utteranceId": "L4-fr-es.json:L4-fr-es-03:v2",
                       "understoodInStep": "L4-fr-es-03-understand-2",
                       "imitatedInStep": "L4-fr-es-03-imitate-2"
-                    },
-                    {
-                      "utteranceId": "L4-fr-es.json:L4-fr-es-03:v3",
-                      "understoodInStep": "L4-fr-es-03-understand-3",
-                      "imitatedInStep": "L4-fr-es-03-imitate-3"
                     }
                   ],
                   "wholePhrase": true,
@@ -138949,7 +139088,9 @@
     "wholeExpressionUnits": 522,
     "plannedPrerequisiteLinks": 1372,
     "reportedGaps": 341,
-    "newStudiedPhrases": 0,
-    "newPhonetics": 0
+    "existingCataloguePreparations": 3,
+    "totalPresentedUtterances": 3367,
+    "newlyAuthoredStudyPhrases": 0,
+    "newlyAuthoredPhoneticAids": 0
   }
 }

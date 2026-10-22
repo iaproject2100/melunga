@@ -113,7 +113,10 @@ class ProgressionCorrectionsTest(unittest.TestCase):
                                      "Existing L1 stays in L1 and later content does not enter L1")
                     self.assertTrue(set(unit["plannedPrerequisites"]) <= earlier)
                     understood, imitated, prior_steps = set(), set(), {}
-                    ids = {phrase["id"] for phrase in unit["phrases"]}
+                    variant_ids = {phrase["id"] for phrase in unit["phrases"]}
+                    ids = variant_ids | {
+                        support["phrase"]["id"] for support in unit.get("preparations", [])
+                    }
                     for step in unit["steps"]:
                         self.assertTrue(step["wholePhrase"])
                         self.assertEqual(step["requiresProduction"],
@@ -125,6 +128,8 @@ class ProgressionCorrectionsTest(unittest.TestCase):
                             self.assertIn(step["utterance"], understood)
                             imitated.add(step["utterance"])
                         else:
+                            self.assertTrue(set(step["choices"]) <= variant_ids,
+                                            "Supports prepare a target; they are not additional choices")
                             self.assertTrue(set(step["choices"]) <= understood & imitated)
                             self.assertEqual({entry["utteranceId"] for entry in step["preparedChoices"]},
                                              set(step["choices"]))

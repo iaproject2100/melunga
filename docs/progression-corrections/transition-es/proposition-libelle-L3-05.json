@@ -1,0 +1,65 @@
+{
+  "baseline": "a4f1ec4e31e436546e775597845ff570476356a8",
+  "pair": "fr-es",
+  "status": "separate-editorial-label-proposal-not-applied",
+  "publicationApproved": false,
+  "doesNotMeasureAcquisition": true,
+  "unitId": "L3-fr-es-05",
+  "reason": "La paire comparée est esta palabra / la pregunta. Le libellé la + nom ne décrit pas la première variante ; la forme du cadre mécanique est correcte mais sa description doit garder le déterminant dans le groupe entier.",
+  "sourceEvidence": [
+    {
+      "variantIndex": 0,
+      "study": "Perdona, no entiendo esta palabra.",
+      "phon": "pér-DO-na, no én-TIÉN-do ÉS-ta pa-LA-bra",
+      "native": "Pardon, je ne comprends pas ce mot."
+    },
+    {
+      "variantIndex": 1,
+      "study": "Perdona, no entiendo la pregunta.",
+      "phon": "pér-DO-na, no én-TIÉN-do la pré-GOUN-ta",
+      "native": "Pardon, je ne comprends pas la question."
+    },
+    {
+      "variantIndex": 2,
+      "study": "Perdona, no entiendo bien.",
+      "phon": "pér-DO-na, no én-TIÉN-do BIÉN",
+      "native": "Pardon, je ne comprends pas bien."
+    },
+    {
+      "variantIndex": 3,
+      "study": "Perdona, no entiendo el menú.",
+      "phon": "pér-DO-na, no én-TIÉN-do él mé-NOU",
+      "native": "Pardon, je ne comprends pas le menu."
+    }
+  ],
+  "baselinePatchFields": {
+    "firstSubstitution": {
+      "variants": [
+        0,
+        1
+      ],
+      "invariant": "Perdona, no entiendo {s}.",
+      "changedPart": "le nom dans le groupe la + nom ; groupe source présenté entier dans les deux phrases avant le choix",
+      "additionalOperations": []
+    }
+  },
+  "proposedPatch": {
+    "firstSubstitution": {
+      "variants": [
+        0,
+        1
+      ],
+      "invariant": "Perdona, no entiendo {s}.",
+      "changedPart": "le groupe nominal objet entier, déterminant compris et appris avec chaque groupe : esta palabra puis la pregunta ; aucun déterminant invariant n’est supposé",
+      "additionalOperations": []
+    }
+  },
+  "preserves": [
+    "variants[0,1]",
+    "invariant Perdona, no entiendo {s}.",
+    "additionalOperations []",
+    "all source phrases and aids",
+    "all levels and orders",
+    "existing access"
+  ]
+}

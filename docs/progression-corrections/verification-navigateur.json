@@ -1,6 +1,6 @@
 {
   "scope": "Maquette de revue locale ; aucune publication",
-  "runtimeSha256": "bbebf82188509ffbd89f13b91eca07aa392be3f9c3581d3b17676fbffbc20c06",
+  "runtimeSha256": "311f20f83fe5e47219948b794e2d0477cb0935fea1e81c0015393dc921fbb78d",
   "runtimeCounts": {
     "pairs": 7,
     "levelCells": 70,
@@ -11,48 +11,68 @@
     "wholeExpressionUnits": 522,
     "plannedPrerequisiteLinks": 1372,
     "reportedGaps": 341,
-    "newStudiedPhrases": 0,
-    "newPhonetics": 0
+    "existingCataloguePreparations": 3,
+    "totalPresentedUtterances": 3367,
+    "newlyAuthoredStudyPhrases": 0,
+    "newlyAuthoredPhoneticAids": 0
   },
   "sourceVariantCount": 3364,
+  "sourceCataloguePreparationCount": 3,
   "viewports": [
     {
       "width": 320,
       "height": 568,
       "cells": 70,
       "units": 841,
-      "steps": 7888,
-      "phraseRenders": 25027,
-      "ears": 10730,
+      "steps": 7894,
+      "phraseRenders": 25033,
+      "ears": 10736,
       "recalls": 3364,
-      "choices": 3364
+      "choices": 3364,
+      "preparationSteps": 6
     },
     {
       "width": 390,
       "height": 844,
       "cells": 70,
       "units": 841,
-      "steps": 7888,
-      "phraseRenders": 25027,
-      "ears": 10730,
+      "steps": 7894,
+      "phraseRenders": 25033,
+      "ears": 10736,
       "recalls": 3364,
-      "choices": 3364
+      "choices": 3364,
+      "preparationSteps": 6
     },
     {
       "width": 1440,
       "height": 900,
       "cells": 70,
       "units": 841,
-      "steps": 7888,
-      "phraseRenders": 25027,
-      "ears": 10730,
+      "steps": 7894,
+      "phraseRenders": 25033,
+      "ears": 10736,
       "recalls": 3364,
-      "choices": 3364
+      "choices": 3364,
+      "preparationSteps": 6
     }
   ],
   "errors": [],
   "externalRequests": [],
   "writeRequests": [],
   "limits": "Sources et ordre éditorial vérifiés ; acquisition humaine, qualité vocale réelle et validation native non démontrées.",
-  "failedFetchAndRetry": true
+  "failedFetchAndRetry": true,
+  "invalidPreparationCases": [
+    {
+      "name": "missing-support",
+      "rejectedBeforePresentation": true
+    },
+    {
+      "name": "support-after-target",
+      "rejectedBeforePresentation": true
+    },
+    {
+      "name": "support-as-extra-recall",
+      "rejectedBeforePresentation": true
+    }
+  ]
 }

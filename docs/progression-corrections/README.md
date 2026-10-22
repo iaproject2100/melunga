@@ -6,6 +6,8 @@ La proposition couvre les **841 unités et leurs 3 364 variantes entières**, r�
 
 La [suite à la relecture corrigée de Claude](suivi-relecture/README.md) examine maintenant la nouveauté en espagnol et en français pour sinophones. **29 lignes éditoriales sont amendées**, avec des découvertes réordonnées, des reprises mieux reliées et des limites explicites. Aucun déplacement de niveau supplémentaire n’est ajouté ; le grief sur l’italien et les marches de longueur anglais/coréen a été retiré. Les mesures de formes inédites, leur périmètre et leurs limites sont reproductibles ; aucune baisse nouvelle de ces ratios n’est revendiquée pour les amendements internes aux niveaux.
 
+Claude a ensuite validé ce lot dans `a4f1ec4`. La [passe ciblée suivante sur l’espagnol L3→L4](transition-es/README.md) ajoute **trois phrases préparatoires préexistantes**, effectivement présentées dans la maquette avant leurs variantes cibles : compréhension puis imitation proposées, six étapes supplémentaires. Les 3 364 variantes restent intactes ; avec ces trois supports, 3 367 énoncés sourcés peuvent être affichés. Les niveaux, l’ordre des unités et les quatre entrées éditoriales validées sont conservés. Le ratio global reste explicite et inchangé ; l’annexe traite la découverte locale sans la présenter comme une acquisition démontrée.
+
 ## Les changements à examiner
 
 - Les énoncés simples de vie quotidienne peuvent précéder les questions qui les réutilisent. Une unité n’est pas conservée tard uniquement parce que son fichier porte ce numéro.
@@ -45,11 +47,13 @@ Les ambiguïtés de registre de `L1-fr-ja-03` et `L1-fr-ko-03`, ainsi que les co
 python3 -B tools/pedagogy/build_progression_corrections.py --check
 python3 -B -m unittest discover -s tools/pedagogy -p 'test_progression_corrections.py'
 python3 -B -m unittest discover -s tools/pedagogy -p 'test_reclassement*.py'
+python3 -B -m unittest discover -s tools/pedagogy -p 'test_transition_es*.py'
+python3 -B tools/pedagogy/audit_transition_es.py --candidate-file docs/progression-corrections/parcours-corriges.json --check
 python3 -B tools/pedagogy/guard_phonetics.py --check
 NODE_PATH=/tmp/melunga-review-tools/node_modules node docs/progression-corrections/maquette/verify.cjs
 ```
 
-Les [résultats et captures](validation.md) sont joints. Les **56 tests Python** vérifient intégrité, couverture, ordre des références, aides, décisions ciblées et reproductibilité des métriques ; ils ne mesurent ni compréhension réelle ni acquisition, et ne constituent pas une relecture native. Le rapport navigateur et ses captures sont liés par empreinte au paquet affiché.
+Les [résultats et captures](validation.md) sont joints. Les **80 tests Python** vérifient intégrité, couverture, ordre des références, aides, décisions ciblées, supports réellement insérés et reproductibilité des métriques ; ils ne mesurent ni compréhension réelle ni acquisition, et ne constituent pas une relecture native. Le rapport navigateur et ses captures sont liés par empreinte au paquet affiché.
 
 Un fichier HTML autonome peut aussi être exporté avec `tools/pedagogy/export_progression_corrections.py`, pour consulter la maquette sans charger d’autres fichiers. Il est vérifié par HTTP local ; les limites du test d’ouverture directe sont précisées dans le compte rendu.
 

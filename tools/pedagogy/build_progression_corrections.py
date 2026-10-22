@@ -8,6 +8,8 @@ from pathlib import Path
 import subprocess
 import sys
 
+from preparations_es import apply_overlay, load_overlay, validate_overlay_unit
+
 sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[2]
 BASE = 'bcd108dff5c5931f935f70f694a040d235403b64'
@@ -78,6 +80,15 @@ def steps_for(unit):
     comparison = unit['firstSubstitution']
     compared = False
     for index in unit['variantOrder']:
+        for support in unit.get('preparations', []):
+            if support['beforeVariantIndex'] != index:
+                continue
+            for kind, id_field in (('understand', 'understoodInStep'),
+                                   ('imitate', 'imitatedInStep')):
+                steps.append({'id': support[id_field], 'kind': kind,
+                              'utterance': support['phrase']['id'],
+                              'preparationId': support['id'], 'wholePhrase': True,
+                              'requiresProduction': kind == 'imitate'})
         phrase_id = unit['phrases'][index]['id']
         for kind in ('understand', 'imitate'):
             steps.append({'id': f'{unit["unitId"]}-{kind}-{index}', 'kind': kind,
@@ -113,6 +124,9 @@ def editorial_rows(root=ROOT):
 
 def validate_runtime(plan, root=ROOT):
     canonical = sources(root)
+    overlay = load_overlay(root)
+    editorial = {unit['unitId']: unit for pair in editorial_rows(root).values()
+                 for unit in pair['units']}
     require(plan.get('version') == 1 and plan.get('sourceSnapshot') == BASE,
             'Wrong source snapshot')
     require(plan.get('doesNotMeasureAcquisition') is True and plan.get('publicationApproved') is False,
@@ -148,6 +162,7 @@ def validate_runtime(plan, root=ROOT):
                 require(sorted(unit['variantOrder']) == [0, 1, 2, 3], f'Four variants must be retained: {uid}')
                 require(unit['phrases'] == [copy_phrase(file, uid, i, variant)
                                            for i, variant in enumerate(original['variants'])], f'Exact phrase or aids changed: {uid}')
+                validate_overlay_unit(unit, editorial[uid], overlay)
                 require(isinstance(unit['focus'], str) and unit['focus'] and unit['rationale'], f'Missing editorial decision: {uid}')
                 require(isinstance(unit['gaps'], list) and isinstance(unit['plannedPrerequisites'], list), f'Missing explicit gaps/dependencies: {uid}')
                 require(len(set(unit['plannedPrerequisites'])) == len(unit['plannedPrerequisites']), f'Duplicate prerequisite: {uid}')
@@ -178,6 +193,7 @@ def build(root=ROOT):
     hashes = verify_sources(root)
     canonical = sources(root)
     decisions = editorial_rows(root)
+    overlay = load_overlay(root)
     plan = {'version': 1, 'status': 'editorial-candidate-not-published', 'sourceSnapshot': BASE,
             'doesNotMeasureAcquisition': True, 'publicationApproved': False,
             'doesNotChangeAccess': True, 'nativeReview': {'status': 'pending'},
@@ -187,7 +203,7 @@ def build(root=ROOT):
         native, study = pair_id.split('-')
         levels = [{'level': n, 'title': TITLES[n-1], 'units': []} for n in range(1, 11)]
         for decision in decisions[pair_id]['units']:
-            row = deepcopy(decision)
+            row = apply_overlay(deepcopy(decision), overlay)
             source_level, file, original = canonical[pair_id][row['unitId']]
             row['source'] = {'file': file, 'unitId': row['unitId'], 'level': source_level}
             row['situation'] = original['situation']
@@ -199,15 +215,19 @@ def build(root=ROOT):
             level['units'].sort(key=lambda unit: unit['order'])
         plan['pairs'].append({'id': pair_id, 'nativeLanguage': native, 'studyLanguage': study,
                               'notes': decisions[pair_id].get('notes', []), 'levels': levels})
-    validate_runtime(plan, root)
     units = [unit for pair in plan['pairs'] for level in pair['levels'] for unit in level['units']]
+    preparation_ids = {support['phrase']['id'] for unit in units
+                       for support in unit.get('preparations', [])}
     plan['counts'] = {'pairs': len(PAIRS), 'levelCells': 70, 'units': len(units), 'phrases': 4 * len(units),
                       'movedUnits': sum(unit['sourceLevel'] != unit['proposedLevel'] for unit in units),
                       'declaredFirstSubstitutions': sum(unit['firstSubstitution'] is not None for unit in units),
                       'wholeExpressionUnits': sum(unit['firstSubstitution'] is None for unit in units),
                       'plannedPrerequisiteLinks': sum(len(unit['plannedPrerequisites']) for unit in units),
                       'reportedGaps': sum(len(unit['gaps']) for unit in units),
-                      'newStudiedPhrases': 0, 'newPhonetics': 0}
+                      'existingCataloguePreparations': len(preparation_ids),
+                      'totalPresentedUtterances': 4 * len(units) + len(preparation_ids),
+                      'newlyAuthoredStudyPhrases': 0, 'newlyAuthoredPhoneticAids': 0}
+    validate_runtime(plan, root)
     return plan
 
 
@@ -217,6 +237,7 @@ def render_report(plan):
              'Proposition éditoriale pour revue croisée. Aucun contenu canonique, numéro source, droit ou site publié n’est modifié.', '',
              f'{counts["units"]} unités, {counts["phrases"]} variantes entières, 70 cases, {counts["movedUnits"]} déplacements proposés entre niveaux payants.',
              f'{counts["declaredFirstSubstitutions"]} premières comparaisons à cadre écrit conservé ; {counts["wholeExpressionUnits"]} unités préparées comme expressions entières.',
+             f'{counts["existingCataloguePreparations"]} supports entiers préexistants du catalogue sont proposés avant leurs variantes cibles ; {counts["totalPresentedUtterances"]} énoncés sourcés au total. Aucune phrase ni aide phonétique n’est nouvellement rédigée.',
              'L’identité écrite du cadre ne démontre pas à elle seule une opération linguistique simple : ce point reste soumis à relecture.', '',
              'Les prérequis décrivent un ordre prévu. Ils ne déclarent pas ce que l’apprenant sait. Les dialogues ne sont pas automatiquement reclassés avec les unités ; leur préparation et leur pertinence restent à relire séparément.', '',
              '| Couple | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | Déplacements |',
@@ -232,6 +253,8 @@ def render_report(plan):
             for unit in level['units']:
                 move = f' (source L{unit["sourceLevel"]} → proposé L{unit["proposedLevel"]})' if unit['sourceLevel'] != unit['proposedLevel'] else ''
                 lines.append(f'- `{unit["unitId"]}`{move} — {unit["focus"]}. {unit["rationale"]}')
+                for support in unit.get('preparations', []):
+                    lines.append(f'  - Préparation catalogue `{support["source"]["collection"]}[{support["source"]["index"]}]` avant v{support["beforeVariantIndex"]} : « {support["phrase"]["study"]} » ; compréhension puis imitation proposées. {support["rationale"]}')
                 for gap in unit['gaps']:
                     lines.append(f'  - À préparer / relire : {gap}')
     return '\n'.join(lines) + '\n'

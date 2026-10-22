@@ -1,0 +1,111 @@
+{
+  "scope": "Contrôles locaux des préparations réelles de transition espagnole L3-L4 ; aucune publication",
+  "runtimeSha256": "311f20f83fe5e47219948b794e2d0477cb0935fea1e81c0015393dc921fbb78d",
+  "runtimeCounts": {
+    "pairs": 7,
+    "levelCells": 70,
+    "units": 841,
+    "phrases": 3364,
+    "movedUnits": 122,
+    "declaredFirstSubstitutions": 319,
+    "wholeExpressionUnits": 522,
+    "plannedPrerequisiteLinks": 1372,
+    "reportedGaps": 341,
+    "existingCataloguePreparations": 3,
+    "totalPresentedUtterances": 3367,
+    "newlyAuthoredStudyPhrases": 0,
+    "newlyAuthoredPhoneticAids": 0
+  },
+  "sourceOracle": {
+    "variantFields": 11488,
+    "catalogueSupportFields": 9,
+    "catalogueSupportSources": 3,
+    "catalogueCommit": "bcd108dff5c5931f935f70f694a040d235403b64",
+    "compilerHelperReusedForOracle": false
+  },
+  "commands": [
+    "python3 -B -m unittest discover -s tools/pedagogy -p test_progression_corrections.py",
+    "python3 -B -m unittest discover -s tools/pedagogy -p 'test_reclassement*.py'",
+    "python3 -B -m unittest discover -s tools/pedagogy -p test_transition_es_preparations.py",
+    "python3 -B -m unittest discover -s tools/pedagogy -p test_transition_es.py",
+    "python3 -B tools/pedagogy/guard_phonetics.py --check",
+    "NODE_PATH=/tmp/melunga-review-tools/node_modules CHROMIUM_PATH=/usr/bin/chromium node docs/progression-corrections/maquette/verify.cjs",
+    "NODE_PATH=/tmp/melunga-review-tools/node_modules CHROMIUM_PATH=/usr/bin/chromium node docs/progression-corrections/maquette/verify-portable.cjs /workspace/exports/melunga-progression-L1-L10.html"
+  ],
+  "pythonTests": {
+    "existingProgression": 21,
+    "existingFollowup": 35,
+    "supportContract": 12,
+    "transitionMetrics": 12,
+    "total": 80,
+    "errors": 0
+  },
+  "phoneticGuard": {
+    "sourcePreserved": true,
+    "cards": 32115,
+    "levelFiles": 110,
+    "protectedJsonFiles": 112,
+    "checkedBanks": 1,
+    "bankEntries": 7989,
+    "differentAidCollisionsForReview": 11,
+    "nativeValidation": false,
+    "errors": []
+  },
+  "browser": {
+    "report": "../verification-navigateur.json",
+    "viewports": 3,
+    "steps": 23682,
+    "phraseRenders": 75099,
+    "ears": 32208,
+    "recalls": 10092,
+    "choices": 10092,
+    "preparationSteps": 18,
+    "failedFetchAndRetry": true,
+    "invalidPreparationCases": [
+      {
+        "name": "missing-support",
+        "rejectedBeforePresentation": true
+      },
+      {
+        "name": "support-after-target",
+        "rejectedBeforePresentation": true
+      },
+      {
+        "name": "support-as-extra-recall",
+        "rejectedBeforePresentation": true
+      }
+    ],
+    "errors": [],
+    "externalRequests": [],
+    "writeRequests": []
+  },
+  "portable": {
+    "report": "verification-portable.json",
+    "file": "melunga-progression-L1-L10.html",
+    "sha256": "4153139625dfb1f4f4b84d96e048ae5343e1600e55b30ae4445e745d1c9fc45c",
+    "bytes": 3240577,
+    "httpSelfContained": true,
+    "documentRequests": 1,
+    "additionalResources": 0,
+    "exactEmbeddedRuntime": true,
+    "pairs": 7,
+    "pairEarsChecked": 7,
+    "distinctSupportEarsChecked": 3,
+    "recallChecks": 3,
+    "fileProtocolCheck": "not-tested-administrator-policy-known-from-prior-check-no-bypass",
+    "captures": 6,
+    "visuallyInspected": 6,
+    "captureWidths": [
+      390,
+      1440
+    ],
+    "physicalPhoneSimulation": false
+  },
+  "limitations": [
+    "Les contrôles établissent la présentation et l’offre d’imitation, pas une écoute humaine effective ni des acquis.",
+    "La nouveauté agrégée des quatre variantes par niveau reste inchangée ; aucun seuil de maîtrise n’est créé.",
+    "Les aides phonétiques sont copiées exactement, sans harmonisation ; relecture native et qualité des voix réelles non attestées.",
+    "Le fichier autonome est contrôlé en HTTP local ; file:// n’est pas testé et aucune politique administrateur n’est contournée.",
+    "Les captures ciblées sont des pages entières à deux largeurs réactives ; elles ne prétendent pas tenir entièrement dans la hauteur d’écran ni simuler un téléphone physique."
+  ]
+}

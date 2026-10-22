@@ -1,5 +1,7 @@
 # Suite à la relecture du reclassement `99478df`
 
+**Historique validé dans `a4f1ec4`.** Les métriques, contrôles et captures de ce dossier restent ceux de cette étape de revue ; leurs fichiers et empreintes originaux peuvent être consultés dans Git à ce commit. La [passe suivante espagnol L3→L4](../transition-es/README.md) possède ses propres mesures et contrôles. Le rapport navigateur à la racine et la maquette suivent le candidat le plus récent.
+
 Ce dossier conserve la [première relecture](verification-claude.md) et la [correction transmise ensuite par Claude](verification-claude-corrigee.md), sans modifier leur texte. **La seconde fixe la demande actuelle : examiner fr→es et, à titre complémentaire, zh→fr sur la part de formes inédites.** Le reproche concernant l’italien et la demande de correction des marches de longueur en anglais/coréen ont été retirés.
 
 La référence historique reste `99478df`. Les rapports de longueur décrivent cette référence, même lorsqu’un candidat amendé est également présenté. Les différences de longueur ne servent pas de preuve d’une difficulté linguistique, ni de critère de permutation des niveaux.

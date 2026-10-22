@@ -27,6 +27,8 @@
   function canRecall(){return !!(step()&&step().kind==='choose-and-recall');}
   function describePhase(){
     var kind=step().kind;
+    if(step().preparationId&&kind==='understand')return[reader('D’abord, une phrase','先看一个句子'),reader('Écoute cette phrase entière et découvre son sens.','听完整的句子，了解它的意思。')];
+    if(step().preparationId&&kind==='imitate')return[reader('Imiter la phrase','跟读句子'),reader('Écoute, puis répète la phrase entière avant de la retrouver dans la situation.','先听一遍，再跟读完整的句子，然后在情境中重温。')];
     if(kind==='understand')return[reader('Comprendre','理解'),reader('Écoute une phrase entière et découvre son sens.','听完整的句子，了解它的意思。')];
     if(kind==='imitate')return[reader('Imiter','跟读'),reader('Écoute, puis répète la phrase entière.','先听一遍，再跟读完整的句子。')];
     if(kind==='compare')return[reader('Remplacer un élément','替换一个部分'),reader('Compare ces phrases déjà présentées. Repère ce qui reste et ce qui change.','比较已经学过的句子，留意相同和变化的部分。')];
@@ -136,11 +138,29 @@
         if(!Number.isInteger(level.level)||level.level<1||level.level>10||levels.has(level.level)||!Array.isArray(level.units)||!level.units.length)throw new Error('Un niveau de la proposition est incomplet.');levels.add(level.level);
         level.units.forEach(function(current){
           if(!current.unitId||unitIds.has(current.unitId)||!Array.isArray(current.phrases)||current.phrases.length!==4||!Array.isArray(current.steps)||!current.steps.length)throw new Error('Une unité de la proposition est incomplète.');unitIds.add(current.unitId);
-          current.phrases.forEach(function(record){
+          function register(record){
             if(!record.id||typeof record.study!=='string'||typeof record.native!=='string'||typeof record.phon!=='string'||('reading'in record&&typeof record.reading!=='string'))throw new Error('Une phrase ou son aide manque.');
             if(nextMap.has(record.id)&&JSON.stringify(nextMap.get(record.id))!==JSON.stringify(record))throw new Error('Une référence de phrase possède deux copies différentes.');nextMap.set(record.id,record);
+          }
+          current.phrases.forEach(register);
+          var supports=current.preparations===undefined?[]:current.preparations;
+          if(!Array.isArray(supports))throw new Error('Les préparations de cette unité sont incomplètes.');
+          var supportIds=new Set(),sourceIds=new Set(current.phrases.map(function(record){return record.id;}));
+          supports.forEach(function(support){
+            var source=support.source||{},expected=current.unitId==='L4-fr-es-01'?{264:1,283:0}:current.unitId==='L4-fr-es-03'?{542:3}:{};
+            if(item.id!=='fr-es'||level.level!==4||!Number.isInteger(source.index)||!Object.prototype.hasOwnProperty.call(expected,source.index)||support.beforeVariantIndex!==expected[source.index]||source.type!=='catalogue-card'||source.file!=='melunga_deploy/app.html'||source.collection!=='DECKS.es'||source.sourceCommit!=='bcd108dff5c5931f935f70f694a040d235403b64'||source.indexBase!==0||source.sourceLevel!==(source.index===542?3:2)||source.readerLanguage!=='fr'||source.studyLanguage!=='es'||!source.fieldMap||source.fieldMap.study!=='t'||source.fieldMap.native!=='frm'||source.fieldMap.phon!=='pf'||!support.phrase||!support.id||supportIds.has(support.id))throw new Error('Une préparation ne correspond pas à sa source ou à sa destination.');
+            if(support.id!==current.unitId+'-preparation-'+source.index||support.phrase.id!=='catalogue:DECKS.es:'+source.index+':reader-fr'||support.understoodInStep!==support.id+'-understand'||support.imitatedInStep!==support.id+'-imitate')throw new Error('Une préparation possède des références incohérentes.');
+            supportIds.add(support.id);register(support.phrase);
           });
-          current.steps.forEach(function(step){var ids=(step.utterance?[step.utterance]:[]).concat(step.utterances||[],step.choices||[]);if(!ids.length||ids.some(function(id){return!current.phrases.some(function(p){return p.id===id;});})||['understand','imitate','compare','choose-and-recall'].indexOf(step.kind)===-1)throw new Error('Une étape ne correspond pas aux phrases de son unité.');});
+          current.steps.forEach(function(step){
+            var ids=(step.utterance?[step.utterance]:[]).concat(step.utterances||[],step.choices||[]),preparation=supports.find(function(support){return support.id===step.preparationId;});
+            var known=preparation&&(step.kind==='understand'||step.kind==='imitate')?new Set([preparation.phrase.id]):sourceIds;
+            if(!ids.length||ids.some(function(id){return!known.has(id);})||['understand','imitate','compare','choose-and-recall'].indexOf(step.kind)===-1||step.preparationId&&(!preparation||!['understand','imitate'].includes(step.kind)||step.utterance!==preparation.phrase.id||step.choices||step.utterances))throw new Error('Une étape ne correspond pas aux phrases de son unité.');
+          });
+          supports.forEach(function(support){
+            var understood=current.steps.findIndex(function(step){return step.id===support.understoodInStep;}),imitated=current.steps.findIndex(function(step){return step.id===support.imitatedInStep;}),target=current.steps.findIndex(function(step){return step.id===current.unitId+'-understand-'+support.beforeVariantIndex;});
+            if(understood<0||imitated!==understood+1||target!==imitated+1||current.steps[understood].kind!=='understand'||current.steps[imitated].kind!=='imitate'||current.steps[understood].preparationId!==support.id||current.steps[imitated].preparationId!==support.id)throw new Error('Une préparation doit précéder sa reprise dans la situation.');
+          });
         });
       });
     });return{data:data,phrases:nextMap};
