@@ -4,6 +4,8 @@ Ce lot relie les sept scènes vérifiées par Claude à la **carte de leçon de 
 
 ## Ce que verra l’apprenant
 
+Le [suivi de publication par langue](publication-par-langue/README.md) ajoute maintenant une sélection indépendante pour chaque scène. **Les sept validations natives et accords de publication restent en attente : aucune scène n’est activée dans la configuration livrée.** Le comportement décrit ci-dessous est celui des scènes une fois activées ; les tests locaux peuvent l’exercer sans changer cette configuration.
+
 Dans les thèmes, à côté du parcours guidé, « Premier échange · L1 » ouvre la scène du café pour le couple de langues sélectionné. Les couples disponibles sont français → anglais, espagnol, italien, chinois, japonais, coréen, et chinois → français.
 
 La préparation présente la salutation, la commande, le refus poli et la demande de prix, ainsi que les trois répliques à comprendre. Viennent ensuite l’écoute de l’échange, les réponses avec aide, puis les réponses sans modèle. Dans cette dernière étape, seules les phrases de l’apprenant sont masquées ; la réponse peut être réaffichée. L’interlocuteur reste toujours à comprendre et n’est jamais transformé en exercice de production.
@@ -42,7 +44,7 @@ NODE_PATH=/tmp/melunga-review-tools/node_modules node melunga_deploy/tests/l1-ca
 NODE_PATH=/tmp/melunga-review-tools/node_modules node melunga_deploy/tests/lesson-async-safety.test.cjs
 ```
 
-Pour une vérification manuelle locale, servir `melunga_deploy` avec un serveur HTTP, ouvrir `app.html?start=1`, choisir le couple de langues, puis ouvrir les thèmes et « Premier échange · L1 ». Vérifier aussi la sortie vers les cartes habituelles, la connexion et les sélecteurs sur ordinateur et téléphone.
+Pour vérifier la configuration livrée, servir `melunga_deploy` avec un serveur HTTP et ouvrir `app.html?start=1` : aucune entrée « Premier échange · L1 » n’apparaît tant que ses validations sont en attente. Les tests navigateur de revue injectent une liste d’activation locale afin de parcourir les scènes, la sortie vers les cartes et les sélecteurs sur ordinateur et téléphone. Ils ne changent pas les décisions livrées.
 
 Le contrat du paquet est décrit dans [runtime-contract.md](runtime-contract.md). La relecture indépendante du contenu est conservée dans [verification-claude.md](verification-claude.md). Les résultats d’intégration sont consignés dans [validation.md](validation.md).
 

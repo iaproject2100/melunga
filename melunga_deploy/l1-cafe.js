@@ -2,6 +2,23 @@
 (function () {
   'use strict';
   var allowed = ['fr-en','fr-es','fr-it','fr-zh','fr-ja','fr-ko','zh-fr'];
+  // Editorial release selection, independent of subscription rights. A missing
+  // or malformed configuration offers no scene; local tests supply fixtures.
+  function supported(nativeLanguage, studyLanguage) {
+    return allowed.indexOf(nativeLanguage + '-' + studyLanguage) !== -1;
+  }
+  function releasedPairs() {
+    var config = window.MelungaL1CafeRelease;
+    if (!config || config.version !== 1 || !Array.isArray(config.pairs)) return [];
+    var seen = Object.create(null);
+    for (var i = 0; i < config.pairs.length; i++) {
+      var pair = config.pairs[i];
+      if (typeof pair !== 'string' || allowed.indexOf(pair) === -1 || seen[pair]) return [];
+      seen[pair] = true;
+    }
+    return config.pairs.slice();
+  }
+  var released = releasedPairs();
   var sourceCommit = '30e7d40a8af3f51ee186bf83f983596b8ca8798f';
   var running = false, scene = null, sequence = [], position = 0, helped = false;
   var complete = false, loading = false, failed = false, generation = 0;
@@ -10,7 +27,7 @@
 
   function currentPair() { return String(window.nat || '') + '-' + String(window.lang || ''); }
   function available(nativeLanguage, studyLanguage) {
-    return allowed.indexOf(nativeLanguage + '-' + studyLanguage) !== -1;
+    return supported(nativeLanguage, studyLanguage) && released.indexOf(nativeLanguage + '-' + studyLanguage) !== -1;
   }
   function chinese() { return window.nat === 'zh'; }
   function text(fr, zh) { return chinese() ? zh : fr; }
@@ -67,7 +84,7 @@
     }
     var seen = Object.create(null);
     bundle.pairs.forEach(function (pair) {
-      if (!pair || !available(pair.nativeLanguage, pair.studyLanguage) || seen[pair.id] ||
+      if (!pair || !supported(pair.nativeLanguage, pair.studyLanguage) || seen[pair.id] ||
           pair.id !== pair.nativeLanguage + '-' + pair.studyLanguage || pair.level !== 1 ||
           pair.learnerRole !== 'A' || !pair.roles || typeof pair.roles.A !== 'string' ||
           typeof pair.roles.B !== 'string' || !Array.isArray(pair.phrases) || pair.phrases.length !== 7 ||

@@ -3445,6 +3445,9 @@ if(typeof document!=='undefined'){ document.addEventListener('click',function(e)
 
 
 function setMode(m,btn){
+  // Unreleased scenes are unavailable to everyone, including paid accounts.
+  // Ignore a stale/direct request before changing the current card or mode.
+  if(m==='l1-cafe' && !(window.MelungaL1Cafe && window.MelungaL1Cafe.available(nat,lang))) return;
   if(l1CafeActive()) window.MelungaL1Cafe.stop();
   mode=m;
   document.querySelectorAll('.lv').forEach(function(b){b.classList.remove('on');});
@@ -5184,6 +5187,7 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
 <script src="lesson-controls.js"></script>
 <script src="lesson-pastilles.js"></script>
 <script src="account-ui.js"></script>
+<script src="l1-cafe-release.js"></script>
 <script src="l1-cafe.js"></script>
 </body>
 </html>

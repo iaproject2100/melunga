@@ -50,6 +50,9 @@ function protectCanonicalContent(){
      return route.fulfill({json:url.pathname.endsWith('/get-pricing')?{monthlyDisplay:'7,90 €',annualDisplay:'42 €'}:{paid:false}});
     }
     if(url.pathname.endsWith('/mobile-runtime.js'))return route.fulfill({contentType:'text/javascript',body:''});
+    // Test-only activation exercises all seven scenes; it neither edits the
+    // shipped release artifact nor constitutes native review or publication approval.
+    if(url.pathname.endsWith('/l1-cafe-release.js'))return route.fulfill({contentType:'text/javascript',body:'window.MelungaL1CafeRelease='+JSON.stringify({version:1,pairs:data.pairs.map(pair=>pair.id)})+';'});
     if(url.origin!==base)return route.abort();
     if(url.pathname.endsWith('/content/l1-cafe.json')){
      fixture.bundleRequests++;

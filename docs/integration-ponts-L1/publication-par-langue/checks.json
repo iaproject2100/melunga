@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "baseline": "939b82e561521ab12218bc5e7f3577961410a26e",
+  "sourceAndStyleFilesCompared": 2,
+  "sourceAndStyleByteDifferences": 0,
+  "appChangesOnly": [
+    "guard unreleased scene requests before card/mode mutation",
+    "load generated availability configuration before scene player"
+  ],
+  "enabledPairs": [],
+  "nativeReviewsReceived": 0,
+  "kartechApprovalsRecorded": 0,
+  "studyOrPhoneticEdits": 0,
+  "runtimeContentSha256": "bf22f9592adf23219d1e25f491b8cedef8bc086148e12331830b0b6404e5180c",
+  "pythonTests": {
+    "releaseDecisions": 13,
+    "sourceRuntime": 10,
+    "result": "passed"
+  },
+  "browserReport": "tests-navigateur.json",
+  "browserScenarios": 25,
+  "fullSceneSteps": 448,
+  "classicAsyncSafetyFlows": 9,
+  "classicAsyncSafetyResult": "passed, errors=[]",
+  "netlifyBuildCommand": {
+    "command": "python3 ../tools/pedagogy/build_l1_release.py --check",
+    "executedFrom": "melunga_deploy",
+    "result": "enabledPairs=[], check=true",
+    "automaticDeploymentTriggered": false
+  },
+  "nativeFormsReport": "verification-fiches.json",
+  "typoClarification": {
+    "correctStudyAlreadyInSource": "不用，谢谢。",
+    "sourceEditRequired": false
+  },
+  "merged": false,
+  "deployed": false,
+  "apkBuilt": false,
+  "sourceFilesSha256": {
+    "melunga_deploy/app.html": "72f253c49a3d7f30c8b4598109659c54813c972cbcf5bb90355a844c5f8549bc",
+    "melunga_deploy/l1-cafe.js": "b861745e48cbb8809f299a10f16375b6c077ef8b9568cd312e561616a8d3fc72",
+    "melunga_deploy/l1-cafe-release.js": "5d488621d499c93913d67a64aa6065fd223fec2aad3e43d00a8ce5aada247811",
+    "melunga_deploy/netlify.toml": "b80ddcd65344938d4282b0542a24951e90e184936e0c22a84ef614c98defdda1",
+    "tools/pedagogy/build_l1_release.py": "4148fe25eef8ecef413b69086090e297160293769727de1e0bd1a4ef6e0a9848",
+    "tools/pedagogy/test_l1_release.py": "661dd189021d1fdbc69519ea26e93ee33ebcd46cf687d328a20700353e86876d",
+    "docs/integration-ponts-L1/publication-par-langue/statut.json": "910656a9430dccf80b0a28cdd07d0c8b76cc20cac18e9973b13b8e6a7dbdcc59"
+  },
+  "whitespaceCheck": {
+    "authoredFiles": "passed",
+    "importedOriginalPlaceholdersWithTrailingSpace": 58,
+    "reason": "Original blank > response lines preserved byte-for-byte from Claude, independently verified; only the imported sheets are excluded from the authored-file whitespace check."
+  }
+}
