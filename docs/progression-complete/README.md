@@ -1,5 +1,7 @@
 # Progression complète et enrichissement du parcours guidé
 
+**Suite de l’audit :** le [classement proposé des 841 unités L1–L10](../progression-corrections/README.md) réorganise toutes les unités des sept couples actifs, avec raisons, prérequis, comparaisons ciblées et nouvelle maquette. Ce suivi est distinct de la présente sélection initiale et n’est pas publié.
+
 Kartech demande de vérifier **toutes les langues et tous les niveaux L1–L10**, de conserver les phonétiques existantes et d'enrichir le parcours guidé. Le but est de comprendre puis réutiliser des phrases de plus en plus variées, jusqu'à soutenir une conversation, en s'inspirant de l'ordre naturel de l'apprentissage : entendre et comprendre, imiter, remplacer, combiner et échanger. Ce dossier constitue le lot de travail à relire avec Claude avant publication.
 
 [Ouvrir l’aperçu de test des sept langues, de L1 à L10](https://deploy-preview-8--chic-dragon-e2baf2.netlify.app/essais-parcours-guide/maquette/) · [Message à transmettre à Claude](message-pour-claude.md). Cet aperçu est une proposition distincte des leçons publiques.
