@@ -1,0 +1,960 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "it",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en italien",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximate respelling for English readers (CAPITALS = stressed syllable; vowels ah / eh / ee / oh / oo; c+e/i → ch, g+e/i → j, gn → ny, gl → ly, sc+e/i → sh, z → ts / dz; double consonants held longer, e.g. kaf-FEH). No substitute for the audio.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended.",
+ "coverageClaim": null,
+ "level": 4,
+ "title": "My daily life",
+ "goal": "Describe your daily life, habits and the people around you.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L4-en-it-01",
+   "situation": "Habits",
+   "model": {
+    "study": "Di solito {s}.",
+    "phon": "dee SOH-lee-toh {s}",
+    "native": "I usually {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "mi alzo alle sette",
+      "phon": "mee AHL-tsoh AHL-leh SEHT-teh",
+      "native": "get up at seven"
+     },
+     "study": "Di solito mi alzo alle sette.",
+     "phon": "dee SOH-lee-toh mee AHL-tsoh AHL-leh SEHT-teh",
+     "native": "I usually get up at seven."
+    },
+    {
+     "slot": {
+      "study": "pranzo a casa",
+      "phon": "PRAHN-tsoh ah KAH-zah",
+      "native": "have lunch at home"
+     },
+     "study": "Di solito pranzo a casa.",
+     "phon": "dee SOH-lee-toh PRAHN-tsoh ah KAH-zah",
+     "native": "I usually have lunch at home."
+    },
+    {
+     "slot": {
+      "study": "prendo il treno",
+      "phon": "PREHN-doh eel TREH-noh",
+      "native": "take the train"
+     },
+     "study": "Di solito prendo il treno.",
+     "phon": "dee SOH-lee-toh PREHN-doh eel TREH-noh",
+     "native": "I usually take the train."
+    },
+    {
+     "slot": {
+      "study": "vado a letto presto",
+      "phon": "VAH-doh ah LEHT-toh PREHS-toh",
+      "native": "go to bed early"
+     },
+     "study": "Di solito vado a letto presto.",
+     "phon": "dee SOH-lee-toh VAH-doh ah LEHT-toh PREHS-toh",
+     "native": "I usually go to bed early."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-en-it-02",
+   "situation": "In the morning",
+   "model": {
+    "study": "La mattina {s}.",
+    "phon": "lah maht-TEE-nah {s}",
+    "native": "In the morning I {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "bevo un caffè",
+      "phon": "BEH-voh oon kahf-FEH",
+      "native": "drink a coffee"
+     },
+     "study": "La mattina bevo un caffè.",
+     "phon": "lah maht-TEE-nah BEH-voh oon kahf-FEH",
+     "native": "In the morning I drink a coffee."
+    },
+    {
+     "slot": {
+      "study": "faccio colazione alle otto",
+      "phon": "FAHT-choh koh-lah-TSYOH-neh AHL-leh OHT-toh",
+      "native": "have breakfast at eight"
+     },
+     "study": "La mattina faccio colazione alle otto.",
+     "phon": "lah maht-TEE-nah FAHT-choh koh-lah-TSYOH-neh AHL-leh OHT-toh",
+     "native": "In the morning I have breakfast at eight."
+    },
+    {
+     "slot": {
+      "study": "porto i bambini a scuola",
+      "phon": "POR-toh ee bahm-BEE-nee ah SKWOH-lah",
+      "native": "take the children to school"
+     },
+     "study": "La mattina porto i bambini a scuola.",
+     "phon": "lah maht-TEE-nah POR-toh ee bahm-BEE-nee ah SKWOH-lah",
+     "native": "In the morning I take the children to school."
+    },
+    {
+     "slot": {
+      "study": "lavoro da casa",
+      "phon": "lah-VOH-roh dah KAH-zah",
+      "native": "work from home"
+     },
+     "study": "La mattina lavoro da casa.",
+     "phon": "lah maht-TEE-nah lah-VOH-roh dah KAH-zah",
+     "native": "In the morning I work from home."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-en-it-03",
+   "situation": "In the evening",
+   "model": {
+    "study": "La sera {s}.",
+    "phon": "lah SEH-rah {s}",
+    "native": "In the evening I {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "cucino",
+      "phon": "koo-CHEE-noh",
+      "native": "cook"
+     },
+     "study": "La sera cucino.",
+     "phon": "lah SEH-rah koo-CHEE-noh",
+     "native": "In the evening I cook."
+    },
+    {
+     "slot": {
+      "study": "guardo un film",
+      "phon": "GWAR-doh oon FEELM",
+      "native": "watch a film"
+     },
+     "study": "La sera guardo un film.",
+     "phon": "lah SEH-rah GWAR-doh oon FEELM",
+     "native": "In the evening I watch a film."
+    },
+    {
+     "slot": {
+      "study": "esco con gli amici",
+      "phon": "EHS-koh kohn lyee ah-MEE-chee",
+      "native": "go out with friends"
+     },
+     "study": "La sera esco con gli amici.",
+     "phon": "lah SEH-rah EHS-koh kohn lyee ah-MEE-chee",
+     "native": "In the evening I go out with friends."
+    },
+    {
+     "slot": {
+      "study": "leggo un po'",
+      "phon": "LEHG-goh oon POH",
+      "native": "read a bit"
+     },
+     "study": "La sera leggo un po'.",
+     "phon": "lah SEH-rah LEHG-goh oon POH",
+     "native": "In the evening I read a bit."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-en-it-04",
+   "situation": "Family: having",
+   "model": {
+    "study": "Ho {s}.",
+    "phon": "oh {s}",
+    "native": "I have {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "un fratello",
+      "phon": "oon frah-TEHL-loh",
+      "native": "a brother"
+     },
+     "study": "Ho un fratello.",
+     "phon": "oh oon frah-TEHL-loh",
+     "native": "I have a brother."
+    },
+    {
+     "slot": {
+      "study": "due figli",
+      "phon": "DOO-eh FEE-lyee",
+      "native": "two children"
+     },
+     "study": "Ho due figli.",
+     "phon": "oh DOO-eh FEE-lyee",
+     "native": "I have two children."
+    },
+    {
+     "slot": {
+      "study": "una sorella più grande",
+      "phon": "OO-nah soh-REHL-lah pyoo GRAHN-deh",
+      "native": "an older sister"
+     },
+     "study": "Ho una sorella più grande.",
+     "phon": "oh OO-nah soh-REHL-lah pyoo GRAHN-deh",
+     "native": "I have an older sister."
+    },
+    {
+     "slot": {
+      "study": "un cane",
+      "phon": "oon KAH-neh",
+      "native": "a dog"
+     },
+     "study": "Ho un cane.",
+     "phon": "oh oon KAH-neh",
+     "native": "I have a dog."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-en-it-05",
+   "situation": "Where you live",
+   "model": {
+    "study": "Abito {s}.",
+    "phon": "AH-bee-toh {s}",
+    "native": "I live {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a Milano",
+      "phon": "ah mee-LAH-noh",
+      "native": "in Milan"
+     },
+     "study": "Abito a Milano.",
+     "phon": "AH-bee-toh ah mee-LAH-noh",
+     "native": "I live in Milan."
+    },
+    {
+     "slot": {
+      "study": "in centro",
+      "phon": "een CHEHN-troh",
+      "native": "in the centre"
+     },
+     "study": "Abito in centro.",
+     "phon": "AH-bee-toh een CHEHN-troh",
+     "native": "I live in the centre."
+    },
+    {
+     "slot": {
+      "study": "in un piccolo appartamento",
+      "phon": "een oon PEEK-koh-loh ahp-par-tah-MEHN-toh",
+      "native": "in a small flat"
+     },
+     "study": "Abito in un piccolo appartamento.",
+     "phon": "AH-bee-toh een oon PEEK-koh-loh ahp-par-tah-MEHN-toh",
+     "native": "I live in a small flat."
+    },
+    {
+     "slot": {
+      "study": "con la mia famiglia",
+      "phon": "kohn lah MEE-ah fah-MEE-lyah",
+      "native": "with my family"
+     },
+     "study": "Abito con la mia famiglia.",
+     "phon": "AH-bee-toh kohn lah MEE-ah fah-MEE-lyah",
+     "native": "I live with my family."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-en-it-06",
+   "situation": "Work",
+   "model": {
+    "study": "Lavoro {s}.",
+    "phon": "lah-VOH-roh {s}",
+    "native": "I work {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "in un ospedale",
+      "phon": "een oon ohs-peh-DAH-leh",
+      "native": "in a hospital"
+     },
+     "study": "Lavoro in un ospedale.",
+     "phon": "lah-VOH-roh een oon ohs-peh-DAH-leh",
+     "native": "I work in a hospital."
+    },
+    {
+     "slot": {
+      "study": "in ufficio",
+      "phon": "een oof-FEE-choh",
+      "native": "in an office"
+     },
+     "study": "Lavoro in ufficio.",
+     "phon": "lah-VOH-roh een oof-FEE-choh",
+     "native": "I work in an office."
+    },
+    {
+     "slot": {
+      "study": "da casa",
+      "phon": "dah KAH-zah",
+      "native": "from home"
+     },
+     "study": "Lavoro da casa.",
+     "phon": "lah-VOH-roh dah KAH-zah",
+     "native": "I work from home."
+    },
+    {
+     "slot": {
+      "study": "in un ristorante",
+      "phon": "een oon rees-toh-RAHN-teh",
+      "native": "in a restaurant"
+     },
+     "study": "Lavoro in un ristorante.",
+     "phon": "lah-VOH-roh een oon rees-toh-RAHN-teh",
+     "native": "I work in a restaurant."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-en-it-07",
+   "situation": "Studies",
+   "model": {
+    "study": "Studio {s}.",
+    "phon": "STOO-dyoh {s}",
+    "native": "I study {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "medicina",
+      "phon": "meh-dee-CHEE-nah",
+      "native": "medicine"
+     },
+     "study": "Studio medicina.",
+     "phon": "STOO-dyoh meh-dee-CHEE-nah",
+     "native": "I study medicine."
+    },
+    {
+     "slot": {
+      "study": "italiano",
+      "phon": "ee-tah-LYAH-noh",
+      "native": "Italian"
+     },
+     "study": "Studio italiano.",
+     "phon": "STOO-dyoh ee-tah-LYAH-noh",
+     "native": "I study Italian."
+    },
+    {
+     "slot": {
+      "study": "all'università",
+      "phon": "ahl-loo-nee-vehr-see-TAH",
+      "native": "at university"
+     },
+     "study": "Studio all'università.",
+     "phon": "STOO-dyoh ahl-loo-nee-vehr-see-TAH",
+     "native": "I study at university."
+    },
+    {
+     "slot": {
+      "study": "economia",
+      "phon": "eh-koh-noh-MEE-ah",
+      "native": "economics"
+     },
+     "study": "Studio economia.",
+     "phon": "STOO-dyoh eh-koh-noh-MEE-ah",
+     "native": "I study economics."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-en-it-08",
+   "situation": "Frequency",
+   "model": {
+    "study": "{s} vado in palestra.",
+    "phon": "{s} VAH-doh een pah-LEHS-trah",
+    "native": "{s} I go to the gym."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Ogni giorno",
+      "phon": "OH-nyee JOR-noh",
+      "native": "Every day"
+     },
+     "study": "Ogni giorno vado in palestra.",
+     "phon": "OH-nyee JOR-noh VAH-doh een pah-LEHS-trah",
+     "native": "Every day I go to the gym."
+    },
+    {
+     "slot": {
+      "study": "Spesso",
+      "phon": "SPEHS-soh",
+      "native": "Often"
+     },
+     "study": "Spesso vado in palestra.",
+     "phon": "SPEHS-soh VAH-doh een pah-LEHS-trah",
+     "native": "I often go to the gym."
+    },
+    {
+     "slot": {
+      "study": "A volte",
+      "phon": "ah VOHL-teh",
+      "native": "Sometimes"
+     },
+     "study": "A volte vado in palestra.",
+     "phon": "ah VOHL-teh VAH-doh een pah-LEHS-trah",
+     "native": "Sometimes I go to the gym."
+    },
+    {
+     "slot": {
+      "study": "Il fine settimana",
+      "phon": "eel FEE-neh seht-tee-MAH-nah",
+      "native": "At the weekend"
+     },
+     "study": "Il fine settimana vado in palestra.",
+     "phon": "eel FEE-neh seht-tee-MAH-nah VAH-doh een pah-LEHS-trah",
+     "native": "At the weekend I go to the gym."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-en-it-09",
+   "situation": "Family: she",
+   "model": {
+    "study": "Mia {s} abita a Roma.",
+    "phon": "MEE-ah {s} AH-bee-tah ah ROH-mah",
+    "native": "My {s} lives in Rome."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "madre",
+      "phon": "MAH-dreh",
+      "native": "mother"
+     },
+     "study": "Mia madre abita a Roma.",
+     "phon": "MEE-ah MAH-dreh AH-bee-tah ah ROH-mah",
+     "native": "My mother lives in Rome."
+    },
+    {
+     "slot": {
+      "study": "sorella",
+      "phon": "soh-REHL-lah",
+      "native": "sister"
+     },
+     "study": "Mia sorella abita a Roma.",
+     "phon": "MEE-ah soh-REHL-lah AH-bee-tah ah ROH-mah",
+     "native": "My sister lives in Rome."
+    },
+    {
+     "slot": {
+      "study": "figlia",
+      "phon": "FEE-lyah",
+      "native": "daughter"
+     },
+     "study": "Mia figlia abita a Roma.",
+     "phon": "MEE-ah FEE-lyah AH-bee-tah ah ROH-mah",
+     "native": "My daughter lives in Rome."
+    },
+    {
+     "slot": {
+      "study": "nonna",
+      "phon": "NOHN-nah",
+      "native": "grandmother"
+     },
+     "study": "Mia nonna abita a Roma.",
+     "phon": "MEE-ah NOHN-nah AH-bee-tah ah ROH-mah",
+     "native": "My grandmother lives in Rome."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-en-it-10",
+   "situation": "Family: he",
+   "model": {
+    "study": "Mio {s} lavora in banca.",
+    "phon": "MEE-oh {s} lah-VOH-rah een BAHN-kah",
+    "native": "My {s} works in a bank."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "padre",
+      "phon": "PAH-dreh",
+      "native": "father"
+     },
+     "study": "Mio padre lavora in banca.",
+     "phon": "MEE-oh PAH-dreh lah-VOH-rah een BAHN-kah",
+     "native": "My father works in a bank."
+    },
+    {
+     "slot": {
+      "study": "fratello",
+      "phon": "frah-TEHL-loh",
+      "native": "brother"
+     },
+     "study": "Mio fratello lavora in banca.",
+     "phon": "MEE-oh frah-TEHL-loh lah-VOH-rah een BAHN-kah",
+     "native": "My brother works in a bank."
+    },
+    {
+     "slot": {
+      "study": "marito",
+      "phon": "mah-REE-toh",
+      "native": "husband"
+     },
+     "study": "Mio marito lavora in banca.",
+     "phon": "MEE-oh mah-REE-toh lah-VOH-rah een BAHN-kah",
+     "native": "My husband works in a bank."
+    },
+    {
+     "slot": {
+      "study": "figlio",
+      "phon": "FEE-lyoh",
+      "native": "son"
+     },
+     "study": "Mio figlio lavora in banca.",
+     "phon": "MEE-oh FEE-lyoh lah-VOH-rah een BAHN-kah",
+     "native": "My son works in a bank."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-en-it-11",
+   "situation": "Neighbourhood",
+   "model": {
+    "study": "Nel mio quartiere c'è {s}.",
+    "phon": "nehl MEE-oh kwar-TYEH-reh cheh {s}",
+    "native": "In my neighbourhood there's {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "un mercato",
+      "phon": "oon mehr-KAH-toh",
+      "native": "a market"
+     },
+     "study": "Nel mio quartiere c'è un mercato.",
+     "phon": "nehl MEE-oh kwar-TYEH-reh cheh oon mehr-KAH-toh",
+     "native": "In my neighbourhood there's a market."
+    },
+    {
+     "slot": {
+      "study": "una bella piazza",
+      "phon": "OO-nah BEHL-lah PYAHT-tsah",
+      "native": "a beautiful square"
+     },
+     "study": "Nel mio quartiere c'è una bella piazza.",
+     "phon": "nehl MEE-oh kwar-TYEH-reh cheh OO-nah BEHL-lah PYAHT-tsah",
+     "native": "In my neighbourhood there's a beautiful square."
+    },
+    {
+     "slot": {
+      "study": "un parco",
+      "phon": "oon PAR-koh",
+      "native": "a park"
+     },
+     "study": "Nel mio quartiere c'è un parco.",
+     "phon": "nehl MEE-oh kwar-TYEH-reh cheh oon PAR-koh",
+     "native": "In my neighbourhood there's a park."
+    },
+    {
+     "slot": {
+      "study": "la metro",
+      "phon": "lah MEH-troh",
+      "native": "the metro"
+     },
+     "study": "Nel mio quartiere c'è la metro.",
+     "phon": "nehl MEE-oh kwar-TYEH-reh cheh lah MEH-troh",
+     "native": "In my neighbourhood there's the metro."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L4-en-it-12",
+   "situation": "Free time",
+   "model": {
+    "study": "Nel tempo libero {s}.",
+    "phon": "nehl TEHM-poh LEE-beh-roh {s}",
+    "native": "In my free time I {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "faccio sport",
+      "phon": "FAHT-choh SPORT",
+      "native": "do sport"
+     },
+     "study": "Nel tempo libero faccio sport.",
+     "phon": "nehl TEHM-poh LEE-beh-roh FAHT-choh SPORT",
+     "native": "In my free time I do sport."
+    },
+    {
+     "slot": {
+      "study": "suono la chitarra",
+      "phon": "SWOH-noh lah kee-TAR-rah",
+      "native": "play the guitar"
+     },
+     "study": "Nel tempo libero suono la chitarra.",
+     "phon": "nehl TEHM-poh LEE-beh-roh SWOH-noh lah kee-TAR-rah",
+     "native": "In my free time I play the guitar."
+    },
+    {
+     "slot": {
+      "study": "vado al cinema",
+      "phon": "VAH-doh ahl CHEE-neh-mah",
+      "native": "go to the cinema"
+     },
+     "study": "Nel tempo libero vado al cinema.",
+     "phon": "nehl TEHM-poh LEE-beh-roh VAH-doh ahl CHEE-neh-mah",
+     "native": "In my free time I go to the cinema."
+    },
+    {
+     "slot": {
+      "study": "viaggio",
+      "phon": "VYAHD-joh",
+      "native": "travel"
+     },
+     "study": "Nel tempo libero viaggio.",
+     "phon": "nehl TEHM-poh LEE-beh-roh VYAHD-joh",
+     "native": "In my free time I travel."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L4-en-it-d1",
+   "situation": "Talking about family (friends, tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hai fratelli o sorelle?",
+     "phon": "AH-ee frah-TEHL-lee oh soh-REHL-leh",
+     "native": "Do you have brothers or sisters?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sì, ho un fratello e una sorella. E tu?",
+     "phon": "SEE, oh oon frah-TEHL-loh eh OO-nah soh-REHL-lah. eh TOO",
+     "native": "Yes, I have a brother and a sister. And you?"
+    },
+    {
+     "speaker": "A",
+     "study": "Io ho due figli.",
+     "phon": "EE-oh oh DOO-eh FEE-lyee",
+     "native": "I have two children."
+    },
+    {
+     "speaker": "B",
+     "study": "Che bello! Quanti anni hanno?",
+     "phon": "keh BEHL-loh. KWAHN-tee AHN-nee AHN-noh",
+     "native": "How nice! How old are they?"
+    },
+    {
+     "speaker": "A",
+     "study": "Otto e dodici. Abitiamo vicino a Lione.",
+     "phon": "OHT-toh eh DOH-dee-chee. ah-bee-TYAH-moh vee-CHEE-noh ah LYOH-neh",
+     "native": "Eight and twelve. We live near Lyon."
+    },
+    {
+     "speaker": "B",
+     "study": "E tua moglie lavora?",
+     "phon": "eh TOO-ah MOH-lyeh lah-VOH-rah",
+     "native": "And does your wife work?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sì, lavora in un ospedale.",
+     "phon": "SEE, lah-VOH-rah een oon ohs-peh-DAH-leh",
+     "native": "Yes, she works in a hospital."
+    },
+    {
+     "speaker": "B",
+     "study": "Anche mia madre lavora in ospedale!",
+     "phon": "AHN-keh MEE-ah MAH-dreh lah-VOH-rah een ohs-peh-DAH-leh",
+     "native": "My mother works in a hospital too!"
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L3-en-it-06",
+    "L4-en-it-04"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A friend"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L4-en-it-d2",
+   "situation": "A typical day (colleagues, tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "A che ora ti alzi di solito?",
+     "phon": "ah keh OH-rah tee AHL-tsee dee SOH-lee-toh",
+     "native": "What time do you usually get up?"
+    },
+    {
+     "speaker": "B",
+     "study": "Alle sei e mezza. La mattina porto i bambini a scuola.",
+     "phon": "AHL-leh SEH-ee eh MEHD-dzah. lah maht-TEE-nah POR-toh ee bahm-BEE-nee ah SKWOH-lah",
+     "native": "At half past six. In the morning I take the children to school."
+    },
+    {
+     "speaker": "A",
+     "study": "E poi vai al lavoro in macchina?",
+     "phon": "eh POY VAH-ee ahl lah-VOH-roh een MAHK-kee-nah",
+     "native": "And then you drive to work?"
+    },
+    {
+     "speaker": "B",
+     "study": "No, prendo il treno. E tu?",
+     "phon": "noh, PREHN-doh eel TREH-noh. eh TOO",
+     "native": "No, I take the train. And you?"
+    },
+    {
+     "speaker": "A",
+     "study": "Io lavoro da casa due giorni a settimana.",
+     "phon": "EE-oh lah-VOH-roh dah KAH-zah DOO-eh JOR-nee ah seht-tee-MAH-nah",
+     "native": "I work from home two days a week."
+    },
+    {
+     "speaker": "B",
+     "study": "Che fortuna! E la sera cosa fai?",
+     "phon": "keh for-TOO-nah. eh lah SEH-rah KOH-zah FAH-ee",
+     "native": "Lucky you! And what do you do in the evening?"
+    },
+    {
+     "speaker": "A",
+     "study": "Spesso vado in palestra, a volte cucino.",
+     "phon": "SPEHS-soh VAH-doh een pah-LEHS-trah, ah VOHL-teh koo-CHEE-noh",
+     "native": "I often go to the gym, sometimes I cook."
+    },
+    {
+     "speaker": "B",
+     "study": "Io la sera guardo sempre un film.",
+     "phon": "EE-oh lah SEH-rah GWAR-doh SEHM-preh oon FEELM",
+     "native": "In the evening I always watch a film."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-it-06",
+    "L2-en-it-12",
+    "L3-en-it-03",
+    "L3-en-it-06",
+    "L4-en-it-01",
+    "L4-en-it-02",
+    "L4-en-it-03",
+    "L4-en-it-06",
+    "L4-en-it-08"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A colleague"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L4-en-it-d3",
+   "situation": "The new neighbour (Lei)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, sono il nuovo vicino. Mi chiamo Paolo.",
+     "phon": "bwohn-JOR-noh, SOH-noh eel NWOH-voh vee-CHEE-noh. mee KYAH-moh PAH-oh-loh",
+     "native": "Hello, I'm the new neighbour. My name is Paolo."
+    },
+    {
+     "speaker": "B",
+     "study": "Piacere, Anna. Benvenuto! Da dove viene?",
+     "phon": "pyah-CHEH-reh, AHN-nah. behn-veh-NOO-toh. dah DOH-veh VYEH-neh",
+     "native": "Nice to meet you, Anna. Welcome! Where are you from?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sono francese, ma lavoro qui a Bologna.",
+     "phon": "SOH-noh frahn-CHEH-zeh, mah lah-VOH-roh KWEE ah boh-LOH-nyah",
+     "native": "I'm French, but I work here in Bologna."
+    },
+    {
+     "speaker": "B",
+     "study": "Che lavoro fa?",
+     "phon": "keh lah-VOH-roh FAH",
+     "native": "What do you do for a living?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sono ingegnere, lavoro in una fabbrica.",
+     "phon": "SOH-noh een-jeh-NYEH-reh, lah-VOH-roh een OO-nah FAHB-bree-kah",
+     "native": "I'm an engineer, I work in a factory."
+    },
+    {
+     "speaker": "B",
+     "study": "Il quartiere Le piace?",
+     "phon": "eel kwar-TYEH-reh leh PYAH-cheh",
+     "native": "Do you like the neighbourhood?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sì, molto. C'è un mercato qui vicino?",
+     "phon": "SEE, MOHL-toh. cheh oon mehr-KAH-toh KWEE vee-CHEE-noh",
+     "native": "Yes, a lot. Is there a market nearby?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sì, ogni sabato mattina, in piazza.",
+     "phon": "SEE, OH-nyee SAH-bah-toh maht-TEE-nah, een PYAHT-tsah",
+     "native": "Yes, every Saturday morning, in the square."
+    },
+    {
+     "speaker": "A",
+     "study": "Perfetto, grazie!",
+     "phon": "pehr-FEHT-toh, GRAH-tsyeh",
+     "native": "Perfect, thanks!"
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-it-01",
+    "L1-en-it-02",
+    "L4-en-it-06"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A neighbour"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Describe your habits and your day with frequency words, introduce your family, say where you live and what you do for work or study, and ask the other person the same questions."
+}

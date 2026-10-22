@@ -1,0 +1,1034 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "zh",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en chinois",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle",
+  "reading": "pinyin avec tons"
+ },
+ "phoneticConvention": "English approximation in the style of the Melunga deck (phe field): dway-boo-chee = 对不起, may gwahn-shee = 没关系, ching = 请. Syllables of one word are joined with hyphens, words are separated by spaces. Tones are not shown: see the pinyin (reading field) and the audio. Standard Mandarin, simplified characters.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended. Linguistic review required (tones, naturalness of phrasing).",
+ "coverageClaim": null,
+ "level": 7,
+ "title": "Explaining and comparing",
+ "goal": "Explain a reason, compare and express a preference.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L7-en-zh-01",
+   "situation": "Giving a reason",
+   "model": {
+    "study": "因为{s}，所以我没去。",
+    "phon": "een-way {s}, swoh-ee woh may chyu.",
+    "native": "{s}, so I didn't go.",
+    "reading": "yīnwèi {s}, suǒyǐ wǒ méi qù.",
+    "note": "因为… 所以… often come as a pair; in speech 所以 alone is enough. In 下雨了 / 太贵了, 了 marks a change of situation (it started raining) or the exclamation 太…了."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "下雨了",
+      "phon": "shyah yu luh",
+      "native": "it was raining",
+      "reading": "xià yǔ le"
+     },
+     "study": "因为下雨了，所以我没去。",
+     "phon": "een-way shyah yu luh, swoh-ee woh may chyu.",
+     "native": "It was raining, so I didn't go.",
+     "reading": "yīnwèi xià yǔ le, suǒyǐ wǒ méi qù."
+    },
+    {
+     "slot": {
+      "study": "我很累",
+      "phon": "woh hun lay",
+      "native": "I was very tired",
+      "reading": "wǒ hěn lèi"
+     },
+     "study": "因为我很累，所以我没去。",
+     "phon": "een-way woh hun lay, swoh-ee woh may chyu.",
+     "native": "I was very tired, so I didn't go.",
+     "reading": "yīnwèi wǒ hěn lèi, suǒyǐ wǒ méi qù."
+    },
+    {
+     "slot": {
+      "study": "太贵了",
+      "phon": "teye gway luh",
+      "native": "it was too expensive",
+      "reading": "tài guì le"
+     },
+     "study": "因为太贵了，所以我没去。",
+     "phon": "een-way teye gway luh, swoh-ee woh may chyu.",
+     "native": "It was too expensive, so I didn't go.",
+     "reading": "yīnwèi tài guì le, suǒyǐ wǒ méi qù."
+    },
+    {
+     "slot": {
+      "study": "没有时间",
+      "phon": "may-yoh shr-jyen",
+      "native": "I didn't have time",
+      "reading": "méiyǒu shíjiān"
+     },
+     "study": "因为没有时间，所以我没去。",
+     "phon": "een-way may-yoh shr-jyen, swoh-ee woh may chyu.",
+     "native": "I didn't have time, so I didn't go.",
+     "reading": "yīnwèi méiyǒu shíjiān, suǒyǐ wǒ méi qù."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-zh-02",
+   "situation": "Because",
+   "model": {
+    "study": "我喜欢这里，因为{s}。",
+    "phon": "woh shee-hwahn juh-lee, een-way {s}.",
+    "native": "I like it here because {s}.",
+    "reading": "wǒ xǐhuan zhèlǐ, yīnwèi {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "很安静",
+      "phon": "hun ahn-jing",
+      "native": "it's very quiet",
+      "reading": "hěn ānjìng"
+     },
+     "study": "我喜欢这里，因为很安静。",
+     "phon": "woh shee-hwahn juh-lee, een-way hun ahn-jing.",
+     "native": "I like it here because it's very quiet.",
+     "reading": "wǒ xǐhuan zhèlǐ, yīnwèi hěn ānjìng."
+    },
+    {
+     "slot": {
+      "study": "离公司很近",
+      "phon": "lee goong-suh hun jeen",
+      "native": "it's very close to the office",
+      "reading": "lí gōngsī hěn jìn"
+     },
+     "study": "我喜欢这里，因为离公司很近。",
+     "phon": "woh shee-hwahn juh-lee, een-way lee goong-suh hun jeen.",
+     "native": "I like it here because it's very close to the office.",
+     "reading": "wǒ xǐhuan zhèlǐ, yīnwèi lí gōngsī hěn jìn."
+    },
+    {
+     "slot": {
+      "study": "人很好",
+      "phon": "run hun how",
+      "native": "the people are nice",
+      "reading": "rén hěn hǎo"
+     },
+     "study": "我喜欢这里，因为人很好。",
+     "phon": "woh shee-hwahn juh-lee, een-way run hun how.",
+     "native": "I like it here because the people are nice.",
+     "reading": "wǒ xǐhuan zhèlǐ, yīnwèi rén hěn hǎo."
+    },
+    {
+     "slot": {
+      "study": "东西不贵",
+      "phon": "doong-shee boo gway",
+      "native": "things aren't expensive",
+      "reading": "dōngxi bú guì"
+     },
+     "study": "我喜欢这里，因为东西不贵。",
+     "phon": "woh shee-hwahn juh-lee, een-way doong-shee boo gway.",
+     "native": "I like it here because things aren't expensive.",
+     "reading": "wǒ xǐhuan zhèlǐ, yīnwèi dōngxi bú guì."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-zh-03",
+   "situation": "Comparing two things",
+   "model": {
+    "study": "这个比那个更{s}。",
+    "phon": "juh-guh bee nah-guh gung {s}.",
+    "native": "This one is {s} than that one.",
+    "reading": "zhège bǐ nàge gèng {s}.",
+    "note": "A 比 B + adjective; 更 ('even more') is optional. No 很 with 比."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "便宜",
+      "phon": "pyen-ee",
+      "native": "cheaper",
+      "reading": "piányi"
+     },
+     "study": "这个比那个更便宜。",
+     "phon": "juh-guh bee nah-guh gung pyen-ee.",
+     "native": "This one is cheaper than that one.",
+     "reading": "zhège bǐ nàge gèng piányi."
+    },
+    {
+     "slot": {
+      "study": "好",
+      "phon": "how",
+      "native": "better",
+      "reading": "hǎo"
+     },
+     "study": "这个比那个更好。",
+     "phon": "juh-guh bee nah-guh gung how.",
+     "native": "This one is better than that one.",
+     "reading": "zhège bǐ nàge gèng hǎo."
+    },
+    {
+     "slot": {
+      "study": "大",
+      "phon": "dah",
+      "native": "bigger",
+      "reading": "dà"
+     },
+     "study": "这个比那个更大。",
+     "phon": "juh-guh bee nah-guh gung dah.",
+     "native": "This one is bigger than that one.",
+     "reading": "zhège bǐ nàge gèng dà."
+    },
+    {
+     "slot": {
+      "study": "方便",
+      "phon": "fahng-byen",
+      "native": "more convenient",
+      "reading": "fāngbiàn"
+     },
+     "study": "这个比那个更方便。",
+     "phon": "juh-guh bee nah-guh gung fahng-byen.",
+     "native": "This one is more convenient than that one.",
+     "reading": "zhège bǐ nàge gèng fāngbiàn."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-zh-04",
+   "situation": "Comparing cities",
+   "model": {
+    "study": "{s}比巴黎大。",
+    "phon": "{s} bee bah-lee dah.",
+    "native": "{s} is bigger than Paris.",
+    "reading": "{s} bǐ Bālí dà."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "北京",
+      "phon": "bay-jing",
+      "native": "Beijing",
+      "reading": "Běijīng"
+     },
+     "study": "北京比巴黎大。",
+     "phon": "bay-jing bee bah-lee dah.",
+     "native": "Beijing is bigger than Paris.",
+     "reading": "Běijīng bǐ Bālí dà."
+    },
+    {
+     "slot": {
+      "study": "上海",
+      "phon": "shahng-heye",
+      "native": "Shanghai",
+      "reading": "Shànghǎi"
+     },
+     "study": "上海比巴黎大。",
+     "phon": "shahng-heye bee bah-lee dah.",
+     "native": "Shanghai is bigger than Paris.",
+     "reading": "Shànghǎi bǐ Bālí dà."
+    },
+    {
+     "slot": {
+      "study": "这个城市",
+      "phon": "juh-guh chung-shr",
+      "native": "this city",
+      "reading": "zhège chéngshì"
+     },
+     "study": "这个城市比巴黎大。",
+     "phon": "juh-guh chung-shr bee bah-lee dah.",
+     "native": "This city is bigger than Paris.",
+     "reading": "zhège chéngshì bǐ Bālí dà."
+    },
+    {
+     "slot": {
+      "study": "东京",
+      "phon": "doong-jing",
+      "native": "Tokyo",
+      "reading": "Dōngjīng"
+     },
+     "study": "东京比巴黎大。",
+     "phon": "doong-jing bee bah-lee dah.",
+     "native": "Tokyo is bigger than Paris.",
+     "reading": "Dōngjīng bǐ Bālí dà."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-zh-05",
+   "situation": "Preference with a reason",
+   "model": {
+    "study": "我更喜欢{s}，因为更方便。",
+    "phon": "woh gung shee-hwahn {s}, een-way gung fahng-byen.",
+    "native": "I prefer {s} because it's more convenient.",
+    "reading": "wǒ gèng xǐhuan {s}, yīnwèi gèng fāngbiàn."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "坐地铁",
+      "phon": "dzwoh dee-tyeh",
+      "native": "taking the subway",
+      "reading": "zuò dìtiě"
+     },
+     "study": "我更喜欢坐地铁，因为更方便。",
+     "phon": "woh gung shee-hwahn dzwoh dee-tyeh, een-way gung fahng-byen.",
+     "native": "I prefer taking the subway because it's more convenient.",
+     "reading": "wǒ gèng xǐhuan zuò dìtiě, yīnwèi gèng fāngbiàn."
+    },
+    {
+     "slot": {
+      "study": "在网上买",
+      "phon": "dzeye wahng-shahng meye",
+      "native": "shopping online",
+      "reading": "zài wǎngshàng mǎi"
+     },
+     "study": "我更喜欢在网上买，因为更方便。",
+     "phon": "woh gung shee-hwahn dzeye wahng-shahng meye, een-way gung fahng-byen.",
+     "native": "I prefer shopping online because it's more convenient.",
+     "reading": "wǒ gèng xǐhuan zài wǎngshàng mǎi, yīnwèi gèng fāngbiàn."
+    },
+    {
+     "slot": {
+      "study": "住在市中心",
+      "phon": "joo dzeye shr joong-sheen",
+      "native": "living downtown",
+      "reading": "zhù zài shì zhōngxīn"
+     },
+     "study": "我更喜欢住在市中心，因为更方便。",
+     "phon": "woh gung shee-hwahn joo dzeye shr joong-sheen, een-way gung fahng-byen.",
+     "native": "I prefer living downtown because it's more convenient.",
+     "reading": "wǒ gèng xǐhuan zhù zài shì zhōngxīn, yīnwèi gèng fāngbiàn."
+    },
+    {
+     "slot": {
+      "study": "用手机付钱",
+      "phon": "yoong shoh-jee foo chyen",
+      "native": "paying with my phone",
+      "reading": "yòng shǒujī fù qián"
+     },
+     "study": "我更喜欢用手机付钱，因为更方便。",
+     "phon": "woh gung shee-hwahn yoong shoh-jee foo chyen, een-way gung fahng-byen.",
+     "native": "I prefer paying with my phone because it's more convenient.",
+     "reading": "wǒ gèng xǐhuan yòng shǒujī fù qián, yīnwèi gèng fāngbiàn."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-zh-06",
+   "situation": "Giving your opinion",
+   "model": {
+    "study": "我觉得{s}。",
+    "phon": "woh jyweh-duh {s}.",
+    "native": "I think {s}.",
+    "reading": "wǒ juéde {s}.",
+    "note": "我觉得 = I think, I feel (personal opinion). 太…了 = too / so."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "这个太贵了",
+      "phon": "juh-guh teye gway luh",
+      "native": "this is too expensive",
+      "reading": "zhège tài guì le"
+     },
+     "study": "我觉得这个太贵了。",
+     "phon": "woh jyweh-duh juh-guh teye gway luh.",
+     "native": "I think this is too expensive.",
+     "reading": "wǒ juéde zhège tài guì le."
+    },
+    {
+     "slot": {
+      "study": "这家餐厅很好",
+      "phon": "juh jyah tsahn-ting hun how",
+      "native": "this restaurant is very good",
+      "reading": "zhè jiā cāntīng hěn hǎo"
+     },
+     "study": "我觉得这家餐厅很好。",
+     "phon": "woh jyweh-duh juh jyah tsahn-ting hun how.",
+     "native": "I think this restaurant is very good.",
+     "reading": "wǒ juéde zhè jiā cāntīng hěn hǎo."
+    },
+    {
+     "slot": {
+      "study": "中文不难",
+      "phon": "joong-wun boo nahn",
+      "native": "Chinese isn't hard",
+      "reading": "Zhōngwén bù nán"
+     },
+     "study": "我觉得中文不难。",
+     "phon": "woh jyweh-duh joong-wun boo nahn.",
+     "native": "I think Chinese isn't hard.",
+     "reading": "wǒ juéde Zhōngwén bù nán."
+    },
+    {
+     "slot": {
+      "study": "他说得对",
+      "phon": "tah shwoh duh dway",
+      "native": "he's right",
+      "reading": "tā shuō de duì"
+     },
+     "study": "我觉得他说得对。",
+     "phon": "woh jyweh-duh tah shwoh duh dway.",
+     "native": "I think he's right.",
+     "reading": "wǒ juéde tā shuō de duì."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-zh-07",
+   "situation": "Before, but not anymore",
+   "model": {
+    "study": "以前我{s}",
+    "phon": "ee-chyen woh {s}",
+    "native": "I used to {s}",
+    "reading": "yǐqián wǒ {s}",
+    "note": "以前 (before) is enough to describe a past habit. The second half repeats the verb with 不…了: 了 marks the change of state — 'not anymore'. The verb must be repeated (现在不抽了, 现在不住在那里了); 现在不了 on its own is not possible."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "抽烟，现在不抽了。",
+      "phon": "choh-yen, shyen-dzeye boo choh luh.",
+      "native": "smoke, now I don't anymore.",
+      "reading": "chōuyān, xiànzài bù chōu le."
+     },
+     "study": "以前我抽烟，现在不抽了。",
+     "phon": "ee-chyen woh choh-yen, shyen-dzeye boo choh luh.",
+     "native": "I used to smoke, now I don't anymore.",
+     "reading": "yǐqián wǒ chōuyān, xiànzài bù chōu le."
+    },
+    {
+     "slot": {
+      "study": "经常加班，现在不加班了。",
+      "phon": "jing-chahng jyah-bahn, shyen-dzeye boo jyah-bahn luh.",
+      "native": "work overtime a lot, now I don't anymore.",
+      "reading": "jīngcháng jiābān, xiànzài bù jiābān le."
+     },
+     "study": "以前我经常加班，现在不加班了。",
+     "phon": "ee-chyen woh jing-chahng jyah-bahn, shyen-dzeye boo jyah-bahn luh.",
+     "native": "I used to work overtime a lot, now I don't anymore.",
+     "reading": "yǐqián wǒ jīngcháng jiābān, xiànzài bù jiābān le."
+    },
+    {
+     "slot": {
+      "study": "住在郊区，现在不住在那里了。",
+      "phon": "joo dzeye jyow-chyu, shyen-dzeye boo joo dzeye nah-lee luh.",
+      "native": "live in the suburbs, now I don't anymore.",
+      "reading": "zhù zài jiāoqū, xiànzài bú zhù zài nàlǐ le."
+     },
+     "study": "以前我住在郊区，现在不住在那里了。",
+     "phon": "ee-chyen woh joo dzeye jyow-chyu, shyen-dzeye boo joo dzeye nah-lee luh.",
+     "native": "I used to live in the suburbs, now I don't anymore.",
+     "reading": "yǐqián wǒ zhù zài jiāoqū, xiànzài bú zhù zài nàlǐ le."
+    },
+    {
+     "slot": {
+      "study": "每天喝咖啡，现在不喝了。",
+      "phon": "may tyen huh kah-fay, shyen-dzeye boo huh luh.",
+      "native": "drink coffee every day, now I don't anymore.",
+      "reading": "měi tiān hē kāfēi, xiànzài bù hē le."
+     },
+     "study": "以前我每天喝咖啡，现在不喝了。",
+     "phon": "ee-chyen woh may tyen huh kah-fay, shyen-dzeye boo huh luh.",
+     "native": "I used to drink coffee every day, now I don't anymore.",
+     "reading": "yǐqián wǒ měi tiān hē kāfēi, xiànzài bù hē le."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-zh-08",
+   "situation": "What has changed",
+   "model": {
+    "study": "现在我{s}了。",
+    "phon": "shyen-dzeye woh {s} luh.",
+    "native": "Now I {s}.",
+    "reading": "xiànzài wǒ {s} le.",
+    "note": "Final 了 = a new situation compared with before (change of state). With 不: 不喝咖啡了 = I don't drink coffee anymore."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "会说一点中文",
+      "phon": "hway shwoh ee-dyen joong-wun",
+      "native": "can speak a little Chinese",
+      "reading": "huì shuō yìdiǎn Zhōngwén"
+     },
+     "study": "现在我会说一点中文了。",
+     "phon": "shyen-dzeye woh hway shwoh ee-dyen joong-wun luh.",
+     "native": "Now I can speak a little Chinese.",
+     "reading": "xiànzài wǒ huì shuō yìdiǎn Zhōngwén le."
+    },
+    {
+     "slot": {
+      "study": "有车",
+      "phon": "yoh chuh",
+      "native": "have a car",
+      "reading": "yǒu chē"
+     },
+     "study": "现在我有车了。",
+     "phon": "shyen-dzeye woh yoh chuh luh.",
+     "native": "Now I have a car.",
+     "reading": "xiànzài wǒ yǒu chē le."
+    },
+    {
+     "slot": {
+      "study": "住在上海",
+      "phon": "joo dzeye shahng-heye",
+      "native": "live in Shanghai",
+      "reading": "zhù zài Shànghǎi"
+     },
+     "study": "现在我住在上海了。",
+     "phon": "shyen-dzeye woh joo dzeye shahng-heye luh.",
+     "native": "Now I live in Shanghai.",
+     "reading": "xiànzài wǒ zhù zài Shànghǎi le."
+    },
+    {
+     "slot": {
+      "study": "不喝咖啡",
+      "phon": "boo huh kah-fay",
+      "native": "don't drink coffee anymore",
+      "reading": "bù hē kāfēi"
+     },
+     "study": "现在我不喝咖啡了。",
+     "phon": "shyen-dzeye woh boo huh kah-fay luh.",
+     "native": "Now I don't drink coffee anymore.",
+     "reading": "xiànzài wǒ bù hē kāfēi le."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-zh-09",
+   "situation": "Choosing and explaining",
+   "model": {
+    "study": "我要这个，因为{s}。",
+    "phon": "woh yow juh-guh, een-way {s}.",
+    "native": "I'll take this one because {s}.",
+    "reading": "wǒ yào zhège, yīnwèi {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "更便宜",
+      "phon": "gung pyen-ee",
+      "native": "it's cheaper",
+      "reading": "gèng piányi"
+     },
+     "study": "我要这个，因为更便宜。",
+     "phon": "woh yow juh-guh, een-way gung pyen-ee.",
+     "native": "I'll take this one because it's cheaper.",
+     "reading": "wǒ yào zhège, yīnwèi gèng piányi."
+    },
+    {
+     "slot": {
+      "study": "颜色更好看",
+      "phon": "yen-suh gung how-kahn",
+      "native": "the color is nicer",
+      "reading": "yánsè gèng hǎokàn"
+     },
+     "study": "我要这个，因为颜色更好看。",
+     "phon": "woh yow juh-guh, een-way yen-suh gung how-kahn.",
+     "native": "I'll take this one because the color is nicer.",
+     "reading": "wǒ yào zhège, yīnwèi yánsè gèng hǎokàn."
+    },
+    {
+     "slot": {
+      "study": "质量更好",
+      "phon": "jr-lyahng gung how",
+      "native": "the quality is better",
+      "reading": "zhìliàng gèng hǎo"
+     },
+     "study": "我要这个，因为质量更好。",
+     "phon": "woh yow juh-guh, een-way jr-lyahng gung how.",
+     "native": "I'll take this one because the quality is better.",
+     "reading": "wǒ yào zhège, yīnwèi zhìliàng gèng hǎo."
+    },
+    {
+     "slot": {
+      "study": "更轻",
+      "phon": "gung ching",
+      "native": "it's lighter",
+      "reading": "gèng qīng"
+     },
+     "study": "我要这个，因为更轻。",
+     "phon": "woh yow juh-guh, een-way gung ching.",
+     "native": "I'll take this one because it's lighter.",
+     "reading": "wǒ yào zhège, yīnwèi gèng qīng."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-zh-10",
+   "situation": "Not as… as",
+   "model": {
+    "study": "这个没有那个{s}。",
+    "phon": "juh-guh may-yoh nah-guh {s}.",
+    "native": "This one isn't as {s} as that one.",
+    "reading": "zhège méiyǒu nàge {s}.",
+    "note": "A 没有 B + adjective = 'A is not as… as B': the usual way to say 'less… than'."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "好吃",
+      "phon": "how-chr",
+      "native": "tasty",
+      "reading": "hǎochī"
+     },
+     "study": "这个没有那个好吃。",
+     "phon": "juh-guh may-yoh nah-guh how-chr.",
+     "native": "This one isn't as tasty as that one.",
+     "reading": "zhège méiyǒu nàge hǎochī."
+    },
+    {
+     "slot": {
+      "study": "贵",
+      "phon": "gway",
+      "native": "expensive",
+      "reading": "guì"
+     },
+     "study": "这个没有那个贵。",
+     "phon": "juh-guh may-yoh nah-guh gway.",
+     "native": "This one isn't as expensive as that one.",
+     "reading": "zhège méiyǒu nàge guì."
+    },
+    {
+     "slot": {
+      "study": "好看",
+      "phon": "how-kahn",
+      "native": "nice-looking",
+      "reading": "hǎokàn"
+     },
+     "study": "这个没有那个好看。",
+     "phon": "juh-guh may-yoh nah-guh how-kahn.",
+     "native": "This one isn't as nice-looking as that one.",
+     "reading": "zhège méiyǒu nàge hǎokàn."
+    },
+    {
+     "slot": {
+      "study": "方便",
+      "phon": "fahng-byen",
+      "native": "convenient",
+      "reading": "fāngbiàn"
+     },
+     "study": "这个没有那个方便。",
+     "phon": "juh-guh may-yoh nah-guh fahng-byen.",
+     "native": "This one isn't as convenient as that one.",
+     "reading": "zhège méiyǒu nàge fāngbiàn."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-zh-11",
+   "situation": "Explaining a delay",
+   "model": {
+    "study": "对不起我晚了，因为{s}。",
+    "phon": "dway-boo-chee woh wahn luh, een-way {s}.",
+    "native": "Sorry I'm late, {s}.",
+    "reading": "duìbuqǐ wǒ wǎn le, yīnwèi {s}.",
+    "note": "我晚了 / 地铁坏了 / 我起晚了: 了 signals the new situation (I'm late, the subway broke down), not a verb tense."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "堵车",
+      "phon": "doo-chuh",
+      "native": "there was a traffic jam",
+      "reading": "dǔchē"
+     },
+     "study": "对不起我晚了，因为堵车。",
+     "phon": "dway-boo-chee woh wahn luh, een-way doo-chuh.",
+     "native": "Sorry I'm late, there was a traffic jam.",
+     "reading": "duìbuqǐ wǒ wǎn le, yīnwèi dǔchē."
+    },
+    {
+     "slot": {
+      "study": "地铁坏了",
+      "phon": "dee-tyeh hwye luh",
+      "native": "the subway broke down",
+      "reading": "dìtiě huài le"
+     },
+     "study": "对不起我晚了，因为地铁坏了。",
+     "phon": "dway-boo-chee woh wahn luh, een-way dee-tyeh hwye luh.",
+     "native": "Sorry I'm late, the subway broke down.",
+     "reading": "duìbuqǐ wǒ wǎn le, yīnwèi dìtiě huài le."
+    },
+    {
+     "slot": {
+      "study": "我起晚了",
+      "phon": "woh chee wahn luh",
+      "native": "I got up late",
+      "reading": "wǒ qǐ wǎn le"
+     },
+     "study": "对不起我晚了，因为我起晚了。",
+     "phon": "dway-boo-chee woh wahn luh, een-way woh chee wahn luh.",
+     "native": "Sorry I'm late, I got up late.",
+     "reading": "duìbuqǐ wǒ wǎn le, yīnwèi wǒ qǐ wǎn le."
+    },
+    {
+     "slot": {
+      "study": "开会开得太久",
+      "phon": "keye-hway keye duh teye jyoh",
+      "native": "the meeting ran too long",
+      "reading": "kāihuì kāi de tài jiǔ"
+     },
+     "study": "对不起我晚了，因为开会开得太久。",
+     "phon": "dway-boo-chee woh wahn luh, een-way keye-hway keye duh teye jyoh.",
+     "native": "Sorry I'm late, the meeting ran too long.",
+     "reading": "duìbuqǐ wǒ wǎn le, yīnwèi kāihuì kāi de tài jiǔ."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L7-en-zh-d1",
+   "situation": "Choosing a phone",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "您好，我想买一个手机。",
+     "reading": "nín hǎo, wǒ xiǎng mǎi yí ge shǒujī.",
+     "phon": "neen how, woh shyahng meye ee guh shoh-jee.",
+     "native": "Hello, I'd like to buy a phone."
+    },
+    {
+     "speaker": "B",
+     "study": "这两个都不错。您觉得哪个好？",
+     "reading": "zhè liǎng ge dōu búcuò. nín juéde nǎge hǎo?",
+     "phon": "juh lyahng guh doh boo-tswoh. neen jyweh-duh nah-guh how?",
+     "native": "These two are both good. Which one do you like?"
+    },
+    {
+     "speaker": "A",
+     "study": "这个比那个大，但是更贵。",
+     "reading": "zhège bǐ nàge dà, dànshì gèng guì.",
+     "phon": "juh-guh bee nah-guh dah, dahn-shr gung gway.",
+     "native": "This one is bigger than that one, but more expensive."
+    },
+    {
+     "speaker": "B",
+     "study": "是的，因为这个质量更好。",
+     "reading": "shì de, yīnwèi zhège zhìliàng gèng hǎo.",
+     "phon": "shr duh, een-way juh-guh jr-lyahng gung how.",
+     "native": "Yes, because the quality is better."
+    },
+    {
+     "speaker": "A",
+     "study": "那个电池怎么样？",
+     "reading": "nàge diànchí zěnmeyàng?",
+     "phon": "nah-guh dyen-chr dzun-muh-yahng?",
+     "native": "How is that one's battery?"
+    },
+    {
+     "speaker": "B",
+     "study": "那个没有这个好，但是更轻。",
+     "reading": "nàge méiyǒu zhège hǎo, dànshì gèng qīng.",
+     "phon": "nah-guh may-yoh juh-guh how, dahn-shr gung ching.",
+     "native": "Not as good as this one, but it's lighter."
+    },
+    {
+     "speaker": "A",
+     "study": "我觉得这个太贵了。我要那个。",
+     "reading": "wǒ juéde zhège tài guì le. wǒ yào nàge.",
+     "phon": "woh jyweh-duh juh-guh teye gway luh. woh yow nah-guh.",
+     "native": "I think this one is too expensive. I'll take that one."
+    },
+    {
+     "speaker": "B",
+     "study": "好的，我给您拿一个新的。",
+     "reading": "hǎo de, wǒ gěi nín ná yí ge xīn de.",
+     "phon": "how duh, woh gay neen nah ee guh sheen duh.",
+     "native": "Alright, I'll get you a new one."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-zh-03",
+    "L2-en-zh-02",
+    "L2-en-zh-08",
+    "L3-en-zh-08",
+    "L5-en-zh-05",
+    "L6-en-zh-06",
+    "L7-en-zh-06"
+   ],
+   "roles": {
+    "A": "Customer",
+    "B": "Shop assistant"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L7-en-zh-d2",
+   "situation": "Tastes at the table",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "你更喜欢中国菜还是法国菜？",
+     "reading": "nǐ gèng xǐhuan Zhōngguó cài háishi Fǎguó cài?",
+     "phon": "nee gung shee-hwahn joong-gwoh tseye heye-shr fah-gwoh tseye?",
+     "native": "Do you prefer Chinese food or French food?"
+    },
+    {
+     "speaker": "B",
+     "study": "我更喜欢中国菜，因为菜更多，大家一起吃。",
+     "reading": "wǒ gèng xǐhuan Zhōngguó cài, yīnwèi cài gèng duō, dàjiā yìqǐ chī.",
+     "phon": "woh gung shee-hwahn joong-gwoh tseye, een-way tseye gung dwoh, dah-jyah ee-chee chr.",
+     "native": "I prefer Chinese food, because there are more dishes and everyone shares."
+    },
+    {
+     "speaker": "A",
+     "study": "以前我不吃辣，现在很喜欢了。",
+     "reading": "yǐqián wǒ bù chī là, xiànzài hěn xǐhuan le.",
+     "phon": "ee-chyen woh boo chr lah, shyen-dzeye hun shee-hwahn luh.",
+     "native": "I didn't use to eat spicy food, now I love it."
+    },
+    {
+     "speaker": "B",
+     "study": "真的吗？那我们点麻婆豆腐吧。",
+     "reading": "zhēn de ma? nà wǒmen diǎn mápó dòufu ba.",
+     "phon": "jun duh mah? nah woh-mun dyen mah-poh doh-foo bah.",
+     "native": "Really? Then let's order mapo tofu."
+    },
+    {
+     "speaker": "A",
+     "study": "好啊。这家比上次那家便宜。",
+     "reading": "hǎo a. zhè jiā bǐ shàng cì nà jiā piányi.",
+     "phon": "how ah. juh jyah bee shahng tsuh nah jyah pyen-ee.",
+     "native": "Sure. This place is cheaper than the one last time."
+    },
+    {
+     "speaker": "B",
+     "study": "对，而且离公司更近。",
+     "reading": "duì, érqiě lí gōngsī gèng jìn.",
+     "phon": "dway, ar-chyeh lee goong-suh gung jeen.",
+     "native": "Yes, and it's closer to the office."
+    },
+    {
+     "speaker": "A",
+     "study": "我觉得这里的服务也很好。",
+     "reading": "wǒ juéde zhèlǐ de fúwù yě hěn hǎo.",
+     "phon": "woh jyweh-duh juh-lee duh foo-oo yeh hun how.",
+     "native": "I think the service here is very good too."
+    },
+    {
+     "speaker": "B",
+     "study": "所以我经常来。",
+     "reading": "suǒyǐ wǒ jīngcháng lái.",
+     "phon": "swoh-ee woh jing-chahng leye.",
+     "native": "That's why I come here often."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L2-en-zh-05",
+    "L2-en-zh-07",
+    "L5-en-zh-05",
+    "L6-en-zh-07",
+    "L7-en-zh-06",
+    "L7-en-zh-07"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A friend"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L7-en-zh-d3",
+   "situation": "Why move?",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "你为什么搬家？",
+     "reading": "nǐ wèishénme bānjiā?",
+     "phon": "nee way-shun-muh bahn-jyah?",
+     "native": "Why are you moving?"
+    },
+    {
+     "speaker": "B",
+     "study": "因为以前的公寓太小了，所以我们找了一个大一点的。",
+     "reading": "yīnwèi yǐqián de gōngyù tài xiǎo le, suǒyǐ wǒmen zhǎo le yí ge dà yìdiǎn de.",
+     "phon": "een-way ee-chyen duh goong-yu teye shyow luh, swoh-ee woh-mun jow luh ee guh dah ee-dyen duh.",
+     "native": "Because the old apartment was too small, so we found a slightly bigger one."
+    },
+    {
+     "speaker": "A",
+     "study": "新家在哪里？",
+     "reading": "xīn jiā zài nǎlǐ?",
+     "phon": "sheen jyah dzeye nah-lee?",
+     "native": "Where's the new place?"
+    },
+    {
+     "speaker": "B",
+     "study": "在郊区。比市中心安静，也更便宜。",
+     "reading": "zài jiāoqū. bǐ shì zhōngxīn ānjìng, yě gèng piányi.",
+     "phon": "dzeye jyow-chyu. bee shr joong-sheen ahn-jing, yeh gung pyen-ee.",
+     "native": "In the suburbs. It's quieter than downtown, and cheaper too."
+    },
+    {
+     "speaker": "A",
+     "study": "但是上班不方便吧？",
+     "reading": "dànshì shàngbān bù fāngbiàn ba?",
+     "phon": "dahn-shr shahng-bahn boo fahng-byen bah?",
+     "native": "But getting to work isn't convenient, is it?"
+    },
+    {
+     "speaker": "B",
+     "study": "以前我走路上班，现在坐地铁，四十分钟。",
+     "reading": "yǐqián wǒ zǒulù shàngbān, xiànzài zuò dìtiě, sìshí fēnzhōng.",
+     "phon": "ee-chyen woh dzoh-loo shahng-bahn, shyen-dzeye dzwoh dee-tyeh, suh-shr fun-joong.",
+     "native": "I used to walk to work, now I take the subway, forty minutes."
+    },
+    {
+     "speaker": "A",
+     "study": "我觉得有点远。",
+     "reading": "wǒ juéde yǒudiǎn yuǎn.",
+     "phon": "woh jyweh-duh yoh-dyen ywen.",
+     "native": "I think that's a bit far."
+    },
+    {
+     "speaker": "B",
+     "study": "是有点远，不过我们有一个大阳台！",
+     "reading": "shì yǒudiǎn yuǎn, búguò wǒmen yǒu yí ge dà yángtái!",
+     "phon": "shr yoh-dyen ywen, boo-gwoh woh-mun yoh ee guh dah yahng-teye!",
+     "native": "It is a bit far, but we have a big balcony!"
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-zh-05",
+    "L2-en-zh-05",
+    "L2-en-zh-08",
+    "L3-en-zh-02",
+    "L3-en-zh-03",
+    "L7-en-zh-06",
+    "L7-en-zh-07"
+   ],
+   "roles": {
+    "A": "A friend",
+    "B": "You"
+   },
+   "learnerRole": "B"
+  }
+ ],
+ "readiness": "You can give reasons with 因为… 所以…, compare with 比 (and 没有 for 'not as… as'), argue a preference (更喜欢…，因为…), give an opinion (我觉得) and contrast before and now (以前… 现在…了), recognizing the change-of-state 了."
+}

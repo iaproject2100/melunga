@@ -1,0 +1,1095 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "ja",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en japonais",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle",
+  "reading": "lecture en hiragana"
+ },
+ "phoneticConvention": "Syllable-by-syllable romaji for English readers, in the deck's style (so-o-de-su, ko-wa-i-de-su). Read each syllable as in Spanish or Italian: a as in 'father', i as in 'machine', u as in 'put', e as in 'bet', o as in 'go'. A long vowel is written twice (ko-o-hi-i, to-o-kyo-o); ん is its own beat written n (su-mi-ma-se-n, ko-n-ni-chi-wa); a doubled consonant closes the syllable before it (kip-pu, chot-to, kek-ko-o). The u of de-su / ma-su is almost silent ('dess', 'mass'); r is a light tap between r and l; g is always hard. The reading field gives the hiragana. Polite register (です / ます) throughout.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended; linguistic review required (naturalness of phrasing, kanji readings).",
+ "coverageClaim": null,
+ "level": 3,
+ "title": "Exchanging",
+ "goal": "Ask questions, answer and keep a short exchange going.",
+ "reviewPreviousLevels": [
+  1,
+  2
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L3-en-ja-01",
+   "situation": "Asking for a favour",
+   "model": {
+    "study": "{s}もらえますか。",
+    "phon": "{s} mo-ra-e-ma-su ka",
+    "native": "Could you {s}?",
+    "reading": "{s}もらえますか。",
+    "note": "The verb takes the て-form before もらえますか."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "書いて",
+      "phon": "ka-i-te",
+      "native": "write it down",
+      "reading": "かいて"
+     },
+     "study": "書いてもらえますか。",
+     "phon": "ka-i-te mo-ra-e-ma-su ka",
+     "native": "Could you write it down?",
+     "reading": "かいてもらえますか。"
+    },
+    {
+     "slot": {
+      "study": "手伝って",
+      "phon": "te-tsu-dat-te",
+      "native": "help me",
+      "reading": "てつだって"
+     },
+     "study": "手伝ってもらえますか。",
+     "phon": "te-tsu-dat-te mo-ra-e-ma-su ka",
+     "native": "Could you help me?",
+     "reading": "てつだってもらえますか。"
+    },
+    {
+     "slot": {
+      "study": "待って",
+      "phon": "mat-te",
+      "native": "wait",
+      "reading": "まって"
+     },
+     "study": "待ってもらえますか。",
+     "phon": "mat-te mo-ra-e-ma-su ka",
+     "native": "Could you wait?",
+     "reading": "まってもらえますか。"
+    },
+    {
+     "slot": {
+      "study": "見せて",
+      "phon": "mi-se-te",
+      "native": "show me",
+      "reading": "みせて"
+     },
+     "study": "見せてもらえますか。",
+     "phon": "mi-se-te mo-ra-e-ma-su ka",
+     "native": "Could you show me?",
+     "reading": "みせてもらえますか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-ja-02",
+   "situation": "Open question: what…?",
+   "model": {
+    "study": "何を{s}か。",
+    "phon": "na-ni o {s} ka",
+    "native": "What {s}?",
+    "reading": "なにを{s}か。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "食べます",
+      "phon": "ta-be-ma-su",
+      "native": "do you eat",
+      "reading": "たべます"
+     },
+     "study": "何を食べますか。",
+     "phon": "na-ni o ta-be-ma-su ka",
+     "native": "What do you eat?",
+     "reading": "なにをたべますか。"
+    },
+    {
+     "slot": {
+      "study": "飲みます",
+      "phon": "no-mi-ma-su",
+      "native": "do you drink",
+      "reading": "のみます"
+     },
+     "study": "何を飲みますか。",
+     "phon": "na-ni o no-mi-ma-su ka",
+     "native": "What do you drink?",
+     "reading": "なにをのみますか。"
+    },
+    {
+     "slot": {
+      "study": "しています",
+      "phon": "shi-te i-ma-su",
+      "native": "are you doing",
+      "reading": "しています"
+     },
+     "study": "何をしていますか。",
+     "phon": "na-ni o shi-te i-ma-su ka",
+     "native": "What are you doing?",
+     "reading": "なにをしていますか。"
+    },
+    {
+     "slot": {
+      "study": "探しています",
+      "phon": "sa-ga-shi-te i-ma-su",
+      "native": "are you looking for",
+      "reading": "さがしています"
+     },
+     "study": "何を探していますか。",
+     "phon": "na-ni o sa-ga-shi-te i-ma-su ka",
+     "native": "What are you looking for?",
+     "reading": "なにをさがしていますか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-ja-03",
+   "situation": "Bouncing the question back with the name",
+   "model": {
+    "study": "{s}さんは？",
+    "phon": "{s}-sa-n wa",
+    "native": "And you, {s}?",
+    "reading": "{s}さんは？",
+    "note": "You always bounce the question back with the name + さん, never あなたは？ (too direct)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "ポール",
+      "phon": "po-o-ru",
+      "native": "Paul",
+      "reading": "ぽーる"
+     },
+     "study": "ポールさんは？",
+     "phon": "po-o-ru-sa-n wa",
+     "native": "And you, Paul?",
+     "reading": "ぽーるさんは？"
+    },
+    {
+     "slot": {
+      "study": "マリー",
+      "phon": "ma-ri-i",
+      "native": "Marie",
+      "reading": "まりー"
+     },
+     "study": "マリーさんは？",
+     "phon": "ma-ri-i-sa-n wa",
+     "native": "And you, Marie?",
+     "reading": "まりーさんは？"
+    },
+    {
+     "slot": {
+      "study": "田中",
+      "phon": "ta-na-ka",
+      "native": "Mr Tanaka",
+      "reading": "たなか"
+     },
+     "study": "田中さんは？",
+     "phon": "ta-na-ka-sa-n wa",
+     "native": "And you, Mr Tanaka?",
+     "reading": "たなかさんは？"
+    },
+    {
+     "slot": {
+      "study": "鈴木",
+      "phon": "su-zu-ki",
+      "native": "Ms Suzuki",
+      "reading": "すずき"
+     },
+     "study": "鈴木さんは？",
+     "phon": "su-zu-ki-sa-n wa",
+     "native": "And you, Ms Suzuki?",
+     "reading": "すずきさんは？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-ja-04",
+   "situation": "Open question: why…?",
+   "model": {
+    "study": "どうして{s}か。",
+    "phon": "do-o-shi-te {s} ka",
+    "native": "Why {s}?",
+    "reading": "どうして{s}か。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "日本に来ました",
+      "phon": "ni-ho-n ni ki-ma-shi-ta",
+      "native": "did you come to Japan",
+      "reading": "にほんにきました"
+     },
+     "study": "どうして日本に来ましたか。",
+     "phon": "do-o-shi-te ni-ho-n ni ki-ma-shi-ta ka",
+     "native": "Why did you come to Japan?",
+     "reading": "どうしてにほんにきましたか。"
+    },
+    {
+     "slot": {
+      "study": "遅れました",
+      "phon": "o-ku-re-ma-shi-ta",
+      "native": "were you late",
+      "reading": "おくれました"
+     },
+     "study": "どうして遅れましたか。",
+     "phon": "do-o-shi-te o-ku-re-ma-shi-ta ka",
+     "native": "Why were you late?",
+     "reading": "どうしておくれましたか。"
+    },
+    {
+     "slot": {
+      "study": "日本語を勉強しています",
+      "phon": "ni-ho-n-go o be-n-kyo-o shi-te i-ma-su",
+      "native": "are you studying Japanese",
+      "reading": "にほんごをべんきょうしています"
+     },
+     "study": "どうして日本語を勉強していますか。",
+     "phon": "do-o-shi-te ni-ho-n-go o be-n-kyo-o shi-te i-ma-su ka",
+     "native": "Why are you studying Japanese?",
+     "reading": "どうしてにほんごをべんきょうしていますか。"
+    },
+    {
+     "slot": {
+      "study": "ここにいます",
+      "phon": "ko-ko ni i-ma-su",
+      "native": "are you here",
+      "reading": "ここにいます"
+     },
+     "study": "どうしてここにいますか。",
+     "phon": "do-o-shi-te ko-ko ni i-ma-su ka",
+     "native": "Why are you here?",
+     "reading": "どうしてここにいますか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-ja-05",
+   "situation": "Asking for a simple opinion",
+   "model": {
+    "study": "{s}はどうですか。",
+    "phon": "{s} wa do-o de-su ka",
+    "native": "How do you like {s}?",
+    "reading": "{s}はどうですか。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "日本",
+      "phon": "ni-ho-n",
+      "native": "Japan",
+      "reading": "にほん"
+     },
+     "study": "日本はどうですか。",
+     "phon": "ni-ho-n wa do-o de-su ka",
+     "native": "How do you like Japan?",
+     "reading": "にほんはどうですか。"
+    },
+    {
+     "slot": {
+      "study": "仕事",
+      "phon": "shi-go-to",
+      "native": "the job",
+      "reading": "しごと"
+     },
+     "study": "仕事はどうですか。",
+     "phon": "shi-go-to wa do-o de-su ka",
+     "native": "How do you like the job?",
+     "reading": "しごとはどうですか。"
+    },
+    {
+     "slot": {
+      "study": "この料理",
+      "phon": "ko-no ryo-o-ri",
+      "native": "this dish",
+      "reading": "このりょうり"
+     },
+     "study": "この料理はどうですか。",
+     "phon": "ko-no ryo-o-ri wa do-o de-su ka",
+     "native": "How do you like this dish?",
+     "reading": "このりょうりはどうですか。"
+    },
+    {
+     "slot": {
+      "study": "新しい家",
+      "phon": "a-ta-ra-shi-i i-e",
+      "native": "the new house",
+      "reading": "あたらしいいえ"
+     },
+     "study": "新しい家はどうですか。",
+     "phon": "a-ta-ra-shi-i i-e wa do-o de-su ka",
+     "native": "How do you like the new house?",
+     "reading": "あたらしいいえはどうですか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-ja-06",
+   "situation": "Offering help",
+   "model": {
+    "study": "{s}ましょうか。",
+    "phon": "{s}-ma-sho-o ka",
+    "native": "Shall I {s}?",
+    "reading": "{s}ましょうか。",
+    "note": "Verb stem + ましょうか: a polite offer to do something for the other person."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "手伝い",
+      "phon": "te-tsu-da-i",
+      "native": "help you",
+      "reading": "てつだい"
+     },
+     "study": "手伝いましょうか。",
+     "phon": "te-tsu-da-i-ma-sho-o ka",
+     "native": "Shall I help you?",
+     "reading": "てつだいましょうか。"
+    },
+    {
+     "slot": {
+      "study": "窓を開け",
+      "phon": "ma-do o a-ke",
+      "native": "open the window",
+      "reading": "まどをあけ"
+     },
+     "study": "窓を開けましょうか。",
+     "phon": "ma-do o a-ke-ma-sho-o ka",
+     "native": "Shall I open the window?",
+     "reading": "まどをあけましょうか。"
+    },
+    {
+     "slot": {
+      "study": "写真を撮り",
+      "phon": "sha-shi-n o to-ri",
+      "native": "take a photo",
+      "reading": "しゃしんをとり"
+     },
+     "study": "写真を撮りましょうか。",
+     "phon": "sha-shi-n o to-ri-ma-sho-o ka",
+     "native": "Shall I take a photo?",
+     "reading": "しゃしんをとりましょうか。"
+    },
+    {
+     "slot": {
+      "study": "一緒に行き",
+      "phon": "is-sho ni i-ki",
+      "native": "come with you",
+      "reading": "いっしょにいき"
+     },
+     "study": "一緒に行きましょうか。",
+     "phon": "is-sho ni i-ki-ma-sho-o ka",
+     "native": "Shall I come with you?",
+     "reading": "いっしょにいきましょうか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-ja-07",
+   "situation": "Accepting or declining politely",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "reading": "{s}",
+    "note": "Whole set phrases. ちょっと… left hanging is the most common polite refusal: you don't say 'no' outright."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "はい、お願いします。",
+      "phon": "ha-i, o-ne-ga-i shi-ma-su",
+      "native": "Yes, please.",
+      "reading": "はい、おねがいします。"
+     },
+     "study": "はい、お願いします。",
+     "phon": "ha-i, o-ne-ga-i shi-ma-su",
+     "native": "Yes, please.",
+     "reading": "はい、おねがいします。"
+    },
+    {
+     "slot": {
+      "study": "はい、ぜひ。",
+      "phon": "ha-i, ze-hi",
+      "native": "Yes, I'd love to.",
+      "reading": "はい、ぜひ。"
+     },
+     "study": "はい、ぜひ。",
+     "phon": "ha-i, ze-hi",
+     "native": "Yes, I'd love to.",
+     "reading": "はい、ぜひ。"
+    },
+    {
+     "slot": {
+      "study": "いいえ、結構です。",
+      "phon": "i-i-e, kek-ko-o de-su",
+      "native": "No, thank you.",
+      "reading": "いいえ、けっこうです。"
+     },
+     "study": "いいえ、結構です。",
+     "phon": "i-i-e, kek-ko-o de-su",
+     "native": "No, thank you.",
+     "reading": "いいえ、けっこうです。"
+    },
+    {
+     "slot": {
+      "study": "すみません、ちょっと…。",
+      "phon": "su-mi-ma-se-n, chot-to…",
+      "native": "Sorry, that's a bit difficult…",
+      "reading": "すみません、ちょっと…。"
+     },
+     "study": "すみません、ちょっと…。",
+     "phon": "su-mi-ma-se-n, chot-to…",
+     "native": "Sorry, that's a bit difficult…",
+     "reading": "すみません、ちょっと…。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-ja-08",
+   "situation": "Yes/no question",
+   "model": {
+    "study": "{s}か。",
+    "phon": "{s} ka",
+    "native": "{s}?",
+    "reading": "{s}か。",
+    "note": "A yes/no question is the polite sentence + か, with no change in word order."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "日本人です",
+      "phon": "ni-ho-n-ji-n de-su",
+      "native": "Are you Japanese",
+      "reading": "にほんじんです"
+     },
+     "study": "日本人ですか。",
+     "phon": "ni-ho-n-ji-n de-su ka",
+     "native": "Are you Japanese?",
+     "reading": "にほんじんですか。"
+    },
+    {
+     "slot": {
+      "study": "学生です",
+      "phon": "ga-ku-se-i de-su",
+      "native": "Are you a student",
+      "reading": "がくせいです"
+     },
+     "study": "学生ですか。",
+     "phon": "ga-ku-se-i de-su ka",
+     "native": "Are you a student?",
+     "reading": "がくせいですか。"
+    },
+    {
+     "slot": {
+      "study": "時間があります",
+      "phon": "ji-ka-n ga a-ri-ma-su",
+      "native": "Do you have time",
+      "reading": "じかんがあります"
+     },
+     "study": "時間がありますか。",
+     "phon": "ji-ka-n ga a-ri-ma-su ka",
+     "native": "Do you have time?",
+     "reading": "じかんがありますか。"
+    },
+    {
+     "slot": {
+      "study": "分かります",
+      "phon": "wa-ka-ri-ma-su",
+      "native": "Do you understand",
+      "reading": "わかります"
+     },
+     "study": "分かりますか。",
+     "phon": "wa-ka-ri-ma-su ka",
+     "native": "Do you understand?",
+     "reading": "わかりますか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-ja-09",
+   "situation": "Saying you don't know",
+   "model": {
+    "study": "{s}か分かりません。",
+    "phon": "{s} ka wa-ka-ri-ma-se-n",
+    "native": "I don't know {s}.",
+    "reading": "{s}かわかりません。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "どこ",
+      "phon": "do-ko",
+      "native": "where it is",
+      "reading": "どこ"
+     },
+     "study": "どこか分かりません。",
+     "phon": "do-ko ka wa-ka-ri-ma-se-n",
+     "native": "I don't know where it is.",
+     "reading": "どこかわかりません。"
+    },
+    {
+     "slot": {
+      "study": "いつ",
+      "phon": "i-tsu",
+      "native": "when",
+      "reading": "いつ"
+     },
+     "study": "いつか分かりません。",
+     "phon": "i-tsu ka wa-ka-ri-ma-se-n",
+     "native": "I don't know when.",
+     "reading": "いつかわかりません。"
+    },
+    {
+     "slot": {
+      "study": "誰",
+      "phon": "da-re",
+      "native": "who it is",
+      "reading": "だれ"
+     },
+     "study": "誰か分かりません。",
+     "phon": "da-re ka wa-ka-ri-ma-se-n",
+     "native": "I don't know who it is.",
+     "reading": "だれかわかりません。"
+    },
+    {
+     "slot": {
+      "study": "いくら",
+      "phon": "i-ku-ra",
+      "native": "how much it costs",
+      "reading": "いくら"
+     },
+     "study": "いくらか分かりません。",
+     "phon": "i-ku-ra ka wa-ka-ri-ma-se-n",
+     "native": "I don't know how much it costs.",
+     "reading": "いくらかわかりません。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-ja-10",
+   "situation": "Getting by: how do you say…?",
+   "model": {
+    "study": "これは{s}で何と言いますか。",
+    "phon": "ko-re wa {s} de na-n to i-i-ma-su ka",
+    "native": "How do you say this in {s}?",
+    "reading": "これは{s}でなんといいますか。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "日本語",
+      "phon": "ni-ho-n-go",
+      "native": "Japanese",
+      "reading": "にほんご"
+     },
+     "study": "これは日本語で何と言いますか。",
+     "phon": "ko-re wa ni-ho-n-go de na-n to i-i-ma-su ka",
+     "native": "How do you say this in Japanese?",
+     "reading": "これはにほんごでなんといいますか。"
+    },
+    {
+     "slot": {
+      "study": "英語",
+      "phon": "e-i-go",
+      "native": "English",
+      "reading": "えいご"
+     },
+     "study": "これは英語で何と言いますか。",
+     "phon": "ko-re wa e-i-go de na-n to i-i-ma-su ka",
+     "native": "How do you say this in English?",
+     "reading": "これはえいごでなんといいますか。"
+    },
+    {
+     "slot": {
+      "study": "フランス語",
+      "phon": "fu-ra-n-su-go",
+      "native": "French",
+      "reading": "ふらんすご"
+     },
+     "study": "これはフランス語で何と言いますか。",
+     "phon": "ko-re wa fu-ra-n-su-go de na-n to i-i-ma-su ka",
+     "native": "How do you say this in French?",
+     "reading": "これはふらんすごでなんといいますか。"
+    },
+    {
+     "slot": {
+      "study": "韓国語",
+      "phon": "ka-n-ko-ku-go",
+      "native": "Korean",
+      "reading": "かんこくご"
+     },
+     "study": "これは韓国語で何と言いますか。",
+     "phon": "ko-re wa ka-n-ko-ku-go de na-n to i-i-ma-su ka",
+     "native": "How do you say this in Korean?",
+     "reading": "これはかんこくごでなんといいますか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-ja-11",
+   "situation": "At work: saying your job",
+   "model": {
+    "study": "仕事は{s}です。",
+    "phon": "shi-go-to wa {s} de-su",
+    "native": "I work as {s}.",
+    "reading": "しごとは{s}です。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "エンジニア",
+      "phon": "e-n-ji-ni-a",
+      "native": "an engineer",
+      "reading": "えんじにあ"
+     },
+     "study": "仕事はエンジニアです。",
+     "phon": "shi-go-to wa e-n-ji-ni-a de-su",
+     "native": "I work as an engineer.",
+     "reading": "しごとはえんじにあです。"
+    },
+    {
+     "slot": {
+      "study": "先生",
+      "phon": "se-n-se-i",
+      "native": "a teacher",
+      "reading": "せんせい"
+     },
+     "study": "仕事は先生です。",
+     "phon": "shi-go-to wa se-n-se-i de-su",
+     "native": "I work as a teacher.",
+     "reading": "しごとはせんせいです。"
+    },
+    {
+     "slot": {
+      "study": "看護師",
+      "phon": "ka-n-go-shi",
+      "native": "a nurse",
+      "reading": "かんごし"
+     },
+     "study": "仕事は看護師です。",
+     "phon": "shi-go-to wa ka-n-go-shi de-su",
+     "native": "I work as a nurse.",
+     "reading": "しごとはかんごしです。"
+    },
+    {
+     "slot": {
+      "study": "会社員",
+      "phon": "ka-i-sha-i-n",
+      "native": "an office worker",
+      "reading": "かいしゃいん"
+     },
+     "study": "仕事は会社員です。",
+     "phon": "shi-go-to wa ka-i-sha-i-n de-su",
+     "native": "I work as an office worker.",
+     "reading": "しごとはかいしゃいんです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-en-ja-12",
+   "situation": "At the table: offering something",
+   "model": {
+    "study": "{s}はいかがですか。",
+    "phon": "{s} wa i-ka-ga de-su ka",
+    "native": "Would you like {s}?",
+    "reading": "{s}はいかがですか。",
+    "note": "いかがですか is the polite form of どうですか, used for offering."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "お茶",
+      "phon": "o-cha",
+      "native": "some tea",
+      "reading": "おちゃ"
+     },
+     "study": "お茶はいかがですか。",
+     "phon": "o-cha wa i-ka-ga de-su ka",
+     "native": "Would you like some tea?",
+     "reading": "おちゃはいかがですか。"
+    },
+    {
+     "slot": {
+      "study": "もう一杯",
+      "phon": "mo-o ip-pa-i",
+      "native": "another cup",
+      "reading": "もういっぱい"
+     },
+     "study": "もう一杯はいかがですか。",
+     "phon": "mo-o ip-pa-i wa i-ka-ga de-su ka",
+     "native": "Would you like another cup?",
+     "reading": "もういっぱいはいかがですか。"
+    },
+    {
+     "slot": {
+      "study": "デザート",
+      "phon": "de-za-a-to",
+      "native": "a dessert",
+      "reading": "でざーと"
+     },
+     "study": "デザートはいかがですか。",
+     "phon": "de-za-a-to wa i-ka-ga de-su ka",
+     "native": "Would you like a dessert?",
+     "reading": "でざーとはいかがですか。"
+    },
+    {
+     "slot": {
+      "study": "お水",
+      "phon": "o-mi-zu",
+      "native": "some water",
+      "reading": "おみず"
+     },
+     "study": "お水はいかがですか。",
+     "phon": "o-mi-zu wa i-ka-ga de-su ka",
+     "native": "Would you like some water?",
+     "reading": "おみずはいかがですか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L3-en-ja-d1",
+   "situation": "First contact at work",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "はじめまして、マリーと言います。フランスから来ました。",
+     "reading": "はじめまして、まりーといいます。ふらんすからきました。",
+     "phon": "ha-ji-me-ma-shi-te, ma-ri-i to i-i-ma-su. fu-ra-n-su ka-ra ki-ma-shi-ta",
+     "native": "Nice to meet you, my name is Marie. I come from France."
+    },
+    {
+     "speaker": "B",
+     "study": "はじめまして、田中です。マリーさんの仕事は何ですか。",
+     "reading": "はじめまして、たなかです。まりーさんのしごとはなんですか。",
+     "phon": "ha-ji-me-ma-shi-te, ta-na-ka de-su. ma-ri-i-sa-n no shi-go-to wa na-n de-su ka",
+     "native": "Nice to meet you, I'm Tanaka. What do you do, Marie?"
+    },
+    {
+     "speaker": "A",
+     "study": "仕事はエンジニアです。田中さんは？",
+     "reading": "しごとはえんじにあです。たなかさんは？",
+     "phon": "shi-go-to wa e-n-ji-ni-a de-su. ta-na-ka-sa-n wa",
+     "native": "I work as an engineer. And you, Mr Tanaka?"
+    },
+    {
+     "speaker": "B",
+     "study": "私は会社員です。どうして日本に来ましたか。",
+     "reading": "わたしはかいしゃいんです。どうしてにほんにきましたか。",
+     "phon": "wa-ta-shi wa ka-i-sha-i-n de-su. do-o-shi-te ni-ho-n ni ki-ma-shi-ta ka",
+     "native": "I'm an office worker. Why did you come to Japan?"
+    },
+    {
+     "speaker": "A",
+     "study": "日本語を勉強しています。日本がとても好きです。",
+     "reading": "にほんごをべんきょうしています。にほんがとてもすきです。",
+     "phon": "ni-ho-n-go o be-n-kyo-o shi-te i-ma-su. ni-ho-n ga to-te-mo su-ki de-su",
+     "native": "I'm studying Japanese. I really like Japan."
+    },
+    {
+     "speaker": "B",
+     "study": "いいですね。日本語は難しいですか。",
+     "reading": "いいですね。にほんごはむずかしいですか。",
+     "phon": "i-i de-su ne. ni-ho-n-go wa mu-zu-ka-shi-i de-su ka",
+     "native": "That's nice. Is Japanese difficult?"
+    },
+    {
+     "speaker": "A",
+     "study": "少し。もう少しゆっくり話してもらえますか。",
+     "reading": "すこし。もうすこしゆっくりはなしてもらえますか。",
+     "phon": "su-ko-shi. mo-o su-ko-shi yuk-ku-ri ha-na-shi-te mo-ra-e-ma-su ka",
+     "native": "A little. Could you speak a bit more slowly?"
+    },
+    {
+     "speaker": "B",
+     "study": "はい、もちろん。",
+     "reading": "はい、もちろん。",
+     "phon": "ha-i, mo-chi-ro-n",
+     "native": "Yes, of course."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-ja-01",
+    "L1-en-ja-02",
+    "L3-en-ja-01",
+    "L3-en-ja-03",
+    "L3-en-ja-04",
+    "L3-en-ja-11"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Mr Tanaka"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L3-en-ja-d2",
+   "situation": "At the restaurant",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "すみません、メニューを見せてもらえますか。",
+     "reading": "すみません、めにゅーをみせてもらえますか。",
+     "phon": "su-mi-ma-se-n, me-nyu-u o mi-se-te mo-ra-e-ma-su ka",
+     "native": "Excuse me, could you show me the menu?"
+    },
+    {
+     "speaker": "B",
+     "study": "はい、どうぞ。お飲み物はいかがですか。",
+     "reading": "はい、どうぞ。おのみものはいかがですか。",
+     "phon": "ha-i, do-o-zo. o-no-mi-mo-no wa i-ka-ga de-su ka",
+     "native": "Yes, here you are. Would you like a drink?"
+    },
+    {
+     "speaker": "A",
+     "study": "お茶をお願いします。これは何ですか。",
+     "reading": "おちゃをおねがいします。これはなんですか。",
+     "phon": "o-cha o o-ne-ga-i shi-ma-su. ko-re wa na-n de-su ka",
+     "native": "Tea, please. What is this?"
+    },
+    {
+     "speaker": "B",
+     "study": "天ぷらです。野菜と魚です。",
+     "reading": "てんぷらです。やさいとさかなです。",
+     "phon": "te-n-pu-ra de-su. ya-sa-i to sa-ka-na de-su",
+     "native": "Tempura. Vegetables and fish."
+    },
+    {
+     "speaker": "A",
+     "study": "じゃあ、天ぷらを一つください。",
+     "reading": "じゃあ、てんぷらをひとつください。",
+     "phon": "ja-a, te-n-pu-ra o hi-to-tsu ku-da-sa-i",
+     "native": "Then one tempura, please."
+    },
+    {
+     "speaker": "B",
+     "study": "かしこまりました。デザートはいかがですか。",
+     "reading": "かしこまりました。でざーとはいかがですか。",
+     "phon": "ka-shi-ko-ma-ri-ma-shi-ta. de-za-a-to wa i-ka-ga de-su ka",
+     "native": "Certainly. Would you like a dessert?"
+    },
+    {
+     "speaker": "A",
+     "study": "いいえ、結構です。",
+     "reading": "いいえ、けっこうです。",
+     "phon": "i-i-e, kek-ko-o de-su",
+     "native": "No, thank you."
+    },
+    {
+     "speaker": "B",
+     "study": "はい、少々お待ちください。",
+     "reading": "はい、しょうしょうおまちください。",
+     "phon": "ha-i, sho-o-sho-o o-ma-chi ku-da-sa-i",
+     "native": "All right, one moment, please."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-ja-09",
+    "L2-en-ja-01",
+    "L2-en-ja-10",
+    "L3-en-ja-01",
+    "L3-en-ja-07",
+    "L3-en-ja-12"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Waiter"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L3-en-ja-d3",
+   "situation": "At the post office",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "すみません、これはフランスまでいくらですか。",
+     "reading": "すみません、これはふらんすまでいくらですか。",
+     "phon": "su-mi-ma-se-n, ko-re wa fu-ra-n-su ma-de i-ku-ra de-su ka",
+     "native": "Excuse me, how much is this to France?"
+    },
+    {
+     "speaker": "B",
+     "study": "手紙ですか。二百円です。",
+     "reading": "てがみですか。にひゃくえんです。",
+     "phon": "te-ga-mi de-su ka. ni-hya-ku e-n de-su",
+     "native": "A letter? Two hundred yen."
+    },
+    {
+     "speaker": "A",
+     "study": "二百円ですか。切手を二枚ください。",
+     "reading": "にひゃくえんですか。きってをにまいください。",
+     "phon": "ni-hya-ku e-n de-su ka. kit-te o ni-ma-i ku-da-sa-i",
+     "native": "Two hundred yen? Two stamps, please."
+    },
+    {
+     "speaker": "B",
+     "study": "はい、どうぞ。",
+     "reading": "はい、どうぞ。",
+     "phon": "ha-i, do-o-zo",
+     "native": "Yes, here you are."
+    },
+    {
+     "speaker": "A",
+     "study": "すみません、ここに何を書きますか。",
+     "reading": "すみません、ここになにをかきますか。",
+     "phon": "su-mi-ma-se-n, ko-ko ni na-ni o ka-ki-ma-su ka",
+     "native": "Sorry, what do I write here?"
+    },
+    {
+     "speaker": "B",
+     "study": "住所と名前です。書きましょうか。",
+     "reading": "じゅうしょとなまえです。かきましょうか。",
+     "phon": "ju-u-sho to na-ma-e de-su. ka-ki-ma-sho-o ka",
+     "native": "The address and the name. Shall I write it for you?"
+    },
+    {
+     "speaker": "A",
+     "study": "はい、お願いします。ありがとうございます。",
+     "reading": "はい、おねがいします。ありがとうございます。",
+     "phon": "ha-i, o-ne-ga-i shi-ma-su. a-ri-ga-to-o go-za-i-ma-su",
+     "native": "Yes, please. Thank you very much."
+    },
+    {
+     "speaker": "B",
+     "study": "どういたしまして。",
+     "reading": "どういたしまして。",
+     "phon": "do-o i-ta-shi-ma-shi-te",
+     "native": "You're welcome."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L2-en-ja-01",
+    "L2-en-ja-10",
+    "L3-en-ja-02",
+    "L3-en-ja-06",
+    "L3-en-ja-07"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Post office clerk"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Ask a yes/no question (sentence + か) or an open one (何を, どうして, どうですか), answer (yes, no, I don't know), bounce the question back with the name + さん, ask for a favour with てもらえますか, offer with ましょうか and accept or decline politely."
+}

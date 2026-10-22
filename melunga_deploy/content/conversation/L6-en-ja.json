@@ -1,0 +1,1111 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "ja",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en japonais",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle",
+  "reading": "lecture en hiragana"
+ },
+ "phoneticConvention": "Syllable-by-syllable romaji for English readers, in the deck's style (so-o-de-su, ko-wa-i-de-su). Read each syllable as in Spanish or Italian: a as in 'father', i as in 'machine', u as in 'put', e as in 'bet', o as in 'go'. A long vowel is written twice (ko-o-hi-i, to-o-kyo-o); ん is its own beat written n (su-mi-ma-se-n, ko-n-ni-chi-wa); a doubled consonant closes the syllable before it (kip-pu, chot-to, kek-ko-o). The u of de-su / ma-su is almost silent ('dess', 'mass'); r is a light tap between r and l; g is always hard. The reading field gives the hiragana. Polite register (です / ます) throughout.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended; linguistic review required (naturalness of phrasing, kanji readings).",
+ "coverageClaim": null,
+ "level": 6,
+ "title": "Plans and suggestions",
+ "goal": "Talk about plans, suggest and organise an activity.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L6-en-ja-01",
+   "situation": "Stating an intention",
+   "model": {
+    "study": "{s}つもりです。",
+    "phon": "{s} tsu-mo-ri de-su",
+    "native": "I intend to {s}.",
+    "reading": "{s}つもりです。",
+    "note": "Dictionary form of the verb + つもりです."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "週末に京都に行く",
+      "phon": "shu-u-ma-tsu ni kyo-o-to ni i-ku",
+      "native": "go to Kyoto this weekend",
+      "reading": "しゅうまつにきょうとにいく"
+     },
+     "study": "週末に京都に行くつもりです。",
+     "phon": "shu-u-ma-tsu ni kyo-o-to ni i-ku tsu-mo-ri de-su",
+     "native": "I intend to go to Kyoto this weekend.",
+     "reading": "しゅうまつにきょうとにいくつもりです。"
+    },
+    {
+     "slot": {
+      "study": "来年日本で働く",
+      "phon": "ra-i-ne-n ni-ho-n de ha-ta-ra-ku",
+      "native": "work in Japan next year",
+      "reading": "らいねんにほんではたらく"
+     },
+     "study": "来年日本で働くつもりです。",
+     "phon": "ra-i-ne-n ni-ho-n de ha-ta-ra-ku tsu-mo-ri de-su",
+     "native": "I intend to work in Japan next year.",
+     "reading": "らいねんにほんではたらくつもりです。"
+    },
+    {
+     "slot": {
+      "study": "今晩早く寝る",
+      "phon": "ko-n-ba-n ha-ya-ku ne-ru",
+      "native": "go to bed early tonight",
+      "reading": "こんばんはやくねる"
+     },
+     "study": "今晩早く寝るつもりです。",
+     "phon": "ko-n-ba-n ha-ya-ku ne-ru tsu-mo-ri de-su",
+     "native": "I intend to go to bed early tonight.",
+     "reading": "こんばんはやくねるつもりです。"
+    },
+    {
+     "slot": {
+      "study": "新しい車を買う",
+      "phon": "a-ta-ra-shi-i ku-ru-ma o ka-u",
+      "native": "buy a new car",
+      "reading": "あたらしいくるまをかう"
+     },
+     "study": "新しい車を買うつもりです。",
+     "phon": "a-ta-ra-shi-i ku-ru-ma o ka-u tsu-mo-ri de-su",
+     "native": "I intend to buy a new car.",
+     "reading": "あたらしいくるまをかうつもりです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-en-ja-02",
+   "situation": "Saying what's planned",
+   "model": {
+    "study": "{s}予定です。",
+    "phon": "{s} yo-te-i de-su",
+    "native": "I'm planning to {s}.",
+    "reading": "{s}よていです。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "三時に出発する",
+      "phon": "sa-n-ji ni shup-pa-tsu su-ru",
+      "native": "leave at three",
+      "reading": "さんじにしゅっぱつする"
+     },
+     "study": "三時に出発する予定です。",
+     "phon": "sa-n-ji ni shup-pa-tsu su-ru yo-te-i de-su",
+     "native": "I'm planning to leave at three.",
+     "reading": "さんじにしゅっぱつするよていです。"
+    },
+    {
+     "slot": {
+      "study": "来月引っ越す",
+      "phon": "ra-i-ge-tsu hik-ko-su",
+      "native": "move next month",
+      "reading": "らいげつひっこす"
+     },
+     "study": "来月引っ越す予定です。",
+     "phon": "ra-i-ge-tsu hik-ko-su yo-te-i de-su",
+     "native": "I'm planning to move next month.",
+     "reading": "らいげつひっこすよていです。"
+    },
+    {
+     "slot": {
+      "study": "友達と晩ご飯を食べる",
+      "phon": "to-mo-da-chi to ba-n-go-ha-n o ta-be-ru",
+      "native": "have dinner with friends",
+      "reading": "ともだちとばんごはんをたべる"
+     },
+     "study": "友達と晩ご飯を食べる予定です。",
+     "phon": "to-mo-da-chi to ba-n-go-ha-n o ta-be-ru yo-te-i de-su",
+     "native": "I'm planning to have dinner with friends.",
+     "reading": "ともだちとばんごはんをたべるよていです。"
+    },
+    {
+     "slot": {
+      "study": "東京に出張する",
+      "phon": "to-o-kyo-o ni shut-cho-o su-ru",
+      "native": "go on a business trip to Tokyo",
+      "reading": "とうきょうにしゅっちょうする"
+     },
+     "study": "東京に出張する予定です。",
+     "phon": "to-o-kyo-o ni shut-cho-o su-ru yo-te-i de-su",
+     "native": "I'm planning to go on a business trip to Tokyo.",
+     "reading": "とうきょうにしゅっちょうするよていです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-en-ja-03",
+   "situation": "Inviting",
+   "model": {
+    "study": "{s}ませんか。",
+    "phon": "{s}-ma-se-n ka",
+    "native": "Would you like to {s}?",
+    "reading": "{s}ませんか。",
+    "note": "Verb stem + ませんか: the invitation in the negative form is the most polite and the most common."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "一緒に昼ご飯を食べ",
+      "phon": "is-sho ni hi-ru-go-ha-n o ta-be",
+      "native": "have lunch together",
+      "reading": "いっしょにひるごはんをたべ"
+     },
+     "study": "一緒に昼ご飯を食べませんか。",
+     "phon": "is-sho ni hi-ru-go-ha-n o ta-be-ma-se-n ka",
+     "native": "Would you like to have lunch together?",
+     "reading": "いっしょにひるごはんをたべませんか。"
+    },
+    {
+     "slot": {
+      "study": "映画を見に行き",
+      "phon": "e-i-ga o mi ni i-ki",
+      "native": "go and see a film",
+      "reading": "えいがをみにいき"
+     },
+     "study": "映画を見に行きませんか。",
+     "phon": "e-i-ga o mi ni i-ki-ma-se-n ka",
+     "native": "Would you like to go and see a film?",
+     "reading": "えいがをみにいきませんか。"
+    },
+    {
+     "slot": {
+      "study": "コーヒーを飲み",
+      "phon": "ko-o-hi-i o no-mi",
+      "native": "have a coffee",
+      "reading": "こーひーをのみ"
+     },
+     "study": "コーヒーを飲みませんか。",
+     "phon": "ko-o-hi-i o no-mi-ma-se-n ka",
+     "native": "Would you like to have a coffee?",
+     "reading": "こーひーをのみませんか。"
+    },
+    {
+     "slot": {
+      "study": "週末にハイキングに行き",
+      "phon": "shu-u-ma-tsu ni ha-i-ki-n-gu ni i-ki",
+      "native": "go hiking this weekend",
+      "reading": "しゅうまつにはいきんぐにいき"
+     },
+     "study": "週末にハイキングに行きませんか。",
+     "phon": "shu-u-ma-tsu ni ha-i-ki-n-gu ni i-ki-ma-se-n ka",
+     "native": "Would you like to go hiking this weekend?",
+     "reading": "しゅうまつにはいきんぐにいきませんか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-en-ja-04",
+   "situation": "Setting a time",
+   "model": {
+    "study": "{s}に会いましょう。",
+    "phon": "{s} ni a-i-ma-sho-o",
+    "native": "Let's meet {s}.",
+    "reading": "{s}にあいましょう。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "土曜日の十時",
+      "phon": "do-yo-o-bi no ju-u-ji",
+      "native": "on Saturday at ten",
+      "reading": "どようびのじゅうじ"
+     },
+     "study": "土曜日の十時に会いましょう。",
+     "phon": "do-yo-o-bi no ju-u-ji ni a-i-ma-sho-o",
+     "native": "Let's meet on Saturday at ten.",
+     "reading": "どようびのじゅうじにあいましょう。"
+    },
+    {
+     "slot": {
+      "study": "明日の午後",
+      "phon": "a-shi-ta no go-go",
+      "native": "tomorrow afternoon",
+      "reading": "あしたのごご"
+     },
+     "study": "明日の午後に会いましょう。",
+     "phon": "a-shi-ta no go-go ni a-i-ma-sho-o",
+     "native": "Let's meet tomorrow afternoon.",
+     "reading": "あしたのごごにあいましょう。"
+    },
+    {
+     "slot": {
+      "study": "七時",
+      "phon": "shi-chi-ji",
+      "native": "at seven",
+      "reading": "しちじ"
+     },
+     "study": "七時に会いましょう。",
+     "phon": "shi-chi-ji ni a-i-ma-sho-o",
+     "native": "Let's meet at seven.",
+     "reading": "しちじにあいましょう。"
+    },
+    {
+     "slot": {
+      "study": "来週の月曜日",
+      "phon": "ra-i-shu-u no ge-tsu-yo-o-bi",
+      "native": "next Monday",
+      "reading": "らいしゅうのげつようび"
+     },
+     "study": "来週の月曜日に会いましょう。",
+     "phon": "ra-i-shu-u no ge-tsu-yo-o-bi ni a-i-ma-sho-o",
+     "native": "Let's meet next Monday.",
+     "reading": "らいしゅうのげつようびにあいましょう。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-en-ja-05",
+   "situation": "Setting a place",
+   "model": {
+    "study": "{s}で待っています。",
+    "phon": "{s} de mat-te i-ma-su",
+    "native": "I'll be waiting {s}.",
+    "reading": "{s}でまっています。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "駅の前",
+      "phon": "e-ki no ma-e",
+      "native": "in front of the station",
+      "reading": "えきのまえ"
+     },
+     "study": "駅の前で待っています。",
+     "phon": "e-ki no ma-e de mat-te i-ma-su",
+     "native": "I'll be waiting in front of the station.",
+     "reading": "えきのまえでまっています。"
+    },
+    {
+     "slot": {
+      "study": "カフェ",
+      "phon": "ka-fe",
+      "native": "at the café",
+      "reading": "かふぇ"
+     },
+     "study": "カフェで待っています。",
+     "phon": "ka-fe de mat-te i-ma-su",
+     "native": "I'll be waiting at the café.",
+     "reading": "かふぇでまっています。"
+    },
+    {
+     "slot": {
+      "study": "入口",
+      "phon": "i-ri-gu-chi",
+      "native": "at the entrance",
+      "reading": "いりぐち"
+     },
+     "study": "入口で待っています。",
+     "phon": "i-ri-gu-chi de mat-te i-ma-su",
+     "native": "I'll be waiting at the entrance.",
+     "reading": "いりぐちでまっています。"
+    },
+    {
+     "slot": {
+      "study": "ホテルのロビー",
+      "phon": "ho-te-ru no ro-bi-i",
+      "native": "in the hotel lobby",
+      "reading": "ほてるのろびー"
+     },
+     "study": "ホテルのロビーで待っています。",
+     "phon": "ho-te-ru no ro-bi-i de mat-te i-ma-su",
+     "native": "I'll be waiting in the hotel lobby.",
+     "reading": "ほてるのろびーでまっています。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-en-ja-06",
+   "situation": "Declining and suggesting something else",
+   "model": {
+    "study": "ちょっと無理ですが、{s}。",
+    "phon": "chot-to mu-ri de-su ga, {s}",
+    "native": "That's a bit difficult, but {s}.",
+    "reading": "ちょっとむりですが、{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "日曜日なら大丈夫です",
+      "phon": "ni-chi-yo-o-bi na-ra da-i-jo-o-bu de-su",
+      "native": "Sunday would be fine",
+      "reading": "にちようびならだいじょうぶです"
+     },
+     "study": "ちょっと無理ですが、日曜日なら大丈夫です。",
+     "phon": "chot-to mu-ri de-su ga, ni-chi-yo-o-bi na-ra da-i-jo-o-bu de-su",
+     "native": "That's a bit difficult, but Sunday would be fine.",
+     "reading": "ちょっとむりですが、にちようびならだいじょうぶです。"
+    },
+    {
+     "slot": {
+      "study": "来週はどうですか",
+      "phon": "ra-i-shu-u wa do-o de-su ka",
+      "native": "how about next week?",
+      "reading": "らいしゅうはどうですか"
+     },
+     "study": "ちょっと無理ですが、来週はどうですか。",
+     "phon": "chot-to mu-ri de-su ga, ra-i-shu-u wa do-o de-su ka",
+     "native": "That's a bit difficult, but how about next week?",
+     "reading": "ちょっとむりですが、らいしゅうはどうですか。"
+    },
+    {
+     "slot": {
+      "study": "夜なら行けます",
+      "phon": "yo-ru na-ra i-ke-ma-su",
+      "native": "I can make it in the evening",
+      "reading": "よるならいけます"
+     },
+     "study": "ちょっと無理ですが、夜なら行けます。",
+     "phon": "chot-to mu-ri de-su ga, yo-ru na-ra i-ke-ma-su",
+     "native": "That's a bit difficult, but I can make it in the evening.",
+     "reading": "ちょっとむりですが、よるならいけます。"
+    },
+    {
+     "slot": {
+      "study": "また今度お願いします",
+      "phon": "ma-ta ko-n-do o-ne-ga-i shi-ma-su",
+      "native": "let's do it another time",
+      "reading": "またこんどおねがいします"
+     },
+     "study": "ちょっと無理ですが、また今度お願いします。",
+     "phon": "chot-to mu-ri de-su ga, ma-ta ko-n-do o-ne-ga-i shi-ma-su",
+     "native": "That's a bit difficult, but let's do it another time.",
+     "reading": "ちょっとむりですが、またこんどおねがいします。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-en-ja-07",
+   "situation": "Expressing a wish",
+   "model": {
+    "study": "{s}たいです。",
+    "phon": "{s}-ta-i de-su",
+    "native": "I'd like to {s}.",
+    "reading": "{s}たいです。",
+    "note": "Verb stem + たいです. With たい, the object often takes が (寿司が食べたい)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "日本語が上手になり",
+      "phon": "ni-ho-n-go ga jo-o-zu ni na-ri",
+      "native": "get good at Japanese",
+      "reading": "にほんごがじょうずになり"
+     },
+     "study": "日本語が上手になりたいです。",
+     "phon": "ni-ho-n-go ga jo-o-zu ni na-ri-ta-i de-su",
+     "native": "I'd like to get good at Japanese.",
+     "reading": "にほんごがじょうずになりたいです。"
+    },
+    {
+     "slot": {
+      "study": "沖縄に行き",
+      "phon": "o-ki-na-wa ni i-ki",
+      "native": "go to Okinawa",
+      "reading": "おきなわにいき"
+     },
+     "study": "沖縄に行きたいです。",
+     "phon": "o-ki-na-wa ni i-ki-ta-i de-su",
+     "native": "I'd like to go to Okinawa.",
+     "reading": "おきなわにいきたいです。"
+    },
+    {
+     "slot": {
+      "study": "新しい仕事を探し",
+      "phon": "a-ta-ra-shi-i shi-go-to o sa-ga-shi",
+      "native": "look for a new job",
+      "reading": "あたらしいしごとをさがし"
+     },
+     "study": "新しい仕事を探したいです。",
+     "phon": "a-ta-ra-shi-i shi-go-to o sa-ga-shi-ta-i de-su",
+     "native": "I'd like to look for a new job.",
+     "reading": "あたらしいしごとをさがしたいです。"
+    },
+    {
+     "slot": {
+      "study": "寿司が食べ",
+      "phon": "su-shi ga ta-be",
+      "native": "eat sushi",
+      "reading": "すしがたべ"
+     },
+     "study": "寿司が食べたいです。",
+     "phon": "su-shi ga ta-be-ta-i de-su",
+     "native": "I'd like to eat sushi.",
+     "reading": "すしがたべたいです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-en-ja-08",
+   "situation": "Suggesting a time or a place",
+   "model": {
+    "study": "{s}はどうですか。",
+    "phon": "{s} wa do-o de-su ka",
+    "native": "How about {s}?",
+    "reading": "{s}はどうですか。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "土曜日",
+      "phon": "do-yo-o-bi",
+      "native": "Saturday",
+      "reading": "どようび"
+     },
+     "study": "土曜日はどうですか。",
+     "phon": "do-yo-o-bi wa do-o de-su ka",
+     "native": "How about Saturday?",
+     "reading": "どようびはどうですか。"
+    },
+    {
+     "slot": {
+      "study": "駅前のカフェ",
+      "phon": "e-ki-ma-e no ka-fe",
+      "native": "the café in front of the station",
+      "reading": "えきまえのかふぇ"
+     },
+     "study": "駅前のカフェはどうですか。",
+     "phon": "e-ki-ma-e no ka-fe wa do-o de-su ka",
+     "native": "How about the café in front of the station?",
+     "reading": "えきまえのかふぇはどうですか。"
+    },
+    {
+     "slot": {
+      "study": "七時",
+      "phon": "shi-chi-ji",
+      "native": "seven o'clock",
+      "reading": "しちじ"
+     },
+     "study": "七時はどうですか。",
+     "phon": "shi-chi-ji wa do-o de-su ka",
+     "native": "How about seven o'clock?",
+     "reading": "しちじはどうですか。"
+    },
+    {
+     "slot": {
+      "study": "イタリア料理",
+      "phon": "i-ta-ri-a-ryo-o-ri",
+      "native": "Italian food",
+      "reading": "いたりありょうり"
+     },
+     "study": "イタリア料理はどうですか。",
+     "phon": "i-ta-ri-a-ryo-o-ri wa do-o de-su ka",
+     "native": "How about Italian food?",
+     "reading": "いたりありょうりはどうですか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-en-ja-09",
+   "situation": "Confirming the appointment",
+   "model": {
+    "study": "じゃあ、{s}に。",
+    "phon": "ja-a, {s} ni",
+    "native": "See you {s}, then.",
+    "reading": "じゃあ、{s}に。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "土曜日の十時",
+      "phon": "do-yo-o-bi no ju-u-ji",
+      "native": "on Saturday at ten",
+      "reading": "どようびのじゅうじ"
+     },
+     "study": "じゃあ、土曜日の十時に。",
+     "phon": "ja-a, do-yo-o-bi no ju-u-ji ni",
+     "native": "See you on Saturday at ten, then.",
+     "reading": "じゃあ、どようびのじゅうじに。"
+    },
+    {
+     "slot": {
+      "study": "明日の朝",
+      "phon": "a-shi-ta no a-sa",
+      "native": "tomorrow morning",
+      "reading": "あしたのあさ"
+     },
+     "study": "じゃあ、明日の朝に。",
+     "phon": "ja-a, a-shi-ta no a-sa ni",
+     "native": "See you tomorrow morning, then.",
+     "reading": "じゃあ、あしたのあさに。"
+    },
+    {
+     "slot": {
+      "study": "今晩七時",
+      "phon": "ko-n-ba-n shi-chi-ji",
+      "native": "tonight at seven",
+      "reading": "こんばんしちじ"
+     },
+     "study": "じゃあ、今晩七時に。",
+     "phon": "ja-a, ko-n-ba-n shi-chi-ji ni",
+     "native": "See you tonight at seven, then.",
+     "reading": "じゃあ、こんばんしちじに。"
+    },
+    {
+     "slot": {
+      "study": "来週の月曜日",
+      "phon": "ra-i-shu-u no ge-tsu-yo-o-bi",
+      "native": "next Monday",
+      "reading": "らいしゅうのげつようび"
+     },
+     "study": "じゃあ、来週の月曜日に。",
+     "phon": "ja-a, ra-i-shu-u no ge-tsu-yo-o-bi ni",
+     "native": "See you next Monday, then.",
+     "reading": "じゃあ、らいしゅうのげつようびに。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-en-ja-10",
+   "situation": "Saying what you're about to do",
+   "model": {
+    "study": "これから{s}。",
+    "phon": "ko-re-ka-ra {s}",
+    "native": "I'm {s} now.",
+    "reading": "これから{s}。",
+    "note": "これから + polite present = near future. 行きます means going somewhere, 帰ります means going back home."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "駅に行きます",
+      "phon": "e-ki ni i-ki-ma-su",
+      "native": "going to the station",
+      "reading": "えきにいきます"
+     },
+     "study": "これから駅に行きます。",
+     "phon": "ko-re-ka-ra e-ki ni i-ki-ma-su",
+     "native": "I'm going to the station now.",
+     "reading": "これからえきにいきます。"
+    },
+    {
+     "slot": {
+      "study": "家に帰ります",
+      "phon": "i-e ni ka-e-ri-ma-su",
+      "native": "going home",
+      "reading": "いえにかえります"
+     },
+     "study": "これから家に帰ります。",
+     "phon": "ko-re-ka-ra i-e ni ka-e-ri-ma-su",
+     "native": "I'm going home now.",
+     "reading": "これからいえにかえります。"
+    },
+    {
+     "slot": {
+      "study": "昼ご飯を食べます",
+      "phon": "hi-ru-go-ha-n o ta-be-ma-su",
+      "native": "having lunch",
+      "reading": "ひるごはんをたべます"
+     },
+     "study": "これから昼ご飯を食べます。",
+     "phon": "ko-re-ka-ra hi-ru-go-ha-n o ta-be-ma-su",
+     "native": "I'm having lunch now.",
+     "reading": "これからひるごはんをたべます。"
+    },
+    {
+     "slot": {
+      "study": "友達に会います",
+      "phon": "to-mo-da-chi ni a-i-ma-su",
+      "native": "meeting a friend",
+      "reading": "ともだちにあいます"
+     },
+     "study": "これから友達に会います。",
+     "phon": "ko-re-ka-ra to-mo-da-chi ni a-i-ma-su",
+     "native": "I'm meeting a friend now.",
+     "reading": "これからともだちにあいます。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-en-ja-11",
+   "situation": "Transport: suggesting how to go",
+   "model": {
+    "study": "{s}で行きましょう。",
+    "phon": "{s} de i-ki-ma-sho-o",
+    "native": "Let's go {s}.",
+    "reading": "{s}でいきましょう。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "電車",
+      "phon": "de-n-sha",
+      "native": "by train",
+      "reading": "でんしゃ"
+     },
+     "study": "電車で行きましょう。",
+     "phon": "de-n-sha de i-ki-ma-sho-o",
+     "native": "Let's go by train.",
+     "reading": "でんしゃでいきましょう。"
+    },
+    {
+     "slot": {
+      "study": "タクシー",
+      "phon": "ta-ku-shi-i",
+      "native": "by taxi",
+      "reading": "たくしー"
+     },
+     "study": "タクシーで行きましょう。",
+     "phon": "ta-ku-shi-i de i-ki-ma-sho-o",
+     "native": "Let's go by taxi.",
+     "reading": "たくしーでいきましょう。"
+    },
+    {
+     "slot": {
+      "study": "バス",
+      "phon": "ba-su",
+      "native": "by bus",
+      "reading": "ばす"
+     },
+     "study": "バスで行きましょう。",
+     "phon": "ba-su de i-ki-ma-sho-o",
+     "native": "Let's go by bus.",
+     "reading": "ばすでいきましょう。"
+    },
+    {
+     "slot": {
+      "study": "自転車",
+      "phon": "ji-te-n-sha",
+      "native": "by bike",
+      "reading": "じてんしゃ"
+     },
+     "study": "自転車で行きましょう。",
+     "phon": "ji-te-n-sha de i-ki-ma-sho-o",
+     "native": "Let's go by bike.",
+     "reading": "じてんしゃでいきましょう。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-en-ja-12",
+   "situation": "Saying when you'll call",
+   "model": {
+    "study": "{s}電話します。",
+    "phon": "{s} de-n-wa shi-ma-su",
+    "native": "I'll call you {s}.",
+    "reading": "{s}でんわします。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "明日の朝に",
+      "phon": "a-shi-ta no a-sa ni",
+      "native": "tomorrow morning",
+      "reading": "あしたのあさに"
+     },
+     "study": "明日の朝に電話します。",
+     "phon": "a-shi-ta no a-sa ni de-n-wa shi-ma-su",
+     "native": "I'll call you tomorrow morning.",
+     "reading": "あしたのあさにでんわします。"
+    },
+    {
+     "slot": {
+      "study": "後で",
+      "phon": "a-to de",
+      "native": "later",
+      "reading": "あとで"
+     },
+     "study": "後で電話します。",
+     "phon": "a-to de de-n-wa shi-ma-su",
+     "native": "I'll call you later.",
+     "reading": "あとででんわします。"
+    },
+    {
+     "slot": {
+      "study": "三時に",
+      "phon": "sa-n-ji ni",
+      "native": "at three",
+      "reading": "さんじに"
+     },
+     "study": "三時に電話します。",
+     "phon": "sa-n-ji ni de-n-wa shi-ma-su",
+     "native": "I'll call you at three.",
+     "reading": "さんじにでんわします。"
+    },
+    {
+     "slot": {
+      "study": "今晩",
+      "phon": "ko-n-ba-n",
+      "native": "tonight",
+      "reading": "こんばん"
+     },
+     "study": "今晩電話します。",
+     "phon": "ko-n-ba-n de-n-wa shi-ma-su",
+     "native": "I'll call you tonight.",
+     "reading": "こんばんでんわします。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L6-en-ja-d1",
+   "situation": "Inviting a colleague",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "田中さん、週末は何か予定がありますか。",
+     "reading": "たなかさん、しゅうまつはなにかよていがありますか。",
+     "phon": "ta-na-ka-sa-n, shu-u-ma-tsu wa na-ni ka yo-te-i ga a-ri-ma-su ka",
+     "native": "Mr Tanaka, do you have any plans this weekend?"
+    },
+    {
+     "speaker": "B",
+     "study": "土曜日は仕事ですが、日曜日は空いています。",
+     "reading": "どようびはしごとですが、にちようびはあいています。",
+     "phon": "do-yo-o-bi wa shi-go-to de-su ga, ni-chi-yo-o-bi wa a-i-te i-ma-su",
+     "native": "I'm working on Saturday, but I'm free on Sunday."
+    },
+    {
+     "speaker": "A",
+     "study": "じゃあ、日曜日に一緒にハイキングに行きませんか。",
+     "reading": "じゃあ、にちようびにいっしょにはいきんぐにいきませんか。",
+     "phon": "ja-a, ni-chi-yo-o-bi ni is-sho ni ha-i-ki-n-gu ni i-ki-ma-se-n ka",
+     "native": "Then would you like to go hiking together on Sunday?"
+    },
+    {
+     "speaker": "B",
+     "study": "いいですね。ぜひ。何時にどこで会いますか。",
+     "reading": "いいですね。ぜひ。なんじにどこであいますか。",
+     "phon": "i-i de-su ne. ze-hi. na-n-ji ni do-ko de a-i-ma-su ka",
+     "native": "That sounds nice. I'd love to. What time and where shall we meet?"
+    },
+    {
+     "speaker": "A",
+     "study": "九時に駅の前で待っています。",
+     "reading": "くじにえきのまえでまっています。",
+     "phon": "ku-ji ni e-ki no ma-e de mat-te i-ma-su",
+     "native": "I'll be waiting in front of the station at nine."
+    },
+    {
+     "speaker": "B",
+     "study": "分かりました。お弁当を持って行きましょうか。",
+     "reading": "わかりました。おべんとうをもっていきましょうか。",
+     "phon": "wa-ka-ri-ma-shi-ta. o-be-n-to-o o mot-te i-ki-ma-sho-o ka",
+     "native": "All right. Shall I bring a packed lunch?"
+    },
+    {
+     "speaker": "A",
+     "study": "はい、お願いします。私は飲み物を買います。",
+     "reading": "はい、おねがいします。わたしはのみものをかいます。",
+     "phon": "ha-i, o-ne-ga-i shi-ma-su. wa-ta-shi wa no-mi-mo-no o ka-i-ma-su",
+     "native": "Yes, please. I'll buy the drinks."
+    },
+    {
+     "speaker": "B",
+     "study": "じゃあ、日曜日の九時に。",
+     "reading": "じゃあ、にちようびのくじに。",
+     "phon": "ja-a, ni-chi-yo-o-bi no ku-ji ni",
+     "native": "See you on Sunday at nine, then."
+    },
+    {
+     "speaker": "A",
+     "study": "はい、楽しみにしています。",
+     "reading": "はい、たのしみにしています。",
+     "phon": "ha-i, ta-no-shi-mi ni shi-te i-ma-su",
+     "native": "Yes, I'm looking forward to it."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L2-en-ja-10",
+    "L3-en-ja-06",
+    "L3-en-ja-07",
+    "L4-en-ja-04",
+    "L5-en-ja-05",
+    "L5-en-ja-08",
+    "L6-en-ja-03",
+    "L6-en-ja-05",
+    "L6-en-ja-09"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Mr Tanaka"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L6-en-ja-d2",
+   "situation": "Declining and suggesting something else",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "マリーさん、今晩一緒に晩ご飯を食べませんか。",
+     "reading": "まりーさん、こんばんいっしょにばんごはんをたべませんか。",
+     "phon": "ma-ri-i-sa-n, ko-n-ba-n is-sho ni ba-n-go-ha-n o ta-be-ma-se-n ka",
+     "native": "Marie, would you like to have dinner together tonight?"
+    },
+    {
+     "speaker": "B",
+     "study": "今晩はちょっと無理ですが、明日なら大丈夫です。",
+     "reading": "こんばんはちょっとむりですが、あしたならだいじょうぶです。",
+     "phon": "ko-n-ba-n wa chot-to mu-ri de-su ga, a-shi-ta na-ra da-i-jo-o-bu de-su",
+     "native": "Tonight is a bit difficult, but tomorrow would be fine."
+    },
+    {
+     "speaker": "A",
+     "study": "明日ですね。何が食べたいですか。",
+     "reading": "あしたですね。なにがたべたいですか。",
+     "phon": "a-shi-ta de-su ne. na-ni ga ta-be-ta-i de-su ka",
+     "native": "Tomorrow, then. What would you like to eat?"
+    },
+    {
+     "speaker": "B",
+     "study": "寿司が食べたいです。",
+     "reading": "すしがたべたいです。",
+     "phon": "su-shi ga ta-be-ta-i de-su",
+     "native": "I'd like to eat sushi."
+    },
+    {
+     "speaker": "A",
+     "study": "じゃあ、駅前の寿司屋はどうですか。",
+     "reading": "じゃあ、えきまえのすしやはどうですか。",
+     "phon": "ja-a, e-ki-ma-e no su-shi-ya wa do-o de-su ka",
+     "native": "Then how about the sushi place in front of the station?"
+    },
+    {
+     "speaker": "B",
+     "study": "いいですね。七時に店の前で会いましょう。",
+     "reading": "いいですね。しちじにみせのまえであいましょう。",
+     "phon": "i-i de-su ne. shi-chi-ji ni mi-se no ma-e de a-i-ma-sho-o",
+     "native": "Sounds good. Let's meet at seven in front of the restaurant."
+    },
+    {
+     "speaker": "A",
+     "study": "分かりました。予約します。",
+     "reading": "わかりました。よやくします。",
+     "phon": "wa-ka-ri-ma-shi-ta. yo-ya-ku shi-ma-su",
+     "native": "All right. I'll book a table."
+    },
+    {
+     "speaker": "B",
+     "study": "ありがとうございます。じゃあ、明日の七時に。",
+     "reading": "ありがとうございます。じゃあ、あしたのしちじに。",
+     "phon": "a-ri-ga-to-o go-za-i-ma-su. ja-a, a-shi-ta no shi-chi-ji ni",
+     "native": "Thank you. See you tomorrow at seven, then."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L3-en-ja-05",
+    "L4-en-ja-04",
+    "L5-en-ja-05",
+    "L6-en-ja-03",
+    "L6-en-ja-06",
+    "L6-en-ja-07",
+    "L6-en-ja-08",
+    "L6-en-ja-09"
+   ],
+   "roles": {
+    "A": "A colleague",
+    "B": "You"
+   },
+   "learnerRole": "B"
+  },
+  {
+   "id": "L6-en-ja-d3",
+   "situation": "Holiday plans",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "ポールさん、休みは何をするつもりですか。",
+     "reading": "ぽーるさん、やすみはなにをするつもりですか。",
+     "phon": "po-o-ru-sa-n, ya-su-mi wa na-ni o su-ru tsu-mo-ri de-su ka",
+     "native": "Paul, what do you intend to do during the holidays?"
+    },
+    {
+     "speaker": "B",
+     "study": "沖縄に行く予定です。海で泳ぎたいです。",
+     "reading": "おきなわにいくよていです。うみでおよぎたいです。",
+     "phon": "o-ki-na-wa ni i-ku yo-te-i de-su. u-mi de o-yo-gi-ta-i de-su",
+     "native": "I'm planning to go to Okinawa. I'd like to swim in the sea."
+    },
+    {
+     "speaker": "A",
+     "study": "いいですね！いつ出発しますか。",
+     "reading": "いいですね！いつしゅっぱつしますか。",
+     "phon": "i-i de-su ne. i-tsu shup-pa-tsu shi-ma-su ka",
+     "native": "Great! When are you leaving?"
+    },
+    {
+     "speaker": "B",
+     "study": "八月一日に出発します。飛行機で行きます。",
+     "reading": "はちがつついたちにしゅっぱつします。ひこうきでいきます。",
+     "phon": "ha-chi-ga-tsu tsu-i-ta-chi ni shup-pa-tsu shi-ma-su. hi-ko-o-ki de i-ki-ma-su",
+     "native": "I'm leaving on the first of August. I'm going by plane."
+    },
+    {
+     "speaker": "A",
+     "study": "何日間ですか。",
+     "reading": "なんにちかんですか。",
+     "phon": "na-n-ni-chi-ka-n de-su ka",
+     "native": "For how many days?"
+    },
+    {
+     "speaker": "B",
+     "study": "一週間です。マリーさんは？",
+     "reading": "いっしゅうかんです。まりーさんは？",
+     "phon": "is-shu-u-ka-n de-su. ma-ri-i-sa-n wa",
+     "native": "One week. And you, Marie?"
+    },
+    {
+     "speaker": "A",
+     "study": "私は家族がフランスから来ます。一緒に京都に行くつもりです。",
+     "reading": "わたしはかぞくがふらんすからきます。いっしょにきょうとにいくつもりです。",
+     "phon": "wa-ta-shi wa ka-zo-ku ga fu-ra-n-su ka-ra ki-ma-su. is-sho ni kyo-o-to ni i-ku tsu-mo-ri de-su",
+     "native": "My family is coming from France. I intend to go to Kyoto with them."
+    },
+    {
+     "speaker": "B",
+     "study": "楽しみですね。良い旅を！",
+     "reading": "たのしみですね。よいたびを！",
+     "phon": "ta-no-shi-mi de-su ne. yo-i ta-bi o",
+     "native": "You must be looking forward to it. Have a good trip!"
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-ja-01",
+    "L2-en-ja-07",
+    "L3-en-ja-02",
+    "L3-en-ja-03",
+    "L5-en-ja-05",
+    "L6-en-ja-01",
+    "L6-en-ja-02",
+    "L6-en-ja-07"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Paul"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "State an intention or a plan (つもりです, 予定です), invite with ませんか, set a time and a place (土曜日の十時に、駅の前で), accept, decline politely with an alternative (ちょっと無理ですが…なら), express a wish (たいです) and confirm an appointment."
+}

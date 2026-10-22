@@ -1,0 +1,1061 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "zh",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en chinois",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle",
+  "reading": "pinyin avec tons"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (style du deck : ouo = 我, chr = 是, dzaï = 在). Les tons ne sont pas notés dans l'approximation : se reporter au pinyin (champ reading) et à l'audio. Mandarin standard, caractères simplifiés.",
+ "reviewStatus": "Relecture linguistique requise (tons, naturel des tournures).",
+ "coverageClaim": null,
+ "level": 8,
+ "title": "Demander et négocier",
+ "goal": "Demander poliment, exprimer une condition et négocier simplement.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L8-fr-zh-01",
+   "situation": "Demande polie",
+   "model": {
+    "study": "您能{s}吗？",
+    "reading": "nín néng {s} ma?",
+    "phon": "ninn neng {s} ma ?",
+    "native": "Pourriez-vous {s} ?",
+    "note": "您 (forme de politesse) + 能 (« pouvoir, être en mesure de ») = la demande polie de base ; 可以 fonctionne aussi."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "便宜一点",
+      "reading": "piányi yìdiǎn",
+      "phon": "pièn-i i-tièn",
+      "native": "baisser un peu le prix"
+     },
+     "study": "您能便宜一点吗？",
+     "phon": "ninn neng pièn-i i-tièn ma ?",
+     "native": "Pourriez-vous baisser un peu le prix ?",
+     "reading": "nín néng piányi yìdiǎn ma?"
+    },
+    {
+     "slot": {
+      "study": "帮我看一下",
+      "reading": "bāng wǒ kàn yíxià",
+      "phon": "pang ouo kan i-sia",
+      "native": "jeter un coup d'œil pour moi"
+     },
+     "study": "您能帮我看一下吗？",
+     "phon": "ninn neng pang ouo kan i-sia ma ?",
+     "native": "Pourriez-vous jeter un coup d'œil pour moi ?",
+     "reading": "nín néng bāng wǒ kàn yíxià ma?"
+    },
+    {
+     "slot": {
+      "study": "明天再来",
+      "reading": "míngtiān zài lái",
+      "phon": "ming-tièn dzaï laï",
+      "native": "revenir demain"
+     },
+     "study": "您能明天再来吗？",
+     "phon": "ninn neng ming-tièn dzaï laï ma ?",
+     "native": "Pourriez-vous revenir demain ?",
+     "reading": "nín néng míngtiān zài lái ma?"
+    },
+    {
+     "slot": {
+      "study": "给我发邮件",
+      "reading": "gěi wǒ fā yóujiàn",
+      "phon": "gueï ouo fa yeou-tièn",
+      "native": "m'envoyer un e-mail"
+     },
+     "study": "您能给我发邮件吗？",
+     "phon": "ninn neng gueï ouo fa yeou-tièn ma ?",
+     "native": "Pourriez-vous m'envoyer un e-mail ?",
+     "reading": "nín néng gěi wǒ fā yóujiàn ma?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-zh-02",
+   "situation": "Demander la permission",
+   "model": {
+    "study": "我可以{s}吗？",
+    "reading": "wǒ kěyǐ {s} ma?",
+    "phon": "ouo keu-i {s} ma ?",
+    "native": "Est-ce que je pourrais {s} ?",
+    "note": "一下 après un verbe = « un petit coup, un instant » ; adoucit la demande."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "试一下",
+      "reading": "shì yíxià",
+      "phon": "chr i-sia",
+      "native": "essayer"
+     },
+     "study": "我可以试一下吗？",
+     "phon": "ouo keu-i chr i-sia ma ?",
+     "native": "Est-ce que je pourrais essayer ?",
+     "reading": "wǒ kěyǐ shì yíxià ma?"
+    },
+    {
+     "slot": {
+      "study": "晚一点付",
+      "reading": "wǎn yìdiǎn fù",
+      "phon": "ouan i-tièn fou",
+      "native": "payer un peu plus tard"
+     },
+     "study": "我可以晚一点付吗？",
+     "phon": "ouo keu-i ouan i-tièn fou ma ?",
+     "native": "Est-ce que je pourrais payer un peu plus tard ?",
+     "reading": "wǒ kěyǐ wǎn yìdiǎn fù ma?"
+    },
+    {
+     "slot": {
+      "study": "换一个",
+      "reading": "huàn yí ge",
+      "phon": "houan i keu",
+      "native": "en changer"
+     },
+     "study": "我可以换一个吗？",
+     "phon": "ouo keu-i houan i keu ma ?",
+     "native": "Est-ce que je pourrais en changer ?",
+     "reading": "wǒ kěyǐ huàn yí ge ma?"
+    },
+    {
+     "slot": {
+      "study": "明天再回答",
+      "reading": "míngtiān zài huídá",
+      "phon": "ming-tièn dzaï houeï-ta",
+      "native": "répondre demain"
+     },
+     "study": "我可以明天再回答吗？",
+     "phon": "ouo keu-i ming-tièn dzaï houeï-ta ma ?",
+     "native": "Est-ce que je pourrais répondre demain ?",
+     "reading": "wǒ kěyǐ míngtiān zài huídá ma?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-zh-03",
+   "situation": "Condition : achat",
+   "model": {
+    "study": "如果{s}，我就买。",
+    "reading": "rúguǒ {s}, wǒ jiù mǎi.",
+    "phon": "jou-kouo {s}, ouo tiou maï",
+    "native": "Si {s}, je l'achète.",
+    "note": "如果… 就… : 就 (« alors ») ouvre la conséquence ; 如果 peut même être sous-entendu."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "便宜一点",
+      "reading": "piányi yìdiǎn",
+      "phon": "pièn-i i-tièn",
+      "native": "c'est un peu moins cher"
+     },
+     "study": "如果便宜一点，我就买。",
+     "phon": "jou-kouo pièn-i i-tièn, ouo tiou maï",
+     "native": "Si c'est un peu moins cher, je l'achète.",
+     "reading": "rúguǒ piányi yìdiǎn, wǒ jiù mǎi."
+    },
+    {
+     "slot": {
+      "study": "有红色的",
+      "reading": "yǒu hóngsè de",
+      "phon": "yeou hong-seu deu",
+      "native": "vous l'avez en rouge"
+     },
+     "study": "如果有红色的，我就买。",
+     "phon": "jou-kouo yeou hong-seu deu, ouo tiou maï",
+     "native": "Si vous l'avez en rouge, je l'achète.",
+     "reading": "rúguǒ yǒu hóngsè de, wǒ jiù mǎi."
+    },
+    {
+     "slot": {
+      "study": "可以退货",
+      "reading": "kěyǐ tuìhuò",
+      "phon": "keu-i toueï-houo",
+      "native": "on peut le rendre"
+     },
+     "study": "如果可以退货，我就买。",
+     "phon": "jou-kouo keu-i toueï-houo, ouo tiou maï",
+     "native": "Si on peut le rendre, je l'achète.",
+     "reading": "rúguǒ kěyǐ tuìhuò, wǒ jiù mǎi."
+    },
+    {
+     "slot": {
+      "study": "送货上门",
+      "reading": "sònghuò shàngmén",
+      "phon": "song-houo chang-meun",
+      "native": "vous livrez à domicile"
+     },
+     "study": "如果送货上门，我就买。",
+     "phon": "jou-kouo song-houo chang-meun, ouo tiou maï",
+     "native": "Si vous livrez à domicile, je l'achète.",
+     "reading": "rúguǒ sònghuò shàngmén, wǒ jiù mǎi."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-zh-04",
+   "situation": "Condition : entraide",
+   "model": {
+    "study": "如果你{s}，我就帮你。",
+    "reading": "rúguǒ nǐ {s}, wǒ jiù bāng nǐ.",
+    "phon": "jou-kouo ni {s}, ouo tiou pang ni",
+    "native": "Si tu {s}, je t'aide."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "有问题",
+      "reading": "yǒu wèntí",
+      "phon": "yeou ouenn-ti",
+      "native": "as un problème"
+     },
+     "study": "如果你有问题，我就帮你。",
+     "phon": "jou-kouo ni yeou ouenn-ti, ouo tiou pang ni",
+     "native": "Si tu as un problème, je t'aide.",
+     "reading": "rúguǒ nǐ yǒu wèntí, wǒ jiù bāng nǐ."
+    },
+    {
+     "slot": {
+      "study": "来不及",
+      "reading": "láibují",
+      "phon": "laï-pou-ti",
+      "native": "n'as pas le temps"
+     },
+     "study": "如果你来不及，我就帮你。",
+     "phon": "jou-kouo ni laï-pou-ti, ouo tiou pang ni",
+     "native": "Si tu n'as pas le temps, je t'aide.",
+     "reading": "rúguǒ nǐ láibují, wǒ jiù bāng nǐ."
+    },
+    {
+     "slot": {
+      "study": "需要",
+      "reading": "xūyào",
+      "phon": "sü-yao",
+      "native": "en as besoin"
+     },
+     "study": "如果你需要，我就帮你。",
+     "phon": "jou-kouo ni sü-yao, ouo tiou pang ni",
+     "native": "Si tu en as besoin, je t'aide.",
+     "reading": "rúguǒ nǐ xūyào, wǒ jiù bāng nǐ."
+    },
+    {
+     "slot": {
+      "study": "明天还没做完",
+      "reading": "míngtiān hái méi zuò wán",
+      "phon": "ming-tièn haï meï tsouo ouan",
+      "native": "n'as pas fini demain"
+     },
+     "study": "如果你明天还没做完，我就帮你。",
+     "phon": "jou-kouo ni ming-tièn haï meï tsouo ouan, ouo tiou pang ni",
+     "native": "Si tu n'as pas fini demain, je t'aide.",
+     "reading": "rúguǒ nǐ míngtiān hái méi zuò wán, wǒ jiù bāng nǐ."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-zh-05",
+   "situation": "Possibilité",
+   "model": {
+    "study": "有没有可能{s}？",
+    "reading": "yǒu méiyǒu kěnéng {s}?",
+    "phon": "yeou meï-yeou keu-neng {s} ?",
+    "native": "Ce serait possible de {s} ?",
+    "note": "有没有 = question par alternative (« y a-t-il ou non ») ; 可能 = possibilité."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "改时间",
+      "reading": "gǎi shíjiān",
+      "phon": "kaï chr-tièn",
+      "native": "changer l'heure"
+     },
+     "study": "有没有可能改时间？",
+     "phon": "yeou meï-yeou keu-neng kaï chr-tièn ?",
+     "native": "Ce serait possible de changer l'heure ?",
+     "reading": "yǒu méiyǒu kěnéng gǎi shíjiān?"
+    },
+    {
+     "slot": {
+      "study": "打折",
+      "reading": "dǎzhé",
+      "phon": "ta-djeu",
+      "native": "avoir une réduction"
+     },
+     "study": "有没有可能打折？",
+     "phon": "yeou meï-yeou keu-neng ta-djeu ?",
+     "native": "Ce serait possible d'avoir une réduction ?",
+     "reading": "yǒu méiyǒu kěnéng dǎzhé?"
+    },
+    {
+     "slot": {
+      "study": "延期",
+      "reading": "yánqī",
+      "phon": "yèn-tchi",
+      "native": "reporter"
+     },
+     "study": "有没有可能延期？",
+     "phon": "yeou meï-yeou keu-neng yèn-tchi ?",
+     "native": "Ce serait possible de reporter ?",
+     "reading": "yǒu méiyǒu kěnéng yánqī?"
+    },
+    {
+     "slot": {
+      "study": "退款",
+      "reading": "tuìkuǎn",
+      "phon": "toueï-kouan",
+      "native": "être remboursé(e)"
+     },
+     "study": "有没有可能退款？",
+     "phon": "yeou meï-yeou keu-neng toueï-kouan ?",
+     "native": "Ce serait possible d'être remboursé(e) ?",
+     "reading": "yǒu méiyǒu kěnéng tuìkuǎn?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-zh-06",
+   "situation": "Accepter sous condition",
+   "model": {
+    "study": "好，但是要{s}才行。",
+    "reading": "hǎo, dànshì yào {s} cái xíng.",
+    "phon": "hao, tan-chr yao {s} tsaï sing",
+    "native": "D'accord, mais seulement si {s}.",
+    "note": "要… 才行 = « il faut… sinon ça ne marche pas » ; 才 insiste sur la condition indispensable."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "今天付钱",
+      "reading": "jīntiān fù qián",
+      "phon": "tinn-tièn fou tchyèn",
+      "native": "vous payez aujourd'hui"
+     },
+     "study": "好，但是要今天付钱才行。",
+     "phon": "hao, tan-chr yao tinn-tièn fou tchyèn tsaï sing",
+     "native": "D'accord, mais seulement si vous payez aujourd'hui.",
+     "reading": "hǎo, dànshì yào jīntiān fù qián cái xíng."
+    },
+    {
+     "slot": {
+      "study": "带身份证",
+      "reading": "dài shēnfènzhèng",
+      "phon": "taï cheun-feun-djeng",
+      "native": "vous apportez une pièce d'identité"
+     },
+     "study": "好，但是要带身份证才行。",
+     "phon": "hao, tan-chr yao taï cheun-feun-djeng tsaï sing",
+     "native": "D'accord, mais seulement si vous apportez une pièce d'identité.",
+     "reading": "hǎo, dànshì yào dài shēnfènzhèng cái xíng."
+    },
+    {
+     "slot": {
+      "study": "买两个",
+      "reading": "mǎi liǎng ge",
+      "phon": "maï liang keu",
+      "native": "vous en prenez deux"
+     },
+     "study": "好，但是要买两个才行。",
+     "phon": "hao, tan-chr yao maï liang keu tsaï sing",
+     "native": "D'accord, mais seulement si vous en prenez deux.",
+     "reading": "hǎo, dànshì yào mǎi liǎng ge cái xíng."
+    },
+    {
+     "slot": {
+      "study": "下午五点前来",
+      "reading": "xiàwǔ wǔ diǎn qián lái",
+      "phon": "sia-ou ou tièn tchyèn laï",
+      "native": "vous venez avant dix-sept heures"
+     },
+     "study": "好，但是要下午五点前来才行。",
+     "phon": "hao, tan-chr yao sia-ou ou tièn tchyèn laï tsaï sing",
+     "native": "D'accord, mais seulement si vous venez avant dix-sept heures.",
+     "reading": "hǎo, dànshì yào xiàwǔ wǔ diǎn qián lái cái xíng."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-zh-07",
+   "situation": "S'excuser et réparer",
+   "model": {
+    "study": "对不起，我马上{s}。",
+    "reading": "duìbuqǐ, wǒ mǎshàng {s}.",
+    "phon": "toueï-pou-tchi, ouo ma-chang {s}",
+    "native": "Désolé(e), je {s} tout de suite.",
+    "note": "马上 = tout de suite, immédiatement."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "改",
+      "reading": "gǎi",
+      "phon": "kaï",
+      "native": "corrige"
+     },
+     "study": "对不起，我马上改。",
+     "phon": "toueï-pou-tchi, ouo ma-chang kaï",
+     "native": "Désolé(e), je corrige tout de suite.",
+     "reading": "duìbuqǐ, wǒ mǎshàng gǎi."
+    },
+    {
+     "slot": {
+      "study": "给您换一个新的",
+      "reading": "gěi nín huàn yí ge xīn de",
+      "phon": "gueï ninn houan i keu sinn deu",
+      "native": "vous le change"
+     },
+     "study": "对不起，我马上给您换一个新的。",
+     "phon": "toueï-pou-tchi, ouo ma-chang gueï ninn houan i keu sinn deu",
+     "native": "Désolé(e), je vous le change tout de suite.",
+     "reading": "duìbuqǐ, wǒ mǎshàng gěi nín huàn yí ge xīn de."
+    },
+    {
+     "slot": {
+      "study": "发给您",
+      "reading": "fā gěi nín",
+      "phon": "fa gueï ninn",
+      "native": "vous l'envoie"
+     },
+     "study": "对不起，我马上发给您。",
+     "phon": "toueï-pou-tchi, ouo ma-chang fa gueï ninn",
+     "native": "Désolé(e), je vous l'envoie tout de suite.",
+     "reading": "duìbuqǐ, wǒ mǎshàng fā gěi nín."
+    },
+    {
+     "slot": {
+      "study": "处理",
+      "reading": "chǔlǐ",
+      "phon": "tchou-li",
+      "native": "m'en occupe"
+     },
+     "study": "对不起，我马上处理。",
+     "phon": "toueï-pou-tchi, ouo ma-chang tchou-li",
+     "native": "Désolé(e), je m'en occupe tout de suite.",
+     "reading": "duìbuqǐ, wǒ mǎshàng chǔlǐ."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-zh-08",
+   "situation": "Refuser avec une raison",
+   "model": {
+    "study": "不好意思，不行，因为{s}。",
+    "reading": "bù hǎoyìsi, bù xíng, yīnwèi {s}.",
+    "phon": "pou hao-i-seu, pou sing, yinn-oueï {s}",
+    "native": "Désolé(e), ce n'est pas possible, parce que {s}.",
+    "note": "不好意思 = formule d'excuse légère. 已经…了 : accompli (c'est déjà fait) ; 没有…了 : changement d'état (il n'y en a plus)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "已经打折了",
+      "reading": "yǐjīng dǎzhé le",
+      "phon": "i-ting ta-djeu leu",
+      "native": "c'est déjà en promotion"
+     },
+     "study": "不好意思，不行，因为已经打折了。",
+     "phon": "pou hao-i-seu, pou sing, yinn-oueï i-ting ta-djeu leu",
+     "native": "Désolé(e), ce n'est pas possible, parce que c'est déjà en promotion.",
+     "reading": "bù hǎoyìsi, bù xíng, yīnwèi yǐjīng dǎzhé le."
+    },
+    {
+     "slot": {
+      "study": "这是最后一个",
+      "reading": "zhè shì zuìhòu yí ge",
+      "phon": "djeu chr tsoueï-heou i keu",
+      "native": "c'est le dernier"
+     },
+     "study": "不好意思，不行，因为这是最后一个。",
+     "phon": "pou hao-i-seu, pou sing, yinn-oueï djeu chr tsoueï-heou i keu",
+     "native": "Désolé(e), ce n'est pas possible, parce que c'est le dernier.",
+     "reading": "bù hǎoyìsi, bù xíng, yīnwèi zhè shì zuìhòu yí ge."
+    },
+    {
+     "slot": {
+      "study": "我们六点关门",
+      "reading": "wǒmen liù diǎn guānmén",
+      "phon": "ouo-meun liou tièn kouan-meun",
+      "native": "nous fermons à six heures"
+     },
+     "study": "不好意思，不行，因为我们六点关门。",
+     "phon": "pou hao-i-seu, pou sing, yinn-oueï ouo-meun liou tièn kouan-meun",
+     "native": "Désolé(e), ce n'est pas possible, parce que nous fermons à six heures.",
+     "reading": "bù hǎoyìsi, bù xíng, yīnwèi wǒmen liù diǎn guānmén."
+    },
+    {
+     "slot": {
+      "study": "没有库存了",
+      "reading": "méiyǒu kùcún le",
+      "phon": "meï-yeou kou-tsouenn leu",
+      "native": "il n'y en a plus en stock"
+     },
+     "study": "不好意思，不行，因为没有库存了。",
+     "phon": "pou hao-i-seu, pou sing, yinn-oueï meï-yeou kou-tsouenn leu",
+     "native": "Désolé(e), ce n'est pas possible, parce qu'il n'y en a plus en stock.",
+     "reading": "bù hǎoyìsi, bù xíng, yīnwèi méiyǒu kùcún le."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-zh-09",
+   "situation": "Au moment de payer",
+   "model": {
+    "study": "可以{s}吗？",
+    "reading": "kěyǐ {s} ma?",
+    "phon": "keu-i {s} ma ?",
+    "native": "On peut {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "便宜点",
+      "reading": "piányi diǎn",
+      "phon": "pièn-i tièn",
+      "native": "faire un peu moins cher"
+     },
+     "study": "可以便宜点吗？",
+     "phon": "keu-i pièn-i tièn ma ?",
+     "native": "On peut faire un peu moins cher ?",
+     "reading": "kěyǐ piányi diǎn ma?"
+    },
+    {
+     "slot": {
+      "study": "刷卡",
+      "reading": "shuākǎ",
+      "phon": "choua-ka",
+      "native": "payer par carte"
+     },
+     "study": "可以刷卡吗？",
+     "phon": "keu-i choua-ka ma ?",
+     "native": "On peut payer par carte ?",
+     "reading": "kěyǐ shuākǎ ma?"
+    },
+    {
+     "slot": {
+      "study": "分期付款",
+      "reading": "fēnqī fùkuǎn",
+      "phon": "feun-tchi fou-kouan",
+      "native": "payer en plusieurs fois"
+     },
+     "study": "可以分期付款吗？",
+     "phon": "keu-i feun-tchi fou-kouan ma ?",
+     "native": "On peut payer en plusieurs fois ?",
+     "reading": "kěyǐ fēnqī fùkuǎn ma?"
+    },
+    {
+     "slot": {
+      "study": "送到家里",
+      "reading": "sòng dào jiālǐ",
+      "phon": "song tao tia-li",
+      "native": "livrer à domicile"
+     },
+     "study": "可以送到家里吗？",
+     "phon": "keu-i song tao tia-li ma ?",
+     "native": "On peut livrer à domicile ?",
+     "reading": "kěyǐ sòng dào jiālǐ ma?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-zh-10",
+   "situation": "Délai, voisins",
+   "model": {
+    "study": "能不能{s}？",
+    "reading": "néng bu néng {s}?",
+    "phon": "neng pou neng {s} ?",
+    "native": "Est-ce que vous pourriez {s} ?",
+    "note": "能不能 = forme interrogative par alternative, très courante ; un peu plus directe que 您能…吗."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "再给我几天",
+      "reading": "zài gěi wǒ jǐ tiān",
+      "phon": "dzaï gueï ouo ti tièn",
+      "native": "me donner quelques jours de plus"
+     },
+     "study": "能不能再给我几天？",
+     "phon": "neng pou neng dzaï gueï ouo ti tièn ?",
+     "native": "Est-ce que vous pourriez me donner quelques jours de plus ?",
+     "reading": "néng bu néng zài gěi wǒ jǐ tiān?"
+    },
+    {
+     "slot": {
+      "study": "等到下个星期",
+      "reading": "děng dào xià ge xīngqī",
+      "phon": "teng tao sia keu sing-tchi",
+      "native": "attendre jusqu'à la semaine prochaine"
+     },
+     "study": "能不能等到下个星期？",
+     "phon": "neng pou neng teng tao sia keu sing-tchi ?",
+     "native": "Est-ce que vous pourriez attendre jusqu'à la semaine prochaine ?",
+     "reading": "néng bu néng děng dào xià ge xīngqī?"
+    },
+    {
+     "slot": {
+      "study": "小声一点",
+      "reading": "xiǎo shēng yìdiǎn",
+      "phon": "siao cheng i-tièn",
+      "native": "faire un peu moins de bruit"
+     },
+     "study": "能不能小声一点？",
+     "phon": "neng pou neng siao cheng i-tièn ?",
+     "native": "Est-ce que vous pourriez faire un peu moins de bruit ?",
+     "reading": "néng bu néng xiǎo shēng yìdiǎn?"
+    },
+    {
+     "slot": {
+      "study": "修一下暖气",
+      "reading": "xiū yíxià nuǎnqì",
+      "phon": "siou i-sia nouan-tchi",
+      "native": "réparer le chauffage"
+     },
+     "study": "能不能修一下暖气？",
+     "phon": "neng pou neng siou i-sia nouan-tchi ?",
+     "native": "Est-ce que vous pourriez réparer le chauffage ?",
+     "reading": "néng bu néng xiū yíxià nuǎnqì?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-zh-11",
+   "situation": "Signaler une panne au propriétaire",
+   "model": {
+    "study": "{s}坏了，您能来看一下吗？",
+    "reading": "{s} huài le, nín néng lái kàn yíxià ma?",
+    "phon": "{s} houaï leu, ninn neng laï kan i-sia ma ?",
+    "native": "{s} ne marche plus, pourriez-vous venir voir ?",
+    "note": "坏了 : 了 marque le changement d'état (c'est devenu cassé, ça ne marche plus)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "暖气",
+      "reading": "nuǎnqì",
+      "phon": "nouan-tchi",
+      "native": "Le chauffage"
+     },
+     "study": "暖气坏了，您能来看一下吗？",
+     "phon": "nouan-tchi houaï leu, ninn neng laï kan i-sia ma ?",
+     "native": "Le chauffage ne marche plus, pourriez-vous venir voir ?",
+     "reading": "nuǎnqì huài le, nín néng lái kàn yíxià ma?"
+    },
+    {
+     "slot": {
+      "study": "热水器",
+      "reading": "rèshuǐqì",
+      "phon": "jeu-chouèï-tchi",
+      "native": "Le chauffe-eau"
+     },
+     "study": "热水器坏了，您能来看一下吗？",
+     "phon": "jeu-chouèï-tchi houaï leu, ninn neng laï kan i-sia ma ?",
+     "native": "Le chauffe-eau ne marche plus, pourriez-vous venir voir ?",
+     "reading": "rèshuǐqì huài le, nín néng lái kàn yíxià ma?"
+    },
+    {
+     "slot": {
+      "study": "门锁",
+      "reading": "ménsuǒ",
+      "phon": "meun-souo",
+      "native": "La serrure"
+     },
+     "study": "门锁坏了，您能来看一下吗？",
+     "phon": "meun-souo houaï leu, ninn neng laï kan i-sia ma ?",
+     "native": "La serrure ne marche plus, pourriez-vous venir voir ?",
+     "reading": "ménsuǒ huài le, nín néng lái kàn yíxià ma?"
+    },
+    {
+     "slot": {
+      "study": "洗衣机",
+      "reading": "xǐyījī",
+      "phon": "si-i-ti",
+      "native": "La machine à laver"
+     },
+     "study": "洗衣机坏了，您能来看一下吗？",
+     "phon": "si-i-ti houaï leu, ninn neng laï kan i-sia ma ?",
+     "native": "La machine à laver ne marche plus, pourriez-vous venir voir ?",
+     "reading": "xǐyījī huài le, nín néng lái kàn yíxià ma?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L8-fr-zh-d1",
+   "situation": "Marchander au marché",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "老板，这个多少钱？",
+     "reading": "lǎobǎn, zhège duōshao qián?",
+     "phon": "lao-pan, djeu-keu douo-chao tchyèn ?",
+     "native": "Patron, c'est combien, ça ?"
+    },
+    {
+     "speaker": "B",
+     "study": "两百块。",
+     "reading": "liǎng bǎi kuài.",
+     "phon": "liang paï kouaï",
+     "native": "Deux cents yuans."
+    },
+    {
+     "speaker": "A",
+     "study": "太贵了。能便宜一点吗？",
+     "reading": "tài guì le. néng piányi yìdiǎn ma?",
+     "phon": "taï koueï leu. neng pièn-i i-tièn ma ?",
+     "native": "C'est trop cher. Vous pouvez baisser un peu ?"
+    },
+    {
+     "speaker": "B",
+     "study": "不好意思，已经很便宜了。",
+     "reading": "bù hǎoyìsi, yǐjīng hěn piányi le.",
+     "phon": "pou hao-i-seu, i-ting heun pièn-i leu",
+     "native": "Désolé, c'est déjà très peu cher."
+    },
+    {
+     "speaker": "A",
+     "study": "如果我买两个，您能打折吗？",
+     "reading": "rúguǒ wǒ mǎi liǎng ge, nín néng dǎzhé ma?",
+     "phon": "jou-kouo ouo maï liang keu, ninn neng ta-djeu ma ?",
+     "native": "Si j'en prends deux, vous pouvez faire une réduction ?"
+    },
+    {
+     "speaker": "B",
+     "study": "好，两个三百五，但是要付现金才行。",
+     "reading": "hǎo, liǎng ge sānbǎi wǔ, dànshì yào fù xiànjīn cái xíng.",
+     "phon": "hao, liang keu san-paï ou, tan-chr yao fou sièn-tinn tsaï sing",
+     "native": "D'accord, trois cent cinquante les deux, mais seulement en espèces."
+    },
+    {
+     "speaker": "A",
+     "study": "可以刷卡吗？",
+     "reading": "kěyǐ shuākǎ ma?",
+     "phon": "keu-i choua-ka ma ?",
+     "native": "On peut payer par carte ?"
+    },
+    {
+     "speaker": "B",
+     "study": "不行，不过可以用手机付。",
+     "reading": "bù xíng, búguò kěyǐ yòng shǒujī fù.",
+     "phon": "pou sing, pou-kouo keu-i yong cheou-ti fou",
+     "native": "Non, mais vous pouvez payer avec le téléphone."
+    },
+    {
+     "speaker": "A",
+     "study": "好，那就这样，说定了。",
+     "reading": "hǎo, nà jiù zhèyàng, shuō dìng le.",
+     "phon": "hao, na tiou djeu-yang, chouo ting leu",
+     "native": "Bon, alors on fait comme ça, c'est décidé."
+    },
+    {
+     "speaker": "B",
+     "study": "谢谢！",
+     "reading": "xièxie!",
+     "phon": "sié-sié !",
+     "native": "Merci !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-zh-10",
+    "L6-fr-zh-08",
+    "L8-fr-zh-01",
+    "L8-fr-zh-09"
+   ],
+   "roles": {
+    "A": "Client",
+    "B": "Vendeur"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L8-fr-zh-d2",
+   "situation": "Avec le propriétaire",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "您好，王先生，我是三楼的玛丽。",
+     "reading": "nín hǎo, Wáng xiānsheng, wǒ shì sān lóu de Mǎlì.",
+     "phon": "ninn hao, ouang sièn-cheng, ouo chr san leou deu ma-li",
+     "native": "Bonjour, Monsieur Wang, c'est Marie, du deuxième étage."
+    },
+    {
+     "speaker": "B",
+     "study": "你好，有什么事吗？",
+     "reading": "nǐ hǎo, yǒu shénme shì ma?",
+     "phon": "ni hao, yeou cheun-meu chr ma ?",
+     "native": "Bonjour, qu'est-ce qui se passe ?"
+    },
+    {
+     "speaker": "A",
+     "study": "暖气坏了，您能来看一下吗？",
+     "reading": "nuǎnqì huài le, nín néng lái kàn yíxià ma?",
+     "phon": "nouan-tchi houaï leu, ninn neng laï kan i-sia ma ?",
+     "native": "Le chauffage ne marche plus, pourriez-vous venir voir ?"
+    },
+    {
+     "speaker": "B",
+     "study": "对不起，我今天不在。明天上午可以吗？",
+     "reading": "duìbuqǐ, wǒ jīntiān bú zài. míngtiān shàngwǔ kěyǐ ma?",
+     "phon": "toueï-pou-tchi, ouo tinn-tièn pou dzaï. ming-tièn chang-ou keu-i ma ?",
+     "native": "Désolé, je ne suis pas là aujourd'hui. Demain matin, ça irait ?"
+    },
+    {
+     "speaker": "A",
+     "study": "可以。还有，这个月的房租我可以晚几天付吗？",
+     "reading": "kěyǐ. hái yǒu, zhège yuè de fángzū wǒ kěyǐ wǎn jǐ tiān fù ma?",
+     "phon": "keu-i. haï yeou, djeu-keu yué deu fang-tsou ouo keu-i ouan ti tièn fou ma ?",
+     "native": "Oui. Et aussi, est-ce que je pourrais payer le loyer de ce mois quelques jours plus tard ?"
+    },
+    {
+     "speaker": "B",
+     "study": "为什么？",
+     "reading": "wèishénme?",
+     "phon": "oueï-cheun-meu ?",
+     "native": "Pourquoi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "因为工资下个星期才到。",
+     "reading": "yīnwèi gōngzī xià ge xīngqī cái dào.",
+     "phon": "yinn-oueï kong-tseu sia keu sing-tchi tsaï tao",
+     "native": "Parce que mon salaire n'arrive que la semaine prochaine."
+    },
+    {
+     "speaker": "B",
+     "study": "好，但是要在十号前付才行。",
+     "reading": "hǎo, dànshì yào zài shí hào qián fù cái xíng.",
+     "phon": "hao, tan-chr yao dzaï chr hao tchyèn fou tsaï sing",
+     "native": "D'accord, mais seulement si vous payez avant le dix."
+    },
+    {
+     "speaker": "A",
+     "study": "没问题。如果工资到了，我就马上转给您。",
+     "reading": "méi wèntí. rúguǒ gōngzī dào le, wǒ jiù mǎshàng zhuǎn gěi nín.",
+     "phon": "meï ouenn-ti. jou-kouo kong-tseu tao leu, ouo tiou ma-chang djouan gueï ninn",
+     "native": "Pas de problème. Dès que le salaire arrive, je vous fais le virement tout de suite."
+    },
+    {
+     "speaker": "B",
+     "study": "好，明天见。",
+     "reading": "hǎo, míngtiān jiàn.",
+     "phon": "hao, ming-tièn tièn",
+     "native": "Bien, à demain."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-zh-01",
+    "L3-fr-zh-02",
+    "L8-fr-zh-01",
+    "L8-fr-zh-02",
+    "L8-fr-zh-06",
+    "L8-fr-zh-09",
+    "L8-fr-zh-11"
+   ],
+   "roles": {
+    "A": "Locataire",
+    "B": "Propriétaire"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L8-fr-zh-d3",
+   "situation": "Demander un délai au travail",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "李经理，我可以跟您说一下吗？",
+     "reading": "Lǐ jīnglǐ, wǒ kěyǐ gēn nín shuō yíxià ma?",
+     "phon": "li ting-li, ouo keu-i keun ninn chouo i-sia ma ?",
+     "native": "Madame Li, je peux vous parler un instant ?"
+    },
+    {
+     "speaker": "B",
+     "study": "可以，什么事？",
+     "reading": "kěyǐ, shénme shì?",
+     "phon": "keu-i, cheun-meu chr ?",
+     "native": "Oui, de quoi s'agit-il ?"
+    },
+    {
+     "speaker": "A",
+     "study": "报告明天交，有没有可能延期两天？",
+     "reading": "bàogào míngtiān jiāo, yǒu méiyǒu kěnéng yánqī liǎng tiān?",
+     "phon": "pao-kao ming-tièn tiao, yeou meï-yeou keu-neng yèn-tchi liang tièn ?",
+     "native": "Le rapport est à rendre demain, ce serait possible de le reporter de deux jours ?"
+    },
+    {
+     "speaker": "B",
+     "study": "为什么来不及？",
+     "reading": "wèishénme láibují?",
+     "phon": "oueï-cheun-meu laï-pou-ti ?",
+     "native": "Pourquoi tu n'as pas le temps ?"
+    },
+    {
+     "speaker": "A",
+     "study": "因为客户昨天才给我数据。",
+     "reading": "yīnwèi kèhù zuótiān cái gěi wǒ shùjù.",
+     "phon": "yinn-oueï keu-hou tsouo-tièn tsaï gueï ouo chou-tsü",
+     "native": "Parce que le client ne m'a donné les données qu'hier."
+    },
+    {
+     "speaker": "B",
+     "study": "好，但是要星期四上午交才行。",
+     "reading": "hǎo, dànshì yào xīngqīsì shàngwǔ jiāo cái xíng.",
+     "phon": "hao, tan-chr yao sing-tchi-seu chang-ou tiao tsaï sing",
+     "native": "D'accord, mais seulement si tu le rends jeudi matin."
+    },
+    {
+     "speaker": "A",
+     "study": "没问题。如果有问题，我马上告诉您。",
+     "reading": "méi wèntí. rúguǒ yǒu wèntí, wǒ mǎshàng gàosu nín.",
+     "phon": "meï ouenn-ti. jou-kouo yeou ouenn-ti, ouo ma-chang kao-sou ninn",
+     "native": "Pas de problème. S'il y a un souci, je vous le dis tout de suite."
+    },
+    {
+     "speaker": "B",
+     "study": "好的，谢谢。",
+     "reading": "hǎo de, xièxie.",
+     "phon": "hao deu, sié-sié",
+     "native": "Très bien, merci."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L3-fr-zh-02",
+    "L8-fr-zh-02",
+    "L8-fr-zh-05",
+    "L8-fr-zh-06",
+    "L8-fr-zh-09"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Responsable"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "L'apprenant sait formuler une demande polie (您能…吗, 我可以…吗, 能不能, 有没有可能), poser une condition (如果… 就…), accepter sous condition (要… 才行), refuser en expliquant (不好意思，不行，因为…), s'excuser et proposer une réparation (对不起，我马上…), et négocier un prix ou un délai."
+}

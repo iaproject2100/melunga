@@ -1,0 +1,1019 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "zh",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en chinois",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle",
+  "reading": "pinyin avec tons"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (style du deck : ouo = 我, chr = 是, dzaï = 在). Les tons ne sont pas notés dans l'approximation : se reporter au pinyin (champ reading) et à l'audio. Mandarin standard, caractères simplifiés.",
+ "reviewStatus": "Relecture linguistique requise (tons, naturel des tournures).",
+ "coverageClaim": null,
+ "level": 2,
+ "title": "Préciser",
+ "goal": "Préciser une quantité, une préférence, un lieu ou un moment.",
+ "reviewPreviousLevels": [
+  1
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L2-fr-zh-01",
+   "situation": "Au café",
+   "model": {
+    "study": "我想要{s}。",
+    "reading": "wǒ xiǎng yào {s}.",
+    "phon": "ouo siang yao {s}",
+    "native": "Je voudrais {s}.",
+    "note": "Classificateurs : on compte toujours avec un mot de mesure entre le nombre et le nom — 杯 (tasses, verres), 个 (passe-partout), 张 (objets plats : billets, tables), 瓶 (bouteilles). 两 remplace 二 devant un classificateur."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "两杯咖啡",
+      "reading": "liǎng bēi kāfēi",
+      "phon": "liang peï ka-feï",
+      "native": "deux cafés"
+     },
+     "study": "我想要两杯咖啡。",
+     "phon": "ouo siang yao liang peï ka-feï",
+     "native": "Je voudrais deux cafés.",
+     "reading": "wǒ xiǎng yào liǎng bēi kāfēi."
+    },
+    {
+     "slot": {
+      "study": "一点水",
+      "reading": "yìdiǎn shuǐ",
+      "phon": "i-tièn chouèï",
+      "native": "un peu d'eau"
+     },
+     "study": "我想要一点水。",
+     "phon": "ouo siang yao i-tièn chouèï",
+     "native": "Je voudrais un peu d'eau.",
+     "reading": "wǒ xiǎng yào yìdiǎn shuǐ."
+    },
+    {
+     "slot": {
+      "study": "三个包子",
+      "reading": "sān ge bāozi",
+      "phon": "san keu pao-tseu",
+      "native": "trois brioches à la vapeur"
+     },
+     "study": "我想要三个包子。",
+     "phon": "ouo siang yao san keu pao-tseu",
+     "native": "Je voudrais trois brioches à la vapeur.",
+     "reading": "wǒ xiǎng yào sān ge bāozi."
+    },
+    {
+     "slot": {
+      "study": "一杯热茶",
+      "reading": "yì bēi rè chá",
+      "phon": "i peï jeu tcha",
+      "native": "un thé chaud"
+     },
+     "study": "我想要一杯热茶。",
+     "phon": "ouo siang yao i peï jeu tcha",
+     "native": "Je voudrais un thé chaud.",
+     "reading": "wǒ xiǎng yào yì bēi rè chá."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-zh-02",
+   "situation": "Au magasin",
+   "model": {
+    "study": "我要{s}。",
+    "reading": "wǒ yào {s}.",
+    "phon": "ouo yao {s}",
+    "native": "Je prends {s}.",
+    "note": "Même mécanique : nombre + classificateur + nom. 斤 est une unité de poids courante au marché (500 g)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "两张票",
+      "reading": "liǎng zhāng piào",
+      "phon": "liang djang piao",
+      "native": "deux billets"
+     },
+     "study": "我要两张票。",
+     "phon": "ouo yao liang djang piao",
+     "native": "Je prends deux billets.",
+     "reading": "wǒ yào liǎng zhāng piào."
+    },
+    {
+     "slot": {
+      "study": "一个面包",
+      "reading": "yí ge miànbāo",
+      "phon": "i keu mièn-pao",
+      "native": "un pain"
+     },
+     "study": "我要一个面包。",
+     "phon": "ouo yao i keu mièn-pao",
+     "native": "Je prends un pain.",
+     "reading": "wǒ yào yí ge miànbāo."
+    },
+    {
+     "slot": {
+      "study": "三瓶水",
+      "reading": "sān píng shuǐ",
+      "phon": "san ping chouèï",
+      "native": "trois bouteilles d'eau"
+     },
+     "study": "我要三瓶水。",
+     "phon": "ouo yao san ping chouèï",
+     "native": "Je prends trois bouteilles d'eau.",
+     "reading": "wǒ yào sān píng shuǐ."
+    },
+    {
+     "slot": {
+      "study": "一斤苹果",
+      "reading": "yì jīn píngguǒ",
+      "phon": "i tinn ping-kouo",
+      "native": "une livre de pommes"
+     },
+     "study": "我要一斤苹果。",
+     "phon": "ouo yao i tinn ping-kouo",
+     "native": "Je prends une livre de pommes.",
+     "reading": "wǒ yào yì jīn píngguǒ."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-zh-03",
+   "situation": "Se repérer",
+   "model": {
+    "study": "洗手间在{s}。",
+    "reading": "xǐshǒujiān zài {s}.",
+    "phon": "si-chou-tièn dzaï {s}",
+    "native": "Les toilettes sont {s}.",
+    "note": "在 + lieu : « se trouver à ». 二楼 (deuxième étage à la chinoise) correspond au premier étage français."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "这里",
+      "reading": "zhèlǐ",
+      "phon": "djeu-li",
+      "native": "ici"
+     },
+     "study": "洗手间在这里。",
+     "phon": "si-chou-tièn dzaï djeu-li",
+     "native": "Les toilettes sont ici.",
+     "reading": "xǐshǒujiān zài zhèlǐ."
+    },
+    {
+     "slot": {
+      "study": "那里",
+      "reading": "nàlǐ",
+      "phon": "na-li",
+      "native": "là-bas"
+     },
+     "study": "洗手间在那里。",
+     "phon": "si-chou-tièn dzaï na-li",
+     "native": "Les toilettes sont là-bas.",
+     "reading": "xǐshǒujiān zài nàlǐ."
+    },
+    {
+     "slot": {
+      "study": "左边",
+      "reading": "zuǒbian",
+      "phon": "tsouo-pièn",
+      "native": "à gauche"
+     },
+     "study": "洗手间在左边。",
+     "phon": "si-chou-tièn dzaï tsouo-pièn",
+     "native": "Les toilettes sont à gauche.",
+     "reading": "xǐshǒujiān zài zuǒbian."
+    },
+    {
+     "slot": {
+      "study": "二楼",
+      "reading": "èr lóu",
+      "phon": "eur leou",
+      "native": "au premier étage"
+     },
+     "study": "洗手间在二楼。",
+     "phon": "si-chou-tièn dzaï eur leou",
+     "native": "Les toilettes sont au premier étage.",
+     "reading": "xǐshǒujiān zài èr lóu."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-zh-04",
+   "situation": "Dire où l'on est",
+   "model": {
+    "study": "我在{s}。",
+    "reading": "wǒ zài {s}.",
+    "phon": "ouo dzaï {s}",
+    "native": "Je suis {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "车站附近",
+      "reading": "chēzhàn fùjìn",
+      "phon": "tcheu-djan fou-tinn",
+      "native": "près de la gare"
+     },
+     "study": "我在车站附近。",
+     "phon": "ouo dzaï tcheu-djan fou-tinn",
+     "native": "Je suis près de la gare.",
+     "reading": "wǒ zài chēzhàn fùjìn."
+    },
+    {
+     "slot": {
+      "study": "酒店",
+      "reading": "jiǔdiàn",
+      "phon": "tiou-tièn",
+      "native": "à l'hôtel"
+     },
+     "study": "我在酒店。",
+     "phon": "ouo dzaï tiou-tièn",
+     "native": "Je suis à l'hôtel.",
+     "reading": "wǒ zài jiǔdiàn."
+    },
+    {
+     "slot": {
+      "study": "家",
+      "reading": "jiā",
+      "phon": "tia",
+      "native": "à la maison"
+     },
+     "study": "我在家。",
+     "phon": "ouo dzaï tia",
+     "native": "Je suis à la maison.",
+     "reading": "wǒ zài jiā."
+    },
+    {
+     "slot": {
+      "study": "公司",
+      "reading": "gōngsī",
+      "phon": "kong-seu",
+      "native": "au bureau"
+     },
+     "study": "我在公司。",
+     "phon": "ouo dzaï kong-seu",
+     "native": "Je suis au bureau.",
+     "reading": "wǒ zài gōngsī."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-zh-05",
+   "situation": "Fixer un moment",
+   "model": {
+    "study": "我们{s}见。",
+    "reading": "wǒmen {s} jiàn.",
+    "phon": "ouo-meun {s} tièn",
+    "native": "On se voit {s}.",
+    "note": "Le repère de temps se place avant le verbe. 点 = heure (八点 = 8 h), 半 = et demie."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "八点",
+      "reading": "bā diǎn",
+      "phon": "pa tièn",
+      "native": "à huit heures"
+     },
+     "study": "我们八点见。",
+     "phon": "ouo-meun pa tièn tièn",
+     "native": "On se voit à huit heures.",
+     "reading": "wǒmen bā diǎn jiàn."
+    },
+    {
+     "slot": {
+      "study": "今晚",
+      "reading": "jīnwǎn",
+      "phon": "tinn-ouan",
+      "native": "ce soir"
+     },
+     "study": "我们今晚见。",
+     "phon": "ouo-meun tinn-ouan tièn",
+     "native": "On se voit ce soir.",
+     "reading": "wǒmen jīnwǎn jiàn."
+    },
+    {
+     "slot": {
+      "study": "明天",
+      "reading": "míngtiān",
+      "phon": "ming-tièn",
+      "native": "demain"
+     },
+     "study": "我们明天见。",
+     "phon": "ouo-meun ming-tièn tièn",
+     "native": "On se voit demain.",
+     "reading": "wǒmen míngtiān jiàn."
+    },
+    {
+     "slot": {
+      "study": "下午三点",
+      "reading": "xiàwǔ sān diǎn",
+      "phon": "sia-ou san tièn",
+      "native": "à trois heures de l'après-midi"
+     },
+     "study": "我们下午三点见。",
+     "phon": "ouo-meun sia-ou san tièn tièn",
+     "native": "On se voit à trois heures de l'après-midi.",
+     "reading": "wǒmen xiàwǔ sān diǎn jiàn."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-zh-06",
+   "situation": "Horaires",
+   "model": {
+    "study": "火车{s}出发。",
+    "reading": "huǒchē {s} chūfā.",
+    "phon": "houo-tcheu {s} tchou-fa",
+    "native": "Le train part {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "九点",
+      "reading": "jiǔ diǎn",
+      "phon": "tiou tièn",
+      "native": "à neuf heures"
+     },
+     "study": "火车九点出发。",
+     "phon": "houo-tcheu tiou tièn tchou-fa",
+     "native": "Le train part à neuf heures.",
+     "reading": "huǒchē jiǔ diǎn chūfā."
+    },
+    {
+     "slot": {
+      "study": "明天早上",
+      "reading": "míngtiān zǎoshang",
+      "phon": "ming-tièn tsao-chang",
+      "native": "demain matin"
+     },
+     "study": "火车明天早上出发。",
+     "phon": "houo-tcheu ming-tièn tsao-chang tchou-fa",
+     "native": "Le train part demain matin.",
+     "reading": "huǒchē míngtiān zǎoshang chūfā."
+    },
+    {
+     "slot": {
+      "study": "十点半",
+      "reading": "shí diǎn bàn",
+      "phon": "chr tièn pan",
+      "native": "à dix heures et demie"
+     },
+     "study": "火车十点半出发。",
+     "phon": "houo-tcheu chr tièn pan tchou-fa",
+     "native": "Le train part à dix heures et demie.",
+     "reading": "huǒchē shí diǎn bàn chūfā."
+    },
+    {
+     "slot": {
+      "study": "现在",
+      "reading": "xiànzài",
+      "phon": "sièn-dzaï",
+      "native": "maintenant"
+     },
+     "study": "火车现在出发。",
+     "phon": "houo-tcheu sièn-dzaï tchou-fa",
+     "native": "Le train part maintenant.",
+     "reading": "huǒchē xiànzài chūfā."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-zh-07",
+   "situation": "Préférer",
+   "model": {
+    "study": "我更喜欢{s}。",
+    "reading": "wǒ gèng xǐhuan {s}.",
+    "phon": "ouo keng si-houan {s}",
+    "native": "Je préfère {s}.",
+    "note": "更 (« davantage ») devant le verbe suffit à dire « préférer »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "茶",
+      "reading": "chá",
+      "phon": "tcha",
+      "native": "le thé"
+     },
+     "study": "我更喜欢茶。",
+     "phon": "ouo keng si-houan tcha",
+     "native": "Je préfère le thé.",
+     "reading": "wǒ gèng xǐhuan chá."
+    },
+    {
+     "slot": {
+      "study": "这个",
+      "reading": "zhège",
+      "phon": "djeu-keu",
+      "native": "celui-ci"
+     },
+     "study": "我更喜欢这个。",
+     "phon": "ouo keng si-houan djeu-keu",
+     "native": "Je préfère celui-ci.",
+     "reading": "wǒ gèng xǐhuan zhège."
+    },
+    {
+     "slot": {
+      "study": "靠窗的座位",
+      "reading": "kào chuāng de zuòwèi",
+      "phon": "kao tchouang deu tsouo-oueï",
+      "native": "la place côté fenêtre"
+     },
+     "study": "我更喜欢靠窗的座位。",
+     "phon": "ouo keng si-houan kao tchouang deu tsouo-oueï",
+     "native": "Je préfère la place côté fenêtre.",
+     "reading": "wǒ gèng xǐhuan kào chuāng de zuòwèi."
+    },
+    {
+     "slot": {
+      "study": "坐地铁",
+      "reading": "zuò dìtiě",
+      "phon": "tsouo ti-tié",
+      "native": "prendre le métro"
+     },
+     "study": "我更喜欢坐地铁。",
+     "phon": "ouo keng si-houan tsouo ti-tié",
+     "native": "Je préfère prendre le métro.",
+     "reading": "wǒ gèng xǐhuan zuò dìtiě."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-zh-08",
+   "situation": "Demander une précision",
+   "model": {
+    "study": "{s}",
+    "reading": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Questions courtes à connaître telles quelles. Le mot interrogatif reste à la place du mot qu'il remplace (pas d'inversion)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "哪个？",
+      "reading": "nǎge?",
+      "phon": "na-keu ?",
+      "native": "Lequel ?"
+     },
+     "study": "哪个？",
+     "phon": "na-keu ?",
+     "native": "Lequel ?",
+     "reading": "nǎge?"
+    },
+    {
+     "slot": {
+      "study": "什么时候？",
+      "reading": "shénme shíhou?",
+      "phon": "cheun-meu chr-heou ?",
+      "native": "Quand ?"
+     },
+     "study": "什么时候？",
+     "phon": "cheun-meu chr-heou ?",
+     "native": "Quand ?",
+     "reading": "shénme shíhou?"
+    },
+    {
+     "slot": {
+      "study": "在哪里？",
+      "reading": "zài nǎlǐ?",
+      "phon": "dzaï na-li ?",
+      "native": "Où ?"
+     },
+     "study": "在哪里？",
+     "phon": "dzaï na-li ?",
+     "native": "Où ?",
+     "reading": "zài nǎlǐ?"
+    },
+    {
+     "slot": {
+      "study": "几点？",
+      "reading": "jǐ diǎn?",
+      "phon": "ti tièn ?",
+      "native": "À quelle heure ?"
+     },
+     "study": "几点？",
+     "phon": "ti tièn ?",
+     "native": "À quelle heure ?",
+     "reading": "jǐ diǎn?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-zh-09",
+   "situation": "Il y a ?",
+   "model": {
+    "study": "有{s}吗？",
+    "reading": "yǒu {s} ma?",
+    "phon": "yeou {s} ma ?",
+    "native": "Il y a {s} ?",
+    "note": "有 = « il y a / avoir ». Réponse par le verbe : 有 (oui) / 没有 (non)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "位子",
+      "reading": "wèizi",
+      "phon": "oueï-tseu",
+      "native": "de la place"
+     },
+     "study": "有位子吗？",
+     "phon": "yeou oueï-tseu ma ?",
+     "native": "Il y a de la place ?",
+     "reading": "yǒu wèizi ma?"
+    },
+    {
+     "slot": {
+      "study": "菜单",
+      "reading": "càidān",
+      "phon": "tsaï-tan",
+      "native": "une carte"
+     },
+     "study": "有菜单吗？",
+     "phon": "yeou tsaï-tan ma ?",
+     "native": "Il y a une carte ?",
+     "reading": "yǒu càidān ma?"
+    },
+    {
+     "slot": {
+      "study": "无线网",
+      "reading": "wúxiànwǎng",
+      "phon": "ou-sièn-ouang",
+      "native": "la wifi"
+     },
+     "study": "有无线网吗？",
+     "phon": "yeou ou-sièn-ouang ma ?",
+     "native": "Il y a la wifi ?",
+     "reading": "yǒu wúxiànwǎng ma?"
+    },
+    {
+     "slot": {
+      "study": "更大的",
+      "reading": "gèng dà de",
+      "phon": "keng ta deu",
+      "native": "plus grand"
+     },
+     "study": "有更大的吗？",
+     "phon": "yeou keng ta deu ma ?",
+     "native": "Il y a plus grand ?",
+     "reading": "yǒu gèng dà de ma?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-zh-10",
+   "situation": "Quantité",
+   "model": {
+    "study": "请给我{s}。",
+    "reading": "qǐng gěi wǒ {s}.",
+    "phon": "tching gueï ouo {s}",
+    "native": "{s}, s'il vous plaît.",
+    "note": "一点 = un peu ; 多一点 = un peu plus ; 很多 = beaucoup."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "一点糖",
+      "reading": "yìdiǎn táng",
+      "phon": "i-tièn tang",
+      "native": "un peu de sucre"
+     },
+     "study": "请给我一点糖。",
+     "phon": "tching gueï ouo i-tièn tang",
+     "native": "Un peu de sucre, s'il vous plaît.",
+     "reading": "qǐng gěi wǒ yìdiǎn táng."
+    },
+    {
+     "slot": {
+      "study": "多一点冰",
+      "reading": "duō yìdiǎn bīng",
+      "phon": "douo i-tièn ping",
+      "native": "un peu plus de glace"
+     },
+     "study": "请给我多一点冰。",
+     "phon": "tching gueï ouo douo i-tièn ping",
+     "native": "Un peu plus de glace, s'il vous plaît.",
+     "reading": "qǐng gěi wǒ duō yìdiǎn bīng."
+    },
+    {
+     "slot": {
+      "study": "两个",
+      "reading": "liǎng ge",
+      "phon": "liang keu",
+      "native": "deux"
+     },
+     "study": "请给我两个。",
+     "phon": "tching gueï ouo liang keu",
+     "native": "Donnez-m'en deux, s'il vous plaît.",
+     "reading": "qǐng gěi wǒ liǎng ge."
+    },
+    {
+     "slot": {
+      "study": "一瓶啤酒",
+      "reading": "yì píng píjiǔ",
+      "phon": "i ping pi-tiou",
+      "native": "une bière"
+     },
+     "study": "请给我一瓶啤酒。",
+     "phon": "tching gueï ouo i ping pi-tiou",
+     "native": "Une bière, s'il vous plaît.",
+     "reading": "qǐng gěi wǒ yì píng píjiǔ."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L2-fr-zh-11",
+   "situation": "Lieu de rendez-vous",
+   "model": {
+    "study": "我们在{s}见。",
+    "reading": "wǒmen zài {s} jiàn.",
+    "phon": "ouo-meun dzaï {s} tièn",
+    "native": "On se retrouve {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "车站前面",
+      "reading": "chēzhàn qiánmiàn",
+      "phon": "tcheu-djan tchyèn-mièn",
+      "native": "devant la gare"
+     },
+     "study": "我们在车站前面见。",
+     "phon": "ouo-meun dzaï tcheu-djan tchyèn-mièn tièn",
+     "native": "On se retrouve devant la gare.",
+     "reading": "wǒmen zài chēzhàn qiánmiàn jiàn."
+    },
+    {
+     "slot": {
+      "study": "咖啡馆",
+      "reading": "kāfēiguǎn",
+      "phon": "ka-feï-kouan",
+      "native": "au café"
+     },
+     "study": "我们在咖啡馆见。",
+     "phon": "ouo-meun dzaï ka-feï-kouan tièn",
+     "native": "On se retrouve au café.",
+     "reading": "wǒmen zài kāfēiguǎn jiàn."
+    },
+    {
+     "slot": {
+      "study": "酒店门口",
+      "reading": "jiǔdiàn ménkǒu",
+      "phon": "tiou-tièn meun-kou",
+      "native": "à l'entrée de l'hôtel"
+     },
+     "study": "我们在酒店门口见。",
+     "phon": "ouo-meun dzaï tiou-tièn meun-kou tièn",
+     "native": "On se retrouve à l'entrée de l'hôtel.",
+     "reading": "wǒmen zài jiǔdiàn ménkǒu jiàn."
+    },
+    {
+     "slot": {
+      "study": "地铁站",
+      "reading": "dìtiězhàn",
+      "phon": "ti-tié-djan",
+      "native": "à la station de métro"
+     },
+     "study": "我们在地铁站见。",
+     "phon": "ouo-meun dzaï ti-tié-djan tièn",
+     "native": "On se retrouve à la station de métro.",
+     "reading": "wǒmen zài dìtiězhàn jiàn."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L2-fr-zh-d1",
+   "situation": "Au restaurant",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "你好，有位子吗？",
+     "reading": "nǐ hǎo, yǒu wèizi ma?",
+     "phon": "ni hao, yeou oueï-tseu ma ?",
+     "native": "Bonjour, vous avez de la place ?"
+    },
+    {
+     "speaker": "B",
+     "study": "有。几位？",
+     "reading": "yǒu. jǐ wèi?",
+     "phon": "yeou. ti oueï ?",
+     "native": "Oui. Combien de personnes ?"
+    },
+    {
+     "speaker": "A",
+     "study": "两位。我们想要靠窗的座位。",
+     "reading": "liǎng wèi. wǒmen xiǎng yào kào chuāng de zuòwèi.",
+     "phon": "liang oueï. ouo-meun siang yao kao tchouang deu tsouo-oueï",
+     "native": "Deux. Nous voudrions une table côté fenêtre."
+    },
+    {
+     "speaker": "B",
+     "study": "好的，在那里。你们喝什么？",
+     "reading": "hǎo de, zài nàlǐ. nǐmen hē shénme?",
+     "phon": "hao deu, dzaï na-li. ni-meun heu cheun-meu ?",
+     "native": "D'accord, c'est là-bas. Qu'est-ce que vous buvez ?"
+    },
+    {
+     "speaker": "A",
+     "study": "两杯茶，还有一点水。",
+     "reading": "liǎng bēi chá, hái yǒu yìdiǎn shuǐ.",
+     "phon": "liang peï tcha, haï yeou i-tièn chouèï",
+     "native": "Deux thés, et un peu d'eau."
+    },
+    {
+     "speaker": "B",
+     "study": "热茶还是冰茶？",
+     "reading": "rè chá háishi bīng chá?",
+     "phon": "jeu tcha haï-chr ping tcha ?",
+     "native": "Thé chaud ou thé glacé ?"
+    },
+    {
+     "speaker": "A",
+     "study": "热的，谢谢。",
+     "reading": "rè de, xièxie.",
+     "phon": "jeu deu, sié-sié",
+     "native": "Chaud, merci."
+    },
+    {
+     "speaker": "B",
+     "study": "好，马上来。",
+     "reading": "hǎo, mǎshàng lái.",
+     "phon": "hao, ma-chang laï",
+     "native": "Bien, ça arrive tout de suite."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L2-fr-zh-05",
+    "L2-fr-zh-09"
+   ],
+   "roles": {
+    "A": "Client",
+    "B": "Serveur"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L2-fr-zh-d2",
+   "situation": "À la billetterie",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "请问，去北京的火车几点出发？",
+     "reading": "qǐngwèn, qù Běijīng de huǒchē jǐ diǎn chūfā?",
+     "phon": "tching-ouenn, tchü peï-ting deu houo-tcheu ti tièn tchou-fa ?",
+     "native": "Excusez-moi, à quelle heure part le train pour Pékin ?"
+    },
+    {
+     "speaker": "B",
+     "study": "有两班：九点和十点半。",
+     "reading": "yǒu liǎng bān: jiǔ diǎn hé shí diǎn bàn.",
+     "phon": "yeou liang pan : tiou tièn heu chr tièn pan",
+     "native": "Il y en a deux : à neuf heures et à dix heures et demie."
+    },
+    {
+     "speaker": "A",
+     "study": "我更喜欢九点的。要两张票。",
+     "reading": "wǒ gèng xǐhuan jiǔ diǎn de. yào liǎng zhāng piào.",
+     "phon": "ouo keng si-houan tiou tièn deu. yao liang djang piao",
+     "native": "Je préfère celui de neuf heures. Deux billets."
+    },
+    {
+     "speaker": "B",
+     "study": "好的。两张，二百块。",
+     "reading": "hǎo de. liǎng zhāng, èrbǎi kuài.",
+     "phon": "hao deu. liang djang, eur-paï kouaï",
+     "native": "D'accord. Deux billets, deux cents yuans."
+    },
+    {
+     "speaker": "A",
+     "study": "站台在哪里？",
+     "reading": "zhàntái zài nǎlǐ?",
+     "phon": "djan-taï dzaï na-li ?",
+     "native": "Où est le quai ?"
+    },
+    {
+     "speaker": "B",
+     "study": "在那里，三号站台。",
+     "reading": "zài nàlǐ, sān hào zhàntái.",
+     "phon": "dzaï na-li, san hao djan-taï",
+     "native": "Là-bas, quai numéro trois."
+    },
+    {
+     "speaker": "A",
+     "study": "谢谢！",
+     "reading": "xièxie!",
+     "phon": "sié-sié !",
+     "native": "Merci !"
+    },
+    {
+     "speaker": "B",
+     "study": "不客气。",
+     "reading": "bú kèqi.",
+     "phon": "pou keu-tchi",
+     "native": "Je vous en prie."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-zh-05",
+    "L2-fr-zh-06",
+    "L2-fr-zh-07",
+    "L2-fr-zh-08"
+   ],
+   "roles": {
+    "A": "Voyageur",
+    "B": "Agent"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L2-fr-zh-d3",
+   "situation": "Prendre rendez-vous",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "你好，保罗！我们明天见，好吗？",
+     "reading": "nǐ hǎo, Bǎoluó! wǒmen míngtiān jiàn, hǎo ma?",
+     "phon": "ni hao, pao-louo ! ouo-meun ming-tièn tièn, hao ma ?",
+     "native": "Salut Paul ! On se voit demain, d'accord ?"
+    },
+    {
+     "speaker": "B",
+     "study": "好啊。什么时候？",
+     "reading": "hǎo a. shénme shíhou?",
+     "phon": "hao a. cheun-meu chr-heou ?",
+     "native": "D'accord. Quand ?"
+    },
+    {
+     "speaker": "A",
+     "study": "下午三点，可以吗？",
+     "reading": "xiàwǔ sān diǎn, kěyǐ ma?",
+     "phon": "sia-ou san tièn, keu-i ma ?",
+     "native": "À trois heures de l'après-midi, ça va ?"
+    },
+    {
+     "speaker": "B",
+     "study": "可以。在哪里？",
+     "reading": "kěyǐ. zài nǎlǐ?",
+     "phon": "keu-i. dzaï na-li ?",
+     "native": "Oui. Où ?"
+    },
+    {
+     "speaker": "A",
+     "study": "在车站前面的咖啡馆。",
+     "reading": "zài chēzhàn qiánmiàn de kāfēiguǎn.",
+     "phon": "dzaï tcheu-djan tchyèn-mièn deu ka-feï-kouan",
+     "native": "Au café devant la gare."
+    },
+    {
+     "speaker": "B",
+     "study": "哪个？有两个。",
+     "reading": "nǎge? yǒu liǎng ge.",
+     "phon": "na-keu ? yeou liang keu",
+     "native": "Lequel ? Il y en a deux."
+    },
+    {
+     "speaker": "A",
+     "study": "大的那个。",
+     "reading": "dà de nàge.",
+     "phon": "ta deu na-keu",
+     "native": "Le grand."
+    },
+    {
+     "speaker": "B",
+     "study": "好，明天见！",
+     "reading": "hǎo, míngtiān jiàn!",
+     "phon": "hao, ming-tièn tièn !",
+     "native": "Bon, à demain !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-zh-05",
+    "L2-fr-zh-05",
+    "L2-fr-zh-08"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Un ami"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "L'apprenant sait préciser une quantité avec le classificateur qui convient (杯, 个, 张, 瓶), situer un lieu (这里, 那里, 附近, 前面), fixer un moment (heure, 今晚, 明天), dire ce qu'il préfère et demander une précision courte (哪个, 什么时候, 在哪里, 几点)."
+}
