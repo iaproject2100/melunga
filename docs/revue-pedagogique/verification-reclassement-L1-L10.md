@@ -6,7 +6,7 @@ Objet : `99478df` sur `review/progression-L1-L10`, comparé à l'audit `bcd108d`
 
 **Le lot est honnête et bien construit : les 319 premières comparaisons sont mécaniquement propres, les gros déplacements sont fondés, et les 330 réserves sont déclarées plutôt que masquées.** La conservation est exacte : 11 488 champs conformes aux sources, 0 écart.
 
-**Mais le reclassement n'atteint qu'à moitié son objectif, et il échoue précisément là où il fallait réussir.** Le pic L7 est corrigé dans cinq couples sur sept ; les deux qui résistent — **fr→es et fr→it** — sont exactement les deux couples que l'audit désignait déjà comme les moins préparés. Détail au § 3.
+**Le reclassement améliore réellement cinq couples sur sept, et un seul lui résiste : fr→es.** Détail au § 3, et **correction d'une erreur de ma part au § 3 bis** : ma première conclusion mettait l'italien au même rang que l'espagnol, sur la foi d'un indicateur de longueur trop grossier pour ce couple. Mesuré autrement, **l'italien est au contraire l'un des couples les mieux redressés**.
 
 ## 1. Conservation et propreté des comparaisons
 
@@ -73,7 +73,45 @@ J'ai rejoué ma mesure de difficulté en suivant `proposedLevel` au lieu du nive
 
 **Cinq sur sept corrigés.** Les deux qui résistent sont l'espagnol et l'italien — déjà les deux couples latins les moins préparés de l'audit (fr→es 49 % de briques non préparées en dialogue, fr→it 55 %, contre 46 % pour fr→en). **Les deux couples qui avaient le plus besoin du reclassement sont ceux qu'il a le moins servis.**
 
-Une précaution sur mes propres chiffres, qui vaut aussi en sa faveur : la longueur moyenne est un indicateur grossier. Un reclassement peut être pédagogiquement juste sans aplanir une courbe de longueur, et la longueur n'est pas la difficulté. Je ne conclus donc pas que le reclassement a échoué pour es et it — je constate qu'il n'y produit **aucune amélioration mesurable**, là où il en produit une nette ailleurs, et je demande pourquoi. Ses propres `gaps` vont dans le même sens : fr→es en déclare 49, le deuxième total le plus élevé.
+Cette précaution sur mes propres chiffres s'est avérée décisive, et elle invalide une partie de ce qui précède : voir le § suivant.
+
+## 3 bis. Correction : l'italien est redressé, c'est mon indicateur qui ne le voyait pas
+
+La longueur moyenne est un indicateur **absolu**, en jetons. Or les deux couples « récalcitrants » sont précisément ceux dont les phrases sont les plus courtes et les moins dispersées :
+
+| Couple | Longueur moyenne d'unité | Écart-type | Étendue | Pic L7 après |
+|---|---|---|---|---|
+| fr→ja | 11,6 | 4,15 | 19,2 | corrigé |
+| fr→ko | 9,7 | 4,09 | 24,0 | corrigé |
+| fr→zh | 7,8 | 2,93 | 13,8 | corrigé |
+| zh→fr | 6,5 | 2,73 | 15,5 | corrigé |
+| fr→en | 6,5 | 2,33 | 12,5 | corrigé |
+| **fr→es** | **5,1** | **1,94** | **10,5** | persiste |
+| **fr→it** | **5,0** | **1,79** | **9,5** | persiste |
+
+Le classement par dispersion absolue sépare exactement les cinq corrigés des deux persistants. Et l'amplitude du pic résiduel le confirme : **+0,6 jeton en espagnol, +0,1 jeton en italien**, contre −1,9 en coréen et −3,0 en japonais après correction. Un écart de 0,1 jeton sur une moyenne de 5,1 n'est pas un défaut pédagogique, c'est du bruit.
+
+J'ai donc refait la mesure avec un indicateur **sans échelle** — la part de briques inédites, insensible à la longueur des phrases. Une « marche » est un niveau dont la part d'inédit remonte par rapport au précédent :
+
+| Couple | Avant | Après | |
+|---|---|---|---|
+| fr→ja | L6<L7 · L7<L8 | **—** | 2 → 0 |
+| fr→it | L3<L4 · L4<L5 · L6<L7 · L7<L8 | **L4<L5** | **4 → 1** |
+| fr→ko | L4<L5 · L6<L7 · L7<L8 · L9<L10 | L4<L5 · L6<L7 | 4 → 2 |
+| fr→en | L3<L4 · L6<L7 · L7<L8 · L9<L10 | L3<L4 · L6<L7 · L9<L10 | 4 → 3 |
+| fr→zh | L3<L4 · L6<L7 · L7<L8 | L3<L4 · L7<L8 | 3 → 2 |
+| **fr→es** | L3<L4 · L7<L8 | L3<L4 · L7<L8 | **2 → 2, inchangé** |
+| zh→fr | L6<L7 | L8<L9 | 1 → 1, déplacé |
+
+**L'italien passe de quatre marches à une : c'est le deuxième couple le mieux redressé du lot.** Ma conclusion du § 3 était donc fausse à son sujet, et elle l'était pour une raison que j'aurais dû anticiper — j'ai jugé un couple à phrases courtes avec un indicateur qui mesure des jetons.
+
+Ce qui subsiste après correction est plus net et moins alarmant :
+
+- **fr→es est le seul couple qui ne s'améliore sur aucun des deux indicateurs.** C'est le vrai constat résiduel, et il porte sur un couple, pas deux.
+- **zh→fr ne s'améliore pas sur l'indicateur sans échelle** et y déplace sa marche de L6<L7 vers L8<L9, alors qu'il s'améliorait sur la longueur. À regarder aussi.
+- **Les deux « nouvelles marches » que j'avais signalées** (`L6>L7` en fr→en, `L5>L6` en fr→ko) relèvent du même artefact : sur l'indicateur sans échelle, fr→en s'améliore (4 → 3) et fr→ko aussi (4 → 2). Je retire ce reproche.
+
+Ses propres `gaps` restent cohérents avec le constat corrigé : fr→es en déclare 49, le deuxième total le plus élevé, pour 21 seulement en fr→it.
 
 ## 4. Les réserves déclarées
 
@@ -89,9 +127,11 @@ Le fichier porte `doesNotMeasureAcquisition: true`, `publicationApproved: false`
 
 ## 6. Ce que je recommande
 
-Le lot peut être retenu comme candidat éditorial, avec deux demandes :
+Le lot peut être retenu comme candidat éditorial. Après correction du § 3 bis, il ne me reste qu'une demande, et elle est plus étroite que celle que j'avais formulée :
 
-1. **Expliquer pourquoi fr→es et fr→it ne bougent pas**, et traiter ces deux couples séparément. Ce sont les deux qui en avaient le plus besoin.
-2. **Rendre compte des deux non-monotonies créées** (`L6>L7` en fr→en, `L5>L6` en fr→ko) : si descendre des unités déplace la marche d'un cran, il faut le constater et décider, non le découvrir plus tard.
+1. **Regarder fr→es, seul couple qui ne s'améliore sur aucun des deux indicateurs** — deux marches avant comme après sur la part d'inédit, quatre non-monotonies de longueur inchangées. Et accessoirement **zh→fr**, qui s'améliore en longueur mais pas en part d'inédit, où sa marche se déplace de L6<L7 vers L8<L9.
+2. Je **retire** mes deux reproches précédents : l'italien est redressé (quatre marches ramenées à une), et les deux « nouvelles marches » de fr→en et fr→ko étaient des artefacts de mon indicateur de longueur, ces deux couples s'améliorant eux aussi sur l'indicateur sans échelle.
+
+La leçon vaut pour la suite de nos échanges : **un indicateur absolu en jetons ne compare pas deux langues dont les phrases n'ont pas la même longueur typique.** Je l'avais écrit comme limite au § 1 de l'audit initial, puis je l'ai oublié en jugeant l'italien. Pour la suite, les conclusions par couple s'appuieront sur la part de briques inédites, et la longueur ne servira qu'à l'intérieur d'un même couple.
 
 Et une remarque de calendrier : ce lot reclasse 841 unités, donc il change ce que voit l'apprenant à tous les niveaux sauf L1. **Ce n'est pas un lot de veille de publicité.** Il n'a aucun recoupement avec les sept scènes L1, qui sont, elles, prêtes.
