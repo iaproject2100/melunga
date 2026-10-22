@@ -24,6 +24,12 @@
         <p class="eyebrow" id="level-label"></p>
         <h1 id="level-title"></h1>
         <p id="level-goal" class="level-goal"></p>
+        <section id="bridge-section" class="bridge-section" aria-labelledby="bridge-title" hidden>
+          <h2 id="bridge-title">Préparer mon premier échange</h2>
+          <p class="bridge-review-mark">Essai à relire</p>
+          <p id="bridge-status" class="bridge-status" role="status"></p>
+          <div id="bridge-choices" class="bridge-choices" role="group" aria-label="Préparer le premier échange"></div>
+        </section>
         <div id="unit-list" class="unit-list"></div>
         <details id="dialogue-picker" class="dialogue-picker">
           <summary>Les conversations du niveau</summary>
@@ -32,8 +38,10 @@
       </aside>
       <section class="lesson-panel" aria-labelledby="lesson-title">
         <div class="step-heading"><p id="phase-label"></p><span id="step-count"></span></div>
+        <p id="bridge-lesson-status" class="bridge-review-mark" hidden>Essai à relire</p>
         <h2 id="lesson-title" tabindex="-1"></h2>
         <p id="step-instruction" class="step-instruction"></p>
+        <p id="bridge-context" class="bridge-context" hidden></p>
         <div class="variation-tools"><button id="all-variants" type="button" class="quiet-button" aria-pressed="false" hidden>Toutes les variantes</button></div>
         <button id="leave-dialogue" type="button" class="quiet-button" hidden>Revenir aux phrases</button>
         <div id="intention-choices" class="intention-choices" role="group" aria-label="Choisir son intention" hidden></div>

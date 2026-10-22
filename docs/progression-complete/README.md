@@ -4,6 +4,10 @@ Kartech demande de vérifier **toutes les langues et tous les niveaux L1–L10**
 
 [Ouvrir l’aperçu de test des sept langues, de L1 à L10](https://deploy-preview-8--chic-dragon-e2baf2.netlify.app/essais-parcours-guide/maquette/) · [Message à transmettre à Claude](message-pour-claude.md). Cet aperçu est une proposition distincte des leçons publiques.
 
+## Lot suivant : ponts L1 en relecture
+
+Le [lot des sept ponts L1](ponts-L1/README.md) ajoute 14 préparations de salutations et refus, sept préparations de prix exacts et sept scènes dérivées. Les sources et le catalogue restent inchangés ; « Bonjour ! » vers L1 est proposé dans un correctif séparé. Ce lot n’est ni fusionné ni publié, et l’aperçu lié ci-dessus conserve la version précédente. [Relais à Claude](ponts-L1/message-pour-claude.md).
+
 ## Ce qui est livré
 
 | Livrable | Périmètre et rôle |

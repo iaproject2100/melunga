@@ -15,24 +15,27 @@
     imitate:['Imiter','À toi de reprendre la phrase.','Écoute, puis répète. Tu peux réécouter quand tu veux.'],
     replace:['Comparer','Une autre façon de dire ce dont tu as besoin.','Compare les deux phrases entières déjà présentées.'],
     'choose-and-recall':['Choisir','Choisis ce que tu veux dire.','Retrouve ta phrase avec son modèle, puis essaie sans lui si tu le souhaites.'],
+    'recall-whole-phrase':['Essayer','Essaie de dire cette phrase.','Retrouve la phrase entière avec son sens, puis essaie sans modèle si tu le souhaites.'],
     receive:['À comprendre','Écoute ton interlocuteur.','Cette réplique est à comprendre ; tu n’as pas à la produire ici.'],
     'understand-and-imitate':['Préparer la conversation','Prépare ta réplique.','Découvre la phrase entière, puis écoute et reprends-la.'],
     'listen-whole-dialogue':['Échanger','Écoute la conversation entière.','Chaque réplique vient d’être présentée. Retrouve maintenant l’échange dans son ordre.'],
     'reply-with-help':['Répondre','Prends ta place dans l’échange.','Dis tes répliques à voix haute. Le modèle reste disponible.'],
     'reply-without-model':['Essayer','Essaie à ton rythme.','Tu peux masquer tes répliques et retrouver l’aide à tout moment.']
   };
-  var state = {pairId:'fr-es',level:1,unitIndex:0,stepIndex:0,choiceId:null,hidden:false,dialogueIndex:null,fullVariants:false};
+  var state = {pairId:'fr-es',level:1,unitIndex:0,stepIndex:0,choiceId:null,hidden:false,dialogueIndex:null,fullVariants:false,bridgeMode:null,bridgeUnitIndex:null};
   var selection = [], bank = new Map(), sequences = new Map(), requests = new Map();
+  var bridges = [], bridgeBank = new Map(), bridgeStatus = 'loading', bridgeRequestSerial = 0;
   var currentSequence = null, requestSerial = 0, renderSerial = 0, audioSerial = 0;
   var $ = function (id) { return document.getElementById(id); };
   function el(tag,className,text) { var node=document.createElement(tag);if(className)node.className=className;if(text!==undefined&&text!==null)node.textContent=String(text);return node; }
   function pair() { return PAIRS.find(function (item) { return item.id===state.pairId; }); }
   function row() { return selection.find(function (item) { var p=item.pair||{};return p.nativeLanguage===pair().native&&p.studyLanguage===pair().study&&Number(item.niveau)===state.level; }); }
-  function unitRef() { return row()&&row().unitRefs[state.unitIndex]; }
+  function unitRef() { return state.bridgeMode?null:row()&&row().unitRefs[state.unitIndex]; }
+  function bridgeScene() { return state.level===1&&bridges.find(function(scene){return scene.nativeLanguage===pair().native&&scene.studyLanguage===pair().study&&Number(scene.level)===1;}); }
   function levelData(level) { return currentSequence&&currentSequence.levels.find(function (item) { return Number(item.sourceLevel)===Number(level); }); }
-  function selectedUnit() { var ref=unitRef();var level=ref&&levelData(ref.sourceContentLevel||ref.sequenceRef&&ref.sequenceRef.sourceLevel||state.level);return level&&level.units.find(function (item) { return item.unitId===ref.unitId; }); }
+  function selectedUnit() { if(state.bridgeMode==='unit'){var scene=bridgeScene();return scene&&scene.bridgeUnits[state.bridgeUnitIndex];}var ref=unitRef();var level=ref&&levelData(ref.sourceContentLevel||ref.sequenceRef&&ref.sequenceRef.sourceLevel||state.level);return level&&level.units.find(function (item) { return item.unitId===ref.unitId; }); }
   function dialogues() { var level=levelData(state.level);return level&&level.dialogues||[]; }
-  function selectedDialogue() { return state.dialogueIndex===null?null:dialogues()[state.dialogueIndex]; }
+  function selectedDialogue() { if(state.bridgeMode==='scene'){var scene=bridgeScene();return scene&&scene.dialogue;}return state.dialogueIndex===null?null:dialogues()[state.dialogueIndex]; }
   function curatedIndices() { var reference=unitRef();return reference&&reference.primary&&Array.isArray(reference.firstSessionCandidateIndices)&&reference.firstSessionCandidateIndices.length?reference.firstSessionCandidateIndices:null; }
   function plan() {
     var dialogue=selectedDialogue();if(dialogue)return(dialogue.preparation||[]).concat(dialogue.steps||[]);
@@ -48,10 +51,10 @@
     },[]);
   }
   function currentStep() { return plan()[state.stepIndex]; }
-  function resetLesson() { state.stepIndex=0;state.choiceId=null;state.hidden=false;state.dialogueIndex=null;state.fullVariants=false;stopAudio(); }
+  function resetLesson() { state.stepIndex=0;state.choiceId=null;state.hidden=false;state.dialogueIndex=null;state.fullVariants=false;state.bridgeMode=null;state.bridgeUnitIndex=null;stopAudio(); }
   function stopAudio() { audioSerial++;if('speechSynthesis'in window)window.speechSynthesis.cancel();$('audio-status').textContent=''; }
   function copyRecord(id,kind,role) {
-    var entry=bank.get(id);
+    var entry=state.bridgeMode?bridgeBank.get(id)||bank.get(id):bank.get(id);
     if(!entry||entry.nativeLanguage!==pair().native||entry.studyLanguage!==pair().study)throw new Error('Une référence de phrase ne correspond pas au couple sélectionné.');
     var copy=entry.copy||{},aids=copy.aids||{};
     if(!copy.study||!copy.native||!aids.phon||entry.source&&entry.source.slot||copy.study.indexOf('{s}')>=0)throw new Error('Une phrase complète ou son aide manque dans la proposition.');
@@ -114,6 +117,10 @@
     if(state.hidden)return;
     var reference=unitRef(),dialogue=selectedDialogue();
     content.append(el('p','detail-status','Proposition à relire. Présentation des sources vérifiée séparément ; apprentissage et niveau non certifiés.'));
+    if(state.bridgeMode){
+      content.append(el('p','','Essai à relire : la relecture native reste à faire.'));
+      if(pair().study==='ja'||pair().study==='ko')content.append(el('p','','Le sens du refus, son degré de politesse et son intonation restent à vérifier avec un locuteur natif.'));
+    }
     if(reference&&!dialogue){[reference.reason,reference.noveltyCaution,reference.reviewStatus].filter(Boolean).forEach(function(note){content.append(el('p','',note));});}
     if(dialogue&&dialogue.reviewQuestion)content.append(el('p','',dialogue.reviewQuestion));
     var list=el('ul','source-list');items.forEach(function(item){var line=el('li');line.append(el('code','',item.id),el('small','',item.source&&item.source.file||''));list.append(line);});content.append(list);
@@ -124,8 +131,11 @@
     var copy=PHASES[step.kind]||['Découvrir','Découvre cette phrase.','Écoute la phrase entière et retrouve son sens.'];
     $('phase-label').textContent=copy[0];$('step-count').textContent='Étape '+(state.stepIndex+1)+' / '+steps.length;
     $('lesson-title').textContent=copy[1];$('step-instruction').textContent=copy[2];
-    $('all-variants').hidden=state.dialogueIndex!==null||!curatedIndices();$('all-variants').setAttribute('aria-pressed',String(state.fullVariants));
-    $('leave-dialogue').hidden=state.dialogueIndex===null;renderChoices();
+    var bridgeUnit=state.bridgeMode==='unit'&&selectedUnit(),context=bridgeUnit&&bridgeUnit.contextReader||'';
+    $('bridge-context').textContent=context;$('bridge-context').lang=pair().native;$('bridge-context').hidden=!context;
+    $('bridge-lesson-status').hidden=!state.bridgeMode;
+    $('all-variants').hidden=Boolean(state.bridgeMode)||state.dialogueIndex!==null||!curatedIndices();$('all-variants').setAttribute('aria-pressed',String(state.fullVariants));
+    $('leave-dialogue').hidden=!state.bridgeMode&&state.dialogueIndex===null;renderChoices();
     $('recall-actions').hidden=!canRecall();$('recall-toggle').textContent=state.hidden?'Réafficher l’aide':'Essayer sans modèle';$('recall-toggle').setAttribute('aria-pressed',String(state.hidden));
     $('recall-state').textContent=state.hidden?'Le sens et les répliques reçues restent visibles.':'';
     var items=records();$('phrase-list').replaceChildren.apply($('phrase-list'),items.map(phraseCard));
@@ -133,17 +143,33 @@
     $('previous-step').disabled=state.stepIndex===0;$('next-step').disabled=state.stepIndex===steps.length-1;
     var transfer=row()&&row().transferTask;
     var prompt=transfer&&(transfer.readerInstructions&&transfer.readerInstructions[pair().native]||transfer.instruction)||'';
-    var showTransfer=state.dialogueIndex===null&&state.stepIndex===steps.length-1&&Boolean(prompt);
+    var showTransfer=!state.bridgeMode&&state.dialogueIndex===null&&state.stepIndex===steps.length-1&&Boolean(prompt);
     $('transfer-task').hidden=!showTransfer;$('transfer-prompt').textContent=showTransfer?prompt:'';$('transfer-prompt').lang=pair().native;
     renderDetails(items);
     if(focus==='step'){$('lesson-title').focus({preventScroll:true});$('lesson-title').scrollIntoView({block:'start'});}
     if(focus==='recall')$('recall-toggle').focus({preventScroll:true});
     if(focus==='choice'){Array.from($('intention-choices').children).find(function(button){return button.dataset.choiceId===state.choiceId;})?.focus({preventScroll:true});}
   }
+  function renderBridgeChoices() {
+    var section=$('bridge-section'),choices=$('bridge-choices'),status=$('bridge-status');
+    section.hidden=state.level!==1;choices.replaceChildren();if(section.hidden)return;
+    var scene=bridgeScene();
+    status.textContent=bridgeStatus==='loading'?'Préparation du premier échange…':!scene?'Le premier échange n’a pas pu être chargé. Les autres situations restent disponibles.':'';
+    status.hidden=!status.textContent;
+    if(!scene)return;
+    function open(mode,index){resetLesson();state.bridgeMode=mode;state.bridgeUnitIndex=index;renderUnitList();renderLesson('step');}
+    scene.bridgeUnits.forEach(function(unit,index){
+      var button=el('button','bridge-unit-choice',unit.title);button.type='button';button.dataset.unitId=unit.unitId;
+      button.setAttribute('aria-pressed',String(state.bridgeMode==='unit'&&state.bridgeUnitIndex===index));button.onclick=function(){open('unit',index);};choices.append(button);
+    });
+    var sceneButton=el('button','bridge-scene-choice','Le café, pas à pas');sceneButton.type='button';sceneButton.dataset.dialogueId=scene.dialogue.dialogueId;
+    sceneButton.setAttribute('aria-pressed',String(state.bridgeMode==='scene'));sceneButton.onclick=function(){open('scene',null);};choices.append(sceneButton);
+  }
   function renderUnitList() {
     var list=$('unit-list');list.replaceChildren();var references=row().unitRefs;
-    references.forEach(function(reference,index){var button=el('button','unit-choice');button.type='button';button.dataset.unitId=reference.unitId;button.setAttribute('aria-pressed',String(state.dialogueIndex===null&&index===state.unitIndex));button.append(el('small','',reference.primary?'Point de départ':'Autre situation'),el('span','',reference.situationLabel||reference.situation));button.onclick=function(){state.unitIndex=index;resetLesson();renderUnitList();try{renderLesson('step');}catch(error){showError(error);}};list.append(button);});
-    var dialogueList=$('dialogue-list');dialogueList.replaceChildren();dialogues().forEach(function(dialogue,index){var button=el('button','dialogue-choice',dialogue.situation||'Conversation '+(index+1));button.type='button';button.dataset.dialogueId=dialogue.dialogueId;button.setAttribute('aria-pressed',String(index===state.dialogueIndex));button.onclick=function(){stopAudio();state.dialogueIndex=index;state.stepIndex=0;state.hidden=false;state.choiceId=null;renderUnitList();renderLesson('step');};dialogueList.append(button);});$('dialogue-picker').hidden=!dialogues().length;
+    references.forEach(function(reference,index){var button=el('button','unit-choice');button.type='button';button.dataset.unitId=reference.unitId;button.setAttribute('aria-pressed',String(!state.bridgeMode&&state.dialogueIndex===null&&index===state.unitIndex));button.append(el('small','',reference.primary?'Point de départ':'Autre situation'),el('span','',reference.situationLabel||reference.situation));button.onclick=function(){state.unitIndex=index;resetLesson();renderUnitList();try{renderLesson('step');}catch(error){showError(error);}};list.append(button);});
+    var dialogueList=$('dialogue-list');dialogueList.replaceChildren();dialogues().forEach(function(dialogue,index){var button=el('button','dialogue-choice',dialogue.situation||'Conversation '+(index+1));button.type='button';button.dataset.dialogueId=dialogue.dialogueId;button.setAttribute('aria-pressed',String(!state.bridgeMode&&index===state.dialogueIndex));button.onclick=function(){resetLesson();state.dialogueIndex=index;renderUnitList();renderLesson('step');};dialogueList.append(button);});$('dialogue-picker').hidden=!dialogues().length;
+    renderBridgeChoices();
   }
   function renderSelectors() {
     document.querySelectorAll('.language-button').forEach(function(button){button.setAttribute('aria-pressed',String(button.dataset.pair===state.pairId));});
@@ -155,6 +181,18 @@
     var retry=el('button','quiet-button','Réessayer');retry.type='button';retry.onclick=function(){initialize();};box.append(retry);
   }
   function fetchJson(url) { return fetch(url,{credentials:'omit',cache:'no-store'}).then(function(response){if(!response.ok)throw new Error('Le fichier de sélection ou de contenu n’est pas encore disponible.');return response.json();}); }
+  function loadBridges() {
+    var token=++bridgeRequestSerial,bundle=window.MELUNGA_PROGRESS_REVIEW;bridgeStatus='loading';
+    var bridgeData=bundle&&bundle.bridges?Promise.resolve(bundle.bridges):fetchJson('../l1-bridges.json');
+    var bankData=bundle&&bundle.bridgeBank?Promise.resolve(bundle.bridgeBank):fetchJson('../banks/l1-bridges.json');
+    return Promise.all([bridgeData,bankData]).then(function(results){
+      if(token!==bridgeRequestSerial)return;
+      if(!Array.isArray(results[0].scenes)||!Array.isArray(results[1].entries))throw new Error('Le premier échange est en préparation.');
+      var entries=new Map();results[1].entries.forEach(function(entry){if(!entry.id||entries.has(entry.id))throw new Error('Une référence du premier échange est en préparation.');entries.set(entry.id,entry);});
+      results[0].scenes.forEach(function(scene){if(!Array.isArray(scene.bridgeUnits)||!scene.dialogue||!Array.isArray(scene.dialogue.preparation)||!Array.isArray(scene.dialogue.steps))throw new Error('Le premier échange est en préparation.');});
+      bridges=results[0].scenes;bridgeBank=entries;bridgeStatus='ready';
+    }).catch(function(){if(token===bridgeRequestSerial){bridges=[];bridgeBank=new Map();bridgeStatus='unavailable';}}).then(function(){if(token===bridgeRequestSerial&&currentSequence&&!$('workspace').hidden)renderBridgeChoices();});
+  }
   function loadSequence(id) {
     if(sequences.has(id))return Promise.resolve(sequences.get(id));
     if(requests.has(id))return requests.get(id);
@@ -181,6 +219,7 @@
     var selectionData=bundle&&bundle.selection?Promise.resolve(bundle.selection):fetchJson('../selection-guidee-enrichie.json');
     var bankData=bundle&&bundle.bank?Promise.resolve(bundle.bank):fetchJson('../banque-phrases.json');
     $('empty-state').hidden=true;$('load-status').textContent='Préparation des phrases…';
+    loadBridges();
     Promise.all([selectionData,bankData]).then(function(results){selection=results[0].entries||[];bank=new Map((results[1].entries||[]).map(function(entry){return[entry.id,entry];}));if(!selection.length||!bank.size)throw new Error('La sélection et les phrases doivent accompagner cette maquette.');return showSelection();}).catch(showError);
   }
   $('previous-step').onclick=function(){if(state.stepIndex>0){state.stepIndex--;state.hidden=false;state.choiceId=null;renderLesson('step');}};

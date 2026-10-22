@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "status": "review-only-not-applied",
+  "sourceSnapshot": "bcd108dff5c5931f935f70f694a040d235403b64",
+  "file": "melunga_deploy/app.html",
+  "container": "DECKS",
+  "language": "fr",
+  "sourceIndex": 272,
+  "expectedCardSha256": "4f398c399d636e51c885ca03c04bf796405ad3850ad09965938d336a3c7d1c06",
+  "jsonPatch": [
+    {
+      "op": "test",
+      "path": "/fr/272/t",
+      "value": "Bonjour !"
+    },
+    {
+      "op": "test",
+      "path": "/fr/272/lv",
+      "value": 2
+    },
+    {
+      "op": "replace",
+      "path": "/fr/272/lv",
+      "value": 1
+    }
+  ],
+  "preservedAids": {
+    "py": "bon-ZHOOR",
+    "phon": "帮茹",
+    "ps": "bon-yúr",
+    "pi": "bon-júr"
+  },
+  "catalogueSharedAcrossReaders": true,
+  "activePairConcerned": "zh-fr",
+  "previewUses": {
+    "source": "L1-zh-fr.json:L1-zh-fr-d1:t0",
+    "phon": "蓬茹尔"
+  },
+  "note": "Only lv changes in this proposed patch. Catalogue and conversation aids remain distinct."
+}

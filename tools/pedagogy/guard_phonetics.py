@@ -203,6 +203,54 @@ def at_index(items, index, context):
     return items[index]
 
 
+def resolve_fragment(root, source, native, study):
+    """Extract declared raw Unicode spans from a pinned L1 learner turn."""
+    relative = Path(source['file'])
+    allowed = (root / CONVERSATION).resolve()
+    path = (root / relative).resolve()
+    if (relative.is_absolute() or '..' in relative.parts
+            or not path.is_relative_to(allowed) or path.suffix != '.json'):
+        raise ValueError('Fragment source must be inside content/conversation without traversal')
+    data = read_json(path)
+    if data.get('nativeLanguage') != native or data.get('studyLanguage') != study:
+        raise ValueError('Conversation reader/study pair mismatch')
+    if (type(source['sourceLevel']) is not int or source['sourceLevel'] != 1
+            or type(data.get('level')) is not int or data['level'] != source['sourceLevel']):
+        raise ValueError('Fragment sourceLevel must be 1 and match the conversation level')
+    if source['fragment'] not in {'refusal', 'price'}:
+        raise ValueError('Fragment must be refusal or price')
+    if any(key in source for key in ('unitId', 'model', 'variantIndex', 'slot')):
+        raise ValueError('Fragment requires an unambiguous dialogue turn reference')
+    dialogue = find_one(data['dialogues'], source['dialogueId'], str(relative))
+    parent = at_index(dialogue['turns'], source['turnIndex'], source['dialogueId'])
+    role = source['learnerRole']
+    if (not isinstance(role, str) or not role or role != dialogue.get('learnerRole')
+            or role != parent.get('speaker')):
+        raise ValueError('Fragment learnerRole must match the dialogue learner and parent speaker')
+    if (not isinstance(source['expectedParent'], dict)
+            or canonical(source['expectedParent']) != canonical(parent)):
+        raise ValueError('Fragment parent differs from expectedParent (whole original turn required)')
+    fields = {'study', 'native'} | set(aids_of(parent))
+    spans = source['spans']
+    if not isinstance(spans, dict) or set(spans) != fields:
+        raise ValueError('Fragment spans must cover study, native and ALL present parent aid fields')
+    phrase = {}
+    for key in sorted(fields):
+        value, span = parent[key], spans[key]
+        if (not isinstance(value, str) or not isinstance(span, list) or len(span) != 2
+                or any(type(bound) is not int for bound in span)):
+            raise ValueError(f'Fragment {key}: expected a string and two integer span bounds')
+        start, end = span
+        if not 0 <= start <= end <= len(value):
+            raise ValueError(f'Fragment {key}: span is out of bounds')
+        if start == end and not (is_aid(key) and value == '' and span == [0, 0]):
+            raise ValueError(f'Fragment {key}: nonempty source fields require nonempty spans')
+        # Python string offsets count Unicode codepoints, with an exclusive end.
+        # Slice the original strings directly: punctuation and spacing are data.
+        phrase[key] = value[start:end]
+    return phrase
+
+
 def resolve_source(root, entry, decks):
     source = entry['source']
     native, study = entry['nativeLanguage'], entry['studyLanguage']
@@ -224,6 +272,9 @@ def resolve_source(root, entry, decks):
             field = 'py'
         elif entry.get('phoneticStatus') == 'reading-fallback-not-reader-adapted':
             raise ValueError('Fallback claimed although the dedicated reader field exists')
+    elif source['type'] == 'conversation-fragment':
+        phrase = resolve_fragment(root, source, native, study)
+        text, field, meaning = phrase['study'], 'phon', phrase['native']
     elif source['type'] == 'conversation':
         relative = Path(source['file'])
         # No arbitrary read through a local-bank locator, even via symlinks.
@@ -255,7 +306,7 @@ def resolve_source(root, entry, decks):
     if text != source['expectedStudy']:
         raise ValueError('Source phrase differs from expectedStudy (index or source changed)')
     expected = {'study': text, 'aids': aids_of(phrase)}
-    if 'native' in entry['copy']:
+    if source['type'] == 'conversation-fragment' or 'native' in entry['copy']:
         expected['native'] = meaning
     if entry['copy'] != expected:
         raise ValueError('Copy differs: preserve exact phrase and ALL present aid fields, including empty ones')
