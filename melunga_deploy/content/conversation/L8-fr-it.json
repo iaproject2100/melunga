@@ -1,0 +1,975 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "it",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en italien",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.",
+ "reviewStatus": "Rédigé à la main ; relecture par un italophone conseillée.",
+ "coverageClaim": null,
+ "level": 8,
+ "title": "Demander et négocier",
+ "goal": "Demander poliment, exprimer une condition et négocier simplement.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L8-fr-it-01",
+   "situation": "Demander poliment (Lei)",
+   "model": {
+    "study": "Potrebbe {s}, per favore?",
+    "phon": "po-TRÈB-bé {s}, pér fa-VO-ré",
+    "native": "Pourriez-vous {s}, s'il vous plaît ?",
+    "note": "Vouvoiement (Lei). Entre amis : « Potresti… ? » (po-TRÉS-ti)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "farmi uno sconto",
+      "phon": "FAR-mi OU-no SKON-to",
+      "native": "me faire une réduction"
+     },
+     "study": "Potrebbe farmi uno sconto, per favore?",
+     "phon": "po-TRÈB-bé FAR-mi OU-no SKON-to, pér fa-VO-ré",
+     "native": "Pourriez-vous me faire une réduction, s'il vous plaît ?"
+    },
+    {
+     "slot": {
+      "study": "aspettare un momento",
+      "phon": "as-pét-TA-ré oun mo-MÉN-to",
+      "native": "attendre un moment"
+     },
+     "study": "Potrebbe aspettare un momento, per favore?",
+     "phon": "po-TRÈB-bé as-pét-TA-ré oun mo-MÉN-to, pér fa-VO-ré",
+     "native": "Pourriez-vous attendre un moment, s'il vous plaît ?"
+    },
+    {
+     "slot": {
+      "study": "richiamarmi domani",
+      "phon": "ri-kia-MAR-mi do-MA-ni",
+      "native": "me rappeler demain"
+     },
+     "study": "Potrebbe richiamarmi domani, per favore?",
+     "phon": "po-TRÈB-bé ri-kia-MAR-mi do-MA-ni, pér fa-VO-ré",
+     "native": "Pourriez-vous me rappeler demain, s'il vous plaît ?"
+    },
+    {
+     "slot": {
+      "study": "controllare la prenotazione",
+      "phon": "kon-trol-LA-ré la pré-no-ta-TSIO-né",
+      "native": "vérifier la réservation"
+     },
+     "study": "Potrebbe controllare la prenotazione, per favore?",
+     "phon": "po-TRÈB-bé kon-trol-LA-ré la pré-no-ta-TSIO-né, pér fa-VO-ré",
+     "native": "Pourriez-vous vérifier la réservation, s'il vous plaît ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-it-02",
+   "situation": "Demander la permission",
+   "model": {
+    "study": "Potrei {s}?",
+    "phon": "po-TRÈ-i {s}",
+    "native": "Est-ce que je pourrais {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "pagare con la carta",
+      "phon": "pa-GA-ré kon la KAR-ta",
+      "native": "payer par carte"
+     },
+     "study": "Potrei pagare con la carta?",
+     "phon": "po-TRÈ-i pa-GA-ré kon la KAR-ta",
+     "native": "Est-ce que je pourrais payer par carte ?"
+    },
+    {
+     "slot": {
+      "study": "avere una ricevuta",
+      "phon": "a-VÉ-ré OU-na ri-tché-VOU-ta",
+      "native": "avoir un reçu"
+     },
+     "study": "Potrei avere una ricevuta?",
+     "phon": "po-TRÈ-i a-VÉ-ré OU-na ri-tché-VOU-ta",
+     "native": "Est-ce que je pourrais avoir un reçu ?"
+    },
+    {
+     "slot": {
+      "study": "cambiare la data",
+      "phon": "kam-BIA-ré la DA-ta",
+      "native": "changer la date"
+     },
+     "study": "Potrei cambiare la data?",
+     "phon": "po-TRÈ-i kam-BIA-ré la DA-ta",
+     "native": "Est-ce que je pourrais changer la date ?"
+    },
+    {
+     "slot": {
+      "study": "parlare con il responsabile",
+      "phon": "par-LA-ré kon il rés-pon-SA-bi-lé",
+      "native": "parler au responsable"
+     },
+     "study": "Potrei parlare con il responsabile?",
+     "phon": "po-TRÈ-i par-LA-ré kon il rés-pon-SA-bi-lé",
+     "native": "Est-ce que je pourrais parler au responsable ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-it-03",
+   "situation": "Poser une condition",
+   "model": {
+    "study": "Se {s}, pagherò subito.",
+    "phon": "sé {s}, pa-gué-RO SOU-bi-to",
+    "native": "Si {s}, je paierai tout de suite.",
+    "note": "Vouvoiement (Lei) dans « mi fa », « accetta »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "mi fa uno sconto",
+      "phon": "mi fa OU-no SKON-to",
+      "native": "vous me faites une réduction"
+     },
+     "study": "Se mi fa uno sconto, pagherò subito.",
+     "phon": "sé mi fa OU-no SKON-to, pa-gué-RO SOU-bi-to",
+     "native": "Si vous me faites une réduction, je paierai tout de suite."
+    },
+    {
+     "slot": {
+      "study": "è possibile",
+      "phon": "è pos-SI-bi-lé",
+      "native": "c'est possible"
+     },
+     "study": "Se è possibile, pagherò subito.",
+     "phon": "sé è pos-SI-bi-lé, pa-gué-RO SOU-bi-to",
+     "native": "Si c'est possible, je paierai tout de suite."
+    },
+    {
+     "slot": {
+      "study": "accetta la carta",
+      "phon": "at-TCHÈT-ta la KAR-ta",
+      "native": "vous acceptez la carte"
+     },
+     "study": "Se accetta la carta, pagherò subito.",
+     "phon": "sé at-TCHÈT-ta la KAR-ta, pa-gué-RO SOU-bi-to",
+     "native": "Si vous acceptez la carte, je paierai tout de suite."
+    },
+    {
+     "slot": {
+      "study": "il prezzo è giusto",
+      "phon": "il PRÈT-tso è DJOUS-to",
+      "native": "le prix est correct"
+     },
+     "study": "Se il prezzo è giusto, pagherò subito.",
+     "phon": "sé il PRÈT-tso è DJOUS-to, pa-gué-RO SOU-bi-to",
+     "native": "Si le prix est correct, je paierai tout de suite."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-it-04",
+   "situation": "Demander si c'est possible",
+   "model": {
+    "study": "Sarebbe possibile {s}?",
+    "phon": "sa-RÈB-bé pos-SI-bi-lé {s}",
+    "native": "Serait-il possible de {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "avere una camera più grande",
+      "phon": "a-VÉ-ré OU-na KA-mé-ra piou GRAN-dé",
+      "native": "avoir une chambre plus grande"
+     },
+     "study": "Sarebbe possibile avere una camera più grande?",
+     "phon": "sa-RÈB-bé pos-SI-bi-lé a-VÉ-ré OU-na KA-mé-ra piou GRAN-dé",
+     "native": "Serait-il possible d'avoir une chambre plus grande ?"
+    },
+    {
+     "slot": {
+      "study": "pagare domani",
+      "phon": "pa-GA-ré do-MA-ni",
+      "native": "payer demain"
+     },
+     "study": "Sarebbe possibile pagare domani?",
+     "phon": "sa-RÈB-bé pos-SI-bi-lé pa-GA-ré do-MA-ni",
+     "native": "Serait-il possible de payer demain ?"
+    },
+    {
+     "slot": {
+      "study": "cambiare il volo",
+      "phon": "kam-BIA-ré il VO-lo",
+      "native": "changer le vol"
+     },
+     "study": "Sarebbe possibile cambiare il volo?",
+     "phon": "sa-RÈB-bé pos-SI-bi-lé kam-BIA-ré il VO-lo",
+     "native": "Serait-il possible de changer le vol ?"
+    },
+    {
+     "slot": {
+      "study": "spostare l'appuntamento",
+      "phon": "spos-TA-ré lap-poun-ta-MÉN-to",
+      "native": "déplacer le rendez-vous"
+     },
+     "study": "Sarebbe possibile spostare l'appuntamento?",
+     "phon": "sa-RÈB-bé pos-SI-bi-lé spos-TA-ré lap-poun-ta-MÉN-to",
+     "native": "Serait-il possible de déplacer le rendez-vous ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-it-05",
+   "situation": "Accepter sous condition",
+   "model": {
+    "study": "Va bene, ma solo se {s}.",
+    "phon": "va BÈ-né, ma SO-lo sé {s}",
+    "native": "D'accord, mais seulement si {s}.",
+    "note": "Vouvoiement (Lei) dans « paga », « mi chiama »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "paga subito",
+      "phon": "PA-ga SOU-bi-to",
+      "native": "vous payez tout de suite"
+     },
+     "study": "Va bene, ma solo se paga subito.",
+     "phon": "va BÈ-né, ma SO-lo sé PA-ga SOU-bi-to",
+     "native": "D'accord, mais seulement si vous payez tout de suite."
+    },
+    {
+     "slot": {
+      "study": "finiamo entro venerdì",
+      "phon": "fi-NIA-mo ÉN-tro vé-nér-DI",
+      "native": "on finit avant vendredi"
+     },
+     "study": "Va bene, ma solo se finiamo entro venerdì.",
+     "phon": "va BÈ-né, ma SO-lo sé fi-NIA-mo ÉN-tro vé-nér-DI",
+     "native": "D'accord, mais seulement si on finit avant vendredi."
+    },
+    {
+     "slot": {
+      "study": "il prezzo non cambia",
+      "phon": "il PRÈT-tso non KAM-bia",
+      "native": "le prix ne change pas"
+     },
+     "study": "Va bene, ma solo se il prezzo non cambia.",
+     "phon": "va BÈ-né, ma SO-lo sé il PRÈT-tso non KAM-bia",
+     "native": "D'accord, mais seulement si le prix ne change pas."
+    },
+    {
+     "slot": {
+      "study": "mi chiama prima",
+      "phon": "mi KIA-ma PRI-ma",
+      "native": "vous m'appelez avant"
+     },
+     "study": "Va bene, ma solo se mi chiama prima.",
+     "phon": "va BÈ-né, ma SO-lo sé mi KIA-ma PRI-ma",
+     "native": "D'accord, mais seulement si vous m'appelez avant."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-it-06",
+   "situation": "S'excuser et réparer",
+   "model": {
+    "study": "Mi dispiace, {s}.",
+    "phon": "mi dis-PIA-tché, {s}",
+    "native": "Désolé, {s}.",
+    "note": "« Mi dispiace » vaut pour désolé et désolée. « La richiamerò » : vouvoiement."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "lo farò subito",
+      "phon": "lo fa-RO SOU-bi-to",
+      "native": "je vais le faire tout de suite"
+     },
+     "study": "Mi dispiace, lo farò subito.",
+     "phon": "mi dis-PIA-tché, lo fa-RO SOU-bi-to",
+     "native": "Désolé, je vais le faire tout de suite."
+    },
+    {
+     "slot": {
+      "study": "La richiamerò domani",
+      "phon": "la ri-kia-mé-RO do-MA-ni",
+      "native": "je vous rappellerai demain"
+     },
+     "study": "Mi dispiace, La richiamerò domani.",
+     "phon": "mi dis-PIA-tché, la ri-kia-mé-RO do-MA-ni",
+     "native": "Désolé, je vous rappellerai demain."
+    },
+    {
+     "slot": {
+      "study": "arriverò tra dieci minuti",
+      "phon": "ar-ri-vé-RO tra DIÈ-tchi mi-NOU-ti",
+      "native": "j'arriverai dans dix minutes"
+     },
+     "study": "Mi dispiace, arriverò tra dieci minuti.",
+     "phon": "mi dis-PIA-tché, ar-ri-vé-RO tra DIÈ-tchi mi-NOU-ti",
+     "native": "Désolé, j'arriverai dans dix minutes."
+    },
+    {
+     "slot": {
+      "study": "non succederà più",
+      "phon": "non sout-tché-dé-RA PIOU",
+      "native": "ça ne se reproduira plus"
+     },
+     "study": "Mi dispiace, non succederà più.",
+     "phon": "mi dis-PIA-tché, non sout-tché-dé-RA PIOU",
+     "native": "Désolé, ça ne se reproduira plus."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-it-07",
+   "situation": "Demander une réduction, un document",
+   "model": {
+    "study": "Mi può fare {s}?",
+    "phon": "mi pouo FA-ré {s}",
+    "native": "Vous pouvez me faire {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "uno sconto",
+      "phon": "OU-no SKON-to",
+      "native": "une réduction"
+     },
+     "study": "Mi può fare uno sconto?",
+     "phon": "mi pouo FA-ré OU-no SKON-to",
+     "native": "Vous pouvez me faire une réduction ?"
+    },
+    {
+     "slot": {
+      "study": "un prezzo migliore",
+      "phon": "oun PRÈT-tso mi-LIO-ré",
+      "native": "un meilleur prix"
+     },
+     "study": "Mi può fare un prezzo migliore?",
+     "phon": "mi pouo FA-ré oun PRÈT-tso mi-LIO-ré",
+     "native": "Vous pouvez me faire un meilleur prix ?"
+    },
+    {
+     "slot": {
+      "study": "una fattura",
+      "phon": "OU-na fat-TOU-ra",
+      "native": "une facture"
+     },
+     "study": "Mi può fare una fattura?",
+     "phon": "mi pouo FA-ré OU-na fat-TOU-ra",
+     "native": "Vous pouvez me faire une facture ?"
+    },
+    {
+     "slot": {
+      "study": "una copia",
+      "phon": "OU-na KO-pia",
+      "native": "une copie"
+     },
+     "study": "Mi può fare una copia?",
+     "phon": "mi pouo FA-ré OU-na KO-pia",
+     "native": "Vous pouvez me faire une copie ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-it-08",
+   "situation": "Demander un délai",
+   "model": {
+    "study": "Avrei bisogno di {s}.",
+    "phon": "a-VRÈ-i bi-ZO-gno di {s}",
+    "native": "J'aurais besoin de {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "più tempo",
+      "phon": "piou TÈM-po",
+      "native": "plus de temps"
+     },
+     "study": "Avrei bisogno di più tempo.",
+     "phon": "a-VRÈ-i bi-ZO-gno di piou TÈM-po",
+     "native": "J'aurais besoin de plus de temps."
+    },
+    {
+     "slot": {
+      "study": "qualche giorno in più",
+      "phon": "KOUAL-ké DJOR-no inn PIOU",
+      "native": "quelques jours de plus"
+     },
+     "study": "Avrei bisogno di qualche giorno in più.",
+     "phon": "a-VRÈ-i bi-ZO-gno di KOUAL-ké DJOR-no inn PIOU",
+     "native": "J'aurais besoin de quelques jours de plus."
+    },
+    {
+     "slot": {
+      "study": "una risposta entro domani",
+      "phon": "OU-na ris-POS-ta ÉN-tro do-MA-ni",
+      "native": "une réponse avant demain"
+     },
+     "study": "Avrei bisogno di una risposta entro domani.",
+     "phon": "a-VRÈ-i bi-ZO-gno di OU-na ris-POS-ta ÉN-tro do-MA-ni",
+     "native": "J'aurais besoin d'une réponse avant demain."
+    },
+    {
+     "slot": {
+      "study": "un altro appuntamento",
+      "phon": "oun AL-tro ap-poun-ta-MÉN-to",
+      "native": "un autre rendez-vous"
+     },
+     "study": "Avrei bisogno di un altro appuntamento.",
+     "phon": "a-VRÈ-i bi-ZO-gno di oun AL-tro ap-poun-ta-MÉN-to",
+     "native": "J'aurais besoin d'un autre rendez-vous."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-it-09",
+   "situation": "Refuser avec une raison",
+   "model": {
+    "study": "Purtroppo non posso, {s}.",
+    "phon": "pour-TROP-po non POS-so, {s}",
+    "native": "Malheureusement je ne peux pas, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "ho già un impegno",
+      "phon": "o DJA oun im-PÉ-gno",
+      "native": "j'ai déjà un engagement"
+     },
+     "study": "Purtroppo non posso, ho già un impegno.",
+     "phon": "pour-TROP-po non POS-so, o DJA oun im-PÉ-gno",
+     "native": "Malheureusement je ne peux pas, j'ai déjà un engagement."
+    },
+    {
+     "slot": {
+      "study": "è troppo caro per me",
+      "phon": "è TROP-po KA-ro pér MÉ",
+      "native": "c'est trop cher pour moi"
+     },
+     "study": "Purtroppo non posso, è troppo caro per me.",
+     "phon": "pour-TROP-po non POS-so, è TROP-po KA-ro pér MÉ",
+     "native": "Malheureusement je ne peux pas, c'est trop cher pour moi."
+    },
+    {
+     "slot": {
+      "study": "non ho tempo questa settimana",
+      "phon": "non o TÈM-po KOUÉS-ta sét-ti-MA-na",
+      "native": "je n'ai pas le temps cette semaine"
+     },
+     "study": "Purtroppo non posso, non ho tempo questa settimana.",
+     "phon": "pour-TROP-po non POS-so, non o TÈM-po KOUÉS-ta sét-ti-MA-na",
+     "native": "Malheureusement je ne peux pas, je n'ai pas le temps cette semaine."
+    },
+    {
+     "slot": {
+      "study": "devo chiedere a mia moglie",
+      "phon": "DÉ-vo KIÈ-dé-ré a MI-a MO-lié",
+      "native": "je dois demander à ma femme"
+     },
+     "study": "Purtroppo non posso, devo chiedere a mia moglie.",
+     "phon": "pour-TROP-po non POS-so, DÉ-vo KIÈ-dé-ré a MI-a MO-lié",
+     "native": "Malheureusement je ne peux pas, je dois demander à ma femme."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-it-10",
+   "situation": "Voisins : demander si ça dérange",
+   "model": {
+    "study": "Le dispiace se {s}?",
+    "phon": "lé dis-PIA-tché sé {s}",
+    "native": "Ça vous dérange si {s} ?",
+    "note": "Vouvoiement. Entre amis : « Ti dispiace se… ? »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "apro la finestra",
+      "phon": "A-pro la fi-NÈS-tra",
+      "native": "j'ouvre la fenêtre"
+     },
+     "study": "Le dispiace se apro la finestra?",
+     "phon": "lé dis-PIA-tché sé A-pro la fi-NÈS-tra",
+     "native": "Ça vous dérange si j'ouvre la fenêtre ?"
+    },
+    {
+     "slot": {
+      "study": "faccio una festa sabato",
+      "phon": "FAT-tcho OU-na FÈS-ta SA-ba-to",
+      "native": "je fais une fête samedi"
+     },
+     "study": "Le dispiace se faccio una festa sabato?",
+     "phon": "lé dis-PIA-tché sé FAT-tcho OU-na FÈS-ta SA-ba-to",
+     "native": "Ça vous dérange si je fais une fête samedi ?"
+    },
+    {
+     "slot": {
+      "study": "parcheggio qui",
+      "phon": "par-KÉD-djo KOUI",
+      "native": "je me gare ici"
+     },
+     "study": "Le dispiace se parcheggio qui?",
+     "phon": "lé dis-PIA-tché sé par-KÉD-djo KOUI",
+     "native": "Ça vous dérange si je me gare ici ?"
+    },
+    {
+     "slot": {
+      "study": "lascio la bici qui",
+      "phon": "LA-cho la BI-tchi KOUI",
+      "native": "je laisse le vélo ici"
+     },
+     "study": "Le dispiace se lascio la bici qui?",
+     "phon": "lé dis-PIA-tché sé LA-cho la BI-tchi KOUI",
+     "native": "Ça vous dérange si je laisse le vélo ici ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-it-11",
+   "situation": "Propriétaire : signaler une panne",
+   "model": {
+    "study": "Il {s} non funziona.",
+    "phon": "il {s} non foun-TSIO-na",
+    "native": "Le {s} ne marche pas."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "riscaldamento",
+      "phon": "ris-kal-da-MÉN-to",
+      "native": "chauffage"
+     },
+     "study": "Il riscaldamento non funziona.",
+     "phon": "il ris-kal-da-MÉN-to non foun-TSIO-na",
+     "native": "Le chauffage ne marche pas."
+    },
+    {
+     "slot": {
+      "study": "frigorifero",
+      "phon": "fri-go-RI-fé-ro",
+      "native": "frigo"
+     },
+     "study": "Il frigorifero non funziona.",
+     "phon": "il fri-go-RI-fé-ro non foun-TSIO-na",
+     "native": "Le frigo ne marche pas."
+    },
+    {
+     "slot": {
+      "study": "forno",
+      "phon": "FOR-no",
+      "native": "four"
+     },
+     "study": "Il forno non funziona.",
+     "phon": "il FOR-no non foun-TSIO-na",
+     "native": "Le four ne marche pas."
+    },
+    {
+     "slot": {
+      "study": "rubinetto",
+      "phon": "rou-bi-NÉT-to",
+      "native": "robinet"
+     },
+     "study": "Il rubinetto non funziona.",
+     "phon": "il rou-bi-NÉT-to non foun-TSIO-na",
+     "native": "Le robinet ne marche pas."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L8-fr-it-12",
+   "situation": "Travail : demander quelque chose à son responsable",
+   "model": {
+    "study": "Vorrei chiederle {s}.",
+    "phon": "vor-RÈÏ KIÈ-dér-lé {s}",
+    "native": "Je voudrais vous demander {s}.",
+    "note": "Vouvoiement (-le = à vous). Entre amis : « chiederti »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "un giorno di ferie",
+      "phon": "oun DJOR-no di FÈ-rié",
+      "native": "un jour de congé"
+     },
+     "study": "Vorrei chiederle un giorno di ferie.",
+     "phon": "vor-RÈÏ KIÈ-dér-lé oun DJOR-no di FÈ-rié",
+     "native": "Je voudrais vous demander un jour de congé."
+    },
+    {
+     "slot": {
+      "study": "un aumento",
+      "phon": "oun aou-MÉN-to",
+      "native": "une augmentation"
+     },
+     "study": "Vorrei chiederle un aumento.",
+     "phon": "vor-RÈÏ KIÈ-dér-lé oun aou-MÉN-to",
+     "native": "Je voudrais vous demander une augmentation."
+    },
+    {
+     "slot": {
+      "study": "di lavorare da casa il venerdì",
+      "phon": "di la-vo-RA-ré da KA-za il vé-nér-DI",
+      "native": "de travailler de chez moi le vendredi"
+     },
+     "study": "Vorrei chiederle di lavorare da casa il venerdì.",
+     "phon": "vor-RÈÏ KIÈ-dér-lé di la-vo-RA-ré da KA-za il vé-nér-DI",
+     "native": "Je voudrais vous demander de travailler de chez moi le vendredi."
+    },
+    {
+     "slot": {
+      "study": "qualche giorno in più",
+      "phon": "KOUAL-ké DJOR-no inn PIOU",
+      "native": "quelques jours de plus"
+     },
+     "study": "Vorrei chiederle qualche giorno in più.",
+     "phon": "vor-RÈÏ KIÈ-dér-lé KOUAL-ké DJOR-no inn PIOU",
+     "native": "Je voudrais vous demander quelques jours de plus."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L8-fr-it-d1",
+   "situation": "Au marché aux puces : négocier (Lei)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, quanto costa questa lampada?",
+     "phon": "bouon-DJOR-no, KOUAN-to KOS-ta KOUÉS-ta LAM-pa-da",
+     "native": "Bonjour, combien coûte cette lampe ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sessanta euro.",
+     "phon": "sés-SAN-ta È-ou-ro",
+     "native": "Soixante euros."
+    },
+    {
+     "speaker": "A",
+     "study": "È un po' cara. Potrebbe farmi uno sconto?",
+     "phon": "è oun po KA-ra. po-TRÈB-bé FAR-mi OU-no SKON-to",
+     "native": "Elle est un peu chère. Pourriez-vous me faire une réduction ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Mi dispiace, è già un buon prezzo.",
+     "phon": "mi dis-PIA-tché, è DJA oun bouon PRÈT-tso",
+     "native": "Désolé, c'est déjà un bon prix."
+    },
+    {
+     "speaker": "A",
+     "study": "Se prendo anche questo specchio, mi fa cento per tutti e due?",
+     "phon": "sé PRÈN-do AN-ké KOUÉS-to SPÈK-kio, mi fa TCHÈN-to pér TOUT-ti é DOU-é",
+     "native": "Si je prends aussi ce miroir, vous me faites cent pour les deux ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Va bene, ma solo se paga in contanti.",
+     "phon": "va BÈ-né, ma SO-lo sé PA-ga inn kon-TAN-ti",
+     "native": "D'accord, mais seulement si vous payez en espèces."
+    },
+    {
+     "speaker": "A",
+     "study": "D'accordo. Potrei avere una ricevuta?",
+     "phon": "dak-KOR-do. po-TRÈ-i a-VÉ-ré OU-na ri-tché-VOU-ta",
+     "native": "D'accord. Est-ce que je pourrais avoir un reçu ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Certo, gliela scrivo subito.",
+     "phon": "TCHÈR-to, LIÉ-la SKRI-vo SOU-bi-to",
+     "native": "Bien sûr, je vous l'écris tout de suite."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-it-10",
+    "L2-fr-it-12",
+    "L8-fr-it-02",
+    "L8-fr-it-05",
+    "L8-fr-it-06"
+   ],
+   "roles": {
+    "A": "Client",
+    "B": "Vendeur"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L8-fr-it-d2",
+   "situation": "Chez la propriétaire (Lei)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, signora Bianchi. Il riscaldamento non funziona da ieri.",
+     "phon": "bouon-DJOR-no, si-GNO-ra BIAN-ki. il ris-kal-da-MÉN-to non foun-TSIO-na da IÈ-ri",
+     "native": "Bonjour, madame Bianchi. Le chauffage ne marche pas depuis hier."
+    },
+    {
+     "speaker": "B",
+     "study": "Mi dispiace! Chiamerò il tecnico oggi stesso.",
+     "phon": "mi dis-PIA-tché. kia-mé-RO il TÈK-ni-ko OD-dji STÉS-so",
+     "native": "Désolée ! J'appellerai le technicien aujourd'hui même."
+    },
+    {
+     "speaker": "A",
+     "study": "Grazie. Sarebbe possibile venire nel pomeriggio? La mattina lavoro.",
+     "phon": "GRA-tsié. sa-RÈB-bé pos-SI-bi-lé vé-NI-ré nél po-mé-RID-djo. la mat-TI-na la-VO-ro",
+     "native": "Merci. Serait-il possible de venir l'après-midi ? Le matin, je travaille."
+    },
+    {
+     "speaker": "B",
+     "study": "Glielo chiedo. Se non può oggi, verrà domani.",
+     "phon": "LIÉ-lo KIÈ-do. sé non pouo OD-dji, vér-RA do-MA-ni",
+     "native": "Je le lui demande. S'il ne peut pas aujourd'hui, il viendra demain."
+    },
+    {
+     "speaker": "A",
+     "study": "Va bene. Avrei anche un'altra domanda: potrei pagare l'affitto il dieci invece del cinque?",
+     "phon": "va BÈ-né. a-VRÈ-i AN-ké ou-NAL-tra do-MAN-da. po-TRÈ-i pa-GA-ré laf-FIT-to il DIÈ-tchi in-VÉ-tché dél TCHIN-koué",
+     "native": "D'accord. J'aurais aussi une autre question : est-ce que je pourrais payer le loyer le dix au lieu du cinq ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Va bene, ma solo se mi avvisa ogni mese.",
+     "phon": "va BÈ-né, ma SO-lo sé mi av-VI-za O-gni MÉ-zé",
+     "native": "D'accord, mais seulement si vous me prévenez chaque mois."
+    },
+    {
+     "speaker": "A",
+     "study": "Certo, grazie mille.",
+     "phon": "TCHÈR-to, GRA-tsié MIL-lé",
+     "native": "Bien sûr, merci beaucoup."
+    },
+    {
+     "speaker": "B",
+     "study": "Di niente. Le faccio sapere per il tecnico.",
+     "phon": "di NIÈN-té. lé FAT-tcho sa-PÉ-ré pér il TÈK-ni-ko",
+     "native": "De rien. Je vous tiens au courant pour le technicien."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L4-fr-it-02",
+    "L4-fr-it-06",
+    "L5-fr-it-04",
+    "L6-fr-it-02",
+    "L8-fr-it-02",
+    "L8-fr-it-04",
+    "L8-fr-it-05",
+    "L8-fr-it-06",
+    "L8-fr-it-11"
+   ],
+   "roles": {
+    "A": "Locataire",
+    "B": "Propriétaire"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L8-fr-it-d3",
+   "situation": "Au travail : demander un délai (Lei)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, dottor Conti. Avrei bisogno di parlarle del progetto.",
+     "phon": "bouon-DJOR-no, dot-TOR KON-ti. a-VRÈ-i bi-ZO-gno di par-LAR-lé dél pro-DJÈT-to",
+     "native": "Bonjour, monsieur Conti. J'aurais besoin de vous parler du projet."
+    },
+    {
+     "speaker": "B",
+     "study": "Certo, mi dica.",
+     "phon": "TCHÈR-to, mi DI-ka",
+     "native": "Bien sûr, dites-moi."
+    },
+    {
+     "speaker": "A",
+     "study": "Sarebbe possibile avere qualche giorno in più?",
+     "phon": "sa-RÈB-bé pos-SI-bi-lé a-VÉ-ré KOUAL-ké DJOR-no inn PIOU",
+     "native": "Serait-il possible d'avoir quelques jours de plus ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Perché? C'è un problema?",
+     "phon": "pér-KÉ. tchè oun pro-BLÈ-ma",
+     "native": "Pourquoi ? Il y a un problème ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sì, il cliente ha cambiato idea e dobbiamo rifare una parte.",
+     "phon": "SI, il kli-ÈN-té a kam-BIA-to i-DÈ-a é dob-BIA-mo ri-FA-ré OU-na PAR-té",
+     "native": "Oui, le client a changé d'avis et on doit refaire une partie."
+    },
+    {
+     "speaker": "B",
+     "study": "Capisco. Va bene, ma solo se finite entro venerdì prossimo.",
+     "phon": "ka-PIS-ko. va BÈ-né, ma SO-lo sé fi-NI-té ÉN-tro vé-nér-DI PROS-si-mo",
+     "native": "Je comprends. D'accord, mais seulement si vous finissez avant vendredi prochain."
+    },
+    {
+     "speaker": "A",
+     "study": "Perfetto. Se ci sono altri problemi, La avviserò subito.",
+     "phon": "pér-FÈT-to. sé tchi SO-no AL-tri pro-BLÈ-mi, la av-vi-zé-RO SOU-bi-to",
+     "native": "Parfait. S'il y a d'autres problèmes, je vous préviendrai tout de suite."
+    },
+    {
+     "speaker": "B",
+     "study": "Bene. Mi mandi un aggiornamento mercoledì.",
+     "phon": "BÈ-né. mi MAN-di oun ad-djor-na-MÉN-to mér-ko-lé-DI",
+     "native": "Bien. Envoyez-moi un point d'avancement mercredi."
+    },
+    {
+     "speaker": "A",
+     "study": "Certo. Grazie per la comprensione.",
+     "phon": "TCHÈR-to. GRA-tsié pér la kom-prén-SIO-né",
+     "native": "Bien sûr. Merci pour votre compréhension."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-it-01",
+    "L3-fr-it-04",
+    "L8-fr-it-04",
+    "L8-fr-it-05",
+    "L8-fr-it-08"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Responsable"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Demander poliment au conditionnel (potrebbe, sarebbe possibile), poser une condition (se… + futur), négocier un prix ou un délai, accepter sous condition, refuser avec une raison et s'excuser en proposant une réparation."
+}

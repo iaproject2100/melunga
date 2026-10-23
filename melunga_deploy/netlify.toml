@@ -20,3 +20,11 @@
   for = "/.netlify/functions/*"
   [headers.values]
     Cache-Control = "no-store"
+
+# Contenus de conversation : lus aussi depuis l'application native (origine https://localhost) → CORS ouvert en lecture.
+[[headers]]
+  for = "/content/conversation/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, HEAD, OPTIONS"
+    Cache-Control = "public, max-age=3600, must-revalidate"

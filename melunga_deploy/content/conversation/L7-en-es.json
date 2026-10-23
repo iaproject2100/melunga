@@ -1,0 +1,1036 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "es",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en espagnol",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximate English respelling for English-speaking readers (CAPITALS = stressed syllable; vowels ah / eh / ee / oh / oo; j and g before e/i → kh as in Scottish 'loch'; ñ → ny; ll → y; c before e/i and z → s; r is rolled; monosyllables in capitals). Standard Castilian with seseo and yeísmo. No substitute for the audio.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended.",
+ "coverageClaim": null,
+ "level": 7,
+ "title": "Explaining and comparing",
+ "goal": "Explain a reason, compare and express a preference.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L7-en-es-01",
+   "situation": "Giving a reason",
+   "model": {
+    "study": "Estudio español porque {s}.",
+    "phon": "ehs-TOO-deeoh ehs-pah-NYOHL POHR-keh {s}",
+    "native": "I'm studying Spanish because {s}.",
+    "note": "'porque' (one word, no accent) = because; '¿por qué?' = why."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "vivo en Valencia",
+      "phon": "VEE-voh EHN vah-LEHN-seeah",
+      "native": "I live in Valencia"
+     },
+     "study": "Estudio español porque vivo en Valencia.",
+     "phon": "ehs-TOO-deeoh ehs-pah-NYOHL POHR-keh VEE-voh EHN vah-LEHN-seeah",
+     "native": "I'm studying Spanish because I live in Valencia."
+    },
+    {
+     "slot": {
+      "study": "me gusta viajar",
+      "phon": "MEH GOOS-tah veeah-KHAHR",
+      "native": "I like travelling"
+     },
+     "study": "Estudio español porque me gusta viajar.",
+     "phon": "ehs-TOO-deeoh ehs-pah-NYOHL POHR-keh MEH GOOS-tah veeah-KHAHR",
+     "native": "I'm studying Spanish because I like travelling."
+    },
+    {
+     "slot": {
+      "study": "lo necesito para el trabajo",
+      "phon": "LOH neh-seh-SEE-toh PAH-rah EHL trah-BAH-khoh",
+      "native": "I need it for work"
+     },
+     "study": "Estudio español porque lo necesito para el trabajo.",
+     "phon": "ehs-TOO-deeoh ehs-pah-NYOHL POHR-keh LOH neh-seh-SEE-toh PAH-rah EHL trah-BAH-khoh",
+     "native": "I'm studying Spanish because I need it for work."
+    },
+    {
+     "slot": {
+      "study": "mi pareja es española",
+      "phon": "MEE pah-REH-khah EHS ehs-pah-NYOH-lah",
+      "native": "my partner is Spanish"
+     },
+     "study": "Estudio español porque mi pareja es española.",
+     "phon": "ehs-TOO-deeoh ehs-pah-NYOHL POHR-keh MEE pah-REH-khah EHS ehs-pah-NYOH-lah",
+     "native": "I'm studying Spanish because my partner is Spanish."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-es-02",
+   "situation": "Comparing (more)",
+   "model": {
+    "study": "El tren es más {s} que el coche.",
+    "phon": "EHL TREHN EHS MAHS {s} KEH EHL KOH-cheh",
+    "native": "The train is {s} than the car."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "rápido",
+      "phon": "RAH-pee-doh",
+      "native": "faster"
+     },
+     "study": "El tren es más rápido que el coche.",
+     "phon": "EHL TREHN EHS MAHS RAH-pee-doh KEH EHL KOH-cheh",
+     "native": "The train is faster than the car."
+    },
+    {
+     "slot": {
+      "study": "cómodo",
+      "phon": "KOH-moh-doh",
+      "native": "more comfortable"
+     },
+     "study": "El tren es más cómodo que el coche.",
+     "phon": "EHL TREHN EHS MAHS KOH-moh-doh KEH EHL KOH-cheh",
+     "native": "The train is more comfortable than the car."
+    },
+    {
+     "slot": {
+      "study": "caro",
+      "phon": "KAH-roh",
+      "native": "more expensive"
+     },
+     "study": "El tren es más caro que el coche.",
+     "phon": "EHL TREHN EHS MAHS KAH-roh KEH EHL KOH-cheh",
+     "native": "The train is more expensive than the car."
+    },
+    {
+     "slot": {
+      "study": "tranquilo",
+      "phon": "trahn-KEE-loh",
+      "native": "quieter"
+     },
+     "study": "El tren es más tranquilo que el coche.",
+     "phon": "EHL TREHN EHS MAHS trahn-KEE-loh KEH EHL KOH-cheh",
+     "native": "The train is quieter than the car."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-es-03",
+   "situation": "Comparing (less)",
+   "model": {
+    "study": "Este piso es menos {s} que el otro.",
+    "phon": "EHS-teh PEE-soh EHS MEH-nohs {s} KEH EHL OH-troh",
+    "native": "This flat is less {s} than the other one."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "caro",
+      "phon": "KAH-roh",
+      "native": "expensive"
+     },
+     "study": "Este piso es menos caro que el otro.",
+     "phon": "EHS-teh PEE-soh EHS MEH-nohs KAH-roh KEH EHL OH-troh",
+     "native": "This flat is less expensive than the other one."
+    },
+    {
+     "slot": {
+      "study": "luminoso",
+      "phon": "loo-mee-NOH-soh",
+      "native": "bright"
+     },
+     "study": "Este piso es menos luminoso que el otro.",
+     "phon": "EHS-teh PEE-soh EHS MEH-nohs loo-mee-NOH-soh KEH EHL OH-troh",
+     "native": "This flat is less bright than the other one."
+    },
+    {
+     "slot": {
+      "study": "ruidoso",
+      "phon": "rooee-DOH-soh",
+      "native": "noisy"
+     },
+     "study": "Este piso es menos ruidoso que el otro.",
+     "phon": "EHS-teh PEE-soh EHS MEH-nohs rooee-DOH-soh KEH EHL OH-troh",
+     "native": "This flat is less noisy than the other one."
+    },
+    {
+     "slot": {
+      "study": "céntrico",
+      "phon": "SEHN-tree-koh",
+      "native": "central"
+     },
+     "study": "Este piso es menos céntrico que el otro.",
+     "phon": "EHS-teh PEE-soh EHS MEH-nohs SEHN-tree-koh KEH EHL OH-troh",
+     "native": "This flat is less central than the other one."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-es-04",
+   "situation": "Giving a reason for a preference",
+   "model": {
+    "study": "Prefiero {s} porque es más barato.",
+    "phon": "preh-FEEEH-roh {s} POHR-keh EHS MAHS bah-RAH-toh",
+    "native": "I prefer {s} because it's cheaper."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "el mercado",
+      "phon": "EHL mehr-KAH-doh",
+      "native": "the market"
+     },
+     "study": "Prefiero el mercado porque es más barato.",
+     "phon": "preh-FEEEH-roh EHL mehr-KAH-doh POHR-keh EHS MAHS bah-RAH-toh",
+     "native": "I prefer the market because it's cheaper."
+    },
+    {
+     "slot": {
+      "study": "cocinar en casa",
+      "phon": "koh-see-NAHR EHN KAH-sah",
+      "native": "cooking at home"
+     },
+     "study": "Prefiero cocinar en casa porque es más barato.",
+     "phon": "preh-FEEEH-roh koh-see-NAHR EHN KAH-sah POHR-keh EHS MAHS bah-RAH-toh",
+     "native": "I prefer cooking at home because it's cheaper."
+    },
+    {
+     "slot": {
+      "study": "ir en autobús",
+      "phon": "EER EHN ahoo-toh-BOOS",
+      "native": "going by bus"
+     },
+     "study": "Prefiero ir en autobús porque es más barato.",
+     "phon": "preh-FEEEH-roh EER EHN ahoo-toh-BOOS POHR-keh EHS MAHS bah-RAH-toh",
+     "native": "I prefer going by bus because it's cheaper."
+    },
+    {
+     "slot": {
+      "study": "este hotel",
+      "phon": "EHS-teh oh-TEHL",
+      "native": "this hotel"
+     },
+     "study": "Prefiero este hotel porque es más barato.",
+     "phon": "preh-FEEEH-roh EHS-teh oh-TEHL POHR-keh EHS MAHS bah-RAH-toh",
+     "native": "I prefer this hotel because it's cheaper."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-es-05",
+   "situation": "Giving an opinion",
+   "model": {
+    "study": "Creo que {s}.",
+    "phon": "KREH-oh KEH {s}",
+    "native": "I think {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "es una buena idea",
+      "phon": "EHS OO-nah BOOEH-nah ee-DEH-ah",
+      "native": "it's a good idea"
+     },
+     "study": "Creo que es una buena idea.",
+     "phon": "KREH-oh KEH EHS OO-nah BOOEH-nah ee-DEH-ah",
+     "native": "I think it's a good idea."
+    },
+    {
+     "slot": {
+      "study": "el restaurante está cerrado",
+      "phon": "EHL rehs-tahoo-RAHN-teh ehs-TAH seh-RRAH-doh",
+      "native": "the restaurant is closed"
+     },
+     "study": "Creo que el restaurante está cerrado.",
+     "phon": "KREH-oh KEH EHL rehs-tahoo-RAHN-teh ehs-TAH seh-RRAH-doh",
+     "native": "I think the restaurant is closed."
+    },
+    {
+     "slot": {
+      "study": "tienes razón",
+      "phon": "TEEEH-nehs rah-SOHN",
+      "native": "you're right"
+     },
+     "study": "Creo que tienes razón.",
+     "phon": "KREH-oh KEH TEEEH-nehs rah-SOHN",
+     "native": "I think you're right."
+    },
+    {
+     "slot": {
+      "study": "va a llover",
+      "phon": "VAH AH yoh-VEHR",
+      "native": "it's going to rain"
+     },
+     "study": "Creo que va a llover.",
+     "phon": "KREH-oh KEH VAH AH yoh-VEHR",
+     "native": "I think it's going to rain."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-es-06",
+   "situation": "Personal point of view",
+   "model": {
+    "study": "Para mí, {s}.",
+    "phon": "PAH-rah MEE, {s}",
+    "native": "For me, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "lo más importante es la familia",
+      "phon": "LOH MAHS eem-pohr-TAHN-teh EHS LAH fah-MEE-leeah",
+      "native": "the most important thing is family"
+     },
+     "study": "Para mí, lo más importante es la familia.",
+     "phon": "PAH-rah MEE, LOH MAHS eem-pohr-TAHN-teh EHS LAH fah-MEE-leeah",
+     "native": "For me, the most important thing is family."
+    },
+    {
+     "slot": {
+      "study": "este barrio es el mejor",
+      "phon": "EHS-teh BAH-rreeoh EHS EHL meh-KHOHR",
+      "native": "this neighbourhood is the best"
+     },
+     "study": "Para mí, este barrio es el mejor.",
+     "phon": "PAH-rah MEE, EHS-teh BAH-rreeoh EHS EHL meh-KHOHR",
+     "native": "For me, this neighbourhood is the best."
+    },
+    {
+     "slot": {
+      "study": "la comida española es muy buena",
+      "phon": "LAH koh-MEE-dah ehs-pah-NYOH-lah EHS MOOEE BOOEH-nah",
+      "native": "Spanish food is very good"
+     },
+     "study": "Para mí, la comida española es muy buena.",
+     "phon": "PAH-rah MEE, LAH koh-MEE-dah ehs-pah-NYOH-lah EHS MOOEE BOOEH-nah",
+     "native": "For me, Spanish food is very good."
+    },
+    {
+     "slot": {
+      "study": "trabajar desde casa es más práctico",
+      "phon": "trah-bah-KHAHR DEHS-deh KAH-sah EHS MAHS PRAHK-tee-koh",
+      "native": "working from home is more practical"
+     },
+     "study": "Para mí, trabajar desde casa es más práctico.",
+     "phon": "PAH-rah MEE, trah-bah-KHAHR DEHS-deh KAH-sah EHS MAHS PRAHK-tee-koh",
+     "native": "For me, working from home is more practical."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-es-07",
+   "situation": "Past habit",
+   "model": {
+    "study": "Antes {s}, ahora ya no.",
+    "phon": "AHN-tehs {s}, ah-OH-rah YAH NOH",
+    "native": "I used to {s}, but not any more.",
+    "note": "Imperfect (imperfecto) for a past habit; 'ya no' = not any more."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "fumaba",
+      "phon": "foo-MAH-bah",
+      "native": "smoke"
+     },
+     "study": "Antes fumaba, ahora ya no.",
+     "phon": "AHN-tehs foo-MAH-bah, ah-OH-rah YAH NOH",
+     "native": "I used to smoke, but not any more."
+    },
+    {
+     "slot": {
+      "study": "vivía en París",
+      "phon": "vee-VEE-ah EHN pah-REES",
+      "native": "live in Paris"
+     },
+     "study": "Antes vivía en París, ahora ya no.",
+     "phon": "AHN-tehs vee-VEE-ah EHN pah-REES, ah-OH-rah YAH NOH",
+     "native": "I used to live in Paris, but not any more."
+    },
+    {
+     "slot": {
+      "study": "trabajaba en una tienda",
+      "phon": "trah-bah-KHAH-bah EHN OO-nah TEEEHN-dah",
+      "native": "work in a shop"
+     },
+     "study": "Antes trabajaba en una tienda, ahora ya no.",
+     "phon": "AHN-tehs trah-bah-KHAH-bah EHN OO-nah TEEEHN-dah, ah-OH-rah YAH NOH",
+     "native": "I used to work in a shop, but not any more."
+    },
+    {
+     "slot": {
+      "study": "comía mucha carne",
+      "phon": "koh-MEE-ah MOO-chah KAHR-neh",
+      "native": "eat a lot of meat"
+     },
+     "study": "Antes comía mucha carne, ahora ya no.",
+     "phon": "AHN-tehs koh-MEE-ah MOO-chah KAHR-neh, ah-OH-rah YAH NOH",
+     "native": "I used to eat a lot of meat, but not any more."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-es-08",
+   "situation": "Change",
+   "model": {
+    "study": "Ahora {s} más que antes.",
+    "phon": "ah-OH-rah {s} MAHS KEH AHN-tehs",
+    "native": "Now I {s} more than before."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "cocino",
+      "phon": "koh-SEE-noh",
+      "native": "cook"
+     },
+     "study": "Ahora cocino más que antes.",
+     "phon": "ah-OH-rah koh-SEE-noh MAHS KEH AHN-tehs",
+     "native": "Now I cook more than before."
+    },
+    {
+     "slot": {
+      "study": "salgo",
+      "phon": "SAHL-goh",
+      "native": "go out"
+     },
+     "study": "Ahora salgo más que antes.",
+     "phon": "ah-OH-rah SAHL-goh MAHS KEH AHN-tehs",
+     "native": "Now I go out more than before."
+    },
+    {
+     "slot": {
+      "study": "leo",
+      "phon": "LEH-oh",
+      "native": "read"
+     },
+     "study": "Ahora leo más que antes.",
+     "phon": "ah-OH-rah LEH-oh MAHS KEH AHN-tehs",
+     "native": "Now I read more than before."
+    },
+    {
+     "slot": {
+      "study": "descanso",
+      "phon": "dehs-KAHN-soh",
+      "native": "rest"
+     },
+     "study": "Ahora descanso más que antes.",
+     "phon": "ah-OH-rah dehs-KAHN-soh MAHS KEH AHN-tehs",
+     "native": "Now I rest more than before."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-es-09",
+   "situation": "Comparing with 'mejor'",
+   "model": {
+    "study": "{s} es mejor que el mío.",
+    "phon": "{s} EHS meh-KHOHR KEH EHL MEE-oh",
+    "native": "{s} is better than mine.",
+    "note": "'Mejor' doesn't change in the feminine: 'Tu casa es mejor que la mía'."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Tu coche",
+      "phon": "TOO KOH-cheh",
+      "native": "Your car"
+     },
+     "study": "Tu coche es mejor que el mío.",
+     "phon": "TOO KOH-cheh EHS meh-KHOHR KEH EHL MEE-oh",
+     "native": "Your car is better than mine."
+    },
+    {
+     "slot": {
+      "study": "Este café",
+      "phon": "EHS-teh kah-FEH",
+      "native": "This coffee"
+     },
+     "study": "Este café es mejor que el mío.",
+     "phon": "EHS-teh kah-FEH EHS meh-KHOHR KEH EHL MEE-oh",
+     "native": "This coffee is better than mine."
+    },
+    {
+     "slot": {
+      "study": "Su ordenador",
+      "phon": "SOO ohr-deh-nah-DOHR",
+      "native": "His computer"
+     },
+     "study": "Su ordenador es mejor que el mío.",
+     "phon": "SOO ohr-deh-nah-DOHR EHS meh-KHOHR KEH EHL MEE-oh",
+     "native": "His computer is better than mine."
+    },
+    {
+     "slot": {
+      "study": "Este plan",
+      "phon": "EHS-teh PLAHN",
+      "native": "This plan"
+     },
+     "study": "Este plan es mejor que el mío.",
+     "phon": "EHS-teh PLAHN EHS meh-KHOHR KEH EHL MEE-oh",
+     "native": "This plan is better than mine."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-es-10",
+   "situation": "Explaining a reason (informal)",
+   "model": {
+    "study": "Es que {s}.",
+    "phon": "EHS KEH {s}",
+    "native": "It's just that {s}.",
+    "note": "Very common way to justify a refusal or a delay. A woman says 'cansada'."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "no tengo tiempo",
+      "phon": "NOH TEHN-goh TEEEHM-poh",
+      "native": "I don't have time"
+     },
+     "study": "Es que no tengo tiempo.",
+     "phon": "EHS KEH NOH TEHN-goh TEEEHM-poh",
+     "native": "It's just that I don't have time."
+    },
+    {
+     "slot": {
+      "study": "estoy muy cansado",
+      "phon": "ehs-TOHEE MOOEE kahn-SAH-doh",
+      "native": "I'm very tired"
+     },
+     "study": "Es que estoy muy cansado.",
+     "phon": "EHS KEH ehs-TOHEE MOOEE kahn-SAH-doh",
+     "native": "It's just that I'm very tired."
+    },
+    {
+     "slot": {
+      "study": "es demasiado caro",
+      "phon": "EHS deh-mah-SEEAH-doh KAH-roh",
+      "native": "it's too expensive"
+     },
+     "study": "Es que es demasiado caro.",
+     "phon": "EHS KEH EHS deh-mah-SEEAH-doh KAH-roh",
+     "native": "It's just that it's too expensive."
+    },
+    {
+     "slot": {
+      "study": "prefiero quedarme en casa",
+      "phon": "preh-FEEEH-roh keh-DAHR-meh EHN KAH-sah",
+      "native": "I'd rather stay at home"
+     },
+     "study": "Es que prefiero quedarme en casa.",
+     "phon": "EHS KEH preh-FEEEH-roh keh-DAHR-meh EHN KAH-sah",
+     "native": "It's just that I'd rather stay at home."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-es-11",
+   "situation": "Pointing out an advantage",
+   "model": {
+    "study": "Lo bueno es que {s}.",
+    "phon": "LOH BOOEH-noh EHS KEH {s}",
+    "native": "The good thing is that {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "está cerca del trabajo",
+      "phon": "ehs-TAH SEHR-kah DEHL trah-BAH-khoh",
+      "native": "it's close to work"
+     },
+     "study": "Lo bueno es que está cerca del trabajo.",
+     "phon": "LOH BOOEH-noh EHS KEH ehs-TAH SEHR-kah DEHL trah-BAH-khoh",
+     "native": "The good thing is that it's close to work."
+    },
+    {
+     "slot": {
+      "study": "tiene mucha luz",
+      "phon": "TEEEH-neh MOO-chah LOOS",
+      "native": "it gets lots of light"
+     },
+     "study": "Lo bueno es que tiene mucha luz.",
+     "phon": "LOH BOOEH-noh EHS KEH TEEEH-neh MOO-chah LOOS",
+     "native": "The good thing is that it gets lots of light."
+    },
+    {
+     "slot": {
+      "study": "es barato",
+      "phon": "EHS bah-RAH-toh",
+      "native": "it's cheap"
+     },
+     "study": "Lo bueno es que es barato.",
+     "phon": "LOH BOOEH-noh EHS KEH EHS bah-RAH-toh",
+     "native": "The good thing is that it's cheap."
+    },
+    {
+     "slot": {
+      "study": "hay un parque al lado",
+      "phon": "AHEE OON PAHR-keh AHL LAH-doh",
+      "native": "there's a park next door"
+     },
+     "study": "Lo bueno es que hay un parque al lado.",
+     "phon": "LOH BOOEH-noh EHS KEH AHEE OON PAHR-keh AHL LAH-doh",
+     "native": "The good thing is that there's a park next door."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-es-12",
+   "situation": "Saying what you think of it",
+   "model": {
+    "study": "Me parece {s}.",
+    "phon": "MEH pah-REH-seh {s}",
+    "native": "I think it's {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "caro",
+      "phon": "KAH-roh",
+      "native": "expensive"
+     },
+     "study": "Me parece caro.",
+     "phon": "MEH pah-REH-seh KAH-roh",
+     "native": "I think it's expensive."
+    },
+    {
+     "slot": {
+      "study": "muy interesante",
+      "phon": "MOOEE een-teh-reh-SAHN-teh",
+      "native": "very interesting"
+     },
+     "study": "Me parece muy interesante.",
+     "phon": "MEH pah-REH-seh MOOEE een-teh-reh-SAHN-teh",
+     "native": "I think it's very interesting."
+    },
+    {
+     "slot": {
+      "study": "una buena idea",
+      "phon": "OO-nah BOOEH-nah ee-DEH-ah",
+      "native": "a good idea"
+     },
+     "study": "Me parece una buena idea.",
+     "phon": "MEH pah-REH-seh OO-nah BOOEH-nah ee-DEH-ah",
+     "native": "I think it's a good idea."
+    },
+    {
+     "slot": {
+      "study": "demasiado lejos",
+      "phon": "deh-mah-SEEAH-doh LEH-khohs",
+      "native": "too far"
+     },
+     "study": "Me parece demasiado lejos.",
+     "phon": "MEH pah-REH-seh deh-mah-SEEAH-doh LEH-khohs",
+     "native": "I think it's too far."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-en-es-13",
+   "situation": "Liking something better",
+   "model": {
+    "study": "Me gusta más {s}.",
+    "phon": "MEH GOOS-tah MAHS {s}",
+    "native": "I like {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "el pescado que la carne",
+      "phon": "EHL pehs-KAH-doh KEH LAH KAHR-neh",
+      "native": "fish better than meat"
+     },
+     "study": "Me gusta más el pescado que la carne.",
+     "phon": "MEH GOOS-tah MAHS EHL pehs-KAH-doh KEH LAH KAHR-neh",
+     "native": "I like fish better than meat."
+    },
+    {
+     "slot": {
+      "study": "cocinar que salir a cenar",
+      "phon": "koh-see-NAHR KEH sah-LEER AH seh-NAHR",
+      "native": "cooking better than eating out"
+     },
+     "study": "Me gusta más cocinar que salir a cenar.",
+     "phon": "MEH GOOS-tah MAHS koh-see-NAHR KEH sah-LEER AH seh-NAHR",
+     "native": "I like cooking better than eating out."
+    },
+    {
+     "slot": {
+      "study": "el verano que el invierno",
+      "phon": "EHL veh-RAH-noh KEH EHL een-VEEEHR-noh",
+      "native": "summer better than winter"
+     },
+     "study": "Me gusta más el verano que el invierno.",
+     "phon": "MEH GOOS-tah MAHS EHL veh-RAH-noh KEH EHL een-VEEEHR-noh",
+     "native": "I like summer better than winter."
+    },
+    {
+     "slot": {
+      "study": "vivir en el centro que en las afueras",
+      "phon": "vee-VEER EHN EHL SEHN-troh KEH EHN LAHS ah-FOOEH-rahs",
+      "native": "living in the centre better than in the suburbs"
+     },
+     "study": "Me gusta más vivir en el centro que en las afueras.",
+     "phon": "MEH GOOS-tah MAHS vee-VEER EHN EHL SEHN-troh KEH EHN LAHS ah-FOOEH-rahs",
+     "native": "I like living in the centre better than in the suburbs."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L7-en-es-d1",
+   "situation": "Choosing a flat",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "¿Qué piso prefieres, el del centro o el de las afueras?",
+     "phon": "KEH PEE-soh preh-FEEEH-rehs, EHL DEHL SEHN-troh OH EHL DEH LAHS ah-FOOEH-rahs",
+     "native": "Which flat do you prefer, the one in the centre or the one in the suburbs?"
+    },
+    {
+     "speaker": "B",
+     "study": "Prefiero el del centro porque está cerca del trabajo.",
+     "phon": "preh-FEEEH-roh EHL DEHL SEHN-troh POHR-keh ehs-TAH SEHR-kah DEHL trah-BAH-khoh",
+     "native": "I prefer the one in the centre because it's close to work."
+    },
+    {
+     "speaker": "A",
+     "study": "Pero es más caro que el otro.",
+     "phon": "PEH-roh EHS MAHS KAH-roh KEH EHL OH-troh",
+     "native": "But it's more expensive than the other one."
+    },
+    {
+     "speaker": "B",
+     "study": "Es verdad, pero es menos ruidoso y tiene más luz.",
+     "phon": "EHS vehr-DAHD, PEH-roh EHS MEH-nohs rooee-DOH-soh EE TEEEH-neh MAHS LOOS",
+     "native": "That's true, but it's less noisy and it gets more light."
+    },
+    {
+     "speaker": "A",
+     "study": "¿Y el barrio?",
+     "phon": "EE EHL BAH-rreeoh",
+     "native": "And the neighbourhood?"
+    },
+    {
+     "speaker": "B",
+     "study": "Lo bueno es que hay un mercado y un parque al lado.",
+     "phon": "LOH BOOEH-noh EHS KEH AHEE OON mehr-KAH-doh EE OON PAHR-keh AHL LAH-doh",
+     "native": "The good thing is that there's a market and a park next door."
+    },
+    {
+     "speaker": "A",
+     "study": "Creo que tienes razón.",
+     "phon": "KREH-oh KEH TEEEH-nehs rah-SOHN",
+     "native": "I think you're right."
+    },
+    {
+     "speaker": "B",
+     "study": "Antes vivía en las afueras y perdía mucho tiempo en el coche.",
+     "phon": "AHN-tehs vee-VEE-ah EHN LAHS ah-FOOEH-rahs EE pehr-DEE-ah MOO-choh TEEEHM-poh EHN EHL KOH-cheh",
+     "native": "I used to live in the suburbs and I wasted a lot of time in the car."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L2-en-es-03",
+    "L2-en-es-05",
+    "L3-en-es-03",
+    "L4-en-es-06",
+    "L7-en-es-05",
+    "L7-en-es-10",
+    "L7-en-es-11"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A friend"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L7-en-es-d2",
+   "situation": "At the restaurant",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "¿Qué te parece este restaurante?",
+     "phon": "KEH TEH pah-REH-seh EHS-teh rehs-tahoo-RAHN-teh",
+     "native": "What do you think of this restaurant?"
+    },
+    {
+     "speaker": "B",
+     "study": "Me parece muy bueno, pero un poco caro.",
+     "phon": "MEH pah-REH-seh MOOEE BOOEH-noh, PEH-roh OON POH-koh KAH-roh",
+     "native": "I think it's very good, but a bit expensive."
+    },
+    {
+     "speaker": "A",
+     "study": "¿Qué vas a pedir?",
+     "phon": "KEH VAHS AH peh-DEER",
+     "native": "What are you going to order?"
+    },
+    {
+     "speaker": "B",
+     "study": "El pescado. Me gusta más el pescado que la carne.",
+     "phon": "EHL pehs-KAH-doh. MEH GOOS-tah MAHS EHL pehs-KAH-doh KEH LAH KAHR-neh",
+     "native": "The fish. I like fish better than meat."
+    },
+    {
+     "speaker": "A",
+     "study": "Yo prefiero la paella porque es más típica.",
+     "phon": "YOH preh-FEEEH-roh LAH pah-EH-yah POHR-keh EHS MAHS TEE-pee-kah",
+     "native": "I prefer the paella because it's more typical."
+    },
+    {
+     "speaker": "B",
+     "study": "Buena idea. ¿Y de beber?",
+     "phon": "BOOEH-nah ee-DEH-ah. EE DEH beh-BEHR",
+     "native": "Good idea. And to drink?"
+    },
+    {
+     "speaker": "A",
+     "study": "Para mí, agua. Antes bebía vino en la comida, ahora ya no.",
+     "phon": "PAH-rah MEE, AH-gooah. AHN-tehs beh-BEE-ah VEE-noh EHN LAH koh-MEE-dah, ah-OH-rah YAH NOH",
+     "native": "For me, water. I used to drink wine at lunch, but not any more."
+    },
+    {
+     "speaker": "B",
+     "study": "Yo también bebo menos que antes.",
+     "phon": "YOH tahm-BEEEHN BEH-boh MEH-nohs KEH AHN-tehs",
+     "native": "I drink less than before too."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L1-en-es-08",
+    "L2-en-es-05",
+    "L2-en-es-09",
+    "L3-en-es-03",
+    "L6-en-es-08",
+    "L7-en-es-06",
+    "L7-en-es-07",
+    "L7-en-es-12",
+    "L7-en-es-13"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A friend"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L7-en-es-d3",
+   "situation": "Working from home or at the office",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "¿Trabajas desde casa?",
+     "phon": "trah-BAH-khahs DEHS-deh KAH-sah",
+     "native": "Do you work from home?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sí, tres días por semana. Para mí, es más práctico.",
+     "phon": "SEE, TREHS DEE-ahs POHR seh-MAH-nah. PAH-rah MEE, EHS MAHS PRAHK-tee-koh",
+     "native": "Yes, three days a week. For me, it's more practical."
+    },
+    {
+     "speaker": "A",
+     "study": "¿Por qué?",
+     "phon": "POHR KEH",
+     "native": "Why?"
+    },
+    {
+     "speaker": "B",
+     "study": "Es que pierdo menos tiempo en el transporte y estoy más tranquilo.",
+     "phon": "EHS KEH PEEEHR-doh MEH-nohs TEEEHM-poh EHN EHL trahns-POHR-teh EE ehs-TOHEE MAHS trahn-KEE-loh",
+     "native": "It's just that I waste less time commuting and I'm more relaxed."
+    },
+    {
+     "speaker": "A",
+     "study": "Yo prefiero ir a la oficina porque veo a mis compañeros.",
+     "phon": "YOH preh-FEEEH-roh EER AH LAH oh-fee-SEE-nah POHR-keh VEH-oh AH MEES kohm-pah-NYEH-rohs",
+     "native": "I prefer going to the office because I see my colleagues."
+    },
+    {
+     "speaker": "B",
+     "study": "Te entiendo. Lo bueno es que ahora podemos elegir.",
+     "phon": "TEH ehn-TEEEHN-doh. LOH BOOEH-noh EHS KEH ah-OH-rah poh-DEH-mohs eh-leh-KHEER",
+     "native": "I understand. The good thing is that now we can choose."
+    },
+    {
+     "speaker": "A",
+     "study": "Antes trabajaba todos los días en la oficina y llegaba a casa muy tarde.",
+     "phon": "AHN-tehs trah-bah-KHAH-bah TOH-dohs LOHS DEE-ahs EHN LAH oh-fee-SEE-nah EE yeh-GAH-bah AH KAH-sah MOOEE TAHR-deh",
+     "native": "I used to work at the office every day and I got home very late."
+    },
+    {
+     "speaker": "B",
+     "study": "Ahora descansas más que antes, ¿no?",
+     "phon": "ah-OH-rah dehs-KAHN-sahs MAHS KEH AHN-tehs, NOH",
+     "native": "Now you rest more than before, don't you?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sí, mucho más.",
+     "phon": "SEE, MOO-choh MAHS",
+     "native": "Yes, much more."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L2-en-es-05",
+    "L2-en-es-09",
+    "L3-en-es-10",
+    "L7-en-es-06",
+    "L7-en-es-08",
+    "L7-en-es-10",
+    "L7-en-es-11"
+   ],
+   "roles": {
+    "A": "A friend",
+    "B": "You"
+   },
+   "learnerRole": "B"
+  }
+ ],
+ "readiness": "Justify a choice (porque, es que), compare (más / menos… que, mejor), give a simple opinion (creo que, me parece, para mí) and describe a past habit in the imperfect to explain a change."
+}

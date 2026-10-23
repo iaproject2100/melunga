@@ -1,0 +1,1043 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "es",
+ "nativeLanguage": "en",
+ "fields": {
+  "study": "phrase en espagnol",
+  "phon": "prononciation écrite pour anglophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximate English respelling for English-speaking readers (CAPITALS = stressed syllable; vowels ah / eh / ee / oh / oo; j and g before e/i → kh as in Scottish 'loch'; ñ → ny; ll → y; c before e/i and z → s; r is rolled; monosyllables in capitals). Standard Castilian with seseo and yeísmo. No substitute for the audio.",
+ "reviewStatus": "Written by rule from validated content; native English review recommended.",
+ "coverageClaim": null,
+ "level": 5,
+ "title": "Telling what happened",
+ "goal": "Tell about a past event and ask for news.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L5-en-es-01",
+   "situation": "Yesterday",
+   "model": {
+    "study": "Ayer {s}.",
+    "phon": "ah-YEHR {s}",
+    "native": "Yesterday I {s}.",
+    "note": "Pretérito indefinido (simple past) for a single, completed event."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "trabajé mucho",
+      "phon": "trah-bah-KHEH MOO-choh",
+      "native": "worked a lot"
+     },
+     "study": "Ayer trabajé mucho.",
+     "phon": "ah-YEHR trah-bah-KHEH MOO-choh",
+     "native": "Yesterday I worked a lot."
+    },
+    {
+     "slot": {
+      "study": "comí con mis padres",
+      "phon": "koh-MEE KOHN MEES PAH-drehs",
+      "native": "had lunch with my parents"
+     },
+     "study": "Ayer comí con mis padres.",
+     "phon": "ah-YEHR koh-MEE KOHN MEES PAH-drehs",
+     "native": "Yesterday I had lunch with my parents."
+    },
+    {
+     "slot": {
+      "study": "vi una película",
+      "phon": "VEE OO-nah peh-LEE-koo-lah",
+      "native": "saw a film"
+     },
+     "study": "Ayer vi una película.",
+     "phon": "ah-YEHR VEE OO-nah peh-LEE-koo-lah",
+     "native": "Yesterday I saw a film."
+    },
+    {
+     "slot": {
+      "study": "no salí de casa",
+      "phon": "NOH sah-LEE DEH KAH-sah",
+      "native": "didn't leave the house"
+     },
+     "study": "Ayer no salí de casa.",
+     "phon": "ah-YEHR NOH sah-LEE DEH KAH-sah",
+     "native": "Yesterday I didn't leave the house."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-es-02",
+   "situation": "Saying where you went",
+   "model": {
+    "study": "Fui {s}.",
+    "phon": "FOOEE {s}",
+    "native": "I went {s}.",
+    "note": "'Fui' is the same whether a man or a woman is speaking."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a la playa",
+      "phon": "AH LAH PLAH-yah",
+      "native": "to the beach"
+     },
+     "study": "Fui a la playa.",
+     "phon": "FOOEE AH LAH PLAH-yah",
+     "native": "I went to the beach."
+    },
+    {
+     "slot": {
+      "study": "al médico",
+      "phon": "AHL MEH-dee-koh",
+      "native": "to the doctor"
+     },
+     "study": "Fui al médico.",
+     "phon": "FOOEE AHL MEH-dee-koh",
+     "native": "I went to the doctor."
+    },
+    {
+     "slot": {
+      "study": "a Barcelona",
+      "phon": "AH bahr-seh-LOH-nah",
+      "native": "to Barcelona"
+     },
+     "study": "Fui a Barcelona.",
+     "phon": "FOOEE AH bahr-seh-LOH-nah",
+     "native": "I went to Barcelona."
+    },
+    {
+     "slot": {
+      "study": "al cine con Ana",
+      "phon": "AHL SEE-neh KOHN AH-nah",
+      "native": "to the cinema with Ana"
+     },
+     "study": "Fui al cine con Ana.",
+     "phon": "FOOEE AHL SEE-neh KOHN AH-nah",
+     "native": "I went to the cinema with Ana."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-es-03",
+   "situation": "Placing something in the past",
+   "model": {
+    "study": "{s} estuve en Madrid.",
+    "phon": "{s} ehs-TOO-veh EHN mah-DREED",
+    "native": "{s} I was in Madrid."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "La semana pasada",
+      "phon": "LAH seh-MAH-nah pah-SAH-dah",
+      "native": "Last week"
+     },
+     "study": "La semana pasada estuve en Madrid.",
+     "phon": "LAH seh-MAH-nah pah-SAH-dah ehs-TOO-veh EHN mah-DREED",
+     "native": "Last week I was in Madrid."
+    },
+    {
+     "slot": {
+      "study": "Hace dos días",
+      "phon": "AH-seh DOHS DEE-ahs",
+      "native": "Two days ago"
+     },
+     "study": "Hace dos días estuve en Madrid.",
+     "phon": "AH-seh DOHS DEE-ahs ehs-TOO-veh EHN mah-DREED",
+     "native": "Two days ago I was in Madrid."
+    },
+    {
+     "slot": {
+      "study": "El mes pasado",
+      "phon": "EHL MEHS pah-SAH-doh",
+      "native": "Last month"
+     },
+     "study": "El mes pasado estuve en Madrid.",
+     "phon": "EHL MEHS pah-SAH-doh ehs-TOO-veh EHN mah-DREED",
+     "native": "Last month I was in Madrid."
+    },
+    {
+     "slot": {
+      "study": "El año pasado",
+      "phon": "EHL AH-nyoh pah-SAH-doh",
+      "native": "Last year"
+     },
+     "study": "El año pasado estuve en Madrid.",
+     "phon": "EHL AH-nyoh pah-SAH-doh ehs-TOO-veh EHN mah-DREED",
+     "native": "Last year I was in Madrid."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-es-04",
+   "situation": "Asking how things are",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Set phrases to learn as they are."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "¿Qué tal?",
+      "phon": "KEH TAHL",
+      "native": "How's it going?"
+     },
+     "study": "¿Qué tal?",
+     "phon": "KEH TAHL",
+     "native": "How's it going?"
+    },
+    {
+     "slot": {
+      "study": "¿Qué hay de nuevo?",
+      "phon": "KEH AHEE DEH NOOEH-voh",
+      "native": "What's new?"
+     },
+     "study": "¿Qué hay de nuevo?",
+     "phon": "KEH AHEE DEH NOOEH-voh",
+     "native": "What's new?"
+    },
+    {
+     "slot": {
+      "study": "¿Cómo te fue?",
+      "phon": "KOH-moh TEH FOOEH",
+      "native": "How did it go?"
+     },
+     "study": "¿Cómo te fue?",
+     "phon": "KOH-moh TEH FOOEH",
+     "native": "How did it go?"
+    },
+    {
+     "slot": {
+      "study": "¿Qué tal el fin de semana?",
+      "phon": "KEH TAHL EHL FEEN DEH seh-MAH-nah",
+      "native": "How was your weekend?"
+     },
+     "study": "¿Qué tal el fin de semana?",
+     "phon": "KEH TAHL EHL FEEN DEH seh-MAH-nah",
+     "native": "How was your weekend?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-es-05",
+   "situation": "Answering and asking back",
+   "model": {
+    "study": "{s}, ¿y tú?",
+    "phon": "{s}, EE TOO",
+    "native": "{s}, and you?",
+    "note": "A woman says 'cansada' (kahn-SAH-dah)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Bien",
+      "phon": "BEEEHN",
+      "native": "Fine"
+     },
+     "study": "Bien, ¿y tú?",
+     "phon": "BEEEHN, EE TOO",
+     "native": "Fine, and you?"
+    },
+    {
+     "slot": {
+      "study": "Muy bien",
+      "phon": "MOOEE BEEEHN",
+      "native": "Very well"
+     },
+     "study": "Muy bien, ¿y tú?",
+     "phon": "MOOEE BEEEHN, EE TOO",
+     "native": "Very well, and you?"
+    },
+    {
+     "slot": {
+      "study": "Regular",
+      "phon": "reh-goo-LAHR",
+      "native": "So-so"
+     },
+     "study": "Regular, ¿y tú?",
+     "phon": "reh-goo-LAHR, EE TOO",
+     "native": "So-so, and you?"
+    },
+    {
+     "slot": {
+      "study": "Cansado, pero bien",
+      "phon": "kahn-SAH-doh, PEH-roh BEEEHN",
+      "native": "Tired, but fine"
+     },
+     "study": "Cansado, pero bien, ¿y tú?",
+     "phon": "kahn-SAH-doh, PEH-roh BEEEHN, EE TOO",
+     "native": "Tired, but fine, and you?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-es-06",
+   "situation": "Reacting",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Short reactions to learn as they are."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "¡Qué bien!",
+      "phon": "KEH BEEEHN",
+      "native": "Great!"
+     },
+     "study": "¡Qué bien!",
+     "phon": "KEH BEEEHN",
+     "native": "Great!"
+    },
+    {
+     "slot": {
+      "study": "¡Qué pena!",
+      "phon": "KEH PEH-nah",
+      "native": "What a shame!"
+     },
+     "study": "¡Qué pena!",
+     "phon": "KEH PEH-nah",
+     "native": "What a shame!"
+    },
+    {
+     "slot": {
+      "study": "¿De verdad?",
+      "phon": "DEH vehr-DAHD",
+      "native": "Really?"
+     },
+     "study": "¿De verdad?",
+     "phon": "DEH vehr-DAHD",
+     "native": "Really?"
+    },
+    {
+     "slot": {
+      "study": "¡No me digas!",
+      "phon": "NOH MEH DEE-gahs",
+      "native": "No way!"
+     },
+     "study": "¡No me digas!",
+     "phon": "NOH MEH DEE-gahs",
+     "native": "No way!"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-es-07",
+   "situation": "Linking actions",
+   "model": {
+    "study": "Primero {s} y luego fuimos a cenar.",
+    "phon": "pree-MEH-roh {s} EE LOOEH-goh FOOEE-mohs AH seh-NAHR",
+    "native": "First {s} and then we went for dinner."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "visitamos el museo",
+      "phon": "vee-see-TAH-mohs EHL moo-SEH-oh",
+      "native": "we visited the museum"
+     },
+     "study": "Primero visitamos el museo y luego fuimos a cenar.",
+     "phon": "pree-MEH-roh vee-see-TAH-mohs EHL moo-SEH-oh EE LOOEH-goh FOOEE-mohs AH seh-NAHR",
+     "native": "First we visited the museum and then we went for dinner."
+    },
+    {
+     "slot": {
+      "study": "dimos un paseo",
+      "phon": "DEE-mohs OON pah-SEH-oh",
+      "native": "we went for a walk"
+     },
+     "study": "Primero dimos un paseo y luego fuimos a cenar.",
+     "phon": "pree-MEH-roh DEE-mohs OON pah-SEH-oh EE LOOEH-goh FOOEE-mohs AH seh-NAHR",
+     "native": "First we went for a walk and then we went for dinner."
+    },
+    {
+     "slot": {
+      "study": "tomamos algo",
+      "phon": "toh-MAH-mohs AHL-goh",
+      "native": "we had a drink"
+     },
+     "study": "Primero tomamos algo y luego fuimos a cenar.",
+     "phon": "pree-MEH-roh toh-MAH-mohs AHL-goh EE LOOEH-goh FOOEE-mohs AH seh-NAHR",
+     "native": "First we had a drink and then we went for dinner."
+    },
+    {
+     "slot": {
+      "study": "fuimos de compras",
+      "phon": "FOOEE-mohs DEH KOHM-prahs",
+      "native": "we went shopping"
+     },
+     "study": "Primero fuimos de compras y luego fuimos a cenar.",
+     "phon": "pree-MEH-roh FOOEE-mohs DEH KOHM-prahs EE LOOEH-goh FOOEE-mohs AH seh-NAHR",
+     "native": "First we went shopping and then we went for dinner."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-es-08",
+   "situation": "Saying what happened next",
+   "model": {
+    "study": "Después {s}.",
+    "phon": "dehs-POOEHS {s}",
+    "native": "Afterwards {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "volvimos a casa",
+      "phon": "vohl-VEE-mohs AH KAH-sah",
+      "native": "we went home"
+     },
+     "study": "Después volvimos a casa.",
+     "phon": "dehs-POOEHS vohl-VEE-mohs AH KAH-sah",
+     "native": "Afterwards we went home."
+    },
+    {
+     "slot": {
+      "study": "llamé a mi madre",
+      "phon": "yah-MEH AH MEE MAH-dreh",
+      "native": "I called my mother"
+     },
+     "study": "Después llamé a mi madre.",
+     "phon": "dehs-POOEHS yah-MEH AH MEE MAH-dreh",
+     "native": "Afterwards I called my mother."
+    },
+    {
+     "slot": {
+      "study": "me acosté",
+      "phon": "MEH ah-kohs-TEH",
+      "native": "I went to bed"
+     },
+     "study": "Después me acosté.",
+     "phon": "dehs-POOEHS MEH ah-kohs-TEH",
+     "native": "Afterwards I went to bed."
+    },
+    {
+     "slot": {
+      "study": "tomamos un café",
+      "phon": "toh-MAH-mohs OON kah-FEH",
+      "native": "we had a coffee"
+     },
+     "study": "Después tomamos un café.",
+     "phon": "dehs-POOEHS toh-MAH-mohs OON kah-FEH",
+     "native": "Afterwards we had a coffee."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-es-09",
+   "situation": "Talking about your holidays",
+   "model": {
+    "study": "En las vacaciones {s}.",
+    "phon": "EHN LAHS vah-kah-SEEOH-nehs {s}",
+    "native": "On holiday {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "viajamos a Portugal",
+      "phon": "veeah-KHAH-mohs AH pohr-too-GAHL",
+      "native": "we travelled to Portugal"
+     },
+     "study": "En las vacaciones viajamos a Portugal.",
+     "phon": "EHN LAHS vah-kah-SEEOH-nehs veeah-KHAH-mohs AH pohr-too-GAHL",
+     "native": "On holiday we travelled to Portugal."
+    },
+    {
+     "slot": {
+      "study": "descansé mucho",
+      "phon": "dehs-kahn-SEH MOO-choh",
+      "native": "I rested a lot"
+     },
+     "study": "En las vacaciones descansé mucho.",
+     "phon": "EHN LAHS vah-kah-SEEOH-nehs dehs-kahn-SEH MOO-choh",
+     "native": "On holiday I rested a lot."
+    },
+    {
+     "slot": {
+      "study": "conocí a gente nueva",
+      "phon": "koh-noh-SEE AH KHEHN-teh NOOEH-vah",
+      "native": "I met new people"
+     },
+     "study": "En las vacaciones conocí a gente nueva.",
+     "phon": "EHN LAHS vah-kah-SEEOH-nehs koh-noh-SEE AH KHEHN-teh NOOEH-vah",
+     "native": "On holiday I met new people."
+    },
+    {
+     "slot": {
+      "study": "hizo muy buen tiempo",
+      "phon": "EE-soh MOOEE BOOEHN TEEEHM-poh",
+      "native": "the weather was lovely"
+     },
+     "study": "En las vacaciones hizo muy buen tiempo.",
+     "phon": "EHN LAHS vah-kah-SEEOH-nehs EE-soh MOOEE BOOEHN TEEEHM-poh",
+     "native": "On holiday the weather was lovely."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-es-10",
+   "situation": "Asking what the other person did",
+   "model": {
+    "study": "¿Qué hiciste {s}?",
+    "phon": "KEH ee-SEES-teh {s}",
+    "native": "What did you do {s}?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "ayer",
+      "phon": "ah-YEHR",
+      "native": "yesterday"
+     },
+     "study": "¿Qué hiciste ayer?",
+     "phon": "KEH ee-SEES-teh ah-YEHR",
+     "native": "What did you do yesterday?"
+    },
+    {
+     "slot": {
+      "study": "el fin de semana",
+      "phon": "EHL FEEN DEH seh-MAH-nah",
+      "native": "at the weekend"
+     },
+     "study": "¿Qué hiciste el fin de semana?",
+     "phon": "KEH ee-SEES-teh EHL FEEN DEH seh-MAH-nah",
+     "native": "What did you do at the weekend?"
+    },
+    {
+     "slot": {
+      "study": "anoche",
+      "phon": "ah-NOH-cheh",
+      "native": "last night"
+     },
+     "study": "¿Qué hiciste anoche?",
+     "phon": "KEH ee-SEES-teh ah-NOH-cheh",
+     "native": "What did you do last night?"
+    },
+    {
+     "slot": {
+      "study": "en Navidad",
+      "phon": "EHN nah-vee-DAHD",
+      "native": "at Christmas"
+     },
+     "study": "¿Qué hiciste en Navidad?",
+     "phon": "KEH ee-SEES-teh EHN nah-vee-DAHD",
+     "native": "What did you do at Christmas?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-es-11",
+   "situation": "Talking about your morning at work",
+   "model": {
+    "study": "Esta mañana {s}.",
+    "phon": "EHS-tah mah-NYAH-nah {s}",
+    "native": "This morning I {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "llegué tarde al trabajo",
+      "phon": "yeh-KHEH TAHR-deh AHL trah-BAH-khoh",
+      "native": "got to work late"
+     },
+     "study": "Esta mañana llegué tarde al trabajo.",
+     "phon": "EHS-tah mah-NYAH-nah yeh-KHEH TAHR-deh AHL trah-BAH-khoh",
+     "native": "This morning I got to work late."
+    },
+    {
+     "slot": {
+      "study": "tuve una reunión",
+      "phon": "TOO-veh OO-nah rehoo-NEEOHN",
+      "native": "had a meeting"
+     },
+     "study": "Esta mañana tuve una reunión.",
+     "phon": "EHS-tah mah-NYAH-nah TOO-veh OO-nah rehoo-NEEOHN",
+     "native": "This morning I had a meeting."
+    },
+    {
+     "slot": {
+      "study": "perdí el autobús",
+      "phon": "pehr-DEE EHL ahoo-toh-BOOS",
+      "native": "missed the bus"
+     },
+     "study": "Esta mañana perdí el autobús.",
+     "phon": "EHS-tah mah-NYAH-nah pehr-DEE EHL ahoo-toh-BOOS",
+     "native": "This morning I missed the bus."
+    },
+    {
+     "slot": {
+      "study": "hablé con el jefe",
+      "phon": "ah-BLEH KOHN EHL KHEH-feh",
+      "native": "spoke to the boss"
+     },
+     "study": "Esta mañana hablé con el jefe.",
+     "phon": "EHS-tah mah-NYAH-nah ah-BLEH KOHN EHL KHEH-feh",
+     "native": "This morning I spoke to the boss."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-es-12",
+   "situation": "Asking whether they liked it",
+   "model": {
+    "study": "¿Te gustó {s}?",
+    "phon": "TEH goos-TOH {s}",
+    "native": "Did you like {s}?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "la película",
+      "phon": "LAH peh-LEE-koo-lah",
+      "native": "the film"
+     },
+     "study": "¿Te gustó la película?",
+     "phon": "TEH goos-TOH LAH peh-LEE-koo-lah",
+     "native": "Did you like the film?"
+    },
+    {
+     "slot": {
+      "study": "la ciudad",
+      "phon": "LAH seeoo-DAHD",
+      "native": "the city"
+     },
+     "study": "¿Te gustó la ciudad?",
+     "phon": "TEH goos-TOH LAH seeoo-DAHD",
+     "native": "Did you like the city?"
+    },
+    {
+     "slot": {
+      "study": "el concierto",
+      "phon": "EHL kohn-SEEEHR-toh",
+      "native": "the concert"
+     },
+     "study": "¿Te gustó el concierto?",
+     "phon": "TEH goos-TOH EHL kohn-SEEEHR-toh",
+     "native": "Did you like the concert?"
+    },
+    {
+     "slot": {
+      "study": "la comida",
+      "phon": "LAH koh-MEE-dah",
+      "native": "the food"
+     },
+     "study": "¿Te gustó la comida?",
+     "phon": "TEH goos-TOH LAH koh-MEE-dah",
+     "native": "Did you like the food?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-en-es-13",
+   "situation": "Saying what you loved",
+   "model": {
+    "study": "Me encantó {s}.",
+    "phon": "MEH ehn-kahn-TOH {s}",
+    "native": "I loved {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "el viaje",
+      "phon": "EHL VEEAH-kheh",
+      "native": "the trip"
+     },
+     "study": "Me encantó el viaje.",
+     "phon": "MEH ehn-kahn-TOH EHL VEEAH-kheh",
+     "native": "I loved the trip."
+    },
+    {
+     "slot": {
+      "study": "la playa",
+      "phon": "LAH PLAH-yah",
+      "native": "the beach"
+     },
+     "study": "Me encantó la playa.",
+     "phon": "MEH ehn-kahn-TOH LAH PLAH-yah",
+     "native": "I loved the beach."
+    },
+    {
+     "slot": {
+      "study": "el museo",
+      "phon": "EHL moo-SEH-oh",
+      "native": "the museum"
+     },
+     "study": "Me encantó el museo.",
+     "phon": "MEH ehn-kahn-TOH EHL moo-SEH-oh",
+     "native": "I loved the museum."
+    },
+    {
+     "slot": {
+      "study": "la fiesta",
+      "phon": "LAH FEEEHS-tah",
+      "native": "the party"
+     },
+     "study": "Me encantó la fiesta.",
+     "phon": "MEH ehn-kahn-TOH LAH FEEEHS-tah",
+     "native": "I loved the party."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L5-en-es-d1",
+   "situation": "Catching up",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "¡Hola, Pablo! ¿Qué tal?",
+     "phon": "OH-lah, PAH-bloh. KEH TAHL",
+     "native": "Hi, Pablo! How's it going?"
+    },
+    {
+     "speaker": "B",
+     "study": "Muy bien, ¿y tú? ¿Qué hay de nuevo?",
+     "phon": "MOOEE BEEEHN, EE TOO. KEH AHEE DEH NOOEH-voh",
+     "native": "Very well, and you? What's new?"
+    },
+    {
+     "speaker": "A",
+     "study": "El fin de semana fui a Barcelona.",
+     "phon": "EHL FEEN DEH seh-MAH-nah FOOEE AH bahr-seh-LOH-nah",
+     "native": "At the weekend I went to Barcelona."
+    },
+    {
+     "speaker": "B",
+     "study": "¿De verdad? ¿Qué hiciste?",
+     "phon": "DEH vehr-DAHD. KEH ee-SEES-teh",
+     "native": "Really? What did you do?"
+    },
+    {
+     "speaker": "A",
+     "study": "Primero visité la Sagrada Familia y luego fui a la playa.",
+     "phon": "pree-MEH-roh vee-see-TEH LAH sah-GRAH-dah fah-MEE-leeah EE LOOEH-goh FOOEE AH LAH PLAH-yah",
+     "native": "First I visited the Sagrada Familia and then I went to the beach."
+    },
+    {
+     "speaker": "B",
+     "study": "¡Qué bien! ¿Te gustó la ciudad?",
+     "phon": "KEH BEEEHN. TEH goos-TOH LAH seeoo-DAHD",
+     "native": "Great! Did you like the city?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sí, me encantó. ¿Y tú, qué hiciste?",
+     "phon": "SEE, MEH ehn-kahn-TOH. EE TOO, KEH ee-SEES-teh",
+     "native": "Yes, I loved it. And you, what did you do?"
+    },
+    {
+     "speaker": "B",
+     "study": "Nada especial, descansé en casa.",
+     "phon": "NAH-dah ehs-peh-SEEAHL, dehs-kahn-SEH EHN KAH-sah",
+     "native": "Nothing special, I rested at home."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L3-en-es-03",
+    "L3-en-es-04",
+    "L5-en-es-02",
+    "L5-en-es-04",
+    "L5-en-es-05",
+    "L5-en-es-06",
+    "L5-en-es-10",
+    "L5-en-es-12",
+    "L5-en-es-13"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A friend"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L5-en-es-d2",
+   "situation": "Monday at the office",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buenos días. ¿Qué tal el fin de semana?",
+     "phon": "BOOEH-nohs DEE-ahs. KEH TAHL EHL FEEN DEH seh-MAH-nah",
+     "native": "Good morning. How was your weekend?"
+    },
+    {
+     "speaker": "B",
+     "study": "Regular. El sábado trabajé y el domingo llovió.",
+     "phon": "reh-goo-LAHR. EHL SAH-bah-doh trah-bah-KHEH EE EHL doh-MEEN-goh yoh-VEEOH",
+     "native": "So-so. On Saturday I worked and on Sunday it rained."
+    },
+    {
+     "speaker": "A",
+     "study": "¡Qué pena! Yo comí con mis padres y después vimos una película.",
+     "phon": "KEH PEH-nah. YOH koh-MEE KOHN MEES PAH-drehs EE dehs-POOEHS VEE-mohs OO-nah peh-LEE-koo-lah",
+     "native": "What a shame! I had lunch with my parents and afterwards we watched a film."
+    },
+    {
+     "speaker": "B",
+     "study": "¿Cuál?",
+     "phon": "KOOAHL",
+     "native": "Which one?"
+    },
+    {
+     "speaker": "A",
+     "study": "Una comedia española. Muy divertida.",
+     "phon": "OO-nah koh-MEH-deeah ehs-pah-NYOH-lah. MOOEE dee-vehr-TEE-dah",
+     "native": "A Spanish comedy. Very funny."
+    },
+    {
+     "speaker": "B",
+     "study": "¿Cómo se llama?",
+     "phon": "KOH-moh SEH YAH-mah",
+     "native": "What's it called?"
+    },
+    {
+     "speaker": "A",
+     "study": "No me acuerdo. Te lo digo luego.",
+     "phon": "NOH MEH ah-KOOEHR-doh. TEH LOH DEE-goh LOOEH-goh",
+     "native": "I don't remember. I'll tell you later."
+    },
+    {
+     "speaker": "B",
+     "study": "Vale, la veo esta semana.",
+     "phon": "VAH-leh, LAH VEH-oh EHS-tah seh-MAH-nah",
+     "native": "OK, I'll watch it this week."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L2-en-es-06",
+    "L3-en-es-03",
+    "L3-en-es-09",
+    "L5-en-es-04",
+    "L5-en-es-06",
+    "L5-en-es-08"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "A colleague"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L5-en-es-d3",
+   "situation": "Calling home",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hola, mamá. ¿Cómo estás?",
+     "phon": "OH-lah, mah-MAH. KOH-moh ehs-TAHS",
+     "native": "Hi, Mum. How are you?"
+    },
+    {
+     "speaker": "B",
+     "study": "Bien, cansada. Ayer fui al médico.",
+     "phon": "BEEEHN, kahn-SAH-dah. ah-YEHR FOOEE AHL MEH-dee-koh",
+     "native": "Fine, tired. Yesterday I went to the doctor."
+    },
+    {
+     "speaker": "A",
+     "study": "¿Y qué te dijo?",
+     "phon": "EE KEH TEH DEE-khoh",
+     "native": "And what did he say?"
+    },
+    {
+     "speaker": "B",
+     "study": "Nada grave. Y tú, ¿qué tal el trabajo?",
+     "phon": "NAH-dah GRAH-veh. EE TOO, KEH TAHL EHL trah-BAH-khoh",
+     "native": "Nothing serious. And you, how's work?"
+    },
+    {
+     "speaker": "A",
+     "study": "Esta mañana tuve una reunión y llegué tarde.",
+     "phon": "EHS-tah mah-NYAH-nah TOO-veh OO-nah rehoo-NEEOHN EE yeh-KHEH TAHR-deh",
+     "native": "This morning I had a meeting and I got there late."
+    },
+    {
+     "speaker": "B",
+     "study": "¿Por qué?",
+     "phon": "POHR KEH",
+     "native": "Why?"
+    },
+    {
+     "speaker": "A",
+     "study": "Perdí el autobús.",
+     "phon": "pehr-DEE EHL ahoo-toh-BOOS",
+     "native": "I missed the bus."
+    },
+    {
+     "speaker": "B",
+     "study": "¡No me digas! ¿Vienes el domingo?",
+     "phon": "NOH MEH DEE-gahs. VEEEH-nehs EHL doh-MEEN-goh",
+     "native": "No way! Are you coming on Sunday?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sí, voy a comer con vosotros.",
+     "phon": "SEE, VOHEE AH koh-MEHR KOHN voh-SOH-trohs",
+     "native": "Yes, I'm coming to have lunch with you."
+    },
+    {
+     "speaker": "B",
+     "study": "¡Qué bien! Hasta el domingo.",
+     "phon": "KEH BEEEHN. AHS-tah EHL doh-MEEN-goh",
+     "native": "Great! See you on Sunday."
+    }
+   ],
+   "practice": "Listen to both roles, hide one role, answer, then swap one line for a variant of your own.",
+   "reuses": [
+    "L2-en-es-03",
+    "L3-en-es-03",
+    "L3-en-es-09",
+    "L3-en-es-10",
+    "L4-en-es-06",
+    "L5-en-es-01",
+    "L5-en-es-02",
+    "L5-en-es-04",
+    "L5-en-es-06",
+    "L5-en-es-11"
+   ],
+   "roles": {
+    "A": "You",
+    "B": "Your mother"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Say what you did (yesterday, at the weekend, on holiday) in the simple past (pretérito indefinido), place events in the past, link actions (primero, luego, después), ask how things are and react."
+}

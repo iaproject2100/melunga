@@ -1,0 +1,1000 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "fr",
+ "nativeLanguage": "zh",
+ "fields": {
+  "study": "phrase en français",
+  "phon": "prononciation écrite pour sinophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "用汉字标注法语读音（沿用词库风格：美西 = merci，诺 = non）。汉字只是近似，请以音频为准。法语无声调；重音不在单词上，而是落在一个节奏组（短语或句子）的最后一个音节，并略微拉长。",
+ "reviewStatus": "需语言校对（汉字注音的近似程度、译文自然度）。",
+ "coverageClaim": null,
+ "level": 9,
+ "title": "委婉与应变",
+ "goal": "换一种说法、委婉表达并处理意外。",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L9-zh-fr-01",
+   "situation": "换句话说",
+   "model": {
+    "study": "Autrement dit, {s}.",
+    "phon": "奥特勒芒 迪，{s}",
+    "native": "换句话说，{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "le train est annulé",
+      "phon": "勒 特兰 埃 塔尼吕莱",
+      "native": "火车取消了"
+     },
+     "study": "Autrement dit, le train est annulé.",
+     "phon": "奥特勒芒 迪，勒 特兰 埃 塔尼吕莱",
+     "native": "换句话说，火车取消了。"
+    },
+    {
+     "slot": {
+      "study": "je dois attendre demain",
+      "phon": "热 杜瓦 阿唐德尔 德曼",
+      "native": "我得等到明天"
+     },
+     "study": "Autrement dit, je dois attendre demain.",
+     "phon": "奥特勒芒 迪，热 杜瓦 阿唐德尔 德曼",
+     "native": "换句话说，我得等到明天。"
+    },
+    {
+     "slot": {
+      "study": "ce n'est pas possible",
+      "phon": "瑟 内 帕 波西布勒",
+      "native": "这不可能"
+     },
+     "study": "Autrement dit, ce n'est pas possible.",
+     "phon": "奥特勒芒 迪，瑟 内 帕 波西布勒",
+     "native": "换句话说，这不可能。"
+    },
+    {
+     "slot": {
+      "study": "il faut un autre document",
+      "phon": "伊尔 福 安 诺特尔 多居芒",
+      "native": "需要另一份文件"
+     },
+     "study": "Autrement dit, il faut un autre document.",
+     "phon": "奥特勒芒 迪，伊尔 福 安 诺特尔 多居芒",
+     "native": "换句话说，需要另一份文件。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-zh-fr-02",
+   "situation": "我的意思是",
+   "model": {
+    "study": "Ce que je veux dire, c'est que {s}.",
+    "phon": "瑟 克 热 弗 迪尔，赛 克 {s}",
+    "native": "我的意思是，{s}。",
+    "note": "« c'est que » 后面接完整的句子；que 在元音前缩成 qu'（c'est qu'il…）。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "je ne suis pas d'accord",
+      "phon": "热 讷 绥 帕 达科尔",
+      "native": "我不同意"
+     },
+     "study": "Ce que je veux dire, c'est que je ne suis pas d'accord.",
+     "phon": "瑟 克 热 弗 迪尔，赛 克 热 讷 绥 帕 达科尔",
+     "native": "我的意思是，我不同意。"
+    },
+    {
+     "slot": {
+      "study": "ce n'est pas urgent",
+      "phon": "瑟 内 帕 于尔让",
+      "native": "这不急"
+     },
+     "study": "Ce que je veux dire, c'est que ce n'est pas urgent.",
+     "phon": "瑟 克 热 弗 迪尔，赛 克 瑟 内 帕 于尔让",
+     "native": "我的意思是，这不急。"
+    },
+    {
+     "slot": {
+      "study": "nous avons besoin de temps",
+      "phon": "努 扎翁 贝祖安 德 唐",
+      "native": "我们需要时间"
+     },
+     "study": "Ce que je veux dire, c'est que nous avons besoin de temps.",
+     "phon": "瑟 克 热 弗 迪尔，赛 克 努 扎翁 贝祖安 德 唐",
+     "native": "我的意思是，我们需要时间。"
+    },
+    {
+     "slot": {
+      "study": "le prix est trop élevé",
+      "phon": "勒 普里 埃 特罗 佩勒韦",
+      "native": "价格太高了"
+     },
+     "study": "Ce que je veux dire, c'est que le prix est trop élevé.",
+     "phon": "瑟 克 热 弗 迪尔，赛 克 勒 普里 埃 特罗 佩勒韦",
+     "native": "我的意思是，价格太高了。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-zh-fr-03",
+   "situation": "婉转回答",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "不想直接说“是”或“不是”时的常用短句，整句记住。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Plutôt oui.",
+      "phon": "普吕托 威",
+      "native": "应该算是吧。"
+     },
+     "study": "Plutôt oui.",
+     "phon": "普吕托 威",
+     "native": "应该算是吧。"
+    },
+    {
+     "slot": {
+      "study": "Pas vraiment.",
+      "phon": "帕 弗雷芒",
+      "native": "不太是。"
+     },
+     "study": "Pas vraiment.",
+     "phon": "帕 弗雷芒",
+     "native": "不太是。"
+    },
+    {
+     "slot": {
+      "study": "En partie.",
+      "phon": "昂 帕尔蒂",
+      "native": "部分是。"
+     },
+     "study": "En partie.",
+     "phon": "昂 帕尔蒂",
+     "native": "部分是。"
+    },
+    {
+     "slot": {
+      "study": "Ça dépend.",
+      "phon": "萨 德庞",
+      "native": "看情况。"
+     },
+     "study": "Ça dépend.",
+     "phon": "萨 德庞",
+     "native": "看情况。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-zh-fr-04",
+   "situation": "表示可能",
+   "model": {
+    "study": "Peut-être que {s}.",
+    "phon": "珀泰特尔 克 {s}",
+    "native": "也许{s}。",
+    "note": "« Peut-être que » 后面接普通句子，不需要改动词形式。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "le bus est en retard",
+      "phon": "勒 比斯 埃 昂 勒塔尔",
+      "native": "公交车晚点了"
+     },
+     "study": "Peut-être que le bus est en retard.",
+     "phon": "珀泰特尔 克 勒 比斯 埃 昂 勒塔尔",
+     "native": "也许公交车晚点了。"
+    },
+    {
+     "slot": {
+      "study": "j'ai fait une erreur",
+      "phon": "热 费 于 内勒尔",
+      "native": "我弄错了"
+     },
+     "study": "Peut-être que j'ai fait une erreur.",
+     "phon": "珀泰特尔 克 热 费 于 内勒尔",
+     "native": "也许我弄错了。"
+    },
+    {
+     "slot": {
+      "study": "c'est fermé le dimanche",
+      "phon": "赛 费尔梅 勒 迪芒什",
+      "native": "星期天不开门"
+     },
+     "study": "Peut-être que c'est fermé le dimanche.",
+     "phon": "珀泰特尔 克 赛 费尔梅 勒 迪芒什",
+     "native": "也许星期天不开门。"
+    },
+    {
+     "slot": {
+      "study": "le médecin est occupé",
+      "phon": "勒 梅德森 埃 托居佩",
+      "native": "医生在忙"
+     },
+     "study": "Peut-être que le médecin est occupé.",
+     "phon": "珀泰特尔 克 勒 梅德森 埃 托居佩",
+     "native": "也许医生在忙。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-zh-fr-05",
+   "situation": "有可能（虚拟式）",
+   "model": {
+    "study": "Il se peut que {s}.",
+    "phon": "伊尔 瑟 珀 克 {s}",
+    "native": "有可能{s}。",
+    "note": "« Il se peut que » 后面的动词要用虚拟式（sois, soit, ait）。先把这几个固定搭配整句记住即可。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "je sois en retard",
+      "phon": "热 斯瓦 昂 勒塔尔",
+      "native": "我会迟到"
+     },
+     "study": "Il se peut que je sois en retard.",
+     "phon": "伊尔 瑟 珀 克 热 斯瓦 昂 勒塔尔",
+     "native": "有可能我会迟到。"
+    },
+    {
+     "slot": {
+      "study": "ce soit fermé",
+      "phon": "瑟 斯瓦 费尔梅",
+      "native": "关门了"
+     },
+     "study": "Il se peut que ce soit fermé.",
+     "phon": "伊尔 瑟 珀 克 瑟 斯瓦 费尔梅",
+     "native": "有可能关门了。"
+    },
+    {
+     "slot": {
+      "study": "tu aies raison",
+      "phon": "蒂 埃 雷宗",
+      "native": "你是对的"
+     },
+     "study": "Il se peut que tu aies raison.",
+     "phon": "伊尔 瑟 珀 克 蒂 埃 雷宗",
+     "native": "有可能你是对的。"
+    },
+    {
+     "slot": {
+      "study": "le vol soit annulé",
+      "phon": "勒 沃尔 斯瓦 塔尼吕莱",
+      "native": "航班被取消"
+     },
+     "study": "Il se peut que le vol soit annulé.",
+     "phon": "伊尔 瑟 珀 克 勒 沃尔 斯瓦 塔尼吕莱",
+     "native": "有可能航班被取消。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-zh-fr-06",
+   "situation": "说明问题",
+   "model": {
+    "study": "Il y a un problème : {s}. Qu'est-ce qu'on peut faire ?",
+    "phon": "伊 利 亚 安 普罗布莱姆：{s}。凯斯 孔 珀 费尔",
+    "native": "有个问题：{s}。我们怎么办？"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "j'ai perdu mon billet",
+      "phon": "热 佩尔迪 蒙 比耶",
+      "native": "我把票弄丢了"
+     },
+     "study": "Il y a un problème : j'ai perdu mon billet. Qu'est-ce qu'on peut faire ?",
+     "phon": "伊 利 亚 安 普罗布莱姆：热 佩尔迪 蒙 比耶。凯斯 孔 珀 费尔",
+     "native": "有个问题：我把票弄丢了。我们怎么办？"
+    },
+    {
+     "slot": {
+      "study": "le train est annulé",
+      "phon": "勒 特兰 埃 塔尼吕莱",
+      "native": "火车取消了"
+     },
+     "study": "Il y a un problème : le train est annulé. Qu'est-ce qu'on peut faire ?",
+     "phon": "伊 利 亚 安 普罗布莱姆：勒 特兰 埃 塔尼吕莱。凯斯 孔 珀 费尔",
+     "native": "有个问题：火车取消了。我们怎么办？"
+    },
+    {
+     "slot": {
+      "study": "ma valise n'est pas arrivée",
+      "phon": "马 瓦利兹 内 帕 阿里韦",
+      "native": "我的行李箱没到"
+     },
+     "study": "Il y a un problème : ma valise n'est pas arrivée. Qu'est-ce qu'on peut faire ?",
+     "phon": "伊 利 亚 安 普罗布莱姆：马 瓦利兹 内 帕 阿里韦。凯斯 孔 珀 费尔",
+     "native": "有个问题：我的行李箱没到。我们怎么办？"
+    },
+    {
+     "slot": {
+      "study": "le rendez-vous est annulé",
+      "phon": "勒 朗代武 埃 塔尼吕莱",
+      "native": "预约取消了"
+     },
+     "study": "Il y a un problème : le rendez-vous est annulé. Qu'est-ce qu'on peut faire ?",
+     "phon": "伊 利 亚 安 普罗布莱姆：勒 朗代武 埃 塔尼吕莱。凯斯 孔 珀 费尔",
+     "native": "有个问题：预约取消了。我们怎么办？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-zh-fr-07",
+   "situation": "确认理解",
+   "model": {
+    "study": "Si j'ai bien compris, {s} ?",
+    "phon": "西 热 比安 孔普里，{s}",
+    "native": "如果我没理解错，{s}？"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "je dois revenir demain",
+      "phon": "热 杜瓦 勒弗尼尔 德曼",
+      "native": "我得明天再来"
+     },
+     "study": "Si j'ai bien compris, je dois revenir demain ?",
+     "phon": "西 热 比安 孔普里，热 杜瓦 勒弗尼尔 德曼",
+     "native": "如果我没理解错，我得明天再来？"
+    },
+    {
+     "slot": {
+      "study": "le prochain train est à midi",
+      "phon": "勒 普罗申 特兰 埃 阿 米迪",
+      "native": "下一班火车是中午"
+     },
+     "study": "Si j'ai bien compris, le prochain train est à midi ?",
+     "phon": "西 热 比安 孔普里，勒 普罗申 特兰 埃 阿 米迪",
+     "native": "如果我没理解错，下一班火车是中午？"
+    },
+    {
+     "slot": {
+      "study": "il faut prendre rendez-vous",
+      "phon": "伊尔 福 普朗德尔 朗代武",
+      "native": "需要预约"
+     },
+     "study": "Si j'ai bien compris, il faut prendre rendez-vous ?",
+     "phon": "西 热 比安 孔普里，伊尔 福 普朗德尔 朗代武",
+     "native": "如果我没理解错，需要预约？"
+    },
+    {
+     "slot": {
+      "study": "c'est gratuit",
+      "phon": "赛 格拉蒂",
+      "native": "是免费的"
+     },
+     "study": "Si j'ai bien compris, c'est gratuit ?",
+     "phon": "西 热 比安 孔普里，赛 格拉蒂",
+     "native": "如果我没理解错，是免费的？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-zh-fr-08",
+   "situation": "哪里疼",
+   "model": {
+    "study": "J'ai mal {s}.",
+    "phon": "热 马尔 {s}",
+    "native": "我{s}疼。",
+    "note": "« avoir mal à » + 身体部位：à + le → au，à + les → aux，à la 不变。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "à la tête",
+      "phon": "阿 拉 泰特",
+      "native": "头"
+     },
+     "study": "J'ai mal à la tête.",
+     "phon": "热 马尔 阿 拉 泰特",
+     "native": "我头疼。"
+    },
+    {
+     "slot": {
+      "study": "au ventre",
+      "phon": "奥 旺特尔",
+      "native": "肚子"
+     },
+     "study": "J'ai mal au ventre.",
+     "phon": "热 马尔 奥 旺特尔",
+     "native": "我肚子疼。"
+    },
+    {
+     "slot": {
+      "study": "à la gorge",
+      "phon": "阿 拉 高尔日",
+      "native": "嗓子"
+     },
+     "study": "J'ai mal à la gorge.",
+     "phon": "热 马尔 阿 拉 高尔日",
+     "native": "我嗓子疼。"
+    },
+    {
+     "slot": {
+      "study": "aux dents",
+      "phon": "奥 当",
+      "native": "牙"
+     },
+     "study": "J'ai mal aux dents.",
+     "phon": "热 马尔 奥 当",
+     "native": "我牙疼。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-zh-fr-09",
+   "situation": "看医生",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "看病时常用的整句。« depuis » = 从……开始（一直到现在）。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Je ne me sens pas bien.",
+      "phon": "热 讷 默 桑 帕 比安",
+      "native": "我感觉不舒服。"
+     },
+     "study": "Je ne me sens pas bien.",
+     "phon": "热 讷 默 桑 帕 比安",
+     "native": "我感觉不舒服。"
+    },
+    {
+     "slot": {
+      "study": "J'ai de la fièvre depuis hier.",
+      "phon": "热 德 拉 菲埃弗尔 德皮 耶尔",
+      "native": "我从昨天开始发烧。"
+     },
+     "study": "J'ai de la fièvre depuis hier.",
+     "phon": "热 德 拉 菲埃弗尔 德皮 耶尔",
+     "native": "我从昨天开始发烧。"
+    },
+    {
+     "slot": {
+      "study": "Je suis allergique à la pénicilline.",
+      "phon": "热 绥 扎莱尔日克 阿 拉 佩尼西林",
+      "native": "我对青霉素过敏。"
+     },
+     "study": "Je suis allergique à la pénicilline.",
+     "phon": "热 绥 扎莱尔日克 阿 拉 佩尼西林",
+     "native": "我对青霉素过敏。"
+    },
+    {
+     "slot": {
+      "study": "Il me faut une ordonnance ?",
+      "phon": "伊尔 默 福 于 诺尔多囊斯",
+      "native": "需要处方吗？"
+     },
+     "study": "Il me faut une ordonnance ?",
+     "phon": "伊尔 默 福 于 诺尔多囊斯",
+     "native": "需要处方吗？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-zh-fr-10",
+   "situation": "提出解决办法",
+   "model": {
+    "study": "On pourrait peut-être {s}.",
+    "phon": "翁 普雷 珀泰特尔 {s}",
+    "native": "也许我们可以{s}。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "prendre le prochain train",
+      "phon": "普朗德尔 勒 普罗申 特兰",
+      "native": "坐下一班火车"
+     },
+     "study": "On pourrait peut-être prendre le prochain train.",
+     "phon": "翁 普雷 珀泰特尔 普朗德尔 勒 普罗申 特兰",
+     "native": "也许我们可以坐下一班火车。"
+    },
+    {
+     "slot": {
+      "study": "appeler le service client",
+      "phon": "阿普莱 勒 塞尔维斯 克利扬",
+      "native": "打给客服"
+     },
+     "study": "On pourrait peut-être appeler le service client.",
+     "phon": "翁 普雷 珀泰特尔 阿普莱 勒 塞尔维斯 克利扬",
+     "native": "也许我们可以打给客服。"
+    },
+    {
+     "slot": {
+      "study": "demander un remboursement",
+      "phon": "德芒代 安 朗布尔斯芒",
+      "native": "要求退款"
+     },
+     "study": "On pourrait peut-être demander un remboursement.",
+     "phon": "翁 普雷 珀泰特尔 德芒代 安 朗布尔斯芒",
+     "native": "也许我们可以要求退款。"
+    },
+    {
+     "slot": {
+      "study": "revenir demain matin",
+      "phon": "勒弗尼尔 德曼 马坦",
+      "native": "明天早上再来"
+     },
+     "study": "On pourrait peut-être revenir demain matin.",
+     "phon": "翁 普雷 珀泰特尔 勒弗尼尔 德曼 马坦",
+     "native": "也许我们可以明天早上再来。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-zh-fr-11",
+   "situation": "表示不确定",
+   "model": {
+    "study": "Je ne sais pas si {s}.",
+    "phon": "热 讷 赛 帕 西 {s}",
+    "native": "我不知道{s}。",
+    "note": "这里的 « si » 是“是否”，不是“如果”。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "c'est le bon guichet",
+      "phon": "赛 勒 蓬 吉谢",
+      "native": "是不是这个窗口"
+     },
+     "study": "Je ne sais pas si c'est le bon guichet.",
+     "phon": "热 讷 赛 帕 西 赛 勒 蓬 吉谢",
+     "native": "我不知道是不是这个窗口。"
+    },
+    {
+     "slot": {
+      "study": "le bureau est ouvert",
+      "phon": "勒 比罗 埃 图韦尔",
+      "native": "办公室开不开门"
+     },
+     "study": "Je ne sais pas si le bureau est ouvert.",
+     "phon": "热 讷 赛 帕 西 勒 比罗 埃 图韦尔",
+     "native": "我不知道办公室开不开门。"
+    },
+    {
+     "slot": {
+      "study": "j'ai le bon formulaire",
+      "phon": "热 勒 蓬 福尔米莱尔",
+      "native": "我拿的表格对不对"
+     },
+     "study": "Je ne sais pas si j'ai le bon formulaire.",
+     "phon": "热 讷 赛 帕 西 热 勒 蓬 福尔米莱尔",
+     "native": "我不知道我拿的表格对不对。"
+    },
+    {
+     "slot": {
+      "study": "ça suffit",
+      "phon": "萨 苏菲",
+      "native": "这够不够"
+     },
+     "study": "Je ne sais pas si ça suffit.",
+     "phon": "热 讷 赛 帕 西 萨 苏菲",
+     "native": "我不知道这够不够。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-zh-fr-12",
+   "situation": "指出错误",
+   "model": {
+    "study": "Je crois qu'il y a une erreur {s}.",
+    "phon": "热 克鲁瓦 基 利 亚 于 内勒尔 {s}",
+    "native": "我想{s}有个错误。",
+    "note": "« Je crois que » = 我想 / 我认为，语气比直接指出错误更委婉。que + il → qu'il。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "dans la facture",
+      "phon": "当 拉 法克蒂尔",
+      "native": "账单上"
+     },
+     "study": "Je crois qu'il y a une erreur dans la facture.",
+     "phon": "热 克鲁瓦 基 利 亚 于 内勒尔 当 拉 法克蒂尔",
+     "native": "我想账单上有个错误。"
+    },
+    {
+     "slot": {
+      "study": "sur mon billet",
+      "phon": "叙尔 蒙 比耶",
+      "native": "我的票上"
+     },
+     "study": "Je crois qu'il y a une erreur sur mon billet.",
+     "phon": "热 克鲁瓦 基 利 亚 于 内勒尔 叙尔 蒙 比耶",
+     "native": "我想我的票上有个错误。"
+    },
+    {
+     "slot": {
+      "study": "dans la date",
+      "phon": "当 拉 达特",
+      "native": "日期上"
+     },
+     "study": "Je crois qu'il y a une erreur dans la date.",
+     "phon": "热 克鲁瓦 基 利 亚 于 内勒尔 当 拉 达特",
+     "native": "我想日期上有个错误。"
+    },
+    {
+     "slot": {
+      "study": "dans mon nom",
+      "phon": "当 蒙 农",
+      "native": "我的名字上"
+     },
+     "study": "Je crois qu'il y a une erreur dans mon nom.",
+     "phon": "热 克鲁瓦 基 利 亚 于 内勒尔 当 蒙 农",
+     "native": "我想我的名字上有个错误。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L9-zh-fr-d1",
+   "situation": "火车站：火车取消",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Excusez-moi, il y a un problème : mon train est annulé. Qu'est-ce qu'on peut faire ?",
+     "phon": "埃克斯居泽 穆瓦，伊 利 亚 安 普罗布莱姆：蒙 特兰 埃 塔尼吕莱。凯斯 孔 珀 费尔",
+     "native": "请问，有个问题：我的火车取消了。我该怎么办？"
+    },
+    {
+     "speaker": "B",
+     "study": "Vous pouvez prendre le prochain, à quatorze heures. Il se peut qu'il y ait du monde.",
+     "phon": "武 普韦 普朗德尔 勒 普罗申，阿 卡托尔 泽尔。伊尔 瑟 珀 基 利 埃 迪 蒙德",
+     "native": "您可以坐下一班，十四点的。有可能人很多。"
+    },
+    {
+     "speaker": "A",
+     "study": "Si j'ai bien compris, je garde le même billet ?",
+     "phon": "西 热 比安 孔普里，热 嘎尔德 勒 梅姆 比耶",
+     "native": "如果我没理解错，我用同一张票就行？"
+    },
+    {
+     "speaker": "B",
+     "study": "Oui, exactement. Autrement dit, vous n'avez rien à payer.",
+     "phon": "威，埃格扎克特芒。奥特勒芒 迪，武 纳韦 里安 阿 佩耶",
+     "native": "对，正是。换句话说，您不用再付钱。"
+    },
+    {
+     "speaker": "A",
+     "study": "Et pour le remboursement du retard ?",
+     "phon": "埃 普尔 勒 朗布尔斯芒 迪 勒塔尔",
+     "native": "那晚点的赔偿呢？"
+    },
+    {
+     "speaker": "B",
+     "study": "Vous pouvez faire la demande en ligne. Pas vraiment compliqué.",
+     "phon": "武 普韦 费尔 拉 德芒德 昂 利涅。帕 弗雷芒 孔普利凯",
+     "native": "您可以在网上申请。不太复杂。"
+    },
+    {
+     "speaker": "A",
+     "study": "D'accord. Je crois qu'il y a aussi une erreur sur mon billet : la date.",
+     "phon": "达科尔。热 克鲁瓦 基 利 亚 奥西 于 内勒尔 叙尔 蒙 比耶：拉 达特",
+     "native": "好。我想我的票上还有个错误：日期。"
+    },
+    {
+     "speaker": "B",
+     "study": "Montrez-moi… Ah oui. Je corrige ça tout de suite.",
+     "phon": "蒙特雷 穆瓦……啊 威。热 科里日 萨 图 德 绥特",
+     "native": "给我看看……啊对。我马上改。"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L1-zh-fr-07",
+    "L2-zh-fr-08",
+    "L3-zh-fr-01",
+    "L4-zh-fr-04",
+    "L5-zh-fr-05",
+    "L8-zh-fr-12",
+    "L9-zh-fr-01",
+    "L9-zh-fr-03",
+    "L9-zh-fr-06",
+    "L9-zh-fr-07"
+   ],
+   "roles": {
+    "A": "旅客",
+    "B": "工作人员"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L9-zh-fr-d2",
+   "situation": "看医生",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Bonjour docteur. Je ne me sens pas bien depuis hier.",
+     "phon": "蓬茹尔 多克特尔。热 讷 默 桑 帕 比安 德皮 耶尔",
+     "native": "医生您好。我从昨天开始就不舒服。"
+    },
+    {
+     "speaker": "B",
+     "study": "Qu'est-ce que vous avez exactement ?",
+     "phon": "凯斯 克 武 扎韦 埃格扎克特芒",
+     "native": "您具体哪里不舒服？"
+    },
+    {
+     "speaker": "A",
+     "study": "J'ai mal à la gorge et j'ai de la fièvre.",
+     "phon": "热 马尔 阿 拉 高尔日 埃 热 德 拉 菲埃弗尔",
+     "native": "我嗓子疼，还发烧。"
+    },
+    {
+     "speaker": "B",
+     "study": "Vous avez mal à la tête aussi ?",
+     "phon": "武 扎韦 马尔 阿 拉 泰特 奥西",
+     "native": "头也疼吗？"
+    },
+    {
+     "speaker": "A",
+     "study": "Pas vraiment. Un peu, le matin.",
+     "phon": "帕 弗雷芒。安 珀，勒 马坦",
+     "native": "不太疼。早上有一点。"
+    },
+    {
+     "speaker": "B",
+     "study": "C'est peut-être une angine. Vous êtes allergique à un médicament ?",
+     "phon": "赛 珀泰特尔 于 囊吉讷。武 泽特 扎莱尔日克 阿 安 梅迪卡芒",
+     "native": "可能是咽喉炎。您对什么药过敏吗？"
+    },
+    {
+     "speaker": "A",
+     "study": "Oui, je suis allergique à la pénicilline.",
+     "phon": "威，热 绥 扎莱尔日克 阿 拉 佩尼西林",
+     "native": "是的，我对青霉素过敏。"
+    },
+    {
+     "speaker": "B",
+     "study": "D'accord, je vous donne autre chose. Voici l'ordonnance.",
+     "phon": "达科尔，热 武 多讷 奥特尔 绍兹。瓦西 洛尔多囊斯",
+     "native": "好，我给您开别的药。这是处方。"
+    },
+    {
+     "speaker": "A",
+     "study": "Si j'ai bien compris, je prends ça trois fois par jour ?",
+     "phon": "西 热 比安 孔普里，热 普朗 萨 特鲁瓦 夫瓦 帕尔 茹尔",
+     "native": "如果我没理解错，这个药一天吃三次？"
+    },
+    {
+     "speaker": "B",
+     "study": "Exactement, pendant cinq jours. Reposez-vous bien.",
+     "phon": "埃格扎克特芒，庞当 散克 茹尔。勒波泽 武 比安",
+     "native": "正是，吃五天。好好休息。"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L1-zh-fr-01",
+    "L1-zh-fr-07",
+    "L2-zh-fr-03",
+    "L3-zh-fr-04",
+    "L3-zh-fr-08",
+    "L4-zh-fr-04",
+    "L5-zh-fr-05",
+    "L6-zh-fr-11",
+    "L9-zh-fr-03",
+    "L9-zh-fr-07",
+    "L9-zh-fr-08",
+    "L9-zh-fr-09"
+   ],
+   "roles": {
+    "A": "病人",
+    "B": "医生"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L9-zh-fr-d3",
+   "situation": "办手续：缺文件",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Bonjour, je viens pour ma carte de séjour. Voici mon dossier.",
+     "phon": "蓬茹尔，热 维安 普尔 马 卡尔特 德 塞茹尔。瓦西 蒙 多西耶",
+     "native": "您好，我来办居留卡。这是我的材料。"
+    },
+    {
+     "speaker": "B",
+     "study": "Merci. Il manque un justificatif de domicile.",
+     "phon": "美西。伊尔 芒克 安 朱斯蒂菲卡蒂夫 德 多米西尔",
+     "native": "谢谢。缺一份住址证明。"
+    },
+    {
+     "speaker": "A",
+     "study": "Pardon, je ne comprends pas. Ce que je veux dire, c'est que j'ai apporté mon contrat de location.",
+     "phon": "帕尔东，热 讷 孔普朗 帕。瑟 克 热 弗 迪尔，赛 克 热 阿波尔泰 蒙 孔特拉 德 洛卡西翁",
+     "native": "对不起，我不太明白。我的意思是，我带了租房合同。"
+    },
+    {
+     "speaker": "B",
+     "study": "Oui, mais il faut aussi une facture récente, d'électricité par exemple.",
+     "phon": "威，梅 伊尔 福 奥西 于讷 法克蒂尔 雷桑特，德莱克特里西泰 帕尔 埃格藏普勒",
+     "native": "是的，但还需要一份最近的账单，比如电费单。"
+    },
+    {
+     "speaker": "A",
+     "study": "Autrement dit, je dois revenir avec ce document ?",
+     "phon": "奥特勒芒 迪，热 杜瓦 勒弗尼尔 阿维克 瑟 多居芒",
+     "native": "换句话说，我得带着这份文件再来？"
+    },
+    {
+     "speaker": "B",
+     "study": "Pas forcément. Vous pouvez l'envoyer par e-mail aujourd'hui.",
+     "phon": "帕 福尔塞芒。武 普韦 朗瓦耶 帕尔 伊梅尔 奥茹尔迪",
+     "native": "不一定。您今天可以用邮件发过来。"
+    },
+    {
+     "speaker": "A",
+     "study": "Je ne sais pas si j'ai une facture récente. Peut-être que mon propriétaire en a une.",
+     "phon": "热 讷 赛 帕 西 热 于讷 法克蒂尔 雷桑特。珀泰特尔 克 蒙 普罗普里埃泰尔 昂 纳 于讷",
+     "native": "我不知道有没有最近的账单。也许我的房东有。"
+    },
+    {
+     "speaker": "B",
+     "study": "Très bien. Si j'ai bien compris, vous l'envoyez ce soir ? Je garde votre dossier.",
+     "phon": "特雷 比安。西 热 比安 孔普里，武 朗瓦耶 瑟 斯瓦尔？热 嘎尔德 沃特尔 多西耶",
+     "native": "好的。如果我没理解错，您今晚发过来？我先保留您的材料。"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L1-zh-fr-03",
+    "L1-zh-fr-07",
+    "L1-zh-fr-11",
+    "L2-zh-fr-03",
+    "L3-zh-fr-01",
+    "L3-zh-fr-08",
+    "L3-zh-fr-09",
+    "L4-zh-fr-04",
+    "L9-zh-fr-01",
+    "L9-zh-fr-02",
+    "L9-zh-fr-04",
+    "L9-zh-fr-07",
+    "L9-zh-fr-11"
+   ],
+   "roles": {
+    "A": "办事人",
+    "B": "工作人员"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "能用 « Autrement dit / Ce que je veux dire » 重新表述，用 « plutôt / pas vraiment / en partie » 委婉回答，用 « peut-être que / il se peut que » 表达不确定，说明一个突发问题（火车取消、丢票、生病、缺文件）并提出解决办法，并用 « Si j'ai bien compris » 确认自己理解得对。"
+}

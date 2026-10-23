@@ -1,0 +1,913 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "it",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en italien",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.",
+ "reviewStatus": "Rédigé à la main ; relecture par un italophone conseillée.",
+ "coverageClaim": null,
+ "level": 3,
+ "title": "Échanger",
+ "goal": "Poser des questions, répondre et relancer un échange court.",
+ "reviewPreviousLevels": [
+  1,
+  2
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L3-fr-it-01",
+   "situation": "Demander un service (entre amis)",
+   "model": {
+    "study": "Puoi {s}?",
+    "phon": "POUO-i {s}",
+    "native": "Tu peux {s} ?",
+    "note": "Tutoiement (tu) : entre amis, collègues proches, jeunes. Avec un inconnu : « Può… ? »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "aiutarmi",
+      "phon": "a-you-TAR-mi",
+      "native": "m'aider"
+     },
+     "study": "Puoi aiutarmi?",
+     "phon": "POUO-i a-you-TAR-mi",
+     "native": "Tu peux m'aider ?"
+    },
+    {
+     "slot": {
+      "study": "ripetere",
+      "phon": "ri-PÈ-té-ré",
+      "native": "répéter"
+     },
+     "study": "Puoi ripetere?",
+     "phon": "POUO-i ri-PÈ-té-ré",
+     "native": "Tu peux répéter ?"
+    },
+    {
+     "slot": {
+      "study": "parlare più piano",
+      "phon": "par-LA-ré piou PIA-no",
+      "native": "parler plus lentement"
+     },
+     "study": "Puoi parlare più piano?",
+     "phon": "POUO-i par-LA-ré piou PIA-no",
+     "native": "Tu peux parler plus lentement ?"
+    },
+    {
+     "slot": {
+      "study": "aspettare un momento",
+      "phon": "as-pét-TA-ré oun mo-MÉN-to",
+      "native": "attendre un moment"
+     },
+     "study": "Puoi aspettare un momento?",
+     "phon": "POUO-i as-pét-TA-ré oun mo-MÉN-to",
+     "native": "Tu peux attendre un moment ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-it-02",
+   "situation": "Demander un service (vouvoiement)",
+   "model": {
+    "study": "Può {s}?",
+    "phon": "pouo {s}",
+    "native": "Pouvez-vous {s} ?",
+    "note": "Vouvoiement (Lei) : avec un inconnu, un commerçant, une administration."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "aiutarmi",
+      "phon": "a-you-TAR-mi",
+      "native": "m'aider"
+     },
+     "study": "Può aiutarmi?",
+     "phon": "pouo a-you-TAR-mi",
+     "native": "Pouvez-vous m'aider ?"
+    },
+    {
+     "slot": {
+      "study": "scrivere qui",
+      "phon": "SKRI-vé-ré KOUI",
+      "native": "écrire ici"
+     },
+     "study": "Può scrivere qui?",
+     "phon": "pouo SKRI-vé-ré KOUI",
+     "native": "Pouvez-vous écrire ici ?"
+    },
+    {
+     "slot": {
+      "study": "chiamare un taxi",
+      "phon": "kia-MA-ré oun TAK-si",
+      "native": "appeler un taxi"
+     },
+     "study": "Può chiamare un taxi?",
+     "phon": "pouo kia-MA-ré oun TAK-si",
+     "native": "Pouvez-vous appeler un taxi ?"
+    },
+    {
+     "slot": {
+      "study": "aprire la finestra",
+      "phon": "a-PRI-ré la fi-NÈS-tra",
+      "native": "ouvrir la fenêtre"
+     },
+     "study": "Può aprire la finestra?",
+     "phon": "pouo a-PRI-ré la fi-NÈS-tra",
+     "native": "Pouvez-vous ouvrir la fenêtre ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-it-03",
+   "situation": "Question ouverte : quoi",
+   "model": {
+    "study": "Cosa {s}?",
+    "phon": "KO-za {s}",
+    "native": "Qu'est-ce que {s} ?",
+    "note": "Tutoiement dans les trois premières variantes."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "fai",
+      "phon": "FA-i",
+      "native": "tu fais"
+     },
+     "study": "Cosa fai?",
+     "phon": "KO-za FA-i",
+     "native": "Qu'est-ce que tu fais ?"
+    },
+    {
+     "slot": {
+      "study": "vuoi",
+      "phon": "VOUO-i",
+      "native": "tu veux"
+     },
+     "study": "Cosa vuoi?",
+     "phon": "KO-za VOUO-i",
+     "native": "Qu'est-ce que tu veux ?"
+    },
+    {
+     "slot": {
+      "study": "prendi",
+      "phon": "PRÈN-di",
+      "native": "tu prends"
+     },
+     "study": "Cosa prendi?",
+     "phon": "KO-za PRÈN-di",
+     "native": "Qu'est-ce que tu prends ?"
+    },
+    {
+     "slot": {
+      "study": "significa",
+      "phon": "si-GNI-fi-ka",
+      "native": "ça veut dire"
+     },
+     "study": "Cosa significa?",
+     "phon": "KO-za si-GNI-fi-ka",
+     "native": "Qu'est-ce que ça veut dire ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-it-04",
+   "situation": "Question ouverte : pourquoi",
+   "model": {
+    "study": "Perché {s}?",
+    "phon": "pér-KÉ {s}",
+    "native": "Pourquoi {s} ?",
+    "note": "Tutoiement."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "sei qui",
+      "phon": "SÈ-i KOUI",
+      "native": "tu es ici"
+     },
+     "study": "Perché sei qui?",
+     "phon": "pér-KÉ SÈ-i KOUI",
+     "native": "Pourquoi tu es ici ?"
+    },
+    {
+     "slot": {
+      "study": "studi l'italiano",
+      "phon": "STOU-di li-ta-LIA-no",
+      "native": "tu étudies l'italien"
+     },
+     "study": "Perché studi l'italiano?",
+     "phon": "pér-KÉ STOU-di li-ta-LIA-no",
+     "native": "Pourquoi tu étudies l'italien ?"
+    },
+    {
+     "slot": {
+      "study": "non vieni",
+      "phon": "non VIÈ-ni",
+      "native": "tu ne viens pas"
+     },
+     "study": "Perché non vieni?",
+     "phon": "pér-KÉ non VIÈ-ni",
+     "native": "Pourquoi tu ne viens pas ?"
+    },
+    {
+     "slot": {
+      "study": "è chiuso",
+      "phon": "è KIOU-zo",
+      "native": "c'est fermé"
+     },
+     "study": "Perché è chiuso?",
+     "phon": "pér-KÉ è KIOU-zo",
+     "native": "Pourquoi c'est fermé ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-it-05",
+   "situation": "Question ouverte : comment",
+   "model": {
+    "study": "Come {s}?",
+    "phon": "KO-mé {s}",
+    "native": "Comment {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "stai",
+      "phon": "STA-i",
+      "native": "tu vas"
+     },
+     "study": "Come stai?",
+     "phon": "KO-mé STA-i",
+     "native": "Comment tu vas ?"
+    },
+    {
+     "slot": {
+      "study": "si dice in italiano",
+      "phon": "si DI-tché inn i-ta-LIA-no",
+      "native": "on dit en italien"
+     },
+     "study": "Come si dice in italiano?",
+     "phon": "KO-mé si DI-tché inn i-ta-LIA-no",
+     "native": "Comment on dit en italien ?"
+    },
+    {
+     "slot": {
+      "study": "si scrive",
+      "phon": "si SKRI-vé",
+      "native": "ça s'écrit"
+     },
+     "study": "Come si scrive?",
+     "phon": "KO-mé si SKRI-vé",
+     "native": "Comment ça s'écrit ?"
+    },
+    {
+     "slot": {
+      "study": "si arriva alla stazione",
+      "phon": "si ar-RI-va AL-la sta-TSIO-né",
+      "native": "on va à la gare"
+     },
+     "study": "Come si arriva alla stazione?",
+     "phon": "KO-mé si ar-RI-va AL-la sta-TSIO-né",
+     "native": "Comment on va à la gare ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-it-06",
+   "situation": "Relancer",
+   "model": {
+    "study": "Io {s}. E tu?",
+    "phon": "I-o {s}. é TOU",
+    "native": "Moi, {s}. Et toi ?",
+    "note": "Avec un inconnu : « E Lei ? » (é LÈÏ)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "sono di Lione",
+      "phon": "SO-no di LIO-né",
+      "native": "je suis de Lyon"
+     },
+     "study": "Io sono di Lione. E tu?",
+     "phon": "I-o SO-no di LIO-né. é TOU",
+     "native": "Moi, je suis de Lyon. Et toi ?"
+    },
+    {
+     "slot": {
+      "study": "lavoro in banca",
+      "phon": "la-VO-ro inn BAN-ka",
+      "native": "je travaille dans une banque"
+     },
+     "study": "Io lavoro in banca. E tu?",
+     "phon": "I-o la-VO-ro inn BAN-ka. é TOU",
+     "native": "Moi, je travaille dans une banque. Et toi ?"
+    },
+    {
+     "slot": {
+      "study": "abito a Parigi",
+      "phon": "A-bi-to a pa-RI-dji",
+      "native": "j'habite à Paris"
+     },
+     "study": "Io abito a Parigi. E tu?",
+     "phon": "I-o A-bi-to a pa-RI-dji. é TOU",
+     "native": "Moi, j'habite à Paris. Et toi ?"
+    },
+    {
+     "slot": {
+      "study": "studio italiano",
+      "phon": "STOU-dio i-ta-LIA-no",
+      "native": "j'étudie l'italien"
+     },
+     "study": "Io studio italiano. E tu?",
+     "phon": "I-o STOU-dio i-ta-LIA-no. é TOU",
+     "native": "Moi, j'étudie l'italien. Et toi ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-it-07",
+   "situation": "Répondre oui",
+   "model": {
+    "study": "Sì, {s}.",
+    "phon": "SI, {s}",
+    "native": "Oui, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "va bene",
+      "phon": "va BÈ-né",
+      "native": "d'accord"
+     },
+     "study": "Sì, va bene.",
+     "phon": "SI, va BÈ-né",
+     "native": "Oui, d'accord."
+    },
+    {
+     "slot": {
+      "study": "volentieri",
+      "phon": "vo-lén-TIÈ-ri",
+      "native": "volontiers"
+     },
+     "study": "Sì, volentieri.",
+     "phon": "SI, vo-lén-TIÈ-ri",
+     "native": "Oui, volontiers."
+    },
+    {
+     "slot": {
+      "study": "certo",
+      "phon": "TCHÈR-to",
+      "native": "bien sûr"
+     },
+     "study": "Sì, certo.",
+     "phon": "SI, TCHÈR-to",
+     "native": "Oui, bien sûr."
+    },
+    {
+     "slot": {
+      "study": "un momento",
+      "phon": "oun mo-MÉN-to",
+      "native": "un instant"
+     },
+     "study": "Sì, un momento.",
+     "phon": "SI, oun mo-MÉN-to",
+     "native": "Oui, un instant."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-it-08",
+   "situation": "Répondre non",
+   "model": {
+    "study": "No, {s}.",
+    "phon": "no, {s}",
+    "native": "Non, {s}.",
+    "note": "« Mi dispiace » = désolé / désolée (invariable en italien)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "grazie",
+      "phon": "GRA-tsié",
+      "native": "merci"
+     },
+     "study": "No, grazie.",
+     "phon": "no, GRA-tsié",
+     "native": "Non, merci."
+    },
+    {
+     "slot": {
+      "study": "non posso",
+      "phon": "non POS-so",
+      "native": "je ne peux pas"
+     },
+     "study": "No, non posso.",
+     "phon": "no, non POS-so",
+     "native": "Non, je ne peux pas."
+    },
+    {
+     "slot": {
+      "study": "non lo so",
+      "phon": "non lo SO",
+      "native": "je ne sais pas"
+     },
+     "study": "No, non lo so.",
+     "phon": "no, non lo SO",
+     "native": "Non, je ne sais pas."
+    },
+    {
+     "slot": {
+      "study": "mi dispiace",
+      "phon": "mi dis-PIA-tché",
+      "native": "désolé"
+     },
+     "study": "No, mi dispiace.",
+     "phon": "no, mi dis-PIA-tché",
+     "native": "Non, désolé."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-it-09",
+   "situation": "Proposer (entre amis)",
+   "model": {
+    "study": "Ti va {s}?",
+    "phon": "ti va {s}",
+    "native": "Ça te dit {s} ?",
+    "note": "Tutoiement. Avec un inconnu : « Le va… ? »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "un caffè",
+      "phon": "oun kaf-FÈ",
+      "native": "un café"
+     },
+     "study": "Ti va un caffè?",
+     "phon": "ti va oun kaf-FÈ",
+     "native": "Ça te dit un café ?"
+    },
+    {
+     "slot": {
+      "study": "di uscire stasera",
+      "phon": "di ou-CHI-ré sta-SÉ-ra",
+      "native": "de sortir ce soir"
+     },
+     "study": "Ti va di uscire stasera?",
+     "phon": "ti va di ou-CHI-ré sta-SÉ-ra",
+     "native": "Ça te dit de sortir ce soir ?"
+    },
+    {
+     "slot": {
+      "study": "di mangiare qualcosa",
+      "phon": "di man-DJA-ré koual-KO-za",
+      "native": "de manger quelque chose"
+     },
+     "study": "Ti va di mangiare qualcosa?",
+     "phon": "ti va di man-DJA-ré koual-KO-za",
+     "native": "Ça te dit de manger quelque chose ?"
+    },
+    {
+     "slot": {
+      "study": "una pizza",
+      "phon": "OU-na PIT-tsa",
+      "native": "une pizza"
+     },
+     "study": "Ti va una pizza?",
+     "phon": "ti va OU-na PIT-tsa",
+     "native": "Ça te dit une pizza ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-it-10",
+   "situation": "Demander si l'autre parle une langue",
+   "model": {
+    "study": "Parli {s}?",
+    "phon": "PAR-li {s}",
+    "native": "Tu parles {s} ?",
+    "note": "Tutoiement. Avec un inconnu : « Parla… ? »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "inglese",
+      "phon": "in-GLÉ-zé",
+      "native": "anglais"
+     },
+     "study": "Parli inglese?",
+     "phon": "PAR-li in-GLÉ-zé",
+     "native": "Tu parles anglais ?"
+    },
+    {
+     "slot": {
+      "study": "francese",
+      "phon": "fran-TCHÉ-zé",
+      "native": "français"
+     },
+     "study": "Parli francese?",
+     "phon": "PAR-li fran-TCHÉ-zé",
+     "native": "Tu parles français ?"
+    },
+    {
+     "slot": {
+      "study": "spagnolo",
+      "phon": "spa-GNO-lo",
+      "native": "espagnol"
+     },
+     "study": "Parli spagnolo?",
+     "phon": "PAR-li spa-GNO-lo",
+     "native": "Tu parles espagnol ?"
+    },
+    {
+     "slot": {
+      "study": "un po' d'italiano",
+      "phon": "oun po di-ta-LIA-no",
+      "native": "un peu italien"
+     },
+     "study": "Parli un po' d'italiano?",
+     "phon": "PAR-li oun po di-ta-LIA-no",
+     "native": "Tu parles un peu italien ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-it-11",
+   "situation": "Se dépanner",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Formules entières à connaître telles quelles. « Scusa » (tu) / « scusi » (Lei)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Non capisco. Puoi ripetere?",
+      "phon": "non ka-PIS-ko. POUO-i ri-PÈ-té-ré",
+      "native": "Je ne comprends pas. Tu peux répéter ?"
+     },
+     "study": "Non capisco. Puoi ripetere?",
+     "phon": "non ka-PIS-ko. POUO-i ri-PÈ-té-ré",
+     "native": "Je ne comprends pas. Tu peux répéter ?"
+    },
+    {
+     "slot": {
+      "study": "Come, scusi?",
+      "phon": "KO-mé, SKOU-zi",
+      "native": "Pardon, vous dites ?"
+     },
+     "study": "Come, scusi?",
+     "phon": "KO-mé, SKOU-zi",
+     "native": "Pardon, vous dites ?"
+    },
+    {
+     "slot": {
+      "study": "Può parlare più lentamente?",
+      "phon": "pouo par-LA-ré piou lén-ta-MÉN-té",
+      "native": "Pouvez-vous parler plus lentement ?"
+     },
+     "study": "Può parlare più lentamente?",
+     "phon": "pouo par-LA-ré piou lén-ta-MÉN-té",
+     "native": "Pouvez-vous parler plus lentement ?"
+    },
+    {
+     "slot": {
+      "study": "Cosa vuol dire?",
+      "phon": "KO-za vouol DI-ré",
+      "native": "Qu'est-ce que ça veut dire ?"
+     },
+     "study": "Cosa vuol dire?",
+     "phon": "KO-za vouol DI-ré",
+     "native": "Qu'est-ce que ça veut dire ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L3-fr-it-d1",
+   "situation": "Premier jour au bureau (du Lei au tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, sono Luca, il nuovo collega.",
+     "phon": "bouon-DJOR-no, SO-no LOU-ka, il NOUO-vo kol-LÈ-ga",
+     "native": "Bonjour, je suis Luca, le nouveau collègue."
+    },
+    {
+     "speaker": "B",
+     "study": "Piacere, Giulia. Possiamo darci del tu?",
+     "phon": "pia-TCHÉ-ré, DJOU-lia. pos-SIA-mo DAR-tchi dél TOU",
+     "native": "Enchantée, Giulia. On peut se tutoyer ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Certo! Di dove sei?",
+     "phon": "TCHÈR-to. di DO-vé SÈ-i",
+     "native": "Bien sûr ! Tu es d'où ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sono di Torino. E tu?",
+     "phon": "SO-no di to-RI-no. é TOU",
+     "native": "Je suis de Turin. Et toi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Io sono francese, di Lione.",
+     "phon": "I-o SO-no fran-TCHÉ-zé, di LIO-né",
+     "native": "Moi, je suis français, de Lyon."
+    },
+    {
+     "speaker": "B",
+     "study": "Che bello! Parli bene italiano.",
+     "phon": "ké BÈL-lo. PAR-li BÈ-né i-ta-LIA-no",
+     "native": "Super ! Tu parles bien italien."
+    },
+    {
+     "speaker": "A",
+     "study": "Grazie, ma non capisco tutto. Puoi parlare più piano?",
+     "phon": "GRA-tsié, ma non ka-PIS-ko TOUT-to. POUO-i par-LA-ré piou PIA-no",
+     "native": "Merci, mais je ne comprends pas tout. Tu peux parler plus lentement ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sì, certo. Ti va un caffè?",
+     "phon": "SI, TCHÈR-to. ti va oun kaf-FÈ",
+     "native": "Oui, bien sûr. Ça te dit un café ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Volentieri!",
+     "phon": "vo-lén-TIÈ-ri",
+     "native": "Volontiers !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-it-01",
+    "L1-fr-it-11",
+    "L3-fr-it-01",
+    "L3-fr-it-06",
+    "L3-fr-it-07",
+    "L3-fr-it-09",
+    "L3-fr-it-10"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Un collègue"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L3-fr-it-d2",
+   "situation": "Proposer un dîner (entre amis, tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Ciao Anna, cosa fai stasera?",
+     "phon": "TCHA-o AN-na, KO-za FA-i sta-SÉ-ra",
+     "native": "Salut Anna, qu'est-ce que tu fais ce soir ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Niente di speciale. Perché?",
+     "phon": "NIÈN-té di spé-TCHA-lé. pér-KÉ",
+     "native": "Rien de spécial. Pourquoi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Ti va di mangiare una pizza?",
+     "phon": "ti va di man-DJA-ré OU-na PIT-tsa",
+     "native": "Ça te dit de manger une pizza ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sì, volentieri! Dove?",
+     "phon": "SI, vo-lén-TIÈ-ri. DO-vé",
+     "native": "Oui, volontiers ! Où ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Alla pizzeria vicino alla stazione, alle otto.",
+     "phon": "AL-la pit-tsé-RI-a vi-TCHI-no AL-la sta-TSIO-né, AL-lé OT-to",
+     "native": "À la pizzeria près de la gare, à huit heures."
+    },
+    {
+     "speaker": "B",
+     "study": "Come, scusa? Puoi ripetere?",
+     "phon": "KO-mé, SKOU-za. POUO-i ri-PÈ-té-ré",
+     "native": "Pardon ? Tu peux répéter ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Vicino alla stazione, alle otto.",
+     "phon": "vi-TCHI-no AL-la sta-TSIO-né, AL-lé OT-to",
+     "native": "Près de la gare, à huit heures."
+    },
+    {
+     "speaker": "B",
+     "study": "Va bene, a stasera!",
+     "phon": "va BÈ-né, a sta-SÉ-ra",
+     "native": "D'accord, à ce soir !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L3-fr-it-01",
+    "L3-fr-it-03",
+    "L3-fr-it-04",
+    "L3-fr-it-05",
+    "L3-fr-it-07",
+    "L3-fr-it-09"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Un ami"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L3-fr-it-d3",
+   "situation": "À la pharmacie (Lei)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, ho bisogno di qualcosa per il mal di testa.",
+     "phon": "bouon-DJOR-no, o bi-ZO-gno di koual-KO-za pér il mal di TÈS-ta",
+     "native": "Bonjour, j'ai besoin de quelque chose pour le mal de tête."
+    },
+    {
+     "speaker": "B",
+     "study": "Certo. Ha anche la febbre?",
+     "phon": "TCHÈR-to. a AN-ké la FÈB-bré",
+     "native": "Bien sûr. Vous avez aussi de la fièvre ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Come, scusi? Non capisco. Può ripetere?",
+     "phon": "KO-mé, SKOU-zi. non ka-PIS-ko. pouo ri-PÈ-té-ré",
+     "native": "Pardon ? Je ne comprends pas. Vous pouvez répéter ?"
+    },
+    {
+     "speaker": "B",
+     "study": "La febbre. Ha caldo?",
+     "phon": "la FÈB-bré. a KAL-do",
+     "native": "La fièvre. Vous avez chaud ?"
+    },
+    {
+     "speaker": "A",
+     "study": "No, no. Solo mal di testa.",
+     "phon": "no, no. SO-lo mal di TÈS-ta",
+     "native": "Non, non. Juste mal à la tête."
+    },
+    {
+     "speaker": "B",
+     "study": "Allora questo, una compressa ogni otto ore.",
+     "phon": "al-LO-ra KOUÉS-to, OU-na kom-PRÈS-sa O-gni OT-to O-ré",
+     "native": "Alors celui-ci, un comprimé toutes les huit heures."
+    },
+    {
+     "speaker": "A",
+     "study": "Perfetto. Quanto costa?",
+     "phon": "pér-FÈT-to. KOUAN-to KOS-ta",
+     "native": "Parfait. Combien ça coûte ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Cinque euro.",
+     "phon": "TCHIN-koué È-ou-ro",
+     "native": "Cinq euros."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-it-04",
+    "L1-fr-it-10",
+    "L1-fr-it-11",
+    "L3-fr-it-03",
+    "L3-fr-it-05",
+    "L3-fr-it-11"
+   ],
+   "roles": {
+    "A": "Client",
+    "B": "Pharmacien"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Poser des questions fermées et ouvertes, y répondre, relancer avec « E tu ? / E Lei ? », demander de répéter ou de parler plus lentement, proposer quelque chose et accepter ou refuser poliment."
+}

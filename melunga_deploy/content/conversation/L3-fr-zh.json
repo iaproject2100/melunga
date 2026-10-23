@@ -1,0 +1,1113 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "zh",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en chinois",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle",
+  "reading": "pinyin avec tons"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (style du deck : ouo = 我, chr = 是, dzaï = 在). Les tons ne sont pas notés dans l'approximation : se reporter au pinyin (champ reading) et à l'audio. Mandarin standard, caractères simplifiés.",
+ "reviewStatus": "Relecture linguistique requise (tons, naturel des tournures).",
+ "coverageClaim": null,
+ "level": 3,
+ "title": "Échanger",
+ "goal": "Poser des questions, répondre et relancer un échange court.",
+ "reviewPreviousLevels": [
+  1,
+  2
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L3-fr-zh-01",
+   "situation": "Demander un service",
+   "model": {
+    "study": "你可以{s}吗？",
+    "reading": "nǐ kěyǐ {s} ma?",
+    "phon": "ni keu-i {s} ma ?",
+    "native": "Tu peux {s} ?",
+    "note": "Avec un inconnu ou un supérieur : 您可以…吗？ (ninn). Réponse : 可以 / 不可以."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "帮我",
+      "reading": "bāng wǒ",
+      "phon": "pang ouo",
+      "native": "m'aider"
+     },
+     "study": "你可以帮我吗？",
+     "phon": "ni keu-i pang ouo ma ?",
+     "native": "Tu peux m'aider ?",
+     "reading": "nǐ kěyǐ bāng wǒ ma?"
+    },
+    {
+     "slot": {
+      "study": "再说一遍",
+      "reading": "zài shuō yí biàn",
+      "phon": "dzaï chouo i pièn",
+      "native": "répéter"
+     },
+     "study": "你可以再说一遍吗？",
+     "phon": "ni keu-i dzaï chouo i pièn ma ?",
+     "native": "Tu peux répéter ?",
+     "reading": "nǐ kěyǐ zài shuō yí biàn ma?"
+    },
+    {
+     "slot": {
+      "study": "说慢一点",
+      "reading": "shuō màn yìdiǎn",
+      "phon": "chouo man i-tièn",
+      "native": "parler plus lentement"
+     },
+     "study": "你可以说慢一点吗？",
+     "phon": "ni keu-i chouo man i-tièn ma ?",
+     "native": "Tu peux parler plus lentement ?",
+     "reading": "nǐ kěyǐ shuō màn yìdiǎn ma?"
+    },
+    {
+     "slot": {
+      "study": "等一下",
+      "reading": "děng yíxià",
+      "phon": "teng i-sia",
+      "native": "attendre un peu"
+     },
+     "study": "你可以等一下吗？",
+     "phon": "ni keu-i teng i-sia ma ?",
+     "native": "Tu peux attendre un peu ?",
+     "reading": "nǐ kěyǐ děng yíxià ma?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-zh-02",
+   "situation": "Question ouverte : quoi",
+   "model": {
+    "study": "你{s}什么？",
+    "reading": "nǐ {s} shénme?",
+    "phon": "ni {s} cheun-meu ?",
+    "native": "Qu'est-ce que tu {s} ?",
+    "note": "什么 reste après le verbe, à la place du complément : 你喝什么？ = « tu bois quoi ? »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "做",
+      "reading": "zuò",
+      "phon": "tsouo",
+      "native": "fais"
+     },
+     "study": "你做什么？",
+     "phon": "ni tsouo cheun-meu ?",
+     "native": "Qu'est-ce que tu fais ?",
+     "reading": "nǐ zuò shénme?"
+    },
+    {
+     "slot": {
+      "study": "喝",
+      "reading": "hē",
+      "phon": "heu",
+      "native": "bois"
+     },
+     "study": "你喝什么？",
+     "phon": "ni heu cheun-meu ?",
+     "native": "Qu'est-ce que tu bois ?",
+     "reading": "nǐ hē shénme?"
+    },
+    {
+     "slot": {
+      "study": "想吃",
+      "reading": "xiǎng chī",
+      "phon": "siang tchr",
+      "native": "veux manger"
+     },
+     "study": "你想吃什么？",
+     "phon": "ni siang tchr cheun-meu ?",
+     "native": "Qu'est-ce que tu veux manger ?",
+     "reading": "nǐ xiǎng chī shénme?"
+    },
+    {
+     "slot": {
+      "study": "喜欢",
+      "reading": "xǐhuan",
+      "phon": "si-houan",
+      "native": "aimes"
+     },
+     "study": "你喜欢什么？",
+     "phon": "ni si-houan cheun-meu ?",
+     "native": "Qu'est-ce que tu aimes ?",
+     "reading": "nǐ xǐhuan shénme?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-zh-03",
+   "situation": "Question ouverte : pourquoi",
+   "model": {
+    "study": "你为什么{s}？",
+    "reading": "nǐ wèishénme {s}?",
+    "phon": "ni oueï-cheun-meu {s} ?",
+    "native": "Pourquoi tu {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "学中文",
+      "reading": "xué Zhōngwén",
+      "phon": "süé djong-ouenn",
+      "native": "apprends le chinois"
+     },
+     "study": "你为什么学中文？",
+     "phon": "ni oueï-cheun-meu süé djong-ouenn ?",
+     "native": "Pourquoi tu apprends le chinois ?",
+     "reading": "nǐ wèishénme xué Zhōngwén?"
+    },
+    {
+     "slot": {
+      "study": "来中国",
+      "reading": "lái Zhōngguó",
+      "phon": "laï djong-kouo",
+      "native": "viens en Chine"
+     },
+     "study": "你为什么来中国？",
+     "phon": "ni oueï-cheun-meu laï djong-kouo ?",
+     "native": "Pourquoi tu viens en Chine ?",
+     "reading": "nǐ wèishénme lái Zhōngguó?"
+    },
+    {
+     "slot": {
+      "study": "不吃",
+      "reading": "bù chī",
+      "phon": "pou tchr",
+      "native": "ne manges pas"
+     },
+     "study": "你为什么不吃？",
+     "phon": "ni oueï-cheun-meu pou tchr ?",
+     "native": "Pourquoi tu ne manges pas ?",
+     "reading": "nǐ wèishénme bù chī?"
+    },
+    {
+     "slot": {
+      "study": "喜欢北京",
+      "reading": "xǐhuan Běijīng",
+      "phon": "si-houan peï-ting",
+      "native": "aimes Pékin"
+     },
+     "study": "你为什么喜欢北京？",
+     "phon": "ni oueï-cheun-meu si-houan peï-ting ?",
+     "native": "Pourquoi tu aimes Pékin ?",
+     "reading": "nǐ wèishénme xǐhuan Běijīng?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-zh-04",
+   "situation": "Question ouverte : comment",
+   "model": {
+    "study": "这个怎么{s}？",
+    "reading": "zhège zěnme {s}?",
+    "phon": "djeu-keu tseun-meu {s} ?",
+    "native": "Comment {s} ça ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "说",
+      "reading": "shuō",
+      "phon": "chouo",
+      "native": "on dit"
+     },
+     "study": "这个怎么说？",
+     "phon": "djeu-keu tseun-meu chouo ?",
+     "native": "Comment on dit ça ?",
+     "reading": "zhège zěnme shuō?"
+    },
+    {
+     "slot": {
+      "study": "用",
+      "reading": "yòng",
+      "phon": "yong",
+      "native": "on utilise"
+     },
+     "study": "这个怎么用？",
+     "phon": "djeu-keu tseun-meu yong ?",
+     "native": "Comment on utilise ça ?",
+     "reading": "zhège zěnme yòng?"
+    },
+    {
+     "slot": {
+      "study": "吃",
+      "reading": "chī",
+      "phon": "tchr",
+      "native": "on mange"
+     },
+     "study": "这个怎么吃？",
+     "phon": "djeu-keu tseun-meu tchr ?",
+     "native": "Comment on mange ça ?",
+     "reading": "zhège zěnme chī?"
+    },
+    {
+     "slot": {
+      "study": "写",
+      "reading": "xiě",
+      "phon": "sié",
+      "native": "on écrit"
+     },
+     "study": "这个怎么写？",
+     "phon": "djeu-keu tseun-meu sié ?",
+     "native": "Comment on écrit ça ?",
+     "reading": "zhège zěnme xiě?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-zh-05",
+   "situation": "Relancer",
+   "model": {
+    "study": "我{s}。你呢？",
+    "reading": "wǒ {s}. nǐ ne?",
+    "phon": "ouo {s}. ni neu ?",
+    "native": "Moi, je {s}. Et toi ?",
+    "note": "呢 renvoie la question : 你呢？ (et toi ?), 您呢？ (et vous ?) — tout à fait naturel en chinois."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "是法国人",
+      "reading": "shì Fǎguó rén",
+      "phon": "chr fa-kouo jeun",
+      "native": "suis français(e)"
+     },
+     "study": "我是法国人。你呢？",
+     "phon": "ouo chr fa-kouo jeun. ni neu ?",
+     "native": "Moi, je suis français(e). Et toi ?",
+     "reading": "wǒ shì Fǎguó rén. nǐ ne?"
+    },
+    {
+     "slot": {
+      "study": "喝咖啡",
+      "reading": "hē kāfēi",
+      "phon": "heu ka-feï",
+      "native": "prends un café"
+     },
+     "study": "我喝咖啡。你呢？",
+     "phon": "ouo heu ka-feï. ni neu ?",
+     "native": "Moi, je prends un café. Et toi ?",
+     "reading": "wǒ hē kāfēi. nǐ ne?"
+    },
+    {
+     "slot": {
+      "study": "住在上海",
+      "reading": "zhù zài Shànghǎi",
+      "phon": "djou dzaï chang-haï",
+      "native": "habite à Shanghai"
+     },
+     "study": "我住在上海。你呢？",
+     "phon": "ouo djou dzaï chang-haï. ni neu ?",
+     "native": "Moi, j'habite à Shanghai. Et toi ?",
+     "reading": "wǒ zhù zài Shànghǎi. nǐ ne?"
+    },
+    {
+     "slot": {
+      "study": "很好",
+      "reading": "hěn hǎo",
+      "phon": "heun hao",
+      "native": "vais bien"
+     },
+     "study": "我很好。你呢？",
+     "phon": "ouo heun hao. ni neu ?",
+     "native": "Moi, je vais bien. Et toi ?",
+     "reading": "wǒ hěn hǎo. nǐ ne?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-zh-06",
+   "situation": "Se dépanner",
+   "model": {
+    "study": "我不懂。可以{s}吗？",
+    "reading": "wǒ bù dǒng. kěyǐ {s} ma?",
+    "phon": "ouo pou tong. keu-i {s} ma ?",
+    "native": "Je ne comprends pas. Vous pouvez {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "再说一遍",
+      "reading": "zài shuō yí biàn",
+      "phon": "dzaï chouo i pièn",
+      "native": "répéter"
+     },
+     "study": "我不懂。可以再说一遍吗？",
+     "phon": "ouo pou tong. keu-i dzaï chouo i pièn ma ?",
+     "native": "Je ne comprends pas. Vous pouvez répéter ?",
+     "reading": "wǒ bù dǒng. kěyǐ zài shuō yí biàn ma?"
+    },
+    {
+     "slot": {
+      "study": "说慢一点",
+      "reading": "shuō màn yìdiǎn",
+      "phon": "chouo man i-tièn",
+      "native": "parler plus lentement"
+     },
+     "study": "我不懂。可以说慢一点吗？",
+     "phon": "ouo pou tong. keu-i chouo man i-tièn ma ?",
+     "native": "Je ne comprends pas. Vous pouvez parler plus lentement ?",
+     "reading": "wǒ bù dǒng. kěyǐ shuō màn yìdiǎn ma?"
+    },
+    {
+     "slot": {
+      "study": "写下来",
+      "reading": "xiě xiàlái",
+      "phon": "sié sia-laï",
+      "native": "l'écrire"
+     },
+     "study": "我不懂。可以写下来吗？",
+     "phon": "ouo pou tong. keu-i sié sia-laï ma ?",
+     "native": "Je ne comprends pas. Vous pouvez l'écrire ?",
+     "reading": "wǒ bù dǒng. kěyǐ xiě xiàlái ma?"
+    },
+    {
+     "slot": {
+      "study": "用英语说",
+      "reading": "yòng Yīngyǔ shuō",
+      "phon": "yong ying-yü chouo",
+      "native": "le dire en anglais"
+     },
+     "study": "我不懂。可以用英语说吗？",
+     "phon": "ouo pou tong. keu-i yong ying-yü chouo ma ?",
+     "native": "Je ne comprends pas. Vous pouvez le dire en anglais ?",
+     "reading": "wǒ bù dǒng. kěyǐ yòng Yīngyǔ shuō ma?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-zh-07",
+   "situation": "Proposer",
+   "model": {
+    "study": "我们{s}，好吗？",
+    "reading": "wǒmen {s}, hǎo ma?",
+    "phon": "ouo-meun {s}, hao ma ?",
+    "native": "On {s}, d'accord ?",
+    "note": "好吗？ en fin de phrase transforme une proposition en question."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "一起吃饭",
+      "reading": "yìqǐ chī fàn",
+      "phon": "i-tchi tchr fan",
+      "native": "mange ensemble"
+     },
+     "study": "我们一起吃饭，好吗？",
+     "phon": "ouo-meun i-tchi tchr fan, hao ma ?",
+     "native": "On mange ensemble, d'accord ?",
+     "reading": "wǒmen yìqǐ chī fàn, hǎo ma?"
+    },
+    {
+     "slot": {
+      "study": "去喝咖啡",
+      "reading": "qù hē kāfēi",
+      "phon": "tchü heu ka-feï",
+      "native": "va prendre un café"
+     },
+     "study": "我们去喝咖啡，好吗？",
+     "phon": "ouo-meun tchü heu ka-feï, hao ma ?",
+     "native": "On va prendre un café, d'accord ?",
+     "reading": "wǒmen qù hē kāfēi, hǎo ma?"
+    },
+    {
+     "slot": {
+      "study": "明天见",
+      "reading": "míngtiān jiàn",
+      "phon": "ming-tièn tièn",
+      "native": "se voit demain"
+     },
+     "study": "我们明天见，好吗？",
+     "phon": "ouo-meun ming-tièn tièn, hao ma ?",
+     "native": "On se voit demain, d'accord ?",
+     "reading": "wǒmen míngtiān jiàn, hǎo ma?"
+    },
+    {
+     "slot": {
+      "study": "坐出租车",
+      "reading": "zuò chūzūchē",
+      "phon": "tsouo tchou-tsou-tcheu",
+      "native": "prend un taxi"
+     },
+     "study": "我们坐出租车，好吗？",
+     "phon": "ouo-meun tsouo tchou-tsou-tcheu, hao ma ?",
+     "native": "On prend un taxi, d'accord ?",
+     "reading": "wǒmen zuò chūzūchē, hǎo ma?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-zh-08",
+   "situation": "Répondre court",
+   "model": {
+    "study": "{s}",
+    "reading": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Réponses courtes à connaître telles quelles. Dans 不用了, 了 marque un changement d'état : « ce n'est plus la peine » (ce n'est pas un passé)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "是的。",
+      "reading": "shì de.",
+      "phon": "chr deu",
+      "native": "Oui."
+     },
+     "study": "是的。",
+     "phon": "chr deu",
+     "native": "Oui.",
+     "reading": "shì de."
+    },
+    {
+     "slot": {
+      "study": "不是。",
+      "reading": "bú shì.",
+      "phon": "pou chr",
+      "native": "Non."
+     },
+     "study": "不是。",
+     "phon": "pou chr",
+     "native": "Non.",
+     "reading": "bú shì."
+    },
+    {
+     "slot": {
+      "study": "我不知道。",
+      "reading": "wǒ bù zhīdào.",
+      "phon": "ouo pou djr-tao",
+      "native": "Je ne sais pas."
+     },
+     "study": "我不知道。",
+     "phon": "ouo pou djr-tao",
+     "native": "Je ne sais pas.",
+     "reading": "wǒ bù zhīdào."
+    },
+    {
+     "slot": {
+      "study": "不用了，谢谢。",
+      "reading": "búyòng le, xièxie.",
+      "phon": "pou-yong leu, sié-sié",
+      "native": "Non merci, ça ira."
+     },
+     "study": "不用了，谢谢。",
+     "phon": "pou-yong leu, sié-sié",
+     "native": "Non merci, ça ira.",
+     "reading": "búyòng le, xièxie."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-zh-09",
+   "situation": "Question fermée",
+   "model": {
+    "study": "你{s}吗？",
+    "reading": "nǐ {s} ma?",
+    "phon": "ni {s} ma ?",
+    "native": "Tu {s} ?",
+    "note": "吗 en fin de phrase = question oui/non. On répond en reprenant le verbe : 是 / 不是, 喜欢 / 不喜欢, 会 / 不会."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "是学生",
+      "reading": "shì xuéshēng",
+      "phon": "chr süé-cheng",
+      "native": "es étudiant(e)"
+     },
+     "study": "你是学生吗？",
+     "phon": "ni chr süé-cheng ma ?",
+     "native": "Tu es étudiant(e) ?",
+     "reading": "nǐ shì xuéshēng ma?"
+    },
+    {
+     "slot": {
+      "study": "喜欢中国菜",
+      "reading": "xǐhuan Zhōngguó cài",
+      "phon": "si-houan djong-kouo tsaï",
+      "native": "aimes la cuisine chinoise"
+     },
+     "study": "你喜欢中国菜吗？",
+     "phon": "ni si-houan djong-kouo tsaï ma ?",
+     "native": "Tu aimes la cuisine chinoise ?",
+     "reading": "nǐ xǐhuan Zhōngguó cài ma?"
+    },
+    {
+     "slot": {
+      "study": "会说英语",
+      "reading": "huì shuō Yīngyǔ",
+      "phon": "houeï chouo ying-yü",
+      "native": "parles anglais"
+     },
+     "study": "你会说英语吗？",
+     "phon": "ni houeï chouo ying-yü ma ?",
+     "native": "Tu parles anglais ?",
+     "reading": "nǐ huì shuō Yīngyǔ ma?"
+    },
+    {
+     "slot": {
+      "study": "住在这里",
+      "reading": "zhù zài zhèlǐ",
+      "phon": "djou dzaï djeu-li",
+      "native": "habites ici"
+     },
+     "study": "你住在这里吗？",
+     "phon": "ni djou dzaï djeu-li ma ?",
+     "native": "Tu habites ici ?",
+     "reading": "nǐ zhù zài zhèlǐ ma?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-zh-10",
+   "situation": "Premier contact au travail",
+   "model": {
+    "study": "这是我的{s}。",
+    "reading": "zhè shì wǒ de {s}.",
+    "phon": "djeu chr ouo deu {s}",
+    "native": "Voici mon {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "同事",
+      "reading": "tóngshì",
+      "phon": "tong-chr",
+      "native": "collègue"
+     },
+     "study": "这是我的同事。",
+     "phon": "djeu chr ouo deu tong-chr",
+     "native": "Voici mon collègue.",
+     "reading": "zhè shì wǒ de tóngshì."
+    },
+    {
+     "slot": {
+      "study": "名片",
+      "reading": "míngpiàn",
+      "phon": "ming-pièn",
+      "native": "carte de visite"
+     },
+     "study": "这是我的名片。",
+     "phon": "djeu chr ouo deu ming-pièn",
+     "native": "Voici ma carte de visite.",
+     "reading": "zhè shì wǒ de míngpiàn."
+    },
+    {
+     "slot": {
+      "study": "老板",
+      "reading": "lǎobǎn",
+      "phon": "lao-pan",
+      "native": "patron"
+     },
+     "study": "这是我的老板。",
+     "phon": "djeu chr ouo deu lao-pan",
+     "native": "Voici mon patron.",
+     "reading": "zhè shì wǒ de lǎobǎn."
+    },
+    {
+     "slot": {
+      "study": "电话号码",
+      "reading": "diànhuà hàomǎ",
+      "phon": "tièn-houa hao-ma",
+      "native": "numéro de téléphone"
+     },
+     "study": "这是我的电话号码。",
+     "phon": "djeu chr ouo deu tièn-houa hao-ma",
+     "native": "Voici mon numéro de téléphone.",
+     "reading": "zhè shì wǒ de diànhuà hàomǎ."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-zh-11",
+   "situation": "Demander quand",
+   "model": {
+    "study": "你什么时候{s}？",
+    "reading": "nǐ shénme shíhou {s}?",
+    "phon": "ni cheun-meu chr-heou {s} ?",
+    "native": "Quand est-ce que tu {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "来",
+      "reading": "lái",
+      "phon": "laï",
+      "native": "viens"
+     },
+     "study": "你什么时候来？",
+     "phon": "ni cheun-meu chr-heou laï ?",
+     "native": "Quand est-ce que tu viens ?",
+     "reading": "nǐ shénme shíhou lái?"
+    },
+    {
+     "slot": {
+      "study": "有空",
+      "reading": "yǒu kòng",
+      "phon": "yeou kong",
+      "native": "es libre"
+     },
+     "study": "你什么时候有空？",
+     "phon": "ni cheun-meu chr-heou yeou kong ?",
+     "native": "Quand est-ce que tu es libre ?",
+     "reading": "nǐ shénme shíhou yǒu kòng?"
+    },
+    {
+     "slot": {
+      "study": "下班",
+      "reading": "xiàbān",
+      "phon": "sia-pan",
+      "native": "finis le travail"
+     },
+     "study": "你什么时候下班？",
+     "phon": "ni cheun-meu chr-heou sia-pan ?",
+     "native": "Quand est-ce que tu finis le travail ?",
+     "reading": "nǐ shénme shíhou xiàbān?"
+    },
+    {
+     "slot": {
+      "study": "回法国",
+      "reading": "huí Fǎguó",
+      "phon": "houeï fa-kouo",
+      "native": "rentres en France"
+     },
+     "study": "你什么时候回法国？",
+     "phon": "ni cheun-meu chr-heou houeï fa-kouo ?",
+     "native": "Quand est-ce que tu rentres en France ?",
+     "reading": "nǐ shénme shíhou huí Fǎguó?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L3-fr-zh-12",
+   "situation": "Demander où",
+   "model": {
+    "study": "你在哪里{s}？",
+    "reading": "nǐ zài nǎlǐ {s}?",
+    "phon": "ni dzaï na-li {s} ?",
+    "native": "Où est-ce que tu {s} ?",
+    "note": "Le lieu (在哪里) se place avant le verbe."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "工作",
+      "reading": "gōngzuò",
+      "phon": "kong-tsouo",
+      "native": "travailles"
+     },
+     "study": "你在哪里工作？",
+     "phon": "ni dzaï na-li kong-tsouo ?",
+     "native": "Où est-ce que tu travailles ?",
+     "reading": "nǐ zài nǎlǐ gōngzuò?"
+    },
+    {
+     "slot": {
+      "study": "住",
+      "reading": "zhù",
+      "phon": "djou",
+      "native": "habites"
+     },
+     "study": "你在哪里住？",
+     "phon": "ni dzaï na-li djou ?",
+     "native": "Où est-ce que tu habites ?",
+     "reading": "nǐ zài nǎlǐ zhù?"
+    },
+    {
+     "slot": {
+      "study": "学中文",
+      "reading": "xué Zhōngwén",
+      "phon": "süé djong-ouenn",
+      "native": "apprends le chinois"
+     },
+     "study": "你在哪里学中文？",
+     "phon": "ni dzaï na-li süé djong-ouenn ?",
+     "native": "Où est-ce que tu apprends le chinois ?",
+     "reading": "nǐ zài nǎlǐ xué Zhōngwén?"
+    },
+    {
+     "slot": {
+      "study": "吃午饭",
+      "reading": "chī wǔfàn",
+      "phon": "tchr ou-fan",
+      "native": "déjeunes"
+     },
+     "study": "你在哪里吃午饭？",
+     "phon": "ni dzaï na-li tchr ou-fan ?",
+     "native": "Où est-ce que tu déjeunes ?",
+     "reading": "nǐ zài nǎlǐ chī wǔfàn?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L3-fr-zh-d1",
+   "situation": "Premier jour au travail",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "你好，我是玛丽，新来的。",
+     "reading": "nǐ hǎo, wǒ shì Mǎlì, xīn lái de.",
+     "phon": "ni hao, ouo chr ma-li, sinn laï deu",
+     "native": "Bonjour, je suis Marie, la nouvelle."
+    },
+    {
+     "speaker": "B",
+     "study": "你好！我叫王明。很高兴认识你。",
+     "reading": "nǐ hǎo! wǒ jiào Wáng Míng. hěn gāoxìng rènshi nǐ.",
+     "phon": "ni hao ! ouo djiao ouang ming. heun kao-sing jeun-chr ni",
+     "native": "Bonjour ! Je m'appelle Wang Ming. Enchanté."
+    },
+    {
+     "speaker": "A",
+     "study": "你做什么工作？",
+     "reading": "nǐ zuò shénme gōngzuò?",
+     "phon": "ni tsouo cheun-meu kong-tsouo ?",
+     "native": "Qu'est-ce que tu fais comme travail ?"
+    },
+    {
+     "speaker": "B",
+     "study": "我是工程师。你呢？",
+     "reading": "wǒ shì gōngchéngshī. nǐ ne?",
+     "phon": "ouo chr kong-tcheng-chr. ni neu ?",
+     "native": "Je suis ingénieur. Et toi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "我做市场。对不起，你可以说慢一点吗？",
+     "reading": "wǒ zuò shìchǎng. duìbuqǐ, nǐ kěyǐ shuō màn yìdiǎn ma?",
+     "phon": "ouo tsouo chr-tchang. toueï-pou-tchi, ni keu-i chouo man i-tièn ma ?",
+     "native": "Je suis au marketing. Pardon, tu peux parler plus lentement ?"
+    },
+    {
+     "speaker": "B",
+     "study": "当然可以。这是我的名片。",
+     "reading": "dāngrán kěyǐ. zhè shì wǒ de míngpiàn.",
+     "phon": "tang-jan keu-i. djeu chr ouo deu ming-pièn",
+     "native": "Bien sûr. Voici ma carte de visite."
+    },
+    {
+     "speaker": "A",
+     "study": "谢谢！我们中午一起吃饭，好吗？",
+     "reading": "xièxie! wǒmen zhōngwǔ yìqǐ chī fàn, hǎo ma?",
+     "phon": "sié-sié ! ouo-meun djong-ou i-tchi tchr fan, hao ma ?",
+     "native": "Merci ! On déjeune ensemble ce midi, d'accord ?"
+    },
+    {
+     "speaker": "B",
+     "study": "好啊！十二点见。",
+     "reading": "hǎo a! shí'èr diǎn jiàn.",
+     "phon": "hao a ! chr-eur tièn tièn",
+     "native": "D'accord ! À midi."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-zh-01",
+    "L1-fr-zh-02",
+    "L2-fr-zh-05",
+    "L3-fr-zh-01",
+    "L3-fr-zh-02",
+    "L3-fr-zh-05",
+    "L3-fr-zh-07",
+    "L3-fr-zh-10"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Un collègue"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L3-fr-zh-d2",
+   "situation": "Au restaurant entre amis",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "你想吃什么？",
+     "reading": "nǐ xiǎng chī shénme?",
+     "phon": "ni siang tchr cheun-meu ?",
+     "native": "Qu'est-ce que tu veux manger ?"
+    },
+    {
+     "speaker": "B",
+     "study": "我不知道。这个是什么？",
+     "reading": "wǒ bù zhīdào. zhège shì shénme?",
+     "phon": "ouo pou djr-tao. djeu-keu chr cheun-meu ?",
+     "native": "Je ne sais pas. Qu'est-ce que c'est, ça ?"
+    },
+    {
+     "speaker": "A",
+     "study": "是饺子。你喜欢中国菜吗？",
+     "reading": "shì jiǎozi. nǐ xǐhuan Zhōngguó cài ma?",
+     "phon": "chr tiao-tseu. ni si-houan djong-kouo tsaï ma ?",
+     "native": "Ce sont des raviolis. Tu aimes la cuisine chinoise ?"
+    },
+    {
+     "speaker": "B",
+     "study": "喜欢。这个怎么吃？",
+     "reading": "xǐhuan. zhège zěnme chī?",
+     "phon": "si-houan. djeu-keu tseun-meu tchr ?",
+     "native": "Oui. Comment on mange ça ?"
+    },
+    {
+     "speaker": "A",
+     "study": "用筷子。你会用筷子吗？",
+     "reading": "yòng kuàizi. nǐ huì yòng kuàizi ma?",
+     "phon": "yong kouaï-tseu. ni houeï yong kouaï-tseu ma ?",
+     "native": "Avec des baguettes. Tu sais te servir des baguettes ?"
+    },
+    {
+     "speaker": "B",
+     "study": "不太会。你可以帮我吗？",
+     "reading": "bú tài huì. nǐ kěyǐ bāng wǒ ma?",
+     "phon": "pou taï houeï. ni keu-i pang ouo ma ?",
+     "native": "Pas très bien. Tu peux m'aider ?"
+    },
+    {
+     "speaker": "A",
+     "study": "当然。要啤酒吗？",
+     "reading": "dāngrán. yào píjiǔ ma?",
+     "phon": "tang-jan. yao pi-tiou ma ?",
+     "native": "Bien sûr. Tu veux une bière ?"
+    },
+    {
+     "speaker": "B",
+     "study": "不用了，谢谢。我要茶。",
+     "reading": "búyòng le, xièxie. wǒ yào chá.",
+     "phon": "pou-yong leu, sié-sié. ouo yao tcha",
+     "native": "Non merci. Je prends du thé."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-zh-03",
+    "L2-fr-zh-02",
+    "L3-fr-zh-01",
+    "L3-fr-zh-02",
+    "L3-fr-zh-04",
+    "L3-fr-zh-08",
+    "L3-fr-zh-09"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Un ami"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L3-fr-zh-d3",
+   "situation": "À la poste",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "你好，我想寄这个包裹。",
+     "reading": "nǐ hǎo, wǒ xiǎng jì zhège bāoguǒ.",
+     "phon": "ni hao, ouo siang ti djeu-keu pao-kouo",
+     "native": "Bonjour, je voudrais envoyer ce colis."
+    },
+    {
+     "speaker": "B",
+     "study": "寄到哪里？",
+     "reading": "jì dào nǎlǐ?",
+     "phon": "ti tao na-li ?",
+     "native": "Vers où ?"
+    },
+    {
+     "speaker": "A",
+     "study": "法国。要多少钱？",
+     "reading": "Fǎguó. yào duōshao qián?",
+     "phon": "fa-kouo. yao douo-chao tchyèn ?",
+     "native": "En France. Ça coûte combien ?"
+    },
+    {
+     "speaker": "B",
+     "study": "一百五十块。请写地址。",
+     "reading": "yìbǎi wǔshí kuài. qǐng xiě dìzhǐ.",
+     "phon": "i-paï ou-chr kouaï. tching sié ti-djr",
+     "native": "Cent cinquante yuans. Écrivez l'adresse, s'il vous plaît."
+    },
+    {
+     "speaker": "A",
+     "study": "对不起，我不懂。可以再说一遍吗？",
+     "reading": "duìbuqǐ, wǒ bù dǒng. kěyǐ zài shuō yí biàn ma?",
+     "phon": "toueï-pou-tchi, ouo pou tong. keu-i dzaï chouo i pièn ma ?",
+     "native": "Pardon, je ne comprends pas. Vous pouvez répéter ?"
+    },
+    {
+     "speaker": "B",
+     "study": "地址，请写在这里。",
+     "reading": "dìzhǐ, qǐng xiě zài zhèlǐ.",
+     "phon": "ti-djr, tching sié dzaï djeu-li",
+     "native": "L'adresse, écrivez-la ici, s'il vous plaît."
+    },
+    {
+     "speaker": "A",
+     "study": "好的。什么时候到？",
+     "reading": "hǎo de. shénme shíhou dào?",
+     "phon": "hao deu. cheun-meu chr-heou tao ?",
+     "native": "D'accord. Ça arrive quand ?"
+    },
+    {
+     "speaker": "B",
+     "study": "大概一个星期。",
+     "reading": "dàgài yí ge xīngqī.",
+     "phon": "ta-kaï i keu sing-tchi",
+     "native": "Environ une semaine."
+    },
+    {
+     "speaker": "A",
+     "study": "谢谢您！",
+     "reading": "xièxie nín!",
+     "phon": "sié-sié ninn !",
+     "native": "Merci à vous !"
+    },
+    {
+     "speaker": "B",
+     "study": "不客气。",
+     "reading": "bú kèqi.",
+     "phon": "pou keu-tchi",
+     "native": "Je vous en prie."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-zh-10",
+    "L1-fr-zh-11",
+    "L2-fr-zh-08",
+    "L3-fr-zh-02",
+    "L3-fr-zh-06"
+   ],
+   "roles": {
+    "A": "Client",
+    "B": "Employé de la poste"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "L'apprenant sait poser une question fermée (吗) et y répondre par le verbe, poser une question ouverte (什么, 为什么, 怎么, 什么时候, 在哪里), relancer avec 你呢 / 您呢, demander un service ou de répéter, proposer avec 好吗 et accepter ou refuser poliment."
+}
