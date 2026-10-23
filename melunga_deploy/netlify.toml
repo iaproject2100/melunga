@@ -3,6 +3,12 @@
   publish = "."
   functions = "netlify/functions"
 
+[[redirects]]
+  from = "/parcours-preview.html"
+  to = "/app.html?start=1&lang=fr&study=zh"
+  status = 302
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]

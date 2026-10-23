@@ -316,28 +316,10 @@ function longLesson(level){
    }finally{await context.close();}
   }
   report.checks.push('Missing and malformed bundles fail visibly and recover with retry.');
-  // The separate review workshop exposes all levels without changing an app
-  // account. Test its controls rather than treating it as an app entitlement.
-  for(const [width,height] of [[390,844],[1440,900]]){
-   const context=await browser.newContext({viewport:{width,height},isMobile:width<1000,hasTouch:width<1000,reducedMotion:'reduce'});
-   const page=await context.newPage(),external=[];
-   page.on('pageerror',error=>report.errors.push({workshop:true,width,message:error.message}));
-   await context.route('**/*',route=>{const url=new URL(route.request().url());if(url.origin!==base){external.push(url.href);return route.abort();}return route.continue();});
-   try{
-    await page.goto(base+'/parcours-preview.html?pair=fr-zh');await ready(page);
-    const before=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage)));
-    await page.evaluate(()=>{window.__curriculumAudio=[];window.speak=text=>window.__curriculumAudio.push(text);});
-    assert.equal(await page.locator('.curriculum-lesson').count(),9,'workshop displays the nine L1 lessons');
-    await page.locator('.curriculum-lesson').first().click();await page.locator('#curriculumEar').click();
-    assert.equal(await page.evaluate(()=>window.__curriculumAudio.at(-1)),bundles.find(item=>item.id==='fr-zh').levels[0].lessons[0].phrases[0].study,'workshop audio receives exact study text');
-    await page.selectOption('#curriculumLevel','10');assert.equal((await state(page)).level,10,'workshop permits L10 review');
-    assert(await page.locator('.curriculum-lesson').count()>0,'workshop has L10 lessons');
-    await page.selectOption('#pairPicker','fr-ko');await ready(page);assert.equal((await state(page)).pair,'fr-ko');assert.equal((await state(page)).level,1);assert.equal(await page.locator('.curriculum-lesson').count(),9,'workshop language switch resets to nine L1 lessons');
-    assert.deepEqual(await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage))),before,'workshop never writes account/entitlement or any persistent local state');
-    assert.equal(external.length,0,'workshop makes no external account or payment request');
-   }finally{await context.close();}
-  }
-  report.checks.push('Separate local review workshop: mobile/desktop L1 plan, L10, language switch and exact-text audio; no persistent access grant.');
+  // The all-levels review workshop is archived outside the publish directory.
+  // Production navigation must never offer its forced-paid review context.
+  assert.equal(fs.existsSync(path.join(root,'parcours-preview.html')),false,'review-only workshop is not published');
+  report.checks.push('All-levels review workshop is archived outside the published site; app access checks remain active.');
   assert.deepEqual(report.errors,[],'no uncaught browser JavaScript errors');
   report.status='passed';console.log(JSON.stringify(report.coverage));
  }catch(error){report.status='failed';report.errors.push({message:error.message,stack:error.stack});console.error(error.stack);process.exitCode=1;}

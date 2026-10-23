@@ -11,6 +11,9 @@ const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const fields = ['study', 'native', 'phon', 'reading'];
 const pairs = ['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr'];
 const report = read(path.join(root, 'docs/curriculum-v2/build-report.json'));
+assert.equal(report.status, 'owner-instruction-activated');
+assert.equal(report.publicationApproved, true);
+assert(!fs.existsSync(path.join(__dirname, 'parcours-preview.html')), 'Review workshop must stay outside the published site');
 const manifest = read(path.join(source, 'manifest.json'));
 for (const [file, digest] of Object.entries(manifest.files)) {
   assert.equal(hash(fs.readFileSync(path.join(source, file))), digest, 'source changed: ' + file);
@@ -34,6 +37,8 @@ let units = 0, steps = 0, copiedFields = 0, lessons = 0;
 for (const id of pairs) {
   const data = read(path.join(__dirname, 'content/curriculum', id + '.json'));
   assert.equal(data.id, id);
+  assert.equal(data.status, report.status);
+  assert.equal(data.publicationApproved, true);
   assert.deepEqual(data.levels.map(l => l.level), [1,2,3,4,5,6,7,8,9,10]);
   assert.deepEqual(data.levels[0].lessons.map(l => l.capability), ['01','07','08','09','02','03','04','05','06']);
   assert.equal(data.freeLibrary.length, 11);
@@ -85,4 +90,4 @@ assert.equal(copiedFields, 11488);
 assert.equal(lessons, report.counts.runtimeLessons);
 assert.equal(steps, report.counts.runtimeSteps);
 console.log(JSON.stringify({ok:true, pairs:pairs.length, levels:70, sourceUnits:units, copiedFields, lessons, steps,
-  productionApproved:false}));
+  productionApproved:report.publicationApproved}));

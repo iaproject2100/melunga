@@ -1,14 +1,14 @@
-# Parcours progressif complet — candidat à essayer
+# Parcours progressif complet — publication sur instruction de Kartech
 
-Ce lot répond à la reprise de Kartech : une entrée réellement débutante dans les sept couples, des leçons progressives dans l’application, et une recherche effective des pratiques concurrentes. **Candidat éditorial et technique ; aucune fusion ni publication de production autorisée par ce dossier.**
+Ce lot propose une entrée débutante commune aux sept couples et branche les 841 unités dans l’application. **Kartech autorise explicitement la fusion de la PR nº 10 et la publication du parcours complet avec les sept scènes café**, après réconciliation des accès gratuits. Il accepte l’absence de parcours navigateur hébergé avant publication et l’absence de relecture native du nouvel enchaînement L1. Les réserves pédagogiques ci-dessous restent déclarées. Voir [la décision de publication](publication/decision-proprietaire.json).
 
 ## Ouvrir le résultat
 
-- `parcours-preview.html` : atelier de relecture des sept couples et des dix niveaux, sans compte. Il utilise le même joueur et les mêmes données que l’application. Tous les niveaux sont ouverts dans cet atelier séparé ; il n’écrit aucun droit d’accès.
+- [Ouvrir le parcours sur melunga.com](https://melunga.com/app.html?start=1&lang=fr&study=zh). L’ancien atelier qui forçait l’accès à tous les niveaux est archivé **hors du répertoire publié** ; son ancienne adresse redirige vers l’application et ses droits normaux.
 - `app.html?start=1&lang=fr&study=zh` : essai dans la véritable interface mobile/ordinateur. « Parcours guidé » et les boutons L1–L10 ouvrent désormais les nouvelles leçons pour les sept couples actifs. Les autres couples ne sont pas activés.
 - « Bibliothèque · cartes » : catalogue classique. « Bibliothèque gratuite », dans le parcours : les onze anciennes unités L1 complètes de la langue, gratuites même lorsqu’elles sont différées pédagogiquement.
 
-L’atelier utilise la synthèse vocale du navigateur ; l’application conserve son moteur audio et ses voix existantes. Les contrôles locaux ne prouvent pas la disponibilité d’une voix distante.
+L’application conserve son moteur audio et ses voix existantes. Les contrôles des appels audio ne constituent pas une évaluation acoustique de la prononciation.
 
 ## Le changement concret
 
@@ -16,11 +16,11 @@ L’atelier utilise la synthèse vocale du navigateur ; l’application conserve
 
 Pour le chinois, le devis final, le tableau des tailles et les autres phrases de l’ancien guidé ne font plus partie de l’entrée débutante. Le coréen dispose désormais d’un parcours aux dix niveaux, là où l’ancien système de familles n’en avait aucun.
 
-Les **77 anciennes unités L1** sont différées selon leurs constructions : 48 en L2, 28 en L3, une en L4. Ce choix est un amendement éditorial **nouveau**, qui n’a pas encore reçu la validation de Claude. Il ne faut pas présenter la validation de l’ancien reclassement comme celle de cet amendement. Les raisons, ordres et blocs de variantes sont dans [placements-entree-v2.json](../progression-corrections/reprise-globale/placements-entree-v2.json).
+Les **77 anciennes unités L1** sont différées selon leurs constructions : 48 en L2, 28 en L3, une en L4. Ce choix est un amendement éditorial **nouveau**, autorisé pour publication par Kartech. La validation antérieure de Claude sur l’ancien reclassement ne vaut pas validation de cet amendement. Les raisons, ordres et blocs de variantes sont dans [placements-entree-v2.json](../progression-corrections/reprise-globale/placements-entree-v2.json).
 
 Les **841 unités / 3 364 variantes** de la proposition précédente sont présentes dans le joueur. Quatorze premières phrases entières sur le logement et le travail introduisent ces fonctions en L2 dans les sept couples ; leurs familles plus riches gardent ensuite leur placement précédent. Une première phrase ne prépare pas les quatre variantes d’une famille.
 
-Total du candidat : **918 leçons, 8 307 étapes** — 841 unités, 63 microleçons d’entrée et 14 premières expositions. Ce sont des étapes de pratique, pas 8 307 acquis ni 918 situations nouvelles.
+Total du parcours : **918 leçons, 8 307 étapes** — 841 unités, 63 microleçons d’entrée et 14 premières expositions. Ce sont des étapes de pratique, pas 8 307 acquis ni 918 situations nouvelles.
 
 Les répliques reçues restent à comprendre, visibles même pendant le rappel. L’oreille reste accessible et révèle explicitement le modèle avant de le lire. Les clics et la navigation ne produisent aucune note, validation de maîtrise ou écriture dans les révisions classiques.
 
@@ -29,7 +29,25 @@ Les répliques reçues restent à comprendre, visibles même pendant le rappel. 
 - **11 488 champs** des 3 364 variantes copiés exactement depuis les sources figées ; les sélections L1 et les trois soutiens espagnols sont également vérifiés contre leur origine.
 - Texte étudié, traduction, phonétique et lecture conservés ; aucune harmonisation chinoise silencieuse, aucune concaténation d’aide de prononciation.
 - Les lignes `DECKS` et `PEDAGOGY_FAMILIES` de l’application restent identiques à la base `50a2891` ; les **32 115 cartes classiques ne sont pas individuellement reclassées par ce lot**. Le nouveau cours remplace l’entrée guidée, le catalogue reste une réserve distincte.
-- Accès gratuit historique par couple préservé, y compris les anciennes cartes guidées de niveau source supérieur : fr→en 342, fr→es 300, fr→it 347, fr→zh 331, fr→ja 305, fr→ko 284, zh→fr 309. Ces nombres désignent des droits de cartes ; une carte déjà rangée dans « Je connais » reste dans cette rubrique.
+- Accès gratuit historique préservé par comparaison des **ensembles exacts d’indices**, sans dédoublonnage de texte. Le tableau précédent comptait les cartes proposées par les anciennes entrées après filtrage de thème ; il ne mesurait pas tous les droits du catalogue brut. La réconciliation avec Claude distingue les trois conventions :
+
+| Couple | Cartes historiquement proposées, par indice | Droits complets avant = après, par indice | Textes distincts bruts, chiffres de Claude |
+|---|---:|---:|---:|
+| fr→en | 342 | 342 | 342 |
+| fr→es | 300 | 301 | 301 |
+| fr→it | 347 | 350 | 345 |
+| fr→zh | 331 | 331 | 331 |
+| fr→ja | 305 | 308 | 299 |
+| fr→ko | 284 | 287 | 283 |
+| zh→fr | 309 | 309 | 309 |
+| **Total** | **2 218** | **2 228** | **2 210** |
+
+Les sept chiffres de Claude se reproduisent exactement avec les textes `t` uniques de toutes les cartes brutes L1 et du guidé L1. Cette convention ajoute dix cartes métier L1 masquées par l’ancien filtre, puis fusionne dix-huit occurrences de texte. Les écarts sont donc : espagnol `300 + 1 − 0 = 301`, italien `347 + 3 − 5 = 345`, japonais `305 + 3 − 9 = 299`, coréen `284 + 3 − 4 = 283`. Des doublons portent des sens ou aides distincts ; les regrouper par texte ne prouve pas la conservation de leurs cartes. Leur clé SRS historique est toutefois partagée (`lang + "|" + t`) : ils ne forment pas autant de clés de révision différentes.
+
+Pour prouver la conservation des droits, le contrôle pertinent est la deuxième colonne : **tout indice de carte L1 brute, union des indices guidés L1 historiquement offerts**. Les fonctions historiques et candidates exécutées dans Node donnent exactement les mêmes **2 228 indices, zéro perte et zéro nouveau droit**. Les 35 autres couples gardent le prédicat L1 strict. [Détail des écarts](publication/reconciliation-gratuit.md) ; [ensembles avant/après](publication/droits-avant-apres.json).
+
+La frontière de base du catalogue est `FREE_LV=[1]`, donc historiquement `isFreeCard(d)` équivalait à `d.lv === 1`. Le candidat ajoute les exceptions historiques par couple pour conserver l’ancien guidé gratuit. **Modifier `lv` dans le catalogue modifierait la frontière de base gratuit/payant**, sous réserve des exceptions gelées ; aucune valeur `lv` du catalogue n’est changée ici. Le niveau pédagogique du nouveau parcours reste distinct de ce niveau d’accès. Une carte déjà rangée dans « Je connais » reste dans cette rubrique.
+
 - Les 308 variantes des anciennes unités L1 restent disponibles gratuitement dans la bibliothèque du cours. Aucun prix ni abonnement n’est modifié. Le cours complet L2–L10 continue de demander l’accès existant, y compris lors d’appels directs au joueur.
 - Les sept scènes café déjà activées sur instruction de Kartech restent un lot identifiable, sans changement de leur contenu ni de leur politique d’activation.
 
@@ -49,7 +67,7 @@ Les principes retenus sont appliqués dans ce candidat : petits objectifs, phras
 
 ## Limites à faire relire
 
-1. Les neuf microleçons communes, le déplacement des 77 anciennes unités L1 et les quatorze premières expositions sont à relire ensemble. Il faut juger les phrases vues par l’apprenant, pas uniquement une moyenne de longueur.
+1. Les neuf microleçons communes, les 77 placements et les quatorze premières expositions sont publiés sur décision de Kartech. La relecture pédagogique complémentaire reste souhaitable ; il faut juger les phrases effectivement vues, pas uniquement leur longueur moyenne.
 2. Les 341 réserves du plan source restent ouvertes. Trente anciens liens qui auraient pointé vers une famille désormais ultérieure ont été retirés des prérequis effectifs et consignés dans l’annexe ; ils ne sont pas réputés résolus.
 3. Les 210 dialogues du corpus conversation, hors scène café préparée, ne sont pas tous câblés au cours. Leur préparation lexicale reste à compléter. Les ajouter avec masquage automatique ferait produire des répliques non préparées.
 4. Le déficit lexical italien L8, le registre de `L1-03` japonais/coréen et les conventions phonétiques chinoises restent des dossiers distincts. Les sources actuelles sont conservées.
@@ -65,6 +83,7 @@ python3 tools/curriculum/build_curriculum.py --check
 python3 tools/curriculum/build_legacy_free.py --check
 node melunga_deploy/check-curriculum.cjs
 node melunga_deploy/check-l1-release.cjs
+node tools/curriculum/audit_free_rights.cjs --repo .
 node melunga_deploy/tests/curriculum-player.test.cjs
 node melunga_deploy/tests/lesson-async-safety.test.cjs
 node melunga_deploy/tests/l1-cafe.test.cjs
@@ -76,4 +95,4 @@ Vérification locale finale : 143 plans examinés, 254 leçons parcourues, 1 924
 
 Source du plan précédent : `7d24556`, empreinte du JSON `311f20f83fe5e47219948b794e2d0477cb0935fea1e81c0015393dc921fbb78d`. Base produit : `50a2891`. Les sources et manifestes sont archivés dans `source/`, les mesures dans [build-report.json](build-report.json).
 
-Le déploiement Netlify du candidat `afc39f3` est déclaré réussi par GitHub. L’aperçu est disponible à [cette adresse](https://deploy-preview-10--chic-dragon-e2baf2.netlify.app/parcours-preview.html). Le proxy de cet environnement refuse ce nouveau domaine (403), même après une nouvelle tentative avec exécution autorisée : aucun parcours navigateur hébergé ni contrôle des octets servis n’est donc revendiqué. Voir [deploiement.json](deploiement.json). `main` reste à `bb9f904` ; melunga.com n’est pas modifié.
+Le dossier [publication/](publication/) consigne la décision, la réconciliation et les vérifications du site réel. Les rapports d’aperçu plus anciens restent des pièces historiques et ne remplacent pas ces contrôles de production.

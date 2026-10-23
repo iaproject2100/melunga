@@ -350,7 +350,7 @@
   }
   function renderPlan(level) {
     nodes.heading.textContent = level.title;
-    nodes.breadcrumb.textContent = text('Aperçu du parcours guidé', '引导课程预览') + (screen === 'library' ? text(' · Gratuit', ' · 免费') : ' · L' + levelNumber);
+    nodes.breadcrumb.textContent = text('Parcours guidé', '引导课程') + (screen === 'library' ? text(' · Gratuit', ' · 免费') : ' · L' + levelNumber);
     nodes.instruction.textContent = level.goal || text('Choisis une leçon et avance à ton rythme.', '选择一课，按自己的节奏练习。');
     nodes.context.textContent = text('Écouter, imiter, faire varier, puis échanger. Chaque leçon peut être rejouée.', '先听懂、跟读，再变换表达并对话。每课都可以再次练习。');
     nodes.lessons.hidden = false; nodes.lessons.replaceChildren();
@@ -437,7 +437,7 @@
     nodes.ear.disabled = empty;
     nodes.ear.setAttribute('aria-label', mask ? text('Afficher le modèle et écouter la phrase', '查看范例并听这句话') : text('Écouter la phrase', '听这句话'));
     if (loading || failed) {
-      nodes.breadcrumb.textContent = text('Aperçu du parcours guidé', '引导课程预览');
+      nodes.breadcrumb.textContent = text('Parcours guidé', '引导课程');
       nodes.heading.textContent = failed ? text('Réessayer le chargement', '重新加载') : text('Tes leçons arrivent…', '正在加载课程…');
       nodes.instruction.textContent = failed ? text('Les leçons n’ont pas pu se charger. Réessaie ou retourne aux cartes.', '课程加载失败。请重试或返回卡片。') : text('Préparation du plan de tes leçons.', '正在准备课程列表。');
     } else if (screen === 'plan') {
@@ -447,12 +447,12 @@
         goal:text('Des leçons supplémentaires gratuites à explorer à ton rythme.', '按自己的节奏，探索更多免费的句式练习。'),
         lessons:bundle.freeLibrary || []});
     } else if (screen === 'complete') {
-      nodes.breadcrumb.textContent = text('Aperçu', '预览') + ' · L' + levelNumber + ' · ' + lesson.title;
+      nodes.breadcrumb.textContent = text('Parcours guidé', '引导课程') + ' · L' + levelNumber + ' · ' + lesson.title;
       nodes.heading.textContent = text('Leçon parcourue', '本课练习已结束');
       nodes.instruction.textContent = text('Tu peux rejouer cette leçon ou continuer à ton rythme.', '可以再次练习本课，也可以按自己的节奏继续。');
       nodes.context.textContent = lesson.freePrompt || '';
     } else if (current) {
-      nodes.breadcrumb.textContent = text('Aperçu', '预览') + ' · L' + levelNumber + ' · ' + lesson.title;
+      nodes.breadcrumb.textContent = text('Parcours guidé', '引导课程') + ' · L' + levelNumber + ' · ' + lesson.title;
       nodes.heading.textContent = phase(current);
       nodes.instruction.textContent = instruction(current, currentPhrase);
       nodes.context.textContent = currentPhrase ? (received(currentPhrase, current) ? text('L’autre personne · à comprendre', '对方的话 · 只需理解') : text('À toi de parler', '轮到你说')) : '';
