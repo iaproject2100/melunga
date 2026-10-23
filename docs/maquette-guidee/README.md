@@ -7,7 +7,9 @@ Cette maquette répond aux deux retours de Kartech : conserver la présentation 
 - Route autonome : `melunga_deploy/maquette-guidee.html`.
 - Sept couples : fr→en, fr→es, fr→it, fr→zh, fr→ja, fr→ko et zh→fr.
 - Les **2 134 cartes dont le niveau source vaut exactement 1** sont conservées, avec leur indice source. Deux cartes portant le même texte ne sont pas fusionnées.
-- Un thème regroupe plusieurs petites séquences ; une séquence n'est pas un thème entier. Les quantités restent visibles dans la sélection des thèmes.
+- Les thèmes sont numérotés dans l'ordre conseillé de cette proposition éditoriale. Le thème professionnel est indiqué comme facultatif.
+- Sur ordinateur, un clic sur le thème démarre directement sa leçon complète. Les groupes de pratique s'enchaînent sans écran de sélection ni arrêt intermédiaire ; compteur et barre de progression portent sur tout le thème. Le logo reste dans la barre latérale.
+- Sur mobile, un thème regroupe plusieurs petites séquences ; une séquence n'est pas un thème entier. Les quantités restent visibles dans la sélection des thèmes.
 - L'écran de pratique donne la priorité à la phrase, à sa phonétique, à son sens et à l'audio. L'aide détaillée ne s'ouvre que sur demande.
 - Les modèles incomplets sont présentés à part, sans produire de phrase ni de phonétique de remplacement.
 

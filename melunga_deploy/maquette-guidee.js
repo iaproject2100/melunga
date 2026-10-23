@@ -23,8 +23,9 @@
   const state = {
     data: null, pair: null, theme: null, sequence: null, screen: 'loading', stepIndex: 0,
     selectedPhraseId: null, revealed: false, helpOpen: false, readingVisible: false,
-    speechGeneration: 0, ambienceIndex: 0
+    speechGeneration: 0, ambienceIndex: 0, lessonScope: 'sequence'
   };
+  const desktopLayout = window.matchMedia('(min-width: 761px)');
   const ambiences = ['ocean', 'aurora', 'dusk'];
   const voices = { zh: 'zh-CN', es: 'es-ES', en: 'en-GB', fr: 'fr-FR', it: 'it-IT', ko: 'ko-KR', ja: 'ja-JP' };
   const svg = paths => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + paths + '</svg>';
@@ -47,6 +48,7 @@
   const chinese = {
     'Tes thèmes': '主题', 'Thèmes': '主题', 'Séquences': '学习小组', 'Continuer': '继续',
     'Réécouter': '再听一次', 'Rejouer': '再练一次', 'Séquence terminée': '本组已完成',
+    'Thème terminé': '本主题已完成', 'Facultatif': '可选',
     'Séquence suivante': '下一组', 'Les séquences': '所有小组', 'Interlocuteur': '对方',
     'Afficher la lecture': '显示读音', 'Masquer la lecture': '隐藏读音',
     'Écouter la phrase': '听这句话', 'Écouter': '听一听',
@@ -72,6 +74,8 @@
   const text = (node, value) => { node.textContent = typeof value === 'string' ? value : ''; };
   const phraseCount = theme => Array.isArray(theme.phrases) ? theme.phrases.length : 0;
   const pairCount = pair => pair.themes.reduce((total, theme) => total + phraseCount(theme), 0);
+  const themeNumber = theme => String(state.pair.themes.indexOf(theme) + 1).padStart(2, '0');
+  const themeLabel = theme => themeNumber(theme) + ' · ' + theme.title;
   const currentStep = () => state.sequence && state.sequence.steps[state.stepIndex];
   const phraseById = id => state.theme && state.theme.phrases.find(phrase => phrase.id === id);
   const currentPhrase = () => {
@@ -143,7 +147,7 @@
     return icons.globe;
   }
 
-  function tile(title, count, icon, action, className) {
+  function tile(title, count, icon, action, className, theme) {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = className;
@@ -159,12 +163,20 @@
     const quantity = document.createElement(className === 'mg-theme' ? 'span' : 'small');
     quantity.className = 'mg-theme-count';
     quantity.textContent = quantityLabel(count);
+    if (theme && theme.optional) quantity.textContent += ' · ' + tr('Facultatif');
     content.append(label, quantity);
     const arrow = document.createElement('span');
     arrow.className = 'mg-tile-arrow';
     arrow.innerHTML = icons.arrow;
     arrow.setAttribute('aria-hidden', 'true');
-    if (className === 'mg-theme') button.append(pictogram, label, quantity);
+    if (className === 'mg-theme') {
+      const number = document.createElement('span');
+      number.className = 'mg-theme-number';
+      number.textContent = themeNumber(theme);
+      number.setAttribute('aria-hidden', 'true');
+      button.setAttribute('aria-label', themeLabel(theme) + ', ' + quantity.textContent);
+      button.append(pictogram, number, label, quantity);
+    }
     else button.append(content, arrow);
     button.addEventListener('click', action);
     return button;
@@ -176,13 +188,25 @@
     closeHelp();
     state.theme = null;
     state.sequence = null;
+    state.lessonScope = 'sequence';
     setStatus('');
     text(ui.counter, quantityLabel(pairCount(state.pair)));
     ui.progress.style.width = '0%';
     ui.themeGrid.replaceChildren(...state.pair.themes.map(theme => tile(
-      theme.title, phraseCount(theme), themeIcon(theme), () => showSequences(theme), 'mg-theme'
+      theme.title, phraseCount(theme), themeIcon(theme), () => openTheme(theme), 'mg-theme', theme
     )));
     showView('themes');
+  }
+
+  function openTheme(theme) {
+    if (!desktopLayout.matches) return showSequences(theme);
+    state.theme = theme;
+    // Keep the prepared groups in order, but make the whole theme one lesson.
+    startSequence({
+      id: state.pair.id + ':' + theme.id + ':all',
+      phraseIds: theme.sequences.flatMap(sequence => sequence.phraseIds),
+      steps: theme.sequences.flatMap(sequence => sequence.steps)
+    }, 'theme');
   }
 
   function showSequences(theme = state.theme) {
@@ -191,8 +215,9 @@
     closeHelp();
     state.theme = theme;
     state.sequence = null;
+    state.lessonScope = 'sequence';
     setStatus('');
-    text(ui.sequenceHeading, theme.title);
+    text(ui.sequenceHeading, themeLabel(theme));
     text(ui.backText, tr('Thèmes'));
     text(ui.counter, quantityLabel(phraseCount(theme)));
     ui.progress.style.width = '0%';
@@ -204,8 +229,9 @@
     ui.sequenceHeading.focus({ preventScroll: true });
   }
 
-  function startSequence(sequence) {
+  function startSequence(sequence, lessonScope = 'sequence') {
     state.sequence = sequence;
+    state.lessonScope = lessonScope;
     state.stepIndex = 0;
     resetStep();
     renderStep();
@@ -255,8 +281,8 @@
     ui.done.hidden = true;
     ui.help.hidden = false;
     ui.phase.hidden = false;
-    text(ui.lessonTheme, state.theme.title);
-    text(ui.backText, tr('Séquences'));
+    text(ui.lessonTheme, themeLabel(state.theme));
+    text(ui.backText, tr(state.lessonScope === 'theme' ? 'Thèmes' : 'Séquences'));
     ui.phase.innerHTML = definition.icon;
     ui.phase.setAttribute('aria-label', tr(definition.label));
     ui.phase.title = tr(definition.label);
@@ -300,14 +326,15 @@
     ui.done.hidden = false;
     ui.help.hidden = true;
     ui.phase.hidden = true;
-    text(ui.doneHeading, tr('Séquence terminée'));
+    text(ui.doneHeading, tr(state.lessonScope === 'theme' ? 'Thème terminé' : 'Séquence terminée'));
     text(ui.counter, state.sequence.phraseIds.length + ' / ' + state.sequence.phraseIds.length);
     ui.progress.style.width = '100%';
     ui.replay.disabled = false;
     ui.next.disabled = false;
     text(ui.replayText, tr('Rejouer'));
     const index = state.theme.sequences.indexOf(state.sequence);
-    text(ui.nextText, tr(index < state.theme.sequences.length - 1 ? 'Séquence suivante' : 'Les séquences'));
+    text(ui.nextText, tr(state.lessonScope === 'theme' ? 'Thèmes'
+      : index < state.theme.sequences.length - 1 ? 'Séquence suivante' : 'Les séquences'));
     setStatus('');
     showView('done');
   }
@@ -437,7 +464,10 @@
     event.preventDefault();
     showThemes();
   });
-  ui.back.addEventListener('click', () => state.screen === 'sequences' ? showThemes() : showSequences());
+  ui.back.addEventListener('click', () => {
+    if (state.screen === 'sequences' || state.lessonScope === 'theme') showThemes();
+    else showSequences();
+  });
   ui.palette.addEventListener('click', () => {
     state.ambienceIndex = (state.ambienceIndex + 1) % ambiences.length;
     document.body.dataset.ambience = ambiences[state.ambienceIndex];
@@ -455,9 +485,11 @@
     text(ui.readingToggle, tr(state.readingVisible ? 'Masquer la lecture' : 'Afficher la lecture'));
   });
   ui.ear.addEventListener('click', () => speak(true));
-  ui.replay.addEventListener('click', () => state.screen === 'done' ? startSequence(state.sequence) : speak(false));
+  ui.replay.addEventListener('click', () => state.screen === 'done'
+    ? startSequence(state.sequence, state.lessonScope) : speak(false));
   ui.next.addEventListener('click', () => {
     if (state.screen === 'done') {
+      if (state.lessonScope === 'theme') return showThemes();
       const nextSequence = state.theme.sequences[state.theme.sequences.indexOf(state.sequence) + 1];
       if (nextSequence) startSequence(nextSequence);
       else showSequences();
@@ -476,7 +508,7 @@
   // Read-only state supports preview checks without touching the real application.
   window.MelungaMockup = Object.freeze({ state: () => Object.freeze({
     screen: state.screen, pairId: state.pair && state.pair.id, themeId: state.theme && state.theme.id,
-    sequenceId: state.sequence && state.sequence.id, stepIndex: state.stepIndex,
+    sequenceId: state.sequence && state.sequence.id, stepIndex: state.stepIndex, lessonScope: state.lessonScope,
     phraseId: currentPhrase() && currentPhrase().id, masked: isMasked(), helpOpen: state.helpOpen,
     template: isTemplate(currentPhrase()), totalPhrases: state.pair ? pairCount(state.pair) : 0
   }) });
