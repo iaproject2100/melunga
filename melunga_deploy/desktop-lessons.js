@@ -87,7 +87,9 @@
     const level = document.getElementById('ballLv');
     if (levelName.textContent !== (level ? level.textContent : 'L1')) levelName.textContent = level ? level.textContent : 'L1';
     levelName.setAttribute('aria-label',document.getElementById('currentLevel').textContent);
-    phraseNumber.textContent = (typeof idx === 'number' ? idx + 1 : 1) + ' / ' + (typeof pool !== 'undefined' ? pool.length : 0);
+    const course = window.MelungaCurriculum && window.MelungaCurriculum.active() ? window.MelungaCurriculum.state() : null;
+    phraseNumber.textContent = course && course.screen !== 'lesson' ? 'L' + course.level
+      : (typeof idx === 'number' ? idx + 1 : 1) + ' / ' + (typeof pool !== 'undefined' ? pool.length : 0);
     phraseNumber.setAttribute('aria-label',document.getElementById('count').textContent);
 
   }

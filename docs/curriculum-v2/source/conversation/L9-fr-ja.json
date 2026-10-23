@@ -1,0 +1,1107 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "ja",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en japonais",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle",
+  "reading": "lecture en hiragana"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : a-ri-ga-to-o). Voyelle longue = voyelle répétée (ko-o-hi-i, to-o) ; consonne double = consonne fermant la syllabe précédente (kip-pou, chouc-chin, kek-ko-o) ; u final souvent assourdi (dé-sou → « dès »). Le champ reading donne la lecture en hiragana. Registre poli (です / ます).",
+ "reviewStatus": "Relecture linguistique requise (naturel des tournures, lectures des kanji).",
+ "coverageClaim": null,
+ "level": 9,
+ "title": "Nuancer et résoudre",
+ "goal": "Reformuler, nuancer et résoudre un imprévu.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L9-fr-ja-01",
+   "situation": "Reformuler : autrement dit",
+   "model": {
+    "study": "つまり、{s}ということです。",
+    "reading": "つまり、{s}ということです。",
+    "phon": "tsou-ma-ri, {s} to i-ou ko-to dé-sou",
+    "native": "Autrement dit, {s}.",
+    "note": "Forme neutre devant ということです ; un nom se place directement devant (休みということです)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "明日は休み",
+      "reading": "あしたはやすみ",
+      "phon": "a-chi-ta wa ya-sou-mi",
+      "native": "demain c'est fermé"
+     },
+     "study": "つまり、明日は休みということです。",
+     "phon": "tsou-ma-ri, a-chi-ta wa ya-sou-mi to i-ou ko-to dé-sou",
+     "native": "Autrement dit, demain c'est fermé.",
+     "reading": "つまり、あしたはやすみということです。"
+    },
+    {
+     "slot": {
+      "study": "電車が来ない",
+      "reading": "でんしゃがこない",
+      "phon": "dén-cha ga ko-na-i",
+      "native": "le train ne vient pas"
+     },
+     "study": "つまり、電車が来ないということです。",
+     "phon": "tsou-ma-ri, dén-cha ga ko-na-i to i-ou ko-to dé-sou",
+     "native": "Autrement dit, le train ne vient pas.",
+     "reading": "つまり、でんしゃがこないということです。"
+    },
+    {
+     "slot": {
+      "study": "予約が必要だ",
+      "reading": "よやくがひつようだ",
+      "phon": "yo-ya-kou ga hi-tsou-yo-o da",
+      "native": "il faut réserver"
+     },
+     "study": "つまり、予約が必要だということです。",
+     "phon": "tsou-ma-ri, yo-ya-kou ga hi-tsou-yo-o da to i-ou ko-to dé-sou",
+     "native": "Autrement dit, il faut réserver.",
+     "reading": "つまり、よやくがひつようだということです。"
+    },
+    {
+     "slot": {
+      "study": "もう一度来る",
+      "reading": "もういちどくる",
+      "phon": "mo-o i-tchi-do kou-rou",
+      "native": "je dois revenir"
+     },
+     "study": "つまり、もう一度来るということです。",
+     "phon": "tsou-ma-ri, mo-o i-tchi-do kou-rou to i-ou ko-to dé-sou",
+     "native": "Autrement dit, je dois revenir.",
+     "reading": "つまり、もういちどくるということです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-ja-02",
+   "situation": "Reformuler : ce que je veux dire",
+   "model": {
+    "study": "私が言いたいのは、{s}ということです。",
+    "reading": "わたしがいいたいのは、{s}ということです。",
+    "phon": "wa-ta-chi ga i-i-ta-i no wa, {s} to i-ou ko-to dé-sou",
+    "native": "Ce que je veux dire, c'est que {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "時間が足りない",
+      "reading": "じかんがたりない",
+      "phon": "dji-kan ga ta-ri-na-i",
+      "native": "le temps manque"
+     },
+     "study": "私が言いたいのは、時間が足りないということです。",
+     "phon": "wa-ta-chi ga i-i-ta-i no wa, dji-kan ga ta-ri-na-i to i-ou ko-to dé-sou",
+     "native": "Ce que je veux dire, c'est que le temps manque.",
+     "reading": "わたしがいいたいのは、じかんがたりないということです。"
+    },
+    {
+     "slot": {
+      "study": "もう少し休みが必要だ",
+      "reading": "もうすこしやすみがひつようだ",
+      "phon": "mo-o sou-ko-chi ya-sou-mi ga hi-tsou-yo-o da",
+      "native": "il me faut un peu plus de repos"
+     },
+     "study": "私が言いたいのは、もう少し休みが必要だということです。",
+     "phon": "wa-ta-chi ga i-i-ta-i no wa, mo-o sou-ko-chi ya-sou-mi ga hi-tsou-yo-o da to i-ou ko-to dé-sou",
+     "native": "Ce que je veux dire, c'est qu'il me faut un peu plus de repos.",
+     "reading": "わたしがいいたいのは、もうすこしやすみがひつようだということです。"
+    },
+    {
+     "slot": {
+      "study": "値段が高すぎる",
+      "reading": "ねだんがたかすぎる",
+      "phon": "né-dan ga ta-ka-sou-gi-rou",
+      "native": "le prix est trop élevé"
+     },
+     "study": "私が言いたいのは、値段が高すぎるということです。",
+     "phon": "wa-ta-chi ga i-i-ta-i no wa, né-dan ga ta-ka-sou-gi-rou to i-ou ko-to dé-sou",
+     "native": "Ce que je veux dire, c'est que le prix est trop élevé.",
+     "reading": "わたしがいいたいのは、ねだんがたかすぎるということです。"
+    },
+    {
+     "slot": {
+      "study": "説明が分かりにくい",
+      "reading": "せつめいがわかりにくい",
+      "phon": "sé-tsou-mé-i ga wa-ka-ri-ni-kou-i",
+      "native": "l'explication est difficile à comprendre"
+     },
+     "study": "私が言いたいのは、説明が分かりにくいということです。",
+     "phon": "wa-ta-chi ga i-i-ta-i no wa, sé-tsou-mé-i ga wa-ka-ri-ni-kou-i to i-ou ko-to dé-sou",
+     "native": "Ce que je veux dire, c'est que l'explication est difficile à comprendre.",
+     "reading": "わたしがいいたいのは、せつめいがわかりにくいということです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-ja-03",
+   "situation": "Nuancer : plutôt…",
+   "model": {
+    "study": "どちらかと言うと、{s}です。",
+    "reading": "どちらかというと、{s}です。",
+    "phon": "do-tchi-ra ka to i-ou to, {s} dé-sou",
+    "native": "Je dirais plutôt : {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "賛成",
+      "reading": "さんせい",
+      "phon": "san-sé-i",
+      "native": "pour"
+     },
+     "study": "どちらかと言うと、賛成です。",
+     "phon": "do-tchi-ra ka to i-ou to, san-sé-i dé-sou",
+     "native": "Je dirais plutôt : pour.",
+     "reading": "どちらかというと、さんせいです。"
+    },
+    {
+     "slot": {
+      "study": "反対",
+      "reading": "はんたい",
+      "phon": "han-ta-i",
+      "native": "contre"
+     },
+     "study": "どちらかと言うと、反対です。",
+     "phon": "do-tchi-ra ka to i-ou to, han-ta-i dé-sou",
+     "native": "Je dirais plutôt : contre.",
+     "reading": "どちらかというと、はんたいです。"
+    },
+    {
+     "slot": {
+      "study": "和食の方が好き",
+      "reading": "わしょくのほうがすき",
+      "phon": "wa-cho-kou no ho-o ga sou-ki",
+      "native": "je préfère la cuisine japonaise"
+     },
+     "study": "どちらかと言うと、和食の方が好きです。",
+     "phon": "do-tchi-ra ka to i-ou to, wa-cho-kou no ho-o ga sou-ki dé-sou",
+     "native": "Je dirais plutôt : je préfère la cuisine japonaise.",
+     "reading": "どちらかというと、わしょくのほうがすきです。"
+    },
+    {
+     "slot": {
+      "study": "朝の方がいい",
+      "reading": "あさのほうがいい",
+      "phon": "a-sa no ho-o ga i-i",
+      "native": "le matin me va mieux"
+     },
+     "study": "どちらかと言うと、朝の方がいいです。",
+     "phon": "do-tchi-ra ka to i-ou to, a-sa no ho-o ga i-i dé-sou",
+     "native": "Je dirais plutôt : le matin me va mieux.",
+     "reading": "どちらかというと、あさのほうがいいです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-ja-04",
+   "situation": "Nuancer : pas vraiment",
+   "model": {
+    "study": "あまり{s}ません。",
+    "reading": "あまり{s}ません。",
+    "phon": "a-ma-ri {s}-ma-sén",
+    "native": "Je ne {s} pas vraiment.",
+    "note": "あまり + négatif = « pas vraiment, pas tellement »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "分かり",
+      "reading": "わかり",
+      "phon": "wa-ka-ri",
+      "native": "comprends"
+     },
+     "study": "あまり分かりません。",
+     "phon": "a-ma-ri wa-ka-ri-ma-sén",
+     "native": "Je ne comprends pas vraiment.",
+     "reading": "あまりわかりません。"
+    },
+    {
+     "slot": {
+      "study": "覚えてい",
+      "reading": "おぼえてい",
+      "phon": "o-bo-é-té i",
+      "native": "me souviens"
+     },
+     "study": "あまり覚えていません。",
+     "phon": "a-ma-ri o-bo-é-té i-ma-sén",
+     "native": "Je ne me souviens pas vraiment.",
+     "reading": "あまりおぼえていません。"
+    },
+    {
+     "slot": {
+      "study": "疲れてい",
+      "reading": "つかれてい",
+      "phon": "tsou-ka-ré-té i",
+      "native": "suis fatigué"
+     },
+     "study": "あまり疲れていません。",
+     "phon": "a-ma-ri tsou-ka-ré-té i-ma-sén",
+     "native": "Je ne suis pas vraiment fatigué.",
+     "reading": "あまりつかれていません。"
+    },
+    {
+     "slot": {
+      "study": "使い",
+      "reading": "つかい",
+      "phon": "tsou-ka-i",
+      "native": "l'utilise"
+     },
+     "study": "あまり使いません。",
+     "phon": "a-ma-ri tsou-ka-i-ma-sén",
+     "native": "Je ne l'utilise pas vraiment.",
+     "reading": "あまりつかいません。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-ja-05",
+   "situation": "Exprimer l'incertitude",
+   "model": {
+    "study": "{s}かもしれません。",
+    "reading": "{s}かもしれません。",
+    "phon": "{s} ka-mo chi-ré-ma-sén",
+    "native": "Il se peut que {s}.",
+    "note": "Forme neutre (ou nom seul) devant かもしれません."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "遅れる",
+      "reading": "おくれる",
+      "phon": "o-kou-ré-rou",
+      "native": "je sois en retard"
+     },
+     "study": "遅れるかもしれません。",
+     "phon": "o-kou-ré-rou ka-mo chi-ré-ma-sén",
+     "native": "Il se peut que je sois en retard.",
+     "reading": "おくれるかもしれません。"
+    },
+    {
+     "slot": {
+      "study": "電車が止まっている",
+      "reading": "でんしゃがとまっている",
+      "phon": "dén-cha ga to-mat-té i-rou",
+      "native": "le train soit arrêté"
+     },
+     "study": "電車が止まっているかもしれません。",
+     "phon": "dén-cha ga to-mat-té i-rou ka-mo chi-ré-ma-sén",
+     "native": "Il se peut que le train soit arrêté.",
+     "reading": "でんしゃがとまっているかもしれません。"
+    },
+    {
+     "slot": {
+      "study": "風邪",
+      "reading": "かぜ",
+      "phon": "ka-zé",
+      "native": "ce soit un rhume"
+     },
+     "study": "風邪かもしれません。",
+     "phon": "ka-zé ka-mo chi-ré-ma-sén",
+     "native": "Il se peut que ce soit un rhume.",
+     "reading": "かぜかもしれません。"
+    },
+    {
+     "slot": {
+      "study": "間違い",
+      "reading": "まちがい",
+      "phon": "ma-tchi-ga-i",
+      "native": "ce soit une erreur"
+     },
+     "study": "間違いかもしれません。",
+     "phon": "ma-tchi-ga-i ka-mo chi-ré-ma-sén",
+     "native": "Il se peut que ce soit une erreur.",
+     "reading": "まちがいかもしれません。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-ja-06",
+   "situation": "Signaler un problème",
+   "model": {
+    "study": "問題があります。{s}。どうしましょうか。",
+    "reading": "もんだいがあります。{s}。どうしましょうか。",
+    "phon": "mon-da-i ga a-ri-ma-sou. {s}. do-o chi-ma-cho-o ka",
+    "native": "Il y a un problème : {s}. Qu'est-ce qu'on fait ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "切符をなくしました",
+      "reading": "きっぷをなくしました",
+      "phon": "kip-pou o na-kou-chi-ma-chi-ta",
+      "native": "j'ai perdu mon billet"
+     },
+     "study": "問題があります。切符をなくしました。どうしましょうか。",
+     "phon": "mon-da-i ga a-ri-ma-sou. kip-pou o na-kou-chi-ma-chi-ta. do-o chi-ma-cho-o ka",
+     "native": "Il y a un problème : j'ai perdu mon billet. Qu'est-ce qu'on fait ?",
+     "reading": "もんだいがあります。きっぷをなくしました。どうしましょうか。"
+    },
+    {
+     "slot": {
+      "study": "電車に乗り遅れました",
+      "reading": "でんしゃにのりおくれました",
+      "phon": "dén-cha ni no-ri-o-kou-ré-ma-chi-ta",
+      "native": "j'ai raté le train"
+     },
+     "study": "問題があります。電車に乗り遅れました。どうしましょうか。",
+     "phon": "mon-da-i ga a-ri-ma-sou. dén-cha ni no-ri-o-kou-ré-ma-chi-ta. do-o chi-ma-cho-o ka",
+     "native": "Il y a un problème : j'ai raté le train. Qu'est-ce qu'on fait ?",
+     "reading": "もんだいがあります。でんしゃにのりおくれました。どうしましょうか。"
+    },
+    {
+     "slot": {
+      "study": "予約が入っていません",
+      "reading": "よやくがはいっていません",
+      "phon": "yo-ya-kou ga ha-it-té i-ma-sén",
+      "native": "la réservation n'est pas enregistrée"
+     },
+     "study": "問題があります。予約が入っていません。どうしましょうか。",
+     "phon": "mon-da-i ga a-ri-ma-sou. yo-ya-kou ga ha-it-té i-ma-sén. do-o chi-ma-cho-o ka",
+     "native": "Il y a un problème : la réservation n'est pas enregistrée. Qu'est-ce qu'on fait ?",
+     "reading": "もんだいがあります。よやくがはいっていません。どうしましょうか。"
+    },
+    {
+     "slot": {
+      "study": "書類が足りません",
+      "reading": "しょるいがたりません",
+      "phon": "cho-rou-i ga ta-ri-ma-sén",
+      "native": "il manque un document"
+     },
+     "study": "問題があります。書類が足りません。どうしましょうか。",
+     "phon": "mon-da-i ga a-ri-ma-sou. cho-rou-i ga ta-ri-ma-sén. do-o chi-ma-cho-o ka",
+     "native": "Il y a un problème : il manque un document. Qu'est-ce qu'on fait ?",
+     "reading": "もんだいがあります。しょるいがたりません。どうしましょうか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-ja-07",
+   "situation": "Vérifier la compréhension",
+   "model": {
+    "study": "{s}ということですか。",
+    "reading": "{s}ということですか。",
+    "phon": "{s} to i-ou ko-to dé-sou ka",
+    "native": "Vous voulez dire que {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "明日は来なくてもいい",
+      "reading": "あしたはこなくてもいい",
+      "phon": "a-chi-ta wa ko-na-kou-té mo i-i",
+      "native": "je n'ai pas besoin de venir demain"
+     },
+     "study": "明日は来なくてもいいということですか。",
+     "phon": "a-chi-ta wa ko-na-kou-té mo i-i to i-ou ko-to dé-sou ka",
+     "native": "Vous voulez dire que je n'ai pas besoin de venir demain ?",
+     "reading": "あしたはこなくてもいいということですか。"
+    },
+    {
+     "slot": {
+      "study": "全部で五千円",
+      "reading": "ぜんぶでごせんえん",
+      "phon": "zén-bou dé go-sén én",
+      "native": "cinq mille yens en tout"
+     },
+     "study": "全部で五千円ということですか。",
+     "phon": "zén-bou dé go-sén én to i-ou ko-to dé-sou ka",
+     "native": "Vous voulez dire cinq mille yens en tout ?",
+     "reading": "ぜんぶでごせんえんということですか。"
+    },
+    {
+     "slot": {
+      "study": "予約はキャンセル",
+      "reading": "よやくはきゃんせる",
+      "phon": "yo-ya-kou wa kyan-sé-rou",
+      "native": "la réservation est annulée"
+     },
+     "study": "予約はキャンセルということですか。",
+     "phon": "yo-ya-kou wa kyan-sé-rou to i-ou ko-to dé-sou ka",
+     "native": "Vous voulez dire que la réservation est annulée ?",
+     "reading": "よやくはきゃんせるということですか。"
+    },
+    {
+     "slot": {
+      "study": "薬は食後に飲む",
+      "reading": "くすりはしょくごにのむ",
+      "phon": "kou-sou-ri wa cho-kou-go ni no-mou",
+      "native": "je prends le médicament après les repas"
+     },
+     "study": "薬は食後に飲むということですか。",
+     "phon": "kou-sou-ri wa cho-kou-go ni no-mou to i-ou ko-to dé-sou ka",
+     "native": "Vous voulez dire que je prends le médicament après les repas ?",
+     "reading": "くすりはしょくごにのむということですか。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-ja-08",
+   "situation": "Santé : dire où l'on a mal",
+   "model": {
+    "study": "{s}が痛いです。",
+    "reading": "{s}がいたいです。",
+    "phon": "{s} ga i-ta-i dé-sou",
+    "native": "J'ai mal à {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "頭",
+      "reading": "あたま",
+      "phon": "a-ta-ma",
+      "native": "la tête"
+     },
+     "study": "頭が痛いです。",
+     "phon": "a-ta-ma ga i-ta-i dé-sou",
+     "native": "J'ai mal à la tête.",
+     "reading": "あたまがいたいです。"
+    },
+    {
+     "slot": {
+      "study": "お腹",
+      "reading": "おなか",
+      "phon": "o-na-ka",
+      "native": "le ventre"
+     },
+     "study": "お腹が痛いです。",
+     "phon": "o-na-ka ga i-ta-i dé-sou",
+     "native": "J'ai mal au ventre.",
+     "reading": "おなかがいたいです。"
+    },
+    {
+     "slot": {
+      "study": "喉",
+      "reading": "のど",
+      "phon": "no-do",
+      "native": "la gorge"
+     },
+     "study": "喉が痛いです。",
+     "phon": "no-do ga i-ta-i dé-sou",
+     "native": "J'ai mal à la gorge.",
+     "reading": "のどがいたいです。"
+    },
+    {
+     "slot": {
+      "study": "歯",
+      "reading": "は",
+      "phon": "ha",
+      "native": "une dent"
+     },
+     "study": "歯が痛いです。",
+     "phon": "ha ga i-ta-i dé-sou",
+     "native": "J'ai mal aux dents.",
+     "reading": "はがいたいです。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-ja-09",
+   "situation": "Santé : depuis hier",
+   "model": {
+    "study": "昨日から{s}。",
+    "reading": "きのうから{s}。",
+    "phon": "ki-no-o ka-ra {s}",
+    "native": "Depuis hier, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "熱があります",
+      "reading": "ねつがあります",
+      "phon": "né-tsou ga a-ri-ma-sou",
+      "native": "j'ai de la fièvre"
+     },
+     "study": "昨日から熱があります。",
+     "phon": "ki-no-o ka-ra né-tsou ga a-ri-ma-sou",
+     "native": "Depuis hier, j'ai de la fièvre.",
+     "reading": "きのうからねつがあります。"
+    },
+    {
+     "slot": {
+      "study": "咳が出ます",
+      "reading": "せきがでます",
+      "phon": "sé-ki ga dé-ma-sou",
+      "native": "je tousse"
+     },
+     "study": "昨日から咳が出ます。",
+     "phon": "ki-no-o ka-ra sé-ki ga dé-ma-sou",
+     "native": "Depuis hier, je tousse.",
+     "reading": "きのうからせきがでます。"
+    },
+    {
+     "slot": {
+      "study": "眠れません",
+      "reading": "ねむれません",
+      "phon": "né-mou-ré-ma-sén",
+      "native": "je n'arrive pas à dormir"
+     },
+     "study": "昨日から眠れません。",
+     "phon": "ki-no-o ka-ra né-mou-ré-ma-sén",
+     "native": "Depuis hier, je n'arrive pas à dormir.",
+     "reading": "きのうからねむれません。"
+    },
+    {
+     "slot": {
+      "study": "食欲がありません",
+      "reading": "しょくよくがありません",
+      "phon": "cho-kou-yo-kou ga a-ri-ma-sén",
+      "native": "je n'ai pas d'appétit"
+     },
+     "study": "昨日から食欲がありません。",
+     "phon": "ki-no-o ka-ra cho-kou-yo-kou ga a-ri-ma-sén",
+     "native": "Depuis hier, je n'ai pas d'appétit.",
+     "reading": "きのうからしょくよくがありません。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-ja-10",
+   "situation": "Nuancer : en partie",
+   "model": {
+    "study": "一部は{s}が、全部ではありません。",
+    "reading": "いちぶは{s}が、ぜんぶではありません。",
+    "phon": "i-tchi-bou wa {s} ga, zén-bou dé wa a-ri-ma-sén",
+    "native": "{s} en partie, mais pas tout."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "分かります",
+      "reading": "わかります",
+      "phon": "wa-ka-ri-ma-sou",
+      "native": "Je comprends"
+     },
+     "study": "一部は分かりますが、全部ではありません。",
+     "phon": "i-tchi-bou wa wa-ka-ri-ma-sou ga, zén-bou dé wa a-ri-ma-sén",
+     "native": "Je comprends en partie, mais pas tout.",
+     "reading": "いちぶはわかりますが、ぜんぶではありません。"
+    },
+    {
+     "slot": {
+      "study": "賛成です",
+      "reading": "さんせいです",
+      "phon": "san-sé-i dé-sou",
+      "native": "Je suis d'accord"
+     },
+     "study": "一部は賛成ですが、全部ではありません。",
+     "phon": "i-tchi-bou wa san-sé-i dé-sou ga, zén-bou dé wa a-ri-ma-sén",
+     "native": "Je suis d'accord en partie, mais pas sur tout.",
+     "reading": "いちぶはさんせいですが、ぜんぶではありません。"
+    },
+    {
+     "slot": {
+      "study": "終わりました",
+      "reading": "おわりました",
+      "phon": "o-wa-ri-ma-chi-ta",
+      "native": "J'ai fini"
+     },
+     "study": "一部は終わりましたが、全部ではありません。",
+     "phon": "i-tchi-bou wa o-wa-ri-ma-chi-ta ga, zén-bou dé wa a-ri-ma-sén",
+     "native": "J'ai fini en partie, mais pas tout.",
+     "reading": "いちぶはおわりましたが、ぜんぶではありません。"
+    },
+    {
+     "slot": {
+      "study": "覚えています",
+      "reading": "おぼえています",
+      "phon": "o-bo-é-té i-ma-sou",
+      "native": "Je me souviens"
+     },
+     "study": "一部は覚えていますが、全部ではありません。",
+     "phon": "i-tchi-bou wa o-bo-é-té i-ma-sou ga, zén-bou dé wa a-ri-ma-sén",
+     "native": "Je me souviens en partie, mais pas de tout.",
+     "reading": "いちぶはおぼえていますが、ぜんぶではありません。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-ja-11",
+   "situation": "Dire qu'on n'est pas sûr",
+   "model": {
+    "study": "{s}かどうか、よく分かりません。",
+    "reading": "{s}かどうか、よくわかりません。",
+    "phon": "{s} ka do-o ka, yo-kou wa-ka-ri-ma-sén",
+    "native": "Je ne sais pas trop {s}.",
+    "note": "Forme neutre + かどうか = « si … ou non »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "間に合う",
+      "reading": "まにあう",
+      "phon": "ma-ni-a-ou",
+      "native": "si j'arriverai à temps"
+     },
+     "study": "間に合うかどうか、よく分かりません。",
+     "phon": "ma-ni-a-ou ka do-o ka, yo-kou wa-ka-ri-ma-sén",
+     "native": "Je ne sais pas trop si j'arriverai à temps.",
+     "reading": "まにあうかどうか、よくわかりません。"
+    },
+    {
+     "slot": {
+      "study": "正しい",
+      "reading": "ただしい",
+      "phon": "ta-da-chi-i",
+      "native": "si c'est juste"
+     },
+     "study": "正しいかどうか、よく分かりません。",
+     "phon": "ta-da-chi-i ka do-o ka, yo-kou wa-ka-ri-ma-sén",
+     "native": "Je ne sais pas trop si c'est juste.",
+     "reading": "ただしいかどうか、よくわかりません。"
+    },
+    {
+     "slot": {
+      "study": "必要",
+      "reading": "ひつよう",
+      "phon": "hi-tsou-yo-o",
+      "native": "si c'est nécessaire"
+     },
+     "study": "必要かどうか、よく分かりません。",
+     "phon": "hi-tsou-yo-o ka do-o ka, yo-kou wa-ka-ri-ma-sén",
+     "native": "Je ne sais pas trop si c'est nécessaire.",
+     "reading": "ひつようかどうか、よくわかりません。"
+    },
+    {
+     "slot": {
+      "study": "開いている",
+      "reading": "あいている",
+      "phon": "a-i-té i-rou",
+      "native": "si c'est ouvert"
+     },
+     "study": "開いているかどうか、よく分かりません。",
+     "phon": "a-i-té i-rou ka do-o ka, yo-kou wa-ka-ri-ma-sén",
+     "native": "Je ne sais pas trop si c'est ouvert.",
+     "reading": "あいているかどうか、よくわかりません。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L9-fr-ja-12",
+   "situation": "Proposer une solution prudente",
+   "model": {
+    "study": "{s}方がいいかもしれません。",
+    "reading": "{s}ほうがいいかもしれません。",
+    "phon": "{s} ho-o ga i-i ka-mo chi-ré-ma-sén",
+    "native": "Il vaudrait peut-être mieux {s}.",
+    "note": "Forme en た + 方がいい : conseil ; かもしれません l'adoucit encore."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "次の電車に乗った",
+      "reading": "つぎのでんしゃにのった",
+      "phon": "tsou-gi no dén-cha ni not-ta",
+      "native": "prendre le prochain train"
+     },
+     "study": "次の電車に乗った方がいいかもしれません。",
+     "phon": "tsou-gi no dén-cha ni not-ta ho-o ga i-i ka-mo chi-ré-ma-sén",
+     "native": "Il vaudrait peut-être mieux prendre le prochain train.",
+     "reading": "つぎのでんしゃにのったほうがいいかもしれません。"
+    },
+    {
+     "slot": {
+      "study": "病院に行った",
+      "reading": "びょういんにいった",
+      "phon": "byo-o-in ni it-ta",
+      "native": "aller à l'hôpital"
+     },
+     "study": "病院に行った方がいいかもしれません。",
+     "phon": "byo-o-in ni it-ta ho-o ga i-i ka-mo chi-ré-ma-sén",
+     "native": "Il vaudrait peut-être mieux aller à l'hôpital.",
+     "reading": "びょういんにいったほうがいいかもしれません。"
+    },
+    {
+     "slot": {
+      "study": "明日もう一度来た",
+      "reading": "あしたもういちどきた",
+      "phon": "a-chi-ta mo-o i-tchi-do ki-ta",
+      "native": "revenir demain"
+     },
+     "study": "明日もう一度来た方がいいかもしれません。",
+     "phon": "a-chi-ta mo-o i-tchi-do ki-ta ho-o ga i-i ka-mo chi-ré-ma-sén",
+     "native": "Il vaudrait peut-être mieux revenir demain.",
+     "reading": "あしたもういちどきたほうがいいかもしれません。"
+    },
+    {
+     "slot": {
+      "study": "先に電話した",
+      "reading": "さきにでんわした",
+      "phon": "sa-ki ni dén-wa chi-ta",
+      "native": "téléphoner d'abord"
+     },
+     "study": "先に電話した方がいいかもしれません。",
+     "phon": "sa-ki ni dén-wa chi-ta ho-o ga i-i ka-mo chi-ré-ma-sén",
+     "native": "Il vaudrait peut-être mieux téléphoner d'abord.",
+     "reading": "さきにでんわしたほうがいいかもしれません。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L9-fr-ja-d1",
+   "situation": "À la gare : train manqué",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "すみません、問題があります。電車に乗り遅れました。どうしましょうか。",
+     "reading": "すみません、もんだいがあります。でんしゃにのりおくれました。どうしましょうか。",
+     "phon": "sou-mi-ma-sén, mon-da-i ga a-ri-ma-sou. dén-cha ni no-ri-o-kou-ré-ma-chi-ta. do-o chi-ma-cho-o ka",
+     "native": "Excusez-moi, il y a un problème : j'ai raté le train. Qu'est-ce que je fais ?"
+    },
+    {
+     "speaker": "B",
+     "study": "次の電車は三十分後です。この切符で乗れます。",
+     "reading": "つぎのでんしゃはさんじゅっぷんごです。このきっぷでのれます。",
+     "phon": "tsou-gi no dén-cha wa san-djoup-poun-go dé-sou. ko-no kip-pou dé no-ré-ma-sou",
+     "native": "Le prochain train est dans trente minutes. Vous pouvez monter avec ce billet."
+    },
+    {
+     "speaker": "A",
+     "study": "つまり、同じ切符でいいということですか。",
+     "reading": "つまり、おなじきっぷでいいということですか。",
+     "phon": "tsou-ma-ri, o-na-dji kip-pou dé i-i to i-ou ko-to dé-sou ka",
+     "native": "Autrement dit, vous voulez dire que le même billet suffit ?"
+    },
+    {
+     "speaker": "B",
+     "study": "はい。でも、指定席は使えないかもしれません。",
+     "reading": "はい。でも、していせきはつかえないかもしれません。",
+     "phon": "ha-i. dé-mo, chi-té-i-sé-ki wa tsou-ka-é-na-i ka-mo chi-ré-ma-sén",
+     "native": "Oui. Mais il se peut que vous ne puissiez pas utiliser la place réservée."
+    },
+    {
+     "speaker": "A",
+     "study": "自由席ということですか。",
+     "reading": "じゆうせきということですか。",
+     "phon": "dji-you-ou-sé-ki to i-ou ko-to dé-sou ka",
+     "native": "Vous voulez dire en place libre ?"
+    },
+    {
+     "speaker": "B",
+     "study": "はい、自由席なら大丈夫です。",
+     "reading": "はい、じゆうせきならだいじょうぶです。",
+     "phon": "ha-i, dji-you-ou-sé-ki na-ra da-i-djo-o-bou dé-sou",
+     "native": "Oui, en place libre, pas de problème."
+    },
+    {
+     "speaker": "A",
+     "study": "分かりました。間に合うかどうか分かりませんが、行ってみます。",
+     "reading": "わかりました。まにあうかどうかわかりませんが、いってみます。",
+     "phon": "wa-ka-ri-ma-chi-ta. ma-ni-a-ou ka do-o ka wa-ka-ri-ma-sén ga, it-té mi-ma-sou",
+     "native": "D'accord. Je ne sais pas si j'arriverai à temps, mais je vais essayer."
+    },
+    {
+     "speaker": "B",
+     "study": "気をつけて。",
+     "reading": "きをつけて。",
+     "phon": "ki o tsou-ké-té",
+     "native": "Bonne route."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-ja-11",
+    "L3-fr-ja-06",
+    "L3-fr-ja-09",
+    "L9-fr-ja-01",
+    "L9-fr-ja-05",
+    "L9-fr-ja-06",
+    "L9-fr-ja-07"
+   ],
+   "roles": {
+    "A": "Voyageur",
+    "B": "Agent"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L9-fr-ja-d2",
+   "situation": "Chez le médecin",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "どうしましたか。",
+     "reading": "どうしましたか。",
+     "phon": "do-o chi-ma-chi-ta ka",
+     "native": "Qu'est-ce qui vous arrive ?"
+    },
+    {
+     "speaker": "B",
+     "study": "昨日から熱があります。喉も痛いです。",
+     "reading": "きのうからねつがあります。のどもいたいです。",
+     "phon": "ki-no-o ka-ra né-tsou ga a-ri-ma-sou. no-do mo i-ta-i dé-sou",
+     "native": "Depuis hier, j'ai de la fièvre. J'ai aussi mal à la gorge."
+    },
+    {
+     "speaker": "A",
+     "study": "咳は出ますか。",
+     "reading": "せきはでますか。",
+     "phon": "sé-ki wa dé-ma-sou ka",
+     "native": "Vous toussez ?"
+    },
+    {
+     "speaker": "B",
+     "study": "あまり出ません。でも、よく眠れません。",
+     "reading": "あまりでません。でも、よくねむれません。",
+     "phon": "a-ma-ri dé-ma-sén. dé-mo, yo-kou né-mou-ré-ma-sén",
+     "native": "Pas vraiment. Mais je dors mal."
+    },
+    {
+     "speaker": "A",
+     "study": "風邪かもしれませんね。薬を出します。",
+     "reading": "かぜかもしれませんね。くすりをだします。",
+     "phon": "ka-zé ka-mo chi-ré-ma-sén né. kou-sou-ri o da-chi-ma-sou",
+     "native": "C'est peut-être un rhume. Je vous prescris un médicament."
+    },
+    {
+     "speaker": "B",
+     "study": "薬は食後に飲むということですか。",
+     "reading": "くすりはしょくごにのむということですか。",
+     "phon": "kou-sou-ri wa cho-kou-go ni no-mou to i-ou ko-to dé-sou ka",
+     "native": "Vous voulez dire que je le prends après les repas ?"
+    },
+    {
+     "speaker": "A",
+     "study": "はい、一日三回、食後に。明日は仕事を休んだ方がいいかもしれません。",
+     "reading": "はい、いちにちさんかい、しょくごに。あしたはしごとをやすんだほうがいいかもしれません。",
+     "phon": "ha-i, i-tchi-ni-tchi san-ka-i, cho-kou-go ni. a-chi-ta wa chi-go-to o ya-soun-da ho-o ga i-i ka-mo chi-ré-ma-sén",
+     "native": "Oui, trois fois par jour, après les repas. Il vaudrait peut-être mieux ne pas travailler demain."
+    },
+    {
+     "speaker": "B",
+     "study": "分かりました。ありがとうございます。",
+     "reading": "わかりました。ありがとうございます。",
+     "phon": "wa-ka-ri-ma-chi-ta. a-ri-ga-to-o go-za-i-ma-sou",
+     "native": "D'accord. Merci beaucoup."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L4-fr-ja-04",
+    "L5-fr-ja-01",
+    "L9-fr-ja-04",
+    "L9-fr-ja-05",
+    "L9-fr-ja-07",
+    "L9-fr-ja-09",
+    "L9-fr-ja-12"
+   ],
+   "roles": {
+    "A": "Médecin",
+    "B": "Patient"
+   },
+   "learnerRole": "B"
+  },
+  {
+   "id": "L9-fr-ja-d3",
+   "situation": "Au travail : un malentendu",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "田中さん、会議は明日の十時ということですか。",
+     "reading": "たなかさん、かいぎはあしたのじゅうじということですか。",
+     "phon": "ta-na-ka-san, ka-i-gi wa a-chi-ta no djou-ou-dji to i-ou ko-to dé-sou ka",
+     "native": "Monsieur Tanaka, vous voulez dire que la réunion est demain à dix heures ?"
+    },
+    {
+     "speaker": "B",
+     "study": "いいえ、十時じゃなくて、午後二時です。",
+     "reading": "いいえ、じゅうじじゃなくて、ごごにじです。",
+     "phon": "i-i-é, djou-ou-dji dja na-kou-té, go-go ni-dji dé-sou",
+     "native": "Non, pas dix heures : quatorze heures."
+    },
+    {
+     "speaker": "A",
+     "study": "すみません、あまり分かりませんでした。つまり、午前中は来なくてもいいということですか。",
+     "reading": "すみません、あまりわかりませんでした。つまり、ごぜんちゅうはこなくてもいいということですか。",
+     "phon": "sou-mi-ma-sén, a-ma-ri wa-ka-ri-ma-sén dé-chi-ta. tsou-ma-ri, go-zén-tchou-ou wa ko-na-kou-té mo i-i to i-ou ko-to dé-sou ka",
+     "native": "Pardon, je n'avais pas bien compris. Autrement dit, je n'ai pas besoin de venir le matin ?"
+    },
+    {
+     "speaker": "B",
+     "study": "いいえ。私が言いたいのは、会議だけが午後に変わったということです。",
+     "reading": "いいえ。わたしがいいたいのは、かいぎだけがごごにかわったということです。",
+     "phon": "i-i-é. wa-ta-chi ga i-i-ta-i no wa, ka-i-gi da-ké ga go-go ni ka-wat-ta to i-ou ko-to dé-sou",
+     "native": "Non. Ce que je veux dire, c'est que seule la réunion a été déplacée à l'après-midi."
+    },
+    {
+     "speaker": "A",
+     "study": "分かりました。資料は間に合うかどうか、よく分かりません。",
+     "reading": "わかりました。しりょうはまにあうかどうか、よくわかりません。",
+     "phon": "wa-ka-ri-ma-chi-ta. chi-ryo-o wa ma-ni-a-ou ka do-o ka, yo-kou wa-ka-ri-ma-sén",
+     "native": "D'accord. Pour les documents, je ne sais pas trop s'ils seront prêts à temps."
+    },
+    {
+     "speaker": "B",
+     "study": "一部でもいいですよ。全部じゃなくても大丈夫です。",
+     "reading": "いちぶでもいいですよ。ぜんぶじゃなくてもだいじょうぶです。",
+     "phon": "i-tchi-bou dé mo i-i dé-sou yo. zén-bou dja na-kou-té mo da-i-djo-o-bou dé-sou",
+     "native": "Une partie suffira. Pas besoin que tout soit prêt."
+    },
+    {
+     "speaker": "A",
+     "study": "ありがとうございます。じゃあ、午後二時に。",
+     "reading": "ありがとうございます。じゃあ、ごごにじに。",
+     "phon": "a-ri-ga-to-o go-za-i-ma-sou. dja-a, go-go ni-dji ni",
+     "native": "Merci. Alors, à quatorze heures."
+    },
+    {
+     "speaker": "B",
+     "study": "はい、お願いします。",
+     "reading": "はい、おねがいします。",
+     "phon": "ha-i, o-né-ga-i chi-ma-sou",
+     "native": "Oui, à tout à l'heure."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-ja-11",
+    "L2-fr-ja-10",
+    "L3-fr-ja-07",
+    "L4-fr-ja-04",
+    "L6-fr-ja-09",
+    "L9-fr-ja-01",
+    "L9-fr-ja-02",
+    "L9-fr-ja-04",
+    "L9-fr-ja-07",
+    "L9-fr-ja-11"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Un collègue"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Reformuler (つまり…ということです, 私が言いたいのは…), nuancer (どちらかと言うと, あまり…ません, 一部は), exprimer l'incertitude (かもしれません, かどうか分かりません), signaler un problème et demander quoi faire, vérifier la compréhension (…ということですか) et décrire un symptôme."
+}

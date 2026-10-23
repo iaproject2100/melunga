@@ -1,5 +1,5 @@
 [build]
-  command = "node check-l1-release.cjs"
+  command = "node check-l1-release.cjs && node check-curriculum.cjs"
   publish = "."
   functions = "netlify/functions"
 

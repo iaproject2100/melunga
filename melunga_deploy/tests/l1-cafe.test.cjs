@@ -70,9 +70,9 @@ function protectCanonicalContent(){
    const page=await context.newPage();
    page.on('pageerror',error=>report.errors.push(error.message));
    await page.goto(base+'/app.html?start=1&lang='+pair.nativeLanguage+'&study='+pair.studyLanguage);
-   await page.waitForFunction(()=>window.MelungaL1Cafe&&typeof pool!=='undefined'&&pool.length);
+   await page.waitForFunction(()=>window.MelungaL1Cafe&&window.MelungaCurriculum&&typeof pool!=='undefined');
    await pause(1000); // Existing entry bridge applies the selected target at 700 ms.
-   await page.evaluate(({nativeLanguage,studyLanguage})=>{setNat(nativeLanguage);setLang(studyLanguage);window.__cafeAudio=[];window.__realCafeSpeak=window.speak;window.speak=(text)=>window.__cafeAudio.push(text);},pair);
+   await page.evaluate(({nativeLanguage,studyLanguage})=>{setNat(nativeLanguage);setLang(studyLanguage);setMode('all');window.__cafeAudio=[];window.__realCafeSpeak=window.speak;window.speak=(text)=>window.__cafeAudio.push(text);},pair);
    return {page,context,fixture};
   }
   async function start(page){
@@ -341,8 +341,10 @@ function protectCanonicalContent(){
    fixture.hold=false;fixture.held.splice(0).forEach(resolve=>resolve());
    await pause(250);
    assert.equal(await page.evaluate(()=>MelungaL1Cafe.active()),false);
-   assert.equal(await page.evaluate(()=>mode),'all');
-   assert(await page.evaluate(()=>document.getElementById('fr').textContent===pool[idx].t),'late data does not overwrite current classic card');
+   assert.equal(await page.evaluate(()=>mode),'path');
+   await page.waitForFunction(()=>MelungaCurriculum.active()&&!MelungaCurriculum.state().loading);
+   assert.equal(await page.evaluate(()=>MelungaCurriculum.state().pair),'fr-ko','late café data does not overwrite the newly selected curriculum');
+   assert.equal(await page.evaluate(()=>MelungaCurriculum.state().screen),'plan');
    report.flows.push('late fetch discarded after target change');
    await context.close();
   }

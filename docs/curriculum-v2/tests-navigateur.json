@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "executedAt": "2026-10-23T09:13:46.505Z",
+  "status": "passed",
+  "environment": {
+    "server": "local HTTP",
+    "browser": "Chromium",
+    "viewports": [
+      {
+        "width": 390,
+        "height": 844,
+        "mobileEmulation": true
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "mobileEmulation": false
+      }
+    ],
+    "account": "local paid/non-paying fixtures; no real account or payment",
+    "audio": "speech invocation spy; no acoustic pronunciation assessment",
+    "mobileRuntime": "native mobile-runtime bridge stubbed",
+    "hostedBrowserTested": false,
+    "nativeApplicationTested": false
+  },
+  "coverage": {
+    "plans": 143,
+    "lessons": 254,
+    "steps": 1924,
+    "exactTextFields": 7696,
+    "receivedSteps": 168,
+    "recallSteps": 282,
+    "choiceAlternatives": 710,
+    "legacyFreeCards": 2218
+  },
+  "pairs": [
+    {
+      "pair": "fr-en",
+      "width": 390,
+      "height": 844,
+      "allTenPlans": true,
+      "allL1Lessons": true,
+      "laterLevelSelection": "longest utterance lesson at each level; Spanish L4 support lesson additionally"
+    },
+    {
+      "pair": "fr-es",
+      "width": 390,
+      "height": 844,
+      "allTenPlans": true,
+      "allL1Lessons": true,
+      "laterLevelSelection": "longest utterance lesson at each level; Spanish L4 support lesson additionally"
+    },
+    {
+      "pair": "fr-it",
+      "width": 390,
+      "height": 844,
+      "allTenPlans": true,
+      "allL1Lessons": true,
+      "laterLevelSelection": "longest utterance lesson at each level; Spanish L4 support lesson additionally"
+    },
+    {
+      "pair": "fr-zh",
+      "width": 390,
+      "height": 844,
+      "allTenPlans": true,
+      "allL1Lessons": true,
+      "laterLevelSelection": "longest utterance lesson at each level; Spanish L4 support lesson additionally"
+    },
+    {
+      "pair": "fr-ja",
+      "width": 390,
+      "height": 844,
+      "allTenPlans": true,
+      "allL1Lessons": true,
+      "laterLevelSelection": "longest utterance lesson at each level; Spanish L4 support lesson additionally"
+    },
+    {
+      "pair": "fr-ko",
+      "width": 390,
+      "height": 844,
+      "allTenPlans": true,
+      "allL1Lessons": true,
+      "laterLevelSelection": "longest utterance lesson at each level; Spanish L4 support lesson additionally"
+    },
+    {
+      "pair": "zh-fr",
+      "width": 390,
+      "height": 844,
+      "allTenPlans": true,
+      "allL1Lessons": true,
+      "laterLevelSelection": "longest utterance lesson at each level; Spanish L4 support lesson additionally"
+    },
+    {
+      "pair": "fr-en",
+      "width": 1440,
+      "height": 900,
+      "allTenPlans": true,
+      "allL1Lessons": true,
+      "laterLevelSelection": "longest utterance lesson at each level; Spanish L4 support lesson additionally"
+    },
+    {
+      "pair": "fr-es",
+      "width": 1440,
+      "height": 900,
+      "allTenPlans": true,
+      "allL1Lessons": true,
+      "laterLevelSelection": "longest utterance lesson at each level; Spanish L4 support lesson additionally"
+    },
+    {
+      "pair": "fr-it",
+      "width": 1440,
+      "height": 900,
+      "allTenPlans": true,
+      "allL1Lessons": true,
+      "laterLevelSelection": "longest utterance lesson at each level; Spanish L4 support lesson additionally"
+    },
+    {
+      "pair": "fr-zh",
+      "width": 1440,
+      "height": 900,
+      "allTenPlans": true,
+      "allL1Lessons": true,
+      "laterLevelSelection": "longest utterance lesson at each level; Spanish L4 support lesson additionally"
+    },
+    {
+      "pair": "fr-ja",
+      "width": 1440,
+      "height": 900,
+      "allTenPlans": true,
+      "allL1Lessons": true,
+      "laterLevelSelection": "longest utterance lesson at each level; Spanish L4 support lesson additionally"
+    },
+    {
+      "pair": "fr-ko",
+      "width": 1440,
+      "height": 900,
+      "allTenPlans": true,
+      "allL1Lessons": true,
+      "laterLevelSelection": "longest utterance lesson at each level; Spanish L4 support lesson additionally"
+    },
+    {
+      "pair": "zh-fr",
+      "width": 1440,
+      "height": 900,
+      "allTenPlans": true,
+      "allL1Lessons": true,
+      "laterLevelSelection": "longest utterance lesson at each level; Spanish L4 support lesson additionally"
+    }
+  ],
+  "checks": [
+    "Production DECKS and classic FREE_LV unchanged against local origin/main.",
+    "Seven non-paying pairs: direct openLevel(2), openLesson(paid L2), and setMode(L2) rejected; all preserved L1 library units remain accessible.",
+    "All 2,218 legacy free catalogue indices remain active, free and reachable; no whitelist applies outside the seven pairs.",
+    "Real Chromium mobile touch input: Spanish/Chinese card scroll and edge swipe; keyboard ear restores recall.",
+    "Delayed fetch: language switch and exit keep stale responses out of the active card.",
+    "Missing and malformed bundles fail visibly and recover with retry.",
+    "Separate local review workshop: mobile/desktop L1 plan, L10, language switch and exact-text audio; no persistent access grant."
+  ],
+  "errors": [],
+  "limitations": [
+    "Local Chromium and emulated mobile viewports do not verify the deployed site, physical phones or native application.",
+    "The browser compares displayed strings with the compiled curriculum. Source provenance and every unvisited later-level variant are checked separately by the compiler.",
+    "A practice sequence and its navigation do not establish learner acquisition or linguistic/native-speaker approval."
+  ],
+  "revision": "50a28918c4760d6417aefc28092190ad406c8560",
+  "content": [
+    {
+      "pair": "fr-en",
+      "sha256": "66bb8a083e07751f17069eaa1fcc4d10d9fc7906fc7409706683734c7995f0b3"
+    },
+    {
+      "pair": "fr-es",
+      "sha256": "2e902dd17cb3948bc27913e5711fb280ca65979f72f8f28202463c2abbfad39f"
+    },
+    {
+      "pair": "fr-it",
+      "sha256": "eede2f1fc4130b7af6e27192ca3796d419b9e715e9824ce13b22900637d2fb72"
+    },
+    {
+      "pair": "fr-zh",
+      "sha256": "d1d81b9453fbe5b683e5b2f1da7c3757cbf54805ad627946f47ce7c4ade797bc"
+    },
+    {
+      "pair": "fr-ja",
+      "sha256": "0088457f4a0ecc15b67cc0fbda0836bb22eb5f2a8fcadfcfb959faaacfcfa2a2"
+    },
+    {
+      "pair": "fr-ko",
+      "sha256": "dd422a1fc58332675449046b1cfe06bf2cc84d4ae7225fd40231d9d64d1344e8"
+    },
+    {
+      "pair": "zh-fr",
+      "sha256": "e36b12eee303a7e2ce89ecc78e1228233c0db2c1dcaf2b1b0c73230e134d56ea"
+    }
+  ]
+}

@@ -1,0 +1,1108 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "ko",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en coréen",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle",
+  "reading": "romanisation révisée"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones, syllabe par syllabe (style du deck : gam-sa-ham-ni-da ; eo = ㅓ, eu = ㅡ). Le champ reading donne la romanisation révisée. Registre poli (-요). Les particules (이/가, 을/를, 이에요/예요) sont incluses dans le morceau remplaçable.",
+ "reviewStatus": "Relecture linguistique requise (particules, naturel des tournures).",
+ "coverageClaim": null,
+ "level": 6,
+ "title": "Projets et propositions",
+ "goal": "Parler de projets, proposer et organiser une activité.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L6-fr-ko-01",
+   "situation": "Projets de demain",
+   "model": {
+    "study": "내일 {s} 거예요.",
+    "reading": "naeil {s} geoyeyo.",
+    "phon": "nè-il {s} geo-yè-yo",
+    "native": "Demain, je vais {s}.",
+    "note": "Futur / intention en -(으)ㄹ 거예요 : 있다→있을 거예요, 만나다→만날 거예요, 보다→볼 거예요."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "집에 있을",
+      "reading": "jibe isseul",
+      "phon": "dji-bè i-sseul",
+      "native": "rester à la maison"
+     },
+     "study": "내일 집에 있을 거예요.",
+     "phon": "nè-il dji-bè i-sseul geo-yè-yo",
+     "native": "Demain, je vais rester à la maison.",
+     "reading": "naeil jibe isseul geoyeyo."
+    },
+    {
+     "slot": {
+      "study": "친구를 만날",
+      "reading": "chingureul mannal",
+      "phon": "tchin-gou-reul man-nal",
+      "native": "voir un ami"
+     },
+     "study": "내일 친구를 만날 거예요.",
+     "phon": "nè-il tchin-gou-reul man-nal geo-yè-yo",
+     "native": "Demain, je vais voir un ami.",
+     "reading": "naeil chingureul mannal geoyeyo."
+    },
+    {
+     "slot": {
+      "study": "영화를 볼",
+      "reading": "yeonghwareul bol",
+      "phon": "yeong-houa-reul bol",
+      "native": "regarder un film"
+     },
+     "study": "내일 영화를 볼 거예요.",
+     "phon": "nè-il yeong-houa-reul bol geo-yè-yo",
+     "native": "Demain, je vais regarder un film.",
+     "reading": "naeil yeonghwareul bol geoyeyo."
+    },
+    {
+     "slot": {
+      "study": "일찍 일어날",
+      "reading": "iljjik ireonal",
+      "phon": "il-tchik i-reo-nal",
+      "native": "me lever tôt"
+     },
+     "study": "내일 일찍 일어날 거예요.",
+     "phon": "nè-il il-tchik i-reo-nal geo-yè-yo",
+     "native": "Demain, je vais me lever tôt.",
+     "reading": "naeil iljjik ireonal geoyeyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-ko-02",
+   "situation": "Projets de vacances",
+   "model": {
+    "study": "휴가 때 {s} 거예요.",
+    "reading": "hyuga ttae {s} geoyeyo.",
+    "phon": "hyou-ga ttè {s} geo-yè-yo",
+    "native": "Pendant les vacances, je vais {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "여행할",
+      "reading": "yeohaenghal",
+      "phon": "yeo-hèng-hal",
+      "native": "voyager"
+     },
+     "study": "휴가 때 여행할 거예요.",
+     "phon": "hyou-ga ttè yeo-hèng-hal geo-yè-yo",
+     "native": "Pendant les vacances, je vais voyager.",
+     "reading": "hyuga ttae yeohaenghal geoyeyo."
+    },
+    {
+     "slot": {
+      "study": "부산에 갈",
+      "reading": "busane gal",
+      "phon": "bou-sa-nè gal",
+      "native": "aller à Busan"
+     },
+     "study": "휴가 때 부산에 갈 거예요.",
+     "phon": "hyou-ga ttè bou-sa-nè gal geo-yè-yo",
+     "native": "Pendant les vacances, je vais aller à Busan.",
+     "reading": "hyuga ttae busane gal geoyeyo."
+    },
+    {
+     "slot": {
+      "study": "푹 쉴",
+      "reading": "puk swil",
+      "phon": "pouk souil",
+      "native": "bien me reposer"
+     },
+     "study": "휴가 때 푹 쉴 거예요.",
+     "phon": "hyou-ga ttè pouk souil geo-yè-yo",
+     "native": "Pendant les vacances, je vais bien me reposer.",
+     "reading": "hyuga ttae puk swil geoyeyo."
+    },
+    {
+     "slot": {
+      "study": "가족을 볼",
+      "reading": "gajogeul bol",
+      "phon": "ga-djo-geul bol",
+      "native": "voir ma famille"
+     },
+     "study": "휴가 때 가족을 볼 거예요.",
+     "phon": "hyou-ga ttè ga-djo-geul bol geo-yè-yo",
+     "native": "Pendant les vacances, je vais voir ma famille.",
+     "reading": "hyuga ttae gajogeul bol geoyeyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-ko-03",
+   "situation": "Proposer une activité",
+   "model": {
+    "study": "같이 {s}?",
+    "reading": "gachi {s}?",
+    "phon": "ga-tchi {s} ?",
+    "native": "Ça vous dit de {s} ensemble ?",
+    "note": "-(으)ㄹ래요? : proposition / invitation familière-polie (« ça vous dit de… ? »)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "점심 먹을래요",
+      "reading": "jeomsim meogeullaeyo",
+      "phon": "djeom-sim meo-geul-lè-yo",
+      "native": "déjeuner"
+     },
+     "study": "같이 점심 먹을래요?",
+     "phon": "ga-tchi djeom-sim meo-geul-lè-yo ?",
+     "native": "Ça vous dit de déjeuner ensemble ?",
+     "reading": "gachi jeomsim meogeullaeyo?"
+    },
+    {
+     "slot": {
+      "study": "영화 볼래요",
+      "reading": "yeonghwa bollaeyo",
+      "phon": "yeong-houa bol-lè-yo",
+      "native": "voir un film"
+     },
+     "study": "같이 영화 볼래요?",
+     "phon": "ga-tchi yeong-houa bol-lè-yo ?",
+     "native": "Ça vous dit de voir un film ensemble ?",
+     "reading": "gachi yeonghwa bollaeyo?"
+    },
+    {
+     "slot": {
+      "study": "커피 마실래요",
+      "reading": "keopi masillaeyo",
+      "phon": "keo-pi ma-sil-lè-yo",
+      "native": "prendre un café"
+     },
+     "study": "같이 커피 마실래요?",
+     "phon": "ga-tchi keo-pi ma-sil-lè-yo ?",
+     "native": "Ça vous dit de prendre un café ensemble ?",
+     "reading": "gachi keopi masillaeyo?"
+    },
+    {
+     "slot": {
+      "study": "산책할래요",
+      "reading": "sanchaekallaeyo",
+      "phon": "san-tchè-kal-lè-yo",
+      "native": "faire une promenade"
+     },
+     "study": "같이 산책할래요?",
+     "phon": "ga-tchi san-tchè-kal-lè-yo ?",
+     "native": "Ça vous dit de faire une promenade ensemble ?",
+     "reading": "gachi sanchaekallaeyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-ko-04",
+   "situation": "Fixer un moment ou un lieu",
+   "model": {
+    "study": "{s} 볼까요?",
+    "reading": "{s} bolkkayo?",
+    "phon": "{s} bol-kka-yo ?",
+    "native": "On se voit {s} ?",
+    "note": "-(으)ㄹ까요? : « et si on… ? », pour proposer en demandant l'avis."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "토요일 열 시에",
+      "reading": "toyoil yeol sie",
+      "phon": "to-yo-il yeol si-è",
+      "native": "samedi à dix heures"
+     },
+     "study": "토요일 열 시에 볼까요?",
+     "phon": "to-yo-il yeol si-è bol-kka-yo ?",
+     "native": "On se voit samedi à dix heures ?",
+     "reading": "toyoil yeol sie bolkkayo?"
+    },
+    {
+     "slot": {
+      "study": "역 앞에서",
+      "reading": "yeok apeseo",
+      "phon": "yeok a-pè-seo",
+      "native": "devant la gare"
+     },
+     "study": "역 앞에서 볼까요?",
+     "phon": "yeok a-pè-seo bol-kka-yo ?",
+     "native": "On se voit devant la gare ?",
+     "reading": "yeok apeseo bolkkayo?"
+    },
+    {
+     "slot": {
+      "study": "내일 저녁에",
+      "reading": "naeil jeonyeoge",
+      "phon": "nè-il djeo-nyeo-gè",
+      "native": "demain soir"
+     },
+     "study": "내일 저녁에 볼까요?",
+     "phon": "nè-il djeo-nyeo-gè bol-kka-yo ?",
+     "native": "On se voit demain soir ?",
+     "reading": "naeil jeonyeoge bolkkayo?"
+    },
+    {
+     "slot": {
+      "study": "카페에서",
+      "reading": "kapeeseo",
+      "phon": "ka-pè-è-seo",
+      "native": "au café"
+     },
+     "study": "카페에서 볼까요?",
+     "phon": "ka-pè-è-seo bol-kka-yo ?",
+     "native": "On se voit au café ?",
+     "reading": "kapeeseo bolkkayo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-ko-05",
+   "situation": "Refuser",
+   "model": {
+    "study": "미안해요, {s} 못 가요.",
+    "reading": "mianhaeyo, {s} mot gayo.",
+    "phon": "mi-an-hè-yo, {s} mot ga-yo",
+    "native": "Désolé(e), {s} je ne peux pas venir.",
+    "note": "못 + verbe = « ne pas pouvoir » (empêchement) ; 은/는 met le moment en contraste."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "토요일에는",
+      "reading": "toyoireneun",
+      "phon": "to-yo-i-rè-neun",
+      "native": "samedi"
+     },
+     "study": "미안해요, 토요일에는 못 가요.",
+     "phon": "mi-an-hè-yo, to-yo-i-rè-neun mot ga-yo",
+     "native": "Désolé(e), samedi je ne peux pas venir.",
+     "reading": "mianhaeyo, toyoireneun mot gayo."
+    },
+    {
+     "slot": {
+      "study": "내일은",
+      "reading": "naeireun",
+      "phon": "nè-i-reun",
+      "native": "demain"
+     },
+     "study": "미안해요, 내일은 못 가요.",
+     "phon": "mi-an-hè-yo, nè-i-reun mot ga-yo",
+     "native": "Désolé(e), demain je ne peux pas venir.",
+     "reading": "mianhaeyo, naeireun mot gayo."
+    },
+    {
+     "slot": {
+      "study": "저녁에는",
+      "reading": "jeonyeogeneun",
+      "phon": "djeo-nyeo-gè-neun",
+      "native": "ce soir"
+     },
+     "study": "미안해요, 저녁에는 못 가요.",
+     "phon": "mi-an-hè-yo, djeo-nyeo-gè-neun mot ga-yo",
+     "native": "Désolé(e), ce soir je ne peux pas venir.",
+     "reading": "mianhaeyo, jeonyeogeneun mot gayo."
+    },
+    {
+     "slot": {
+      "study": "이번 주에는",
+      "reading": "ibeon jueneun",
+      "phon": "i-beon djou-è-neun",
+      "native": "cette semaine"
+     },
+     "study": "미안해요, 이번 주에는 못 가요.",
+     "phon": "mi-an-hè-yo, i-beon djou-è-neun mot ga-yo",
+     "native": "Désolé(e), cette semaine je ne peux pas venir.",
+     "reading": "mianhaeyo, ibeon jueneun mot gayo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-ko-06",
+   "situation": "Proposer une alternative",
+   "model": {
+    "study": "{s} 어때요?",
+    "reading": "{s} eottaeyo?",
+    "phon": "{s} eo-ttè-yo ?",
+    "native": "Et {s}, ça vous irait ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "일요일은",
+      "reading": "iryoireun",
+      "phon": "i-ryo-i-reun",
+      "native": "dimanche"
+     },
+     "study": "일요일은 어때요?",
+     "phon": "i-ryo-i-reun eo-ttè-yo ?",
+     "native": "Et dimanche, ça vous irait ?",
+     "reading": "iryoireun eottaeyo?"
+    },
+    {
+     "slot": {
+      "study": "다음 주는",
+      "reading": "daeum juneun",
+      "phon": "da-eum djou-neun",
+      "native": "la semaine prochaine"
+     },
+     "study": "다음 주는 어때요?",
+     "phon": "da-eum djou-neun eo-ttè-yo ?",
+     "native": "Et la semaine prochaine, ça vous irait ?",
+     "reading": "daeum juneun eottaeyo?"
+    },
+    {
+     "slot": {
+      "study": "저녁 여덟 시는",
+      "reading": "jeonyeok yeodeol sineun",
+      "phon": "djeo-nyeok yeo-deol si-neun",
+      "native": "vingt heures"
+     },
+     "study": "저녁 여덟 시는 어때요?",
+     "phon": "djeo-nyeok yeo-deol si-neun eo-ttè-yo ?",
+     "native": "Et vingt heures, ça vous irait ?",
+     "reading": "jeonyeok yeodeol sineun eottaeyo?"
+    },
+    {
+     "slot": {
+      "study": "다른 카페는",
+      "reading": "dareun kapeneun",
+      "phon": "da-reun ka-pè-neun",
+      "native": "un autre café"
+     },
+     "study": "다른 카페는 어때요?",
+     "phon": "da-reun ka-pè-neun eo-ttè-yo ?",
+     "native": "Et un autre café, ça vous irait ?",
+     "reading": "dareun kapeneun eottaeyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-ko-07",
+   "situation": "Souhait",
+   "model": {
+    "study": "{s} 싶어요.",
+    "reading": "{s} sipeoyo.",
+    "phon": "{s} si-peo-yo",
+    "native": "J'ai envie de {s}.",
+    "note": "-고 싶어요 : « avoir envie de / vouloir » (radical + 고 싶어요)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "한국어를 잘하고",
+      "reading": "hangugeoreul jalhago",
+      "phon": "han-gou-geo-reul djal-ha-go",
+      "native": "bien parler coréen"
+     },
+     "study": "한국어를 잘하고 싶어요.",
+     "phon": "han-gou-geo-reul djal-ha-go si-peo-yo",
+     "native": "J'ai envie de bien parler coréen.",
+     "reading": "hangugeoreul jalhago sipeoyo."
+    },
+    {
+     "slot": {
+      "study": "여행을 가고",
+      "reading": "yeohaeng-eul gago",
+      "phon": "yeo-hèng-eul ga-go",
+      "native": "partir en voyage"
+     },
+     "study": "여행을 가고 싶어요.",
+     "phon": "yeo-hèng-eul ga-go si-peo-yo",
+     "native": "J'ai envie de partir en voyage.",
+     "reading": "yeohaeng-eul gago sipeoyo."
+    },
+    {
+     "slot": {
+      "study": "쉬고",
+      "reading": "swigo",
+      "phon": "soui-go",
+      "native": "me reposer"
+     },
+     "study": "쉬고 싶어요.",
+     "phon": "soui-go si-peo-yo",
+     "native": "J'ai envie de me reposer.",
+     "reading": "swigo sipeoyo."
+    },
+    {
+     "slot": {
+      "study": "맛있는 걸 먹고",
+      "reading": "masinneun geol meokgo",
+      "phon": "ma-sin-neun geol meok-go",
+      "native": "manger quelque chose de bon"
+     },
+     "study": "맛있는 걸 먹고 싶어요.",
+     "phon": "ma-sin-neun geol meok-go si-peo-yo",
+     "native": "J'ai envie de manger quelque chose de bon.",
+     "reading": "masinneun geol meokgo sipeoyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-ko-08",
+   "situation": "Confirmer",
+   "model": {
+    "study": "그럼 {s} 봐요.",
+    "reading": "geureom {s} bwayo.",
+    "phon": "geu-reom {s} boua-yo",
+    "native": "Alors, à {s} !"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "토요일 열 시에 역 앞에서",
+      "reading": "toyoil yeol sie yeok apeseo",
+      "phon": "to-yo-il yeol si-è yeok a-pè-seo",
+      "native": "samedi dix heures devant la gare"
+     },
+     "study": "그럼 토요일 열 시에 역 앞에서 봐요.",
+     "phon": "geu-reom to-yo-il yeol si-è yeok a-pè-seo boua-yo",
+     "native": "Alors, à samedi dix heures devant la gare !",
+     "reading": "geureom toyoil yeol sie yeok apeseo bwayo."
+    },
+    {
+     "slot": {
+      "study": "내일 저녁에",
+      "reading": "naeil jeonyeoge",
+      "phon": "nè-il djeo-nyeo-gè",
+      "native": "demain soir"
+     },
+     "study": "그럼 내일 저녁에 봐요.",
+     "phon": "geu-reom nè-il djeo-nyeo-gè boua-yo",
+     "native": "Alors, à demain soir !",
+     "reading": "geureom naeil jeonyeoge bwayo."
+    },
+    {
+     "slot": {
+      "study": "이따가",
+      "reading": "ittaga",
+      "phon": "i-tta-ga",
+      "native": "tout à l'heure"
+     },
+     "study": "그럼 이따가 봐요.",
+     "phon": "geu-reom i-tta-ga boua-yo",
+     "native": "Alors, à tout à l'heure !",
+     "reading": "geureom ittaga bwayo."
+    },
+    {
+     "slot": {
+      "study": "다음 주에",
+      "reading": "daeum jue",
+      "phon": "da-eum djou-è",
+      "native": "la semaine prochaine"
+     },
+     "study": "그럼 다음 주에 봐요.",
+     "phon": "geu-reom da-eum djou-è boua-yo",
+     "native": "Alors, à la semaine prochaine !",
+     "reading": "geureom daeum jue bwayo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-ko-09",
+   "situation": "Transports",
+   "model": {
+    "study": "{s} 갈 거예요.",
+    "reading": "{s} gal geoyeyo.",
+    "phon": "{s} gal geo-yè-yo",
+    "native": "J'irai {s}.",
+    "note": "(으)로 = moyen de transport (기차로, 버스로) ; 걸어서 = « en marchant »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "기차로",
+      "reading": "gicharo",
+      "phon": "gi-tcha-ro",
+      "native": "en train"
+     },
+     "study": "기차로 갈 거예요.",
+     "phon": "gi-tcha-ro gal geo-yè-yo",
+     "native": "J'irai en train.",
+     "reading": "gicharo gal geoyeyo."
+    },
+    {
+     "slot": {
+      "study": "버스로",
+      "reading": "beoseuro",
+      "phon": "beo-seu-ro",
+      "native": "en bus"
+     },
+     "study": "버스로 갈 거예요.",
+     "phon": "beo-seu-ro gal geo-yè-yo",
+     "native": "J'irai en bus.",
+     "reading": "beoseuro gal geoyeyo."
+    },
+    {
+     "slot": {
+      "study": "걸어서",
+      "reading": "georeoseo",
+      "phon": "geo-reo-seo",
+      "native": "à pied"
+     },
+     "study": "걸어서 갈 거예요.",
+     "phon": "geo-reo-seo gal geo-yè-yo",
+     "native": "J'irai à pied.",
+     "reading": "georeoseo gal geoyeyo."
+    },
+    {
+     "slot": {
+      "study": "택시로",
+      "reading": "taeksiro",
+      "phon": "tèk-si-ro",
+      "native": "en taxi"
+     },
+     "study": "택시로 갈 거예요.",
+     "phon": "tèk-si-ro gal geo-yè-yo",
+     "native": "J'irai en taxi.",
+     "reading": "taeksiro gal geoyeyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-ko-10",
+   "situation": "Demander les projets",
+   "model": {
+    "study": "{s} 뭐 할 거예요?",
+    "reading": "{s} mwo hal geoyeyo?",
+    "phon": "{s} mweo hal geo-yè-yo ?",
+    "native": "Qu'est-ce que vous allez faire {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "주말에",
+      "reading": "jumare",
+      "phon": "djou-ma-rè",
+      "native": "ce week-end"
+     },
+     "study": "주말에 뭐 할 거예요?",
+     "phon": "djou-ma-rè mweo hal geo-yè-yo ?",
+     "native": "Qu'est-ce que vous allez faire ce week-end ?",
+     "reading": "jumare mwo hal geoyeyo?"
+    },
+    {
+     "slot": {
+      "study": "휴가 때",
+      "reading": "hyuga ttae",
+      "phon": "hyou-ga ttè",
+      "native": "pendant les vacances"
+     },
+     "study": "휴가 때 뭐 할 거예요?",
+     "phon": "hyou-ga ttè mweo hal geo-yè-yo ?",
+     "native": "Qu'est-ce que vous allez faire pendant les vacances ?",
+     "reading": "hyuga ttae mwo hal geoyeyo?"
+    },
+    {
+     "slot": {
+      "study": "오늘 저녁에",
+      "reading": "oneul jeonyeoge",
+      "phon": "o-neul djeo-nyeo-gè",
+      "native": "ce soir"
+     },
+     "study": "오늘 저녁에 뭐 할 거예요?",
+     "phon": "o-neul djeo-nyeo-gè mweo hal geo-yè-yo ?",
+     "native": "Qu'est-ce que vous allez faire ce soir ?",
+     "reading": "oneul jeonyeoge mwo hal geoyeyo?"
+    },
+    {
+     "slot": {
+      "study": "내일",
+      "reading": "naeil",
+      "phon": "nè-il",
+      "native": "demain"
+     },
+     "study": "내일 뭐 할 거예요?",
+     "phon": "nè-il mweo hal geo-yè-yo ?",
+     "native": "Qu'est-ce que vous allez faire demain ?",
+     "reading": "naeil mwo hal geoyeyo?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-ko-11",
+   "situation": "Travail",
+   "model": {
+    "study": "다음 주에 {s} 거예요.",
+    "reading": "daeum jue {s} geoyeyo.",
+    "phon": "da-eum djou-è {s} geo-yè-yo",
+    "native": "La semaine prochaine, je vais {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "출장을 갈",
+      "reading": "chuljang-eul gal",
+      "phon": "tchoul-djang-eul gal",
+      "native": "partir en déplacement"
+     },
+     "study": "다음 주에 출장을 갈 거예요.",
+     "phon": "da-eum djou-è tchoul-djang-eul gal geo-yè-yo",
+     "native": "La semaine prochaine, je vais partir en déplacement.",
+     "reading": "daeum jue chuljang-eul gal geoyeyo."
+    },
+    {
+     "slot": {
+      "study": "발표를 할",
+      "reading": "balpyoreul hal",
+      "phon": "bal-pyo-reul hal",
+      "native": "faire une présentation"
+     },
+     "study": "다음 주에 발표를 할 거예요.",
+     "phon": "da-eum djou-è bal-pyo-reul hal geo-yè-yo",
+     "native": "La semaine prochaine, je vais faire une présentation.",
+     "reading": "daeum jue balpyoreul hal geoyeyo."
+    },
+    {
+     "slot": {
+      "study": "새 프로젝트를 시작할",
+      "reading": "sae peurojekteureul sijakal",
+      "phon": "sè peu-ro-djèk-teu-reul si-dja-kal",
+      "native": "commencer un nouveau projet"
+     },
+     "study": "다음 주에 새 프로젝트를 시작할 거예요.",
+     "phon": "da-eum djou-è sè peu-ro-djèk-teu-reul si-dja-kal geo-yè-yo",
+     "native": "La semaine prochaine, je vais commencer un nouveau projet.",
+     "reading": "daeum jue sae peurojekteureul sijakal geoyeyo."
+    },
+    {
+     "slot": {
+      "study": "휴가를 낼",
+      "reading": "hyugareul nael",
+      "phon": "hyou-ga-reul nèl",
+      "native": "poser des congés"
+     },
+     "study": "다음 주에 휴가를 낼 거예요.",
+     "phon": "da-eum djou-è hyou-ga-reul nèl geo-yè-yo",
+     "native": "La semaine prochaine, je vais poser des congés.",
+     "reading": "daeum jue hyugareul nael geoyeyo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L6-fr-ko-12",
+   "situation": "Répondre à une proposition",
+   "model": {
+    "study": "{s}",
+    "reading": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Réponses toutes faites pour accepter, différer ou laisser le choix."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "좋아요, 그렇게 해요.",
+      "reading": "joayo, geureoke haeyo.",
+      "phon": "djo-a-yo, geu-reo-kè hè-yo",
+      "native": "D'accord, on fait comme ça."
+     },
+     "study": "좋아요, 그렇게 해요.",
+     "phon": "djo-a-yo, geu-reo-kè hè-yo",
+     "native": "D'accord, on fait comme ça.",
+     "reading": "joayo, geureoke haeyo."
+    },
+    {
+     "slot": {
+      "study": "좋은 생각이에요.",
+      "reading": "joeun saenggagieyo.",
+      "phon": "djo-eun sèng-ga-gi-è-yo",
+      "native": "Bonne idée."
+     },
+     "study": "좋은 생각이에요.",
+     "phon": "djo-eun sèng-ga-gi-è-yo",
+     "native": "Bonne idée.",
+     "reading": "joeun saenggagieyo."
+    },
+    {
+     "slot": {
+      "study": "글쎄요, 다음에 해요.",
+      "reading": "geulsseyo, daeume haeyo.",
+      "phon": "geul-ssè-yo, da-eu-mè hè-yo",
+      "native": "Hmm, une autre fois."
+     },
+     "study": "글쎄요, 다음에 해요.",
+     "phon": "geul-ssè-yo, da-eu-mè hè-yo",
+     "native": "Hmm, une autre fois.",
+     "reading": "geulsseyo, daeume haeyo."
+    },
+    {
+     "slot": {
+      "study": "저는 다 괜찮아요.",
+      "reading": "jeoneun da gwaenchanayo.",
+      "phon": "djeo-neun da gouèn-tcha-na-yo",
+      "native": "Moi, tout me va."
+     },
+     "study": "저는 다 괜찮아요.",
+     "phon": "djeo-neun da gouèn-tcha-na-yo",
+     "native": "Moi, tout me va.",
+     "reading": "jeoneun da gwaenchanayo."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L6-fr-ko-d1",
+   "situation": "Organiser une sortie",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "마리 씨, 주말에 뭐 할 거예요?",
+     "reading": "mari ssi, jumare mwo hal geoyeyo?",
+     "phon": "ma-ri ssi, djou-ma-rè mweo hal geo-yè-yo ?",
+     "native": "Marie, qu'est-ce que vous faites ce week-end ?"
+    },
+    {
+     "speaker": "B",
+     "study": "아직 몰라요. 왜요?",
+     "reading": "ajik mollayo. waeyo?",
+     "phon": "a-djik mol-la-yo. ouè-yo ?",
+     "native": "Je ne sais pas encore. Pourquoi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "같이 영화 볼래요?",
+     "reading": "gachi yeonghwa bollaeyo?",
+     "phon": "ga-tchi yeong-houa bol-lè-yo ?",
+     "native": "Ça vous dit d'aller voir un film ensemble ?"
+    },
+    {
+     "speaker": "B",
+     "study": "좋아요! 언제요?",
+     "reading": "joayo! eonjeyo?",
+     "phon": "djo-a-yo ! eon-djè-yo ?",
+     "native": "Oui ! Quand ?"
+    },
+    {
+     "speaker": "A",
+     "study": "토요일 저녁 일곱 시 어때요?",
+     "reading": "toyoil jeonyeok ilgop si eottaeyo?",
+     "phon": "to-yo-il djeo-nyeok il-gop si eo-ttè-yo ?",
+     "native": "Samedi à dix-neuf heures, ça vous va ?"
+    },
+    {
+     "speaker": "B",
+     "study": "미안해요, 토요일에는 못 가요. 일요일은 어때요?",
+     "reading": "mianhaeyo, toyoireneun mot gayo. iryoireun eottaeyo?",
+     "phon": "mi-an-hè-yo, to-yo-i-rè-neun mot ga-yo. i-ryo-i-reun eo-ttè-yo ?",
+     "native": "Désolée, samedi je ne peux pas. Et dimanche ?"
+    },
+    {
+     "speaker": "A",
+     "study": "일요일도 괜찮아요. 그럼 일요일 일곱 시에 역 앞에서 봐요.",
+     "reading": "iryoildo gwaenchanayo. geureom iryoil ilgop sie yeok apeseo bwayo.",
+     "phon": "i-ryo-il-do gouèn-tcha-na-yo. geu-reom i-ryo-il il-gop si-è yeok a-pè-seo boua-yo",
+     "native": "Dimanche, ça va aussi. Alors dimanche dix-neuf heures devant la gare."
+    },
+    {
+     "speaker": "B",
+     "study": "네, 좋아요. 일요일에 봐요!",
+     "reading": "ne, joayo. iryoire bwayo!",
+     "phon": "nè, djo-a-yo. i-ryo-i-rè boua-yo !",
+     "native": "D'accord. À dimanche !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-ko-06",
+    "L2-fr-ko-08",
+    "L2-fr-ko-11",
+    "L3-fr-ko-05",
+    "L3-fr-ko-06",
+    "L6-fr-ko-03",
+    "L6-fr-ko-05",
+    "L6-fr-ko-06",
+    "L6-fr-ko-08",
+    "L6-fr-ko-10"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Un ami"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L6-fr-ko-d2",
+   "situation": "Projets de vacances",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "휴가 때 뭐 할 거예요?",
+     "reading": "hyuga ttae mwo hal geoyeyo?",
+     "phon": "hyou-ga ttè mweo hal geo-yè-yo ?",
+     "native": "Qu'est-ce que vous allez faire pendant les vacances ?"
+    },
+    {
+     "speaker": "B",
+     "study": "부산에 갈 거예요. 바다를 보고 싶어요.",
+     "reading": "busane gal geoyeyo. badareul bogo sipeoyo.",
+     "phon": "bou-sa-nè gal geo-yè-yo. ba-da-reul bo-go si-peo-yo",
+     "native": "Je vais aller à Busan. J'ai envie de voir la mer."
+    },
+    {
+     "speaker": "A",
+     "study": "좋네요! 어떻게 갈 거예요?",
+     "reading": "jonneyo! eotteoke gal geoyeyo?",
+     "phon": "djon-nè-yo ! eo-tteo-kè gal geo-yè-yo ?",
+     "native": "Chouette ! Vous y allez comment ?"
+    },
+    {
+     "speaker": "B",
+     "study": "기차로 갈 거예요. 두 시간 반 걸려요.",
+     "reading": "gicharo gal geoyeyo. du sigan ban geollyeoyo.",
+     "phon": "gi-tcha-ro gal geo-yè-yo. dou si-gan ban geol-lyeo-yo",
+     "native": "En train. Ça prend deux heures et demie."
+    },
+    {
+     "speaker": "A",
+     "study": "누구하고 가요?",
+     "reading": "nuguhago gayo?",
+     "phon": "nou-gou-ha-go ga-yo ?",
+     "native": "Vous y allez avec qui ?"
+    },
+    {
+     "speaker": "B",
+     "study": "친구하고 같이 가요. 민수 씨는요?",
+     "reading": "chinguhago gachi gayo. minsu ssineunnyo?",
+     "phon": "tchin-gou-ha-go ga-tchi ga-yo. min-sou ssi-neun-nyo ?",
+     "native": "Avec un ami. Et vous, Minsu ?"
+    },
+    {
+     "speaker": "A",
+     "study": "저는 집에서 푹 쉴 거예요. 그리고 가족을 볼 거예요.",
+     "reading": "jeoneun jibeseo puk swil geoyeyo. geurigo gajogeul bol geoyeyo.",
+     "phon": "djeo-neun dji-bè-seo pouk souil geo-yè-yo. geu-ri-go ga-djo-geul bol geo-yè-yo",
+     "native": "Moi, je vais bien me reposer à la maison. Et voir ma famille."
+    },
+    {
+     "speaker": "B",
+     "study": "그것도 좋네요. 좋은 휴가 보내세요!",
+     "reading": "geugeotdo jonneyo. joeun hyuga bonaeseyo!",
+     "phon": "geu-geot-do djon-nè-yo. djo-eun hyou-ga bo-nè-sè-yo !",
+     "native": "C'est bien aussi. Bonnes vacances !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-ko-01",
+    "L1-fr-ko-06",
+    "L3-fr-ko-03",
+    "L3-fr-ko-05",
+    "L5-fr-ko-09",
+    "L6-fr-ko-02",
+    "L6-fr-ko-03",
+    "L6-fr-ko-07",
+    "L6-fr-ko-09",
+    "L6-fr-ko-10"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Un collègue"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L6-fr-ko-d3",
+   "situation": "Préparer une réunion",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "다음 주 회의는 언제예요?",
+     "reading": "daeum ju hoeuineun eonjeyeyo?",
+     "phon": "da-eum djou houè-eui-neun eon-djè-yè-yo ?",
+     "native": "La réunion de la semaine prochaine, c'est quand ?"
+    },
+    {
+     "speaker": "B",
+     "study": "화요일 열 시예요. 같이 준비할래요?",
+     "reading": "hwayoil yeol siyeyo. gachi junbihallaeyo?",
+     "phon": "houa-yo-il yeol si-yè-yo. ga-tchi djoun-bi-hal-lè-yo ?",
+     "native": "Mardi à dix heures. On la prépare ensemble ?"
+    },
+    {
+     "speaker": "A",
+     "study": "네, 좋아요. 언제 만날까요?",
+     "reading": "ne, joayo. eonje mannalkkayo?",
+     "phon": "nè, djo-a-yo. eon-djè man-nal-kka-yo ?",
+     "native": "Oui, d'accord. On se voit quand ?"
+    },
+    {
+     "speaker": "B",
+     "study": "내일 오후 두 시 어때요?",
+     "reading": "naeil ohu du si eottaeyo?",
+     "phon": "nè-il o-hou dou si eo-ttè-yo ?",
+     "native": "Demain à quatorze heures, ça vous va ?"
+    },
+    {
+     "speaker": "A",
+     "study": "내일 오후에는 못 해요. 월요일 아침은 어때요?",
+     "reading": "naeil ohueneun mot haeyo. woryoil achimeun eottaeyo?",
+     "phon": "nè-il o-hou-è-neun mot hè-yo. oueo-ryo-il a-tchi-meun eo-ttè-yo ?",
+     "native": "Demain après-midi je ne peux pas. Et lundi matin ?"
+    },
+    {
+     "speaker": "B",
+     "study": "좋아요. 월요일 아홉 시에 회의실에서 봐요.",
+     "reading": "joayo. woryoil ahop sie hoeuisireseo bwayo.",
+     "phon": "djo-a-yo. oueo-ryo-il a-hop si-è houè-eui-si-rè-seo boua-yo",
+     "native": "D'accord. Lundi neuf heures en salle de réunion."
+    },
+    {
+     "speaker": "A",
+     "study": "네, 자료를 준비할 거예요.",
+     "reading": "ne, jaryoreul junbihal geoyeyo.",
+     "phon": "nè, dja-ryo-reul djoun-bi-hal geo-yè-yo",
+     "native": "Oui, je préparerai les documents."
+    },
+    {
+     "speaker": "B",
+     "study": "고마워요. 그럼 월요일에 봐요.",
+     "reading": "gomawoyo. geureom woryoire bwayo.",
+     "phon": "go-ma-oueo-yo. geu-reom oueo-ryo-i-rè boua-yo",
+     "native": "Merci. Alors à lundi."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L2-fr-ko-11",
+    "L3-fr-ko-05",
+    "L3-fr-ko-06",
+    "L6-fr-ko-03",
+    "L6-fr-ko-06",
+    "L6-fr-ko-08"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Un collègue"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "L'apprenant annonce ce qu'il va faire avec -(으)ㄹ 거예요, propose une activité (-(으)ㄹ래요?, -(으)ㄹ까요?), fixe ou déplace un rendez-vous (moment, lieu), refuse avec 못 et propose une alternative, exprime un souhait avec -고 싶어요."
+}
