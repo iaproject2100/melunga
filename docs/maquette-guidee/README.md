@@ -10,6 +10,7 @@ Cette maquette répond aux deux retours de Kartech : conserver la présentation 
 - Les thèmes sont numérotés dans l'ordre conseillé de cette proposition éditoriale. Le thème professionnel est indiqué comme facultatif.
 - Sur ordinateur comme sur mobile, un clic sur le thème démarre directement sa leçon complète. Les groupes de pratique s'enchaînent sans écran de sélection ni arrêt intermédiaire ; compteur et barre de progression portent sur tout le thème. Les quantités restent visibles dans la sélection des thèmes. Le logo reste dans la barre latérale sur ordinateur.
 - L'écran de pratique donne la priorité à la phrase, à sa phonétique, à son sens et à l'audio. L'aide détaillée ne s'ouvre que sur demande.
+- Le bouton à quatre carrés ouvre le menu des rubriques sans quitter la phrase. Le retour « Thèmes » reste indépendant. Le menu propose Accueil, Thèmes, Révisions et exercices, Toutes les leçons, Voix, Couleur, Comment ça marche, Avis et Compte.
 - Les modèles incomplets sont présentés à part, sans produire de phrase ni de phonétique de remplacement.
 
 | Couple | Cartes L1 conservées |
@@ -30,6 +31,10 @@ Ces nombres comptent les cartes brutes `lv === 1`, pas l'union de tous les accè
 Le regroupement en thèmes et l'ordre interne constituent une proposition à examiner. Ils ne prouvent ni une progression linguistique validée dans les sept langues, ni l'acquisition des éléments par l'apprenant. La maquette réutilise les cartes existantes : elle ne corrige pas leur difficulté et n'invente pas de conversation.
 
 L'audio utilise la synthèse vocale du navigateur et lit le texte étudié, jamais l'aide phonétique. Les voix disponibles dépendent de l'appareil. La maquette ne mesure pas la maîtrise et ne sauvegarde pas de progression.
+
+Les révisions de cet aperçu font pratiquer les cartes existantes d'un thème : écoute et imitation seules, ou préparation puis rappel avec le sens visible. Elles ne lisent ni ne modifient le calendrier de révision de l'application classique. Les réglages de voix et de vitesse restent en mémoire dans cette page.
+
+Accueil, Toutes les leçons et Compte ouvrent les pages existantes avec leurs paramètres d'entrée réellement supportés ; les comptes et les abonnements ne sont pas réimplémentés. Le formulaire Avis emploie l'endpoint existant uniquement après un envoi délibéré par l'utilisateur. Aucun avis réel n'est transmis pendant les essais automatisés.
 
 ## Vérification et diffusion
 

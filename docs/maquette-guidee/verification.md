@@ -25,6 +25,14 @@ Sur ordinateur comme sur mobile, les 77 thèmes démarrent désormais en un clic
 
 Le JSON des 2 134 cartes et le catalogue ont les mêmes empreintes qu'avant cet ajustement. Aucun prix, accès, texte ou aide phonétique n'est modifié. La numérotation ne constitue pas une nouvelle validation pédagogique de l'ordre des cartes.
 
+## Menu des rubriques
+
+Le bouton à quatre carrés ouvre désormais un dialogue de navigation, distinct du retour aux thèmes. Ouvrir ou fermer ce dialogue ne réinitialise pas la phrase, son affichage de rappel, l'étape ou le compteur. Fermeture par bouton, Échap et clic sur le fond contrôlée, avec retour du focus au déclencheur.
+
+Neuf cas de disposition contrôlés (320/390/1440 pixels × trois ambiances), sans débordement. Sur les sept couples : liens d'accueil, de catalogue et de connexion conformes aux paramètres réellement supportés ; choix de voix et de vitesse appliqué au texte étudié ; 14 séances de révision et 210 étapes parcourues, avec préparation et imitation avant tout rappel. Retour, fin et reprise fonctionnels.
+
+Le formulaire Avis a été testé avec succès, échec et champs obligatoires, en interceptant toutes ses requêtes avant le réseau : aucun avis réel n'a été transmis. Aucune requête d'écriture spontanée ni erreur JavaScript observée. La livraison réelle des avis et la qualité des voix natives ne sont pas évaluées par ces essais locaux. Les pages de compte sont liées, sans connexion automatisée ni changement de paiement.
+
 ## Périmètre produit
 
 La branche part du retour arrière `edf7406`. Seuls la page autonome de maquette, ses fichiers, son générateur et sa documentation sont ajoutés. Les fichiers préexistants, dont `app.html`, sont inchangés. La branche `main` reste sur la version restaurée ; aucune fusion de cette maquette n'est demandée.

@@ -5,7 +5,14 @@
   const byId = id => document.getElementById(id);
   const ui = {
     language: byId('mgLanguage'), flag: byId('mgLanguageFlag'), palette: byId('mgPalette'),
-    themes: byId('mgThemes'), back: byId('mgBack'), backText: byId('mgBackText'),
+    menuTrigger: byId('mgMenuTrigger'), menu: byId('mgMenuDialog'), menuNav: byId('mgMenuNav'),
+    menuTitle: byId('mgMenuTitle'), menuBack: byId('mgMenuBack'), menuClose: byId('mgMenuClose'),
+    voice: byId('mgVoice'), speed: byId('mgSpeed'), reviewTheme: byId('mgReviewTheme'),
+    reviewModel: byId('mgReviewModel'), reviewRecall: byId('mgReviewRecall'),
+    feedbackForm: byId('mgFeedbackForm'), feedbackMessage: byId('mgFeedbackMessage'),
+    feedbackEmail: byId('mgFeedbackEmail'), feedbackHp: byId('mgFeedbackHp'),
+    feedbackSend: byId('mgFeedbackSend'), feedbackStatus: byId('mgFeedbackStatus'),
+    back: byId('mgBack'), backText: byId('mgBackText'),
     counter: byId('mgCounter'), progress: byId('mgProgress'), content: byId('mgContent'),
     loading: byId('mgLoading'), loadingText: byId('mgLoadingText'), retry: byId('mgRetry'),
     themeView: byId('mgThemeView'), themeGrid: byId('mgThemeGrid'),
@@ -23,7 +30,8 @@
   const state = {
     data: null, pair: null, theme: null, sequence: null, screen: 'loading', stepIndex: 0,
     selectedPhraseId: null, revealed: false, helpOpen: false, readingVisible: false,
-    speechGeneration: 0, ambienceIndex: 0, lessonScope: 'sequence'
+    speechGeneration: 0, ambienceIndex: 0, lessonScope: 'sequence', menuView: 'nav',
+    voiceChoices: new Map(), speechRate: 0.85
   };
   const ambiences = ['ocean', 'aurora', 'dusk'];
   const voices = { zh: 'zh-CN', es: 'es-ES', en: 'en-GB', fr: 'fr-FR', it: 'it-IT', ko: 'ko-KR', ja: 'ja-JP' };
@@ -42,12 +50,32 @@
     headphones: svg('<path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="12" width="5" height="9" rx="2"/><rect x="16" y="12" width="5" height="9" rx="2"/>'),
     mic: svg('<rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 11v1a7 7 0 0 0 14 0v-1M12 19v3m-4 0h8"/>'),
     recall: svg('<path d="M9 18h6m-6 3h6M8 14a7 7 0 1 1 8 0c-1 1-1 2-1 4H9c0-2 0-3-1-4Z"/>'),
-    arrow: svg('<path d="M4 12h16m-6-6 6 6-6 6"/>')
+    arrow: svg('<path d="M4 12h16m-6-6 6 6-6 6"/>'),
+    folder: svg('<path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/><path d="M3 11h18"/>'),
+    cap: svg('<path d="m2 9 10-5 10 5-10 5L2 9Zm4 2v6c4 3 8 3 12 0v-6m4-2v8"/>'),
+    info: svg('<circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/>')
   };
   const chinese = {
     'Tes thèmes': '主题', 'Thèmes': '主题', 'Séquences': '学习小组', 'Continuer': '继续',
     'Réécouter': '再听一次', 'Rejouer': '再练一次', 'Séquence terminée': '本组已完成',
     'Thème terminé': '本主题已完成', 'Facultatif': '可选',
+    'Révision terminée': '复习已完成',
+    'Menu': '菜单', 'Menu des rubriques': '栏目菜单', 'Rubriques': '栏目',
+    'Revenir au menu': '返回菜单', 'Fermer le menu': '关闭菜单',
+    'Accueil': '首页', 'Révisions et exercices': '复习与练习', 'Toutes les leçons': '所有课程',
+    'Voix': '语音', 'Couleur': '背景颜色', 'Comment ça marche': '使用方法',
+    'Avis': '意见反馈', 'Se connecter / Créer un compte': '登录 / 注册账号',
+    'Voix automatique': '自动选择语音', 'Vitesse de lecture': '语速',
+    'Lente': '慢速', 'Posée': '舒缓', 'Normale': '正常',
+    'Choisir un thème': '选择主题', 'Écouter et répéter': '听与跟读', 'Exercice de rappel': '回忆练习',
+    'Ton avis': '你的意见', 'Email (facultatif)': '邮箱（选填）', 'Envoyer mon avis': '发送意见',
+    'Envoi en cours…': '正在发送…', 'Merci, ton avis a été envoyé.': '谢谢，你的意见已发送。',
+    'L’envoi a échoué. Tu peux réessayer.': '发送失败，请重试。',
+    'Écris au moins quelques mots.': '请写下你的意见。',
+    'Choisis un thème et écoute la phrase.': '选择主题并听句子。',
+    'Répète avec la phonétique.': '借助发音提示跟读。',
+    'Retrouve la phrase à partir de son sens.': '根据意思回忆句子。',
+    'L’oreille permet toujours de réécouter ou de révéler le modèle.': '点击耳朵可以随时重听或查看原句。',
     'Séquence suivante': '下一组', 'Les séquences': '所有小组', 'Interlocuteur': '对方',
     'Afficher la lecture': '显示读音', 'Masquer la lecture': '隐藏读音',
     'Écouter la phrase': '听这句话', 'Écouter': '听一听',
@@ -74,7 +102,7 @@
   const phraseCount = theme => Array.isArray(theme.phrases) ? theme.phrases.length : 0;
   const pairCount = pair => pair.themes.reduce((total, theme) => total + phraseCount(theme), 0);
   const themeNumber = theme => String(state.pair.themes.indexOf(theme) + 1).padStart(2, '0');
-  const themeLabel = theme => themeNumber(theme) + ' · ' + theme.title;
+  const themeLabel = theme => state.pair.themes.includes(theme) ? themeNumber(theme) + ' · ' + theme.title : theme.title;
   const currentStep = () => state.sequence && state.sequence.steps[state.stepIndex];
   const phraseById = id => state.theme && state.theme.phrases.find(phrase => phrase.id === id);
   const currentPhrase = () => {
@@ -89,6 +117,119 @@
     return Boolean(phrase && isRecall(currentStep()) && !isReceived(currentStep(), phrase) && !isTemplate(phrase) && !state.revealed);
   };
   const setStatus = message => text(ui.status, tr(message));
+
+  const menuPanels = {
+    voice: byId('mgVoicePanel'), review: byId('mgReviewPanel'),
+    feedback: byId('mgFeedbackPanel'), info: byId('mgInfoPanel')
+  };
+  const menuTitles = { nav: 'Menu', voice: 'Voix', review: 'Révisions et exercices', feedback: 'Avis', info: 'Comment ça marche' };
+
+  function lessonUrl(login = false) {
+    const query = new URLSearchParams({ lang: state.pair.nativeLanguage });
+    if (login) query.set('login', '1');
+    else { query.set('start', '1'); query.set('study', state.pair.studyLanguage); }
+    return 'app.html?' + query;
+  }
+
+  function buildMenu() {
+    const rows = [
+      { label: 'Accueil', icon: icons.home, href: 'index.html' },
+      { label: 'Thèmes', icon: icons.folder, action: () => { closeMenu(); showThemes(); } },
+      { label: 'Révisions et exercices', icon: icons.cap, panel: 'review' },
+      { label: 'Toutes les leçons', icon: icons.globe, href: lessonUrl() },
+      { label: 'Voix', icon: icons.headphones, panel: 'voice' },
+      { label: 'Couleur', icon: '<span class="mg-colorwheel" aria-hidden="true"></span>', action: () => {
+        state.ambienceIndex = (state.ambienceIndex + 1) % ambiences.length;
+        document.body.dataset.ambience = ambiences[state.ambienceIndex];
+      } },
+      { label: 'Comment ça marche', icon: icons.info, panel: 'info' },
+      { label: 'Avis', icon: icons.chat, panel: 'feedback' },
+      { label: 'Se connecter / Créer un compte', icon: icons.person, href: lessonUrl(true) }
+    ];
+    ui.menuNav.replaceChildren(...rows.map(row => {
+      const item = document.createElement(row.href ? 'a' : 'button');
+      item.className = 'mg-menu-item';
+      item.dataset.menuItem = row.panel || row.label;
+      if (row.href) item.href = row.href;
+      else {
+        item.type = 'button';
+        item.addEventListener('click', row.action || (() => setMenuView(row.panel)));
+      }
+      const icon = document.createElement('span');
+      icon.className = 'mg-menu-icon'; icon.innerHTML = row.icon; icon.setAttribute('aria-hidden', 'true');
+      const label = document.createElement('span'); label.textContent = tr(row.label);
+      item.append(icon, label);
+      return item;
+    }));
+    document.querySelectorAll('[data-mg-i18n]').forEach(node => text(node, tr(node.dataset.mgI18n)));
+    [[ui.menuClose, 'Fermer le menu'], [ui.menuBack, 'Revenir au menu'], [ui.menuNav, 'Rubriques']]
+      .forEach(([node, label]) => node.setAttribute('aria-label', tr(label)));
+  }
+
+  function positionMenu() {
+    if (!ui.menu.open) return;
+    const anchor = ui.menuTrigger.getBoundingClientRect();
+    const rect = ui.menu.getBoundingClientRect();
+    const left = innerWidth > 760 ? Math.min(anchor.right + 14, innerWidth - rect.width - 14) : (innerWidth - rect.width) / 2;
+    const top = Math.min(innerWidth > 760 ? anchor.top : anchor.bottom + 10, innerHeight - rect.height - 14);
+    ui.menu.style.setProperty('--mg-menu-left', Math.max(14, left) + 'px');
+    ui.menu.style.setProperty('--mg-menu-top', Math.max(14, top) + 'px');
+  }
+
+  function fillVoices() {
+    const options = [new Option(tr('Voix automatique'), '')];
+    if ('speechSynthesis' in window) window.speechSynthesis.getVoices()
+      .filter(voice => voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage)
+      .forEach(voice => options.push(new Option(voice.name, voice.voiceURI)));
+    ui.voice.replaceChildren(...options);
+    ui.voice.value = state.voiceChoices.get(state.pair.studyLanguage) || '';
+    if (ui.voice.selectedIndex < 0) ui.voice.selectedIndex = 0;
+    ui.speed.value = String(state.speechRate);
+  }
+
+  function setMenuView(view) {
+    state.menuView = view;
+    ui.menuNav.hidden = view !== 'nav';
+    Object.entries(menuPanels).forEach(([name, panel]) => { panel.hidden = name !== view; });
+    ui.menuBack.hidden = view === 'nav';
+    text(ui.menuTitle, tr(menuTitles[view]));
+    if (view === 'voice') fillVoices();
+    if (view === 'review') {
+      const themes = state.pair.themes.filter(theme => !theme.isTemplateCollection);
+      ui.reviewTheme.replaceChildren(...themes.map(theme => new Option(themeLabel(theme), theme.id)));
+      if (state.theme && themes.includes(state.theme)) ui.reviewTheme.value = state.theme.id;
+    }
+    ui.menu.scrollTop = 0;
+    positionMenu();
+    const section = view === 'nav' ? ui.menuNav : menuPanels[view];
+    section.querySelector('button,a,select,input,textarea')?.focus({ preventScroll: true });
+  }
+
+  function openMenu() {
+    if (!state.pair) return;
+    if (ui.menu.open) return closeMenu();
+    stopAudio(); closeHelp(); buildMenu();
+    ui.menu.showModal();
+    ui.menuTrigger.setAttribute('aria-expanded', 'true');
+    setMenuView('nav');
+  }
+
+  function closeMenu() {
+    if (ui.menu.open) ui.menu.close();
+    ui.menuTrigger.setAttribute('aria-expanded', 'false');
+  }
+
+  function reviewTheme(recall) {
+    const theme = state.pair.themes.find(item => item.id === ui.reviewTheme.value);
+    if (!theme) return;
+    closeMenu();
+    const phrases = theme.phrases.filter(phrase => !phrase.isTemplate);
+    state.theme = theme;
+    // Reuse the source preparation, including imitation, before any recall.
+    const steps = theme.sequences.flatMap(sequence => sequence.steps)
+      .filter(step => recall || !isRecall(step));
+    startSequence({ id: state.pair.id + ':' + theme.id + ':review', phraseIds: phrases.map(phrase => phrase.id), steps }, 'review');
+  }
 
   function stopAudio() {
     state.speechGeneration += 1;
@@ -120,7 +261,7 @@
     ui.lessonView.hidden = !['lesson', 'done'].includes(screen);
     ui.footer.hidden = !['lesson', 'done'].includes(screen);
     ui.back.hidden = ['loading', 'themes'].includes(screen);
-    ui.themes.disabled = screen === 'loading';
+    ui.menuTrigger.disabled = screen === 'loading';
     ui.content.scrollTop = 0;
     document.body.dataset.view = screen;
   }
@@ -280,7 +421,7 @@
     ui.help.hidden = false;
     ui.phase.hidden = false;
     text(ui.lessonTheme, themeLabel(state.theme));
-    text(ui.backText, tr(state.lessonScope === 'theme' ? 'Thèmes' : 'Séquences'));
+    text(ui.backText, tr(state.lessonScope !== 'sequence' ? 'Thèmes' : 'Séquences'));
     ui.phase.innerHTML = definition.icon;
     ui.phase.setAttribute('aria-label', tr(definition.label));
     ui.phase.title = tr(definition.label);
@@ -324,14 +465,15 @@
     ui.done.hidden = false;
     ui.help.hidden = true;
     ui.phase.hidden = true;
-    text(ui.doneHeading, tr(state.lessonScope === 'theme' ? 'Thème terminé' : 'Séquence terminée'));
+    text(ui.doneHeading, tr(state.lessonScope === 'review' ? 'Révision terminée'
+      : state.lessonScope === 'theme' ? 'Thème terminé' : 'Séquence terminée'));
     text(ui.counter, state.sequence.phraseIds.length + ' / ' + state.sequence.phraseIds.length);
     ui.progress.style.width = '100%';
     ui.replay.disabled = false;
     ui.next.disabled = false;
     text(ui.replayText, tr('Rejouer'));
     const index = state.theme.sequences.indexOf(state.sequence);
-    text(ui.nextText, tr(state.lessonScope === 'theme' ? 'Thèmes'
+    text(ui.nextText, tr(state.lessonScope !== 'sequence' ? 'Thèmes'
       : index < state.theme.sequences.length - 1 ? 'Séquence suivante' : 'Les séquences'));
     setStatus('');
     showView('done');
@@ -354,11 +496,13 @@
     const token = state.speechGeneration;
     const utterance = new SpeechSynthesisUtterance(phrase.study);
     utterance.lang = voices[state.pair.studyLanguage] || state.pair.studyLanguage;
-    utterance.rate = 0.85;
+    utterance.rate = state.speechRate;
     const voiceList = window.speechSynthesis.getVoices();
     const exactVoice = voiceList.find(voice => voice.lang.toLowerCase() === utterance.lang.toLowerCase());
     const languageVoice = voiceList.find(voice => voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage);
-    if (exactVoice || languageVoice) utterance.voice = exactVoice || languageVoice;
+    const preferredVoice = voiceList.find(voice => voice.voiceURI === state.voiceChoices.get(state.pair.studyLanguage)
+      && voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage);
+    if (preferredVoice || exactVoice || languageVoice) utterance.voice = preferredVoice || exactVoice || languageVoice;
     const finish = () => {
       if (token !== state.speechGeneration) return;
       ui.ear.classList.remove('is-playing');
@@ -383,13 +527,13 @@
     state.pair = pair;
     document.documentElement.lang = pair.nativeLanguage;
     text(byId('mgThemeHeading'), tr('Tes thèmes'));
-    [[ui.palette, 'Changer d’ambiance'], [ui.themes, 'Voir les thèmes'], [ui.language, 'Langue à apprendre'],
+    [[ui.palette, 'Changer d’ambiance'], [ui.menuTrigger, 'Menu des rubriques'], [ui.language, 'Langue à apprendre'],
       [ui.help, 'Aide pour cette étape'], [ui.choices, 'Choisir une réponse'],
       [document.querySelector('.mg-level'), 'Niveau 1']].forEach(([node, label]) => {
       node.setAttribute('aria-label', tr(label));
     });
     ui.palette.title = tr('Changer d’ambiance');
-    ui.themes.title = tr('Thèmes');
+    ui.menuTrigger.title = tr('Menu');
     ui.language.value = pair.id;
     text(ui.flag, pair.flag);
     ui.language.title = pair.name;
@@ -456,14 +600,57 @@
   }
 
   ui.language.addEventListener('change', () => choosePair(ui.language.value));
-  ui.themes.addEventListener('click', showThemes);
+  ui.menuTrigger.addEventListener('click', openMenu);
+  ui.menuClose.addEventListener('click', closeMenu);
+  ui.menuBack.addEventListener('click', () => setMenuView('nav'));
+  ui.menu.addEventListener('close', () => ui.menuTrigger.setAttribute('aria-expanded', 'false'));
+  ui.menu.addEventListener('click', event => {
+    if (event.target !== ui.menu) return;
+    const rect = ui.menu.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeMenu();
+  });
+  window.addEventListener('resize', positionMenu);
+  ui.voice.addEventListener('change', () => state.voiceChoices.set(state.pair.studyLanguage, ui.voice.value));
+  ui.speed.addEventListener('change', () => {
+    const rate = Number(ui.speed.value);
+    if ([0.75, 0.85, 1].includes(rate)) state.speechRate = rate;
+  });
+  if ('speechSynthesis' in window) window.speechSynthesis.addEventListener?.('voiceschanged', () => {
+    if (ui.menu.open && state.menuView === 'voice') fillVoices();
+  });
+  ui.reviewModel.addEventListener('click', () => reviewTheme(false));
+  ui.reviewRecall.addEventListener('click', () => reviewTheme(true));
+  ui.feedbackMessage.addEventListener('input', () => ui.feedbackMessage.setCustomValidity(''));
+  ui.feedbackForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (ui.feedbackSend.disabled) return;
+    const message = ui.feedbackMessage.value.trim();
+    if (message.length < 3) {
+      ui.feedbackMessage.setCustomValidity(tr('Écris au moins quelques mots.'));
+      ui.feedbackMessage.reportValidity(); return;
+    }
+    ui.feedbackSend.disabled = true;
+    text(ui.feedbackStatus, tr('Envoi en cours…'));
+    try {
+      const response = await fetch('/.netlify/functions/send-feedback', {
+        method: 'POST', credentials: 'omit', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message, email: ui.feedbackEmail.value.trim(), hp: ui.feedbackHp.value,
+          lang: state.pair.studyLanguage, nat: state.pair.nativeLanguage })
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error('Feedback not sent');
+      ui.feedbackForm.reset();
+      text(ui.feedbackStatus, tr('Merci, ton avis a été envoyé.'));
+    } catch (_) { text(ui.feedbackStatus, tr('L’envoi a échoué. Tu peux réessayer.')); }
+    finally { ui.feedbackSend.disabled = false; }
+  });
   document.querySelector('.mg-brand').addEventListener('click', event => {
     if (!state.pair) return;
     event.preventDefault();
     showThemes();
   });
   ui.back.addEventListener('click', () => {
-    if (state.screen === 'sequences' || state.lessonScope === 'theme') showThemes();
+    if (state.screen === 'sequences' || state.lessonScope !== 'sequence') showThemes();
     else showSequences();
   });
   ui.palette.addEventListener('click', () => {
@@ -487,7 +674,7 @@
     ? startSequence(state.sequence, state.lessonScope) : speak(false));
   ui.next.addEventListener('click', () => {
     if (state.screen === 'done') {
-      if (state.lessonScope === 'theme') return showThemes();
+      if (state.lessonScope !== 'sequence') return showThemes();
       const nextSequence = state.theme.sequences[state.theme.sequences.indexOf(state.sequence) + 1];
       if (nextSequence) startSequence(nextSequence);
       else showSequences();
