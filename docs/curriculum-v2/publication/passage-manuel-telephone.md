@@ -1,4 +1,4 @@
-Ouvre ces liens dans un onglet privé de ton téléphone, pour commencer sans connexion et sans abonnement. Si le site demande un compte ou un paiement pendant le L1, arrête-toi et note l’écran concerné.
+Sur ton téléphone, connecte-toi à ton compte gratuit si tu en as un. Pour tester sans connexion, ouvre ces liens dans un onglet privé : ce sera une session invitée non payante. Vérifie que tu n’utilises pas un compte abonné. Si le site demande un compte ou un paiement pendant le L1, arrête-toi et note l’écran concerné.
 
 Chinois : https://melunga.com/app.html?start=1&lang=fr&study=zh
 

@@ -96,3 +96,5 @@ Vérification locale finale : 143 plans examinés, 254 leçons parcourues, 1 924
 Source du plan précédent : `7d24556`, empreinte du JSON `311f20f83fe5e47219948b794e2d0477cb0935fea1e81c0015393dc921fbb78d`. Base produit : `50a2891`. Les sources et manifestes sont archivés dans `source/`, les mesures dans [build-report.json](build-report.json).
 
 Le dossier [publication/](publication/) consigne la décision, la réconciliation et les vérifications du site réel. Les rapports d’aperçu plus anciens restent des pièces historiques et ne remplacent pas ces contrôles de production.
+
+**Publié et vérifié sur melunga.com** : fusion produit `dfdf6e4`, 19 fichiers réels contrôlés et 106 étapes chinoises/espagnoles parcourues en navigateur mobile émulé, invité non payant. Voir le [constat après publication](publication/verification-production.md) et le [passage sur téléphone physique](publication/passage-manuel-telephone.md).
