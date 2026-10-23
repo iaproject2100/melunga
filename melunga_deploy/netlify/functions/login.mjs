@@ -1,239 +1,149 @@
 import crypto from 'node:crypto';
-import { getStore } from '@netlify/blobs';
+import { getAccessStore } from './access-store.mjs';
 import {
-  cleanDeviceId,
-  cleanEmail,
-  countDevices,
-  deviceLabelFor,
-  deviceLimitFor,
-  deviceTypeFor,
-  ensureDeviceMap,
-  ensureDeviceSlots,
-  hashSessionToken,
-  makeDeviceSlot,
-  randomSessionToken,
-  safeDeviceSummary
+  cleanDeviceId, cleanEmail, countDevices, deviceLabelFor, deviceLimitFor,
+  deviceTypeFor, ensureDeviceMap, ensureDeviceSlots, hashSessionToken,
+  makeDeviceSlot, randomSessionToken, safeDeviceSummary
 } from './device-access.mjs';
 import { jsonResponse, preflight } from './cors.mjs';
+import { accessExpiry, accountHasAccess, hasPermanentAccess } from './complimentary-access.mjs';
 
 const PBKDF2_ITERATIONS = 100000;
 const PBKDF2_KEYLEN = 32;
 const PBKDF2_DIGEST = 'sha256';
+const MAX_ACCOUNT_ATTEMPTS = 8;
+
+function slotFor(account, deviceId, deviceType) {
+  return deviceLimitFor(account) > 0
+    ? ensureDeviceMap(account)[deviceId]
+    : ensureDeviceSlots(account)[deviceType];
+}
+
+function passwordMatches(account, password) {
+  const attempt = crypto.pbkdf2Sync(password, account.salt,
+    PBKDF2_ITERATIONS, PBKDF2_KEYLEN, PBKDF2_DIGEST).toString('hex');
+  const actual = Buffer.from(attempt, 'utf8');
+  const expected = Buffer.from(String(account.passwordHash), 'utf8');
+  return actual.length === expected.length && crypto.timingSafeEqual(actual, expected);
+}
+
+async function finishLogin(store, accountKey, identity, sessionHash, sessionToken, firstAccount) {
+  const { email, deviceId, deviceType, deviceLabel } = identity;
+  const now = Date.now();
+  await store.setJSON('session:' + sessionHash, {
+    email, deviceId, deviceType, created: now, lastSeen: now,
+    expiry: accessExpiry(firstAccount)
+  });
+
+  // A slower login must not overwrite the device cache of a newer login.
+  for (let attempt = 0; attempt < MAX_ACCOUNT_ATTEMPTS; attempt += 1) {
+    const previousCache = await store.getWithMetadata(deviceId, { type: 'json' });
+    if (previousCache && (typeof previousCache.etag !== 'string' || !previousCache.etag)) {
+      await store.delete('session:' + sessionHash);
+      throw new Error('device_cache_revision_missing');
+    }
+    const account = await store.get(accountKey, { type: 'json' });
+    const slot = slotFor(account, deviceId, deviceType);
+    if (!accountHasAccess(account) || !slot || slot.deviceId !== deviceId || slot.sessionHash !== sessionHash) break;
+
+    const written = await store.setJSON(deviceId, {
+      paid: true,
+      expiry: accessExpiry(account),
+      plan: account.plan || (deviceLimitFor(account) > 0 ? 'demo' : 'monthly'),
+      email, deviceType, sessionHash, updated: now
+    }, previousCache ? { onlyIfMatch: previousCache.etag } : { onlyIfNew: true });
+    if (!written.modified) continue;
+
+    const confirmed = await store.get(accountKey, { type: 'json' });
+    const confirmedSlot = slotFor(confirmed, deviceId, deviceType);
+    const confirmedSession = await store.get('session:' + sessionHash, { type: 'json' });
+    if (accountHasAccess(confirmed) && confirmedSlot && confirmedSlot.deviceId === deviceId
+      && confirmedSlot.sessionHash === sessionHash && confirmedSession
+      && confirmedSession.email === email && confirmedSession.deviceId === deviceId
+      && confirmedSession.deviceType === deviceType) {
+      return {
+        success: true, device_type: deviceType, device_label: deviceLabel,
+        session_token: sessionToken, expiry: accessExpiry(confirmed),
+        ...(hasPermanentAccess(confirmed) ? { permanent: true } : {})
+      };
+    }
+    break;
+  }
+
+  await store.delete('session:' + sessionHash);
+  return null;
+}
 
 export default async (req) => {
   const preflightResponse = preflight(req);
   if (preflightResponse) return preflightResponse;
-
-  if (req.method !== 'POST') {
-    return jsonResponse(req, { success: false, error: 'method_not_allowed' }, 405);
-  }
+  if (req.method !== 'POST') return jsonResponse(req, { success: false, error: 'method_not_allowed' }, 405);
 
   try {
     let body = {};
     try { body = await req.json(); } catch (_) { body = {}; }
-
     const deviceId = cleanDeviceId(body.device_id);
     const email = cleanEmail(body.email);
     const password = body.password ? String(body.password) : '';
     const deviceType = deviceTypeFor(req, body.device_type);
     const deviceLabel = deviceLabelFor(req, body.device_label, deviceType);
-
     if (!deviceId || !email || !email.includes('@') || !password) {
       return jsonResponse(req, { success: false, error: 'invalid_credentials' }, 400);
     }
 
-    const store = getStore({ name: 'melunga-access', consistency: 'strong' });
+    const store = getAccessStore();
     const accountKey = 'email:' + email;
-    const account = await store.get(accountKey, { type: 'json' }).catch(() => null);
+    for (let attempt = 0; attempt < MAX_ACCOUNT_ATTEMPTS; attempt += 1) {
+      const snapshot = await store.getWithMetadata(accountKey, { type: 'json' });
+      const account = snapshot && snapshot.data;
+      if (!account || !account.passwordHash || !account.salt || !passwordMatches(account, password)) {
+        return jsonResponse(req, { success: false, error: 'invalid_credentials' }, 401);
+      }
+      if (!accountHasAccess(account)) {
+        return jsonResponse(req, { success: false, error: 'subscription_expired' }, 403);
+      }
+      if (typeof snapshot.etag !== 'string' || !snapshot.etag) {
+        return jsonResponse(req, { success: false, error: 'server_error' }, 500);
+      }
 
-    if (!account || !account.passwordHash || !account.salt) {
-      return jsonResponse(req, { success: false, error: 'invalid_credentials' }, 401);
-    }
-
-    const attempt = crypto
-      .pbkdf2Sync(password, account.salt, PBKDF2_ITERATIONS, PBKDF2_KEYLEN, PBKDF2_DIGEST)
-      .toString('hex');
-
-    const attemptBuffer = Buffer.from(attempt, 'utf8');
-    const expectedBuffer = Buffer.from(String(account.passwordHash), 'utf8');
-    const passwordValid = attemptBuffer.length === expectedBuffer.length
-      && crypto.timingSafeEqual(attemptBuffer, expectedBuffer);
-
-    if (!passwordValid) {
-      return jsonResponse(req, { success: false, error: 'invalid_credentials' }, 401);
-    }
-
-    if (!account.paid || !account.expiry || account.expiry <= Date.now()) {
-      return jsonResponse(req, { success: false, error: 'subscription_expired' }, 403);
-    }
-
-    /* ---------------------------------------------------------------- *
-     * Comptes plafonnés (deviceLimit) : registre indexé par deviceId,
-     * tous types confondus, avec refus strict au-delà de la limite.
-     * Un appareil déjà enregistré peut se reconnecter librement.
-     * ---------------------------------------------------------------- */
-    const limit = deviceLimitFor(account);
-    if (limit > 0) {
-      const deviceMap = ensureDeviceMap(account);
-      const existing = deviceMap[deviceId] || null;
-
-      if (!existing && countDevices(deviceMap) >= limit) {
+      const limit = deviceLimitFor(account);
+      const devices = limit > 0 ? ensureDeviceMap(account) : ensureDeviceSlots(account);
+      const occupied = limit > 0 ? devices[deviceId] || null : devices[deviceType];
+      if (limit > 0 && !occupied && countDevices(devices) >= limit) {
         return jsonResponse(req, {
-          success: false,
-          error: 'device_limit_reached',
-          device_limit: limit,
-          device_count: countDevices(deviceMap)
+          success: false, error: 'device_limit_reached', device_limit: limit,
+          device_count: countDevices(devices)
+        }, 409);
+      }
+      if (!limit && occupied && occupied.deviceId !== deviceId) {
+        return jsonResponse(req, {
+          success: false, error: 'device_limit_reached', device_type: deviceType,
+          existing_device: safeDeviceSummary(occupied)
         }, 409);
       }
 
       const now = Date.now();
       const sessionToken = randomSessionToken();
       const sessionHash = hashSessionToken(sessionToken);
-
-      const newSlot = {
-        ...makeDeviceSlot({ deviceId, deviceType, deviceLabel, previousSlot: existing, now }),
+      devices[limit > 0 ? deviceId : deviceType] = {
+        ...makeDeviceSlot({ deviceId, deviceType, deviceLabel, previousSlot: occupied, now }),
         sessionHash
       };
-      deviceMap[deviceId] = newSlot;
+      const written = await store.setJSON(accountKey, {
+        ...account, devices, updated: now
+      }, { onlyIfMatch: snapshot.etag });
+      if (!written.modified) continue;
 
-      await store.setJSON(accountKey, {
-        ...account,
-        devices: deviceMap,
-        updated: now
-      });
-
-      await store.setJSON('session:' + sessionHash, {
-        email,
-        deviceId,
-        deviceType,
-        created: now,
-        lastSeen: now,
-        expiry: account.expiry
-      });
-
-      await store.setJSON(deviceId, {
-        paid: true,
-        expiry: account.expiry,
-        plan: account.plan || 'demo',
-        email,
-        deviceType,
-        sessionHash,
-        updated: now
-      });
-
-      /*
-       * Relecture de sécurité : on confirme que notre écriture est bien
-       * celle qui a survécu pour ce deviceId (deux connexions du même
-       * appareil au même instant sont possibles).
-       */
-      const confirmedAccount = await store.get(accountKey, { type: 'json' }).catch(() => null);
-      const confirmedSlot = ensureDeviceMap(confirmedAccount)[deviceId];
-      if (!confirmedSlot || confirmedSlot.sessionHash !== sessionHash) {
-        await store.delete('session:' + sessionHash).catch(() => {});
-        return jsonResponse(req, {
-          success: false,
-          error: 'device_limit_reached',
-          device_limit: limit
-        }, 409);
-      }
-
+      const result = await finishLogin(store, accountKey,
+        { email, deviceId, deviceType, deviceLabel }, sessionHash, sessionToken, account);
+      if (result) return jsonResponse(req, result);
       return jsonResponse(req, {
-        success: true,
-        device_type: deviceType,
-        device_label: deviceLabel,
-        session_token: sessionToken,
-        expiry: account.expiry
-      });
-    }
-
-    /* ---------------------------------------------------------------- *
-     * Comptes standard : comportement historique à deux slots
-     * (1 mobile + 1 PC), inchangé.
-     * ---------------------------------------------------------------- */
-    const devices = ensureDeviceSlots(account);
-    const occupiedSlot = devices[deviceType];
-
-    if (occupiedSlot && occupiedSlot.deviceId !== deviceId) {
-      return jsonResponse(req, {
-        success: false,
-        error: 'device_limit_reached',
-        device_type: deviceType,
-        existing_device: safeDeviceSummary(occupiedSlot)
+        success: false, error: 'device_limit_reached',
+        ...(limit > 0 ? { device_limit: limit } : { device_type: deviceType })
       }, 409);
     }
 
-    const now = Date.now();
-    const sessionToken = randomSessionToken();
-    const sessionHash = hashSessionToken(sessionToken);
-
-    const newSlot = {
-      ...makeDeviceSlot({
-        deviceId,
-        deviceType,
-        deviceLabel,
-        previousSlot: occupiedSlot,
-        now
-      }),
-      sessionHash
-    };
-
-    devices[deviceType] = newSlot;
-
-    await store.setJSON(accountKey, {
-      ...account,
-      devices,
-      updated: now
-    });
-
-    await store.setJSON('session:' + sessionHash, {
-      email,
-      deviceId,
-      deviceType,
-      created: now,
-      lastSeen: now,
-      expiry: account.expiry
-    });
-
-    /*
-     * Enregistrement compatible avec le check-status historique. Il permet
-     * une migration progressive du site, tout en vérifiant désormais que le
-     * device est bien le slot actif du compte.
-     */
-    await store.setJSON(deviceId, {
-      paid: true,
-      expiry: account.expiry,
-      plan: account.plan || 'monthly',
-      email,
-      deviceType,
-      sessionHash,
-      updated: now
-    });
-
-    /*
-     * Une seconde connexion arrivée au même instant peut avoir remplacé ce
-     * slot entre-temps. La relecture évite d'annoncer un succès si ce login
-     * n'est déjà plus le titulaire du slot.
-     */
-    const confirmedAccount = await store.get(accountKey, { type: 'json' }).catch(() => null);
-    const confirmedSlot = ensureDeviceSlots(confirmedAccount)[deviceType];
-    if (!confirmedSlot
-      || confirmedSlot.deviceId !== deviceId
-      || confirmedSlot.sessionHash !== sessionHash) {
-      await store.delete('session:' + sessionHash).catch(() => {});
-      return jsonResponse(req, {
-        success: false,
-        error: 'device_limit_reached',
-        device_type: deviceType
-      }, 409);
-    }
-
-    return jsonResponse(req, {
-      success: true,
-      device_type: deviceType,
-      device_label: deviceLabel,
-      session_token: sessionToken,
-      expiry: account.expiry
-    });
+    return jsonResponse(req, { success: false, error: 'account_changed_retry' }, 409);
   } catch (err) {
     console.error('[login] EXCEPTION:', err);
     return jsonResponse(req, { success: false, error: 'server_error' }, 500);
