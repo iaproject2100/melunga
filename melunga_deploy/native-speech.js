@@ -20,14 +20,6 @@
     var browserRecognition = window.startRec;
 
     window.startRec = async function (event) {
-      if (typeof window.curriculumActive === 'function' && curriculumActive()) {
-        MelungaCurriculum.selfTest();
-        return;
-      }
-      if (typeof window.l1CafeActive === 'function' && l1CafeActive()) {
-        MelungaL1Cafe.selfTest();
-        return;
-      }
       if (!plugin()) {
         browserRecognition(event);
         return;
@@ -36,13 +28,6 @@
       if (!window.pool || !pool.length) return;
 
       var card = pool[idx];
-      var recognitionPool = pool, recognitionMode = mode, recognitionLang = lang, recognitionNat = nat;
-      function currentRecognition() {
-        return !(typeof window.l1CafeActive === 'function' && l1CafeActive())
-          && !(typeof window.curriculumActive === 'function' && curriculumActive())
-          && pool === recognitionPool && pool[idx] === card && mode === recognitionMode
-          && lang === recognitionLang && nat === recognitionNat;
-      }
       var mic = document.getElementById('mic');
       var heard = document.getElementById('heard');
       try {
@@ -66,7 +51,6 @@
           prompt: typeof T === 'function' ? T('micListening') : 'Parle maintenant'
         });
         var matches = result && result.matches || [];
-        if (!currentRecognition()) return;
         if (result && result.cancelled) return;
         if (!matches.length) {
           if (heard) heard.textContent = typeof T === 'function' ? T('micNoSpeech') : 'Aucune parole détectée.';
@@ -109,10 +93,9 @@
         });
         if (heard) heard.innerHTML = T('heardPrefix') + '<b>' + bestMatch + '</b> · ' + bestScore + '%<br><span style="opacity:.7">' + T('heardRetry') + '</span>';
       } catch (_error) {
-        if (!currentRecognition()) return;
         if (heard) heard.textContent = typeof T === 'function' ? T('micDenied') : 'Microphone indisponible.';
       } finally {
-        if (currentRecognition() && mic) {
+        if (mic) {
           mic.textContent = typeof T === 'function' ? T('micAgain') : 'Réessayer';
           mic.classList.remove('rec');
         }
