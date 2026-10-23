@@ -21,7 +21,7 @@ La synthèse vocale a été contrôlée avec une doublure qui vérifie le texte 
 
 ## Ajustement après retour sur l'aperçu
 
-Sur ordinateur, les 77 thèmes démarrent désormais en un clic et les groupes internes s'enchaînent sans écran de sélection. Le premier thème de chaque couple a été parcouru intégralement : 345 étapes, compteur et progression sur le thème entier, écran de fin unique puis retour aux thèmes. Sur mobile, le choix des petites séquences reste présent. Les numéros 01–11 rendent l'ordre éditorial conseillé visible sur les cartes et dans le titre de leçon. Le logo dans la barre latérale est conservé.
+Sur ordinateur comme sur mobile, les 77 thèmes démarrent désormais en un clic et les groupes internes s'enchaînent sans écran de sélection. Le contrôle après extension au mobile couvre sept couples sur trois largeurs (1 440, 390 et 320 pixels) : 231 ouvertures directes de thème et 2 070 étapes traversées, compteur et progression sur le thème entier, écran de fin unique, reprise puis retour aux thèmes. Aucune erreur JavaScript ou requête d'écriture observée. Les numéros 01–11 rendent l'ordre éditorial conseillé visible sur les cartes et dans le titre de leçon. Le logo dans la barre latérale est conservé sur ordinateur.
 
 Le JSON des 2 134 cartes et le catalogue ont les mêmes empreintes qu'avant cet ajustement. Aucun prix, accès, texte ou aide phonétique n'est modifié. La numérotation ne constitue pas une nouvelle validation pédagogique de l'ordre des cartes.
 

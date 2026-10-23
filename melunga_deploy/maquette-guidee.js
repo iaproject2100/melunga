@@ -25,7 +25,6 @@
     selectedPhraseId: null, revealed: false, helpOpen: false, readingVisible: false,
     speechGeneration: 0, ambienceIndex: 0, lessonScope: 'sequence'
   };
-  const desktopLayout = window.matchMedia('(min-width: 761px)');
   const ambiences = ['ocean', 'aurora', 'dusk'];
   const voices = { zh: 'zh-CN', es: 'es-ES', en: 'en-GB', fr: 'fr-FR', it: 'it-IT', ko: 'ko-KR', ja: 'ja-JP' };
   const svg = paths => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + paths + '</svg>';
@@ -199,7 +198,6 @@
   }
 
   function openTheme(theme) {
-    if (!desktopLayout.matches) return showSequences(theme);
     state.theme = theme;
     // Keep the prepared groups in order, but make the whole theme one lesson.
     startSequence({
