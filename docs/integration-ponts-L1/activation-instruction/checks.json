@@ -1,0 +1,47 @@
+{
+  "baseline": "deeff45bb7054bcbe2f41f63060f0ea9f6ee8e90",
+  "authorization": "direct-owner-instruction",
+  "externalNativeEvidenceRequired": false,
+  "nativeMetadataUsedForActivation": false,
+  "sourceContentSha256": "bf22f9592adf23219d1e25f491b8cedef8bc086148e12331830b0b6404e5180c",
+  "sourceBytesChanged": false,
+  "classicAppAndScenePlayerChanged": false,
+  "enabledPairs": [
+    "fr-en",
+    "fr-es",
+    "fr-it",
+    "fr-zh",
+    "fr-ja",
+    "fr-ko",
+    "zh-fr"
+  ],
+  "releaseTestsPassed": 14,
+  "activationSubsetsComparedBetweenNodeAndPython": 128,
+  "browserReport": "tests-navigateur.json",
+  "browserScenarios": 27,
+  "sceneSequenceSteps": 448,
+  "earChecks": 84,
+  "bundleCheck": "passed: 7 pairs,49 exact phrases",
+  "netlifyBuild": {
+    "previousCommand": "python3 ../tools/pedagogy/build_l1_release.py --check",
+    "currentCommand": "node check-l1-release.cjs",
+    "pythonRequired": false,
+    "externalNodePackagesRequired": false,
+    "gitHistoryRequired": false,
+    "localCheck": "passed from site base and with script path from root and /tmp",
+    "previewStatus": "SUCCESS reported by Netlify via GitHub on a1d20dc32468687d191ef82dc5617b207ae0e1c2",
+    "previewEvidence": "apercu-netlify.json",
+    "hostedHttpCheck": "Blocked by environment HTTP policy; local browser tests remain valid."
+  },
+  "merged": false,
+  "productionDeployed": false,
+  "apkBuilt": false,
+  "checkedFilesSha256": {
+    "tools/pedagogy/build_l1_release.py": "06fa91908d4d4b9a6163ad5890b3e5110a3076b2bae6fce7033acc20efed4de3",
+    "tools/pedagogy/test_l1_release.py": "e1da9088f8baa80091594c7098567510a7dcbb7200ddae3e175a034d5177a5b2",
+    "melunga_deploy/check-l1-release.cjs": "fb3df32441f19b83a22ea0905b26f882cde05196b7f1743cdb35fcf7e6a3a7c6",
+    "melunga_deploy/netlify.toml": "19939e3b3cb35f9203ee1168a5b64d0bf9d73f0e59e18148bf299e3c7482f787",
+    "melunga_deploy/l1-cafe-release.js": "35cc663c1853bdf71f2133f10e7028bbacb045170afc129f5131587e27dc5fd0",
+    "docs/integration-ponts-L1/publication-par-langue/statut.json": "79191c67b5b19ac32ad387cc31614ceb3cd2ff29d9f38433b478ffcb6761ac6c"
+  }
+}

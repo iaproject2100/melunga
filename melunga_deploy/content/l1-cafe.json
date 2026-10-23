@@ -1,0 +1,2487 @@
+{
+  "version": 1,
+  "sourceCommit": "30e7d40a8af3f51ee186bf83f983596b8ca8798f",
+  "status": "owner-instruction-activated",
+  "nativeReviewPending": false,
+  "doesNotChangeAccess": true,
+  "sourceFilesSha256": {
+    "docs/progression-complete/l1-bridges.json": "855c969096a28791226b849fa2bde2654cc1fc5b7a241ebb3699f9e4d71858d6",
+    "docs/progression-complete/banque-phrases.json": "7ee63a793298678e9738923c2278ddfceb7009a6b2aec8039f5d6d2d135d6157",
+    "docs/progression-complete/banks/l1-bridges.json": "c9411ba7961706674e2385d3997f06bb67d981adebe45ce44f331e2e6ce582d3",
+    "melunga_deploy/content/conversation/L1-fr-en.json": "af4a52abde3257e2ee65dd0b313a293bb9dadd9947a7779448103e7aaf8aecd7",
+    "melunga_deploy/content/conversation/L1-fr-es.json": "40b3c9794273dc44e133ea0705ac36644b87abf11df34e4cdb02192ea0b5816b",
+    "melunga_deploy/content/conversation/L1-fr-it.json": "f6e7d13b1525ca6aa1fff83730ec1d6a7b22ce7aac6e3c57a290d34be40fc5c9",
+    "melunga_deploy/content/conversation/L1-fr-zh.json": "798b987d60f6a95a9e4fa869e22e8fae949d4ce62c273b887aeb95e4c4466147",
+    "melunga_deploy/content/conversation/L1-fr-ja.json": "fad1f7e9091586ddc33ccafcac9133bc31826fe1eb017eda217b0e17017ac2bc",
+    "melunga_deploy/content/conversation/L1-fr-ko.json": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+    "melunga_deploy/content/conversation/L1-zh-fr.json": "170c3a0d576edd3a619b4560040e1a346246769e66530a582ce448d0699b1753"
+  },
+  "pairs": [
+    {
+      "id": "fr-en",
+      "nativeLanguage": "fr",
+      "studyLanguage": "en",
+      "level": 1,
+      "roles": {
+        "A": "Client",
+        "B": "Serveur"
+      },
+      "learnerRole": "A",
+      "contextReader": {
+        "scene": "Au café",
+        "greeting": "Tu arrives au café et tu salues le serveur.",
+        "refusal": "Au café, le serveur te propose du lait. Tu refuses poliment."
+      },
+      "phrases": [
+        {
+          "id": "L1-fr-en.json:L1-fr-en-d1:t0",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "Hello!",
+          "native": "Bonjour !",
+          "phon": "hè-LÔ"
+        },
+        {
+          "id": "L1-fr-en.json:L1-fr-en-d1:t1",
+          "kind": "received",
+          "speaker": "B",
+          "study": "Hello. What would you like?",
+          "native": "Bonjour. Vous désirez ?",
+          "phon": "hè-LÔ. ouot would you LAÏK"
+        },
+        {
+          "id": "L1-fr-en.json:L1-fr-en-09:v0",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "One coffee, please.",
+          "native": "Un café, s'il vous plaît.",
+          "phon": "OUANN KO-fi, PLIZ"
+        },
+        {
+          "id": "L1-fr-en.json:L1-fr-en-d1:t3",
+          "kind": "received",
+          "speaker": "B",
+          "study": "With milk?",
+          "native": "Avec du lait ?",
+          "phon": "ouiz MILK"
+        },
+        {
+          "id": "L1-fr-en.json:L1-fr-en-d1:t4:refusal",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "No, thanks.",
+          "native": "Non, merci.",
+          "phon": "NÔ, THANKS."
+        },
+        {
+          "id": "L1-fr-en.json:L1-fr-en-d1:t4:price",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "How much is it?",
+          "native": "Combien ça coûte ?",
+          "phon": "HAÔ MEUTCH iz it"
+        },
+        {
+          "id": "L1-fr-en.json:L1-fr-en-d1:t5",
+          "kind": "received",
+          "speaker": "B",
+          "study": "Two pounds.",
+          "native": "Deux livres.",
+          "phon": "TOU PAÔNDZ"
+        }
+      ],
+      "bridgeUnits": [
+        {
+          "unitId": "L1-fr-en-bridge-greeting",
+          "title": "Saluer",
+          "kind": "whole-expression",
+          "contextReader": "Tu arrives au café et tu salues le serveur.",
+          "utteranceId": "L1-fr-en.json:L1-fr-en-d1:t0",
+          "sourceAccessLevel": 1,
+          "requiresNewPhonetics": false,
+          "replacementClaim": false,
+          "steps": [
+            {
+              "id": "L1-fr-en-bridge-greeting-understand",
+              "kind": "understand",
+              "utterance": "L1-fr-en.json:L1-fr-en-d1:t0",
+              "wholePhrase": true,
+              "requiresProduction": false
+            },
+            {
+              "id": "L1-fr-en-bridge-greeting-imitate",
+              "kind": "imitate",
+              "utterance": "L1-fr-en.json:L1-fr-en-d1:t0",
+              "wholePhrase": true,
+              "requiresProduction": true
+            },
+            {
+              "id": "L1-fr-en-bridge-greeting-recall",
+              "kind": "recall-whole-phrase",
+              "utterance": "L1-fr-en.json:L1-fr-en-d1:t0",
+              "hideLearnerModelOnRequest": true,
+              "canRestoreHelp": true,
+              "gradesOrUnlocks": false
+            }
+          ]
+        },
+        {
+          "unitId": "L1-fr-en-bridge-refusal",
+          "title": "Refuser poliment",
+          "kind": "whole-expression",
+          "contextReader": "Au café, le serveur te propose du lait. Tu refuses poliment.",
+          "utteranceId": "L1-fr-en.json:L1-fr-en-d1:t4:refusal",
+          "sourceAccessLevel": 1,
+          "requiresNewPhonetics": false,
+          "replacementClaim": false,
+          "steps": [
+            {
+              "id": "L1-fr-en-bridge-refusal-understand",
+              "kind": "understand",
+              "utterance": "L1-fr-en.json:L1-fr-en-d1:t4:refusal",
+              "wholePhrase": true,
+              "requiresProduction": false
+            },
+            {
+              "id": "L1-fr-en-bridge-refusal-imitate",
+              "kind": "imitate",
+              "utterance": "L1-fr-en.json:L1-fr-en-d1:t4:refusal",
+              "wholePhrase": true,
+              "requiresProduction": true
+            },
+            {
+              "id": "L1-fr-en-bridge-refusal-recall",
+              "kind": "recall-whole-phrase",
+              "utterance": "L1-fr-en.json:L1-fr-en-d1:t4:refusal",
+              "hideLearnerModelOnRequest": true,
+              "canRestoreHelp": true,
+              "gradesOrUnlocks": false
+            }
+          ]
+        }
+      ],
+      "preparation": [
+        {
+          "id": "L1-fr-en-cafe-prepare-prepare-greeting",
+          "kind": "understand",
+          "utterance": "L1-fr-en.json:L1-fr-en-d1:t0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-en-cafe-prepare-prepare-greeting-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-en.json:L1-fr-en-d1:t0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-en-cafe-prepare-prepare-welcome",
+          "kind": "receive",
+          "utterance": "L1-fr-en.json:L1-fr-en-d1:t1",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-en-cafe-prepare-prepare-order",
+          "kind": "understand",
+          "utterance": "L1-fr-en.json:L1-fr-en-09:v0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-en-cafe-prepare-prepare-order-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-en.json:L1-fr-en-09:v0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-en-cafe-prepare-prepare-milk",
+          "kind": "receive",
+          "utterance": "L1-fr-en.json:L1-fr-en-d1:t3",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-en-cafe-prepare-prepare-refusal",
+          "kind": "understand",
+          "utterance": "L1-fr-en.json:L1-fr-en-d1:t4:refusal",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-en-cafe-prepare-prepare-refusal-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-en.json:L1-fr-en-d1:t4:refusal",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-en-cafe-prepare-prepare-price",
+          "kind": "understand",
+          "utterance": "L1-fr-en.json:L1-fr-en-d1:t4:price",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-en-cafe-prepare-prepare-price-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-en.json:L1-fr-en-d1:t4:price",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-en-cafe-prepare-prepare-amount",
+          "kind": "receive",
+          "utterance": "L1-fr-en.json:L1-fr-en-d1:t5",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        }
+      ],
+      "steps": [
+        {
+          "kind": "listen-whole-dialogue",
+          "turns": [
+            "L1-fr-en.json:L1-fr-en-d1:t0",
+            "L1-fr-en.json:L1-fr-en-d1:t1",
+            "L1-fr-en.json:L1-fr-en-09:v0",
+            "L1-fr-en.json:L1-fr-en-d1:t3",
+            "L1-fr-en.json:L1-fr-en-d1:t4:refusal",
+            "L1-fr-en.json:L1-fr-en-d1:t4:price",
+            "L1-fr-en.json:L1-fr-en-d1:t5"
+          ],
+          "learnerRole": "A"
+        },
+        {
+          "kind": "reply-with-help",
+          "turns": [
+            "L1-fr-en.json:L1-fr-en-d1:t0",
+            "L1-fr-en.json:L1-fr-en-d1:t1",
+            "L1-fr-en.json:L1-fr-en-09:v0",
+            "L1-fr-en.json:L1-fr-en-d1:t3",
+            "L1-fr-en.json:L1-fr-en-d1:t4:refusal",
+            "L1-fr-en.json:L1-fr-en-d1:t4:price",
+            "L1-fr-en.json:L1-fr-en-d1:t5"
+          ],
+          "learnerRole": "A"
+        },
+        {
+          "kind": "reply-without-model",
+          "turns": [
+            "L1-fr-en.json:L1-fr-en-d1:t0",
+            "L1-fr-en.json:L1-fr-en-d1:t1",
+            "L1-fr-en.json:L1-fr-en-09:v0",
+            "L1-fr-en.json:L1-fr-en-d1:t3",
+            "L1-fr-en.json:L1-fr-en-d1:t4:refusal",
+            "L1-fr-en.json:L1-fr-en-d1:t4:price",
+            "L1-fr-en.json:L1-fr-en-d1:t5"
+          ],
+          "learnerRole": "A",
+          "receivedRemainVisible": true,
+          "canRestoreHelp": true
+        }
+      ],
+      "received": [
+        {
+          "utteranceId": "L1-fr-en.json:L1-fr-en-d1:t1",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-en-d1",
+            "turnIndex": 1,
+            "learnerRole": "A",
+            "expectedStudy": "Hello. What would you like?"
+          },
+          "introducedInStep": "L1-fr-en-cafe-prepare-prepare-welcome",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": true,
+          "answerWith": [
+            {
+              "utteranceId": "L1-fr-en.json:L1-fr-en-09:v0",
+              "expectedStudy": "One coffee, please.",
+              "preparedInStep": "L1-fr-en-cafe-prepare-prepare-order"
+            }
+          ]
+        },
+        {
+          "utteranceId": "L1-fr-en.json:L1-fr-en-d1:t3",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-en-d1",
+            "turnIndex": 3,
+            "learnerRole": "A",
+            "expectedStudy": "With milk?"
+          },
+          "introducedInStep": "L1-fr-en-cafe-prepare-prepare-milk",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": true,
+          "answerWith": [
+            {
+              "utteranceId": "L1-fr-en.json:L1-fr-en-d1:t4:refusal",
+              "expectedStudy": "No, thanks.",
+              "preparedInStep": "L1-fr-en-cafe-prepare-prepare-refusal"
+            }
+          ]
+        },
+        {
+          "utteranceId": "L1-fr-en.json:L1-fr-en-d1:t5",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-en-d1",
+            "turnIndex": 5,
+            "learnerRole": "A",
+            "expectedStudy": "Two pounds."
+          },
+          "introducedInStep": "L1-fr-en-cafe-prepare-prepare-amount",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": false,
+          "answerWith": []
+        }
+      ],
+      "nativeReview": {
+        "status": "pending",
+        "productionApproved": false,
+        "checks": [
+          "Detached refusal remains polite in the café context",
+          "Whole scene naturalness and intonation"
+        ]
+      },
+      "sourceDialogueId": "L1-fr-en-d1",
+      "dialogueId": "L1-fr-en-cafe-prepare"
+    },
+    {
+      "id": "fr-es",
+      "nativeLanguage": "fr",
+      "studyLanguage": "es",
+      "level": 1,
+      "roles": {
+        "A": "Client",
+        "B": "Serveur"
+      },
+      "learnerRole": "A",
+      "contextReader": {
+        "scene": "Au café",
+        "greeting": "Tu arrives au café et tu salues le serveur.",
+        "refusal": "Au café, le serveur te propose du lait. Tu refuses poliment."
+      },
+      "phrases": [
+        {
+          "id": "L1-fr-es.json:L1-fr-es-d1:t0",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "¡Hola!",
+          "native": "Bonjour !",
+          "phon": "O-la"
+        },
+        {
+          "id": "L1-fr-es.json:L1-fr-es-d1:t1",
+          "kind": "received",
+          "speaker": "B",
+          "study": "Hola. ¿Qué desea?",
+          "native": "Bonjour. Vous désirez ?",
+          "phon": "O-la. ké dé-SSÉ-a"
+        },
+        {
+          "id": "L1-fr-es.json:L1-fr-es-09:v0",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "Un café, por favor.",
+          "native": "Un café, s'il vous plaît.",
+          "phon": "oun ka-FÉ, por fa-BOR"
+        },
+        {
+          "id": "L1-fr-es.json:L1-fr-es-d1:t3",
+          "kind": "received",
+          "speaker": "B",
+          "study": "¿Con leche?",
+          "native": "Avec du lait ?",
+          "phon": "kon LÉ-tché"
+        },
+        {
+          "id": "L1-fr-es.json:L1-fr-es-d1:t4:refusal",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "No, gracias.",
+          "native": "Non, merci.",
+          "phon": "no, GRA-ssias."
+        },
+        {
+          "id": "L1-fr-es.json:L1-fr-es-d1:t4:price",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "¿Cuánto cuesta?",
+          "native": "Combien ça coûte ?",
+          "phon": "KOUAN-to KOUÉS-ta"
+        },
+        {
+          "id": "L1-fr-es.json:L1-fr-es-d1:t5",
+          "kind": "received",
+          "speaker": "B",
+          "study": "Dos euros.",
+          "native": "Deux euros.",
+          "phon": "dos É-ou-ros"
+        }
+      ],
+      "bridgeUnits": [
+        {
+          "unitId": "L1-fr-es-bridge-greeting",
+          "title": "Saluer",
+          "kind": "whole-expression",
+          "contextReader": "Tu arrives au café et tu salues le serveur.",
+          "utteranceId": "L1-fr-es.json:L1-fr-es-d1:t0",
+          "sourceAccessLevel": 1,
+          "requiresNewPhonetics": false,
+          "replacementClaim": false,
+          "steps": [
+            {
+              "id": "L1-fr-es-bridge-greeting-understand",
+              "kind": "understand",
+              "utterance": "L1-fr-es.json:L1-fr-es-d1:t0",
+              "wholePhrase": true,
+              "requiresProduction": false
+            },
+            {
+              "id": "L1-fr-es-bridge-greeting-imitate",
+              "kind": "imitate",
+              "utterance": "L1-fr-es.json:L1-fr-es-d1:t0",
+              "wholePhrase": true,
+              "requiresProduction": true
+            },
+            {
+              "id": "L1-fr-es-bridge-greeting-recall",
+              "kind": "recall-whole-phrase",
+              "utterance": "L1-fr-es.json:L1-fr-es-d1:t0",
+              "hideLearnerModelOnRequest": true,
+              "canRestoreHelp": true,
+              "gradesOrUnlocks": false
+            }
+          ]
+        },
+        {
+          "unitId": "L1-fr-es-bridge-refusal",
+          "title": "Refuser poliment",
+          "kind": "whole-expression",
+          "contextReader": "Au café, le serveur te propose du lait. Tu refuses poliment.",
+          "utteranceId": "L1-fr-es.json:L1-fr-es-d1:t4:refusal",
+          "sourceAccessLevel": 1,
+          "requiresNewPhonetics": false,
+          "replacementClaim": false,
+          "steps": [
+            {
+              "id": "L1-fr-es-bridge-refusal-understand",
+              "kind": "understand",
+              "utterance": "L1-fr-es.json:L1-fr-es-d1:t4:refusal",
+              "wholePhrase": true,
+              "requiresProduction": false
+            },
+            {
+              "id": "L1-fr-es-bridge-refusal-imitate",
+              "kind": "imitate",
+              "utterance": "L1-fr-es.json:L1-fr-es-d1:t4:refusal",
+              "wholePhrase": true,
+              "requiresProduction": true
+            },
+            {
+              "id": "L1-fr-es-bridge-refusal-recall",
+              "kind": "recall-whole-phrase",
+              "utterance": "L1-fr-es.json:L1-fr-es-d1:t4:refusal",
+              "hideLearnerModelOnRequest": true,
+              "canRestoreHelp": true,
+              "gradesOrUnlocks": false
+            }
+          ]
+        }
+      ],
+      "preparation": [
+        {
+          "id": "L1-fr-es-cafe-prepare-prepare-greeting",
+          "kind": "understand",
+          "utterance": "L1-fr-es.json:L1-fr-es-d1:t0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-es-cafe-prepare-prepare-greeting-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-es.json:L1-fr-es-d1:t0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-es-cafe-prepare-prepare-welcome",
+          "kind": "receive",
+          "utterance": "L1-fr-es.json:L1-fr-es-d1:t1",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-es-cafe-prepare-prepare-order",
+          "kind": "understand",
+          "utterance": "L1-fr-es.json:L1-fr-es-09:v0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-es-cafe-prepare-prepare-order-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-es.json:L1-fr-es-09:v0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-es-cafe-prepare-prepare-milk",
+          "kind": "receive",
+          "utterance": "L1-fr-es.json:L1-fr-es-d1:t3",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-es-cafe-prepare-prepare-refusal",
+          "kind": "understand",
+          "utterance": "L1-fr-es.json:L1-fr-es-d1:t4:refusal",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-es-cafe-prepare-prepare-refusal-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-es.json:L1-fr-es-d1:t4:refusal",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-es-cafe-prepare-prepare-price",
+          "kind": "understand",
+          "utterance": "L1-fr-es.json:L1-fr-es-d1:t4:price",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-es-cafe-prepare-prepare-price-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-es.json:L1-fr-es-d1:t4:price",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-es-cafe-prepare-prepare-amount",
+          "kind": "receive",
+          "utterance": "L1-fr-es.json:L1-fr-es-d1:t5",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        }
+      ],
+      "steps": [
+        {
+          "kind": "listen-whole-dialogue",
+          "turns": [
+            "L1-fr-es.json:L1-fr-es-d1:t0",
+            "L1-fr-es.json:L1-fr-es-d1:t1",
+            "L1-fr-es.json:L1-fr-es-09:v0",
+            "L1-fr-es.json:L1-fr-es-d1:t3",
+            "L1-fr-es.json:L1-fr-es-d1:t4:refusal",
+            "L1-fr-es.json:L1-fr-es-d1:t4:price",
+            "L1-fr-es.json:L1-fr-es-d1:t5"
+          ],
+          "learnerRole": "A"
+        },
+        {
+          "kind": "reply-with-help",
+          "turns": [
+            "L1-fr-es.json:L1-fr-es-d1:t0",
+            "L1-fr-es.json:L1-fr-es-d1:t1",
+            "L1-fr-es.json:L1-fr-es-09:v0",
+            "L1-fr-es.json:L1-fr-es-d1:t3",
+            "L1-fr-es.json:L1-fr-es-d1:t4:refusal",
+            "L1-fr-es.json:L1-fr-es-d1:t4:price",
+            "L1-fr-es.json:L1-fr-es-d1:t5"
+          ],
+          "learnerRole": "A"
+        },
+        {
+          "kind": "reply-without-model",
+          "turns": [
+            "L1-fr-es.json:L1-fr-es-d1:t0",
+            "L1-fr-es.json:L1-fr-es-d1:t1",
+            "L1-fr-es.json:L1-fr-es-09:v0",
+            "L1-fr-es.json:L1-fr-es-d1:t3",
+            "L1-fr-es.json:L1-fr-es-d1:t4:refusal",
+            "L1-fr-es.json:L1-fr-es-d1:t4:price",
+            "L1-fr-es.json:L1-fr-es-d1:t5"
+          ],
+          "learnerRole": "A",
+          "receivedRemainVisible": true,
+          "canRestoreHelp": true
+        }
+      ],
+      "received": [
+        {
+          "utteranceId": "L1-fr-es.json:L1-fr-es-d1:t1",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-es-d1",
+            "turnIndex": 1,
+            "learnerRole": "A",
+            "expectedStudy": "Hola. ¿Qué desea?"
+          },
+          "introducedInStep": "L1-fr-es-cafe-prepare-prepare-welcome",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": true,
+          "answerWith": [
+            {
+              "utteranceId": "L1-fr-es.json:L1-fr-es-09:v0",
+              "expectedStudy": "Un café, por favor.",
+              "preparedInStep": "L1-fr-es-cafe-prepare-prepare-order"
+            }
+          ]
+        },
+        {
+          "utteranceId": "L1-fr-es.json:L1-fr-es-d1:t3",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-es-d1",
+            "turnIndex": 3,
+            "learnerRole": "A",
+            "expectedStudy": "¿Con leche?"
+          },
+          "introducedInStep": "L1-fr-es-cafe-prepare-prepare-milk",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": true,
+          "answerWith": [
+            {
+              "utteranceId": "L1-fr-es.json:L1-fr-es-d1:t4:refusal",
+              "expectedStudy": "No, gracias.",
+              "preparedInStep": "L1-fr-es-cafe-prepare-prepare-refusal"
+            }
+          ]
+        },
+        {
+          "utteranceId": "L1-fr-es.json:L1-fr-es-d1:t5",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-es-d1",
+            "turnIndex": 5,
+            "learnerRole": "A",
+            "expectedStudy": "Dos euros."
+          },
+          "introducedInStep": "L1-fr-es-cafe-prepare-prepare-amount",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": false,
+          "answerWith": []
+        }
+      ],
+      "nativeReview": {
+        "status": "pending",
+        "productionApproved": false,
+        "checks": [
+          "Detached refusal remains polite in the café context",
+          "Whole scene naturalness and intonation"
+        ]
+      },
+      "sourceDialogueId": "L1-fr-es-d1",
+      "dialogueId": "L1-fr-es-cafe-prepare"
+    },
+    {
+      "id": "fr-it",
+      "nativeLanguage": "fr",
+      "studyLanguage": "it",
+      "level": 1,
+      "roles": {
+        "A": "Client",
+        "B": "Serveur"
+      },
+      "learnerRole": "A",
+      "contextReader": {
+        "scene": "Au café",
+        "greeting": "Tu arrives au café et tu salues le serveur.",
+        "refusal": "Au café, le serveur te propose du lait. Tu refuses poliment."
+      },
+      "phrases": [
+        {
+          "id": "L1-fr-it.json:L1-fr-it-d1:t0",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "Buongiorno!",
+          "native": "Bonjour !",
+          "phon": "bouon-DJOR-no"
+        },
+        {
+          "id": "L1-fr-it.json:L1-fr-it-d1:t1",
+          "kind": "received",
+          "speaker": "B",
+          "study": "Buongiorno. Cosa desidera?",
+          "native": "Bonjour. Vous désirez ?",
+          "phon": "bouon-DJOR-no. KO-za dé-ZI-dé-ra"
+        },
+        {
+          "id": "L1-fr-it.json:L1-fr-it-09:v0",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "Un caffè, per favore.",
+          "native": "Un café, s'il vous plaît.",
+          "phon": "oun kaf-FÈ, pér fa-VO-ré"
+        },
+        {
+          "id": "L1-fr-it.json:L1-fr-it-d1:t3",
+          "kind": "received",
+          "speaker": "B",
+          "study": "Con latte?",
+          "native": "Avec du lait ?",
+          "phon": "kon LAT-té"
+        },
+        {
+          "id": "L1-fr-it.json:L1-fr-it-d1:t4:refusal",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "No, grazie.",
+          "native": "Non, merci.",
+          "phon": "no, GRA-tsié."
+        },
+        {
+          "id": "L1-fr-it.json:L1-fr-it-d1:t4:price",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "Quanto costa?",
+          "native": "Combien ça coûte ?",
+          "phon": "KOUAN-to KOS-ta"
+        },
+        {
+          "id": "L1-fr-it.json:L1-fr-it-d1:t5",
+          "kind": "received",
+          "speaker": "B",
+          "study": "Due euro.",
+          "native": "Deux euros.",
+          "phon": "DOU-é È-ou-ro"
+        }
+      ],
+      "bridgeUnits": [
+        {
+          "unitId": "L1-fr-it-bridge-greeting",
+          "title": "Saluer",
+          "kind": "whole-expression",
+          "contextReader": "Tu arrives au café et tu salues le serveur.",
+          "utteranceId": "L1-fr-it.json:L1-fr-it-d1:t0",
+          "sourceAccessLevel": 1,
+          "requiresNewPhonetics": false,
+          "replacementClaim": false,
+          "steps": [
+            {
+              "id": "L1-fr-it-bridge-greeting-understand",
+              "kind": "understand",
+              "utterance": "L1-fr-it.json:L1-fr-it-d1:t0",
+              "wholePhrase": true,
+              "requiresProduction": false
+            },
+            {
+              "id": "L1-fr-it-bridge-greeting-imitate",
+              "kind": "imitate",
+              "utterance": "L1-fr-it.json:L1-fr-it-d1:t0",
+              "wholePhrase": true,
+              "requiresProduction": true
+            },
+            {
+              "id": "L1-fr-it-bridge-greeting-recall",
+              "kind": "recall-whole-phrase",
+              "utterance": "L1-fr-it.json:L1-fr-it-d1:t0",
+              "hideLearnerModelOnRequest": true,
+              "canRestoreHelp": true,
+              "gradesOrUnlocks": false
+            }
+          ]
+        },
+        {
+          "unitId": "L1-fr-it-bridge-refusal",
+          "title": "Refuser poliment",
+          "kind": "whole-expression",
+          "contextReader": "Au café, le serveur te propose du lait. Tu refuses poliment.",
+          "utteranceId": "L1-fr-it.json:L1-fr-it-d1:t4:refusal",
+          "sourceAccessLevel": 1,
+          "requiresNewPhonetics": false,
+          "replacementClaim": false,
+          "steps": [
+            {
+              "id": "L1-fr-it-bridge-refusal-understand",
+              "kind": "understand",
+              "utterance": "L1-fr-it.json:L1-fr-it-d1:t4:refusal",
+              "wholePhrase": true,
+              "requiresProduction": false
+            },
+            {
+              "id": "L1-fr-it-bridge-refusal-imitate",
+              "kind": "imitate",
+              "utterance": "L1-fr-it.json:L1-fr-it-d1:t4:refusal",
+              "wholePhrase": true,
+              "requiresProduction": true
+            },
+            {
+              "id": "L1-fr-it-bridge-refusal-recall",
+              "kind": "recall-whole-phrase",
+              "utterance": "L1-fr-it.json:L1-fr-it-d1:t4:refusal",
+              "hideLearnerModelOnRequest": true,
+              "canRestoreHelp": true,
+              "gradesOrUnlocks": false
+            }
+          ]
+        }
+      ],
+      "preparation": [
+        {
+          "id": "L1-fr-it-cafe-prepare-prepare-greeting",
+          "kind": "understand",
+          "utterance": "L1-fr-it.json:L1-fr-it-d1:t0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-it-cafe-prepare-prepare-greeting-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-it.json:L1-fr-it-d1:t0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-it-cafe-prepare-prepare-welcome",
+          "kind": "receive",
+          "utterance": "L1-fr-it.json:L1-fr-it-d1:t1",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-it-cafe-prepare-prepare-order",
+          "kind": "understand",
+          "utterance": "L1-fr-it.json:L1-fr-it-09:v0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-it-cafe-prepare-prepare-order-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-it.json:L1-fr-it-09:v0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-it-cafe-prepare-prepare-milk",
+          "kind": "receive",
+          "utterance": "L1-fr-it.json:L1-fr-it-d1:t3",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-it-cafe-prepare-prepare-refusal",
+          "kind": "understand",
+          "utterance": "L1-fr-it.json:L1-fr-it-d1:t4:refusal",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-it-cafe-prepare-prepare-refusal-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-it.json:L1-fr-it-d1:t4:refusal",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-it-cafe-prepare-prepare-price",
+          "kind": "understand",
+          "utterance": "L1-fr-it.json:L1-fr-it-d1:t4:price",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-it-cafe-prepare-prepare-price-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-it.json:L1-fr-it-d1:t4:price",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-it-cafe-prepare-prepare-amount",
+          "kind": "receive",
+          "utterance": "L1-fr-it.json:L1-fr-it-d1:t5",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        }
+      ],
+      "steps": [
+        {
+          "kind": "listen-whole-dialogue",
+          "turns": [
+            "L1-fr-it.json:L1-fr-it-d1:t0",
+            "L1-fr-it.json:L1-fr-it-d1:t1",
+            "L1-fr-it.json:L1-fr-it-09:v0",
+            "L1-fr-it.json:L1-fr-it-d1:t3",
+            "L1-fr-it.json:L1-fr-it-d1:t4:refusal",
+            "L1-fr-it.json:L1-fr-it-d1:t4:price",
+            "L1-fr-it.json:L1-fr-it-d1:t5"
+          ],
+          "learnerRole": "A"
+        },
+        {
+          "kind": "reply-with-help",
+          "turns": [
+            "L1-fr-it.json:L1-fr-it-d1:t0",
+            "L1-fr-it.json:L1-fr-it-d1:t1",
+            "L1-fr-it.json:L1-fr-it-09:v0",
+            "L1-fr-it.json:L1-fr-it-d1:t3",
+            "L1-fr-it.json:L1-fr-it-d1:t4:refusal",
+            "L1-fr-it.json:L1-fr-it-d1:t4:price",
+            "L1-fr-it.json:L1-fr-it-d1:t5"
+          ],
+          "learnerRole": "A"
+        },
+        {
+          "kind": "reply-without-model",
+          "turns": [
+            "L1-fr-it.json:L1-fr-it-d1:t0",
+            "L1-fr-it.json:L1-fr-it-d1:t1",
+            "L1-fr-it.json:L1-fr-it-09:v0",
+            "L1-fr-it.json:L1-fr-it-d1:t3",
+            "L1-fr-it.json:L1-fr-it-d1:t4:refusal",
+            "L1-fr-it.json:L1-fr-it-d1:t4:price",
+            "L1-fr-it.json:L1-fr-it-d1:t5"
+          ],
+          "learnerRole": "A",
+          "receivedRemainVisible": true,
+          "canRestoreHelp": true
+        }
+      ],
+      "received": [
+        {
+          "utteranceId": "L1-fr-it.json:L1-fr-it-d1:t1",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-it-d1",
+            "turnIndex": 1,
+            "learnerRole": "A",
+            "expectedStudy": "Buongiorno. Cosa desidera?"
+          },
+          "introducedInStep": "L1-fr-it-cafe-prepare-prepare-welcome",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": true,
+          "answerWith": [
+            {
+              "utteranceId": "L1-fr-it.json:L1-fr-it-09:v0",
+              "expectedStudy": "Un caffè, per favore.",
+              "preparedInStep": "L1-fr-it-cafe-prepare-prepare-order"
+            }
+          ]
+        },
+        {
+          "utteranceId": "L1-fr-it.json:L1-fr-it-d1:t3",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-it-d1",
+            "turnIndex": 3,
+            "learnerRole": "A",
+            "expectedStudy": "Con latte?"
+          },
+          "introducedInStep": "L1-fr-it-cafe-prepare-prepare-milk",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": true,
+          "answerWith": [
+            {
+              "utteranceId": "L1-fr-it.json:L1-fr-it-d1:t4:refusal",
+              "expectedStudy": "No, grazie.",
+              "preparedInStep": "L1-fr-it-cafe-prepare-prepare-refusal"
+            }
+          ]
+        },
+        {
+          "utteranceId": "L1-fr-it.json:L1-fr-it-d1:t5",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-it-d1",
+            "turnIndex": 5,
+            "learnerRole": "A",
+            "expectedStudy": "Due euro."
+          },
+          "introducedInStep": "L1-fr-it-cafe-prepare-prepare-amount",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": false,
+          "answerWith": []
+        }
+      ],
+      "nativeReview": {
+        "status": "pending",
+        "productionApproved": false,
+        "checks": [
+          "Detached refusal remains polite in the café context",
+          "Whole scene naturalness and intonation"
+        ]
+      },
+      "sourceDialogueId": "L1-fr-it-d1",
+      "dialogueId": "L1-fr-it-cafe-prepare"
+    },
+    {
+      "id": "fr-zh",
+      "nativeLanguage": "fr",
+      "studyLanguage": "zh",
+      "level": 1,
+      "roles": {
+        "A": "Client",
+        "B": "Serveur"
+      },
+      "learnerRole": "A",
+      "contextReader": {
+        "scene": "Au café",
+        "greeting": "Tu arrives au café et tu salues le serveur.",
+        "refusal": "Au café, le serveur te propose du lait. Tu refuses poliment."
+      },
+      "phrases": [
+        {
+          "id": "L1-fr-zh.json:L1-fr-zh-d1:t0",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "你好！",
+          "native": "Bonjour !",
+          "reading": "nǐ hǎo!",
+          "phon": "ni hao !"
+        },
+        {
+          "id": "L1-fr-zh.json:L1-fr-zh-d1:t1",
+          "kind": "received",
+          "speaker": "B",
+          "study": "你好。您要什么？",
+          "native": "Bonjour. Vous désirez ?",
+          "reading": "nǐ hǎo. nín yào shénme?",
+          "phon": "ni hao. ninn yao cheun-meu ?"
+        },
+        {
+          "id": "L1-fr-zh.json:L1-fr-zh-09:v0",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "请给我一杯咖啡。",
+          "native": "Un café, s'il vous plaît.",
+          "phon": "tching gueï ouo i peï ka-feï",
+          "reading": "qǐng gěi wǒ yì bēi kāfēi."
+        },
+        {
+          "id": "L1-fr-zh.json:L1-fr-zh-d1:t3",
+          "kind": "received",
+          "speaker": "B",
+          "study": "加牛奶吗？",
+          "native": "Avec du lait ?",
+          "reading": "jiā niúnǎi ma?",
+          "phon": "tia niou-naï ma ?"
+        },
+        {
+          "id": "L1-fr-zh.json:L1-fr-zh-d1:t4:refusal",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "不用，谢谢。",
+          "native": "Non, merci.",
+          "reading": "búyòng, xièxie.",
+          "phon": "pou-yong, sié-sié."
+        },
+        {
+          "id": "L1-fr-zh.json:L1-fr-zh-d1:t4:price",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "多少钱？",
+          "native": "Combien ça coûte ?",
+          "reading": "duōshao qián?",
+          "phon": "douo-chao tchyèn ?"
+        },
+        {
+          "id": "L1-fr-zh.json:L1-fr-zh-d1:t5",
+          "kind": "received",
+          "speaker": "B",
+          "study": "二十块。",
+          "native": "Vingt yuans.",
+          "reading": "èrshí kuài.",
+          "phon": "eur-chr kouaï"
+        }
+      ],
+      "bridgeUnits": [
+        {
+          "unitId": "L1-fr-zh-bridge-greeting",
+          "title": "Saluer",
+          "kind": "whole-expression",
+          "contextReader": "Tu arrives au café et tu salues le serveur.",
+          "utteranceId": "L1-fr-zh.json:L1-fr-zh-d1:t0",
+          "sourceAccessLevel": 1,
+          "requiresNewPhonetics": false,
+          "replacementClaim": false,
+          "steps": [
+            {
+              "id": "L1-fr-zh-bridge-greeting-understand",
+              "kind": "understand",
+              "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t0",
+              "wholePhrase": true,
+              "requiresProduction": false
+            },
+            {
+              "id": "L1-fr-zh-bridge-greeting-imitate",
+              "kind": "imitate",
+              "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t0",
+              "wholePhrase": true,
+              "requiresProduction": true
+            },
+            {
+              "id": "L1-fr-zh-bridge-greeting-recall",
+              "kind": "recall-whole-phrase",
+              "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t0",
+              "hideLearnerModelOnRequest": true,
+              "canRestoreHelp": true,
+              "gradesOrUnlocks": false
+            }
+          ]
+        },
+        {
+          "unitId": "L1-fr-zh-bridge-refusal",
+          "title": "Refuser poliment",
+          "kind": "whole-expression",
+          "contextReader": "Au café, le serveur te propose du lait. Tu refuses poliment.",
+          "utteranceId": "L1-fr-zh.json:L1-fr-zh-d1:t4:refusal",
+          "sourceAccessLevel": 1,
+          "requiresNewPhonetics": false,
+          "replacementClaim": false,
+          "steps": [
+            {
+              "id": "L1-fr-zh-bridge-refusal-understand",
+              "kind": "understand",
+              "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t4:refusal",
+              "wholePhrase": true,
+              "requiresProduction": false
+            },
+            {
+              "id": "L1-fr-zh-bridge-refusal-imitate",
+              "kind": "imitate",
+              "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t4:refusal",
+              "wholePhrase": true,
+              "requiresProduction": true
+            },
+            {
+              "id": "L1-fr-zh-bridge-refusal-recall",
+              "kind": "recall-whole-phrase",
+              "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t4:refusal",
+              "hideLearnerModelOnRequest": true,
+              "canRestoreHelp": true,
+              "gradesOrUnlocks": false
+            }
+          ]
+        }
+      ],
+      "preparation": [
+        {
+          "id": "L1-fr-zh-cafe-prepare-prepare-greeting",
+          "kind": "understand",
+          "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-zh-cafe-prepare-prepare-greeting-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-zh-cafe-prepare-prepare-welcome",
+          "kind": "receive",
+          "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t1",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-zh-cafe-prepare-prepare-order",
+          "kind": "understand",
+          "utterance": "L1-fr-zh.json:L1-fr-zh-09:v0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-zh-cafe-prepare-prepare-order-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-zh.json:L1-fr-zh-09:v0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-zh-cafe-prepare-prepare-milk",
+          "kind": "receive",
+          "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t3",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-zh-cafe-prepare-prepare-refusal",
+          "kind": "understand",
+          "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t4:refusal",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-zh-cafe-prepare-prepare-refusal-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t4:refusal",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-zh-cafe-prepare-prepare-price",
+          "kind": "understand",
+          "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t4:price",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-zh-cafe-prepare-prepare-price-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t4:price",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-zh-cafe-prepare-prepare-amount",
+          "kind": "receive",
+          "utterance": "L1-fr-zh.json:L1-fr-zh-d1:t5",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        }
+      ],
+      "steps": [
+        {
+          "kind": "listen-whole-dialogue",
+          "turns": [
+            "L1-fr-zh.json:L1-fr-zh-d1:t0",
+            "L1-fr-zh.json:L1-fr-zh-d1:t1",
+            "L1-fr-zh.json:L1-fr-zh-09:v0",
+            "L1-fr-zh.json:L1-fr-zh-d1:t3",
+            "L1-fr-zh.json:L1-fr-zh-d1:t4:refusal",
+            "L1-fr-zh.json:L1-fr-zh-d1:t4:price",
+            "L1-fr-zh.json:L1-fr-zh-d1:t5"
+          ],
+          "learnerRole": "A"
+        },
+        {
+          "kind": "reply-with-help",
+          "turns": [
+            "L1-fr-zh.json:L1-fr-zh-d1:t0",
+            "L1-fr-zh.json:L1-fr-zh-d1:t1",
+            "L1-fr-zh.json:L1-fr-zh-09:v0",
+            "L1-fr-zh.json:L1-fr-zh-d1:t3",
+            "L1-fr-zh.json:L1-fr-zh-d1:t4:refusal",
+            "L1-fr-zh.json:L1-fr-zh-d1:t4:price",
+            "L1-fr-zh.json:L1-fr-zh-d1:t5"
+          ],
+          "learnerRole": "A"
+        },
+        {
+          "kind": "reply-without-model",
+          "turns": [
+            "L1-fr-zh.json:L1-fr-zh-d1:t0",
+            "L1-fr-zh.json:L1-fr-zh-d1:t1",
+            "L1-fr-zh.json:L1-fr-zh-09:v0",
+            "L1-fr-zh.json:L1-fr-zh-d1:t3",
+            "L1-fr-zh.json:L1-fr-zh-d1:t4:refusal",
+            "L1-fr-zh.json:L1-fr-zh-d1:t4:price",
+            "L1-fr-zh.json:L1-fr-zh-d1:t5"
+          ],
+          "learnerRole": "A",
+          "receivedRemainVisible": true,
+          "canRestoreHelp": true
+        }
+      ],
+      "received": [
+        {
+          "utteranceId": "L1-fr-zh.json:L1-fr-zh-d1:t1",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-zh-d1",
+            "turnIndex": 1,
+            "learnerRole": "A",
+            "expectedStudy": "你好。您要什么？"
+          },
+          "introducedInStep": "L1-fr-zh-cafe-prepare-prepare-welcome",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": true,
+          "answerWith": [
+            {
+              "utteranceId": "L1-fr-zh.json:L1-fr-zh-09:v0",
+              "expectedStudy": "请给我一杯咖啡。",
+              "preparedInStep": "L1-fr-zh-cafe-prepare-prepare-order"
+            }
+          ]
+        },
+        {
+          "utteranceId": "L1-fr-zh.json:L1-fr-zh-d1:t3",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-zh-d1",
+            "turnIndex": 3,
+            "learnerRole": "A",
+            "expectedStudy": "加牛奶吗？"
+          },
+          "introducedInStep": "L1-fr-zh-cafe-prepare-prepare-milk",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": true,
+          "answerWith": [
+            {
+              "utteranceId": "L1-fr-zh.json:L1-fr-zh-d1:t4:refusal",
+              "expectedStudy": "不用，谢谢。",
+              "preparedInStep": "L1-fr-zh-cafe-prepare-prepare-refusal"
+            }
+          ]
+        },
+        {
+          "utteranceId": "L1-fr-zh.json:L1-fr-zh-d1:t5",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-zh-d1",
+            "turnIndex": 5,
+            "learnerRole": "A",
+            "expectedStudy": "二十块。"
+          },
+          "introducedInStep": "L1-fr-zh-cafe-prepare-prepare-amount",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": false,
+          "answerWith": []
+        }
+      ],
+      "nativeReview": {
+        "status": "pending",
+        "productionApproved": false,
+        "checks": [
+          "Detached refusal remains polite in the café context",
+          "Whole scene naturalness and intonation"
+        ]
+      },
+      "sourceDialogueId": "L1-fr-zh-d1",
+      "dialogueId": "L1-fr-zh-cafe-prepare"
+    },
+    {
+      "id": "fr-ja",
+      "nativeLanguage": "fr",
+      "studyLanguage": "ja",
+      "level": 1,
+      "roles": {
+        "A": "Client",
+        "B": "Serveur"
+      },
+      "learnerRole": "A",
+      "contextReader": {
+        "scene": "Au café",
+        "greeting": "Tu arrives au café et tu salues le serveur.",
+        "refusal": "Au café, le serveur te propose du lait. Tu refuses poliment."
+      },
+      "phrases": [
+        {
+          "id": "L1-fr-ja.json:L1-fr-ja-d1:t0",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "こんにちは！",
+          "native": "Bonjour !",
+          "reading": "こんにちは！",
+          "phon": "kon-ni-tchi-wa"
+        },
+        {
+          "id": "L1-fr-ja.json:L1-fr-ja-d1:t1",
+          "kind": "received",
+          "speaker": "B",
+          "study": "こんにちは。ご注文は？",
+          "native": "Bonjour. Vous désirez ?",
+          "reading": "こんにちは。ごちゅうもんは？",
+          "phon": "kon-ni-tchi-wa. go-tchou-ou-mon wa"
+        },
+        {
+          "id": "L1-fr-ja.json:L1-fr-ja-09:v0",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "コーヒーをお願いします。",
+          "native": "Un café, s'il vous plaît.",
+          "phon": "ko-o-hi-i o o-né-ga-i chi-ma-sou",
+          "reading": "こーひーをおねがいします。"
+        },
+        {
+          "id": "L1-fr-ja.json:L1-fr-ja-d1:t3",
+          "kind": "received",
+          "speaker": "B",
+          "study": "ミルクは？",
+          "native": "Avec du lait ?",
+          "reading": "みるくは？",
+          "phon": "mi-rou-kou wa"
+        },
+        {
+          "id": "L1-fr-ja.json:L1-fr-ja-d1:t4:refusal",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "いいえ、結構です。",
+          "native": "Non, merci.",
+          "reading": "いいえ、けっこうです。",
+          "phon": "i-i-é, kek-ko-o dé-sou."
+        },
+        {
+          "id": "L1-fr-ja.json:L1-fr-ja-d1:t4:price",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "いくらですか。",
+          "native": "Combien ça coûte ?",
+          "reading": "いくらですか。",
+          "phon": "i-kou-ra dé-sou ka"
+        },
+        {
+          "id": "L1-fr-ja.json:L1-fr-ja-d1:t5",
+          "kind": "received",
+          "speaker": "B",
+          "study": "三百円です。",
+          "native": "Trois cents yens.",
+          "reading": "さんびゃくえんです。",
+          "phon": "san-bya-kou én dé-sou"
+        }
+      ],
+      "bridgeUnits": [
+        {
+          "unitId": "L1-fr-ja-bridge-greeting",
+          "title": "Saluer",
+          "kind": "whole-expression",
+          "contextReader": "Tu arrives au café et tu salues le serveur.",
+          "utteranceId": "L1-fr-ja.json:L1-fr-ja-d1:t0",
+          "sourceAccessLevel": 1,
+          "requiresNewPhonetics": false,
+          "replacementClaim": false,
+          "steps": [
+            {
+              "id": "L1-fr-ja-bridge-greeting-understand",
+              "kind": "understand",
+              "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t0",
+              "wholePhrase": true,
+              "requiresProduction": false
+            },
+            {
+              "id": "L1-fr-ja-bridge-greeting-imitate",
+              "kind": "imitate",
+              "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t0",
+              "wholePhrase": true,
+              "requiresProduction": true
+            },
+            {
+              "id": "L1-fr-ja-bridge-greeting-recall",
+              "kind": "recall-whole-phrase",
+              "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t0",
+              "hideLearnerModelOnRequest": true,
+              "canRestoreHelp": true,
+              "gradesOrUnlocks": false
+            }
+          ]
+        },
+        {
+          "unitId": "L1-fr-ja-bridge-refusal",
+          "title": "Refuser poliment",
+          "kind": "whole-expression",
+          "contextReader": "Au café, le serveur te propose du lait. Tu refuses poliment.",
+          "utteranceId": "L1-fr-ja.json:L1-fr-ja-d1:t4:refusal",
+          "sourceAccessLevel": 1,
+          "requiresNewPhonetics": false,
+          "replacementClaim": false,
+          "steps": [
+            {
+              "id": "L1-fr-ja-bridge-refusal-understand",
+              "kind": "understand",
+              "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t4:refusal",
+              "wholePhrase": true,
+              "requiresProduction": false
+            },
+            {
+              "id": "L1-fr-ja-bridge-refusal-imitate",
+              "kind": "imitate",
+              "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t4:refusal",
+              "wholePhrase": true,
+              "requiresProduction": true
+            },
+            {
+              "id": "L1-fr-ja-bridge-refusal-recall",
+              "kind": "recall-whole-phrase",
+              "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t4:refusal",
+              "hideLearnerModelOnRequest": true,
+              "canRestoreHelp": true,
+              "gradesOrUnlocks": false
+            }
+          ]
+        }
+      ],
+      "preparation": [
+        {
+          "id": "L1-fr-ja-cafe-prepare-prepare-greeting",
+          "kind": "understand",
+          "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-ja-cafe-prepare-prepare-greeting-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-ja-cafe-prepare-prepare-welcome",
+          "kind": "receive",
+          "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t1",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-ja-cafe-prepare-prepare-order",
+          "kind": "understand",
+          "utterance": "L1-fr-ja.json:L1-fr-ja-09:v0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-ja-cafe-prepare-prepare-order-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-ja.json:L1-fr-ja-09:v0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-ja-cafe-prepare-prepare-milk",
+          "kind": "receive",
+          "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t3",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-ja-cafe-prepare-prepare-refusal",
+          "kind": "understand",
+          "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t4:refusal",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-ja-cafe-prepare-prepare-refusal-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t4:refusal",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-ja-cafe-prepare-prepare-price",
+          "kind": "understand",
+          "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t4:price",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-ja-cafe-prepare-prepare-price-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t4:price",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-ja-cafe-prepare-prepare-amount",
+          "kind": "receive",
+          "utterance": "L1-fr-ja.json:L1-fr-ja-d1:t5",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        }
+      ],
+      "steps": [
+        {
+          "kind": "listen-whole-dialogue",
+          "turns": [
+            "L1-fr-ja.json:L1-fr-ja-d1:t0",
+            "L1-fr-ja.json:L1-fr-ja-d1:t1",
+            "L1-fr-ja.json:L1-fr-ja-09:v0",
+            "L1-fr-ja.json:L1-fr-ja-d1:t3",
+            "L1-fr-ja.json:L1-fr-ja-d1:t4:refusal",
+            "L1-fr-ja.json:L1-fr-ja-d1:t4:price",
+            "L1-fr-ja.json:L1-fr-ja-d1:t5"
+          ],
+          "learnerRole": "A"
+        },
+        {
+          "kind": "reply-with-help",
+          "turns": [
+            "L1-fr-ja.json:L1-fr-ja-d1:t0",
+            "L1-fr-ja.json:L1-fr-ja-d1:t1",
+            "L1-fr-ja.json:L1-fr-ja-09:v0",
+            "L1-fr-ja.json:L1-fr-ja-d1:t3",
+            "L1-fr-ja.json:L1-fr-ja-d1:t4:refusal",
+            "L1-fr-ja.json:L1-fr-ja-d1:t4:price",
+            "L1-fr-ja.json:L1-fr-ja-d1:t5"
+          ],
+          "learnerRole": "A"
+        },
+        {
+          "kind": "reply-without-model",
+          "turns": [
+            "L1-fr-ja.json:L1-fr-ja-d1:t0",
+            "L1-fr-ja.json:L1-fr-ja-d1:t1",
+            "L1-fr-ja.json:L1-fr-ja-09:v0",
+            "L1-fr-ja.json:L1-fr-ja-d1:t3",
+            "L1-fr-ja.json:L1-fr-ja-d1:t4:refusal",
+            "L1-fr-ja.json:L1-fr-ja-d1:t4:price",
+            "L1-fr-ja.json:L1-fr-ja-d1:t5"
+          ],
+          "learnerRole": "A",
+          "receivedRemainVisible": true,
+          "canRestoreHelp": true
+        }
+      ],
+      "received": [
+        {
+          "utteranceId": "L1-fr-ja.json:L1-fr-ja-d1:t1",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-ja-d1",
+            "turnIndex": 1,
+            "learnerRole": "A",
+            "expectedStudy": "こんにちは。ご注文は？"
+          },
+          "introducedInStep": "L1-fr-ja-cafe-prepare-prepare-welcome",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": true,
+          "answerWith": [
+            {
+              "utteranceId": "L1-fr-ja.json:L1-fr-ja-09:v0",
+              "expectedStudy": "コーヒーをお願いします。",
+              "preparedInStep": "L1-fr-ja-cafe-prepare-prepare-order"
+            }
+          ]
+        },
+        {
+          "utteranceId": "L1-fr-ja.json:L1-fr-ja-d1:t3",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-ja-d1",
+            "turnIndex": 3,
+            "learnerRole": "A",
+            "expectedStudy": "ミルクは？"
+          },
+          "introducedInStep": "L1-fr-ja-cafe-prepare-prepare-milk",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": true,
+          "answerWith": [
+            {
+              "utteranceId": "L1-fr-ja.json:L1-fr-ja-d1:t4:refusal",
+              "expectedStudy": "いいえ、結構です。",
+              "preparedInStep": "L1-fr-ja-cafe-prepare-prepare-refusal"
+            }
+          ]
+        },
+        {
+          "utteranceId": "L1-fr-ja.json:L1-fr-ja-d1:t5",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-ja-d1",
+            "turnIndex": 5,
+            "learnerRole": "A",
+            "expectedStudy": "三百円です。"
+          },
+          "introducedInStep": "L1-fr-ja-cafe-prepare-prepare-amount",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": false,
+          "answerWith": []
+        }
+      ],
+      "nativeReview": {
+        "status": "pending",
+        "productionApproved": false,
+        "checks": [
+          "Detached refusal remains polite in the café context",
+          "Whole scene naturalness and intonation",
+          "結構です: tone and pragmatic force"
+        ]
+      },
+      "sourceDialogueId": "L1-fr-ja-d1",
+      "dialogueId": "L1-fr-ja-cafe-prepare"
+    },
+    {
+      "id": "fr-ko",
+      "nativeLanguage": "fr",
+      "studyLanguage": "ko",
+      "level": 1,
+      "roles": {
+        "A": "Client",
+        "B": "Serveur"
+      },
+      "learnerRole": "A",
+      "contextReader": {
+        "scene": "Au café",
+        "greeting": "Tu arrives au café et tu salues le serveur.",
+        "refusal": "Au café, le serveur te propose du lait. Tu refuses poliment."
+      },
+      "phrases": [
+        {
+          "id": "L1-fr-ko.json:L1-fr-ko-d1:t0",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "안녕하세요!",
+          "native": "Bonjour !",
+          "reading": "annyeonghaseyo!",
+          "phon": "an-nyeong-ha-sé-yo"
+        },
+        {
+          "id": "L1-fr-ko.json:L1-fr-ko-d1:t1",
+          "kind": "received",
+          "speaker": "B",
+          "study": "안녕하세요. 뭐 드릴까요?",
+          "native": "Bonjour. Vous désirez ?",
+          "reading": "annyeonghaseyo. mwo deurilkkayo?",
+          "phon": "an-nyeong-ha-sé-yo. mwo deu-ril-kka-yo"
+        },
+        {
+          "id": "L1-fr-ko.json:L1-fr-ko-09:v0",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "커피 하나 주세요.",
+          "native": "Un café, s'il vous plaît.",
+          "phon": "keo-pi ha-na djou-sé-yo",
+          "reading": "keopi hana juseyo."
+        },
+        {
+          "id": "L1-fr-ko.json:L1-fr-ko-d1:t3",
+          "kind": "received",
+          "speaker": "B",
+          "study": "우유 넣을까요?",
+          "native": "Avec du lait ?",
+          "reading": "uyu neoeulkkayo?",
+          "phon": "ou-you neo-eul-kka-yo"
+        },
+        {
+          "id": "L1-fr-ko.json:L1-fr-ko-d1:t4:refusal",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "아니요, 괜찮아요.",
+          "native": "Non, merci.",
+          "reading": "aniyo, gwaenchanayo.",
+          "phon": "a-ni-yo, kouèn-tchan-a-yo."
+        },
+        {
+          "id": "L1-fr-ko.json:L1-fr-ko-d1:t4:price",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "얼마예요?",
+          "native": "Combien ça coûte ?",
+          "reading": "eolmayeyo?",
+          "phon": "eol-ma-yé-yo"
+        },
+        {
+          "id": "L1-fr-ko.json:L1-fr-ko-d1:t5",
+          "kind": "received",
+          "speaker": "B",
+          "study": "삼천 원이에요.",
+          "native": "Trois mille wons.",
+          "reading": "samcheon won-ieyo.",
+          "phon": "sam-tcheon ouon-i-é-yo"
+        }
+      ],
+      "bridgeUnits": [
+        {
+          "unitId": "L1-fr-ko-bridge-greeting",
+          "title": "Saluer",
+          "kind": "whole-expression",
+          "contextReader": "Tu arrives au café et tu salues le serveur.",
+          "utteranceId": "L1-fr-ko.json:L1-fr-ko-d1:t0",
+          "sourceAccessLevel": 1,
+          "requiresNewPhonetics": false,
+          "replacementClaim": false,
+          "steps": [
+            {
+              "id": "L1-fr-ko-bridge-greeting-understand",
+              "kind": "understand",
+              "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t0",
+              "wholePhrase": true,
+              "requiresProduction": false
+            },
+            {
+              "id": "L1-fr-ko-bridge-greeting-imitate",
+              "kind": "imitate",
+              "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t0",
+              "wholePhrase": true,
+              "requiresProduction": true
+            },
+            {
+              "id": "L1-fr-ko-bridge-greeting-recall",
+              "kind": "recall-whole-phrase",
+              "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t0",
+              "hideLearnerModelOnRequest": true,
+              "canRestoreHelp": true,
+              "gradesOrUnlocks": false
+            }
+          ]
+        },
+        {
+          "unitId": "L1-fr-ko-bridge-refusal",
+          "title": "Refuser poliment",
+          "kind": "whole-expression",
+          "contextReader": "Au café, le serveur te propose du lait. Tu refuses poliment.",
+          "utteranceId": "L1-fr-ko.json:L1-fr-ko-d1:t4:refusal",
+          "sourceAccessLevel": 1,
+          "requiresNewPhonetics": false,
+          "replacementClaim": false,
+          "steps": [
+            {
+              "id": "L1-fr-ko-bridge-refusal-understand",
+              "kind": "understand",
+              "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t4:refusal",
+              "wholePhrase": true,
+              "requiresProduction": false
+            },
+            {
+              "id": "L1-fr-ko-bridge-refusal-imitate",
+              "kind": "imitate",
+              "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t4:refusal",
+              "wholePhrase": true,
+              "requiresProduction": true
+            },
+            {
+              "id": "L1-fr-ko-bridge-refusal-recall",
+              "kind": "recall-whole-phrase",
+              "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t4:refusal",
+              "hideLearnerModelOnRequest": true,
+              "canRestoreHelp": true,
+              "gradesOrUnlocks": false
+            }
+          ]
+        }
+      ],
+      "preparation": [
+        {
+          "id": "L1-fr-ko-cafe-prepare-prepare-greeting",
+          "kind": "understand",
+          "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-ko-cafe-prepare-prepare-greeting-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-ko-cafe-prepare-prepare-welcome",
+          "kind": "receive",
+          "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t1",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-ko-cafe-prepare-prepare-order",
+          "kind": "understand",
+          "utterance": "L1-fr-ko.json:L1-fr-ko-09:v0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-ko-cafe-prepare-prepare-order-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-ko.json:L1-fr-ko-09:v0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-ko-cafe-prepare-prepare-milk",
+          "kind": "receive",
+          "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t3",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-ko-cafe-prepare-prepare-refusal",
+          "kind": "understand",
+          "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t4:refusal",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-ko-cafe-prepare-prepare-refusal-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t4:refusal",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-ko-cafe-prepare-prepare-price",
+          "kind": "understand",
+          "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t4:price",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-fr-ko-cafe-prepare-prepare-price-imitate",
+          "kind": "imitate",
+          "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t4:price",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-fr-ko-cafe-prepare-prepare-amount",
+          "kind": "receive",
+          "utterance": "L1-fr-ko.json:L1-fr-ko-d1:t5",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        }
+      ],
+      "steps": [
+        {
+          "kind": "listen-whole-dialogue",
+          "turns": [
+            "L1-fr-ko.json:L1-fr-ko-d1:t0",
+            "L1-fr-ko.json:L1-fr-ko-d1:t1",
+            "L1-fr-ko.json:L1-fr-ko-09:v0",
+            "L1-fr-ko.json:L1-fr-ko-d1:t3",
+            "L1-fr-ko.json:L1-fr-ko-d1:t4:refusal",
+            "L1-fr-ko.json:L1-fr-ko-d1:t4:price",
+            "L1-fr-ko.json:L1-fr-ko-d1:t5"
+          ],
+          "learnerRole": "A"
+        },
+        {
+          "kind": "reply-with-help",
+          "turns": [
+            "L1-fr-ko.json:L1-fr-ko-d1:t0",
+            "L1-fr-ko.json:L1-fr-ko-d1:t1",
+            "L1-fr-ko.json:L1-fr-ko-09:v0",
+            "L1-fr-ko.json:L1-fr-ko-d1:t3",
+            "L1-fr-ko.json:L1-fr-ko-d1:t4:refusal",
+            "L1-fr-ko.json:L1-fr-ko-d1:t4:price",
+            "L1-fr-ko.json:L1-fr-ko-d1:t5"
+          ],
+          "learnerRole": "A"
+        },
+        {
+          "kind": "reply-without-model",
+          "turns": [
+            "L1-fr-ko.json:L1-fr-ko-d1:t0",
+            "L1-fr-ko.json:L1-fr-ko-d1:t1",
+            "L1-fr-ko.json:L1-fr-ko-09:v0",
+            "L1-fr-ko.json:L1-fr-ko-d1:t3",
+            "L1-fr-ko.json:L1-fr-ko-d1:t4:refusal",
+            "L1-fr-ko.json:L1-fr-ko-d1:t4:price",
+            "L1-fr-ko.json:L1-fr-ko-d1:t5"
+          ],
+          "learnerRole": "A",
+          "receivedRemainVisible": true,
+          "canRestoreHelp": true
+        }
+      ],
+      "received": [
+        {
+          "utteranceId": "L1-fr-ko.json:L1-fr-ko-d1:t1",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-ko-d1",
+            "turnIndex": 1,
+            "learnerRole": "A",
+            "expectedStudy": "안녕하세요. 뭐 드릴까요?"
+          },
+          "introducedInStep": "L1-fr-ko-cafe-prepare-prepare-welcome",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": true,
+          "answerWith": [
+            {
+              "utteranceId": "L1-fr-ko.json:L1-fr-ko-09:v0",
+              "expectedStudy": "커피 하나 주세요.",
+              "preparedInStep": "L1-fr-ko-cafe-prepare-prepare-order"
+            }
+          ]
+        },
+        {
+          "utteranceId": "L1-fr-ko.json:L1-fr-ko-d1:t3",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-ko-d1",
+            "turnIndex": 3,
+            "learnerRole": "A",
+            "expectedStudy": "우유 넣을까요?"
+          },
+          "introducedInStep": "L1-fr-ko-cafe-prepare-prepare-milk",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": true,
+          "answerWith": [
+            {
+              "utteranceId": "L1-fr-ko.json:L1-fr-ko-d1:t4:refusal",
+              "expectedStudy": "아니요, 괜찮아요.",
+              "preparedInStep": "L1-fr-ko-cafe-prepare-prepare-refusal"
+            }
+          ]
+        },
+        {
+          "utteranceId": "L1-fr-ko.json:L1-fr-ko-d1:t5",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-fr-ko-d1",
+            "turnIndex": 5,
+            "learnerRole": "A",
+            "expectedStudy": "삼천 원이에요."
+          },
+          "introducedInStep": "L1-fr-ko-cafe-prepare-prepare-amount",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": false,
+          "answerWith": []
+        }
+      ],
+      "nativeReview": {
+        "status": "pending",
+        "productionApproved": false,
+        "checks": [
+          "Detached refusal remains polite in the café context",
+          "Whole scene naturalness and intonation",
+          "괜찮아요: refusal context, not the meaning ça va"
+        ]
+      },
+      "sourceDialogueId": "L1-fr-ko-d1",
+      "dialogueId": "L1-fr-ko-cafe-prepare"
+    },
+    {
+      "id": "zh-fr",
+      "nativeLanguage": "zh",
+      "studyLanguage": "fr",
+      "level": 1,
+      "roles": {
+        "A": "顾客",
+        "B": "服务员"
+      },
+      "learnerRole": "A",
+      "contextReader": {
+        "scene": "在咖啡馆",
+        "greeting": "你走进咖啡馆，向服务员问好。",
+        "refusal": "在咖啡馆，服务员问你要不要加牛奶。你礼貌地拒绝。"
+      },
+      "phrases": [
+        {
+          "id": "L1-zh-fr.json:L1-zh-fr-d1:t0",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "Bonjour !",
+          "native": "你好！",
+          "phon": "蓬茹尔"
+        },
+        {
+          "id": "L1-zh-fr.json:L1-zh-fr-d1:t1",
+          "kind": "received",
+          "speaker": "B",
+          "study": "Bonjour. Vous désirez ?",
+          "native": "你好。您要什么？",
+          "phon": "蓬茹尔。武 德吉雷"
+        },
+        {
+          "id": "L1-zh-fr.json:L1-zh-fr-09:v0",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "Un café, s'il vous plaît.",
+          "native": "请给我一杯咖啡。",
+          "phon": "安 卡菲，西尔 武 普莱"
+        },
+        {
+          "id": "L1-zh-fr.json:L1-zh-fr-d1:t3",
+          "kind": "received",
+          "speaker": "B",
+          "study": "Avec du lait ?",
+          "native": "加牛奶吗？",
+          "phon": "阿维克 迪 莱"
+        },
+        {
+          "id": "L1-zh-fr.json:L1-zh-fr-d1:t4:refusal",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "Non, merci.",
+          "native": "不用，谢谢。",
+          "phon": "诺，美西。"
+        },
+        {
+          "id": "L1-zh-fr.json:L1-zh-fr-d1:t4:price",
+          "kind": "learner",
+          "speaker": "A",
+          "study": "Combien ça coûte ?",
+          "native": "多少钱？",
+          "phon": "孔比安 萨 库特"
+        },
+        {
+          "id": "L1-zh-fr.json:L1-zh-fr-d1:t5",
+          "kind": "received",
+          "speaker": "B",
+          "study": "Deux euros.",
+          "native": "两欧元。",
+          "phon": "德 厄罗"
+        }
+      ],
+      "bridgeUnits": [
+        {
+          "unitId": "L1-zh-fr-bridge-greeting",
+          "title": "问候",
+          "kind": "whole-expression",
+          "contextReader": "你走进咖啡馆，向服务员问好。",
+          "utteranceId": "L1-zh-fr.json:L1-zh-fr-d1:t0",
+          "sourceAccessLevel": 1,
+          "requiresNewPhonetics": false,
+          "replacementClaim": false,
+          "steps": [
+            {
+              "id": "L1-zh-fr-bridge-greeting-understand",
+              "kind": "understand",
+              "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t0",
+              "wholePhrase": true,
+              "requiresProduction": false
+            },
+            {
+              "id": "L1-zh-fr-bridge-greeting-imitate",
+              "kind": "imitate",
+              "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t0",
+              "wholePhrase": true,
+              "requiresProduction": true
+            },
+            {
+              "id": "L1-zh-fr-bridge-greeting-recall",
+              "kind": "recall-whole-phrase",
+              "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t0",
+              "hideLearnerModelOnRequest": true,
+              "canRestoreHelp": true,
+              "gradesOrUnlocks": false
+            }
+          ]
+        },
+        {
+          "unitId": "L1-zh-fr-bridge-refusal",
+          "title": "礼貌拒绝",
+          "kind": "whole-expression",
+          "contextReader": "在咖啡馆，服务员问你要不要加牛奶。你礼貌地拒绝。",
+          "utteranceId": "L1-zh-fr.json:L1-zh-fr-d1:t4:refusal",
+          "sourceAccessLevel": 1,
+          "requiresNewPhonetics": false,
+          "replacementClaim": false,
+          "steps": [
+            {
+              "id": "L1-zh-fr-bridge-refusal-understand",
+              "kind": "understand",
+              "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t4:refusal",
+              "wholePhrase": true,
+              "requiresProduction": false
+            },
+            {
+              "id": "L1-zh-fr-bridge-refusal-imitate",
+              "kind": "imitate",
+              "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t4:refusal",
+              "wholePhrase": true,
+              "requiresProduction": true
+            },
+            {
+              "id": "L1-zh-fr-bridge-refusal-recall",
+              "kind": "recall-whole-phrase",
+              "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t4:refusal",
+              "hideLearnerModelOnRequest": true,
+              "canRestoreHelp": true,
+              "gradesOrUnlocks": false
+            }
+          ]
+        }
+      ],
+      "preparation": [
+        {
+          "id": "L1-zh-fr-cafe-prepare-prepare-greeting",
+          "kind": "understand",
+          "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-zh-fr-cafe-prepare-prepare-greeting-imitate",
+          "kind": "imitate",
+          "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-zh-fr-cafe-prepare-prepare-welcome",
+          "kind": "receive",
+          "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t1",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-zh-fr-cafe-prepare-prepare-order",
+          "kind": "understand",
+          "utterance": "L1-zh-fr.json:L1-zh-fr-09:v0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-zh-fr-cafe-prepare-prepare-order-imitate",
+          "kind": "imitate",
+          "utterance": "L1-zh-fr.json:L1-zh-fr-09:v0",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-zh-fr-cafe-prepare-prepare-milk",
+          "kind": "receive",
+          "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t3",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-zh-fr-cafe-prepare-prepare-refusal",
+          "kind": "understand",
+          "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t4:refusal",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-zh-fr-cafe-prepare-prepare-refusal-imitate",
+          "kind": "imitate",
+          "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t4:refusal",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-zh-fr-cafe-prepare-prepare-price",
+          "kind": "understand",
+          "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t4:price",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": false
+        },
+        {
+          "id": "L1-zh-fr-cafe-prepare-prepare-price-imitate",
+          "kind": "imitate",
+          "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t4:price",
+          "speaker": "A",
+          "wholePhrase": true,
+          "requiresProduction": true
+        },
+        {
+          "id": "L1-zh-fr-cafe-prepare-prepare-amount",
+          "kind": "receive",
+          "utterance": "L1-zh-fr.json:L1-zh-fr-d1:t5",
+          "speaker": "B",
+          "wholePhrase": true,
+          "requiresProduction": false
+        }
+      ],
+      "steps": [
+        {
+          "kind": "listen-whole-dialogue",
+          "turns": [
+            "L1-zh-fr.json:L1-zh-fr-d1:t0",
+            "L1-zh-fr.json:L1-zh-fr-d1:t1",
+            "L1-zh-fr.json:L1-zh-fr-09:v0",
+            "L1-zh-fr.json:L1-zh-fr-d1:t3",
+            "L1-zh-fr.json:L1-zh-fr-d1:t4:refusal",
+            "L1-zh-fr.json:L1-zh-fr-d1:t4:price",
+            "L1-zh-fr.json:L1-zh-fr-d1:t5"
+          ],
+          "learnerRole": "A"
+        },
+        {
+          "kind": "reply-with-help",
+          "turns": [
+            "L1-zh-fr.json:L1-zh-fr-d1:t0",
+            "L1-zh-fr.json:L1-zh-fr-d1:t1",
+            "L1-zh-fr.json:L1-zh-fr-09:v0",
+            "L1-zh-fr.json:L1-zh-fr-d1:t3",
+            "L1-zh-fr.json:L1-zh-fr-d1:t4:refusal",
+            "L1-zh-fr.json:L1-zh-fr-d1:t4:price",
+            "L1-zh-fr.json:L1-zh-fr-d1:t5"
+          ],
+          "learnerRole": "A"
+        },
+        {
+          "kind": "reply-without-model",
+          "turns": [
+            "L1-zh-fr.json:L1-zh-fr-d1:t0",
+            "L1-zh-fr.json:L1-zh-fr-d1:t1",
+            "L1-zh-fr.json:L1-zh-fr-09:v0",
+            "L1-zh-fr.json:L1-zh-fr-d1:t3",
+            "L1-zh-fr.json:L1-zh-fr-d1:t4:refusal",
+            "L1-zh-fr.json:L1-zh-fr-d1:t4:price",
+            "L1-zh-fr.json:L1-zh-fr-d1:t5"
+          ],
+          "learnerRole": "A",
+          "receivedRemainVisible": true,
+          "canRestoreHelp": true
+        }
+      ],
+      "received": [
+        {
+          "utteranceId": "L1-zh-fr.json:L1-zh-fr-d1:t1",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-zh-fr-d1",
+            "turnIndex": 1,
+            "learnerRole": "A",
+            "expectedStudy": "Bonjour. Vous désirez ?"
+          },
+          "introducedInStep": "L1-zh-fr-cafe-prepare-prepare-welcome",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": true,
+          "answerWith": [
+            {
+              "utteranceId": "L1-zh-fr.json:L1-zh-fr-09:v0",
+              "expectedStudy": "Un café, s'il vous plaît.",
+              "preparedInStep": "L1-zh-fr-cafe-prepare-prepare-order"
+            }
+          ]
+        },
+        {
+          "utteranceId": "L1-zh-fr.json:L1-zh-fr-d1:t3",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-zh-fr-d1",
+            "turnIndex": 3,
+            "learnerRole": "A",
+            "expectedStudy": "Avec du lait ?"
+          },
+          "introducedInStep": "L1-zh-fr-cafe-prepare-prepare-milk",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": true,
+          "answerWith": [
+            {
+              "utteranceId": "L1-zh-fr.json:L1-zh-fr-d1:t4:refusal",
+              "expectedStudy": "Non, merci.",
+              "preparedInStep": "L1-zh-fr-cafe-prepare-prepare-refusal"
+            }
+          ]
+        },
+        {
+          "utteranceId": "L1-zh-fr.json:L1-zh-fr-d1:t5",
+          "source": {
+            "type": "dialogueTurn",
+            "level": 1,
+            "dialogueId": "L1-zh-fr-d1",
+            "turnIndex": 5,
+            "learnerRole": "A",
+            "expectedStudy": "Deux euros."
+          },
+          "introducedInStep": "L1-zh-fr-cafe-prepare-prepare-amount",
+          "analyse": false,
+          "countsAsProduction": false,
+          "replyRequired": false,
+          "answerWith": []
+        }
+      ],
+      "nativeReview": {
+        "status": "pending",
+        "productionApproved": false,
+        "checks": [
+          "Detached refusal remains polite in the café context",
+          "Whole scene naturalness and intonation"
+        ]
+      },
+      "sourceDialogueId": "L1-zh-fr-d1",
+      "dialogueId": "L1-zh-fr-cafe-prepare"
+    }
+  ]
+}

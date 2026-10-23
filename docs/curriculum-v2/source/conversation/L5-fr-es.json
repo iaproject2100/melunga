@@ -1,0 +1,1043 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "es",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en espagnol",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; v→b, ll→y, j/ge/gi→KH, c/z→ss, que→ké). Variante à seseo et yeísmo. Ne remplace pas l'audio.",
+ "reviewStatus": "Généré par règles à partir de briques validées ; relecture par un hispanophone conseillée.",
+ "coverageClaim": null,
+ "level": 5,
+ "title": "Raconter",
+ "goal": "Raconter un événement passé et demander des nouvelles.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L5-fr-es-01",
+   "situation": "Hier",
+   "model": {
+    "study": "Ayer {s}.",
+    "phon": "a-YÉR {s}",
+    "native": "Hier, {s}.",
+    "note": "Pretérito indefinido pour un événement ponctuel et terminé. Au féminin : « no salí » se traduit « je ne suis pas sortie »."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "trabajé mucho",
+      "phon": "tra-ba-KHÉ MOU-tcho",
+      "native": "j'ai beaucoup travaillé"
+     },
+     "study": "Ayer trabajé mucho.",
+     "phon": "a-YÉR tra-ba-KHÉ MOU-tcho",
+     "native": "Hier, j'ai beaucoup travaillé."
+    },
+    {
+     "slot": {
+      "study": "comí con mis padres",
+      "phon": "ko-MI kon mis PA-drés",
+      "native": "j'ai déjeuné avec mes parents"
+     },
+     "study": "Ayer comí con mis padres.",
+     "phon": "a-YÉR ko-MI kon mis PA-drés",
+     "native": "Hier, j'ai déjeuné avec mes parents."
+    },
+    {
+     "slot": {
+      "study": "vi una película",
+      "phon": "BI OU-na pé-LI-kou-la",
+      "native": "j'ai vu un film"
+     },
+     "study": "Ayer vi una película.",
+     "phon": "a-YÉR BI OU-na pé-LI-kou-la",
+     "native": "Hier, j'ai vu un film."
+    },
+    {
+     "slot": {
+      "study": "no salí de casa",
+      "phon": "no ssa-LI dé KA-ssa",
+      "native": "je ne suis pas sorti de chez moi"
+     },
+     "study": "Ayer no salí de casa.",
+     "phon": "a-YÉR no ssa-LI dé KA-ssa",
+     "native": "Hier, je ne suis pas sorti de chez moi."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-es-02",
+   "situation": "Dire où l'on est allé",
+   "model": {
+    "study": "Fui {s}.",
+    "phon": "FOUI {s}",
+    "native": "Je suis allé {s}.",
+    "note": "Au féminin : « Je suis allée… » (la forme espagnole « fui » ne change pas)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "a la playa",
+      "phon": "a la PLA-ya",
+      "native": "à la plage"
+     },
+     "study": "Fui a la playa.",
+     "phon": "FOUI a la PLA-ya",
+     "native": "Je suis allé à la plage."
+    },
+    {
+     "slot": {
+      "study": "al médico",
+      "phon": "al MÉ-di-ko",
+      "native": "chez le médecin"
+     },
+     "study": "Fui al médico.",
+     "phon": "FOUI al MÉ-di-ko",
+     "native": "Je suis allé chez le médecin."
+    },
+    {
+     "slot": {
+      "study": "a Barcelona",
+      "phon": "a bar-ssé-LO-na",
+      "native": "à Barcelone"
+     },
+     "study": "Fui a Barcelona.",
+     "phon": "FOUI a bar-ssé-LO-na",
+     "native": "Je suis allé à Barcelone."
+    },
+    {
+     "slot": {
+      "study": "al cine con Ana",
+      "phon": "al SSI-né kon A-na",
+      "native": "au cinéma avec Ana"
+     },
+     "study": "Fui al cine con Ana.",
+     "phon": "FOUI al SSI-né kon A-na",
+     "native": "Je suis allé au cinéma avec Ana."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-es-03",
+   "situation": "Situer dans le passé",
+   "model": {
+    "study": "{s} estuve en Madrid.",
+    "phon": "{s} és-TOU-bé én ma-DRID",
+    "native": "{s}, j'étais à Madrid."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "La semana pasada",
+      "phon": "la ssé-MA-na pa-SSA-da",
+      "native": "La semaine dernière"
+     },
+     "study": "La semana pasada estuve en Madrid.",
+     "phon": "la ssé-MA-na pa-SSA-da és-TOU-bé én ma-DRID",
+     "native": "La semaine dernière, j'étais à Madrid."
+    },
+    {
+     "slot": {
+      "study": "Hace dos días",
+      "phon": "A-ssé dos DI-as",
+      "native": "Il y a deux jours"
+     },
+     "study": "Hace dos días estuve en Madrid.",
+     "phon": "A-ssé dos DI-as és-TOU-bé én ma-DRID",
+     "native": "Il y a deux jours, j'étais à Madrid."
+    },
+    {
+     "slot": {
+      "study": "El mes pasado",
+      "phon": "él MÉS pa-SSA-do",
+      "native": "Le mois dernier"
+     },
+     "study": "El mes pasado estuve en Madrid.",
+     "phon": "él MÉS pa-SSA-do és-TOU-bé én ma-DRID",
+     "native": "Le mois dernier, j'étais à Madrid."
+    },
+    {
+     "slot": {
+      "study": "El año pasado",
+      "phon": "él A-gno pa-SSA-do",
+      "native": "L'année dernière"
+     },
+     "study": "El año pasado estuve en Madrid.",
+     "phon": "él A-gno pa-SSA-do és-TOU-bé én ma-DRID",
+     "native": "L'année dernière, j'étais à Madrid."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-es-04",
+   "situation": "Demander des nouvelles",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Formules à connaître telles quelles."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "¿Qué tal?",
+      "phon": "ké TAL",
+      "native": "Ça va ?"
+     },
+     "study": "¿Qué tal?",
+     "phon": "ké TAL",
+     "native": "Ça va ?"
+    },
+    {
+     "slot": {
+      "study": "¿Qué hay de nuevo?",
+      "phon": "ké AY dé NOUÉ-bo",
+      "native": "Quoi de neuf ?"
+     },
+     "study": "¿Qué hay de nuevo?",
+     "phon": "ké AY dé NOUÉ-bo",
+     "native": "Quoi de neuf ?"
+    },
+    {
+     "slot": {
+      "study": "¿Cómo te fue?",
+      "phon": "KO-mo té FOUÉ",
+      "native": "Comment ça s'est passé ?"
+     },
+     "study": "¿Cómo te fue?",
+     "phon": "KO-mo té FOUÉ",
+     "native": "Comment ça s'est passé ?"
+    },
+    {
+     "slot": {
+      "study": "¿Qué tal el fin de semana?",
+      "phon": "ké TAL él FIN dé ssé-MA-na",
+      "native": "C'était comment, le week-end ?"
+     },
+     "study": "¿Qué tal el fin de semana?",
+     "phon": "ké TAL él FIN dé ssé-MA-na",
+     "native": "C'était comment, le week-end ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-es-05",
+   "situation": "Répondre et relancer",
+   "model": {
+    "study": "{s}, ¿y tú?",
+    "phon": "{s}, i TOU",
+    "native": "{s}, et toi ?",
+    "note": "Au féminin : « cansada » (kan-SSA-da)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Bien",
+      "phon": "BIÉN",
+      "native": "Bien"
+     },
+     "study": "Bien, ¿y tú?",
+     "phon": "BIÉN, i TOU",
+     "native": "Bien, et toi ?"
+    },
+    {
+     "slot": {
+      "study": "Muy bien",
+      "phon": "mouy BIÉN",
+      "native": "Très bien"
+     },
+     "study": "Muy bien, ¿y tú?",
+     "phon": "mouy BIÉN, i TOU",
+     "native": "Très bien, et toi ?"
+    },
+    {
+     "slot": {
+      "study": "Regular",
+      "phon": "rré-gou-LAR",
+      "native": "Comme ci comme ça"
+     },
+     "study": "Regular, ¿y tú?",
+     "phon": "rré-gou-LAR, i TOU",
+     "native": "Comme ci comme ça, et toi ?"
+    },
+    {
+     "slot": {
+      "study": "Cansado, pero bien",
+      "phon": "kan-SSA-do, PÉ-ro BIÉN",
+      "native": "Fatigué, mais ça va"
+     },
+     "study": "Cansado, pero bien, ¿y tú?",
+     "phon": "kan-SSA-do, PÉ-ro BIÉN, i TOU",
+     "native": "Fatigué, mais ça va, et toi ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-es-06",
+   "situation": "Réagir",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Réactions courtes à connaître telles quelles."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "¡Qué bien!",
+      "phon": "ké BIÉN",
+      "native": "C'est super !"
+     },
+     "study": "¡Qué bien!",
+     "phon": "ké BIÉN",
+     "native": "C'est super !"
+    },
+    {
+     "slot": {
+      "study": "¡Qué pena!",
+      "phon": "ké PÉ-na",
+      "native": "Dommage !"
+     },
+     "study": "¡Qué pena!",
+     "phon": "ké PÉ-na",
+     "native": "Dommage !"
+    },
+    {
+     "slot": {
+      "study": "¿De verdad?",
+      "phon": "dé bér-DAD",
+      "native": "Vraiment ?"
+     },
+     "study": "¿De verdad?",
+     "phon": "dé bér-DAD",
+     "native": "Vraiment ?"
+    },
+    {
+     "slot": {
+      "study": "¡No me digas!",
+      "phon": "no mé DI-gas",
+      "native": "Pas possible !"
+     },
+     "study": "¡No me digas!",
+     "phon": "no mé DI-gas",
+     "native": "Pas possible !"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-es-07",
+   "situation": "Enchaîner des actions",
+   "model": {
+    "study": "Primero {s} y luego fuimos a cenar.",
+    "phon": "pri-MÉ-ro {s} i LOUÉ-go FOUI-mos a ssé-NAR",
+    "native": "D'abord {s}, puis on est allés dîner."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "visitamos el museo",
+      "phon": "bi-ssi-TA-mos él mou-SSÉ-o",
+      "native": "on a visité le musée"
+     },
+     "study": "Primero visitamos el museo y luego fuimos a cenar.",
+     "phon": "pri-MÉ-ro bi-ssi-TA-mos él mou-SSÉ-o i LOUÉ-go FOUI-mos a ssé-NAR",
+     "native": "D'abord on a visité le musée, puis on est allés dîner."
+    },
+    {
+     "slot": {
+      "study": "dimos un paseo",
+      "phon": "DI-mos oun pa-SSÉ-o",
+      "native": "on a fait une promenade"
+     },
+     "study": "Primero dimos un paseo y luego fuimos a cenar.",
+     "phon": "pri-MÉ-ro DI-mos oun pa-SSÉ-o i LOUÉ-go FOUI-mos a ssé-NAR",
+     "native": "D'abord on a fait une promenade, puis on est allés dîner."
+    },
+    {
+     "slot": {
+      "study": "tomamos algo",
+      "phon": "to-MA-mos AL-go",
+      "native": "on a pris un verre"
+     },
+     "study": "Primero tomamos algo y luego fuimos a cenar.",
+     "phon": "pri-MÉ-ro to-MA-mos AL-go i LOUÉ-go FOUI-mos a ssé-NAR",
+     "native": "D'abord on a pris un verre, puis on est allés dîner."
+    },
+    {
+     "slot": {
+      "study": "fuimos de compras",
+      "phon": "FOUI-mos dé KOM-pras",
+      "native": "on a fait les magasins"
+     },
+     "study": "Primero fuimos de compras y luego fuimos a cenar.",
+     "phon": "pri-MÉ-ro FOUI-mos dé KOM-pras i LOUÉ-go FOUI-mos a ssé-NAR",
+     "native": "D'abord on a fait les magasins, puis on est allés dîner."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-es-08",
+   "situation": "Dire ce qui s'est passé après",
+   "model": {
+    "study": "Después {s}.",
+    "phon": "dés-POUÉS {s}",
+    "native": "Après, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "volvimos a casa",
+      "phon": "bol-BI-mos a KA-ssa",
+      "native": "on est rentrés à la maison"
+     },
+     "study": "Después volvimos a casa.",
+     "phon": "dés-POUÉS bol-BI-mos a KA-ssa",
+     "native": "Après, on est rentrés à la maison."
+    },
+    {
+     "slot": {
+      "study": "llamé a mi madre",
+      "phon": "ya-MÉ a mi MA-dré",
+      "native": "j'ai appelé ma mère"
+     },
+     "study": "Después llamé a mi madre.",
+     "phon": "dés-POUÉS ya-MÉ a mi MA-dré",
+     "native": "Après, j'ai appelé ma mère."
+    },
+    {
+     "slot": {
+      "study": "me acosté",
+      "phon": "mé a-kos-TÉ",
+      "native": "je me suis couché"
+     },
+     "study": "Después me acosté.",
+     "phon": "dés-POUÉS mé a-kos-TÉ",
+     "native": "Après, je me suis couché."
+    },
+    {
+     "slot": {
+      "study": "tomamos un café",
+      "phon": "to-MA-mos oun ka-FÉ",
+      "native": "on a pris un café"
+     },
+     "study": "Después tomamos un café.",
+     "phon": "dés-POUÉS to-MA-mos oun ka-FÉ",
+     "native": "Après, on a pris un café."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-es-09",
+   "situation": "Raconter ses vacances",
+   "model": {
+    "study": "En las vacaciones {s}.",
+    "phon": "én las ba-ka-SSIO-nés {s}",
+    "native": "Pendant les vacances, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "viajamos a Portugal",
+      "phon": "bia-KHA-mos a por-tou-GAL",
+      "native": "on a voyagé au Portugal"
+     },
+     "study": "En las vacaciones viajamos a Portugal.",
+     "phon": "én las ba-ka-SSIO-nés bia-KHA-mos a por-tou-GAL",
+     "native": "Pendant les vacances, on a voyagé au Portugal."
+    },
+    {
+     "slot": {
+      "study": "descansé mucho",
+      "phon": "dés-kan-SSÉ MOU-tcho",
+      "native": "je me suis beaucoup reposé"
+     },
+     "study": "En las vacaciones descansé mucho.",
+     "phon": "én las ba-ka-SSIO-nés dés-kan-SSÉ MOU-tcho",
+     "native": "Pendant les vacances, je me suis beaucoup reposé."
+    },
+    {
+     "slot": {
+      "study": "conocí a gente nueva",
+      "phon": "ko-no-SSI a KHÉN-té NOUÉ-ba",
+      "native": "j'ai rencontré de nouvelles personnes"
+     },
+     "study": "En las vacaciones conocí a gente nueva.",
+     "phon": "én las ba-ka-SSIO-nés ko-no-SSI a KHÉN-té NOUÉ-ba",
+     "native": "Pendant les vacances, j'ai rencontré de nouvelles personnes."
+    },
+    {
+     "slot": {
+      "study": "hizo muy buen tiempo",
+      "phon": "I-sso mouy bouén TIÉM-po",
+      "native": "il a fait très beau"
+     },
+     "study": "En las vacaciones hizo muy buen tiempo.",
+     "phon": "én las ba-ka-SSIO-nés I-sso mouy bouén TIÉM-po",
+     "native": "Pendant les vacances, il a fait très beau."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-es-10",
+   "situation": "Demander ce que l'autre a fait",
+   "model": {
+    "study": "¿Qué hiciste {s}?",
+    "phon": "ké i-SSIS-té {s}",
+    "native": "Qu'est-ce que tu as fait {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "ayer",
+      "phon": "a-YÉR",
+      "native": "hier"
+     },
+     "study": "¿Qué hiciste ayer?",
+     "phon": "ké i-SSIS-té a-YÉR",
+     "native": "Qu'est-ce que tu as fait hier ?"
+    },
+    {
+     "slot": {
+      "study": "el fin de semana",
+      "phon": "él FIN dé ssé-MA-na",
+      "native": "ce week-end"
+     },
+     "study": "¿Qué hiciste el fin de semana?",
+     "phon": "ké i-SSIS-té él FIN dé ssé-MA-na",
+     "native": "Qu'est-ce que tu as fait ce week-end ?"
+    },
+    {
+     "slot": {
+      "study": "anoche",
+      "phon": "a-NO-tché",
+      "native": "hier soir"
+     },
+     "study": "¿Qué hiciste anoche?",
+     "phon": "ké i-SSIS-té a-NO-tché",
+     "native": "Qu'est-ce que tu as fait hier soir ?"
+    },
+    {
+     "slot": {
+      "study": "en Navidad",
+      "phon": "én na-bi-DAD",
+      "native": "à Noël"
+     },
+     "study": "¿Qué hiciste en Navidad?",
+     "phon": "ké i-SSIS-té én na-bi-DAD",
+     "native": "Qu'est-ce que tu as fait à Noël ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-es-11",
+   "situation": "Raconter sa matinée de travail",
+   "model": {
+    "study": "Esta mañana {s}.",
+    "phon": "ÉS-ta ma-GNA-na {s}",
+    "native": "Ce matin, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "llegué tarde al trabajo",
+      "phon": "yé-GUÉ TAR-dé al tra-BA-kho",
+      "native": "je suis arrivé en retard au travail"
+     },
+     "study": "Esta mañana llegué tarde al trabajo.",
+     "phon": "ÉS-ta ma-GNA-na yé-GUÉ TAR-dé al tra-BA-kho",
+     "native": "Ce matin, je suis arrivé en retard au travail."
+    },
+    {
+     "slot": {
+      "study": "tuve una reunión",
+      "phon": "TOU-bé OU-na rré-ou-NION",
+      "native": "j'ai eu une réunion"
+     },
+     "study": "Esta mañana tuve una reunión.",
+     "phon": "ÉS-ta ma-GNA-na TOU-bé OU-na rré-ou-NION",
+     "native": "Ce matin, j'ai eu une réunion."
+    },
+    {
+     "slot": {
+      "study": "perdí el autobús",
+      "phon": "pér-DI él aou-to-BOUS",
+      "native": "j'ai raté le bus"
+     },
+     "study": "Esta mañana perdí el autobús.",
+     "phon": "ÉS-ta ma-GNA-na pér-DI él aou-to-BOUS",
+     "native": "Ce matin, j'ai raté le bus."
+    },
+    {
+     "slot": {
+      "study": "hablé con el jefe",
+      "phon": "a-BLÉ kon él KHÉ-fé",
+      "native": "j'ai parlé avec le chef"
+     },
+     "study": "Esta mañana hablé con el jefe.",
+     "phon": "ÉS-ta ma-GNA-na a-BLÉ kon él KHÉ-fé",
+     "native": "Ce matin, j'ai parlé avec le chef."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-es-12",
+   "situation": "Demander si ça a plu",
+   "model": {
+    "study": "¿Te gustó {s}?",
+    "phon": "té gous-TO {s}",
+    "native": "Tu as aimé {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "la película",
+      "phon": "la pé-LI-kou-la",
+      "native": "le film"
+     },
+     "study": "¿Te gustó la película?",
+     "phon": "té gous-TO la pé-LI-kou-la",
+     "native": "Tu as aimé le film ?"
+    },
+    {
+     "slot": {
+      "study": "la ciudad",
+      "phon": "la ssiou-DAD",
+      "native": "la ville"
+     },
+     "study": "¿Te gustó la ciudad?",
+     "phon": "té gous-TO la ssiou-DAD",
+     "native": "Tu as aimé la ville ?"
+    },
+    {
+     "slot": {
+      "study": "el concierto",
+      "phon": "él kon-SSIÉR-to",
+      "native": "le concert"
+     },
+     "study": "¿Te gustó el concierto?",
+     "phon": "té gous-TO él kon-SSIÉR-to",
+     "native": "Tu as aimé le concert ?"
+    },
+    {
+     "slot": {
+      "study": "la comida",
+      "phon": "la ko-MI-da",
+      "native": "le repas"
+     },
+     "study": "¿Te gustó la comida?",
+     "phon": "té gous-TO la ko-MI-da",
+     "native": "Tu as aimé le repas ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-fr-es-13",
+   "situation": "Dire ce qu'on a adoré",
+   "model": {
+    "study": "Me encantó {s}.",
+    "phon": "mé én-kan-TO {s}",
+    "native": "J'ai adoré {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "el viaje",
+      "phon": "él BIA-khé",
+      "native": "le voyage"
+     },
+     "study": "Me encantó el viaje.",
+     "phon": "mé én-kan-TO él BIA-khé",
+     "native": "J'ai adoré le voyage."
+    },
+    {
+     "slot": {
+      "study": "la playa",
+      "phon": "la PLA-ya",
+      "native": "la plage"
+     },
+     "study": "Me encantó la playa.",
+     "phon": "mé én-kan-TO la PLA-ya",
+     "native": "J'ai adoré la plage."
+    },
+    {
+     "slot": {
+      "study": "el museo",
+      "phon": "él mou-SSÉ-o",
+      "native": "le musée"
+     },
+     "study": "Me encantó el museo.",
+     "phon": "mé én-kan-TO él mou-SSÉ-o",
+     "native": "J'ai adoré le musée."
+    },
+    {
+     "slot": {
+      "study": "la fiesta",
+      "phon": "la FIÉS-ta",
+      "native": "la fête"
+     },
+     "study": "Me encantó la fiesta.",
+     "phon": "mé én-kan-TO la FIÉS-ta",
+     "native": "J'ai adoré la fête."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L5-fr-es-d1",
+   "situation": "Retrouvailles",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "¡Hola, Pablo! ¿Qué tal?",
+     "phon": "O-la, PA-blo. ké TAL",
+     "native": "Salut, Pablo ! Ça va ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Muy bien, ¿y tú? ¿Qué hay de nuevo?",
+     "phon": "mouy BIÉN, i TOU. ké AY dé NOUÉ-bo",
+     "native": "Très bien, et toi ? Quoi de neuf ?"
+    },
+    {
+     "speaker": "A",
+     "study": "El fin de semana fui a Barcelona.",
+     "phon": "él FIN dé ssé-MA-na FOUI a bar-ssé-LO-na",
+     "native": "Ce week-end, je suis allé à Barcelone."
+    },
+    {
+     "speaker": "B",
+     "study": "¿De verdad? ¿Qué hiciste?",
+     "phon": "dé bér-DAD. ké i-SSIS-té",
+     "native": "Vraiment ? Qu'est-ce que tu as fait ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Primero visité la Sagrada Familia y luego fui a la playa.",
+     "phon": "pri-MÉ-ro bi-ssi-TÉ la ssa-GRA-da fa-MI-lia i LOUÉ-go FOUI a la PLA-ya",
+     "native": "D'abord j'ai visité la Sagrada Familia, puis je suis allé à la plage."
+    },
+    {
+     "speaker": "B",
+     "study": "¡Qué bien! ¿Te gustó la ciudad?",
+     "phon": "ké BIÉN. té gous-TO la ssiou-DAD",
+     "native": "Super ! Tu as aimé la ville ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sí, me encantó. ¿Y tú, qué hiciste?",
+     "phon": "SI, mé én-kan-TO. i TOU, ké i-SSIS-té",
+     "native": "Oui, j'ai adoré. Et toi, qu'est-ce que tu as fait ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Nada especial, descansé en casa.",
+     "phon": "NA-da és-pé-SSIAL, dés-kan-SSÉ én KA-ssa",
+     "native": "Rien de spécial, je me suis reposé à la maison."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L3-fr-es-03",
+    "L3-fr-es-04",
+    "L5-fr-es-02",
+    "L5-fr-es-04",
+    "L5-fr-es-05",
+    "L5-fr-es-06",
+    "L5-fr-es-10",
+    "L5-fr-es-12",
+    "L5-fr-es-13"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Un ami"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L5-fr-es-d2",
+   "situation": "Lundi au bureau",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buenos días. ¿Qué tal el fin de semana?",
+     "phon": "BOUÉ-nos DI-as. ké TAL él FIN dé ssé-MA-na",
+     "native": "Bonjour. C'était comment, le week-end ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Regular. El sábado trabajé y el domingo llovió.",
+     "phon": "rré-gou-LAR. él SSA-ba-do tra-ba-KHÉ i él do-MIN-go yo-BIO",
+     "native": "Comme ci comme ça. Samedi j'ai travaillé et dimanche il a plu."
+    },
+    {
+     "speaker": "A",
+     "study": "¡Qué pena! Yo comí con mis padres y después vimos una película.",
+     "phon": "ké PÉ-na. yo ko-MI kon mis PA-drés i dés-POUÉS BI-mos OU-na pé-LI-kou-la",
+     "native": "Dommage ! Moi, j'ai déjeuné avec mes parents et après on a vu un film."
+    },
+    {
+     "speaker": "B",
+     "study": "¿Cuál?",
+     "phon": "KOUAL",
+     "native": "Lequel ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Una comedia española. Muy divertida.",
+     "phon": "OU-na ko-MÉ-dia és-pa-GNO-la. mouy di-bér-TI-da",
+     "native": "Une comédie espagnole. Très drôle."
+    },
+    {
+     "speaker": "B",
+     "study": "¿Cómo se llama?",
+     "phon": "KO-mo sé YA-ma",
+     "native": "Comment elle s'appelle ?"
+    },
+    {
+     "speaker": "A",
+     "study": "No me acuerdo. Te lo digo luego.",
+     "phon": "no mé a-KOUÉR-do. té lo DI-go LOUÉ-go",
+     "native": "Je ne me souviens pas. Je te le dis plus tard."
+    },
+    {
+     "speaker": "B",
+     "study": "Vale, la veo esta semana.",
+     "phon": "BA-lé, la BÉ-o ÉS-ta ssé-MA-na",
+     "native": "D'accord, je la regarde cette semaine."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L2-fr-es-06",
+    "L3-fr-es-03",
+    "L3-fr-es-09",
+    "L5-fr-es-04",
+    "L5-fr-es-06",
+    "L5-fr-es-08"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Un collègue"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L5-fr-es-d3",
+   "situation": "Appel à la famille",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hola, mamá. ¿Cómo estás?",
+     "phon": "O-la, ma-MA. KO-mo és-TAS",
+     "native": "Allô, maman. Comment tu vas ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Bien, cansada. Ayer fui al médico.",
+     "phon": "BIÉN, kan-SSA-da. a-YÉR FOUI al MÉ-di-ko",
+     "native": "Bien, fatiguée. Hier je suis allée chez le médecin."
+    },
+    {
+     "speaker": "A",
+     "study": "¿Y qué te dijo?",
+     "phon": "i ké té DI-kho",
+     "native": "Et qu'est-ce qu'il t'a dit ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Nada grave. Y tú, ¿qué tal el trabajo?",
+     "phon": "NA-da GRA-bé. i TOU, ké TAL él tra-BA-kho",
+     "native": "Rien de grave. Et toi, ça va le travail ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Esta mañana tuve una reunión y llegué tarde.",
+     "phon": "ÉS-ta ma-GNA-na TOU-bé OU-na rré-ou-NION i yé-GUÉ TAR-dé",
+     "native": "Ce matin j'ai eu une réunion et je suis arrivé en retard."
+    },
+    {
+     "speaker": "B",
+     "study": "¿Por qué?",
+     "phon": "por KÉ",
+     "native": "Pourquoi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Perdí el autobús.",
+     "phon": "pér-DI él aou-to-BOUS",
+     "native": "J'ai raté le bus."
+    },
+    {
+     "speaker": "B",
+     "study": "¡No me digas! ¿Vienes el domingo?",
+     "phon": "no mé DI-gas. BIÉ-nés él do-MIN-go",
+     "native": "Pas possible ! Tu viens dimanche ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sí, voy a comer con vosotros.",
+     "phon": "SI, BOY a ko-MÉR kon bo-SSO-tros",
+     "native": "Oui, je viens déjeuner avec vous."
+    },
+    {
+     "speaker": "B",
+     "study": "¡Qué bien! Hasta el domingo.",
+     "phon": "ké BIÉN. AS-ta él do-MIN-go",
+     "native": "Super ! À dimanche."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L2-fr-es-03",
+    "L3-fr-es-03",
+    "L3-fr-es-09",
+    "L3-fr-es-10",
+    "L4-fr-es-06",
+    "L5-fr-es-01",
+    "L5-fr-es-02",
+    "L5-fr-es-04",
+    "L5-fr-es-06",
+    "L5-fr-es-11"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Ta mère"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Raconter ce qu'on a fait (hier, le week-end, en vacances) au pretérito indefinido, situer dans le passé, enchaîner des actions (primero, luego, después), demander des nouvelles et réagir."
+}

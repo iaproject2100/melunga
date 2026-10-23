@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Melunga — atelier du parcours L1–L10</title>
+<link rel="stylesheet" href="curriculum-player.css">
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100dvh;color:#f6f8ff;background:radial-gradient(ellipse at 15% 0%,#286569 0,transparent 58%),radial-gradient(ellipse at 100% 45%,#663e83 0,transparent 65%),#122b40;font:15px/1.5 system-ui,sans-serif;--gc-line:#ffffff3b;--gc-surface:#ffffff12;--learning-text-size:31px}button,select,a{font:inherit}button,select{color:inherit;background:#ffffff14;border:1px solid #ffffff40;border-radius:18px;min-height:44px;padding:9px 14px}select option{color:#183443;background:#f4f8fa}button,a,select{touch-action:manipulation}a{color:inherit;text-underline-offset:4px}.workshop{max-width:1120px;margin:auto;padding:20px 24px}.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.top img{width:46px;height:46px;border-radius:50%}.top h1{font-size:20px;margin:0}.top p{margin:2px 0;font-size:12px;opacity:.8}.pair-picker{margin-left:auto;max-width:100%}.intro{margin:15px 0;font-size:13px;opacity:.86}.links{display:flex;flex-wrap:wrap;gap:20px;font-size:13px;margin:12px 0 16px}.lesson-shell{padding:0;border:1px solid #ffffff35;border-radius:30px;background:#ffffff0b;box-shadow:0 20px 90px #00101d35;backdrop-filter:blur(20px);overflow:hidden}.lesson-top{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;border-bottom:1px solid #ffffff25;font-weight:700}.progress{height:3px;background:#ffffff16}.progress i{display:block;height:100%;background:#81e2ce;transition:width .2s}#card.card{display:flex;flex-direction:column;align-items:center;text-align:center;max-height:calc(100dvh - 350px);min-height:330px;overflow:auto;padding:24px;scrollbar-width:thin}#fr,#phon,#cn{max-width:100%;font-weight:750;white-space:pre-wrap;overflow-wrap:anywhere}.phonrow{position:relative;display:flex;align-items:center;justify-content:center;gap:15px;border:1px solid #b7e9ed50;border-radius:24px;background:#b7e9ed14;max-width:100%;padding:20px 74px 20px 24px;width:100%;margin:18px 0}#phon{color:#a6ebff}.earicon{position:absolute;right:15px;border-radius:50%;background:#ffffff20;font-size:25px}#cn{font-weight:550;color:#e4eaf4}#listen{border-radius:50%;width:60px;height:60px;margin:18px auto;background:#9aead5;color:#133d45;font-size:23px}#nav{display:flex;justify-content:center;gap:12px;padding:8px}#rateBar{display:flex;gap:12px;padding:16px;border-top:1px solid #ffffff22}#rateBar>button{width:50%;display:flex;justify-content:center;align-items:center;gap:10px;background:#ffffff14;font-weight:700}#rateBar>button:last-child{background:#8ce7cb;color:#103e3a}body.review-mobile .workshop{max-width:440px}body.review-mobile #curriculumLessons{grid-template-columns:1fr!important}body.review-mobile #card.card :is(#fr,#phon,#cn){font-size:24px!important}.screen-note{margin:14px 0;font-size:12px;opacity:.75}#speechStatus{font-size:12px;min-height:18px}body.curriculum-active #curriculumExit{display:none}
+@media(max-width:700px){.workshop{padding:14px 12px}.pair-picker{margin:8px 0 0;width:100%}.top h1{font-size:18px}.intro{font-size:12px}.links{gap:12px}.lesson-shell{border-radius:24px}#card.card{max-height:calc(100dvh - 335px);min-height:320px;padding:16px}#rateBar{padding:12px;gap:8px}.lesson-top{padding:10px 16px}.screen-note{font-size:11px}}
+</style>
+</head>
+<body class="immersif">
+<main class="workshop">
+  <header class="top">
+    <img src="melunga-logo.png" alt="">
+    <div><h1>Atelier du parcours L1–L10</h1><p>Aperçu de travail · sept couples de langues</p></div>
+    <select id="pairPicker" class="pair-picker" aria-label="Langue à examiner">
+      <option value="fr-zh">Français → Chinois</option><option value="fr-en">Français → Anglais</option>
+      <option value="fr-es">Français → Espagnol</option><option value="fr-it">Français → Italien</option>
+      <option value="fr-ja">Français → Japonais</option><option value="fr-ko">Français → Coréen</option>
+      <option value="zh-fr">中文 → 法语</option>
+    </select>
+  </header>
+  <p class="intro">Examine les dix niveaux et joue les leçons. Cet atelier ouvre tous les niveaux pour la relecture ; l’essai intégré conserve les accès gratuits et abonnés.</p>
+  <nav class="links"><a id="productLink" href="app.html?start=1&amp;lang=fr&amp;study=zh">Essayer dans le site</a><button id="format" type="button">Vue compacte</button><a href="https://github.com/iaproject2100/melunga/tree/review/parcours-complet-progressif/docs/curriculum-v2" target="_blank" rel="noopener">Compte rendu et sources</a></nav>
+  <section class="lesson-shell" aria-label="Parcours à examiner">
+    <div class="lesson-top"><span id="currentLevel">Niveau L1</span><span id="count">L1</span></div>
+    <div class="progress"><i id="progBar"></i></div>
+    <article id="card" class="card">
+      <span id="badge"></span><div id="fr"></div>
+      <div class="phonrow"><div id="phon"></div><span class="earicon">👂</span></div>
+      <div id="cn"></div><button id="listen" type="button" aria-label="Écouter">◖))</button>
+    </article>
+    <nav id="nav" aria-label="Étapes"><button id="previous" type="button">←</button><button id="next" type="button">→</button></nav>
+    <div id="rateBar" class="ratebar"><button id="again" type="button"><span aria-hidden="true">↶</span><span id="rateAgainLabel" class="rate-label">Réécouter</span></button><button id="continue" type="button"><span aria-hidden="true">→</span><span id="rateKnownLabel" class="rate-label">Continuer</span></button></div>
+  </section>
+  <p id="speechStatus" role="status"></p>
+  <p class="screen-note">Le chinois commence par des échanges simples. Les anciennes phrases gratuites restent dans « Bibliothèque gratuite ». Ce candidat attend la revue croisée ; aucune maîtrise n’est déduite des clics.</p>
+</main>
+<script>
+// This separate editorial workshop has no account, checkout or persistent
+// entitlement. The real app continues to enforce its normal access checks.
+var nat='fr', lang='zh', isPaid=true, pool=[], idx=0, selfTest=false, revealed=false;
+function cancelCurrentSpeech(){if(window.speechSynthesis)window.speechSynthesis.cancel();}
+function speak(study){
+  cancelCurrentSpeech();
+  var status=document.getElementById('speechStatus');status.textContent='';
+  if(!window.speechSynthesis){status.textContent='Audio indisponible dans ce navigateur.';return;}
+  var utterance=new SpeechSynthesisUtterance(study);
+  utterance.lang={en:'en-GB',es:'es-ES',it:'it-IT',zh:'zh-CN',ja:'ja-JP',ko:'ko-KR',fr:'fr-FR'}[lang];
+  utterance.onerror=function(){status.textContent='Cette voix est indisponible. Essaie le parcours intégré au site.';};
+  window.speechSynthesis.speak(utterance);
+}
+</script>
+<script src="curriculum-player.js"></script>
+<script>
+(function(){
+  var picker=document.getElementById('pairPicker'), query=new URLSearchParams(location.search);
+  if(Array.from(picker.options).some(function(o){return o.value===query.get('pair');}))picker.value=query.get('pair');
+  function open(){
+    MelungaCurriculum.stop();var selected=picker.value.split('-');nat=selected[0];lang=selected[1];
+    document.documentElement.lang=nat;
+    document.getElementById('productLink').href='app.html?start=1&lang='+nat+'&study='+lang;
+    var url=new URL(location.href);url.searchParams.set('pair',picker.value);history.replaceState(null,'',url);
+    MelungaCurriculum.start(1);
+  }
+  picker.addEventListener('change',open);
+  document.getElementById('format').addEventListener('click',function(){document.body.classList.toggle('review-mobile');this.textContent=document.body.classList.contains('review-mobile')?'Vue large':'Vue compacte';});
+  document.getElementById('listen').addEventListener('click',function(){MelungaCurriculum.listen(this);});
+  document.getElementById('previous').addEventListener('click',function(){MelungaCurriculum.prev();});
+  document.getElementById('next').addEventListener('click',function(){MelungaCurriculum.next();});
+  document.getElementById('again').addEventListener('click',function(){MelungaCurriculum.rateCard(false);});
+  document.getElementById('continue').addEventListener('click',function(){MelungaCurriculum.rateCard(true);});
+  open();
+})();
+</script>
+</body>
+</html>

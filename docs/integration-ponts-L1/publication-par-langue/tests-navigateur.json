@@ -1,0 +1,396 @@
+{
+  "version": 1,
+  "status": "passed",
+  "scope": "local-browser-fixtures-only",
+  "baseline": "939b82e561521ab12218bc5e7f3577961410a26e",
+  "publicationApproved": false,
+  "nativeReviewClaimed": false,
+  "shippedActivationFixtureModified": false,
+  "limitations": [
+    "Chromium with mobile viewport/touch emulation; no physical device or native app execution.",
+    "mobile-runtime.js is neutralized by a local fixture, matching the integration harness.",
+    "Speech is spied to check the exact study-text argument; actual sound output is not assessed."
+  ],
+  "shippedReleaseSha256Before": "5d488621d499c93913d67a64aa6065fd223fec2aad3e43d00a8ce5aada247811",
+  "bundlePairs": [
+    "fr-en",
+    "fr-es",
+    "fr-it",
+    "fr-zh",
+    "fr-ja",
+    "fr-ko",
+    "zh-fr"
+  ],
+  "scenarios": [
+    {
+      "kind": "delivered-empty-allowlist",
+      "width": 390,
+      "height": 844,
+      "unreleasedPairsChecked": 7,
+      "paidStates": [
+        false,
+        true
+      ],
+      "bundleRequests": 0
+    },
+    {
+      "kind": "delivered-empty-allowlist",
+      "width": 1440,
+      "height": 900,
+      "unreleasedPairsChecked": 7,
+      "paidStates": [
+        false,
+        true
+      ],
+      "bundleRequests": 0
+    },
+    {
+      "kind": "invalid-config",
+      "name": "missing",
+      "allSevenUnavailable": true,
+      "paidStates": [
+        false,
+        true
+      ],
+      "bundleRequests": 0
+    },
+    {
+      "kind": "invalid-config",
+      "name": "null",
+      "allSevenUnavailable": true,
+      "paidStates": [
+        false,
+        true
+      ],
+      "bundleRequests": 0
+    },
+    {
+      "kind": "invalid-config",
+      "name": "missing-version",
+      "allSevenUnavailable": true,
+      "paidStates": [
+        false,
+        true
+      ],
+      "bundleRequests": 0
+    },
+    {
+      "kind": "invalid-config",
+      "name": "wrong-version",
+      "allSevenUnavailable": true,
+      "paidStates": [
+        false,
+        true
+      ],
+      "bundleRequests": 0
+    },
+    {
+      "kind": "invalid-config",
+      "name": "pairs-string",
+      "allSevenUnavailable": true,
+      "paidStates": [
+        false,
+        true
+      ],
+      "bundleRequests": 0
+    },
+    {
+      "kind": "invalid-config",
+      "name": "unknown-pair",
+      "allSevenUnavailable": true,
+      "paidStates": [
+        false,
+        true
+      ],
+      "bundleRequests": 0
+    },
+    {
+      "kind": "invalid-config",
+      "name": "nonstring-pair",
+      "allSevenUnavailable": true,
+      "paidStates": [
+        false,
+        true
+      ],
+      "bundleRequests": 0
+    },
+    {
+      "kind": "invalid-config",
+      "name": "mixed-known-and-unknown",
+      "allSevenUnavailable": true,
+      "paidStates": [
+        false,
+        true
+      ],
+      "bundleRequests": 0
+    },
+    {
+      "kind": "invalid-config",
+      "name": "duplicate-pair",
+      "allSevenUnavailable": true,
+      "paidStates": [
+        false,
+        true
+      ],
+      "bundleRequests": 0
+    },
+    {
+      "kind": "singleton",
+      "id": "fr-en",
+      "width": 390,
+      "height": 844,
+      "paid": false,
+      "bundlePairsValidated": 7,
+      "sceneSteps": 32,
+      "otherPairsRefused": 6,
+      "refusalPaidStates": [
+        false,
+        true
+      ],
+      "earOnPreparationRecallReceived": true,
+      "classicExit": true
+    },
+    {
+      "kind": "singleton",
+      "id": "fr-es",
+      "width": 390,
+      "height": 844,
+      "paid": false,
+      "bundlePairsValidated": 7,
+      "sceneSteps": 32,
+      "otherPairsRefused": 6,
+      "refusalPaidStates": [
+        false,
+        true
+      ],
+      "earOnPreparationRecallReceived": true,
+      "classicExit": true
+    },
+    {
+      "kind": "singleton",
+      "id": "fr-it",
+      "width": 390,
+      "height": 844,
+      "paid": false,
+      "bundlePairsValidated": 7,
+      "sceneSteps": 32,
+      "otherPairsRefused": 6,
+      "refusalPaidStates": [
+        false,
+        true
+      ],
+      "earOnPreparationRecallReceived": true,
+      "classicExit": true
+    },
+    {
+      "kind": "singleton",
+      "id": "fr-zh",
+      "width": 390,
+      "height": 844,
+      "paid": false,
+      "bundlePairsValidated": 7,
+      "sceneSteps": 32,
+      "otherPairsRefused": 6,
+      "refusalPaidStates": [
+        false,
+        true
+      ],
+      "earOnPreparationRecallReceived": true,
+      "classicExit": true
+    },
+    {
+      "kind": "singleton",
+      "id": "fr-ja",
+      "width": 390,
+      "height": 844,
+      "paid": false,
+      "bundlePairsValidated": 7,
+      "sceneSteps": 32,
+      "otherPairsRefused": 6,
+      "refusalPaidStates": [
+        false,
+        true
+      ],
+      "earOnPreparationRecallReceived": true,
+      "classicExit": true
+    },
+    {
+      "kind": "singleton",
+      "id": "fr-ko",
+      "width": 390,
+      "height": 844,
+      "paid": false,
+      "bundlePairsValidated": 7,
+      "sceneSteps": 32,
+      "otherPairsRefused": 6,
+      "refusalPaidStates": [
+        false,
+        true
+      ],
+      "earOnPreparationRecallReceived": true,
+      "classicExit": true
+    },
+    {
+      "kind": "singleton",
+      "id": "zh-fr",
+      "width": 390,
+      "height": 844,
+      "paid": false,
+      "bundlePairsValidated": 7,
+      "sceneSteps": 32,
+      "otherPairsRefused": 6,
+      "refusalPaidStates": [
+        false,
+        true
+      ],
+      "earOnPreparationRecallReceived": true,
+      "classicExit": true
+    },
+    {
+      "kind": "singleton",
+      "id": "fr-en",
+      "width": 1440,
+      "height": 900,
+      "paid": false,
+      "bundlePairsValidated": 7,
+      "sceneSteps": 32,
+      "otherPairsRefused": 6,
+      "refusalPaidStates": [
+        false,
+        true
+      ],
+      "earOnPreparationRecallReceived": true,
+      "classicExit": true
+    },
+    {
+      "kind": "singleton",
+      "id": "fr-es",
+      "width": 1440,
+      "height": 900,
+      "paid": false,
+      "bundlePairsValidated": 7,
+      "sceneSteps": 32,
+      "otherPairsRefused": 6,
+      "refusalPaidStates": [
+        false,
+        true
+      ],
+      "earOnPreparationRecallReceived": true,
+      "classicExit": true
+    },
+    {
+      "kind": "singleton",
+      "id": "fr-it",
+      "width": 1440,
+      "height": 900,
+      "paid": false,
+      "bundlePairsValidated": 7,
+      "sceneSteps": 32,
+      "otherPairsRefused": 6,
+      "refusalPaidStates": [
+        false,
+        true
+      ],
+      "earOnPreparationRecallReceived": true,
+      "classicExit": true
+    },
+    {
+      "kind": "singleton",
+      "id": "fr-zh",
+      "width": 1440,
+      "height": 900,
+      "paid": false,
+      "bundlePairsValidated": 7,
+      "sceneSteps": 32,
+      "otherPairsRefused": 6,
+      "refusalPaidStates": [
+        false,
+        true
+      ],
+      "earOnPreparationRecallReceived": true,
+      "classicExit": true
+    },
+    {
+      "kind": "singleton",
+      "id": "fr-ja",
+      "width": 1440,
+      "height": 900,
+      "paid": false,
+      "bundlePairsValidated": 7,
+      "sceneSteps": 32,
+      "otherPairsRefused": 6,
+      "refusalPaidStates": [
+        false,
+        true
+      ],
+      "earOnPreparationRecallReceived": true,
+      "classicExit": true
+    },
+    {
+      "kind": "singleton",
+      "id": "fr-ko",
+      "width": 1440,
+      "height": 900,
+      "paid": false,
+      "bundlePairsValidated": 7,
+      "sceneSteps": 32,
+      "otherPairsRefused": 6,
+      "refusalPaidStates": [
+        false,
+        true
+      ],
+      "earOnPreparationRecallReceived": true,
+      "classicExit": true
+    },
+    {
+      "kind": "singleton",
+      "id": "zh-fr",
+      "width": 1440,
+      "height": 900,
+      "paid": false,
+      "bundlePairsValidated": 7,
+      "sceneSteps": 32,
+      "otherPairsRefused": 6,
+      "refusalPaidStates": [
+        false,
+        true
+      ],
+      "earOnPreparationRecallReceived": true,
+      "classicExit": true
+    }
+  ],
+  "browserErrors": [],
+  "accountOrPaymentRequests": [],
+  "cafeStepsChecked": 42,
+  "directStartRefusals": 214,
+  "indirectEntryRefusals": 214,
+  "shippedReleaseSha256After": "5d488621d499c93913d67a64aa6065fd223fec2aad3e43d00a8ce5aada247811",
+  "sourceFilesSha256": {
+    "melunga_deploy/app.html": "72f253c49a3d7f30c8b4598109659c54813c972cbcf5bb90355a844c5f8549bc",
+    "melunga_deploy/l1-cafe-release.js": "5d488621d499c93913d67a64aa6065fd223fec2aad3e43d00a8ce5aada247811",
+    "melunga_deploy/l1-cafe.js": "b861745e48cbb8809f299a10f16375b6c077ef8b9568cd312e561616a8d3fc72",
+    "melunga_deploy/content/l1-cafe.json": "bf22f9592adf23219d1e25f491b8cedef8bc086148e12331830b0b6404e5180c",
+    "melunga_deploy/tests/l1-cafe-release.test.cjs": "00979fd04cad4be9ae39e7421b0c832ad59796c3e6fde74354d23fbe2de528a5",
+    "melunga_deploy/tests/l1-cafe.test.cjs": "986b85ec99a501f74645158a5f245a836b01504e5f6200f10e2d83e9f4237614"
+  },
+  "completedScenarios": 25,
+  "fullSequenceRegression": {
+    "status": "passed",
+    "command": "NODE_PATH=/tmp/melunga-review-tools/node_modules node tests/l1-cafe.test.cjs",
+    "activation": "All seven pairs provided only by the local network route for l1-cafe-release.js; delivered file not edited.",
+    "pairsAndViewports": 14,
+    "steps": 448,
+    "browserErrors": [],
+    "flows": [
+      "gesture dispatch, bounds, target/reader exit, exact pair allowlist",
+      "direct locked-level exit restores original lesson and controls",
+      "queued classic rating discarded on café entry",
+      "real delayed audio retry and fallback cancelled across steps",
+      "simulated native recognition result discarded and grading blocked in café",
+      "missing bundle fails safely, retries, exits",
+      "corrupt bundle fails safely, retries, exits",
+      "late fetch discarded after target change",
+      "320 px and blocked storage"
+    ]
+  }
+}
