@@ -1,8 +1,11 @@
 # Besoins grammaticaux à préparer — L1 à L10
 
-Statut : cahier de besoins pour recherche de sources et revue avec Claude.
-Aucune carte active, aucune nouvelle phonétique, aucun niveau source modifié.
-Ce document complète `politique-vocabulaire-phrases.json` sans la changer.
+Statut : cahier de besoins pour recherche de sources et travail éditorial Codex.
+Claude vérifie uniquement les phonétiques nouvelles ou signalées.
+Ce cahier de besoins n’active lui-même aucune carte et ne modifie aucun niveau
+source. Les corrections et enrichissements réalisés depuis sont consignés dans
+`corrections-themes/`, avec une liste distincte des nouvelles aides à vérifier.
+Ce document complète `politique-vocabulaire-phrases.json`.
 
 Les trois destinations Adjectifs, Prépositions et Adverbes sont prévues à chaque
 niveau **lorsque des entrées correspondantes existent**. Elles ne sont pas
@@ -91,7 +94,7 @@ que si la source la fournit entière et bornée. Toute hésitation reste en revu
    sa phonétique entière selon la méthode de Kartech et une validation adaptée.
    Aucun collage de syllabes ni traduction automatique n'est publiable ici.
 
-## Réemploi et contrôle proposés à Claude
+## Réemploi et contrôle éditorial Codex
 
 Pour chaque couple, niveau et destination, consigner : capacité visée, source
 recherchée, résultat exact ou manque encore candidat, construction nécessaire,
@@ -106,8 +109,8 @@ utile. Une substitution qui change accord, particule, complément ou registre
 doit déclarer cette opération ; elle n'est pas présentée comme un simple mot
 interchangeable. La préparation prévue ne mesure pas l'acquisition.
 
-La revue porte séparément sur la fonction grammaticale dans la langue étudiée,
+Codex vérifie la fonction grammaticale dans la langue étudiée,
 la progressivité des constructions, l'utilité de l'échange, la conservation des
-champs source et la conformité phonétique. Une rubrique vide peut rester vide
+champs source. Claude vérifie la conformité phonétique uniquement. Une rubrique vide peut rester vide
 en attendant une source ou une décision ; ce cahier n'autorise ni activation,
 ni publication, ni nouvelle carte, ni modification de la frontière gratuit/payant.

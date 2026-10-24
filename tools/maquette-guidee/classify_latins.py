@@ -345,7 +345,54 @@ def build(root):
             "sourceDeckSha256": hashlib.sha256(canonical(decks[language])).hexdigest(),
             "status": "candidate-requires-semantic-review", "assignments": assignments,
         }
+    apply_semantic_review(root, decks, output)
     return output
+
+
+def apply_semantic_review(root, decks, output):
+    """Apply source-index editorial decisions, never reroute through keywords."""
+    path = root / "docs/niveaux-progressifs/corrections-themes/latins.json"
+    document = json.loads(path.read_text())
+    assert document["version"] == 1 and document["reviewer"] == "Codex"
+    allowed_families = {
+        "vocab-restaurant", "vocab-maison", "vocab-voyage", "vocab-personnes", "vocab-reperes",
+        "vocab-actions", "vocab-travail", "vocab-adjectifs", "vocab-prepositions", "vocab-adverbes",
+        "vocab-couleurs", "vocab-nature", "vocab-loisirs",
+    }
+    allowed_domains = {"saluer", "comprendre", "ressentis", "repas", "deplacements", "reperes",
+                       "quotidien", "decrire", "conversation", "travail"}
+    seen = set()
+    for language in LANGUAGES:
+        assert document["sourceDecksSha256"][language] == hashlib.sha256(canonical(decks[language])).hexdigest()
+    for decision in document["reviewedAssignments"]:
+        pair, index = decision["pair"], decision["sourceIndex"]
+        language = pair[3:]
+        key = (pair, index)
+        assert key not in seen and language in LANGUAGES
+        seen.add(key)
+        card = decks[language][index]
+        assert (card["t"], card["frm"]) == (decision["expectedStudy"], decision["expectedNative"])
+        assert decision["sourceSha256"] == hashlib.sha256(canonical(card)).hexdigest()
+        assert decision["reviewStatus"] == "reviewed" and decision["reason"]
+        assignment = output[pair + ".json"]["assignments"][index]
+        if decision["contentType"] != "vocabulary":
+            for field in ("lexicalClass", "lexicalClassReason", "lexicalClassReviewStatus",
+                          "lexicalFamilyOverride", "lexicalFamilyOverrideReason"):
+                assignment.pop(field, None)
+        for field in ("contentType", "reason", "reviewStatus", "lexicalClass", "lexicalClassReason",
+                      "lexicalClassReviewStatus", "lexicalFamilyOverride", "lexicalFamilyOverrideReason",
+                      "situationDomainOverride", "situationDomainOverrideReason", "lexicalUsage"):
+            if field in decision:
+                assignment[field] = decision[field]
+        if "lexicalFamilyOverride" in assignment:
+            assert assignment["contentType"] == "vocabulary"
+            assert assignment["lexicalFamilyOverride"] in allowed_families and assignment["lexicalFamilyOverrideReason"]
+            priority = {"adjective": "vocab-adjectifs", "preposition": "vocab-prepositions",
+                        "adverb": "vocab-adverbes", "color": "vocab-couleurs"}.get(assignment["lexicalClass"])
+            assert not priority or assignment["lexicalFamilyOverride"] == priority
+        if "situationDomainOverride" in assignment:
+            assert assignment["contentType"] == "utterance"
+            assert assignment["situationDomainOverride"] in allowed_domains and assignment["situationDomainOverrideReason"]
 
 
 def readme(output):
@@ -372,24 +419,25 @@ def readme(output):
         "5. Les noms, adjectifs et infinitifs isolés sont du vocabulaire. Les expressions que les règles ne peuvent décider de façon fiable restent review. La ponctuation seule ne prouve pas qu’il s’agit d’une phrase.",
         "", "Les comparaisons de forme utilisent une normalisation temporaire ; aucun texte normalisé n’est écrit dans le catalogue ou dans les cartes. Les règles de sens figurent dans classify_latins.py et peuvent être contredites par la revue sémantique.", "",
         "## Classes lexicales candidates", "",
-        "| Couple | Adjectifs | Prépositions | Adverbes | Autres mots | Classe incertaine |",
-        "|---|---:|---:|---:|---:|---:|",
+        "| Couple | Adjectifs | Couleurs | Prépositions | Adverbes | Autres mots | Classe incertaine |",
+        "|---|---:|---:|---:|---:|---:|---:|",
     ]
     for data in output.values():
         counts = Counter(a["lexicalClass"] for a in data["assignments"] if a["contentType"] == "vocabulary")
-        lines.append("| " + data["pair"] + " | " + " | ".join(str(counts[key]) for key in ("adjective", "preposition", "adverb", "other", "uncertain")) + " |")
+        lines.append("| " + data["pair"] + " | " + " | ".join(str(counts[key]) for key in ("adjective", "color", "preposition", "adverb", "other", "uncertain")) + " |")
     lines += [
         "", "Les classes sont renseignées uniquement sur vocabulary, avec une raison et un statut propres. Le sens français est croisé avec la forme étudiée : lexiques de prépositions, locutions adverbiales bilingues, formes et sens adjectivaux isolés. Un adjectif attribut reste dans sa phrase ; il n’est pas extrait.",
         "", "Les noms et infinitifs vont dans other. « La semaine dernière », « cet après-midi » ou « dans cinq minutes » ne deviennent pas automatiquement des adverbes. Les formes à plusieurs classes/sens, comme next ou gold, peuvent rester uncertain. Ces listes ne prétendent pas constituer une analyse morphosyntaxique complète.",
-        "", "La règle spécialisée de classe lexicale doit avoir priorité sur les familles maison/restaurant/etc. Une carte ne doit avoir qu’un emplacement principal : ces annotations ne demandent aucune duplication.",
+        "", "La règle spécialisée de classe lexicale doit avoir priorité sur les familles maison/restaurant/etc. Une carte ne doit avoir qu’un emplacement principal : ces annotations ne demandent aucune duplication. Les couleurs ont leur classe color distincte, après lecture des formes et de leur série source ; une fleur rose ou un fruit orange n’est pas ajouté par simple correspondance de mots.",
+        "", "La passe éditoriale par indices de corrections-themes/latins.json remplace les décisions heuristiques sur les cartes relues : type, classe et destination sont motivés séparément. Les overrides reviewed ont priorité sur les mots-clés de routage. Codex assume cette revue de sens et de progression ; Claude intervient uniquement pour la phonétique.",
         "", "## Exemples contrôlés et limites", "",
         "- en[3082] « In any case, I loved it. », es[3585] « Te extraño. », it[2838] « Lo prendo. » restent des énoncés malgré cat=vocab.",
         "- en[3436] « the password », en[4228] « wood » et it[3531] « un appuntamento » restent du vocabulaire : ni passe/bois ni rendez-vous ne prouvent une conjugaison ou une inversion.",
         "- en[3463] « an X-ray » / « une radio » est la seule exception sourceTemplateException=true : le X de X-ray appartient au nom entier. Cette carte précise est reviewed ; son ancien marqueur template reste intact dans la source. La classe other est également vérifiée pour cette exception.",
         "- Les repères interrogatifs isolés where/dove sans point d’interrogation restent lexicaux ; une question autonome complète garde le type utterance.",
-        "", f"**{total_types['review']} cartes** restent à relire pour leur autonomie et **{total_pos['uncertain']} mots** pour leur classe lexicale. Les autres décisions restent rule-based-candidate, sauf l’exception individuelle indiquée.",
+        "", f"**{total_types['review']} cartes** restent à relire pour leur autonomie et **{total_pos['uncertain']} mots** pour leur classe lexicale. Les cartes hors passe éditoriale restent rule-based-candidate ; reviewed signifie une décision de sens de Codex, pas une relecture native ou une validation phonétique.",
         "", "Aucune préposition espagnole isolée n’a été reconnue par les règles actuelles. Cela signale un besoin d’examen/enrichissement, pas la preuve que toute la langue ou tout le catalogue en manque. Les faibles stocks d’adjectifs/adverbes isolés espagnols doivent aussi être examinés avant d’inventer des contenus. Aucune phrase ni phonétique n’est découpée pour remplir ces catégories.",
-        "", "Les règles peuvent encore manquer des verbes, des ellipses conversationnelles ou des idiomes. Les cas review restent explicites ; les classer ne démontre ni la progressivité des niveaux ni l’acquisition. La phonétique doit être revue par Claude selon la méthode de Kartech ; elle n’est jamais reconstruite ici.",
+        "", "Les règles peuvent encore manquer des verbes, des ellipses conversationnelles ou des idiomes. Les cas review restent explicites ; les classer ne démontre ni la progressivité globale des niveaux ni l’acquisition. Les phonétiques existantes restent intégrales et inchangées. Claude vérifie seulement les nouvelles aides du lot éditorial distinct.",
         "", "## Reproduction", "",
         "    python3 -B tools/maquette-guidee/classify_latins.py",
         "    python3 -B tools/maquette-guidee/classify_latins.py --check --self-test", "",
@@ -404,11 +452,11 @@ def self_test(root, output):
         ("en", "No.", "utterance", None), ("en", "Hello.", "utterance", None),
         ("en", "one", "number", None), ("en", "where", "vocabulary", "adverb"),
         ("en", "wood", "vocabulary", "other"), ("en", "the password", "vocabulary", "other"),
-        ("en", "under", "vocabulary", "preposition"), ("en", "red", "vocabulary", "adjective"),
+        ("en", "under", "vocabulary", "preposition"), ("en", "red", "vocabulary", "color"),
         ("en", "from time to time", "vocabulary", "adverb"),
         ("es", "Te extraño.", "utterance", None), ("es", "veinte", "number", None),
         ("it", "Lo prendo.", "utterance", None), ("it", "sotto", "vocabulary", "preposition"),
-        ("it", "blu", "vocabulary", "adjective"), ("it", "dove", "vocabulary", "adverb"),
+        ("it", "blu", "vocabulary", "color"), ("it", "dove", "vocabulary", "adverb"),
         ("it", "un appuntamento", "vocabulary", "other"),
         ("it", "quest'anno", "vocabulary", "other"),
         ("it", "Non avere voglia di fare niente.", "vocabulary", "other"),
@@ -428,7 +476,96 @@ def self_test(root, output):
     exception = output["fr-en.json"]["assignments"][3463]
     assert exception["sourceTemplateException"] is True and exception["reviewStatus"] == "reviewed"
     assert exception["lexicalClass"] == "other" and exception["lexicalClassReviewStatus"] == "reviewed"
-    print(json.dumps({"targetedRealSourceChecks": performed + 1, "errors": 0}))
+    editorial_cases = [
+        ("fr-es", 1668, "utterance", "situationDomainOverride", "saluer"),
+        ("fr-es", 4190, "vocabulary", "lexicalFamilyOverride", "vocab-actions"),
+        ("fr-es", 94, "utterance", "situationDomainOverride", "ressentis"),
+        ("fr-es", 3995, "utterance", "situationDomainOverride", "decrire"),
+        ("fr-en", 4089, "vocabulary", "lexicalFamilyOverride", "vocab-loisirs"),
+        ("fr-en", 4076, "vocabulary", "lexicalFamilyOverride", "vocab-restaurant"),
+        ("fr-it", 3433, "vocabulary", "lexicalFamilyOverride", "vocab-loisirs"),
+        ("fr-it", 3429, "vocabulary", "lexicalFamilyOverride", "vocab-restaurant"),
+        ("fr-en", 3903, "vocabulary", "lexicalClass", "color"),
+        ("fr-es", 4553, "vocabulary", "lexicalClass", "color"),
+        ("fr-it", 3134, "vocabulary", "lexicalClass", "color"),
+        ("fr-en", 3312, "number", "reviewStatus", "reviewed"),
+        ("fr-it", 3052, "number", "reviewStatus", "reviewed"),
+        ("fr-it", 4066, "number", "reviewStatus", "reviewed"),
+        ("fr-it", 4265, "number", "reviewStatus", "reviewed"),
+    ]
+    for pair, index, content_type, field, expected in editorial_cases:
+        assignment = output[pair + ".json"]["assignments"][index]
+        assert assignment["contentType"] == content_type and assignment[field] == expected, (pair, index, assignment)
+        assert assignment["reviewStatus"] == "reviewed"
+    for pair, index in (("fr-en", 3038), ("fr-it", 2632)):
+        assert output[pair + ".json"]["assignments"][index]["contentType"] != "number"
+    print(json.dumps({"targetedRealSourceChecks": performed + 3 + len(editorial_cases), "errors": 0}))
+
+
+def semantic_review_markdown(root, output):
+    document = json.loads((root / "docs/niveaux-progressifs/corrections-themes/latins.json").read_text())
+    rows = document["reviewedAssignments"]
+    transitions = Counter((row["before"]["contentType"], row["contentType"]) for row in rows)
+    by_pair = Counter(row["pair"] for row in rows)
+    lines = [
+        "# Corrections de sens et de type — anglais, espagnol, italien", "",
+        "Cette passe répond aux intrus et rubriques faibles signalés sur l’aperçu. Codex assume les décisions de sens, de type et de fonction communicative ; Claude vérifie uniquement les phonétiques du lot nouveau. Les textes, traductions, aides et niveaux du catalogue restent inchangés.", "",
+        "## Périmètre effectivement lu", "",
+        f"- {document['coverage']['initialWeakAndSpanishVocabularyCards']} cartes uniques : toutes les cartes des rubriques actives de moins de six entrées et les 540 entrées initialement classées vocabulaire en espagnol.",
+        f"- {document['coverage']['figurativeRiskSituationCandidates']} situations Voyage/Repas à risque figuratif ont été lues, dont les cartes contenant arriver/aller, train, pied, eau/œufs, accord, etc.",
+        f"- {document['coverage']['uniqueCardsInInitialAudit']} cartes distinctes dans cette union ; {len(rows)} décisions individuelles avec les couleurs et quelques activités contrôlées en complément.",
+        "", "| Couple | Cartes avec décision individuelle |", "|---|---:|",
+    ]
+    for pair in ("fr-en", "fr-es", "fr-it"):
+        lines.append(f"| {pair} | {by_pair[pair]} |")
+    lines += [
+        "", "Le JSON conserve chaque indice de couverture, sa forme étudiée et son sens, puis les décisions par indice avec empreinte de carte entière et état antérieur. Aucun simple seuil de longueur ne valide une phrase, aucun mot-clé ne suffit à choisir la nouvelle destination.", "",
+        "## Changements concrets", "",
+        f"- {transitions[('vocabulary', 'utterance')]} tours entiers sortent du vocabulaire pour rejoindre une situation adaptée.",
+        f"- {transitions[('vocabulary', 'number')]} quantités numériques isolées (la moitié, le double) rejoignent les nombres.",
+        f"- {transitions[('utterance', 'incomplete')]} concession sans principale reste une forme incomplète réelle ; aucune réserve n’est utilisée simplement pour masquer une mauvaise rubrique.",
+        "- Saludos a tu familia. : salutation entière → Saluer, et non Corps/personnes.",
+        "- Salirse con la suya. : infinitif idiomatique « arriver à ses fins » → vocabulaire Actions, jamais Voyage.",
+        "- Je n’y arrive pas, au train où vont les choses, partir du mauvais pied, mettre tous ses œufs dans le même panier : le sens figuré et la fonction du tour décident de la situation, sans trajet ou repas fictif.",
+        "- fishing / la pêche et la pesca (attività) vont dans Loisirs ; a peach / una pesca fruit ne sont pas promus en activité par leur homographie.",
+        "- Pièce jointe, permis de conduire, robinet d’eau chaude et porte d’embarquement ont des destinations distinguées d’après l’objet réel, et non pièce, conduire, eau ou porte isolément.",
+        "", "Les autres décisions de la liste peuvent conserver un type correct tout en corrigeant la famille, ou confirmer la destination littérale après examen. Reviewed signifie une décision éditoriale individuelle, pas une validation native ou phonétique.", "",
+        "## Couleurs et adjectifs demandés", "",
+        "Les 16 cartes EN, 15 ES et 15 IT de couleur sont relues dans leur série source et reçoivent color, distinct de adjective. Rose/orange y sont des teintes ; or/argent sont les teintes métalliques dans cette série. Une fleur, un fruit ou l’argent monétaire ailleurs n’est pas déduit de ce classement.",
+        "", "| Couple | Concept | Sources isolées existantes |", "|---|---|---|",
+    ]
+    for record in document["requestedAdjectiveAvailability"]:
+        entries = "; ".join(f"{entry['sourceIndex']} L{entry['sourceLevel']} : {entry['study']} — {entry['native']}" for entry in record["existingIsolatedEntries"]) or "Absent après recherche des formes et du sens"
+        lines.append(f"| {record['pair']} | {record['concept']} | {entries} |")
+    lines += [
+        "", "Ces entrées sont reprises entières avec leurs aides originales. Les féminins non présents ne sont pas inventés à partir d’un masculin. Le lot rédigé distinct complète les absences après contrôle ; sa phonétique entière est à vérifier par Claude.",
+        "", "La palette commune manque de violet isolé dans les trois catalogues. Les couleurs EN/IT existantes sont réparties L2–L5 ; les mettre toutes dans une palette pédagogique L1 demanderait une décision de placement explicite distincte, sans changer lv. Aucun des 518 placements existants n’est modifié ici.",
+        "", "Le master nouveau a aussi été recherché par forme étudiée exacte et par sens français. Seul light existait avec un autre sens (lumière/lampe, indice3936) ; l’adjectif léger/légère constitue donc un sens entier nouveau, pas un doublon ou une aide extraite. lightweight, indice3818, reste disponible séparément.",
+        "", "## Trace des corrections de type, classe et destination", "",
+        "| Couple / indice | Forme étudiée | Avant | Décision |", "|---|---|---|---|",
+    ]
+    for row in rows:
+        before = row["before"]
+        destination = row.get("situationDomainOverride", row.get("lexicalFamilyOverride", before.get("domain")))
+        changed = (before["contentType"] != row["contentType"]
+                   or before.get("lexicalClass") != row.get("lexicalClass")
+                   or destination != before.get("domain"))
+        if not changed:
+            continue
+        previous = before["contentType"] + "/" + str(before.get("domain"))
+        after = row["contentType"] + "/" + str(destination)
+        if row.get("lexicalClass"):
+            after += " (" + row["lexicalClass"] + ")"
+        text = row["expectedStudy"].replace("|", "\\|")
+        lines.append(f"| {row['pair']} / {row['sourceIndex']} | {text} | {previous} | {after} |")
+    lines += [
+        "", "Les motifs complets sont conservés dans latins.json ; cette table résume les cartes dont le type, la classe ou une destination contrôlée changent.", "",
+        "## Limites et vérifications", "",
+        "La liste est une revue ciblée de contenu, pas la preuve que les 13 683 cartes latines ni toute la progression L1–L10 sont validées. Les rubriques encore légères demandent du contenu entier pertinent ; leur simple regroupement ou leur renommage ne crée aucun apprentissage nouveau. Les classiques restent intacts et les droits ne sont pas recalculés sur les nouveaux niveaux éditoriaux.", "",
+        "    python3 -B tools/maquette-guidee/classify_latins.py --check --self-test", "",
+        "La génération contrôle les empreintes des trois decks, l’unicité des indices, les formes exactes des décisions et la cohérence type/POS/override. Elle échoue si une source change. Aucun fichier produit, niveau source, prix ou abonnement n’est écrit par cet outil.", "",
+    ]
+    return "\n".join(lines)
 
 
 def main():
@@ -447,7 +584,7 @@ def main():
         assert [a["sourceIndex"] for a in assignments] == list(range(len(assignments)))
         assert all(a["contentType"] in {"utterance", "vocabulary", "number", "incomplete", "review"} for a in assignments)
         assert all(("lexicalClass" in a) == (a["contentType"] == "vocabulary") for a in assignments)
-        assert all(a.get("lexicalClass") in {None, "adjective", "preposition", "adverb", "other", "uncertain"} for a in assignments)
+        assert all(a.get("lexicalClass") in {None, "adjective", "color", "preposition", "adverb", "other", "uncertain"} for a in assignments)
         content = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
         path = folder / filename
         if args.check:
@@ -463,6 +600,12 @@ def main():
         assert documentation_path.read_text() == documentation, "Stale Latin types documentation"
     else:
         documentation_path.write_text(documentation)
+    review_path = root / "docs/niveaux-progressifs/corrections-themes/latins.md"
+    review_documentation = semantic_review_markdown(root, output)
+    if args.check:
+        assert review_path.read_text() == review_documentation, "Stale Latin semantic review"
+    else:
+        review_path.write_text(review_documentation)
     if args.self_test:
         self_test(root, output)
 

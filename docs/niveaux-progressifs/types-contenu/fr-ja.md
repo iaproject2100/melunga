@@ -9,16 +9,16 @@ Une réplique peut être brève : Oui, Non, Bonjour, Merci sont autonomes dans l
 | Niveau source | Cartes | utterance | vocabulary | number | incomplete | review |
 |---|---:|---:|---:|---:|---:|---:|
 | L1 | 290 | 59 | 204 | 4 | 23 | 0 |
-| L2 | 555 | 441 | 88 | 5 | 17 | 4 |
-| L3 | 571 | 382 | 172 | 6 | 5 | 6 |
+| L2 | 555 | 442 | 87 | 5 | 17 | 4 |
+| L3 | 571 | 382 | 169 | 7 | 7 | 6 |
 | L4 | 641 | 421 | 208 | 6 | 5 | 1 |
 | L5 | 688 | 450 | 221 | 6 | 10 | 1 |
-| L6 | 440 | 373 | 51 | 0 | 15 | 1 |
-| L7 | 517 | 470 | 40 | 0 | 6 | 1 |
-| L8 | 322 | 252 | 64 | 0 | 4 | 2 |
-| L9 | 227 | 175 | 49 | 0 | 3 | 0 |
+| L6 | 440 | 373 | 50 | 0 | 16 | 1 |
+| L7 | 517 | 470 | 38 | 2 | 6 | 1 |
+| L8 | 322 | 252 | 63 | 1 | 4 | 2 |
+| L9 | 227 | 175 | 48 | 1 | 3 | 0 |
 | L10 | 258 | 194 | 56 | 0 | 7 | 1 |
-| Total | 4509 | 3217 | 1153 | 27 | 95 | 17 |
+| Total | 4509 | 3218 | 1144 | 32 | 98 | 17 |
 
 ## Cas inspectés
 
@@ -319,6 +319,15 @@ Une réplique peut être brève : Oui, Non, Bonjour, Merci sont autonomes dans l
 - `3779` — 先日の話の続きですが。 / Suite à notre conversation. → `incomplete`. Cadre ou préface inspecté : condition, quantité ou reprise qui attend son contenu principal ; celui-ci ne figure pas dans la carte. Ne pas inventer une suite ni une phonétique.
 - `2505` — お返事をお待ちしております。 / Dans l'attente de votre réponse... → `utterance`. お返事をお待ちしております。 est une formule japonaise entière ; les points dans sa traduction française n’ouvrent aucun trou dans le texte appris.
 - `4143` — 契約条件は以下の通りです。 / Les termes du contrat sont... → `utterance`. 契約条件は以下の通りです。 contient la prédication entière « les conditions sont les suivantes » ; la liste qu’elle peut annoncer n’est pas un trou grammatical de la carte.
+- `3350` — 一袋の / un sac de → `incomplete`. 一袋の est un cadre « un sac de… » avec の mais sans le contenu attendu ; aucun nom ni aide phonétique n’est inventé.
+- `3376` — 一箱の / une boîte de → `incomplete`. 一箱の est un cadre « une boîte de… » ; son complément n’est pas fourni.
+- `4072` — 一杯の / une tasse de → `incomplete`. 一杯の attend le contenu de « une tasse de… » ; ce n’est pas un nom d’aliment complet.
+- `3346` — 半分 / la moitié → `number`. Fraction isolée entière de valeur 1/2. Le mot/groupe natif et sa phonétique source sont conservés ; la valeur décimale ne sert qu’au tri et la fraction exacte reste déclarée.
+- `4142` — 四分の一 / un quart → `number`. Fraction isolée entière de valeur 1/4. Le mot/groupe natif et sa phonétique source sont conservés ; la valeur décimale ne sert qu’au tri et la fraction exacte reste déclarée.
+- `4244` — 三分の一 / un tiers → `number`. Fraction isolée entière de valeur 1/3. Le mot/groupe natif et sa phonétique source sont conservés ; la valeur décimale ne sert qu’au tri et la fraction exacte reste déclarée.
+- `4178` — 一ダース / une douzaine → `number`. Quantité collective entière de douze éléments, exactement 12 et non une approximation. Le compteur/nom d’unité natif est gardé dans la forme source, sans découper sa phonétique.
+- `4329` — 十個ほど / une dizaine → `number`. Quantité entière « environ dix éléments » : le marqueur d’approximation de la cible est conservé. Ce choix ne signifie pas que toute « dizaine » française soit approximative.
+- `3276` — 自信がある / confiant → `utterance`. 自信がある est un prédicat entier « avoir confiance » avec が et ある, pas un mot-adjectif à détacher.
 
 ## Limites
 
@@ -358,18 +367,18 @@ Ces trois familles décrivent la forme native et son usage source, pas une tradu
 
 `preposition` est une famille de repères relationnels : en japonais/coréen, les formes retenues sont surtout des groupes nominaux avec particule. Cette clé technique ne prétend pas que ces langues utilisent les prépositions françaises. Les noms de couleur et de temps ne deviennent pas automatiquement adjectifs/adverbes. `uncertain` réserve la sous-famille sans forcer une analyse.
 
-| Niveau source | adjective | preposition | adverb | other | uncertain |
-|---|---:|---:|---:|---:|---:|
-| L1 | 57 | 13 | 22 | 77 | 35 |
-| L2 | 2 | 2 | 2 | 64 | 18 |
-| L3 | 0 | 0 | 0 | 156 | 16 |
-| L4 | 1 | 0 | 0 | 189 | 18 |
-| L5 | 0 | 1 | 0 | 215 | 5 |
-| L6 | 0 | 0 | 0 | 47 | 4 |
-| L7 | 0 | 0 | 0 | 37 | 3 |
-| L8 | 0 | 0 | 0 | 59 | 5 |
-| L9 | 0 | 0 | 0 | 46 | 3 |
-| L10 | 0 | 1 | 0 | 48 | 7 |
-| Total | 60 | 17 | 24 | 938 | 114 |
+| Niveau source | adjective | preposition | adverb | color | other | uncertain |
+|---|---:|---:|---:|---:|---:|---:|
+| L1 | 57 | 13 | 27 | 0 | 75 | 32 |
+| L2 | 6 | 2 | 3 | 2 | 64 | 10 |
+| L3 | 2 | 1 | 0 | 5 | 151 | 10 |
+| L4 | 2 | 0 | 0 | 3 | 188 | 15 |
+| L5 | 0 | 1 | 0 | 5 | 211 | 4 |
+| L6 | 0 | 0 | 0 | 0 | 46 | 4 |
+| L7 | 0 | 0 | 0 | 0 | 35 | 3 |
+| L8 | 0 | 0 | 0 | 0 | 58 | 5 |
+| L9 | 0 | 0 | 0 | 0 | 45 | 3 |
+| L10 | 0 | 1 | 0 | 0 | 48 | 7 |
+| Total | 67 | 18 | 30 | 15 | 921 | 93 |
 
-La présence d’une famille à chaque niveau ne se déduit pas de cette table. Le builder ne doit pas remplir un thème vide avec une forme liée ou une phrase dupliquée. Les réserves de sous-famille restent accessibles au dossier de Claude.
+La présence d’une famille à chaque niveau ne se déduit pas de cette table. Le builder ne doit pas remplir un thème vide avec une forme liée ou une phrase dupliquée. Codex porte la revue sémantique et pédagogique ; Claude vérifie uniquement les phonétiques. Les couleurs ont leur classe autonome `color`, et les formes adnominales coréennes entières portent leur condition d’usage avec un nom.

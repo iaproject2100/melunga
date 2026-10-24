@@ -171,6 +171,145 @@ TIME_NOMINALS = {
     "ko": set("오늘 아침|오늘 오후|올해|오늘 저녁|아침 일찍|요즘|최근에|오래전에|지금까지|그동안에|오늘|어제|내일|이번 주|다음 주|지난주|매일|매주|이번 달|다음 달|작년|내년".split("|"))
 }
 
+# Source-index semantic routing is deliberately separate from the fallback
+# keyword classifier. These gloss inventories were inspected together with the
+# Japanese/Korean targets; homonyms below receive index-specific exceptions.
+FAMILY_GLOSSES = {
+    "vocab-nature": """le feu|l'air|la Terre|le soleil|le jardin|la pluie|la neige|le vent|l'arbre|un arbre|de fortes chutes de neige|la fleur|l'herbe|une feuille|une fleur|une branche|un arrosoir|le potager|une racine|une graine|la pelouse|le jardinage|un buisson|une mauvaise herbe|une tempête de neige|un tremblement de terre|un flocon de neige|un chien|le ciel|un chat|un oiseau|un cheval|une vache|une souris|un ours|la lune|les étoiles|la mer|la montagne|la rivière|la forêt|la plage|une pierre|un lac|une île|un champ|la nature|la glace|l'air frais|la campagne|une poule|un requin|un cochon|un canard|un lapin|un tigre|un lion|un singe|un serpent|un loup|l'océan|une vague|le sable|le désert|une colline|une vallée|la jungle|une grotte|l'environnement|un orage|le tonnerre|un éclair|un nuage|la température|un kangourou|une baleine|un crocodile|une pieuvre|un mouton|un éléphant|un panda|une chèvre|une grenouille|une abeille|un papillon|une araignée|une fourmi|un écureuil|une tortue|un dauphin|une girafe|un zèbre|un pingouin|une méduse|un renard|un cerf|une cascade|un volcan|la pollution|l'horizon|une canicule|un pétale|un ouragan|une tornade|un tsunami|le givre|un arc-en-ciel|une inondation|une sécheresse|une alerte tempête|un pot de fleurs|la brise marine|les vagues|un coquillage|un glissement de terrain""",
+    "vocab-loisirs": """la musique|un film|la scène|une chanson|un concert|une émission|une série|un match|le terrain|la course|le cinéma|la pêche|un acteur|un chanteur|la guitare|le piano|la batterie|la lecture|la collection|un jouet|le tennis|un entraîneur|le dessin|un ballon|l'entraîneur|les jeux de société|un nounours|une balançoire|le yoga|la photographie|le tricot|la randonnée|un puzzle|le camping|un loisir|la poterie|la natation|le score|une célébration|un toboggan|l'arbitre|un penalty|le gardien de but|la bibliothèque|un ballon de plage|le musée|le stade|un château de sable|le zoo|une aire de jeux|un feu d'artifice|un bonhomme de neige|le parc|un monument|la cathédrale|l'église|le temple|La liberté, l'égalité, la fraternité.|un maître-nageur""",
+    "vocab-maison": """la maison|la porte|la chambre|la table|le lit|le téléphone|la fenêtre|la chaise|les clés|une chaise|la clé|l'appartement|le salon|les toilettes|une vis|la douche|la cuisine|le canapé|la lampe|la peinture|le fauteuil|le placard|l'oreiller|le tapis|la salle de bain|le balcon|une scie|le rideau|l'armoire|le matelas|le coussin|une chaise haute|la machine à laver|le gel douche|l'étagère|la table de chevet|une clé à molette|le verre|le bois|une boîte|le mur|le toit|le garage|la couverture|la prise|le sol|une couche|le frigo|le micro-ondes|le miroir|la serviette|le savon|l'escalier|un marteau|une échelle|une brosse|une pile|un frigo|un four|un micro-ondes|un miroir|la baignoire|le lave-vaisselle|le réveil|le tiroir|le plafond|le loyer|l'électricité|la poubelle|le bâtiment|la cuisinière|la climatisation|la télécommande|le plancher|un tournevis|un clou|une perceuse|une pince|un boulon|un écrou|une casserole|une poêle|une bouilloire|une cuisinière|un évier|le dentifrice|le shampoing|un peigne|un rasoir|un mouchoir|le déodorant|une éponge|un berceau|un biberon|une cheminée|la commode|l'interrupteur|l'ampoule|le robinet|le paillasson|une tétine|le bricolage|une poussette|la lessive|le balai|l'aspirateur|une corvée|le détergent|le chauffage|une bougie|les décorations|le film plastique|une serviette de bain|une boîte à outils|une brosse à dents|le papier toilette|une planche à découper|une coupure de courant|le robinet d'eau chaude|une tasse|la tasse|l'assiette|une assiette|la cuillère|la fourchette|une fourchette|une cuillère|le couteau|un couteau|la bouteille|une bouteille|un bol|un plateau|des baguettes|une théière|une serviette""",
+    "vocab-personnes": """mes enfants|un tout-petit|les gens|Maman|Papa|Mon père.|mon père|ma femme|Ma mère.|ma mère|ma fille|mon fils|ma famille|mon ami|mon frère|mon mari|l'hôpital|la grand-mère|la tête|la main|le sang|la femme|un bébé|un enfant|un homme|une femme|une fille|le grand-père|le petit-fils|la petite-fille|un petit ami|ma sœur|une petite amie|le pied|le bras|le dos|le cœur|le visage|un médecin|le mari|la belle-famille|toute ma famille|une radio|l'œil|le nez|la bouche|l'oreille|la jambe|le ventre|les secours|un couple|ma copine|mon copain|un ami proche|le voisin|un parent|les services d'urgence|un mal de gorge|une analyse de sang|le nez qui coule|un rhume|un coup de soleil|Monsieur|Madame|les cheveux|la joue|l'oncle|un garçon|les parents|le coup de foudre|le cou|le doigt|la peau|les dents|la langue|les lèvres|la gorge|l'os|le cerveau|une infirmière|la tante|le cousin|un invité|une relation|le dentiste|un dentiste|l'épaule|le genou|la cheville|la poitrine|le front|le pouce|le neveu|la nièce|le muscle|l'orteil|le poignet|le coude|le menton|le sourcil|le cil|le talon|l'ongle|la paume|la mâchoire|la hanche|le mollet|un infirmier|un colocataire|la tension|un camarade de classe|les symptômes|la grippe|une piqûre|un vaccin|une toux|un pansement|un comprimé|des antidouleurs|Avoir le coup de foudre.|Avoir la flemme.|Chez le coiffeur.""",
+    "vocab-voyage": """en voiture|en train|la voiture|la rue|Par avion.|à gauche|à droite|en bus|sens unique|le vélo|l'arrêt|le prochain arrêt|à vélo|le billet d'entrée|le métro|en métro|la station de métro|le quai|le retrait des bagages|l'arrivée prévue|la carte d'embarquement|le bagage à main|les droits de douane|la station-service|la douane|le carrefour|la gare routière|le bagage en soute|le terminus|à pied|un sac à dos|la porte d'embarquement|la place côté couloir|la place côté hublot|le centre-ville|Un aller simple.|un aller simple|le coin|le centre|le feu rouge|un feu rouge|l'essence|le moteur|le volant|le pont|le permis de conduire|l'accélérateur|le clignotant|le rétroviseur|les phares|les freins|le pneu|le frein|l'embouteillage|le numéro de siège|le parking|le port|le guide|le panneau|la correspondance|le trottoir|l'atterrissage|un pneu crevé|les horaires|le contrôle des passeports|le décollage|le tourisme|l'embarquement|l'office de tourisme|une brochure|un aller-retour|une escale|un site touristique|une visite guidée|un embouteillage|le hublot|le passage piéton|la limitation de vitesse|un incontournable|le rond-point""",
+    "vocab-travail": """internet|l'école|le bureau|le cours|mon patron|le patron|le dossier|le contrat|une facture|le collègue|un document|le formulaire|l'usine|mon collègue|l'adresse de livraison|une remise sur quantité|le délai de livraison|la livraison express|le fournisseur|les dimensions|l'emballage|un échantillon de pré-production|le compte-rendu|un devis|le coût de moule|la pièce jointe|la matière première|le carton extérieur|l'ordre du jour|le prix de gros|une liste de prix|les conditions de paiement|un rapport|un avocat|le contrôle|un prêt|un justificatif de domicile|la poste|le mot de passe|la banque|un chauffeur|un directeur|un policier|un soldat|l'ordinateur|le signal|l'université|l'examen|la leçon|un examen|le directeur|le papier|la salle de classe|le suivi|un suivi|un stylo|la colle|une enveloppe|un ingénieur|un vendeur|un comptable|un journaliste|un scientifique|l'écran|le fichier|le réseau|les devoirs|l'étudiant|le diplôme|le salaire|le budget|les intérêts|une dette|le métal|le plastique|le cuir|l'acier|le tissu|une signature|une copie|l'assurance|le numéro de suivi|un crayon|un cahier|des ciseaux|une agrafeuse|une gomme|un timbre|une calculatrice|une imprimante|un chargeur|un coiffeur|un cuisinier|un ouvrier|un agriculteur|un commerçant|un designer|un traducteur|un plombier|un électricien|un mécanicien|un pompier|un facteur|le wifi|une appli|une notification|le distributeur|un virement|l'email|le coton|la récréation|la fiche technique|le contrôle qualité|un objectif|le taux de change|la production|la ligne de production|le commissariat|l'entrepôt|pour les grosses commandes|la production de masse|le poids net|batterie faible|la capacité de production|du scotch|un défaut|le carton|une présentation|la boîte intérieure|la mairie|l'atelier|le certificat|le site web|le délai de production|les frais d'expédition|la chaîne de montage|le planning|une étiquette|l'expédition|le papier bulle|l'inspection|frais de port inclus|le cahier des charges|le code PIN|hors taxes|un prototype|un scellé|le logo|le moule|le poids brut|le film rétractable|le dédouanement|le connaissement|le transitaire|un code-barres|l'acompte|un message vocal|un conteneur complet|le conteneur|le transporteur|une échéance|le taux de rebut|une palette|le fret aérien|le fret maritime|l'écran tactile|la conformité|Le solde avant expédition.|une feuille de papier|le plan|l'or""",
+    "vocab-restaurant": """à point|l'eau|la carte|un verre|le café|un reçu|le meilleur prix|le pain|la viande|le poulet|le poisson|le thé|le lait|la bière|la chemise|le pantalon|la robe|les chaussures|une chemise|un pantalon|une robe|des chaussures|les vêtements|des sous-vêtements|le magasin|le riz|les légumes|les fruits|le sel|le sucre|les œufs|une pomme|un fruit|le manteau|un manteau|un serveur|la monnaie|l'œuf|un légume|la caisse|la soupe|un jus|le plat principal|de l'eau chaude|les fruits de mer|à emporter|une pomme de terre|le dessert|en espèces|la caisse automatique|l'étiquette de prix|un bon de réduction|les nouilles|une réduction|la carte bancaire|un chapeau de soleil|les lunettes de soleil|des bottes de neige|la veste|le chapeau|une veste|un chapeau|un costume|un souvenir|sans glace|un morceau|la nourriture|l'entrée|le fromage|un gâteau|l'huile|le beurre|une orange|une pêche|un citron|un chou|un jean|des gants|une ceinture|un pull|des chaussettes|une cravate|des bottes|un pyjama|la ceinture|la marque|un motif|la farine|une banane|une fraise|une pastèque|une tomate|une carotte|un oignon|l'ail|un concombre|des champignons|le gingembre|un piment|une casquette|un imperméable|des moufles|une jupe|une écharpe|des sandales|un short|des pantoufles|le t-shirt|le rayon|le porc|le rayon frais|les produits frais|la salade|en promotion|une serviette de plage|le panier|un maillot de bain|la crème solaire|le supermarché|un coca|le bœuf|le sirop|du raisin|une tranche|la vitrine|la boulangerie|un sac réutilisable|le caissier|le caddie|sans gluten|la cabine d'essayage|saignant|des tongs|les surgelés|un parasol|surgelé""",
+    "vocab-reperes": """sur place|à partir de maintenant|à l'étage|avant de dormir|Avant les repas.|Après les repas.|après les repas|porte à porte|la moitié|la semaine prochaine|Le soir.|Un jour.|ce soir|l'autre jour|Le matin.|dans le passé|Une semaine.|Pour une nuit.|en ce moment|hier soir|tous les jours|pour l'instant|chaque semaine|de nos jours|pendant|récemment|l'été|ce matin|cet après-midi|cette année|chaque année|la semaine dernière|le mois dernier|À partir de demain.|Dans cinq minutes.|tôt le matin|un demi-kilo|tôt ou tard|lundi|vendredi|samedi|dimanche|le mois prochain|L'après-midi.|mardi|mercredi|jeudi|janvier|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre|le printemps|l'automne|l'hiver|un rendez-vous|février|un calendrier|le week-end|lundi prochain|la date limite|les heures d'ouverture|l'heure de la sieste|ces jours-ci|un kilo|un litre|entre-temps|un jour férié|la date de péremption|à la fin|au début|il y a longtemps|à l'avenir|à l'instant|jusqu'à présent|un centimètre|au rez-de-chaussée""",
+}
+FAMILY_REASONS = {
+    "vocab-nature": "La cible nomme un animal, un végétal, un milieu ou un phénomène naturel/météorologique ; elle ne décrit pas une action ni un meuble.",
+    "vocab-loisirs": "La cible relève d’un loisir, sport, jeu, instrument, média ou objet culturel ; ce sens natif est distingué des homonymes techniques.",
+    "vocab-maison": "La cible désigne un objet domestique, du mobilier, un équipement ou un outil d’entretien/bricolage ; le sens concret est vérifié.",
+    "vocab-personnes": "La cible concerne la famille, une personne, un organe, la santé ou une relation humaine ; ce n’est pas un objet de maison.",
+    "vocab-voyage": "La cible désigne réellement un déplacement, un transport ou son infrastructure ; il ne s’agit pas d’un emploi figuré d’un verbe français.",
+    "vocab-travail": "La cible appartient aux métiers, études, démarches, outils de communication ou à la production/logistique ; elle est conservée entière.",
+    "vocab-restaurant": "La cible est un aliment, une boisson, un vêtement ou un terme de service/achat ; les homonymes matériels et techniques sont exclus par index.",
+    "vocab-reperes": "La cible est un repère ou groupe de temps, de lieu ou de mesure ; sa forme native ne devient pas automatiquement un adverbe.",
+}
+COLOR_INDICES = {"ja": [3286, 3287, 3396, 3397, 3398, 3399, 3400, 3587, 3588, 3589, 3826, 3827, 3828, 3829, 3830],
+                 "ko": [2435, 2436, 2545, 2546, 2547, 2548, 2549, 2736, 2737, 2738, 2975, 2976, 2977, 2978, 2979]}
+TYPE_REPAIRS = {
+    "ja": {3350: ("incomplete", "一袋の est un cadre « un sac de… » avec の mais sans le contenu attendu ; aucun nom ni aide phonétique n’est inventé."),
+           3376: ("incomplete", "一箱の est un cadre « une boîte de… » ; son complément n’est pas fourni."),
+           4072: ("incomplete", "一杯の attend le contenu de « une tasse de… » ; ce n’est pas un nom d’aliment complet.")},
+    "ko": {2184: ("incomplete", "에서 멀리 commence par la particule de provenance/repère 에서 sans son support ; une forme de comparaison complète n’est pas fournie."),
+           2100: ("incomplete", "보다 더 laisse vide le terme auquel la comparaison se rapporte ; ce n’est pas la forme adjectivale entière d’un simple mot."),
+           2124: ("incomplete", "보다 나은 laisse vide la référence devant 보다 ; ne pas confondre ce schéma ouvert avec 큰/작은, formes adnominales lexicales entières."),
+           2132: ("incomplete", "보다 적게 attend le terme comparé avant 보다 ; le cadre reste ouvert."),
+           2163: ("incomplete", "와 같은 것 attend le terme précédant la particule 와 ; aucun référent n’est donné."),
+           2201: ("incomplete", "보다 큰 attend une référence devant 보다 ; 큰 seul est un adjectif adnominal complet, mais ce cadre comparatif-ci est ouvert."),
+           2361: ("incomplete", "보다 나쁜 attend une référence avant 보다 ; ne pas le présenter comme le mot autonome « mauvais »."),
+           3221: ("incomplete", "한 잔의 est une mesure suivie de 의 sans contenu ; le complément de « une tasse de… » est absent.")},
+}
+for language, repairs in TYPE_REPAIRS.items():
+    OVERRIDES[language].update(repairs)
+
+INDEX_FAMILIES = {
+    "ja": {3324: ("vocab-maison", "ガラス est le matériau verre, distinct du récipient グラス (3294)."),
+           3513: ("vocab-restaurant", "買い物 signifie les achats/courses, pas la course sportive."),
+           3734: ("vocab-loisirs", "ドラム est la batterie instrument de musique, pas une pile électrique."),
+           3791: ("vocab-travail", "メモ est une note/mémo, pas l’addition du restaurant."),
+           4253: ("vocab-travail", "フォーム材 désigne un matériau mousse, pas une boisson moussante."),
+           4272: ("vocab-maison", "メジャー désigne le mètre ruban, outil ; ce n’est pas le nombre ou l’unité « un mètre »."),
+           4319: ("vocab-travail", "残金 est le solde financier restant, pas une promotion de soldes."),
+           4328: ("vocab-voyage", "ターミナル désigne ici un terminal de transport, distinct du terminal informatique coréen de la carte parallèle."),
+           4337: ("vocab-voyage", "車掌 est le contrôleur/conducteur de train ; la cible porte elle-même le sens de transport.")},
+    "ko": {2473: ("vocab-maison", "유리 est le matériau verre, distinct du récipient 컵 (2443)."),
+           2662: ("vocab-loisirs", "달리기 est la course à pied, pas les courses/achats japonais de la carte parallèle."),
+           2883: ("vocab-loisirs", "드럼 est la batterie instrument, pas la batterie d’un appareil."),
+           2940: ("vocab-restaurant", "계산서 est la note/l’addition, distinct du mémo japonais de la carte parallèle."),
+           3686: ("vocab-maison", "거품 est la mousse/bulle au sens ordinaire ; ne pas lui attribuer silencieusement le matériau industriel フォーム材 de la carte japonaise."),
+           3733: ("vocab-reperes", "일 미터 est l’unité de longueur « un mètre », distinct de l’outil メジャー japonais."),
+           3910: ("vocab-restaurant", "세일 signifie une vente promotionnelle/des soldes ; la glose française « le solde » ne doit pas entraîner un classement en finance."),
+           3924: ("vocab-travail", "단말기 est un terminal/appareil informatique, pas un aéroport."),
+           3960: ("vocab-travail", "검사관 est un inspecteur, sans sens ferroviaire imposé par la cible.")},
+}
+SITUATION_REPAIRS = {
+    "ja": {898: ("deplacements", "Demande réelle de localisation des toilettes ; ce n’est pas une tâche domestique."),
+           3199: ("repas", "Demande entière « la même chose pour moi », utile pour commander ; aucune comparaison descriptive n’est exercée."),
+           887: ("deplacements", "旅行するつもり est l’intention de voyager, pas le travail ni un compte financier."),
+           460: ("conversation", "できます exprime l’encouragement à réussir, pas l’arrivée à une destination."),
+           748: ("conversation", "何とかなります est une assurance de résolution/réussite, sans déplacement."),
+           908: ("ressentis", "信じられません exprime l’incrédulité, pas un trajet malgré « n’arrive pas » en français."),
+           966: ("ressentis", "信じられません！ exprime la surprise/incrédulité, sans mouvement."),
+           958: ("travail", "接続できません est un problème de connexion numérique, pas une arrivée physique."),
+           1457: ("conversation", "きっとうまくいきます est un encouragement, pas un déplacement."),
+           1789: ("conversation", "何があっても promet une présence/soutien quels que soient les événements ; « arrive » est figuré."),
+           2047: ("conversation", "La cible promet un soutien personnel ; aucun trajet ne figure dans la phrase."),
+           2268: ("conversation", "L’essai et la réussite sont le sens de la cible ; ni restaurant ni consommation ne sont concernés."),
+           2391: ("comprendre", "手を貸す est une demande d’aide entière (« coup de main »), pas une opération manuelle à décrire ni un achat."),
+           2359: ("conversation", "乗り越えました est ici une réussite aisée (« s’en sortir haut la main »), pas un transport."),
+           4117: ("travail", "L’arrivée d’une marchandise au port est une opération logistique professionnelle."),
+           2133: ("travail", "原材料 porte explicitement sur une matière première livrée ; c’est de la logistique."),
+           2454: ("travail", "Des pièces livrées cassées : réclamation de livraison, pas déplacement personnel."),
+           4434: ("travail", "商品が破損して届く est une marchandise livrée abîmée : réclamation professionnelle."),
+           2597: ("quotidien", "La tâche principale est ranger la chambre ; sortir fournit seulement son repère temporel."),
+           2715: ("travail", "Le suivi d’un colis est une démarche logistique, pas une activité domestique."),
+           4394: ("quotidien", "Problème concret de chauffage domestique, pas une comparaison abstraite."),
+           4421: ("travail", "L’angle de faisceau est une caractéristique technique, pas la description générale d’une personne."),
+           2505: ("travail", "Formule entière de correspondance sur une réponse attendue ; regrouper avec les échanges professionnels."),
+           2781: ("travail", "Remerciement pour une réponse écrite ; même usage de correspondance professionnelle."),
+           2836: ("travail", "Remerciement formel pour une prompte réponse, dans la correspondance."),
+           2700: ("travail", "Formule de disponibilité pour contact, à rapprocher des échanges professionnels."),
+           2025: ("conversation", "一位でゴール est une performance/classement ; l’opération enseignée est la concession, pas un voyage.")},
+    "ko": {664: ("deplacements", "Question réelle sur l’emplacement des toilettes ; ce n’est pas une tâche domestique."),
+           2165: ("repas", "같은 걸로요 est une réponse de commande « la même chose », pas une comparaison descriptive hors contexte."),
+           2350: ("repas", "저도 같은 걸로 주세요 est une commande entière, pas un exemple de degré de comparaison."),
+           283: ("conversation", "할 수 있을 거예요 est un encouragement à réussir, sans arrivée physique."),
+           885: ("conversation", "해낼 거예요 exprime la réussite, pas un trajet."),
+           897: ("ressentis", "믿을 수가 없어요 exprime l’incrédulité/surprise, pas une arrivée."),
+           966: ("ressentis", "믿을 수가 없어요 est une réaction d’incrédulité, sans mouvement."),
+           3922: ("travail", "접속이 안 돼요 désigne une connexion numérique impossible, pas un déplacement."),
+           678: ("conversation", "해낼 거예요 encourage à réussir ; il n’y a pas de sens de voyage."),
+           1425: ("conversation", "무슨 일이 있어도 promet un soutien/une présence quels que soient les événements."),
+           3814: ("conversation", "응원해요 est le soutien personnel, pas une action de transport."),
+           1597: ("conversation", "Essayer et réussir sont le sens de la cible, sans relation avec un repas."),
+           1336: ("comprendre", "도와줄 수 있어요 est une demande d’aide entière (« coup de main »)."),
+           3859: ("conversation", "거뜬히 해냈어요 signifie réussir sans difficulté ; « s’en sortir » est figuré."),
+           3266: ("travail", "L’arrivée de marchandises au port est de la logistique professionnelle."),
+           3489: ("travail", "원자재 est explicitement la matière première livrée."),
+           1784: ("travail", "Réclamation pour des pièces cassées à la livraison, pas un trajet personnel."),
+           4297: ("travail", "상품이 파손된 채로 왔어요 est une marchandise livrée abîmée : réclamation."),
+           1748: ("quotidien", "La tâche principale est ranger la chambre, pas sortir."),
+           3601: ("travail", "Suivi numérique d’un colis : démarche logistique."),
+           4164: ("quotidien", "Le radiateur trop chaud est un problème domestique concret."),
+           1806: ("travail", "Formule d’attente de réponse dans une correspondance professionnelle."),
+           1986: ("travail", "Remerciement pour une réponse écrite, à rapprocher de la correspondance."),
+           4480: ("travail", "Remerciement formel pour réponse rapide, dans la correspondance."),
+           1973: ("travail", "Formule de disponibilité pour contact, liée aux échanges professionnels."),
+           3512: ("conversation", "Le classement premier sert ici une concession ; ce n’est pas une leçon de voyage.")},
+}
+
+NUMBER_REPAIRS = {
+    "ja": {3346: {"numberKind": "fraction", "numberValue": 0.5, "numberExactValue": "1/2", "suggestedFirstLevel": 3},
+           4142: {"numberKind": "fraction", "numberValue": 0.25, "numberExactValue": "1/4", "suggestedFirstLevel": 4},
+           4244: {"numberKind": "fraction", "numberValue": 1 / 3, "numberExactValue": "1/3", "suggestedFirstLevel": 4},
+           4178: {"numberKind": "collective-quantity", "numberValue": 12, "numberExactValue": "12", "lexicalUsage": "whole-fixed-counter-of-twelve", "suggestedFirstLevel": 3},
+           4329: {"numberKind": "approximate-quantity", "numberValue": 10, "numberApproximation": "about", "lexicalUsage": "whole-approximate-count", "suggestedFirstLevel": 4}},
+    "ko": {2495: {"numberKind": "fraction", "numberValue": 0.5, "numberExactValue": "1/2", "suggestedFirstLevel": 3},
+           3291: {"numberKind": "fraction", "numberValue": 0.25, "numberExactValue": "1/4", "suggestedFirstLevel": 4},
+           3645: {"numberKind": "fraction", "numberValue": 1 / 3, "numberExactValue": "1/3", "suggestedFirstLevel": 4},
+           3341: {"numberKind": "collective-quantity", "numberValue": 12, "numberExactValue": "12", "lexicalUsage": "whole-fixed-counter-of-twelve", "suggestedFirstLevel": 3},
+           3926: {"numberKind": "approximate-quantity", "numberValue": 10, "numberApproximation": "about", "lexicalUsage": "whole-approximate-count", "suggestedFirstLevel": 4}},
+}
+for language, definitions in NUMBER_REPAIRS.items():
+    for source_index, definition in definitions.items():
+        if definition["numberKind"] == "collective-quantity":
+            reason = "Quantité collective entière de douze éléments, exactement 12 et non une approximation. Le compteur/nom d’unité natif est gardé dans la forme source, sans découper sa phonétique."
+        elif definition["numberKind"] == "approximate-quantity":
+            reason = "Quantité entière « environ dix éléments » : le marqueur d’approximation de la cible est conservé. Ce choix ne signifie pas que toute « dizaine » française soit approximative."
+        else:
+            reason = "Fraction isolée entière de valeur " + definition["numberExactValue"] + ". Le mot/groupe natif et sa phonétique source sont conservés ; la valeur décimale ne sert qu’au tri et la fraction exacte reste déclarée."
+        OVERRIDES[language][source_index] = ("number", reason)
+
 
 def lexical_metadata(lang, card):
     form = re.sub(r"[。！？?!.]+$", "", card["t"].strip())
@@ -193,8 +332,72 @@ def lexical_metadata(lang, card):
     return {"lexicalClass": "uncertain", "lexicalClassReason": "La fonction lexicale native n’est pas assez établie pour imposer adjectif, préposition/repère ou adverbe ; réserver la sous-famille pour revue sémantique.", "lexicalClassReviewStatus": "rule-based-candidate"}
 
 
+LEXICAL_CLASS_REPAIRS = {
+    "ja": {3275: ("adjective", "不安 est la forme descriptive nominale « anxieux/inquiet », pas un nom de personne."),
+           3279: ("adjective", "恥ずかしい est un adjectif entier en い, au sens source « honteux » ; il n’est pas découpé depuis une phrase."),
+           3270: ("adjective", "柔らかい est un adjectif entier de texture (« mou »)."),
+           3269: ("adjective", "濃い est la forme adjectivale entière décrivant ici une teinte foncée, pas un nom de couleur."),
+           3386: ("adjective", "透明 est la forme descriptive nominale « transparent »."),
+           3388: ("adjective", "なめらか est la forme descriptive nominale « lisse »."),
+           3580: ("adjective", "カラフル décrit le caractère coloré ; ce n’est pas le nom d’une couleur précise."),
+           3321: ("adverb", "普段は est la locution entière d’habitude, avec son marquage natif ; ce n’est pas un objet de maison."),
+           3368: ("preposition", "真ん中に est un groupe relationnel nominal + に (« au milieu »), pas une action."),
+           3015: ("adverb", "いつも est l’adverbe de fréquence « tout le temps »."),
+           3022: ("adverb", "同時に est la locution adverbiale de simultanéité, conservée entière."),
+           3053: ("adverb", "たった今 est un repère déictique lexicalisé « à l’instant », pas un objet."),
+           2931: ("adverb", "決して est l’adverbe natif de négation absolue ; son emploi avec un prédicat négatif doit rester natif."),
+           2935: ("adverb", "もう一度 est la locution entière de répétition « encore/une nouvelle fois »."),
+           3005: ("adverb", "いつでも est l’adverbe temporel indéfini « n’importe quand ».")},
+    "ko": {2423: ("adjective", "안심한 est une forme adnominale descriptive entière (« soulagé »), pas un suffixe détaché."),
+           2424: ("adjective", "불안한 est la forme adnominale descriptive entière « anxieux »."),
+           2425: ("adjective", "자신 있는 est un groupe adnominal descriptif entier « confiant »."),
+           2426: ("adjective", "답답한 est la forme adnominale descriptive entière du sens « frustré »."),
+           2427: ("adjective", "감동한 est une forme verbale adnominale descriptive entière (« ému »), conservée telle quelle et sans inventer de lemme."),
+           2428: ("adjective", "부끄러운 est la forme adnominale descriptive entière « honteux »."),
+           2429: ("adjective", "놀란 est une forme adnominale descriptive entière « étonné »."),
+           2969: ("adjective", "짜증 난 est le groupe adnominal descriptif entier « agacé »."),
+           2470: ("adverb", "보통은 est la locution d’habitude entière, avec son marquage natif ; ce n’est pas un objet de maison."),
+           2369: ("adverb", "바로 est ici l’adverbe de temps « tout de suite »."),
+           2374: ("adverb", "가끔씩 est l’adverbe de fréquence « de temps en temps »."),
+           503: ("adverb", "점점 더 est une locution adverbiale progressive entière, pas un schéma avec un suffixe manquant."),
+           2258: ("adverb", "그다음에 est la locution adverbiale de succession « ensuite »."),
+           2234: ("adverb", "자주 est l’adverbe de fréquence « souvent »."),
+           2235: ("adverb", "가끔 est l’adverbe de fréquence « parfois »."),
+           2236: ("adverb", "드물게 est l’adverbe de fréquence « rarement ».")},
+}
+
+
 def normalized_french(value):
     return re.sub(r"[.!?…]+$", "", value.strip()).strip().lower()
+
+
+# Tableware belongs to the reviewed restaurant/meal-service sense; domestic
+# appliances and household fixtures remain in Maison et mobilier.
+FAMILY_GLOSSES["vocab-restaurant"] += "|l'assiette|une assiette|la tasse|une tasse|la cuillère|la fourchette|une fourchette|une cuillère|le couteau|un couteau|la bouteille|une bouteille|un bol|un plateau|des baguettes|une théière|une serviette"
+FAMILY_BY_GLOSS = {}
+for _family, _glosses in FAMILY_GLOSSES.items():
+    for _gloss in _glosses.split("|"):
+        FAMILY_BY_GLOSS[normalized_french(_gloss)] = _family
+INDEX_FAMILIES["ja"].update({3029: ("vocab-restaurant", "会計 désigne ici la note/le paiement, pas un compte bancaire."),
+                             3293: ("vocab-maison", "机 est le bureau-meuble, distinct du lieu de travail オフィス (3035)."),
+                             4157: ("vocab-voyage", "チケット est un billet/ticket d’accès ou transport, pas le reçu レシート."),
+                             3009: ("vocab-reperes", "場所 signifie un lieu/emplacement générique, sans trajet imposé."),
+                             3268: ("vocab-restaurant", "しましま nomme un motif rayé, utile pour choisir un vêtement ; ne pas en faire un verbe d’action."),
+                             3547: ("vocab-restaurant", "花柄 est le motif à fleurs d’un objet/vêtement, pas une fleur du jardin."),
+                             4277: ("vocab-restaurant", "水玉模様 est le motif à pois, pas un phénomène naturel."),
+                             4410: ("vocab-restaurant", "チェック柄 est le motif à carreaux, pas une tâche ou un meuble.")})
+INDEX_FAMILIES["ko"].update({2181: ("vocab-restaurant", "계산 est ici le calcul/la note à payer, pas un compte bancaire 계좌."),
+                             2442: ("vocab-maison", "책상 est le bureau-meuble, distinct du bureau/local 사무실 (2187)."),
+                             3306: ("vocab-voyage", "표 est un billet/ticket, distinct du reçu 영수증."),
+                             2162: ("vocab-reperes", "자리 nomme ici une place/emplacement générique ; aucune infrastructure de voyage n’est nommée."),
+                             2499: ("vocab-restaurant", "한 봉지 est le groupe nominal entier « un sachet », sans suffixe ouvert 의 ; ne pas importer le の absent de la source coréenne."),
+                             2525: ("vocab-maison", "한 상자 est le groupe nominal entier « une boîte », sans suffixe ouvert 의 ; la forme native est complète."),
+                             2417: ("vocab-restaurant", "줄무늬의 est le groupe descriptif de motif rayé, pas une action."),
+                             2696: ("vocab-restaurant", "꽃무늬의 qualifie un motif à fleurs ; aucune plante réelle n’est nommée."),
+                             3754: ("vocab-restaurant", "물방울무늬의 est le motif à pois d’un objet/vêtement."),
+                             4223: ("vocab-restaurant", "체크무늬의 est le motif à carreaux, pas une action.")})
+OVERRIDES["ja"][3276] = ("utterance", "自信がある est un prédicat entier « avoir confiance » avec が et ある, pas un mot-adjectif à détacher.")
+SITUATION_REPAIRS["ja"][3276] = ("ressentis", "La cible exprime entièrement l’état de confiance, sans reconstruire un adjectif isolé depuis une phrase.")
 
 
 def pure_number(card):
@@ -247,8 +450,31 @@ def write(lang, cards):
     pair = "fr-" + lang
     entries = [assignment(lang, i, card) for i, card in enumerate(cards)]
     for entry, card in zip(entries, cards):
+        if entry["contentType"] == "number" and entry["sourceIndex"] in NUMBER_REPAIRS[lang]:
+            entry.update({key: value for key, value in NUMBER_REPAIRS[lang][entry["sourceIndex"]].items() if key != "suggestedFirstLevel"})
         if entry["contentType"] == "vocabulary":
             entry.update(lexical_metadata(lang, card))
+            index = entry["sourceIndex"]
+            if index in LEXICAL_CLASS_REPAIRS[lang]:
+                value, reason = LEXICAL_CLASS_REPAIRS[lang][index]
+                entry.update(lexicalClass=value, lexicalClassReason=reason, lexicalClassReviewStatus="reviewed", reviewStatus="reviewed")
+            if index in COLOR_INDICES[lang]:
+                entry.update(lexicalClass="color", lexicalClassReason="Nom de couleur lu dans la cible et dans sa série source ; rose-fleur, argent-monnaie et orange-fruit ne sont pas déduits du seul français.", lexicalClassReviewStatus="reviewed", reviewStatus="reviewed",
+                             lexicalFamilyOverride="vocab-couleurs", lexicalFamilyOverrideReason="Couleur isolée entière ; famille autonome Couleurs, sans transformation de la phonétique.")
+            destination = FAMILY_BY_GLOSS.get(normalized_french(card["frm"]))
+            rationale = FAMILY_REASONS.get(destination)
+            if index in INDEX_FAMILIES[lang]:
+                destination, rationale = INDEX_FAMILIES[lang][index]
+            if destination and entry["lexicalClass"] not in {"adjective", "preposition", "adverb", "color"}:
+                entry.update(lexicalFamilyOverride=destination, lexicalFamilyOverrideReason=rationale + " Cible source : " + card["t"], reviewStatus="reviewed")
+            if lang == "ko" and entry["lexicalClass"] == "adjective":
+                entry["lexicalUsage"] = {"form": "adnominal", "requiresNounInUtterance": True}
+                if index in {2213, 2214, 2226, 2227}:
+                    entry.update(lexicalClassReviewStatus="reviewed", reviewStatus="reviewed")
+                    entry["lexicalClassReason"] = "Forme adjectivale adnominale complète inspectée : elle peut décrire un nom en coréen, sans être un suffixe seul ni une phrase. La graphie et la phonétique entières restent celles de la source."
+        if entry["contentType"] == "utterance" and entry["sourceIndex"] in SITUATION_REPAIRS[lang]:
+            destination, rationale = SITUATION_REPAIRS[lang][entry["sourceIndex"]]
+            entry.update(situationDomainOverride=destination, situationDomainOverrideReason=rationale, reviewStatus="reviewed")
         if (lang, entry["sourceIndex"]) in {("ja", 2985), ("ko", 2138)}:
             entry["sourceTemplateException"] = True
     payload = {"version": 1, "pair": pair, "studyLanguage": lang,
@@ -279,14 +505,14 @@ def write(lang, cards):
             lines.append(f"| {entry['sourceIndex']} | {card['t'].replace('|', ' / ')} | {card['frm'].replace('|', ' / ')} |")
     lines += ["", "## Sous-familles lexicales", "", "Ces trois familles décrivent la forme native et son usage source, pas une traduction grammaticale automatique depuis le français. Une phrase prédicative reste `utterance`. Un suffixe sans support reste `incomplete`, jamais un mot-préposition autonome.", "",
               "`preposition` est une famille de repères relationnels : en japonais/coréen, les formes retenues sont surtout des groupes nominaux avec particule. Cette clé technique ne prétend pas que ces langues utilisent les prépositions françaises. Les noms de couleur et de temps ne deviennent pas automatiquement adjectifs/adverbes. `uncertain` réserve la sous-famille sans forcer une analyse.", "",
-              "| Niveau source | adjective | preposition | adverb | other | uncertain |", "|---|---:|---:|---:|---:|---:|"]
-    lexical_kinds = ["adjective", "preposition", "adverb", "other", "uncertain"]
+              "| Niveau source | adjective | preposition | adverb | color | other | uncertain |", "|---|---:|---:|---:|---:|---:|---:|"]
+    lexical_kinds = ["adjective", "preposition", "adverb", "color", "other", "uncertain"]
     for level in range(1, 11):
         counts = collections.Counter(entry["lexicalClass"] for entry, card in zip(entries, cards) if entry["contentType"] == "vocabulary" and card["lv"] == level)
         lines.append(f"| L{level} | " + " | ".join(str(counts[kind]) for kind in lexical_kinds) + " |")
     counts = collections.Counter(entry["lexicalClass"] for entry in entries if entry["contentType"] == "vocabulary")
     lines += ["| Total | " + " | ".join(str(counts[kind]) for kind in lexical_kinds) + " |", "",
-              "La présence d’une famille à chaque niveau ne se déduit pas de cette table. Le builder ne doit pas remplir un thème vide avec une forme liée ou une phrase dupliquée. Les réserves de sous-famille restent accessibles au dossier de Claude.", ""]
+              "La présence d’une famille à chaque niveau ne se déduit pas de cette table. Le builder ne doit pas remplir un thème vide avec une forme liée ou une phrase dupliquée. Codex porte la revue sémantique et pédagogique ; Claude vérifie uniquement les phonétiques. Les couleurs ont leur classe autonome `color`, et les formes adnominales coréennes entières portent leur condition d’usage avec un nom.", ""]
     if lang == "ko":
         lines += ["Exemple décisif : `DECKS.ko[2617]` contient `이` au sens de « les dents » ; il s’agit d’un nom, pas de la particule sujet homographe. Une table de particules sans lecture du sens aurait produit un classement faux.", ""]
     (OUT / (pair + ".md")).write_text("\n".join(lines))

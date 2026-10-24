@@ -1,65 +1,39 @@
-Claude — voici un premier lot de travail conforme aux précisions de Kartech.
-L’aperçu conserve les cartes illustrées et l’ouverture directe d’un thème,
-sur mobile et ordinateur. Aucun remplacement de l’application publiée.
+# Message pour Claude — vérification phonétique uniquement
 
-**La séparation demandée est câblée.** Les situations contiennent des phrases
-et répliques entières ; les mots et locutions sont dans des thèmes de vocabulaire,
-les nombres isolés à part. Bonjour, Merci et Oui restent des tours communicatifs.
-Adjectifs, Prépositions et Adverbes ont des destinations par niveau ; les
-rubriques sans source sont des besoins à enrichir, pas des cases réputées remplies.
-Les particules et constructions JA/KO ne sont pas présentées comme de simples
-prépositions françaises.
+Claude — Kartech précise que tu vérifieras uniquement la phonétique.
+Codex prend en charge le contenu, les regroupements par thème, leur richesse,
+la progression, les réemplois et les adaptations grammaticales par langue.
 
-**Périmètre exact :** 32 115 cartes catalogue conservées une fois, 110 277 champs
-identiques ; 43 phrases conversation entières importées, 150 champs identiques.
-Le classement propose 22 366 énoncés, 8 736 entrées lexicales, 207 nombres ;
-482 modèles incomplets et 367 cas à revoir sont en réserve, sans exercice.
-Aucune nouvelle phrase ni aide phonétique n’a été composée. Les 13 conflits
-d’aide ou de sens restent exclus des imports, sans harmonisation silencieuse.
+Merci de vérifier la conformité des aides de prononciation à la méthode Melunga
+pour les sept couples : fr→en, fr→es, fr→it, fr→zh, fr→ja, fr→ko et zh→fr.
+Les champs utilisés sont `pf` pour en/es/it/ja/ko, `phf` pour zh et `phon`
+pour le français étudié par les sinophones ; `py` reste une lecture complémentaire.
 
-Les 518 changements de niveau sont des décisions explicites. Les 31 597 autres
-placements restent au niveau source, non relus individuellement. La partition
-complète par type repose en partie sur des règles candidates et des exceptions
-inspectées ; elle n’est ni une relecture native ni une preuve de progressivité.
+Pour chaque écart, consigne :
 
-**Les prérequis sont exposés avec leurs limites.** Les 295 liens entre phrases
-entières ont un ordre éditorial clos, dont 15 références de reprise locale.
-Les références lexicales ne génèrent aucun mot isolé dans une situation.
-Les liens vers une réserve restent ouverts ; la fermeture globale est fausse.
-La phrase entière 质量好吗？ reste praticable comme bloc, mais la dépendance à
-吗, réservé, n’est pas déclarée préparée. La mauvaise assimilation de 是
-« oui / c’est ça » à la copule de 我是学生 reste explicitement rejetée.
+- le couple et l’indice ou identifiant source ;
+- le mot ou la phrase entière, avec sa phonétique actuelle ;
+- l’écart précis avec la méthode de Kartech et la correction proposée ;
+- le statut de ta vérification.
 
-Peux-tu contrôler séparément :
+Distingue les aides existantes, conservées au caractère près, des aides
+éventuellement rédigées pour de nouvelles entrées. Une conservation exacte
+ne prouve pas qu’une ancienne aide soit correcte. Une nouvelle prononciation
+se juge sur le mot ou la phrase entière, sans collage de syllabes ni alignement
+automatique entre deux corpus.
 
-1. La conformité des phonétiques à la méthode de Kartech, en plus de leur copie
-   exacte ; aucun réétiquetage de champ (`pf`, `phf`, `phon`) ne doit masquer un écart.
-2. Les frontières phrase/vocabulaire, les trois classes grammaticales et les
-   faux marqueurs source : onze exceptions sont bornées par indices et raisons.
-3. L’adéquation des 518 placements et l’ordre interne des thèmes ; les autres
-   cartes et l’ordre des nombres restent à examiner au titre de la progression.
-4. Les manques signalés dans `lexicalThemesWithoutSourceContent`, en recherchant
-   les sources existantes avant toute rédaction. Le cahier grammatical décrit
-   les capacités visées sur dix niveaux ; ses exemples sont indicatifs, non publiables.
+Les 140 nouvelles entrées sont répertoriées séparément dans
+`corrections-themes/enrichissements-rediges.json` et dans le tableau lisible
+`corrections-themes/enrichissements-rediges.md`, avec leur statut
+`pending-Claude`. Ce sont 139 nouvelles aides entières proposées et une aide
+de mot entier reprise pour le nouveau sens adjectival de l’anglais « light ».
+Les reprises de mots déjà présents ne créent aucune nouvelle phonétique.
 
-Le niveau source reste intact : `isFreeCard` teste `lv === 1`. Les 2 134 cartes
-source L1 sont conservées et aucun droit, tarif ou abonnement ne change.
-Une future intégration devra conserver l’accès historique même quand le conseil
-pédagogique déplace une carte. Les contrôles navigateur sont locaux, pas des
-essais sur l’aperçu hébergé ni sur un téléphone physique.
+Les captures de Kartech ont montré des défauts de classement ; Codex les corrige
+sur l’aperçu #14, branche `review/themes-niveaux-progressifs`. Utilise le dernier
+commit de cette branche ; `607ed90` est l’ancien aperçu et ne contient pas
+ces corrections.
+Les niveaux et les thèmes relèvent du travail de Codex, pas de ta validation.
 
-Entrée du dossier : `docs/niveaux-progressifs/README.md`.
-Il s’agit d’un aperçu de revue ; aucune fusion ni mise en production de ce lot.
-
-
-**Complément demandé par Kartech : recherche réelle chez les concurrents.**
-Treize pages officielles Babbel/Busuu/Duolingo/Memrise/Pimsleur ont été lues,
-avec dates, titres, courts extraits et empreintes HTML. Le dossier
-`recherche-concurrents/README.md` rassemble 18 pistes et 54 appuis existants
-(180 champs exacts). Les exemples inspectés concernent trois couples ; les
-recherches dans les sept stocks restent des candidats, pas une équivalence
-validée ni une déclinaison finie. Aucune nouvelle phonétique n’est composée.
-Pendant cette recherche, deux faux lexicaux zh→fr ont été corrigés : 3357
-« Le produit ne s'allume pas. » et 3509 « Le prix inclut le transport. » passent
-dans les situations, sans changer leur source ou leur niveau. Le contrôle
-indépendant et le navigateur portent sur le bundle corrigé.
+Dossier : `docs/niveaux-progressifs/README.md`.
+Cette demande de contrôle phonétique n’autorise aucune fusion ou publication.

@@ -8,17 +8,17 @@ Une réplique peut être brève : Oui, Non, Bonjour, Merci sont autonomes dans l
 
 | Niveau source | Cartes | utterance | vocabulary | number | incomplete | review |
 |---|---:|---:|---:|---:|---:|---:|
-| L1 | 287 | 84 | 187 | 4 | 12 | 0 |
-| L2 | 462 | 356 | 87 | 5 | 13 | 1 |
-| L3 | 556 | 382 | 162 | 6 | 5 | 1 |
+| L1 | 287 | 84 | 181 | 4 | 18 | 0 |
+| L2 | 462 | 356 | 86 | 5 | 14 | 1 |
+| L3 | 556 | 382 | 161 | 7 | 5 | 1 |
 | L4 | 606 | 391 | 204 | 6 | 5 | 0 |
 | L5 | 704 | 468 | 220 | 6 | 10 | 0 |
-| L6 | 459 | 396 | 53 | 0 | 10 | 0 |
-| L7 | 527 | 479 | 41 | 0 | 6 | 1 |
-| L8 | 404 | 335 | 63 | 0 | 4 | 2 |
-| L9 | 242 | 186 | 53 | 0 | 3 | 0 |
+| L6 | 459 | 396 | 52 | 0 | 11 | 0 |
+| L7 | 527 | 479 | 39 | 2 | 6 | 1 |
+| L8 | 404 | 335 | 62 | 1 | 4 | 2 |
+| L9 | 242 | 186 | 52 | 1 | 3 | 0 |
 | L10 | 273 | 212 | 55 | 0 | 6 | 0 |
-| Total | 4520 | 3289 | 1125 | 27 | 74 | 5 |
+| Total | 4520 | 3289 | 1112 | 32 | 82 | 5 |
 
 ## Cas inspectés
 
@@ -215,6 +215,19 @@ Une réplique peut être brève : Oui, Non, Bonjour, Merci sont autonomes dans l
 - `4282` — 까지 / jusqu'à → `incomplete`. 까지 est ici la particule liée « jusqu’à » ; il manque le repère auquel elle s’attache.
 - `452` — 이거 어떻게 말해요? / Comment on dit... ? → `utterance`. 이거 어떻게 말해요? demande « comment dit-on ceci ? » avec 이거 déjà présent ; l’ellipse de la traduction française ne rend pas la question coréenne incomplète.
 - `1806` — 답변 기다리겠습니다. / Dans l'attente de votre réponse... → `utterance`. 답변 기다리겠습니다. est une formule coréenne entière d’attente de réponse ; l’ellipse de la traduction française n’ajoute aucun trou à la forme apprise.
+- `2184` — 에서 멀리 / loin de → `incomplete`. 에서 멀리 commence par la particule de provenance/repère 에서 sans son support ; une forme de comparaison complète n’est pas fournie.
+- `2100` — 보다 더 / plus que → `incomplete`. 보다 더 laisse vide le terme auquel la comparaison se rapporte ; ce n’est pas la forme adjectivale entière d’un simple mot.
+- `2124` — 보다 나은 / mieux que → `incomplete`. 보다 나은 laisse vide la référence devant 보다 ; ne pas confondre ce schéma ouvert avec 큰/작은, formes adnominales lexicales entières.
+- `2132` — 보다 적게 / moins que → `incomplete`. 보다 적게 attend le terme comparé avant 보다 ; le cadre reste ouvert.
+- `2163` — 와 같은 것 / le même que → `incomplete`. 와 같은 것 attend le terme précédant la particule 와 ; aucun référent n’est donné.
+- `2201` — 보다 큰 / plus grand que → `incomplete`. 보다 큰 attend une référence devant 보다 ; 큰 seul est un adjectif adnominal complet, mais ce cadre comparatif-ci est ouvert.
+- `2361` — 보다 나쁜 / pire que → `incomplete`. 보다 나쁜 attend une référence avant 보다 ; ne pas le présenter comme le mot autonome « mauvais ».
+- `3221` — 한 잔의 / une tasse de → `incomplete`. 한 잔의 est une mesure suivie de 의 sans contenu ; le complément de « une tasse de… » est absent.
+- `2495` — 절반 / la moitié → `number`. Fraction isolée entière de valeur 1/2. Le mot/groupe natif et sa phonétique source sont conservés ; la valeur décimale ne sert qu’au tri et la fraction exacte reste déclarée.
+- `3291` — 사분의 일 / un quart → `number`. Fraction isolée entière de valeur 1/4. Le mot/groupe natif et sa phonétique source sont conservés ; la valeur décimale ne sert qu’au tri et la fraction exacte reste déclarée.
+- `3645` — 삼분의 일 / un tiers → `number`. Fraction isolée entière de valeur 1/3. Le mot/groupe natif et sa phonétique source sont conservés ; la valeur décimale ne sert qu’au tri et la fraction exacte reste déclarée.
+- `3341` — 열두 개 / une douzaine → `number`. Quantité collective entière de douze éléments, exactement 12 et non une approximation. Le compteur/nom d’unité natif est gardé dans la forme source, sans découper sa phonétique.
+- `3926` — 열 개쯤 / une dizaine → `number`. Quantité entière « environ dix éléments » : le marqueur d’approximation de la cible est conservé. Ce choix ne signifie pas que toute « dizaine » française soit approximative.
 
 ## Limites
 
@@ -242,20 +255,20 @@ Ces trois familles décrivent la forme native et son usage source, pas une tradu
 
 `preposition` est une famille de repères relationnels : en japonais/coréen, les formes retenues sont surtout des groupes nominaux avec particule. Cette clé technique ne prétend pas que ces langues utilisent les prépositions françaises. Les noms de couleur et de temps ne deviennent pas automatiquement adjectifs/adverbes. `uncertain` réserve la sous-famille sans forcer une analyse.
 
-| Niveau source | adjective | preposition | adverb | other | uncertain |
-|---|---:|---:|---:|---:|---:|
-| L1 | 66 | 9 | 15 | 64 | 33 |
-| L2 | 2 | 3 | 0 | 63 | 19 |
-| L3 | 1 | 1 | 0 | 151 | 9 |
-| L4 | 1 | 0 | 0 | 198 | 5 |
-| L5 | 0 | 1 | 0 | 218 | 1 |
-| L6 | 1 | 0 | 0 | 47 | 5 |
-| L7 | 0 | 0 | 0 | 37 | 4 |
-| L8 | 0 | 0 | 0 | 61 | 2 |
-| L9 | 0 | 0 | 0 | 50 | 3 |
-| L10 | 0 | 1 | 0 | 48 | 6 |
-| Total | 71 | 15 | 15 | 937 | 87 |
+| Niveau source | adjective | preposition | adverb | color | other | uncertain |
+|---|---:|---:|---:|---:|---:|---:|
+| L1 | 66 | 9 | 16 | 0 | 63 | 27 |
+| L2 | 9 | 3 | 3 | 2 | 61 | 8 |
+| L3 | 1 | 1 | 1 | 5 | 145 | 8 |
+| L4 | 1 | 0 | 0 | 3 | 195 | 5 |
+| L5 | 1 | 1 | 0 | 5 | 213 | 0 |
+| L6 | 1 | 0 | 0 | 0 | 46 | 5 |
+| L7 | 0 | 0 | 0 | 0 | 35 | 4 |
+| L8 | 0 | 0 | 0 | 0 | 60 | 2 |
+| L9 | 0 | 0 | 0 | 0 | 49 | 3 |
+| L10 | 0 | 1 | 0 | 0 | 48 | 6 |
+| Total | 79 | 15 | 20 | 15 | 915 | 68 |
 
-La présence d’une famille à chaque niveau ne se déduit pas de cette table. Le builder ne doit pas remplir un thème vide avec une forme liée ou une phrase dupliquée. Les réserves de sous-famille restent accessibles au dossier de Claude.
+La présence d’une famille à chaque niveau ne se déduit pas de cette table. Le builder ne doit pas remplir un thème vide avec une forme liée ou une phrase dupliquée. Codex porte la revue sémantique et pédagogique ; Claude vérifie uniquement les phonétiques. Les couleurs ont leur classe autonome `color`, et les formes adnominales coréennes entières portent leur condition d’usage avec un nom.
 
 Exemple décisif : `DECKS.ko[2617]` contient `이` au sens de « les dents » ; il s’agit d’un nom, pas de la particule sujet homographe. Une table de particules sans lecture du sens aurait produit un classement faux.

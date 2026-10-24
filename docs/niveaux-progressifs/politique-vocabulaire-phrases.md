@@ -36,18 +36,20 @@ Les cinq ensembles doivent rester disjoints et couvrir toutes les cartes sources
 
 ## Familles de vocabulaire
 
-Les sept familles contextuelles limitent la dispersion des mots. Leurs cartes
+Les neuf familles contextuelles limitent la dispersion des mots. Leurs cartes
 sont propres à chaque niveau, avec les mêmes identifiants sémantiques stables.
 
 | `lexicalFamilyId` | Titre français | Titre chinois |
 | --- | --- | --- |
 | `vocab-restaurant` | Restaurant et achats | 餐饮与购物 |
-| `vocab-maison` | Maison et jardin | 居家与园艺 |
+| `vocab-maison` | Maison et mobilier | 居家与家具 |
 | `vocab-voyage` | Voyage et transport | 出行与交通 |
 | `vocab-personnes` | Corps, personnes et émotions | 身体、人物与情绪 |
 | `vocab-reperes` | Temps et repères | 时间与方位 |
 | `vocab-actions` | Actions et descriptions | 动作与描述 |
 | `vocab-travail` | Travail et démarches | 工作与事务 |
+| `vocab-nature` | Nature, jardin et météo | 自然、园艺与天气 |
+| `vocab-loisirs` | Loisirs et culture | 休闲与文化 |
 
 Une pomme relève des aliments, une mère des personnes, une chaise de la maison.
 L'ancien domaine est un recours secondaire, pas une décision sémantique absolue.
@@ -55,7 +57,7 @@ Les signaux lexicaux sur le sens français produisent des candidats tracés ; il
 ne prouvent pas à eux seuls la correspondance exacte dans la langue étudiée.
 Un sens ambigu comme « carte », « pièce » ou « vol » exige son contexte source.
 
-Trois destinations grammaticales sont prioritaires sur ces sept familles quand
+Trois destinations grammaticales sont prioritaires sur ces neuf familles quand
 la catégorie est établie :
 
 | `lexicalFamilyId` | Titre français | Titre chinois |
@@ -63,6 +65,12 @@ la catégorie est établie :
 | `vocab-adjectifs` | Adjectifs | 形容词 |
 | `vocab-prepositions` | Prépositions | 介词 |
 | `vocab-adverbes` | Adverbes | 副词 |
+
+Couleurs / 颜色 (`vocab-couleurs`, classe `color`) est une destination distincte
+prioritaire sur Adjectifs pour les termes de couleur réellement attestés.
+Une phrase qui décrit une couleur reste une phrase. Les plantes, animaux et
+phénomènes naturels vont dans Nature ; les mots de culture et de sport dans
+Loisirs. Les sens ambigus restent vérifiés dans leur source.
 
 Une unité adjectivale a une seule destination canonique dans Adjectifs, même si
 elle décrit aussi un repas ou un logement. Les rappels dans ces situations sont
@@ -80,12 +88,12 @@ automatiquement un adverbe. Un usage réellement ambigu reste à relire.
 
 Les signaux grammaticaux conservent les accents : « sûr » et « sur » ne doivent
 pas devenir le même signal après normalisation. Le normaliseur historique sans
-accents sert uniquement aux candidats des sept familles contextuelles.
+accents sert uniquement aux candidats des neuf familles contextuelles.
 
 ## Nombres et repères
 
 La rubrique porte le titre « Nombres » / « 数字 », avec un identifiant propre
-`L{level}-nombres`. Elle est séparée des sept familles contextuelles et des trois
+`L{level}-nombres`. Elle est séparée des neuf familles contextuelles et des trois
 destinations grammaticales, au sein de la section Vocabulaire.
 
 - « quatre », « douze », « premier » au sens ordinal et « trois quarts » au sens
@@ -118,9 +126,9 @@ participe à la frontière gratuit/payant ; cette politique ne le modifie pas.
 
 ## Contrat du générateur et des visuels
 
-Le fichier JSON fournit `themeDefinitions`, onze modèles par niveau, et
-`additionalThemeDefinitions`, leurs 110 instances sur L1–L10. Les identifiants
-sont `L{level}-{lexicalFamilyId}` pour les dix familles et `L{level}-nombres`
+Le fichier JSON fournit `themeDefinitions`, quatorze modèles par niveau, et
+`additionalThemeDefinitions`, leurs 140 instances sur L1–L10. Les identifiants
+sont `L{level}-{lexicalFamilyId}` pour les treize familles et `L{level}-nombres`
 pour les nombres. L’identifiant machine de la section est `vocabulary`, son
 libellé reste « Vocabulaire ». Une définition ne devient visible que si elle reçoit des
 éléments. Aucun maximum n'impose de remplir artificiellement toutes les cases.
@@ -129,7 +137,8 @@ L'ordre des visuels contextuels déjà prévus est conservé : restaurant, maiso
 voyage, personnes, repères, actions, travail, nombres. Cela représente 80
 emplacements sur dix niveaux, répartis sur cinq atlas de seize images. Les
 trois thèmes grammaticaux ajoutent un lot distinct de 30 emplacements, dans
-l'ordre adjectifs, prépositions, adverbes. Chaque thème de niveau possède un
+l'ordre adjectifs, prépositions, adverbes. Couleurs, Nature et Loisirs ajoutent
+30 emplacements supplémentaires ; aucun ancien visuel n’est réutilisé. Chaque thème de niveau possède un
 `visualId` distinct. Ces emplacements décrivent le contrat ; la création et la
 vérification des images constituent un lot séparé.
 
@@ -154,7 +163,12 @@ face à « Je voudrais un café », des salutations, des nombres, des phrases ma
 grammaticales. Ce sont des exemples contrôlables, pas un inventaire exhaustif.
 
 La classification doit encore être examinée pour ses cas ambigus, en particulier
-les catégories grammaticales propres à chaque langue. Claude peut relire le
-classement et la conservation des aides sources. Aucune nouvelle formulation
+les catégories grammaticales propres à chaque langue. Codex assume le classement, la pertinence, la densité, l’enrichissement et la
+progression. Claude vérifie uniquement les phonétiques nouvelles ou signalées,
+avec les champs sources conservés entiers. Aucune nouvelle formulation
 ni aide phonétique n'est autorisée par ces règles, et aucune équivalence CECR
 ni mesure d'acquisition n'en découle. Ce document ne publie rien.
+
+La politique de densité détaillée est dans `corrections-themes/politique-densite.json`
+et `.md` : six présentations cohérentes, premières rencontres et rappels antérieurs
+séparés, introductions sources explicites et aucun remplissage par des intrus.

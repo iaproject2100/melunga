@@ -79,13 +79,35 @@ def make():
                                'columns': 3, 'rows': 4, 'ownerApproved': False,
                                'brief': f'{family}: dedicated lexical photograph for L{number}'})
     assert len(grammar_atlases) == 3 and len(slots) == 220
+    corrections = json.loads((DOCS / 'visuels-corrections-sources.json').read_text())
+    correction_atlases = []
+    assert {row['family'] for row in corrections['atlases']} == {'vocab-couleurs', 'vocab-nature', 'vocab-loisirs'}
+    for atlas in corrections['atlases']:
+        path = ROOT / 'melunga_deploy' / atlas['asset']
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == atlas['sha256']
+        assert path.stat().st_size == atlas['bytes']
+        assert atlas['columns'] == 3 and atlas['rows'] == 4
+        assert atlas['usedLevels'] == list(range(1, 11))
+        correction_atlases.append(atlas)
+        for index, number in enumerate(atlas['usedLevels']):
+            slot = (atlas['asset'], index % 3, index // 3)
+            theme_id = f"L{number}-{atlas['family']}"
+            assert slot not in slots and theme_id not in visual_ids
+            slots.add(slot)
+            visual_ids.add(theme_id)
+            themes.append({'level': number, 'themeId': theme_id, 'visualId': theme_id,
+                           'asset': atlas['asset'], 'column': index % 3, 'row': index // 3,
+                           'columns': 3, 'rows': 4, 'ownerApproved': False,
+                           'brief': f"{atlas['family']}: dedicated photograph for L{number}"})
+    assert len(correction_atlases) == 3 and len(slots) == 250
     return {'version': 2, 'status': 'approved-L1-photos-preserved-new-level-and-vocabulary-photos-awaiting-owner-review',
             'photographsAreSynthetic': True, 'thirdPartyImageRequests': 0,
             'distinctVisualPerDistinctTheme': True, 'sameThemeSharedAcrossLanguagePairs': True,
-            'levels': levels, 'vocabularyAtlases': lexical_atlases, 'grammarAtlases': grammar_atlases, 'themes': themes,
-            'checks': {'atlases': len(levels) + len(lexical_atlases) + len(grammar_atlases), 'distinctThemeSlots': len(slots),
+            'levels': levels, 'vocabularyAtlases': lexical_atlases, 'grammarAtlases': grammar_atlases,
+            'correctionAtlases': correction_atlases, 'themes': themes,
+            'checks': {'atlases': len(levels) + len(lexical_atlases) + len(grammar_atlases) + len(correction_atlases), 'distinctThemeSlots': len(slots),
                        'approvedL1HashPreserved': True,
-                       'totalBytesAcrossTenLevels': sum(row['bytes'] for row in levels + lexical_atlases + grammar_atlases)}}
+                       'totalBytesAcrossTenLevels': sum(row['bytes'] for row in levels + lexical_atlases + grammar_atlases + correction_atlases)}}
 
 
 def main():

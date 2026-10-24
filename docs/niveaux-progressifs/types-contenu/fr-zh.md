@@ -4,19 +4,20 @@ Classification sémantique candidate des 4 903 cartes de `DECKS.zh`, sans décou
 
 | Type | Cartes |
 |---|---:|
-| utterance | 2637 |
-| vocabulary | 2139 |
+| utterance | 2638 |
+| vocabulary | 2137 |
 | number | 36 |
-| incomplete | 38 |
+| incomplete | 39 |
 | review | 53 |
 
 | Classe du vocabulaire chinois | Cartes |
 |---|---:|
-| adjective | 377 |
+| adjective | 384 |
+| color | 6 |
 | preposition | 26 |
-| adverb | 106 |
-| other | 1558 |
-| uncertain | 72 |
+| adverb | 107 |
+| other | 1543 |
+| uncertain | 71 |
 
 ## Frontières retenues
 
@@ -26,7 +27,7 @@ Classification sémantique candidate des 4 903 cartes de `DECKS.zh`, sans décou
 - `incomplete` : modèle à emplacement, amorce ouverte ou particule grammaticale liée. Rien n’est complété automatiquement.
 - `review` : l’autonomie sémantique reste incertaine. Ces éléments sont réservés, pas présentés comme des phrases sûres.
 
-Les classes grammaticales portent sur le chinois : `我很累` reste un énoncé, `累` est un adjectif isolé. `都` et `也` sont des adverbes ; `里面` est un localisateur, non une préposition copiée de « à l’intérieur ». Les noms de temps (`今天`, `下午`) et les noms de couleur en `色` ne deviennent pas automatiquement adverbes ou adjectifs à cause du français. Les groupes relationnels bornés peuvent rejoindre `preposition` ; les amorces à complément ou emplacement explicitement ouvert restent réservées ou incomplètes.
+Les classes grammaticales portent sur le chinois : `我很累` reste un énoncé, `累` est un adjectif isolé. `都` et `也` sont des adverbes ; `里面` est un localisateur, non une préposition copiée de « à l’intérieur ». Les noms de temps (`今天`, `下午`) ne deviennent pas automatiquement des adverbes. Les noms de couleur isolés sont désormais `color`, tandis que les fleurs, fruits et phrases avec une couleur conservent leur propre sens. Les groupes relationnels bornés peuvent rejoindre `preposition` ; les amorces à complément ou emplacement explicitement ouvert restent réservées ou incomplètes.
 
 Les clés `lexicalClass`, `lexicalClassReason` et `lexicalClassReviewStatus` existent uniquement sur les entrées de vocabulaire. La rubrique grammaticale canonique ne duplique pas une carte dans un thème. `uncertain` réserve les emplois polyfonctionnels que le sens source ne tranche pas ; `other` conserve noms, verbes, groupes de quantité et locutions hors des trois classes demandées.
 
@@ -41,9 +42,9 @@ Le total lexical dépasse `cat:vocab` parce que le catalogue range aussi les sé
 | Catégorie source | Énoncés | Vocabulaire | Nombres | Incomplets | Réserve |
 |---|---:|---:|---:|---:|---:|
 | basics | 0 | 39 | 0 | 0 | 0 |
-| biz | 192 | 677 | 0 | 9 | 8 |
+| biz | 192 | 676 | 0 | 10 | 8 |
 | bonus | 145 | 360 | 0 | 1 | 5 |
-| core | 2092 | 199 | 36 | 10 | 34 |
+| core | 2093 | 198 | 36 | 10 | 34 |
 | template | 0 | 0 | 0 | 13 | 0 |
 | trip | 16 | 85 | 0 | 0 | 0 |
 | vocab | 192 | 779 | 0 | 5 | 6 |
@@ -148,6 +149,14 @@ Le total lexical dépasse `cat:vocab` parce que le catalogue range aussi les sé
 | 4797 | 五十而知天命六十而耳顺 | à cinquante ans, connaître son destin ; à soixante, tout entendre avec sérénité |
 | 4798 | 七十而从心所欲不逾矩 | à soixante-dix ans, suivre son cœur sans dépasser les limites |
 | 4806 | 当仁不让于师 | face à la vertu, ne pas céder même à son maître |
+
+## Corrections sémantiques de routage
+
+Décisions explicites par indice : 162 affectations lexicales et 160 affectations de situation. Les champs `lexicalFamilyOverride` / `situationDomainOverride` portent une raison dédiée et un statut `reviewed` ; ils corrigent les emplois figurés ou les noms mal dirigés sans toucher à la source.
+
+Les noms concrets de nature, jardin et météo rejoignent `vocab-nature` ; films, musique, lecture et culture rejoignent `vocab-loisirs`. `vocab-maison` garde les pièces, objets et équipements du logement. Les six couleurs isolées existantes rejoignent `color`, distinct de rouge de honte, Bluetooth, feu de circulation, fleur ou fruit.
+
+Le contrôle des 43 rubriques courantes de moins de six entrées, les erreurs constatées et les introductions proposées d’adjectifs existants sont détaillés dans [corrections-themes/fr-zh.md](../corrections-themes/fr-zh.md). Il ne prétend pas enrichir une rubrique en y déplaçant des mots hors sujet.
 
 ## Reproduction
 

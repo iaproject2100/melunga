@@ -33,7 +33,8 @@
     selectedPhraseId: null, revealed: false, helpOpen: false, readingVisible: false,
     speechGeneration: 0, ambienceIndex: 0, lessonScope: 'sequence', menuView: 'nav',
     voiceChoices: new Map(), speechRate: 0.85, level: 1, requestedPair: null,
-    loadGeneration: 0, request: null, levelCache: new Map()
+    loadGeneration: 0, request: null, levelCache: new Map(),
+    referenceMap: new Map(), repertoireCache: new Map()
   };
   const ambiences = ['ocean', 'aurora', 'dusk'];
   // One local image atlas, shared by all languages. Each tile is a 4:3 scene.
@@ -100,6 +101,7 @@
     'Écoute la phrase et regarde son sens et sa prononciation.': '听这句话，看看意思和发音提示。',
     'Écoute le mot et regarde son sens et sa prononciation.': '听这个词语，看看意思和发音提示。',
     'Prononce le mot à voix haute. Tu peux le réécouter autant de fois que tu veux.': '大声读出这个词语。需要时可以反复听。',
+    'Cette forme s’emploie devant un nom ; elle ne constitue pas une phrase toute seule.': '这个形式用于名词前，不能单独构成句子。',
     'Retrouve le mot à partir de son sens. L’oreille révèle le modèle et permet de le réécouter.': '根据意思回忆这个词语。点击耳朵可以查看并再次听到它。',
     'Écouter le mot': '听这个词语', 'Révéler et écouter le mot': '显示并听这个词语',
     'L’audio n’est pas disponible sur ce navigateur.': '此浏览器暂不支持播放语音。',
@@ -114,12 +116,15 @@
   };
   const levelQuantityLabel = () => {
     if (!state.pair.counts) return quantityLabel(pairCount(state.pair));
-    return ['utterance', 'vocabulary', 'number'].filter(type => state.pair.counts[type])
-      .map(type => quantityLabel(state.pair.counts[type], type)).join(' · ');
+    const presented = new Map();
+    for (const theme of state.pair.themes) for (const phrase of presentedPhrases(theme)) presented.set(phrase.id, phrase);
+    return ['utterance', 'vocabulary', 'number'].map(type => [type, [...presented.values()].filter(phrase => phrase.contentType === type).length])
+      .filter(([, count]) => count).map(([type, count]) => quantityLabel(count, type)).join(' · ');
   };
 
   const text = (node, value) => { node.textContent = typeof value === 'string' ? value : ''; };
-  const phraseCount = theme => Array.isArray(theme.phrases) ? theme.phrases.length : 0;
+  const primaryCount = theme => Array.isArray(theme.phrases) ? theme.phrases.length : 0;
+  const phraseCount = theme => Number.isInteger(theme.presentedCount) ? theme.presentedCount : primaryCount(theme);
   const pairCount = pair => pair.themes.reduce((total, theme) => total + phraseCount(theme), 0);
   const themeNumber = theme => String(state.pair.themes.indexOf(theme) + 1).padStart(2, '0');
   const themeLabel = theme => state.pair.themes.includes(theme) ? themeNumber(theme) + ' · ' + theme.title : theme.title;
@@ -129,11 +134,16 @@
     if (current) return current;
     // Local preparations reference a canonical card elsewhere in this level;
     // they never create another copy or another phonetic transcription.
-    for (const theme of state.pair?.themes || []) {
+    for (const theme of [...(state.pair?.themes || []), ...(state.pair?.heldThemes || [])]) {
       const phrase = theme.phrases.find(candidate => candidate.id === id);
       if (phrase) return phrase;
     }
-    return null;
+    return state.referenceMap.get(id) || null;
+  };
+  const presentedPhrases = theme => {
+    const primary = new Map((theme.phrases || []).map(phrase => [phrase.id, phrase]));
+    const ids = theme.sequences?.flatMap(sequence => sequence.phraseIds) || [...primary.keys()];
+    return [...new Set(ids)].map(id => primary.get(id) || state.referenceMap.get(id)).filter(Boolean);
   };
   const currentPhrase = () => {
     const step = currentStep();
@@ -254,7 +264,7 @@
     const theme = state.pair.themes.find(item => item.id === ui.reviewTheme.value);
     if (!theme) return;
     closeMenu();
-    const phrases = theme.phrases.filter(phrase => !phrase.isTemplate);
+    const phrases = presentedPhrases(theme).filter(phrase => !phrase.isTemplate);
     state.theme = theme;
     // Reuse the source preparation, including imitation, before any recall.
     const steps = theme.sequences.flatMap(sequence => sequence.steps)
@@ -353,6 +363,11 @@
     const quantity = document.createElement(className === 'mg-theme' ? 'span' : 'small');
     quantity.className = 'mg-theme-count';
     quantity.textContent = quantityLabel(count, theme && theme.contentType);
+    if (theme && theme.reviewCount) {
+      quantity.textContent += state.pair.nativeLanguage === 'zh'
+        ? ' · 其中 ' + theme.reviewCount + ' 项复习'
+        : ' · ' + theme.reviewCount + (theme.reviewCount === 1 ? ' révision' : ' révisions');
+    }
     if (theme && theme.optional) quantity.textContent += ' · ' + tr('Facultatif');
     content.append(label, quantity);
     const arrow = document.createElement('span');
@@ -487,12 +502,15 @@
     ui.done.hidden = true;
     ui.help.hidden = false;
     ui.phase.hidden = false;
-    text(ui.lessonTheme, themeLabel(state.theme));
+    text(ui.lessonTheme, themeLabel(state.theme) + (step.isReview
+      ? state.pair.nativeLanguage === 'zh' ? ' · 复习' : ' · Révision' : ''));
     text(ui.backText, tr(state.lessonScope !== 'sequence' ? 'Thèmes' : 'Séquences'));
     ui.phase.innerHTML = definition.icon;
     ui.phase.setAttribute('aria-label', tr(definition.label));
     ui.phase.title = tr(definition.label);
-    text(ui.helpText, tr(definition.help));
+    const formHelp = phrase.lexicalUsage?.requiresNounInUtterance
+      ? 'Cette forme s’emploie devant un nom ; elle ne constitue pas une phrase toute seule.' : '';
+    text(ui.helpText, tr(definition.help) + (formHelp ? ' ' + tr(formHelp) : ''));
     const position = Math.max(0, state.sequence.phraseIds.indexOf(step.prepares || phrase.id)) + 1;
     text(ui.counter, position + ' / ' + state.sequence.phraseIds.length);
     ui.progress.style.width = ((state.stepIndex + 1) / state.sequence.steps.length * 100) + '%';
@@ -640,16 +658,37 @@
       const key = id + ':' + entry.level;
       let pair = state.levelCache.get(key);
       if (!pair) {
-        const response = await fetch(entry.dataPath, { credentials: 'omit', signal: request.signal });
+        const response = await fetch(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
         if (!response.ok) throw new Error('Level unavailable');
         pair = await response.json();
         if (pair.id !== id || pair.level !== entry.level) throw new Error('Wrong level');
-        validateData({ pairs: [pair] });
       }
+      let references = new Map();
+      let validatedBank = null;
+      if (pair.themes.some(theme => (theme.reviewReferences || []).length)) {
+        const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
+        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
+        let bank = state.repertoireCache.get(id);
+        if (!bank) {
+          const response = await fetch(repertoirePath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
+          if (!response.ok) throw new Error('Repertoire unavailable');
+          bank = validateRepertoire(await response.json(), id);
+        }
+        references = new Map(bank.phrases.map(phrase => [phrase.id, phrase]));
+        if (generation !== state.loadGeneration) return;
+        validatedBank = bank;
+      }
+      validateData({ pairs: [pair] }, references);
       if (generation !== state.loadGeneration) return;
+      if (validatedBank) {
+        state.repertoireCache.delete(id);
+        state.repertoireCache.set(id, validatedBank);
+        while (state.repertoireCache.size > 3) state.repertoireCache.delete(state.repertoireCache.keys().next().value);
+      }
       state.levelCache.delete(key);
       state.levelCache.set(key, pair);
       while (state.levelCache.size > 4) state.levelCache.delete(state.levelCache.keys().next().value);
+      state.referenceMap = references;
       displayPair(pair);
     } catch (error) {
       if (generation !== state.loadGeneration || error.name === 'AbortError') return;
@@ -658,6 +697,24 @@
     } finally {
       if (state.request === request) state.request = null;
     }
+  }
+
+  function validateRepertoire(bank, pairId) {
+    if (!bank || bank.version !== 1 || bank.pairId !== pairId || !Array.isArray(bank.phrases)) throw new Error('Invalid repertoire');
+    const ids = new Set();
+    for (const phrase of bank.phrases) {
+      const location = phrase.canonicalLocation;
+      if (!phrase.id || ids.has(phrase.id) || phrase.referenceOnly !== true || phrase.isTemplate
+          || !['utterance', 'vocabulary', 'number'].includes(phrase.contentType)
+          || typeof phrase.study !== 'string' || !phrase.study.trim()
+          || typeof phrase.native !== 'string' || !phrase.native.trim()
+          || typeof phrase.phon !== 'string' || !phrase.phon.trim()
+          || !location || location.pairId !== pairId || !location.themeId
+          || !Number.isInteger(location.level) || location.level < 1 || location.level > 10
+          || phrase.editorialLevel !== location.level) throw new Error('Invalid repertoire phrase');
+      ids.add(phrase.id);
+    }
+    return bank;
   }
 
   function validateManifest(data) {
@@ -677,15 +734,16 @@
     return data;
   }
 
-  function validateData(data) {
+  function validateData(data, references = new Map()) {
     if (!data || !Array.isArray(data.pairs) || !data.pairs.length) throw new Error('Missing pairs');
     const pairIds = new Set();
     data.pairs.forEach(pair => {
       if (!pair || !pair.id || pairIds.has(pair.id) || !Array.isArray(pair.themes) || !pair.themes.length) throw new Error('Invalid pair');
       pairIds.add(pair.id);
-      const active = pair.themes.flatMap(theme => theme.phrases || []);
+      const allThemes = [...pair.themes, ...(pair.heldThemes || [])];
+      const active = allThemes.flatMap(theme => theme.phrases || []);
       const canonical = new Set(active.map(phrase => phrase.id));
-      const activeById = new Map(active.map(phrase => [phrase.id, phrase]));
+      const activeById = new Map([...references, ...active.map(phrase => [phrase.id, phrase])]);
       if (canonical.size !== active.length) throw new Error('Duplicate canonical phrase');
       if (pair.version === 2 && pair.counts) {
         const reserve = pair.reserve || [];
@@ -699,33 +757,56 @@
         if (reserve.some(phrase => !['incomplete', 'review'].includes(phrase.contentType))) throw new Error('Invalid reserve');
       }
       pair.themes.forEach(theme => {
-        if (!theme.id || !theme.title || !Array.isArray(theme.phrases) || !theme.phrases.length || !Array.isArray(theme.sequences) || !theme.sequences.length) throw new Error('Invalid theme');
+        if (!theme.id || !theme.title || !Array.isArray(theme.phrases) || !Array.isArray(theme.sequences) || !theme.sequences.length) throw new Error('Invalid theme');
         if (pair.counts && (!['utterance', 'vocabulary', 'number'].includes(theme.contentType)
             || theme.section !== (theme.contentType === 'utterance' ? 'situations' : 'vocabulary')
             || theme.phrases.some(phrase => phrase.contentType !== theme.contentType || phrase.isTemplate))) throw new Error('Mixed content theme');
-        if (theme.photo && (!/^assets\/(?:theme-scenes(?:-L(?:[2-9]|10))?|vocabulary-scenes-L(?:1|3|5|7|9)-L(?:2|4|6|8|10)|pos-scenes-L1-L4|pos-scenes-L5-L8|pos-scenes-L9-L10)\.webp$/.test(theme.photo.asset)
+        if (theme.photo && (!/^assets\/(?:theme-scenes(?:-L(?:[2-9]|10))?|vocabulary-scenes-L(?:1|3|5|7|9)-L(?:2|4|6|8|10)|pos-scenes-L1-L4|pos-scenes-L5-L8|pos-scenes-L9-L10|color-scenes|nature-scenes|leisure-scenes)\.webp$/.test(theme.photo.asset)
             || ![3, 4].includes(theme.photo.columns) || theme.photo.rows !== 4
             || !Number.isInteger(theme.photo.column) || theme.photo.column < 0 || theme.photo.column >= theme.photo.columns
             || !Number.isInteger(theme.photo.row) || theme.photo.row < 0 || theme.photo.row >= theme.photo.rows)) throw new Error('Invalid theme photo');
         const ids = new Set();
+        const lexicalClass = { 'vocab-adjectifs': 'adjective', 'vocab-couleurs': 'color', 'vocab-adverbes': 'adverb' }[theme.domain];
         theme.phrases.forEach(phrase => {
           if (!phrase.id || ids.has(phrase.id) || typeof phrase.study !== 'string' || typeof phrase.native !== 'string' || typeof phrase.phon !== 'string') throw new Error('Invalid phrase');
+          if (lexicalClass && phrase.lexicalClass !== lexicalClass) throw new Error('Invalid lexical class');
           ids.add(phrase.id);
         });
+        const reviewIds = new Set();
+        for (const reference of theme.reviewReferences || []) {
+          const phrase = references.get(reference.id);
+          if (!phrase || ids.has(reference.id) || reviewIds.has(reference.id)
+              || phrase.contentType !== theme.contentType
+              || phrase.placement?.domain !== theme.domain
+              || lexicalClass && phrase.lexicalClass !== lexicalClass
+              || reference.firstEditorialLevel !== phrase.canonicalLocation.level
+              || reference.firstEditorialLevel >= pair.level
+              || reference.canonicalThemeId !== phrase.canonicalLocation.themeId
+              || !reference.reason) throw new Error('Invalid review reference');
+          reviewIds.add(reference.id);
+        }
+        const presentedIds = new Set([...ids, ...reviewIds]);
+        if (pair.counts && Number.isInteger(theme.presentedCount)
+            && (theme.newCount !== ids.size || theme.reviewCount !== reviewIds.size
+                || theme.presentedCount !== presentedIds.size || theme.presentedCount < 6
+                || !Number.isInteger(theme.pedagogicalConceptCount)
+                || theme.pedagogicalConceptCount < 6)) throw new Error('Invalid theme repertoire counts');
         const included = [];
         theme.sequences.forEach(sequence => {
           if (!Array.isArray(sequence.phraseIds) || !sequence.phraseIds.length || sequence.phraseIds.length > 5 || !Array.isArray(sequence.steps) || !sequence.steps.length) throw new Error('Invalid sequence');
-          sequence.phraseIds.forEach(id => { if (!ids.has(id)) throw new Error('Unknown phrase'); included.push(id); });
+          sequence.phraseIds.forEach(id => { if (!presentedIds.has(id)) throw new Error('Unknown phrase'); included.push(id); });
           const preparationIds = sequence.preparationIds || [];
           if (!Array.isArray(preparationIds) || preparationIds.some(id => !canonical.has(id))) throw new Error('Unknown preparation');
           sequence.steps.forEach(step => {
             const references = [step.utterance, ...(step.choices || [])].filter(Boolean);
             if (!references.length || references.some(id => !(step.isPreparation ? preparationIds : sequence.phraseIds).includes(id))) throw new Error('Unknown step phrase');
             if (step.isPreparation && (!['understand', 'imitate'].includes(step.kind) || !sequence.phraseIds.includes(step.prepares))) throw new Error('Invalid preparation step');
+            if (reviewIds.has(step.utterance) && step.isReview !== true) throw new Error('Unmarked review');
+            if (!step.isPreparation && step.isReview && !reviewIds.has(step.utterance)) throw new Error('False review');
             if (theme.contentType === 'utterance' && references.some(id => activeById.get(id)?.contentType !== 'utterance')) throw new Error('Lexical step in a situation');
           });
         });
-        if (included.length !== ids.size || new Set(included).size !== ids.size) throw new Error('Incomplete theme');
+        if (included.length !== presentedIds.size || new Set(included).size !== presentedIds.size) throw new Error('Incomplete theme');
       });
     });
     return data;
@@ -737,7 +818,7 @@
     ui.retry.hidden = true;
     ui.language.disabled = true;
     try {
-      const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit' });
+      const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
       if (!response.ok) throw new Error('HTTP ' + response.status);
       state.data = (ui.level ? validateManifest : validateData)(await response.json());
       ui.language.replaceChildren(...state.data.pairs.map(pair => {

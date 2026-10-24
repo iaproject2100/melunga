@@ -16,10 +16,20 @@ const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'content/niveaux-progressifs');
 const manifest = JSON.parse(fs.readFileSync(path.join(DATA, 'manifest.json')));
 const visualRegistry = JSON.parse(fs.readFileSync(path.resolve(ROOT, '../docs/niveaux-progressifs/visuels.json')));
+const authoredPath = path.resolve(ROOT, '../docs/niveaux-progressifs/corrections-themes/enrichissements-rediges.json');
+const authored = JSON.parse(fs.readFileSync(authoredPath));
 function cellBundleSha256() {
   const bundle = crypto.createHash('sha256');
   for (const pair of manifest.pairs) for (const level of pair.levels) {
     bundle.update(level.dataPath + '\0'); bundle.update(fs.readFileSync(path.join(ROOT, level.dataPath)));
+  }
+  return bundle.digest('hex');
+}
+function repertoireBundleSha256() {
+  const bundle = crypto.createHash('sha256');
+  for (const pair of manifest.pairs) {
+    bundle.update(pair.repertoirePath + '\0');
+    bundle.update(fs.readFileSync(path.join(ROOT, pair.repertoirePath)));
   }
   return bundle.digest('hex');
 }
@@ -28,9 +38,14 @@ const report = {
   publicSiteChecked: false, nativeOrPedagogicalValidation: false,
   widths: [320, 390, 1440], cellViews: 0, themeEntries: 0, domSteps: 0,
   runtimeJsonFieldsCompared: 0, templateSteps: 0, preparationSteps: 0, reserveCardsTracked: 0,
+  heldCardsTracked: 0, canonicalCardsTracked: 0, reviewSteps: 0, reviewReferencesTracked: 0,
+  adnominalHelpChecks: 0,
+  authoredEntriesChecked: 0, authoredPhoneticReviewStatus: 'pending-Claude',
   renderedStepsByType: {}, failures: [],
   checks: [], manifestSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(DATA, 'manifest.json'))).digest('hex'),
   cellBundleSha256: cellBundleSha256(),
+  repertoireBundleSha256: repertoireBundleSha256(),
+  authoredSourceSha256: crypto.createHash('sha256').update(fs.readFileSync(authoredPath)).digest('hex'),
   externalRequests: [], apiRequests: []
 };
 let browser, server, base;
@@ -58,12 +73,18 @@ after(async () => {
   if (!report.cellBundleStableDuringRun) report.failures.push({check: 'content-stability', error: 'Cell JSON changed while the suite was running; rerun on a stable bundle.'});
   report.manifestStableDuringRun = crypto.createHash('sha256').update(fs.readFileSync(path.join(DATA, 'manifest.json'))).digest('hex') === report.manifestSha256;
   if (!report.manifestStableDuringRun) report.failures.push({check: 'manifest-stability', error: 'Manifest changed while the suite was running; rerun on a stable bundle.'});
+  report.repertoiresStableDuringRun = repertoireBundleSha256() === report.repertoireBundleSha256;
+  if (!report.repertoiresStableDuringRun) report.failures.push({check: 'bank-stability', error: 'Repertoire banks changed while the suite was running.'});
+  report.authoredSourceStableDuringRun = crypto.createHash('sha256').update(fs.readFileSync(authoredPath)).digest('hex') === report.authoredSourceSha256;
+  if (!report.authoredSourceStableDuringRun) report.failures.push({check: 'authored-stability', error: 'Authored source changed while the suite was running.'});
   report.status = report.failures.length ? 'failed' : 'passed';
   report.executedAt = new Date().toISOString();
   const destination = process.env.LEVELS_BROWSER_REPORT;
   if (destination) fs.writeFileSync(destination, JSON.stringify(report, null, 2) + '\n');
   assert.equal(report.cellBundleStableDuringRun, true, 'stable cell bundle during browser tests');
   assert.equal(report.manifestStableDuringRun, true, 'stable manifest during browser tests');
+  assert.equal(report.repertoiresStableDuringRun, true, 'stable repertoire banks during browser tests');
+  assert.equal(report.authoredSourceStableDuringRun, true, 'stable authored master during browser tests');
 });
 
 async function checked(name, action) {
@@ -74,11 +95,24 @@ async function checked(name, action) {
 function cell(pair, level) {
   return JSON.parse(fs.readFileSync(path.join(DATA, pair, 'L' + level + '.json')));
 }
+function repertoire(pairId) {
+  const metadata = manifest.pairs.find(pair => pair.id === pairId);
+  return JSON.parse(fs.readFileSync(path.join(ROOT, metadata.repertoirePath)));
+}
+function reviewFixture(pairId) {
+  for (let level = 2; level <= 10; level++) {
+    const data = cell(pairId, level);
+    const themeIndex = data.themes.findIndex(theme => theme.reviewReferences?.length);
+    if (themeIndex >= 0) return {data, level, themeIndex, reference: data.themes[themeIndex].reviewReferences[0]};
+  }
+  throw new Error('No review fixture for ' + pairId);
+}
 
 async function open(width = 390, intercept = async () => false) {
   const context = await browser.newContext({viewport: {width, height: width > 760 ? 960 : 844},
     isMobile: width < 761, hasTouch: width < 761, reducedMotion: 'reduce'});
   const errors = [];
+  const localRequests = [];
   await context.addInitScript(() => {
     window.__speech = [];
     window.SpeechSynthesisUtterance = class { constructor(text) { this.text = text; } };
@@ -90,6 +124,7 @@ async function open(width = 390, intercept = async () => false) {
   await context.route('**/*', async route => {
     const url = new URL(route.request().url());
     if (url.origin !== base) { report.externalRequests.push(url.origin + url.pathname); await route.abort(); return; }
+    localRequests.push(url.pathname);
     if (/\/(?:\.netlify|api)\//.test(url.pathname)) {
       report.apiRequests.push({path: url.pathname, method: route.request().method()});
       await route.fulfill({json: {success: false, error: 'blocked-test-fixture'}}); return;
@@ -99,7 +134,7 @@ async function open(width = 390, intercept = async () => false) {
   });
   const page = await context.newPage();
   page.on('pageerror', error => errors.push(error.message));
-  return {context, page, errors};
+  return {context, page, errors, localRequests};
 }
 
 async function ready(page, pair, level) {
@@ -109,8 +144,8 @@ async function ready(page, pair, level) {
   }, {pair, level});
 }
 
-async function inspectCell(page, expected, exhaustive) {
-  return page.evaluate(({expected, exhaustive}) => {
+async function inspectCell(page, expected, bank, exhaustive) {
+  return page.evaluate(({expected, bank, exhaustive}) => {
     const eq = (actual, wanted, label) => {
       if (actual !== wanted) throw new Error(label + ': ' + JSON.stringify(actual) + ' != ' + JSON.stringify(wanted));
     };
@@ -133,7 +168,9 @@ async function inspectCell(page, expected, exhaustive) {
     eq(byId('mgLevel').selectedOptions[0].textContent, 'L' + expected.level + ' · ' + expected.levelTitle, 'level option label');
     eq(byId('mgLanguage').value, expected.id, 'language select');
     eq(byId('mgLanguage').options.length, 7, 'seven selectable language pairs');
-    const active = expected.themes.flatMap(theme => theme.phrases);
+    const allCanonicalThemes = [...expected.themes, ...(expected.heldThemes || [])];
+    const active = allCanonicalThemes.flatMap(theme => theme.phrases);
+    const held = (expected.heldThemes || []).flatMap(theme => theme.phrases);
     const reserve = expected.reserve || [];
     const reserveIds = new Set(reserve.map(phrase => phrase.id));
     const combined = [...active, ...reserve];
@@ -146,10 +183,14 @@ async function inspectCell(page, expected, exhaustive) {
     }
     if (reserve.some(phrase => !['incomplete', 'review'].includes(phrase.contentType))) throw new Error('active content leaked into reserve');
     if (active.some(phrase => reserveIds.has(phrase.id) || !['utterance', 'vocabulary', 'number'].includes(phrase.contentType))) throw new Error('reserve leaked into active themes');
-    const expectedQuantity = ['utterance', 'vocabulary', 'number'].filter(type => expected.counts[type])
-      .map(type => quantity(expected.counts[type], type)).join(' · ');
-    eq(byId('mgCounter').textContent, expectedQuantity, 'counter by type, excluding reserve');
-    eq(state().totalPhrases, expected.totalPhrases, 'runtime count');
+    const canonicalPhrases = new Map([...(bank?.phrases || []), ...active].map(phrase => [phrase.id, phrase]));
+    const presented = new Map();
+    expected.themes.forEach(theme => theme.sequences.flatMap(sequence => sequence.phraseIds).forEach(id => presented.set(id, canonicalPhrases.get(id))));
+    if ([...presented.values()].some(phrase => !phrase)) throw new Error('unknown presented reference');
+    const expectedQuantity = ['utterance', 'vocabulary', 'number'].map(type => [type, [...presented.values()].filter(phrase => phrase.contentType === type).length])
+      .filter(([, count]) => count).map(([type, count]) => quantity(count, type)).join(' · ');
+    eq(byId('mgCounter').textContent, expectedQuantity, 'presented counter by type, excluding reserve and hidden stock');
+    eq(state().totalPhrases, expected.themes.reduce((sum, theme) => sum + theme.presentedCount, 0), 'runtime presentation count');
     const sections = expected.themes.map(theme => theme.section).filter((section, index, list) => index === 0 || section !== list[index - 1]);
     eq(JSON.stringify([...document.querySelectorAll('#mgThemeGrid > h2')].map(node => node.textContent)),
       JSON.stringify(sections.map(section => expected.nativeLanguage === 'zh'
@@ -157,20 +198,42 @@ async function inspectCell(page, expected, exhaustive) {
         : section === 'situations' ? 'Situations' : 'Vocabulaire et nombres')), 'section headings');
     const visualPositions = new Set();
     const ids = new Set();
-    let steps = 0, fields = 0, templates = 0, preparations = 0;
+    let steps = 0, fields = 0, templates = 0, preparations = 0, reviewSteps = 0, reviewReferences = 0, usageChecks = 0;
     const renderedByType = {};
-    const canonicalPhrases = new Map(expected.themes.flatMap(theme => theme.phrases).map(phrase => [phrase.id, phrase]));
     expected.themes.forEach((theme, i) => {
       // showThemes replaces the buttons after every back action.
       const tile = document.querySelectorAll('#mgThemeGrid > button')[i];
       eq(tile.querySelector('.mg-theme-title').textContent, theme.title, 'theme title');
       eq(tile.querySelector('.mg-theme-number').textContent, String(i + 1).padStart(2, '0'), 'ordinal');
-      eq(tile.querySelector('.mg-theme-count').textContent.split(' · ')[0], quantity(theme.phrases.length, theme.contentType), 'theme counter');
+      const references = theme.reviewReferences || [];
+      const reviews = new Set(references.map(reference => reference.id));
+      const newIds = new Set(theme.phrases.map(phrase => phrase.id));
+      eq(theme.newCount, newIds.size, 'new count excludes reviews');
+      eq(theme.reviewCount, reviews.size, 'review count');
+      eq(theme.presentedCount, newIds.size + reviews.size, 'presentation count');
+      if (theme.presentedCount < 6) throw new Error('visible theme has fewer than six presentations');
+      if (!Number.isInteger(theme.pedagogicalConceptCount) || theme.pedagogicalConceptCount < 6) throw new Error('visible theme declares fewer than six concepts');
+      let countLabel = quantity(theme.presentedCount, theme.contentType);
+      if (theme.reviewCount) countLabel += expected.nativeLanguage === 'zh' ? ' · 其中 ' + theme.reviewCount + ' 项复习' : ' · ' + theme.reviewCount + (theme.reviewCount === 1 ? ' révision' : ' révisions');
+      if (theme.optional) countLabel += expected.nativeLanguage === 'zh' ? ' · 可选' : ' · Facultatif';
+      eq(tile.querySelector('.mg-theme-count').textContent, countLabel, 'theme counter with explicit revisions');
+      for (const reference of references) {
+        const phrase = canonicalPhrases.get(reference.id);
+        if (!phrase || newIds.has(reference.id)) throw new Error('review is missing or a duplicate primary');
+        eq(reference.firstEditorialLevel, phrase.canonicalLocation.level, 'review first level');
+        if (reference.firstEditorialLevel >= expected.level) throw new Error('future review');
+        eq(reference.canonicalThemeId, phrase.canonicalLocation.themeId, 'review first theme');
+        eq(phrase.canonicalLocation.pairId, expected.id, 'review belongs to this pair');
+        eq(phrase.contentType, theme.contentType, 'review preserves content type');
+        eq(phrase.placement.domain, theme.domain, 'review preserves family');
+        if (reserveIds.has(reference.id)) throw new Error('reserve became a review');
+      }
+      reviewReferences += references.length;
       if (!['utterance', 'vocabulary', 'number'].includes(theme.contentType)) throw new Error('invalid theme type');
       eq(theme.section, theme.contentType === 'utterance' ? 'situations' : 'vocabulary', 'theme section');
       if (theme.phrases.some(phrase => phrase.contentType !== theme.contentType || phrase.isTemplate)) throw new Error('mixed or incomplete theme ' + theme.id);
       if (theme.contentType === 'vocabulary') {
-        for (const phrase of theme.phrases) if (phrase.lexicalClass && !['adjective', 'preposition', 'adverb', 'other', 'uncertain'].includes(phrase.lexicalClass)) throw new Error('invalid lexical family');
+        for (const phrase of theme.phrases) if (phrase.lexicalClass && !['adjective', 'preposition', 'adverb', 'color', 'other', 'uncertain'].includes(phrase.lexicalClass)) throw new Error('invalid lexical family');
       }
       const photo = tile.querySelector('.mg-theme-photo');
       const img = photo?.querySelector('img');
@@ -187,9 +250,17 @@ async function inspectCell(page, expected, exhaustive) {
       eq(state().screen, 'lesson', 'one-click theme entry');
       eq(state().lessonScope, 'theme', 'one lesson per theme');
       if (visible(byId('mgSequenceView'))) throw new Error('sequence screen became visible');
-      eq(byId('mgLessonTheme').textContent, String(i + 1).padStart(2, '0') + ' · ' + theme.title, 'lesson heading');
       const allSteps = theme.sequences.flatMap(sequence => sequence.steps);
       const primaryIds = theme.sequences.flatMap(sequence => sequence.phraseIds);
+      let startedNew = false;
+      for (const step of allSteps) {
+        if (step.isReview && startedNew) throw new Error('review returns after introducing new content');
+        if (!step.isReview && !step.isPreparation) startedNew = true;
+      }
+      for (const id of reviews) {
+        const kinds = allSteps.filter(step => step.utterance === id).map(step => step.kind);
+        if (!kinds.includes('understand') || !kinds.includes('imitate') || !kinds.some(kind => ['choose-and-recall', 'reply-without-model', 'recall'].includes(kind))) throw new Error('review omits a complete hear/imitate/recall cycle');
+      }
       theme.sequences.forEach(sequence => {
         sequence.steps.filter(step => step.isPreparation).forEach(step => {
           if (!['understand', 'imitate'].includes(step.kind)) throw new Error('support must only be heard/imitated ' + step.id);
@@ -212,12 +283,23 @@ async function inspectCell(page, expected, exhaustive) {
         if (!phrase) throw new Error('Unresolved step ' + step.id);
         eq(state().stepIndex, index, 'step index');
         eq(state().phraseId, phrase.id, 'phrase identity');
+        const review = reviews.has(phrase.id);
+        eq(!!step.isReview, review, 'review step is explicitly marked');
+        eq(byId('mgLessonTheme').textContent, String(i + 1).padStart(2, '0') + ' · ' + theme.title
+          + (review ? expected.nativeLanguage === 'zh' ? ' · 复习' : ' · Révision' : ''), 'explicit review badge');
+        if (review) reviewSteps++;
         if (reserveIds.has(state().phraseId)) throw new Error('reserve reached DOM/audio state');
         eq(byId('mgCounter').textContent, (primaryIds.indexOf(step.prepares || phrase.id) + 1) + ' / ' + primaryIds.length, 'primary-only lesson counter');
         eq(byId('mgPhrase').textContent, phrase.study, 'study verbatim ' + phrase.id);
         eq(byId('mgPhon').textContent, phrase.phon, 'phonetic verbatim ' + phrase.id);
         eq(byId('mgTranslation').textContent, phrase.native, 'meaning verbatim ' + phrase.id);
         eq(byId('mgReading').textContent, phrase.reading || '', 'reading verbatim ' + phrase.id);
+        if (phrase.lexicalUsage?.requiresNounInUtterance) {
+          const instruction = expected.nativeLanguage === 'zh' ? '这个形式用于名词前，不能单独构成句子。'
+            : 'Cette forme s’emploie devant un nom ; elle ne constitue pas une phrase toute seule.';
+          if (!byId('mgHelpText').textContent.includes(instruction)) throw new Error('missing adnominal usage in optional help');
+          usageChecks++;
+        }
         if (index === 0 && document.documentElement.scrollWidth > innerWidth + 1) throw new Error('horizontal lesson overflow');
         fields += 4;
         renderedByType[phrase.contentType] = (renderedByType[phrase.contentType] || 0) + 1;
@@ -267,8 +349,9 @@ async function inspectCell(page, expected, exhaustive) {
     eq(visualPositions.size, expected.themes.length, 'one distinct photo tile per theme');
     eq(ids.size, expected.themes.length, 'distinct theme visual identities');
     if (document.documentElement.scrollWidth > innerWidth + 1) throw new Error('horizontal document overflow');
-    return {steps, fields, templates, preparations, themes: expected.themes.length, renderedByType, reserved: reserve.length};
-  }, {expected, exhaustive});
+    return {steps, fields, templates, preparations, reviewSteps, reviewReferences, usageChecks, themes: expected.themes.length,
+      renderedByType, reserved: reserve.length, held: held.length, canonical: combined.length};
+  }, {expected, bank, exhaustive});
 }
 
 for (const width of report.widths) test('70 pair/level cells at ' + width + 'px', {timeout: 300000}, async () => checked('matrix-' + width, async () => {
@@ -285,12 +368,17 @@ for (const width of report.widths) test('70 pair/level cells at ' + width + 'px'
         if (Number(await page.locator('#mgLevel').inputValue()) !== level) await page.selectOption('#mgLevel', String(level));
         await ready(page, pair.id, level);
         let result;
-        try { result = await inspectCell(page, cell(pair.id, level), width === 390); }
+        try { result = await inspectCell(page, cell(pair.id, level), repertoire(pair.id), width === 390); }
         catch (error) { throw new Error(pair.id + '/L' + level + ' @' + width + ': ' + error.message); }
         report.cellViews++; report.themeEntries += result.themes; report.domSteps += result.steps;
         report.runtimeJsonFieldsCompared += result.fields; report.templateSteps += result.templates;
         report.preparationSteps += result.preparations;
-        if (width === 390) report.reserveCardsTracked += result.reserved;
+        report.reviewSteps += result.reviewSteps;
+        report.adnominalHelpChecks += result.usageChecks;
+        if (width === 390) {
+          report.reserveCardsTracked += result.reserved; report.heldCardsTracked += result.held;
+          report.canonicalCardsTracked += result.canonical; report.reviewReferencesTracked += result.reviewReferences;
+        }
         for (const [type, count] of Object.entries(result.renderedByType)) report.renderedStepsByType[type] = (report.renderedStepsByType[type] || 0) + count;
       }
     }
@@ -298,26 +386,106 @@ for (const width of report.widths) test('70 pair/level cells at ' + width + 'px'
   } finally { await fixture.context.close(); }
 }));
 
-test('adjectives, relational groups and adverbs have one canonical family before thematic buckets', async () => checked('lexical-family-priority', async () => {
-  const families = {adjective: 'vocab-adjectifs', preposition: 'vocab-prepositions', adverb: 'vocab-adverbes'};
-  const totals = {cells: 0, adjective: 0, preposition: 0, adverb: 0};
+test('native lexical classes and reviewed relational groups follow their declared families', async () => checked('lexical-family-priority', async () => {
+  const families = {adjective: 'vocab-adjectifs', preposition: 'vocab-prepositions', adverb: 'vocab-adverbes', color: 'vocab-couleurs'};
+  const totals = {cells: 0, adjective: 0, preposition: 0, adverb: 0, color: 0, functionalRelationGroups: 0};
+  const locativeExceptions = new Map([
+    ...[2348, 2349, 2848, 2849, 2927, 2928, 2929, 2930].map(index => ['fr-zh:' + index, 'chinese-localizer']),
+    ['fr-es:3894', 'whole-locative-prepositional-group-with-complement']
+  ]);
   for (const pair of manifest.pairs) for (const metadata of pair.levels) {
     const data = cell(pair.id, metadata.level);
-    for (const theme of data.themes) {
+    for (const theme of [...data.themes, ...(data.heldThemes || [])]) {
       for (const phrase of theme.phrases) {
         if (phrase.contentType !== 'vocabulary') continue;
-        assert.ok(['adjective', 'preposition', 'adverb', 'other', 'uncertain'].includes(phrase.lexicalClass), 'lexical class ' + phrase.id);
+        assert.ok(['adjective', 'preposition', 'adverb', 'color', 'other', 'uncertain'].includes(phrase.lexicalClass), 'lexical class ' + phrase.id);
         const family = families[phrase.lexicalClass];
         if (family) {
           assert.equal(theme.domain, family, 'family before situation/theme bucket for ' + phrase.id);
           totals[phrase.lexicalClass]++;
         }
-        for (const [type, domain] of Object.entries(families)) if (theme.domain === domain) assert.equal(phrase.lexicalClass, type, 'homogeneous POS family ' + theme.id);
+        for (const [type, domain] of Object.entries(families)) if (theme.domain === domain) {
+          if (domain === 'vocab-prepositions' && phrase.lexicalClass === 'other') {
+            const usage = locativeExceptions.get(pair.id + ':' + phrase.source.sourceIndex);
+            assert.ok(usage, 'only individually reviewed functional locatives may keep another native class');
+            assert.equal(phrase.lexicalUsage, usage, 'explicit native locative usage');
+            assert.equal(phrase.lexicalFamilyOverride, domain, 'reviewed functional family');
+            assert.equal(phrase.semanticReview.status, 'reviewed');
+            totals.functionalRelationGroups++;
+          } else assert.equal(phrase.lexicalClass, type, 'homogeneous POS family ' + theme.id);
+        }
       }
     }
     totals.cells++;
   }
   report.lexicalFamilyRouting = totals;
+}));
+
+test('new whole entries copy the authored source; review transport creates no canonical cards', async () => checked('authored-source-and-bank-conservation', async () => {
+  const canonical = new Map();
+  for (const pair of manifest.pairs) for (const metadata of pair.levels) {
+    const data = cell(pair.id, metadata.level);
+    for (const phrase of [...data.themes, ...(data.heldThemes || [])].flatMap(theme => theme.phrases).concat(data.reserve || [])) {
+      const key = pair.id + ':' + phrase.id;
+      assert.ok(!canonical.has(key), 'one canonical first placement ' + key);
+      canonical.set(key, phrase);
+    }
+  }
+  for (const pair of manifest.pairs) {
+    const bank = repertoire(pair.id);
+    assert.equal(bank.pairId, pair.id);
+    assert.equal(new Set(bank.phrases.map(phrase => phrase.id)).size, bank.phrases.length);
+    for (const phrase of bank.phrases) {
+      const original = canonical.get(pair.id + ':' + phrase.id);
+      assert.ok(original && !['incomplete', 'review'].includes(original.contentType), 'bank references existing active canonical source');
+      assert.equal(phrase.referenceOnly, true);
+      for (const field of ['study', 'native', 'phon', 'reading', 'contentType', 'editorialLevel', 'lexicalClass']) assert.equal(phrase[field], original[field], 'bank verbatim ' + field);
+      for (const field of ['lexicalUsage', 'numberKind', 'numberValue', 'numberOrder']) assert.deepEqual(phrase[field], original[field], 'bank preserves native/numeric usage ' + field);
+      assert.equal(phrase.canonicalLocation.level, original.editorialLevel);
+      assert.equal(phrase.canonicalLocation.pairId, pair.id);
+    }
+  }
+  for (const item of authored.items) {
+    const phrase = canonical.get(item.pair + ':editorial:' + item.id);
+    assert.ok(phrase, 'authored entry retained ' + item.id);
+    for (const field of ['study', 'native', 'phon', 'reading']) assert.equal(phrase[field], item[field], 'whole authored field ' + item.id + ':' + field);
+    assert.equal(phrase.phoneticReviewStatus, 'pending-Claude');
+    assert.equal(phrase.source.collection, 'editorial-authored');
+    assert.equal(phrase.source.itemId, item.id);
+    assert.equal(phrase.source.sourceFileSha256, report.authoredSourceSha256);
+    report.authoredEntriesChecked++;
+  }
+  assert.equal(report.authoredEntriesChecked, authored.items.length);
+  report.canonicalEntriesAcrossAllCells = canonical.size;
+}));
+
+test('reviewed Japanese/Korean semantic corrections reach the actual canonical themes', async () => checked('ja-ko-semantic-routing-regressions', async () => {
+  const corrections = JSON.parse(fs.readFileSync(path.resolve(ROOT, '../docs/niveaux-progressifs/corrections-themes/ja-ko.json')));
+  const routes = new Map();
+  for (const pair of ['fr-ja', 'fr-ko']) for (let level = 1; level <= 10; level++) {
+    const data = cell(pair, level);
+    for (const theme of [...data.themes, ...(data.heldThemes || [])]) for (const phrase of theme.phrases) {
+      if (phrase.source?.sourceIndex !== undefined) routes.set(pair + ':' + phrase.source.sourceIndex, {domain: theme.domain, phrase});
+    }
+  }
+  for (const correction of corrections.routingCorrections) assert.equal(routes.get(correction.pair + ':' + correction.sourceIndex)?.domain, correction.afterDomain,
+    correction.pair + ':' + correction.sourceIndex + ' meaning-based destination');
+  for (const correction of corrections.isolatedNumberCorrections || []) {
+    const actual = routes.get(correction.pair + ':' + correction.sourceIndex);
+    assert.equal(actual?.domain, 'nombres', 'whole numeric quantity has its number theme');
+    assert.equal(actual.phrase.contentType, 'number');
+    assert.equal(actual.phrase.numberKind, correction.numberKind, 'exact collective vs approximate quantity');
+    if (correction.numberKind === 'fraction') assert.deepEqual(actual.phrase.numberValue,
+      correction.numberExactValue.split('/').map(Number), 'exact rational value');
+    else assert.equal(actual.phrase.numberValue, correction.numberValue, 'exact or central numeric value');
+  }
+  report.jaKoSemanticDestinationsChecked = corrections.routingCorrections.length;
+  report.jaKoWholeNumericQuantitiesChecked = (corrections.isolatedNumberCorrections || []).length;
+  for (const [pair, first, second] of [['fr-ja', 'catalogue:ja:3062', 'catalogue:ja:3063'], ['fr-ko', 'catalogue:ko:2213', 'catalogue:ko:2214']]) {
+    const adjectives = cell(pair, 1).themes.find(theme => theme.domain === 'vocab-adjectifs');
+    assert.ok(adjectives);
+    assert.deepEqual(adjectives.sequences.flatMap(sequence => sequence.phraseIds).slice(0, 2), [first, second], 'begin with large then small, before authored extensions');
+  }
 }));
 
 test('latest pair/level wins delayed responses; failed cells can be retried', {timeout: 30000}, async () => checked('fetch-races-and-retry', async () => {
@@ -381,6 +549,124 @@ test('first manifest and first cell failures have an operational retry', {timeou
   }
 }));
 
+test('a repertoire bank is loaded only for reviews and a failed bank can be retried', {timeout: 30000}, async () => checked('repertoire-loading-and-retry', async () => {
+  const pairId = manifest.pairs[0].id;
+  const target = reviewFixture(pairId);
+  const bankPath = '/' + manifest.pairs[0].repertoirePath;
+  const noBank = await open(390);
+  try {
+    await noBank.page.goto(base + '/parcours-niveaux.html?pair=' + pairId + '&level=1'); await ready(noBank.page, pairId, 1);
+    assert.equal(cell(pairId, 1).themes.some(theme => theme.reviewReferences?.length), false, 'L1 cannot cite an earlier level');
+    assert.ok(!noBank.localRequests.includes(bankPath), 'no bank request without references');
+  } finally { await noBank.context.close(); }
+  let fail = true;
+  const fixture = await open(390, async (route, url) => {
+    if (url.pathname === bankPath && fail) {
+      fail = false; await route.fulfill({status: 404, contentType: 'application/json', body: '{}'}); return true;
+    }
+    return false;
+  });
+  try {
+    await fixture.page.goto(base + '/parcours-niveaux.html?pair=' + pairId + '&level=' + target.level);
+    await fixture.page.locator('#mgRetry').waitFor({state: 'visible'});
+    assert.equal((await fixture.page.evaluate(() => window.MelungaMockup.state())).screen, 'loading');
+    await fixture.page.click('#mgRetry'); await ready(fixture.page, pairId, target.level);
+    assert.equal(fixture.localRequests.filter(value => value === bankPath).length, 2);
+    assert.deepEqual(fixture.errors, []);
+  } finally { await fixture.context.close(); }
+}));
+
+test('future, wrong-type, wrong-family, wrong-subclass and insufficient-concept references are refused', {timeout: 60000}, async () => checked('repertoire-reference-guards', async () => {
+  const pairId = manifest.pairs[0].id;
+  const basic = reviewFixture(pairId);
+  for (const alteration of ['future', 'type', 'family', 'subclass', 'concept-count']) {
+    const target = JSON.parse(JSON.stringify(basic.data));
+    const bank = repertoire(pairId);
+    let theme = target.themes[basic.themeIndex];
+    if (alteration === 'subclass') {
+      theme = target.themes.find(candidate => ['vocab-adjectifs', 'vocab-prepositions', 'vocab-adverbes', 'vocab-couleurs'].includes(candidate.domain) && candidate.reviewReferences?.length);
+      assert.ok(theme, 'a reviewed POS family is available');
+    }
+    const reference = theme.reviewReferences[0];
+    const phrase = bank.phrases.find(candidate => candidate.id === reference.id);
+    assert.ok(phrase);
+    if (alteration === 'future') {
+      reference.firstEditorialLevel = target.level;
+      phrase.editorialLevel = target.level;
+      phrase.canonicalLocation.level = target.level;
+    } else if (alteration === 'type') {
+      phrase.contentType = theme.contentType === 'utterance' ? 'vocabulary' : 'utterance';
+    } else if (alteration === 'subclass') {
+      phrase.lexicalClass = phrase.lexicalClass === 'adjective' ? 'color' : 'adjective';
+    } else if (alteration === 'concept-count') {
+      theme.pedagogicalConceptCount = 5;
+    } else {
+      phrase.placement.domain = theme.domain === 'vocab-maison' ? 'vocab-voyage' : 'vocab-maison';
+    }
+    const cellPath = '/content/niveaux-progressifs/' + pairId + '/L' + target.level + '.json';
+    const bankPath = '/' + manifest.pairs[0].repertoirePath;
+    let corrupted = true;
+    const fixture = await open(390, async (route, url) => {
+      if (url.pathname === cellPath || url.pathname === bankPath) {
+        const body = corrupted ? url.pathname === cellPath ? target : bank
+          : url.pathname === cellPath ? cell(pairId, target.level) : repertoire(pairId);
+        await route.fulfill({contentType: 'application/json', body: JSON.stringify(body)}); return true;
+      }
+      return false;
+    });
+    try {
+      await fixture.page.goto(base + '/parcours-niveaux.html?pair=' + pairId + '&level=' + target.level);
+      await fixture.page.locator('#mgRetry').waitFor({state: 'visible'});
+      assert.equal((await fixture.page.evaluate(() => window.MelungaMockup.state())).screen, 'loading', alteration + ' must not display a partial lesson');
+      corrupted = false;
+      await fixture.page.click('#mgRetry'); await ready(fixture.page, pairId, target.level);
+      assert.equal(fixture.localRequests.filter(value => value === bankPath).length, 2, alteration + ' retry refetches the corrected bank');
+      assert.deepEqual(fixture.errors, []);
+    } finally { await fixture.context.close(); }
+  }
+}));
+
+test('a delayed old bank cannot overwrite a newly selected pair or its review audio', {timeout: 30000}, async () => checked('repertoire-pair-race', async () => {
+  const first = manifest.pairs[0].id, second = manifest.pairs[1].id;
+  const firstTarget = reviewFixture(first), secondTarget = reviewFixture(second);
+  const firstBankPath = '/' + manifest.pairs[0].repertoirePath;
+  let release;
+  let requestedResolve;
+  const requested = new Promise(resolve => { requestedResolve = resolve; });
+  const fixture = await open(390, async (route, url) => {
+    if (url.pathname === firstBankPath && !release) {
+      await new Promise(resolve => {
+        release = async () => { try { await route.fulfill({contentType: 'application/json', body: JSON.stringify(repertoire(first))}); } catch (_) {} resolve(); };
+        requestedResolve();
+      }); return true;
+    }
+    return false;
+  });
+  try {
+    const {page} = fixture;
+    await page.goto(base + '/parcours-niveaux.html?pair=' + first + '&level=' + firstTarget.level);
+    await requested;
+    await page.selectOption('#mgLanguage', second); await ready(page, second, firstTarget.level);
+    if (firstTarget.level !== secondTarget.level) { await page.selectOption('#mgLevel', String(secondTarget.level)); await ready(page, second, secondTarget.level); }
+    await release();
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    assert.equal((await page.evaluate(() => window.MelungaMockup.state())).pairId, second);
+    const theme = secondTarget.data.themes[secondTarget.themeIndex];
+    const steps = theme.sequences.flatMap(sequence => sequence.steps);
+    const reviewIndex = steps.findIndex(step => step.isReview);
+    assert.ok(reviewIndex >= 0);
+    await page.locator('#mgThemeGrid > button').nth(secondTarget.themeIndex).click();
+    await page.evaluate(count => { for (let index = 0; index < count; index++) document.getElementById('mgContinue').click(); }, reviewIndex);
+    const step = steps[reviewIndex];
+    const phrase = repertoire(second).phrases.find(candidate => candidate.id === step.utterance);
+    assert.equal((await page.evaluate(() => window.MelungaMockup.state())).phraseId, phrase.id);
+    assert.equal(await page.locator('#mgPhon').textContent(), phrase.phon);
+    await page.click('#mgEar');
+    assert.equal(await page.evaluate(() => window.__speech.at(-1).text), phrase.study);
+    assert.deepEqual(fixture.errors, []);
+  } finally { if (release) await release(); await fixture.context.close(); }
+}));
+
 test('L5 menu, three ambiences and minimum controls at all widths', {timeout: 60000}, async () => checked('menu-palette-targets', async () => {
   for (const width of report.widths) {
     const fixture = await open(width);
@@ -435,20 +721,36 @@ test('approved L1-only page stays compatible with v1 data and no level selector'
       const first = pair.themes[0].phrases.find(phrase => phrase.id === pair.themes[0].sequences[0].steps[0].utterance);
       assert.equal(await page.locator('#mgPhrase').textContent(), first.study);
       assert.equal(await page.locator('#mgPhon').textContent(), first.phon);
+      const steps = pair.themes[0].sequences.flatMap(sequence => sequence.steps);
+      const recallIndex = steps.findIndex(step => ['choose-and-recall', 'reply-without-model', 'recall'].includes(step.kind));
+      assert.ok(recallIndex >= 0, pair.id + ' legacy recall');
+      await page.evaluate(count => { for (let i = 0; i < count; i++) document.getElementById('mgContinue').click(); }, recallIndex);
+      const recalled = pair.themes[0].phrases.find(phrase => phrase.id === steps[recallIndex].utterance);
+      assert.equal((await page.evaluate(() => window.MelungaMockup.state())).masked, true);
+      assert.equal(await page.locator('#mgTranslation').textContent(), recalled.native);
+      const spoken = await page.evaluate(() => window.__speech.length);
+      await page.evaluate(() => document.getElementById('mgReplay').click());
+      assert.equal((await page.evaluate(() => window.MelungaMockup.state())).masked, true);
+      assert.equal(await page.evaluate(() => window.__speech.length), spoken);
+      await page.click('#mgEar');
+      assert.equal((await page.evaluate(() => window.MelungaMockup.state())).masked, false);
+      assert.equal(await page.locator('#mgPhrase').textContent(), recalled.study);
+      assert.equal(await page.locator('#mgPhon').textContent(), recalled.phon);
+      assert.equal(await page.evaluate(() => window.__speech.at(-1).text), recalled.study);
       await page.click('#mgBack'); await ready(page, pair.id, 1);
     }
     assert.deepEqual(fixture.errors, []);
   } finally { await fixture.context.close(); }
 }));
 
-test('220 registered photo slots in 18 distinct atlases; no external or API operations', {timeout: 30000}, async () => checked('photo-atlases-and-network-isolation', async () => {
+test('250 registered photo slots in 21 distinct atlases; no external or API operations', {timeout: 30000}, async () => checked('photo-atlases-and-network-isolation', async () => {
   const fixture = await open();
   try {
     await fixture.page.goto(base + '/parcours-niveaux.html'); await ready(fixture.page, 'fr-zh', 1);
-    const assets = [...visualRegistry.levels, ...visualRegistry.vocabularyAtlases, ...visualRegistry.grammarAtlases];
-    assert.equal(assets.length, 18, '18 atlases');
-    assert.equal(visualRegistry.themes.length, 220, '220 distinct slots');
-    assert.equal(new Set(visualRegistry.themes.map(theme => theme.asset + ':' + theme.column + ':' + theme.row)).size, 220, 'one slot per theme/level');
+    const assets = [...visualRegistry.levels, ...visualRegistry.vocabularyAtlases, ...visualRegistry.grammarAtlases, ...visualRegistry.correctionAtlases];
+    assert.equal(assets.length, 21, '21 atlases');
+    assert.equal(visualRegistry.themes.length, 250, '250 distinct slots');
+    assert.equal(new Set(visualRegistry.themes.map(theme => theme.asset + ':' + theme.column + ':' + theme.row)).size, 250, 'one slot per theme/level');
     const assetByName = new Map(assets.map(asset => [asset.asset, asset]));
     for (const theme of visualRegistry.themes) {
       const atlas = assetByName.get(theme.asset);
@@ -468,7 +770,7 @@ test('220 registered photo slots in 18 distinct atlases; no external or API oper
       }, file);
       assert.ok(result.width >= 768 && result.height >= 1024, file + ' resolution');
     }
-    assert.equal(hashes.size, 18, 'unique atlas files');
+    assert.equal(hashes.size, 21, 'unique atlas files');
     assert.equal(assetByName.get('assets/theme-scenes.webp').sha256, 'ba431628deddbaafa34384b196c1f3428d606673662681a3835c4b92fe5d7a1c', 'approved L1 image preserved');
     assert.deepEqual(report.externalRequests, []);
     assert.deepEqual(report.apiRequests, []);

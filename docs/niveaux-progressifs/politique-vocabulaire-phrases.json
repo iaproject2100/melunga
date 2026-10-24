@@ -15,7 +15,10 @@
     "Les modèles incomplets ou incohérents restent dans une réserve de revue et ne sont pas demandés en production.",
     "Un mot peut être introduit plus tôt puis rappelé au niveau de sa phrase par référence canonique, sans déplacement forcé ni nouveau doublon.",
     "L’architecture de navigation et les phonétiques sources sont conservées.",
-    "Adjectifs, Prépositions et Adverbes disposent de destinations distinctes par niveau lorsque le contenu correspondant existe, avec adaptation aux catégories de la langue étudiée."
+    "Adjectifs, Prépositions et Adverbes disposent de destinations distinctes par niveau lorsque le contenu correspondant existe, avec adaptation aux catégories de la langue étudiée.",
+    "Couleurs forme un thème lexical distinct des Adjectifs ; Nature/jardin/météo et Loisirs/culture ont leurs destinations propres.",
+    "Aucune petite carte creuse : objectif de six présentations cohérentes, sources existantes introduites explicitement plus tôt ou rappels sourcés strictement antérieurs.",
+    "Codex assume classement, pertinence, densité et progression ; Claude vérifie uniquement les phonétiques."
   ],
   "contentTypes": [
     {
@@ -174,14 +177,13 @@
     {
       "id": "vocab-maison",
       "title": {
-        "fr": "Maison et jardin",
-        "zh": "居家与园艺"
+        "fr": "Maison et mobilier",
+        "zh": "居家与家具"
       },
       "semanticScope": [
         "logement et pièces",
         "mobilier et objets domestiques",
-        "jardin, plantes et entretien",
-        "objets et activités de la maison"
+        "équipement et entretien domestiques, hors nature et jardin"
       ],
       "preferredExistingDomains": [
         "quotidien"
@@ -256,7 +258,7 @@
       },
       "semanticScope": [
         "verbes et groupes verbaux lexicaux",
-        "noms de couleurs, formes et propriétés hors unités classées dans les destinations grammaticales prioritaires",
+        "noms de formes et propriétés hors unités classées dans les destinations grammaticales prioritaires",
         "mots de communication et compréhension",
         "mots et locutions de liaison bornés hors modèles à compléter et hors adverbes identifiés"
       ],
@@ -329,8 +331,8 @@
           "zh": "助词与关系表达"
         },
         "zh": {
-          "fr": "Prépositions et structures de relation",
-          "zh": "介词与关系表达"
+          "fr": "Relations et repères de position",
+          "zh": "关系与方位表达"
         }
       },
       "grammarEquivalenceClaim": false
@@ -348,6 +350,56 @@
       ],
       "notEveryTimeExpressionIsAdverb": true,
       "grammarEquivalenceClaim": false
+    },
+    {
+      "id": "vocab-couleurs",
+      "lexicalFamilyId": "vocab-couleurs",
+      "title": {
+        "fr": "Couleurs",
+        "zh": "颜色"
+      },
+      "familyKind": "color",
+      "lexicalClass": "color",
+      "semanticScope": [
+        "termes et locutions de couleur exacts attestés comme unités lexicales",
+        "nuances entières déjà sourcées, sans extraction de phrase"
+      ],
+      "priorityBefore": [
+        "vocab-adjectifs"
+      ],
+      "requiresStudyLanguageCheck": true
+    },
+    {
+      "id": "vocab-nature",
+      "lexicalFamilyId": "vocab-nature",
+      "title": {
+        "fr": "Nature, jardin et météo",
+        "zh": "自然、园艺与天气"
+      },
+      "familyKind": "contextual",
+      "semanticScope": [
+        "animaux et végétaux",
+        "jardin, plantes et entretien du jardin",
+        "météo et phénomènes naturels",
+        "milieux naturels, relief et paysages"
+      ],
+      "excludeAssignedPartOfSpeechFamilies": true
+    },
+    {
+      "id": "vocab-loisirs",
+      "lexicalFamilyId": "vocab-loisirs",
+      "title": {
+        "fr": "Loisirs et culture",
+        "zh": "休闲与文化"
+      },
+      "familyKind": "contextual",
+      "semanticScope": [
+        "cinéma, films et musique",
+        "sports, jeux et activités de loisir",
+        "instruments et pratiques artistiques",
+        "lecture et objets culturels"
+      ],
+      "excludeAssignedPartOfSpeechFamilies": true
     }
   ],
   "domainDestinations": {
@@ -361,11 +413,14 @@
     "decrire": "vocab-actions",
     "conversation": "vocab-actions",
     "travail": "vocab-travail",
-    "personnaliser": "reserve"
+    "personnaliser": "reserve",
+    "nature": "vocab-nature",
+    "loisirs": "vocab-loisirs",
+    "couleurs": "vocab-couleurs"
   },
   "destinationPolicy": "Ce mapping est un repère initial pour les seuls items lexical. Le sens lexical réel prime : pomme va vers restaurant-achats, mère vers corps-personnes, même si le domaine ancien diffère. Les nombres et les répliques complètes en sont exclus.",
   "levelGrouping": {
-    "maximumLexicalFamilies": 10,
+    "maximumLexicalFamilies": 13,
     "emitOnlyWhenItemsExist": true,
     "doNotCreateElevenEmptyVocabularyCards": true,
     "sameFamilyWithinLevelIsOneCardByDefault": true,
@@ -373,9 +428,10 @@
     "preferRelevantToLevelSituations": true,
     "firstEncounterAndReviewMustBeDistinguished": true,
     "splitOnlyWithSemanticReason": "Une famille peut être affinée plus tard si son stock est réellement trop hétérogène ; pas de division automatique par quantité ou longueur.",
-    "maximumContextualFamilies": 7,
+    "maximumContextualFamilies": 9,
     "maximumPartOfSpeechFamilies": 3,
-    "partOfSpeechFamiliesBeforeContextWhenClassificationEstablished": true
+    "partOfSpeechFamiliesBeforeContextWhenClassificationEstablished": true,
+    "maximumColorFamilies": 1
   },
   "numbers": {
     "id": "nombres",
@@ -447,7 +503,7 @@
     "noNewIntermediateSelectionScreen": true,
     "existing110ThemeDefinitionsStayIntactInPlanFile": true,
     "situationPersonaliserSlotNotUsedForIncompleteProduction": true,
-    "newVisualIdsMustBeDistinct": "Chaque L{level}-{lexicalFamilyId} et L{level}-nombres est un thème distinct. Les 110 définitions initiales restent intactes ; 80 visuels contextuels/nombres et 30 visuels POS forment des lots supplémentaires.",
+    "newVisualIdsMustBeDistinct": "Chaque thème de niveau a un visualId distinct : 110 situations existantes et 140 définitions complémentaires (80 contextes/nombres initiaux, 30 grammaticales, 30 Couleurs/Nature/Loisirs).",
     "numbersSection": "vocabulary"
   },
   "coverageAccounting": {
@@ -982,8 +1038,7 @@
       "\\b(achat|magasin|boutique|vetement|chaussure|pantalon|chemise|robe|manteau|prix|paiement|facturette|reduction|carte bancaire|especes|monnaie|caisse)\\b"
     ],
     "vocab-maison": [
-      "\\b(maison|appartement|logement|piece|salon|cuisine|chambre|meuble|mobilier|chaise|table|canape|fauteuil|lit|matelas|armoire|placard|etagere|porte|fenetre|rideau|lampe|coussin|oreiller|tapis|salle de bain|douche|toilettes|menage|balcon)\\b",
-      "\\b(jardin|jardinage|plante|fleur|arbre|herbe|pelouse|racine|feuille|branche|potager|tondeuse|arrosoir|terre|graine|buisson)\\b"
+      "\\b(maison|appartement|logement|piece|salon|cuisine|chambre|meuble|mobilier|chaise|table|canape|fauteuil|lit|matelas|armoire|placard|etagere|porte|fenetre|rideau|lampe|coussin|oreiller|tapis|salle de bain|douche|toilettes|menage|balcon)\\b"
     ],
     "vocab-voyage": [
       "\\b(voyage|transport|train|gare|quai|bus|autobus|metro|tramway|avion|aeroport|vol|taxi|voiture|velo|billet|bagage|valise|passeport|hotel|auberge|reservation|itineraire|route|rue|carrefour|autoroute|frontiere|douane|touriste)\\b"
@@ -1001,6 +1056,12 @@
     ],
     "vocab-travail": [
       "\\b(travail|profession|metier|employe|collegue|patron|entreprise|usine|bureau|reunion|projet|contrat|devis|facture|commande|fournisseur|client|livraison|stock|document|formulaire|dossier|demarche|guichet|administration|attestation|permis|service professionnel|materiau|emballage|fabrication|echantillon)\\b"
+    ],
+    "vocab-nature": [
+      "\\b(jardin|jardinage|plante|fleur|arbre|herbe|pelouse|racine|feuille|branche|potager|tondeuse|arrosoir|terre|graine|buisson|animal|chien|chat|oiseau|cheval|mouton|vache|insecte|abeille|papillon|poisson rouge|foret|montagne|riviere|lac|mer|ocean|plage|desert|pluie|neige|orage|vent|nuage|brouillard|soleil|seisme|tsunami|ouragan|secheresse)\\b"
+    ],
+    "vocab-loisirs": [
+      "^(?:(?:le|la|les|un|une|des|du|de la|l.)\\s*)?(cinema|film|musique|concert|chanson|sport|football|basket.ball|tennis|natation|course a pied|danse|theatre|lecture|roman|poeme|jeu|jeux|guitare|piano|violon|flute|tambour|peinture|dessin|photographie)(?:s)?(?:\\s*\\([^)]*\\))?$"
     ]
   },
   "lexicalSignalPolicy": {
@@ -1036,12 +1097,6 @@
       "exactFrenchMeanings": [
         "grand",
         "petit",
-        "rouge",
-        "bleu",
-        "vert",
-        "jaune",
-        "noir",
-        "blanc",
         "nouveau",
         "vieux",
         "facile",
@@ -1111,7 +1166,7 @@
       "languageNotes": {
         "ja": "Une postposition ou particule attestée reste telle quelle ; un nom de lieu n’est pas automatiquement une préposition. Un schéma avec 〜 ou un complément absent reste réservé.",
         "ko": "Distinguer particule liée, postposition et expression locative complète. Un emplacement absent ne devient pas une entrée autonome par traduction française.",
-        "zh": "Distinguer mot de relation, coverbe et verbe selon l’usage source ; ne pas déduire le type depuis le français seul."
+        "zh": "Famille de relations et repères de position : localisateurs canoniques bornés admis avec classe other, sans prétendre qu’ils sont tous des prépositions. La forme source entière et sa première rencontre restent tracées."
       }
     },
     "vocab-adverbes": {
@@ -1148,6 +1203,45 @@
       "languageNotes": {
         "all": "Ne pas convertir automatiquement jour, demain, avant de dormir ou une durée en adverbe. Établir la fonction du lexème ou de la locution dans la langue étudiée."
       }
+    },
+    "vocab-couleurs": {
+      "exactFrenchMeanings": [
+        "rouge",
+        "bleu",
+        "bleue",
+        "vert",
+        "verte",
+        "jaune",
+        "noir",
+        "noire",
+        "blanc",
+        "blanche",
+        "rose",
+        "orange",
+        "violet",
+        "violette",
+        "marron",
+        "brun",
+        "brune",
+        "gris",
+        "grise",
+        "beige",
+        "turquoise",
+        "bleu clair",
+        "bleu foncé",
+        "vert clair",
+        "vert foncé"
+      ],
+      "requiresWholeLexicalEntry": true,
+      "requiresStudyLanguageCheck": true,
+      "notAFullPredication": true,
+      "priorityBeforeAdjective": true,
+      "ambiguousExamples": [
+        "orange peut désigner un fruit",
+        "marron peut désigner une graine ou une couleur",
+        "une phrase décrivant une couleur reste utterance"
+      ],
+      "doNotSplitCompoundColor": true
     }
   },
   "partOfSpeechRules": {
@@ -1183,8 +1277,8 @@
       "lexicalFamilyId": "vocab-maison",
       "visualIdPattern": "L{level}-vocab-maison",
       "title": {
-        "fr": "Maison et jardin",
-        "zh": "居家与园艺"
+        "fr": "Maison et mobilier",
+        "zh": "居家与家具"
       },
       "contentType": "vocabulary",
       "section": "vocabulary",
@@ -1313,8 +1407,8 @@
           "zh": "助词与关系表达"
         },
         "zh": {
-          "fr": "Prépositions et structures de relation",
-          "zh": "介词与关系表达"
+          "fr": "Relations et repères de position",
+          "zh": "关系与方位表达"
         }
       },
       "contentType": "vocabulary",
@@ -1336,6 +1430,54 @@
       "section": "vocabulary",
       "order": 10,
       "emitOnlyWhenItemsExist": true
+    },
+    {
+      "idPattern": "L{level}-vocab-couleurs",
+      "domain": "vocab-couleurs",
+      "lexicalFamilyId": "vocab-couleurs",
+      "visualIdPattern": "L{level}-vocab-couleurs",
+      "title": {
+        "fr": "Couleurs",
+        "zh": "颜色"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 11,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": "color",
+      "assetLot": "contextual-corrections-supplement"
+    },
+    {
+      "idPattern": "L{level}-vocab-nature",
+      "domain": "vocab-nature",
+      "lexicalFamilyId": "vocab-nature",
+      "visualIdPattern": "L{level}-vocab-nature",
+      "title": {
+        "fr": "Nature, jardin et météo",
+        "zh": "自然、园艺与天气"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 12,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement"
+    },
+    {
+      "idPattern": "L{level}-vocab-loisirs",
+      "domain": "vocab-loisirs",
+      "lexicalFamilyId": "vocab-loisirs",
+      "visualIdPattern": "L{level}-vocab-loisirs",
+      "title": {
+        "fr": "Loisirs et culture",
+        "zh": "休闲与文化"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 13,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement"
     }
   ],
   "additionalThemeDefinitions": [
@@ -1366,8 +1508,8 @@
       "domain": "vocab-maison",
       "lexicalFamilyId": "vocab-maison",
       "title": {
-        "fr": "Maison et jardin",
-        "zh": "居家与园艺"
+        "fr": "Maison et mobilier",
+        "zh": "居家与家具"
       },
       "contentType": "vocabulary",
       "section": "vocabulary",
@@ -1566,8 +1708,8 @@
           "zh": "助词与关系表达"
         },
         "zh": {
-          "fr": "Prépositions et structures de relation",
-          "zh": "介词与关系表达"
+          "fr": "Relations et repères de position",
+          "zh": "关系与方位表达"
         }
       },
       "contentType": "vocabulary",
@@ -1607,6 +1749,60 @@
       }
     },
     {
+      "domain": "vocab-couleurs",
+      "lexicalFamilyId": "vocab-couleurs",
+      "title": {
+        "fr": "Couleurs",
+        "zh": "颜色"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 11,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": "color",
+      "assetLot": "contextual-corrections-supplement",
+      "level": 1,
+      "id": "L1-vocab-couleurs",
+      "visualId": "L1-vocab-couleurs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-nature",
+      "lexicalFamilyId": "vocab-nature",
+      "title": {
+        "fr": "Nature, jardin et météo",
+        "zh": "自然、园艺与天气"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 12,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 1,
+      "id": "L1-vocab-nature",
+      "visualId": "L1-vocab-nature",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-loisirs",
+      "lexicalFamilyId": "vocab-loisirs",
+      "title": {
+        "fr": "Loisirs et culture",
+        "zh": "休闲与文化"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 13,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 1,
+      "id": "L1-vocab-loisirs",
+      "visualId": "L1-vocab-loisirs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
       "domain": "vocab-restaurant",
       "lexicalFamilyId": "vocab-restaurant",
       "title": {
@@ -1633,8 +1829,8 @@
       "domain": "vocab-maison",
       "lexicalFamilyId": "vocab-maison",
       "title": {
-        "fr": "Maison et jardin",
-        "zh": "居家与园艺"
+        "fr": "Maison et mobilier",
+        "zh": "居家与家具"
       },
       "contentType": "vocabulary",
       "section": "vocabulary",
@@ -1833,8 +2029,8 @@
           "zh": "助词与关系表达"
         },
         "zh": {
-          "fr": "Prépositions et structures de relation",
-          "zh": "介词与关系表达"
+          "fr": "Relations et repères de position",
+          "zh": "关系与方位表达"
         }
       },
       "contentType": "vocabulary",
@@ -1874,6 +2070,60 @@
       }
     },
     {
+      "domain": "vocab-couleurs",
+      "lexicalFamilyId": "vocab-couleurs",
+      "title": {
+        "fr": "Couleurs",
+        "zh": "颜色"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 11,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": "color",
+      "assetLot": "contextual-corrections-supplement",
+      "level": 2,
+      "id": "L2-vocab-couleurs",
+      "visualId": "L2-vocab-couleurs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-nature",
+      "lexicalFamilyId": "vocab-nature",
+      "title": {
+        "fr": "Nature, jardin et météo",
+        "zh": "自然、园艺与天气"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 12,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 2,
+      "id": "L2-vocab-nature",
+      "visualId": "L2-vocab-nature",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-loisirs",
+      "lexicalFamilyId": "vocab-loisirs",
+      "title": {
+        "fr": "Loisirs et culture",
+        "zh": "休闲与文化"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 13,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 2,
+      "id": "L2-vocab-loisirs",
+      "visualId": "L2-vocab-loisirs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
       "domain": "vocab-restaurant",
       "lexicalFamilyId": "vocab-restaurant",
       "title": {
@@ -1900,8 +2150,8 @@
       "domain": "vocab-maison",
       "lexicalFamilyId": "vocab-maison",
       "title": {
-        "fr": "Maison et jardin",
-        "zh": "居家与园艺"
+        "fr": "Maison et mobilier",
+        "zh": "居家与家具"
       },
       "contentType": "vocabulary",
       "section": "vocabulary",
@@ -2100,8 +2350,8 @@
           "zh": "助词与关系表达"
         },
         "zh": {
-          "fr": "Prépositions et structures de relation",
-          "zh": "介词与关系表达"
+          "fr": "Relations et repères de position",
+          "zh": "关系与方位表达"
         }
       },
       "contentType": "vocabulary",
@@ -2141,6 +2391,60 @@
       }
     },
     {
+      "domain": "vocab-couleurs",
+      "lexicalFamilyId": "vocab-couleurs",
+      "title": {
+        "fr": "Couleurs",
+        "zh": "颜色"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 11,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": "color",
+      "assetLot": "contextual-corrections-supplement",
+      "level": 3,
+      "id": "L3-vocab-couleurs",
+      "visualId": "L3-vocab-couleurs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-nature",
+      "lexicalFamilyId": "vocab-nature",
+      "title": {
+        "fr": "Nature, jardin et météo",
+        "zh": "自然、园艺与天气"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 12,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 3,
+      "id": "L3-vocab-nature",
+      "visualId": "L3-vocab-nature",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-loisirs",
+      "lexicalFamilyId": "vocab-loisirs",
+      "title": {
+        "fr": "Loisirs et culture",
+        "zh": "休闲与文化"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 13,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 3,
+      "id": "L3-vocab-loisirs",
+      "visualId": "L3-vocab-loisirs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
       "domain": "vocab-restaurant",
       "lexicalFamilyId": "vocab-restaurant",
       "title": {
@@ -2167,8 +2471,8 @@
       "domain": "vocab-maison",
       "lexicalFamilyId": "vocab-maison",
       "title": {
-        "fr": "Maison et jardin",
-        "zh": "居家与园艺"
+        "fr": "Maison et mobilier",
+        "zh": "居家与家具"
       },
       "contentType": "vocabulary",
       "section": "vocabulary",
@@ -2367,8 +2671,8 @@
           "zh": "助词与关系表达"
         },
         "zh": {
-          "fr": "Prépositions et structures de relation",
-          "zh": "介词与关系表达"
+          "fr": "Relations et repères de position",
+          "zh": "关系与方位表达"
         }
       },
       "contentType": "vocabulary",
@@ -2408,6 +2712,60 @@
       }
     },
     {
+      "domain": "vocab-couleurs",
+      "lexicalFamilyId": "vocab-couleurs",
+      "title": {
+        "fr": "Couleurs",
+        "zh": "颜色"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 11,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": "color",
+      "assetLot": "contextual-corrections-supplement",
+      "level": 4,
+      "id": "L4-vocab-couleurs",
+      "visualId": "L4-vocab-couleurs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-nature",
+      "lexicalFamilyId": "vocab-nature",
+      "title": {
+        "fr": "Nature, jardin et météo",
+        "zh": "自然、园艺与天气"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 12,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 4,
+      "id": "L4-vocab-nature",
+      "visualId": "L4-vocab-nature",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-loisirs",
+      "lexicalFamilyId": "vocab-loisirs",
+      "title": {
+        "fr": "Loisirs et culture",
+        "zh": "休闲与文化"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 13,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 4,
+      "id": "L4-vocab-loisirs",
+      "visualId": "L4-vocab-loisirs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
       "domain": "vocab-restaurant",
       "lexicalFamilyId": "vocab-restaurant",
       "title": {
@@ -2434,8 +2792,8 @@
       "domain": "vocab-maison",
       "lexicalFamilyId": "vocab-maison",
       "title": {
-        "fr": "Maison et jardin",
-        "zh": "居家与园艺"
+        "fr": "Maison et mobilier",
+        "zh": "居家与家具"
       },
       "contentType": "vocabulary",
       "section": "vocabulary",
@@ -2634,8 +2992,8 @@
           "zh": "助词与关系表达"
         },
         "zh": {
-          "fr": "Prépositions et structures de relation",
-          "zh": "介词与关系表达"
+          "fr": "Relations et repères de position",
+          "zh": "关系与方位表达"
         }
       },
       "contentType": "vocabulary",
@@ -2675,6 +3033,60 @@
       }
     },
     {
+      "domain": "vocab-couleurs",
+      "lexicalFamilyId": "vocab-couleurs",
+      "title": {
+        "fr": "Couleurs",
+        "zh": "颜色"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 11,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": "color",
+      "assetLot": "contextual-corrections-supplement",
+      "level": 5,
+      "id": "L5-vocab-couleurs",
+      "visualId": "L5-vocab-couleurs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-nature",
+      "lexicalFamilyId": "vocab-nature",
+      "title": {
+        "fr": "Nature, jardin et météo",
+        "zh": "自然、园艺与天气"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 12,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 5,
+      "id": "L5-vocab-nature",
+      "visualId": "L5-vocab-nature",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-loisirs",
+      "lexicalFamilyId": "vocab-loisirs",
+      "title": {
+        "fr": "Loisirs et culture",
+        "zh": "休闲与文化"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 13,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 5,
+      "id": "L5-vocab-loisirs",
+      "visualId": "L5-vocab-loisirs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
       "domain": "vocab-restaurant",
       "lexicalFamilyId": "vocab-restaurant",
       "title": {
@@ -2701,8 +3113,8 @@
       "domain": "vocab-maison",
       "lexicalFamilyId": "vocab-maison",
       "title": {
-        "fr": "Maison et jardin",
-        "zh": "居家与园艺"
+        "fr": "Maison et mobilier",
+        "zh": "居家与家具"
       },
       "contentType": "vocabulary",
       "section": "vocabulary",
@@ -2901,8 +3313,8 @@
           "zh": "助词与关系表达"
         },
         "zh": {
-          "fr": "Prépositions et structures de relation",
-          "zh": "介词与关系表达"
+          "fr": "Relations et repères de position",
+          "zh": "关系与方位表达"
         }
       },
       "contentType": "vocabulary",
@@ -2942,6 +3354,60 @@
       }
     },
     {
+      "domain": "vocab-couleurs",
+      "lexicalFamilyId": "vocab-couleurs",
+      "title": {
+        "fr": "Couleurs",
+        "zh": "颜色"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 11,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": "color",
+      "assetLot": "contextual-corrections-supplement",
+      "level": 6,
+      "id": "L6-vocab-couleurs",
+      "visualId": "L6-vocab-couleurs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-nature",
+      "lexicalFamilyId": "vocab-nature",
+      "title": {
+        "fr": "Nature, jardin et météo",
+        "zh": "自然、园艺与天气"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 12,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 6,
+      "id": "L6-vocab-nature",
+      "visualId": "L6-vocab-nature",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-loisirs",
+      "lexicalFamilyId": "vocab-loisirs",
+      "title": {
+        "fr": "Loisirs et culture",
+        "zh": "休闲与文化"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 13,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 6,
+      "id": "L6-vocab-loisirs",
+      "visualId": "L6-vocab-loisirs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
       "domain": "vocab-restaurant",
       "lexicalFamilyId": "vocab-restaurant",
       "title": {
@@ -2968,8 +3434,8 @@
       "domain": "vocab-maison",
       "lexicalFamilyId": "vocab-maison",
       "title": {
-        "fr": "Maison et jardin",
-        "zh": "居家与园艺"
+        "fr": "Maison et mobilier",
+        "zh": "居家与家具"
       },
       "contentType": "vocabulary",
       "section": "vocabulary",
@@ -3168,8 +3634,8 @@
           "zh": "助词与关系表达"
         },
         "zh": {
-          "fr": "Prépositions et structures de relation",
-          "zh": "介词与关系表达"
+          "fr": "Relations et repères de position",
+          "zh": "关系与方位表达"
         }
       },
       "contentType": "vocabulary",
@@ -3209,6 +3675,60 @@
       }
     },
     {
+      "domain": "vocab-couleurs",
+      "lexicalFamilyId": "vocab-couleurs",
+      "title": {
+        "fr": "Couleurs",
+        "zh": "颜色"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 11,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": "color",
+      "assetLot": "contextual-corrections-supplement",
+      "level": 7,
+      "id": "L7-vocab-couleurs",
+      "visualId": "L7-vocab-couleurs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-nature",
+      "lexicalFamilyId": "vocab-nature",
+      "title": {
+        "fr": "Nature, jardin et météo",
+        "zh": "自然、园艺与天气"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 12,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 7,
+      "id": "L7-vocab-nature",
+      "visualId": "L7-vocab-nature",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-loisirs",
+      "lexicalFamilyId": "vocab-loisirs",
+      "title": {
+        "fr": "Loisirs et culture",
+        "zh": "休闲与文化"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 13,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 7,
+      "id": "L7-vocab-loisirs",
+      "visualId": "L7-vocab-loisirs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
       "domain": "vocab-restaurant",
       "lexicalFamilyId": "vocab-restaurant",
       "title": {
@@ -3235,8 +3755,8 @@
       "domain": "vocab-maison",
       "lexicalFamilyId": "vocab-maison",
       "title": {
-        "fr": "Maison et jardin",
-        "zh": "居家与园艺"
+        "fr": "Maison et mobilier",
+        "zh": "居家与家具"
       },
       "contentType": "vocabulary",
       "section": "vocabulary",
@@ -3435,8 +3955,8 @@
           "zh": "助词与关系表达"
         },
         "zh": {
-          "fr": "Prépositions et structures de relation",
-          "zh": "介词与关系表达"
+          "fr": "Relations et repères de position",
+          "zh": "关系与方位表达"
         }
       },
       "contentType": "vocabulary",
@@ -3476,6 +3996,60 @@
       }
     },
     {
+      "domain": "vocab-couleurs",
+      "lexicalFamilyId": "vocab-couleurs",
+      "title": {
+        "fr": "Couleurs",
+        "zh": "颜色"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 11,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": "color",
+      "assetLot": "contextual-corrections-supplement",
+      "level": 8,
+      "id": "L8-vocab-couleurs",
+      "visualId": "L8-vocab-couleurs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-nature",
+      "lexicalFamilyId": "vocab-nature",
+      "title": {
+        "fr": "Nature, jardin et météo",
+        "zh": "自然、园艺与天气"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 12,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 8,
+      "id": "L8-vocab-nature",
+      "visualId": "L8-vocab-nature",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-loisirs",
+      "lexicalFamilyId": "vocab-loisirs",
+      "title": {
+        "fr": "Loisirs et culture",
+        "zh": "休闲与文化"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 13,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 8,
+      "id": "L8-vocab-loisirs",
+      "visualId": "L8-vocab-loisirs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
       "domain": "vocab-restaurant",
       "lexicalFamilyId": "vocab-restaurant",
       "title": {
@@ -3502,8 +4076,8 @@
       "domain": "vocab-maison",
       "lexicalFamilyId": "vocab-maison",
       "title": {
-        "fr": "Maison et jardin",
-        "zh": "居家与园艺"
+        "fr": "Maison et mobilier",
+        "zh": "居家与家具"
       },
       "contentType": "vocabulary",
       "section": "vocabulary",
@@ -3702,8 +4276,8 @@
           "zh": "助词与关系表达"
         },
         "zh": {
-          "fr": "Prépositions et structures de relation",
-          "zh": "介词与关系表达"
+          "fr": "Relations et repères de position",
+          "zh": "关系与方位表达"
         }
       },
       "contentType": "vocabulary",
@@ -3743,6 +4317,60 @@
       }
     },
     {
+      "domain": "vocab-couleurs",
+      "lexicalFamilyId": "vocab-couleurs",
+      "title": {
+        "fr": "Couleurs",
+        "zh": "颜色"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 11,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": "color",
+      "assetLot": "contextual-corrections-supplement",
+      "level": 9,
+      "id": "L9-vocab-couleurs",
+      "visualId": "L9-vocab-couleurs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-nature",
+      "lexicalFamilyId": "vocab-nature",
+      "title": {
+        "fr": "Nature, jardin et météo",
+        "zh": "自然、园艺与天气"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 12,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 9,
+      "id": "L9-vocab-nature",
+      "visualId": "L9-vocab-nature",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-loisirs",
+      "lexicalFamilyId": "vocab-loisirs",
+      "title": {
+        "fr": "Loisirs et culture",
+        "zh": "休闲与文化"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 13,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 9,
+      "id": "L9-vocab-loisirs",
+      "visualId": "L9-vocab-loisirs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
       "domain": "vocab-restaurant",
       "lexicalFamilyId": "vocab-restaurant",
       "title": {
@@ -3769,8 +4397,8 @@
       "domain": "vocab-maison",
       "lexicalFamilyId": "vocab-maison",
       "title": {
-        "fr": "Maison et jardin",
-        "zh": "居家与园艺"
+        "fr": "Maison et mobilier",
+        "zh": "居家与家具"
       },
       "contentType": "vocabulary",
       "section": "vocabulary",
@@ -3969,8 +4597,8 @@
           "zh": "助词与关系表达"
         },
         "zh": {
-          "fr": "Prépositions et structures de relation",
-          "zh": "介词与关系表达"
+          "fr": "Relations et repères de position",
+          "zh": "关系与方位表达"
         }
       },
       "contentType": "vocabulary",
@@ -4008,6 +4636,60 @@
         "perLevelOrder": 2,
         "requiresDistinctVisual": true
       }
+    },
+    {
+      "domain": "vocab-couleurs",
+      "lexicalFamilyId": "vocab-couleurs",
+      "title": {
+        "fr": "Couleurs",
+        "zh": "颜色"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 11,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": "color",
+      "assetLot": "contextual-corrections-supplement",
+      "level": 10,
+      "id": "L10-vocab-couleurs",
+      "visualId": "L10-vocab-couleurs",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-nature",
+      "lexicalFamilyId": "vocab-nature",
+      "title": {
+        "fr": "Nature, jardin et météo",
+        "zh": "自然、园艺与天气"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 12,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 10,
+      "id": "L10-vocab-nature",
+      "visualId": "L10-vocab-nature",
+      "visualStatus": "owner-generated-separate-lot"
+    },
+    {
+      "domain": "vocab-loisirs",
+      "lexicalFamilyId": "vocab-loisirs",
+      "title": {
+        "fr": "Loisirs et culture",
+        "zh": "休闲与文化"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 13,
+      "emitOnlyWhenItemsExist": true,
+      "lexicalClass": null,
+      "assetLot": "contextual-corrections-supplement",
+      "level": 10,
+      "id": "L10-vocab-loisirs",
+      "visualId": "L10-vocab-loisirs",
+      "visualStatus": "owner-generated-separate-lot"
     }
   ],
   "buildContract": {
@@ -4025,7 +4707,7 @@
     "lexicalFamilyIdField": "lexicalFamilyId",
     "themeDefinitionsField": "themeDefinitions",
     "expandedThemeDefinitionsField": "additionalThemeDefinitions",
-    "contextualFamilyCount": 7,
+    "contextualFamilyCount": 9,
     "partOfSpeechFamilyCount": 3,
     "numberThemeCount": 1,
     "contextAndNumberVisualOrder": [
@@ -4045,6 +4727,45 @@
     ],
     "reuseField": "reuseVocabularyIds",
     "sourceIndexFamilyAssignmentsProvided": false,
-    "evidenceCasesAreNotExhaustive": true
-  }
+    "evidenceCasesAreNotExhaustive": true,
+    "colorThemeCount": 1,
+    "supplementVisualOrder": [
+      "vocab-couleurs",
+      "vocab-nature",
+      "vocab-loisirs"
+    ],
+    "lexicalClassFamilyMap": {
+      "adjective": "vocab-adjectifs",
+      "preposition": "vocab-prepositions",
+      "adverb": "vocab-adverbes",
+      "color": "vocab-couleurs"
+    },
+    "introductionFile": "corrections-themes/introductions-lexicales.json",
+    "densityPolicyFile": "corrections-themes/politique-densite.json"
+  },
+  "dedicatedLexicalPriorities": [
+    {
+      "familyId": "vocab-couleurs",
+      "lexicalClass": "color",
+      "priority": 0,
+      "contentType": "vocabulary",
+      "requiresStudyLanguageCheck": true
+    }
+  ],
+  "routingPriorities": {
+    "dedicatedColorBeforeAdjective": true,
+    "natureBeforeHouseDefault": true,
+    "leisureBeforeActionsDefault": true,
+    "explicitSourceDecisionWins": true
+  },
+  "reviewResponsibilities": {
+    "classification": "Codex",
+    "progression": "Codex",
+    "relevance": "Codex",
+    "density": "Codex",
+    "enrichment": "Codex",
+    "phoneticsOnly": "Claude",
+    "nativePaperApprovalRequired": false
+  },
+  "classificationStatus": "Codex editorial work; source-fit decisions and QA are not delegated to Claude."
 }

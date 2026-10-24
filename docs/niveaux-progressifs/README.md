@@ -1,94 +1,106 @@
-# Niveaux et thèmes — premier lot de travail
+# Thèmes L1–L10 — contenu corrigé et enrichi
 
-Ce lot reprend la grille illustrée validée par Kartech : choisir un niveau et
-un thème ouvre directement sa pratique, sur mobile et sur ordinateur. Il ajoute
-la séparation demandée entre **situations**, **vocabulaire** et **nombres**, avec
-des destinations **Adjectifs**, **Prépositions** et **Adverbes** par niveau.
+L’aperçu conserve l’architecture validée : un niveau, des thèmes illustrés et
+numérotés, puis la pratique en un clic, sur mobile et ordinateur. Le menu à
+quatre carrés reste le menu des rubriques. La page est
+`melunga_deploy/parcours-niveaux.html` ; elle ne remplace pas l’application publiée.
 
-L’entrée de la proposition est `melunga_deploy/parcours-niveaux.html`.
-La maquette L1 déjà approuvée reste à `maquette-guidee.html` ; l’application
-classique de production n’est pas remplacée par cette proposition.
+## Corrections visibles
 
-## Ce qui est disponible pour revue
+- Les situations contiennent des phrases entières ; le vocabulaire, les nombres
+  et les modèles incomplets sont distincts.
+- Les couleurs ont leur rubrique. Les adjectifs demandés sont présents : taille,
+  poids, beauté, émotions puis caractère, avec les formes propres à chaque langue.
+- Maison et mobilier, Nature/jardin/météo et Loisirs/culture ont un classement
+  explicite et des visuels distincts.
+- « Saludos a tu familia » rejoint les salutations, et « Salirse con la suya »
+  les expressions d’action, hors du voyage.
+- Chaque thème affiché contient au moins six concepts pertinents. Les formes
+  masculine/féminine liées ne servent pas à gonfler artificiellement ce minimum.
+- Les révisions portent un badge et un compteur séparé ; elles précèdent les
+  nouveautés. Elles viennent uniquement d’un niveau antérieur de la même famille.
+- La progression numérique commence par 0–10, puis 11–100 et les premiers ordinaux,
+  avant les grandes quantités et les fractions. Les systèmes coréens restent distincts.
+- Les huit repères de position chinois de base sont introduits en L1. Les
+  relations de justification et de registre formel arrivent ensuite selon leur fonction.
 
-- Sept couples, dix niveaux : 70 fichiers chargés à la demande.
-- 32 115 cartes source conservées une fois, avec 110 277 champs inchangés.
-- 43 phrases entières reprises de sources conversation : 150 champs exacts,
-  aucune phrase ni phonétique nouvelle composée.
-- 22 366 énoncés, 8 736 entrées de vocabulaire et 207 nombres dans les rubriques
-  actives ; 482 modèles incomplets et 367 cas incertains conservés en réserve.
-- 518 propositions de changement de niveau, motivées et liées à leurs sources.
-- Des cartes de vocabulaire par contexte et par classe grammaticale, présentes
-  lorsque des entrées correspondantes existent ; chaque thème a son visuel.
+## Périmètre exact de ce lot
 
-**Le classement des 32 115 cartes par type n’est pas une validation de leur
-progression.** Les 31 597 cartes sans décision explicite conservent un niveau
-source encore non relu individuellement. Les affectations sémantiques et
-grammaticales candidates restent identifiables, avec leurs raisons et leurs
-incertitudes. Les rubriques vides sont signalées dans le rapport, puis traitées
-par le cahier d’enrichissement ; elles ne sont pas annoncées comme remplies.
+| Contenu | Quantité |
+|---|---:|
+| Couples × niveaux | 7 × 10 |
+| Cartes originales conservées une fois | 32 115 |
+| Champs originaux comparés, sans écart | 110 277 |
+| Phrases entières reprises des sources conversation | 43 |
+| Nouvelles entrées entières | 140 |
+| Entrées canoniques au total | 32 298 |
+| Entrées canoniques dans les thèmes visibles | 31 436 |
+| Modèles incomplets ou cas incertains en réserve | 862 |
+| Thèmes affichés d’au moins six concepts | 1 432 |
+| Références de révision, hors nouveautés | 7 402 |
+| Thèmes trop légers gardés hors écran | 0 |
 
-Les modèles réservés ne sont ni supprimés ni exercés. Une situation ne contient
-aucune étape de mot isolé : les liens lexicaux sont des références distinctes.
-Les reprises locales entre phrases entières préparent 295 liens de construction
-dans l’ordre éditorial. L’accès aux thèmes est libre : cet ordre ne prouve pas
-ce que la personne a effectivement parcouru ou acquis. La fermeture globale
-des prérequis est explicitement fausse.
+Les 140 ajouts comprennent 134 entrées de vocabulaire et
+6 formes de zéro absentes de leur stock. Leurs 139 nouvelles aides entières sont
+proposées à Claude ; l’aide de l’anglais « light » est reprise du mot source entier
+pour un sens adjectival distinct. Aucun mot ni aucune phonétique ne sont extraits
+par découpage d’une phrase.
 
-## À lire avec Claude
+## Progression : ce qui est établi et ce qui ne l’est pas
 
-1. [Compte rendu chiffré et limites](classement.md).
-2. [Séparation entre vocabulaire et phrases](politique-vocabulaire-phrases.md).
-3. [Progression des trois rubriques grammaticales à enrichir](enrichissement-grammatical-a-preparer.md).
-4. [Sept classifications candidates et cas inspectés](types-contenu/).
-5. [Propositions de placement](decisions.json), [enrichissements sourcés](enrichissements.md)
-   et [cadre pédagogique](README-pedagogique.md).
-6. [Recherche chez les concurrents et propositions sourcées](recherche-concurrents/README.md).
-7. [Contrôle indépendant](verification-independante.md) et
-   [contrôle navigateur local](verification-navigateur.json).
+1 226 cartes possèdent une décision explicite de placement ou d’introduction ;
+30 889 conservent encore leur niveau source sans relecture individuelle de ce niveau.
+L’examen des thèmes et leur densité ne certifient donc pas toute la progression
+du catalogue. Les classifications encore candidates restent marquées comme telles.
+Les modèles réservés sont conservés, sans exercice ni audio de production.
 
-La conservation des phonétiques est vérifiée au caractère près. Leur conformité
-à la méthode de Kartech est une revue distincte attendue de Claude. Treize
-candidats présentant un conflit d’aide ou de sens sont gardés hors import.
-Les adaptations des prépositions et descriptifs au japonais, coréen et chinois
-doivent être jugées dans ces langues, sans transposer une grammaire française.
+Les 295 liens de construction déclarés sont ordonnés ou préparés localement.
+Les liens lexicaux, les contextes absents et les réserves restent documentés :
+le dossier ne déclare pas tous les prérequis clos. Un ordre conseillé ne prouve
+pas ce que la personne a parcouru ou acquis, puisque les thèmes restent libres.
+Les reprises ne sont pas comptées comme de nouvelles cartes.
 
-## Recherche et enrichissement
+## Qui vérifie quoi
 
-Treize pages publiques officielles de Babbel, Busuu, Duolingo, Memrise et
-Pimsleur ont été consultées. La synthèse propose 18 pistes concrètes : loisirs,
-études, culture, numérique, relations, opinions, déplacements et situations
-pratiques. Elle réunit 54 appuis déjà présents dans Melunga, soit 180 champs
-exacts, avec leurs phrases entières et leurs mots associés. Les exemples
-inspectés couvrent trois couples ; une recherche de sens dans les sept stocks
-fournit des candidats supplémentaires, dont l’équivalence reste à vérifier.
-Ces propositions préparent un prochain lot ; elles n’activent aucune nouvelle
-leçon et ne changent aucune phonétique.
+Codex prend en charge les sens, les regroupements, les niveaux, les préparations
+et les enrichissements. **Claude vérifie uniquement la phonétique**, conformément
+à la précision de Kartech. La conservation verbatim d’une aide ancienne ne prouve
+pas sa conformité à la méthode. Les nouvelles aides restent `pending-Claude`.
 
-## Accès et diffusion
+- [Compte rendu chiffré](classement.md) et [cadre pédagogique](README-pedagogique.md).
+- [Corrections de thèmes et preuves sources](corrections-themes/README.md).
+- [Liste des nouvelles entrées à vérifier en phonétique](corrections-themes/enrichissements-rediges.md).
+- [Message prêt pour Claude](message-pour-claude.md).
+- [Contrôle indépendant](verification-independante.md) et [contrôle navigateur](verification-navigateur.json).
 
-Les niveaux éditoriaux n’écrivent jamais le `lv` du catalogue.
-`isFreeCard` utilise aujourd’hui `lv === 1` : modifier ce champ déplacerait la
-frontière gratuit/payant. Les 2 134 identités source L1 restent conservées ; une
-future intégration devra maintenir leurs droits où que la progression les place.
-Ce lot ne change aucun prix, abonnement, compte ou droit de production.
+## Inspiration et accès
 
-L’aperçu est un travail à examiner, pas une livraison à fusionner. Les tests
-navigateur sont locaux, avec des tailles d’écran simulées : ils ne constituent
-ni un essai sur téléphone physique ni un parcours sur l’hébergement Netlify.
+La recherche chez Babbel, Busuu, Duolingo, Memrise et Pimsleur couvre 13 pages
+publiques officielles, 18 pistes et 54 appuis Melunga exacts. Elle inspire les
+fonctions et thèmes ; elle ne prouve pas une efficacité comparée et ne consiste
+pas à recopier un cours concurrent. Voir [les sources](recherche-concurrents/README.md).
+
+Les niveaux éditoriaux n’écrivent jamais le `lv` du catalogue. `isFreeCard` teste
+`lv === 1` : changer ce champ déplacerait la frontière gratuit/payant.
+Les 2 134 identités source L1 restent conservées. Aucun prix, abonnement,
+compte ou droit de production n’est modifié.
+
+L’aperçu #14 reste un brouillon, sans fusion ni publication sur melunga.com.
+Les essais navigateur sont locaux, avec des écrans simulés ; ils ne constituent
+pas un essai sur téléphone physique ou sur le déploiement Netlify.
 
 ## Reproduire
-
-Depuis la racine du dépôt :
 
 ```sh
 python3 -B tools/maquette-guidee/inventory_levels.py --check
 python3 -B tools/maquette-guidee/assemble_decisions.py --check
 python3 -B tools/maquette-guidee/build_visuals.py --check
+python3 -B tools/maquette-guidee/build_number_progression.py --check
+python3 -B tools/maquette-guidee/check_authored_enrichments.py
 python3 -B tools/maquette-guidee/build_levels.py --check
-python3 -B tools/maquette-guidee/check_levels_independent.py --check-report --require-visuals --strict-editorial --self-test
+python3 -B tools/maquette-guidee/check_levels_independent.py --check-report --require-visuals --strict-editorial --require-no-held --self-test
 NODE_PATH=/tmp/melunga-review-tools/node_modules node --test melunga_deploy/tests/levels-themes.browser.cjs
 ```
 
-Le chemin Playwright ci-dessus est celui de cet environnement ; ailleurs,
-installer `playwright-core` et fournir `CHROMIUM_PATH` si nécessaire.
+Le chemin Playwright correspond à cet environnement ; ailleurs installer
+`playwright-core` et fournir `CHROMIUM_PATH` si nécessaire.

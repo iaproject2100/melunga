@@ -8,9 +8,9 @@ Aucune carte, phonétique, traduction, lecture, décision parmi les 518 placemen
 
 | Couple | Énoncés | Vocabulaire | Nombres seuls | Incomplets | À relire | Total |
 |---|---:|---:|---:|---:|---:|---:|
-| fr-en | 3058 | 1290 | 29 | 80 | 45 | 4502 |
-| fr-es | 3944 | 540 | 26 | 16 | 146 | 4672 |
-| fr-it | 3032 | 1299 | 29 | 96 | 53 | 4509 |
+| fr-en | 3066 | 1281 | 30 | 80 | 45 | 4502 |
+| fr-es | 4101 | 380 | 28 | 17 | 146 | 4672 |
+| fr-it | 3046 | 1282 | 32 | 96 | 53 | 4509 |
 
 Chaque indice est affecté exactement une fois. Aucun libellé ancien cat=vocab ou pedagogicalStatus=fragment ne suffit à décider du type.
 
@@ -26,17 +26,19 @@ Les comparaisons de forme utilisent une normalisation temporaire ; aucun texte n
 
 ## Classes lexicales candidates
 
-| Couple | Adjectifs | Prépositions | Adverbes | Autres mots | Classe incertaine |
-|---|---:|---:|---:|---:|---:|
-| fr-en | 68 | 12 | 48 | 1123 | 39 |
-| fr-es | 25 | 0 | 20 | 482 | 13 |
-| fr-it | 75 | 11 | 41 | 1158 | 14 |
+| Couple | Adjectifs | Couleurs | Prépositions | Adverbes | Autres mots | Classe incertaine |
+|---|---:|---:|---:|---:|---:|---:|
+| fr-en | 57 | 16 | 12 | 49 | 1112 | 35 |
+| fr-es | 18 | 15 | 0 | 65 | 281 | 1 |
+| fr-it | 62 | 15 | 11 | 45 | 1135 | 14 |
 
 Les classes sont renseignées uniquement sur vocabulary, avec une raison et un statut propres. Le sens français est croisé avec la forme étudiée : lexiques de prépositions, locutions adverbiales bilingues, formes et sens adjectivaux isolés. Un adjectif attribut reste dans sa phrase ; il n’est pas extrait.
 
 Les noms et infinitifs vont dans other. « La semaine dernière », « cet après-midi » ou « dans cinq minutes » ne deviennent pas automatiquement des adverbes. Les formes à plusieurs classes/sens, comme next ou gold, peuvent rester uncertain. Ces listes ne prétendent pas constituer une analyse morphosyntaxique complète.
 
-La règle spécialisée de classe lexicale doit avoir priorité sur les familles maison/restaurant/etc. Une carte ne doit avoir qu’un emplacement principal : ces annotations ne demandent aucune duplication.
+La règle spécialisée de classe lexicale doit avoir priorité sur les familles maison/restaurant/etc. Une carte ne doit avoir qu’un emplacement principal : ces annotations ne demandent aucune duplication. Les couleurs ont leur classe color distincte, après lecture des formes et de leur série source ; une fleur rose ou un fruit orange n’est pas ajouté par simple correspondance de mots.
+
+La passe éditoriale par indices de corrections-themes/latins.json remplace les décisions heuristiques sur les cartes relues : type, classe et destination sont motivés séparément. Les overrides reviewed ont priorité sur les mots-clés de routage. Codex assume cette revue de sens et de progression ; Claude intervient uniquement pour la phonétique.
 
 ## Exemples contrôlés et limites
 
@@ -45,11 +47,11 @@ La règle spécialisée de classe lexicale doit avoir priorité sur les familles
 - en[3463] « an X-ray » / « une radio » est la seule exception sourceTemplateException=true : le X de X-ray appartient au nom entier. Cette carte précise est reviewed ; son ancien marqueur template reste intact dans la source. La classe other est également vérifiée pour cette exception.
 - Les repères interrogatifs isolés where/dove sans point d’interrogation restent lexicaux ; une question autonome complète garde le type utterance.
 
-**244 cartes** restent à relire pour leur autonomie et **66 mots** pour leur classe lexicale. Les autres décisions restent rule-based-candidate, sauf l’exception individuelle indiquée.
+**244 cartes** restent à relire pour leur autonomie et **50 mots** pour leur classe lexicale. Les cartes hors passe éditoriale restent rule-based-candidate ; reviewed signifie une décision de sens de Codex, pas une relecture native ou une validation phonétique.
 
 Aucune préposition espagnole isolée n’a été reconnue par les règles actuelles. Cela signale un besoin d’examen/enrichissement, pas la preuve que toute la langue ou tout le catalogue en manque. Les faibles stocks d’adjectifs/adverbes isolés espagnols doivent aussi être examinés avant d’inventer des contenus. Aucune phrase ni phonétique n’est découpée pour remplir ces catégories.
 
-Les règles peuvent encore manquer des verbes, des ellipses conversationnelles ou des idiomes. Les cas review restent explicites ; les classer ne démontre ni la progressivité des niveaux ni l’acquisition. La phonétique doit être revue par Claude selon la méthode de Kartech ; elle n’est jamais reconstruite ici.
+Les règles peuvent encore manquer des verbes, des ellipses conversationnelles ou des idiomes. Les cas review restent explicites ; les classer ne démontre ni la progressivité globale des niveaux ni l’acquisition. Les phonétiques existantes restent intégrales et inchangées. Claude vérifie seulement les nouvelles aides du lot éditorial distinct.
 
 ## Reproduction
 

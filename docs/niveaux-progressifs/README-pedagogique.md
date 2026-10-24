@@ -123,7 +123,11 @@ préparée avec de vraies sources ; un thème de trois cartes ou un compteur de
 progression ne suffit pas à démontrer qu’une personne peut tenir cet échange.
 Le stock complet n’est pas réduit à une courte scène d’entrée.
 
-## Ce que Claude doit pouvoir contrôler
+## Contrôles de contenu et revue phonétique
+
+Codex assume les regroupements, les niveaux, les préparations et les enrichissements.
+Selon la consigne de Kartech du 24 octobre, Claude vérifie uniquement la conformité
+des phonétiques à sa méthode. Les contrôles de contenu ci-dessous restent ceux de Codex.
 
 - L’adéquation entre les phrases réelles, leur placement proposé et la capacité
   du niveau ; les titres seuls ne prouvent pas cette adéquation.
