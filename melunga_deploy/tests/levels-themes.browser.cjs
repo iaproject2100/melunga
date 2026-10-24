@@ -564,7 +564,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
           eq(byId('mgSpeaker').textContent, step.role[expected.nativeLanguage], 'received role belongs to usage');
           eq(byId('mgPhaseIcon').getAttribute('aria-label'), expected.nativeLanguage === 'zh' ? '听对方说话' : 'Écouter l’autre', 'received listening phase');
           eq(byId('mgEar').hidden, false, 'received ear accessible');
-          eq(byId('mgReplay').disabled, false, 'received replay active');
+          eq(byId('mgReplay').disabled, true, 'received turn cannot enter learner saved review');
           receivedSteps++; receivedCounterChecks++;
         } else eq(byId('mgSpeaker').hidden, true, 'interlocutor role does not leak into learner response');
         eq(byId('mgPhrase').textContent, phrase.study, 'study verbatim ' + phrase.id);
@@ -607,8 +607,8 @@ async function inspectCell(page, expected, bank, exhaustive) {
           if (received) {
             receivedAudio += 2;
             const spoken = window.__speech.length;
-            byId('mgReplay').click();
-            eq(window.__speech.length, spoken + 1, 'received background replay remains directly active');
+            byId('mgEar').click();
+            eq(window.__speech.length, spoken + 1, 'received ear remains directly replayable');
             eq(window.__speech.at(-1)?.text, phrase.study, 'received replay speaks whole target-language text');
           }
           if (theme.isAdditionalSituation) {
@@ -622,9 +622,9 @@ async function inspectCell(page, expected, bank, exhaustive) {
           eq(byId('mgPhon').hidden, true, 'recall hides phonetic');
           eq(byId('mgTranslation').hidden, false, 'recall keeps meaning');
           const spoken = window.__speech.length;
-          byId('mgReplay').click();
-          eq(state().masked, true, 'background audio must not reveal');
-          eq(window.__speech.length, spoken, 'background audio must not speak recalled model');
+          byId('mgPhonrow').click();
+          eq(state().masked, true, 'phonetic background must not reveal');
+          eq(window.__speech.length, spoken, 'phonetic background must not speak recalled model');
           byId('mgEar').click();
           eq(state().masked, false, 'explicit ear reveals recall');
           eq(window.__speech.at(-1)?.text, phrase.study, 'revealed TTS receives study text');
@@ -1230,7 +1230,7 @@ test('same-level context reuse is explicit, audible and distinct from a revision
     assert.equal(await page.locator('#mgPhon').getAttribute('hidden'), '');
     assert.equal(await page.locator('#mgTranslation').textContent(), phrase.native);
     const spoken = await page.evaluate(() => window.__speech.length);
-    await page.evaluate(() => document.getElementById('mgReplay').click());
+    await page.evaluate(() => document.getElementById('mgPhonrow').click());
     assert.equal((await page.evaluate(() => window.MelungaMockup.state())).masked, true);
     assert.equal(await page.evaluate(() => window.__speech.length), spoken);
     await page.click('#mgEar');
@@ -1535,7 +1535,8 @@ test('L5 menu, three ambiences and minimum controls at all widths', {timeout: 60
       for (let i = 0; i < 3; i++) { ambiences.add(await page.locator('body').getAttribute('data-ambience')); await page.click('#mgPalette'); }
       assert.equal(ambiences.size, 3);
       await page.click('#mgMenuTrigger'); assert.equal(await page.locator('#mgMenuTrigger').getAttribute('aria-expanded'), 'true');
-      assert.equal(await page.locator('#mgMenuNav > *').count(), 9);
+      assert.equal(await page.locator('#mgMenuNav > *').count(), 10);
+      assert.equal(await page.locator('[data-menu-item="À revoir"]').count(), 1, 'saved review joins the existing menu');
       const targets = await page.locator('#mgMenuNav > *').evaluateAll(nodes => nodes.map(node => ({
         label: node.textContent, width: node.getBoundingClientRect().width, height: node.getBoundingClientRect().height
       })));
@@ -1583,7 +1584,7 @@ test('approved L1-only page stays compatible with v1 data and no level selector'
       assert.equal((await page.evaluate(() => window.MelungaMockup.state())).masked, true);
       assert.equal(await page.locator('#mgTranslation').textContent(), recalled.native);
       const spoken = await page.evaluate(() => window.__speech.length);
-      await page.evaluate(() => document.getElementById('mgReplay').click());
+      await page.evaluate(() => document.getElementById('mgPhonrow').click());
       assert.equal((await page.evaluate(() => window.MelungaMockup.state())).masked, true);
       assert.equal(await page.evaluate(() => window.__speech.length), spoken);
       await page.click('#mgEar');

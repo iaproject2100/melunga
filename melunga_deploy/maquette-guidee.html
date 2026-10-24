@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#143b56">
   <title>Melunga — maquette du parcours par thèmes</title>
   <link rel="preload" as="image" href="assets/theme-scenes.webp">
-  <link rel="stylesheet" href="maquette-guidee.css?v=5">
+  <link rel="stylesheet" href="maquette-guidee.css?v=11">
 </head>
 <body data-ambience="ocean">
   <div class="mg-previewnotice"><span>Maquette</span><a href="https://melunga.com/" target="_blank" rel="noopener">Site actuel ↗</a></div>
@@ -51,7 +51,7 @@
             <span id="mgPhaseIcon" class="mg-phase-icon" role="img"></span>
             <button id="mgHelp" class="mg-help" type="button" aria-label="Aide pour cette étape" aria-expanded="false" aria-controls="mgHelpPanel" title="Aide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/></svg></button>
           </header>
-          <div id="mgHelpPanel" class="mg-help-panel" hidden><p id="mgHelpText"></p><button id="mgReadingToggle" class="mg-reading-toggle" type="button" aria-pressed="false" hidden>Afficher la lecture</button></div>
+          <div id="mgHelpPanel" class="mg-help-panel" hidden><p id="mgHelpText"></p></div>
           <div id="mgModel" class="mg-model">
             <span id="mgSpeaker" class="mg-speaker" hidden>Serveur</span>
             <div id="mgChoices" class="mg-choices" role="group" aria-label="Choisir une réponse" hidden></div>
@@ -59,13 +59,14 @@
             <div id="mgPhonrow" class="mg-phonrow"><p id="mgPhon" class="mg-phon"></p><button id="mgEar" class="mg-ear" type="button" aria-label="Écouter la phrase" title="Écouter"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M11 22c-1-3-4-4-4-9a9 9 0 0 1 18 0c0 6-6 6-6 10a4 4 0 0 1-8 0"/><path d="M11 13a5 5 0 0 1 10 0c0 3-5 3-5 7m-4-7c0-2 3-3 4-1"/></svg></button></div>
             <p id="mgReading" class="mg-reading" hidden></p>
             <p id="mgTranslation" class="mg-translation"></p>
+            <button id="mgReadingToggle" class="mg-reading-toggle" type="button" aria-pressed="false" hidden><span id="mgReadingToggleText">Pinyin</span><span class="mg-reading-switch" aria-hidden="true"></span></button>
           </div>
           <div id="mgDone" class="mg-done" hidden><svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="36" cy="36" r="29"/><path d="m22 36 10 10 19-21"/></svg><h2 id="mgDoneHeading">Terminé</h2></div>
         </section>
       </div>
       <p id="mgStatus" class="mg-status" role="status" aria-live="polite"></p>
       <footer id="mgFooter" class="mg-footer" hidden>
-        <button id="mgReplay" class="mg-action" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 10a9 9 0 1 1 2 9m-2-9h6M3 10V4"/></svg><span id="mgReplayText">Réécouter</span></button>
+        <button id="mgReplay" class="mg-action" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 10a9 9 0 1 1 2 9m-2-9h6M3 10V4"/></svg><span id="mgReplayText">À revoir</span></button>
         <button id="mgContinue" class="mg-action mg-action-primary" type="button"><span id="mgContinueText">Continuer</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button>
       </footer>
     </main>
@@ -95,6 +96,10 @@
         <button id="mgReviewRecall" class="mg-action mg-action-primary" type="button" data-mg-i18n="Exercice de rappel">Exercice de rappel</button>
       </div>
     </section>
+    <section id="mgSavedReviewPanel" class="mg-menu-section" hidden>
+      <p id="mgSavedReviewEmpty" class="mg-menu-empty" data-mg-i18n="Aucun mot ni phrase à revoir pour le moment.">Aucun mot ni phrase à revoir pour le moment.</p>
+      <div id="mgSavedReviewList" class="mg-saved-review-list"></div>
+    </section>
     <section id="mgFeedbackPanel" class="mg-menu-section" hidden>
       <form id="mgFeedbackForm">
         <label class="mg-menu-label" for="mgFeedbackMessage" data-mg-i18n="Ton avis">Ton avis</label>
@@ -115,6 +120,6 @@
       <p class="mg-menu-empty" data-mg-i18n="L’oreille permet toujours de réécouter ou de révéler le modèle.">L’oreille permet toujours de réécouter ou de révéler le modèle.</p>
     </section>
   </dialog>
-  <script src="maquette-guidee.js?v=5"></script>
+  <script src="maquette-guidee.js?v=11"></script>
 </body>
 </html>

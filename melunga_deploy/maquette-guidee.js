@@ -10,6 +10,7 @@
     menuTitle: byId('mgMenuTitle'), menuBack: byId('mgMenuBack'), menuClose: byId('mgMenuClose'),
     voice: byId('mgVoice'), speed: byId('mgSpeed'), reviewTheme: byId('mgReviewTheme'),
     reviewModel: byId('mgReviewModel'), reviewRecall: byId('mgReviewRecall'),
+    savedReviewList: byId('mgSavedReviewList'), savedReviewEmpty: byId('mgSavedReviewEmpty'),
     feedbackForm: byId('mgFeedbackForm'), feedbackMessage: byId('mgFeedbackMessage'),
     feedbackEmail: byId('mgFeedbackEmail'), feedbackHp: byId('mgFeedbackHp'),
     feedbackSend: byId('mgFeedbackSend'), feedbackStatus: byId('mgFeedbackStatus'),
@@ -20,7 +21,7 @@
     sequenceView: byId('mgSequenceView'), sequenceHeading: byId('mgSequenceHeading'),
     sequences: byId('mgSequences'), lessonView: byId('mgLessonView'), lessonTheme: byId('mgLessonTheme'),
     phase: byId('mgPhaseIcon'), help: byId('mgHelp'), helpPanel: byId('mgHelpPanel'),
-    helpText: byId('mgHelpText'), readingToggle: byId('mgReadingToggle'),
+    helpText: byId('mgHelpText'), readingToggle: byId('mgReadingToggle'), readingToggleText: byId('mgReadingToggleText'),
     model: byId('mgModel'), speaker: byId('mgSpeaker'), choices: byId('mgChoices'),
     phrase: byId('mgPhrase'), phonrow: byId('mgPhonrow'), phon: byId('mgPhon'),
     ear: byId('mgEar'), reading: byId('mgReading'), translation: byId('mgTranslation'),
@@ -34,8 +35,18 @@
     speechGeneration: 0, ambienceIndex: 0, lessonScope: 'sequence', menuView: 'nav',
     voiceChoices: new Map(), speechRate: 0.85, level: 1, requestedPair: null,
     loadGeneration: 0, request: null, levelCache: new Map(),
-    referenceMap: new Map(), repertoireCache: new Map()
+    referenceMap: new Map(), repertoireCache: new Map(), savedReview: [], readingPreferences: {},
+    deferredPhraseIds: new Set(), resumeGeneration: 0
   };
+  const reviewStorageKey = 'melunga-guided-review-v1';
+  const readingStorageKey = 'melunga-guided-reading-v1';
+  state.savedReview = loadSavedReview();
+  try {
+    const preferences = JSON.parse(localStorage.getItem(readingStorageKey) || '{}');
+    if (preferences.version === 1 && preferences.pairs && typeof preferences.pairs === 'object') {
+      for (const [pair, value] of Object.entries(preferences.pairs)) if (/^[a-z]{2}-[a-z]{2}$/.test(pair) && typeof value === 'boolean') state.readingPreferences[pair] = value;
+    }
+  } catch (_) { /* Storage can be unavailable; the lesson still works. */ }
   const ambiences = ['ocean', 'aurora', 'dusk'];
   // One local image atlas, shared by all languages. Each tile is a 4:3 scene.
   const themePhotos = new Map([
@@ -68,6 +79,11 @@
     'Réécouter': '再听一次', 'Rejouer': '再练一次', 'Séquence terminée': '本组已完成',
     'Thème terminé': '本主题已完成', 'Facultatif': '可选',
     'Révision terminée': '复习已完成',
+    'À revoir': '待复习', 'Revoir': '复习', 'Retirer': '移除', 'Pinyin': '拼音',
+    'Enregistré dans À revoir.': '已加入待复习。', 'Je connais.': '我会了。',
+    'Aucun mot ni phrase à revoir pour le moment.': '暂时没有待复习的词句。',
+    'Cette carte ne peut pas être enregistrée. Réessaie avant de quitter cette page.': '无法保存这张卡片。离开前请重试。',
+    'Ce contenu a été actualisé. Tu peux le retrouver dans les thèmes.': '内容已更新，可以在主题中重新查找。',
     'Menu': '菜单', 'Menu des rubriques': '栏目菜单', 'Rubriques': '栏目',
     'Revenir au menu': '返回菜单', 'Fermer le menu': '关闭菜单',
     'Accueil': '首页', 'Révisions et exercices': '复习与练习', 'Toutes les leçons': '所有课程',
@@ -161,9 +177,109 @@
 
   const menuPanels = {
     voice: byId('mgVoicePanel'), review: byId('mgReviewPanel'),
+    saved: byId('mgSavedReviewPanel'),
     feedback: byId('mgFeedbackPanel'), info: byId('mgInfoPanel')
   };
-  const menuTitles = { nav: 'Menu', voice: 'Voix', review: 'Révisions et exercices', feedback: 'Avis', info: 'Comment ça marche' };
+  const menuTitles = { nav: 'Menu', voice: 'Voix', review: 'Révisions et exercices', saved: 'À revoir', feedback: 'Avis', info: 'Comment ça marche' };
+
+  function loadSavedReview() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(reviewStorageKey) || '{}');
+      if (stored.version !== 1 || !Array.isArray(stored.entries)) return [];
+      const entries = new Map();
+      for (const entry of stored.entries) {
+        if (!entry || !/^[a-z]{2}-[a-z]{2}$/.test(entry.pairId) || typeof entry.id !== 'string' || !entry.id
+            || typeof entry.themeId !== 'string' || !Number.isInteger(entry.level) || entry.level < 1 || entry.level > 10
+            || typeof entry.study !== 'string' || typeof entry.native !== 'string' || !Number.isFinite(entry.addedAt)) continue;
+        entries.set(entry.pairId + '|' + entry.id, entry);
+      }
+      return [...entries.values()];
+    } catch (_) { return []; }
+  }
+
+  function saveReviewEntries(entries) {
+    try {
+      localStorage.setItem(reviewStorageKey, JSON.stringify({ version: 1, entries }));
+      state.savedReview = entries;
+      return true;
+    } catch (_) {
+      setStatus('Cette carte ne peut pas être enregistrée. Réessaie avant de quitter cette page.');
+      return false;
+    }
+  }
+
+  function renderSavedReview() {
+    const entries = state.savedReview.filter(entry => entry.pairId === state.pair.id).sort((a, b) => b.addedAt - a.addedAt);
+    ui.savedReviewEmpty.hidden = entries.length > 0;
+    ui.savedReviewList.replaceChildren(...entries.map(entry => {
+      const row = document.createElement('article');
+      row.className = 'mg-saved-review-item'; row.dataset.reviewId = entry.id;
+      const copy = document.createElement('div'); copy.className = 'mg-saved-review-copy';
+      const study = document.createElement('strong'); study.textContent = entry.study; study.lang = state.pair.studyLanguage;
+      const native = document.createElement('span'); native.textContent = entry.native; native.lang = state.pair.nativeLanguage;
+      const level = document.createElement('small'); level.textContent = 'L' + entry.level;
+      copy.append(study, native, level);
+      const actions = document.createElement('div'); actions.className = 'mg-saved-review-actions';
+      for (const action of ['resume', 'remove']) {
+        const button = document.createElement('button'); button.type = 'button'; button.className = 'mg-action';
+        button.dataset.reviewAction = action;
+        const label = tr(action === 'resume' ? 'Revoir' : 'Retirer'); button.textContent = label;
+        button.setAttribute('aria-label', label + ' : ' + entry.study);
+        button.addEventListener('click', () => {
+          if (action === 'resume') resumeSavedReview(entry);
+          else if (saveReviewEntries(state.savedReview.filter(item => item.pairId !== entry.pairId || item.id !== entry.id))) {
+            renderSavedReview(); positionMenu();
+            (ui.savedReviewList.querySelector('button') || ui.menuBack).focus({ preventScroll: true });
+          }
+        });
+        actions.append(button);
+      }
+      row.append(copy, actions);
+      return row;
+    }));
+  }
+
+  async function resumeSavedReview(entry) {
+    const token = ++state.resumeGeneration;
+    closeMenu();
+    const loading = choosePair(entry.pairId, entry.level);
+    const generation = state.loadGeneration;
+    await loading;
+    if (token !== state.resumeGeneration || generation !== state.loadGeneration || state.screen === 'loading'
+        || state.pair?.id !== entry.pairId || ui.level && state.pair.level !== entry.level) return;
+    const theme = state.pair.themes.find(candidate => candidate.id === entry.themeId && presentedPhrases(candidate).some(phrase => phrase.id === entry.id))
+      || state.pair.themes.find(candidate => presentedPhrases(candidate).some(phrase => phrase.id === entry.id));
+    const phrase = theme && presentedPhrases(theme).find(candidate => candidate.id === entry.id);
+    if (!phrase || phrase.isTemplate || phrase.kind === 'received' || phrase.speaker === 'B') {
+      showThemes(); setStatus('Ce contenu a été actualisé. Tu peux le retrouver dans les thèmes.'); return;
+    }
+    state.theme = theme;
+    const id = state.pair.id + ':saved:' + phrase.id;
+    const steps = ['understand', 'imitate', 'choose-and-recall'].map(kind => ({
+      id: id + ':' + kind, kind, utterance: phrase.id, contentType: phrase.contentType,
+      requiresProduction: kind === 'choose-and-recall',
+      ...(kind === 'choose-and-recall' ? { preparedInSteps: { understoodInStep: id + ':understand', imitatedInStep: id + ':imitate' } } : {})
+    }));
+    startSequence({ id, phraseIds: [phrase.id], steps }, 'saved-review');
+  }
+
+  function markForReview() {
+    const phrase = currentPhrase();
+    if (state.screen !== 'lesson' || ui.next.disabled || !phrase || isTemplate(phrase) || isReceived(currentStep(), phrase)) return;
+    const inTheme = presentedPhrases(state.theme).some(candidate => candidate.id === phrase.id);
+    const location = state.referenceMap.get(phrase.id)?.canonicalLocation;
+    const originalTheme = state.pair.themes.find(theme => theme.phrases.some(candidate => candidate.id === phrase.id));
+    const previous = state.savedReview.find(entry => entry.pairId === state.pair.id && entry.id === phrase.id);
+    const entry = { id: phrase.id, pairId: state.pair.id,
+      level: inTheme ? state.pair.level || 1 : location?.level || phrase.editorialLevel || 1,
+      themeId: inTheme ? state.theme.id : location?.themeId || originalTheme?.id || state.theme.id,
+      study: phrase.study, native: phrase.native, addedAt: previous?.addedAt || Date.now() };
+    const entries = state.savedReview.filter(item => item.pairId !== entry.pairId || item.id !== entry.id);
+    if (!saveReviewEntries([...entries, entry])) return;
+    state.deferredPhraseIds.add(phrase.id);
+    browsePhrase(1);
+    setStatus('Enregistré dans À revoir.');
+  }
 
   function lessonUrl(login = false) {
     const query = new URLSearchParams({ lang: state.pair.nativeLanguage });
@@ -176,6 +292,7 @@
     const rows = [
       { label: 'Accueil', icon: icons.home, href: 'index.html' },
       { label: 'Thèmes', icon: icons.folder, action: () => { closeMenu(); showThemes(); } },
+      { label: 'À revoir', icon: icons.recall, panel: 'saved', key: 'À revoir' },
       { label: 'Révisions et exercices', icon: icons.cap, panel: 'review' },
       { label: 'Toutes les leçons', icon: icons.globe, href: lessonUrl() },
       { label: 'Voix', icon: icons.headphones, panel: 'voice' },
@@ -190,7 +307,7 @@
     ui.menuNav.replaceChildren(...rows.map(row => {
       const item = document.createElement(row.href ? 'a' : 'button');
       item.className = 'mg-menu-item';
-      item.dataset.menuItem = row.panel || row.label;
+      item.dataset.menuItem = row.key || row.panel || row.label;
       if (row.href) item.href = row.href;
       else {
         item.type = 'button';
@@ -235,6 +352,7 @@
     ui.menuBack.hidden = view === 'nav';
     text(ui.menuTitle, tr(menuTitles[view]));
     if (view === 'voice') fillVoices();
+    if (view === 'saved') renderSavedReview();
     if (view === 'review') {
       const themes = state.pair.themes.filter(theme => !theme.isTemplateCollection);
       ui.reviewTheme.replaceChildren(...themes.map(theme => new Option(themeLabel(theme), theme.id)));
@@ -289,7 +407,6 @@
     stopAudio();
     state.selectedPhraseId = null;
     state.revealed = false;
-    state.readingVisible = false;
     closeHelp();
     setStatus('');
   }
@@ -453,6 +570,7 @@
   function startSequence(sequence, lessonScope = 'sequence') {
     state.sequence = sequence;
     state.lessonScope = lessonScope;
+    state.deferredPhraseIds = new Set();
     state.stepIndex = 0;
     resetStep();
     renderStep();
@@ -527,7 +645,10 @@
     text(ui.phrase, phrase.study);
     ui.phrase.lang = state.pair.studyLanguage;
     ui.phrase.hidden = masked || waitingForChoice;
-    text(ui.phon, phrase.phon);
+    const pinyin = state.pair.studyLanguage === 'zh' && state.readingVisible && Boolean(phrase.reading);
+    text(ui.phon, pinyin ? phrase.reading : phrase.phon);
+    ui.phon.lang = pinyin ? 'zh-Latn' : state.pair.nativeLanguage;
+    ui.phonrow.dataset.readingMode = pinyin ? 'pinyin' : 'phonetic';
     ui.phon.hidden = masked || waitingForChoice || !phrase.phon;
     ui.phonrow.classList.toggle('is-recall', masked || waitingForChoice || !phrase.phon);
     ui.ear.hidden = template || waitingForChoice;
@@ -540,15 +661,16 @@
     text(ui.translation, waitingForChoice ? '' : phrase.native);
     ui.translation.lang = state.pair.nativeLanguage;
     text(ui.reading, phrase.reading);
-    ui.reading.hidden = !state.readingVisible || masked || waitingForChoice || !phrase.reading;
-    ui.readingToggle.hidden = !phrase.reading || masked || waitingForChoice;
+    ui.reading.hidden = state.pair.studyLanguage === 'zh' || !state.readingVisible || masked || waitingForChoice || !phrase.reading;
+    ui.readingToggle.hidden = !phrase.reading || state.pair.studyLanguage !== 'zh' && (masked || waitingForChoice);
+    ui.readingToggle.disabled = masked || waitingForChoice;
     ui.readingToggle.setAttribute('aria-pressed', String(state.readingVisible));
-    text(ui.readingToggle, tr(state.readingVisible ? 'Masquer la lecture' : 'Afficher la lecture'));
+    text(ui.readingToggleText, state.pair.studyLanguage === 'zh' ? tr('Pinyin') : tr(state.readingVisible ? 'Masquer la lecture' : 'Afficher la lecture'));
     ui.speaker.hidden = !isReceived(step, phrase);
     const role = step.role;
     text(ui.speaker, (typeof role === 'string' ? role : role?.[state.pair.nativeLanguage]) || step.speakerName || phrase.speakerName || tr('Interlocuteur'));
-    ui.replay.disabled = template || masked || waitingForChoice;
-    text(ui.replayText, tr('Réécouter'));
+    ui.replay.disabled = template || isReceived(step, phrase) || waitingForChoice;
+    text(ui.replayText, tr('À revoir'));
     text(ui.nextText, tr('Continuer'));
     ui.next.disabled = waitingForChoice;
     ui.model.classList.toggle('is-masked', masked);
@@ -563,7 +685,7 @@
     ui.done.hidden = false;
     ui.help.hidden = true;
     ui.phase.hidden = true;
-    text(ui.doneHeading, tr(state.lessonScope === 'review' ? 'Révision terminée'
+    text(ui.doneHeading, tr(['review', 'saved-review'].includes(state.lessonScope) ? 'Révision terminée'
       : state.lessonScope === 'theme' ? 'Thème terminé' : 'Séquence terminée'));
     text(ui.counter, state.sequence.phraseIds.length + ' / ' + state.sequence.phraseIds.length);
     ui.progress.style.width = '100%';
@@ -571,10 +693,50 @@
     ui.next.disabled = false;
     text(ui.replayText, tr('Rejouer'));
     const index = state.theme.sequences.indexOf(state.sequence);
-    text(ui.nextText, tr(state.lessonScope !== 'sequence' ? 'Thèmes'
+    text(ui.nextText, tr(state.lessonScope === 'saved-review' ? 'À revoir' : state.lessonScope !== 'sequence' ? 'Thèmes'
       : index < state.theme.sequences.length - 1 ? 'Séquence suivante' : 'Les séquences'));
     setStatus('');
     showView('done');
+  }
+
+  function isDeferred(step) {
+    return state.deferredPhraseIds.has(step.utterance) || step.prepares && state.deferredPhraseIds.has(step.prepares);
+  }
+
+  function advanceStep() {
+    if (state.screen !== 'lesson' || ui.next.disabled) return;
+    do { state.stepIndex += 1; } while (state.stepIndex < state.sequence.steps.length && isDeferred(currentStep()));
+    resetStep();
+    if (state.stepIndex >= state.sequence.steps.length) showDone();
+    else renderStep();
+  }
+
+  function browsePhrase(direction) {
+    if (state.screen !== 'lesson' || !state.sequence || ui.next.disabled) return;
+    const step = currentStep();
+    if (direction > 0 && isReceived(step, currentPhrase())) return advanceStep();
+    const current = state.sequence.phraseIds.indexOf(step.prepares || step.utterance || state.selectedPhraseId);
+    let position = current + direction;
+    while (direction > 0 && position < state.sequence.phraseIds.length && state.deferredPhraseIds.has(state.sequence.phraseIds[position])) position += 1;
+    if (position < 0) return;
+    if (position >= state.sequence.phraseIds.length) return showDone();
+    const target = state.sequence.phraseIds[position];
+    const index = state.sequence.steps.findIndex(candidate => !candidate.isPreparation && candidate.kind === 'understand' && candidate.utterance === target);
+    const fallback = state.sequence.steps.findIndex(candidate => !candidate.isPreparation && candidate.kind !== 'receive'
+      && (candidate.utterance === target || candidate.choices?.includes(target)));
+    if (index < 0 && fallback < 0) return;
+    state.deferredPhraseIds.delete(target);
+    state.stepIndex = index >= 0 ? index : fallback;
+    resetStep(); renderStep();
+  }
+
+  function markKnown() {
+    const phrase = currentPhrase();
+    if (state.screen !== 'lesson' || ui.next.disabled || !phrase || isTemplate(phrase) || isReceived(currentStep(), phrase)) return;
+    if (!saveReviewEntries(state.savedReview.filter(entry => entry.pairId !== state.pair.id || entry.id !== phrase.id))) return;
+    state.deferredPhraseIds.add(phrase.id);
+    browsePhrase(1);
+    setStatus('Je connais.');
   }
 
   function speak(shouldReveal) {
@@ -621,6 +783,7 @@
   function displayPair(pair) {
     resetStep();
     state.pair = pair;
+    state.readingVisible = state.readingPreferences[pair.id] === true;
     document.documentElement.lang = pair.nativeLanguage;
     text(byId('mgThemeHeading'), pair.levelTitle || tr('Tes thèmes'));
     [[ui.palette, 'Changer d’ambiance'], [ui.menuTrigger, 'Menu des rubriques'], [ui.language, 'Langue à apprendre'],
@@ -1044,29 +1207,68 @@
     ui.help.setAttribute('aria-expanded', String(state.helpOpen));
   });
   ui.readingToggle.addEventListener('click', () => {
+    if (ui.readingToggle.disabled || state.screen !== 'lesson') return;
     state.readingVisible = !state.readingVisible;
-    const phrase = currentPhrase();
-    ui.reading.hidden = !state.readingVisible || isMasked() || !phrase || !phrase.reading;
-    ui.readingToggle.setAttribute('aria-pressed', String(state.readingVisible));
-    text(ui.readingToggle, tr(state.readingVisible ? 'Masquer la lecture' : 'Afficher la lecture'));
+    state.readingPreferences[state.pair.id] = state.readingVisible;
+    try { localStorage.setItem(readingStorageKey, JSON.stringify({ version: 1, pairs: state.readingPreferences })); } catch (_) { /* Keep the in-page preference when storage is unavailable. */ }
+    renderStep();
   });
   ui.ear.addEventListener('click', () => speak(true));
   ui.replay.addEventListener('click', () => state.screen === 'done'
-    ? startSequence(state.sequence, state.lessonScope) : speak(false));
+    ? startSequence(state.sequence, state.lessonScope) : markForReview());
   ui.next.addEventListener('click', () => {
     if (state.screen === 'done') {
+      if (state.lessonScope === 'saved-review') { openMenu(); setMenuView('saved'); return; }
       if (state.lessonScope !== 'sequence') return showThemes();
       const nextSequence = state.theme.sequences[state.theme.sequences.indexOf(state.sequence) + 1];
       if (nextSequence) startSequence(nextSequence);
       else showSequences();
       return;
     }
-    if (state.screen !== 'lesson' || ui.next.disabled) return;
-    state.stepIndex += 1;
-    resetStep();
-    if (state.stepIndex >= state.sequence.steps.length) showDone();
-    else renderStep();
+    advanceStep();
   });
+  // Match the live mobile card: up/down browse, left defers, right acknowledges.
+  // Native vertical scrolling wins inside a long card; a new gesture at its
+  // relevant edge can change the card. Multi-touch and controls stay native.
+  let cardGesture = null;
+  let suppressTouchClickUntil = 0;
+  ui.lessonView.addEventListener('touchstart', event => {
+    cardGesture = null;
+    suppressTouchClickUntil = 0;
+    if (state.screen !== 'lesson' || ui.next.disabled || ui.menu.open || event.touches.length !== 1
+        || event.target.closest('button,a,input,textarea,select,[contenteditable]')
+        || window.getSelection()?.toString().trim()) return;
+    const touch = event.touches[0];
+    const max = Math.max(0, ui.content.scrollHeight - ui.content.clientHeight);
+    const top = Math.max(0, Math.min(max, ui.content.scrollTop));
+    cardGesture = { x: touch.clientX, y: touch.clientY, pairId: state.pair.id,
+      sequence: state.sequence, index: state.stepIndex, scrolling: max > 2,
+      atTop: top <= 2, atBottom: max - top <= (parseFloat(getComputedStyle(ui.content).paddingBottom) || 0) + 2 };
+  }, { passive: true });
+  ui.lessonView.addEventListener('touchmove', event => {
+    if (event.touches.length !== 1) cardGesture = null;
+  }, { passive: true });
+  ui.lessonView.addEventListener('touchcancel', () => { cardGesture = null; }, { passive: true });
+  ui.lessonView.addEventListener('touchend', event => {
+    const gesture = cardGesture; cardGesture = null;
+    const touch = event.changedTouches[0];
+    if (!gesture || !touch || event.touches.length || state.screen !== 'lesson' || ui.menu.open
+        || gesture.pairId !== state.pair.id || gesture.sequence !== state.sequence || gesture.index !== state.stepIndex
+        || window.getSelection()?.toString().trim()) return;
+    const dx = touch.clientX - gesture.x, dy = touch.clientY - gesture.y;
+    if (Math.abs(dx) > 15 || Math.abs(dy) > 15) suppressTouchClickUntil = Date.now() + 600;
+    if (Math.abs(dy) >= 70 && Math.abs(dy) > Math.abs(dx) * 1.2) {
+      if (dy < 0 && (!gesture.scrolling || gesture.atBottom)) browsePhrase(1);
+      else if (dy > 0 && (!gesture.scrolling || gesture.atTop)) browsePhrase(-1);
+    } else if (Math.abs(dx) >= 80 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+      if (dx < 0) markForReview();
+      else markKnown();
+    }
+  }, { passive: true });
+  ui.lessonView.addEventListener('click', event => {
+    if (event.detail === 0 || Date.now() > suppressTouchClickUntil) return;
+    event.preventDefault(); event.stopImmediatePropagation();
+  }, true);
   ui.retry.addEventListener('click', () => ui.level && state.data
     ? choosePair(state.requestedPair || ui.language.value, state.level) : loadData());
   document.addEventListener('keydown', event => { if (event.key === 'Escape') closeHelp(); });
@@ -1078,6 +1280,7 @@
     themeId: state.theme && state.theme.id,
     sequenceId: state.sequence && state.sequence.id, stepIndex: state.stepIndex, lessonScope: state.lessonScope,
     phraseId: currentPhrase() && currentPhrase().id, masked: isMasked(), helpOpen: state.helpOpen,
+    readingVisible: state.readingVisible,
     template: isTemplate(currentPhrase()), totalPhrases: state.pair ? pairCount(state.pair) : 0
   }) });
   loadData();

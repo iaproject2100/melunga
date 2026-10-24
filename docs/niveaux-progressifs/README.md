@@ -5,6 +5,37 @@ puis pratique en un clic sur mobile et ordinateur. Les quatre carrés ouvrent
 le menu. La page `melunga_deploy/parcours-niveaux.html` reste un aperçu distinct
 de l’application publiée sur melunga.com.
 
+## Commandes des leçons
+
+Sur ordinateur, la phrase, la phonétique, le sens et les commandes tiennent dans
+la carte, sans utiliser une barre verticale. Les listes de thèmes restent défilantes.
+
+Le bouton **Pinyin**, directement sous la traduction chinoise, échange la
+phonétique adaptée contre la lecture source et conserve le choix sur ce navigateur.
+Pendant un rappel masqué, l’oreille révèle le modèle avant de permettre la bascule.
+
+Sur mobile, les gestes reprennent les quatre directions de l’application :
+
+- **Vers le haut** : mot ou phrase suivante.
+- **Vers le bas** : mot ou phrase précédente.
+- **Vers la gauche** : enregistrer dans **À revoir** et passer à la suite.
+- **Vers la droite** : **Je connais**, retirer de la liste À revoir et passer à la suite.
+
+Une carte longue garde le défilement natif ; le changement vertical de carte ne
+se déclenche qu’avec un nouveau geste parti du bord approprié. Les boutons,
+la sélection de texte et les gestes à plusieurs doigts ne classent pas de carte.
+Les répliques de l’interlocuteur restent réservées à l’écoute.
+
+Le bouton **À revoir** remplace la réécoute de fond ; l’oreille sert toujours à
+écouter. Les mots et phrases enregistrés se retrouvent dans **quatre carrés →
+À revoir**, avec **Revoir** et **Retirer**. Les libellés en cache ne servent pas
+à reconstruire une leçon : la reprise charge la véritable source et prépare la
+forme avant son rappel. La liste est séparée par couple et reste enregistrée
+localement sur le navigateur utilisé ; elle ne synchronise pas les comptes.
+Les cartes restent accessibles dans leur thème.
+
+[Contrôle des commandes et de l’affichage](verification-commandes-lecon-navigateur.md).
+
 ## Les dix-huit pistes deviennent du contenu de pratique
 
 Les **18 propositions recensées chez les concurrents** sont déclinées dans
@@ -141,6 +172,7 @@ python3 -B tools/maquette-guidee/render_situation_review.py --check
 python3 -B tools/maquette-guidee/build_levels.py --check
 python3 -B tools/maquette-guidee/check_levels_independent.py --check-report --require-visuals --strict-editorial --require-no-held --self-test
 NODE_PATH=/tmp/melunga-review-tools/node_modules node --test melunga_deploy/tests/levels-themes.browser.cjs
+NODE_PATH=/tmp/melunga-review-tools/node_modules node --test melunga_deploy/tests/guided-lesson-controls.browser.cjs
 ```
 
 Le chemin Playwright correspond à cet environnement ; ailleurs installer
