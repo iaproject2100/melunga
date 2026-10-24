@@ -1,5 +1,5 @@
 import crypto from 'node:crypto';
-import { getStore } from '@netlify/blobs';
+import { getAccessStore } from './access-store.mjs';
 import {
   cleanDeviceId,
   cleanEmail,
@@ -8,6 +8,7 @@ import {
   ensureDeviceSlots
 } from './device-access.mjs';
 import { jsonResponse, preflight } from './cors.mjs';
+import { hasPermanentAccess } from './complimentary-access.mjs';
 
 const PBKDF2_ITERATIONS = 100000;
 const PBKDF2_KEYLEN = 32;
@@ -78,7 +79,7 @@ export default async (req) => {
       return jsonResponse(req, { success: false, error: 'invalid_request' }, 400);
     }
 
-    const store = getStore({ name: 'melunga-access', consistency: 'strong' });
+    const store = getAccessStore();
     const account = await store.get('email:' + email, { type: 'json' }).catch(() => null);
 
     if (!account || !account.passwordHash || !account.salt) {
@@ -95,6 +96,9 @@ export default async (req) => {
 
     if (!passwordValid) {
       return jsonResponse(req, { success: false, error: 'invalid_credentials' }, 401);
+    }
+    if (hasPermanentAccess(account)) {
+      return jsonResponse(req, { success: false, error: 'shared_account_managed_by_owner' }, 409);
     }
     if (!account.paid || account.expiry <= Date.now()) {
       return jsonResponse(req, { success: false, error: 'subscription_expired' }, 403);

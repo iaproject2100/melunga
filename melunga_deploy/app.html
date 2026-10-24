@@ -2703,11 +2703,11 @@ body.immersif.pile-droite .stage {
 </head>
 <body>
 <script>
-/* Arrivée depuis la page d'accueil (?start= ou ?checkout=) : on masque
+/* Arrivée depuis la page d'accueil (?start=, ?checkout= ou ?login=) : on masque
    l'écran de bienvenue ET on pose un voile de chargement opaque, retiré une
    fois la leçon/le paywall prêts. Ainsi aucune page intermédiaire ne clignote. */
 (function(){try{
-  if(!/[?&](start|checkout)=/.test(location.search)) return;
+  if(!/[?&](start|checkout|login)=/.test(location.search)) return;
   var st=document.createElement('style');
   st.textContent='#welcome{display:none!important}'
    +'#bootCover{position:fixed;inset:0;z-index:99998;background:linear-gradient(160deg,#0d3a56,#061e31);display:flex;align-items:center;justify-content:center;transition:opacity .28s}'
@@ -3182,8 +3182,29 @@ function checkStreakReward(){
   lsSet('ox_rw_streak', seen?(seen+','+n):String(n));
   showReward(RW_EMOJI[n]||'🏅', T('rwStreakT').replace('{n}',n), T('rwStreakS'));
 }
-function doLogout(){
+async function doLogout(){
+  if(sharedLogoutPending) return;
   if(!confirm(T('logoutConfirm'))) return;
+  if(isPermanentAccess || permanentLogoutHint){
+    sharedLogoutPending=true;
+    try{
+      var res=await fetch('/.netlify/functions/logout',{
+        method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({device_id:getDeviceId()})
+      });
+      var data=await res.json();
+      if(!res.ok || !data || !data.success) throw new Error('logout_failed');
+      isPaid=false;
+      isPermanentAccess=false;
+      lsSet('ox_paid','0');
+      // Keep the registered device identity: signing in again reuses its place.
+      location.reload();
+    }catch(e){
+      var errors={fr:'Déconnexion impossible. Réessaie.',en:'Could not log out. Please try again.',es:'No se pudo cerrar la sesión. Inténtalo de nuevo.',it:'Impossibile uscire. Riprova.',zh:'暂时无法退出，请重试。',ja:'ログアウトできませんでした。もう一度お試しください。',ko:'로그아웃하지 못했습니다. 다시 시도해 주세요.'};
+      toastMsg(errors[nat]||errors.fr);
+    }finally{ sharedLogoutPending=false; }
+    return;
+  }
   lsSet('ox_paid','0');
   lsSet('ox_device','');
   location.reload();
@@ -3250,6 +3271,11 @@ function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
 var sg=lsGet('ox_gender'); if(sg) gender=sg;
 var sl=lsGet('ox_lang');   if(sl) lang=sl;
 var isPaid=(lsGet('ox_paid')==='1');
+// Only server responses establish the permanent flag. The hint chooses logout handling,
+// never paid rights, so an offline reload cannot consume a fresh device place.
+var isPermanentAccess=false;
+var permanentLogoutHint=(lsGet('ox_permanent_logout')==='1');
+var sharedLogoutPending=false;
 
 /* === 🔥 série quotidienne === */
 function _ymd(d){return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
@@ -3512,11 +3538,18 @@ async function loadPricing(){
     var ap=document.getElementById('pwAnnualPrice'); if(ap) ap.textContent=data.annualDisplay;
   }catch(e){ /* on garde les prix par defaut affiches en dur si la requete echoue */ }
 }
+function rememberPermanentLogout(value){
+  permanentLogoutHint=!!value;
+  if(value) lsSet('ox_permanent_logout','1');
+  else if(lsGet('ox_permanent_logout')) lsSet('ox_permanent_logout','');
+}
 async function checkPaidStatus(){
   try{
     var res = await fetch('/.netlify/functions/check-status?device_id=' + encodeURIComponent(getDeviceId()));
     var data = await res.json();
     isPaid = !!data.paid;
+    isPermanentAccess = !!(res.ok && data.paid && data.permanent===true);
+    if(res.ok) rememberPermanentLogout(isPermanentAccess);
     lsSet('ox_paid', isPaid ? '1' : '0');
   }catch(e){ /* hors ligne : on garde le dernier statut connu en local */ }
 }
@@ -3582,6 +3615,8 @@ async function loginExisting(){
     var data = await res.json();
     if(data && data.success){
       isPaid = true;
+      isPermanentAccess = !!(res.ok && data.permanent===true);
+      if(res.ok) rememberPermanentLogout(isPermanentAccess);
       hidePaywall();
       buildLevels();
       updateUtilBar();
@@ -4413,7 +4448,9 @@ function fallback(text){
 window.addEventListener('load',function(){
   document.getElementById('vF').classList.toggle('on', gender==='female');
   document.getElementById('vM').classList.toggle('on', gender==='male');
-  applyNat();
+  // The direct login entry already initializes the lesson at DOMContentLoaded.
+  // Repeating it after a slow asset loads would close the account form.
+  if(!window.__loginEntryReady) applyNat();
   renderStreak();
   checkPaidStatus().then(function(){ buildLevels(); });
   loadPricing();

@@ -3,7 +3,9 @@ import crypto from 'node:crypto';
 const MOBILE_UA = /Android|iPhone|iPad|iPod|Mobile|Tablet/i;
 
 export function cleanDeviceId(value) {
-  return value ? String(value).trim().slice(0, 128) : '';
+  const id = value ? String(value).trim().slice(0, 128) : '';
+  // Device caches share the access store with these server-owned namespaces.
+  return /^(?:email|session|pending|replacement):/i.test(id) ? '' : id;
 }
 
 export function cleanEmail(value) {
@@ -104,9 +106,11 @@ export function deviceLimitFor(account) {
 }
 
 export function ensureDeviceMap(account) {
-  return account && account.devices && typeof account.devices === 'object'
+  const devices = account && account.devices && typeof account.devices === 'object'
     ? account.devices
     : {};
+  // Device IDs are untrusted keys. Inherited names must never count as slots.
+  return Object.assign(Object.create(null), devices);
 }
 
 export function countDevices(deviceMap) {

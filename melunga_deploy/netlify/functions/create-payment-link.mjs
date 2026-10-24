@@ -13,7 +13,7 @@
 //   AIRWALLEX_CLIENT_ID, AIRWALLEX_API_KEY, AIRWALLEX_ENV ('demo' ou 'live')
 
 import crypto from 'node:crypto';
-import { getStore } from '@netlify/blobs';
+import { getAccessStore } from './access-store.mjs';
 import {
   cleanDeviceId,
   cleanEmail,
@@ -21,6 +21,7 @@ import {
   deviceTypeFor
 } from './device-access.mjs';
 import { plansFor, plansForCurrency } from './pricing-table.mjs';
+import { hasPermanentAccess } from './complimentary-access.mjs';
 
 const PBKDF2_ITERATIONS = 100000;
 const PBKDF2_KEYLEN = 32;
@@ -112,16 +113,22 @@ export default async (req, context) => {
       return new Response(JSON.stringify({ error: 'password_too_short' }), { status: 400 });
     }
 
-    const store = getStore({ name: 'melunga-access', consistency: 'strong' });
+    const store = getAccessStore();
 
     // Email deja utilise par un abonnement encore actif -> refus.
     // (Un compte expire peut se reabonner avec le meme email.)
-    try {
-      const existing = await store.get('email:' + email, { type: 'json' });
-      if (existing && existing.paid && existing.expiry && existing.expiry > Date.now()) {
-        return new Response(JSON.stringify({ error: 'email_taken' }), { status: 409 });
-      }
-    } catch (e) { /* compte inexistant : ok */ }
+    // A missing key returns null. A store outage must not create a payment
+    // link while the account's existing access cannot be checked.
+    const existing = await store.get('email:' + email, { type: 'json' });
+    if (hasPermanentAccess(existing)) {
+      return new Response(JSON.stringify({ error: 'access_already_granted' }), {
+        status: 409,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    if (existing && existing.paid && existing.expiry && existing.expiry > Date.now()) {
+      return new Response(JSON.stringify({ error: 'email_taken' }), { status: 409 });
+    }
 
     // Hash du mot de passe : PBKDF2-SHA256, 100000 iterations, sel 16 octets.
     // Ces parametres DOIVENT rester identiques a ceux de login.mjs.

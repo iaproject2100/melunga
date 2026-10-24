@@ -15,18 +15,27 @@
     } catch (_error) {}
   }
 
-  window.addEventListener('load', function () {
-    if (wantsLogin) {
-      window.setTimeout(function () {
-        try {
-          if (typeof window.wlcSetSite === 'function') window.wlcSetSite(nativeLanguage);
-          if (typeof window.wlcLogin === 'function') window.wlcLogin();
-        } catch (_error) {}
+  if (wantsLogin) {
+    function openLogin() {
+      try {
+        if (!Object.prototype.hasOwnProperty.call(window.WLC_I18N || {}, nativeLanguage)) nativeLanguage = 'fr';
+        if (typeof window.wlcSetSite === 'function') window.wlcSetSite(nativeLanguage);
+        if (typeof window.wlcLogin !== 'function') return;
+        window.wlcLogin();
+        var panel = document.getElementById('paywall');
+        if (!panel || panel.style.display !== 'block') return;
+        window.__loginEntryReady = true;
         removeBootCover();
-      }, 350);
-      return;
+      } catch (_error) {}
     }
+    // All lesson/account scripts are parsed at this point; images and fonts
+    // must not delay access to the form or reveal another welcome screen.
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', openLogin, { once: true });
+    else openLogin();
+    return;
+  }
 
+  window.addEventListener('load', function () {
     if (studyLanguage && studyLanguage !== nativeLanguage) {
       window.setTimeout(function () {
         try {
