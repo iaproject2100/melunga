@@ -56,7 +56,7 @@ const report = {
   inputSha256: fingerprints(),
   requiredChecks: ['desktop-complete-card', 'pinyin-switch-persistence-and-recall',
     'mobile-four-direction-swipes', 'mobile-swipes-ignore-other-interactions',
-    'mobile-long-card-scroll-boundaries',
+    'mobile-complete-card', 'finger-follow-and-feedback', 'resize-and-preview-banner',
     'saved-review-persistence-pair-scope-and-removal', 'received-turn-cannot-be-saved']
 };
 let server, browser, base;
@@ -86,6 +86,15 @@ after(async () => {
   if (!report.inputsStableDuringRun) report.errors.push('Product or source files changed during the run.');
   if (report.externalRequests.length || report.apiRequests.length) report.errors.push('Unexpected external/API operation.');
   if (report.requiredChecks.some(name => !report.checks.includes(name))) report.errors.push('Incomplete lesson-control coverage.');
+  const fits = report.cases.filter(entry => entry.measurements);
+  report.fullCardMeasurements = fits.length;
+  report.minimumMeasuredFontSizes = Object.fromEntries(['#mgPhrase', '#mgPhon', '#mgTranslation', '#mgReading']
+    .map(selector => [selector, fits.flatMap(entry => entry.measurements.texts.filter(text => text.selector === selector).map(text => text.fontSize))])
+    .filter(([, values]) => values.length).map(([selector, values]) => [selector, Math.min(...values)]));
+  report.compactTextCases = fits.flatMap(entry => entry.measurements.texts
+    .filter(text => text.fontSize < (text.selector === '#mgPhrase' ? 16 : text.selector === '#mgReading' ? 12 : 14) - 0.05)
+    .map(text => ({pair: entry.pair, phraseId: entry.phraseId, viewport: entry.viewport,
+      readingVisible: entry.readingVisible, selector: text.selector, measuredFontSize: text.fontSize})));
   report.executedAt = new Date().toISOString();
   report.status = report.errors.length ? 'failed' : 'passed';
   if (process.env.GUIDED_CONTROLS_REPORT) {
@@ -102,10 +111,10 @@ async function checked(name, action) {
   catch (error) { report.errors.push(name + ': ' + error.message); throw error; }
 }
 
-async function open(width = 390, height = 844, intercept = async () => false) {
+async function open(width = 390, height = 844, intercept = async () => false, options = {}) {
   const mobile = width <= 760;
   const context = await browser.newContext({viewport: {width, height},
-    isMobile: mobile, hasTouch: mobile, reducedMotion: 'reduce'});
+    isMobile: mobile, hasTouch: mobile, reducedMotion: options.reducedMotion || 'reduce'});
   await context.addInitScript(() => {
     window.__controlSpeech = [];
     window.SpeechSynthesisUtterance = class { constructor(text) { this.text = text; } };
@@ -179,7 +188,7 @@ async function enter(page, fixture) {
   await settled(page);
 }
 
-async function touchGesture(page, selector, dx, dy = 0) {
+async function gestureOrigin(page, selector) {
   const bounds = await page.locator(selector).boundingBox();
   assert.ok(bounds, 'gesture starts on a visible element');
   const viewport = page.viewportSize();
@@ -196,9 +205,24 @@ async function touchGesture(page, selector, dx, dy = 0) {
       }
       return null;
     }, {left, right, top, bottom});
-    assert.ok(point, 'long card has a visible gesture surface without a control');
+    assert.ok(point, 'card has a visible gesture surface without a control');
     ({x, y} = point);
   }
+  return {x, y};
+}
+
+async function cardAtRest(page) {
+  await page.waitForFunction(() => {
+    const card = document.getElementById('mgLessonView');
+    const matrix = new DOMMatrixReadOnly(getComputedStyle(card).transform);
+    return Math.abs(matrix.m41) < 0.6 && Math.abs(matrix.m42) < 0.6
+      && card.getAnimations().every(animation => !['running', 'pending'].includes(animation.playState));
+  }, null, {timeout: 3000});
+  await settled(page);
+}
+
+async function touchGesture(page, selector, dx, dy = 0) {
+  const {x, y} = await gestureOrigin(page, selector);
   const client = await page.context().newCDPSession(page);
   try {
     await client.send('Input.dispatchTouchEvent', {type: 'touchStart', touchPoints: [{x, y}]});
@@ -207,6 +231,52 @@ async function touchGesture(page, selector, dx, dy = 0) {
     await client.send('Input.dispatchTouchEvent', {type: 'touchEnd', touchPoints: []});
   } finally { await client.detach(); }
   await settled(page);
+  await cardAtRest(page);
+}
+
+async function cardTransform(page) {
+  return page.locator('#mgLessonView').evaluate(card => {
+    const matrix = new DOMMatrixReadOnly(getComputedStyle(card).transform);
+    return {x: matrix.m41, y: matrix.m42, className: card.className,
+      animating: card.getAnimations().some(animation => animation.playState === 'running')};
+  });
+}
+
+async function observedDrag(page, dx, dy, {cancel = false, selector = '#mgTranslation'} = {}) {
+  const initial = await current(page);
+  const {x, y} = await gestureOrigin(page, selector);
+  const client = await page.context().newCDPSession(page);
+  const samples = [];
+  try {
+    await client.send('Input.dispatchTouchEvent', {type: 'touchStart', touchPoints: [{x, y}]});
+    for (const fraction of [0.5, 1]) {
+      await client.send('Input.dispatchTouchEvent', {type: 'touchMove',
+        touchPoints: [{x: x + dx * fraction, y: y + dy * fraction}]});
+      await settled(page);
+      samples.push(await cardTransform(page));
+      assert.deepEqual(await current(page), initial, 'source and step do not change while the finger is still down');
+    }
+    await client.send('Input.dispatchTouchEvent', {type: cancel ? 'touchCancel' : 'touchEnd', touchPoints: []});
+    await settled(page);
+    const released = await cardTransform(page);
+    return {initial, samples, released};
+  } finally { await client.detach(); }
+}
+
+async function assertModelSource(page, fixture, identifier) {
+  await page.waitForFunction(identifier => window.MelungaMockup.state().phraseId === identifier, identifier);
+  await cardAtRest(page);
+  const phrase = phraseFixtures(fixture.pairId, fixture.level).find(row => row.phrase.id === identifier)?.phrase;
+  assert.ok(phrase, 'new card is backed by a whole source');
+  assert.equal(await page.locator('#mgPhrase').textContent(), phrase.study);
+  assert.equal(await page.locator('#mgPhon').textContent(), phrase.phon);
+  assert.equal(await page.locator('#mgTranslation').textContent(), phrase.native);
+  return phrase;
+}
+
+async function toastVisible(page) {
+  return page.locator('#mgCardToast').evaluate(node => !node.hidden && getComputedStyle(node).display !== 'none'
+    && Number(getComputedStyle(node).opacity) > 0.1 && node.getBoundingClientRect().height > 0);
 }
 
 function moduleFixture(pairId, topicId = 'piste-visite-proches', level = 1) {
@@ -250,7 +320,8 @@ async function setReading(page, enabled) {
   await settled(page);
 }
 
-async function assertCompleteDesktopCard(page, fixture, viewport) {
+async function assertCompleteCard(page, fixture, viewport, check) {
+  await cardAtRest(page);
   const result = await page.evaluate(() => {
     const rect = node => {
       const box = node.getBoundingClientRect();
@@ -262,8 +333,13 @@ async function assertCompleteDesktopCard(page, fixture, viewport) {
     const box = selector => {
       const node = document.querySelector(selector);
       const range = document.createRange(); range.selectNodeContents(node);
+      let scale = 1;
+      for (let ancestor = node; ancestor; ancestor = ancestor.parentElement) {
+        const matrix = new DOMMatrixReadOnly(getComputedStyle(ancestor).transform);
+        scale *= Math.hypot(matrix.m21, matrix.m22, matrix.m23);
+      }
       return {selector, visible: visible(node), element: rect(node),
-        text: rect(range), fontSize: parseFloat(getComputedStyle(node).fontSize),
+        text: rect(range), fontSize: parseFloat(getComputedStyle(node).fontSize) * scale,
         overflowY: getComputedStyle(node).overflowY,
         value: node.textContent};
     };
@@ -272,13 +348,17 @@ async function assertCompleteDesktopCard(page, fixture, viewport) {
       lesson: rect(document.getElementById('mgLessonView')),
       texts: ['#mgPhrase', '#mgPhon', '#mgTranslation', '#mgReading']
         .filter(selector => visible(document.querySelector(selector))).map(box),
-      controls: ['#mgEar', '#mgContinue', '#mgReplay'].map(selector => ({selector,
+      controls: ['#mgEar', '#mgContinue', '#mgReplay', '#mgReadingToggle']
+        .filter(selector => visible(document.querySelector(selector))).map(selector => ({selector,
         visible: visible(document.querySelector(selector)), ...rect(document.querySelector(selector))})),
       scrollers: [document.scrollingElement, ...['mgContent', 'mgLessonView', 'mgModel'].map(id => document.getElementById(id))]
         .map(node => ({id: node.id || node.tagName, clientHeight: node.clientHeight,
           scrollHeight: node.scrollHeight, clientWidth: node.clientWidth, scrollWidth: node.scrollWidth}))
     };
   });
+  for (const selector of ['#mgEar', '#mgContinue', '#mgReplay', ...(fixture.phrase.reading ? ['#mgReadingToggle'] : [])]) {
+    assert.ok(result.controls.some(control => control.selector === selector), selector + ' is present on the complete card');
+  }
   for (const scroll of result.scrollers) {
     assert.ok(scroll.scrollHeight <= scroll.clientHeight + 2, scroll.id + ' has no vertical overflow');
     assert.ok(scroll.scrollWidth <= scroll.clientWidth + 2, scroll.id + ' has no horizontal overflow');
@@ -292,8 +372,16 @@ async function assertCompleteDesktopCard(page, fixture, viewport) {
       assert.ok(text.text.bottom <= text.element.bottom + 2 && text.text.top >= text.element.top - 2,
         text.selector + ' does not clip its own text');
     }
-    assert.ok(text.fontSize >= (text.selector === '#mgPhrase' ? 16 : text.selector === '#mgReading' ? 12 : 14),
+    assert.ok(text.fontSize >= (text.selector === '#mgReading' ? 10 : 12) - 0.05,
       text.selector + ' remains readable');
+    if (fixture.phrase.id === 'catalogue:zh:0' && viewport.width === 1280 && viewport.height === 500) {
+      assert.ok(text.fontSize >= (text.selector === '#mgPhrase' ? 36 : 24) - 0.05,
+        'the short desktop card retains larger typography despite the low window');
+    }
+    if (fixture.phrase.id === 'catalogue:zh:0' && viewport.width === 320 && viewport.height === 640) {
+      assert.ok(text.fontSize >= (text.selector === '#mgPhrase' ? 28 : text.selector === '#mgPhon' ? 20 : 22) - 0.05,
+        'the short mobile card retains larger typography');
+    }
   }
   for (let a = 0; a < result.texts.length; a++) for (let b = a + 1; b < result.texts.length; b++) {
     const first = result.texts[a], second = result.texts[b];
@@ -308,27 +396,40 @@ async function assertCompleteDesktopCard(page, fixture, viewport) {
     assert.ok(control.left >= 0 && control.right <= result.viewport.width + 1,
       control.selector + ' fits horizontally in the viewport');
     assert.ok(control.width >= 44 && control.height >= 44, control.selector + ' remains usable');
+    if (['#mgReadingToggle', '#mgEar'].includes(control.selector)) {
+      assert.ok(control.top >= result.lesson.top - 1 && control.bottom <= result.lesson.bottom + 1,
+        control.selector + ' remains inside the complete card');
+    }
   }
   assert.equal(await page.locator('#mgPhrase').textContent(), fixture.phrase.study);
   assert.equal(await page.locator('#mgTranslation').textContent(), fixture.phrase.native);
-  report.cases.push({check: 'desktop-complete-card', pair: fixture.pairId, level: fixture.level,
-    phraseId: fixture.phrase.id, viewport, measurements: result});
+  const readingVisible = await page.evaluate(() => window.MelungaMockup.state().readingVisible);
+  assert.equal(await page.locator('#mgPhon').textContent(), fixture.pairId === 'fr-zh' && readingVisible
+    ? fixture.phrase.reading : fixture.phrase.phon, 'whole source help remains visible without shortening');
+  report.cases.push({check, pair: fixture.pairId, level: fixture.level,
+    phraseId: fixture.phrase.id, viewport, readingVisible, measurements: result});
 }
 
-test('desktop shows complete short and longest real cards without scrolling or clipping', {timeout: 120000}, async () => checked('desktop-complete-card', async () => {
-  const short = moduleFixture('fr-zh');
-  const longest = ['fr-zh', 'fr-it', 'fr-ja', 'fr-ko'].map(pair => {
+function longestFixtures() {
+  return ['fr-zh', 'fr-it', 'fr-ja', 'fr-ko'].map(pair => {
     const candidates = Array.from({length: 10}, (_, index) => phraseFixtures(pair, index + 1)).flat();
     return candidates.sort((a, b) => ['study', 'phon', 'native', 'reading'].reduce((sum, key) =>
       sum + (b.phrase[key]?.length || 0) - (a.phrase[key]?.length || 0), 0))[0];
   });
-  for (const viewport of [{width: 1366, height: 768}, {width: 1280, height: 720}]) {
+}
+
+test('desktop shows complete short and longest real cards without scrolling or clipping', {timeout: 120000}, async () => checked('desktop-complete-card', async () => {
+  const short = moduleFixture('fr-zh');
+  const longest = longestFixtures();
+  for (const viewport of [{width: 1366, height: 768}, {width: 1280, height: 720}, {width: 1280, height: 500}]) {
     const {context, page} = await open(viewport.width, viewport.height);
     try {
       for (const fixture of [short, ...longest]) {
         await enter(page, fixture);
-        if (fixture.phrase.reading) await setReading(page, true);
-        await assertCompleteDesktopCard(page, fixture, viewport);
+        for (const reading of fixture.phrase.reading ? [false, true] : [false]) {
+          if (fixture.phrase.reading) await setReading(page, reading);
+          await assertCompleteCard(page, fixture, viewport, 'desktop-complete-card');
+        }
       }
     } finally { await context.close(); }
   }
@@ -488,33 +589,121 @@ test('mobile swipe handling preserves buttons, small motion, selection and multi
   } finally { await choiceFixture.context.close(); }
 }));
 
-test('long mobile cards scroll internally and navigate only from the proper starting edge', {timeout: 60000}, async () => checked('mobile-long-card-scroll-boundaries', async () => {
-  const candidates = Array.from({length: 10}, (_, index) => phraseFixtures('fr-zh', index + 1)).flat()
-    .filter(row => themePhraseIds(row).indexOf(row.phrase.id) >= 0
-      && themePhraseIds(row).indexOf(row.phrase.id) < themePhraseIds(row).length - 1);
-  const fixture = candidates.sort((a, b) => ['study', 'phon', 'native'].reduce((sum, key) =>
-    sum + (b.phrase[key]?.length || 0) - (a.phrase[key]?.length || 0), 0))[0];
-  const ids = themePhraseIds(fixture);
-  const {context, page} = await open(390, 700);
+test('short and longest mobile cards fit fully without any lesson scroll', {timeout: 120000}, async () => checked('mobile-complete-card', async () => {
+  const fixtures = [moduleFixture('fr-zh'), ...longestFixtures()];
+  for (const viewport of [{width: 320, height: 640}, {width: 390, height: 740}]) {
+    const {context, page} = await open(viewport.width, viewport.height);
+    try {
+      for (const fixture of fixtures) {
+        await enter(page, fixture);
+        for (const reading of fixture.phrase.reading ? [false, true] : [false]) {
+          if (fixture.phrase.reading) await setReading(page, reading);
+          await assertCompleteCard(page, fixture, viewport, 'mobile-complete-card');
+        }
+      }
+      const long = fixtures.find(fixture => fixture.pairId === 'fr-zh' && fixture.level > 1);
+      await enter(page, long);
+      const original = await current(page);
+      await touchGesture(page, '#mgTranslation', 2, 105);
+      assert.notEqual((await current(page)).phraseId, original.phraseId, 'down works immediately without scrolling a long card first');
+      await touchGesture(page, '#mgTranslation', 2, -105);
+      assert.equal((await current(page)).phraseId, original.phraseId, 'up returns to the complete long card');
+    } finally { await context.close(); }
+  }
+}));
+
+test('the card follows the finger, restores cancelled motion and shows non-blocking brief feedback', {timeout: 60000}, async () => checked('finger-follow-and-feedback', async () => {
+  const fixture = moduleFixture('fr-zh'), ids = themePhraseIds(fixture);
+  const {context, page} = await open(390, 740, async () => false, {reducedMotion: 'no-preference'});
   try {
     await enter(page, fixture);
-    const scroll = await page.locator('#mgContent').evaluate(node => {
-      const maximum = node.scrollHeight - node.clientHeight;
-      if (maximum > 30) node.scrollTop = maximum - 20;
-      return {maximum, top: node.scrollTop};
+    const initial = await current(page);
+    const cancelled = await observedDrag(page, 48, 3, {cancel: true});
+    assert.ok(cancelled.samples[0].x > 8 && cancelled.samples[1].x > cancelled.samples[0].x + 5,
+      'the sheet follows even a gesture that will be cancelled');
+    await cardAtRest(page);
+    assert.deepEqual(await current(page), initial, 'touchcancel restores the same source and step');
+    assert.equal(await toastVisible(page), false);
+    const short = await observedDrag(page, -25, 2);
+    assert.ok(short.samples[1].x < -8, 'small motion is visible before release');
+    await cardAtRest(page);
+    assert.deepEqual(await current(page), initial, 'subthreshold motion snaps back without classifying');
+
+    const left = await observedDrag(page, -125, 4);
+    assert.ok(left.samples[0].x < -15 && left.samples[1].x < left.samples[0].x - 10,
+      'left displacement grows with the finger before touchend');
+    assert.ok(left.released.animating || Math.hypot(left.released.x, left.released.y) > 3,
+      'release has an animated exit/entry rather than an instant replacement');
+    const second = await assertModelSource(page, fixture, ids[1]);
+    await page.waitForFunction(() => {
+      const node = document.getElementById('mgCardToast');
+      return !node.hidden && Number(getComputedStyle(node).opacity) > 0.1;
     });
-    assert.ok(scroll.maximum > 30, 'real long source has readable content to scroll on a short mobile viewport');
-    await touchGesture(page, '#mgContent', 2, -110);
-    assert.equal((await current(page)).phraseId, fixture.phrase.id, 'gesture begun inside the card never changes phrase, even when reaching its end');
-    const afterScroll = await page.locator('#mgContent').evaluate(node => node.scrollTop);
-    assert.ok(afterScroll > scroll.top, 'vertical motion still scrolls the content');
-    await page.locator('#mgContent').evaluate(node => { node.scrollTop = node.scrollHeight - node.clientHeight; });
-    await touchGesture(page, '#mgContent', 2, -110);
-    const nextId = ids[ids.indexOf(fixture.phrase.id) + 1];
-    assert.equal((await current(page)).phraseId, nextId, 'up swipe begun at the bottom reaches the following phrase');
-    await page.locator('#mgContent').evaluate(node => { node.scrollTop = 0; });
-    await touchGesture(page, '#mgContent', 2, 110);
-    assert.equal((await current(page)).phraseId, fixture.phrase.id, 'down swipe begun at the top returns to the previous phrase');
+    assert.equal((await page.locator('#mgCardToast').textContent()).trim(), 'Elle reviendra');
+    assert.equal(await toastVisible(page), true);
+    const spoken = await page.evaluate(() => window.__controlSpeech.length);
+    const ear = await page.locator('#mgEar').boundingBox();
+    await page.touchscreen.tap(ear.x + ear.width / 2, ear.y + ear.height / 2);
+    assert.equal(await page.evaluate(() => window.__controlSpeech.length), spoken + 1,
+      'a real new tap works immediately while the feedback is visible');
+    assert.equal(await page.evaluate(() => window.__controlSpeech.at(-1).text), second.study);
+    await touchGesture(page, '#mgTranslation', 2, 105);
+    assert.equal((await current(page)).phraseId, ids[0]);
+    const right = await observedDrag(page, 125, 4);
+    assert.ok(right.samples[0].x > 15 && right.samples[1].x > right.samples[0].x + 10,
+      'right displacement follows the finger');
+    await assertModelSource(page, fixture, ids[1]);
+    assert.equal((await page.locator('#mgCardToast').textContent()).trim(), 'Rangée');
+    assert.equal(await toastVisible(page), true);
+    const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('melunga-guided-review-v1')).entries);
+    assert.equal(saved.some(row => row.pairId === 'fr-zh' && row.id === ids[0]), false);
+    await page.waitForFunction(() => {
+      const node = document.getElementById('mgCardToast');
+      return node.hidden || getComputedStyle(node).display === 'none' || Number(getComputedStyle(node).opacity) <= 0.1;
+    }, null, {timeout: 2500});
+
+    const up = await observedDrag(page, 3, -125);
+    assert.ok(up.samples[0].y < -15 && up.samples[1].y < up.samples[0].y - 10,
+      'vertical next displacement follows the finger');
+    await assertModelSource(page, fixture, ids[2]);
+    const down = await observedDrag(page, 3, 125);
+    assert.ok(down.samples[0].y > 15 && down.samples[1].y > down.samples[0].y + 10,
+      'vertical previous displacement follows the finger');
+    await assertModelSource(page, fixture, ids[1]);
+    const blocked = await observedDrag(page, -125, 4, {selector: '#mgEar'});
+    assert.ok(blocked.samples.every(sample => Math.hypot(sample.x, sample.y) < 0.6),
+      'a drag begun on a control never moves the sheet');
+    await cardAtRest(page);
+    assert.equal((await current(page)).phraseId, ids[1]);
+    report.cases.push({check: 'finger-follow-and-feedback', cancelled, short, left, right, up, down, blocked});
+  } finally { await context.close(); }
+}));
+
+test('resize and a late fixed preview banner refit the same whole Pinyin card without scrolling', {timeout: 60000}, async () => checked('resize-and-preview-banner', async () => {
+  const fixture = longestFixtures().find(row => row.pairId === 'fr-zh');
+  const {context, page} = await open(1366, 768);
+  try {
+    await enter(page, fixture); await setReading(page, true);
+    await page.setViewportSize({width: 1280, height: 500}); await settled(page);
+    assert.equal((await current(page)).phraseId, fixture.phrase.id);
+    assert.equal((await current(page)).readingVisible, true);
+    await assertCompleteCard(page, fixture, {width: 1280, height: 500}, 'resize-and-preview-banner');
+    await page.evaluate(() => {
+      const banner = document.createElement('div');
+      banner.id = 'late-preview-banner'; banner.textContent = 'Bandeau d’aperçu';
+      Object.assign(banner.style, {position: 'fixed', bottom: '0', left: '10%', width: '80%',
+        height: '56px', zIndex: '99999', background: '#fff', color: '#123'});
+      document.body.append(banner);
+    });
+    await settled(page);
+    await page.waitForFunction(() => document.getElementById('mgFooter').getBoundingClientRect().bottom
+      <= document.getElementById('late-preview-banner').getBoundingClientRect().top + 1, null, {timeout: 3000});
+    await assertCompleteCard(page, fixture, {width: 1280, height: 500}, 'resize-and-preview-banner');
+    assert.equal((await current(page)).phraseId, fixture.phrase.id, 'the preview overlay does not change source');
+    assert.equal(await page.locator('#mgPhon').textContent(), fixture.phrase.reading, 'Pinyin remains the same whole reading');
+    await page.locator('#late-preview-banner').evaluate(node => node.remove());
+    await settled(page);
+    await assertCompleteCard(page, fixture, {width: 1280, height: 500}, 'resize-and-preview-banner');
   } finally { await context.close(); }
 }));
 

@@ -7,8 +7,10 @@ de l’application publiée sur melunga.com.
 
 ## Commandes des leçons
 
-Sur ordinateur, la phrase, la phonétique, le sens et les commandes tiennent dans
-la carte, sans utiliser une barre verticale. Les listes de thèmes restent défilantes.
+Sur mobile et ordinateur, la phrase entière, la phonétique, le sens et les
+commandes tiennent dans l’écran, sans défilement de la fiche. Les espacements
+puis les tailles de texte s’adaptent à la place disponible lorsque c’est nécessaire ;
+aucun texte n’est tronqué. Les listes de thèmes restent défilantes.
 
 Le bouton **Pinyin**, directement sous la traduction chinoise, échange la
 phonétique adaptée contre la lecture source et conserve le choix sur ce navigateur.
@@ -21,9 +23,11 @@ Sur mobile, les gestes reprennent les quatre directions de l’application :
 - **Vers la gauche** : enregistrer dans **À revoir** et passer à la suite.
 - **Vers la droite** : **Je connais**, retirer de la liste À revoir et passer à la suite.
 
-Une carte longue garde le défilement natif ; le changement vertical de carte ne
-se déclenche qu’avec un nouveau geste parti du bord approprié. Les boutons,
-la sélection de texte et les gestes à plusieurs doigts ne classent pas de carte.
+La fiche suit le doigt, puis la suivante ou la précédente entre avec une brève
+animation. Les gestes horizontaux affichent **« Elle reviendra »** à gauche et
+**« Rangée »** à droite pendant 1,4 seconde. Le message n’intercepte aucun appui.
+Les boutons, la sélection de texte et les gestes à plusieurs doigts ne classent
+pas de carte ; le zoom à deux doigts reste possible.
 Les répliques de l’interlocuteur restent réservées à l’écoute.
 
 Le bouton **À revoir** remplace la réécoute de fond ; l’oreille sert toujours à

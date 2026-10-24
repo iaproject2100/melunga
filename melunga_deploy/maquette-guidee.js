@@ -27,7 +27,7 @@
     ear: byId('mgEar'), reading: byId('mgReading'), translation: byId('mgTranslation'),
     done: byId('mgDone'), doneHeading: byId('mgDoneHeading'), status: byId('mgStatus'),
     footer: byId('mgFooter'), replay: byId('mgReplay'), replayText: byId('mgReplayText'),
-    next: byId('mgContinue'), nextText: byId('mgContinueText')
+    next: byId('mgContinue'), nextText: byId('mgContinueText'), toast: byId('mgCardToast')
   };
   const state = {
     data: null, pair: null, theme: null, sequence: null, screen: 'loading', stepIndex: 0,
@@ -40,6 +40,7 @@
   };
   const reviewStorageKey = 'melunga-guided-review-v1';
   const readingStorageKey = 'melunga-guided-reading-v1';
+  const cardMotion = { gesture: null, suppressClickUntil: 0, animationTimer: 0, toastTimer: 0, fitFrame: 0 };
   state.savedReview = loadSavedReview();
   try {
     const preferences = JSON.parse(localStorage.getItem(readingStorageKey) || '{}');
@@ -81,6 +82,7 @@
     'Révision terminée': '复习已完成',
     'À revoir': '待复习', 'Revoir': '复习', 'Retirer': '移除', 'Pinyin': '拼音',
     'Enregistré dans À revoir.': '已加入待复习。', 'Je connais.': '我会了。',
+    'Elle reviendra': '稍后再练', 'Rangée': '已掌握',
     'Aucun mot ni phrase à revoir pour le moment.': '暂时没有待复习的词句。',
     'Cette carte ne peut pas être enregistrée. Réessaie avant de quitter cette page.': '无法保存这张卡片。离开前请重试。',
     'Ce contenu a été actualisé. Tu peux le retrouver dans les thèmes.': '内容已更新，可以在主题中重新查找。',
@@ -278,7 +280,8 @@
     if (!saveReviewEntries([...entries, entry])) return;
     state.deferredPhraseIds.add(phrase.id);
     browsePhrase(1);
-    setStatus('Enregistré dans À revoir.');
+    showCardToast('Elle reviendra');
+    return true;
   }
 
   function lessonUrl(login = false) {
@@ -412,6 +415,7 @@
   }
 
   function showView(screen) {
+    resetCardMotion();
     state.screen = screen;
     ui.loading.hidden = screen !== 'loading';
     ui.themeView.hidden = screen !== 'themes';
@@ -422,6 +426,91 @@
     ui.menuTrigger.disabled = screen === 'loading';
     ui.content.scrollTop = 0;
     document.body.dataset.view = screen;
+    queueLessonFit();
+  }
+
+  // Fit the complete text, rather than truncating it or giving the lesson an
+  // inner scrollbar. Short cards retain their normal large type. Longer cards
+  // first use tighter spacing, then adapt to the available viewport.
+  function queueLessonFit() {
+    if (cardMotion.fitFrame) return;
+    cardMotion.fitFrame = requestAnimationFrame(() => {
+      cardMotion.fitFrame = 0;
+      fitLesson();
+    });
+  }
+
+  function fitLesson() {
+    if (!['lesson', 'done'].includes(state.screen)) return;
+    const root = document.body;
+    // A deploy preview can add its own fixed bottom toolbar. Reserve its real
+    // occupied space, including when it is injected after the lesson loads.
+    let usableHeight = window.innerHeight;
+    for (const element of root.children) {
+      if (element.matches('.mg-app,.mg-previewnotice,.mg-card-toast,dialog,script,style')) continue;
+      const bounds = element.getBoundingClientRect();
+      if (getComputedStyle(element).position === 'fixed' && bounds.width >= window.innerWidth * 0.4
+          && bounds.height >= 20 && bounds.height <= 180 && bounds.top >= window.innerHeight * 0.6
+          && bounds.bottom >= window.innerHeight - 4) usableHeight = Math.min(usableHeight, bounds.top - 6);
+    }
+    root.style.setProperty('--mg-usable-height', usableHeight + 'px');
+    if (state.screen !== 'lesson' || ui.model.hidden) return;
+    const nodes = [ui.phrase, ui.phon, ui.translation, ui.reading];
+    for (const node of nodes) node.style.removeProperty('font-size');
+    for (const property of ['--mg-fit-gap', '--mg-fit-model-padding', '--mg-fit-phon-padding']) root.style.removeProperty(property);
+    const visible = nodes.filter(node => !node.hidden && node.getClientRects().length);
+    const baseline = visible.map(node => parseFloat(getComputedStyle(node).fontSize));
+    const fits = () => {
+      const bounds = ui.model.getBoundingClientRect();
+      const style = getComputedStyle(ui.model);
+      const top = bounds.top + parseFloat(style.paddingTop);
+      const bottom = bounds.bottom - parseFloat(style.paddingBottom);
+      return ui.model.scrollHeight <= ui.model.clientHeight + 1 && [...ui.model.children].every(node => {
+        if (node.hidden || !node.getClientRects().length) return true;
+        const rect = node.getBoundingClientRect();
+        return rect.top >= top - 1 && rect.bottom <= bottom + 1 && node.scrollWidth <= node.clientWidth + 1;
+      });
+    };
+    if (fits()) return;
+    root.style.setProperty('--mg-fit-gap', '4px');
+    root.style.setProperty('--mg-fit-model-padding', '2px');
+    root.style.setProperty('--mg-fit-phon-padding', '6px');
+    if (fits()) return;
+    const scaleFonts = scale => visible.forEach((node, index) => {
+      node.style.fontSize = Math.max(node === ui.reading ? 10 : 12, baseline[index] * scale) + 'px';
+    });
+    let low = 0, high = 1;
+    for (let iteration = 0; iteration < 9; iteration += 1) {
+      const middle = (low + high) / 2;
+      scaleFonts(middle);
+      if (fits()) low = middle;
+      else high = middle;
+    }
+    scaleFonts(low);
+  }
+
+  function resetCardMotion() {
+    cardMotion.gesture = null;
+    clearTimeout(cardMotion.animationTimer);
+    ui.lessonView.classList.remove('mg-gesture-dragging', 'mg-card-enter-up', 'mg-card-enter-down', 'mg-card-enter-left', 'mg-card-enter-right');
+    ui.lessonView.style.removeProperty('--mg-drag-x');
+    ui.lessonView.style.removeProperty('--mg-drag-y');
+  }
+
+  function animateCard(direction) {
+    if (!['lesson', 'done'].includes(state.screen)) return;
+    resetCardMotion();
+    // Restart the animation even when two consecutive swipes go the same way.
+    void ui.lessonView.offsetWidth;
+    ui.lessonView.classList.add('mg-card-enter-' + direction);
+    cardMotion.animationTimer = setTimeout(resetCardMotion, 220);
+  }
+
+  function showCardToast(message) {
+    clearTimeout(cardMotion.toastTimer);
+    text(ui.toast, tr(message));
+    ui.toast.hidden = false;
+    cardMotion.toastTimer = setTimeout(() => { ui.toast.hidden = true; }, 1400);
   }
 
   function themeIcon(theme) {
@@ -736,7 +825,8 @@
     if (!saveReviewEntries(state.savedReview.filter(entry => entry.pairId !== state.pair.id || entry.id !== phrase.id))) return;
     state.deferredPhraseIds.add(phrase.id);
     browsePhrase(1);
-    setStatus('Je connais.');
+    showCardToast('Rangée');
+    return true;
   }
 
   function speak(shouldReveal) {
@@ -1228,51 +1318,66 @@
     advanceStep();
   });
   // Match the live mobile card: up/down browse, left defers, right acknowledges.
-  // Native vertical scrolling wins inside a long card; a new gesture at its
-  // relevant edge can change the card. Multi-touch and controls stay native.
-  let cardGesture = null;
-  let suppressTouchClickUntil = 0;
+  // The card follows the finger in all four directions. Controls, selection,
+  // and multi-touch never rate or navigate a card.
   ui.lessonView.addEventListener('touchstart', event => {
-    cardGesture = null;
-    suppressTouchClickUntil = 0;
+    resetCardMotion();
+    cardMotion.suppressClickUntil = 0;
     if (state.screen !== 'lesson' || ui.next.disabled || ui.menu.open || event.touches.length !== 1
         || event.target.closest('button,a,input,textarea,select,[contenteditable]')
         || window.getSelection()?.toString().trim()) return;
     const touch = event.touches[0];
-    const max = Math.max(0, ui.content.scrollHeight - ui.content.clientHeight);
-    const top = Math.max(0, Math.min(max, ui.content.scrollTop));
-    cardGesture = { x: touch.clientX, y: touch.clientY, pairId: state.pair.id,
-      sequence: state.sequence, index: state.stepIndex, scrolling: max > 2,
-      atTop: top <= 2, atBottom: max - top <= (parseFloat(getComputedStyle(ui.content).paddingBottom) || 0) + 2 };
+    cardMotion.gesture = { x: touch.clientX, y: touch.clientY, pairId: state.pair.id,
+      sequence: state.sequence, index: state.stepIndex };
   }, { passive: true });
   ui.lessonView.addEventListener('touchmove', event => {
-    if (event.touches.length !== 1) cardGesture = null;
+    const gesture = cardMotion.gesture;
+    if (!gesture) return;
+    if (event.touches.length !== 1 || ui.menu.open || state.screen !== 'lesson'
+        || gesture.pairId !== state.pair.id || gesture.sequence !== state.sequence || gesture.index !== state.stepIndex
+        || window.getSelection()?.toString().trim()) { resetCardMotion(); return; }
+    const touch = event.touches[0];
+    const dx = touch.clientX - gesture.x, dy = touch.clientY - gesture.y;
+    if (Math.max(Math.abs(dx), Math.abs(dy)) < 8) return;
+    ui.lessonView.classList.add('mg-gesture-dragging');
+    ui.lessonView.style.setProperty('--mg-drag-x', dx + 'px');
+    ui.lessonView.style.setProperty('--mg-drag-y', dy + 'px');
   }, { passive: true });
-  ui.lessonView.addEventListener('touchcancel', () => { cardGesture = null; }, { passive: true });
+  ui.lessonView.addEventListener('touchcancel', resetCardMotion, { passive: true });
   ui.lessonView.addEventListener('touchend', event => {
-    const gesture = cardGesture; cardGesture = null;
+    const gesture = cardMotion.gesture;
+    resetCardMotion();
     const touch = event.changedTouches[0];
     if (!gesture || !touch || event.touches.length || state.screen !== 'lesson' || ui.menu.open
         || gesture.pairId !== state.pair.id || gesture.sequence !== state.sequence || gesture.index !== state.stepIndex
         || window.getSelection()?.toString().trim()) return;
     const dx = touch.clientX - gesture.x, dy = touch.clientY - gesture.y;
-    if (Math.abs(dx) > 15 || Math.abs(dy) > 15) suppressTouchClickUntil = Date.now() + 600;
+    if (Math.abs(dx) > 15 || Math.abs(dy) > 15) cardMotion.suppressClickUntil = Date.now() + 600;
+    const before = state.stepIndex;
     if (Math.abs(dy) >= 70 && Math.abs(dy) > Math.abs(dx) * 1.2) {
-      if (dy < 0 && (!gesture.scrolling || gesture.atBottom)) browsePhrase(1);
-      else if (dy > 0 && (!gesture.scrolling || gesture.atTop)) browsePhrase(-1);
+      browsePhrase(dy < 0 ? 1 : -1);
+      if (before !== state.stepIndex || state.screen === 'done') animateCard(dy < 0 ? 'up' : 'down');
     } else if (Math.abs(dx) >= 80 && Math.abs(dx) > Math.abs(dy) * 1.4) {
-      if (dx < 0) markForReview();
-      else markKnown();
+      const changed = dx < 0 ? markForReview() : markKnown();
+      if (changed) animateCard(dx < 0 ? 'left' : 'right');
     }
   }, { passive: true });
   ui.lessonView.addEventListener('click', event => {
-    if (event.detail === 0 || Date.now() > suppressTouchClickUntil) return;
+    if (event.detail === 0 || Date.now() > cardMotion.suppressClickUntil) return;
     event.preventDefault(); event.stopImmediatePropagation();
   }, true);
   ui.retry.addEventListener('click', () => ui.level && state.data
     ? choosePair(state.requestedPair || ui.language.value, state.level) : loadData());
   document.addEventListener('keydown', event => { if (event.key === 'Escape') closeHelp(); });
   window.addEventListener('pagehide', stopAudio);
+  window.addEventListener('resize', queueLessonFit);
+  window.visualViewport?.addEventListener('resize', () => { if (window.visualViewport.scale === 1) queueLessonFit(); });
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(queueLessonFit);
+    for (const node of [ui.content, ui.footer, ui.lessonView]) observer.observe(node);
+  }
+  new MutationObserver(queueLessonFit).observe(document.body, { childList: true });
+  document.fonts?.ready.then(queueLessonFit);
 
   // Read-only state supports preview checks without touching the real application.
   window.MelungaMockup = Object.freeze({ state: () => Object.freeze({
