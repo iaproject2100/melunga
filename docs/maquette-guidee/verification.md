@@ -35,4 +35,23 @@ Le formulaire Avis a été testé avec succès, échec et champs obligatoires, e
 
 ## Périmètre produit
 
-La branche part du retour arrière `edf7406`. Seuls la page autonome de maquette, ses fichiers, son générateur et sa documentation sont ajoutés. Les fichiers préexistants, dont `app.html`, sont inchangés. La branche `main` reste sur la version restaurée ; aucune fusion de cette maquette n'est demandée.
+La branche part du retour arrière `edf7406` et reprend les correctifs de production ultérieurs. Par rapport à `main`, seuls la page autonome de maquette, ses fichiers, son générateur et sa documentation sont ajoutés. Les fichiers préexistants, dont `app.html`, sont inchangés par cette proposition. Aucune fusion de cette maquette n'est demandée.
+
+## Petites photos des thèmes — 24 octobre 2026
+
+Onze scènes originales en couleur remplacent visuellement les pictogrammes des
+cartes. Les boutons conservent leurs intitulés, leur numérotation, leur quantité
+et leur démarrage direct. Le fichier WebP local partagé pèse 225 420 octets.
+
+Contrôle Chromium local : **231 ouvertures de thème**, sept couples sur
+320/390/1440 pixels, onze photos chargées par grille, positions conformes et
+ratio 4:3. Une seule requête pour l'image partagée, y compris après changement
+de langue et retour aux thèmes. Trois ambiances, absence de chevauchement et
+absence de débordement contrôlées. Si le fichier image échoue, les pictogrammes
+de secours et les titres restent utilisables ; le clic démarre toujours le thème.
+
+Aucune erreur JavaScript, requête d'écriture ou requête externe observée.
+Les captures ordinateur et mobile ont été inspectées visuellement. Le contrôle
+du générateur confirme encore 2 134 cartes et 7 293 champs source identiques.
+Ces contrôles portent sur la présentation et la navigation, pas sur une mesure
+d'efficacité pédagogique. Références et provenance dans [photos-themes.md](photos-themes.md).

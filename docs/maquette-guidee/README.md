@@ -8,6 +8,7 @@ Cette maquette répond aux deux retours de Kartech : conserver la présentation 
 - Sept couples : fr→en, fr→es, fr→it, fr→zh, fr→ja, fr→ko et zh→fr.
 - Les **2 134 cartes dont le niveau source vaut exactement 1** sont conservées, avec leur indice source. Deux cartes portant le même texte ne sont pas fusionnées.
 - Les thèmes sont numérotés dans l'ordre conseillé de cette proposition éditoriale. Le thème professionnel est indiqué comme facultatif.
+- Onze petites photos en couleur permettent de reconnaître les situations. Les titres et quantités restent séparés des images ; un seul fichier local de 220 Kio sert les miniatures des sept couples. Voir [les choix visuels et leurs références](photos-themes.md).
 - Sur ordinateur comme sur mobile, un clic sur le thème démarre directement sa leçon complète. Les groupes de pratique s'enchaînent sans écran de sélection ni arrêt intermédiaire ; compteur et barre de progression portent sur tout le thème. Les quantités restent visibles dans la sélection des thèmes. Le logo reste dans la barre latérale sur ordinateur.
 - L'écran de pratique donne la priorité à la phrase, à sa phonétique, à son sens et à l'audio. L'aide détaillée ne s'ouvre que sur demande.
 - Le bouton à quatre carrés ouvre le menu des rubriques sans quitter la phrase. Le retour « Thèmes » reste indépendant. Le menu propose Accueil, Thèmes, Révisions et exercices, Toutes les leçons, Voix, Couleur, Comment ça marche, Avis et Compte.
@@ -40,4 +41,4 @@ Accueil, Toutes les leçons et Compte ouvrent les pages existantes avec leurs pa
 
 Le générateur `tools/maquette-guidee/build_data.py` produit le JSON et son inventaire à partir du catalogue restauré. La vérification doit comparer les champs source et les indices, pas seulement les totaux.
 
-Cette branche part de `edf7406`, le retour à l'ancienne version. Elle ajoute une page d'essai et ses fichiers ; elle ne réactive pas le parcours rejeté. L'application publiée, le catalogue, les prix, les abonnements et les droits restent inchangés. La demande vers `main` est un **brouillon pour aperçu Netlify, à ne pas fusionner**.
+Cette branche part de `edf7406`, le retour à l'ancienne version, et reprend les correctifs de production publiés depuis pour que les liens de l'aperçu restent à jour. Le diff de cette maquette ajoute une page d'essai et ses fichiers ; il ne réactive pas le parcours rejeté et ne modifie ni catalogue, prix, abonnements ou droits. La demande vers `main` est un **brouillon pour aperçu Netlify, à ne pas fusionner**.

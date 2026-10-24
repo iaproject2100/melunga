@@ -34,6 +34,11 @@
     voiceChoices: new Map(), speechRate: 0.85
   };
   const ambiences = ['ocean', 'aurora', 'dusk'];
+  // One local image atlas, shared by all languages. Each tile is a 4:3 scene.
+  const themePhotos = new Map([
+    'saluer', 'comprendre', 'ressentis', 'repas', 'deplacements', 'reperes',
+    'quotidien', 'decrire', 'conversation', 'travail', 'personnaliser'
+  ].map((id, index) => [id, { column: index % 3, row: Math.floor(index / 3) }]));
   const voices = { zh: 'zh-CN', es: 'es-ES', en: 'en-GB', fr: 'fr-FR', it: 'it-IT', ko: 'ko-KR', ja: 'ja-JP' };
   const svg = paths => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + paths + '</svg>';
   const icons = {
@@ -295,6 +300,22 @@
     pictogram.className = className === 'mg-theme' ? 'mg-theme-icon' : 'mg-sequence-icon';
     pictogram.innerHTML = icon;
     pictogram.setAttribute('aria-hidden', 'true');
+    const scene = className === 'mg-theme' && theme && themePhotos.get(theme.id);
+    if (scene) {
+      pictogram.classList.add('mg-theme-photo');
+      pictogram.dataset.themePhoto = theme.id;
+      pictogram.style.setProperty('--mg-photo-column', scene.column);
+      pictogram.style.setProperty('--mg-photo-row', scene.row);
+      const photo = document.createElement('img');
+      photo.src = 'assets/theme-scenes.webp';
+      photo.alt = '';
+      photo.decoding = 'async';
+      photo.loading = 'lazy';
+      photo.draggable = false;
+      // Keep the existing pictogram behind the photo as a network-failure fallback.
+      photo.addEventListener('error', () => photo.remove(), { once: true });
+      pictogram.append(photo);
+    }
     const content = document.createElement('span');
     content.className = 'mg-sequence-copy';
     const label = document.createElement(className === 'mg-theme' ? 'span' : 'strong');
