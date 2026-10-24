@@ -52,4 +52,4 @@ python3 tools/maquette-guidee/build_data.py
 python3 tools/maquette-guidee/build_data.py --check
 ```
 
-Empreinte SHA-256 du fichier source : `891a622f45afbc561d924fb2f5f860f8dbff4ffb17541c03a8ef481def92ca96`.
+Empreinte SHA-256 du fichier source : `61853d499f60790a68630e6984ba652ceaa320fe3c8fcd85fed8f116e7d504cd`.
