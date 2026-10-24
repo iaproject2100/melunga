@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "environment": "local Chromium; emulated viewports, no physical device",
+  "publicSiteChecked": false,
+  "nativeOrPedagogicalValidation": false,
+  "widths": [
+    320,
+    390,
+    1440
+  ],
+  "cellViews": 210,
+  "themeEntries": 3816,
+  "domSteps": 127115,
+  "runtimeJsonFieldsCompared": 508460,
+  "templateSteps": 0,
+  "preparationSteps": 38,
+  "reserveCardsTracked": 849,
+  "renderedStepsByType": {
+    "utterance": 86918,
+    "vocabulary": 38754,
+    "number": 1443
+  },
+  "failures": [],
+  "checks": [
+    "matrix-320",
+    "matrix-390",
+    "matrix-1440",
+    "fetch-races-and-retry",
+    "initial-load-retries",
+    "menu-palette-targets",
+    "legacy-v1-compatibility",
+    "photo-atlases-and-network-isolation",
+    "lexical-family-priority"
+  ],
+  "manifestSha256": "2d5c14840ec51953a4267a9364bf5e8df328a6becfdc58d3dfbe7241fd4908d2",
+  "cellBundleSha256": "8826448fe5dd63b85c20cd24aaadc7a5fbed508b42ee7e74acd37a6e04d3d9ad",
+  "externalRequests": [],
+  "apiRequests": [],
+  "cellBundleStableDuringRun": true,
+  "manifestStableDuringRun": true,
+  "executedAt": "2026-10-24T12:42:03.105Z",
+  "verificationRuns": [
+    {
+      "kind": "matrix-and-browser-regressions",
+      "checks": [
+        "matrix-320",
+        "matrix-390",
+        "matrix-1440",
+        "fetch-races-and-retry",
+        "initial-load-retries",
+        "menu-palette-targets",
+        "legacy-v1-compatibility",
+        "photo-atlases-and-network-isolation"
+      ],
+      "executedAt": "2026-10-24T12:42:03.105Z"
+    },
+    {
+      "kind": "complementary-data-routing-check",
+      "checks": [
+        "lexical-family-priority"
+      ],
+      "executedAt": "2026-10-24T12:41:42.698Z"
+    }
+  ],
+  "lexicalFamilyRouting": {
+    "cells": 70,
+    "adjective": 794,
+    "preposition": 93,
+    "adverb": 387
+  }
+}

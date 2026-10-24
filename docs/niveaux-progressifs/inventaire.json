@@ -1,0 +1,4770 @@
+{
+  "version": 1,
+  "status": "inventory-not-a-progressivity-validation",
+  "sourceFile": "melunga_deploy/app.html",
+  "sourceAppSha256": "61853d499f60790a68630e6984ba652ceaa320fe3c8fcd85fed8f116e7d504cd",
+  "sourceDecksSha256": "2fd6735db365ab869d8426bf879ef0106418698fbb9307b0eca60a5549b89d2a",
+  "scope": "The seven primary catalogue pairs and every source card, without deduplication.",
+  "doesNotMeasureAcquisition": true,
+  "publicationApproved": false,
+  "sourceLevelChanges": 0,
+  "studiedPhraseChanges": 0,
+  "phoneticChanges": 0,
+  "historicalL1Meaning": "Cards whose original catalogue level is the integer 1; this is not the union of all historical free rights.",
+  "guidedReferenceMeaning": "Declarations from card.arch; neither their source links nor pedagogical preparation are validated by this count.",
+  "priorReviewReferences": [
+    {
+      "gitReference": "review/progression-L1-L10:docs/progression-corrections/parcours-corriges.json",
+      "purpose": "Previous reviewed proposal for conversation units; not a reclassification of the 32,115 catalogue cards."
+    },
+    {
+      "gitReference": "review/progression-L1-L10:docs/progression-corrections/editorial-en-es.json",
+      "purpose": "English/Spanish unit decisions."
+    },
+    {
+      "gitReference": "review/progression-L1-L10:docs/progression-corrections/editorial-ko-it.json",
+      "purpose": "Korean/Italian unit decisions."
+    },
+    {
+      "gitReference": "review/progression-L1-L10:docs/progression-corrections/editorial-zh-ja.json",
+      "purpose": "Chinese/Japanese unit decisions."
+    },
+    {
+      "gitReference": "review/progression-L1-L10:docs/progression-corrections/editorial-zh-fr.json",
+      "purpose": "French for sinophones unit decisions."
+    },
+    {
+      "gitReference": "review/progression-L1-L10:docs/progression-corrections/transition-es/preparations.json",
+      "purpose": "Existing catalogue preparations for the Spanish transition."
+    },
+    {
+      "gitReference": "review/progression-L1-L10:docs/progression-corrections/reprise-globale/cadre-commun.json",
+      "purpose": "Earlier common level framework; proposal to examine, not proof of catalogue progressivity."
+    }
+  ],
+  "runtimeConversationSources": {
+    "presentCount": 0,
+    "expectedHistoricalCount": 110,
+    "note": "Historical conversation sources and their unit review are a separate corpus. Their presence must be verified before calling them integrated."
+  },
+  "pairs": [
+    {
+      "id": "fr-en",
+      "nativeLanguage": "fr",
+      "studyLanguage": "en",
+      "label": "Anglais",
+      "totalCards": 4502,
+      "deckSha256": "950afe3cc8964e99f4fa5b21315ff0938bc96ccc08d4e871ef0c024f94caa112",
+      "fieldMap": {
+        "study": "t",
+        "native": "frm",
+        "phon": "pf"
+      },
+      "historicalL1Expected": 323,
+      "historicalL1Observed": 323,
+      "historicalL1Matches": true,
+      "categories": {
+        "basics": 56,
+        "bonus": 48,
+        "core": 3230,
+        "template": 58,
+        "vocab": 1110
+      },
+      "levels": [
+        {
+          "level": 1,
+          "cards": 323,
+          "categories": {
+            "bonus": 4,
+            "core": 308,
+            "template": 11
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 1,
+          "declaredReferencesAtThisPathLevel": 19,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 2,
+          "cards": 537,
+          "categories": {
+            "basics": 12,
+            "bonus": 7,
+            "core": 418,
+            "template": 7,
+            "vocab": 93
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 12,
+          "declaredReferencesAtThisPathLevel": 21,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 3,
+          "cards": 737,
+          "categories": {
+            "basics": 11,
+            "bonus": 8,
+            "core": 534,
+            "template": 8,
+            "vocab": 176
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 13,
+          "declaredReferencesAtThisPathLevel": 10,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 4,
+          "cards": 530,
+          "categories": {
+            "basics": 23,
+            "bonus": 1,
+            "core": 275,
+            "template": 10,
+            "vocab": 221
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 10,
+          "declaredReferencesAtThisPathLevel": 18,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 5,
+          "cards": 706,
+          "categories": {
+            "basics": 10,
+            "bonus": 8,
+            "core": 400,
+            "template": 4,
+            "vocab": 284
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 7,
+          "declaredReferencesAtThisPathLevel": 18,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 6,
+          "cards": 490,
+          "categories": {
+            "bonus": 1,
+            "core": 352,
+            "template": 6,
+            "vocab": 131
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 8,
+          "declaredReferencesAtThisPathLevel": 16,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 7,
+          "cards": 459,
+          "categories": {
+            "bonus": 1,
+            "core": 380,
+            "template": 1,
+            "vocab": 77
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 12,
+          "declaredReferencesAtThisPathLevel": 16,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 8,
+          "cards": 320,
+          "categories": {
+            "bonus": 3,
+            "core": 289,
+            "template": 7,
+            "vocab": 21
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 8,
+          "declaredReferencesAtThisPathLevel": 11,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 9,
+          "cards": 174,
+          "categories": {
+            "bonus": 11,
+            "core": 132,
+            "template": 4,
+            "vocab": 27
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 2,
+          "declaredReferencesAtThisPathLevel": 12,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 10,
+          "cards": 226,
+          "categories": {
+            "bonus": 4,
+            "core": 142,
+            "vocab": 80
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 6,
+          "declaredReferencesAtThisPathLevel": 10,
+          "declaredFamiliesAtThisPathLevel": 2
+        }
+      ],
+      "invalidSourceLevelIndices": [],
+      "missingFields": {
+        "study": [],
+        "native": [],
+        "phon": []
+      },
+      "declaredGuidedFamilyCount": 26,
+      "declaredGuidedReferenceCount": 151,
+      "malformedGuidedReferenceIndices": [],
+      "declaredGuidedFamilies": [
+        {
+          "id": "L10_ARGUMENT_EQUILIBRE",
+          "references": 6,
+          "sourceIndices": [
+            2474,
+            2555,
+            2563,
+            2918,
+            3133,
+            4501
+          ],
+          "sourceLevels": {
+            "10": 2,
+            "2": 1,
+            "8": 3
+          },
+          "pathLevels": {
+            "10": 6
+          }
+        },
+        {
+          "id": "L10_AVIS_NUANCE",
+          "references": 4,
+          "sourceIndices": [
+            1664,
+            2227,
+            2829,
+            4437
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "6": 2,
+            "7": 1
+          },
+          "pathLevels": {
+            "10": 4
+          }
+        },
+        {
+          "id": "L1_BESOIN",
+          "references": 6,
+          "sourceIndices": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            443
+          ],
+          "sourceLevels": {
+            "2": 5,
+            "3": 1
+          },
+          "pathLevels": {
+            "1": 6
+          }
+        },
+        {
+          "id": "L1_ETAT_C_EST",
+          "references": 7,
+          "sourceIndices": [
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            104
+          ],
+          "sourceLevels": {
+            "2": 7
+          },
+          "pathLevels": {
+            "1": 7
+          }
+        },
+        {
+          "id": "L1_LOCALISER",
+          "references": 6,
+          "sourceIndices": [
+            105,
+            784,
+            977,
+            1022,
+            1078,
+            1265
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "3": 1,
+            "4": 3,
+            "5": 1
+          },
+          "pathLevels": {
+            "1": 6
+          }
+        },
+        {
+          "id": "L2_ACTION_PROCHE",
+          "references": 7,
+          "sourceIndices": [
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            444
+          ],
+          "sourceLevels": {
+            "2": 6,
+            "3": 1
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L2_CAPACITE_AIDE",
+          "references": 7,
+          "sourceIndices": [
+            37,
+            38,
+            112,
+            113,
+            114,
+            115,
+            445
+          ],
+          "sourceLevels": {
+            "2": 6,
+            "3": 1
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L2_DEMANDE_POLIE",
+          "references": 7,
+          "sourceIndices": [
+            39,
+            116,
+            117,
+            446,
+            447,
+            1520,
+            2830
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "2": 3,
+            "3": 2,
+            "5": 1
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L3_CAUSE",
+          "references": 5,
+          "sourceIndices": [
+            2228,
+            2470,
+            2556,
+            2616,
+            4464
+          ],
+          "sourceLevels": {
+            "4": 1,
+            "7": 1,
+            "8": 3
+          },
+          "pathLevels": {
+            "3": 5
+          }
+        },
+        {
+          "id": "L3_OPPOSITION",
+          "references": 5,
+          "sourceIndices": [
+            2229,
+            2230,
+            2231,
+            2557,
+            3177
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "7": 3,
+            "8": 1
+          },
+          "pathLevels": {
+            "3": 5
+          }
+        },
+        {
+          "id": "L4_CONDITION",
+          "references": 6,
+          "sourceIndices": [
+            2747,
+            2772,
+            2773,
+            2831,
+            2832,
+            2833
+          ],
+          "sourceLevels": {
+            "10": 3,
+            "9": 3
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L4_DEMANDE_FORMELLE",
+          "references": 6,
+          "sourceIndices": [
+            1079,
+            1752,
+            1941,
+            2045,
+            2471,
+            3035
+          ],
+          "sourceLevels": {
+            "1": 1,
+            "4": 1,
+            "6": 2,
+            "7": 1,
+            "8": 1
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L4_PROPOSITION",
+          "references": 6,
+          "sourceIndices": [
+            448,
+            449,
+            450,
+            2046,
+            2718,
+            2719
+          ],
+          "sourceLevels": {
+            "3": 3,
+            "7": 1,
+            "9": 2
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L5_OBLIGATION",
+          "references": 6,
+          "sourceIndices": [
+            451,
+            1266,
+            1521,
+            1942,
+            2047,
+            2232
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "5": 2,
+            "6": 1,
+            "7": 2
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L5_PERMISSION",
+          "references": 6,
+          "sourceIndices": [
+            118,
+            452,
+            453,
+            454,
+            785,
+            1184
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "3": 4,
+            "4": 1
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L5_TEMPS",
+          "references": 6,
+          "sourceIndices": [
+            927,
+            1844,
+            2233,
+            2558,
+            2559,
+            3277
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "4": 1,
+            "6": 1,
+            "7": 1,
+            "8": 2
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L6_CHOIX_COMPARE",
+          "references": 4,
+          "sourceIndices": [
+            119,
+            978,
+            1267,
+            1665
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "4": 1,
+            "5": 1,
+            "6": 1
+          },
+          "pathLevels": {
+            "6": 4
+          }
+        },
+        {
+          "id": "L6_CONSEIL",
+          "references": 6,
+          "sourceIndices": [
+            120,
+            455,
+            979,
+            1130,
+            1845,
+            2048
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "3": 1,
+            "4": 2,
+            "6": 1,
+            "7": 1
+          },
+          "pathLevels": {
+            "6": 6
+          }
+        },
+        {
+          "id": "L6_OPINION",
+          "references": 6,
+          "sourceIndices": [
+            456,
+            457,
+            786,
+            1185,
+            1268,
+            1396
+          ],
+          "sourceLevels": {
+            "3": 3,
+            "4": 1,
+            "5": 2
+          },
+          "pathLevels": {
+            "6": 6
+          }
+        },
+        {
+          "id": "L7_HABITUDE",
+          "references": 6,
+          "sourceIndices": [
+            2049,
+            2050,
+            2234,
+            2303,
+            2372,
+            2560
+          ],
+          "sourceLevels": {
+            "7": 5,
+            "8": 1
+          },
+          "pathLevels": {
+            "7": 6
+          }
+        },
+        {
+          "id": "L7_INFORMATION_RAPPORTEE",
+          "references": 4,
+          "sourceIndices": [
+            1753,
+            1846,
+            2235,
+            2342
+          ],
+          "sourceLevels": {
+            "6": 2,
+            "7": 2
+          },
+          "pathLevels": {
+            "7": 4
+          }
+        },
+        {
+          "id": "L7_SEQUENCE",
+          "references": 6,
+          "sourceIndices": [
+            1522,
+            2236,
+            2472,
+            2473,
+            2561,
+            2562
+          ],
+          "sourceLevels": {
+            "5": 1,
+            "7": 1,
+            "8": 4
+          },
+          "pathLevels": {
+            "7": 6
+          }
+        },
+        {
+          "id": "L8_CLARIFICATION",
+          "references": 5,
+          "sourceIndices": [
+            2051,
+            2052,
+            2053,
+            3085,
+            4467
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "4": 1,
+            "7": 3
+          },
+          "pathLevels": {
+            "8": 5
+          }
+        },
+        {
+          "id": "L8_CONCESSION",
+          "references": 6,
+          "sourceIndices": [
+            2474,
+            2563,
+            2617,
+            2896,
+            2897,
+            2918
+          ],
+          "sourceLevels": {
+            "10": 3,
+            "8": 3
+          },
+          "pathLevels": {
+            "8": 6
+          }
+        },
+        {
+          "id": "L9_HYPOTHESE",
+          "references": 6,
+          "sourceIndices": [
+            2898,
+            2919,
+            2920,
+            2921,
+            2922,
+            2938
+          ],
+          "sourceLevels": {
+            "10": 6
+          },
+          "pathLevels": {
+            "9": 6
+          }
+        },
+        {
+          "id": "L9_PROBABILITE",
+          "references": 6,
+          "sourceIndices": [
+            121,
+            458,
+            1023,
+            1523,
+            1666,
+            3186
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "3": 2,
+            "4": 1,
+            "5": 1,
+            "6": 1
+          },
+          "pathLevels": {
+            "9": 6
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-es",
+      "nativeLanguage": "fr",
+      "studyLanguage": "es",
+      "label": "Espagnol",
+      "totalCards": 4672,
+      "deckSha256": "660baaf7941b9c77053c8ae1adf512e8567c28a0e7e640e055d5589828140e7b",
+      "fieldMap": {
+        "study": "t",
+        "native": "frm",
+        "phon": "pf"
+      },
+      "historicalL1Expected": 289,
+      "historicalL1Observed": 289,
+      "historicalL1Matches": true,
+      "categories": {
+        "bonus": 413,
+        "core": 3621,
+        "template": 7,
+        "vocab": 631
+      },
+      "levels": [
+        {
+          "level": 1,
+          "cards": 289,
+          "categories": {
+            "bonus": 63,
+            "core": 224,
+            "template": 2
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 3,
+          "declaredReferencesAtThisPathLevel": 19,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 2,
+          "cards": 613,
+          "categories": {
+            "bonus": 42,
+            "core": 491,
+            "template": 1,
+            "vocab": 79
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 10,
+          "declaredReferencesAtThisPathLevel": 21,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 3,
+          "cards": 550,
+          "categories": {
+            "bonus": 30,
+            "core": 443,
+            "template": 2,
+            "vocab": 75
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 15,
+          "declaredReferencesAtThisPathLevel": 10,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 4,
+          "cards": 599,
+          "categories": {
+            "bonus": 33,
+            "core": 478,
+            "vocab": 88
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 8,
+          "declaredReferencesAtThisPathLevel": 18,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 5,
+          "cards": 592,
+          "categories": {
+            "bonus": 47,
+            "core": 480,
+            "vocab": 65
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 9,
+          "declaredReferencesAtThisPathLevel": 18,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 6,
+          "cards": 508,
+          "categories": {
+            "bonus": 36,
+            "core": 412,
+            "template": 2,
+            "vocab": 58
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 13,
+          "declaredReferencesAtThisPathLevel": 16,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 7,
+          "cards": 489,
+          "categories": {
+            "bonus": 37,
+            "core": 373,
+            "vocab": 79
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 9,
+          "declaredReferencesAtThisPathLevel": 16,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 8,
+          "cards": 432,
+          "categories": {
+            "bonus": 44,
+            "core": 348,
+            "vocab": 40
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 11,
+          "declaredReferencesAtThisPathLevel": 11,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 9,
+          "cards": 309,
+          "categories": {
+            "bonus": 44,
+            "core": 186,
+            "vocab": 79
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 4,
+          "declaredReferencesAtThisPathLevel": 12,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 10,
+          "cards": 291,
+          "categories": {
+            "bonus": 37,
+            "core": 186,
+            "vocab": 68
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 9,
+          "declaredReferencesAtThisPathLevel": 10,
+          "declaredFamiliesAtThisPathLevel": 2
+        }
+      ],
+      "invalidSourceLevelIndices": [],
+      "missingFields": {
+        "study": [],
+        "native": [],
+        "phon": []
+      },
+      "declaredGuidedFamilyCount": 26,
+      "declaredGuidedReferenceCount": 151,
+      "malformedGuidedReferenceIndices": [],
+      "declaredGuidedFamilies": [
+        {
+          "id": "L10_ARGUMENT_EQUILIBRE",
+          "references": 6,
+          "sourceIndices": [
+            2277,
+            2984,
+            2985,
+            3386,
+            4647,
+            4649
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "3": 2,
+            "6": 1,
+            "8": 2
+          },
+          "pathLevels": {
+            "10": 6
+          }
+        },
+        {
+          "id": "L10_AVIS_NUANCE",
+          "references": 4,
+          "sourceIndices": [
+            2981,
+            3273,
+            3734,
+            4514
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "3": 1,
+            "6": 1,
+            "8": 1
+          },
+          "pathLevels": {
+            "10": 4
+          }
+        },
+        {
+          "id": "L1_BESOIN",
+          "references": 6,
+          "sourceIndices": [
+            88,
+            89,
+            90,
+            560,
+            1143,
+            1829
+          ],
+          "sourceLevels": {
+            "2": 3,
+            "3": 1,
+            "4": 1,
+            "5": 1
+          },
+          "pathLevels": {
+            "1": 6
+          }
+        },
+        {
+          "id": "L1_ETAT_C_EST",
+          "references": 7,
+          "sourceIndices": [
+            3441,
+            3506,
+            3528,
+            3531,
+            3558,
+            3579,
+            4583
+          ],
+          "sourceLevels": {
+            "1": 7
+          },
+          "pathLevels": {
+            "1": 7
+          }
+        },
+        {
+          "id": "L1_LOCALISER",
+          "references": 6,
+          "sourceIndices": [
+            91,
+            515,
+            561,
+            562,
+            563,
+            664
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "3": 5
+          },
+          "pathLevels": {
+            "1": 6
+          }
+        },
+        {
+          "id": "L2_ACTION_PROCHE",
+          "references": 7,
+          "sourceIndices": [
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            564
+          ],
+          "sourceLevels": {
+            "2": 6,
+            "3": 1
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L2_CAPACITE_AIDE",
+          "references": 7,
+          "sourceIndices": [
+            98,
+            565,
+            959,
+            1061,
+            1144,
+            1145,
+            2201
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "3": 1,
+            "4": 4,
+            "6": 1
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L2_DEMANDE_POLIE",
+          "references": 7,
+          "sourceIndices": [
+            99,
+            749,
+            960,
+            961,
+            1146,
+            3274,
+            3384
+          ],
+          "sourceLevels": {
+            "10": 2,
+            "2": 1,
+            "3": 1,
+            "4": 3
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L3_CAUSE",
+          "references": 5,
+          "sourceIndices": [
+            2275,
+            2615,
+            2905,
+            2982,
+            3016
+          ],
+          "sourceLevels": {
+            "6": 1,
+            "7": 1,
+            "8": 3
+          },
+          "pathLevels": {
+            "3": 5
+          }
+        },
+        {
+          "id": "L3_OPPOSITION",
+          "references": 5,
+          "sourceIndices": [
+            2276,
+            2616,
+            2906,
+            2907,
+            2983
+          ],
+          "sourceLevels": {
+            "6": 1,
+            "7": 1,
+            "8": 3
+          },
+          "pathLevels": {
+            "3": 5
+          }
+        },
+        {
+          "id": "L4_CONDITION",
+          "references": 6,
+          "sourceIndices": [
+            3150,
+            3206,
+            3275,
+            3348,
+            3405,
+            3406
+          ],
+          "sourceLevels": {
+            "10": 4,
+            "9": 2
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L4_DEMANDE_FORMELLE",
+          "references": 6,
+          "sourceIndices": [
+            98,
+            100,
+            101,
+            565,
+            1061,
+            1062
+          ],
+          "sourceLevels": {
+            "2": 3,
+            "3": 1,
+            "4": 2
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L4_PROPOSITION",
+          "references": 6,
+          "sourceIndices": [
+            566,
+            665,
+            2428,
+            2617,
+            2908,
+            2909
+          ],
+          "sourceLevels": {
+            "3": 2,
+            "7": 2,
+            "8": 2
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L5_OBLIGATION",
+          "references": 6,
+          "sourceIndices": [
+            666,
+            1332,
+            2202,
+            2429,
+            2430,
+            2910
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "4": 1,
+            "6": 1,
+            "7": 2,
+            "8": 1
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L5_PERMISSION",
+          "references": 6,
+          "sourceIndices": [
+            750,
+            751,
+            850,
+            1242,
+            1474,
+            3229
+          ],
+          "sourceLevels": {
+            "3": 3,
+            "4": 1,
+            "5": 1,
+            "9": 1
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L5_TEMPS",
+          "references": 6,
+          "sourceIndices": [
+            2431,
+            2432,
+            2911,
+            3105,
+            3935,
+            4656
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "5": 1,
+            "7": 2,
+            "8": 1,
+            "9": 1
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L6_CHOIX_COMPARE",
+          "references": 4,
+          "sourceIndices": [
+            851,
+            1475,
+            1476,
+            2042
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "5": 2,
+            "6": 1
+          },
+          "pathLevels": {
+            "6": 4
+          }
+        },
+        {
+          "id": "L6_CONSEIL",
+          "references": 6,
+          "sourceIndices": [
+            1605,
+            1722,
+            1830,
+            1831,
+            2140,
+            3349
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "5": 4,
+            "6": 1
+          },
+          "pathLevels": {
+            "6": 6
+          }
+        },
+        {
+          "id": "L6_OPINION",
+          "references": 6,
+          "sourceIndices": [
+            1147,
+            1243,
+            1333,
+            1606,
+            1932,
+            2912
+          ],
+          "sourceLevels": {
+            "4": 3,
+            "5": 1,
+            "6": 1,
+            "8": 1
+          },
+          "pathLevels": {
+            "6": 6
+          }
+        },
+        {
+          "id": "L7_HABITUDE",
+          "references": 6,
+          "sourceIndices": [
+            1933,
+            2433,
+            2913,
+            4336,
+            4509,
+            4600
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "6": 1,
+            "7": 1,
+            "8": 2,
+            "9": 1
+          },
+          "pathLevels": {
+            "7": 6
+          }
+        },
+        {
+          "id": "L7_INFORMATION_RAPPORTEE",
+          "references": 4,
+          "sourceIndices": [
+            1723,
+            1832,
+            1934,
+            2434
+          ],
+          "sourceLevels": {
+            "5": 2,
+            "6": 1,
+            "7": 1
+          },
+          "pathLevels": {
+            "7": 4
+          }
+        },
+        {
+          "id": "L7_SEQUENCE",
+          "references": 6,
+          "sourceIndices": [
+            3037,
+            3561,
+            3586,
+            4619,
+            4656,
+            4671
+          ],
+          "sourceLevels": {
+            "1": 1,
+            "10": 1,
+            "2": 2,
+            "7": 1,
+            "8": 1
+          },
+          "pathLevels": {
+            "7": 6
+          }
+        },
+        {
+          "id": "L8_CLARIFICATION",
+          "references": 5,
+          "sourceIndices": [
+            3452,
+            3513,
+            3645,
+            4630,
+            4664
+          ],
+          "sourceLevels": {
+            "1": 2,
+            "2": 1,
+            "4": 1,
+            "5": 1
+          },
+          "pathLevels": {
+            "8": 5
+          }
+        },
+        {
+          "id": "L8_CONCESSION",
+          "references": 6,
+          "sourceIndices": [
+            2277,
+            2984,
+            2985,
+            3385,
+            3386,
+            4647
+          ],
+          "sourceLevels": {
+            "10": 2,
+            "3": 1,
+            "6": 1,
+            "8": 2
+          },
+          "pathLevels": {
+            "8": 6
+          }
+        },
+        {
+          "id": "L9_HYPOTHESE",
+          "references": 6,
+          "sourceIndices": [
+            3350,
+            3387,
+            3407,
+            3408,
+            3409,
+            3419
+          ],
+          "sourceLevels": {
+            "10": 6
+          },
+          "pathLevels": {
+            "9": 6
+          }
+        },
+        {
+          "id": "L9_PROBABILITE",
+          "references": 6,
+          "sourceIndices": [
+            32,
+            852,
+            1607,
+            1935,
+            2435,
+            3351
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "2": 1,
+            "3": 1,
+            "5": 1,
+            "6": 1,
+            "7": 1
+          },
+          "pathLevels": {
+            "9": 6
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-it",
+      "nativeLanguage": "fr",
+      "studyLanguage": "it",
+      "label": "Italien",
+      "totalCards": 4509,
+      "deckSha256": "52961ae49464fbe976d88ef818bbaf4c5de5ba679c3ffe62091ecd069f9c947d",
+      "fieldMap": {
+        "study": "t",
+        "native": "frm",
+        "phon": "pf"
+      },
+      "historicalL1Expected": 338,
+      "historicalL1Observed": 338,
+      "historicalL1Matches": true,
+      "categories": {
+        "basics": 56,
+        "bonus": 50,
+        "core": 2818,
+        "template": 71,
+        "vocab": 1514
+      },
+      "levels": [
+        {
+          "level": 1,
+          "cards": 338,
+          "categories": {
+            "bonus": 6,
+            "core": 318,
+            "template": 13,
+            "vocab": 1
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 2,
+          "declaredReferencesAtThisPathLevel": 19,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 2,
+          "cards": 554,
+          "categories": {
+            "basics": 7,
+            "bonus": 5,
+            "core": 354,
+            "template": 13,
+            "vocab": 175
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 10,
+          "declaredReferencesAtThisPathLevel": 21,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 3,
+          "cards": 582,
+          "categories": {
+            "basics": 15,
+            "bonus": 4,
+            "core": 340,
+            "template": 5,
+            "vocab": 218
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 9,
+          "declaredReferencesAtThisPathLevel": 10,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 4,
+          "cards": 630,
+          "categories": {
+            "basics": 23,
+            "bonus": 2,
+            "core": 343,
+            "template": 5,
+            "vocab": 257
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 9,
+          "declaredReferencesAtThisPathLevel": 18,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 5,
+          "cards": 667,
+          "categories": {
+            "basics": 11,
+            "bonus": 5,
+            "core": 353,
+            "template": 9,
+            "vocab": 289
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 9,
+          "declaredReferencesAtThisPathLevel": 18,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 6,
+          "cards": 415,
+          "categories": {
+            "bonus": 3,
+            "core": 303,
+            "template": 10,
+            "vocab": 99
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 4,
+          "declaredReferencesAtThisPathLevel": 16,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 7,
+          "cards": 421,
+          "categories": {
+            "bonus": 5,
+            "core": 305,
+            "template": 6,
+            "vocab": 105
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 12,
+          "declaredReferencesAtThisPathLevel": 16,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 8,
+          "cards": 398,
+          "categories": {
+            "bonus": 4,
+            "core": 268,
+            "template": 3,
+            "vocab": 123
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 14,
+          "declaredReferencesAtThisPathLevel": 11,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 9,
+          "cards": 234,
+          "categories": {
+            "bonus": 8,
+            "core": 115,
+            "template": 3,
+            "vocab": 108
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 6,
+          "declaredReferencesAtThisPathLevel": 12,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 10,
+          "cards": 270,
+          "categories": {
+            "bonus": 8,
+            "core": 119,
+            "template": 4,
+            "vocab": 139
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 7,
+          "declaredReferencesAtThisPathLevel": 10,
+          "declaredFamiliesAtThisPathLevel": 2
+        }
+      ],
+      "invalidSourceLevelIndices": [],
+      "missingFields": {
+        "study": [],
+        "native": [],
+        "phon": []
+      },
+      "declaredGuidedFamilyCount": 26,
+      "declaredGuidedReferenceCount": 151,
+      "malformedGuidedReferenceIndices": [],
+      "declaredGuidedFamilies": [
+        {
+          "id": "L10_ARGUMENT_EQUILIBRE",
+          "references": 6,
+          "sourceIndices": [
+            2105,
+            2179,
+            2183,
+            2184,
+            3870,
+            4508
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "5": 1,
+            "8": 4
+          },
+          "pathLevels": {
+            "10": 6
+          }
+        },
+        {
+          "id": "L10_AVIS_NUANCE",
+          "references": 4,
+          "sourceIndices": [
+            1765,
+            1903,
+            2095,
+            4350
+          ],
+          "sourceLevels": {
+            "7": 2,
+            "8": 1,
+            "9": 1
+          },
+          "pathLevels": {
+            "10": 4
+          }
+        },
+        {
+          "id": "L1_BESOIN",
+          "references": 6,
+          "sourceIndices": [
+            13,
+            54,
+            55,
+            56,
+            57,
+            58
+          ],
+          "sourceLevels": {
+            "1": 1,
+            "2": 5
+          },
+          "pathLevels": {
+            "1": 6
+          }
+        },
+        {
+          "id": "L1_ETAT_C_EST",
+          "references": 7,
+          "sourceIndices": [
+            59,
+            2551,
+            2566,
+            2611,
+            2638,
+            2652,
+            2655
+          ],
+          "sourceLevels": {
+            "1": 6,
+            "2": 1
+          },
+          "pathLevels": {
+            "1": 7
+          }
+        },
+        {
+          "id": "L1_LOCALISER",
+          "references": 6,
+          "sourceIndices": [
+            60,
+            61,
+            62,
+            401,
+            717,
+            718
+          ],
+          "sourceLevels": {
+            "2": 3,
+            "3": 1,
+            "4": 2
+          },
+          "pathLevels": {
+            "1": 6
+          }
+        },
+        {
+          "id": "L2_ACTION_PROCHE",
+          "references": 7,
+          "sourceIndices": [
+            63,
+            402,
+            587,
+            719,
+            913,
+            982,
+            983
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "3": 2,
+            "4": 4
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L2_CAPACITE_AIDE",
+          "references": 7,
+          "sourceIndices": [
+            64,
+            65,
+            66,
+            403,
+            404,
+            405,
+            406
+          ],
+          "sourceLevels": {
+            "2": 3,
+            "3": 4
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L2_DEMANDE_POLIE",
+          "references": 7,
+          "sourceIndices": [
+            67,
+            68,
+            407,
+            408,
+            3048,
+            3994,
+            4009
+          ],
+          "sourceLevels": {
+            "2": 2,
+            "3": 3,
+            "7": 2
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L3_CAUSE",
+          "references": 5,
+          "sourceIndices": [
+            1763,
+            1904,
+            2096,
+            2239,
+            2376
+          ],
+          "sourceLevels": {
+            "7": 2,
+            "8": 2,
+            "9": 1
+          },
+          "pathLevels": {
+            "3": 5
+          }
+        },
+        {
+          "id": "L3_OPPOSITION",
+          "references": 5,
+          "sourceIndices": [
+            1764,
+            2097,
+            2180,
+            2181,
+            2499
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "7": 1,
+            "8": 3
+          },
+          "pathLevels": {
+            "3": 5
+          }
+        },
+        {
+          "id": "L4_CONDITION",
+          "references": 6,
+          "sourceIndices": [
+            1765,
+            2351,
+            2377,
+            2378,
+            2500,
+            2513
+          ],
+          "sourceLevels": {
+            "10": 2,
+            "7": 1,
+            "9": 3
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L4_DEMANDE_FORMELLE",
+          "references": 6,
+          "sourceIndices": [
+            379,
+            409,
+            914,
+            1766,
+            2098,
+            2099
+          ],
+          "sourceLevels": {
+            "3": 2,
+            "4": 1,
+            "7": 1,
+            "8": 2
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L4_PROPOSITION",
+          "references": 6,
+          "sourceIndices": [
+            588,
+            589,
+            720,
+            1159,
+            1290,
+            1478
+          ],
+          "sourceLevels": {
+            "3": 2,
+            "4": 1,
+            "5": 2,
+            "6": 1
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L5_OBLIGATION",
+          "references": 6,
+          "sourceIndices": [
+            69,
+            70,
+            1063,
+            1416,
+            2100,
+            2352
+          ],
+          "sourceLevels": {
+            "2": 2,
+            "5": 1,
+            "6": 1,
+            "8": 1,
+            "9": 1
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L5_PERMISSION",
+          "references": 6,
+          "sourceIndices": [
+            766,
+            856,
+            984,
+            1160,
+            1291,
+            2353
+          ],
+          "sourceLevels": {
+            "4": 3,
+            "5": 2,
+            "9": 1
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L5_TEMPS",
+          "references": 6,
+          "sourceIndices": [
+            1767,
+            2101,
+            2102,
+            2264,
+            2429,
+            4505
+          ],
+          "sourceLevels": {
+            "10": 2,
+            "7": 1,
+            "8": 3
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L6_CHOIX_COMPARE",
+          "references": 4,
+          "sourceIndices": [
+            71,
+            72,
+            1161,
+            1551
+          ],
+          "sourceLevels": {
+            "2": 2,
+            "5": 1,
+            "6": 1
+          },
+          "pathLevels": {
+            "6": 4
+          }
+        },
+        {
+          "id": "L6_CONSEIL",
+          "references": 6,
+          "sourceIndices": [
+            1063,
+            1064,
+            1162,
+            1905,
+            2103,
+            2379
+          ],
+          "sourceLevels": {
+            "5": 3,
+            "7": 1,
+            "8": 1,
+            "9": 1
+          },
+          "pathLevels": {
+            "6": 6
+          }
+        },
+        {
+          "id": "L6_OPINION",
+          "references": 6,
+          "sourceIndices": [
+            915,
+            916,
+            1479,
+            1668,
+            1765,
+            2182
+          ],
+          "sourceLevels": {
+            "4": 2,
+            "6": 2,
+            "7": 1,
+            "8": 1
+          },
+          "pathLevels": {
+            "6": 6
+          }
+        },
+        {
+          "id": "L7_HABITUDE",
+          "references": 6,
+          "sourceIndices": [
+            1768,
+            1769,
+            1770,
+            3265,
+            4020,
+            4228
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "7": 4,
+            "8": 1
+          },
+          "pathLevels": {
+            "7": 6
+          }
+        },
+        {
+          "id": "L7_INFORMATION_RAPPORTEE",
+          "references": 4,
+          "sourceIndices": [
+            1292,
+            1771,
+            2104,
+            3120
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "5": 1,
+            "7": 1,
+            "8": 1
+          },
+          "pathLevels": {
+            "7": 4
+          }
+        },
+        {
+          "id": "L7_SEQUENCE",
+          "references": 6,
+          "sourceIndices": [
+            2843,
+            3354,
+            4166,
+            4505,
+            4506,
+            4507
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "2": 1,
+            "4": 1,
+            "7": 2,
+            "8": 1
+          },
+          "pathLevels": {
+            "7": 6
+          }
+        },
+        {
+          "id": "L8_CLARIFICATION",
+          "references": 5,
+          "sourceIndices": [
+            3297,
+            3610,
+            3625,
+            3865,
+            3872
+          ],
+          "sourceLevels": {
+            "4": 1,
+            "5": 4
+          },
+          "pathLevels": {
+            "8": 5
+          }
+        },
+        {
+          "id": "L8_CONCESSION",
+          "references": 6,
+          "sourceIndices": [
+            2105,
+            2183,
+            2184,
+            2430,
+            2501,
+            3870
+          ],
+          "sourceLevels": {
+            "10": 2,
+            "5": 1,
+            "8": 3
+          },
+          "pathLevels": {
+            "8": 6
+          }
+        },
+        {
+          "id": "L9_HYPOTHESE",
+          "references": 6,
+          "sourceIndices": [
+            2502,
+            2503,
+            2504,
+            2514,
+            2515,
+            2520
+          ],
+          "sourceLevels": {
+            "10": 6
+          },
+          "pathLevels": {
+            "9": 6
+          }
+        },
+        {
+          "id": "L9_PROBABILITE",
+          "references": 6,
+          "sourceIndices": [
+            73,
+            74,
+            590,
+            2879,
+            3538,
+            4189
+          ],
+          "sourceLevels": {
+            "2": 3,
+            "3": 1,
+            "4": 1,
+            "8": 1
+          },
+          "pathLevels": {
+            "9": 6
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-zh",
+      "nativeLanguage": "fr",
+      "studyLanguage": "zh",
+      "label": "Chinois",
+      "totalCards": 4903,
+      "deckSha256": "09ed4015f9b7b1b9d446d8ab61d205bf573a41625a5f0596ce9987f83e06d765",
+      "fieldMap": {
+        "study": "t",
+        "native": "frm",
+        "phon": "phf",
+        "reading": "py"
+      },
+      "historicalL1Expected": 314,
+      "historicalL1Observed": 314,
+      "historicalL1Matches": true,
+      "categories": {
+        "basics": 39,
+        "biz": 886,
+        "bonus": 511,
+        "core": 2371,
+        "template": 13,
+        "trip": 101,
+        "vocab": 982
+      },
+      "levels": [
+        {
+          "level": 1,
+          "cards": 314,
+          "categories": {
+            "biz": 45,
+            "bonus": 13,
+            "core": 224,
+            "template": 3,
+            "trip": 29
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 4,
+          "declaredReferencesAtThisPathLevel": 19,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 2,
+          "cards": 573,
+          "categories": {
+            "basics": 6,
+            "biz": 19,
+            "bonus": 2,
+            "core": 309,
+            "template": 6,
+            "trip": 19,
+            "vocab": 212
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 11,
+          "declaredReferencesAtThisPathLevel": 21,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 3,
+          "cards": 554,
+          "categories": {
+            "basics": 27,
+            "biz": 65,
+            "bonus": 10,
+            "core": 282,
+            "template": 4,
+            "trip": 12,
+            "vocab": 154
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 12,
+          "declaredReferencesAtThisPathLevel": 10,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 4,
+          "cards": 678,
+          "categories": {
+            "basics": 2,
+            "biz": 220,
+            "bonus": 6,
+            "core": 299,
+            "trip": 30,
+            "vocab": 121
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 12,
+          "declaredReferencesAtThisPathLevel": 18,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 5,
+          "cards": 652,
+          "categories": {
+            "basics": 4,
+            "biz": 113,
+            "bonus": 26,
+            "core": 306,
+            "trip": 11,
+            "vocab": 192
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 11,
+          "declaredReferencesAtThisPathLevel": 18,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 6,
+          "cards": 504,
+          "categories": {
+            "biz": 112,
+            "bonus": 22,
+            "core": 265,
+            "vocab": 105
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 9,
+          "declaredReferencesAtThisPathLevel": 16,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 7,
+          "cards": 473,
+          "categories": {
+            "biz": 81,
+            "bonus": 104,
+            "core": 253,
+            "vocab": 35
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 8,
+          "declaredReferencesAtThisPathLevel": 16,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 8,
+          "cards": 524,
+          "categories": {
+            "biz": 124,
+            "bonus": 93,
+            "core": 255,
+            "vocab": 52
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 9,
+          "declaredReferencesAtThisPathLevel": 11,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 9,
+          "cards": 299,
+          "categories": {
+            "biz": 58,
+            "bonus": 90,
+            "core": 66,
+            "vocab": 85
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 0,
+          "declaredReferencesAtThisPathLevel": 12,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 10,
+          "cards": 332,
+          "categories": {
+            "biz": 49,
+            "bonus": 145,
+            "core": 112,
+            "vocab": 26
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 8,
+          "declaredReferencesAtThisPathLevel": 10,
+          "declaredFamiliesAtThisPathLevel": 2
+        }
+      ],
+      "invalidSourceLevelIndices": [],
+      "missingFields": {
+        "study": [],
+        "native": [],
+        "phon": [],
+        "reading": []
+      },
+      "declaredGuidedFamilyCount": 26,
+      "declaredGuidedReferenceCount": 151,
+      "malformedGuidedReferenceIndices": [],
+      "declaredGuidedFamilies": [
+        {
+          "id": "L10_ARGUMENT_EQUILIBRE",
+          "references": 6,
+          "sourceIndices": [
+            1587,
+            1671,
+            1878,
+            1881,
+            2110,
+            4891
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "4": 1,
+            "7": 2,
+            "8": 2
+          },
+          "pathLevels": {
+            "10": 6
+          }
+        },
+        {
+          "id": "L10_AVIS_NUANCE",
+          "references": 4,
+          "sourceIndices": [
+            1457,
+            1584,
+            3307,
+            4856
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "5": 1,
+            "6": 1,
+            "7": 1
+          },
+          "pathLevels": {
+            "10": 4
+          }
+        },
+        {
+          "id": "L1_BESOIN",
+          "references": 6,
+          "sourceIndices": [
+            90,
+            216,
+            413,
+            414,
+            571,
+            810
+          ],
+          "sourceLevels": {
+            "2": 2,
+            "3": 3,
+            "4": 1
+          },
+          "pathLevels": {
+            "1": 6
+          }
+        },
+        {
+          "id": "L1_ETAT_C_EST",
+          "references": 7,
+          "sourceIndices": [
+            13,
+            91,
+            217,
+            623,
+            624,
+            690,
+            2106
+          ],
+          "sourceLevels": {
+            "1": 1,
+            "10": 1,
+            "2": 2,
+            "4": 3
+          },
+          "pathLevels": {
+            "1": 7
+          }
+        },
+        {
+          "id": "L1_LOCALISER",
+          "references": 6,
+          "sourceIndices": [
+            14,
+            37,
+            92,
+            218,
+            219,
+            220
+          ],
+          "sourceLevels": {
+            "1": 1,
+            "2": 5
+          },
+          "pathLevels": {
+            "1": 6
+          }
+        },
+        {
+          "id": "L2_ACTION_PROCHE",
+          "references": 7,
+          "sourceIndices": [
+            38,
+            93,
+            221,
+            222,
+            223,
+            224,
+            2228
+          ],
+          "sourceLevels": {
+            "1": 1,
+            "2": 6
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L2_CAPACITE_AIDE",
+          "references": 7,
+          "sourceIndices": [
+            94,
+            225,
+            415,
+            748,
+            811,
+            871,
+            964
+          ],
+          "sourceLevels": {
+            "2": 2,
+            "3": 1,
+            "4": 3,
+            "5": 1
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L2_DEMANDE_POLIE",
+          "references": 7,
+          "sourceIndices": [
+            39,
+            40,
+            226,
+            349,
+            416,
+            2236,
+            2237
+          ],
+          "sourceLevels": {
+            "2": 5,
+            "3": 2
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L3_CAUSE",
+          "references": 5,
+          "sourceIndices": [
+            1870,
+            1871,
+            1872,
+            1936,
+            1975
+          ],
+          "sourceLevels": {
+            "8": 5
+          },
+          "pathLevels": {
+            "3": 5
+          }
+        },
+        {
+          "id": "L3_OPPOSITION",
+          "references": 5,
+          "sourceIndices": [
+            1873,
+            1874,
+            1875,
+            2136,
+            2137
+          ],
+          "sourceLevels": {
+            "10": 2,
+            "8": 3
+          },
+          "pathLevels": {
+            "3": 5
+          }
+        },
+        {
+          "id": "L4_CONDITION",
+          "references": 6,
+          "sourceIndices": [
+            2107,
+            2108,
+            2138,
+            2139,
+            2153,
+            2154
+          ],
+          "sourceLevels": {
+            "10": 6
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L4_DEMANDE_FORMELLE",
+          "references": 6,
+          "sourceIndices": [
+            227,
+            516,
+            625,
+            626,
+            691,
+            1045
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "3": 1,
+            "4": 3,
+            "5": 1
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L4_PROPOSITION",
+          "references": 6,
+          "sourceIndices": [
+            417,
+            627,
+            1046,
+            1405,
+            1458,
+            1876
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "4": 1,
+            "5": 1,
+            "6": 2,
+            "8": 1
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L5_OBLIGATION",
+          "references": 6,
+          "sourceIndices": [
+            350,
+            414,
+            455,
+            571,
+            810,
+            1672
+          ],
+          "sourceLevels": {
+            "3": 4,
+            "4": 1,
+            "7": 1
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L5_PERMISSION",
+          "references": 6,
+          "sourceIndices": [
+            228,
+            628,
+            749,
+            965,
+            1168,
+            1294
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "4": 2,
+            "5": 2,
+            "6": 1
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L5_TEMPS",
+          "references": 6,
+          "sourceIndices": [
+            1169,
+            1346,
+            1877,
+            1976,
+            2140,
+            2141
+          ],
+          "sourceLevels": {
+            "10": 2,
+            "5": 1,
+            "6": 1,
+            "8": 2
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L6_CHOIX_COMPARE",
+          "references": 4,
+          "sourceIndices": [
+            1459,
+            1673,
+            1878,
+            1937
+          ],
+          "sourceLevels": {
+            "6": 1,
+            "7": 1,
+            "8": 2
+          },
+          "pathLevels": {
+            "6": 4
+          }
+        },
+        {
+          "id": "L6_CONSEIL",
+          "references": 6,
+          "sourceIndices": [
+            351,
+            418,
+            456,
+            750,
+            1106,
+            1295
+          ],
+          "sourceLevels": {
+            "3": 3,
+            "4": 1,
+            "5": 1,
+            "6": 1
+          },
+          "pathLevels": {
+            "6": 6
+          }
+        },
+        {
+          "id": "L6_OPINION",
+          "references": 6,
+          "sourceIndices": [
+            229,
+            352,
+            966,
+            1347,
+            1460,
+            3307
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "3": 2,
+            "5": 1,
+            "6": 2
+          },
+          "pathLevels": {
+            "6": 6
+          }
+        },
+        {
+          "id": "L7_HABITUDE",
+          "references": 6,
+          "sourceIndices": [
+            629,
+            692,
+            1107,
+            1108,
+            1296,
+            1585
+          ],
+          "sourceLevels": {
+            "4": 2,
+            "5": 2,
+            "6": 1,
+            "7": 1
+          },
+          "pathLevels": {
+            "7": 6
+          }
+        },
+        {
+          "id": "L7_INFORMATION_RAPPORTEE",
+          "references": 4,
+          "sourceIndices": [
+            230,
+            457,
+            1722,
+            1938
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "3": 1,
+            "7": 1,
+            "8": 1
+          },
+          "pathLevels": {
+            "7": 4
+          }
+        },
+        {
+          "id": "L7_SEQUENCE",
+          "references": 6,
+          "sourceIndices": [
+            1879,
+            1880,
+            2109,
+            2386,
+            2387,
+            4899
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "3": 1,
+            "4": 2,
+            "8": 2
+          },
+          "pathLevels": {
+            "7": 6
+          }
+        },
+        {
+          "id": "L8_CLARIFICATION",
+          "references": 5,
+          "sourceIndices": [
+            1406,
+            1586,
+            2457,
+            4832,
+            4900
+          ],
+          "sourceLevels": {
+            "4": 1,
+            "5": 2,
+            "6": 1,
+            "7": 1
+          },
+          "pathLevels": {
+            "8": 5
+          }
+        },
+        {
+          "id": "L8_CONCESSION",
+          "references": 6,
+          "sourceIndices": [
+            1587,
+            1881,
+            2110,
+            2136,
+            2137,
+            2142
+          ],
+          "sourceLevels": {
+            "10": 4,
+            "7": 1,
+            "8": 1
+          },
+          "pathLevels": {
+            "8": 6
+          }
+        },
+        {
+          "id": "L9_HYPOTHESE",
+          "references": 6,
+          "sourceIndices": [
+            2107,
+            2108,
+            2138,
+            2139,
+            2153,
+            2154
+          ],
+          "sourceLevels": {
+            "10": 6
+          },
+          "pathLevels": {
+            "9": 6
+          }
+        },
+        {
+          "id": "L9_PROBABILITE",
+          "references": 6,
+          "sourceIndices": [
+            95,
+            2182,
+            2319,
+            2468,
+            2946,
+            3833
+          ],
+          "sourceLevels": {
+            "1": 2,
+            "2": 1,
+            "3": 1,
+            "5": 2
+          },
+          "pathLevels": {
+            "9": 6
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-ja",
+      "nativeLanguage": "fr",
+      "studyLanguage": "ja",
+      "label": "Japonais",
+      "totalCards": 4509,
+      "deckSha256": "9eeb1866e121998c2ec46f3a9d5bb41fbbdf329153fab85436feb1d140dd09e4",
+      "fieldMap": {
+        "study": "t",
+        "native": "frm",
+        "phon": "pf",
+        "reading": "py"
+      },
+      "historicalL1Expected": 290,
+      "historicalL1Observed": 290,
+      "historicalL1Matches": true,
+      "categories": {
+        "basics": 56,
+        "bonus": 45,
+        "core": 3173,
+        "template": 83,
+        "vocab": 1152
+      },
+      "levels": [
+        {
+          "level": 1,
+          "cards": 290,
+          "categories": {
+            "bonus": 4,
+            "core": 262,
+            "template": 23,
+            "vocab": 1
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 4,
+          "declaredReferencesAtThisPathLevel": 19,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 2,
+          "cards": 555,
+          "categories": {
+            "basics": 7,
+            "bonus": 5,
+            "core": 419,
+            "template": 16,
+            "vocab": 108
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 10,
+          "declaredReferencesAtThisPathLevel": 21,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 3,
+          "cards": 571,
+          "categories": {
+            "basics": 15,
+            "bonus": 3,
+            "core": 381,
+            "template": 5,
+            "vocab": 167
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 7,
+          "declaredReferencesAtThisPathLevel": 10,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 4,
+          "cards": 641,
+          "categories": {
+            "basics": 23,
+            "bonus": 1,
+            "core": 400,
+            "template": 5,
+            "vocab": 212
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 12,
+          "declaredReferencesAtThisPathLevel": 18,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 5,
+          "cards": 688,
+          "categories": {
+            "basics": 11,
+            "bonus": 5,
+            "core": 419,
+            "template": 9,
+            "vocab": 244
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 14,
+          "declaredReferencesAtThisPathLevel": 18,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 6,
+          "cards": 440,
+          "categories": {
+            "bonus": 2,
+            "core": 355,
+            "template": 9,
+            "vocab": 74
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 11,
+          "declaredReferencesAtThisPathLevel": 16,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 7,
+          "cards": 517,
+          "categories": {
+            "bonus": 5,
+            "core": 434,
+            "template": 5,
+            "vocab": 73
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 12,
+          "declaredReferencesAtThisPathLevel": 16,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 8,
+          "cards": 322,
+          "categories": {
+            "bonus": 3,
+            "core": 220,
+            "template": 3,
+            "vocab": 96
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 10,
+          "declaredReferencesAtThisPathLevel": 11,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 9,
+          "cards": 227,
+          "categories": {
+            "bonus": 8,
+            "core": 137,
+            "template": 3,
+            "vocab": 79
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 8,
+          "declaredReferencesAtThisPathLevel": 12,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 10,
+          "cards": 258,
+          "categories": {
+            "bonus": 9,
+            "core": 146,
+            "template": 5,
+            "vocab": 98
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 4,
+          "declaredReferencesAtThisPathLevel": 10,
+          "declaredFamiliesAtThisPathLevel": 2
+        }
+      ],
+      "invalidSourceLevelIndices": [],
+      "missingFields": {
+        "study": [],
+        "native": [],
+        "phon": [],
+        "reading": []
+      },
+      "declaredGuidedFamilyCount": 26,
+      "declaredGuidedReferenceCount": 151,
+      "malformedGuidedReferenceIndices": [],
+      "declaredGuidedFamilies": [
+        {
+          "id": "L10_ARGUMENT_EQUILIBRE",
+          "references": 6,
+          "sourceIndices": [
+            1389,
+            2025,
+            2303,
+            2412,
+            2512,
+            2780
+          ],
+          "sourceLevels": {
+            "5": 1,
+            "7": 3,
+            "8": 1,
+            "9": 1
+          },
+          "pathLevels": {
+            "10": 6
+          }
+        },
+        {
+          "id": "L10_AVIS_NUANCE",
+          "references": 4,
+          "sourceIndices": [
+            2724,
+            3263,
+            3800,
+            4057
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "5": 1,
+            "6": 1,
+            "9": 1
+          },
+          "pathLevels": {
+            "10": 4
+          }
+        },
+        {
+          "id": "L1_BESOIN",
+          "references": 6,
+          "sourceIndices": [
+            140,
+            264,
+            265,
+            266,
+            267,
+            590
+          ],
+          "sourceLevels": {
+            "2": 5,
+            "3": 1
+          },
+          "pathLevels": {
+            "1": 6
+          }
+        },
+        {
+          "id": "L1_ETAT_C_EST",
+          "references": 7,
+          "sourceIndices": [
+            20,
+            21,
+            32,
+            61,
+            62,
+            63,
+            2990
+          ],
+          "sourceLevels": {
+            "1": 1,
+            "2": 6
+          },
+          "pathLevels": {
+            "1": 7
+          }
+        },
+        {
+          "id": "L1_LOCALISER",
+          "references": 6,
+          "sourceIndices": [
+            12,
+            268,
+            269,
+            508,
+            754,
+            1147
+          ],
+          "sourceLevels": {
+            "1": 1,
+            "2": 2,
+            "3": 2,
+            "4": 1
+          },
+          "pathLevels": {
+            "1": 6
+          }
+        },
+        {
+          "id": "L2_ACTION_PROCHE",
+          "references": 7,
+          "sourceIndices": [
+            270,
+            509,
+            666,
+            887,
+            1234,
+            1235,
+            1826
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "3": 2,
+            "4": 1,
+            "5": 2,
+            "6": 1
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L2_CAPACITE_AIDE",
+          "references": 7,
+          "sourceIndices": [
+            271,
+            272,
+            510,
+            1236,
+            1381,
+            1382,
+            2019
+          ],
+          "sourceLevels": {
+            "2": 2,
+            "3": 1,
+            "5": 3,
+            "7": 1
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L2_DEMANDE_POLIE",
+          "references": 7,
+          "sourceIndices": [
+            64,
+            439,
+            667,
+            888,
+            1237,
+            1383,
+            2511
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "3": 2,
+            "4": 1,
+            "5": 2,
+            "8": 1
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L3_CAUSE",
+          "references": 5,
+          "sourceIndices": [
+            1658,
+            1827,
+            2148,
+            2567,
+            2779
+          ],
+          "sourceLevels": {
+            "6": 2,
+            "7": 1,
+            "8": 1,
+            "9": 1
+          },
+          "pathLevels": {
+            "3": 5
+          }
+        },
+        {
+          "id": "L3_OPPOSITION",
+          "references": 5,
+          "sourceIndices": [
+            2149,
+            2303,
+            2304,
+            2512,
+            2632
+          ],
+          "sourceLevels": {
+            "7": 3,
+            "8": 2
+          },
+          "pathLevels": {
+            "3": 5
+          }
+        },
+        {
+          "id": "L4_CONDITION",
+          "references": 6,
+          "sourceIndices": [
+            2725,
+            2871,
+            2872,
+            2904,
+            3569,
+            4463
+          ],
+          "sourceLevels": {
+            "10": 4,
+            "4": 1,
+            "9": 1
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L4_DEMANDE_FORMELLE",
+          "references": 6,
+          "sourceIndices": [
+            273,
+            274,
+            275,
+            440,
+            668,
+            1238
+          ],
+          "sourceLevels": {
+            "2": 3,
+            "3": 2,
+            "5": 1
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L4_PROPOSITION",
+          "references": 6,
+          "sourceIndices": [
+            13,
+            65,
+            276,
+            1220,
+            1239,
+            1384
+          ],
+          "sourceLevels": {
+            "1": 1,
+            "2": 2,
+            "5": 3
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L5_OBLIGATION",
+          "references": 6,
+          "sourceIndices": [
+            820,
+            889,
+            1058,
+            1659,
+            1660,
+            2513
+          ],
+          "sourceLevels": {
+            "4": 3,
+            "6": 2,
+            "8": 1
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L5_PERMISSION",
+          "references": 6,
+          "sourceIndices": [
+            821,
+            1148,
+            1240,
+            1661,
+            1828,
+            1829
+          ],
+          "sourceLevels": {
+            "4": 2,
+            "5": 1,
+            "6": 3
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L5_TEMPS",
+          "references": 6,
+          "sourceIndices": [
+            2150,
+            2514,
+            2515,
+            2516,
+            2808,
+            2905
+          ],
+          "sourceLevels": {
+            "10": 2,
+            "7": 1,
+            "8": 3
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L6_CHOIX_COMPARE",
+          "references": 4,
+          "sourceIndices": [
+            822,
+            1241,
+            1242,
+            1830
+          ],
+          "sourceLevels": {
+            "4": 1,
+            "5": 2,
+            "6": 1
+          },
+          "pathLevels": {
+            "6": 4
+          }
+        },
+        {
+          "id": "L6_CONSEIL",
+          "references": 6,
+          "sourceIndices": [
+            823,
+            1243,
+            1385,
+            1386,
+            1662,
+            2151
+          ],
+          "sourceLevels": {
+            "4": 1,
+            "5": 3,
+            "6": 1,
+            "7": 1
+          },
+          "pathLevels": {
+            "6": 6
+          }
+        },
+        {
+          "id": "L6_OPINION",
+          "references": 6,
+          "sourceIndices": [
+            1059,
+            1244,
+            1387,
+            2020,
+            2809,
+            4057
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "4": 1,
+            "5": 2,
+            "6": 1,
+            "7": 1
+          },
+          "pathLevels": {
+            "6": 6
+          }
+        },
+        {
+          "id": "L7_HABITUDE",
+          "references": 6,
+          "sourceIndices": [
+            1831,
+            1832,
+            2021,
+            2022,
+            2023,
+            3248
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "6": 2,
+            "7": 3
+          },
+          "pathLevels": {
+            "7": 6
+          }
+        },
+        {
+          "id": "L7_INFORMATION_RAPPORTEE",
+          "references": 4,
+          "sourceIndices": [
+            755,
+            1663,
+            2024,
+            2568
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "6": 1,
+            "7": 1,
+            "8": 1
+          },
+          "pathLevels": {
+            "7": 4
+          }
+        },
+        {
+          "id": "L7_SEQUENCE",
+          "references": 6,
+          "sourceIndices": [
+            1833,
+            1834,
+            2517,
+            2518,
+            2726,
+            3557
+          ],
+          "sourceLevels": {
+            "4": 1,
+            "6": 2,
+            "8": 2,
+            "9": 1
+          },
+          "pathLevels": {
+            "7": 6
+          }
+        },
+        {
+          "id": "L8_CLARIFICATION",
+          "references": 5,
+          "sourceIndices": [
+            992,
+            1149,
+            1388,
+            3798,
+            4307
+          ],
+          "sourceLevels": {
+            "4": 2,
+            "5": 2,
+            "9": 1
+          },
+          "pathLevels": {
+            "8": 5
+          }
+        },
+        {
+          "id": "L8_CONCESSION",
+          "references": 6,
+          "sourceIndices": [
+            1389,
+            2025,
+            2303,
+            2412,
+            2512,
+            2780
+          ],
+          "sourceLevels": {
+            "5": 1,
+            "7": 3,
+            "8": 1,
+            "9": 1
+          },
+          "pathLevels": {
+            "8": 6
+          }
+        },
+        {
+          "id": "L9_HYPOTHESE",
+          "references": 6,
+          "sourceIndices": [
+            2152,
+            2373,
+            2725,
+            2872,
+            2921,
+            4028
+          ],
+          "sourceLevels": {
+            "10": 2,
+            "5": 1,
+            "7": 2,
+            "9": 1
+          },
+          "pathLevels": {
+            "9": 6
+          }
+        },
+        {
+          "id": "L9_PROBABILITE",
+          "references": 6,
+          "sourceIndices": [
+            1060,
+            2153,
+            2373,
+            2519,
+            2960,
+            4202
+          ],
+          "sourceLevels": {
+            "1": 1,
+            "4": 1,
+            "7": 3,
+            "8": 1
+          },
+          "pathLevels": {
+            "9": 6
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-ko",
+      "nativeLanguage": "fr",
+      "studyLanguage": "ko",
+      "label": "Coréen",
+      "totalCards": 4520,
+      "deckSha256": "70028fcae72af8097859a48ad92c3c3fc3489a36e98844baecc4508b07a58e61",
+      "fieldMap": {
+        "study": "t",
+        "native": "frm",
+        "phon": "pf",
+        "reading": "py"
+      },
+      "historicalL1Expected": 287,
+      "historicalL1Observed": 287,
+      "historicalL1Matches": true,
+      "categories": {
+        "basics": 56,
+        "bonus": 22,
+        "core": 3534,
+        "template": 57,
+        "vocab": 851
+      },
+      "levels": [
+        {
+          "level": 1,
+          "cards": 287,
+          "categories": {
+            "bonus": 4,
+            "core": 270,
+            "template": 12,
+            "vocab": 1
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 0,
+          "declaredReferencesAtThisPathLevel": 0,
+          "declaredFamiliesAtThisPathLevel": 0
+        },
+        {
+          "level": 2,
+          "cards": 462,
+          "categories": {
+            "basics": 7,
+            "bonus": 5,
+            "core": 328,
+            "template": 12,
+            "vocab": 110
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 0,
+          "declaredReferencesAtThisPathLevel": 0,
+          "declaredFamiliesAtThisPathLevel": 0
+        },
+        {
+          "level": 3,
+          "cards": 556,
+          "categories": {
+            "basics": 15,
+            "bonus": 3,
+            "core": 366,
+            "template": 5,
+            "vocab": 167
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 0,
+          "declaredReferencesAtThisPathLevel": 0,
+          "declaredFamiliesAtThisPathLevel": 0
+        },
+        {
+          "level": 4,
+          "cards": 606,
+          "categories": {
+            "basics": 23,
+            "bonus": 1,
+            "core": 365,
+            "template": 5,
+            "vocab": 212
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 0,
+          "declaredReferencesAtThisPathLevel": 0,
+          "declaredFamiliesAtThisPathLevel": 0
+        },
+        {
+          "level": 5,
+          "cards": 704,
+          "categories": {
+            "basics": 11,
+            "bonus": 5,
+            "core": 435,
+            "template": 9,
+            "vocab": 244
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 0,
+          "declaredReferencesAtThisPathLevel": 0,
+          "declaredFamiliesAtThisPathLevel": 0
+        },
+        {
+          "level": 6,
+          "cards": 459,
+          "categories": {
+            "bonus": 2,
+            "core": 374,
+            "template": 9,
+            "vocab": 74
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 0,
+          "declaredReferencesAtThisPathLevel": 0,
+          "declaredFamiliesAtThisPathLevel": 0
+        },
+        {
+          "level": 7,
+          "cards": 527,
+          "categories": {
+            "bonus": 2,
+            "core": 477,
+            "template": 5,
+            "vocab": 43
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 0,
+          "declaredReferencesAtThisPathLevel": 0,
+          "declaredFamiliesAtThisPathLevel": 0
+        },
+        {
+          "level": 8,
+          "cards": 404,
+          "categories": {
+            "core": 404
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 0,
+          "declaredReferencesAtThisPathLevel": 0,
+          "declaredFamiliesAtThisPathLevel": 0
+        },
+        {
+          "level": 9,
+          "cards": 242,
+          "categories": {
+            "core": 242
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 0,
+          "declaredReferencesAtThisPathLevel": 0,
+          "declaredFamiliesAtThisPathLevel": 0
+        },
+        {
+          "level": 10,
+          "cards": 273,
+          "categories": {
+            "core": 273
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0,
+            "reading": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 0,
+          "declaredReferencesAtThisPathLevel": 0,
+          "declaredFamiliesAtThisPathLevel": 0
+        }
+      ],
+      "invalidSourceLevelIndices": [],
+      "missingFields": {
+        "study": [],
+        "native": [],
+        "phon": [],
+        "reading": []
+      },
+      "declaredGuidedFamilyCount": 0,
+      "declaredGuidedReferenceCount": 0,
+      "malformedGuidedReferenceIndices": [],
+      "declaredGuidedFamilies": []
+    },
+    {
+      "id": "zh-fr",
+      "nativeLanguage": "zh",
+      "studyLanguage": "fr",
+      "label": "Français pour sinophones",
+      "totalCards": 4500,
+      "deckSha256": "8ba6854ad6e77063c9d3d02b9696f1cfa0bf009265bda3f37200a007ed820acf",
+      "fieldMap": {
+        "study": "t",
+        "native": "cn",
+        "phon": "phon"
+      },
+      "historicalL1Expected": 293,
+      "historicalL1Observed": 293,
+      "historicalL1Matches": true,
+      "categories": {
+        "basics": 56,
+        "bonus": 48,
+        "core": 3097,
+        "template": 71,
+        "vocab": 1228
+      },
+      "levels": [
+        {
+          "level": 1,
+          "cards": 293,
+          "categories": {
+            "bonus": 7,
+            "core": 272,
+            "template": 13,
+            "vocab": 1
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 2,
+          "declaredReferencesAtThisPathLevel": 19,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 2,
+          "cards": 548,
+          "categories": {
+            "basics": 7,
+            "bonus": 5,
+            "core": 404,
+            "template": 13,
+            "vocab": 119
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 10,
+          "declaredReferencesAtThisPathLevel": 21,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 3,
+          "cards": 632,
+          "categories": {
+            "basics": 15,
+            "bonus": 4,
+            "core": 428,
+            "template": 5,
+            "vocab": 180
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 11,
+          "declaredReferencesAtThisPathLevel": 10,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 4,
+          "cards": 595,
+          "categories": {
+            "basics": 23,
+            "bonus": 2,
+            "core": 338,
+            "template": 5,
+            "vocab": 227
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 12,
+          "declaredReferencesAtThisPathLevel": 18,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 5,
+          "cards": 683,
+          "categories": {
+            "basics": 11,
+            "bonus": 6,
+            "core": 402,
+            "template": 9,
+            "vocab": 255
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 8,
+          "declaredReferencesAtThisPathLevel": 18,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 6,
+          "cards": 439,
+          "categories": {
+            "bonus": 4,
+            "core": 342,
+            "template": 10,
+            "vocab": 83
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 9,
+          "declaredReferencesAtThisPathLevel": 16,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 7,
+          "cards": 430,
+          "categories": {
+            "bonus": 5,
+            "core": 350,
+            "template": 6,
+            "vocab": 69
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 13,
+          "declaredReferencesAtThisPathLevel": 16,
+          "declaredFamiliesAtThisPathLevel": 3
+        },
+        {
+          "level": 8,
+          "cards": 402,
+          "categories": {
+            "bonus": 3,
+            "core": 296,
+            "template": 3,
+            "vocab": 100
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 11,
+          "declaredReferencesAtThisPathLevel": 11,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 9,
+          "cards": 227,
+          "categories": {
+            "bonus": 7,
+            "core": 132,
+            "template": 3,
+            "vocab": 85
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 4,
+          "declaredReferencesAtThisPathLevel": 12,
+          "declaredFamiliesAtThisPathLevel": 2
+        },
+        {
+          "level": 10,
+          "cards": 251,
+          "categories": {
+            "bonus": 5,
+            "core": 133,
+            "template": 4,
+            "vocab": 109
+          },
+          "missingFields": {
+            "study": 0,
+            "native": 0,
+            "phon": 0
+          },
+          "declaredFamiliesOnCardsAtThisSourceLevel": 6,
+          "declaredReferencesAtThisPathLevel": 10,
+          "declaredFamiliesAtThisPathLevel": 2
+        }
+      ],
+      "invalidSourceLevelIndices": [],
+      "missingFields": {
+        "study": [],
+        "native": [],
+        "phon": []
+      },
+      "declaredGuidedFamilyCount": 26,
+      "declaredGuidedReferenceCount": 151,
+      "malformedGuidedReferenceIndices": [],
+      "declaredGuidedFamilies": [
+        {
+          "id": "L10_ARGUMENT_EQUILIBRE",
+          "references": 6,
+          "sourceIndices": [
+            2473,
+            2474,
+            2535,
+            2573,
+            2839,
+            4442
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "5": 1,
+            "8": 4
+          },
+          "pathLevels": {
+            "10": 6
+          }
+        },
+        {
+          "id": "L10_AVIS_NUANCE",
+          "references": 4,
+          "sourceIndices": [
+            1979,
+            2388,
+            2739,
+            3243
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "6": 1,
+            "7": 1,
+            "8": 1
+          },
+          "pathLevels": {
+            "10": 4
+          }
+        },
+        {
+          "id": "L1_BESOIN",
+          "references": 6,
+          "sourceIndices": [
+            152,
+            153,
+            154,
+            155,
+            156,
+            157
+          ],
+          "sourceLevels": {
+            "2": 6
+          },
+          "pathLevels": {
+            "1": 6
+          }
+        },
+        {
+          "id": "L1_ETAT_C_EST",
+          "references": 7,
+          "sourceIndices": [
+            11,
+            12,
+            24,
+            26,
+            27,
+            36,
+            37
+          ],
+          "sourceLevels": {
+            "1": 2,
+            "2": 5
+          },
+          "pathLevels": {
+            "1": 7
+          }
+        },
+        {
+          "id": "L1_LOCALISER",
+          "references": 6,
+          "sourceIndices": [
+            12,
+            158,
+            159,
+            160,
+            854,
+            1194
+          ],
+          "sourceLevels": {
+            "1": 1,
+            "2": 3,
+            "4": 1,
+            "5": 1
+          },
+          "pathLevels": {
+            "1": 6
+          }
+        },
+        {
+          "id": "L2_ACTION_PROCHE",
+          "references": 7,
+          "sourceIndices": [
+            38,
+            161,
+            162,
+            163,
+            164,
+            426,
+            713
+          ],
+          "sourceLevels": {
+            "2": 5,
+            "3": 2
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L2_CAPACITE_AIDE",
+          "references": 7,
+          "sourceIndices": [
+            165,
+            166,
+            167,
+            168,
+            594,
+            1198,
+            1783
+          ],
+          "sourceLevels": {
+            "2": 4,
+            "3": 1,
+            "5": 1,
+            "6": 1
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L2_DEMANDE_POLIE",
+          "references": 7,
+          "sourceIndices": [
+            169,
+            427,
+            465,
+            466,
+            467,
+            1980,
+            2252
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "3": 4,
+            "7": 2
+          },
+          "pathLevels": {
+            "2": 7
+          }
+        },
+        {
+          "id": "L3_CAUSE",
+          "references": 5,
+          "sourceIndices": [
+            2173,
+            2174,
+            2389,
+            2470,
+            2534
+          ],
+          "sourceLevels": {
+            "7": 2,
+            "8": 3
+          },
+          "pathLevels": {
+            "3": 5
+          }
+        },
+        {
+          "id": "L3_OPPOSITION",
+          "references": 5,
+          "sourceIndices": [
+            1981,
+            2175,
+            2390,
+            2471,
+            2826
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "7": 2,
+            "8": 2
+          },
+          "pathLevels": {
+            "3": 5
+          }
+        },
+        {
+          "id": "L4_CONDITION",
+          "references": 6,
+          "sourceIndices": [
+            1659,
+            2391,
+            2605,
+            2687,
+            2688,
+            2792
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "6": 1,
+            "8": 1,
+            "9": 3
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L4_DEMANDE_FORMELLE",
+          "references": 6,
+          "sourceIndices": [
+            468,
+            912,
+            1293,
+            1982,
+            1983,
+            2392
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "4": 1,
+            "5": 1,
+            "7": 2,
+            "8": 1
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L4_PROPOSITION",
+          "references": 6,
+          "sourceIndices": [
+            595,
+            973,
+            1596,
+            1660,
+            1984,
+            1985
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "4": 1,
+            "6": 2,
+            "7": 2
+          },
+          "pathLevels": {
+            "4": 6
+          }
+        },
+        {
+          "id": "L5_OBLIGATION",
+          "references": 6,
+          "sourceIndices": [
+            170,
+            171,
+            469,
+            974,
+            1986,
+            2662
+          ],
+          "sourceLevels": {
+            "2": 2,
+            "3": 1,
+            "4": 1,
+            "7": 1,
+            "9": 1
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L5_PERMISSION",
+          "references": 6,
+          "sourceIndices": [
+            428,
+            470,
+            596,
+            597,
+            1597,
+            1784
+          ],
+          "sourceLevels": {
+            "3": 4,
+            "6": 2
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L5_TEMPS",
+          "references": 6,
+          "sourceIndices": [
+            714,
+            818,
+            975,
+            976,
+            1987,
+            2606
+          ],
+          "sourceLevels": {
+            "3": 2,
+            "4": 2,
+            "7": 1,
+            "9": 1
+          },
+          "pathLevels": {
+            "5": 6
+          }
+        },
+        {
+          "id": "L6_CHOIX_COMPARE",
+          "references": 4,
+          "sourceIndices": [
+            429,
+            1043,
+            1119,
+            1988
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "4": 2,
+            "7": 1
+          },
+          "pathLevels": {
+            "6": 4
+          }
+        },
+        {
+          "id": "L6_CONSEIL",
+          "references": 6,
+          "sourceIndices": [
+            471,
+            913,
+            1785,
+            1986,
+            1989,
+            1990
+          ],
+          "sourceLevels": {
+            "3": 1,
+            "4": 1,
+            "6": 1,
+            "7": 3
+          },
+          "pathLevels": {
+            "6": 6
+          }
+        },
+        {
+          "id": "L6_OPINION",
+          "references": 6,
+          "sourceIndices": [
+            598,
+            715,
+            855,
+            1294,
+            3072,
+            4398
+          ],
+          "sourceLevels": {
+            "3": 3,
+            "4": 1,
+            "5": 1,
+            "6": 1
+          },
+          "pathLevels": {
+            "6": 6
+          }
+        },
+        {
+          "id": "L7_HABITUDE",
+          "references": 6,
+          "sourceIndices": [
+            1991,
+            1992,
+            2393,
+            2394,
+            2395,
+            3029
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "7": 2,
+            "8": 3
+          },
+          "pathLevels": {
+            "7": 6
+          }
+        },
+        {
+          "id": "L7_INFORMATION_RAPPORTEE",
+          "references": 4,
+          "sourceIndices": [
+            1465,
+            1598,
+            2396,
+            3132
+          ],
+          "sourceLevels": {
+            "4": 1,
+            "5": 1,
+            "6": 1,
+            "8": 1
+          },
+          "pathLevels": {
+            "7": 4
+          }
+        },
+        {
+          "id": "L7_SEQUENCE",
+          "references": 6,
+          "sourceIndices": [
+            2176,
+            2397,
+            2398,
+            2472,
+            2557,
+            3014
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "7": 1,
+            "8": 4
+          },
+          "pathLevels": {
+            "7": 6
+          }
+        },
+        {
+          "id": "L8_CLARIFICATION",
+          "references": 5,
+          "sourceIndices": [
+            1875,
+            3123,
+            3207,
+            4430,
+            4461
+          ],
+          "sourceLevels": {
+            "4": 1,
+            "5": 3,
+            "6": 1
+          },
+          "pathLevels": {
+            "8": 5
+          }
+        },
+        {
+          "id": "L8_CONCESSION",
+          "references": 6,
+          "sourceIndices": [
+            2473,
+            2474,
+            2535,
+            2740,
+            3113,
+            4442
+          ],
+          "sourceLevels": {
+            "10": 1,
+            "4": 1,
+            "5": 1,
+            "8": 3
+          },
+          "pathLevels": {
+            "8": 6
+          }
+        },
+        {
+          "id": "L9_HYPOTHESE",
+          "references": 6,
+          "sourceIndices": [
+            2704,
+            2793,
+            2794,
+            2795,
+            2827,
+            2828
+          ],
+          "sourceLevels": {
+            "10": 5,
+            "9": 1
+          },
+          "pathLevels": {
+            "9": 6
+          }
+        },
+        {
+          "id": "L9_PROBABILITE",
+          "references": 6,
+          "sourceIndices": [
+            172,
+            856,
+            1120,
+            1993,
+            2177,
+            2390
+          ],
+          "sourceLevels": {
+            "2": 1,
+            "4": 2,
+            "7": 2,
+            "8": 1
+          },
+          "pathLevels": {
+            "9": 6
+          }
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "pairs": 7,
+    "levelCells": 70,
+    "sourceCards": 32115,
+    "historicalLevelOneCards": 2134,
+    "historicalLevelOneExpected": 2134,
+    "historicalLevelOneMatches": true,
+    "invalidSourceLevelCards": 0,
+    "missingRequiredStudyNativePhonFields": 0,
+    "declaredGuidedFamilies": 156,
+    "declaredGuidedReferences": 906,
+    "sourceCategoryCounts": {
+      "basics": 319,
+      "biz": 886,
+      "bonus": 1137,
+      "core": 21844,
+      "template": 360,
+      "trip": 101,
+      "vocab": 7468
+    }
+  }
+}

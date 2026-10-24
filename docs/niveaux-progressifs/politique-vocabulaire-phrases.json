@@ -1,0 +1,4050 @@
+{
+  "version": 1,
+  "date": "2026-10-24",
+  "status": "owner-directed-taxonomy-awaiting-implementation-and-source-review",
+  "publicationApproved": false,
+  "plan110DefinitionsChanged": false,
+  "sourceTextsChanged": false,
+  "sourceLevelsChanged": false,
+  "phoneticsChanged": false,
+  "sourceAppSha256": "61853d499f60790a68630e6984ba652ceaa320fe3c8fcd85fed8f116e7d504cd",
+  "ownerRequirements": [
+    "Chaque niveau présente une ou plusieurs cartes Vocabulaire thématiques lorsque les mots correspondants existent.",
+    "Les autres thèmes de situation ne contiennent que des phrases ou répliques communicatives complètes.",
+    "Les nombres isolés ont une rubrique dédiée, séparée du vocabulaire et des situations.",
+    "Les modèles incomplets ou incohérents restent dans une réserve de revue et ne sont pas demandés en production.",
+    "Un mot peut être introduit plus tôt puis rappelé au niveau de sa phrase par référence canonique, sans déplacement forcé ni nouveau doublon.",
+    "L’architecture de navigation et les phonétiques sources sont conservées.",
+    "Adjectifs, Prépositions et Adverbes disposent de destinations distinctes par niveau lorsque le contenu correspondant existe, avec adaptation aux catégories de la langue étudiée."
+  ],
+  "contentTypes": [
+    {
+      "id": "utterance",
+      "label": {
+        "fr": "Situations",
+        "zh": "情境表达"
+      },
+      "definition": "Une phrase ou formule pragmatique qui accomplit un tour communicatif complet dans son usage attesté.",
+      "includes": [
+        "phrase déclarative, interrogative ou impérative complète",
+        "Bonjour, Merci, Oui et autres tours conventionnels complets",
+        "réplique elliptique autonome dont la fonction est établie par la source"
+      ],
+      "excludes": [
+        "mot présenté comme entrée lexicale, même utilisable comme réponse dans un dialogue imaginé",
+        "nombre isolé",
+        "début de phrase ou emplacement non rempli"
+      ],
+      "canContainOneWord": true,
+      "requiresFiniteVerb": false,
+      "requiresFinalPunctuation": false
+    },
+    {
+      "id": "vocabulary",
+      "label": {
+        "fr": "Vocabulaire",
+        "zh": "词汇"
+      },
+      "definition": "Mot ou locution lexicale bornée, présenté comme une unité de vocabulaire et non comme un tour communicatif complet.",
+      "includes": [
+        "nom ou groupe nominal entier, article conservé",
+        "verbe ou groupe verbal lexical",
+        "adjectif, adverbe ou locution stable correctement identifiés",
+        "préposition ou structure de relation entière attestée",
+        "valeur avec unité : trois heures, deux personnes, un prix isolé"
+      ],
+      "excludes": [
+        "salutation, réponse ou demande complète",
+        "nombre cardinal, ordinal ou fraction seul",
+        "gabarit ouvert, complément manquant ou suffixe à emplacement vide"
+      ],
+      "mayContainSeveralWords": true,
+      "neverInferFromLengthAlone": true
+    },
+    {
+      "id": "number",
+      "label": {
+        "fr": "Nombres",
+        "zh": "数字"
+      },
+      "definition": "Nombre cardinal, ordinal ou fraction dont la valeur numérique constitue toute l’entrée, sans unité de temps, de personne, de mesure ou de prix.",
+      "includes": [
+        "zéro, quatre, douze, cent",
+        "premier, deuxième si le sens est bien ordinal",
+        "un demi ou trois quarts si le sens est bien une fraction isolée"
+      ],
+      "excludes": [
+        "trois heures, deux personnes, quinze euros : vocabulary",
+        "un café ou une chaise, où un est un article",
+        "la première fois et demain : repères lexicaux, pas nombres seuls",
+        "phrase contenant un prix, un nombre ou une date : utterance",
+        "expression idiomatique où le nombre ne sert pas à compter"
+      ],
+      "onlyIfWholeEntryIsBareNumericalValue": true
+    },
+    {
+      "id": "incomplete",
+      "label": {
+        "fr": "Formulations incomplètes à relire",
+        "zh": "待复核的不完整表达"
+      },
+      "definition": "Modèle ou fragment clairement ouvert, avec emplacement, complément ou élément lié manquant.",
+      "includes": [
+        "{s}, emplacement explicite ou gabarit non rempli",
+        "Je m’appelle… ou construction équivalente sans son complément",
+        "suffixe lié à un emplacement absent"
+      ],
+      "normalLearnerTheme": false,
+      "productionAllowed": false,
+      "generatedCompletionAllowed": false,
+      "keptInSourceInventory": true
+    },
+    {
+      "id": "review",
+      "label": {
+        "fr": "Autres cas à relire",
+        "zh": "其他待复核内容"
+      },
+      "definition": "Source ambiguë, conflit entre texte et sens, catégorie grammaticale ou usage non établi assez sûrement pour une destination.",
+      "includes": [
+        "un texte étudié clos accompagné d’un sens tronqué",
+        "catégorie template dont la portée réelle reste à vérifier",
+        "plusieurs analyses grammaticales possibles sans usage source permettant de décider"
+      ],
+      "normalLearnerTheme": false,
+      "productionAllowed": false,
+      "generatedCompletionAllowed": false,
+      "keptInSourceInventory": true
+    }
+  ],
+  "semanticDecisionOrder": [
+    {
+      "order": 1,
+      "decision": "Appliquer une décision contextualisée explicite liée à l’indice source, sans modifier le texte ni ses aides."
+    },
+    {
+      "order": 2,
+      "decision": "Séparer incomplete (ouverture certaine) et review (doute ou conflit). Un tag template est un signal, pas une preuve grammaticale suffisante à lui seul."
+    },
+    {
+      "order": 3,
+      "decision": "Reconnaître les répliques conventionnelles complètes par leur fonction : Bonjour, Merci, Oui, demande de patienter ou clôture. Un seul mot peut être utterance."
+    },
+    {
+      "order": 4,
+      "decision": "Si le sens entier est un cardinal, ordinal ou fraction seul, classer number. Une valeur avec unité reste vocabulary ; une phrase avec nombre reste utterance."
+    },
+    {
+      "order": 5,
+      "decision": "Parmi les seuls items vocabulary, décider en priorité les catégories grammaticales établies : adjectifs, prépositions/structures de relation, adverbes. Vérifier la langue étudiée et le sens natif, pas seulement le mot français ou sa longueur."
+    },
+    {
+      "order": 6,
+      "decision": "Affecter les autres unités lexicales à une des sept familles de contexte, selon le sens lexical réel ; utiliser l’ancien domaine seulement comme hypothèse tracée."
+    },
+    {
+      "order": 7,
+      "decision": "Les prédications, questions et demandes entières rejoignent les situations correspondantes, même si la catégorie source vaut vocab."
+    },
+    {
+      "order": 8,
+      "decision": "Réserver un cas non résolu plutôt que le faire produire dans une situation ou lui attribuer une partie du discours par défaut."
+    }
+  ],
+  "lexicalFamilies": [
+    {
+      "id": "vocab-restaurant",
+      "title": {
+        "fr": "Restaurant et achats",
+        "zh": "餐饮与购物"
+      },
+      "semanticScope": [
+        "aliments et boissons",
+        "repas et ustensiles",
+        "magasins, vêtements et achats",
+        "prix et paiements comme noms lexicaux, hors nombres isolés"
+      ],
+      "preferredExistingDomains": [
+        "repas"
+      ],
+      "lexicalFamilyId": "vocab-restaurant",
+      "familyKind": "contextual",
+      "excludeAssignedPartOfSpeechFamilies": true
+    },
+    {
+      "id": "vocab-maison",
+      "title": {
+        "fr": "Maison et jardin",
+        "zh": "居家与园艺"
+      },
+      "semanticScope": [
+        "logement et pièces",
+        "mobilier et objets domestiques",
+        "jardin, plantes et entretien",
+        "objets et activités de la maison"
+      ],
+      "preferredExistingDomains": [
+        "quotidien"
+      ],
+      "lexicalFamilyId": "vocab-maison",
+      "familyKind": "contextual",
+      "excludeAssignedPartOfSpeechFamilies": true
+    },
+    {
+      "id": "vocab-voyage",
+      "title": {
+        "fr": "Voyage et transport",
+        "zh": "出行与交通"
+      },
+      "semanticScope": [
+        "moyens de transport",
+        "gares, aéroports et hébergement",
+        "bagages et documents de voyage",
+        "orientation propre à un déplacement"
+      ],
+      "preferredExistingDomains": [
+        "deplacements"
+      ],
+      "lexicalFamilyId": "vocab-voyage",
+      "familyKind": "contextual",
+      "excludeAssignedPartOfSpeechFamilies": true
+    },
+    {
+      "id": "vocab-personnes",
+      "title": {
+        "fr": "Corps, personnes et émotions",
+        "zh": "身体、人物与情绪"
+      },
+      "semanticScope": [
+        "parties du corps et santé",
+        "personnes, famille et relations",
+        "émotions et sensations comme termes lexicaux",
+        "identités et rôles personnels"
+      ],
+      "preferredExistingDomains": [
+        "saluer",
+        "ressentis"
+      ],
+      "lexicalFamilyId": "vocab-personnes",
+      "familyKind": "contextual",
+      "excludeAssignedPartOfSpeechFamilies": true
+    },
+    {
+      "id": "vocab-reperes",
+      "title": {
+        "fr": "Temps et repères",
+        "zh": "时间与方位"
+      },
+      "semanticScope": [
+        "jours, saisons et moments",
+        "fréquence et durée comme mots ou locutions",
+        "repères spatiaux généraux",
+        "unités de temps et mesure comme lexèmes, hors valeurs numériques isolées"
+      ],
+      "preferredExistingDomains": [
+        "reperes"
+      ],
+      "lexicalFamilyId": "vocab-reperes",
+      "familyKind": "contextual",
+      "excludeAssignedPartOfSpeechFamilies": true
+    },
+    {
+      "id": "vocab-actions",
+      "title": {
+        "fr": "Actions et descriptions",
+        "zh": "动作与描述"
+      },
+      "semanticScope": [
+        "verbes et groupes verbaux lexicaux",
+        "noms de couleurs, formes et propriétés hors unités classées dans les destinations grammaticales prioritaires",
+        "mots de communication et compréhension",
+        "mots et locutions de liaison bornés hors modèles à compléter et hors adverbes identifiés"
+      ],
+      "preferredExistingDomains": [
+        "comprendre",
+        "decrire",
+        "conversation"
+      ],
+      "lexicalFamilyId": "vocab-actions",
+      "familyKind": "contextual",
+      "excludeAssignedPartOfSpeechFamilies": true
+    },
+    {
+      "id": "vocab-travail",
+      "title": {
+        "fr": "Travail et démarches",
+        "zh": "工作与事务"
+      },
+      "semanticScope": [
+        "métiers, outils et lieux professionnels",
+        "documents et démarches",
+        "activité, projets et services professionnels",
+        "transactions professionnelles comme lexique, hors demandes complètes"
+      ],
+      "preferredExistingDomains": [
+        "travail"
+      ],
+      "lexicalFamilyId": "vocab-travail",
+      "familyKind": "contextual",
+      "excludeAssignedPartOfSpeechFamilies": true
+    },
+    {
+      "id": "vocab-adjectifs",
+      "lexicalFamilyId": "vocab-adjectifs",
+      "title": {
+        "fr": "Adjectifs",
+        "zh": "形容词"
+      },
+      "familyKind": "part-of-speech",
+      "semanticScope": [
+        "adjectifs ou unités descriptives lexicales de la langue étudiée, non des prédications complètes"
+      ],
+      "studyLanguageTitleOverrides": {
+        "ko": {
+          "fr": "Adjectifs et verbes descriptifs",
+          "zh": "形容词与描述性动词"
+        }
+      },
+      "grammarEquivalenceClaim": false
+    },
+    {
+      "id": "vocab-prepositions",
+      "lexicalFamilyId": "vocab-prepositions",
+      "title": {
+        "fr": "Prépositions",
+        "zh": "介词"
+      },
+      "familyKind": "part-of-speech",
+      "semanticScope": [
+        "prépositions ou locutions prépositionnelles bornées",
+        "postpositions, particules ou structures de relation réellement présentes et correctement identifiées dans la langue étudiée"
+      ],
+      "studyLanguageTitleOverrides": {
+        "ja": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "ko": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "zh": {
+          "fr": "Prépositions et structures de relation",
+          "zh": "介词与关系表达"
+        }
+      },
+      "grammarEquivalenceClaim": false
+    },
+    {
+      "id": "vocab-adverbes",
+      "lexicalFamilyId": "vocab-adverbes",
+      "title": {
+        "fr": "Adverbes",
+        "zh": "副词"
+      },
+      "familyKind": "part-of-speech",
+      "semanticScope": [
+        "adverbes ou locutions adverbiales dont la fonction est établie dans la langue étudiée"
+      ],
+      "notEveryTimeExpressionIsAdverb": true,
+      "grammarEquivalenceClaim": false
+    }
+  ],
+  "domainDestinations": {
+    "saluer": "vocab-personnes",
+    "comprendre": "vocab-actions",
+    "ressentis": "vocab-personnes",
+    "repas": "vocab-restaurant",
+    "deplacements": "vocab-voyage",
+    "reperes": "vocab-reperes",
+    "quotidien": "vocab-maison",
+    "decrire": "vocab-actions",
+    "conversation": "vocab-actions",
+    "travail": "vocab-travail",
+    "personnaliser": "reserve"
+  },
+  "destinationPolicy": "Ce mapping est un repère initial pour les seuls items lexical. Le sens lexical réel prime : pomme va vers restaurant-achats, mère vers corps-personnes, même si le domaine ancien diffère. Les nombres et les répliques complètes en sont exclus.",
+  "levelGrouping": {
+    "maximumLexicalFamilies": 10,
+    "emitOnlyWhenItemsExist": true,
+    "doNotCreateElevenEmptyVocabularyCards": true,
+    "sameFamilyWithinLevelIsOneCardByDefault": true,
+    "cardIdPattern": "L{level}-{lexicalFamilyId}",
+    "preferRelevantToLevelSituations": true,
+    "firstEncounterAndReviewMustBeDistinguished": true,
+    "splitOnlyWithSemanticReason": "Une famille peut être affinée plus tard si son stock est réellement trop hétérogène ; pas de division automatique par quantité ou longueur.",
+    "maximumContextualFamilies": 7,
+    "maximumPartOfSpeechFamilies": 3,
+    "partOfSpeechFamiliesBeforeContextWhenClassificationEstablished": true
+  },
+  "numbers": {
+    "id": "nombres",
+    "title": {
+      "fr": "Nombres",
+      "zh": "数字"
+    },
+    "cardIdPattern": "L{level}-nombres",
+    "separateFromVocabularyFamilies": true,
+    "separateFromTimeUtteranceTheme": true,
+    "emitOnlyWhenItemsExist": true,
+    "reviewOfEarlierNumbersMayUseReferences": true,
+    "doNotExtractOrGenerateNewNumberCardsFromPhrases": true,
+    "bareCardinalOrdinalFractionOnly": true,
+    "valueWithUnitDestination": "vocabulary",
+    "wholeSentenceWithNumberDestination": "utterance",
+    "sourceNumericLevelsAreNotAutomaticallyAcceptedAsProgressive": true
+  },
+  "reusePolicy": {
+    "oneCanonicalIdentityPerSourceCard": true,
+    "fieldName": "reuseVocabularyIds",
+    "referenceCanReappearAtLaterLevel": true,
+    "earlierReferenceDoesNotMoveFirstEncounter": true,
+    "noNewCanonicalCardOrPhraseCountForReviewReference": true,
+    "noLexicalStepsInsertedIntoSituationPractice": true,
+    "wholePhraseKeepsOwnPhonetic": true,
+    "noAudioOrPhoneticConcatenation": true,
+    "referenceIsPlannedSupportNotAcquisitionEvidence": true,
+    "example": {
+      "lexicalReference": {
+        "collection": "DECKS.en",
+        "sourceIndex": 4057,
+        "sourceLevel": 2
+      },
+      "utteranceReference": {
+        "collection": "DECKS.en",
+        "sourceIndex": 446,
+        "sourceLevel": 3
+      },
+      "rule": "Le mot coffee peut être rappelé au niveau de sa demande complète. Ces niveaux source sont donnés comme constat, pas comme des placements éditoriaux imposés."
+    }
+  },
+  "displayPolicy": {
+    "sections": [
+      {
+        "id": "situations",
+        "title": {
+          "fr": "Situations",
+          "zh": "情境表达"
+        },
+        "contentTypes": [
+          "utterance"
+        ]
+      },
+      {
+        "id": "vocabulary",
+        "title": {
+          "fr": "Vocabulaire",
+          "zh": "词汇"
+        },
+        "contentTypes": [
+          "vocabulary",
+          "number"
+        ]
+      }
+    ],
+    "dedicatedNumbersCard": true,
+    "sameGridAndOneClickThemeOpening": true,
+    "noNewIntermediateSelectionScreen": true,
+    "existing110ThemeDefinitionsStayIntactInPlanFile": true,
+    "situationPersonaliserSlotNotUsedForIncompleteProduction": true,
+    "newVisualIdsMustBeDistinct": "Chaque L{level}-{lexicalFamilyId} et L{level}-nombres est un thème distinct. Les 110 définitions initiales restent intactes ; 80 visuels contextuels/nombres et 30 visuels POS forment des lots supplémentaires.",
+    "numbersSection": "vocabulary"
+  },
+  "coverageAccounting": {
+    "typesMustBeDisjoint": true,
+    "unionOfTypesEqualsFullSourceInventory": true,
+    "reserveNotSilentlyDeleted": true,
+    "reviewReferencesNotNewSourceEntries": true,
+    "sourceLevelAndAccessRightsUnchanged": true,
+    "sourceCategoryCountsAreNotSemanticTypeCounts": true
+  },
+  "observations": {
+    "catalogueCards": 32115,
+    "sourceCategoryCounts": {
+      "core": 21844,
+      "template": 360,
+      "bonus": 1137,
+      "vocab": 7468,
+      "basics": 319,
+      "biz": 886,
+      "trip": 101
+    },
+    "semanticTypingOfAllCardsCompletedByThisPolicy": false,
+    "examplesAreEditorialDecisionsForReviewNotSourceMutations": true
+  },
+  "sourceEvidence": [
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 3998,
+      "sourceLevel": 2,
+      "sourceCategory": "vocab",
+      "study": "le café",
+      "nativeFrenchMeaning": "le café",
+      "sourceCardSha256": "6f060c7c42156556fb8801a94d13ff9f7a08636fa351dcbe29ba0bcf02a3a7b7",
+      "proposedContentType": "vocabulary",
+      "proposedDestination": "vocab-restaurant",
+      "reason": "Groupe nominal avec article, pas une demande de boisson.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 467,
+      "sourceLevel": 3,
+      "sourceCategory": "core",
+      "study": "Je voudrais un café.",
+      "nativeFrenchMeaning": "Je voudrais un café.",
+      "sourceCardSha256": "910772c6c58f681fcd78b0ea8ef3c70f535ffbe8fd5eef3ba7985313d2c7106d",
+      "proposedContentType": "utterance",
+      "proposedDestination": "repas",
+      "reason": "Demande entière, avec prédication et complément.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.en",
+      "sourceIndex": 4057,
+      "sourceLevel": 2,
+      "sourceCategory": "vocab",
+      "study": "coffee",
+      "nativeFrenchMeaning": "café",
+      "sourceCardSha256": "87e897d1aa905937ad6c79f6fbbf3c2b292a1c12a2a583b1785f2e26bcdde853",
+      "proposedContentType": "vocabulary",
+      "proposedDestination": "vocab-restaurant",
+      "reason": "Nom de boisson isolé.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.en",
+      "sourceIndex": 446,
+      "sourceLevel": 3,
+      "sourceCategory": "core",
+      "study": "I'd like a coffee.",
+      "nativeFrenchMeaning": "je voudrais un café",
+      "sourceCardSha256": "731f3cd29350f112ff00da407a27edb0d189668c3cafb8b3d4ba56ae23f4222e",
+      "proposedContentType": "utterance",
+      "proposedDestination": "repas",
+      "reason": "Demande entière, à conserver dans la situation restaurant.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.zh",
+      "sourceIndex": 2285,
+      "sourceLevel": 2,
+      "sourceCategory": "vocab",
+      "study": "咖啡",
+      "nativeFrenchMeaning": "café",
+      "sourceCardSha256": "3265765a54b7e66a9f42d14d5682024620ba9cfd0c0e24ef36d66ace6c82f793",
+      "proposedContentType": "vocabulary",
+      "proposedDestination": "vocab-restaurant",
+      "reason": "Nom de boisson isolé, sans caractère de phrase à déduire de sa longueur.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.zh",
+      "sourceIndex": 392,
+      "sourceLevel": 3,
+      "sourceCategory": "core",
+      "study": "我要一杯咖啡。",
+      "nativeFrenchMeaning": "Je voudrais un café.",
+      "sourceCardSha256": "fe9c0d5c66f419744d88114005865038c4b518df6cfefdc058941b5c368850dd",
+      "proposedContentType": "utterance",
+      "proposedDestination": "repas",
+      "reason": "Demande complète ; le mot café n’en fait pas une carte de vocabulaire.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 3868,
+      "sourceLevel": 3,
+      "sourceCategory": "vocab",
+      "study": "la chaise",
+      "nativeFrenchMeaning": "la chaise",
+      "sourceCardSha256": "a5b48513eb4e6814a03f56cb38a6d102e17ef654e486b9a6083b12194d7d6795",
+      "proposedContentType": "vocabulary",
+      "proposedDestination": "vocab-maison",
+      "reason": "Nom de mobilier avec article.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 3914,
+      "sourceLevel": 3,
+      "sourceCategory": "vocab",
+      "study": "le jardin",
+      "nativeFrenchMeaning": "le jardin",
+      "sourceCardSha256": "a6f58cc41224270a2e504497988603438989a4e9e691b19232fc09cc5b62d512",
+      "proposedContentType": "vocabulary",
+      "proposedDestination": "vocab-maison",
+      "reason": "Nom de lieu domestique avec article.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 3807,
+      "sourceLevel": 2,
+      "sourceCategory": "basics",
+      "study": "quatre",
+      "nativeFrenchMeaning": "quatre",
+      "sourceCardSha256": "b82d80f9d124992cca9b48b03b7cae4cb085d811e7f0a17dd6f61f88b2c5b91f",
+      "proposedContentType": "number",
+      "proposedDestination": "nombres",
+      "reason": "Nombre cardinal isolé, catégorie source basics non décisive à elle seule.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 3815,
+      "sourceLevel": 4,
+      "sourceCategory": "basics",
+      "study": "douze",
+      "nativeFrenchMeaning": "douze",
+      "sourceCardSha256": "d73dd9505aa9021701bfb0a6a5ae5b97497cd8b0da3892bc05af38006f755ae5",
+      "proposedContentType": "number",
+      "proposedDestination": "nombres",
+      "reason": "Nombre cardinal isolé ; cette décision ne modifie pas son niveau source.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 1,
+      "sourceLevel": 1,
+      "sourceCategory": "core",
+      "study": "Oui.",
+      "nativeFrenchMeaning": "Oui.",
+      "sourceCardSha256": "d2481a66893cac87c3e97177909b99a87a7fb794fa1a6e68ed5222329bba6c7a",
+      "proposedContentType": "utterance",
+      "proposedDestination": "conversation",
+      "reason": "Réponse conventionnelle complète, même en un seul mot.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 2,
+      "sourceLevel": 1,
+      "sourceCategory": "core",
+      "study": "Merci.",
+      "nativeFrenchMeaning": "Merci.",
+      "sourceCardSha256": "5f65deb5f712d20279a8c2cd230caa8e5f5dfd7764bbca18e59fe26c3f6d3664",
+      "proposedContentType": "utterance",
+      "proposedDestination": "saluer",
+      "reason": "Remerciement complet, même en un seul mot.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 272,
+      "sourceLevel": 2,
+      "sourceCategory": "core",
+      "study": "Bonjour !",
+      "nativeFrenchMeaning": "Bonjour !",
+      "sourceCardSha256": "4f398c399d636e51c885ca03c04bf796405ad3850ad09965938d336a3c7d1c06",
+      "proposedContentType": "utterance",
+      "proposedDestination": "saluer",
+      "reason": "Salutation autonome ; son niveau source reste une information distincte.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.en",
+      "sourceIndex": 3082,
+      "sourceLevel": 2,
+      "sourceCategory": "vocab",
+      "study": "In any case, I loved it.",
+      "nativeFrenchMeaning": "En tout cas, moi, j'ai adoré.",
+      "sourceCardSha256": "437cea8cfc60370a6d78351195c078482e4ac4743c42bcc108c89afa14bf570d",
+      "proposedContentType": "utterance",
+      "proposedDestination": "conversation",
+      "reason": "La catégorie source vocab contient ici une phrase complète.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.es",
+      "sourceIndex": 3585,
+      "sourceLevel": 2,
+      "sourceCategory": "vocab",
+      "study": "Te extraño.",
+      "nativeFrenchMeaning": "tu me manques",
+      "sourceCardSha256": "3f1b194fee0f8aa67f0ac9c972dae3320695dd63d721b456c6efdfb7e6527af7",
+      "proposedContentType": "utterance",
+      "proposedDestination": "ressentis",
+      "reason": "Prédication complète malgré la catégorie vocab et sa brièveté.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.it",
+      "sourceIndex": 2614,
+      "sourceLevel": 1,
+      "sourceCategory": "vocab",
+      "study": "Il film era bello; invece, la sala era rumorosa.",
+      "nativeFrenchMeaning": "Le film était bien ; par contre, la salle était bruyante.",
+      "sourceCardSha256": "f049204412fbf7b70a75050588f331ad9c51a1d62fd9f209adea5f00eefd4ed3",
+      "proposedContentType": "utterance",
+      "proposedDestination": "conversation",
+      "reason": "Récit de deux propositions, mal adapté à un classement lexical par catégorie source.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.ja",
+      "sourceIndex": 3001,
+      "sourceLevel": 1,
+      "sourceCategory": "vocab",
+      "study": "映画は良かったけど、その代わり部屋がうるさかった。",
+      "nativeFrenchMeaning": "Le film était bien ; par contre, la salle était bruyante.",
+      "sourceCardSha256": "d00e3e175492eee6207df1243f17acbdba129d05d44d37a3c063d772b00e6f93",
+      "proposedContentType": "utterance",
+      "proposedDestination": "conversation",
+      "reason": "Récit complet, même si cat vaut vocab.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.ko",
+      "sourceIndex": 2154,
+      "sourceLevel": 1,
+      "sourceCategory": "vocab",
+      "study": "영화는 좋았는데 방이 시끄러웠어요.",
+      "nativeFrenchMeaning": "Le film était bien ; par contre, la salle était bruyante.",
+      "sourceCardSha256": "1fda34ae582250ff171589139a4bae187043e2bada1eb4d14ea301561874a8cd",
+      "proposedContentType": "utterance",
+      "proposedDestination": "conversation",
+      "reason": "Deux faits reliés ; la phrase ne devient pas un mot parce que cat vaut vocab.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 2918,
+      "sourceLevel": 1,
+      "sourceCategory": "vocab",
+      "study": "Le film était bien ; par contre, la salle était bruyante.",
+      "nativeFrenchMeaning": "Le film était bien ; par contre, la salle était bruyante.",
+      "sourceCardSha256": "afb0d7a0abb4e4cd3a7eb1e59f885327b11148ce9a32c1f0616314066f4904d6",
+      "proposedContentType": "utterance",
+      "proposedDestination": "conversation",
+      "reason": "Phrase de récit complète avec opposition, étiquetée vocab en source.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.zh",
+      "sourceIndex": 2235,
+      "sourceLevel": 2,
+      "sourceCategory": "vocab",
+      "study": "给我看看",
+      "nativeFrenchMeaning": "montre-moi",
+      "sourceCardSha256": "a8cddb3f2bd514a042a75160186b01281607a3bee312e9a8a3fbd77594b9e1e1",
+      "proposedContentType": "utterance",
+      "proposedDestination": "comprendre",
+      "reason": "Demande impérative entière, bien que cat soit vocab.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.es",
+      "sourceIndex": 3590,
+      "sourceLevel": 2,
+      "sourceCategory": "vocab",
+      "study": "Un momento, por favor.",
+      "nativeFrenchMeaning": "un instant, s'il vous plaît",
+      "sourceCardSha256": "ff4d3d1ef2df6b19e25a848eaad5edd2b53de49f4547002e7c6c326495ca518d",
+      "proposedContentType": "utterance",
+      "proposedDestination": "comprendre",
+      "reason": "Demande polie autonome de patienter, sans verbe exprimé.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.es",
+      "sourceIndex": 3598,
+      "sourceLevel": 2,
+      "sourceCategory": "vocab",
+      "study": "Trato hecho.",
+      "nativeFrenchMeaning": "marché conclu",
+      "sourceCardSha256": "22f0ee7d7e2707aad0d03d5af85154907148032d77a7d3f0d94c09c8ebb09142",
+      "proposedContentType": "utterance",
+      "proposedDestination": "conversation",
+      "reason": "Clôture conventionnelle complète, sans verbe exprimé.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.ja",
+      "sourceIndex": 3201,
+      "sourceLevel": 2,
+      "sourceCategory": "vocab",
+      "study": "マジで？",
+      "nativeFrenchMeaning": "Sérieux ?",
+      "sourceCardSha256": "b351e6bfa3df3e97766191619e5079127260d49514f922a88057ad9a66ed255c",
+      "proposedContentType": "utterance",
+      "proposedDestination": "conversation",
+      "reason": "Réaction interrogative conventionnelle complète.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.ko",
+      "sourceIndex": 2352,
+      "sourceLevel": 2,
+      "sourceCategory": "vocab",
+      "study": "진짜예요?",
+      "nativeFrenchMeaning": "Sérieux ?",
+      "sourceCardSha256": "4bb39c5bc1e1596917e6c39d278f5ace1c59e7307143b3e3410564bdbb31f42b",
+      "proposedContentType": "utterance",
+      "proposedDestination": "conversation",
+      "reason": "Réaction interrogative complète.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.en",
+      "sourceIndex": 3075,
+      "sourceLevel": 2,
+      "sourceCategory": "vocab",
+      "study": "in fact",
+      "nativeFrenchMeaning": "en fait",
+      "sourceCardSha256": "a872500d088fd05509e7cb024c45274a8a643145565c8f654391da97215ecd43",
+      "proposedContentType": "vocabulary",
+      "proposedDestination": "vocab-adverbes",
+      "reason": "Locution de liaison bornée ; ce n’est pas une phrase entière.",
+      "doesNotChangeLevel": true,
+      "posStatus": "candidate-source-form-reviewed-here-for-routing"
+    },
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 2981,
+      "sourceLevel": 2,
+      "sourceCategory": "vocab",
+      "study": "de plus en plus",
+      "nativeFrenchMeaning": "de plus en plus",
+      "sourceCardSha256": "d262853efa96f44341a6a35d857741a23bc911004a416fc33c47365265dbe61f",
+      "proposedContentType": "vocabulary",
+      "proposedDestination": "vocab-adverbes",
+      "reason": "Locution adverbiale lexicale, pas une proposition complète.",
+      "doesNotChangeLevel": true,
+      "posStatus": "candidate-source-form-reviewed-here-for-routing"
+    },
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 2903,
+      "sourceLevel": 1,
+      "sourceCategory": "template",
+      "study": "Je m'appelle...",
+      "nativeFrenchMeaning": "Je m'appelle...",
+      "sourceCardSha256": "5dcbe000c400205fc30561e313560fdc369ad908a06af764d38fc49a8882219b",
+      "proposedContentType": "incomplete",
+      "proposedDestination": "reserve",
+      "reason": "Le complément du prénom manque ; aucune production ou phonétique complétée automatiquement.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.zh",
+      "sourceIndex": 2224,
+      "sourceLevel": 1,
+      "sourceCategory": "template",
+      "study": "我叫……",
+      "nativeFrenchMeaning": "je m'appelle…",
+      "sourceCardSha256": "55595148ef556e05c00d406af58b73bfd5e155324d1f7ddae549c1cbdbd4502f",
+      "proposedContentType": "incomplete",
+      "proposedDestination": "reserve",
+      "reason": "Le complément du nom manque, malgré un début de phrase connu.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.ja",
+      "sourceIndex": 2986,
+      "sourceLevel": 1,
+      "sourceCategory": "template",
+      "study": "私の名前は…",
+      "nativeFrenchMeaning": "Je m'appelle...",
+      "sourceCardSha256": "722e4f7a9d98e4d8e494dc6c9a681de95a6f0996754ab9621d5c5beb69cc54c1",
+      "proposedContentType": "incomplete",
+      "proposedDestination": "reserve",
+      "reason": "Construction ouverte de présentation, à réserver à la revue.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.ko",
+      "sourceIndex": 2139,
+      "sourceLevel": 1,
+      "sourceCategory": "template",
+      "study": "제 이름은…",
+      "nativeFrenchMeaning": "Je m'appelle...",
+      "sourceCardSha256": "288b8dd26a437d9a64042a83ff6cc6e50af4573c9b9de5c9ac09e9a9f86b9ed5",
+      "proposedContentType": "incomplete",
+      "proposedDestination": "reserve",
+      "reason": "Construction ouverte de présentation, à réserver à la revue.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.ja",
+      "sourceIndex": 2942,
+      "sourceLevel": 1,
+      "sourceCategory": "template",
+      "study": "〜さん",
+      "nativeFrenchMeaning": "Monsieur",
+      "sourceCardSha256": "1abefd59830c459e3ec73188842393081f6b5c09da6768c0b838d89e3f219b84",
+      "proposedContentType": "incomplete",
+      "proposedDestination": "reserve",
+      "reason": "Suffixe lié à un emplacement manquant ; ne pas le faire produire comme une réplique autonome.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.ko",
+      "sourceIndex": 2180,
+      "sourceLevel": 1,
+      "sourceCategory": "template",
+      "study": "방금 왔어요…",
+      "nativeFrenchMeaning": "Je viens de...",
+      "sourceCardSha256": "d6d398d498d1a9e14e944393673b57dbbf0473cd7e25c97fbc3be279da9c97d3",
+      "proposedContentType": "review",
+      "proposedDestination": "reserve",
+      "reason": "Le texte étudié semble clos mais la source template et le sens français sont ouverts : conflit à examiner, sans correction automatique.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.en",
+      "sourceIndex": 3721,
+      "sourceLevel": 1,
+      "sourceCategory": "core",
+      "study": "big",
+      "nativeFrenchMeaning": "grand",
+      "sourceCardSha256": "ccd853f66ed25b024b968d3e09dd903829e96aecedb0aa6a8567b0a07a739212",
+      "proposedContentType": "vocabulary",
+      "proposedDestination": "vocab-adjectifs",
+      "posStatus": "candidate",
+      "reason": "Unité lexicale entière, à destination grammaticale prioritaire ; ni phrase coupée ni phonétique réassemblée. Conserver les accents pour distinguer sûr/sur.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.en",
+      "sourceIndex": 3760,
+      "sourceLevel": 1,
+      "sourceCategory": "core",
+      "study": "under",
+      "nativeFrenchMeaning": "sous",
+      "sourceCardSha256": "39807bd126f1099e2e583d493faf2ccaf2bd26e61aaa2311948e62b7f885b8b1",
+      "proposedContentType": "vocabulary",
+      "proposedDestination": "vocab-prepositions",
+      "posStatus": "candidate",
+      "reason": "Unité lexicale entière, à destination grammaticale prioritaire ; ni phrase coupée ni phonétique réassemblée. Conserver les accents pour distinguer sûr/sur.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.en",
+      "sourceIndex": 3743,
+      "sourceLevel": 1,
+      "sourceCategory": "core",
+      "study": "often",
+      "nativeFrenchMeaning": "souvent",
+      "sourceCardSha256": "5813ab1856101d59561c07d98204c12940e8776d3051c3816bfc3e0daf5a999d",
+      "proposedContentType": "vocabulary",
+      "proposedDestination": "vocab-adverbes",
+      "posStatus": "candidate",
+      "reason": "Unité lexicale entière, à destination grammaticale prioritaire ; ni phrase coupée ni phonétique réassemblée. Conserver les accents pour distinguer sûr/sur.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 3734,
+      "sourceLevel": 1,
+      "sourceCategory": "core",
+      "study": "sûr",
+      "nativeFrenchMeaning": "sûr",
+      "sourceCardSha256": "dc833accd900a3fd2ed24bcf592ba43846f395f295462dff6fe60d4c7b98dc75",
+      "proposedContentType": "vocabulary",
+      "proposedDestination": "vocab-adjectifs",
+      "posStatus": "candidate",
+      "reason": "Unité lexicale entière, à destination grammaticale prioritaire ; ni phrase coupée ni phonétique réassemblée. Conserver les accents pour distinguer sûr/sur.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 3712,
+      "sourceLevel": 1,
+      "sourceCategory": "core",
+      "study": "sur",
+      "nativeFrenchMeaning": "sur",
+      "sourceCardSha256": "f7c5b959bcbb1eac99632de348ba90df46ae5e588ee66f239219d9afcdf9851e",
+      "proposedContentType": "vocabulary",
+      "proposedDestination": "vocab-prepositions",
+      "posStatus": "candidate",
+      "reason": "Unité lexicale entière, à destination grammaticale prioritaire ; ni phrase coupée ni phonétique réassemblée. Conserver les accents pour distinguer sûr/sur.",
+      "doesNotChangeLevel": true
+    },
+    {
+      "collection": "DECKS.fr",
+      "sourceIndex": 3697,
+      "sourceLevel": 1,
+      "sourceCategory": "core",
+      "study": "souvent",
+      "nativeFrenchMeaning": "souvent",
+      "sourceCardSha256": "5a3bd98c381d149ce1c61cd25de19e7b6954140637945ff4a4489f534e79f0f3",
+      "proposedContentType": "vocabulary",
+      "proposedDestination": "vocab-adverbes",
+      "posStatus": "candidate",
+      "reason": "Unité lexicale entière, à destination grammaticale prioritaire ; ni phrase coupée ni phonétique réassemblée. Conserver les accents pour distinguer sûr/sur.",
+      "doesNotChangeLevel": true
+    }
+  ],
+  "lexicalSignals": {
+    "vocab-restaurant": [
+      "\\b(cafe|the|eau|boisson|repas|menu|restaurant|addition|pain|lait|riz|viande|poisson|poulet|fruit|pomme|legume|soupe|plat|tasse|verre|assiette|fourchette|cuillere|sucre|sel|biere|vin|jus|sandwich|dessert|petit.dejeuner)\\b",
+      "\\b(achat|magasin|boutique|vetement|chaussure|pantalon|chemise|robe|manteau|prix|paiement|facturette|reduction|carte bancaire|especes|monnaie|caisse)\\b"
+    ],
+    "vocab-maison": [
+      "\\b(maison|appartement|logement|piece|salon|cuisine|chambre|meuble|mobilier|chaise|table|canape|fauteuil|lit|matelas|armoire|placard|etagere|porte|fenetre|rideau|lampe|coussin|oreiller|tapis|salle de bain|douche|toilettes|menage|balcon)\\b",
+      "\\b(jardin|jardinage|plante|fleur|arbre|herbe|pelouse|racine|feuille|branche|potager|tondeuse|arrosoir|terre|graine|buisson)\\b"
+    ],
+    "vocab-voyage": [
+      "\\b(voyage|transport|train|gare|quai|bus|autobus|metro|tramway|avion|aeroport|vol|taxi|voiture|velo|billet|bagage|valise|passeport|hotel|auberge|reservation|itineraire|route|rue|carrefour|autoroute|frontiere|douane|touriste)\\b"
+    ],
+    "vocab-personnes": [
+      "\\b(personne|homme|femme|enfant|bebe|parent|famille|mere|pere|maman|papa|fils|fille|frere|soeur|ami|amie|copain|copine|mari|epouse|voisin|couple|pronom|prenom|nom de famille)\\b",
+      "\\b(corps|tete|visage|oeil|yeux|nez|bouche|oreille|dent|main|bras|jambe|pied|dos|ventre|sante|maladie|douleur|rhume|fievre|medecin|hopital|radio|radiographie|sensation|emotion|peur|joie|tristesse|colere|envie|besoin)\\b"
+    ],
+    "vocab-reperes": [
+      "\\b(temps|heure|minute|seconde|jour|semaine|mois|annee|matin|soir|nuit|midi|saison|printemps|ete|automne|hiver|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|calendrier|date|duree|frequence|distance|mesure|litre|metre|kilometre|gramme|kilo)\\b",
+      "\\b(hier|demain|aujourd.hui|moment|instant|lieu|position|cote|dessus|dessous|interieur|exterieur|nord|sud|est|ouest)\\b"
+    ],
+    "vocab-actions": [
+      "\\b(action|activite|faire|avoir|etre|aller|venir|prendre|donner|mettre|voir|regarder|ecouter|parler|dire|lire|ecrire|comprendre|demander|repondre|question|reponse|mot|phrase|langue|couleur|forme|taille|qualite|comparaison|cause|consequence|condition|liaison|idee)\\b"
+    ],
+    "vocab-travail": [
+      "\\b(travail|profession|metier|employe|collegue|patron|entreprise|usine|bureau|reunion|projet|contrat|devis|facture|commande|fournisseur|client|livraison|stock|document|formulaire|dossier|demarche|guichet|administration|attestation|permis|service professionnel|materiau|emballage|fabrication|echantillon)\\b"
+    ]
+  },
+  "lexicalSignalPolicy": {
+    "input": "legacy.normal(nativeFrenchMeaning)",
+    "onlyAppliesToContentType": "vocabulary",
+    "resultStatus": "candidate",
+    "doesNotProveNativeSourceFit": true,
+    "explicitSourceIndexDecisionWins": true,
+    "semanticSignalTrace": "source-semantic-signal",
+    "domainFallbackTrace": "family-needs-review",
+    "unresolvedFamilyMustRemainTraceable": true,
+    "bareAmbiguousMeanings": [
+      "carte",
+      "compte",
+      "bureau",
+      "pièce",
+      "temps",
+      "livre",
+      "vol",
+      "place",
+      "cours",
+      "affaire"
+    ],
+    "doNotTreatTheseRegexesAsFullCatalogueManualReview": true
+  },
+  "partOfSpeechPriority": [
+    "vocab-adjectifs",
+    "vocab-prepositions",
+    "vocab-adverbes"
+  ],
+  "posCandidateSignals": {
+    "vocab-adjectifs": {
+      "exactFrenchMeanings": [
+        "grand",
+        "petit",
+        "rouge",
+        "bleu",
+        "vert",
+        "jaune",
+        "noir",
+        "blanc",
+        "nouveau",
+        "vieux",
+        "facile",
+        "difficile",
+        "rapide",
+        "lent",
+        "propre",
+        "sale",
+        "plein",
+        "vide",
+        "lourd",
+        "léger",
+        "long",
+        "court",
+        "fort",
+        "faible",
+        "beau",
+        "joli",
+        "important",
+        "utile",
+        "inutile",
+        "dangereux",
+        "sûr",
+        "chaud",
+        "froid",
+        "heureux",
+        "triste",
+        "confortable"
+      ],
+      "requiresWholeLexicalEntry": true,
+      "requiresStudyLanguageCheck": true,
+      "notAFullPredication": true,
+      "languageNotes": {
+        "zh": "Propriété descriptive : ne pas ajouter 是 ou 很 et ne pas déduire une grammaire française de la traduction.",
+        "ja": "Distinguer lexème adjectival, forme attributive et prédication polie complète.",
+        "ko": "Les verbes descriptifs ne sont pas déclarés équivalents aux adjectifs français ; conserver leur forme source."
+      }
+    },
+    "vocab-prepositions": {
+      "exactFrenchMeanings": [
+        "à",
+        "de",
+        "dans",
+        "sur",
+        "sous",
+        "avec",
+        "sans",
+        "pour",
+        "contre",
+        "entre",
+        "devant",
+        "derrière",
+        "près de",
+        "à côté de",
+        "en face de",
+        "au-dessus de",
+        "en dessous de",
+        "jusqu’à",
+        "depuis",
+        "pendant",
+        "avant",
+        "après"
+      ],
+      "requiresWholeLexicalEntry": true,
+      "requiresStudyLanguageCheck": true,
+      "openSlotAlwaysReserve": true,
+      "languageNotes": {
+        "ja": "Une postposition ou particule attestée reste telle quelle ; un nom de lieu n’est pas automatiquement une préposition. Un schéma avec 〜 ou un complément absent reste réservé.",
+        "ko": "Distinguer particule liée, postposition et expression locative complète. Un emplacement absent ne devient pas une entrée autonome par traduction française.",
+        "zh": "Distinguer mot de relation, coverbe et verbe selon l’usage source ; ne pas déduire le type depuis le français seul."
+      }
+    },
+    "vocab-adverbes": {
+      "exactFrenchMeanings": [
+        "vite",
+        "lentement",
+        "rapidement",
+        "doucement",
+        "souvent",
+        "parfois",
+        "rarement",
+        "toujours",
+        "jamais",
+        "déjà",
+        "encore",
+        "bientôt",
+        "peut-être",
+        "vraiment",
+        "très",
+        "trop",
+        "assez",
+        "presque",
+        "seulement",
+        "ensemble",
+        "surtout",
+        "pourtant",
+        "cependant",
+        "heureusement",
+        "malheureusement"
+      ],
+      "requiresWholeLexicalEntry": true,
+      "requiresStudyLanguageCheck": true,
+      "timeMeaningAloneIsNotEnough": true,
+      "languageNotes": {
+        "all": "Ne pas convertir automatiquement jour, demain, avant de dormir ou une durée en adverbe. Établir la fonction du lexème ou de la locution dans la langue étudiée."
+      }
+    }
+  },
+  "partOfSpeechRules": {
+    "status": "candidate-until-source-fit-reviewed",
+    "priorityOverContextualFamilies": true,
+    "notInferredFromFrenchGlossAlone": true,
+    "doNotUseAccentBlindNormalizationForPOS": true,
+    "accentExample": "sûr (descriptif) et sur (relation) ne sont pas interchangeables après suppression des accents.",
+    "ambiguousPosRequiresReview": true,
+    "doNotSplitSentenceOrLocutionToCreateWord": true,
+    "singleCanonicalPrimaryFamily": true,
+    "crossContextRecallField": "reuseVocabularyIds",
+    "noAutomaticTimeExpressionToAdverb": true
+  },
+  "themeDefinitions": [
+    {
+      "idPattern": "L{level}-vocab-restaurant",
+      "domain": "vocab-restaurant",
+      "lexicalFamilyId": "vocab-restaurant",
+      "visualIdPattern": "L{level}-vocab-restaurant",
+      "title": {
+        "fr": "Restaurant et achats",
+        "zh": "餐饮与购物"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 0,
+      "emitOnlyWhenItemsExist": true
+    },
+    {
+      "idPattern": "L{level}-vocab-maison",
+      "domain": "vocab-maison",
+      "lexicalFamilyId": "vocab-maison",
+      "visualIdPattern": "L{level}-vocab-maison",
+      "title": {
+        "fr": "Maison et jardin",
+        "zh": "居家与园艺"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 1,
+      "emitOnlyWhenItemsExist": true
+    },
+    {
+      "idPattern": "L{level}-vocab-voyage",
+      "domain": "vocab-voyage",
+      "lexicalFamilyId": "vocab-voyage",
+      "visualIdPattern": "L{level}-vocab-voyage",
+      "title": {
+        "fr": "Voyage et transport",
+        "zh": "出行与交通"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 2,
+      "emitOnlyWhenItemsExist": true
+    },
+    {
+      "idPattern": "L{level}-vocab-personnes",
+      "domain": "vocab-personnes",
+      "lexicalFamilyId": "vocab-personnes",
+      "visualIdPattern": "L{level}-vocab-personnes",
+      "title": {
+        "fr": "Corps, personnes et émotions",
+        "zh": "身体、人物与情绪"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 3,
+      "emitOnlyWhenItemsExist": true
+    },
+    {
+      "idPattern": "L{level}-vocab-reperes",
+      "domain": "vocab-reperes",
+      "lexicalFamilyId": "vocab-reperes",
+      "visualIdPattern": "L{level}-vocab-reperes",
+      "title": {
+        "fr": "Temps et repères",
+        "zh": "时间与方位"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 4,
+      "emitOnlyWhenItemsExist": true
+    },
+    {
+      "idPattern": "L{level}-vocab-actions",
+      "domain": "vocab-actions",
+      "lexicalFamilyId": "vocab-actions",
+      "visualIdPattern": "L{level}-vocab-actions",
+      "title": {
+        "fr": "Actions et descriptions",
+        "zh": "动作与描述"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 5,
+      "emitOnlyWhenItemsExist": true
+    },
+    {
+      "idPattern": "L{level}-vocab-travail",
+      "domain": "vocab-travail",
+      "lexicalFamilyId": "vocab-travail",
+      "visualIdPattern": "L{level}-vocab-travail",
+      "title": {
+        "fr": "Travail et démarches",
+        "zh": "工作与事务"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 6,
+      "emitOnlyWhenItemsExist": true
+    },
+    {
+      "idPattern": "L{level}-nombres",
+      "domain": "nombres",
+      "visualIdPattern": "L{level}-nombres",
+      "title": {
+        "fr": "Nombres",
+        "zh": "数字"
+      },
+      "contentType": "number",
+      "section": "vocabulary",
+      "order": 7,
+      "emitOnlyWhenItemsExist": true
+    },
+    {
+      "idPattern": "L{level}-vocab-adjectifs",
+      "domain": "vocab-adjectifs",
+      "lexicalFamilyId": "vocab-adjectifs",
+      "visualIdPattern": "L{level}-vocab-adjectifs",
+      "title": {
+        "fr": "Adjectifs",
+        "zh": "形容词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ko": {
+          "fr": "Adjectifs et verbes descriptifs",
+          "zh": "形容词与描述性动词"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 8,
+      "emitOnlyWhenItemsExist": true
+    },
+    {
+      "idPattern": "L{level}-vocab-prepositions",
+      "domain": "vocab-prepositions",
+      "lexicalFamilyId": "vocab-prepositions",
+      "visualIdPattern": "L{level}-vocab-prepositions",
+      "title": {
+        "fr": "Prépositions",
+        "zh": "介词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ja": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "ko": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "zh": {
+          "fr": "Prépositions et structures de relation",
+          "zh": "介词与关系表达"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 9,
+      "emitOnlyWhenItemsExist": true
+    },
+    {
+      "idPattern": "L{level}-vocab-adverbes",
+      "domain": "vocab-adverbes",
+      "lexicalFamilyId": "vocab-adverbes",
+      "visualIdPattern": "L{level}-vocab-adverbes",
+      "title": {
+        "fr": "Adverbes",
+        "zh": "副词"
+      },
+      "studyLanguageTitleOverrides": {},
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 10,
+      "emitOnlyWhenItemsExist": true
+    }
+  ],
+  "additionalThemeDefinitions": [
+    {
+      "domain": "vocab-restaurant",
+      "lexicalFamilyId": "vocab-restaurant",
+      "title": {
+        "fr": "Restaurant et achats",
+        "zh": "餐饮与购物"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 0,
+      "emitOnlyWhenItemsExist": true,
+      "level": 1,
+      "id": "L1-vocab-restaurant",
+      "visualId": "L1-vocab-restaurant",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-maison",
+      "lexicalFamilyId": "vocab-maison",
+      "title": {
+        "fr": "Maison et jardin",
+        "zh": "居家与园艺"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 1,
+      "emitOnlyWhenItemsExist": true,
+      "level": 1,
+      "id": "L1-vocab-maison",
+      "visualId": "L1-vocab-maison",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-voyage",
+      "lexicalFamilyId": "vocab-voyage",
+      "title": {
+        "fr": "Voyage et transport",
+        "zh": "出行与交通"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 2,
+      "emitOnlyWhenItemsExist": true,
+      "level": 1,
+      "id": "L1-vocab-voyage",
+      "visualId": "L1-vocab-voyage",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-personnes",
+      "lexicalFamilyId": "vocab-personnes",
+      "title": {
+        "fr": "Corps, personnes et émotions",
+        "zh": "身体、人物与情绪"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 3,
+      "emitOnlyWhenItemsExist": true,
+      "level": 1,
+      "id": "L1-vocab-personnes",
+      "visualId": "L1-vocab-personnes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-reperes",
+      "lexicalFamilyId": "vocab-reperes",
+      "title": {
+        "fr": "Temps et repères",
+        "zh": "时间与方位"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 4,
+      "emitOnlyWhenItemsExist": true,
+      "level": 1,
+      "id": "L1-vocab-reperes",
+      "visualId": "L1-vocab-reperes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-actions",
+      "lexicalFamilyId": "vocab-actions",
+      "title": {
+        "fr": "Actions et descriptions",
+        "zh": "动作与描述"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 5,
+      "emitOnlyWhenItemsExist": true,
+      "level": 1,
+      "id": "L1-vocab-actions",
+      "visualId": "L1-vocab-actions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-travail",
+      "lexicalFamilyId": "vocab-travail",
+      "title": {
+        "fr": "Travail et démarches",
+        "zh": "工作与事务"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 6,
+      "emitOnlyWhenItemsExist": true,
+      "level": 1,
+      "id": "L1-vocab-travail",
+      "visualId": "L1-vocab-travail",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 1
+      }
+    },
+    {
+      "domain": "nombres",
+      "title": {
+        "fr": "Nombres",
+        "zh": "数字"
+      },
+      "contentType": "number",
+      "section": "vocabulary",
+      "order": 7,
+      "emitOnlyWhenItemsExist": true,
+      "level": 1,
+      "id": "L1-nombres",
+      "visualId": "L1-nombres",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-adjectifs",
+      "lexicalFamilyId": "vocab-adjectifs",
+      "title": {
+        "fr": "Adjectifs",
+        "zh": "形容词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ko": {
+          "fr": "Adjectifs et verbes descriptifs",
+          "zh": "形容词与描述性动词"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 8,
+      "emitOnlyWhenItemsExist": true,
+      "level": 1,
+      "id": "L1-vocab-adjectifs",
+      "visualId": "L1-vocab-adjectifs",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 0,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-prepositions",
+      "lexicalFamilyId": "vocab-prepositions",
+      "title": {
+        "fr": "Prépositions",
+        "zh": "介词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ja": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "ko": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "zh": {
+          "fr": "Prépositions et structures de relation",
+          "zh": "介词与关系表达"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 9,
+      "emitOnlyWhenItemsExist": true,
+      "level": 1,
+      "id": "L1-vocab-prepositions",
+      "visualId": "L1-vocab-prepositions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 1,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-adverbes",
+      "lexicalFamilyId": "vocab-adverbes",
+      "title": {
+        "fr": "Adverbes",
+        "zh": "副词"
+      },
+      "studyLanguageTitleOverrides": {},
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 10,
+      "emitOnlyWhenItemsExist": true,
+      "level": 1,
+      "id": "L1-vocab-adverbes",
+      "visualId": "L1-vocab-adverbes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 2,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-restaurant",
+      "lexicalFamilyId": "vocab-restaurant",
+      "title": {
+        "fr": "Restaurant et achats",
+        "zh": "餐饮与购物"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 0,
+      "emitOnlyWhenItemsExist": true,
+      "level": 2,
+      "id": "L2-vocab-restaurant",
+      "visualId": "L2-vocab-restaurant",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-maison",
+      "lexicalFamilyId": "vocab-maison",
+      "title": {
+        "fr": "Maison et jardin",
+        "zh": "居家与园艺"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 1,
+      "emitOnlyWhenItemsExist": true,
+      "level": 2,
+      "id": "L2-vocab-maison",
+      "visualId": "L2-vocab-maison",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-voyage",
+      "lexicalFamilyId": "vocab-voyage",
+      "title": {
+        "fr": "Voyage et transport",
+        "zh": "出行与交通"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 2,
+      "emitOnlyWhenItemsExist": true,
+      "level": 2,
+      "id": "L2-vocab-voyage",
+      "visualId": "L2-vocab-voyage",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-personnes",
+      "lexicalFamilyId": "vocab-personnes",
+      "title": {
+        "fr": "Corps, personnes et émotions",
+        "zh": "身体、人物与情绪"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 3,
+      "emitOnlyWhenItemsExist": true,
+      "level": 2,
+      "id": "L2-vocab-personnes",
+      "visualId": "L2-vocab-personnes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-reperes",
+      "lexicalFamilyId": "vocab-reperes",
+      "title": {
+        "fr": "Temps et repères",
+        "zh": "时间与方位"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 4,
+      "emitOnlyWhenItemsExist": true,
+      "level": 2,
+      "id": "L2-vocab-reperes",
+      "visualId": "L2-vocab-reperes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-actions",
+      "lexicalFamilyId": "vocab-actions",
+      "title": {
+        "fr": "Actions et descriptions",
+        "zh": "动作与描述"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 5,
+      "emitOnlyWhenItemsExist": true,
+      "level": 2,
+      "id": "L2-vocab-actions",
+      "visualId": "L2-vocab-actions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-travail",
+      "lexicalFamilyId": "vocab-travail",
+      "title": {
+        "fr": "Travail et démarches",
+        "zh": "工作与事务"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 6,
+      "emitOnlyWhenItemsExist": true,
+      "level": 2,
+      "id": "L2-vocab-travail",
+      "visualId": "L2-vocab-travail",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 3
+      }
+    },
+    {
+      "domain": "nombres",
+      "title": {
+        "fr": "Nombres",
+        "zh": "数字"
+      },
+      "contentType": "number",
+      "section": "vocabulary",
+      "order": 7,
+      "emitOnlyWhenItemsExist": true,
+      "level": 2,
+      "id": "L2-nombres",
+      "visualId": "L2-nombres",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L1-L2",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-adjectifs",
+      "lexicalFamilyId": "vocab-adjectifs",
+      "title": {
+        "fr": "Adjectifs",
+        "zh": "形容词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ko": {
+          "fr": "Adjectifs et verbes descriptifs",
+          "zh": "形容词与描述性动词"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 8,
+      "emitOnlyWhenItemsExist": true,
+      "level": 2,
+      "id": "L2-vocab-adjectifs",
+      "visualId": "L2-vocab-adjectifs",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 0,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-prepositions",
+      "lexicalFamilyId": "vocab-prepositions",
+      "title": {
+        "fr": "Prépositions",
+        "zh": "介词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ja": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "ko": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "zh": {
+          "fr": "Prépositions et structures de relation",
+          "zh": "介词与关系表达"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 9,
+      "emitOnlyWhenItemsExist": true,
+      "level": 2,
+      "id": "L2-vocab-prepositions",
+      "visualId": "L2-vocab-prepositions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 1,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-adverbes",
+      "lexicalFamilyId": "vocab-adverbes",
+      "title": {
+        "fr": "Adverbes",
+        "zh": "副词"
+      },
+      "studyLanguageTitleOverrides": {},
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 10,
+      "emitOnlyWhenItemsExist": true,
+      "level": 2,
+      "id": "L2-vocab-adverbes",
+      "visualId": "L2-vocab-adverbes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 2,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-restaurant",
+      "lexicalFamilyId": "vocab-restaurant",
+      "title": {
+        "fr": "Restaurant et achats",
+        "zh": "餐饮与购物"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 0,
+      "emitOnlyWhenItemsExist": true,
+      "level": 3,
+      "id": "L3-vocab-restaurant",
+      "visualId": "L3-vocab-restaurant",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-maison",
+      "lexicalFamilyId": "vocab-maison",
+      "title": {
+        "fr": "Maison et jardin",
+        "zh": "居家与园艺"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 1,
+      "emitOnlyWhenItemsExist": true,
+      "level": 3,
+      "id": "L3-vocab-maison",
+      "visualId": "L3-vocab-maison",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-voyage",
+      "lexicalFamilyId": "vocab-voyage",
+      "title": {
+        "fr": "Voyage et transport",
+        "zh": "出行与交通"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 2,
+      "emitOnlyWhenItemsExist": true,
+      "level": 3,
+      "id": "L3-vocab-voyage",
+      "visualId": "L3-vocab-voyage",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-personnes",
+      "lexicalFamilyId": "vocab-personnes",
+      "title": {
+        "fr": "Corps, personnes et émotions",
+        "zh": "身体、人物与情绪"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 3,
+      "emitOnlyWhenItemsExist": true,
+      "level": 3,
+      "id": "L3-vocab-personnes",
+      "visualId": "L3-vocab-personnes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-reperes",
+      "lexicalFamilyId": "vocab-reperes",
+      "title": {
+        "fr": "Temps et repères",
+        "zh": "时间与方位"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 4,
+      "emitOnlyWhenItemsExist": true,
+      "level": 3,
+      "id": "L3-vocab-reperes",
+      "visualId": "L3-vocab-reperes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-actions",
+      "lexicalFamilyId": "vocab-actions",
+      "title": {
+        "fr": "Actions et descriptions",
+        "zh": "动作与描述"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 5,
+      "emitOnlyWhenItemsExist": true,
+      "level": 3,
+      "id": "L3-vocab-actions",
+      "visualId": "L3-vocab-actions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-travail",
+      "lexicalFamilyId": "vocab-travail",
+      "title": {
+        "fr": "Travail et démarches",
+        "zh": "工作与事务"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 6,
+      "emitOnlyWhenItemsExist": true,
+      "level": 3,
+      "id": "L3-vocab-travail",
+      "visualId": "L3-vocab-travail",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 1
+      }
+    },
+    {
+      "domain": "nombres",
+      "title": {
+        "fr": "Nombres",
+        "zh": "数字"
+      },
+      "contentType": "number",
+      "section": "vocabulary",
+      "order": 7,
+      "emitOnlyWhenItemsExist": true,
+      "level": 3,
+      "id": "L3-nombres",
+      "visualId": "L3-nombres",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-adjectifs",
+      "lexicalFamilyId": "vocab-adjectifs",
+      "title": {
+        "fr": "Adjectifs",
+        "zh": "形容词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ko": {
+          "fr": "Adjectifs et verbes descriptifs",
+          "zh": "形容词与描述性动词"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 8,
+      "emitOnlyWhenItemsExist": true,
+      "level": 3,
+      "id": "L3-vocab-adjectifs",
+      "visualId": "L3-vocab-adjectifs",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 0,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-prepositions",
+      "lexicalFamilyId": "vocab-prepositions",
+      "title": {
+        "fr": "Prépositions",
+        "zh": "介词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ja": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "ko": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "zh": {
+          "fr": "Prépositions et structures de relation",
+          "zh": "介词与关系表达"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 9,
+      "emitOnlyWhenItemsExist": true,
+      "level": 3,
+      "id": "L3-vocab-prepositions",
+      "visualId": "L3-vocab-prepositions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 1,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-adverbes",
+      "lexicalFamilyId": "vocab-adverbes",
+      "title": {
+        "fr": "Adverbes",
+        "zh": "副词"
+      },
+      "studyLanguageTitleOverrides": {},
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 10,
+      "emitOnlyWhenItemsExist": true,
+      "level": 3,
+      "id": "L3-vocab-adverbes",
+      "visualId": "L3-vocab-adverbes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 2,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-restaurant",
+      "lexicalFamilyId": "vocab-restaurant",
+      "title": {
+        "fr": "Restaurant et achats",
+        "zh": "餐饮与购物"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 0,
+      "emitOnlyWhenItemsExist": true,
+      "level": 4,
+      "id": "L4-vocab-restaurant",
+      "visualId": "L4-vocab-restaurant",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-maison",
+      "lexicalFamilyId": "vocab-maison",
+      "title": {
+        "fr": "Maison et jardin",
+        "zh": "居家与园艺"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 1,
+      "emitOnlyWhenItemsExist": true,
+      "level": 4,
+      "id": "L4-vocab-maison",
+      "visualId": "L4-vocab-maison",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-voyage",
+      "lexicalFamilyId": "vocab-voyage",
+      "title": {
+        "fr": "Voyage et transport",
+        "zh": "出行与交通"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 2,
+      "emitOnlyWhenItemsExist": true,
+      "level": 4,
+      "id": "L4-vocab-voyage",
+      "visualId": "L4-vocab-voyage",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-personnes",
+      "lexicalFamilyId": "vocab-personnes",
+      "title": {
+        "fr": "Corps, personnes et émotions",
+        "zh": "身体、人物与情绪"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 3,
+      "emitOnlyWhenItemsExist": true,
+      "level": 4,
+      "id": "L4-vocab-personnes",
+      "visualId": "L4-vocab-personnes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-reperes",
+      "lexicalFamilyId": "vocab-reperes",
+      "title": {
+        "fr": "Temps et repères",
+        "zh": "时间与方位"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 4,
+      "emitOnlyWhenItemsExist": true,
+      "level": 4,
+      "id": "L4-vocab-reperes",
+      "visualId": "L4-vocab-reperes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-actions",
+      "lexicalFamilyId": "vocab-actions",
+      "title": {
+        "fr": "Actions et descriptions",
+        "zh": "动作与描述"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 5,
+      "emitOnlyWhenItemsExist": true,
+      "level": 4,
+      "id": "L4-vocab-actions",
+      "visualId": "L4-vocab-actions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-travail",
+      "lexicalFamilyId": "vocab-travail",
+      "title": {
+        "fr": "Travail et démarches",
+        "zh": "工作与事务"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 6,
+      "emitOnlyWhenItemsExist": true,
+      "level": 4,
+      "id": "L4-vocab-travail",
+      "visualId": "L4-vocab-travail",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 3
+      }
+    },
+    {
+      "domain": "nombres",
+      "title": {
+        "fr": "Nombres",
+        "zh": "数字"
+      },
+      "contentType": "number",
+      "section": "vocabulary",
+      "order": 7,
+      "emitOnlyWhenItemsExist": true,
+      "level": 4,
+      "id": "L4-nombres",
+      "visualId": "L4-nombres",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L3-L4",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-adjectifs",
+      "lexicalFamilyId": "vocab-adjectifs",
+      "title": {
+        "fr": "Adjectifs",
+        "zh": "形容词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ko": {
+          "fr": "Adjectifs et verbes descriptifs",
+          "zh": "形容词与描述性动词"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 8,
+      "emitOnlyWhenItemsExist": true,
+      "level": 4,
+      "id": "L4-vocab-adjectifs",
+      "visualId": "L4-vocab-adjectifs",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 0,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-prepositions",
+      "lexicalFamilyId": "vocab-prepositions",
+      "title": {
+        "fr": "Prépositions",
+        "zh": "介词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ja": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "ko": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "zh": {
+          "fr": "Prépositions et structures de relation",
+          "zh": "介词与关系表达"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 9,
+      "emitOnlyWhenItemsExist": true,
+      "level": 4,
+      "id": "L4-vocab-prepositions",
+      "visualId": "L4-vocab-prepositions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 1,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-adverbes",
+      "lexicalFamilyId": "vocab-adverbes",
+      "title": {
+        "fr": "Adverbes",
+        "zh": "副词"
+      },
+      "studyLanguageTitleOverrides": {},
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 10,
+      "emitOnlyWhenItemsExist": true,
+      "level": 4,
+      "id": "L4-vocab-adverbes",
+      "visualId": "L4-vocab-adverbes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 2,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-restaurant",
+      "lexicalFamilyId": "vocab-restaurant",
+      "title": {
+        "fr": "Restaurant et achats",
+        "zh": "餐饮与购物"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 0,
+      "emitOnlyWhenItemsExist": true,
+      "level": 5,
+      "id": "L5-vocab-restaurant",
+      "visualId": "L5-vocab-restaurant",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-maison",
+      "lexicalFamilyId": "vocab-maison",
+      "title": {
+        "fr": "Maison et jardin",
+        "zh": "居家与园艺"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 1,
+      "emitOnlyWhenItemsExist": true,
+      "level": 5,
+      "id": "L5-vocab-maison",
+      "visualId": "L5-vocab-maison",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-voyage",
+      "lexicalFamilyId": "vocab-voyage",
+      "title": {
+        "fr": "Voyage et transport",
+        "zh": "出行与交通"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 2,
+      "emitOnlyWhenItemsExist": true,
+      "level": 5,
+      "id": "L5-vocab-voyage",
+      "visualId": "L5-vocab-voyage",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-personnes",
+      "lexicalFamilyId": "vocab-personnes",
+      "title": {
+        "fr": "Corps, personnes et émotions",
+        "zh": "身体、人物与情绪"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 3,
+      "emitOnlyWhenItemsExist": true,
+      "level": 5,
+      "id": "L5-vocab-personnes",
+      "visualId": "L5-vocab-personnes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-reperes",
+      "lexicalFamilyId": "vocab-reperes",
+      "title": {
+        "fr": "Temps et repères",
+        "zh": "时间与方位"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 4,
+      "emitOnlyWhenItemsExist": true,
+      "level": 5,
+      "id": "L5-vocab-reperes",
+      "visualId": "L5-vocab-reperes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-actions",
+      "lexicalFamilyId": "vocab-actions",
+      "title": {
+        "fr": "Actions et descriptions",
+        "zh": "动作与描述"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 5,
+      "emitOnlyWhenItemsExist": true,
+      "level": 5,
+      "id": "L5-vocab-actions",
+      "visualId": "L5-vocab-actions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-travail",
+      "lexicalFamilyId": "vocab-travail",
+      "title": {
+        "fr": "Travail et démarches",
+        "zh": "工作与事务"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 6,
+      "emitOnlyWhenItemsExist": true,
+      "level": 5,
+      "id": "L5-vocab-travail",
+      "visualId": "L5-vocab-travail",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 1
+      }
+    },
+    {
+      "domain": "nombres",
+      "title": {
+        "fr": "Nombres",
+        "zh": "数字"
+      },
+      "contentType": "number",
+      "section": "vocabulary",
+      "order": 7,
+      "emitOnlyWhenItemsExist": true,
+      "level": 5,
+      "id": "L5-nombres",
+      "visualId": "L5-nombres",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-adjectifs",
+      "lexicalFamilyId": "vocab-adjectifs",
+      "title": {
+        "fr": "Adjectifs",
+        "zh": "形容词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ko": {
+          "fr": "Adjectifs et verbes descriptifs",
+          "zh": "形容词与描述性动词"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 8,
+      "emitOnlyWhenItemsExist": true,
+      "level": 5,
+      "id": "L5-vocab-adjectifs",
+      "visualId": "L5-vocab-adjectifs",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 0,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-prepositions",
+      "lexicalFamilyId": "vocab-prepositions",
+      "title": {
+        "fr": "Prépositions",
+        "zh": "介词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ja": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "ko": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "zh": {
+          "fr": "Prépositions et structures de relation",
+          "zh": "介词与关系表达"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 9,
+      "emitOnlyWhenItemsExist": true,
+      "level": 5,
+      "id": "L5-vocab-prepositions",
+      "visualId": "L5-vocab-prepositions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 1,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-adverbes",
+      "lexicalFamilyId": "vocab-adverbes",
+      "title": {
+        "fr": "Adverbes",
+        "zh": "副词"
+      },
+      "studyLanguageTitleOverrides": {},
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 10,
+      "emitOnlyWhenItemsExist": true,
+      "level": 5,
+      "id": "L5-vocab-adverbes",
+      "visualId": "L5-vocab-adverbes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 2,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-restaurant",
+      "lexicalFamilyId": "vocab-restaurant",
+      "title": {
+        "fr": "Restaurant et achats",
+        "zh": "餐饮与购物"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 0,
+      "emitOnlyWhenItemsExist": true,
+      "level": 6,
+      "id": "L6-vocab-restaurant",
+      "visualId": "L6-vocab-restaurant",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-maison",
+      "lexicalFamilyId": "vocab-maison",
+      "title": {
+        "fr": "Maison et jardin",
+        "zh": "居家与园艺"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 1,
+      "emitOnlyWhenItemsExist": true,
+      "level": 6,
+      "id": "L6-vocab-maison",
+      "visualId": "L6-vocab-maison",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-voyage",
+      "lexicalFamilyId": "vocab-voyage",
+      "title": {
+        "fr": "Voyage et transport",
+        "zh": "出行与交通"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 2,
+      "emitOnlyWhenItemsExist": true,
+      "level": 6,
+      "id": "L6-vocab-voyage",
+      "visualId": "L6-vocab-voyage",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-personnes",
+      "lexicalFamilyId": "vocab-personnes",
+      "title": {
+        "fr": "Corps, personnes et émotions",
+        "zh": "身体、人物与情绪"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 3,
+      "emitOnlyWhenItemsExist": true,
+      "level": 6,
+      "id": "L6-vocab-personnes",
+      "visualId": "L6-vocab-personnes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-reperes",
+      "lexicalFamilyId": "vocab-reperes",
+      "title": {
+        "fr": "Temps et repères",
+        "zh": "时间与方位"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 4,
+      "emitOnlyWhenItemsExist": true,
+      "level": 6,
+      "id": "L6-vocab-reperes",
+      "visualId": "L6-vocab-reperes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-actions",
+      "lexicalFamilyId": "vocab-actions",
+      "title": {
+        "fr": "Actions et descriptions",
+        "zh": "动作与描述"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 5,
+      "emitOnlyWhenItemsExist": true,
+      "level": 6,
+      "id": "L6-vocab-actions",
+      "visualId": "L6-vocab-actions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-travail",
+      "lexicalFamilyId": "vocab-travail",
+      "title": {
+        "fr": "Travail et démarches",
+        "zh": "工作与事务"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 6,
+      "emitOnlyWhenItemsExist": true,
+      "level": 6,
+      "id": "L6-vocab-travail",
+      "visualId": "L6-vocab-travail",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 3
+      }
+    },
+    {
+      "domain": "nombres",
+      "title": {
+        "fr": "Nombres",
+        "zh": "数字"
+      },
+      "contentType": "number",
+      "section": "vocabulary",
+      "order": 7,
+      "emitOnlyWhenItemsExist": true,
+      "level": 6,
+      "id": "L6-nombres",
+      "visualId": "L6-nombres",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L5-L6",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-adjectifs",
+      "lexicalFamilyId": "vocab-adjectifs",
+      "title": {
+        "fr": "Adjectifs",
+        "zh": "形容词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ko": {
+          "fr": "Adjectifs et verbes descriptifs",
+          "zh": "形容词与描述性动词"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 8,
+      "emitOnlyWhenItemsExist": true,
+      "level": 6,
+      "id": "L6-vocab-adjectifs",
+      "visualId": "L6-vocab-adjectifs",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 0,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-prepositions",
+      "lexicalFamilyId": "vocab-prepositions",
+      "title": {
+        "fr": "Prépositions",
+        "zh": "介词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ja": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "ko": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "zh": {
+          "fr": "Prépositions et structures de relation",
+          "zh": "介词与关系表达"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 9,
+      "emitOnlyWhenItemsExist": true,
+      "level": 6,
+      "id": "L6-vocab-prepositions",
+      "visualId": "L6-vocab-prepositions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 1,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-adverbes",
+      "lexicalFamilyId": "vocab-adverbes",
+      "title": {
+        "fr": "Adverbes",
+        "zh": "副词"
+      },
+      "studyLanguageTitleOverrides": {},
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 10,
+      "emitOnlyWhenItemsExist": true,
+      "level": 6,
+      "id": "L6-vocab-adverbes",
+      "visualId": "L6-vocab-adverbes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 2,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-restaurant",
+      "lexicalFamilyId": "vocab-restaurant",
+      "title": {
+        "fr": "Restaurant et achats",
+        "zh": "餐饮与购物"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 0,
+      "emitOnlyWhenItemsExist": true,
+      "level": 7,
+      "id": "L7-vocab-restaurant",
+      "visualId": "L7-vocab-restaurant",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-maison",
+      "lexicalFamilyId": "vocab-maison",
+      "title": {
+        "fr": "Maison et jardin",
+        "zh": "居家与园艺"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 1,
+      "emitOnlyWhenItemsExist": true,
+      "level": 7,
+      "id": "L7-vocab-maison",
+      "visualId": "L7-vocab-maison",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-voyage",
+      "lexicalFamilyId": "vocab-voyage",
+      "title": {
+        "fr": "Voyage et transport",
+        "zh": "出行与交通"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 2,
+      "emitOnlyWhenItemsExist": true,
+      "level": 7,
+      "id": "L7-vocab-voyage",
+      "visualId": "L7-vocab-voyage",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-personnes",
+      "lexicalFamilyId": "vocab-personnes",
+      "title": {
+        "fr": "Corps, personnes et émotions",
+        "zh": "身体、人物与情绪"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 3,
+      "emitOnlyWhenItemsExist": true,
+      "level": 7,
+      "id": "L7-vocab-personnes",
+      "visualId": "L7-vocab-personnes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-reperes",
+      "lexicalFamilyId": "vocab-reperes",
+      "title": {
+        "fr": "Temps et repères",
+        "zh": "时间与方位"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 4,
+      "emitOnlyWhenItemsExist": true,
+      "level": 7,
+      "id": "L7-vocab-reperes",
+      "visualId": "L7-vocab-reperes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-actions",
+      "lexicalFamilyId": "vocab-actions",
+      "title": {
+        "fr": "Actions et descriptions",
+        "zh": "动作与描述"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 5,
+      "emitOnlyWhenItemsExist": true,
+      "level": 7,
+      "id": "L7-vocab-actions",
+      "visualId": "L7-vocab-actions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-travail",
+      "lexicalFamilyId": "vocab-travail",
+      "title": {
+        "fr": "Travail et démarches",
+        "zh": "工作与事务"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 6,
+      "emitOnlyWhenItemsExist": true,
+      "level": 7,
+      "id": "L7-vocab-travail",
+      "visualId": "L7-vocab-travail",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 1
+      }
+    },
+    {
+      "domain": "nombres",
+      "title": {
+        "fr": "Nombres",
+        "zh": "数字"
+      },
+      "contentType": "number",
+      "section": "vocabulary",
+      "order": 7,
+      "emitOnlyWhenItemsExist": true,
+      "level": 7,
+      "id": "L7-nombres",
+      "visualId": "L7-nombres",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-adjectifs",
+      "lexicalFamilyId": "vocab-adjectifs",
+      "title": {
+        "fr": "Adjectifs",
+        "zh": "形容词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ko": {
+          "fr": "Adjectifs et verbes descriptifs",
+          "zh": "形容词与描述性动词"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 8,
+      "emitOnlyWhenItemsExist": true,
+      "level": 7,
+      "id": "L7-vocab-adjectifs",
+      "visualId": "L7-vocab-adjectifs",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 0,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-prepositions",
+      "lexicalFamilyId": "vocab-prepositions",
+      "title": {
+        "fr": "Prépositions",
+        "zh": "介词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ja": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "ko": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "zh": {
+          "fr": "Prépositions et structures de relation",
+          "zh": "介词与关系表达"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 9,
+      "emitOnlyWhenItemsExist": true,
+      "level": 7,
+      "id": "L7-vocab-prepositions",
+      "visualId": "L7-vocab-prepositions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 1,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-adverbes",
+      "lexicalFamilyId": "vocab-adverbes",
+      "title": {
+        "fr": "Adverbes",
+        "zh": "副词"
+      },
+      "studyLanguageTitleOverrides": {},
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 10,
+      "emitOnlyWhenItemsExist": true,
+      "level": 7,
+      "id": "L7-vocab-adverbes",
+      "visualId": "L7-vocab-adverbes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 2,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-restaurant",
+      "lexicalFamilyId": "vocab-restaurant",
+      "title": {
+        "fr": "Restaurant et achats",
+        "zh": "餐饮与购物"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 0,
+      "emitOnlyWhenItemsExist": true,
+      "level": 8,
+      "id": "L8-vocab-restaurant",
+      "visualId": "L8-vocab-restaurant",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-maison",
+      "lexicalFamilyId": "vocab-maison",
+      "title": {
+        "fr": "Maison et jardin",
+        "zh": "居家与园艺"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 1,
+      "emitOnlyWhenItemsExist": true,
+      "level": 8,
+      "id": "L8-vocab-maison",
+      "visualId": "L8-vocab-maison",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-voyage",
+      "lexicalFamilyId": "vocab-voyage",
+      "title": {
+        "fr": "Voyage et transport",
+        "zh": "出行与交通"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 2,
+      "emitOnlyWhenItemsExist": true,
+      "level": 8,
+      "id": "L8-vocab-voyage",
+      "visualId": "L8-vocab-voyage",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-personnes",
+      "lexicalFamilyId": "vocab-personnes",
+      "title": {
+        "fr": "Corps, personnes et émotions",
+        "zh": "身体、人物与情绪"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 3,
+      "emitOnlyWhenItemsExist": true,
+      "level": 8,
+      "id": "L8-vocab-personnes",
+      "visualId": "L8-vocab-personnes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-reperes",
+      "lexicalFamilyId": "vocab-reperes",
+      "title": {
+        "fr": "Temps et repères",
+        "zh": "时间与方位"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 4,
+      "emitOnlyWhenItemsExist": true,
+      "level": 8,
+      "id": "L8-vocab-reperes",
+      "visualId": "L8-vocab-reperes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-actions",
+      "lexicalFamilyId": "vocab-actions",
+      "title": {
+        "fr": "Actions et descriptions",
+        "zh": "动作与描述"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 5,
+      "emitOnlyWhenItemsExist": true,
+      "level": 8,
+      "id": "L8-vocab-actions",
+      "visualId": "L8-vocab-actions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-travail",
+      "lexicalFamilyId": "vocab-travail",
+      "title": {
+        "fr": "Travail et démarches",
+        "zh": "工作与事务"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 6,
+      "emitOnlyWhenItemsExist": true,
+      "level": 8,
+      "id": "L8-vocab-travail",
+      "visualId": "L8-vocab-travail",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 3
+      }
+    },
+    {
+      "domain": "nombres",
+      "title": {
+        "fr": "Nombres",
+        "zh": "数字"
+      },
+      "contentType": "number",
+      "section": "vocabulary",
+      "order": 7,
+      "emitOnlyWhenItemsExist": true,
+      "level": 8,
+      "id": "L8-nombres",
+      "visualId": "L8-nombres",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L7-L8",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-adjectifs",
+      "lexicalFamilyId": "vocab-adjectifs",
+      "title": {
+        "fr": "Adjectifs",
+        "zh": "形容词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ko": {
+          "fr": "Adjectifs et verbes descriptifs",
+          "zh": "形容词与描述性动词"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 8,
+      "emitOnlyWhenItemsExist": true,
+      "level": 8,
+      "id": "L8-vocab-adjectifs",
+      "visualId": "L8-vocab-adjectifs",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 0,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-prepositions",
+      "lexicalFamilyId": "vocab-prepositions",
+      "title": {
+        "fr": "Prépositions",
+        "zh": "介词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ja": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "ko": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "zh": {
+          "fr": "Prépositions et structures de relation",
+          "zh": "介词与关系表达"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 9,
+      "emitOnlyWhenItemsExist": true,
+      "level": 8,
+      "id": "L8-vocab-prepositions",
+      "visualId": "L8-vocab-prepositions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 1,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-adverbes",
+      "lexicalFamilyId": "vocab-adverbes",
+      "title": {
+        "fr": "Adverbes",
+        "zh": "副词"
+      },
+      "studyLanguageTitleOverrides": {},
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 10,
+      "emitOnlyWhenItemsExist": true,
+      "level": 8,
+      "id": "L8-vocab-adverbes",
+      "visualId": "L8-vocab-adverbes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 2,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-restaurant",
+      "lexicalFamilyId": "vocab-restaurant",
+      "title": {
+        "fr": "Restaurant et achats",
+        "zh": "餐饮与购物"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 0,
+      "emitOnlyWhenItemsExist": true,
+      "level": 9,
+      "id": "L9-vocab-restaurant",
+      "visualId": "L9-vocab-restaurant",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-maison",
+      "lexicalFamilyId": "vocab-maison",
+      "title": {
+        "fr": "Maison et jardin",
+        "zh": "居家与园艺"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 1,
+      "emitOnlyWhenItemsExist": true,
+      "level": 9,
+      "id": "L9-vocab-maison",
+      "visualId": "L9-vocab-maison",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-voyage",
+      "lexicalFamilyId": "vocab-voyage",
+      "title": {
+        "fr": "Voyage et transport",
+        "zh": "出行与交通"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 2,
+      "emitOnlyWhenItemsExist": true,
+      "level": 9,
+      "id": "L9-vocab-voyage",
+      "visualId": "L9-vocab-voyage",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-personnes",
+      "lexicalFamilyId": "vocab-personnes",
+      "title": {
+        "fr": "Corps, personnes et émotions",
+        "zh": "身体、人物与情绪"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 3,
+      "emitOnlyWhenItemsExist": true,
+      "level": 9,
+      "id": "L9-vocab-personnes",
+      "visualId": "L9-vocab-personnes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 0
+      }
+    },
+    {
+      "domain": "vocab-reperes",
+      "lexicalFamilyId": "vocab-reperes",
+      "title": {
+        "fr": "Temps et repères",
+        "zh": "时间与方位"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 4,
+      "emitOnlyWhenItemsExist": true,
+      "level": 9,
+      "id": "L9-vocab-reperes",
+      "visualId": "L9-vocab-reperes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-actions",
+      "lexicalFamilyId": "vocab-actions",
+      "title": {
+        "fr": "Actions et descriptions",
+        "zh": "动作与描述"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 5,
+      "emitOnlyWhenItemsExist": true,
+      "level": 9,
+      "id": "L9-vocab-actions",
+      "visualId": "L9-vocab-actions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-travail",
+      "lexicalFamilyId": "vocab-travail",
+      "title": {
+        "fr": "Travail et démarches",
+        "zh": "工作与事务"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 6,
+      "emitOnlyWhenItemsExist": true,
+      "level": 9,
+      "id": "L9-vocab-travail",
+      "visualId": "L9-vocab-travail",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 1
+      }
+    },
+    {
+      "domain": "nombres",
+      "title": {
+        "fr": "Nombres",
+        "zh": "数字"
+      },
+      "contentType": "number",
+      "section": "vocabulary",
+      "order": 7,
+      "emitOnlyWhenItemsExist": true,
+      "level": 9,
+      "id": "L9-nombres",
+      "visualId": "L9-nombres",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 1
+      }
+    },
+    {
+      "domain": "vocab-adjectifs",
+      "lexicalFamilyId": "vocab-adjectifs",
+      "title": {
+        "fr": "Adjectifs",
+        "zh": "形容词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ko": {
+          "fr": "Adjectifs et verbes descriptifs",
+          "zh": "形容词与描述性动词"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 8,
+      "emitOnlyWhenItemsExist": true,
+      "level": 9,
+      "id": "L9-vocab-adjectifs",
+      "visualId": "L9-vocab-adjectifs",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 0,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-prepositions",
+      "lexicalFamilyId": "vocab-prepositions",
+      "title": {
+        "fr": "Prépositions",
+        "zh": "介词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ja": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "ko": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "zh": {
+          "fr": "Prépositions et structures de relation",
+          "zh": "介词与关系表达"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 9,
+      "emitOnlyWhenItemsExist": true,
+      "level": 9,
+      "id": "L9-vocab-prepositions",
+      "visualId": "L9-vocab-prepositions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 1,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-adverbes",
+      "lexicalFamilyId": "vocab-adverbes",
+      "title": {
+        "fr": "Adverbes",
+        "zh": "副词"
+      },
+      "studyLanguageTitleOverrides": {},
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 10,
+      "emitOnlyWhenItemsExist": true,
+      "level": 9,
+      "id": "L9-vocab-adverbes",
+      "visualId": "L9-vocab-adverbes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 2,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-restaurant",
+      "lexicalFamilyId": "vocab-restaurant",
+      "title": {
+        "fr": "Restaurant et achats",
+        "zh": "餐饮与购物"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 0,
+      "emitOnlyWhenItemsExist": true,
+      "level": 10,
+      "id": "L10-vocab-restaurant",
+      "visualId": "L10-vocab-restaurant",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-maison",
+      "lexicalFamilyId": "vocab-maison",
+      "title": {
+        "fr": "Maison et jardin",
+        "zh": "居家与园艺"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 1,
+      "emitOnlyWhenItemsExist": true,
+      "level": 10,
+      "id": "L10-vocab-maison",
+      "visualId": "L10-vocab-maison",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-voyage",
+      "lexicalFamilyId": "vocab-voyage",
+      "title": {
+        "fr": "Voyage et transport",
+        "zh": "出行与交通"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 2,
+      "emitOnlyWhenItemsExist": true,
+      "level": 10,
+      "id": "L10-vocab-voyage",
+      "visualId": "L10-vocab-voyage",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-personnes",
+      "lexicalFamilyId": "vocab-personnes",
+      "title": {
+        "fr": "Corps, personnes et émotions",
+        "zh": "身体、人物与情绪"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 3,
+      "emitOnlyWhenItemsExist": true,
+      "level": 10,
+      "id": "L10-vocab-personnes",
+      "visualId": "L10-vocab-personnes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 2
+      }
+    },
+    {
+      "domain": "vocab-reperes",
+      "lexicalFamilyId": "vocab-reperes",
+      "title": {
+        "fr": "Temps et repères",
+        "zh": "时间与方位"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 4,
+      "emitOnlyWhenItemsExist": true,
+      "level": 10,
+      "id": "L10-vocab-reperes",
+      "visualId": "L10-vocab-reperes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 0,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-actions",
+      "lexicalFamilyId": "vocab-actions",
+      "title": {
+        "fr": "Actions et descriptions",
+        "zh": "动作与描述"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 5,
+      "emitOnlyWhenItemsExist": true,
+      "level": 10,
+      "id": "L10-vocab-actions",
+      "visualId": "L10-vocab-actions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 1,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-travail",
+      "lexicalFamilyId": "vocab-travail",
+      "title": {
+        "fr": "Travail et démarches",
+        "zh": "工作与事务"
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 6,
+      "emitOnlyWhenItemsExist": true,
+      "level": 10,
+      "id": "L10-vocab-travail",
+      "visualId": "L10-vocab-travail",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 2,
+        "row": 3
+      }
+    },
+    {
+      "domain": "nombres",
+      "title": {
+        "fr": "Nombres",
+        "zh": "数字"
+      },
+      "contentType": "number",
+      "section": "vocabulary",
+      "order": 7,
+      "emitOnlyWhenItemsExist": true,
+      "level": 10,
+      "id": "L10-nombres",
+      "visualId": "L10-nombres",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "atlasId": "vocab-L9-L10",
+        "columns": 4,
+        "rows": 4,
+        "column": 3,
+        "row": 3
+      }
+    },
+    {
+      "domain": "vocab-adjectifs",
+      "lexicalFamilyId": "vocab-adjectifs",
+      "title": {
+        "fr": "Adjectifs",
+        "zh": "形容词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ko": {
+          "fr": "Adjectifs et verbes descriptifs",
+          "zh": "形容词与描述性动词"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 8,
+      "emitOnlyWhenItemsExist": true,
+      "level": 10,
+      "id": "L10-vocab-adjectifs",
+      "visualId": "L10-vocab-adjectifs",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 0,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-prepositions",
+      "lexicalFamilyId": "vocab-prepositions",
+      "title": {
+        "fr": "Prépositions",
+        "zh": "介词"
+      },
+      "studyLanguageTitleOverrides": {
+        "ja": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "ko": {
+          "fr": "Particules et structures de relation",
+          "zh": "助词与关系表达"
+        },
+        "zh": {
+          "fr": "Prépositions et structures de relation",
+          "zh": "介词与关系表达"
+        }
+      },
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 9,
+      "emitOnlyWhenItemsExist": true,
+      "level": 10,
+      "id": "L10-vocab-prepositions",
+      "visualId": "L10-vocab-prepositions",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 1,
+        "requiresDistinctVisual": true
+      }
+    },
+    {
+      "domain": "vocab-adverbes",
+      "lexicalFamilyId": "vocab-adverbes",
+      "title": {
+        "fr": "Adverbes",
+        "zh": "副词"
+      },
+      "studyLanguageTitleOverrides": {},
+      "contentType": "vocabulary",
+      "section": "vocabulary",
+      "order": 10,
+      "emitOnlyWhenItemsExist": true,
+      "level": 10,
+      "id": "L10-vocab-adverbes",
+      "visualId": "L10-vocab-adverbes",
+      "visualStatus": "new-asset-lot",
+      "plannedVisualRegion": {
+        "assetLot": "part-of-speech-supplement",
+        "perLevelOrder": 2,
+        "requiresDistinctVisual": true
+      }
+    }
+  ],
+  "buildContract": {
+    "contentTypes": [
+      "utterance",
+      "vocabulary",
+      "number",
+      "incomplete",
+      "review"
+    ],
+    "reserveTypes": [
+      "incomplete",
+      "review"
+    ],
+    "lexicalFamilyIdField": "lexicalFamilyId",
+    "themeDefinitionsField": "themeDefinitions",
+    "expandedThemeDefinitionsField": "additionalThemeDefinitions",
+    "contextualFamilyCount": 7,
+    "partOfSpeechFamilyCount": 3,
+    "numberThemeCount": 1,
+    "contextAndNumberVisualOrder": [
+      "vocab-restaurant",
+      "vocab-maison",
+      "vocab-voyage",
+      "vocab-personnes",
+      "vocab-reperes",
+      "vocab-actions",
+      "vocab-travail",
+      "nombres"
+    ],
+    "partOfSpeechSupplementVisualOrder": [
+      "vocab-adjectifs",
+      "vocab-prepositions",
+      "vocab-adverbes"
+    ],
+    "reuseField": "reuseVocabularyIds",
+    "sourceIndexFamilyAssignmentsProvided": false,
+    "evidenceCasesAreNotExhaustive": true
+  }
+}

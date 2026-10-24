@@ -5,6 +5,7 @@
   const byId = id => document.getElementById(id);
   const ui = {
     language: byId('mgLanguage'), flag: byId('mgLanguageFlag'), palette: byId('mgPalette'),
+    level: byId('mgLevel'), levelText: byId('mgLevelText'),
     menuTrigger: byId('mgMenuTrigger'), menu: byId('mgMenuDialog'), menuNav: byId('mgMenuNav'),
     menuTitle: byId('mgMenuTitle'), menuBack: byId('mgMenuBack'), menuClose: byId('mgMenuClose'),
     voice: byId('mgVoice'), speed: byId('mgSpeed'), reviewTheme: byId('mgReviewTheme'),
@@ -31,7 +32,8 @@
     data: null, pair: null, theme: null, sequence: null, screen: 'loading', stepIndex: 0,
     selectedPhraseId: null, revealed: false, helpOpen: false, readingVisible: false,
     speechGeneration: 0, ambienceIndex: 0, lessonScope: 'sequence', menuView: 'nav',
-    voiceChoices: new Map(), speechRate: 0.85
+    voiceChoices: new Map(), speechRate: 0.85, level: 1, requestedPair: null,
+    loadGeneration: 0, request: null, levelCache: new Map()
   };
   const ambiences = ['ocean', 'aurora', 'dusk'];
   // One local image atlas, shared by all languages. Each tile is a 4:3 scene.
@@ -86,7 +88,7 @@
     'Écouter la phrase': '听这句话', 'Écouter': '听一听',
     'Révéler et écouter la phrase': '显示并听这句话', 'Révéler et écouter': '显示并听一听',
     'Changer d’ambiance': '更换背景', 'Voir les thèmes': '查看主题',
-    'Langue à apprendre': '学习语言', 'Aide pour cette étape': '本步骤帮助',
+    'Langue à apprendre': '学习语言', 'Choisir un niveau': '选择级别', 'Aide pour cette étape': '本步骤帮助',
     'Choisir une réponse': '选择回答', 'Niveau 1': '第一级',
     'Modèle': '待补全', 'Écouter l’autre': '听对方说话', 'Se rappeler': '回忆',
     'Répéter': '跟读', 'Comparer': '比较',
@@ -96,12 +98,25 @@
     'Prononce la phrase à voix haute. Tu peux la réécouter autant de fois que tu veux.': '大声跟读。需要时可以反复听。',
     'Écoute les phrases et observe ce qui change entre elles.': '听这些句子，看看哪些词发生了变化。',
     'Écoute la phrase et regarde son sens et sa prononciation.': '听这句话，看看意思和发音提示。',
+    'Écoute le mot et regarde son sens et sa prononciation.': '听这个词语，看看意思和发音提示。',
+    'Prononce le mot à voix haute. Tu peux le réécouter autant de fois que tu veux.': '大声读出这个词语。需要时可以反复听。',
+    'Retrouve le mot à partir de son sens. L’oreille révèle le modèle et permet de le réécouter.': '根据意思回忆这个词语。点击耳朵可以查看并再次听到它。',
+    'Écouter le mot': '听这个词语', 'Révéler et écouter le mot': '显示并听这个词语',
     'L’audio n’est pas disponible sur ce navigateur.': '此浏览器暂不支持播放语音。',
     'L’audio n’a pas pu démarrer. Tu peux réessayer.': '语音未能播放，请重试。'
   };
   const tr = value => state.pair && state.pair.nativeLanguage === 'zh' ? chinese[value] || value : value;
-  const quantityLabel = count => state.pair && state.pair.nativeLanguage === 'zh'
-    ? count + ' 句表达' : count + (count === 1 ? ' expression' : ' expressions');
+  const quantityLabel = (count, contentType) => {
+    const isChinese = state.pair && state.pair.nativeLanguage === 'zh';
+    if (contentType === 'vocabulary') return count + (isChinese ? ' 个词语' : count === 1 ? ' mot ou locution' : ' mots et locutions');
+    if (contentType === 'number') return count + (isChinese ? ' 个数词' : count === 1 ? ' nombre' : ' nombres');
+    return count + (isChinese ? ' 句表达' : count === 1 ? ' expression' : ' expressions');
+  };
+  const levelQuantityLabel = () => {
+    if (!state.pair.counts) return quantityLabel(pairCount(state.pair));
+    return ['utterance', 'vocabulary', 'number'].filter(type => state.pair.counts[type])
+      .map(type => quantityLabel(state.pair.counts[type], type)).join(' · ');
+  };
 
   const text = (node, value) => { node.textContent = typeof value === 'string' ? value : ''; };
   const phraseCount = theme => Array.isArray(theme.phrases) ? theme.phrases.length : 0;
@@ -109,12 +124,23 @@
   const themeNumber = theme => String(state.pair.themes.indexOf(theme) + 1).padStart(2, '0');
   const themeLabel = theme => state.pair.themes.includes(theme) ? themeNumber(theme) + ' · ' + theme.title : theme.title;
   const currentStep = () => state.sequence && state.sequence.steps[state.stepIndex];
-  const phraseById = id => state.theme && state.theme.phrases.find(phrase => phrase.id === id);
+  const phraseById = id => {
+    const current = state.theme && state.theme.phrases.find(phrase => phrase.id === id);
+    if (current) return current;
+    // Local preparations reference a canonical card elsewhere in this level;
+    // they never create another copy or another phonetic transcription.
+    for (const theme of state.pair?.themes || []) {
+      const phrase = theme.phrases.find(candidate => candidate.id === id);
+      if (phrase) return phrase;
+    }
+    return null;
+  };
   const currentPhrase = () => {
     const step = currentStep();
     return step && phraseById(state.selectedPhraseId || step.utterance || (step.choices || [])[0]);
   };
-  const isTemplate = phrase => Boolean(state.theme && (state.theme.isTemplate || state.theme.isTemplateCollection) || phrase && phrase.isTemplate);
+  const isTemplate = phrase => Boolean(phrase && phrase.isTemplate
+    || !currentStep()?.isPreparation && state.theme && (state.theme.isTemplate || state.theme.isTemplateCollection));
   const isReceived = (step, phrase) => Boolean(step && step.kind === 'receive' || phrase && (phrase.kind === 'received' || phrase.speaker === 'B'));
   const isRecall = step => Boolean(step && ['choose-and-recall', 'reply-without-model', 'recall'].includes(step.kind));
   const isMasked = () => {
@@ -300,14 +326,17 @@
     pictogram.className = className === 'mg-theme' ? 'mg-theme-icon' : 'mg-sequence-icon';
     pictogram.innerHTML = icon;
     pictogram.setAttribute('aria-hidden', 'true');
-    const scene = className === 'mg-theme' && theme && themePhotos.get(theme.id);
+    const scene = className === 'mg-theme' && theme && (theme.photo || themePhotos.get(theme.domain || theme.id));
     if (scene) {
       pictogram.classList.add('mg-theme-photo');
-      pictogram.dataset.themePhoto = theme.id;
+      pictogram.dataset.themePhoto = theme.visualId || theme.id;
       pictogram.style.setProperty('--mg-photo-column', scene.column);
       pictogram.style.setProperty('--mg-photo-row', scene.row);
+      pictogram.style.setProperty('--mg-photo-columns', scene.columns || 3);
+      pictogram.style.setProperty('--mg-photo-rows', scene.rows || 4);
       const photo = document.createElement('img');
-      photo.src = 'assets/theme-scenes.webp';
+      photo.src = scene.asset || (state.pair && state.pair.level > 1
+        ? 'assets/theme-scenes-L' + state.pair.level + '.webp' : 'assets/theme-scenes.webp');
       photo.alt = '';
       photo.decoding = 'async';
       photo.loading = 'lazy';
@@ -323,7 +352,7 @@
     label.textContent = title;
     const quantity = document.createElement(className === 'mg-theme' ? 'span' : 'small');
     quantity.className = 'mg-theme-count';
-    quantity.textContent = quantityLabel(count);
+    quantity.textContent = quantityLabel(count, theme && theme.contentType);
     if (theme && theme.optional) quantity.textContent += ' · ' + tr('Facultatif');
     content.append(label, quantity);
     const arrow = document.createElement('span');
@@ -351,11 +380,23 @@
     state.sequence = null;
     state.lessonScope = 'sequence';
     setStatus('');
-    text(ui.counter, quantityLabel(pairCount(state.pair)));
+    text(ui.counter, levelQuantityLabel());
     ui.progress.style.width = '0%';
-    ui.themeGrid.replaceChildren(...state.pair.themes.map(theme => tile(
-      theme.title, phraseCount(theme), themeIcon(theme), () => openTheme(theme), 'mg-theme', theme
-    )));
+    const cards = [];
+    let section = null;
+    for (const theme of state.pair.themes) {
+      if (theme.section && theme.section !== section) {
+        section = theme.section;
+        const heading = document.createElement('h2');
+        heading.className = 'mg-grid-section';
+        heading.textContent = state.pair.nativeLanguage === 'zh'
+          ? section === 'situations' ? '情境表达' : '词汇与数字'
+          : section === 'situations' ? 'Situations' : 'Vocabulaire et nombres';
+        cards.push(heading);
+      }
+      cards.push(tile(theme.title, phraseCount(theme), themeIcon(theme), () => openTheme(theme), 'mg-theme', theme));
+    }
+    ui.themeGrid.replaceChildren(...cards);
     showView('themes');
   }
 
@@ -400,6 +441,11 @@
   function phaseDefinition(step, phrase) {
     if (isTemplate(phrase)) return { icon: icons.shape, label: 'Modèle', help: 'Tu peux regarder ce modèle et choisir toi-même les mots à y placer.' };
     if (isReceived(step, phrase)) return { icon: icons.chat, label: 'Écouter l’autre', help: 'Cette phrase appartient à ton interlocuteur. Tu peux l’écouter sans avoir à la reproduire.' };
+    if (phrase.contentType === 'vocabulary' || phrase.contentType === 'number') {
+      if (isRecall(step)) return { icon: icons.recall, label: 'Se rappeler', help: 'Retrouve le mot à partir de son sens. L’oreille révèle le modèle et permet de le réécouter.' };
+      if (step.kind === 'imitate') return { icon: icons.mic, label: 'Répéter', help: 'Prononce le mot à voix haute. Tu peux le réécouter autant de fois que tu veux.' };
+      return { icon: icons.headphones, label: 'Écouter', help: 'Écoute le mot et regarde son sens et sa prononciation.' };
+    }
     if (isRecall(step)) return { icon: icons.recall, label: 'Se rappeler', help: 'Dis la phrase à partir de son sens. L’oreille révèle le modèle et permet de le réécouter.' };
     if (step.kind === 'imitate') return { icon: icons.mic, label: 'Répéter', help: 'Prononce la phrase à voix haute. Tu peux la réécouter autant de fois que tu veux.' };
     if (step.kind === 'compare') return { icon: icons.shape, label: 'Comparer', help: 'Écoute les phrases et observe ce qui change entre elles.' };
@@ -447,7 +493,7 @@
     ui.phase.setAttribute('aria-label', tr(definition.label));
     ui.phase.title = tr(definition.label);
     text(ui.helpText, tr(definition.help));
-    const position = Math.max(0, state.sequence.phraseIds.indexOf(phrase.id)) + 1;
+    const position = Math.max(0, state.sequence.phraseIds.indexOf(step.prepares || phrase.id)) + 1;
     text(ui.counter, position + ' / ' + state.sequence.phraseIds.length);
     ui.progress.style.width = ((state.stepIndex + 1) / state.sequence.steps.length * 100) + '%';
     renderChoices(step);
@@ -459,7 +505,10 @@
     ui.phonrow.classList.toggle('is-recall', masked || waitingForChoice || !phrase.phon);
     ui.ear.hidden = template || waitingForChoice;
     ui.phonrow.hidden = template && !phrase.phon || waitingForChoice;
-    ui.ear.setAttribute('aria-label', tr(masked ? 'Révéler et écouter la phrase' : 'Écouter la phrase'));
+    const lexical = phrase.contentType === 'vocabulary' || phrase.contentType === 'number';
+    ui.ear.setAttribute('aria-label', tr(lexical
+      ? masked ? 'Révéler et écouter le mot' : 'Écouter le mot'
+      : masked ? 'Révéler et écouter la phrase' : 'Écouter la phrase'));
     ui.ear.title = tr(masked ? 'Révéler et écouter' : 'Écouter');
     text(ui.translation, waitingForChoice ? '' : phrase.native);
     ui.translation.lang = state.pair.nativeLanguage;
@@ -541,16 +590,14 @@
     catch (_) { finish(); setStatus('L’audio n’a pas pu démarrer. Tu peux réessayer.'); }
   }
 
-  function choosePair(id) {
-    const pair = state.data.pairs.find(candidate => candidate.id === id);
-    if (!pair) return;
+  function displayPair(pair) {
     resetStep();
     state.pair = pair;
     document.documentElement.lang = pair.nativeLanguage;
-    text(byId('mgThemeHeading'), tr('Tes thèmes'));
+    text(byId('mgThemeHeading'), pair.levelTitle || tr('Tes thèmes'));
     [[ui.palette, 'Changer d’ambiance'], [ui.menuTrigger, 'Menu des rubriques'], [ui.language, 'Langue à apprendre'],
       [ui.help, 'Aide pour cette étape'], [ui.choices, 'Choisir une réponse'],
-      [document.querySelector('.mg-level'), 'Niveau 1']].forEach(([node, label]) => {
+      [ui.level || document.querySelector('.mg-level'), ui.level ? 'Choisir un niveau' : 'Niveau 1']].forEach(([node, label]) => {
       node.setAttribute('aria-label', tr(label));
     });
     ui.palette.title = tr('Changer d’ambiance');
@@ -558,10 +605,76 @@
     ui.language.value = pair.id;
     text(ui.flag, pair.flag);
     ui.language.title = pair.name;
+    if (ui.level) {
+      const metadata = state.data.pairs.find(candidate => candidate.id === pair.id);
+      ui.level.replaceChildren(...metadata.levels.map(level => new Option('L' + level.level + ' · ' + level.title, level.level)));
+      ui.level.value = String(pair.level);
+      ui.level.disabled = false;
+      text(ui.levelText, 'L' + pair.level);
+      ui.level.parentElement.title = 'L' + pair.level + ' · ' + pair.levelTitle;
+    }
     const url = new URL(window.location.href);
     url.searchParams.set('pair', pair.id);
+    if (ui.level) url.searchParams.set('level', String(pair.level));
     window.history.replaceState(null, '', url);
     showThemes();
+  }
+
+  async function choosePair(id, requestedLevel = state.level) {
+    const metadata = state.data.pairs.find(candidate => candidate.id === id);
+    if (!metadata) return;
+    if (!ui.level) { displayPair(metadata); return; }
+    const entry = metadata.levels.find(candidate => candidate.level === Number(requestedLevel));
+    if (!entry) return;
+    const generation = ++state.loadGeneration;
+    state.request?.abort();
+    state.request = new AbortController();
+    const request = state.request;
+    state.level = entry.level;
+    state.requestedPair = id;
+    stopAudio(); closeHelp(); closeMenu();
+    showView('loading');
+    ui.retry.hidden = true;
+    text(ui.loadingText, metadata.nativeLanguage === 'zh' ? '主题正在加载…' : 'Tes thèmes arrivent…');
+    try {
+      const key = id + ':' + entry.level;
+      let pair = state.levelCache.get(key);
+      if (!pair) {
+        const response = await fetch(entry.dataPath, { credentials: 'omit', signal: request.signal });
+        if (!response.ok) throw new Error('Level unavailable');
+        pair = await response.json();
+        if (pair.id !== id || pair.level !== entry.level) throw new Error('Wrong level');
+        validateData({ pairs: [pair] });
+      }
+      if (generation !== state.loadGeneration) return;
+      state.levelCache.delete(key);
+      state.levelCache.set(key, pair);
+      while (state.levelCache.size > 4) state.levelCache.delete(state.levelCache.keys().next().value);
+      displayPair(pair);
+    } catch (error) {
+      if (generation !== state.loadGeneration || error.name === 'AbortError') return;
+      text(ui.loadingText, metadata.nativeLanguage === 'zh' ? '主题暂时无法加载。' : 'Les thèmes n’ont pas pu se charger.');
+      ui.retry.hidden = false;
+    } finally {
+      if (state.request === request) state.request = null;
+    }
+  }
+
+  function validateManifest(data) {
+    if (!data || data.version !== 2 || !Array.isArray(data.pairs) || data.pairs.length !== 7) throw new Error('Missing levels');
+    const pairs = new Set();
+    data.pairs.forEach(pair => {
+      if (!pair.id || pairs.has(pair.id) || !Array.isArray(pair.levels) || pair.levels.length !== 10) throw new Error('Invalid pair manifest');
+      pairs.add(pair.id);
+      const levels = new Set();
+      pair.levels.forEach(level => {
+        if (!Number.isInteger(level.level) || level.level < 1 || level.level > 10 || levels.has(level.level)
+            || typeof level.title !== 'string' || !level.title
+            || level.dataPath !== 'content/niveaux-progressifs/' + pair.id + '/L' + level.level + '.json') throw new Error('Invalid level manifest');
+        levels.add(level.level);
+      });
+    });
+    return data;
   }
 
   function validateData(data) {
@@ -570,8 +683,30 @@
     data.pairs.forEach(pair => {
       if (!pair || !pair.id || pairIds.has(pair.id) || !Array.isArray(pair.themes) || !pair.themes.length) throw new Error('Invalid pair');
       pairIds.add(pair.id);
+      const active = pair.themes.flatMap(theme => theme.phrases || []);
+      const canonical = new Set(active.map(phrase => phrase.id));
+      const activeById = new Map(active.map(phrase => [phrase.id, phrase]));
+      if (canonical.size !== active.length) throw new Error('Duplicate canonical phrase');
+      if (pair.version === 2 && pair.counts) {
+        const reserve = pair.reserve || [];
+        const all = [...active, ...reserve];
+        if (!Array.isArray(pair.reserve) || new Set(all.map(phrase => phrase.id)).size !== all.length
+            || pair.totalPhrases !== active.length || pair.totalCanonicalPhrases !== all.length
+            || pair.reservedPhrases !== reserve.length) throw new Error('Invalid content partition');
+        for (const type of ['utterance', 'vocabulary', 'number', 'incomplete', 'review']) {
+          if (all.filter(phrase => phrase.contentType === type).length !== pair.counts[type]) throw new Error('Invalid content counts');
+        }
+        if (reserve.some(phrase => !['incomplete', 'review'].includes(phrase.contentType))) throw new Error('Invalid reserve');
+      }
       pair.themes.forEach(theme => {
         if (!theme.id || !theme.title || !Array.isArray(theme.phrases) || !theme.phrases.length || !Array.isArray(theme.sequences) || !theme.sequences.length) throw new Error('Invalid theme');
+        if (pair.counts && (!['utterance', 'vocabulary', 'number'].includes(theme.contentType)
+            || theme.section !== (theme.contentType === 'utterance' ? 'situations' : 'vocabulary')
+            || theme.phrases.some(phrase => phrase.contentType !== theme.contentType || phrase.isTemplate))) throw new Error('Mixed content theme');
+        if (theme.photo && (!/^assets\/(?:theme-scenes(?:-L(?:[2-9]|10))?|vocabulary-scenes-L(?:1|3|5|7|9)-L(?:2|4|6|8|10)|pos-scenes-L1-L4|pos-scenes-L5-L8|pos-scenes-L9-L10)\.webp$/.test(theme.photo.asset)
+            || ![3, 4].includes(theme.photo.columns) || theme.photo.rows !== 4
+            || !Number.isInteger(theme.photo.column) || theme.photo.column < 0 || theme.photo.column >= theme.photo.columns
+            || !Number.isInteger(theme.photo.row) || theme.photo.row < 0 || theme.photo.row >= theme.photo.rows)) throw new Error('Invalid theme photo');
         const ids = new Set();
         theme.phrases.forEach(phrase => {
           if (!phrase.id || ids.has(phrase.id) || typeof phrase.study !== 'string' || typeof phrase.native !== 'string' || typeof phrase.phon !== 'string') throw new Error('Invalid phrase');
@@ -581,9 +716,13 @@
         theme.sequences.forEach(sequence => {
           if (!Array.isArray(sequence.phraseIds) || !sequence.phraseIds.length || sequence.phraseIds.length > 5 || !Array.isArray(sequence.steps) || !sequence.steps.length) throw new Error('Invalid sequence');
           sequence.phraseIds.forEach(id => { if (!ids.has(id)) throw new Error('Unknown phrase'); included.push(id); });
+          const preparationIds = sequence.preparationIds || [];
+          if (!Array.isArray(preparationIds) || preparationIds.some(id => !canonical.has(id))) throw new Error('Unknown preparation');
           sequence.steps.forEach(step => {
             const references = [step.utterance, ...(step.choices || [])].filter(Boolean);
-            if (!references.length || references.some(id => !sequence.phraseIds.includes(id))) throw new Error('Unknown step phrase');
+            if (!references.length || references.some(id => !(step.isPreparation ? preparationIds : sequence.phraseIds).includes(id))) throw new Error('Unknown step phrase');
+            if (step.isPreparation && (!['understand', 'imitate'].includes(step.kind) || !sequence.phraseIds.includes(step.prepares))) throw new Error('Invalid preparation step');
+            if (theme.contentType === 'utterance' && references.some(id => activeById.get(id)?.contentType !== 'utterance')) throw new Error('Lexical step in a situation');
           });
         });
         if (included.length !== ids.size || new Set(included).size !== ids.size) throw new Error('Incomplete theme');
@@ -598,9 +737,9 @@
     ui.retry.hidden = true;
     ui.language.disabled = true;
     try {
-      const response = await fetch('content/maquette-guidee.json', { credentials: 'omit' });
+      const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit' });
       if (!response.ok) throw new Error('HTTP ' + response.status);
-      state.data = validateData(await response.json());
+      state.data = (ui.level ? validateManifest : validateData)(await response.json());
       ui.language.replaceChildren(...state.data.pairs.map(pair => {
         const option = document.createElement('option');
         option.value = pair.id;
@@ -612,7 +751,11 @@
       const firstPair = state.data.pairs.find(pair => pair.id === requested)
         || state.data.pairs.find(pair => pair.nativeLanguage === 'fr' && pair.studyLanguage === 'zh')
         || state.data.pairs[0];
-      choosePair(firstPair.id);
+      if (ui.level) {
+        const requestedLevel = Number(new URL(window.location.href).searchParams.get('level') || 1);
+        state.level = Number.isInteger(requestedLevel) && requestedLevel >= 1 && requestedLevel <= 10 ? requestedLevel : 1;
+      }
+      await choosePair(firstPair.id);
     } catch (_) {
       text(ui.loadingText, 'Les thèmes n’ont pas pu se charger.');
       ui.retry.hidden = false;
@@ -621,6 +764,7 @@
   }
 
   ui.language.addEventListener('change', () => choosePair(ui.language.value));
+  ui.level?.addEventListener('change', () => choosePair(ui.language.value, ui.level.value));
   ui.menuTrigger.addEventListener('click', openMenu);
   ui.menuClose.addEventListener('click', closeMenu);
   ui.menuBack.addEventListener('click', () => setMenuView('nav'));
@@ -707,13 +851,15 @@
     if (state.stepIndex >= state.sequence.steps.length) showDone();
     else renderStep();
   });
-  ui.retry.addEventListener('click', loadData);
+  ui.retry.addEventListener('click', () => ui.level && state.data
+    ? choosePair(state.requestedPair || ui.language.value, state.level) : loadData());
   document.addEventListener('keydown', event => { if (event.key === 'Escape') closeHelp(); });
   window.addEventListener('pagehide', stopAudio);
 
   // Read-only state supports preview checks without touching the real application.
   window.MelungaMockup = Object.freeze({ state: () => Object.freeze({
-    screen: state.screen, pairId: state.pair && state.pair.id, themeId: state.theme && state.theme.id,
+    screen: state.screen, pairId: state.pair && state.pair.id, level: state.pair && state.pair.level || 1,
+    themeId: state.theme && state.theme.id,
     sequenceId: state.sequence && state.sequence.id, stepIndex: state.stepIndex, lessonScope: state.lessonScope,
     phraseId: currentPhrase() && currentPhrase().id, masked: isMasked(), helpOpen: state.helpOpen,
     template: isTemplate(currentPhrase()), totalPhrases: state.pair ? pairCount(state.pair) : 0
