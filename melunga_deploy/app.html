@@ -2703,11 +2703,11 @@ body.immersif.pile-droite .stage {
 </head>
 <body>
 <script>
-/* Arrivée depuis la page d'accueil (?start= ou ?checkout=) : on masque
+/* Arrivée depuis la page d'accueil (?start=, ?checkout= ou ?login=) : on masque
    l'écran de bienvenue ET on pose un voile de chargement opaque, retiré une
    fois la leçon/le paywall prêts. Ainsi aucune page intermédiaire ne clignote. */
 (function(){try{
-  if(!/[?&](start|checkout)=/.test(location.search)) return;
+  if(!/[?&](start|checkout|login)=/.test(location.search)) return;
   var st=document.createElement('style');
   st.textContent='#welcome{display:none!important}'
    +'#bootCover{position:fixed;inset:0;z-index:99998;background:linear-gradient(160deg,#0d3a56,#061e31);display:flex;align-items:center;justify-content:center;transition:opacity .28s}'
@@ -4448,7 +4448,9 @@ function fallback(text){
 window.addEventListener('load',function(){
   document.getElementById('vF').classList.toggle('on', gender==='female');
   document.getElementById('vM').classList.toggle('on', gender==='male');
-  applyNat();
+  // The direct login entry already initializes the lesson at DOMContentLoaded.
+  // Repeating it after a slow asset loads would close the account form.
+  if(!window.__loginEntryReady) applyNat();
   renderStreak();
   checkPaidStatus().then(function(){ buildLevels(); });
   loadPricing();
