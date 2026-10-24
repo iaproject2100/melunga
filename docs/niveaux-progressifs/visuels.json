@@ -390,6 +390,87 @@
       "ownerApproved": false
     }
   ],
+  "situationAtlases": [
+    {
+      "asset": "assets/situation-scenes.webp",
+      "columns": 3,
+      "rows": 4,
+      "sha256": "7e094f471981c77dfb70e888a798737c28cad519385ad107aafe2d12c0cd50e8",
+      "bytes": 294598,
+      "themes": [
+        {
+          "topicId": "repas-preferences",
+          "visualId": "situation-repas-preferences",
+          "level": 2,
+          "column": 0,
+          "row": 0
+        },
+        {
+          "topicId": "numerique-quotidien",
+          "visualId": "situation-numerique-quotidien",
+          "level": 2,
+          "column": 1,
+          "row": 0
+        },
+        {
+          "topicId": "hotel-sejour",
+          "visualId": "situation-hotel-sejour",
+          "level": 3,
+          "column": 2,
+          "row": 0
+        },
+        {
+          "topicId": "loisirs-sorties",
+          "visualId": "situation-loisirs-sorties",
+          "level": 3,
+          "column": 0,
+          "row": 1
+        },
+        {
+          "topicId": "transport-imprevus",
+          "visualId": "situation-transport-imprevus",
+          "level": 4,
+          "column": 1,
+          "row": 1
+        },
+        {
+          "topicId": "etudes-apprentissage",
+          "visualId": "situation-etudes-apprentissage",
+          "level": 4,
+          "column": 2,
+          "row": 1
+        },
+        {
+          "topicId": "argent-paiements",
+          "visualId": "situation-argent-paiements",
+          "level": 5,
+          "column": 0,
+          "row": 2
+        },
+        {
+          "topicId": "service-client",
+          "visualId": "situation-service-client",
+          "level": 5,
+          "column": 1,
+          "row": 2
+        },
+        {
+          "topicId": "invitations-limites",
+          "visualId": "situation-invitations-limites",
+          "level": 6,
+          "column": 2,
+          "row": 2
+        },
+        {
+          "topicId": "nature-gestes",
+          "visualId": "situation-nature-gestes",
+          "level": 6,
+          "column": 0,
+          "row": 3
+        }
+      ]
+    }
+  ],
   "themes": [
     {
       "level": 1,
@@ -3170,12 +3251,132 @@
       "rows": 4,
       "ownerApproved": false,
       "brief": "vocab-loisirs: dedicated photograph for L10"
+    },
+    {
+      "level": 2,
+      "themeId": "L2-situation-repas-preferences",
+      "visualId": "situation-repas-preferences",
+      "asset": "assets/situation-scenes.webp",
+      "column": 0,
+      "row": 0,
+      "columns": 3,
+      "rows": 4,
+      "ownerApproved": false,
+      "brief": "Repas : préférences et alternatives"
+    },
+    {
+      "level": 2,
+      "themeId": "L2-situation-numerique-quotidien",
+      "visualId": "situation-numerique-quotidien",
+      "asset": "assets/situation-scenes.webp",
+      "column": 1,
+      "row": 0,
+      "columns": 3,
+      "rows": 4,
+      "ownerApproved": false,
+      "brief": "Numérique : accéder et rester en contact"
+    },
+    {
+      "level": 3,
+      "themeId": "L3-situation-hotel-sejour",
+      "visualId": "situation-hotel-sejour",
+      "asset": "assets/situation-scenes.webp",
+      "column": 2,
+      "row": 0,
+      "columns": 3,
+      "rows": 4,
+      "ownerApproved": false,
+      "brief": "Hôtel : organiser son séjour"
+    },
+    {
+      "level": 3,
+      "themeId": "L3-situation-loisirs-sorties",
+      "visualId": "situation-loisirs-sorties",
+      "asset": "assets/situation-scenes.webp",
+      "column": 0,
+      "row": 1,
+      "columns": 3,
+      "rows": 4,
+      "ownerApproved": false,
+      "brief": "Loisirs : choisir et organiser une sortie"
+    },
+    {
+      "level": 4,
+      "themeId": "L4-situation-transport-imprevus",
+      "visualId": "situation-transport-imprevus",
+      "asset": "assets/situation-scenes.webp",
+      "column": 1,
+      "row": 1,
+      "columns": 3,
+      "rows": 4,
+      "ownerApproved": false,
+      "brief": "Transport : raconter un imprévu et repartir"
+    },
+    {
+      "level": 4,
+      "themeId": "L4-situation-etudes-apprentissage",
+      "visualId": "situation-etudes-apprentissage",
+      "asset": "assets/situation-scenes.webp",
+      "column": 2,
+      "row": 1,
+      "columns": 3,
+      "rows": 4,
+      "ownerApproved": false,
+      "brief": "Études : raconter un apprentissage réussi"
+    },
+    {
+      "level": 5,
+      "themeId": "L5-situation-argent-paiements",
+      "visualId": "situation-argent-paiements",
+      "asset": "assets/situation-scenes.webp",
+      "column": 0,
+      "row": 2,
+      "columns": 3,
+      "rows": 4,
+      "ownerApproved": false,
+      "brief": "Paiements : vérifier un problème et le régler"
+    },
+    {
+      "level": 5,
+      "themeId": "L5-situation-service-client",
+      "visualId": "situation-service-client",
+      "asset": "assets/situation-scenes.webp",
+      "column": 1,
+      "row": 2,
+      "columns": 3,
+      "rows": 4,
+      "ownerApproved": false,
+      "brief": "Service client : obtenir et suivre une solution"
+    },
+    {
+      "level": 6,
+      "themeId": "L6-situation-invitations-limites",
+      "visualId": "situation-invitations-limites",
+      "asset": "assets/situation-scenes.webp",
+      "column": 2,
+      "row": 2,
+      "columns": 3,
+      "rows": 4,
+      "ownerApproved": false,
+      "brief": "Invitations : poser une limite et expliquer son choix"
+    },
+    {
+      "level": 6,
+      "themeId": "L6-situation-nature-gestes",
+      "visualId": "situation-nature-gestes",
+      "asset": "assets/situation-scenes.webp",
+      "column": 0,
+      "row": 3,
+      "columns": 3,
+      "rows": 4,
+      "ownerApproved": false,
+      "brief": "Sortie nature : choisir des gestes écologiques utiles"
     }
   ],
   "checks": {
-    "atlases": 21,
-    "distinctThemeSlots": 250,
+    "atlases": 22,
+    "distinctThemeSlots": 260,
     "approvedL1HashPreserved": true,
-    "totalBytesAcrossTenLevels": 5853828
+    "totalBytesAcrossTenLevels": 6148426
   }
 }

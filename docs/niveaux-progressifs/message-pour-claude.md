@@ -29,10 +29,19 @@ Les 140 nouvelles entrées sont répertoriées séparément dans
 de mot entier reprise pour le nouveau sens adjectival de l’anglais « light ».
 Les reprises de mots déjà présents ne créent aucune nouvelle phonétique.
 
+Le lot suivant ajoute 454 phrases entières rédigées dans dix thèmes pratiques.
+Le tableau `enrichissement-situations/nouvelles-phrases-a-relire.md` reprend
+leurs 454 aides entières `pending-Claude`, avec phrase, sens, niveau et intentId.
+Cela porte la file de contrôle à 593 aides nouvelles sur les deux lots,
+plus une aide de mot entier déjà existante reprise pour un autre sens.
+Les 106 autres positions des nouvelles situations sont des réemplois ; elles
+ne constituent ni 106 créations ni 106 phonétiques nouvelles.
+
+
 Les captures de Kartech ont montré des défauts de classement ; Codex les corrige
 sur l’aperçu #14, branche `review/themes-niveaux-progressifs`. Utilise le dernier
-commit de cette branche ; `607ed90` est l’ancien aperçu et ne contient pas
-ces corrections.
+commit de cette branche ; `7d7bf63` est l’aperçu du premier lot et ne contient pas
+les dix nouvelles situations de ce second lot.
 Les niveaux et les thèmes relèvent du travail de Codex, pas de ta validation.
 
 Dossier : `docs/niveaux-progressifs/README.md`.

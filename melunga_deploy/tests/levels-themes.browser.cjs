@@ -18,6 +18,40 @@ const manifest = JSON.parse(fs.readFileSync(path.join(DATA, 'manifest.json')));
 const visualRegistry = JSON.parse(fs.readFileSync(path.resolve(ROOT, '../docs/niveaux-progressifs/visuels.json')));
 const authoredPath = path.resolve(ROOT, '../docs/niveaux-progressifs/corrections-themes/enrichissements-rediges.json');
 const authored = JSON.parse(fs.readFileSync(authoredPath));
+const situationDirectory = path.resolve(ROOT, '../docs/niveaux-progressifs/enrichissement-situations');
+const situationPlanPath = path.join(situationDirectory, 'plan.json');
+const situationPlan = JSON.parse(fs.readFileSync(situationPlanPath));
+const situationLedgers = new Map(manifest.pairs.map(pair => {
+  const file = path.join(situationDirectory, pair.id + '.json');
+  return [pair.id, {file, data: JSON.parse(fs.readFileSync(file))}];
+}));
+function canonicalJson(value) {
+  if (Array.isArray(value)) return '[' + value.map(canonicalJson).join(',') + ']';
+  if (value && typeof value === 'object') return '{' + Object.keys(value).sort()
+    .map(key => JSON.stringify(key) + ':' + canonicalJson(value[key])).join(',') + '}';
+  return JSON.stringify(value);
+}
+function sha256(value) { return crypto.createHash('sha256').update(value).digest('hex'); }
+function situationInputs() {
+  const files = new Set([situationPlanPath, path.join(ROOT, 'maquette-guidee.js'),
+    path.join(ROOT, 'maquette-guidee.css'), path.join(ROOT, 'parcours-niveaux.html'),
+    path.join(ROOT, 'maquette-guidee.html'), path.join(ROOT, 'content/maquette-guidee.json'), __filename,
+    path.join(ROOT, 'app.html'), path.join(situationDirectory, 'catalogue.json'),
+    path.resolve(ROOT, '../docs/niveaux-progressifs/visuels.json')]);
+  for (const asset of [...visualRegistry.levels, ...visualRegistry.vocabularyAtlases,
+    ...visualRegistry.grammarAtlases, ...visualRegistry.correctionAtlases, ...visualRegistry.situationAtlases]) {
+    files.add(path.join(ROOT, asset.asset));
+  }
+  for (const {file, data} of situationLedgers.values()) {
+    files.add(file);
+    for (const item of data.items) if (item.kind === 'conversation-whole-entry') {
+      files.add(path.resolve(ROOT, '..', item.source.path));
+    }
+  }
+  const catalogue = JSON.parse(fs.readFileSync(path.join(situationDirectory, 'catalogue.json')));
+  if (catalogue.searchIndexPath) files.add(path.resolve(ROOT, '..', catalogue.searchIndexPath));
+  return Object.fromEntries([...files].sort().map(file => [path.relative(path.resolve(ROOT, '..'), file), sha256(fs.readFileSync(file))]));
+}
 function cellBundleSha256() {
   const bundle = crypto.createHash('sha256');
   for (const pair of manifest.pairs) for (const level of pair.levels) {
@@ -35,10 +69,15 @@ function repertoireBundleSha256() {
 }
 const report = {
   status: 'running', environment: 'local Chromium; emulated viewports, no physical device',
+  speechMechanism: 'mock speechSynthesis: whole study text dispatch and reveal behavior, not human audio or linguistic phonetic validation',
   publicSiteChecked: false, nativeOrPedagogicalValidation: false,
   widths: [320, 390, 1440], cellViews: 0, themeEntries: 0, domSteps: 0,
   runtimeJsonFieldsCompared: 0, templateSteps: 0, preparationSteps: 0, reserveCardsTracked: 0,
   heldCardsTracked: 0, canonicalCardsTracked: 0, reviewSteps: 0, reviewReferencesTracked: 0,
+  contextReuseSteps: 0, contextReferencesTracked: 0,
+  additionalSituationViews: 0, additionalSituationCases: [], additionalWholeUtterancesChecked: 0,
+  additionalSourceFieldsCompared: 0, additionalAudioChecks: 0, additionalRecallChecks: 0,
+  additionalReadModelFieldsCompared: 0, additionalAudioByKind: {},
   adnominalHelpChecks: 0,
   authoredEntriesChecked: 0, authoredPhoneticReviewStatus: 'pending-Claude',
   renderedStepsByType: {}, failures: [],
@@ -46,6 +85,8 @@ const report = {
   cellBundleSha256: cellBundleSha256(),
   repertoireBundleSha256: repertoireBundleSha256(),
   authoredSourceSha256: crypto.createHash('sha256').update(fs.readFileSync(authoredPath)).digest('hex'),
+  situationInputsSha256: situationInputs(),
+  situationPlanSha256: sha256(fs.readFileSync(situationPlanPath)),
   externalRequests: [], apiRequests: []
 };
 let browser, server, base;
@@ -77,14 +118,50 @@ after(async () => {
   if (!report.repertoiresStableDuringRun) report.failures.push({check: 'bank-stability', error: 'Repertoire banks changed while the suite was running.'});
   report.authoredSourceStableDuringRun = crypto.createHash('sha256').update(fs.readFileSync(authoredPath)).digest('hex') === report.authoredSourceSha256;
   if (!report.authoredSourceStableDuringRun) report.failures.push({check: 'authored-stability', error: 'Authored source changed while the suite was running.'});
-  report.status = report.failures.length ? 'failed' : 'passed';
+  report.situationInputsStableDuringRun = canonicalJson(situationInputs()) === canonicalJson(report.situationInputsSha256);
+  if (!report.situationInputsStableDuringRun) report.failures.push({check: 'situation-input-stability', error: 'Situation plan, language ledgers, snapshots, renderer or visual registry changed while the suite was running.'});
+  report.completeMatrixCoverage = report.cellViews === 210 && report.additionalSituationCases.length === 70
+    && report.additionalWholeUtterancesChecked === 560 && report.additionalWholeSourceAudit?.intentPositions === 560;
+  report.requiredChecks = ['matrix-320', 'matrix-390', 'matrix-1440', 'additional-situation-whole-source-and-intents',
+    'lexical-family-priority', 'authored-source-and-bank-conservation', 'ja-ko-semantic-routing-regressions',
+    'fetch-races-and-retry', 'initial-load-retries', 'repertoire-loading-and-retry', 'same-level-context-reuse',
+    'context-reference-guards-and-retry', 'repertoire-reference-guards', 'repertoire-pair-race',
+    'menu-palette-targets', 'legacy-v1-compatibility', 'photo-atlases-and-network-isolation'];
+  report.completeSuiteCoverage = report.completeMatrixCoverage && report.requiredChecks.every(check => report.checks.includes(check));
+  report.status = report.failures.length ? 'failed' : report.completeSuiteCoverage ? 'passed' : 'partial';
   report.executedAt = new Date().toISOString();
   const destination = process.env.LEVELS_BROWSER_REPORT;
-  if (destination) fs.writeFileSync(destination, JSON.stringify(report, null, 2) + '\n');
+  if (destination) {
+    fs.writeFileSync(destination, JSON.stringify(report, null, 2) + '\n');
+    const audit = report.additionalWholeSourceAudit || {};
+    const text = [
+      '# Vérification navigateur du parcours local', '',
+      'Exécution : `' + report.executedAt + '` — statut **' + report.status + '**.', '',
+      'Chromium local, largeurs 320, 390 et 1440 px. Ces vues émulent des écrans ; aucun téléphone physique ni site déployé n’a été testé par cette suite.', '',
+      '- Contrôles réussis : ' + report.checks.length + ' / ' + report.requiredChecks.length + '.',
+      '- Matrice : ' + report.cellViews + ' vues de cellules ; ' + report.themeEntries + ' entrées de thèmes ; ' + report.domSteps + ' étapes DOM.',
+      '- Nouvelles situations : ' + report.additionalSituationCases.length + ' cas couple/thème, ' + report.additionalWholeUtterancesChecked + ' positions de phrases entières distinctes vérifiées.',
+      '- Répartition de ces positions : ' + (audit.primaryPositions ?? 'non terminé') + ' premières rencontres et ' + (audit.contextualReuses ?? 'non terminé') + ' réemplois ; aucun réemploi compté comme révision.',
+      '- Sources du lot : ' + report.additionalSourceFieldsCompared + ' comparaisons de champs entiers, dont contrôle de l’absence de lecture lorsqu’elle n’existe pas.',
+      '- Affichage du lot : ' + report.additionalReadModelFieldsCompared + ' comparaisons de champs dans le DOM ; ' + report.additionalRecallChecks + ' rappels contrôlés.',
+      '- Audio simulé : ' + report.additionalAudioChecks + ' envois du texte étudié entier ; la phonétique n’est pas utilisée comme texte TTS.',
+      '- Gardes du réemploi : ' + (report.contextGuardResults?.length || 0) + ' corruptions refusées, puis correction et rechargement de banque contrôlés.',
+      '- Visuels : ' + (report.visualRegistryChecked?.slots ?? 'non terminé') + ' emplacements et ' + (report.visualRegistryChecked?.atlases ?? 'non terminé') + ' atlas vérifiés.', '',
+      'Le masquage conserve le sens ; l’oreille révèle explicitement le modèle et le bouton de fond ne le révèle pas. Les contrôles de révision ordinaire, de chargements concurrents, de reprise après erreur, du menu et de la page L1 v1 sont conservés dans la suite.', '',
+      'Fraîcheur : les empreintes avant/après des cellules, banques, manifeste, sources rédigées, plan, ledgers, snapshots de conversation, catalogue/index, HTML, CSS, JavaScript, suite de tests et images sont enregistrées dans le JSON. Une exécution partielle ne reçoit pas le statut passed.', '',
+      'Le TTS est remplacé par un témoin d’envoi : cette suite vérifie le texte transmis et le comportement d’écoute, pas le son réel ni la justesse linguistique des aides. Claude vérifie la phonétique ; les résultats ne sont pas une mesure d’acquisition.', '',
+      'Rapport détaillé : [' + path.basename(destination) + '](' + path.basename(destination) + ').',
+      'Plan : `' + report.situationPlanSha256 + '`.',
+      'Manifeste : `' + report.manifestSha256 + '`.', ''
+    ];
+    if (report.failures.length) text.push('Échecs :', '', ...report.failures.map(failure => '- ' + failure.check + ' : ' + failure.error), '');
+    fs.writeFileSync(destination.replace(/\.json$/i, '') + '.md', text.join('\n'));
+  }
   assert.equal(report.cellBundleStableDuringRun, true, 'stable cell bundle during browser tests');
   assert.equal(report.manifestStableDuringRun, true, 'stable manifest during browser tests');
   assert.equal(report.repertoiresStableDuringRun, true, 'stable repertoire banks during browser tests');
   assert.equal(report.authoredSourceStableDuringRun, true, 'stable authored master during browser tests');
+  assert.equal(report.situationInputsStableDuringRun, true, 'stable situation inputs and renderer during browser tests');
 });
 
 async function checked(name, action) {
@@ -106,6 +183,18 @@ function reviewFixture(pairId) {
     if (themeIndex >= 0) return {data, level, themeIndex, reference: data.themes[themeIndex].reviewReferences[0]};
   }
   throw new Error('No review fixture for ' + pairId);
+}
+function contextFixture(pairId, {sameLevel = false} = {}) {
+  for (let level = 2; level <= 6; level++) {
+    const data = cell(pairId, level);
+    const themeIndex = data.themes.findIndex(theme => theme.isAdditionalSituation &&
+      theme.contextReferences?.some(reference => !sameLevel || reference.firstEditorialLevel === level));
+    if (themeIndex >= 0) {
+      const theme = data.themes[themeIndex];
+      return {data, level, themeIndex, reference: theme.contextReferences.find(reference => !sameLevel || reference.firstEditorialLevel === level)};
+    }
+  }
+  throw new Error('No ' + (sameLevel ? 'same-level ' : '') + 'context fixture for ' + pairId);
 }
 
 async function open(width = 390, intercept = async () => false) {
@@ -145,7 +234,8 @@ async function ready(page, pair, level) {
 }
 
 async function inspectCell(page, expected, bank, exhaustive) {
-  return page.evaluate(({expected, bank, exhaustive}) => {
+  const additionalThemes = situationPlan.themes.filter(theme => theme.level === expected.level);
+  return page.evaluate(({expected, bank, exhaustive, additionalThemes}) => {
     const eq = (actual, wanted, label) => {
       if (actual !== wanted) throw new Error(label + ': ' + JSON.stringify(actual) + ' != ' + JSON.stringify(wanted));
     };
@@ -183,7 +273,12 @@ async function inspectCell(page, expected, bank, exhaustive) {
     }
     if (reserve.some(phrase => !['incomplete', 'review'].includes(phrase.contentType))) throw new Error('active content leaked into reserve');
     if (active.some(phrase => reserveIds.has(phrase.id) || !['utterance', 'vocabulary', 'number'].includes(phrase.contentType))) throw new Error('reserve leaked into active themes');
+    const bankPhrases = new Map((bank?.phrases || []).map(phrase => [phrase.id, phrase]));
     const canonicalPhrases = new Map([...(bank?.phrases || []), ...active].map(phrase => [phrase.id, phrase]));
+    const additional = expected.themes.filter(theme => theme.isAdditionalSituation);
+    eq(additional.length, additionalThemes.length, 'new situation count at this level');
+    eq(JSON.stringify(additional.map(theme => theme.id).sort()),
+      JSON.stringify(additionalThemes.map(theme => theme.themeId).sort()), 'new situation identities follow the frozen plan');
     const presented = new Map();
     expected.themes.forEach(theme => theme.sequences.flatMap(sequence => sequence.phraseIds).forEach(id => presented.set(id, canonicalPhrases.get(id))));
     if ([...presented.values()].some(phrase => !phrase)) throw new Error('unknown presented reference');
@@ -199,6 +294,9 @@ async function inspectCell(page, expected, bank, exhaustive) {
     const visualPositions = new Set();
     const ids = new Set();
     let steps = 0, fields = 0, templates = 0, preparations = 0, reviewSteps = 0, reviewReferences = 0, usageChecks = 0;
+    let contextSteps = 0, contextReferences = 0, additionalAudio = 0, additionalRecall = 0, additionalFields = 0;
+    const additionalAudioByKind = {};
+    const situationCases = [];
     const renderedByType = {};
     expected.themes.forEach((theme, i) => {
       // showThemes replaces the buttons after every back action.
@@ -207,18 +305,22 @@ async function inspectCell(page, expected, bank, exhaustive) {
       eq(tile.querySelector('.mg-theme-number').textContent, String(i + 1).padStart(2, '0'), 'ordinal');
       const references = theme.reviewReferences || [];
       const reviews = new Set(references.map(reference => reference.id));
+      const contextual = theme.contextReferences || [];
+      const contextIds = new Set(contextual.map(reference => reference.id));
       const newIds = new Set(theme.phrases.map(phrase => phrase.id));
       eq(theme.newCount, newIds.size, 'new count excludes reviews');
       eq(theme.reviewCount, reviews.size, 'review count');
-      eq(theme.presentedCount, newIds.size + reviews.size, 'presentation count');
+      eq(theme.reuseCount || 0, contextIds.size, 'context reuse count');
+      eq(theme.presentedCount, newIds.size + reviews.size + contextIds.size, 'presentation count distinguishes first introduction/revision/context reuse');
       if (theme.presentedCount < 6) throw new Error('visible theme has fewer than six presentations');
       if (!Number.isInteger(theme.pedagogicalConceptCount) || theme.pedagogicalConceptCount < 6) throw new Error('visible theme declares fewer than six concepts');
       let countLabel = quantity(theme.presentedCount, theme.contentType);
       if (theme.reviewCount) countLabel += expected.nativeLanguage === 'zh' ? ' · 其中 ' + theme.reviewCount + ' 项复习' : ' · ' + theme.reviewCount + (theme.reviewCount === 1 ? ' révision' : ' révisions');
+      if (theme.reuseCount) countLabel += expected.nativeLanguage === 'zh' ? ' · 其中 ' + theme.reuseCount + ' 项情境复用' : ' · ' + theme.reuseCount + (theme.reuseCount === 1 ? ' réemploi' : ' réemplois');
       if (theme.optional) countLabel += expected.nativeLanguage === 'zh' ? ' · 可选' : ' · Facultatif';
       eq(tile.querySelector('.mg-theme-count').textContent, countLabel, 'theme counter with explicit revisions');
       for (const reference of references) {
-        const phrase = canonicalPhrases.get(reference.id);
+        const phrase = bankPhrases.get(reference.id);
         if (!phrase || newIds.has(reference.id)) throw new Error('review is missing or a duplicate primary');
         eq(reference.firstEditorialLevel, phrase.canonicalLocation.level, 'review first level');
         if (reference.firstEditorialLevel >= expected.level) throw new Error('future review');
@@ -229,6 +331,20 @@ async function inspectCell(page, expected, bank, exhaustive) {
         if (reserveIds.has(reference.id)) throw new Error('reserve became a review');
       }
       reviewReferences += references.length;
+      for (const reference of contextual) {
+        const phrase = bankPhrases.get(reference.id);
+        if (!theme.isAdditionalSituation || !phrase || newIds.has(reference.id) || reviews.has(reference.id)) throw new Error('context reuse is missing, mixed with review or a duplicate primary');
+        eq(reference.firstEditorialLevel, phrase.canonicalLocation.level, 'context reuse first level');
+        if (reference.firstEditorialLevel > expected.level) throw new Error('future context reuse');
+        eq(reference.canonicalThemeId, phrase.canonicalLocation.themeId, 'context reuse first theme');
+        eq(phrase.canonicalLocation.pairId, expected.id, 'context reuse belongs to this pair');
+        eq(phrase.contentType, 'utterance', 'context reuse is a whole utterance');
+        if (!theme.intentIds.includes(reference.intentId) || !reference.reason) throw new Error('context reuse is not bound to a declared intent');
+        if (reserveIds.has(reference.id)) throw new Error('reserve became a context reuse');
+        const local = active.find(candidate => candidate.id === reference.id);
+        if (local) for (const field of ['study', 'native', 'phon', 'reading']) eq(phrase[field], local[field], 'same-level reuse keeps canonical ' + field);
+      }
+      contextReferences += contextual.length;
       if (!['utterance', 'vocabulary', 'number'].includes(theme.contentType)) throw new Error('invalid theme type');
       eq(theme.section, theme.contentType === 'utterance' ? 'situations' : 'vocabulary', 'theme section');
       if (theme.phrases.some(phrase => phrase.contentType !== theme.contentType || phrase.isTemplate)) throw new Error('mixed or incomplete theme ' + theme.id);
@@ -252,6 +368,39 @@ async function inspectCell(page, expected, bank, exhaustive) {
       if (visible(byId('mgSequenceView'))) throw new Error('sequence screen became visible');
       const allSteps = theme.sequences.flatMap(sequence => sequence.steps);
       const primaryIds = theme.sequences.flatMap(sequence => sequence.phraseIds);
+      if (theme.isAdditionalSituation) {
+        const planned = additionalThemes.find(candidate => candidate.themeId === theme.id);
+        if (!planned) throw new Error('new situation is absent from the frozen plan');
+        eq(theme.contentType, 'utterance', 'new situation contains phrases');
+        eq(theme.section, 'situations', 'new situation section');
+        eq(theme.visualId, planned.visualId, 'new situation photo identity');
+        eq(theme.title, planned.title[expected.nativeLanguage], 'localized new situation title');
+        const expectedIntentOrder = planned.intents.map(intent => intent.id);
+        eq(JSON.stringify(theme.intentIds), JSON.stringify(expectedIntentOrder), 'eight intents preserve their planned order');
+        const intentForPhrase = id => contextual.find(reference => reference.id === id)?.intentId
+          || (() => { const phrase = theme.phrases.find(phrase => phrase.id === id); return phrase?.situationIntentId || phrase?.intentId; })();
+        const presentedIntentOrder = primaryIds.map(intentForPhrase);
+        eq(JSON.stringify(presentedIntentOrder), JSON.stringify(expectedIntentOrder), 'main phrase order follows intentions 01 to 08, mixing primaries and context reuse');
+        for (const kinds of [['understand'], ['imitate'], ['choose-and-recall', 'reply-without-model', 'recall']]) {
+          const phaseOrder = allSteps.filter(step => !step.isPreparation && kinds.includes(step.kind)).map(step => intentForPhrase(step.utterance));
+          eq(JSON.stringify(phaseOrder), JSON.stringify(expectedIntentOrder), 'planned intent order within phase ' + kinds.join('/'));
+        }
+        eq(theme.intentIds.length, 8, 'eight new situation intents');
+        eq(theme.reviewCount, 0, 'a context reuse is not relabeled as a revision');
+        eq(primaryIds.length, 8, 'eight whole phrase positions');
+        eq(new Set(primaryIds).size, 8, 'eight unique canonical phrases per new situation');
+        const forms = primaryIds.map(id => canonicalPhrases.get(id)?.study?.normalize('NFKC').toLocaleLowerCase()
+          .replace(/\p{P}/gu, '').replace(/\s+/gu, ' ').trim());
+        if (forms.some(form => !form)) throw new Error('new situation contains an empty whole phrase');
+        eq(new Set(forms).size, 8, 'eight distinct whole utterances, not punctuation variants');
+        if (primaryIds.some(id => canonicalPhrases.get(id)?.contentType !== 'utterance' || canonicalPhrases.get(id)?.isTemplate)) throw new Error('lexical or open fragment in a new situation');
+        situationCases.push({pair: expected.id, level: expected.level, topicId: planned.id,
+          themeId: theme.id, intentIds: [...theme.intentIds], newCount: theme.newCount,
+          reuseCount: theme.reuseCount || 0, reviewCount: theme.reviewCount,
+          uniqueWholeUtterances: forms.length, presentedCount: theme.presentedCount,
+          sameLevelReuses: contextual.filter(reference => reference.firstEditorialLevel === expected.level).length,
+          presentedIntentOrder, threePhaseOrdersChecked: true});
+      }
       let startedNew = false;
       for (const step of allSteps) {
         if (step.isReview && startedNew) throw new Error('review returns after introducing new content');
@@ -260,6 +409,12 @@ async function inspectCell(page, expected, bank, exhaustive) {
       for (const id of reviews) {
         const kinds = allSteps.filter(step => step.utterance === id).map(step => step.kind);
         if (!kinds.includes('understand') || !kinds.includes('imitate') || !kinds.some(kind => ['choose-and-recall', 'reply-without-model', 'recall'].includes(kind))) throw new Error('review omits a complete hear/imitate/recall cycle');
+      }
+      for (const id of contextIds) {
+        const reuseSteps = allSteps.filter(step => step.utterance === id);
+        if (reuseSteps.some(step => step.isContextReuse !== true || step.isReview)) throw new Error('context reuse cycle is not explicitly marked');
+        const kinds = reuseSteps.map(step => step.kind);
+        if (!kinds.includes('understand') || !kinds.includes('imitate') || !kinds.some(kind => ['choose-and-recall', 'reply-without-model', 'recall'].includes(kind))) throw new Error('context reuse omits a complete hear/imitate/recall cycle');
       }
       theme.sequences.forEach(sequence => {
         sequence.steps.filter(step => step.isPreparation).forEach(step => {
@@ -284,10 +439,14 @@ async function inspectCell(page, expected, bank, exhaustive) {
         eq(state().stepIndex, index, 'step index');
         eq(state().phraseId, phrase.id, 'phrase identity');
         const review = reviews.has(phrase.id);
+        const contextReuse = contextIds.has(phrase.id);
         eq(!!step.isReview, review, 'review step is explicitly marked');
+        eq(!!step.isContextReuse, contextReuse, 'context reuse step is explicitly marked');
         eq(byId('mgLessonTheme').textContent, String(i + 1).padStart(2, '0') + ' · ' + theme.title
-          + (review ? expected.nativeLanguage === 'zh' ? ' · 复习' : ' · Révision' : ''), 'explicit review badge');
+          + (review ? expected.nativeLanguage === 'zh' ? ' · 复习' : ' · Révision'
+            : contextReuse ? expected.nativeLanguage === 'zh' ? ' · 情境复用' : ' · Réemploi' : ''), 'explicit review/context-reuse badge');
         if (review) reviewSteps++;
+        if (contextReuse) contextSteps++;
         if (reserveIds.has(state().phraseId)) throw new Error('reserve reached DOM/audio state');
         eq(byId('mgCounter').textContent, (primaryIds.indexOf(step.prepares || phrase.id) + 1) + ' / ' + primaryIds.length, 'primary-only lesson counter');
         eq(byId('mgPhrase').textContent, phrase.study, 'study verbatim ' + phrase.id);
@@ -302,6 +461,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
         }
         if (index === 0 && document.documentElement.scrollWidth > innerWidth + 1) throw new Error('horizontal lesson overflow');
         fields += 4;
+        if (theme.isAdditionalSituation) additionalFields += 4;
         renderedByType[phrase.contentType] = (renderedByType[phrase.contentType] || 0) + 1;
         const lexical = ['vocabulary', 'number'].includes(phrase.contentType);
         const earLabel = expected.nativeLanguage === 'zh'
@@ -321,9 +481,14 @@ async function inspectCell(page, expected, bank, exhaustive) {
           const spoken = window.__speech.length;
           byId('mgEar').click(); byId('mgReplay').click();
           eq(window.__speech.length, spoken, 'template never sent to TTS');
-        } else if (index === 0) {
+        } else if (index === 0 || theme.isAdditionalSituation && !state().masked) {
           byId('mgEar').click();
           eq(window.__speech.at(-1)?.text, phrase.study, 'TTS receives study text only');
+          if (theme.isAdditionalSituation) {
+            additionalAudio++;
+            const key = contextReuse ? 'context-reuse' : phrase.source.collection === 'situation-authored' ? 'new-authored' : 'existing-primary';
+            additionalAudioByKind[key] = (additionalAudioByKind[key] || 0) + 1;
+          }
         }
         if (state().masked) {
           eq(byId('mgPhrase').hidden, true, 'recall hides study');
@@ -336,6 +501,11 @@ async function inspectCell(page, expected, bank, exhaustive) {
           byId('mgEar').click();
           eq(state().masked, false, 'explicit ear reveals recall');
           eq(window.__speech.at(-1)?.text, phrase.study, 'revealed TTS receives study text');
+          if (theme.isAdditionalSituation) {
+            additionalAudio++; additionalRecall++;
+            const key = contextReuse ? 'context-reuse' : phrase.source.collection === 'situation-authored' ? 'new-authored' : 'existing-primary';
+            additionalAudioByKind[key] = (additionalAudioByKind[key] || 0) + 1;
+          }
         }
         steps++;
         if (index < limit - 1) byId('mgContinue').click();
@@ -349,9 +519,11 @@ async function inspectCell(page, expected, bank, exhaustive) {
     eq(visualPositions.size, expected.themes.length, 'one distinct photo tile per theme');
     eq(ids.size, expected.themes.length, 'distinct theme visual identities');
     if (document.documentElement.scrollWidth > innerWidth + 1) throw new Error('horizontal document overflow');
-    return {steps, fields, templates, preparations, reviewSteps, reviewReferences, usageChecks, themes: expected.themes.length,
+    return {steps, fields, templates, preparations, reviewSteps, reviewReferences, usageChecks,
+      contextSteps, contextReferences, situationCases, additionalAudio, additionalRecall, additionalFields,
+      additionalAudioByKind, themes: expected.themes.length,
       renderedByType, reserved: reserve.length, held: held.length, canonical: combined.length};
-  }, {expected, bank, exhaustive});
+  }, {expected, bank, exhaustive, additionalThemes});
 }
 
 for (const width of report.widths) test('70 pair/level cells at ' + width + 'px', {timeout: 300000}, async () => checked('matrix-' + width, async () => {
@@ -374,16 +546,162 @@ for (const width of report.widths) test('70 pair/level cells at ' + width + 'px'
         report.runtimeJsonFieldsCompared += result.fields; report.templateSteps += result.templates;
         report.preparationSteps += result.preparations;
         report.reviewSteps += result.reviewSteps;
+        report.contextReuseSteps += result.contextSteps;
+        report.additionalSituationViews += result.situationCases.length;
+        report.additionalAudioChecks += result.additionalAudio;
+        report.additionalRecallChecks += result.additionalRecall;
+        report.additionalReadModelFieldsCompared += result.additionalFields;
+        for (const [kind, count] of Object.entries(result.additionalAudioByKind)) report.additionalAudioByKind[kind] = (report.additionalAudioByKind[kind] || 0) + count;
         report.adnominalHelpChecks += result.usageChecks;
         if (width === 390) {
           report.reserveCardsTracked += result.reserved; report.heldCardsTracked += result.held;
           report.canonicalCardsTracked += result.canonical; report.reviewReferencesTracked += result.reviewReferences;
+          report.contextReferencesTracked += result.contextReferences;
+          report.additionalSituationCases.push(...result.situationCases);
+          report.additionalWholeUtterancesChecked += result.situationCases.reduce((sum, result) => sum + result.uniqueWholeUtterances, 0);
         }
         for (const [type, count] of Object.entries(result.renderedByType)) report.renderedStepsByType[type] = (report.renderedStepsByType[type] || 0) + count;
       }
     }
     assert.deepEqual(fixture.errors, []);
   } finally { await fixture.context.close(); }
+}));
+
+test('70 additional situations preserve 560 whole source positions without inflating canonical entries', async () => checked('additional-situation-whole-source-and-intents', async () => {
+  const catalogue = JSON.parse(fs.readFileSync(path.join(situationDirectory, 'catalogue.json')));
+  assert.equal(catalogue.status, 'ready-for-preview', 'the complete situation catalogue was frozen before generation');
+  assert.equal(catalogue.planSha256, report.situationPlanSha256);
+  const appSource = fs.readFileSync(path.join(ROOT, 'app.html'), 'utf8');
+  const marker = 'var DECKS = ';
+  const start = appSource.indexOf(marker);
+  assert.ok(start >= 0, 'catalogue source marker');
+  const end = appSource.indexOf('\n', start);
+  const decks = JSON.parse(appSource.slice(start + marker.length, end < 0 ? undefined : end).trim().replace(/;$/, ''));
+  const rawItems = new Map([...situationLedgers.values()].flatMap(({data}) => data.items).map(item => [item.id, item]));
+  const canonical = new Map();
+  for (const pair of manifest.pairs) for (let level = 1; level <= 10; level++) {
+    const data = cell(pair.id, level);
+    for (const theme of [...data.themes, ...(data.heldThemes || [])]) for (const phrase of theme.phrases) {
+      const key = pair.id + ':' + phrase.id;
+      assert.ok(!canonical.has(key), 'one canonical across all levels ' + key);
+      canonical.set(key, {phrase, themeId: theme.id, level, held: !data.themes.includes(theme)});
+    }
+  }
+  const tuple = phrase => JSON.stringify(['study', 'native', 'phon', 'reading'].map(field => phrase[field] ?? null));
+  const pointer = (document, jsonPointer) => (jsonPointer ? jsonPointer.slice(1).split('/') : []).reduce((value, token) =>
+    value[token.replace(/~1/g, '/').replace(/~0/g, '~')], document);
+  const totals = {cases: 0, intentPositions: 0, primaryPositions: 0, contextualReuses: 0,
+    sameLevelReuses: 0, earlierLevelReuses: 0, sourceFields: 0,
+    candidateKinds: {}, newCanonicalAuthored: new Set(), newCanonicalConversation: new Set()};
+  for (const pair of manifest.pairs) {
+    const {file, data: ledger} = situationLedgers.get(pair.id);
+    assert.equal(ledger.planHash, report.situationPlanSha256, 'ledger follows frozen plan ' + pair.id);
+    assert.equal(ledger.items.length, 80, '80 pair intent candidates');
+    assert.equal(new Set(ledger.items.map(item => item.intentId)).size, 80, 'no repeated pair intent');
+    const bank = new Map(repertoire(pair.id).phrases.map(phrase => [phrase.id, phrase]));
+    for (const topic of situationPlan.themes) {
+      const levelData = cell(pair.id, topic.level);
+      const theme = levelData.themes.find(theme => theme.id === topic.themeId);
+      assert.ok(theme?.isAdditionalSituation, 'additional theme is visible ' + pair.id + ':' + topic.id);
+      assert.equal(theme.presentedCount, 8);
+      assert.equal(theme.reviewCount, 0);
+      assert.equal(theme.newCount + theme.reuseCount, 8, 'new/reuse split sums to eight');
+      const ids = theme.sequences.flatMap(sequence => sequence.phraseIds);
+      assert.equal(ids.length, 8); assert.equal(new Set(ids).size, 8);
+      const primary = new Map(theme.phrases.map(phrase => [phrase.id, phrase]));
+      const presented = ids.map(id => primary.get(id) || bank.get(id));
+      assert.ok(presented.every(phrase => phrase?.contentType === 'utterance' && !phrase.isTemplate));
+      for (const [intentIndex, intent] of topic.intents.entries()) {
+        const item = ledger.items.find(item => item.intentId === intent.id);
+        assert.ok(item && item.pair === pair.id && item.topicId === topic.id);
+        assert.equal(item.proposedLevel, topic.level);
+        const matches = presented.filter(phrase => tuple(phrase) === tuple(item));
+        assert.equal(matches.length, 1, 'one exact whole candidate per intent ' + item.id);
+        const phrase = matches[0];
+        assert.equal(ids[intentIndex], phrase.id, 'planned global order keeps primary and reused intentions interleaved ' + intent.id);
+        const contextual = (theme.contextReferences || []).find(reference => reference.id === phrase.id);
+        if (contextual) {
+          assert.equal(contextual.intentId, intent.id);
+          assert.equal(contextual.firstEditorialLevel, phrase.canonicalLocation.level);
+          assert.ok(contextual.firstEditorialLevel <= topic.level, 'no future source silently reused');
+          const origin = canonical.get(pair.id + ':' + phrase.id);
+          assert.ok(origin && !origin.held, 'context source is actually presentable');
+          assert.equal(origin.level, contextual.firstEditorialLevel);
+          assert.equal(origin.themeId, contextual.canonicalThemeId);
+          for (const field of ['study', 'native', 'phon', 'reading']) assert.equal(phrase[field], origin.phrase[field], 'transport equals original ' + field);
+          totals.contextualReuses++;
+          if (contextual.firstEditorialLevel === topic.level) totals.sameLevelReuses++; else totals.earlierLevelReuses++;
+        } else {
+          assert.ok(primary.has(phrase.id));
+          assert.equal(phrase.situationIntentId || phrase.intentId, intent.id, 'primary is bound to its intent');
+          assert.equal(phrase.placement.domain, topic.id, 'primary is bound to its topic');
+          totals.primaryPositions++;
+        }
+        for (const field of ['study', 'native', 'phon', 'reading']) {
+          assert.equal(phrase[field], item[field], 'whole ledger field ' + item.id + ':' + field);
+          totals.sourceFields++;
+        }
+        if (item.kind === 'catalogue-reference') {
+          const source = item.source;
+          const deck = decks[source.collection.replace('DECKS.', '')];
+          const original = deck[source.sourceIndex];
+          assert.equal(sha256(canonicalJson(original)), source.sourceSha256);
+          assert.equal(source.sourceLevel, original.lv);
+          const preferred = item.duplicateAudit?.preferredCanonicalId;
+          if (preferred) assert.equal(item.duplicateAudit.decision, 'reuse-existing');
+          assert.equal(phrase.id, preferred || 'catalogue:' + pair.studyLanguage + ':' + source.sourceIndex);
+          const fieldMap = {study: 't', native: pair.nativeLanguage === 'zh' ? 'cn' : 'frm',
+            phon: pair.nativeLanguage === 'zh' ? 'phon' : pair.studyLanguage === 'zh' ? 'phf' : 'pf'};
+          for (const [field, key] of Object.entries(fieldMap)) assert.equal(item[field], original[key], 'original catalogue field ' + field);
+        } else if (item.kind === 'conversation-whole-entry') {
+          const source = item.source;
+          const sourceBytes = fs.readFileSync(path.resolve(ROOT, '..', source.path));
+          assert.equal(sha256(sourceBytes), source.fileSha256);
+          const entry = pointer(JSON.parse(sourceBytes), source.jsonPointer);
+          assert.equal(sha256(canonicalJson(entry)), source.entrySha256);
+          for (const field of ['study', 'native', 'phon', 'reading']) assert.equal(item[field], entry[field], 'whole conversation field ' + field);
+        } else if (item.kind === 'candidate-reference') {
+          const other = rawItems.get(item.source.candidateId);
+          assert.ok(other && other.pair === pair.id, 'candidate reuse stays in the same pair');
+          assert.equal(tuple(item), tuple(other), 'candidate reuse cannot rewrite aids or meaning');
+          assert.ok(phrase.editorialLevel <= item.proposedLevel, 'resolved candidate first introduction is not in the future');
+        } else assert.equal(item.kind, 'editorial-authored-whole-entry');
+        if (phrase.source.collection === 'situation-authored' || phrase.source.collection === 'situation-conversation') {
+          const originItem = rawItems.get(phrase.source.itemId);
+          assert.ok(originItem, 'new canonical source identifies its ledger entry');
+          const originLedger = situationLedgers.get(originItem.pair);
+          assert.equal(phrase.source.ledgerFile, path.relative(path.resolve(ROOT, '..'), originLedger.file));
+          assert.equal(phrase.source.ledgerFileSha256, sha256(fs.readFileSync(originLedger.file)));
+          const ledgerItemSha256 = sha256(canonicalJson(originItem));
+          assert.equal(phrase.source.ledgerItemSha256, ledgerItemSha256);
+          assert.equal(phrase.source.sourceSha256, phrase.source.collection === 'situation-authored'
+            ? ledgerItemSha256 : originItem.source.entrySha256, 'source object and ledger item keep distinct fingerprints');
+          assert.equal(tuple(phrase), tuple(originItem));
+          assert.equal(phrase.phoneticReviewStatus, originItem.phoneticReviewStatus);
+          if (phrase.source.collection === 'situation-authored') {
+            assert.equal(phrase.id, 'situation-authored:' + originItem.id);
+            assert.equal(originItem.kind, 'editorial-authored-whole-entry');
+            assert.equal(phrase.phoneticReviewStatus, 'pending-Claude');
+            totals.newCanonicalAuthored.add(pair.id + ':' + phrase.id);
+          } else {
+            assert.equal(phrase.id, 'situation-conversation:' + originItem.id);
+            assert.equal(originItem.kind, 'conversation-whole-entry');
+            totals.newCanonicalConversation.add(pair.id + ':' + phrase.id);
+          }
+        }
+        totals.candidateKinds[item.kind] = (totals.candidateKinds[item.kind] || 0) + 1;
+        totals.intentPositions++;
+      }
+      totals.cases++;
+    }
+  }
+  assert.equal(totals.cases, 70); assert.equal(totals.intentPositions, 560);
+  assert.equal(totals.primaryPositions + totals.contextualReuses, 560);
+  assert.ok(totals.sameLevelReuses > 0, 'real same-level context reuse covered');
+  report.additionalSourceFieldsCompared = totals.sourceFields;
+  report.additionalWholeSourceAudit = {...totals,
+    newCanonicalAuthored: totals.newCanonicalAuthored.size,
+    newCanonicalConversation: totals.newCanonicalConversation.size};
 }));
 
 test('native lexical classes and reviewed relational groups follow their declared families', async () => checked('lexical-family-priority', async () => {
@@ -468,8 +786,23 @@ test('reviewed Japanese/Korean semantic corrections reach the actual canonical t
       if (phrase.source?.sourceIndex !== undefined) routes.set(pair + ':' + phrase.source.sourceIndex, {domain: theme.domain, phrase});
     }
   }
-  for (const correction of corrections.routingCorrections) assert.equal(routes.get(correction.pair + ':' + correction.sourceIndex)?.domain, correction.afterDomain,
-    correction.pair + ':' + correction.sourceIndex + ' meaning-based destination');
+  let explicitSituationIntroductions = 0;
+  for (const correction of corrections.routingCorrections) {
+    const actual = routes.get(correction.pair + ':' + correction.sourceIndex);
+    assert.ok(actual, 'retained semantic correction ' + correction.pair + ':' + correction.sourceIndex);
+    if (actual.domain === correction.afterDomain) continue;
+    const ledger = situationLedgers.get(correction.pair).data;
+    const item = ledger.items.find(item => item.kind === 'catalogue-reference'
+      && item.source.sourceIndex === correction.sourceIndex && item.introductionDecision?.action === 'introduce-earlier'
+      && item.topicId === actual.domain && item.proposedLevel === actual.phrase.editorialLevel);
+    assert.ok(item, 'changed destination requires an individually reviewed whole-source situation introduction');
+    assert.equal(item.introductionDecision.reviewStatus, 'reviewed');
+    assert.ok(item.introductionDecision.fromEditorialLevel > item.proposedLevel && item.introductionDecision.reason);
+    assert.equal(actual.phrase.placement.previousDomain, correction.afterDomain, 'semantic destination preserved as pre-introduction origin');
+    assert.equal(actual.phrase.placement.classification, 'explicit-situation-first-introduction');
+    assert.equal(actual.phrase.situationIntentId, item.intentId);
+    explicitSituationIntroductions++;
+  }
   for (const correction of corrections.isolatedNumberCorrections || []) {
     const actual = routes.get(correction.pair + ':' + correction.sourceIndex);
     assert.equal(actual?.domain, 'nombres', 'whole numeric quantity has its number theme');
@@ -480,6 +813,7 @@ test('reviewed Japanese/Korean semantic corrections reach the actual canonical t
     else assert.equal(actual.phrase.numberValue, correction.numberValue, 'exact or central numeric value');
   }
   report.jaKoSemanticDestinationsChecked = corrections.routingCorrections.length;
+  report.jaKoSemanticDestinationsExplicitlyIntroducedInSituations = explicitSituationIntroductions;
   report.jaKoWholeNumericQuantitiesChecked = (corrections.isolatedNumberCorrections || []).length;
   for (const [pair, first, second] of [['fr-ja', 'catalogue:ja:3062', 'catalogue:ja:3063'], ['fr-ko', 'catalogue:ko:2213', 'catalogue:ko:2214']]) {
     const adjectives = cell(pair, 1).themes.find(theme => theme.domain === 'vocab-adjectifs');
@@ -557,6 +891,7 @@ test('a repertoire bank is loaded only for reviews and a failed bank can be retr
   try {
     await noBank.page.goto(base + '/parcours-niveaux.html?pair=' + pairId + '&level=1'); await ready(noBank.page, pairId, 1);
     assert.equal(cell(pairId, 1).themes.some(theme => theme.reviewReferences?.length), false, 'L1 cannot cite an earlier level');
+    assert.equal(cell(pairId, 1).themes.some(theme => theme.contextReferences?.length), false, 'no additional situation references in L1');
     assert.ok(!noBank.localRequests.includes(bankPath), 'no bank request without references');
   } finally { await noBank.context.close(); }
   let fail = true;
@@ -574,6 +909,138 @@ test('a repertoire bank is loaded only for reviews and a failed bank can be retr
     assert.equal(fixture.localRequests.filter(value => value === bankPath).length, 2);
     assert.deepEqual(fixture.errors, []);
   } finally { await fixture.context.close(); }
+}));
+
+test('same-level context reuse is explicit, audible and distinct from a revision', {timeout: 30000}, async () => checked('same-level-context-reuse', async () => {
+  let target;
+  for (const pair of manifest.pairs) {
+    try { target = {...contextFixture(pair.id, {sameLevel: true}), pair}; break; }
+    catch (error) { if (!error.message.startsWith('No same-level context fixture')) throw error; }
+  }
+  assert.ok(target, 'a real same-level reuse exists in the frozen bundle');
+  const fixture = await open(390);
+  try {
+    const {page} = fixture;
+    await page.goto(base + '/parcours-niveaux.html?pair=' + target.pair.id + '&level=' + target.level);
+    await ready(page, target.pair.id, target.level);
+    const theme = target.data.themes[target.themeIndex];
+    const steps = theme.sequences.flatMap(sequence => sequence.steps);
+    const reference = target.reference;
+    const phrase = repertoire(target.pair.id).phrases.find(candidate => candidate.id === reference.id);
+    const readIndex = steps.findIndex(step => step.utterance === reference.id && step.kind === 'understand');
+    const recallIndex = steps.findIndex(step => step.utterance === reference.id && ['choose-and-recall', 'reply-without-model', 'recall'].includes(step.kind));
+    assert.ok(readIndex >= 0 && recallIndex > readIndex);
+    await page.locator('#mgThemeGrid > button').nth(target.themeIndex).click();
+    await page.evaluate(count => { for (let index = 0; index < count; index++) document.getElementById('mgContinue').click(); }, readIndex);
+    assert.equal((await page.evaluate(() => window.MelungaMockup.state())).phraseId, phrase.id);
+    for (const [node, field] of [['#mgPhrase', 'study'], ['#mgPhon', 'phon'], ['#mgTranslation', 'native'], ['#mgReading', 'reading']]) {
+      assert.equal(await page.locator(node).textContent(), phrase[field] || '', 'same-level context whole ' + field);
+    }
+    const badge = target.pair.nativeLanguage === 'zh' ? ' · 情境复用' : ' · Réemploi';
+    assert.ok((await page.locator('#mgLessonTheme').textContent()).endsWith(badge));
+    assert.ok(!(await page.locator('#mgLessonTheme').textContent()).endsWith(' · Révision'));
+    await page.click('#mgEar');
+    assert.equal(await page.evaluate(() => window.__speech.at(-1).text), phrase.study);
+    await page.evaluate(count => { for (let index = 0; index < count; index++) document.getElementById('mgContinue').click(); }, recallIndex - readIndex);
+    assert.equal((await page.evaluate(() => window.MelungaMockup.state())).masked, true);
+    assert.equal(await page.locator('#mgPhrase').getAttribute('hidden'), '');
+    assert.equal(await page.locator('#mgPhon').getAttribute('hidden'), '');
+    assert.equal(await page.locator('#mgTranslation').textContent(), phrase.native);
+    const spoken = await page.evaluate(() => window.__speech.length);
+    await page.evaluate(() => document.getElementById('mgReplay').click());
+    assert.equal((await page.evaluate(() => window.MelungaMockup.state())).masked, true);
+    assert.equal(await page.evaluate(() => window.__speech.length), spoken);
+    await page.click('#mgEar');
+    assert.equal((await page.evaluate(() => window.MelungaMockup.state())).masked, false);
+    assert.equal(await page.locator('#mgPhon').textContent(), phrase.phon);
+    assert.equal(await page.evaluate(() => window.__speech.at(-1).text), phrase.study);
+    report.sameLevelContextReuse = {pair: target.pair.id, level: target.level, themeId: theme.id,
+      canonicalId: phrase.id, firstEditorialLevel: reference.firstEditorialLevel,
+      wholeFieldsChecked: 4, explicitRecallReveal: true, backgroundAudioDidNotReveal: true};
+    assert.deepEqual(fixture.errors, []);
+  } finally { await fixture.context.close(); }
+}));
+
+test('invalid context intent, future, type and review markers are refused and a corrected bank reloads', {timeout: 90000}, async () => checked('context-reference-guards-and-retry', async () => {
+  const pairId = manifest.pairs[0].id;
+  const basic = contextFixture(pairId);
+  report.contextGuardResults = [];
+  for (const alteration of ['future', 'intent', 'type', 'not-additional', 'mixed-review-marker', 'missing-context-marker', 'missing-intent-position', 'duplicate-intent', 'intent-order']) {
+    const target = JSON.parse(JSON.stringify(basic.data));
+    const bank = repertoire(pairId);
+    const theme = target.themes[basic.themeIndex];
+    const reference = theme.contextReferences.find(reference => reference.id === basic.reference.id);
+    const phrase = bank.phrases.find(candidate => candidate.id === reference.id);
+    assert.ok(phrase);
+    if (alteration === 'future') {
+      reference.firstEditorialLevel = target.level + 1;
+      phrase.editorialLevel = target.level + 1;
+      phrase.canonicalLocation.level = target.level + 1;
+    } else if (alteration === 'intent') reference.intentId = 'absent-topic-intent-99';
+    else if (alteration === 'type') phrase.contentType = 'vocabulary';
+    else if (alteration === 'not-additional') theme.isAdditionalSituation = false;
+    else if (alteration === 'mixed-review-marker') {
+      for (const sequence of theme.sequences) for (const step of sequence.steps) if (step.utterance === reference.id) step.isReview = true;
+    } else if (alteration === 'missing-context-marker') {
+      for (const sequence of theme.sequences) for (const step of sequence.steps) if (step.utterance === reference.id) delete step.isContextReuse;
+    } else if (alteration === 'duplicate-intent') {
+      reference.intentId = theme.intentIds.find(id => id !== reference.intentId);
+    } else if (alteration === 'intent-order') {
+      const sequence = theme.sequences.find(sequence => sequence.phraseIds.length > 1);
+      if (sequence) sequence.phraseIds.reverse();
+      else theme.sequences.reverse();
+    } else {
+      theme.contextReferences = theme.contextReferences.filter(candidate => candidate.id !== reference.id);
+      theme.reuseCount--;
+      theme.presentedCount--;
+      theme.pedagogicalConceptCount = theme.presentedCount;
+      theme.sequences = theme.sequences.map(sequence => ({...sequence,
+        phraseIds: sequence.phraseIds.filter(id => id !== reference.id),
+        steps: sequence.steps.filter(step => step.utterance !== reference.id).map(step => {
+          const corrected = {...step};
+          if (corrected.choices) corrected.choices = corrected.choices.filter(id => id !== reference.id);
+          return corrected;
+        })})).filter(sequence => sequence.phraseIds.length);
+    }
+    const cellPath = '/content/niveaux-progressifs/' + pairId + '/L' + target.level + '.json';
+    const bankPath = '/' + manifest.pairs[0].repertoirePath;
+    let corrupted = true;
+    const fixture = await open(390, async (route, url) => {
+      if (url.pathname === cellPath || url.pathname === bankPath) {
+        const body = corrupted ? url.pathname === cellPath ? target : bank
+          : url.pathname === cellPath ? cell(pairId, target.level) : repertoire(pairId);
+        await route.fulfill({contentType: 'application/json', body: JSON.stringify(body)}); return true;
+      }
+      return false;
+    });
+    try {
+      await fixture.page.goto(base + '/parcours-niveaux.html?pair=' + pairId + '&level=' + target.level);
+      await fixture.page.locator('#mgRetry').waitFor({state: 'visible'});
+      assert.equal((await fixture.page.evaluate(() => window.MelungaMockup.state())).screen, 'loading', alteration + ' cannot display a partial lesson');
+      const before = fixture.localRequests.filter(value => value === bankPath).length;
+      corrupted = false;
+      await fixture.page.click('#mgRetry'); await ready(fixture.page, pairId, target.level);
+      const after = fixture.localRequests.filter(value => value === bankPath).length;
+      assert.equal(after, before + 1, 'retry requests a corrected context bank instead of retaining poisoned data');
+      const originalTheme = basic.data.themes[basic.themeIndex];
+      await fixture.page.locator('#mgThemeGrid > button').nth(basic.themeIndex).click();
+      assert.equal((await fixture.page.evaluate(() => window.MelungaMockup.state())).screen, 'lesson');
+      assert.equal(originalTheme.presentedCount, 8);
+      const originalPhrase = repertoire(pairId).phrases.find(candidate => candidate.id === basic.reference.id);
+      const originalSteps = originalTheme.sequences.flatMap(sequence => sequence.steps);
+      const referenceIndex = originalSteps.findIndex(step => step.utterance === basic.reference.id);
+      assert.ok(referenceIndex >= 0);
+      await fixture.page.evaluate(count => { for (let index = 0; index < count; index++) document.getElementById('mgContinue').click(); }, referenceIndex);
+      for (const [selector, field] of [['#mgPhrase', 'study'], ['#mgPhon', 'phon'], ['#mgTranslation', 'native'], ['#mgReading', 'reading']]) {
+        assert.equal(await fixture.page.locator(selector).textContent(), originalPhrase[field] || '', 'corrected retry bank preserves whole ' + field);
+      }
+      await fixture.page.click('#mgEar');
+      assert.equal(await fixture.page.evaluate(() => window.__speech.at(-1).text), originalPhrase.study);
+      report.contextGuardResults.push({alteration, refused: true, bankRequestsBeforeRetry: before,
+        bankRequestsAfterRetry: after, retryRestored: true, correctedWholeFields: 4, correctedAudioText: true});
+      assert.deepEqual(fixture.errors, []);
+    } finally { await fixture.context.close(); }
+  }
 }));
 
 test('future, wrong-type, wrong-family, wrong-subclass and insufficient-concept references are refused', {timeout: 60000}, async () => checked('repertoire-reference-guards', async () => {
@@ -743,14 +1210,16 @@ test('approved L1-only page stays compatible with v1 data and no level selector'
   } finally { await fixture.context.close(); }
 }));
 
-test('250 registered photo slots in 21 distinct atlases; no external or API operations', {timeout: 30000}, async () => checked('photo-atlases-and-network-isolation', async () => {
+test('260 registered photo slots in 22 distinct atlases; no external or API operations', {timeout: 30000}, async () => checked('photo-atlases-and-network-isolation', async () => {
   const fixture = await open();
   try {
     await fixture.page.goto(base + '/parcours-niveaux.html'); await ready(fixture.page, 'fr-zh', 1);
-    const assets = [...visualRegistry.levels, ...visualRegistry.vocabularyAtlases, ...visualRegistry.grammarAtlases, ...visualRegistry.correctionAtlases];
-    assert.equal(assets.length, 21, '21 atlases');
-    assert.equal(visualRegistry.themes.length, 250, '250 distinct slots');
-    assert.equal(new Set(visualRegistry.themes.map(theme => theme.asset + ':' + theme.column + ':' + theme.row)).size, 250, 'one slot per theme/level');
+    const assets = [...visualRegistry.levels, ...visualRegistry.vocabularyAtlases, ...visualRegistry.grammarAtlases,
+      ...visualRegistry.correctionAtlases, ...visualRegistry.situationAtlases];
+    assert.equal(assets.length, 22, '22 atlases');
+    assert.equal(visualRegistry.themes.length, 260, '260 distinct slots');
+    assert.equal(new Set(visualRegistry.themes.map(theme => theme.asset + ':' + theme.column + ':' + theme.row)).size, 260, 'one slot per theme/level');
+    for (const theme of situationPlan.themes) assert.equal(visualRegistry.themes.filter(visual => visual.visualId === theme.visualId).length, 1, 'one registered new topic photo ' + theme.id);
     const assetByName = new Map(assets.map(asset => [asset.asset, asset]));
     for (const theme of visualRegistry.themes) {
       const atlas = assetByName.get(theme.asset);
@@ -770,7 +1239,8 @@ test('250 registered photo slots in 21 distinct atlases; no external or API oper
       }, file);
       assert.ok(result.width >= 768 && result.height >= 1024, file + ' resolution');
     }
-    assert.equal(hashes.size, 21, 'unique atlas files');
+    assert.equal(hashes.size, 22, 'unique atlas files');
+    report.visualRegistryChecked = {atlases: assets.length, slots: visualRegistry.themes.length, additionalSituationPhotos: situationPlan.themes.length};
     assert.equal(assetByName.get('assets/theme-scenes.webp').sha256, 'ba431628deddbaafa34384b196c1f3428d606673662681a3835c4b92fe5d7a1c', 'approved L1 image preserved');
     assert.deepEqual(report.externalRequests, []);
     assert.deepEqual(report.apiRequests, []);

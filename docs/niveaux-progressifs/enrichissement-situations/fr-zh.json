@@ -1,0 +1,4198 @@
+{
+  "version": 1,
+  "pair": "fr-zh",
+  "planHash": "01a6ddae871e0df8dcf27bfbbae254565c4fb3d55b767f4b75219ce991473604",
+  "status": "editorial-review",
+  "publicationApproved": false,
+  "sourceTextsChanged": false,
+  "sourceLevelsChanged": false,
+  "sourcePhoneticsChanged": false,
+  "editorialAssignee": "Codex",
+  "phoneticReviewAssignee": "Claude",
+  "phoneticReviewScope": "Uniquement les 55 nouvelles aides, avec leur phrase et lecture entières ; aucune aide existante à harmoniser dans ce lot.",
+  "notes": [
+    "80 positions dans dix nouvelles rubriques ne signifient pas 80 fonctions ou formes inédites.",
+    "15 cartes existantes et 10 entrées conversation antérieures sont reprises exactement ; 55 formes entières sont rédigées après recherche.",
+    "Les nouveaux textes chinois et leurs sens ont été relus par Codex ; les nouvelles approximations phonétiques restent provisoires pending-Claude.",
+    "Aucune frontière universelle 要/想 selon chose/action n’est enseignée ; les formulations sont situées et entières.",
+    "Les prises de parole courtes 收到/到了 sont des répliques conventionnelles entières déjà typées utterance, pas des mots de vocabulaire transformés.",
+    "Les dépendances nomment des besoins de préparation, non une acquisition constatée.",
+    "Les dix fichiers conversation complets sont conservés pour reproduire la recherche de nouveauté ; seuls cinq contiennent les dix entrées réemployées."
+  ],
+  "searchEvidence": {
+    "path": "docs/niveaux-progressifs/enrichissement-situations/fr-zh-recherche.json",
+    "sha256": "10a1ec516fb991481c37877b6f9aba0fea3e8f8099c740fe8b9777c6db980600"
+  },
+  "summary": {
+    "intentCoverage": 80,
+    "wholeEntries": 80,
+    "catalogueReferences": 15,
+    "conversationWholeEntries": 10,
+    "authoredWholeEntries": 55,
+    "newFormsExactMatchInCorpus": 0,
+    "newFormDuplicatesWithinLot": 0,
+    "sourceFieldMutations": 0,
+    "sourcePhoneticRecombinations": 0,
+    "sourceLevelsChanged": 0
+  },
+  "items": [
+    {
+      "id": "fr-zh:repas-preferences-01",
+      "pair": "fr-zh",
+      "topicId": "repas-preferences",
+      "intentId": "repas-preferences-01",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:negation-simple",
+        "food:viande"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "catalogue-reference",
+      "study": "我不吃香菜。",
+      "native": "Je ne mange pas de coriandre.",
+      "phon": "ouo bou tcheu chyang tsaï.",
+      "reading": "wǒ bù chī xiāng cài.",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 723,
+        "sourceLevel": 4,
+        "sourceSha256": "1156a977bf2c495ef0e14d6d9e4608958c9d52fce14783e309578f9532079b31"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La source déclare un aliment évité, ici la coriandre. Le contexte client et la négation entière conviennent ; viande n’est pas substitué à la coriandre et aucune nouvelle phrase n’est comptée.",
+      "introductionDecision": {
+        "action": "introduce-earlier",
+        "fromEditorialLevel": 4,
+        "proposedLevel": 2,
+        "reason": "Première rencontre entière à ce niveau pour cette fonction concrète : La source déclare un aliment évité, ici la coriandre. Le contexte client et la négation entière conviennent ; viande n’est pas substitué à la coriandre et aucune nouvelle phrase n’est comptée. Le niveau source et les droits restent inchangés.",
+        "reviewStatus": "reviewed"
+      },
+      "duplicateAudit": {
+        "searchRecordId": "repas-preferences-01",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:repas-preferences-02",
+      "pair": "fr-zh",
+      "topicId": "repas-preferences",
+      "intentId": "repas-preferences-02",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:preference-simple",
+        "drink:eau"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [
+          {
+            "id": "boisson",
+            "scope": "groupe nominal complet",
+            "maxChangedElements": 1,
+            "examplesFrIndicativeOnly": [
+              "de l’eau",
+              "du thé"
+            ],
+            "wholeTargetVariantRequired": true,
+            "grammaticalInvarianceNotAssumed": true
+          }
+        ],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "conversation-whole-entry",
+      "study": "我更喜欢茶。",
+      "native": "Je préfère le thé.",
+      "phon": "ouo keng si-houan tcha",
+      "reading": "wǒ gèng xǐhuan chá.",
+      "source": {
+        "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L2-fr-zh.json",
+        "jsonPointer": "/units/6/variants/0",
+        "fileSha256": "384340dc305f9a71c4ce2d576a03768378d818643fda9c6a5e41f859288fff40",
+        "entrySha256": "de4c3e3cd36f8b93e55101d4e25a7e99aa4777c798352f60f502f48241e4566e",
+        "sourceLevel": 2,
+        "originalRole": "variante entière d’apprenant",
+        "originalUnitId": "L2-fr-zh-07",
+        "originalSituation": "Préférer"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La préférence de boisson existe avec le thé ; les quatre champs entiers sont conservés. L’eau de la référence n’impose pas une nouvelle formulation.",
+      "duplicateAudit": {
+        "searchRecordId": "repas-preferences-02",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:repas-preferences-03",
+      "pair": "fr-zh",
+      "topicId": "repas-preferences",
+      "intentId": "repas-preferences-03",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:demande-polie",
+        "food:piment"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "catalogue-reference",
+      "study": "不要放辣椒。",
+      "native": "Sans piment, s'il vous plaît.",
+      "phon": "bou yao fang la djyao.",
+      "reading": "bú yào fàng là jiāo.",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 674,
+        "sourceLevel": 4,
+        "sourceSha256": "c49480d3c54a16c870a995ebd163d2328a51acd97b5420d5ca28b380668dc611"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La demande entière sans piment existe déjà. Elle sert directement à préciser la préparation de son repas.",
+      "introductionDecision": {
+        "action": "introduce-earlier",
+        "fromEditorialLevel": 4,
+        "proposedLevel": 2,
+        "reason": "Première rencontre entière à ce niveau pour cette fonction concrète : La demande entière sans piment existe déjà. Elle sert directement à préciser la préparation de son repas. Le niveau source et les droits restent inchangés.",
+        "reviewStatus": "reviewed"
+      },
+      "duplicateAudit": {
+        "searchRecordId": "repas-preferences-03",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:repas-preferences-04",
+      "pair": "fr-zh",
+      "topicId": "repas-preferences",
+      "intentId": "repas-preferences-04",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:question-fermee",
+        "food:lait"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [
+          {
+            "id": "ingredient",
+            "scope": "groupe nominal complet",
+            "maxChangedElements": 1,
+            "examplesFrIndicativeOnly": [
+              "du lait",
+              "des œufs"
+            ],
+            "wholeTargetVariantRequired": true,
+            "grammaticalInvarianceNotAssumed": true
+          }
+        ],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "这道菜里面有牛奶吗？",
+      "native": "Est-ce que ce plat contient du lait ?",
+      "phon": "djeu dao tsaï li myèn yo niou-naï ma ?",
+      "reading": "zhè dào cài lǐmiàn yǒu niúnǎi ma?",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Vérifier la présence d’un ingrédient. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "repas-preferences-04",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:repas-preferences-05",
+      "pair": "fr-zh",
+      "topicId": "repas-preferences",
+      "intentId": "repas-preferences-05",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:demande-simple",
+        "food:viande"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "catalogue-reference",
+      "study": "有素菜吗？",
+      "native": "Vous avez des plats végétariens ?",
+      "phon": "yoou sou tsaï ma?",
+      "reading": "yǒu sù cài ma?",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 550,
+        "sourceLevel": 3,
+        "sourceSha256": "c0b627a2181073015af59bbefbaa0335fe1c895dc4ccb81af3eabaa5cda316e1"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "Demander des plats végétariens réalise la demande d’une alternative sans viande, avec le sens source exact.",
+      "introductionDecision": {
+        "action": "introduce-earlier",
+        "fromEditorialLevel": 3,
+        "proposedLevel": 2,
+        "reason": "Première rencontre entière à ce niveau pour cette fonction concrète : Demander des plats végétariens réalise la demande d’une alternative sans viande, avec le sens source exact. Le niveau source et les droits restent inchangés.",
+        "reviewStatus": "reviewed"
+      },
+      "duplicateAudit": {
+        "searchRecordId": "repas-preferences-05",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:repas-preferences-06",
+      "pair": "fr-zh",
+      "topicId": "repas-preferences",
+      "intentId": "repas-preferences-06",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:demande-polie",
+        "property:chaud"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "conversation-whole-entry",
+      "study": "我想要一杯热茶。",
+      "native": "Je voudrais un thé chaud.",
+      "phon": "ouo siang yao i peï jeu tcha",
+      "reading": "wǒ xiǎng yào yì bēi rè chá.",
+      "source": {
+        "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L2-fr-zh.json",
+        "jsonPointer": "/units/0/variants/3",
+        "fileSha256": "384340dc305f9a71c4ce2d576a03768378d818643fda9c6a5e41f859288fff40",
+        "entrySha256": "7588b91a11b1604bf4d04127dbe61cfea901c7e8432528180391d80502cab9f0",
+        "sourceLevel": 2,
+        "originalRole": "variante entière d’apprenant",
+        "originalUnitId": "L2-fr-zh-01",
+        "originalSituation": "Au café"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La source demande une boisson chaude, ici un thé. Elle sert la précision de température au restaurant ; elle ne prétend pas nommer un plat chaud et ne crée aucune nouvelle forme.",
+      "duplicateAudit": {
+        "searchRecordId": "repas-preferences-06",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:repas-preferences-07",
+      "pair": "fr-zh",
+      "topicId": "repas-preferences",
+      "intentId": "repas-preferences-07",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:choix-simple",
+        "relation:autre"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "catalogue-reference",
+      "study": "我要那个",
+      "native": "je veux celui-là",
+      "phon": "ouo yao na geu",
+      "reading": "wǒ yào nà ge",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 221,
+        "sourceLevel": 2,
+        "sourceSha256": "6419cb229c479e3b8f8d6d930513e3af4e611a8a2d373b7adc576baa4a4fd172"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La prise de parole entière choisit celui-là ; dans la situation de deux propositions, le déictique sert à sélectionner l’autre option. Le mot plat n’est pas ajouté.",
+      "duplicateAudit": {
+        "searchRecordId": "repas-preferences-07",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:repas-preferences-08",
+      "pair": "fr-zh",
+      "topicId": "repas-preferences",
+      "intentId": "repas-preferences-08",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:confirmation",
+        "choice:option"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "catalogue-reference",
+      "study": "这样也行",
+      "native": "ça marche aussi",
+      "phon": "djeu ang yé ching",
+      "reading": "zhè yàng yě xíng",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 251,
+        "sourceLevel": 2,
+        "sourceSha256": "84feb5bac42784e40ddb011237483e08971e5480d28c06584a776045a717ebe4"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La réplique entière confirme qu’une autre proposition fonctionne aussi. Elle conserve le sens et l’aide de la source, sans compléter une phrase cachée.",
+      "duplicateAudit": {
+        "searchRecordId": "repas-preferences-08",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:numerique-quotidien-01",
+      "pair": "fr-zh",
+      "topicId": "numerique-quotidien",
+      "intentId": "numerique-quotidien-01",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Utilisateur",
+      "dependencyConcepts": [
+        "operation:besoin-simple",
+        "object:telephone"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/duolingo-teaching-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我需要给手机充电。",
+      "native": "J’ai besoin de recharger mon téléphone.",
+      "phon": "ouo chu-yao gueï cheou-dji tchong-dyèn.",
+      "reading": "wǒ xūyào gěi shǒujī chōngdiàn.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Exprimer le besoin de recharger son téléphone. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "numerique-quotidien-01",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:numerique-quotidien-02",
+      "pair": "fr-zh",
+      "topicId": "numerique-quotidien",
+      "intentId": "numerique-quotidien-02",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Utilisateur",
+      "dependencyConcepts": [
+        "operation:question-existence",
+        "object:prise"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/duolingo-teaching-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "这里有插座吗？",
+      "native": "Est-ce qu’il y a une prise ici ?",
+      "phon": "djeu-li yo tcha-dzouo ma ?",
+      "reading": "zhèli yǒu chāzuò ma?",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Demander où brancher son appareil. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "numerique-quotidien-02",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:numerique-quotidien-03",
+      "pair": "fr-zh",
+      "topicId": "numerique-quotidien",
+      "intentId": "numerique-quotidien-03",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Utilisateur",
+      "dependencyConcepts": [
+        "operation:recherche-simple",
+        "digital:reseau-wifi"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/duolingo-teaching-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我在找Wi-Fi网络。",
+      "native": "Je cherche le réseau Wi-Fi.",
+      "phon": "ouo dzaï djao ouaï-faï ouang-louo.",
+      "reading": "wǒ zài zhǎo Wi-Fi wǎngluò.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Indiquer le réseau que l’on cherche. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "numerique-quotidien-03",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:numerique-quotidien-04",
+      "pair": "fr-zh",
+      "topicId": "numerique-quotidien",
+      "intentId": "numerique-quotidien-04",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Utilisateur",
+      "dependencyConcepts": [
+        "operation:demande-polie",
+        "digital:mot-de-passe"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/duolingo-teaching-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "可以把密码写给我吗？",
+      "native": "Pouvez-vous m’écrire le mot de passe ?",
+      "phon": "keu-i ba mi-ma chyé gueï ouo ma ?",
+      "reading": "kěyǐ bǎ mìmǎ xiě gěi wǒ ma?",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Demander le mot de passe par écrit. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "numerique-quotidien-04",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:numerique-quotidien-05",
+      "pair": "fr-zh",
+      "topicId": "numerique-quotidien",
+      "intentId": "numerique-quotidien-05",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Utilisateur",
+      "dependencyConcepts": [
+        "operation:negation-simple",
+        "digital:message"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/duolingo-teaching-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我看不到您的消息。",
+      "native": "Je ne vois pas votre message.",
+      "phon": "ouo kann bou dao nin deu chyao-chi.",
+      "reading": "wǒ kàn bu dào nín de xiāoxi.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Signaler qu’un message n’est pas visible. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "numerique-quotidien-05",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:numerique-quotidien-06",
+      "pair": "fr-zh",
+      "topicId": "numerique-quotidien",
+      "intentId": "numerique-quotidien-06",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Utilisateur",
+      "dependencyConcepts": [
+        "operation:demande-polie",
+        "object:bouton"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/duolingo-teaching-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "请指一下那个按钮。",
+      "native": "Indiquez-moi le bouton, s’il vous plaît.",
+      "phon": "tching djeu i-chya na gueu ann-niou.",
+      "reading": "qǐng zhǐ yíxià nà ge ànniǔ.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Demander une indication concrète sur le bouton. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "numerique-quotidien-06",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:numerique-quotidien-07",
+      "pair": "fr-zh",
+      "topicId": "numerique-quotidien",
+      "intentId": "numerique-quotidien-07",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Utilisateur",
+      "dependencyConcepts": [
+        "operation:confirmation",
+        "digital:connexion"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/duolingo-teaching-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "网络连接现在正常了。",
+      "native": "La connexion fonctionne maintenant.",
+      "phon": "ouang-louo lyèn-djyé chyèn-dzaï djeung-tchang le.",
+      "reading": "wǎngluò liánjiē xiànzài zhèngcháng le.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Confirmer que la connexion fonctionne. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "numerique-quotidien-07",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:numerique-quotidien-08",
+      "pair": "fr-zh",
+      "topicId": "numerique-quotidien",
+      "intentId": "numerique-quotidien-08",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Utilisateur",
+      "dependencyConcepts": [
+        "operation:confirmation",
+        "time:maintenant"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/duolingo-teaching-method/"
+      ],
+      "kind": "catalogue-reference",
+      "study": "收到",
+      "native": "bien reçu",
+      "phon": "chou dao",
+      "reading": "shōu dào",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 3640,
+        "sourceLevel": 4,
+        "sourceSha256": "b14ef20b783af591a9db00b891d97dc3fee1a405e868efb159e6669d659e9fe6"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "Bien reçu est une réplique conventionnelle entière d’accusé de réception. Elle sert la confirmation du message et n’est pas réécrite pour ajouter maintenant.",
+      "introductionDecision": {
+        "action": "introduce-earlier",
+        "fromEditorialLevel": 4,
+        "proposedLevel": 2,
+        "reason": "Première rencontre entière à ce niveau pour cette fonction concrète : Bien reçu est une réplique conventionnelle entière d’accusé de réception. Elle sert la confirmation du message et n’est pas réécrite pour ajouter maintenant. Le niveau source et les droits restent inchangés.",
+        "reviewStatus": "reviewed"
+      },
+      "duplicateAudit": {
+        "searchRecordId": "numerique-quotidien-08",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:hotel-sejour-01",
+      "pair": "fr-zh",
+      "topicId": "hotel-sejour",
+      "intentId": "hotel-sejour-01",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:projet-proche",
+        "time:demain"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.busuu.com/fr/course/apprendre-chinois-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "conversation-whole-entry",
+      "study": "明天我会早点来。",
+      "native": "Demain, je viendrai plus tôt.",
+      "phon": "ming-tièn ouo houeï tsao tièn laï",
+      "reading": "míngtiān wǒ huì zǎo diǎn lái.",
+      "source": {
+        "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L6-fr-zh.json",
+        "jsonPointer": "/units/1/variants/3",
+        "fileSha256": "2ff7f027d64800304da224fffb83a413268677373064d8c36029abe7c4730808",
+        "entrySha256": "2982c2972603e01f0fa24d1d264724c8bc33ef0fef59a79cd9c4bc06f5b88897",
+        "sourceLevel": 6,
+        "originalRole": "variante entière d’apprenant",
+        "originalUnitId": "L6-fr-zh-02",
+        "originalSituation": "Demain"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "L’annonce entière de venue le lendemain sert à annoncer son arrivée au réceptionniste. Hôtel n’est pas ajouté et le plus tôt de la source est conservé.",
+      "introductionDecision": {
+        "action": "introduce-earlier",
+        "fromEditorialLevel": 6,
+        "proposedLevel": 3,
+        "reason": "Première rencontre entière à ce niveau pour cette fonction concrète : L’annonce entière de venue le lendemain sert à annoncer son arrivée au réceptionniste. Hôtel n’est pas ajouté et le plus tôt de la source est conservé. Le niveau source et les droits restent inchangés.",
+        "reviewStatus": "reviewed",
+        "fromLevelProvenance": "niveau déclaré du brouillon conversation archivé ; pas affirmation d’une rencontre publiée antérieure"
+      },
+      "duplicateAudit": {
+        "searchRecordId": "hotel-sejour-01",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:hotel-sejour-02",
+      "pair": "fr-zh",
+      "topicId": "hotel-sejour",
+      "intentId": "hotel-sejour-02",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:identification",
+        "travel:reservation"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.busuu.com/fr/course/apprendre-chinois-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "预订用的是我的名字。",
+      "native": "La réservation est à mon nom.",
+      "phon": "u-ding yong deu chr ouo deu ming-dzeu.",
+      "reading": "yùdìng yòng de shì wǒ de míngzi.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Identifier une réservation sans raconter une nouvelle histoire. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "hotel-sejour-02",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:hotel-sejour-03",
+      "pair": "fr-zh",
+      "topicId": "hotel-sejour",
+      "intentId": "hotel-sejour-03",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:duree-simple",
+        "quantity:deux-nuits"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [
+          {
+            "id": "duree",
+            "scope": "quantité et unité entières",
+            "maxChangedElements": 1,
+            "examplesFrIndicativeOnly": [
+              "deux nuits",
+              "trois nuits"
+            ],
+            "wholeTargetVariantRequired": true,
+            "grammaticalInvarianceNotAssumed": true
+          }
+        ],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.busuu.com/fr/course/apprendre-chinois-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我住两晚。",
+      "native": "Je reste deux nuits.",
+      "phon": "ouo djou lyang ouann.",
+      "reading": "wǒ zhù liǎng wǎn.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Préciser la durée prévue du séjour. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "hotel-sejour-03",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:hotel-sejour-04",
+      "pair": "fr-zh",
+      "topicId": "hotel-sejour",
+      "intentId": "hotel-sejour-04",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:question-horaire",
+        "meal:petit-dejeuner"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.busuu.com/fr/course/apprendre-chinois-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "catalogue-reference",
+      "study": "早餐几点到几点？",
+      "native": "Le petit-déjeuner est de quelle heure à quelle heure ?",
+      "phon": "dzao tsann dji dyenn dao dji dyenn?",
+      "reading": "zǎo cān jǐ diǎn dào jǐ diǎn?",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1410,
+        "sourceLevel": 6,
+        "sourceSha256": "19479018415a1336f076c3c1b02a29cce67d05b96cd3e45db146d40a9069d316"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La source entière demande la plage horaire du petit déjeuner. Elle accomplit la demande d’horaire en conservant les deux bornes demandées.",
+      "introductionDecision": {
+        "action": "introduce-earlier",
+        "fromEditorialLevel": 6,
+        "proposedLevel": 3,
+        "reason": "Première rencontre entière à ce niveau pour cette fonction concrète : La source entière demande la plage horaire du petit déjeuner. Elle accomplit la demande d’horaire en conservant les deux bornes demandées. Le niveau source et les droits restent inchangés.",
+        "reviewStatus": "reviewed"
+      },
+      "duplicateAudit": {
+        "searchRecordId": "hotel-sejour-04",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:hotel-sejour-05",
+      "pair": "fr-zh",
+      "topicId": "hotel-sejour",
+      "intentId": "hotel-sejour-05",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:preference-simple",
+        "property:calme"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [
+          {
+            "id": "preference-chambre",
+            "scope": "propriété ou locution entière",
+            "maxChangedElements": 1,
+            "examplesFrIndicativeOnly": [
+              "au calme",
+              "avec une fenêtre"
+            ],
+            "wholeTargetVariantRequired": true,
+            "grammaticalInvarianceNotAssumed": true
+          }
+        ],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.busuu.com/fr/course/apprendre-chinois-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "catalogue-reference",
+      "study": "有没有更安静的房间？",
+      "native": "Y a-t-il une chambre plus calme ?",
+      "phon": "yoou meï yoou geung ann djing de fang djyenn?",
+      "reading": "yǒu méi yǒu gèng ān jìng de fáng jiān?",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1114,
+        "sourceLevel": 5,
+        "sourceSha256": "bf08248df8bd242308288b52fff1f2cb7cfa26011d30e9927a468d9ac026ed4c"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La demande d’une chambre plus calme existe déjà et exprime la préférence de calme. Le comparatif de la source reste affiché, non supprimé.",
+      "introductionDecision": {
+        "action": "introduce-earlier",
+        "fromEditorialLevel": 5,
+        "proposedLevel": 3,
+        "reason": "Première rencontre entière à ce niveau pour cette fonction concrète : La demande d’une chambre plus calme existe déjà et exprime la préférence de calme. Le comparatif de la source reste affiché, non supprimé. Le niveau source et les droits restent inchangés.",
+        "reviewStatus": "reviewed"
+      },
+      "duplicateAudit": {
+        "searchRecordId": "hotel-sejour-05",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:hotel-sejour-06",
+      "pair": "fr-zh",
+      "topicId": "hotel-sejour",
+      "intentId": "hotel-sejour-06",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:projet-proche",
+        "time:demain-matin"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.busuu.com/fr/course/apprendre-chinois-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我明天一早就走。",
+      "native": "Je pars tôt demain matin.",
+      "phon": "ouo ming-tyèn i-dzao djyeou dzeou.",
+      "reading": "wǒ míngtiān yìzǎo jiù zǒu.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Annoncer un départ tôt le lendemain. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "hotel-sejour-06",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:hotel-sejour-07",
+      "pair": "fr-zh",
+      "topicId": "hotel-sejour",
+      "intentId": "hotel-sejour-07",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:demande-polie",
+        "time:ce-soir"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.busuu.com/fr/course/apprendre-chinois-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我的包能寄存到今晚吗？",
+      "native": "Est-ce que je peux vous laisser mon sac jusqu’à ce soir ?",
+      "phon": "ouo deu bao neung dji-tsouenn dao djinn-ouann ma ?",
+      "reading": "wǒ de bāo néng jìcún dào jīnwǎn ma?",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Prévoir la garde d’un bagage jusqu’au soir. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "hotel-sejour-07",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:hotel-sejour-08",
+      "pair": "fr-zh",
+      "topicId": "hotel-sejour",
+      "intentId": "hotel-sejour-08",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:verification-simple",
+        "object:cle"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.busuu.com/fr/course/apprendre-chinois-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我能把钥匙留在这里吗？",
+      "native": "Je peux laisser la clé ici ?",
+      "phon": "ouo neung ba yao-cheu lyeou dzaï djeu-li ma ?",
+      "reading": "wǒ néng bǎ yàoshi liú zài zhèli ma?",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Vérifier où laisser la clé au départ. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "hotel-sejour-08",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:loisirs-sorties-01",
+      "pair": "fr-zh",
+      "topicId": "loisirs-sorties",
+      "intentId": "loisirs-sorties-01",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Ami qui propose",
+      "dependencyConcepts": [
+        "operation:envie-action",
+        "time:ce-soir"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.babbel.com/learn-spanish"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我今晚想出去玩。",
+      "native": "J’ai envie de sortir ce soir.",
+      "phon": "ouo djinn-ouann chyang tchou-tchu ouann.",
+      "reading": "wǒ jīnwǎn xiǎng chūqù wán.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Exprimer une envie de sortir à un moment proche. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "loisirs-sorties-01",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:loisirs-sorties-02",
+      "pair": "fr-zh",
+      "topicId": "loisirs-sorties",
+      "intentId": "loisirs-sorties-02",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Ami qui propose",
+      "dependencyConcepts": [
+        "operation:disponibilite",
+        "time:apres-le-dejeuner"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [
+          {
+            "id": "creneau",
+            "scope": "repère temporel entier",
+            "maxChangedElements": 1,
+            "examplesFrIndicativeOnly": [
+              "après le déjeuner",
+              "samedi matin"
+            ],
+            "wholeTargetVariantRequired": true,
+            "grammaticalInvarianceNotAssumed": true
+          }
+        ],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.babbel.com/learn-spanish"
+      ],
+      "kind": "conversation-whole-entry",
+      "study": "我不行，不过下个星期有空。",
+      "native": "Je ne peux pas, mais la semaine prochaine je suis libre.",
+      "phon": "ouo pou sing, pou-kouo sia keu sing-tchi yeou kong",
+      "reading": "wǒ bù xíng, búguò xià ge xīngqī yǒu kòng.",
+      "source": {
+        "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L6-fr-zh.json",
+        "jsonPointer": "/units/4/variants/1",
+        "fileSha256": "2ff7f027d64800304da224fffb83a413268677373064d8c36029abe7c4730808",
+        "entrySha256": "db6ab62d3796892b20f4f8d3e7c096fe9ab5e73eefb0f3a0b97173ae04ec4e9c",
+        "sourceLevel": 6,
+        "originalRole": "variante entière d’apprenant",
+        "originalUnitId": "L6-fr-zh-05",
+        "originalSituation": "Refuser et proposer autre chose"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La source entière donne une autre disponibilité, la semaine suivante. Le refus initial et le contraste restent entiers ; le créneau après déjeuner de la référence n’est pas imposé.",
+      "introductionDecision": {
+        "action": "introduce-earlier",
+        "fromEditorialLevel": 6,
+        "proposedLevel": 3,
+        "reason": "Première rencontre entière à ce niveau pour cette fonction concrète : La source entière donne une autre disponibilité, la semaine suivante. Le refus initial et le contraste restent entiers ; le créneau après déjeuner de la référence n’est pas imposé. Le niveau source et les droits restent inchangés.",
+        "reviewStatus": "reviewed",
+        "fromLevelProvenance": "niveau déclaré du brouillon conversation archivé ; pas affirmation d’une rencontre publiée antérieure"
+      },
+      "duplicateAudit": {
+        "searchRecordId": "loisirs-sorties-02",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:loisirs-sorties-03",
+      "pair": "fr-zh",
+      "topicId": "loisirs-sorties",
+      "intentId": "loisirs-sorties-03",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Ami qui propose",
+      "dependencyConcepts": [
+        "operation:choix-deux-options",
+        "leisure:cinema"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.babbel.com/learn-spanish"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "你想看电影还是散步？",
+      "native": "Tu préfères aller au cinéma ou te promener ?",
+      "phon": "ni chyang kann dyèn-ying haï-chr sann-bou ?",
+      "reading": "nǐ xiǎng kàn diànyǐng háishi sànbù?",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Proposer deux activités pour connaître une préférence. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "loisirs-sorties-03",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:loisirs-sorties-04",
+      "pair": "fr-zh",
+      "topicId": "loisirs-sorties",
+      "intentId": "loisirs-sorties-04",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Ami qui propose",
+      "dependencyConcepts": [
+        "operation:habitude",
+        "adverb:souvent"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.babbel.com/learn-spanish"
+      ],
+      "kind": "conversation-whole-entry",
+      "study": "我经常运动。",
+      "native": "Je fais souvent du sport.",
+      "phon": "ouo ting-tchang yun-tong",
+      "reading": "wǒ jīngcháng yùndòng.",
+      "source": {
+        "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L4-fr-zh.json",
+        "jsonPointer": "/units/7/variants/1",
+        "fileSha256": "4afac71b61e6b2ea190bb3eccc0d09f0b367a83cbd3eb68e78233ef0c0b8dfe0",
+        "entrySha256": "67238af8854982c8dedbc47186bc68a53d8d80dcfb7de54536fd1fbdc803d0a7",
+        "sourceLevel": 4,
+        "originalRole": "variante entière d’apprenant",
+        "originalUnitId": "L4-fr-zh-08",
+        "originalSituation": "Fréquence"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La source dit une habitude sportive, qui appartient aux loisirs. Cinéma n’est pas substitué à sport et la phrase ne devient pas nouvelle.",
+      "introductionDecision": {
+        "action": "introduce-earlier",
+        "fromEditorialLevel": 4,
+        "proposedLevel": 3,
+        "reason": "Première rencontre entière à ce niveau pour cette fonction concrète : La source dit une habitude sportive, qui appartient aux loisirs. Cinéma n’est pas substitué à sport et la phrase ne devient pas nouvelle. Le niveau source et les droits restent inchangés.",
+        "reviewStatus": "reviewed",
+        "fromLevelProvenance": "niveau déclaré du brouillon conversation archivé ; pas affirmation d’une rencontre publiée antérieure"
+      },
+      "duplicateAudit": {
+        "searchRecordId": "loisirs-sorties-04",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:loisirs-sorties-05",
+      "pair": "fr-zh",
+      "topicId": "loisirs-sorties",
+      "intentId": "loisirs-sorties-05",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Ami qui propose",
+      "dependencyConcepts": [
+        "operation:proposition",
+        "place:devant-le-cinema"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.babbel.com/learn-spanish"
+      ],
+      "kind": "conversation-whole-entry",
+      "study": "我们在酒店门口见。",
+      "native": "On se retrouve à l'entrée de l'hôtel.",
+      "phon": "ouo-meun dzaï tiou-tièn meun-kou tièn",
+      "reading": "wǒmen zài jiǔdiàn ménkǒu jiàn.",
+      "source": {
+        "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L2-fr-zh.json",
+        "jsonPointer": "/units/10/variants/2",
+        "fileSha256": "384340dc305f9a71c4ce2d576a03768378d818643fda9c6a5e41f859288fff40",
+        "entrySha256": "3dbe86badaab3e1a552b24d8b858e83bc35f3ea904e4af33599758a36afbd8d4",
+        "sourceLevel": 2,
+        "originalRole": "variante entière d’apprenant",
+        "originalUnitId": "L2-fr-zh-11",
+        "originalSituation": "Lieu de rendez-vous"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "Le rendez-vous à l’entrée de l’hôtel peut servir de point de rencontre avant la sortie. Le lieu réel de la source est conservé, sans le renommer cinéma.",
+      "duplicateAudit": {
+        "searchRecordId": "loisirs-sorties-05",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:loisirs-sorties-06",
+      "pair": "fr-zh",
+      "topicId": "loisirs-sorties",
+      "intentId": "loisirs-sorties-06",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Ami qui propose",
+      "dependencyConcepts": [
+        "operation:precision-personne",
+        "person:soeur"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [
+          {
+            "id": "accompagnant",
+            "scope": "groupe nominal entier",
+            "maxChangedElements": 1,
+            "examplesFrIndicativeOnly": [
+              "ma sœur",
+              "mon ami"
+            ],
+            "wholeTargetVariantRequired": true,
+            "grammaticalInvarianceNotAssumed": true
+          }
+        ],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.babbel.com/learn-spanish"
+      ],
+      "kind": "catalogue-reference",
+      "study": "我和朋友一起去吃饭。",
+      "native": "Je vais manger avec un ami.",
+      "phon": "ouo he peung yoou i tchi tchu tcheu fann.",
+      "reading": "wǒ hé péng you yì qǐ qù chī fàn.",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1506,
+        "sourceLevel": 7,
+        "sourceSha256": "4ac456ca2f4eeff2878e1b60860459899b90f34ffa505f1548902f331f2e59de"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La source annonce une sortie au restaurant avec un ami. Elle précise qui accompagne la personne ; ni sœur ni cinéma ne sont substitués dans ses champs.",
+      "introductionDecision": {
+        "action": "introduce-earlier",
+        "fromEditorialLevel": 7,
+        "proposedLevel": 3,
+        "reason": "Première rencontre entière à ce niveau pour cette fonction concrète : La source annonce une sortie au restaurant avec un ami. Elle précise qui accompagne la personne ; ni sœur ni cinéma ne sont substitués dans ses champs. Le niveau source et les droits restent inchangés.",
+        "reviewStatus": "reviewed"
+      },
+      "duplicateAudit": {
+        "searchRecordId": "loisirs-sorties-06",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:loisirs-sorties-07",
+      "pair": "fr-zh",
+      "topicId": "loisirs-sorties",
+      "intentId": "loisirs-sorties-07",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Ami qui propose",
+      "dependencyConcepts": [
+        "operation:offre-action",
+        "leisure:places"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.babbel.com/learn-spanish"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我可以订票。",
+      "native": "Je peux réserver les billets.",
+      "phon": "ouo keu-i ding pyao.",
+      "reading": "wǒ kěyǐ dìng piào.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Proposer de réserver les places. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "loisirs-sorties-07",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:loisirs-sorties-08",
+      "pair": "fr-zh",
+      "topicId": "loisirs-sorties",
+      "intentId": "loisirs-sorties-08",
+      "proposedLevel": 3,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Ami qui propose",
+      "dependencyConcepts": [
+        "operation:confirmation-projet",
+        "time:dix-huit-heures"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.babbel.com/learn-spanish"
+      ],
+      "kind": "conversation-whole-entry",
+      "study": "好啊！十二点见。",
+      "native": "D'accord ! À midi.",
+      "phon": "hao a ! chr-eur tièn tièn",
+      "reading": "hǎo a! shí'èr diǎn jiàn.",
+      "source": {
+        "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L3-fr-zh.json",
+        "jsonPointer": "/dialogues/0/turns/7",
+        "fileSha256": "e9a98a2abf44e80cc25c5da593d4798deeb60b88f142994ea952d0be39ebe7f8",
+        "entrySha256": "ba18e868947dc0ff4441bec4dae911c34536165a84ec8f8800b1a36747f4e4b7",
+        "sourceLevel": 3,
+        "originalSpeaker": "B",
+        "originalRole": "Un collègue",
+        "originalLearnerRole": "A",
+        "originalSituation": "Premier jour au travail"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "Le tour entier confirme le rendez-vous à midi. Ce n’est pas le mot 中午 isolé : 好啊！十二点见。 reste une prise de parole entière avec sa ponctuation et son aide.",
+      "duplicateAudit": {
+        "searchRecordId": "loisirs-sorties-08",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:transport-imprevus-01",
+      "pair": "fr-zh",
+      "topicId": "transport-imprevus",
+      "intentId": "transport-imprevus-01",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:evenement-termine",
+        "travel:bus"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "catalogue-reference",
+      "study": "我错过了公交车。",
+      "native": "J'ai raté le bus.",
+      "phon": "ouo tsouo-gouo leu gong-tjyao-tcheu",
+      "reading": "wǒ cuòguò le gōngjiāochē",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 502,
+        "sourceLevel": 3,
+        "sourceSha256": "a51a1e03761c92a426bd1f2ceaf4335fa5fda78861393b2391c56d1b89e9cb3d"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La phrase entière rapporte précisément le bus manqué ; elle existe au catalogue.",
+      "duplicateAudit": {
+        "searchRecordId": "transport-imprevus-01",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:transport-imprevus-02",
+      "pair": "fr-zh",
+      "topicId": "transport-imprevus",
+      "intentId": "transport-imprevus-02",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:ordre-deux-faits",
+        "travel:train"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我到之前，火车已经开走了。",
+      "native": "Le train est parti avant mon arrivée.",
+      "phon": "ouo dao djeu-tchyèn, houo-tcheu i-djing kaï-dzeou le.",
+      "reading": "wǒ dào zhīqián, huǒchē yǐjīng kāizǒu le.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Rapporter le départ du train avant son arrivée. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "transport-imprevus-02",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:transport-imprevus-03",
+      "pair": "fr-zh",
+      "topicId": "transport-imprevus",
+      "intentId": "transport-imprevus-03",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:duree-passee",
+        "quantity:vingt-minutes"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [
+          {
+            "id": "duree-attente",
+            "scope": "quantité et unité entières",
+            "maxChangedElements": 1,
+            "examplesFrIndicativeOnly": [
+              "vingt minutes",
+              "une demi-heure"
+            ],
+            "wholeTargetVariantRequired": true,
+            "grammaticalInvarianceNotAssumed": true
+          }
+        ],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我在这个站等了二十分钟。",
+      "native": "J’ai attendu à cet arrêt pendant vingt minutes.",
+      "phon": "ouo dzaï djeu-gueu djann deung le eur-cheu feunn-djong.",
+      "reading": "wǒ zài zhège zhàn děng le èrshí fēnzhōng.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Préciser la durée d’une attente passée. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "transport-imprevus-03",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:transport-imprevus-04",
+      "pair": "fr-zh",
+      "topicId": "transport-imprevus",
+      "intentId": "transport-imprevus-04",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:evenement-termine",
+        "travel:station"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我提前一站下车了。",
+      "native": "Je suis descendu une station trop tôt.",
+      "phon": "ouo ti-tchyèn i djann chya-tcheu le.",
+      "reading": "wǒ tíqián yí zhàn xiàchē le.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Expliquer qu’on est descendu trop tôt. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "transport-imprevus-04",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:transport-imprevus-05",
+      "pair": "fr-zh",
+      "topicId": "transport-imprevus",
+      "intentId": "transport-imprevus-05",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:question-lieu",
+        "relation:prochain"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "下一班公交车从哪里出发？",
+      "native": "D’où part le prochain bus ?",
+      "phon": "chya i bann gong-djiao-tcheu tsong na-li tchou-fa ?",
+      "reading": "xià yì bān gōngjiāochē cóng nǎli chūfā?",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Demander le lieu de départ du prochain bus. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "transport-imprevus-05",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:transport-imprevus-06",
+      "pair": "fr-zh",
+      "topicId": "transport-imprevus",
+      "intentId": "transport-imprevus-06",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:verification-simple",
+        "travel:billet"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我还能用这张票吗？",
+      "native": "Est-ce que je peux encore utiliser ce billet ?",
+      "phon": "ouo haï neung yong djeu djang pyao ma ?",
+      "reading": "wǒ hái néng yòng zhè zhāng piào ma?",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Vérifier si le même billet peut encore servir. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "transport-imprevus-06",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:transport-imprevus-07",
+      "pair": "fr-zh",
+      "topicId": "transport-imprevus",
+      "intentId": "transport-imprevus-07",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:evenement-termine",
+        "travel:ligne"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [
+          {
+            "id": "alternative-transport",
+            "scope": "groupe nominal entier",
+            "maxChangedElements": 1,
+            "examplesFrIndicativeOnly": [
+              "l’autre ligne",
+              "le prochain train"
+            ],
+            "wholeTargetVariantRequired": true,
+            "grammaticalInvarianceNotAssumed": true
+          }
+        ],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我坐了另一条线。",
+      "native": "J’ai pris une autre ligne.",
+      "phon": "ouo dzouo le ling i tyao chyèn.",
+      "reading": "wǒ zuò le lìng yì tiáo xiàn.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Rapporter la solution effectivement prise. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "transport-imprevus-07",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:transport-imprevus-08",
+      "pair": "fr-zh",
+      "topicId": "transport-imprevus",
+      "intentId": "transport-imprevus-08",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Voyageur",
+      "dependencyConcepts": [
+        "operation:cloture-recit",
+        "travel:destination"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "catalogue-reference",
+      "study": "到了",
+      "native": "on est arrivé",
+      "phon": "dao leu",
+      "reading": "dào le",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2837,
+        "sourceLevel": 1,
+        "sourceSha256": "df2e8d6aab800ada372d07c31d4994238a0a688d550da25b9f85334ea73c2d9f"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La réplique entière on est arrivé confirme l’aboutissement du trajet. L’arrivée conventionnelle ne requiert pas de reconstruire le mot destination.",
+      "duplicateAudit": {
+        "searchRecordId": "transport-imprevus-08",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:etudes-apprentissage-01",
+      "pair": "fr-zh",
+      "topicId": "etudes-apprentissage",
+      "intentId": "etudes-apprentissage-01",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Apprenant",
+      "dependencyConcepts": [
+        "operation:evenement-termine",
+        "time:semaine-derniere"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [
+          {
+            "id": "debut-cours",
+            "scope": "repère temporel entier",
+            "maxChangedElements": 1,
+            "examplesFrIndicativeOnly": [
+              "la semaine dernière",
+              "lundi dernier"
+            ],
+            "wholeTargetVariantRequired": true,
+            "grammaticalInvarianceNotAssumed": true
+          }
+        ],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我上周开始上这门课。",
+      "native": "J’ai commencé ce cours la semaine dernière.",
+      "phon": "ouo chang-djeou kaï-cheu chang djeu meunn keu.",
+      "reading": "wǒ shàngzhōu kāishǐ shàng zhè mén kè.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Situer le début d’un cours. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "etudes-apprentissage-01",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:etudes-apprentissage-02",
+      "pair": "fr-zh",
+      "topicId": "etudes-apprentissage",
+      "intentId": "etudes-apprentissage-02",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Apprenant",
+      "dependencyConcepts": [
+        "operation:duree-passee",
+        "time:hier"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我昨天复习了一个小时。",
+      "native": "J’ai révisé pendant une heure hier.",
+      "phon": "ouo dzouo-tyèn fou-chi le i gueu chyao-cheu.",
+      "reading": "wǒ zuótiān fùxí le yí ge xiǎoshí.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Raconter une séance de révision avec sa durée. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "etudes-apprentissage-02",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:etudes-apprentissage-03",
+      "pair": "fr-zh",
+      "topicId": "etudes-apprentissage",
+      "intentId": "etudes-apprentissage-03",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Apprenant",
+      "dependencyConcepts": [
+        "operation:resultat-passe",
+        "ordinal:premier"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [
+          {
+            "id": "exercice",
+            "scope": "groupe nominal ordinal entier",
+            "maxChangedElements": 1,
+            "examplesFrIndicativeOnly": [
+              "le premier exercice",
+              "le deuxième exercice"
+            ],
+            "wholeTargetVariantRequired": true,
+            "grammaticalInvarianceNotAssumed": true
+          }
+        ],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "第一个练习我懂了。",
+      "native": "J’ai compris le premier exercice.",
+      "phon": "di i gueu lyèn-chi ouo dong le.",
+      "reading": "dì yī ge liànxí wǒ dǒng le.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Dire quel exercice a été compris. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "etudes-apprentissage-03",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:etudes-apprentissage-04",
+      "pair": "fr-zh",
+      "topicId": "etudes-apprentissage",
+      "intentId": "etudes-apprentissage-04",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Apprenant",
+      "dependencyConcepts": [
+        "operation:negation-passee",
+        "study:consigne"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我没弄懂最后一条要求。",
+      "native": "Je n’ai pas compris la dernière consigne.",
+      "phon": "ouo meï nong-dong dzoueï-heou i tyao yao-tchyeou.",
+      "reading": "wǒ méi nòngdǒng zuìhòu yì tiáo yāoqiú.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Identifier une consigne qui n’a pas été comprise. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "etudes-apprentissage-04",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:etudes-apprentissage-05",
+      "pair": "fr-zh",
+      "topicId": "etudes-apprentissage",
+      "intentId": "etudes-apprentissage-05",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Apprenant",
+      "dependencyConcepts": [
+        "operation:recit-autre-personne",
+        "study:exemple"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "老师又举了一个例子。",
+      "native": "Le professeur a donné un autre exemple.",
+      "phon": "lao-cheu yeou dju le i gueu li-dzeu.",
+      "reading": "lǎoshī yòu jǔ le yí ge lìzi.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Rapporter l’exemple supplémentaire donné par un enseignant. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "etudes-apprentissage-05",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:etudes-apprentissage-06",
+      "pair": "fr-zh",
+      "topicId": "etudes-apprentissage",
+      "intentId": "etudes-apprentissage-06",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Apprenant",
+      "dependencyConcepts": [
+        "operation:repetition-action-passee",
+        "ordinal:deuxieme"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我又试了一次。",
+      "native": "J’ai essayé encore une fois.",
+      "phon": "ouo yeou chr le i tseu.",
+      "reading": "wǒ yòu shì le yí cì.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Raconter un nouvel essai. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "etudes-apprentissage-06",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:etudes-apprentissage-07",
+      "pair": "fr-zh",
+      "topicId": "etudes-apprentissage",
+      "intentId": "etudes-apprentissage-07",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Apprenant",
+      "dependencyConcepts": [
+        "operation:resultat-passe",
+        "study:erreur"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我改正了自己的错误。",
+      "native": "J’ai corrigé mon erreur.",
+      "phon": "ouo gaï-djeung le dzeu-dji deu tsouo-ou.",
+      "reading": "wǒ gǎizhèng le zìjǐ de cuòwù.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Dire qu’une erreur a été corrigée. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "etudes-apprentissage-07",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:etudes-apprentissage-08",
+      "pair": "fr-zh",
+      "topicId": "etudes-apprentissage",
+      "intentId": "etudes-apprentissage-08",
+      "proposedLevel": 4,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Apprenant",
+      "dependencyConcepts": [
+        "operation:capacite",
+        "study:reponse"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "现在我能解释我的答案了。",
+      "native": "Je peux maintenant expliquer ma réponse.",
+      "phon": "chyèn-dzaï ouo neung djyé-cheu ouo deu da-ann le.",
+      "reading": "xiànzài wǒ néng jiěshì wǒ de dá'àn le.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Montrer l’aboutissement de cet apprentissage. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "etudes-apprentissage-08",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:argent-paiements-01",
+      "pair": "fr-zh",
+      "topicId": "argent-paiements",
+      "intentId": "argent-paiements-01",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:signaler-probleme",
+        "payment:carte"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "conversation-whole-entry",
+      "study": "有个问题：卡不能用。怎么办？",
+      "native": "Il y a un problème : ma carte ne fonctionne pas. Qu'est-ce qu'on fait ?",
+      "phon": "yeou keu ouenn-ti : ka pou neng yong. tseun-meu pan ?",
+      "reading": "yǒu ge wèntí: kǎ bù néng yòng. zěnme bàn?",
+      "source": {
+        "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L9-fr-zh.json",
+        "jsonPointer": "/units/6/variants/3",
+        "fileSha256": "a35202569ca3728b0961962f8b5aa37e35905018f9901c7e36c7bc8ed620431e",
+        "entrySha256": "ab77ad8649aef2d7cf9fdf22b99cf2a4669dd56405af03b7e4800ee27febf23c",
+        "sourceLevel": 9,
+        "originalRole": "variante entière d’apprenant",
+        "originalUnitId": "L9-fr-zh-07",
+        "originalSituation": "Exposer un problème"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La source entière signale que la carte ne fonctionne pas et demande quoi faire. La panne de paiement est conservée sans attribuer artificiellement sa cause au terminal.",
+      "introductionDecision": {
+        "action": "introduce-earlier",
+        "fromEditorialLevel": 9,
+        "proposedLevel": 5,
+        "reason": "Première rencontre entière à ce niveau pour cette fonction concrète : La source entière signale que la carte ne fonctionne pas et demande quoi faire. La panne de paiement est conservée sans attribuer artificiellement sa cause au terminal. Le niveau source et les droits restent inchangés.",
+        "reviewStatus": "reviewed",
+        "fromLevelProvenance": "niveau déclaré du brouillon conversation archivé ; pas affirmation d’une rencontre publiée antérieure"
+      },
+      "duplicateAudit": {
+        "searchRecordId": "argent-paiements-01",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:argent-paiements-02",
+      "pair": "fr-zh",
+      "topicId": "argent-paiements",
+      "intentId": "argent-paiements-02",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:decrire-anomalie",
+        "quantity:deux"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "同一笔消费出现了两笔付款记录。",
+      "native": "Deux paiements apparaissent pour le même achat.",
+      "phon": "tong i bi chyao-feï tchou-chyèn le lyang bi fou-kouann dji-lou.",
+      "reading": "tóng yì bǐ xiāofèi chūxiàn le liǎng bǐ fùkuǎn jìlù.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Signaler deux paiements visibles pour un même achat. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "argent-paiements-02",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:argent-paiements-03",
+      "pair": "fr-zh",
+      "topicId": "argent-paiements",
+      "intentId": "argent-paiements-03",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:signaler-erreur",
+        "payment:montant"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "catalogue-reference",
+      "study": "账单好像不对。",
+      "native": "L'addition ne semble pas juste.",
+      "phon": "djang dann hao chyang bou doueï.",
+      "reading": "zhàng dān hǎo xiàng bú duì.",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 4888,
+        "sourceLevel": 4,
+        "sourceSha256": "3050493973fcc8aeba597702e5884f5c8202c2ea058b66223dc424010568e731"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La source signale une addition qui semble incorrecte. Elle sert à contester le montant dans un paiement concret, avec sa réserve semble intacte.",
+      "duplicateAudit": {
+        "searchRecordId": "argent-paiements-03",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:argent-paiements-04",
+      "pair": "fr-zh",
+      "topicId": "argent-paiements",
+      "intentId": "argent-paiements-04",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:negation-passee",
+        "payment:ticket"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我没收到小票。",
+      "native": "Je n’ai pas reçu de ticket.",
+      "phon": "ouo meï cheou-dao chyao-pyao.",
+      "reading": "wǒ méi shōudào xiǎopiào.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Signaler l’absence de ticket. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "argent-paiements-04",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:argent-paiements-05",
+      "pair": "fr-zh",
+      "topicId": "argent-paiements",
+      "intentId": "argent-paiements-05",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:demande-verification",
+        "payment:paiement"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "您能查一下最后一笔付款吗？",
+      "native": "Pouvez-vous vérifier le dernier paiement ?",
+      "phon": "nin neung tcha i-chya dzoueï-heou i bi fou-kouann ma ?",
+      "reading": "nín néng chá yíxià zuìhòu yì bǐ fùkuǎn ma?",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Demander la vérification du dernier paiement. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "argent-paiements-05",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:argent-paiements-06",
+      "pair": "fr-zh",
+      "topicId": "argent-paiements",
+      "intentId": "argent-paiements-06",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:proposer-solution",
+        "payment:especes"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "剩下的我可以用现金付。",
+      "native": "Je peux payer le reste en espèces.",
+      "phon": "cheung-chya deu ouo keu-i yong chyèn-djinn fou.",
+      "reading": "shèngxià de wǒ kěyǐ yòng xiànjīn fù.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Proposer un autre moyen pour le reste du paiement. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "argent-paiements-06",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:argent-paiements-07",
+      "pair": "fr-zh",
+      "topicId": "argent-paiements",
+      "intentId": "argent-paiements-07",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:demande-solution",
+        "payment:remboursement"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我想申请退还多付的那笔款。",
+      "native": "Je souhaite le remboursement du paiement en trop.",
+      "phon": "ouo chyang cheunn-tching toueï-houann douo fou deu na bi kouann.",
+      "reading": "wǒ xiǎng shēnqǐng tuìhuán duō fù de nà bǐ kuǎn.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Demander le remboursement du paiement en trop. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "argent-paiements-07",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:argent-paiements-08",
+      "pair": "fr-zh",
+      "topicId": "argent-paiements",
+      "intentId": "argent-paiements-08",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:confirmer-resolution",
+        "payment:compte-bancaire"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "退款已经显示在我的账户上了。",
+      "native": "Le remboursement apparaît sur mon compte.",
+      "phon": "toueï-kouann i-djing chyèn-cheu dzaï ouo deu djang-hou chang le.",
+      "reading": "tuìkuǎn yǐjīng xiǎnshì zài wǒ de zhànghù shàng le.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Confirmer que le remboursement apparaît. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "argent-paiements-08",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:service-client-01",
+      "pair": "fr-zh",
+      "topicId": "service-client",
+      "intentId": "service-client-01",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:signaler-erreur",
+        "purchase:commande"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.babbel.com/the-babbel-method",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我收到的零件跟订单不符。",
+      "native": "La pièce reçue ne correspond pas à ma commande.",
+      "phon": "ouo cheou-dao deu ling-djyèn gueunn ding-dann bou fou.",
+      "reading": "wǒ shōudào de língjiàn gēn dìngdān bù fú.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Signaler que l’objet reçu ne correspond pas à la commande. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "service-client-01",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:service-client-02",
+      "pair": "fr-zh",
+      "topicId": "service-client",
+      "intentId": "service-client-02",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:decrire-probleme-passe",
+        "property:abime"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.babbel.com/the-babbel-method",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "包裹到的时候已经破损了。",
+      "native": "Le colis est arrivé abîmé.",
+      "phon": "bao-gouo dao deu cheu-heou i-djing po-souenn le.",
+      "reading": "bāoguǒ dào de shíhou yǐjīng pòsǔn le.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Décrire l’état du colis à son arrivée. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "service-client-02",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:service-client-03",
+      "pair": "fr-zh",
+      "topicId": "service-client",
+      "intentId": "service-client-03",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:signaler-manque",
+        "object:piece"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.babbel.com/the-babbel-method",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "盒子里少了一个零件。",
+      "native": "Il manque une pièce dans la boîte.",
+      "phon": "heu-dzeu li chao le i gueu ling-djyèn.",
+      "reading": "hézi lǐ shǎo le yí ge língjiàn.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Indiquer un élément manquant dans la boîte. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "service-client-03",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:service-client-04",
+      "pair": "fr-zh",
+      "topicId": "service-client",
+      "intentId": "service-client-04",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:offre-action",
+        "digital:photo"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [
+          {
+            "id": "preuve",
+            "scope": "groupe nominal entier",
+            "maxChangedElements": 1,
+            "examplesFrIndicativeOnly": [
+              "une photo",
+              "une courte vidéo"
+            ],
+            "wholeTargetVariantRequired": true,
+            "grammaticalInvarianceNotAssumed": true
+          }
+        ],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.babbel.com/the-babbel-method",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我可以把问题拍下来发给您。",
+      "native": "Je peux photographier le problème et vous envoyer la photo.",
+      "phon": "ouo keu-i ba oueunn-ti paï chya-laï fa gueï nin.",
+      "reading": "wǒ kěyǐ bǎ wèntí pāi xiàlai fā gěi nín.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Proposer une preuve simple du problème. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "service-client-04",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:service-client-05",
+      "pair": "fr-zh",
+      "topicId": "service-client",
+      "intentId": "service-client-05",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:choisir-solution",
+        "service:remplacement"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [
+          {
+            "id": "solution",
+            "scope": "groupe nominal entier",
+            "maxChangedElements": 1,
+            "examplesFrIndicativeOnly": [
+              "un remplacement",
+              "un remboursement"
+            ],
+            "wholeTargetVariantRequired": true,
+            "grammaticalInvarianceNotAssumed": true
+          }
+        ],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.babbel.com/the-babbel-method",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我更希望换货。",
+      "native": "Je préfère un échange.",
+      "phon": "ouo gueung chi-ouang houann-houo.",
+      "reading": "wǒ gèng xīwàng huànhuò.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Exprimer sa préférence de solution. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "service-client-05",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:service-client-06",
+      "pair": "fr-zh",
+      "topicId": "service-client",
+      "intentId": "service-client-06",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:demande-precision",
+        "time:date"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.babbel.com/the-babbel-method",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "新的商品哪天能送到？",
+      "native": "Quel jour le nouvel article peut-il être livré ?",
+      "phon": "chinn deu chang-pinn na tyèn neung song-dao ?",
+      "reading": "xīn de shāngpǐn nǎ tiān néng sòngdào?",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Demander une date pour la nouvelle livraison. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "service-client-06",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:service-client-07",
+      "pair": "fr-zh",
+      "topicId": "service-client",
+      "intentId": "service-client-07",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:suivi-action-passee",
+        "time:hier"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.babbel.com/the-babbel-method",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我昨天把商品寄回去了。",
+      "native": "J’ai renvoyé l’article hier.",
+      "phon": "ouo dzouo-tyèn ba chang-pinn dji houeï-tchu le.",
+      "reading": "wǒ zuótiān bǎ shāngpǐn jì huíqu le.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Confirmer qu’un renvoi a été effectué. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "service-client-07",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:service-client-08",
+      "pair": "fr-zh",
+      "topicId": "service-client",
+      "intentId": "service-client-08",
+      "proposedLevel": 5,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Client",
+      "dependencyConcepts": [
+        "operation:confirmer-resolution",
+        "property:fonctionnement-correct"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+        "https://www.babbel.com/the-babbel-method",
+        "https://www.pimsleur.com/the-pimsleur-method/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "新换的商品能正常使用。",
+      "native": "Le nouvel article fonctionne correctement.",
+      "phon": "chinn houann deu chang-pinn neung djeung-tchang cheu-yong.",
+      "reading": "xīn huàn de shāngpǐn néng zhèngcháng shǐyòng.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Confirmer le bon fonctionnement après remplacement. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "service-client-08",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:invitations-limites-01",
+      "pair": "fr-zh",
+      "topicId": "invitations-limites",
+      "intentId": "invitations-limites-01",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne invitée",
+      "dependencyConcepts": [
+        "operation:accord-et-reserve",
+        "social:engagement"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/",
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "conversation-whole-entry",
+      "study": "明天我不行，我要出差。",
+      "native": "Demain je ne peux pas, je pars en déplacement.",
+      "phon": "ming-tièn ouo pou sing, ouo yao tchou-tchaï",
+      "reading": "míngtiān wǒ bù xíng, wǒ yào chūchāi.",
+      "source": {
+        "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L6-fr-zh.json",
+        "jsonPointer": "/dialogues/1/turns/1",
+        "fileSha256": "2ff7f027d64800304da224fffb83a413268677373064d8c36029abe7c4730808",
+        "entrySha256": "984c22798ffac29eefd3a166f75ad0f99b581e0231d7447fad3d5150dc697937",
+        "sourceLevel": 6,
+        "originalSpeaker": "B",
+        "originalRole": "Un collègue",
+        "originalLearnerRole": "A",
+        "originalSituation": "Caler une réunion"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "Le tour entier décline le lendemain avec un déplacement comme raison. La contrainte est réelle dans la source ; aucun remerciement n’est collé au début.",
+      "duplicateAudit": {
+        "searchRecordId": "invitations-limites-01",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:invitations-limites-02",
+      "pair": "fr-zh",
+      "topicId": "invitations-limites",
+      "intentId": "invitations-limites-02",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne invitée",
+      "dependencyConcepts": [
+        "operation:preference-expliquee",
+        "property:calme"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/",
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我更喜欢在安静的地方见面。",
+      "native": "Je préfère qu’on se retrouve dans un endroit calme.",
+      "phon": "ouo gueung chi-houann dzaï ann-djing deu di-fang djyèn-myèn.",
+      "reading": "wǒ gèng xǐhuan zài ānjìng de dìfang jiànmiàn.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Exprimer le type de lieu préféré pour se voir. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "invitations-limites-02",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:invitations-limites-03",
+      "pair": "fr-zh",
+      "topicId": "invitations-limites",
+      "intentId": "invitations-limites-03",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne invitée",
+      "dependencyConcepts": [
+        "operation:contraste-simple",
+        "time:samedi-dimanche"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [
+          {
+            "id": "jour-disponible",
+            "scope": "jour entier",
+            "maxChangedElements": 1,
+            "examplesFrIndicativeOnly": [
+              "samedi",
+              "mardi"
+            ],
+            "wholeTargetVariantRequired": true,
+            "grammaticalInvarianceNotAssumed": true
+          }
+        ],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/",
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "conversation-whole-entry",
+      "study": "星期六不行，星期天可以。怎么了？",
+      "native": "Samedi non, dimanche oui. Pourquoi ?",
+      "phon": "sing-tchi-liou pou sing, sing-tchi-tièn keu-i. tseun-meu leu ?",
+      "reading": "xīngqīliù bù xíng, xīngqītiān kěyǐ. zěnme le?",
+      "source": {
+        "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L6-fr-zh.json",
+        "jsonPointer": "/dialogues/0/turns/1",
+        "fileSha256": "2ff7f027d64800304da224fffb83a413268677373064d8c36029abe7c4730808",
+        "entrySha256": "ba0437ee5c3073f1e2bd3db5d176fea1107069199fdbf0a8dcda2979eb4de9bb",
+        "sourceLevel": 6,
+        "originalSpeaker": "B",
+        "originalRole": "Un ami",
+        "originalLearnerRole": "A",
+        "originalSituation": "Organiser une sortie"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "Le tour entier oppose samedi et dimanche puis demande pourquoi. Les jours inversés de la référence et la relance finale sont conservés, pas coupés.",
+      "duplicateAudit": {
+        "searchRecordId": "invitations-limites-03",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:invitations-limites-04",
+      "pair": "fr-zh",
+      "topicId": "invitations-limites",
+      "intentId": "invitations-limites-04",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne invitée",
+      "dependencyConcepts": [
+        "operation:raison-explicite",
+        "time:demain"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/",
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "catalogue-reference",
+      "study": "我回家，因为太晚了。",
+      "native": "Je rentre parce qu'il est tard.",
+      "phon": "wo houé djia, yin-oué taï ouane le",
+      "reading": "wǒ huí jiā, yīn wèi tài wǎn le.",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1870,
+        "sourceLevel": 8,
+        "sourceSha256": "d6ed31ec5c1969a8846acf64d01980fb59d80b8f6bbb0e53804a5451b04de15e"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La source donne le départ à la maison avec une raison concrète, l’heure tardive. Le travail du lendemain n’est pas substitué à cette raison.",
+      "duplicateAudit": {
+        "searchRecordId": "invitations-limites-04",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:invitations-limites-05",
+      "pair": "fr-zh",
+      "topicId": "invitations-limites",
+      "intentId": "invitations-limites-05",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne invitée",
+      "dependencyConcepts": [
+        "operation:comparaison",
+        "property:petit-groupe"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/",
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "人少的时候，我会更自在。",
+      "native": "Je suis plus à l’aise quand il y a peu de monde.",
+      "phon": "jeunn chao deu cheu-heou, ouo houeï gueung dzeu-dzaï.",
+      "reading": "rén shǎo de shíhou, wǒ huì gèng zìzai.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Comparer son aisance selon la taille du groupe. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "invitations-limites-05",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:invitations-limites-06",
+      "pair": "fr-zh",
+      "topicId": "invitations-limites",
+      "intentId": "invitations-limites-06",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne invitée",
+      "dependencyConcepts": [
+        "operation:comparaison-option",
+        "time:heure"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/",
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "catalogue-reference",
+      "study": "这样最好",
+      "native": "c'est mieux ainsi",
+      "phon": "djeu ang dzouèï hao",
+      "reading": "zhè yàng zuì hǎo",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 143,
+        "sourceLevel": 2,
+        "sourceSha256": "d344b748735d749bbfe4de4bc960971fe4687bbec2bb60ed4d4b43c0d79a1870"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "La réplique entière évalue la proposition comme meilleure. Le contexte peut être un horaire proposé ; aucun mot heure n’est ajouté.",
+      "duplicateAudit": {
+        "searchRecordId": "invitations-limites-06",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:invitations-limites-07",
+      "pair": "fr-zh",
+      "topicId": "invitations-limites",
+      "intentId": "invitations-limites-07",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne invitée",
+      "dependencyConcepts": [
+        "operation:accord-et-limite",
+        "duration:longtemps"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/",
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我很想来，但不能待太久。",
+      "native": "J’ai très envie de venir, mais je ne peux pas rester longtemps.",
+      "phon": "ouo heunn chyang laï, dann bou neung daï taï djyeou.",
+      "reading": "wǒ hěn xiǎng lái, dàn bù néng dāi tài jiǔ.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Accepter de venir en précisant une limite. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "invitations-limites-07",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:invitations-limites-08",
+      "pair": "fr-zh",
+      "topicId": "invitations-limites",
+      "intentId": "invitations-limites-08",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne invitée",
+      "dependencyConcepts": [
+        "operation:evaluation-solution",
+        "social:contraintes"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.memrise.com/fr/",
+        "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+        "https://www.babbel.com/learn-french"
+      ],
+      "kind": "catalogue-reference",
+      "study": "这样双方都合适",
+      "native": "comme ça ça arrange les deux",
+      "phon": "djeu ang chouang fang dou heu chr",
+      "reading": "zhè yàng shuāng fāng dōu hé shì",
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 4194,
+        "sourceLevel": 7,
+        "sourceSha256": "e1905f6eac623d39db7772cc77ed7d44f62f7cb14ada752a89f652aa74816f21"
+      },
+      "phoneticReviewStatus": "existing-verbatim",
+      "reason": "Comme ça ça arrange les deux évalue un compromis pour les deux interlocuteurs. Les deux parties de la source ne sont pas renommées chacun par une retouche.",
+      "introductionDecision": {
+        "action": "introduce-earlier",
+        "fromEditorialLevel": 7,
+        "proposedLevel": 6,
+        "reason": "Première rencontre entière à ce niveau pour cette fonction concrète : Comme ça ça arrange les deux évalue un compromis pour les deux interlocuteurs. Les deux parties de la source ne sont pas renommées chacun par une retouche. Le niveau source et les droits restent inchangés.",
+        "reviewStatus": "reviewed"
+      },
+      "duplicateAudit": {
+        "searchRecordId": "invitations-limites-08",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 1,
+        "genuinelyNewWholeForm": false,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "existing-whole-source-retained",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:nature-gestes-01",
+      "pair": "fr-zh",
+      "topicId": "nature-gestes",
+      "intentId": "nature-gestes-01",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne qui organise la sortie",
+      "dependencyConcepts": [
+        "operation:preference-avec-critere",
+        "nature:sentier"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [
+          {
+            "id": "propriete-sentier",
+            "scope": "propriété entière",
+            "maxChangedElements": 1,
+            "examplesFrIndicativeOnly": [
+              "court",
+              "facile"
+            ],
+            "wholeTargetVariantRequired": true,
+            "grammaticalInvarianceNotAssumed": true
+          }
+        ],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.memrise.com/fr/",
+        "https://blog.duolingo.com/duolingo-teaching-method/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "这次散步我想走一条短一点的小路。",
+      "native": "Pour cette promenade, je préfère un sentier plus court.",
+      "phon": "djeu tseu sann-bou ouo chyang dzeou i tyao douann i-dyèn deu chyao-lou.",
+      "reading": "zhè cì sànbù wǒ xiǎng zǒu yì tiáo duǎn yìdiǎn de xiǎolù.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Exprimer une préférence de trajet adaptée à la sortie. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "nature-gestes-01",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:nature-gestes-02",
+      "pair": "fr-zh",
+      "topicId": "nature-gestes",
+      "intentId": "nature-gestes-02",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne qui organise la sortie",
+      "dependencyConcepts": [
+        "operation:comparaison-deux-options",
+        "travel:a-pied-en-voiture"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.memrise.com/fr/",
+        "https://blog.duolingo.com/duolingo-teaching-method/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "走路去比开车去更舒服。",
+      "native": "Y aller à pied est plus agréable qu’y aller en voiture.",
+      "phon": "dzeou-lou tchu bi kaï-tcheu tchu gueung chou-fou.",
+      "reading": "zǒulù qù bǐ kāichē qù gèng shūfu.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Comparer le trajet à pied et la route en voiture. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "nature-gestes-02",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:nature-gestes-03",
+      "pair": "fr-zh",
+      "topicId": "nature-gestes",
+      "intentId": "nature-gestes-03",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne qui organise la sortie",
+      "dependencyConcepts": [
+        "operation:but-explicite",
+        "object:gourde"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.memrise.com/fr/",
+        "https://blog.duolingo.com/duolingo-teaching-method/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "为了不用一次性瓶子，我们带上自己的水壶。",
+      "native": "Nous emportons nos gourdes pour éviter les bouteilles jetables.",
+      "phon": "oueï-le bou yong i-tseu-ching ping-dzeu, ouo-meunn daï chang dzeu-dji deu chouèï-hou.",
+      "reading": "wèile bú yòng yícìxìng píngzi, wǒmen dài shàng zìjǐ de shuǐhú.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Expliquer le choix de gourdes plutôt que de bouteilles jetables. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "nature-gestes-03",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:nature-gestes-04",
+      "pair": "fr-zh",
+      "topicId": "nature-gestes",
+      "intentId": "nature-gestes-04",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne qui organise la sortie",
+      "dependencyConcepts": [
+        "operation:solution-concrete",
+        "nature:dechets"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.memrise.com/fr/",
+        "https://blog.duolingo.com/duolingo-teaching-method/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我把垃圾留在包里，一直带到出口。",
+      "native": "Je garde mes déchets dans mon sac jusqu’à la sortie.",
+      "phon": "ouo ba la-dji lyeou dzaï bao-li, i-djeu daï dao tchou-keou.",
+      "reading": "wǒ bǎ lājī liú zài bāoli, yìzhí dài dào chūkǒu.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Préciser une manière de garder ses déchets jusqu’à la sortie. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "nature-gestes-04",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:nature-gestes-05",
+      "pair": "fr-zh",
+      "topicId": "nature-gestes",
+      "intentId": "nature-gestes-05",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne qui organise la sortie",
+      "dependencyConcepts": [
+        "operation:comparaison",
+        "place:pres-entree"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.memrise.com/fr/",
+        "https://blog.duolingo.com/duolingo-teaching-method/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "在入口附近更容易找到垃圾桶。",
+      "native": "Les poubelles sont plus faciles à trouver près de l’entrée.",
+      "phon": "dzaï jou-keou fou-djinn gueung jong-i djao-dao la-dji-tong.",
+      "reading": "zài rùkǒu fùjìn gèng róngyì zhǎodào lājītǒng.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Comparer la facilité de trouver une poubelle selon le lieu. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "nature-gestes-05",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:nature-gestes-06",
+      "pair": "fr-zh",
+      "topicId": "nature-gestes",
+      "intentId": "nature-gestes-06",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne qui organise la sortie",
+      "dependencyConcepts": [
+        "operation:raison-explicite",
+        "property:recyclable"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.memrise.com/fr/",
+        "https://blog.duolingo.com/duolingo-teaching-method/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "我把这些包装分类投放，因为它们可以回收。",
+      "native": "Je trie ces emballages parce qu’ils sont recyclables.",
+      "phon": "ouo ba djeu-chyé bao-djouang feunn-leï teou-fang, inn-oueï ta-meunn keu-i houeï-cheou.",
+      "reading": "wǒ bǎ zhèxiē bāozhuāng fēnlèi tóufàng, yīnwèi tāmen kěyǐ huíshōu.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Expliquer un geste de tri par une propriété des emballages. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "nature-gestes-06",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:nature-gestes-07",
+      "pair": "fr-zh",
+      "topicId": "nature-gestes",
+      "intentId": "nature-gestes-07",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne qui organise la sortie",
+      "dependencyConcepts": [
+        "operation:but-explicite",
+        "nature:plantes"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.memrise.com/fr/",
+        "https://blog.duolingo.com/duolingo-teaching-method/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "为了保护植物，我选择有标记的步道。",
+      "native": "Je choisis le chemin balisé pour protéger les plantes.",
+      "phon": "oueï-le bao-hou djeu-ou, ouo chüèn-dzeu yo biao-dji deu bou-dao.",
+      "reading": "wèile bǎohù zhíwù, wǒ xuǎnzé yǒu biāojì de bùdào.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Expliquer le choix du chemin balisé pour protéger les plantes. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "nature-gestes-07",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    },
+    {
+      "id": "fr-zh:nature-gestes-08",
+      "pair": "fr-zh",
+      "topicId": "nature-gestes",
+      "intentId": "nature-gestes-08",
+      "proposedLevel": 6,
+      "contentType": "utterance",
+      "editorialReviewStatus": "reviewed",
+      "contextRole": "Personne qui organise la sortie",
+      "dependencyConcepts": [
+        "operation:evaluation-avec-limite",
+        "nature:dechets"
+      ],
+      "dependencyStatus": "planned-content-needs-not-proof-of-acquisition",
+      "oneParameter": {
+        "descriptiveOnly": true,
+        "parameters": [],
+        "generatesVariants": false
+      },
+      "inspirationSourceURLs": [
+        "https://www.babbel.com/learn-spanish",
+        "https://www.memrise.com/fr/",
+        "https://blog.duolingo.com/duolingo-teaching-method/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "kind": "editorial-authored-whole-entry",
+      "study": "这个选择能减少垃圾，又不会让出游更麻烦。",
+      "native": "Ce choix permet de réduire les déchets sans compliquer la sortie.",
+      "phon": "djeu-gueu chüèn-dzeu neung djyèn-chao la-dji, yeou bou houeï jang tchou-yeou gueung ma-fann.",
+      "reading": "zhège xuǎnzé néng jiǎnshǎo lājī, yòu bú huì ràng chūyóu gèng máfan.",
+      "source": {
+        "kind": "editorial-authored-whole-utterance"
+      },
+      "phoneticReviewStatus": "pending-Claude",
+      "reason": "Phrase entière rédigée pour la fonction « Évaluer l’utilité pratique du choix retenu. » à ce niveau, après examen des sources voisines et sans assemblage d’aides existantes. Les opérations déjà connues ne sont pas présentées comme nouvelles par ce seul contexte.",
+      "duplicateAudit": {
+        "searchRecordId": "nature-gestes-08",
+        "searchedWholeRecords": 5607,
+        "exactFormMatching": "Unicode casefold ; retrait de ponctuation/espaces uniquement, jamais de mots ni de morphèmes.",
+        "existingExactNormalizedFormCount": 0,
+        "genuinelyNewWholeForm": true,
+        "newCommunicativeFunctionClaim": false,
+        "functionalNoveltyNote": "La nouveauté de forme ne prouve pas une nouvelle fonction ou une nouvelle opération. Les usages de rôles, contraintes et contextes sont tracés dans la recherche.",
+        "decision": "new-whole-form-after-source-search",
+        "sourcesRewritten": false,
+        "sourcePhoneticsAssembled": false
+      }
+    }
+  ]
+}

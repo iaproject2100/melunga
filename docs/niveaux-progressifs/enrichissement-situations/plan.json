@@ -1,0 +1,3020 @@
+{
+  "version": 1,
+  "status": "frozen-shared-semantic-plan-for-seven-pair-source-search",
+  "date": "2026-10-24",
+  "author": "Codex",
+  "productionOrBundleChanges": 0,
+  "publicationApproved": false,
+  "scope": {
+    "newSituationTopics": 10,
+    "semanticIntents": 80,
+    "languagePairsToAudit": [
+      "fr-en",
+      "fr-es",
+      "fr-it",
+      "fr-zh",
+      "fr-ja",
+      "fr-ko",
+      "zh-fr"
+    ],
+    "possiblePairIntentPositions": 560,
+    "actualNewWrittenStudyPhrases": "not-known-until-source-audit",
+    "noAutomatic560NewPhraseClaim": true,
+    "newPhoneticsInThisPlan": 0
+  },
+  "levelTitles": {
+    "2": "Besoins et intentions",
+    "3": "Routines et projets",
+    "4": "Raconter simplement",
+    "5": "S’organiser et se débrouiller",
+    "6": "Expliquer et comparer"
+  },
+  "sourceRegistry": [
+    {
+      "id": "babbel-method",
+      "url": "https://www.babbel.com/the-babbel-method",
+      "title": "The Babbel Method: Our Approach to Language Learning",
+      "researchFile": "docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+      "researchFileSha256": "2b8df27a4c36d4c6c89d4b2f080a7797b2b062187ffcc86773028b1fbcbe9503",
+      "htmlSha256": "58ffd870f7f3982fb51ae029e438fe969217ca61aac3eebb8b0ac926fc774897",
+      "consultedAt": "2026-10-24T12:50:49.728160+00:00"
+    },
+    {
+      "id": "babbel-spanish",
+      "url": "https://www.babbel.com/learn-spanish",
+      "title": "The Best Way to Learn Spanish Online Fast with Babbel Courses",
+      "researchFile": "docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+      "researchFileSha256": "2b8df27a4c36d4c6c89d4b2f080a7797b2b062187ffcc86773028b1fbcbe9503",
+      "htmlSha256": "01bd33e5488aca305f3de4b0f59edb48f74fd3c327ee536bddfa134cb4aa0c47",
+      "consultedAt": "2026-10-24T12:50:49.948954+00:00"
+    },
+    {
+      "id": "babbel-french",
+      "url": "https://www.babbel.com/learn-french",
+      "title": "Learn French Online — Become Conversational Fast | Babbel",
+      "researchFile": "docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+      "researchFileSha256": "2b8df27a4c36d4c6c89d4b2f080a7797b2b062187ffcc86773028b1fbcbe9503",
+      "htmlSha256": "5898f965bae53d9705b6c7407929fca15dac25111805bcb42ae8659ce10c5513",
+      "consultedAt": "2026-10-24T12:50:49.848893+00:00"
+    },
+    {
+      "id": "pimsleur-method",
+      "url": "https://www.pimsleur.com/the-pimsleur-method/",
+      "title": "Our Language Learning Method | Pimsleur®",
+      "researchFile": "docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+      "researchFileSha256": "2b8df27a4c36d4c6c89d4b2f080a7797b2b062187ffcc86773028b1fbcbe9503",
+      "htmlSha256": "6e1a4029dbce243cecd2732ff8306c63ccc007250202e1f4816599f7dc5c122f",
+      "consultedAt": "2026-10-24T12:50:49.771465+00:00"
+    },
+    {
+      "id": "duo-method",
+      "url": "https://blog.duolingo.com/duolingo-teaching-method/",
+      "title": "The Duolingo Method: 5 key principles that make learning fun and effective",
+      "researchFile": "docs/niveaux-progressifs/recherche-concurrents/duolingo.json",
+      "researchFileSha256": "110f57d76850fa05a01fa9675e05eea03e8fda629e65de713f91084d99cf7728",
+      "htmlSha256": "0e273c997410de4f989b16df6ec9ae960e796e6b3667745659bdbaa83c29aead",
+      "consultedAt": "2026-10-24T12:54:48+00:00"
+    },
+    {
+      "id": "duo-cefr",
+      "url": "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/",
+      "title": "Which CEFR level is right for you?",
+      "researchFile": "docs/niveaux-progressifs/recherche-concurrents/duolingo.json",
+      "researchFileSha256": "110f57d76850fa05a01fa9675e05eea03e8fda629e65de713f91084d99cf7728",
+      "htmlSha256": "88df800f5c3fbbf54109623fc0a5d6409e88e7ea666fa94fbd367e83025a474c",
+      "consultedAt": "2026-10-24T12:54:48+00:00"
+    },
+    {
+      "id": "duo-chinese",
+      "url": "https://blog.duolingo.com/improving-how-duolingo-teaches-chinese-and-other-languages/",
+      "title": "Improving how Duolingo teaches Chinese—and other languages!",
+      "researchFile": "docs/niveaux-progressifs/recherche-concurrents/duolingo.json",
+      "researchFileSha256": "110f57d76850fa05a01fa9675e05eea03e8fda629e65de713f91084d99cf7728",
+      "htmlSha256": "1ee83bc788eb24d87af4605bda9cacf78f46b1446728b09cb6c7fc0be924fe8b",
+      "consultedAt": "2026-10-24T12:54:48+00:00"
+    },
+    {
+      "id": "duo-travel",
+      "url": "https://blog.duolingo.com/french-phrases-for-travel/",
+      "title": "30+ common French phrases for your trip to France",
+      "researchFile": "docs/niveaux-progressifs/recherche-concurrents/duolingo.json",
+      "researchFileSha256": "110f57d76850fa05a01fa9675e05eea03e8fda629e65de713f91084d99cf7728",
+      "htmlSha256": "20acb1f78f355b74dc92e776133fdfb8dece884681f23f78f9d81e2dc55ed097",
+      "consultedAt": "2026-10-24T12:54:48+00:00"
+    },
+    {
+      "id": "busuu-anglais",
+      "url": "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+      "title": "Apprendre l’anglais en ligne | Apprentissage gratuit - Busuu",
+      "researchFile": "docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+      "researchFileSha256": "6043de42612f19effb30d14dd8727edd1f8428d473cb409991c5e0f8d51a2deb",
+      "htmlSha256": "85b898e6835015b6635edcb733d1d61844f0655e33cca616bbd371151500da37",
+      "consultedAt": "2026-10-24T12:49:59.780948+00:00"
+    },
+    {
+      "id": "busuu-chinois",
+      "url": "https://www.busuu.com/fr/course/apprendre-chinois-en-ligne",
+      "title": "Apprendre le chinois : cours en ligne - Busuu",
+      "researchFile": "docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+      "researchFileSha256": "6043de42612f19effb30d14dd8727edd1f8428d473cb409991c5e0f8d51a2deb",
+      "htmlSha256": "3c5a10e69715daf3974ba92c69c439b0f53591cff574fb53cfc8392c26b21c9e",
+      "consultedAt": "2026-10-24T12:50:24.212930+00:00"
+    },
+    {
+      "id": "memrise-fr",
+      "url": "https://www.memrise.com/fr/",
+      "title": "Apprends une langue. Ouvre-toi au monde. | Memrise",
+      "researchFile": "docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+      "researchFileSha256": "6043de42612f19effb30d14dd8727edd1f8428d473cb409991c5e0f8d51a2deb",
+      "htmlSha256": "d8f7fa127719bc908957924424072306dc169b9f2a814d8e8df4bc1ab4988cca",
+      "consultedAt": "2026-10-24T12:49:59.858490+00:00"
+    },
+    {
+      "id": "memrise-anglais-cours",
+      "url": "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+      "title": "Cours en ligne d’anglais - Memrise : la façon la plus simple de parler anglais",
+      "researchFile": "docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+      "researchFileSha256": "6043de42612f19effb30d14dd8727edd1f8428d473cb409991c5e0f8d51a2deb",
+      "htmlSha256": "70c699506ede7d49e579d436ad16fe549d6ff1977444ac5e2d9d41c7db68d7c1",
+      "consultedAt": "2026-10-24T12:50:24.000885+00:00"
+    },
+    {
+      "id": "memrise-coreen-cours",
+      "url": "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+      "title": "Cours en ligne de coréen - Memrise : la façon la plus simple de parler coréen",
+      "researchFile": "docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+      "researchFileSha256": "6043de42612f19effb30d14dd8727edd1f8428d473cb409991c5e0f8d51a2deb",
+      "htmlSha256": "c77aa307226d0cbef7993f3570bb6b6d3278bd0ef9d7a8e816f2a1bb75ffcad0",
+      "consultedAt": "2026-10-24T12:50:24.078453+00:00"
+    }
+  ],
+  "themes": [
+    {
+      "id": "repas-preferences",
+      "topicId": "repas-preferences",
+      "themeId": "L2-situation-repas-preferences",
+      "domain": "repas-preferences",
+      "legacyDomain": "repas",
+      "level": 2,
+      "title": {
+        "fr": "Repas : préférences et alternatives",
+        "zh": "用餐：偏好与替代选择"
+      },
+      "visualId": "situation-repas-preferences",
+      "section": "situations",
+      "contentType": "utterance",
+      "lexicalFamilies": [
+        "vocab-restaurant",
+        "vocab-adjectifs"
+      ],
+      "operation": "Adapter un repas à un besoin précis, puis choisir une alternative qui convient.",
+      "sameTargetLevelForAllEightIntents": true,
+      "sourceTrace": [
+        {
+          "sourceId": "babbel-spanish",
+          "url": "https://www.babbel.com/learn-spanish",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+          "originalMelungaAdaptation": "Adapter un repas à un besoin précis, puis choisir une alternative qui convient.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "duo-travel",
+          "url": "https://blog.duolingo.com/french-phrases-for-travel/",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/duolingo.json",
+          "originalMelungaAdaptation": "Adapter un repas à un besoin précis, puis choisir une alternative qui convient.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "pimsleur-method",
+          "url": "https://www.pimsleur.com/the-pimsleur-method/",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+          "originalMelungaAdaptation": "Adapter un repas à un besoin précis, puis choisir une alternative qui convient.",
+          "copiedCompetitorLesson": false
+        }
+      ],
+      "intents": [
+        {
+          "id": "repas-preferences-01",
+          "topicId": "repas-preferences",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 1,
+          "intentFr": "Déclarer un aliment évité.",
+          "referenceUtteranceFr": "Je ne mange pas de viande.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Déclarer un aliment évité.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Personnel du restaurant",
+            "settingFr": "Repas : préférences et alternatives",
+            "function": "Déclarer un aliment évité."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:negation-simple",
+            "food:viande"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "repas-preferences-02",
+          "topicId": "repas-preferences",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 2,
+          "intentFr": "Exprimer une préférence de boisson.",
+          "referenceUtteranceFr": "Je préfère de l’eau.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Exprimer une préférence de boisson.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Personnel du restaurant",
+            "settingFr": "Repas : préférences et alternatives",
+            "function": "Exprimer une préférence de boisson."
+          },
+          "variableParameters": [
+            {
+              "id": "boisson",
+              "scope": "groupe nominal complet",
+              "maxChangedElements": 1,
+              "examplesFrIndicativeOnly": [
+                "de l’eau",
+                "du thé"
+              ],
+              "wholeTargetVariantRequired": true,
+              "grammaticalInvarianceNotAssumed": true
+            }
+          ],
+          "requiredKnownConcepts": [
+            "operation:preference-simple",
+            "drink:eau"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "repas-preferences-03",
+          "topicId": "repas-preferences",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 3,
+          "intentFr": "Préciser que son repas doit être sans piment.",
+          "referenceUtteranceFr": "Sans piment pour moi, s’il vous plaît.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Préciser que son repas doit être sans piment.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Personnel du restaurant",
+            "settingFr": "Repas : préférences et alternatives",
+            "function": "Préciser que son repas doit être sans piment."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:demande-polie",
+            "food:piment"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "repas-preferences-04",
+          "topicId": "repas-preferences",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 4,
+          "intentFr": "Vérifier la présence d’un ingrédient.",
+          "referenceUtteranceFr": "Est-ce que ce plat contient du lait ?",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Vérifier la présence d’un ingrédient.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Personnel du restaurant",
+            "settingFr": "Repas : préférences et alternatives",
+            "function": "Vérifier la présence d’un ingrédient."
+          },
+          "variableParameters": [
+            {
+              "id": "ingredient",
+              "scope": "groupe nominal complet",
+              "maxChangedElements": 1,
+              "examplesFrIndicativeOnly": [
+                "du lait",
+                "des œufs"
+              ],
+              "wholeTargetVariantRequired": true,
+              "grammaticalInvarianceNotAssumed": true
+            }
+          ],
+          "requiredKnownConcepts": [
+            "operation:question-fermee",
+            "food:lait"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "repas-preferences-05",
+          "topicId": "repas-preferences",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 5,
+          "intentFr": "Demander une alternative sans l’aliment évité.",
+          "referenceUtteranceFr": "Est-ce que vous avez un plat sans viande ?",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Demander une alternative sans l’aliment évité.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Personnel du restaurant",
+            "settingFr": "Repas : préférences et alternatives",
+            "function": "Demander une alternative sans l’aliment évité."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:demande-simple",
+            "food:viande"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "repas-preferences-06",
+          "topicId": "repas-preferences",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 6,
+          "intentFr": "Préciser la température souhaitée du plat.",
+          "referenceUtteranceFr": "Je voudrais ce plat chaud.",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Préciser la température souhaitée du plat.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Personnel du restaurant",
+            "settingFr": "Repas : préférences et alternatives",
+            "function": "Préciser la température souhaitée du plat."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:demande-polie",
+            "property:chaud"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "repas-preferences-07",
+          "topicId": "repas-preferences",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 7,
+          "intentFr": "Choisir l’autre proposition après la réponse reçue.",
+          "referenceUtteranceFr": "Je prends l’autre plat.",
+          "contentType": "utterance",
+          "progressionStage": "resoudre",
+          "progressionGoal": "Choisir l’autre proposition après la réponse reçue.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Personnel du restaurant",
+            "settingFr": "Repas : préférences et alternatives",
+            "function": "Choisir l’autre proposition après la réponse reçue."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:choix-simple",
+            "relation:autre"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "repas-preferences-08",
+          "topicId": "repas-preferences",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 8,
+          "intentFr": "Confirmer que la solution proposée convient.",
+          "referenceUtteranceFr": "Cette option me convient.",
+          "contentType": "utterance",
+          "progressionStage": "conclure",
+          "progressionGoal": "Confirmer que la solution proposée convient.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Personnel du restaurant",
+            "settingFr": "Repas : préférences et alternatives",
+            "function": "Confirmer que la solution proposée convient."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:confirmation",
+            "choice:option"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        }
+      ]
+    },
+    {
+      "id": "numerique-quotidien",
+      "topicId": "numerique-quotidien",
+      "themeId": "L2-situation-numerique-quotidien",
+      "domain": "numerique-quotidien",
+      "legacyDomain": "comprendre",
+      "level": 2,
+      "title": {
+        "fr": "Numérique : accéder et rester en contact",
+        "zh": "数字生活：连接与联系"
+      },
+      "visualId": "situation-numerique-quotidien",
+      "section": "situations",
+      "contentType": "utterance",
+      "lexicalFamilies": [
+        "vocab-maison",
+        "vocab-actions",
+        "vocab-travail"
+      ],
+      "operation": "Accéder à un appareil ou à une connexion et confirmer un échange numérique simple.",
+      "sameTargetLevelForAllEightIntents": true,
+      "sourceTrace": [
+        {
+          "sourceId": "babbel-spanish",
+          "url": "https://www.babbel.com/learn-spanish",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+          "originalMelungaAdaptation": "Accéder à un appareil ou à une connexion et confirmer un échange numérique simple.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "busuu-anglais",
+          "url": "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+          "originalMelungaAdaptation": "Accéder à un appareil ou à une connexion et confirmer un échange numérique simple.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "duo-method",
+          "url": "https://blog.duolingo.com/duolingo-teaching-method/",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/duolingo.json",
+          "originalMelungaAdaptation": "Accéder à un appareil ou à une connexion et confirmer un échange numérique simple.",
+          "copiedCompetitorLesson": false
+        }
+      ],
+      "intents": [
+        {
+          "id": "numerique-quotidien-01",
+          "topicId": "numerique-quotidien",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 1,
+          "intentFr": "Exprimer le besoin de recharger son téléphone.",
+          "referenceUtteranceFr": "J’ai besoin de recharger mon téléphone.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Exprimer le besoin de recharger son téléphone.",
+          "contextRole": "Utilisateur",
+          "sourceContext": {
+            "learnerRole": "Utilisateur",
+            "interlocutorRole": "Personne qui aide",
+            "settingFr": "Numérique : accéder et rester en contact",
+            "function": "Exprimer le besoin de recharger son téléphone."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:besoin-simple",
+            "object:telephone"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "numerique-quotidien-02",
+          "topicId": "numerique-quotidien",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 2,
+          "intentFr": "Demander où brancher son appareil.",
+          "referenceUtteranceFr": "Est-ce qu’il y a une prise ici ?",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Demander où brancher son appareil.",
+          "contextRole": "Utilisateur",
+          "sourceContext": {
+            "learnerRole": "Utilisateur",
+            "interlocutorRole": "Personne qui aide",
+            "settingFr": "Numérique : accéder et rester en contact",
+            "function": "Demander où brancher son appareil."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:question-existence",
+            "object:prise"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "numerique-quotidien-03",
+          "topicId": "numerique-quotidien",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 3,
+          "intentFr": "Indiquer le réseau que l’on cherche.",
+          "referenceUtteranceFr": "Je cherche le réseau Wi-Fi.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Indiquer le réseau que l’on cherche.",
+          "contextRole": "Utilisateur",
+          "sourceContext": {
+            "learnerRole": "Utilisateur",
+            "interlocutorRole": "Personne qui aide",
+            "settingFr": "Numérique : accéder et rester en contact",
+            "function": "Indiquer le réseau que l’on cherche."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:recherche-simple",
+            "digital:reseau-wifi"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "numerique-quotidien-04",
+          "topicId": "numerique-quotidien",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 4,
+          "intentFr": "Demander le mot de passe par écrit.",
+          "referenceUtteranceFr": "Pouvez-vous m’écrire le mot de passe ?",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Demander le mot de passe par écrit.",
+          "contextRole": "Utilisateur",
+          "sourceContext": {
+            "learnerRole": "Utilisateur",
+            "interlocutorRole": "Personne qui aide",
+            "settingFr": "Numérique : accéder et rester en contact",
+            "function": "Demander le mot de passe par écrit."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:demande-polie",
+            "digital:mot-de-passe"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "numerique-quotidien-05",
+          "topicId": "numerique-quotidien",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 5,
+          "intentFr": "Signaler qu’un message n’est pas visible.",
+          "referenceUtteranceFr": "Je ne vois pas votre message.",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Signaler qu’un message n’est pas visible.",
+          "contextRole": "Utilisateur",
+          "sourceContext": {
+            "learnerRole": "Utilisateur",
+            "interlocutorRole": "Personne qui aide",
+            "settingFr": "Numérique : accéder et rester en contact",
+            "function": "Signaler qu’un message n’est pas visible."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:negation-simple",
+            "digital:message"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "numerique-quotidien-06",
+          "topicId": "numerique-quotidien",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 6,
+          "intentFr": "Demander une indication concrète sur le bouton.",
+          "referenceUtteranceFr": "Montrez-moi le bouton, s’il vous plaît.",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Demander une indication concrète sur le bouton.",
+          "contextRole": "Utilisateur",
+          "sourceContext": {
+            "learnerRole": "Utilisateur",
+            "interlocutorRole": "Personne qui aide",
+            "settingFr": "Numérique : accéder et rester en contact",
+            "function": "Demander une indication concrète sur le bouton."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:demande-polie",
+            "object:bouton"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "numerique-quotidien-07",
+          "topicId": "numerique-quotidien",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 7,
+          "intentFr": "Confirmer que la connexion fonctionne.",
+          "referenceUtteranceFr": "La connexion marche maintenant.",
+          "contentType": "utterance",
+          "progressionStage": "resoudre",
+          "progressionGoal": "Confirmer que la connexion fonctionne.",
+          "contextRole": "Utilisateur",
+          "sourceContext": {
+            "learnerRole": "Utilisateur",
+            "interlocutorRole": "Personne qui aide",
+            "settingFr": "Numérique : accéder et rester en contact",
+            "function": "Confirmer que la connexion fonctionne."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:confirmation",
+            "digital:connexion"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "numerique-quotidien-08",
+          "topicId": "numerique-quotidien",
+          "level": 2,
+          "proposedLevel": 2,
+          "order": 8,
+          "intentFr": "Confirmer que le message est désormais visible.",
+          "referenceUtteranceFr": "Je vois votre message maintenant.",
+          "contentType": "utterance",
+          "progressionStage": "conclure",
+          "progressionGoal": "Confirmer que le message est désormais visible.",
+          "contextRole": "Utilisateur",
+          "sourceContext": {
+            "learnerRole": "Utilisateur",
+            "interlocutorRole": "Personne qui aide",
+            "settingFr": "Numérique : accéder et rester en contact",
+            "function": "Confirmer que le message est désormais visible."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:confirmation",
+            "time:maintenant"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        }
+      ]
+    },
+    {
+      "id": "hotel-sejour",
+      "topicId": "hotel-sejour",
+      "themeId": "L3-situation-hotel-sejour",
+      "domain": "hotel-sejour",
+      "legacyDomain": "deplacements",
+      "level": 3,
+      "title": {
+        "fr": "Hôtel : organiser son séjour",
+        "zh": "酒店：安排住宿"
+      },
+      "visualId": "situation-hotel-sejour",
+      "section": "situations",
+      "contentType": "utterance",
+      "lexicalFamilies": [
+        "vocab-voyage",
+        "vocab-maison",
+        "vocab-reperes"
+      ],
+      "operation": "Annoncer son séjour, préciser ses besoins et organiser son départ.",
+      "sameTargetLevelForAllEightIntents": true,
+      "sourceTrace": [
+        {
+          "sourceId": "busuu-anglais",
+          "url": "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+          "originalMelungaAdaptation": "Annoncer son séjour, préciser ses besoins et organiser son départ.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "busuu-chinois",
+          "url": "https://www.busuu.com/fr/course/apprendre-chinois-en-ligne",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+          "originalMelungaAdaptation": "Annoncer son séjour, préciser ses besoins et organiser son départ.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "duo-travel",
+          "url": "https://blog.duolingo.com/french-phrases-for-travel/",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/duolingo.json",
+          "originalMelungaAdaptation": "Annoncer son séjour, préciser ses besoins et organiser son départ.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "babbel-french",
+          "url": "https://www.babbel.com/learn-french",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+          "originalMelungaAdaptation": "Annoncer son séjour, préciser ses besoins et organiser son départ.",
+          "copiedCompetitorLesson": false
+        }
+      ],
+      "intents": [
+        {
+          "id": "hotel-sejour-01",
+          "topicId": "hotel-sejour",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 1,
+          "intentFr": "Annoncer son arrivée prochaine à l’hôtel.",
+          "referenceUtteranceFr": "J’arrive à l’hôtel demain.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Annoncer son arrivée prochaine à l’hôtel.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Réceptionniste",
+            "settingFr": "Hôtel : organiser son séjour",
+            "function": "Annoncer son arrivée prochaine à l’hôtel."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:projet-proche",
+            "time:demain"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "hotel-sejour-02",
+          "topicId": "hotel-sejour",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 2,
+          "intentFr": "Identifier une réservation sans raconter une nouvelle histoire.",
+          "referenceUtteranceFr": "La réservation est à mon nom.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Identifier une réservation sans raconter une nouvelle histoire.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Réceptionniste",
+            "settingFr": "Hôtel : organiser son séjour",
+            "function": "Identifier une réservation sans raconter une nouvelle histoire."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:identification",
+            "travel:reservation"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "hotel-sejour-03",
+          "topicId": "hotel-sejour",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 3,
+          "intentFr": "Préciser la durée prévue du séjour.",
+          "referenceUtteranceFr": "Je reste deux nuits.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Préciser la durée prévue du séjour.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Réceptionniste",
+            "settingFr": "Hôtel : organiser son séjour",
+            "function": "Préciser la durée prévue du séjour."
+          },
+          "variableParameters": [
+            {
+              "id": "duree",
+              "scope": "quantité et unité entières",
+              "maxChangedElements": 1,
+              "examplesFrIndicativeOnly": [
+                "deux nuits",
+                "trois nuits"
+              ],
+              "wholeTargetVariantRequired": true,
+              "grammaticalInvarianceNotAssumed": true
+            }
+          ],
+          "requiredKnownConcepts": [
+            "operation:duree-simple",
+            "quantity:deux-nuits"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "hotel-sejour-04",
+          "topicId": "hotel-sejour",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 4,
+          "intentFr": "Demander l’horaire du petit déjeuner.",
+          "referenceUtteranceFr": "Le petit déjeuner est à quelle heure ?",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Demander l’horaire du petit déjeuner.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Réceptionniste",
+            "settingFr": "Hôtel : organiser son séjour",
+            "function": "Demander l’horaire du petit déjeuner."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:question-horaire",
+            "meal:petit-dejeuner"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "hotel-sejour-05",
+          "topicId": "hotel-sejour",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 5,
+          "intentFr": "Exprimer une préférence sur la chambre.",
+          "referenceUtteranceFr": "Je voudrais une chambre au calme.",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Exprimer une préférence sur la chambre.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Réceptionniste",
+            "settingFr": "Hôtel : organiser son séjour",
+            "function": "Exprimer une préférence sur la chambre."
+          },
+          "variableParameters": [
+            {
+              "id": "preference-chambre",
+              "scope": "propriété ou locution entière",
+              "maxChangedElements": 1,
+              "examplesFrIndicativeOnly": [
+                "au calme",
+                "avec une fenêtre"
+              ],
+              "wholeTargetVariantRequired": true,
+              "grammaticalInvarianceNotAssumed": true
+            }
+          ],
+          "requiredKnownConcepts": [
+            "operation:preference-simple",
+            "property:calme"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "hotel-sejour-06",
+          "topicId": "hotel-sejour",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 6,
+          "intentFr": "Annoncer un départ tôt le lendemain.",
+          "referenceUtteranceFr": "Je pars tôt demain matin.",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Annoncer un départ tôt le lendemain.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Réceptionniste",
+            "settingFr": "Hôtel : organiser son séjour",
+            "function": "Annoncer un départ tôt le lendemain."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:projet-proche",
+            "time:demain-matin"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "hotel-sejour-07",
+          "topicId": "hotel-sejour",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 7,
+          "intentFr": "Prévoir la garde d’un bagage jusqu’au soir.",
+          "referenceUtteranceFr": "Pouvez-vous garder mon sac jusqu’à ce soir ?",
+          "contentType": "utterance",
+          "progressionStage": "resoudre",
+          "progressionGoal": "Prévoir la garde d’un bagage jusqu’au soir.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Réceptionniste",
+            "settingFr": "Hôtel : organiser son séjour",
+            "function": "Prévoir la garde d’un bagage jusqu’au soir."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:demande-polie",
+            "time:ce-soir"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "hotel-sejour-08",
+          "topicId": "hotel-sejour",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 8,
+          "intentFr": "Vérifier où laisser la clé au départ.",
+          "referenceUtteranceFr": "Je peux laisser la clé ici ?",
+          "contentType": "utterance",
+          "progressionStage": "conclure",
+          "progressionGoal": "Vérifier où laisser la clé au départ.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Réceptionniste",
+            "settingFr": "Hôtel : organiser son séjour",
+            "function": "Vérifier où laisser la clé au départ."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:verification-simple",
+            "object:cle"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        }
+      ]
+    },
+    {
+      "id": "loisirs-sorties",
+      "topicId": "loisirs-sorties",
+      "themeId": "L3-situation-loisirs-sorties",
+      "domain": "loisirs-sorties",
+      "legacyDomain": "conversation",
+      "level": 3,
+      "title": {
+        "fr": "Loisirs : choisir et organiser une sortie",
+        "zh": "休闲：选择并安排外出"
+      },
+      "visualId": "situation-loisirs-sorties",
+      "section": "situations",
+      "contentType": "utterance",
+      "lexicalFamilies": [
+        "vocab-loisirs",
+        "vocab-reperes",
+        "vocab-personnes"
+      ],
+      "operation": "Passer d’une envie de sortie à un projet concret partagé.",
+      "sameTargetLevelForAllEightIntents": true,
+      "sourceTrace": [
+        {
+          "sourceId": "memrise-anglais-cours",
+          "url": "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+          "originalMelungaAdaptation": "Passer d’une envie de sortie à un projet concret partagé.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "memrise-coreen-cours",
+          "url": "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+          "originalMelungaAdaptation": "Passer d’une envie de sortie à un projet concret partagé.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "babbel-spanish",
+          "url": "https://www.babbel.com/learn-spanish",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+          "originalMelungaAdaptation": "Passer d’une envie de sortie à un projet concret partagé.",
+          "copiedCompetitorLesson": false
+        }
+      ],
+      "intents": [
+        {
+          "id": "loisirs-sorties-01",
+          "topicId": "loisirs-sorties",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 1,
+          "intentFr": "Exprimer une envie de sortir à un moment proche.",
+          "referenceUtteranceFr": "J’ai envie de sortir ce soir.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Exprimer une envie de sortir à un moment proche.",
+          "contextRole": "Ami qui propose",
+          "sourceContext": {
+            "learnerRole": "Ami qui propose",
+            "interlocutorRole": "Autre personne invitée",
+            "settingFr": "Loisirs : choisir et organiser une sortie",
+            "function": "Exprimer une envie de sortir à un moment proche."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:envie-action",
+            "time:ce-soir"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "loisirs-sorties-02",
+          "topicId": "loisirs-sorties",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 2,
+          "intentFr": "Donner un créneau de disponibilité.",
+          "referenceUtteranceFr": "Je suis libre après le déjeuner.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Donner un créneau de disponibilité.",
+          "contextRole": "Ami qui propose",
+          "sourceContext": {
+            "learnerRole": "Ami qui propose",
+            "interlocutorRole": "Autre personne invitée",
+            "settingFr": "Loisirs : choisir et organiser une sortie",
+            "function": "Donner un créneau de disponibilité."
+          },
+          "variableParameters": [
+            {
+              "id": "creneau",
+              "scope": "repère temporel entier",
+              "maxChangedElements": 1,
+              "examplesFrIndicativeOnly": [
+                "après le déjeuner",
+                "samedi matin"
+              ],
+              "wholeTargetVariantRequired": true,
+              "grammaticalInvarianceNotAssumed": true
+            }
+          ],
+          "requiredKnownConcepts": [
+            "operation:disponibilite",
+            "time:apres-le-dejeuner"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "loisirs-sorties-03",
+          "topicId": "loisirs-sorties",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 3,
+          "intentFr": "Proposer deux activités pour connaître une préférence.",
+          "referenceUtteranceFr": "Tu préfères le cinéma ou une promenade ?",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Proposer deux activités pour connaître une préférence.",
+          "contextRole": "Ami qui propose",
+          "sourceContext": {
+            "learnerRole": "Ami qui propose",
+            "interlocutorRole": "Autre personne invitée",
+            "settingFr": "Loisirs : choisir et organiser une sortie",
+            "function": "Proposer deux activités pour connaître une préférence."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:choix-deux-options",
+            "leisure:cinema"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "loisirs-sorties-04",
+          "topicId": "loisirs-sorties",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 4,
+          "intentFr": "Dire une habitude liée aux sorties.",
+          "referenceUtteranceFr": "Je vais souvent au cinéma.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Dire une habitude liée aux sorties.",
+          "contextRole": "Ami qui propose",
+          "sourceContext": {
+            "learnerRole": "Ami qui propose",
+            "interlocutorRole": "Autre personne invitée",
+            "settingFr": "Loisirs : choisir et organiser une sortie",
+            "function": "Dire une habitude liée aux sorties."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:habitude",
+            "adverb:souvent"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "loisirs-sorties-05",
+          "topicId": "loisirs-sorties",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 5,
+          "intentFr": "Proposer un rendez-vous simple.",
+          "referenceUtteranceFr": "On se retrouve devant le cinéma ?",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Proposer un rendez-vous simple.",
+          "contextRole": "Ami qui propose",
+          "sourceContext": {
+            "learnerRole": "Ami qui propose",
+            "interlocutorRole": "Autre personne invitée",
+            "settingFr": "Loisirs : choisir et organiser une sortie",
+            "function": "Proposer un rendez-vous simple."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:proposition",
+            "place:devant-le-cinema"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "loisirs-sorties-06",
+          "topicId": "loisirs-sorties",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 6,
+          "intentFr": "Préciser qui vient avec soi.",
+          "referenceUtteranceFr": "Je viens avec ma sœur.",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Préciser qui vient avec soi.",
+          "contextRole": "Ami qui propose",
+          "sourceContext": {
+            "learnerRole": "Ami qui propose",
+            "interlocutorRole": "Autre personne invitée",
+            "settingFr": "Loisirs : choisir et organiser une sortie",
+            "function": "Préciser qui vient avec soi."
+          },
+          "variableParameters": [
+            {
+              "id": "accompagnant",
+              "scope": "groupe nominal entier",
+              "maxChangedElements": 1,
+              "examplesFrIndicativeOnly": [
+                "ma sœur",
+                "mon ami"
+              ],
+              "wholeTargetVariantRequired": true,
+              "grammaticalInvarianceNotAssumed": true
+            }
+          ],
+          "requiredKnownConcepts": [
+            "operation:precision-personne",
+            "person:soeur"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "loisirs-sorties-07",
+          "topicId": "loisirs-sorties",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 7,
+          "intentFr": "Proposer de réserver les places.",
+          "referenceUtteranceFr": "Je peux réserver les places.",
+          "contentType": "utterance",
+          "progressionStage": "resoudre",
+          "progressionGoal": "Proposer de réserver les places.",
+          "contextRole": "Ami qui propose",
+          "sourceContext": {
+            "learnerRole": "Ami qui propose",
+            "interlocutorRole": "Autre personne invitée",
+            "settingFr": "Loisirs : choisir et organiser une sortie",
+            "function": "Proposer de réserver les places."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:offre-action",
+            "leisure:places"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "loisirs-sorties-08",
+          "topicId": "loisirs-sorties",
+          "level": 3,
+          "proposedLevel": 3,
+          "order": 8,
+          "intentFr": "Confirmer le rendez-vous et son horaire.",
+          "referenceUtteranceFr": "D’accord, on se retrouve à dix-huit heures.",
+          "contentType": "utterance",
+          "progressionStage": "conclure",
+          "progressionGoal": "Confirmer le rendez-vous et son horaire.",
+          "contextRole": "Ami qui propose",
+          "sourceContext": {
+            "learnerRole": "Ami qui propose",
+            "interlocutorRole": "Autre personne invitée",
+            "settingFr": "Loisirs : choisir et organiser une sortie",
+            "function": "Confirmer le rendez-vous et son horaire."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:confirmation-projet",
+            "time:dix-huit-heures"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        }
+      ]
+    },
+    {
+      "id": "transport-imprevus",
+      "topicId": "transport-imprevus",
+      "themeId": "L4-situation-transport-imprevus",
+      "domain": "transport-imprevus",
+      "legacyDomain": "deplacements",
+      "level": 4,
+      "title": {
+        "fr": "Transport : raconter un imprévu et repartir",
+        "zh": "交通：说明意外并继续行程"
+      },
+      "visualId": "situation-transport-imprevus",
+      "section": "situations",
+      "contentType": "utterance",
+      "lexicalFamilies": [
+        "vocab-voyage",
+        "vocab-reperes",
+        "vocab-actions"
+      ],
+      "operation": "Rapporter un incident simple, obtenir l’information utile et reprendre son trajet.",
+      "sameTargetLevelForAllEightIntents": true,
+      "sourceTrace": [
+        {
+          "sourceId": "busuu-anglais",
+          "url": "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+          "originalMelungaAdaptation": "Rapporter un incident simple, obtenir l’information utile et reprendre son trajet.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "duo-travel",
+          "url": "https://blog.duolingo.com/french-phrases-for-travel/",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/duolingo.json",
+          "originalMelungaAdaptation": "Rapporter un incident simple, obtenir l’information utile et reprendre son trajet.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "duo-cefr",
+          "url": "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/duolingo.json",
+          "originalMelungaAdaptation": "Rapporter un incident simple, obtenir l’information utile et reprendre son trajet.",
+          "copiedCompetitorLesson": false
+        }
+      ],
+      "intents": [
+        {
+          "id": "transport-imprevus-01",
+          "topicId": "transport-imprevus",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 1,
+          "intentFr": "Dire qu’on a manqué son bus.",
+          "referenceUtteranceFr": "J’ai raté mon bus.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Dire qu’on a manqué son bus.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Agent ou personne qui renseigne",
+            "settingFr": "Transport : raconter un imprévu et repartir",
+            "function": "Dire qu’on a manqué son bus."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:evenement-termine",
+            "travel:bus"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "transport-imprevus-02",
+          "topicId": "transport-imprevus",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 2,
+          "intentFr": "Rapporter le départ du train avant son arrivée.",
+          "referenceUtteranceFr": "Le train est parti avant mon arrivée.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Rapporter le départ du train avant son arrivée.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Agent ou personne qui renseigne",
+            "settingFr": "Transport : raconter un imprévu et repartir",
+            "function": "Rapporter le départ du train avant son arrivée."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:ordre-deux-faits",
+            "travel:train"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "transport-imprevus-03",
+          "topicId": "transport-imprevus",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 3,
+          "intentFr": "Préciser la durée d’une attente passée.",
+          "referenceUtteranceFr": "J’ai attendu à cet arrêt pendant vingt minutes.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Préciser la durée d’une attente passée.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Agent ou personne qui renseigne",
+            "settingFr": "Transport : raconter un imprévu et repartir",
+            "function": "Préciser la durée d’une attente passée."
+          },
+          "variableParameters": [
+            {
+              "id": "duree-attente",
+              "scope": "quantité et unité entières",
+              "maxChangedElements": 1,
+              "examplesFrIndicativeOnly": [
+                "vingt minutes",
+                "une demi-heure"
+              ],
+              "wholeTargetVariantRequired": true,
+              "grammaticalInvarianceNotAssumed": true
+            }
+          ],
+          "requiredKnownConcepts": [
+            "operation:duree-passee",
+            "quantity:vingt-minutes"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "transport-imprevus-04",
+          "topicId": "transport-imprevus",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 4,
+          "intentFr": "Expliquer qu’on est descendu trop tôt.",
+          "referenceUtteranceFr": "Je suis descendu une station trop tôt.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Expliquer qu’on est descendu trop tôt.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Agent ou personne qui renseigne",
+            "settingFr": "Transport : raconter un imprévu et repartir",
+            "function": "Expliquer qu’on est descendu trop tôt."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:evenement-termine",
+            "travel:station"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "transport-imprevus-05",
+          "topicId": "transport-imprevus",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 5,
+          "intentFr": "Demander le lieu de départ du prochain bus.",
+          "referenceUtteranceFr": "D’où part le prochain bus ?",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Demander le lieu de départ du prochain bus.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Agent ou personne qui renseigne",
+            "settingFr": "Transport : raconter un imprévu et repartir",
+            "function": "Demander le lieu de départ du prochain bus."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:question-lieu",
+            "relation:prochain"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "transport-imprevus-06",
+          "topicId": "transport-imprevus",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 6,
+          "intentFr": "Vérifier si le même billet peut encore servir.",
+          "referenceUtteranceFr": "Est-ce que je peux garder le même billet ?",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Vérifier si le même billet peut encore servir.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Agent ou personne qui renseigne",
+            "settingFr": "Transport : raconter un imprévu et repartir",
+            "function": "Vérifier si le même billet peut encore servir."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:verification-simple",
+            "travel:billet"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "transport-imprevus-07",
+          "topicId": "transport-imprevus",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 7,
+          "intentFr": "Rapporter la solution effectivement prise.",
+          "referenceUtteranceFr": "J’ai pris l’autre ligne.",
+          "contentType": "utterance",
+          "progressionStage": "resoudre",
+          "progressionGoal": "Rapporter la solution effectivement prise.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Agent ou personne qui renseigne",
+            "settingFr": "Transport : raconter un imprévu et repartir",
+            "function": "Rapporter la solution effectivement prise."
+          },
+          "variableParameters": [
+            {
+              "id": "alternative-transport",
+              "scope": "groupe nominal entier",
+              "maxChangedElements": 1,
+              "examplesFrIndicativeOnly": [
+                "l’autre ligne",
+                "le prochain train"
+              ],
+              "wholeTargetVariantRequired": true,
+              "grammaticalInvarianceNotAssumed": true
+            }
+          ],
+          "requiredKnownConcepts": [
+            "operation:evenement-termine",
+            "travel:ligne"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "transport-imprevus-08",
+          "topicId": "transport-imprevus",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 8,
+          "intentFr": "Confirmer qu’on est arrivé à destination.",
+          "referenceUtteranceFr": "Je suis arrivé à destination.",
+          "contentType": "utterance",
+          "progressionStage": "conclure",
+          "progressionGoal": "Confirmer qu’on est arrivé à destination.",
+          "contextRole": "Voyageur",
+          "sourceContext": {
+            "learnerRole": "Voyageur",
+            "interlocutorRole": "Agent ou personne qui renseigne",
+            "settingFr": "Transport : raconter un imprévu et repartir",
+            "function": "Confirmer qu’on est arrivé à destination."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:cloture-recit",
+            "travel:destination"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        }
+      ]
+    },
+    {
+      "id": "etudes-apprentissage",
+      "topicId": "etudes-apprentissage",
+      "themeId": "L4-situation-etudes-apprentissage",
+      "domain": "etudes-apprentissage",
+      "legacyDomain": "travail",
+      "level": 4,
+      "title": {
+        "fr": "Études : raconter un apprentissage réussi",
+        "zh": "学习：讲述一次学习进展"
+      },
+      "visualId": "situation-etudes-apprentissage",
+      "section": "situations",
+      "contentType": "utterance",
+      "lexicalFamilies": [
+        "vocab-travail",
+        "vocab-actions",
+        "vocab-reperes"
+      ],
+      "operation": "Rapporter une difficulté, un nouvel essai et un résultat observable.",
+      "sameTargetLevelForAllEightIntents": true,
+      "sourceTrace": [
+        {
+          "sourceId": "memrise-anglais-cours",
+          "url": "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+          "originalMelungaAdaptation": "Rapporter une difficulté, un nouvel essai et un résultat observable.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "memrise-coreen-cours",
+          "url": "https://www.memrise.com/fr/apprendre-le-coreen/cours-coreen",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+          "originalMelungaAdaptation": "Rapporter une difficulté, un nouvel essai et un résultat observable.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "busuu-anglais",
+          "url": "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+          "originalMelungaAdaptation": "Rapporter une difficulté, un nouvel essai et un résultat observable.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "pimsleur-method",
+          "url": "https://www.pimsleur.com/the-pimsleur-method/",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+          "originalMelungaAdaptation": "Rapporter une difficulté, un nouvel essai et un résultat observable.",
+          "copiedCompetitorLesson": false
+        }
+      ],
+      "intents": [
+        {
+          "id": "etudes-apprentissage-01",
+          "topicId": "etudes-apprentissage",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 1,
+          "intentFr": "Situer le début d’un cours.",
+          "referenceUtteranceFr": "J’ai commencé ce cours la semaine dernière.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Situer le début d’un cours.",
+          "contextRole": "Apprenant",
+          "sourceContext": {
+            "learnerRole": "Apprenant",
+            "interlocutorRole": "Enseignant ou partenaire d’étude",
+            "settingFr": "Études : raconter un apprentissage réussi",
+            "function": "Situer le début d’un cours."
+          },
+          "variableParameters": [
+            {
+              "id": "debut-cours",
+              "scope": "repère temporel entier",
+              "maxChangedElements": 1,
+              "examplesFrIndicativeOnly": [
+                "la semaine dernière",
+                "lundi dernier"
+              ],
+              "wholeTargetVariantRequired": true,
+              "grammaticalInvarianceNotAssumed": true
+            }
+          ],
+          "requiredKnownConcepts": [
+            "operation:evenement-termine",
+            "time:semaine-derniere"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "etudes-apprentissage-02",
+          "topicId": "etudes-apprentissage",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 2,
+          "intentFr": "Raconter une séance de révision avec sa durée.",
+          "referenceUtteranceFr": "J’ai révisé pendant une heure hier.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Raconter une séance de révision avec sa durée.",
+          "contextRole": "Apprenant",
+          "sourceContext": {
+            "learnerRole": "Apprenant",
+            "interlocutorRole": "Enseignant ou partenaire d’étude",
+            "settingFr": "Études : raconter un apprentissage réussi",
+            "function": "Raconter une séance de révision avec sa durée."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:duree-passee",
+            "time:hier"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "etudes-apprentissage-03",
+          "topicId": "etudes-apprentissage",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 3,
+          "intentFr": "Dire quel exercice a été compris.",
+          "referenceUtteranceFr": "J’ai compris le premier exercice.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Dire quel exercice a été compris.",
+          "contextRole": "Apprenant",
+          "sourceContext": {
+            "learnerRole": "Apprenant",
+            "interlocutorRole": "Enseignant ou partenaire d’étude",
+            "settingFr": "Études : raconter un apprentissage réussi",
+            "function": "Dire quel exercice a été compris."
+          },
+          "variableParameters": [
+            {
+              "id": "exercice",
+              "scope": "groupe nominal ordinal entier",
+              "maxChangedElements": 1,
+              "examplesFrIndicativeOnly": [
+                "le premier exercice",
+                "le deuxième exercice"
+              ],
+              "wholeTargetVariantRequired": true,
+              "grammaticalInvarianceNotAssumed": true
+            }
+          ],
+          "requiredKnownConcepts": [
+            "operation:resultat-passe",
+            "ordinal:premier"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "etudes-apprentissage-04",
+          "topicId": "etudes-apprentissage",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 4,
+          "intentFr": "Identifier une consigne qui n’a pas été comprise.",
+          "referenceUtteranceFr": "Je n’ai pas compris la dernière consigne.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Identifier une consigne qui n’a pas été comprise.",
+          "contextRole": "Apprenant",
+          "sourceContext": {
+            "learnerRole": "Apprenant",
+            "interlocutorRole": "Enseignant ou partenaire d’étude",
+            "settingFr": "Études : raconter un apprentissage réussi",
+            "function": "Identifier une consigne qui n’a pas été comprise."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:negation-passee",
+            "study:consigne"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "etudes-apprentissage-05",
+          "topicId": "etudes-apprentissage",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 5,
+          "intentFr": "Rapporter l’exemple supplémentaire donné par un enseignant.",
+          "referenceUtteranceFr": "Le professeur a montré un autre exemple.",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Rapporter l’exemple supplémentaire donné par un enseignant.",
+          "contextRole": "Apprenant",
+          "sourceContext": {
+            "learnerRole": "Apprenant",
+            "interlocutorRole": "Enseignant ou partenaire d’étude",
+            "settingFr": "Études : raconter un apprentissage réussi",
+            "function": "Rapporter l’exemple supplémentaire donné par un enseignant."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:recit-autre-personne",
+            "study:exemple"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "etudes-apprentissage-06",
+          "topicId": "etudes-apprentissage",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 6,
+          "intentFr": "Raconter un nouvel essai.",
+          "referenceUtteranceFr": "J’ai essayé une deuxième fois.",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Raconter un nouvel essai.",
+          "contextRole": "Apprenant",
+          "sourceContext": {
+            "learnerRole": "Apprenant",
+            "interlocutorRole": "Enseignant ou partenaire d’étude",
+            "settingFr": "Études : raconter un apprentissage réussi",
+            "function": "Raconter un nouvel essai."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:repetition-action-passee",
+            "ordinal:deuxieme"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "etudes-apprentissage-07",
+          "topicId": "etudes-apprentissage",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 7,
+          "intentFr": "Dire qu’une erreur a été corrigée.",
+          "referenceUtteranceFr": "J’ai corrigé mon erreur.",
+          "contentType": "utterance",
+          "progressionStage": "resoudre",
+          "progressionGoal": "Dire qu’une erreur a été corrigée.",
+          "contextRole": "Apprenant",
+          "sourceContext": {
+            "learnerRole": "Apprenant",
+            "interlocutorRole": "Enseignant ou partenaire d’étude",
+            "settingFr": "Études : raconter un apprentissage réussi",
+            "function": "Dire qu’une erreur a été corrigée."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:resultat-passe",
+            "study:erreur"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "etudes-apprentissage-08",
+          "topicId": "etudes-apprentissage",
+          "level": 4,
+          "proposedLevel": 4,
+          "order": 8,
+          "intentFr": "Montrer l’aboutissement de cet apprentissage.",
+          "referenceUtteranceFr": "Je peux maintenant expliquer ma réponse.",
+          "contentType": "utterance",
+          "progressionStage": "conclure",
+          "progressionGoal": "Montrer l’aboutissement de cet apprentissage.",
+          "contextRole": "Apprenant",
+          "sourceContext": {
+            "learnerRole": "Apprenant",
+            "interlocutorRole": "Enseignant ou partenaire d’étude",
+            "settingFr": "Études : raconter un apprentissage réussi",
+            "function": "Montrer l’aboutissement de cet apprentissage."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:capacite",
+            "study:reponse"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        }
+      ]
+    },
+    {
+      "id": "argent-paiements",
+      "topicId": "argent-paiements",
+      "themeId": "L5-situation-argent-paiements",
+      "domain": "argent-paiements",
+      "legacyDomain": "repas",
+      "level": 5,
+      "title": {
+        "fr": "Paiements : vérifier un problème et le régler",
+        "zh": "支付：核实并解决问题"
+      },
+      "visualId": "situation-argent-paiements",
+      "section": "situations",
+      "contentType": "utterance",
+      "lexicalFamilies": [
+        "vocab-restaurant",
+        "vocab-travail",
+        "vocab-reperes"
+      ],
+      "operation": "Décrire un problème de paiement, demander une vérification et confirmer une solution.",
+      "sameTargetLevelForAllEightIntents": true,
+      "sourceTrace": [
+        {
+          "sourceId": "babbel-spanish",
+          "url": "https://www.babbel.com/learn-spanish",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+          "originalMelungaAdaptation": "Décrire un problème de paiement, demander une vérification et confirmer une solution.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "duo-travel",
+          "url": "https://blog.duolingo.com/french-phrases-for-travel/",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/duolingo.json",
+          "originalMelungaAdaptation": "Décrire un problème de paiement, demander une vérification et confirmer une solution.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "pimsleur-method",
+          "url": "https://www.pimsleur.com/the-pimsleur-method/",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+          "originalMelungaAdaptation": "Décrire un problème de paiement, demander une vérification et confirmer une solution.",
+          "copiedCompetitorLesson": false
+        }
+      ],
+      "intents": [
+        {
+          "id": "argent-paiements-01",
+          "topicId": "argent-paiements",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 1,
+          "intentFr": "Signaler le refus d’une carte par le terminal.",
+          "referenceUtteranceFr": "Le terminal refuse ma carte.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Signaler le refus d’une carte par le terminal.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Caissier ou service de paiement",
+            "settingFr": "Paiements : vérifier un problème et le régler",
+            "function": "Signaler le refus d’une carte par le terminal."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:signaler-probleme",
+            "payment:carte"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "argent-paiements-02",
+          "topicId": "argent-paiements",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 2,
+          "intentFr": "Signaler deux paiements visibles pour un même achat.",
+          "referenceUtteranceFr": "Je vois deux paiements pour le même achat.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Signaler deux paiements visibles pour un même achat.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Caissier ou service de paiement",
+            "settingFr": "Paiements : vérifier un problème et le régler",
+            "function": "Signaler deux paiements visibles pour un même achat."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:decrire-anomalie",
+            "quantity:deux"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "argent-paiements-03",
+          "topicId": "argent-paiements",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 3,
+          "intentFr": "Indiquer que le montant affiché est incorrect.",
+          "referenceUtteranceFr": "Le montant affiché n’est pas le bon.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Indiquer que le montant affiché est incorrect.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Caissier ou service de paiement",
+            "settingFr": "Paiements : vérifier un problème et le régler",
+            "function": "Indiquer que le montant affiché est incorrect."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:signaler-erreur",
+            "payment:montant"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "argent-paiements-04",
+          "topicId": "argent-paiements",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 4,
+          "intentFr": "Signaler l’absence de ticket.",
+          "referenceUtteranceFr": "Je n’ai pas reçu de ticket.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Signaler l’absence de ticket.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Caissier ou service de paiement",
+            "settingFr": "Paiements : vérifier un problème et le régler",
+            "function": "Signaler l’absence de ticket."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:negation-passee",
+            "payment:ticket"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "argent-paiements-05",
+          "topicId": "argent-paiements",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 5,
+          "intentFr": "Demander la vérification du dernier paiement.",
+          "referenceUtteranceFr": "Pouvez-vous vérifier le dernier paiement ?",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Demander la vérification du dernier paiement.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Caissier ou service de paiement",
+            "settingFr": "Paiements : vérifier un problème et le régler",
+            "function": "Demander la vérification du dernier paiement."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:demande-verification",
+            "payment:paiement"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "argent-paiements-06",
+          "topicId": "argent-paiements",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 6,
+          "intentFr": "Proposer un autre moyen pour le reste du paiement.",
+          "referenceUtteranceFr": "Je peux payer le reste en espèces.",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Proposer un autre moyen pour le reste du paiement.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Caissier ou service de paiement",
+            "settingFr": "Paiements : vérifier un problème et le régler",
+            "function": "Proposer un autre moyen pour le reste du paiement."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:proposer-solution",
+            "payment:especes"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "argent-paiements-07",
+          "topicId": "argent-paiements",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 7,
+          "intentFr": "Demander le remboursement du paiement en trop.",
+          "referenceUtteranceFr": "Je souhaite le remboursement du paiement en trop.",
+          "contentType": "utterance",
+          "progressionStage": "resoudre",
+          "progressionGoal": "Demander le remboursement du paiement en trop.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Caissier ou service de paiement",
+            "settingFr": "Paiements : vérifier un problème et le régler",
+            "function": "Demander le remboursement du paiement en trop."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:demande-solution",
+            "payment:remboursement"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "argent-paiements-08",
+          "topicId": "argent-paiements",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 8,
+          "intentFr": "Confirmer que le remboursement apparaît.",
+          "referenceUtteranceFr": "Le remboursement apparaît sur mon compte.",
+          "contentType": "utterance",
+          "progressionStage": "conclure",
+          "progressionGoal": "Confirmer que le remboursement apparaît.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Caissier ou service de paiement",
+            "settingFr": "Paiements : vérifier un problème et le régler",
+            "function": "Confirmer que le remboursement apparaît."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:confirmer-resolution",
+            "payment:compte-bancaire"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        }
+      ]
+    },
+    {
+      "id": "service-client",
+      "topicId": "service-client",
+      "themeId": "L5-situation-service-client",
+      "domain": "service-client",
+      "legacyDomain": "travail",
+      "level": 5,
+      "title": {
+        "fr": "Service client : obtenir et suivre une solution",
+        "zh": "客服：获得并跟进解决方案"
+      },
+      "visualId": "situation-service-client",
+      "section": "situations",
+      "contentType": "utterance",
+      "lexicalFamilies": [
+        "vocab-travail",
+        "vocab-restaurant",
+        "vocab-actions"
+      ],
+      "operation": "Décrire un problème matériel précis, convenir d’une réponse et suivre sa réalisation.",
+      "sameTargetLevelForAllEightIntents": true,
+      "sourceTrace": [
+        {
+          "sourceId": "busuu-anglais",
+          "url": "https://www.busuu.com/fr/course/apprendre-anglais-en-ligne",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+          "originalMelungaAdaptation": "Décrire un problème matériel précis, convenir d’une réponse et suivre sa réalisation.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "babbel-method",
+          "url": "https://www.babbel.com/the-babbel-method",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+          "originalMelungaAdaptation": "Décrire un problème matériel précis, convenir d’une réponse et suivre sa réalisation.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "pimsleur-method",
+          "url": "https://www.pimsleur.com/the-pimsleur-method/",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+          "originalMelungaAdaptation": "Décrire un problème matériel précis, convenir d’une réponse et suivre sa réalisation.",
+          "copiedCompetitorLesson": false
+        }
+      ],
+      "intents": [
+        {
+          "id": "service-client-01",
+          "topicId": "service-client",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 1,
+          "intentFr": "Signaler que l’objet reçu ne correspond pas à la commande.",
+          "referenceUtteranceFr": "La pièce reçue ne correspond pas à ma commande.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Signaler que l’objet reçu ne correspond pas à la commande.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Agent du service client",
+            "settingFr": "Service client : obtenir et suivre une solution",
+            "function": "Signaler que l’objet reçu ne correspond pas à la commande."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:signaler-erreur",
+            "purchase:commande"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "service-client-02",
+          "topicId": "service-client",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 2,
+          "intentFr": "Décrire l’état du colis à son arrivée.",
+          "referenceUtteranceFr": "Le colis est arrivé abîmé.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Décrire l’état du colis à son arrivée.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Agent du service client",
+            "settingFr": "Service client : obtenir et suivre une solution",
+            "function": "Décrire l’état du colis à son arrivée."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:decrire-probleme-passe",
+            "property:abime"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "service-client-03",
+          "topicId": "service-client",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 3,
+          "intentFr": "Indiquer un élément manquant dans la boîte.",
+          "referenceUtteranceFr": "Il manque une pièce dans la boîte.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Indiquer un élément manquant dans la boîte.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Agent du service client",
+            "settingFr": "Service client : obtenir et suivre une solution",
+            "function": "Indiquer un élément manquant dans la boîte."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:signaler-manque",
+            "object:piece"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "service-client-04",
+          "topicId": "service-client",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 4,
+          "intentFr": "Proposer une preuve simple du problème.",
+          "referenceUtteranceFr": "Je peux envoyer une photo du problème.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Proposer une preuve simple du problème.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Agent du service client",
+            "settingFr": "Service client : obtenir et suivre une solution",
+            "function": "Proposer une preuve simple du problème."
+          },
+          "variableParameters": [
+            {
+              "id": "preuve",
+              "scope": "groupe nominal entier",
+              "maxChangedElements": 1,
+              "examplesFrIndicativeOnly": [
+                "une photo",
+                "une courte vidéo"
+              ],
+              "wholeTargetVariantRequired": true,
+              "grammaticalInvarianceNotAssumed": true
+            }
+          ],
+          "requiredKnownConcepts": [
+            "operation:offre-action",
+            "digital:photo"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "service-client-05",
+          "topicId": "service-client",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 5,
+          "intentFr": "Exprimer sa préférence de solution.",
+          "referenceUtteranceFr": "Je préfère un remplacement.",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Exprimer sa préférence de solution.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Agent du service client",
+            "settingFr": "Service client : obtenir et suivre une solution",
+            "function": "Exprimer sa préférence de solution."
+          },
+          "variableParameters": [
+            {
+              "id": "solution",
+              "scope": "groupe nominal entier",
+              "maxChangedElements": 1,
+              "examplesFrIndicativeOnly": [
+                "un remplacement",
+                "un remboursement"
+              ],
+              "wholeTargetVariantRequired": true,
+              "grammaticalInvarianceNotAssumed": true
+            }
+          ],
+          "requiredKnownConcepts": [
+            "operation:choisir-solution",
+            "service:remplacement"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "service-client-06",
+          "topicId": "service-client",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 6,
+          "intentFr": "Demander une date pour la nouvelle livraison.",
+          "referenceUtteranceFr": "Pouvez-vous me donner une date de livraison ?",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Demander une date pour la nouvelle livraison.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Agent du service client",
+            "settingFr": "Service client : obtenir et suivre une solution",
+            "function": "Demander une date pour la nouvelle livraison."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:demande-precision",
+            "time:date"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "service-client-07",
+          "topicId": "service-client",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 7,
+          "intentFr": "Confirmer qu’un renvoi a été effectué.",
+          "referenceUtteranceFr": "J’ai renvoyé l’article hier.",
+          "contentType": "utterance",
+          "progressionStage": "resoudre",
+          "progressionGoal": "Confirmer qu’un renvoi a été effectué.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Agent du service client",
+            "settingFr": "Service client : obtenir et suivre une solution",
+            "function": "Confirmer qu’un renvoi a été effectué."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:suivi-action-passee",
+            "time:hier"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "service-client-08",
+          "topicId": "service-client",
+          "level": 5,
+          "proposedLevel": 5,
+          "order": 8,
+          "intentFr": "Confirmer le bon fonctionnement après remplacement.",
+          "referenceUtteranceFr": "Le nouvel article fonctionne correctement.",
+          "contentType": "utterance",
+          "progressionStage": "conclure",
+          "progressionGoal": "Confirmer le bon fonctionnement après remplacement.",
+          "contextRole": "Client",
+          "sourceContext": {
+            "learnerRole": "Client",
+            "interlocutorRole": "Agent du service client",
+            "settingFr": "Service client : obtenir et suivre une solution",
+            "function": "Confirmer le bon fonctionnement après remplacement."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:confirmer-resolution",
+            "property:fonctionnement-correct"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        }
+      ]
+    },
+    {
+      "id": "invitations-limites",
+      "topicId": "invitations-limites",
+      "themeId": "L6-situation-invitations-limites",
+      "domain": "invitations-limites",
+      "legacyDomain": "conversation",
+      "level": 6,
+      "title": {
+        "fr": "Invitations : poser une limite et expliquer son choix",
+        "zh": "邀请：表达界限并说明选择"
+      },
+      "visualId": "situation-invitations-limites",
+      "section": "situations",
+      "contentType": "utterance",
+      "lexicalFamilies": [
+        "vocab-personnes",
+        "vocab-reperes",
+        "vocab-adjectifs"
+      ],
+      "operation": "Prendre en compte une invitation, expliquer une contrainte et aboutir à un accord respectueux.",
+      "sameTargetLevelForAllEightIntents": true,
+      "sourceTrace": [
+        {
+          "sourceId": "memrise-fr",
+          "url": "https://www.memrise.com/fr/",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+          "originalMelungaAdaptation": "Prendre en compte une invitation, expliquer une contrainte et aboutir à un accord respectueux.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "memrise-anglais-cours",
+          "url": "https://www.memrise.com/fr/apprendre-l-anglais/cours-anglais",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+          "originalMelungaAdaptation": "Prendre en compte une invitation, expliquer une contrainte et aboutir à un accord respectueux.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "babbel-french",
+          "url": "https://www.babbel.com/learn-french",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+          "originalMelungaAdaptation": "Prendre en compte une invitation, expliquer une contrainte et aboutir à un accord respectueux.",
+          "copiedCompetitorLesson": false
+        }
+      ],
+      "intents": [
+        {
+          "id": "invitations-limites-01",
+          "topicId": "invitations-limites",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 1,
+          "intentFr": "Décliner une invitation en donnant une contrainte réelle.",
+          "referenceUtteranceFr": "Merci pour l’invitation, mais j’ai déjà un engagement.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Décliner une invitation en donnant une contrainte réelle.",
+          "contextRole": "Personne invitée",
+          "sourceContext": {
+            "learnerRole": "Personne invitée",
+            "interlocutorRole": "Proche qui invite",
+            "settingFr": "Invitations : poser une limite et expliquer son choix",
+            "function": "Décliner une invitation en donnant une contrainte réelle."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:accord-et-reserve",
+            "social:engagement"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "invitations-limites-02",
+          "topicId": "invitations-limites",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 2,
+          "intentFr": "Exprimer le type de lieu préféré pour se voir.",
+          "referenceUtteranceFr": "Je préfère un endroit calme pour notre rencontre.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Exprimer le type de lieu préféré pour se voir.",
+          "contextRole": "Personne invitée",
+          "sourceContext": {
+            "learnerRole": "Personne invitée",
+            "interlocutorRole": "Proche qui invite",
+            "settingFr": "Invitations : poser une limite et expliquer son choix",
+            "function": "Exprimer le type de lieu préféré pour se voir."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:preference-expliquee",
+            "property:calme"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "invitations-limites-03",
+          "topicId": "invitations-limites",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 3,
+          "intentFr": "Distinguer deux disponibilités sans ouvrir une négociation illimitée.",
+          "referenceUtteranceFr": "Je suis disponible samedi, mais pas dimanche.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Distinguer deux disponibilités sans ouvrir une négociation illimitée.",
+          "contextRole": "Personne invitée",
+          "sourceContext": {
+            "learnerRole": "Personne invitée",
+            "interlocutorRole": "Proche qui invite",
+            "settingFr": "Invitations : poser une limite et expliquer son choix",
+            "function": "Distinguer deux disponibilités sans ouvrir une négociation illimitée."
+          },
+          "variableParameters": [
+            {
+              "id": "jour-disponible",
+              "scope": "jour entier",
+              "maxChangedElements": 1,
+              "examplesFrIndicativeOnly": [
+                "samedi",
+                "mardi"
+              ],
+              "wholeTargetVariantRequired": true,
+              "grammaticalInvarianceNotAssumed": true
+            }
+          ],
+          "requiredKnownConcepts": [
+            "operation:contraste-simple",
+            "time:samedi-dimanche"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "invitations-limites-04",
+          "topicId": "invitations-limites",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 4,
+          "intentFr": "Expliquer une limite d’horaire par une raison concrète.",
+          "referenceUtteranceFr": "Je préfère rentrer tôt parce que je travaille demain.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Expliquer une limite d’horaire par une raison concrète.",
+          "contextRole": "Personne invitée",
+          "sourceContext": {
+            "learnerRole": "Personne invitée",
+            "interlocutorRole": "Proche qui invite",
+            "settingFr": "Invitations : poser une limite et expliquer son choix",
+            "function": "Expliquer une limite d’horaire par une raison concrète."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:raison-explicite",
+            "time:demain"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "invitations-limites-05",
+          "topicId": "invitations-limites",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 5,
+          "intentFr": "Comparer son aisance selon la taille du groupe.",
+          "referenceUtteranceFr": "Je suis plus à l’aise dans un petit groupe.",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Comparer son aisance selon la taille du groupe.",
+          "contextRole": "Personne invitée",
+          "sourceContext": {
+            "learnerRole": "Personne invitée",
+            "interlocutorRole": "Proche qui invite",
+            "settingFr": "Invitations : poser une limite et expliquer son choix",
+            "function": "Comparer son aisance selon la taille du groupe."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:comparaison",
+            "property:petit-groupe"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "invitations-limites-06",
+          "topicId": "invitations-limites",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 6,
+          "intentFr": "Indiquer qu’une proposition convient mieux.",
+          "referenceUtteranceFr": "Cette heure me convient mieux.",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Indiquer qu’une proposition convient mieux.",
+          "contextRole": "Personne invitée",
+          "sourceContext": {
+            "learnerRole": "Personne invitée",
+            "interlocutorRole": "Proche qui invite",
+            "settingFr": "Invitations : poser une limite et expliquer son choix",
+            "function": "Indiquer qu’une proposition convient mieux."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:comparaison-option",
+            "time:heure"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "invitations-limites-07",
+          "topicId": "invitations-limites",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 7,
+          "intentFr": "Accepter de venir en précisant une limite.",
+          "referenceUtteranceFr": "Je tiens à venir, mais je ne peux pas rester longtemps.",
+          "contentType": "utterance",
+          "progressionStage": "resoudre",
+          "progressionGoal": "Accepter de venir en précisant une limite.",
+          "contextRole": "Personne invitée",
+          "sourceContext": {
+            "learnerRole": "Personne invitée",
+            "interlocutorRole": "Proche qui invite",
+            "settingFr": "Invitations : poser une limite et expliquer son choix",
+            "function": "Accepter de venir en précisant une limite."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:accord-et-limite",
+            "duration:longtemps"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "invitations-limites-08",
+          "topicId": "invitations-limites",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 8,
+          "intentFr": "Évaluer un compromis qui tient compte de chacun.",
+          "referenceUtteranceFr": "Cette solution respecte les contraintes de chacun.",
+          "contentType": "utterance",
+          "progressionStage": "conclure",
+          "progressionGoal": "Évaluer un compromis qui tient compte de chacun.",
+          "contextRole": "Personne invitée",
+          "sourceContext": {
+            "learnerRole": "Personne invitée",
+            "interlocutorRole": "Proche qui invite",
+            "settingFr": "Invitations : poser une limite et expliquer son choix",
+            "function": "Évaluer un compromis qui tient compte de chacun."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:evaluation-solution",
+            "social:contraintes"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        }
+      ]
+    },
+    {
+      "id": "nature-gestes",
+      "topicId": "nature-gestes",
+      "themeId": "L6-situation-nature-gestes",
+      "domain": "nature-gestes",
+      "legacyDomain": "quotidien",
+      "level": 6,
+      "title": {
+        "fr": "Sortie nature : choisir des gestes écologiques utiles",
+        "zh": "自然出游：选择实用的环保做法"
+      },
+      "visualId": "situation-nature-gestes",
+      "section": "situations",
+      "contentType": "utterance",
+      "lexicalFamilies": [
+        "vocab-nature",
+        "vocab-loisirs",
+        "vocab-maison"
+      ],
+      "operation": "Comparer des choix concrets puis expliquer un geste qui protège les lieux sans compliquer la sortie.",
+      "sameTargetLevelForAllEightIntents": true,
+      "sourceTrace": [
+        {
+          "sourceId": "babbel-spanish",
+          "url": "https://www.babbel.com/learn-spanish",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/babbel-pimsleur.json",
+          "originalMelungaAdaptation": "Comparer des choix concrets puis expliquer un geste qui protège les lieux sans compliquer la sortie.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "memrise-fr",
+          "url": "https://www.memrise.com/fr/",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/busuu-memrise.json",
+          "originalMelungaAdaptation": "Comparer des choix concrets puis expliquer un geste qui protège les lieux sans compliquer la sortie.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "duo-method",
+          "url": "https://blog.duolingo.com/duolingo-teaching-method/",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/duolingo.json",
+          "originalMelungaAdaptation": "Comparer des choix concrets puis expliquer un geste qui protège les lieux sans compliquer la sortie.",
+          "copiedCompetitorLesson": false
+        },
+        {
+          "sourceId": "duo-cefr",
+          "url": "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/",
+          "ideaObserved": "Voir les observations et courts extraits de docs/niveaux-progressifs/recherche-concurrents/duolingo.json",
+          "originalMelungaAdaptation": "Comparer des choix concrets puis expliquer un geste qui protège les lieux sans compliquer la sortie.",
+          "copiedCompetitorLesson": false
+        }
+      ],
+      "intents": [
+        {
+          "id": "nature-gestes-01",
+          "topicId": "nature-gestes",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 1,
+          "intentFr": "Exprimer une préférence de trajet adaptée à la sortie.",
+          "referenceUtteranceFr": "Je préfère un sentier court pour cette promenade.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Exprimer une préférence de trajet adaptée à la sortie.",
+          "contextRole": "Personne qui organise la sortie",
+          "sourceContext": {
+            "learnerRole": "Personne qui organise la sortie",
+            "interlocutorRole": "Compagnon de sortie",
+            "settingFr": "Sortie nature : choisir des gestes écologiques utiles",
+            "function": "Exprimer une préférence de trajet adaptée à la sortie."
+          },
+          "variableParameters": [
+            {
+              "id": "propriete-sentier",
+              "scope": "propriété entière",
+              "maxChangedElements": 1,
+              "examplesFrIndicativeOnly": [
+                "court",
+                "facile"
+              ],
+              "wholeTargetVariantRequired": true,
+              "grammaticalInvarianceNotAssumed": true
+            }
+          ],
+          "requiredKnownConcepts": [
+            "operation:preference-avec-critere",
+            "nature:sentier"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "nature-gestes-02",
+          "topicId": "nature-gestes",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 2,
+          "intentFr": "Comparer le trajet à pied et la route en voiture.",
+          "referenceUtteranceFr": "Le trajet à pied est plus agréable que la route en voiture.",
+          "contentType": "utterance",
+          "progressionStage": "entrer",
+          "progressionGoal": "Comparer le trajet à pied et la route en voiture.",
+          "contextRole": "Personne qui organise la sortie",
+          "sourceContext": {
+            "learnerRole": "Personne qui organise la sortie",
+            "interlocutorRole": "Compagnon de sortie",
+            "settingFr": "Sortie nature : choisir des gestes écologiques utiles",
+            "function": "Comparer le trajet à pied et la route en voiture."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:comparaison-deux-options",
+            "travel:a-pied-en-voiture"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "nature-gestes-03",
+          "topicId": "nature-gestes",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 3,
+          "intentFr": "Expliquer le choix de gourdes plutôt que de bouteilles jetables.",
+          "referenceUtteranceFr": "Nous emportons nos gourdes pour éviter les bouteilles jetables.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Expliquer le choix de gourdes plutôt que de bouteilles jetables.",
+          "contextRole": "Personne qui organise la sortie",
+          "sourceContext": {
+            "learnerRole": "Personne qui organise la sortie",
+            "interlocutorRole": "Compagnon de sortie",
+            "settingFr": "Sortie nature : choisir des gestes écologiques utiles",
+            "function": "Expliquer le choix de gourdes plutôt que de bouteilles jetables."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:but-explicite",
+            "object:gourde"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "nature-gestes-04",
+          "topicId": "nature-gestes",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 4,
+          "intentFr": "Préciser une manière de garder ses déchets jusqu’à la sortie.",
+          "referenceUtteranceFr": "Je garde mes déchets dans mon sac jusqu’à la sortie.",
+          "contentType": "utterance",
+          "progressionStage": "preciser",
+          "progressionGoal": "Préciser une manière de garder ses déchets jusqu’à la sortie.",
+          "contextRole": "Personne qui organise la sortie",
+          "sourceContext": {
+            "learnerRole": "Personne qui organise la sortie",
+            "interlocutorRole": "Compagnon de sortie",
+            "settingFr": "Sortie nature : choisir des gestes écologiques utiles",
+            "function": "Préciser une manière de garder ses déchets jusqu’à la sortie."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:solution-concrete",
+            "nature:dechets"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "nature-gestes-05",
+          "topicId": "nature-gestes",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 5,
+          "intentFr": "Comparer la facilité de trouver une poubelle selon le lieu.",
+          "referenceUtteranceFr": "Les poubelles sont plus faciles à trouver près de l’entrée.",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Comparer la facilité de trouver une poubelle selon le lieu.",
+          "contextRole": "Personne qui organise la sortie",
+          "sourceContext": {
+            "learnerRole": "Personne qui organise la sortie",
+            "interlocutorRole": "Compagnon de sortie",
+            "settingFr": "Sortie nature : choisir des gestes écologiques utiles",
+            "function": "Comparer la facilité de trouver une poubelle selon le lieu."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:comparaison",
+            "place:pres-entree"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "nature-gestes-06",
+          "topicId": "nature-gestes",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 6,
+          "intentFr": "Expliquer un geste de tri par une propriété des emballages.",
+          "referenceUtteranceFr": "Je trie les emballages parce qu’ils sont recyclables.",
+          "contentType": "utterance",
+          "progressionStage": "ajuster",
+          "progressionGoal": "Expliquer un geste de tri par une propriété des emballages.",
+          "contextRole": "Personne qui organise la sortie",
+          "sourceContext": {
+            "learnerRole": "Personne qui organise la sortie",
+            "interlocutorRole": "Compagnon de sortie",
+            "settingFr": "Sortie nature : choisir des gestes écologiques utiles",
+            "function": "Expliquer un geste de tri par une propriété des emballages."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:raison-explicite",
+            "property:recyclable"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "nature-gestes-07",
+          "topicId": "nature-gestes",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 7,
+          "intentFr": "Expliquer le choix du chemin balisé pour protéger les plantes.",
+          "referenceUtteranceFr": "Je choisis le chemin balisé pour protéger les plantes.",
+          "contentType": "utterance",
+          "progressionStage": "resoudre",
+          "progressionGoal": "Expliquer le choix du chemin balisé pour protéger les plantes.",
+          "contextRole": "Personne qui organise la sortie",
+          "sourceContext": {
+            "learnerRole": "Personne qui organise la sortie",
+            "interlocutorRole": "Compagnon de sortie",
+            "settingFr": "Sortie nature : choisir des gestes écologiques utiles",
+            "function": "Expliquer le choix du chemin balisé pour protéger les plantes."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:but-explicite",
+            "nature:plantes"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        },
+        {
+          "id": "nature-gestes-08",
+          "topicId": "nature-gestes",
+          "level": 6,
+          "proposedLevel": 6,
+          "order": 8,
+          "intentFr": "Évaluer l’utilité pratique du choix retenu.",
+          "referenceUtteranceFr": "Ce choix réduit les déchets sans compliquer la sortie.",
+          "contentType": "utterance",
+          "progressionStage": "conclure",
+          "progressionGoal": "Évaluer l’utilité pratique du choix retenu.",
+          "contextRole": "Personne qui organise la sortie",
+          "sourceContext": {
+            "learnerRole": "Personne qui organise la sortie",
+            "interlocutorRole": "Compagnon de sortie",
+            "settingFr": "Sortie nature : choisir des gestes écologiques utiles",
+            "function": "Évaluer l’utilité pratique du choix retenu."
+          },
+          "variableParameters": [],
+          "requiredKnownConcepts": [
+            "operation:evaluation-avec-limite",
+            "nature:dechets"
+          ],
+          "preparedPrerequisiteStatus": "planned-needs-language-source-mapping-not-acquisition",
+          "sourceSearchStatus": "pending-seven-pair-whole-source-search",
+          "newPhraseClaim": false
+        }
+      ]
+    }
+  ],
+  "pedagogy": {
+    "eightIntentsAtSameLevelPerTheme": true,
+    "internalOrder": [
+      "entrer",
+      "preciser",
+      "ajuster",
+      "resoudre",
+      "conclure"
+    ],
+    "oneCommunicativeActionPerIntent": true,
+    "maximumVariableParametersPerIntent": 1,
+    "noUniversalGrammarSubstitutionRule": true,
+    "wholeSentenceOrPragmaticallyCompleteTurnOnly": true,
+    "noVocabularyCardHiddenInsideSituation": true,
+    "noForcedNarrativeInL2L3Topics": true,
+    "L4PastRecountPreparedExplicitly": true,
+    "L5ConcreteProblemToSolution": true,
+    "L6ReasonComparisonCriterion": true,
+    "interfaceInstructionsNotAddedByThisPlan": true
+  },
+  "canonicalReuseRules": {
+    "alreadyIntroducedEarlierOrSameLevel": "contextReference to the existing canonical id, not a new phrase",
+    "sourceIntroducedAtLaterEditorialLevel": "explicit motivated introductionDecision; sourceLv unchanged",
+    "newMeaningOrNoWholeSource": "authored whole utterance, declared new with complete phonetic aid pending-Claude",
+    "duplicateSourceAcrossTwoIntents": "one canonical; separate communicative intents must not inflate presentedCount with duplicate content",
+    "existingCoverageDoesNotProveConversationPrepared": true
+  },
+  "reviewResponsibilities": {
+    "semanticMeaning": "Codex",
+    "levelsAndProgression": "Codex",
+    "naturalnessAndRegister": "Codex",
+    "sourceAndNoveltyAudit": "Codex",
+    "phoneticReviewOnly": "Claude"
+  },
+  "languageAdaptation": {
+    "all": "Reference French texts express meanings to cover, not strings to translate word by word. Preserve coherent register and interlocutor. Exact existing equivalent may use a different natural construction.",
+    "ja": "Conserver une forme entière, le registre, les particules et la lecture ; ne pas découper les mots depuis les phrases.",
+    "ko": "Conserver une forme entière, les particules et la finale de politesse ; ne pas confondre une forme adnominale lexicale avec une réplique.",
+    "zh": "Conserver caractères, lecture et aide francophone entière ; les aides ne sont ni remplacées par le pinyin ni alignées automatiquement.",
+    "zh-fr": "Français naturel avec sens et aide chinoise entière ; aucune romanisation française imposée au lecteur sinophone.",
+    "evidenceSourceId": "duo-chinese"
+  },
+  "limits": [
+    "Les13pages publiques officielles consultées décrivent leurs propres offres et méthodes ; elles ne prouvent pas une efficacité comparée.",
+    "Les thèmes sont des adaptations originales ; aucun cours fermé ou texte concurrent complet n’est reproduit.",
+    "Les références françaises sont des formulations sémantiques de travail, pas des phrases réputées déjà sourcées ou approuvées en production.",
+    "80 intentions ne signifient ni80nouveautés par langue ni560nouvelles phrases : le bilan distinguera réemploi, introduction éditoriale et vraie rédaction.",
+    "Aucun prix, droit gratuit, niveau source ou texte classique n’est modifié par ce plan."
+  ]
+}

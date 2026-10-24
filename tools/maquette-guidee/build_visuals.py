@@ -100,14 +100,41 @@ def make():
                            'columns': 3, 'rows': 4, 'ownerApproved': False,
                            'brief': f"{atlas['family']}: dedicated photograph for L{number}"})
     assert len(correction_atlases) == 3 and len(slots) == 250
+    situation_atlases = []
+    situation_path = DOCS / 'enrichissement-situations/visuels-sources.json'
+    if situation_path.exists():
+        situations = json.loads(situation_path.read_text())
+        scenario_plan = json.loads((DOCS / 'enrichissement-situations/plan.json').read_text())
+        assert situations['planSha256'] == hashlib.sha256((DOCS / 'enrichissement-situations/plan.json').read_bytes()).hexdigest()
+        definitions = {row['id']: row for row in scenario_plan['themes']}
+        covered = set()
+        for atlas in situations['atlases']:
+            path = ROOT / 'melunga_deploy' / atlas['asset']
+            assert hashlib.sha256(path.read_bytes()).hexdigest() == atlas['sha256']
+            assert path.stat().st_size == atlas['bytes']
+            assert atlas['columns'] == 3 and atlas['rows'] == 4
+            situation_atlases.append(atlas)
+            for item in atlas['themes']:
+                definition = definitions[item['topicId']]
+                assert item['topicId'] not in covered and item['visualId'] == definition['visualId']
+                assert item['level'] == definition['level']
+                slot = (atlas['asset'], item['column'], item['row'])
+                assert slot not in slots and item['visualId'] not in visual_ids
+                assert 0 <= item['column'] < 3 and 0 <= item['row'] < 4
+                covered.add(item['topicId']); slots.add(slot); visual_ids.add(item['visualId'])
+                themes.append({'level': item['level'], 'themeId': definition['themeId'], 'visualId': item['visualId'],
+                               'asset': atlas['asset'], 'column': item['column'], 'row': item['row'],
+                               'columns': 3, 'rows': 4, 'ownerApproved': False,
+                               'brief': definition['title']['fr']})
+        assert covered == set(definitions) and len(covered) == 10 and len(slots) == 260
     return {'version': 2, 'status': 'approved-L1-photos-preserved-new-level-and-vocabulary-photos-awaiting-owner-review',
             'photographsAreSynthetic': True, 'thirdPartyImageRequests': 0,
             'distinctVisualPerDistinctTheme': True, 'sameThemeSharedAcrossLanguagePairs': True,
             'levels': levels, 'vocabularyAtlases': lexical_atlases, 'grammarAtlases': grammar_atlases,
-            'correctionAtlases': correction_atlases, 'themes': themes,
-            'checks': {'atlases': len(levels) + len(lexical_atlases) + len(grammar_atlases) + len(correction_atlases), 'distinctThemeSlots': len(slots),
+            'correctionAtlases': correction_atlases, 'situationAtlases': situation_atlases, 'themes': themes,
+            'checks': {'atlases': len(levels) + len(lexical_atlases) + len(grammar_atlases) + len(correction_atlases) + len(situation_atlases), 'distinctThemeSlots': len(slots),
                        'approvedL1HashPreserved': True,
-                       'totalBytesAcrossTenLevels': sum(row['bytes'] for row in levels + lexical_atlases + grammar_atlases + correction_atlases)}}
+                       'totalBytesAcrossTenLevels': sum(row['bytes'] for row in levels + lexical_atlases + grammar_atlases + correction_atlases + situation_atlases)}}
 
 
 def main():

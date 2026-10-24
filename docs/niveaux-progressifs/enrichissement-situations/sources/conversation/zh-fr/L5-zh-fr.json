@@ -1,0 +1,988 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "fr",
+ "nativeLanguage": "zh",
+ "fields": {
+  "study": "phrase en français",
+  "phon": "prononciation écrite pour sinophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "用汉字标注法语读音（沿用词库风格：美西 = merci，诺 = non）。汉字只是近似，请以音频为准。法语无声调；重音不在单词上，而是落在一个节奏组（短语或句子）的最后一个音节，并略微拉长。",
+ "reviewStatus": "需语言校对（汉字注音的近似程度、译文自然度）。",
+ "coverageClaim": null,
+ "level": 5,
+ "title": "讲述经历",
+ "goal": "讲述过去的事并询问近况。",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L5-zh-fr-01",
+   "situation": "说昨天做了什么",
+   "model": {
+    "study": "Hier, j'ai {s}.",
+    "phon": "耶尔，热 {s}",
+    "native": "昨天我{s}了。",
+    "note": "法语复合过去时 = avoir（这里是 j'ai）+ 过去分词（travaillé, mangé…）。中文里用“昨天”加“了”表达完成。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "travaillé",
+      "phon": "特拉瓦耶",
+      "native": "工作"
+     },
+     "study": "Hier, j'ai travaillé.",
+     "phon": "耶尔，热 特拉瓦耶",
+     "native": "昨天我工作了。"
+    },
+    {
+     "slot": {
+      "study": "mangé au restaurant",
+      "phon": "芒热 奥 雷斯托朗",
+      "native": "在餐厅吃饭"
+     },
+     "study": "Hier, j'ai mangé au restaurant.",
+     "phon": "耶尔，热 芒热 奥 雷斯托朗",
+     "native": "昨天我在餐厅吃饭了。"
+    },
+    {
+     "slot": {
+      "study": "vu un film",
+      "phon": "维 安 菲尔姆",
+      "native": "看了一部电影"
+     },
+     "study": "Hier, j'ai vu un film.",
+     "phon": "耶尔，热 维 安 菲尔姆",
+     "native": "昨天我看了一部电影。"
+    },
+    {
+     "slot": {
+      "study": "dormi dix heures",
+      "phon": "多尔米 迪 泽尔",
+      "native": "睡了十个小时"
+     },
+     "study": "Hier, j'ai dormi dix heures.",
+     "phon": "耶尔，热 多尔米 迪 泽尔",
+     "native": "昨天我睡了十个小时。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-zh-fr-02",
+   "situation": "去了哪里",
+   "model": {
+    "study": "Je suis allé {s}.",
+    "phon": "热 绥 扎莱 {s}",
+    "native": "我去了{s}。",
+    "note": "« aller » 的过去时用 être：je suis allé。女性写成 allée（读音相同）。这里的“了”表示动作已完成。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "au cinéma",
+      "phon": "奥 西内马",
+      "native": "电影院"
+     },
+     "study": "Je suis allé au cinéma.",
+     "phon": "热 绥 扎莱 奥 西内马",
+     "native": "我去了电影院。"
+    },
+    {
+     "slot": {
+      "study": "chez des amis",
+      "phon": "谢 德 扎米",
+      "native": "朋友家"
+     },
+     "study": "Je suis allé chez des amis.",
+     "phon": "热 绥 扎莱 谢 德 扎米",
+     "native": "我去了朋友家。"
+    },
+    {
+     "slot": {
+      "study": "à la plage",
+      "phon": "阿 拉 普拉日",
+      "native": "海滩"
+     },
+     "study": "Je suis allé à la plage.",
+     "phon": "热 绥 扎莱 阿 拉 普拉日",
+     "native": "我去了海滩。"
+    },
+    {
+     "slot": {
+      "study": "en Chine",
+      "phon": "昂 希讷",
+      "native": "中国"
+     },
+     "study": "Je suis allé en Chine.",
+     "phon": "热 绥 扎莱 昂 希讷",
+     "native": "我去了中国。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-zh-fr-03",
+   "situation": "说什么时候",
+   "model": {
+    "study": "J'ai vu Marie {s}.",
+    "phon": "热 维 玛丽 {s}",
+    "native": "我{s}见到了玛丽。",
+    "note": "« il y a » + 时间段 = “……以前”（il y a deux jours = 两天前）。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "hier",
+      "phon": "耶尔",
+      "native": "昨天"
+     },
+     "study": "J'ai vu Marie hier.",
+     "phon": "热 维 玛丽 耶尔",
+     "native": "我昨天见到了玛丽。"
+    },
+    {
+     "slot": {
+      "study": "la semaine dernière",
+      "phon": "拉 瑟曼 代尔尼埃尔",
+      "native": "上个星期"
+     },
+     "study": "J'ai vu Marie la semaine dernière.",
+     "phon": "热 维 玛丽 拉 瑟曼 代尔尼埃尔",
+     "native": "我上个星期见到了玛丽。"
+    },
+    {
+     "slot": {
+      "study": "il y a deux jours",
+      "phon": "伊 利 亚 德 茹尔",
+      "native": "两天前"
+     },
+     "study": "J'ai vu Marie il y a deux jours.",
+     "phon": "热 维 玛丽 伊 利 亚 德 茹尔",
+     "native": "我两天前见到了玛丽。"
+    },
+    {
+     "slot": {
+      "study": "le mois dernier",
+      "phon": "勒 穆瓦 代尔尼耶",
+      "native": "上个月"
+     },
+     "study": "J'ai vu Marie le mois dernier.",
+     "phon": "热 维 玛丽 勒 穆瓦 代尔尼耶",
+     "native": "我上个月见到了玛丽。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-zh-fr-04",
+   "situation": "问近况",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "问候与回应的固定说法，整句记住。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "Ça va ?",
+      "phon": "萨 瓦",
+      "native": "你好吗？"
+     },
+     "study": "Ça va ?",
+     "phon": "萨 瓦",
+     "native": "你好吗？"
+    },
+    {
+     "slot": {
+      "study": "Quoi de neuf ?",
+      "phon": "克瓦 德 讷夫",
+      "native": "最近有什么新鲜事？"
+     },
+     "study": "Quoi de neuf ?",
+     "phon": "克瓦 德 讷夫",
+     "native": "最近有什么新鲜事？"
+    },
+    {
+     "slot": {
+      "study": "Ça va, et toi ?",
+      "phon": "萨 瓦，埃 图瓦",
+      "native": "还好，你呢？"
+     },
+     "study": "Ça va, et toi ?",
+     "phon": "萨 瓦，埃 图瓦",
+     "native": "还好，你呢？"
+    },
+    {
+     "slot": {
+      "study": "Comment s'est passé ton week-end ?",
+      "phon": "科芒 赛 帕塞 通 维肯德",
+      "native": "你周末过得怎么样？"
+     },
+     "study": "Comment s'est passé ton week-end ?",
+     "phon": "科芒 赛 帕塞 通 维肯德",
+     "native": "你周末过得怎么样？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-zh-fr-05",
+   "situation": "做出反应",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "听别人讲述时的简短反应，整句记住。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "C'est super !",
+      "phon": "赛 苏佩尔",
+      "native": "太棒了！"
+     },
+     "study": "C'est super !",
+     "phon": "赛 苏佩尔",
+     "native": "太棒了！"
+    },
+    {
+     "slot": {
+      "study": "Dommage !",
+      "phon": "多马日",
+      "native": "真可惜！"
+     },
+     "study": "Dommage !",
+     "phon": "多马日",
+     "native": "真可惜！"
+    },
+    {
+     "slot": {
+      "study": "Vraiment ?",
+      "phon": "弗雷芒",
+      "native": "真的吗？"
+     },
+     "study": "Vraiment ?",
+     "phon": "弗雷芒",
+     "native": "真的吗？"
+    },
+    {
+     "slot": {
+      "study": "Quelle chance !",
+      "phon": "凯尔 尚斯",
+      "native": "真幸运！"
+     },
+     "study": "Quelle chance !",
+     "phon": "凯尔 尚斯",
+     "native": "真幸运！"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-zh-fr-06",
+   "situation": "按顺序讲",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "用 d'abord（首先）、puis（然后）、après（之后）、enfin（最后）把几件事串起来。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "D'abord, j'ai pris le train.",
+      "phon": "达博尔，热 普里 勒 特兰",
+      "native": "首先，我坐了火车。"
+     },
+     "study": "D'abord, j'ai pris le train.",
+     "phon": "达博尔，热 普里 勒 特兰",
+     "native": "首先，我坐了火车。"
+    },
+    {
+     "slot": {
+      "study": "Puis, j'ai visité le musée.",
+      "phon": "皮，热 维吉泰 勒 缪泽",
+      "native": "然后，我参观了博物馆。"
+     },
+     "study": "Puis, j'ai visité le musée.",
+     "phon": "皮，热 维吉泰 勒 缪泽",
+     "native": "然后，我参观了博物馆。"
+    },
+    {
+     "slot": {
+      "study": "Après, j'ai mangé avec des amis.",
+      "phon": "阿普雷，热 芒热 阿维克 德 扎米",
+      "native": "之后，我和朋友一起吃了饭。"
+     },
+     "study": "Après, j'ai mangé avec des amis.",
+     "phon": "阿普雷，热 芒热 阿维克 德 扎米",
+     "native": "之后，我和朋友一起吃了饭。"
+    },
+    {
+     "slot": {
+      "study": "Enfin, je suis rentré à l'hôtel.",
+      "phon": "昂凡，热 绥 朗特雷 阿 洛泰尔",
+      "native": "最后，我回到了酒店。"
+     },
+     "study": "Enfin, je suis rentré à l'hôtel.",
+     "phon": "昂凡，热 绥 朗特雷 阿 洛泰尔",
+     "native": "最后，我回到了酒店。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-zh-fr-07",
+   "situation": "和谁、在哪里",
+   "model": {
+    "study": "J'ai passé le week-end {s}.",
+    "phon": "热 帕塞 勒 维肯德 {s}",
+    "native": "我{s}过了周末。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "avec ma famille",
+      "phon": "阿维克 马 法米伊",
+      "native": "和家人"
+     },
+     "study": "J'ai passé le week-end avec ma famille.",
+     "phon": "热 帕塞 勒 维肯德 阿维克 马 法米伊",
+     "native": "我和家人过了周末。"
+    },
+    {
+     "slot": {
+      "study": "chez mes parents",
+      "phon": "谢 梅 帕朗",
+      "native": "在父母家"
+     },
+     "study": "J'ai passé le week-end chez mes parents.",
+     "phon": "热 帕塞 勒 维肯德 谢 梅 帕朗",
+     "native": "我在父母家过了周末。"
+    },
+    {
+     "slot": {
+      "study": "à la maison",
+      "phon": "阿 拉 梅宗",
+      "native": "在家"
+     },
+     "study": "J'ai passé le week-end à la maison.",
+     "phon": "热 帕塞 勒 维肯德 阿 拉 梅宗",
+     "native": "我在家过了周末。"
+    },
+    {
+     "slot": {
+      "study": "à Paris",
+      "phon": "阿 巴黎",
+      "native": "在巴黎"
+     },
+     "study": "J'ai passé le week-end à Paris.",
+     "phon": "热 帕塞 勒 维肯德 阿 巴黎",
+     "native": "我在巴黎过了周末。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-zh-fr-08",
+   "situation": "说没有做",
+   "model": {
+    "study": "Je n'ai pas {s}.",
+    "phon": "热 内 帕 {s}",
+    "native": "我没有{s}。",
+    "note": "否定 ne … pas 夹住助动词：je n'ai pas dormi（ne 在元音前缩成 n'）。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "dormi",
+      "phon": "多尔米",
+      "native": "睡觉"
+     },
+     "study": "Je n'ai pas dormi.",
+     "phon": "热 内 帕 多尔米",
+     "native": "我没有睡觉。"
+    },
+    {
+     "slot": {
+      "study": "compris",
+      "phon": "孔普里",
+      "native": "听懂"
+     },
+     "study": "Je n'ai pas compris.",
+     "phon": "热 内 帕 孔普里",
+     "native": "我没有听懂。"
+    },
+    {
+     "slot": {
+      "study": "fini",
+      "phon": "菲尼",
+      "native": "做完"
+     },
+     "study": "Je n'ai pas fini.",
+     "phon": "热 内 帕 菲尼",
+     "native": "我没有做完。"
+    },
+    {
+     "slot": {
+      "study": "eu le temps",
+      "phon": "于 勒 唐",
+      "native": "时间"
+     },
+     "study": "Je n'ai pas eu le temps.",
+     "phon": "热 内 帕 于 勒 唐",
+     "native": "我没有时间。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-zh-fr-09",
+   "situation": "做了什么活动",
+   "model": {
+    "study": "J'ai fait {s}.",
+    "phon": "热 费 {s}",
+    "native": "我{s}了。",
+    "note": "« faire » 搭配很多活动：faire du sport, faire les courses, faire la cuisine。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "du sport",
+      "phon": "迪 斯波尔",
+      "native": "运动"
+     },
+     "study": "J'ai fait du sport.",
+     "phon": "热 费 迪 斯波尔",
+     "native": "我运动了。"
+    },
+    {
+     "slot": {
+      "study": "les courses",
+      "phon": "莱 库尔斯",
+      "native": "买东西"
+     },
+     "study": "J'ai fait les courses.",
+     "phon": "热 费 莱 库尔斯",
+     "native": "我买东西了。"
+    },
+    {
+     "slot": {
+      "study": "la cuisine",
+      "phon": "拉 居伊吉讷",
+      "native": "做饭"
+     },
+     "study": "J'ai fait la cuisine.",
+     "phon": "热 费 拉 居伊吉讷",
+     "native": "我做饭了。"
+    },
+    {
+     "slot": {
+      "study": "une promenade",
+      "phon": "于讷 普罗姆纳德",
+      "native": "散步"
+     },
+     "study": "J'ai fait une promenade.",
+     "phon": "热 费 于讷 普罗姆纳德",
+     "native": "我散步了。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-zh-fr-10",
+   "situation": "评价经历",
+   "model": {
+    "study": "C'était {s}.",
+    "phon": "赛泰 {s}",
+    "native": "很{s}。",
+    "note": "« C'était » 是 « C'est » 的过去形式，用来评价已经结束的事。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "super",
+      "phon": "苏佩尔",
+      "native": "棒"
+     },
+     "study": "C'était super.",
+     "phon": "赛泰 苏佩尔",
+     "native": "很棒。"
+    },
+    {
+     "slot": {
+      "study": "fatigant",
+      "phon": "法蒂冈",
+      "native": "累"
+     },
+     "study": "C'était fatigant.",
+     "phon": "赛泰 法蒂冈",
+     "native": "很累。"
+    },
+    {
+     "slot": {
+      "study": "intéressant",
+      "phon": "安泰雷桑",
+      "native": "有意思"
+     },
+     "study": "C'était intéressant.",
+     "phon": "赛泰 安泰雷桑",
+     "native": "很有意思。"
+    },
+    {
+     "slot": {
+      "study": "trop cher",
+      "phon": "特罗 谢尔",
+      "native": "太贵"
+     },
+     "study": "C'était trop cher.",
+     "phon": "赛泰 特罗 谢尔",
+     "native": "太贵了。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-zh-fr-11",
+   "situation": "问有没有过",
+   "model": {
+    "study": "Tu as déjà {s} ?",
+    "phon": "蒂 阿 德扎 {s}",
+    "native": "你{s}吗？",
+    "note": "« déjà » = 曾经。回答：Oui, déjà.（去过）/ Non, pas encore.（还没有）。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "visité Paris",
+      "phon": "维吉泰 巴黎",
+      "native": "去过巴黎"
+     },
+     "study": "Tu as déjà visité Paris ?",
+     "phon": "蒂 阿 德扎 维吉泰 巴黎",
+     "native": "你去过巴黎吗？"
+    },
+    {
+     "slot": {
+      "study": "mangé des escargots",
+      "phon": "芒热 德 泽斯卡尔戈",
+      "native": "吃过蜗牛"
+     },
+     "study": "Tu as déjà mangé des escargots ?",
+     "phon": "蒂 阿 德扎 芒热 德 泽斯卡尔戈",
+     "native": "你吃过蜗牛吗？"
+    },
+    {
+     "slot": {
+      "study": "pris le TGV",
+      "phon": "普里 勒 泰热韦",
+      "native": "坐过高铁"
+     },
+     "study": "Tu as déjà pris le TGV ?",
+     "phon": "蒂 阿 德扎 普里 勒 泰热韦",
+     "native": "你坐过高铁吗？"
+    },
+    {
+     "slot": {
+      "study": "vu ce film",
+      "phon": "维 瑟 菲尔姆",
+      "native": "看过这部电影"
+     },
+     "study": "Tu as déjà vu ce film ?",
+     "phon": "蒂 阿 德扎 维 瑟 菲尔姆",
+     "native": "你看过这部电影吗？"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L5-zh-fr-12",
+   "situation": "什么时候到的",
+   "model": {
+    "study": "Je suis arrivé {s}.",
+    "phon": "热 绥 扎里韦 {s}",
+    "native": "我{s}到的。",
+    "note": "« arriver » 也用 être：je suis arrivé（女性 arrivée）。"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "hier soir",
+      "phon": "耶尔 斯瓦尔",
+      "native": "昨天晚上"
+     },
+     "study": "Je suis arrivé hier soir.",
+     "phon": "热 绥 扎里韦 耶尔 斯瓦尔",
+     "native": "我昨天晚上到的。"
+    },
+    {
+     "slot": {
+      "study": "il y a trois jours",
+      "phon": "伊 利 亚 特鲁瓦 茹尔",
+      "native": "三天前"
+     },
+     "study": "Je suis arrivé il y a trois jours.",
+     "phon": "热 绥 扎里韦 伊 利 亚 特鲁瓦 茹尔",
+     "native": "我三天前到的。"
+    },
+    {
+     "slot": {
+      "study": "lundi",
+      "phon": "兰迪",
+      "native": "星期一"
+     },
+     "study": "Je suis arrivé lundi.",
+     "phon": "热 绥 扎里韦 兰迪",
+     "native": "我星期一到的。"
+    },
+    {
+     "slot": {
+      "study": "ce matin",
+      "phon": "瑟 马坦",
+      "native": "今天早上"
+     },
+     "study": "Je suis arrivé ce matin.",
+     "phon": "热 绥 扎里韦 瑟 马坦",
+     "native": "我今天早上到的。"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L5-zh-fr-d1",
+   "situation": "周末过得怎么样",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Salut ! Ça va ? Quoi de neuf ?",
+     "phon": "萨吕！萨 瓦？克瓦 德 讷夫",
+     "native": "嗨！你好吗？最近有什么新鲜事？"
+    },
+    {
+     "speaker": "B",
+     "study": "Ça va, et toi ? Je suis allé à la plage ce week-end.",
+     "phon": "萨 瓦，埃 图瓦？热 绥 扎莱 阿 拉 普拉日 瑟 维肯德",
+     "native": "还好，你呢？我这个周末去海滩了。"
+    },
+    {
+     "speaker": "A",
+     "study": "C'est super ! Il a fait beau ?",
+     "phon": "赛 苏佩尔！伊 拉 费 博",
+     "native": "太棒了！天气好吗？"
+    },
+    {
+     "speaker": "B",
+     "study": "Oui, très beau. D'abord, on a nagé, puis on a mangé au restaurant.",
+     "phon": "威，特雷 博。达博尔，翁 阿 纳热，皮 翁 阿 芒热 奥 雷斯托朗",
+     "native": "很好。我们先游了泳，然后在餐厅吃了饭。"
+    },
+    {
+     "speaker": "A",
+     "study": "Et après ?",
+     "phon": "埃 阿普雷",
+     "native": "然后呢？"
+    },
+    {
+     "speaker": "B",
+     "study": "Après, j'ai dormi dix heures ! Et toi, qu'est-ce que tu as fait ?",
+     "phon": "阿普雷，热 多尔米 迪 泽尔！埃 图瓦，凯斯 克 蒂 阿 费",
+     "native": "然后我睡了十个小时！你呢，你做了什么？"
+    },
+    {
+     "speaker": "A",
+     "study": "Moi, j'ai travaillé samedi. Dommage !",
+     "phon": "穆瓦，热 特拉瓦耶 萨姆迪。多马日",
+     "native": "我星期六上班了。真可惜！"
+    },
+    {
+     "speaker": "B",
+     "study": "Vraiment ? Le week-end prochain, tu viens avec nous.",
+     "phon": "弗雷芒？勒 维肯德 普罗申，蒂 维安 阿维克 努",
+     "native": "真的吗？下个周末你跟我们一起去。"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L1-zh-fr-01",
+    "L1-zh-fr-07",
+    "L2-zh-fr-03",
+    "L3-zh-fr-03",
+    "L4-zh-fr-04",
+    "L5-zh-fr-02",
+    "L5-zh-fr-04",
+    "L5-zh-fr-05"
+   ],
+   "roles": {
+    "A": "你",
+    "B": "朋友"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L5-zh-fr-d2",
+   "situation": "假期归来（同事之间）",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Bonjour Marc ! Comment se sont passées vos vacances ?",
+     "phon": "蓬茹尔 马尔克！科芒 瑟 松 帕塞 沃 瓦康斯",
+     "native": "您好，马克！您的假期过得怎么样？"
+    },
+    {
+     "speaker": "B",
+     "study": "Très bien, merci. Je suis allé en Italie avec ma famille.",
+     "phon": "特雷 比安，美西。热 绥 扎莱 昂 尼塔利 阿维克 马 法米伊",
+     "native": "很好，谢谢。我和家人去了意大利。"
+    },
+    {
+     "speaker": "A",
+     "study": "Quelle chance ! Vous êtes rentré quand ?",
+     "phon": "凯尔 尚斯！武 泽特 朗特雷 康",
+     "native": "真幸运！您什么时候回来的？"
+    },
+    {
+     "speaker": "B",
+     "study": "Il y a deux jours. Et vous, vous avez travaillé ?",
+     "phon": "伊 利 亚 德 茹尔。埃 武，武 扎韦 特拉瓦耶",
+     "native": "两天前。您呢，您一直在上班吗？"
+    },
+    {
+     "speaker": "A",
+     "study": "Oui, mais la semaine dernière j'ai vu un très bon film.",
+     "phon": "威，梅 拉 瑟曼 代尔尼埃尔 热 维 安 特雷 蓬 菲尔姆",
+     "native": "是的，不过上周我看了一部很好的电影。"
+    },
+    {
+     "speaker": "B",
+     "study": "Lequel ?",
+     "phon": "勒凯尔",
+     "native": "哪一部？"
+    },
+    {
+     "speaker": "A",
+     "study": "Un film chinois. C'était vraiment intéressant.",
+     "phon": "安 菲尔姆 希努瓦。赛泰 弗雷芒 安泰雷桑",
+     "native": "一部中国电影。真的很有意思。"
+    },
+    {
+     "speaker": "B",
+     "study": "Je n'ai pas encore vu ce film. Je vais le voir !",
+     "phon": "热 内 帕 藏科尔 维 瑟 菲尔姆。热 维 勒 瓦尔",
+     "native": "我还没看过这部电影。我要去看！"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L1-zh-fr-01",
+    "L1-zh-fr-06",
+    "L1-zh-fr-07",
+    "L2-zh-fr-07",
+    "L2-zh-fr-08",
+    "L4-zh-fr-04",
+    "L5-zh-fr-02",
+    "L5-zh-fr-05",
+    "L5-zh-fr-08",
+    "L5-zh-fr-10"
+   ],
+   "roles": {
+    "A": "你",
+    "B": "同事"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L5-zh-fr-d3",
+   "situation": "和家人通电话",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Allô, maman ? C'est Lin. Ça va ?",
+     "phon": "阿罗，妈芒？赛 林。萨 瓦",
+     "native": "喂，妈妈？是我，林。你好吗？"
+    },
+    {
+     "speaker": "B",
+     "study": "Ça va bien, ma fille. Et toi ? Tu es arrivée à Lyon ?",
+     "phon": "萨 瓦 比安，马 菲伊。埃 图瓦？蒂 埃 阿里韦 阿 里昂",
+     "native": "很好，女儿。你呢？你到里昂了吗？"
+    },
+    {
+     "speaker": "A",
+     "study": "Oui, je suis arrivée hier soir. Le voyage était long.",
+     "phon": "威，热 绥 扎里韦 耶尔 斯瓦尔。勒 瓦亚日 埃泰 隆",
+     "native": "到了，我昨天晚上到的。路上时间很长。"
+    },
+    {
+     "speaker": "B",
+     "study": "Tu as bien dormi ?",
+     "phon": "蒂 阿 比安 多尔米",
+     "native": "你睡得好吗？"
+    },
+    {
+     "speaker": "A",
+     "study": "Non, je n'ai pas beaucoup dormi. Mais ce matin, j'ai fait une promenade.",
+     "phon": "诺，热 内 帕 博库 多尔米。梅 瑟 马坦，热 费 于讷 普罗姆纳德",
+     "native": "没有，我没睡多少。不过今天早上我去散步了。"
+    },
+    {
+     "speaker": "B",
+     "study": "C'est bien. Et ton frère, tu l'as vu ?",
+     "phon": "赛 比安。埃 通 弗雷尔，蒂 拉 维",
+     "native": "很好。那你哥哥呢，你见到他了吗？"
+    },
+    {
+     "speaker": "A",
+     "study": "Oui, j'ai mangé chez lui il y a deux jours. C'était super.",
+     "phon": "威，热 芒热 谢 吕伊 伊 利 亚 德 茹尔。赛泰 苏佩尔",
+     "native": "见到了，两天前我在他家吃了饭。太好了。"
+    },
+    {
+     "speaker": "B",
+     "study": "Super ! Appelle-moi dimanche, d'accord ?",
+     "phon": "苏佩尔！阿佩尔 穆瓦 迪芒什，达科尔",
+     "native": "太好了！星期天给我打电话，好吗？"
+    },
+    {
+     "speaker": "A",
+     "study": "D'accord, maman. Bisous !",
+     "phon": "达科尔，妈芒。比祖",
+     "native": "好的，妈妈。亲亲！"
+    }
+   ],
+   "practice": "先听两个角色，遮住一个角色自己回答，再把一句台词换成自己的说法。",
+   "reuses": [
+    "L1-zh-fr-01",
+    "L1-zh-fr-07",
+    "L2-zh-fr-03",
+    "L2-zh-fr-08",
+    "L3-zh-fr-07",
+    "L3-zh-fr-12",
+    "L4-zh-fr-04",
+    "L5-zh-fr-04",
+    "L5-zh-fr-08",
+    "L5-zh-fr-09",
+    "L5-zh-fr-10",
+    "L5-zh-fr-12"
+   ],
+   "roles": {
+    "A": "你",
+    "B": "妈妈"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "能用复合过去时讲述昨天、上周或假期做了什么，给出时间标记（昨天、上周、两天前），问候并回应近况，对别人的讲述做出反应，并用“首先、然后、之后”串起几件事。"
+}

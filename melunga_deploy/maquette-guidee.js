@@ -368,6 +368,11 @@
         ? ' · 其中 ' + theme.reviewCount + ' 项复习'
         : ' · ' + theme.reviewCount + (theme.reviewCount === 1 ? ' révision' : ' révisions');
     }
+    if (theme && theme.reuseCount) {
+      quantity.textContent += state.pair.nativeLanguage === 'zh'
+        ? ' · 其中 ' + theme.reuseCount + ' 项情境复用'
+        : ' · ' + theme.reuseCount + (theme.reuseCount === 1 ? ' réemploi' : ' réemplois');
+    }
     if (theme && theme.optional) quantity.textContent += ' · ' + tr('Facultatif');
     content.append(label, quantity);
     const arrow = document.createElement('span');
@@ -503,7 +508,8 @@
     ui.help.hidden = false;
     ui.phase.hidden = false;
     text(ui.lessonTheme, themeLabel(state.theme) + (step.isReview
-      ? state.pair.nativeLanguage === 'zh' ? ' · 复习' : ' · Révision' : ''));
+      ? state.pair.nativeLanguage === 'zh' ? ' · 复习' : ' · Révision'
+      : step.isContextReuse ? state.pair.nativeLanguage === 'zh' ? ' · 情境复用' : ' · Réemploi' : ''));
     text(ui.backText, tr(state.lessonScope !== 'sequence' ? 'Thèmes' : 'Séquences'));
     ui.phase.innerHTML = definition.icon;
     ui.phase.setAttribute('aria-label', tr(definition.label));
@@ -665,7 +671,7 @@
       }
       let references = new Map();
       let validatedBank = null;
-      if (pair.themes.some(theme => (theme.reviewReferences || []).length)) {
+      if (pair.themes.some(theme => (theme.reviewReferences || []).length || (theme.contextReferences || []).length)) {
         const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
         if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
         let bank = state.repertoireCache.get(id);
@@ -761,7 +767,7 @@
         if (pair.counts && (!['utterance', 'vocabulary', 'number'].includes(theme.contentType)
             || theme.section !== (theme.contentType === 'utterance' ? 'situations' : 'vocabulary')
             || theme.phrases.some(phrase => phrase.contentType !== theme.contentType || phrase.isTemplate))) throw new Error('Mixed content theme');
-        if (theme.photo && (!/^assets\/(?:theme-scenes(?:-L(?:[2-9]|10))?|vocabulary-scenes-L(?:1|3|5|7|9)-L(?:2|4|6|8|10)|pos-scenes-L1-L4|pos-scenes-L5-L8|pos-scenes-L9-L10|color-scenes|nature-scenes|leisure-scenes)\.webp$/.test(theme.photo.asset)
+        if (theme.photo && (!/^assets\/(?:theme-scenes(?:-L(?:[2-9]|10))?|vocabulary-scenes-L(?:1|3|5|7|9)-L(?:2|4|6|8|10)|pos-scenes-L1-L4|pos-scenes-L5-L8|pos-scenes-L9-L10|color-scenes|nature-scenes|leisure-scenes|situation-scenes)\.webp$/.test(theme.photo.asset)
             || ![3, 4].includes(theme.photo.columns) || theme.photo.rows !== 4
             || !Number.isInteger(theme.photo.column) || theme.photo.column < 0 || theme.photo.column >= theme.photo.columns
             || !Number.isInteger(theme.photo.row) || theme.photo.row < 0 || theme.photo.row >= theme.photo.rows)) throw new Error('Invalid theme photo');
@@ -785,9 +791,35 @@
               || !reference.reason) throw new Error('Invalid review reference');
           reviewIds.add(reference.id);
         }
-        const presentedIds = new Set([...ids, ...reviewIds]);
+        const contextIds = new Set();
+        if (theme.isAdditionalSituation !== undefined && typeof theme.isAdditionalSituation !== 'boolean') throw new Error('Invalid situation marker');
+        if (theme.isAdditionalSituation && (theme.contentType !== 'utterance'
+            || theme.section !== 'situations' || !Array.isArray(theme.intentIds)
+            || theme.intentIds.some(id => typeof id !== 'string' || !id.trim())
+            || theme.intentIds.length !== 8 || new Set(theme.intentIds).size !== 8)) throw new Error('Invalid additional situation');
+        for (const reference of theme.contextReferences || []) {
+          const phrase = references.get(reference.id);
+          if (!theme.isAdditionalSituation || !phrase || phrase.contentType !== 'utterance'
+              || ids.has(reference.id) || reviewIds.has(reference.id) || contextIds.has(reference.id)
+              || reference.firstEditorialLevel !== phrase.canonicalLocation.level
+              || reference.firstEditorialLevel > pair.level
+              || reference.canonicalThemeId !== phrase.canonicalLocation.themeId
+              || !theme.intentIds.includes(reference.intentId) || !reference.reason) throw new Error('Invalid context reference');
+          contextIds.add(reference.id);
+        }
+        const presentedIds = new Set([...ids, ...reviewIds, ...contextIds]);
+        if (theme.isAdditionalSituation && presentedIds.size !== 8) throw new Error('Incomplete additional situation');
+        if (theme.isAdditionalSituation) {
+          const coveredIntents = [
+            ...theme.phrases.map(phrase => phrase.situationIntentId || phrase.intentId),
+            ...(theme.contextReferences || []).map(reference => reference.intentId)
+          ];
+          if (coveredIntents.length !== 8 || new Set(coveredIntents).size !== 8
+              || coveredIntents.some(id => !theme.intentIds.includes(id))) throw new Error('Invalid situation intent coverage');
+        }
         if (pair.counts && Number.isInteger(theme.presentedCount)
             && (theme.newCount !== ids.size || theme.reviewCount !== reviewIds.size
+                || (theme.reuseCount || 0) !== contextIds.size
                 || theme.presentedCount !== presentedIds.size || theme.presentedCount < 6
                 || !Number.isInteger(theme.pedagogicalConceptCount)
                 || theme.pedagogicalConceptCount < 6)) throw new Error('Invalid theme repertoire counts');
@@ -803,10 +835,19 @@
             if (step.isPreparation && (!['understand', 'imitate'].includes(step.kind) || !sequence.phraseIds.includes(step.prepares))) throw new Error('Invalid preparation step');
             if (reviewIds.has(step.utterance) && step.isReview !== true) throw new Error('Unmarked review');
             if (!step.isPreparation && step.isReview && !reviewIds.has(step.utterance)) throw new Error('False review');
+            if (contextIds.has(step.utterance) && (step.isContextReuse !== true || step.isReview)) throw new Error('Unmarked context reuse');
+            if (!step.isPreparation && step.isContextReuse && !contextIds.has(step.utterance)) throw new Error('False context reuse');
             if (theme.contentType === 'utterance' && references.some(id => activeById.get(id)?.contentType !== 'utterance')) throw new Error('Lexical step in a situation');
           });
         });
         if (included.length !== presentedIds.size || new Set(included).size !== presentedIds.size) throw new Error('Incomplete theme');
+        if (theme.isAdditionalSituation) {
+          const intentByPhrase = new Map([
+            ...theme.phrases.map(phrase => [phrase.id, phrase.situationIntentId || phrase.intentId]),
+            ...(theme.contextReferences || []).map(reference => [reference.id, reference.intentId])
+          ]);
+          if (included.some((id, index) => intentByPhrase.get(id) !== theme.intentIds[index])) throw new Error('Invalid situation order');
+        }
       });
     });
     return data;

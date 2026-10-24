@@ -47,6 +47,9 @@ LEGACY = Path(__file__).with_name("build_data.py")
 spec = importlib.util.spec_from_file_location("approved_l1_builder", LEGACY)
 legacy = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(legacy)
+_situation_spec = importlib.util.spec_from_file_location("separate_situation_content", Path(__file__).with_name("situation_content.py"))
+situation_content = importlib.util.module_from_spec(_situation_spec)
+_situation_spec.loader.exec_module(situation_content)
 
 
 def canonical(value):
@@ -247,10 +250,14 @@ def lexical_family(card, study, old_domain, policy, source_index, semantic):
     return destination, "previous-domain-fallback-needs-review"
 
 
-def level_definitions(plan_level, policy):
+def level_definitions(plan_level, policy, additional_situations=None):
     level = plan_level["level"]
     definitions = [{**item, "contentType": "utterance", "section": "situations"}
                    for item in plan_level["themes"] if item["domain"] != "personnaliser"]
+    for item in additional_situations or []:
+        if item["level"] == level:
+            definitions.append({**item, "id": item["themeId"], "contentType": "utterance", "section": "situations",
+                                "isAdditionalSituation": True, "intentIds": [intent["id"] for intent in item["intents"]]})
     for item in sorted(policy["themeDefinitions"], key=lambda value: value.get("order", 0)):
         definitions.append({**item, "id": item["idPattern"].format(level=level),
                             "visualId": item["visualIdPattern"].format(level=level),
@@ -544,13 +551,17 @@ def adjective_priority_keys(phrases, base_keys):
     return result
 
 
-def sequences(pair_id, level, theme_id, phrases, native, context=None, review_ids=None):
+def sequences(pair_id, level, theme_id, phrases, native, context=None, review_ids=None, context_ids=None,
+              preserve_input_order=False):
     result = []
     locally_presented = set()
     review_ids = review_ids or set()
+    context_ids = context_ids or set()
     review_phrases = [phrase for phrase in phrases if phrase["id"] in review_ids]
-    new_phrases = [phrase for phrase in phrases if phrase["id"] not in review_ids]
-    batches = [block[offset:offset + 5] for block in (review_phrases, new_phrases)
+    contextual_phrases = [phrase for phrase in phrases if phrase["id"] in context_ids]
+    new_phrases = [phrase for phrase in phrases if phrase["id"] not in review_ids | context_ids]
+    ordered_blocks = (phrases,) if preserve_input_order else (review_phrases, contextual_phrases, new_phrases)
+    batches = [block[offset:offset + 5] for block in ordered_blocks
                for offset in range(0, len(block), 5)]
     for batch_number, batch in enumerate(batches, 1):
         sid = f"{pair_id}:L{level}:{theme_id}:{batch_number}"
@@ -559,7 +570,7 @@ def sequences(pair_id, level, theme_id, phrases, native, context=None, review_id
         preparation_ids = []
         for position, phrase in enumerate(batch):
             prefix = f"{sid}:{position}"
-            if context and phrase["id"] not in review_ids and phrase.get("contentType") == "utterance" and phrase["source"]["collection"].startswith("DECKS."):
+            if context and phrase["id"] not in review_ids | context_ids and phrase.get("contentType") == "utterance" and phrase["source"]["collection"].startswith("DECKS."):
                 target_index = phrase["source"]["sourceIndex"]
                 visiting = set()
                 pending = []
@@ -619,13 +630,13 @@ def sequences(pair_id, level, theme_id, phrases, native, context=None, review_id
             steps.append({"id": understood, "kind": "understand", "utterance": phrase["id"],
                           "wholePhrase": phrase["contentType"] == "utterance",
                           "contentType": phrase["contentType"], "requiresProduction": False,
-                          "isReview": phrase["id"] in review_ids})
+                          "isReview": phrase["id"] in review_ids, "isContextReuse": phrase["id"] in context_ids})
             if not phrase.get("isTemplate"):
                 imitated = prefix + ":imitate"
                 steps.append({"id": imitated, "kind": "imitate", "utterance": phrase["id"],
                               "wholePhrase": phrase["contentType"] == "utterance",
                               "contentType": phrase["contentType"], "requiresProduction": True,
-                              "isReview": phrase["id"] in review_ids})
+                              "isReview": phrase["id"] in review_ids, "isContextReuse": phrase["id"] in context_ids})
                 preparations[phrase["id"]] = {"understoodInStep": understood, "imitatedInStep": imitated}
         for position, phrase in enumerate(batch):
             if phrase.get("isTemplate"):
@@ -634,14 +645,15 @@ def sequences(pair_id, level, theme_id, phrases, native, context=None, review_id
                           "utterance": phrase["id"], "wholePhrase": phrase["contentType"] == "utterance",
                           "contentType": phrase["contentType"],
                           "requiresProduction": True, "preparedInSteps": preparations[phrase["id"]],
-                          "isReview": phrase["id"] in review_ids})
+                          "isReview": phrase["id"] in review_ids, "isContextReuse": phrase["id"] in context_ids})
         result.append({"id": sid, "title": f"第 {batch_number} 组" if native == "zh" else f"Séquence {batch_number}",
                        "phraseIds": [phrase["id"] for phrase in batch],
                        "preparationIds": list(dict.fromkeys(preparation_ids)), "steps": steps})
     return result
 
 
-def density_groups(pair_id, grouped_phrases, definitions_by_level, report, moves=None, ancestors=None):
+def density_groups(pair_id, grouped_phrases, definitions_by_level, report, moves=None, ancestors=None,
+                   contextual_uses=None, phrase_lookup=None):
     """Select earlier, available sources; never relabel a future word as review.
 
     The bank emitted later is a transport copy of only these selected sources.
@@ -656,6 +668,8 @@ def density_groups(pair_id, grouped_phrases, definitions_by_level, report, moves
     cumulative = {"vocab-adjectifs", "vocab-couleurs"}
     available = defaultdict(list)
     result, bank = {}, {}
+    contextual_uses = contextual_uses or []
+    phrase_lookup = phrase_lookup or {}
 
     def concept(phrase):
         explicit = phrase.get("lexicalConceptId")
@@ -666,13 +680,25 @@ def density_groups(pair_id, grouped_phrases, definitions_by_level, report, moves
         for definition in definitions_by_level[level]:
             domain = definition["domain"]
             chosen = grouped_phrases[(level, domain)]
+            primary_ids = {phrase["id"] for phrase in chosen}
+            context_rows, context_references = [], []
+            for use in contextual_uses:
+                if use["level"] != level or use["topicId"] != domain or use["canonicalId"] in primary_ids:
+                    continue
+                source_phrase = phrase_lookup[use["canonicalId"]]
+                ensure(source_phrase["contentType"] == "utterance" and source_phrase["editorialLevel"] <= level,
+                       "Context reuse references a lexeme or a future first encounter")
+                ensure(source_phrase["id"] not in {row["id"] for row in context_rows}, "Context duplicates cannot inflate a new theme")
+                context_rows.append(source_phrase)
+                context_references.append({"id": source_phrase["id"], "firstEditorialLevel": source_phrase["editorialLevel"],
+                    "canonicalThemeId": source_phrase["placement"]["themeId"], "intentId": use["intentId"], "reason": use["reason"]})
             candidates = sorted(available[(definition["contentType"], domain)],
                                 key=lambda row: (-row["editorialLevel"], row["id"]))
-            concepts = {concept(phrase) for phrase in chosen}
+            concepts = {concept(phrase) for phrase in chosen + context_rows}
             selected = []
             selected_concepts = set()
-            identities = {phrase_key(phrase) for phrase in chosen}
-            if chosen or domain in cumulative:
+            identities = {phrase_key(phrase) for phrase in chosen + context_rows}
+            if chosen or context_rows or domain in cumulative:
                 for phrase in candidates:
                     if phrase_key(phrase) in identities:
                         continue
@@ -686,7 +712,7 @@ def density_groups(pair_id, grouped_phrases, definitions_by_level, report, moves
                     selected_concepts.add(current_concept)
                     identities.add(phrase_key(phrase))
                     selected.append(phrase)
-            presented = chosen + selected
+            presented = chosen + context_rows + selected
             review_keys = {phrase["id"]: (phrase["editorialLevel"], phrase["id"]) for phrase in selected}
             if domain == "vocab-adjectifs":
                 review_keys = adjective_priority_keys(selected, review_keys)
@@ -697,6 +723,10 @@ def density_groups(pair_id, grouped_phrases, definitions_by_level, report, moves
             visible = bool(presented) and len(concepts) >= minimum
             references = []
             if visible:
+                for phrase in context_rows:
+                    bank[phrase["id"]] = {**phrase, "referenceOnly": True,
+                        "sourceHash": phrase["source"]["sourceSha256"], "canonicalLocation": {
+                            "pairId": pair_id, "level": phrase["editorialLevel"], "themeId": phrase["placement"]["themeId"]}}
                 for phrase in selected:
                     location = {"pairId": pair_id, "level": phrase["editorialLevel"],
                                 "themeId": phrase["placement"]["themeId"]}
@@ -710,6 +740,8 @@ def density_groups(pair_id, grouped_phrases, definitions_by_level, report, moves
             # Held primary entries remain canonical and inventory-accessible,
             # but cannot be cited as an earlier presentation in another level.
             state = {"visible": visible, "reviewReferences": references,
+                     "contextReferences": context_references if visible else [],
+                     "contextPhrases": context_rows if visible else [], "reuseCount": len(context_rows) if visible else 0,
                      "reviewPhrases": selected if visible else [],
                      "newCount": len(chosen), "reviewCount": len(references),
                      "presentedCount": len(presented) if visible else len(chosen),
@@ -719,20 +751,22 @@ def density_groups(pair_id, grouped_phrases, definitions_by_level, report, moves
             result[(level, domain)] = state
             if chosen or visible:
                 report["density"].append({"pair": pair_id, "level": level, "themeId": definition["id"],
-                    **{key: value for key, value in state.items() if key not in {"reviewPhrases", "reviewReferences"}},
+                    **{key: value for key, value in state.items() if key not in {"reviewPhrases", "reviewReferences", "contextPhrases", "contextReferences"}},
                     "referenceIds": [item["id"] for item in references], "minimumPedagogicalConcepts": minimum,
+                    "contextIds": [item["id"] for item in context_references] if visible else [],
                     "claimsAcquisition": False, "futureSourcesUsedAsReview": False})
         for phrase in newly_available:
             available[(phrase["contentType"], phrase["placement"]["domain"])].append(phrase)
     return result, bank
 
 
-def make():
+def make(include_situations=True):
     app_raw, decks, plan, decisions, enrichment_items = read_inputs()
     domains = plan["domains"]
     pairs = {pair_id: (native, study, name, flag, historical)
              for pair_id, native, study, name, flag, historical in legacy.PAIRS}
     semantic_types, semantic_sources = checked_content_types(decks, pairs)
+    frozen_situations = situation_content.read_frozen_inputs(ROOT, pairs) if include_situations else None
     vocabulary_policy = checked_vocabulary_policy()
     visuals = checked_visuals()
     lexical_introductions = checked_introductions(LEXICAL_INTRODUCTIONS, decks, pairs, semantic_types)
@@ -999,6 +1033,26 @@ def make():
                         phrase["placement"].update(domain="deplacements", situationClassification="travel-location-question-candidate")
                 phrase["placement"]["section"] = "situations"
 
+    situation_resolution = situation_content.resolve(ROOT, frozen_situations, rows, pairs, decks)
+    additional_themes = situation_resolution["plan"]["themes"] if situation_resolution else []
+    if situation_resolution:
+        for position, entry in enumerate(situation_resolution["entries"]):
+            order_keys[entry["id"]] = (0, position, position)
+        situation_rows = {pair: {row["id"]: row for row in values} for pair, values in rows.items()}
+        for use in situation_resolution["uses"]:
+            row = situation_rows[use["pair"]][use["canonicalId"]]
+            if row["editorialLevel"] == use["level"] and row["placement"]["domain"] == use["topicId"]:
+                order_keys[row["id"]] = (0, use["topicOrder"], use["intentOrder"])
+        report["situationEnrichment"] = {key: value for key, value in situation_resolution.items() if key != "plan"}
+        manifest["additionalSituations"] = {"planSha256": frozen_situations["fingerprints"][str(situation_content.DIRECTORY / "plan.json")],
+            "themeCount": len(additional_themes), "intentsPerTheme": 8, "candidatePositions": len(frozen_situations["items"]),
+            "newAuthoredUtterances": sum(entry["authored"] for entry in situation_resolution["entries"]),
+            "existingConversationImports": sum(entry["preexistingConversation"] for entry in situation_resolution["entries"])}
+        manifest["additionalSituations"]["existingSourcePositions"] = len(frozen_situations["items"]) - manifest["additionalSituations"]["newAuthoredUtterances"]
+        for introduction in situation_resolution["introductions"]:
+            row = next(row for row in rows[introduction["pair"]] if row["id"] == introduction["canonicalId"])
+            if row["source"]["collection"].startswith("DECKS."):
+                explicit_level_keys.add((introduction["pair"], row["source"]["sourceIndex"]))
     for item in report["moves"]:
         phrase = next(phrase for phrase in rows[item["pair"]]
                       if phrase["source"].get("sourceIndex") == item["sourceIndex"])
@@ -1035,7 +1089,7 @@ def make():
         catalogue_lookup = {phrase["source"]["sourceIndex"]: phrase for phrase in canonical_rows
                             if phrase["source"]["collection"].startswith("DECKS.")}
         phrase_lookup = {phrase["id"]: phrase for phrase in canonical_rows}
-        definitions_by_level = {item["level"]: level_definitions(item, vocabulary_policy) for item in plan["levels"]}
+        definitions_by_level = {item["level"]: level_definitions(item, vocabulary_policy, additional_themes) for item in plan["levels"]}
         for planned_level in plan["levels"]:
             level = planned_level["level"]
             for theme_position, definition in enumerate(definitions_by_level[level]):
@@ -1043,7 +1097,8 @@ def make():
                             and phrase["contentType"] == definition["contentType"]
                             and phrase["placement"]["domain"] == definition["domain"]]
                 theme_order_keys = adjective_priority_keys(selected, order_keys) if definition["domain"] == "vocab-adjectifs" else order_keys
-                selected = ordered_phrases(selected, pair_id, moves, theme_order_keys, ancestors)
+                selected = (sorted(selected, key=lambda phrase: theme_order_keys[phrase["id"]])
+                            if definition.get("isAdditionalSituation") else ordered_phrases(selected, pair_id, moves, theme_order_keys, ancestors))
                 grouped_phrases[(level, definition["domain"])] = selected
                 for phrase_position, phrase in enumerate(selected):
                     phrase["placement"]["themeId"] = definition["id"]
@@ -1086,7 +1141,10 @@ def make():
             if reused:
                 target["reuseVocabularyIds"] = list(dict.fromkeys(reused))
 
-        density, bank = density_groups(pair_id, grouped_phrases, definitions_by_level, report, moves, ancestors)
+        contextual_uses = sorted([use for use in situation_resolution["uses"] if use["pair"] == pair_id],
+                                key=lambda use: (use["topicOrder"], use["intentOrder"])) if situation_resolution else []
+        density, bank = density_groups(pair_id, grouped_phrases, definitions_by_level, report, moves, ancestors,
+                                       contextual_uses, phrase_lookup)
         held_indices = {index for index, phrase in catalogue_lookup.items()
                         if phrase["contentType"] not in {"incomplete", "review"}
                         and not density[(phrase["editorialLevel"], phrase["placement"]["domain"])]["visible"]}
@@ -1166,7 +1224,12 @@ def make():
                             "reason": "No source entry currently assigned at this editorial level; no empty card or invented example generated.",
                             "needsEditorialReview": True})
                     continue
-                presented_phrases = stock["reviewPhrases"] + chosen
+                presented_phrases = stock["reviewPhrases"] + stock["contextPhrases"] + chosen
+                if definition.get("isAdditionalSituation"):
+                    by_intent = {phrase["id"]: phrase.get("situationIntentId", phrase.get("intentId")) for phrase in chosen}
+                    by_intent.update({reference["id"]: reference["intentId"] for reference in stock["contextReferences"]})
+                    ensure(not stock["reviewReferences"], "A new situation cannot pad its eight intents with unrelated revisions")
+                    presented_phrases.sort(key=lambda phrase: definition["intentIds"].index(by_intent[phrase["id"]]))
                 if definition["contentType"] == "number":
                     presented_phrases = sorted(stock["reviewPhrases"], key=lambda phrase: (*phrase["numberOrder"], phrase["editorialLevel"], phrase["id"])) + sorted(chosen, key=lambda phrase: (*phrase["numberOrder"], phrase["id"]))
                 theme = {"id": definition["id"], "domain": definition["domain"],
@@ -1176,11 +1239,23 @@ def make():
                          "contentType": definition["contentType"], "section": definition["section"],
                          "totalPhrases": len(chosen), "phrases": chosen,
                          "reviewReferences": stock["reviewReferences"], "newCount": len(chosen),
+                         "contextReferences": stock["contextReferences"], "reuseCount": stock["reuseCount"],
                          "reviewCount": stock["reviewCount"], "presentedCount": stock["presentedCount"],
                          "pedagogicalConceptCount": stock["pedagogicalConceptCount"], "densityStatus": stock["densityStatus"],
-                         "presentationOrder": "earlier-reviews-then-new-primary",
+                         "presentationOrder": "plan-intent-order-with-explicit-preparations" if definition.get("isAdditionalSituation") else "earlier-reviews-then-new-primary",
                          "sequences": sequences(pair_id, level, definition["id"], presented_phrases, native,
-                                                preparation_context, {item["id"] for item in stock["reviewReferences"]}) if stock["visible"] else []}
+                                                preparation_context, {item["id"] for item in stock["reviewReferences"]},
+                                                {item["id"] for item in stock["contextReferences"]},
+                                                preserve_input_order=bool(definition.get("isAdditionalSituation"))) if stock["visible"] else []}
+                if definition.get("isAdditionalSituation"):
+                    theme.update(isAdditionalSituation=True, intentIds=definition["intentIds"], topicId=definition["domain"])
+                    theme["authoredCount"] = sum(phrase["source"]["collection"] == "situation-authored" for phrase in chosen)
+                    theme["existingSourceCount"] = theme["presentedCount"] - theme["authoredCount"]
+                    presented_ids = [ident for sequence in theme["sequences"] for ident in sequence["phraseIds"]]
+                    ensure(len(presented_ids) == len(set(presented_ids)) == 8, "New situations must contain eight distinct whole phrases")
+                    covered = {phrase.get("situationIntentId", phrase.get("intentId")) for phrase in chosen}
+                    covered.update(reference["intentId"] for reference in theme["contextReferences"])
+                    ensure(covered == set(theme["intentIds"]), "New situation has incomplete or duplicated intent coverage")
                 ensure(definition["visualId"] in visuals, f"Missing active theme photograph: {definition['visualId']}")
                 theme["photo"] = visuals[definition["visualId"]]
                 cell["themes" if stock["visible"] else "heldThemes"].append(theme)
@@ -1197,7 +1272,8 @@ def make():
                     for step in sequence["steps"]:
                         p = phrase_lookup[step["utterance"]]
                         ensure(p["editorialLevel"] == level or step.get("isReview") is True
-                               and p["editorialLevel"] < level and p["id"] in bank,
+                               and p["editorialLevel"] < level and p["id"] in bank
+                               or step.get("isContextReuse") is True and p["editorialLevel"] <= level and p["id"] in bank,
                                "An unmarked future or earlier source entered a lesson step")
                         ensure(p["contentType"] == theme["contentType"], "A lesson step crosses semantic sections")
                         ensure(p["contentType"] not in {"incomplete", "review"} and not p.get("isTemplate"), "Reserved source assigned a lesson step")
@@ -1213,13 +1289,19 @@ def make():
                 cell_report["themes" if stock["visible"] else "heldThemes"].append({"id": theme["id"], "domain": theme["domain"],
                     "contentType": theme["contentType"], "section": theme["section"],
                     "newCount": theme["newCount"], "reviewCount": theme["reviewCount"],
+                    "reuseCount": theme["reuseCount"],
                     "presentedCount": theme["presentedCount"], "densityStatus": theme["densityStatus"],
+                    "authoredCount": theme.get("authoredCount", 0), "existingSourceCount": theme.get("existingSourceCount", 0),
                     "visualId": theme["visualId"], "phrases": len(chosen), "catalogueSourceIndices": source_indices,
                     "importedPhraseIds": [phrase["id"] for phrase in chosen if phrase["source"]["collection"] == "conversation"]})
                 cell_report["cataloguePhrases"] += len(source_indices)
                 cell_report["importedPhrases"] += sum(p["source"]["collection"] == "conversation" for p in chosen)
                 cell_report.setdefault("authoredPhrases", 0)
                 cell_report["authoredPhrases"] += sum(p["source"]["collection"] == "editorial-authored" for p in chosen)
+                cell_report.setdefault("situationAuthoredPhrases", 0)
+                cell_report.setdefault("situationConversationPhrases", 0)
+                cell_report["situationAuthoredPhrases"] += sum(p["source"]["collection"] == "situation-authored" for p in chosen)
+                cell_report["situationConversationPhrases"] += sum(p["source"]["collection"] == "situation-conversation" for p in chosen)
                 cell_report["steps"] += steps
                 total_steps += steps
             for phrase in cell["reserve"]:
@@ -1232,16 +1314,20 @@ def make():
             cell["heldPhrases"] = sum(len(theme["phrases"]) for theme in cell["heldThemes"])
             cell["visibleCanonicalPhrases"] = cell["totalPhrases"] - cell["heldPhrases"]
             cell["presentedCount"] = sum(theme["presentedCount"] for theme in cell["themes"])
+            cell["contextReuseCount"] = sum(theme["reuseCount"] for theme in cell["themes"])
             ensure(cell["totalPhrases"] + len(cell["reserve"]) == cell["totalCanonicalPhrases"], "Active plus reserve does not cover level")
             cell_report["totalPhrases"] = cell["totalPhrases"]
             cell_report["heldPhrases"] = cell["heldPhrases"]
             cell_report["visibleCanonicalPhrases"] = cell["visibleCanonicalPhrases"]
             cell_report["presentedCount"] = cell["presentedCount"]
+            cell_report["contextReuseCount"] = cell["contextReuseCount"]
             relative_path = f"content/niveaux-progressifs/{pair_id}/L{level}.json"
             pair_manifest["levels"].append({"level": level, "title": level_title,
                 "totalPhrases": cell["totalPhrases"], "totalCanonicalPhrases": cell["totalCanonicalPhrases"],
                 "reservedPhrases": cell["reservedPhrases"], "counts": cell_counts, "lexicalClassCounts": cell_lexical_counts,
                 "heldPhrases": cell["heldPhrases"], "heldThemeCount": len(cell["heldThemes"]),
+                "additionalSituationCount": sum(bool(theme.get("isAdditionalSituation")) for theme in cell["themes"]),
+                "contextReuseCount": cell["contextReuseCount"],
                 "presentedCount": cell["presentedCount"], "themeCount": len(cell["themes"]), "dataPath": relative_path})
             pair_report["levels"].append(cell_report)
             outputs[ROOT / "melunga_deploy" / relative_path] = json.dumps(cell, ensure_ascii=False, separators=(",", ":")) + "\n"
@@ -1313,6 +1399,9 @@ def make():
         ensure((file_sha(path) if path.exists() else None) == report[key], f"Input changed during generation: {path.name}")
     for introduction in all_introductions:
         ensure(file_sha(ROOT / introduction["overlayFile"]) == introduction["overlaySha256"], "An introduction overlay changed during generation")
+    if situation_resolution:
+        for relative, fingerprint in situation_resolution["fingerprints"].items():
+            ensure(file_sha(ROOT / relative) == fingerprint, "A frozen situation input changed during generation")
     overall_counts = {key: sum(pair["counts"][key] for pair in manifest["pairs"]) for key in type_names}
     report["checks"] = {"pairs": len(pairs), "levelCells": len(pairs) * 10,
         "catalogueCardsRetainedExactlyOnce": catalogue_count, "sourceLevelOneCardsRetained": sum(value[4] for value in pairs.values()),
@@ -1344,6 +1433,7 @@ def make():
         "visibleThemeCount": sum(item["visible"] for item in report["density"]),
         "presentationsIncludingReviews": sum(item["presentedCount"] for item in report["density"] if item["visible"]),
         "reviewPresentationReferences": sum(item["reviewCount"] for item in report["density"] if item["visible"]),
+        "contextPresentationReferences": sum(item.get("reuseCount", 0) for item in report["density"] if item["visible"]),
         "reviewTransportCopies": sum(item["transportCopies"] for item in report["reviewTransports"]),
         "heldThemesAreNotUsedAsReviewSources": True, "allVisibleThemesAtLeastSixConcepts": True,
         "sourceTemplateMarkerCount": sum(bool(phrase.get("sourceDeclaredTemplate")) for row in rows.values() for phrase in row),
@@ -1370,17 +1460,26 @@ def make():
         "newlyAuthoredNumberEntries": sum(item["contentType"] == "number" for item in report["authoredEntries"]),
         "newlyAuthoredPhonetics": report["newlyAuthoredPhonetics"],
         "wholeHeadwordPhoneticsReusedForNewSense": sum(item["reusesWholeHeadwordPhonetic"] for item in report["authoredEntries"]),
+        "newSituationAuthoredUtterances": sum(item["authored"] for item in situation_resolution["entries"]) if situation_resolution else 0,
+        "newSituationExistingConversationImports": sum(item["preexistingConversation"] for item in situation_resolution["entries"]) if situation_resolution else 0,
+        "newSituationThemes": 10 * len(pairs) if situation_resolution else 0,
+        "newSituationCandidatePositions": len(situation_resolution["uses"]) if situation_resolution else 0,
+        "newSituationExistingSourcePositions": (len(situation_resolution["uses"]) - sum(item["authored"] for item in situation_resolution["entries"])) if situation_resolution else 0,
+        "newSituationWholePhoneticsPendingClaude": sum(item["authored"] for item in situation_resolution["entries"]) if situation_resolution else 0,
         "allCatalogueSourceLevelsUnchanged": True}
     ensure(report["checks"]["visibleCanonicalPhrases"] + report["checks"]["heldCanonicalPhrases"]
            == report["checks"]["totalPresentedPhrases"], "Density routing lost an active canonical entry")
-    ensure(report["checks"]["visibleCanonicalPhrases"] + report["checks"]["reviewPresentationReferences"]
+    ensure(report["checks"]["visibleCanonicalPhrases"] + report["checks"]["reviewPresentationReferences"] + report["checks"]["contextPresentationReferences"]
            == report["checks"]["presentationsIncludingReviews"], "Reviews were counted as new canonical entries")
     ensure(report["checks"]["totalCanonicalPhrases"] == catalogue_count
-           + report["checks"]["importedExistingPhrases"] + report["checks"]["newlyAuthoredStudyPhrases"],
+           + report["checks"]["importedExistingPhrases"] + report["checks"]["newlyAuthoredStudyPhrases"]
+           + report["checks"]["newSituationAuthoredUtterances"] + report["checks"]["newSituationExistingConversationImports"],
            "Source, imported and authored canonical scopes do not reconcile")
     report["editorialReferenceOrderClosed"] = not bool(report["checks"]["plannedPrerequisitesWithoutEditorialOrderClosure"]
                                                        or report["localPreparationGaps"])
     report["structuralUtteranceReferenceOrderClosed"] = not bool(report["checks"]["structuralUtteranceLinksOrderNotClosed"])
+    report["checks"]["totalAuthoredEntriesAcrossLots"] = report["checks"]["newlyAuthoredStudyPhrases"] + report["checks"]["newSituationAuthoredUtterances"]
+    report["checks"]["totalNewWholePhoneticsAcrossLots"] = report["checks"]["newlyAuthoredPhonetics"] + report["checks"]["newSituationWholePhoneticsPendingClaude"]
     report["progressivityValidationBlocked"] = not report["progressivityReviewComplete"]
     report["manifestSha256"] = sha(manifest)
     outputs[OUTPUT / "manifest.json"] = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
@@ -1410,6 +1509,12 @@ def markdown(report):
     for pair in report["pairs"]:
         lines.append("| " + pair["id"] + " | " + " | ".join(str(level["totalPhrases"]) for level in pair["levels"])
                      + f" | {pair['reservedPhrases']} | {pair['totalCanonicalPhrases']} |")
+    if checks["newSituationThemes"]:
+        lines.extend(["", "## Enrichissement de situations — lot distinct", "",
+            f"Dix nouvelles rubriques L2–L6 comportent chacune huit intentions dans les sept couples : **{checks['newSituationCandidatePositions']} positions pédagogiques**. Elles ne représentent pas autant de créations : **{checks['newSituationAuthoredUtterances']} formes entières réellement rédigées** et **{checks['newSituationExistingSourcePositions']} positions utilisant des sources préexistantes**. Parmi ces sources, **{checks['newSituationExistingConversationImports']} phrases de conversation** sont importées entières sans être comptées comme nouvelles rédactions.", "",
+            f"Les **{checks['newSituationWholePhoneticsPendingClaude']} nouvelles aides entières** restent `pending-Claude`. Les 140 entrées du lot précédent sont inchangées et comptées séparément. Les recherches de doublons portent aussi sur l’index portable des 70 conversations : espaces, ponctuation et casse ne suffisent jamais à faire une nouvelle forme ; aucun champ source n’est normalisé à l’affichage.", "",
+            f"**{checks['contextPresentationReferences']} réemplois contextuels** conservent l’identifiant, les champs et le premier emplacement canoniques. Une première rencontre au même niveau est autorisée, avec compréhension, imitation et rappel ici ; elle ne suppose aucune acquisition antérieure. Les sources plus tardives ne sont introduites plus tôt que par une décision explicite, tracée sans modifier leur niveau d’accès d’origine.", ""])
+        lines.extend(["Dans ces dix nouvelles rubriques, les intentions 01 à 08 définissent l’ordre global : sources contextuelles et nouvelles premières rencontres restent mélangées à leur place. Le générateur ne repousse pas une conclusion au début sous prétexte qu’elle est réemployée. Les préparations structurelles explicites précèdent leur cible. La règle de révisions en amont reste applicable aux rubriques historiques, pas à ce nouveau déroulé de contexte.", ""])
     lines.extend(["", "## Réemploi de sources existantes", "",
         f"Phrases existantes importées depuis des variantes entières de conversation : **{checks['importedExistingPhrases']}**, avec **{checks['importedSourceFieldComparisons']} champs** copiés. Candidats exclus en attendant une décision sur l’aide ou le sens : **{checks['excludedEnrichmentCandidates']}**. Ces imports restent des copies entières.", "",
         f"Un lot distinct apporte **{checks['newlyAuthoredStudyPhrases']} nouvelles entrées entières**, dont **{checks['newlyAuthoredPhonetics']} transcriptions nouvelles** et **{checks['wholeHeadwordPhoneticsReusedForNewSense']} prononciation de mot entier reprise pour un nouveau sens**. Toutes restent marquées `pending-Claude` pour la revue phonétique ; aucune aide ancienne n’est modifiée ou assemblée.", "",

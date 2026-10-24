@@ -1,0 +1,962 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "à-valider",
+ "studyLanguage": "it",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en italien",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; c+e/i→tch, g+e/i→dj, gn→gn, gl→li, z→ts/dz, consonnes doubles allongées). Ne remplace pas l'audio.",
+ "reviewStatus": "Rédigé à la main ; relecture par un italophone conseillée.",
+ "coverageClaim": null,
+ "level": 7,
+ "title": "Expliquer et comparer",
+ "goal": "Expliquer une raison, comparer et exprimer une préférence.",
+ "reviewPreviousLevels": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
+ ],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L7-fr-it-01",
+   "situation": "Justifier",
+   "model": {
+    "study": "Non vengo perché {s}.",
+    "phon": "non VÈN-go pér-KÉ {s}",
+    "native": "Je ne viens pas parce que {s}.",
+    "note": "« stanco » au masculin, « stanca » au féminin."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "sono stanco",
+      "phon": "SO-no STAN-ko",
+      "native": "je suis fatigué"
+     },
+     "study": "Non vengo perché sono stanco.",
+     "phon": "non VÈN-go pér-KÉ SO-no STAN-ko",
+     "native": "Je ne viens pas parce que je suis fatigué."
+    },
+    {
+     "slot": {
+      "study": "devo lavorare",
+      "phon": "DÉ-vo la-vo-RA-ré",
+      "native": "je dois travailler"
+     },
+     "study": "Non vengo perché devo lavorare.",
+     "phon": "non VÈN-go pér-KÉ DÉ-vo la-vo-RA-ré",
+     "native": "Je ne viens pas parce que je dois travailler."
+    },
+    {
+     "slot": {
+      "study": "ho un appuntamento",
+      "phon": "o oun ap-poun-ta-MÉN-to",
+      "native": "j'ai un rendez-vous"
+     },
+     "study": "Non vengo perché ho un appuntamento.",
+     "phon": "non VÈN-go pér-KÉ o oun ap-poun-ta-MÉN-to",
+     "native": "Je ne viens pas parce que j'ai un rendez-vous."
+    },
+    {
+     "slot": {
+      "study": "non sto bene",
+      "phon": "non sto BÈ-né",
+      "native": "je ne me sens pas bien"
+     },
+     "study": "Non vengo perché non sto bene.",
+     "phon": "non VÈN-go pér-KÉ non sto BÈ-né",
+     "native": "Je ne viens pas parce que je ne me sens pas bien."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-it-02",
+   "situation": "Comparer : plus… que",
+   "model": {
+    "study": "Il treno è più {s} della macchina.",
+    "phon": "il TRÈ-no è piou {s} DÉL-la MAK-ki-na",
+    "native": "Le train est plus {s} que la voiture."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "veloce",
+      "phon": "vé-LO-tché",
+      "native": "rapide"
+     },
+     "study": "Il treno è più veloce della macchina.",
+     "phon": "il TRÈ-no è piou vé-LO-tché DÉL-la MAK-ki-na",
+     "native": "Le train est plus rapide que la voiture."
+    },
+    {
+     "slot": {
+      "study": "comodo",
+      "phon": "KO-mo-do",
+      "native": "confortable"
+     },
+     "study": "Il treno è più comodo della macchina.",
+     "phon": "il TRÈ-no è piou KO-mo-do DÉL-la MAK-ki-na",
+     "native": "Le train est plus confortable que la voiture."
+    },
+    {
+     "slot": {
+      "study": "caro",
+      "phon": "KA-ro",
+      "native": "cher"
+     },
+     "study": "Il treno è più caro della macchina.",
+     "phon": "il TRÈ-no è piou KA-ro DÉL-la MAK-ki-na",
+     "native": "Le train est plus cher que la voiture."
+    },
+    {
+     "slot": {
+      "study": "ecologico",
+      "phon": "é-ko-LO-dji-ko",
+      "native": "écologique"
+     },
+     "study": "Il treno è più ecologico della macchina.",
+     "phon": "il TRÈ-no è piou é-ko-LO-dji-ko DÉL-la MAK-ki-na",
+     "native": "Le train est plus écologique que la voiture."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-it-03",
+   "situation": "Comparer : moins… que",
+   "model": {
+    "study": "Questo è meno {s} di quello.",
+    "phon": "KOUÉS-to è MÉ-no {s} di KOUÉL-lo",
+    "native": "Celui-ci est moins {s} que celui-là."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "caro",
+      "phon": "KA-ro",
+      "native": "cher"
+     },
+     "study": "Questo è meno caro di quello.",
+     "phon": "KOUÉS-to è MÉ-no KA-ro di KOUÉL-lo",
+     "native": "Celui-ci est moins cher que celui-là."
+    },
+    {
+     "slot": {
+      "study": "grande",
+      "phon": "GRAN-dé",
+      "native": "grand"
+     },
+     "study": "Questo è meno grande di quello.",
+     "phon": "KOUÉS-to è MÉ-no GRAN-dé di KOUÉL-lo",
+     "native": "Celui-ci est moins grand que celui-là."
+    },
+    {
+     "slot": {
+      "study": "pesante",
+      "phon": "pé-ZAN-té",
+      "native": "lourd"
+     },
+     "study": "Questo è meno pesante di quello.",
+     "phon": "KOUÉS-to è MÉ-no pé-ZAN-té di KOUÉL-lo",
+     "native": "Celui-ci est moins lourd que celui-là."
+    },
+    {
+     "slot": {
+      "study": "bello",
+      "phon": "BÈL-lo",
+      "native": "beau"
+     },
+     "study": "Questo è meno bello di quello.",
+     "phon": "KOUÉS-to è MÉ-no BÈL-lo di KOUÉL-lo",
+     "native": "Celui-ci est moins beau que celui-là."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-it-04",
+   "situation": "Préférence argumentée",
+   "model": {
+    "study": "Preferisco {s} perché costa meno.",
+    "phon": "pré-fé-RIS-ko {s} pér-KÉ KOS-ta MÉ-no",
+    "native": "Je préfère {s} parce que ça coûte moins cher."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "il treno",
+      "phon": "il TRÈ-no",
+      "native": "le train"
+     },
+     "study": "Preferisco il treno perché costa meno.",
+     "phon": "pré-fé-RIS-ko il TRÈ-no pér-KÉ KOS-ta MÉ-no",
+     "native": "Je préfère le train parce que ça coûte moins cher."
+    },
+    {
+     "slot": {
+      "study": "il mercato",
+      "phon": "il mér-KA-to",
+      "native": "le marché"
+     },
+     "study": "Preferisco il mercato perché costa meno.",
+     "phon": "pré-fé-RIS-ko il mér-KA-to pér-KÉ KOS-ta MÉ-no",
+     "native": "Je préfère le marché parce que ça coûte moins cher."
+    },
+    {
+     "slot": {
+      "study": "cucinare a casa",
+      "phon": "kou-tchi-NA-ré a KA-za",
+      "native": "cuisiner à la maison"
+     },
+     "study": "Preferisco cucinare a casa perché costa meno.",
+     "phon": "pré-fé-RIS-ko kou-tchi-NA-ré a KA-za pér-KÉ KOS-ta MÉ-no",
+     "native": "Je préfère cuisiner à la maison parce que ça coûte moins cher."
+    },
+    {
+     "slot": {
+      "study": "l'autobus",
+      "phon": "LAOU-to-bous",
+      "native": "le bus"
+     },
+     "study": "Preferisco l'autobus perché costa meno.",
+     "phon": "pré-fé-RIS-ko LAOU-to-bous pér-KÉ KOS-ta MÉ-no",
+     "native": "Je préfère le bus parce que ça coûte moins cher."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-it-05",
+   "situation": "Donner un avis : je pense que",
+   "model": {
+    "study": "Penso che {s}.",
+    "phon": "PÈN-so ké {s}",
+    "native": "Je pense que {s}.",
+    "note": "Après « penso che », l'italien emploie le subjonctif (sia, abbia)."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "sia una buona idea",
+      "phon": "SI-a OU-na BOUO-na i-DÈ-a",
+      "native": "c'est une bonne idée"
+     },
+     "study": "Penso che sia una buona idea.",
+     "phon": "PÈN-so ké SI-a OU-na BOUO-na i-DÈ-a",
+     "native": "Je pense que c'est une bonne idée."
+    },
+    {
+     "slot": {
+      "study": "sia troppo caro",
+      "phon": "SI-a TROP-po KA-ro",
+      "native": "c'est trop cher"
+     },
+     "study": "Penso che sia troppo caro.",
+     "phon": "PÈN-so ké SI-a TROP-po KA-ro",
+     "native": "Je pense que c'est trop cher."
+    },
+    {
+     "slot": {
+      "study": "tu abbia ragione",
+      "phon": "tou AB-bia ra-DJO-né",
+      "native": "tu as raison"
+     },
+     "study": "Penso che tu abbia ragione.",
+     "phon": "PÈN-so ké tou AB-bia ra-DJO-né",
+     "native": "Je pense que tu as raison."
+    },
+    {
+     "slot": {
+      "study": "sia meglio aspettare",
+      "phon": "SI-a MÈ-lio as-pét-TA-ré",
+      "native": "il vaut mieux attendre"
+     },
+     "study": "Penso che sia meglio aspettare.",
+     "phon": "PÈN-so ké SI-a MÈ-lio as-pét-TA-ré",
+     "native": "Je pense qu'il vaut mieux attendre."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-it-06",
+   "situation": "Donner un avis : à mon avis",
+   "model": {
+    "study": "Secondo me, {s}.",
+    "phon": "sé-KON-do mé, {s}",
+    "native": "À mon avis, {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "è troppo caro",
+      "phon": "è TROP-po KA-ro",
+      "native": "c'est trop cher"
+     },
+     "study": "Secondo me, è troppo caro.",
+     "phon": "sé-KON-do mé, è TROP-po KA-ro",
+     "native": "À mon avis, c'est trop cher."
+    },
+    {
+     "slot": {
+      "study": "questo ristorante è migliore",
+      "phon": "KOUÉS-to ris-to-RAN-té è mi-LIO-ré",
+      "native": "ce restaurant est meilleur"
+     },
+     "study": "Secondo me, questo ristorante è migliore.",
+     "phon": "sé-KON-do mé, KOUÉS-to ris-to-RAN-té è mi-LIO-ré",
+     "native": "À mon avis, ce restaurant est meilleur."
+    },
+    {
+     "slot": {
+      "study": "il vino rosso è più buono",
+      "phon": "il VI-no ROS-so è piou BOUO-no",
+      "native": "le vin rouge est meilleur"
+     },
+     "study": "Secondo me, il vino rosso è più buono.",
+     "phon": "sé-KON-do mé, il VI-no ROS-so è piou BOUO-no",
+     "native": "À mon avis, le vin rouge est meilleur."
+    },
+    {
+     "slot": {
+      "study": "è una buona idea",
+      "phon": "è OU-na BOUO-na i-DÈ-a",
+      "native": "c'est une bonne idée"
+     },
+     "study": "Secondo me, è una buona idea.",
+     "phon": "sé-KON-do mé, è OU-na BOUO-na i-DÈ-a",
+     "native": "À mon avis, c'est une bonne idée."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-it-07",
+   "situation": "Avant / maintenant",
+   "model": {
+    "study": "Prima {s}, adesso lavoro da casa.",
+    "phon": "PRI-ma {s}, a-DÈS-so la-VO-ro da KA-za",
+    "native": "Avant, {s}, maintenant je travaille de chez moi."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "lavoravo in ufficio",
+      "phon": "la-vo-RA-vo inn ouf-FI-tcho",
+      "native": "je travaillais au bureau"
+     },
+     "study": "Prima lavoravo in ufficio, adesso lavoro da casa.",
+     "phon": "PRI-ma la-vo-RA-vo inn ouf-FI-tcho, a-DÈS-so la-VO-ro da KA-za",
+     "native": "Avant, je travaillais au bureau, maintenant je travaille de chez moi."
+    },
+    {
+     "slot": {
+      "study": "prendevo il treno ogni giorno",
+      "phon": "prén-DÉ-vo il TRÈ-no O-gni DJOR-no",
+      "native": "je prenais le train tous les jours"
+     },
+     "study": "Prima prendevo il treno ogni giorno, adesso lavoro da casa.",
+     "phon": "PRI-ma prén-DÉ-vo il TRÈ-no O-gni DJOR-no, a-DÈS-so la-VO-ro da KA-za",
+     "native": "Avant, je prenais le train tous les jours, maintenant je travaille de chez moi."
+    },
+    {
+     "slot": {
+      "study": "andavo in ufficio ogni giorno",
+      "phon": "an-DA-vo inn ouf-FI-tcho O-gni DJOR-no",
+      "native": "j'allais au bureau tous les jours"
+     },
+     "study": "Prima andavo in ufficio ogni giorno, adesso lavoro da casa.",
+     "phon": "PRI-ma an-DA-vo inn ouf-FI-tcho O-gni DJOR-no, a-DÈS-so la-VO-ro da KA-za",
+     "native": "Avant, j'allais au bureau tous les jours, maintenant je travaille de chez moi."
+    },
+    {
+     "slot": {
+      "study": "viaggiavo molto",
+      "phon": "viad-DJA-vo MOL-to",
+      "native": "je voyageais beaucoup"
+     },
+     "study": "Prima viaggiavo molto, adesso lavoro da casa.",
+     "phon": "PRI-ma viad-DJA-vo MOL-to, a-DÈS-so la-VO-ro da KA-za",
+     "native": "Avant, je voyageais beaucoup, maintenant je travaille de chez moi."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-it-08",
+   "situation": "Achats : expliquer son choix",
+   "model": {
+    "study": "Lo compro perché {s}.",
+    "phon": "lo KOM-pro pér-KÉ {s}",
+    "native": "Je l'achète parce que {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "è in offerta",
+      "phon": "è inn of-FÈR-ta",
+      "native": "c'est en promotion"
+     },
+     "study": "Lo compro perché è in offerta.",
+     "phon": "lo KOM-pro pér-KÉ è inn of-FÈR-ta",
+     "native": "Je l'achète parce que c'est en promotion."
+    },
+    {
+     "slot": {
+      "study": "mi piace il colore",
+      "phon": "mi PIA-tché il ko-LO-ré",
+      "native": "j'aime la couleur"
+     },
+     "study": "Lo compro perché mi piace il colore.",
+     "phon": "lo KOM-pro pér-KÉ mi PIA-tché il ko-LO-ré",
+     "native": "Je l'achète parce que j'aime la couleur."
+    },
+    {
+     "slot": {
+      "study": "è di buona qualità",
+      "phon": "è di BOUO-na koua-li-TA",
+      "native": "c'est de bonne qualité"
+     },
+     "study": "Lo compro perché è di buona qualità.",
+     "phon": "lo KOM-pro pér-KÉ è di BOUO-na koua-li-TA",
+     "native": "Je l'achète parce que c'est de bonne qualité."
+    },
+    {
+     "slot": {
+      "study": "ne ho bisogno",
+      "phon": "né o bi-ZO-gno",
+      "native": "j'en ai besoin"
+     },
+     "study": "Lo compro perché ne ho bisogno.",
+     "phon": "lo KOM-pro pér-KÉ né o bi-ZO-gno",
+     "native": "Je l'achète parce que j'en ai besoin."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-it-09",
+   "situation": "Repas : donner son avis",
+   "model": {
+    "study": "Per me è {s}.",
+    "phon": "pér MÉ è {s}",
+    "native": "Pour moi, c'est {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "troppo salato",
+      "phon": "TROP-po sa-LA-to",
+      "native": "trop salé"
+     },
+     "study": "Per me è troppo salato.",
+     "phon": "pér MÉ è TROP-po sa-LA-to",
+     "native": "Pour moi, c'est trop salé."
+    },
+    {
+     "slot": {
+      "study": "perfetto",
+      "phon": "pér-FÈT-to",
+      "native": "parfait"
+     },
+     "study": "Per me è perfetto.",
+     "phon": "pér MÉ è pér-FÈT-to",
+     "native": "Pour moi, c'est parfait."
+    },
+    {
+     "slot": {
+      "study": "un po' piccante",
+      "phon": "oun po pik-KAN-té",
+      "native": "un peu épicé"
+     },
+     "study": "Per me è un po' piccante.",
+     "phon": "pér MÉ è oun po pik-KAN-té",
+     "native": "Pour moi, c'est un peu épicé."
+    },
+    {
+     "slot": {
+      "study": "troppo dolce",
+      "phon": "TROP-po DOL-tché",
+      "native": "trop sucré"
+     },
+     "study": "Per me è troppo dolce.",
+     "phon": "pér MÉ è TROP-po DOL-tché",
+     "native": "Pour moi, c'est trop sucré."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-it-10",
+   "situation": "Comparer : aussi… que",
+   "model": {
+    "study": "È {s} come il mio.",
+    "phon": "è {s} KO-mé il MI-o",
+    "native": "Il est aussi {s} que le mien."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "grande",
+      "phon": "GRAN-dé",
+      "native": "grand"
+     },
+     "study": "È grande come il mio.",
+     "phon": "è GRAN-dé KO-mé il MI-o",
+     "native": "Il est aussi grand que le mien."
+    },
+    {
+     "slot": {
+      "study": "bello",
+      "phon": "BÈL-lo",
+      "native": "beau"
+     },
+     "study": "È bello come il mio.",
+     "phon": "è BÈL-lo KO-mé il MI-o",
+     "native": "Il est aussi beau que le mien."
+    },
+    {
+     "slot": {
+      "study": "caro",
+      "phon": "KA-ro",
+      "native": "cher"
+     },
+     "study": "È caro come il mio.",
+     "phon": "è KA-ro KO-mé il MI-o",
+     "native": "Il est aussi cher que le mien."
+    },
+    {
+     "slot": {
+      "study": "vecchio",
+      "phon": "VÈK-kio",
+      "native": "vieux"
+     },
+     "study": "È vecchio come il mio.",
+     "phon": "è VÈK-kio KO-mé il MI-o",
+     "native": "Il est aussi vieux que le mien."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-it-11",
+   "situation": "C'est pour ça que",
+   "model": {
+    "study": "È per questo che {s}.",
+    "phon": "è pér KOUÉS-to ké {s}",
+    "native": "C'est pour ça que {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "sono in ritardo",
+      "phon": "SO-no inn ri-TAR-do",
+      "native": "je suis en retard"
+     },
+     "study": "È per questo che sono in ritardo.",
+     "phon": "è pér KOUÉS-to ké SO-no inn ri-TAR-do",
+     "native": "C'est pour ça que je suis en retard."
+    },
+    {
+     "slot": {
+      "study": "ho cambiato lavoro",
+      "phon": "o kam-BIA-to la-VO-ro",
+      "native": "j'ai changé de travail"
+     },
+     "study": "È per questo che ho cambiato lavoro.",
+     "phon": "è pér KOUÉS-to ké o kam-BIA-to la-VO-ro",
+     "native": "C'est pour ça que j'ai changé de travail."
+    },
+    {
+     "slot": {
+      "study": "non mangio carne",
+      "phon": "non MAN-djo KAR-né",
+      "native": "je ne mange pas de viande"
+     },
+     "study": "È per questo che non mangio carne.",
+     "phon": "è pér KOUÉS-to ké non MAN-djo KAR-né",
+     "native": "C'est pour ça que je ne mange pas de viande."
+    },
+    {
+     "slot": {
+      "study": "preferisco il treno",
+      "phon": "pré-fé-RIS-ko il TRÈ-no",
+      "native": "je préfère le train"
+     },
+     "study": "È per questo che preferisco il treno.",
+     "phon": "è pér KOUÉS-to ké pré-fé-RIS-ko il TRÈ-no",
+     "native": "C'est pour ça que je préfère le train."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L7-fr-it-12",
+   "situation": "Demander la différence",
+   "model": {
+    "study": "Qual è la differenza tra {s}?",
+    "phon": "koua-LÈ la dif-fé-RÈN-tsa tra {s}",
+    "native": "Quelle est la différence entre {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "questo e quello",
+      "phon": "KOUÉS-to é KOUÉL-lo",
+      "native": "celui-ci et celui-là"
+     },
+     "study": "Qual è la differenza tra questo e quello?",
+     "phon": "koua-LÈ la dif-fé-RÈN-tsa tra KOUÉS-to é KOUÉL-lo",
+     "native": "Quelle est la différence entre celui-ci et celui-là ?"
+    },
+    {
+     "slot": {
+      "study": "i due menù",
+      "phon": "i DOU-é mé-NOU",
+      "native": "les deux menus"
+     },
+     "study": "Qual è la differenza tra i due menù?",
+     "phon": "koua-LÈ la dif-fé-RÈN-tsa tra i DOU-é mé-NOU",
+     "native": "Quelle est la différence entre les deux menus ?"
+    },
+    {
+     "slot": {
+      "study": "il treno e l'autobus",
+      "phon": "il TRÈ-no é LAOU-to-bous",
+      "native": "le train et le bus"
+     },
+     "study": "Qual è la differenza tra il treno e l'autobus?",
+     "phon": "koua-LÈ la dif-fé-RÈN-tsa tra il TRÈ-no é LAOU-to-bous",
+     "native": "Quelle est la différence entre le train et le bus ?"
+    },
+    {
+     "slot": {
+      "study": "le due camere",
+      "phon": "lé DOU-é KA-mé-ré",
+      "native": "les deux chambres"
+     },
+     "study": "Qual è la differenza tra le due camere?",
+     "phon": "koua-LÈ la dif-fé-RÈN-tsa tra lé DOU-é KA-mé-ré",
+     "native": "Quelle est la différence entre les deux chambres ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L7-fr-it-d1",
+   "situation": "Au magasin : choisir une veste (Lei)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Buongiorno, cerco una giacca. Qual è la differenza tra queste due?",
+     "phon": "bouon-DJOR-no, TCHÈR-ko OU-na DJAK-ka. koua-LÈ la dif-fé-RÈN-tsa tra KOUÉS-té DOU-é",
+     "native": "Bonjour, je cherche une veste. Quelle est la différence entre ces deux-là ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Questa è di lana, quella è di cotone.",
+     "phon": "KOUÉS-ta è di LA-na, KOUÉL-la è di ko-TO-né",
+     "native": "Celle-ci est en laine, celle-là est en coton."
+    },
+    {
+     "speaker": "A",
+     "study": "E quale costa meno?",
+     "phon": "é KOUA-lé KOS-ta MÉ-no",
+     "native": "Et laquelle coûte moins cher ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Quella di cotone è meno cara, ma la lana è più calda.",
+     "phon": "KOUÉL-la di ko-TO-né è MÉ-no KA-ra, ma la LA-na è piou KAL-da",
+     "native": "Celle en coton est moins chère, mais la laine est plus chaude."
+    },
+    {
+     "speaker": "A",
+     "study": "Preferisco quella di lana perché fa freddo.",
+     "phon": "pré-fé-RIS-ko KOUÉL-la di LA-na pér-KÉ fa FRÉD-do",
+     "native": "Je préfère celle en laine parce qu'il fait froid."
+    },
+    {
+     "speaker": "B",
+     "study": "Secondo me è la scelta giusta. Che taglia porta?",
+     "phon": "sé-KON-do mé è la CHÉL-ta DJOUS-ta. ké TA-lia POR-ta",
+     "native": "À mon avis, c'est le bon choix. Quelle taille faites-vous ?"
+    },
+    {
+     "speaker": "A",
+     "study": "La media. Posso provarla?",
+     "phon": "la MÈ-dia. POS-so pro-VAR-la",
+     "native": "La moyenne. Je peux l'essayer ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Certo, il camerino è là in fondo.",
+     "phon": "TCHÈR-to, il ka-mé-RI-no è LA inn FON-do",
+     "native": "Bien sûr, la cabine est là-bas au fond."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L2-fr-it-04",
+    "L2-fr-it-05",
+    "L2-fr-it-08",
+    "L3-fr-it-04",
+    "L7-fr-it-06",
+    "L7-fr-it-12"
+   ],
+   "roles": {
+    "A": "Client",
+    "B": "Vendeur"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L7-fr-it-d2",
+   "situation": "Au restaurant : que choisir (entre amis, tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Cosa prendi? Io penso che il pesce sia buonissimo qui.",
+     "phon": "KO-za PRÈN-di. I-o PÈN-so ké il PÉ-ché SI-a bouo-NIS-si-mo KOUI",
+     "native": "Qu'est-ce que tu prends ? Moi, je pense que le poisson est excellent ici."
+    },
+    {
+     "speaker": "B",
+     "study": "Secondo me la pasta è migliore, e costa meno.",
+     "phon": "sé-KON-do mé la PAS-ta è mi-LIO-ré, é KOS-ta MÉ-no",
+     "native": "À mon avis, les pâtes sont meilleures, et ça coûte moins cher."
+    },
+    {
+     "speaker": "A",
+     "study": "È vero, ma io non mangio pasta la sera.",
+     "phon": "è VÉ-ro, ma I-o non MAN-djo PAS-ta la SÉ-ra",
+     "native": "C'est vrai, mais moi je ne mange pas de pâtes le soir."
+    },
+    {
+     "speaker": "B",
+     "study": "Perché?",
+     "phon": "pér-KÉ",
+     "native": "Pourquoi ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Perché prima mangiavo troppo e dormivo male. Adesso mangio leggero.",
+     "phon": "pér-KÉ PRI-ma man-DJA-vo TROP-po é dor-MI-vo MA-lé. a-DÈS-so MAN-djo léd-DJÈ-ro",
+     "native": "Parce qu'avant je mangeais trop et je dormais mal. Maintenant je mange léger."
+    },
+    {
+     "speaker": "B",
+     "study": "Capisco. Allora per te il pesce, per me la pasta.",
+     "phon": "ka-PIS-ko. al-LO-ra pér TÉ il PÉ-ché, pér MÉ la PAS-ta",
+     "native": "Je comprends. Alors pour toi le poisson, pour moi les pâtes."
+    },
+    {
+     "speaker": "A",
+     "study": "E da bere? Il vino bianco è più leggero del rosso.",
+     "phon": "é da BÉ-ré. il VI-no BIAN-ko è piou léd-DJÈ-ro dél ROS-so",
+     "native": "Et à boire ? Le vin blanc est plus léger que le rouge."
+    },
+    {
+     "speaker": "B",
+     "study": "Va bene, bianco.",
+     "phon": "va BÈ-né, BIAN-ko",
+     "native": "D'accord, du blanc."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L2-fr-it-02",
+    "L3-fr-it-03",
+    "L3-fr-it-04",
+    "L4-fr-it-03",
+    "L7-fr-it-05",
+    "L7-fr-it-06"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Un ami"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L7-fr-it-d3",
+   "situation": "Pourquoi tu as déménagé ? (entre amis, tu)",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Allora, perché hai cambiato casa?",
+     "phon": "al-LO-ra, pér-KÉ A-i kam-BIA-to KA-za",
+     "native": "Alors, pourquoi tu as déménagé ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Perché prima abitavo in centro ed era troppo caro.",
+     "phon": "pér-KÉ PRI-ma a-bi-TA-vo inn TCHÈN-tro éd È-ra TROP-po KA-ro",
+     "native": "Parce qu'avant j'habitais dans le centre et c'était trop cher."
+    },
+    {
+     "speaker": "A",
+     "study": "E adesso dove abiti?",
+     "phon": "é a-DÈS-so DO-vé A-bi-ti",
+     "native": "Et maintenant, tu habites où ?"
+    },
+    {
+     "speaker": "B",
+     "study": "In periferia. La casa è più grande e meno cara.",
+     "phon": "inn pé-ri-fé-RI-a. la KA-za è piou GRAN-dé é MÉ-no KA-ra",
+     "native": "En banlieue. La maison est plus grande et moins chère."
+    },
+    {
+     "speaker": "A",
+     "study": "Ma è più lontano dal lavoro, no?",
+     "phon": "ma è piou lon-TA-no dal la-VO-ro, no",
+     "native": "Mais c'est plus loin du travail, non ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Sì, ma prendo il treno. È più comodo della macchina.",
+     "phon": "SI, ma PRÈN-do il TRÈ-no. è piou KO-mo-do DÉL-la MAK-ki-na",
+     "native": "Oui, mais je prends le train. C'est plus pratique que la voiture."
+    },
+    {
+     "speaker": "A",
+     "study": "Penso che tu abbia ragione. Io preferisco il centro perché esco spesso.",
+     "phon": "PÈN-so ké tou AB-bia ra-DJO-né. I-o pré-fé-RIS-ko il TCHÈN-tro pér-KÉ ÈS-ko SPÉS-so",
+     "native": "Je pense que tu as raison. Moi, je préfère le centre parce que je sors souvent."
+    },
+    {
+     "speaker": "B",
+     "study": "Capisco. Dipende dalla vita che fai.",
+     "phon": "ka-PIS-ko. di-PÈN-dé DAL-la VI-ta ké FA-i",
+     "native": "Je comprends. Ça dépend de la vie que tu mènes."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L2-fr-it-05",
+    "L2-fr-it-12",
+    "L3-fr-it-04",
+    "L4-fr-it-06",
+    "L7-fr-it-05"
+   ],
+   "roles": {
+    "A": "Un ami",
+    "B": "Toi"
+   },
+   "learnerRole": "B"
+  }
+ ],
+ "readiness": "Justifier avec « perché », comparer (più / meno / come), donner un avis simple (penso che, secondo me) et opposer une habitude passée à la situation actuelle (prima… adesso…)."
+}

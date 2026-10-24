@@ -4,19 +4,19 @@ Les thèmes de situation et les rubriques de vocabulaire figurent dans la même 
 
 **32115 cartes du catalogue** sont conservées exactement une fois, entre rubriques actives et réserve ; **110277 champs** restent identiques aux sources. Les **2134 cartes historiquement lv1** restent présentes avec leur niveau source. Les droits de l’application classique sont inchangés.
 
-Le lot comporte **1226 décisions explicites** de placement. Les **30889 autres cartes** gardent un niveau source non revu individuellement. Ni une partition complète ni la conservation des textes ne prouvent la progressivité ou l’acquisition.
+Le lot comporte **1274 décisions explicites** de placement. Les **30841 autres cartes** gardent un niveau source non revu individuellement. Ni une partition complète ni la conservation des textes ne prouvent la progressivité ou l’acquisition.
 
 ## Typage et couverture
 
 | Type | Nombre canonique | Destination |
 |---|---:|---|
-| Répliques et phrases entières | 22548 | Thèmes de situation |
+| Répliques et phrases entières | 23029 | Thèmes de situation |
 | Vocabulaire | 8659 | Familles lexicales et catégories déclarées |
 | Nombres isolés | 229 | Nombres |
 | Modèles incomplets | 495 | Réserve, aucune étape |
 | Cas à revoir | 367 | Réserve, aucune étape |
 
-Total canonique : **32298** ; contenu canonique hors réserve : **31436** ; réserve : **862**. Parmi les contenus hors réserve, **31436** sont présentés dans les thèmes et **0** restent dans **0 thèmes en attente de consolidation**, accessibles à l’inventaire. Aucun thème de moins de six concepts n’est publié comme une petite leçon complète.
+Total canonique : **32779** ; contenu canonique hors réserve : **31917** ; réserve : **862**. Parmi les contenus hors réserve, **31917** sont présentés dans les thèmes et **0** restent dans **0 thèmes en attente de consolidation**, accessibles à l’inventaire. Aucun thème de moins de six concepts n’est publié comme une petite leçon complète.
 
 Les sept partitions s’appuient sur des indices et une empreinte du deck source. Elles distinguent la fonction communicative du lexème : Bonjour, Merci ou Oui peuvent former une réplique entière ; un groupe lexical de plusieurs mots peut rester du vocabulaire. Le nombre de mots, la ponctuation et la catégorie source ne constituent pas à eux seuls ce jugement. Les classements candidats et leurs raisons restent exposés pour revue. Les familles lexicales déduites de signaux ou de l’ancien domaine sont aussi des propositions, sans prétention de relecture exhaustive.
 
@@ -24,13 +24,24 @@ Les sept partitions s’appuient sur des indices et une empreinte du deck source
 
 | Couple | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | Réserve | Canonique |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| fr-en | 377 | 524 | 708 | 498 | 686 | 471 | 445 | 294 | 166 | 222 | 125 | 4516 |
-| fr-es | 329 | 631 | 528 | 568 | 568 | 490 | 473 | 417 | 305 | 276 | 163 | 4748 |
-| fr-it | 379 | 543 | 550 | 604 | 649 | 390 | 398 | 381 | 226 | 257 | 149 | 4526 |
-| fr-zh | 290 | 570 | 571 | 680 | 654 | 503 | 462 | 509 | 288 | 307 | 92 | 4926 |
-| fr-ja | 349 | 550 | 524 | 615 | 664 | 419 | 506 | 315 | 221 | 248 | 115 | 4526 |
-| fr-ko | 349 | 461 | 527 | 588 | 681 | 437 | 517 | 393 | 232 | 262 | 87 | 4534 |
-| zh-fr | 319 | 549 | 638 | 585 | 657 | 414 | 423 | 363 | 216 | 227 | 131 | 4522 |
+| fr-en | 377 | 540 | 723 | 512 | 698 | 486 | 444 | 294 | 165 | 222 | 125 | 4586 |
+| fr-es | 329 | 645 | 541 | 581 | 583 | 505 | 472 | 416 | 305 | 276 | 163 | 4816 |
+| fr-it | 379 | 557 | 563 | 619 | 665 | 405 | 397 | 381 | 225 | 256 | 149 | 4596 |
+| fr-zh | 290 | 584 | 586 | 691 | 668 | 516 | 460 | 509 | 288 | 307 | 92 | 4991 |
+| fr-ja | 349 | 565 | 539 | 630 | 680 | 434 | 504 | 315 | 220 | 247 | 115 | 4598 |
+| fr-ko | 349 | 476 | 542 | 603 | 696 | 452 | 516 | 393 | 231 | 261 | 87 | 4606 |
+| zh-fr | 319 | 563 | 654 | 596 | 672 | 428 | 419 | 363 | 215 | 226 | 131 | 4586 |
+
+## Enrichissement de situations — lot distinct
+
+Dix nouvelles rubriques L2–L6 comportent chacune huit intentions dans les sept couples : **560 positions pédagogiques**. Elles ne représentent pas autant de créations : **454 formes entières réellement rédigées** et **106 positions utilisant des sources préexistantes**. Parmi ces sources, **27 phrases de conversation** sont importées entières sans être comptées comme nouvelles rédactions.
+
+Les **454 nouvelles aides entières** restent `pending-Claude`. Les 140 entrées du lot précédent sont inchangées et comptées séparément. Les recherches de doublons portent aussi sur l’index portable des 70 conversations : espaces, ponctuation et casse ne suffisent jamais à faire une nouvelle forme ; aucun champ source n’est normalisé à l’affichage.
+
+**31 réemplois contextuels** conservent l’identifiant, les champs et le premier emplacement canoniques. Une première rencontre au même niveau est autorisée, avec compréhension, imitation et rappel ici ; elle ne suppose aucune acquisition antérieure. Les sources plus tardives ne sont introduites plus tôt que par une décision explicite, tracée sans modifier leur niveau d’accès d’origine.
+
+Dans ces dix nouvelles rubriques, les intentions 01 à 08 définissent l’ordre global : sources contextuelles et nouvelles premières rencontres restent mélangées à leur place. Le générateur ne repousse pas une conclusion au début sous prétexte qu’elle est réemployée. Les préparations structurelles explicites précèdent leur cible. La règle de révisions en amont reste applicable aux rubriques historiques, pas à ce nouveau déroulé de contexte.
+
 
 ## Réemploi de sources existantes
 
@@ -44,7 +55,7 @@ Compléments distincts : **29 introductions supplémentaires**, **8 localisateur
 
 ## Densité et révisions sourcées
 
-Les thèmes visibles réunissent **38838 présentations**, dont **7402 révisions référencées**. Une même source reste une seule carte canonique. Les banques de transport contiennent **1734 copies de sources reprises sélectionnées**, vérifiables contre leur première cellule et marquées `referenceOnly` ; elles ne créent ni nouvelle carte ni nouvelle première rencontre.
+Les thèmes visibles réunissent **39350 présentations**, dont **7402 révisions référencées**. Une même source reste une seule carte canonique. Les banques de transport contiennent **1765 copies de sources reprises sélectionnées**, vérifiables contre leur première cellule et marquées `referenceOnly` ; elles ne créent ni nouvelle carte ni nouvelle première rencontre.
 
 Chaque révision conserve la même famille et le même type, et sa première rencontre est strictement antérieure. Une source en attente de consolidation n’est jamais prétendue déjà présentée. Adjectifs et Couleurs constituent des répertoires cumulatifs explicites ; les autres thèmes reprennent le complément antérieur pertinent. Les révisions sont d’abord réactivées, avec leur rappel, puis viennent les nouveautés dans leurs propres groupes. Dans chacun des deux blocs, les adjectifs privilégient grand, petit, gros, beau, léger, lourd, triste, heureux, en regroupant les variantes de concept déclarées ; un prérequis topologique reste prioritaire. Les nombres suivent numberOrder, le niveau de première rencontre ne départageant que les égalités. Les autres révisions suivent leur première rencontre croissante. Ce déroulé ne prouve pas l’acquisition. Nouveautés, révisions et concepts distincts sont comptés séparément ; les variantes explicitement liées au même concept ne gonflent pas le seuil pédagogique.
 

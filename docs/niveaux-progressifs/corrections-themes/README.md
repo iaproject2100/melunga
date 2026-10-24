@@ -1,6 +1,6 @@
 # Corrections de contenu et progression par thème
 
-Lot du 24 octobre 2026, après les captures de Kartech. Codex assume la pertinence des thèmes et la progression ; Claude vérifie uniquement la phonétique. L’architecture reste celle de l’aperçu #14.
+Premier lot du 24 octobre 2026, gelé à `7d7bf63`, après les captures de Kartech. Le lot ultérieur des454phrases et ses chiffres actualisés sont dans [le dossier général](../README.md) et [enrichissement-situations](../enrichissement-situations/README.md). Codex assume la pertinence des thèmes et la progression ; Claude vérifie uniquement la phonétique. L’architecture reste celle de l’aperçu #14.
 
 ## Ce qui change
 

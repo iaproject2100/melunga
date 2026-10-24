@@ -17,6 +17,12 @@ import struct
 import subprocess
 import sys
 
+from check_situations_independent import (
+    read_inputs as read_situation_inputs,
+    validate_sources as validate_situation_sources,
+    resolve_sources as resolve_situation_sources,
+)
+
 
 ROOT = Path(__file__).resolve().parents[2]
 PAIR_LANGUAGES = {
@@ -148,6 +154,9 @@ def read_pack(root):
         pack["snapshots"][relative] = json.loads(data)
     registry_path = REVIEW_ROOT + "/visuels.json"
     pack["visualRegistry"] = js(registry_path) if (root / registry_path).is_file() else None
+    pack["languages"] = PAIR_LANGUAGES
+    raw("tools/maquette-guidee/check_situations_independent.py")
+    pack["situations"] = read_situation_inputs(root, raw, js, require, canonical, digest, PAIR_LANGUAGES)
     return pack
 
 
@@ -157,6 +166,7 @@ def check_pack(pack):
     )
     require(set(decks) == {study for native, study in PAIR_LANGUAGES.values()}, "Unexpected source deck set")
     require(sum(map(len, decks.values())) == 32115, "Classic source catalogue count changed")
+    validate_situation_sources(pack, require, canonical, digest)
     require(manifest.get("publicationApproved") is False, "Manifest must remain unapproved for production")
     require(manifest.get("doesNotMeasureAcquisition") is True, "Manifest overclaims learner acquisition")
     minimum_concepts = pack["densityPolicy"]["displayRule"]["minimumPresentedItems"]
@@ -183,7 +193,12 @@ def check_pack(pack):
             require(key not in plan_map and theme["visualId"] not in visual_cells, "Lexical theme or visual ID duplicates a situation")
             plan_map[key] = theme
             visual_cells[theme["visualId"]] = key
-    require(len(visual_cells) == 250, "Expected 250 independently declared theme/reserve visual slots")
+    for theme in pack["situations"]["plan"]["themes"] if pack["situations"] else []:
+        key = (theme["level"], theme["themeId"])
+        require(key not in plan_map and theme["visualId"] not in visual_cells, "A new situation duplicates an old theme or photo")
+        plan_map[key] = {**theme, "id": theme["themeId"], "optional": False, "isTemplateCollection": False}
+        visual_cells[theme["visualId"]] = key
+    require(len(visual_cells) == 250 + (10 if pack["situations"] else 0), "Independent visual definition coverage differs")
     semantic_map, semantic_counts = {}, Counter()
     exceptions = {
         ("fr-en", 3463), ("fr-ja", 2985), ("fr-ko", 2138),
@@ -356,6 +371,30 @@ def check_pack(pack):
             primary_locations[key] = {"pairId": pair, "level": number, "themeId": None,
                                       "domain": "reserve", "contentType": phrase["contentType"], "held": False}
     require(set(pack["repertoires"]) == set(PAIR_LANGUAGES), "A review transport bank is absent")
+    base_levels = {}
+    for pair, (_native, study) in PAIR_LANGUAGES.items():
+        for index, card in enumerate(decks[study]):
+            intro = introduction_map.get((pair, index))
+            move = move_map.get((pair, index))
+            base_levels[(pair, f"catalogue:{study}:{index}")] = intro["proposedLevel"] if intro else move["proposedLevel"] if move else card["lv"]
+    for key, item in authored_map.items():
+        base_levels[key] = item["proposedLevel"]
+    for (pair, relative, unit_id, variant_index), item in runtime_imports.items():
+        base_levels[(pair, f"conversation:{Path(relative).name}:{unit_id}:v{variant_index}")] = item["proposedLevel"]
+    situation_resolution = resolve_situation_sources(pack, primary_lookup, primary_locations, base_levels, require, canonical, digest)
+    pack["situationResolution"] = situation_resolution
+    situation_introductions = situation_resolution["catalogueIntroductions"]
+    if pack["situations"]:
+        expected_authored = sum(entry["authored"] for entry in situation_resolution["newEntries"].values())
+        expected_additional = {"planSha256": pack["situations"]["freeze"]["planSha256"],
+                               "themeCount": 10, "intentsPerTheme": 8, "candidatePositions": 560,
+                               "newAuthoredUtterances": expected_authored,
+                               "existingConversationImports": len(situation_resolution["newEntries"]) - expected_authored,
+                               "existingSourcePositions": 560 - expected_authored}
+        require(manifest.get("additionalSituations") == expected_additional,
+                "Manifest falsely counts situation reuse, imports or intent positions as new authored phrases")
+    else:
+        require(not manifest.get("additionalSituations"), "Runtime declares a situation extension without frozen source ledgers")
     bank_map, used_review_banks = {}, set()
     for pair, bank in pack["repertoires"].items():
         require(bank["version"] == 1 and bank["pairId"] == pair
@@ -386,6 +425,7 @@ def check_pack(pack):
     local_support, local_orders, all_phrases = {}, [], {}
     active_count = reserved_count = situation_step_count = lexical_step_count = 0
     held_count = held_theme_count = review_reference_count = visible_theme_count = concept_count = 0
+    context_reference_count = new_situation_fields = 0
     authored_seen, authored_fields = set(), 0
     for pair_manifest in manifest["pairs"]:
         pair = pair_manifest["id"]
@@ -398,7 +438,7 @@ def check_pack(pack):
         expected_fields = field_map(study)
         require(len(pair_manifest["levels"]) == 10, "Pair lacks ten levels")
         require({level["level"] for level in pair_manifest["levels"]} == set(range(1, 11)), "Pair level list duplicated or missing")
-        catalogue_count = import_count = authored_pair_count = presented_count = pair_reserved_count = 0
+        catalogue_count = import_count = authored_pair_count = presented_count = pair_reserved_count = new_situation_pair_count = 0
         pair_types, pair_lexical_types = Counter(), Counter()
         source_l1_indices = {i for i, card in enumerate(decks[study]) if card["lv"] == 1}
         for level_metadata in pair_manifest["levels"]:
@@ -408,6 +448,7 @@ def check_pack(pack):
             require((cell["pairId"], cell["nativeLanguage"], cell["studyLanguage"], cell["level"]) == (pair, native, study, number), "Cell identity differs")
             require(cell.get("repertoirePath") == repertoire_path, "Cell review bank path differs from checked transport")
             require(len(cell["themes"]) == level_metadata["themeCount"], "Theme count differs from manifest")
+            require(len({theme["id"] for theme in cell["themes"]}) == len(cell["themes"]), "A level repeats a theme identity")
             cell_count = 0
             cell_types, cell_lexical_types = Counter(), Counter()
             reserve_theme = {"id": None, "domain": "reserve", "phrases": cell["reserve"],
@@ -461,7 +502,9 @@ def check_pack(pack):
                                 require(phrase.get(output, "") == "", "A missing source field was manufactured")
                         decision = move_map.get((pair, index))
                         introduction = introduction_map.get((pair, index))
-                        require(number == (introduction["proposedLevel"] if introduction else decision["proposedLevel"] if decision else card["lv"]), "Unexpected editorial level reassignment")
+                        situation_introduction = situation_introductions.get((pair, index))
+                        expected_level = situation_introduction["proposedLevel"] if situation_introduction else introduction["proposedLevel"] if introduction else decision["proposedLevel"] if decision else card["lv"]
+                        require(number == expected_level, "Unexpected editorial level reassignment")
                         require(phrase["placement"].get("plannedPrerequisiteIndices", []) == (decision.get("plannedPrerequisiteIndices", []) if decision else []), "Runtime prerequisite links differ from explicit decisions")
                         expected_template = card.get("cat") == "template" or card.get("pedagogicalStatus") == "modele-a-completer" or bool(re.search(r"\{[\w-]+\}|_{2,}", card["t"]))
                         annotation = semantic_map[(pair, index)]
@@ -486,7 +529,7 @@ def check_pack(pack):
                             require(not reviewed_family or theme["domain"] == reviewed_family, "Reviewed lexical family was ignored")
                         else:
                             require("lexicalClass" not in phrase, "A non-vocabulary phrase carries a lexical class")
-                        reviewed_domain = annotation.get("situationDomainOverride") or (introduction.get("domain") if introduction else None)
+                        reviewed_domain = situation_introduction["domain"] if situation_introduction else annotation.get("situationDomainOverride") or (introduction.get("domain") if introduction else None)
                         require(not reviewed_domain or theme["domain"] == reviewed_domain, "Reviewed situation purpose was ignored")
                         expected_concept = annotation.get("lexicalConceptId") or annotation.get("conceptId")
                         if introduction:
@@ -524,6 +567,22 @@ def check_pack(pack):
                             require(theme["domain"] == "nombres" and phrase["numberOrder"] == item["numberOrder"], "New zero/number order differs")
                         authored_seen.add(key)
                         authored_pair_count += 1
+                    elif source["collection"] in {"situation-authored", "situation-conversation"}:
+                        expected = situation_resolution["newEntries"].get((pair, phrase["id"]))
+                        require(expected is not None, "Undeclared new situation canonical source")
+                        item = expected["item"]
+                        require(source == expected["source"] and phrase["contentType"] == "utterance"
+                                and phrase.get("isTemplate") is False and phrase.get("sourceDeclaredTemplate") is False,
+                                "New situation source provenance or complete-utterance status differs")
+                        for field in ("study", "native", "phon", "reading"):
+                            require((field in phrase) == (field in item) and phrase.get(field) == item.get(field),
+                                    "New situation text, reading or phonetic was changed or assembled")
+                            if field in item:
+                                new_situation_fields += 1
+                        require(number == item["proposedLevel"] and theme["domain"] == pack["situations"]["intents"][item["intentId"]][0]["domain"]
+                                and phrase["phoneticReviewStatus"] == item["phoneticReviewStatus"],
+                                "New situation canonical changed its placement or review status")
+                        new_situation_pair_count += 1
                     else:
                         require(source["collection"] == "conversation" and source["kind"] == "conversation-variant", "Unknown source collection")
                         source_key = (pair, source["file"], source["unitId"], source["variantIndex"])
@@ -571,11 +630,12 @@ def check_pack(pack):
                             held_count += 1
                     if phrase["isTemplate"]:
                         template_count += 1
-                require(len(phrases) == theme["totalPhrases"] and (is_reserve or len(phrases) > 0 or bool(theme.get("reviewReferences"))), "Empty or miscounted runtime theme")
+                require(len(phrases) == theme["totalPhrases"] and (is_reserve or len(phrases) > 0 or bool(theme.get("reviewReferences")) or bool(theme.get("contextReferences"))), "Empty or miscounted runtime theme")
                 practice_phrases = dict(phrases)
+                reference_ids, context_ids = set(), set()
+                situation_uses = None
                 if not is_reserve:
                     references = theme.get("reviewReferences", [])
-                    reference_ids = set()
                     for reference in references:
                         key = (pair, reference["id"])
                         require(key in primary_lookup and key in bank_map and reference["id"] not in reference_ids
@@ -590,9 +650,42 @@ def check_pack(pack):
                         reference_ids.add(reference["id"])
                         practice_phrases[reference["id"]] = original
                         used_review_banks.add(key)
+                    contextual = theme.get("contextReferences", [])
+                    situation_uses = situation_resolution["usesByTheme"].get((pair, number, theme["id"]))
+                    require(bool(theme.get("isAdditionalSituation")) == bool(situation_uses), "An additional situation hides or invents its source-plan identity")
+                    require(not contextual or situation_uses, "Contextual references were added outside an explicitly reviewed new situation")
+                    expected_intents = {use["item"]["intentId"]: use["canonicalId"] for use in situation_uses or []}
+                    for reference in contextual:
+                        key = (pair, reference["id"])
+                        require(key in primary_lookup and key in bank_map and reference["id"] not in context_ids
+                                and reference["id"] not in phrases and reference["id"] not in reference_ids
+                                and key not in held_identities, "A contextual use is duplicated, unbanked, new, held or unknown")
+                        original, location = primary_lookup[key], primary_locations[key]
+                        require(reference["firstEditorialLevel"] == location["level"] <= number
+                                and reference["canonicalThemeId"] == location["themeId"]
+                                and isinstance(reference.get("reason"), str) and reference["reason"].strip(),
+                                "Contextual use precedes or misidentifies its canonical first encounter")
+                        require(expected_intents.get(reference.get("intentId")) == reference["id"]
+                                and original["contentType"] == "utterance" and not original["isTemplate"],
+                                "A contextual use substitutes the wrong intent, isolated lexeme or incomplete source")
+                        context_ids.add(reference["id"])
+                        practice_phrases[reference["id"]] = original
+                        used_review_banks.add(key)
+                    if situation_uses:
+                        require(not references, "A new situation silently treats contextual reuse as an earlier revision")
+                        require(theme.get("presentationOrder") == "plan-intent-order-with-explicit-preparations",
+                                "New situation declares an obsolete reuse-before-new ordering policy")
+                        require(theme.get("intentIds") == [use["item"]["intentId"] for use in situation_uses]
+                                and set(practice_phrases) == set(expected_intents.values()) and len(practice_phrases) == 8,
+                                "A new situation omits an intent or counts a canonical phrase more than once")
+                        actual_authored = sum(phrase["source"]["collection"] == "situation-authored" for phrase in phrases.values())
+                        require(theme.get("authoredCount") == actual_authored
+                                and theme.get("existingSourceCount") == len(practice_phrases) - actual_authored,
+                                "A theme falsely labels a contextual or archived phrase as newly authored")
                     concepts = {concept_key(phrase) for phrase in practice_phrases.values()}
                     require(theme["newCount"] == theme["totalPhrases"] == len(phrases)
                             and theme["reviewCount"] == len(references)
+                            and theme.get("reuseCount", 0) == len(contextual)
                             and theme["presentedCount"] == len(practice_phrases)
                             and theme["pedagogicalConceptCount"] == len(concepts), "Presentation/concept counters inflate primary sources or gender variants")
                     if is_held:
@@ -603,17 +696,21 @@ def check_pack(pack):
                         concept_count += len(concepts)
                         require(len(concepts) >= minimum_concepts, "A visible theme contains fewer than six actual concepts")
                     review_reference_count += len(references)
+                    context_reference_count += len(contextual)
                 assigned_to_sequences = []
-                new_group_seen = False
+                previous_group_rank = -1
                 for sequence in theme["sequences"]:
                     ids = sequence["phraseIds"]
                     require(1 <= len(ids) <= 5 and len(ids) == len(set(ids)), "Invalid internal practice group")
                     require(set(ids) <= set(practice_phrases), "Sequence refers outside its canonical or valid review sources")
-                    group_review = all(identity not in phrases for identity in ids)
-                    require(group_review or all(identity in phrases for identity in ids), "A group mixes revisions and new learning before recall completes")
-                    require(not group_review or not new_group_seen, "A revision group starts after new learning")
-                    if not group_review:
-                        new_group_seen = True
+                    categories = {0 if identity in reference_ids else 1 if identity in context_ids else 2 for identity in ids}
+                    if situation_uses:
+                        require(categories <= {1, 2}, "A new situation disguises contextual reuse as a revision")
+                    else:
+                        require(len(categories) == 1, "A group mixes revision and new learning before recall completes")
+                        group_rank = next(iter(categories))
+                        require(group_rank >= previous_group_rank, "A revision group starts after new learning")
+                        previous_group_rank = group_rank
                     assigned_to_sequences.extend(ids)
                     understood, imitated = {}, {}
                     preparation_ids = sequence.get("preparationIds", [])
@@ -664,7 +761,8 @@ def check_pack(pack):
                             require(target not in {p["id"] for p in cell["reserve"]}, "A lesson step activates a reserved source")
                             require(target in ids, "Step refers outside its internal primary group")
                             phrase = practice_phrases[target]
-                            require(step.get("isReview") is (target not in phrases), "A revision is counted as a new learning presentation")
+                            require(step.get("isReview") is (target in reference_ids), "A revision or contextual source is counted as the wrong presentation type")
+                            require(step.get("isContextReuse", False) is (target in context_ids), "A contextual source is disguised as a new phrase or revision")
                             primary_stages[target].append(step["kind"])
                         template = phrase["isTemplate"] or (not is_preparation and theme["isTemplateCollection"])
                         require(not template or (step["kind"] == "understand" and step.get("requiresProduction") is False), "Incomplete model was turned into learner production")
@@ -699,6 +797,11 @@ def check_pack(pack):
                     for identity, stages in primary_stages.items():
                         expected = ["understand"] if practice_phrases[identity]["isTemplate"] or theme["isTemplateCollection"] else ["understand", "imitate", "choose-and-recall"]
                         require(stages == expected, "A primary card omits, repeats, or reorders its learning stages")
+                    if situation_uses:
+                        for stage in ("understand", "imitate", "choose-and-recall"):
+                            stage_order = [step["utterance"] for step in sequence["steps"]
+                                           if step["kind"] == stage and not step.get("isPreparation")]
+                            require(stage_order == ids, "Playback reorders the situation intentions inside a learning phase")
                     for primary_id, order in preparation_positions.items():
                         local_orders.append({"pair": pair, "sourceIndex": phrases[primary_id]["source"]["sourceIndex"],
                                              "sequenceId": sequence["id"], "order": order})
@@ -723,8 +826,11 @@ def check_pack(pack):
                         starts = [label for i, label in enumerate(labels) if i == 0 or labels[i - 1] != label]
                         require(len(starts) == len(set(starts)), "Declared adjective concept variants are scattered to simulate separate learning groups")
                 elif not is_reserve and not is_held:
-                    review_levels = [primary_locations[(pair, identity)]["level"] for identity in assigned_to_sequences if identity not in phrases]
+                    review_levels = [primary_locations[(pair, identity)]["level"] for identity in assigned_to_sequences if identity in reference_ids]
                     require(review_levels == sorted(review_levels), "Revisions are not ordered by their earlier first encounter")
+                if not is_reserve and (pair, number, theme["id"]) in situation_resolution["usesByTheme"]:
+                    planned_order = [use["canonicalId"] for use in situation_resolution["usesByTheme"][(pair, number, theme["id"])]]
+                    require(assigned_to_sequences == planned_order, "The new situation plays its intentions outside global 01-to-08 order")
                 cell_count += len(phrases)
             require(cell_count == cell["totalCanonicalPhrases"] == level_metadata["totalCanonicalPhrases"], "Cell canonical count differs")
             require(cell["reservedPhrases"] == level_metadata["reservedPhrases"] == len(cell["reserve"]), "Cell reserve count differs")
@@ -732,6 +838,16 @@ def check_pack(pack):
             cell_held_count = sum(len(theme["phrases"]) for theme in cell.get("heldThemes", []))
             require(cell.get("heldPhrases") == cell_held_count and cell.get("visibleCanonicalPhrases") == cell["totalPhrases"] - cell_held_count,
                     "Held material was lost or falsely counted as visibly presented")
+            expected_additional_count = sum(theme["level"] == number for theme in pack["situations"]["plan"]["themes"]) if pack["situations"] else 0
+            actual_additional_count = sum(bool(theme.get("isAdditionalSituation")) for theme in cell["themes"])
+            actual_context_count = sum(len(theme.get("contextReferences", [])) for theme in cell["themes"])
+            require(actual_additional_count == expected_additional_count == level_metadata.get("additionalSituationCount", 0),
+                    "A level omits a new situation or falsely reports the number of added themes")
+            require(cell.get("contextReuseCount", 0) == level_metadata.get("contextReuseCount", 0) == actual_context_count,
+                    "A cell or manifest level inflates contextual source reuse counts")
+            actual_presented_count = sum(theme["presentedCount"] for theme in cell["themes"])
+            require(cell.get("presentedCount") == level_metadata.get("presentedCount") == actual_presented_count,
+                    "A cell or manifest level counts transported sources as new canonical presentations")
             require(dict(cell_types) == {key: value for key, value in cell["counts"].items() if value}, "Cell semantic counts differ")
             require(dict(cell_lexical_types) == cell["lexicalClassCounts"] == level_metadata["lexicalClassCounts"], "Cell lexical-class counts differ")
             pair_types.update(cell_types)
@@ -741,15 +857,15 @@ def check_pack(pack):
         require(catalogue_seen[pair] == set(range(len(decks[study]))), "Missing or added classic source indices")
         require(source_l1_indices <= catalogue_seen[pair], "A historically L1 source card disappeared")
         require(catalogue_count == pair_manifest["totalCataloguePhrases"] == len(decks[study]), "Classic total differs from manifest")
-        require(presented_count == pair_manifest["totalPhrases"] == catalogue_count + import_count + authored_pair_count - pair_reserved_count, "Active total differs from manifest")
-        require(pair_manifest["totalCanonicalPhrases"] == catalogue_count + import_count + authored_pair_count and pair_manifest["reservedPhrases"] == pair_reserved_count, "Pair canonical/reserve totals differ")
+        require(presented_count == pair_manifest["totalPhrases"] == catalogue_count + import_count + authored_pair_count + new_situation_pair_count - pair_reserved_count, "Active total differs from manifest")
+        require(pair_manifest["totalCanonicalPhrases"] == catalogue_count + import_count + authored_pair_count + new_situation_pair_count and pair_manifest["reservedPhrases"] == pair_reserved_count, "Pair canonical/reserve totals differ")
         require(dict(pair_types) == {k: v for k, v in pair_manifest["counts"].items() if v}
                 and dict(pair_lexical_types) == pair_manifest["lexicalClassCounts"], "Pair semantic totals differ")
         l1_count += len(source_l1_indices)
         pair_reports.append({"pair": pair, "catalogueCards": catalogue_count, "importedWholePhrases": import_count,
                              "historicalSourceL1IndicesConserved": len(source_l1_indices), "levelCells": 10,
                              "activePhrases": presented_count, "reservedPhrases": pair_reserved_count,
-                             "authoredEntries": authored_pair_count,
+                             "authoredEntries": authored_pair_count, "newSituationEntries": new_situation_pair_count,
                              "counts": dict(pair_types), "lexicalClassCounts": dict(pair_lexical_types)})
     require(imports_seen == set(runtime_imports), "A declared enrichment was omitted")
     require(authored_seen == set(authored_map), "A declared whole-entry draft was omitted")
@@ -819,7 +935,7 @@ def check_pack(pack):
                     structural_late.append(late[-1])
     for (pair, identity), phrase in all_phrases.items():
         source = phrase["source"]
-        if source["collection"] in {"conversation", "editorial-authored"}:
+        if source["collection"] in {"conversation", "editorial-authored", "situation-authored", "situation-conversation"}:
             require(not phrase.get("reuseVocabularyIds"), "Imported whole variant has undeclared lexical prerequisites")
             continue
         index = source["sourceIndex"]
@@ -837,10 +953,10 @@ def check_pack(pack):
             "levelCells": 70, "catalogueCardsRetainedExactlyOnce": sum(map(len, catalogue_seen.values())),
             "catalogueFieldsCompared": copied_fields, "catalogueFieldDifferences": 0,
             "sourceLevelOneIndicesConserved": l1_count, "explicitPlacementProposals": len(move_map),
-            "sourceLevelsNotIndividuallyReviewed": 32115 - len(set(move_map) | set(introduction_map)),
+            "sourceLevelsNotIndividuallyReviewed": 32115 - len(set(move_map) | set(introduction_map) | set(situation_introductions)),
             "historicalPlacementDecisionsPreserved": len(move_map),
             "wholeSourceIntroductionDecisions": len(introduction_map),
-            "uniqueSourcesWithExplicitPlacementDecision": len(set(move_map) | set(introduction_map)),
+            "uniqueSourcesWithExplicitPlacementDecision": len(set(move_map) | set(introduction_map) | set(situation_introductions)),
             "introductionCounts": introduction_counts,
             "introductionSourceFieldsCompared": introduction_fields_compared,
             "importedWholePhrases": len(imports_seen), "importedFieldsCompared": imported_fields,
@@ -854,6 +970,16 @@ def check_pack(pack):
             "newEditorialWholeEntries": len(authored_seen), "newEditorialFieldsCompared": authored_fields,
             "newWholeEntryPhoneticsPendingClaude": len(authored_seen) - authored_reused_phonetics,
             "wholeHeadwordPhoneticsReused": authored_reused_phonetics,
+            "additionalSituationThemesPerPair": 10 if pack["situations"] else 0,
+            "situationCandidatePositions": len(pack["situations"]["items"]) if pack["situations"] else 0,
+            "situationCandidateKinds": pack["situations"].get("inputKindCounts", {}) if pack["situations"] else {},
+            "situationSourceFieldsCompared": pack["situations"]["sourceFieldsCompared"] if pack["situations"] else 0,
+            "situationImmutableConversationParentsChecked": 70 if pack["situations"] else 0,
+            "newSituationAuthoredUtterances": sum(item["authored"] for item in situation_resolution["newEntries"].values()),
+            "newSituationExistingConversationImports": sum(not item["authored"] for item in situation_resolution["newEntries"].values()),
+            "newSituationWholeFieldsCompared": new_situation_fields,
+            "contextPresentationReferences": context_reference_count,
+            "situationCatalogueIntroductionDecisions": len(situation_introductions),
             "allVisibleThemesAtLeastSixConcepts": True,
             "editorialConceptAliases": {"léger": "leger", "le\u0301ger": "leger"},
             "reviewsStrictlyEarlierSameFamily": True, "reviewsRecalledBeforeNewLearning": True,
@@ -913,9 +1039,10 @@ def check_visuals(pack, required=False):
     root, registry = pack["root"], pack["visualRegistry"]
     require(registry is not None, "The visual registry is missing")
     require(len(registry["levels"]) == 10 and len(registry["vocabularyAtlases"]) == 5
-            and len(registry["grammarAtlases"]) == 3 and len(registry["correctionAtlases"]) == 3,
-            "Expected 21 situation/lexical/photo atlases")
-    records = registry["levels"] + registry["vocabularyAtlases"] + registry["grammarAtlases"] + registry["correctionAtlases"]
+            and len(registry["grammarAtlases"]) == 3 and len(registry["correctionAtlases"]) == 3
+            and len(registry.get("situationAtlases", [])) == (1 if pack["situations"] else 0),
+            "Registered atlas count differs from the frozen theme scope")
+    records = registry["levels"] + registry["vocabularyAtlases"] + registry["grammarAtlases"] + registry["correctionAtlases"] + registry.get("situationAtlases", [])
     atlas_map, hashes, result = {}, set(), []
     for item in records:
         asset = item["asset"]
@@ -945,6 +1072,8 @@ def check_visuals(pack, required=False):
             expected[(level["level"], theme["id"])] = theme["visualId"]
         for definition in pack["vocabularyPolicy"]["themeDefinitions"]:
             expected[(level["level"], definition["idPattern"].format(level=level["level"]))] = definition["visualIdPattern"].format(level=level["level"])
+    for theme in pack["situations"]["plan"]["themes"] if pack["situations"] else []:
+        expected[(theme["level"], theme["themeId"])] = theme["visualId"]
     registered = set()
     for theme in registry["themes"]:
         key = (theme["level"], theme["themeId"])
@@ -960,14 +1089,14 @@ def check_visuals(pack, required=False):
         require((columns, rows) == (atlas["columns"], atlas["rows"]), "Theme grid differs from its atlas")
         require(type(theme["column"]) is int and 0 <= theme["column"] < columns
                 and type(theme["row"]) is int and 0 <= theme["row"] < rows, "Theme coordinates lie outside its atlas")
-        scope = atlas.get("levels", atlas.get("usedLevels", [atlas.get("level")]))
+        scope = {definition["level"] for definition in atlas["themes"]} if "themes" in atlas else atlas.get("levels", atlas.get("usedLevels", [atlas.get("level")]))
         require(theme["level"] in scope, "Theme uses another level's atlas")
         cell = (theme["asset"], theme["column"], theme["row"])
         require(cell not in cells, "Distinct themes reuse the same physical photo cell")
         cells.add(cell)
-    require(registered == set(expected) and len(registered) == 250, "Visual registry does not cover exactly 250 situation/reserve/lexical slots")
+    require(registered == set(expected) and len(registered) == 250 + (10 if pack["situations"] else 0), "Visual registry does not cover every independent situation/reserve/lexical slot")
     pending = any(item["status"] == "pending" for item in result)
-    return {"status": "pending" if pending else "all-twenty-one-atlases-present", "atlases": result,
+    return {"status": "pending" if pending else "all-registered-atlases-present" if pack["situations"] else "all-twenty-one-atlases-present", "atlases": result,
             "distinctAssetCells": len(cells), "registryChecked": True,
             "ownerApprovedThemeVisuals": sum(item.get("ownerApproved") is True for item in registry["themes"]),
             "themeVisualsAwaitingOwnerReview": sum(item.get("ownerApproved") is not True for item in registry["themes"]),
@@ -1184,6 +1313,96 @@ def adversarial_checks(pack):
                  reviews_after_new_learning, numeric_review_inversion]
     if any(s.get("preparationIds") for c in pack["cells"].values() for t in c["themes"] for s in t["sequences"]):
         mutations.append(late_preparation)
+    if pack.get("situations"):
+        def contextual_theme(test_pack):
+            for cell in test_pack["cells"].values():
+                for theme in cell["themes"]:
+                    if theme.get("contextReferences"):
+                        return cell, theme
+            raise VerificationError("No contextual situation fixture")
+
+        def context_claimed_as_new(test_pack):
+            _cell, theme = contextual_theme(test_pack)
+            source_id = theme["contextReferences"][0]["id"]
+            for sequence in theme["sequences"]:
+                for step in sequence["steps"]:
+                    if step.get("utterance") == source_id:
+                        step["isContextReuse"] = False
+                        return
+
+        def future_context_reference(test_pack):
+            cell, theme = contextual_theme(test_pack)
+            theme["contextReferences"][0]["firstEditorialLevel"] = cell["level"] + 1
+
+        def wrong_context_intent(test_pack):
+            _cell, theme = contextual_theme(test_pack)
+            theme["contextReferences"][0]["intentId"] = "not-this-reviewed-intent"
+
+        def inflated_context_reuse_count(test_pack):
+            _cell, theme = contextual_theme(test_pack)
+            theme["reuseCount"] += 1
+
+        def situation_draft_phonetic_changed(test_pack):
+            _theme, phrase = locate(test_pack, lambda row: row["source"]["collection"] == "situation-authored")
+            phrase["phon"] += " altered"
+
+        def catalogue_reuse_claimed_as_authored(test_pack):
+            item = next(item for item in test_pack["situations"]["items"].values() if item["kind"] == "catalogue-reference")
+            item["kind"] = "editorial-authored-whole-entry"
+            item["source"] = {"kind": "editorial-authored-whole-utterance"}
+            item["phoneticReviewStatus"] = "pending-Claude"
+
+        def future_source_without_introduction(test_pack):
+            item = next(item for item in test_pack["situations"]["items"].values() if item.get("introductionDecision"))
+            item.pop("introductionDecision")
+
+        def preferred_canonical_changes_whole_fields(test_pack):
+            item = next(iter(test_pack["situations"]["items"].values()))
+            study = PAIR_LANGUAGES[item["pair"]][1]
+            index = next(index for index, row in enumerate(test_pack["decks"][study]) if row["t"] != item["study"])
+            item["duplicateAudit"].update(decision="reuse-existing", preferredCanonicalId=f"catalogue:{study}:{index}")
+
+        def manifest_reuse_claimed_as_creation(test_pack):
+            test_pack["manifest"]["additionalSituations"]["newAuthoredUtterances"] += 1
+
+        def level_context_count_inflated(test_pack):
+            cell, _theme = contextual_theme(test_pack)
+            cell["contextReuseCount"] += 1
+
+        def theme_old_source_claimed_as_authored(test_pack):
+            _cell, theme = contextual_theme(test_pack)
+            theme["authoredCount"] += 1
+
+        def new_situation_groups_reversed(test_pack):
+            _cell, theme = contextual_theme(test_pack)
+            require(len(theme["sequences"]) >= 2, "Missing complete eight-intent fixture")
+            theme["sequences"][0], theme["sequences"][1] = theme["sequences"][1], theme["sequences"][0]
+
+        def new_situation_playback_order_reversed(test_pack):
+            for cell in test_pack["cells"].values():
+                for theme in cell["themes"]:
+                    if not theme.get("isAdditionalSituation"):
+                        continue
+                    for sequence in theme["sequences"]:
+                        if len(sequence["phraseIds"]) < 2 or any(step.get("isPreparation") for step in sequence["steps"]):
+                            continue
+                        first, second = sequence["phraseIds"][:2]
+                        one = [step for step in sequence["steps"] if step["utterance"] == first and step["kind"] in {"understand", "imitate"}]
+                        two = [step for step in sequence["steps"] if step["utterance"] == second and step["kind"] in {"understand", "imitate"}]
+                        slots = [index for index, step in enumerate(sequence["steps"]) if step in one + two]
+                        require(len(one) == len(two) == 2, "Missing paired situation playback fixture")
+                        for index, step in zip(slots, two + one):
+                            sequence["steps"][index] = step
+                        return
+            raise VerificationError("Missing new-situation playback fixture")
+
+        mutations.extend([context_claimed_as_new, future_context_reference, wrong_context_intent,
+                          inflated_context_reuse_count, situation_draft_phonetic_changed,
+                          catalogue_reuse_claimed_as_authored, future_source_without_introduction,
+                          preferred_canonical_changes_whole_fields,
+                          manifest_reuse_claimed_as_creation, level_context_count_inflated,
+                          theme_old_source_claimed_as_authored, new_situation_groups_reversed,
+                          new_situation_playback_order_reversed])
     results = []
     for mutation in mutations:
         changed = copy.deepcopy(pack)
@@ -1213,16 +1432,16 @@ def protected_files(root, base_ref):
 def markdown(report):
     c = report["checks"]
     source_types = c["sourceContentTypeCounts"]
-    total_canonical = c["catalogueCardsRetainedExactlyOnce"] + c["importedWholePhrases"] + c["newEditorialWholeEntries"]
+    total_canonical = c["catalogueCardsRetainedExactlyOnce"] + c["importedWholePhrases"] + c["newEditorialWholeEntries"] + c["newSituationAuthoredUtterances"] + c["newSituationExistingConversationImports"]
     lines = [
         "# Vérification indépendante — sources, progression et densité", "",
         "Ce lecteur ne charge aucun générateur. Il relit le catalogue réel, les partitions sémantiques, les overlays, les sources entières nouvelles, les 70 cellules et les sept banques de révision. Il ne répare aucune donnée et n’approuve aucune publication.", "",
         "## Conservation et provenance", "",
-        "| Couple | Catalogue exact | Imports entiers | Nouvelles entrées | Hors réserve | Réserve | L1 historique conservé |",
-        "|---|---:|---:|---:|---:|---:|---:|",
+        "| Couple | Catalogue exact | Imports L1 | Lot lexical rédigé | Ajouts de situation | Hors réserve | Réserve | L1 historique conservé |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for pair in report["pairs"]:
-        lines.append(f"| {pair['pair']} | {pair['catalogueCards']} | {pair['importedWholePhrases']} | {pair['authoredEntries']} | {pair['activePhrases']} | {pair['reservedPhrases']} | {pair['historicalSourceL1IndicesConserved']} |")
+        lines.append(f"| {pair['pair']} | {pair['catalogueCards']} | {pair['importedWholePhrases']} | {pair['authoredEntries']} | {pair['newSituationEntries']} | {pair['activePhrases']} | {pair['reservedPhrases']} | {pair['historicalSourceL1IndicesConserved']} |")
     lines += [
         "", f"**{c['catalogueCardsRetainedExactlyOnce']:,} cartes classiques** sont canoniques exactement une fois. **{c['catalogueFieldsCompared']:,} champs** étudiés, natifs, phonétiques et lectures sont identiques aux sources. Les **{c['importedWholePhrases']} imports entiers / {c['importedFieldsCompared']} champs** correspondent aux sept instantanés, comparés octet pour octet à leur commit source ; les **{c['excludedEnrichmentsAbsent']} candidats écartés** sont absents.",
         "", f"Le total canonique est **{total_canonical:,}**, dont **{c['activePhrases']:,} entrées hors réserve** et **{c['reservedPhrasesRetainedWithoutSteps']} réservées**. Les banques et les révisions ne sont jamais ajoutées à ces totaux. La réserve n’a aucune étape de leçon.",
@@ -1230,6 +1449,12 @@ def markdown(report):
         "", "## Décisions éditoriales et ajouts", "",
         f"Les **{c['historicalPlacementDecisionsPreserved']} décisions historiques** et leur unique adjudication sont conservées. **{c['wholeSourceIntroductionDecisions']} introductions sources** ont une identité, un niveau source et une empreinte contrôlés ; **{c['introductionSourceFieldsCompared']} champs d’overlay** correspondent aux cartes entières. Ces nouveaux placements prennent priorité explicitement sans changer lv.", "",
     ]
+    if c["situationCandidatePositions"]:
+        lines += [
+            f"Le lot de situations remplit **{c['situationCandidatePositions']} positions** dans dix thèmes communs, huit positions par thème et par couple. Il ajoute réellement **{c['newSituationAuthoredUtterances']} phrases rédigées** avec aides pending-Claude et **{c['newSituationExistingConversationImports']} phrases anciennes importées** ; les réemplois du catalogue et les références à un candidat ne sont pas comptés comme des créations. **{c['situationSourceFieldsCompared']} champs de réemploi** et **{c['newSituationWholeFieldsCompared']} champs d’ajouts** sont comparés aux objets entiers. L’index de recherche est reconstruit depuis **70 parents de conversation** immuables, sans charger le générateur.", "",
+            f"Les **{c['contextPresentationReferences']} références contextuelles** pointent vers un seul canonique existant, au même niveau ou à un niveau antérieur. Leur intention est reliée au plan et leurs champs restent entiers. Elles utilisent isContextReuse et restent distinctes des révisions strictement antérieures. Dans chaque nouveau thème, les huit intentions suivent globalement l’ordre01→08, réemplois contextuels et primaires mêlés : ni une confirmation tardive ni un accord ne passe devant le problème initial. **{c['situationCatalogueIntroductionDecisions']} décisions du nouveau lot** introduisent explicitement un canonique de catalogue plus tôt, sans toucher son lv ni la frontière d’accès.", "",
+            "Les intentions de dépendance de ces situations restent prévues : ce contrôle ne démontre ni acquisition, ni fermeture linguistique globale, ni conformité des nouvelles phonétiques à la méthode.", "",
+        ]
     for filename, count in sorted(c["introductionCounts"].items()):
         lines.append(f"- {filename} : {count} décisions sources exactes.")
     lines += [
@@ -1240,7 +1465,7 @@ def markdown(report):
         f"**{c['visibleThemes']} thèmes visibles** ont chacun au moins six concepts mesurés à partir de leurs sources. **{c['heldThemes']} thèmes / {c['heldCanonicalPhrases']} cartes** sont conservés en attente sans entraînement ; **{c['visibleCanonicalPhrases']:,} cartes canoniques** sont visibles. Le drapeau require-no-held exige zéro contenu en attente.",
         "", f"Les **{c['reviewPresentationReferences']} révisions présentées** sont strictement postérieures à leur première rencontre, dans la même famille et le même type. Elles correspondent à **{c['reviewTransportCopies']} copies de transport uniques**, marquées referenceOnly et liées à leur emplacement canonique réel. Chaque copie, tous ses champs et sa provenance correspondent à cet original. Les compteurs newCount, reviewCount, presentedCount et pedagogicalConceptCount sont recalculés.",
         "", "Un concept explicitement lié dans les décisions ou le master garde exactement cet identifiant. Seul l’alias éditorial déclaré leger/léger est rapproché pour compter et trier les variantes, sans changer les identifiants ni aucun texte/phonétique source. À défaut, le couple étudié/sens exact sert de clé de comptage : cette mesure n’est pas une analyse universelle de synonymie. Elle ne remplace pas la revue sémantique de Codex.",
-        "", f"Les **{c['stepsChecked']:,} étapes** comprennent **{c['situationSteps']:,} étapes de situation** et **{c['lexicalSteps']:,} étapes lexicales**. Compréhension puis imitation précèdent chaque rappel. Les groupes de révision sont séparés et terminent leurs rappels avant les nouveautés. Les nombres sont triés par numberOrder séparément dans le bloc révision puis dans le bloc nouveau. Les adjectifs suivent les concepts prioritaires grand/petit/gros/beau/léger/lourd/triste/heureux, avec variantes groupées et traits de personnalité après les propriétés. Les autres révisions suivent leur première rencontre croissante.",
+        "", f"Les **{c['stepsChecked']:,} étapes** comprennent **{c['situationSteps']:,} étapes de situation** et **{c['lexicalSteps']:,} étapes lexicales**. Compréhension puis imitation précèdent chaque rappel. Dans les anciennes rubriques, les groupes de révision sont séparés et terminent leurs rappels avant les nouveautés ; les nouveaux thèmes suivent leurs huit intentions dans l’ordre global du plan. Les nombres sont triés par numberOrder séparément dans le bloc révision puis dans le bloc nouveau. Les adjectifs suivent les concepts prioritaires grand/petit/gros/beau/léger/lourd/triste/heureux, avec variantes groupées et traits de personnalité après les propriétés. Les autres révisions suivent leur première rencontre croissante.",
         "", "## Prérequis : ce qui reste ouvert", "",
         f"Sur **{c['plannedPrerequisiteLinks']} liens hérités**, **{c['structuralUtteranceLinks']} relient deux énoncés**. **{c['structuralUtteranceLinksPrimaryLate']} présentations primaires tardives** sont précédées localement d’une préparation source : **{c['localPreparationReferences']} références / {c['localPreparationSteps']} étapes**. **{c['plannedPrerequisitesStillUnclosed']} liens structurels** restent sans fermeture d’ordre.",
         "", f"Les **{c['lexicalPrerequisiteLinks']} liens lexicaux** et **{c['plannedLexicalReuseReferences']} références de mots/nombres** restent distincts des étapes de situation. **{c['reservedPrerequisiteLinks']} liens impliquent une réserve**, et **{c['otherNonUtterancePrerequisiteLinks']}** concernent d’autres types. **{c['activeUtteranceDependenciesOnReservedSources']} cible active dépend encore d’une réserve**. La fermeture globale des prérequis n’est pas présumée.", "",
