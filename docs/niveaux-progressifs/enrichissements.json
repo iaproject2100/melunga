@@ -1,0 +1,2116 @@
+{
+  "version": 1,
+  "status": "enrichment-candidates-existing-whole-phrases",
+  "sourceSnapshot": "7d24556",
+  "sourceCommit": "7d245568102f16fb8ae9e29c46bb89221358058b",
+  "reviewStatus": "awaiting-Claude",
+  "publicationApproved": false,
+  "newWrittenPhrases": 0,
+  "newPhonetics": 0,
+  "selection": "Deux variantes entières des unités L1 01,02,09,11 par couple ; 0/1 sauf fr-ko unité02 : 0/3.",
+  "preservation": "Tous les champs affichés proviennent de la variante entière référencée dans un snapshot verbatim ; aucun collage, correction ou harmonisation.",
+  "deduplication": "Comparaison exacte study/native/phon/reading, présence des champs comprise ; une correspondance exacte devient un pont de catalogue non compté comme ajout.",
+  "catalogueFieldMaps": {
+    "fr-en": {
+      "study": "t",
+      "native": "frm",
+      "phon": "pf"
+    },
+    "fr-es": {
+      "study": "t",
+      "native": "frm",
+      "phon": "pf"
+    },
+    "fr-it": {
+      "study": "t",
+      "native": "frm",
+      "phon": "pf"
+    },
+    "fr-zh": {
+      "study": "t",
+      "native": "frm",
+      "phon": "phf",
+      "reading": "py"
+    },
+    "fr-ja": {
+      "study": "t",
+      "native": "frm",
+      "phon": "pf",
+      "reading": "py"
+    },
+    "fr-ko": {
+      "study": "t",
+      "native": "frm",
+      "phon": "pf",
+      "reading": "py"
+    },
+    "zh-fr": {
+      "study": "t",
+      "native": "cn",
+      "phon": "phon"
+    }
+  },
+  "excludedUnits": [
+    "L1-fr-ja-03",
+    "L1-fr-ko-03"
+  ],
+  "displayPolicy": "Comprendre et imiter chaque phrase entière avant rappel ; aucune opération de remplacement n’est automatiquement revendiquée par ce manifeste.",
+  "items": [
+    {
+      "id": "conversation:L1-fr-en-01:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-en",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-en.json",
+      "sourceFileSha256": "af4a52abde3257e2ee65dd0b313a293bb9dadd9947a7779448103e7aaf8aecd7",
+      "unitId": "L1-fr-en-01",
+      "variantIndex": 0,
+      "sourceVariantSha256": "f7b9b742612e4a7afda60efc0635c5ef7d2b4dc0b1fb1c7002b8b5a12eebb263",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 2,
+      "reason": "Deux phrases d’identification entières déjà écrites, préparées séparément ; ni provenance ni situation de vacances n’est traitée comme un simple nom variable.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [
+        {
+          "sourceIndex": 250,
+          "sourceLevel": 2,
+          "differentFields": {
+            "native": {
+              "catalogue": "je suis étudiant",
+              "conversation": "Je suis étudiant."
+            },
+            "phon": {
+              "catalogue": "aïm eu STOU-deunt",
+              "conversation": "aïm eu STYOU-deunt"
+            }
+          }
+        }
+      ],
+      "newStudyTextRelativeToCatalogue": false,
+      "phoneticDivergenceFromSameStudy": true,
+      "countAsAddedPhrase": false,
+      "runtimeCandidate": false,
+      "status": "needs-phonetic-or-meaning-decision",
+      "catalogueReuseCandidate": {
+        "collection": "DECKS.en",
+        "sourceIndices": [
+          250
+        ],
+        "decisionRequired": true,
+        "policy": "La carte de catalogue reste inchangée ; aucun déplacement ni alignement automatique avec la variante conversation."
+      }
+    },
+    {
+      "id": "conversation:L1-fr-en-01:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-en",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-en.json",
+      "sourceFileSha256": "af4a52abde3257e2ee65dd0b313a293bb9dadd9947a7779448103e7aaf8aecd7",
+      "unitId": "L1-fr-en-01",
+      "variantIndex": 1,
+      "sourceVariantSha256": "c2f6d46bd34021c9d584e3d197daeaf49627cff09a45b65f8d9a82ee8bc927c8",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 3,
+      "reason": "Deux phrases d’identification entières déjà écrites, préparées séparément ; ni provenance ni situation de vacances n’est traitée comme un simple nom variable.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-en-02:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-en",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-en.json",
+      "sourceFileSha256": "af4a52abde3257e2ee65dd0b313a293bb9dadd9947a7779448103e7aaf8aecd7",
+      "unitId": "L1-fr-en-02",
+      "variantIndex": 0,
+      "sourceVariantSha256": "8b8081f91975eb94d5b0d2a73312e1224f782e6df644d849c9ebb2a2238bc384",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 0,
+      "reason": "Deux phrases sources complètes pour donner son prénom ; chaque phonétique et lecture est reprise entière, jamais calculée depuis le modèle.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-en-02:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-en",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-en.json",
+      "sourceFileSha256": "af4a52abde3257e2ee65dd0b313a293bb9dadd9947a7779448103e7aaf8aecd7",
+      "unitId": "L1-fr-en-02",
+      "variantIndex": 1,
+      "sourceVariantSha256": "84c0bbe0710850e0b3d6df6d82c93345159cd2f23c038baef78cc1d0e92bc266",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 1,
+      "reason": "Deux phrases sources complètes pour donner son prénom ; chaque phonétique et lecture est reprise entière, jamais calculée depuis le modèle.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-en-09:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-en",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-en.json",
+      "sourceFileSha256": "af4a52abde3257e2ee65dd0b313a293bb9dadd9947a7779448103e7aaf8aecd7",
+      "unitId": "L1-fr-en-09",
+      "variantIndex": 0,
+      "sourceVariantSha256": "a5eb49010b552ecc70508ee052b8eb2ed56b51e46b5a4179b2e5427cf84fe235",
+      "proposedLevel": 1,
+      "domain": "repas",
+      "priority": 0,
+      "reason": "Deux commandes polies complètes, café puis thé, avec les groupes et le marqueur de quantité de la source conservés.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [
+        {
+          "sourceIndex": 1300,
+          "sourceLevel": 5,
+          "differentFields": {
+            "native": {
+              "catalogue": "un café, s'il te plaît",
+              "conversation": "Un café, s'il vous plaît."
+            },
+            "phon": {
+              "catalogue": "WEUN KA-fi PLIZ",
+              "conversation": "OUANN KO-fi, PLIZ"
+            }
+          }
+        }
+      ],
+      "newStudyTextRelativeToCatalogue": false,
+      "phoneticDivergenceFromSameStudy": true,
+      "countAsAddedPhrase": false,
+      "runtimeCandidate": false,
+      "status": "needs-phonetic-or-meaning-decision",
+      "catalogueReuseCandidate": {
+        "collection": "DECKS.en",
+        "sourceIndices": [
+          1300
+        ],
+        "decisionRequired": true,
+        "policy": "La carte de catalogue reste inchangée ; aucun déplacement ni alignement automatique avec la variante conversation."
+      }
+    },
+    {
+      "id": "conversation:L1-fr-en-09:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-en",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-en.json",
+      "sourceFileSha256": "af4a52abde3257e2ee65dd0b313a293bb9dadd9947a7779448103e7aaf8aecd7",
+      "unitId": "L1-fr-en-09",
+      "variantIndex": 1,
+      "sourceVariantSha256": "4f79cc94cce75fec44e6b6a685fa52f88485be3a12a14fc7865a00a742f30dc8",
+      "proposedLevel": 1,
+      "domain": "repas",
+      "priority": 1,
+      "reason": "Deux commandes polies complètes, café puis thé, avec les groupes et le marqueur de quantité de la source conservés.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-en-11:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-en",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-en.json",
+      "sourceFileSha256": "af4a52abde3257e2ee65dd0b313a293bb9dadd9947a7779448103e7aaf8aecd7",
+      "unitId": "L1-fr-en-11",
+      "variantIndex": 0,
+      "sourceVariantSha256": "43e06af6949d26499722ad99d99b52d95447bfbe6528224105f8c09e7caa8327",
+      "proposedLevel": 1,
+      "domain": "comprendre",
+      "priority": 0,
+      "reason": "Deux formules de dépannage apprises séparément : signaler une incompréhension puis demander de répéter ; aucune substitution ni règle commune n’est inférée.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [
+        {
+          "sourceIndex": 496,
+          "sourceLevel": 3,
+          "differentFields": {
+            "native": {
+              "catalogue": "je ne comprends pas",
+              "conversation": "Je ne comprends pas."
+            },
+            "phon": {
+              "catalogue": "aï dont eun-deurs-TAND",
+              "conversation": "aï dônt eun-deur-STAND"
+            }
+          }
+        }
+      ],
+      "newStudyTextRelativeToCatalogue": false,
+      "phoneticDivergenceFromSameStudy": true,
+      "selectionNote": "Le modèle source {s} est une enveloppe de formules indépendantes, pas un invariant enseigné.",
+      "countAsAddedPhrase": false,
+      "runtimeCandidate": false,
+      "status": "needs-phonetic-or-meaning-decision",
+      "catalogueReuseCandidate": {
+        "collection": "DECKS.en",
+        "sourceIndices": [
+          496
+        ],
+        "decisionRequired": true,
+        "policy": "La carte de catalogue reste inchangée ; aucun déplacement ni alignement automatique avec la variante conversation."
+      }
+    },
+    {
+      "id": "conversation:L1-fr-en-11:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-en",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-en.json",
+      "sourceFileSha256": "af4a52abde3257e2ee65dd0b313a293bb9dadd9947a7779448103e7aaf8aecd7",
+      "unitId": "L1-fr-en-11",
+      "variantIndex": 1,
+      "sourceVariantSha256": "48c97a27c59161b89d9617413397a6c3eff2ed854066f89dd3b17b5c7f0c06dc",
+      "proposedLevel": 1,
+      "domain": "comprendre",
+      "priority": 1,
+      "reason": "Deux formules de dépannage apprises séparément : signaler une incompréhension puis demander de répéter ; aucune substitution ni règle commune n’est inférée.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "selectionNote": "Le modèle source {s} est une enveloppe de formules indépendantes, pas un invariant enseigné.",
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-es-01:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-es",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-es.json",
+      "sourceFileSha256": "40b3c9794273dc44e133ea0705ac36644b87abf11df34e4cdb02192ea0b5816b",
+      "unitId": "L1-fr-es-01",
+      "variantIndex": 0,
+      "sourceVariantSha256": "f1f67d39edcc8a11defd2695de7e8fad8c8c66d2efa896c24069245805362daf",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 2,
+      "reason": "Deux phrases d’identification entières déjà écrites, préparées séparément ; ni provenance ni situation de vacances n’est traitée comme un simple nom variable.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-es-01:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-es",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-es.json",
+      "sourceFileSha256": "40b3c9794273dc44e133ea0705ac36644b87abf11df34e4cdb02192ea0b5816b",
+      "unitId": "L1-fr-es-01",
+      "variantIndex": 1,
+      "sourceVariantSha256": "125f8934bde82116b4c95436b18c1a3a68f497260f5fd89e8a8991f8cb4ff3f6",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 3,
+      "reason": "Deux phrases d’identification entières déjà écrites, préparées séparément ; ni provenance ni situation de vacances n’est traitée comme un simple nom variable.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-es-02:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-es",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-es.json",
+      "sourceFileSha256": "40b3c9794273dc44e133ea0705ac36644b87abf11df34e4cdb02192ea0b5816b",
+      "unitId": "L1-fr-es-02",
+      "variantIndex": 0,
+      "sourceVariantSha256": "4cd7aad780c3ee0ba71b5ec7c9f0b6f230111a8138cfff22410634d8f2630ee0",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 0,
+      "reason": "Deux phrases sources complètes pour donner son prénom ; chaque phonétique et lecture est reprise entière, jamais calculée depuis le modèle.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-es-02:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-es",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-es.json",
+      "sourceFileSha256": "40b3c9794273dc44e133ea0705ac36644b87abf11df34e4cdb02192ea0b5816b",
+      "unitId": "L1-fr-es-02",
+      "variantIndex": 1,
+      "sourceVariantSha256": "5cf6ce7d8372c85f8cd72f05d4e1ddf9113dcb68a396000419e4ed365b592890",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 1,
+      "reason": "Deux phrases sources complètes pour donner son prénom ; chaque phonétique et lecture est reprise entière, jamais calculée depuis le modèle.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-es-09:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-es",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-es.json",
+      "sourceFileSha256": "40b3c9794273dc44e133ea0705ac36644b87abf11df34e4cdb02192ea0b5816b",
+      "unitId": "L1-fr-es-09",
+      "variantIndex": 0,
+      "sourceVariantSha256": "ea7b6db97b556f4420357f7fde6ccc3e346650069c2e41a7b6b33a565d3c420f",
+      "proposedLevel": 1,
+      "domain": "repas",
+      "priority": 0,
+      "reason": "Deux commandes polies complètes, café puis thé, avec les groupes et le marqueur de quantité de la source conservés.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-es-09:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-es",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-es.json",
+      "sourceFileSha256": "40b3c9794273dc44e133ea0705ac36644b87abf11df34e4cdb02192ea0b5816b",
+      "unitId": "L1-fr-es-09",
+      "variantIndex": 1,
+      "sourceVariantSha256": "51190c7f81181b2bb27af7c0d1d8c05266a36482aa5662af275962145fe6569b",
+      "proposedLevel": 1,
+      "domain": "repas",
+      "priority": 1,
+      "reason": "Deux commandes polies complètes, café puis thé, avec les groupes et le marqueur de quantité de la source conservés.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-es-11:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-es",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-es.json",
+      "sourceFileSha256": "40b3c9794273dc44e133ea0705ac36644b87abf11df34e4cdb02192ea0b5816b",
+      "unitId": "L1-fr-es-11",
+      "variantIndex": 0,
+      "sourceVariantSha256": "ac989c4ddf7915c84e0d7b750d47b31d4c0bcb59478bbff25e7b15dc39e51414",
+      "proposedLevel": 1,
+      "domain": "comprendre",
+      "priority": 0,
+      "reason": "Deux formules de dépannage apprises séparément : signaler une incompréhension puis demander de répéter ; aucune substitution ni règle commune n’est inférée.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [
+        {
+          "sourceIndex": 3505,
+          "sourceLevel": 1,
+          "differentFields": {
+            "native": {
+              "catalogue": "je ne comprends pas",
+              "conversation": "Je ne comprends pas."
+            }
+          }
+        }
+      ],
+      "newStudyTextRelativeToCatalogue": false,
+      "phoneticDivergenceFromSameStudy": false,
+      "selectionNote": "Le modèle source {s} est une enveloppe de formules indépendantes, pas un invariant enseigné.",
+      "countAsAddedPhrase": false,
+      "runtimeCandidate": false,
+      "status": "needs-phonetic-or-meaning-decision",
+      "catalogueReuseCandidate": {
+        "collection": "DECKS.es",
+        "sourceIndices": [
+          3505
+        ],
+        "decisionRequired": true,
+        "policy": "La carte de catalogue reste inchangée ; aucun déplacement ni alignement automatique avec la variante conversation."
+      }
+    },
+    {
+      "id": "conversation:L1-fr-es-11:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-es",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-es.json",
+      "sourceFileSha256": "40b3c9794273dc44e133ea0705ac36644b87abf11df34e4cdb02192ea0b5816b",
+      "unitId": "L1-fr-es-11",
+      "variantIndex": 1,
+      "sourceVariantSha256": "49af36f69d00007ef0a6a629cb825dfead7b11634751f77e4f9c5951f4fe336d",
+      "proposedLevel": 1,
+      "domain": "comprendre",
+      "priority": 1,
+      "reason": "Deux formules de dépannage apprises séparément : signaler une incompréhension puis demander de répéter ; aucune substitution ni règle commune n’est inférée.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "selectionNote": "Le modèle source {s} est une enveloppe de formules indépendantes, pas un invariant enseigné.",
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-it-01:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-it",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-it.json",
+      "sourceFileSha256": "f6e7d13b1525ca6aa1fff83730ec1d6a7b22ce7aac6e3c57a290d34be40fc5c9",
+      "unitId": "L1-fr-it-01",
+      "variantIndex": 0,
+      "sourceVariantSha256": "fcbad32fdf59167c5e64a803fb64f414e706966bcf12310c8f03f1332a7dd479",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 2,
+      "reason": "Deux phrases d’identification entières déjà écrites, préparées séparément ; ni provenance ni situation de vacances n’est traitée comme un simple nom variable.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [
+        {
+          "sourceIndex": 796,
+          "sourceLevel": 4,
+          "differentFields": {
+            "phon": {
+              "catalogue": "so-no stou-dènn-té",
+              "conversation": "SO-no stou-DÈN-té"
+            }
+          }
+        }
+      ],
+      "newStudyTextRelativeToCatalogue": false,
+      "phoneticDivergenceFromSameStudy": true,
+      "countAsAddedPhrase": false,
+      "runtimeCandidate": false,
+      "status": "needs-phonetic-or-meaning-decision",
+      "catalogueReuseCandidate": {
+        "collection": "DECKS.it",
+        "sourceIndices": [
+          796
+        ],
+        "decisionRequired": true,
+        "policy": "La carte de catalogue reste inchangée ; aucun déplacement ni alignement automatique avec la variante conversation."
+      }
+    },
+    {
+      "id": "conversation:L1-fr-it-01:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-it",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-it.json",
+      "sourceFileSha256": "f6e7d13b1525ca6aa1fff83730ec1d6a7b22ce7aac6e3c57a290d34be40fc5c9",
+      "unitId": "L1-fr-it-01",
+      "variantIndex": 1,
+      "sourceVariantSha256": "246fff52959e7fc418048e56b2d1e529b67b3dea165360b7b2564cc9243577e7",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 3,
+      "reason": "Deux phrases d’identification entières déjà écrites, préparées séparément ; ni provenance ni situation de vacances n’est traitée comme un simple nom variable.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-it-02:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-it",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-it.json",
+      "sourceFileSha256": "f6e7d13b1525ca6aa1fff83730ec1d6a7b22ce7aac6e3c57a290d34be40fc5c9",
+      "unitId": "L1-fr-it-02",
+      "variantIndex": 0,
+      "sourceVariantSha256": "01f146ea9c4f70f0b880462be9a74913e02607b094feb4138c664388486e7d6f",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 0,
+      "reason": "Deux phrases sources complètes pour donner son prénom ; chaque phonétique et lecture est reprise entière, jamais calculée depuis le modèle.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-it-02:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-it",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-it.json",
+      "sourceFileSha256": "f6e7d13b1525ca6aa1fff83730ec1d6a7b22ce7aac6e3c57a290d34be40fc5c9",
+      "unitId": "L1-fr-it-02",
+      "variantIndex": 1,
+      "sourceVariantSha256": "a4e3269306d1656e5c602403255c8332c337811ac5b372c8a97dca2f61de6c50",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 1,
+      "reason": "Deux phrases sources complètes pour donner son prénom ; chaque phonétique et lecture est reprise entière, jamais calculée depuis le modèle.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-it-09:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-it",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-it.json",
+      "sourceFileSha256": "f6e7d13b1525ca6aa1fff83730ec1d6a7b22ce7aac6e3c57a290d34be40fc5c9",
+      "unitId": "L1-fr-it-09",
+      "variantIndex": 0,
+      "sourceVariantSha256": "c1fc5048348e631a0f0ba5384defb3cba4fd6e5e61c21f155d99189be00ccc71",
+      "proposedLevel": 1,
+      "domain": "repas",
+      "priority": 0,
+      "reason": "Deux commandes polies complètes, café puis thé, avec les groupes et le marqueur de quantité de la source conservés.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [
+        {
+          "sourceIndex": 3294,
+          "sourceLevel": 4,
+          "differentFields": {
+            "phon": {
+              "catalogue": "oun caf-fè, pèr fa-vo-ré",
+              "conversation": "oun kaf-FÈ, pér fa-VO-ré"
+            }
+          }
+        }
+      ],
+      "newStudyTextRelativeToCatalogue": false,
+      "phoneticDivergenceFromSameStudy": true,
+      "countAsAddedPhrase": false,
+      "runtimeCandidate": false,
+      "status": "needs-phonetic-or-meaning-decision",
+      "catalogueReuseCandidate": {
+        "collection": "DECKS.it",
+        "sourceIndices": [
+          3294
+        ],
+        "decisionRequired": true,
+        "policy": "La carte de catalogue reste inchangée ; aucun déplacement ni alignement automatique avec la variante conversation."
+      }
+    },
+    {
+      "id": "conversation:L1-fr-it-09:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-it",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-it.json",
+      "sourceFileSha256": "f6e7d13b1525ca6aa1fff83730ec1d6a7b22ce7aac6e3c57a290d34be40fc5c9",
+      "unitId": "L1-fr-it-09",
+      "variantIndex": 1,
+      "sourceVariantSha256": "012b8ad760b86969a919742f9a33ee0b133baec2f16b290cf8145cc89b9d7846",
+      "proposedLevel": 1,
+      "domain": "repas",
+      "priority": 1,
+      "reason": "Deux commandes polies complètes, café puis thé, avec les groupes et le marqueur de quantité de la source conservés.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-it-11:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-it",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-it.json",
+      "sourceFileSha256": "f6e7d13b1525ca6aa1fff83730ec1d6a7b22ce7aac6e3c57a290d34be40fc5c9",
+      "unitId": "L1-fr-it-11",
+      "variantIndex": 0,
+      "sourceVariantSha256": "822cbab533ac21b9268c171485e1ef4c094eeaed70cb837060f3c21d5a27d828",
+      "proposedLevel": 1,
+      "domain": "comprendre",
+      "priority": 0,
+      "reason": "Deux formules de dépannage apprises séparément : signaler une incompréhension puis demander de répéter ; aucune substitution ni règle commune n’est inférée.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [
+        {
+          "sourceIndex": 2927,
+          "sourceLevel": 2,
+          "differentFields": {
+            "phon": {
+              "catalogue": "nonn ca-pis-co",
+              "conversation": "non ka-PIS-ko"
+            }
+          }
+        }
+      ],
+      "newStudyTextRelativeToCatalogue": false,
+      "phoneticDivergenceFromSameStudy": true,
+      "selectionNote": "Le modèle source {s} est une enveloppe de formules indépendantes, pas un invariant enseigné.",
+      "countAsAddedPhrase": false,
+      "runtimeCandidate": false,
+      "status": "needs-phonetic-or-meaning-decision",
+      "catalogueReuseCandidate": {
+        "collection": "DECKS.it",
+        "sourceIndices": [
+          2927
+        ],
+        "decisionRequired": true,
+        "policy": "La carte de catalogue reste inchangée ; aucun déplacement ni alignement automatique avec la variante conversation."
+      }
+    },
+    {
+      "id": "conversation:L1-fr-it-11:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-it",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-it.json",
+      "sourceFileSha256": "f6e7d13b1525ca6aa1fff83730ec1d6a7b22ce7aac6e3c57a290d34be40fc5c9",
+      "unitId": "L1-fr-it-11",
+      "variantIndex": 1,
+      "sourceVariantSha256": "af5a74b8324294a0346021b2007b5cfad518599845e8c97facf91c3be586937c",
+      "proposedLevel": 1,
+      "domain": "comprendre",
+      "priority": 1,
+      "reason": "Deux formules de dépannage apprises séparément : signaler une incompréhension puis demander de répéter ; aucune substitution ni règle commune n’est inférée.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "selectionNote": "Le modèle source {s} est une enveloppe de formules indépendantes, pas un invariant enseigné.",
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-zh-01:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-zh",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-zh.json",
+      "sourceFileSha256": "798b987d60f6a95a9e4fa869e22e8fae949d4ce62c273b887aeb95e4c4466147",
+      "unitId": "L1-fr-zh-01",
+      "variantIndex": 0,
+      "sourceVariantSha256": "cec9b73856863684716f32bbe9321326a8d43d438f753cfb9d8fcb299bd52056",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 2,
+      "reason": "Deux phrases d’identification entières déjà écrites, préparées séparément ; ni provenance ni situation de vacances n’est traitée comme un simple nom variable.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-zh-01:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-zh",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-zh.json",
+      "sourceFileSha256": "798b987d60f6a95a9e4fa869e22e8fae949d4ce62c273b887aeb95e4c4466147",
+      "unitId": "L1-fr-zh-01",
+      "variantIndex": 1,
+      "sourceVariantSha256": "0611f680d9bbaca57d514218f4fb0ccd49b4fea00eaa16918b655098a7f57440",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 3,
+      "reason": "Deux phrases d’identification entières déjà écrites, préparées séparément ; ni provenance ni situation de vacances n’est traitée comme un simple nom variable.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-zh-02:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-zh",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-zh.json",
+      "sourceFileSha256": "798b987d60f6a95a9e4fa869e22e8fae949d4ce62c273b887aeb95e4c4466147",
+      "unitId": "L1-fr-zh-02",
+      "variantIndex": 0,
+      "sourceVariantSha256": "1a882b61a76028395b88f30d0643bf5a5620623d15ee69ac94345ff8837e686d",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 0,
+      "reason": "Deux phrases sources complètes pour donner son prénom ; chaque phonétique et lecture est reprise entière, jamais calculée depuis le modèle.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-zh-02:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-zh",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-zh.json",
+      "sourceFileSha256": "798b987d60f6a95a9e4fa869e22e8fae949d4ce62c273b887aeb95e4c4466147",
+      "unitId": "L1-fr-zh-02",
+      "variantIndex": 1,
+      "sourceVariantSha256": "c1fce353a335fa8ac49862a754c9a0f2077a4a799633bbcfcf409c1f23b26520",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 1,
+      "reason": "Deux phrases sources complètes pour donner son prénom ; chaque phonétique et lecture est reprise entière, jamais calculée depuis le modèle.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-zh-09:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-zh",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-zh.json",
+      "sourceFileSha256": "798b987d60f6a95a9e4fa869e22e8fae949d4ce62c273b887aeb95e4c4466147",
+      "unitId": "L1-fr-zh-09",
+      "variantIndex": 0,
+      "sourceVariantSha256": "a7d9a4ce5365a9d5d4a113887b326246fa2d7d4da1d16c807e64152cf757b672",
+      "proposedLevel": 1,
+      "domain": "repas",
+      "priority": 0,
+      "reason": "Deux commandes polies complètes, café puis thé, avec les groupes et le marqueur de quantité de la source conservés.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-zh-09:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-zh",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-zh.json",
+      "sourceFileSha256": "798b987d60f6a95a9e4fa869e22e8fae949d4ce62c273b887aeb95e4c4466147",
+      "unitId": "L1-fr-zh-09",
+      "variantIndex": 1,
+      "sourceVariantSha256": "017a6ffd24e0b5136a852041249044d447bfb93781ac45cc7008bca787c90b03",
+      "proposedLevel": 1,
+      "domain": "repas",
+      "priority": 1,
+      "reason": "Deux commandes polies complètes, café puis thé, avec les groupes et le marqueur de quantité de la source conservés.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-zh-11:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-zh",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-zh.json",
+      "sourceFileSha256": "798b987d60f6a95a9e4fa869e22e8fae949d4ce62c273b887aeb95e4c4466147",
+      "unitId": "L1-fr-zh-11",
+      "variantIndex": 0,
+      "sourceVariantSha256": "ae798205f1b576ac25f1c267054a9ce1857a1906006cabb2e62c04e2b53115a6",
+      "proposedLevel": 1,
+      "domain": "comprendre",
+      "priority": 0,
+      "reason": "Deux formules de dépannage apprises séparément : signaler une incompréhension puis demander de répéter ; aucune substitution ni règle commune n’est inférée.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "selectionNote": "Le modèle source {s} est une enveloppe de formules indépendantes, pas un invariant enseigné.",
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-zh-11:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-zh",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-zh.json",
+      "sourceFileSha256": "798b987d60f6a95a9e4fa869e22e8fae949d4ce62c273b887aeb95e4c4466147",
+      "unitId": "L1-fr-zh-11",
+      "variantIndex": 1,
+      "sourceVariantSha256": "a8e5d519e4d67f4377ccf8b1b005d06bd2f24cea251091f98c549ee834a52e56",
+      "proposedLevel": 1,
+      "domain": "comprendre",
+      "priority": 1,
+      "reason": "Deux formules de dépannage apprises séparément : signaler une incompréhension puis demander de répéter ; aucune substitution ni règle commune n’est inférée.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "selectionNote": "Le modèle source {s} est une enveloppe de formules indépendantes, pas un invariant enseigné.",
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-ja-01:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-ja",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ja.json",
+      "sourceFileSha256": "fad1f7e9091586ddc33ccafcac9133bc31826fe1eb017eda217b0e17017ac2bc",
+      "unitId": "L1-fr-ja-01",
+      "variantIndex": 0,
+      "sourceVariantSha256": "91b9ef5e292a136a260acce52ac594915aa8f2fe31c0f49ba464e52905d52931",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 2,
+      "reason": "Deux phrases d’identification entières déjà écrites, préparées séparément ; ni provenance ni situation de vacances n’est traitée comme un simple nom variable.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-ja-01:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-ja",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ja.json",
+      "sourceFileSha256": "fad1f7e9091586ddc33ccafcac9133bc31826fe1eb017eda217b0e17017ac2bc",
+      "unitId": "L1-fr-ja-01",
+      "variantIndex": 1,
+      "sourceVariantSha256": "c8428f6c99d9ed1e71eb4109524653faf0c9c2a337ceef5f59657c8bfd4bd486",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 3,
+      "reason": "Deux phrases d’identification entières déjà écrites, préparées séparément ; ni provenance ni situation de vacances n’est traitée comme un simple nom variable.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-ja-02:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-ja",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ja.json",
+      "sourceFileSha256": "fad1f7e9091586ddc33ccafcac9133bc31826fe1eb017eda217b0e17017ac2bc",
+      "unitId": "L1-fr-ja-02",
+      "variantIndex": 0,
+      "sourceVariantSha256": "8a418893329b0b41647e7e8b35c56f4eea0684ac3d4c98546a997423e4ffca73",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 0,
+      "reason": "Deux phrases sources complètes pour donner son prénom ; chaque phonétique et lecture est reprise entière, jamais calculée depuis le modèle.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-ja-02:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-ja",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ja.json",
+      "sourceFileSha256": "fad1f7e9091586ddc33ccafcac9133bc31826fe1eb017eda217b0e17017ac2bc",
+      "unitId": "L1-fr-ja-02",
+      "variantIndex": 1,
+      "sourceVariantSha256": "58f79ab3544d9e8d12fc9f8e439f78d58e60f11db769fce4d4171f0debfc5058",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 1,
+      "reason": "Deux phrases sources complètes pour donner son prénom ; chaque phonétique et lecture est reprise entière, jamais calculée depuis le modèle.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-ja-09:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-ja",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ja.json",
+      "sourceFileSha256": "fad1f7e9091586ddc33ccafcac9133bc31826fe1eb017eda217b0e17017ac2bc",
+      "unitId": "L1-fr-ja-09",
+      "variantIndex": 0,
+      "sourceVariantSha256": "aa92f1c04cef85fbcfa74706696551817b16fe1948b40895e61abbcad9488329",
+      "proposedLevel": 1,
+      "domain": "repas",
+      "priority": 0,
+      "reason": "Deux commandes polies complètes, café puis thé, avec les groupes et le marqueur de quantité de la source conservés.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [
+        {
+          "sourceIndex": 1255,
+          "sourceLevel": 5,
+          "differentFields": {
+            "native": {
+              "catalogue": "Je voudrais un café.",
+              "conversation": "Un café, s'il vous plaît."
+            },
+            "phon": {
+              "catalogue": "ko-o-hi-i-o o-né-ga-i-chi-ma-sou",
+              "conversation": "ko-o-hi-i o o-né-ga-i chi-ma-sou"
+            },
+            "reading": {
+              "catalogue": "ko-o-hi-i-o o-ne-ga-i-shi-ma-su",
+              "conversation": "こーひーをおねがいします。"
+            }
+          }
+        }
+      ],
+      "newStudyTextRelativeToCatalogue": false,
+      "phoneticDivergenceFromSameStudy": true,
+      "countAsAddedPhrase": false,
+      "runtimeCandidate": false,
+      "status": "needs-phonetic-or-meaning-decision",
+      "catalogueReuseCandidate": {
+        "collection": "DECKS.ja",
+        "sourceIndices": [
+          1255
+        ],
+        "decisionRequired": true,
+        "policy": "La carte de catalogue reste inchangée ; aucun déplacement ni alignement automatique avec la variante conversation."
+      }
+    },
+    {
+      "id": "conversation:L1-fr-ja-09:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-ja",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ja.json",
+      "sourceFileSha256": "fad1f7e9091586ddc33ccafcac9133bc31826fe1eb017eda217b0e17017ac2bc",
+      "unitId": "L1-fr-ja-09",
+      "variantIndex": 1,
+      "sourceVariantSha256": "d7b7990ba999493019d3f7bc0087951d070b0dbbd6e2353010ef565b251b263c",
+      "proposedLevel": 1,
+      "domain": "repas",
+      "priority": 1,
+      "reason": "Deux commandes polies complètes, café puis thé, avec les groupes et le marqueur de quantité de la source conservés.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-ja-11:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-ja",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ja.json",
+      "sourceFileSha256": "fad1f7e9091586ddc33ccafcac9133bc31826fe1eb017eda217b0e17017ac2bc",
+      "unitId": "L1-fr-ja-11",
+      "variantIndex": 0,
+      "sourceVariantSha256": "46d835229dfc62370fa5d54f78f142b050593a442e37d3595074fbdb12e9751f",
+      "proposedLevel": 1,
+      "domain": "comprendre",
+      "priority": 0,
+      "reason": "Deux formules de dépannage apprises séparément : signaler une incompréhension puis demander de répéter ; aucune substitution ni règle commune n’est inférée.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "selectionNote": "Le modèle source {s} est une enveloppe de formules indépendantes, pas un invariant enseigné.",
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-ja-11:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-ja",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ja.json",
+      "sourceFileSha256": "fad1f7e9091586ddc33ccafcac9133bc31826fe1eb017eda217b0e17017ac2bc",
+      "unitId": "L1-fr-ja-11",
+      "variantIndex": 1,
+      "sourceVariantSha256": "203259a0500c71364f189868ebc4a7c89fe2d46c6a7314b04692de415a24089b",
+      "proposedLevel": 1,
+      "domain": "comprendre",
+      "priority": 1,
+      "reason": "Deux formules de dépannage apprises séparément : signaler une incompréhension puis demander de répéter ; aucune substitution ni règle commune n’est inférée.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "selectionNote": "Le modèle source {s} est une enveloppe de formules indépendantes, pas un invariant enseigné.",
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-ko-01:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-ko",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ko.json",
+      "sourceFileSha256": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+      "unitId": "L1-fr-ko-01",
+      "variantIndex": 0,
+      "sourceVariantSha256": "b679f26b23814dad71218032a18f9424acb2af4549300b3e33b4a5e7e5e902f1",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 2,
+      "reason": "Deux phrases d’identification entières déjà écrites, préparées séparément ; ni provenance ni situation de vacances n’est traitée comme un simple nom variable.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [
+        {
+          "sourceIndex": 1145,
+          "sourceLevel": 5,
+          "differentFields": {
+            "phon": {
+              "catalogue": "djo-neun hak-sèng-i-é-yo",
+              "conversation": "djeo-neun hak-sèng-i-é-yo"
+            },
+            "reading": {
+              "catalogue": "jeo-neun hak-saeng-i-e-yo",
+              "conversation": "jeoneun haksaeng-ieyo."
+            }
+          }
+        }
+      ],
+      "newStudyTextRelativeToCatalogue": false,
+      "phoneticDivergenceFromSameStudy": true,
+      "countAsAddedPhrase": false,
+      "runtimeCandidate": false,
+      "status": "needs-phonetic-or-meaning-decision",
+      "catalogueReuseCandidate": {
+        "collection": "DECKS.ko",
+        "sourceIndices": [
+          1145
+        ],
+        "decisionRequired": true,
+        "policy": "La carte de catalogue reste inchangée ; aucun déplacement ni alignement automatique avec la variante conversation."
+      }
+    },
+    {
+      "id": "conversation:L1-fr-ko-01:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-ko",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ko.json",
+      "sourceFileSha256": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+      "unitId": "L1-fr-ko-01",
+      "variantIndex": 1,
+      "sourceVariantSha256": "29a4c82c53d3ce237eaebe0ad75d179a58153acf66c8d8a1e5ba827c04d25ca8",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 3,
+      "reason": "Deux phrases d’identification entières déjà écrites, préparées séparément ; ni provenance ni situation de vacances n’est traitée comme un simple nom variable.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-ko-02:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-ko",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ko.json",
+      "sourceFileSha256": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+      "unitId": "L1-fr-ko-02",
+      "variantIndex": 0,
+      "sourceVariantSha256": "0c955671e88d02a91a0385283715640c4fb55cf2e334c3ba3d748925fcb0b310",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 0,
+      "reason": "Deux phrases sources complètes pour donner son prénom ; chaque phonétique et lecture est reprise entière, jamais calculée depuis le modèle.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "selectionNote": "Les variantes 0 et 3 gardent la terminaison 예요 dans la source ; les variantes Paul/Lin en 이에요 ne sont pas sélectionnées. Les phrases restent préparées entières.",
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-ko-02:variant:3",
+      "kind": "conversation-variant",
+      "pair": "fr-ko",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ko.json",
+      "sourceFileSha256": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+      "unitId": "L1-fr-ko-02",
+      "variantIndex": 3,
+      "sourceVariantSha256": "2ae076e2f5da731b751858c177dd0732172290d07fa7b69fa3f0338283346660",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 1,
+      "reason": "Deux phrases sources complètes pour donner son prénom ; chaque phonétique et lecture est reprise entière, jamais calculée depuis le modèle.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "selectionNote": "Les variantes 0 et 3 gardent la terminaison 예요 dans la source ; les variantes Paul/Lin en 이에요 ne sont pas sélectionnées. Les phrases restent préparées entières.",
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-ko-09:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-ko",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ko.json",
+      "sourceFileSha256": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+      "unitId": "L1-fr-ko-09",
+      "variantIndex": 0,
+      "sourceVariantSha256": "55ccc91ea663fef3aaafb26fa76c06ccb1cc0447af3f039b05e647de3eb19094",
+      "proposedLevel": 1,
+      "domain": "repas",
+      "priority": 0,
+      "reason": "Deux commandes polies complètes, café puis thé, avec les groupes et le marqueur de quantité de la source conservés.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-ko-09:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-ko",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ko.json",
+      "sourceFileSha256": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+      "unitId": "L1-fr-ko-09",
+      "variantIndex": 1,
+      "sourceVariantSha256": "db631482e2c4b1c1980843e77a294fb73385e490f29c8209d4b1e30fa7281331",
+      "proposedLevel": 1,
+      "domain": "repas",
+      "priority": 1,
+      "reason": "Deux commandes polies complètes, café puis thé, avec les groupes et le marqueur de quantité de la source conservés.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-fr-ko-11:variant:0",
+      "kind": "conversation-variant",
+      "pair": "fr-ko",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ko.json",
+      "sourceFileSha256": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+      "unitId": "L1-fr-ko-11",
+      "variantIndex": 0,
+      "sourceVariantSha256": "42392bdd9a43fad7339725e19dd45f1c092393b88793bfa7b66bbd5c5a8ef2e3",
+      "proposedLevel": 1,
+      "domain": "comprendre",
+      "priority": 0,
+      "reason": "Deux formules de dépannage apprises séparément : signaler une incompréhension puis demander de répéter ; aucune substitution ni règle commune n’est inférée.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [
+        {
+          "sourceIndex": 613,
+          "sourceLevel": 4,
+          "differentFields": {
+            "native": {
+              "catalogue": "Je n'ai pas compris.",
+              "conversation": "Je ne comprends pas."
+            },
+            "phon": {
+              "catalogue": "i-hè mot hè-sso-yo",
+              "conversation": "i-hè mot hè-sseo-yo"
+            },
+            "reading": {
+              "catalogue": "i-hae mos hae-sseo-yo",
+              "conversation": "ihae mot haesseoyo."
+            }
+          }
+        }
+      ],
+      "newStudyTextRelativeToCatalogue": false,
+      "phoneticDivergenceFromSameStudy": true,
+      "selectionNote": "Le modèle source {s} est une enveloppe de formules indépendantes, pas un invariant enseigné.",
+      "countAsAddedPhrase": false,
+      "runtimeCandidate": false,
+      "status": "needs-phonetic-or-meaning-decision",
+      "catalogueReuseCandidate": {
+        "collection": "DECKS.ko",
+        "sourceIndices": [
+          613
+        ],
+        "decisionRequired": true,
+        "policy": "La carte de catalogue reste inchangée ; aucun déplacement ni alignement automatique avec la variante conversation."
+      }
+    },
+    {
+      "id": "conversation:L1-fr-ko-11:variant:1",
+      "kind": "conversation-variant",
+      "pair": "fr-ko",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ko.json",
+      "sourceFileSha256": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+      "unitId": "L1-fr-ko-11",
+      "variantIndex": 1,
+      "sourceVariantSha256": "8be7b82f7b8e01574e5b8d787b32c1f80570f4be08137c575133860e31183d91",
+      "proposedLevel": 1,
+      "domain": "comprendre",
+      "priority": 1,
+      "reason": "Deux formules de dépannage apprises séparément : signaler une incompréhension puis demander de répéter ; aucune substitution ni règle commune n’est inférée.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon",
+        "reading"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "selectionNote": "Le modèle source {s} est une enveloppe de formules indépendantes, pas un invariant enseigné.",
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-zh-fr-01:variant:0",
+      "kind": "conversation-variant",
+      "pair": "zh-fr",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-zh-fr.json",
+      "sourceFileSha256": "170c3a0d576edd3a619b4560040e1a346246769e66530a582ce448d0699b1753",
+      "unitId": "L1-zh-fr-01",
+      "variantIndex": 0,
+      "sourceVariantSha256": "84a79ac410b19e4887f48892b52092657b431966f829ee476c3a473054a980ed",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 2,
+      "reason": "Deux phrases d’identification entières déjà écrites, préparées séparément ; ni provenance ni situation de vacances n’est traitée comme un simple nom variable.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [
+        {
+          "sourceIndex": 988,
+          "sourceLevel": 4,
+          "differentFields": {
+            "native": {
+              "catalogue": "我是学生",
+              "conversation": "我是学生。"
+            },
+            "phon": {
+              "catalogue": "茹斯威艾图迪翁",
+              "conversation": "热 绥 埃居迪昂"
+            }
+          }
+        }
+      ],
+      "newStudyTextRelativeToCatalogue": false,
+      "phoneticDivergenceFromSameStudy": true,
+      "countAsAddedPhrase": false,
+      "runtimeCandidate": false,
+      "status": "needs-phonetic-or-meaning-decision",
+      "catalogueReuseCandidate": {
+        "collection": "DECKS.fr",
+        "sourceIndices": [
+          988
+        ],
+        "decisionRequired": true,
+        "policy": "La carte de catalogue reste inchangée ; aucun déplacement ni alignement automatique avec la variante conversation."
+      }
+    },
+    {
+      "id": "conversation:L1-zh-fr-01:variant:1",
+      "kind": "conversation-variant",
+      "pair": "zh-fr",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-zh-fr.json",
+      "sourceFileSha256": "170c3a0d576edd3a619b4560040e1a346246769e66530a582ce448d0699b1753",
+      "unitId": "L1-zh-fr-01",
+      "variantIndex": 1,
+      "sourceVariantSha256": "c6c570d4ac73cebda36f11b8de362e6fcc510edf2fd2ae474a9ab74b38ed3a16",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 3,
+      "reason": "Deux phrases d’identification entières déjà écrites, préparées séparément ; ni provenance ni situation de vacances n’est traitée comme un simple nom variable.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-zh-fr-02:variant:0",
+      "kind": "conversation-variant",
+      "pair": "zh-fr",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-zh-fr.json",
+      "sourceFileSha256": "170c3a0d576edd3a619b4560040e1a346246769e66530a582ce448d0699b1753",
+      "unitId": "L1-zh-fr-02",
+      "variantIndex": 0,
+      "sourceVariantSha256": "74aff48e2c0738382e0d2266f2d0540db00e81a418dfe080122a66eb2eef9024",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 0,
+      "reason": "Deux phrases sources complètes pour donner son prénom ; chaque phonétique et lecture est reprise entière, jamais calculée depuis le modèle.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-zh-fr-02:variant:1",
+      "kind": "conversation-variant",
+      "pair": "zh-fr",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-zh-fr.json",
+      "sourceFileSha256": "170c3a0d576edd3a619b4560040e1a346246769e66530a582ce448d0699b1753",
+      "unitId": "L1-zh-fr-02",
+      "variantIndex": 1,
+      "sourceVariantSha256": "a567daa6a4ca2a3f54f826244344084a0d46d6f686a18530a9395b810aa0be4d",
+      "proposedLevel": 1,
+      "domain": "saluer",
+      "priority": 1,
+      "reason": "Deux phrases sources complètes pour donner son prénom ; chaque phonétique et lecture est reprise entière, jamais calculée depuis le modèle.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-zh-fr-09:variant:0",
+      "kind": "conversation-variant",
+      "pair": "zh-fr",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-zh-fr.json",
+      "sourceFileSha256": "170c3a0d576edd3a619b4560040e1a346246769e66530a582ce448d0699b1753",
+      "unitId": "L1-zh-fr-09",
+      "variantIndex": 0,
+      "sourceVariantSha256": "12e6bd3b40b4f0417e5ce9bb0804b0be7cb481c57a5709b0b69c4292f4cae8d1",
+      "proposedLevel": 1,
+      "domain": "repas",
+      "priority": 0,
+      "reason": "Deux commandes polies complètes, café puis thé, avec les groupes et le marqueur de quantité de la source conservés.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [
+        {
+          "sourceIndex": 3120,
+          "sourceLevel": 4,
+          "differentFields": {
+            "native": {
+              "catalogue": "请给我一杯咖啡",
+              "conversation": "请给我一杯咖啡。"
+            },
+            "phon": {
+              "catalogue": "安卡费斯库普雷",
+              "conversation": "安 卡菲，西尔 武 普莱"
+            }
+          }
+        }
+      ],
+      "newStudyTextRelativeToCatalogue": false,
+      "phoneticDivergenceFromSameStudy": true,
+      "countAsAddedPhrase": false,
+      "runtimeCandidate": false,
+      "status": "needs-phonetic-or-meaning-decision",
+      "catalogueReuseCandidate": {
+        "collection": "DECKS.fr",
+        "sourceIndices": [
+          3120
+        ],
+        "decisionRequired": true,
+        "policy": "La carte de catalogue reste inchangée ; aucun déplacement ni alignement automatique avec la variante conversation."
+      }
+    },
+    {
+      "id": "conversation:L1-zh-fr-09:variant:1",
+      "kind": "conversation-variant",
+      "pair": "zh-fr",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-zh-fr.json",
+      "sourceFileSha256": "170c3a0d576edd3a619b4560040e1a346246769e66530a582ce448d0699b1753",
+      "unitId": "L1-zh-fr-09",
+      "variantIndex": 1,
+      "sourceVariantSha256": "47e7d38adc5c5b05c1ca0d418ae1fe086f48163b46b3aa7187a0f7e9f3fd6198",
+      "proposedLevel": 1,
+      "domain": "repas",
+      "priority": 1,
+      "reason": "Deux commandes polies complètes, café puis thé, avec les groupes et le marqueur de quantité de la source conservés.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    },
+    {
+      "id": "conversation:L1-zh-fr-11:variant:0",
+      "kind": "conversation-variant",
+      "pair": "zh-fr",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-zh-fr.json",
+      "sourceFileSha256": "170c3a0d576edd3a619b4560040e1a346246769e66530a582ce448d0699b1753",
+      "unitId": "L1-zh-fr-11",
+      "variantIndex": 0,
+      "sourceVariantSha256": "f4d524ac072219db8f6087d8f914dcc7237af83de2a85139cf1ef6046315733d",
+      "proposedLevel": 1,
+      "domain": "comprendre",
+      "priority": 0,
+      "reason": "Deux formules de dépannage apprises séparément : signaler une incompréhension puis demander de répéter ; aucune substitution ni règle commune n’est inférée.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [
+        {
+          "sourceIndex": 1040,
+          "sourceLevel": 4,
+          "differentFields": {
+            "native": {
+              "catalogue": "我不明白",
+              "conversation": "我不懂。"
+            },
+            "phon": {
+              "catalogue": "茹讷孔普蓉帕",
+              "conversation": "热 讷 孔普朗 帕"
+            }
+          }
+        }
+      ],
+      "newStudyTextRelativeToCatalogue": false,
+      "phoneticDivergenceFromSameStudy": true,
+      "selectionNote": "Le modèle source {s} est une enveloppe de formules indépendantes, pas un invariant enseigné.",
+      "countAsAddedPhrase": false,
+      "runtimeCandidate": false,
+      "status": "needs-phonetic-or-meaning-decision",
+      "catalogueReuseCandidate": {
+        "collection": "DECKS.fr",
+        "sourceIndices": [
+          1040
+        ],
+        "decisionRequired": true,
+        "policy": "La carte de catalogue reste inchangée ; aucun déplacement ni alignement automatique avec la variante conversation."
+      }
+    },
+    {
+      "id": "conversation:L1-zh-fr-11:variant:1",
+      "kind": "conversation-variant",
+      "pair": "zh-fr",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-zh-fr.json",
+      "sourceFileSha256": "170c3a0d576edd3a619b4560040e1a346246769e66530a582ce448d0699b1753",
+      "unitId": "L1-zh-fr-11",
+      "variantIndex": 1,
+      "sourceVariantSha256": "2d632c00395615378437980afaf112e0b0e8321e6fb3b1621a14a6d1e1dfcd27",
+      "proposedLevel": 1,
+      "domain": "comprendre",
+      "priority": 1,
+      "reason": "Deux formules de dépannage apprises séparément : signaler une incompréhension puis demander de répéter ; aucune substitution ni règle commune n’est inférée.",
+      "wholePhraseOnly": true,
+      "reviewStatus": "awaiting-Claude",
+      "fieldNames": [
+        "study",
+        "native",
+        "phon"
+      ],
+      "catalogueExactMatchIndices": [],
+      "catalogueSameStudyMatches": [],
+      "newStudyTextRelativeToCatalogue": true,
+      "phoneticDivergenceFromSameStudy": false,
+      "selectionNote": "Le modèle source {s} est une enveloppe de formules indépendantes, pas un invariant enseigné.",
+      "countAsAddedPhrase": true,
+      "runtimeCandidate": true,
+      "status": "existing-source-ready-for-preview"
+    }
+  ],
+  "catalogueBridges": [],
+  "sourceSnapshots": [
+    {
+      "pair": "fr-en",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-en.json",
+      "sourceFileSha256": "af4a52abde3257e2ee65dd0b313a293bb9dadd9947a7779448103e7aaf8aecd7",
+      "sourceRepositoryPath": "melunga_deploy/content/conversation/L1-fr-en.json",
+      "sourceCommit": "7d245568102f16fb8ae9e29c46bb89221358058b",
+      "bytes": 18574,
+      "unitCount": 11
+    },
+    {
+      "pair": "fr-es",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-es.json",
+      "sourceFileSha256": "40b3c9794273dc44e133ea0705ac36644b87abf11df34e4cdb02192ea0b5816b",
+      "sourceRepositoryPath": "melunga_deploy/content/conversation/L1-fr-es.json",
+      "sourceCommit": "7d245568102f16fb8ae9e29c46bb89221358058b",
+      "bytes": 18963,
+      "unitCount": 11
+    },
+    {
+      "pair": "fr-it",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-it.json",
+      "sourceFileSha256": "f6e7d13b1525ca6aa1fff83730ec1d6a7b22ce7aac6e3c57a290d34be40fc5c9",
+      "sourceRepositoryPath": "melunga_deploy/content/conversation/L1-fr-it.json",
+      "sourceCommit": "7d245568102f16fb8ae9e29c46bb89221358058b",
+      "bytes": 18936,
+      "unitCount": 11
+    },
+    {
+      "pair": "fr-zh",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-zh.json",
+      "sourceFileSha256": "798b987d60f6a95a9e4fa869e22e8fae949d4ce62c273b887aeb95e4c4466147",
+      "sourceRepositoryPath": "melunga_deploy/content/conversation/L1-fr-zh.json",
+      "sourceCommit": "7d245568102f16fb8ae9e29c46bb89221358058b",
+      "bytes": 23564,
+      "unitCount": 11
+    },
+    {
+      "pair": "fr-ja",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ja.json",
+      "sourceFileSha256": "fad1f7e9091586ddc33ccafcac9133bc31826fe1eb017eda217b0e17017ac2bc",
+      "sourceRepositoryPath": "melunga_deploy/content/conversation/L1-fr-ja.json",
+      "sourceCommit": "7d245568102f16fb8ae9e29c46bb89221358058b",
+      "bytes": 26079,
+      "unitCount": 11
+    },
+    {
+      "pair": "fr-ko",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-fr-ko.json",
+      "sourceFileSha256": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+      "sourceRepositoryPath": "melunga_deploy/content/conversation/L1-fr-ko.json",
+      "sourceCommit": "7d245568102f16fb8ae9e29c46bb89221358058b",
+      "bytes": 24448,
+      "unitCount": 11
+    },
+    {
+      "pair": "zh-fr",
+      "sourceFile": "docs/niveaux-progressifs/sources/conversation/L1-zh-fr.json",
+      "sourceFileSha256": "170c3a0d576edd3a619b4560040e1a346246769e66530a582ce448d0699b1753",
+      "sourceRepositoryPath": "melunga_deploy/content/conversation/L1-zh-fr.json",
+      "sourceCommit": "7d245568102f16fb8ae9e29c46bb89221358058b",
+      "bytes": 18946,
+      "unitCount": 11
+    }
+  ],
+  "pairs": [
+    {
+      "pair": "fr-en",
+      "selectedVariants": 8,
+      "importCandidates": 8,
+      "exactCatalogueBridges": 0,
+      "newStudyTextsRelativeToCatalogue": 5,
+      "sameStudyDifferentFields": 3,
+      "sameStudyDifferentPhonetics": 3,
+      "runtimeCandidates": 5,
+      "heldForPhoneticOrMeaningDecision": 3
+    },
+    {
+      "pair": "fr-es",
+      "selectedVariants": 8,
+      "importCandidates": 8,
+      "exactCatalogueBridges": 0,
+      "newStudyTextsRelativeToCatalogue": 7,
+      "sameStudyDifferentFields": 1,
+      "sameStudyDifferentPhonetics": 0,
+      "runtimeCandidates": 7,
+      "heldForPhoneticOrMeaningDecision": 1
+    },
+    {
+      "pair": "fr-it",
+      "selectedVariants": 8,
+      "importCandidates": 8,
+      "exactCatalogueBridges": 0,
+      "newStudyTextsRelativeToCatalogue": 5,
+      "sameStudyDifferentFields": 3,
+      "sameStudyDifferentPhonetics": 3,
+      "runtimeCandidates": 5,
+      "heldForPhoneticOrMeaningDecision": 3
+    },
+    {
+      "pair": "fr-zh",
+      "selectedVariants": 8,
+      "importCandidates": 8,
+      "exactCatalogueBridges": 0,
+      "newStudyTextsRelativeToCatalogue": 8,
+      "sameStudyDifferentFields": 0,
+      "sameStudyDifferentPhonetics": 0,
+      "runtimeCandidates": 8,
+      "heldForPhoneticOrMeaningDecision": 0
+    },
+    {
+      "pair": "fr-ja",
+      "selectedVariants": 8,
+      "importCandidates": 8,
+      "exactCatalogueBridges": 0,
+      "newStudyTextsRelativeToCatalogue": 7,
+      "sameStudyDifferentFields": 1,
+      "sameStudyDifferentPhonetics": 1,
+      "runtimeCandidates": 7,
+      "heldForPhoneticOrMeaningDecision": 1
+    },
+    {
+      "pair": "fr-ko",
+      "selectedVariants": 8,
+      "importCandidates": 8,
+      "exactCatalogueBridges": 0,
+      "newStudyTextsRelativeToCatalogue": 6,
+      "sameStudyDifferentFields": 2,
+      "sameStudyDifferentPhonetics": 2,
+      "runtimeCandidates": 6,
+      "heldForPhoneticOrMeaningDecision": 2
+    },
+    {
+      "pair": "zh-fr",
+      "selectedVariants": 8,
+      "importCandidates": 8,
+      "exactCatalogueBridges": 0,
+      "newStudyTextsRelativeToCatalogue": 5,
+      "sameStudyDifferentFields": 3,
+      "sameStudyDifferentPhonetics": 3,
+      "runtimeCandidates": 5,
+      "heldForPhoneticOrMeaningDecision": 3
+    }
+  ],
+  "counts": {
+    "selectedVariants": 56,
+    "importCandidates": 56,
+    "exactCatalogueBridges": 0,
+    "newStudyTextsRelativeToCatalogue": 43,
+    "sameStudyDifferentFields": 13,
+    "sameStudyDifferentPhonetics": 12,
+    "runtimeCandidates": 43,
+    "heldForPhoneticOrMeaningDecision": 13,
+    "expectedCataloguePlusRuntimeCandidates": 32158
+  },
+  "runtimeSelectionPolicy": "Le build ne charge que items où runtimeCandidate === true. Les doublons du texte étudié avec aides ou sens différents restent dans le dossier Claude, sans affichage concurrent ni déplacement automatique."
+}

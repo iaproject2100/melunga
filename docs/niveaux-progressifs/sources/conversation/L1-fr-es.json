@@ -1,0 +1,847 @@
+{
+ "version": 2,
+ "format": "conversation-generic",
+ "status": "échantillon-à-valider",
+ "studyLanguage": "es",
+ "nativeLanguage": "fr",
+ "fields": {
+  "study": "phrase en espagnol",
+  "phon": "prononciation écrite pour francophones",
+  "native": "traduction en langue maternelle"
+ },
+ "phoneticConvention": "Approximation pour lecteurs francophones (MAJUSCULES = syllabe accentuée ; v→b, ll→y, j/ge/gi→KH, c/z→ss, que→ké). Variante à seseo et yeísmo. Ne remplace pas l'audio.",
+ "reviewStatus": "Généré par règles à partir de briques validées ; relecture par un hispanophone conseillée.",
+ "coverageClaim": null,
+ "level": 1,
+ "title": "Premiers contacts",
+ "goal": "Saluer, se présenter, exprimer un besoin, commander simplement.",
+ "reviewPreviousLevels": [],
+ "exercisePath": [
+  "découvrir",
+  "remplacer",
+  "essayer sans réponse visible",
+  "converser"
+ ],
+ "units": [
+  {
+   "id": "L1-fr-es-01",
+   "situation": "Se présenter",
+   "model": {
+    "study": "Soy {s}.",
+    "phon": "SOY {s}",
+    "native": "Je suis {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "estudiante",
+      "phon": "és-tou-DIAN-té",
+      "native": "étudiant"
+     },
+     "study": "Soy estudiante.",
+     "phon": "SOY és-tou-DIAN-té",
+     "native": "Je suis étudiant."
+    },
+    {
+     "slot": {
+      "study": "francés",
+      "phon": "fran-SSÉS",
+      "native": "français"
+     },
+     "study": "Soy francés.",
+     "phon": "SOY fran-SSÉS",
+     "native": "Je suis français."
+    },
+    {
+     "slot": {
+      "study": "de París",
+      "phon": "dé pa-RIS",
+      "native": "de Paris"
+     },
+     "study": "Soy de París.",
+     "phon": "SOY dé pa-RIS",
+     "native": "Je suis de Paris."
+    },
+    {
+     "slot": {
+      "study": "profesor",
+      "phon": "pro-fé-SSOR",
+      "native": "professeur"
+     },
+     "study": "Soy profesor.",
+     "phon": "SOY pro-fé-SSOR",
+     "native": "Je suis professeur."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-es-02",
+   "situation": "Dire son nom",
+   "model": {
+    "study": "Me llamo {s}.",
+    "phon": "mé YA-mo {s}",
+    "native": "Je m'appelle {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "María",
+      "phon": "ma-RI-a",
+      "native": "Marie"
+     },
+     "study": "Me llamo María.",
+     "phon": "mé YA-mo ma-RI-a",
+     "native": "Je m'appelle Marie."
+    },
+    {
+     "slot": {
+      "study": "Pablo",
+      "phon": "PA-blo",
+      "native": "Paul"
+     },
+     "study": "Me llamo Pablo.",
+     "phon": "mé YA-mo PA-blo",
+     "native": "Je m'appelle Paul."
+    },
+    {
+     "slot": {
+      "study": "Lin",
+      "phon": "LIN",
+      "native": "Lin"
+     },
+     "study": "Me llamo Lin.",
+     "phon": "mé YA-mo LIN",
+     "native": "Je m'appelle Lin."
+    },
+    {
+     "slot": {
+      "study": "Ana",
+      "phon": "A-na",
+      "native": "Ana"
+     },
+     "study": "Me llamo Ana.",
+     "phon": "mé YA-mo A-na",
+     "native": "Je m'appelle Ana."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-es-03",
+   "situation": "Dire ce qu'on veut",
+   "model": {
+    "study": "Quiero {s}.",
+    "phon": "KIÉ-ro {s}",
+    "native": "Je veux {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "un café",
+      "phon": "oun ka-FÉ",
+      "native": "un café"
+     },
+     "study": "Quiero un café.",
+     "phon": "KIÉ-ro oun ka-FÉ",
+     "native": "Je veux un café."
+    },
+    {
+     "slot": {
+      "study": "agua",
+      "phon": "A-goua",
+      "native": "de l'eau"
+     },
+     "study": "Quiero agua.",
+     "phon": "KIÉ-ro A-goua",
+     "native": "Je veux de l'eau."
+    },
+    {
+     "slot": {
+      "study": "un billete",
+      "phon": "oun bi-YÉ-té",
+      "native": "un billet"
+     },
+     "study": "Quiero un billete.",
+     "phon": "KIÉ-ro oun bi-YÉ-té",
+     "native": "Je veux un billet."
+    },
+    {
+     "slot": {
+      "study": "un bocadillo",
+      "phon": "oun bo-ka-DI-yo",
+      "native": "un sandwich"
+     },
+     "study": "Quiero un bocadillo.",
+     "phon": "KIÉ-ro oun bo-ka-DI-yo",
+     "native": "Je veux un sandwich."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-es-04",
+   "situation": "Dire ce dont on a besoin",
+   "model": {
+    "study": "Necesito {s}.",
+    "phon": "né-ssé-SSI-to {s}",
+    "native": "J'ai besoin de {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "ayuda",
+      "phon": "a-YOU-da",
+      "native": "aide"
+     },
+     "study": "Necesito ayuda.",
+     "phon": "né-ssé-SSI-to a-YOU-da",
+     "native": "J'ai besoin d'aide."
+    },
+    {
+     "slot": {
+      "study": "un taxi",
+      "phon": "oun TAK-ssi",
+      "native": "un taxi"
+     },
+     "study": "Necesito un taxi.",
+     "phon": "né-ssé-SSI-to oun TAK-ssi",
+     "native": "J'ai besoin d'un taxi."
+    },
+    {
+     "slot": {
+      "study": "un médico",
+      "phon": "oun MÉ-di-ko",
+      "native": "un médecin"
+     },
+     "study": "Necesito un médico.",
+     "phon": "né-ssé-SSI-to oun MÉ-di-ko",
+     "native": "J'ai besoin d'un médecin."
+    },
+    {
+     "slot": {
+      "study": "wifi",
+      "phon": "OUI-fi",
+      "native": "la wifi"
+     },
+     "study": "Necesito wifi.",
+     "phon": "né-ssé-SSI-to OUI-fi",
+     "native": "J'ai besoin de la wifi."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-es-05",
+   "situation": "Trouver un lieu",
+   "model": {
+    "study": "¿Dónde está {s}?",
+    "phon": "DON-dé és-TA {s}",
+    "native": "Où est {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "la estación",
+      "phon": "la és-ta-SSION",
+      "native": "la gare"
+     },
+     "study": "¿Dónde está la estación?",
+     "phon": "DON-dé és-TA la és-ta-SSION",
+     "native": "Où est la gare ?"
+    },
+    {
+     "slot": {
+      "study": "la salida",
+      "phon": "la ssa-LI-da",
+      "native": "la sortie"
+     },
+     "study": "¿Dónde está la salida?",
+     "phon": "DON-dé és-TA la ssa-LI-da",
+     "native": "Où est la sortie ?"
+    },
+    {
+     "slot": {
+      "study": "el baño",
+      "phon": "él BA-gno",
+      "native": "les toilettes"
+     },
+     "study": "¿Dónde está el baño?",
+     "phon": "DON-dé és-TA él BA-gno",
+     "native": "Où sont les toilettes ?"
+    },
+    {
+     "slot": {
+      "study": "el metro",
+      "phon": "él MÉ-tro",
+      "native": "le métro"
+     },
+     "study": "¿Dónde está el metro?",
+     "phon": "DON-dé és-TA él MÉ-tro",
+     "native": "Où est le métro ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-es-06",
+   "situation": "Dire où l'on va",
+   "model": {
+    "study": "Voy {s}.",
+    "phon": "BOY {s}",
+    "native": "Je vais {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "al trabajo",
+      "phon": "al tra-BA-kho",
+      "native": "au travail"
+     },
+     "study": "Voy al trabajo.",
+     "phon": "BOY al tra-BA-kho",
+     "native": "Je vais au travail."
+    },
+    {
+     "slot": {
+      "study": "a casa",
+      "phon": "a KA-ssa",
+      "native": "à la maison"
+     },
+     "study": "Voy a casa.",
+     "phon": "BOY a KA-ssa",
+     "native": "Je vais à la maison."
+    },
+    {
+     "slot": {
+      "study": "al mercado",
+      "phon": "al mér-KA-do",
+      "native": "au marché"
+     },
+     "study": "Voy al mercado.",
+     "phon": "BOY al mér-KA-do",
+     "native": "Je vais au marché."
+    },
+    {
+     "slot": {
+      "study": "al hotel",
+      "phon": "al o-TÉL",
+      "native": "à l'hôtel"
+     },
+     "study": "Voy al hotel.",
+     "phon": "BOY al o-TÉL",
+     "native": "Je vais à l'hôtel."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-es-07",
+   "situation": "Dire comment on se sent",
+   "model": {
+    "study": "Tengo {s}.",
+    "phon": "TÉN-go {s}",
+    "native": "J'ai {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "hambre",
+      "phon": "AM-bré",
+      "native": "faim"
+     },
+     "study": "Tengo hambre.",
+     "phon": "TÉN-go AM-bré",
+     "native": "J'ai faim."
+    },
+    {
+     "slot": {
+      "study": "sed",
+      "phon": "SSÉD",
+      "native": "soif"
+     },
+     "study": "Tengo sed.",
+     "phon": "TÉN-go SSÉD",
+     "native": "J'ai soif."
+    },
+    {
+     "slot": {
+      "study": "frío",
+      "phon": "FRI-o",
+      "native": "froid"
+     },
+     "study": "Tengo frío.",
+     "phon": "TÉN-go FRI-o",
+     "native": "J'ai froid."
+    },
+    {
+     "slot": {
+      "study": "calor",
+      "phon": "ka-LOR",
+      "native": "chaud"
+     },
+     "study": "Tengo calor.",
+     "phon": "TÉN-go ka-LOR",
+     "native": "J'ai chaud."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-es-08",
+   "situation": "Dire ce qu'on aime",
+   "model": {
+    "study": "Me gusta {s}.",
+    "phon": "mé GOUS-ta {s}",
+    "native": "J'aime {s}."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "el café",
+      "phon": "él ka-FÉ",
+      "native": "le café"
+     },
+     "study": "Me gusta el café.",
+     "phon": "mé GOUS-ta él ka-FÉ",
+     "native": "J'aime le café."
+    },
+    {
+     "slot": {
+      "study": "la música",
+      "phon": "la MOU-ssi-ka",
+      "native": "la musique"
+     },
+     "study": "Me gusta la música.",
+     "phon": "mé GOUS-ta la MOU-ssi-ka",
+     "native": "J'aime la musique."
+    },
+    {
+     "slot": {
+      "study": "caminar",
+      "phon": "ka-mi-NAR",
+      "native": "marcher"
+     },
+     "study": "Me gusta caminar.",
+     "phon": "mé GOUS-ta ka-mi-NAR",
+     "native": "J'aime marcher."
+    },
+    {
+     "slot": {
+      "study": "el deporte",
+      "phon": "él dé-POR-té",
+      "native": "le sport"
+     },
+     "study": "Me gusta el deporte.",
+     "phon": "mé GOUS-ta él dé-POR-té",
+     "native": "J'aime le sport."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-es-09",
+   "situation": "Commander",
+   "model": {
+    "study": "Un {s}, por favor.",
+    "phon": "oun {s}, por fa-BOR",
+    "native": "Un {s}, s'il vous plaît."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "café",
+      "phon": "ka-FÉ",
+      "native": "café"
+     },
+     "study": "Un café, por favor.",
+     "phon": "oun ka-FÉ, por fa-BOR",
+     "native": "Un café, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "té",
+      "phon": "TÉ",
+      "native": "thé"
+     },
+     "study": "Un té, por favor.",
+     "phon": "oun TÉ, por fa-BOR",
+     "native": "Un thé, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "zumo de naranja",
+      "phon": "SSOU-mo dé na-RAN-kha",
+      "native": "jus d'orange"
+     },
+     "study": "Un zumo de naranja, por favor.",
+     "phon": "oun SSOU-mo dé na-RAN-kha, por fa-BOR",
+     "native": "Un jus d'orange, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "bocadillo",
+      "phon": "bo-ka-DI-yo",
+      "native": "sandwich"
+     },
+     "study": "Un bocadillo, por favor.",
+     "phon": "oun bo-ka-DI-yo, por fa-BOR",
+     "native": "Un sandwich, s'il vous plaît."
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-es-10",
+   "situation": "Demander un prix",
+   "model": {
+    "study": "¿Cuánto cuesta {s}?",
+    "phon": "KOUAN-to KOUÉS-ta {s}",
+    "native": "Combien coûte {s} ?"
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "esto",
+      "phon": "ÉS-to",
+      "native": "ça"
+     },
+     "study": "¿Cuánto cuesta esto?",
+     "phon": "KOUAN-to KOUÉS-ta ÉS-to",
+     "native": "Combien coûte ça ?"
+    },
+    {
+     "slot": {
+      "study": "el café",
+      "phon": "él ka-FÉ",
+      "native": "le café"
+     },
+     "study": "¿Cuánto cuesta el café?",
+     "phon": "KOUAN-to KOUÉS-ta él ka-FÉ",
+     "native": "Combien coûte le café ?"
+    },
+    {
+     "slot": {
+      "study": "el billete",
+      "phon": "él bi-YÉ-té",
+      "native": "le billet"
+     },
+     "study": "¿Cuánto cuesta el billete?",
+     "phon": "KOUAN-to KOUÉS-ta él bi-YÉ-té",
+     "native": "Combien coûte le billet ?"
+    },
+    {
+     "slot": {
+      "study": "la habitación",
+      "phon": "la a-bi-ta-SSION",
+      "native": "la chambre"
+     },
+     "study": "¿Cuánto cuesta la habitación?",
+     "phon": "KOUAN-to KOUÉS-ta la a-bi-ta-SSION",
+     "native": "Combien coûte la chambre ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  },
+  {
+   "id": "L1-fr-es-11",
+   "situation": "Se dépanner",
+   "model": {
+    "study": "{s}",
+    "phon": "{s}",
+    "native": "{s}",
+    "note": "Formules de secours : phrases entières à connaître telles quelles pour tenir un échange."
+   },
+   "variants": [
+    {
+     "slot": {
+      "study": "No entiendo.",
+      "phon": "no én-TIÉN-do",
+      "native": "Je ne comprends pas."
+     },
+     "study": "No entiendo.",
+     "phon": "no én-TIÉN-do",
+     "native": "Je ne comprends pas."
+    },
+    {
+     "slot": {
+      "study": "¿Puede repetir, por favor?",
+      "phon": "POUÉ-dé rré-pé-TIR, por fa-BOR",
+      "native": "Pouvez-vous répéter, s'il vous plaît ?"
+     },
+     "study": "¿Puede repetir, por favor?",
+     "phon": "POUÉ-dé rré-pé-TIR, por fa-BOR",
+     "native": "Pouvez-vous répéter, s'il vous plaît ?"
+    },
+    {
+     "slot": {
+      "study": "Más despacio, por favor.",
+      "phon": "mas dés-PA-ssio, por fa-BOR",
+      "native": "Plus lentement, s'il vous plaît."
+     },
+     "study": "Más despacio, por favor.",
+     "phon": "mas dés-PA-ssio, por fa-BOR",
+     "native": "Plus lentement, s'il vous plaît."
+    },
+    {
+     "slot": {
+      "study": "¿Habla francés?",
+      "phon": "A-bla fran-SSÉS",
+      "native": "Parlez-vous français ?"
+     },
+     "study": "¿Habla francés?",
+     "phon": "A-bla fran-SSÉS",
+     "native": "Parlez-vous français ?"
+    }
+   ],
+   "practice": {
+    "discover": 0,
+    "replace": [
+     1,
+     2,
+     3
+    ],
+    "recall": 3
+   }
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "L1-fr-es-d1",
+   "situation": "Au café",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "¡Hola!",
+     "phon": "O-la",
+     "native": "Bonjour !"
+    },
+    {
+     "speaker": "B",
+     "study": "Hola. ¿Qué desea?",
+     "phon": "O-la. ké dé-SSÉ-a",
+     "native": "Bonjour. Vous désirez ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Un café, por favor.",
+     "phon": "oun ka-FÉ, por fa-BOR",
+     "native": "Un café, s'il vous plaît."
+    },
+    {
+     "speaker": "B",
+     "study": "¿Con leche?",
+     "phon": "kon LÉ-tché",
+     "native": "Avec du lait ?"
+    },
+    {
+     "speaker": "A",
+     "study": "No, gracias. ¿Cuánto cuesta?",
+     "phon": "no, GRA-ssias. KOUAN-to KOUÉS-ta",
+     "native": "Non, merci. Combien ça coûte ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Dos euros.",
+     "phon": "dos É-ou-ros",
+     "native": "Deux euros."
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-es-09",
+    "L1-fr-es-10"
+   ],
+   "roles": {
+    "A": "Client",
+    "B": "Serveur"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L1-fr-es-d2",
+   "situation": "À la gare",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Perdone, ¿dónde está la estación?",
+     "phon": "pér-DO-né, DON-dé és-TA la és-ta-SSION",
+     "native": "Excusez-moi, où est la gare ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Todo recto, a cinco minutos.",
+     "phon": "TO-do RRÉK-to, a SSIN-ko mi-NOU-tos",
+     "native": "Tout droit, à cinq minutes."
+    },
+    {
+     "speaker": "A",
+     "study": "Gracias. Necesito un billete para Valencia.",
+     "phon": "GRA-ssias. né-ssé-SSI-to oun bi-YÉ-té PA-ra ba-LÉN-ssia",
+     "native": "Merci. J'ai besoin d'un billet pour Valence."
+    },
+    {
+     "speaker": "B",
+     "study": "Un billete, diez euros.",
+     "phon": "oun bi-YÉ-té, DIÉSS É-ou-ros",
+     "native": "Un billet, dix euros."
+    },
+    {
+     "speaker": "A",
+     "study": "Aquí tiene. Muchas gracias.",
+     "phon": "a-KI TIÉ-né. MOU-tchas GRA-ssias",
+     "native": "Voilà. Merci beaucoup."
+    },
+    {
+     "speaker": "B",
+     "study": "¡Buen viaje!",
+     "phon": "bouén BIA-khé",
+     "native": "Bon voyage !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-es-04",
+    "L1-fr-es-05"
+   ],
+   "roles": {
+    "A": "Voyageur",
+    "B": "Agent"
+   },
+   "learnerRole": "A"
+  },
+  {
+   "id": "L1-fr-es-d3",
+   "situation": "Première rencontre",
+   "turns": [
+    {
+     "speaker": "A",
+     "study": "Hola, me llamo María.",
+     "phon": "O-la, mé YA-mo ma-RI-a",
+     "native": "Bonjour, je m'appelle Marie."
+    },
+    {
+     "speaker": "B",
+     "study": "Encantado, yo soy Pablo.",
+     "phon": "én-kan-TA-do, yo SOY PA-blo",
+     "native": "Enchanté, moi c'est Paul."
+    },
+    {
+     "speaker": "A",
+     "study": "Soy francesa, de París. ¿Y usted?",
+     "phon": "SOY fran-SSÉ-ssa, dé pa-RIS. i ous-TÉD",
+     "native": "Je suis française, de Paris. Et vous ?"
+    },
+    {
+     "speaker": "B",
+     "study": "Soy de aquí. ¿Está de vacaciones?",
+     "phon": "SOY dé a-KI. és-TA dé ba-ka-SSIO-nés",
+     "native": "Je suis d'ici. Vous êtes en vacances ?"
+    },
+    {
+     "speaker": "A",
+     "study": "Sí, me gusta mucho la ciudad.",
+     "phon": "SI, mé GOUS-ta MOU-tcho la ssiou-DAD",
+     "native": "Oui, j'aime beaucoup la ville."
+    },
+    {
+     "speaker": "B",
+     "study": "¡Qué bien! ¡Bienvenida!",
+     "phon": "ké BIÉN. bién-bé-NI-da",
+     "native": "Super ! Bienvenue !"
+    }
+   ],
+   "practice": "Écouter les deux rôles, masquer un rôle, répondre, puis remplacer une réplique par une variante personnelle.",
+   "reuses": [
+    "L1-fr-es-02",
+    "L1-fr-es-08"
+   ],
+   "roles": {
+    "A": "Toi",
+    "B": "Une nouvelle connaissance"
+   },
+   "learnerRole": "A"
+  }
+ ],
+ "readiness": "Se présenter en trois phrases, exprimer un besoin, commander et demander un prix ; comprendre et compléter les trois dialogues. Repère pédagogique, sans certification."
+}
