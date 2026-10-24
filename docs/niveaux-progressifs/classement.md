@@ -10,8 +10,8 @@ Le lot comporte **518 décisions explicites** de placement. Les **31597 autres c
 
 | Type | Nombre canonique | Destination |
 |---|---:|---|
-| Répliques et phrases entières | 22364 | Thèmes de situation |
-| Vocabulaire | 8738 | Familles lexicales et catégories déclarées |
+| Répliques et phrases entières | 22366 | Thèmes de situation |
+| Vocabulaire | 8736 | Familles lexicales et catégories déclarées |
 | Nombres isolés | 207 | Nombres |
 | Modèles incomplets | 482 | Réserve, aucune étape |
 | Cas à revoir | 367 | Réserve, aucune étape |

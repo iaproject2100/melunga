@@ -12,7 +12,7 @@ prépositions françaises.
 
 **Périmètre exact :** 32 115 cartes catalogue conservées une fois, 110 277 champs
 identiques ; 43 phrases conversation entières importées, 150 champs identiques.
-Le classement propose 22 364 énoncés, 8 738 entrées lexicales, 207 nombres ;
+Le classement propose 22 366 énoncés, 8 736 entrées lexicales, 207 nombres ;
 482 modèles incomplets et 367 cas à revoir sont en réserve, sans exercice.
 Aucune nouvelle phrase ni aide phonétique n’a été composée. Les 13 conflits
 d’aide ou de sens restent exclus des imports, sans harmonisation silencieuse.
@@ -50,3 +50,16 @@ essais sur l’aperçu hébergé ni sur un téléphone physique.
 
 Entrée du dossier : `docs/niveaux-progressifs/README.md`.
 Il s’agit d’un aperçu de revue ; aucune fusion ni mise en production de ce lot.
+
+
+**Complément demandé par Kartech : recherche réelle chez les concurrents.**
+Treize pages officielles Babbel/Busuu/Duolingo/Memrise/Pimsleur ont été lues,
+avec dates, titres, courts extraits et empreintes HTML. Le dossier
+`recherche-concurrents/README.md` rassemble 18 pistes et 54 appuis existants
+(180 champs exacts). Les exemples inspectés concernent trois couples ; les
+recherches dans les sept stocks restent des candidats, pas une équivalence
+validée ni une déclinaison finie. Aucune nouvelle phonétique n’est composée.
+Pendant cette recherche, deux faux lexicaux zh→fr ont été corrigés : 3357
+« Le produit ne s'allume pas. » et 3509 « Le prix inclut le transport. » passent
+dans les situations, sans changer leur source ou leur niveau. Le contrôle
+indépendant et le navigateur portent sur le bundle corrigé.

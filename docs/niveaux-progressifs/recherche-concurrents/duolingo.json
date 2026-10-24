@@ -1,0 +1,907 @@
+{
+  "version": 1,
+  "provider": "Duolingo",
+  "researchStatus": "public-official-pages-consulted-not-independent-efficacy-ranking",
+  "researchedAt": "2026-10-24T12:54:48+00:00",
+  "scope": "Idées de thèmes, objectifs progressifs et modalités de préparation ; pas extraction d’un cours concurrent complet.",
+  "methodology": [
+    "HTTPS avec TLS vérifié via le proxy hérité ; aucun contournement de la politique réseau.",
+    "Découverte des articles par le sitemap officiel, puis lecture des pages HTML publiques.",
+    "Les citations ci-dessous ont été vérifiées dans le texte extrait de chaque HTML enregistré ; SHA-256 du HTML brut.",
+    "Titres issus des h1 réels ; dates de publication et de modification issues des métadonnées JSON-LD. Une dateModified récente ne prouve pas une refonte pédagogique récente.",
+    "La description d’un dispositif par son éditeur est distinguée d’une observation de page et d’une mesure indépendante d’efficacité. Aucun classement des applications n’est tiré de ces documents."
+  ],
+  "discovery": {
+    "homepage": {
+      "url": "https://www.duolingo.com/",
+      "httpStatus": 200,
+      "snapshotPath": "/tmp/melunga-duolingo-research/discovery-2.html",
+      "snapshotSha256": "3ac353fa0a0d6fa4e764fed973c6358aedc65fa7db5c0c68ce0947b283cb271d"
+    },
+    "blogIndex": {
+      "url": "https://blog.duolingo.com/",
+      "httpStatus": 200
+    },
+    "sitemapIndex": {
+      "url": "https://blog.duolingo.com/sitemap.xml",
+      "httpStatus": 200
+    },
+    "sitemapPosts": {
+      "url": "https://blog.duolingo.com/sitemap-posts.xml",
+      "httpStatus": 200,
+      "snapshotPath": "/tmp/melunga-duolingo-research/sitemap-posts.xml",
+      "snapshotSha256": "cdf9158c7732bcebe19fe4ea327c19b08f7029221d12371b0bed46a2b3494fda"
+    },
+    "articleUrlPolicy": "Les quatre URL retenues sont présentes verbatim dans le sitemap récupéré."
+  },
+  "sources": [
+    {
+      "id": "duo-method",
+      "url": "https://blog.duolingo.com/duolingo-teaching-method/",
+      "title": "The Duolingo Method: 5 key principles that make learning fun and effective",
+      "retrievedAt": "2026-10-24T12:54:48+00:00",
+      "httpStatus": 200,
+      "datePublished": "2023-02-02T13:00:46.000Z",
+      "dateModifiedMetadata": "2026-04-01T08:51:36.000Z",
+      "snapshotPath": "/tmp/melunga-duolingo-research/duolingo-teaching-method.html",
+      "snapshotSha256": "0e273c997410de4f989b16df6ec9ae960e796e6b3667745659bdbaa83c29aead",
+      "evidence": [
+        {
+          "kind": "publisher-method-description",
+          "excerpt": "you start with simpler material in easier exercises",
+          "interpretationFr": "Le fournisseur décrit une progression d’exercices simples vers des exemples plus exigeants. Il ne démontre pas ici une supériorité comparative."
+        },
+        {
+          "kind": "publisher-method-description",
+          "excerpt": "optional hints and bite-sized explanations",
+          "interpretationFr": "Les aides et explications sont décrites comme optionnelles ; Melunga peut retenir cette discrétion sans ajouter les textes de méthode dans la carte."
+        }
+      ],
+      "limit": "Déclaration publique de l’éditeur ; ni cours complet parcouru ni efficacité comparée mesurée."
+    },
+    {
+      "id": "duo-cefr",
+      "url": "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/",
+      "title": "Which CEFR level is right for you?",
+      "retrievedAt": "2026-10-24T12:54:48+00:00",
+      "httpStatus": 200,
+      "datePublished": "2020-02-27T15:00:00.000Z",
+      "dateModifiedMetadata": "2026-10-02T08:20:03.000Z",
+      "snapshotPath": "/tmp/melunga-duolingo-research/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right.html",
+      "snapshotSha256": "88df800f5c3fbbf54109623fc0a5d6409e88e7ea666fa94fbd367e83025a474c",
+      "evidence": [
+        {
+          "kind": "publisher-curriculum-description",
+          "excerpt": "Each level builds on the previous one, covering increasingly complex language skills and topics.",
+          "interpretationFr": "La page décrit une progression cumulative de tâches, compétences et thèmes. Les dix niveaux Melunga ne sont pas pour autant équivalents aux six niveaux CECR."
+        },
+        {
+          "kind": "publisher-goal-framing",
+          "excerpt": "The right CEFR level for you depends entirely on what you want to do with the language.",
+          "interpretationFr": "Définir les niveaux par ce que la personne peut faire, avec des thèmes récurrents plus riches, constitue une adaptation éditoriale possible."
+        }
+      ],
+      "limit": "Déclaration publique de l’éditeur ; ni cours complet parcouru ni efficacité comparée mesurée."
+    },
+    {
+      "id": "duo-chinese",
+      "url": "https://blog.duolingo.com/improving-how-duolingo-teaches-chinese-and-other-languages/",
+      "title": "Improving how Duolingo teaches Chinese—and other languages!",
+      "retrievedAt": "2026-10-24T12:54:48+00:00",
+      "httpStatus": 200,
+      "datePublished": "2020-02-03T15:00:00.000Z",
+      "dateModifiedMetadata": "2026-09-18T14:30:19.000Z",
+      "snapshotPath": "/tmp/melunga-duolingo-research/improving-how-duolingo-teaches-chinese-and-other-languages.html",
+      "snapshotSha256": "1ee83bc788eb24d87af4605bda9cacf78f46b1446728b09cb6c7fc0be924fe8b",
+      "evidence": [
+        {
+          "kind": "historical-publisher-design-description",
+          "excerpt": "we’ve started showing pinyin in more places in lessons.",
+          "interpretationFr": "L’article de 2020 décrit l’affichage accru d’une aide de prononciation à côté de l’écriture chinoise. Nous n’avons pas joué le cours courant et n’en déduisons pas sa configuration actuelle."
+        },
+        {
+          "kind": "historical-publisher-design-description",
+          "excerpt": "the connections between what the characters look like, the sounds they represent, and the meanings they encode.",
+          "interpretationFr": "Le texte identifie trois correspondances à apprendre : écriture, son et sens. Pour Melunga, cela justifie de garder l’aide phonétique existante visible, sans la remplacer par du pinyin."
+        }
+      ],
+      "limit": "Déclaration publique de l’éditeur ; ni cours complet parcouru ni efficacité comparée mesurée."
+    },
+    {
+      "id": "duo-travel",
+      "url": "https://blog.duolingo.com/french-phrases-for-travel/",
+      "title": "30+ common French phrases for your trip to France",
+      "retrievedAt": "2026-10-24T12:54:48+00:00",
+      "httpStatus": 200,
+      "datePublished": "2025-09-03T12:00:00.000Z",
+      "dateModifiedMetadata": "2026-06-01T16:44:15.000Z",
+      "snapshotPath": "/tmp/melunga-duolingo-research/french-phrases-for-travel.html",
+      "snapshotSha256": "20acb1f78f355b74dc92e776133fdfb8dece884681f23f78f9d81e2dc55ed097",
+      "evidence": [
+        {
+          "kind": "observed-public-article-content",
+          "excerpt": "Greetings",
+          "interpretationFr": "La page publique contient une rubrique de salutation."
+        },
+        {
+          "kind": "observed-public-article-content",
+          "excerpt": "Asking for help",
+          "interpretationFr": "La page publique contient une rubrique de demande d’aide."
+        },
+        {
+          "kind": "observed-public-article-content",
+          "excerpt": "Getting around town",
+          "interpretationFr": "La page publique contient une rubrique de déplacements."
+        },
+        {
+          "kind": "observed-public-article-content",
+          "excerpt": "Ordering food",
+          "interpretationFr": "La page publique contient une rubrique de commande de repas."
+        }
+      ],
+      "limit": "Déclaration publique de l’éditeur ; ni cours complet parcouru ni efficacité comparée mesurée."
+    }
+  ],
+  "candidateLevelGoals": [
+    {
+      "melungaLevel": 1,
+      "outcomeFr": "Réussir de très courts échanges du quotidien",
+      "examplesFr": "Saluer ; demander quelque chose de préparé ; remercier ; faire répéter.",
+      "status": "proposal-not-applied-not-cefr-equivalence"
+    },
+    {
+      "melungaLevel": 2,
+      "outcomeFr": "Étendre un modèle familier sans changer plusieurs choses à la fois",
+      "examplesFr": "Présenter un proche ; exprimer un besoin ; choisir une boisson ou un lieu.",
+      "status": "proposal-not-applied-not-cefr-equivalence"
+    },
+    {
+      "melungaLevel": 3,
+      "outcomeFr": "Combiner une phrase et un détail préparé",
+      "examplesFr": "Quantité en contexte ; description ; petit trajet ; horaire simple.",
+      "status": "proposal-not-applied-not-cefr-equivalence"
+    },
+    {
+      "melungaLevel": 4,
+      "outcomeFr": "Enchaîner deux actes simples dans une même situation",
+      "examplesFr": "Préférence ; rendez-vous ; demande puis vérification.",
+      "status": "proposal-not-applied-not-cefr-equivalence"
+    },
+    {
+      "melungaLevel": 5,
+      "outcomeFr": "Expliquer un problème concret et demander une solution",
+      "examplesFr": "Hôtel ; transport ; achat ; santé quotidienne sans diagnostic.",
+      "status": "proposal-not-applied-not-cefr-equivalence"
+    },
+    {
+      "melungaLevel": 6,
+      "outcomeFr": "Raconter un fait et annoncer un projet",
+      "examplesFr": "Repères temporels ; première cause ; succession de faits.",
+      "status": "proposal-not-applied-not-cefr-equivalence"
+    },
+    {
+      "melungaLevel": 7,
+      "outcomeFr": "Comparer des options et justifier une décision",
+      "examplesFr": "Comparaison ; raison ; conséquence, préparées séparément avant combinaison.",
+      "status": "proposal-not-applied-not-cefr-equivalence"
+    },
+    {
+      "melungaLevel": 8,
+      "outcomeFr": "Faire face à un imprévu et poser une condition",
+      "examplesFr": "Solution de rechange ; hypothèse pratique ; reformulation.",
+      "status": "proposal-not-applied-not-cefr-equivalence"
+    },
+    {
+      "melungaLevel": 9,
+      "outcomeFr": "Nuancer une opinion et tenir compte de l’interlocuteur",
+      "examplesFr": "Accord partiel ; réserve ; degré de certitude ; registre.",
+      "status": "proposal-not-applied-not-cefr-equivalence"
+    },
+    {
+      "melungaLevel": 10,
+      "outcomeFr": "Argumenter et négocier dans plusieurs domaines",
+      "examplesFr": "Objection ; compromis ; explication développée ; spécialisation professionnelle.",
+      "status": "proposal-not-applied-not-cefr-equivalence"
+    }
+  ],
+  "guardrails": [
+    "Phonétique Kartech inchangée : aucune aide phonétique nouvelle n’est produite dans ce lot.",
+    "Le pinyin décrit par Duolingo n’est pas une consigne de remplacer la méthode phonétique Melunga.",
+    "Les exemples sources chinois ci-dessus réutilisent texte et sens existants ; tout nouveau texte étudié exigerait une rédaction séparée et une vérification par Claude selon la méthode.",
+    "Un même objectif fonctionnel dans les sept langues ne signifie pas une même quantité de cartes ou une même construction grammaticale.",
+    "Les catégories de mots/adjectifs/prépositions/adverbes/nombres restent séparées des énoncés complets ; pas de duplication canonique.",
+    "Réutiliser d’abord le stock existant ; les mots proposés en français sont des besoins lexicaux à inventorier, pas des cartes nouvelles prétendument manquantes.",
+    "Aucun prix, abonnement, droit gratuit, niveau du catalogue, contenu produit ou architecture UI n’est modifié."
+  ],
+  "themeHypotheses": [
+    {
+      "id": "repair-conversation",
+      "candidateLevels": [
+        1,
+        2
+      ],
+      "themeFr": "Se comprendre et demander de l’aide",
+      "communicativeOutcome": "Réussir à faire répéter une phrase, signaler une incompréhension et remercier.",
+      "lexicalExpansionFr": [
+        "plus lentement",
+        "encore une fois",
+        "ce mot",
+        "une question"
+      ],
+      "progression": "Énoncé entier d’abord ; une formulation de secours par étape, puis échange avec un interlocuteur. Les explications de méthode restent hors de la carte.",
+      "sourceIds": [
+        "duo-travel",
+        "duo-method"
+      ],
+      "existingChineseExamples": [
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 237,
+          "sourceCatalogueLevel": 2,
+          "study": "请再说一遍",
+          "meaningFr": "répétez, s'il vous plaît",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 246,
+          "sourceCatalogueLevel": 2,
+          "study": "我不明白",
+          "meaningFr": "je ne comprends pas",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2,
+          "sourceCatalogueLevel": 1,
+          "study": "谢谢",
+          "meaningFr": "merci",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        }
+      ],
+      "gapStatus": "Matériel existant identifié ; vérifier la préparation réelle avant tout déplacement éditorial."
+    },
+    {
+      "id": "greeting-small-success",
+      "candidateLevels": [
+        1
+      ],
+      "themeFr": "Saluer et faire connaissance",
+      "communicativeOutcome": "Ouvrir un échange, répondre simplement et le terminer poliment.",
+      "lexicalExpansionFr": [
+        "bonjour",
+        "merci",
+        "au revoir",
+        "prénom"
+      ],
+      "progression": "Commencer par des tours courts et naturels ; garder un vrai échange terminé, puis élargir les substitutions préparées. Ne pas réduire le niveau entier à quelques phrases.",
+      "sourceIds": [
+        "duo-travel",
+        "duo-cefr"
+      ],
+      "existingChineseExamples": [
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 0,
+          "sourceCatalogueLevel": 1,
+          "study": "你好",
+          "meaningFr": "bonjour",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2,
+          "sourceCatalogueLevel": 1,
+          "study": "谢谢",
+          "meaningFr": "merci",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        }
+      ],
+      "gapStatus": "Thème déjà couvert ; enrichissement à sélectionner dans le stock avant rédaction."
+    },
+    {
+      "id": "drink-order",
+      "candidateLevels": [
+        1,
+        2,
+        3
+      ],
+      "themeFr": "Commander une boisson puis un repas",
+      "communicativeOutcome": "Demander, choisir une option préparée, refuser poliment et payer.",
+      "lexicalExpansionFr": [
+        "eau",
+        "thé",
+        "café",
+        "chaud",
+        "froid",
+        "avec",
+        "sans"
+      ],
+      "progression": "L1 : une commande entière et une réponse brève. L2 : remplacer une seule boisson préparée. L3 : ajouter une préférence ou une quantité dans une construction déjà montrée. Les nombres isolés gardent leur rubrique dédiée.",
+      "sourceIds": [
+        "duo-travel",
+        "duo-method"
+      ],
+      "existingChineseExamples": [
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 15,
+          "sourceCatalogueLevel": 1,
+          "study": "多少钱？",
+          "meaningFr": "combien ça coûte ?",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 349,
+          "sourceCatalogueLevel": 3,
+          "study": "我想喝水",
+          "meaningFr": "je veux boire de l'eau",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2283,
+          "sourceCatalogueLevel": 2,
+          "study": "水",
+          "meaningFr": "eau",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2284,
+          "sourceCatalogueLevel": 2,
+          "study": "茶",
+          "meaningFr": "thé",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2285,
+          "sourceCatalogueLevel": 2,
+          "study": "咖啡",
+          "meaningFr": "café",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        }
+      ],
+      "gapStatus": "Exemples déjà présents à plusieurs niveaux ; proposition de liens de préparation, pas de nouvelles phrases."
+    },
+    {
+      "id": "local-journey",
+      "candidateLevels": [
+        2,
+        3,
+        4
+      ],
+      "themeFr": "Se repérer et faire un petit trajet",
+      "communicativeOutcome": "Demander un lieu, comprendre une direction, vérifier le bon arrêt.",
+      "lexicalExpansionFr": [
+        "gare",
+        "station",
+        "à droite",
+        "à gauche",
+        "billet"
+      ],
+      "progression": "Préparer d’abord des lieux et repères isolés, puis une question complète. Ajouter ensuite trajet, heure et correspondance séparément. Les localisateurs chinois ne deviennent pas des prépositions par traduction.",
+      "sourceIds": [
+        "duo-travel",
+        "duo-chinese"
+      ],
+      "existingChineseExamples": [
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2843,
+          "sourceCatalogueLevel": 1,
+          "study": "地铁站",
+          "meaningFr": "station de métro",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2846,
+          "sourceCatalogueLevel": 1,
+          "study": "右边",
+          "meaningFr": "à droite (côté)",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2847,
+          "sourceCatalogueLevel": 1,
+          "study": "左边",
+          "meaningFr": "à gauche (côté)",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2923,
+          "sourceCatalogueLevel": 1,
+          "study": "一张票",
+          "meaningFr": "un billet",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        }
+      ],
+      "gapStatus": "Lexique existant identifié ; vérifier les phrases de trajet et leurs prérequis par langue."
+    },
+    {
+      "id": "preferences-comparison",
+      "candidateLevels": [
+        3,
+        4,
+        5
+      ],
+      "themeFr": "Choisir, décrire et comparer",
+      "communicativeOutcome": "Décrire un objet puis justifier un choix simple.",
+      "lexicalExpansionFr": [
+        "grand",
+        "petit",
+        "cher",
+        "bon marché",
+        "pareil",
+        "différent"
+      ],
+      "progression": "Adjectif isolé dans sa rubrique ; énoncé complet dans le thème. Comparaison après préparation des deux propriétés. La comparaison chinoise et la comparaison romane demandent des préparations différentes pour un même objectif.",
+      "sourceIds": [
+        "duo-method",
+        "duo-cefr"
+      ],
+      "existingChineseExamples": [
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2242,
+          "sourceCatalogueLevel": 2,
+          "study": "大",
+          "meaningFr": "grand",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2243,
+          "sourceCatalogueLevel": 2,
+          "study": "小",
+          "meaningFr": "petit",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2255,
+          "sourceCatalogueLevel": 2,
+          "study": "贵",
+          "meaningFr": "cher",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2256,
+          "sourceCatalogueLevel": 2,
+          "study": "便宜",
+          "meaningFr": "bon marché",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2321,
+          "sourceCatalogueLevel": 3,
+          "study": "比",
+          "meaningFr": "comparé à",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        }
+      ],
+      "gapStatus": "Structure à contrôler sur les sources existantes, sans imposer une syntaxe universelle."
+    },
+    {
+      "id": "resolve-small-problem",
+      "candidateLevels": [
+        4,
+        5,
+        6
+      ],
+      "themeFr": "Résoudre un petit problème du quotidien",
+      "communicativeOutcome": "Expliquer un problème concret, demander une solution et confirmer le résultat.",
+      "lexicalExpansionFr": [
+        "chambre",
+        "clé",
+        "passeport",
+        "retard",
+        "aide"
+      ],
+      "progression": "Présenter le problème en une proposition, puis une demande séparée ; relier les deux seulement après préparation du lien causal. Réutiliser les formulations de secours de L1–L2.",
+      "sourceIds": [
+        "duo-travel",
+        "duo-cefr"
+      ],
+      "existingChineseExamples": [
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2850,
+          "sourceCatalogueLevel": 1,
+          "study": "房间",
+          "meaningFr": "chambre",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2851,
+          "sourceCatalogueLevel": 1,
+          "study": "钥匙",
+          "meaningFr": "clé",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2852,
+          "sourceCatalogueLevel": 1,
+          "study": "护照",
+          "meaningFr": "passeport",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        }
+      ],
+      "gapStatus": "Extension Melunga proposée à partir des contextes publics ; inventaire ciblé requis avant rédaction."
+    },
+    {
+      "id": "past-future-reason",
+      "candidateLevels": [
+        5,
+        6,
+        7
+      ],
+      "themeFr": "Raconter, prévoir et expliquer",
+      "communicativeOutcome": "Raconter un fait bref, annoncer un projet et donner une raison.",
+      "lexicalExpansionFr": [
+        "hier",
+        "demain",
+        "ensuite",
+        "parce que",
+        "avant",
+        "après"
+      ],
+      "progression": "Ne pas cumuler temps/aspect nouveau, vocabulaire nouveau et liaison nouvelle. Préparer chaque opération dans un énoncé entier avant combinaison. Les valeurs des marqueurs chinois sont revues séparément.",
+      "sourceIds": [
+        "duo-method",
+        "duo-cefr"
+      ],
+      "existingChineseExamples": [
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2221,
+          "sourceCatalogueLevel": 1,
+          "study": "昨天",
+          "meaningFr": "hier",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2220,
+          "sourceCatalogueLevel": 1,
+          "study": "明天",
+          "meaningFr": "demain",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 1870,
+          "sourceCatalogueLevel": 8,
+          "study": "我回家，因为太晚了。",
+          "meaningFr": "Je rentre parce qu'il est tard.",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        }
+      ],
+      "gapStatus": "Candidats présents, à remettre en relation pédagogique ; aucune mutation du niveau catalogue proposée par cet artefact."
+    },
+    {
+      "id": "options-conditional-register",
+      "candidateLevels": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "themeFr": "Discuter des options, nuancer puis négocier",
+      "communicativeOutcome": "Comparer des solutions, poser une condition, défendre une préférence et ajuster le registre.",
+      "lexicalExpansionFr": [
+        "condition",
+        "possibilité",
+        "délai",
+        "avantage",
+        "réserve",
+        "accord"
+      ],
+      "progression": "Une relation logique à la fois, puis combinaison. Le thème professionnel constitue une spécialisation après le noyau quotidien. Ne pas attribuer des niveaux par la seule longueur ou par le caractère soutenu d’un mot.",
+      "sourceIds": [
+        "duo-cefr",
+        "duo-method"
+      ],
+      "existingChineseExamples": [
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2005,
+          "sourceCatalogueLevel": 9,
+          "study": "如果有空，我就去。",
+          "meaningFr": "Si j'ai le temps, j'y vais.",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2107,
+          "sourceCatalogueLevel": 10,
+          "study": "如果下雨，行程会取消吗？",
+          "meaningFr": "S'il pleut, l'excursion est annulée ?",
+          "phoneticPolicy": "Réutiliser les champs source au caractère près lors d’une éventuelle intégration ; aucun champ phonétique ajouté ici."
+        }
+      ],
+      "gapStatus": "Hypothèse de progression à revoir dans les sept couples ; aucune équivalence CECR certifiée."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "duo-zh-slow-repeat",
+      "title": "Faire ralentir et répéter",
+      "proposedLevel": 1,
+      "sourceURLs": [
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://blog.duolingo.com/duolingo-teaching-method/"
+      ],
+      "operation": "Réutiliser une demande de secours apprise entière, puis préparer une seule variation de manière ; laisser les explications hors de la carte.",
+      "existingExamples": [
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2225,
+          "contentType": "utterance",
+          "study": "请慢一点",
+          "native": "plus lentement, svp",
+          "phon": "tching mann i-dyèn",
+          "reading": "qǐng màn yìdiǎn"
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2250,
+          "contentType": "vocabulary",
+          "study": "慢",
+          "native": "lent",
+          "phon": "mann",
+          "reading": "màn"
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2312,
+          "contentType": "vocabulary",
+          "study": "一次",
+          "native": "une fois",
+          "phon": "i tseu",
+          "reading": "yí cì"
+        }
+      ],
+      "gaps": [
+        "Vérifier une seconde réplique complète de répétition avant de proposer une substitution ; 一次 est une locution de quantité, pas un nombre pur.",
+        "Candidats vérifiés ici pour fr→zh uniquement ; autres couples à inventorier avant déclinaison. Aucun texte étudié ni phonétique nouvelle rédigés."
+      ],
+      "status": "editorial-proposal-not-applied",
+      "catalogueLevelPolicy": "proposedLevel ne modifie pas lv ; les droits gratuits restent liés au catalogue source."
+    },
+    {
+      "id": "duo-zh-one-drink",
+      "title": "Commander une boisson précise",
+      "proposedLevel": 2,
+      "sourceURLs": [
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://blog.duolingo.com/duolingo-teaching-method/"
+      ],
+      "operation": "Présenter la commande entière, puis préparer café et thé séparément avant de remplacer uniquement la boisson. Le classificateur 一杯 est enseigné dans le bloc et ne varie pas dans ce premier essai.",
+      "existingExamples": [
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 392,
+          "contentType": "utterance",
+          "study": "我要一杯咖啡。",
+          "native": "Je voudrais un café.",
+          "phon": "ouo yao i beï ka-feï",
+          "reading": "wǒ yào yì bēi kāfēi"
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2285,
+          "contentType": "vocabulary",
+          "study": "咖啡",
+          "native": "café",
+          "phon": "ka-feï",
+          "reading": "kāfēi"
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2284,
+          "contentType": "vocabulary",
+          "study": "茶",
+          "native": "thé",
+          "phon": "tcha",
+          "reading": "chá"
+        }
+      ],
+      "gaps": [
+        "Vérifier que le modèle de commande de la famille n’introduit pas déjà cette même opération ; ne pas opposer universellement 要 et 想.",
+        "Candidats vérifiés ici pour fr→zh uniquement ; autres couples à inventorier avant déclinaison. Aucun texte étudié ni phonétique nouvelle rédigés."
+      ],
+      "status": "editorial-proposal-not-applied",
+      "catalogueLevelPolicy": "proposedLevel ne modifie pas lv ; les droits gratuits restent liés au catalogue source."
+    },
+    {
+      "id": "duo-zh-find-station",
+      "title": "Trouver la gare",
+      "proposedLevel": 2,
+      "sourceURLs": [
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "operation": "Apprendre une question de trajet entière ; préparer gare et carte comme lexique distinct, puis une réponse directionnelle comprise avant un nouvel échange.",
+      "existingExamples": [
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 1127,
+          "contentType": "utterance",
+          "study": "怎么去火车站？",
+          "native": "Comment aller à la gare ?",
+          "phon": "dzeunn me tchu houo tche djann?",
+          "reading": "zěn me qù huǒ chē zhàn?"
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2277,
+          "contentType": "vocabulary",
+          "study": "火车站",
+          "native": "gare",
+          "phon": "houo-tcheu-djann",
+          "reading": "huǒchēzhàn"
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 3043,
+          "contentType": "vocabulary",
+          "study": "地图",
+          "native": "carte",
+          "phon": "di tou",
+          "reading": "dì tú"
+        }
+      ],
+      "gaps": [
+        "Une réponse de direction adaptée reste à sélectionner dans le stock ; ne pas prétendre que deux noms préparent à eux seuls cette réponse.",
+        "Candidats vérifiés ici pour fr→zh uniquement ; autres couples à inventorier avant déclinaison. Aucun texte étudié ni phonétique nouvelle rédigés."
+      ],
+      "status": "editorial-proposal-not-applied",
+      "catalogueLevelPolicy": "proposedLevel ne modifie pas lv ; les droits gratuits restent liés au catalogue source."
+    },
+    {
+      "id": "duo-zh-belly-pain",
+      "title": "Signaler une douleur simple",
+      "proposedLevel": 2,
+      "sourceURLs": [
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/",
+        "https://blog.duolingo.com/duolingo-teaching-method/"
+      ],
+      "operation": "Réutiliser la phrase entière « J’ai mal au ventre » ; préparer le nom de la partie du corps et le médicament séparément. Ajouter une autre localisation seulement après préparation du patron propre au chinois.",
+      "existingExamples": [
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 419,
+          "contentType": "utterance",
+          "study": "我肚子疼。",
+          "native": "J'ai mal au ventre.",
+          "phon": "ouo dou dzeu teung.",
+          "reading": "wǒ dù zi téng."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 3133,
+          "contentType": "vocabulary",
+          "study": "肚子",
+          "native": "ventre",
+          "phon": "dou dzeu",
+          "reading": "dù zi"
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2403,
+          "contentType": "vocabulary",
+          "study": "药",
+          "native": "médicament",
+          "phon": "yao",
+          "reading": "yào"
+        }
+      ],
+      "gaps": [
+        "Extension éditoriale Melunga, pas thème médical documenté dans ces articles concurrents. Vérifier le registre et une réponse utile sans prétendre fournir un diagnostic.",
+        "Candidats vérifiés ici pour fr→zh uniquement ; autres couples à inventorier avant déclinaison. Aucun texte étudié ni phonétique nouvelle rédigés."
+      ],
+      "status": "editorial-proposal-not-applied",
+      "catalogueLevelPolicy": "proposedLevel ne modifie pas lv ; les droits gratuits restent liés au catalogue source."
+    },
+    {
+      "id": "duo-zh-lost-password",
+      "title": "Retrouver un accès numérique",
+      "proposedLevel": 3,
+      "sourceURLs": [
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/",
+        "https://blog.duolingo.com/duolingo-teaching-method/"
+      ],
+      "operation": "Réutiliser un problème concret déjà écrit, puis les deux noms nécessaires à la situation ; préparer une demande d’aide distincte avant de combiner les deux actes.",
+      "existingExamples": [
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 735,
+          "contentType": "utterance",
+          "study": "我忘了密码。",
+          "native": "J'ai oublié mon mot de passe.",
+          "phon": "ouo ouang leu mi-ma",
+          "reading": "wǒ wàng le mìmǎ"
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 3544,
+          "contentType": "vocabulary",
+          "study": "密码",
+          "native": "mot de passe",
+          "phon": "mi ma",
+          "reading": "mì mǎ"
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 3543,
+          "contentType": "vocabulary",
+          "study": "账号",
+          "native": "compte",
+          "phon": "djang hao",
+          "reading": "zhàng hào"
+        }
+      ],
+      "gaps": [
+        "Extension éditoriale Melunga inspirée de l’objectif communicatif, pas contenu numérique observé dans le cours Duolingo. Sélectionner ensuite une réponse reçue et une demande d’aide dans le stock.",
+        "Candidats vérifiés ici pour fr→zh uniquement ; autres couples à inventorier avant déclinaison. Aucun texte étudié ni phonétique nouvelle rédigés."
+      ],
+      "status": "editorial-proposal-not-applied",
+      "catalogueLevelPolicy": "proposedLevel ne modifie pas lv ; les droits gratuits restent liés au catalogue source."
+    },
+    {
+      "id": "duo-zh-room-equipment",
+      "title": "Signaler un équipement en panne",
+      "proposedLevel": 4,
+      "sourceURLs": [
+        "https://blog.duolingo.com/french-phrases-for-travel/",
+        "https://blog.duolingo.com/goldilocks-and-the-cefr-levels-which-proficiency-level-is-just-right/"
+      ],
+      "operation": "Réutiliser une plainte simple liée au logement ; préparer chambre et climatisation séparément, puis faire comprendre une proposition de solution. La construction possessive et l’état résultant se préparent avant toute variation.",
+      "existingExamples": [
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 4859,
+          "contentType": "utterance",
+          "study": "我房间的空调坏了。",
+          "native": "La climatisation de ma chambre est en panne.",
+          "phon": "ouo fang djyenn de kong tyao houaï le.",
+          "reading": "wǒ fáng jiān de kōng tiáo huài le."
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 2850,
+          "contentType": "vocabulary",
+          "study": "房间",
+          "native": "chambre",
+          "phon": "fang djyèn",
+          "reading": "fáng jiān"
+        },
+        {
+          "pair": "fr-zh",
+          "sourceIndex": 3035,
+          "contentType": "vocabulary",
+          "study": "空调",
+          "native": "climatisation",
+          "phon": "kong tyao",
+          "reading": "kōng tiáo"
+        }
+      ],
+      "gaps": [
+        "Le contexte voyage est attesté ; cet équipement précis est une extension Melunga. Le niveau proposé reste éditorial et demande confirmation des constructions préalables.",
+        "Candidats vérifiés ici pour fr→zh uniquement ; autres couples à inventorier avant déclinaison. Aucun texte étudié ni phonétique nouvelle rédigés."
+      ],
+      "status": "editorial-proposal-not-applied",
+      "catalogueLevelPolicy": "proposedLevel ne modifie pas lv ; les droits gratuits restent liés au catalogue source."
+    }
+  ]
+}

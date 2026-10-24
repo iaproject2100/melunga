@@ -6,8 +6,8 @@ Les répliques autonomes restent des énoncés : Bonjour, Merci, Oui, une demand
 
 | Type | Cartes |
 |---|---:|
-| `utterance` | 3144 |
-| `vocabulary` | 1192 |
+| `utterance` | 3146 |
+| `vocabulary` | 1190 |
 | `number` | 33 |
 | `incomplete` | 83 |
 | `review` | 48 |
@@ -19,7 +19,7 @@ Les répliques autonomes restent des énoncés : Bonjour, Merci, Oui, une demand
 | `adjective` | 118 |
 | `preposition` | 12 |
 | `adverb` | 133 |
-| `other` | 918 |
+| `other` | 916 |
 | `uncertain` | 11 |
 
 Une carte n’est pas dupliquée entre les rubriques. Le classement porte sur l’unité entière : `un petit ami` reste un groupe nominal, `C’est cher.` reste une phrase, `cher` est un adjectif. `sur` ou `à côté de` sont des unités prépositives délimitées ; `Je vais à...` et les modèles à trou restent ouverts. `avant` et `après`, sans contexte tranchant leur emploi, sont explicitement incertains.
@@ -36,6 +36,8 @@ Les cartes regroupant deux interlocuteurs restent en réserve (`review`) : ni la
 | 2 | Merci. | `utterance` | `` |
 | 272 | Bonjour ! | `utterance` | `` |
 | 3120 | Un café, s'il vous plaît. | `utterance` | `` |
+| 3357 | Le produit ne s'allume pas. | `utterance` | `` |
+| 3509 | Le prix inclut le transport. | `utterance` | `` |
 | 2918 | Le film était bien ; par contre, la salle était bruyante. | `utterance` | `` |
 | 3051 | L'eau bout. | `utterance` | `` |
 | 3202 | Le bébé pleure. | `utterance` | `` |
@@ -60,6 +62,15 @@ Les cartes regroupant deux interlocuteurs restent en réserve (`review`) : ni la
 | 2903 | Je m'appelle... | `incomplete` | `` |
 | 2997 | À cause de... | `incomplete` | `` |
 | 2228 | — Qui a appelé ? — C'était ta mère. | `review` | `` |
+
+## Deux corrections de typage observées pendant la recherche
+
+| Indice | Source exacte | Niveau source inchangé | Avant | Après |
+|---:|---|---:|---|---|
+| 3357 | Le produit ne s'allume pas. | 7 | vocabulary/other | utterance/reviewed |
+| 3509 | Le prix inclut le transport. | 9 | vocabulary/other | utterance/reviewed |
+
+Ces deux phrases déclaratives avaient été sous-détectées par les règles lexicales. Deux décisions explicites corrigent le type ; aucune extension globale de règle, aucun niveau et aucun champ de source ou de phonétique ne changent.
 
 ## Huit exceptions explicites à l’étiquette template
 
@@ -86,9 +97,9 @@ Les sources et leurs ellipses restent identiques. 2902 est une formule de prise 
 | L4 | 372 | 213 | 6 | 4 | 0 |
 | L5 | 441 | 228 | 6 | 7 | 1 |
 | L6 | 370 | 57 | 0 | 10 | 2 |
-| L7 | 374 | 43 | 2 | 5 | 6 |
+| L7 | 375 | 42 | 2 | 5 | 6 |
 | L8 | 303 | 66 | 1 | 3 | 29 |
-| L9 | 167 | 56 | 1 | 3 | 0 |
+| L9 | 168 | 55 | 1 | 3 | 0 |
 | L10 | 176 | 61 | 0 | 5 | 9 |
 
 ## Sous-classes lexicales par niveau source
@@ -101,9 +112,9 @@ Les sources et leurs ellipses restent identiques. 2902 est une formule de prise 
 | L4 | 7 | 0 | 10 | 194 | 2 |
 | L5 | 6 | 0 | 6 | 216 | 0 |
 | L6 | 3 | 0 | 6 | 48 | 0 |
-| L7 | 0 | 0 | 4 | 37 | 2 |
+| L7 | 0 | 0 | 4 | 36 | 2 |
 | L8 | 3 | 0 | 2 | 60 | 1 |
-| L9 | 0 | 0 | 2 | 53 | 1 |
+| L9 | 0 | 0 | 2 | 52 | 1 |
 | L10 | 7 | 1 | 3 | 50 | 0 |
 
 Ce tableau utilise le niveau historique uniquement pour l’inventaire. Il ne réaffecte aucun niveau et ne touche pas aux droits d’accès. Le `reviewStatus` distingue les cas précisément examinés des décisions proposées par règles ; même le statut `reviewed` ne vaut pas validation native ou validation de la méthode phonétique.

@@ -22,11 +22,11 @@ L’aide francophone provient de pf en anglais/espagnol/italien/japonais/coréen
 
 ## Partition sémantique et entraînement
 
-La partition du catalogue compte **22 321 énoncés**, **8 738 éléments de vocabulaire**, **207 nombres**, **482 formes incomplètes** et **367 réserves de sens**. Chaque indice a exactement une affectation et l’empreinte exacte de son deck.
+La partition du catalogue compte **22 323 énoncés**, **8 736 éléments de vocabulaire**, **207 nombres**, **482 formes incomplètes** et **367 réserves de sens**. Chaque indice a exactement une affectation et l’empreinte exacte de son deck.
 
 Les situations ne contiennent que des énoncés ; le vocabulaire et les nombres ont leurs thèmes distincts. Les classes adjective/preposition/adverb ont priorité sur les familles maison/restaurant/etc, sans duplication principale. La correspondance entre annotation et exécution est contrôlée ; l’annotation elle-même reste candidate à une relecture sémantique.
 
-Les **93 957 étapes** se répartissent en **67 122 étapes de situations** et **26 835 étapes lexicales**. Chaque rappel cite une compréhension puis une imitation réellement antérieures dans son groupe. Les sources réservées ne sont jamais référencées par ces étapes.
+Les **93 957 étapes** se répartissent en **67 128 étapes de situations** et **26 829 étapes lexicales**. Chaque rappel cite une compréhension puis une imitation réellement antérieures dans son groupe. Les sources réservées ne sont jamais référencées par ces étapes.
 
 **11 exceptions nominatives bornées** neutralisent des faux marqueurs de modèle sans toucher à la source (dont an X-ray). Les **349 autres marqueurs de modèle** restent hors production. Une exception contenant un véritable emplacement est refusée.
 

@@ -1029,6 +1029,8 @@ LEXICAL_OTHER = {
     'de fortes chutes de neige'
 }
 CONTENT_OVERRIDES = {
+    "le produit ne s'allume pas": ('utterance', 'Phrase entière examinée : Le produit est le sujet et ne s’allume pas le prédicat négatif conjugué ; ce n’est pas un groupe nominal lexical.'),
+    'le prix inclut le transport': ('utterance', 'Phrase entière examinée : Le prix est le sujet, inclut le verbe conjugué et le transport le complément ; ne pas classer en lexique.'),
     'le mot de passe': ('vocabulary', 'Groupe nominal du secret de connexion ; passe est ici un nom, pas un verbe.'),
     'le taux de change': ('vocabulary', 'Groupe nominal financier ; change est ici un nom, pas un verbe.'),
     'bien cuit': ('vocabulary', 'Groupe adjectival de cuisson, sans sujet ni prédicat autonome.'),
@@ -1154,11 +1156,16 @@ def markdown(deck, result):
         '', 'Les cartes regroupant deux interlocuteurs restent en réserve (`review`) : ni la carte entière ni l’un de ses morceaux n’est imposé comme tour de l’apprenant. Les groupes d’unité de mesure ne sont pas confondus avec un nombre seul (`un kilo` reste lexical ; `un million` est numérique).',
         '', '## Exemples vérifiés', '', '| Indice | Source exacte | Affectation | Sous-classe |', '|---:|---|---|---|',
     ]
-    examples = [1, 2, 272, 3120, 2918, 3051, 3202, 3338, 3664, 3076, 3297, 3676, 3688, 3697, 3712, 2990, 2854, 3388, 3804, 3826, 3171, 3360, 3497, 4470, 137, 2903, 2997, 2228]
+    examples = [1, 2, 272, 3120, 3357, 3509, 2918, 3051, 3202, 3338, 3664, 3076, 3297, 3676, 3688, 3697, 3712, 2990, 2854, 3388, 3804, 3826, 3171, 3360, 3497, 4470, 137, 2903, 2997, 2228]
     for index in examples:
         row = assignments[index]
         text = deck[index]['t'].replace('|', r'\|')
         lines.append(f"| {index} | {text} | `{row['contentType']}` | `{row.get('lexicalClass', '')}` |")
+    lines += ['', '## Deux corrections de typage observées pendant la recherche', '',
+              '| Indice | Source exacte | Niveau source inchangé | Avant | Après |', '|---:|---|---:|---|---|',
+              "| 3357 | Le produit ne s'allume pas. | 7 | vocabulary/other | utterance/reviewed |",
+              '| 3509 | Le prix inclut le transport. | 9 | vocabulary/other | utterance/reviewed |', '',
+              'Ces deux phrases déclaratives avaient été sous-détectées par les règles lexicales. Deux décisions explicites corrigent le type ; aucune extension globale de règle, aucun niveau et aucun champ de source ou de phonétique ne changent.']
     lines += ['', '## Huit exceptions explicites à l’étiquette template', '',
               'Les sources et leurs ellipses restent identiques. 2902 est une formule de prise de tour ; les sept autres sont du vocabulaire adverbial entier. Chaque affectation porte `sourceTemplateException: true`, `reviewStatus: reviewed` et une raison spécifique ; aucun emplacement n’est rempli.', '',
               '| Indice | Source exacte | Traitement |', '|---:|---|---|']

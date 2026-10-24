@@ -15,7 +15,7 @@ classique de production n’est pas remplacée par cette proposition.
 - 32 115 cartes source conservées une fois, avec 110 277 champs inchangés.
 - 43 phrases entières reprises de sources conversation : 150 champs exacts,
   aucune phrase ni phonétique nouvelle composée.
-- 22 364 énoncés, 8 738 entrées de vocabulaire et 207 nombres dans les rubriques
+- 22 366 énoncés, 8 736 entrées de vocabulaire et 207 nombres dans les rubriques
   actives ; 482 modèles incomplets et 367 cas incertains conservés en réserve.
 - 518 propositions de changement de niveau, motivées et liées à leurs sources.
 - Des cartes de vocabulaire par contexte et par classe grammaticale, présentes
@@ -43,7 +43,8 @@ des prérequis est explicitement fausse.
 4. [Sept classifications candidates et cas inspectés](types-contenu/).
 5. [Propositions de placement](decisions.json), [enrichissements sourcés](enrichissements.md)
    et [cadre pédagogique](README-pedagogique.md).
-6. [Contrôle indépendant](verification-independante.md) et
+6. [Recherche chez les concurrents et propositions sourcées](recherche-concurrents/README.md).
+7. [Contrôle indépendant](verification-independante.md) et
    [contrôle navigateur local](verification-navigateur.json).
 
 La conservation des phonétiques est vérifiée au caractère près. Leur conformité
@@ -51,6 +52,18 @@ La conservation des phonétiques est vérifiée au caractère près. Leur confor
 candidats présentant un conflit d’aide ou de sens sont gardés hors import.
 Les adaptations des prépositions et descriptifs au japonais, coréen et chinois
 doivent être jugées dans ces langues, sans transposer une grammaire française.
+
+## Recherche et enrichissement
+
+Treize pages publiques officielles de Babbel, Busuu, Duolingo, Memrise et
+Pimsleur ont été consultées. La synthèse propose 18 pistes concrètes : loisirs,
+études, culture, numérique, relations, opinions, déplacements et situations
+pratiques. Elle réunit 54 appuis déjà présents dans Melunga, soit 180 champs
+exacts, avec leurs phrases entières et leurs mots associés. Les exemples
+inspectés couvrent trois couples ; une recherche de sens dans les sept stocks
+fournit des candidats supplémentaires, dont l’équivalence reste à vérifier.
+Ces propositions préparent un prochain lot ; elles n’activent aucune nouvelle
+leçon et ne changent aucune phonétique.
 
 ## Accès et diffusion
 
