@@ -1,48 +1,34 @@
-# Message pour Claude — vérification phonétique uniquement
+# Message pour Claude — phonétique uniquement
 
-Claude — Kartech précise que tu vérifieras uniquement la phonétique.
-Codex prend en charge le contenu, les regroupements par thème, leur richesse,
-la progression, les réemplois et les adaptations grammaticales par langue.
+Claude — les dix-huit pistes recensées sont maintenant déclinées en contenus
+réels dans les sept couples, en plus des dix situations précédentes. Codex prend
+en charge les formulations, sens, thèmes, niveaux, registres, rôles et préparations.
+Kartech te confie uniquement la vérification phonétique selon sa méthode.
 
-Merci de vérifier la conformité des aides de prononciation à la méthode Melunga
-pour les sept couples : fr→en, fr→es, fr→it, fr→zh, fr→ja, fr→ko et zh→fr.
-Les champs utilisés sont `pf` pour en/es/it/ja/ko, `phf` pour zh et `phon`
-pour le français étudié par les sinophones ; `py` reste une lecture complémentaire.
+Le tableau `enrichissement-situations/nouvelles-phrases-a-relire.md` sépare les
+productions de l’apprenant, les paroles de l’interlocuteur en compréhension seule,
+et les mots de soutien. Il inclut les 454 phrases du lot précédent et les formes
+nouvelles de l’extension. Le lot lexical antérieur garde son tableau séparé
+`corrections-themes/enrichissements-rediges.md` (139 aides nouvelles, une aide entière reprise).
+La file cumulée contient **1 668 aides entières nouvelles**, sans compter
+les copies de sources anciennes comme de nouvelles transcriptions.
 
-Pour chaque écart, consigne :
+Pour chaque correction, citer couple et identifiant, forme étudiée entière,
+aide actuelle, écart précis avec la méthode et aide entière proposée. Les champs
+source francophones sont `pf` (en/es/it/ja/ko) et `phf` (zh) ; le français appris
+par les sinophones utilise `phon`, en caractères chinois. `py` est une lecture
+complémentaire et ne doit pas être confondu avec l’aide francophone.
 
-- le couple et l’indice ou identifiant source ;
-- le mot ou la phrase entière, avec sa phonétique actuelle ;
-- l’écart précis avec la méthode de Kartech et la correction proposée ;
-- le statut de ta vérification.
+Une aide conservée au caractère près n’est pas réputée linguistiquement validée.
+Ne pas assembler des syllabes de plusieurs sources ni harmoniser automatiquement
+les conventions chinoises. Les nouveaux mots, phrases et répliques se relisent
+comme des formes entières.
 
-Distingue les aides existantes, conservées au caractère près, des aides
-éventuellement rédigées pour de nouvelles entrées. Une conservation exacte
-ne prouve pas qu’une ancienne aide soit correcte. Une nouvelle prononciation
-se juge sur le mot ou la phrase entière, sans collage de syllabes ni alignement
-automatique entre deux corpus.
+Les répliques reçues sont hors production et hors progression ; les clôtures
+portent `answerWith: []`. La phonétique de ces répliques reste à contrôler même
+si elles sont seulement entendues. Les niveaux et thèmes relèvent de Codex.
 
-Les 140 nouvelles entrées sont répertoriées séparément dans
-`corrections-themes/enrichissements-rediges.json` et dans le tableau lisible
-`corrections-themes/enrichissements-rediges.md`, avec leur statut
-`pending-Claude`. Ce sont 139 nouvelles aides entières proposées et une aide
-de mot entier reprise pour le nouveau sens adjectival de l’anglais « light ».
-Les reprises de mots déjà présents ne créent aucune nouvelle phonétique.
-
-Le lot suivant ajoute 454 phrases entières rédigées dans dix thèmes pratiques.
-Le tableau `enrichissement-situations/nouvelles-phrases-a-relire.md` reprend
-leurs 454 aides entières `pending-Claude`, avec phrase, sens, niveau et intentId.
-Cela porte la file de contrôle à 593 aides nouvelles sur les deux lots,
-plus une aide de mot entier déjà existante reprise pour un autre sens.
-Les 106 autres positions des nouvelles situations sont des réemplois ; elles
-ne constituent ni 106 créations ni 106 phonétiques nouvelles.
-
-
-Les captures de Kartech ont montré des défauts de classement ; Codex les corrige
-sur l’aperçu #14, branche `review/themes-niveaux-progressifs`. Utilise le dernier
-commit de cette branche ; `7d7bf63` est l’aperçu du premier lot et ne contient pas
-les dix nouvelles situations de ce second lot.
-Les niveaux et les thèmes relèvent du travail de Codex, pas de ta validation.
-
-Dossier : `docs/niveaux-progressifs/README.md`.
-Cette demande de contrôle phonétique n’autorise aucune fusion ou publication.
+Utiliser le dernier commit de `review/themes-niveaux-progressifs`, PR brouillon #14.
+Dossier : `docs/niveaux-progressifs/README.md` et matrice des dix-huit propositions.
+Le catalogue classique, les 700 emplacements protégés et les anciens contenus
+restent conservés. Ce contrôle n’autorise aucune fusion ni publication.

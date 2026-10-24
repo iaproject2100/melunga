@@ -152,7 +152,7 @@ Le total lexical dépasse `cat:vocab` parce que le catalogue range aussi les sé
 
 ## Corrections sémantiques de routage
 
-Décisions explicites par indice : 162 affectations lexicales et 160 affectations de situation. Les champs `lexicalFamilyOverride` / `situationDomainOverride` portent une raison dédiée et un statut `reviewed` ; ils corrigent les emplois figurés ou les noms mal dirigés sans toucher à la source.
+Décisions explicites par indice : 172 affectations lexicales et 160 affectations de situation. Les champs `lexicalFamilyOverride` / `situationDomainOverride` portent une raison dédiée et un statut `reviewed` ; ils corrigent les emplois figurés ou les noms mal dirigés sans toucher à la source.
 
 Les noms concrets de nature, jardin et météo rejoignent `vocab-nature` ; films, musique, lecture et culture rejoignent `vocab-loisirs`. `vocab-maison` garde les pièces, objets et équipements du logement. Les six couleurs isolées existantes rejoignent `color`, distinct de rouge de honte, Bluetooth, feu de circulation, fleur ou fruit.
 

@@ -272,3 +272,7 @@ Ces trois familles décrivent la forme native et son usage source, pas une tradu
 La présence d’une famille à chaque niveau ne se déduit pas de cette table. Le builder ne doit pas remplir un thème vide avec une forme liée ou une phrase dupliquée. Codex porte la revue sémantique et pédagogique ; Claude vérifie uniquement les phonétiques. Les couleurs ont leur classe autonome `color`, et les formes adnominales coréennes entières portent leur condition d’usage avec un nom.
 
 Exemple décisif : `DECKS.ko[2617]` contient `이` au sens de « les dents » ; il s’agit d’un nom, pas de la particule sujet homographe. Une table de particules sans lecture du sens aurait produit un classement faux.
+
+## Correction ciblée du support sac
+
+`DECKS.ko[2440]` — 가방 / le sac : `vocab-voyage`, avec raison inspectée dans la partition. Le mot entier, ses aides, son niveau source et son type lexical restent intacts. Hors des 140 mots et 560 usages protégés ; aucune phrase ni aucun droit déplacé.

@@ -9,6 +9,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const http = require('node:http');
 const crypto = require('node:crypto');
+const {execFileSync} = require('node:child_process');
 const {test, before, after} = require('node:test');
 const {chromium} = require('playwright-core');
 
@@ -21,9 +22,16 @@ const authored = JSON.parse(fs.readFileSync(authoredPath));
 const situationDirectory = path.resolve(ROOT, '../docs/niveaux-progressifs/enrichissement-situations');
 const situationPlanPath = path.join(situationDirectory, 'plan.json');
 const situationPlan = JSON.parse(fs.readFileSync(situationPlanPath));
+const baseSituationPlanPath = path.join(situationDirectory, 'plan-base10.json');
+const baseSituationPlan = JSON.parse(fs.readFileSync(baseSituationPlanPath));
 const situationLedgers = new Map(manifest.pairs.map(pair => {
   const file = path.join(situationDirectory, pair.id + '.json');
-  return [pair.id, {file, data: JSON.parse(fs.readFileSync(file))}];
+  const extensionFile = path.join(situationDirectory, 'extension-' + pair.id + '.json');
+  const data = JSON.parse(fs.readFileSync(file));
+  const extensionData = JSON.parse(fs.readFileSync(extensionFile));
+  return [pair.id, {file, data, extensionFile, extensionData,
+    items: [...data.items, ...extensionData.items],
+    documents: [{file, data}, {file: extensionFile, data: extensionData}]}];
 }));
 function canonicalJson(value) {
   if (Array.isArray(value)) return '[' + value.map(canonicalJson).join(',') + ']';
@@ -32,8 +40,29 @@ function canonicalJson(value) {
   return JSON.stringify(value);
 }
 function sha256(value) { return crypto.createHash('sha256').update(value).digest('hex'); }
+let rawLedgerItemHashes;
+function ledgerItemHashes() {
+  if (rawLedgerItemHashes) return rawLedgerItemHashes;
+  // The source contract uses Python JSON types: 1.0 and 1 have different
+  // canonical bytes. JSON.parse would erase this distinction in audit metadata.
+  // Read the original ledgers independently with the contract's numeric types.
+  const program = [
+    'import json,hashlib,sys', 'result={}',
+    'for name in sys.argv[1:]:',
+    ' with open(name,encoding="utf-8") as stream: document=json.load(stream)',
+    ' for category in ("items","receivedTurns","lexicalSupports"):',
+    '  for row in document.get(category,[]):',
+    '   assert row["id"] not in result, "Duplicate raw ledger item"',
+    '   raw=json.dumps(row,ensure_ascii=False,sort_keys=True,separators=(",",":"),allow_nan=False).encode("utf-8")',
+    '   result[row["id"]]=hashlib.sha256(raw).hexdigest()',
+    'print(json.dumps(result,ensure_ascii=False))'
+  ].join('\n');
+  const files = [...situationLedgers.values()].flatMap(ledger => ledger.documents.map(document => document.file));
+  rawLedgerItemHashes = JSON.parse(execFileSync('python3', ['-c', program, ...files], {encoding: 'utf8', maxBuffer: 8 * 1024 * 1024}));
+  return rawLedgerItemHashes;
+}
 function situationInputs() {
-  const files = new Set([situationPlanPath, path.join(ROOT, 'maquette-guidee.js'),
+  const files = new Set([situationPlanPath, baseSituationPlanPath, path.join(ROOT, 'maquette-guidee.js'),
     path.join(ROOT, 'maquette-guidee.css'), path.join(ROOT, 'parcours-niveaux.html'),
     path.join(ROOT, 'maquette-guidee.html'), path.join(ROOT, 'content/maquette-guidee.json'), __filename,
     path.join(ROOT, 'app.html'), path.join(situationDirectory, 'catalogue.json'),
@@ -42,14 +71,17 @@ function situationInputs() {
     ...visualRegistry.grammarAtlases, ...visualRegistry.correctionAtlases, ...visualRegistry.situationAtlases]) {
     files.add(path.join(ROOT, asset.asset));
   }
-  for (const {file, data} of situationLedgers.values()) {
+  for (const ledger of situationLedgers.values()) for (const {file, data} of ledger.documents) {
     files.add(file);
-    for (const item of data.items) if (item.kind === 'conversation-whole-entry') {
-      files.add(path.resolve(ROOT, '..', item.source.path));
+    for (const item of [...data.items, ...(data.receivedTurns || []), ...(data.lexicalSupports || [])]) {
+      if (item.kind === 'conversation-whole-entry') files.add(path.resolve(ROOT, '..', item.source.path));
     }
   }
   const catalogue = JSON.parse(fs.readFileSync(path.join(situationDirectory, 'catalogue.json')));
   if (catalogue.searchIndexPath) files.add(path.resolve(ROOT, '..', catalogue.searchIndexPath));
+  for (const key of ['baselinePath', 'baseProtectionPath', 'protectedBaselinePath']) {
+    if (catalogue[key]) files.add(path.resolve(ROOT, '..', catalogue[key]));
+  }
   return Object.fromEntries([...files].sort().map(file => [path.relative(path.resolve(ROOT, '..'), file), sha256(fs.readFileSync(file))]));
 }
 function cellBundleSha256() {
@@ -78,6 +110,9 @@ const report = {
   additionalSituationViews: 0, additionalSituationCases: [], additionalWholeUtterancesChecked: 0,
   additionalSourceFieldsCompared: 0, additionalAudioChecks: 0, additionalRecallChecks: 0,
   additionalReadModelFieldsCompared: 0, additionalAudioByKind: {},
+  receivedDomSteps: 0, receivedAudioChecks: 0, receivedFieldsCompared: 0,
+  receivedProductionCounterChecks: 0, receivedPreparedAnswerChecks: 0,
+  lexicalSupportReferencesChecked: 0,
   adnominalHelpChecks: 0,
   authoredEntriesChecked: 0, authoredPhoneticReviewStatus: 'pending-Claude',
   renderedStepsByType: {}, failures: [],
@@ -120,13 +155,18 @@ after(async () => {
   if (!report.authoredSourceStableDuringRun) report.failures.push({check: 'authored-stability', error: 'Authored source changed while the suite was running.'});
   report.situationInputsStableDuringRun = canonicalJson(situationInputs()) === canonicalJson(report.situationInputsSha256);
   if (!report.situationInputsStableDuringRun) report.failures.push({check: 'situation-input-stability', error: 'Situation plan, language ledgers, snapshots, renderer or visual registry changed while the suite was running.'});
-  report.completeMatrixCoverage = report.cellViews === 210 && report.additionalSituationCases.length === 70
-    && report.additionalWholeUtterancesChecked === 560 && report.additionalWholeSourceAudit?.intentPositions === 560;
+  const expectedCases = situationPlan.themes.length * manifest.pairs.length;
+  const expectedPositions = expectedCases * 8;
+  const expectedReceived = situationPlan.receivedTurnsDefs.length * manifest.pairs.length;
+  report.completeMatrixCoverage = report.cellViews === 210 && report.additionalSituationCases.length === expectedCases
+    && report.additionalWholeUtterancesChecked === expectedPositions && report.additionalWholeSourceAudit?.intentPositions === expectedPositions
+    && report.receivedSourceAudit?.positions === expectedReceived && report.receivedDomSteps >= expectedReceived;
   report.requiredChecks = ['matrix-320', 'matrix-390', 'matrix-1440', 'additional-situation-whole-source-and-intents',
     'lexical-family-priority', 'authored-source-and-bank-conservation', 'ja-ko-semantic-routing-regressions',
     'fetch-races-and-retry', 'initial-load-retries', 'repertoire-loading-and-retry', 'same-level-context-reuse',
     'context-reference-guards-and-retry', 'repertoire-reference-guards', 'repertoire-pair-race',
-    'menu-palette-targets', 'legacy-v1-compatibility', 'photo-atlases-and-network-isolation'];
+    'menu-palette-targets', 'legacy-v1-compatibility', 'photo-atlases-and-network-isolation',
+    'received-and-lexical-source-contract', 'received-reference-guards-and-retry'];
   report.completeSuiteCoverage = report.completeMatrixCoverage && report.requiredChecks.every(check => report.checks.includes(check));
   report.status = report.failures.length ? 'failed' : report.completeSuiteCoverage ? 'passed' : 'partial';
   report.executedAt = new Date().toISOString();
@@ -145,7 +185,10 @@ after(async () => {
       '- Sources du lot : ' + report.additionalSourceFieldsCompared + ' comparaisons de champs entiers, dont contrôle de l’absence de lecture lorsqu’elle n’existe pas.',
       '- Affichage du lot : ' + report.additionalReadModelFieldsCompared + ' comparaisons de champs dans le DOM ; ' + report.additionalRecallChecks + ' rappels contrôlés.',
       '- Audio simulé : ' + report.additionalAudioChecks + ' envois du texte étudié entier ; la phonétique n’est pas utilisée comme texte TTS.',
+      '- Interlocuteurs : ' + (report.receivedSourceAudit?.positions ?? 'non terminé') + ' positions sourcées, ' + report.receivedDomSteps + ' affichages contrôlés ; ' + report.receivedPreparedAnswerChecks + ' preuves de réponse préparée ; ' + report.receivedProductionCounterChecks + ' contrôles d’exclusion de la progression de production.',
+      '- Soutiens lexicaux : ' + (report.lexicalSupportSourceAudit?.positions ?? 'non terminé') + ' positions sourcées, séparées des étapes de production de phrase.',
       '- Gardes du réemploi : ' + (report.contextGuardResults?.length || 0) + ' corruptions refusées, puis correction et rechargement de banque contrôlés.',
+      '- Gardes des reçus : ' + (report.receivedGuardResults?.length || 0) + ' corruptions refusées, puis banque corrigée rechargée.',
       '- Visuels : ' + (report.visualRegistryChecked?.slots ?? 'non terminé') + ' emplacements et ' + (report.visualRegistryChecked?.atlases ?? 'non terminé') + ' atlas vérifiés.', '',
       'Le masquage conserve le sens ; l’oreille révèle explicitement le modèle et le bouton de fond ne le révèle pas. Les contrôles de révision ordinaire, de chargements concurrents, de reprise après erreur, du menu et de la page L1 v1 sont conservés dans la suite.', '',
       'Fraîcheur : les empreintes avant/après des cellules, banques, manifeste, sources rédigées, plan, ledgers, snapshots de conversation, catalogue/index, HTML, CSS, JavaScript, suite de tests et images sont enregistrées dans le JSON. Une exécution partielle ne reçoit pas le statut passed.', '',
@@ -195,6 +238,15 @@ function contextFixture(pairId, {sameLevel = false} = {}) {
     }
   }
   throw new Error('No ' + (sameLevel ? 'same-level ' : '') + 'context fixture for ' + pairId);
+}
+function receivedFixture(pairId) {
+  for (let level = 1; level <= 10; level++) {
+    const data = cell(pairId, level);
+    const themeIndex = data.themes.findIndex(theme => theme.receivedTurns?.some(turn => turn.beforeIntentId)
+      && theme.receivedTurns.some(turn => turn.afterIntentId) && theme.lexicalSupports?.length);
+    if (themeIndex >= 0) return {data, level, themeIndex};
+  }
+  throw new Error('No complete received cycle for ' + pairId);
 }
 
 async function open(width = 390, intercept = async () => false) {
@@ -275,6 +327,8 @@ async function inspectCell(page, expected, bank, exhaustive) {
     if (active.some(phrase => reserveIds.has(phrase.id) || !['utterance', 'vocabulary', 'number'].includes(phrase.contentType))) throw new Error('reserve leaked into active themes');
     const bankPhrases = new Map((bank?.phrases || []).map(phrase => [phrase.id, phrase]));
     const canonicalPhrases = new Map([...(bank?.phrases || []), ...active].map(phrase => [phrase.id, phrase]));
+    const receivedModels = new Map((bank?.receivedModels || []).map(phrase => [phrase.id, phrase]));
+    const allModels = new Map([...receivedModels, ...canonicalPhrases]);
     const additional = expected.themes.filter(theme => theme.isAdditionalSituation);
     eq(additional.length, additionalThemes.length, 'new situation count at this level');
     eq(JSON.stringify(additional.map(theme => theme.id).sort()),
@@ -295,6 +349,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
     const ids = new Set();
     let steps = 0, fields = 0, templates = 0, preparations = 0, reviewSteps = 0, reviewReferences = 0, usageChecks = 0;
     let contextSteps = 0, contextReferences = 0, additionalAudio = 0, additionalRecall = 0, additionalFields = 0;
+    let receivedSteps = 0, receivedAudio = 0, receivedFields = 0, receivedCounterChecks = 0, preparedAnswerChecks = 0, lexicalSupportChecks = 0;
     const additionalAudioByKind = {};
     const situationCases = [];
     const renderedByType = {};
@@ -368,6 +423,51 @@ async function inspectCell(page, expected, bank, exhaustive) {
       if (visible(byId('mgSequenceView'))) throw new Error('sequence screen became visible');
       const allSteps = theme.sequences.flatMap(sequence => sequence.steps);
       const primaryIds = theme.sequences.flatMap(sequence => sequence.phraseIds);
+      const receivedUses = new Map((theme.receivedTurns || []).map(turn => [turn.id, turn]));
+      const preparedAnswers = new Map();
+      const seenReceived = new Set();
+      for (const [index, step] of allSteps.entries()) {
+        if (step.kind !== 'receive') {
+          if (['understand', 'imitate'].includes(step.kind)) {
+            if (!preparedAnswers.has(step.utterance)) preparedAnswers.set(step.utterance, new Map());
+            preparedAnswers.get(step.utterance).set(step.kind, step.id);
+          }
+          continue;
+        }
+        const turn = receivedUses.get(step.receivedId);
+        if (!turn || seenReceived.has(turn.id)) throw new Error('missing or repeated interlocutor use');
+        if (!receivedModels.has(step.utterance)) throw new Error('interlocutor model absent from dedicated bank');
+        eq(step.analyse, false, 'received is not analysed');
+        eq(step.countsForProgress, false, 'received excluded from production progress');
+        eq(step.requiresProduction, false, 'received never assigned to learner production');
+        if (step.isPreparation || step.isReview || step.isContextReuse) throw new Error('received turn mislabeled as learner preparation/review/reuse');
+        eq(JSON.stringify(step.role), JSON.stringify(turn.role), 'received localized usage role');
+        eq(JSON.stringify(step.answerWith), JSON.stringify(turn.answerWith), 'received answer intent list');
+        for (const id of turn.answerWithUtteranceIds) {
+          const prior = preparedAnswers.get(id);
+          if (!prior?.has('understand') || !prior?.has('imitate')) throw new Error('interlocutor asks for an unprepared response');
+          eq(step.preparedAnswerSteps[id].understoodInStep, prior.get('understand'), 'prepared understanding witness');
+          eq(step.preparedAnswerSteps[id].imitatedInStep, prior.get('imitate'), 'prepared imitation witness');
+          preparedAnswerChecks++;
+        }
+        const recall = turn.beforeIntentId ? allSteps[index + 1] : allSteps[index - 1];
+        if (!recall || !['choose-and-recall', 'reply-without-model', 'recall'].includes(recall.kind)) throw new Error('interlocutor detached from real recall');
+        eq(recall.utterance, turn.prepares, 'received immediately adjacent to its prepared response');
+        if (turn.afterIntentId) eq(turn.answerWith.length, 0, 'closure explicitly answers no new learner task');
+        seenReceived.add(turn.id);
+      }
+      eq(seenReceived.size, receivedUses.size, 'every received usage is heard once');
+      for (const support of theme.lexicalSupports || []) {
+        const model = canonicalPhrases.get(support.utterance || support.id);
+        if (!model || !['vocabulary', 'number'].includes(model.contentType)) throw new Error('lexical support missing or not autonomous');
+        if (support.firstEditorialLevel > expected.level) throw new Error('future word mislabeled as prepared lexical support');
+        if (!theme.intentIds.includes(support.introducedBeforeIntentId)) throw new Error('word support is unbound to theme intent');
+        eq(support.analyse, false, 'word support is not an automatic sentence exercise');
+        eq(support.countsTowardProductionProgression, false, 'word support does not inflate learner phrase progression');
+        eq(support.insertedIntoPhraseSteps, false, 'word remains outside sentence steps');
+        if (primaryIds.includes(model.id) || allSteps.some(step => step.utterance === model.id)) throw new Error('isolated word entered situation practice');
+        lexicalSupportChecks++;
+      }
       if (theme.isAdditionalSituation) {
         const planned = additionalThemes.find(candidate => candidate.themeId === theme.id);
         if (!planned) throw new Error('new situation is absent from the frozen plan');
@@ -398,6 +498,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
           themeId: theme.id, intentIds: [...theme.intentIds], newCount: theme.newCount,
           reuseCount: theme.reuseCount || 0, reviewCount: theme.reviewCount,
           uniqueWholeUtterances: forms.length, presentedCount: theme.presentedCount,
+          receivedTurns: receivedUses.size, lexicalSupports: (theme.lexicalSupports || []).length,
           sameLevelReuses: contextual.filter(reference => reference.firstEditorialLevel === expected.level).length,
           presentedIntentOrder, threePhaseOrdersChecked: true});
       }
@@ -427,19 +528,20 @@ async function inspectCell(page, expected, bank, exhaustive) {
         for (const step of sequence.steps) {
           const references = [step.utterance, ...(step.choices || [])].filter(Boolean);
           if (references.some(id => reserveIds.has(id))) throw new Error('reserve became an exercise ' + step.id);
-          if (theme.contentType === 'utterance' && references.some(id => canonicalPhrases.get(id)?.contentType !== 'utterance')) throw new Error('lexeme became a situation exercise ' + step.id);
+          if (theme.contentType === 'utterance' && references.some(id => allModels.get(id)?.contentType !== 'utterance')) throw new Error('lexeme became a situation exercise ' + step.id);
         }
       });
       // At 390px check every rendered step/field. Other widths exercise each theme entry.
       const limit = exhaustive ? allSteps.length : Math.min(allSteps.length, theme.sequences[0].steps.length);
       for (let index = 0; index < limit; index++) {
         const step = allSteps[index];
-        const phrase = canonicalPhrases.get(step.utterance || step.choices?.[0]);
+        const phrase = allModels.get(step.utterance || step.choices?.[0]);
         if (!phrase) throw new Error('Unresolved step ' + step.id);
         eq(state().stepIndex, index, 'step index');
         eq(state().phraseId, phrase.id, 'phrase identity');
-        const review = reviews.has(phrase.id);
-        const contextReuse = contextIds.has(phrase.id);
+        const received = step.kind === 'receive';
+        const review = !received && reviews.has(phrase.id);
+        const contextReuse = !received && contextIds.has(phrase.id);
         eq(!!step.isReview, review, 'review step is explicitly marked');
         eq(!!step.isContextReuse, contextReuse, 'context reuse step is explicitly marked');
         eq(byId('mgLessonTheme').textContent, String(i + 1).padStart(2, '0') + ' · ' + theme.title
@@ -449,6 +551,22 @@ async function inspectCell(page, expected, bank, exhaustive) {
         if (contextReuse) contextSteps++;
         if (reserveIds.has(state().phraseId)) throw new Error('reserve reached DOM/audio state');
         eq(byId('mgCounter').textContent, (primaryIds.indexOf(step.prepares || phrase.id) + 1) + ' / ' + primaryIds.length, 'primary-only lesson counter');
+        const learnerStepCount = allSteps.filter(candidate => candidate.kind !== 'receive').length;
+        const completedLearnerSteps = allSteps.slice(0, index + 1).filter(candidate => candidate.kind !== 'receive').length;
+        const expectedProgress = completedLearnerSteps / learnerStepCount * 100;
+        if (Math.abs(parseFloat(byId('mgProgress').style.width) - expectedProgress) > 0.001) throw new Error('interlocutor listening inflated learner progression');
+        if (received) {
+          eq(state().masked, false, 'received always displayed as comprehension');
+          eq(byId('mgPhrase').hidden, false, 'whole received text visible');
+          eq(byId('mgPhon').hidden, false, 'whole received aid visible');
+          eq(byId('mgTranslation').hidden, false, 'whole received meaning visible');
+          eq(byId('mgSpeaker').hidden, false, 'received role visible');
+          eq(byId('mgSpeaker').textContent, step.role[expected.nativeLanguage], 'received role belongs to usage');
+          eq(byId('mgPhaseIcon').getAttribute('aria-label'), expected.nativeLanguage === 'zh' ? '听对方说话' : 'Écouter l’autre', 'received listening phase');
+          eq(byId('mgEar').hidden, false, 'received ear accessible');
+          eq(byId('mgReplay').disabled, false, 'received replay active');
+          receivedSteps++; receivedCounterChecks++;
+        } else eq(byId('mgSpeaker').hidden, true, 'interlocutor role does not leak into learner response');
         eq(byId('mgPhrase').textContent, phrase.study, 'study verbatim ' + phrase.id);
         eq(byId('mgPhon').textContent, phrase.phon, 'phonetic verbatim ' + phrase.id);
         eq(byId('mgTranslation').textContent, phrase.native, 'meaning verbatim ' + phrase.id);
@@ -462,6 +580,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
         if (index === 0 && document.documentElement.scrollWidth > innerWidth + 1) throw new Error('horizontal lesson overflow');
         fields += 4;
         if (theme.isAdditionalSituation) additionalFields += 4;
+        if (received) receivedFields += 4;
         renderedByType[phrase.contentType] = (renderedByType[phrase.contentType] || 0) + 1;
         const lexical = ['vocabulary', 'number'].includes(phrase.contentType);
         const earLabel = expected.nativeLanguage === 'zh'
@@ -484,10 +603,18 @@ async function inspectCell(page, expected, bank, exhaustive) {
         } else if (index === 0 || theme.isAdditionalSituation && !state().masked) {
           byId('mgEar').click();
           eq(window.__speech.at(-1)?.text, phrase.study, 'TTS receives study text only');
+          eq(window.__speech.at(-1)?.lang?.split('-')[0], expected.studyLanguage, 'TTS uses the studied language');
+          if (received) {
+            receivedAudio += 2;
+            const spoken = window.__speech.length;
+            byId('mgReplay').click();
+            eq(window.__speech.length, spoken + 1, 'received background replay remains directly active');
+            eq(window.__speech.at(-1)?.text, phrase.study, 'received replay speaks whole target-language text');
+          }
           if (theme.isAdditionalSituation) {
-            additionalAudio++;
-            const key = contextReuse ? 'context-reuse' : phrase.source.collection === 'situation-authored' ? 'new-authored' : 'existing-primary';
-            additionalAudioByKind[key] = (additionalAudioByKind[key] || 0) + 1;
+            additionalAudio += received ? 2 : 1;
+            const key = received ? 'received' : contextReuse ? 'context-reuse' : phrase.source.collection === 'situation-authored' ? 'new-authored' : 'existing-primary';
+            additionalAudioByKind[key] = (additionalAudioByKind[key] || 0) + (received ? 2 : 1);
           }
         }
         if (state().masked) {
@@ -501,6 +628,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
           byId('mgEar').click();
           eq(state().masked, false, 'explicit ear reveals recall');
           eq(window.__speech.at(-1)?.text, phrase.study, 'revealed TTS receives study text');
+          eq(window.__speech.at(-1)?.lang?.split('-')[0], expected.studyLanguage, 'revealed TTS uses the studied language');
           if (theme.isAdditionalSituation) {
             additionalAudio++; additionalRecall++;
             const key = contextReuse ? 'context-reuse' : phrase.source.collection === 'situation-authored' ? 'new-authored' : 'existing-primary';
@@ -521,6 +649,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
     if (document.documentElement.scrollWidth > innerWidth + 1) throw new Error('horizontal document overflow');
     return {steps, fields, templates, preparations, reviewSteps, reviewReferences, usageChecks,
       contextSteps, contextReferences, situationCases, additionalAudio, additionalRecall, additionalFields,
+      receivedSteps, receivedAudio, receivedFields, receivedCounterChecks, preparedAnswerChecks, lexicalSupportChecks,
       additionalAudioByKind, themes: expected.themes.length,
       renderedByType, reserved: reserve.length, held: held.length, canonical: combined.length};
   }, {expected, bank, exhaustive, additionalThemes});
@@ -551,6 +680,12 @@ for (const width of report.widths) test('70 pair/level cells at ' + width + 'px'
         report.additionalAudioChecks += result.additionalAudio;
         report.additionalRecallChecks += result.additionalRecall;
         report.additionalReadModelFieldsCompared += result.additionalFields;
+        report.receivedDomSteps += result.receivedSteps;
+        report.receivedAudioChecks += result.receivedAudio;
+        report.receivedFieldsCompared += result.receivedFields;
+        report.receivedProductionCounterChecks += result.receivedCounterChecks;
+        report.receivedPreparedAnswerChecks += result.preparedAnswerChecks;
+        report.lexicalSupportReferencesChecked += result.lexicalSupportChecks;
         for (const [kind, count] of Object.entries(result.additionalAudioByKind)) report.additionalAudioByKind[kind] = (report.additionalAudioByKind[kind] || 0) + count;
         report.adnominalHelpChecks += result.usageChecks;
         if (width === 390) {
@@ -567,7 +702,7 @@ for (const width of report.widths) test('70 pair/level cells at ' + width + 'px'
   } finally { await fixture.context.close(); }
 }));
 
-test('70 additional situations preserve 560 whole source positions without inflating canonical entries', async () => checked('additional-situation-whole-source-and-intents', async () => {
+test('196 additional situations preserve 1568 whole source positions without inflating canonical entries', async () => checked('additional-situation-whole-source-and-intents', async () => {
   const catalogue = JSON.parse(fs.readFileSync(path.join(situationDirectory, 'catalogue.json')));
   assert.equal(catalogue.status, 'ready-for-preview', 'the complete situation catalogue was frozen before generation');
   assert.equal(catalogue.planSha256, report.situationPlanSha256);
@@ -577,7 +712,10 @@ test('70 additional situations preserve 560 whole source positions without infla
   assert.ok(start >= 0, 'catalogue source marker');
   const end = appSource.indexOf('\n', start);
   const decks = JSON.parse(appSource.slice(start + marker.length, end < 0 ? undefined : end).trim().replace(/;$/, ''));
-  const rawItems = new Map([...situationLedgers.values()].flatMap(({data}) => data.items).map(item => [item.id, item]));
+  const sourceFiles = new Map([...situationLedgers.values()].flatMap(ledger => ledger.documents)
+    .flatMap(({file, data}) => [...data.items, ...(data.receivedTurns || []), ...(data.lexicalSupports || [])].map(item => [item.id, file])));
+  const rawItems = new Map([...situationLedgers.values()].flatMap(ledger => ledger.documents)
+    .flatMap(({data}) => [...data.items, ...(data.receivedTurns || []), ...(data.lexicalSupports || [])]).map(item => [item.id, item]));
   const canonical = new Map();
   for (const pair of manifest.pairs) for (let level = 1; level <= 10; level++) {
     const data = cell(pair.id, level);
@@ -594,10 +732,17 @@ test('70 additional situations preserve 560 whole source positions without infla
     sameLevelReuses: 0, earlierLevelReuses: 0, sourceFields: 0,
     candidateKinds: {}, newCanonicalAuthored: new Set(), newCanonicalConversation: new Set()};
   for (const pair of manifest.pairs) {
-    const {file, data: ledger} = situationLedgers.get(pair.id);
-    assert.equal(ledger.planHash, report.situationPlanSha256, 'ledger follows frozen plan ' + pair.id);
-    assert.equal(ledger.items.length, 80, '80 pair intent candidates');
-    assert.equal(new Set(ledger.items.map(item => item.intentId)).size, 80, 'no repeated pair intent');
+    const descriptor = situationLedgers.get(pair.id);
+    const ledger = {items: descriptor.items};
+    assert.equal(descriptor.data.planHash, sha256(fs.readFileSync(baseSituationPlanPath)), 'base ledger keeps its frozen base plan ' + pair.id);
+    assert.equal(descriptor.extensionData.planHash, report.situationPlanSha256, 'extension follows full frozen plan ' + pair.id);
+    assert.equal(descriptor.data.items.length, 80, '80 original learner records preserved');
+    assert.equal(descriptor.extensionData.items.length, 144, '144 appended pair intent candidates');
+    assert.equal(ledger.items.length, 224, '224 combined pair intent candidates');
+    assert.equal(new Set(ledger.items.map(item => item.intentId)).size, 224, 'no repeated pair intent');
+    for (const [relative, expectedHash] of Object.entries(situationPlan.extension.preservedInputFingerprints)) {
+      assert.equal(sha256(fs.readFileSync(path.resolve(ROOT, '..', relative))), expectedHash, 'protected previous file ' + relative);
+    }
     const bank = new Map(repertoire(pair.id).phrases.map(phrase => [phrase.id, phrase]));
     for (const topic of situationPlan.themes) {
       const levelData = cell(pair.id, topic.level);
@@ -641,6 +786,9 @@ test('70 additional situations preserve 560 whole source positions without infla
           assert.equal(phrase[field], item[field], 'whole ledger field ' + item.id + ':' + field);
           totals.sourceFields++;
         }
+        if (item.readingScript !== undefined && phrase.source.collection.startsWith('situation-') && phrase.source.itemId === item.id) {
+          assert.equal(phrase.readingScript, item.readingScript, 'creation-owned reading script metadata ' + item.id);
+        }
         if (item.kind === 'catalogue-reference') {
           const source = item.source;
           const deck = decks[source.collection.replace('DECKS.', '')];
@@ -661,18 +809,18 @@ test('70 additional situations preserve 560 whole source positions without infla
           assert.equal(sha256(canonicalJson(entry)), source.entrySha256);
           for (const field of ['study', 'native', 'phon', 'reading']) assert.equal(item[field], entry[field], 'whole conversation field ' + field);
         } else if (item.kind === 'candidate-reference') {
-          const other = rawItems.get(item.source.candidateId);
-          assert.ok(other && other.pair === pair.id, 'candidate reuse stays in the same pair');
+          const other = item.source.canonicalId ? canonical.get(pair.id + ':' + item.source.canonicalId)?.phrase : rawItems.get(item.source.candidateId);
+          assert.ok(other && (!other.pair || other.pair === pair.id), 'candidate reuse stays in the same pair');
           assert.equal(tuple(item), tuple(other), 'candidate reuse cannot rewrite aids or meaning');
           assert.ok(phrase.editorialLevel <= item.proposedLevel, 'resolved candidate first introduction is not in the future');
         } else assert.equal(item.kind, 'editorial-authored-whole-entry');
         if (phrase.source.collection === 'situation-authored' || phrase.source.collection === 'situation-conversation') {
           const originItem = rawItems.get(phrase.source.itemId);
           assert.ok(originItem, 'new canonical source identifies its ledger entry');
-          const originLedger = situationLedgers.get(originItem.pair);
-          assert.equal(phrase.source.ledgerFile, path.relative(path.resolve(ROOT, '..'), originLedger.file));
-          assert.equal(phrase.source.ledgerFileSha256, sha256(fs.readFileSync(originLedger.file)));
-          const ledgerItemSha256 = sha256(canonicalJson(originItem));
+          const originFile = sourceFiles.get(originItem.id);
+          assert.equal(phrase.source.ledgerFile, path.relative(path.resolve(ROOT, '..'), originFile));
+          assert.equal(phrase.source.ledgerFileSha256, sha256(fs.readFileSync(originFile)));
+          const ledgerItemSha256 = ledgerItemHashes()[originItem.id];
           assert.equal(phrase.source.ledgerItemSha256, ledgerItemSha256);
           assert.equal(phrase.source.sourceSha256, phrase.source.collection === 'situation-authored'
             ? ledgerItemSha256 : originItem.source.entrySha256, 'source object and ledger item keep distinct fingerprints');
@@ -695,13 +843,149 @@ test('70 additional situations preserve 560 whole source positions without infla
       totals.cases++;
     }
   }
-  assert.equal(totals.cases, 70); assert.equal(totals.intentPositions, 560);
-  assert.equal(totals.primaryPositions + totals.contextualReuses, 560);
+  assert.equal(totals.cases, situationPlan.themes.length * manifest.pairs.length);
+  assert.equal(totals.intentPositions, situationPlan.themes.length * manifest.pairs.length * 8);
+  assert.equal(totals.primaryPositions + totals.contextualReuses, totals.intentPositions);
   assert.ok(totals.sameLevelReuses > 0, 'real same-level context reuse covered');
   report.additionalSourceFieldsCompared = totals.sourceFields;
   report.additionalWholeSourceAudit = {...totals,
     newCanonicalAuthored: totals.newCanonicalAuthored.size,
     newCanonicalConversation: totals.newCanonicalConversation.size};
+}));
+
+test('259 interlocutor turns and all lexical supports preserve whole sources and stay outside production', async () => checked('received-and-lexical-source-contract', async () => {
+  const app = fs.readFileSync(path.join(ROOT, 'app.html'), 'utf8');
+  const start = app.indexOf('var DECKS = ') + 'var DECKS = '.length;
+  const decks = JSON.parse(app.slice(start, app.indexOf('\n', start)).trim().replace(/;$/, ''));
+  const tuple = value => canonicalJson(['study', 'native', 'phon', 'reading'].map(field => value[field] ?? null));
+  const records = new Map();
+  for (const descriptor of situationLedgers.values()) for (const {file, data} of descriptor.documents) {
+    for (const row of [...data.items, ...(data.receivedTurns || []), ...(data.lexicalSupports || [])]) records.set(row.id, {row, file});
+  }
+  const receivedTotals = {positions: 0, sourceFields: 0, questions: 0, closures: 0, preparedAnswers: 0, kinds: {}};
+  const supportTotals = {positions: 0, sourceFields: 0, kinds: {}, newCanonicalIds: new Set()};
+  const definitions = new Map(situationPlan.receivedTurnsDefs.map(turn => [turn.id, turn]));
+  function compareSource(item, model, pair, bank) {
+    assert.equal(item.pair, pair.id, 'source usage remains in its declared language pair');
+    assert.equal(tuple(model), tuple(item), 'whole runtime fields match exact ledger ' + item.id);
+    if (item.readingScript !== undefined && model.source.collection.startsWith('situation-') && model.source.itemId === item.id) {
+      assert.equal(model.readingScript, item.readingScript, 'creation-owned reading script preserved for received/support model ' + item.id);
+    }
+    if (item.kind === 'catalogue-reference') {
+      const source = item.source;
+      const card = decks[pair.studyLanguage][source.sourceIndex];
+      assert.equal(sha256(canonicalJson(card)), source.sourceSha256, 'whole catalogue object fingerprint');
+      assert.equal(source.sourceLevel, card.lv, 'source access level retained');
+      const mapping = {study: 't', native: pair.nativeLanguage === 'zh' ? 'cn' : 'frm',
+        phon: pair.studyLanguage === 'fr' ? 'phon' : pair.studyLanguage === 'zh' ? 'phf' : 'pf'};
+      if (['zh', 'ja', 'ko'].includes(pair.studyLanguage)) mapping.reading = 'py';
+      for (const [output, field] of Object.entries(mapping)) assert.equal(item[output], card[field], 'source catalogue ' + output);
+    } else if (item.kind === 'conversation-whole-entry') {
+      const bytes = fs.readFileSync(path.resolve(ROOT, '..', item.source.path));
+      assert.equal(sha256(bytes), item.source.fileSha256);
+      const raw = item.source.jsonPointer.slice(1).split('/').reduce((value, token) => value[token.replace(/~1/g, '/').replace(/~0/g, '~')], JSON.parse(bytes));
+      assert.equal(sha256(canonicalJson(raw)), item.source.entrySha256);
+      assert.equal(tuple(item), tuple(raw), 'conversation copied as one whole entry');
+    } else if (item.kind === 'candidate-reference') {
+      const other = item.source.canonicalId ? bank.phrases.find(phrase => phrase.id === item.source.canonicalId)
+        : records.get(item.source.candidateId)?.row;
+      assert.ok(other, 'explicit same-pair canonical/candidate support source');
+      assert.equal(tuple(item), tuple(other), 'canonical/candidate reuse never rewrites a field');
+    } else {
+      assert.equal(item.kind, 'editorial-authored-whole-entry');
+      assert.equal(item.phoneticReviewStatus, 'pending-Claude');
+    }
+    if (/^situation-(?:(?:received|support)-)?(?:authored|conversation)$/.test(model.source.collection)) {
+      const origin = records.get(model.source.itemId);
+      assert.ok(origin, 'runtime source points to an actual ledger entry');
+      assert.equal(tuple(model), tuple(origin.row));
+      assert.equal(model.source.ledgerFile, path.relative(path.resolve(ROOT, '..'), origin.file));
+      assert.equal(model.source.ledgerFileSha256, sha256(fs.readFileSync(origin.file)));
+      assert.equal(model.source.ledgerItemSha256, ledgerItemHashes()[origin.row.id]);
+      const authored = origin.row.kind === 'editorial-authored-whole-entry';
+      assert.equal(model.source.sourceSha256, authored ? ledgerItemHashes()[origin.row.id] : origin.row.source.entrySha256);
+    }
+    for (const field of ['study', 'native', 'phon', 'reading']) assert.equal(model[field], item[field], field + ' is copied whole');
+  }
+  for (const pair of manifest.pairs) {
+    const ledger = situationLedgers.get(pair.id).extensionData;
+    const bank = repertoire(pair.id);
+    const heard = new Map((bank.receivedModels || []).map(model => [model.id, model]));
+    const active = new Map(bank.phrases.map(model => [model.id, model]));
+    assert.equal(ledger.receivedTurns.length, situationPlan.receivedTurnsDefs.length);
+    for (const topic of situationPlan.themes.slice(baseSituationPlan.themes.length)) {
+      const theme = cell(pair.id, topic.level).themes.find(candidate => candidate.id === topic.themeId);
+      assert.ok(theme, 'appended theme is visible ' + pair.id + ':' + topic.id);
+      const primaryIds = theme.sequences.flatMap(sequence => sequence.phraseIds);
+      const steps = theme.sequences.flatMap(sequence => sequence.steps);
+      const turns = ledger.receivedTurns.filter(row => row.topicId === topic.id);
+      assert.equal(turns.length, topic.receivedTurnIds.length, 'all planned turns present');
+      assert.equal((theme.receivedTurns || []).length, turns.length);
+      for (const row of turns) {
+        const definition = definitions.get(row.definitionId || row.id.replace(new RegExp('^' + pair.id + '-'), ''));
+        assert.ok(definition, 'received row has a known plan definition');
+        const usage = theme.receivedTurns.find(turn => turn.id === row.id);
+        assert.ok(usage, 'received turn is wired into theme');
+        const model = heard.get(usage.utterance);
+        assert.ok(model?.heardOnly && model.referenceOnly, 'dedicated comprehension model');
+        assert.equal(model.role, undefined, 'usage role never overwrites canonical source');
+        assert.equal(model.speaker, undefined, 'speaker is a use, not an intrinsic model field');
+        assert.equal(model.contentType, 'utterance');
+        assert.ok(model.firstHeardLevel <= topic.level, 'no future first-hearing declaration');
+        if (/^heard-/.test(model.id)) assert.equal(active.has(model.id), false, 'heard-only additions cannot inflate canonical learner stock');
+        compareSource(row, model, pair, bank);
+        assert.deepEqual(usage.role, row.role);
+        assert.equal(usage.analyse, false);
+        for (const key of ['answerWith', 'beforeIntentId', 'afterIntentId']) assert.deepEqual(usage[key], definition[key], 'usage follows received definition ' + key);
+        const matchingSteps = steps.filter(step => step.receivedId === usage.id);
+        assert.equal(matchingSteps.length, 1, 'one real listen per received usage');
+        const step = matchingSteps[0], index = steps.indexOf(step);
+        assert.equal(step.kind, 'receive'); assert.equal(step.requiresProduction, false); assert.equal(step.countsForProgress, false);
+        assert.equal(primaryIds.includes(step.utterance), false, 'interlocutor is not a ninth learner position');
+        for (const answer of usage.answerWithUtteranceIds) {
+          const before = steps.slice(0, index);
+          assert.ok(before.some(prior => prior.kind === 'understand' && prior.utterance === answer));
+          assert.ok(before.some(prior => prior.kind === 'imitate' && prior.utterance === answer));
+          receivedTotals.preparedAnswers++;
+        }
+        if (usage.beforeIntentId) {
+          assert.equal(steps[index + 1].utterance, usage.prepares);
+          assert.ok(['choose-and-recall', 'reply-without-model', 'recall'].includes(steps[index + 1].kind));
+          receivedTotals.questions++;
+        } else {
+          assert.deepEqual(usage.answerWith, [], 'closure contains no implicit answer');
+          assert.equal(steps[index - 1].utterance, usage.prepares);
+          assert.ok(['choose-and-recall', 'reply-without-model', 'recall'].includes(steps[index - 1].kind));
+          receivedTotals.closures++;
+        }
+        receivedTotals.positions++; receivedTotals.sourceFields += 4;
+        receivedTotals.kinds[row.kind] = (receivedTotals.kinds[row.kind] || 0) + 1;
+      }
+      const supports = ledger.lexicalSupports.filter(row => row.topicId === topic.id);
+      assert.ok(supports.length >= 2, 'two autonomous lexical supports per research proposal');
+      assert.equal(theme.lexicalSupports.length, supports.length);
+      for (const row of supports) {
+        const use = theme.lexicalSupports.find(support => support.supportId === row.id);
+        assert.ok(use, 'lexical support explicitly wired');
+        const model = active.get(use.utterance || use.id);
+        assert.ok(model && ['vocabulary', 'number'].includes(model.contentType));
+        assert.equal(model.placement.domain, row.lexicalFamily, 'support retains reviewed semantic family');
+        assert.ok(model.editorialLevel <= topic.level, 'source support introduced before use');
+        assert.equal(use.insertedIntoPhraseSteps, false);
+        assert.equal(use.countsTowardProductionProgression, false);
+        assert.equal(use.introducedBeforeIntentId, row.introducedBeforeIntentId);
+        assert.ok(!steps.some(step => step.utterance === model.id), 'isolated support not injected into sentence exercise');
+        compareSource(row, model, pair, bank);
+        supportTotals.positions++; supportTotals.sourceFields += 4;
+        supportTotals.kinds[row.kind] = (supportTotals.kinds[row.kind] || 0) + 1;
+        if (/^situation-support-/.test(model.source.collection)) supportTotals.newCanonicalIds.add(pair.id + ':' + model.id);
+      }
+    }
+  }
+  assert.equal(receivedTotals.positions, 259); assert.equal(receivedTotals.questions, 133); assert.equal(receivedTotals.closures, 126);
+  assert.ok(supportTotals.positions >= 252);
+  report.receivedSourceAudit = receivedTotals;
+  report.lexicalSupportSourceAudit = {...supportTotals, newCanonicalIds: supportTotals.newCanonicalIds.size};
 }));
 
 test('native lexical classes and reviewed relational groups follow their declared families', async () => checked('lexical-family-priority', async () => {
@@ -791,8 +1075,7 @@ test('reviewed Japanese/Korean semantic corrections reach the actual canonical t
     const actual = routes.get(correction.pair + ':' + correction.sourceIndex);
     assert.ok(actual, 'retained semantic correction ' + correction.pair + ':' + correction.sourceIndex);
     if (actual.domain === correction.afterDomain) continue;
-    const ledger = situationLedgers.get(correction.pair).data;
-    const item = ledger.items.find(item => item.kind === 'catalogue-reference'
+    const item = situationLedgers.get(correction.pair).items.find(item => item.kind === 'catalogue-reference'
       && item.source.sourceIndex === correction.sourceIndex && item.introductionDecision?.action === 'introduce-earlier'
       && item.topicId === actual.domain && item.proposedLevel === actual.phrase.editorialLevel);
     assert.ok(item, 'changed destination requires an individually reviewed whole-source situation introduction');
@@ -883,7 +1166,7 @@ test('first manifest and first cell failures have an operational retry', {timeou
   }
 }));
 
-test('a repertoire bank is loaded only for reviews and a failed bank can be retried', {timeout: 30000}, async () => checked('repertoire-loading-and-retry', async () => {
+test('L1 received/context references load their bank and a failed bank can be retried', {timeout: 30000}, async () => checked('repertoire-loading-and-retry', async () => {
   const pairId = manifest.pairs[0].id;
   const target = reviewFixture(pairId);
   const bankPath = '/' + manifest.pairs[0].repertoirePath;
@@ -891,8 +1174,8 @@ test('a repertoire bank is loaded only for reviews and a failed bank can be retr
   try {
     await noBank.page.goto(base + '/parcours-niveaux.html?pair=' + pairId + '&level=1'); await ready(noBank.page, pairId, 1);
     assert.equal(cell(pairId, 1).themes.some(theme => theme.reviewReferences?.length), false, 'L1 cannot cite an earlier level');
-    assert.equal(cell(pairId, 1).themes.some(theme => theme.contextReferences?.length), false, 'no additional situation references in L1');
-    assert.ok(!noBank.localRequests.includes(bankPath), 'no bank request without references');
+    assert.equal(cell(pairId, 1).themes.some(theme => theme.receivedTurns?.length), true, 'L1 includes actual interlocutor references');
+    assert.ok(noBank.localRequests.includes(bankPath), 'received and contextual models load the repertoire bank in L1');
   } finally { await noBank.context.close(); }
   let fail = true;
   const fixture = await open(390, async (route, url) => {
@@ -1038,6 +1321,110 @@ test('invalid context intent, future, type and review markers are refused and a 
       assert.equal(await fixture.page.evaluate(() => window.__speech.at(-1).text), originalPhrase.study);
       report.contextGuardResults.push({alteration, refused: true, bankRequestsBeforeRetry: before,
         bankRequestsAfterRetry: after, retryRestored: true, correctedWholeFields: 4, correctedAudioText: true});
+      assert.deepEqual(fixture.errors, []);
+    } finally { await fixture.context.close(); }
+  }
+}));
+
+test('corrupt interlocutor roles, preparation, progress and lexical wiring are refused; corrected bank retries restore a full cycle', {timeout: 180000}, async () => checked('received-reference-guards-and-retry', async () => {
+  const pairId = manifest.pairs[0].id;
+  const basic = receivedFixture(pairId);
+  report.receivedGuardResults = [];
+  const alterations = ['future-first-hearing', 'wrong-model-type', 'role-on-model', 'production-progress',
+    'requires-production', 'unprepared-answer', 'unknown-answer', 'question-before-preparation',
+    'closure-without-explicit-list', 'closure-before-response', 'missing-received-model',
+    'future-lexical-support', 'lexical-word-in-phrase-steps'];
+  for (const alteration of alterations) {
+    const target = JSON.parse(JSON.stringify(basic.data));
+    const bank = repertoire(pairId);
+    const theme = target.themes[basic.themeIndex];
+    const question = theme.receivedTurns.find(turn => turn.beforeIntentId);
+    const closure = theme.receivedTurns.find(turn => turn.afterIntentId);
+    const sequence = theme.sequences.find(sequence => sequence.steps.some(step => step.receivedId === question.id));
+    const questionStep = sequence.steps.find(step => step.receivedId === question.id);
+    const closureSequence = theme.sequences.find(sequence => sequence.steps.some(step => step.receivedId === closure.id));
+    const closureStep = closureSequence.steps.find(step => step.receivedId === closure.id);
+    const model = bank.receivedModels.find(model => model.id === question.utterance);
+    assert.ok(model && questionStep && closureStep);
+    if (alteration === 'future-first-hearing') model.firstHeardLevel = target.level + 1;
+    else if (alteration === 'wrong-model-type') model.contentType = 'vocabulary';
+    else if (alteration === 'role-on-model') model.role = question.role;
+    else if (alteration === 'production-progress') questionStep.countsForProgress = true;
+    else if (alteration === 'requires-production') questionStep.requiresProduction = true;
+    else if (alteration === 'unprepared-answer') {
+      questionStep.preparedAnswerSteps[question.answerWithUtteranceIds[0]].imitatedInStep = 'not-a-prior-imitation';
+    } else if (alteration === 'unknown-answer') {
+      question.answerWith = ['not-a-prepared-intent']; questionStep.answerWith = [...question.answerWith];
+    } else if (alteration === 'question-before-preparation') {
+      sequence.steps.splice(sequence.steps.indexOf(questionStep), 1); sequence.steps.unshift(questionStep);
+    } else if (alteration === 'closure-without-explicit-list') {
+      delete closure.answerWith; delete closureStep.answerWith;
+    } else if (alteration === 'closure-before-response') {
+      closureSequence.steps.splice(closureSequence.steps.indexOf(closureStep), 1); closureSequence.steps.unshift(closureStep);
+    } else if (alteration === 'missing-received-model') {
+      bank.receivedModels = bank.receivedModels.filter(candidate => candidate.id !== model.id);
+      bank.phrases = bank.phrases.filter(candidate => candidate.id !== model.id);
+    } else if (alteration === 'future-lexical-support') {
+      theme.lexicalSupports[0].firstEditorialLevel = target.level + 1;
+    } else {
+      sequence.steps.unshift({id: 'injected-word', kind: 'understand', utterance: theme.lexicalSupports[0].utterance || theme.lexicalSupports[0].id});
+    }
+    const cellPath = '/content/niveaux-progressifs/' + pairId + '/L' + target.level + '.json';
+    const bankPath = '/' + manifest.pairs[0].repertoirePath;
+    let corrupted = true;
+    const fixture = await open(390, async (route, url) => {
+      if (url.pathname === cellPath || url.pathname === bankPath) {
+        const body = corrupted ? url.pathname === cellPath ? target : bank
+          : url.pathname === cellPath ? cell(pairId, target.level) : repertoire(pairId);
+        await route.fulfill({contentType: 'application/json', body: JSON.stringify(body)}); return true;
+      }
+      return false;
+    });
+    try {
+      const {page} = fixture;
+      await page.goto(base + '/parcours-niveaux.html?pair=' + pairId + '&level=' + target.level);
+      await page.locator('#mgRetry').waitFor({state: 'visible'});
+      assert.equal((await page.evaluate(() => window.MelungaMockup.state())).screen, 'loading', alteration + ' cannot launch a partial lesson');
+      const before = fixture.localRequests.filter(value => value === bankPath).length;
+      corrupted = false;
+      await page.click('#mgRetry'); await ready(page, pairId, target.level);
+      const after = fixture.localRequests.filter(value => value === bankPath).length;
+      assert.equal(after, before + 1, 'retry reloads corrected interlocutor bank');
+      const original = basic.data.themes[basic.themeIndex];
+      const originalSteps = original.sequences.flatMap(sequence => sequence.steps);
+      const originalQuestion = original.receivedTurns.find(turn => turn.beforeIntentId);
+      const cueIndex = originalSteps.findIndex(step => step.receivedId === originalQuestion.id);
+      const originalBank = repertoire(pairId);
+      const cue = originalBank.receivedModels.find(model => model.id === originalQuestion.utterance);
+      await page.locator('#mgThemeGrid > button').nth(basic.themeIndex).click();
+      await page.evaluate(count => { for (let index = 0; index < count; index++) document.getElementById('mgContinue').click(); }, cueIndex);
+      assert.equal((await page.evaluate(() => window.MelungaMockup.state())).masked, false);
+      for (const [selector, field] of [['#mgPhrase', 'study'], ['#mgPhon', 'phon'], ['#mgTranslation', 'native'], ['#mgReading', 'reading']]) {
+        assert.equal(await page.locator(selector).textContent(), cue[field] || '', 'corrected whole interlocutor ' + field);
+      }
+      assert.equal(await page.locator('#mgSpeaker').textContent(), originalQuestion.role[basic.data.nativeLanguage]);
+      const progressAtCue = await page.locator('#mgProgress').getAttribute('style');
+      await page.click('#mgEar');
+      assert.equal(await page.evaluate(() => window.__speech.at(-1).text), cue.study);
+      await page.click('#mgContinue');
+      const replyState = await page.evaluate(() => window.MelungaMockup.state());
+      assert.equal(replyState.phraseId, originalQuestion.prepares);
+      assert.equal(replyState.masked, true, 'prepared learner response is recalled after real question');
+      assert.equal(await page.locator('#mgSpeaker').getAttribute('hidden'), '', 'interlocutor role clears for learner reply');
+      const reply = original.phrases.find(phrase => phrase.id === originalQuestion.prepares)
+        || originalBank.phrases.find(phrase => phrase.id === originalQuestion.prepares);
+      assert.equal(await page.locator('#mgTranslation').textContent(), reply.native, 'recall meaning stays available');
+      const closing = original.receivedTurns.find(turn => turn.afterIntentId);
+      const closeIndex = originalSteps.findIndex(step => step.receivedId === closing.id);
+      await page.evaluate(count => { for (let index = 0; index < count; index++) document.getElementById('mgContinue').click(); }, closeIndex - cueIndex - 1);
+      const closeModel = originalBank.receivedModels.find(model => model.id === closing.utterance);
+      assert.equal((await page.evaluate(() => window.MelungaMockup.state())).phraseId, closeModel.id);
+      assert.equal((await page.evaluate(() => window.MelungaMockup.state())).masked, false);
+      assert.equal(await page.locator('#mgPhrase').textContent(), closeModel.study, 'closure remains comprehension only');
+      assert.deepEqual(closing.answerWith, []);
+      await page.click('#mgEar'); assert.equal(await page.evaluate(() => window.__speech.at(-1).text), closeModel.study);
+      report.receivedGuardResults.push({alteration, refused: true, retryRestored: true, bankRequestsBeforeRetry: before,
+        bankRequestsAfterRetry: after, correctedWholeFields: 4, questionPreparedReplyClosure: true, progressAtCue});
       assert.deepEqual(fixture.errors, []);
     } finally { await fixture.context.close(); }
   }
@@ -1210,15 +1597,15 @@ test('approved L1-only page stays compatible with v1 data and no level selector'
   } finally { await fixture.context.close(); }
 }));
 
-test('260 registered photo slots in 22 distinct atlases; no external or API operations', {timeout: 30000}, async () => checked('photo-atlases-and-network-isolation', async () => {
+test('278 registered photo slots in 24 distinct atlases; no external or API operations', {timeout: 30000}, async () => checked('photo-atlases-and-network-isolation', async () => {
   const fixture = await open();
   try {
     await fixture.page.goto(base + '/parcours-niveaux.html'); await ready(fixture.page, 'fr-zh', 1);
     const assets = [...visualRegistry.levels, ...visualRegistry.vocabularyAtlases, ...visualRegistry.grammarAtlases,
       ...visualRegistry.correctionAtlases, ...visualRegistry.situationAtlases];
-    assert.equal(assets.length, 22, '22 atlases');
-    assert.equal(visualRegistry.themes.length, 260, '260 distinct slots');
-    assert.equal(new Set(visualRegistry.themes.map(theme => theme.asset + ':' + theme.column + ':' + theme.row)).size, 260, 'one slot per theme/level');
+    assert.equal(assets.length, 24, '24 atlases');
+    assert.equal(visualRegistry.themes.length, 278, '278 distinct slots');
+    assert.equal(new Set(visualRegistry.themes.map(theme => theme.asset + ':' + theme.column + ':' + theme.row)).size, 278, 'one slot per theme/level');
     for (const theme of situationPlan.themes) assert.equal(visualRegistry.themes.filter(visual => visual.visualId === theme.visualId).length, 1, 'one registered new topic photo ' + theme.id);
     const assetByName = new Map(assets.map(asset => [asset.asset, asset]));
     for (const theme of visualRegistry.themes) {
@@ -1239,7 +1626,7 @@ test('260 registered photo slots in 22 distinct atlases; no external or API oper
       }, file);
       assert.ok(result.width >= 768 && result.height >= 1024, file + ' resolution');
     }
-    assert.equal(hashes.size, 22, 'unique atlas files');
+    assert.equal(hashes.size, 24, 'unique atlas files');
     report.visualRegistryChecked = {atlases: assets.length, slots: visualRegistry.themes.length, additionalSituationPhotos: situationPlan.themes.length};
     assert.equal(assetByName.get('assets/theme-scenes.webp').sha256, 'ba431628deddbaafa34384b196c1f3428d606673662681a3835c4b92fe5d7a1c', 'approved L1 image preserved');
     assert.deepEqual(report.externalRequests, []);

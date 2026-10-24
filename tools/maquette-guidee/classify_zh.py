@@ -977,6 +977,9 @@ LEXICAL_FAMILY_OVERRIDES = {150: {'destination': 'vocab-loisirs',
                   'le déplacement de la traduction relèvent ici d’une image, d’une stratégie ou d’un '
                   'sens abstrait.'}}
 
+# Revue des soutiens des dix-huit pistes : noms explicitement vérifiés, sources intactes.
+LEXICAL_FAMILY_OVERRIDES.update({3544: {'destination': 'vocab-travail', 'reason': '密码 désigne le mot de passe d’un compte ; nom du numérique, pas action.'}, 2267: {'destination': 'vocab-travail', 'reason': '老师 nomme la profession enseignante et le contexte d’études ; ce n’est pas un verbe.'}, 3026: {'destination': 'vocab-voyage', 'reason': '钱包 est le portefeuille, objet personnel transporté ; ce nom n’est pas une action.'}, 3896: {'destination': 'vocab-travail', 'reason': '屏幕 est l’écran d’un appareil numérique, pas une action.'}, 3897: {'destination': 'vocab-travail', 'reason': '信号 est le signal technique, pas une action.'}, 2433: {'destination': 'vocab-personnes', 'reason': '意见 est l’avis dans les échanges entre personnes ; nom abstrait, pas action.'}, 2484: {'destination': 'vocab-personnes', 'reason': '关系 est la relation entre personnes, pas un geste ou une action.'}, 4620: {'destination': 'vocab-personnes', 'reason': '观点 est le point de vue exprimé dans un échange entre personnes, pas une action.'}, 4629: {'destination': 'vocab-personnes', 'reason': '论据 nomme un argument à l’appui d’un avis ; objet de discussion et non action.'}, 2936: {'destination': 'vocab-reperes', 'reason': '尺寸 désigne les dimensions : repère de mesure général et non objet réservé au travail.'}})
+
 SITUATION_DOMAIN_OVERRIDES = {22: {'destination': 'conversation',
       'reason': 'Réplique générale, conseil, stratégie ou image idiomatique lus dans la cible ; aucun '
                 'repas, trajet ou objet descriptif littéral n’est le sujet de l’entrée.'},

@@ -173,3 +173,13 @@ Le JSON joint donne toutes les décisions explicites, les avant/après, les cham
 Empreinte canonique inchangée de DECKS.fr : `8ba6854ad6e77063c9d3d02b9696f1cfa0bf009265bda3f37200a007ed820acf`.
 
 Reproduction : `python3 -B tools/maquette-guidee/classify_fr.py --check`. Aucun appel au builder ou mise en production n’a été fait par cet audit.
+
+
+## Amendement ciblé — carte 2969
+
+La carte `le plan` porte réellement `cn: 地图` et `en: the map`. Mon ancienne annotation citait à tort 计划 : la famille éditoriale est corrigée de Travail vers Voyage. Texte, sens chinois, aide `勒 普隆` et niveau source restent identiques. Cet ID ne fait pas partie des 700 canoniques protégés de l’extension. Les totaux de types et de classes lexicales ne changent pas ; cela ne prétend pas valider les autres placements.
+
+
+## Amendement ciblé des dix soutiens de situations
+
+Dix routages éditoriaux supplémentaires sont corrigés sur instruction du propriétaire, sans modification de source, de phonétique, de niveau source ou de type : mot de passe3076, cahier3892 et écran4270 vers Travail ; climatisation3877 et chauffage4386 vers Maison ; horaires3455 vers Repères ; sac3872 vers Voyage ; course4347 vers Loisirs ; invitation4356 vers Personnes ; défaut3366 vers Restaurant/achats. Les dix IDs sont hors des 700 canoniques protégés. Ce lot borné ne vaut pas validation des autres placements.

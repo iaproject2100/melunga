@@ -382,3 +382,7 @@ Ces trois familles décrivent la forme native et son usage source, pas une tradu
 | Total | 67 | 18 | 30 | 15 | 921 | 93 |
 
 La présence d’une famille à chaque niveau ne se déduit pas de cette table. Le builder ne doit pas remplir un thème vide avec une forme liée ou une phrase dupliquée. Codex porte la revue sémantique et pédagogique ; Claude vérifie uniquement les phonétiques. Les couleurs ont leur classe autonome `color`, et les formes adnominales coréennes entières portent leur condition d’usage avec un nom.
+
+## Correction ciblée du support sac
+
+`DECKS.ja[3291]` — かばん / le sac : `vocab-voyage`, avec raison inspectée dans la partition. Le mot entier, ses aides, son niveau source et son type lexical restent intacts. Hors des 140 mots et 560 usages protégés ; aucune phrase ni aucun droit déplacé.

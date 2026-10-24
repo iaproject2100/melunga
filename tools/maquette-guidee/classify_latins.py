@@ -493,6 +493,21 @@ def self_test(root, output):
         ("fr-it", 4066, "number", "reviewStatus", "reviewed"),
         ("fr-it", 4265, "number", "reviewStatus", "reviewed"),
     ]
+    # Whole nouns selected as extension supports retain a reviewed semantic
+    # family; adding a support must never silently reroute its canonical word.
+    editorial_cases.extend(
+        ("fr-en", index, "vocabulary", "lexicalFamilyOverride", family)
+        for index, family in (
+            (4317, "vocab-travail"), (4315, "vocab-travail"),
+            (3436, "vocab-travail"), (3225, "vocab-travail"),
+            (3069, "vocab-travail"), (4332, "vocab-travail"),
+            (3938, "vocab-voyage"), (3589, "vocab-maison"),
+            (3943, "vocab-maison"), (4390, "vocab-loisirs"),
+            (4388, "vocab-loisirs"),
+            (3779, "vocab-adverbes"), (3231, "vocab-reperes"),
+            (3558, "vocab-travail"), (3553, "vocab-personnes"),
+        )
+    )
     for pair, index, content_type, field, expected in editorial_cases:
         assignment = output[pair + ".json"]["assignments"][index]
         assert assignment["contentType"] == content_type and assignment[field] == expected, (pair, index, assignment)

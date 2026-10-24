@@ -28,7 +28,7 @@ Les comparaisons de forme utilisent une normalisation temporaire ; aucun texte n
 
 | Couple | Adjectifs | Couleurs | Prépositions | Adverbes | Autres mots | Classe incertaine |
 |---|---:|---:|---:|---:|---:|---:|
-| fr-en | 57 | 16 | 12 | 49 | 1112 | 35 |
+| fr-en | 57 | 16 | 12 | 50 | 1112 | 34 |
 | fr-es | 18 | 15 | 0 | 65 | 281 | 1 |
 | fr-it | 62 | 15 | 11 | 45 | 1135 | 14 |
 
@@ -47,7 +47,7 @@ La passe éditoriale par indices de corrections-themes/latins.json remplace les 
 - en[3463] « an X-ray » / « une radio » est la seule exception sourceTemplateException=true : le X de X-ray appartient au nom entier. Cette carte précise est reviewed ; son ancien marqueur template reste intact dans la source. La classe other est également vérifiée pour cette exception.
 - Les repères interrogatifs isolés where/dove sans point d’interrogation restent lexicaux ; une question autonome complète garde le type utterance.
 
-**244 cartes** restent à relire pour leur autonomie et **50 mots** pour leur classe lexicale. Les cartes hors passe éditoriale restent rule-based-candidate ; reviewed signifie une décision de sens de Codex, pas une relecture native ou une validation phonétique.
+**244 cartes** restent à relire pour leur autonomie et **49 mots** pour leur classe lexicale. Les cartes hors passe éditoriale restent rule-based-candidate ; reviewed signifie une décision de sens de Codex, pas une relecture native ou une validation phonétique.
 
 Aucune préposition espagnole isolée n’a été reconnue par les règles actuelles. Cela signale un besoin d’examen/enrichissement, pas la preuve que toute la langue ou tout le catalogue en manque. Les faibles stocks d’adjectifs/adverbes isolés espagnols doivent aussi être examinés avant d’inventer des contenus. Aucune phrase ni phonétique n’est découpée pour remplir ces catégories.
 

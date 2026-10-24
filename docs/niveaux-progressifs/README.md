@@ -5,102 +5,129 @@ puis pratique en un clic sur mobile et ordinateur. Les quatre carrés ouvrent
 le menu. La page `melunga_deploy/parcours-niveaux.html` reste un aperçu distinct
 de l’application publiée sur melunga.com.
 
-## Du contenu supplémentaire, au-delà du classement
+## Les dix-huit pistes deviennent du contenu de pratique
 
-Les **32 115 cartes** désignent le catalogue d’origine conservé, pas un objectif
-figé. Deux lots de rédaction le complètent :
+Les **18 propositions recensées chez les concurrents** sont déclinées dans
+les sept couples : **126 rubriques supplémentaires**, avec **144 intentions
+apprenant par couple**, des répliques d’interlocuteur et des soutiens lexicaux.
+Elles s’ajoutent aux dix situations précédentes. Ensemble, les 28 situations
+proposent 224 intentions par couple, soit 1 568 positions de pratique.
 
-- Le premier apporte **140 entrées lexicales/numériques** : 134 mots et locutions,
-  six zéros manquants. Ses 139 aides nouvelles et une aide de mot entier reprise
-  restent identifiées séparément.
-- Le second apporte **454 phrases entières réellement rédigées**, parmi
-  560 positions de pratique. Les 106 autres positions réemploient 79 cartes
-  du catalogue et 27 anciens énoncés de conversation, sans prétendre les créer.
-- Dix nouveaux thèmes de huit phrases sont déclinés dans les sept couples :
-  **70 nouvelles rubriques**, chacune avec ses huit intentions au même niveau.
+Cette extension apporte réellement **803 phrases apprenant rédigées**,
+**53 mots rédigés** et **219 modèles reçus rédigés**.
+Les autres positions utilisent des sources entières préexistantes : un réemploi,
+un import ancien et une nouvelle rédaction sont comptés séparément.
 
-| Niveau | Nouveaux thèmes |
+| Niveau | Modules ajoutés par les dix-huit pistes |
 |---|---|
-| L2 | Repas : préférences et alternatives ; Numérique : accéder et rester en contact |
-| L3 | Hôtel : organiser son séjour ; Loisirs : choisir et organiser une sortie |
-| L4 | Transport : raconter un imprévu et repartir ; Études : raconter un apprentissage réussi |
-| L5 | Paiements : vérifier un problème et le régler ; Service client : obtenir et suivre une solution |
-| L6 | Invitations : poser une limite et expliquer son choix ; Sortie nature : gestes écologiques utiles |
+| L1 | Première visite : entrer et prendre congé ; Comprendre : faire ralentir et répéter |
+| L2 | Vêtements : choisir la bonne taille ; Santé : décrire une douleur simple ; En ville : trouver la gare ; Café : préciser une boisson |
+| L3 | Loisirs : goûts et préférences ; Compte : retrouver son accès ; Cours : demander une aide précise ; Sport : parler de ses habitudes |
+| L4 | Objets : raconter une perte et se faire aider ; Culture : raconter une sortie ; Logement : raconter une panne d’équipement |
+| L5 | Rendez-vous : déplacer une réservation ; Connexion : résoudre un problème numérique |
+| L8 | Réclamation : négocier avec tact ; Proches : préserver la relation en posant une limite |
+| L9 | Débat : répondre à une objection |
 
-Ces créations s’inspirent de 13 pages officielles Babbel, Busuu, Duolingo,
-Memrise et Pimsleur. Le dossier relie URL, idée observée et adaptation originale ;
-il ne recopie pas des cours et ne prétend pas mesurer leur efficacité comparée.
+Chaque module contient huit prises de parole entières au même niveau. Les mots
+et nombres isolés restent dans leurs rubriques dédiées. Chaque réponse à produire
+est comprise puis imitée avant sa mise en situation. Les questions et clôtures
+reçues sont visibles, écoutables et marquées comme paroles de l’autre ; elles
+ne sont jamais masquées ni comptées comme productions de l’apprenant.
+
+Les **259 usages reçus** ont des rôles et des listes `answerWith` explicites.
+Une question précède immédiatement le rappel de sa réponse préparée ; une clôture
+suit la réponse et déclare `answerWith: []`. Le module d’argumentation ajoute
+une objection et sa réponse. Les soutiens lexicaux ne sont pas des exercices
+supplémentaires dans la leçon de phrases et ne gonflent pas ses huit positions.
 
 ## Comptage sans gonflement
 
-| Périmètre | Entrées canoniques |
+| Périmètre | Entrées canoniques de pratique |
 |---|---:|
 | Catalogue historique intact | 32 115 |
-| Anciennes conversations reprises, premier lot | 43 |
-| Entrées lexicales/numériques rédigées | 140 |
-| Anciennes conversations reprises, second lot | 27 |
-| Phrases entières rédigées, second lot | 454 |
-| **Total dans l’aperçu** | **32 779** |
+| Anciennes conversations reprises avant les situations | 43 |
+| Premier lot lexical/numérique rédigé | 140 |
+| Anciennes conversations reprises dans les dix premières situations | 27 |
+| Phrases rédigées des dix premières situations | 454 |
+| Phrases apprenant rédigées par l’extension | 803 |
+| Imports de conversation supplémentaires, apprenant | 15 |
+| Nouveaux mots de soutien rédigés | 53 |
+| Imports lexicaux supplémentaires | 4 |
+| **Total de pratique dans l’aperçu** | **33 654** |
 
-Les 79 cartes catalogue utilisées dans les nouvelles situations existent déjà
-sur la première ligne : elles ne sont pas ajoutées une seconde fois.
-Les révisions et les 31 références de réemploi en contexte ne créent pas de cartes.
-Les banques sont des copies de transport, avec une seule identité canonique.
+Les modèles réservés à l’écoute de l’interlocuteur sont à part : ils ne sont
+ni ajoutés au total de production, ni utilisés pour gonfler le compteur de leçon.
+Les copies de transport, révisions et références de contexte n’ajoutent aucune carte.
 
-Le total comprend **31 917 entrées dans les thèmes visibles** et
-**862 modèles incomplets/cas incertains en réserve**, conservés sans exercice de production.
-Il y a **1 502 thèmes affichés d’au moins six concepts** et aucun thème
-retenu hors écran pour manque de contenu. Les nouveaux thèmes en ont huit.
+Le total comprend **32 792 entrées dans les thèmes visibles**
+et **862 modèles incomplets/cas incertains en réserve**.
+Il y a **1 636 thèmes affichés**, tous d’au moins six concepts,
+et **0 thème retenu hors écran pour manque de contenu**.
 
-## Progression et conservation
+## Progression, cohérence et limites
 
-Les situations contiennent des prises de parole entières ; vocabulaire, couleurs,
-adjectifs et nombres sont séparés. Les adjectifs commencent par grand/petit,
-puis les propriétés physiques et émotions ; les formes attestées restent groupées.
-Les nombres commencent par 0–10, puis les composés, ordinaux, fractions et quantités.
+Les dix-huit propositions sont reliées à leurs objectifs, huit intentions,
+répliques reçues et soutiens dans la [matrice de couverture](enrichissement-situations/extension-pistes/matrice-couverture.md).
+Les situations passent des formules utiles en L1 aux besoins pratiques, routines,
+récits, résolutions de problèmes, réclamations et réponses à une objection.
+Les formulations sont adaptées à chaque langue ; un changement de registre,
+de temps ou de construction ne se déguise pas en simple mot remplacé.
 
 Dans les anciennes rubriques, les révisions précèdent les nouveautés. Dans les
-dix nouvelles situations, les phrases suivent **01→08 du plan**, primaires et
-réemplois mêlés, pour passer du besoin à la résolution. Chaque phrase est
-comprise, imitée puis rappelée ici : un réemploi ne suppose pas un acquis.
-Les mots et les phonétiques ne sont jamais fabriqués par découpage ou collage.
+28 situations supplémentaires, l’ordre global suit **01→08 du plan**, sources
+réemployées et nouvelles premières rencontres mêlées. Le réemploi ne suppose
+pas que la personne connaisse déjà la phrase. Les prononciations sont rédigées
+ou reprises entières ; elles ne sont pas fabriquées par collage.
 
-Les **110 277 champs originaux** sont conservés sans écart. Les 1 274 cartes
-avec décision explicite ne représentent pas toute la revue : **30 841 niveaux source**
-restent sans relecture individuelle. La densité d’une rubrique ne valide pas
-sa progressivité ; les prérequis non clos restent nommés dans le compte rendu.
+Les soutiens sont aussi vérifiés par famille : les noms hérités d’un classement
+« actions » par défaut sont réaffectés selon leur sens, sans retoucher leurs
+champs source. « Le plan » au sens de carte géographique rejoint ainsi le voyage,
+les climatiseurs la maison et les horaires les repères temporels.
 
-## Claude : la phonétique uniquement
+Le contrôle additif compare aux fichiers du commit antérieur `30ef75b` :
+**32 779 anciens tuples et sources** conservés, **700 premiers emplacements protégés**
+et **70 thèmes de situation initiaux** inchangés.
+Les **110 277 champs du catalogue original** restent identiques.
 
-Codex assume les sens, les formes, les rôles, le classement, les niveaux et les
-préparations. Claude vérifie uniquement la méthode phonétique.
+Cela ne constitue pas une relecture individuelle de chaque niveau source :
+**1 420 cartes ont une décision explicite**,
+et **30 695 placements source restent
+sans relecture individuelle**. Densité, copie exacte et ordre prévu ne démontrent
+ni acquisition ni progressivité globale de tout le catalogue ; les prérequis
+non clos restent exposés dans le compte rendu.
 
-- [139 aides lexicales nouvelles et une aide reprise](corrections-themes/enrichissements-rediges.md).
-- [454 aides de phrases entières nouvelles](enrichissement-situations/nouvelles-phrases-a-relire.md).
+## Claude vérifie uniquement la phonétique
+
+Codex assume les sens, formulations, rôles, thèmes, niveaux et préparations.
+Claude vérifie les aides selon la méthode Melunga.
+
+- [Tableau des formes entières de situations, répliques reçues et nouveaux soutiens](enrichissement-situations/nouvelles-phrases-a-relire.md).
+- [139 aides nouvelles du premier lot lexical et une aide entière reprise](corrections-themes/enrichissements-rediges.md).
 - [Message prêt pour Claude](message-pour-claude.md).
 
-Au total, **593 aides entières nouvelles** attendent son contrôle. La copie exacte
-d’une aide ancienne ne prouve pas sa conformité à la méthode.
+Au total, **1 668 aides entières nouvelles** attendent son contrôle.
+La conservation d’une aide ancienne ne prouve pas sa conformité à la méthode.
+Pour zh→fr, les aides restent destinées au lecteur sinophone et écrites en caractères.
 
-## Dossiers et contrôles
+## Sources et contrôles
 
-- [Dix thèmes et source des idées](enrichissement-situations/README.md),
-  [traçabilité des sources](enrichissement-situations/tracabilite-sources.json),
-  [contrat de conservation et réemploi](enrichissement-situations/CONTRAT.md).
-- [Premières corrections de thèmes](corrections-themes/README.md),
-  [politique mots/phrases](politique-vocabulaire-phrases.md),
-  [cadre pédagogique](README-pedagogique.md), [compte rendu chiffré](classement.md).
-- [Contrôle indépendant](verification-independante.md) et
-  [contrôle navigateur](verification-navigateur.json), liés aux fichiers exacts contrôlés.
+Les idées viennent de 13 pages officielles Babbel, Busuu, Duolingo, Memrise et
+Pimsleur. Le dossier relie URL, idée observée et adaptation originale ; il ne
+recopie pas leurs cours et ne prétend pas comparer leur efficacité pédagogique.
+
+- [Extension des dix-huit pistes](enrichissement-situations/extension-pistes/README.md),
+  [contrat reçus et soutiens](enrichissement-situations/extension-pistes/CONTRAT.md).
+- [Dix premières situations](enrichissement-situations/README.md),
+  [traçabilité initiale](enrichissement-situations/tracabilite-sources.json).
+- [Compte rendu chiffré](classement.md), [contrôle indépendant](verification-independante.md)
+  et [contrôle navigateur](verification-navigateur.md), liés aux fichiers exacts contrôlés.
 
 Les niveaux éditoriaux n’écrivent jamais le `lv` original. `isFreeCard` teste
-`lv === 1` : changer ce champ déplacerait la frontière gratuit/payant.
-Les 2 134 identités source L1 sont conservées ; prix, abonnements, comptes et
-droits de production restent inchangés.
-
-Aucune fusion ou publication sur melunga.com n’est autorisée par ce dossier.
-Les tests navigateur sont locaux et utilisent des tailles d’écran simulées,
-pas un téléphone physique ni un parcours sur l’hébergement Netlify.
+`lv === 1` : modifier ce champ déplacerait la frontière gratuit/payant.
+Les **2 134 identités source L1**, prix, abonnements et droits de production
+restent inchangés. Aucune fusion ni publication sur melunga.com n’est autorisée
+par ce dossier. Les tests navigateur sont locaux avec tailles d’écran simulées,
+pas un téléphone physique ni un parcours joué sur Netlify.
 
 ## Reproduire
 

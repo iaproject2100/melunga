@@ -71,15 +71,24 @@ def main():
     if args.index_only:
         print(json.dumps({"searchIndex": str(index_path.relative_to(ROOT)), "sha256": content.file_sha(index_path)}))
         return
-    _plan, _intents, plan_hash = content.read_plan(ROOT)
+    plan, intents, plan_hash = content.read_plan(ROOT)
     pair_files = []
     for pair in PAIRS:
         path = directory / f"{pair}.json"
         content.ensure(path.is_file(), f"Language ledger not ready: {pair}")
         pair_files.append({"pair": pair, "path": str(path.relative_to(ROOT)), "sha256": content.file_sha(path)})
-    catalogue = {"version": 1, "status": "ready-for-preview", "publicationApproved": False,
+    base_path = directory / "plan-base10.json"
+    extension_files = []
+    if base_path.exists() and len(plan["themes"]) > len(json.loads(base_path.read_text())["themes"]):
+        for pair in PAIRS:
+            path = directory / f"extension-{pair}.json"
+            content.ensure(path.is_file(), f"Extension language ledger not ready: {pair}")
+            extension_files.append({"pair": pair, "path": str(path.relative_to(ROOT)), "sha256": content.file_sha(path)})
+    catalogue = {"version": 2 if extension_files else 1, "status": "ready-for-preview", "publicationApproved": False,
                  "planSha256": plan_hash, "pairFiles": pair_files,
                  "searchIndexPath": str(index_path.relative_to(ROOT)), "searchIndexSha256": content.file_sha(index_path)}
+    if extension_files:
+        catalogue.update(basePlanSha256=content.file_sha(base_path), extensionPairFiles=extension_files)
     # Validate everything before activating the frozen catalogue. The temporary
     # validation path is private documentation, never a runtime publication.
     catalogue_path = directory / "catalogue.json"
@@ -98,7 +107,7 @@ def main():
             else:
                 catalogue_path.write_bytes(previous)
             raise
-    print(json.dumps({"pairs": len(pair_files), "candidates": 80 * len(pair_files), "planSha256": plan_hash,
+    print(json.dumps({"pairs": len(pair_files), "candidates": len(intents) * len(pair_files), "receivedUsages": len(plan.get("receivedTurnsDefs", [])) * len(pair_files), "planSha256": plan_hash,
                       "catalogueSha256": content.file_sha(catalogue_path)}, ensure_ascii=False))
 
 

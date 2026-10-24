@@ -198,7 +198,7 @@ def check_pack(pack):
         require(key not in plan_map and theme["visualId"] not in visual_cells, "A new situation duplicates an old theme or photo")
         plan_map[key] = {**theme, "id": theme["themeId"], "optional": False, "isTemplateCollection": False}
         visual_cells[theme["visualId"]] = key
-    require(len(visual_cells) == 250 + (10 if pack["situations"] else 0), "Independent visual definition coverage differs")
+    require(len(visual_cells) == 250 + (len(pack["situations"]["plan"]["themes"]) if pack["situations"] else 0), "Independent visual definition coverage differs")
     semantic_map, semantic_counts = {}, Counter()
     exceptions = {
         ("fr-en", 3463), ("fr-ja", 2985), ("fr-ko", 2138),
@@ -387,10 +387,24 @@ def check_pack(pack):
     if pack["situations"]:
         expected_authored = sum(entry["authored"] for entry in situation_resolution["newEntries"].values())
         expected_additional = {"planSha256": pack["situations"]["freeze"]["planSha256"],
-                               "themeCount": 10, "intentsPerTheme": 8, "candidatePositions": 560,
+                               "themeCount": len(pack["situations"]["plan"]["themes"]), "intentsPerTheme": 8,
+                               "candidatePositions": len(pack["situations"]["items"]),
                                "newAuthoredUtterances": expected_authored,
                                "existingConversationImports": len(situation_resolution["newEntries"]) - expected_authored,
-                               "existingSourcePositions": 560 - expected_authored}
+                               "existingSourcePositions": len(pack["situations"]["items"]) - expected_authored}
+        if pack["situations"]["freeze"]["version"] == 2:
+            supports = situation_resolution["newSupportEntries"]
+            heard = situation_resolution["heardEntries"]
+            base_positions = 10 * 8 * len(PAIR_LANGUAGES)
+            expected_additional.update(
+                receivedUsages=len(pack["situations"]["receivedItems"]),
+                receivedCreated=sum(row["authored"] for row in heard.values()),
+                receivedExistingConversationImports=sum(not row["authored"] for row in heard.values()),
+                lexicalSupportUses=len(pack["situations"]["lexicalItems"]),
+                lexicalSupportCreated=sum(row["authored"] for row in supports.values()),
+                lexicalSupportExistingConversationImports=sum(not row["authored"] for row in supports.values()),
+                baseCandidatePositions=base_positions,
+                extensionCandidatePositions=len(pack["situations"]["items"]) - base_positions)
         require(manifest.get("additionalSituations") == expected_additional,
                 "Manifest falsely counts situation reuse, imports or intent positions as new authored phrases")
     else:
@@ -412,6 +426,13 @@ def check_pack(pack):
                     == primary_lookup[key], "A transport copy differs from its canonical whole source")
             bank_map[key] = copied
 
+    # Source-exact lexical supports are transport uses, never phrase steps.
+    for uses in situation_resolution.get("supportUsesByTheme", {}).values():
+        for use in uses:
+            key = (use["item"]["pair"], use["canonicalId"])
+            require(key in bank_map, "An explicit lexical support has no checked transport copy")
+            used_review_banks.add(key)
+
     # Local preparation and transport references never create another primary.
     canonical_in_cell = {
         key: {phrase["id"]: phrase for phrase in ([p for theme in cell["themes"] + cell.get("heldThemes", []) for p in theme["phrases"]] + cell["reserve"])}
@@ -425,7 +446,7 @@ def check_pack(pack):
     local_support, local_orders, all_phrases = {}, [], {}
     active_count = reserved_count = situation_step_count = lexical_step_count = 0
     held_count = held_theme_count = review_reference_count = visible_theme_count = concept_count = 0
-    context_reference_count = new_situation_fields = 0
+    context_reference_count = new_situation_fields = new_support_fields = received_step_count = 0
     authored_seen, authored_fields = set(), 0
     for pair_manifest in manifest["pairs"]:
         pair = pair_manifest["id"]
@@ -567,21 +588,28 @@ def check_pack(pack):
                             require(theme["domain"] == "nombres" and phrase["numberOrder"] == item["numberOrder"], "New zero/number order differs")
                         authored_seen.add(key)
                         authored_pair_count += 1
-                    elif source["collection"] in {"situation-authored", "situation-conversation"}:
-                        expected = situation_resolution["newEntries"].get((pair, phrase["id"]))
+                    elif source["collection"] in {"situation-authored", "situation-conversation", "situation-support-authored", "situation-support-conversation"}:
+                        is_support_source = source["collection"].startswith("situation-support-")
+                        expected = situation_resolution["newSupportEntries" if is_support_source else "newEntries"].get((pair, phrase["id"]))
                         require(expected is not None, "Undeclared new situation canonical source")
                         item = expected["item"]
-                        require(source == expected["source"] and phrase["contentType"] == "utterance"
+                        require(source == expected["source"] and phrase["contentType"] == item["contentType"]
                                 and phrase.get("isTemplate") is False and phrase.get("sourceDeclaredTemplate") is False,
                                 "New situation source provenance or complete-utterance status differs")
                         for field in ("study", "native", "phon", "reading"):
                             require((field in phrase) == (field in item) and phrase.get(field) == item.get(field),
                                     "New situation text, reading or phonetic was changed or assembled")
                             if field in item:
-                                new_situation_fields += 1
-                        require(number == item["proposedLevel"] and theme["domain"] == pack["situations"]["intents"][item["intentId"]][0]["domain"]
+                                if is_support_source:
+                                    new_support_fields += 1
+                                else:
+                                    new_situation_fields += 1
+                        expected_domain = item["lexicalFamily"] if is_support_source else pack["situations"]["intents"][item["intentId"]][0]["domain"]
+                        require(number == item["proposedLevel"] and theme["domain"] == expected_domain
                                 and phrase["phoneticReviewStatus"] == item["phoneticReviewStatus"],
-                                "New situation canonical changed its placement or review status")
+                                "New situation/support canonical changed its placement or review status")
+                        if is_support_source and item["contentType"] == "vocabulary":
+                            require(phrase["lexicalClass"] == item["lexicalClass"], "New whole support lexical class changed")
                         new_situation_pair_count += 1
                     else:
                         require(source["collection"] == "conversation" and source["kind"] == "conversation-variant", "Unknown source collection")
@@ -732,6 +760,14 @@ def check_pack(pack):
                             lexical_step_count += 1
                         require(not ({"study", "native", "phon", "reading"} & set(step)), "A step embeds a second text or phonetic instead of a canonical reference")
                         target = step.get("utterance")
+                        if step["kind"] == "receive":
+                            # resolve_sources already verified every role, answer,
+                            # anchor, actual preparation step and heard-only model.
+                            require(situation_uses and any(use["item"]["id"] == step.get("receivedId")
+                                    for use in situation_resolution["receivedUsesByTheme"].get((pair, number, theme["id"]), [])),
+                                    "A received step escaped its independently checked usage")
+                            received_step_count += 1
+                            continue
                         is_preparation = step.get("isPreparation") is True
                         if is_preparation:
                             preparation_steps += 1
@@ -867,6 +903,8 @@ def check_pack(pack):
                              "activePhrases": presented_count, "reservedPhrases": pair_reserved_count,
                              "authoredEntries": authored_pair_count, "newSituationEntries": new_situation_pair_count,
                              "counts": dict(pair_types), "lexicalClassCounts": dict(pair_lexical_types)})
+    require(received_step_count == situation_resolution.get("receivedUsageCount", 0),
+            "A received usage is missing from the step count or counted twice")
     require(imports_seen == set(runtime_imports), "A declared enrichment was omitted")
     require(authored_seen == set(authored_map), "A declared whole-entry draft was omitted")
     require(used_review_banks == set(bank_map), "The transport bank includes unused, unvalidated or unreferenced copies")
@@ -884,6 +922,17 @@ def check_pack(pack):
         ("fr-es", 3894, "vocabulary", "vocab-prepositions"),
         ("fr-en", 4089, "vocabulary", "vocab-loisirs"),
         ("fr-en", 4076, "vocabulary", "vocab-restaurant"),
+        ("zh-fr", 2969, "vocabulary", "vocab-voyage"),
+        ("zh-fr", 3076, "vocabulary", "vocab-travail"),
+        ("zh-fr", 3892, "vocabulary", "vocab-travail"),
+        ("zh-fr", 4270, "vocabulary", "vocab-travail"),
+        ("zh-fr", 3877, "vocabulary", "vocab-maison"),
+        ("zh-fr", 4386, "vocabulary", "vocab-maison"),
+        ("zh-fr", 3455, "vocabulary", "vocab-reperes"),
+        ("zh-fr", 3872, "vocabulary", "vocab-voyage"),
+        ("zh-fr", 4347, "vocabulary", "vocab-loisirs"),
+        ("zh-fr", 4356, "vocabulary", "vocab-personnes"),
+        ("zh-fr", 3366, "vocabulary", "vocab-restaurant"),
     ):
         identity = f"catalogue:{PAIR_LANGUAGES[pair][1]}:{index}"
         phrase = primary_lookup[(pair, identity)]
@@ -935,7 +984,7 @@ def check_pack(pack):
                     structural_late.append(late[-1])
     for (pair, identity), phrase in all_phrases.items():
         source = phrase["source"]
-        if source["collection"] in {"conversation", "editorial-authored", "situation-authored", "situation-conversation"}:
+        if source["collection"] in {"conversation", "editorial-authored", "situation-authored", "situation-conversation", "situation-support-authored", "situation-support-conversation"}:
             require(not phrase.get("reuseVocabularyIds"), "Imported whole variant has undeclared lexical prerequisites")
             continue
         index = source["sourceIndex"]
@@ -970,7 +1019,7 @@ def check_pack(pack):
             "newEditorialWholeEntries": len(authored_seen), "newEditorialFieldsCompared": authored_fields,
             "newWholeEntryPhoneticsPendingClaude": len(authored_seen) - authored_reused_phonetics,
             "wholeHeadwordPhoneticsReused": authored_reused_phonetics,
-            "additionalSituationThemesPerPair": 10 if pack["situations"] else 0,
+            "additionalSituationThemesPerPair": len(pack["situations"]["plan"]["themes"]) if pack["situations"] else 0,
             "situationCandidatePositions": len(pack["situations"]["items"]) if pack["situations"] else 0,
             "situationCandidateKinds": pack["situations"].get("inputKindCounts", {}) if pack["situations"] else {},
             "situationSourceFieldsCompared": pack["situations"]["sourceFieldsCompared"] if pack["situations"] else 0,
@@ -978,6 +1027,18 @@ def check_pack(pack):
             "newSituationAuthoredUtterances": sum(item["authored"] for item in situation_resolution["newEntries"].values()),
             "newSituationExistingConversationImports": sum(not item["authored"] for item in situation_resolution["newEntries"].values()),
             "newSituationWholeFieldsCompared": new_situation_fields,
+            "newSupportWholeFieldsCompared": new_support_fields,
+            "newSupportAuthoredEntries": sum(row["authored"] for row in situation_resolution.get("newSupportEntries", {}).values()),
+            "newSupportExistingConversationImports": sum(not row["authored"] for row in situation_resolution.get("newSupportEntries", {}).values()),
+            "lexicalSupportUses": situation_resolution.get("lexicalSupportUses", 0),
+            "receivedUsages": situation_resolution.get("receivedUsageCount", 0),
+            "receivedModels": situation_resolution.get("receivedModels", 0),
+            "receivedStepsExcludedFromProduction": received_step_count,
+            "newReceivedWholeFieldsCompared": sum(sum(field in row["item"] for field in ("study", "native", "phon", "reading"))
+                                                    for row in situation_resolution.get("heardEntries", {}).values()),
+            "receivedAuthoredModels": sum(row["authored"] for row in situation_resolution.get("heardEntries", {}).values()),
+            "receivedExistingConversationModels": sum(not row["authored"] for row in situation_resolution.get("heardEntries", {}).values()),
+            "previousCanonicalSourcesIntact": situation_resolution.get("previousCanonicalSourcesIntact", 0),
             "contextPresentationReferences": context_reference_count,
             "situationCatalogueIntroductionDecisions": len(situation_introductions),
             "allVisibleThemesAtLeastSixConcepts": True,
@@ -1040,7 +1101,7 @@ def check_visuals(pack, required=False):
     require(registry is not None, "The visual registry is missing")
     require(len(registry["levels"]) == 10 and len(registry["vocabularyAtlases"]) == 5
             and len(registry["grammarAtlases"]) == 3 and len(registry["correctionAtlases"]) == 3
-            and len(registry.get("situationAtlases", [])) == (1 if pack["situations"] else 0),
+            and len(registry.get("situationAtlases", [])) == (3 if pack["situations"] and pack["situations"]["freeze"]["version"] == 2 else 1 if pack["situations"] else 0),
             "Registered atlas count differs from the frozen theme scope")
     records = registry["levels"] + registry["vocabularyAtlases"] + registry["grammarAtlases"] + registry["correctionAtlases"] + registry.get("situationAtlases", [])
     atlas_map, hashes, result = {}, set(), []
@@ -1094,7 +1155,7 @@ def check_visuals(pack, required=False):
         cell = (theme["asset"], theme["column"], theme["row"])
         require(cell not in cells, "Distinct themes reuse the same physical photo cell")
         cells.add(cell)
-    require(registered == set(expected) and len(registered) == 250 + (10 if pack["situations"] else 0), "Visual registry does not cover every independent situation/reserve/lexical slot")
+    require(registered == set(expected) and len(registered) == 250 + (len(pack["situations"]["plan"]["themes"]) if pack["situations"] else 0), "Visual registry does not cover every independent situation/reserve/lexical slot")
     pending = any(item["status"] == "pending" for item in result)
     return {"status": "pending" if pending else "all-registered-atlases-present" if pack["situations"] else "all-twenty-one-atlases-present", "atlases": result,
             "distinctAssetCells": len(cells), "registryChecked": True,
@@ -1403,6 +1464,118 @@ def adversarial_checks(pack):
                           manifest_reuse_claimed_as_creation, level_context_count_inflated,
                           theme_old_source_claimed_as_authored, new_situation_groups_reversed,
                           new_situation_playback_order_reversed])
+    if pack.get("situations") and pack["situations"]["freeze"]["version"] == 2:
+        def interaction_theme(test_pack):
+            for cell in test_pack["cells"].values():
+                for theme in cell["themes"]:
+                    if theme.get("receivedTurns") and theme.get("lexicalSupports"):
+                        return cell, theme
+            raise VerificationError("Missing complete interaction fixture")
+
+        def question_step(test_pack):
+            _cell, theme = interaction_theme(test_pack)
+            for sequence in theme["sequences"]:
+                for index, step in enumerate(sequence["steps"]):
+                    if step["kind"] == "receive" and step.get("answerWith"):
+                        return theme, sequence, index, step
+            raise VerificationError("Missing prepared question fixture")
+
+        def received_marked_as_production(test_pack):
+            _theme, _sequence, _index, step = question_step(test_pack)
+            step["requiresProduction"] = True
+
+        def received_role_changed(test_pack):
+            _cell, theme = interaction_theme(test_pack)
+            theme["receivedTurns"][0]["role"] = {"fr": "Autre personne", "zh": "另一人"}
+
+        def closure_answer_list_omitted(test_pack):
+            _cell, theme = interaction_theme(test_pack)
+            closure = next(turn for turn in theme["receivedTurns"] if "afterIntentId" in turn)
+            closure.pop("answerWith")
+
+        def response_moved_before_preparation(test_pack):
+            _theme, sequence, index, step = question_step(test_pack)
+            # Keep cue/answer adjacency while moving both before real learning.
+            answer = sequence["steps"][index + 1]
+            del sequence["steps"][index:index + 2]
+            sequence["steps"][:0] = [step, answer]
+
+        def received_preparation_step_missing(test_pack):
+            _theme, _sequence, _index, step = question_step(test_pack)
+            target = next(iter(step["preparedAnswerSteps"]))
+            step["preparedAnswerSteps"][target]["understoodInStep"] = "absent-preparation-step"
+
+        def heard_model_phonetic_changed(test_pack):
+            for bank in test_pack["repertoires"].values():
+                model = next((row for row in bank.get("receivedModels", [])
+                              if row["source"]["collection"].startswith("situation-received-")), None)
+                if model:
+                    model["phon"] += " altered"
+                    return
+            raise VerificationError("Missing newly authored heard-only model fixture")
+
+        def received_counted_as_learner_phrase(test_pack):
+            _theme, sequence, _index, step = question_step(test_pack)
+            sequence["phraseIds"].append(step["utterance"])
+
+        def lexical_support_wrong_family(test_pack):
+            item = next(iter(test_pack["situations"]["lexicalItems"].values()))
+            item["lexicalFamily"] = "vocab-maison" if item["lexicalFamily"] != "vocab-maison" else "vocab-voyage"
+
+        def lexical_support_future_first_encounter(test_pack):
+            cell, theme = interaction_theme(test_pack)
+            theme["lexicalSupports"][0]["firstEditorialLevel"] = cell["level"] + 1
+
+        def protected_old_model_moved(test_pack):
+            protected = set(test_pack["situations"]["baseline"]["protectedCanonicalIds"])
+            for (pair, level), cell in test_pack["cells"].items():
+                for theme in cell["themes"]:
+                    for index, phrase in enumerate(theme["phrases"]):
+                        if phrase["id"] not in protected or phrase["source"]["collection"] != "editorial-authored":
+                            continue
+                        for (other_pair, other_level), other_cell in test_pack["cells"].items():
+                            if pair != other_pair or level == other_level:
+                                continue
+                            target = next((row for row in other_cell["themes"] + other_cell.get("heldThemes", [])
+                                           if row["domain"] == theme["domain"]), None)
+                            if target:
+                                moved = theme["phrases"].pop(index)
+                                moved["editorialLevel"] = other_level
+                                moved["placement"]["themeId"] = target["id"]
+                                target["phrases"].append(moved)
+                                return
+            raise VerificationError("Missing movable protected old whole-entry fixture")
+
+        def original_source_speaker_forged(test_pack):
+            data = test_pack["situations"]
+            for item in data["allItems"].values():
+                if item["kind"] != "conversation-whole-entry":
+                    continue
+                source = item["source"]
+                original = data["archiveRecords"][item["pair"]][(Path(source["path"]).name, source["jsonPointer"])][0]
+                if original.get("speaker") in {"A", "B"}:
+                    item["sourceRole"] = {"speaker": "B" if original["speaker"] == "A" else "A"}
+                    return
+            raise VerificationError("Missing original dialogue-speaker fixture")
+
+        def productive_reuse_review_status_forged(test_pack):
+            data = test_pack["situations"]
+            referenced = {row["source"].get("candidateId") for row in data["allItems"].values()}
+            item = next(row for row in data["items"].values()
+                        if row["kind"] == "editorial-authored-whole-entry" and row["id"] not in referenced)
+            # Reuse an already present whole model without changing its tuple.
+            # The refusal must concern the false status, not a later omission.
+            canonical_id = test_pack["situationResolution"]["resolved"][item["id"]]
+            item.update(kind="candidate-reference", source={"canonicalId": canonical_id},
+                        phoneticReviewStatus="existing-verbatim")
+            test_pack["adversarialExpectedReason"] = "phonetic review status"
+
+        mutations.extend([received_marked_as_production, received_role_changed, closure_answer_list_omitted,
+                          response_moved_before_preparation, received_preparation_step_missing,
+                          heard_model_phonetic_changed, received_counted_as_learner_phrase,
+                          lexical_support_wrong_family, lexical_support_future_first_encounter,
+                          protected_old_model_moved, original_source_speaker_forged,
+                          productive_reuse_review_status_forged])
     results = []
     for mutation in mutations:
         changed = copy.deepcopy(pack)
@@ -1410,6 +1583,9 @@ def adversarial_checks(pack):
         try:
             check_pack(changed)
         except VerificationError as error:
+            if changed.get("adversarialExpectedReason"):
+                require(changed["adversarialExpectedReason"] in str(error),
+                        "The forged review status was rejected for another reason: " + str(error))
             results.append({"fault": mutation.__name__, "rejected": True, "reason": str(error)})
         else:
             raise VerificationError("Adversarial fault was accepted: " + mutation.__name__)
@@ -1432,12 +1608,14 @@ def protected_files(root, base_ref):
 def markdown(report):
     c = report["checks"]
     source_types = c["sourceContentTypeCounts"]
-    total_canonical = c["catalogueCardsRetainedExactlyOnce"] + c["importedWholePhrases"] + c["newEditorialWholeEntries"] + c["newSituationAuthoredUtterances"] + c["newSituationExistingConversationImports"]
+    total_canonical = (c["catalogueCardsRetainedExactlyOnce"] + c["importedWholePhrases"] + c["newEditorialWholeEntries"]
+                       + c["newSituationAuthoredUtterances"] + c["newSituationExistingConversationImports"]
+                       + c["newSupportAuthoredEntries"] + c["newSupportExistingConversationImports"])
     lines = [
         "# Vérification indépendante — sources, progression et densité", "",
         "Ce lecteur ne charge aucun générateur. Il relit le catalogue réel, les partitions sémantiques, les overlays, les sources entières nouvelles, les 70 cellules et les sept banques de révision. Il ne répare aucune donnée et n’approuve aucune publication.", "",
         "## Conservation et provenance", "",
-        "| Couple | Catalogue exact | Imports L1 | Lot lexical rédigé | Ajouts de situation | Hors réserve | Réserve | L1 historique conservé |",
+        "| Couple | Catalogue exact | Imports L1 | Lot lexical rédigé | Ajouts situations et soutiens | Hors réserve | Réserve | L1 historique conservé |",
         "|---|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for pair in report["pairs"]:
@@ -1451,8 +1629,9 @@ def markdown(report):
     ]
     if c["situationCandidatePositions"]:
         lines += [
-            f"Le lot de situations remplit **{c['situationCandidatePositions']} positions** dans dix thèmes communs, huit positions par thème et par couple. Il ajoute réellement **{c['newSituationAuthoredUtterances']} phrases rédigées** avec aides pending-Claude et **{c['newSituationExistingConversationImports']} phrases anciennes importées** ; les réemplois du catalogue et les références à un candidat ne sont pas comptés comme des créations. **{c['situationSourceFieldsCompared']} champs de réemploi** et **{c['newSituationWholeFieldsCompared']} champs d’ajouts** sont comparés aux objets entiers. L’index de recherche est reconstruit depuis **70 parents de conversation** immuables, sans charger le générateur.", "",
+            f"Le lot de situations remplit **{c['situationCandidatePositions']} positions** dans **{c['additionalSituationThemesPerPair']} thèmes communs**, huit positions par thème et par couple. Il ajoute réellement **{c['newSituationAuthoredUtterances']} phrases rédigées** avec aides pending-Claude et **{c['newSituationExistingConversationImports']} phrases anciennes importées** ; les réemplois du catalogue et les références à un candidat ne sont pas comptés comme des créations. **{c['situationSourceFieldsCompared']} champs de réemploi** et **{c['newSituationWholeFieldsCompared']} champs d’ajouts** sont comparés aux objets entiers. L’index de recherche est reconstruit depuis **70 parents de conversation** immuables, sans charger le générateur.", "",
             f"Les **{c['contextPresentationReferences']} références contextuelles** pointent vers un seul canonique existant, au même niveau ou à un niveau antérieur. Leur intention est reliée au plan et leurs champs restent entiers. Elles utilisent isContextReuse et restent distinctes des révisions strictement antérieures. Dans chaque nouveau thème, les huit intentions suivent globalement l’ordre01→08, réemplois contextuels et primaires mêlés : ni une confirmation tardive ni un accord ne passe devant le problème initial. **{c['situationCatalogueIntroductionDecisions']} décisions du nouveau lot** introduisent explicitement un canonique de catalogue plus tôt, sans toucher son lv ni la frontière d’accès.", "",
+            f"Les **{c['lexicalSupportUses']} soutiens lexicaux** restent autonomes dans leur famille et hors des étapes de phrase ; **{c['newSupportAuthoredEntries']} mots rédigés** et **{c['newSupportExistingConversationImports']} mots importés** sont comparés par champs entiers. Les **{c['receivedUsages']} usages reçus / {c['receivedModels']} modèles** ont leurs rôles, réponses préparées et clôtures explicites ; leurs **{c['receivedStepsExcludedFromProduction']} étapes** sont exclues de la production et du progrès. Les **{c['receivedAuthoredModels']} modèles entendus rédigés** et **{c['receivedExistingConversationModels']} modèles entendus importés** sont comptés séparément du catalogue canonique de production.", "",
             "Les intentions de dépendance de ces situations restent prévues : ce contrôle ne démontre ni acquisition, ni fermeture linguistique globale, ni conformité des nouvelles phonétiques à la méthode.", "",
         ]
     for filename, count in sorted(c["introductionCounts"].items()):
@@ -1463,7 +1642,7 @@ def markdown(report):
         "", "Les classes spécialisées ont priorité sur les familles générales. Une famille fonctionnelle de relations peut aussi contenir un groupe locatif entier ou un localisateur chinois de classe other, sans le présenter comme une préposition française. Les régressions Saludos a tu familia→Saluer et Salirse con la suya→lexique Actions sont vérifiées séparément des heuristiques.",
         "", "## Densité réelle et reprises", "",
         f"**{c['visibleThemes']} thèmes visibles** ont chacun au moins six concepts mesurés à partir de leurs sources. **{c['heldThemes']} thèmes / {c['heldCanonicalPhrases']} cartes** sont conservés en attente sans entraînement ; **{c['visibleCanonicalPhrases']:,} cartes canoniques** sont visibles. Le drapeau require-no-held exige zéro contenu en attente.",
-        "", f"Les **{c['reviewPresentationReferences']} révisions présentées** sont strictement postérieures à leur première rencontre, dans la même famille et le même type. Elles correspondent à **{c['reviewTransportCopies']} copies de transport uniques**, marquées referenceOnly et liées à leur emplacement canonique réel. Chaque copie, tous ses champs et sa provenance correspondent à cet original. Les compteurs newCount, reviewCount, presentedCount et pedagogicalConceptCount sont recalculés.",
+        "", f"Les **{c['reviewPresentationReferences']} révisions présentées** sont strictement postérieures à leur première rencontre, dans la même famille et le même type. Le transport commun aux révisions, réemplois contextuels et soutiens contient **{c['reviewTransportCopies']} copies uniques**, marquées referenceOnly et liées à leur emplacement canonique réel. Chaque copie, tous ses champs et sa provenance correspondent à cet original. Les compteurs newCount, reviewCount, presentedCount et pedagogicalConceptCount sont recalculés.",
         "", "Un concept explicitement lié dans les décisions ou le master garde exactement cet identifiant. Seul l’alias éditorial déclaré leger/léger est rapproché pour compter et trier les variantes, sans changer les identifiants ni aucun texte/phonétique source. À défaut, le couple étudié/sens exact sert de clé de comptage : cette mesure n’est pas une analyse universelle de synonymie. Elle ne remplace pas la revue sémantique de Codex.",
         "", f"Les **{c['stepsChecked']:,} étapes** comprennent **{c['situationSteps']:,} étapes de situation** et **{c['lexicalSteps']:,} étapes lexicales**. Compréhension puis imitation précèdent chaque rappel. Dans les anciennes rubriques, les groupes de révision sont séparés et terminent leurs rappels avant les nouveautés ; les nouveaux thèmes suivent leurs huit intentions dans l’ordre global du plan. Les nombres sont triés par numberOrder séparément dans le bloc révision puis dans le bloc nouveau. Les adjectifs suivent les concepts prioritaires grand/petit/gros/beau/léger/lourd/triste/heureux, avec variantes groupées et traits de personnalité après les propriétés. Les autres révisions suivent leur première rencontre croissante.",
         "", "## Prérequis : ce qui reste ouvert", "",
@@ -1481,7 +1660,7 @@ def markdown(report):
         "", "## Reproduire", "",
         "    python3 -B tools/maquette-guidee/check_levels_independent.py --write-report --require-visuals --strict-editorial --require-no-held",
         "    python3 -B tools/maquette-guidee/check_levels_independent.py --check-report --require-visuals --strict-editorial --require-no-held --self-test", "",
-        "Les contre-exemples en mémoire incluent une phonétique changée, une source dupliquée, un mauvais champ, un rappel avant préparation, une réserve productive, un import exclu, un mot injecté dans une situation, une révision future ou de mauvaise famille, un compteur gonflé et une séparation fictive d’un concept M/F. Le contrôle ne remplace pas une écoute ou un essai avec apprenants ; Claude intervient seulement pour les phonétiques nouvelles. Aucune publication n’est approuvée.", "",
+        "Les contre-exemples en mémoire incluent une phonétique changée, une source dupliquée, un mauvais champ, un rappel avant préparation, une réserve productive, un import exclu, un mot injecté dans une situation, une révision future ou de mauvaise famille, un compteur gonflé et une séparation fictive d’un concept M/F. Les nouveaux contre-exemples couvrent aussi les rôles et clôtures reçus, la réponse avant sa préparation, une fausse étape de préparation, une aide de modèle entendu changée, un reçu compté comme production, un soutien futur ou de mauvaise famille, une attribution de source forgée, un faux statut de revue et le déplacement d’un ancien modèle protégé. Le contrôle ne remplace pas une écoute ou un essai avec apprenants ; Claude intervient seulement pour les phonétiques nouvelles. Aucune publication n’est approuvée.", "",
     ]
     return re.sub(r"(?<=\d),(?=\d{3}\b)", " ", "\n".join(lines))
 

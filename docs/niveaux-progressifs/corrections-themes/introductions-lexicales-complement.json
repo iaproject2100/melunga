@@ -724,11 +724,42 @@
       "phon": "és-TOY AS-ta a-RI-ba",
       "domain": "ressentis",
       "densityGroupId": "ressentis-basic-interaction"
+    },
+    {
+      "pair": "fr-en",
+      "sourceIndex": 1276,
+      "sourceLevel": 5,
+      "sourceSha256": "a2b88cdbdb489d4d68afccd462b0b2a048988134bf618effb73b50e9000825f8",
+      "proposedLevel": 2,
+      "contentType": "utterance",
+      "domain": "conversation",
+      "conceptId": "question-do-english",
+      "reason": "Fondation entière en do introduite au niveau 2 avant Do you have a bigger size? (source1682), désormais au niveau2 dans la scène vêtements. Son préalable I don’t understand. (source496) reste au niveau1. La décision historique niveau3 est conservée dans le suivi ; aucune phrase, aide ou lecture ni aucun niveau source ne change. Ordre éditorial prévu, sans affirmation d’acquisition.",
+      "kind": "source-first-introduction",
+      "reviewStatus": "reviewed-by-Codex",
+      "editorialReviewStatus": "reviewed",
+      "phoneticReviewStatus": "source-exact-preserved",
+      "sourceFieldMap": {
+        "study": "t",
+        "native": "frm",
+        "phon": "pf"
+      },
+      "study": "Do you speak English?",
+      "native": "tu parles anglais ?",
+      "phon": "dou you SPIK ING-glich",
+      "preparesSourceIndices": [
+        1682
+      ],
+      "plannedPrerequisiteIndices": [
+        496
+      ],
+      "previousEditorialLevel": 3,
+      "doesNotMeasureAcquisition": true
     }
   ],
   "checks": {
-    "items": 29,
-    "sourceFirstIntroductionOrAnchorItems": 25,
+    "items": 30,
+    "sourceFirstIntroductionOrAnchorItems": 26,
     "semanticReroutesAtSameLevel": 4,
     "duplicatesWithOriginal323": 0,
     "changedSourceFields": 0
@@ -738,6 +769,7 @@
     "Les25intros/ancrages contiennent les sources déjà présentes enL1 nécessaires à décrire le répertoire cohérent complet, sans seconde carte canonique.",
     "Les quatre reroutages espagnols sont explicitement autorisés par Kartech et priment sur les déductions par mots-clés.",
     "Les nouveaux noms espagnols Maison sont un stock rédigé distinct ; aucune phrase n’a été coupée pour les fabriquer.",
-    "Les niveaux source et la frontière de droits gratuite/payant restent inchangés."
+    "Les niveaux source et la frontière de droits gratuite/payant restent inchangés.",
+    "Correctif QA de l’extension18pistes : la fondation anglaise1276 est introduite entière enL2 avant1682 ; son préalable496 est déjàL1. Carte hors des700 modèles protégés, trois champs et rawlv5 intacts."
   ]
 }

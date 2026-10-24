@@ -14,37 +14,46 @@ def make():
     plan_path = DIRECTORY / 'plan.json'
     plan = json.loads(plan_path.read_text())
     plan_hash = hashlib.sha256(plan_path.read_bytes()).hexdigest()
+    base_hash = hashlib.sha256((DIRECTORY / 'plan-base10.json').read_bytes()).hexdigest()
     pairs = plan['scope']['languagePairsToAudit']
-    items, counts = [], {}
+    sections = []
+    counts = {}
     for pair in pairs:
-        ledger = json.loads((DIRECTORY / (pair + '.json')).read_text())
-        assert ledger['pair'] == pair and ledger['planHash'] == plan_hash
-        assert len(ledger['items']) == 80
-        items.extend(ledger['items'])
-        counts[pair] = Counter(item['kind'] for item in ledger['items'])
-    written = [item for item in items if item['kind'] == 'editorial-authored-whole-entry']
-    for item in written:
-        assert item['phoneticReviewStatus'] == 'pending-Claude'
-        assert all(isinstance(item.get(field), str) and item[field].strip()
-                   for field in ('study', 'native', 'phon'))
-    lines = [f'# {len(written)} nouvelles phrases — relecture phonétique de Claude', '',
+        base = json.loads((DIRECTORY / (pair + '.json')).read_text())
+        assert base['pair'] == pair and base['planHash'] == base_hash and len(base['items']) == 80
+        extension = json.loads((DIRECTORY / ('extension-' + pair + '.json')).read_text())
+        assert extension['pair'] == pair and extension['planHash'] == plan_hash and len(extension['items']) == 144
+        rows = [*[(item, 'production apprise') for item in base['items']],
+                *[(item, 'production apprise') for item in extension['items']],
+                *[(item, 'interlocuteur — compréhension seule') for item in extension['receivedTurns']],
+                *[(item, 'soutien lexical séparé') for item in extension['lexicalSupports']]]
+        authored = [(item, role) for item, role in rows if item['kind'] == 'editorial-authored-whole-entry']
+        for item, _ in authored:
+            assert item['phoneticReviewStatus'] == 'pending-Claude'
+            assert all(isinstance(item.get(field), str) and item[field].strip()
+                       for field in ('study', 'native', 'phon'))
+        sections.append((pair, authored))
+        counts[pair] = Counter(role for _, role in authored)
+    count = sum(len(rows) for _, rows in sections)
+    lines = [f'# {count} formes entières — relecture phonétique de Claude', '',
         'Codex prend en charge les intentions, les sens, le naturel des formulations, les thèmes et leur progression. Claude vérifie uniquement la phonétique selon la méthode Melunga. Les anciennes aides ne sont pas réécrites.', '',
-        f'Ces {len(written)} phrases entières sont des rédactions, pas les {len(items)} positions du lot. Les {len(items) - len(written)} autres positions réemploient des sources déjà présentes. Les 139 aides nouvelles du précédent lot lexical restent dans [leur tableau séparé](../corrections-themes/enrichissements-rediges.md).', '',
-        'Pour chaque correction, citer le couple et intentId, puis donner la prononciation entière corrigée. Pour zh-fr, l’aide est destinée à un lecteur sinophone et reste en caractères chinois ; les autres aides sont destinées aux francophones. La lecture complémentaire demeure dans le JSON.', '',
-        '| Couple | Phrases rédigées | Sources réemployées |', '|---|---:|---:|']
-    for pair, kinds in counts.items():
-        authored = kinds['editorial-authored-whole-entry']
-        lines.append(f'| {pair} | {authored} | {80 - authored} |')
-    for pair in pairs:
+        'Ce tableau distingue les phrases de l’apprenant, les répliques de l’interlocuteur entendues seulement, et les mots de soutien. Une réplique reçue ne devient pas une production à apprendre et ne compte pas dans la progression. Les copies entières de sources existantes ne sont pas présentées comme des créations.', '',
+        'Le tableau comprend les 454 phrases rédigées du premier lot et les formes rédigées de l’extension des 18 pistes. Les 139 aides nouvelles du précédent lot lexical restent dans [leur tableau séparé](../corrections-themes/enrichissements-rediges.md). Ne pas compter une aide entière explicitement réemployée comme une nouvelle prononciation.', '',
+        'Pour chaque correction, citer le couple et l’identifiant, puis donner la prononciation entière corrigée. Pour zh-fr, l’aide est destinée à un lecteur sinophone et reste en caractères chinois ; les autres aides sont destinées aux francophones. Les lectures complémentaires demeurent dans les JSON.', '',
+        '| Couple | Productions apprises | Interlocuteur | Soutiens lexicaux |',
+        '|---|---:|---:|---:|']
+    for pair, roles in counts.items():
+        lines.append(f"| {pair} | {roles['production apprise']} | {roles['interlocuteur — compréhension seule']} | {roles['soutien lexical séparé']} |")
+    for pair, rows in sections:
         lines += ['', f'## {pair}', '',
-            '| Niveau / intention | Phrase entière | Sens | Aide entière proposée |', '|---|---|---|---|']
-        for item in written:
-            if item['pair'] != pair:
-                continue
-            fields = [f"L{item['proposedLevel']} · {item['intentId']}", item['study'], item['native'], item['phon']]
+            '| Niveau / identifiant | Usage | Forme entière | Sens | Aide entière proposée |',
+            '|---|---|---|---|---|']
+        for item, role in rows:
+            identifier = item.get('intentId') or item['id']
+            fields = [f"L{item['proposedLevel']} · {identifier}", role, item['study'], item['native'], item['phon']]
             lines.append('| ' + ' | '.join(value.replace('|', '\\|').replace('\n', ' ') for value in fields) + ' |')
     lines += ['', 'Statut : pending-Claude, aperçu de travail. La conservation exacte d’une source ancienne ne constitue pas une validation de sa phonétique. Ce document n’autorise aucune fusion ni publication sur melunga.com.', '']
-    return '\n'.join(lines), len(written)
+    return '\n'.join(lines), count
 
 
 def main():
@@ -57,7 +66,7 @@ def main():
         assert destination.read_text() == text, 'Stale phonetic review table'
     else:
         destination.write_text(text)
-    print(json.dumps({'wholeUtterancesForPhoneticReview': count, 'reviewAssignee': 'Claude', 'scope': 'phonetics-only'}))
+    print(json.dumps({'wholeFormsForPhoneticReview': count, 'reviewAssignee': 'Claude', 'scope': 'phonetics-only'}))
 
 
 if __name__ == '__main__':

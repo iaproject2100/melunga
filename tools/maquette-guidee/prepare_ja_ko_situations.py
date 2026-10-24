@@ -419,6 +419,12 @@ def main():
     plan_path = DOSSIER / 'plan.json'
     plan = json.loads(plan_path.read_text())
     plan_hash = raw_sha(plan_path)
+    if len(plan['themes']) > 10:
+        # L’extension est séparée : ces deux anciens ledgers restent byte-identiques.
+        baseline = json.loads((DOSSIER / 'preuves/ja-ko-base-80-empreintes.json').read_text())
+        plan_hash = baseline['pairs']['fr-ja']['planHash']
+        assert plan_hash == baseline['pairs']['fr-ko']['planHash']
+        plan = {**plan, 'themes': plan['themes'][:10]}
     proposals = json.loads((DOSSIER / 'preuves/ja-ko-propositions-entières.json').read_text())
     first_seen = json.loads((DOSSIER / 'preuves/ja-ko-premieres-rencontres.json').read_text())
     decks = parse_decks()

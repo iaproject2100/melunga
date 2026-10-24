@@ -126,7 +126,7 @@ def make():
                                'asset': atlas['asset'], 'column': item['column'], 'row': item['row'],
                                'columns': 3, 'rows': 4, 'ownerApproved': False,
                                'brief': definition['title']['fr']})
-        assert covered == set(definitions) and len(covered) == 10 and len(slots) == 260
+        assert covered == set(definitions) and len(covered) == 28 and len(slots) == 278
     return {'version': 2, 'status': 'approved-L1-photos-preserved-new-level-and-vocabulary-photos-awaiting-owner-review',
             'photographsAreSynthetic': True, 'thirdPartyImageRequests': 0,
             'distinctVisualPerDistinctTheme': True, 'sameThemeSharedAcrossLanguagePairs': True,

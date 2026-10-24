@@ -1137,9 +1137,10 @@ REVIEWED_FAMILY_BY_INDEX = {1144: ('vocab-travail',
  2085: ('vocab-loisirs',
         "Sens lexical vérifié sur la source française et son sens chinois : L'art de vivre à la "
         'française. / 法式生活艺术 ; destination thématique entière, aucun mot extrait.'),
- 2969: ('vocab-travail',
-        'le plan signifie计划 : un programme ou projet, pas une carte géographique ; unité lexicale '
-        'entière conservée.'),
+ 2969: ('vocab-voyage',
+        'Le sens chinois exact de la carte est 地图, confirmé par the map : ici le plan est une '
+        'carte géographique, et non un projet. Destination Voyage corrigée sans modifier aucun '
+        'champ source ni le niveau.'),
  3022: ('vocab-restaurant',
         'Sens lexical vérifié sur la source française et son sens chinois : Pour deux personnes. / 两位 ; '
         'destination thématique entière, aucun mot extrait.'),
@@ -1361,6 +1362,48 @@ REVIEWED_FAMILY_BY_INDEX = {1144: ('vocab-travail',
  4389: ('vocab-loisirs',
         'Sens lexical vérifié sur la source française et son sens chinois : un ballon / 气球 ; '
         'destination thématique entière, aucun mot extrait.')}
+
+# Owner-reviewed support-family amendments; ten exact source indices only.
+SUPPORT_FAMILY_AMENDMENTS_20261024 = {3076: ('vocab-travail',
+        'Revue bornée des soutiens de situations : le mot de passe / 密码 relève de vocab-travail. '
+        'Destination éditoriale seule corrigée ; texte, sens, aide entière et lv de source restent '
+        'inchangés.'),
+ 3366: ('vocab-restaurant',
+        'Revue bornée des soutiens de situations : un défaut / 缺陷 relève de vocab-restaurant. '
+        'Destination éditoriale seule corrigée ; texte, sens, aide entière et lv de source restent '
+        'inchangés.'),
+ 3455: ('vocab-reperes',
+        'Revue bornée des soutiens de situations : les horaires / 时刻表 relève de vocab-reperes. '
+        'Destination éditoriale seule corrigée ; texte, sens, aide entière et lv de source restent '
+        'inchangés.'),
+ 3872: ('vocab-voyage',
+        'Revue bornée des soutiens de situations : le sac / 包 relève de vocab-voyage. Destination '
+        'éditoriale seule corrigée ; texte, sens, aide entière et lv de source restent inchangés.'),
+ 3877: ('vocab-maison',
+        'Revue bornée des soutiens de situations : la climatisation / 空调 relève de vocab-maison. '
+        'Destination éditoriale seule corrigée ; texte, sens, aide entière et lv de source restent '
+        'inchangés.'),
+ 3892: ('vocab-travail',
+        'Revue bornée des soutiens de situations : un cahier / 笔记本 relève de vocab-travail. '
+        'Destination éditoriale seule corrigée ; texte, sens, aide entière et lv de source restent '
+        'inchangés.'),
+ 4270: ('vocab-travail',
+        "Revue bornée des soutiens de situations : l'écran / 屏幕 relève de vocab-travail. "
+        'Destination éditoriale seule corrigée ; texte, sens, aide entière et lv de source restent '
+        'inchangés.'),
+ 4347: ('vocab-loisirs',
+        'Revue bornée des soutiens de situations : la course / 跑步 relève de vocab-loisirs. '
+        'Destination éditoriale seule corrigée ; texte, sens, aide entière et lv de source restent '
+        'inchangés.'),
+ 4356: ('vocab-personnes',
+        'Revue bornée des soutiens de situations : une invitation / 请柬 relève de vocab-personnes. '
+        'Destination éditoriale seule corrigée ; texte, sens, aide entière et lv de source restent '
+        'inchangés.'),
+ 4386: ('vocab-maison',
+        'Revue bornée des soutiens de situations : le chauffage / 暖气 relève de vocab-maison. '
+        'Destination éditoriale seule corrigée ; texte, sens, aide entière et lv de source restent '
+        'inchangés.')}
+REVIEWED_FAMILY_BY_INDEX.update(SUPPORT_FAMILY_AMENDMENTS_20261024)
 
 REVIEWED_SITUATION_BY_INDEX = {38: ('ressentis',
       'Sens communicatif vérifié : Je vais mieux. / 我好点了 ; le mot de surface ne suffit pas à faire de '

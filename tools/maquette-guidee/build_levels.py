@@ -552,7 +552,7 @@ def adjective_priority_keys(phrases, base_keys):
 
 
 def sequences(pair_id, level, theme_id, phrases, native, context=None, review_ids=None, context_ids=None,
-              preserve_input_order=False):
+              preserve_input_order=False, received_usages=None):
     result = []
     locally_presented = set()
     review_ids = review_ids or set()
@@ -649,6 +649,45 @@ def sequences(pair_id, level, theme_id, phrases, native, context=None, review_id
         result.append({"id": sid, "title": f"第 {batch_number} 组" if native == "zh" else f"Séquence {batch_number}",
                        "phraseIds": [phrase["id"] for phrase in batch],
                        "preparationIds": list(dict.fromkeys(preparation_ids)), "steps": steps})
+    if received_usages:
+        presented, understood, imitated, inserted = {}, {}, {}, set()
+        for sequence in result:
+            rewritten, received_ids = [], []
+            for step in sequence["steps"]:
+                if step["kind"] == "understand":
+                    understood[step["utterance"]] = step["id"]
+                elif step["kind"] == "imitate":
+                    imitated[step["utterance"]] = step["id"]
+                relevant = [usage for usage in received_usages if usage["prepares"] == step.get("utterance")
+                            and step["kind"] == "choose-and-recall"]
+
+                def received_step(usage):
+                    ensure(usage["id"] not in inserted, "Received cue was inserted twice")
+                    ensure(all(identifier in understood and identifier in imitated for identifier in usage["answerWithUtteranceIds"]),
+                           "A received question precedes understanding or imitation of its answer")
+                    inserted.add(usage["id"])
+                    received_ids.append(usage["utterance"])
+                    return {"id": f"{sequence['id']}:received:{usage['id']}", "kind": "receive",
+                        "receivedId": usage["id"], "utterance": usage["utterance"], "role": usage["role"],
+                        "level": usage["level"], "analyse": False, "requiresProduction": False,
+                        "countsForProgress": False, "countsTowardProductionProgression": False,
+                        "wholePhrase": True, "contentType": "utterance", "prepares": usage["prepares"],
+                        "targetIntentId": usage["targetIntentId"], "answerWith": usage["answerWith"],
+                        "answerWithUtteranceIds": usage["answerWithUtteranceIds"],
+                        "preparedAnswerSteps": {identifier: {"understoodInStep": understood[identifier], "imitatedInStep": imitated[identifier]}
+                                                for identifier in usage["answerWithUtteranceIds"]},
+                        **{key: usage[key] for key in ("beforeIntentId", "afterIntentId") if key in usage}}
+                for usage in relevant:
+                    if usage.get("beforeIntentId"):
+                        rewritten.append(received_step(usage))
+                rewritten.append(step)
+                for usage in relevant:
+                    if usage.get("afterIntentId"):
+                        ensure(usage["answerWith"] == [], "A closure requires an explicit empty answer list")
+                        rewritten.append(received_step(usage))
+            sequence["steps"] = rewritten
+            sequence["receivedIds"] = list(dict.fromkeys(received_ids))
+        ensure(inserted == {usage["id"] for usage in received_usages}, "A received cue has no real target recall")
     return result
 
 
@@ -1037,18 +1076,27 @@ def make(include_situations=True):
     additional_themes = situation_resolution["plan"]["themes"] if situation_resolution else []
     if situation_resolution:
         for position, entry in enumerate(situation_resolution["entries"]):
-            order_keys[entry["id"]] = (0, position, position)
+            if entry["category"] != "received":
+                order_keys[entry["id"]] = (0, position, position)
         situation_rows = {pair: {row["id"]: row for row in values} for pair, values in rows.items()}
         for use in situation_resolution["uses"]:
             row = situation_rows[use["pair"]][use["canonicalId"]]
             if row["editorialLevel"] == use["level"] and row["placement"]["domain"] == use["topicId"]:
                 order_keys[row["id"]] = (0, use["topicOrder"], use["intentOrder"])
-        report["situationEnrichment"] = {key: value for key, value in situation_resolution.items() if key != "plan"}
+        report["situationEnrichment"] = {key: value for key, value in situation_resolution.items() if key not in {"plan", "baseline", "heardModels"}}
         manifest["additionalSituations"] = {"planSha256": frozen_situations["fingerprints"][str(situation_content.DIRECTORY / "plan.json")],
             "themeCount": len(additional_themes), "intentsPerTheme": 8, "candidatePositions": len(frozen_situations["items"]),
-            "newAuthoredUtterances": sum(entry["authored"] for entry in situation_resolution["entries"]),
-            "existingConversationImports": sum(entry["preexistingConversation"] for entry in situation_resolution["entries"])}
+            "newAuthoredUtterances": sum(entry["authored"] and entry["category"] == "learner" for entry in situation_resolution["entries"]),
+            "existingConversationImports": sum(entry["preexistingConversation"] and entry["category"] == "learner" for entry in situation_resolution["entries"]),
+            "receivedUsages": len(situation_resolution["receivedUses"]),
+            "receivedCreated": sum(entry["authored"] and entry["category"] == "received" for entry in situation_resolution["entries"]),
+            "receivedExistingConversationImports": sum(entry["preexistingConversation"] and entry["category"] == "received" for entry in situation_resolution["entries"]),
+            "lexicalSupportUses": len(situation_resolution["lexicalSupportUses"]),
+            "lexicalSupportCreated": sum(entry["authored"] and entry["category"] == "support" for entry in situation_resolution["entries"]),
+            "lexicalSupportExistingConversationImports": sum(entry["preexistingConversation"] and entry["category"] == "support" for entry in situation_resolution["entries"])}
         manifest["additionalSituations"]["existingSourcePositions"] = len(frozen_situations["items"]) - manifest["additionalSituations"]["newAuthoredUtterances"]
+        manifest["additionalSituations"]["baseCandidatePositions"] = frozen_situations.get("baseIntentCount", len(frozen_situations["intents"])) * len(pairs)
+        manifest["additionalSituations"]["extensionCandidatePositions"] = len(frozen_situations["items"]) - manifest["additionalSituations"]["baseCandidatePositions"]
         for introduction in situation_resolution["introductions"]:
             row = next(row for row in rows[introduction["pair"]] if row["id"] == introduction["canonicalId"])
             if row["source"]["collection"].startswith("DECKS."):
@@ -1157,8 +1205,35 @@ def make(include_situations=True):
         bank = {ident: {**phrase_lookup[ident], "referenceOnly": True,
                         "sourceHash": phrase_lookup[ident]["source"]["sourceSha256"],
                         "canonicalLocation": copy["canonicalLocation"]} for ident, copy in bank.items()}
+        support_references = defaultdict(list)
+        if situation_resolution:
+            for use in situation_resolution["lexicalSupportUses"]:
+                if use["pair"] != pair_id:
+                    continue
+                phrase = phrase_lookup[use["canonicalId"]]
+                ensure(phrase["contentType"] in {"vocabulary", "number"} and phrase["editorialLevel"] <= use["level"],
+                       "A lexical support references a future word or a sentence")
+                ensure(density[(phrase["editorialLevel"], phrase["placement"]["domain"] )]["visible"],
+                       "A lexical support is held; enrich its real vocabulary family first")
+                location = {"pairId": pair_id, "level": phrase["editorialLevel"], "themeId": phrase["placement"]["themeId"]}
+                bank[phrase["id"]] = {**phrase, "referenceOnly": True, "sourceHash": phrase["source"]["sourceSha256"], "canonicalLocation": location}
+                support_references[use["topicId"]].append({"id": phrase["id"], "supportId": use["id"],
+                    "firstEditorialLevel": phrase["editorialLevel"], "canonicalThemeId": location["themeId"],
+                    "introducedBeforeIntentId": use["introducedBeforeIntentId"], "reason": use["reason"],
+                    "analyse": False, "countsTowardProductionProgression": False, "insertedIntoPhraseSteps": False})
         bank_document = {"version": 1, "pairId": pair_id, "sourceDecksSha256": sha(decks),
                          "phrases": [bank[key] for key in sorted(bank)]}
+        received_models = {}
+        if situation_resolution and situation_resolution["heardModels"][pair_id]:
+            for identifier, model in situation_resolution["heardModels"][pair_id].items():
+                original = phrase_lookup.get(identifier)
+                copied = {key: value for key, value in (original or model).items() if key not in {"speaker", "kind", "role"}}
+                copied.update(heardOnly=True, referenceOnly=True, firstHeardLevel=model["firstHeardLevel"])
+                if original:
+                    copied["canonicalLocation"] = {"pairId": pair_id, "level": original["editorialLevel"],
+                                                   "themeId": original["placement"]["themeId"]}
+                received_models[identifier] = copied
+            bank_document["receivedModels"] = [received_models[key] for key in sorted(received_models)]
         for copied in bank_document["phrases"]:
             ensure(phrase_key(copied) == phrase_key(phrase_lookup[copied["id"]])
                    and copied["source"] == phrase_lookup[copied["id"]]["source"],
@@ -1168,7 +1243,7 @@ def make(include_situations=True):
         pair_manifest["repertoireSha256"] = hashlib.sha256(bank_text.encode()).hexdigest()
         report["reviewTransports"].append({"pair": pair_id, "path": repertoire_path,
             "transportCopies": len(bank), "sourceIds": sorted(bank), "canonicalCardsAdded": 0,
-            "fileSha256": pair_manifest["repertoireSha256"]})
+            "fileSha256": pair_manifest["repertoireSha256"], "receivedModelTransports": len(received_models)})
         preparation_context = {"byIndex": catalogue_lookup, "positions": final_positions,
                                "moves": moves, "presentations": report["localPreparations"],
                                "gaps": report["localPreparationGaps"], "heldIndices": held_indices}
@@ -1246,11 +1321,19 @@ def make(include_situations=True):
                          "sequences": sequences(pair_id, level, definition["id"], presented_phrases, native,
                                                 preparation_context, {item["id"] for item in stock["reviewReferences"]},
                                                 {item["id"] for item in stock["contextReferences"]},
-                                                preserve_input_order=bool(definition.get("isAdditionalSituation"))) if stock["visible"] else []}
+                                                preserve_input_order=bool(definition.get("isAdditionalSituation")),
+                                                received_usages=[use for use in situation_resolution["receivedUses"]
+                                                    if use["pair"] == pair_id and use["topicId"] == definition["domain"]] if situation_resolution else None) if stock["visible"] else []}
                 if definition.get("isAdditionalSituation"):
                     theme.update(isAdditionalSituation=True, intentIds=definition["intentIds"], topicId=definition["domain"])
                     theme["authoredCount"] = sum(phrase["source"]["collection"] == "situation-authored" for phrase in chosen)
                     theme["existingSourceCount"] = theme["presentedCount"] - theme["authoredCount"]
+                    usages = [use for use in situation_resolution["receivedUses"] if use["pair"] == pair_id and use["topicId"] == theme["domain"]]
+                    if usages:
+                        theme["receivedTurns"] = [{key: value for key, value in use.items() if key not in {"pair", "topicId"}} for use in usages]
+                        theme["receivedCount"] = len(usages)
+                        theme["lexicalSupports"] = support_references[theme["domain"]]
+                        ensure(len({reference["id"] for reference in theme["lexicalSupports"]}) >= 2, "Each extended module needs two distinct lexical supports")
                     presented_ids = [ident for sequence in theme["sequences"] for ident in sequence["phraseIds"]]
                     ensure(len(presented_ids) == len(set(presented_ids)) == 8, "New situations must contain eight distinct whole phrases")
                     covered = {phrase.get("situationIntentId", phrase.get("intentId")) for phrase in chosen}
@@ -1270,6 +1353,13 @@ def make(include_situations=True):
                 for sequence in theme["sequences"]:
                     preparations = set()
                     for step in sequence["steps"]:
+                        if step["kind"] == "receive":
+                            ensure(step["utterance"] in received_models and step.get("countsForProgress") is False
+                                   and step.get("requiresProduction") is False and step.get("analyse") is False,
+                                   "Received turn entered production counts or lost its heard-only source")
+                            ensure(step["utterance"] in sequence["receivedIds"] and step.get("prepares") in sequence["phraseIds"],
+                                   "Received step has no explicit source and target")
+                            continue
                         p = phrase_lookup[step["utterance"]]
                         ensure(p["editorialLevel"] == level or step.get("isReview") is True
                                and p["editorialLevel"] < level and p["id"] in bank
@@ -1302,6 +1392,12 @@ def make(include_situations=True):
                 cell_report.setdefault("situationConversationPhrases", 0)
                 cell_report["situationAuthoredPhrases"] += sum(p["source"]["collection"] == "situation-authored" for p in chosen)
                 cell_report["situationConversationPhrases"] += sum(p["source"]["collection"] == "situation-conversation" for p in chosen)
+                cell_report.setdefault("situationSupportAuthoredPhrases", 0)
+                cell_report.setdefault("situationSupportConversationPhrases", 0)
+                cell_report.setdefault("receivedSteps", 0)
+                cell_report["situationSupportAuthoredPhrases"] += sum(p["source"]["collection"] == "situation-support-authored" for p in chosen)
+                cell_report["situationSupportConversationPhrases"] += sum(p["source"]["collection"] == "situation-support-conversation" for p in chosen)
+                cell_report["receivedSteps"] += len(theme.get("receivedTurns", []))
                 cell_report["steps"] += steps
                 total_steps += steps
             for phrase in cell["reserve"]:
@@ -1460,26 +1556,64 @@ def make(include_situations=True):
         "newlyAuthoredNumberEntries": sum(item["contentType"] == "number" for item in report["authoredEntries"]),
         "newlyAuthoredPhonetics": report["newlyAuthoredPhonetics"],
         "wholeHeadwordPhoneticsReusedForNewSense": sum(item["reusesWholeHeadwordPhonetic"] for item in report["authoredEntries"]),
-        "newSituationAuthoredUtterances": sum(item["authored"] for item in situation_resolution["entries"]) if situation_resolution else 0,
-        "newSituationExistingConversationImports": sum(item["preexistingConversation"] for item in situation_resolution["entries"]) if situation_resolution else 0,
-        "newSituationThemes": 10 * len(pairs) if situation_resolution else 0,
+        "newSituationAuthoredUtterances": sum(item["authored"] and item["category"] == "learner" for item in situation_resolution["entries"]) if situation_resolution else 0,
+        "newSituationExistingConversationImports": sum(item["preexistingConversation"] and item["category"] == "learner" for item in situation_resolution["entries"]) if situation_resolution else 0,
+        "newSituationThemes": len(additional_themes) * len(pairs) if situation_resolution else 0,
         "newSituationCandidatePositions": len(situation_resolution["uses"]) if situation_resolution else 0,
-        "newSituationExistingSourcePositions": (len(situation_resolution["uses"]) - sum(item["authored"] for item in situation_resolution["entries"])) if situation_resolution else 0,
-        "newSituationWholePhoneticsPendingClaude": sum(item["authored"] for item in situation_resolution["entries"]) if situation_resolution else 0,
+        "newSituationExistingSourcePositions": (len(situation_resolution["uses"]) - sum(item["authored"] and item["category"] == "learner" for item in situation_resolution["entries"])) if situation_resolution else 0,
+        "newSituationWholePhoneticsPendingClaude": sum(item["authored"] and item["category"] == "learner" for item in situation_resolution["entries"]) if situation_resolution else 0,
         "allCatalogueSourceLevelsUnchanged": True}
+    if situation_resolution:
+        situation_entries = situation_resolution["entries"]
+        report["checks"].update(
+            receivedUsageCount=len(situation_resolution["receivedUses"]),
+            newReceivedAuthoredModels=sum(entry["authored"] and entry["category"] == "received" for entry in situation_entries),
+            receivedExistingConversationImports=sum(entry["preexistingConversation"] and entry["category"] == "received" for entry in situation_entries),
+            receivedModelsExcludedFromProductionCounts=True,
+            receivedDistinctModels=sum(len(models) for models in situation_resolution["heardModels"].values()),
+            receivedExistingCanonicalModels=sum(len(models) for models in situation_resolution["heardModels"].values())-sum(entry["category"] == "received" for entry in situation_entries),
+            extensionLearnerCreated=sum(entry["authored"] and entry["category"] == "learner" and entry["scope"] == "extension" for entry in situation_entries),
+            extensionLearnerConversationImports=sum(entry["preexistingConversation"] and entry["category"] == "learner" and entry["scope"] == "extension" for entry in situation_entries),
+            receivedExistingCanonicalUses=sum(use["utterance"] not in {entry["id"] for entry in situation_entries if entry["category"] == "received"} for use in situation_resolution["receivedUses"]),
+            receivedStepCount=len(situation_resolution["receivedUses"]),
+            productionStepCount=total_steps-len(situation_resolution["receivedUses"]),
+            lexicalSupportUses=len(situation_resolution["lexicalSupportUses"]),
+            newSituationAuthoredLexicalSupports=sum(entry["authored"] and entry["category"] == "support" for entry in situation_entries),
+            newSituationImportedLexicalSupports=sum(entry["preexistingConversation"] and entry["category"] == "support" for entry in situation_entries))
+        baseline = situation_resolution.get("baseline")
+        if baseline:
+            final_rows = {row["id"]: row for values in rows.values() for row in values}
+            for identifier in baseline["protectedCanonicalIds"]:
+                before, now = baseline["canonical"][identifier], final_rows[identifier]
+                ensure(now["editorialLevel"] == before["level"] and now["placement"].get("themeId") == before["themeId"],
+                       "A protected original model moved its first editorial location")
+            for path, text in outputs.items():
+                if path.parent.name not in pairs:
+                    continue
+                cell = json.loads(text)
+                for theme in cell["themes"]:
+                    old_hash = baseline["protectedThemeSha256"].get(cell["pairId"] + ":" + theme["id"])
+                    ensure(old_hash is None or sha(theme) == old_hash, "An original situation theme changed during append-only extension")
+            report["checks"].update(appendOnlyBaselineCanonicalCount=baseline["canonicalCount"],
+                previousCanonicalTuplesAndSourcesIntact=len(baseline["canonical"]),
+                protectedPreviousCanonicalLocationsIntact=len(baseline["protectedCanonicalIds"]),
+                protectedOriginalSituationThemesIntact=len(baseline["protectedThemeSha256"]))
     ensure(report["checks"]["visibleCanonicalPhrases"] + report["checks"]["heldCanonicalPhrases"]
            == report["checks"]["totalPresentedPhrases"], "Density routing lost an active canonical entry")
     ensure(report["checks"]["visibleCanonicalPhrases"] + report["checks"]["reviewPresentationReferences"] + report["checks"]["contextPresentationReferences"]
            == report["checks"]["presentationsIncludingReviews"], "Reviews were counted as new canonical entries")
     ensure(report["checks"]["totalCanonicalPhrases"] == catalogue_count
            + report["checks"]["importedExistingPhrases"] + report["checks"]["newlyAuthoredStudyPhrases"]
-           + report["checks"]["newSituationAuthoredUtterances"] + report["checks"]["newSituationExistingConversationImports"],
+           + report["checks"]["newSituationAuthoredUtterances"] + report["checks"]["newSituationExistingConversationImports"]
+           + report["checks"].get("newSituationAuthoredLexicalSupports", 0) + report["checks"].get("newSituationImportedLexicalSupports", 0),
            "Source, imported and authored canonical scopes do not reconcile")
     report["editorialReferenceOrderClosed"] = not bool(report["checks"]["plannedPrerequisitesWithoutEditorialOrderClosure"]
                                                        or report["localPreparationGaps"])
     report["structuralUtteranceReferenceOrderClosed"] = not bool(report["checks"]["structuralUtteranceLinksOrderNotClosed"])
-    report["checks"]["totalAuthoredEntriesAcrossLots"] = report["checks"]["newlyAuthoredStudyPhrases"] + report["checks"]["newSituationAuthoredUtterances"]
-    report["checks"]["totalNewWholePhoneticsAcrossLots"] = report["checks"]["newlyAuthoredPhonetics"] + report["checks"]["newSituationWholePhoneticsPendingClaude"]
+    report["checks"]["totalAuthoredEntriesAcrossLots"] = (report["checks"]["newlyAuthoredStudyPhrases"] + report["checks"]["newSituationAuthoredUtterances"]
+        + report["checks"].get("newReceivedAuthoredModels", 0) + report["checks"].get("newSituationAuthoredLexicalSupports", 0))
+    report["checks"]["totalNewWholePhoneticsAcrossLots"] = (report["checks"]["newlyAuthoredPhonetics"] + report["checks"]["newSituationWholePhoneticsPendingClaude"]
+        + report["checks"].get("newReceivedAuthoredModels", 0) + report["checks"].get("newSituationAuthoredLexicalSupports", 0))
     report["progressivityValidationBlocked"] = not report["progressivityReviewComplete"]
     report["manifestSha256"] = sha(manifest)
     outputs[OUTPUT / "manifest.json"] = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
@@ -1511,10 +1645,16 @@ def markdown(report):
                      + f" | {pair['reservedPhrases']} | {pair['totalCanonicalPhrases']} |")
     if checks["newSituationThemes"]:
         lines.extend(["", "## Enrichissement de situations — lot distinct", "",
-            f"Dix nouvelles rubriques L2–L6 comportent chacune huit intentions dans les sept couples : **{checks['newSituationCandidatePositions']} positions pédagogiques**. Elles ne représentent pas autant de créations : **{checks['newSituationAuthoredUtterances']} formes entières réellement rédigées** et **{checks['newSituationExistingSourcePositions']} positions utilisant des sources préexistantes**. Parmi ces sources, **{checks['newSituationExistingConversationImports']} phrases de conversation** sont importées entières sans être comptées comme nouvelles rédactions.", "",
+            f"{checks['newSituationThemes'] // checks['pairs']} rubriques de situation comportent chacune huit intentions dans les sept couples : **{checks['newSituationCandidatePositions']} positions pédagogiques**. Elles ne représentent pas autant de créations : **{checks['newSituationAuthoredUtterances']} formes entières réellement rédigées** et **{checks['newSituationExistingSourcePositions']} positions utilisant des sources préexistantes**. Parmi ces sources, **{checks['newSituationExistingConversationImports']} phrases de conversation** sont importées entières sans être comptées comme nouvelles rédactions.", "",
             f"Les **{checks['newSituationWholePhoneticsPendingClaude']} nouvelles aides entières** restent `pending-Claude`. Les 140 entrées du lot précédent sont inchangées et comptées séparément. Les recherches de doublons portent aussi sur l’index portable des 70 conversations : espaces, ponctuation et casse ne suffisent jamais à faire une nouvelle forme ; aucun champ source n’est normalisé à l’affichage.", "",
             f"**{checks['contextPresentationReferences']} réemplois contextuels** conservent l’identifiant, les champs et le premier emplacement canoniques. Une première rencontre au même niveau est autorisée, avec compréhension, imitation et rappel ici ; elle ne suppose aucune acquisition antérieure. Les sources plus tardives ne sont introduites plus tôt que par une décision explicite, tracée sans modifier leur niveau d’accès d’origine.", ""])
-        lines.extend(["Dans ces dix nouvelles rubriques, les intentions 01 à 08 définissent l’ordre global : sources contextuelles et nouvelles premières rencontres restent mélangées à leur place. Le générateur ne repousse pas une conclusion au début sous prétexte qu’elle est réemployée. Les préparations structurelles explicites précèdent leur cible. La règle de révisions en amont reste applicable aux rubriques historiques, pas à ce nouveau déroulé de contexte.", ""])
+        if checks.get("receivedUsageCount"):
+            lines.extend([
+                f"Les dix-huit pistes supplémentaires ajoutent des échanges avec **{checks['receivedUsageCount']} répliques reçues**, dont **{checks['newReceivedAuthoredModels']} modèles entiers réellement rédigés pour l’écoute** et **{checks['receivedExistingConversationImports']} imports conversation réservés à l’écoute**. Les autres usages reçus réemploient un canonique existant sans le déplacer. Les reçus ont un rôle explicite, `analyse: false`, et une liste `answerWith` explicite ; les clôtures portent `answerWith: []`.", "",
+                f"Une question est entendue immédiatement avant le rappel de sa réponse, après les étapes comprendre et imiter réellement inscrites ; la clôture vient immédiatement après la réponse. Ces **{checks['receivedStepCount']} étapes d’écoute** sont exclues du compteur et des mesures de production. Le niveau de première écoute ne déplace pas le niveau de première production d’une source existante.", "",
+                f"Les modules déclarent **{checks['lexicalSupportUses']} références de soutien lexical**, dont **{checks['newSituationAuthoredLexicalSupports']} mots réellement rédigés** et **{checks['newSituationImportedLexicalSupports']} imports lexicaux entiers**. Les mots se trouvent dans leurs familles dédiées ; aucun n’est introduit en exercice de phrase et aucun ne gonfle les huit intentions du module.", "",
+                f"Le verrou additif conserve les **{checks['previousCanonicalTuplesAndSourcesIntact']} tuples et sources du lot antérieur**, les **{checks['protectedPreviousCanonicalLocationsIntact']} premiers emplacements protégés** et les **{checks['protectedOriginalSituationThemesIntact']} thèmes initiaux**. Les nouvelles aides entières de production, de réception et de vocabulaire restent à relire par Claude ; cette conservation n’est pas une validation pédagogique ou native.", ""])
+        lines.extend(["Dans ces rubriques de situation, les intentions 01 à 08 définissent l’ordre global : sources contextuelles et nouvelles premières rencontres restent mélangées à leur place. Le générateur ne repousse pas une conclusion au début sous prétexte qu’elle est réemployée. Les préparations structurelles explicites précèdent leur cible. La règle de révisions en amont reste applicable aux rubriques historiques, pas à ce nouveau déroulé de contexte.", ""])
     lines.extend(["", "## Réemploi de sources existantes", "",
         f"Phrases existantes importées depuis des variantes entières de conversation : **{checks['importedExistingPhrases']}**, avec **{checks['importedSourceFieldComparisons']} champs** copiés. Candidats exclus en attendant une décision sur l’aide ou le sens : **{checks['excludedEnrichmentCandidates']}**. Ces imports restent des copies entières.", "",
         f"Un lot distinct apporte **{checks['newlyAuthoredStudyPhrases']} nouvelles entrées entières**, dont **{checks['newlyAuthoredPhonetics']} transcriptions nouvelles** et **{checks['wholeHeadwordPhoneticsReusedForNewSense']} prononciation de mot entier reprise pour un nouveau sens**. Toutes restent marquées `pending-Claude` pour la revue phonétique ; aucune aide ancienne n’est modifiée ou assemblée.", "",

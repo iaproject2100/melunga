@@ -396,6 +396,10 @@ INDEX_FAMILIES["ko"].update({2181: ("vocab-restaurant", "계산 est ici le calcu
                              2696: ("vocab-restaurant", "꽃무늬의 qualifie un motif à fleurs ; aucune plante réelle n’est nommée."),
                              3754: ("vocab-restaurant", "물방울무늬의 est le motif à pois d’un objet/vêtement."),
                              4223: ("vocab-restaurant", "체크무늬의 est le motif à carreaux, pas une action.")})
+# Noms portables inspectés pour les modules de perte d’objet. Aucun de ces
+# deux indices n’appartient aux 140 mots + 560 usages du lot protégé.
+INDEX_FAMILIES["ja"][3291] = ("vocab-voyage", "かばん désigne le sac que l’on transporte, pas une action ; famille Voyages et déplacements.")
+INDEX_FAMILIES["ko"][2440] = ("vocab-voyage", "가방 désigne le sac que l’on transporte, pas une action ; famille Voyages et déplacements.")
 OVERRIDES["ja"][3276] = ("utterance", "自信がある est un prédicat entier « avoir confiance » avec が et ある, pas un mot-adjectif à détacher.")
 SITUATION_REPAIRS["ja"][3276] = ("ressentis", "La cible exprime entièrement l’état de confiance, sans reconstruire un adjectif isolé depuis une phrase.")
 
@@ -515,6 +519,9 @@ def write(lang, cards):
               "La présence d’une famille à chaque niveau ne se déduit pas de cette table. Le builder ne doit pas remplir un thème vide avec une forme liée ou une phrase dupliquée. Codex porte la revue sémantique et pédagogique ; Claude vérifie uniquement les phonétiques. Les couleurs ont leur classe autonome `color`, et les formes adnominales coréennes entières portent leur condition d’usage avec un nom.", ""]
     if lang == "ko":
         lines += ["Exemple décisif : `DECKS.ko[2617]` contient `이` au sens de « les dents » ; il s’agit d’un nom, pas de la particule sujet homographe. Une table de particules sans lecture du sens aurait produit un classement faux.", ""]
+    bag_index = 3291 if lang == "ja" else 2440
+    bag_form = "かばん" if lang == "ja" else "가방"
+    lines += ["", "## Correction ciblée du support sac", "", f"`DECKS.{lang}[{bag_index}]` — {bag_form} / le sac : `vocab-voyage`, avec raison inspectée dans la partition. Le mot entier, ses aides, son niveau source et son type lexical restent intacts. Hors des 140 mots et 560 usages protégés ; aucune phrase ni aucun droit déplacé.", ""]
     (OUT / (pair + ".md")).write_text("\n".join(lines))
     return {"pair": pair, "cards": len(cards), "counts": dict(totals), "individuallyInspected": len(OVERRIDES[lang])}
 

@@ -6,13 +6,13 @@ Cette passe répond aux intrus et rubriques faibles signalés sur l’aperçu. C
 
 - 898 cartes uniques : toutes les cartes des rubriques actives de moins de six entrées et les 540 entrées initialement classées vocabulaire en espagnol.
 - 317 situations Voyage/Repas à risque figuratif ont été lues, dont les cartes contenant arriver/aller, train, pied, eau/œufs, accord, etc.
-- 1214 cartes distinctes dans cette union ; 1242 décisions individuelles avec les couleurs et quelques activités contrôlées en complément.
+- 1214 cartes distinctes dans cette union ; 1269 décisions individuelles avec les couleurs et quelques activités contrôlées en complément.
 
 | Couple | Cartes avec décision individuelle |
 |---|---:|
-| fr-en | 238 |
+| fr-en | 252 |
 | fr-es | 712 |
-| fr-it | 292 |
+| fr-it | 305 |
 
 Le JSON conserve chaque indice de couverture, sa forme étudiée et son sens, puis les décisions par indice avec empreinte de carte entière et état antérieur. Aucun simple seuil de longueur ne valide une phrase, aucun mot-clé ne suffit à choisir la nouvelle destination.
 
@@ -113,24 +113,31 @@ Le master nouveau a aussi été recherché par forme étudiée exacte et par sen
 | fr-en / 2735 | I look forward to hearing from you. | utterance/comprendre | utterance/travail |
 | fr-en / 2775 | If you want, we can go. | utterance/ressentis | utterance/conversation |
 | fr-en / 2796 | I hope this email finds you well. | utterance/ressentis | utterance/travail |
+| fr-en / 3069 | a question | vocabulary/vocab-actions | vocabulary/vocab-travail (other) |
 | fr-en / 3125 | at the top | vocabulary/vocab-voyage | vocabulary/vocab-adverbes (adverb) |
 | fr-en / 3153 | a card | vocabulary/vocab-voyage | vocabulary/vocab-actions (other) |
 | fr-en / 3189 | the duty | vocabulary/vocab-voyage | vocabulary/vocab-travail (other) |
 | fr-en / 3212 | Study hard. | vocabulary/vocab-travail | utterance/quotidien |
+| fr-en / 3231 | the size | vocabulary/vocab-actions | vocabulary/vocab-reperes (other) |
 | fr-en / 3254 | The lead time is too long. | utterance/decrire | utterance/travail |
 | fr-en / 3312 | a dozen | vocabulary/vocab-actions | number/vocab-actions |
 | fr-en / 3408 | The goods arrived damaged. | utterance/deplacements | utterance/travail |
 | fr-en / 3420 | Boarding now. | vocabulary/vocab-travail | utterance/deplacements |
+| fr-en / 3436 | the password | vocabulary/vocab-actions | vocabulary/vocab-travail (other) |
 | fr-en / 3497 | the vegetable garden | vocabulary/vocab-maison | vocabulary/vocab-nature (other) |
 | fr-en / 3525 | The water froze. | utterance/repas | utterance/reperes |
 | fr-en / 3547 | sunglasses | vocabulary/vocab-maison | vocabulary/vocab-personnes (other) |
 | fr-en / 3552 | The car speeds up. | vocabulary/vocab-voyage | utterance/deplacements |
+| fr-en / 3553 | a classmate | vocabulary/vocab-actions | vocabulary/vocab-personnes (other) |
 | fr-en / 3555 | shower gel | vocabulary/vocab-maison | vocabulary/vocab-personnes (other) |
+| fr-en / 3558 | a defect | vocabulary/vocab-actions | vocabulary/vocab-travail (other) |
 | fr-en / 3570 | the attachment | vocabulary/vocab-maison | vocabulary/vocab-travail (other) |
+| fr-en / 3589 | the air conditioner | vocabulary/vocab-actions | vocabulary/vocab-maison (other) |
 | fr-en / 3597 | the driver's license | vocabulary/vocab-travail | vocabulary/vocab-voyage (other) |
 | fr-en / 3599 | That's the last straw. | utterance/decrire | utterance/ressentis |
 | fr-en / 3614 | a sunhat | vocabulary/vocab-maison | vocabulary/vocab-personnes (other) |
 | fr-en / 3625 | The water's boiling. | vocabulary/vocab-restaurant | utterance/repas |
+| fr-en / 3779 | again | vocabulary/vocab-reperes | vocabulary/vocab-adverbes (adverb) |
 | fr-en / 3857 | cycling | vocabulary/vocab-voyage | vocabulary/vocab-loisirs (other) |
 | fr-en / 3894 | red | vocabulary/vocab-adjectifs | vocabulary/vocab-couleurs (color) |
 | fr-en / 3895 | blue | vocabulary/vocab-adjectifs | vocabulary/vocab-couleurs (color) |
@@ -148,8 +155,14 @@ Le master nouveau a aussi été recherché par forme étudiée exacte et par sen
 | fr-en / 3907 | gold | vocabulary/vocab-actions | vocabulary/vocab-couleurs (color) |
 | fr-en / 3908 | golden | vocabulary/vocab-adjectifs | vocabulary/vocab-couleurs (color) |
 | fr-en / 3909 | silver | vocabulary/vocab-restaurant | vocabulary/vocab-couleurs (color) |
+| fr-en / 3938 | bag | vocabulary/vocab-actions | vocabulary/vocab-voyage (other) |
+| fr-en / 3943 | the remote | vocabulary/vocab-actions | vocabulary/vocab-maison (other) |
 | fr-en / 4076 | a peach | vocabulary/vocab-actions | vocabulary/vocab-restaurant (other) |
 | fr-en / 4089 | fishing | vocabulary/vocab-actions | vocabulary/vocab-loisirs (other) |
+| fr-en / 4315 | the Wi-Fi | vocabulary/vocab-actions | vocabulary/vocab-travail (other) |
+| fr-en / 4317 | the screen | vocabulary/vocab-actions | vocabulary/vocab-travail (other) |
+| fr-en / 4332 | an exam | vocabulary/vocab-actions | vocabulary/vocab-travail (other) |
+| fr-en / 4390 | the team | vocabulary/vocab-actions | vocabulary/vocab-loisirs (other) |
 | fr-en / 4448 | The goods have arrived at the port. | utterance/deplacements | utterance/travail |
 | fr-en / 4461 | The way things are going, we'll need more time. | utterance/deplacements | utterance/conversation |
 | fr-en / 4474 | I took it literally, word for word. | utterance/deplacements | utterance/comprendre |
@@ -579,14 +592,20 @@ Le master nouveau a aussi été recherché par forme étudiée exacte et par sen
 | fr-it / 2849 | Buon lavoro. | vocabulary/vocab-travail | utterance/travail |
 | fr-it / 2972 | rosso | vocabulary/vocab-adjectifs | vocabulary/vocab-couleurs (color) |
 | fr-it / 2973 | nero | vocabulary/vocab-adjectifs | vocabulary/vocab-couleurs (color) |
+| fr-it / 2977 | la borsa | vocabulary/vocab-actions | vocabulary/vocab-voyage (other) |
+| fr-it / 2989 | il telefono | vocabulary/vocab-maison | vocabulary/vocab-travail (other) |
+| fr-it / 3012 | la squadra | vocabulary/vocab-actions | vocabulary/vocab-loisirs (other) |
 | fr-it / 3044 | a sinistra | vocabulary/vocab-voyage | vocabulary/vocab-adverbes (adverb) |
 | fr-it / 3052 | la metà | vocabulary/vocab-reperes | number/vocab-reperes |
+| fr-it / 3073 | la password | vocabulary/vocab-actions | vocabulary/vocab-travail (other) |
 | fr-it / 3074 | a destra | vocabulary/vocab-voyage | vocabulary/vocab-adverbes (adverb) |
 | fr-it / 3131 | blu | vocabulary/vocab-adjectifs | vocabulary/vocab-couleurs (color) |
 | fr-it / 3132 | verde | vocabulary/vocab-adjectifs | vocabulary/vocab-couleurs (color) |
 | fr-it / 3133 | bianco | vocabulary/vocab-adjectifs | vocabulary/vocab-couleurs (color) |
 | fr-it / 3134 | rosa | vocabulary/vocab-adjectifs | vocabulary/vocab-couleurs (color) |
 | fr-it / 3135 | azzurro | vocabulary/vocab-actions | vocabulary/vocab-couleurs (color) |
+| fr-it / 3210 | la taglia | vocabulary/vocab-actions | vocabulary/vocab-restaurant (other) |
+| fr-it / 3236 | un esame | vocabulary/vocab-actions | vocabulary/vocab-travail (other) |
 | fr-it / 3268 | Sto cucinando. | utterance/deplacements | utterance/repas |
 | fr-it / 3346 | Gli farò un regalo. | utterance/deplacements | utterance/quotidien |
 | fr-it / 3365 | giallo | vocabulary/vocab-adjectifs | vocabulary/vocab-couleurs (color) |
@@ -594,6 +613,9 @@ Le master nouveau a aussi été recherché par forme étudiée exacte et par sen
 | fr-it / 3367 | arancione | vocabulary/vocab-adjectifs | vocabulary/vocab-couleurs (color) |
 | fr-it / 3429 | una pesca | vocabulary/vocab-actions | vocabulary/vocab-restaurant (other) |
 | fr-it / 3433 | la pesca (attività) | vocabulary/vocab-actions | vocabulary/vocab-loisirs (other) |
+| fr-it / 3498 | lo schermo | vocabulary/vocab-actions | vocabulary/vocab-travail (other) |
+| fr-it / 3500 | la rete | vocabulary/vocab-actions | vocabulary/vocab-travail (other) |
+| fr-it / 3525 | un invito | vocabulary/vocab-actions | vocabulary/vocab-personnes (other) |
 | fr-it / 3599 | sopra | vocabulary/vocab-reperes | vocabulary/vocab-adverbes (adverb) |
 | fr-it / 3603 | la patente | vocabulary/vocab-travail | vocabulary/vocab-voyage (other) |
 | fr-it / 3618 | Il bambino piange. | vocabulary/vocab-personnes | utterance/ressentis |
@@ -603,6 +625,9 @@ Le master nouveau a aussi été recherché par forme étudiée exacte et par sen
 | fr-it / 3663 | blu scuro | vocabulary/vocab-actions | vocabulary/vocab-couleurs (color) |
 | fr-it / 3664 | dorato | vocabulary/vocab-adjectifs | vocabulary/vocab-couleurs (color) |
 | fr-it / 3665 | argentato | vocabulary/vocab-adjectifs | vocabulary/vocab-couleurs (color) |
+| fr-it / 3668 | l'aria condizionata | vocabulary/vocab-actions | vocabulary/vocab-maison (other) |
+| fr-it / 3669 | il telecomando | vocabulary/vocab-actions | vocabulary/vocab-maison (other) |
+| fr-it / 3837 | l'email | vocabulary/vocab-actions | vocabulary/vocab-travail (other) |
 | fr-it / 3868 | A forza di provare, ci riuscirai. | utterance/repas | utterance/ressentis |
 | fr-it / 3873 | In ogni caso, non abbiamo più scelta. | utterance/decrire | utterance/conversation |
 | fr-it / 3881 | Buona giornata. | vocabulary/vocab-personnes | utterance/saluer |
@@ -615,6 +640,7 @@ Le master nouveau a aussi été recherché par forme étudiée exacte et par sen
 | fr-it / 3984 | La merce è arrivata al porto. | utterance/deplacements | utterance/travail |
 | fr-it / 4051 | un pupazzo di neve | vocabulary/vocab-maison | vocabulary/vocab-nature (other) |
 | fr-it / 4066 | una dozzina | vocabulary/vocab-actions | number/vocab-actions |
+| fr-it / 4076 | un difetto | vocabulary/vocab-actions | vocabulary/vocab-travail (other) |
 | fr-it / 4082 | un foglio di carta | vocabulary/vocab-maison | vocabulary/vocab-travail (other) |
 | fr-it / 4101 | La materia prima è arrivata? | utterance/deplacements | utterance/travail |
 | fr-it / 4109 | il cartone esterno | vocabulary/vocab-reperes | vocabulary/vocab-travail (other) |

@@ -519,7 +519,10 @@
     text(ui.helpText, tr(definition.help) + (formHelp ? ' ' + tr(formHelp) : ''));
     const position = Math.max(0, state.sequence.phraseIds.indexOf(step.prepares || phrase.id)) + 1;
     text(ui.counter, position + ' / ' + state.sequence.phraseIds.length);
-    ui.progress.style.width = ((state.stepIndex + 1) / state.sequence.steps.length * 100) + '%';
+    // Listening to the other speaker is context, never another learner task.
+    const progressSteps = state.sequence.steps.filter(item => item.kind !== 'receive');
+    const completed = state.sequence.steps.slice(0, state.stepIndex + 1).filter(item => item.kind !== 'receive').length;
+    ui.progress.style.width = (completed / progressSteps.length * 100) + '%';
     renderChoices(step);
     text(ui.phrase, phrase.study);
     ui.phrase.lang = state.pair.studyLanguage;
@@ -542,7 +545,8 @@
     ui.readingToggle.setAttribute('aria-pressed', String(state.readingVisible));
     text(ui.readingToggle, tr(state.readingVisible ? 'Masquer la lecture' : 'Afficher la lecture'));
     ui.speaker.hidden = !isReceived(step, phrase);
-    text(ui.speaker, phrase.speakerName || tr('Interlocuteur'));
+    const role = step.role;
+    text(ui.speaker, (typeof role === 'string' ? role : role?.[state.pair.nativeLanguage]) || step.speakerName || phrase.speakerName || tr('Interlocuteur'));
     ui.replay.disabled = template || masked || waitingForChoice;
     text(ui.replayText, tr('Réécouter'));
     text(ui.nextText, tr('Continuer'));
@@ -671,7 +675,8 @@
       }
       let references = new Map();
       let validatedBank = null;
-      if (pair.themes.some(theme => (theme.reviewReferences || []).length || (theme.contextReferences || []).length)) {
+      if (pair.themes.some(theme => (theme.reviewReferences || []).length || (theme.contextReferences || []).length
+          || (theme.receivedTurns || []).length || (theme.lexicalSupports || []).length)) {
         const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
         if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
         let bank = state.repertoireCache.get(id);
@@ -680,7 +685,7 @@
           if (!response.ok) throw new Error('Repertoire unavailable');
           bank = validateRepertoire(await response.json(), id);
         }
-        references = new Map(bank.phrases.map(phrase => [phrase.id, phrase]));
+        references = new Map([...bank.phrases, ...(bank.receivedModels || [])].map(phrase => [phrase.id, phrase]));
         if (generation !== state.loadGeneration) return;
         validatedBank = bank;
       }
@@ -719,6 +724,21 @@
           || !Number.isInteger(location.level) || location.level < 1 || location.level > 10
           || phrase.editorialLevel !== location.level) throw new Error('Invalid repertoire phrase');
       ids.add(phrase.id);
+    }
+    const receivedIds = new Set();
+    if (bank.receivedModels !== undefined && !Array.isArray(bank.receivedModels)) throw new Error('Invalid received models');
+    for (const phrase of bank.receivedModels || []) {
+      if (!phrase.id || receivedIds.has(phrase.id) || phrase.heardOnly !== true || phrase.referenceOnly !== true
+          || phrase.contentType !== 'utterance' || phrase.isTemplate
+          || !Number.isInteger(phrase.firstHeardLevel) || phrase.firstHeardLevel < 1 || phrase.firstHeardLevel > 10
+          || ['study', 'native', 'phon'].some(field => typeof phrase[field] !== 'string' || !phrase[field].trim())
+          || phrase.role !== undefined || phrase.speaker !== undefined) throw new Error('Invalid received model');
+      const canonical = bank.phrases.find(item => item.id === phrase.id);
+      if (canonical && ['study', 'native', 'phon', 'reading', 'contentType'].some(field => canonical[field] !== phrase[field])) throw new Error('Conflicting received model');
+      const location = phrase.canonicalLocation;
+      if (location && (location.pairId !== pairId || !location.themeId
+          || !Number.isInteger(location.level) || location.level < 1 || location.level > 10)) throw new Error('Invalid received source location');
+      receivedIds.add(phrase.id);
     }
     return bank;
   }
@@ -767,7 +787,7 @@
         if (pair.counts && (!['utterance', 'vocabulary', 'number'].includes(theme.contentType)
             || theme.section !== (theme.contentType === 'utterance' ? 'situations' : 'vocabulary')
             || theme.phrases.some(phrase => phrase.contentType !== theme.contentType || phrase.isTemplate))) throw new Error('Mixed content theme');
-        if (theme.photo && (!/^assets\/(?:theme-scenes(?:-L(?:[2-9]|10))?|vocabulary-scenes-L(?:1|3|5|7|9)-L(?:2|4|6|8|10)|pos-scenes-L1-L4|pos-scenes-L5-L8|pos-scenes-L9-L10|color-scenes|nature-scenes|leisure-scenes|situation-scenes)\.webp$/.test(theme.photo.asset)
+        if (theme.photo && (!/^assets\/(?:theme-scenes(?:-L(?:[2-9]|10))?|vocabulary-scenes-L(?:1|3|5|7|9)-L(?:2|4|6|8|10)|pos-scenes-L1-L4|pos-scenes-L5-L8|pos-scenes-L9-L10|color-scenes|nature-scenes|leisure-scenes|situation-scenes|situation-pistes-[12])\.webp$/.test(theme.photo.asset)
             || ![3, 4].includes(theme.photo.columns) || theme.photo.rows !== 4
             || !Number.isInteger(theme.photo.column) || theme.photo.column < 0 || theme.photo.column >= theme.photo.columns
             || !Number.isInteger(theme.photo.row) || theme.photo.row < 0 || theme.photo.row >= theme.photo.rows)) throw new Error('Invalid theme photo');
@@ -823,13 +843,84 @@
                 || theme.presentedCount !== presentedIds.size || theme.presentedCount < 6
                 || !Number.isInteger(theme.pedagogicalConceptCount)
                 || theme.pedagogicalConceptCount < 6)) throw new Error('Invalid theme repertoire counts');
+        const intentByPhrase = new Map([
+          ...theme.phrases.map(phrase => [phrase.id, phrase.situationIntentId || phrase.intentId]),
+          ...(theme.contextReferences || []).map(reference => [reference.id, reference.intentId])
+        ]);
+        const phraseByIntent = new Map([...intentByPhrase].map(([id, intent]) => [intent, id]));
+        const receivedUses = new Map();
+        for (const turn of theme.receivedTurns || []) {
+          const model = references.get(turn.utterance);
+          const before = typeof turn.beforeIntentId === 'string';
+          const after = typeof turn.afterIntentId === 'string';
+          const target = turn.beforeIntentId || turn.afterIntentId;
+          if (!theme.isAdditionalSituation || !turn.id || receivedUses.has(turn.id)
+              || !model || model.contentType !== 'utterance' || model.heardOnly !== true
+              || model.firstHeardLevel > pair.level || before === after
+              || turn.level !== pair.level || turn.analyse !== false
+              || !turn.role || ['fr', 'zh'].some(language => typeof turn.role[language] !== 'string' || !turn.role[language].trim())
+              || !theme.intentIds.includes(target) || turn.targetIntentId !== target
+              || turn.prepares !== phraseByIntent.get(target)
+              || !Array.isArray(turn.answerWith) || !Array.isArray(turn.answerWithUtteranceIds)
+              || new Set(turn.answerWith).size !== turn.answerWith.length
+              || turn.answerWith.length !== turn.answerWithUtteranceIds.length
+              || turn.answerWith.some((intent, index) => !theme.intentIds.includes(intent) || phraseByIntent.get(intent) !== turn.answerWithUtteranceIds[index])
+              || (after ? turn.answerWith.length !== 0 : !turn.answerWith.length || !turn.answerWith.includes(target))) throw new Error('Invalid received turn');
+          receivedUses.set(turn.id, turn);
+        }
+        const supportIds = new Set();
+        for (const support of theme.lexicalSupports || []) {
+          const id = support.utterance || support.id;
+          const model = activeById.get(id);
+          if (!theme.isAdditionalSituation || !model || !['vocabulary', 'number'].includes(model.contentType)
+              || supportIds.has(id) || !theme.intentIds.includes(support.introducedBeforeIntentId)
+              || model.editorialLevel > pair.level || support.firstEditorialLevel !== model.editorialLevel
+              || support.canonicalThemeId !== references.get(id)?.canonicalLocation?.themeId
+              || !support.supportId || !support.reason || support.analyse !== false
+              || support.countsTowardProductionProgression !== false
+              || support.insertedIntoPhraseSteps !== false) throw new Error('Invalid lexical support');
+          supportIds.add(id);
+        }
+        const heardUses = new Set();
+        const prepared = new Map();
+        const recalled = new Set();
         const included = [];
         theme.sequences.forEach(sequence => {
           if (!Array.isArray(sequence.phraseIds) || !sequence.phraseIds.length || sequence.phraseIds.length > 5 || !Array.isArray(sequence.steps) || !sequence.steps.length) throw new Error('Invalid sequence');
           sequence.phraseIds.forEach(id => { if (!presentedIds.has(id)) throw new Error('Unknown phrase'); included.push(id); });
           const preparationIds = sequence.preparationIds || [];
           if (!Array.isArray(preparationIds) || preparationIds.some(id => !canonical.has(id))) throw new Error('Unknown preparation');
-          sequence.steps.forEach(step => {
+          const receivedModelIds = new Set([...receivedUses.values()].map(turn => turn.utterance));
+          if (sequence.receivedIds !== undefined && (!Array.isArray(sequence.receivedIds)
+              || new Set(sequence.receivedIds).size !== sequence.receivedIds.length
+              || sequence.receivedIds.some(id => !receivedModelIds.has(id)))) throw new Error('Invalid sequence received list');
+          const sequenceHeard = [];
+          sequence.steps.forEach((step, stepIndex) => {
+            if (step.kind === 'receive') {
+              const turn = receivedUses.get(step.receivedId);
+              if (!turn || heardUses.has(turn.id) || !(sequence.receivedIds || []).includes(turn.utterance)
+                  || step.utterance !== turn.utterance || step.prepares !== turn.prepares
+                  || step.targetIntentId !== turn.targetIntentId || step.analyse !== false
+                  || step.countsForProgress !== false || step.requiresProduction !== false
+                  || step.isPreparation || step.isReview || step.isContextReuse
+                  || JSON.stringify(step.role) !== JSON.stringify(turn.role)
+                  || JSON.stringify(step.answerWith) !== JSON.stringify(turn.answerWith)
+                  || JSON.stringify(step.answerWithUtteranceIds) !== JSON.stringify(turn.answerWithUtteranceIds)
+                  || !sequence.phraseIds.includes(turn.prepares)
+                  || turn.answerWithUtteranceIds.some(id => !prepared.get(id)?.has('understand') || !prepared.get(id)?.has('imitate')
+                    || step.preparedAnswerSteps?.[id]?.understoodInStep !== prepared.get(id)?.get('understand')
+                    || step.preparedAnswerSteps?.[id]?.imitatedInStep !== prepared.get(id)?.get('imitate'))
+                  || Object.keys(step.preparedAnswerSteps || {}).length !== turn.answerWithUtteranceIds.length) throw new Error('Invalid received step');
+              if (turn.beforeIntentId) {
+                const next = sequence.steps[stepIndex + 1];
+                if (!next || next.utterance !== turn.prepares || !isRecall(next)) throw new Error('Received question without prepared reply');
+              } else if (!recalled.has(turn.prepares)
+                  || sequence.steps[stepIndex - 1]?.utterance !== turn.prepares
+                  || !isRecall(sequence.steps[stepIndex - 1])) throw new Error('Received closure without completed reply');
+              heardUses.add(turn.id);
+              sequenceHeard.push(turn.utterance);
+              return;
+            }
             const references = [step.utterance, ...(step.choices || [])].filter(Boolean);
             if (!references.length || references.some(id => !(step.isPreparation ? preparationIds : sequence.phraseIds).includes(id))) throw new Error('Unknown step phrase');
             if (step.isPreparation && (!['understand', 'imitate'].includes(step.kind) || !sequence.phraseIds.includes(step.prepares))) throw new Error('Invalid preparation step');
@@ -838,14 +929,17 @@
             if (contextIds.has(step.utterance) && (step.isContextReuse !== true || step.isReview)) throw new Error('Unmarked context reuse');
             if (!step.isPreparation && step.isContextReuse && !contextIds.has(step.utterance)) throw new Error('False context reuse');
             if (theme.contentType === 'utterance' && references.some(id => activeById.get(id)?.contentType !== 'utterance')) throw new Error('Lexical step in a situation');
+            if (['understand', 'imitate'].includes(step.kind)) for (const id of references) {
+              if (!prepared.has(id)) prepared.set(id, new Map());
+              prepared.get(id).set(step.kind, step.id);
+            }
+            if (isRecall(step)) for (const id of references) recalled.add(id);
           });
+          if (new Set(sequenceHeard).size !== (sequence.receivedIds || []).length) throw new Error('Missing received use');
         });
+        if (heardUses.size !== receivedUses.size) throw new Error('Missing interlocutor turn');
         if (included.length !== presentedIds.size || new Set(included).size !== presentedIds.size) throw new Error('Incomplete theme');
         if (theme.isAdditionalSituation) {
-          const intentByPhrase = new Map([
-            ...theme.phrases.map(phrase => [phrase.id, phrase.situationIntentId || phrase.intentId]),
-            ...(theme.contextReferences || []).map(reference => [reference.id, reference.intentId])
-          ]);
           if (included.some((id, index) => intentByPhrase.get(id) !== theme.intentIds[index])) throw new Error('Invalid situation order');
         }
       });
