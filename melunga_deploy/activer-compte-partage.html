@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>Activer le compte partagé — Melunga</title>
+  <style>
+    :root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#133b4b;background:#ecf5f3}
+    *{box-sizing:border-box}body{margin:0;min-height:100dvh;background:radial-gradient(ellipse at top left,#c8f2e8,transparent 65%),linear-gradient(145deg,#f7faf6,#e6edf8);padding:32px 16px}
+    main{max-width:620px;margin:0 auto;background:#ffffffdc;border:1px solid #ffffff;border-radius:28px;padding:32px;box-shadow:0 16px 64px #143a4b12}
+    .brand{font-size:21px;font-weight:800;color:#087f79;text-decoration:none}h1{font-size:clamp(25px,5vw,34px);line-height:1.15;margin:28px 0 14px}p{line-height:1.6;margin:12px 0}.account{font-size:20px;font-weight:750;overflow-wrap:anywhere}.muted{color:#4c6973;font-size:15px}
+    label{display:block;font-weight:700;margin:24px 0 9px}input{width:100%;min-height:52px;border:1px solid #adcac9;border-radius:14px;background:#f5faf9;font:inherit;color:inherit;padding:12px 15px}input:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #0b8f92;outline-offset:3px}input:disabled{opacity:.7}
+    button,.link-button{font:inherit;min-height:50px;border:0;border-radius:14px;padding:13px 18px;font-weight:750;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}button{width:100%;margin-top:16px;color:white;background:#087e7b}button:disabled{opacity:.5;cursor:default}.secondary{background:transparent;color:#4c6973;border:1px solid #b6cecc}.link-button{color:#fff;background:#087e7b;margin-top:8px}
+    #status{margin-top:24px;border-radius:14px;padding:14px 16px;background:#eaf3f1;line-height:1.6;overflow-wrap:anywhere}#status[data-kind="error"]{background:#fff0e5;color:#873f16}#status[data-kind="success"]{background:#d9f7e7;color:#145339}#accountState{margin-top:20px;padding:14px 16px;border:1px solid #cce0dc;border-radius:14px}#accountState p{margin:4px 0}#successPanel{margin-top:20px}hr{border:0;border-top:1px solid #d9e7e2;margin:26px 0}.privacy{font-size:14px;color:#4c6973;margin-top:24px}[hidden]{display:none!important}
+    @media(max-width:420px){body{padding:16px 10px}main{padding:23px 19px;border-radius:22px}}
+  </style>
+  <script src="/activer-compte-partage.js" defer></script>
+</head>
+<body>
+<main>
+  <a class="brand" href="/">Melunga</a>
+  <h1>Activer le compte partagé</h1>
+  <p class="account">contact@melunga.com</p>
+  <p>Tout le contenu offert, sans expiration, pour <strong>30 appareils maximum</strong>.</p>
+  <form id="keyForm" autocomplete="off">
+    <label for="adminKey">Clé d’administration Netlify</label>
+    <input id="adminKey" type="password" autocomplete="off" spellcheck="false" autocapitalize="none" required aria-describedby="keyHelp">
+    <p id="keyHelp" class="muted">Colle la valeur <strong>ADMIN_SECRET</strong> copiée sur la ligne <strong>Production</strong> dans Netlify.</p>
+    <button id="inspectButton" type="submit" disabled>Vérifier la clé</button>
+  </form>
+  <div id="status" role="status" aria-live="polite">Chargement de la page sécurisée…</div>
+  <div id="accountState" hidden>
+    <p id="accountExists"></p>
+    <p>Appareils déjà enregistrés : <strong id="registeredCount"></strong> / 30</p>
+  </div>
+  <section id="passwordSection" hidden>
+    <hr>
+    <form id="passwordForm" autocomplete="off">
+      <label for="accountPassword">Mot de passe du compte partagé</label>
+      <input id="accountPassword" type="password" autocomplete="off" spellcheck="false" autocapitalize="none" minlength="8" maxlength="1024" required aria-describedby="passwordHelp">
+      <p id="passwordHelp" class="muted">Saisis le mot de passe choisi pour contact@melunga.com. Si le compte existe, son mot de passe actuel est nécessaire.</p>
+      <button id="activateButton" type="submit" disabled>Activer l’accès offert</button>
+    </form>
+  </section>
+  <div id="successPanel" hidden>
+    <p>Tu peux maintenant te connecter à Melunga avec <strong>contact@melunga.com</strong> et le mot de passe du compte.</p>
+    <a class="link-button" href="/app.html?start=1">Ouvrir Melunga</a>
+  </div>
+  <p id="productionLink" hidden><a href="https://melunga.com/activer-compte-partage.html">Ouvrir la page sur melunga.com</a></p>
+  <button id="clearButton" type="button" class="secondary">Effacer les champs</button>
+  <p class="privacy">La clé et le mot de passe sont envoyés uniquement au serveur Melunga. Cette page ne les enregistre pas dans le navigateur.</p>
+  <noscript><p>JavaScript doit être activé pour vérifier et activer ce compte.</p></noscript>
+</main>
+</body>
+</html>

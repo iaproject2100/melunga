@@ -15,12 +15,14 @@
 //   AIRWALLEX_ENV ('demo'|'live'), BREVO_API_KEY (optionnelle)
 
 import crypto from 'node:crypto';
-import { getStore } from '@netlify/blobs';
+import { getAccessStore } from './access-store.mjs';
 import {
+  cleanDeviceId,
   ensureDeviceSlots,
   makeDeviceSlot
 } from './device-access.mjs';
 import { expectedAmount } from './pricing-table.mjs';
+import { hasPermanentAccess } from './complimentary-access.mjs';
 
 function baseUrl() {
   return (process.env.AIRWALLEX_ENV || 'demo') === 'live'
@@ -83,6 +85,84 @@ function extractLinkId(obj) {
     || null;
 }
 
+async function updatePaidAccount(store, accountKey, info, expiry) {
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const snapshot = await store.getWithMetadata(accountKey, { type: 'json' });
+    const previous = snapshot ? snapshot.data : null;
+    if (hasPermanentAccess(previous)) return { preserved: true };
+    if (snapshot && !snapshot.etag) return { conflict: true };
+
+    const devices = previous && previous.expiry > Date.now()
+      ? ensureDeviceSlots(previous)
+      : ensureDeviceSlots(null);
+    const deviceType = info.deviceType === 'mobile' ? 'mobile' : 'desktop';
+    const now = Date.now();
+    devices[deviceType] = makeDeviceSlot({
+      deviceId: info.deviceId,
+      deviceType,
+      deviceLabel: info.deviceLabel || (deviceType === 'mobile' ? 'Appareil mobile' : 'Ordinateur'),
+      previousSlot: devices[deviceType],
+      now
+    });
+
+    const result = await store.setJSON(accountKey, {
+      ...(previous || {}),
+      email: info.email,
+      passwordHash: info.passwordHash,
+      salt: info.salt,
+      paid: true,
+      expiry,
+      plan: info.plan,
+      devices,
+      updated: now
+    }, snapshot ? { onlyIfMatch: snapshot.etag } : { onlyIfNew: true });
+    if (result.modified) return { deviceType, now };
+  }
+  return { conflict: true };
+}
+
+async function updatePaymentDevice(store, info, expiry, accountDeviceType = null) {
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const snapshot = await store.getWithMetadata(info.deviceId, { type: 'json' });
+    const previous = snapshot ? snapshot.data : null;
+    if (snapshot && !snapshot.etag) return { conflict: true };
+    const emails = new Set([info.email, previous && previous.email].filter(Boolean));
+    for (const email of emails) {
+      if (hasPermanentAccess(await store.get('email:' + email, { type: 'json' }))) {
+        return { preserved: true };
+      }
+    }
+
+    // A payment must retain the latest account/session association.
+    // The account remains authoritative if an owner grant is created between
+    // this check and the cache write; CAS also protects a concurrent login.
+    const next = {
+      ...(previous || {}),
+      paid: true,
+      expiry,
+      plan: info.plan,
+      updated: Date.now()
+    };
+    if (accountDeviceType) {
+      next.email = info.email;
+      next.deviceType = accountDeviceType;
+      // A session from a different account cannot authenticate this payment's
+      // account. A fresh login on the same account keeps its current token.
+      if (previous && previous.email && previous.email !== info.email) delete next.sessionHash;
+    }
+    const result = await store.setJSON(info.deviceId, next,
+      snapshot ? { onlyIfMatch: snapshot.etag } : { onlyIfNew: true });
+    if (!result.modified) continue;
+    for (const email of emails) {
+      if (hasPermanentAccess(await store.get('email:' + email, { type: 'json' }))) {
+        return { preserved: true };
+      }
+    }
+    return { updated: true };
+  }
+  return { conflict: true };
+}
+
 export default async (req) => {
   if (req.method !== 'POST') {
     return new Response('method not allowed', { status: 405 });
@@ -118,7 +198,7 @@ export default async (req) => {
   if (event && event.name === 'payment_intent.succeeded') {
     const obj = (event.data && event.data.object) ? event.data.object : {};
     const intentId = obj.id || null;
-    const store = getStore({ name: 'melunga-access', consistency: 'strong' });
+    const store = getAccessStore();
 
     // --- Niveau 1 : metadata directes de l'intent ---
     let meta = obj.metadata || {};
@@ -206,6 +286,13 @@ export default async (req) => {
       }
     }
 
+    // All metadata sources, including historic pending links, must pass the
+    // same reserved-key guard as login before they can address device records.
+    if (info) {
+      info.deviceId = cleanDeviceId(info.deviceId);
+      if (!info.deviceId) return new Response('invalid device', { status: 200 });
+    }
+
     // --- Controle du montant et de la devise reellement payes ---
     // On compare ce qu'Airwallex a encaisse (captured_amount, sinon amount / currency) a ce qui etait attendu
     // pour ce lien (enregistre par create-payment-link). Pour un lien ancien sans montant
@@ -233,57 +320,42 @@ export default async (req) => {
     }
 
     if (info && info.deviceId) {
+      // A payment link can predate an owner grant. It must not replace that
+      // grant, its credentials or its shared-device register when delivered.
+      // Check both the payment's email and an existing device association:
+      // old device-only payment links may not carry the email in metadata.
+      const existingDevice = await store.get(info.deviceId, { type: 'json' });
+      const emails = new Set([info.email, existingDevice && existingDevice.email].filter(Boolean));
+      for (const email of emails) {
+        const account = await store.get('email:' + email, { type: 'json' });
+        if (hasPermanentAccess(account)) {
+          return new Response('complimentary access preserved', { status: 200 });
+        }
+      }
+
       const expiry = Date.now() + info.accessDays * 24 * 60 * 60 * 1000;
 
       // Creation / mise a jour du compte email
       if (info.email && info.passwordHash && info.salt) {
         const accountKey = 'email:' + info.email;
-        const previousAccount = await store.get(accountKey, { type: 'json' }).catch(() => null);
-        const devices = previousAccount && previousAccount.expiry > Date.now()
-          ? ensureDeviceSlots(previousAccount)
-          : ensureDeviceSlots(null);
-        const deviceType = info.deviceType === 'mobile' ? 'mobile' : 'desktop';
-        const previousSlot = devices[deviceType];
-        const now = Date.now();
-
-        devices[deviceType] = makeDeviceSlot({
-          deviceId: info.deviceId,
-          deviceType,
-          deviceLabel: info.deviceLabel || (deviceType === 'mobile' ? 'Appareil mobile' : 'Ordinateur'),
-          previousSlot,
-          now
-        });
-
-        await store.setJSON(info.deviceId, {
-          paid: true,
-          expiry,
-          plan: info.plan,
-          email: info.email,
-          deviceType,
-          updated: now
-        });
+        const updated = await updatePaidAccount(store, accountKey, info, expiry);
+        if (updated.preserved) {
+          return new Response('complimentary access preserved', { status: 200 });
+        }
+        if (updated.conflict) return new Response('account update conflict', { status: 503 });
+        const cached = await updatePaymentDevice(store, info, expiry, updated.deviceType);
+        if (cached.preserved) return new Response('complimentary access preserved', { status: 200 });
+        if (cached.conflict) return new Response('device update conflict', { status: 503 });
         console.log('[airwallex-webhook] device_id marque paye =', info.deviceId);
 
-        await store.setJSON(accountKey, {
-          ...(previousAccount || {}),
-          email: info.email,
-          passwordHash: info.passwordHash,
-          salt: info.salt,
-          paid: true,
-          expiry,
-          plan: info.plan,
-          devices,
-          updated: now
-        });
         console.log('[airwallex-webhook] compte cree/mis a jour pour email =', info.email);
         await sendConfirmationEmail(info.email, info.plan);
       } else {
-        await store.setJSON(info.deviceId, {
-          paid: true,
-          expiry,
-          plan: info.plan,
-          updated: Date.now()
-        });
+        const updated = await updatePaymentDevice(store, info, expiry);
+        if (updated.preserved) {
+          return new Response('complimentary access preserved', { status: 200 });
+        }
+        if (updated.conflict) return new Response('device update conflict', { status: 503 });
         console.log('[airwallex-webhook] pas d\'email/hash disponibles, compte non cree (appareil debloque)');
       }
 

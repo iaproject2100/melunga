@@ -1,5 +1,5 @@
 import crypto from 'node:crypto';
-import { getStore } from '@netlify/blobs';
+import { getAccessStore } from './access-store.mjs';
 import {
   cleanDeviceId,
   cleanEmail,
@@ -10,6 +10,7 @@ import {
   randomSessionToken
 } from './device-access.mjs';
 import { jsonResponse, preflight } from './cors.mjs';
+import { hasPermanentAccess } from './complimentary-access.mjs';
 
 function codeHash(secret, email, deviceType, deviceId, code) {
   return crypto
@@ -44,7 +45,7 @@ export default async (req) => {
       return jsonResponse(req, { success: false, error: 'invalid_request' }, 400);
     }
 
-    const store = getStore({ name: 'melunga-access', consistency: 'strong' });
+    const store = getAccessStore();
     const pendingKey = ['replacement', email, deviceType].join(':');
     const pending = await store.get(pendingKey, { type: 'json' }).catch(() => null);
 
@@ -74,32 +75,40 @@ export default async (req) => {
     }
 
     const accountKey = 'email:' + email;
-    const account = await store.get(accountKey, { type: 'json' }).catch(() => null);
-    if (!account || !account.paid || account.expiry <= Date.now()) {
-      return jsonResponse(req, { success: false, error: 'subscription_expired' }, 403);
+    let committed = null;
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      const snapshot = await store.getWithMetadata(accountKey, { type: 'json' });
+      const account = snapshot ? snapshot.data : null;
+      if (hasPermanentAccess(account)) {
+        return jsonResponse(req, { success: false, error: 'shared_account_managed_by_owner' }, 409);
+      }
+      if (!account || !account.paid || account.expiry <= Date.now()) {
+        return jsonResponse(req, { success: false, error: 'subscription_expired' }, 403);
+      }
+      if (!snapshot.etag) break;
+
+      const devices = ensureDeviceSlots(account);
+      const oldSlot = devices[deviceType];
+      const now = Date.now();
+      const sessionToken = randomSessionToken();
+      const sessionHash = hashSessionToken(sessionToken);
+      devices[deviceType] = {
+        ...makeDeviceSlot({ deviceId, deviceType, deviceLabel: pending.deviceLabel, now }),
+        sessionHash
+      };
+
+      const result = await store.setJSON(accountKey, {
+        ...account,
+        devices,
+        updated: now
+      }, { onlyIfMatch: snapshot.etag });
+      if (result.modified) {
+        committed = { account, oldSlot, now, sessionToken, sessionHash };
+        break;
+      }
     }
-
-    const devices = ensureDeviceSlots(account);
-    const oldSlot = devices[deviceType];
-    const now = Date.now();
-    const sessionToken = randomSessionToken();
-    const sessionHash = hashSessionToken(sessionToken);
-
-    devices[deviceType] = {
-      ...makeDeviceSlot({
-        deviceId,
-        deviceType,
-        deviceLabel: pending.deviceLabel,
-        now
-      }),
-      sessionHash
-    };
-
-    await store.setJSON(accountKey, {
-      ...account,
-      devices,
-      updated: now
-    });
+    if (!committed) return jsonResponse(req, { success: false, error: 'account_update_conflict' }, 409);
+    const { account, oldSlot, now, sessionToken, sessionHash } = committed;
     await store.setJSON('session:' + sessionHash, {
       email,
       deviceId,
@@ -121,8 +130,9 @@ export default async (req) => {
     if (oldSlot && oldSlot.sessionHash) {
       await store.delete('session:' + oldSlot.sessionHash).catch(() => {});
     }
-    if (oldSlot && oldSlot.deviceId && oldSlot.deviceId !== deviceId) {
-      await store.delete(oldSlot.deviceId).catch(() => {});
+    const oldDeviceId = oldSlot && cleanDeviceId(oldSlot.deviceId);
+    if (oldDeviceId && oldDeviceId === oldSlot.deviceId && oldDeviceId !== deviceId) {
+      await store.delete(oldDeviceId).catch(() => {});
     }
     await store.delete(pendingKey).catch(() => {});
 
