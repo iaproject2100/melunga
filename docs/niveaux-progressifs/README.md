@@ -131,10 +131,19 @@ sans relecture individuelle**. Densité, copie exacte et ordre prévu ne démont
 ni acquisition ni progressivité globale de tout le catalogue ; les prérequis
 non clos restent exposés dans le compte rendu.
 
-## Claude vérifie uniquement la phonétique
+## Revue complète par Claude : thèmes, niveaux et phonétique
 
-Codex assume les sens, formulations, rôles, thèmes, niveaux et préparations.
-Claude vérifie les aides selon la méthode Melunga.
+La consigne de Kartech du **25 octobre 2026** remplace la restriction précédente
+« phonétique uniquement » : Claude vérifie et corrige le classement, la progression
+et les aides de toutes les cartes, anciennes et nouvelles. Codex assure
+l’intégration et les contrôles techniques en conservant la présentation validée.
+
+- [Mandat complet et message à transmettre](message-pour-claude.md).
+- [Accès sans compte Melunga et liens vers tout le contenu, réserves comprises](acces-revue-integrale.md).
+
+La revue vise 33 654 cartes et les modèles reçus, soit **33 874 identifiants distincts**.
+Les consignes historiques de ce dossier restent des traces datées ; leur limitation
+de rôle ne restreint pas le nouveau mandat.
 
 La relecture de convention reçue à `295adf3` et sa réponse sont documentées dans
 [le dossier de reprise phonétique](reponse-relecture-phonetique/README.md).
@@ -146,7 +155,8 @@ les mesures et propose les corrections entières à relire, sans les appliquer �
 - [139 aides nouvelles du premier lot lexical et une aide entière reprise](corrections-themes/enrichissements-rediges.md).
 - [Message prêt pour Claude](message-pour-claude.md).
 
-Au total, **1 668 aides entières nouvelles** constituent le périmètre de relecture.
+Le lot d’enrichissement comprend **1 668 aides entières nouvelles**. Le nouveau
+mandat couvre aussi les aides anciennes ; ce nombre ne limite plus la revue.
 La passe de convention reçue et les propositions de correction ne valent pas
 validation du naturel de chaque aide.
 La conservation d’une aide ancienne ne prouve pas sa conformité à la méthode.

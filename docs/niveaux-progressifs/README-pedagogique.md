@@ -125,13 +125,17 @@ Le stock complet n’est pas réduit à une courte scène d’entrée.
 
 ## Contrôles de contenu et revue phonétique
 
-Codex assume les regroupements, les niveaux, les préparations et les enrichissements.
-Selon la consigne de Kartech du 24 octobre, Claude vérifie uniquement la conformité
-des phonétiques à sa méthode. Les contrôles de contenu ci-dessous restent ceux de Codex.
+La consigne de Kartech du **25 octobre 2026** étend la mission de Claude :
+vérifier et corriger les thèmes, les niveaux et les phonétiques de toutes les cartes.
+Elle remplace la limitation du 24 octobre à la phonétique seule. Codex assure
+l’intégration et les contrôles techniques ; la présentation validée est conservée.
+Le [mandat complet](message-pour-claude.md) et les [accès exhaustifs](acces-revue-integrale.md)
+précisent le périmètre, les corrections autorisées et la preuve de couverture attendue.
 
 - L’adéquation entre les phrases réelles, leur placement proposé et la capacité
   du niveau ; les titres seuls ne prouvent pas cette adéquation.
-- Le maintien exact des textes et des aides existantes ; `pf` pour
+- La conservation des originaux pour la traçabilité et les corrections phonétiques
+  explicites avant/après, y compris pour les aides anciennes erronées ; `pf` pour
   en/es/it/ja/ko, `phf` pour zh, et `phon` pour le français lu par les sinophones.
 - Les nouvelles phonétiques proposées, séparément des copies verbatim, selon la
   méthode de Kartech et sans règle universelle déduite d’un cas particulier.
