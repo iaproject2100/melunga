@@ -93,6 +93,9 @@ export default async req => {
       return json({ success: false, error: 'account_not_allowed' }, 400);
     }
     if (!['inspect', 'activate'].includes(body.action)) return json({ success: false, error: 'invalid_action' }, 400);
+    if (body.action === 'activate' && new URL(req.url).origin !== 'https://melunga.com') {
+      return json({ success: false, error: 'production_required' }, 409);
+    }
     const store = getAccessStore();
     const snapshot = await readAccount(store);
     if (body.action === 'inspect') return json({ success: true, state: stateOf(snapshot) });

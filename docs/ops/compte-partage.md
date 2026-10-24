@@ -5,8 +5,8 @@ sans date de fin, utilisable sur **30 appareils enregistrés au maximum**.
 Ce plafond compte les identifiants de navigateur/appareil, pas les personnes ni
 les connexions simultanées. Aucune création de trente adresses n'est nécessaire.
 
-**État de cette livraison : code préparé, compte réel non activé.** Aucun accès
-administratif au store Netlify n'était disponible pendant la préparation.
+**État de cette livraison : compte réel non activé par les tests.** Aucun accès
+administratif au store Netlify n'était disponible dans l'environnement pendant la préparation.
 Les essais utilisent uniquement des comptes, mots de passe et stores fictifs.
 L'activation réelle doit être confirmée par l'inspection et une connexion réelle.
 
@@ -30,6 +30,34 @@ L'activation réelle doit être confirmée par l'inspection et une connexion ré
   Cette branche ne contient pas la maquette thématique de la PR #11.
 
 ## Contrôle administratif
+
+### Depuis le navigateur du propriétaire
+
+Après publication des fonctions et de la page sur le site réel :
+
+1. Ouvrir `https://melunga.com/activer-compte-partage.html`.
+2. Copier `ADMIN_SECRET` depuis la ligne **Production** des variables Netlify,
+   le coller dans **Clé d'administration Netlify**, puis cliquer **Vérifier la clé**.
+3. Après l'inspection, saisir le mot de passe du compte partagé et cliquer
+   **Activer l'accès offert**. Le mot de passe existant est vérifié si le compte
+   existe déjà ; il n'est jamais réinitialisé par cette opération.
+4. Attendre la confirmation explicite que le compte a l'accès permanent et
+   30 appareils maximum, puis se connecter à Melunga.
+
+Cette méthode ne demande aucune configuration de secret dans Codex. Les valeurs
+saisies ne passent pas par le chat ; la page n'utilise ni stockage navigateur,
+ni journalisation, ni service tiers. Les champs sont effacés après confirmation
+et lors de la sortie de page. En cas de réponse perdue, le formulaire conserve
+l'identifiant d'opération en mémoire pour permettre un nouvel essai idempotent.
+Un changement de clé invalide l'inspection précédente. L'aperçu ne peut pas
+effectuer d'activation : le navigateur et le serveur exigent l'origine exacte
+`https://melunga.com`.
+
+La page et son alias sans extension reçoivent `no-store`, `noindex`, une CSP
+limitée à la même origine et aucune ressource tierce. Elle n'est pas ajoutée au
+menu public du produit ; l'API exige toujours la clé d'administration.
+
+### Depuis un terminal sécurisé, en option
 
 `admin-shared-access.mjs` exige `Authorization: Bearer <ADMIN_SECRET>` et ne peut
 agir que sur `contact@melunga.com`. Le secret reste dans les paramètres sécurisés
@@ -80,6 +108,13 @@ Depuis la racine du dépôt :
 npm --prefix melunga_deploy ci --ignore-scripts --no-audit --no-fund
 node --experimental-vm-modules --test melunga_deploy/tests/complimentary-*.test.cjs melunga_deploy/tests/blobs-cas.test.mjs
 python3 -B tools/access/test_shared_contact.py
+```
+
+La page d'activation dispose aussi d'une suite navigateur séparée, avec
+Playwright Core et Chromium disponibles dans l'environnement de test :
+
+```sh
+NODE_PATH=/tmp/melunga-review-tools/node_modules node --test melunga_deploy/tests/complimentary-activation-page.browser.cjs
 ```
 
 Ces tests couvrent le plafond, les reconnexions, les déconnexions, les écritures

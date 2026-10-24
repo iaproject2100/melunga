@@ -23,7 +23,7 @@ async function harness(records = {}, options = {}) {
   let stores = 0;
   const logs = [];
   const context = vm.createContext({
-    Request, Response, Headers, Buffer, Date,
+    Request, Response, Headers, URL, Buffer, Date,
     process: { env: { ADMIN_SECRET: options.secret === undefined ? ADMIN : options.secret } },
     console: {
       log: (...args) => logs.push(args.join(' ')),
@@ -61,10 +61,10 @@ async function harness(records = {}, options = {}) {
   await mod.evaluate();
   return {
     store, logs, get stores() { return stores; },
-    async call(body, { token = ADMIN, method = 'POST', raw } = {}) {
+    async call(body, { token = ADMIN, method = 'POST', raw, origin = 'https://melunga.com' } = {}) {
       const headers = { 'Content-Type': 'application/json' };
       if (token) headers.Authorization = 'Bearer ' + token;
-      const req = new Request('https://fixture.example.invalid/.netlify/functions/admin-shared-access', {
+      const req = new Request(origin + '/.netlify/functions/admin-shared-access', {
         method, headers, ...(method === 'GET' ? {} : { body: raw === undefined ? JSON.stringify(body) : raw })
       });
       const response = await mod.namespace.default(req);
@@ -103,6 +103,19 @@ test('non-POST and malformed requests cannot write any account', async () => {
   }
   assert.deepEqual(writes(h.store), []);
   assert.equal(h.stores, 0);
+});
+
+test('activation from previews, alternate hosts, or plain HTTP is refused before opening the store', async () => {
+  for (const origin of ['https://deploy-preview-12--chic-dragon-e2baf2.netlify.app',
+      'https://chic-dragon-e2baf2.netlify.app', 'https://www.melunga.com', 'http://melunga.com']) {
+    const h = await harness();
+    const response = await h.call({ action: 'activate', password: FIXTURE_PASSWORD,
+      requestId: REQUEST_ID, expectedRevision: 'absent' }, { origin });
+    assert.equal(response.status, 409);
+    assert.equal(response.body.error, 'production_required');
+    assert.equal(h.stores, 0);
+    assert.deepEqual(h.store.calls, []);
+  }
 });
 
 test('inspection is read-only and returns no password, hash, salt, session, or grant secret', async () => {
