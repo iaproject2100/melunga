@@ -136,11 +136,19 @@ non clos restent exposés dans le compte rendu.
 Codex assume les sens, formulations, rôles, thèmes, niveaux et préparations.
 Claude vérifie les aides selon la méthode Melunga.
 
+La relecture de convention reçue à `295adf3` et sa réponse sont documentées dans
+[le dossier de reprise phonétique](reponse-relecture-phonetique/README.md).
+Il réconcilie les 334 copies sans statut et les 1 668 nouvelles entrées, reproduit
+les mesures et propose les corrections entières à relire, sans les appliquer à l’aperçu.
+[Message de réponse à transmettre à Claude](reponse-relecture-phonetique/message-pour-claude.md).
+
 - [Tableau des formes entières de situations, répliques reçues et nouveaux soutiens](enrichissement-situations/nouvelles-phrases-a-relire.md).
 - [139 aides nouvelles du premier lot lexical et une aide entière reprise](corrections-themes/enrichissements-rediges.md).
 - [Message prêt pour Claude](message-pour-claude.md).
 
-Au total, **1 668 aides entières nouvelles** attendent son contrôle.
+Au total, **1 668 aides entières nouvelles** constituent le périmètre de relecture.
+La passe de convention reçue et les propositions de correction ne valent pas
+validation du naturel de chaque aide.
 La conservation d’une aide ancienne ne prouve pas sa conformité à la méthode.
 Pour zh→fr, les aides restent destinées au lecteur sinophone et écrites en caractères.
 
