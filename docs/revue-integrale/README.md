@@ -5,54 +5,55 @@ Mandat de Kartech du 25 octobre 2026. Référence figée `4ec163e`. Branche `rev
 
 ## Ce que ce lot apporte
 
-**4 832 aides phonétiques corrigées** sur les sept couples, et une faute de fond identifiée : **les aides les plus fréquentes de trois langues faisaient prononcer au francophone un son qui n'existe pas dans la langue étudiée.**
+**736 aides corrigées**, qui toutes **rétablissent la notation de la version en production** là où le nouveau lot l'avait perdue. Aucune notation nouvelle n'est introduite.
 
 | | |
 |---|---|
 | Identifiants au périmètre | **33 874** (32 792 visibles · 862 réserves · 252 modèles reçus · 32 partagés) |
 | Cellules couvertes | **70 sur 70** |
-| Corrigés | **4 832** |
-| Vérifiés sans changement | **27 496** |
-| Incertains, lecture mot par mot nécessaire | **352** |
+| Corrigés | **736** |
+| Vérifiés sans changement | **31 592** |
+| Incertains, lecture mot par mot nécessaire | **330** |
 | Candidats de thème à arbitrer | **1 216** |
 
-Conservation vérifiée contre `4ec163e` : identifiants **33 654 avant, 33 654 après, zéro perdu, zéro ajouté** ; seuls `phon` et `phoneticReviewStatus` diffèrent ; **aucune métadonnée de niveau modifiée**. Le diff fait 45 lignes pour 45 fichiers — une par fichier, format d'origine conservé.
+Conservation vérifiée contre `4ec163e` : identifiants **33 654 avant, 33 654 après, zéro perdu, zéro ajouté** ; seuls `phon` et `phoneticReviewStatus` diffèrent ; **aucune métadonnée de niveau modifiée**.
 
-## 1. La faute de fond : l'aide doit se lire en français
+> **Consigne de Kartech du 25 octobre, 10 h** : « la phonétique comme l'entend un natif […] je veux la même stratégie de phonétique qu'on a dans la version actuelle. »
+>
+> Cette consigne a fait retirer **4 096 corrections** que j'avais d'abord appliquées. Le détail est à la section 1b : **c'est une erreur de ma part, pas une limite du lot.** Aucun symbole phonétique international n'est jamais entré dans une carte : les aides n'emploient que des lettres françaises, et des caractères chinois pour le zh→fr — vérifié caractère par caractère sur la totalité.
 
-C'est le principe unique de la méthode, et deux règles d'orthographe française le rendaient faux à grande échelle.
+## 1. La règle appliquée : rétablir ta notation là où le lot l'avait perdue
 
-### Règle A — un `s` seul entre deux voyelles se lit /z/
+### Règle B — `gu` devant `e`, `é`, `è`, `i`, `y`, comme en production
 
-Le français ne laisse aucune ambiguïté : *rose* /roz/ contre *rosse* /ros/, *poison* contre *poisson*. Une aide qui écrit `dé-sou` fait dire **/dezu/**.
+En français, un `g` seul devant une voyelle antérieure se lit comme un `j` : `GIV` se lit « jive », `GÈT` se lit « jète », 个 écrit `ge` se lit « je ». Pour garder le `g` dur, le français écrit `gu` — et **c'est exactement ce que fait la version en production** :
 
-| Langue | Formes touchées | Ce que disait le francophone | Occurrences |
-|---|---|---|---|
-| japonais | **‑ます** `ma-sou` | /mazu/ au lieu de /masu/ | **1 277** |
-| japonais | **‑です** `dé-sou` | /dezu/ au lieu de /desu/ | **954** |
-| japonais | ‑ません `ma-sen` | /mazen/ | 285 |
-| coréen | **‑세요** `sé-yo` | /zejo/ au lieu de /sejo/ | 157 |
-| espagnol | *necesito* `né-sé-SI-to` | /nezezito/ | 95 |
-| espagnol | *gracias* `GRA-sias` | /grazias/ | 22 |
+| Catalogue en production | Occurrences de `gu` devant e/i | Exemples |
+|---|---:|---|
+| coréen | **1 114** | `yo-gui-yé-yo` · `gueup-hè-yo` · `gal-gué-yo` · `dji-gueum ga-yo` |
+| japonais | **238** | `guén-ki-dé-sou-ka` · `ta-ka-sou-gui-ma-sou` |
+| anglais | **51** | `guiv mi eu SÈ-keunnd` · `aï ouônnt for-GUÈT` |
+| italien | 25 | `la-cha qué ti spiè-gui` · `a i ca-pèl-li lounn-gui` |
+| espagnol | 13 | `pa-GUÉ las fak-TOU-ras` · `AL-guièn A-bla in-GLÈS` |
+| **total** | **1 441** | |
 
-Ce ne sont pas des mots rares : **‑masu et ‑desu sont la charpente du japonais parlé**, et 안녕하세요 est le premier mot de coréen que tout le monde apprend. Il était écrit `an-nyong-ha-sé-yo`, donc lu *an-niong-a-zé-yo*.
+**La production écrit déjà `guiv` et `for-GUÈT`.** Le nouveau lot avait écrit `GIV` et `GÈT`. Cette règle ne change donc pas ta stratégie : **elle la remet en place**.
 
-**Appliqué à fr-ja, fr-ko et fr-es seulement** — ces trois langues n'ont pas de /z/ à cet endroit, donc la correction ne peut rien casser. Le japonais n'écrit /z/ qu'avec ざじずぜぞ, romanisés *z*. **Le coréen n'a aucun /z/ du tout.**
-
-### Règle B — un `g` devant `e`, `é`, `è`, `i` ou `y` se lit /ʒ/
+Le corpus chinois le sait aussi : il écrit `gueï` sur la carte L1 du café, celle faite à la main.
 
 `GIV` se lit « jive ». `GÈT` se lit « jète ». 个 écrit `ge` se lit « je ».
 
-| Couple | Exemple | Lu par le francophone | Occurrences |
-|---|---|---|---|
-| chinois | 个 `geu` · 给 `geï` | /ʒø/ · /ʒɛ/ | **463** |
-| coréen | 계 `gyé` · 교 `gyo` | /ʒje/ · /ʒjo/ | **269** |
-| anglais | `GIV`, `GÈT`, `GIL-ti`, `eu-GÈN` | jive, jète, jilti, eu-jèn | 146 |
-| espagnol | *sigue* `SI-gé` · *enseguida* `GI-da` | /siʒe/ · /ʒida/ | 36 |
+**Ce que le lot écrivait, et ce qu'il écrit maintenant :**
 
-Le corpus **connaissait la règle** : il écrit `gueï` sur la carte L1 du café, faite à la main, et `o-gui-so` pour 여기서. Il l'applique juste une fois sur cent quatre-vingts. En espagnol, l'aide a perdu le `u` que l'orthographe espagnole écrit elle-même.
+| Couple | Avant | Après | Nombre |
+|---|---|---|---:|
+| chinois | 个 `geu` · 给 `geï` | `gueu` · `gueï` | **423** |
+| coréen | 계 `gyé` · 교 `gyo` | `guyé` · `guyo` | **260** |
+| espagnol | *sigue* `SI-gé` · *enseguida* `én-sé-GI-da` | `SI-gué` · `én-sé-GUI-da` | **36** |
 
-**Appliqué à fr-zh et fr-ko** (ni le mandarin ni le coréen n'ont de /ʒ/) **et à fr-es** quand le mot espagnol écrit lui-même `gu`. **L'anglais est exclu** : *giraffe* est bien /dʒ/, chaque mot doit être lu.
+En espagnol, l'aide avait perdu le `u` que **l'orthographe espagnole écrit elle-même** : *sigue*, *enseguida*, *alguien*, *pagué*.
+
+**L'anglais est exclu** malgré ses 146 occurrences : *giraffe* est bien /dʒ/, et seule une lecture mot par mot distingue *give* de *gin*. Les 146 aides sont listées pour cette lecture.
 
 ### Règle C — zh→fr : « les » se repère par 雷, pas 莱
 
@@ -60,25 +61,44 @@ Le corpus **connaissait la règle** : il écrit `gueï` sur la carte L1 du café
 
 > **Écart à réconcilier avec Codex** : il annonçait 20 occurrences dans 19 aides, j'en corrige 17. Sa liste est l'autorité, qu'il m'indique les deux manquantes.
 
-### Récapitulatif des corrections
+### Récapitulatif des corrections conservées
 
-| Couple | Règle A | Règle B | Règle C | Cartes |
-|---|---:|---:|---:|---:|
-| fr-ja | 3 319 | — | — | 2 795 |
-| fr-ko | 702 | 269 | — | 830 |
-| fr-es | 793 | 36 | — | 767 |
-| fr-zh | — | 463 | — | 423 |
-| zh-fr | — | — | 17 | 17 |
-| **total** | **4 814** | **768** | **17** | **4 832** |
+| Couple | Règle B (`gu`) | Règle C (`les` → 雷) | Cartes |
+|---|---:|---:|---:|
+| fr-zh | 423 | — | 423 |
+| fr-ko | 260 | — | 260 |
+| fr-es | 36 | — | 36 |
+| zh-fr | — | 17 | 17 |
+| **total** | **719** | **17** | **736** |
 
-Après application, **plus aucune occurrence des deux règles ne subsiste** dans les couples visés. Registre complet avant/après par identifiant : [`registre-phonetique.json`](registre-phonetique.json).
+Registre complet avant/après par identifiant : [`registre-phonetique.json`](registre-phonetique.json).
 
-## 2. Les 352 aides que je n'ai pas corrigées, et pourquoi
+## 1b. Les 4 096 corrections que j'ai retirées — mon erreur
+
+J'avais appliqué une seconde règle : **un `s` seul entre deux voyelles se lit /z/ en français** — *rose* contre *rosse*, *poison* contre *poisson*. Elle doublait le `s` de `dé-sou`, `ma-sou`, `an-nyong-ha-sé-yo`, `GRA-sias`.
+
+**Elle était phonétiquement juste et stratégiquement fausse.** Vérification faite dans le catalogue en production :
+
+| Forme | Cartes en production | Écrites avec `ss` |
+|---|---:|---:|
+| ‑です | 872 | **0** |
+| ‑ます | 1 136 | **0** |
+| ‑하세요 | 22 | **0** |
+| *gracias* | 27 | **0** |
+
+**Le `s` simple est ta notation, et elle est constante.** Ma règle la remplaçait sur 4 096 aides, ce qui est exactement le contraire de ce que tu demandes. Les 4 096 aides sont rendues à leur valeur de `4ec163e`, contrôlé : **zéro `ss` ajouté dans tout le lot**.
+
+**Et il y a un argument de fond pour ta notation, que je dois donner.** L'application fait entendre la carte : le bouton « oreille » porte la prononciation réelle. Dans ce cas l'aide écrite n'est pas une transcription de précision, c'est **un crochet de mémoire** — et un crochet lisible d'un coup d'œil vaut mieux qu'un crochet exact mais lourd. `dé-sou` se lit sans effort ; `dé-ssou` alourdit chaque forme polie du japonais, soit la moitié des cartes. La notation constante a aussi une valeur propre : un apprenant qui a appris à lire `sé-yo` lit toutes les cartes du même œil.
+
+**Ce qui reste vrai malgré tout, et que je te signale sans y toucher** : lu seul, sans l'audio, `dé-sou` donne /dezu/. Si tu veux un jour le resserrer, la règle est prête et le registre est reproductible en une commande. **C'est ta décision, pas la mienne.**
+
+## 2. Les aides que je n'ai pas corrigées, et pourquoi
 
 [`a-lire-individuellement.json`](a-lire-individuellement.json)
 
-- **anglais, 319** : le `s` intervocalique anglais est /s/ dans *disappointed* mais /z/ dans *designer* ; le `g` est dur dans *give* mais doux dans *giraffe*. Aucune règle mécanique ne tranche. À lire mot par mot.
-- **italien, 33** : le `s` intervocalique italien est /s/ en Toscane et au sud, /z/ au nord. `sta-sé-ra` n'est pas une faute, c'est une variante régionale. **Décision de Kartech** : quelle norme Melunga enseigne-t-il ?
+- **anglais, 146 aides en `g`** : le `g` anglais est dur dans *give* et doux dans *giraffe*. La production écrit déjà `guiv` et `for-GUÈT` 51 fois, donc la direction est connue — mais seule une lecture mot par mot distingue les deux cas, et je ne corrige pas 146 mots à l'aveugle.
+- **anglais, 177 aides en `s`** : sans objet maintenant que la règle du `ss` est retirée, mais conservées dans le fichier pour mémoire.
+- **italien, 33** : le `s` intervocalique italien est /s/ en Toscane et au sud, /z/ au nord. `sta-sé-ra` n'était pas une faute. Sans objet également.
 
 ## 3. Les conventions chinoises que j'isole sans y toucher
 
@@ -187,7 +207,8 @@ Ta femme avait raison, et voici ce qui le prouve. Charge de décodage au L1, à 
 
 | Travail | Volume | Ce qui bloque |
 |---|---|---|
-| Lire les 352 aides anglaises et italiennes | 352 | lecture mot par mot, aucune règle mécanique |
+| Lire les 146 aides anglaises en `g` | 146 | *give* est dur, *giraffe* est doux : lecture mot par mot |
+| Décider si le `ss` anti-sonorisant doit être adopté | 4 096 aides | **décision de Kartech** ; la notation actuelle est le `s` simple |
 | Arbitrer les 1 216 candidates de thème | 1 216 | jugement de sens, une sur quatre est réelle |
 | Trancher la finale rétroflexe chinoise | 431 aides | décision de convention (`chr` ou `cheu`) |
 | Trancher 的 : `de` ou `deu` | 356 aides | 178 contre 178 aujourd'hui |
@@ -208,7 +229,11 @@ Ta femme avait raison, et voici ce qui le prouve. Charge de décodage au L1, à 
 
 **Je n'ai pas touché la frontière d'accès.** `isFreeCard` teste `lv === 1` ; aucun champ `lv`, aucun niveau, aucun prix, aucun abonnement n'a bougé. Vérifié fichier par fichier.
 
-**Et une erreur à mon débit** : ma relecture précédente annonçait « 4 079 rendus comparés ». Codex a montré que c'est le total **sans le fr→en** ; le vrai total est **4 480**. Il a raison. De même, mes chiffres espagnols 55/317 et 686/4 672 venaient d'un filtre que je n'avais pas joint : les scripts de ce lot sont tous dans [`mesures/`](mesures/).
+**Trois erreurs à mon débit dans ce lot.**
+
+1. **J'ai remplacé ta notation au lieu de la rétablir.** La règle du `ss` touchait 4 096 aides et contredisait la stratégie de la production, que je n'avais pas vérifiée avant d'appliquer. L'ordre correct était : lire la production, puis corriger. Je l'ai fait dans l'autre sens. Retiré.
+2. **Sur le 莱/雷, Codex avait raison et moi pas** : mon premier filtre allait toucher le 莱 de 托瓦莱特 (*toilettes*) et de 普罗布莱姆 (*problème*). Corrigé par alignement positionnel. Il annonce 19 aides, j'en corrige 17 — **sa liste est l'autorité**, qu'il m'indique les deux manquantes.
+3. **Ma relecture précédente annonçait « 4 079 rendus comparés »** : c'est le total **sans le fr→en**, le vrai total est **4 480**. Codex a raison. Et mes chiffres espagnols 55/317 et 686/4 672 venaient d'un filtre que je n'avais pas joint — les scripts de ce lot sont tous dans [`mesures/`](mesures/).
 
 ## Rejouer les mesures
 
