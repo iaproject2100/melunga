@@ -58,6 +58,7 @@ def main():
         assert item['id'] not in ids
         ids.add(item['id']); counts['fr-ko'] += 1
     spanish = load('espagnol-italien-propositions.json')
+    assert spanish['active'] is False and spanish['status'] == 'archived-not-applied-ss-extension-withdrawn'
     for item in spanish['wholeAids']:
         ref = item['source']
         original = source(ref['path'], ref['jsonPointer'], ref['fileSha256'])
@@ -73,7 +74,9 @@ def main():
     assert len(ids) == 41 and counts == {'zh-fr': 19, 'fr-zh': 6, 'fr-ko': 3, 'fr-es': 13}
     assert len(load('perimetre-aides.json')['noStatusRows']) == 334
     print(json.dumps({'status': 'checked-proposals-not-applied', 'wholeAids': len(ids),
-        'byPair': dict(counts), 'protectedFileFingerprints': len(targeted['inputSha256']),
+        'byPair': dict(counts), 'activeWholeAids': len(ids) - len(spanish['wholeAids']),
+        'archivedSpanishWholeAids': len(spanish['wholeAids']),
+        'protectedFileFingerprints': len(targeted['inputSha256']),
         'productEdits': 0, 'linguisticApprovalClaimed': False}, ensure_ascii=False))
 
 

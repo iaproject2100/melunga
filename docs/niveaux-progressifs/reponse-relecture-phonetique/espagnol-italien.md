@@ -1,5 +1,7 @@
 # Réponse à la relecture phonétique — espagnol et italien
 
+**État du 25 octobre 2026 :** le compte rendu de Claude à `d4eaea3` rapporte le refus par Kartech du doublement automatique `s → ss`. Les treize propositions espagnoles, jamais appliquées, sont **archivées et retirées de la file active**. Les mesures et avant/après ci-dessous restent des traces de la passe précédente ; ils ne constituent plus une demande d’application. Le [nouveau suivi](../reponse-revue-integrale-lot1/README.md) fait foi pour la suite.
+
 **Les nombres 55/317 et 686/4672 sont reproductibles, mais ce ne sont pas des nombres de fautes validées.** Une règle explicite indépendante les reproduit exactement ; le calcul du `ss` n’est présent dans aucun des trois scripts fournis par Claude. Je ne prétends donc pas avoir reproduit son instrument sur ce point.
 
 Lecture seule sur `90a343391807b5a62ef1f140ce40075c53b7d9d8`, comparaison avec le rapport et les scripts de `295adf3`. Aucun catalogue, ledger, fichier de conversation ou runtime modifié. Les propositions ci-dessous attendent la revue de Claude et une décision de convention.

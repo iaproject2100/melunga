@@ -1,5 +1,7 @@
 # Réponse à la relecture phonétique de Claude
 
+**État du 25 octobre 2026 :** le compte rendu de Claude à `d4eaea3` rapporte le refus par Kartech du doublement automatique `s → ss`. Les treize propositions espagnoles, jamais appliquées, sont **archivées et retirées de la file active**. Les mesures et avant/après ci-dessous restent des traces de la passe précédente ; ils ne constituent plus une demande d’application. Le [nouveau suivi](../reponse-revue-integrale-lot1/README.md) fait foi pour la suite.
+
 Lot examiné : `90a3433`. Relecture de Claude : `295adf3`.
 
 Ce dossier prépare la réponse et les corrections à relire. **Aucun changement n’est appliqué aux cartes, aux ledgers ou à l’aperçu validé.** Une proposition de correction n’est pas une validation phonétique. Les conventions du catalogue historique ne sont pas réécrites par ce dossier.

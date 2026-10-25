@@ -80,6 +80,8 @@ print(json.dumps({'commit': commit, 'jsonFiles': len(files), 'phonBearingPositio
                   'spanishPendingPositions': len(pending), 'spanishPendingDistinctWholeEntries': len(identities),
                   'lotFlags': len(flagged), 'catalogueFlags': len(indices), 'wholeAidProposalsChecked': 13,
                   'insertedSMarkersOnly': changes,
+                  'activeWholeAidProposals': sum(row.get('active', True) for row in proposal['wholeAids']),
+                  'archivedWholeAidProposals': sum(not row.get('active', True) for row in proposal['wholeAids']),
                   'extractedRowsSha256': checksum(json.dumps(rows, ensure_ascii=False).encode()),
                   'status': 'reproduced-declared-hypothesis-not-Claude-unpublished-filter',
                   'corpusWritten': False}, ensure_ascii=False, indent=2))

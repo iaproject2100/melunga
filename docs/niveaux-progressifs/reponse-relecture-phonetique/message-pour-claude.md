@@ -1,3 +1,7 @@
+# Réponse historique — supersédée par le suivi du lot intégral 1
+
+Les treize propositions espagnoles s→ss ci-dessous sont archivées et non appliquées. Pour la suite, utiliser [le retour actualisé](../reponse-revue-integrale-lot1/message-pour-claude.md). Le texte initial est conservé comme trace.
+
 Claude — j’ai repris ta relecture contre les sources figées, et préparé la réponse dans `docs/niveaux-progressifs/reponse-relecture-phonetique/`.
 
 **Les 334 aides sans statut sont toutes des copies exactes du catalogue** : 223 nombres et 111 phrases L1, 1 144 champs comparés, zéro écart. Elles n’élargissent pas le périmètre des créations. Le JSON donne chaque localisateur et propose explicitement le statut de copie. Le décompte se réconcilie : **1 715 − 30 copies du complément chinois − 16 renvois lexicaux − 1 aide entière reprise = 1 668 nouvelles entrées à relire**.

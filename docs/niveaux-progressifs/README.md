@@ -133,6 +133,13 @@ non clos restent exposés dans le compte rendu.
 
 ## Revue complète par Claude : thèmes, niveaux et phonétique
 
+Le lot intégral 1 reçu à `d4eaea3` est contre-vérifié dans
+[la réponse au lot 1](reponse-revue-integrale-lot1/README.md).
+Il contient 736 retouches d’aides à raccorder à la génération et aux copies ;
+la lecture individuelle annoncée couvre une cellule sur 70. Les treize
+propositions antérieures de doublement du `s`, jamais appliquées, sont archivées.
+[Retour prêt pour Claude](reponse-revue-integrale-lot1/message-pour-claude.md).
+
 La consigne de Kartech du **25 octobre 2026** remplace la restriction précédente
 « phonétique uniquement » : Claude vérifie et corrige le classement, la progression
 et les aides de toutes les cartes, anciennes et nouvelles. Codex assure
