@@ -1,0 +1,963 @@
+{
+  "version": 1,
+  "baseSnapshotCommit": "f22202cc4622c26794a6ada0c88d1741b82c1967",
+  "evidenceCommit": "62daa86414d937b0554831a4c032e05b3046bb61",
+  "scope": "Manual bounded review of four whole phonetic/reading pairs and 26 certain glosses, not a repeat of the 4763-position catalogue review",
+  "globalNativeApproval": false,
+  "phoneticRulesExtended": false,
+  "productChanged": false,
+  "publicationApproved": false,
+  "evidenceSha256": {
+    "registre-phonetique.json": "76a8bed5f6218fc74aa0fb75f7f19b2bcd9518aa1440780877d5dd03b6789158",
+    "registre-lectures.json": "2e863193df9228431b04011f343acc38af3bb4266921777291f97077100195c5",
+    "lot-contenu-gloses.json": "2fd7c7b35af687260013d563b8f7bd4fd6e14bdce0e4d7025fc1dd4f847a5cd0"
+  },
+  "beforeValidation": {
+    "allExpectedBeforeExactAgainstPinnedGit": true,
+    "pairedIdentities": 4,
+    "pairedFieldEvents": 8,
+    "pairedRuntimeObjects": 5,
+    "pairedRuntimeFields": 10,
+    "certainGlossIdentities": 26,
+    "certainGlossRuntimeObjects": 26,
+    "certainGlossFields": 26,
+    "receivedModelsChangedInSelectedBatches": 0,
+    "priorCorrectionAnnotationsFound": 0,
+    "selectionDisjoint": true
+  },
+  "retainedPhoneticIds": [
+    "catalogue:ja:3630",
+    "catalogue:ja:3771",
+    "catalogue:ja:2400",
+    "catalogue:ja:4320"
+  ],
+  "retainedGlossIds": [
+    "catalogue:ja:3002",
+    "catalogue:ja:3135",
+    "catalogue:ja:2811",
+    "catalogue:ja:2835",
+    "catalogue:ja:562",
+    "catalogue:ja:707",
+    "catalogue:ja:3513",
+    "catalogue:ja:3371",
+    "catalogue:ja:956",
+    "catalogue:ja:886",
+    "catalogue:ja:1574",
+    "catalogue:ja:1348",
+    "catalogue:ja:1537",
+    "catalogue:ja:1684",
+    "catalogue:ja:1705",
+    "catalogue:ja:1985",
+    "catalogue:ja:1873",
+    "catalogue:ja:1956",
+    "catalogue:ja:2352",
+    "catalogue:ja:2381",
+    "catalogue:ja:4151",
+    "catalogue:ja:2395",
+    "catalogue:ja:2096",
+    "catalogue:ja:2615",
+    "catalogue:ja:2647",
+    "catalogue:ja:2689"
+  ],
+  "excludedIds": [],
+  "afterRewritesRequested": [],
+  "phoneticReadingPairs": [
+    {
+      "id": "catalogue:ja:3630",
+      "study": "食洗機",
+      "native": "le lave-vaisselle",
+      "beforePhon": "cho-kki a-ra-i-ki",
+      "afterPhon": "cho-kou-sén-ki",
+      "beforeReading": "sho-k-ki a-ra-i-ki",
+      "afterReading": "sho-ku-se-n-ki",
+      "opinion": "retain-frozen-pair",
+      "linguisticReview": {
+        "moraAfter": [
+          "しょ",
+          "く",
+          "せ",
+          "ん",
+          "き"
+        ],
+        "readingAfter": "sho-ku-se-n-ki",
+        "opinion": "食洗機 se lit しょくせんき. L’avant correspond à 食器洗い機, expression différente pour le même appareil. L’après garde l’abréviation réellement écrite et l’aide adaptée entière ; ne pas compter les tirets français comme autant de mores."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L4.json",
+          "location": [
+            "themes",
+            16,
+            "phrases",
+            18
+          ],
+          "profile": "canonical",
+          "themeId": "L4-vocab-maison",
+          "title": "Maison et mobilier"
+        }
+      ],
+      "wholeAidAndReadingRead": true
+    },
+    {
+      "id": "catalogue:ja:3771",
+      "study": "このバスは〜に行きますか？",
+      "native": "Ce bus va à... ?",
+      "beforePhon": "ko-no ba-sou-oua é i-ki-ma-sou-ka",
+      "afterPhon": "ko-no ba-sou-oua ni i-ki-ma-sou-ka",
+      "beforeReading": "ko-no ba-su-wa e i-ki-ma-su-ka",
+      "afterReading": "ko-no ba-su-wa ni i-ki-ma-su-ka",
+      "opinion": "retain-frozen-pair",
+      "linguisticReview": {
+        "moraTarget": [
+          "に"
+        ],
+        "readingAfter": "ko-no ba-su-wa ni i-ki-ma-su-ka",
+        "opinion": "La particule écrite est に, prononcée ni ; e correspondrait à へ en emploi de direction. Le trou 〜 reste un modèle réservé. Aide et lecture changent ensemble sans inventer de destination ou d’exercice."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L5.json",
+          "location": [
+            "reserve",
+            4
+          ],
+          "profile": "canonical-reserve",
+          "themeId": "reserve",
+          "title": "Réserve sans entraînement"
+        }
+      ],
+      "wholeAidAndReadingRead": true
+    },
+    {
+      "id": "catalogue:ja:2400",
+      "study": "なんか、さよならも言わずに帰ったんですよ。",
+      "native": "Genre, il est parti sans dire au revoir.",
+      "beforePhon": "nan-ka sa-yo-o-na-ra-mo i-oua-zou-ni ka-é-ttan-dé-sou-yo",
+      "afterPhon": "nan-ka sa-yo-na-ra-mo i-oua-zou-ni ka-é-ttan-dé-sou-yo",
+      "beforeReading": "na-n-ka sa-yo-o-na-ra-mo i-wa-zu-ni ka-e-t-ta-n-de-su-yo",
+      "afterReading": "na-n-ka sa-yo-na-ra-mo i-wa-zu-ni ka-e-t-ta-n-de-su-yo",
+      "opinion": "retain-frozen-pair",
+      "linguisticReview": {
+        "moraTarget": [
+          "さ",
+          "よ",
+          "な",
+          "ら"
+        ],
+        "readingAfter": "na-n-ka sa-yo-na-ra-mo i-wa-zu-ni ka-e-t-ta-n-de-su-yo",
+        "opinion": "La graphie est さよなら, quatre mores. La graphie longue さようなら en aurait cinq ; enlever yo-o ici n’autorise pas à raccourcir toutes les formes du mot."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L7.json",
+          "location": [
+            "themes",
+            0,
+            "phrases",
+            9
+          ],
+          "profile": "canonical",
+          "themeId": "L7-saluer",
+          "title": "Évoquer un autre parcours"
+        }
+      ],
+      "wholeAidAndReadingRead": true
+    },
+    {
+      "id": "catalogue:ja:4320",
+      "study": "ボディソープ",
+      "native": "le gel douche",
+      "beforePhon": "bo-di-i so-o-pou",
+      "afterPhon": "bo-di so-o-pou",
+      "beforeReading": "bo-di-i so-o-pu",
+      "afterReading": "bo-di so-o-pu",
+      "opinion": "retain-frozen-pair",
+      "linguisticReview": {
+        "moraAfter": [
+          "ボ",
+          "ディ",
+          "ソ",
+          "ー",
+          "プ"
+        ],
+        "readingAfter": "bo-di so-o-pu",
+        "opinion": "ディ est une more, sans trait de longueur ; ソー garde ses deux mores. L’après enlève seulement la durée surnuméraire après di, conserve la longueur so-o et recopie la même édition dans le transport."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L9.json",
+          "location": [
+            "themes",
+            12,
+            "phrases",
+            1
+          ],
+          "profile": "canonical",
+          "themeId": "L9-vocab-maison",
+          "title": "Maison et mobilier"
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-ja.json",
+          "location": [
+            "phrases",
+            210
+          ],
+          "profile": "transport",
+          "themeId": null,
+          "title": null
+        }
+      ],
+      "wholeAidAndReadingRead": true
+    }
+  ],
+  "certainGlossReviews": [
+    {
+      "evidenceIndex": 1,
+      "id": "catalogue:ja:3002",
+      "level": 1,
+      "field": "native",
+      "certainty": "certain",
+      "study": "何でもいい。",
+      "before": "N'importe quoi.",
+      "after": "Peu importe.",
+      "reason": "何でもいい = « n'importe lequel / ça m'est égal ». Isolé, « N'importe quoi. » se comprend en français comme « c'est absurde », un contresens.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Après retenu : rend le choix indifférent sans la lecture française « c’est absurde ». Nuancer le motif : « N’importe quoi » peut aussi être une réponse valide à un choix ; l’ancien n’est pas impossible dans tout contexte.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L1.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            21
+          ],
+          "profile": "canonical",
+          "themeId": "conversation",
+          "title": "Faire vivre la conversation"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 2,
+      "id": "catalogue:ja:3135",
+      "level": 1,
+      "field": "native",
+      "certainty": "certain",
+      "study": "光る",
+      "before": "brillant",
+      "after": "briller",
+      "reason": "光る est un verbe (« briller ») ; « brillant » en fait un adjectif. Pour l'adjectif, il faudrait 光沢のある / つやのある.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "光る est ici un verbe de dictionnaire ; briller prépare la bonne lecture lexicale. L’entrée est déjà dans L1-vocab-actions / Actions et descriptions, lexicalClass uncertain. Aucun déplacement vers une autre rubrique n’est nécessaire pour appliquer cette glose ; ne pas prétendre qu’elle était dans Adjectifs.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L1.json",
+          "location": [
+            "themes",
+            16,
+            "phrases",
+            24
+          ],
+          "profile": "canonical",
+          "themeId": "L1-vocab-actions",
+          "title": "Actions et descriptions"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 18,
+      "id": "catalogue:ja:2811",
+      "level": 10,
+      "field": "native",
+      "certainty": "certain",
+      "study": "ご同意いただければ、サインしましょう。",
+      "before": "Si tu es d'accord, on signe.",
+      "after": "Si vous êtes d'accord, on signe.",
+      "reason": "ご同意いただければ est du keigo : le tutoiement « Si tu es d'accord » trahit le registre.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Le vouvoiement français est défendable avec ご同意いただければ dans ce contexte d’accord et de signature. Ce choix de registre ne signifie pas que tout emploi japonais de keigo rend toujours le tutoiement français impossible.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L10.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            15
+          ],
+          "profile": "canonical",
+          "themeId": "L10-conversation",
+          "title": "Converser et nuancer librement"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 19,
+      "id": "catalogue:ja:2835",
+      "level": 10,
+      "field": "native",
+      "certainty": "certain",
+      "study": "改めてご連絡させていただきます。",
+      "before": "Je me permets de vous relancer.",
+      "after": "Je reviendrai vers vous.",
+      "reason": "改めてご連絡させていただきます annonce un contact ultérieur ; « relancer » désigne un rappel faute de réponse, autre acte.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Après retenu : annonce neutre d’un nouveau contact. Relancer peut convenir à certains contextes de rappel ; le défaut est de l’imposer sans cette précision, pas de décréter une équivalence impossible en toute situation.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L10.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            23
+          ],
+          "profile": "canonical",
+          "themeId": "L10-conversation",
+          "title": "Converser et nuancer librement"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 47,
+      "id": "catalogue:ja:562",
+      "level": 3,
+      "field": "native",
+      "certainty": "certain",
+      "study": "良いお年を。",
+      "before": "Bonne année.",
+      "after": "Bonnes fêtes de fin d'année.",
+      "reason": "良いお年を se dit avant le Nouvel An (« passez une bonne fin d'année ») ; « Bonne année » correspond à あけましておめでとう.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Après retenu comme équivalent saisonnier usuel avant le Nouvel An. 良いお年を sous-entend une bonne année à venir ; Bonnes fêtes de fin d’année n’en est pas une traduction mot à mot. Le français Bonne année peut aussi s’anticiper ; la distinction japonaise avec あけましておめでとう est une convention d’usage à expliquer, pas une interdiction de calendrier française.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L3.json",
+          "location": [
+            "themes",
+            0,
+            "phrases",
+            5
+          ],
+          "profile": "canonical",
+          "themeId": "L3-saluer",
+          "title": "Présenter sa vie quotidienne"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 49,
+      "id": "catalogue:ja:707",
+      "level": 3,
+      "field": "native",
+      "certainty": "certain",
+      "study": "返金いたします。",
+      "before": "On va te rembourser.",
+      "after": "Nous allons vous rembourser.",
+      "reason": "返金いたします est du keigo humble (kenjōgo) employé par un commerçant envers un client : le tutoiement « te » contredit le registre.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Vouvoiement et voix institutionnelle adaptés à une annonce de remboursement par un commerçant. La correction garde l’acte et cible le registre de いたします, sans règle automatique sur toute forme polie.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L3.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            20
+          ],
+          "profile": "canonical",
+          "themeId": "L3-deplacements",
+          "title": "Préparer un déplacement"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 59,
+      "id": "catalogue:ja:3513",
+      "level": 3,
+      "field": "native",
+      "certainty": "certain",
+      "study": "買い物",
+      "before": "la course",
+      "after": "les courses",
+      "reason": "買い物 = les courses / le shopping ; « la course » au singulier évoque une course à pied ou une seule commission.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Les courses / le shopping rend le nom d’activité 買い物. La course au singulier n’est pas l’étiquette usuelle de cette activité, même si faire une course peut signifier une commission en contexte.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L3.json",
+          "location": [
+            "themes",
+            16,
+            "phrases",
+            26
+          ],
+          "profile": "canonical",
+          "themeId": "L3-vocab-restaurant",
+          "title": "Restaurant et achats"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 60,
+      "id": "catalogue:ja:3371",
+      "level": 3,
+      "field": "native",
+      "certainty": "certain",
+      "study": "信号",
+      "before": "un feu rouge",
+      "after": "un feu (de circulation)",
+      "reason": "信号 désigne le feu de signalisation en général ; « rouge » correspond à 赤信号 (carte 3370), pas à 信号.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Dans le contexte transport, feu de circulation est approprié ; 信号 ne signifie pas qu’il est rouge. En dehors de ce contexte, 信号 peut aussi signifier signal.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L3.json",
+          "location": [
+            "themes",
+            18,
+            "phrases",
+            8
+          ],
+          "profile": "canonical",
+          "themeId": "L3-vocab-voyage",
+          "title": "Voyage et transport"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 70,
+      "id": "catalogue:ja:956",
+      "level": 4,
+      "field": "native",
+      "certainty": "certain",
+      "study": "氷点下です。",
+      "before": "Il fait moins zéro.",
+      "after": "Il fait en dessous de zéro.",
+      "reason": "« Il fait moins zéro » n'est pas correct en français ; 氷点下 = en dessous de zéro (sous le point de congélation).",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Après retenu : température sous zéro, sans la formulation moins zéro. Le texte japonais et ses aides restent intacts.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L4.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            4
+          ],
+          "profile": "canonical",
+          "themeId": "L4-decrire",
+          "title": "Décrire un changement"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 73,
+      "id": "catalogue:ja:886",
+      "level": 4,
+      "field": "native",
+      "certainty": "certain",
+      "study": "おめでとうございます！",
+      "before": "Meilleurs vœux !",
+      "after": "Félicitations !",
+      "reason": "おめでとうございます exprime des félicitations ; « Meilleurs vœux » correspond aux vœux de nouvel an (あけましておめでとうございます).",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Félicitations rend l’acte de おめでとうございます sans lui imposer le Nouvel An. Le motif ne doit pas réduire tous les usages français de Meilleurs vœux au seul Nouvel An.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            27
+          ],
+          "profile": "canonical",
+          "themeId": "L4-conversation",
+          "title": "Partager une expérience"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 86,
+      "id": "catalogue:ja:1574",
+      "level": 5,
+      "field": "native",
+      "certainty": "certain",
+      "study": "胸がいっぱいです。",
+      "before": "J'en ai gros sur le cœur.",
+      "after": "Je suis très ému.",
+      "reason": "胸がいっぱい = être submergé d'émotion (souvent joie, gratitude) ; « j'en ai gros sur le cœur » exprime l'amertume ou le chagrin : faux sens.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Très ému couvre l’émotion débordante, y compris dans un contexte triste ; il n’impose ni joie ni amertume. J’en ai gros sur le cœur peut recouvrir certaines situations tristes, mais n’est pas la valeur générale à enseigner ici.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L5.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            28
+          ],
+          "profile": "canonical",
+          "themeId": "L5-ressentis",
+          "title": "Expliquer un problème concret"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 90,
+      "id": "catalogue:ja:1348",
+      "level": 5,
+      "field": "native",
+      "certainty": "certain",
+      "study": "彼に気があるの？",
+      "before": "Tu vas flirter avec lui ?",
+      "after": "Il te plaît ?",
+      "reason": "彼に気があるの？ = « tu as un faible pour lui ? / il te plaît ? » ; ce n'est pas une question sur une action future (flirter).",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Question d’attirance / de faible pour lui, pas projet de flirter. Après naturel et fidèle.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L5.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            20
+          ],
+          "profile": "canonical",
+          "themeId": "L5-deplacements",
+          "title": "Changer ses plans de voyage"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 98,
+      "id": "catalogue:ja:1537",
+      "level": 5,
+      "field": "native",
+      "certainty": "certain",
+      "study": "まだ準備ができていません。",
+      "before": "Je ne suis pas prêt.",
+      "after": "Je ne suis pas encore prêt.",
+      "reason": "まだ (« pas encore ») est omis dans la glose.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Encore explicite まだ dans cette négation. Avant était une traduction moins complète, pas nécessairement fausse dans tout contexte.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            128
+          ],
+          "profile": "canonical",
+          "themeId": "L5-conversation",
+          "title": "Se mettre d’accord"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 109,
+      "id": "catalogue:ja:1684",
+      "level": 6,
+      "field": "native",
+      "certainty": "certain",
+      "study": "この席は空いていますか？",
+      "before": "Cette place est prise ?",
+      "after": "Cette place est libre ?",
+      "reason": "空いている = « libre » ; la glose « prise ? » inverse la polarité (はい signifierait alors l'inverse).",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Correction de polarité nette : 空いている = place libre, non prise. La réponse oui reste cohérente avec la question japonaise.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L6.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "themeId": "L6-deplacements",
+          "title": "Choisir une façon de voyager"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 110,
+      "id": "catalogue:ja:1705",
+      "level": 6,
+      "field": "native",
+      "certainty": "certain",
+      "study": "指を切ってしまいました。",
+      "before": "Je me suis coupé.",
+      "after": "Je me suis coupé le doigt.",
+      "reason": "指 (le doigt) est omis dans la glose.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Le doigt 指 est restitué ; l’avant pouvait fonctionner par ellipse corporelle mais perdait l’information explicite du texte.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            27
+          ],
+          "profile": "canonical",
+          "themeId": "L6-conversation",
+          "title": "Donner son avis et relancer"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 112,
+      "id": "catalogue:ja:1985",
+      "level": 6,
+      "field": "native",
+      "certainty": "certain",
+      "study": "いつも良い関係でいましょう。",
+      "before": "Toujours dans les meilleurs termes.",
+      "after": "Restons toujours en bons termes.",
+      "reason": "La glose est un fragment sans verbe ; elle ne rend pas la proposition 〜ましょう (« restons »).",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Restons rend la proposition volitive いましょう ; le fragment nominal précédent ne rendait pas cette invitation à maintenir la relation.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L6.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            26
+          ],
+          "profile": "canonical",
+          "themeId": "L6-reperes",
+          "title": "Comparer durée, fréquence et coût"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 122,
+      "id": "catalogue:ja:1873",
+      "level": 6,
+      "field": "native",
+      "certainty": "certain",
+      "study": "あなたも招待されていますよ。",
+      "before": "Tu es invité.",
+      "after": "Toi aussi, tu es invité.",
+      "reason": "La particule も (« aussi ») n'est pas rendue : sens omis.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Aussi rend la focalisation additive も. Pas de changement du destinataire ni du temps.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            97
+          ],
+          "profile": "canonical",
+          "themeId": "L6-conversation",
+          "title": "Donner son avis et relancer"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 123,
+      "id": "catalogue:ja:1956",
+      "level": 6,
+      "field": "native",
+      "certainty": "certain",
+      "study": "日本語で何と言いますか？",
+      "before": "Comment on dit ça en français ?",
+      "after": "Comment on dit ça en japonais ?",
+      "reason": "日本語で = « en japonais », pas « en français » : contresens.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "日本語 = japonais ; correction certaine de la langue dans la question.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            137
+          ],
+          "profile": "canonical",
+          "themeId": "L6-conversation",
+          "title": "Donner son avis et relancer"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 128,
+      "id": "catalogue:ja:2352",
+      "level": 7,
+      "field": "native",
+      "certainty": "certain",
+      "study": "いつから日本語を勉強していますか？",
+      "before": "Depuis quand tu apprends le français ?",
+      "after": "Depuis quand tu apprends le japonais ?",
+      "reason": "日本語 = le japonais, pas le français : faux sens.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "日本語 = japonais ; correction certaine de la langue étudiée.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L7.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            36
+          ],
+          "profile": "canonical",
+          "themeId": "L7-reperes",
+          "title": "Conditions, délais et priorités"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 129,
+      "id": "catalogue:ja:2381",
+      "level": 7,
+      "field": "native",
+      "certainty": "certain",
+      "study": "ご家族によろしくお伝えください。",
+      "before": "Salue ta famille de ma part.",
+      "after": "Saluez votre famille de ma part.",
+      "reason": "ご家族…お伝えください est honorifique : le tutoiement « Salue ta famille » ne respecte pas le registre.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Après respectueux défendable pour ご家族…お伝えください. Ne pas convertir cette décision contextuelle en une règle universelle de traduction du keigo par vous.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L7.json",
+          "location": [
+            "themes",
+            6,
+            "phrases",
+            15
+          ],
+          "profile": "canonical",
+          "themeId": "L7-quotidien",
+          "title": "Imaginer une situation différente"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 130,
+      "id": "catalogue:ja:4151",
+      "level": 7,
+      "field": "native",
+      "certainty": "certain",
+      "study": "ソファは窓のそばにあります。",
+      "before": "Le fauteuil est près de la fenêtre.",
+      "after": "Le canapé est près de la fenêtre.",
+      "reason": "ソファ = canapé (sofa), pas fauteuil.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Canapé est le rendu générique de ソファ ; fauteuil suppose une spécification de siège individuel non donnée ici.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L7.json",
+          "location": [
+            "themes",
+            6,
+            "phrases",
+            20
+          ],
+          "profile": "canonical",
+          "themeId": "L7-quotidien",
+          "title": "Imaginer une situation différente"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 132,
+      "id": "catalogue:ja:2395",
+      "level": 7,
+      "field": "native",
+      "certainty": "certain",
+      "study": "— 日本語を話しますか？ — はい、少しだけ。",
+      "before": "— Tu parles français ? — Oui, un petit peu.",
+      "after": "— Tu parles japonais ? — Oui, un petit peu.",
+      "reason": "日本語 = le japonais, pas le français : faux sens.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Le couplet demande si l’on parle japonais ; la langue est corrigée dans la glose. Le catalogue le garde comme échange entier à deux voix : cette correction ne scinde pas les rôles et ne valide pas leur usage pédagogique comme production unique.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            178
+          ],
+          "profile": "canonical",
+          "themeId": "L7-conversation",
+          "title": "Proposer une alternative"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 134,
+      "id": "catalogue:ja:2096",
+      "level": 7,
+      "field": "native",
+      "certainty": "certain",
+      "study": "いくらお支払いすればいいですか？",
+      "before": "Je te dois combien ?",
+      "after": "Combien je vous dois ?",
+      "reason": "お支払いすれば est une forme humble envers l'interlocuteur : le tutoiement « Je te dois » contredit le registre.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Après au vouvoiement défendable pour le paiement respectueux. Je vous dois combien correspond pragmatiquement à la demande de montant ; ne pas prétendre que toute relation d’argent est une dette déjà réalisée.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            51
+          ],
+          "profile": "canonical",
+          "themeId": "L7-conversation",
+          "title": "Proposer une alternative"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 151,
+      "id": "catalogue:ja:2615",
+      "level": 8,
+      "field": "native",
+      "certainty": "certain",
+      "study": "— 日本語で何と言いますか？ — 「約束」と言います。",
+      "before": "— Comment on dit ça en français ? — On dit « rendez-vous ».",
+      "after": "— Comment on dit ça en japonais ? — On dit « yakusoku » (rendez-vous, promesse).",
+      "reason": "La question porte sur le japonais (日本語で) et la réponse cite le mot japonais 約束 ; la glose parle de français et de « rendez-vous ».",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "La question porte sur la désignation en japonais et la réponse cite 約束 : yakusoku est une romanisation explicative légitime dans la glose. Promesse/engagement et rendez-vous selon contexte sont des sens possibles. La correction ne crée pas une nouvelle aide phonétique et ne transforme pas le couplet en un seul rôle.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L8.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            24
+          ],
+          "profile": "canonical",
+          "themeId": "L8-reperes",
+          "title": "Préciser les limites d’un projet"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 152,
+      "id": "catalogue:ja:2647",
+      "level": 8,
+      "field": "native",
+      "certainty": "certain",
+      "study": "— いつから日本語を勉強していますか？ — 六ヶ月前からです。",
+      "before": "— Depuis quand tu apprends le français ? — Depuis six mois.",
+      "after": "— Depuis quand tu apprends le japonais ? — Depuis six mois.",
+      "reason": "日本語を勉強 = étudier le japonais, pas le français.",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Japonais remplace français ; Depuis six mois est un rendu français usuel de 六ヶ月前から dans cette réponse sur l’apprentissage. Les deux voix restent copiées entières.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L8.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            29
+          ],
+          "profile": "canonical",
+          "themeId": "L8-reperes",
+          "title": "Préciser les limites d’un projet"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    },
+    {
+      "evidenceIndex": 167,
+      "id": "catalogue:ja:2689",
+      "level": 9,
+      "field": "native",
+      "certainty": "certain",
+      "study": "年間契約の場合、割引はいくらですか？",
+      "before": "Quelle remise pour une commande annuelle ?",
+      "after": "Quelle remise pour un contrat annuel ?",
+      "reason": "年間契約 = contrat annuel, pas « commande annuelle ».",
+      "opinion": "retain-frozen-after",
+      "reviewNote": "Contrat annuel rend 年間契約 ; commande annuelle n’est pas le terme du texte. Aucun changement de niveau ou de thème n’en découle automatiquement.",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L9.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            8
+          ],
+          "profile": "canonical",
+          "themeId": "L9-travail",
+          "title": "Argumenter et rendre compte"
+        }
+      ],
+      "wholeSourceAndGlossRead": true
+    }
+  ],
+  "openConvention": {
+    "id": "catalogue:ja:3890",
+    "study": "クッション",
+    "field": "phon",
+    "before": "kou-schon",
+    "proposal": "kouch-chon",
+    "applied": false,
+    "reason": "La gémination et sa notation francophone sont une convention distincte ; aucune règle de sokuon n’est extrapolée à partir de quatre corrections."
+  },
+  "remainingPlacementAndStructureNotes": [
+    "3135 est déjà dans Actions et descriptions ; lexicalClass reste uncertain, aucune mutation de catégorie ou de placement.",
+    "Les échanges2395/2615/2647 restent des blocs à deux voix. Corriger leur langue dans la glose ne valide ni scission automatique ni attribution à un seul apprenant.",
+    "Les décisions de niveau et de thème parmi604 propositions restent hors de cette sélection."
+  ],
+  "limitations": [
+    "Textual and linguistic check, not native listening, pitch-accent or acoustic certification",
+    "Mora alignment is based on the written Japanese forms, not naive hyphen counting",
+    "Accepting the selected after values does not endorse each categorical statement in the original reasons",
+    "No glossary or phonetic data outside these frozen identities reviewed or changed by this check"
+  ]
+}

@@ -1,5 +1,9 @@
 # Vérification du lot 4 et du contenu certain distinct
 
+État vérifié à `f22202c`, avant le lot 5. Les nouvelles paires japonaises et
+le contenu séparé sont décrits dans [le lot 5](reponse-revue-integrale-lot5/README.md).
+Les empreintes ci-dessous restent celles de cette édition datée.
+
 État consigné le 25/10/2026 à 18:42 CET. Les horodatages détaillés des essais restent dans leurs JSON.
 
 **Deux registres indépendants, 311 objets concernés et 315 valeurs effectivement

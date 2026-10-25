@@ -1,5 +1,9 @@
 # Reprise du lot 4 — français pour sinophones et contenu rectifié
 
+État de la reprise du lot 4 à `f22202c`. Son suivi de motifs et de stades
+`8bd6297` est désormais vérifié dans [le lot 5](../reponse-revue-integrale-lot5/README.md),
+sans réécriture des preuves ni des valeurs du registre ci-dessous.
+
 Le lot de Claude à `7631c0f` est repris sur les avant de `606592c`, avec deux
 registres distincts. Les rectifications du lot 3 à `c849bf3` sont également
 contre-vérifiées et reprises dans le seul registre de contenu certain.

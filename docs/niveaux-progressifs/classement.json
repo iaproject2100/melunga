@@ -60072,7 +60072,7 @@
         "situation-support-conversation:fr-ja:piste-trouver-gare-lexical-01"
       ],
       "canonicalCardsAdded": 0,
-      "fileSha256": "9564290ade1a23545f0d5238bf034c0f037d687bb3aeeb40e3f7fd1047b707e1",
+      "fileSha256": "69eaa2d3453cf369e79fa15b82ecd7bf4b65a26f60c57efd69e27bf2ba0fcd26",
       "receivedModelTransports": 36
     },
     {
@@ -208287,7 +208287,7 @@
   "editorialReferenceOrderClosed": false,
   "structuralUtteranceReferenceOrderClosed": true,
   "progressivityValidationBlocked": true,
-  "manifestSha256": "e5c04de2f20296c5cc549cffb881c5af2c7d75870a984341e287c7daf6de3c81",
+  "manifestSha256": "2d930ed3e06ac908a90a31a53e09cd5d18d15faba178449d71ddc57267d306e8",
   "phoneticCorrections": {
     "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
     "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
@@ -208534,6 +208534,111 @@
       "fr-it": "a9bc15c5426f5330e56e7ed84663b66ca4fb109df4f69928ae11c63d47dda788",
       "fr-zh": "953c3f3567f9b982d7fd9ba43fdf4326272838ed1868b786244e90e95e3f3a96",
       "fr-ja": "9564290ade1a23545f0d5238bf034c0f037d687bb3aeeb40e3f7fd1047b707e1",
+      "fr-ko": "6147d2c868b0f5962b1ce51e498c888f40d8fa8cf90b9c3f6996d675079f4e9b",
+      "zh-fr": "04690a0e54358094e585ff396fb16af2902fa5cb13cf2fa4505a7b7d0cc7a64a"
+    },
+    "globalPhoneticApproval": false,
+    "globalNativeApproval": false,
+    "sourceValidation": "Original sources and preceding layers verified before this separate frozen batch; literal events and atomic bundles only."
+  },
+  "lot5FieldCorrections": {
+    "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot5/revue-claude-lot5.json",
+    "registrySha256": "a614eb16af536db8be673fe9f93d54e17164cb5649fa54460ae17a008d6a420b",
+    "baseSnapshotCommit": "f22202cc4622c26794a6ada0c88d1741b82c1967",
+    "appliesAfter": [
+      {
+        "registryPath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/revue-contenu-lot3-lot4.json",
+        "registrySha256": "346a85c459bb3adfc556c8946262509d19e9ffd46e65e9aa2dba40729aceab91"
+      }
+    ],
+    "correctionCount": 4,
+    "eventCount": 8,
+    "approvedFieldCount": 8,
+    "changedFieldCount": 8,
+    "evidenceCommits": [
+      "62daa86414d937b0554831a4c032e05b3046bb61"
+    ],
+    "occurrenceCount": 5,
+    "occurrenceProfiles": {
+      "canonical": 4,
+      "transport-phrase": 1
+    },
+    "approvedRuntimeFields": 10,
+    "changedRuntimeFields": 10,
+    "approvedFieldOccurrences": {
+      "phon": 5,
+      "reading": 5
+    },
+    "changedFieldOccurrences": {
+      "phon": 5,
+      "reading": 5
+    },
+    "modifiedRuntimeFiles": [
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L4.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L5.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L7.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L9.json",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/fr-ja.json"
+    ],
+    "transportSha256ByPair": {
+      "fr-en": "f51f1834084bdcfe8ed42820d04f35f5449829f34fd358bbacdc37806ec4c199",
+      "fr-es": "f5a2118ed765aed1eedd30022dcf1b183f7355cfc60d01935e05b2aa8448cade",
+      "fr-it": "a9bc15c5426f5330e56e7ed84663b66ca4fb109df4f69928ae11c63d47dda788",
+      "fr-zh": "953c3f3567f9b982d7fd9ba43fdf4326272838ed1868b786244e90e95e3f3a96",
+      "fr-ja": "69eaa2d3453cf369e79fa15b82ecd7bf4b65a26f60c57efd69e27bf2ba0fcd26",
+      "fr-ko": "6147d2c868b0f5962b1ce51e498c888f40d8fa8cf90b9c3f6996d675079f4e9b",
+      "zh-fr": "04690a0e54358094e585ff396fb16af2902fa5cb13cf2fa4505a7b7d0cc7a64a"
+    },
+    "globalPhoneticApproval": false,
+    "globalNativeApproval": false,
+    "sourceValidation": "Original sources and preceding layers verified before this separate frozen batch; literal events and atomic bundles only."
+  },
+  "lot5ContentCorrections": {
+    "registryPath": "docs/niveaux-progressifs/corrections-contenu/lot5/revue-contenu-lot5.json",
+    "registrySha256": "ef394ba1007bc474ca98cc4a166cc680d185ad824c894b710656e5e60ca1758a",
+    "baseSnapshotCommit": "f22202cc4622c26794a6ada0c88d1741b82c1967",
+    "appliesAfter": [
+      {
+        "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot5/revue-claude-lot5.json",
+        "registrySha256": "a614eb16af536db8be673fe9f93d54e17164cb5649fa54460ae17a008d6a420b"
+      }
+    ],
+    "correctionCount": 26,
+    "eventCount": 26,
+    "approvedFieldCount": 26,
+    "changedFieldCount": 26,
+    "evidenceCommits": [
+      "62daa86414d937b0554831a4c032e05b3046bb61"
+    ],
+    "occurrenceCount": 26,
+    "occurrenceProfiles": {
+      "canonical": 26
+    },
+    "approvedRuntimeFields": 26,
+    "changedRuntimeFields": 26,
+    "approvedFieldOccurrences": {
+      "native": 26
+    },
+    "changedFieldOccurrences": {
+      "native": 26
+    },
+    "modifiedRuntimeFiles": [
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L1.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L10.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L3.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L4.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L5.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L6.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L7.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L8.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L9.json"
+    ],
+    "transportSha256ByPair": {
+      "fr-en": "f51f1834084bdcfe8ed42820d04f35f5449829f34fd358bbacdc37806ec4c199",
+      "fr-es": "f5a2118ed765aed1eedd30022dcf1b183f7355cfc60d01935e05b2aa8448cade",
+      "fr-it": "a9bc15c5426f5330e56e7ed84663b66ca4fb109df4f69928ae11c63d47dda788",
+      "fr-zh": "953c3f3567f9b982d7fd9ba43fdf4326272838ed1868b786244e90e95e3f3a96",
+      "fr-ja": "69eaa2d3453cf369e79fa15b82ecd7bf4b65a26f60c57efd69e27bf2ba0fcd26",
       "fr-ko": "6147d2c868b0f5962b1ce51e498c888f40d8fa8cf90b9c3f6996d675079f4e9b",
       "zh-fr": "04690a0e54358094e585ff396fb16af2902fa5cb13cf2fa4505a7b7d0cc7a64a"
     },

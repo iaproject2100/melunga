@@ -74,6 +74,24 @@ Les champs source originaux et toutes les anciennes annotations restent vérifia
 Empreinte du registre de contenu : `346a85c459bb3adfc556c8946262509d19e9ffd46e65e9aa2dba40729aceab91`.
 
 
+## Lot 5 — aides et lectures japonaises indissociables
+
+Le registre `docs/niveaux-progressifs/corrections-phonetiques/lot5/revue-claude-lot5.json` applique **quatre paires aide/lecture** : 8 événements figés pour 4 identifiants, dans **5 objets / 10 champs réellement changés**. La copie de 4320 reçoit les deux valeurs ; le modèle à trou 3771 reste réservé et sans production.
+
+Les deux champs de chaque paire sont contrôlés et appliqués ensemble ; une aide seule ou une lecture seule est refusée. L’étude japonaise et le sens restent inchangés dans cette couche. Ni allongement vocalique, ni particule, ni conversion mora/phonétique ne sont calculés pour d’autres cartes. Les origines et les annotations antérieures restent intacts.
+
+Empreinte du registre : `a614eb16af536db8be673fe9f93d54e17164cb5649fa54460ae17a008d6a420b`.
+
+
+## Gloses du lot 5 — registre de contenu distinct
+
+Le registre `docs/niveaux-progressifs/corrections-contenu/lot5/revue-contenu-lot5.json` applique **26 gloses natives certaines**, dans **26 objets / 26 champs changés**, après les paires d’aides/lectures. Les cinq mentions de 日本語 sont rendues comme japonais, sans modifier les textes étudiés ni leurs aides.
+
+Les 147 propositions incertaines de contenu, 604 propositions de classement et l’aide クッション à arbitrer ne sont pas appliquées. Les corrections de registre retenues sont des décisions par carte, pas une conversion globale de です en vouvoiement. Type, emplacement, niveau, identifiant, rôle, étape et droit restent conservés ; aucune validation native globale n’est déclarée.
+
+Empreinte du registre de contenu : `ef394ba1007bc474ca98cc4a166cc680d185ad824c894b710656e5e60ca1758a`.
+
+
 ## Enrichissement de situations — lot distinct
 
 28 rubriques de situation comportent chacune huit intentions dans les sept couples : **1568 positions pédagogiques**. Elles ne représentent pas autant de créations : **1257 formes entières réellement rédigées** et **311 positions utilisant des sources préexistantes**. Parmi ces sources, **42 phrases de conversation** sont importées entières sans être comptées comme nouvelles rédactions.

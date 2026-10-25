@@ -1,6 +1,6 @@
 # Vérification des commandes et de la fiche sans défilement
 
-Exécution : `2026-10-25T17:20:54.133Z` — **9 contrôles sur 9 réussis**.
+Exécution : `2026-10-25T18:28:08.566Z` — **9 contrôles sur 9 réussis**.
 
 Chromium local, écrans émulés. Aucun téléphone physique ni site public testé. Les voix sont simulées pour vérifier le texte transmis ; ce rapport ne valide ni le son réel ni les phonétiques.
 
@@ -31,3 +31,5 @@ Rapport détaillé : [verification-commandes-lecon-navigateur.json](verification
 Ce passage utilise les deux couches corrigées : le lot 3 ajoute 90 aides entières et cinq lectures/Pinyin après les 774 événements du lot 2. Le raccord et ses limites sont décrits dans [le contrôle du lot 3](verification-raccord-lot3.md). Le JavaScript, le CSS et les HTML de l’interface restent ceux validés avant ces lots.
 
 L’édition du lot 4 comprend 259 aides et le registre de contenu distinct (33 gloses et deux blocs atomiques). Les exceptions de texte/sens/lecture sont attestées explicitement. Les six mesures supplémentaires des cartes corrigées sont dans [le contrôle du lot 4](verification-raccord-lot4.md) ; aucune interface n’a été réécrite.
+
+L’édition du lot 5 ajoute quatre paires japonaises aide/lecture et 26 gloses séparées. Les trois paires actives, la copie 4320, la réserve 3771 et la lecture japonaise en complément sont contrôlées dans [le raccord lot 5](verification-raccord-lot5.md) ; aucun comportement du Pinyin chinois n’est modifié.

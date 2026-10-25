@@ -1,0 +1,138 @@
+{
+ "id": "revue-claude-lot5-fr-ja",
+ "baseSnapshotCommit": "f22202cc4622c26794a6ada0c88d1741b82c1967",
+ "policy": "avant/après entiers et figés ; aucune règle à étendre",
+ "rules": {
+  "M": "more manquant ou en trop, ou lecture d’un autre mot",
+  "P": "particule mal lue"
+ },
+ "eventCount": 4,
+ "events": [
+  {
+   "pair": "fr-ja",
+   "id": "catalogue:ja:3630",
+   "level": 4,
+   "rules": [
+    "M"
+   ],
+   "study": "食洗機",
+   "reading": "sho-k-ki a-ra-i-ki",
+   "native": "le lave-vaisselle",
+   "beforePhon": "cho-kki a-ra-i-ki",
+   "afterPhon": "cho-kou-sén-ki",
+   "alignment": "食 sho-ku → cho-kou · 洗 se-n → sén · 機 ki → ki",
+   "reason": "lecture et aide d'un autre mot (食器洗い機) ; 食洗機 se lit shokusenki",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L4.json",
+    "location": [
+     "themes",
+     16,
+     "phrases",
+     18
+    ],
+    "expectedBefore": {
+     "study": "食洗機",
+     "native": "le lave-vaisselle",
+     "reading": "sho-k-ki a-ra-i-ki",
+     "phon": "cho-kki a-ra-i-ki"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ja",
+   "id": "catalogue:ja:3771",
+   "level": 5,
+   "rules": [
+    "P"
+   ],
+   "study": "このバスは〜に行きますか？",
+   "reading": "ko-no ba-su-wa e i-ki-ma-su-ka",
+   "native": "Ce bus va à... ?",
+   "beforePhon": "ko-no ba-sou-oua é i-ki-ma-sou-ka",
+   "afterPhon": "ko-no ba-sou-oua ni i-ki-ma-sou-ka",
+   "alignment": "この ko-no · バス ba-sou · は oua · に ni → é (faux) · 行きますか i-ki-ma-sou-ka",
+   "reason": "particule に lue et rendue comme へ (e / é)",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L5.json",
+    "location": [
+     "reserve",
+     4
+    ],
+    "expectedBefore": {
+     "study": "このバスは〜に行きますか？",
+     "native": "Ce bus va à... ?",
+     "reading": "ko-no ba-su-wa e i-ki-ma-su-ka",
+     "phon": "ko-no ba-sou-oua é i-ki-ma-sou-ka"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ja",
+   "id": "catalogue:ja:2400",
+   "level": 7,
+   "rules": [
+    "M"
+   ],
+   "study": "なんか、さよならも言わずに帰ったんですよ。",
+   "reading": "na-n-ka sa-yo-o-na-ra-mo i-wa-zu-ni ka-e-t-ta-n-de-su-yo",
+   "native": "Genre, il est parti sans dire au revoir.",
+   "beforePhon": "nan-ka sa-yo-o-na-ra-mo i-oua-zou-ni ka-é-ttan-dé-sou-yo",
+   "afterPhon": "nan-ka sa-yo-na-ra-mo i-oua-zou-ni ka-é-ttan-dé-sou-yo",
+   "alignment": "さ sa · よ yo → yo (et non yo-o) · な na · ら ra",
+   "reason": "more en trop : さよなら n'a pas de voyelle longue (c'est さようなら qui en a une)",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L7.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     9
+    ],
+    "expectedBefore": {
+     "study": "なんか、さよならも言わずに帰ったんですよ。",
+     "native": "Genre, il est parti sans dire au revoir.",
+     "reading": "na-n-ka sa-yo-o-na-ra-mo i-wa-zu-ni ka-e-t-ta-n-de-su-yo",
+     "phon": "nan-ka sa-yo-o-na-ra-mo i-oua-zou-ni ka-é-ttan-dé-sou-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ja",
+   "id": "catalogue:ja:4320",
+   "level": 9,
+   "rules": [
+    "M"
+   ],
+   "study": "ボディソープ",
+   "reading": "bo-di-i so-o-pu",
+   "native": "le gel douche",
+   "beforePhon": "bo-di-i so-o-pou",
+   "afterPhon": "bo-di so-o-pou",
+   "alignment": "ボ bo → bo · ディ di → di (aide : di-i) · ソー so-o → so-o · プ pu → pou",
+   "reason": "more en trop : ボディ s'écrit sans voyelle longue",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L9.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     1
+    ],
+    "expectedBefore": {
+     "study": "ボディソープ",
+     "native": "le gel douche",
+     "reading": "bo-di-i so-o-pu",
+     "phon": "bo-di-i so-o-pou"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 1
+  }
+ ]
+}

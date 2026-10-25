@@ -1,0 +1,2522 @@
+{
+  "version": 1,
+  "scope": "Independent structural verification of lot5 before values, coverage, proposals and lot4 documentary amendments",
+  "method": "All inventories and before values are compared to pinned Git snapshots. This does not reproduce the individual linguistic reading of the 4763 positions or approve the 604 pedagogical proposals.",
+  "structuralAudit": {
+    "baseSnapshotCommit": "f22202cc4622c26794a6ada0c88d1741b82c1967",
+    "evidenceCommit": "62daa86414d937b0554831a4c032e05b3046bb61",
+    "errataCommit": "8bd6297ef5da93d74530f7252184d8717b0f3a90",
+    "proofSha256": {
+      "registre-phonetique.json": "76a8bed5f6218fc74aa0fb75f7f19b2bcd9518aa1440780877d5dd03b6789158",
+      "registre-lectures.json": "2e863193df9228431b04011f343acc38af3bb4266921777291f97077100195c5",
+      "lot-contenu-gloses.json": "2fd7c7b35af687260013d563b8f7bd4fd6e14bdce0e4d7025fc1dd4f847a5cd0",
+      "propositions-niveaux-themes.json": "fcf4e2bdbaad225bc253fc0d62128cc014fd03af8cdcebe11e91ec1102f4b3e2",
+      "conventions-a-decider.json": "066538944c8cd70f73ea6ac317895a986d0ef2f867149563dff740c3c27db608",
+      "couverture.json": "a105f352b15cc1f2b5ee1adf0e182de66795c193008e7f943b8d37b835e20e5d"
+    },
+    "canonicalPositions": 4727,
+    "receivedPositions": 36,
+    "positions": 4763,
+    "distinctIds": 4757,
+    "overlapIds": [
+      "catalogue:ja:193",
+      "catalogue:ja:1957",
+      "catalogue:ja:246",
+      "catalogue:ja:388",
+      "catalogue:ja:578",
+      "catalogue:ja:664"
+    ],
+    "statusCounts": {
+      "verifie": 4033,
+      "proposition": 579,
+      "incertain": 121,
+      "glose-a-corriger": 26,
+      "corrige": 4
+    },
+    "missingExpectedPositions": 0,
+    "extraPositions": 0,
+    "verifiedStatusesHidingRegisteredFollowup": [],
+    "phonetic": {
+      "events": 4,
+      "identities": 4,
+      "readingEvents": 4,
+      "canonicalObjects": 4,
+      "transportObjects": 1,
+      "runtimeObjects": 5,
+      "changedRuntimeFields": 10,
+      "activeIds": [
+        "catalogue:ja:3630",
+        "catalogue:ja:2400",
+        "catalogue:ja:4320"
+      ],
+      "reservedIds": [
+        "catalogue:ja:3771"
+      ],
+      "transportIds": [
+        "catalogue:ja:4320"
+      ],
+      "noPriorAnnotations": [
+        {
+          "id": "catalogue:ja:3630",
+          "priorAnnotations": []
+        },
+        {
+          "id": "catalogue:ja:3771",
+          "priorAnnotations": []
+        },
+        {
+          "id": "catalogue:ja:2400",
+          "priorAnnotations": []
+        },
+        {
+          "id": "catalogue:ja:4320",
+          "priorAnnotations": []
+        }
+      ]
+    },
+    "glosses": {
+      "events": 173,
+      "identities": 172,
+      "certain": 26,
+      "uncertain": 147,
+      "japaneseMistranslatedAsFrenchIds": [
+        "catalogue:ja:1956",
+        "catalogue:ja:2352",
+        "catalogue:ja:2395",
+        "catalogue:ja:2615",
+        "catalogue:ja:2647"
+      ],
+      "certainBeforeFieldsExact": true,
+      "unappliedBeforeMismatches": [
+        {
+          "id": "catalogue:ja:833",
+          "field": "study",
+          "deliveredBefore": "wa-ta-shi-ni ni-a-i-ma-su",
+          "actualBefore": "私に似合います。",
+          "issue": "unapplied study proposal uses the reading as its before"
+        }
+      ]
+    },
+    "proposals": {
+      "events": 604,
+      "identities": 582,
+      "kinds": {
+        "theme": 463,
+        "level": 41,
+        "duplicate": 100
+      },
+      "namedThemeRows": 306,
+      "contextualNullRows": 157,
+      "destinationTitlesExplicitlyChecked": 101,
+      "destinationReferences": [
+        {
+          "sourceId": "catalogue:ja:3198",
+          "level": 1,
+          "themeId": "repas",
+          "themeTitle": "Sortir, commander et acheter"
+        },
+        {
+          "sourceId": "catalogue:ja:3006",
+          "level": 1,
+          "themeId": "conversation",
+          "themeTitle": "Faire vivre la conversation"
+        },
+        {
+          "sourceId": "catalogue:ja:754",
+          "level": 1,
+          "themeId": "deplacements",
+          "themeTitle": "Se déplacer et voyager"
+        },
+        {
+          "sourceId": "catalogue:ja:2890",
+          "level": 10,
+          "themeId": "L10-conversation",
+          "themeTitle": "Converser et nuancer librement"
+        },
+        {
+          "sourceId": "catalogue:ja:2908",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2869",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2880",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2901",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2793",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2795",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2848",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2919",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:4415",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:4463",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:4430",
+          "level": 10,
+          "themeId": "L10-conversation",
+          "themeTitle": "Converser et nuancer librement"
+        },
+        {
+          "sourceId": "catalogue:ja:4440",
+          "level": 10,
+          "themeId": "L10-conversation",
+          "themeTitle": "Converser et nuancer librement"
+        },
+        {
+          "sourceId": "catalogue:ja:2787",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2794",
+          "level": 10,
+          "themeId": "L10-saluer",
+          "themeTitle": "Entrer en relation avec aisance"
+        },
+        {
+          "sourceId": "catalogue:ja:2819",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2826",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2829",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2864",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2879",
+          "level": 10,
+          "themeId": "L10-travail",
+          "themeTitle": "Conduire un échange professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:4452",
+          "level": 10,
+          "themeId": "L10-conversation",
+          "themeTitle": "Converser et nuancer librement"
+        },
+        {
+          "sourceId": "catalogue:ja:80",
+          "level": 2,
+          "themeId": "L2-conversation",
+          "themeTitle": "Poser et reprendre une question"
+        },
+        {
+          "sourceId": "catalogue:ja:96",
+          "level": 2,
+          "themeId": "L2-quotidien",
+          "themeTitle": "Parler de chez soi"
+        },
+        {
+          "sourceId": "catalogue:ja:129",
+          "level": 2,
+          "themeId": "L2-quotidien",
+          "themeTitle": "Parler de chez soi"
+        },
+        {
+          "sourceId": "catalogue:ja:154",
+          "level": 2,
+          "themeId": "L2-repas",
+          "themeTitle": "Commander selon ses besoins"
+        },
+        {
+          "sourceId": "catalogue:ja:423",
+          "level": 2,
+          "themeId": "L2-repas",
+          "themeTitle": "Commander selon ses besoins"
+        },
+        {
+          "sourceId": "catalogue:ja:3237",
+          "level": 2,
+          "themeId": "L2-situation-repas-preferences",
+          "themeTitle": "Repas : préférences et alternatives"
+        },
+        {
+          "sourceId": "catalogue:ja:155",
+          "level": 2,
+          "themeId": "L2-situation-piste-douleur-simple",
+          "themeTitle": "Santé : décrire une douleur simple"
+        },
+        {
+          "sourceId": "catalogue:ja:234",
+          "level": 2,
+          "themeId": "L2-conversation",
+          "themeTitle": "Poser et reprendre une question"
+        },
+        {
+          "sourceId": "catalogue:ja:280",
+          "level": 2,
+          "themeId": "L2-conversation",
+          "themeTitle": "Poser et reprendre une question"
+        },
+        {
+          "sourceId": "catalogue:ja:317",
+          "level": 2,
+          "themeId": "L2-conversation",
+          "themeTitle": "Poser et reprendre une question"
+        },
+        {
+          "sourceId": "catalogue:ja:308",
+          "level": 2,
+          "themeId": "L2-conversation",
+          "themeTitle": "Poser et reprendre une question"
+        },
+        {
+          "sourceId": "catalogue:ja:347",
+          "level": 2,
+          "themeId": "L2-conversation",
+          "themeTitle": "Poser et reprendre une question"
+        },
+        {
+          "sourceId": "catalogue:ja:353",
+          "level": 2,
+          "themeId": "L2-quotidien",
+          "themeTitle": "Parler de chez soi"
+        },
+        {
+          "sourceId": "catalogue:ja:354",
+          "level": 2,
+          "themeId": "L2-quotidien",
+          "themeTitle": "Parler de chez soi"
+        },
+        {
+          "sourceId": "catalogue:ja:367",
+          "level": 2,
+          "themeId": "L2-repas",
+          "themeTitle": "Commander selon ses besoins"
+        },
+        {
+          "sourceId": "catalogue:ja:381",
+          "level": 2,
+          "themeId": "L2-conversation",
+          "themeTitle": "Poser et reprendre une question"
+        },
+        {
+          "sourceId": "catalogue:ja:409",
+          "level": 2,
+          "themeId": "L2-situation-piste-douleur-simple",
+          "themeTitle": "Santé : décrire une douleur simple"
+        },
+        {
+          "sourceId": "catalogue:ja:258",
+          "level": 2,
+          "themeId": "L2-conversation",
+          "themeTitle": "Poser et reprendre une question"
+        },
+        {
+          "sourceId": "catalogue:ja:150",
+          "level": 2,
+          "themeId": "L2-saluer",
+          "themeTitle": "Se présenter et échanger"
+        },
+        {
+          "sourceId": "catalogue:ja:262",
+          "level": 2,
+          "themeId": "L2-saluer",
+          "themeTitle": "Se présenter et échanger"
+        },
+        {
+          "sourceId": "catalogue:ja:278",
+          "level": 2,
+          "themeId": "L2-repas",
+          "themeTitle": "Commander selon ses besoins"
+        },
+        {
+          "sourceId": "catalogue:ja:294",
+          "level": 2,
+          "themeId": "L2-repas",
+          "themeTitle": "Commander selon ses besoins"
+        },
+        {
+          "sourceId": "catalogue:ja:3268",
+          "level": 2,
+          "themeId": "L2-vocab-adjectifs",
+          "themeTitle": "Adjectifs"
+        },
+        {
+          "sourceId": "catalogue:ja:520",
+          "level": 3,
+          "themeId": "L3-comprendre",
+          "themeTitle": "Demander et confirmer un service"
+        },
+        {
+          "sourceId": "catalogue:ja:569",
+          "level": 3,
+          "themeId": "L3-comprendre",
+          "themeTitle": "Demander et confirmer un service"
+        },
+        {
+          "sourceId": "catalogue:ja:742",
+          "level": 3,
+          "themeId": "L3-conversation",
+          "themeTitle": "Proposer et répondre"
+        },
+        {
+          "sourceId": "catalogue:ja:746",
+          "level": 3,
+          "themeId": "L3-conversation",
+          "themeTitle": "Proposer et répondre"
+        },
+        {
+          "sourceId": "catalogue:ja:736",
+          "level": 3,
+          "themeId": "L3-situation-hotel-sejour",
+          "themeTitle": "Hôtel : organiser son séjour"
+        },
+        {
+          "sourceId": "catalogue:ja:449",
+          "level": 3,
+          "themeId": "L3-vocab-restaurant",
+          "themeTitle": "Restaurant et achats"
+        },
+        {
+          "sourceId": "catalogue:ja:450",
+          "level": 3,
+          "themeId": "L3-vocab-restaurant",
+          "themeTitle": "Restaurant et achats"
+        },
+        {
+          "sourceId": "catalogue:ja:553",
+          "level": 3,
+          "themeId": "L3-vocab-restaurant",
+          "themeTitle": "Restaurant et achats"
+        },
+        {
+          "sourceId": "catalogue:ja:622",
+          "level": 3,
+          "themeId": "L3-vocab-restaurant",
+          "themeTitle": "Restaurant et achats"
+        },
+        {
+          "sourceId": "catalogue:ja:765",
+          "level": 3,
+          "themeId": "L3-vocab-restaurant",
+          "themeTitle": "Restaurant et achats"
+        },
+        {
+          "sourceId": "catalogue:ja:469",
+          "level": 3,
+          "themeId": "L3-conversation",
+          "themeTitle": "Proposer et répondre"
+        },
+        {
+          "sourceId": "catalogue:ja:505",
+          "level": 3,
+          "themeId": "L3-conversation",
+          "themeTitle": "Proposer et répondre"
+        },
+        {
+          "sourceId": "catalogue:ja:674",
+          "level": 3,
+          "themeId": "L3-travail",
+          "themeTitle": "Parler de son activité"
+        },
+        {
+          "sourceId": "catalogue:ja:3525",
+          "level": 3,
+          "themeId": "L3-situation-hotel-sejour",
+          "themeTitle": "Hôtel : organiser son séjour"
+        },
+        {
+          "sourceId": "catalogue:ja:535",
+          "level": 3,
+          "themeId": "L3-ressentis",
+          "themeTitle": "Parler de ses goûts"
+        },
+        {
+          "sourceId": "catalogue:ja:552",
+          "level": 3,
+          "themeId": "L3-ressentis",
+          "themeTitle": "Parler de ses goûts"
+        },
+        {
+          "sourceId": "catalogue:ja:692",
+          "level": 3,
+          "themeId": "L3-ressentis",
+          "themeTitle": "Parler de ses goûts"
+        },
+        {
+          "sourceId": "catalogue:ja:624",
+          "level": 3,
+          "themeId": "L3-travail",
+          "themeTitle": "Parler de son activité"
+        },
+        {
+          "sourceId": "catalogue:ja:1161",
+          "level": 4,
+          "themeId": "L4-situation-piste-equipement-chambre",
+          "themeTitle": "Logement : raconter une panne d’équipement"
+        },
+        {
+          "sourceId": "catalogue:ja:3767",
+          "level": 4,
+          "themeId": "L4-travail",
+          "themeTitle": "Faire un point sur une tâche"
+        },
+        {
+          "sourceId": "catalogue:ja:3551",
+          "level": 4,
+          "themeId": "L4-situation-piste-sortie-culturelle",
+          "themeTitle": "Culture : raconter une sortie"
+        },
+        {
+          "sourceId": "catalogue:ja:3686",
+          "level": 4,
+          "themeId": "L4-vocab-maison",
+          "themeTitle": "Maison et mobilier"
+        },
+        {
+          "sourceId": "catalogue:ja:1262",
+          "level": 5,
+          "themeId": "L5-vocab-voyage",
+          "themeTitle": "Voyage et transport"
+        },
+        {
+          "sourceId": "catalogue:ja:1451",
+          "level": 5,
+          "themeId": "L5-vocab-restaurant",
+          "themeTitle": "Restaurant et achats"
+        },
+        {
+          "sourceId": "catalogue:ja:1277",
+          "level": 5,
+          "themeId": "L5-vocab-loisirs",
+          "themeTitle": "Loisirs et culture"
+        },
+        {
+          "sourceId": "catalogue:ja:1280",
+          "level": 5,
+          "themeId": "L5-vocab-personnes",
+          "themeTitle": "Corps, personnes et émotions"
+        },
+        {
+          "sourceId": "catalogue:ja:1443",
+          "level": 5,
+          "themeId": "L5-vocab-travail",
+          "themeTitle": "Travail et démarches"
+        },
+        {
+          "sourceId": "catalogue:ja:1468",
+          "level": 5,
+          "themeId": "L5-vocab-maison",
+          "themeTitle": "Maison et mobilier"
+        },
+        {
+          "sourceId": "catalogue:ja:1474",
+          "level": 5,
+          "themeId": "L5-vocab-nature",
+          "themeTitle": "Nature, jardin et météo"
+        },
+        {
+          "sourceId": "catalogue:ja:1487",
+          "level": 5,
+          "themeId": "L5-vocab-maison",
+          "themeTitle": "Maison et mobilier"
+        },
+        {
+          "sourceId": "catalogue:ja:1488",
+          "level": 5,
+          "themeId": "L5-vocab-maison",
+          "themeTitle": "Maison et mobilier"
+        },
+        {
+          "sourceId": "catalogue:ja:1506",
+          "level": 5,
+          "themeId": "L5-vocab-maison",
+          "themeTitle": "Maison et mobilier"
+        },
+        {
+          "sourceId": "catalogue:ja:1515",
+          "level": 5,
+          "themeId": "L5-vocab-maison",
+          "themeTitle": "Maison et mobilier"
+        },
+        {
+          "sourceId": "catalogue:ja:1245",
+          "level": 5,
+          "themeId": "L5-vocab-restaurant",
+          "themeTitle": "Restaurant et achats"
+        },
+        {
+          "sourceId": "catalogue:ja:1250",
+          "level": 5,
+          "themeId": "L5-repas",
+          "themeTitle": "Réservations et demandes pratiques"
+        },
+        {
+          "sourceId": "catalogue:ja:1253",
+          "level": 5,
+          "themeId": "L5-repas",
+          "themeTitle": "Réservations et demandes pratiques"
+        },
+        {
+          "sourceId": "catalogue:ja:1264",
+          "level": 5,
+          "themeId": "L5-vocab-restaurant",
+          "themeTitle": "Restaurant et achats"
+        },
+        {
+          "sourceId": "catalogue:ja:1265",
+          "level": 5,
+          "themeId": "L5-vocab-restaurant",
+          "themeTitle": "Restaurant et achats"
+        },
+        {
+          "sourceId": "catalogue:ja:1266",
+          "level": 5,
+          "themeId": "L5-vocab-restaurant",
+          "themeTitle": "Restaurant et achats"
+        },
+        {
+          "sourceId": "catalogue:ja:1275",
+          "level": 5,
+          "themeId": "L5-vocab-personnes",
+          "themeTitle": "Corps, personnes et émotions"
+        },
+        {
+          "sourceId": "catalogue:ja:1278",
+          "level": 5,
+          "themeId": "L5-vocab-nature",
+          "themeTitle": "Nature, jardin et météo"
+        },
+        {
+          "sourceId": "catalogue:ja:1282",
+          "level": 5,
+          "themeId": "L5-ressentis",
+          "themeTitle": "Expliquer un problème concret"
+        },
+        {
+          "sourceId": "catalogue:ja:1285",
+          "level": 5,
+          "themeId": "L5-ressentis",
+          "themeTitle": "Expliquer un problème concret"
+        },
+        {
+          "sourceId": "catalogue:ja:1295",
+          "level": 5,
+          "themeId": "L5-vocab-maison",
+          "themeTitle": "Maison et mobilier"
+        },
+        {
+          "sourceId": "catalogue:ja:1296",
+          "level": 5,
+          "themeId": "L5-vocab-loisirs",
+          "themeTitle": "Loisirs et culture"
+        },
+        {
+          "sourceId": "catalogue:ja:1298",
+          "level": 5,
+          "themeId": "L5-vocab-maison",
+          "themeTitle": "Maison et mobilier"
+        },
+        {
+          "sourceId": "catalogue:ja:1302",
+          "level": 5,
+          "themeId": "L5-quotidien",
+          "themeTitle": "S’organiser au quotidien"
+        },
+        {
+          "sourceId": "catalogue:ja:1314",
+          "level": 5,
+          "themeId": "L5-vocab-personnes",
+          "themeTitle": "Corps, personnes et émotions"
+        },
+        {
+          "sourceId": "catalogue:ja:1324",
+          "level": 5,
+          "themeId": "L5-vocab-nature",
+          "themeTitle": "Nature, jardin et météo"
+        },
+        {
+          "sourceId": "catalogue:ja:1326",
+          "level": 5,
+          "themeId": "L5-vocab-loisirs",
+          "themeTitle": "Loisirs et culture"
+        },
+        {
+          "sourceId": "catalogue:ja:1397",
+          "level": 5,
+          "themeId": "L5-deplacements",
+          "themeTitle": "Changer ses plans de voyage"
+        },
+        {
+          "sourceId": "catalogue:ja:1404",
+          "level": 5,
+          "themeId": "L5-vocab-voyage",
+          "themeTitle": "Voyage et transport"
+        },
+        {
+          "sourceId": "catalogue:ja:1407",
+          "level": 5,
+          "themeId": "L5-deplacements",
+          "themeTitle": "Changer ses plans de voyage"
+        },
+        {
+          "sourceId": "catalogue:ja:1411",
+          "level": 5,
+          "themeId": "L5-deplacements",
+          "themeTitle": "Changer ses plans de voyage"
+        },
+        {
+          "sourceId": "catalogue:ja:1412",
+          "level": 5,
+          "themeId": "L5-vocab-restaurant",
+          "themeTitle": "Restaurant et achats"
+        },
+        {
+          "sourceId": "catalogue:ja:1415",
+          "level": 5,
+          "themeId": "L5-repas",
+          "themeTitle": "Réservations et demandes pratiques"
+        },
+        {
+          "sourceId": "catalogue:ja:1422",
+          "level": 5,
+          "themeId": "L5-vocab-restaurant",
+          "themeTitle": "Restaurant et achats"
+        },
+        {
+          "sourceId": "catalogue:ja:1424",
+          "level": 5,
+          "themeId": "L5-situation-argent-paiements",
+          "themeTitle": "Paiements : vérifier un problème et le régler"
+        },
+        {
+          "sourceId": "catalogue:ja:1425",
+          "level": 5,
+          "themeId": "L5-deplacements",
+          "themeTitle": "Changer ses plans de voyage"
+        },
+        {
+          "sourceId": "catalogue:ja:1426",
+          "level": 5,
+          "themeId": "L5-vocab-voyage",
+          "themeTitle": "Voyage et transport"
+        },
+        {
+          "sourceId": "catalogue:ja:1427",
+          "level": 5,
+          "themeId": "L5-ressentis",
+          "themeTitle": "Expliquer un problème concret"
+        },
+        {
+          "sourceId": "catalogue:ja:1428",
+          "level": 5,
+          "themeId": "L5-quotidien",
+          "themeTitle": "S’organiser au quotidien"
+        },
+        {
+          "sourceId": "catalogue:ja:1431",
+          "level": 5,
+          "themeId": "L5-repas",
+          "themeTitle": "Réservations et demandes pratiques"
+        },
+        {
+          "sourceId": "catalogue:ja:1436",
+          "level": 5,
+          "themeId": "L5-quotidien",
+          "themeTitle": "S’organiser au quotidien"
+        },
+        {
+          "sourceId": "catalogue:ja:1439",
+          "level": 5,
+          "themeId": "L5-vocab-loisirs",
+          "themeTitle": "Loisirs et culture"
+        },
+        {
+          "sourceId": "catalogue:ja:1441",
+          "level": 5,
+          "themeId": "L5-vocab-loisirs",
+          "themeTitle": "Loisirs et culture"
+        },
+        {
+          "sourceId": "catalogue:ja:1444",
+          "level": 5,
+          "themeId": "L5-quotidien",
+          "themeTitle": "S’organiser au quotidien"
+        },
+        {
+          "sourceId": "catalogue:ja:1446",
+          "level": 5,
+          "themeId": "L5-quotidien",
+          "themeTitle": "S’organiser au quotidien"
+        },
+        {
+          "sourceId": "catalogue:ja:1477",
+          "level": 5,
+          "themeId": "L5-situation-piste-depannage-connexion",
+          "themeTitle": "Connexion : résoudre un problème numérique"
+        },
+        {
+          "sourceId": "catalogue:ja:1480",
+          "level": 5,
+          "themeId": "L5-vocab-loisirs",
+          "themeTitle": "Loisirs et culture"
+        },
+        {
+          "sourceId": "catalogue:ja:1482",
+          "level": 5,
+          "themeId": "L5-vocab-loisirs",
+          "themeTitle": "Loisirs et culture"
+        },
+        {
+          "sourceId": "catalogue:ja:1490",
+          "level": 5,
+          "themeId": "L5-quotidien",
+          "themeTitle": "S’organiser au quotidien"
+        },
+        {
+          "sourceId": "catalogue:ja:1499",
+          "level": 5,
+          "themeId": "L5-situation-piste-depannage-connexion",
+          "themeTitle": "Connexion : résoudre un problème numérique"
+        },
+        {
+          "sourceId": "catalogue:ja:1500",
+          "level": 5,
+          "themeId": "L5-quotidien",
+          "themeTitle": "S’organiser au quotidien"
+        },
+        {
+          "sourceId": "catalogue:ja:1501",
+          "level": 5,
+          "themeId": "L5-situation-piste-depannage-connexion",
+          "themeTitle": "Connexion : résoudre un problème numérique"
+        },
+        {
+          "sourceId": "catalogue:ja:1505",
+          "level": 5,
+          "themeId": "L5-vocab-loisirs",
+          "themeTitle": "Loisirs et culture"
+        },
+        {
+          "sourceId": "catalogue:ja:1519",
+          "level": 5,
+          "themeId": "L5-vocab-personnes",
+          "themeTitle": "Corps, personnes et émotions"
+        },
+        {
+          "sourceId": "catalogue:ja:1524",
+          "level": 5,
+          "themeId": "L5-situation-piste-depannage-connexion",
+          "themeTitle": "Connexion : résoudre un problème numérique"
+        },
+        {
+          "sourceId": "catalogue:ja:1528",
+          "level": 5,
+          "themeId": "L5-quotidien",
+          "themeTitle": "S’organiser au quotidien"
+        },
+        {
+          "sourceId": "catalogue:ja:1530",
+          "level": 5,
+          "themeId": "L5-vocab-personnes",
+          "themeTitle": "Corps, personnes et émotions"
+        },
+        {
+          "sourceId": "catalogue:ja:1533",
+          "level": 5,
+          "themeId": "L5-vocab-personnes",
+          "themeTitle": "Corps, personnes et émotions"
+        },
+        {
+          "sourceId": "catalogue:ja:1542",
+          "level": 5,
+          "themeId": "L5-vocab-travail",
+          "themeTitle": "Travail et démarches"
+        },
+        {
+          "sourceId": "catalogue:ja:1544",
+          "level": 5,
+          "themeId": "L5-vocab-loisirs",
+          "themeTitle": "Loisirs et culture"
+        },
+        {
+          "sourceId": "catalogue:ja:1559",
+          "level": 5,
+          "themeId": "L5-vocab-actions",
+          "themeTitle": "Actions et descriptions"
+        },
+        {
+          "sourceId": "catalogue:ja:1561",
+          "level": 5,
+          "themeId": "L5-vocab-personnes",
+          "themeTitle": "Corps, personnes et émotions"
+        },
+        {
+          "sourceId": "catalogue:ja:1566",
+          "level": 5,
+          "themeId": "L5-repas",
+          "themeTitle": "Réservations et demandes pratiques"
+        },
+        {
+          "sourceId": "catalogue:ja:1569",
+          "level": 5,
+          "themeId": "L5-vocab-personnes",
+          "themeTitle": "Corps, personnes et émotions"
+        },
+        {
+          "sourceId": "catalogue:ja:1573",
+          "level": 5,
+          "themeId": "L5-vocab-personnes",
+          "themeTitle": "Corps, personnes et émotions"
+        },
+        {
+          "sourceId": "catalogue:ja:1610",
+          "level": 5,
+          "themeId": "L5-quotidien",
+          "themeTitle": "S’organiser au quotidien"
+        },
+        {
+          "sourceId": "catalogue:ja:3768",
+          "level": 5,
+          "themeId": "L5-situation-piste-depannage-connexion",
+          "themeTitle": "Connexion : résoudre un problème numérique"
+        },
+        {
+          "sourceId": "catalogue:ja:3769",
+          "level": 5,
+          "themeId": "L5-situation-piste-depannage-connexion",
+          "themeTitle": "Connexion : résoudre un problème numérique"
+        },
+        {
+          "sourceId": "catalogue:ja:3796",
+          "level": 5,
+          "themeId": "L5-ressentis",
+          "themeTitle": "Expliquer un problème concret"
+        },
+        {
+          "sourceId": "catalogue:ja:4025",
+          "level": 5,
+          "themeId": "L5-situation-service-client",
+          "themeTitle": "Service client : obtenir et suivre une solution"
+        },
+        {
+          "sourceId": "catalogue:ja:1376",
+          "level": 5,
+          "themeId": "L5-repas",
+          "themeTitle": "Réservations et demandes pratiques"
+        },
+        {
+          "sourceId": "catalogue:ja:1456",
+          "level": 5,
+          "themeId": "L5-quotidien",
+          "themeTitle": "S’organiser au quotidien"
+        },
+        {
+          "sourceId": "catalogue:ja:1545",
+          "level": 5,
+          "themeId": "L5-quotidien",
+          "themeTitle": "S’organiser au quotidien"
+        },
+        {
+          "sourceId": "catalogue:ja:1568",
+          "level": 5,
+          "themeId": "L5-repas",
+          "themeTitle": "Réservations et demandes pratiques"
+        },
+        {
+          "sourceId": "catalogue:ja:3785",
+          "level": 5,
+          "themeId": "L5-vocab-travail",
+          "themeTitle": "Travail et démarches"
+        },
+        {
+          "sourceId": "catalogue:ja:3810",
+          "level": 5,
+          "themeId": "L5-vocab-voyage",
+          "themeTitle": "Voyage et transport"
+        },
+        {
+          "sourceId": "catalogue:ja:3837",
+          "level": 5,
+          "themeId": "L5-vocab-nature",
+          "themeTitle": "Nature, jardin et météo"
+        },
+        {
+          "sourceId": "catalogue:ja:1672",
+          "level": 6,
+          "themeId": "L6-repas",
+          "themeTitle": "Comparer des sorties et des achats"
+        },
+        {
+          "sourceId": "catalogue:ja:1673",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1749",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1757",
+          "level": 6,
+          "themeId": "L6-situation-invitations-limites",
+          "themeTitle": "Invitations : poser une limite et expliquer son choix"
+        },
+        {
+          "sourceId": "catalogue:ja:1869",
+          "level": 6,
+          "themeId": "L6-deplacements",
+          "themeTitle": "Choisir une façon de voyager"
+        },
+        {
+          "sourceId": "catalogue:ja:1943",
+          "level": 6,
+          "themeId": "L6-repas",
+          "themeTitle": "Comparer des sorties et des achats"
+        },
+        {
+          "sourceId": "catalogue:ja:1863",
+          "level": 6,
+          "themeId": "L6-vocab-personnes",
+          "themeTitle": "Corps, personnes et émotions"
+        },
+        {
+          "sourceId": "catalogue:ja:1911",
+          "level": 6,
+          "themeId": "L6-vocab-personnes",
+          "themeTitle": "Corps, personnes et émotions"
+        },
+        {
+          "sourceId": "catalogue:ja:1961",
+          "level": 6,
+          "themeId": "L6-comprendre",
+          "themeTitle": "Expliquer et vérifier le sens"
+        },
+        {
+          "sourceId": "catalogue:ja:1864",
+          "level": 6,
+          "themeId": "L6-deplacements",
+          "themeTitle": "Choisir une façon de voyager"
+        },
+        {
+          "sourceId": "catalogue:ja:1928",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1644",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1718",
+          "level": 6,
+          "themeId": "L6-quotidien",
+          "themeTitle": "Expliquer ses habitudes"
+        },
+        {
+          "sourceId": "catalogue:ja:1719",
+          "level": 6,
+          "themeId": "L6-quotidien",
+          "themeTitle": "Expliquer ses habitudes"
+        },
+        {
+          "sourceId": "catalogue:ja:1851",
+          "level": 6,
+          "themeId": "L6-repas",
+          "themeTitle": "Comparer des sorties et des achats"
+        },
+        {
+          "sourceId": "catalogue:ja:1900",
+          "level": 6,
+          "themeId": "L6-repas",
+          "themeTitle": "Comparer des sorties et des achats"
+        },
+        {
+          "sourceId": "catalogue:ja:1927",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1936",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1937",
+          "level": 6,
+          "themeId": "L6-quotidien",
+          "themeTitle": "Expliquer ses habitudes"
+        },
+        {
+          "sourceId": "catalogue:ja:1941",
+          "level": 6,
+          "themeId": "L6-repas",
+          "themeTitle": "Comparer des sorties et des achats"
+        },
+        {
+          "sourceId": "catalogue:ja:1847",
+          "level": 6,
+          "themeId": "L6-deplacements",
+          "themeTitle": "Choisir une façon de voyager"
+        },
+        {
+          "sourceId": "catalogue:ja:1656",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1664",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1665",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1799",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1800",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1803",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1808",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1810",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1812",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1814",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1816",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1817",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1818",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1819",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1820",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1821",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1822",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1823",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1825",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1835",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1836",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1837",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1838",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1839",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1840",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1841",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:1958",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:4106",
+          "level": 6,
+          "themeId": "L6-travail",
+          "themeTitle": "Expliquer un besoin professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2046",
+          "level": 7,
+          "themeId": "L7-repas",
+          "themeTitle": "Négocier une option"
+        },
+        {
+          "sourceId": "catalogue:ja:4151",
+          "level": 7,
+          "themeId": "L7-vocab-maison",
+          "themeTitle": "Maison et mobilier"
+        },
+        {
+          "sourceId": "catalogue:ja:2017",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2018",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2026",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2043",
+          "level": 7,
+          "themeId": "L7-quotidien",
+          "themeTitle": "Imaginer une situation différente"
+        },
+        {
+          "sourceId": "catalogue:ja:2143",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2144",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2145",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2146",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2147",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2154",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2155",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2157",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2158",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2160",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2161",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2162",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2164",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2300",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2301",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2302",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2305",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2306",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2307",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2308",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2309",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2312",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2313",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2314",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2372",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2374",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2376",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2114",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2115",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2134",
+          "level": 7,
+          "themeId": "L7-travail",
+          "themeTitle": "Anticiper et négocier"
+        },
+        {
+          "sourceId": "catalogue:ja:2543",
+          "level": 8,
+          "themeId": "L8-decrire",
+          "themeTitle": "Décrire avec nuance"
+        },
+        {
+          "sourceId": "catalogue:ja:2620",
+          "level": 8,
+          "themeId": "L8-decrire",
+          "themeTitle": "Décrire avec nuance"
+        },
+        {
+          "sourceId": "catalogue:ja:2431",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2491",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2503",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2513",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:4303",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2574",
+          "level": 8,
+          "themeId": "L8-saluer",
+          "themeTitle": "Adapter sa présentation"
+        },
+        {
+          "sourceId": "catalogue:ja:2615",
+          "level": 8,
+          "themeId": "L8-comprendre",
+          "themeTitle": "Reformuler avec précision"
+        },
+        {
+          "sourceId": "catalogue:ja:2647",
+          "level": 8,
+          "themeId": "L8-saluer",
+          "themeTitle": "Adapter sa présentation"
+        },
+        {
+          "sourceId": "catalogue:ja:2547",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2429",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2436",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2439",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2440",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2441",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2442",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2451",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2453",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2458",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2459",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2461",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2464",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2465",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2466",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2467",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2468",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2470",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2473",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2475",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2476",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2477",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2478",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2479",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2480",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2482",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2483",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2484",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2494",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2495",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2498",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2499",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2504",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2511",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2537",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2549",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2550",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2557",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2558",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2561",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2563",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2564",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2565",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2569",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2570",
+          "level": 8,
+          "themeId": "L8-travail",
+          "themeTitle": "Adapter son registre professionnel"
+        },
+        {
+          "sourceId": "catalogue:ja:2683",
+          "level": 9,
+          "themeId": "L9-conversation",
+          "themeTitle": "Répondre à une objection"
+        },
+        {
+          "sourceId": "catalogue:ja:2743",
+          "level": 9,
+          "themeId": "L9-decrire",
+          "themeTitle": "Évaluer des avantages et des limites"
+        },
+        {
+          "sourceId": "catalogue:ja:4324",
+          "level": 9,
+          "themeId": "L9-decrire",
+          "themeTitle": "Évaluer des avantages et des limites"
+        },
+        {
+          "sourceId": "catalogue:ja:2662",
+          "level": 9,
+          "themeId": "L9-travail",
+          "themeTitle": "Argumenter et rendre compte"
+        },
+        {
+          "sourceId": "catalogue:ja:2660",
+          "level": 9,
+          "themeId": "L9-conversation",
+          "themeTitle": "Répondre à une objection"
+        },
+        {
+          "sourceId": "catalogue:ja:2719",
+          "level": 9,
+          "themeId": "L9-conversation",
+          "themeTitle": "Répondre à une objection"
+        },
+        {
+          "sourceId": "catalogue:ja:4396",
+          "level": 9,
+          "themeId": "L9-comprendre",
+          "themeTitle": "Interpréter et reformuler un propos"
+        },
+        {
+          "sourceId": "catalogue:ja:2650",
+          "level": 9,
+          "themeId": "L9-travail",
+          "themeTitle": "Argumenter et rendre compte"
+        },
+        {
+          "sourceId": "catalogue:ja:4381",
+          "level": 9,
+          "themeId": "L9-travail",
+          "themeTitle": "Argumenter et rendre compte"
+        },
+        {
+          "sourceId": "catalogue:ja:2688",
+          "level": 9,
+          "themeId": "L9-travail",
+          "themeTitle": "Argumenter et rendre compte"
+        },
+        {
+          "sourceId": "catalogue:ja:2701",
+          "level": 9,
+          "themeId": "L9-travail",
+          "themeTitle": "Argumenter et rendre compte"
+        },
+        {
+          "sourceId": "catalogue:ja:2713",
+          "level": 9,
+          "themeId": "L9-saluer",
+          "themeTitle": "Présenter un parcours en détail"
+        },
+        {
+          "sourceId": "catalogue:ja:2733",
+          "level": 9,
+          "themeId": "L9-travail",
+          "themeTitle": "Argumenter et rendre compte"
+        },
+        {
+          "sourceId": "catalogue:ja:2760",
+          "level": 9,
+          "themeId": "L9-saluer",
+          "themeTitle": "Présenter un parcours en détail"
+        },
+        {
+          "sourceId": "catalogue:ja:2776",
+          "level": 9,
+          "themeId": "L9-travail",
+          "themeTitle": "Argumenter et rendre compte"
+        },
+        {
+          "sourceId": "catalogue:ja:2779",
+          "level": 9,
+          "themeId": "L9-comprendre",
+          "themeTitle": "Interpréter et reformuler un propos"
+        },
+        {
+          "sourceId": "catalogue:ja:4307",
+          "level": 9,
+          "themeId": "L9-travail",
+          "themeTitle": "Argumenter et rendre compte"
+        },
+        {
+          "sourceId": "catalogue:ja:4317",
+          "level": 9,
+          "themeId": "L9-decrire",
+          "themeTitle": "Évaluer des avantages et des limites"
+        },
+        {
+          "sourceId": "catalogue:ja:4370",
+          "level": 9,
+          "themeId": "L9-decrire",
+          "themeTitle": "Évaluer des avantages et des limites"
+        }
+      ],
+      "duplicateComparisons": {
+        "exact": 94,
+        "documented-kanji-kana-variant": 1,
+        "normalized-punctuation": 9
+      },
+      "duplicateTargetReferences": [
+        {
+          "id": "catalogue:ja:7",
+          "targetId": "catalogue:ja:3",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:7",
+          "targetId": "catalogue:ja:8",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:8",
+          "targetId": "catalogue:ja:3",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:8",
+          "targetId": "catalogue:ja:7",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:6",
+          "targetId": "catalogue:ja:5",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:138",
+          "targetId": "catalogue:ja:3031",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3055",
+          "targetId": "catalogue:ja:3043",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3129",
+          "targetId": "catalogue:ja:3115",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3108",
+          "targetId": "catalogue:ja:3058",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3109",
+          "targetId": "catalogue:ja:3101",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3113",
+          "targetId": "catalogue:ja:2958",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3031",
+          "targetId": "conversation:L1-fr-ja.json:L1-fr-ja-11:v0",
+          "comparison": "documented-kanji-kana-variant"
+        },
+        {
+          "id": "catalogue:ja:2965",
+          "targetId": "catalogue:ja:2964",
+          "comparison": "normalized-punctuation"
+        },
+        {
+          "id": "catalogue:ja:2974",
+          "targetId": "catalogue:ja:2973",
+          "comparison": "normalized-punctuation"
+        },
+        {
+          "id": "catalogue:ja:2951",
+          "targetId": "catalogue:ja:2950",
+          "comparison": "normalized-punctuation"
+        },
+        {
+          "id": "catalogue:ja:3148",
+          "targetId": "catalogue:ja:3033",
+          "comparison": "normalized-punctuation"
+        },
+        {
+          "id": "catalogue:ja:3015",
+          "targetId": "catalogue:ja:2934",
+          "comparison": "normalized-punctuation"
+        },
+        {
+          "id": "catalogue:ja:3004",
+          "targetId": "catalogue:ja:15",
+          "comparison": "normalized-punctuation"
+        },
+        {
+          "id": "catalogue:ja:365",
+          "targetId": "catalogue:ja:193",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:238",
+          "targetId": "catalogue:ja:237",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:125",
+          "targetId": "catalogue:ja:124",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:283",
+          "targetId": "catalogue:ja:149",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:317",
+          "targetId": "catalogue:ja:280",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:73",
+          "targetId": "catalogue:ja:129",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:35",
+          "targetId": "catalogue:ja:36",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:60",
+          "targetId": "catalogue:ja:54",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:65",
+          "targetId": "catalogue:ja:258",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:68",
+          "targetId": "catalogue:ja:143",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:95",
+          "targetId": "catalogue:ja:76",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:108",
+          "targetId": "catalogue:ja:107",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:113",
+          "targetId": "catalogue:ja:112",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:114",
+          "targetId": "catalogue:ja:76",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:116",
+          "targetId": "catalogue:ja:109",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:142",
+          "targetId": "catalogue:ja:154",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:168",
+          "targetId": "catalogue:ja:167",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:184",
+          "targetId": "catalogue:ja:119",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:192",
+          "targetId": "catalogue:ja:101",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:227",
+          "targetId": "catalogue:ja:228",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:230",
+          "targetId": "catalogue:ja:229",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:252",
+          "targetId": "catalogue:ja:236",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:241",
+          "targetId": "catalogue:ja:240",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:241",
+          "targetId": "catalogue:ja:417",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:417",
+          "targetId": "catalogue:ja:240",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:417",
+          "targetId": "catalogue:ja:241",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:436",
+          "targetId": "catalogue:ja:291",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:302",
+          "targetId": "catalogue:ja:301",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:394",
+          "targetId": "catalogue:ja:306",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:313",
+          "targetId": "catalogue:ja:312",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:325",
+          "targetId": "catalogue:ja:324",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:430",
+          "targetId": "catalogue:ja:355",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:438",
+          "targetId": "catalogue:ja:378",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:386",
+          "targetId": "catalogue:ja:385",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:648",
+          "targetId": "catalogue:ja:495",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:517",
+          "targetId": "catalogue:ja:518",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:1730",
+          "targetId": "catalogue:ja:1292",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:504",
+          "targetId": "catalogue:ja:503",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:583",
+          "targetId": "catalogue:ja:539",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:769",
+          "targetId": "catalogue:ja:768",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:631",
+          "targetId": "catalogue:ja:630",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:636",
+          "targetId": "catalogue:ja:635",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3422",
+          "targetId": "catalogue:ja:3409",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3482",
+          "targetId": "catalogue:ja:3476",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3483",
+          "targetId": "catalogue:ja:3477",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3484",
+          "targetId": "catalogue:ja:3478",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3485",
+          "targetId": "catalogue:ja:3479",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3486",
+          "targetId": "catalogue:ja:3480",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3487",
+          "targetId": "catalogue:ja:3481",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3413",
+          "targetId": "catalogue:ja:3408",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3497",
+          "targetId": "catalogue:ja:3371",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3501",
+          "targetId": "catalogue:ja:3499",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:689",
+          "targetId": "catalogue:ja:690",
+          "comparison": "normalized-punctuation"
+        },
+        {
+          "id": "catalogue:ja:1148",
+          "targetId": "catalogue:ja:982",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:839",
+          "targetId": "catalogue:ja:838",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:1091",
+          "targetId": "catalogue:ja:1090",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:967",
+          "targetId": "catalogue:ja:888",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:924",
+          "targetId": "catalogue:ja:925",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:965",
+          "targetId": "catalogue:ja:957",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:1210",
+          "targetId": "catalogue:ja:971",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:1211",
+          "targetId": "catalogue:ja:988",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:989",
+          "targetId": "catalogue:ja:919",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:995",
+          "targetId": "catalogue:ja:994",
+          "comparison": "normalized-punctuation"
+        },
+        {
+          "id": "catalogue:ja:3622",
+          "targetId": "catalogue:ja:3611",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3639",
+          "targetId": "catalogue:ja:3638",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3654",
+          "targetId": "catalogue:ja:3642",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3700",
+          "targetId": "catalogue:ja:3699",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3718",
+          "targetId": "catalogue:ja:3695",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3624",
+          "targetId": "catalogue:ja:3605",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3626",
+          "targetId": "catalogue:ja:3606",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3628",
+          "targetId": "catalogue:ja:3608",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3560",
+          "targetId": "catalogue:ja:3559",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3758",
+          "targetId": "catalogue:ja:3746",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:1289",
+          "targetId": "catalogue:ja:1288",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3858",
+          "targetId": "catalogue:ja:3835",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3857",
+          "targetId": "catalogue:ja:3836",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3863",
+          "targetId": "catalogue:ja:3832",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:3984",
+          "targetId": "catalogue:ja:3982",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:1712",
+          "targetId": "catalogue:ja:1711",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:1707",
+          "targetId": "catalogue:ja:1706",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:1944",
+          "targetId": "catalogue:ja:1853",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:1723",
+          "targetId": "catalogue:ja:1682",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:1640",
+          "targetId": "catalogue:ja:1639",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:4068",
+          "targetId": "catalogue:ja:3227",
+          "comparison": "normalized-punctuation"
+        },
+        {
+          "id": "catalogue:ja:2315",
+          "targetId": "catalogue:ja:2174",
+          "comparison": "exact"
+        },
+        {
+          "id": "catalogue:ja:2170",
+          "targetId": "catalogue:ja:2169",
+          "comparison": "exact"
+        }
+      ],
+      "duplicateWarnings": [],
+      "allBeforeFieldsAndCurrentThemesExact": true
+    },
+    "conventions": {
+      "events": 1,
+      "identities": 1,
+      "stage": "snapshot-f22202c",
+      "id": "catalogue:ja:3890",
+      "beforeExact": true
+    },
+    "lot4Errata": {
+      "motifIds": [
+        "catalogue:fr:604",
+        "catalogue:fr:2158",
+        "catalogue:fr:2463"
+      ],
+      "phoneticRegistryBytesUnchanged": true,
+      "phoneticRegistrySha256": "15237777a65b287a4008d53167b458dde2e486af27deafb31698e91c99ff5167",
+      "errataSha256": "6849a04082397e2a913a2e29851c07db61b7ac78f23dbc0a9c6298fe54bf8383",
+      "actualAfterValuesUnchanged": true,
+      "conventionFieldsUnchangedExceptStage": true,
+      "conventionStages": {
+        "snapshot-606592c": 76,
+        "after-lot4-register": 5
+      },
+      "afterStageIds": [
+        "catalogue:fr:1451",
+        "catalogue:fr:2426",
+        "catalogue:fr:2439",
+        "catalogue:fr:2581",
+        "catalogue:fr:971"
+      ]
+    },
+    "productChanged": false,
+    "nativeOrPedagogicalApproval": false
+  },
+  "scriptSha256": "484d89b49ba5e06ac9612921587b5ed4f761b05504549438004e03d806f1a851",
+  "limitations": [
+    "No native or acoustic certification",
+    "Named destination existence does not prove pedagogical suitability",
+    "Duplicate references remain proposals; no identity or phrase deleted",
+    "The one known incorrect before is in an unapplied uncertain proposal, not in either applied correction scope",
+    "Historical lot4 frozen evidence remains byte-for-byte unchanged"
+  ],
+  "productChanged": false,
+  "publicationApproved": false
+}

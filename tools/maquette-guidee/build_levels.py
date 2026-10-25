@@ -59,6 +59,9 @@ _reviewed_fields_spec.loader.exec_module(reviewed_field_corrections)
 _lot4_spec = importlib.util.spec_from_file_location("audited_lot4_corrections", Path(__file__).with_name("lot4_corrections.py"))
 lot4_corrections = importlib.util.module_from_spec(_lot4_spec)
 _lot4_spec.loader.exec_module(lot4_corrections)
+_lot5_spec = importlib.util.spec_from_file_location("audited_lot5_corrections", Path(__file__).with_name("lot5_corrections.py"))
+lot5_corrections = importlib.util.module_from_spec(_lot5_spec)
+_lot5_spec.loader.exec_module(lot5_corrections)
 
 
 def canonical(value):
@@ -1637,8 +1640,12 @@ def make(include_situations=True):
         report["lot4PhoneticCorrections"] = lot4_phonetic_summary
         outputs, content_summary = lot4_corrections.apply_to_outputs(ROOT, outputs, report, "content")
         report["reviewedContentCorrections"] = content_summary
+        outputs, lot5_fields_summary = lot5_corrections.apply_to_outputs(ROOT, outputs, report, "phonetic")
+        report["lot5FieldCorrections"] = lot5_fields_summary
+        outputs, lot5_content_summary = lot5_corrections.apply_to_outputs(ROOT, outputs, report, "content")
+        report["lot5ContentCorrections"] = lot5_content_summary
         for transport in report["reviewTransports"]:
-            transport["fileSha256"] = content_summary["transportSha256ByPair"][transport["pair"]]
+            transport["fileSha256"] = lot5_content_summary["transportSha256ByPair"][transport["pair"]]
         report["manifestSha256"] = sha(json.loads(outputs[OUTPUT / "manifest.json"]))
     # include_situations=False is the source-exact historical baseline used by
     # validate_situation_drafts.py. It is not a served runtime edition and has
@@ -1696,6 +1703,18 @@ def markdown(report):
             f"Avec la copie de révision de 2451, la couche concerne **{content['occurrenceCount']} objets**, **{content['approvedRuntimeFields']} champs approuvés / {content['changedRuntimeFields']} changés**. La citation 1900 change étude, lecture, aide entière et sens en une seule opération ; 757 change étude et aide ensemble, en conservant sa glose. Ni suppression automatique de syllabes ni collage de nouvelles aides n’est calculé.", "",
             "Les champs source originaux et toutes les anciennes annotations restent vérifiables. Les blocs ne sont jamais appliqués champ par champ ; un avant inattendu ou une application partielle échoue. Les propositions incertaines, les thèmes/niveaux proposés et les conventions restent non appliqués. Le catalogue classique, les identifiants, les emplacements, les prix et les droits gratuits restent intacts. La relecture bornée de ces événements ne vaut pas certification native globale.", "",
             f"Empreinte du registre de contenu : `{content['registrySha256']}`.", ""])
+    lot5_fields = report.get("lot5FieldCorrections")
+    if lot5_fields:
+        lines.extend(["", "## Lot 5 — aides et lectures japonaises indissociables", "",
+            f"Le registre `{lot5_fields['registryPath']}` applique **quatre paires aide/lecture** : {lot5_fields['eventCount']} événements figés pour {lot5_fields['correctionCount']} identifiants, dans **{lot5_fields['occurrenceCount']} objets / {lot5_fields['changedRuntimeFields']} champs réellement changés**. La copie de 4320 reçoit les deux valeurs ; le modèle à trou 3771 reste réservé et sans production.", "",
+            "Les deux champs de chaque paire sont contrôlés et appliqués ensemble ; une aide seule ou une lecture seule est refusée. L’étude japonaise et le sens restent inchangés dans cette couche. Ni allongement vocalique, ni particule, ni conversion mora/phonétique ne sont calculés pour d’autres cartes. Les origines et les annotations antérieures restent intacts.", "",
+            f"Empreinte du registre : `{lot5_fields['registrySha256']}`.", ""])
+    lot5_content = report.get("lot5ContentCorrections")
+    if lot5_content:
+        lines.extend(["", "## Gloses du lot 5 — registre de contenu distinct", "",
+            f"Le registre `{lot5_content['registryPath']}` applique **{lot5_content['correctionCount']} gloses natives certaines**, dans **{lot5_content['occurrenceCount']} objets / {lot5_content['changedRuntimeFields']} champs changés**, après les paires d’aides/lectures. Les cinq mentions de 日本語 sont rendues comme japonais, sans modifier les textes étudiés ni leurs aides.", "",
+            "Les 147 propositions incertaines de contenu, 604 propositions de classement et l’aide クッション à arbitrer ne sont pas appliquées. Les corrections de registre retenues sont des décisions par carte, pas une conversion globale de です en vouvoiement. Type, emplacement, niveau, identifiant, rôle, étape et droit restent conservés ; aucune validation native globale n’est déclarée.", "",
+            f"Empreinte du registre de contenu : `{lot5_content['registrySha256']}`.", ""])
     if checks["newSituationThemes"]:
         lines.extend(["", "## Enrichissement de situations — lot distinct", "",
             f"{checks['newSituationThemes'] // checks['pairs']} rubriques de situation comportent chacune huit intentions dans les sept couples : **{checks['newSituationCandidatePositions']} positions pédagogiques**. Elles ne représentent pas autant de créations : **{checks['newSituationAuthoredUtterances']} formes entières réellement rédigées** et **{checks['newSituationExistingSourcePositions']} positions utilisant des sources préexistantes**. Parmi ces sources, **{checks['newSituationExistingConversationImports']} phrases de conversation** sont importées entières sans être comptées comme nouvelles rédactions.", "",
