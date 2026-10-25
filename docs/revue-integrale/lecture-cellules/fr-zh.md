@@ -1,6 +1,6 @@
 # Lecture carte par carte — chinois pour francophones
 
-Avancement : **L1 et L2 lus intégralement** (913 cartes sur 5 018). Référence `4ec163e`.
+Avancement : **L1 à L10 lus intégralement**. L3 à L10 et les modèles reçus : voir [`lot3-fr-zh-L3-L10`](../lot3-fr-zh-L3-L10/README.md). Les familles E et G y corrigent aussi 9 aides du L1–L2 que cette lecture avait laissées passer.
 
 Chaque constat porte son identifiant, l'ancienne valeur, la nouvelle et la raison. Les conventions qui demandent une décision sont marquées **à décider** et ne sont pas touchées.
 
