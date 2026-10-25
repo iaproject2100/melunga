@@ -22,12 +22,12 @@ Les trois reçus clarifiés apportent respectivement une direction réelle vers 
 
 Les anciens dix modules, leurs 560 positions et le stock lexical rédigé précédent sont protégés. Les 32 115 cartes historiques, leurs champs et leurs niveaux d’accès restent intacts ; le niveau éditorial ne réécrit pas `lv`. Codex assure le sens, le classement, la cohérence et la progression ; Claude relit aussi les thèmes et niveaux dans le mandat élargi de revue intégrale. Rien dans ce document ne constitue une publication.
 
-Manifeste : `57f316e9ad876de0a5c42d9dd1b4be35a689976376aa80ee9eae6efe45a3a433`. Plan : `d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379`.
+Manifeste : `6954b9e27184a25db4bb7d8161eb6c0fbc3c18c87c8eab53caeb15d5b8c6c895`. Plan : `d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379`.
 
 
-La vérification navigateur du **25 octobre 2026 à 18:33:35 UTC** réussit **19 contrôles sur 19**, avec **210 vues** (320, 390 et 1440 px), 196 rubriques de situation et 1 568 positions apprenant. Les 259 reçus et 252 soutiens sont sourcés ; 133 questions/objections ciblent une réponse comprise et imitée, 126 clôtures déclarent une liste de réponse vide. Neuf corruptions du réemploi et treize corruptions des reçus/soutiens sont refusées avant rechargement d’une banque corrigée. Les 278 emplacements photo dans 24 atlas et la page L1 v1 sont vérifiés. Les cellules, banques, ledgers, sources, images et le code restent stables pendant l’exécution.
+La vérification navigateur du **2026-10-25T19:26:45.654Z** réussit **19 contrôles sur 19**, avec **210 vues** (320, 390 et 1440 px), 196 rubriques de situation et 1 568 positions apprenant. Les 259 reçus et 252 soutiens sont sourcés ; 133 questions/objections ciblent une réponse comprise et imitée, 126 clôtures déclarent une liste de réponse vide. Neuf corruptions du réemploi et treize corruptions des reçus/soutiens sont refusées avant rechargement d’une banque corrigée. Les 278 emplacements photo dans 24 atlas et la page L1 v1 sont vérifiés. Les cellules, banques, ledgers, sources, images et le code restent stables pendant l’exécution.
 
-Rapport détaillé : [verification-navigateur.json](../../verification-navigateur.json), empreinte `9aaa64f39262204e36a9355ed71f20ccc4914eb2405c13056cd964539f919e70`. Le contrôle audio utilise un témoin TTS qui vérifie le texte entier et sa langue ; il ne valide pas le son réel ni la phonétique. Aucun site déployé ni téléphone physique n’est certifié par ce passage local.
+Rapport détaillé : [verification-navigateur.json](../../verification-navigateur.json), empreinte `8657a1e5be46b6af584a32345e01a670de3739b0cf1ea3223d7f7a1eb040e944`. Le contrôle audio utilise un témoin TTS qui vérifie le texte entier et sa langue ; il ne valide pas le son réel ni la phonétique. Aucun site déployé ni téléphone physique n’est certifié par ce passage local.
 
 Le raccord phonétique du 25 octobre vérifie les après exacts et leurs annotations avant de comparer les tuples sources sur une projection privée vers les avant. Les indicateurs `sourceTuplesMatchLedger` se rapportent à ce contrôle des origines, pas à une identité verbatim des aides corrigées avec le ledger historique. L’affichage est comparé aux après réels. Voir [la vérification du raccord](../../verification-raccord-phonetique.md).
 
@@ -36,3 +36,10 @@ L’édition courante inclut aussi le lot 3 : 90 aides et cinq Pinyin, avec vér
 Le lot 4 ajoute aussi 259 aides et un registre de contenu distinct : 33 gloses et deux blocs atomiques. Ces exceptions explicites de texte/sens/lecture sont vérifiées avant de comparer les sources sur une copie privée projetée ; aucun after n’est déclaré inchangé à tort. Les choix de niveau/thème et conventions restent hors application.
 
 Le lot 5 inclut quatre paires japonaises aide/lecture et 26 gloses natives, dans deux registres séparés. Les valeurs après sont contrôlées avant projection vers les sources originales ; les 604 propositions de classement et l’unique convention restent non appliquées.
+
+Le lot 6 ajoute 18 aides coréennes et cinq lectures liées, puis 45 gloses et
+deux blocs complets étude/lecture/aide, séparément. Les après et annotations
+sont contrôlés avant comparaison des origines sur une projection privée.
+Les 447 propositions et 260 conventions restent non appliquées, notamment
+le batchim. Cette vérification ne remplace pas les trente cellules de lecture
+individuelle restant à Claude.

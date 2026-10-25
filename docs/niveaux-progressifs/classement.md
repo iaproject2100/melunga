@@ -161,3 +161,19 @@ python3 -B tools/maquette-guidee/build_levels.py --check
 Entrées : catalogue, plan de thèmes, décisions de placement, partitions sémantiques, politique de vocabulaire et snapshots conversation. Une identité, une partition, un niveau ou une empreinte incohérents fait échouer la génération. Le générateur et le JSON L1 approuvés restent intacts.
 
 Empreinte du catalogue : `2fd6735db365ab869d8426bf879ef0106418698fbb9307b0eca60a5549b89d2a`.
+
+## Raccord des aides et lectures coréennes — lot 6
+
+Le registre `docs/niveaux-progressifs/corrections-phonetiques/lot6/revue-claude-lot6.json` applique **18 aides entières et cinq lectures liées** : 23 événements figés dans **18 objets / 23 champs changés**. Les cinq paires sont atomiques ; l’ancienne correction B de 3980 reste annotée. Le modèle reçu est corrigé en compréhension seule.
+
+Les 260 conventions, dont le batchim orthographique, ne sont pas appliquées. Aucun classement ni niveau n’est modifié.
+
+Empreinte du registre : `5a84d3e2a2c6aa61cb215fb9dd56d20c32b9dee5c1e98322611bf11d64dbe465`.
+
+## Lot de contenu coréen séparé — lot 6
+
+Le registre `docs/niveaux-progressifs/corrections-contenu/lot6/revue-contenu-lot6.json` applique **45 gloses natives certaines et deux blocs étude/lecture/aide atomiques**, dans **47 objets / 51 champs changés**, après le raccord phonétique. Les gloses et les blocs ont leurs preuves et leur annotation propres ; les aides antérieures restent dans leur provenance.
+
+Les 447 propositions de niveaux et thèmes restent non appliquées. Aucune règle universelle de registre ou de prononciation n’est inférée.
+
+Empreinte du registre de contenu : `40083b22a87d0ab246b8a979f659e06b777840dcbfca501b95edfe78ea546eb5`.

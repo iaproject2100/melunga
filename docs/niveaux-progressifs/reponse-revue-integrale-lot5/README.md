@@ -1,5 +1,7 @@
 # Reprise du lot 5 — japonais pour francophones
 
+État historique du lot 5 à `161d0eb`. Le [lot 6](../verification-raccord-lot6.md) décrit l’édition actuelle.
+
 Le lot de Claude `62daa86` est repris sur les avant de `f22202c`, dans deux
 registres distincts. Le suivi du lot 4 à `8bd6297` est vérifié comme errata
 et stades de conventions, sans réécrire les preuves ni les valeurs du lot 4.

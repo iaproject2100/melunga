@@ -62,6 +62,9 @@ _lot4_spec.loader.exec_module(lot4_corrections)
 _lot5_spec = importlib.util.spec_from_file_location("audited_lot5_corrections", Path(__file__).with_name("lot5_corrections.py"))
 lot5_corrections = importlib.util.module_from_spec(_lot5_spec)
 _lot5_spec.loader.exec_module(lot5_corrections)
+_lot6_spec = importlib.util.spec_from_file_location("audited_lot6_corrections", Path(__file__).with_name("lot6_corrections.py"))
+lot6_corrections = importlib.util.module_from_spec(_lot6_spec)
+_lot6_spec.loader.exec_module(lot6_corrections)
 
 
 def canonical(value):
@@ -1644,8 +1647,12 @@ def make(include_situations=True):
         report["lot5FieldCorrections"] = lot5_fields_summary
         outputs, lot5_content_summary = lot5_corrections.apply_to_outputs(ROOT, outputs, report, "content")
         report["lot5ContentCorrections"] = lot5_content_summary
+        outputs, lot6_fields_summary = lot6_corrections.apply_to_outputs(ROOT, outputs, report, "phonetic")
+        report["lot6FieldCorrections"] = lot6_fields_summary
+        outputs, lot6_content_summary = lot6_corrections.apply_to_outputs(ROOT, outputs, report, "content")
+        report["lot6ContentCorrections"] = lot6_content_summary
         for transport in report["reviewTransports"]:
-            transport["fileSha256"] = lot5_content_summary["transportSha256ByPair"][transport["pair"]]
+            transport["fileSha256"] = lot6_content_summary["transportSha256ByPair"][transport["pair"]]
         report["manifestSha256"] = sha(json.loads(outputs[OUTPUT / "manifest.json"]))
     # include_situations=False is the source-exact historical baseline used by
     # validate_situation_drafts.py. It is not a served runtime edition and has
@@ -1750,6 +1757,18 @@ def markdown(report):
         "## Reproduction", "", "```sh", "python3 -B tools/maquette-guidee/build_levels.py", "python3 -B tools/maquette-guidee/build_levels.py --check", "```", "",
         "Entrées : catalogue, plan de thèmes, décisions de placement, partitions sémantiques, politique de vocabulaire et snapshots conversation. Une identité, une partition, un niveau ou une empreinte incohérents fait échouer la génération. Le générateur et le JSON L1 approuvés restent intacts.", "",
         f"Empreinte du catalogue : `{report['sourceDecksSha256']}`.", ""])
+    lot6_fields = report.get("lot6FieldCorrections")
+    if lot6_fields:
+        lines.extend(["## Raccord des aides et lectures coréennes — lot 6", "",
+            f"Le registre `{lot6_fields['registryPath']}` applique **18 aides entières et cinq lectures liées** : {lot6_fields['eventCount']} événements figés dans **{lot6_fields['occurrenceCount']} objets / {lot6_fields['changedRuntimeFields']} champs changés**. Les cinq paires sont atomiques ; l’ancienne correction B de 3980 reste annotée. Le modèle reçu est corrigé en compréhension seule.", "",
+            "Les 260 conventions, dont le batchim orthographique, ne sont pas appliquées. Aucun classement ni niveau n’est modifié.", "",
+            f"Empreinte du registre : `{lot6_fields['registrySha256']}`.", ""])
+    lot6_content = report.get("lot6ContentCorrections")
+    if lot6_content:
+        lines.extend(["## Lot de contenu coréen séparé — lot 6", "",
+            f"Le registre `{lot6_content['registryPath']}` applique **45 gloses natives certaines et deux blocs étude/lecture/aide atomiques**, dans **{lot6_content['occurrenceCount']} objets / {lot6_content['changedRuntimeFields']} champs changés**, après le raccord phonétique. Les gloses et les blocs ont leurs preuves et leur annotation propres ; les aides antérieures restent dans leur provenance.", "",
+            "Les 447 propositions de niveaux et thèmes restent non appliquées. Aucune règle universelle de registre ou de prononciation n’est inférée.", "",
+            f"Empreinte du registre de contenu : `{lot6_content['registrySha256']}`.", ""])
     return "\n".join(lines)
 
 

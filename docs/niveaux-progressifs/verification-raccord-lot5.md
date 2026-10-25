@@ -1,5 +1,7 @@
 # Vérification du lot 5 — paires japonaises et gloses séparées
 
+État historique du lot 5 à `161d0eb`. Le [lot 6](verification-raccord-lot6.md) décrit l’édition actuelle.
+
 État consigné le 25/10/2026 à 19:45 CET. Horodatages détaillés des essais dans leurs JSON.
 
 **Deux registres indépendants, 30 identifiants, 31 objets et 36 valeurs changées.**

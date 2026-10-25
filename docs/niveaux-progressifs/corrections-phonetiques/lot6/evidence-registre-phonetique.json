@@ -1,0 +1,586 @@
+{
+ "id": "revue-claude-lot6-fr-ko",
+ "baseSnapshotCommit": "161d0ebef38bb38ea9e26a836ca701b9d136f6d2",
+ "policy": "avant/après entiers et figés ; aucune règle à étendre",
+ "rules": {
+  "R": "lettres de romanisation laissées dans l'aide (eo, j de 앉, u de 휴) alors que le deck les convertit ailleurs, L1 compris",
+  "S": "syllabe ou consonne perdue ou ajoutée (ㄹ de 닭, 스 d'ABS/ASTM, « reul » après QR)"
+ },
+ "eventCount": 18,
+ "events": [
+  {
+   "pair": "fr-ko",
+   "id": "conversation:L1-fr-ko.json:L1-fr-ko-01:v1",
+   "level": 1,
+   "rules": [
+    "R"
+   ],
+   "study": "저는 프랑스 사람이에요.",
+   "reading": "jeoneun peurangseu saram-ieyo.",
+   "native": "Je suis français.",
+   "beforePhon": "djeo-neun peu-rang-seu sa-ram-i-é-yo",
+   "afterPhon": "djo-neun peu-rang-seu sa-ram-i-é-yo",
+   "alignment": "저 jeo → djeo ✗ (eo non rendu, attendu djo) · 는 neun → neun",
+   "reason": "eo laissé tel quel dans l’aide : un francophone lit « dé-o ».",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L1.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "저는 프랑스 사람이에요.",
+     "native": "Je suis français.",
+     "reading": "jeoneun peurangseu saram-ieyo.",
+     "phon": "djeo-neun peu-rang-seu sa-ram-i-é-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "conversation:L1-fr-ko.json:L1-fr-ko-09:v0",
+   "level": 1,
+   "rules": [
+    "R"
+   ],
+   "study": "커피 하나 주세요.",
+   "reading": "keopi hana juseyo.",
+   "native": "Un café, s'il vous plaît.",
+   "beforePhon": "keo-pi ha-na djou-sé-yo",
+   "afterPhon": "ko-pi ha-na djou-sé-yo",
+   "alignment": "커 keo → keo ✗ (eo non rendu, attendu ko) · 피 pi → pi",
+   "reason": "eo laissé tel quel dans l’aide (« ké-o »).",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L1.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     0
+    ],
+    "expectedBefore": {
+     "study": "커피 하나 주세요.",
+     "native": "Un café, s'il vous plaît.",
+     "reading": "keopi hana juseyo.",
+     "phon": "keo-pi ha-na djou-sé-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "catalogue:ko:2075",
+   "level": 10,
+   "rules": [
+    "R"
+   ],
+   "study": "어차피 기다릴 거면 앉아요.",
+   "reading": "eo-cha-pi gi-da-ril geo-myeon anj-a-yo",
+   "native": "Quitte à attendre, autant s'asseoir.",
+   "beforePhon": "o-tcha-pi gui-da-ril go-myon anj-a-yo",
+   "afterPhon": "o-tcha-pi gui-da-ril go-myon an-dja-yo",
+   "alignment": "앉 anj → an ✓ · 아 a → dja ✗ (j laissé tel quel, lu « j » français ; liaison ㅈ → dj comme 앉을게요 → an-djeul en L1)",
+   "reason": "Le « j » de romanisation est resté dans l’aide : un francophone lit [ʒ]. Avec liaison du batchim ㅈ : an-dja-yo.",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L10.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     26
+    ],
+    "expectedBefore": {
+     "study": "어차피 기다릴 거면 앉아요.",
+     "native": "Quitte à attendre, autant s'asseoir.",
+     "reading": "eo-cha-pi gi-da-ril geo-myeon anj-a-yo",
+     "phon": "o-tcha-pi gui-da-ril go-myon anj-a-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "situation-authored:fr-ko:numerique-quotidien-01",
+   "level": 2,
+   "rules": [
+    "R"
+   ],
+   "study": "휴대폰을 충전해야 해요.",
+   "reading": "Hyudaeponeul chungjeonhaeya haeyo.",
+   "native": "J’ai besoin de recharger mon téléphone.",
+   "beforePhon": "hyu-dè-po-neul tchoung-djon-hè-ya hè-yo",
+   "afterPhon": "hyou-dè-po-neul tchoung-djon-hè-ya hè-yo",
+   "alignment": "휴 hyu → hyu ✗ (hyou) · 대 dè · 폰 pon → po-n(liaison) · 을 neul · 충 tchoung · 전 djon · 해 hè · 야 ya · 해 hè · 요 yo",
+   "reason": "« hyu » se lit « hü » en français ; ㅠ (yu) se rend « you » comme ailleurs (우유 → ou-you).",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json",
+    "location": [
+     "themes",
+     11,
+     "phrases",
+     0
+    ],
+    "expectedBefore": {
+     "study": "휴대폰을 충전해야 해요.",
+     "native": "J’ai besoin de recharger mon téléphone.",
+     "reading": "Hyudaeponeul chungjeonhaeya haeyo.",
+     "phon": "hyu-dè-po-neul tchoung-djon-hè-ya hè-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "catalogue:ko:313",
+   "level": 3,
+   "rules": [
+    "R"
+   ],
+   "study": "앉아도 돼요?",
+   "reading": "anj-a-do dwae-yo",
+   "native": "Je peux m'asseoir ?",
+   "beforePhon": "anj-a-do douè-yo",
+   "afterPhon": "an-dja-do douè-yo",
+   "alignment": "앉 anj → anj ✗ (j non converti en dj) · 아 a → a · 도 do → do",
+   "reason": "Le « j » de romanisation est laissé tel quel (lu [ʒ] par un francophone) ; convention j → dj, et liaison [안자도].",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     4
+    ],
+    "expectedBefore": {
+     "study": "앉아도 돼요?",
+     "native": "Je peux m'asseoir ?",
+     "reading": "anj-a-do dwae-yo",
+     "phon": "anj-a-do douè-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "situation-authored:fr-ko:piste-recuperer-compte-06",
+   "level": 3,
+   "rules": [
+    "R"
+   ],
+   "study": "휴대폰에서 링크를 열 수 있어요.",
+   "reading": "Hyudaeponeseo ringkeureul yeol su isseoyo.",
+   "native": "Je peux ouvrir le lien sur mon téléphone.",
+   "beforePhon": "hyu-dè-po-né-so ling-keu-reul yol ssou i-sso-yo",
+   "afterPhon": "hyou-dè-po-né-so ling-keu-reul yol ssou i-sso-yo",
+   "alignment": "휴 hyu → hyou ; aide « hyu » ✗ (u lu « u » français, pas « ou ») · 대폰에서 → dè-po-né-so",
+   "reason": "La voyelle ㅠ (yu) doit s'écrire « you » pour un francophone ; « hyu » fait lire [hy].",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     5
+    ],
+    "expectedBefore": {
+     "study": "휴대폰에서 링크를 열 수 있어요.",
+     "native": "Je peux ouvrir le lien sur mon téléphone.",
+     "reading": "Hyudaeponeseo ringkeureul yeol su isseoyo.",
+     "phon": "hyu-dè-po-né-so ling-keu-reul yol ssou i-sso-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "catalogue:ko:2712",
+   "level": 4,
+   "rules": [
+    "R"
+   ],
+   "study": "앉아요.",
+   "reading": "anj-a-yo",
+   "native": "Assieds-toi.",
+   "beforePhon": "anj-a-yo",
+   "afterPhon": "an-dja-yo",
+   "alignment": "Le ㅈ du batchim ㄵ passe en liaison ; « j » est une lettre de romanisation, la référence L1 donne 앉을게요 → an-djeul-…",
+   "reason": "앉 anj + 아 a → [안자] an-dja ✗ (« anj-a » : j laissé, lu [ʒ] à la française, convention j → dj) · 요 yo → yo",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     13
+    ],
+    "expectedBefore": {
+     "study": "앉아요.",
+     "native": "Assieds-toi.",
+     "reading": "anj-a-yo",
+     "phon": "anj-a-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "catalogue:ko:822",
+   "level": 4,
+   "rules": [
+    "R"
+   ],
+   "study": "밖에 앉아도 돼요?",
+   "reading": "bakk-e anj-a-do dwae-yo",
+   "native": "On peut s'asseoir dehors ?",
+   "beforePhon": "bakk-é anj-a-do douè-yo",
+   "afterPhon": "bakk-é an-dja-do douè-yo",
+   "alignment": "Le ㅈ de ㄵ passe en liaison et doit être rendu « dj ».",
+   "reason": "밖에 bakk-e → bakk-é · 앉 anj + 아 a → [안자] an-dja ✗ (« anj-a » : j non converti en dj) · 도 do → do · 돼요 dwae-yo → douè-yo",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     105
+    ],
+    "expectedBefore": {
+     "study": "밖에 앉아도 돼요?",
+     "native": "On peut s'asseoir dehors ?",
+     "reading": "bakk-e anj-a-do dwae-yo",
+     "phon": "bakk-é anj-a-do douè-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "catalogue:ko:3766",
+   "level": 4,
+   "rules": [
+    "S"
+   ],
+   "study": "닭을 구웠어요.",
+   "reading": "dak-eul gu-wo-sseo-yo",
+   "native": "J'ai rôti un poulet.",
+   "beforePhon": "dak-eul gou-ouo-sso-yo",
+   "afterPhon": "dal-gueul gou-ouo-sso-yo",
+   "alignment": "Devant voyelle, ㄺ se prononce ㄹ + liaison du ㄱ : 닭을 [달글]. Le ㄹ est perdu dans l’aide.",
+   "reason": "닭 dalg + 을 eul → [달글] dal-gueul ✗ (« dak-eul » perd le ㄹ du batchim ㄺ) · 구웠어요 gu-wo-sseo-yo → gou-ouo-sso-yo",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     37
+    ],
+    "expectedBefore": {
+     "study": "닭을 구웠어요.",
+     "native": "J'ai rôti un poulet.",
+     "reading": "dak-eul gu-wo-sseo-yo",
+     "phon": "dak-eul gou-ouo-sso-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "catalogue:ko:3980",
+   "level": 4,
+   "rules": [
+    "S"
+   ],
+   "study": "닭을 튀겼어요.",
+   "reading": "dak-eul twi-gyeo-sseo-yo",
+   "native": "J'ai frit du poulet.",
+   "beforePhon": "dak-eul toui-guyo-sso-yo",
+   "afterPhon": "dal-gueul toui-guyo-sso-yo",
+   "alignment": "Même cas : 닭을 [달글], batchim ㄹ perdu.",
+   "reason": "닭 dalg + 을 eul → [달글] dal-gueul ✗ (« dak-eul » perd le ㄹ) · 튀겼어요 → toui-guyo-sso-yo",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     39
+    ],
+    "expectedBefore": {
+     "study": "닭을 튀겼어요.",
+     "native": "J'ai frit du poulet.",
+     "reading": "dak-eul twi-gyeo-sseo-yo",
+     "phon": "dak-eul toui-guyo-sso-yo"
+    }
+   },
+   "priorCorrection": true,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "catalogue:ko:4341",
+   "level": 4,
+   "rules": [
+    "S"
+   ],
+   "study": "무슨 소재예요? ABS예요?",
+   "reading": "mu-seun so-jae-ye-yo e-i-bi-es-ye-yo",
+   "native": "Quel matériau ? De l'ABS ?",
+   "beforePhon": "mou-seun so-djè-yé-yo é-i-bi-ét-yé-yo",
+   "afterPhon": "mou-seun so-djè-yé-yo é-i-bi-é-seu-yé-yo",
+   "alignment": "에 é · 이 i · 비 bi · 에스 e-seu → « ét » ✗ (seu manquant, t ajouté) · 예요 yé-yo",
+   "reason": "Syllabe 스 manquante, remplacée par un « t » final inexistant.",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     4
+    ],
+    "expectedBefore": {
+     "study": "무슨 소재예요? ABS예요?",
+     "native": "Quel matériau ? De l'ABS ?",
+     "reading": "mu-seun so-jae-ye-yo e-i-bi-es-ye-yo",
+     "phon": "mou-seun so-djè-yé-yo é-i-bi-ét-yé-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "situation-authored:fr-ko:piste-incident-objet-07",
+   "level": 4,
+   "rules": [
+    "R"
+   ],
+   "study": "네, 제 휴대폰 맞아요.",
+   "reading": "Ne, je hyudaepon majayo.",
+   "native": "Oui, c’est bien mon téléphone.",
+   "beforePhon": "né, djé hyu-dè-phon ma-dja-yo",
+   "afterPhon": "né, djé hyou-dè-phon ma-dja-yo",
+   "alignment": "휴 hyu → hyu ✗ (u lu « ü ») · 대 dè · 폰 phon",
+   "reason": "« hyu » se lit « hü » en français ; 휴 = hyou (convention u → ou).",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     6
+    ],
+    "expectedBefore": {
+     "study": "네, 제 휴대폰 맞아요.",
+     "native": "Oui, c’est bien mon téléphone.",
+     "reading": "Ne, je hyudaepon majayo.",
+     "phon": "né, djé hyu-dè-phon ma-dja-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "catalogue:ko:4391",
+   "level": 5,
+   "rules": [
+    "S"
+   ],
+   "study": "QR 코드를 스캔해요.",
+   "reading": "kyu-a-reul ko-deu-reul seu-kaen-hae-yo",
+   "native": "Scanne le QR code.",
+   "beforePhon": "kyou-a-reul ko-deu-reul seu-kèn-hè-yo",
+   "afterPhon": "kyou-al ko-deu-reul seu-kèn-hè-yo",
+   "alignment": "QR (큐알) kyou-al → kyou-a-reul ✗ (syllabe en trop) · 코드를 ko-deu-reul · 스캔해요 seu-kèn-hè-yo",
+   "reason": "Même syllabe « reul » en trop après QR (큐알) dans l'aide.",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     211
+    ],
+    "expectedBefore": {
+     "study": "QR 코드를 스캔해요.",
+     "native": "Scanne le QR code.",
+     "reading": "kyu-a-reul ko-deu-reul seu-kaen-hae-yo",
+     "phon": "kyou-a-reul ko-deu-reul seu-kèn-hè-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "catalogue:ko:4271",
+   "level": 6,
+   "rules": [
+    "S"
+   ],
+   "study": "ASTM 기준에 맞아요?",
+   "reading": "e-i-es-ti-em gi-jun-e maj-a-yo",
+   "native": "C'est conforme aux normes ASTM ?",
+   "beforePhon": "é-i-ét-ti-ém gui-djoun-é mat-a-yo",
+   "afterPhon": "é-i-é-seu-ti-ém gui-djoun-é mat-a-yo",
+   "alignment": "에 e → é · 이 i → i · 에스 e(s) → ét ✗ (s rendu par t) · 티 ti → ti · 엠 em → ém",
+   "reason": "Le S d'ASTM (에스) est rendu par un t ; « ét-ti » fait lire une autre consonne.",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     155
+    ],
+    "expectedBefore": {
+     "study": "ASTM 기준에 맞아요?",
+     "native": "C'est conforme aux normes ASTM ?",
+     "reading": "e-i-es-ti-em gi-jun-e maj-a-yo",
+     "phon": "é-i-ét-ti-ém gui-djoun-é mat-a-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "catalogue:ko:1474",
+   "level": 7,
+   "rules": [
+    "R"
+   ],
+   "study": "테라스에 앉을 수 있어요?",
+   "reading": "te-ra-seu-e anj-eul su i-sseo-yo",
+   "native": "On peut s'asseoir en terrasse ?",
+   "beforePhon": "té-ra-seu-é anj-eul sou i-sso-yo",
+   "afterPhon": "té-ra-seu-é an-djeul sou i-sso-yo",
+   "alignment": "앉 anj → anj ✗ (j non converti) · 을 eul → eul → an-djeul",
+   "reason": "Lettre de romanisation « j » laissée dans l'aide (lu [ʒ] par un francophone) ; convention j → dj, et ㅈ du batchim ㄵ se lie à la voyelle suivante (cf. référence 앉을게요 → an-djeul).",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     28
+    ],
+    "expectedBefore": {
+     "study": "테라스에 앉을 수 있어요?",
+     "native": "On peut s'asseoir en terrasse ?",
+     "reading": "te-ra-seu-e anj-eul su i-sseo-yo",
+     "phon": "té-ra-seu-é anj-eul sou i-sso-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "catalogue:ko:1968",
+   "level": 9,
+   "rules": [
+    "R"
+   ],
+   "study": "자, 앉으세요.",
+   "reading": "ja anj-eu-se-yo",
+   "native": "Je vous en prie, asseyez-vous.",
+   "beforePhon": "dja anj-eu-sé-yo",
+   "afterPhon": "dja an-djeu-sé-yo",
+   "alignment": "앉 anj → anj ✗ (j laissé, se lit /ʒ/) · 으 eu → eu ; liaison ㄵ+으 → an-jeu",
+   "reason": "Le j de romanisation reste dans l'aide (un francophone lit « anj ») ; convention j → dj et liaison du batchim, comme 앉을게요 → an-djeul en L1.",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L9.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     5
+    ],
+    "expectedBefore": {
+     "study": "자, 앉으세요.",
+     "native": "Je vous en prie, asseyez-vous.",
+     "reading": "ja anj-eu-se-yo",
+     "phon": "dja anj-eu-sé-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "catalogue:ko:4125",
+   "level": 9,
+   "rules": [
+    "S"
+   ],
+   "study": "닭이 구워지고 있어요.",
+   "reading": "dak-i gu-wo-ji-go i-sseo-yo",
+   "native": "Le poulet rôtit.",
+   "beforePhon": "dak-i gou-ouo-dji-go i-sso-yo",
+   "afterPhon": "dal-gui gou-ouo-dji-go i-sso-yo",
+   "alignment": "닭 dalg · 이 i → dak-i ✗ (ㄹ du batchim ㄺ perdu ; devant voyelle [달기])",
+   "reason": "Devant une voyelle, ㄺ garde le ㄹ et le ㄱ se lie : 닭이 = [달기] dal-gi. L'aide perd le ㄹ.",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     10
+    ],
+    "expectedBefore": {
+     "study": "닭이 구워지고 있어요.",
+     "native": "Le poulet rôtit.",
+     "reading": "dak-i gu-wo-ji-go i-sseo-yo",
+     "phon": "dak-i gou-ouo-dji-go i-sso-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-ko",
+   "id": "heard-authored:fr-ko:piste-incident-objet-received-01",
+   "level": null,
+   "rules": [
+    "R"
+   ],
+   "study": "이게 본인 휴대폰이에요?",
+   "reading": "Ige bonin hyudaeponieyo?",
+   "native": "Est-ce que c’est votre téléphone ?",
+   "beforePhon": "i-gué po-nin hyu-dè-pho-ni-é-yo",
+   "afterPhon": "i-gué po-nin hyou-dè-pho-ni-é-yo",
+   "alignment": "이 i → i · 게 ge → gué · 본 bon → po · 인 in → nin · 휴 hyu → hyu ✗ (« u » se lit [y] en français, ㅠ = « you ») · 대 dae → dè · 폰 pon → pho · 이 i → ni · 에 e → é · 요 yo → yo",
+   "reason": "« u » de romanisation laissé dans l'aide : un francophone lit « hü » ; convention u → ou.",
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-ko.json",
+    "location": [
+     "receivedModels",
+     15
+    ],
+    "expectedBefore": {
+     "study": "이게 본인 휴대폰이에요?",
+     "native": "Est-ce que c’est votre téléphone ?",
+     "reading": "Ige bonin hyudaeponieyo?",
+     "phon": "i-gué po-nin hyu-dè-pho-ni-é-yo"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  }
+ ]
+}

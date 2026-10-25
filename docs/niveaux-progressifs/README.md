@@ -133,13 +133,20 @@ non clos restent exposés dans le compte rendu.
 
 ## Revue complète par Claude : thèmes, niveaux et phonétique
 
+Le [lot 6 de Claude](reponse-revue-integrale-lot6/README.md) raccorde **18 aides
+coréennes et cinq lectures liées**, puis **45 gloses et deux blocs complets**
+dans un registre de contenu distinct. Les 65 objets portent 74 champs corrigés,
+sans changement de présentation, placement ou accès. Claude annonce **40 cellules
+lues sur 70** ; les trente cellules des trois couples latins restent à relire.
+Les **447 propositions de classement et 260 conventions**, notamment le batchim,
+restent non appliquées. [Rapport de vérification](verification-raccord-lot6.md).
+
 Le [lot 5 de Claude](reponse-revue-integrale-lot5/README.md) raccorde **quatre
 paires aide/lecture japonaises**, copie comprise, et **26 gloses** dans un
 registre distinct. La réserve 3771 reste sans production. Les cinq mentions
 de 日本語 sont rendues par japonais. Les errata des motifs et les stades du
-lot 4 sont confirmés, sans changement de ses preuves figées. Claude annonce
-maintenant **30 cellules lues sur 70** ; il poursuit fr→ko et les trois couples
-latins. Les 604 propositions de classement et l’unique convention ne sont
+lot 4 sont confirmés, sans changement de ses preuves figées. À la livraison du lot 5, Claude annonçait
+**30 cellules lues sur 70** ; le lot 6 ci-dessus porte cet avancement à quarante. Les 604 propositions de classement et l’unique convention ne sont
 pas appliquées. Les essais de conservation ne sont pas une validation
 pédagogique globale de ces propositions.
 
@@ -249,3 +256,5 @@ Validation du lot 3 : **5 tests ciblés et 4 historiques, 9 commandes et 19 cont
 Validation du lot 4 et du contenu distinct : **6 tests ciblés + 9 historiques, 9 commandes et 19 contrôles généraux réussis ; 93 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot4.md).
 
 Validation du lot 5 : **5 tests ciblés + 15 historiques, 9 commandes et 19 contrôles généraux réussis ; 111 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot5.md).
+
+Validation du lot 6 : **6 tests ciblés + 20 historiques, 9 commandes et 19 contrôles généraux réussis ; 131 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot6.md).

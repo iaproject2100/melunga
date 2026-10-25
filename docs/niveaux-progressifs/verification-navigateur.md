@@ -1,6 +1,6 @@
 # Vérification navigateur du parcours local
 
-Exécution : `2026-10-25T18:33:35.143Z` — statut **passed**.
+Exécution : `2026-10-25T19:26:45.654Z` — statut **passed**.
 
 Chromium local, largeurs 320, 390 et 1440 px. Ces vues émulent des écrans ; aucun téléphone physique ni site déployé n’a été testé par cette suite.
 
@@ -23,8 +23,13 @@ Fraîcheur : les empreintes avant/après des cellules, banques, manifeste, sourc
 
 Le TTS est remplacé par un témoin d’envoi : cette suite vérifie le texte transmis et le comportement d’écoute, pas le son réel ni la justesse linguistique des aides. Claude vérifie la phonétique ; les résultats ne sont pas une mesure d’acquisition.
 
-Rapport détaillé : [melunga-lot5-levels-final.json](melunga-lot5-levels-final.json).
+Rapport détaillé : [verification-navigateur.json](verification-navigateur.json).
 Plan : `d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379`.
-Manifeste : `57f316e9ad876de0a5c42d9dd1b4be35a689976376aa80ee9eae6efe45a3a433`.
+Manifeste : `6954b9e27184a25db4bb7d8161eb6c0fbc3c18c87c8eab53caeb15d5b8c6c895`.
 
-Ce passage compare les après réels des couches figées. Les projections privées servent uniquement aux contrôles des valeurs d’origine. Les quatre paires japonaises et 26 gloses sont explicitement déclarées ; voir [le raccord lot 5](verification-raccord-lot5.md).
+L’édition du lot 6 ajoute 18 aides coréennes et cinq lectures liées, puis 45
+gloses et deux blocs étude/lecture/aide dans un registre distinct. Les après
+sont validés avant projection privée des seules corrections attestées vers
+les sources historiques. Les cinq 한국어 et les deux blocs atomiques font
+l’objet de tests ciblés supplémentaires. Les 447 propositions et les 260
+conventions restent non appliquées. Voir [le raccord lot 6](verification-raccord-lot6.md).
