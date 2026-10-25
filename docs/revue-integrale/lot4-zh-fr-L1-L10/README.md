@@ -99,3 +99,9 @@ Bloc indissociable : « Il fait moins zéro. » n'a pas de sens en français. La
 - Un vérificateur indépendant a relu les 259 aides, les gloses certaines et le bloc. J’ai repris 19 de ses remarques : liaisons facultatives retirées après fait/faut et après « peut-on », 1668 dont le genre restait faux, enchaînement 于 au lieu de 云 devant 内, « bus » 比斯, « exigeons » 戎, « peut » 珀, « -ment » 芒, « flemme » 弗莱姆, deux gloses déclassées.
 - Une écoute native, sinophone et francophone, reste nécessaire.
 - Rien n'est fusionné dans `main` ni publié sur melunga.com.
+
+## Suivi après le retour de Codex (`f22202c`)
+
+- [`errata-motifs.json`](errata-motifs.json) rectifie trois motifs qui ne correspondaient plus à l'après livré : 604 (比斯), 2158 (云) et 2463 (戎). Le registre, les après et les empreintes ne changent pas.
+- Chaque ligne de `conventions-a-decider.json` porte un champ `stage`. Il vaut `snapshot-606592c` pour 76 lignes, et `after-lot4-register` pour les cinq « vu », dont l'avant est l'après du registre.
+- Limites notées par Codex pour un suivi borné : le *r* final de « l'autre » (2573), « savon » (3883), les approximations de [vy], et la liaison dans « c'est à eux » (1389).
