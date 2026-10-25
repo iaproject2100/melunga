@@ -1,5 +1,7 @@
 # Vérification du lot 7 — anglais, aides et contenu séparés
 
+État historique du lot 7 à `224e459`. Le [lot 8](verification-raccord-lot8.md) décrit l’édition actuelle.
+
 État consigné le 25/10/2026 à 22:00 CET. Horodatages détaillés des essais dans leurs JSON.
 
 **Deux registres disjoints : 244 identifiants, 254 objets, 262 champs corrigés.**

@@ -1,0 +1,1618 @@
+{
+  "schemaVersion": 1,
+  "baseSnapshotCommit": "224e45948ac3739066f34178375b2e4437197e90",
+  "evidenceCommit": "e12c600f97a6339a0566cdaf879aa0d449f96284",
+  "publicationApproved": false,
+  "globalNativeApproval": false,
+  "scope": "63 aides entières ciblées et classification des conventions ; aucune écoute native",
+  "evidenceSha256": {
+    "lot-contenu-gloses.json": "4c078120ce79094af6d968c6c3ac590cb01958eb3f9dfe9e5152d4e35c3ae821",
+    "registre-phonetique.json": "3bdbb4a152ab80fea877bec8f1a6f70e88ea69c2f3bdb88f781ea9bd77992da6",
+    "conventions-a-decider.json": "6ff7f0a74371e824b1581967625668f1a89fbfa73c4a1caa471053d9140258d9"
+  },
+  "runtimeChecked": true,
+  "beforeMismatches": 0,
+  "afterMismatches": 0,
+  "phoneticEventCount": 63,
+  "readingEventCount": 0,
+  "phoneticRuleCounts": {
+    "S": 31,
+    "G": 11,
+    "R": 10,
+    "A": 9,
+    "T": 2
+  },
+  "ruleLabelAssignments": 63,
+  "targetObjects": 64,
+  "profiles": {
+    "canonical": 62,
+    "transport-phrase": 1,
+    "received-model": 1
+  },
+  "priorEventChains": [
+    "catalogue:es:3159"
+  ],
+  "conventions": {
+    "rows": 151,
+    "distinctIds": 151,
+    "bySourceGroup": {
+      "accent tonique discutable": 3,
+      "autres aides à confirmer": 5,
+      "jota écrite kh ou rh au lieu de r (cartes de situation surtout)": 112,
+      "rr ou r initial écrit avec un seul r": 28,
+      "sigles lisibles mais discutables": 2,
+      "ñ écrit gn": 1
+    },
+    "byReaderCertainty": {
+      "incertain": 63,
+      "certain": 2,
+      "not-specified": 86
+    },
+    "byField": {
+      "phon": 151
+    },
+    "byStage": {
+      "snapshot-224e459": 151
+    },
+    "overlapWithAppliedPhoneticEvents": 0,
+    "contentNativeOnlyOverlaps": [
+      {
+        "id": "situation-authored:fr-es:piste-incident-objet-03",
+        "contentFields": [
+          "native"
+        ],
+        "preservedConventionField": "phon"
+      },
+      {
+        "id": "catalogue:es:1738",
+        "contentFields": [
+          "native"
+        ],
+        "preservedConventionField": "phon"
+      },
+      {
+        "id": "catalogue:es:2288",
+        "contentFields": [
+          "native"
+        ],
+        "preservedConventionField": "phon"
+      }
+    ],
+    "applied": false
+  },
+  "events": [
+    {
+      "id": "catalogue:es:712",
+      "study": "Pagué la cuenta.",
+      "native": "j'ai payé l'addition",
+      "rules": [
+        "G"
+      ],
+      "beforePhon": "pa-GÉ la KOUÉN-ta",
+      "afterPhon": "pa-GUÉ la KOUÉN-ta",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            13
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:787",
+      "study": "Entregué a tiempo.",
+      "native": "j'ai livré à temps",
+      "rules": [
+        "G"
+      ],
+      "beforePhon": "én-tré-GÉ a TIÉM-po",
+      "afterPhon": "én-tré-GUÉ a TIÉM-po",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            25
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:1219",
+      "study": "Llegué tarde ayer.",
+      "native": "je suis arrivé en retard hier",
+      "rules": [
+        "G"
+      ],
+      "beforePhon": "yé-GÉ TAR-dé a-YÉR",
+      "afterPhon": "yé-GUÉ TAR-dé a-YÉR",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            29
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:3776",
+      "study": "Llegué tarde.",
+      "native": "je suis arrivé en retard",
+      "rules": [
+        "G"
+      ],
+      "beforePhon": "yé-GÉ TAR-dé",
+      "afterPhon": "yé-GUÉ TAR-dé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            57
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:1382",
+      "study": "Pagué el depósito ayer.",
+      "native": "j'ai payé l'acompte hier",
+      "rules": [
+        "G"
+      ],
+      "beforePhon": "pa-GÉ él dé-PO-ssi-to a-YÉR",
+      "afterPhon": "pa-GUÉ él dé-PO-ssi-to a-YÉR",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            40
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:3838",
+      "study": "Lo conseguí.",
+      "native": "j'ai réussi",
+      "rules": [
+        "G"
+      ],
+      "beforePhon": "lo kon-sé-GI",
+      "afterPhon": "lo kon-sé-GUI",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            204
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:1652",
+      "study": "Apagué el móvil.",
+      "native": "j'ai éteint mon téléphone",
+      "rules": [
+        "G"
+      ],
+      "beforePhon": "a-pa-GÉ él MO-bil",
+      "afterPhon": "a-pa-GUÉ él MO-bil",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+          "location": [
+            "themes",
+            6,
+            "phrases",
+            16
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:1783",
+      "study": "Seguí su consejo.",
+      "native": "j'ai suivi votre conseil",
+      "rules": [
+        "G"
+      ],
+      "beforePhon": "sé-GI sou kon-SÉ-ro",
+      "afterPhon": "sé-GUI sou kon-SÉ-ro",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            140
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:4202",
+      "study": "Jugué ayer.",
+      "native": "j'ai joué hier",
+      "rules": [
+        "G"
+      ],
+      "beforePhon": "rou-GÉ a-YÉR",
+      "afterPhon": "rou-GUÉ a-YÉR",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            26
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:4375",
+      "study": "Arriesgué mucho.",
+      "native": "j'ai pris beaucoup de risques",
+      "rules": [
+        "G"
+      ],
+      "beforePhon": "a-riés-GÉ MOU-tcho",
+      "afterPhon": "a-riés-GUÉ MOU-tcho",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            5
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:4392",
+      "study": "Lo cargué.",
+      "native": "je l'ai chargé",
+      "rules": [
+        "G"
+      ],
+      "beforePhon": "lo kar-GÉ",
+      "afterPhon": "lo kar-GUÉ",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            87
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:3806",
+      "study": "Tener un día de perros.",
+      "native": "passer une journée pourrie",
+      "rules": [
+        "R"
+      ],
+      "beforePhon": "té-NÉR oun DI-a dé PÉ-ros",
+      "afterPhon": "té-NÉR oun DI-a dé PÉ-rros",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+          "location": [
+            "themes",
+            17,
+            "phrases",
+            6
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:1497",
+      "study": "¿Admiten perros?",
+      "native": "les chiens sont acceptés ?",
+      "rules": [
+        "R"
+      ],
+      "beforePhon": "ad-MI-tén PÉ-ros",
+      "afterPhon": "ad-MI-tén PÉ-rros",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            26
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:1730",
+      "study": "¿Puedo esperar en la barra?",
+      "native": "je peux attendre au bar ?",
+      "rules": [
+        "R"
+      ],
+      "beforePhon": "POUÉ-do és-pé-RAR én la BA-ra",
+      "afterPhon": "POUÉ-do és-pé-RAR én la BA-rra",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            122
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2732",
+      "study": "¿Pueden poner código de barras?",
+      "native": "pouvez-vous mettre un code-barres ?",
+      "rules": [
+        "R"
+      ],
+      "beforePhon": "POUÉ-dén po-NÉR KO-di-go dé BA-ras",
+      "afterPhon": "POUÉ-dén po-NÉR KO-di-go dé BA-rras",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            17
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:4443",
+      "study": "Estar en la parra.",
+      "native": "être dans les nuages",
+      "rules": [
+        "R"
+      ],
+      "beforePhon": "és-TAR én la PA-ra",
+      "afterPhon": "és-TAR én la PA-rra",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+          "location": [
+            "themes",
+            11,
+            "phrases",
+            7
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:619",
+      "study": "Corro cada mañana.",
+      "native": "je cours chaque matin",
+      "rules": [
+        "R"
+      ],
+      "beforePhon": "KO-ro KA-da ma-NYA-na",
+      "afterPhon": "KO-rro KA-da ma-NYA-na",
+      "priorCorrection": false,
+      "transportCopies": 1,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            5
+          ],
+          "profile": "canonical"
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-es.json",
+          "location": [
+            "phrases",
+            120
+          ],
+          "profile": "transport-phrase"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:4255",
+      "study": "Irse por los cerros de Úbeda.",
+      "native": "tourner autour du pot",
+      "rules": [
+        "R"
+      ],
+      "beforePhon": "IR-sé por los SÉ-ros dé OU-bé-da",
+      "afterPhon": "IR-sé por los SÉ-rros dé OU-bé-da",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+          "location": [
+            "themes",
+            12,
+            "phrases",
+            2
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:1176",
+      "study": "Cerré el trato.",
+      "native": "j'ai conclu l'affaire",
+      "rules": [
+        "R"
+      ],
+      "beforePhon": "sé-RÉ él TRA-to",
+      "afterPhon": "sé-RRÉ él TRA-to",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            75
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2352",
+      "study": "Cerremos a este precio.",
+      "native": "concluons à ce prix",
+      "rules": [
+        "R"
+      ],
+      "beforePhon": "sé-RÉ-mos a ÉS-té PRÉ-sio",
+      "afterPhon": "sé-RRÉ-mos a ÉS-té PRÉ-sio",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            2
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2904",
+      "study": "Cerremos los flecos.",
+      "native": "réglons les derniers détails",
+      "rules": [
+        "R"
+      ],
+      "beforePhon": "sé-RÉ-mos los FLÉ-kos",
+      "afterPhon": "sé-RRÉ-mos los FLÉ-kos",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            40
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:4563",
+      "study": "jueves",
+      "native": "jeudi",
+      "rules": [
+        "T"
+      ],
+      "beforePhon": "RUÉ-bés",
+      "afterPhon": "ROUÉ-bés",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L1.json",
+          "location": [
+            "themes",
+            16,
+            "phrases",
+            14
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2452",
+      "study": "Quiero hacer el check-out.",
+      "native": "je veux faire le check-out",
+      "rules": [
+        "T"
+      ],
+      "beforePhon": "KIÉ-ro a-SÉR él TCHÉKK OOUT",
+      "afterPhon": "KIÉ-ro a-SÉR él TCHÉKK A-OUT",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            58
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2295",
+      "study": "Quiero cambiar euros a yuanes.",
+      "native": "Je voudrais changer des euros en yuans.",
+      "rules": [
+        "A"
+      ],
+      "beforePhon": "KIÉ-ro kam-BIAR é-OU-ros a YOUA-nés",
+      "afterPhon": "KIÉ-ro kam-BIAR ÉOU-ros a YOUA-nés",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            26
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2491",
+      "study": "— ¿Cuánto es? — Son diez euros.",
+      "native": "— C'est combien ? — Ça fait dix euros.",
+      "rules": [
+        "A"
+      ],
+      "beforePhon": "KOUAN-to ÈS / son diès é-OU-ros",
+      "afterPhon": "KOUAN-to ÈS / son diès ÉOU-ros",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            13
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2233",
+      "study": "¿Aceptan cambios sin ticket?",
+      "native": "vous acceptez les échanges sans ticket ?",
+      "rules": [
+        "A"
+      ],
+      "beforePhon": "a-SÉP-tan KAM-bios SIN tik-KÉT",
+      "afterPhon": "a-SÉP-tan KAM-bios SIN TI-két",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            17
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:673",
+      "study": "¿Hay audioguía?",
+      "native": "Y a-t-il un audioguide ?",
+      "rules": [
+        "A"
+      ],
+      "beforePhon": "aïlle a-ou-DIO-gui-a",
+      "afterPhon": "aïlle a-ou-dio-GUI-a",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            65
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "heard-authored:fr-es:piste-depannage-connexion-received-02",
+      "study": "Perfecto, podemos continuar.",
+      "native": "Parfait, nous pouvons continuer.",
+      "rules": [
+        "A"
+      ],
+      "beforePhon": "pèr-FÈK-to po-DÉ-mos konn-ti-NOU-ar",
+      "afterPhon": "pèr-FÈK-to po-DÉ-mos konn-ti-NOUAR",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-es.json",
+          "location": [
+            "receivedModels",
+            7
+          ],
+          "profile": "received-model"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:1258",
+      "study": "¿Hay parking cerca?",
+      "native": "y a-t-il un parking à proximité ?",
+      "rules": [
+        "A"
+      ],
+      "beforePhon": "AY par-KINR SÉR-ka",
+      "afterPhon": "AY PAR-kinn SÉR-ka",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            112
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2774",
+      "study": "¿Hacen dropshipping?",
+      "native": "vous faites du dropshipping ?",
+      "rules": [
+        "A"
+      ],
+      "beforePhon": "A-sén drop-sip-PINR",
+      "afterPhon": "A-sén DROP-chi-pinn",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            38
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:3159",
+      "study": "Seguimos esperando el número de tracking.",
+      "native": "nous attendons toujours le numéro de suivi",
+      "rules": [
+        "A"
+      ],
+      "beforePhon": "sé-GUI-mos és-pé-RAN-do él NOU-mé-ro dé trak-KINR",
+      "afterPhon": "sé-GUI-mos és-pé-RAN-do él NOU-mé-ro dé TRA-kinn",
+      "priorCorrection": true,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            10
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:3199",
+      "study": "Necesitamos el packing list.",
+      "native": "il nous faut la liste de colisage",
+      "rules": [
+        "A"
+      ],
+      "beforePhon": "né-sé-ssi-TA-mos él pak-KINR LIST",
+      "afterPhon": "né-sé-ssi-TA-mos él PA-kinn LIST",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            80
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:1148",
+      "study": "¿Tiene marcado CE?",
+      "native": "ça a le marquage CE ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "TIÉ-né mar-KA-do SÉ",
+      "afterPhon": "TIÉ-né mar-KA-do SÉ É",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            66
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2764",
+      "study": "¿Tiene certificación CE?",
+      "native": "ça a la certification CE ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "TIÉ-né sér-ti-fi-ka-SION SÉ",
+      "afterPhon": "TIÉ-né sér-ti-fi-ka-SION SÉ É",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            35
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2831",
+      "study": "¿Tienen certificado CE?",
+      "native": "vous avez un certificat CE ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "TIÉ-nén sér-ti-fi-KA-do SÉ",
+      "afterPhon": "TIÉ-nén sér-ti-fi-KA-do SÉ É",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            67
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2887",
+      "study": "Necesitamos etiqueta CE.",
+      "native": "il nous faut une étiquette CE",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "né-sé-ssi-TA-mos é-ti-KÉ-ta SÉ",
+      "afterPhon": "né-sé-ssi-TA-mos é-ti-KÉ-ta SÉ É",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            105
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:3049",
+      "study": "¿El producto tiene marca CE?",
+      "native": "le produit a le marquage CE ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "él pro-DOUK-to TIÉ-né MAR-ka SÉ",
+      "afterPhon": "él pro-DOUK-to TIÉ-né MAR-ka SÉ É",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            0
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:3270",
+      "study": "Necesitamos certificación CE y RoHS.",
+      "native": "il nous faut la certification CE et RoHS",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "né-sé-ssi-TA-mos sér-ti-fi-ka-SION SÉ y ROS",
+      "afterPhon": "né-sé-ssi-TA-mos sér-ti-fi-ka-SION SÉ É y ROS",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            20
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2819",
+      "study": "¿Cuándo emiten el B/L?",
+      "native": "quand émettez-vous le B/L ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "KOUAN-do é-MI-tén él B L",
+      "afterPhon": "KOUAN-do é-MI-tén él BÉ É-lé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            59
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:3245",
+      "study": "¿El B/L es original o copia?",
+      "native": "le B/L est un original ou une copie ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "él B L és o-ri-ri-NAL o KO-pia",
+      "afterPhon": "él BÉ É-lé és o-ri-ri-NAL o KO-pia",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            5
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:4361",
+      "study": "El saldo contra copia del B/L.",
+      "native": "le solde contre une copie du B/L",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "él SAL-do KON-tra KO-pia dél B L",
+      "afterPhon": "él SAL-do KON-tra KO-pia dél BÉ É-lé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+          "location": [
+            "reserve",
+            6
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:3073",
+      "study": "¿Pueden trabajar con L/C?",
+      "native": "pouvez-vous travailler avec une L/C (lettre de crédit) ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "POUÉ-dén tra-ba-RAR kon L S",
+      "afterPhon": "POUÉ-dén tra-ba-RAR kon É-lé SÉ",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            5
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:3140",
+      "study": "Mándeme el catálogo en PDF.",
+      "native": "envoyez-moi le catalogue en PDF",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "MAN-dé-mé él ka-TA-lo-go én PDF",
+      "afterPhon": "MAN-dé-mé él ka-TA-lo-go én PÉ DÉ É-fé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            14
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:1726",
+      "study": "¿Es de plástico ABS?",
+      "native": "c'est en plastique ABS ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "és dé PLAS-ti-ko ABS",
+      "afterPhon": "és dé PLAS-ti-ko a-bé É-sé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            121
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2188",
+      "study": "¿Aceptan T/T?",
+      "native": "vous acceptez le T/T ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "a-SÉP-tan T T",
+      "afterPhon": "a-SÉP-tan TÉ TÉ",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            133
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:1971",
+      "study": "Mándame el código QR.",
+      "native": "envoie-moi le QR code",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "MAN-da-mé él KO-di-go KR",
+      "afterPhon": "MAN-da-mé él KO-di-go kou-É-rré",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            30
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2040",
+      "study": "¿Tiene certificación FCC?",
+      "native": "ça a la certification FCC ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "TIÉ-né sér-ti-fi-ka-SION FKS",
+      "afterPhon": "TIÉ-né sér-ti-fi-ka-SION É-fé sé SÉ",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            62
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2256",
+      "study": "¿Pueden enviar por DHL?",
+      "native": "pouvez-vous expédier par DHL ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "POUÉ-dén én-BIAR por DL",
+      "afterPhon": "POUÉ-dén én-BIAR por dé A-tché É-lé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            161
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2879",
+      "study": "Mándelo a esta cuenta de DHL.",
+      "native": "envoyez-le sur ce compte DHL",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "MAN-dé-lo a ÉS-ta KOUÉN-ta dé DL",
+      "afterPhon": "MAN-dé-lo a ÉS-ta KOUÉN-ta dé dé A-tché É-lé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            37
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2523",
+      "study": "Necesito el HS code.",
+      "native": "j'ai besoin du code HS",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "né-sé-SSI-to él S KO-dé",
+      "afterPhon": "né-sé-SSI-to él A-tché É-sé KO-dé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            13
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2840",
+      "study": "¿El HS code es correcto?",
+      "native": "le code HS est correct ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "él S KO-dé és ko-RÉK-to",
+      "afterPhon": "él A-tché É-sé KO-dé és ko-RÉK-to",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            74
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2387",
+      "study": "¿Cuál es el CBM total?",
+      "native": "quel est le CBM total ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "KOUAL és él KBM to-TAL",
+      "afterPhon": "KOUAL és él sé bé É-mé to-TAL",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            28
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2421",
+      "study": "¿Hacen ODM también?",
+      "native": "vous faites de l'ODM aussi ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "A-sén ODM tam-BIÉN",
+      "afterPhon": "A-sén o dé É-mé tam-BIÉN",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            49
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2883",
+      "study": "¿Es ODM u OEM?",
+      "native": "c'est de l'ODM ou de l'OEM ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "és ODM ou o-ÉM",
+      "afterPhon": "és o dé É-mé ou o-ÉM",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            101
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2427",
+      "study": "¿Es MDF o madera maciza?",
+      "native": "c'est du MDF ou du bois massif ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "és MDF o ma-DÉ-ra ma-SI-ssa",
+      "afterPhon": "és É-mé dé É-fé o ma-DÉ-ra ma-SI-ssa",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            53
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2205",
+      "study": "¿Cumple la norma EN71?",
+      "native": "c'est conforme à la norme EN71 ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "KOUM-plé la NOR-ma én",
+      "afterPhon": "KOUM-plé la NOR-ma é-né sé-TÉN-ta i OU-no",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            143
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:4426",
+      "study": "La madera está certificada E1.",
+      "native": "le bois est certifié E1",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "la ma-DÉ-ra és-TA sér-ti-fi-KA-da é",
+      "afterPhon": "la ma-DÉ-ra és-TA sér-ti-fi-KA-da é OU-no",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            100
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2425",
+      "study": "¿Es compatible con 220 voltios?",
+      "native": "c'est compatible avec 220 volts ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "és kom-pa-TIB-lé kon BOL-tios",
+      "afterPhon": "és kom-pa-TIB-lé kon dos-SIÉN-tos BÉÏN-té BOL-tios",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            52
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2825",
+      "study": "Pagamos el 30% por adelantado.",
+      "native": "nous payons 30 % à l'avance",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "pa-GA-mos él por a-dé-lan-TA-do",
+      "afterPhon": "pa-GA-mos él TRÉÏN-ta por SIÉN-to por a-dé-lan-TA-do",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            62
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:2972",
+      "study": "Es un contenedor de 40 pies.",
+      "native": "c'est un conteneur de 40 pieds",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "és oun kon-té-né-DOR dé PIÉS",
+      "afterPhon": "és oun kon-té-né-DOR dé koua-RÉN-ta PIÉS",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            141
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:3215",
+      "study": "¿Cabe en un contenedor de 20 pies?",
+      "native": "ça rentre dans un conteneur de 20 pieds ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "KA-bé én oun kon-té-né-DOR dé PIÉS",
+      "afterPhon": "KA-bé én oun kon-té-né-DOR dé BÉÏN-té PIÉS",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            88
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:4247",
+      "study": "El plazo de producción es de 30 días.",
+      "native": "le délai de production est de 30 jours",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "él PLA-sso dé pro-douk-SION és dé DI-as",
+      "afterPhon": "él PLA-sso dé pro-douk-SION és dé TRÉÏN-ta DI-as",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            18
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:es:3418",
+      "study": "30% de adelanto, 70% antes del envío.",
+      "native": "30 % d'acompte, 70 % avant l'expédition",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "dé a-dé-LAN-to AN-tés dél én-BI-o",
+      "afterPhon": "TRÉÏN-ta por SIÉN-to dé a-dé-LAN-to sé-TÉN-ta por SIÉN-to AN-tés dél én-BI-o",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+          "location": [
+            "reserve",
+            5
+          ],
+          "profile": "canonical"
+        }
+      ]
+    }
+  ],
+  "linguisticCounterReview": {
+    "selectedAfterValuesAccepted": 63,
+    "certainFalseAfterValuesFound": 0,
+    "notes": [
+      "G corrige onze événements gué/guí ciblés ; aucune substitution générale n'est appliquée.",
+      "R se limite aux dix aides retenues pour un contraste de mot. Cela ne décide pas de tous les rr ou r initiaux.",
+      "A est ici l'accent/découpage espagnol ; cette étiquette n'a aucun lien avec l'ancienne règle A espagnole de doublement du s retirée.",
+      "EN71 : e + ene est l'épellation sous-jacente. é-né peut rendre la coalescence naturelle /e e.ne/ en [e.ne] ; la chaîne ne distingue alors pas E N de N seul. L'après figé est retenu comme réalisation possible, pas comme preuve d'une transcription séparée des deux noms de lettre.",
+      "Les accents des emprunts parking/tracking/packing/dropshipping dépendent des usages ; les après sont retenus comme variantes ciblées, sans décision générale de variété.",
+      "Les noms de lettre explicitent les sigles ciblés ; slash, rythme et coalescence restent de l'oral, non une nouvelle convention universelle d'épellation.",
+      "Les jota r/kh/rh et les 28 autres rr restent dans les conventions non appliquées."
+    ]
+  },
+  "limitations": [
+    "Les 151 conventions restent à décider ; aucune normalisation n'est adoptée.",
+    "Les aides après sont des chaînes entières figées, jamais des résultats d'une substitution générale.",
+    "Cette contrelecture ciblée ne répète pas la lecture individuelle des 4 995 positions annoncée par Claude.",
+    "Ni voix native, ni sortie audio réelle, ni navigateur hébergé ne sont évalués par ce script."
+  ]
+}

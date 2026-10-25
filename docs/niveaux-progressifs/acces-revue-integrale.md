@@ -2,7 +2,7 @@
 
 Consigne de Kartech du **25 octobre 2026** : revue et correction des thèmes, niveaux et phonétiques de tout le contenu, en conservant la présentation validée.
 
-- [Aperçu L1–L10, sans compte Melunga ni abonnement](https://deploy-preview-14--chic-dragon-e2baf2.netlify.app/parcours-niveaux.html?pair=fr-zh&level=1&v=lot7). Les sélecteurs permettent de changer de langue et de niveau.
+- [Aperçu L1–L10, sans compte Melunga ni abonnement](https://deploy-preview-14--chic-dragon-e2baf2.netlify.app/parcours-niveaux.html?pair=fr-zh&level=1&v=lot8). Les sélecteurs permettent de changer de langue et de niveau.
 - [Tous les fichiers dans GitHub](https://github.com/iaproject2100/melunga/tree/review/themes-niveaux-progressifs/melunga_deploy/content/niveaux-progressifs).
 - [Manifeste JSON brut](https://raw.githubusercontent.com/iaproject2100/melunga/review/themes-niveaux-progressifs/melunga_deploy/content/niveaux-progressifs/manifest.json).
 

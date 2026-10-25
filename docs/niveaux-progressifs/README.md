@@ -133,11 +133,19 @@ non clos restent exposés dans le compte rendu.
 
 ## Revue complète par Claude : thèmes, niveaux et phonétique
 
+Le [lot 8 de Claude](reponse-revue-integrale-lot8/README.md) raccorde **63 aides
+espagnoles entières**, puis **18 gloses, deux études et trois blocs complets**
+séparément. Les 88 objets portent 92 champs corrigés, copies et reçu compris,
+sans changer la présentation ni les droits. Claude annonce **60 cellules lues
+sur 70** ; les dix cellules fr→it restent à lire. Les **310 propositions et
+151 conventions**, dont la jota, restent non appliquées.
+[Rapport de vérification](verification-raccord-lot8.md).
+
 Le [lot 7 de Claude](reponse-revue-integrale-lot7/README.md) raccorde **228 aides
 anglaises entières**, avec les dix copies et trois reçus, puis **11 gloses et
 cinq blocs complets** séparément. Les 254 objets portent 262 champs corrigés,
-sans modifier la présentation ou les droits. Claude annonce **50 cellules
-lues sur 70** ; les vingt cellules fr→es et fr→it restent à lire. Les **689
+sans modifier la présentation ou les droits. À la livraison du lot 7, Claude annonçait **50 cellules
+lues sur 70** ; le lot 8 ci-dessus porte cet avancement à soixante. Les **689
 propositions et 30 conventions** restent non appliquées.
 [Rapport de vérification](verification-raccord-lot7.md).
 
@@ -268,3 +276,5 @@ Validation du lot 5 : **5 tests ciblés + 15 historiques, 9 commandes et 19 cont
 Validation du lot 6 : **6 tests ciblés + 20 historiques, 9 commandes et 19 contrôles généraux réussis ; 131 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot6.md).
 
 Validation du lot 7 : **6 tests ciblés + 26 historiques, 9 commandes et 19 contrôles généraux réussis ; 151 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot7.md).
+
+Validation du lot 8 : **6 tests ciblés + 32 historiques, 9 commandes et 19 contrôles généraux réussis ; 171 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot8.md).

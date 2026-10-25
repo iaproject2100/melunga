@@ -1,0 +1,1231 @@
+{
+  "version": 1,
+  "status": "passed",
+  "recordedAt": "2026-10-25T22:43:19.021424+00:00",
+  "baseSnapshotCommit": "224e45948ac3739066f34178375b2e4437197e90",
+  "evidenceCommit": "e12c600f97a6339a0566cdaf879aa0d449f96284",
+  "publicationApproved": false,
+  "globalNativeApproval": false,
+  "publicSiteChecked": false,
+  "physicalDeviceChecked": false,
+  "runtimeAudit": {
+    "phonetic": {
+      "identities": 63,
+      "events": 63,
+      "objects": 64,
+      "profiles": {
+        "canonical": 62,
+        "transport-phrase": 1,
+        "received-model": 1
+      },
+      "changedFields": 64
+    },
+    "content": {
+      "identities": 23,
+      "events": 23,
+      "objects": 24,
+      "profiles": {
+        "canonical": 23,
+        "transport-phrase": 1,
+        "received-model": 0
+      },
+      "changedFields": 28
+    },
+    "files": 77,
+    "changedRuntimeFields": 92,
+    "objects": 88
+  },
+  "manifestSha256": "183eea8ecc7b0a57ff94a0e23f08e64c8aba173a1c25918e75306cf2d57248e8",
+  "phoneticRegistrySha256": "c58e4d14762d53cec30721acc36d97a2d8bfa40bdb22e4827d283ba3be773ed1",
+  "contentRegistrySha256": "756c2e867928b24a0e4e8a86216072f4fea2dfa832d3938b5e38dc622c01a8ce",
+  "tests": [
+    {
+      "scope": "targeted",
+      "passed": 6,
+      "failed": 0,
+      "sha256": "3f6638178041c151309c1d5f57a21d3db9426bbe64dbe08b367bfce835925e0c"
+    },
+    {
+      "scope": "historical",
+      "passed": 32,
+      "failed": 0,
+      "sha256": "c2ae6791c1870592b32c0885887bba920568b96fcd43728ab75b564b933ac160"
+    },
+    {
+      "scope": "controls-final",
+      "passed": 9,
+      "failed": 0,
+      "sha256": "1432654fe96716135baec9a08d64e027ca4b991316233931105c658c2be6ceb0"
+    },
+    {
+      "scope": "levels-final",
+      "passed": 19,
+      "failed": 0,
+      "sha256": "345ed25f26da4926a136f037c5779814c0451428a56de043b04f9cffdd3a04c5"
+    }
+  ],
+  "newJavaScriptCorruptionsRejected": 46,
+  "producerAdversarialCorruptionsRejected": 19,
+  "independentAdversarialTests": {
+    "adversarialFaultsRejected": 171,
+    "adversarialChecks": [
+      {
+        "fault": "changed_phon",
+        "rejected": true,
+        "reason": "An old source tuple/provenance changed during extension"
+      },
+      {
+        "fault": "changed_level",
+        "rejected": true,
+        "reason": "Phrase target level differs from its cell"
+      },
+      {
+        "fault": "duplicated_primary",
+        "rejected": true,
+        "reason": "Canonical primary identity is duplicated across cells/themes"
+      },
+      {
+        "fault": "wrong_phonetic_map",
+        "rejected": true,
+        "reason": "An old source tuple/provenance changed during extension"
+      },
+      {
+        "fault": "false_recall_reference",
+        "rejected": true,
+        "reason": "Recall has a false preparation reference"
+      },
+      {
+        "fault": "template_production",
+        "rejected": true,
+        "reason": "A reserved source declares a lesson or production task"
+      },
+      {
+        "fault": "held_import",
+        "rejected": true,
+        "reason": "An old source tuple/provenance changed during extension"
+      },
+      {
+        "fault": "word_in_situation",
+        "rejected": true,
+        "reason": "Reviewed lexical family was ignored"
+      },
+      {
+        "fault": "lexical_reuse_in_situation_steps",
+        "rejected": true,
+        "reason": "Lexical or reserved prerequisite was injected into a situation step"
+      },
+      {
+        "fault": "future_revision",
+        "rejected": true,
+        "reason": "A revision is future/current-level or cites a false first encounter"
+      },
+      {
+        "fault": "wrong_family_revision",
+        "rejected": true,
+        "reason": "A revision belongs to another semantic family or type"
+      },
+      {
+        "fault": "inflated_presented_count",
+        "rejected": true,
+        "reason": "Presentation/concept counters inflate primary sources or gender variants"
+      },
+      {
+        "fault": "gender_concept_split",
+        "rejected": true,
+        "reason": "New entry concept/whole-headword provenance differs"
+      },
+      {
+        "fault": "authored_phonetic_changed",
+        "rejected": true,
+        "reason": "An old source tuple/provenance changed during extension"
+      },
+      {
+        "fault": "reviews_after_new_learning",
+        "rejected": true,
+        "reason": "A revision group starts after new learning"
+      },
+      {
+        "fault": "numeric_review_inversion",
+        "rejected": true,
+        "reason": "A review/new number block is not in numeric pedagogical order"
+      },
+      {
+        "fault": "late_preparation",
+        "rejected": true,
+        "reason": "Local preparation starts after its primary source presentation"
+      },
+      {
+        "fault": "context_claimed_as_new",
+        "rejected": true,
+        "reason": "A contextual source is disguised as a new phrase or revision"
+      },
+      {
+        "fault": "future_context_reference",
+        "rejected": true,
+        "reason": "Contextual use precedes or misidentifies its canonical first encounter"
+      },
+      {
+        "fault": "wrong_context_intent",
+        "rejected": true,
+        "reason": "A contextual use substitutes the wrong intent, isolated lexeme or incomplete source"
+      },
+      {
+        "fault": "inflated_context_reuse_count",
+        "rejected": true,
+        "reason": "Presentation/concept counters inflate primary sources or gender variants"
+      },
+      {
+        "fault": "situation_draft_phonetic_changed",
+        "rejected": true,
+        "reason": "Resolved whole source is missing or changed"
+      },
+      {
+        "fault": "catalogue_reuse_claimed_as_authored",
+        "rejected": true,
+        "reason": "An allegedly new situation phrase is an old form with a new translation or punctuation"
+      },
+      {
+        "fault": "future_source_without_introduction",
+        "rejected": true,
+        "reason": "Future productive source lacks explicit preparation decision"
+      },
+      {
+        "fault": "preferred_canonical_changes_whole_fields",
+        "rejected": true,
+        "reason": "Preferred source silently changes a whole field"
+      },
+      {
+        "fault": "manifest_reuse_claimed_as_creation",
+        "rejected": true,
+        "reason": "Manifest falsely counts situation reuse, imports or intent positions as new authored phrases"
+      },
+      {
+        "fault": "level_context_count_inflated",
+        "rejected": true,
+        "reason": "A cell or manifest level inflates contextual source reuse counts"
+      },
+      {
+        "fault": "theme_old_source_claimed_as_authored",
+        "rejected": true,
+        "reason": "A theme falsely labels a contextual or archived phrase as newly authored"
+      },
+      {
+        "fault": "new_situation_groups_reversed",
+        "rejected": true,
+        "reason": "The new situation plays its intentions outside global 01-to-08 order"
+      },
+      {
+        "fault": "new_situation_playback_order_reversed",
+        "rejected": true,
+        "reason": "Playback reorders the situation intentions inside a learning phase"
+      },
+      {
+        "fault": "received_marked_as_production",
+        "rejected": true,
+        "reason": "Received utterance entered learner production, review or progress"
+      },
+      {
+        "fault": "received_role_changed",
+        "rejected": true,
+        "reason": "Theme received uses changed role, model, explicit answer list or anchor"
+      },
+      {
+        "fault": "closure_answer_list_omitted",
+        "rejected": true,
+        "reason": "Theme received uses changed role, model, explicit answer list or anchor"
+      },
+      {
+        "fault": "response_moved_before_preparation",
+        "rejected": true,
+        "reason": "Question precedes actual response preparation"
+      },
+      {
+        "fault": "received_preparation_step_missing",
+        "rejected": true,
+        "reason": "Received preparation evidence refers to absent/wrong steps"
+      },
+      {
+        "fault": "heard_model_phonetic_changed",
+        "rejected": true,
+        "reason": "Lot7 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "received_counted_as_learner_phrase",
+        "rejected": true,
+        "reason": "Sequence refers outside its canonical or valid review sources"
+      },
+      {
+        "fault": "lexical_support_wrong_family",
+        "rejected": true,
+        "reason": "Lexical support is future, held or belongs to another semantic family"
+      },
+      {
+        "fault": "lexical_support_future_first_encounter",
+        "rejected": true,
+        "reason": "Theme drops, clips, duplicates or silently alters a whole lexical support"
+      },
+      {
+        "fault": "protected_old_model_moved",
+        "rejected": true,
+        "reason": "A protected old model moved"
+      },
+      {
+        "fault": "original_source_speaker_forged",
+        "rejected": true,
+        "reason": "Declared source speaker differs from the actual whole turn"
+      },
+      {
+        "fault": "productive_reuse_review_status_forged",
+        "rejected": true,
+        "reason": "A productive reuse silently changes its source phonetic review status"
+      },
+      {
+        "fault": "corrected_after_value_changed",
+        "rejected": true,
+        "reason": "Corrected aid or local review status differs from its authorized after value"
+      },
+      {
+        "fault": "corrected_declaration_missing",
+        "rejected": true,
+        "reason": "A corrected phrase/copy lacks its exact phonetic declaration"
+      },
+      {
+        "fault": "corrected_transport_copy_not_updated",
+        "rejected": true,
+        "reason": "Corrected aid or local review status differs from its authorized after value"
+      },
+      {
+        "fault": "corrected_annotation_wrong_registry_hash",
+        "rejected": true,
+        "reason": "Phonetic annotation differs from its exact registry hash/before/rule"
+      },
+      {
+        "fault": "corrected_unknown_registry_identity",
+        "rejected": true,
+        "reason": "Lot8 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "corrected_original_source_changed",
+        "rejected": true,
+        "reason": "Pinned original catalogue was modified"
+      },
+      {
+        "fault": "corrected_before_source_profile_forged",
+        "rejected": true,
+        "reason": "Lot8 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "corrected_before_aid_forged",
+        "rejected": true,
+        "reason": "Lot8 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "corrected_source_extra_metadata_forged",
+        "rejected": true,
+        "reason": "Lot8 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "corrected_original_review_status_forged",
+        "rejected": true,
+        "reason": "Lot8 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "corrected_b_then_d_chain_reversed",
+        "rejected": true,
+        "reason": "Lot8 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "corrected_stray_annotation",
+        "rejected": true,
+        "reason": "Undeclared phonetic correction on another identity"
+      },
+      {
+        "fault": "corrected_evidence_ledger_and_after_forged",
+        "rejected": true,
+        "reason": "Lot8 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot3_reading_after_changed",
+        "rejected": true,
+        "reason": "Lot3 actual after field is not the authorized whole value"
+      },
+      {
+        "fault": "lot3_unregistered_reading_changed",
+        "rejected": true,
+        "reason": "An old source tuple/provenance changed during extension"
+      },
+      {
+        "fault": "lot3_before_reading_forged",
+        "rejected": true,
+        "reason": "Lot4 predecessor is not the unchanged lot3 registry"
+      },
+      {
+        "fault": "lot3_after_ledger_forged",
+        "rejected": true,
+        "reason": "Lot4 predecessor is not the unchanged lot3 registry"
+      },
+      {
+        "fault": "lot3_predecessor_B_annotation_lost",
+        "rejected": true,
+        "reason": "Lot3 before source, whole tuple, or prior B/D declaration was altered"
+      },
+      {
+        "fault": "lot3_transport_copy_stale",
+        "rejected": true,
+        "reason": "Lot3 actual after field is not the authorized whole value"
+      },
+      {
+        "fault": "lot3_received_copy_stale",
+        "rejected": true,
+        "reason": "Lot3 actual after field is not the authorized whole value"
+      },
+      {
+        "fault": "lot3_local_status_invented",
+        "rejected": true,
+        "reason": "Lot3 invents or loses its local phonetic status"
+      },
+      {
+        "fault": "lot3_annotation_registry_hash_forged",
+        "rejected": true,
+        "reason": "Lot3 annotation differs from its exact before/profile/registry"
+      },
+      {
+        "fault": "lot3_frozen_evidence_and_registry_forged",
+        "rejected": true,
+        "reason": "Lot4 predecessor is not the unchanged lot3 registry"
+      },
+      {
+        "fault": "lot3_before_source_and_runtime_forged",
+        "rejected": true,
+        "reason": "Lot4 predecessor is not the unchanged lot3 registry"
+      },
+      {
+        "fault": "lot3_reading_only_phonetic_changed",
+        "rejected": true,
+        "reason": "Lot3 before source, whole tuple, or prior B/D declaration was altered"
+      },
+      {
+        "fault": "lot3_received_role_changed",
+        "rejected": true,
+        "reason": "Theme received uses changed role, model, explicit answer list or anchor"
+      },
+      {
+        "fault": "lot3_received_marked_as_production",
+        "rejected": true,
+        "reason": "Received utterance entered learner production, review or progress"
+      },
+      {
+        "fault": "lot4_actual_phonetic_stale",
+        "rejected": true,
+        "reason": "Lot4/content actual after is not the approved whole value (or bundle is partial)"
+      },
+      {
+        "fault": "lot4_unregistered_reading_changed",
+        "rejected": true,
+        "reason": "Lot4/content original tuple, source, or earlier annotation was changed"
+      },
+      {
+        "fault": "lot4_annotation_omitted",
+        "rejected": true,
+        "reason": "Lot4/content card or copy has no exact declaration"
+      },
+      {
+        "fault": "lot4_source_profile_forged",
+        "rejected": true,
+        "reason": "Lot4/content original source or prior annotations differ from pinned 606592c"
+      },
+      {
+        "fault": "lot4_frozen_after_forged",
+        "rejected": true,
+        "reason": "Lot4/content row changes its exact frozen event or bundle boundaries"
+      },
+      {
+        "fault": "lot4_proof_bytes_forged",
+        "rejected": true,
+        "reason": "Frozen lot4/content evidence fingerprint or descriptor differs"
+      },
+      {
+        "fault": "lot4_transport_stale",
+        "rejected": true,
+        "reason": "Lot4/content actual after is not the approved whole value (or bundle is partial)"
+      },
+      {
+        "fault": "lot4_received_stale",
+        "rejected": true,
+        "reason": "Lot4/content actual after is not the approved whole value (or bundle is partial)"
+      },
+      {
+        "fault": "content_only_phonetic_status_forged",
+        "rejected": true,
+        "reason": "Lot4/content original tuple, source, or earlier annotation was changed"
+      },
+      {
+        "fault": "content_glose_after_forged",
+        "rejected": true,
+        "reason": "Lot4/content actual after is not the approved whole value (or bundle is partial)"
+      },
+      {
+        "fault": "content_757_study_only",
+        "rejected": true,
+        "reason": "Lot4/content actual after is not the approved whole value (or bundle is partial)"
+      },
+      {
+        "fault": "content_757_phon_only",
+        "rejected": true,
+        "reason": "Lot4/content actual after is not the approved whole value (or bundle is partial)"
+      },
+      {
+        "fault": "content_1900_reading_stale",
+        "rejected": true,
+        "reason": "Lot4/content actual after is not the approved whole value (or bundle is partial)"
+      },
+      {
+        "fault": "content_1900_glose_only",
+        "rejected": true,
+        "reason": "Lot4/content actual after is not the approved whole value (or bundle is partial)"
+      },
+      {
+        "fault": "content_prior_annotation_lost",
+        "rejected": true,
+        "reason": "Lot4/content original tuple, source, or earlier annotation was changed"
+      },
+      {
+        "fault": "content_unregistered_study_changed",
+        "rejected": true,
+        "reason": "Lot4/content original tuple, source, or earlier annotation was changed"
+      },
+      {
+        "fault": "content_757_native_guard_changed",
+        "rejected": true,
+        "reason": "Lot4/content actual after is not the approved whole value (or bundle is partial)"
+      },
+      {
+        "fault": "content_transport_glose_stale",
+        "rejected": true,
+        "reason": "Lot4/content actual after is not the approved whole value (or bundle is partial)"
+      },
+      {
+        "fault": "content_received_glose_stale",
+        "rejected": true,
+        "reason": "Lot4/content actual after is not the approved whole value (or bundle is partial)"
+      },
+      {
+        "fault": "lot4_received_production_changed",
+        "rejected": true,
+        "reason": "Received utterance entered learner production, review or progress"
+      },
+      {
+        "fault": "content_level_changed",
+        "rejected": true,
+        "reason": "Phrase target level differs from its cell"
+      },
+      {
+        "fault": "lot4_old_registry_changed",
+        "rejected": true,
+        "reason": "Lot4 predecessor is not the unchanged lot3 registry"
+      },
+      {
+        "fault": "lot4_wrong_frozen_event_reference",
+        "rejected": true,
+        "reason": "Lot4/content row changes its exact frozen event or bundle boundaries"
+      },
+      {
+        "fault": "content_bundle_boundary_changed",
+        "rejected": true,
+        "reason": "Lot5 predecessor content registry changed"
+      },
+      {
+        "fault": "lot5_pair_phon_only",
+        "rejected": true,
+        "reason": "Lot5 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot5_pair_reading_only",
+        "rejected": true,
+        "reason": "Lot5 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot5_pair_annotation_missing",
+        "rejected": true,
+        "reason": "Lot5 corrected card/copy lacks exact annotation"
+      },
+      {
+        "fault": "lot5_pair_boundary_forged",
+        "rejected": true,
+        "reason": "Lot6 predecessor content registry changed"
+      },
+      {
+        "fault": "lot5_pair_reading_proof_omitted",
+        "rejected": true,
+        "reason": "Lot6 predecessor content registry changed"
+      },
+      {
+        "fault": "lot5_reading_after_forged",
+        "rejected": true,
+        "reason": "Lot6 predecessor content registry changed"
+      },
+      {
+        "fault": "lot5_whole_before_source_forged",
+        "rejected": true,
+        "reason": "Lot6 predecessor content registry changed"
+      },
+      {
+        "fault": "lot5_proof_bytes_and_registry_forged",
+        "rejected": true,
+        "reason": "Lot6 predecessor content registry changed"
+      },
+      {
+        "fault": "lot5_transport_phon_stale",
+        "rejected": true,
+        "reason": "Lot5 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot5_transport_reading_stale",
+        "rejected": true,
+        "reason": "Lot5 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot5_transport_snapshot_omitted",
+        "rejected": true,
+        "reason": "Lot6 predecessor content registry changed"
+      },
+      {
+        "fault": "lot5_undeclared_phonetic_change",
+        "rejected": true,
+        "reason": "Lot5 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot5_glose_after_forged",
+        "rejected": true,
+        "reason": "Lot5 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot5_native_only_status_forged",
+        "rejected": true,
+        "reason": "Lot5 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot5_prior_annotation_invented",
+        "rejected": true,
+        "reason": "Lot5 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot5_older_registry_changed",
+        "rejected": true,
+        "reason": "Lot5 predecessor content registry changed"
+      },
+      {
+        "fault": "lot5_reserve3771_activated",
+        "rejected": true,
+        "reason": "Lot5 reserve3771 was activated or lost"
+      },
+      {
+        "fault": "lot5_reserve3771_production_step",
+        "rejected": true,
+        "reason": "Lot5 reserve3771 gained a production/listening step"
+      },
+      {
+        "fault": "lot6_pair_phon_only",
+        "rejected": true,
+        "reason": "Lot6 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot6_pair_reading_only",
+        "rejected": true,
+        "reason": "Lot6 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot6_pair_declaration_partial",
+        "rejected": true,
+        "reason": "Lot7 predecessor content registry changed"
+      },
+      {
+        "fault": "lot6_phon_only_invents_reading",
+        "rejected": true,
+        "reason": "Lot6 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot6_received_after_stale",
+        "rejected": true,
+        "reason": "Lot6 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot6_received_role_forged",
+        "rejected": true,
+        "reason": "Lot7 predecessor content registry changed"
+      },
+      {
+        "fault": "lot6_prior_B_annotation_lost",
+        "rejected": true,
+        "reason": "Lot6 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot6_prior_B_whole_before_forged",
+        "rejected": true,
+        "reason": "Lot7 predecessor content registry changed"
+      },
+      {
+        "fault": "lot6_proof_and_registry_forged",
+        "rejected": true,
+        "reason": "Lot7 predecessor content registry changed"
+      },
+      {
+        "fault": "lot6_unknown_after_forged",
+        "rejected": true,
+        "reason": "Lot7 predecessor content registry changed"
+      },
+      {
+        "fault": "lot6_content_bundle_study_only",
+        "rejected": true,
+        "reason": "Lot6 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot6_content_bundle_reading_stale",
+        "rejected": true,
+        "reason": "Lot6 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot6_content_bundle_boundary_forged",
+        "rejected": true,
+        "reason": "Lot7 predecessor content registry changed"
+      },
+      {
+        "fault": "lot6_content_bundle_native_guard_changed",
+        "rejected": true,
+        "reason": "Lot6 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot6_content_before_prior_B_lost",
+        "rejected": true,
+        "reason": "Lot7 predecessor content registry changed"
+      },
+      {
+        "fault": "lot6_gloss_only_invents_phonetic_status",
+        "rejected": true,
+        "reason": "Lot6 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot6_gloss_after_forged",
+        "rejected": true,
+        "reason": "Lot6 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot6_unapproved_batchim_normalization",
+        "rejected": true,
+        "reason": "Resolved whole source is missing or changed"
+      },
+      {
+        "fault": "lot6_unapproved_level_move",
+        "rejected": true,
+        "reason": "Phrase target level differs from its cell"
+      },
+      {
+        "fault": "lot6_annotation_missing",
+        "rejected": true,
+        "reason": "Lot6 corrected card/copy lacks exact annotation"
+      },
+      {
+        "fault": "lot7_canonical_after_stale",
+        "rejected": true,
+        "reason": "Lot7 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot7_transport_after_stale",
+        "rejected": true,
+        "reason": "Lot7 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot7_received_after_stale",
+        "rejected": true,
+        "reason": "Lot7 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot7_annotation_missing",
+        "rejected": true,
+        "reason": "Lot7 corrected card/copy lacks exact annotation"
+      },
+      {
+        "fault": "lot7_phonetic_batch_invents_reading",
+        "rejected": true,
+        "reason": "Lot7 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot7_phonetic_batch_changes_native",
+        "rejected": true,
+        "reason": "Lot7 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot7_before_source_forged",
+        "rejected": true,
+        "reason": "Lot8 predecessor content registry changed"
+      },
+      {
+        "fault": "lot7_rule_G_replaced_by_B",
+        "rejected": true,
+        "reason": "Lot8 predecessor content registry changed"
+      },
+      {
+        "fault": "lot7_proof_and_registry_forged",
+        "rejected": true,
+        "reason": "Lot8 predecessor content registry changed"
+      },
+      {
+        "fault": "lot7_unknown_after_forged",
+        "rejected": true,
+        "reason": "Lot8 predecessor content registry changed"
+      },
+      {
+        "fault": "lot7_transport_declaration_omitted",
+        "rejected": true,
+        "reason": "Lot8 predecessor content registry changed"
+      },
+      {
+        "fault": "lot7_received_role_forged",
+        "rejected": true,
+        "reason": "Lot8 predecessor content registry changed"
+      },
+      {
+        "fault": "lot7_bundle_study_only",
+        "rejected": true,
+        "reason": "Lot7 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot7_bundle_phon_only",
+        "rejected": true,
+        "reason": "Lot7 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot7_bundle_declaration_partial",
+        "rejected": true,
+        "reason": "Lot8 predecessor content registry changed"
+      },
+      {
+        "fault": "lot7_unchanged_bundle_native_guard_forged",
+        "rejected": true,
+        "reason": "Lot7 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot7_gloss_invents_phonetic_status",
+        "rejected": true,
+        "reason": "Lot7 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot7_gloss_after_forged",
+        "rejected": true,
+        "reason": "Lot7 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot7_unapproved_convention_extension",
+        "rejected": true,
+        "reason": "An old source tuple/provenance changed during extension"
+      },
+      {
+        "fault": "lot7_unapproved_level_move",
+        "rejected": true,
+        "reason": "Phrase target level differs from its cell"
+      },
+      {
+        "fault": "lot8_canonical_after_stale",
+        "rejected": true,
+        "reason": "Lot8 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot8_transport_after_stale",
+        "rejected": true,
+        "reason": "Lot8 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot8_received_after_stale",
+        "rejected": true,
+        "reason": "Lot8 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot8_prior_B_annotation_lost",
+        "rejected": true,
+        "reason": "Lot8 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot8_before_prior_B_forged",
+        "rejected": true,
+        "reason": "Lot8 original tuple/source/status/prior annotations differ from Git 224e459"
+      },
+      {
+        "fault": "lot8_phonetic_batch_invents_reading",
+        "rejected": true,
+        "reason": "Lot8 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot8_finite_rule_R_extended",
+        "rejected": true,
+        "reason": "Lot8 frozen event pair or certain glose is altered"
+      },
+      {
+        "fault": "lot8_proof_and_registry_forged",
+        "rejected": true,
+        "reason": "Pinned lot8 evidence fingerprint or descriptor differs"
+      },
+      {
+        "fault": "lot8_unknown_after_forged",
+        "rejected": true,
+        "reason": "Lot8 frozen event pair or certain glose is altered"
+      },
+      {
+        "fault": "lot8_transport_declaration_omitted",
+        "rejected": true,
+        "reason": "Lot8 before declarations omit a source role or transport copy"
+      },
+      {
+        "fault": "lot8_content_support_copy_stale",
+        "rejected": true,
+        "reason": "Lot8 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot8_study_only_changes_phonetic_aid",
+        "rejected": true,
+        "reason": "Lot8 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot8_study_only_after_stale",
+        "rejected": true,
+        "reason": "Lot8 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot8_study_only_invents_phonetic_status",
+        "rejected": true,
+        "reason": "Lot8 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot8_bundle_study_only",
+        "rejected": true,
+        "reason": "Lot8 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot8_bundle_phon_only",
+        "rejected": true,
+        "reason": "Lot8 actual after differs, or aid/reading pair is partial"
+      },
+      {
+        "fault": "lot8_bundle_declaration_partial",
+        "rejected": true,
+        "reason": "Lot8 frozen event pair or certain glose is altered"
+      },
+      {
+        "fault": "lot8_unchanged_bundle_native_guard_changed",
+        "rejected": true,
+        "reason": "Lot8 before tuple, provenance, status or earlier annotations altered"
+      },
+      {
+        "fault": "lot8_unapproved_jota_normalization",
+        "rejected": true,
+        "reason": "An old source tuple/provenance changed during extension"
+      },
+      {
+        "fault": "lot8_unapproved_level_move",
+        "rejected": true,
+        "reason": "Phrase target level differs from its cell"
+      }
+    ]
+  },
+  "browserReports": [
+    {
+      "path": "docs/niveaux-progressifs/verification-commandes-lecon-navigateur.json",
+      "sha256": "3365b8a6fd8bc6b30bf091aa7f08c303e208886240e3221c51e8dc9cf2c2aa0a",
+      "checks": 9,
+      "status": "passed",
+      "executedAt": "2026-10-25T22:08:39.757Z"
+    },
+    {
+      "path": "docs/niveaux-progressifs/verification-navigateur.json",
+      "sha256": "6e55e152c1902d3b890b4b91d96b9f1afd097de9b4d0198cc44327796463d4be",
+      "checks": 19,
+      "status": "passed",
+      "executedAt": "2026-10-25T22:14:05.870Z"
+    }
+  ],
+  "sourceConservation": {
+    "classicCardsUntouched": 32115,
+    "originalCatalogueFieldsChecked": 110277,
+    "runtimeCatalogueVerbatimFields": 108754,
+    "runtimeCatalogueAuthorizedDifferences": {
+      "reading": 17,
+      "study": 14,
+      "native": 132
+    },
+    "runtimeCataloguePhoneticDifferences": 1360,
+    "unauthorizedFieldDifferences": 0,
+    "completeRuntimeDocumentsComparedAgainst224e459": 77,
+    "applicationUiFilesUnchanged": 36,
+    "uiPaths": [
+      "melunga_deploy/account-ui.css",
+      "melunga_deploy/account-ui.js",
+      "melunga_deploy/activer-compte-partage.html",
+      "melunga_deploy/activer-compte-partage.js",
+      "melunga_deploy/app.html",
+      "melunga_deploy/delete-account.html",
+      "melunga_deploy/desktop-home.css",
+      "melunga_deploy/desktop-home.js",
+      "melunga_deploy/desktop-lessons.css",
+      "melunga_deploy/desktop-lessons.js",
+      "melunga_deploy/device-replacement-ui.js",
+      "melunga_deploy/entry-bridge.js",
+      "melunga_deploy/index.html",
+      "melunga_deploy/lesson-chrome.css",
+      "melunga_deploy/lesson-controls.css",
+      "melunga_deploy/lesson-controls.js",
+      "melunga_deploy/lesson-pastilles.css",
+      "melunga_deploy/lesson-pastilles.js",
+      "melunga_deploy/lesson-pickers.css",
+      "melunga_deploy/lesson-pickers.js",
+      "melunga_deploy/maquette-guidee.css",
+      "melunga_deploy/maquette-guidee.html",
+      "melunga_deploy/maquette-guidee.js",
+      "melunga_deploy/mobile-lessons.css",
+      "melunga_deploy/native-speech.js",
+      "melunga_deploy/parcours-niveaux.html",
+      "melunga_deploy/privacy-en.html",
+      "melunga_deploy/privacy-es.html",
+      "melunga_deploy/privacy-zh.html",
+      "melunga_deploy/privacy.html",
+      "melunga_deploy/store-billing.js",
+      "melunga_deploy/terms-en.html",
+      "melunga_deploy/terms-es.html",
+      "melunga_deploy/terms-zh.html",
+      "melunga_deploy/terms.html",
+      "melunga_deploy/web-access-v2.js"
+    ],
+    "previousSourcesAnnotationsTypesIdsPlacementsLevelsRolesStepsPricesRightsUnchangedInLot8": true,
+    "readingUnchangedInLot8": true,
+    "studyExceptionsOnlyInTwoPunctuationEventsAndThreeAtomicBundles": true
+  },
+  "phonetics": {
+    "identities": 63,
+    "events": 63,
+    "rules": {
+      "S": 31,
+      "G": 11,
+      "R": 10,
+      "A": 9,
+      "T": 2
+    },
+    "objects": 64,
+    "canonicalObjects": 62,
+    "transportCopies": 1,
+    "transportId": "catalogue:es:619",
+    "receivedModels": 1,
+    "changedRuntimeFields": 64,
+    "priorBAnnotationPreserved": "catalogue:es:3159",
+    "rrChangesRestrictedToTenFrozenEvents": true,
+    "spanishStressRuleANotWithdrawnSpanishDoublingRuleA": true,
+    "EN71": {
+      "id": "catalogue:es:2205",
+      "sourceAfterRetained": true,
+      "formalLetterNames": "E+N /e e.ne/",
+      "possibleConnectedRealization": "[e.ne]",
+      "doesNotDistinguishEPlusNFromNAlone": true,
+      "newPhoneticAidWrittenByCodex": false,
+      "requestClaudeConfirmationInReply": true,
+      "noGeneralSpellingConventionDecision": true
+    }
+  },
+  "content": {
+    "identities": 23,
+    "registryFields": 27,
+    "runtimeObjects": 24,
+    "runtimeChangedFields": 28,
+    "canonicalObjects": 23,
+    "transportCopies": 1,
+    "transportId": "situation-support-conversation:fr-es:piste-douleur-simple-support-02",
+    "nativeGlosses": 18,
+    "punctuationOnlyStudyEvents": [
+      "catalogue:es:661",
+      "catalogue:es:875"
+    ],
+    "punctuationOnlyGuards": [
+      "phon",
+      "native",
+      "phoneticReviewStatus",
+      "reading"
+    ],
+    "atomicStudyPhonBundles": [
+      "catalogue:es:1340",
+      "catalogue:es:2727",
+      "catalogue:es:3186"
+    ],
+    "nativeChangesInBundles": [
+      "catalogue:es:1340"
+    ],
+    "unchangedNativeGuards": [
+      "catalogue:es:2727",
+      "catalogue:es:3186"
+    ],
+    "runtimeFieldCounts": {
+      "study": 5,
+      "phon": 3,
+      "native": 20
+    },
+    "linguisticReasonsAreContextualNotUniversal": true
+  },
+  "coverage": {
+    "canonicalPositions": 4959,
+    "receivedPositions": 36,
+    "positions": 4995,
+    "distinctIds": 4992,
+    "missingExpected": 0,
+    "extraPositions": 0,
+    "overlapIds": [
+      "catalogue:es:4",
+      "catalogue:es:814",
+      "catalogue:es:947"
+    ],
+    "cellsIndividuallyReadByClaude": 60,
+    "totalCells": 70,
+    "cellsRemaining": 10,
+    "verifiedStatusesWithOpenJotaConventions": 82,
+    "verifiedDoesNotMeanAllConventionsClosed": true
+  },
+  "unapplied": {
+    "proposals": 310,
+    "proposalIds": 308,
+    "themes": 290,
+    "namedDestinations": 259,
+    "nullDestinations": 31,
+    "levels": 15,
+    "quasiDuplicates": 5,
+    "conventionRows": 151,
+    "conventionIds": 151,
+    "jotaConventions": 112,
+    "otherRrConventions": 28,
+    "otherConventions": 11,
+    "uncertainContentItems": 119,
+    "allContentItems": 139,
+    "conventionalPhonFieldsUnchangedOnThreeNativeCorrectedIds": [
+      "catalogue:es:1738",
+      "catalogue:es:2288",
+      "situation-authored:fr-es:piste-incident-objet-03"
+    ],
+    "jotaOrKoreanBatchimDecisionMade": false
+  },
+  "commands": [
+    "python3 -B tools/maquette-guidee/build_levels.py --check",
+    "python3 -B tools/maquette-guidee/check_levels_independent.py --check-report --require-visuals --strict-editorial --require-no-held --self-test",
+    "NODE_PATH=/tmp/melunga-review-tools/node_modules node --test melunga_deploy/tests/lot8-corrections.cjs",
+    "NODE_PATH=/tmp/melunga-review-tools/node_modules node --test melunga_deploy/tests/phonetic-corrections.cjs melunga_deploy/tests/lot3-corrections.cjs melunga_deploy/tests/lot4-corrections.cjs melunga_deploy/tests/lot5-corrections.cjs melunga_deploy/tests/lot6-corrections.cjs melunga_deploy/tests/lot7-corrections.cjs",
+    "python3 -B docs/niveaux-progressifs/reponse-revue-integrale-lot8/verifier_couverture.py",
+    "python3 -B docs/niveaux-progressifs/reponse-revue-integrale-lot8/reproduire-alignements.py --runtime",
+    "python3 -B docs/niveaux-progressifs/reponse-revue-integrale-lot8/reproduire-contenu.py --runtime"
+  ],
+  "limitations": [
+    "Local Chromium and emulated viewports, no physical phone",
+    "TTS whole-study dispatch simulated, real audio not certified",
+    "Selected63aids/20singlecontentevents/3bundles counter-reviewed, not whole-Spanish native certification",
+    "EN71 connected-vowel realization retained with explicit qualification and confirmation request, no new aid invented",
+    "Primary verified status may coexist with an open convention:82IDs exposed",
+    "Human per-card coverage60/70reported by Claude; remaining10cells fr-it not replaced by technical checks",
+    "No main merge or production publication"
+  ],
+  "inputSha256": {
+    "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json": "4c078120ce79094af6d968c6c3ac590cb01958eb3f9dfe9e5152d4e35c3ae821",
+    "docs/niveaux-progressifs/corrections-contenu/lot8/revue-contenu-lot8.json": "756c2e867928b24a0e4e8a86216072f4fea2dfa832d3938b5e38dc622c01a8ce",
+    "docs/niveaux-progressifs/corrections-phonetiques/lot8/evidence-registre-phonetique.json": "3bdbb4a152ab80fea877bec8f1a6f70e88ea69c2f3bdb88f781ea9bd77992da6",
+    "docs/niveaux-progressifs/corrections-phonetiques/lot8/revue-claude-lot8.json": "c58e4d14762d53cec30721acc36d97a2d8bfa40bdb22e4827d283ba3be773ed1",
+    "docs/niveaux-progressifs/reponse-revue-integrale-lot8/alignements.json": "5d73f77d01fafc1e75ba4df09e0f5f0f9190bfa0b3403d159888676fc61705df",
+    "docs/niveaux-progressifs/reponse-revue-integrale-lot8/contenu.json": "eb895fdeaec0440141b05244756accb8a3538534da4baf8a659e4a77fc4de0c0",
+    "docs/niveaux-progressifs/reponse-revue-integrale-lot8/couverture.json": "fe5c3a009054bf3a3d9dfad6ad36ee61adf1ca6fd664636a95d8f98e8de7de35",
+    "docs/niveaux-progressifs/verification-independante.json": "ddf2ea620f1fc3c965dec3a7c428828bf4fb3a13a17cfc2d87bee650e3fc329d",
+    "melunga_deploy/content/niveaux-progressifs/fr-en/L1.json": "4d5784892b62f9829f173da700378b7e6dc3ff90f2128bdf8723011f135cda07",
+    "melunga_deploy/content/niveaux-progressifs/fr-en/L10.json": "fb544bf13234f452abe487a6a3084f792fe5708397d8d6806da60e3c936b79c0",
+    "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json": "403ee18b74fd6fa0ce57800e431a0da009dc4a0f8ba76a27d5a1fe6d842b4c73",
+    "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json": "90ae0ed2f5f22fe0ed470c75f1c45914fb6d5022de335f1da76aa14eba625d15",
+    "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json": "d0b64f7b7b3f0eb4e64a5319d2d1c20e3256f9e1b27805a6f9bc2db12ff246b6",
+    "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json": "52c545536ecc50f3a5bf60b5eb8ef981b7974a6bf68e8029ad29ae7444d007c1",
+    "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json": "b46fecebd11df1a2d8ce9edd59979ef2cb337dfe9bedbb0fd23706e94310eb74",
+    "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json": "e1311d48e4873a2b7fdb90a5defe5fa1054c63bc89908063c349fed3d61e92ee",
+    "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json": "230e5b69e50ff92b5f446f3ba5f9005d7a20eed8f32908135c1393571837d72d",
+    "melunga_deploy/content/niveaux-progressifs/fr-en/L9.json": "8c97e6bd062a3cb10ded347d5a3069ace8c683014a12da700770ea35e38d8509",
+    "melunga_deploy/content/niveaux-progressifs/fr-es/L1.json": "0a03617ee959d07cc9bc10239c4f64fe3ad53f7f004466d6c596e96a9d410c70",
+    "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json": "ad100d43a68d317fc6f1a92519bb38eeaad2df212b9710708a19c3c7f33e0cba",
+    "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json": "4f1d7ee38e71fe35caa1ce411c5d2a25b81df4980a597e30c2f3d783abd0bd7f",
+    "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json": "596c686adf90f325548fc19147e3f5d6c28f42375966da45a4482f957efae1e4",
+    "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json": "e8a924ca2099d303740c39f44aee52641fa4b630cfe6c06877715b121742b6f6",
+    "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json": "b4ae81a44af2890351e77013ab718df885d35dc0e31ab4e70d148d3af25c427b",
+    "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json": "d65f9bcf19cd38e5e847415ae3a559a7bf7fe3f1fdcc607eb6511900a01e7e81",
+    "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json": "744ef4d813be9f13801e6f1a8667b65af9ef1f9c656f8a3c337995e4e861994d",
+    "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json": "d7dfcf4134b9069ebc0aac4d2a5beb84131ae1a7f08737db716f4973f0db53ba",
+    "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json": "bb8606a4b4d4f4562f7ad74f8f78d178575c648a085f73077a1da4c98dbbab87",
+    "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json": "bd5a3400d0028895e3713b02929a357419aaa6e5f19a9f0f752bac8dfcd23e5f",
+    "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json": "318439fdfc1cad2f722e5cdbe7ecf211dd702d048ac922523a5f1e2d61941a42",
+    "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json": "09994f78721fb03de8d0988c9c2adb01bab21da50bf910d4db979f86c839aedc",
+    "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json": "93d43a0b9e9e5e2460812ecdcbaca2b7b9a4c889b723e597fe4d4cb9ab198b0e",
+    "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json": "85b2212e8245005ddf1b4bdcfc5078460825a849de0b9956b81ef1e2ae639437",
+    "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json": "2f5b384c7d4b28522ccc0945c6d20bd083e0859429fe017686260b156dd74a31",
+    "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json": "01d0bdb69d54f2d3b28a3f49ec193cc5ac8bc2bbebb9f0c863f4ac4d2f22d96a",
+    "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json": "c2c7af5c0e7c39da0c8a38be2df3de60f4b9d7dd5a3f649da95801ae793ba614",
+    "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json": "f98a70251856fde3b357c94a8b523f0b1da4e9c3d6418c7a62e21b11f2b6ade5",
+    "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json": "f5f8843cb130cc75f166b20306539bf79643c57279a04654bf94bb6dbb9cbef4",
+    "melunga_deploy/content/niveaux-progressifs/fr-ja/L1.json": "5e0edb1ee5f5bce849ceca4a5d6b08e3c988b73822d40976e4c2261b8e733a80",
+    "melunga_deploy/content/niveaux-progressifs/fr-ja/L10.json": "f261fe490a8da23675ebbf1dde953af189f4ced39d34288d652dee92dff5fdd6",
+    "melunga_deploy/content/niveaux-progressifs/fr-ja/L2.json": "b1e0db28de26961414edc252d434b9795dec2de6ae61d8ba1faf110bb7403fc3",
+    "melunga_deploy/content/niveaux-progressifs/fr-ja/L3.json": "b9413a4cb2105a5fbf47d5af9e5f092eafef70308a3b300cde72ae4470eb3d64",
+    "melunga_deploy/content/niveaux-progressifs/fr-ja/L4.json": "b3e6cfa42ff7723091ff55c934dc6e8b0b275a2881c97dc17192095269e8f576",
+    "melunga_deploy/content/niveaux-progressifs/fr-ja/L5.json": "e26c99dc9982cb5df2159ab42859ef6291b40457dd61283c74b3c017773e5026",
+    "melunga_deploy/content/niveaux-progressifs/fr-ja/L6.json": "47afa3439ceaf637c7afcd803aaf25689e28eb578eaf04cff4a95c7d322449dc",
+    "melunga_deploy/content/niveaux-progressifs/fr-ja/L7.json": "c7f6c735f3e40f0a093bd44e8d503621aa70dd4018cb98272832987c6798be24",
+    "melunga_deploy/content/niveaux-progressifs/fr-ja/L8.json": "f763b588f1029c47e8fb5c97af6cfc6a97462d2c92d1ace604b437766d9a6950",
+    "melunga_deploy/content/niveaux-progressifs/fr-ja/L9.json": "fc0c41d92e9b47c53c9404ed2ee6f5996cb55d3a9ff9ef16e4e5078286ba9378",
+    "melunga_deploy/content/niveaux-progressifs/fr-ko/L1.json": "bb8d267e3cd942f9c55b3e34bdb0bc43511c5c9dbc7a569b33c442b27b0acc98",
+    "melunga_deploy/content/niveaux-progressifs/fr-ko/L10.json": "9d5abfaf883b753005c6efe7bf0f2dfed4f80914736a15f1869c4e435b647787",
+    "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json": "537246af26220794459a603eaa251a9522e57e26c7227ea43854e1d088b14305",
+    "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json": "e3f2a5e493995b502c5bddaee6973dc44508491e7cd75ecd79146d4af3a41e47",
+    "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json": "93c8cbf459d7c447092938b2dba4f0b5b306008c3c57a17b96b77bcac8dedb76",
+    "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json": "9a0a7e7dd05f6b54eef994d113e629cedba82b92dda909569274f66a55f3fa06",
+    "melunga_deploy/content/niveaux-progressifs/fr-ko/L6.json": "1ffef03ef272b61348e2eb3d520e26e4923cbdc55a97d6987116efbf27fc00c0",
+    "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json": "9854c3a7124f34a662fb4fdfb822f3d3db7de50212812d6f3d7bdfdb2671ebbd",
+    "melunga_deploy/content/niveaux-progressifs/fr-ko/L8.json": "ef32837d87d214848f3f11f7f01b4df1ca47b7be3a56fdb5f61c0935d68a80f1",
+    "melunga_deploy/content/niveaux-progressifs/fr-ko/L9.json": "aa40c8ac1e74117d4510d700e436910f0e50ca6a6aa03857ddcdfdb3913f9431",
+    "melunga_deploy/content/niveaux-progressifs/fr-zh/L1.json": "404e41e59013e4adc4c80576d0c1279ea593d11e42388628ebeadc7af0167025",
+    "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json": "432c7d4520647a0bf1573a548c9612a15677daabcf50322309211faaf309fd02",
+    "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json": "024ae668d42b5defcd5419b68c20fd9b6dd2eef3c8890f728d779818c75aa938",
+    "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json": "f9fbbed86e9f7a82fae42aa996b6ae2f2aa3c31276e2e5e1163946645b344f7c",
+    "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json": "4ecabb2da0a1e3d63a03bd108a43490f8dd0b9694c0fa30168884d8f5a4ccd10",
+    "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json": "6b0c2261c330d60656420d9eaa984766c6628e4c29463e4b50a24cd3220bd673",
+    "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json": "33174b78f190801848fb8642be5390f0b24d8cd20f0ecb66a8618a8d8bf55780",
+    "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json": "569be5ab104d9c405e9509f923d4ca3d66c13e781bdb6f2cc6b12454488681d8",
+    "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json": "424ad101a65ec93195f25f555f5504a1943433b25889f23e078345b11c50b7d4",
+    "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json": "a821204e518d443720cfc12f503d13624e1fe2879aa4c9dc15fa22fd27765999",
+    "melunga_deploy/content/niveaux-progressifs/manifest.json": "183eea8ecc7b0a57ff94a0e23f08e64c8aba173a1c25918e75306cf2d57248e8",
+    "melunga_deploy/content/niveaux-progressifs/repertoires/fr-en.json": "e0cb781e93ce169b725aed439b71d1be885011a6282ec6deeb8ee57992b68a4f",
+    "melunga_deploy/content/niveaux-progressifs/repertoires/fr-es.json": "0c3c159ed38af4a98627d809464df568ecb26c41f08b9af5a678836775aaa1d9",
+    "melunga_deploy/content/niveaux-progressifs/repertoires/fr-it.json": "a9bc15c5426f5330e56e7ed84663b66ca4fb109df4f69928ae11c63d47dda788",
+    "melunga_deploy/content/niveaux-progressifs/repertoires/fr-ja.json": "69eaa2d3453cf369e79fa15b82ecd7bf4b65a26f60c57efd69e27bf2ba0fcd26",
+    "melunga_deploy/content/niveaux-progressifs/repertoires/fr-ko.json": "c31d482b05ef65079194bef2ecfe58550e95c2669c1a1fd57ce7c11a47052dfe",
+    "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json": "953c3f3567f9b982d7fd9ba43fdf4326272838ed1868b786244e90e95e3f3a96",
+    "melunga_deploy/content/niveaux-progressifs/repertoires/zh-fr.json": "04690a0e54358094e585ff396fb16af2902fa5cb13cf2fa4505a7b7d0cc7a64a",
+    "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json": "5f39500ebaf485f09199f65f51bd14747ce9611a07ef8de127e7b53c508f05ae",
+    "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json": "42dfe5d9aa072f0ad44e1dd065031fc7da2054e36f732b3f2602e3fdddaa83bb",
+    "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json": "f32b1dca6915e43a85a21433ed314a081acad1ef72155f6bb59e2521a74df896",
+    "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json": "7104993c6ab8638a2fcaac87dcef4e9e80a20657aa1316653cd764a99b84732b",
+    "melunga_deploy/content/niveaux-progressifs/zh-fr/L4.json": "94808436a2fd41474c3d26d8e4b4974104c6d473ab6d3ccacc13f0baa87768c0",
+    "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json": "c87a929e0e5887c9276c6b496509f8867624634a7dbc285613d1abf36332e810",
+    "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json": "6f784aa3b0e2e7373b8f9d7c53264c01ea0ff78eda72c85b4d7e9bb87a03875c",
+    "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json": "22de69f92612ece2b0004b25530a1aa74b23fe5b2d41b9ef1b030dc3df3ae0b0",
+    "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json": "90f9cfd76a31f689799478ea5f96d46074a322b6d89473e6f13a6fb9201dc62b",
+    "melunga_deploy/content/niveaux-progressifs/zh-fr/L9.json": "9e9dcd706166b22bdb2063d4fed21cf0226a21005d1cb4b21284552c00bc968a",
+    "melunga_deploy/tests/levels-themes.browser.cjs": "c33b375ed561d012e6e1fd85727394e6a269dd8ed269df6dcd31ff473632cef1",
+    "melunga_deploy/tests/lot3-corrections.cjs": "4e2cd8723bfbce2efdc6bcb2cb586c4633911aee99539213f6ac98fd323aac66",
+    "melunga_deploy/tests/lot4-corrections.cjs": "8e5bb7a6243c5e32bbb04f30f3856438df5dfa2653d38366bbac5099ea00b2f2",
+    "melunga_deploy/tests/lot5-corrections.cjs": "3462c3b81ad6e42e8b3b074c2a714f7bfb2ba551cba52c27680a799722b26ccc",
+    "melunga_deploy/tests/lot6-corrections.cjs": "b33c2859d3d6b4f22bc0a5336e27dc89f22dfa992a62e4fbd2bf49c6fa2104a5",
+    "melunga_deploy/tests/lot7-corrections.cjs": "148143cd3ff107e1229668935bc1846de547462cef0c41057af43da6805f2b1c",
+    "melunga_deploy/tests/lot8-corrections.cjs": "da0169e96c196e35e801a2f1341cf51936129067aa299c5de6700bb3099bc2ee",
+    "melunga_deploy/tests/phonetic-corrections.cjs": "77cead28a887a60fb5b2f91830345608851320cc8ea9e255d644cc95feccf186",
+    "tools/maquette-guidee/build_levels.py": "e736fba21cabfa48c2e3b4fa5ce1900528fedd7b79dfdd20561a8e0b645bda9a",
+    "tools/maquette-guidee/check_levels_independent.py": "7f71bbc9d0bac38963b4f7aa21542d92f02b9fd3f1a87d8be525769725a0a21f",
+    "tools/maquette-guidee/lot4_corrections.py": "d66df7ecf93d9e8557fc05945a833dd78b474116703f542e258cc8538bb3e668",
+    "tools/maquette-guidee/lot5_corrections.py": "70fd9d2dba518c5efa6683c90f3a794765cd8b6718019265a150140b54be9ca4",
+    "tools/maquette-guidee/lot6_corrections.py": "4892378b9bf427ab19e808aba8078eb394d07ffade6a8628b3fac8465221efe0",
+    "tools/maquette-guidee/lot7_corrections.py": "111be2124ec7471bfc178485d9cd493dde3c77dffee2320e5de5d91ef4af111f",
+    "tools/maquette-guidee/lot8_corrections.py": "d52f98f83d3cb31e354083ce0af704282c4c554edd8b2968f1b028f1751a4f98",
+    "tools/maquette-guidee/phonetic_corrections.py": "887276bafb91743168ee0cd9ef564967e352d141710e46fed8738b63f0235af4",
+    "tools/maquette-guidee/reviewed_field_corrections.py": "d4bbab07b7c3c62ec5c5609aa48728a09b65e529d827c89014496d84cee98351"
+  }
+}

@@ -1,5 +1,7 @@
 # Reprise du lot 7 — anglais pour francophones
 
+État historique du lot 7 à `224e459`. Le [lot 8](../verification-raccord-lot8.md) décrit l’édition actuelle.
+
 La livraison de Claude `dec4e90` est raccordée sur les avant de `d56fe23`,
 après les couches précédentes conservées. Deux registres séparent les aides
 phonétiques des corrections de contenu.

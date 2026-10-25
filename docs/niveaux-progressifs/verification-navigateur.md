@@ -1,6 +1,6 @@
 # Vérification navigateur du parcours local
 
-Exécution : `2026-10-25T20:36:12.834Z` — statut **passed**.
+Exécution : `2026-10-25T22:14:05.870Z` — statut **passed**.
 
 Chromium local, largeurs 320, 390 et 1440 px. Ces vues émulent des écrans ; aucun téléphone physique ni site déployé n’a été testé par cette suite.
 
@@ -25,12 +25,11 @@ Le TTS est remplacé par un témoin d’envoi : cette suite vérifie le texte tr
 
 Rapport détaillé : [verification-navigateur.json](verification-navigateur.json).
 Plan : `d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379`.
-Manifeste : `f83b69bd81e2b6b8c09146f3882d67ed3e6931af83cc8783cc00df427b1676f9`.
+Manifeste : `183eea8ecc7b0a57ff94a0e23f08e64c8aba173a1c25918e75306cf2d57248e8`.
 
-L’édition du lot 7 ajoute 228 aides anglaises entières, puis 11
-gloses et cinq blocs complets dans un registre distinct. Les études et aides
-changent ensemble ; trois blocs changent aussi le sens, deux le gardent. Les après
-sont validés avant projection privée des seules corrections attestées vers
-les sources historiques. Les six familles anglaises et les cinq blocs atomiques font
-l’objet de tests ciblés supplémentaires. Les 689 propositions et les 30
-conventions restent non appliquées. Voir [le raccord lot 7](verification-raccord-lot7.md).
+L’édition du lot 8 ajoute 63 aides espagnoles, puis 18 gloses, deux études
+ponctuées et trois blocs complets dans un registre distinct. Les deux études
+seules gardent aide, sens et statut ; les trois blocs changent étude et aide
+ensemble, un seul change aussi le sens. Les après sont validés avant projection
+privée des seules corrections attestées vers les sources historiques. Les 310
+propositions et 151 conventions restent non appliquées. Voir [le raccord lot 8](verification-raccord-lot8.md).

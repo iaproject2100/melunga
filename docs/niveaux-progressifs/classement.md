@@ -193,3 +193,19 @@ Le registre `docs/niveaux-progressifs/corrections-contenu/lot7/revue-contenu-lot
 Les 95 gloses incertaines, 689 propositions de thème/niveau/doublon et 30 conventions restent non appliquées. Aucun placement, niveau ni droit n’est modifié.
 
 Empreinte du registre de contenu : `68a81f3568ba85f1de5f0ca3e2f5494728f65e806536e36f136376b22fac22a0`.
+
+## Aides espagnoles figées — lot 8
+
+Le registre `docs/niveaux-progressifs/corrections-phonetiques/lot8/revue-claude-lot8.json` applique **63 aides entières**, dont un modèle reçu et une copie de transport : **64 objets / 64 champs**. Aucune lecture ne change. Les 31 S, 11 G, dix R, neuf A et deux T sont des événements ciblés ; R ne s’étend pas aux autres r simples.
+
+Les 151 conventions, dont les 112 lignes de jota r/kh/rh, restent non appliquées. L’ancienne correction B de 3159 conserve sa provenance.
+
+Empreinte du registre : `c58e4d14762d53cec30721acc36d97a2d8bfa40bdb22e4827d283ba3be773ed1`.
+
+## Contenu espagnol séparé — lot 8
+
+Le registre `docs/niveaux-progressifs/corrections-contenu/lot8/revue-contenu-lot8.json` applique **18 gloses, deux études de ponctuation seules et trois blocs atomiques étude/aide ± sens**, dans **24 objets / 28 champs**. Les études seules gardent aides, sens et statuts phonétiques ; la copie du soutien estómago est mise à jour avec son canonique.
+
+Les 310 propositions et 119 corrections incertaines restent non appliquées. Aucun niveau, thème, rôle ou droit ne change.
+
+Empreinte du registre de contenu : `756c2e867928b24a0e4e8a86216072f4fea2dfa832d3938b5e38dc622c01a8ce`.

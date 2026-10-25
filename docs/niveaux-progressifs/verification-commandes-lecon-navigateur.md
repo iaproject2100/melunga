@@ -1,6 +1,6 @@
 # Vérification des commandes et de la fiche sans défilement
 
-Exécution : `2026-10-25T20:30:47.838Z` — **9 contrôles sur 9 réussis**.
+Exécution : `2026-10-25T22:08:39.757Z` — **9 contrôles sur 9 réussis**.
 
 Chromium local, écrans émulés. Aucun téléphone physique ni site public testé. Les voix sont simulées pour vérifier le texte transmis ; ce rapport ne valide ni le son réel ni les phonétiques.
 
@@ -48,3 +48,10 @@ sont validés avant projection privée des seules corrections attestées vers
 les sources historiques. Les six familles anglaises et les cinq blocs atomiques font
 l’objet de tests ciblés supplémentaires. Les 689 propositions et les 30
 conventions restent non appliquées. Voir [le raccord lot 7](verification-raccord-lot7.md).
+
+L’édition du lot 8 ajoute 63 aides espagnoles, puis 18 gloses, deux études
+ponctuées et trois blocs complets dans un registre distinct. Les deux études
+seules gardent aide, sens et statut ; les trois blocs changent étude et aide
+ensemble, un seul change aussi le sens. Les après sont validés avant projection
+privée des seules corrections attestées vers les sources historiques. Les 310
+propositions et 151 conventions restent non appliquées. Voir [le raccord lot 8](verification-raccord-lot8.md).

@@ -22,12 +22,12 @@ Les trois reçus clarifiés apportent respectivement une direction réelle vers 
 
 Les anciens dix modules, leurs 560 positions et le stock lexical rédigé précédent sont protégés. Les 32 115 cartes historiques, leurs champs et leurs niveaux d’accès restent intacts ; le niveau éditorial ne réécrit pas `lv`. Codex assure le sens, le classement, la cohérence et la progression ; Claude relit aussi les thèmes et niveaux dans le mandat élargi de revue intégrale. Rien dans ce document ne constitue une publication.
 
-Manifeste : `f83b69bd81e2b6b8c09146f3882d67ed3e6931af83cc8783cc00df427b1676f9`. Plan : `d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379`.
+Manifeste : `183eea8ecc7b0a57ff94a0e23f08e64c8aba173a1c25918e75306cf2d57248e8`. Plan : `d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379`.
 
 
-La vérification navigateur du **2026-10-25T20:36:12.834Z** réussit **19 contrôles sur 19**, avec **210 vues** (320, 390 et 1440 px), 196 rubriques de situation et 1 568 positions apprenant. Les 259 reçus et 252 soutiens sont sourcés ; 133 questions/objections ciblent une réponse comprise et imitée, 126 clôtures déclarent une liste de réponse vide. Neuf corruptions du réemploi et treize corruptions des reçus/soutiens sont refusées avant rechargement d’une banque corrigée. Les 278 emplacements photo dans 24 atlas et la page L1 v1 sont vérifiés. Les cellules, banques, ledgers, sources, images et le code restent stables pendant l’exécution.
+La vérification navigateur du **2026-10-25T22:14:05.870Z** réussit **19 contrôles sur 19**, avec **210 vues** (320, 390 et 1440 px), 196 rubriques de situation et 1 568 positions apprenant. Les 259 reçus et 252 soutiens sont sourcés ; 133 questions/objections ciblent une réponse comprise et imitée, 126 clôtures déclarent une liste de réponse vide. Neuf corruptions du réemploi et treize corruptions des reçus/soutiens sont refusées avant rechargement d’une banque corrigée. Les 278 emplacements photo dans 24 atlas et la page L1 v1 sont vérifiés. Les cellules, banques, ledgers, sources, images et le code restent stables pendant l’exécution.
 
-Rapport détaillé : [verification-navigateur.json](../../verification-navigateur.json), empreinte `6c0cd78f736d5325058e6019915094f57097ebfe7172c38b2729d1cc3b5d1720`. Le contrôle audio utilise un témoin TTS qui vérifie le texte entier et sa langue ; il ne valide pas le son réel ni la phonétique. Aucun site déployé ni téléphone physique n’est certifié par ce passage local.
+Rapport détaillé : [verification-navigateur.json](../../verification-navigateur.json), empreinte `6e55e152c1902d3b890b4b91d96b9f1afd097de9b4d0198cc44327796463d4be`. Le contrôle audio utilise un témoin TTS qui vérifie le texte entier et sa langue ; il ne valide pas le son réel ni la phonétique. Aucun site déployé ni téléphone physique n’est certifié par ce passage local.
 
 Le raccord phonétique du 25 octobre vérifie les après exacts et leurs annotations avant de comparer les tuples sources sur une projection privée vers les avant. Les indicateurs `sourceTuplesMatchLedger` se rapportent à ce contrôle des origines, pas à une identité verbatim des aides corrigées avec le ledger historique. L’affichage est comparé aux après réels. Voir [la vérification du raccord](../../verification-raccord-phonetique.md).
 
@@ -50,3 +50,11 @@ contrôlés avant comparaison des origines sur une projection privée.
 Les 689 propositions, 30 conventions et 95 gloses incertaines restent non
 appliquées. Cette vérification ne remplace pas les vingt cellules de lecture
 individuelle restant à Claude.
+
+Le lot 8 ajoute 63 aides espagnoles entières, puis 18 gloses, deux études et
+trois blocs, séparément. Les après et annotations sont contrôlés avant
+comparaison des origines sur une projection privée. Les 310 propositions,
+151 conventions et 119 contenus incertains restent non appliqués. Les champs
+phonétiques conventionnels restent gardés ; une glose peut être corrigée
+séparément sur la même carte. La lecture individuelle annoncée atteint 60/70,
+les dix cellules fr→it restent à lire.

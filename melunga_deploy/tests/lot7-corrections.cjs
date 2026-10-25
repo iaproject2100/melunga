@@ -8,6 +8,7 @@ const path=require('node:path');
 const crypto=require('node:crypto');
 const {execFileSync}=require('node:child_process');
 const {isDeepStrictEqual}=require('node:util');
+const lot8Corrections=require('./lot8-corrections.cjs');
 const ROOT=path.resolve(__dirname,'..','..'),WEB=path.join(ROOT,'melunga_deploy');
 const BASELINE='d56fe23b4bafd63bbd2d4aefb67896dbc12374a2';
 const COMMIT='dec4e90a01ca40dca2394ac43eb37a4771b011b1';
@@ -132,7 +133,7 @@ function projectStage(which,pair,phrase,expectedBefore){
  if(entry.fields.phon||before.phoneticReviewStatusPresent)assert.equal(phrase.phoneticReviewStatus,statusFor(which,entry,before));
  return copy;
 }
-function projectBefore(pair,phrase){return projectStage('A',pair,projectStage('B',pair,phrase));}
+function projectBefore(pair,phrase){phrase=lot8Corrections.projectBefore(pair,phrase);return projectStage('A',pair,projectStage('B',pair,phrase));}
 function verifyPhrase(pair,phrase){projectBefore(pair,phrase);return phrase;}
 function projectDocument(pair,document,isBank){
  const copy=clone(document);
@@ -141,9 +142,10 @@ function projectDocument(pair,document,isBank){
  return copy;
 }
 function declaration(which,audit=loadRegistries()[which]){const r=audit.registry;return{registryPath:SPEC[which].path,registrySha256:audit.registrySha256,baseSnapshotCommit:BASELINE,appliesAfter:r.appliesAfter,correctionCount:r.correctionCount,eventCount:r.eventCount,approvedFieldCount:r.approvedFieldCount,changedFieldCount:r.changedFieldCount,evidenceCommits:[COMMIT]};}
-function manifestDeclarations(){return Object.fromEntries(['A','B'].map(which=>[SPEC[which].manifest,declaration(which)]));}
-function inputFiles(){const audits=loadRegistries();return[__filename,...['A','B'].flatMap(which=>[path.join(ROOT,SPEC[which].path),...audits[which].registry.evidenceFiles.map(file=>path.join(ROOT,file.path))])];}
+function manifestDeclarations(){return {...Object.fromEntries(['A','B'].map(which=>[SPEC[which].manifest,declaration(which)])),...lot8Corrections.manifestDeclarations()};}
+function inputFiles(){const audits=loadRegistries();return[__filename,...['A','B'].flatMap(which=>[path.join(ROOT,SPEC[which].path),...audits[which].registry.evidenceFiles.map(file=>path.join(ROOT,file.path))]),...lot8Corrections.inputFiles()];}
 function auditRuntime(){
+ const lot8Audit=lot8Corrections.auditRuntime();
  const audits=loadRegistries(),manifestPath='melunga_deploy/content/niveaux-progressifs/manifest.json',manifest=read(manifestPath),old=baseline(manifestPath);
  const files=old.pairs.flatMap(pair=>[pair.repertoirePath,...pair.levels.map(level=>level.dataPath)]).map(file=>'melunga_deploy/'+file);assert.equal(files.length,77);const stats={};
  for(const which of ['A','B']){const audit=audits[which];let changed=0;
@@ -158,7 +160,7 @@ function auditRuntime(){
  for(const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html'])assert.ok(fs.readFileSync(path.join(WEB,filename)).equals(execFileSync('git',['show',BASELINE+':melunga_deploy/'+filename],{cwd:ROOT,maxBuffer:32*1024*1024})),'UI/classic byte-for-byte unchanged');
  assert.equal(stats.A.changedFields,238);assert.equal(stats.B.changedFields,24);
  assert.equal(new Set([...audits.A.entries.keys()].filter(id=>audits.B.entries.has(id))).size,0,'separate content identities do not overlap phonetic identities');
- return{phonetic:stats.A,content:stats.B,files:77,changedRuntimeFields:262,objects:254};
+ return{phonetic:stats.A,content:stats.B,files:77,changedRuntimeFields:262,objects:254,lot8:lot8Audit};
 }
 module.exports={loadRegistries,verifyPhrase,projectBefore,projectDocument,manifestDeclarations,declaration,auditRuntime,inputFiles,baseline,beforeProfile,projectStage};
 
