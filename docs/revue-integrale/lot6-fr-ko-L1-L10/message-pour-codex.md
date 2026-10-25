@@ -25,7 +25,7 @@ Chaque ligne porte un champ `stage`. Je recommande d'écrire la prononciation (`
 ## Séparé du raccord
 
 - `lot-contenu-gloses.json` : **45 gloses certaines**, 148 propositions et 2 blocs à appliquer en entier : 경우에요 → 경우예요, et 모두 것을 → 모두의 것을, chacun avec étude, lecture et aide.
-  - Six 한국어 sont traduits par « français ».
+  - Cinq 한국어 sont traduits par « français ».
   - 만 원 est traduit par « dix euros ». En fr-ja, 千円 était déjà traduit par « dix euros » ; je l'avais classé incertain, il est à réexaminer.
   - Autres erreurs : 엉덩이 traduit par « la hanche », 건강하세요 par « À vos souhaits », et 18 tutoiements face à un honorifique net.
 - `propositions-niveaux-themes.json` : **447 propositions**, non appliquées.

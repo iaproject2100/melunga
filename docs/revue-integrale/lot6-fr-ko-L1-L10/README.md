@@ -63,7 +63,7 @@ Une remarque d'un lecteur a été écartée : `kho-pi`. Dans les cartes de situa
 
 [`lot-contenu-gloses.json`](lot-contenu-gloses.json).
 
-- **한국어 est traduit « français » dans six cartes**, la même famille que 日本語 en fr-ja. Une recherche sur tout le couple n'en trouve pas d'autre.
+- **한국어 est traduit « français » dans cinq cartes**, la même famille que 日本語 en fr-ja. Une recherche sur tout le couple n'en trouve pas d'autre.
 - **만 원 est traduit « dix euros »** au lieu de « dix mille wons ». En fr-ja, 千円 est rendu de la même façon : je l'avais classé incertain, il mérite d'être réexaminé.
 - **Faux sens** :
   - 엉덩이 (les fesses) rendu « la hanche » ;
@@ -99,3 +99,8 @@ Un lecteur note que, dans sa partie, 220 des 240 cartes du L5 sont rangées dans
 - Un vérificateur indépendant a relu les 18 aides, les 5 lectures, les 47 gloses et les 2 blocs. J'ai intégré ses corrections : 2 gloses déclassées, les lectures de 닭 alignées sur l'orthographe, `eui` dans 모두의, et 4 formulations ajustées.
 - Une écoute native reste nécessaire.
 - Rien n'est fusionné dans `main` ni publié sur melunga.com.
+
+## Suivi après le retour de Codex (`d56fe23`)
+
+- Le décompte est rectifié : **cinq** 한국어 sont traduits « français » (1679, 1472, 1900, 1902, 1847), et non six. Le sixième résultat de ma recherche était la carte 1678, celle des wons. Le total de 45 gloses ne change pas.
+- Le motif de la lecture de 4125 donne [달글] comme prononciation de 닭이. La bonne prononciation est [달기]. Les après `dalg-i` et `dal-gui` restent justes, et le registre livré n'est pas modifié.
