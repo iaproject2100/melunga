@@ -1,5 +1,10 @@
 # Vérification du raccord phonétique — 25 octobre 2026
 
+État vérifié à `3df885d`, avant le lot 3. Le nouveau raccord est documenté
+dans [le dossier du lot 3](reponse-revue-integrale-lot3/README.md), avec les
+cinq lectures/Pinyin explicitement corrigées. Les empreintes de ce premier
+rapport restent celles de son édition datée.
+
 **Raccord généré et contrôlé : 774 événements, 772 cartes distinctes, 786 occurrences.**
 Deux identifiants chinois reçoivent B puis D ; 14 copies de transport utilisent
 la même aide finale que la carte canonique. Aucun tour reçu n’est modifié par

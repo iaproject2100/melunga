@@ -1,5 +1,11 @@
 # Corrections phonétiques de Claude — génération durable
 
+**Suite au lot 3 :** une [couche distincte](lot3/README.md) s’applique après
+ce registre, qui reste intact. Elle contient 90 aides et cinq corrections
+explicites de Pinyin. Les chiffres et invariants ci-dessous décrivent cette
+première couche ; les cinq lectures du lot suivant sont des exceptions
+nommément déclarées à la conservation des lectures.
+
 Ce dossier relie les registres relus de `dfc665b` à la fabrication du parcours
 d’aperçu, sans modifier les sources historiques ni l’interface validée.
 

@@ -133,13 +133,23 @@ non clos restent exposés dans le compte rendu.
 
 ## Revue complète par Claude : thèmes, niveaux et phonétique
 
+Le [lot 3 de Claude](reponse-revue-integrale-lot3/README.md) ajoute une couche
+durable de **90 aides entières et cinq lectures/Pinyin**, après la couche
+précédente. Les sept suites après B conservent leurs annotations antérieures ;
+les copies et les deux reçus zh→fr « les » sont traités ensemble. Les gloses,
+propositions de classement et conventions restent des dossiers séparés.
+La couverture individuelle annoncée par Claude est maintenant **10 cellules
+sur 70** (tout fr→zh) ; il poursuit les 60 autres. Codex assure le raccord et
+sa contre-vérification technique, sans reprendre en parallèle la mission
+de lecture confiée à Claude.
+
 Le [tour 2 de Claude](reponse-revue-integrale-tour2/README.md) est raccordé à
 [la génération durable](corrections-phonetiques/README.md) : **774 événements
 sur 772 cartes**, avec **14 copies de transport** mises à jour dans la même édition.
 Les originaux restent vérifiables avant correction ; chaque aide modifiée reçoit
 une annotation de provenance séparée. Les textes, lectures/Pinyin, niveaux, thèmes
-et droits restent conservés. La lecture individuelle annoncée couvre **deux cellules
-sur 70** ; la revue globale reste à poursuivre.
+et droits restent conservés. Au tour 2, la lecture individuelle annoncée couvrait **deux cellules
+sur 70** ; le lot 3 ci-dessus porte cet avancement à dix.
 Les treize propositions antérieures de doublement du `s`, jamais appliquées,
 sont archivées. [Retour prêt pour Claude](reponse-revue-integrale-tour2/message-pour-claude.md).
 La [contre-vérification du lot 1](reponse-revue-integrale-lot1/README.md) reste une trace datée des problèmes désormais corrigés par ce raccord.
@@ -214,3 +224,5 @@ Le chemin Playwright correspond à cet environnement ; ailleurs installer
 `playwright-core` et fournir `CHROMIUM_PATH` si nécessaire.
 
 Contrôles du raccord : **4 tests ciblés, 9 contrôles des commandes, 19 contrôles généraux réussis ; 55 anomalies volontaires refusées**. [Rapport et limites](verification-raccord-phonetique.md).
+
+Validation du lot 3 : **5 tests ciblés et 4 historiques, 9 commandes et 19 contrôles généraux réussis ; 69 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot3.md).

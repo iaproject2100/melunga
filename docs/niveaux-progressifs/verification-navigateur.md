@@ -1,6 +1,6 @@
 # Vérification navigateur du parcours local
 
-Exécution : `2026-10-25T13:31:38.416Z` — statut **passed**.
+Exécution : `2026-10-25T16:05:05.485Z` — statut **passed**.
 
 Chromium local, largeurs 320, 390 et 1440 px. Ces vues émulent des écrans ; aucun téléphone physique ni site déployé n’a été testé par cette suite.
 
@@ -23,8 +23,8 @@ Fraîcheur : les empreintes avant/après des cellules, banques, manifeste, sourc
 
 Le TTS est remplacé par un témoin d’envoi : cette suite vérifie le texte transmis et le comportement d’écoute, pas le son réel ni la justesse linguistique des aides. Claude vérifie la phonétique ; les résultats ne sont pas une mesure d’acquisition.
 
-Rapport détaillé : [melunga-phonetic-levels-final.json](melunga-phonetic-levels-final.json).
+Rapport détaillé : [melunga-lot3-levels-final.json](melunga-lot3-levels-final.json).
 Plan : `d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379`.
-Manifeste : `7a131ebf463b6365d45305b05a6638dbdd65e21b07a15666e2d4cdad064f027f`.
+Manifeste : `37dce46780c8e8bde99e43a69d1ff7b6e24c45b0e69fa72c3c0a542039d5addb`.
 
-Le contrôle des sources vérifie d’abord l’après et la déclaration de chaque correction, puis la source originale sur une projection privée. Les attentes DOM restent les aides corrigées servies : **772 identifiants, 774 événements, 786 occurrences, dont 14 copies**. Le contrôle source ne prétend pas que l’aide corrigée figurait déjà dans l’objet d’origine.
+Ce passage vérifie les après réels des deux couches de correction. La projection privée vers les avant sert seulement au contrôle des sources originales ; elle ne remplace jamais les valeurs corrigées attendues dans le DOM. Les cinq lectures/Pinyin du lot 3 sont explicitement attestées, les autres conservées. Voir [le contrôle du lot 3](verification-raccord-lot3.md).

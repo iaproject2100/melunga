@@ -1,12 +1,14 @@
+Retour le plus récent : [lot 3 — raccord des aides et lectures](reponse-revue-integrale-lot3/message-pour-claude.md).
+
 # Message pour Claude — revue complète et corrections
 
 Claude — **nouvelle consigne de Kartech du 25 octobre 2026** : ta mission comprend désormais **la vérification et la correction du classement par thème, du niveau pédagogique et de la phonétique de toutes les cartes**. Cette consigne remplace la précédente limitation « phonétique uniquement ». Codex conserve la responsabilité de l’intégration et des contrôles techniques.
 
 ## Accès complet
 
-- **[Aperçu L1–L10 sans compte Melunga ni abonnement](https://deploy-preview-14--chic-dragon-e2baf2.netlify.app/parcours-niveaux.html?pair=fr-zh&level=1&v=4ec163e)** : changer de couple et de niveau avec les sélecteurs.
-- **[Tous les fichiers du contenu dans GitHub](https://github.com/iaproject2100/melunga/tree/4ec163e68b60bff98a63baf52a36428f6ffe63fa/melunga_deploy/content/niveaux-progressifs)**.
-- **[Manifeste JSON brut](https://raw.githubusercontent.com/iaproject2100/melunga/4ec163e68b60bff98a63baf52a36428f6ffe63fa/melunga_deploy/content/niveaux-progressifs/manifest.json)**.
+- **[Aperçu L1–L10 sans compte Melunga ni abonnement](https://deploy-preview-14--chic-dragon-e2baf2.netlify.app/parcours-niveaux.html?pair=fr-zh&level=1&v=lot3)** : changer de couple et de niveau avec les sélecteurs.
+- **[Tous les fichiers du contenu dans GitHub](https://github.com/iaproject2100/melunga/tree/review/themes-niveaux-progressifs/melunga_deploy/content/niveaux-progressifs)**.
+- **[Manifeste JSON brut](https://raw.githubusercontent.com/iaproject2100/melunga/review/themes-niveaux-progressifs/melunga_deploy/content/niveaux-progressifs/manifest.json)**.
 - [Index des 70 niveaux, sept répertoires et périmètre exhaustif](acces-revue-integrale.md).
 
 L’aperçu n’a pas de verrou de compte Melunga. Si ton environnement bloque Netlify, utilise les fichiers GitHub bruts ou le dépôt : un lien ne lève pas une restriction réseau. Le manifeste GitHub brut est accessible sans authentification. Aucun compte partagé ni secret d’administration n’est nécessaire.

@@ -6932,13 +6932,16 @@
     "legacy-v1-compatibility",
     "photo-atlases-and-network-isolation"
   ],
-  "manifestSha256": "7a131ebf463b6365d45305b05a6638dbdd65e21b07a15666e2d4cdad064f027f",
-  "cellBundleSha256": "ea94748006f3eddfafd2b5feea6e2b8ae734064d3ce0b2ebcf45674dd2693b95",
-  "repertoireBundleSha256": "3997407988ac706fc1de2bd7fcbbefd73d114dc4b2014eb1a2a6bdab7965fd4f",
+  "manifestSha256": "37dce46780c8e8bde99e43a69d1ff7b6e24c45b0e69fa72c3c0a542039d5addb",
+  "cellBundleSha256": "602340ee399626e7f60c82713960b1e09de1bbf3fbc84536bc837c14fe55ab07",
+  "repertoireBundleSha256": "2244f1848bf4d2582507250c9f837e9dbab2543010685ed1fb8e45093430106d",
   "authoredSourceSha256": "db4a040fef882b2c35304e76b357b16e5928f838398c7f9029521b4402c99fb6",
   "situationInputsSha256": {
     "docs/niveaux-progressifs/corrections-phonetiques/evidence-registre-phonetique.json": "2833fca404acbac078e03090c864b4dd1a8aaa658ab626563672d20c0db9569c",
     "docs/niveaux-progressifs/corrections-phonetiques/evidence-registre-tj.json": "856ccdd4525fdd74706ae16081c28e60bd629b3e83039502df81f824ebca74d0",
+    "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-lectures.json": "c029d571a59303733d5bfa85fec59b94f0b989eb24a4d3c490a4a9fe50fd4ea8",
+    "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json": "09e470b8fba9004b62bcb9fbc5fe036dbda2d91c68868b178f9ba810a06ea9ba",
+    "docs/niveaux-progressifs/corrections-phonetiques/lot3/revue-claude-lot3.json": "20ad657496a94a036c8e6aa74088f172ddc8c4ebb7eacb074f2133fa84beb393",
     "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
     "docs/niveaux-progressifs/enrichissement-situations/catalogue.json": "02e782cd7f523e6e38a76cff461bca2d2687f8814c9f9cb03620a55461cb7cb5",
     "docs/niveaux-progressifs/enrichissement-situations/extension-fr-en.json": "7004a46b7da5726fb0e548f73b5b3ae9c845e51cec2cc67f3e5945457f120c95",
@@ -7021,8 +7024,9 @@
     "melunga_deploy/maquette-guidee.html": "ab0eceb14283a2ada39298edf4dea5e24d93b303f61ac275a8edb4734680a0b3",
     "melunga_deploy/maquette-guidee.js": "22619f3cee55ac7765a4ca748aa8d27929ca51a9c698250fca78537c7d637720",
     "melunga_deploy/parcours-niveaux.html": "8da34e754184852b0a5bbbc9faf4ac73dd0945befc43617eabeb8fb099bbcb24",
-    "melunga_deploy/tests/levels-themes.browser.cjs": "799f9b0e568cccf5997d8c85faa7a177a0c743c0b99a1b3076dc092c447c8142",
-    "melunga_deploy/tests/phonetic-corrections.cjs": "2b51bb949ae9dd2c8d34a86b0c1378789bef5a76a687deda7d80023db8339909"
+    "melunga_deploy/tests/levels-themes.browser.cjs": "d94243e9a9dc28a76f84898b8b231a413d719054676a35ee388cefaa3398eefc",
+    "melunga_deploy/tests/lot3-corrections.cjs": "652d59cbada4e9de44f15bdf570fda4d87ec1aef326f0733b8318033739ced3f",
+    "melunga_deploy/tests/phonetic-corrections.cjs": "5f3cb9582b4084b0d9b8486849780a5515245a007a6c5d2e463ad4e0cdf9fc54"
   },
   "situationPlanSha256": "d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379",
   "externalRequests": [],
@@ -7031,6 +7035,34 @@
     "correctionCount": 772,
     "eventCount": 774,
     "occurrences": 786,
+    "files": 77,
+    "lot3": {
+      "correctionCount": 91,
+      "eventCount": 95,
+      "phoneticEvents": 90,
+      "readingEvents": 5,
+      "occurrences": 98,
+      "fields": 102,
+      "profiles": {
+        "canonical": 88,
+        "transport-phrase": 7,
+        "received-model": 3
+      },
+      "files": 77
+    }
+  },
+  "reviewedFieldCorrectionsSourceAudit": {
+    "correctionCount": 91,
+    "eventCount": 95,
+    "phoneticEvents": 90,
+    "readingEvents": 5,
+    "occurrences": 98,
+    "fields": 102,
+    "profiles": {
+      "canonical": 88,
+      "transport-phrase": 7,
+      "received-model": 3
+    },
     "files": 77
   },
   "additionalWholeSourceAudit": {
@@ -7343,5 +7375,5 @@
     "received-reference-guards-and-retry"
   ],
   "completeSuiteCoverage": true,
-  "executedAt": "2026-10-25T13:31:38.416Z"
+  "executedAt": "2026-10-25T16:05:05.485Z"
 }

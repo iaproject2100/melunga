@@ -1,0 +1,3177 @@
+{
+  "version": 1,
+  "status": "bounded-90-whole-aid-and-5-reading-review-complete",
+  "baselineCommit": "3df885df8db00f0bdc2a703b92bd17801accabce",
+  "evidenceCommit": "d06a62ea36120ffd73b8059645848c13bd4f172d",
+  "evidenceSha256": {
+    "registre-phonetique.json": "09e470b8fba9004b62bcb9fbc5fe036dbda2d91c68868b178f9ba810a06ea9ba",
+    "registre-lectures.json": "c029d571a59303733d5bfa85fec59b94f0b989eb24a4d3c490a4a9fe50fd4ea8"
+  },
+  "phoneticWholeAidsActuallyRead": 90,
+  "readingEventsActuallyRead": 5,
+  "readRanges": [
+    [
+      0,
+      24
+    ],
+    [
+      25,
+      49
+    ],
+    [
+      50,
+      74
+    ],
+    [
+      75,
+      89
+    ]
+  ],
+  "eventRules": {
+    "E": 42,
+    "G": 8,
+    "F": 16,
+    "I": 12,
+    "H": 5,
+    "J": 4,
+    "G+E": 1,
+    "C": 2
+  },
+  "wholeAidAndReadingErrorsDetected": [],
+  "priorBEvents": [
+    {
+      "id": "catalogue:zh:1016",
+      "basePhon": "djeu-gueu dzer-eune ouo laï kang",
+      "originalPhon": "djeu-geu dzer-eune ouo laï kang",
+      "afterPhon": "djeu-gueu dzeu-jeune ouo laï kang",
+      "rule": "B",
+      "annotationPreservedByRequiredContract": true
+    },
+    {
+      "id": "catalogue:zh:1143",
+      "basePhon": "djeu-gueu chr-djyèn tsouèï-houa leu byang-eu",
+      "originalPhon": "djeu-geu chr-djyèn tsouèï-houa leu byang-eu",
+      "afterPhon": "djeu-gueu chr-djyèn tsouèï-houa leu byèn-gueu",
+      "rule": "B",
+      "annotationPreservedByRequiredContract": true
+    },
+    {
+      "id": "catalogue:zh:1193",
+      "basePhon": "ap dje gue yao dzeunn me chya dzaï?",
+      "originalPhon": "ap dje ge yao dzeunn me chya dzaï?",
+      "afterPhon": "dje gue ap yao dzeunn me chya dzaï?",
+      "rule": "B",
+      "annotationPreservedByRequiredContract": true
+    },
+    {
+      "id": "catalogue:zh:1898",
+      "basePhon": "ouo-meune yao fa-ang djeu-gueu tchouann-tong",
+      "originalPhon": "ouo-meune yao fa-ang djeu-geu tchouann-tong",
+      "afterPhon": "ouo-meune yao fa-yang djeu-gueu tchouann-tong",
+      "rule": "B",
+      "annotationPreservedByRequiredContract": true
+    },
+    {
+      "id": "catalogue:zh:2018",
+      "basePhon": "beunn-laï keunn-eung gueung tsao",
+      "originalPhon": "beunn-laï keunn-eung geung tsao",
+      "afterPhon": "beunn-laï keu-neung gueung tsao",
+      "rule": "B",
+      "annotationPreservedByRequiredContract": true
+    },
+    {
+      "id": "catalogue:zh:2145",
+      "basePhon": "ouo-meune bounn-eung taï i-laï i gueu gong-ing-chang",
+      "originalPhon": "ouo-meune bounn-eung taï i-laï i geu gong-ing-chang",
+      "afterPhon": "ouo-meune bou-neung taï i-laï i gueu gong-ing-chang",
+      "rule": "B",
+      "annotationPreservedByRequiredContract": true
+    },
+    {
+      "id": "catalogue:zh:2164",
+      "basePhon": "djeu-gueu djr-ouèï fou-u ta gueung douo dzer-eune",
+      "originalPhon": "djeu-geu djr-ouèï fou-u ta geung douo dzer-eune",
+      "afterPhon": "djeu-gueu djr-ouèï fou-u ta gueung douo dzeu-jeune",
+      "rule": "B",
+      "annotationPreservedByRequiredContract": true
+    }
+  ],
+  "transportCopyCounts": [
+    {
+      "id": "catalogue:zh:143",
+      "pair": "fr-zh",
+      "count": 1
+    },
+    {
+      "id": "catalogue:zh:251",
+      "pair": "fr-zh",
+      "count": 1
+    },
+    {
+      "id": "editorial:new-fr-zh-gold",
+      "pair": "fr-zh",
+      "count": 1
+    },
+    {
+      "id": "situation-conversation:fr-zh:loisirs-sorties-04",
+      "pair": "fr-zh",
+      "count": 1
+    },
+    {
+      "id": "catalogue:zh:2554",
+      "pair": "fr-zh",
+      "count": 1
+    },
+    {
+      "id": "catalogue:zh:2560",
+      "pair": "fr-zh",
+      "count": 1
+    },
+    {
+      "id": "catalogue:zh:4604",
+      "pair": "fr-zh",
+      "count": 1
+    }
+  ],
+  "receivedOnlyZhFr": [
+    {
+      "id": "heard-authored:situation-zh-fr-piste-gouts-activites-received-01",
+      "heardOnly": true,
+      "referenceOnly": true,
+      "firstHeardLevel": 3,
+      "source": {
+        "collection": "situation-received-authored",
+        "kind": "editorial-authored-whole-entry",
+        "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-zh-fr.json",
+        "ledgerFileSha256": "16b316ded3597ccf4981b39a917dfa4123048907aa8e324232e3887471645c81",
+        "itemId": "situation-zh-fr-piste-gouts-activites-received-01",
+        "sourceSha256": "f2c554daabbe37a5a27d92ad32f5ff38cc6566bfedcdd96ff762bb6e7cd1171c",
+        "ledgerItemSha256": "f2c554daabbe37a5a27d92ad32f5ff38cc6566bfedcdd96ff762bb6e7cd1171c",
+        "fieldMap": {
+          "study": "study",
+          "native": "native",
+          "phon": "phon"
+        },
+        "provenance": {
+          "kind": "editorial-authored-whole-utterance"
+        }
+      },
+      "role": {
+        "fr": "Ami",
+        "zh": "朋友"
+      },
+      "answerWith": [
+        "piste-gouts-activites-07"
+      ],
+      "requiresProduction": false,
+      "countsForProgress": false
+    },
+    {
+      "id": "heard-authored:situation-zh-fr-piste-repondre-objection-received-03",
+      "heardOnly": true,
+      "referenceOnly": true,
+      "firstHeardLevel": 9,
+      "source": {
+        "collection": "situation-received-authored",
+        "kind": "editorial-authored-whole-entry",
+        "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-zh-fr.json",
+        "ledgerFileSha256": "16b316ded3597ccf4981b39a917dfa4123048907aa8e324232e3887471645c81",
+        "itemId": "situation-zh-fr-piste-repondre-objection-received-03",
+        "sourceSha256": "6a92b5fd151bac6568a69e1986c8c06405f0d4bd8c6430e4f0930ba7fc45f9cd",
+        "ledgerItemSha256": "6a92b5fd151bac6568a69e1986c8c06405f0d4bd8c6430e4f0930ba7fc45f9cd",
+        "fieldMap": {
+          "study": "study",
+          "native": "native",
+          "phon": "phon"
+        },
+        "provenance": {
+          "kind": "editorial-authored-whole-utterance"
+        }
+      },
+      "role": {
+        "fr": "Partenaire de discussion",
+        "zh": "讨论伙伴"
+      },
+      "answerWith": [],
+      "requiresProduction": false,
+      "countsForProgress": false
+    }
+  ],
+  "events": [
+    {
+      "eventIndex": 0,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3111",
+      "study": "太阳",
+      "native": "soleil",
+      "readingBefore": "tài yáng",
+      "beforePhon": "taï ang",
+      "afterPhon": "taï yang",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 3111,
+        "sourceLevel": 2,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "bc80323cb0bf3a39ce58d1f45cd6e55d3f307fb3329a4c569eb901aeedd0302e"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 1,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:110",
+      "study": "这样一来",
+      "native": "ainsi",
+      "readingBefore": "zhè yàng yì lái",
+      "beforePhon": "djeu ang i laï",
+      "afterPhon": "djeu yang i laï",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 110,
+        "sourceLevel": 2,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "37cd60a1b0caab7298bd4c01bd8017613efd8d901baf49aaf197bc4fc7c8d97b"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 2,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:143",
+      "study": "这样最好",
+      "native": "c'est mieux ainsi",
+      "readingBefore": "zhè yàng zuì hǎo",
+      "beforePhon": "djeu ang dzouèï hao",
+      "afterPhon": "djeu yang dzouèï hao",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 143,
+        "sourceLevel": 2,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "d344b748735d749bbfe4de4bc960971fe4687bbec2bb60ed4d4b43c0d79a1870"
+      },
+      "priorCorrection": null,
+      "transportCopies": 1
+    },
+    {
+      "eventIndex": 3,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:22",
+      "study": "怎么样？",
+      "native": "ça te va ?",
+      "readingBefore": "zěn me yàng?",
+      "beforePhon": "dzeune meu ang?",
+      "afterPhon": "dzeune meu yang?",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 22,
+        "sourceLevel": 2,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "656cd6740c6668d7b18806dbe8de763ce39ca153f9b7a78fe622652d1718c910"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 4,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2270",
+      "study": "客人",
+      "native": "client / invité",
+      "readingBefore": "kèrén",
+      "beforePhon": "ker-eune",
+      "afterPhon": "keu-jeune",
+      "rules": [
+        "G"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "客人 : kè + rén, deux syllabes ; keu-jeune rétablit 人 séparément plutôt qu’un r collé au premier segment.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2270,
+        "sourceLevel": 2,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "04ea1296767afa454a7896e4009d62f6132ad58213a12afc87bef92897b0f096"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 5,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:251",
+      "study": "这样也行",
+      "native": "ça marche aussi",
+      "readingBefore": "zhè yàng yě xíng",
+      "beforePhon": "djeu ang yé ching",
+      "afterPhon": "djeu yang yé ching",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 251,
+        "sourceLevel": 2,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "84feb5bac42784e40ddb011237483e08971e5480d28c06584a776045a717ebe4"
+      },
+      "priorCorrection": null,
+      "transportCopies": 1
+    },
+    {
+      "eventIndex": 6,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3154",
+      "study": "可以打样吗？",
+      "native": "vous pouvez faire un prototype ?",
+      "readingBefore": "kě yǐ dǎ yàng ma?",
+      "beforePhon": "keu i da ang ma?",
+      "afterPhon": "keu i da yang ma?",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 3154,
+        "sourceLevel": 2,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "df57d65fdd264f87d68500da506edb7dc5c81d10097b09e00e112d9a64e577b7"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 7,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3155",
+      "study": "样品费",
+      "native": "frais d'échantillon",
+      "readingBefore": "yàng pǐn fèi",
+      "beforePhon": "ang pinn feï",
+      "afterPhon": "yang pinn feï",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 3155,
+        "sourceLevel": 2,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "bfed137d6c16c5ce13c4daab84f1f6eed0ae9939c87df93712fbc27073b2ec19"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 8,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:52",
+      "study": "就这样",
+      "native": "c'est comme ça",
+      "readingBefore": "jiù zhè yàng",
+      "beforePhon": "djyo djeu ang",
+      "afterPhon": "djyo djeu yang",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 52,
+        "sourceLevel": 2,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "bb4758589d91a43d775734b02550648716e06fb3f44b502ea150eee66c660be4"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 9,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2319",
+      "study": "可能",
+      "native": "peut-être / possible",
+      "readingBefore": "kěnéng",
+      "beforePhon": "keune-eung",
+      "afterPhon": "keu-neung",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "可能 : kě + néng ; keu-neung conserve n à l’attaque de 能, sans le perdre en fin de 可.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2319,
+        "sourceLevel": 3,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "832ea1a65ec6ac157c248a220df2d5b665a9d4dc6f981465224bc51771a40698"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 10,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2859",
+      "study": "有样品吗？",
+      "native": "avez-vous des échantillons ?",
+      "readingBefore": "yǒu yàng pǐn ma?",
+      "beforePhon": "yo ang pinn ma?",
+      "afterPhon": "yo yang pinn ma?",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2859,
+        "sourceLevel": 1,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "3c62ba234875a82cca2424968ca827ea4d4bede08bff6025b39cd8339dfcd097"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 11,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3168",
+      "study": "老师表扬了他",
+      "native": "le professeur l'a félicité",
+      "readingBefore": "lǎoshī biǎoyáng le tā",
+      "beforePhon": "lao-chr byao-ang leu ta",
+      "afterPhon": "lao-chr byao-yang leu ta",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 3168,
+        "sourceLevel": 3,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "5f28a5b1d5946b71e4f1b9b1887b911297dcc3c3158a7d5f1c234f8286248a14"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 12,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3206",
+      "study": "我们需要样品",
+      "native": "il nous faut des échantillons",
+      "readingBefore": "wǒ men xū yào yàng pǐn",
+      "beforePhon": "ouo meune chu yao ang pinn",
+      "afterPhon": "ouo meune chu yao yang pinn",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 3206,
+        "sourceLevel": 3,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "53151fa1fb9aa66c1b43a2712d8bacf510a6da8b59ef7ea2d159df4ceb5fe2a4"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 13,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3212",
+      "study": "能寄样品吗？",
+      "native": "vous pouvez envoyer un échantillon ?",
+      "readingBefore": "néng jì yàng pǐn ma?",
+      "beforePhon": "neung dji ang pinn ma?",
+      "afterPhon": "neung dji yang pinn ma?",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 3212,
+        "sourceLevel": 3,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "f22ed9158d4605d01c7975e34e55b1d6b2654a1857110279566e975bb438aeff"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 14,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:525",
+      "study": "有Wi-Fi吗？",
+      "native": "y a-t-il du Wi-Fi ?",
+      "readingBefore": "yǒu Wi-Fi ma?",
+      "beforePhon": "yo i-Fi ma?",
+      "afterPhon": "yo ouaï-faï ma?",
+      "rules": [
+        "I"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "有 Wi-Fi 吗 : l’attaque w de Wi-Fi manquait ; ouaï-faï reprend une aide déjà présente dans cette famille, sans décider la prononciation native de tous les emprunts.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 525,
+        "sourceLevel": 3,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "ecb1a7ac6137e1585d4f40c01d32290ebdcf4784c74426a745da2266154ee038"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 15,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:552",
+      "study": "我们AA制吧。",
+      "native": "On partage l'addition.",
+      "readingBefore": "wǒ men AA zhì ba.",
+      "beforePhon": "é-é ouo meunn djeu ba.",
+      "afterPhon": "ouo meunn é-é djeu ba.",
+      "rules": [
+        "I"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Nous AA 制 吧 : seule la position de é-é change. É-é (plutôt que la lecture française de A) demeure explicitement une convention non arbitrée.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 552,
+        "sourceLevel": 3,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "605e57a02b0bc4cf4568999c5534e53efcc8772fa8f55212c1b4ef8bf55bcc21"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 16,
+      "pairId": "fr-zh",
+      "id": "editorial:new-fr-zh-gold",
+      "study": "金色",
+      "native": "doré",
+      "readingBefore": "jīn sè",
+      "beforePhon": "tchin seu",
+      "afterPhon": "djinn seu",
+      "rules": [
+        "H"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "L’après rétablit la convention dj du deck pour l’initiale j. La différence Mandarin aspiré/non aspiré n’est pas entièrement prouvée par l’orthographe française tch/dj ; il s’agit ici de cohérence de la convention, pas d’une mesure acoustique.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "editorial-authored",
+        "kind": "editorial-authored-whole-entry",
+        "file": "docs/niveaux-progressifs/corrections-themes/enrichissements-rediges.json",
+        "sourceFileSha256": "db4a040fef882b2c35304e76b357b16e5928f838398c7f9029521b4402c99fb6",
+        "itemId": "new-fr-zh-gold",
+        "sourceSha256": "62b30bd9e7e33c143f3399b5f780017af827aca7ed95f42b1c86de5937fe7dcc",
+        "fieldMap": {
+          "study": "study",
+          "native": "native",
+          "phon": "phon",
+          "reading": "reading"
+        }
+      },
+      "priorCorrection": null,
+      "transportCopies": 1
+    },
+    {
+      "eventIndex": 17,
+      "pairId": "fr-zh",
+      "id": "situation-conversation:fr-zh:loisirs-sorties-04",
+      "study": "我经常运动。",
+      "native": "Je fais souvent du sport.",
+      "readingBefore": "wǒ jīngcháng yùndòng.",
+      "beforePhon": "ouo ting-tchang yun-tong",
+      "afterPhon": "ouo djing-tchang yun-tong",
+      "rules": [
+        "H"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "L’après rétablit la convention dj du deck pour l’initiale j. La différence Mandarin aspiré/non aspiré n’est pas entièrement prouvée par l’orthographe française tch/dj ; il s’agit ici de cohérence de la convention, pas d’une mesure acoustique.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "situation-conversation",
+        "kind": "conversation-whole-entry",
+        "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/fr-zh.json",
+        "ledgerFileSha256": "9ec01a94f8d1a7e27e1c1737485ba75f306b0a5cb31d04e83726261527d48519",
+        "itemId": "fr-zh:loisirs-sorties-04",
+        "sourceSha256": "67238af8854982c8dedbc47186bc68a53d8d80dcfb7de54536fd1fbdc803d0a7",
+        "ledgerItemSha256": "50576419264a00f6c1caa48f90d73e4e38608783b459698a28d6f0aead41a052",
+        "fieldMap": {
+          "study": "study",
+          "native": "native",
+          "phon": "phon",
+          "reading": "reading"
+        },
+        "provenance": {
+          "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L4-fr-zh.json",
+          "jsonPointer": "/units/7/variants/1",
+          "fileSha256": "4afac71b61e6b2ea190bb3eccc0d09f0b367a83cbd3eb68e78233ef0c0b8dfe0",
+          "entrySha256": "67238af8854982c8dedbc47186bc68a53d8d80dcfb7de54536fd1fbdc803d0a7",
+          "sourceLevel": 4,
+          "originalRole": "variante entière d’apprenant",
+          "originalUnitId": "L4-fr-zh-08",
+          "originalSituation": "Fréquence"
+        },
+        "sourceLevel": 4
+      },
+      "priorCorrection": null,
+      "transportCopies": 1
+    },
+    {
+      "eventIndex": 18,
+      "pairId": "fr-zh",
+      "id": "situation-conversation:fr-zh:loisirs-sorties-05",
+      "study": "我们在酒店门口见。",
+      "native": "On se retrouve à l'entrée de l'hôtel.",
+      "readingBefore": "wǒmen zài jiǔdiàn ménkǒu jiàn.",
+      "beforePhon": "ouo-meun dzaï tiou-tièn meun-kou tièn",
+      "afterPhon": "ouo-meun dzaï djyo-tièn meun-kou djyèn",
+      "rules": [
+        "H"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "酒 jiǔ et 见 jiàn : les deux attaques j sont rétablies. Djyo suit la graphie du deck pour jiǔ ; le maintien de tièn pour 店 diàn ne crée pas une nouvelle règle générale de dévoisement.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "situation-conversation",
+        "kind": "conversation-whole-entry",
+        "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/fr-zh.json",
+        "ledgerFileSha256": "9ec01a94f8d1a7e27e1c1737485ba75f306b0a5cb31d04e83726261527d48519",
+        "itemId": "fr-zh:loisirs-sorties-05",
+        "sourceSha256": "3dbe86badaab3e1a552b24d8b858e83bc35f3ea904e4af33599758a36afbd8d4",
+        "ledgerItemSha256": "7d95cc2dd128af2c2b9333a35dd411bab7d7495a234d2cee1034e6c26f8c74c1",
+        "fieldMap": {
+          "study": "study",
+          "native": "native",
+          "phon": "phon",
+          "reading": "reading"
+        },
+        "provenance": {
+          "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L2-fr-zh.json",
+          "jsonPointer": "/units/10/variants/2",
+          "fileSha256": "384340dc305f9a71c4ce2d576a03768378d818643fda9c6a5e41f859288fff40",
+          "entrySha256": "3dbe86badaab3e1a552b24d8b858e83bc35f3ea904e4af33599758a36afbd8d4",
+          "sourceLevel": 2,
+          "originalRole": "variante entière d’apprenant",
+          "originalUnitId": "L2-fr-zh-11",
+          "originalSituation": "Lieu de rendez-vous"
+        },
+        "sourceLevel": 2
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 19,
+      "pairId": "fr-zh",
+      "id": "situation-conversation:fr-zh:loisirs-sorties-08",
+      "study": "好啊！十二点见。",
+      "native": "D'accord ! À midi.",
+      "readingBefore": "hǎo a! shí'èr diǎn jiàn.",
+      "beforePhon": "hao a ! chr-eur tièn tièn",
+      "afterPhon": "hao a ! chr-eur tièn djyèn",
+      "rules": [
+        "H"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "L’après rétablit la convention dj du deck pour l’initiale j. La différence Mandarin aspiré/non aspiré n’est pas entièrement prouvée par l’orthographe française tch/dj ; il s’agit ici de cohérence de la convention, pas d’une mesure acoustique.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "situation-conversation",
+        "kind": "conversation-whole-entry",
+        "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/fr-zh.json",
+        "ledgerFileSha256": "9ec01a94f8d1a7e27e1c1737485ba75f306b0a5cb31d04e83726261527d48519",
+        "itemId": "fr-zh:loisirs-sorties-08",
+        "sourceSha256": "ba18e868947dc0ff4441bec4dae911c34536165a84ec8f8800b1a36747f4e4b7",
+        "ledgerItemSha256": "79b3bd578e053780456d0aaf17f71cc3015c803662d44ecb687ef23f64de5c71",
+        "fieldMap": {
+          "study": "study",
+          "native": "native",
+          "phon": "phon",
+          "reading": "reading"
+        },
+        "provenance": {
+          "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L3-fr-zh.json",
+          "jsonPointer": "/dialogues/0/turns/7",
+          "fileSha256": "e9a98a2abf44e80cc25c5da593d4798deeb60b88f142994ea952d0be39ebe7f8",
+          "entrySha256": "ba18e868947dc0ff4441bec4dae911c34536165a84ec8f8800b1a36747f4e4b7",
+          "sourceLevel": 3,
+          "originalSpeaker": "B",
+          "originalRole": "Un collègue",
+          "originalLearnerRole": "A",
+          "originalSituation": "Premier jour au travail"
+        },
+        "sourceLevel": 3
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 20,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2098",
+      "study": "请尽快确认",
+      "native": "veuillez confirmer au plus vite",
+      "readingBefore": "qǐng jǐnkuài quèrèn",
+      "beforePhon": "tching djinn-kouaï tchu-er-eune",
+      "afterPhon": "tching djinn-kouaï tchué-jeune",
+      "rules": [
+        "G"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "确认 : què + rèn ; le j rendu dans jeune appartient à 认. L’après n’impose pas une nouvelle théorie de toutes les finales üe.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2098,
+        "sourceLevel": 10,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "a728af8e290b7c9b973c3878b73c1ab5de015e093771713e87d33f89d03f8cb7"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 21,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2377",
+      "study": "样品",
+      "native": "échantillon",
+      "readingBefore": "yàngpǐn",
+      "beforePhon": "ang-pinn",
+      "afterPhon": "yang-pinn",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2377,
+        "sourceLevel": 4,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "3c10b60f544a0e925c9ddc5486b9675356467a47bd660a3f84ef3b681ed40621"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 22,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3449",
+      "study": "样板",
+      "native": "modèle",
+      "readingBefore": "yàng bǎn",
+      "beforePhon": "ang bann",
+      "afterPhon": "yang bann",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 3449,
+        "sourceLevel": 4,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "69226f0a0e4ca3a6be3117ab9d4363623d8fae07332e66b6aac288231ae625d1"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 23,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3537",
+      "study": "样品什么时候能好？",
+      "native": "quand l'échantillon sera-t-il prêt ?",
+      "readingBefore": "yàng pǐn shén me shí hou néng hǎo?",
+      "beforePhon": "ang pinn cheune meu chr hou neung hao?",
+      "afterPhon": "yang pinn cheune meu chr hou neung hao?",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 3537,
+        "sourceLevel": 4,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "3e97359e94774656cf6a34d84eb584d0d3f352f498a41ba58ab6d0057134dcaa"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 24,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3538",
+      "study": "先看样品",
+      "native": "voyons d'abord un échantillon",
+      "readingBefore": "xiān kàn yàng pǐn",
+      "beforePhon": "chyèn kann ang pinn",
+      "afterPhon": "chyèn kann yang pinn",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 3538,
+        "sourceLevel": 4,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "7510d3c237272eacb5455ba5f90b670bcacc58693c7f15e0b8fea7c84fad3841"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 25,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3565",
+      "study": "痒",
+      "native": "démanger",
+      "readingBefore": "yǎng",
+      "beforePhon": "ang",
+      "afterPhon": "yang",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 3565,
+        "sourceLevel": 4,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "a777684399d4c7ea87d2d93638f0138f41e02964bb7159b0b0dff95b949e884c"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 26,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:621",
+      "study": "五金是电镀的吗？",
+      "native": "la quincaillerie est-elle plaquée ?",
+      "readingBefore": "wǔjīn shì diànduó de ma?",
+      "beforePhon": "ou-djinn chr dyèn-douo deu ma?",
+      "afterPhon": "ou-djinn chr dyèn-dou deu ma?",
+      "rules": [
+        "J"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "电镀 diàndù : le 镀 de la phrase est dù, pas duó ; dou retire le glide o indu du segment douo.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 621,
+        "sourceLevel": 4,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "cfd7d96799048954811f179c8206f8b05205563d599c27d3d6c45ef1ff905807"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 27,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:631",
+      "study": "有CE认证吗？",
+      "native": "y a-t-il une certification CE ?",
+      "readingBefore": "yǒu CE rènzhèng ma?",
+      "beforePhon": "yo tseu jeune-djeung ma?",
+      "afterPhon": "yo sé-eu jeune-djeung ma?",
+      "rules": [
+        "I"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "CE occupe deux lettres entre 有 et 认证 ; sé-eu suit le choix déjà employé dans 提供 CE 认证. Cela ne prétend pas certifier la façon dont un locuteur chinois épelle ce sigle.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 631,
+        "sourceLevel": 4,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "121aab565c5105bfb63e3b39d28f9ae82e73dcf179bb620fd68545532564def3"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 28,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:695",
+      "study": "样品要多久？",
+      "native": "quel est le délai pour les échantillons ?",
+      "readingBefore": "yàngpǐn yào duōjiǔ?",
+      "beforePhon": "ang-pinn yao douo-djyo?",
+      "afterPhon": "yang-pinn yao douo-djyo?",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 695,
+        "sourceLevel": 4,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "641afadf1eb5e53bab7fa66f6ca8e471eb978374e8089183aea61969d76db1b8"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 29,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:753",
+      "study": "能寄对色样吗？",
+      "native": "pouvez-vous m'envoyer le contre-échantillon ?",
+      "readingBefore": "néng jì duìsè yàng ma?",
+      "beforePhon": "neung dji douèï-seu ang ma?",
+      "afterPhon": "neung dji douèï-seu yang ma?",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 753,
+        "sourceLevel": 4,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "2c522bdd62dfac10e3bb2b3a38853e7bb74700805e6c73eaff53e8da2175e93b"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 30,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:789",
+      "study": "这样能省钱",
+      "native": "comme ça on économise de l'argent",
+      "readingBefore": "zhèyàng néng shěng qián",
+      "beforePhon": "djeu-ang neung cheung tchyèn",
+      "afterPhon": "djeu-yang neung cheung tchyèn",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 789,
+        "sourceLevel": 4,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "71a5177f8fd65c82fe048e88e3a3d83bd2240fbeb8fcf60cc6d55cf40c0b76a0"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 31,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:893",
+      "study": "我们不能再拖延了",
+      "native": "nous ne pouvons plus tarder",
+      "readingBefore": "wǒmen bùnéng zài tuōyán le",
+      "beforePhon": "ouo-meune bounn-eung dzaï touo-yèn leu",
+      "afterPhon": "ouo-meune bou-neung dzaï touo-yèn leu",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "La frontière lue dans les caractères et le Pinyin réattribue une consonne au début de la syllabe suivante ; l’après conserve le reste de l’aide entière.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 893,
+        "sourceLevel": 4,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "d9133a083dc8a4c34b61aaa77b27ea95ef993c24e290a5de39af193e33e2a4d2"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 32,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:906",
+      "study": "我们倡导环保理念",
+      "native": "nous prônons des valeurs écologiques",
+      "readingBefore": "wǒmen chàngdǎo huánbǎo lǐniàn",
+      "beforePhon": "ouo-meune tchang-dao houann-bao linn-yèn",
+      "afterPhon": "ouo-meune tchang-dao houann-bao li-nyèn",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "La frontière lue dans les caractères et le Pinyin réattribue une consonne au début de la syllabe suivante ; l’après conserve le reste de l’aide entière.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 906,
+        "sourceLevel": 4,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "bcc06d9ee903a13198e840b6f93c15db3c690005f66ebef0340217e594936d5b"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 33,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1006",
+      "study": "这削弱了我们的优势",
+      "native": "ça a affaibli notre avantage",
+      "readingBefore": "zhè xuēruò le wǒmen de yōushì",
+      "beforePhon": "djeu chu-er-ouo leu ouo-meune deu yo-chr",
+      "afterPhon": "djeu chu-eu-jouo leu ouo-meune deu yo-chr",
+      "rules": [
+        "G"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "削弱 xuē + ruò : le r de 弱 est rétabli par j. Le rendu antérieur chu-eu pour xuē et son nombre d’unités écrites restent ouverts, hors de cette correction.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1006,
+        "sourceLevel": 5,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "2ae017bfed3205802b7ac2672a6320598eeb43e3b4045ffde0ddcdbfabdcb550"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 34,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1007",
+      "study": "智能手机已经普及了",
+      "native": "les smartphones se sont généralisés",
+      "readingBefore": "zhìnéng shǒujī yǐjīng pǔjí le",
+      "beforePhon": "djinn-eung chou-dji i-djing pou-dji leu",
+      "afterPhon": "djr-neung chou-dji i-djing pou-dji leu",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "智能 zhì + néng : djinn-eung suggérait jin + eng. Djr-neung utilise le repère rétroflexe et rétablit n devant 能 ; ce n’est pas une uniformisation de toutes les rétroflexes.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1007,
+        "sourceLevel": 5,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "ad39ce5fec9355135e2c5ce0aa0c114fad219e8b6b728d583d52250093a00b23"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 35,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1016",
+      "study": "这个责任我来扛",
+      "native": "je prends cette responsabilité sur moi",
+      "readingBefore": "zhège zérèn wǒ lái káng",
+      "beforePhon": "djeu-gueu dzer-eune ouo laï kang",
+      "afterPhon": "djeu-gueu dzeu-jeune ouo laï kang",
+      "rules": [
+        "G"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "La syllabe contenant r dans le Pinyin est distincte de la précédente ; l’après rétablit le repère j du deck pour cette syllabe, sans trancher les autres finales.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1016,
+        "sourceLevel": 5,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "4988fd6082dc0225bbd3c7bd0e11e5acb7fc2f3d45305b2093de8ff70ee293d8"
+      },
+      "priorCorrection": {
+        "id": "catalogue:zh:1016",
+        "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+        "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+        "beforePhon": "djeu-geu dzer-eune ouo laï kang",
+        "originalReviewStatusPresent": false,
+        "originalReviewStatus": null,
+        "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+        "rule": "B"
+      },
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 36,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1047",
+      "study": "有智能控制功能吗？",
+      "native": "a-t-il des fonctions de contrôle intelligent ?",
+      "readingBefore": "yǒu zhìnéng kòngzhì gōngnéng ma?",
+      "beforePhon": "yo djinn-eung kong-djr gong-neung ma?",
+      "afterPhon": "yo djr-neung kong-djr gong-neung ma?",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "智能 même défaut local qu’en 1007 ; le segment ultérieur 控制 kong-djr est conservé.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1047,
+        "sourceLevel": 5,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "d8b298a7f589fcfd394a8898cb393c2c18add91d95c6152b01549bb681c9412c"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 37,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1143",
+      "study": "这个事件催化了变革",
+      "native": "cet événement a catalysé le changement",
+      "readingBefore": "zhège shìjiàn cuīhuà le biàngé",
+      "beforePhon": "djeu-gueu chr-djyèn tsouèï-houa leu byang-eu",
+      "afterPhon": "djeu-gueu chr-djyèn tsouèï-houa leu byèn-gueu",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "变革 biàn + gé : byèn-gueu rend bien deux syllabes. Le gueu de 革 reste la convention B avant e/i, au lieu de perdre son g au profit d’un faux biang.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1143,
+        "sourceLevel": 5,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "ac33b8c763f1500c4b950a52c94793a10485ec89549e103185b7057ce7206034"
+      },
+      "priorCorrection": {
+        "id": "catalogue:zh:1143",
+        "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+        "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+        "beforePhon": "djeu-geu chr-djyèn tsouèï-houa leu byang-eu",
+        "originalReviewStatusPresent": false,
+        "originalReviewStatus": null,
+        "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+        "rule": "B"
+      },
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 38,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1193",
+      "study": "这个app要怎么下载？",
+      "native": "Comment télécharger cette appli ?",
+      "readingBefore": "zhè ge app yào zěn me xià zǎi?",
+      "beforePhon": "ap dje gue yao dzeunn me chya dzaï?",
+      "afterPhon": "dje gue ap yao dzeunn me chya dzaï?",
+      "rules": [
+        "I"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "L’emplacement des lettres/sigles a été lu dans la chaîne chinoise entière. Leur ordre corrigé correspond à la source ; les noms français de lettres et les lectures déjà employées restent des choix de convention.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1193,
+        "sourceLevel": 5,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "b8c07628f57a5d0cc45438e14882a34dcff1556b62fd7f83bbce76c5b2090178"
+      },
+      "priorCorrection": {
+        "id": "catalogue:zh:1193",
+        "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+        "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+        "beforePhon": "ap dje ge yao dzeunn me chya dzaï?",
+        "originalReviewStatusPresent": false,
+        "originalReviewStatus": null,
+        "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+        "rule": "B"
+      },
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 39,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2432",
+      "study": "责任",
+      "native": "responsabilité",
+      "readingBefore": "zérèn",
+      "beforePhon": "dzer-eune",
+      "afterPhon": "dzeu-jeune",
+      "rules": [
+        "G"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "La syllabe contenant r dans le Pinyin est distincte de la précédente ; l’après rétablit le repère j du deck pour cette syllabe, sans trancher les autres finales.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2432,
+        "sourceLevel": 5,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "ff5a508558f78a1d9f6018c36c5d120b025861d6ff1b22f1a0e897bab61e34aa"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 40,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3788",
+      "study": "职业素养",
+      "native": "professionnalisme",
+      "readingBefore": "zhí yè sù yǎng",
+      "beforePhon": "djr yé sou ang",
+      "afterPhon": "djr yé sou yang",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 3788,
+        "sourceLevel": 5,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "6cb315ab422745448b977df1954e14fb11499f616291ed7259783611f2248476"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 41,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3875",
+      "study": "阳台",
+      "native": "balcon",
+      "readingBefore": "yáng tái",
+      "beforePhon": "ang taï",
+      "afterPhon": "yang taï",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 3875,
+        "sourceLevel": 5,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "562dcf96f4e5fb0aafde604605828e0021fecfc4f2ac25c1a46e3782074d2217"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 42,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:960",
+      "study": "请发样品",
+      "native": "envoyez un échantillon, svp",
+      "readingBefore": "qǐng fā yàngpǐn",
+      "beforePhon": "tching fa ang-pinn",
+      "afterPhon": "tching fa yang-pinn",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 960,
+        "sourceLevel": 5,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "1176609e387e18018e25de92484aa9101a7caac56fa1add8e4292d73c8dc6923"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 43,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:997",
+      "study": "这样能节省时间",
+      "native": "comme ça on économise du temps",
+      "readingBefore": "zhèyàng néng jiéshěng shíjiān",
+      "beforePhon": "djeu-ang neung djyé-cheung chr-djyèn",
+      "afterPhon": "djeu-yang neung djyé-cheung chr-djyèn",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 997,
+        "sourceLevel": 5,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "6d1fb570a8a2f23fda94d3db6651033267915960303f33e5bb465918562e1696"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 44,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1251",
+      "study": "这附近有ATM吗？",
+      "native": "Il y a un distributeur près d'ici ?",
+      "readingBefore": "zhè fù jìn yǒu ATM ma?",
+      "beforePhon": "a-té-èm dje fou djinn yoou ma?",
+      "afterPhon": "dje fou djinn yoou a-té-èm ma?",
+      "rules": [
+        "I"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "L’emplacement des lettres/sigles a été lu dans la chaîne chinoise entière. Leur ordre corrigé correspond à la source ; les noms français de lettres et les lectures déjà employées restent des choix de convention.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1251,
+        "sourceLevel": 6,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "abd940057b6c69c705a5ffbee1d21ca9a28af49f28d9f3ba94595acc60dfc5c1"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 45,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1298",
+      "study": "拉链质量怎么样？",
+      "native": "quelle est la qualité de la fermeture éclair ?",
+      "readingBefore": "lāliàn zhìliàng zěnmeyàng?",
+      "beforePhon": "la-lyèn djr-lyang dzeune-meu-ang?",
+      "afterPhon": "la-lyèn djr-lyang dzeune-meu-yang?",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1298,
+        "sourceLevel": 6,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "4ac68b6584728cf32fb4a2853748cd78e33da48b646286bab5e197d66e92fbc5"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 46,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1308",
+      "study": "这里怎么连wifi？",
+      "native": "Comment se connecter au wifi ici ?",
+      "readingBefore": "zhè lǐ zěn me lián wifi?",
+      "beforePhon": "ouaï-faï dje li dzeunn me lyenn",
+      "afterPhon": "dje li dzeunn me lyenn ouaï-faï",
+      "rules": [
+        "I"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "L’emplacement des lettres/sigles a été lu dans la chaîne chinoise entière. Leur ordre corrigé correspond à la source ; les noms français de lettres et les lectures déjà employées restent des choix de convention.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1308,
+        "sourceLevel": 6,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "e80a8c1160b02bdc5076b82ce739c86d41f0d2524b860e5590d533bab59b719f"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 47,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1405",
+      "study": "我们可以提供样品",
+      "native": "nous pouvons fournir des échantillons",
+      "readingBefore": "wǒmen kěyǐ tígōng yàngpǐn",
+      "beforePhon": "ouo-meune keu-i ti-gong ang-pinn",
+      "afterPhon": "ouo-meune keu-i ti-gong yang-pinn",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1405,
+        "sourceLevel": 6,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "ab64feca4e8422cfaf9b387a09269c12c89e9c1f058b114d10c4cae7b59abf95"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 48,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1412",
+      "study": "有没有english menu？",
+      "native": "Y a-t-il un menu en anglais ?",
+      "readingBefore": "yǒu méi yǒu english menu?",
+      "beforePhon": "me-nu in-glich yoou meï yoou",
+      "afterPhon": "yoou meï yoou in-glich me-nu",
+      "rules": [
+        "I"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "L’emplacement des lettres/sigles a été lu dans la chaîne chinoise entière. Leur ordre corrigé correspond à la source ; les noms français de lettres et les lectures déjà employées restent des choix de convention.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1412,
+        "sourceLevel": 6,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "9fd45d207f13edeff237293a1d0f588de6845159a158e3d30a36414fd268c111"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 49,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1450",
+      "study": "能提供CE认证吗？",
+      "native": "Pouvez-vous fournir la certification CE ?",
+      "readingBefore": "néng tí gōng CE rèn zhèng ma?",
+      "beforePhon": "sé-eu neung ti gong jeunn djeung ma?",
+      "afterPhon": "neung ti gong sé-eu jeunn djeung ma?",
+      "rules": [
+        "I"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "L’emplacement des lettres/sigles a été lu dans la chaîne chinoise entière. Leur ordre corrigé correspond à la source ; les noms français de lettres et les lectures déjà employées restent des choix de convention.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1450,
+        "sourceLevel": 6,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "8a3345d0a746d6bc5a651100fc19f751648f82c1d7fdfe3aff1595843159626d"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 50,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1456",
+      "study": "请帮我确认一下",
+      "native": "aide-moi à confirmer s'il te plaît",
+      "readingBefore": "qǐng bāng wǒ quèrèn yíxià",
+      "beforePhon": "tching bang ouo tchu-er-eune i-chya",
+      "afterPhon": "tching bang ouo tchué-jeune i-chya",
+      "rules": [
+        "G"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "La syllabe contenant r dans le Pinyin est distincte de la précédente ; l’après rétablit le repère j du deck pour cette syllabe, sans trancher les autres finales.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1456,
+        "sourceLevel": 6,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "1d90de5deab6501167e2359516ccad04e08701b0c0b85246b4731e2fdad963f9"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 51,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1474",
+      "study": "情绪不能支配你的决定",
+      "native": "les émotions ne doivent pas dicter tes décisions",
+      "readingBefore": "qíngxù bùnéng zhīpèi nǐ de juédìng",
+      "beforePhon": "tching-chu bounn-eung djr-peï ni deu dju-eu-ding",
+      "afterPhon": "tching-chu bou-neung djr-peï ni deu dju-eu-ding",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "La frontière lue dans les caractères et le Pinyin réattribue une consonne au début de la syllabe suivante ; l’après conserve le reste de l’aide entière.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1474,
+        "sourceLevel": 6,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "fc448c0a2d9ba977f4f6964fcb3b9d3c3c21dc0873f9f739359c2f5e1b1f4cc6"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 52,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3994",
+      "study": "培养",
+      "native": "former",
+      "readingBefore": "péi yǎng",
+      "beforePhon": "peï ang",
+      "afterPhon": "peï yang",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 3994,
+        "sourceLevel": 6,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "538fe02c417cb7608a9466fdf7838a18e5c4d5a4ba7abbbcac8957303353348a"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 53,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4054",
+      "study": "新员工很快融入了团队",
+      "native": "le nouvel employé s'est vite intégré à l'équipe",
+      "readingBefore": "xīn yuángōng hěn kuài róngrù le tuánduì",
+      "beforePhon": "chinn ouang-ong heune kouaï jong-jou leu touann-douèï",
+      "afterPhon": "chinn uèn-gong heune kouaï jong-jou leu touann-douèï",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "员工 yuán + gōng : le g appartient à 工, non à 员. Uèn-gong reprend le rendu existant de yuán sans arbitrer l’ensemble des finales üan.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 4054,
+        "sourceLevel": 6,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "2c526fcf8476675b346af595a78133e544e1267c99fc290953bbc762648aa608"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 54,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4086",
+      "study": "榜样",
+      "native": "exemple à suivre",
+      "readingBefore": "bǎng yàng",
+      "beforePhon": "bang ang",
+      "afterPhon": "bang yang",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 4086,
+        "sourceLevel": 6,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "8d9a38a71de224546202f4e07c6115ee5458a85b9658f67810003fa924f3bc9e"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 55,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4194",
+      "study": "这样双方都合适",
+      "native": "comme ça ça arrange les deux",
+      "readingBefore": "zhè yàng shuāng fāng dōu hé shì",
+      "beforePhon": "djeu ang chouang fang dou heu chr",
+      "afterPhon": "djeu yang chouang fang dou heu chr",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 4194,
+        "sourceLevel": 7,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "e1905f6eac623d39db7772cc77ed7d44f62f7cb14ada752a89f652aa74816f21"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 56,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1608",
+      "study": "千磨万击还坚劲任尔东西南北风",
+      "native": "inébranlable face à mille épreuves",
+      "readingBefore": "qiān mó wàn jī hái jiān jìn rèn ěr dōng xī nán běi fēng",
+      "beforePhon": "tchyèn mo ouann dji haï djyèn djinn jeune er dong chi nann beï feung",
+      "afterPhon": "tchyèn mo ouann dji haï djyèn djing jeune er dong chi nann beï feung",
+      "rules": [
+        "J"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "坚劲 jiānjìng : 劲 est adjectival ‘ferme/vigoureux’ dans le vers de 竹石, non le nom 劲 jìn ‘force’. La finale ng de djing suit cette lecture.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1608,
+        "sourceLevel": 7,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "e9b7ab935236228fc390b9d5996f09ac17fb7ec8447beaa83cf9719593f74a6e"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 57,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1680",
+      "study": "有什么当地人才知道的好去处？",
+      "native": "Des coins secrets connus des locaux ?",
+      "readingBefore": "yǒu shén me běn dì rén cái zhī dào de hǎo qù chù?",
+      "beforePhon": "yoou cheunn me beunn di jeunn tsaï djeu dao de hao tchu tchou?",
+      "afterPhon": "yoou cheunn me dang di jeunn tsaï djeu dao de hao tchu tchou?",
+      "rules": [
+        "J"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "当地 dāngdì est écrit 当地, pas 本地 běndì. Le caractère 当 impose dang, indépendamment de leur sens proche de ‘local’.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1680,
+        "sourceLevel": 7,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "cf8902563b78a0d61449108ae6abaa2392611c0c9b09d359f7b5094c1b55b1d2"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 58,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1695",
+      "study": "他引导我们参观工厂",
+      "native": "il nous a guidés lors de la visite de l'usine",
+      "readingBefore": "tā yǐndǎo wǒmen cānguān gōngchǎng",
+      "beforePhon": "ta inn-dao ouo-meune tsang-ouann gong-tchang",
+      "afterPhon": "ta inn-dao ouo-meune tsann-gouann gong-tchang",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "La frontière lue dans les caractères et le Pinyin réattribue une consonne au début de la syllabe suivante ; l’après conserve le reste de l’aide entière.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1695,
+        "sourceLevel": 7,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "78e075152ce5e1fc0d0f43ae5ad835a1146c44dc9ed34f93df5313af2c099cd0"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 59,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1728",
+      "study": "这活动是为了弘扬传统文化",
+      "native": "cet événement vise à promouvoir la culture traditionnelle",
+      "readingBefore": "zhè huódòng shì wèile hóngyáng chuántǒng wénhuà",
+      "beforePhon": "djeu houo-dong chr ouèï-leu hong-ang tchouann-tong ounn-houa",
+      "afterPhon": "djeu houo-dong chr ouèï-leu hong-yang tchouann-tong ounn-houa",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1728,
+        "sourceLevel": 7,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "a7810d6ef92270e0bcc19417047f134b0c4f18d0ad24ab09d6837b2a56f08f3d"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 60,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2554",
+      "study": "尴尬",
+      "native": "gêné / embarrassant",
+      "readingBefore": "gāngà",
+      "beforePhon": "gang-a",
+      "afterPhon": "gann-ga",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "尴尬 gān + gà : gāngà joint dans le Pinyin ne se segmente pas en gāng + à. Gann-ga remet la consonne à l’attaque de 尬.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2554,
+        "sourceLevel": 7,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "137057dfc502efff2ea70f4fee78652ab19a3f76328cab58a1206df108f66994"
+      },
+      "priorCorrection": null,
+      "transportCopies": 1
+    },
+    {
+      "eventIndex": 61,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2558",
+      "study": "看到这样我很心疼",
+      "native": "ça me fait mal au cœur de voir ça",
+      "readingBefore": "kàndào zhèyàng wǒ hěn xīnténg",
+      "beforePhon": "kann-dao djeu-ang ouo heune chinn-teung",
+      "afterPhon": "kann-dao djeu-yang ouo heune chinn-teung",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2558,
+        "sourceLevel": 7,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "1fbafa18875d292d3f28b9bf092550f0369029a7e918535bb21c6b723ea36f2c"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 62,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2560",
+      "study": "无奈",
+      "native": "impuissant / sans choix",
+      "readingBefore": "wúnài",
+      "beforePhon": "ounn-aï",
+      "afterPhon": "ou-naï",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "无奈 wú + nài : le n de 奈 avait été attaché à 无 ; ou-naï rétablit les deux syllabes.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2560,
+        "sourceLevel": 7,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "91d6486bc75e3424e8267695f3656d59dc237716ce6548dbfebac8b2295edcc1"
+      },
+      "priorCorrection": null,
+      "transportCopies": 1
+    },
+    {
+      "eventIndex": 63,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4239",
+      "study": "样品满意就下单",
+      "native": "si l'échantillon convient, on commande",
+      "readingBefore": "yàng pǐn mǎn yì jiù xià dān",
+      "beforePhon": "ang pinn mann i djyo chya dann",
+      "afterPhon": "yang pinn mann i djyo chya dann",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 4239,
+        "sourceLevel": 7,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "b7c8899af37d26fda8c4b8190acf6216a3ca5b5a5817a03c1c6e2dd59032dbda"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 64,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1860",
+      "study": "我们要兼顾质量和成本",
+      "native": "nous devons concilier qualité et coût",
+      "readingBefore": "wǒmen yào jiāngù zhìliàng hé chéngběn",
+      "beforePhon": "ouo-meune yao djyang-ou djr-lyang heu tcheung-beune",
+      "afterPhon": "ouo-meune yao djyèn-gou djr-lyang heu tcheung-beune",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "兼顾 jiān + gù : djyèn-gou rétablit le g de 顾 et la finale n de 兼 ; ce n’est pas une nouvelle convention phonétique généralisée.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1860,
+        "sourceLevel": 8,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "45b2e60d771d769dec913f6b8e2fd0e9b9d1fc004a867c9a5138bbe9e2b713f7"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 65,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1866",
+      "study": "我是ABC公司的采购。",
+      "native": "Je suis l'acheteur de la société ABC.",
+      "readingBefore": "wǒ shì ABC gōng sī de cǎi gòu.",
+      "beforePhon": "a-bé-sé ouo cheu gong sseu de tsaï goou.",
+      "afterPhon": "ouo cheu a-bé-sé gong sseu de tsaï goou.",
+      "rules": [
+        "I"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "L’emplacement des lettres/sigles a été lu dans la chaîne chinoise entière. Leur ordre corrigé correspond à la source ; les noms français de lettres et les lectures déjà employées restent des choix de convention.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1866,
+        "sourceLevel": 8,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "9b6300d44a7dbe4b3944f6b08c351dedd337c32b3f22c8b2a5c42b835a8a7a18"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 66,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1898",
+      "study": "我们要发扬这个传统",
+      "native": "nous devons perpétuer cette tradition",
+      "readingBefore": "wǒmen yào fāyáng zhège chuántǒng",
+      "beforePhon": "ouo-meune yao fa-ang djeu-gueu tchouann-tong",
+      "afterPhon": "ouo-meune yao fa-yang djeu-gueu tchouann-tong",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1898,
+        "sourceLevel": 8,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "002f4793caeedc6e56d46fa3d118f94d7de3dac2fc2b2f37a546acb81ab3ae22"
+      },
+      "priorCorrection": {
+        "id": "catalogue:zh:1898",
+        "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+        "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+        "beforePhon": "ouo-meune yao fa-ang djeu-geu tchouann-tong",
+        "originalReviewStatusPresent": false,
+        "originalReviewStatus": null,
+        "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+        "rule": "B"
+      },
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 67,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4283",
+      "study": "扬长避短",
+      "native": "jouer sur ses atouts",
+      "readingBefore": "yáng cháng bì duǎn",
+      "beforePhon": "ang tchang bi douann",
+      "afterPhon": "yang tchang bi douann",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 4283,
+        "sourceLevel": 8,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "cf6e3c5c8c0a3b7e45fc7b3e052fc1f64965619eb3266f563d08aa82531748f3"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 68,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4298",
+      "study": "久仰",
+      "native": "j'ai beaucoup entendu parler de vous",
+      "readingBefore": "jiǔ yǎng",
+      "beforePhon": "djyo ang",
+      "afterPhon": "djyo yang",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 4298,
+        "sourceLevel": 8,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "66b4abc3b6b88ac52f541fc98e0aa45af09edda6d0942bcf0b9808fb438b6f93"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 69,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4321",
+      "study": "亡羊补牢",
+      "native": "mieux vaut tard que jamais",
+      "readingBefore": "wáng yáng bǔ láo",
+      "beforePhon": "ouang ang bou lao",
+      "afterPhon": "ouang yang bou lao",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 4321,
+        "sourceLevel": 8,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "946363d114d78681f718cc4f937d2358e5dd82b0b227a5b5140309b0b69130db"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 70,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4409",
+      "study": "阳奉阴违",
+      "native": "faire semblant d'obéir",
+      "readingBefore": "yáng fèng yīn wéi",
+      "beforePhon": "ang feung inn ouèï",
+      "afterPhon": "yang feung inn ouèï",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 4409,
+        "sourceLevel": 8,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "d92f31ce8bff25f7f82eb6fb26b29bb6a5e2e1348272c45c077a3d2ec129bae4"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 71,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4812",
+      "study": "大货质量要和小样一样",
+      "native": "la qualité du grand lot doit être identique.",
+      "readingBefore": "dàhuò zhìliàng yào hé xiǎoyàng yíyàng",
+      "beforePhon": "da-houo djr-lyang yao heu chyao-ang i-ang",
+      "afterPhon": "da-houo djr-lyang yao heu chyao-yang i-ang",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Deux 样 sont présents. Seul 小样 chyao-ang devient chyao-yang ; le second 一样 i-ang reste intact parce que cette graphie peut déjà suggérer un glide à la lecture française.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 4812,
+        "sourceLevel": 8,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "cf31de1377122824359f4050f8758fc56843f829550199be1a351080601dee1c"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 72,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1997",
+      "study": "我们想做OEM贴牌。",
+      "native": "Nous voulons faire du OEM en marque blanche.",
+      "readingBefore": "wǒ men xiǎng zuò OEM tiē pái.",
+      "beforePhon": "o-eu-èm ouo meunn chyang dzouo tyé paï.",
+      "afterPhon": "ouo meunn chyang dzouo o-eu-èm tyé paï.",
+      "rules": [
+        "I"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "L’emplacement des lettres/sigles a été lu dans la chaîne chinoise entière. Leur ordre corrigé correspond à la source ; les noms français de lettres et les lectures déjà employées restent des choix de convention.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 1997,
+        "sourceLevel": 9,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "dc3feaafbb2f39782f01b669ccfade6aae043dcd81ead43a6b8461b4052e8631"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 73,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2018",
+      "study": "本来可能更糟。",
+      "native": "Ça aurait pu être pire.",
+      "readingBefore": "běnlái kěnéng gèng zāo",
+      "beforePhon": "beunn-laï keunn-eung gueung tsao",
+      "afterPhon": "beunn-laï keu-neung gueung tsao",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "La frontière lue dans les caractères et le Pinyin réattribue une consonne au début de la syllabe suivante ; l’après conserve le reste de l’aide entière.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2018,
+        "sourceLevel": 9,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "a3288f9f392b644e7f818976df38b0ff267613e5e770958af0cff2ee0f284477"
+      },
+      "priorCorrection": {
+        "id": "catalogue:zh:2018",
+        "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+        "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+        "beforePhon": "beunn-laï keunn-eung geung tsao",
+        "originalReviewStatusPresent": false,
+        "originalReviewStatus": null,
+        "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+        "rule": "B"
+      },
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 74,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2698",
+      "study": "拿捏得当",
+      "native": "doser avec justesse",
+      "readingBefore": "nániē dédàng",
+      "beforePhon": "nann-yé deu-dang",
+      "afterPhon": "na-nyé deu-dang",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "拿捏 ná + niē : na-nyé remet le n de 捏 devant la syllabe niē plutôt qu’en fin de 拿.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2698,
+        "sourceLevel": 9,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "2a30e51dd774444f357f659497a9d9205028ee908a696c9211284be85b12e978"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 75,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4604",
+      "study": "多样",
+      "native": "varié",
+      "readingBefore": "duō yàng",
+      "beforePhon": "douo ang",
+      "afterPhon": "douo yang",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 4604,
+        "sourceLevel": 9,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "65a576d7405b12ade13a75f9e264346be3a071709def0e4af64d97dd0964a81d"
+      },
+      "priorCorrection": null,
+      "transportCopies": 1
+    },
+    {
+      "eventIndex": 76,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4653",
+      "study": "多样性",
+      "native": "diversité",
+      "readingBefore": "duō yàng xìng",
+      "beforePhon": "douo ang ching",
+      "afterPhon": "douo yang ching",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 4653,
+        "sourceLevel": 9,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "153bd369a666c54fe21cc82d4cd6771b59f36b9192745669ec7b34694f959ab5"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 77,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2074",
+      "study": "交货方式是FOB还是CIF？",
+      "native": "La livraison est en FOB ou CIF ?",
+      "readingBefore": "jiāo huò fāng shì shì FOB hái shì CIF?",
+      "beforePhon": "sé-i-èf èf-o-bé djyao houo fang cheu cheu haï cheu",
+      "afterPhon": "djyao houo fang cheu cheu èf-o-bé haï cheu sé-i-èf",
+      "rules": [
+        "I"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "La phrase place FOB avant 还是 puis CIF. L’avant inversait les deux sigles en tête ; l’après respecte les deux positions sans renommer leurs lettres.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2074,
+        "sourceLevel": 10,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "620c24c0916a7aad08c5c693b8cedea8e85b5791228d70a44a2108e34538993c"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 78,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2077",
+      "study": "包装上能印我们的logo吗？",
+      "native": "Notre logo peut-il figurer sur l'emballage ?",
+      "readingBefore": "bāo zhuāng shàng néng yìn wǒ men de logo ma?",
+      "beforePhon": "lo-go bao djouang chang neung inn ouo meunn de ma?",
+      "afterPhon": "bao djouang chang neung inn ouo meunn de lo-go ma?",
+      "rules": [
+        "I"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "L’emplacement des lettres/sigles a été lu dans la chaîne chinoise entière. Leur ordre corrigé correspond à la source ; les noms français de lettres et les lectures déjà employées restent des choix de convention.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2077,
+        "sourceLevel": 10,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "260bda4277b33843fb4e1a53611e0b056b937f316c5bcb86e808c3bc97baa780"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 79,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2116",
+      "study": "请尽快归还样品",
+      "native": "merci de restituer l'échantillon rapidement",
+      "readingBefore": "qǐng jǐnkuài guīhuán yàngpǐn",
+      "beforePhon": "tching djinn-kouaï gouèï-houann ang-pinn",
+      "afterPhon": "tching djinn-kouaï gouèï-houann yang-pinn",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2116,
+        "sourceLevel": 10,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "064c926d596ef25268bd30ecd2a90136b634764765ffef1ca19a1a53e8587ab0"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 80,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2126",
+      "study": "报价涵盖运费吗？",
+      "native": "le devis couvre-t-il les frais de port ?",
+      "readingBefore": "bàojià hángài yùnfèi ma?",
+      "beforePhon": "bao-djya hang-aï unn-feï ma?",
+      "afterPhon": "bao-djya hann-gaï unn-feï ma?",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "涵盖 hán + gài : le g appartient à 盖, d’où hann-gaï et non hang-aï.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2126,
+        "sourceLevel": 10,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "d220de7bc3c23042586fd2ecda6e5dc360b2fa2263d1c530fdd58a76dae4c3b9"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 81,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2143",
+      "study": "大货前必须先确认样品",
+      "native": "il faut valider l'échantillon avant le grand lot.",
+      "readingBefore": "dàhuò qián bìxū xiān quèrèn yàngpǐn",
+      "beforePhon": "da-houo tchyèn bi-chu chyèn tchu-er-eune ang-pinn",
+      "afterPhon": "da-houo tchyèn bi-chu chyèn tchué-jeune yang-pinn",
+      "rules": [
+        "G",
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "确认样品 : què + rèn puis yàng + pǐn ; deux segments distincts corrigés dans la même aide entière, sans perdre l’un en appliquant l’autre.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2143,
+        "sourceLevel": 10,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "bbd20d5deb7b7cd8d09d5db4592af1d026b7d7ad099ae3bc45279498270ee489"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 82,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2145",
+      "study": "我们不能太依赖一个供应商",
+      "native": "nous ne pouvons pas trop dépendre d'un seul fournisseur",
+      "readingBefore": "wǒmen bùnéng tài yīlài yí ge gōngyìngshāng",
+      "beforePhon": "ouo-meune bounn-eung taï i-laï i gueu gong-ing-chang",
+      "afterPhon": "ouo-meune bou-neung taï i-laï i gueu gong-ing-chang",
+      "rules": [
+        "F"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "La frontière lue dans les caractères et le Pinyin réattribue une consonne au début de la syllabe suivante ; l’après conserve le reste de l’aide entière.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2145,
+        "sourceLevel": 10,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "08569ae45381e7e0ecf3f0a8e08634b4424fd407f7ac5a3641955e0ddde87d5f"
+      },
+      "priorCorrection": {
+        "id": "catalogue:zh:2145",
+        "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+        "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+        "beforePhon": "ouo-meune bounn-eung taï i-laï i geu gong-ing-chang",
+        "originalReviewStatusPresent": false,
+        "originalReviewStatus": null,
+        "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+        "rule": "B"
+      },
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 83,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2155",
+      "study": "我们要界定责任范围",
+      "native": "nous devons définir le champ des responsabilités",
+      "readingBefore": "wǒmen yào jièdìng zérèn fànwéi",
+      "beforePhon": "ouo-meune yao djyé-ding dzer-eune fann-ouèï",
+      "afterPhon": "ouo-meune yao djyé-ding dzeu-jeune fann-ouèï",
+      "rules": [
+        "G"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "La syllabe contenant r dans le Pinyin est distincte de la précédente ; l’après rétablit le repère j du deck pour cette syllabe, sans trancher les autres finales.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2155,
+        "sourceLevel": 10,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "df768e3794a0ac8b0bfe03472106f7c687c6fb4f22a3b97c46c26f3381792263"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 84,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2164",
+      "study": "这个职位赋予他更多责任",
+      "native": "ce poste lui confère plus de responsabilités",
+      "readingBefore": "zhège zhíwèi fùyǔ tā gèng duō zérèn",
+      "beforePhon": "djeu-gueu djr-ouèï fou-u ta gueung douo dzer-eune",
+      "afterPhon": "djeu-gueu djr-ouèï fou-u ta gueung douo dzeu-jeune",
+      "rules": [
+        "G"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "La syllabe contenant r dans le Pinyin est distincte de la précédente ; l’après rétablit le repère j du deck pour cette syllabe, sans trancher les autres finales.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2164,
+        "sourceLevel": 10,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "b57d7812af6a61848c725eb4842520171eb623a4c214092d182f2ec3c8498f11"
+      },
+      "priorCorrection": {
+        "id": "catalogue:zh:2164",
+        "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+        "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+        "beforePhon": "djeu-geu djr-ouèï fou-u ta geung douo dzer-eune",
+        "originalReviewStatusPresent": false,
+        "originalReviewStatus": null,
+        "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+        "rule": "B"
+      },
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 85,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2743",
+      "study": "久仰大名",
+      "native": "je vous admire depuis longtemps",
+      "readingBefore": "jiǔ yǎng dà míng",
+      "beforePhon": "djyo ang da ming",
+      "afterPhon": "djyo yang da ming",
+      "rules": [
+        "E"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Le caractère/segment lu porte yáng ou yǎng (样/阳/扬/养/羊/仰/痒) ; le y remis correspond à cette attaque. Les cas 一样 i-ang restés douteux ne sont pas généralisés.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 2743,
+        "sourceLevel": 10,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "8565bc8e7a45f2e46ca07267cc2349205ab48ad4b6afcee6a89d9f24f13b0904"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 86,
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4810",
+      "study": "君子疾没世而名不称焉",
+      "native": "le sage craint de mourir sans laisser un nom digne",
+      "readingBefore": "jūn zǐ jí méi shì ér míng bù chēng yān",
+      "beforePhon": "djunn dzeu dji meï chr er ming bou tcheung yèn",
+      "afterPhon": "djunn dzeu dji mo chr er ming bou tcheung yèn",
+      "rules": [
+        "J"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "没世 est mòshì dans la citation (fin de la vie), non la négation 没 méi. Mo corrige précisément cette lecture.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "DECKS.zh",
+        "sourceIndex": 4810,
+        "sourceLevel": 10,
+        "fieldMap": {
+          "study": "t",
+          "native": "frm",
+          "phon": "phf",
+          "reading": "py"
+        },
+        "sourceSha256": "abfc997c363fcb75a292e2c2035f144344ecf1a788159b7888b9f40a611cf87e"
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 87,
+      "pairId": "fr-zh",
+      "id": "heard-conversation:fr-zh-piste-sport-habitudes-received-01",
+      "study": "你经常运动吗？",
+      "native": "Tu fais souvent du sport ?",
+      "readingBefore": "nǐ jīngcháng yùndòng ma?",
+      "beforePhon": "ni ting-tchang yun-tong ma ?",
+      "afterPhon": "ni djing-tchang yun-tong ma ?",
+      "rules": [
+        "H"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Question reçue du sport : 经 jīng avait ting ; djing correspond à l’initiale j dans l’aide francophone de ce deck.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "situation-received-conversation",
+        "kind": "conversation-whole-entry",
+        "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-zh.json",
+        "ledgerFileSha256": "07b5c5822a81920048e4ab0b4fd7755a647566acd21a36c9374804b8b7d93be0",
+        "itemId": "fr-zh-piste-sport-habitudes-received-01",
+        "sourceSha256": "0c908160644346a0ba758af4d226f4e9f39c14db589f1086f3189756a2a0e32c",
+        "ledgerItemSha256": "6d025ebddb38cab1f6685eb8a3fa46969e4eda00c960c712301f88ad6366f4e1",
+        "fieldMap": {
+          "study": "study",
+          "native": "native",
+          "phon": "phon",
+          "reading": "reading"
+        },
+        "provenance": {
+          "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L4-fr-zh.json",
+          "jsonPointer": "/dialogues/2/turns/2",
+          "fileSha256": "4afac71b61e6b2ea190bb3eccc0d09f0b367a83cbd3eb68e78233ef0c0b8dfe0",
+          "entrySha256": "0c908160644346a0ba758af4d226f4e9f39c14db589f1086f3189756a2a0e32c",
+          "sourceLevel": 4,
+          "originalRole": "rôle du tour entier consulté",
+          "originalDialogueId": "L4-fr-zh-d3"
+        },
+        "sourceLevel": 4
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 88,
+      "pairId": "zh-fr",
+      "id": "heard-authored:situation-zh-fr-piste-gouts-activites-received-01",
+      "study": "Tu aimes plutôt les activités calmes ?",
+      "native": "你更喜欢安静的活动吗？",
+      "readingBefore": null,
+      "beforePhon": "蒂 埃姆 普吕托 莱 扎克蒂维泰 卡勒姆",
+      "afterPhon": "蒂 埃姆 普吕托 雷 扎克蒂维泰 卡勒姆",
+      "rules": [
+        "C"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Reçu de l’ami : les activités, avec liaison z rendue par le segment suivant 扎克蒂维泰. Seul 莱 est remplacé par 雷 ; la liaison n’est pas supprimée.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "situation-received-authored",
+        "kind": "editorial-authored-whole-entry",
+        "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-zh-fr.json",
+        "ledgerFileSha256": "16b316ded3597ccf4981b39a917dfa4123048907aa8e324232e3887471645c81",
+        "itemId": "situation-zh-fr-piste-gouts-activites-received-01",
+        "sourceSha256": "f2c554daabbe37a5a27d92ad32f5ff38cc6566bfedcdd96ff762bb6e7cd1171c",
+        "ledgerItemSha256": "f2c554daabbe37a5a27d92ad32f5ff38cc6566bfedcdd96ff762bb6e7cd1171c",
+        "fieldMap": {
+          "study": "study",
+          "native": "native",
+          "phon": "phon"
+        },
+        "provenance": {
+          "kind": "editorial-authored-whole-utterance"
+        }
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    },
+    {
+      "eventIndex": 89,
+      "pairId": "zh-fr",
+      "id": "heard-authored:situation-zh-fr-piste-repondre-objection-received-03",
+      "study": "Je comprends mieux votre position, comparons les deux formats.",
+      "native": "我更理解您的立场了，让我们比较一下这两种形式。",
+      "readingBefore": null,
+      "beforePhon": "热 孔普朗 米厄 沃特尔 波齐西翁，孔帕龙 莱 德 福尔马",
+      "afterPhon": "热 孔普朗 米厄 沃特尔 波齐西翁，孔帕龙 雷 德 福尔马",
+      "rules": [
+        "C"
+      ],
+      "reviewVerdict": "accepted-bounded-alignment",
+      "reviewNote": "Clôture du partenaire : les deux formats ; seul 莱 devient 雷. La phrase reste en compréhension seule et sans réponse à produire.",
+      "baseFieldsMatch": true,
+      "source": {
+        "collection": "situation-received-authored",
+        "kind": "editorial-authored-whole-entry",
+        "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-zh-fr.json",
+        "ledgerFileSha256": "16b316ded3597ccf4981b39a917dfa4123048907aa8e324232e3887471645c81",
+        "itemId": "situation-zh-fr-piste-repondre-objection-received-03",
+        "sourceSha256": "6a92b5fd151bac6568a69e1986c8c06405f0d4bd8c6430e4f0930ba7fc45f9cd",
+        "ledgerItemSha256": "6a92b5fd151bac6568a69e1986c8c06405f0d4bd8c6430e4f0930ba7fc45f9cd",
+        "fieldMap": {
+          "study": "study",
+          "native": "native",
+          "phon": "phon"
+        },
+        "provenance": {
+          "kind": "editorial-authored-whole-utterance"
+        }
+      },
+      "priorCorrection": null,
+      "transportCopies": 0
+    }
+  ],
+  "readingEvents": [
+    {
+      "pair": "fr-zh",
+      "id": "catalogue:zh:621",
+      "level": 4,
+      "field": "reading",
+      "study": "五金是电镀的吗？",
+      "native": "la quincaillerie est-elle plaquée ?",
+      "beforeReading": "wǔjīn shì diànduó de ma?",
+      "afterReading": "wǔjīn shì diàndù de ma?",
+      "reason": "电镀 se lit diàndù",
+      "linkedPhonEvent": true,
+      "occurrence": {
+        "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+        "location": [
+          "themes",
+          8,
+          "phrases",
+          3
+        ]
+      },
+      "reviewVerdict": "accepted-contextual-polyphony",
+      "reviewNote": "镀 est dù dans 电镀 ‘électroplaquer’ ; duó n’est pas la lecture de ce caractère dans ce terme.",
+      "beforeMatchesSnapshot": true,
+      "linkedPhonEventIndices": [
+        26
+      ]
+    },
+    {
+      "pair": "fr-zh",
+      "id": "catalogue:zh:1680",
+      "level": 7,
+      "field": "reading",
+      "study": "有什么当地人才知道的好去处？",
+      "native": "Des coins secrets connus des locaux ?",
+      "beforeReading": "yǒu shén me běn dì rén cái zhī dào de hǎo qù chù?",
+      "afterReading": "yǒu shén me dāng dì rén cái zhī dào de hǎo qù chù?",
+      "reason": "les caractères sont 当地 dāngdì, pas 本地",
+      "linkedPhonEvent": true,
+      "occurrence": {
+        "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+        "location": [
+          "themes",
+          8,
+          "phrases",
+          91
+        ]
+      },
+      "reviewVerdict": "accepted-contextual-polyphony",
+      "reviewNote": "当地 ‘local’ est dāngdì. Le Pinyin avant transcrivait le synonyme 本地 běndì, absent du texte étudié.",
+      "beforeMatchesSnapshot": true,
+      "linkedPhonEventIndices": [
+        57
+      ]
+    },
+    {
+      "pair": "fr-zh",
+      "id": "catalogue:zh:4810",
+      "level": 10,
+      "field": "reading",
+      "study": "君子疾没世而名不称焉",
+      "native": "le sage craint de mourir sans laisser un nom digne",
+      "beforeReading": "jūn zǐ jí méi shì ér míng bù chēng yān",
+      "afterReading": "jūn zǐ jí mò shì ér míng bù chēng yān",
+      "reason": "没世 « jusqu’à la fin de sa vie » se lit mòshì",
+      "linkedPhonEvent": true,
+      "occurrence": {
+        "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+        "location": [
+          "themes",
+          6,
+          "phrases",
+          87
+        ]
+      },
+      "reviewVerdict": "accepted-contextual-polyphony",
+      "reviewNote": "没世 ‘à la fin de sa vie’ dans cette citation est mòshì ; lire méi traiterait à tort 没 comme négation ordinaire.",
+      "beforeMatchesSnapshot": true,
+      "linkedPhonEventIndices": [
+        86
+      ]
+    },
+    {
+      "pair": "fr-zh",
+      "id": "catalogue:zh:1608",
+      "level": 7,
+      "field": "reading",
+      "study": "千磨万击还坚劲任尔东西南北风",
+      "native": "inébranlable face à mille épreuves",
+      "beforeReading": "qiān mó wàn jī hái jiān jìn rèn ěr dōng xī nán běi fēng",
+      "afterReading": "qiān mó wàn jī hái jiān jìng rèn ěr dōng xī nán běi fēng",
+      "reason": "坚劲 « ferme, vigoureux » se lit jiānjìng (Zheng Banqiao, 竹石)",
+      "linkedPhonEvent": true,
+      "occurrence": {
+        "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+        "location": [
+          "reserve",
+          1
+        ]
+      },
+      "reviewVerdict": "accepted-contextual-polyphony",
+      "reviewNote": "坚劲 signifie ici ferme/tenace dans le vers 千磨万击还坚劲. 劲 adjectival se lit jìng, distinct du nom jìn ‘force’.",
+      "beforeMatchesSnapshot": true,
+      "linkedPhonEventIndices": [
+        56
+      ]
+    },
+    {
+      "pair": "fr-zh",
+      "id": "catalogue:zh:1323",
+      "level": 6,
+      "field": "reading",
+      "study": "逝者如斯夫不舍昼夜",
+      "native": "le temps s'écoule ainsi, sans jamais s'arrêter",
+      "beforeReading": "shì zhě rú sī fū bù shě zhòu yè",
+      "afterReading": "shì zhě rú sī fú bù shě zhòu yè",
+      "reason": "夫 particule finale de 逝者如斯夫 se lit fú ; l’aide « fou » reste juste",
+      "linkedPhonEvent": false,
+      "occurrence": {
+        "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+        "location": [
+          "themes",
+          5,
+          "phrases",
+          10
+        ]
+      },
+      "reviewVerdict": "accepted-contextual-polyphony",
+      "reviewNote": "夫 est la particule exclamative fú dans 逝者如斯夫, pas fū ‘homme/époux’. La correction ne change que le ton, et l’aide fou n’a pas de ton à changer.",
+      "beforeMatchesSnapshot": true,
+      "linkedPhonEventIndices": []
+    }
+  ],
+  "implementationChanged": false,
+  "nativeOrAcousticCertification": false,
+  "excludedOrOverriddenEvents": [],
+  "limits": [
+    "Les 90 aides entières ont été lues, mais seule la justification des segments modifiés est acceptée ; les segments conservés ne deviennent pas tous certifiés.",
+    "La lecture française tch ne démontre pas à elle seule une aspiration q mandarine ; dj est ici le repère de convention retenu.",
+    "Les sigles CE/AA/ABC/ATM/OEM et les rimes üe conservent leurs conventions présentes ; aucun arbitrage nouveau généralisé.",
+    "Les 58 aides du dossier de conventions restent séparées et aucune règle n’est étendue à une carte absente.",
+    "Le lot présent ne vérifie pas le naturel de toutes les gloses, tous les niveaux ou une écoute native."
+  ]
+}

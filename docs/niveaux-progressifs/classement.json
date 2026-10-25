@@ -59817,7 +59817,7 @@
         "situation-conversation:fr-zh:loisirs-sorties-04"
       ],
       "canonicalCardsAdded": 0,
-      "fileSha256": "88934e99b0d8bf4765ea10902c883ecf01533da2cdf21726ec7acb017998a65f",
+      "fileSha256": "fcf1a603cc369297a39f04dc7d3dd3927b4f8bdb50c689d45b558011d894a969",
       "receivedModelTransports": 36
     },
     {
@@ -60679,7 +60679,7 @@
         "situation-support-conversation:situation-zh-fr-piste-trouver-gare-lexical-01"
       ],
       "canonicalCardsAdded": 0,
-      "fileSha256": "1831ff0bcc1381d49cac191c975230ec2f09dff50856070d5e37e27150963eb6",
+      "fileSha256": "64ab1f96bc3a1fea79c263a684b7de1fb846b62afb30868195b5a5094a576bd2",
       "receivedModelTransports": 36
     }
   ],
@@ -208287,7 +208287,7 @@
   "editorialReferenceOrderClosed": false,
   "structuralUtteranceReferenceOrderClosed": true,
   "progressivityValidationBlocked": true,
-  "manifestSha256": "8cec20f3e34998046682e7c68d5a33a0adef04f713a8b69e6cdd1b6d072ffee6",
+  "manifestSha256": "0a68b3b0fd3f1adbce72fe01eea2eee043c611c3fc6c39f9b315aeb1881bc698",
   "phoneticCorrections": {
     "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
     "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
@@ -208360,6 +208360,59 @@
       "B+D": 2,
       "C": 17,
       "D": 36
+    }
+  },
+  "reviewedFieldCorrections": {
+    "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/revue-claude-lot3.json",
+    "registrySha256": "20ad657496a94a036c8e6aa74088f172ddc8c4ebb7eacb074f2133fa84beb393",
+    "correctionCount": 91,
+    "eventCount": 95,
+    "phoneticEventCount": 90,
+    "readingEventCount": 5,
+    "evidenceCommit": "d06a62ea36120ffd73b8059645848c13bd4f172d",
+    "baseSnapshotCommit": "3df885df8db00f0bdc2a703b92bd17801accabce",
+    "appliesAfter": {
+      "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+      "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc"
+    },
+    "occurrenceCount": 98,
+    "occurrenceProfiles": {
+      "canonical": 88,
+      "received-model": 3,
+      "transport-phrase": 7
+    },
+    "fieldOccurrences": {
+      "phon": 97,
+      "reading": 5
+    },
+    "modifiedRuntimeFiles": [
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L1.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/zh-fr.json"
+    ],
+    "transportSha256ByPair": {
+      "fr-en": "f51f1834084bdcfe8ed42820d04f35f5449829f34fd358bbacdc37806ec4c199",
+      "fr-es": "f5a2118ed765aed1eedd30022dcf1b183f7355cfc60d01935e05b2aa8448cade",
+      "fr-it": "a9bc15c5426f5330e56e7ed84663b66ca4fb109df4f69928ae11c63d47dda788",
+      "fr-zh": "fcf1a603cc369297a39f04dc7d3dd3927b4f8bdb50c689d45b558011d894a969",
+      "fr-ja": "9564290ade1a23545f0d5238bf034c0f037d687bb3aeeb40e3f7fd1047b707e1",
+      "fr-ko": "6147d2c868b0f5962b1ce51e498c888f40d8fa8cf90b9c3f6996d675079f4e9b",
+      "zh-fr": "64ab1f96bc3a1fea79c263a684b7de1fb846b62afb30868195b5a5094a576bd2"
+    },
+    "globalPhoneticApproval": false,
+    "sourceValidation": "Frozen lot-3 before/after applied after original and lot-2 checks; only named phon/reading, phon review status and separate lot-3 annotation change.",
+    "perPair": {
+      "fr-zh": 89,
+      "zh-fr": 2
     }
   }
 }

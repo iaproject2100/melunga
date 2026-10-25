@@ -36,11 +36,22 @@ Les sept partitions s’appuient sur des indices et une empreinte du deck source
 
 Le registre `docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json` applique **774 événements audités à 772 identifiants**, dans **786 occurrences** canoniques ou de transport. Les deux cartes concernées par B puis D conservent cet ordre explicite. Aucune règle de calcul phonétique ni règle du ss retirée n’est exécutée.
 
-Chaque aide originale, son statut et sa provenance restent vérifiables ; seuls phon, le statut de correction et une annotation traçable changent après les contrôles de copie originale. Les cellules et les copies de révision emploient la même édition corrigée. Les textes étudiés, traductions, lectures/Pinyin, niveaux, types et droits sont préservés.
+Chaque aide originale, son statut et sa provenance restent vérifiables ; cette première couche ne change que phon, le statut de correction et une annotation traçable après les contrôles de copie originale. Les cellules et les copies de révision emploient la même édition corrigée. Cette couche seule conserve textes étudiés, traductions, lectures/Pinyin, niveaux, types et droits ; les cinq corrections de lecture du lot suivant sont déclarées séparément ci-dessous.
 
 Cette application de corrections ciblées ne vaut pas validation phonétique globale. Les statuts de relecture du parcours restent en attente et la relecture native reste distincte.
 
 Empreinte du registre : `efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc` ; preuves figées au commit `dfc665bf5574dd99d308c756efc69c571aec62cc`.
+
+
+## Lot 3 — aides et cinq lectures révisées, sans règle automatique
+
+Le registre `docs/niveaux-progressifs/corrections-phonetiques/lot3/revue-claude-lot3.json` applique **90 aides entières et 5 Pinyin**, soit **95 événements / 91 identifiants**, après la couche précédente. Les sept prolongations d’une correction B conservent cette première annotation et déclarent leur nouvelle étape séparément.
+
+L’édition comporte **98 objets corrigés** : 88 canoniques, 7 copies de transport et 3 modèles reçus. Les cinq lectures changées sont les seuls Pinyin modifiés ; aucun champ d’étude, sens, emplacement, type ou droit d’accès ne change dans cette couche.
+
+Les valeurs avant entières, sources et annotations antérieures sont vérifiées avant application. Les deux registres figés ne sont pas des règles à étendre. Les gloses, propositions de niveaux/thèmes et conventions à arbitrer restent hors de ce raccord ; aucune validation native globale n’en découle.
+
+Empreinte du registre : `20ad657496a94a036c8e6aa74088f172ddc8c4ebb7eacb074f2133fa84beb393` ; preuves figées au commit `d06a62ea36120ffd73b8059645848c13bd4f172d`.
 
 
 ## Enrichissement de situations — lot distinct

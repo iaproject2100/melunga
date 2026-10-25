@@ -53,6 +53,9 @@ _situation_spec.loader.exec_module(situation_content)
 _phonetic_spec = importlib.util.spec_from_file_location("audited_phonetic_corrections", Path(__file__).with_name("phonetic_corrections.py"))
 phonetic_corrections = importlib.util.module_from_spec(_phonetic_spec)
 _phonetic_spec.loader.exec_module(phonetic_corrections)
+_reviewed_fields_spec = importlib.util.spec_from_file_location("audited_reviewed_field_corrections", Path(__file__).with_name("reviewed_field_corrections.py"))
+reviewed_field_corrections = importlib.util.module_from_spec(_reviewed_fields_spec)
+_reviewed_fields_spec.loader.exec_module(reviewed_field_corrections)
 
 
 def canonical(value):
@@ -1625,8 +1628,10 @@ def make(include_situations=True):
     if include_situations:
         outputs, correction_summary = phonetic_corrections.apply_to_outputs(ROOT, outputs, report)
         report["phoneticCorrections"] = correction_summary
+        outputs, reviewed_fields_summary = reviewed_field_corrections.apply_to_outputs(ROOT, outputs, report)
+        report["reviewedFieldCorrections"] = reviewed_fields_summary
         for transport in report["reviewTransports"]:
-            transport["fileSha256"] = correction_summary["transportSha256ByPair"][transport["pair"]]
+            transport["fileSha256"] = reviewed_fields_summary["transportSha256ByPair"][transport["pair"]]
         report["manifestSha256"] = sha(json.loads(outputs[OUTPUT / "manifest.json"]))
     # include_situations=False is the source-exact historical baseline used by
     # validate_situation_drafts.py. It is not a served runtime edition and has
@@ -1661,9 +1666,16 @@ def markdown(report):
     if correction:
         lines.extend(["", "## Corrections phonétiques après validation des sources", "",
             f"Le registre `{correction['registryPath']}` applique **{correction['eventCount']} événements audités à {correction['correctionCount']} identifiants**, dans **{correction['occurrenceCount']} occurrences** canoniques ou de transport. Les deux cartes concernées par B puis D conservent cet ordre explicite. Aucune règle de calcul phonétique ni règle du ss retirée n’est exécutée.", "",
-            "Chaque aide originale, son statut et sa provenance restent vérifiables ; seuls phon, le statut de correction et une annotation traçable changent après les contrôles de copie originale. Les cellules et les copies de révision emploient la même édition corrigée. Les textes étudiés, traductions, lectures/Pinyin, niveaux, types et droits sont préservés.", "",
+            "Chaque aide originale, son statut et sa provenance restent vérifiables ; cette première couche ne change que phon, le statut de correction et une annotation traçable après les contrôles de copie originale. Les cellules et les copies de révision emploient la même édition corrigée. Cette couche seule conserve textes étudiés, traductions, lectures/Pinyin, niveaux, types et droits ; les cinq corrections de lecture du lot suivant sont déclarées séparément ci-dessous.", "",
             "Cette application de corrections ciblées ne vaut pas validation phonétique globale. Les statuts de relecture du parcours restent en attente et la relecture native reste distincte.", "",
             f"Empreinte du registre : `{correction['registrySha256']}` ; preuves figées au commit `{correction['evidenceCommit']}`.", ""])
+    reviewed_fields = report.get("reviewedFieldCorrections")
+    if reviewed_fields:
+        lines.extend(["", "## Lot 3 — aides et cinq lectures révisées, sans règle automatique", "",
+            f"Le registre `{reviewed_fields['registryPath']}` applique **{reviewed_fields['phoneticEventCount']} aides entières et {reviewed_fields['readingEventCount']} Pinyin**, soit **{reviewed_fields['eventCount']} événements / {reviewed_fields['correctionCount']} identifiants**, après la couche précédente. Les sept prolongations d’une correction B conservent cette première annotation et déclarent leur nouvelle étape séparément.", "",
+            f"L’édition comporte **{reviewed_fields['occurrenceCount']} objets corrigés** : {reviewed_fields['occurrenceProfiles'].get('canonical', 0)} canoniques, {reviewed_fields['occurrenceProfiles'].get('transport-phrase', 0)} copies de transport et {reviewed_fields['occurrenceProfiles'].get('received-model', 0)} modèles reçus. Les cinq lectures changées sont les seuls Pinyin modifiés ; aucun champ d’étude, sens, emplacement, type ou droit d’accès ne change dans cette couche.", "",
+            "Les valeurs avant entières, sources et annotations antérieures sont vérifiées avant application. Les deux registres figés ne sont pas des règles à étendre. Les gloses, propositions de niveaux/thèmes et conventions à arbitrer restent hors de ce raccord ; aucune validation native globale n’en découle.", "",
+            f"Empreinte du registre : `{reviewed_fields['registrySha256']}` ; preuves figées au commit `{reviewed_fields['evidenceCommit']}`.", ""])
     if checks["newSituationThemes"]:
         lines.extend(["", "## Enrichissement de situations — lot distinct", "",
             f"{checks['newSituationThemes'] // checks['pairs']} rubriques de situation comportent chacune huit intentions dans les sept couples : **{checks['newSituationCandidatePositions']} positions pédagogiques**. Elles ne représentent pas autant de créations : **{checks['newSituationAuthoredUtterances']} formes entières réellement rédigées** et **{checks['newSituationExistingSourcePositions']} positions utilisant des sources préexistantes**. Parmi ces sources, **{checks['newSituationExistingConversationImports']} phrases de conversation** sont importées entières sans être comptées comme nouvelles rédactions.", "",

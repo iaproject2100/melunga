@@ -9,6 +9,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const {isDeepStrictEqual} = require('node:util');
+const lot3Corrections = require('./lot3-corrections.cjs');
 const ROOT = path.resolve(__dirname, '..', '..');
 const WEB = path.join(ROOT, 'melunga_deploy');
 const REGISTRY = 'docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json';
@@ -97,7 +98,7 @@ function annotationFor(entry, before, registrySha256) {
     originalReviewStatus:before.phoneticReviewStatusPresent ? before.phoneticReviewStatus : null,
     evidenceCommit:EVIDENCE_COMMIT, rule:entry.rule};
 }
-function verifyPhrase(pairId, phrase, expectedBefore) {
+function verifyLot2Phrase(pairId, phrase, expectedBefore) {
   const audit = loadRegistry();
   const entry = audit.entries.get(key(pairId, phrase.id));
   if (!entry) {
@@ -119,8 +120,12 @@ function verifyPhrase(pairId, phrase, expectedBefore) {
   assert.deepEqual(phrase.source, before.source, 'source object is never rewritten');
   return phrase;
 }
+function verifyPhrase(pairId, phrase, expectedBefore) {
+  return verifyLot2Phrase(pairId, lot3Corrections.projectBefore(pairId, phrase), expectedBefore);
+}
 function projectBefore(pairId, phrase) {
-  verifyPhrase(pairId, phrase);
+  phrase = lot3Corrections.projectBefore(pairId, phrase);
+  verifyLot2Phrase(pairId, phrase);
   if (!phrase.phoneticCorrection) return phrase;
   const original = {...phrase, phon:phrase.phoneticCorrection.beforePhon};
   if (phrase.phoneticCorrection.originalReviewStatusPresent) {
@@ -132,16 +137,18 @@ function projectBefore(pairId, phrase) {
 function inputFiles() {
   const {registry} = loadRegistry();
   return [path.join(ROOT, REGISTRY), __filename,
-    ...registry.evidenceFiles.map(file => path.resolve(ROOT, file.path))];
+    ...registry.evidenceFiles.map(file => path.resolve(ROOT, file.path)), ...lot3Corrections.inputFiles()];
 }
 function auditRuntime() {
+  const lot3Audit = lot3Corrections.auditRuntime();
   const audit = loadRegistry();
   const manifestPath = 'melunga_deploy/content/niveaux-progressifs/manifest.json';
   const manifest = read(manifestPath);
   const files = new Set(manifest.pairs.flatMap(pair => [pair.repertoirePath,
     ...pair.levels.map(level => level.dataPath)]).map(file => 'melunga_deploy/' + file));
   const actual = new Map([...files].map(file => [file, read(file)]));
-  const restored = new Map([...actual].map(([file, value]) => [file, clone(value)]));
+  const restored = new Map([...actual].map(([file, value]) => [file,
+    lot3Corrections.projectDocument(value.pairId || value.id, value, file.includes('/repertoires/'))]));
   const listedLocations = new Set();
   let occurrences = 0;
   for (const entry of audit.registry.corrections) {
@@ -190,6 +197,7 @@ function auditRuntime() {
   const expectedManifest = clone(baseline(manifestPath));
   expectedManifest.phoneticCorrections = {registryPath:REGISTRY, registrySha256:audit.registrySha256,
     correctionCount:772, eventCount:774, evidenceCommit:EVIDENCE_COMMIT};
+  expectedManifest.reviewedFieldCorrections = lot3Corrections.declaration();
   for (const pair of expectedManifest.pairs) pair.repertoireSha256 = hash(fs.readFileSync(path.join(WEB, pair.repertoirePath)));
   assert.deepEqual(manifest, expectedManifest, 'manifest changes only overlay proof and real transport hashes');
   const legacy = 'melunga_deploy/content/maquette-guidee.json';
@@ -197,7 +205,7 @@ function auditRuntime() {
   assert.equal(fs.readFileSync(path.join(WEB, 'app.html'), 'utf8'),
     execFileSync('git', ['show', BASELINE + ':melunga_deploy/app.html'], {cwd:ROOT, encoding:'utf8', maxBuffer:32 * 1024 * 1024}),
     'classic source and existing rights code remain byte-for-byte unchanged');
-  return {correctionCount:772, eventCount:774, occurrences, files:files.size};
+  return {correctionCount:772, eventCount:774, occurrences, files:files.size, lot3:lot3Audit};
 }
 module.exports = {loadRegistry, verifyPhrase, projectBefore, auditRuntime, inputFiles};
 
