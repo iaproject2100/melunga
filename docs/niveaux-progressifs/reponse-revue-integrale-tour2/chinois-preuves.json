@@ -1,0 +1,3656 @@
+{
+  "version": 1,
+  "status": "manual-bounded-review-no-product-edits",
+  "headSnapshot": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+  "claudeSnapshot": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+  "priorClaudeSnapshot": "d4eaea315840576f42347d224b2abbed97283bdd",
+  "productChanges": 0,
+  "nativeValidation": false,
+  "publicationApproved": false,
+  "tjSummary": {
+    "wholeAidsReadManually": 38,
+    "segmentsReadManually": 41,
+    "falsePositivesFoundInFrozenRegister": 0,
+    "otherSyllablesNotLinguisticallyValidated": true,
+    "acceptedScope": "The 38 exact whole-aid entries, with all 41 explicitly aligned segments. Not authorization to rerun a global replacement.",
+    "reasonLimit": "dj is an approximation in this deck, not an exact voiced French equivalent of Mandarin j. The statement that tj can never be read in French is rejected as too absolute."
+  },
+  "scriptAssessment": {
+    "lineChecksOnlyPresenceOfSomeJ": true,
+    "doesNotAlignEveryTj": true,
+    "commentedAtLeastAsManyCheckImplemented": false,
+    "counterfactualRisk": "A phrase with a genuine j syllable and an unrelated tj segment would pass the current if-not-j_syl guard. This is a guard limitation, not a false positive found among the 38.",
+    "recommendation": "Use the manually verified finite register and exact whole-aid before/after guards; future candidates need new alignment."
+  },
+  "manualWholeAidReview": [
+    {
+      "pair": "fr-zh",
+      "level": 1,
+      "id": "catalogue:zh:4821",
+      "study": "今天天气很好。",
+      "native": "Il fait beau aujourd'hui.",
+      "reading": "jīntiān tiānqì hěn hǎo",
+      "avant": "tjinn-tyenn tyenn-tchi heunn hao",
+      "apres": "djinn-tyenn tyenn-tchi heunn hao",
+      "regle": "D",
+      "jetons": [
+        "tjinn"
+      ],
+      "pinyinJ": [
+        "jintian"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 4821,
+        "field": "phf",
+        "entrySha256": "3107dafadd2ccb972137b5193436e10a406df0dbb009ac9a07955142e925de45",
+        "phon": "tjinn-tyenn tyenn-tchi heunn hao"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L1.json",
+          "pointer": "/themes/6/phrases/5",
+          "entrySha256": "4c18a99fa40ac50c4e178c0d1cf93df142017bbbba3d32d9b324030e25a25fd1",
+          "phon": "tjinn-tyenn tyenn-tchi heunn hao"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L1.json",
+          "pointer": "/themes/6/phrases/5",
+          "entrySha256": "4c18a99fa40ac50c4e178c0d1cf93df142017bbbba3d32d9b324030e25a25fd1",
+          "phon": "tjinn-tyenn tyenn-tchi heunn hao"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L1.json",
+          "pointer": "/themes/6/phrases/5",
+          "entrySha256": "0fc37b941abe6eb90eca5eca49aaa1025fdeef21a5e6baad36ceba14aed0f84a",
+          "phon": "djinn-tyenn tyenn-tchi heunn hao"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "今",
+          "studyStart": 0,
+          "studyEnd": 1,
+          "context": "今天天",
+          "pinyinSyllable": "jīn",
+          "sourceReadingStart": 0,
+          "sourceReadingEnd": 3,
+          "aidSegmentBefore": "tjinn",
+          "aidSegmentAfter": "djinn",
+          "aidStart": 0,
+          "aidEnd": 5,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 2,
+      "id": "catalogue:zh:195",
+      "study": "我刚到家。",
+      "native": "Je viens de rentrer.",
+      "reading": "wǒ gāng dào jiā",
+      "avant": "ouo gang dao tjya",
+      "apres": "ouo gang dao djya",
+      "regle": "D",
+      "jetons": [
+        "tjya"
+      ],
+      "pinyinJ": [
+        "jia"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 195,
+        "field": "phf",
+        "entrySha256": "045ef6d320df70724390eb1f6f331d116f484e6c0079ccc214b05247c70c16a3",
+        "phon": "ouo gang dao tjya"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/0/phrases/4",
+          "entrySha256": "a037ddf21788712e7a99deed6037bbc9ea13adf8075085f56484eb85eab399a9",
+          "phon": "ouo gang dao tjya"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/0/phrases/4",
+          "entrySha256": "a037ddf21788712e7a99deed6037bbc9ea13adf8075085f56484eb85eab399a9",
+          "phon": "ouo gang dao tjya"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/0/phrases/4",
+          "entrySha256": "5df475f771e2b2398358bc31fb2ae42b9f5866868c74b8e9da1d3aef0e2d3c2c",
+          "phon": "ouo gang dao djya"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "家",
+          "studyStart": 3,
+          "studyEnd": 4,
+          "context": "刚到家。",
+          "pinyinSyllable": "jiā",
+          "sourceReadingStart": 12,
+          "sourceReadingEnd": 15,
+          "aidSegmentBefore": "tjya",
+          "aidSegmentAfter": "djya",
+          "aidStart": 13,
+          "aidEnd": 17,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 2,
+      "id": "catalogue:zh:70",
+      "study": "就在这里。",
+      "native": "C'est juste ici.",
+      "reading": "jiù zài zhèlǐ",
+      "avant": "tjyo tsaï djeu-li",
+      "apres": "djyo tsaï djeu-li",
+      "regle": "D",
+      "jetons": [
+        "tjyo"
+      ],
+      "pinyinJ": [
+        "jiu"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 70,
+        "field": "phf",
+        "entrySha256": "1a4526558102f3e842aaeb7db596bc479e5554efbde850d51a059d4aa2e8f87b",
+        "phon": "tjyo tsaï djeu-li"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/4/phrases/1",
+          "entrySha256": "3d9dddfb843d0cb84a117bbd2c59cf4fac220df42e4ba562b2ad26c7beeae2d6",
+          "phon": "tjyo tsaï djeu-li"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/4/phrases/1",
+          "entrySha256": "3d9dddfb843d0cb84a117bbd2c59cf4fac220df42e4ba562b2ad26c7beeae2d6",
+          "phon": "tjyo tsaï djeu-li"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/4/phrases/1",
+          "entrySha256": "c850f6d170aede5f7147bd474d47de76d0ed1c91181c44711db78a67c657d22a",
+          "phon": "djyo tsaï djeu-li"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "就",
+          "studyStart": 0,
+          "studyEnd": 1,
+          "context": "就在这",
+          "pinyinSyllable": "jiù",
+          "sourceReadingStart": 0,
+          "sourceReadingEnd": 3,
+          "aidSegmentBefore": "tjyo",
+          "aidSegmentAfter": "djyo",
+          "aidStart": 0,
+          "aidEnd": 4,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 2,
+      "id": "catalogue:zh:193",
+      "study": "下周见。",
+      "native": "À la semaine prochaine.",
+      "reading": "xià zhōu jiàn",
+      "avant": "chya djeou tjyenn",
+      "apres": "chya djeou djyenn",
+      "regle": "D",
+      "jetons": [
+        "tjyenn"
+      ],
+      "pinyinJ": [
+        "jian"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 193,
+        "field": "phf",
+        "entrySha256": "b4655b84544eda58d3105f55ad41bfa61db248c657e18b1e0fa1afdeb0493abb",
+        "phon": "chya djeou tjyenn"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/5/phrases/6",
+          "entrySha256": "5e68f51b065d537328fb6b00f727419de01b7e2aac6a126ef739fbe0f2cfd973",
+          "phon": "chya djeou tjyenn"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/5/phrases/6",
+          "entrySha256": "5e68f51b065d537328fb6b00f727419de01b7e2aac6a126ef739fbe0f2cfd973",
+          "phon": "chya djeou tjyenn"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/5/phrases/6",
+          "entrySha256": "cff7def3fa7eba43191429bf08b6445de70571ea9e85b4b39fd5282c884e7c80",
+          "phon": "chya djeou djyenn"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "见",
+          "studyStart": 2,
+          "studyEnd": 3,
+          "context": "下周见。",
+          "pinyinSyllable": "jiàn",
+          "sourceReadingStart": 9,
+          "sourceReadingEnd": 13,
+          "aidSegmentBefore": "tjyenn",
+          "aidSegmentAfter": "djyenn",
+          "aidStart": 11,
+          "aidEnd": 17,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 2,
+      "id": "catalogue:zh:175",
+      "study": "交给我吧。",
+      "native": "Je m'en occupe.",
+      "reading": "jiāo gěi wǒ ba",
+      "avant": "tjyao gueï ouo ba",
+      "apres": "djyao gueï ouo ba",
+      "regle": "D",
+      "jetons": [
+        "tjyao"
+      ],
+      "pinyinJ": [
+        "jiao"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 175,
+        "field": "phf",
+        "entrySha256": "7504793a8314b547798068ec348eace2c28908221d9171c6502068754ac487c8",
+        "phon": "tjyao geï ouo ba"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/7/phrases/61",
+          "entrySha256": "64873e79ce60477c63015465e45b2cdcbf7425de4bd07ec1866607eacc2f9adb",
+          "phon": "tjyao geï ouo ba"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/7/phrases/61",
+          "entrySha256": "4f8ac4f295941d24bea6fccab33e9c5dd588a280c8ba666a90923189712008c2",
+          "phon": "tjyao gueï ouo ba"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/7/phrases/61",
+          "entrySha256": "5615fb84ec4adcd3654c54f72181e10eb082bc8fe2aeb7c5ca99aec8a7a48a83",
+          "phon": "djyao gueï ouo ba"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "交",
+          "studyStart": 0,
+          "studyEnd": 1,
+          "context": "交给我",
+          "pinyinSyllable": "jiāo",
+          "sourceReadingStart": 0,
+          "sourceReadingEnd": 4,
+          "aidSegmentBefore": "tjyao",
+          "aidSegmentAfter": "djyao",
+          "aidStart": 0,
+          "aidEnd": 5,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 2,
+      "id": "catalogue:zh:182",
+      "study": "我今天上班。",
+      "native": "Je travaille aujourd'hui.",
+      "reading": "wǒ jīntiān shàngbān",
+      "avant": "ouo tjinn-tyenn chang-bann",
+      "apres": "ouo djinn-tyenn chang-bann",
+      "regle": "D",
+      "jetons": [
+        "tjinn"
+      ],
+      "pinyinJ": [
+        "jintian"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 182,
+        "field": "phf",
+        "entrySha256": "00cbb44cb4639f70d7e1f01db05a63f1f19fca4cdf98c6939ae4b90a894c6210",
+        "phon": "ouo tjinn-tyenn chang-bann"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/8/phrases/1",
+          "entrySha256": "231d6210f12468b2aef2556dfbe52a63fbdeb4fa2f5126901f1b62e04e9e86fb",
+          "phon": "ouo tjinn-tyenn chang-bann"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/8/phrases/1",
+          "entrySha256": "231d6210f12468b2aef2556dfbe52a63fbdeb4fa2f5126901f1b62e04e9e86fb",
+          "phon": "ouo tjinn-tyenn chang-bann"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "pointer": "/themes/8/phrases/1",
+          "entrySha256": "ccdda1d5db80d87d8a2a18a2a33f83a5d3b1498b818a4ebc2388fae2d3ed8ded",
+          "phon": "ouo djinn-tyenn chang-bann"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "今",
+          "studyStart": 1,
+          "studyEnd": 2,
+          "context": "我今天上",
+          "pinyinSyllable": "jīn",
+          "sourceReadingStart": 3,
+          "sourceReadingEnd": 6,
+          "aidSegmentBefore": "tjinn",
+          "aidSegmentAfter": "djinn",
+          "aidStart": 4,
+          "aidEnd": 9,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 3,
+      "id": "catalogue:zh:339",
+      "study": "我已经吃过了。",
+      "native": "J'ai déjà mangé.",
+      "reading": "wǒ yǐjīng chī guò le",
+      "avant": "ouo i-tjing tche gouo leu",
+      "apres": "ouo i-djing tche gouo leu",
+      "regle": "D",
+      "jetons": [
+        "tjing"
+      ],
+      "pinyinJ": [
+        "jing"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 339,
+        "field": "phf",
+        "entrySha256": "0e414c7baabaedd011cfacc4905795ee9abe16ffc3f715423d473a3d292840d3",
+        "phon": "ouo i-tjing tche gouo leu"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/3/phrases/1",
+          "entrySha256": "b8c5db5c507a95566d288bfc4b113994c63ca5d8dd495f2f28d3ffcd1bd2679f",
+          "phon": "ouo i-tjing tche gouo leu"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/3/phrases/1",
+          "entrySha256": "b8c5db5c507a95566d288bfc4b113994c63ca5d8dd495f2f28d3ffcd1bd2679f",
+          "phon": "ouo i-tjing tche gouo leu"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/3/phrases/1",
+          "entrySha256": "0e06c9dac030989a6cef74005853640f152b0525b773a051a326314395f5a0fd",
+          "phon": "ouo i-djing tche gouo leu"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "经",
+          "studyStart": 2,
+          "studyEnd": 3,
+          "context": "我已经吃过",
+          "pinyinSyllable": "jīng",
+          "sourceReadingStart": 5,
+          "sourceReadingEnd": 9,
+          "aidSegmentBefore": "tjing",
+          "aidSegmentAfter": "djing",
+          "aidStart": 6,
+          "aidEnd": 11,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 3,
+      "id": "catalogue:zh:558",
+      "study": "今晚吃什么？",
+      "native": "On mange quoi ce soir ?",
+      "reading": "jīnwǎn chī shénme?",
+      "avant": "tjinn-ouan tche cheunn-meu?",
+      "apres": "djinn-ouan tche cheunn-meu?",
+      "regle": "D",
+      "jetons": [
+        "tjinn"
+      ],
+      "pinyinJ": [
+        "jinwan"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 558,
+        "field": "phf",
+        "entrySha256": "84b0029e76998f5ffaca930d196257c5e8af81df1b88c89529414867dcc47092",
+        "phon": "tjinn-ouan tche cheunn-meu?"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/3/phrases/18",
+          "entrySha256": "d32a4d1ebf3e46f82fc388ed285df4baa66596deb9ba4ba42ccff3e18bef6381",
+          "phon": "tjinn-ouan tche cheunn-meu?"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/3/phrases/18",
+          "entrySha256": "d32a4d1ebf3e46f82fc388ed285df4baa66596deb9ba4ba42ccff3e18bef6381",
+          "phon": "tjinn-ouan tche cheunn-meu?"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/3/phrases/18",
+          "entrySha256": "783ba3d652d20f6143c75ce259c7365ec5d16d25cffd419386a17fc046ab6783",
+          "phon": "djinn-ouan tche cheunn-meu?"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "今",
+          "studyStart": 0,
+          "studyEnd": 1,
+          "context": "今晚吃",
+          "pinyinSyllable": "jīn",
+          "sourceReadingStart": 0,
+          "sourceReadingEnd": 3,
+          "aidSegmentBefore": "tjinn",
+          "aidSegmentAfter": "djinn",
+          "aidStart": 0,
+          "aidEnd": 5,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 3,
+      "id": "catalogue:zh:562",
+      "study": "饭马上就好。",
+      "native": "Le repas est bientôt prêt.",
+      "reading": "fàn mǎshàng jiù hǎo",
+      "avant": "fann ma-chang tjyo hao",
+      "apres": "fann ma-chang djyo hao",
+      "regle": "D",
+      "jetons": [
+        "tjyo"
+      ],
+      "pinyinJ": [
+        "jiu"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 562,
+        "field": "phf",
+        "entrySha256": "2651e3946f1c525bce381580ff275a469dedc1849d35ed0abcf089188e9fc578",
+        "phon": "fann ma-chang tjyo hao"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/3/phrases/19",
+          "entrySha256": "805d670a3c4f5b7985e5f7747ae20847e1c1f324fd3c7ac54a974e9457974bed",
+          "phon": "fann ma-chang tjyo hao"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/3/phrases/19",
+          "entrySha256": "805d670a3c4f5b7985e5f7747ae20847e1c1f324fd3c7ac54a974e9457974bed",
+          "phon": "fann ma-chang tjyo hao"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/3/phrases/19",
+          "entrySha256": "94eb2311caa0341605c975dd4cb38a8a1b1fb3786951e0940af2bfaa1f517da2",
+          "phon": "fann ma-chang djyo hao"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "就",
+          "studyStart": 3,
+          "studyEnd": 4,
+          "context": "马上就好。",
+          "pinyinSyllable": "jiù",
+          "sourceReadingStart": 12,
+          "sourceReadingEnd": 15,
+          "aidSegmentBefore": "tjyo",
+          "aidSegmentAfter": "djyo",
+          "aidStart": 14,
+          "aidEnd": 18,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 3,
+      "id": "catalogue:zh:502",
+      "study": "我错过了公交车。",
+      "native": "J'ai raté le bus.",
+      "reading": "wǒ cuòguò le gōngjiāochē",
+      "avant": "ouo tsouo-gouo leu gong-tjyao-tcheu",
+      "apres": "ouo tsouo-gouo leu gong-djyao-tcheu",
+      "regle": "D",
+      "jetons": [
+        "tjyao"
+      ],
+      "pinyinJ": [
+        "jiaoche"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 502,
+        "field": "phf",
+        "entrySha256": "a51a1e03761c92a426bd1f2ceaf4335fa5fda78861393b2391c56d1b89e9cb3d",
+        "phon": "ouo tsouo-gouo leu gong-tjyao-tcheu"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/4/phrases/6",
+          "entrySha256": "ec782829842452a887b202cc7dd3156c753b2d31d46ef28537bda442019eeeb6",
+          "phon": "ouo tsouo-gouo leu gong-tjyao-tcheu"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/4/phrases/6",
+          "entrySha256": "ec782829842452a887b202cc7dd3156c753b2d31d46ef28537bda442019eeeb6",
+          "phon": "ouo tsouo-gouo leu gong-tjyao-tcheu"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/4/phrases/6",
+          "entrySha256": "a76803e5cc394a4b0c5542a31139f5c5ebea6d44060517b48bb4b5f2a469ec23",
+          "phon": "ouo tsouo-gouo leu gong-djyao-tcheu"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "交",
+          "studyStart": 5,
+          "studyEnd": 6,
+          "context": "了公交车。",
+          "pinyinSyllable": "jiāo",
+          "sourceReadingStart": 17,
+          "sourceReadingEnd": 21,
+          "aidSegmentBefore": "tjyao",
+          "aidSegmentAfter": "djyao",
+          "aidStart": 24,
+          "aidEnd": 29,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 3,
+      "id": "catalogue:zh:4828",
+      "study": "今天真累。",
+      "native": "La journée a été longue.",
+      "reading": "jīntiān zhēn lèi",
+      "avant": "tjinn-tyenn djeunn leï",
+      "apres": "djinn-tyenn djeunn leï",
+      "regle": "D",
+      "jetons": [
+        "tjinn"
+      ],
+      "pinyinJ": [
+        "jintian"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 4828,
+        "field": "phf",
+        "entrySha256": "cadc4a37f27d62f3f76b3b41cb607681ae7328c3ea3b9b978e1af157d5863fb5",
+        "phon": "tjinn-tyenn djeunn leï"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/5/phrases/12",
+          "entrySha256": "b0e17dccfee67c85d389608cd52a402fa35491d988df7c9e6e333dcb657439ab",
+          "phon": "tjinn-tyenn djeunn leï"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/5/phrases/12",
+          "entrySha256": "b0e17dccfee67c85d389608cd52a402fa35491d988df7c9e6e333dcb657439ab",
+          "phon": "tjinn-tyenn djeunn leï"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/5/phrases/12",
+          "entrySha256": "60cb8e2d00c37d42bfb8b6fadb0cdb60c28ea1bb02aa793aea92d1e68ab42b34",
+          "phon": "djinn-tyenn djeunn leï"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "今",
+          "studyStart": 0,
+          "studyEnd": 1,
+          "context": "今天真",
+          "pinyinSyllable": "jīn",
+          "sourceReadingStart": 0,
+          "sourceReadingEnd": 3,
+          "aidSegmentBefore": "tjinn",
+          "aidSegmentAfter": "djinn",
+          "aidStart": 0,
+          "aidEnd": 5,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 3,
+      "id": "catalogue:zh:340",
+      "study": "我回家了。",
+      "native": "Je rentre à la maison.",
+      "reading": "wǒ huí jiā le",
+      "avant": "ouo houeï tjya leu",
+      "apres": "ouo houeï djya leu",
+      "regle": "D",
+      "jetons": [
+        "tjya"
+      ],
+      "pinyinJ": [
+        "jia"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 340,
+        "field": "phf",
+        "entrySha256": "83cb8e7231dc8af9d17dcc821c657c05062103f2b29070133838183c98084de3",
+        "phon": "ouo houeï tjya leu"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/6/phrases/0",
+          "entrySha256": "1952d4c379d93833a104d063f108c080d3a839f4ee8b13cb59ff2573a9ef88a4",
+          "phon": "ouo houeï tjya leu"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/6/phrases/0",
+          "entrySha256": "1952d4c379d93833a104d063f108c080d3a839f4ee8b13cb59ff2573a9ef88a4",
+          "phon": "ouo houeï tjya leu"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/6/phrases/0",
+          "entrySha256": "d9e731a81c954f5d7f6504afbe8311440a9b3735bde674ee402e301041897b52",
+          "phon": "ouo houeï djya leu"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "家",
+          "studyStart": 2,
+          "studyEnd": 3,
+          "context": "我回家了。",
+          "pinyinSyllable": "jiā",
+          "sourceReadingStart": 7,
+          "sourceReadingEnd": 10,
+          "aidSegmentBefore": "tjya",
+          "aidSegmentAfter": "djya",
+          "aidStart": 10,
+          "aidEnd": 14,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 3,
+      "id": "catalogue:zh:388",
+      "study": "我手机丢了。",
+      "native": "J'ai perdu mon téléphone.",
+      "reading": "wǒ shǒujī diū le",
+      "avant": "ouo cheou-tji dyo leu",
+      "apres": "ouo cheou-dji dyo leu",
+      "regle": "D",
+      "jetons": [
+        "tji"
+      ],
+      "pinyinJ": [
+        "ji"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 388,
+        "field": "phf",
+        "entrySha256": "8ccbb5ea206c84e8b2b51d7186f6ac3435f8322d7bf4642621d0571d917caa2b",
+        "phon": "ouo cheou-tji dyo leu"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/6/phrases/2",
+          "entrySha256": "37bd9c6fec646f265a9fed7e6e3a591061be3905cf6694ea7af4b443d4bb542a",
+          "phon": "ouo cheou-tji dyo leu"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/6/phrases/2",
+          "entrySha256": "37bd9c6fec646f265a9fed7e6e3a591061be3905cf6694ea7af4b443d4bb542a",
+          "phon": "ouo cheou-tji dyo leu"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/6/phrases/2",
+          "entrySha256": "e530847921518bf9cbe277b740f14e8967f06ae9455f42c4e04a41e3d4db8bce",
+          "phon": "ouo cheou-dji dyo leu"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "机",
+          "studyStart": 2,
+          "studyEnd": 3,
+          "context": "我手机丢了",
+          "pinyinSyllable": "jī",
+          "sourceReadingStart": 7,
+          "sourceReadingEnd": 9,
+          "aidSegmentBefore": "tji",
+          "aidSegmentAfter": "dji",
+          "aidStart": 10,
+          "aidEnd": 13,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 3,
+      "id": "catalogue:zh:389",
+      "study": "我去睡觉了。",
+      "native": "Je vais me coucher.",
+      "reading": "wǒ qù shuìjiào le",
+      "avant": "ouo tchu choueï-tjyao leu",
+      "apres": "ouo tchu choueï-djyao leu",
+      "regle": "D",
+      "jetons": [
+        "tjyao"
+      ],
+      "pinyinJ": [
+        "jiao"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 389,
+        "field": "phf",
+        "entrySha256": "fb89cf8215d27410d79635c6c309e0a5ab38bb01e686719e9f5f87b9e71effe7",
+        "phon": "ouo tchu choueï-tjyao leu"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/6/phrases/3",
+          "entrySha256": "51dd7068f4a2c28fcb5e319761be2bb92f87fc65e65746710695782c5d671bda",
+          "phon": "ouo tchu choueï-tjyao leu"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/6/phrases/3",
+          "entrySha256": "51dd7068f4a2c28fcb5e319761be2bb92f87fc65e65746710695782c5d671bda",
+          "phon": "ouo tchu choueï-tjyao leu"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/6/phrases/3",
+          "entrySha256": "7436052725071bd4634660faa30d2ba3c483aaf073243cbf2c960dd18532b629",
+          "phon": "ouo tchu choueï-djyao leu"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "觉",
+          "studyStart": 3,
+          "studyEnd": 4,
+          "context": "去睡觉了。",
+          "pinyinSyllable": "jiào",
+          "sourceReadingStart": 10,
+          "sourceReadingEnd": 14,
+          "aidSegmentBefore": "tjyao",
+          "aidSegmentAfter": "djyao",
+          "aidStart": 16,
+          "aidEnd": 21,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 3,
+      "id": "catalogue:zh:501",
+      "study": "我手机没电了。",
+      "native": "Mon téléphone est déchargé.",
+      "reading": "wǒ shǒujī méi diàn le",
+      "avant": "ouo cheou-tji meï dyenn leu",
+      "apres": "ouo cheou-dji meï dyenn leu",
+      "regle": "D",
+      "jetons": [
+        "tji"
+      ],
+      "pinyinJ": [
+        "ji"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 501,
+        "field": "phf",
+        "entrySha256": "0e16f98e2707c2b90c5612df96a38edeacffb6756f2f2f57a45d9e97ea0ce470",
+        "phon": "ouo cheou-tji meï dyenn leu"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/6/phrases/10",
+          "entrySha256": "fde751dc5848827fc337bdb37f279ff2f22582fdfa4567e23d1039721698d610",
+          "phon": "ouo cheou-tji meï dyenn leu"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/6/phrases/10",
+          "entrySha256": "fde751dc5848827fc337bdb37f279ff2f22582fdfa4567e23d1039721698d610",
+          "phon": "ouo cheou-tji meï dyenn leu"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/6/phrases/10",
+          "entrySha256": "aa4467a284ebdb097bc94dd8e14cd0c903db01ae480964e1b4942ef0922e987b",
+          "phon": "ouo cheou-dji meï dyenn leu"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "机",
+          "studyStart": 2,
+          "studyEnd": 3,
+          "context": "我手机没电",
+          "pinyinSyllable": "jī",
+          "sourceReadingStart": 7,
+          "sourceReadingEnd": 9,
+          "aidSegmentBefore": "tji",
+          "aidSegmentAfter": "dji",
+          "aidStart": 10,
+          "aidEnd": 13,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 3,
+      "id": "catalogue:zh:395",
+      "study": "我早就说过了。",
+      "native": "Je te l'avais dit.",
+      "reading": "wǒ zǎo jiù shuō guò le",
+      "avant": "ouo tsao tjyo chouo gouo leu",
+      "apres": "ouo tsao djyo chouo gouo leu",
+      "regle": "D",
+      "jetons": [
+        "tjyo"
+      ],
+      "pinyinJ": [
+        "jiu"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 395,
+        "field": "phf",
+        "entrySha256": "341a5cc08138be18d284f22dd4669b5f42a1c9185d8c5f09004e95ca20141354",
+        "phon": "ouo tsao tjyo chouo gouo leu"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/8/phrases/29",
+          "entrySha256": "d8fb519912215e55040a4effca1bd31d6ea5c16d4e443ef7fceef7544b81d905",
+          "phon": "ouo tsao tjyo chouo gouo leu"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/8/phrases/29",
+          "entrySha256": "d8fb519912215e55040a4effca1bd31d6ea5c16d4e443ef7fceef7544b81d905",
+          "phon": "ouo tsao tjyo chouo gouo leu"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/8/phrases/29",
+          "entrySha256": "4491a09e543f8316b27dfa4b5f1a5f0daa3a0753d40664c4a55358c6d537ebd6",
+          "phon": "ouo tsao djyo chouo gouo leu"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "就",
+          "studyStart": 2,
+          "studyEnd": 3,
+          "context": "我早就说过",
+          "pinyinSyllable": "jiù",
+          "sourceReadingStart": 7,
+          "sourceReadingEnd": 10,
+          "aidSegmentBefore": "tjyo",
+          "aidSegmentAfter": "djyo",
+          "aidStart": 9,
+          "aidEnd": 13,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 3,
+      "id": "catalogue:zh:559",
+      "study": "不会太久。",
+      "native": "Ça ne sera pas long.",
+      "reading": "bú huì tài jiǔ",
+      "avant": "bou houeï taï tjyo",
+      "apres": "bou houeï taï djyo",
+      "regle": "D",
+      "jetons": [
+        "tjyo"
+      ],
+      "pinyinJ": [
+        "jiu"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 559,
+        "field": "phf",
+        "entrySha256": "2b72ebd45c8900997960d67d79d38eb136ec01e91462b7ca85bf13483a406664",
+        "phon": "bou houeï taï tjyo"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/8/phrases/109",
+          "entrySha256": "3a0cfbd4188642909b1d773a6e0480e3ce5dcc910c874cfbd461be89a46cf464",
+          "phon": "bou houeï taï tjyo"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/8/phrases/109",
+          "entrySha256": "3a0cfbd4188642909b1d773a6e0480e3ce5dcc910c874cfbd461be89a46cf464",
+          "phon": "bou houeï taï tjyo"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/8/phrases/109",
+          "entrySha256": "4d2b18c5094609c6ddcb320ea97317b90fb78410f0a1a9b7a24a8254c2f4e901",
+          "phon": "bou houeï taï djyo"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "久",
+          "studyStart": 3,
+          "studyEnd": 4,
+          "context": "会太久。",
+          "pinyinSyllable": "jiǔ",
+          "sourceReadingStart": 11,
+          "sourceReadingEnd": 14,
+          "aidSegmentBefore": "tjyo",
+          "aidSegmentAfter": "djyo",
+          "aidStart": 14,
+          "aidEnd": 18,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 3,
+      "id": "catalogue:zh:503",
+      "study": "我忙得不可开交。",
+      "native": "Je suis débordé.",
+      "reading": "wǒ máng de bùkě kāijiāo",
+      "avant": "ouo mang deu bou-keu kaï-tjyao",
+      "apres": "ouo mang deu bou-keu kaï-djyao",
+      "regle": "D",
+      "jetons": [
+        "tjyao"
+      ],
+      "pinyinJ": [
+        "jiao"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 503,
+        "field": "phf",
+        "entrySha256": "23b1c5b773c1a73d1b21f4c5fd79eebc1ff8b914dbf966c4a7cf6e8c5ac3b206",
+        "phon": "ouo mang deu bou-keu kaï-tjyao"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/9/phrases/0",
+          "entrySha256": "7e565f2c2b84edbb92a8407f3bb5297e010bdbb0ebd183d829b041a658ca448c",
+          "phon": "ouo mang deu bou-keu kaï-tjyao"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/9/phrases/0",
+          "entrySha256": "7e565f2c2b84edbb92a8407f3bb5297e010bdbb0ebd183d829b041a658ca448c",
+          "phon": "ouo mang deu bou-keu kaï-tjyao"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "pointer": "/themes/9/phrases/0",
+          "entrySha256": "8b981c4aa651c5fe0c97cad72306dffb60d779d722b87b3dd325acb5e0b7708e",
+          "phon": "ouo mang deu bou-keu kaï-djyao"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "交",
+          "studyStart": 6,
+          "studyEnd": 7,
+          "context": "可开交。",
+          "pinyinSyllable": "jiāo",
+          "sourceReadingStart": 19,
+          "sourceReadingEnd": 23,
+          "aidSegmentBefore": "tjyao",
+          "aidSegmentAfter": "djyao",
+          "aidStart": 25,
+          "aidEnd": 30,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 4,
+      "id": "catalogue:zh:685",
+      "study": "我以为是今天。",
+      "native": "Je croyais que c'était aujourd'hui.",
+      "reading": "wǒ yǐwéi shì jīntiān",
+      "avant": "ouo i-ou-eï che tjinn-tyenn",
+      "apres": "ouo i-ou-eï che djinn-tyenn",
+      "regle": "D",
+      "jetons": [
+        "tjinn"
+      ],
+      "pinyinJ": [
+        "jintian"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 685,
+        "field": "phf",
+        "entrySha256": "e9ce01dd189e40be0e5f6398ded79f4f627325cb00ce1b0363655b0c59e58859",
+        "phon": "ouo i-ou-eï che tjinn-tyenn"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/5/phrases/4",
+          "entrySha256": "5a11034652e9fb2228a5bc00487d255f6705806dc8b94388d1961e986f877b03",
+          "phon": "ouo i-ou-eï che tjinn-tyenn"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/5/phrases/4",
+          "entrySha256": "5a11034652e9fb2228a5bc00487d255f6705806dc8b94388d1961e986f877b03",
+          "phon": "ouo i-ou-eï che tjinn-tyenn"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/5/phrases/4",
+          "entrySha256": "0b387eab8f0efc8c10df5a450ab590d33fe8a488c5586e115c881c5d5dbca666",
+          "phon": "ouo i-ou-eï che djinn-tyenn"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "今",
+          "studyStart": 4,
+          "studyEnd": 5,
+          "context": "为是今天。",
+          "pinyinSyllable": "jīn",
+          "sourceReadingStart": 13,
+          "sourceReadingEnd": 16,
+          "aidSegmentBefore": "tjinn",
+          "aidSegmentAfter": "djinn",
+          "aidStart": 16,
+          "aidEnd": 21,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 4,
+      "id": "catalogue:zh:731",
+      "study": "你今天过得怎么样？",
+      "native": "Comment s'est passée ta journée ?",
+      "reading": "nǐ jīntiān guò de zěnmeyàng?",
+      "avant": "ni tjinn-tyenn gouo deu tseunn-meu-yang?",
+      "apres": "ni djinn-tyenn gouo deu tseunn-meu-yang?",
+      "regle": "D",
+      "jetons": [
+        "tjinn"
+      ],
+      "pinyinJ": [
+        "jintian"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 731,
+        "field": "phf",
+        "entrySha256": "d879fccab6344a08cf0809422cc3214e88303e714116ad78295d10d30e32fb5c",
+        "phon": "ni tjinn-tyenn gouo deu tseunn-meu-yang?"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/5/phrases/9",
+          "entrySha256": "4755c1357c27cb4dbcaea55f2663e65b889d10c5647c04e428e5b387b253fbf8",
+          "phon": "ni tjinn-tyenn gouo deu tseunn-meu-yang?"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/5/phrases/9",
+          "entrySha256": "4755c1357c27cb4dbcaea55f2663e65b889d10c5647c04e428e5b387b253fbf8",
+          "phon": "ni tjinn-tyenn gouo deu tseunn-meu-yang?"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/5/phrases/9",
+          "entrySha256": "41726427eaeb2321acdd649b86c42920e2accba95d13c5037f6ff68fc9838aae",
+          "phon": "ni djinn-tyenn gouo deu tseunn-meu-yang?"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "今",
+          "studyStart": 1,
+          "studyEnd": 2,
+          "context": "你今天过",
+          "pinyinSyllable": "jīn",
+          "sourceReadingStart": 3,
+          "sourceReadingEnd": 6,
+          "aidSegmentBefore": "tjinn",
+          "aidSegmentAfter": "djinn",
+          "aidStart": 3,
+          "aidEnd": 8,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 4,
+      "id": "catalogue:zh:857",
+      "study": "花了很长时间。",
+      "native": "Ça a pris beaucoup de temps.",
+      "reading": "huā le hěn cháng shíjiān",
+      "avant": "houa leu heunn tchang che-tjyenn",
+      "apres": "houa leu heunn tchang che-djyenn",
+      "regle": "D",
+      "jetons": [
+        "tjyenn"
+      ],
+      "pinyinJ": [
+        "jian"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 857,
+        "field": "phf",
+        "entrySha256": "8e2d8a7538fac6bea2cd83b997e30f35bedcc72ebd62e0b046f4eaa5ae2e6d7a",
+        "phon": "houa leu heunn tchang che-tjyenn"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/5/phrases/13",
+          "entrySha256": "7df3a63f0fbaf8c96b24c1eed9f1bece65335beb89d2ea1a292ff37f5df88c86",
+          "phon": "houa leu heunn tchang che-tjyenn"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/5/phrases/13",
+          "entrySha256": "7df3a63f0fbaf8c96b24c1eed9f1bece65335beb89d2ea1a292ff37f5df88c86",
+          "phon": "houa leu heunn tchang che-tjyenn"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/5/phrases/13",
+          "entrySha256": "af221f73a1b2561a2541a641a29e63dbd5066ca2317e0d3e77c850ddb3659224",
+          "phon": "houa leu heunn tchang che-djyenn"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "间",
+          "studyStart": 5,
+          "studyEnd": 6,
+          "context": "长时间。",
+          "pinyinSyllable": "jiān",
+          "sourceReadingStart": 20,
+          "sourceReadingEnd": 24,
+          "aidSegmentBefore": "tjyenn",
+          "aidSegmentAfter": "djyenn",
+          "aidStart": 26,
+          "aidEnd": 32,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 4,
+      "id": "catalogue:zh:618",
+      "study": "我睡一觉再决定。",
+      "native": "La nuit porte conseil.",
+      "reading": "wǒ shuì yí jiào zài juédìng",
+      "avant": "ouo choueï i tjyao tsaï tjué-ding",
+      "apres": "ouo choueï i djyao tsaï djué-ding",
+      "regle": "D",
+      "jetons": [
+        "tjyao",
+        "tjué"
+      ],
+      "pinyinJ": [
+        "jiao",
+        "jueding"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 618,
+        "field": "phf",
+        "entrySha256": "2b5914fe1936e31a3227ad597e62222ca1421f8a09affdf2ced1b7c33d69f692",
+        "phon": "ouo choueï i tjyao tsaï tjué-ding"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/6/phrases/0",
+          "entrySha256": "bb0f504bb9989fa9971a9f8eaa82da5569712ef5b1542ea9bb571238abe28150",
+          "phon": "ouo choueï i tjyao tsaï tjué-ding"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/6/phrases/0",
+          "entrySha256": "bb0f504bb9989fa9971a9f8eaa82da5569712ef5b1542ea9bb571238abe28150",
+          "phon": "ouo choueï i tjyao tsaï tjué-ding"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/6/phrases/0",
+          "entrySha256": "680d9b342c500c767fcc1b1fa993580bc434815f9b1c83d8d60c1e8100bcb864",
+          "phon": "ouo choueï i djyao tsaï djué-ding"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "觉",
+          "studyStart": 3,
+          "studyEnd": 4,
+          "context": "睡一觉再决",
+          "pinyinSyllable": "jiào",
+          "sourceReadingStart": 11,
+          "sourceReadingEnd": 15,
+          "aidSegmentBefore": "tjyao",
+          "aidSegmentAfter": "djyao",
+          "aidStart": 13,
+          "aidEnd": 18,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        },
+        {
+          "studyCharacter": "决",
+          "studyStart": 5,
+          "studyEnd": 6,
+          "context": "觉再决定。",
+          "pinyinSyllable": "jué",
+          "sourceReadingStart": 20,
+          "sourceReadingEnd": 23,
+          "aidSegmentBefore": "tjué",
+          "aidSegmentAfter": "djué",
+          "aidStart": 24,
+          "aidEnd": 28,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 4,
+      "id": "catalogue:zh:861",
+      "study": "我落在家里了。",
+      "native": "Je l'ai laissé à la maison.",
+      "reading": "wǒ là zài jiā lǐ le",
+      "avant": "ouo la tsaï tjya li leu",
+      "apres": "ouo la tsaï djya li leu",
+      "regle": "D",
+      "jetons": [
+        "tjya"
+      ],
+      "pinyinJ": [
+        "jia"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 861,
+        "field": "phf",
+        "entrySha256": "4ce8ef2450267aa018167912c4e2ce03400c7c4489336064e6ffeda63987708a",
+        "phon": "ouo la tsaï tjya li leu"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/6/phrases/11",
+          "entrySha256": "858baec956322b0d60a115de207f2fd499a7c3597f93d415dea0e1a04d0e58da",
+          "phon": "ouo la tsaï tjya li leu"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/6/phrases/11",
+          "entrySha256": "858baec956322b0d60a115de207f2fd499a7c3597f93d415dea0e1a04d0e58da",
+          "phon": "ouo la tsaï tjya li leu"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/6/phrases/11",
+          "entrySha256": "0435b9bfe50210918f936b4ce08d44ffeeb43b6d22be500e136520e2912b5faf",
+          "phon": "ouo la tsaï djya li leu"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "家",
+          "studyStart": 3,
+          "studyEnd": 4,
+          "context": "落在家里了",
+          "pinyinSyllable": "jiā",
+          "sourceReadingStart": 10,
+          "sourceReadingEnd": 13,
+          "aidSegmentBefore": "tjya",
+          "aidSegmentAfter": "djya",
+          "aidStart": 12,
+          "aidEnd": 16,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 4,
+      "id": "catalogue:zh:617",
+      "study": "时间会证明一切。",
+      "native": "L'avenir nous le dira.",
+      "reading": "shíjiān huì zhèngmíng yíqiè",
+      "avant": "che-tjyenn houeï djeung-ming i-tchyé",
+      "apres": "che-djyenn houeï djeung-ming i-tchyé",
+      "regle": "D",
+      "jetons": [
+        "tjyenn"
+      ],
+      "pinyinJ": [
+        "jian"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 617,
+        "field": "phf",
+        "entrySha256": "847f6930ce45cb93d3a7fd9d1807eee45071258cf49be2c53b08bf7f46d998a9",
+        "phon": "che-tjyenn houeï djeung-ming i-tchyé"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/8/phrases/2",
+          "entrySha256": "29658edd59ff69b68d4edea7feb91af04327a422c4cb0fac894ad5b28c9b3815",
+          "phon": "che-tjyenn houeï djeung-ming i-tchyé"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/8/phrases/2",
+          "entrySha256": "29658edd59ff69b68d4edea7feb91af04327a422c4cb0fac894ad5b28c9b3815",
+          "phon": "che-tjyenn houeï djeung-ming i-tchyé"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/8/phrases/2",
+          "entrySha256": "6895b74614b4f5bf7a7fc731a4a7c23785cd07e62974144dbf76314efbbcca11",
+          "phon": "che-djyenn houeï djeung-ming i-tchyé"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "间",
+          "studyStart": 1,
+          "studyEnd": 2,
+          "context": "时间会证",
+          "pinyinSyllable": "jiān",
+          "sourceReadingStart": 3,
+          "sourceReadingEnd": 7,
+          "aidSegmentBefore": "tjyenn",
+          "aidSegmentAfter": "djyenn",
+          "aidStart": 4,
+          "aidEnd": 10,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 4,
+      "id": "catalogue:zh:4829",
+      "study": "眼见为实。",
+      "native": "Je le croirai quand je le verrai.",
+      "reading": "yǎnjiàn wéi shí",
+      "avant": "yenn-tjyenn ou-eï che",
+      "apres": "yenn-djyenn ou-eï che",
+      "regle": "D",
+      "jetons": [
+        "tjyenn"
+      ],
+      "pinyinJ": [
+        "jian"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 4829,
+        "field": "phf",
+        "entrySha256": "a1b6ae9e6663a742fe97aa4a11f92283b5e6bf68ef98a3ea6404070fc999d4a6",
+        "phon": "yenn-tjyenn ou-eï che"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/8/phrases/146",
+          "entrySha256": "6ebe3ffe1d45cdecbe3fa2b570aa36e276060341d213ca31f85b6d8bab0e9ffb",
+          "phon": "yenn-tjyenn ou-eï che"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/8/phrases/146",
+          "entrySha256": "6ebe3ffe1d45cdecbe3fa2b570aa36e276060341d213ca31f85b6d8bab0e9ffb",
+          "phon": "yenn-tjyenn ou-eï che"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "pointer": "/themes/8/phrases/146",
+          "entrySha256": "cb59e32813964bd7e5385fe51df46b225280b028789b6b011e43cc23061be9d7",
+          "phon": "yenn-djyenn ou-eï che"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "见",
+          "studyStart": 1,
+          "studyEnd": 2,
+          "context": "眼见为实",
+          "pinyinSyllable": "jiàn",
+          "sourceReadingStart": 3,
+          "sourceReadingEnd": 7,
+          "aidSegmentBefore": "tjyenn",
+          "aidSegmentAfter": "djyenn",
+          "aidStart": 5,
+          "aidEnd": 11,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 5,
+      "id": "catalogue:zh:2066",
+      "study": "我一知道就告诉你。",
+      "native": "Dès que je sais, je te le dis.",
+      "reading": "wǒ yì zhīdào jiù gàosù nǐ",
+      "avant": "ouo i dje-dao tjyo gao-sou ni",
+      "apres": "ouo i dje-dao djyo gao-sou ni",
+      "regle": "D",
+      "jetons": [
+        "tjyo"
+      ],
+      "pinyinJ": [
+        "jiu"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 2066,
+        "field": "phf",
+        "entrySha256": "684a664b8d3bb23d15f687fdb3c39af1d07fc448c0594db56be7328a1a47c932",
+        "phon": "ouo i dje-dao tjyo gao-sou ni"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/1/phrases/9",
+          "entrySha256": "b6b5e11a71ed29a8e5350d07f4bfdf7ef4926b44591ee75b5fbd7c844f2ff00c",
+          "phon": "ouo i dje-dao tjyo gao-sou ni"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/1/phrases/9",
+          "entrySha256": "b6b5e11a71ed29a8e5350d07f4bfdf7ef4926b44591ee75b5fbd7c844f2ff00c",
+          "phon": "ouo i dje-dao tjyo gao-sou ni"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/1/phrases/9",
+          "entrySha256": "a17bcd3e668f72b4d153b5dd1f0946ba35a0569ad13e338dee19e7936c093a4f",
+          "phon": "ouo i dje-dao djyo gao-sou ni"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "就",
+          "studyStart": 4,
+          "studyEnd": 5,
+          "context": "知道就告诉",
+          "pinyinSyllable": "jiù",
+          "sourceReadingStart": 13,
+          "sourceReadingEnd": 16,
+          "aidSegmentBefore": "tjyo",
+          "aidSegmentAfter": "djyo",
+          "aidStart": 14,
+          "aidEnd": 18,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 5,
+      "id": "catalogue:zh:1029",
+      "study": "我今晚去不了。",
+      "native": "Je ne peux pas venir ce soir.",
+      "reading": "wǒ jīnwǎn qù bù liǎo",
+      "avant": "ouo tjinn-ouan tchu bou lyao",
+      "apres": "ouo djinn-ouan tchu bou lyao",
+      "regle": "D",
+      "jetons": [
+        "tjinn"
+      ],
+      "pinyinJ": [
+        "jinwan"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 1029,
+        "field": "phf",
+        "entrySha256": "b8ff6a09abc942a49dab40592ab4cf9b8dc01a7f1eec6f3d470c5ceec4e45f69",
+        "phon": "ouo tjinn-ouan tchu bou lyao"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/4/phrases/10",
+          "entrySha256": "1c8eaf6d74c455314a2820dcee53c95bdf9df88ba6c4acaf150ed2fd4e1bab92",
+          "phon": "ouo tjinn-ouan tchu bou lyao"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/4/phrases/10",
+          "entrySha256": "1c8eaf6d74c455314a2820dcee53c95bdf9df88ba6c4acaf150ed2fd4e1bab92",
+          "phon": "ouo tjinn-ouan tchu bou lyao"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/4/phrases/10",
+          "entrySha256": "31f44dcac6da44a65ac8be0b586679ea53ee4640a1e40ce06ec17554cbf2151a",
+          "phon": "ouo djinn-ouan tchu bou lyao"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "今",
+          "studyStart": 1,
+          "studyEnd": 2,
+          "context": "我今晚去",
+          "pinyinSyllable": "jīn",
+          "sourceReadingStart": 3,
+          "sourceReadingEnd": 6,
+          "aidSegmentBefore": "tjinn",
+          "aidSegmentAfter": "djinn",
+          "aidStart": 4,
+          "aidEnd": 9,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 5,
+      "id": "catalogue:zh:947",
+      "study": "我最近很忙。",
+      "native": "J'ai été très occupé ces derniers temps.",
+      "reading": "wǒ zuìjìn hěn máng",
+      "avant": "ouo tsoueï-tjinn heunn mang",
+      "apres": "ouo tsoueï-djinn heunn mang",
+      "regle": "D",
+      "jetons": [
+        "tjinn"
+      ],
+      "pinyinJ": [
+        "jin"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 947,
+        "field": "phf",
+        "entrySha256": "91a817661d40354eb0d7ab1209f96569422776403be9b0491ae7163891d9ccd4",
+        "phon": "ouo tsoueï-tjinn heunn mang"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/5/phrases/2",
+          "entrySha256": "440915c8b18fa942953ec7b1c741442b7180355b0b0f921d46215e189633a1e8",
+          "phon": "ouo tsoueï-tjinn heunn mang"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/5/phrases/2",
+          "entrySha256": "440915c8b18fa942953ec7b1c741442b7180355b0b0f921d46215e189633a1e8",
+          "phon": "ouo tsoueï-tjinn heunn mang"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/5/phrases/2",
+          "entrySha256": "269698a1c3cecd4a61d88cd1d44db217bfc355b82e71d2102ab319a742f709d1",
+          "phon": "ouo tsoueï-djinn heunn mang"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "近",
+          "studyStart": 2,
+          "studyEnd": 3,
+          "context": "我最近很忙",
+          "pinyinSyllable": "jìn",
+          "sourceReadingStart": 6,
+          "sourceReadingEnd": 9,
+          "aidSegmentBefore": "tjinn",
+          "aidSegmentAfter": "djinn",
+          "aidStart": 11,
+          "aidEnd": 16,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 5,
+      "id": "catalogue:zh:1032",
+      "study": "我们上个月搬家了。",
+      "native": "On a déménagé le mois dernier.",
+      "reading": "wǒmen shàng ge yuè bānjiā le",
+      "avant": "ouo-meunn chang gueu ué bann-tjya leu",
+      "apres": "ouo-meunn chang gueu ué bann-djya leu",
+      "regle": "D",
+      "jetons": [
+        "tjya"
+      ],
+      "pinyinJ": [
+        "jia"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 1032,
+        "field": "phf",
+        "entrySha256": "510b0fd2532c70ac7443107acd253ad3ad5f4f2aca1f2b63524642059c71c0b3",
+        "phon": "ouo-meunn chang geu ué bann-tjya leu"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/5/phrases/13",
+          "entrySha256": "f42437fa0de715a8ea60b481ab5191bfdc2d96e266be9c631558018001d984c4",
+          "phon": "ouo-meunn chang geu ué bann-tjya leu"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/5/phrases/13",
+          "entrySha256": "2531845bdec07190c6448fe7dd785e8e6b9268ca740aca51035ab44582b9efde",
+          "phon": "ouo-meunn chang gueu ué bann-tjya leu"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/5/phrases/13",
+          "entrySha256": "598631764137c43ee980804316e347eee7f52bbf78cffa2e10b119795a452ab8",
+          "phon": "ouo-meunn chang gueu ué bann-djya leu"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "家",
+          "studyStart": 6,
+          "studyEnd": 7,
+          "context": "月搬家了。",
+          "pinyinSyllable": "jiā",
+          "sourceReadingStart": 22,
+          "sourceReadingEnd": 25,
+          "aidSegmentBefore": "tjya",
+          "aidSegmentAfter": "djya",
+          "aidStart": 29,
+          "aidEnd": 33,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 5,
+      "id": "catalogue:zh:1034",
+      "study": "我周五前就能做完。",
+      "native": "J'aurai fini d'ici vendredi.",
+      "reading": "wǒ zhōuwǔ qián jiù néng zuò wán",
+      "avant": "ouo djeou-ou tchyenn tjyo neung tsouo ouan",
+      "apres": "ouo djeou-ou tchyenn djyo neung tsouo ouan",
+      "regle": "D",
+      "jetons": [
+        "tjyo"
+      ],
+      "pinyinJ": [
+        "jiu"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 1034,
+        "field": "phf",
+        "entrySha256": "15bc626e4b0cb42c7632971d3152085ea95a2e67aecef78bdb5ae192d653224d",
+        "phon": "ouo djeou-ou tchyenn tjyo neung tsouo ouan"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/5/phrases/15",
+          "entrySha256": "b4459388d654da6743253ff3de12071c132d19f517456267a2b7f42e94e26a44",
+          "phon": "ouo djeou-ou tchyenn tjyo neung tsouo ouan"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/5/phrases/15",
+          "entrySha256": "b4459388d654da6743253ff3de12071c132d19f517456267a2b7f42e94e26a44",
+          "phon": "ouo djeou-ou tchyenn tjyo neung tsouo ouan"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/5/phrases/15",
+          "entrySha256": "7b85c5c74e7d51338081860c6652b4c6175763af5e5fdf793ed6c56888449940",
+          "phon": "ouo djeou-ou tchyenn djyo neung tsouo ouan"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "就",
+          "studyStart": 4,
+          "studyEnd": 5,
+          "context": "五前就能做",
+          "pinyinSyllable": "jiù",
+          "sourceReadingStart": 15,
+          "sourceReadingEnd": 18,
+          "aidSegmentBefore": "tjyo",
+          "aidSegmentAfter": "djyo",
+          "aidStart": 21,
+          "aidEnd": 25,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 5,
+      "id": "catalogue:zh:1097",
+      "study": "我七点来接你。",
+      "native": "Je passe te prendre à sept heures.",
+      "reading": "wǒ qī diǎn lái jiē nǐ",
+      "avant": "ouo tchi dyenn laï tjyé ni",
+      "apres": "ouo tchi dyenn laï djyé ni",
+      "regle": "D",
+      "jetons": [
+        "tjyé"
+      ],
+      "pinyinJ": [
+        "jie"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 1097,
+        "field": "phf",
+        "entrySha256": "fb0c9fa76ba7fb42070fb3958fe5216e94a3ac1e8322e8f5133a4b94cf0d3f1b",
+        "phon": "ouo tchi dyenn laï tjyé ni"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/5/phrases/18",
+          "entrySha256": "ac039e6e20524280f896fe948c4ab75371255c833581023e04b5825ed9fa4d63",
+          "phon": "ouo tchi dyenn laï tjyé ni"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/5/phrases/18",
+          "entrySha256": "ac039e6e20524280f896fe948c4ab75371255c833581023e04b5825ed9fa4d63",
+          "phon": "ouo tchi dyenn laï tjyé ni"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/5/phrases/18",
+          "entrySha256": "d25e96de29a3f370a72902ca515183680a5d60772b67c4c5c9fed17a4a8d3308",
+          "phon": "ouo tchi dyenn laï djyé ni"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "接",
+          "studyStart": 4,
+          "studyEnd": 5,
+          "context": "点来接你。",
+          "pinyinSyllable": "jiē",
+          "sourceReadingStart": 15,
+          "sourceReadingEnd": 18,
+          "aidSegmentBefore": "tjyé",
+          "aidSegmentAfter": "djyé",
+          "aidStart": 19,
+          "aidEnd": 23,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 5,
+      "id": "catalogue:zh:1031",
+      "study": "我去接孩子了。",
+      "native": "Je suis allé chercher les enfants.",
+      "reading": "wǒ qù jiē háizi le",
+      "avant": "ouo tchu tjyé haï-tse leu",
+      "apres": "ouo tchu djyé haï-tse leu",
+      "regle": "D",
+      "jetons": [
+        "tjyé"
+      ],
+      "pinyinJ": [
+        "jie"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 1031,
+        "field": "phf",
+        "entrySha256": "26f43773e1033c4d666601b14de34e6cb6dc94ef6c47bb47ba7fd6361324ddbc",
+        "phon": "ouo tchu tjyé haï-tse leu"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/6/phrases/6",
+          "entrySha256": "2b24cb6ed9076823b76e80c722eccdb5df52794256be7c8012640196ed8ce80a",
+          "phon": "ouo tchu tjyé haï-tse leu"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/6/phrases/6",
+          "entrySha256": "2b24cb6ed9076823b76e80c722eccdb5df52794256be7c8012640196ed8ce80a",
+          "phon": "ouo tchu tjyé haï-tse leu"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/6/phrases/6",
+          "entrySha256": "d84292cf42721a626a48bfb7b9821ecf081ba9563d17593476ac92f48337248b",
+          "phon": "ouo tchu djyé haï-tse leu"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "接",
+          "studyStart": 2,
+          "studyEnd": 3,
+          "context": "我去接孩子",
+          "pinyinSyllable": "jiē",
+          "sourceReadingStart": 6,
+          "sourceReadingEnd": 9,
+          "aidSegmentBefore": "tjyé",
+          "aidSegmentAfter": "djyé",
+          "aidStart": 9,
+          "aidEnd": 13,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 5,
+      "id": "catalogue:zh:1030",
+      "study": "我剪头发了。",
+      "native": "Je me suis fait couper les cheveux.",
+      "reading": "wǒ jiǎn tóufa le",
+      "avant": "ouo tjyenn teou-fa leu",
+      "apres": "ouo djyenn teou-fa leu",
+      "regle": "D",
+      "jetons": [
+        "tjyenn"
+      ],
+      "pinyinJ": [
+        "jian"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 1030,
+        "field": "phf",
+        "entrySha256": "162b72c31cd37e3d3fe56db17876cdc65ccf8da0527754a45016fee1837af7f4",
+        "phon": "ouo tjyenn teou-fa leu"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/8/phrases/55",
+          "entrySha256": "63a3b8c2b3edc20e7d9f4b9427e8231d125613b4abec840172d1165ce620483c",
+          "phon": "ouo tjyenn teou-fa leu"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/8/phrases/55",
+          "entrySha256": "63a3b8c2b3edc20e7d9f4b9427e8231d125613b4abec840172d1165ce620483c",
+          "phon": "ouo tjyenn teou-fa leu"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/8/phrases/55",
+          "entrySha256": "93c8431469282da95e9b52a0c328f6fae6f53490aa5fa8be05b072de82153f95",
+          "phon": "ouo djyenn teou-fa leu"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "剪",
+          "studyStart": 1,
+          "studyEnd": 2,
+          "context": "我剪头发",
+          "pinyinSyllable": "jiǎn",
+          "sourceReadingStart": 3,
+          "sourceReadingEnd": 7,
+          "aidSegmentBefore": "tjyenn",
+          "aidSegmentAfter": "djyenn",
+          "aidStart": 4,
+          "aidEnd": 10,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 5,
+      "id": "catalogue:zh:1100",
+      "study": "就这样吧。",
+      "native": "C'est comme ça. / Restons-en là.",
+      "reading": "jiù zhèyàng ba",
+      "avant": "tjyo djeu-yang ba",
+      "apres": "djyo djeu-yang ba",
+      "regle": "D",
+      "jetons": [
+        "tjyo"
+      ],
+      "pinyinJ": [
+        "jiu"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 1100,
+        "field": "phf",
+        "entrySha256": "6a2cb4f684a6dbde9556be8db41921bfc2ab8b29870d6868219f4ee6a31f7ddb",
+        "phon": "tjyo djeu-yang ba"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/8/phrases/93",
+          "entrySha256": "295cbbb5344641441367f8a2aad8f9e25808cc25ed9e6f30bd8c7fcf4568e0e3",
+          "phon": "tjyo djeu-yang ba"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/8/phrases/93",
+          "entrySha256": "295cbbb5344641441367f8a2aad8f9e25808cc25ed9e6f30bd8c7fcf4568e0e3",
+          "phon": "tjyo djeu-yang ba"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "pointer": "/themes/8/phrases/93",
+          "entrySha256": "3e95af2e7c43d7a3967f0166d5cca9de87c5b573c07f9f869d4d5e13e6c75cb9",
+          "phon": "djyo djeu-yang ba"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "就",
+          "studyStart": 0,
+          "studyEnd": 1,
+          "context": "就这样",
+          "pinyinSyllable": "jiù",
+          "sourceReadingStart": 0,
+          "sourceReadingEnd": 3,
+          "aidSegmentBefore": "tjyo",
+          "aidSegmentAfter": "djyo",
+          "aidStart": 0,
+          "aidEnd": 4,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 6,
+      "id": "catalogue:zh:1224",
+      "study": "我回家路上顺便买。",
+      "native": "Je l'achète en rentrant.",
+      "reading": "wǒ huí jiā lùshang shùnbiàn mǎi",
+      "avant": "ouo houeï tjya lou-chang chouenn-byenn maï",
+      "apres": "ouo houeï djya lou-chang chouenn-byenn maï",
+      "regle": "D",
+      "jetons": [
+        "tjya"
+      ],
+      "pinyinJ": [
+        "jia"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 1224,
+        "field": "phf",
+        "entrySha256": "2fdc5ea08a8866c4d6fcdadeae1168dc9026dc019e21a60fb41b73ce2256e9bf",
+        "phon": "ouo houeï tjya lou-chang chouenn-byenn maï"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "pointer": "/themes/3/phrases/4",
+          "entrySha256": "405549fbd942c96fd08f7ff07442dcd92c04eb87f1faab30ccb0306fb172fece",
+          "phon": "ouo houeï tjya lou-chang chouenn-byenn maï"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "pointer": "/themes/3/phrases/4",
+          "entrySha256": "405549fbd942c96fd08f7ff07442dcd92c04eb87f1faab30ccb0306fb172fece",
+          "phon": "ouo houeï tjya lou-chang chouenn-byenn maï"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "pointer": "/themes/3/phrases/4",
+          "entrySha256": "ce480640c2b0176d9e9c0fedfa8f341948b3ae944338f1d9cd991a5b476b442e",
+          "phon": "ouo houeï djya lou-chang chouenn-byenn maï"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "家",
+          "studyStart": 2,
+          "studyEnd": 3,
+          "context": "我回家路上",
+          "pinyinSyllable": "jiā",
+          "sourceReadingStart": 7,
+          "sourceReadingEnd": 10,
+          "aidSegmentBefore": "tjya",
+          "aidSegmentAfter": "djya",
+          "aidStart": 10,
+          "aidEnd": 14,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 7,
+      "id": "catalogue:zh:1701",
+      "study": "我们到的时候已经结束了。",
+      "native": "Le temps qu'on arrive, c'était fini.",
+      "reading": "wǒmen dào de shíhou yǐjīng jiéshù le",
+      "avant": "ouo-meunn dao deu che-heou i-tjing tjyé-chou leu",
+      "apres": "ouo-meunn dao deu che-heou i-djing djyé-chou leu",
+      "regle": "D",
+      "jetons": [
+        "tjing",
+        "tjyé"
+      ],
+      "pinyinJ": [
+        "jieshu",
+        "jing"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 1701,
+        "field": "phf",
+        "entrySha256": "2a7f566fcf25121eaa06bb404e546ec45b38b01fd39a257a0980a4357153805d",
+        "phon": "ouo-meunn dao deu che-heou i-tjing tjyé-chou leu"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "pointer": "/themes/4/phrases/9",
+          "entrySha256": "169299d5ccf60088f08e6f439b52740df0a5d9345918c0e5eed79e0e6b28f0d8",
+          "phon": "ouo-meunn dao deu che-heou i-tjing tjyé-chou leu"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "pointer": "/themes/4/phrases/9",
+          "entrySha256": "169299d5ccf60088f08e6f439b52740df0a5d9345918c0e5eed79e0e6b28f0d8",
+          "phon": "ouo-meunn dao deu che-heou i-tjing tjyé-chou leu"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "pointer": "/themes/4/phrases/9",
+          "entrySha256": "fb734937279ee882011f7e88acb2795f2ec99297ebcc41aef1fdc737a5c05b53",
+          "phon": "ouo-meunn dao deu che-heou i-djing djyé-chou leu"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "经",
+          "studyStart": 7,
+          "studyEnd": 8,
+          "context": "候已经结束",
+          "pinyinSyllable": "jīng",
+          "sourceReadingStart": 22,
+          "sourceReadingEnd": 26,
+          "aidSegmentBefore": "tjing",
+          "aidSegmentAfter": "djing",
+          "aidStart": 29,
+          "aidEnd": 34,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        },
+        {
+          "studyCharacter": "结",
+          "studyStart": 8,
+          "studyEnd": 9,
+          "context": "已经结束了",
+          "pinyinSyllable": "jié",
+          "sourceReadingStart": 27,
+          "sourceReadingEnd": 30,
+          "aidSegmentBefore": "tjyé",
+          "aidSegmentAfter": "djyé",
+          "aidStart": 35,
+          "aidEnd": 39,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 7,
+      "id": "catalogue:zh:2147",
+      "study": "我要是你就接受。",
+      "native": "À ta place, j'accepterais.",
+      "reading": "wǒ yàoshi nǐ jiù jiēshòu",
+      "avant": "ouo yao-che ni tjyo tjyé-cheou",
+      "apres": "ouo yao-che ni djyo djyé-cheou",
+      "regle": "D",
+      "jetons": [
+        "tjyo",
+        "tjyé"
+      ],
+      "pinyinJ": [
+        "jieshou",
+        "jiu"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 2147,
+        "field": "phf",
+        "entrySha256": "b7c8f85c6340b1d71b1cc077ead92abf0dad670a114929591d199bc093af697a",
+        "phon": "ouo yao-che ni tjyo tjyé-cheou"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "pointer": "/themes/8/phrases/115",
+          "entrySha256": "d84c83b6541124217814c574101e8d313724604f4922685cc956242e1f9fedd5",
+          "phon": "ouo yao-che ni tjyo tjyé-cheou"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "pointer": "/themes/8/phrases/115",
+          "entrySha256": "d84c83b6541124217814c574101e8d313724604f4922685cc956242e1f9fedd5",
+          "phon": "ouo yao-che ni tjyo tjyé-cheou"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "pointer": "/themes/8/phrases/115",
+          "entrySha256": "60fb34fbaf6098396b94c0cbc074df0d0e9ba2b45d85f1854f7be3e067cd09f6",
+          "phon": "ouo yao-che ni djyo djyé-cheou"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "就",
+          "studyStart": 4,
+          "studyEnd": 5,
+          "context": "是你就接受",
+          "pinyinSyllable": "jiù",
+          "sourceReadingStart": 13,
+          "sourceReadingEnd": 16,
+          "aidSegmentBefore": "tjyo",
+          "aidSegmentAfter": "djyo",
+          "aidStart": 15,
+          "aidEnd": 19,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        },
+        {
+          "studyCharacter": "接",
+          "studyStart": 5,
+          "studyEnd": 6,
+          "context": "你就接受。",
+          "pinyinSyllable": "jiē",
+          "sourceReadingStart": 17,
+          "sourceReadingEnd": 20,
+          "aidSegmentBefore": "tjyé",
+          "aidSegmentAfter": "djyé",
+          "aidStart": 20,
+          "aidEnd": 24,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    },
+    {
+      "pair": "fr-zh",
+      "level": 10,
+      "id": "catalogue:zh:2068",
+      "study": "我明明记得锁门了。",
+      "native": "J'aurais juré avoir fermé la porte.",
+      "reading": "wǒ míngmíng jìde suǒ mén le",
+      "avant": "ouo ming-ming tji-deu souo meunn leu",
+      "apres": "ouo ming-ming dji-deu souo meunn leu",
+      "regle": "D",
+      "jetons": [
+        "tji"
+      ],
+      "pinyinJ": [
+        "jide"
+      ],
+      "raison": "le digramme tj n'a aucune valeur en français ; la syllabe visée a une initiale pinyin j, que le corpus rend dj",
+      "sourceCatalogue": {
+        "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+        "file": "melunga_deploy/app.html",
+        "deck": "zh",
+        "index": 2068,
+        "field": "phf",
+        "entrySha256": "7a65fdb483ae232f3edd8c3adb1f1c34545466e28b1cbb6d5ff628338e80a2b3",
+        "phon": "ouo ming-ming tji-deu souo meunn leu"
+      },
+      "runtimeLocations": {
+        "97e80f9791f4d4e4fde7aa1c829c036983f578c9": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "pointer": "/themes/5/phrases/2",
+          "entrySha256": "b9dbd098463c7f8e79d8aa39d6b2e2fc15493c2896762d014ef8f59548e79276",
+          "phon": "ouo ming-ming tji-deu souo meunn leu"
+        },
+        "d4eaea315840576f42347d224b2abbed97283bdd": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "pointer": "/themes/5/phrases/2",
+          "entrySha256": "b9dbd098463c7f8e79d8aa39d6b2e2fc15493c2896762d014ef8f59548e79276",
+          "phon": "ouo ming-ming tji-deu souo meunn leu"
+        },
+        "dfc665bf5574dd99d308c756efc69c571aec62cc": {
+          "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "pointer": "/themes/5/phrases/2",
+          "entrySha256": "0edb787eba63bedc51b6d8efb65b7e09aab60509bd05bbb97bc7eeb766c60e94",
+          "phon": "ouo ming-ming dji-deu souo meunn leu"
+        }
+      },
+      "manualSegments": [
+        {
+          "studyCharacter": "记",
+          "studyStart": 3,
+          "studyEnd": 4,
+          "context": "明明记得锁",
+          "pinyinSyllable": "jì",
+          "sourceReadingStart": 12,
+          "sourceReadingEnd": 14,
+          "aidSegmentBefore": "tji",
+          "aidSegmentAfter": "dji",
+          "aidStart": 14,
+          "aidEnd": 17,
+          "assessment": "Manually identified actual j-initial syllable; not inferred from a j elsewhere in the sentence."
+        }
+      ],
+      "manualAlignmentVerdict": "all-edited-segments-match-j-initial-pinyin",
+      "otherSyllablesApproved": false,
+      "nativeValidation": false
+    }
+  ],
+  "compositionWithEarlierRules": [
+    {
+      "id": "catalogue:zh:175",
+      "headBefore": "tjyao geï ouo ba",
+      "registerDIntermediateBefore": "tjyao gueï ouo ba",
+      "combinedAfter": "djyao gueï ouo ba",
+      "reason": "Rule B changes an earlier g spelling in the same aid; preserve B before applying the bounded D segments."
+    },
+    {
+      "id": "catalogue:zh:1032",
+      "headBefore": "ouo-meunn chang geu ué bann-tjya leu",
+      "registerDIntermediateBefore": "ouo-meunn chang gueu ué bann-tjya leu",
+      "combinedAfter": "ouo-meunn chang gueu ué bann-djya leu",
+      "reason": "Rule B changes an earlier g spelling in the same aid; preserve B before applying the bounded D segments."
+    }
+  ],
+  "l2": {
+    "scope": "The quoted claims and actual source entries; not a full independent re-reading of all L2.",
+    "sourceRows": [
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/1/phrases/14",
+        "entrySha256": "23c9255fd0023130a445646b1b3d52d64f59594427cfe0ecb0eeb8fb1d315f7f",
+        "themeId": "L2-comprendre",
+        "themeTitle": "Préciser et faire répéter",
+        "entry": {
+          "id": "catalogue:zh:2235",
+          "study": "给我看看",
+          "native": "montre-moi",
+          "phon": "gueï ouo kann-kann",
+          "reading": "gěi wǒ kànkan",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Demande ou consigne avec un contenu exprimé dans la forme chinoise."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 2235,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "a8cddb3f2bd514a042a75160186b01281607a3bee312e9a8a3fbd77594b9e1e1"
+          },
+          "placement": {
+            "domain": "comprendre",
+            "classification": "french-meaning",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "comprendre",
+            "section": "situations",
+            "themeId": "L2-comprendre"
+          },
+          "phoneticReviewStatus": "corrected-by-Claude-french-reading-rule"
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/2/phrases/10",
+        "entrySha256": "5cae51153946762881add733ba1389513392664b039db5c92f77437d8206d7d8",
+        "themeId": "L2-ressentis",
+        "themeTitle": "Exprimer ce qu’on veut",
+        "entry": {
+          "id": "catalogue:zh:121",
+          "study": "我很累",
+          "native": "je suis fatigué",
+          "phon": "ouo heune leï",
+          "reading": "wǒ hěn lèi",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Énoncé avec participant et prédication ; la catégorie source n’est pas utilisée comme preuve."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 121,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "315ad6b7d3428a9ff82f96e7da0848dba2d6140f34e38f0331b36578cd57e6ee"
+          },
+          "placement": {
+            "domain": "ressentis",
+            "classification": "french-meaning",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "ressentis",
+            "section": "situations",
+            "themeId": "L2-ressentis"
+          }
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/2/phrases/14",
+        "entrySha256": "760f0a5bf74bcca5980089cf65189e6432f1ae2987a222b9c9243ae3744ea44a",
+        "themeId": "L2-ressentis",
+        "themeTitle": "Exprimer ce qu’on veut",
+        "entry": {
+          "id": "catalogue:zh:169",
+          "study": "我累了",
+          "native": "je suis fatigué",
+          "phon": "ouo leï leu",
+          "reading": "wǒ lèi le",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Énoncé avec participant et prédication ; la catégorie source n’est pas utilisée comme preuve."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 169,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "0637dfc7e674d3142c84ddc8b8e542c660908f7b4cbe40c3d1985dd0c1e2041a"
+          },
+          "placement": {
+            "domain": "ressentis",
+            "classification": "french-meaning",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "ressentis",
+            "section": "situations",
+            "themeId": "L2-ressentis"
+          }
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/2/phrases/21",
+        "entrySha256": "48a9107e8cf01ffd0ef6c01b98766d47992135bc633ec3d7d3a98039bfdd6a19",
+        "themeId": "L2-ressentis",
+        "themeTitle": "Exprimer ce qu’on veut",
+        "entry": {
+          "id": "catalogue:zh:223",
+          "study": "我要退货",
+          "native": "je veux un remboursement",
+          "phon": "ouo yao touèï-houo",
+          "reading": "wǒ yào tuìhuò",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Énoncé avec participant et prédication ; la catégorie source n’est pas utilisée comme preuve."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 223,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "2bd615804728e3d8c83d14bdd16721dec75f6c441aa0a7acebc512ab84191b36"
+          },
+          "placement": {
+            "domain": "ressentis",
+            "classification": "french-meaning",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "ressentis",
+            "section": "situations",
+            "themeId": "L2-ressentis"
+          }
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/7/phrases/20",
+        "entrySha256": "aa6840661a63ae19ce0a1f85311b51a3aaf339e4878b016ff195dddd22666538",
+        "themeId": "L2-conversation",
+        "themeTitle": "Poser et reprendre une question",
+        "entry": {
+          "id": "catalogue:zh:62",
+          "study": "味道很好！",
+          "native": "C'est très bon !",
+          "phon": "oueï dao heunn hao!",
+          "reading": "wèi dào hěn hǎo!",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Le sens source exprime une affirmation, question, consigne ou réponse complète."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 62,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "6e401462f2d6d35e1c408184f9f9aea9b4408bcc86d2c28e9a771d934a854102"
+          },
+          "placement": {
+            "domain": "conversation",
+            "classification": "conversation-expression",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "conversation",
+            "section": "situations",
+            "themeId": "L2-conversation"
+          }
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/7/phrases/22",
+        "entrySha256": "3f2b66242998c5469f3d22beab0f1d815e67890f9e051ab1ff9a0e3c1e9c49fd",
+        "themeId": "L2-conversation",
+        "themeTitle": "Poser et reprendre une question",
+        "entry": {
+          "id": "catalogue:zh:77",
+          "study": "我困了。",
+          "native": "J'ai sommeil.",
+          "phon": "ouo kouenn leu",
+          "reading": "wǒ kùn le",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Énoncé avec participant et prédication ; la catégorie source n’est pas utilisée comme preuve."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 77,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "2a1e1983b97d1bb5c402b99aa5210c6b3ba93a2fe5b2ba2e23d4e7a1c0dcb136"
+          },
+          "placement": {
+            "domain": "conversation",
+            "classification": "conversation-expression",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "conversation",
+            "section": "situations",
+            "themeId": "L2-conversation"
+          }
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/7/phrases/33",
+        "entrySha256": "db6067c4a80ced9740fd69ae29f4d3b46b43f7dd3103734691056802aeada53e",
+        "themeId": "L2-conversation",
+        "themeTitle": "Poser et reprendre une question",
+        "entry": {
+          "id": "catalogue:zh:96",
+          "study": "给我看看",
+          "native": "montrez-moi",
+          "phon": "gueï ouo kann-kann",
+          "reading": "gěi wǒ kànkan",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Demande ou consigne avec un contenu exprimé dans la forme chinoise."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 96,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "99af3496a49bb54d3ee46a31d6012c22a5eab10c556d8df2b1977365e696f771"
+          },
+          "placement": {
+            "domain": "conversation",
+            "classification": "conversation-expression",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "conversation",
+            "section": "situations",
+            "themeId": "L2-conversation"
+          },
+          "phoneticReviewStatus": "corrected-by-Claude-french-reading-rule"
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/7/phrases/34",
+        "entrySha256": "91d3eb6002a59ce128b3c51d24ed19f352af310e5b0a113cde7868680790db98",
+        "themeId": "L2-conversation",
+        "themeTitle": "Poser et reprendre une question",
+        "entry": {
+          "id": "catalogue:zh:100",
+          "study": "我买这个",
+          "native": "je prends celui-ci",
+          "phon": "ouo maï djeu gueu",
+          "reading": "wǒ mǎi zhè ge",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Énoncé avec participant et prédication ; la catégorie source n’est pas utilisée comme preuve."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 100,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "a86159d61cdcd3308526bdf0180ac2c45ce5b80b13977b36efa046e20dc860e8"
+          },
+          "placement": {
+            "domain": "conversation",
+            "classification": "conversation-expression",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "conversation",
+            "section": "situations",
+            "themeId": "L2-conversation"
+          },
+          "phoneticReviewStatus": "corrected-by-Claude-french-reading-rule"
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/7/phrases/40",
+        "entrySha256": "d88365bb3fb38484ebbb661e22534f155db215791005ccd88e6eca8fe10976bf",
+        "themeId": "L2-conversation",
+        "themeTitle": "Poser et reprendre une question",
+        "entry": {
+          "id": "catalogue:zh:114",
+          "study": "让我想一下",
+          "native": "laisse-moi réfléchir",
+          "phon": "jang ouo chyang i chya",
+          "reading": "ràng wǒ xiǎng yí xià",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Le sens source exprime une affirmation, question, consigne ou réponse complète."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 114,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "d63f388b6816c53cbd01a124332e8467b12eed390c8aac0ea805bd478b46add7"
+          },
+          "placement": {
+            "domain": "conversation",
+            "classification": "conversation-expression",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "conversation",
+            "section": "situations",
+            "themeId": "L2-conversation"
+          }
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/7/phrases/54",
+        "entrySha256": "a85e0f40a22c1387a84bfe2e945b886f241a1cee1102dbf56e26eec5acb4dc08",
+        "themeId": "L2-conversation",
+        "themeTitle": "Poser et reprendre une question",
+        "entry": {
+          "id": "catalogue:zh:159",
+          "study": "让我想想",
+          "native": "laisse-moi réfléchir",
+          "phon": "jang ouo chyang-chyang",
+          "reading": "ràng wǒ xiǎngxiang",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Le sens source exprime une affirmation, question, consigne ou réponse complète."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 159,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "0abc5ccb52e4006d15a58a67082310ffbdf7f14a9db90de653c32f2119738c9e"
+          },
+          "placement": {
+            "domain": "conversation",
+            "classification": "conversation-expression",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "conversation",
+            "section": "situations",
+            "themeId": "L2-conversation"
+          }
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/7/phrases/65",
+        "entrySha256": "346f2f546e12b4b417fa9f069c72245a4b2817d9c340accb2c00155bc160ba7f",
+        "themeId": "L2-conversation",
+        "themeTitle": "Poser et reprendre une question",
+        "entry": {
+          "id": "catalogue:zh:191",
+          "study": "我睡得很好。",
+          "native": "J'ai très bien dormi.",
+          "phon": "ouo choueï deu heunn hao",
+          "reading": "wǒ shuì de hěn hǎo",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Énoncé avec participant et prédication ; la catégorie source n’est pas utilisée comme preuve."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 191,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "f61ab39b72824de7fca04cf0be5d09e46b1cb4da08006f1b19bc7b7ce7f1bc9b"
+          },
+          "placement": {
+            "domain": "conversation",
+            "classification": "conversation-expression",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "conversation",
+            "section": "situations",
+            "themeId": "L2-conversation"
+          }
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/7/phrases/75",
+        "entrySha256": "1d23d895c3d71e1bf89ddddce875526fbdf2bfc55fe2fd95143b5ffa879e76c3",
+        "themeId": "L2-conversation",
+        "themeTitle": "Poser et reprendre une question",
+        "entry": {
+          "id": "catalogue:zh:205",
+          "study": "你会开车吗？",
+          "native": "tu sais conduire ?",
+          "phon": "ni houèï kaï-tcheu ma?",
+          "reading": "nǐ huì kāichē ma?",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Question entière ou question elliptique contextualisable, conservée sans découpage."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 205,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "c43e4cc0a0018e0df92fceaee15b609b4c37b2e810757e2ac0f8b3f92333fec5"
+          },
+          "placement": {
+            "domain": "conversation",
+            "classification": "conversation-expression",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "conversation",
+            "section": "situations",
+            "themeId": "L2-conversation"
+          }
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/7/phrases/78",
+        "entrySha256": "d1d1f6e5d764e53ecde248a39be178bec217945bf91c82a3cc6bd028906e34b9",
+        "themeId": "L2-conversation",
+        "themeTitle": "Poser et reprendre une question",
+        "entry": {
+          "id": "catalogue:zh:213",
+          "study": "可以退货吗？",
+          "native": "puis-je le retourner ?",
+          "phon": "keu-i touèï-houo ma?",
+          "reading": "kěyǐ tuìhuò ma?",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Question entière ou question elliptique contextualisable, conservée sans découpage."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 213,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "77b4cd7d9c61e86c7dc2eb800f1df9eb9a47e5f1a5f154e6469e68d142a657aa"
+          },
+          "placement": {
+            "domain": "conversation",
+            "classification": "conversation-expression",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "conversation",
+            "section": "situations",
+            "themeId": "L2-conversation"
+          }
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/7/phrases/80",
+        "entrySha256": "8e68833f8edf69aee1d60ff5ed1abbc25e3a416e07c5ef6e7e1182ed14e07c00",
+        "themeId": "L2-conversation",
+        "themeTitle": "Poser et reprendre une question",
+        "entry": {
+          "id": "catalogue:zh:215",
+          "study": "这个防水吗？",
+          "native": "c'est étanche ?",
+          "phon": "djeu-gueu fang-chouèï ma?",
+          "reading": "zhège fángshuǐ ma?",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Question entière ou question elliptique contextualisable, conservée sans découpage."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 215,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "45291fa5a08cf06813adc79c9eb83ff921b1596c56896581e0ff73fd37e26882"
+          },
+          "placement": {
+            "domain": "conversation",
+            "classification": "conversation-expression",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "conversation",
+            "section": "situations",
+            "themeId": "L2-conversation"
+          },
+          "phoneticReviewStatus": "corrected-by-Claude-french-reading-rule"
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/7/phrases/84",
+        "entrySha256": "150e52787fcdae4d36168feee56f6d867c85a32d080f2de1f5b422294551b5f5",
+        "themeId": "L2-conversation",
+        "themeTitle": "Poser et reprendre une question",
+        "entry": {
+          "id": "catalogue:zh:231",
+          "study": "能调光吗？",
+          "native": "c'est dimmable ?",
+          "phon": "neung tyao-gouang ma?",
+          "reading": "néng tiáoguāng ma?",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Question entière ou question elliptique contextualisable, conservée sans découpage."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 231,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "d5af5c3819fbf5c1152e6244169f9591fea0acb94b6050dbd048d5eeb668a154"
+          },
+          "placement": {
+            "domain": "conversation",
+            "classification": "conversation-expression",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "conversation",
+            "section": "situations",
+            "themeId": "L2-conversation"
+          }
+        }
+      },
+      {
+        "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+        "pointer": "/themes/7/phrases/85",
+        "entrySha256": "f6e924e26f17a9c14cbad736c92c27ff3d63f92a0c00d8c97cab591f7adb5467",
+        "themeId": "L2-conversation",
+        "themeTitle": "Poser et reprendre une question",
+        "entry": {
+          "id": "catalogue:zh:232",
+          "study": "克重是多少？",
+          "native": "quel est le grammage ?",
+          "phon": "keu-djong chr douo-chao?",
+          "reading": "kèzhòng shì duōshao?",
+          "speaker": "A",
+          "kind": "learner",
+          "isTemplate": false,
+          "editorialLevel": 2,
+          "sourceDeclaredTemplate": false,
+          "contentType": "utterance",
+          "semanticReview": {
+            "status": "rule-based-candidate",
+            "reason": "Question entière ou question elliptique contextualisable, conservée sans découpage."
+          },
+          "source": {
+            "collection": "DECKS.zh",
+            "sourceIndex": 232,
+            "sourceLevel": 2,
+            "fieldMap": {
+              "study": "t",
+              "native": "frm",
+              "phon": "phf",
+              "reading": "py"
+            },
+            "sourceSha256": "76bb80c26ff0846f468e17acb186201c4076824bd31ebe674d9b32aa3fe25665"
+          },
+          "placement": {
+            "domain": "conversation",
+            "classification": "conversation-expression",
+            "decision": "source-level-retained",
+            "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+            "plannedPrerequisiteIndices": [],
+            "originalDomain": "conversation",
+            "section": "situations",
+            "themeId": "L2-conversation"
+          }
+        }
+      }
+    ],
+    "themeTitles": {
+      "L2-saluer": "Se présenter et échanger",
+      "L2-comprendre": "Préciser et faire répéter",
+      "L2-ressentis": "Exprimer ce qu’on veut",
+      "L2-repas": "Commander selon ses besoins",
+      "L2-deplacements": "Trouver son chemin",
+      "L2-reperes": "Donner l’heure et la quantité",
+      "L2-quotidien": "Parler de chez soi",
+      "L2-conversation": "Poser et reprendre une question",
+      "L2-travail": "Demander une information au travail",
+      "L2-situation-repas-preferences": "Repas : préférences et alternatives",
+      "L2-situation-numerique-quotidien": "Numérique : accéder et rester en contact",
+      "L2-situation-piste-vetement-taille": "Vêtements : choisir la bonne taille",
+      "L2-situation-piste-douleur-simple": "Santé : décrire une douleur simple",
+      "L2-situation-piste-trouver-gare": "En ville : trouver la gare",
+      "L2-situation-piste-boisson-precise": "Café : préciser une boisson",
+      "L2-vocab-restaurant": "Restaurant et achats",
+      "L2-vocab-maison": "Maison et mobilier",
+      "L2-vocab-voyage": "Voyage et transport",
+      "L2-vocab-personnes": "Corps, personnes et émotions",
+      "L2-vocab-reperes": "Temps et repères",
+      "L2-vocab-actions": "Actions et descriptions",
+      "L2-vocab-travail": "Travail et démarches",
+      "L2-nombres": "Nombres",
+      "L2-vocab-adjectifs": "Adjectifs",
+      "L2-vocab-adverbes": "Adverbes",
+      "L2-vocab-couleurs": "Couleurs",
+      "L2-vocab-nature": "Nature, jardin et météo",
+      "L2-vocab-loisirs": "Loisirs et culture"
+    },
+    "semanticAssessments": [
+      {
+        "ids": [
+          "catalogue:zh:223",
+          "catalogue:zh:213"
+        ],
+        "verdict": "Gloss correction justified; no phonetic change.",
+        "reason": "退货 expresses returning merchandise. A refund may accompany a return in context, but is not the act expressed by the isolated card; 退款 names the refund.",
+        "candidateWholeGloss": {
+          "id": "catalogue:zh:223",
+          "before": "je veux un remboursement",
+          "after": "je veux retourner l’article"
+        },
+        "status": "proposed-not-applied"
+      },
+      {
+        "ids": [
+          "catalogue:zh:121",
+          "catalogue:zh:169"
+        ],
+        "verdict": "Reject an obligatory onset gloss for 我累了.",
+        "reason": "我累了 is naturally translated je suis fatigué; sentence-final 了 can make the present changed situation relevant, but does not universally assert that fatigue is just beginning. Context can justify je commence à être fatigué, not an isolated invariant.",
+        "candidateWholeGloss": null,
+        "status": "keep-current-gloss-pending-context"
+      },
+      {
+        "ids": [
+          "catalogue:zh:215"
+        ],
+        "verdict": "No automatic professional classification or upward level move.",
+        "reason": "Water resistance is an ordinary buying criterion for clothes, bags or devices. The short question 这个…吗 is not advanced merely because 防水 is a specific adjective. Scene and preparation decide suitability.",
+        "status": "no-level-or-theme-change-proposed"
+      },
+      {
+        "ids": [
+          "catalogue:zh:231"
+        ],
+        "verdict": "Accessible French gloss useful; not necessarily a professional or advanced card.",
+        "reason": "A buyer may ask about dimming an ordinary lamp. Dimmable is jargon; an accessible explanation is preferable here, without claiming the loanword is never used in French.",
+        "candidateWholeGloss": {
+          "id": "catalogue:zh:231",
+          "before": "c'est dimmable ?",
+          "after": "Peut-on régler l’intensité lumineuse ?"
+        },
+        "status": "proposed-not-applied"
+      },
+      {
+        "ids": [
+          "catalogue:zh:232"
+        ],
+        "verdict": "Specific textile/paper lexicon; targeted scene, not mechanical grammatical releveling.",
+        "reason": "克重 calls for a meaning/support appropriate to paper or fabric purchasing. The frame 是多少 is not itself advanced. An optional professional route may fit; neither a new level nor acquisition is established.",
+        "status": "context-review-needed"
+      },
+      {
+        "ids": [
+          "catalogue:zh:114",
+          "catalogue:zh:159"
+        ],
+        "verdict": "Do not make hesitation an invariant of verbal reduplication.",
+        "reason": "Both can politely ask for a brief moment to think; 想想 does not inherently mean more hesitant. Distinguishing usage needs context rather than an invented categorical contrast.",
+        "status": "no-change-proposed"
+      }
+    ],
+    "proposedMovesRequiringReview": [
+      {
+        "id": "catalogue:zh:62",
+        "study": "味道很好！",
+        "currentTheme": "L2-conversation",
+        "proposedTheme": "L2-repas",
+        "proposedThemeTitle": "Commander selon ses besoins",
+        "verdict": "Food domain supported; exact commander objective not established by a taste appraisal alone. Add an explicit served-food context or revise the target objective before a move."
+      },
+      {
+        "id": "catalogue:zh:77",
+        "study": "我困了。",
+        "currentTheme": "L2-conversation",
+        "proposedTheme": "L2-ressentis",
+        "proposedThemeTitle": "Exprimer ce qu’on veut",
+        "verdict": "State/sleepiness belongs broadly to feelings; Exprimer ce qu’on veut does not directly describe a statement of sleepiness. No automatic title fit."
+      },
+      {
+        "id": "catalogue:zh:191",
+        "study": "我睡得很好。",
+        "currentTheme": "L2-conversation",
+        "proposedTheme": "L2-quotidien",
+        "proposedThemeTitle": "Parler de chez soi",
+        "verdict": "A sleep report does not specify home; a routines/sleep scene can justify reuse, not an assumed chez soi context."
+      },
+      {
+        "id": "catalogue:zh:205",
+        "study": "你会开车吗？",
+        "currentTheme": "L2-conversation",
+        "proposedTheme": "L2-deplacements",
+        "proposedThemeTitle": "Trouver son chemin",
+        "verdict": "Driving ability is a mobility question, not finding one’s way. Review under a transport-choice/ability objective instead of a domain-only move."
+      },
+      {
+        "id": "catalogue:zh:100",
+        "study": "我买这个",
+        "currentTheme": "L2-conversation",
+        "proposedTheme": "L2-repas",
+        "proposedThemeTitle": "Commander selon ses besoins",
+        "verdict": "买 is buying and 这个 leaves the object unspecified; no food context is supplied. Use an explicitly declared purchase scene if retained, not an inferred meal order."
+      }
+    ],
+    "phoneticChangesApplied": 0,
+    "levelChangesApplied": 0,
+    "themeChangesApplied": 0,
+    "glossChangesApplied": 0
+  },
+  "inputFilesSha256": [
+    {
+      "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+      "file": "melunga_deploy/app.html",
+      "sha256": "61853d499f60790a68630e6984ba652ceaa320fe3c8fcd85fed8f116e7d504cd"
+    },
+    {
+      "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L1.json",
+      "sha256": "2d2edc5b0fb4c8e459eadd7de75b2aa62f7beb2faa17861b1110630701505f25"
+    },
+    {
+      "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+      "sha256": "59cd279dfa2286a6892a812914eb6be170b7a876d7c3d7d848ebcd0889b233cb"
+    },
+    {
+      "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+      "sha256": "757e6ebfcc65bc12c88f99a45d63564f9a4c7949d8f90f97d2e846b0ebdffc8e"
+    },
+    {
+      "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+      "sha256": "aff5a6122cda67a06dff2ec0e049d107f055b66bff5cdebd6c2ed759d911525b"
+    },
+    {
+      "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+      "sha256": "08f11ebda318bd9a754ce48fb64e7055be4492fb7163fa56ae31b5e914033d17"
+    },
+    {
+      "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+      "sha256": "93ec33b9b9ce29caf6a9787b3790b8f43368f5f77c0adfa2eaa45c57ae713f48"
+    },
+    {
+      "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+      "sha256": "b682a1ff40939df9ec1734ad11ec075637acb8e971db768d32cbf50ce116684e"
+    },
+    {
+      "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+      "sha256": "18b46545f809787cbfee8cde78b70f0fe0afaa31706f630537fb65e7c8e791ed"
+    },
+    {
+      "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+      "sha256": "b04bfbd51c4d0b6c0979dbf3e23b736a28adf3d263e8038a9278b093eca024a0"
+    },
+    {
+      "commit": "97e80f9791f4d4e4fde7aa1c829c036983f578c9",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+      "sha256": "148120e1373a9b77014e10317776eb5da08a8d1b943f26cff2cffa65b976b22a"
+    },
+    {
+      "commit": "d4eaea315840576f42347d224b2abbed97283bdd",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L1.json",
+      "sha256": "ed30a2a5a114191ac5ee0f3d001326a92d91806c8d4ed66e42a41590827a1e1a"
+    },
+    {
+      "commit": "d4eaea315840576f42347d224b2abbed97283bdd",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+      "sha256": "5a9383fb6eac4077c2b070ab8889cd93363444601b6668c4bdb3308be2e8c5d5"
+    },
+    {
+      "commit": "d4eaea315840576f42347d224b2abbed97283bdd",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+      "sha256": "3ed579fa55912aaab5bc0ac1af762332461d7f8e01b299debb4b153d407f9ea4"
+    },
+    {
+      "commit": "d4eaea315840576f42347d224b2abbed97283bdd",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+      "sha256": "8078a8a910a30878f59083745704e7982acf7f8ff8df38afb253919f187dfd27"
+    },
+    {
+      "commit": "d4eaea315840576f42347d224b2abbed97283bdd",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+      "sha256": "3181acfe855884d391c61fd053955982c8de0eb11245fef3e188fed99eb3ec3a"
+    },
+    {
+      "commit": "d4eaea315840576f42347d224b2abbed97283bdd",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+      "sha256": "492e42e41bf59c671d68e42d73acb551eb425e0aad833987932f4a80d1593fa2"
+    },
+    {
+      "commit": "d4eaea315840576f42347d224b2abbed97283bdd",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+      "sha256": "25e1e7585e6476666c0753e05e8c2eb379586a10944f052e0da7f8a70e9783ee"
+    },
+    {
+      "commit": "d4eaea315840576f42347d224b2abbed97283bdd",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+      "sha256": "7b2241230f795aa326e8dc2021023128b7654ce4305da3074d4610355727d2fc"
+    },
+    {
+      "commit": "d4eaea315840576f42347d224b2abbed97283bdd",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+      "sha256": "0dd1eb93bda78ba6d098afa5506af1c34e5ed354beaac050218cc386e485cade"
+    },
+    {
+      "commit": "d4eaea315840576f42347d224b2abbed97283bdd",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+      "sha256": "259e97b78d6bd2b827a5036253a95e28bd0aa4715a26f4a92e2ae533984ef3fb"
+    },
+    {
+      "commit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+      "file": "docs/revue-integrale/lecture-cellules/fr-zh.md",
+      "sha256": "d1f949502927f55e737926de129a091b57b5067d3046e40bfaa48dffc28f115d"
+    },
+    {
+      "commit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+      "file": "docs/revue-integrale/mesures/corriger_tj.py",
+      "sha256": "002455453c5e118f152aa4c506244c0b07bbb2f934057fb61d3b2a06fb216b27"
+    },
+    {
+      "commit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+      "file": "docs/revue-integrale/registre-tj.json",
+      "sha256": "856ccdd4525fdd74706ae16081c28e60bd629b3e83039502df81f824ebca74d0"
+    },
+    {
+      "commit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L1.json",
+      "sha256": "9573a657c1267f3e1a00ff2540fdae53d85a82bb5bcb742bd800dbd6bf65a93e"
+    },
+    {
+      "commit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+      "sha256": "3818812454fadc87bd47288775e3d297e179f13ba5d79eb48a65c18a10cdf968"
+    },
+    {
+      "commit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+      "sha256": "bce7abfb07b9fbc38974d2bac973182b50cb2e7d604b0ef601e536d1e7c619f3"
+    },
+    {
+      "commit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+      "sha256": "98deb9acbdaa62e267671aeaa76c3a03da77b5fb94340b4cfdf9d3f646e76728"
+    },
+    {
+      "commit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+      "sha256": "96eb235f824baba0021968e5266c6bd4076ade6601a182f463cde3f96199c472"
+    },
+    {
+      "commit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+      "sha256": "734e2f34657308a6fab176422ce3437140e97d3d034a9cfb5cb6282120befa7a"
+    },
+    {
+      "commit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+      "sha256": "de0908a6d7ac8299ab6f9f8ba437d4f907cc882f96d01795478afaaab8267209"
+    },
+    {
+      "commit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+      "sha256": "f1528815bddc4c22e5315aec906eb3fd99061f05464e4c516a5b11a89ce5da28"
+    },
+    {
+      "commit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+      "sha256": "0dd1eb93bda78ba6d098afa5506af1c34e5ed354beaac050218cc386e485cade"
+    },
+    {
+      "commit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+      "file": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+      "sha256": "259e97b78d6bd2b827a5036253a95e28bd0aa4715a26f4a92e2ae533984ef3fb"
+    }
+  ]
+}

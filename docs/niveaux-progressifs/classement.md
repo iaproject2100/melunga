@@ -2,7 +2,7 @@
 
 Les thèmes de situation et les rubriques de vocabulaire figurent dans la même grille, sans nouvel écran de sélection. Une situation ne présente que des phrases ou répliques communicatives entières. Les mots, groupes lexicaux et nombres isolés se pratiquent dans leurs rubriques dédiées. Les modèles ouverts et les cas incertains sont conservés dans une réserve de revue, hors entraînement.
 
-**32115 cartes du catalogue** sont conservées exactement une fois, entre rubriques actives et réserve ; **110277 champs** restent identiques aux sources. Les **2134 cartes historiquement lv1** restent présentes avec leur niveau source. Les droits de l’application classique sont inchangés.
+**32115 cartes du catalogue** sont conservées exactement une fois, entre rubriques actives et réserve ; **110277 champs** sont vérifiés identiques aux sources avant application de la couche de corrections phonétiques tracées ci-dessous. Les identités source restent intactes ; les aides corrigées sont déclarées séparément, sans prétendre qu’elles figuraient dans la source originale. Les **2134 cartes historiquement lv1** restent présentes avec leur niveau source. Les droits de l’application classique sont inchangés.
 
 Le lot comporte **1420 décisions explicites** de placement. Les **30695 autres cartes** gardent un niveau source non revu individuellement. Ni une partition complète ni la conservation des textes ne prouvent la progressivité ou l’acquisition.
 
@@ -31,6 +31,17 @@ Les sept partitions s’appuient sur des indices et une empreinte du deck source
 | fr-ja | 365 | 592 | 572 | 653 | 690 | 430 | 503 | 331 | 229 | 247 | 115 | 4727 |
 | fr-ko | 363 | 505 | 571 | 627 | 709 | 449 | 513 | 409 | 240 | 261 | 87 | 4734 |
 | zh-fr | 335 | 592 | 678 | 615 | 682 | 422 | 416 | 378 | 225 | 226 | 131 | 4700 |
+
+## Corrections phonétiques après validation des sources
+
+Le registre `docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json` applique **774 événements audités à 772 identifiants**, dans **786 occurrences** canoniques ou de transport. Les deux cartes concernées par B puis D conservent cet ordre explicite. Aucune règle de calcul phonétique ni règle du ss retirée n’est exécutée.
+
+Chaque aide originale, son statut et sa provenance restent vérifiables ; seuls phon, le statut de correction et une annotation traçable changent après les contrôles de copie originale. Les cellules et les copies de révision emploient la même édition corrigée. Les textes étudiés, traductions, lectures/Pinyin, niveaux, types et droits sont préservés.
+
+Cette application de corrections ciblées ne vaut pas validation phonétique globale. Les statuts de relecture du parcours restent en attente et la relecture native reste distincte.
+
+Empreinte du registre : `efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc` ; preuves figées au commit `dfc665bf5574dd99d308c756efc69c571aec62cc`.
+
 
 ## Enrichissement de situations — lot distinct
 

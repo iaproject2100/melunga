@@ -46,6 +46,19 @@ PROTECTED_FILES = [
     "melunga_deploy/netlify/functions/complimentary-access.mjs",
     "melunga_deploy/netlify/functions/access-store.mjs",
 ]
+PHONETIC_REGISTRY = REVIEW_ROOT + "/corrections-phonetiques/revue-claude-lot2.json"
+PHONETIC_EVIDENCE_COMMIT = "dfc665bf5574dd99d308c756efc69c571aec62cc"
+# These anchors are independent of the producer and of its editable registry.
+PHONETIC_EVIDENCE_PINS = {
+    "docs/revue-integrale/registre-phonetique.json": ("2833fca404acbac078e03090c864b4dd1a8aaa658ab626563672d20c0db9569c", 736),
+    "docs/revue-integrale/registre-tj.json": ("856ccdd4525fdd74706ae16081c28e60bd629b3e83039502df81f824ebca74d0", 38),
+}
+PHONETIC_STATUSES = {
+    "B": "corrected-by-Claude-g-devant-e-i",
+    "C": "corrected-by-Claude-les-lei",
+    "D": "corrected-by-Claude-tj-vers-dj",
+    "B+D": "corrected-by-Claude-tj-vers-dj",
+}
 
 
 class VerificationError(Exception):
@@ -157,10 +170,276 @@ def read_pack(root):
     pack["languages"] = PAIR_LANGUAGES
     raw("tools/maquette-guidee/check_situations_independent.py")
     pack["situations"] = read_situation_inputs(root, raw, js, require, canonical, digest, PAIR_LANGUAGES)
+    registry_raw = raw(PHONETIC_REGISTRY)
+    pack["phoneticRegistryRaw"] = registry_raw
+    pack["phoneticRegistry"] = json.loads(registry_raw)
+    pack["phoneticEvidenceRaw"] = {}
+    for descriptor in pack["phoneticRegistry"].get("evidenceFiles", []):
+        relative = descriptor.get("path")
+        require(isinstance(relative, str) and relative.startswith(REVIEW_ROOT + "/corrections-phonetiques/")
+                and ".." not in Path(relative).parts and (root / relative).resolve().is_relative_to(root.resolve()),
+                "Phonetic evidence path escapes its source directory")
+        pack["phoneticEvidenceRaw"][relative] = raw(relative)
     return pack
 
 
+def _runtime_objects(pack):
+    """Walk concrete runtime objects, including every transport/received bank."""
+    def walk(value, location=()):
+        if isinstance(value, dict):
+            yield location, value
+            for key, child in value.items():
+                yield from walk(child, (*location, key))
+        elif isinstance(value, list):
+            for index, child in enumerate(value):
+                yield from walk(child, (*location, index))
+    for (pair, level), cell in pack["cells"].items():
+        path = f"{DATA_ROOT}/{pair}/L{level}.json"
+        for location, value in walk(cell):
+            yield pair, path, location, "canonical", value
+    for pair, bank in pack["repertoires"].items():
+        path = f"{DATA_ROOT}/repertoires/{pair}.json"
+        for location, value in walk(bank):
+            profile = "received-model" if location and location[0] == "receivedModels" else "transport-phrase"
+            yield pair, path, location, profile, value
+
+
+def _before_fields(phrase, annotation=None):
+    """Only original fields are reconstructed; provenance is NEVER restored."""
+    return {
+        "study": phrase.get("study"), "native": phrase.get("native"),
+        "phon": annotation["beforePhon"] if annotation is not None else phrase.get("phon"),
+        "readingPresent": "reading" in phrase, "reading": phrase.get("reading"),
+        "source": phrase.get("source"),
+        "phoneticReviewStatusPresent": annotation["originalReviewStatusPresent"] if annotation is not None else "phoneticReviewStatus" in phrase,
+        "phoneticReviewStatus": annotation["originalReviewStatus"] if annotation is not None else phrase.get("phoneticReviewStatus"),
+    }
+
+
+def _phonetic_declarations(pack):
+    registry, raw_registry = pack.get("phoneticRegistry"), pack.get("phoneticRegistryRaw")
+    require(isinstance(registry, dict) and isinstance(raw_registry, bytes), "Phonetic correction registry is absent")
+    require(json.loads(raw_registry) == registry, "Phonetic correction registry differs from its loaded bytes")
+    registry_hash = digest(raw_registry)
+    require(pack["fingerprints"].get(PHONETIC_REGISTRY) == registry_hash, "Phonetic registry fingerprint differs")
+    require(registry.get("version") == 1 and registry.get("id") == "revue-claude-lot2"
+            and registry.get("evidenceCommit") == PHONETIC_EVIDENCE_COMMIT,
+            "Unknown phonetic batch or unpinned evidence commit")
+    require(registry.get("status") == "audited-correction-batch-not-global-phonetic-approval"
+            and registry.get("allowedRules") == ["B", "C", "D"] and registry.get("withdrawnRules") == ["A"],
+            "Phonetic batch changes its rule scope or claims global approval")
+    require(registry.get("correctionCount") == 772 and registry.get("eventCount") == 774,
+            "The pinned batch is exactly 772 identities and 774 correction events")
+    files = registry.get("evidenceFiles")
+    require(isinstance(files, list) and len(files) == 2, "Expected the two frozen phonetic evidence files")
+    evidence, expected_events, evidence_paths = {}, {}, set()
+    git_paths = set()
+    for descriptor in files:
+        path, git_path = descriptor.get("path"), descriptor.get("gitPath")
+        require(isinstance(path, str) and isinstance(git_path, str)
+                and git_path in PHONETIC_EVIDENCE_PINS and git_path not in git_paths and path not in evidence_paths,
+                "Phonetic evidence identity is unknown or duplicated")
+        git_paths.add(git_path); evidence_paths.add(path)
+        expected_hash, expected_count = PHONETIC_EVIDENCE_PINS[git_path]
+        raw = pack.get("phoneticEvidenceRaw", {}).get(path)
+        require(isinstance(raw, bytes) and digest(raw) == expected_hash
+                and descriptor.get("sha256") == expected_hash and descriptor.get("eventCount") == expected_count
+                and pack["fingerprints"].get(path) == expected_hash, "Frozen phonetic evidence fingerprint differs")
+        original = subprocess.run(["git", "show", PHONETIC_EVIDENCE_COMMIT + ":" + git_path],
+                                  cwd=pack["root"], capture_output=True, check=True).stdout
+        require(raw == original, "Phonetic evidence differs from its pinned Git object")
+        rows = json.loads(raw).get("corrections")
+        require(isinstance(rows, list) and len(rows) == expected_count, "Incomplete frozen correction evidence")
+        evidence[path] = rows
+        for index, row in enumerate(rows):
+            require(row.get("pair") in PAIR_LANGUAGES and row.get("regle") in {"B", "C", "D"},
+                    "Frozen correction evidence contains another pair or rule")
+            expected_events[(path, index)] = row
+    corrections = registry.get("corrections")
+    require(isinstance(corrections, list) and len(corrections) == 772, "Missing or additional phonetic declarations")
+    lookup, consumed = {}, set()
+    expected_ids = {(row["pair"], row["id"]) for row in expected_events.values()}
+    before_keys = {"study", "native", "phon", "readingPresent", "reading", "source",
+                   "phoneticReviewStatusPresent", "phoneticReviewStatus"}
+    for entry in corrections:
+        key = (entry.get("pairId"), entry.get("id"))
+        require(all(isinstance(value, str) for value in key) and key in expected_ids and key not in lookup,
+                "Unknown or duplicated phonetic correction identity")
+        require(entry.get("rule") in PHONETIC_STATUSES
+                and entry.get("afterReviewStatus") == PHONETIC_STATUSES[entry["rule"]], "Unexpected corrected review status")
+        events, occurrences = entry.get("events"), entry.get("occurrences")
+        require(isinstance(events, list) and events and isinstance(occurrences, list) and occurrences,
+                "Correction lacks its ordered events or original whole-field profiles")
+        previous = None
+        for event in events:
+            event_key = (event.get("evidencePath"), event.get("evidenceIndex"))
+            require(type(event_key[1]) is int and event_key in expected_events and event_key not in consumed,
+                    "Missing, reused, or unknown phonetic evidence event")
+            row = expected_events[event_key]
+            require((row["pair"], row["id"]) == key and event.get("rule") == row["regle"]
+                    and event.get("beforePhon") == row["avant"] and event.get("afterPhon") == row["apres"],
+                    "Correction event is not the exact pinned before/after evidence")
+            require(previous is None or event["beforePhon"] == previous, "Broken B-to-D phonetic correction chain")
+            previous = event["afterPhon"]; consumed.add(event_key)
+        require(entry["rule"] == "+".join(event["rule"] for event in events)
+                and entry.get("afterPhon") == previous, "Correction final aid or ordered rules differ from evidence")
+        canonical_profiles = 0
+        for occurrence in occurrences:
+            profile, before = occurrence.get("profile"), occurrence.get("expectedBefore")
+            require(profile in {"canonical", "transport-phrase", "received-model"}
+                    and isinstance(before, dict) and set(before) == before_keys,
+                    "Correction has no exact original whole-field profile")
+            require(type(before["readingPresent"]) is bool and type(before["phoneticReviewStatusPresent"]) is bool
+                    and (before["readingPresent"] or before["reading"] is None)
+                    and (before["phoneticReviewStatusPresent"] or before["phoneticReviewStatus"] is None)
+                    and isinstance(before["source"], dict), "Malformed original reading/status/provenance profile")
+            require(isinstance(before["source"].get("collection"), str), "Original correction source collection is absent")
+            path, location = occurrence.get("path"), occurrence.get("location")
+            require(isinstance(path, str) and isinstance(location, list) and location
+                    and all(isinstance(token, str) or type(token) is int and token >= 0 for token in location),
+                    "Malformed informative correction snapshot location")
+            if profile == "canonical":
+                require(re.fullmatch(re.escape(DATA_ROOT + "/" + key[0] + "/") + r"L(?:[1-9]|10)\.json", path)
+                        and location[0] in {"themes", "heldThemes", "reserve"}, "Correction snapshot has another canonical pair/profile")
+            else:
+                require(path == f"{DATA_ROOT}/repertoires/{key[0]}.json"
+                        and location[0] == ("receivedModels" if profile == "received-model" else "phrases"),
+                        "Correction snapshot has another transport pair/profile")
+            require(before["phon"] == events[0]["beforePhon"], "Original aid differs from the first frozen event")
+            for event in events:
+                row = expected_events[(event["evidencePath"], event["evidenceIndex"])]
+                require(before["study"] == row["study"] and before["native"] == row["native"],
+                        "Correction evidence belongs to another whole study/meaning tuple")
+                if "reading" in row:
+                    require(before["readingPresent"] and before["reading"] == row["reading"], "Correction evidence reading differs")
+            canonical_profiles += profile == "canonical"
+        require(canonical_profiles == 1, "Every corrected identity needs one original canonical profile")
+        lookup[key] = entry
+    require(set(lookup) == expected_ids and consumed == set(expected_events), "Pinned phonetic evidence coverage is incomplete")
+    return lookup, registry_hash
+
+
 def check_pack(pack):
+    """Validate declared overlays, then check a private BEFORE projection."""
+    lookup, registry_hash = _phonetic_declarations(pack)
+    require(digest(pack["app"]) == pack["fingerprints"].get("melunga_deploy/app.html")
+            and source_decks(pack["app"]) == pack["decks"], "Pinned original catalogue was modified")
+    for (pair, identity), entry in lookup.items():
+        for occurrence in entry["occurrences"]:
+            before = occurrence["expectedBefore"]
+            if before["source"]["collection"].startswith("DECKS."):
+                study = PAIR_LANGUAGES[pair][1]
+                match = re.fullmatch(r"catalogue:" + re.escape(study) + r":(0|[1-9][0-9]*)", identity)
+                require(match is not None, "Corrected catalogue identity is inconsistent with its pair")
+                index = int(match[1])
+                require(index < len(pack["decks"][study]), "Corrected original source index is outside its deck")
+                card, mapping = pack["decks"][study][index], field_map(study)
+                expected_source = {"collection": "DECKS." + study, "sourceIndex": index,
+                                   "sourceLevel": card["lv"], "fieldMap": mapping,
+                                   "sourceSha256": digest(canonical(card))}
+                require(before["source"] == expected_source, "Correction original source object was changed")
+                require(all(before[field] == card.get(mapping[field]) for field in ("study", "native", "phon")),
+                        "Correction original whole fields differ from the untouched catalogue")
+                has_reading = "reading" in mapping and mapping["reading"] in card
+                require(before["readingPresent"] == has_reading
+                        and before["reading"] == (card[mapping["reading"]] if has_reading else None),
+                        "Correction original reading presence or value differs from catalogue")
+                require(before["phoneticReviewStatusPresent"] is False and before["phoneticReviewStatus"] is None,
+                        "The pinned catalogue correction batch invents an original review status")
+    expected_manifest = {"registryPath": PHONETIC_REGISTRY, "registrySha256": registry_hash,
+                         "correctionCount": 772, "eventCount": 774, "evidenceCommit": PHONETIC_EVIDENCE_COMMIT}
+    require(pack["manifest"].get("phoneticCorrections") == expected_manifest, "Runtime manifest has absent or forged phonetic declarations")
+    # Check actual hashes first; the private projection must never hide a stale real bank hash.
+    for pair in pack["manifest"]["pairs"]:
+        path = f"{DATA_ROOT}/repertoires/{pair['id']}.json"
+        require(pair.get("repertoireSha256") == pack["fingerprints"].get(path), "Actual corrected repertoire hash differs from manifest")
+    restorations, seen, canonical_seen, collections = [], Counter(), Counter(), Counter()
+    profile_counts = Counter()
+    for pair, path, location, profile, phrase in _runtime_objects(pack):
+        is_phrase = all(isinstance(phrase.get(k), str) for k in ("id", "study", "native", "phon"))
+        annotation = phrase.get("phoneticCorrection")
+        key = (pair, phrase.get("id"))
+        if not is_phrase:
+            require("phoneticCorrection" not in phrase, "Stray phonetic annotation on a non-phrase object")
+            continue
+        if key not in lookup:
+            require("phoneticCorrection" not in phrase, "Undeclared phonetic correction on another identity")
+            continue
+        entry = lookup[key]
+        require(isinstance(annotation, dict) and set(annotation) == {
+            "id", "registryPath", "registrySha256", "beforePhon", "originalReviewStatusPresent",
+            "originalReviewStatus", "evidenceCommit", "rule"}, "A corrected phrase/copy lacks its exact phonetic declaration")
+        matches = [item["expectedBefore"] for item in entry["occurrences"]
+                   if (item["profile"] == profile or (profile != "canonical" and item["profile"] == "canonical"))
+                   and _before_fields(phrase, annotation) == item["expectedBefore"]]
+        require(matches, "Corrected whole fields, original status, or untouched source differs from its before profile")
+        before = matches[0]
+        expected_annotation = {
+            "id": key[1], "registryPath": PHONETIC_REGISTRY, "registrySha256": registry_hash,
+            "beforePhon": before["phon"], "originalReviewStatusPresent": before["phoneticReviewStatusPresent"],
+            "originalReviewStatus": before["phoneticReviewStatus"], "evidenceCommit": PHONETIC_EVIDENCE_COMMIT,
+            "rule": entry["rule"],
+        }
+        require(annotation == expected_annotation, "Phonetic annotation differs from its exact registry hash/before/rule")
+        require(phrase["phon"] == entry["afterPhon"] and phrase.get("phoneticReviewStatus") == entry["afterReviewStatus"],
+                "Corrected aid or local review status differs from its authorized after value")
+        restorations.append((path, location, before)); seen[key] += 1; profile_counts[profile] += 1
+        if profile == "canonical":
+            canonical_seen[key] += 1; collections[phrase["source"]["collection"]] += 1
+    require(set(seen) == set(lookup) and all(canonical_seen[key] == 1 for key in lookup),
+            "A declared phonetic correction is absent or has no unique canonical entry")
+    projected = copy.deepcopy(pack)
+    documents = {f"{DATA_ROOT}/{pair}/L{level}.json": cell for (pair, level), cell in projected["cells"].items()}
+    documents.update({f"{DATA_ROOT}/repertoires/{pair}.json": bank for pair, bank in projected["repertoires"].items()})
+    for path, location, before in restorations:
+        phrase = documents[path]
+        for token in location:
+            phrase = phrase[token]
+        phrase["phon"] = before["phon"]
+        if before["phoneticReviewStatusPresent"]:
+            phrase["phoneticReviewStatus"] = before["phoneticReviewStatus"]
+        else:
+            phrase.pop("phoneticReviewStatus", None)
+        del phrase["phoneticCorrection"]
+    for pair in projected["manifest"]["pairs"]:
+        path = f"{DATA_ROOT}/repertoires/{pair['id']}.json"
+        projected_hash = digest((json.dumps(projected["repertoires"][pair["id"]], ensure_ascii=False, indent=2) + "\n").encode())
+        projected["fingerprints"][path] = projected_hash
+        pair["repertoireSha256"] = projected_hash
+    result = check_original_pack(projected)
+    checks = result["checks"]
+    catalogue_overrides = sum(count for collection, count in collections.items() if collection.startswith("DECKS."))
+    checks.update({
+        "phoneticCorrectionIdentities": 772, "phoneticCorrectionEvidenceEvents": 774,
+        "phoneticCorrectionRuntimeOccurrences": len(restorations),
+        "phoneticCorrectedCanonicalFields": sum(canonical_seen.values()),
+        "phoneticCorrectedTransportAndReceivedCopies": len(restorations) - sum(canonical_seen.values()),
+        "catalogueVerbatimFields": checks["catalogueFieldsCompared"] - catalogue_overrides,
+        "catalogueFieldDifferences": catalogue_overrides, "catalogueUnauthorizedFieldDifferences": 0,
+        "nonCatalogueCanonicalPhoneticCorrections": 772 - catalogue_overrides,
+        "catalogueOriginalFieldsCheckedViaBeforeProjection": checks["catalogueFieldsCompared"],
+        "importedVerbatimFields": checks["importedFieldsCompared"] - collections["conversation"],
+        "newEditorialVerbatimFields": checks["newEditorialFieldsCompared"] - collections["editorial-authored"],
+        "newSituationVerbatimWholeFields": checks["newSituationWholeFieldsCompared"]
+            - sum(collections[name] for name in ("situation-authored", "situation-conversation")),
+        "newSupportVerbatimWholeFields": checks["newSupportWholeFieldsCompared"]
+            - sum(collections[name] for name in ("situation-support-authored", "situation-support-conversation")),
+        "originalSourceProjectionValidated": True, "callerPackMutatedByProjection": False,
+        "localPhoneticCorrectionDoesNotApproveWholeNativePronunciation": True,
+    })
+    result["phoneticCorrections"] = {
+        **expected_manifest, "runtimeOccurrences": len(restorations),
+        "runtimeProfiles": {name: profile_counts[name] for name in ("canonical", "transport-phrase", "received-model")},
+        "correctedCanonicalCollections": dict(collections), "wholeEntryNativeReviewStillPending": True,
+        "validation": "exact pinned evidence events and complete before profiles, then private original-source projection",
+        "runtimeSourceEquality": "verbatim-except-explicit-phonetic-overlays",
+        "actualRuntimeFileSha256": {path: value for path, value in sorted(pack["fingerprints"].items()) if path.startswith(DATA_ROOT + "/")},
+        "originalSourceAppSha256": pack["fingerprints"]["melunga_deploy/app.html"],
+    }
+    return result
+
+
+def check_original_pack(pack):
     decks, manifest, decisions, enrichment, plan = (
         pack[k] for k in ("decks", "manifest", "decisions", "enrichments", "plan")
     )
@@ -1164,7 +1443,7 @@ def check_visuals(pack, required=False):
             "semanticOrNativeReviewClaimed": False}
 
 
-def adversarial_checks(pack):
+def adversarial_checks(pack, *, only_phonetic=False):
     """In-memory faults exercise this reader; no source or generated file is edited."""
     def locate(test_pack, predicate):
         for cell in test_pack["cells"].values():
@@ -1565,7 +1844,9 @@ def adversarial_checks(pack):
                         if row["kind"] == "editorial-authored-whole-entry" and row["id"] not in referenced)
             # Reuse an already present whole model without changing its tuple.
             # The refusal must concern the false status, not a later omission.
-            canonical_id = test_pack["situationResolution"]["resolved"][item["id"]]
+            canonical_id = next(phrase["id"] for cell in test_pack["cells"].values()
+                                for theme in cell["themes"] for phrase in theme["phrases"]
+                                if phrase.get("source", {}).get("itemId") == item["id"])
             item.update(kind="candidate-reference", source={"canonicalId": canonical_id},
                         phoneticReviewStatus="existing-verbatim")
             test_pack["adversarialExpectedReason"] = "phonetic review status"
@@ -1576,6 +1857,119 @@ def adversarial_checks(pack):
                           lexical_support_wrong_family, lexical_support_future_first_encounter,
                           protected_old_model_moved, original_source_speaker_forged,
                           productive_reuse_review_status_forged])
+    def corrected(test_pack, *, transport=False):
+        for _pair, _path, _location, profile, phrase in _runtime_objects(test_pack):
+            if isinstance(phrase.get("phoneticCorrection"), dict) and (not transport or profile != "canonical"):
+                return phrase
+        raise VerificationError("Missing corrected canonical/transport adversarial fixture")
+
+    def rebind_registry(test_pack):
+        # Stronger attacks also update the self-declared SHA everywhere. Only
+        # the independent evidence anchors and original-source checks stop them.
+        raw = (json.dumps(test_pack["phoneticRegistry"], ensure_ascii=False, indent=2) + "\n").encode()
+        test_pack["phoneticRegistryRaw"] = raw
+        checksum = digest(raw)
+        test_pack["fingerprints"][PHONETIC_REGISTRY] = checksum
+        test_pack["manifest"]["phoneticCorrections"]["registrySha256"] = checksum
+        for *_prefix, phrase in _runtime_objects(test_pack):
+            if isinstance(phrase.get("phoneticCorrection"), dict):
+                phrase["phoneticCorrection"]["registrySha256"] = checksum
+
+    def corrected_after_value_changed(test_pack):
+        corrected(test_pack)["phon"] += " altered"
+
+    def corrected_declaration_missing(test_pack):
+        del corrected(test_pack)["phoneticCorrection"]
+
+    def corrected_transport_copy_not_updated(test_pack):
+        phrase = corrected(test_pack, transport=True)
+        phrase["phon"] = phrase["phoneticCorrection"]["beforePhon"]
+
+    def corrected_annotation_wrong_registry_hash(test_pack):
+        corrected(test_pack)["phoneticCorrection"]["registrySha256"] = "0" * 64
+
+    def corrected_unknown_registry_identity(test_pack):
+        test_pack["phoneticRegistry"]["corrections"][0]["id"] = "unknown:forged-phonetic-source"
+        rebind_registry(test_pack)
+
+    def corrected_original_source_changed(test_pack):
+        source = corrected(test_pack)["source"]
+        require(source["collection"].startswith("DECKS."), "Expected catalogue correction fixture")
+        language = source["collection"].split(".", 1)[1]
+        test_pack["decks"][language][source["sourceIndex"]][source["fieldMap"]["phon"]] += " altered"
+
+    def corrected_before_source_profile_forged(test_pack):
+        phrase = corrected(test_pack)
+        identity = phrase["phoneticCorrection"]["id"]
+        entry = next(item for item in test_pack["phoneticRegistry"]["corrections"] if item["id"] == identity)
+        for occurrence in entry["occurrences"]:
+            occurrence["expectedBefore"]["source"]["sourceSha256"] = "0" * 64
+        for *_prefix, item in _runtime_objects(test_pack):
+            if item.get("id") == identity and "phoneticCorrection" in item:
+                item["source"]["sourceSha256"] = "0" * 64
+        rebind_registry(test_pack)
+
+    def corrected_before_aid_forged(test_pack):
+        entry = test_pack["phoneticRegistry"]["corrections"][0]
+        for occurrence in entry["occurrences"]:
+            occurrence["expectedBefore"]["phon"] += " altered"
+        rebind_registry(test_pack)
+
+    def corrected_source_extra_metadata_forged(test_pack):
+        identity = corrected(test_pack)["id"]
+        entry = next(item for item in test_pack["phoneticRegistry"]["corrections"] if item["id"] == identity)
+        for occurrence in entry["occurrences"]:
+            occurrence["expectedBefore"]["source"]["forgedNativeApproval"] = True
+        for *_prefix, phrase in _runtime_objects(test_pack):
+            if phrase.get("id") == identity and "phoneticCorrection" in phrase:
+                phrase["source"]["forgedNativeApproval"] = True
+        rebind_registry(test_pack)
+
+    def corrected_original_review_status_forged(test_pack):
+        identity = corrected(test_pack)["id"]
+        entry = next(item for item in test_pack["phoneticRegistry"]["corrections"] if item["id"] == identity)
+        for occurrence in entry["occurrences"]:
+            occurrence["expectedBefore"].update(phoneticReviewStatusPresent=True, phoneticReviewStatus="native-approved")
+        for *_prefix, phrase in _runtime_objects(test_pack):
+            if phrase.get("id") == identity and "phoneticCorrection" in phrase:
+                phrase["phoneticCorrection"].update(originalReviewStatusPresent=True, originalReviewStatus="native-approved")
+        rebind_registry(test_pack)
+
+    def corrected_b_then_d_chain_reversed(test_pack):
+        entry = next(item for item in test_pack["phoneticRegistry"]["corrections"] if item["rule"] == "B+D")
+        entry["events"].reverse()
+        rebind_registry(test_pack)
+
+    def corrected_stray_annotation(test_pack):
+        annotation = copy.deepcopy(corrected(test_pack)["phoneticCorrection"])
+        _, phrase = locate(test_pack, lambda item: "phoneticCorrection" not in item)
+        phrase["phoneticCorrection"] = annotation
+
+    def corrected_evidence_ledger_and_after_forged(test_pack):
+        entry = test_pack["phoneticRegistry"]["corrections"][0]
+        event = entry["events"][-1]
+        path, index = event["evidencePath"], event["evidenceIndex"]
+        evidence = json.loads(test_pack["phoneticEvidenceRaw"][path])
+        evidence["corrections"][index]["apres"] += " altered"
+        raw = (json.dumps(evidence, ensure_ascii=False, indent=2) + "\n").encode()
+        test_pack["phoneticEvidenceRaw"][path] = raw
+        test_pack["fingerprints"][path] = digest(raw)
+        next(row for row in test_pack["phoneticRegistry"]["evidenceFiles"] if row["path"] == path)["sha256"] = digest(raw)
+        event["afterPhon"] += " altered"; entry["afterPhon"] += " altered"
+        for *_prefix, phrase in _runtime_objects(test_pack):
+            if phrase.get("id") == entry["id"] and "phoneticCorrection" in phrase:
+                phrase["phon"] = entry["afterPhon"]
+        rebind_registry(test_pack)
+
+    if only_phonetic:
+        mutations = []
+    mutations.extend([corrected_after_value_changed, corrected_declaration_missing,
+                      corrected_transport_copy_not_updated, corrected_annotation_wrong_registry_hash,
+                      corrected_unknown_registry_identity, corrected_original_source_changed,
+                      corrected_before_source_profile_forged, corrected_before_aid_forged,
+                      corrected_source_extra_metadata_forged, corrected_original_review_status_forged,
+                      corrected_b_then_d_chain_reversed, corrected_stray_annotation,
+                      corrected_evidence_ledger_and_after_forged])
     results = []
     for mutation in mutations:
         changed = copy.deepcopy(pack)
@@ -1621,7 +2015,8 @@ def markdown(report):
     for pair in report["pairs"]:
         lines.append(f"| {pair['pair']} | {pair['catalogueCards']} | {pair['importedWholePhrases']} | {pair['authoredEntries']} | {pair['newSituationEntries']} | {pair['activePhrases']} | {pair['reservedPhrases']} | {pair['historicalSourceL1IndicesConserved']} |")
     lines += [
-        "", f"**{c['catalogueCardsRetainedExactlyOnce']:,} cartes classiques** sont canoniques exactement une fois. **{c['catalogueFieldsCompared']:,} champs** étudiés, natifs, phonétiques et lectures sont identiques aux sources. Les **{c['importedWholePhrases']} imports entiers / {c['importedFieldsCompared']} champs** correspondent aux sept instantanés, comparés octet pour octet à leur commit source ; les **{c['excludedEnrichmentsAbsent']} candidats écartés** sont absents.",
+        "", f"**{c['catalogueCardsRetainedExactlyOnce']:,} cartes classiques** sont canoniques exactement une fois. Sur **{c['catalogueFieldsCompared']:,} champs de catalogue contrôlés**, **{c['catalogueVerbatimFields']:,} champs runtime sont verbatim** et **{c['catalogueFieldDifferences']} aides phonétiques** sont des corrections explicites, vérifiées contre leurs preuves figées ; zéro autre divergence n'est accepté. Leurs champs d'origine sont contrôlés dans une projection privée avant correction, jamais déclarés égaux à l'aide affichée après correction. Les **{c['importedWholePhrases']} imports entiers / {c['importedVerbatimFields']} champs verbatim** correspondent aux sept instantanés, comparés octet pour octet à leur commit source ; les **{c['excludedEnrichmentsAbsent']} candidats écartés** sont absents.",
+        "", f"Le registre phonétique déclare **{c['phoneticCorrectionIdentities']} identités / {c['phoneticCorrectionEvidenceEvents']} événements B, C et D**, soit **{c['phoneticCorrectionRuntimeOccurrences']} objets runtime**, dont **{c['phoneticCorrectedTransportAndReceivedCopies']} copies de transport ou modèles reçus**. Les canoniques corrigés se répartissent entre **{c['catalogueFieldDifferences']} aides du catalogue** et **{c['nonCatalogueCanonicalPhoneticCorrections']} aides de phrases rédigées**. Chaque événement doit égaler une entrée des deux preuves Git dont les SHA sont épinglées dans ce lecteur ; les deux chaînes B→D restent ordonnées. Les aides corrigées, statuts et annotations sont contrôlés dans toutes les cellules et banques avant toute projection. Les empreintes du rapport sont celles des fichiers corrigés réels ; aucune donnée du pack appelant n'est réécrite. Ces corrections locales ne certifient pas la phonétique complète ni une relecture native.",
         "", f"Le total canonique est **{total_canonical:,}**, dont **{c['activePhrases']:,} entrées hors réserve** et **{c['reservedPhrasesRetainedWithoutSteps']} réservées**. Les banques et les révisions ne sont jamais ajoutées à ces totaux. La réserve n’a aucune étape de leçon.",
         "", "Les champs sont relus indépendamment : pf pour en/es/it/ja/ko, phf pour zh, phon et cn pour les apprenants sinophones du français ; py sert seulement de lecture complémentaire. Aucun morceau de phonétique n’est extrait ou assemblé.",
         "", "## Décisions éditoriales et ajouts", "",
@@ -1629,7 +2024,7 @@ def markdown(report):
     ]
     if c["situationCandidatePositions"]:
         lines += [
-            f"Le lot de situations remplit **{c['situationCandidatePositions']} positions** dans **{c['additionalSituationThemesPerPair']} thèmes communs**, huit positions par thème et par couple. Il ajoute réellement **{c['newSituationAuthoredUtterances']} phrases rédigées** avec aides pending-Claude et **{c['newSituationExistingConversationImports']} phrases anciennes importées** ; les réemplois du catalogue et les références à un candidat ne sont pas comptés comme des créations. **{c['situationSourceFieldsCompared']} champs de réemploi** et **{c['newSituationWholeFieldsCompared']} champs d’ajouts** sont comparés aux objets entiers. L’index de recherche est reconstruit depuis **70 parents de conversation** immuables, sans charger le générateur.", "",
+            f"Le lot de situations remplit **{c['situationCandidatePositions']} positions** dans **{c['additionalSituationThemesPerPair']} thèmes communs**, huit positions par thème et par couple. Il ajoute réellement **{c['newSituationAuthoredUtterances']} phrases rédigées** dont la relecture phonétique entière reste à faire, et **{c['newSituationExistingConversationImports']} phrases anciennes importées** ; les réemplois du catalogue et les références à un candidat ne sont pas comptés comme des créations. Les annotations de correction locale ne valent pas approbation native globale. **{c['situationSourceFieldsCompared']} champs de réemploi** et **{c['newSituationWholeFieldsCompared']} champs d’ajouts** sont contrôlés contre les objets entiers d'origine ; **{c['newSituationVerbatimWholeFields']} champs d'ajouts runtime restent verbatim**, les autres aides étant les seules exceptions explicitement enregistrées. L’index de recherche est reconstruit depuis **70 parents de conversation** immuables, sans charger le générateur.", "",
             f"Les **{c['contextPresentationReferences']} références contextuelles** pointent vers un seul canonique existant, au même niveau ou à un niveau antérieur. Leur intention est reliée au plan et leurs champs restent entiers. Elles utilisent isContextReuse et restent distinctes des révisions strictement antérieures. Dans chaque nouveau thème, les huit intentions suivent globalement l’ordre01→08, réemplois contextuels et primaires mêlés : ni une confirmation tardive ni un accord ne passe devant le problème initial. **{c['situationCatalogueIntroductionDecisions']} décisions du nouveau lot** introduisent explicitement un canonique de catalogue plus tôt, sans toucher son lv ni la frontière d’accès.", "",
             f"Les **{c['lexicalSupportUses']} soutiens lexicaux** restent autonomes dans leur famille et hors des étapes de phrase ; **{c['newSupportAuthoredEntries']} mots rédigés** et **{c['newSupportExistingConversationImports']} mots importés** sont comparés par champs entiers. Les **{c['receivedUsages']} usages reçus / {c['receivedModels']} modèles** ont leurs rôles, réponses préparées et clôtures explicites ; leurs **{c['receivedStepsExcludedFromProduction']} étapes** sont exclues de la production et du progrès. Les **{c['receivedAuthoredModels']} modèles entendus rédigés** et **{c['receivedExistingConversationModels']} modèles entendus importés** sont comptés séparément du catalogue canonique de production.", "",
             "Les intentions de dépendance de ces situations restent prévues : ce contrôle ne démontre ni acquisition, ni fermeture linguistique globale, ni conformité des nouvelles phonétiques à la méthode.", "",
@@ -1660,7 +2055,7 @@ def markdown(report):
         "", "## Reproduire", "",
         "    python3 -B tools/maquette-guidee/check_levels_independent.py --write-report --require-visuals --strict-editorial --require-no-held",
         "    python3 -B tools/maquette-guidee/check_levels_independent.py --check-report --require-visuals --strict-editorial --require-no-held --self-test", "",
-        "Les contre-exemples en mémoire incluent une phonétique changée, une source dupliquée, un mauvais champ, un rappel avant préparation, une réserve productive, un import exclu, un mot injecté dans une situation, une révision future ou de mauvaise famille, un compteur gonflé et une séparation fictive d’un concept M/F. Les nouveaux contre-exemples couvrent aussi les rôles et clôtures reçus, la réponse avant sa préparation, une fausse étape de préparation, une aide de modèle entendu changée, un reçu compté comme production, un soutien futur ou de mauvaise famille, une attribution de source forgée, un faux statut de revue et le déplacement d’un ancien modèle protégé. Le contrôle ne remplace pas une écoute ou un essai avec apprenants ; Claude intervient seulement pour les phonétiques nouvelles. Aucune publication n’est approuvée.", "",
+        "Les contre-exemples en mémoire incluent une phonétique changée, une source dupliquée, un mauvais champ, un rappel avant préparation, une réserve productive, un import exclu, un mot injecté dans une situation, une révision future ou de mauvaise famille, un compteur gonflé et une séparation fictive d’un concept M/F. Les nouveaux contre-exemples couvrent aussi les rôles et clôtures reçus, la réponse avant sa préparation, une fausse étape de préparation, une aide de modèle entendu changée, un reçu compté comme production, un soutien futur ou de mauvaise famille, une attribution de source forgée, un faux statut de revue et le déplacement d’un ancien modèle protégé. Le contrôle ne remplace pas une écoute ou un essai avec apprenants. La revue humaine de Claude couvre les thèmes, les niveaux et les phonétiques anciennes comme nouvelles ; ces contrôles mécaniques ne prouvent ni leur justesse linguistique globale ni la fermeture globale de la progression. Aucune publication n’est approuvée.", "",
     ]
     return re.sub(r"(?<=\d),(?=\d{3}\b)", " ", "\n".join(lines))
 

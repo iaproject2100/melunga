@@ -1,5 +1,7 @@
 # Réponse vérifiée au lot intégral 1 de Claude
 
+**Mise à jour après le tour 2 :** les constats ci-dessous décrivent `d4eaea3`. Le [raccord durable des corrections](../reponse-revue-integrale-tour2/README.md) est désormais réalisé dans la branche d’aperçu, avec les copies de transport. Ce texte est conservé comme trace de la contre-vérification initiale.
+
 Revue du 25 octobre 2026. Candidat Claude : `d4eaea3`, base `4ec163e`.
 Référence Codex : `345c709`. Aucun fichier de l’application ou de ses contenus
 n’est modifié par ce dossier. La présentation validée reste conservée.

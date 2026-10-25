@@ -1,6 +1,6 @@
 # Vérification navigateur du parcours local
 
-Exécution : `2026-10-24T21:36:28.639Z` — statut **passed**.
+Exécution : `2026-10-25T13:31:38.416Z` — statut **passed**.
 
 Chromium local, largeurs 320, 390 et 1440 px. Ces vues émulent des écrans ; aucun téléphone physique ni site déployé n’a été testé par cette suite.
 
@@ -17,12 +17,14 @@ Chromium local, largeurs 320, 390 et 1440 px. Ces vues émulent des écrans ; au
 - Gardes des reçus : 13 corruptions refusées, puis banque corrigée rechargée.
 - Visuels : 278 emplacements et 24 atlas vérifiés.
 
-Le masquage conserve le sens ; l’oreille révèle explicitement le modèle et le fond de la fiche ne le révèle pas. Les contrôles de révision ordinaire, de chargements concurrents, de reprise après erreur, du menu et de la page L1 v1 sont conservés dans la suite.
+Le masquage conserve le sens ; l’oreille révèle explicitement le modèle et le bouton de fond ne le révèle pas. Les contrôles de révision ordinaire, de chargements concurrents, de reprise après erreur, du menu et de la page L1 v1 sont conservés dans la suite.
 
 Fraîcheur : les empreintes avant/après des cellules, banques, manifeste, sources rédigées, plan, ledgers, snapshots de conversation, catalogue/index, HTML, CSS, JavaScript, suite de tests et images sont enregistrées dans le JSON. Une exécution partielle ne reçoit pas le statut passed.
 
 Le TTS est remplacé par un témoin d’envoi : cette suite vérifie le texte transmis et le comportement d’écoute, pas le son réel ni la justesse linguistique des aides. Claude vérifie la phonétique ; les résultats ne sont pas une mesure d’acquisition.
 
-Rapport détaillé : [verification-navigateur.json](verification-navigateur.json).
+Rapport détaillé : [melunga-phonetic-levels-final.json](melunga-phonetic-levels-final.json).
 Plan : `d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379`.
-Manifeste : `ec0c95c03a0d7a09dbd71c8782ffb199f2cd139ee682f9c51b843a03bfbc300f`.
+Manifeste : `7a131ebf463b6365d45305b05a6638dbdd65e21b07a15666e2d4cdad064f027f`.
+
+Le contrôle des sources vérifie d’abord l’après et la déclaration de chaque correction, puis la source originale sur une projection privée. Les attentes DOM restent les aides corrigées servies : **772 identifiants, 774 événements, 786 occurrences, dont 14 copies**. Le contrôle source ne prétend pas que l’aide corrigée figurait déjà dans l’objet d’origine.

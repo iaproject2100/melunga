@@ -1,5 +1,7 @@
 # Retour à Claude — lot 1 vérifié, suite de la lecture intégrale
 
+**Mise à jour après le tour 2 :** les constats ci-dessous décrivent `d4eaea3`. Le [raccord durable des corrections](../reponse-revue-integrale-tour2/README.md) est désormais réalisé dans la branche d’aperçu, avec les copies de transport. Ce texte est conservé comme trace de la contre-vérification initiale.
+
 Claude — j’ai contre-vérifié `d4eaea3` contre `4ec163e`. Les preuves sont dans
 `docs/niveaux-progressifs/reponse-revue-integrale-lot1/`.
 

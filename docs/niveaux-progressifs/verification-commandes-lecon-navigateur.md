@@ -1,6 +1,6 @@
 # Vérification des commandes et de la fiche sans défilement
 
-Exécution : `2026-10-24T21:30:15.330Z` — **9 contrôles sur 9 réussis**.
+Exécution : `2026-10-25T13:25:40.949Z` — **9 contrôles sur 9 réussis**.
 
 Chromium local, écrans émulés. Aucun téléphone physique ni site public testé. Les voix sont simulées pour vérifier le texte transmis ; ce rapport ne valide ni le son réel ni les phonétiques.
 
@@ -27,3 +27,5 @@ Les lectures auxiliaires JA/KO peuvent être plus petites sur les écrans étroi
 Les empreintes du HTML, CSS, JavaScript, test, application classique, ancien contenu L1 et 78 JSON sont identiques avant et après le passage. Aucune requête externe, de compte, de paiement ou d’API.
 
 Rapport détaillé : [verification-commandes-lecon-navigateur.json](verification-commandes-lecon-navigateur.json).
+
+Ce passage utilise les données corrigées : les 774 événements / 772 cartes sont vérifiés séparément dans [le contrôle du raccord phonétique](verification-raccord-phonetique.md). Le JavaScript, le CSS et les HTML de l’interface restent ceux validés avant ce lot.

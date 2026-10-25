@@ -12,6 +12,7 @@ const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const {test, before, after} = require('node:test');
 const {chromium} = require('playwright-core');
+const phoneticCorrections = require('./phonetic-corrections.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'content/niveaux-progressifs');
@@ -67,6 +68,7 @@ function situationInputs() {
     path.join(ROOT, 'maquette-guidee.html'), path.join(ROOT, 'content/maquette-guidee.json'), __filename,
     path.join(ROOT, 'app.html'), path.join(situationDirectory, 'catalogue.json'),
     path.resolve(ROOT, '../docs/niveaux-progressifs/visuels.json')]);
+  for (const file of phoneticCorrections.inputFiles()) files.add(file);
   for (const asset of [...visualRegistry.levels, ...visualRegistry.vocabularyAtlases,
     ...visualRegistry.grammarAtlases, ...visualRegistry.correctionAtlases, ...visualRegistry.situationAtlases]) {
     files.add(path.join(ROOT, asset.asset));
@@ -703,6 +705,10 @@ for (const width of report.widths) test('70 pair/level cells at ' + width + 'px'
 }));
 
 test('196 additional situations preserve 1568 whole source positions without inflating canonical entries', async () => checked('additional-situation-whole-source-and-intents', async () => {
+  // Check the exact approved after-help, annotation and whole-card conservation
+  // first. Only source comparisons below project back to the original whole aid;
+  // the DOM matrix continues to expect the actual corrected runtime JSON.
+  report.phoneticCorrectionsSourceAudit = phoneticCorrections.auditRuntime();
   const catalogue = JSON.parse(fs.readFileSync(path.join(situationDirectory, 'catalogue.json')));
   assert.equal(catalogue.status, 'ready-for-preview', 'the complete situation catalogue was frozen before generation');
   assert.equal(catalogue.planSha256, report.situationPlanSha256);
@@ -760,9 +766,10 @@ test('196 additional situations preserve 1568 whole source positions without inf
         const item = ledger.items.find(item => item.intentId === intent.id);
         assert.ok(item && item.pair === pair.id && item.topicId === topic.id);
         assert.equal(item.proposedLevel, topic.level);
-        const matches = presented.filter(phrase => tuple(phrase) === tuple(item));
+        const matches = presented.filter(phrase => tuple(phoneticCorrections.projectBefore(pair.id, phrase)) === tuple(item));
         assert.equal(matches.length, 1, 'one exact whole candidate per intent ' + item.id);
         const phrase = matches[0];
+        const originalPhrase = phoneticCorrections.projectBefore(pair.id, phrase);
         assert.equal(ids[intentIndex], phrase.id, 'planned global order keeps primary and reused intentions interleaved ' + intent.id);
         const contextual = (theme.contextReferences || []).find(reference => reference.id === phrase.id);
         if (contextual) {
@@ -783,7 +790,7 @@ test('196 additional situations preserve 1568 whole source positions without inf
           totals.primaryPositions++;
         }
         for (const field of ['study', 'native', 'phon', 'reading']) {
-          assert.equal(phrase[field], item[field], 'whole ledger field ' + item.id + ':' + field);
+          assert.equal(originalPhrase[field], item[field], 'whole original ledger field after approved correction proof ' + item.id + ':' + field);
           totals.sourceFields++;
         }
         if (item.readingScript !== undefined && phrase.source.collection.startsWith('situation-') && phrase.source.itemId === item.id) {
@@ -809,7 +816,9 @@ test('196 additional situations preserve 1568 whole source positions without inf
           assert.equal(sha256(canonicalJson(entry)), source.entrySha256);
           for (const field of ['study', 'native', 'phon', 'reading']) assert.equal(item[field], entry[field], 'whole conversation field ' + field);
         } else if (item.kind === 'candidate-reference') {
-          const other = item.source.canonicalId ? canonical.get(pair.id + ':' + item.source.canonicalId)?.phrase : rawItems.get(item.source.candidateId);
+          const other = item.source.canonicalId
+            ? phoneticCorrections.projectBefore(pair.id, canonical.get(pair.id + ':' + item.source.canonicalId)?.phrase)
+            : rawItems.get(item.source.candidateId);
           assert.ok(other && (!other.pair || other.pair === pair.id), 'candidate reuse stays in the same pair');
           assert.equal(tuple(item), tuple(other), 'candidate reuse cannot rewrite aids or meaning');
           assert.ok(phrase.editorialLevel <= item.proposedLevel, 'resolved candidate first introduction is not in the future');
@@ -824,12 +833,12 @@ test('196 additional situations preserve 1568 whole source positions without inf
           assert.equal(phrase.source.ledgerItemSha256, ledgerItemSha256);
           assert.equal(phrase.source.sourceSha256, phrase.source.collection === 'situation-authored'
             ? ledgerItemSha256 : originItem.source.entrySha256, 'source object and ledger item keep distinct fingerprints');
-          assert.equal(tuple(phrase), tuple(originItem));
-          assert.equal(phrase.phoneticReviewStatus, originItem.phoneticReviewStatus);
+          assert.equal(tuple(originalPhrase), tuple(originItem));
+          assert.equal(originalPhrase.phoneticReviewStatus, originItem.phoneticReviewStatus);
           if (phrase.source.collection === 'situation-authored') {
             assert.equal(phrase.id, 'situation-authored:' + originItem.id);
             assert.equal(originItem.kind, 'editorial-authored-whole-entry');
-            assert.equal(phrase.phoneticReviewStatus, 'pending-Claude');
+            assert.equal(originalPhrase.phoneticReviewStatus, 'pending-Claude');
             totals.newCanonicalAuthored.add(pair.id + ':' + phrase.id);
           } else {
             assert.equal(phrase.id, 'situation-conversation:' + originItem.id);
@@ -866,8 +875,9 @@ test('259 interlocutor turns and all lexical supports preserve whole sources and
   const supportTotals = {positions: 0, sourceFields: 0, kinds: {}, newCanonicalIds: new Set()};
   const definitions = new Map(situationPlan.receivedTurnsDefs.map(turn => [turn.id, turn]));
   function compareSource(item, model, pair, bank) {
+    const originalModel = phoneticCorrections.projectBefore(pair.id, model);
     assert.equal(item.pair, pair.id, 'source usage remains in its declared language pair');
-    assert.equal(tuple(model), tuple(item), 'whole runtime fields match exact ledger ' + item.id);
+    assert.equal(tuple(originalModel), tuple(item), 'whole original runtime fields match exact ledger after approved correction proof ' + item.id);
     if (item.readingScript !== undefined && model.source.collection.startsWith('situation-') && model.source.itemId === item.id) {
       assert.equal(model.readingScript, item.readingScript, 'creation-owned reading script preserved for received/support model ' + item.id);
     }
@@ -887,7 +897,7 @@ test('259 interlocutor turns and all lexical supports preserve whole sources and
       assert.equal(sha256(canonicalJson(raw)), item.source.entrySha256);
       assert.equal(tuple(item), tuple(raw), 'conversation copied as one whole entry');
     } else if (item.kind === 'candidate-reference') {
-      const other = item.source.canonicalId ? bank.phrases.find(phrase => phrase.id === item.source.canonicalId)
+      const other = item.source.canonicalId ? phoneticCorrections.projectBefore(pair.id, bank.phrases.find(phrase => phrase.id === item.source.canonicalId))
         : records.get(item.source.candidateId)?.row;
       assert.ok(other, 'explicit same-pair canonical/candidate support source');
       assert.equal(tuple(item), tuple(other), 'canonical/candidate reuse never rewrites a field');
@@ -898,14 +908,14 @@ test('259 interlocutor turns and all lexical supports preserve whole sources and
     if (/^situation-(?:(?:received|support)-)?(?:authored|conversation)$/.test(model.source.collection)) {
       const origin = records.get(model.source.itemId);
       assert.ok(origin, 'runtime source points to an actual ledger entry');
-      assert.equal(tuple(model), tuple(origin.row));
+      assert.equal(tuple(originalModel), tuple(origin.row));
       assert.equal(model.source.ledgerFile, path.relative(path.resolve(ROOT, '..'), origin.file));
       assert.equal(model.source.ledgerFileSha256, sha256(fs.readFileSync(origin.file)));
       assert.equal(model.source.ledgerItemSha256, ledgerItemHashes()[origin.row.id]);
       const authored = origin.row.kind === 'editorial-authored-whole-entry';
       assert.equal(model.source.sourceSha256, authored ? ledgerItemHashes()[origin.row.id] : origin.row.source.entrySha256);
     }
-    for (const field of ['study', 'native', 'phon', 'reading']) assert.equal(model[field], item[field], field + ' is copied whole');
+    for (const field of ['study', 'native', 'phon', 'reading']) assert.equal(originalModel[field], item[field], field + ' original is copied whole after approved correction proof');
   }
   for (const pair of manifest.pairs) {
     const ledger = situationLedgers.get(pair.id).extensionData;
@@ -1050,8 +1060,9 @@ test('new whole entries copy the authored source; review transport creates no ca
   for (const item of authored.items) {
     const phrase = canonical.get(item.pair + ':editorial:' + item.id);
     assert.ok(phrase, 'authored entry retained ' + item.id);
-    for (const field of ['study', 'native', 'phon', 'reading']) assert.equal(phrase[field], item[field], 'whole authored field ' + item.id + ':' + field);
-    assert.equal(phrase.phoneticReviewStatus, 'pending-Claude');
+    const originalPhrase = phoneticCorrections.projectBefore(item.pair, phrase);
+    for (const field of ['study', 'native', 'phon', 'reading']) assert.equal(originalPhrase[field], item[field], 'whole original authored field after approved correction proof ' + item.id + ':' + field);
+    assert.equal(originalPhrase.phoneticReviewStatus, 'pending-Claude');
     assert.equal(phrase.source.collection, 'editorial-authored');
     assert.equal(phrase.source.itemId, item.id);
     assert.equal(phrase.source.sourceFileSha256, report.authoredSourceSha256);

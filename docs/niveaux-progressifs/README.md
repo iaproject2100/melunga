@@ -133,12 +133,16 @@ non clos restent exposés dans le compte rendu.
 
 ## Revue complète par Claude : thèmes, niveaux et phonétique
 
-Le lot intégral 1 reçu à `d4eaea3` est contre-vérifié dans
-[la réponse au lot 1](reponse-revue-integrale-lot1/README.md).
-Il contient 736 retouches d’aides à raccorder à la génération et aux copies ;
-la lecture individuelle annoncée couvre une cellule sur 70. Les treize
-propositions antérieures de doublement du `s`, jamais appliquées, sont archivées.
-[Retour prêt pour Claude](reponse-revue-integrale-lot1/message-pour-claude.md).
+Le [tour 2 de Claude](reponse-revue-integrale-tour2/README.md) est raccordé à
+[la génération durable](corrections-phonetiques/README.md) : **774 événements
+sur 772 cartes**, avec **14 copies de transport** mises à jour dans la même édition.
+Les originaux restent vérifiables avant correction ; chaque aide modifiée reçoit
+une annotation de provenance séparée. Les textes, lectures/Pinyin, niveaux, thèmes
+et droits restent conservés. La lecture individuelle annoncée couvre **deux cellules
+sur 70** ; la revue globale reste à poursuivre.
+Les treize propositions antérieures de doublement du `s`, jamais appliquées,
+sont archivées. [Retour prêt pour Claude](reponse-revue-integrale-tour2/message-pour-claude.md).
+La [contre-vérification du lot 1](reponse-revue-integrale-lot1/README.md) reste une trace datée des problèmes désormais corrigés par ce raccord.
 
 La consigne de Kartech du **25 octobre 2026** remplace la restriction précédente
 « phonétique uniquement » : Claude vérifie et corrige le classement, la progression
@@ -154,8 +158,10 @@ de rôle ne restreint pas le nouveau mandat.
 
 La relecture de convention reçue à `295adf3` et sa réponse sont documentées dans
 [le dossier de reprise phonétique](reponse-relecture-phonetique/README.md).
-Il réconcilie les 334 copies sans statut et les 1 668 nouvelles entrées, reproduit
-les mesures et propose les corrections entières à relire, sans les appliquer à l’aperçu.
+Ce dossier historique réconcilie les 334 copies sans statut et les 1 668 nouvelles
+entrées et conserve les propositions de la première passe. Les 17 aides « les »
+sont maintenant couvertes par le registre intégré ; les autres propositions
+restent distinctes, et les treize espagnoles `s→ss` sont archivées.
 [Message de réponse à transmettre à Claude](reponse-relecture-phonetique/message-pour-claude.md).
 
 - [Tableau des formes entières de situations, répliques reçues et nouveaux soutiens](enrichissement-situations/nouvelles-phrases-a-relire.md).
@@ -206,3 +212,5 @@ NODE_PATH=/tmp/melunga-review-tools/node_modules node --test melunga_deploy/test
 
 Le chemin Playwright correspond à cet environnement ; ailleurs installer
 `playwright-core` et fournir `CHROMIUM_PATH` si nécessaire.
+
+Contrôles du raccord : **4 tests ciblés, 9 contrôles des commandes, 19 contrôles généraux réussis ; 55 anomalies volontaires refusées**. [Rapport et limites](verification-raccord-phonetique.md).

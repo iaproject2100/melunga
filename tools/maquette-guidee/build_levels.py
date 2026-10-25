@@ -50,6 +50,9 @@ spec.loader.exec_module(legacy)
 _situation_spec = importlib.util.spec_from_file_location("separate_situation_content", Path(__file__).with_name("situation_content.py"))
 situation_content = importlib.util.module_from_spec(_situation_spec)
 _situation_spec.loader.exec_module(situation_content)
+_phonetic_spec = importlib.util.spec_from_file_location("audited_phonetic_corrections", Path(__file__).with_name("phonetic_corrections.py"))
+phonetic_corrections = importlib.util.module_from_spec(_phonetic_spec)
+_phonetic_spec.loader.exec_module(phonetic_corrections)
 
 
 def canonical(value):
@@ -1617,6 +1620,17 @@ def make(include_situations=True):
     report["progressivityValidationBlocked"] = not report["progressivityReviewComplete"]
     report["manifestSha256"] = sha(manifest)
     outputs[OUTPUT / "manifest.json"] = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
+    # All original-source and access checks above remain authoritative. Apply
+    # the separately evidenced edition only after those checks have completed.
+    if include_situations:
+        outputs, correction_summary = phonetic_corrections.apply_to_outputs(ROOT, outputs, report)
+        report["phoneticCorrections"] = correction_summary
+        for transport in report["reviewTransports"]:
+            transport["fileSha256"] = correction_summary["transportSha256ByPair"][transport["pair"]]
+        report["manifestSha256"] = sha(json.loads(outputs[OUTPUT / "manifest.json"]))
+    # include_situations=False is the source-exact historical baseline used by
+    # validate_situation_drafts.py. It is not a served runtime edition and has
+    # no correction declaration; the current runtime checker rejects it as such.
     outputs[REPORT] = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
     outputs[DOC] = markdown(report)
     return outputs, report
@@ -1626,7 +1640,7 @@ def markdown(report):
     counts = checks["contentTypeCounts"]
     lines = ["# Classement éditorial L1–L10 — proposition à relire", "",
         "Les thèmes de situation et les rubriques de vocabulaire figurent dans la même grille, sans nouvel écran de sélection. Une situation ne présente que des phrases ou répliques communicatives entières. Les mots, groupes lexicaux et nombres isolés se pratiquent dans leurs rubriques dédiées. Les modèles ouverts et les cas incertains sont conservés dans une réserve de revue, hors entraînement.", "",
-        f"**{checks['catalogueCardsRetainedExactlyOnce']} cartes du catalogue** sont conservées exactement une fois, entre rubriques actives et réserve ; **{checks['catalogueFieldComparisons']} champs** restent identiques aux sources. Les **{checks['sourceLevelOneCardsRetained']} cartes historiquement lv1** restent présentes avec leur niveau source. Les droits de l’application classique sont inchangés.", "",
+        f"**{checks['catalogueCardsRetainedExactlyOnce']} cartes du catalogue** sont conservées exactement une fois, entre rubriques actives et réserve ; **{checks['catalogueFieldComparisons']} champs** sont vérifiés identiques aux sources avant application de la couche de corrections phonétiques tracées ci-dessous. Les identités source restent intactes ; les aides corrigées sont déclarées séparément, sans prétendre qu’elles figuraient dans la source originale. Les **{checks['sourceLevelOneCardsRetained']} cartes historiquement lv1** restent présentes avec leur niveau source. Les droits de l’application classique sont inchangés.", "",
         f"Le lot comporte **{checks['catalogueCardsWithExplicitDecision']} décisions explicites** de placement. Les **{checks['catalogueCardsRetainingUnreviewedSourceLevel']} autres cartes** gardent un niveau source non revu individuellement. Ni une partition complète ni la conservation des textes ne prouvent la progressivité ou l’acquisition.", "",
         "## Typage et couverture", "",
         "| Type | Nombre canonique | Destination |", "|---|---:|---|",
@@ -1643,6 +1657,13 @@ def markdown(report):
     for pair in report["pairs"]:
         lines.append("| " + pair["id"] + " | " + " | ".join(str(level["totalPhrases"]) for level in pair["levels"])
                      + f" | {pair['reservedPhrases']} | {pair['totalCanonicalPhrases']} |")
+    correction = report.get("phoneticCorrections")
+    if correction:
+        lines.extend(["", "## Corrections phonétiques après validation des sources", "",
+            f"Le registre `{correction['registryPath']}` applique **{correction['eventCount']} événements audités à {correction['correctionCount']} identifiants**, dans **{correction['occurrenceCount']} occurrences** canoniques ou de transport. Les deux cartes concernées par B puis D conservent cet ordre explicite. Aucune règle de calcul phonétique ni règle du ss retirée n’est exécutée.", "",
+            "Chaque aide originale, son statut et sa provenance restent vérifiables ; seuls phon, le statut de correction et une annotation traçable changent après les contrôles de copie originale. Les cellules et les copies de révision emploient la même édition corrigée. Les textes étudiés, traductions, lectures/Pinyin, niveaux, types et droits sont préservés.", "",
+            "Cette application de corrections ciblées ne vaut pas validation phonétique globale. Les statuts de relecture du parcours restent en attente et la relecture native reste distincte.", "",
+            f"Empreinte du registre : `{correction['registrySha256']}` ; preuves figées au commit `{correction['evidenceCommit']}`.", ""])
     if checks["newSituationThemes"]:
         lines.extend(["", "## Enrichissement de situations — lot distinct", "",
             f"{checks['newSituationThemes'] // checks['pairs']} rubriques de situation comportent chacune huit intentions dans les sept couples : **{checks['newSituationCandidatePositions']} positions pédagogiques**. Elles ne représentent pas autant de créations : **{checks['newSituationAuthoredUtterances']} formes entières réellement rédigées** et **{checks['newSituationExistingSourcePositions']} positions utilisant des sources préexistantes**. Parmi ces sources, **{checks['newSituationExistingConversationImports']} phrases de conversation** sont importées entières sans être comptées comme nouvelles rédactions.", "",

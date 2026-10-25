@@ -6932,11 +6932,14 @@
     "legacy-v1-compatibility",
     "photo-atlases-and-network-isolation"
   ],
-  "manifestSha256": "ec0c95c03a0d7a09dbd71c8782ffb199f2cd139ee682f9c51b843a03bfbc300f",
-  "cellBundleSha256": "fb18aa6bd9528e07c085fd5a80eeccb094169275c27210144d5313a87cc20f14",
-  "repertoireBundleSha256": "675b9c4e2aee5de43db84899d7e4f8d7672a8a874815b3cc71249cf3c5d63b02",
+  "manifestSha256": "7a131ebf463b6365d45305b05a6638dbdd65e21b07a15666e2d4cdad064f027f",
+  "cellBundleSha256": "ea94748006f3eddfafd2b5feea6e2b8ae734064d3ce0b2ebcf45674dd2693b95",
+  "repertoireBundleSha256": "3997407988ac706fc1de2bd7fcbbefd73d114dc4b2014eb1a2a6bdab7965fd4f",
   "authoredSourceSha256": "db4a040fef882b2c35304e76b357b16e5928f838398c7f9029521b4402c99fb6",
   "situationInputsSha256": {
+    "docs/niveaux-progressifs/corrections-phonetiques/evidence-registre-phonetique.json": "2833fca404acbac078e03090c864b4dd1a8aaa658ab626563672d20c0db9569c",
+    "docs/niveaux-progressifs/corrections-phonetiques/evidence-registre-tj.json": "856ccdd4525fdd74706ae16081c28e60bd629b3e83039502df81f824ebca74d0",
+    "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
     "docs/niveaux-progressifs/enrichissement-situations/catalogue.json": "02e782cd7f523e6e38a76cff461bca2d2687f8814c9f9cb03620a55461cb7cb5",
     "docs/niveaux-progressifs/enrichissement-situations/extension-fr-en.json": "7004a46b7da5726fb0e548f73b5b3ae9c845e51cec2cc67f3e5945457f120c95",
     "docs/niveaux-progressifs/enrichissement-situations/extension-fr-es.json": "4638082462d028ef93c5d93b4be941fca8c7ed1054d6743e447fd936b038d299",
@@ -7018,11 +7021,18 @@
     "melunga_deploy/maquette-guidee.html": "ab0eceb14283a2ada39298edf4dea5e24d93b303f61ac275a8edb4734680a0b3",
     "melunga_deploy/maquette-guidee.js": "22619f3cee55ac7765a4ca748aa8d27929ca51a9c698250fca78537c7d637720",
     "melunga_deploy/parcours-niveaux.html": "8da34e754184852b0a5bbbc9faf4ac73dd0945befc43617eabeb8fb099bbcb24",
-    "melunga_deploy/tests/levels-themes.browser.cjs": "735014a43fe8ae7c6a7871c6aeb7c5d493adefd6a4bba1297c2dbf8022162a20"
+    "melunga_deploy/tests/levels-themes.browser.cjs": "799f9b0e568cccf5997d8c85faa7a177a0c743c0b99a1b3076dc092c447c8142",
+    "melunga_deploy/tests/phonetic-corrections.cjs": "2b51bb949ae9dd2c8d34a86b0c1378789bef5a76a687deda7d80023db8339909"
   },
   "situationPlanSha256": "d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379",
   "externalRequests": [],
   "apiRequests": [],
+  "phoneticCorrectionsSourceAudit": {
+    "correctionCount": 772,
+    "eventCount": 774,
+    "occurrences": 786,
+    "files": 77
+  },
   "additionalWholeSourceAudit": {
     "cases": 196,
     "intentPositions": 1568,
@@ -7333,5 +7343,5 @@
     "received-reference-guards-and-retry"
   ],
   "completeSuiteCoverage": true,
-  "executedAt": "2026-10-24T21:36:28.639Z"
+  "executedAt": "2026-10-25T13:31:38.416Z"
 }
