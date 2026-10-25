@@ -75,3 +75,7 @@ Le thème L2 « Trouver son chemin » reçoit aussi 21 cartes sans rapport avec 
 - La lecture a été faite en 19 parties parallèles, puis j'ai repris chaque constat certain. Un vérificateur indépendant a relu les 8 corrections et les 28 gloses déclarées certaines. Il confirme les 8 corrections. J'ai déclassé deux gloses (3569 なら « puisque », 1276 « Il m'a menti ») et ajusté 2811 et 2615.
 - Le japonais a été relu par alignement et par sens. Une écoute native reste nécessaire.
 - Rien n'est fusionné dans `main` ni publié sur melunga.com.
+
+## Suivi après le retour de Codex (`161d0eb`)
+
+- Dans les gloses incertaines, la ligne `catalogue:ja:833` (champ `study`) prend comme avant la phrase japonaise `私に似合います。`. Elle contenait la lecture, recopiée par erreur. La ligne reste incertaine et n'est pas appliquée.
