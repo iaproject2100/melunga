@@ -124,3 +124,12 @@ Les deux répliques reçues de la piste « répondre à une objection » sont si
 - La lecture a été faite par 17 lecteurs en parallèle, puis j'ai repris moi-même chaque constat. J'en ai déclassé plusieurs, rejeté d'autres, et j'ai ajouté les cartes que la recherche par famille a fait remonter. Tous les constats d'aide et de pinyin ont été contre-vérifiés par alignement. Les propositions de thème ont été contrôlées pour l'existence de la destination, pas arbitrées une à une.
 - Une relecture native et une écoute restent nécessaires pour le chinois.
 - Rien n'est fusionné dans `main` ni publié sur melunga.com.
+
+## Rectifications après le retour de Codex (`606592c`)
+
+- 退一步说 (2165) et 退一步来说 (3767) : la concession est rendue par « même en admettant que », plus par « au pire » ou « au pis aller ».
+- 1110 : la glose devient « Existe-t-il une version dans la taille au-dessus ? ».
+- Motifs de 2660 et 613 rectifiés. Formulations plus précises retenues pour 4812 (« lot de production »), 4504 (« l'adversaire ») et la réclamation reçue (« pièces présentant un problème »).
+- 1900 n'est plus un champ isolé. C'est un bloc `linkedBundles` qui regroupe le chinois, le pinyin, l'aide et la glose, à appliquer ensemble. L'aide après est l'aide actuelle sans ses trois dernières syllabes.
+- `destinationExistsAtSameLevel` vaut `null` pour les 81 lignes « à contextualiser ».
+- Couverture : 4 217 positions, soit 4 215 identifiants distincts. Les cartes 2414 et 3907 sont à la fois canoniques et modèles reçus, avec le même statut dans les deux rôles.
