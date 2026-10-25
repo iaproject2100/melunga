@@ -14,7 +14,7 @@ Mandat de Kartech du 25 octobre 2026. Référence figée `4ec163e`. Branche `rev
 | Corrigés | **736** |
 | Vérifiés sans changement | **31 592** |
 | Incertains, lecture mot par mot nécessaire | **330** |
-| Candidats de thème à arbitrer | **1 216** |
+| Candidats de thème à arbitrer | **1 444** au total ; **1 216** hors recoupement avec les corrections |
 
 Conservation vérifiée contre `4ec163e` : identifiants **33 654 avant, 33 654 après, zéro perdu, zéro ajouté** ; seuls `phon` et `phoneticReviewStatus` diffèrent ; **aucune métadonnée de niveau modifiée**.
 
@@ -164,26 +164,24 @@ C'est le constat qui explique la sensation de surcharge.
 
 `conversation` est vingt fois `decrire`. Ce n'est pas un thème, c'est ce qui reste quand aucun autre ne s'impose. **À découper** — et les familles du tableau précédent indiquent par où commencer.
 
-### À l'autre bout : 252 rubriques vides ou quasi vides
+> **Deux précisions dues à Codex.** Ces 43,7 % portent sur les **23 847 cartes de situation**, soit **31,8 % des 32 792 cartes visibles** : les deux chiffres doivent être donnés ensemble. Et le crible compte **1 444 candidates** dans l'artefact ; les 1 216 du tableau d'état sont le reste après recoupement avec les corrections déjà faites. **Enfin la destination d'un thème doit être relue avec son titre et son objectif au niveau concerné, pas avec le seul `domain`** — mon crible ne connaît que le domaine.
+
+### ~~252 rubriques vides ou quasi vides~~ — **RETIRÉ : c'était faux**
+
+J'avais annoncé 66 rubriques vides et 186 quasi vides, et recommandé de ne plus les répliquer à chaque niveau. **Codex a montré que je comptais les seules introductions nouvelles, et il a raison.** Vérification faite :
 
 | | |
 |---|---|
-| Rubriques totales sur les 70 cellules | 1 636 |
-| Vides (0 carte) | **66** |
-| Quasi vides (1 ou 2 cartes) | **186** |
-| Ensemble | **252, soit 15 %** |
+| Rubriques à `totalPhrases` = 0 (ce que je comptais) | 66 |
+| **Rubriques réellement vides pour l'apprenant (`presentedCount` = 0)** | **0 sur 1 636** |
+| `presentedCount` minimum sur toute la grille | **6** |
+| Rubriques sans aucune séquence | **0** |
 
-| Rubrique | Vide ou quasi vide dans |
-|---|---|
-| `vocab-couleurs` | **55 cellules sur 70** |
-| `vocab-adjectifs` | 36 |
-| `vocab-loisirs` | 22 |
-| `vocab-personnes` | 18 |
-| `vocab-reperes` | 17 |
+L'exemple qu'il cite : `L5-vocab-couleurs` en anglais porte **0 nouvelle carte mais 17 révisions et 4 séquences**. L'apprenant y voit bien 17 cartes de couleurs.
 
-**Les couleurs sont un ensemble fermé** — une douzaine de mots par langue. Les répliquer sur dix niveaux produit mécaniquement dix rubriques presque vides par langue. Ce n'est pas un manque de contenu à enrichir, **c'est une rubrique à ne pas répéter à chaque niveau**. Même raisonnement pour les prépositions.
+**Et ma lecture était à l'envers.** Un ensemble fermé introduit une fois puis révisé aux niveaux suivants, c'est de la répétition espacée — **le comportement correct, pas un défaut**. Ma recommandation de « dé-répliquer » aurait supprimé de la révision qui fonctionne.
 
-> Et `densityStatus` déclare les **1 636 rubriques « source-repertoire-ready »**, y compris les 66 qui sont vides. L'indicateur ne mesure rien.
+`densityStatus` a donc raison de déclarer les 1 636 rubriques prêtes. **Ma critique de l'indicateur était fausse aussi.**
 
 ## 6. Pourquoi le L1 chinois est trop difficile — la réponse chiffrée
 
@@ -199,9 +197,11 @@ Ta femme avait raison, et voici ce qui le prouve. Charge de décodage au L1, à 
 | fr-ja | 365 | 247 kanji **+ 100 kana** | kana alphabétiques |
 | **fr-zh** | **307** | **281 hanzi** | **logogrammes, aucune règle** |
 
-**Le chinois a le moins de cartes au L1 et de loin la plus forte charge** : 281 logogrammes arbitraires, sans alphabet pour s'appuyer. Le coréen demande 58 jamo qui se combinent par règle. La difficulté n'est pas dans la longueur des phrases — c'est le piège de ma mesure précédente — elle est dans le **nombre de signes à mémoriser avant de lire quoi que ce soit**.
+**Mais ce tableau mesure la diversité graphique, pas la difficulté — et Codex a raison de me reprendre.** Les 307 cartes portent toutes une aide phonétique et une lecture pinyin : **la méthode ne demande pas de mémoriser ces caractères avant de parler.** J'ai présenté un compte de signes comme la cause de la difficulté, ce qui est une interprétation que je n'ai pas justifiée.
 
-**Et ce L1 contient des proverbes classiques.** `catalogue:zh:843` **不打无准备之仗** (« ne jamais partir sans préparation ») est un chengyu militaire, placé au **L4** ; 行远自迩 est au L10. Un idiome lettré en quatre caractères n'a pas sa place dans les premiers niveaux.
+Ce que le tableau établit vraiment : le chinois est **le seul couple où la forme affichée n'offre aucun appui alphabétique**, là où le coréen en donne un avec 58 jamo combinés par règle. **C'est une hypothèse sur la gêne ressentie, pas une mesure de la difficulté.** Celle-ci demande l'examen phrase par phrase, qui est en cours.
+
+**Et je corrige une phrase trompeuse** : j'avais écrit « ce L1 contient des proverbes classiques » avant de citer `catalogue:zh:843` **不打无准备之仗**. Ce chengyu est au **L4**, pas au L1. Il reste discutable à ce niveau — un idiome lettré en quatre caractères y arrive tôt — mais il n'est pas dans le premier niveau et ma formulation le laissait croire.
 
 ## 7. Ce qui reste à traiter
 
@@ -215,9 +215,7 @@ Ta femme avait raison, et voici ce qui le prouve. Charge de décodage au L1, à 
 | Trancher la syllabation de 约 | ~20 aides | `ué` ou `u-eu` |
 | Créer une convention pour 和 hé | ~25 aides | le `h` français est muet |
 | Découper `conversation` | 10 421 cartes | travail éditorial |
-| Dé-répliquer les rubriques fermées | 252 rubriques | décision de structure |
-| Redescendre les chengyu des niveaux bas | à recenser | jugement pédagogique |
-| Réduire la charge du L1 chinois | 281 hanzi | décision pédagogique de fond |
+| Examiner la difficulté du L1 chinois phrase par phrase | 307 cartes | le compte de caractères ne la mesure pas |
 
 ## 8. Ce que je ne prétends pas avoir fait
 
