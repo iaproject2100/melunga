@@ -177,3 +177,19 @@ Le registre `docs/niveaux-progressifs/corrections-contenu/lot6/revue-contenu-lot
 Les 447 propositions de niveaux et thèmes restent non appliquées. Aucune règle universelle de registre ou de prononciation n’est inférée.
 
 Empreinte du registre de contenu : `40083b22a87d0ab246b8a979f659e06b777840dcbfca501b95edfe78ea546eb5`.
+
+## Raccord des aides anglaises — lot 7
+
+Le registre `docs/niveaux-progressifs/corrections-phonetiques/lot7/revue-claude-lot7.json` applique **228 aides entières figées**, dont trois modèles reçus. Les copies de transport sont mises à jour : **238 objets / 238 champs**. Aucune lecture n’est modifiée. Les étiquettes G/W/A/H/Z/T décrivent ces seuls événements ; aucune règle n’est étendue.
+
+Les 30 conventions restent en attente ; G applique localement le repère du g dur déjà retenu, et A désigne ici l’accent anglais, sans réactiver l’ancienne règle espagnole retirée.
+
+Empreinte du registre : `27991b959c40fe0b93787d974a95082b8e6b9314e468c6108ffe63fce0113463`.
+
+## Lot de contenu anglais séparé — lot 7
+
+Le registre `docs/niveaux-progressifs/corrections-contenu/lot7/revue-contenu-lot7.json` applique **11 gloses certaines et cinq blocs complets étude/aide, avec glose quand elle change**, dans **16 objets / 24 champs**. Les deux blocs à deux champs gardent leur sens original, les trois autres changent les trois champs ensemble.
+
+Les 95 gloses incertaines, 689 propositions de thème/niveau/doublon et 30 conventions restent non appliquées. Aucun placement, niveau ni droit n’est modifié.
+
+Empreinte du registre de contenu : `68a81f3568ba85f1de5f0ca3e2f5494728f65e806536e36f136376b22fac22a0`.

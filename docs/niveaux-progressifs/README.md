@@ -133,11 +133,19 @@ non clos restent exposés dans le compte rendu.
 
 ## Revue complète par Claude : thèmes, niveaux et phonétique
 
+Le [lot 7 de Claude](reponse-revue-integrale-lot7/README.md) raccorde **228 aides
+anglaises entières**, avec les dix copies et trois reçus, puis **11 gloses et
+cinq blocs complets** séparément. Les 254 objets portent 262 champs corrigés,
+sans modifier la présentation ou les droits. Claude annonce **50 cellules
+lues sur 70** ; les vingt cellules fr→es et fr→it restent à lire. Les **689
+propositions et 30 conventions** restent non appliquées.
+[Rapport de vérification](verification-raccord-lot7.md).
+
 Le [lot 6 de Claude](reponse-revue-integrale-lot6/README.md) raccorde **18 aides
 coréennes et cinq lectures liées**, puis **45 gloses et deux blocs complets**
 dans un registre de contenu distinct. Les 65 objets portent 74 champs corrigés,
-sans changement de présentation, placement ou accès. Claude annonce **40 cellules
-lues sur 70** ; les trente cellules des trois couples latins restent à relire.
+sans changement de présentation, placement ou accès. À la livraison du lot 6, Claude annonçait **40 cellules
+lues sur 70** ; le lot 7 ci-dessus porte cet avancement à cinquante.
 Les **447 propositions de classement et 260 conventions**, notamment le batchim,
 restent non appliquées. [Rapport de vérification](verification-raccord-lot6.md).
 
@@ -258,3 +266,5 @@ Validation du lot 4 et du contenu distinct : **6 tests ciblés + 9 historiques, 
 Validation du lot 5 : **5 tests ciblés + 15 historiques, 9 commandes et 19 contrôles généraux réussis ; 111 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot5.md).
 
 Validation du lot 6 : **6 tests ciblés + 20 historiques, 9 commandes et 19 contrôles généraux réussis ; 131 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot6.md).
+
+Validation du lot 7 : **6 tests ciblés + 26 historiques, 9 commandes et 19 contrôles généraux réussis ; 151 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot7.md).

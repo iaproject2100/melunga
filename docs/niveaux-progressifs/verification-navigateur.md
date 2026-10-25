@@ -1,6 +1,6 @@
 # Vérification navigateur du parcours local
 
-Exécution : `2026-10-25T19:26:45.654Z` — statut **passed**.
+Exécution : `2026-10-25T20:36:12.834Z` — statut **passed**.
 
 Chromium local, largeurs 320, 390 et 1440 px. Ces vues émulent des écrans ; aucun téléphone physique ni site déployé n’a été testé par cette suite.
 
@@ -25,11 +25,12 @@ Le TTS est remplacé par un témoin d’envoi : cette suite vérifie le texte tr
 
 Rapport détaillé : [verification-navigateur.json](verification-navigateur.json).
 Plan : `d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379`.
-Manifeste : `6954b9e27184a25db4bb7d8161eb6c0fbc3c18c87c8eab53caeb15d5b8c6c895`.
+Manifeste : `f83b69bd81e2b6b8c09146f3882d67ed3e6931af83cc8783cc00df427b1676f9`.
 
-L’édition du lot 6 ajoute 18 aides coréennes et cinq lectures liées, puis 45
-gloses et deux blocs étude/lecture/aide dans un registre distinct. Les après
+L’édition du lot 7 ajoute 228 aides anglaises entières, puis 11
+gloses et cinq blocs complets dans un registre distinct. Les études et aides
+changent ensemble ; trois blocs changent aussi le sens, deux le gardent. Les après
 sont validés avant projection privée des seules corrections attestées vers
-les sources historiques. Les cinq 한국어 et les deux blocs atomiques font
-l’objet de tests ciblés supplémentaires. Les 447 propositions et les 260
-conventions restent non appliquées. Voir [le raccord lot 6](verification-raccord-lot6.md).
+les sources historiques. Les six familles anglaises et les cinq blocs atomiques font
+l’objet de tests ciblés supplémentaires. Les 689 propositions et les 30
+conventions restent non appliquées. Voir [le raccord lot 7](verification-raccord-lot7.md).

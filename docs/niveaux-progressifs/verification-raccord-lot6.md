@@ -1,5 +1,7 @@
 # Vérification du lot 6 — coréen, aides/lectures et contenu séparés
 
+État historique du lot 6 à `d56fe23`. Le [lot 7](verification-raccord-lot7.md) décrit l’édition actuelle.
+
 État consigné le 25/10/2026 à 20:44 CET. Horodatages détaillés des essais dans leurs JSON.
 
 **Deux registres disjoints, 65 identifiants, 65 objets et 74 champs corrigés.**

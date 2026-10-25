@@ -8,6 +8,7 @@ const path=require('node:path');
 const crypto=require('node:crypto');
 const {execFileSync}=require('node:child_process');
 const {isDeepStrictEqual}=require('node:util');
+const lot7Corrections=require('./lot7-corrections.cjs');
 const ROOT=path.resolve(__dirname,'..','..'),WEB=path.join(ROOT,'melunga_deploy');
 const BASELINE='161d0ebef38bb38ea9e26a836ca701b9d136f6d2';
 const COMMIT='87357b16c7d77a1c94fdbd940dcb3f232758748d';
@@ -136,7 +137,7 @@ function projectStage(which,pair,phrase,expectedBefore){
  if(entry.fields.phon||before.phoneticReviewStatusPresent)assert.equal(phrase.phoneticReviewStatus,statusFor(which,entry,before));
  return copy;
 }
-function projectBefore(pair,phrase){return projectStage('A',pair,projectStage('B',pair,phrase));}
+function projectBefore(pair,phrase){phrase=lot7Corrections.projectBefore(pair,phrase);return projectStage('A',pair,projectStage('B',pair,phrase));}
 function verifyPhrase(pair,phrase){projectBefore(pair,phrase);return phrase;}
 function projectDocument(pair,document,isBank){
  const copy=clone(document);
@@ -145,9 +146,10 @@ function projectDocument(pair,document,isBank){
  return copy;
 }
 function declaration(which,audit=loadRegistries()[which]){const r=audit.registry;return{registryPath:SPEC[which].path,registrySha256:audit.registrySha256,baseSnapshotCommit:BASELINE,appliesAfter:r.appliesAfter,correctionCount:r.correctionCount,eventCount:r.eventCount,approvedFieldCount:r.approvedFieldCount,changedFieldCount:r.changedFieldCount,evidenceCommits:[COMMIT]};}
-function manifestDeclarations(){return Object.fromEntries(['A','B'].map(which=>[SPEC[which].manifest,declaration(which)]));}
-function inputFiles(){const audits=loadRegistries();return[__filename,...['A','B'].flatMap(which=>[path.join(ROOT,SPEC[which].path),...audits[which].registry.evidenceFiles.map(file=>path.join(ROOT,file.path))])];}
+function manifestDeclarations(){return {...Object.fromEntries(['A','B'].map(which=>[SPEC[which].manifest,declaration(which)])),...lot7Corrections.manifestDeclarations()};}
+function inputFiles(){const audits=loadRegistries();return[__filename,...['A','B'].flatMap(which=>[path.join(ROOT,SPEC[which].path),...audits[which].registry.evidenceFiles.map(file=>path.join(ROOT,file.path))]),...lot7Corrections.inputFiles()];}
 function auditRuntime(){
+ const lot7Audit=lot7Corrections.auditRuntime();
  const audits=loadRegistries(),manifestPath='melunga_deploy/content/niveaux-progressifs/manifest.json',manifest=read(manifestPath),old=baseline(manifestPath);
  const files=old.pairs.flatMap(pair=>[pair.repertoirePath,...pair.levels.map(level=>level.dataPath)]).map(file=>'melunga_deploy/'+file);assert.equal(files.length,77);const stats={};
  for(const which of ['A','B']){const audit=audits[which];let changed=0;
@@ -165,7 +167,7 @@ function auditRuntime(){
  // are excluded by the complete document comparison above. In particular the
  // ASTM transaction does not also silently normalize its mat-a-yo batchim.
  const astm=audits.A.entries.get(key('fr-ko','catalogue:ko:4271'));assert.ok(astm.fields.phon.after.endsWith('mat-a-yo'));
- return{pairedFields:stats.A,content:stats.B,files:77,changedRuntimeFields:74,objects:65};
+ return{pairedFields:stats.A,content:stats.B,files:77,changedRuntimeFields:74,objects:65,lot7:lot7Audit};
 }
 module.exports={loadRegistries,verifyPhrase,projectBefore,projectDocument,manifestDeclarations,declaration,auditRuntime,inputFiles,baseline,beforeProfile,projectStage};
 

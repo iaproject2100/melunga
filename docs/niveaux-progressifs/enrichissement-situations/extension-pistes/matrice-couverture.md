@@ -36,7 +36,7 @@ Les 18 pistes sont désormais instanciées dans les sept couples : 126 rubriques
 La passe de couverture des reçus explicite trois fonctions dans les formulations finales, sans changer les IDs ni l’ordre du plan : comprendre une vraie indication vers la gare avant de confirmer la marche ; entendre que le nouveau code a été envoyé avant de confirmer la connexion ; entendre que l’appareil a été réparé avant de confirmer son fonctionnement. La référence française du plan reste un repère de sens. Les champs anglais entiers et l’empreinte de leur ledger sont consignés dans `receivedCoverageRefinement` pour les trois lignes concernées ; les autres langues déclinent les mêmes fonctions dans leurs propres ledgers.
 
 
-La matrice complète réussit **19 contrôles sur 19** sur le manifeste `6954b9e27184a25db4bb7d8161eb6c0fbc3c18c87c8eab53caeb15d5b8c6c895` : 210 vues, 1 568 positions apprenant et tous les reçus/soutiens comparés aux sources. Le JSON de chaque piste contient ses sept réalisations effectives et le lien de preuve global. Rapport : [verification-navigateur.json](../../verification-navigateur.json), SHA-256 `8657a1e5be46b6af584a32345e01a670de3739b0cf1ea3223d7f7a1eb040e944`. Ces contrôles ne mesurent ni l’acquisition ni la qualité sonore réelle.
+La matrice complète réussit **19 contrôles sur 19** sur le manifeste `f83b69bd81e2b6b8c09146f3882d67ed3e6931af83cc8783cc00df427b1676f9` : 210 vues, 1 568 positions apprenant et tous les reçus/soutiens comparés aux sources. Le JSON de chaque piste contient ses sept réalisations effectives et le lien de preuve global. Rapport : [verification-navigateur.json](../../verification-navigateur.json), SHA-256 `6c0cd78f736d5325058e6019915094f57097ebfe7172c38b2729d1cc3b5d1720`. Ces contrôles ne mesurent ni l’acquisition ni la qualité sonore réelle.
 
 Le raccord phonétique du 25 octobre vérifie les après exacts et leurs annotations avant de comparer les tuples sources sur une projection privée vers les avant. Les indicateurs `sourceTuplesMatchLedger` se rapportent à ce contrôle des origines, pas à une identité verbatim des aides corrigées avec le ledger historique. L’affichage est comparé aux après réels. Voir [la vérification du raccord](../../verification-raccord-phonetique.md).
 
@@ -51,4 +51,11 @@ deux blocs complets étude/lecture/aide, séparément. Les après et annotations
 sont contrôlés avant comparaison des origines sur une projection privée.
 Les 447 propositions et 260 conventions restent non appliquées, notamment
 le batchim. Cette vérification ne remplace pas les trente cellules de lecture
+individuelle restant à Claude.
+
+Le lot 7 ajoute 228 aides anglaises entières, dont trois reçus, puis 11
+gloses et cinq blocs complets, séparément. Les après et annotations sont
+contrôlés avant comparaison des origines sur une projection privée.
+Les 689 propositions, 30 conventions et 95 gloses incertaines restent non
+appliquées. Cette vérification ne remplace pas les vingt cellules de lecture
 individuelle restant à Claude.

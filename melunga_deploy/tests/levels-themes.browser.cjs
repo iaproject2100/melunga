@@ -713,6 +713,7 @@ test('196 additional situations preserve 1568 whole source positions without inf
   report.lot4CorrectionsSourceAudit = report.phoneticCorrectionsSourceAudit.lot3.lot4;
   report.lot5CorrectionsSourceAudit = report.phoneticCorrectionsSourceAudit.lot3.lot4.lot5;
   report.lot6CorrectionsSourceAudit = report.lot5CorrectionsSourceAudit.lot6;
+  report.lot7CorrectionsSourceAudit = report.lot6CorrectionsSourceAudit.lot7;
   const catalogue = JSON.parse(fs.readFileSync(path.join(situationDirectory, 'catalogue.json')));
   assert.equal(catalogue.status, 'ready-for-preview', 'the complete situation catalogue was frozen before generation');
   assert.equal(catalogue.planSha256, report.situationPlanSha256);

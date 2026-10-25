@@ -1,0 +1,7076 @@
+{
+ "id": "revue-claude-lot7-fr-en",
+ "baseSnapshotCommit": "d56fe23b4bafd63bbd2d4aefb67896dbc12374a2",
+ "policy": "avant/après entiers et figés ; aucune règle à étendre",
+ "rules": {
+  "H": "h anglais transcrit j (faute de frappe) : le francophone lit [ʒ] (he, her, have, here, hand, help, how, his, hard, had, highway, house)",
+  "G": "g dur de l'anglais écrit g devant e, é, è, i ou y : le francophone lit [ʒ] ; écrit gu (règle B, déjà retenue pour fr-es). Cas particuliers : singer et bringing n'ont pas de [g] (SING-eur, BRING-ing) ; argue et regularly → guiou",
+  "Z": "s/z qui change le mot : verbe use et close en z, excuse me en z ; used to (habitude) en s sourd sans d",
+  "A": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte : nom refund/discount/transfer/produce, verbe refund, adjectif perfect/content, sometimes, sunscreen, overheats",
+  "W": "segment qui fait lire un autre mot ou un autre son : lead/read en LID/RID, wind, live, Wi-Fi, w de would, do, even, accept, reusable, t de restaurant, only, house",
+  "T": "aide tronquée ou faute de frappe : percent absent, Q de MOQ en KY, E de EN71, découpage de postpone"
+ },
+ "eventCount": 228,
+ "events": [
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:10",
+   "level": 1,
+   "rules": [
+    "Z"
+   ],
+   "study": "Excuse me.",
+   "native": "excusez-moi",
+   "beforePhon": "ik-SKYOUS mi",
+   "afterPhon": "ik-SKYOUZ mi",
+   "alignment": "Excuse → ik-SKYOUS (/s/ au lieu de /z/) · me → mi",
+   "reason": "s/z qui change le mot",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L1.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     11
+    ],
+    "expectedBefore": {
+     "study": "Excuse me.",
+     "native": "excusez-moi",
+     "phon": "ik-SKYOUS mi"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:902",
+   "level": 1,
+   "rules": [
+    "Z"
+   ],
+   "study": "Can you close the door?",
+   "native": "tu peux fermer la porte ?",
+   "beforePhon": "kan you KLOS zeu DOR",
+   "afterPhon": "kan you KLOZ zeu DOR",
+   "alignment": "Can → kan · you → you · close → KLOS (/s/ au lieu de /z/) · the → zeu · door → DOR",
+   "reason": "s/z qui change le mot",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L1.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     3
+    ],
+    "expectedBefore": {
+     "study": "Can you close the door?",
+     "native": "tu peux fermer la porte ?",
+     "phon": "kan you KLOS zeu DOR"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:798",
+   "level": 3,
+   "rules": [
+    "Z"
+   ],
+   "study": "What time does it close?",
+   "native": "ça ferme à quelle heure ?",
+   "beforePhon": "WEUT TAÏM deuz it KLOS",
+   "afterPhon": "WEUT TAÏM deuz it KLOZ",
+   "alignment": "What → WEUT · time → TAÏM · does → deuz · it → it · close → KLOS (faux)",
+   "reason": "s/z qui change le mot",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     23
+    ],
+    "expectedBefore": {
+     "study": "What time does it close?",
+     "native": "ça ferme à quelle heure ?",
+     "phon": "WEUT TAÏM deuz it KLOS"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:642",
+   "level": 3,
+   "rules": [
+    "Z"
+   ],
+   "study": "Close the window.",
+   "native": "ferme la fenêtre",
+   "beforePhon": "KLOS zeu WIN-do",
+   "afterPhon": "KLOZ zeu WIN-do",
+   "alignment": null,
+   "reason": "s/z qui change le mot",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     13
+    ],
+    "expectedBefore": {
+     "study": "Close the window.",
+     "native": "ferme la fenêtre",
+     "phon": "KLOS zeu WIN-do"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1053",
+   "level": 4,
+   "rules": [
+    "Z"
+   ],
+   "study": "Close your eyes.",
+   "native": "ferme les yeux",
+   "beforePhon": "KLOS yor AÏZ",
+   "afterPhon": "KLOZ yor AÏZ",
+   "alignment": "Close → KLOS · your → yor · eyes → AÏZ",
+   "reason": "s/z qui change le mot",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     42
+    ],
+    "expectedBefore": {
+     "study": "Close your eyes.",
+     "native": "ferme les yeux",
+     "phon": "KLOS yor AÏZ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1108",
+   "level": 4,
+   "rules": [
+    "Z"
+   ],
+   "study": "Close the curtains.",
+   "native": "ferme les rideaux",
+   "beforePhon": "KLOS zeu KEUR-teunz",
+   "afterPhon": "KLOZ zeu KEUR-teunz",
+   "alignment": "Close → KLOS · the → zeu · curtains → KEUR-teunz",
+   "reason": "s/z qui change le mot",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     72
+    ],
+    "expectedBefore": {
+     "study": "Close the curtains.",
+     "native": "ferme les rideaux",
+     "phon": "KLOS zeu KEUR-teunz"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2409",
+   "level": 8,
+   "rules": [
+    "Z"
+   ],
+   "study": "I'd like to close this today.",
+   "native": "j'aimerais conclure aujourd'hui",
+   "beforePhon": "aïd LAÏK tou KLOS zis teu-DÉÏ",
+   "afterPhon": "aïd LAÏK tou KLOZ zis teu-DÉÏ",
+   "alignment": "I'd → aïd · like → LAÏK · to → tou · close → KLOS · this → zis · today → teu-DÉÏ",
+   "reason": "s/z qui change le mot",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     6
+    ],
+    "expectedBefore": {
+     "study": "I'd like to close this today.",
+     "native": "j'aimerais conclure aujourd'hui",
+     "phon": "aïd LAÏK tou KLOS zis teu-DÉÏ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1289",
+   "level": 5,
+   "rules": [
+    "Z"
+   ],
+   "study": "Can I use the bathroom?",
+   "native": "je peux utiliser les toilettes ?",
+   "beforePhon": "kan aï YOUS zeu BAS-roum",
+   "afterPhon": "kan aï YOUZ zeu BAS-roum",
+   "alignment": null,
+   "reason": "s/z qui change le mot",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     1
+    ],
+    "expectedBefore": {
+     "study": "Can I use the bathroom?",
+     "native": "je peux utiliser les toilettes ?",
+     "phon": "kan aï YOUS zeu BAS-roum"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1847",
+   "level": 6,
+   "rules": [
+    "Z"
+   ],
+   "study": "Which driver do you use?",
+   "native": "quel pilote utilises-tu ?",
+   "beforePhon": "WITCH DRAÏ-veur dou you YOUS",
+   "afterPhon": "WITCH DRAÏ-veur dou you YOUZ",
+   "alignment": "Which → WITCH · driver → DRAÏ-veur · do → dou · you → you · use → YOUS (✗)",
+   "reason": "s/z qui change le mot",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     82
+    ],
+    "expectedBefore": {
+     "study": "Which driver do you use?",
+     "native": "quel pilote utilises-tu ?",
+     "phon": "WITCH DRAÏ-veur dou you YOUS"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1907",
+   "level": 6,
+   "rules": [
+    "Z"
+   ],
+   "study": "Shall we use first names?",
+   "native": "on se tutoie ?",
+   "beforePhon": "chal wi YOUS FEURST NÉÏMZ",
+   "afterPhon": "chal wi YOUZ FEURST NÉÏMZ",
+   "alignment": "Shall → chal · we → wi · use → YOUS (✗) · first → FEURST · names → NÉÏMZ",
+   "reason": "s/z qui change le mot",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     105
+    ],
+    "expectedBefore": {
+     "study": "Shall we use first names?",
+     "native": "on se tutoie ?",
+     "phon": "chal wi YOUS FEURST NÉÏMZ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:971",
+   "level": 3,
+   "rules": [
+    "Z"
+   ],
+   "study": "You'll get used to it.",
+   "native": "Tu t'y habitueras.",
+   "beforePhon": "youl guèt YOUZD tou it",
+   "afterPhon": "youl guèt YOUST tou it",
+   "alignment": "You'll → youl · get → guèt · used → YOUZD · to → tou · it → it",
+   "reason": "s/z qui change le mot",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     221
+    ],
+    "expectedBefore": {
+     "study": "You'll get used to it.",
+     "native": "Tu t'y habitueras.",
+     "phon": "youl guèt YOUZD tou it"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1442",
+   "level": 5,
+   "rules": [
+    "Z"
+   ],
+   "study": "I used to smoke.",
+   "native": "je fumais avant",
+   "beforePhon": "aï YOUZD tou SMOK",
+   "afterPhon": "aï YOUST tou SMOK",
+   "alignment": "I → aï · used → YOUZD · to → tou · smoke → SMOK",
+   "reason": "s/z qui change le mot",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     81
+    ],
+    "expectedBefore": {
+     "study": "I used to smoke.",
+     "native": "je fumais avant",
+     "phon": "aï YOUZD tou SMOK"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2049",
+   "level": 7,
+   "rules": [
+    "Z"
+   ],
+   "study": "I used to do it a lot.",
+   "native": "avant, je le faisais souvent",
+   "beforePhon": "aï YOUZD tou dou it eu LAT",
+   "afterPhon": "aï YOUST tou dou it eu LAT",
+   "alignment": null,
+   "reason": "s/z qui change le mot",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     3
+    ],
+    "expectedBefore": {
+     "study": "I used to do it a lot.",
+     "native": "avant, je le faisais souvent",
+     "phon": "aï YOUZD tou dou it eu LAT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2050",
+   "level": 7,
+   "rules": [
+    "Z"
+   ],
+   "study": "I used to do sports often.",
+   "native": "avant, je faisais souvent du sport",
+   "beforePhon": "aï YOUZD tou dou SPORTS O-feun",
+   "afterPhon": "aï YOUST tou dou SPORTS O-feun",
+   "alignment": null,
+   "reason": "s/z qui change le mot",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     4
+    ],
+    "expectedBefore": {
+     "study": "I used to do sports often.",
+     "native": "avant, je faisais souvent du sport",
+     "phon": "aï YOUZD tou dou SPORTS O-feun"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2234",
+   "level": 7,
+   "rules": [
+    "Z",
+    "G"
+   ],
+   "study": "We used to eat together on Sundays.",
+   "native": "avant, on mangeait ensemble le dimanche",
+   "beforePhon": "wi YOUZD tou IT teu-GÈ-zeur an SEUN-déïz",
+   "afterPhon": "wi YOUST tou IT teu-GUÈ-zeur an SEUN-déïz",
+   "alignment": null,
+   "reason": "s/z qui change le mot ; g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     21
+    ],
+    "expectedBefore": {
+     "study": "We used to eat together on Sundays.",
+     "native": "avant, on mangeait ensemble le dimanche",
+     "phon": "wi YOUZD tou IT teu-GÈ-zeur an SEUN-déïz"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2303",
+   "level": 7,
+   "rules": [
+    "Z"
+   ],
+   "study": "We used to see each other every day.",
+   "native": "avant, on se voyait tous les jours",
+   "beforePhon": "wi YOUZD tou SI ITCH EU-zeur È-veur-i DÉÏ",
+   "afterPhon": "wi YOUST tou SI ITCH EU-zeur È-veur-i DÉÏ",
+   "alignment": null,
+   "reason": "s/z qui change le mot",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     29
+    ],
+    "expectedBefore": {
+     "study": "We used to see each other every day.",
+     "native": "avant, on se voyait tous les jours",
+     "phon": "wi YOUZD tou SI ITCH EU-zeur È-veur-i DÉÏ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2560",
+   "level": 8,
+   "rules": [
+    "Z"
+   ],
+   "study": "We used to go to the sea every summer.",
+   "native": "avant, on allait à la mer chaque été",
+   "beforePhon": "wi YOUZD tou GO tou zeu SI È-veur-i SEU-meur",
+   "afterPhon": "wi YOUST tou GO tou zeu SI È-veur-i SEU-meur",
+   "alignment": "We → wi · used → YOUZD (erreur) · to → tou · go → GO · to → tou · the → zeu · sea → SI · every → È-veur-i · summer → SEU-meur",
+   "reason": "s/z qui change le mot",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     24
+    ],
+    "expectedBefore": {
+     "study": "We used to go to the sea every summer.",
+     "native": "avant, on allait à la mer chaque été",
+     "phon": "wi YOUZD tou GO tou zeu SI È-veur-i SEU-meur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2372",
+   "level": 7,
+   "rules": [
+    "Z",
+    "W"
+   ],
+   "study": "We used to live in the countryside.",
+   "native": "avant, on vivait à la campagne",
+   "beforePhon": "wi YOUZD tou LAÏV in zeu KEUN-tri-saïd",
+   "afterPhon": "wi YOUST tou LIV in zeu KEUN-tri-saïd",
+   "alignment": "We → wi · used → YOUZD · to → tou · live → LAÏV · in → in · the → zeu · countryside → KEUN-tri-saïd",
+   "reason": "s/z qui change le mot ; segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     40
+    ],
+    "expectedBefore": {
+     "study": "We used to live in the countryside.",
+     "native": "avant, on vivait à la campagne",
+     "phon": "wi YOUZD tou LAÏV in zeu KEUN-tri-saïd"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3853",
+   "level": 1,
+   "rules": [
+    "A"
+   ],
+   "study": "content",
+   "native": "satisfait",
+   "beforePhon": "KAN-tènt",
+   "afterPhon": "keun-TÈNT",
+   "alignment": "content → KAN-tènt (accent sur la 1re syllabe = nom)",
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L1.json",
+    "location": [
+     "themes",
+     14,
+     "phrases",
+     22
+    ],
+    "expectedBefore": {
+     "study": "content",
+     "native": "satisfait",
+     "phon": "KAN-tènt"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3744",
+   "level": 1,
+   "rules": [
+    "A"
+   ],
+   "study": "sometimes",
+   "native": "parfois",
+   "beforePhon": "seum-TAÏMZ",
+   "afterPhon": "SEUM-taïmz",
+   "alignment": "some → SEUM · times → taïmz",
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L1.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     17
+    ],
+    "expectedBefore": {
+     "study": "sometimes",
+     "native": "parfois",
+     "phon": "seum-TAÏMZ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3681",
+   "level": 10,
+   "rules": [
+    "A"
+   ],
+   "study": "sunscreen",
+   "native": "crème solaire",
+   "beforePhon": "seun-SKRIN",
+   "afterPhon": "SEUN-skrin",
+   "alignment": "sunscreen → seun-SKRIN (accent ✗)",
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L10.json",
+    "location": [
+     "themes",
+     14,
+     "phrases",
+     18
+    ],
+    "expectedBefore": {
+     "study": "sunscreen",
+     "native": "crème solaire",
+     "phon": "seun-SKRIN"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3592",
+   "level": 9,
+   "rules": [
+    "A"
+   ],
+   "study": "The machine overheats.",
+   "native": "la machine surchauffe",
+   "beforePhon": "zeu meu-CHIN O-veur-hits",
+   "afterPhon": "zeu meu-CHIN o-veur-HITS",
+   "alignment": "The → zeu · machine → meu-CHIN · overheats → O-veur-hits (accent attendu sur HITS)",
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L9.json",
+    "location": [
+     "themes",
+     14,
+     "phrases",
+     1
+    ],
+    "expectedBefore": {
+     "study": "The machine overheats.",
+     "native": "la machine surchauffe",
+     "phon": "zeu meu-CHIN O-veur-hits"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:67",
+   "level": 2,
+   "rules": [
+    "A"
+   ],
+   "study": "It's perfect.",
+   "native": "c'est parfait",
+   "beforePhon": "its peur-FÈKT",
+   "afterPhon": "its PEUR-fèkt",
+   "alignment": "It's → its · perfect → peur-FÈKT",
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "It's perfect.",
+     "native": "c'est parfait",
+     "phon": "its peur-FÈKT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:268",
+   "level": 2,
+   "rules": [
+    "A"
+   ],
+   "study": "Perfect!",
+   "native": "parfait !",
+   "beforePhon": "peur-FÈKT",
+   "afterPhon": "PEUR-fèkt",
+   "alignment": "per → peur (accent attendu) · fect → FÈKT",
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     24,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "Perfect!",
+     "native": "parfait !",
+     "phon": "peur-FÈKT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 1
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:792",
+   "level": 3,
+   "rules": [
+    "A"
+   ],
+   "study": "Is there a discount?",
+   "native": "y a-t-il une remise ?",
+   "beforePhon": "iz ZÈR eu dis-KAOUNT",
+   "afterPhon": "iz ZÈR eu DIS-kaount",
+   "alignment": null,
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     155
+    ],
+    "expectedBefore": {
+     "study": "Is there a discount?",
+     "native": "y a-t-il une remise ?",
+     "phon": "iz ZÈR eu dis-KAOUNT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1468",
+   "level": 5,
+   "rules": [
+    "A"
+   ],
+   "study": "I'd like a small discount.",
+   "native": "je voudrais une petite remise",
+   "beforePhon": "aïd LAÏK eu SMOL dis-KAOUNT",
+   "afterPhon": "aïd LAÏK eu SMOL DIS-kaount",
+   "alignment": "I'd → aïd · like → LAÏK · a → eu · small → SMOL · discount → dis-KAOUNT",
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     88
+    ],
+    "expectedBefore": {
+     "study": "I'd like a small discount.",
+     "native": "je voudrais une petite remise",
+     "phon": "aïd LAÏK eu SMOL dis-KAOUNT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1952",
+   "level": 6,
+   "rules": [
+    "A"
+   ],
+   "study": "Is there a discount for students?",
+   "native": "y a-t-il une réduction étudiante ?",
+   "beforePhon": "iz ZÈR eu dis-KAOUNT for STOU-deunts",
+   "afterPhon": "iz ZÈR eu DIS-kaount for STOU-deunts",
+   "alignment": null,
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     35
+    ],
+    "expectedBefore": {
+     "study": "Is there a discount for students?",
+     "native": "y a-t-il une réduction étudiante ?",
+     "phon": "iz ZÈR eu dis-KAOUNT for STOU-deunts"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3461",
+   "level": 6,
+   "rules": [
+    "A"
+   ],
+   "study": "a discount",
+   "native": "une remise",
+   "beforePhon": "eu dis-KAOUNT",
+   "afterPhon": "eu DIS-kaount",
+   "alignment": "a → eu · discount → dis-KAOUNT (✗ accent)",
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     17,
+     "phrases",
+     47
+    ],
+    "expectedBefore": {
+     "study": "a discount",
+     "native": "une remise",
+     "phon": "eu dis-KAOUNT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2208",
+   "level": 7,
+   "rules": [
+    "A"
+   ],
+   "study": "Could you offer a discount?",
+   "native": "pourriez-vous faire une remise ?",
+   "beforePhon": "koud you O-feur eu dis-KAOUNT",
+   "afterPhon": "koud you O-feur eu DIS-kaount",
+   "alignment": null,
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     109
+    ],
+    "expectedBefore": {
+     "study": "Could you offer a discount?",
+     "native": "pourriez-vous faire une remise ?",
+     "phon": "koud you O-feur eu dis-KAOUNT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2215",
+   "level": 7,
+   "rules": [
+    "A",
+    "G"
+   ],
+   "study": "Can you give me a discount?",
+   "native": "tu peux me faire une remise ?",
+   "beforePhon": "kan you GIV mi eu dis-KAOUNT",
+   "afterPhon": "kan you GUIV mi eu DIS-kaount",
+   "alignment": null,
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte ; g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     114
+    ],
+    "expectedBefore": {
+     "study": "Can you give me a discount?",
+     "native": "tu peux me faire une remise ?",
+     "phon": "kan you GIV mi eu dis-KAOUNT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3563",
+   "level": 7,
+   "rules": [
+    "A"
+   ],
+   "study": "a quantity discount",
+   "native": "une remise sur quantité",
+   "beforePhon": "eu KWAN-teu-ti dis-KAOUNT",
+   "afterPhon": "eu KWAN-teu-ti DIS-kaount",
+   "alignment": null,
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     16,
+     "phrases",
+     4
+    ],
+    "expectedBefore": {
+     "study": "a quantity discount",
+     "native": "une remise sur quantité",
+     "phon": "eu KWAN-teu-ti dis-KAOUNT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 1
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3320",
+   "level": 5,
+   "rules": [
+    "A"
+   ],
+   "study": "the transfer",
+   "native": "la correspondance",
+   "beforePhon": "zeu tran-SFEUR",
+   "afterPhon": "zeu TRANS-feur",
+   "alignment": "the → zeu · transfer → tran-SFEUR",
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     22
+    ],
+    "expectedBefore": {
+     "study": "the transfer",
+     "native": "la correspondance",
+     "phon": "zeu tran-SFEUR"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3328",
+   "level": 5,
+   "rules": [
+    "A"
+   ],
+   "study": "a bank transfer",
+   "native": "un virement bancaire",
+   "beforePhon": "eu BANGK tran-SFEUR",
+   "afterPhon": "eu BANGK TRANS-feur",
+   "alignment": "a → eu · bank → BANGK · transfer → tran-SFEUR",
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     27
+    ],
+    "expectedBefore": {
+     "study": "a bank transfer",
+     "native": "un virement bancaire",
+     "phon": "eu BANGK tran-SFEUR"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3357",
+   "level": 5,
+   "rules": [
+    "A"
+   ],
+   "study": "fresh produce",
+   "native": "produits frais",
+   "beforePhon": "FRÈCH preu-DOUS",
+   "afterPhon": "FRÈCH PRO-dous",
+   "alignment": "fresh → FRÈCH · produce → preu-DOUS",
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     41
+    ],
+    "expectedBefore": {
+     "study": "fresh produce",
+     "native": "produits frais",
+     "phon": "FRÈCH preu-DOUS"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1026",
+   "level": 4,
+   "rules": [
+    "A"
+   ],
+   "study": "We'll refund your money.",
+   "native": "nous allons vous rembourser",
+   "beforePhon": "OUIL RI-feund yor MEU-ni",
+   "afterPhon": "OUIL ri-FEUND yor MEU-ni",
+   "alignment": "We'll → OUIL · refund → RI-feund (accent du nom) · your → yor · money → MEU-ni",
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     9
+    ],
+    "expectedBefore": {
+     "study": "We'll refund your money.",
+     "native": "nous allons vous rembourser",
+     "phon": "OUIL RI-feund yor MEU-ni"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:794",
+   "level": 3,
+   "rules": [
+    "A",
+    "G"
+   ],
+   "study": "Can I get a refund?",
+   "native": "puis-je être remboursé ?",
+   "beforePhon": "kan aï GÈT eu ri-FEUND",
+   "afterPhon": "kan aï GUÈT eu RI-feund",
+   "alignment": null,
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte ; g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     156
+    ],
+    "expectedBefore": {
+     "study": "Can I get a refund?",
+     "native": "puis-je être remboursé ?",
+     "phon": "kan aï GÈT eu ri-FEUND"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2021",
+   "level": 7,
+   "rules": [
+    "A"
+   ],
+   "study": "We want a refund.",
+   "native": "nous voulons un remboursement",
+   "beforePhon": "wi WANT eu ri-FEUND",
+   "afterPhon": "wi WANT eu RI-feund",
+   "alignment": null,
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     10
+    ],
+    "expectedBefore": {
+     "study": "We want a refund.",
+     "native": "nous voulons un remboursement",
+     "phon": "wi WANT eu ri-FEUND"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2203",
+   "level": 7,
+   "rules": [
+    "A"
+   ],
+   "study": "We're expecting a refund.",
+   "native": "nous attendons un remboursement",
+   "beforePhon": "wir ik-SPÈK-ting eu ri-FEUND",
+   "afterPhon": "wir ik-SPÈK-ting eu RI-feund",
+   "alignment": "We're → wir · expecting → ik-SPÈK-ting · a → eu · refund (nom) → ri-FEUND (accent du verbe → RI-feund)",
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     107
+    ],
+    "expectedBefore": {
+     "study": "We're expecting a refund.",
+     "native": "nous attendons un remboursement",
+     "phon": "wir ik-SPÈK-ting eu ri-FEUND"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2676",
+   "level": 9,
+   "rules": [
+    "A"
+   ],
+   "study": "We're requesting a partial refund.",
+   "native": "nous demandons un remboursement partiel",
+   "beforePhon": "wir rik-WÈS-ting eu PAR-cheul ri-FEUND",
+   "afterPhon": "wir rik-WÈS-ting eu PAR-cheul RI-feund",
+   "alignment": "We're → wir · requesting → rik-WÈS-ting · a → eu · partial → PAR-cheul · refund → ri-FEUND (nom : RI-feund)",
+   "reason": "accent tonique sur la mauvaise syllabe pour la nature du mot dans la carte",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L9.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "We're requesting a partial refund.",
+     "native": "nous demandons un remboursement partiel",
+     "phon": "wir rik-WÈS-ting eu PAR-cheul ri-FEUND"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3167",
+   "level": 3,
+   "rules": [
+    "W"
+   ],
+   "study": "the lead time",
+   "native": "le délai de production",
+   "beforePhon": "zeu LÈD TAÏM",
+   "afterPhon": "zeu LID TAÏM",
+   "alignment": "the → zeu · lead → LÈD (faux, /liːd/ → LID) · time → TAÏM",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     24
+    ],
+    "expectedBefore": {
+     "study": "the lead time",
+     "native": "le délai de production",
+     "phon": "zeu LÈD TAÏM"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3254",
+   "level": 4,
+   "rules": [
+    "W"
+   ],
+   "study": "The lead time is too long.",
+   "native": "le délai est trop long",
+   "beforePhon": "zeu LÈD TAÏM iz tou LONG",
+   "afterPhon": "zeu LID TAÏM iz tou LONG",
+   "alignment": "the → zeu · lead → LÈD · time → TAÏM · is → iz · too → tou · long → LONG",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     8
+    ],
+    "expectedBefore": {
+     "study": "The lead time is too long.",
+     "native": "le délai est trop long",
+     "phon": "zeu LÈD TAÏM iz tou LONG"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2056",
+   "level": 7,
+   "rules": [
+    "W"
+   ],
+   "study": "What's the lead time for bulk?",
+   "native": "quel est le délai pour la production ?",
+   "beforePhon": "wots zeu LÈD TAÏM for BEULK",
+   "afterPhon": "wots zeu LID TAÏM for BEULK",
+   "alignment": null,
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     28
+    ],
+    "expectedBefore": {
+     "study": "What's the lead time for bulk?",
+     "native": "quel est le délai pour la production ?",
+     "phon": "wots zeu LÈD TAÏM for BEULK"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2175",
+   "level": 7,
+   "rules": [
+    "W"
+   ],
+   "study": "What's the lead time?",
+   "native": "quel est le délai de production ?",
+   "beforePhon": "wots zeu LÈD TAÏM",
+   "afterPhon": "wots zeu LID TAÏM",
+   "alignment": "What's → wots · the → zeu · lead → LÈD (faux, /liːd/ → LID) · time → TAÏM",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     91
+    ],
+    "expectedBefore": {
+     "study": "What's the lead time?",
+     "native": "quel est le délai de production ?",
+     "phon": "wots zeu LÈD TAÏM"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2464",
+   "level": 8,
+   "rules": [
+    "W",
+    "G"
+   ],
+   "study": "Could you give me the lead time?",
+   "native": "pourriez-vous me donner le délai ?",
+   "beforePhon": "koud you GIV mi zeu LÈD TAÏM",
+   "afterPhon": "koud you GUIV mi zeu LID TAÏM",
+   "alignment": null,
+   "reason": "segment qui fait lire un autre mot ou un autre son ; g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     34
+    ],
+    "expectedBefore": {
+     "study": "Could you give me the lead time?",
+     "native": "pourriez-vous me donner le délai ?",
+     "phon": "koud you GIV mi zeu LÈD TAÏM"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1803",
+   "level": 6,
+   "rules": [
+    "W"
+   ],
+   "study": "I like to read at night.",
+   "native": "j'aime lire le soir",
+   "beforePhon": "aï LAÏK tou RÈD at NAÏT",
+   "afterPhon": "aï LAÏK tou RID at NAÏT",
+   "alignment": "I → aï · like → LAÏK · to → tou · read → RÈD (fautif) · at → at · night → NAÏT",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     12
+    ],
+    "expectedBefore": {
+     "study": "I like to read at night.",
+     "native": "j'aime lire le soir",
+     "phon": "aï LAÏK tou RÈD at NAÏT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4141",
+   "level": 3,
+   "rules": [
+    "W"
+   ],
+   "study": "the wind",
+   "native": "le vent",
+   "beforePhon": "zeu WAÏND",
+   "afterPhon": "zeu WIND",
+   "alignment": "the → zeu · wind → WAÏND (faux, /wɪnd/ → WIND)",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     27,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "the wind",
+     "native": "le vent",
+     "phon": "zeu WAÏND"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3574",
+   "level": 2,
+   "rules": [
+    "W"
+   ],
+   "study": "The Wi-Fi password, please.",
+   "native": "le mot de passe Wi-Fi, svp",
+   "beforePhon": "zeu wi FAÏ PAS-weurd PLIZ",
+   "afterPhon": "zeu WAÏ-faï PAS-weurd PLIZ",
+   "alignment": "The → zeu · Wi- → wi (faux : /waɪ/) · Fi → FAÏ · password → PAS-weurd · please → PLIZ",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     221
+    ],
+    "expectedBefore": {
+     "study": "The Wi-Fi password, please.",
+     "native": "le mot de passe Wi-Fi, svp",
+     "phon": "zeu wi FAÏ PAS-weurd PLIZ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:813",
+   "level": 3,
+   "rules": [
+    "W"
+   ],
+   "study": "Is there Wi-Fi here?",
+   "native": "y a-t-il du Wi-Fi ici ?",
+   "beforePhon": "iz ZÈR wi FAÏ HIR",
+   "afterPhon": "iz ZÈR WAÏ-faï HIR",
+   "alignment": "Is → iz · there → ZÈR · Wi-Fi → wi FAÏ (faux) · here → HIR",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     40
+    ],
+    "expectedBefore": {
+     "study": "Is there Wi-Fi here?",
+     "native": "y a-t-il du Wi-Fi ici ?",
+     "phon": "iz ZÈR wi FAÏ HIR"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4315",
+   "level": 5,
+   "rules": [
+    "W"
+   ],
+   "study": "the Wi-Fi",
+   "native": "le Wi-Fi",
+   "beforePhon": "zeu wi FAÏ",
+   "afterPhon": "zeu WAÏ-faï",
+   "alignment": "the → zeu · Wi → wi · Fi → FAÏ",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     5
+    ],
+    "expectedBefore": {
+     "study": "the Wi-Fi",
+     "native": "le Wi-Fi",
+     "phon": "zeu wi FAÏ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 1
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3628",
+   "level": 10,
+   "rules": [
+    "W"
+   ],
+   "study": "The Wi-Fi isn't working.",
+   "native": "le Wi-Fi ne marche pas",
+   "beforePhon": "zeu wi FAÏ I-zeunt WEUR-king",
+   "afterPhon": "zeu WAÏ-faï I-zeunt WEUR-king",
+   "alignment": "The → zeu · Wi-Fi → wi FAÏ (✗) · isn't → I-zeunt · working → WEUR-king",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L10.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     41
+    ],
+    "expectedBefore": {
+     "study": "The Wi-Fi isn't working.",
+     "native": "le Wi-Fi ne marche pas",
+     "phon": "zeu wi FAÏ I-zeunt WEUR-king"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1820",
+   "level": 6,
+   "rules": [
+    "W"
+   ],
+   "study": "What would we do without you?",
+   "native": "Qu'est-ce qu'on ferait sans toi ?",
+   "beforePhon": "ouat oud oui DOU ouiz-AOUT you",
+   "afterPhon": "ouat woud oui DOU ouiz-AOUT you",
+   "alignment": null,
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     66
+    ],
+    "expectedBefore": {
+     "study": "What would we do without you?",
+     "native": "Qu'est-ce qu'on ferait sans toi ?",
+     "phon": "ouat oud oui DOU ouiz-AOUT you"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2128",
+   "level": 7,
+   "rules": [
+    "W"
+   ],
+   "study": "What would you do in my place?",
+   "native": "Qu'est-ce que tu ferais à ma place ?",
+   "beforePhon": "ouat oud you DOU inn maï PLÉÏS",
+   "afterPhon": "ouat woud you DOU inn maï PLÉÏS",
+   "alignment": "What → ouat · would → oud · you → you · do → DOU · in → inn · my → maï · place → PLÉÏS",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     7
+    ],
+    "expectedBefore": {
+     "study": "What would you do in my place?",
+     "native": "Qu'est-ce que tu ferais à ma place ?",
+     "phon": "ouat oud you DOU inn maï PLÉÏS"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2656",
+   "level": 8,
+   "rules": [
+    "W"
+   ],
+   "study": "— What would you do in my place? — I'd wait a little.",
+   "native": "— Qu'est-ce que tu ferais à ma place ? — J'attendrais un peu.",
+   "beforePhon": "ouat oud you DOU inn maï PLÉÏS / aïd OUÉÏT eu LI-teul",
+   "afterPhon": "ouat woud you DOU inn maï PLÉÏS / aïd OUÉÏT eu LI-teul",
+   "alignment": "What → ouat · would → oud (w absent) · you → you · do → DOU · in → inn · my → maï · place → PLÉÏS · I'd → aïd · wait → OUÉÏT · a → eu · little → LI-teul",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     23
+    ],
+    "expectedBefore": {
+     "study": "— What would you do in my place? — I'd wait a little.",
+     "native": "— Qu'est-ce que tu ferais à ma place ? — J'attendrais un peu.",
+     "phon": "ouat oud you DOU inn maï PLÉÏS / aïd OUÉÏT eu LI-teul"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1577",
+   "level": 5,
+   "rules": [
+    "W"
+   ],
+   "study": "I'll do the dishes tonight.",
+   "native": "je ferai la vaisselle ce soir",
+   "beforePhon": "AÏL du zeu DI-cheuz tou-NAÏT",
+   "afterPhon": "AÏL dou zeu DI-cheuz tou-NAÏT",
+   "alignment": "I'll → AÏL · do → du ✗ · the → zeu · dishes → DI-cheuz · tonight → tou-NAÏT",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     26
+    ],
+    "expectedBefore": {
+     "study": "I'll do the dishes tonight.",
+     "native": "je ferai la vaisselle ce soir",
+     "phon": "AÏL du zeu DI-cheuz tou-NAÏT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2989",
+   "level": 1,
+   "rules": [
+    "W"
+   ],
+   "study": "Even better.",
+   "native": "encore mieux",
+   "beforePhon": "I-vin BÈ-teur",
+   "afterPhon": "I-veun BÈ-teur",
+   "alignment": "Even → I-vin (nasale « vin ») · better → BÈ-teur",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L1.json",
+    "location": [
+     "themes",
+     15,
+     "phrases",
+     4
+    ],
+    "expectedBefore": {
+     "study": "Even better.",
+     "native": "encore mieux",
+     "phon": "I-vin BÈ-teur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2896",
+   "level": 10,
+   "rules": [
+    "W"
+   ],
+   "study": "Even though it's expensive, I'll take it.",
+   "native": "même si c'est cher, je le prends",
+   "beforePhon": "I-vin ZO its ik-SPÈN-siv aïl TÉÏK it",
+   "afterPhon": "I-veun ZO its ik-SPÈN-siv aïl TÉÏK it",
+   "alignment": null,
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L10.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     3
+    ],
+    "expectedBefore": {
+     "study": "Even though it's expensive, I'll take it.",
+     "native": "même si c'est cher, je le prends",
+     "phon": "I-vin ZO its ik-SPÈN-siv aïl TÉÏK it"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "situation-authored:fr-en:argent-paiements-01",
+   "level": 5,
+   "rules": [
+    "W"
+   ],
+   "study": "The card machine won't accept my card.",
+   "native": "Le terminal refuse ma carte.",
+   "beforePhon": "zeu KARD meu-CHIN OUÔNT eu-SÈPT maï KARD",
+   "afterPhon": "zeu KARD meu-CHIN OUÔNT ak-SÈPT maï KARD",
+   "alignment": "The → zeu · card → KARD · machine → meu-CHIN · won't → OUÔNT · accept → eu-SÈPT · my → maï · card → KARD",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     10,
+     "phrases",
+     0
+    ],
+    "expectedBefore": {
+     "study": "The card machine won't accept my card.",
+     "native": "Le terminal refuse ma carte.",
+     "phon": "zeu KARD meu-CHIN OUÔNT eu-SÈPT maï KARD"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3588",
+   "level": 8,
+   "rules": [
+    "W"
+   ],
+   "study": "a reusable bag",
+   "native": "un sac réutilisable",
+   "beforePhon": "eu ri-OU-zeu-beul BAG",
+   "afterPhon": "eu ri-YOU-zeu-beul BAG",
+   "alignment": "a → eu · reusable → ri-OU-zeu-beul (y manquant) · bag → BAG",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     4
+    ],
+    "expectedBefore": {
+     "study": "a reusable bag",
+     "native": "un sac réutilisable",
+     "phon": "eu ri-OU-zeu-beul BAG"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4468",
+   "level": 4,
+   "rules": [
+    "W"
+   ],
+   "study": "In the end, we picked the Italian restaurant.",
+   "native": "Finalement, on a choisi le restaurant italien.",
+   "beforePhon": "inn zi ÈND oui PIKT zi i-TAL-yeun RÈS-tronn",
+   "afterPhon": "inn zi ÈND oui PIKT zi i-TAL-yeun RÈS-tronnt",
+   "alignment": "In → inn · the → zi · end → ÈND · we → oui · picked → PIKT · the → zi · Italian → i-TAL-yeun · restaurant → RÈS-tronn (t final manquant)",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     24
+    ],
+    "expectedBefore": {
+     "study": "In the end, we picked the Italian restaurant.",
+     "native": "Finalement, on a choisi le restaurant italien.",
+     "phon": "inn zi ÈND oui PIKT zi i-TAL-yeun RÈS-tronn"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "situation-authored:situation-fr-en-piste-reclamation-tact-03",
+   "level": 8,
+   "rules": [
+    "W"
+   ],
+   "study": "Would it be possible to replace only the affected parts?",
+   "native": "Serait-il possible de remplacer seulement les pièces concernées ?",
+   "beforePhon": "woud it bi PO-seu-beul tou ri-PLÉÏS OUN-li zi eu-FÈK-tid PARTS",
+   "afterPhon": "woud it bi PO-seu-beul tou ri-PLÉÏS ÔN-li zi eu-FÈK-tid PARTS",
+   "alignment": "Would → woud · it → it · be → bi · possible → PO-seu-beul · to → tou · replace → ri-PLÉÏS · only → OUN-li (erreur) · the → zi · affected → eu-FÈK-tid · parts → PARTS",
+   "reason": "segment qui fait lire un autre mot ou un autre son",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     10,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "Would it be possible to replace only the affected parts?",
+     "native": "Serait-il possible de remplacer seulement les pièces concernées ?",
+     "phon": "woud it bi PO-seu-beul tou ri-PLÉÏS OUN-li zi eu-FÈK-tid PARTS"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2937",
+   "level": 10,
+   "rules": [
+    "T"
+   ],
+   "study": "30% deposit, 70% before shipment.",
+   "native": "30% d'acompte, 70% avant expédition",
+   "beforePhon": "SEUR-ti deu-PA-zit SÈ-veun-ti bi-FOR CHIP-meunt",
+   "afterPhon": "SEUR-ti peur-SÈNT deu-PA-zit SÈ-veun-ti peur-SÈNT bi-FOR CHIP-meunt",
+   "alignment": "30 → SEUR-ti · % → ∅ (✗) · deposit → deu-PA-zit · 70 → SÈ-veun-ti · % → ∅ (✗) · before → bi-FOR · shipment → CHIP-meunt",
+   "reason": "aide tronquée ou faute de frappe",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L10.json",
+    "location": [
+     "reserve",
+     3
+    ],
+    "expectedBefore": {
+     "study": "30% deposit, 70% before shipment.",
+     "native": "30% d'acompte, 70% avant expédition",
+     "phon": "SEUR-ti deu-PA-zit SÈ-veun-ti bi-FOR CHIP-meunt"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:461",
+   "level": 3,
+   "rules": [
+    "T"
+   ],
+   "study": "It's 100% cotton.",
+   "native": "c'est 100% coton",
+   "beforePhon": "its weun-HEUN-dreud KA-teun",
+   "afterPhon": "its weun-HEUN-dreud peur-SÈNT KA-teun",
+   "alignment": "It's → its · 100 → weun-HEUN-dreud · % (percent) → ∅ · cotton → KA-teun",
+   "reason": "aide tronquée ou faute de frappe",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     6
+    ],
+    "expectedBefore": {
+     "study": "It's 100% cotton.",
+     "native": "c'est 100% coton",
+     "phon": "its weun-HEUN-dreud KA-teun"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1935",
+   "level": 6,
+   "rules": [
+    "T"
+   ],
+   "study": "What's the MOQ?",
+   "native": "quel est le MOQ ?",
+   "beforePhon": "wots zeu èm-o-KY",
+   "afterPhon": "wots zeu èm-o-KYOU",
+   "alignment": "What's → wots · the → zeu · MOQ → èm-o-KY (✗ Q tronqué)",
+   "reason": "aide tronquée ou faute de frappe",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     115
+    ],
+    "expectedBefore": {
+     "study": "What's the MOQ?",
+     "native": "quel est le MOQ ?",
+     "phon": "wots zeu èm-o-KY"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1947",
+   "level": 6,
+   "rules": [
+    "T"
+   ],
+   "study": "What's the MOQ per color?",
+   "native": "quel est le MOQ par couleur ?",
+   "beforePhon": "wots zeu èm-o-KY PEUR KEU-leur",
+   "afterPhon": "wots zeu èm-o-KYOU PEUR KEU-leur",
+   "alignment": "What's → wots · the → zeu · MOQ → èm-o-KY (✗ Q tronqué) · per → PEUR · color → KEU-leur",
+   "reason": "aide tronquée ou faute de frappe",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     123
+    ],
+    "expectedBefore": {
+     "study": "What's the MOQ per color?",
+     "native": "quel est le MOQ par couleur ?",
+     "phon": "wots zeu èm-o-KY PEUR KEU-leur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2423",
+   "level": 8,
+   "rules": [
+    "T"
+   ],
+   "study": "Could you reduce the MOQ?",
+   "native": "pourriez-vous réduire le MOQ ?",
+   "beforePhon": "koud you reu-DOUS zeu èm-o-KY",
+   "afterPhon": "koud you reu-DOUS zeu èm-o-KYOU",
+   "alignment": "Could → koud · you → you · reduce → reu-DOUS · the → zeu · MOQ → èm-o-KY (tronqué)",
+   "reason": "aide tronquée ou faute de frappe",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     15
+    ],
+    "expectedBefore": {
+     "study": "Could you reduce the MOQ?",
+     "native": "pourriez-vous réduire le MOQ ?",
+     "phon": "koud you reu-DOUS zeu èm-o-KY"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2063",
+   "level": 7,
+   "rules": [
+    "T"
+   ],
+   "study": "Do you have EN71 certification?",
+   "native": "avez-vous la certification EN71 ?",
+   "beforePhon": "dou you hav ÈN SÈ-veun-ti-weun seur-teu-feu-KÉÏ-cheun",
+   "afterPhon": "dou you hav I-ÈN SÈ-veun-ti-weun seur-teu-feu-KÉÏ-cheun",
+   "alignment": "Do → dou · you → you · have → hav · EN → ÈN (E manquant) · 71 → SÈ-veun-ti-weun · certification → seur-teu-feu-KÉÏ-cheun",
+   "reason": "aide tronquée ou faute de frappe",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     33
+    ],
+    "expectedBefore": {
+     "study": "Do you have EN71 certification?",
+     "native": "avez-vous la certification EN71 ?",
+     "phon": "dou you hav ÈN SÈ-veun-ti-weun seur-teu-feu-KÉÏ-cheun"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2430",
+   "level": 8,
+   "rules": [
+    "T"
+   ],
+   "study": "We need to postpone the meeting.",
+   "native": "nous devons reporter la réunion",
+   "beforePhon": "oui NID tou pos-TPON zeu MI-ting",
+   "afterPhon": "oui NID tou post-PON zeu MI-ting",
+   "alignment": "We → oui · need → NID · to → tou · postpone → pos-TPON (coquille) · the → zeu · meeting → MI-ting",
+   "reason": "aide tronquée ou faute de frappe",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     18
+    ],
+    "expectedBefore": {
+     "study": "We need to postpone the meeting.",
+     "native": "nous devons reporter la réunion",
+     "phon": "oui NID tou pos-TPON zeu MI-ting"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2836",
+   "level": 10,
+   "rules": [
+    "H"
+   ],
+   "study": "Raise your hand if you agree.",
+   "native": "lève la main si tu es d'accord",
+   "beforePhon": "RÉÏZ yor JAND if you eu-GRI",
+   "afterPhon": "RÉÏZ yor HAND if you eu-GRI",
+   "alignment": "Raise → RÉÏZ · your → yor · hand → JAND (✗) · if → if · you → you · agree → eu-GRI",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L10.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "Raise your hand if you agree.",
+     "native": "lève la main si tu es d'accord",
+     "phon": "RÉÏZ yor JAND if you eu-GRI"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:678",
+   "level": 3,
+   "rules": [
+    "H"
+   ],
+   "study": "You can park here.",
+   "native": "tu peux te garer ici",
+   "beforePhon": "you kan PARK jir",
+   "afterPhon": "you kan PARK HIR",
+   "alignment": "You → you · can → kan · park → PARK · here → jir (faute : j au lieu de h)",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     22
+    ],
+    "expectedBefore": {
+     "study": "You can park here.",
+     "native": "tu peux te garer ici",
+     "phon": "you kan PARK jir"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1858",
+   "level": 6,
+   "rules": [
+    "H"
+   ],
+   "study": "You need to change lines here.",
+   "native": "tu dois changer de ligne ici",
+   "beforePhon": "you NID tou TCHÉÏNDJ LAÏNZ jir",
+   "afterPhon": "you NID tou TCHÉÏNDJ LAÏNZ HIR",
+   "alignment": "You → you · need → NID · to → tou · change → TCHÉÏNDJ · lines → LAÏNZ · here → jir (fautif)",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     15
+    ],
+    "expectedBefore": {
+     "study": "You need to change lines here.",
+     "native": "tu dois changer de ligne ici",
+     "phon": "you NID tou TCHÉÏNDJ LAÏNZ jir"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:690",
+   "level": 3,
+   "rules": [
+    "H"
+   ],
+   "study": "Let's have dinner together.",
+   "native": "dînons ensemble",
+   "beforePhon": "LÈTS jav DI-neur tou-GHÈ-zeur",
+   "afterPhon": "LÈTS hav DI-neur tou-GHÈ-zeur",
+   "alignment": "Let's → LÈTS · have → jav · dinner → DI-neur · together → tou-GHÈ-zeur",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     104
+    ],
+    "expectedBefore": {
+     "study": "Let's have dinner together.",
+     "native": "dînons ensemble",
+     "phon": "LÈTS jav DI-neur tou-GHÈ-zeur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1728",
+   "level": 6,
+   "rules": [
+    "H"
+   ],
+   "study": "What time do you have breakfast?",
+   "native": "tu prends ton petit-déjeuner à quelle heure ?",
+   "beforePhon": "OUAT TAÏM dou you jav BRÈK-feust",
+   "afterPhon": "OUAT TAÏM dou you hav BRÈK-feust",
+   "alignment": "What → OUAT · time → TAÏM · do → dou · you → you · have → jav (fautif) · breakfast → BRÈK-feust",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     6
+    ],
+    "expectedBefore": {
+     "study": "What time do you have breakfast?",
+     "native": "tu prends ton petit-déjeuner à quelle heure ?",
+     "phon": "OUAT TAÏM dou you jav BRÈK-feust"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1991",
+   "level": 6,
+   "rules": [
+    "H"
+   ],
+   "study": "How long have you been dating?",
+   "native": "depuis quand sortez-vous ensemble ?",
+   "beforePhon": "JAO LONG jav you bin DÉÏ-ting",
+   "afterPhon": "HAOU LONG hav you bin DÉÏ-ting",
+   "alignment": "How → JAO (fautif) · long → LONG · have → jav (fautif) · you → you · been → bin · dating → DÉÏ-ting",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     30
+    ],
+    "expectedBefore": {
+     "study": "How long have you been dating?",
+     "native": "depuis quand sortez-vous ensemble ?",
+     "phon": "JAO LONG jav you bin DÉÏ-ting"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1623",
+   "level": 5,
+   "rules": [
+    "H"
+   ],
+   "study": "Can you help me carry this?",
+   "native": "tu peux m'aider à porter ça ?",
+   "beforePhon": "kan you jèlp mi KA-ri zis",
+   "afterPhon": "kan you HÈLP mi KA-ri zis",
+   "alignment": "Can → kan · you → you · help → jèlp ✗ · me → mi · carry → KA-ri · this → zis",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     24
+    ],
+    "expectedBefore": {
+     "study": "Can you help me carry this?",
+     "native": "tu peux m'aider à porter ça ?",
+     "phon": "kan you jèlp mi KA-ri zis"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1958",
+   "level": 6,
+   "rules": [
+    "H"
+   ],
+   "study": "He cheated on her.",
+   "native": "il l'a trompée",
+   "beforePhon": "JI TCHI-tid an JER",
+   "afterPhon": "hi TCHI-tid an HEUR",
+   "alignment": "He → JI (✗) · cheated → TCHI-tid · on → an · her → JER (✗)",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     126
+    ],
+    "expectedBefore": {
+     "study": "He cheated on her.",
+     "native": "il l'a trompée",
+     "phon": "JI TCHI-tid an JER"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2084",
+   "level": 7,
+   "rules": [
+    "H",
+    "G"
+   ],
+   "study": "I want to give her a gift.",
+   "native": "je veux lui offrir un cadeau",
+   "beforePhon": "aï OUONT tou GIV jeur eu GIFT",
+   "afterPhon": "aï OUONT tou GUIV heur eu GUIFT",
+   "alignment": "I → aï · want → OUONT · to → tou · give → GIV · her → jeur · a → eu · gift → GIFT",
+   "reason": "h anglais transcrit j (faute de frappe) ; g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "I want to give her a gift.",
+     "native": "je veux lui offrir un cadeau",
+     "phon": "aï OUONT tou GIV jeur eu GIFT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2096",
+   "level": 7,
+   "rules": [
+    "H"
+   ],
+   "study": "He loves to play music.",
+   "native": "il adore jouer de la musique",
+   "beforePhon": "JI LEUVZ tou PLÉÏ MYOU-zik",
+   "afterPhon": "HI LEUVZ tou PLÉÏ MYOU-zik",
+   "alignment": "He → JI · loves → LEUVZ · to → tou · play → PLÉÏ · music → MYOU-zik",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     5
+    ],
+    "expectedBefore": {
+     "study": "He loves to play music.",
+     "native": "il adore jouer de la musique",
+     "phon": "JI LEUVZ tou PLÉÏ MYOU-zik"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2349",
+   "level": 7,
+   "rules": [
+    "H"
+   ],
+   "study": "He nodded in agreement.",
+   "native": "il a hoché la tête en signe d'accord",
+   "beforePhon": "JI NA-did in eu-GRI-ment",
+   "afterPhon": "HI NA-did in eu-GRI-ment",
+   "alignment": "He → JI · nodded → NA-did · in → in · agreement → eu-GRI-ment",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     24
+    ],
+    "expectedBefore": {
+     "study": "He nodded in agreement.",
+     "native": "il a hoché la tête en signe d'accord",
+     "phon": "JI NA-did in eu-GRI-ment"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2247",
+   "level": 7,
+   "rules": [
+    "H"
+   ],
+   "study": "He gave me a warm hug.",
+   "native": "il m'a donné un chaleureux câlin",
+   "beforePhon": "JI guéïv mi eu OUORM HEUG",
+   "afterPhon": "HI guéïv mi eu OUORM HEUG",
+   "alignment": "He → JI (faux → HI) · gave → guéïv · me → mi · a → eu · warm → OUORM · hug → HEUG",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     130
+    ],
+    "expectedBefore": {
+     "study": "He gave me a warm hug.",
+     "native": "il m'a donné un chaleureux câlin",
+     "phon": "JI guéïv mi eu OUORM HEUG"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2353",
+   "level": 7,
+   "rules": [
+    "H"
+   ],
+   "study": "He scored the winning goal.",
+   "native": "il a marqué le but de la victoire",
+   "beforePhon": "JI SKORD zeu OUI-ning GOL",
+   "afterPhon": "HI SKORD zeu OUI-ning GOL",
+   "alignment": "He → JI (faux → HI) · scored → SKORD · the → zeu · winning → OUI-ning · goal → GOL",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     181
+    ],
+    "expectedBefore": {
+     "study": "He scored the winning goal.",
+     "native": "il a marqué le but de la victoire",
+     "phon": "JI SKORD zeu OUI-ning GOL"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2569",
+   "level": 8,
+   "rules": [
+    "H"
+   ],
+   "study": "He just shrugged and walked away.",
+   "native": "il a juste haussé les épaules et est parti",
+   "beforePhon": "JI djeust CHREUGD and OUOKT eu-OUÉÏ",
+   "afterPhon": "HI djeust CHREUGD and OUOKT eu-OUÉÏ",
+   "alignment": "He → JI (erreur) · just → djeust · shrugged → CHREUGD · and → and · walked → OUOKT · away → eu-OUÉÏ",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     70
+    ],
+    "expectedBefore": {
+     "study": "He just shrugged and walked away.",
+     "native": "il a juste haussé les épaules et est parti",
+     "phon": "JI djeust CHREUGD and OUOKT eu-OUÉÏ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2317",
+   "level": 7,
+   "rules": [
+    "H"
+   ],
+   "study": "They shook hands and smiled.",
+   "native": "ils se sont serré la main en souriant",
+   "beforePhon": "zéï CHOUK JANDZ and SMAÏLD",
+   "afterPhon": "zéï CHOUK HANDZ and SMAÏLD",
+   "alignment": "They → zéï · shook → CHOUK · hands → JANDZ · and → and · smiled → SMAÏLD",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     19
+    ],
+    "expectedBefore": {
+     "study": "They shook hands and smiled.",
+     "native": "ils se sont serré la main en souriant",
+     "phon": "zéï CHOUK JANDZ and SMAÏLD"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2571",
+   "level": 8,
+   "rules": [
+    "H"
+   ],
+   "study": "Wash your hands before eating.",
+   "native": "lave-toi les mains avant de manger",
+   "beforePhon": "OUACH yor JANDZ bi-FOR I-ting",
+   "afterPhon": "OUACH yor HANDZ bi-FOR I-ting",
+   "alignment": "Wash → OUACH · your → yor · hands → JANDZ (erreur) · before → bi-FOR · eating → I-ting",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     23
+    ],
+    "expectedBefore": {
+     "study": "Wash your hands before eating.",
+     "native": "lave-toi les mains avant de manger",
+     "phon": "OUACH yor JANDZ bi-FOR I-ting"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2351",
+   "level": 7,
+   "rules": [
+    "H"
+   ],
+   "study": "My car broke down on the highway.",
+   "native": "ma voiture est tombée en panne sur l'autoroute",
+   "beforePhon": "maï KAR BROK DAOUN on zeu JAÏ-oueï",
+   "afterPhon": "maï KAR BROK DAOUN on zeu HAÏ-oueï",
+   "alignment": "My → maï · car → KAR · broke → BROK · down → DAOUN · on → on · the → zeu · highway → JAÏ-oueï",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     18
+    ],
+    "expectedBefore": {
+     "study": "My car broke down on the highway.",
+     "native": "ma voiture est tombée en panne sur l'autoroute",
+     "phon": "maï KAR BROK DAOUN on zeu JAÏ-oueï"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2243",
+   "level": 7,
+   "rules": [
+    "H"
+   ],
+   "study": "I need to leave the house early.",
+   "native": "je dois sortir de chez moi tôt",
+   "beforePhon": "aï NID tou LIV zeu jáus EUR-li",
+   "afterPhon": "aï NID tou LIV zeu HAOUS EUR-li",
+   "alignment": "I → aï · need → NID · to → tou · leave → LIV · the → zeu · house → jáus · early → EUR-li",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     23
+    ],
+    "expectedBefore": {
+     "study": "I need to leave the house early.",
+     "native": "je dois sortir de chez moi tôt",
+     "phon": "aï NID tou LIV zeu jáus EUR-li"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2258",
+   "level": 7,
+   "rules": [
+    "H"
+   ],
+   "study": "I don't remember his name.",
+   "native": "je ne me souviens pas de son nom",
+   "beforePhon": "aï DONT ri-MÈM-beur jiz NÉÏM",
+   "afterPhon": "aï DONT ri-MÈM-beur hiz NÉÏM",
+   "alignment": "I → aï · don't → DONT · remember → ri-MÈM-beur · his → jiz (faux → hiz) · name → NÉÏM",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     137
+    ],
+    "expectedBefore": {
+     "study": "I don't remember his name.",
+     "native": "je ne me souviens pas de son nom",
+     "phon": "aï DONT ri-MÈM-beur jiz NÉÏM"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2318",
+   "level": 7,
+   "rules": [
+    "H"
+   ],
+   "study": "Don't kick the ball so hard.",
+   "native": "ne tape pas si fort dans le ballon",
+   "beforePhon": "DONT KIK zeu BOL so JARD",
+   "afterPhon": "DONT KIK zeu BOL so HARD",
+   "alignment": "Don't → DONT · kick → KIK · the → zeu · ball → BOL · so → so · hard → JARD (faux → HARD)",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     164
+    ],
+    "expectedBefore": {
+     "study": "Don't kick the ball so hard.",
+     "native": "ne tape pas si fort dans le ballon",
+     "phon": "DONT KIK zeu BOL so JARD"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2566",
+   "level": 8,
+   "rules": [
+    "H"
+   ],
+   "study": "We had to stand in line for an hour.",
+   "native": "nous avons dû faire la queue pendant une heure",
+   "beforePhon": "OUI JAD tou STAND in LAÏN for an AOUR",
+   "afterPhon": "OUI HAD tou STAND in LAÏN for an AOUR",
+   "alignment": "We → OUI · had → JAD (erreur) · to → tou · stand → STAND · in → in · line → LAÏN · for → for · an → an · hour → AOUR",
+   "reason": "h anglais transcrit j (faute de frappe)",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     25
+    ],
+    "expectedBefore": {
+     "study": "We had to stand in line for an hour.",
+     "native": "nous avons dû faire la queue pendant une heure",
+     "phon": "OUI JAD tou STAND in LAÏN for an AOUR"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4230",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "a singer",
+   "native": "un chanteur",
+   "beforePhon": "eu SI-ngeur",
+   "afterPhon": "eu SING-eur",
+   "alignment": "a → eu · singer → SI-ngeur",
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     92
+    ],
+    "expectedBefore": {
+     "study": "a singer",
+     "native": "un chanteur",
+     "phon": "eu SI-ngeur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1095",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "I'm bringing the dessert.",
+   "native": "j'apporte le dessert",
+   "beforePhon": "aïm BRI-nging zeu di-ZEURT",
+   "afterPhon": "aïm BRING-ing zeu di-ZEURT",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     63
+    ],
+    "expectedBefore": {
+     "study": "I'm bringing the dessert.",
+     "native": "j'apporte le dessert",
+     "phon": "aïm BRI-nging zeu di-ZEURT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1055",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "Let's not argue.",
+   "native": "ne nous disputons pas",
+   "beforePhon": "lèts nat AR-gyou",
+   "afterPhon": "lèts nat AR-guiou",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     44
+    ],
+    "expectedBefore": {
+     "study": "Let's not argue.",
+     "native": "ne nous disputons pas",
+     "phon": "lèts nat AR-gyou"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "situation-authored:situation-fr-en-piste-sport-habitudes-07",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "Yes, I train regularly.",
+   "native": "Oui, je m’entraîne régulièrement.",
+   "beforePhon": "YÈS aï TRÉÏN RÈ-gyou-leur-li",
+   "afterPhon": "YÈS aï TRÉÏN RÈ-guiou-leur-li",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     15,
+     "phrases",
+     6
+    ],
+    "expectedBefore": {
+     "study": "Yes, I train regularly.",
+     "native": "Oui, je m’entraîne régulièrement.",
+     "phon": "YÈS aï TRÉÏN RÈ-gyou-leur-li"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "heard-authored:situation-fr-en-piste-sport-habitudes-received-01",
+   "level": null,
+   "rules": [
+    "G"
+   ],
+   "study": "Do you train regularly?",
+   "native": "Tu t’entraînes régulièrement ?",
+   "beforePhon": "dou you TRÉÏN RÈ-gyou-leur-li",
+   "afterPhon": "dou you TRÉÏN RÈ-guiou-leur-li",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-en.json",
+    "location": [
+     "receivedModels",
+     29
+    ],
+    "expectedBefore": {
+     "study": "Do you train regularly?",
+     "native": "Tu t’entraînes régulièrement ?",
+     "phon": "dou you TRÉÏN RÈ-gyou-leur-li"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:183",
+   "level": 1,
+   "rules": [
+    "G"
+   ],
+   "study": "I get it.",
+   "native": "je comprends",
+   "beforePhon": "aï GÈT it",
+   "afterPhon": "aï GUÈT it",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L1.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "I get it.",
+     "native": "je comprends",
+     "phon": "aï GÈT it"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3039",
+   "level": 1,
+   "rules": [
+    "G"
+   ],
+   "study": "Forget it.",
+   "native": "laisse tomber",
+   "beforePhon": "feur-GÈT it",
+   "afterPhon": "feur-GUÈT it",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L1.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     19
+    ],
+    "expectedBefore": {
+     "study": "Forget it.",
+     "native": "laisse tomber",
+     "phon": "feur-GÈT it"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3867",
+   "level": 1,
+   "rules": [
+    "G"
+   ],
+   "study": "single",
+   "native": "célibataire",
+   "beforePhon": "SING-geul",
+   "afterPhon": "SING-gueul",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L1.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     6
+    ],
+    "expectedBefore": {
+     "study": "single",
+     "native": "célibataire",
+     "phon": "SING-geul"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3846",
+   "level": 1,
+   "rules": [
+    "G"
+   ],
+   "study": "guilty",
+   "native": "coupable",
+   "beforePhon": "GIL-ti",
+   "afterPhon": "GUIL-ti",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L1.json",
+    "location": [
+     "themes",
+     14,
+     "phrases",
+     19
+    ],
+    "expectedBefore": {
+     "study": "guilty",
+     "native": "coupable",
+     "phon": "GIL-ti"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3779",
+   "level": 1,
+   "rules": [
+    "G"
+   ],
+   "study": "again",
+   "native": "encore / de nouveau",
+   "beforePhon": "eu-GÈN",
+   "afterPhon": "eu-GUÈN",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L1.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     28
+    ],
+    "expectedBefore": {
+     "study": "again",
+     "native": "encore / de nouveau",
+     "phon": "eu-GÈN"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 1
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:355",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "Give me your hand.",
+   "native": "donne-moi ta main",
+   "beforePhon": "GIV mi yor HAND",
+   "afterPhon": "GUIV mi yor HAND",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     28
+    ],
+    "expectedBefore": {
+     "study": "Give me your hand.",
+     "native": "donne-moi ta main",
+     "phon": "GIV mi yor HAND"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:169",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "I'll get off here.",
+   "native": "je descends ici",
+   "beforePhon": "aïl GÈT of HIR",
+   "afterPhon": "aïl GUÈT of HIR",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     17
+    ],
+    "expectedBefore": {
+     "study": "I'll get off here.",
+     "native": "je descends ici",
+     "phon": "aïl GÈT of HIR"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:245",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "Never give up.",
+   "native": "n'abandonne jamais",
+   "beforePhon": "NÈ-veur GIV eup",
+   "afterPhon": "NÈ-veur GUIV eup",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "Never give up.",
+     "native": "n'abandonne jamais",
+     "phon": "NÈ-veur GIV eup"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:310",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "It's getting late.",
+   "native": "il se fait tard",
+   "beforePhon": "its GÈ-ting LÉÏT",
+   "afterPhon": "its GUÈ-ting LÉÏT",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     6
+    ],
+    "expectedBefore": {
+     "study": "It's getting late.",
+     "native": "il se fait tard",
+     "phon": "its GÈ-ting LÉÏT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:65",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "Give me that.",
+   "native": "donne-moi ça",
+   "beforePhon": "GIV mi zat",
+   "afterPhon": "GUIV mi zat",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     19
+    ],
+    "expectedBefore": {
+     "study": "Give me that.",
+     "native": "donne-moi ça",
+     "phon": "GIV mi zat"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:142",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "Get well soon!",
+   "native": "remets-toi vite !",
+   "beforePhon": "GÈT WÈL SOUN",
+   "afterPhon": "GUÈT WÈL SOUN",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     52
+    ],
+    "expectedBefore": {
+     "study": "Get well soon!",
+     "native": "remets-toi vite !",
+     "phon": "GÈT WÈL SOUN"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:187",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "Don't give up!",
+   "native": "n'abandonne pas !",
+   "beforePhon": "dont GIV eup",
+   "afterPhon": "dont GUIV eup",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     71
+    ],
+    "expectedBefore": {
+     "study": "Don't give up!",
+     "native": "n'abandonne pas !",
+     "phon": "dont GIV eup"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:197",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "Don't forget.",
+   "native": "n'oublie pas",
+   "beforePhon": "dont feur-GÈT",
+   "afterPhon": "dont feur-GUÈT",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     77
+    ],
+    "expectedBefore": {
+     "study": "Don't forget.",
+     "native": "n'oublie pas",
+     "phon": "dont feur-GÈT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:236",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "Get well soon.",
+   "native": "remets-toi vite",
+   "beforePhon": "GÈT WÈL SOUN",
+   "afterPhon": "GUÈT WÈL SOUN",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     99
+    ],
+    "expectedBefore": {
+     "study": "Get well soon.",
+     "native": "remets-toi vite",
+     "phon": "GÈT WÈL SOUN"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:264",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "Give me a call.",
+   "native": "appelle-moi",
+   "beforePhon": "GIV mi eu KOL",
+   "afterPhon": "GUIV mi eu KOL",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     111
+    ],
+    "expectedBefore": {
+     "study": "Give me a call.",
+     "native": "appelle-moi",
+     "phon": "GIV mi eu KOL"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:299",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "It's all forgiven.",
+   "native": "tout est pardonné",
+   "beforePhon": "its ol feur-GI-veun",
+   "afterPhon": "its ol feur-GUI-veun",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     129
+    ],
+    "expectedBefore": {
+     "study": "It's all forgiven.",
+     "native": "tout est pardonné",
+     "phon": "its ol feur-GI-veun"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:316",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "Get some rest.",
+   "native": "repose-toi bien",
+   "beforePhon": "GÈT seum RÈST",
+   "afterPhon": "GUÈT seum RÈST",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     135
+    ],
+    "expectedBefore": {
+     "study": "Get some rest.",
+     "native": "repose-toi bien",
+     "phon": "GÈT seum RÈST"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3119",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "Forgive me.",
+   "native": "pardonne-moi",
+   "beforePhon": "feur-GIV mi",
+   "afterPhon": "feur-GUIV mi",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     217
+    ],
+    "expectedBefore": {
+     "study": "Forgive me.",
+     "native": "pardonne-moi",
+     "phon": "feur-GIV mi"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1682",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "Do you have a bigger size?",
+   "native": "vous avez une taille au-dessus ?",
+   "beforePhon": "dou you hav eu BI-geur SAÏZ",
+   "afterPhon": "dou you hav eu BI-gueur SAÏZ",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "Do you have a bigger size?",
+     "native": "vous avez une taille au-dessus ?",
+     "phon": "dou you hav eu BI-geur SAÏZ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "situation-authored:situation-fr-en-piste-boisson-precise-04",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "No sugar, please.",
+   "native": "Sans sucre, s’il vous plaît.",
+   "beforePhon": "NO CHOU-geur PLIZ",
+   "afterPhon": "NO CHOU-gueur PLIZ",
+   "alignment": "I'll → aïl · drink → DRINK · it → it · here → HIR",
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     15,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "No sugar, please.",
+     "native": "Sans sucre, s’il vous plaît.",
+     "phon": "NO CHOU-geur PLIZ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "situation-authored:situation-fr-en-piste-boisson-precise-07",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "Yes, tea without sugar.",
+   "native": "Oui, du thé sans sucre.",
+   "beforePhon": "YÈS TI wiz-AOUT CHOU-geur",
+   "afterPhon": "YÈS TI wiz-AOUT CHOU-gueur",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     15,
+     "phrases",
+     4
+    ],
+    "expectedBefore": {
+     "study": "Yes, tea without sugar.",
+     "native": "Oui, du thé sans sucre.",
+     "phon": "YÈS TI wiz-AOUT CHOU-geur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4064",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "sugar",
+   "native": "sucre",
+   "beforePhon": "CHOU-geur",
+   "afterPhon": "CHOU-gueur",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     16,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "sugar",
+     "native": "sucre",
+     "phon": "CHOU-geur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 1
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:237",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "Good game!",
+   "native": "bien joué !",
+   "beforePhon": "GOUD GÉÏM",
+   "afterPhon": "GOUD GUÉÏM",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     3
+    ],
+    "expectedBefore": {
+     "study": "Good game!",
+     "native": "bien joué !",
+     "phon": "GOUD GÉÏM"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4346",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "the guitar",
+   "native": "la guitare",
+   "beforePhon": "zeu gi-TAR",
+   "afterPhon": "zeu gui-TAR",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "themes",
+     29,
+     "phrases",
+     0
+    ],
+    "expectedBefore": {
+     "study": "the guitar",
+     "native": "la guitare",
+     "phon": "zeu gi-TAR"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 1
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3124",
+   "level": 2,
+   "rules": [
+    "G"
+   ],
+   "study": "How do I get to...?",
+   "native": "comment aller à… ?",
+   "beforePhon": "HAOU dou aï GÈT tou",
+   "afterPhon": "HAOU dou aï GUÈT tou",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+    "location": [
+     "reserve",
+     9
+    ],
+    "expectedBefore": {
+     "study": "How do I get to...?",
+     "native": "comment aller à… ?",
+     "phon": "HAOU dou aï GÈT tou"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:906",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "Can you say that again?",
+   "native": "tu peux répéter ?",
+   "beforePhon": "kan you SÉÏ zat eu-GÈN",
+   "afterPhon": "kan you SÉÏ zat eu-GUÈN",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     12
+    ],
+    "expectedBefore": {
+     "study": "Can you say that again?",
+     "native": "tu peux répéter ?",
+     "phon": "kan you SÉÏ zat eu-GÈN"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:672",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "It's getting cold.",
+   "native": "il commence à faire froid",
+   "beforePhon": "its GÈ-ting KOLD",
+   "afterPhon": "its GUÈ-ting KOLD",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     15
+    ],
+    "expectedBefore": {
+     "study": "It's getting cold.",
+     "native": "il commence à faire froid",
+     "phon": "its GÈ-ting KOLD"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:851",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "It's getting warm.",
+   "native": "il commence à faire chaud",
+   "beforePhon": "its GÈ-ting WORM",
+   "afterPhon": "its GUÈ-ting WORM",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     30
+    ],
+    "expectedBefore": {
+     "study": "It's getting warm.",
+     "native": "il commence à faire chaud",
+     "phon": "its GÈ-ting WORM"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:621",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "Give him the price.",
+   "native": "donne-lui le prix",
+   "beforePhon": "GIV him zeu PRAÏS",
+   "afterPhon": "GUIV him zeu PRAÏS",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     19
+    ],
+    "expectedBefore": {
+     "study": "Give him the price.",
+     "native": "donne-lui le prix",
+     "phon": "GIV him zeu PRAÏS"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:796",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "Can I get a receipt?",
+   "native": "je peux avoir un reçu ?",
+   "beforePhon": "kan aï GÈT eu ri-SIT",
+   "afterPhon": "kan aï GUÈT eu ri-SIT",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     24
+    ],
+    "expectedBefore": {
+     "study": "Can I get a receipt?",
+     "native": "je peux avoir un reçu ?",
+     "phon": "kan aï GÈT eu ri-SIT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:965",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "Did you get my message?",
+   "native": "tu as reçu mon message ?",
+   "beforePhon": "did you GÈT maï MÈ-seudj",
+   "afterPhon": "did you GUÈT maï MÈ-seudj",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     43
+    ],
+    "expectedBefore": {
+     "study": "Did you get my message?",
+     "native": "tu as reçu mon message ?",
+     "phon": "did you GÈT maï MÈ-seudj"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:507",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "How do I get there?",
+   "native": "comment y aller ?",
+   "beforePhon": "HAOU dou aï GÈT ZÈR",
+   "afterPhon": "HAOU dou aï GUÈT ZÈR",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     8
+    ],
+    "expectedBefore": {
+     "study": "How do I get there?",
+     "native": "comment y aller ?",
+     "phon": "HAOU dou aï GÈT ZÈR"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:584",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "I'm getting married.",
+   "native": "je vais me marier",
+   "beforePhon": "aïm GÈ-ting MÈ-rid",
+   "afterPhon": "aïm GUÈ-ting MÈ-rid",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     15
+    ],
+    "expectedBefore": {
+     "study": "I'm getting married.",
+     "native": "je vais me marier",
+     "phon": "aïm GÈ-ting MÈ-rid"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:737",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "How do we get there?",
+   "native": "comment on y va ?",
+   "beforePhon": "HAOU dou wi GÈT ZÈR",
+   "afterPhon": "HAOU dou wi GUÈT ZÈR",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     28
+    ],
+    "expectedBefore": {
+     "study": "How do we get there?",
+     "native": "comment on y va ?",
+     "phon": "HAOU dou wi GÈT ZÈR"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:875",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "I'm going to get changed.",
+   "native": "je vais me changer",
+   "beforePhon": "aïm GO-ing tou GÈT TCHÉÏNDJD",
+   "afterPhon": "aïm GO-ing tou GUÈT TCHÉÏNDJD",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     50
+    ],
+    "expectedBefore": {
+     "study": "I'm going to get changed.",
+     "native": "je vais me changer",
+     "phon": "aïm GO-ing tou GÈT TCHÉÏNDJD"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:941",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "I'm going to get dressed.",
+   "native": "je vais m'habiller",
+   "beforePhon": "aïm GO-ing tou GÈT DRÈST",
+   "afterPhon": "aïm GO-ing tou GUÈT DRÈST",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     56
+    ],
+    "expectedBefore": {
+     "study": "I'm going to get dressed.",
+     "native": "je vais m'habiller",
+     "phon": "aïm GO-ing tou GÈT DRÈST"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:917",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "Let me get the door.",
+   "native": "laisse-moi tenir la porte",
+   "beforePhon": "LÈT mi GÈT zeu DOR",
+   "afterPhon": "LÈT mi GUÈT zeu DOR",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     23
+    ],
+    "expectedBefore": {
+     "study": "Let me get the door.",
+     "native": "laisse-moi tenir la porte",
+     "phon": "LÈT mi GÈT zeu DOR"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:565",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "Let's celebrate together.",
+   "native": "fêtons ça ensemble",
+   "beforePhon": "lèts SÈ-leub-réït teu-GÈ-zeur",
+   "afterPhon": "lèts SÈ-leub-réït teu-GUÈ-zeur",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     51
+    ],
+    "expectedBefore": {
+     "study": "Let's celebrate together.",
+     "native": "fêtons ça ensemble",
+     "phon": "lèts SÈ-leub-réït teu-GÈ-zeur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:569",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "Give me a break.",
+   "native": "lâche-moi un peu",
+   "beforePhon": "GIV mi eu BRÉÏK",
+   "afterPhon": "GUIV mi eu BRÉÏK",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     52
+    ],
+    "expectedBefore": {
+     "study": "Give me a break.",
+     "native": "lâche-moi un peu",
+     "phon": "GIV mi eu BRÉÏK"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:632",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "Give me a hug.",
+   "native": "fais-moi un câlin",
+   "beforePhon": "GIV mi eu HEUG",
+   "afterPhon": "GUIV mi eu HEUG",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     80
+    ],
+    "expectedBefore": {
+     "study": "Give me a hug.",
+     "native": "fais-moi un câlin",
+     "phon": "GIV mi eu HEUG"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:682",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "Give it to them.",
+   "native": "donne-le-leur",
+   "beforePhon": "GIV it tou zèm",
+   "afterPhon": "GUIV it tou zèm",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     101
+    ],
+    "expectedBefore": {
+     "study": "Give it to them.",
+     "native": "donne-le-leur",
+     "phon": "GIV it tou zèm"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:846",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "It's foggy.",
+   "native": "il y a du brouillard",
+   "beforePhon": "its FA-gi",
+   "afterPhon": "its FA-gui",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     173
+    ],
+    "expectedBefore": {
+     "study": "It's foggy.",
+     "native": "il y a du brouillard",
+     "phon": "its FA-gi"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:899",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "Can I see you again?",
+   "native": "je peux te revoir ?",
+   "beforePhon": "kan aï SI you eu-GÈN",
+   "afterPhon": "kan aï SI you eu-GUÈN",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     195
+    ],
+    "expectedBefore": {
+     "study": "Can I see you again?",
+     "native": "je peux te revoir ?",
+     "phon": "kan aï SI you eu-GÈN"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:915",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "How are you getting home?",
+   "native": "comment rentres-tu ?",
+   "beforePhon": "HAOU ar you GÈ-ting HOM",
+   "afterPhon": "HAOU ar you GUÈ-ting HOM",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     200
+    ],
+    "expectedBefore": {
+     "study": "How are you getting home?",
+     "native": "comment rentres-tu ?",
+     "phon": "HAOU ar you GÈ-ting HOM"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3148",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "Give it a shot.",
+   "native": "tente le coup",
+   "beforePhon": "GIV it eu CHAT",
+   "afterPhon": "GUIV it eu CHAT",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     228
+    ],
+    "expectedBefore": {
+     "study": "Give it a shot.",
+     "native": "tente le coup",
+     "phon": "GIV it eu CHAT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "situation-authored:situation-fr-en-piste-gouts-activites-03",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "I don't like noisy games.",
+   "native": "Je n’aime pas les jeux bruyants.",
+   "beforePhon": "aï DONT LAÏK NOÏ-zi GÉÏMZ",
+   "afterPhon": "aï DONT LAÏK NOÏ-zi GUÉÏMZ",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     1
+    ],
+    "expectedBefore": {
+     "study": "I don't like noisy games.",
+     "native": "Je n’aime pas les jeux bruyants.",
+     "phon": "aï DONT LAÏK NOÏ-zi GÉÏMZ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "situation-authored:situation-fr-en-piste-cours-aide-06",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "I can do this exercise again.",
+   "native": "Je peux refaire cet exercice.",
+   "beforePhon": "aï kan DOU zis ÈK-seur-saïz eu-GÈN",
+   "afterPhon": "aï kan DOU zis ÈK-seur-saïz eu-GUÈN",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     14,
+     "phrases",
+     5
+    ],
+    "expectedBefore": {
+     "study": "I can do this exercise again.",
+     "native": "Je peux refaire cet exercice.",
+     "phon": "aï kan DOU zis ÈK-seur-saïz eu-GÈN"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3173",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "A single room.",
+   "native": "une chambre simple",
+   "beforePhon": "eu SING-geul ROUM",
+   "afterPhon": "eu SING-gueul ROUM",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     17,
+     "phrases",
+     1
+    ],
+    "expectedBefore": {
+     "study": "A single room.",
+     "native": "une chambre simple",
+     "phon": "eu SING-geul ROUM"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3154",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "a girlfriend",
+   "native": "une petite amie",
+   "beforePhon": "eu GEURL-frènd",
+   "afterPhon": "eu GUEURL-frènd",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     1
+    ],
+    "expectedBefore": {
+     "study": "a girlfriend",
+     "native": "une petite amie",
+     "phon": "eu GEURL-frènd"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3155",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "my girlfriend",
+   "native": "ma petite amie",
+   "beforePhon": "maï GEURL-frènd",
+   "afterPhon": "maï GUEURL-frènd",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "my girlfriend",
+     "native": "ma petite amie",
+     "phon": "maï GEURL-frènd"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4212",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "the finger",
+   "native": "le doigt",
+   "beforePhon": "zeu FING-geur",
+   "afterPhon": "zeu FING-gueur",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     55
+    ],
+    "expectedBefore": {
+     "study": "the finger",
+     "native": "le doigt",
+     "phon": "zeu FING-geur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4400",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "a gift",
+   "native": "un cadeau",
+   "beforePhon": "eu GIFT",
+   "afterPhon": "eu GUIFT",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     82
+    ],
+    "expectedBefore": {
+     "study": "a gift",
+     "native": "un cadeau",
+     "phon": "eu GIFT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4402",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "a guest",
+   "native": "un invité",
+   "beforePhon": "eu GÈST",
+   "afterPhon": "eu GUÈST",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     83
+    ],
+    "expectedBefore": {
+     "study": "a guest",
+     "native": "un invité",
+     "phon": "eu GÈST"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3196",
+   "level": 3,
+   "rules": [
+    "G"
+   ],
+   "study": "bigger than",
+   "native": "plus grand que",
+   "beforePhon": "BI-geur zan",
+   "afterPhon": "BI-gueur zan",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+    "location": [
+     "reserve",
+     12
+    ],
+    "expectedBefore": {
+     "study": "bigger than",
+     "native": "plus grand que",
+     "phon": "BI-geur zan"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1124",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "Shall we eat together?",
+   "native": "on mange ensemble ?",
+   "beforePhon": "chal wi IT teu-GÈ-zeur",
+   "afterPhon": "chal wi IT teu-GUÈ-zeur",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     9
+    ],
+    "expectedBefore": {
+     "study": "Shall we eat together?",
+     "native": "on mange ensemble ?",
+     "phon": "chal wi IT teu-GÈ-zeur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1042",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "We're getting married.",
+   "native": "on va se marier",
+   "beforePhon": "wir GÈ-ting MÈ-rid",
+   "afterPhon": "wir GUÈ-ting MÈ-rid",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     10
+    ],
+    "expectedBefore": {
+     "study": "We're getting married.",
+     "native": "on va se marier",
+     "phon": "wir GÈ-ting MÈ-rid"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1153",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "I'll google it.",
+   "native": "je vais chercher sur Google",
+   "beforePhon": "aïl GOU-geul it",
+   "afterPhon": "aïl GOU-gueul it",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     19
+    ],
+    "expectedBefore": {
+     "study": "I'll google it.",
+     "native": "je vais chercher sur Google",
+     "phon": "aïl GOU-geul it"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1011",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "It's time to get up.",
+   "native": "il est temps de se lever",
+   "beforePhon": "its TAÏM tou GÈT eup",
+   "afterPhon": "its TAÏM tou GUÈT eup",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "It's time to get up.",
+     "native": "il est temps de se lever",
+     "phon": "its TAÏM tou GÈT eup"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1244",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "Are you single?",
+   "native": "tu es célibataire ?",
+   "beforePhon": "ar you SING-geul",
+   "afterPhon": "ar you SING-gueul",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     6
+    ],
+    "expectedBefore": {
+     "study": "Are you single?",
+     "native": "tu es célibataire ?",
+     "phon": "ar you SING-geul"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:998",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "I guess so.",
+   "native": "je suppose que oui",
+   "beforePhon": "aï GÈS so",
+   "afterPhon": "aï GUÈS so",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     9
+    ],
+    "expectedBefore": {
+     "study": "I guess so.",
+     "native": "je suppose que oui",
+     "phon": "aï GÈS so"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1107",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "Let's play a game.",
+   "native": "jouons à un jeu",
+   "beforePhon": "lèts PLÉÏ eu GÉÏM",
+   "afterPhon": "lèts PLÉÏ eu GUÉÏM",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     71
+    ],
+    "expectedBefore": {
+     "study": "Let's play a game.",
+     "native": "jouons à un jeu",
+     "phon": "lèts PLÉÏ eu GÉÏM"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3264",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "the gate",
+   "native": "la porte d'embarquement",
+   "beforePhon": "zeu GÉÏT",
+   "afterPhon": "zeu GUÉÏT",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     16,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "the gate",
+     "native": "la porte d'embarquement",
+     "phon": "zeu GÉÏT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3924",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "August",
+   "native": "août",
+   "beforePhon": "A-geust",
+   "afterPhon": "A-gueust",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     11
+    ],
+    "expectedBefore": {
+     "study": "August",
+     "native": "août",
+     "phon": "A-geust"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3238",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "a target",
+   "native": "un objectif",
+   "beforePhon": "eu TAR-geut",
+   "afterPhon": "eu TAR-gueut",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     18
+    ],
+    "expectedBefore": {
+     "study": "a target",
+     "native": "un objectif",
+     "phon": "eu TAR-geut"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3258",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "board games",
+   "native": "jeux de société",
+   "beforePhon": "BORD GÉÏMZ",
+   "afterPhon": "BORD GUÉÏMZ",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     23
+    ],
+    "expectedBefore": {
+     "study": "board games",
+     "native": "jeux de société",
+     "phon": "BORD GÉÏMZ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3266",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "a single ticket",
+   "native": "un aller simple",
+   "beforePhon": "eu SING-geul TI-keut",
+   "afterPhon": "eu SING-gueul TI-keut",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     26
+    ],
+    "expectedBefore": {
+     "study": "a single ticket",
+     "native": "un aller simple",
+     "phon": "eu SING-geul TI-keut"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3984",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "the garage",
+   "native": "le garage",
+   "beforePhon": "zeu geur-AJ",
+   "afterPhon": "zeu gueur-AJ",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     40
+    ],
+    "expectedBefore": {
+     "study": "the garage",
+     "native": "le garage",
+     "phon": "zeu geur-AJ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4106",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "a tiger",
+   "native": "un tigre",
+   "beforePhon": "eu TAÏ-geur",
+   "afterPhon": "eu TAÏ-gueur",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     63
+    ],
+    "expectedBefore": {
+     "study": "a tiger",
+     "native": "un tigre",
+     "phon": "eu TAÏ-geur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4161",
+   "level": 4,
+   "rules": [
+    "G"
+   ],
+   "study": "the jungle",
+   "native": "la jungle",
+   "beforePhon": "zeu DJEUNG-geul",
+   "afterPhon": "zeu DJEUNG-gueul",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     76
+    ],
+    "expectedBefore": {
+     "study": "the jungle",
+     "native": "la jungle",
+     "phon": "zeu DJEUNG-geul"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1322",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "I feel guilty.",
+   "native": "je me sens coupable",
+   "beforePhon": "aï FIL GIL-ti",
+   "afterPhon": "aï FIL GUIL-ti",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     1
+    ],
+    "expectedBefore": {
+     "study": "I feel guilty.",
+     "native": "je me sens coupable",
+     "phon": "aï FIL GIL-ti"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1621",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "Do you want to go together?",
+   "native": "tu veux y aller ensemble ?",
+   "beforePhon": "dou you WANT tou GO teu-GÈ-zeur",
+   "afterPhon": "dou you WANT tou GO teu-GUÈ-zeur",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     23
+    ],
+    "expectedBefore": {
+     "study": "Do you want to go together?",
+     "native": "tu veux y aller ensemble ?",
+     "phon": "dou you WANT tou GO teu-GÈ-zeur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1633",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "Will you be my girlfriend?",
+   "native": "veux-tu être ma copine ?",
+   "beforePhon": "wil you bi maï GEURL-frènd",
+   "afterPhon": "wil you bi maï GUEURL-frènd",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     28
+    ],
+    "expectedBefore": {
+     "study": "Will you be my girlfriend?",
+     "native": "veux-tu être ma copine ?",
+     "phon": "wil you bi maï GEURL-frènd"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1293",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "My luggage is lost.",
+   "native": "mes bagages sont perdus",
+   "beforePhon": "maï LEU-geudj iz LOST",
+   "afterPhon": "maï LEU-gueudj iz LOST",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     9
+    ],
+    "expectedBefore": {
+     "study": "My luggage is lost.",
+     "native": "mes bagages sont perdus",
+     "phon": "maï LEU-geudj iz LOST"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1549",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "Where can I get a taxi?",
+   "native": "où puis-je trouver un taxi ?",
+   "beforePhon": "WÈR kan aï GÈT eu TAK-si",
+   "afterPhon": "WÈR kan aï GUÈT eu TAK-si",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     37
+    ],
+    "expectedBefore": {
+     "study": "Where can I get a taxi?",
+     "native": "où puis-je trouver un taxi ?",
+     "phon": "WÈR kan aï GÈT eu TAK-si"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1368",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "You'll get a parcel.",
+   "native": "tu vas recevoir un colis",
+   "beforePhon": "youl GÈT eu PAR-seul",
+   "afterPhon": "youl GUÈT eu PAR-seul",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     6
+    ],
+    "expectedBefore": {
+     "study": "You'll get a parcel.",
+     "native": "tu vas recevoir un colis",
+     "phon": "youl GÈT eu PAR-seul"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1553",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "What's the gate number?",
+   "native": "quel est le numéro de porte ?",
+   "beforePhon": "wots zeu GÉÏT NEUM-beur",
+   "afterPhon": "wots zeu GUÉÏT NEUM-beur",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     19
+    ],
+    "expectedBefore": {
+     "study": "What's the gate number?",
+     "native": "quel est le numéro de porte ?",
+     "phon": "wots zeu GÉÏT NEUM-beur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1298",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "Can you give me a bag?",
+   "native": "tu peux me donner un sac ?",
+   "beforePhon": "kan you GIV mi eu BAG",
+   "afterPhon": "kan you GUIV mi eu BAG",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     15
+    ],
+    "expectedBefore": {
+     "study": "Can you give me a bag?",
+     "native": "tu peux me donner un sac ?",
+     "phon": "kan you GIV mi eu BAG"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1418",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "I forgive you.",
+   "native": "je te pardonne",
+   "beforePhon": "aï feur-GIV you",
+   "afterPhon": "aï feur-GUIV you",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     69
+    ],
+    "expectedBefore": {
+     "study": "I forgive you.",
+     "native": "je te pardonne",
+     "phon": "aï feur-GIV you"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1450",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "I'm getting dressed quickly.",
+   "native": "je m'habille vite",
+   "beforePhon": "aïm GÈ-ting DRÈST KWIK-li",
+   "afterPhon": "aïm GUÈ-ting DRÈST KWIK-li",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     83
+    ],
+    "expectedBefore": {
+     "study": "I'm getting dressed quickly.",
+     "native": "je m'habille vite",
+     "phon": "aïm GÈ-ting DRÈST KWIK-li"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1491",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "Could you guarantee the deadline?",
+   "native": "pourriez-vous garantir le délai ?",
+   "beforePhon": "koud you gè-reun-TI zeu DÈD-laïn",
+   "afterPhon": "koud you guè-reun-TI zeu DÈD-laïn",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     95
+    ],
+    "expectedBefore": {
+     "study": "Could you guarantee the deadline?",
+     "native": "pourriez-vous garantir le délai ?",
+     "phon": "koud you gè-reun-TI zeu DÈD-laïn"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1512",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "Let's get started.",
+   "native": "commençons",
+   "beforePhon": "lèts GÈT STAR-tid",
+   "afterPhon": "lèts GUÈT STAR-tid",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     102
+    ],
+    "expectedBefore": {
+     "study": "Let's get started.",
+     "native": "commençons",
+     "phon": "lèts GÈT STAR-tid"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1615",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "It's getting on my nerves.",
+   "native": "ça me tape sur les nerfs",
+   "beforePhon": "its GÈ-ting an maï NEURVZ",
+   "afterPhon": "its GUÈ-ting an maï NEURVZ",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     137
+    ],
+    "expectedBefore": {
+     "study": "It's getting on my nerves.",
+     "native": "ça me tape sur les nerfs",
+     "phon": "its GÈ-ting an maï NEURVZ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3343",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "Fingers crossed.",
+   "native": "je croise les doigts",
+   "beforePhon": "FING-geurz KROST",
+   "afterPhon": "FING-gueurz KROST",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     149
+    ],
+    "expectedBefore": {
+     "study": "Fingers crossed.",
+     "native": "je croise les doigts",
+     "phon": "FING-geurz KROST"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "situation-authored:fr-en:service-client-06",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "Could you give me a delivery date?",
+   "native": "Pouvez-vous me donner une date de livraison ?",
+   "beforePhon": "koud you GIV mi eu di-LI-veur-i DÉÏT",
+   "afterPhon": "koud you GUIV mi eu di-LI-veur-i DÉÏT",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     11,
+     "phrases",
+     5
+    ],
+    "expectedBefore": {
+     "study": "Could you give me a delivery date?",
+     "native": "Pouvez-vous me donner une date de livraison ?",
+     "phon": "koud you GIV mi eu di-LI-veur-i DÉÏT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "situation-authored:situation-fr-en-piste-depannage-connexion-06",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "I can try again with you.",
+   "native": "Je peux refaire un essai avec vous.",
+   "beforePhon": "aï kan TRAÏ eu-GÈN wiz YOU",
+   "afterPhon": "aï kan TRAÏ eu-GUÈN wiz YOU",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     5
+    ],
+    "expectedBefore": {
+     "study": "I can try again with you.",
+     "native": "Je peux refaire un essai avec vous.",
+     "phon": "aï kan TRAÏ eu-GÈN wiz YOU"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4030",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "a kangaroo",
+   "native": "un kangourou",
+   "beforePhon": "eu kang-geur-OU",
+   "afterPhon": "eu kang-gueur-OU",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     85
+    ],
+    "expectedBefore": {
+     "study": "a kangaroo",
+     "native": "un kangourou",
+     "phon": "eu kang-geur-OU"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4343",
+   "level": 5,
+   "rules": [
+    "G"
+   ],
+   "study": "yoga",
+   "native": "le yoga",
+   "beforePhon": "YO-geu",
+   "afterPhon": "YO-gueu",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     178
+    ],
+    "expectedBefore": {
+     "study": "yoga",
+     "native": "le yoga",
+     "phon": "YO-geu"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1900",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "Can you give me a hand?",
+   "native": "tu peux me donner un coup de main ?",
+   "beforePhon": "kan you GIV mi eu HAND",
+   "afterPhon": "kan you GUIV mi eu HAND",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     21
+    ],
+    "expectedBefore": {
+     "study": "Can you give me a hand?",
+     "native": "tu peux me donner un coup de main ?",
+     "phon": "kan you GIV mi eu HAND"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1758",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "It's buy one get one free.",
+   "native": "un acheté, un offert",
+   "beforePhon": "its BAÏ WEUN GÈT WEUN FRI",
+   "afterPhon": "its BAÏ WEUN GUÈT WEUN FRI",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     13
+    ],
+    "expectedBefore": {
+     "study": "It's buy one get one free.",
+     "native": "un acheté, un offert",
+     "phon": "its BAÏ WEUN GÈT WEUN FRI"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1882",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "I added too much sugar.",
+   "native": "j'ai ajouté trop de sucre",
+   "beforePhon": "aï A-deud tou MEUTCH CHOU-geur",
+   "afterPhon": "aï A-deud tou MEUTCH CHOU-gueur",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     27
+    ],
+    "expectedBefore": {
+     "study": "I added too much sugar.",
+     "native": "j'ai ajouté trop de sucre",
+     "phon": "aï A-deud tou MEUTCH CHOU-geur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1678",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "Can I leave my luggage here?",
+   "native": "je peux laisser mes bagages ici ?",
+   "beforePhon": "kan aï LIV maï LEU-geudj HIR",
+   "afterPhon": "kan aï LIV maï LEU-gueudj HIR",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     1
+    ],
+    "expectedBefore": {
+     "study": "Can I leave my luggage here?",
+     "native": "je peux laisser mes bagages ici ?",
+     "phon": "kan aï LIV maï LEU-geudj HIR"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1953",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "Where's the baggage claim?",
+   "native": "où est le retrait des bagages ?",
+   "beforePhon": "wèrz zeu BA-geudj KLÉÏM",
+   "afterPhon": "wèrz zeu BA-gueudj KLÉÏM",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     26
+    ],
+    "expectedBefore": {
+     "study": "Where's the baggage claim?",
+     "native": "où est le retrait des bagages ?",
+     "phon": "wèrz zeu BA-geudj KLÉÏM"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1957",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "We should get going.",
+   "native": "on devrait y aller",
+   "beforePhon": "wi choud GÈT GO-ing",
+   "afterPhon": "wi choud GUÈT GO-ing",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     29
+    ],
+    "expectedBefore": {
+     "study": "We should get going.",
+     "native": "on devrait y aller",
+     "phon": "wi choud GÈT GO-ing"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1676",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "Where is gate 12?",
+   "native": "où est la porte 12 ?",
+   "beforePhon": "WÈR iz GÉÏT touèlv",
+   "afterPhon": "WÈR iz GUÉÏT touèlv",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     1
+    ],
+    "expectedBefore": {
+     "study": "Where is gate 12?",
+     "native": "où est la porte 12 ?",
+     "phon": "WÈR iz GÉÏT touèlv"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3379",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "The heat sink gets too hot.",
+   "native": "le dissipateur chauffe trop",
+   "beforePhon": "zeu HIT SINGK GÈTS tou HAT",
+   "afterPhon": "zeu HIT SINGK GUÈTS tou HAT",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     6
+    ],
+    "expectedBefore": {
+     "study": "The heat sink gets too hot.",
+     "native": "le dissipateur chauffe trop",
+     "phon": "zeu HIT SINGK GÈTS tou HAT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3435",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "The beam angle is too wide.",
+   "native": "l'angle du faisceau est trop large",
+   "beforePhon": "zeu BIM ANG-geul iz tou WAÏD",
+   "afterPhon": "zeu BIM ANG-gueul iz tou WAÏD",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     7
+    ],
+    "expectedBefore": {
+     "study": "The beam angle is too wide.",
+     "native": "l'angle du faisceau est trop large",
+     "phon": "zeu BIM ANG-geul iz tou WAÏD"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1668",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "Can you guarantee consistency?",
+   "native": "pouvez-vous garantir la régularité ?",
+   "beforePhon": "kan you gè-reun-TI keun-SIS-teun-si",
+   "afterPhon": "kan you guè-reun-TI keun-SIS-teun-si",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     9
+    ],
+    "expectedBefore": {
+     "study": "Can you guarantee consistency?",
+     "native": "pouvez-vous garantir la régularité ?",
+     "phon": "kan you gè-reun-TI keun-SIS-teun-si"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1719",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "Here's a gift for you.",
+   "native": "voici un cadeau pour toi",
+   "beforePhon": "hirz eu GIFT for you",
+   "afterPhon": "hirz eu GUIFT for you",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     29
+    ],
+    "expectedBefore": {
+     "study": "Here's a gift for you.",
+     "native": "voici un cadeau pour toi",
+     "phon": "hirz eu GIFT for you"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1792",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "I play video games.",
+   "native": "je joue aux jeux vidéo",
+   "beforePhon": "aï PLÉÏ VI-di-o GÉÏMZ",
+   "afterPhon": "aï PLÉÏ VI-di-o GUÉÏMZ",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     58
+    ],
+    "expectedBefore": {
+     "study": "I play video games.",
+     "native": "je joue aux jeux vidéo",
+     "phon": "aï PLÉÏ VI-di-o GÉÏMZ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1877",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "Let me give you an example.",
+   "native": "laisse-moi te donner un exemple",
+   "beforePhon": "LÈT mi GIV you an ig-ZAM-peul",
+   "afterPhon": "LÈT mi GUIV you an ig-ZAM-peul",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     91
+    ],
+    "expectedBefore": {
+     "study": "Let me give you an example.",
+     "native": "laisse-moi te donner un exemple",
+     "phon": "LÈT mi GIV you an ig-ZAM-peul"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1934",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "Let's have dinner together.",
+   "native": "dînons ensemble",
+   "beforePhon": "lèts hav DI-neur teu-GÈ-zeur",
+   "afterPhon": "lèts hav DI-neur teu-GUÈ-zeur",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     114
+    ],
+    "expectedBefore": {
+     "study": "Let's have dinner together.",
+     "native": "dînons ensemble",
+     "phon": "lèts hav DI-neur teu-GÈ-zeur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1836",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "Can I get a sample?",
+   "native": "je peux avoir un échantillon ?",
+   "beforePhon": "kan aï GÈT eu SAM-peul",
+   "afterPhon": "kan aï GUÈT eu SAM-peul",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     10
+    ],
+    "expectedBefore": {
+     "study": "Can I get a sample?",
+     "native": "je peux avoir un échantillon ?",
+     "phon": "kan aï GÈT eu SAM-peul"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:1837",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "Can we get a sample?",
+   "native": "on peut avoir un échantillon ?",
+   "beforePhon": "kan wi GÈT eu SAM-peul",
+   "afterPhon": "kan wi GUÈT eu SAM-peul",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     11
+    ],
+    "expectedBefore": {
+     "study": "Can we get a sample?",
+     "native": "on peut avoir un échantillon ?",
+     "phon": "kan wi GÈT eu SAM-peul"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3480",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "the departure gate",
+   "native": "la porte de départ",
+   "beforePhon": "zeu di-PAR-tcheur GÉÏT",
+   "afterPhon": "zeu di-PAR-tcheur GUÉÏT",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     4
+    ],
+    "expectedBefore": {
+     "study": "the departure gate",
+     "native": "la porte de départ",
+     "phon": "zeu di-PAR-tcheur GÉÏT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 1
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3418",
+   "level": 6,
+   "rules": [
+    "G"
+   ],
+   "study": "checked luggage",
+   "native": "bagages enregistrés",
+   "beforePhon": "TCHÈKT LEU-geudj",
+   "afterPhon": "TCHÈKT LEU-gueudj",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+    "location": [
+     "themes",
+     14,
+     "phrases",
+     1
+    ],
+    "expectedBefore": {
+     "study": "checked luggage",
+     "native": "bagages enregistrés",
+     "phon": "TCHÈKT LEU-geudj"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 1
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2224",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "Please get back to me today.",
+   "native": "merci de me répondre aujourd'hui",
+   "beforePhon": "PLIZ GÈT BAK tou mi teu-DÉÏ",
+   "afterPhon": "PLIZ GUÈT BAK tou mi teu-DÉÏ",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     6
+    ],
+    "expectedBefore": {
+     "study": "Please get back to me today.",
+     "native": "merci de me répondre aujourd'hui",
+     "phon": "PLIZ GÈT BAK tou mi teu-DÉÏ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2357",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "Do you want to stay a bit longer?",
+   "native": "tu veux rester encore un peu ?",
+   "beforePhon": "dou you WANT tou STÉÏ eu BIT LONG-geur",
+   "afterPhon": "dou you WANT tou STÉÏ eu BIT LONG-gueur",
+   "alignment": "Do → dou · you → you · want → WANT · to → tou · stay → STÉÏ · a → eu · bit → BIT · longer → LONG-geur",
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     26
+    ],
+    "expectedBefore": {
+     "study": "Do you want to stay a bit longer?",
+     "native": "tu veux rester encore un peu ?",
+     "phon": "dou you WANT tou STÉÏ eu BIT LONG-geur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2193",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "I'll get back to you tomorrow.",
+   "native": "je reviens vers vous demain",
+   "beforePhon": "aïl GÈT BAK tou you teu-MA-ro",
+   "afterPhon": "aïl GUÈT BAK tou you teu-MA-ro",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     10
+    ],
+    "expectedBefore": {
+     "study": "I'll get back to you tomorrow.",
+     "native": "je reviens vers vous demain",
+     "phon": "aïl GÈT BAK tou you teu-MA-ro"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2217",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "I'll get back to you soon.",
+   "native": "je reviens vers vous bientôt",
+   "beforePhon": "aïl GÈT BAK tou you SOUN",
+   "afterPhon": "aïl GUÈT BAK tou you SOUN",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     11
+    ],
+    "expectedBefore": {
+     "study": "I'll get back to you soon.",
+     "native": "je reviens vers vous bientôt",
+     "phon": "aïl GÈT BAK tou you SOUN"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2115",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "They got engaged last month.",
+   "native": "ils se sont fiancés le mois dernier",
+   "beforePhon": "zéï got èn-GÉÏDJD last MEUNZ",
+   "afterPhon": "zéï got èn-GUÉÏDJD last MEUNZ",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     8
+    ],
+    "expectedBefore": {
+     "study": "They got engaged last month.",
+     "native": "ils se sont fiancés le mois dernier",
+     "phon": "zéï got èn-GÉÏDJD last MEUNZ"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2024",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "Let's begin the meeting.",
+   "native": "commençons la réunion",
+   "beforePhon": "lèts bi-GIN zeu MI-ting",
+   "afterPhon": "lèts bi-GUIN zeu MI-ting",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     12
+    ],
+    "expectedBefore": {
+     "study": "Let's begin the meeting.",
+     "native": "commençons la réunion",
+     "phon": "lèts bi-GIN zeu MI-ting"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2062",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "Can you add a gift box?",
+   "native": "pouvez-vous ajouter un coffret cadeau ?",
+   "beforePhon": "kan you AD eu GIFT BAKS",
+   "afterPhon": "kan you AD eu GUIFT BAKS",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     32
+    ],
+    "expectedBefore": {
+     "study": "Can you add a gift box?",
+     "native": "pouvez-vous ajouter un coffret cadeau ?",
+     "phon": "kan you AD eu GIFT BAKS"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2068",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "I cut my finger.",
+   "native": "je me suis coupé le doigt",
+   "beforePhon": "aï KEUT maï FING-geur",
+   "afterPhon": "aï KEUT maï FING-gueur",
+   "alignment": "I → aï · cut → KEUT · my → maï · finger → FING-geur",
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     35
+    ],
+    "expectedBefore": {
+     "study": "I cut my finger.",
+     "native": "je me suis coupé le doigt",
+     "phon": "aï KEUT maï FING-geur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2105",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "He aimed at the target.",
+   "native": "il a visé la cible",
+   "beforePhon": "hi ÉÏMD at zeu TAR-geut",
+   "afterPhon": "hi ÉÏMD at zeu TAR-gueut",
+   "alignment": "He → hi · aimed → ÉÏMD · at → at · the → zeu · target → TAR-geut",
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     51
+    ],
+    "expectedBefore": {
+     "study": "He aimed at the target.",
+     "native": "il a visé la cible",
+     "phon": "hi ÉÏMD at zeu TAR-geut"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2114",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "No pain, no gain.",
+   "native": "on n'a rien sans rien",
+   "beforePhon": "no PÉÏN no GÉÏN",
+   "afterPhon": "no PÉÏN no GUÉÏN",
+   "alignment": "No → no · pain → PÉÏN · no → no · gain → GÉÏN",
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     56
+    ],
+    "expectedBefore": {
+     "study": "No pain, no gain.",
+     "native": "on n'a rien sans rien",
+     "phon": "no PÉÏN no GÉÏN"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2197",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "Let's get down to business.",
+   "native": "passons aux choses sérieuses",
+   "beforePhon": "lèts GÈT DAOUN tou BIZ-neus",
+   "afterPhon": "lèts GUÈT DAOUN tou BIZ-neus",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     102
+    ],
+    "expectedBefore": {
+     "study": "Let's get down to business.",
+     "native": "passons aux choses sérieuses",
+     "phon": "lèts GÈT DAOUN tou BIZ-neus"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2214",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "Give me your best offer.",
+   "native": "donnez-moi votre meilleure offre",
+   "beforePhon": "GIV mi yor BÈST O-feur",
+   "afterPhon": "GUIV mi yor BÈST O-feur",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     113
+    ],
+    "expectedBefore": {
+     "study": "Give me your best offer.",
+     "native": "donnez-moi votre meilleure offre",
+     "phon": "GIV mi yor BÈST O-feur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2218",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "Give me a little something.",
+   "native": "faites-moi un petit geste",
+   "beforePhon": "GIV mi eu LI-teul SEUM-sing",
+   "afterPhon": "GUIV mi eu LI-teul SEUM-sing",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     116
+    ],
+    "expectedBefore": {
+     "study": "Give me a little something.",
+     "native": "faites-moi un petit geste",
+     "phon": "GIV mi eu LI-teul SEUM-sing"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2040",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "Can you guarantee the quality?",
+   "native": "pouvez-vous garantir la qualité ?",
+   "beforePhon": "kan you gè-reun-TI zeu KWA-leu-ti",
+   "afterPhon": "kan you guè-reun-TI zeu KWA-leu-ti",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     7
+    ],
+    "expectedBefore": {
+     "study": "Can you guarantee the quality?",
+     "native": "pouvez-vous garantir la qualité ?",
+     "phon": "kan you gè-reun-TI zeu KWA-leu-ti"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2210",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "Could you guarantee the quality?",
+   "native": "pourriez-vous garantir la qualité ?",
+   "beforePhon": "koud you gè-reun-TI zeu KWA-leu-ti",
+   "afterPhon": "koud you guè-reun-TI zeu KWA-leu-ti",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     19
+    ],
+    "expectedBefore": {
+     "study": "Could you guarantee the quality?",
+     "native": "pourriez-vous garantir la qualité ?",
+     "phon": "koud you gè-reun-TI zeu KWA-leu-ti"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3511",
+   "level": 7,
+   "rules": [
+    "G"
+   ],
+   "study": "baggage claim",
+   "native": "le retrait des bagages",
+   "beforePhon": "BA-geudj KLÉÏM",
+   "afterPhon": "BA-gueudj KLÉÏM",
+   "alignment": "baggage → BA-geudj (g dur manquant → BA-gueudj) · claim → KLÉÏM",
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": true,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     0
+    ],
+    "expectedBefore": {
+     "study": "baggage claim",
+     "native": "le retrait des bagages",
+     "phon": "BA-geudj KLÉÏM"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 1
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2448",
+   "level": 8,
+   "rules": [
+    "G"
+   ],
+   "study": "I will get back to you soon.",
+   "native": "je reviens vers vous bientôt",
+   "beforePhon": "aï wil GÈT BAK tou you SOUN",
+   "afterPhon": "aï wil GUÈT BAK tou you SOUN",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     1
+    ],
+    "expectedBefore": {
+     "study": "I will get back to you soon.",
+     "native": "je reviens vers vous bientôt",
+     "phon": "aï wil GÈT BAK tou you SOUN"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 1
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2398",
+   "level": 8,
+   "rules": [
+    "G"
+   ],
+   "study": "Give me the tracking number.",
+   "native": "donnez-moi le numéro de suivi",
+   "beforePhon": "GIV mi zeu TRA-king NEUM-beur",
+   "afterPhon": "GUIV mi zeu TRA-king NEUM-beur",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     4
+    ],
+    "expectedBefore": {
+     "study": "Give me the tracking number.",
+     "native": "donnez-moi le numéro de suivi",
+     "phon": "GIV mi zeu TRA-king NEUM-beur"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2485",
+   "level": 8,
+   "rules": [
+    "G"
+   ],
+   "study": "Nothing ventured, nothing gained.",
+   "native": "qui ne tente rien n'a rien",
+   "beforePhon": "NEU-sing VÈN-tcheurd NEU-sing GÉÏND",
+   "afterPhon": "NEU-sing VÈN-tcheurd NEU-sing GUÉÏND",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     45
+    ],
+    "expectedBefore": {
+     "study": "Nothing ventured, nothing gained.",
+     "native": "qui ne tente rien n'a rien",
+     "phon": "NEU-sing VÈN-tcheurd NEU-sing GÉÏND"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2488",
+   "level": 8,
+   "rules": [
+    "G"
+   ],
+   "study": "Text me when you get home.",
+   "native": "écris-moi quand tu rentres",
+   "beforePhon": "TÈKST mi WÈN you GÈT HOM",
+   "afterPhon": "TÈKST mi WÈN you GUÈT HOM",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     46
+    ],
+    "expectedBefore": {
+     "study": "Text me when you get home.",
+     "native": "écris-moi quand tu rentres",
+     "phon": "TÈKST mi WÈN you GÈT HOM"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4452",
+   "level": 8,
+   "rules": [
+    "G"
+   ],
+   "study": "On this point, I can give a little.",
+   "native": "sur ce point, je peux faire un effort",
+   "beforePhon": "an zis POÏNT aï kan GIV eu LI-teul",
+   "afterPhon": "an zis POÏNT aï kan GUIV eu LI-teul",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     98
+    ],
+    "expectedBefore": {
+     "study": "On this point, I can give a little.",
+     "native": "sur ce point, je peux faire un effort",
+     "phon": "an zis POÏNT aï kan GIV eu LI-teul"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:4450",
+   "level": 8,
+   "rules": [
+    "G"
+   ],
+   "study": "The bigger the order, the better the price, right?",
+   "native": "plus on commande, meilleur est le prix, non ?",
+   "beforePhon": "zeu BI-geur zeu OR-deur zeu BÈ-teur zeu PRAÏS RAÏT",
+   "afterPhon": "zeu BI-gueur zeu OR-deur zeu BÈ-teur zeu PRAÏS RAÏT",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     21
+    ],
+    "expectedBefore": {
+     "study": "The bigger the order, the better the price, right?",
+     "native": "plus on commande, meilleur est le prix, non ?",
+     "phon": "zeu BI-geur zeu OR-deur zeu BÈ-teur zeu PRAÏS RAÏT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2803",
+   "level": 9,
+   "rules": [
+    "G"
+   ],
+   "study": "I'll get back to you shortly.",
+   "native": "je reviens vers vous très vite",
+   "beforePhon": "aïl GÈT BAK tou you CHOR-tli",
+   "afterPhon": "aïl GUÈT BAK tou you CHOR-tli",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L9.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     2
+    ],
+    "expectedBefore": {
+     "study": "I'll get back to you shortly.",
+     "native": "je reviens vers vous très vite",
+     "phon": "aïl GÈT BAK tou you CHOR-tli"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2680",
+   "level": 9,
+   "rules": [
+    "G"
+   ],
+   "study": "Think about it and get back to me.",
+   "native": "réfléchissez-y et revenez vers moi",
+   "beforePhon": "SINGK eu-BAOUT it eund GÈT BAK tou mi",
+   "afterPhon": "SINGK eu-BAOUT it eund GUÈT BAK tou mi",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L9.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     4
+    ],
+    "expectedBefore": {
+     "study": "Think about it and get back to me.",
+     "native": "réfléchissez-y et revenez vers moi",
+     "phon": "SINGK eu-BAOUT it eund GÈT BAK tou mi"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2734",
+   "level": 9,
+   "rules": [
+    "G"
+   ],
+   "study": "Give me a reason to choose you.",
+   "native": "donnez-moi une raison de vous choisir",
+   "beforePhon": "GIV mi eu RI-zeun tou TCHOUZ you",
+   "afterPhon": "GUIV mi eu RI-zeun tou TCHOUZ you",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L9.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     35
+    ],
+    "expectedBefore": {
+     "study": "Give me a reason to choose you.",
+     "native": "donnez-moi une raison de vous choisir",
+     "phon": "GIV mi eu RI-zeun tou TCHOUZ you"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2879",
+   "level": 10,
+   "rules": [
+    "G"
+   ],
+   "study": "Give me your final quote.",
+   "native": "donnez-moi votre devis final",
+   "beforePhon": "GIV mi yor FAÏ-neul KWOT",
+   "afterPhon": "GUIV mi yor FAÏ-neul KWOT",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L10.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     14
+    ],
+    "expectedBefore": {
+     "study": "Give me your final quote.",
+     "native": "donnez-moi votre devis final",
+     "phon": "GIV mi yor FAÏ-neul KWOT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:3698",
+   "level": 10,
+   "rules": [
+    "G"
+   ],
+   "study": "carry-on luggage",
+   "native": "un bagage à main",
+   "beforePhon": "KA-ri an LEU-geudj",
+   "afterPhon": "KA-ri an LEU-gueudj",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L10.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     0
+    ],
+    "expectedBefore": {
+     "study": "carry-on luggage",
+     "native": "un bagage à main",
+     "phon": "KA-ri an LEU-geudj"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "catalogue:en:2880",
+   "level": 10,
+   "rules": [
+    "G"
+   ],
+   "study": "Thirty percent deposit, seventy against the B/L.",
+   "native": "trente pour cent d'acompte, soixante-dix contre le connaissement",
+   "beforePhon": "SEUR-di peur-SÈNT deu-PA-zit SÈ-veun-ti eu-GÈNST zeu BI ÈL",
+   "afterPhon": "SEUR-di peur-SÈNT deu-PA-zit SÈ-veun-ti eu-GUÈNST zeu BI ÈL",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L10.json",
+    "location": [
+     "reserve",
+     1
+    ],
+    "expectedBefore": {
+     "study": "Thirty percent deposit, seventy against the B/L.",
+     "native": "trente pour cent d'acompte, soixante-dix contre le connaissement",
+     "phon": "SEUR-di peur-SÈNT deu-PA-zit SÈ-veun-ti eu-GÈNST zeu BI ÈL"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "heard-authored:situation-fr-en-piste-boisson-precise-received-01",
+   "level": null,
+   "rules": [
+    "G"
+   ],
+   "study": "That's tea without sugar for you, right?",
+   "native": "C’est bien un thé sans sucre pour vous ?",
+   "beforePhon": "zats TI wiz-AOUT CHOU-geur for YOU RAÏT",
+   "afterPhon": "zats TI wiz-AOUT CHOU-gueur for YOU RAÏT",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-en.json",
+    "location": [
+     "receivedModels",
+     5
+    ],
+    "expectedBefore": {
+     "study": "That's tea without sugar for you, right?",
+     "native": "C’est bien un thé sans sucre pour vous ?",
+     "phon": "zats TI wiz-AOUT CHOU-geur for YOU RAÏT"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  },
+  {
+   "pair": "fr-en",
+   "id": "heard-authored:situation-fr-en-piste-recuperer-compte-received-02",
+   "level": null,
+   "rules": [
+    "G"
+   ],
+   "study": "Great, you have access again.",
+   "native": "Parfait, votre accès est rétabli.",
+   "beforePhon": "GRÉÏT you HAV AK-sès eu-GÈN",
+   "afterPhon": "GRÉÏT you HAV AK-sès eu-GUÈN",
+   "alignment": null,
+   "reason": "g dur de l'anglais écrit g devant e, é, è, i ou y",
+   "readerFinding": false,
+   "occurrence": {
+    "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-en.json",
+    "location": [
+     "receivedModels",
+     24
+    ],
+    "expectedBefore": {
+     "study": "Great, you have access again.",
+     "native": "Parfait, votre accès est rétabli.",
+     "phon": "GRÉÏT you HAV AK-sès eu-GÈN"
+    }
+   },
+   "priorCorrection": false,
+   "transportCopies": 0
+  }
+ ]
+}

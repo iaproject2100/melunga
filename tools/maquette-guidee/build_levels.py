@@ -65,6 +65,9 @@ _lot5_spec.loader.exec_module(lot5_corrections)
 _lot6_spec = importlib.util.spec_from_file_location("audited_lot6_corrections", Path(__file__).with_name("lot6_corrections.py"))
 lot6_corrections = importlib.util.module_from_spec(_lot6_spec)
 _lot6_spec.loader.exec_module(lot6_corrections)
+_lot7_spec = importlib.util.spec_from_file_location("audited_lot7_corrections", Path(__file__).with_name("lot7_corrections.py"))
+lot7_corrections = importlib.util.module_from_spec(_lot7_spec)
+_lot7_spec.loader.exec_module(lot7_corrections)
 
 
 def canonical(value):
@@ -1651,8 +1654,12 @@ def make(include_situations=True):
         report["lot6FieldCorrections"] = lot6_fields_summary
         outputs, lot6_content_summary = lot6_corrections.apply_to_outputs(ROOT, outputs, report, "content")
         report["lot6ContentCorrections"] = lot6_content_summary
+        outputs, lot7_phonetic_summary = lot7_corrections.apply_to_outputs(ROOT, outputs, report, "phonetic")
+        report["lot7PhoneticCorrections"] = lot7_phonetic_summary
+        outputs, lot7_content_summary = lot7_corrections.apply_to_outputs(ROOT, outputs, report, "content")
+        report["lot7ContentCorrections"] = lot7_content_summary
         for transport in report["reviewTransports"]:
-            transport["fileSha256"] = lot6_content_summary["transportSha256ByPair"][transport["pair"]]
+            transport["fileSha256"] = lot7_content_summary["transportSha256ByPair"][transport["pair"]]
         report["manifestSha256"] = sha(json.loads(outputs[OUTPUT / "manifest.json"]))
     # include_situations=False is the source-exact historical baseline used by
     # validate_situation_drafts.py. It is not a served runtime edition and has
@@ -1769,6 +1776,18 @@ def markdown(report):
             f"Le registre `{lot6_content['registryPath']}` applique **45 gloses natives certaines et deux blocs étude/lecture/aide atomiques**, dans **{lot6_content['occurrenceCount']} objets / {lot6_content['changedRuntimeFields']} champs changés**, après le raccord phonétique. Les gloses et les blocs ont leurs preuves et leur annotation propres ; les aides antérieures restent dans leur provenance.", "",
             "Les 447 propositions de niveaux et thèmes restent non appliquées. Aucune règle universelle de registre ou de prononciation n’est inférée.", "",
             f"Empreinte du registre de contenu : `{lot6_content['registrySha256']}`.", ""])
+    lot7_phonetic = report.get("lot7PhoneticCorrections")
+    if lot7_phonetic:
+        lines.extend(["## Raccord des aides anglaises — lot 7", "",
+            f"Le registre `{lot7_phonetic['registryPath']}` applique **228 aides entières figées**, dont trois modèles reçus. Les copies de transport sont mises à jour : **{lot7_phonetic['occurrenceCount']} objets / {lot7_phonetic['changedRuntimeFields']} champs**. Aucune lecture n’est modifiée. Les étiquettes G/W/A/H/Z/T décrivent ces seuls événements ; aucune règle n’est étendue.", "",
+            "Les 30 conventions restent en attente ; G applique localement le repère du g dur déjà retenu, et A désigne ici l’accent anglais, sans réactiver l’ancienne règle espagnole retirée.", "",
+            f"Empreinte du registre : `{lot7_phonetic['registrySha256']}`.", ""])
+    lot7_content = report.get("lot7ContentCorrections")
+    if lot7_content:
+        lines.extend(["## Lot de contenu anglais séparé — lot 7", "",
+            f"Le registre `{lot7_content['registryPath']}` applique **11 gloses certaines et cinq blocs complets étude/aide, avec glose quand elle change**, dans **{lot7_content['occurrenceCount']} objets / {lot7_content['changedRuntimeFields']} champs**. Les deux blocs à deux champs gardent leur sens original, les trois autres changent les trois champs ensemble.", "",
+            "Les 95 gloses incertaines, 689 propositions de thème/niveau/doublon et 30 conventions restent non appliquées. Aucun placement, niveau ni droit n’est modifié.", "",
+            f"Empreinte du registre de contenu : `{lot7_content['registrySha256']}`.", ""])
     return "\n".join(lines)
 
 

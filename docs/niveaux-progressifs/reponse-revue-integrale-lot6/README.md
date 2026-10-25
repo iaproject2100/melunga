@@ -1,5 +1,7 @@
 # Reprise du lot 6 — coréen pour francophones
 
+État historique du lot 6 à `d56fe23`. Le [lot 7](../verification-raccord-lot7.md) décrit l’édition actuelle.
+
 La livraison de Claude `87357b1` est raccordée sur les avant de `161d0eb`,
 après les couches précédentes conservées. Deux registres séparent les aides
 et lectures des corrections de contenu.

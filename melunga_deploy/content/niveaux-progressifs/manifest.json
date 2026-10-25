@@ -513,7 +513,7 @@
         }
       ],
       "repertoirePath": "content/niveaux-progressifs/repertoires/fr-en.json",
-      "repertoireSha256": "f51f1834084bdcfe8ed42820d04f35f5449829f34fd358bbacdc37806ec4c199"
+      "repertoireSha256": "e0cb781e93ce169b725aed439b71d1be885011a6282ec6deeb8ee57992b68a4f"
     },
     {
       "id": "fr-es",
@@ -2445,6 +2445,42 @@
     "changedFieldCount": 51,
     "evidenceCommits": [
       "87357b16c7d77a1c94fdbd940dcb3f232758748d"
+    ]
+  },
+  "lot7PhoneticCorrections": {
+    "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot7/revue-claude-lot7.json",
+    "registrySha256": "27991b959c40fe0b93787d974a95082b8e6b9314e468c6108ffe63fce0113463",
+    "baseSnapshotCommit": "d56fe23b4bafd63bbd2d4aefb67896dbc12374a2",
+    "appliesAfter": [
+      {
+        "registryPath": "docs/niveaux-progressifs/corrections-contenu/lot6/revue-contenu-lot6.json",
+        "registrySha256": "40083b22a87d0ab246b8a979f659e06b777840dcbfca501b95edfe78ea546eb5"
+      }
+    ],
+    "correctionCount": 228,
+    "eventCount": 228,
+    "approvedFieldCount": 228,
+    "changedFieldCount": 228,
+    "evidenceCommits": [
+      "dec4e90a01ca40dca2394ac43eb37a4771b011b1"
+    ]
+  },
+  "lot7ContentCorrections": {
+    "registryPath": "docs/niveaux-progressifs/corrections-contenu/lot7/revue-contenu-lot7.json",
+    "registrySha256": "68a81f3568ba85f1de5f0ca3e2f5494728f65e806536e36f136376b22fac22a0",
+    "baseSnapshotCommit": "d56fe23b4bafd63bbd2d4aefb67896dbc12374a2",
+    "appliesAfter": [
+      {
+        "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot7/revue-claude-lot7.json",
+        "registrySha256": "27991b959c40fe0b93787d974a95082b8e6b9314e468c6108ffe63fce0113463"
+      }
+    ],
+    "correctionCount": 16,
+    "eventCount": 16,
+    "approvedFieldCount": 24,
+    "changedFieldCount": 24,
+    "evidenceCommits": [
+      "dec4e90a01ca40dca2394ac43eb37a4771b011b1"
     ]
   }
 }

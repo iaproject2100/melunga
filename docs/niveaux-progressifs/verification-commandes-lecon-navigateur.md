@@ -1,6 +1,6 @@
 # Vérification des commandes et de la fiche sans défilement
 
-Exécution : `2026-10-25T19:21:17.390Z` — **9 contrôles sur 9 réussis**.
+Exécution : `2026-10-25T20:30:47.838Z` — **9 contrôles sur 9 réussis**.
 
 Chromium local, écrans émulés. Aucun téléphone physique ni site public testé. Les voix sont simulées pour vérifier le texte transmis ; ce rapport ne valide ni le son réel ni les phonétiques.
 
@@ -40,3 +40,11 @@ sont validés avant projection privée des seules corrections attestées vers
 les sources historiques. Les cinq 한국어 et les deux blocs atomiques font
 l’objet de tests ciblés supplémentaires. Les 447 propositions et les 260
 conventions restent non appliquées. Voir [le raccord lot 6](verification-raccord-lot6.md).
+
+L’édition du lot 7 ajoute 228 aides anglaises entières, puis 11
+gloses et cinq blocs complets dans un registre distinct. Les études et aides
+changent ensemble ; trois blocs changent aussi le sens, deux le gardent. Les après
+sont validés avant projection privée des seules corrections attestées vers
+les sources historiques. Les six familles anglaises et les cinq blocs atomiques font
+l’objet de tests ciblés supplémentaires. Les 689 propositions et les 30
+conventions restent non appliquées. Voir [le raccord lot 7](verification-raccord-lot7.md).
