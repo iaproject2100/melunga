@@ -8195,7 +8195,7 @@
   ],
   "runtimeInstantiation": {
     "generatedAt": "2026-10-24T19:39:47.421665+00:00",
-    "manifestSha256": "37dce46780c8e8bde99e43a69d1ff7b6e24c45b0e69fa72c3c0a542039d5addb",
+    "manifestSha256": "1044bb4b4ccff1bbc2023ad7d329e463009f2418e4c05c902398a1e52168c9eb",
     "planSha256": "d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379",
     "newResearchProposals": 18,
     "newPairThemes": 126,
@@ -8403,15 +8403,15 @@
     "notAnAcquisitionMeasure": true,
     "browserStatus": "passed-19-checks",
     "browserReportPath": "docs/niveaux-progressifs/verification-navigateur.json",
-    "browserReportSha256": "be8c87dcc4af3ae2e96aaf89ae63b7003545524756eebf0068e03cbe43d1a546",
-    "browserExecutedAt": "2026-10-25T16:05:05.485Z",
-    "browserManifestSha256": "37dce46780c8e8bde99e43a69d1ff7b6e24c45b0e69fa72c3c0a542039d5addb",
+    "browserReportSha256": "216c26f876f82f25f51de7abafc9ebb76795b1bc637b10490bed1410806ce24a",
+    "browserExecutedAt": "2026-10-25T17:26:14.967Z",
+    "browserManifestSha256": "1044bb4b4ccff1bbc2023ad7d329e463009f2418e4c05c902398a1e52168c9eb",
     "browserCellViews": 210,
     "browserWholeLearnerPositions": 1568,
     "browserReceivedPositions": 259,
     "browserLexicalSupportPositions": 252,
     "browserAllInputsStable": true,
-    "sourceTupleComparisonStage": "Exact lot3 and lot2 corrected runtime values verified against their frozen events, then original whole-source tuple compared through private before projections",
+    "sourceTupleComparisonStage": "Verify exact approved after values for all four frozen correction layers, then compare whole original tuples through private backward projections; semantic content exceptions are explicitly declared",
     "phoneticCorrections": {
       "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
       "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
@@ -8436,6 +8436,49 @@
       "runtimeObjects": 98,
       "runtimeFields": 102,
       "globalNativeApproval": false
+    },
+    "lot4PhoneticCorrections": {
+      "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot4/revue-claude-lot4.json",
+      "registrySha256": "92f93724dfe4ef1586a588b1372c72639e0fa1016834d1cc9a1ab66fda9b6c88",
+      "baseSnapshotCommit": "606592ccf11886810a6bb9fbabc56728cf5055c9",
+      "appliesAfter": [
+        {
+          "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/revue-claude-lot3.json",
+          "registrySha256": "20ad657496a94a036c8e6aa74088f172ddc8c4ebb7eacb074f2133fa84beb393"
+        }
+      ],
+      "correctionCount": 259,
+      "eventCount": 259,
+      "approvedFieldCount": 259,
+      "changedFieldCount": 259,
+      "evidenceCommits": [
+        "7631c0fe64170f952e086487462e94c87bfb13e1"
+      ],
+      "runtimeObjects": 275,
+      "runtimeChangedFields": 275
+    },
+    "reviewedContentCorrections": {
+      "registryPath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/revue-contenu-lot3-lot4.json",
+      "registrySha256": "346a85c459bb3adfc556c8946262509d19e9ffd46e65e9aa2dba40729aceab91",
+      "baseSnapshotCommit": "606592ccf11886810a6bb9fbabc56728cf5055c9",
+      "appliesAfter": [
+        {
+          "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot4/revue-claude-lot4.json",
+          "registrySha256": "92f93724dfe4ef1586a588b1372c72639e0fa1016834d1cc9a1ab66fda9b6c88"
+        }
+      ],
+      "correctionCount": 35,
+      "eventCount": 35,
+      "approvedFieldCount": 40,
+      "changedFieldCount": 39,
+      "evidenceCommits": [
+        "7631c0fe64170f952e086487462e94c87bfb13e1",
+        "c849bf3d13d4141eae8b34f8cc5d3d43167bec60"
+      ],
+      "runtimeObjects": 36,
+      "runtimeApprovedFields": 41,
+      "runtimeChangedFields": 40,
+      "semanticChangesExplicitlyDeclared": true
     }
   }
 }

@@ -6932,16 +6932,21 @@
     "legacy-v1-compatibility",
     "photo-atlases-and-network-isolation"
   ],
-  "manifestSha256": "37dce46780c8e8bde99e43a69d1ff7b6e24c45b0e69fa72c3c0a542039d5addb",
-  "cellBundleSha256": "602340ee399626e7f60c82713960b1e09de1bbf3fbc84536bc837c14fe55ab07",
-  "repertoireBundleSha256": "2244f1848bf4d2582507250c9f837e9dbab2543010685ed1fb8e45093430106d",
+  "manifestSha256": "1044bb4b4ccff1bbc2023ad7d329e463009f2418e4c05c902398a1e52168c9eb",
+  "cellBundleSha256": "7b4f9e423506be4a685c2e5317f27c87d813e03b4f0a0e53566cc48f0bd717ba",
+  "repertoireBundleSha256": "a5597b34382f474fd99cdb448ace442f126dbb0b8afcb9ff94feea0925f3bf00",
   "authoredSourceSha256": "db4a040fef882b2c35304e76b357b16e5928f838398c7f9029521b4402c99fb6",
   "situationInputsSha256": {
+    "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json": "b78984789b573c89d1cb0a755cc14a097a331927c3143b38fcbabaf4207a3367",
+    "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot4.json": "2a9fb36c77f2749d646faac352fe527d7c9df3d922b1e1c6baccca4d970f2ba6",
+    "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/revue-contenu-lot3-lot4.json": "346a85c459bb3adfc556c8946262509d19e9ffd46e65e9aa2dba40729aceab91",
     "docs/niveaux-progressifs/corrections-phonetiques/evidence-registre-phonetique.json": "2833fca404acbac078e03090c864b4dd1a8aaa658ab626563672d20c0db9569c",
     "docs/niveaux-progressifs/corrections-phonetiques/evidence-registre-tj.json": "856ccdd4525fdd74706ae16081c28e60bd629b3e83039502df81f824ebca74d0",
     "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-lectures.json": "c029d571a59303733d5bfa85fec59b94f0b989eb24a4d3c490a4a9fe50fd4ea8",
     "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json": "09e470b8fba9004b62bcb9fbc5fe036dbda2d91c68868b178f9ba810a06ea9ba",
     "docs/niveaux-progressifs/corrections-phonetiques/lot3/revue-claude-lot3.json": "20ad657496a94a036c8e6aa74088f172ddc8c4ebb7eacb074f2133fa84beb393",
+    "docs/niveaux-progressifs/corrections-phonetiques/lot4/evidence-registre-phonetique.json": "15237777a65b287a4008d53167b458dde2e486af27deafb31698e91c99ff5167",
+    "docs/niveaux-progressifs/corrections-phonetiques/lot4/revue-claude-lot4.json": "92f93724dfe4ef1586a588b1372c72639e0fa1016834d1cc9a1ab66fda9b6c88",
     "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
     "docs/niveaux-progressifs/enrichissement-situations/catalogue.json": "02e782cd7f523e6e38a76cff461bca2d2687f8814c9f9cb03620a55461cb7cb5",
     "docs/niveaux-progressifs/enrichissement-situations/extension-fr-en.json": "7004a46b7da5726fb0e548f73b5b3ae9c845e51cec2cc67f3e5945457f120c95",
@@ -7024,9 +7029,10 @@
     "melunga_deploy/maquette-guidee.html": "ab0eceb14283a2ada39298edf4dea5e24d93b303f61ac275a8edb4734680a0b3",
     "melunga_deploy/maquette-guidee.js": "22619f3cee55ac7765a4ca748aa8d27929ca51a9c698250fca78537c7d637720",
     "melunga_deploy/parcours-niveaux.html": "8da34e754184852b0a5bbbc9faf4ac73dd0945befc43617eabeb8fb099bbcb24",
-    "melunga_deploy/tests/levels-themes.browser.cjs": "d94243e9a9dc28a76f84898b8b231a413d719054676a35ee388cefaa3398eefc",
-    "melunga_deploy/tests/lot3-corrections.cjs": "652d59cbada4e9de44f15bdf570fda4d87ec1aef326f0733b8318033739ced3f",
-    "melunga_deploy/tests/phonetic-corrections.cjs": "5f3cb9582b4084b0d9b8486849780a5515245a007a6c5d2e463ad4e0cdf9fc54"
+    "melunga_deploy/tests/levels-themes.browser.cjs": "d8c7c7f4c31b4d2b7432d6ac009cb0f0185913d3ff4bc912a0bee0309a782bc0",
+    "melunga_deploy/tests/lot3-corrections.cjs": "4e2cd8723bfbce2efdc6bcb2cb586c4633911aee99539213f6ac98fd323aac66",
+    "melunga_deploy/tests/lot4-corrections.cjs": "7594c59f81c0c8dd9635f4e1371ad892c7ff231cf635aa51cca0b2da916817f5",
+    "melunga_deploy/tests/phonetic-corrections.cjs": "77cead28a887a60fb5b2f91830345608851320cc8ea9e255d644cc95feccf186"
   },
   "situationPlanSha256": "d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379",
   "externalRequests": [],
@@ -7048,7 +7054,36 @@
         "transport-phrase": 7,
         "received-model": 3
       },
-      "files": 77
+      "files": 77,
+      "lot4": {
+        "phonetic": {
+          "identities": 259,
+          "events": 259,
+          "objects": 275,
+          "profiles": {
+            "canonical": 257,
+            "transport-phrase": 15,
+            "received-model": 3
+          },
+          "approvedFields": 275,
+          "changedFields": 275
+        },
+        "content": {
+          "identities": 35,
+          "events": 35,
+          "objects": 36,
+          "profiles": {
+            "canonical": 34,
+            "transport-phrase": 1,
+            "received-model": 1
+          },
+          "approvedFields": 41,
+          "changedFields": 40
+        },
+        "files": 77,
+        "approvedRuntimeFields": 316,
+        "changedRuntimeFields": 315
+      }
     }
   },
   "reviewedFieldCorrectionsSourceAudit": {
@@ -7063,7 +7098,65 @@
       "transport-phrase": 7,
       "received-model": 3
     },
-    "files": 77
+    "files": 77,
+    "lot4": {
+      "phonetic": {
+        "identities": 259,
+        "events": 259,
+        "objects": 275,
+        "profiles": {
+          "canonical": 257,
+          "transport-phrase": 15,
+          "received-model": 3
+        },
+        "approvedFields": 275,
+        "changedFields": 275
+      },
+      "content": {
+        "identities": 35,
+        "events": 35,
+        "objects": 36,
+        "profiles": {
+          "canonical": 34,
+          "transport-phrase": 1,
+          "received-model": 1
+        },
+        "approvedFields": 41,
+        "changedFields": 40
+      },
+      "files": 77,
+      "approvedRuntimeFields": 316,
+      "changedRuntimeFields": 315
+    }
+  },
+  "lot4CorrectionsSourceAudit": {
+    "phonetic": {
+      "identities": 259,
+      "events": 259,
+      "objects": 275,
+      "profiles": {
+        "canonical": 257,
+        "transport-phrase": 15,
+        "received-model": 3
+      },
+      "approvedFields": 275,
+      "changedFields": 275
+    },
+    "content": {
+      "identities": 35,
+      "events": 35,
+      "objects": 36,
+      "profiles": {
+        "canonical": 34,
+        "transport-phrase": 1,
+        "received-model": 1
+      },
+      "approvedFields": 41,
+      "changedFields": 40
+    },
+    "files": 77,
+    "approvedRuntimeFields": 316,
+    "changedRuntimeFields": 315
   },
   "additionalWholeSourceAudit": {
     "cases": 196,
@@ -7375,5 +7468,5 @@
     "received-reference-guards-and-retry"
   ],
   "completeSuiteCoverage": true,
-  "executedAt": "2026-10-25T16:05:05.485Z"
+  "executedAt": "2026-10-25T17:26:14.967Z"
 }

@@ -1,4 +1,4 @@
-Retour le plus récent : [lot 3 — raccord des aides et lectures](reponse-revue-integrale-lot3/message-pour-claude.md).
+Retour le plus récent : [lot 4 — aides et contenu certain séparés](reponse-revue-integrale-lot4/message-pour-claude.md).
 
 # Message pour Claude — revue complète et corrections
 
@@ -6,7 +6,7 @@ Claude — **nouvelle consigne de Kartech du 25 octobre 2026** : ta mission comp
 
 ## Accès complet
 
-- **[Aperçu L1–L10 sans compte Melunga ni abonnement](https://deploy-preview-14--chic-dragon-e2baf2.netlify.app/parcours-niveaux.html?pair=fr-zh&level=1&v=lot3)** : changer de couple et de niveau avec les sélecteurs.
+- **[Aperçu L1–L10 sans compte Melunga ni abonnement](https://deploy-preview-14--chic-dragon-e2baf2.netlify.app/parcours-niveaux.html?pair=fr-zh&level=1&v=lot4)** : changer de couple et de niveau avec les sélecteurs.
 - **[Tous les fichiers du contenu dans GitHub](https://github.com/iaproject2100/melunga/tree/review/themes-niveaux-progressifs/melunga_deploy/content/niveaux-progressifs)**.
 - **[Manifeste JSON brut](https://raw.githubusercontent.com/iaproject2100/melunga/review/themes-niveaux-progressifs/melunga_deploy/content/niveaux-progressifs/manifest.json)**.
 - [Index des 70 niveaux, sept répertoires et périmètre exhaustif](acces-revue-integrale.md).

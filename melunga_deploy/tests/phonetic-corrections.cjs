@@ -9,6 +9,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const {isDeepStrictEqual} = require('node:util');
+const lot4Corrections = require('./lot4-corrections.cjs');
 const lot3Corrections = require('./lot3-corrections.cjs');
 const ROOT = path.resolve(__dirname, '..', '..');
 const WEB = path.join(ROOT, 'melunga_deploy');
@@ -198,6 +199,7 @@ function auditRuntime() {
   expectedManifest.phoneticCorrections = {registryPath:REGISTRY, registrySha256:audit.registrySha256,
     correctionCount:772, eventCount:774, evidenceCommit:EVIDENCE_COMMIT};
   expectedManifest.reviewedFieldCorrections = lot3Corrections.declaration();
+  Object.assign(expectedManifest, lot4Corrections.manifestDeclarations());
   for (const pair of expectedManifest.pairs) pair.repertoireSha256 = hash(fs.readFileSync(path.join(WEB, pair.repertoirePath)));
   assert.deepEqual(manifest, expectedManifest, 'manifest changes only overlay proof and real transport hashes');
   const legacy = 'melunga_deploy/content/maquette-guidee.json';

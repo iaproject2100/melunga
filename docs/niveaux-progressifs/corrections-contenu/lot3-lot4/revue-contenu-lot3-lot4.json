@@ -1,0 +1,2127 @@
+{
+  "version": 1,
+  "id": "revue-contenu-lot3-lot4",
+  "status": "frozen-certain-content-bundles-not-global-native-approval",
+  "baseSnapshotCommit": "606592ccf11886810a6bb9fbabc56728cf5055c9",
+  "appliesAfter": [
+    {
+      "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot4/revue-claude-lot4.json",
+      "registrySha256": "92f93724dfe4ef1586a588b1372c72639e0fa1016834d1cc9a1ab66fda9b6c88"
+    }
+  ],
+  "correctionCount": 35,
+  "eventCount": 35,
+  "approvedFieldCount": 40,
+  "changedFieldCount": 39,
+  "evidenceFiles": [
+    {
+      "path": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+      "gitPath": "docs/revue-integrale/lot3-fr-zh-L3-L10/lot-contenu-gloses.json",
+      "gitCommit": "c849bf3d13d4141eae8b34f8cc5d3d43167bec60",
+      "sha256": "b78984789b573c89d1cb0a755cc14a097a331927c3143b38fcbabaf4207a3367"
+    },
+    {
+      "path": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot4.json",
+      "gitPath": "docs/revue-integrale/lot4-zh-fr-L1-L10/lot-contenu-gloses.json",
+      "gitCommit": "7631c0fe64170f952e086487462e94c87bfb13e1",
+      "sha256": "2a9fb36c77f2749d646faac352fe527d7c9df3d922b1e1c6baccca4d970f2ba6"
+    }
+  ],
+  "corrections": [
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2165",
+      "fields": {
+        "native": {
+          "before": "pour le dire autrement, même un peu plus cher ça vaut le coup",
+          "after": "même en admettant que ce soit un peu plus cher, ça vaut le coup"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 0
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "退一步说，就算贵一点也值得",
+            "native": "pour le dire autrement, même un peu plus cher ça vaut le coup",
+            "phon": "touèï i bou chouo, djyo-souann gouèï i-dyèn yé djr-deu",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2165,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "6c4f5ffa35a4ff303024b150211b4128921dc6e283beb48fd756519cf4121d71"
+            },
+            "readingPresent": true,
+            "reading": "tuì yí bù shuō, jiùsuàn guì yìdiǎn yě zhídé",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4796",
+      "fields": {
+        "native": {
+          "before": "à trente ans, être établi ; à quarante, sans doute",
+          "after": "à trente ans, être établi ; à quarante, ne plus avoir de doutes"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 6
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "location": [
+            "reserve",
+            8
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "三十而立四十而不惑",
+            "native": "à trente ans, être établi ; à quarante, sans doute",
+            "phon": "sann chr er li seu chr er bou houo",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4796,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "b5196fd24ed7a514f458fff62c3d9d5a3fd1e42db5dcbfa3e36e9aea8c48a37f"
+            },
+            "readingPresent": true,
+            "reading": "sān shí ér lì sì shí ér bú huò",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:602",
+      "fields": {
+        "native": {
+          "before": "j'ai téléchargé les photos",
+          "after": "j'ai mis en ligne les photos"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 9
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            130
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我上传了照片",
+            "native": "j'ai téléchargé les photos",
+            "phon": "ouo chang-tchouann leu djao-pyèn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 602,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "ff9b685caa3aa83dc7d77c26119e7d26f334098bb3520dff0cf8ddf9a283d109"
+            },
+            "readingPresent": true,
+            "reading": "wǒ shàngchuán le zhàopiàn",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2317",
+      "fields": {
+        "native": {
+          "before": "devoir (should)",
+          "after": "devoir (conseil)"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 13
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            18
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "应该",
+            "native": "devoir (should)",
+            "phon": "ing-gaï",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2317,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "bc03f910b0e4434539242fa6ab69c6789599c2b5d22afc1707a0b8e9deac25db"
+            },
+            "readingPresent": true,
+            "reading": "yīnggāi",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2318",
+      "fields": {
+        "native": {
+          "before": "devoir (must)",
+          "after": "devoir (obligation)"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 14
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            19
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "得",
+            "native": "devoir (must)",
+            "phon": "deï",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2318,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "3412c9ed43a8b6cd466157d8c049fcfe027585f4198781d08096516947c9b53f"
+            },
+            "readingPresent": true,
+            "reading": "děi",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:666",
+      "fields": {
+        "native": {
+          "before": "chaque chose en son temps",
+          "after": "une chose est une chose (ne mélangeons pas tout)"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 16
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            2
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "一码归一码",
+            "native": "chaque chose en son temps",
+            "phon": "i ma gouèï i ma",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 666,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "f78157b66a5abb88e4979ee010081472063037e4110dfed7e4d08b8de00c68e7"
+            },
+            "readingPresent": true,
+            "reading": "yì mǎ guī yì mǎ",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:880",
+      "fields": {
+        "native": {
+          "before": "Puis-je échanger ou rembourser ça ?",
+          "after": "Puis-je le retourner ou l'échanger ?"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 23
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            120
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这个能退换吗？",
+            "native": "Puis-je échanger ou rembourser ça ?",
+            "phon": "dje gue neung toueï houann ma?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 880,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "03bccc1a35c65132b9ffeda49c8c88438d008f0b7f5567697de0a888f8ed304f"
+            },
+            "readingPresent": true,
+            "reading": "zhè ge néng tuì huàn ma?",
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "corrected-by-Claude-g-devant-e-i",
+            "phoneticCorrectionPresent": true,
+            "phoneticCorrection": {
+              "id": "catalogue:zh:880",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+              "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+              "beforePhon": "dje ge neung toueï houann ma?",
+              "originalReviewStatusPresent": false,
+              "originalReviewStatus": null,
+              "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+              "rule": "B"
+            },
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3452",
+      "fields": {
+        "native": {
+          "before": "date de péremption",
+          "after": "durée de conservation"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 24
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            18,
+            "phrases",
+            4
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "保质期",
+            "native": "date de péremption",
+            "phon": "bao djr tchi",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3452,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "44a795ce7082997765df165e150448e352b923fbae68a5cfd7bacf236d3545c9"
+            },
+            "readingPresent": true,
+            "reading": "bǎo zhì qī",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3433",
+      "fields": {
+        "native": {
+          "before": "directeur général",
+          "after": "directeur (d'un département ou d'une fonction)"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 29
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            57
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "总监",
+            "native": "directeur général",
+            "phon": "dzong djyèn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3433,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "911baacc1311afb7173b1798fc521553170814e22bcdbea4804b088542ef99a1"
+            },
+            "readingPresent": true,
+            "reading": "zǒng jiān",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:845",
+      "fields": {
+        "native": {
+          "before": "tout tient à un fil",
+          "after": "tout est lié : un détail peut tout ébranler"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 33
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "reserve",
+            5
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "牵一发而动全身",
+            "native": "tout tient à un fil",
+            "phon": "tchyèn i fa er dong tchuèn cheune",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 845,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "dd0848428aa517a480893e1e3013e63f6d4207065f2403e1cc3984747652e5a7"
+            },
+            "readingPresent": true,
+            "reading": "qiān yí fà ér dòng quán shēn",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:898",
+      "fields": {
+        "native": {
+          "before": "gravir haut part du bas",
+          "after": "pour monter haut, il faut partir d'en bas"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 35
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "reserve",
+            6
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "登高必自卑",
+            "native": "gravir haut part du bas",
+            "phon": "deung gao bi dzeu beï",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 898,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "f6fd68e109dd89b7c6a717fd5afd1d4538de000ee37c8726a97d975d9b1f609f"
+            },
+            "readingPresent": true,
+            "reading": "dēng gāo bì zì bēi",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2452",
+      "fields": {
+        "native": {
+          "before": "je t'admire beaucoup",
+          "after": "je t'envie beaucoup"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 36
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            6
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我很羡慕你",
+            "native": "je t'admire beaucoup",
+            "phon": "ouo heune chyèn-mou ni",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2452,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "5472544dbfdfba835065aa83bade212a1fa89dc7eef99c219d3a099e3950a4e6"
+            },
+            "readingPresent": true,
+            "reading": "wǒ hěn xiànmù nǐ",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1110",
+      "fields": {
+        "native": {
+          "before": "y a-t-il une version demi-pointure au-dessus ?",
+          "after": "Existe-t-il une version dans la taille au-dessus ?"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 37
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            9
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "有增大一码的版本吗？",
+            "native": "y a-t-il une version demi-pointure au-dessus ?",
+            "phon": "yo dzeung-da i ma deu bann-beune ma?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1110,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "d963dab3ecb303ae87f2b87cc7cbd7f5cdfae48c0912a9f841fed3cf6fa6ba2a"
+            },
+            "readingPresent": true,
+            "reading": "yǒu zēngdà yì mǎ de bǎnběn ma?",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1149",
+      "fields": {
+        "native": {
+          "before": "Ça me travaille depuis ce matin.",
+          "after": "Ça m'a tracassé toute la journée."
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 44
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            13
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这件事困扰了我一整天。",
+            "native": "Ça me travaille depuis ce matin.",
+            "phon": "dje djyenn cheu kouenn jao le ouo i djeung tyenn.",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1149,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "149027e7a8757ed2c8fef6c67eb8adc2c4369962b0aa4a276f3b5a72f4068a56"
+            },
+            "readingPresent": true,
+            "reading": "zhè jiàn shì kùn rǎo le wǒ yì zhěng tiān.",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3883",
+      "fields": {
+        "native": {
+          "before": "poubelle (déchets)",
+          "after": "déchets, ordures"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 45
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            14,
+            "phrases",
+            10
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "垃圾",
+            "native": "poubelle (déchets)",
+            "phon": "la dji",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3883,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "383c3aa41b2ca741703ec153021f656c3ee48aac09b695972b92de29aa810321"
+            },
+            "readingPresent": true,
+            "reading": "lā jī",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3767",
+      "fields": {
+        "native": {
+          "before": "en y réfléchissant",
+          "after": "même en admettant que… / à supposer même que…"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 46
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            18,
+            "phrases",
+            34
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "退一步来说",
+            "native": "en y réfléchissant",
+            "phon": "touèï i bou laï chouo",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3767,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "cc39692722857de07e90d9d7eda692fe8533ac04d1af7755808b8c0e843ea609"
+            },
+            "readingPresent": true,
+            "reading": "tuì yí bù lái shuō",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2451",
+      "fields": {
+        "native": {
+          "before": "ennuyé",
+          "after": "qui s'ennuie / ennuyeux"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 47
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            14
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "无聊",
+            "native": "ennuyé",
+            "phon": "ou-lyao",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2451,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "b6a0ee9f3be283e44b14e7454e04ecf28ab5af0dca039ee7c7e0bd34ce99d43e"
+            },
+            "readingPresent": true,
+            "reading": "wúliáo",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+          "location": [
+            "phrases",
+            99
+          ],
+          "profile": "transport-phrase",
+          "expectedBefore": {
+            "study": "无聊",
+            "native": "ennuyé",
+            "phon": "ou-lyao",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2451,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "b6a0ee9f3be283e44b14e7454e04ecf28ab5af0dca039ee7c7e0bd34ce99d43e"
+            },
+            "readingPresent": true,
+            "reading": "wúliáo",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:613",
+      "fields": {
+        "native": {
+          "before": "J'étais fou de jalousie.",
+          "after": "Je l'envie terriblement."
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 56
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            0
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我羡慕得不得了。",
+            "native": "J'étais fou de jalousie.",
+            "phon": "ouo chyenn mou de bou de lyao.",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 613,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "942e962b2432fe97be2eaf8e164570f4baed560874c771116e2abbf7d157e5f1"
+            },
+            "readingPresent": true,
+            "reading": "wǒ xiàn mù de bù dé liǎo.",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4141",
+      "fields": {
+        "native": {
+          "before": "dépasse sa valeur",
+          "after": "vaut plus que son prix"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 73
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "location": [
+            "themes",
+            13,
+            "phrases",
+            4
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "物超所值",
+            "native": "dépasse sa valeur",
+            "phon": "ou tchao souo djr",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4141,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "547640172257de35ab3bf15f5465bb6392b848788414e4725545fbd00ecb6a63"
+            },
+            "readingPresent": true,
+            "reading": "wù chāo suǒ zhí",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1774",
+      "fields": {
+        "native": {
+          "before": "Toujours le mot pour rire, celui-là !",
+          "after": "Celui-là, il a toujours la langue bien acérée !"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 78
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            10
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这家伙，嘴上从来不饶人！",
+            "native": "Toujours le mot pour rire, celui-là !",
+            "phon": "dje djya houo, dzoueï chang tsong laï bou jao jeunn!",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1774,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "a26b13dad8a18b784d58a726cbea5edc663b746303e76d07955817cf835a2ebe"
+            },
+            "readingPresent": true,
+            "reading": "zhè jiā huo, zuǐ shang cóng lái bù ráo rén!",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4378",
+      "fields": {
+        "native": {
+          "before": "merci de votre compréhension et soutien",
+          "after": "merci de votre compréhension et de votre soutien"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 79
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            38
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "感谢贵方的理解与支持",
+            "native": "merci de votre compréhension et soutien",
+            "phon": "gann chyé gouèï fang deu li djyé u djr tchr",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4378,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "208bc5cb480c5790a0f69140193886d6c046945242eb1283c2cfe9f61128da84"
+            },
+            "readingPresent": true,
+            "reading": "gǎn xiè guì fāng de lǐ jiě yǔ zhī chí",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4812",
+      "fields": {
+        "native": {
+          "before": "la qualité du grand lot doit être identique.",
+          "after": "la qualité du lot de production doit être identique à celle de l'échantillon."
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 80
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            46
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "大货质量要和小样一样",
+            "native": "la qualité du grand lot doit être identique.",
+            "phon": "da-houo djr-lyang yao heu chyao-yang i-ang",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4812,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "cf31de1377122824359f4050f8758fc56843f829550199be1a351080601dee1c"
+            },
+            "readingPresent": true,
+            "reading": "dàhuò zhìliàng yào hé xiǎoyàng yíyàng",
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "corrected-by-Claude-lot3-E",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": true,
+            "reviewedFieldCorrection": {
+              "id": "catalogue:zh:4812",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/revue-claude-lot3.json",
+              "registrySha256": "20ad657496a94a036c8e6aa74088f172ddc8c4ebb7eacb074f2133fa84beb393",
+              "evidenceCommit": "d06a62ea36120ffd73b8059645848c13bd4f172d",
+              "baseSnapshotCommit": "3df885df8db00f0bdc2a703b92bd17801accabce",
+              "fields": [
+                "phon"
+              ],
+              "beforeFields": {
+                "phon": "da-houo djr-lyang yao heu chyao-ang i-ang"
+              },
+              "originalPhoneticReviewStatusPresent": false,
+              "originalPhoneticReviewStatus": null
+            },
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2660",
+      "fields": {
+        "native": {
+          "before": "ne fais pas à autrui ce que tu ne voudrais pas",
+          "after": "ne fais pas à autrui ce que tu ne voudrais pas qu'on te fasse"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 91
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            36
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "己所不欲，勿施于人",
+            "native": "ne fais pas à autrui ce que tu ne voudrais pas",
+            "phon": "dji souo bou u, ou chr u jeune",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2660,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "282c3afe8e8506843b20be79a4cdc0c2f195a86ac753368d31b802cedb215c63"
+            },
+            "readingPresent": true,
+            "reading": "jǐ suǒ bú yù, wù shī yú rén",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4504",
+      "fields": {
+        "native": {
+          "before": "se connaître et connaître l'autre",
+          "after": "qui connaît l'adversaire et se connaît soi-même ne sera jamais en péril, même en cent batailles"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 93
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            14
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "知彼知己百战不殆",
+            "native": "se connaître et connaître l'autre",
+            "phon": "djr bi djr dji baï djann bou daï",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4504,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "a014024ff894edc63fccf7e95af4bf508487c8fd7d706b10073f23e1ff64f7f9"
+            },
+            "readingPresent": true,
+            "reading": "zhī bǐ zhī jǐ bǎi zhàn bú dài",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "heard-authored:fr-zh:piste-reclamation-tact-received-01",
+      "fields": {
+        "native": {
+          "before": "Un remplacement des pièces concernées vous conviendrait-il ?",
+          "after": "Un remplacement des seules pièces présentant un problème vous conviendrait-il ?"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 97
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+          "location": [
+            "receivedModels",
+            30
+          ],
+          "profile": "received-model",
+          "expectedBefore": {
+            "study": "只更换有问题的零件，您能接受吗？",
+            "native": "Un remplacement des pièces concernées vous conviendrait-il ?",
+            "phon": "djr gueung-houann yeou oueunn-ti deu ling-djyèn, ninn neung djyé-cheou ma ?",
+            "source": {
+              "collection": "situation-received-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-zh.json",
+              "ledgerFileSha256": "07b5c5822a81920048e4ab0b4fd7755a647566acd21a36c9374804b8b7d93be0",
+              "itemId": "fr-zh:piste-reclamation-tact-received-01",
+              "sourceSha256": "d143d8913f5b226c7224ab7cba8046c5f86824adfcdc64febbaceb08b8dc6c94",
+              "ledgerItemSha256": "d143d8913f5b226c7224ab7cba8046c5f86824adfcdc64febbaceb08b8dc6c94",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "readingPresent": true,
+            "reading": "zhǐ gēnghuàn yǒu wèntí de língjiàn, nín néng jiēshòu ma?",
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "pending-Claude",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1900",
+      "fields": {
+        "study": {
+          "before": "过而不改是谓过矣是知也",
+          "after": "过而不改是谓过矣"
+        },
+        "reading": {
+          "before": "guò ér bù gǎi shì wèi guò yǐ shì zhī yě",
+          "after": "guò ér bù gǎi shì wèi guò yǐ"
+        },
+        "phon": {
+          "before": "gouo er bou gaï chr ouèï gouo i chr djr yé",
+          "after": "gouo er bou gaï chr ouèï gouo i"
+        },
+        "native": {
+          "before": "la vraie sagesse est d'admettre et corriger ses fautes",
+          "after": "ne pas corriger sa faute, voilà la vraie faute"
+        }
+      },
+      "rules": [],
+      "atomicBundle": true,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot3-amende.json",
+          "evidenceCollection": "linkedBundles",
+          "evidenceIndex": 0
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            78
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "过而不改是谓过矣是知也",
+            "native": "la vraie sagesse est d'admettre et corriger ses fautes",
+            "phon": "gouo er bou gaï chr ouèï gouo i chr djr yé",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1900,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "1c617eaa422dc4f7f838dffb9df573006bf17df063ab7b28f772f0973e8e6a29"
+            },
+            "readingPresent": true,
+            "reading": "guò ér bù gǎi shì wèi guò yǐ shì zhī yě",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:2922",
+      "fields": {
+        "native": {
+          "before": "申请表",
+          "after": "请求 / 申请"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot4.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 0
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+          "location": [
+            "themes",
+            16,
+            "phrases",
+            2
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "la demande",
+            "native": "申请表",
+            "phon": "拉 德蒙德",
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 2922,
+              "sourceLevel": 1,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "1bbdae7aac1391d5f83258580848c358009c1e2d8c157847046ce93efea67683"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:210",
+      "fields": {
+        "native": {
+          "before": "修一下就好",
+          "after": "就一点点"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot4.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 19
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            92
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "Juste un peu.",
+            "native": "修一下就好",
+            "phon": "朱斯特 安 普",
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 210,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "d493a9d7daa30691a8a22146c20736582202f77413db75a99211db5ad181de89"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:802",
+      "fields": {
+        "native": {
+          "before": "我为什么要？",
+          "after": "我为什么要这么做？"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot4.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 32
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            169
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "Pourquoi je ferais ça ?",
+            "native": "我为什么要？",
+            "phon": "普尔瓜 热 弗雷 萨",
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 802,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "0d7a0a77bd641ae6796bb9a04e542e83df696a8a7f59518b391c5de530ccbb12"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:4187",
+      "fields": {
+        "native": {
+          "before": "臀部",
+          "after": "髋部"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot4.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 62
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+          "location": [
+            "themes",
+            19,
+            "phrases",
+            112
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "la hanche",
+            "native": "臀部",
+            "phon": "拉 翁什",
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 4187,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "33950ca1552e315f2eef0f3c04ffa5790a71386d52b62f4bf89f33fa97b5faa8"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:3178",
+      "fields": {
+        "native": {
+          "before": "承蒙刚才的交谈。",
+          "after": "继我们的谈话之后。"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot4.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 64
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+          "location": [
+            "reserve",
+            2
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "Suite à notre conversation.",
+            "native": "承蒙刚才的交谈。",
+            "phon": "绪伊特 阿 诺特尔 公韦尔萨西翁",
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 3178,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "99817e4db3b39263e167b841babceb53bfd654b90b591be66ff5c40e8b25dccf"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:1702",
+      "fields": {
+        "native": {
+          "before": "我快到机场了。（将来）",
+          "after": "我快到机场了。"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot4.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 66
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            6
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "Je vais arriver à l'aéroport.",
+            "native": "我快到机场了。（将来）",
+            "phon": "热 维 阿里维 阿 拉埃罗波尔",
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 1702,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "62b669ad54cecccecda2318594f4ce1034a5a1640ab4da35629da93dbb8ce2c4"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:2330",
+      "fields": {
+        "native": {
+          "before": "我们把它录下来吧",
+          "after": "我们把会议录下来吧"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot4.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 94
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            20
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "Enregistrons la réunion.",
+            "native": "我们把它录下来吧",
+            "phon": "翁勒吉斯特隆 拉 雷于尼翁",
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 2330,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "32b24d109a6c3f0f9da27c9a1667485228ea263b5287a641cd614421c27c9703"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:3505",
+      "fields": {
+        "native": {
+          "before": "售票员",
+          "after": "检票员 / 查票员"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot4.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 102
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L9.json",
+          "location": [
+            "themes",
+            13,
+            "phrases",
+            10
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "le contrôleur",
+            "native": "售票员",
+            "phon": "勒 孔特罗勒尔",
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 3505,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "130b6c93a4dd53cdb6f954a2e73fbf1395c816e6bccd53fc2f6df61efb0b65f3"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:757",
+      "fields": {
+        "study": {
+          "before": "Il fait moins zéro.",
+          "after": "Il fait en dessous de zéro."
+        },
+        "phon": {
+          "before": "伊尔 费 姆万 泽罗",
+          "after": "伊尔 费 昂 德苏 德 泽罗"
+        },
+        "native": {
+          "before": "零下",
+          "after": "零下"
+        }
+      },
+      "rules": [],
+      "atomicBundle": true,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/evidence-contenu-lot4.json",
+          "evidenceCollection": "linkedBundles",
+          "evidenceIndex": 0
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            9
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "Il fait moins zéro.",
+            "native": "零下",
+            "phon": "伊尔 费 姆万 泽罗",
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 757,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "0a8d31bf2e666405ff628e4246565a299a0125e91dfd13b01db97d7640ddce6f"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null
+          }
+        }
+      ]
+    }
+  ]
+}

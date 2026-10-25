@@ -56,6 +56,9 @@ _phonetic_spec.loader.exec_module(phonetic_corrections)
 _reviewed_fields_spec = importlib.util.spec_from_file_location("audited_reviewed_field_corrections", Path(__file__).with_name("reviewed_field_corrections.py"))
 reviewed_field_corrections = importlib.util.module_from_spec(_reviewed_fields_spec)
 _reviewed_fields_spec.loader.exec_module(reviewed_field_corrections)
+_lot4_spec = importlib.util.spec_from_file_location("audited_lot4_corrections", Path(__file__).with_name("lot4_corrections.py"))
+lot4_corrections = importlib.util.module_from_spec(_lot4_spec)
+_lot4_spec.loader.exec_module(lot4_corrections)
 
 
 def canonical(value):
@@ -1630,8 +1633,12 @@ def make(include_situations=True):
         report["phoneticCorrections"] = correction_summary
         outputs, reviewed_fields_summary = reviewed_field_corrections.apply_to_outputs(ROOT, outputs, report)
         report["reviewedFieldCorrections"] = reviewed_fields_summary
+        outputs, lot4_phonetic_summary = lot4_corrections.apply_to_outputs(ROOT, outputs, report, "phonetic")
+        report["lot4PhoneticCorrections"] = lot4_phonetic_summary
+        outputs, content_summary = lot4_corrections.apply_to_outputs(ROOT, outputs, report, "content")
+        report["reviewedContentCorrections"] = content_summary
         for transport in report["reviewTransports"]:
-            transport["fileSha256"] = reviewed_fields_summary["transportSha256ByPair"][transport["pair"]]
+            transport["fileSha256"] = content_summary["transportSha256ByPair"][transport["pair"]]
         report["manifestSha256"] = sha(json.loads(outputs[OUTPUT / "manifest.json"]))
     # include_situations=False is the source-exact historical baseline used by
     # validate_situation_drafts.py. It is not a served runtime edition and has
@@ -1645,7 +1652,7 @@ def markdown(report):
     counts = checks["contentTypeCounts"]
     lines = ["# Classement éditorial L1–L10 — proposition à relire", "",
         "Les thèmes de situation et les rubriques de vocabulaire figurent dans la même grille, sans nouvel écran de sélection. Une situation ne présente que des phrases ou répliques communicatives entières. Les mots, groupes lexicaux et nombres isolés se pratiquent dans leurs rubriques dédiées. Les modèles ouverts et les cas incertains sont conservés dans une réserve de revue, hors entraînement.", "",
-        f"**{checks['catalogueCardsRetainedExactlyOnce']} cartes du catalogue** sont conservées exactement une fois, entre rubriques actives et réserve ; **{checks['catalogueFieldComparisons']} champs** sont vérifiés identiques aux sources avant application de la couche de corrections phonétiques tracées ci-dessous. Les identités source restent intactes ; les aides corrigées sont déclarées séparément, sans prétendre qu’elles figuraient dans la source originale. Les **{checks['sourceLevelOneCardsRetained']} cartes historiquement lv1** restent présentes avec leur niveau source. Les droits de l’application classique sont inchangés.", "",
+        f"**{checks['catalogueCardsRetainedExactlyOnce']} cartes du catalogue** sont conservées exactement une fois, entre rubriques actives et réserve ; **{checks['catalogueFieldComparisons']} champs** sont vérifiés identiques aux sources avant application des couches figées d’aides, de lectures et de contenu tracées ci-dessous. Les identités source restent intactes ; les champs corrigés sont déclarés séparément, sans prétendre qu’ils figuraient dans la source originale. Les **{checks['sourceLevelOneCardsRetained']} cartes historiquement lv1** restent présentes avec leur niveau source. Les droits de l’application classique sont inchangés.", "",
         f"Le lot comporte **{checks['catalogueCardsWithExplicitDecision']} décisions explicites** de placement. Les **{checks['catalogueCardsRetainingUnreviewedSourceLevel']} autres cartes** gardent un niveau source non revu individuellement. Ni une partition complète ni la conservation des textes ne prouvent la progressivité ou l’acquisition.", "",
         "## Typage et couverture", "",
         "| Type | Nombre canonique | Destination |", "|---|---:|---|",
@@ -1673,9 +1680,22 @@ def markdown(report):
     if reviewed_fields:
         lines.extend(["", "## Lot 3 — aides et cinq lectures révisées, sans règle automatique", "",
             f"Le registre `{reviewed_fields['registryPath']}` applique **{reviewed_fields['phoneticEventCount']} aides entières et {reviewed_fields['readingEventCount']} Pinyin**, soit **{reviewed_fields['eventCount']} événements / {reviewed_fields['correctionCount']} identifiants**, après la couche précédente. Les sept prolongations d’une correction B conservent cette première annotation et déclarent leur nouvelle étape séparément.", "",
-            f"L’édition comporte **{reviewed_fields['occurrenceCount']} objets corrigés** : {reviewed_fields['occurrenceProfiles'].get('canonical', 0)} canoniques, {reviewed_fields['occurrenceProfiles'].get('transport-phrase', 0)} copies de transport et {reviewed_fields['occurrenceProfiles'].get('received-model', 0)} modèles reçus. Les cinq lectures changées sont les seuls Pinyin modifiés ; aucun champ d’étude, sens, emplacement, type ou droit d’accès ne change dans cette couche.", "",
+            f"L’édition comporte **{reviewed_fields['occurrenceCount']} objets corrigés** : {reviewed_fields['occurrenceProfiles'].get('canonical', 0)} canoniques, {reviewed_fields['occurrenceProfiles'].get('transport-phrase', 0)} copies de transport et {reviewed_fields['occurrenceProfiles'].get('received-model', 0)} modèles reçus. Dans cette couche, les cinq lectures changées sont les seuls Pinyin modifiés ; aucun champ d’étude, sens, emplacement, type ou droit d’accès ne change.", "",
             "Les valeurs avant entières, sources et annotations antérieures sont vérifiées avant application. Les deux registres figés ne sont pas des règles à étendre. Les gloses, propositions de niveaux/thèmes et conventions à arbitrer restent hors de ce raccord ; aucune validation native globale n’en découle.", "",
             f"Empreinte du registre : `{reviewed_fields['registrySha256']}` ; preuves figées au commit `{reviewed_fields['evidenceCommit']}`.", ""])
+    lot4_phonetics = report.get("lot4PhoneticCorrections")
+    if lot4_phonetics:
+        lines.extend(["", "## Lot 4 — aides françaises pour sinophones", "",
+            f"Le registre `{lot4_phonetics['registryPath']}` applique **{lot4_phonetics['eventCount']} événements figés** à **{lot4_phonetics['correctionCount']} identifiants**, dans **{lot4_phonetics['occurrenceCount']} objets** : {lot4_phonetics['occurrenceProfiles'].get('canonical', 0)} canoniques, {lot4_phonetics['occurrenceProfiles'].get('transport-phrase', 0)} copies de transport et {lot4_phonetics['occurrenceProfiles'].get('received-model', 0)} modèles reçus.", "",
+            "Cette couche ne change que les aides entières attestées, leur statut phonétique et leur annotation distincte. Les textes, sens, lectures, types, emplacements et droits ne changent pas dans cette couche. La règle nommée A dans ce registre désigne des lectures à l’anglaise ; elle n’a aucun rapport avec l’ancienne proposition espagnole s→ss retirée. Aucune de ces règles n’est exécutée comme calcul extensible.", "",
+            f"Empreinte du registre : `{lot4_phonetics['registrySha256']}`.", ""])
+    content = report.get("reviewedContentCorrections")
+    if content:
+        lines.extend(["", "## Contenu certain — lot distinct des aides du lot 4", "",
+            f"Le registre `{content['registryPath']}` porte **{content['eventCount']} événements sur {content['correctionCount']} identifiants** : 25 gloses natives amendées du lot 3, huit du lot 4, et les deux blocs complets 1900 et 757. Les **{content['approvedFieldCount']} champs approuvés** comprennent **{content['changedFieldCount']} valeurs effectivement changées** ; le sens de 757 est une garde inchangée.", "",
+            f"Avec la copie de révision de 2451, la couche concerne **{content['occurrenceCount']} objets**, **{content['approvedRuntimeFields']} champs approuvés / {content['changedRuntimeFields']} changés**. La citation 1900 change étude, lecture, aide entière et sens en une seule opération ; 757 change étude et aide ensemble, en conservant sa glose. Ni suppression automatique de syllabes ni collage de nouvelles aides n’est calculé.", "",
+            "Les champs source originaux et toutes les anciennes annotations restent vérifiables. Les blocs ne sont jamais appliqués champ par champ ; un avant inattendu ou une application partielle échoue. Les propositions incertaines, les thèmes/niveaux proposés et les conventions restent non appliqués. Le catalogue classique, les identifiants, les emplacements, les prix et les droits gratuits restent intacts. La relecture bornée de ces événements ne vaut pas certification native globale.", "",
+            f"Empreinte du registre de contenu : `{content['registrySha256']}`.", ""])
     if checks["newSituationThemes"]:
         lines.extend(["", "## Enrichissement de situations — lot distinct", "",
             f"{checks['newSituationThemes'] // checks['pairs']} rubriques de situation comportent chacune huit intentions dans les sept couples : **{checks['newSituationCandidatePositions']} positions pédagogiques**. Elles ne représentent pas autant de créations : **{checks['newSituationAuthoredUtterances']} formes entières réellement rédigées** et **{checks['newSituationExistingSourcePositions']} positions utilisant des sources préexistantes**. Parmi ces sources, **{checks['newSituationExistingConversationImports']} phrases de conversation** sont importées entières sans être comptées comme nouvelles rédactions.", "",

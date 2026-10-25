@@ -1,6 +1,6 @@
 # Vérification navigateur du parcours local
 
-Exécution : `2026-10-25T16:05:05.485Z` — statut **passed**.
+Exécution : `2026-10-25T17:26:14.967Z` — statut **passed**.
 
 Chromium local, largeurs 320, 390 et 1440 px. Ces vues émulent des écrans ; aucun téléphone physique ni site déployé n’a été testé par cette suite.
 
@@ -23,8 +23,8 @@ Fraîcheur : les empreintes avant/après des cellules, banques, manifeste, sourc
 
 Le TTS est remplacé par un témoin d’envoi : cette suite vérifie le texte transmis et le comportement d’écoute, pas le son réel ni la justesse linguistique des aides. Claude vérifie la phonétique ; les résultats ne sont pas une mesure d’acquisition.
 
-Rapport détaillé : [melunga-lot3-levels-final.json](melunga-lot3-levels-final.json).
+Rapport détaillé : [melunga-lot4-levels-final.json](melunga-lot4-levels-final.json).
 Plan : `d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379`.
-Manifeste : `37dce46780c8e8bde99e43a69d1ff7b6e24c45b0e69fa72c3c0a542039d5addb`.
+Manifeste : `1044bb4b4ccff1bbc2023ad7d329e463009f2418e4c05c902398a1e52168c9eb`.
 
-Ce passage vérifie les après réels des deux couches de correction. La projection privée vers les avant sert seulement au contrôle des sources originales ; elle ne remplace jamais les valeurs corrigées attendues dans le DOM. Les cinq lectures/Pinyin du lot 3 sont explicitement attestées, les autres conservées. Voir [le contrôle du lot 3](verification-raccord-lot3.md).
+Les quatre couches figées sont vérifiées avec leurs après réels avant projection privée pour les contrôles des origines. Le lot de contenu n’est pas présenté comme une copie verbatim : seuls ses champs explicitement acceptés sont changés, avec les deux blocs atomiques. Voir [le contrôle du lot 4](verification-raccord-lot4.md).

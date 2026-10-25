@@ -1,5 +1,9 @@
 # Vérification du raccord lot 3
 
+État vérifié à `606592c`, avant le lot 4. Le nouveau raccord phonétique et
+le registre distinct de contenu sont décrits dans [le lot 4](reponse-revue-integrale-lot4/README.md).
+Les empreintes ci-dessous restent celles de cette édition datée.
+
 **90 aides entières + cinq lectures/Pinyin : 95 événements, 91 identifiants,
 98 objets et 102 champs corrigés.** Les 98 objets sont 88 canoniques, sept
 copies de transport et trois modèles reçus. Les sept prolongations de B

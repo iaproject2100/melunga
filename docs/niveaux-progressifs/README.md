@@ -133,13 +133,22 @@ non clos restent exposés dans le compte rendu.
 
 ## Revue complète par Claude : thèmes, niveaux et phonétique
 
+Le [lot 4 de Claude](reponse-revue-integrale-lot4/README.md) raccorde **259 aides
+entières pour sinophones** et, dans un registre distinct, **33 gloses et les
+blocs atomiques 1900 et 757**, avec les rectifications `c849bf3` du lot 3.
+La conservation des textes et sens admet désormais ces seules corrections de
+contenu explicitement attestées ; les originaux restent vérifiables et le
+catalogue classique reste intact. Les propositions de niveau/thème et les
+conventions ne sont pas appliquées. Claude annonce maintenant **20 cellules
+lues sur 70** (fr→zh et zh→fr) ; il poursuit les 50 autres, à commencer par fr→ja.
+
 Le [lot 3 de Claude](reponse-revue-integrale-lot3/README.md) ajoute une couche
 durable de **90 aides entières et cinq lectures/Pinyin**, après la couche
 précédente. Les sept suites après B conservent leurs annotations antérieures ;
 les copies et les deux reçus zh→fr « les » sont traités ensemble. Les gloses,
 propositions de classement et conventions restent des dossiers séparés.
-La couverture individuelle annoncée par Claude est maintenant **10 cellules
-sur 70** (tout fr→zh) ; il poursuit les 60 autres. Codex assure le raccord et
+À la livraison du lot 3, la couverture individuelle annoncée par Claude était
+de **10 cellules sur 70** (tout fr→zh). Codex assure le raccord et
 sa contre-vérification technique, sans reprendre en parallèle la mission
 de lecture confiée à Claude.
 
@@ -226,3 +235,5 @@ Le chemin Playwright correspond à cet environnement ; ailleurs installer
 Contrôles du raccord : **4 tests ciblés, 9 contrôles des commandes, 19 contrôles généraux réussis ; 55 anomalies volontaires refusées**. [Rapport et limites](verification-raccord-phonetique.md).
 
 Validation du lot 3 : **5 tests ciblés et 4 historiques, 9 commandes et 19 contrôles généraux réussis ; 69 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot3.md).
+
+Validation du lot 4 et du contenu distinct : **6 tests ciblés + 9 historiques, 9 commandes et 19 contrôles généraux réussis ; 93 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot4.md).

@@ -1,5 +1,11 @@
 # Lot 3 — couverture et contenu séparé du raccord
 
+État historique de la reprise du lot 3 à `606592c`. Les rectifications
+`c849bf3` et leur intégration dans le registre de contenu distinct sont
+désormais documentées dans [le lot 4](../reponse-revue-integrale-lot4/README.md).
+Les mentions de formulations à reprendre ou non appliquées ci-dessous
+décrivent cet état antérieur.
+
 Référence des avant : `3df885d`. Preuves de Claude : `d06a62e`. Ce contrôle relit les valeurs et le périmètre ; il ne prétend pas reproduire la lecture linguistique des 4 217 positions ni certifier la prononciation native.
 
 ## Couverture réconciliée

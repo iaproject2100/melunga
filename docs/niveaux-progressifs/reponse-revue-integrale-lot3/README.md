@@ -1,5 +1,11 @@
 # Reprise du lot 3 de Claude — chinois L3 à L10
 
+État historique de la reprise du lot 3 à `606592c`. Les rectifications
+`c849bf3` et leur intégration dans le registre de contenu distinct sont
+désormais documentées dans [le lot 4](../reponse-revue-integrale-lot4/README.md).
+Les mentions de formulations à reprendre ou non appliquées ci-dessous
+décrivent cet état antérieur.
+
 Le raccord reprend **90 aides entières et cinq Pinyin**, sur l’avant `3df885d`,
 depuis les preuves de `d06a62e`. La couche précédente est conservée et les sept
 prolongations de B sont déclarées après elle, avec leurs copies de révision.

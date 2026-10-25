@@ -9,6 +9,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const {isDeepStrictEqual} = require('node:util');
+const lot4Corrections = require('./lot4-corrections.cjs');
 const ROOT = path.resolve(__dirname, '..', '..');
 const WEB = path.join(ROOT, 'melunga_deploy');
 const REGISTRY = 'docs/niveaux-progressifs/corrections-phonetiques/lot3/revue-claude-lot3.json';
@@ -124,7 +125,7 @@ function annotationFor(entry,before,registrySha256) {
     originalPhoneticReviewStatusPresent:before.phoneticReviewStatusPresent,
     originalPhoneticReviewStatus:before.phoneticReviewStatusPresent ? before.phoneticReviewStatus : null};
 }
-function verifyPhrase(pairId,phrase,expectedBefore) {
+function verifyLot3Phrase(pairId,phrase,expectedBefore) {
   const audit=loadRegistry(); const entry=audit.entries.get(key(pairId,phrase.id));
   if (!entry) { assert.equal(phrase.reviewedFieldCorrection,undefined,'no undeclared lot3 annotation'); return phrase; }
   const candidates=entry.occurrences.map(row=>row.expectedBefore);
@@ -147,8 +148,13 @@ function verifyPhrase(pairId,phrase,expectedBefore) {
   if (entry.fields.phon || before.phoneticReviewStatusPresent) assert.equal(phrase.phoneticReviewStatus,status);
   return phrase;
 }
+function verifyPhrase(pairId,phrase,expectedBefore) {
+  verifyLot3Phrase(pairId,lot4Corrections.projectBefore(pairId,phrase),expectedBefore);
+  return phrase;
+}
 function projectBefore(pairId,phrase) {
-  verifyPhrase(pairId,phrase);
+  phrase=lot4Corrections.projectBefore(pairId,phrase);
+  verifyLot3Phrase(pairId,phrase);
   if (!phrase.reviewedFieldCorrection) return phrase;
   const original={...phrase}; const annotation=phrase.reviewedFieldCorrection;
   for (const [field,value] of Object.entries(annotation.beforeFields)) original[field]=value;
@@ -173,9 +179,10 @@ function declaration(audit=loadRegistry()) {
     phoneticEventCount:90,readingEventCount:5,evidenceCommit:EVIDENCE_COMMIT,baseSnapshotCommit:BASELINE,appliesAfter:LOT2};
 }
 function inputFiles() {
-  return [__filename,path.join(ROOT,REGISTRY),...Object.keys(EVIDENCE).map(file=>path.join(ROOT,file))];
+  return [__filename,path.join(ROOT,REGISTRY),...Object.keys(EVIDENCE).map(file=>path.join(ROOT,file)),...lot4Corrections.inputFiles()];
 }
 function auditRuntime() {
+  const lot4Audit=lot4Corrections.auditRuntime();
   const audit=loadRegistry(); const manifestPath='melunga_deploy/content/niveaux-progressifs/manifest.json';
   const manifest=read(manifestPath),oldManifest=baseline(manifestPath);
   const files=oldManifest.pairs.flatMap(pair=>[pair.repertoirePath,...pair.levels.map(level=>level.dataPath)]).map(file=>'melunga_deploy/'+file);
@@ -202,6 +209,7 @@ function auditRuntime() {
     }; visit(document);
   }
   const expected=clone(oldManifest); expected.reviewedFieldCorrections=declaration(audit);
+  Object.assign(expected,lot4Corrections.manifestDeclarations());
   for (const pair of expected.pairs) pair.repertoireSha256=hash(fs.readFileSync(path.join(WEB,pair.repertoirePath)));
   assert.deepEqual(manifest,expected,'only new declaration and actual bank hashes change in manifest');
   for (const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html']) {
@@ -210,7 +218,7 @@ function auditRuntime() {
     assert.ok(actual.equals(original),'UI/classic file stays byte-for-byte intact: '+filename);
   }
   assert.equal(fields,102);
-  return {correctionCount:91,eventCount:95,phoneticEvents:90,readingEvents:5,occurrences:98,fields,profiles:audit.profiles,files:77};
+  return {correctionCount:91,eventCount:95,phoneticEvents:90,readingEvents:5,occurrences:98,fields,profiles:audit.profiles,files:77,lot4:lot4Audit};
 }
 module.exports={loadRegistry,verifyPhrase,projectBefore,projectDocument,declaration,auditRuntime,inputFiles,baseline,beforeProfile};
 

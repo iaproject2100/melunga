@@ -710,6 +710,7 @@ test('196 additional situations preserve 1568 whole source positions without inf
   // the DOM matrix continues to expect the actual corrected runtime JSON.
   report.phoneticCorrectionsSourceAudit = phoneticCorrections.auditRuntime();
   report.reviewedFieldCorrectionsSourceAudit = report.phoneticCorrectionsSourceAudit.lot3;
+  report.lot4CorrectionsSourceAudit = report.phoneticCorrectionsSourceAudit.lot3.lot4;
   const catalogue = JSON.parse(fs.readFileSync(path.join(situationDirectory, 'catalogue.json')));
   assert.equal(catalogue.status, 'ready-for-preview', 'the complete situation catalogue was frozen before generation');
   assert.equal(catalogue.planSha256, report.situationPlanSha256);

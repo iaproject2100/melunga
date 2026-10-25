@@ -2,7 +2,7 @@
 
 Les thèmes de situation et les rubriques de vocabulaire figurent dans la même grille, sans nouvel écran de sélection. Une situation ne présente que des phrases ou répliques communicatives entières. Les mots, groupes lexicaux et nombres isolés se pratiquent dans leurs rubriques dédiées. Les modèles ouverts et les cas incertains sont conservés dans une réserve de revue, hors entraînement.
 
-**32115 cartes du catalogue** sont conservées exactement une fois, entre rubriques actives et réserve ; **110277 champs** sont vérifiés identiques aux sources avant application de la couche de corrections phonétiques tracées ci-dessous. Les identités source restent intactes ; les aides corrigées sont déclarées séparément, sans prétendre qu’elles figuraient dans la source originale. Les **2134 cartes historiquement lv1** restent présentes avec leur niveau source. Les droits de l’application classique sont inchangés.
+**32115 cartes du catalogue** sont conservées exactement une fois, entre rubriques actives et réserve ; **110277 champs** sont vérifiés identiques aux sources avant application des couches figées d’aides, de lectures et de contenu tracées ci-dessous. Les identités source restent intactes ; les champs corrigés sont déclarés séparément, sans prétendre qu’ils figuraient dans la source originale. Les **2134 cartes historiquement lv1** restent présentes avec leur niveau source. Les droits de l’application classique sont inchangés.
 
 Le lot comporte **1420 décisions explicites** de placement. Les **30695 autres cartes** gardent un niveau source non revu individuellement. Ni une partition complète ni la conservation des textes ne prouvent la progressivité ou l’acquisition.
 
@@ -47,11 +47,31 @@ Empreinte du registre : `efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf
 
 Le registre `docs/niveaux-progressifs/corrections-phonetiques/lot3/revue-claude-lot3.json` applique **90 aides entières et 5 Pinyin**, soit **95 événements / 91 identifiants**, après la couche précédente. Les sept prolongations d’une correction B conservent cette première annotation et déclarent leur nouvelle étape séparément.
 
-L’édition comporte **98 objets corrigés** : 88 canoniques, 7 copies de transport et 3 modèles reçus. Les cinq lectures changées sont les seuls Pinyin modifiés ; aucun champ d’étude, sens, emplacement, type ou droit d’accès ne change dans cette couche.
+L’édition comporte **98 objets corrigés** : 88 canoniques, 7 copies de transport et 3 modèles reçus. Dans cette couche, les cinq lectures changées sont les seuls Pinyin modifiés ; aucun champ d’étude, sens, emplacement, type ou droit d’accès ne change.
 
 Les valeurs avant entières, sources et annotations antérieures sont vérifiées avant application. Les deux registres figés ne sont pas des règles à étendre. Les gloses, propositions de niveaux/thèmes et conventions à arbitrer restent hors de ce raccord ; aucune validation native globale n’en découle.
 
 Empreinte du registre : `20ad657496a94a036c8e6aa74088f172ddc8c4ebb7eacb074f2133fa84beb393` ; preuves figées au commit `d06a62ea36120ffd73b8059645848c13bd4f172d`.
+
+
+## Lot 4 — aides françaises pour sinophones
+
+Le registre `docs/niveaux-progressifs/corrections-phonetiques/lot4/revue-claude-lot4.json` applique **259 événements figés** à **259 identifiants**, dans **275 objets** : 257 canoniques, 15 copies de transport et 3 modèles reçus.
+
+Cette couche ne change que les aides entières attestées, leur statut phonétique et leur annotation distincte. Les textes, sens, lectures, types, emplacements et droits ne changent pas dans cette couche. La règle nommée A dans ce registre désigne des lectures à l’anglaise ; elle n’a aucun rapport avec l’ancienne proposition espagnole s→ss retirée. Aucune de ces règles n’est exécutée comme calcul extensible.
+
+Empreinte du registre : `92f93724dfe4ef1586a588b1372c72639e0fa1016834d1cc9a1ab66fda9b6c88`.
+
+
+## Contenu certain — lot distinct des aides du lot 4
+
+Le registre `docs/niveaux-progressifs/corrections-contenu/lot3-lot4/revue-contenu-lot3-lot4.json` porte **35 événements sur 35 identifiants** : 25 gloses natives amendées du lot 3, huit du lot 4, et les deux blocs complets 1900 et 757. Les **40 champs approuvés** comprennent **39 valeurs effectivement changées** ; le sens de 757 est une garde inchangée.
+
+Avec la copie de révision de 2451, la couche concerne **36 objets**, **41 champs approuvés / 40 changés**. La citation 1900 change étude, lecture, aide entière et sens en une seule opération ; 757 change étude et aide ensemble, en conservant sa glose. Ni suppression automatique de syllabes ni collage de nouvelles aides n’est calculé.
+
+Les champs source originaux et toutes les anciennes annotations restent vérifiables. Les blocs ne sont jamais appliqués champ par champ ; un avant inattendu ou une application partielle échoue. Les propositions incertaines, les thèmes/niveaux proposés et les conventions restent non appliqués. Le catalogue classique, les identifiants, les emplacements, les prix et les droits gratuits restent intacts. La relecture bornée de ces événements ne vaut pas certification native globale.
+
+Empreinte du registre de contenu : `346a85c459bb3adfc556c8946262509d19e9ffd46e65e9aa2dba40729aceab91`.
 
 
 ## Enrichissement de situations — lot distinct
