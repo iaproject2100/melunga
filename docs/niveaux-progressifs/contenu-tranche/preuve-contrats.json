@@ -1,0 +1,891 @@
+{
+  "version": 1,
+  "id": "contenu-tranche-preuve-contrats",
+  "baseSnapshotCommit": "13f42b5814f2b230d76d2d0ef267dcf406c523c2",
+  "sourceCommit": "17b003810a15954d933f49decc2bafa53de8d881",
+  "erratumCommit": "4247ca470354f59ea37992608b38e3728a6e22f9",
+  "registry": {
+    "path": "docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json",
+    "sha256": "3fa187478a03e1398e7b14fa545c0950bf1ff166789a480745ca689061377130"
+  },
+  "exceptions": {
+    "path": "docs/niveaux-progressifs/contenu-tranche/exceptions-contenu-tranche.json",
+    "sha256": "ac33db585c121465613d6e0fcd41131986271b48c4a057ec867062d2d2655844"
+  },
+  "evidenceFiles": [
+    {
+      "path": "docs/niveaux-progressifs/contenu-tranche/evidence-registre-contenu.json",
+      "gitPath": "docs/revue-integrale/contenu-incertain/registre-contenu.json",
+      "gitCommit": "17b003810a15954d933f49decc2bafa53de8d881",
+      "sha256": "0276ad1dac00161a6619de315d22d558f65b55a8821f3ddab95a1f10ad9a9e02"
+    },
+    {
+      "path": "docs/niveaux-progressifs/contenu-tranche/evidence-README.md",
+      "gitPath": "docs/revue-integrale/contenu-incertain/README.md",
+      "gitCommit": "17b003810a15954d933f49decc2bafa53de8d881",
+      "sha256": "e8db013b8fa4a8fda5e87bf75fa199faf742459ba326e8f33f9c190c543608c6"
+    },
+    {
+      "path": "docs/niveaux-progressifs/contenu-tranche/evidence-errata-1.json",
+      "gitPath": "docs/revue-integrale/contenu-incertain/errata-1.json",
+      "gitCommit": "4247ca470354f59ea37992608b38e3728a6e22f9",
+      "sha256": "5418f06dcef98785a617e55a2f033c9bbdd99d9b563efe28f689fca81b9e1453"
+    }
+  ],
+  "sourceEventCount": 638,
+  "withdrawnEventCount": 1,
+  "executedEventCount": 637,
+  "withdrawnEvents": [
+    {
+      "eventIndex": 211,
+      "pair": "fr-it",
+      "id": "catalogue:it:1239"
+    }
+  ],
+  "authorErratum": {
+    "evidencePath": "docs/niveaux-progressifs/contenu-tranche/evidence-errata-1.json",
+    "eventCount": 4,
+    "withdrawnSourceEventIndices": [
+      211
+    ],
+    "correctedSourceEventIndices": [
+      467
+    ],
+    "confirmedBlockOnlySourceEventIndices": [
+      76,
+      426
+    ]
+  },
+  "eventChains": "638 unique source IDs; author erratum withdraws211 and replaces only after.phon in atomic source block467",
+  "literalAnchorMismatches": 0,
+  "correctionSummary": {
+    "registryPath": "docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json",
+    "registrySha256": "3fa187478a03e1398e7b14fa545c0950bf1ff166789a480745ca689061377130",
+    "baseSnapshotCommit": "13f42b5814f2b230d76d2d0ef267dcf406c523c2",
+    "appliesAfter": [
+      {
+        "registryPath": "docs/niveaux-progressifs/corrections-contenu/lot9/revue-contenu-lot9.json",
+        "registrySha256": "db40f6ae9a0b88595b0c4f5591b7ca1263b5ff1facfb9d6c1c723e6ed204ad74"
+      }
+    ],
+    "correctionCount": 637,
+    "eventCount": 637,
+    "approvedFieldCount": 870,
+    "changedFieldCount": 870,
+    "kindCounts": {
+      "glose": 478,
+      "bloc": 159
+    },
+    "pairCounts": {
+      "fr-en": {
+        "gloses": 41,
+        "blocs": 31
+      },
+      "fr-es": {
+        "gloses": 59,
+        "blocs": 36
+      },
+      "fr-it": {
+        "gloses": 59,
+        "blocs": 19
+      },
+      "fr-ja": {
+        "gloses": 103,
+        "blocs": 18
+      },
+      "fr-ko": {
+        "gloses": 97,
+        "blocs": 27
+      },
+      "fr-zh": {
+        "gloses": 56,
+        "blocs": 7
+      },
+      "zh-fr": {
+        "gloses": 63,
+        "blocs": 21
+      }
+    },
+    "rejectedCount": 145,
+    "rejectedCounts": {
+      "fr-en": 23,
+      "fr-es": 24,
+      "fr-it": 17,
+      "fr-ja": 26,
+      "fr-ko": 24,
+      "fr-zh": 11,
+      "zh-fr": 20
+    },
+    "sourceEventCount": 638,
+    "withdrawnEventCount": 1,
+    "withdrawnEvents": [
+      {
+        "eventIndex": 211,
+        "pair": "fr-it",
+        "id": "catalogue:it:1239"
+      }
+    ],
+    "exceptionsFile": {
+      "path": "docs/niveaux-progressifs/contenu-tranche/exceptions-contenu-tranche.json",
+      "sha256": "ac33db585c121465613d6e0fcd41131986271b48c4a057ec867062d2d2655844"
+    },
+    "authorErratum": {
+      "evidencePath": "docs/niveaux-progressifs/contenu-tranche/evidence-errata-1.json",
+      "eventCount": 4,
+      "withdrawnSourceEventIndices": [
+        211
+      ],
+      "correctedSourceEventIndices": [
+        467
+      ],
+      "confirmedBlockOnlySourceEventIndices": [
+        76,
+        426
+      ]
+    },
+    "evidenceCommits": [
+      "17b003810a15954d933f49decc2bafa53de8d881",
+      "4247ca470354f59ea37992608b38e3728a6e22f9"
+    ],
+    "occurrenceCount": 654,
+    "occurrenceProfiles": {
+      "canonical": 626,
+      "received-model": 11,
+      "transport-phrase": 17
+    },
+    "approvedRuntimeFields": 887,
+    "changedRuntimeFields": 887,
+    "approvedFieldOccurrences": {
+      "native": 528,
+      "phon": 150,
+      "reading": 50,
+      "study": 159
+    },
+    "changedFieldOccurrences": {
+      "native": 528,
+      "phon": 150,
+      "reading": 50,
+      "study": 159
+    },
+    "phoneticStatusChangedOccurrences": 150,
+    "modifiedRuntimeFiles": [
+      "melunga_deploy/content/niveaux-progressifs/fr-en/L1.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-en/L10.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-en/L9.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L1.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L1.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L10.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L2.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L3.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L4.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L5.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L6.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L7.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L8.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ja/L9.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L1.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L10.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L6.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L8.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L9.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/fr-en.json",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/fr-es.json",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/fr-it.json",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/fr-ja.json",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/fr-ko.json",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/zh-fr.json",
+      "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+      "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+      "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+      "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+      "melunga_deploy/content/niveaux-progressifs/zh-fr/L4.json",
+      "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+      "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+      "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+      "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+      "melunga_deploy/content/niveaux-progressifs/zh-fr/L9.json"
+    ],
+    "derivedMetadataChanges": [
+      {
+        "pairId": "fr-es",
+        "level": 8,
+        "themeId": "L8-conversation",
+        "before": 187,
+        "after": 186,
+        "inherited": false
+      },
+      {
+        "pairId": "fr-it",
+        "level": 3,
+        "themeId": "L3-vocab-actions",
+        "before": 87,
+        "after": 86,
+        "inherited": true
+      },
+      {
+        "pairId": "fr-ja",
+        "level": 4,
+        "themeId": "L4-conversation",
+        "before": 203,
+        "after": 202,
+        "inherited": false
+      },
+      {
+        "pairId": "fr-ko",
+        "level": 2,
+        "themeId": "L2-conversation",
+        "before": 192,
+        "after": 191,
+        "inherited": true
+      },
+      {
+        "pairId": "fr-ko",
+        "level": 4,
+        "themeId": "L4-conversation",
+        "before": 188,
+        "after": 187,
+        "inherited": false
+      },
+      {
+        "pairId": "fr-ko",
+        "level": 5,
+        "themeId": "L5-conversation",
+        "before": 220,
+        "after": 219,
+        "inherited": true
+      },
+      {
+        "pairId": "fr-ko",
+        "level": 8,
+        "themeId": "L8-conversation",
+        "before": 133,
+        "after": 132,
+        "inherited": false
+      }
+    ],
+    "transportSha256ByPair": {
+      "fr-en": "d96708742971c1e52b622b5fd255ec43d5c6f04aa26611e12da6fb2004c0f01f",
+      "fr-es": "cc0bc7a345438aa4f8cb6c940514c1a5ae5ee2ae9b49b41480003b6cc305c2d9",
+      "fr-it": "34aa558e6ef3bc9035251c6430d6064b465ac38cc585447a59d5ef70b88af8c1",
+      "fr-ja": "1e895d9a8013c8883c70bf0f69756fe9d4fbb387f4a90160f067b850937e2e4a",
+      "fr-ko": "c5f6ccbc60bb4f7402107236a1e6543db2a5b947ed6baffbcaaa61e9ca2d12dd",
+      "fr-zh": "017b0bf1f3c0cb1825db384227c1d30efc826d58e1fa7e1bfc2573e48b9e9e91",
+      "zh-fr": "2af421e530a4ac28615a5bbc2e00b35f0f0b34adc95b792a0a44c260b96fee79"
+    },
+    "globalPhoneticApproval": false,
+    "globalNativeApproval": false,
+    "sourceValidation": "Original sources and all preceding layers checked before frozen whole content events; exact tuples, complete objects and atomic blocs only."
+  },
+  "runtimeContentFileCount": 77,
+  "runtimeFilesIncludingManifest": 78,
+  "runtimeInventory": [
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L1.json",
+      "beforeSha256": "4d5784892b62f9829f173da700378b7e6dc3ff90f2128bdf8723011f135cda07",
+      "afterSha256": "97f3250da0032494608abcbc5acd003159da576ab79f80e1531a37f9a5086cea",
+      "beforeObjectSha256": "d8d9912842636f6cc7cffd7aceef1defcd3ceaa71fa01837a1a1f320fd99e291",
+      "afterObjectSha256": "71caffe37f17b3604517b2cd36a899cc0974317d0b1fb47cf800bdaaefe073a9"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L10.json",
+      "beforeSha256": "fb544bf13234f452abe487a6a3084f792fe5708397d8d6806da60e3c936b79c0",
+      "afterSha256": "395da1c130f92468b267f665b893f52a41ed85e9054e1b41d92ebc8dacc6fae8",
+      "beforeObjectSha256": "7171ed9d3629c37b55a51858637cc57bd823a7064466b54fd0518f3e60705962",
+      "afterObjectSha256": "4aef13ba8928ffc03185bf2c8b35a404daaa617fa293f7932bbed70218feedf4"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json",
+      "beforeSha256": "403ee18b74fd6fa0ce57800e431a0da009dc4a0f8ba76a27d5a1fe6d842b4c73",
+      "afterSha256": "0ae3c9f87428d1293189913923b0cb36cd60bb26bee27785d5531ebdc7128262",
+      "beforeObjectSha256": "ffcc5f254054a7c6a6d1cd294e7ee91c780e7fe525b217097d2a5febc68666b8",
+      "afterObjectSha256": "de7a3e1d848f75c01bd33c917ee834c00a434e093d7c18d7be48e7cf5e1ed40f"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L3.json",
+      "beforeSha256": "90ae0ed2f5f22fe0ed470c75f1c45914fb6d5022de335f1da76aa14eba625d15",
+      "afterSha256": "449117f6acfb32fff96593f7b53e8c5efff80d02c8a0d2ce055b7c2a99cddcdd",
+      "beforeObjectSha256": "319a43a594c137cd5f5f78500948fa6d5a3dc4e537f811e6fb785d299c00d775",
+      "afterObjectSha256": "8551219a269892a6b83617d413907baf817268345c61e23a45d77f14d3e641c5"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L4.json",
+      "beforeSha256": "d0b64f7b7b3f0eb4e64a5319d2d1c20e3256f9e1b27805a6f9bc2db12ff246b6",
+      "afterSha256": "39cfa2caba39fda8b14377b7a8a8b8d5ada0854dc7479da3816e15d344a57a0a",
+      "beforeObjectSha256": "eb3b20f383e4a35f3a748ea76ca73a8310d365357ebe87f1bca6668b6892cbb4",
+      "afterObjectSha256": "6b8f0c45ff94d94ac024716ac437b700e1247084a1fa9a05f9e8ecc3da3bbcbf"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L5.json",
+      "beforeSha256": "52c545536ecc50f3a5bf60b5eb8ef981b7974a6bf68e8029ad29ae7444d007c1",
+      "afterSha256": "da85f3659295854cd6438a9d13bfc9719f818038f451a2ca8e5fa355a189ba54",
+      "beforeObjectSha256": "5e17911c52606a6b36b9099af2de8e59581574be6e83dabd8c526f816ad854d7",
+      "afterObjectSha256": "6e9596411be7235a1035b8b1f3a61b40f9a449d8e939a40a583e4575bce4652a"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L6.json",
+      "beforeSha256": "b46fecebd11df1a2d8ce9edd59979ef2cb337dfe9bedbb0fd23706e94310eb74",
+      "afterSha256": "d47ab8aaa2e01973c8472ced5a1a189f4277f089fae4e75ad7dbaa7133b4b699",
+      "beforeObjectSha256": "fae3cc023d8ed1740b351868e2379b2c5868ba9ad17e115a8911852316491eca",
+      "afterObjectSha256": "c9301787f8bfeecacd8ae6c805d4d0a187f79df6924c14256ddc7097d307f0d1"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L7.json",
+      "beforeSha256": "e1311d48e4873a2b7fdb90a5defe5fa1054c63bc89908063c349fed3d61e92ee",
+      "afterSha256": "8307e497930d2a76319e8a30a4ddf1658a40d0dc72b384ac1d74925483be92a2",
+      "beforeObjectSha256": "5fe7ce15a798ca41bb21865b75512095109a26bae416c978c058020759212b87",
+      "afterObjectSha256": "db7c9bc67bcfd63a2e97ad3d3a67d4884e476a710858ce064293233cd4949114"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L8.json",
+      "beforeSha256": "230e5b69e50ff92b5f446f3ba5f9005d7a20eed8f32908135c1393571837d72d",
+      "afterSha256": "ed1bf6f3c7fae77957fa57a9e933542e0b6edb1fcd7c386a6039f811976b1d5c",
+      "beforeObjectSha256": "bf0c9576ee4e15322f27c43a2c748458366297a431372a1b180870bec639c918",
+      "afterObjectSha256": "0ed898798f1fa39d80721e4c5485d7cad95ac6d9d7e2f891c13ecc9d619f2725"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-en/L9.json",
+      "beforeSha256": "8c97e6bd062a3cb10ded347d5a3069ace8c683014a12da700770ea35e38d8509",
+      "afterSha256": "135182f0e8ccbba3db04afe3613a8a3937b71e2230d79658db6ef4af6277d741",
+      "beforeObjectSha256": "0ba85b950fbda2f888c043a4525ca6f1f06f85fdbb4f8874fa1a6dff2da12df2",
+      "afterObjectSha256": "efbff64783c3c2c01bf2c96c338a57b75c813df4445e4ee668440cd62964fb81"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L1.json",
+      "beforeSha256": "0a03617ee959d07cc9bc10239c4f64fe3ad53f7f004466d6c596e96a9d410c70",
+      "afterSha256": "be8f6cc1f5d635c68ab9286b58865a40c82d474a84dcc3df0bbd666c376a5fa8",
+      "beforeObjectSha256": "09b95db7b0fb88c382995f4ae7aa15a45f9860fafc88b9d8eb513e3684e45940",
+      "afterObjectSha256": "bc1f782fee6e9148c5ed6ae25d30e9df910fd501368fc8d0774d2d8d3ba2a0c4"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+      "beforeSha256": "ad100d43a68d317fc6f1a92519bb38eeaad2df212b9710708a19c3c7f33e0cba",
+      "afterSha256": "037d11e8e2fe361e8deb96cfcc1d2fff0dfb85baf08f1b38c7558d52328dcee0",
+      "beforeObjectSha256": "00f371981538cab1fe3804352db546ef21880de95b3c9fad3870908c7d3f38bb",
+      "afterObjectSha256": "b89e8ce60f4284e7faf018fe9146b49829321f2a4df339d82276e0ee638266cc"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+      "beforeSha256": "4f1d7ee38e71fe35caa1ce411c5d2a25b81df4980a597e30c2f3d783abd0bd7f",
+      "afterSha256": "0ddfc7a7284f1b527e1e293ff63d1d5d65381989b7bff6975981c9eff08ec238",
+      "beforeObjectSha256": "4513b36c6140d29f9fe986a930fb17843520e89a5ad18074ccef50aecfe62f34",
+      "afterObjectSha256": "454907d7f7307a14b5bf53b66e3c6eaa31cbc1d08a232732292dc2273e0c732e"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+      "beforeSha256": "596c686adf90f325548fc19147e3f5d6c28f42375966da45a4482f957efae1e4",
+      "afterSha256": "09fd9e3a41d0383b71c98df7f169f6e8be73fb84d084a94ce7ed35c3a2d0c253",
+      "beforeObjectSha256": "03021a969caf0649b44ad4adb8d350c8c221d6a640eb7030344291448bc22c59",
+      "afterObjectSha256": "10f8779972909b463c544977676e257368b074293a27de4a7ed55993e37afda0"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+      "beforeSha256": "e8a924ca2099d303740c39f44aee52641fa4b630cfe6c06877715b121742b6f6",
+      "afterSha256": "7fa5ace66c5f1e3dad04017dee7cecb62a390afdf962177ef412c9c3f9d936b0",
+      "beforeObjectSha256": "3d3ff7b9b6ed32a80df7f9999d772009e770876f55f996c21b72b85b368f139c",
+      "afterObjectSha256": "af70e1a8e129272a11bb05d123a3e75ede0ef34512d66d4b0d2d3d6014f96f5c"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+      "beforeSha256": "b4ae81a44af2890351e77013ab718df885d35dc0e31ab4e70d148d3af25c427b",
+      "afterSha256": "ca723eda5feda02bdd109fa5891b64dedc664e88cd1e6bf9799cd42ea455f1f4",
+      "beforeObjectSha256": "f917ae7e268d76e28da0f39f711314ebefec63677355725afc5c8f52e07b9502",
+      "afterObjectSha256": "1cb76052b56e805dc01556bb177e60deeea884ef66d091d2304d985ffcf212b1"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+      "beforeSha256": "39202735f59e82b5218e912a3e78e5ffff50004298bab5de6cfedf9b3ee71df7",
+      "afterSha256": "2a1b9c77c0b267220c77d260115fef94b562e45fef30d2b625f04494f1c1dec6",
+      "beforeObjectSha256": "92bd59ce6ee847329c71fc699cd7c6e2b992ea519d902c8ac88be1c2a61f59f9",
+      "afterObjectSha256": "b02c821a8a0d5256b9f1cb85e6aabe20ba1d0551a1fe7c24832c78d892b1ee22"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+      "beforeSha256": "744ef4d813be9f13801e6f1a8667b65af9ef1f9c656f8a3c337995e4e861994d",
+      "afterSha256": "65151c000596dae21c254075360c27efe36388b26974994e4728e64dc9366cad",
+      "beforeObjectSha256": "ffb97e8cd093da4e973da5df4fa5d26dc5dd78ab60e8576dbb45da8b1f9293a3",
+      "afterObjectSha256": "51925bbdf2f380540167b01d479c5d29c60c9b3c1730176acb7310eeb9065122"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+      "beforeSha256": "d7dfcf4134b9069ebc0aac4d2a5beb84131ae1a7f08737db716f4973f0db53ba",
+      "afterSha256": "af7d0cd7ef7f050d747f90e3b3e8985e437466c21298dd7fdeeb107ad97b1cb4",
+      "beforeObjectSha256": "8e8ecf7e1fa9bd5e9ee80c043b0482a58d1c0bd56535b29530b092d6107d3c0e",
+      "afterObjectSha256": "2efce03025aa7aeccb7bc83e1e120109fdb32b15d5fd3d0b553b84395194ef95"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+      "beforeSha256": "bb8606a4b4d4f4562f7ad74f8f78d178575c648a085f73077a1da4c98dbbab87",
+      "afterSha256": "0791ab6437d6801a37141ada623ef64479de1594077486e8459941ca96ee17d5",
+      "beforeObjectSha256": "46ea2d3aab4d4bc3bf47681333f57e4a98782b7ed1bbcdb87b79dee1f271b3fa",
+      "afterObjectSha256": "62c40493e52c377b4d84fe9b7416f3167f9fa63c26b8e0a4ecbab5281c4f2511"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+      "beforeSha256": "c9c968b5d921d41b7cef80c12490a2783e230308a6b9a85d13db7442830f1f7c",
+      "afterSha256": "9d39934fd852d43476c4463b4a9fb676ac21d9e82b6c59b7c5d7aef52be89adb",
+      "beforeObjectSha256": "e305a5090324f283708c939a4e86ed881af222aa55ff8e48f43309a76607b575",
+      "afterObjectSha256": "ba3b97eeb4fd121325fb185b5f42795d4af4dcbf60f111e39d2ed7b3965f4445"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+      "beforeSha256": "30956a320da4fb19e171ba44dd9a887872e9afe31efa4ea26e8f1f9299809971",
+      "afterSha256": "dc8464e716ca06c27e4e7a8e63280b379b41c2df1bcb56e02a70cda831ed8585",
+      "beforeObjectSha256": "f913fd63c5c435a687364d63f2d8d50ca55e8793e6a8bbbd0234295335dba420",
+      "afterObjectSha256": "f38f30cdbd5a7d0ce764b01908a63ecd40baa4fe998f5d93838fd28ee77b2323"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+      "beforeSha256": "204044a83ed9657e0d063f54255af601fca8e7a17fcf2a19925854c1550c85d7",
+      "afterSha256": "a1007f33462abe48121ffc0beef3753f24b52be4d5e7e9580d8a41292213c239",
+      "beforeObjectSha256": "b4b80653f73d729dbdd1064f158c127a7a67be74980fed4dc9b2f47660882525",
+      "afterObjectSha256": "04059cdcaa5c054f3328b7e2bb2d6a1c587c8994fab74ba7bab6cf2cab3f205f"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+      "beforeSha256": "2489aaaa0e9bab21cd5e995f9caa2b3549cef4b04ae768b010c7f0a814140612",
+      "afterSha256": "41bb8c4fb044db71c4c1c913668db0f3e621ef3b6f77acdbdec68dfe7a412186",
+      "beforeObjectSha256": "af5225780587fdf0feab816d60404f0f7bb72f3e0fb050d725e488fc7284c4c2",
+      "afterObjectSha256": "7296769f45d072ba1f9d52642eb093da19b2ec2eee2e4b11875c2a5ce560d759"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+      "beforeSha256": "6ea638a871727e10fcbb47aefc13078d9ed7ab1d503e13a03d871f43a5ac38be",
+      "afterSha256": "bd1c65aeea6b6bbce530dcfc3f6812b76397012905e3b877c6e2eaca421ac560",
+      "beforeObjectSha256": "2bbaf62891180209845a02c9f12ba930415462f8d38974c6e9cc0a2c8f4f7868",
+      "afterObjectSha256": "d897b9961857b3fdc373caeab13cfd58aa394773584732b3c1d7b438f397f03d"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+      "beforeSha256": "d75fd386355924685195d97d562edaa659536e37da1efc2881363adbde4e71cd",
+      "afterSha256": "f634aad2baebe967801ffc80e67a0418779607a8e1458fa9f7e82a0f4d5605f2",
+      "beforeObjectSha256": "dcb77c2c80227e47765113ad50f781598cd9ed2993686c89e1e629440a4a31b9",
+      "afterObjectSha256": "6a47484eef011fe16dd1e8698523cf3a469f854c1df20d91a25cd922bca36614"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+      "beforeSha256": "dcd04ab320b7205f70e793e0b72f87b0b6fbfb2fb03cca5127b5aa042a078f7a",
+      "afterSha256": "f650fd1a63d2fdc055c15b7b82ea03fd8ed20bdfa9ebcdc070d57895654d771a",
+      "beforeObjectSha256": "c06e770e872e346334fe59701c1bdc361ff26c32dc937b71e4ac011f64d4d780",
+      "afterObjectSha256": "744293d02f01ad2c099182157824261ba71438350202ec99c2053a416e51c7af"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+      "beforeSha256": "79376168c75608bd96228b750d1a06652eae8eac717494d1122809a1cedf9de6",
+      "afterSha256": "0b32e9ddcfcd904e40cf0f83fc2ffb86edac88d14dcd35c321a269f96ce2640d",
+      "beforeObjectSha256": "da32155774ccc26b53ae8d0cc5a1d6476c9c0fcb3405be137685fe3ced18047d",
+      "afterObjectSha256": "a8fd7c0dfbb7cc2051c3fa8d2471394dba76efe3b23a191ec68483290e795ff1"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+      "beforeSha256": "7abce71887d788d1c204861b692e1eb0fc6145a385b5769164f973829cc15e05",
+      "afterSha256": "4f0581ff2a4e8c31c414632ba27b51cc3942ec4b1f3f230185ad4ac8095a988e",
+      "beforeObjectSha256": "178699db7cd6eaa2f8d6fbde68fd81b3d6651367a25636da7f59a8ecc80bb3b8",
+      "afterObjectSha256": "0fff0f426f477be2fa3991bdfb38eec0a3657b0af3364ae376ffad64a945552c"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+      "beforeSha256": "563f9335ada441e3b3c31c7c840e271f4e8b0e2599c2419d4f722ec056bc4ab4",
+      "afterSha256": "26b18e32258c9cd3db6d5679f1f8568d897484c7e25217d34a08f96ea7b4d8df",
+      "beforeObjectSha256": "c4d12277c267a841d96456f6c3380d8683c4d5da1826eff1fd7210fe7b4e8117",
+      "afterObjectSha256": "243f41b34d325513702c75355e55c50cb7b6f4180c9c4afb38ac0237d217085d"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L1.json",
+      "beforeSha256": "5e0edb1ee5f5bce849ceca4a5d6b08e3c988b73822d40976e4c2261b8e733a80",
+      "afterSha256": "79d5307584cbe32909651981fc46884cb3e30bbc389bc8c033d11e89f251355e",
+      "beforeObjectSha256": "cb8b8436607672ae3ffd87c259293f269d681513d20e459d13bcd60e06236ddd",
+      "afterObjectSha256": "3b800550536e673f2747566883227f10c016cedb0b24746d7ce398576c391e64"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L10.json",
+      "beforeSha256": "f261fe490a8da23675ebbf1dde953af189f4ced39d34288d652dee92dff5fdd6",
+      "afterSha256": "25d498d11f6f69d5ab063e6230ab79ecc2b7b0d883b22810d008ee27dc4e5a11",
+      "beforeObjectSha256": "1eaa199474477b80ab4c170d6281efb8986165cc866254ddc70cb2aabb7c1362",
+      "afterObjectSha256": "e69e302ee900fffad76048f026400cfa863de4d89399a44fb6df67295e4a22e0"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L2.json",
+      "beforeSha256": "b1e0db28de26961414edc252d434b9795dec2de6ae61d8ba1faf110bb7403fc3",
+      "afterSha256": "bcfe112f0d700a90e9c658b5150568e5da7d290b13f1807d76dfeb45cf98cd68",
+      "beforeObjectSha256": "8af81c7ab1b58a889dca2c78ad3887c092ad75a71f81a00b266113f5ad69b603",
+      "afterObjectSha256": "3a295b9c7c53b9a2a23b09ea5ad2aa82a47853a0534fd5f665b9c19c0c4a9554"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L3.json",
+      "beforeSha256": "b9413a4cb2105a5fbf47d5af9e5f092eafef70308a3b300cde72ae4470eb3d64",
+      "afterSha256": "a96fb0fd6563bf13dcd3a0871cafdfa41498e4dc42d40591d47a105d748ec510",
+      "beforeObjectSha256": "a6c9fb04984fe460fc340a641770ca417ae1012cca3cdb7e3a67a3397bcf91b3",
+      "afterObjectSha256": "74fdfec93992c8f4c19cdc1845d6d1350e5c05df8dc3a93b0e30f4288f648a0f"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L4.json",
+      "beforeSha256": "b3e6cfa42ff7723091ff55c934dc6e8b0b275a2881c97dc17192095269e8f576",
+      "afterSha256": "f49756cb11ea925eb7ff3fa16f7ee1d494ed064a186d03c2d20d41438ae893af",
+      "beforeObjectSha256": "41a1fe9bd9f3bdac01fa56fc9d7a725f40d7f6563015309d144ad41d2302da7c",
+      "afterObjectSha256": "f75979f0c8366a323a225b3243ec396a0f99f678a483136c810584d25275732c"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L5.json",
+      "beforeSha256": "e26c99dc9982cb5df2159ab42859ef6291b40457dd61283c74b3c017773e5026",
+      "afterSha256": "64f4b810f697e2e21047bf07db9a2bf375a1860ca32e1375d09e3d203c6df6d9",
+      "beforeObjectSha256": "95d48e4e9288134d56740cb84215a8ecee65181789c40295a0be52d23367bc5a",
+      "afterObjectSha256": "c5ff6292eeb403c2e4ac4f8ec793973a872f6e693c910da3ed54c890b27451ff"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L6.json",
+      "beforeSha256": "47afa3439ceaf637c7afcd803aaf25689e28eb578eaf04cff4a95c7d322449dc",
+      "afterSha256": "9b6f8bb47008a02c80b2730e0b4857df0f421c10eddd24d565cf6710c1f93760",
+      "beforeObjectSha256": "64bb8fffdf265e71db2c36ed757bbcc31e6d6d105966e4e89c3d3b111d24bc57",
+      "afterObjectSha256": "c9fe1eae91282752e5ae7b4c1535ecc981403e9d440cd10483901b634bce9344"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L7.json",
+      "beforeSha256": "c7f6c735f3e40f0a093bd44e8d503621aa70dd4018cb98272832987c6798be24",
+      "afterSha256": "8467a0f6a91fcf883f10241b5540f21557eff4565eac83aac8fea92e68ad1193",
+      "beforeObjectSha256": "445605d5ab04c8ff95d79e9375f00f58a1e03dd73fef307f143f004f72535be3",
+      "afterObjectSha256": "633a90f989401d99f7ae8dd07a1db9e6d20d4a609880597c5b1a22dcc29efe53"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L8.json",
+      "beforeSha256": "f763b588f1029c47e8fb5c97af6cfc6a97462d2c92d1ace604b437766d9a6950",
+      "afterSha256": "ac7c73fd9e358d25e2066579f7c9a1a8ea398c22b0ecace7e0d16b78eb61cdc7",
+      "beforeObjectSha256": "c54b24f37f1f8efe277deb395fba9479600e84d995033f8c62d0d450eb94e7e7",
+      "afterObjectSha256": "0187f629e9035e2f921a3b863fc549050df8c044eecdeb9a5bb570979e1a03b6"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L9.json",
+      "beforeSha256": "fc0c41d92e9b47c53c9404ed2ee6f5996cb55d3a9ff9ef16e4e5078286ba9378",
+      "afterSha256": "f226fc20cea37ddf9c4c1965b456915e7d842850964be359c64aa4891f24a58f",
+      "beforeObjectSha256": "ccfd70f32dd86beb8e20cdb96601105ae66f064320b818d8cd4c3fd3e0c3c547",
+      "afterObjectSha256": "c8e6575b30b64951820f49a09b397028d4c73bfaa1c8a1941fa0d14fb3b79700"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L1.json",
+      "beforeSha256": "bb8d267e3cd942f9c55b3e34bdb0bc43511c5c9dbc7a569b33c442b27b0acc98",
+      "afterSha256": "d10e30b6a8caad5d1d9a03ae08f2114f4fa1a9c271cbf60bcde3143e346e9819",
+      "beforeObjectSha256": "ee0a1e9086082fb4e8383023231e3a1ed16521f7a42526f65a2449f538c09a90",
+      "afterObjectSha256": "44002e200b8d158f7d60c7d3404fb141cc914107fb127ae24d3d44ceab477de6"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L10.json",
+      "beforeSha256": "9d5abfaf883b753005c6efe7bf0f2dfed4f80914736a15f1869c4e435b647787",
+      "afterSha256": "f3d44cada442045c29933b2d8fdfeefb67254e526c254276ab630899ce7cb3c0",
+      "beforeObjectSha256": "d7a3a4c3910051f7506f040709854f109463e331e95885f4c47674184591fa9f",
+      "afterObjectSha256": "87f0baa98cf5d58b178f7e21350545b21e117c30c8a9014538b57d3cb3fab392"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json",
+      "beforeSha256": "537246af26220794459a603eaa251a9522e57e26c7227ea43854e1d088b14305",
+      "afterSha256": "e15f203213329f43fab92c2a61f1f54667c41ba94e9a0f5f909c303fa91bb231",
+      "beforeObjectSha256": "254e169b49aee169146035103a44bd03dfb83e85643c55fbebebd8856bb7e1c1",
+      "afterObjectSha256": "c4da8c4e101e7a7a9ee06485cc363585c8ceb381bd665e8ecc39544134bf73c8"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json",
+      "beforeSha256": "e3f2a5e493995b502c5bddaee6973dc44508491e7cd75ecd79146d4af3a41e47",
+      "afterSha256": "2fe5009312d5abfdfa76eb7ec26e083f69e28ea4638889f18143388b8cfb21ec",
+      "beforeObjectSha256": "3df5689c95f795f5037536fb55ce24a620c5ffb852b68b9c0993bc410ff5b92f",
+      "afterObjectSha256": "8c44df2e63aef6bc5e8befb5c7725f88e7b917e07f4ba79f5b0187ccebb56071"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+      "beforeSha256": "93c8cbf459d7c447092938b2dba4f0b5b306008c3c57a17b96b77bcac8dedb76",
+      "afterSha256": "3cf4632d9313cdb7e7f7d54d7fa4fcee2e34b605ee24fd3ef42d1cd9763b9f74",
+      "beforeObjectSha256": "e6abb2e9f6c396681e3a7ddf4bc571911dcbe21c10581aaa6c47e5fb73aec3f7",
+      "afterObjectSha256": "0d4591ae9c03d100756a9ea1670ce6f7d46134373a024a7e8afbc3e08505c7f5"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+      "beforeSha256": "9a0a7e7dd05f6b54eef994d113e629cedba82b92dda909569274f66a55f3fa06",
+      "afterSha256": "cf3bdddc8d83509f705dc38200212eda3567b68fde83c286b2a9d80e94b6aba8",
+      "beforeObjectSha256": "068e6bee00e769206bb9d7e991ef96506eb103d7d33e548e86e5fe086bef6f97",
+      "afterObjectSha256": "ab8f74687ed938237edc28bd97f310555527719525311c299a0789fbaefc3d2a"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L6.json",
+      "beforeSha256": "1ffef03ef272b61348e2eb3d520e26e4923cbdc55a97d6987116efbf27fc00c0",
+      "afterSha256": "44174f234092a541c31f1498dc728359fc74ce6a05a302cf827f1a37fe20148e",
+      "beforeObjectSha256": "aa0a337ca12a2bedf04bea2cd9d664574205bb48494085ca55f901308bf58eaa",
+      "afterObjectSha256": "1b56eef69411171cbf901eb4c36fb9a74660947ada5b8776396dd628cfd32493"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json",
+      "beforeSha256": "9854c3a7124f34a662fb4fdfb822f3d3db7de50212812d6f3d7bdfdb2671ebbd",
+      "afterSha256": "a5b77688ce659e1ff6bb31d511a4d1da0a667e3a4032a2160d388411bcca5964",
+      "beforeObjectSha256": "6a002edbf0f8d7a4de8b3892b0cb16d7f01e6d52b7e0279657058c0b7e0c7fa3",
+      "afterObjectSha256": "391d5fce1b6debab6015443331c49f2f1c8ccc75bf1736faabeefe2133d8eaee"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L8.json",
+      "beforeSha256": "ef32837d87d214848f3f11f7f01b4df1ca47b7be3a56fdb5f61c0935d68a80f1",
+      "afterSha256": "0513be5b773c1d391133eecd1f80ed5430131e752f525ee4b414601b0d661b01",
+      "beforeObjectSha256": "218f9d15c8f03e8d1f55d5c1f5445deb58d1ea0c4062b2b0806ae823109b5a3c",
+      "afterObjectSha256": "f75e2573bc4bd0d2dd694d339aa2408d943a84e72fd8cc43bb6bdb9428f8c93e"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L9.json",
+      "beforeSha256": "aa40c8ac1e74117d4510d700e436910f0e50ca6a6aa03857ddcdfdb3913f9431",
+      "afterSha256": "f2e5f3b7a033511dcb40594661bd899d49fb70f3d93c66634eb3c91a794e81e2",
+      "beforeObjectSha256": "ab6a0a836155117959c4944ba90b0d738e735ce76310195a683b09d926f8c2d9",
+      "afterObjectSha256": "f04d1a08da27a199b5ab880b405eebb666b8b6cbfd0b45162a1b0471ca3afb34"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L1.json",
+      "beforeSha256": "404e41e59013e4adc4c80576d0c1279ea593d11e42388628ebeadc7af0167025",
+      "afterSha256": "404e41e59013e4adc4c80576d0c1279ea593d11e42388628ebeadc7af0167025",
+      "beforeObjectSha256": "890069c5783bde0a37077e376bc68a0375cc273bd67fe8ce03e4a9cc09c56c46",
+      "afterObjectSha256": "890069c5783bde0a37077e376bc68a0375cc273bd67fe8ce03e4a9cc09c56c46"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+      "beforeSha256": "432c7d4520647a0bf1573a548c9612a15677daabcf50322309211faaf309fd02",
+      "afterSha256": "7bc65600d8bde5edb42c285dd01c0ad144f073026a0069c62f0141f10643cfe1",
+      "beforeObjectSha256": "6d15eb8c69875cfcd46a1611b224c3dc9cefe137dcfc426f3937bb86b33b2c7f",
+      "afterObjectSha256": "2c057caaa8232c2900f96f54f3cac46037159dfca0c99be323cd4cd13b54f4f8"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+      "beforeSha256": "024ae668d42b5defcd5419b68c20fd9b6dd2eef3c8890f728d779818c75aa938",
+      "afterSha256": "024ae668d42b5defcd5419b68c20fd9b6dd2eef3c8890f728d779818c75aa938",
+      "beforeObjectSha256": "f11d46b1b45a3191eadb6b1c95997770d75042a930f7c40aed73c43ac4303c42",
+      "afterObjectSha256": "f11d46b1b45a3191eadb6b1c95997770d75042a930f7c40aed73c43ac4303c42"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+      "beforeSha256": "f9fbbed86e9f7a82fae42aa996b6ae2f2aa3c31276e2e5e1163946645b344f7c",
+      "afterSha256": "b1a74db5b21b6b59f8e39565c7bd558ec56b630db55df365f99a1768679c11c8",
+      "beforeObjectSha256": "d5be48600c19760a0455034bfef6c3136d1caf84f6323fd5f1f639dd5534d9b3",
+      "afterObjectSha256": "e07b38bfa2b42b119f2a98ef3602e177e509d87b7a87b37a362fabc54dbc51b2"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+      "beforeSha256": "4ecabb2da0a1e3d63a03bd108a43490f8dd0b9694c0fa30168884d8f5a4ccd10",
+      "afterSha256": "874cf79dc9973969c33687c80660ede83982cd090e7c83eb422d90ef36db1fd8",
+      "beforeObjectSha256": "5621aa7d2149d836b404e4b8352edbeda7c0252a5957ba5c54a72faa372bc035",
+      "afterObjectSha256": "d152494d6a64e1694dc10042d3d601f807085681e77ac86124ff9a9dced8d033"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+      "beforeSha256": "6b0c2261c330d60656420d9eaa984766c6628e4c29463e4b50a24cd3220bd673",
+      "afterSha256": "e31fd0b026fe67cc60061057a508ad1820d8bdc74fcc57ff996839c0ea63cb6c",
+      "beforeObjectSha256": "d11a44788a9855d1db88563df4b7f516d7793b2843188228ae3ef2fb4220c01e",
+      "afterObjectSha256": "8e4ee25a17c71c5aa505e4eb322d882fcdd0ceaf5df4c3021c84d906eeb1415b"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+      "beforeSha256": "33174b78f190801848fb8642be5390f0b24d8cd20f0ecb66a8618a8d8bf55780",
+      "afterSha256": "8f3985ddbf4c19aaa5c3f4b946bcd10062b8f3205d121f23adb8a30bd311924a",
+      "beforeObjectSha256": "bd5cefc55576ebfcd33f05efea51c1ae8c88cf5b59fbfc2c8938adefdd5c2560",
+      "afterObjectSha256": "7ebe9a5476b67d0ced29a9ecec001bd9c4e561d0608e0ac035286a4aa98b7173"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+      "beforeSha256": "569be5ab104d9c405e9509f923d4ca3d66c13e781bdb6f2cc6b12454488681d8",
+      "afterSha256": "ee936a6715abaab06fb18d6b04246acb525a957b072aea72438f62f06ee1ecf4",
+      "beforeObjectSha256": "d97657de18395cc54e11bba7791577c4afe8e35a4b86b469d8a64c65fc666856",
+      "afterObjectSha256": "e76c402fe46671cdfec36a757d45303191baae44d27ddc6ed3543f5259859a10"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+      "beforeSha256": "424ad101a65ec93195f25f555f5504a1943433b25889f23e078345b11c50b7d4",
+      "afterSha256": "fb944c934c725988d2559595448c4e697f66a5aa6935f1b6881db9018ff14df7",
+      "beforeObjectSha256": "4d07f452e6d35ca13e4067fc951f052ff5db960441fae0db1c191aba476ddce4",
+      "afterObjectSha256": "7882fe7a8211db903b67acd60c97e6517edff4664fa17003ab2f0033e803b9c6"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+      "beforeSha256": "a821204e518d443720cfc12f503d13624e1fe2879aa4c9dc15fa22fd27765999",
+      "afterSha256": "8d5e5f5db1ada58ca0a84a9cec478fc06173c0faf262f3fc8240c6e36605ca23",
+      "beforeObjectSha256": "14d4829950579ded14e8e909ac7269abb51ce90d7e651fdf65c2eaa2bc0fcaa2",
+      "afterObjectSha256": "3cdbbb63f07c451f84983fee00e9bcf5770021c600dc054053e8a54ae420fff5"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/manifest.json",
+      "beforeSha256": "a8184cf3d8f4242b81b8c3b511e3e37c6d3364d6e6c153dc3f786a405e11d326",
+      "afterSha256": "45dc05c39f98d753d2edeb44bfa58310501017668389eb04172ce1b5c4544e8b",
+      "beforeObjectSha256": "078d2f65173ca522f872b7acb3e9930995000ff5ffc9656d913b270c56c8e343",
+      "afterObjectSha256": "cff9f974183ab4997612aff16b3315eb9c29a3ba2b7ed546e75ac05a8d134b61"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-en.json",
+      "beforeSha256": "e0cb781e93ce169b725aed439b71d1be885011a6282ec6deeb8ee57992b68a4f",
+      "afterSha256": "d96708742971c1e52b622b5fd255ec43d5c6f04aa26611e12da6fb2004c0f01f",
+      "beforeObjectSha256": "efb711fffb250ea6061a6c5e73b9d2016afe5745bbde466ba3fa961a15380cdb",
+      "afterObjectSha256": "c2636741f06cbec4f966f0e9fbceb97ec58f5af750366b38efcc3a79adfe665c"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-es.json",
+      "beforeSha256": "0c3c159ed38af4a98627d809464df568ecb26c41f08b9af5a678836775aaa1d9",
+      "afterSha256": "cc0bc7a345438aa4f8cb6c940514c1a5ae5ee2ae9b49b41480003b6cc305c2d9",
+      "beforeObjectSha256": "05c8b15f545a393c4a89b3e2587b0b44eec1543e8329e871ea64c865432a9e30",
+      "afterObjectSha256": "ac41932037645415fe6416e0af21429d6cfe1804d885ba0d64039748fcf05cb4"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-it.json",
+      "beforeSha256": "2768e0871221b7c752bc2539692d8a1746a8e902586600e6131e338668eebf1e",
+      "afterSha256": "34aa558e6ef3bc9035251c6430d6064b465ac38cc585447a59d5ef70b88af8c1",
+      "beforeObjectSha256": "136379808582f0d334149d440215ede274b18a08873f1dc3b9aa883bd605b5f5",
+      "afterObjectSha256": "edee35272809763c52934973b406bb3f52a16a67b2570aedaf98b6d53183a39d"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-ja.json",
+      "beforeSha256": "69eaa2d3453cf369e79fa15b82ecd7bf4b65a26f60c57efd69e27bf2ba0fcd26",
+      "afterSha256": "1e895d9a8013c8883c70bf0f69756fe9d4fbb387f4a90160f067b850937e2e4a",
+      "beforeObjectSha256": "f3e3cd4991d3f70d455aae26d2656ec93acacdef287c68b42aa99c8c289b20e9",
+      "afterObjectSha256": "d34f4ddfc5696a432d0ef188a72c887c66bb9a17e6212ab87e0c24f59902b328"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-ko.json",
+      "beforeSha256": "c31d482b05ef65079194bef2ecfe58550e95c2669c1a1fd57ce7c11a47052dfe",
+      "afterSha256": "c5f6ccbc60bb4f7402107236a1e6543db2a5b947ed6baffbcaaa61e9ca2d12dd",
+      "beforeObjectSha256": "781026b6aca4c614b3320b33c95f4a7845ccad1b36cf1193d48690d3358360f8",
+      "afterObjectSha256": "1a82b3d99deb54815c3a24b19374a703fe60f2d82e1db095d072addb538a3333"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+      "beforeSha256": "953c3f3567f9b982d7fd9ba43fdf4326272838ed1868b786244e90e95e3f3a96",
+      "afterSha256": "017b0bf1f3c0cb1825db384227c1d30efc826d58e1fa7e1bfc2573e48b9e9e91",
+      "beforeObjectSha256": "728e2bc7dad8c466e7fd0cd95fdba534272f673df709fa0d34976e9211ec0b4d",
+      "afterObjectSha256": "9afc89f4957f0411d35971fc276881efe1baea2c36406f6234055c22fd6971c0"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/repertoires/zh-fr.json",
+      "beforeSha256": "04690a0e54358094e585ff396fb16af2902fa5cb13cf2fa4505a7b7d0cc7a64a",
+      "afterSha256": "2af421e530a4ac28615a5bbc2e00b35f0f0b34adc95b792a0a44c260b96fee79",
+      "beforeObjectSha256": "4f327861b782897f2120b4c254e2e28c3e2ab4227b9f845606a6e4a2fc668b6c",
+      "afterObjectSha256": "479873c17ae4ffce7745da110334f05b99a02cdaf5ee43fd4f4d51175bb634c4"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+      "beforeSha256": "5f39500ebaf485f09199f65f51bd14747ce9611a07ef8de127e7b53c508f05ae",
+      "afterSha256": "0e501acb47ffddbe9724b2d8d9bf13cf2af5f25c4f8dde0709091998b064d7a7",
+      "beforeObjectSha256": "7a063ad5ac7c95108cb04444eab46099461a2ea187974cdf803cfc28372867ab",
+      "afterObjectSha256": "515d56abdf931d213862069f3bef210981a2c2da235e1096b0aae5aebc4953c3"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+      "beforeSha256": "42dfe5d9aa072f0ad44e1dd065031fc7da2054e36f732b3f2602e3fdddaa83bb",
+      "afterSha256": "1c40dc3ddacbdcc770ee3e38650063b1502ed9a1bc02a7227fbe067890ff0a5d",
+      "beforeObjectSha256": "94f9487e1658f421fd5b72a7c6b186813afb2f4d0005017d20c1051a0a0a50bc",
+      "afterObjectSha256": "e0b8a95bad84d38e72e8b778654d6100610d3543fa907e4522872d7234014261"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+      "beforeSha256": "f32b1dca6915e43a85a21433ed314a081acad1ef72155f6bb59e2521a74df896",
+      "afterSha256": "27ccca826e4cf4f72d8a182e742c8e61995a6c37f5b5117dc3972964242807e1",
+      "beforeObjectSha256": "ae936a0886362aab9fe163a4adc1e59cd3da332284bbec26ff85639510ed828a",
+      "afterObjectSha256": "ffa98729f0893b25d2b7f7d45d6bbad0820b48f5d80cc972322e32e84e650acd"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+      "beforeSha256": "7104993c6ab8638a2fcaac87dcef4e9e80a20657aa1316653cd764a99b84732b",
+      "afterSha256": "6bf7649c9b1905c231b3f1bfa55e994dcc0227bf2fff90caa752d1478cc2ff51",
+      "beforeObjectSha256": "2fba5929cc9ebb2fb9c9e7252f03e2f30c8aa2b08b582642d8245cf6d2eb6242",
+      "afterObjectSha256": "f2ca4d582a2753aafd014065a5a90f2bc54547be2ce80b7a1c4d4357a7c02dbb"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L4.json",
+      "beforeSha256": "94808436a2fd41474c3d26d8e4b4974104c6d473ab6d3ccacc13f0baa87768c0",
+      "afterSha256": "7bdd6ff32407de1d9e3491f0bfd46f1d8a895babe2bb2b30686f7ea6137293c3",
+      "beforeObjectSha256": "cbd6c6b83e1e4094208f2218ab450b1cbfd8ab68e2d5c0e882f1f3bb37e79eb8",
+      "afterObjectSha256": "9e039f76ef121604458a83f0788792081fb0501bdf7360fee1f21d96472f2e32"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+      "beforeSha256": "c87a929e0e5887c9276c6b496509f8867624634a7dbc285613d1abf36332e810",
+      "afterSha256": "c390e4e8994e6df9f84569d01497ff24a62bc0c246a8e08694da2279b07eb390",
+      "beforeObjectSha256": "50546a035f885e0c682d4b91b4170b018543bee8396eff03773c271e6a1baeee",
+      "afterObjectSha256": "1784059a96a0137a2a241767300346579d2e2a3fa6bdd2fee69f025d39a80622"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+      "beforeSha256": "6f784aa3b0e2e7373b8f9d7c53264c01ea0ff78eda72c85b4d7e9bb87a03875c",
+      "afterSha256": "7c405fa85f4ec479256f806092c7b7ea116526739c0ea4d8b7a9799c73264146",
+      "beforeObjectSha256": "7808a783aa7c96168b7915a88d3da2eb0badaa28e80d80183300cf4a993331be",
+      "afterObjectSha256": "dbd6929c57133a1ac80baf84b0c212a9406392f51f16037c1d7ad4947c1383a7"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+      "beforeSha256": "22de69f92612ece2b0004b25530a1aa74b23fe5b2d41b9ef1b030dc3df3ae0b0",
+      "afterSha256": "6c431d24cd54e732996a4c51d2c64e71d90561125a477dbea7ba6dcdab2816e8",
+      "beforeObjectSha256": "884849848e304fb73fa3557946d1f0e83ec89cc165f4403dfa63dcddb5752534",
+      "afterObjectSha256": "038bdf59305684642e8df4054f501422c4865bb8be50567f397f1abdd728b8c6"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+      "beforeSha256": "90f9cfd76a31f689799478ea5f96d46074a322b6d89473e6f13a6fb9201dc62b",
+      "afterSha256": "426c55dec4ec399a2984c513074a7f39dbe70e302646ddef7ba5b86f92d43ea8",
+      "beforeObjectSha256": "426113adc8318fa3faa9bb79285e6cb53d39fe294c09d5e8b83ffee9c0f1d0c0",
+      "afterObjectSha256": "e5d98d06b9292c75b36013a4517615771db4a1b58a9650568c90299de7a07e41"
+    },
+    {
+      "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L9.json",
+      "beforeSha256": "9e9dcd706166b22bdb2063d4fed21cf0226a21005d1cb4b21284552c00bc968a",
+      "afterSha256": "31f5ff84d05a9c8520c80ca3f5c01220b3e3f0d6386a8b2d2ae71cc101567bf9",
+      "beforeObjectSha256": "e4c252c645567a66b8e5fd4c393d7d91671485f0175be7e9b873c90e77277d03",
+      "afterObjectSha256": "f4944c573bec3018d342f7ed5ebf872d36d356aaa596d3c3168db84bf88ebbb4"
+    }
+  ],
+  "contracts": {
+    "wholeLiteralEventsOnly": true,
+    "atomicBlocks": 159,
+    "nativeOnlyGlosses": 478,
+    "completeBeforeObjectsGuarded": 654,
+    "withdrawnBeforeObjectsGuarded": 1,
+    "priorAnnotationsImmutable": true,
+    "unapprovedFieldsImmutable": true,
+    "sourceLevelsAndRolesAndPlacementUnchanged": true,
+    "phoneticStatusesChangedOnlyWithPhon": 150,
+    "globalNativeApproval": false,
+    "globalPhoneticApproval": false,
+    "idempotentOutputsAndSummary": true,
+    "classicAccessAndPricesUnchanged": true,
+    "authorErratumAllFourCasesVerified": true,
+    "erratumProducerRejectedMutations": [
+      "ko3637-old-erroneous-after",
+      "ko3637-partial-block",
+      "prior-annotation-tamper",
+      "reading-tamper"
+    ]
+  }
+}

@@ -2,6 +2,9 @@
  * and its separate certain glosses/bundles. No producer is imported. The private
  * reverse projection follows content -> reviewed fields -> served 40d4c0b. */
 'use strict';
+// Historical source/browser fixtures use the independently validated finite inverse.
+// Actual current-content DOM acceptance lives in uncertain-content.cjs and the matrix.
+const uncertainContent = require('./uncertain-content.cjs');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
@@ -25,7 +28,7 @@ const SPEC={
 const PRIOR=['phoneticCorrection','reviewedFieldCorrection','lot4PhoneticCorrection','reviewedContentCorrection','lot5FieldCorrection','lot5ContentCorrection','lot6FieldCorrection','lot6ContentCorrection','lot7PhoneticCorrection','lot7ContentCorrection','lot8PhoneticCorrection','lot8ContentCorrection','lot8Erratum1Correction','lot9PhoneticCorrection'];
 const clone=value=>JSON.parse(JSON.stringify(value));
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
-const read=filename=>JSON.parse(fs.readFileSync(path.join(ROOT,filename),'utf8'));
+const read=filename=>uncertainContent.beforeRead(filename,fs.readFileSync(path.join(ROOT,filename),'utf8'));
 const key=(pair,id)=>pair+'\0'+id;
 const at=(document,location)=>location.reduce((value,part)=>value[part],document);
 const baselines=new Map();
@@ -156,7 +159,7 @@ function projectStage(which,pair,phrase,expectedBefore){
  if(entry.fields.phon||before.phoneticReviewStatusPresent)assert.equal(phrase.phoneticReviewStatus,statusFor(which,entry,before));
  return copy;
 }
-function projectBefore(pair,phrase){return projectErratum(pair,projectStage('A',pair,projectStage('B',pair,phrase)));}
+function projectBefore(pair,phrase){phrase=uncertainContent.projectPhrase(pair,phrase);return projectErratum(pair,projectStage('A',pair,projectStage('B',pair,phrase)));}
 function verifyPhrase(pair,phrase){projectBefore(pair,phrase);return phrase;}
 function projectDocument(pair,document,isBank){
  const copy=clone(document);
@@ -166,7 +169,7 @@ function projectDocument(pair,document,isBank){
 }
 function declaration(which,audit=loadRegistries()[which]){const r=audit.registry;return{registryPath:SPEC[which].path,registrySha256:audit.registrySha256,baseSnapshotCommit:BASELINE,appliesAfter:r.appliesAfter,correctionCount:r.correctionCount,eventCount:r.eventCount,approvedFieldCount:r.approvedFieldCount,changedFieldCount:r.changedFieldCount,evidenceCommits:[COMMIT]};}
 function manifestDeclarations(){return {...Object.fromEntries(['A','B'].map(which=>[SPEC[which].manifest,declaration(which)])),lot8Erratum1Corrections:erratumDeclaration()};}
-function inputFiles(){const audits=loadRegistries();return[__filename,...erratumInputs(),...['A','B'].flatMap(which=>[path.join(ROOT,SPEC[which].path),...audits[which].registry.evidenceFiles.map(file=>path.join(ROOT,file.path))])];}
+function inputFiles(){const audits=loadRegistries();return[__filename,...uncertainContent.inputFiles(),...erratumInputs(),...['A','B'].flatMap(which=>[path.join(ROOT,SPEC[which].path),...audits[which].registry.evidenceFiles.map(file=>path.join(ROOT,file.path))])];}
 function auditRuntime(){
  const audits=loadRegistries(),manifestPath='melunga_deploy/content/niveaux-progressifs/manifest.json',manifest=read(manifestPath),old=baseline(manifestPath);
  const files=old.pairs.flatMap(pair=>[pair.repertoirePath,...pair.levels.map(level=>level.dataPath)]).map(file=>'melunga_deploy/'+file);assert.equal(files.length,77);const stats={};
@@ -178,7 +181,7 @@ function auditRuntime(){
   stats[which]={identities:audit.entries.size,events:audit.registry.eventCount,objects:audit.objects,profiles:audit.profiles,changedFields:changed};
  }
  for(const file of files){const document=read(file),pair=document.pairId||document.id;assert.deepEqual(projectDocument(pair,document,file.includes('/repertoires/')),baseline(file),'no undeclared change anywhere in runtime document: '+file);}
- const expected=clone(old);Object.assign(expected,manifestDeclarations());for(const pair of expected.pairs)pair.repertoireSha256=hash(fs.readFileSync(path.join(WEB,pair.repertoirePath)));assert.deepEqual(manifest,expected,'only three new declarations and actual bank hashes');
+ const expected=clone(old);Object.assign(expected,manifestDeclarations());for(const pair of expected.pairs)pair.repertoireSha256=hash(uncertainContent.beforeBytes(path.join(WEB,pair.repertoirePath)));assert.deepEqual(manifest,expected,'only three new declarations and actual bank hashes');
  for(const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html'])assert.ok(fs.readFileSync(path.join(WEB,filename)).equals(execFileSync('git',['show',BASELINE+':melunga_deploy/'+filename],{cwd:ROOT,maxBuffer:32*1024*1024})),'UI/classic byte-for-byte unchanged');
  assert.equal(stats.A.changedFields,74);assert.equal(stats.B.changedFields,43);
  assert.deepEqual([...audits.A.entries.keys()].filter(id=>audits.B.entries.has(id)),[key('fr-it','catalogue:it:1736')],'one explicit A→B identity chain');
@@ -195,7 +198,9 @@ if(require.main===module){
   for(const pair of manifest.pairs)files.push(path.join(WEB,pair.repertoirePath),...pair.levels.map(level=>path.join(WEB,level.dataPath)));
   for(const file of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html'])files.push(path.join(WEB,file));
   for(const file of files)snapshots.set(file,hash(fs.readFileSync(file)));
-  server=http.createServer((req,res)=>{const file=path.resolve(WEB,'.'+new URL(req.url,'http://local').pathname);if(!file.startsWith(WEB+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile())return res.writeHead(404).end();res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css'})[path.extname(file)]||'application/octet-stream');fs.createReadStream(file).pipe(res);});
+  server=http.createServer((req,res)=>{const file=path.resolve(WEB,'.'+new URL(req.url,'http://local').pathname);if(!file.startsWith(WEB+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile())return res.writeHead(404).end();res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css'})[path.extname(file)]||'application/octet-stream');// This server is a historical inverse fixture, validated against actual bytes first.
+      if (file.includes('/content/niveaux-progressifs/')) return res.end(uncertainContent.beforeBytes(file));
+      fs.createReadStream(file).pipe(res);});
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));base='http://127.0.0.1:'+server.address().port;
   browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
  });

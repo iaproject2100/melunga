@@ -227,3 +227,13 @@ Un événement figé épelle distinctement E et N ; la provenance du lot 8 est c
 34 gloses certaines et trois blocs atomiques étude/sens/aide. Les 280 propositions, 30 conventions et 96 contenus incertains restent non appliqués.
 
 37 objets / 43 champs. Registre `docs/niveaux-progressifs/corrections-contenu/lot9/revue-contenu-lot9.json` ; SHA-256 `db40f6ae9a0b88595b0c4f5591b7ca1263b5ff1facfb9d6c1c723e6ed204ad74`.
+
+## Contenu incertain tranché — couche séparée
+
+Le registre `docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json` exécute **637 événements sur les 638 retenus dans la preuve** : 478 gloses et 159 blocs entiers, dans **654 objets / 887 champs**. Les copies de révision et les modèles reçus suivent la même édition.
+
+L’erratum officiel 4247ca4 retire le bloc italien catalogue:it:1239 (événement 211), dont la carte reste intégralement inchangée. Il corrige l’aide du bloc coréen catalogue:ko:3637 en « gueu-nyo-neun sam-guè gou-go-reul hè-sso-yo » et confirme les blocs seuls es:3353 et ko:3767. Les 145 propositions écartées ne sont pas appliquées.
+
+Seuls les 150 objets dont l’aide change reçoivent le nouveau statut phonétique. Toutes les annotations antérieures restent intactes. Sept compteurs de concepts sont recalculés à partir des présentations existantes : trois étaient déjà périmés, quatre changent avec cette couche. Aucun emplacement, ordre, niveau source, rôle, droit ou tarif ne change. Les descriptions des lots précédents ci-dessus retracent leur état avant cette nouvelle couche.
+
+Empreinte du registre : `3fa187478a03e1398e7b14fa545c0950bf1ff166789a480745ca689061377130`. La preuve de 638 événements demeure inchangée ; cette application ne vaut pas validation native ou phonétique globale.

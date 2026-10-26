@@ -74,6 +74,9 @@ _lot8_spec.loader.exec_module(lot8_corrections)
 _lot9_spec = importlib.util.spec_from_file_location("audited_lot9_corrections", Path(__file__).with_name("lot9_corrections.py"))
 lot9_corrections = importlib.util.module_from_spec(_lot9_spec)
 _lot9_spec.loader.exec_module(lot9_corrections)
+_uncertain_content_spec = importlib.util.spec_from_file_location("audited_uncertain_content_corrections", Path(__file__).with_name("uncertain_content_corrections.py"))
+uncertain_content_corrections = importlib.util.module_from_spec(_uncertain_content_spec)
+_uncertain_content_spec.loader.exec_module(uncertain_content_corrections)
 
 
 def canonical(value):
@@ -1674,8 +1677,10 @@ def make(include_situations=True):
         report["lot9PhoneticCorrections"] = lot9_phonetic_summary
         outputs, lot9_content_summary = lot9_corrections.apply_to_outputs(ROOT, outputs, report, "content")
         report["lot9ContentCorrections"] = lot9_content_summary
+        outputs, uncertain_content_summary = uncertain_content_corrections.apply_to_outputs(ROOT, outputs, report)
+        report["uncertainContentCorrections"] = uncertain_content_summary
         for transport in report["reviewTransports"]:
-            transport["fileSha256"] = lot9_content_summary["transportSha256ByPair"][transport["pair"]]
+            transport["fileSha256"] = uncertain_content_summary["transportSha256ByPair"][transport["pair"]]
         report["manifestSha256"] = sha(json.loads(outputs[OUTPUT / "manifest.json"]))
     # include_situations=False is the source-exact historical baseline used by
     # validate_situation_drafts.py. It is not a served runtime edition and has
@@ -1825,6 +1830,13 @@ def markdown(report):
         if batch:
             lines.extend(["## " + title, "", description, "",
                 f"{batch['occurrenceCount']} objets / {batch['changedRuntimeFields']} champs. Registre `{batch['registryPath']}` ; SHA-256 `{batch['registrySha256']}`.", ""])
+    uncertain = report.get("uncertainContentCorrections")
+    if uncertain:
+        lines.extend(["## Contenu incertain tranché — couche séparée", "",
+            f"Le registre `{uncertain['registryPath']}` exécute **{uncertain['eventCount']} événements sur les 638 retenus dans la preuve** : 478 gloses et 159 blocs entiers, dans **{uncertain['occurrenceCount']} objets / {uncertain['changedRuntimeFields']} champs**. Les copies de révision et les modèles reçus suivent la même édition.", "",
+            "L’erratum officiel 4247ca4 retire le bloc italien catalogue:it:1239 (événement 211), dont la carte reste intégralement inchangée. Il corrige l’aide du bloc coréen catalogue:ko:3637 en « gueu-nyo-neun sam-guè gou-go-reul hè-sso-yo » et confirme les blocs seuls es:3353 et ko:3767. Les 145 propositions écartées ne sont pas appliquées.", "",
+            "Seuls les 150 objets dont l’aide change reçoivent le nouveau statut phonétique. Toutes les annotations antérieures restent intactes. Sept compteurs de concepts sont recalculés à partir des présentations existantes : trois étaient déjà périmés, quatre changent avec cette couche. Aucun emplacement, ordre, niveau source, rôle, droit ou tarif ne change. Les descriptions des lots précédents ci-dessus retracent leur état avant cette nouvelle couche.", "",
+            f"Empreinte du registre : `{uncertain['registrySha256']}`. La preuve de 638 événements demeure inchangée ; cette application ne vaut pas validation native ou phonétique globale.", ""])
     return "\n".join(lines)
 
 
