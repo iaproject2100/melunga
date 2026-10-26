@@ -1,0 +1,87 @@
+{
+  "status": "passed-scoped-compatibility",
+  "executedAt": "2026-10-26T18:02:03.138214+00:00",
+  "scope": "Local independent source audits, all 13 existing login tests, and five selected levels-themes acceptance tests; not the full DOM matrix or full classification browser suite.",
+  "publicSiteChecked": false,
+  "physicalDeviceChecked": false,
+  "realAccountUsed": false,
+  "realApiRequests": 0,
+  "sourceAudit": {
+    "status": "passed",
+    "scope": "all canonical/runtime source classification and seven finite authorized entry assets; no browser or production",
+    "counts": {
+      "operations": 2906,
+      "moves": 2532,
+      "toReserve": 318,
+      "keep": 56,
+      "levelChanges": 622,
+      "canonical": 33654,
+      "active": 32448,
+      "reserve": 1206,
+      "largeThemes": 67,
+      "newThemes": 9,
+      "newThemeCards": 38,
+      "stepsChecked": 119755
+    },
+    "classicWholeLiteralsPreserved": [
+      "DECKS",
+      "PEDAGOGY_FAMILIES"
+    ],
+    "historicalProjectionChecksPreserved": true
+  },
+  "login": {
+    "tests": 13,
+    "passed": 13,
+    "failed": 0,
+    "log": "/tmp/melunga-entry-compat-login-final.log",
+    "initialFailure": "One path-transition assertion counted history.replaceState as a second course screen; all auth outcomes passed.",
+    "correction": "Preserve every raw URL and record only consecutive path changes. Expected path sequence remains exactly index -> app -> parcours.",
+    "targetedRetestPassed": true
+  },
+  "levels": {
+    "selectedTests": 5,
+    "passed": 5,
+    "failed": 0,
+    "fullMatrixRun": false,
+    "initialRun": {
+      "passed": 4,
+      "failed": 1,
+      "report": "/tmp/melunga-entry-compat-levels-partial.json",
+      "failure": "Historical phonetic audit asserted the entire classic app shell was unchanged, despite authorized default-entry hooks."
+    },
+    "correction": "Use existing uncertainContent.beforeAssetBytes for that app-only source assertion: it delegates to strict finite classification asset pins and preserves complete DECKS/family equality. Every phonetic correction assertion is retained.",
+    "retest": {
+      "tests": 1,
+      "passed": 1,
+      "report": "/tmp/melunga-entry-compat-levels-source-retest.json",
+      "checks": [
+        "additional-situation-whole-source-and-intents"
+      ]
+    },
+    "otherFourPassingChecks": [
+      "received-and-lexical-source-contract",
+      "menu-palette-targets",
+      "legacy-v1-compatibility",
+      "photo-atlases-and-network-isolation"
+    ],
+    "simulatedReadOnlyAccessChecks": 4,
+    "unexpectedApiRequests": 0,
+    "externalRequests": 0
+  },
+  "testFileSha256": {
+    "melunga_deploy/tests/all-classification.cjs": "d1e85f1b9e6169cf62ff1c7cf505b2f66ea8c6dcb370c4a0842ad0928c5d59c3",
+    "melunga_deploy/tests/levels-themes.browser.cjs": "d9cf473d5ca99a4634d80430559779090ec7e8354dd1d8be2f2f3fcb59f26fe0",
+    "melunga_deploy/tests/login-entry.browser.cjs": "b239626c90e20857491e68c9ef473b5360871ba10a161a2aea1ec2e9b649adea",
+    "melunga_deploy/tests/phonetic-corrections.cjs": "fabbdeb92985ea9a63414991edd6bac4f4d3111a0a6c868954ca429bf180067d"
+  },
+  "filesEditedByThisContinuation": [
+    "melunga_deploy/tests/login-entry.browser.cjs",
+    "melunga_deploy/tests/phonetic-corrections.cjs"
+  ],
+  "filesReviewed": [
+    "melunga_deploy/tests/all-classification.cjs",
+    "melunga_deploy/tests/levels-themes.browser.cjs"
+  ],
+  "sourceAndRuntimeCorrectionsChanged": false,
+  "testInputsStableDuringRetest": true
+}
