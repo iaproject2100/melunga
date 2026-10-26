@@ -3,6 +3,9 @@
  * layer order: lot3 -> the served 3df885d edition -> original lot2 baseline.
  */
 'use strict';
+// Historical source/browser fixtures use the independently validated finite inverse.
+// Actual current-content DOM acceptance lives in uncertain-content.cjs and the matrix.
+const uncertainContent = require('./uncertain-content.cjs');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -27,7 +30,7 @@ const EVIDENCE = {
 };
 const clone = value => JSON.parse(JSON.stringify(value));
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
-const read = filename => JSON.parse(fs.readFileSync(path.join(ROOT, filename), 'utf8'));
+const read = filename => uncertainContent.beforeRead(filename,fs.readFileSync(path.join(ROOT, filename), 'utf8'));
 const key = (pair,id) => pair + '\0' + id;
 const at = (document, location) => location.reduce((value, part) => value[part], document);
 const baselines = new Map();
@@ -210,7 +213,7 @@ function auditRuntime() {
   }
   const expected=clone(oldManifest); expected.reviewedFieldCorrections=declaration(audit);
   Object.assign(expected,lot4Corrections.manifestDeclarations());
-  for (const pair of expected.pairs) pair.repertoireSha256=hash(fs.readFileSync(path.join(WEB,pair.repertoirePath)));
+  for (const pair of expected.pairs) pair.repertoireSha256=hash(uncertainContent.beforeBytes(path.join(WEB,pair.repertoirePath)));
   assert.deepEqual(manifest,expected,'only new declaration and actual bank hashes change in manifest');
   for (const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html']) {
     const actual=fs.readFileSync(path.join(WEB,filename));
@@ -239,6 +242,8 @@ if (require.main===module) {
       const file=path.resolve(WEB,'.'+new URL(req.url,'http://local').pathname);
       if (!file.startsWith(WEB+path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()) return res.writeHead(404).end();
       res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css'})[path.extname(file)] || 'application/octet-stream');
+      // This server is a historical inverse fixture, validated against actual bytes first.
+      if (file.includes('/content/niveaux-progressifs/')) return res.end(uncertainContent.beforeBytes(file));
       fs.createReadStream(file).pipe(res);
     });
     await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));

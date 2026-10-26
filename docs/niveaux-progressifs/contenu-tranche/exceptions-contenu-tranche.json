@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "id": "contenu-tranche-exceptions",
+  "status": "officially-withdrawn-whole-block",
+  "baseSnapshotCommit": "13f42b5814f2b230d76d2d0ef267dcf406c523c2",
+  "evidenceCommit": "17b003810a15954d933f49decc2bafa53de8d881",
+  "erratumCommit": "4247ca470354f59ea37992608b38e3728a6e22f9",
+  "sourceRegistrySha256": "0276ad1dac00161a6619de315d22d558f65b55a8821f3ddab95a1f10ad9a9e02",
+  "withdrawals": [
+    {
+      "eventIndex": 211,
+      "pair": "fr-it",
+      "id": "catalogue:it:1239",
+      "kind": "bloc",
+      "fields": [
+        "phon",
+        "study"
+      ],
+      "before": {
+        "phon": "si goua-da-gna bé-né da vi-vé-ré",
+        "study": "Si guadagna bene da vivere."
+      },
+      "rejectedAfter": {
+        "phon": "si goua-da-gna bé-né la vi-ta",
+        "study": "Si guadagna bene la vita."
+      },
+      "reason": "« Si guadagna bene la vita » n'est pas meilleur : « bene » s'insère mal dans « guadagnarsi la vita ». L'étude actuelle « Si guadagna bene da vivere. » reste correcte (guadagnarsi da vivere). La carte garde son étude, son aide et sa glose.",
+      "erratumEventIndex": 0
+    }
+  ]
+}

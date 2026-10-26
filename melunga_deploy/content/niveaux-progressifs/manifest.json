@@ -513,7 +513,7 @@
         }
       ],
       "repertoirePath": "content/niveaux-progressifs/repertoires/fr-en.json",
-      "repertoireSha256": "e0cb781e93ce169b725aed439b71d1be885011a6282ec6deeb8ee57992b68a4f"
+      "repertoireSha256": "d96708742971c1e52b622b5fd255ec43d5c6f04aa26611e12da6fb2004c0f01f"
     },
     {
       "id": "fr-es",
@@ -804,7 +804,7 @@
         }
       ],
       "repertoirePath": "content/niveaux-progressifs/repertoires/fr-es.json",
-      "repertoireSha256": "0c3c159ed38af4a98627d809464df568ecb26c41f08b9af5a678836775aaa1d9"
+      "repertoireSha256": "d6b319286d0f75a8c02ce205c97bdeec19546ccce09d58cbf0fa09395b371547"
     },
     {
       "id": "fr-it",
@@ -1100,7 +1100,7 @@
         }
       ],
       "repertoirePath": "content/niveaux-progressifs/repertoires/fr-it.json",
-      "repertoireSha256": "2768e0871221b7c752bc2539692d8a1746a8e902586600e6131e338668eebf1e"
+      "repertoireSha256": "34aa558e6ef3bc9035251c6430d6064b465ac38cc585447a59d5ef70b88af8c1"
     },
     {
       "id": "fr-zh",
@@ -1404,7 +1404,7 @@
         }
       ],
       "repertoirePath": "content/niveaux-progressifs/repertoires/fr-zh.json",
-      "repertoireSha256": "953c3f3567f9b982d7fd9ba43fdf4326272838ed1868b786244e90e95e3f3a96"
+      "repertoireSha256": "017b0bf1f3c0cb1825db384227c1d30efc826d58e1fa7e1bfc2573e48b9e9e91"
     },
     {
       "id": "fr-ja",
@@ -1699,7 +1699,7 @@
         }
       ],
       "repertoirePath": "content/niveaux-progressifs/repertoires/fr-ja.json",
-      "repertoireSha256": "69eaa2d3453cf369e79fa15b82ecd7bf4b65a26f60c57efd69e27bf2ba0fcd26"
+      "repertoireSha256": "1e895d9a8013c8883c70bf0f69756fe9d4fbb387f4a90160f067b850937e2e4a"
     },
     {
       "id": "fr-ko",
@@ -1996,7 +1996,7 @@
         }
       ],
       "repertoirePath": "content/niveaux-progressifs/repertoires/fr-ko.json",
-      "repertoireSha256": "c31d482b05ef65079194bef2ecfe58550e95c2669c1a1fd57ce7c11a47052dfe"
+      "repertoireSha256": "8d3a705412b3930de24dd873cdc421cffd3d6fd0b4e1372a1535e56d282ff8ca"
     },
     {
       "id": "zh-fr",
@@ -2297,7 +2297,7 @@
         }
       ],
       "repertoirePath": "content/niveaux-progressifs/repertoires/zh-fr.json",
-      "repertoireSha256": "04690a0e54358094e585ff396fb16af2902fa5cb13cf2fa4505a7b7d0cc7a64a"
+      "repertoireSha256": "2af421e530a4ac28615a5bbc2e00b35f0f0b34adc95b792a0a44c260b96fee79"
     }
   ],
   "additionalSituations": {
@@ -2571,6 +2571,119 @@
     "changedFieldCount": 43,
     "evidenceCommits": [
       "5d450cc79f32d180f9331c5d06387fe36e8d94a6"
+    ]
+  },
+  "uncertainContentCorrections": {
+    "registryPath": "docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json",
+    "registrySha256": "3fa187478a03e1398e7b14fa545c0950bf1ff166789a480745ca689061377130",
+    "baseSnapshotCommit": "13f42b5814f2b230d76d2d0ef267dcf406c523c2",
+    "appliesAfter": [
+      {
+        "registryPath": "docs/niveaux-progressifs/corrections-contenu/lot9/revue-contenu-lot9.json",
+        "registrySha256": "db40f6ae9a0b88595b0c4f5591b7ca1263b5ff1facfb9d6c1c723e6ed204ad74"
+      }
+    ],
+    "correctionCount": 637,
+    "eventCount": 637,
+    "approvedFieldCount": 870,
+    "changedFieldCount": 870,
+    "kindCounts": {
+      "glose": 478,
+      "bloc": 159
+    },
+    "pairCounts": {
+      "fr-en": {
+        "gloses": 41,
+        "blocs": 31
+      },
+      "fr-es": {
+        "gloses": 59,
+        "blocs": 36
+      },
+      "fr-it": {
+        "gloses": 59,
+        "blocs": 19
+      },
+      "fr-ja": {
+        "gloses": 103,
+        "blocs": 18
+      },
+      "fr-ko": {
+        "gloses": 97,
+        "blocs": 27
+      },
+      "fr-zh": {
+        "gloses": 56,
+        "blocs": 7
+      },
+      "zh-fr": {
+        "gloses": 63,
+        "blocs": 21
+      }
+    },
+    "rejectedCount": 145,
+    "rejectedCounts": {
+      "fr-en": 23,
+      "fr-es": 24,
+      "fr-it": 17,
+      "fr-ja": 26,
+      "fr-ko": 24,
+      "fr-zh": 11,
+      "zh-fr": 20
+    },
+    "sourceEventCount": 638,
+    "withdrawnEventCount": 1,
+    "withdrawnEvents": [
+      {
+        "eventIndex": 211,
+        "pair": "fr-it",
+        "id": "catalogue:it:1239"
+      }
+    ],
+    "exceptionsFile": {
+      "path": "docs/niveaux-progressifs/contenu-tranche/exceptions-contenu-tranche.json",
+      "sha256": "ac33db585c121465613d6e0fcd41131986271b48c4a057ec867062d2d2655844"
+    },
+    "authorErratum": {
+      "evidencePath": "docs/niveaux-progressifs/contenu-tranche/evidence-errata-1.json",
+      "eventCount": 4,
+      "withdrawnSourceEventIndices": [
+        211
+      ],
+      "correctedSourceEventIndices": [
+        467
+      ],
+      "confirmedBlockOnlySourceEventIndices": [
+        76,
+        426
+      ]
+    },
+    "evidenceCommits": [
+      "17b003810a15954d933f49decc2bafa53de8d881",
+      "4247ca470354f59ea37992608b38e3728a6e22f9"
+    ]
+  },
+  "conventionCorrections": {
+    "registryPath": "docs/niveaux-progressifs/conventions-tranchees/registre/conventions-tranchees.json",
+    "registrySha256": "3058f970810166d471607251a2544cb7cdb73e50422794a8bbbedbd613b62705",
+    "baseSnapshotCommit": "13f42b5814f2b230d76d2d0ef267dcf406c523c2",
+    "appliesAfter": [
+      {
+        "registryPath": "docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json",
+        "registrySha256": "3fa187478a03e1398e7b14fa545c0950bf1ff166789a480745ca689061377130"
+      }
+    ],
+    "correctionCount": 2100,
+    "sourceEventCount": 2099,
+    "postContentOverrideCount": 21,
+    "supersededSourceEventCount": 3,
+    "batchimErratumEventCount": 5,
+    "appliedSourceReferenceCount": 2122,
+    "notAppliedCount": 69,
+    "evidenceCommits": [
+      "68031b7c8643e78cae7b40ad59600db32b08f79a",
+      "4247ca470354f59ea37992608b38e3728a6e22f9",
+      "d5ad5e422f3fe1563d425ef8e0a07bea7b874559"
     ]
   }
 }

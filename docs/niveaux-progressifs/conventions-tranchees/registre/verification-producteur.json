@@ -1,0 +1,142 @@
+{
+  "registrySha256": "3058f970810166d471607251a2544cb7cdb73e50422794a8bbbedbd613b62705",
+  "predecessorRegistrySha256": "3fa187478a03e1398e7b14fa545c0950bf1ff166789a480745ca689061377130",
+  "runtimeWritten": true,
+  "sourcePrimaryBeforeMismatchCount": 0,
+  "afterContentPrimaryMismatchCount": 61,
+  "contentOverlapIdentityCount": 66,
+  "idempotent": true,
+  "protectedFieldsPreserved": true,
+  "mutationProbes": [
+    {
+      "probe": "source-provenance",
+      "rejected": true
+    },
+    {
+      "probe": "unapproved-native",
+      "rejected": true
+    },
+    {
+      "probe": "source-level",
+      "rejected": true
+    },
+    {
+      "probe": "content-type",
+      "rejected": true
+    },
+    {
+      "probe": "after-phon",
+      "rejected": true
+    },
+    {
+      "probe": "convention-annotation",
+      "rejected": true
+    },
+    {
+      "probe": "prior-annotation",
+      "rejected": true
+    },
+    {
+      "probe": "missing-transport",
+      "rejected": true
+    },
+    {
+      "probe": "duplicate-transport",
+      "rejected": true
+    },
+    {
+      "probe": "not-applied-phon",
+      "rejected": true
+    },
+    {
+      "probe": "superseded-content-tuple",
+      "rejected": true
+    },
+    {
+      "probe": "content-manifest",
+      "rejected": true
+    },
+    {
+      "probe": "convention-manifest",
+      "rejected": true
+    }
+  ],
+  "summary": {
+    "registryPath": "docs/niveaux-progressifs/conventions-tranchees/registre/conventions-tranchees.json",
+    "registrySha256": "3058f970810166d471607251a2544cb7cdb73e50422794a8bbbedbd613b62705",
+    "baseSnapshotCommit": "13f42b5814f2b230d76d2d0ef267dcf406c523c2",
+    "appliesAfter": [
+      {
+        "registryPath": "docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json",
+        "registrySha256": "3fa187478a03e1398e7b14fa545c0950bf1ff166789a480745ca689061377130"
+      }
+    ],
+    "correctionCount": 2100,
+    "sourceEventCount": 2099,
+    "postContentOverrideCount": 21,
+    "supersededSourceEventCount": 3,
+    "batchimErratumEventCount": 5,
+    "appliedSourceReferenceCount": 2122,
+    "notAppliedCount": 69,
+    "evidenceCommits": [
+      "68031b7c8643e78cae7b40ad59600db32b08f79a",
+      "4247ca470354f59ea37992608b38e3728a6e22f9",
+      "d5ad5e422f3fe1563d425ef8e0a07bea7b874559"
+    ],
+    "occurrenceCount": 2167,
+    "occurrenceProfiles": {
+      "canonical": 2099,
+      "received-model": 2,
+      "transport-phrase": 66
+    },
+    "changedRuntimeFields": 2167,
+    "changedFieldOccurrences": {
+      "phon": 2167
+    },
+    "modifiedRuntimeFiles": [
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L1.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L1.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L10.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L6.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L8.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L9.json",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/fr-es.json",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/fr-ko.json"
+    ],
+    "transportSha256ByPair": {
+      "zh-fr": "2af421e530a4ac28615a5bbc2e00b35f0f0b34adc95b792a0a44c260b96fee79",
+      "fr-it": "34aa558e6ef3bc9035251c6430d6064b465ac38cc585447a59d5ef70b88af8c1",
+      "fr-ja": "1e895d9a8013c8883c70bf0f69756fe9d4fbb387f4a90160f067b850937e2e4a",
+      "fr-en": "d96708742971c1e52b622b5fd255ec43d5c6f04aa26611e12da6fb2004c0f01f",
+      "fr-zh": "017b0bf1f3c0cb1825db384227c1d30efc826d58e1fa7e1bfc2573e48b9e9e91",
+      "fr-ko": "8d3a705412b3930de24dd873cdc421cffd3d6fd0b4e1372a1535e56d282ff8ca",
+      "fr-es": "d6b319286d0f75a8c02ce205c97bdeec19546ccce09d58cbf0fa09395b371547"
+    },
+    "protectedExcludedIdentities": 72,
+    "protectedExcludedOccurrences": 78,
+    "globalPhoneticApproval": false,
+    "globalNativeApproval": false,
+    "sourceValidation": "Exact whole aids after the frozen content layer; all source, type, level, copied metadata and prior annotations preserved."
+  },
+  "fullGeneration": {
+    "baseContentCommit": "e85c8c355be8cc0213543eddb21467432edb57b8",
+    "command": "python3 -B tools/maquette-guidee/build_levels.py",
+    "passed": true,
+    "checkCommand": "python3 -B tools/maquette-guidee/build_levels.py --check",
+    "checkPassed": true
+  }
+}

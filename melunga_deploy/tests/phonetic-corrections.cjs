@@ -3,6 +3,9 @@
  * Browser checks use local Chromium and mocked TTS, never a public service.
  */
 'use strict';
+// Historical source/browser fixtures use the independently validated finite inverse.
+// Actual current-content DOM acceptance lives in uncertain-content.cjs and the matrix.
+const uncertainContent = require('./uncertain-content.cjs');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -21,7 +24,7 @@ const EVIDENCE = {
   'docs/revue-integrale/registre-tj.json': '856ccdd4525fdd74706ae16081c28e60bd629b3e83039502df81f824ebca74d0'
 };
 const fields = ['study', 'native', 'phon', 'reading'];
-const read = filename => JSON.parse(fs.readFileSync(path.join(ROOT, filename), 'utf8'));
+const read = filename => uncertainContent.beforeRead(filename,fs.readFileSync(path.join(ROOT, filename), 'utf8'));
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const clone = value => JSON.parse(JSON.stringify(value));
 const key = (pair, id) => pair + '\0' + id;
@@ -200,7 +203,7 @@ function auditRuntime() {
     correctionCount:772, eventCount:774, evidenceCommit:EVIDENCE_COMMIT};
   expectedManifest.reviewedFieldCorrections = lot3Corrections.declaration();
   Object.assign(expectedManifest, lot4Corrections.manifestDeclarations());
-  for (const pair of expectedManifest.pairs) pair.repertoireSha256 = hash(fs.readFileSync(path.join(WEB, pair.repertoirePath)));
+  for (const pair of expectedManifest.pairs) pair.repertoireSha256 = hash(uncertainContent.beforeBytes(path.join(WEB, pair.repertoirePath)));
   assert.deepEqual(manifest, expectedManifest, 'manifest changes only overlay proof and real transport hashes');
   const legacy = 'melunga_deploy/content/maquette-guidee.json';
   assert.deepEqual(read(legacy), baseline(legacy), 'legacy v1 source remains untouched');
@@ -222,6 +225,8 @@ if (require.main === module) {
       const file = path.resolve(WEB, '.' + new URL(req.url, 'http://local').pathname);
       if (!file.startsWith(WEB + path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()) return res.writeHead(404).end();
       res.setHeader('Content-Type', ({'.html':'text/html', '.js':'text/javascript', '.json':'application/json', '.css':'text/css'})[path.extname(file)] || 'application/octet-stream');
+      // This server is a historical inverse fixture, validated against actual bytes first.
+      if (file.includes('/content/niveaux-progressifs/')) return res.end(uncertainContent.beforeBytes(file));
       fs.createReadStream(file).pipe(res);
     });
     await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));

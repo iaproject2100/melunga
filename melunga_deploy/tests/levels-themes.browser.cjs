@@ -13,6 +13,7 @@ const {execFileSync} = require('node:child_process');
 const {test, before, after} = require('node:test');
 const {chromium} = require('playwright-core');
 const phoneticCorrections = require('./phonetic-corrections.cjs');
+const uncertainContent = require('./uncertain-content.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'content/niveaux-progressifs');
@@ -220,6 +221,15 @@ function cell(pair, level) {
 function repertoire(pairId) {
   const metadata = manifest.pairs.find(pair => pair.id === pairId);
   return JSON.parse(fs.readFileSync(path.join(ROOT, metadata.repertoirePath)));
+}
+function historicalCell(pair, level) {
+  const file = path.join(DATA, pair, 'L' + level + '.json');
+  return uncertainContent.beforeRead(file, fs.readFileSync(file));
+}
+function historicalRepertoire(pairId) {
+  const metadata = manifest.pairs.find(pair => pair.id === pairId);
+  const file = path.join(ROOT, metadata.repertoirePath);
+  return uncertainContent.beforeRead(file, fs.readFileSync(file));
 }
 function reviewFixture(pairId) {
   for (let level = 2; level <= 10; level++) {
@@ -708,6 +718,7 @@ test('196 additional situations preserve 1568 whole source positions without inf
   // Check the exact approved after-help, annotation and whole-card conservation
   // first. Only source comparisons below project back to the original whole aid;
   // the DOM matrix continues to expect the actual corrected runtime JSON.
+  report.uncertainContentSourceAudit = uncertainContent.auditRuntime();
   report.phoneticCorrectionsSourceAudit = phoneticCorrections.auditRuntime();
   report.reviewedFieldCorrectionsSourceAudit = report.phoneticCorrectionsSourceAudit.lot3;
   report.lot4CorrectionsSourceAudit = report.phoneticCorrectionsSourceAudit.lot3.lot4;
@@ -731,7 +742,7 @@ test('196 additional situations preserve 1568 whole source positions without inf
     .flatMap(({data}) => [...data.items, ...(data.receivedTurns || []), ...(data.lexicalSupports || [])]).map(item => [item.id, item]));
   const canonical = new Map();
   for (const pair of manifest.pairs) for (let level = 1; level <= 10; level++) {
-    const data = cell(pair.id, level);
+    const data = historicalCell(pair.id, level);
     for (const theme of [...data.themes, ...(data.heldThemes || [])]) for (const phrase of theme.phrases) {
       const key = pair.id + ':' + phrase.id;
       assert.ok(!canonical.has(key), 'one canonical across all levels ' + key);
@@ -756,9 +767,9 @@ test('196 additional situations preserve 1568 whole source positions without inf
     for (const [relative, expectedHash] of Object.entries(situationPlan.extension.preservedInputFingerprints)) {
       assert.equal(sha256(fs.readFileSync(path.resolve(ROOT, '..', relative))), expectedHash, 'protected previous file ' + relative);
     }
-    const bank = new Map(repertoire(pair.id).phrases.map(phrase => [phrase.id, phrase]));
+    const bank = new Map(historicalRepertoire(pair.id).phrases.map(phrase => [phrase.id, phrase]));
     for (const topic of situationPlan.themes) {
-      const levelData = cell(pair.id, topic.level);
+      const levelData = historicalCell(pair.id, topic.level);
       const theme = levelData.themes.find(theme => theme.id === topic.themeId);
       assert.ok(theme?.isAdditionalSituation, 'additional theme is visible ' + pair.id + ':' + topic.id);
       assert.equal(theme.presentedCount, 8);
@@ -926,12 +937,12 @@ test('259 interlocutor turns and all lexical supports preserve whole sources and
   }
   for (const pair of manifest.pairs) {
     const ledger = situationLedgers.get(pair.id).extensionData;
-    const bank = repertoire(pair.id);
+    const bank = historicalRepertoire(pair.id);
     const heard = new Map((bank.receivedModels || []).map(model => [model.id, model]));
     const active = new Map(bank.phrases.map(model => [model.id, model]));
     assert.equal(ledger.receivedTurns.length, situationPlan.receivedTurnsDefs.length);
     for (const topic of situationPlan.themes.slice(baseSituationPlan.themes.length)) {
-      const theme = cell(pair.id, topic.level).themes.find(candidate => candidate.id === topic.themeId);
+      const theme = historicalCell(pair.id, topic.level).themes.find(candidate => candidate.id === topic.themeId);
       assert.ok(theme, 'appended theme is visible ' + pair.id + ':' + topic.id);
       const primaryIds = theme.sequences.flatMap(sequence => sequence.phraseIds);
       const steps = theme.sequences.flatMap(sequence => sequence.steps);
@@ -1013,7 +1024,7 @@ test('native lexical classes and reviewed relational groups follow their declare
     ['fr-es:3894', 'whole-locative-prepositional-group-with-complement']
   ]);
   for (const pair of manifest.pairs) for (const metadata of pair.levels) {
-    const data = cell(pair.id, metadata.level);
+    const data = historicalCell(pair.id, metadata.level);
     for (const theme of [...data.themes, ...(data.heldThemes || [])]) {
       for (const phrase of theme.phrases) {
         if (phrase.contentType !== 'vocabulary') continue;
@@ -1043,7 +1054,7 @@ test('native lexical classes and reviewed relational groups follow their declare
 test('new whole entries copy the authored source; review transport creates no canonical cards', async () => checked('authored-source-and-bank-conservation', async () => {
   const canonical = new Map();
   for (const pair of manifest.pairs) for (const metadata of pair.levels) {
-    const data = cell(pair.id, metadata.level);
+    const data = historicalCell(pair.id, metadata.level);
     for (const phrase of [...data.themes, ...(data.heldThemes || [])].flatMap(theme => theme.phrases).concat(data.reserve || [])) {
       const key = pair.id + ':' + phrase.id;
       assert.ok(!canonical.has(key), 'one canonical first placement ' + key);
@@ -1051,7 +1062,7 @@ test('new whole entries copy the authored source; review transport creates no ca
     }
   }
   for (const pair of manifest.pairs) {
-    const bank = repertoire(pair.id);
+    const bank = historicalRepertoire(pair.id);
     assert.equal(bank.pairId, pair.id);
     assert.equal(new Set(bank.phrases.map(phrase => phrase.id)).size, bank.phrases.length);
     for (const phrase of bank.phrases) {
@@ -1083,7 +1094,7 @@ test('reviewed Japanese/Korean semantic corrections reach the actual canonical t
   const corrections = JSON.parse(fs.readFileSync(path.resolve(ROOT, '../docs/niveaux-progressifs/corrections-themes/ja-ko.json')));
   const routes = new Map();
   for (const pair of ['fr-ja', 'fr-ko']) for (let level = 1; level <= 10; level++) {
-    const data = cell(pair, level);
+    const data = historicalCell(pair, level);
     for (const theme of [...data.themes, ...(data.heldThemes || [])]) for (const phrase of theme.phrases) {
       if (phrase.source?.sourceIndex !== undefined) routes.set(pair + ':' + phrase.source.sourceIndex, {domain: theme.domain, phrase});
     }
@@ -1117,7 +1128,7 @@ test('reviewed Japanese/Korean semantic corrections reach the actual canonical t
   report.jaKoSemanticDestinationsExplicitlyIntroducedInSituations = explicitSituationIntroductions;
   report.jaKoWholeNumericQuantitiesChecked = (corrections.isolatedNumberCorrections || []).length;
   for (const [pair, first, second] of [['fr-ja', 'catalogue:ja:3062', 'catalogue:ja:3063'], ['fr-ko', 'catalogue:ko:2213', 'catalogue:ko:2214']]) {
-    const adjectives = cell(pair, 1).themes.find(theme => theme.domain === 'vocab-adjectifs');
+    const adjectives = historicalCell(pair, 1).themes.find(theme => theme.domain === 'vocab-adjectifs');
     assert.ok(adjectives);
     assert.deepEqual(adjectives.sequences.flatMap(sequence => sequence.phraseIds).slice(0, 2), [first, second], 'begin with large then small, before authored extensions');
   }
