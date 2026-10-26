@@ -427,7 +427,6 @@
       { label: 'Thèmes', icon: icons.folder, action: () => { closeMenu(); showThemes(); } },
       { label: 'À revoir', icon: icons.recall, panel: 'saved', key: 'À revoir' },
       { label: 'Révisions et exercices', icon: icons.cap, panel: 'review' },
-      { label: 'Toutes les leçons', icon: icons.globe, href: lessonUrl() },
       { label: 'Voix', icon: icons.headphones, panel: 'voice' },
       { label: 'Couleur', icon: '<span class="mg-colorwheel" aria-hidden="true"></span>', action: () => {
         state.ambienceIndex = (state.ambienceIndex + 1) % ambiences.length;
