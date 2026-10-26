@@ -16,7 +16,7 @@
     feedbackEmail: byId('mgFeedbackEmail'), feedbackHp: byId('mgFeedbackHp'),
     feedbackSend: byId('mgFeedbackSend'), feedbackStatus: byId('mgFeedbackStatus'),
     back: byId('mgBack'), backText: byId('mgBackText'),
-    counter: byId('mgCounter'), progress: byId('mgProgress'), content: byId('mgContent'),
+    counter: byId('mgCounter'), progress: byId('mgProgress'), progressTrack: byId('mgProgress').parentElement, content: byId('mgContent'),
     loading: byId('mgLoading'), loadingText: byId('mgLoadingText'), retry: byId('mgRetry'),
     themeView: byId('mgThemeView'), themeGrid: byId('mgThemeGrid'),
     sequenceView: byId('mgSequenceView'), sequenceHeading: byId('mgSequenceHeading'),
@@ -42,6 +42,7 @@
   const courseAccess = window.MelungaCourseAccess;
   state.sourcePhraseMap = new Map();
   state.accessContextStepIds = new Set();
+  state.levelProgressIds = new Set();
   const canProduce = phrase => !ui.level || courseAccess?.canLearn(state.pair?.id, phrase, state.pair?.level) === true;
   const canShowCurrent = (step, phrase) => canProduce(phrase) || state.accessContextStepIds.has(step?.id)
     && (step?.kind === 'receive' || step?.isPreparation && step.kind === 'understand' && step.requiresProduction === false);
@@ -51,8 +52,11 @@
   }
   const reviewStorageKey = 'melunga-guided-review-v1';
   const readingStorageKey = 'melunga-guided-reading-v1';
+  const knownStorageKey = 'melunga-guided-known-v1';
+  const progressPairs = ['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr'];
   const cardMotion = { gesture: null, suppressClickUntil: 0, animationTimer: 0, toastTimer: 0, fitFrame: 0 };
   state.savedReview = loadSavedReview();
+  state.knownCards = loadKnownCards();
   try {
     const preferences = JSON.parse(localStorage.getItem(readingStorageKey) || '{}');
     if (preferences.version === 1 && preferences.pairs && typeof preferences.pairs === 'object') {
@@ -100,6 +104,7 @@
     'Ce contenu a été actualisé. Tu peux le retrouver dans les thèmes.': '内容已更新，可以在主题中重新查找。',
     'Menu': '菜单', 'Menu des rubriques': '栏目菜单', 'Rubriques': '栏目',
     'Revenir au menu': '返回菜单', 'Fermer le menu': '关闭菜单', 'Fermer les niveaux': '关闭级别选择',
+    'Cette progression ne peut pas être enregistrée. Réessaie avant de quitter cette page.': '无法保存学习进度。请在离开此页前重试。',
     'Accueil': '首页', 'Révisions et exercices': '复习与练习', 'Toutes les leçons': '所有课程',
     'Voix': '语音', 'Couleur': '背景颜色', 'Comment ça marche': '使用方法',
     'Avis': '意见反馈', 'Se connecter / Créer un compte': '登录 / 注册账号',
@@ -189,6 +194,93 @@
     return Boolean(phrase && isRecall(currentStep()) && !isReceived(currentStep(), phrase) && !isTemplate(phrase) && !state.revealed);
   };
   const setStatus = message => text(ui.status, tr(message));
+
+  // Only an explicit “Je connais” decision counts. Source identity, not the
+  // number of appearances or lesson steps, makes a card unique in a level.
+  function collectLevelProgressIds(pair, models) {
+    const ids = new Set();
+    for (const theme of pair.themes) {
+      if (theme.isTemplate || theme.isTemplateCollection) continue;
+      for (const sequence of theme.sequences) for (const id of sequence.phraseIds) {
+        const phrase = models.get(id);
+        if (phrase && !phrase.isTemplate && phrase.kind !== 'received' && phrase.speaker !== 'B') ids.add(id);
+      }
+    }
+    return ids;
+  }
+
+  function levelProgress() {
+    const ids = state.levelProgressIds;
+    const knownIds = state.knownCards.get(state.pair?.id);
+    let known = 0;
+    for (const id of ids) if (knownIds?.has(id)) known += 1;
+    const total = ids.size;
+    const ratio = total ? known / total : 0;
+    // Integer labels never announce 100% while any card remains unknown.
+    return { known, total, ratio, percent: Math.floor(ratio * 100) };
+  }
+
+  function renderLevelProgress() {
+    if (!ui.level || !state.pair) return;
+    const summary = levelProgress();
+    const levelName = state.pair.nativeLanguage === 'zh'
+      ? '第 ' + state.pair.level + ' 级' : 'Niveau ' + state.pair.level;
+    const label = levelName + ' · ' + summary.percent + ' %';
+    text(ui.counter, label);
+    ui.progress.style.width = summary.ratio * 100 + '%';
+    ui.progressTrack.removeAttribute('aria-hidden');
+    ui.progressTrack.setAttribute('role', 'progressbar');
+    ui.progressTrack.setAttribute('aria-label', levelName);
+    ui.progressTrack.setAttribute('aria-valuemin', '0');
+    ui.progressTrack.setAttribute('aria-valuemax', '100');
+    ui.progressTrack.setAttribute('aria-valuenow', String(summary.ratio * 100));
+    ui.progressTrack.setAttribute('aria-valuetext', label);
+  }
+
+  function loadKnownCards() {
+    const pairs = new Map();
+    try {
+      const stored = JSON.parse(localStorage.getItem(knownStorageKey) || '{}');
+      if (stored.version !== 1 || !stored.pairs || typeof stored.pairs !== 'object' || Array.isArray(stored.pairs)) return pairs;
+      for (const pair of progressPairs) {
+        const values = stored.pairs[pair];
+        if (!Array.isArray(values)) continue;
+        pairs.set(pair, new Set(values.filter(id => typeof id === 'string' && id.length > 0 && id.length <= 512)));
+      }
+    } catch (_) { /* No prior decisions can be inferred from missing storage. */ }
+    return pairs;
+  }
+
+  function saveKnownCard(pairId, id, known) {
+    const pairs = loadKnownCards();
+    const ids = pairs.get(pairId) || new Set();
+    if (ids.has(id) === known) { state.knownCards = pairs; return true; }
+    if (known) ids.add(id); else ids.delete(id);
+    if (ids.size) pairs.set(pairId, ids); else pairs.delete(pairId);
+    try {
+      localStorage.setItem(knownStorageKey, JSON.stringify({ version: 1,
+        pairs: Object.fromEntries([...pairs].map(([pair, values]) => [pair, [...values]])) }));
+      state.knownCards = pairs;
+      return true;
+    } catch (_) {
+      setStatus('Cette progression ne peut pas être enregistrée. Réessaie avant de quitter cette page.');
+      return false;
+    }
+  }
+
+  function saveCardDecision(phrase, known, reviewEntries) {
+    if (!ui.level) return saveReviewEntries(reviewEntries);
+    const previousReview = state.savedReview;
+    const changed = previousReview.length !== reviewEntries.length
+      || previousReview.some((entry, index) => entry !== reviewEntries[index]);
+    if (changed && !saveReviewEntries(reviewEntries)) return false;
+    if (ui.level && !saveKnownCard(state.pair.id, phrase.id, known)) {
+      // Keep the prior reminder if the separate progress write is refused.
+      if (changed) saveReviewEntries(previousReview);
+      return false;
+    }
+    return true;
+  }
 
   const menuPanels = {
     voice: byId('mgVoicePanel'), review: byId('mgReviewPanel'),
@@ -303,7 +395,7 @@
       themeId: inTheme ? state.theme.id : location?.themeId || originalTheme?.id || state.theme.id,
       study: phrase.study, native: phrase.native, addedAt: previous?.addedAt || Date.now() };
     const entries = state.savedReview.filter(item => item.pairId !== entry.pairId || item.id !== entry.id);
-    if (!saveReviewEntries([...entries, entry])) return;
+    if (!saveCardDecision(phrase, false, [...entries, entry])) return;
     state.deferredPhraseIds.add(phrase.id);
     browsePhrase(1);
     showCardToast('Elle reviendra');
@@ -508,6 +600,11 @@
     ui.menuTrigger.disabled = screen === 'loading';
     ui.content.scrollTop = 0;
     document.body.dataset.view = screen;
+    if (ui.level && screen === 'themes') renderLevelProgress();
+    else {
+      ui.progressTrack.setAttribute('aria-hidden', 'true');
+      for (const attr of ['role', 'aria-label', 'aria-valuemin', 'aria-valuemax', 'aria-valuenow', 'aria-valuetext']) ui.progressTrack.removeAttribute(attr);
+    }
     queueLessonFit();
   }
 
@@ -695,8 +792,10 @@
     state.sequence = null;
     state.lessonScope = 'sequence';
     setStatus('');
-    text(ui.counter, levelQuantityLabel());
-    ui.progress.style.width = '0%';
+    if (!ui.level) {
+      text(ui.counter, levelQuantityLabel());
+      ui.progress.style.width = '0%';
+    }
     const cards = [];
     let section = null;
     for (const theme of state.pair.themes) {
@@ -913,7 +1012,7 @@
   function markKnown() {
     const phrase = currentPhrase();
     if (state.screen !== 'lesson' || ui.next.disabled || !phrase || !canProduce(phrase) || isTemplate(phrase) || isReceived(currentStep(), phrase)) return;
-    if (!saveReviewEntries(state.savedReview.filter(entry => entry.pairId !== state.pair.id || entry.id !== phrase.id))) return;
+    if (!saveCardDecision(phrase, true, state.savedReview.filter(entry => entry.pairId !== state.pair.id || entry.id !== phrase.id))) return;
     state.deferredPhraseIds.add(phrase.id);
     browsePhrase(1);
     showCardToast('Rangée');
@@ -1050,6 +1149,7 @@
       state.referenceMap = references;
       state.sourcePhraseMap = new Map([...references, ...[...pair.themes, ...(pair.heldThemes || [])]
         .flatMap(theme => theme.phrases.map(phrase => [phrase.id, phrase]))]);
+      state.levelProgressIds = collectLevelProgressIds(pair, state.sourcePhraseMap);
       const accessView = courseAccess.learningView(pair, references);
       state.accessContextStepIds = accessView.contextStepIds;
       displayPair(accessView.pair);
@@ -1687,6 +1787,11 @@
       choosePair(state.pair.id, state.pair.level);
     }
   });
+  window.addEventListener('storage', event => {
+    if (event.key !== knownStorageKey && event.key !== null) return;
+    state.knownCards = loadKnownCards();
+    if (ui.level && state.screen === 'themes') renderLevelProgress();
+  });
   window.addEventListener('pagehide', stopAudio);
   window.addEventListener('resize', queueLessonFit);
   window.visualViewport?.addEventListener('resize', () => { if (window.visualViewport.scale === 1) queueLessonFit(); });
@@ -1704,6 +1809,7 @@
     sequenceId: state.sequence && state.sequence.id, stepIndex: state.stepIndex, lessonScope: state.lessonScope,
     phraseId: currentPhrase() && currentPhrase().id, masked: isMasked(), helpOpen: state.helpOpen,
     readingVisible: state.readingVisible, access: courseAccess?.state() || null,
+    levelProgress: ui.level && state.pair ? Object.freeze(levelProgress()) : null,
     template: isTemplate(currentPhrase()), totalPhrases: state.pair ? pairCount(state.pair) : 0
   }) });
   loadData();

@@ -20,8 +20,8 @@ const REGISTRY_SHAS = {'fr-en':'dfcde432da30d22ca3375c5544e14fb5f7b6e84db04af9ce
 const DESCRIPTOR_SHA256 = '57d7731c5001d065ce53ced537f782953dcd40dd61846627739adeb1bfd06f20';
 const MANIFEST_SHA256 = 'd0c785ebd39b1cc5fa14f6445b08c7982dda03255741f61bcf21c991c34c423c';
 const INDEPENDENT_CHECKER_SHA256 = '81b140ac5c245acfaf804cd8a8cd8e95138975c8a671bfbda58853664f03685a';
-const CLASSIFIED_JS_SHA256 = '8213af1bad99f620b379297299161910ec2c683e89d5b4bf8b443c55a70760f8';
-const CLASSIFIED_HTML_SHA256 = {'melunga_deploy/maquette-guidee.html':'72436182e911bceb6c182c039d0e357b91071fe227c3e5b4ed4350dc8cdd299f','melunga_deploy/parcours-niveaux.html':'1c511c376c2d93f8d816475007470ae3219c80981850338ee57669b26866cce0'};
+const CLASSIFIED_JS_SHA256 = 'd049dc79587d42c081d60a80c7e2aea8913bfc787f59c1689871f39081ed7b1b';
+const CLASSIFIED_HTML_SHA256 = {'melunga_deploy/maquette-guidee.html':'98723bf843a7175fac58b0a0ecf7f0581e08b67eb8d54baa60f7e3aeb6262056','melunga_deploy/parcours-niveaux.html':'562ce667441bd6cd42abba1bc60c9f7b5b1bc6d181632123fb9402694043e5b3'};
 // Authorized entry/mobile UI shell: exact whole current assets are validated
 // before historical source tests may see the unchanged earlier presentation.
 // Account and current mobile behavior have independent course-entry-access and
