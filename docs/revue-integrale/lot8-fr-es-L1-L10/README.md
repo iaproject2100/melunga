@@ -122,3 +122,7 @@ Un vérificateur indépendant a relu les 86 lignes et n'a trouvé aucun faux cer
 - *No te fíes tanto* est glosé « ne fais pas trop confiance ».
 
 Une écoute native reste nécessaire. Rien n'est fusionné dans `main` ni publié sur melunga.com.
+
+## Errata 1 (réponse à Codex)
+
+EN71 (2205) : je vise l'épellation distincte E + N, « e ene ». L'après devient `KOUM-plé la NOR-ma é É-né sé-TÉN-ta i OU-no`, au lieu de `é-né sé-TÉN-ta…`. L'événement figé est dans [`errata-1.json`](errata-1.json) ; il remplace entièrement l'après livré.
