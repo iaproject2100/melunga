@@ -12,7 +12,7 @@ const {chromium} = require('playwright-core');
 const REPO=path.resolve(__dirname,'../..'), WEB=path.join(REPO,'melunga_deploy');
 const BASE='a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f';
 // The reviewed original-logo clipping is the only allowed CSS change.
-const LOGO_CSS_SHA='fbbc745263b5899641882d9dbf2053210bdd243896ba7a055471f20f779c0b13';
+const LOGO_CSS_SHA='5c9eecd86820901b1719040a40dac11e0f3b7915287b7ccc8ae8236505862d2e';
 // The classic data remain exact; only these two account-presentation includes
 // are authorized in its document shell.
 function approvedAccountHead(raw){

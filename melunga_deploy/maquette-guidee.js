@@ -149,7 +149,7 @@
     'Écouter la phrase': '听这句话', 'Écouter': '听一听',
     'Révéler et écouter la phrase': '显示并听这句话', 'Révéler et écouter': '显示并听一听',
     'Changer d’ambiance': '更换背景', 'Voir les thèmes': '查看主题',
-    'Langue à apprendre': '学习语言', 'Choisir une langue': '选择学习语言', 'Fermer les langues': '关闭语言选择',
+    'Langue à apprendre': '学习语言', 'Choisir une langue': '选择学习语言', 'Langues': '语言', 'Fermer les langues': '关闭语言选择',
     'Anglais': '英语', 'Espagnol': '西班牙语', 'Italien': '意大利语', 'Chinois': '中文', 'Japonais': '日语', 'Coréen': '韩语', 'Français': '法语',
     'Révisions': '复习', 'Aide': '帮助', 'Connexion': '登录',
     'Choisir un niveau': '选择级别', 'Aide pour cette étape': '本步骤帮助',
@@ -524,7 +524,7 @@
 
   function buildLanguageChoices() {
     const names = { en: 'Anglais', es: 'Espagnol', it: 'Italien', zh: 'Chinois', ja: 'Japonais', ko: 'Coréen', fr: 'Français' };
-    text(byId('mgLanguageTitle'), tr('Choisir une langue'));
+    text(byId('mgLanguageTitle'), tr('Langues'));
     ui.languageClose.setAttribute('aria-label', tr('Fermer les langues'));
     ui.languageTrigger.disabled = false;
     ui.languageChoices.replaceChildren(...state.data.pairs.map(pair => {
@@ -532,7 +532,7 @@
       button.className = 'mg-language-option'; button.dataset.pair = pair.id;
       button.setAttribute('aria-pressed', String(pair.id === state.pair.id));
       const badge = document.createElement('span'); badge.className = 'mg-language-badge';
-      badge.textContent = pair.flag; badge.setAttribute('aria-hidden', 'true');
+      badge.textContent = pair.flag; badge.dataset.language = pair.studyLanguage; badge.setAttribute('aria-hidden', 'true');
       const title = document.createElement('span'); title.className = 'mg-language-title';
       title.textContent = tr(names[pair.studyLanguage] || pair.name);
       button.append(badge, title);
@@ -1206,6 +1206,7 @@
     ui.menuTrigger.title = tr('Menu');
     ui.language.value = pair.id;
     text(ui.flag, pair.flag);
+    ui.flag.dataset.language = pair.studyLanguage;
     ui.language.title = pair.name;
     ui.languageTrigger.title = pair.name;
     buildLanguageChoices();

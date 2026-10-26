@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#143b56">
+  <title>Melunga — quatre styles pour le titre du thème</title>
+  <link rel="stylesheet" href="maquette-guidee.css?v=21">
+  <style>
+    .tp-page{width:min(1100px,100%);margin:auto;padding:22px 22px 32px}
+    .tp-brand{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:24px}
+    .tp-brand>a:first-child{display:flex;align-items:center;gap:9px;text-decoration:none;font-size:24px;font-weight:800;letter-spacing:-.04em}
+    .tp-brand .mg-logo{width:46px;height:46px}
+    .tp-back{color:var(--mg-muted);font-size:14px;text-align:right}
+    h1{font-size:clamp(26px,5vw,34px);line-height:1.2;letter-spacing:-.035em;margin:0 0 10px}
+    .tp-intro{margin:0 0 20px;color:var(--mg-muted);font-size:16px;line-height:1.45}
+    .tp-ambiences{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+    .tp-ambiences>span{margin-right:4px;font-size:14px;color:var(--mg-muted)}
+    .tp-ambiences button{min-height:44px;padding:9px 14px;border:1px solid var(--mg-line);border-radius:14px;background:var(--mg-soft);font-size:14px;font-weight:700}
+    .tp-ambiences button[aria-pressed="true"]{background:var(--mg-accent);color:var(--mg-accent-ink);border-color:transparent}
+    .tp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .tp-option{min-width:0;padding:20px;border:1px solid var(--mg-line);border-radius:25px;background:var(--mg-surface)}
+    .tp-option-header{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+    h2{margin:0;font-size:16px;font-weight:750;line-height:1.35}
+    .tp-preferred{font-size:12px;color:var(--mg-accent);font-weight:650}
+    .tp-sample{min-height:94px;display:flex;align-items:flex-start;justify-content:center;flex-direction:column;gap:12px}
+    .tp-title{margin:0;width:100%;font-size:22px;line-height:1.3;font-weight:800;letter-spacing:-.025em;overflow-wrap:anywhere}
+    .tp-accent .tp-title{color:var(--mg-accent)}
+    .tp-banner .tp-title{padding:12px 14px;border-left:4px solid var(--mg-accent);border-radius:0 14px 14px 0;background:var(--mg-soft);color:var(--mg-ink)}
+    .tp-number .tp-title{display:flex;align-items:center;gap:12px;color:var(--mg-ink)}
+    .tp-number .tp-number-badge{display:flex;align-items:center;justify-content:center;flex:0 0 36px;width:36px;height:36px;border-radius:50%;background:#ffe1a0;color:#513f1f;font-size:15px;line-height:1;font-weight:800;letter-spacing:0}
+    .tp-number .tp-name{flex:1;min-width:0}
+    .tp-editorial .tp-title{color:#ffedc5;font-family:Georgia,"Times New Roman",serif;font-size:25px;font-weight:700;letter-spacing:-.025em}
+    .tp-editorial .tp-rule{display:block;width:48px;height:3px;border-radius:2px;background:#f5cd79}
+    body[data-ambience="dusk"] .tp-editorial .tp-title{color:#694707}
+    body[data-ambience="dusk"] .tp-editorial .tp-rule{background:#94670c}
+    .tp-note{margin:22px 0 0;font-size:14px;line-height:1.5;color:var(--mg-muted)}
+    @media(max-width:680px){.tp-page{padding:16px 16px 28px}.tp-brand{margin-bottom:20px}.tp-brand>a:first-child{font-size:22px}.tp-brand .mg-logo{width:42px;height:42px}.tp-back{max-width:100px}.tp-grid{grid-template-columns:minmax(0,1fr);gap:12px}.tp-option{padding:18px}.tp-option-header{margin-bottom:20px}.tp-title{font-size:21px}.tp-editorial .tp-title{font-size:24px}.tp-ambiences>span{width:100%}}
+  </style>
+</head>
+<body data-ambience="ocean">
+  <main class="tp-page">
+    <header class="tp-brand">
+      <a href="parcours-niveaux.html?pair=fr-es&amp;level=1" aria-label="Melunga, revenir au parcours"><img class="mg-logo" src="melunga-logo.png" alt=""><span>Melunga</span></a>
+      <a class="tp-back" href="parcours-niveaux.html?pair=fr-es&amp;level=1">Voir le parcours</a>
+    </header>
+    <h1>Quatre styles pour le titre</h1>
+    <p class="tp-intro">Le même thème, avec une couleur ou une typographie différente.</p>
+    <div class="tp-ambiences" aria-label="Comparer les ambiances">
+      <span>Fond de la leçon</span>
+      <button type="button" data-ambience="ocean" aria-pressed="true">Bleu</button>
+      <button type="button" data-ambience="aurora" aria-pressed="false">Aurore</button>
+      <button type="button" data-ambience="dusk" aria-pressed="false">Clair</button>
+    </div>
+    <div class="tp-grid">
+      <article class="tp-option tp-accent">
+        <header class="tp-option-header"><h2>1. Le titre coloré</h2></header>
+        <div class="tp-sample"><h3 class="tp-title">01 · Saluer et faire connaissance</h3></div>
+      </article>
+      <article class="tp-option tp-banner">
+        <header class="tp-option-header"><h2>2. Le bandeau</h2><span class="tp-preferred">Ma préférence</span></header>
+        <div class="tp-sample"><h3 class="tp-title">01 · Saluer et faire connaissance</h3></div>
+      </article>
+      <article class="tp-option tp-number">
+        <header class="tp-option-header"><h2>3. Le numéro en pastille</h2></header>
+        <div class="tp-sample"><h3 class="tp-title"><span class="tp-number-badge" aria-label="Thème 1">01</span><span class="tp-name">Saluer et faire connaissance</span></h3></div>
+      </article>
+      <article class="tp-option tp-editorial">
+        <header class="tp-option-header"><h2>4. La typographie livre</h2></header>
+        <div class="tp-sample"><h3 class="tp-title">01 · Saluer et faire connaissance</h3><span class="tp-rule" aria-hidden="true"></span></div>
+      </article>
+    </div>
+    <p class="tp-note">Ces exemples servent à choisir la présentation du titre. Le parcours garde son titre actuel pendant la comparaison.</p>
+  </main>
+  <script>
+    'use strict';
+    const buttons = [...document.querySelectorAll('button[data-ambience]')];
+    buttons.forEach(button => button.addEventListener('click', () => {
+      document.body.dataset.ambience = button.dataset.ambience;
+      buttons.forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
+    }));
+  </script>
+</body>
+</html>
