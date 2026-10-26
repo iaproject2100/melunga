@@ -13,3 +13,11 @@ Six contrôles indépendants réussis, 11 cas, trois captures mobiles : état in
 Cette proposition est un aperçu séparé de la PR des séquences. Aucune fusion ou publication sur melunga.com n’est autorisée avant l’accord de Kartech sur l’aperçu mobile.
 
 Le retour de Kartech sur le contour noir est intégré à ce même aperçu : les deux images utilisent maintenant le SVG original du classique, sans fond périphérique sombre. L’illustration, les tailles, la disposition, le CSS et le JavaScript de progression sont conservés. Quatre contrôles de logo et les six contrôles de progression passent sur cette composition ; neuf assets sont vérifiés. Les captures sont actualisées. Cette correction reste, elle aussi, en aperçu avant accord de fusion ; `main` n’est pas modifié.
+
+## Correction de « Mon compte » dans cet aperçu
+
+Le clic « Mon compte » ouvre désormais un volet dans le parcours et conserve la carte et l’URL courantes. Le volet indique l’état d’accès et propose le retour aux leçons et la déconnexion ; en aperçu, cette dernière est désactivée et le statut mentionne explicitement l’aperçu. Le lien de connexion des visiteurs reste identique en production.
+
+Le composant `665d0de` est intégré à la progression et au logo sans contour, sans autre modification de leur comportement. `course-access.js` change intentionnellement pour la déconnexion ; le fichier complet correspond au composant relu et ses règles d’éligibilité restent conservées. Les prix, les 78 JSON, le catalogue classique et les fonctions serveur restent identiques à `a1085e8`.
+
+Les nouveaux rapports de composition distinguent les essais locaux simulés de toute vérification réelle. La capture du volet montre un aperçu sans session de compte, sans connexion ni déconnexion réelle. Le site public reste inchangé en attendant la validation de l’aperçu.
