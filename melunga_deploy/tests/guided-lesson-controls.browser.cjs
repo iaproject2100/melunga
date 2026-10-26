@@ -13,6 +13,7 @@ const crypto = require('node:crypto');
 const {test, before, after} = require('node:test');
 const {chromium} = require('playwright-core');
 
+const PRODUCT_BASE = '902b31ef410b18a58d88ce67a7abfd4961180f90';
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'content/niveaux-progressifs');
 const readJson = filename => JSON.parse(fs.readFileSync(filename, 'utf8'));
@@ -48,7 +49,7 @@ function fingerprints() {
 }
 
 const report = {
-  status: 'running', environment: 'local Chromium with emulated viewports',
+  status: 'running', approvedEntryAndMobileProductCommit: PRODUCT_BASE, environment: 'local Chromium with emulated viewports',
   publicSiteChecked: false, physicalDeviceChecked: false,
   phoneticOrNativeValidation: false,
   speechMechanism: 'mock speechSynthesis; whole study text dispatch only',

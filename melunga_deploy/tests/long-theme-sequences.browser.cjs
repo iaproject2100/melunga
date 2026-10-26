@@ -16,7 +16,7 @@ const {chromium} = require('playwright-core');
 
 const WEB = path.resolve(__dirname, '..'), REPO = path.resolve(WEB, '..');
 const DATA_BASE = 'ebd6519a6088e52c157231b44ae4cf41507f0667';
-const PRODUCT_BASE = '62c14669cbb33c5c1a8b67722fc0c0f6c4189b6b';
+const PRODUCT_BASE = '902b31ef410b18a58d88ce67a7abfd4961180f90';
 const helperPath = path.join(WEB, 'visible-sequences.js');
 const manifestPath = 'content/niveaux-progressifs/manifest.json';
 const read = name => JSON.parse(fs.readFileSync(path.join(WEB, name), 'utf8'));
@@ -49,7 +49,7 @@ function fingerprints() {
   return Object.fromEntries(files.sort().map(file => [path.relative(REPO, file), sha(fs.readFileSync(file))]));
 }
 const report = {
-  status: 'running', approvedSourceCommit: DATA_BASE, approvedEntryProductCommit: PRODUCT_BASE,
+  status: 'running', approvedSourceCommit: DATA_BASE, approvedEntryAndMobileProductCommit: PRODUCT_BASE,
   environment: 'local Chromium with emulated mobile/desktop sizes',
   hostedBrowserJourneyChecked: false, physicalPhoneChecked: false, nativeOrPhoneticApproval: false,
   speechMechanism: 'instrumented speechSynthesis; dispatch must equal the complete study text',
