@@ -1,0 +1,159 @@
+{
+  "status": "passed",
+  "baseCommit": "a5c721f51a217750c3b83ecd56c85dbfc4ccb7f8",
+  "environment": "local Chromium; desktop and phone viewport emulation",
+  "publicSiteChecked": false,
+  "physicalPhoneChecked": false,
+  "realAccountsUsed": false,
+  "actualAudioPlayed": false,
+  "apiFixture": "read-only GET check-status only",
+  "checks": [
+    "source-conservation",
+    "desktop-direct-rail",
+    "language-picker",
+    "level-picker",
+    "shared-menu-actions",
+    "mobile-and-legacy"
+  ],
+  "cases": [
+    {
+      "name": "source-conservation",
+      "runtimeJson": 78,
+      "protectedWholeFiles": 27,
+      "classicWholeDeckAndFamilyLiterals": true,
+      "classicGuestHelperFlowCoveredHere": false
+    },
+    {
+      "name": "wide-rail",
+      "width": 1024,
+      "height": 768,
+      "paid": false,
+      "count": 9,
+      "focusedActions": 9,
+      "courseCapsuleRetained": true
+    },
+    {
+      "name": "wide-rail",
+      "width": 1024,
+      "height": 768,
+      "paid": true,
+      "count": 9,
+      "focusedActions": 9,
+      "courseCapsuleRetained": true
+    },
+    {
+      "name": "wide-rail",
+      "width": 1366,
+      "height": 768,
+      "paid": false,
+      "count": 9,
+      "focusedActions": 9,
+      "courseCapsuleRetained": true
+    },
+    {
+      "name": "wide-rail",
+      "width": 1366,
+      "height": 768,
+      "paid": true,
+      "count": 9,
+      "focusedActions": 9,
+      "courseCapsuleRetained": true
+    },
+    {
+      "name": "wide-rail",
+      "width": 1440,
+      "height": 900,
+      "paid": false,
+      "count": 9,
+      "focusedActions": 9,
+      "courseCapsuleRetained": true
+    },
+    {
+      "name": "wide-rail",
+      "width": 1440,
+      "height": 900,
+      "paid": true,
+      "count": 9,
+      "focusedActions": 9,
+      "courseCapsuleRetained": true
+    },
+    {
+      "name": "wide-rail",
+      "width": 1920,
+      "height": 1080,
+      "paid": false,
+      "count": 9,
+      "focusedActions": 9,
+      "courseCapsuleRetained": true
+    },
+    {
+      "name": "wide-rail",
+      "width": 1920,
+      "height": 1080,
+      "paid": true,
+      "count": 9,
+      "focusedActions": 9,
+      "courseCapsuleRetained": true
+    },
+    {
+      "name": "language-keyboard-and-localization",
+      "sourcePairs": 7,
+      "selectedPairs": [
+        "zh-fr",
+        "fr-en"
+      ]
+    },
+    {
+      "name": "level-keyboard-and-colours",
+      "levels": 10
+    },
+    {
+      "name": "shared-actions",
+      "panels": [
+        "voice",
+        "account",
+        "review",
+        "info",
+        "feedback",
+        "saved"
+      ],
+      "lessonPreserved": true,
+      "posts": 0,
+      "ambianceRetainedOnReload": true
+    },
+    {
+      "name": "guest-rights-and-login-link",
+      "paid": false
+    },
+    {
+      "name": "phone-four-controls",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "phone-four-controls",
+      "width": 320,
+      "height": 700
+    },
+    {
+      "name": "legacy-fixed-L1",
+      "width": 1366,
+      "height": 768,
+      "legacy": true
+    }
+  ],
+  "errors": [],
+  "unexpectedRequests": [],
+  "screenshots": [
+    "/tmp/melunga-desktop-navigation-independent-desktop-themes-1366x768.png",
+    "/tmp/melunga-desktop-navigation-independent-desktop-themes-1440x900.png",
+    "/tmp/melunga-desktop-navigation-independent-desktop-languages-1366x768.png",
+    "/tmp/melunga-desktop-navigation-independent-desktop-languages-zh-1366x768.png",
+    "/tmp/melunga-desktop-navigation-independent-desktop-levels-1366x768.png",
+    "/tmp/melunga-desktop-navigation-independent-desktop-lesson-1366x768.png",
+    "/tmp/melunga-desktop-navigation-independent-mobile-themes-390x844.png",
+    "/tmp/melunga-desktop-navigation-independent-mobile-themes-320x700.png"
+  ],
+  "inputsStable": true,
+  "missingChecks": []
+}

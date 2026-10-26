@@ -1,0 +1,211 @@
+{
+  "status": "passed",
+  "baseCommit": "a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f",
+  "environment": "local Chromium; emulated mobile and desktop sizes",
+  "publicSiteChecked": false,
+  "physicalPhoneChecked": false,
+  "realAccountsUsed": false,
+  "actualAudioPlayed": false,
+  "allApiCallsMocked": true,
+  "apiFixture": "GET check-status and user-confirmed test POST logout only",
+  "checks": [
+    "source-integrity",
+    "paid-account-stays-in-course",
+    "guest-and-preview",
+    "ordinary-logout",
+    "permanent-logout",
+    "pending-status-and-legacy"
+  ],
+  "cases": [
+    {
+      "name": "unchanged-data-and-account-backend",
+      "json": 78,
+      "protected": 28
+    },
+    {
+      "name": "account-in-place",
+      "width": 390,
+      "height": 700,
+      "pair": "fr-zh",
+      "shot": "paid-account-mobile",
+      "url": "https://account-menu.test/parcours-niveaux.html?pair=fr-zh&level=1",
+      "lessonStatePreserved": true
+    },
+    {
+      "name": "account-in-place",
+      "width": 1440,
+      "height": 900,
+      "pair": "fr-zh",
+      "shot": "paid-account-desktop",
+      "url": "https://account-menu.test/parcours-niveaux.html?pair=fr-zh&level=1",
+      "lessonStatePreserved": true
+    },
+    {
+      "name": "account-in-place",
+      "width": 390,
+      "height": 700,
+      "pair": "zh-fr",
+      "shot": "paid-account-chinese",
+      "url": "https://account-menu.test/parcours-niveaux.html?pair=zh-fr&level=1",
+      "lessonStatePreserved": true
+    },
+    {
+      "name": "guest-login-retained"
+    },
+    {
+      "name": "preview-is-not-a-fake-session"
+    },
+    {
+      "name": "ordinary-cancel-then-local-logout"
+    },
+    {
+      "name": "ordinary-storage-failure-preserves-session"
+    },
+    {
+      "name": "permanent-server-failure-and-retry",
+      "failedRequests": 1,
+      "successfulRequests": 1,
+      "registeredDevicePreserved": true
+    },
+    {
+      "name": "refresh-first-refuses-unconfirmed-logout",
+      "successAnnounced": false,
+      "requests": 0
+    },
+    {
+      "name": "permanent-coalescing-and-stale-status",
+      "requests": 1,
+      "stalePaidTrueIgnored": true
+    },
+    {
+      "name": "legacy-l1-menu-and-lesson-retained"
+    }
+  ],
+  "errors": [],
+  "unexpectedRequests": [],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "deviceId": "account-menu-fixture",
+      "body": {
+        "paid": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "deviceId": "account-menu-fixture",
+      "body": {
+        "paid": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "deviceId": "account-menu-fixture",
+      "body": {
+        "paid": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "deviceId": "account-menu-fixture",
+      "body": {
+        "paid": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "deviceId": "account-menu-fixture",
+      "body": {
+        "paid": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "deviceId": "account-menu-fixture",
+      "body": {
+        "paid": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "deviceId": "account-menu-fixture",
+      "body": {
+        "paid": true,
+        "permanent": true
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/.netlify/functions/logout",
+      "body": {
+        "device_id": "account-menu-fixture"
+      },
+      "authorization": null
+    },
+    {
+      "method": "POST",
+      "path": "/.netlify/functions/logout",
+      "body": {
+        "device_id": "account-menu-fixture"
+      },
+      "authorization": null
+    },
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "deviceId": "account-menu-fixture",
+      "body": {
+        "paid": true,
+        "permanent": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "deviceId": "account-menu-fixture",
+      "body": {
+        "paid": true,
+        "permanent": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "deviceId": "account-menu-fixture",
+      "body": {
+        "paid": true,
+        "permanent": true
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/.netlify/functions/logout",
+      "body": {
+        "device_id": "account-menu-fixture"
+      },
+      "authorization": null
+    },
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "deviceId": "account-menu-fixture",
+      "body": {
+        "paid": true,
+        "permanent": true
+      }
+    }
+  ],
+  "screenshots": [],
+  "reviewedLogoCssSha256": "ca527260443b006ee70b43af3a91829a5986725c2e58895475d27674653f61fd",
+  "sourceJsonCount": 78,
+  "protectedFileCount": 28,
+  "inputsStable": true,
+  "missingChecks": []
+}

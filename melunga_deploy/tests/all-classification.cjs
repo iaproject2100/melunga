@@ -20,25 +20,32 @@ const REGISTRY_SHAS = {'fr-en':'dfcde432da30d22ca3375c5544e14fb5f7b6e84db04af9ce
 const DESCRIPTOR_SHA256 = '57d7731c5001d065ce53ced537f782953dcd40dd61846627739adeb1bfd06f20';
 const MANIFEST_SHA256 = 'd0c785ebd39b1cc5fa14f6445b08c7982dda03255741f61bcf21c991c34c423c';
 const INDEPENDENT_CHECKER_SHA256 = '81b140ac5c245acfaf804cd8a8cd8e95138975c8a671bfbda58853664f03685a';
-const CLASSIFIED_JS_SHA256 = '7da1a3539013ced41084d2dfa300c8f6c18b96b7cf9bab33b4955e2c113e29ae';
-const CLASSIFIED_HTML_SHA256 = {"melunga_deploy/maquette-guidee.html":'27cc4f0fc6a563dd4f44a34bc40721423723a510b1619e8310d0e008241026a2',"melunga_deploy/parcours-niveaux.html":'683697aa9028965fd8e5599a991e3a165dc918a4782dd284ac37928f489cec85'};
+const CLASSIFIED_JS_SHA256 = '421114df06384660d1b2ea9ba780aaf769fb3d6e2402f2b85473a3933bbf64ba';
+const CLASSIFIED_HTML_SHA256 = {"melunga_deploy/maquette-guidee.html":'412fb88efc2573d6d3170698e4dd088699450bfd537b96583c133ad77c7d5029',"melunga_deploy/parcours-niveaux.html":'1aab748254dbd63542016a78626d39954259aeb6466faec82b6b22dc18655f36'};
+const NAVIGATION_UI_BASE = 'a5c721f51a217750c3b83ecd56c85dbfc4ccb7f8';
+const COURSE_LOGIN_HEAD = '<link rel="stylesheet" href="course-login.css?v=1">\n<script src="course-login.js?v=1" defer></script>\n';
 // Authorized entry/mobile UI shell: exact whole current assets are validated
 // before historical source tests may see the unchanged earlier presentation.
 // Account and current mobile behavior have independent course-entry-access and
 // mobile-picker-menu browser suites; source/content checks are never projected
 // until their complete independently pinned runtime audit has passed.
 const ENTRY_ASSET_SHA256 = {
-  'melunga_deploy/app.html':'7faee15f692c0c79c0f3937bc87f246225efc4f410bd10c4bf5401b5c38b8d90',
+  'melunga_deploy/app.html':'3544302224ad8e162b9ba40e76b8e5905dbebce2987431c8e8d30fca85df5c1a',
+  'melunga_deploy/course-login.css':'bdcfa4b4bc85daca76b728a14e3e97326a739b13137ae6f17b6cd90d059ff46c',
+  'melunga_deploy/course-login.js':'3ec780d1f6a10b68b54f7bcedd6aa96f2e39a334175841973be8e4e785654291',
   'melunga_deploy/index.html':'00dc701d8b9b5a84b025e9cc369d336317610fd92f2af4d34802cd830969fdbb',
   'melunga_deploy/course-access.js':'b5b3e0d547c84aa24b59d7381a5bfbf11a27836885b875e284b5795873abd082',
   'melunga_deploy/content/course-access.json':'35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05',
   'melunga_deploy/melunga-logo.svg':'b653fbd78c7b2a3853ad628d83e4230726a17f71e0a5441a01947dd854f86cec',
-  'melunga_deploy/maquette-guidee.css':'2da16667452ebe1781a5d202f68fd811b554086b6831a8d0fa164e9588cc348e',
+  'melunga_deploy/maquette-guidee.css':'fbbc745263b5899641882d9dbf2053210bdd243896ba7a055471f20f779c0b13',
   'melunga_deploy/maquette-guidee.js':CLASSIFIED_JS_SHA256,...CLASSIFIED_HTML_SHA256
 };
 function validateEntryAssets(){
   for(const [filename, expected]of Object.entries(ENTRY_ASSET_SHA256))assert.equal(sha256(fs.readFileSync(path.join(ROOT,filename))),expected,'authorized whole entry asset '+filename);
   const current=fs.readFileSync(path.join(ROOT,'melunga_deploy/app.html'),'utf8'),original=anchorBytes('melunga_deploy/app.html').toString();
+  const approvedClassic=execFileSync('git',['show',NAVIGATION_UI_BASE+':melunga_deploy/app.html'],{cwd:ROOT,maxBuffer:40*1024*1024}).toString();
+  assert.equal(current.split(COURSE_LOGIN_HEAD).length,2,'exactly one approved two-include head layer');
+  assert.equal(current.replace(COURSE_LOGIN_HEAD,''),approvedClassic,'the whole classic application is unchanged outside two exact head includes');
   for(const name of ['DECKS','PEDAGOGY_FAMILIES']){
     const prefix='var '+name+' = ';
     const now=current.split('\n').filter(line=>line.startsWith(prefix)),before=original.split('\n').filter(line=>line.startsWith(prefix));
@@ -223,7 +230,7 @@ function beforeAssetBytes(filename){
   const actual=fs.readFileSync(path.join(ROOT,filename));
   if(!Object.hasOwn(ENTRY_ASSET_SHA256,filename))return actual;
   ensureProjection();validateEntryAssets();
-  if(['melunga_deploy/course-access.js','melunga_deploy/content/course-access.json','melunga_deploy/melunga-logo.svg'].includes(filename))return actual;
+  if(['melunga_deploy/course-access.js','melunga_deploy/content/course-access.json','melunga_deploy/melunga-logo.svg','melunga_deploy/course-login.css','melunga_deploy/course-login.js'].includes(filename))return actual;
   const before=baselineBytes(filename);
   assert.ok(before.equals(anchorBytes(filename)),'approved B+C did not change original asset '+filename);
   // The mobile picker and scroll body deliberately change HTML/CSS structure.
@@ -234,7 +241,7 @@ function beforeAssetBytes(filename){
 }
 function inputFiles(){const layers=['docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json','docs/niveaux-progressifs/conventions-tranchees/registre/conventions-tranchees.json'];const evidence=layers.flatMap(file=>{const registry=rawRead(file);return[file,...registry.evidenceFiles.map(p=>p.path)];});return[...Object.keys(ENTRY_ASSET_SHA256).map(f=>path.join(ROOT,f)),...evidence.map(f=>path.join(ROOT,f)),...['uncertain-content.cjs','convention-corrections.cjs'].map(f=>path.join(WEB,'tests',f)),path.join(ROOT,'docs/niveaux-progressifs/contenu-tranche/exceptions-contenu-tranche.json'),__filename,path.join(ROOT,'tools/maquette-guidee/check_all_classification_independent.py'),path.join(ROOT,'tools/maquette-guidee/check_conventions_independent.py'),path.join(ROOT,'tools/maquette-guidee/check_uncertain_content_independent.py'),path.join(ROOT,REVIEW+'/visuels.json'),path.join(ROOT,REVIEW+'/registre/composition-entree.json'),...PAIRS.map(p=>path.join(ROOT,REVIEW+'/registre/'+p+'.json')),...documentPaths().map(f=>path.join(ROOT,f))];}
 function auditRuntime(){return ensureProjection().summary;}
-module.exports={loadLedger,baseline,baselineBytes,anchor,anchorBytes,contentBaseline,contentBytes,rawRead,actualPack,canonicalIndex,expectedPhrase,assertOwnClassification,ensureProjection,beforeRead,beforeBytes,beforeAssetBytes,projectPhrase,inputFiles,auditRuntime};
+module.exports={loadLedger,baseline,baselineBytes,anchor,anchorBytes,contentBaseline,contentBytes,rawRead,actualPack,canonicalIndex,expectedPhrase,assertOwnClassification,ensureProjection,beforeRead,beforeBytes,beforeAssetBytes,projectPhrase,inputFiles,auditRuntime,validateEntryAssets};
 
 if(require.main===module){
   const {test,before,after}=require('node:test'),http=require('node:http'),{chromium}=require('playwright-core');
@@ -268,7 +275,7 @@ if(require.main===module){
   }
   async function enter(page,target){await visit(page,target.level,target.pairId);await page.locator('#mgThemeGrid > button').nth(target.themeIndex).click();await page.evaluate(count=>{for(let n=0;n<count;n++){document.querySelector('#mgChoices:not([hidden]) button')?.click();const next=document.getElementById('mgContinue');if(next.disabled)throw Error('Prepared actual lesson blocked while advancing');next.click();}},target.stepIndex);assert.equal(await page.evaluate(()=>window.MelungaMockup.state().phraseId),target.id);}
   async function checkDom(page,target){for(const[selector,field]of [['#mgPhrase','study'],['#mgPhon','phon'],['#mgTranslation','native'],['#mgReading','reading']])assert.equal(await page.locator(selector).textContent(),target.phrase[field]||'','unchanged whole '+field);await page.click('#mgEar');const spoken=await page.evaluate(()=>window.__classificationSpeech.at(-1));assert.equal(spoken.text,target.phrase.study);assert.equal(spoken.lang.split('-')[0],target.pairId.split('-')[1]);}
-  async function savedPanel(page){await page.click('#mgMenuTrigger');await page.locator('[data-menu-item="À revoir"]').click();assert.equal(await page.locator('#mgSavedReviewPanel').isVisible(),true);}
+  async function savedPanel(page){if(await page.locator('#mgDesktopNav').isVisible())await page.locator('#mgDesktopNav [data-menu-item="À revoir"]').click();else{await page.click('#mgMenuTrigger');await page.locator('#mgMenuNav [data-menu-item="À revoir"]').click();}assert.equal(await page.locator('#mgSavedReviewPanel').isVisible(),true);}
   const cachedEntry=(pairId,op)=>({id:op.id,pairId,level:op.fromLevel,themeId:op.fromTheme,study:'STALE CACHE STUDY',native:'STALE CACHE MEANING',addedAt:100});
   const savedEntries=page=>page.evaluate(()=>JSON.parse(localStorage.getItem('melunga-guided-review-v1')).entries);
   const resumeButton=(page,id)=>page.locator('[data-review-id="'+id+'"]').locator('[data-review-action="resume"]');

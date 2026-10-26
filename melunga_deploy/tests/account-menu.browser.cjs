@@ -12,7 +12,14 @@ const {chromium} = require('playwright-core');
 const REPO=path.resolve(__dirname,'../..'), WEB=path.join(REPO,'melunga_deploy');
 const BASE='a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f';
 // The reviewed original-logo clipping is the only allowed CSS change.
-const LOGO_CSS_SHA='2da16667452ebe1781a5d202f68fd811b554086b6831a8d0fa164e9588cc348e';
+const LOGO_CSS_SHA='fbbc745263b5899641882d9dbf2053210bdd243896ba7a055471f20f779c0b13';
+// The classic data remain exact; only these two account-presentation includes
+// are authorized in its document shell.
+function approvedAccountHead(raw){
+ const text=raw.toString(),marker='<link rel="stylesheet" href="account-ui.css">\n';
+ assert.equal(text.split(marker).length,2,'one account UI include in the baseline');
+ return Buffer.from(text.replace(marker,'<link rel="stylesheet" href="account-ui.css">\n<link rel="stylesheet" href="course-login.css?v=1">\n<script src="course-login.js?v=1" defer></script>\n'));
+}
 const DEVICE='account-menu-fixture', ORIGIN='https://account-menu.test';
 const read=f=>fs.readFileSync(path.join(WEB,f));
 const json=f=>JSON.parse(read(f));
@@ -69,7 +76,7 @@ async function fixture({width=390,height=700,paid=true,permanent=false,pair='fr-
 }
 const state=page=>page.evaluate(()=>window.MelungaMockup.state());
 const access=page=>page.evaluate(()=>window.MelungaCourseAccess.state());
-async function openAccount(f){await f.page.locator('#mgMenuTrigger').click();const row=f.page.locator('#mgMenuNav [data-menu-item="account"]');await row.waitFor();assert.equal(await row.evaluate(n=>n.tagName),'BUTTON','paid account is an in-page button, not a lesson URL');await row.click();await f.page.locator('#mgAccountPanel').waitFor({state:'visible'});}
+async function openAccount(f){const desktop=await f.page.locator('#mgDesktopNav').isVisible();if(!desktop)await f.page.locator('#mgMenuTrigger').click();const row=f.page.locator((desktop?'#mgDesktopNav':'#mgMenuNav')+' [data-menu-item="account"]');await row.waitFor();assert.equal(await row.evaluate(n=>n.tagName),'BUTTON','paid account is an in-page button, not a lesson URL');await row.click();await f.page.locator('#mgAccountPanel').waitFor({state:'visible'});}
 async function closeMenu(page){await page.keyboard.press('Escape');await page.locator('#mgMenuDialog').waitFor({state:'hidden'});}
 async function confirmLogout(f,accept=true){f.page.once('dialog',async d=>{assert.equal(d.type(),'confirm');await(accept?d.accept():d.dismiss());});await f.page.locator('#mgAccountLogout').click();}
 async function saveShot(page,name){const dir=process.env.ACCOUNT_MENU_CAPTURES;if(!dir)return;fs.mkdirSync(dir,{recursive:true});const file=path.join(dir,name+'.png');await page.screenshot({path:file});report.screenshots.push(file);}
@@ -78,7 +85,7 @@ async function accountFits(page){const b=await page.locator('#mgMenuDialog').eva
 function section(text,name){const start=text.indexOf('  function '+name+'(');assert.ok(start>=0);const tail=text.slice(start+1);let candidates=['\n  function ','\n  async function ','\n  // Returning'].map(token=>tail.indexOf(token)).filter(i=>i>=0);const end=candidates.length?start+1+Math.min(...candidates):text.length;return text.slice(start,end);}
 
 test('card data, classic account backend, pricing and access filter functions are preserved',()=>checked('source-integrity',async()=>{
- assert.equal(sources.length,78);for(const f of [...sources,...protectedFiles]){if(f==='maquette-guidee.css'){assert.equal(sha(read(f)),LOGO_CSS_SHA,'whole reviewed logo CSS');continue;}const old=execFileSync('git',['show',BASE+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});assert.ok(read(f).equals(old),'protected '+f);}
+ assert.equal(sources.length,78);for(const f of [...sources,...protectedFiles]){if(f==='maquette-guidee.css'){assert.equal(sha(read(f)),LOGO_CSS_SHA,'whole reviewed logo CSS');continue;}const old=execFileSync('git',['show',BASE+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});assert.ok(read(f).equals(f==='app.html'?approvedAccountHead(old):old),'protected source with exact two account head includes '+f);}
  const current=read('course-access.js').toString(),old=execFileSync('git',['show',BASE+':melunga_deploy/course-access.js'],{cwd:REPO}).toString();
  for(const name of ['canLearn','loginUrl','classicUrl','buildLearningView'])assert.equal(section(current,name),section(old,name),'unchanged whole filter '+name);
  report.sourceJsonCount=78;report.protectedFileCount=protectedFiles.length;report.cases.push({name:'unchanged-data-and-account-backend',json:78,protected:protectedFiles.length});

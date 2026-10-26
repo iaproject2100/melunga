@@ -22,4 +22,4 @@ Les rapports et captures actuels sont dans `capsule-fin-coloree/` ; les dossiers
 
 `proposition-capsule.html` permet d’essayer la variante retenue en couleur à 0/25/50/75/100 %, avec des valeurs illustratives sans lecture ni écriture de données d’élève. Le parcours effectif, lui, utilise les décisions « Je connais » enregistrées.
 
-Le logo et la forme de la capsule sont validés par Kartech. La nouvelle version colorée reste dans l’aperçu #23 ; aucune fusion dans `main` ni publication sur melunga.com n’a été effectuée pour ce lot.
+Le logo et la capsule fixe colorée sont validés par Kartech. La PR #23 est fusionnée dans `main` au commit `a5c721f` et publiée sur melunga.com. Les contrôles des actifs servis et du navigateur réel sont dans `publication/`. Les nouveaux ajustements ordinateur/connexion sont un aperçu distinct, décrit dans `../navigation-ordinateur/`.

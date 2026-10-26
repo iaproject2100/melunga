@@ -1,0 +1,604 @@
+{
+  "status": "passed",
+  "baseCommit": "f13eafd270df3958507d88cdbb585ce5bc51099d",
+  "environment": "local Chromium with mobile/desktop viewports",
+  "publicSiteChecked": false,
+  "physicalDeviceChecked": false,
+  "realAccountsUsed": false,
+  "actualAudioPlayed": false,
+  "apiFixture": "only GET check-status mocked",
+  "checks": [
+    "canonical-source",
+    "outer-ring-counterexample",
+    "preserved-mobile-and-desktop-layout",
+    "lesson-controls"
+  ],
+  "cases": [
+    {
+      "name": "original-source-preserved",
+      "runtimeFiles": 78,
+      "protectedFiles": 12,
+      "pngSha256": "1aa277028faa2128c78405c839748dff8b1497827c04b02610216056c92b18c0",
+      "mask": ";clip-path:circle(43% at 49.3% 50.7%)"
+    },
+    {
+      "name": "original-png-css-mask",
+      "pixels": {
+        "oldDark": 1826,
+        "newDark": 0,
+        "innerChanged": 0,
+        "mascotChanged": 0,
+        "sampled": 3253,
+        "opaque": 520,
+        "clip": "circle(43% at 49.3% 50.7%)",
+        "naturalWidth": 143,
+        "naturalHeight": 137
+      }
+    },
+    {
+      "name": "geometry",
+      "screen": "themes",
+      "width": 390,
+      "height": 700,
+      "geometry": {
+        "brand": {
+          "x": 16,
+          "y": 10,
+          "width": 358,
+          "height": 43
+        },
+        "logo": {
+          "x": 119.59375,
+          "y": 10,
+          "width": 43,
+          "height": 43
+        },
+        "wordmark": {
+          "x": 172.59375,
+          "y": 18.296875,
+          "width": 97.8125,
+          "height": 26.390625
+        },
+        "controls": {
+          "x": 52,
+          "y": 65,
+          "width": 286,
+          "height": 44
+        },
+        "sidebar": {
+          "x": 12,
+          "y": 10,
+          "width": 366,
+          "height": 109
+        },
+        "commands": [
+          {
+            "x": 52,
+            "y": 65,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "x": 132.671875,
+            "y": 65,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "x": 213.328125,
+            "y": 65,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "x": 294,
+            "y": 65,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "visibleCommands": [
+          {
+            "id": "mgLevelTrigger",
+            "rect": {
+              "x": 52,
+              "y": 65,
+              "width": 44,
+              "height": 44
+            }
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "rect": {
+              "x": 132.671875,
+              "y": 65,
+              "width": 44,
+              "height": 44
+            }
+          },
+          {
+            "id": "mgPalette",
+            "rect": {
+              "x": 213.328125,
+              "y": 65,
+              "width": 44,
+              "height": 44
+            }
+          },
+          {
+            "id": "mgMenuTrigger",
+            "rect": {
+              "x": 294,
+              "y": 65,
+              "width": 44,
+              "height": 44
+            }
+          }
+        ],
+        "rail": []
+      }
+    },
+    {
+      "name": "geometry",
+      "screen": "lesson",
+      "width": 390,
+      "height": 700,
+      "geometry": {
+        "brand": {
+          "x": 16,
+          "y": 8,
+          "width": 358,
+          "height": 43
+        },
+        "logo": {
+          "x": 119.59375,
+          "y": 8,
+          "width": 43,
+          "height": 43
+        },
+        "wordmark": {
+          "x": 172.59375,
+          "y": 16.296875,
+          "width": 97.8125,
+          "height": 26.390625
+        },
+        "controls": {
+          "x": 52,
+          "y": 63,
+          "width": 286,
+          "height": 44
+        },
+        "sidebar": {
+          "x": 12,
+          "y": 8,
+          "width": 366,
+          "height": 109
+        },
+        "commands": [
+          {
+            "x": 52,
+            "y": 63,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "x": 132.671875,
+            "y": 63,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "x": 213.328125,
+            "y": 63,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "x": 294,
+            "y": 63,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "visibleCommands": [
+          {
+            "id": "mgLevelTrigger",
+            "rect": {
+              "x": 52,
+              "y": 63,
+              "width": 44,
+              "height": 44
+            }
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "rect": {
+              "x": 132.671875,
+              "y": 63,
+              "width": 44,
+              "height": 44
+            }
+          },
+          {
+            "id": "mgPalette",
+            "rect": {
+              "x": 213.328125,
+              "y": 63,
+              "width": 44,
+              "height": 44
+            }
+          },
+          {
+            "id": "mgMenuTrigger",
+            "rect": {
+              "x": 294,
+              "y": 63,
+              "width": 44,
+              "height": 44
+            }
+          }
+        ],
+        "rail": []
+      }
+    },
+    {
+      "name": "geometry",
+      "screen": "themes",
+      "width": 1440,
+      "height": 900,
+      "geometry": {
+        "brand": {
+          "x": 79.109375,
+          "y": 39,
+          "width": 65.765625,
+          "height": 84.59375
+        },
+        "logo": {
+          "x": 82.984375,
+          "y": 39,
+          "width": 58,
+          "height": 58
+        },
+        "wordmark": {
+          "x": 79.109375,
+          "y": 106,
+          "width": 65.765625,
+          "height": 17.59375
+        },
+        "controls": {
+          "x": 33,
+          "y": 143.59375,
+          "width": 158,
+          "height": 54
+        },
+        "sidebar": {
+          "x": 22,
+          "y": 22,
+          "width": 180,
+          "height": 822
+        },
+        "commands": [
+          {
+            "x": 52,
+            "y": 143.59375,
+            "width": 54,
+            "height": 54
+          },
+          {
+            "x": 118,
+            "y": 143.59375,
+            "width": 54,
+            "height": 54
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          }
+        ],
+        "visibleCommands": [
+          {
+            "id": "mgLevelTrigger",
+            "rect": {
+              "x": 52,
+              "y": 143.59375,
+              "width": 54,
+              "height": 54
+            }
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "rect": {
+              "x": 118,
+              "y": 143.59375,
+              "width": 54,
+              "height": 54
+            }
+          }
+        ],
+        "rail": [
+          {
+            "id": "Accueil",
+            "rect": {
+              "x": 33,
+              "y": 219.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "Thèmes",
+            "rect": {
+              "x": 114,
+              "y": 219.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "À revoir",
+            "rect": {
+              "x": 33,
+              "y": 299.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "review",
+            "rect": {
+              "x": 114,
+              "y": 299.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "voice",
+            "rect": {
+              "x": 33,
+              "y": 379.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "Couleur",
+            "rect": {
+              "x": 114,
+              "y": 379.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "info",
+            "rect": {
+              "x": 33,
+              "y": 459.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "feedback",
+            "rect": {
+              "x": 114,
+              "y": 459.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "Se connecter / Créer un compte",
+            "rect": {
+              "x": 72.5,
+              "y": 539.59375,
+              "width": 79,
+              "height": 68
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "geometry",
+      "screen": "lesson",
+      "width": 1440,
+      "height": 900,
+      "geometry": {
+        "brand": {
+          "x": 79.109375,
+          "y": 25,
+          "width": 65.765625,
+          "height": 84.59375
+        },
+        "logo": {
+          "x": 82.984375,
+          "y": 25,
+          "width": 58,
+          "height": 58
+        },
+        "wordmark": {
+          "x": 79.109375,
+          "y": 92,
+          "width": 65.765625,
+          "height": 17.59375
+        },
+        "controls": {
+          "x": 33,
+          "y": 129.59375,
+          "width": 158,
+          "height": 54
+        },
+        "sidebar": {
+          "x": 22,
+          "y": 8,
+          "width": 180,
+          "height": 850
+        },
+        "commands": [
+          {
+            "x": 52,
+            "y": 129.59375,
+            "width": 54,
+            "height": 54
+          },
+          {
+            "x": 118,
+            "y": 129.59375,
+            "width": 54,
+            "height": 54
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          }
+        ],
+        "visibleCommands": [
+          {
+            "id": "mgLevelTrigger",
+            "rect": {
+              "x": 52,
+              "y": 129.59375,
+              "width": 54,
+              "height": 54
+            }
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "rect": {
+              "x": 118,
+              "y": 129.59375,
+              "width": 54,
+              "height": 54
+            }
+          }
+        ],
+        "rail": [
+          {
+            "id": "Accueil",
+            "rect": {
+              "x": 33,
+              "y": 205.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "Thèmes",
+            "rect": {
+              "x": 114,
+              "y": 205.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "À revoir",
+            "rect": {
+              "x": 33,
+              "y": 285.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "review",
+            "rect": {
+              "x": 114,
+              "y": 285.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "voice",
+            "rect": {
+              "x": 33,
+              "y": 365.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "Couleur",
+            "rect": {
+              "x": 114,
+              "y": 365.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "info",
+            "rect": {
+              "x": 33,
+              "y": 445.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "feedback",
+            "rect": {
+              "x": 114,
+              "y": 445.59375,
+              "width": 77,
+              "height": 68
+            }
+          },
+          {
+            "id": "Se connecter / Créer un compte",
+            "rect": {
+              "x": 72.5,
+              "y": 525.59375,
+              "width": 79,
+              "height": 68
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "preserved-lesson-controls",
+      "colours": [
+        "rgb(34, 133, 116)",
+        "rgb(35, 126, 153)",
+        "rgb(51, 105, 170)",
+        "rgb(94, 91, 180)",
+        "rgb(139, 81, 173)",
+        "rgb(165, 73, 130)",
+        "rgb(178, 72, 92)",
+        "rgb(169, 93, 48)",
+        "rgb(137, 103, 27)",
+        "rgb(95, 120, 45)"
+      ]
+    }
+  ],
+  "errors": [],
+  "unexpectedRequests": [],
+  "mockedStatusChecks": 6,
+  "screenshots": [
+    "/tmp/melunga-desktop-navigation-logo/original-logo-enlarged.png",
+    "/tmp/melunga-desktop-navigation-logo/logo-clean-mobile.png",
+    "/tmp/melunga-desktop-navigation-logo/logo-clean-desktop.png"
+  ],
+  "inputsStable": true,
+  "missingChecks": []
+}
