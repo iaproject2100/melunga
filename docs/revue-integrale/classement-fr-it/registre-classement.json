@@ -1,0 +1,7221 @@
+{
+ "id": "tri-themes-claude-fr-it",
+ "pair": "fr-it",
+ "baseSnapshotCommit": "13f42b5814f2b230d76d2d0ef267dcf406c523c2",
+ "source": "docs/revue-integrale/lot9-fr-it-L1-L10/propositions-niveaux-themes.json",
+ "decisionsKartech": {
+  "changementsDeNiveau": "acceptés quand aucun thème du niveau ne convient et qu’un thème clair existe à un autre niveau",
+  "doublons": "une seule variante présentée, l’autre en réserve, rien n’est supprimé",
+  "nouveauxThemes": "validés (26 octobre 2026)",
+  "themesQuasiVides": "masqués ; leurs 0 à 2 cartes restantes passent en réserve ; ils pourront revenir avec de vraies cartes",
+  "L9-saluer": "formules de politesse soutenues gardées en L9 ; thème renommé"
+ },
+ "newThemes": [],
+ "renameThemes": [
+  {
+   "id": "L9-saluer",
+   "level": 9,
+   "newTitle": "Remercier et s’excuser en registre soutenu",
+   "cardsAfter": 6
+  }
+ ],
+ "hideThemes": [
+  {
+   "theme": "L9-deplacements",
+   "level": 9,
+   "title": "Discuter des choix de mobilité",
+   "cardsBefore": 8,
+   "remainingToReserve": [
+    "catalogue:it:2319",
+    "catalogue:it:2374"
+   ]
+  },
+  {
+   "theme": "L9-vocab-reperes",
+   "level": 9,
+   "title": "Temps et repères",
+   "cardsBefore": 4,
+   "remainingToReserve": [
+    "catalogue:it:4341",
+    "catalogue:it:4346"
+   ]
+  }
+ ],
+ "counts": {
+  "cards": 278,
+  "move": 224,
+  "keep": 6,
+  "to-reserve": 48,
+  "levelChanges": 61,
+  "intoNewThemes": 0,
+  "hiddenThemes": 2,
+  "remainingToReserve": 4
+ },
+ "ops": [
+  {
+   "p": "P000",
+   "id": "catalogue:it:2656",
+   "study": "Sto meglio.",
+   "fromLevel": 1,
+   "fromTheme": "deplacements",
+   "motif": "Dire qu'on va mieux relève de la santé, pas du déplacement.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "ressentis",
+   "proposals": [
+    "P000"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     8
+    ],
+    "study": "Sto meglio."
+   }
+  },
+  {
+   "p": "P001",
+   "id": "catalogue:it:2696",
+   "study": "Di dove sei?",
+   "fromLevel": 1,
+   "fromTheme": "deplacements",
+   "motif": "Demander l'origine sert à faire connaissance.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "saluer",
+   "proposals": [
+    "P001"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     12
+    ],
+    "study": "Di dove sei?"
+   }
+  },
+  {
+   "p": "P002",
+   "id": "catalogue:it:2535",
+   "study": "Signore",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-maison",
+   "motif": "Formule d'adresse à une personne.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-vocab-personnes",
+   "proposals": [
+    "P002"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-maison",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     0
+    ],
+    "study": "Signore"
+   }
+  },
+  {
+   "p": "P003",
+   "id": "catalogue:it:2609",
+   "study": "Signora",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-maison",
+   "motif": "Formule d'adresse à une personne.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-vocab-personnes",
+   "proposals": [
+    "P003"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-maison",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     2
+    ],
+    "study": "Signora"
+   }
+  },
+  {
+   "p": "P004",
+   "id": "catalogue:it:2598",
+   "study": "i miei figli",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-maison",
+   "motif": "Vocabulaire de la famille.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-vocab-personnes",
+   "proposals": [
+    "P004"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-maison",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     1
+    ],
+    "study": "i miei figli"
+   }
+  },
+  {
+   "p": "P005",
+   "id": "catalogue:it:2809",
+   "study": "single",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-maison",
+   "motif": "Situation de famille d'une personne.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-vocab-personnes",
+   "proposals": [
+    "P005"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-maison",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     5
+    ],
+    "study": "single"
+   }
+  },
+  {
+   "p": "P006",
+   "id": "catalogue:it:2568",
+   "study": "Non male.",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-personnes",
+   "motif": "Réponse courte qui fait vivre l'échange.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "conversation",
+   "proposals": [
+    "P006"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-personnes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     14,
+     "phrases",
+     4
+    ],
+    "study": "Non male."
+   }
+  },
+  {
+   "p": "P007",
+   "id": "catalogue:it:2647",
+   "study": "Il troppo stroppia.",
+   "fromLevel": 1,
+   "fromTheme": "decrire",
+   "motif": "Proverbe imagé : relève du niveau des expressions imagées (L8), décrire avec nuance.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-decrire",
+   "proposals": [
+    "P007"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     0
+    ],
+    "study": "Il troppo stroppia."
+   }
+  },
+  {
+   "p": "P008",
+   "id": "catalogue:it:9",
+   "study": "Prego.",
+   "fromLevel": 1,
+   "fromTheme": "saluer",
+   "motif": "Deux rôles distincts : répondre à un merci (de rien) et inviter à passer/agir (je vous en prie).",
+   "op": "keep",
+   "proposals": [
+    "P008"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     10
+    ],
+    "study": "Prego."
+   }
+  },
+  {
+   "p": "P009",
+   "id": "catalogue:it:2671",
+   "study": "Va bene.",
+   "fromLevel": 1,
+   "fromTheme": "conversation",
+   "motif": "Sens différents selon le thème : état (ça va, ressentis) et accord (ça marche, conversation).",
+   "op": "keep",
+   "proposals": [
+    "P009"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     27
+    ],
+    "study": "Va bene."
+   }
+  },
+  {
+   "p": "P010",
+   "id": "catalogue:it:2668",
+   "study": "Nessun problema.",
+   "fromLevel": 1,
+   "fromTheme": "conversation",
+   "motif": "Même sens dans le même thème que catalogue:it:2591.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P010"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     26
+    ],
+    "study": "Nessun problema."
+   }
+  },
+  {
+   "p": "P011",
+   "id": "catalogue:it:2564",
+   "study": "mio padre",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-personnes",
+   "motif": "Doublon à la majuscule/ponctuation près dans le même thème ; on garde « Mio padre. ».",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P011"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-personnes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     14,
+     "phrases",
+     3
+    ],
+    "study": "mio padre"
+   }
+  },
+  {
+   "p": "P012",
+   "id": "catalogue:it:2574",
+   "study": "mia madre",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-personnes",
+   "motif": "Doublon à la majuscule/ponctuation près dans le même thème ; on garde « Mia madre. ».",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P012"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-personnes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     14,
+     "phrases",
+     7
+    ],
+    "study": "mia madre"
+   }
+  },
+  {
+   "p": "P013",
+   "id": "situation-support-authored:fr-it:piste-ralentir-repeter-support-02",
+   "study": "una parola",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-travail",
+   "motif": "Carte d'appui de la piste ralentir/répéter (« une parole à la fois »).",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-situation-piste-ralentir-repeter",
+   "proposals": [
+    "P013"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     17,
+     "phrases",
+     0
+    ],
+    "study": "una parola"
+   }
+  },
+  {
+   "p": "P014",
+   "id": "catalogue:it:2808",
+   "study": "tuttavia",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-actions",
+   "motif": "Même mot, même thème ; cependant/néanmoins sont synonymes.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P014"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     16,
+     "phrases",
+     42
+    ],
+    "study": "tuttavia"
+   }
+  },
+  {
+   "p": "P015",
+   "id": "catalogue:it:2557",
+   "study": "perché",
+   "fromLevel": 1,
+   "fromTheme": "reserve",
+   "motif": "Sens différents (pourquoi / parce que) ; la carte parce que est déjà en réserve.",
+   "op": "keep",
+   "proposals": [
+    "P015"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "reserve",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "reserve",
+     2
+    ],
+    "study": "perché"
+   }
+  },
+  {
+   "p": "P016",
+   "id": "catalogue:it:2806",
+   "study": "quindi",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-actions",
+   "motif": "Doublon de « Quindi. » (catalogue:it:2605) dans le même thème, à la ponctuation près.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P016"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     16,
+     "phrases",
+     41
+    ],
+    "study": "quindi"
+   }
+  },
+  {
+   "p": "P017",
+   "id": "catalogue:it:2754",
+   "study": "ancora",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-adverbes",
+   "motif": "Doublon de « Ancora. » dans le même thème ; le thème adverbes utilise la forme « Mai. / Sempre. ».",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P017"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-adverbes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     28
+    ],
+    "study": "ancora"
+   }
+  },
+  {
+   "p": "P018",
+   "id": "catalogue:it:2569",
+   "study": "molto",
+   "fromLevel": 1,
+   "fromTheme": "reserve",
+   "motif": "Garder « Molto. » placée dans Adverbes ; celle-ci est déjà en réserve.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P018"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "reserve",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "reserve",
+     4
+    ],
+    "study": "molto"
+   }
+  },
+  {
+   "p": "P019",
+   "id": "catalogue:it:2546",
+   "study": "infatti",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-adverbes",
+   "motif": "Doublon de « Infatti. » dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P019"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-adverbes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     8
+    ],
+    "study": "infatti"
+   }
+  },
+  {
+   "p": "P020",
+   "id": "catalogue:it:2449",
+   "study": "Ci scusiamo per il disagio.",
+   "fromLevel": 10,
+   "fromTheme": "L10-saluer",
+   "motif": "Excuse formelle de correspondance professionnelle.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P020"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     0
+    ],
+    "study": "Ci scusiamo per il disagio."
+   }
+  },
+  {
+   "p": "P021",
+   "id": "catalogue:it:2447",
+   "study": "Resto a disposizione.",
+   "fromLevel": 10,
+   "fromTheme": "L10-comprendre",
+   "motif": "Formule de clôture professionnelle.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P021"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     0
+    ],
+    "study": "Resto a disposizione."
+   }
+  },
+  {
+   "p": "P022",
+   "id": "catalogue:it:2453",
+   "study": "Vi ringrazio della vostra pronta risposta.",
+   "fromLevel": 10,
+   "fromTheme": "L10-comprendre",
+   "motif": "Remerciement de courrier professionnel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P022"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     1
+    ],
+    "study": "Vi ringrazio della vostra pronta risposta."
+   }
+  },
+  {
+   "p": "P023",
+   "id": "catalogue:it:2415",
+   "study": "Affare concluso, ci stringiamo la mano.",
+   "fromLevel": 10,
+   "fromTheme": "L10-ressentis",
+   "motif": "Conclure un marché : échange professionnel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P023"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     0
+    ],
+    "study": "Affare concluso, ci stringiamo la mano."
+   }
+  },
+  {
+   "p": "P024",
+   "id": "catalogue:it:2471",
+   "study": "Se va tutto bene, firmiamo domani.",
+   "fromLevel": 10,
+   "fromTheme": "L10-ressentis",
+   "motif": "Condition de signature d'un accord.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P024"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     3
+    ],
+    "study": "Se va tutto bene, firmiamo domani."
+   }
+  },
+  {
+   "p": "P025",
+   "id": "catalogue:it:2477",
+   "study": "Voglio il rapporto di controllo finale prima dell'invio.",
+   "fromLevel": 10,
+   "fromTheme": "L10-ressentis",
+   "motif": "Exigence professionnelle de contrôle qualité.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P025"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     4
+    ],
+    "study": "Voglio il rapporto di controllo finale prima dell'invio."
+   }
+  },
+  {
+   "p": "P026",
+   "id": "catalogue:it:4499",
+   "study": "Le sarei riconoscente di una risposta rapida.",
+   "fromLevel": 10,
+   "fromTheme": "L10-ressentis",
+   "motif": "Formule de courrier professionnel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P026"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     11
+    ],
+    "study": "Le sarei riconoscente di una risposta rapida."
+   }
+  },
+  {
+   "p": "P027",
+   "id": "catalogue:it:2432",
+   "study": "Alza la mano se hai una domanda.",
+   "fromLevel": 10,
+   "fromTheme": "L10-ressentis",
+   "motif": "Consigne de classe sans ressenti ; aucun thème L10 ; le scénario cours du L3 est le plus proche (sinon réserve).",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-piste-cours-aide",
+   "proposals": [
+    "P027"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     1
+    ],
+    "study": "Alza la mano se hai una domanda."
+   }
+  },
+  {
+   "p": "P028",
+   "id": "catalogue:it:2421",
+   "study": "Questo prezzo è valido fino a fine mese.",
+   "fromLevel": 10,
+   "fromTheme": "L10-repas",
+   "motif": "Validité d'un prix commercial.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P028"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     0
+    ],
+    "study": "Questo prezzo è valido fino a fine mese."
+   }
+  },
+  {
+   "p": "P029",
+   "id": "catalogue:it:2515",
+   "study": "Se firmiamo sul lungo termine, il prezzo scende ancora?",
+   "fromLevel": 10,
+   "fromTheme": "L10-repas",
+   "motif": "Négociation d'un contrat à long terme.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P029"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     3
+    ],
+    "study": "Se firmiamo sul lungo termine, il prezzo scende ancora?"
+   }
+  },
+  {
+   "p": "P030",
+   "id": "catalogue:it:4375",
+   "study": "Il prezzo è negoziabile.",
+   "fromLevel": 10,
+   "fromTheme": "L10-repas",
+   "motif": "Négociation commerciale.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P030"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     6
+    ],
+    "study": "Il prezzo è negoziabile."
+   }
+  },
+  {
+   "p": "P031",
+   "id": "catalogue:it:4392",
+   "study": "La scatola delle scarpe è rovinata.",
+   "fromLevel": 10,
+   "fromTheme": "L10-repas",
+   "motif": "Signaler une marchandise abîmée : scénario service client du L5.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-situation-service-client",
+   "proposals": [
+    "P031"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     7
+    ],
+    "study": "La scatola delle scarpe è rovinata."
+   }
+  },
+  {
+   "p": "P032",
+   "id": "catalogue:it:4409",
+   "study": "Le taglie non sono esatte.",
+   "fromLevel": 10,
+   "fromTheme": "L10-repas",
+   "motif": "Signaler une commande non conforme : scénario service client du L5.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-situation-service-client",
+   "proposals": [
+    "P032"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     8
+    ],
+    "study": "Le taglie non sono esatte."
+   }
+  },
+  {
+   "p": "P033",
+   "id": "catalogue:it:4431",
+   "study": "Il poliestere costa meno del cotone.",
+   "fromLevel": 10,
+   "fromTheme": "L10-repas",
+   "motif": "Comparer le prix de deux matières : « Comparer des sorties et des achats » au L6.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-repas",
+   "proposals": [
+    "P033"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     9
+    ],
+    "study": "Il poliestere costa meno del cotone."
+   }
+  },
+  {
+   "p": "P034",
+   "id": "catalogue:it:2456",
+   "study": "Inviateci un piano d'azione correttivo.",
+   "fromLevel": 10,
+   "fromTheme": "L10-deplacements",
+   "motif": "Demande professionnelle de plan correctif.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P034"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     0
+    ],
+    "study": "Inviateci un piano d'azione correttivo."
+   }
+  },
+  {
+   "p": "P035",
+   "id": "catalogue:it:2489",
+   "study": "Faccio seguito alla mia mail.",
+   "fromLevel": 10,
+   "fromTheme": "L10-deplacements",
+   "motif": "Relance de correspondance professionnelle.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P035"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     3
+    ],
+    "study": "Faccio seguito alla mia mail."
+   }
+  },
+  {
+   "p": "P036",
+   "id": "catalogue:it:2504",
+   "study": "Se vi fate carico del trasporto, confermiamo.",
+   "fromLevel": 10,
+   "fromTheme": "L10-deplacements",
+   "motif": "Négociation de la prise en charge du transport.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P036"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     4
+    ],
+    "study": "Se vi fate carico del trasporto, confermiamo."
+   }
+  },
+  {
+   "p": "P037",
+   "id": "catalogue:it:4432",
+   "study": "Lo farò cuocere a fuoco lento.",
+   "fromLevel": 10,
+   "fromTheme": "L10-deplacements",
+   "motif": "Propos de cuisine, à sa place autour d'une table.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-repas",
+   "proposals": [
+    "P037"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     10
+    ],
+    "study": "Lo farò cuocere a fuoco lento."
+   }
+  },
+  {
+   "p": "P038",
+   "id": "catalogue:it:4384",
+   "study": "Lo memorizzerò.",
+   "fromLevel": 10,
+   "fromTheme": "L10-deplacements",
+   "motif": "Phrase d'exercice au futur sans situation ; aucun thème ne la porte clairement.",
+   "op": "to-reserve",
+   "proposals": [
+    "P038"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     8
+    ],
+    "study": "Lo memorizzerò."
+   }
+  },
+  {
+   "p": "P039",
+   "id": "catalogue:it:4462",
+   "study": "Cliccherai qui.",
+   "fromLevel": 10,
+   "fromTheme": "L10-deplacements",
+   "motif": "Guider quelqu'un à l'écran sert le dépannage numérique du L5.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-situation-piste-depannage-connexion",
+   "proposals": [
+    "P039"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     11
+    ],
+    "study": "Cliccherai qui."
+   }
+  },
+  {
+   "p": "P040",
+   "id": "catalogue:it:4474",
+   "study": "Rabbrividirai.",
+   "fromLevel": 10,
+   "fromTheme": "L10-deplacements",
+   "motif": "Phrase d'exercice au futur sans situation exploitable.",
+   "op": "to-reserve",
+   "proposals": [
+    "P040"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     12
+    ],
+    "study": "Rabbrividirai."
+   }
+  },
+  {
+   "p": "P041",
+   "id": "catalogue:it:4479",
+   "study": "Spolvererò tutto.",
+   "fromLevel": 10,
+   "fromTheme": "L10-deplacements",
+   "motif": "Tâche ménagère prévue : « S'organiser au quotidien » (L5), à côté de « Farò le pulizie. ».",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P041"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     13
+    ],
+    "study": "Spolvererò tutto."
+   }
+  },
+  {
+   "p": "P042",
+   "id": "catalogue:it:3032",
+   "study": "Senza peperoncino per me, per favore.",
+   "fromLevel": 2,
+   "fromTheme": "L2-saluer",
+   "motif": "Préférence alimentaire au repas.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-repas-preferences",
+   "proposals": [
+    "P042"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     16
+    ],
+    "study": "Senza peperoncino per me, per favore."
+   }
+  },
+  {
+   "p": "P043",
+   "id": "catalogue:it:2868",
+   "study": "Buon anno.",
+   "fromLevel": 2,
+   "fromTheme": "L2-saluer",
+   "motif": "Doublon à la ponctuation près ; on garde « Buon anno! ».",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P043"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     14
+    ],
+    "study": "Buon anno."
+   }
+  },
+  {
+   "p": "P044",
+   "id": "catalogue:it:3034",
+   "study": "Il servizio è compreso?",
+   "fromLevel": 2,
+   "fromTheme": "L2-comprendre",
+   "motif": "Question sur l'addition au restaurant.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P044"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     13
+    ],
+    "study": "Il servizio è compreso?"
+   }
+  },
+  {
+   "p": "P045",
+   "id": "catalogue:it:60",
+   "study": "Dov'è l'ospedale?",
+   "fromLevel": 2,
+   "fromTheme": "L2-ressentis",
+   "motif": "Demande de chemin.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-deplacements",
+   "proposals": [
+    "P045"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     6
+    ],
+    "study": "Dov'è l'ospedale?"
+   }
+  },
+  {
+   "p": "P046",
+   "id": "catalogue:it:281",
+   "study": "Non ne posso più.",
+   "fromLevel": 2,
+   "fromTheme": "L2-ressentis",
+   "motif": "Identique à catalogue:it:273 dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P046"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     29
+    ],
+    "study": "Non ne posso più."
+   }
+  },
+  {
+   "p": "P047",
+   "id": "catalogue:it:300",
+   "study": "Hai fame?",
+   "fromLevel": 2,
+   "fromTheme": "L2-ressentis",
+   "motif": "Identique à catalogue:it:299 dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P047"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     32
+    ],
+    "study": "Hai fame?"
+   }
+  },
+  {
+   "p": "P048",
+   "id": "catalogue:it:361",
+   "study": "Posso aiutarla.",
+   "fromLevel": 2,
+   "fromTheme": "L2-ressentis",
+   "motif": "Doublon à la ponctuation près ; on garde la question « Posso aiutarla? ».",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P048"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     39
+    ],
+    "study": "Posso aiutarla."
+   }
+  },
+  {
+   "p": "P049",
+   "id": "catalogue:it:2848",
+   "study": "Lo adoro.",
+   "fromLevel": 2,
+   "fromTheme": "L2-ressentis",
+   "motif": "Doublon à la ponctuation près ; on garde « Lo adoro! ».",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P049"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     45
+    ],
+    "study": "Lo adoro."
+   }
+  },
+  {
+   "p": "P050",
+   "id": "catalogue:it:99",
+   "study": "Che taglia?",
+   "fromLevel": 2,
+   "fromTheme": "L2-repas",
+   "motif": "Question de taille de vêtement.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-piste-vetement-taille",
+   "proposals": [
+    "P050"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     10
+    ],
+    "study": "Che taglia?"
+   }
+  },
+  {
+   "p": "P051",
+   "id": "catalogue:it:115",
+   "study": "Posso provare?",
+   "fromLevel": 2,
+   "fromTheme": "L2-repas",
+   "motif": "Identique à catalogue:it:75 dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P051"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     14
+    ],
+    "study": "Posso provare?"
+   }
+  },
+  {
+   "p": "P052",
+   "id": "catalogue:it:2908",
+   "study": "Ricevuto.",
+   "fromLevel": 2,
+   "fromTheme": "L2-repas",
+   "motif": "Accusé de réception dans l'échange, pas une commande.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-conversation",
+   "proposals": [
+    "P052"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     30
+    ],
+    "study": "Ricevuto."
+   }
+  },
+  {
+   "p": "P053",
+   "id": "catalogue:it:41",
+   "study": "Mi va bene.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Garder catalogue:it:42, mieux placée en L2-conversation.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P053",
+    "P054"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     1
+    ],
+    "study": "Mi va bene."
+   }
+  },
+  {
+   "p": "P055",
+   "id": "catalogue:it:80",
+   "study": "Mi sta bene.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Se dit d'un vêtement essayé.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-piste-vetement-taille",
+   "proposals": [
+    "P055"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     6
+    ],
+    "study": "Mi sta bene."
+   }
+  },
+  {
+   "p": "P056",
+   "id": "catalogue:it:2903",
+   "study": "Per cominciare, prendiamo un'insalata.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Commande d'une entrée.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P056"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     32
+    ],
+    "study": "Per cominciare, prendiamo un'insalata."
+   }
+  },
+  {
+   "p": "P057",
+   "id": "catalogue:it:202",
+   "study": "È fantastico!",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Identique à catalogue:it:201 dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P057"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     74
+    ],
+    "study": "È fantastico!"
+   }
+  },
+  {
+   "p": "P058",
+   "id": "catalogue:it:250",
+   "study": "C'è un problema.",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Identique à catalogue:it:249 dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P058"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     101
+    ],
+    "study": "C'è un problema."
+   }
+  },
+  {
+   "p": "P059",
+   "id": "catalogue:it:298",
+   "study": "Sei pronto?",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Même phrase et même sens que catalogue:it:297.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P059"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     126
+    ],
+    "study": "Sei pronto?"
+   }
+  },
+  {
+   "p": "P060",
+   "id": "catalogue:it:332",
+   "study": "Quando ci vediamo?",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Identique à catalogue:it:309 dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P060"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     144
+    ],
+    "study": "Quando ci vediamo?"
+   }
+  },
+  {
+   "p": "P061",
+   "id": "catalogue:it:2947",
+   "study": "È gentile.",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Deux emplois distincts : remercier d'un geste (c'est gentil) et décrire quelqu'un (il est gentil).",
+   "op": "keep",
+   "proposals": [
+    "P061"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     193
+    ],
+    "study": "È gentile."
+   }
+  },
+  {
+   "p": "P062",
+   "id": "catalogue:it:296",
+   "study": "Sul serio?",
+   "fromLevel": 2,
+   "fromTheme": "reserve",
+   "motif": "Doublon en réserve ; la forme présentée reste catalogue:it:2567.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P062"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "reserve",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "reserve",
+     5
+    ],
+    "study": "Sul serio?"
+   }
+  },
+  {
+   "p": "P063",
+   "id": "catalogue:it:2870",
+   "study": "subito",
+   "fromLevel": 2,
+   "fromTheme": "L2-vocab-reperes",
+   "motif": "Doublon de « Subito. » dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P063"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-vocab-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     7
+    ],
+    "study": "subito"
+   }
+  },
+  {
+   "p": "P064",
+   "id": "catalogue:it:2952",
+   "study": "prima o poi",
+   "fromLevel": 2,
+   "fromTheme": "L2-vocab-reperes",
+   "motif": "Doublon de « Prima o poi. » dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P064"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-vocab-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     14
+    ],
+    "study": "prima o poi"
+   }
+  },
+  {
+   "p": "P065",
+   "id": "catalogue:it:3007",
+   "study": "di solito",
+   "fromLevel": 2,
+   "fromTheme": "L2-vocab-maison",
+   "motif": "Locution adverbiale de fréquence.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-vocab-adverbes",
+   "proposals": [
+    "P065"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-vocab-maison",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     17,
+     "phrases",
+     3
+    ],
+    "study": "di solito"
+   }
+  },
+  {
+   "p": "P066",
+   "id": "catalogue:it:2919",
+   "study": "da adesso in poi",
+   "fromLevel": 2,
+   "fromTheme": "L2-vocab-voyage",
+   "motif": "Repère temporel.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-vocab-reperes",
+   "proposals": [
+    "P066"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-vocab-voyage",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+    "location": [
+     "themes",
+     18,
+     "phrases",
+     5
+    ],
+    "study": "da adesso in poi"
+   }
+  },
+  {
+   "p": "P067",
+   "id": "catalogue:it:525",
+   "study": "Grazie per l'invito.",
+   "fromLevel": 3,
+   "fromTheme": "L3-saluer",
+   "motif": "Identique à catalogue:it:524 dans le même thème, même sens.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P067"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     5
+    ],
+    "study": "Grazie per l'invito."
+   }
+  },
+  {
+   "p": "P068",
+   "id": "catalogue:it:402",
+   "study": "Vado a dormire.",
+   "fromLevel": 3,
+   "fromTheme": "L3-deplacements",
+   "motif": "Garder la carte de L3-quotidien (routine) ; retirer celle de L3-deplacements, mal placée.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P068"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     1
+    ],
+    "study": "Vado a dormire."
+   }
+  },
+  {
+   "p": "P069",
+   "id": "catalogue:it:469",
+   "study": "Non fa per me.",
+   "fromLevel": 3,
+   "fromTheme": "L3-conversation",
+   "motif": "Identique à catalogue:it:467 dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P069"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     39
+    ],
+    "study": "Non fa per me."
+   }
+  },
+  {
+   "p": "P070",
+   "id": "catalogue:it:3111",
+   "study": "Il pieno, per favore.",
+   "fromLevel": 3,
+   "fromTheme": "L3-saluer",
+   "motif": "Station-service : préparation d'un trajet.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-deplacements",
+   "proposals": [
+    "P070"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     13
+    ],
+    "study": "Il pieno, per favore."
+   }
+  },
+  {
+   "p": "P071",
+   "id": "catalogue:it:661",
+   "study": "Vorrei il prezzo FOB.",
+   "fromLevel": 3,
+   "fromTheme": "L3-repas",
+   "motif": "Demande commerciale professionnelle.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-travail",
+   "proposals": [
+    "P071"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     31
+    ],
+    "study": "Vorrei il prezzo FOB."
+   }
+  },
+  {
+   "p": "P072",
+   "id": "catalogue:it:451",
+   "study": "Ho dipinto la camera.",
+   "fromLevel": 3,
+   "fromTheme": "L3-deplacements",
+   "motif": "Phrase sur la vie à la maison : routines plutôt que liste de vocabulaire du mobilier.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-quotidien",
+   "proposals": [
+    "P072"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     10
+    ],
+    "study": "Ho dipinto la camera."
+   }
+  },
+  {
+   "p": "P073",
+   "id": "catalogue:it:512",
+   "study": "Vado a cucinare.",
+   "fromLevel": 3,
+   "fromTheme": "L3-deplacements",
+   "motif": "Activité domestique.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-quotidien",
+   "proposals": [
+    "P073"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     13
+    ],
+    "study": "Vado a cucinare."
+   }
+  },
+  {
+   "p": "P074",
+   "id": "catalogue:it:418",
+   "study": "Ho mal di schiena.",
+   "fromLevel": 3,
+   "fromTheme": "L3-ressentis",
+   "motif": "Décrire une douleur simple : scénario santé du L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-piste-douleur-simple",
+   "proposals": [
+    "P074"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     2
+    ],
+    "study": "Ho mal di schiena."
+   }
+  },
+  {
+   "p": "P075",
+   "id": "catalogue:it:433",
+   "study": "Ho la nausea.",
+   "fromLevel": 3,
+   "fromTheme": "L3-ressentis",
+   "motif": "Symptôme simple : scénario santé du L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-piste-douleur-simple",
+   "proposals": [
+    "P075"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     3
+    ],
+    "study": "Ho la nausea."
+   }
+  },
+  {
+   "p": "P076",
+   "id": "catalogue:it:442",
+   "study": "Chiamate un medico.",
+   "fromLevel": 3,
+   "fromTheme": "L3-ressentis",
+   "motif": "Demande médicale de base : scénario santé du L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-piste-douleur-simple",
+   "proposals": [
+    "P076"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     4
+    ],
+    "study": "Chiamate un medico."
+   }
+  },
+  {
+   "p": "P077",
+   "id": "catalogue:it:597",
+   "study": "Ho bisogno di una medicina.",
+   "fromLevel": 3,
+   "fromTheme": "L3-ressentis",
+   "motif": "Besoin médical simple : scénario santé du L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-piste-douleur-simple",
+   "proposals": [
+    "P077"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     23
+    ],
+    "study": "Ho bisogno di una medicina."
+   }
+  },
+  {
+   "p": "P078",
+   "id": "catalogue:it:599",
+   "study": "Ho mal di gola.",
+   "fromLevel": 3,
+   "fromTheme": "L3-ressentis",
+   "motif": "Décrire une douleur simple : scénario santé du L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-piste-douleur-simple",
+   "proposals": [
+    "P078"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     24
+    ],
+    "study": "Ho mal di gola."
+   }
+  },
+  {
+   "p": "P079",
+   "id": "catalogue:it:665",
+   "study": "Aspettami.",
+   "fromLevel": 3,
+   "fromTheme": "L3-conversation",
+   "motif": "Doublon à la ponctuation près ; on garde « Aspettami! ».",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P079"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     118
+    ],
+    "study": "Aspettami."
+   }
+  },
+  {
+   "p": "P080",
+   "id": "catalogue:it:714",
+   "study": "Non ne vale la pena.",
+   "fromLevel": 3,
+   "fromTheme": "L3-conversation",
+   "motif": "Identique à catalogue:it:685 dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P080"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     140
+    ],
+    "study": "Non ne vale la pena."
+   }
+  },
+  {
+   "p": "P081",
+   "id": "catalogue:it:629",
+   "study": "Resti in linea.",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "« Resti » est la forme de politesse : garder la glose « Ne quittez pas », retirer « Ne quitte pas ».",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P081"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     4
+    ],
+    "study": "Resti in linea."
+   }
+  },
+  {
+   "p": "P082",
+   "id": "catalogue:it:3110",
+   "study": "in futuro",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Doublon de « In futuro. » dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P082"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     22
+    ],
+    "study": "in futuro"
+   }
+  },
+  {
+   "p": "P083",
+   "id": "catalogue:it:1059",
+   "study": "Stiamo per cominciare.",
+   "fromLevel": 4,
+   "fromTheme": "L4-deplacements",
+   "motif": "Sans lien avec les voyages ; garder catalogue:it:1036.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P083"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     31
+    ],
+    "study": "Stiamo per cominciare."
+   }
+  },
+  {
+   "p": "P084",
+   "id": "catalogue:it:798",
+   "study": "Ce la farai.",
+   "fromLevel": 4,
+   "fromTheme": "L4-deplacements",
+   "motif": "Garder « Ce la farai! » en L4-ressentis, mieux placée.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P084"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     9
+    ],
+    "study": "Ce la farai."
+   }
+  },
+  {
+   "p": "P085",
+   "id": "catalogue:it:3558",
+   "study": "Il logo va stampato qui.",
+   "fromLevel": 4,
+   "fromTheme": "L4-deplacements",
+   "motif": "Consigne de tâche professionnelle.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P085"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     40
+    ],
+    "study": "Il logo va stampato qui."
+   }
+  },
+  {
+   "p": "P086",
+   "id": "catalogue:it:901",
+   "study": "Com'è andata?",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Identique à catalogue:it:889 dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P086"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     68
+    ],
+    "study": "Com'è andata?"
+   }
+  },
+  {
+   "p": "P087",
+   "id": "catalogue:it:3337",
+   "study": "dopo i pasti",
+   "fromLevel": 4,
+   "fromTheme": "L4-vocab-restaurant",
+   "motif": "Doublon de « Dopo i pasti. » dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P087"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-vocab-restaurant",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+    "location": [
+     "themes",
+     15,
+     "phrases",
+     5
+    ],
+    "study": "dopo i pasti"
+   }
+  },
+  {
+   "p": "P088",
+   "id": "catalogue:it:919",
+   "study": "un'andata e ritorno",
+   "fromLevel": 4,
+   "fromTheme": "L4-vocab-actions",
+   "motif": "Doublon de « Un'andata e ritorno. » dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P088"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     13
+    ],
+    "study": "un'andata e ritorno"
+   }
+  },
+  {
+   "p": "P089",
+   "id": "catalogue:it:1092",
+   "study": "Tosto del pane.",
+   "fromLevel": 5,
+   "fromTheme": "L5-repas",
+   "motif": "Cuisine à la maison : organisation du quotidien.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P089"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     5
+    ],
+    "study": "Tosto del pane."
+   }
+  },
+  {
+   "p": "P090",
+   "id": "catalogue:it:1191",
+   "study": "Friggo delle uova.",
+   "fromLevel": 5,
+   "fromTheme": "L5-repas",
+   "motif": "Cuisine à la maison : organisation du quotidien.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P090"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     13
+    ],
+    "study": "Friggo delle uova."
+   }
+  },
+  {
+   "p": "P091",
+   "id": "catalogue:it:1205",
+   "study": "Taglio le verdure.",
+   "fromLevel": 5,
+   "fromTheme": "L5-repas",
+   "motif": "Cuisine à la maison : organisation du quotidien.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P091"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     15
+    ],
+    "study": "Taglio le verdure."
+   }
+  },
+  {
+   "p": "P092",
+   "id": "catalogue:it:1232",
+   "study": "Taglio il pane.",
+   "fromLevel": 5,
+   "fromTheme": "L5-repas",
+   "motif": "Cuisine à la maison : organisation du quotidien.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P092"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     16
+    ],
+    "study": "Taglio il pane."
+   }
+  },
+  {
+   "p": "P093",
+   "id": "catalogue:it:1236",
+   "study": "Ho cotto troppo la pasta.",
+   "fromLevel": 5,
+   "fromTheme": "L5-repas",
+   "motif": "Petit raté de cuisine à la maison.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P093"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     17
+    ],
+    "study": "Ho cotto troppo la pasta."
+   }
+  },
+  {
+   "p": "P094",
+   "id": "catalogue:it:1088",
+   "study": "Mi farai piangere.",
+   "fromLevel": 5,
+   "fromTheme": "L5-deplacements",
+   "motif": "Phrase d'action sans lien avec le voyage.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P094"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     3
+    ],
+    "study": "Mi farai piangere."
+   }
+  },
+  {
+   "p": "P095",
+   "id": "catalogue:it:1089",
+   "study": "Stasera facciamo una grigliata.",
+   "fromLevel": 5,
+   "fromTheme": "L5-deplacements",
+   "motif": "Organiser une soirée à la maison.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P095"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     4
+    ],
+    "study": "Stasera facciamo una grigliata."
+   }
+  },
+  {
+   "p": "P096",
+   "id": "catalogue:it:1105",
+   "study": "Pianterò dei fiori.",
+   "fromLevel": 5,
+   "fromTheme": "L5-deplacements",
+   "motif": "Jardinage.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-nature",
+   "proposals": [
+    "P096"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     6
+    ],
+    "study": "Pianterò dei fiori."
+   }
+  },
+  {
+   "p": "P097",
+   "id": "catalogue:it:1107",
+   "study": "Punterò più in alto.",
+   "fromLevel": 5,
+   "fromTheme": "L5-deplacements",
+   "motif": "Expression d'ambition, sans lien avec le voyage.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P097"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     7
+    ],
+    "study": "Punterò più in alto."
+   }
+  },
+  {
+   "p": "P098",
+   "id": "catalogue:it:1198",
+   "study": "Comincerò la produzione.",
+   "fromLevel": 5,
+   "fromTheme": "L5-deplacements",
+   "motif": "Énoncé de coordination professionnelle.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P098"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     14
+    ],
+    "study": "Comincerò la produzione."
+   }
+  },
+  {
+   "p": "P099",
+   "id": "catalogue:it:1352",
+   "study": "Farò un po' di bricolage.",
+   "fromLevel": 5,
+   "fromTheme": "L5-deplacements",
+   "motif": "Activité domestique.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P099"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     32
+    ],
+    "study": "Farò un po' di bricolage."
+   }
+  },
+  {
+   "p": "P100",
+   "id": "catalogue:it:1372",
+   "study": "Passo il turno.",
+   "fromLevel": 5,
+   "fromTheme": "L5-deplacements",
+   "motif": "Passer son tour : acte d'interaction dans un jeu ou une discussion.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-conversation",
+   "proposals": [
+    "P100"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     35
+    ],
+    "study": "Passo il turno."
+   }
+  },
+  {
+   "p": "P101",
+   "id": "catalogue:it:1394",
+   "study": "Ci proverai con lui?",
+   "fromLevel": 5,
+   "fromTheme": "L5-deplacements",
+   "motif": "Phrase d'action sans lien avec le voyage.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P101"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     37
+    ],
+    "study": "Ci proverai con lui?"
+   }
+  },
+  {
+   "p": "P102",
+   "id": "catalogue:it:1167",
+   "study": "Qual è il gate d'imbarco?",
+   "fromLevel": 5,
+   "fromTheme": "L5-quotidien",
+   "motif": "Voyage en avion.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-deplacements",
+   "proposals": [
+    "P102"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     5
+    ],
+    "study": "Qual è il gate d'imbarco?"
+   }
+  },
+  {
+   "p": "P103",
+   "id": "catalogue:it:1170",
+   "study": "Finestrino o corridoio?",
+   "fromLevel": 5,
+   "fromTheme": "L5-quotidien",
+   "motif": "Choix de place en voyage.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-deplacements",
+   "proposals": [
+    "P103"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     6
+    ],
+    "study": "Finestrino o corridoio?"
+   }
+  },
+  {
+   "p": "P104",
+   "id": "catalogue:it:1305",
+   "study": "Dov'è il gate 12?",
+   "fromLevel": 5,
+   "fromTheme": "L5-quotidien",
+   "motif": "S'orienter à l'aéroport.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-deplacements",
+   "proposals": [
+    "P104"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     13
+    ],
+    "study": "Dov'è il gate 12?"
+   }
+  },
+  {
+   "p": "P105",
+   "id": "catalogue:it:1112",
+   "study": "Sarò lì alle otto.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Garder catalogue:it:1406 en L5-reperes (fixer un rendez-vous), mieux placée.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P105"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     15
+    ],
+    "study": "Sarò lì alle otto."
+   }
+  },
+  {
+   "p": "P106",
+   "id": "catalogue:it:1285",
+   "study": "Sono allergico alle arachidi.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Identique à catalogue:it:1173 dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P106"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     97
+    ],
+    "study": "Sono allergico alle arachidi."
+   }
+  },
+  {
+   "p": "P107",
+   "id": "catalogue:it:1395",
+   "study": "È molto gentile da parte sua.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Identique à catalogue:it:1328 dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P107"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     154
+    ],
+    "study": "È molto gentile da parte sua."
+   }
+  },
+  {
+   "p": "P108",
+   "id": "catalogue:it:1098",
+   "study": "Vorrei aprire un conto.",
+   "fromLevel": 5,
+   "fromTheme": "L5-travail",
+   "motif": "Carte strictement identique à catalogue:it:1097.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P108"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     2
+    ],
+    "study": "Vorrei aprire un conto."
+   }
+  },
+  {
+   "p": "P109",
+   "id": "catalogue:it:1297",
+   "study": "Chiamate un'ambulanza.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Doublon à la ponctuation près ; on garde « Chiamate un'ambulanza! ».",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P109"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     105
+    ],
+    "study": "Chiamate un'ambulanza."
+   }
+  },
+  {
+   "p": "P110",
+   "id": "catalogue:it:1201",
+   "study": "Abbiamo costruito un muro.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P110"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     56
+    ],
+    "study": "Abbiamo costruito un muro."
+   }
+  },
+  {
+   "p": "P111",
+   "id": "catalogue:it:1204",
+   "study": "Ho corso dieci chilometri.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P111"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     59
+    ],
+    "study": "Ho corso dieci chilometri."
+   }
+  },
+  {
+   "p": "P112",
+   "id": "catalogue:it:1206",
+   "study": "Soffia le candeline.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P112"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     60
+    ],
+    "study": "Soffia le candeline."
+   }
+  },
+  {
+   "p": "P113",
+   "id": "catalogue:it:1208",
+   "study": "Ha centrato il bersaglio.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P113"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     61
+    ],
+    "study": "Ha centrato il bersaglio."
+   }
+  },
+  {
+   "p": "P114",
+   "id": "catalogue:it:1209",
+   "study": "Ha fischiato un fallo.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P114"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     62
+    ],
+    "study": "Ha fischiato un fallo."
+   }
+  },
+  {
+   "p": "P115",
+   "id": "catalogue:it:1215",
+   "study": "Gioco a calcio.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'activité, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P115"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     65
+    ],
+    "study": "Gioco a calcio."
+   }
+  },
+  {
+   "p": "P116",
+   "id": "catalogue:it:1216",
+   "study": "Gioco a basket.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'activité, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P116"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     66
+    ],
+    "study": "Gioco a basket."
+   }
+  },
+  {
+   "p": "P117",
+   "id": "catalogue:it:1218",
+   "study": "Salvo il file.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P117"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     67
+    ],
+    "study": "Salvo il file."
+   }
+  },
+  {
+   "p": "P118",
+   "id": "catalogue:it:1220",
+   "study": "Dipingo il muro.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P118"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     68
+    ],
+    "study": "Dipingo il muro."
+   }
+  },
+  {
+   "p": "P119",
+   "id": "catalogue:it:1221",
+   "study": "Impasto la pasta.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Cuisine à la maison : organisation du quotidien.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P119"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     69
+    ],
+    "study": "Impasto la pasta."
+   }
+  },
+  {
+   "p": "P120",
+   "id": "catalogue:it:1222",
+   "study": "Spazzo la cucina.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Tâche ménagère : organisation du quotidien.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P120"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     70
+    ],
+    "study": "Spazzo la cucina."
+   }
+  },
+  {
+   "p": "P121",
+   "id": "catalogue:it:1234",
+   "study": "Ho memorizzato il codice.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P121"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     74
+    ],
+    "study": "Ho memorizzato il codice."
+   }
+  },
+  {
+   "p": "P122",
+   "id": "catalogue:it:1323",
+   "study": "Stiro le mie camicie.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Tâche ménagère : organisation du quotidien.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P122"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     110
+    ],
+    "study": "Stiro le mie camicie."
+   }
+  },
+  {
+   "p": "P123",
+   "id": "catalogue:it:1324",
+   "study": "Ripasso le mie lezioni.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P123"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     111
+    ],
+    "study": "Ripasso le mie lezioni."
+   }
+  },
+  {
+   "p": "P124",
+   "id": "catalogue:it:1329",
+   "study": "Abbiamo nuotato in mare.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P124"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     115
+    ],
+    "study": "Abbiamo nuotato in mare."
+   }
+  },
+  {
+   "p": "P125",
+   "id": "catalogue:it:1333",
+   "study": "Abbiamo piantato un albero.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P125"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     118
+    ],
+    "study": "Abbiamo piantato un albero."
+   }
+  },
+  {
+   "p": "P126",
+   "id": "catalogue:it:1334",
+   "study": "Abbiamo scalato la montagna.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P126"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     119
+    ],
+    "study": "Abbiamo scalato la montagna."
+   }
+  },
+  {
+   "p": "P127",
+   "id": "catalogue:it:1337",
+   "study": "Accendo la luce.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P127"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     121
+    ],
+    "study": "Accendo la luce."
+   }
+  },
+  {
+   "p": "P128",
+   "id": "catalogue:it:1338",
+   "study": "Spengo la luce.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P128"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     122
+    ],
+    "study": "Spengo la luce."
+   }
+  },
+  {
+   "p": "P129",
+   "id": "catalogue:it:1359",
+   "study": "Ho grattugiato una carota.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Cuisine à la maison : organisation du quotidien.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P129"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     134
+    ],
+    "study": "Ho grattugiato una carota."
+   }
+  },
+  {
+   "p": "P130",
+   "id": "catalogue:it:1365",
+   "study": "Accendi la lampada.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Consigne d'action simple, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P130"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     136
+    ],
+    "study": "Accendi la lampada."
+   }
+  },
+  {
+   "p": "P131",
+   "id": "catalogue:it:1366",
+   "study": "Trito la cipolla.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Cuisine à la maison : organisation du quotidien.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P131"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     137
+    ],
+    "study": "Trito la cipolla."
+   }
+  },
+  {
+   "p": "P132",
+   "id": "catalogue:it:1367",
+   "study": "Spolvero i mobili.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Tâche ménagère : organisation du quotidien.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P132"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     138
+    ],
+    "study": "Spolvero i mobili."
+   }
+  },
+  {
+   "p": "P133",
+   "id": "catalogue:it:1368",
+   "study": "Riavvio il computer.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Geste de dépannage numérique, comme « Ho già chiuso e riaperto l'applicazione ».",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-situation-piste-depannage-connexion",
+   "proposals": [
+    "P133"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     139
+    ],
+    "study": "Riavvio il computer."
+   }
+  },
+  {
+   "p": "P134",
+   "id": "catalogue:it:1369",
+   "study": "Grattugio il formaggio.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Cuisine à la maison : organisation du quotidien.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P134"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     140
+    ],
+    "study": "Grattugio il formaggio."
+   }
+  },
+  {
+   "p": "P135",
+   "id": "catalogue:it:1374",
+   "study": "Ha dribblato due giocatori.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description d'action, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-actions",
+   "proposals": [
+    "P135"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     143
+    ],
+    "study": "Ha dribblato due giocatori."
+   }
+  },
+  {
+   "p": "P136",
+   "id": "catalogue:it:1351",
+   "study": "Mi sono tagliato il dito.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Explique un problème physique concret.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-ressentis",
+   "proposals": [
+    "P136"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     131
+    ],
+    "study": "Mi sono tagliato il dito."
+   }
+  },
+  {
+   "p": "P137",
+   "id": "catalogue:it:1355",
+   "study": "Ho un crampo al polpaccio.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Explique un problème physique concret.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-ressentis",
+   "proposals": [
+    "P137"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     132
+    ],
+    "study": "Ho un crampo al polpaccio."
+   }
+  },
+  {
+   "p": "P138",
+   "id": "catalogue:it:1363",
+   "study": "Sono scivolato sul ghiaccio.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Explique un incident physique concret.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-ressentis",
+   "proposals": [
+    "P138"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     135
+    ],
+    "study": "Sono scivolato sul ghiaccio."
+   }
+  },
+  {
+   "p": "P139",
+   "id": "catalogue:it:1157",
+   "study": "Qual è la tensione d'ingresso?",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Question technique professionnelle.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P139"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     38
+    ],
+    "study": "Qual è la tensione d'ingresso?"
+   }
+  },
+  {
+   "p": "P140",
+   "id": "catalogue:it:1158",
+   "study": "Quanti pezzi per container?",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Question logistique professionnelle, pas une mise d'accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P140"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     39
+    ],
+    "study": "Quanti pezzi per container?"
+   }
+  },
+  {
+   "p": "P141",
+   "id": "catalogue:it:1163",
+   "study": "Qual è la tensione richiesta?",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Spécification technique demandée à un fournisseur.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P141"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     41
+    ],
+    "study": "Qual è la tensione richiesta?"
+   }
+  },
+  {
+   "p": "P142",
+   "id": "catalogue:it:1286",
+   "study": "Qual è il peso a vuoto?",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Spécification technique demandée à un fournisseur.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P142"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     98
+    ],
+    "study": "Qual è il peso a vuoto?"
+   }
+  },
+  {
+   "p": "P143",
+   "id": "catalogue:it:1293",
+   "study": "Potete garantire l'uniformità?",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Exigence qualité adressée à un fournisseur.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P143"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     102
+    ],
+    "study": "Potete garantire l'uniformità?"
+   }
+  },
+  {
+   "p": "P144",
+   "id": "catalogue:it:1294",
+   "study": "Qual è la composizione?",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Spécification technique demandée à un fournisseur.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P144"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     103
+    ],
+    "study": "Qual è la composizione?"
+   }
+  },
+  {
+   "p": "P145",
+   "id": "catalogue:it:3877",
+   "study": "Il prossimo lotto deve essere impeccabile.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Consigne de qualité sur une production : coordination d'une tâche.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P145"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     200
+    ],
+    "study": "Il prossimo lotto deve essere impeccabile."
+   }
+  },
+  {
+   "p": "P146",
+   "id": "catalogue:it:3878",
+   "study": "Il prossimo trimestre aumentiamo i volumi.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Plan de volumes : coordination professionnelle.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P146"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     201
+    ],
+    "study": "Il prossimo trimestre aumentiamo i volumi."
+   }
+  },
+  {
+   "p": "P147",
+   "id": "catalogue:it:3880",
+   "study": "La concorrenza è dura in questo settore.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Constat sur le secteur d'activité, registre professionnel.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P147"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     203
+    ],
+    "study": "La concorrenza è dura in questo settore."
+   }
+  },
+  {
+   "p": "P148",
+   "id": "catalogue:it:1179",
+   "study": "Vorrei saldare il conto.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Demande pratique (régler la note).",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-repas",
+   "proposals": [
+    "P148"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     45
+    ],
+    "study": "Vorrei saldare il conto."
+   }
+  },
+  {
+   "p": "P149",
+   "id": "catalogue:it:1181",
+   "study": "Vorrei cambiare questo articolo.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Demande pratique en magasin (échange d'article).",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-repas",
+   "proposals": [
+    "P149"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     46
+    ],
+    "study": "Vorrei cambiare questo articolo."
+   }
+  },
+  {
+   "p": "P150",
+   "id": "catalogue:it:1182",
+   "study": "Vuole una busta?",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Question du vendeur en caisse, demande pratique.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-repas",
+   "proposals": [
+    "P150"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     47
+    ],
+    "study": "Vuole una busta?"
+   }
+  },
+  {
+   "p": "P151",
+   "id": "catalogue:it:1291",
+   "study": "Posso avere un sacchetto?",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Demande pratique en magasin.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-repas",
+   "proposals": [
+    "P151"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     101
+    ],
+    "study": "Posso avere un sacchetto?"
+   }
+  },
+  {
+   "p": "P152",
+   "id": "catalogue:it:1339",
+   "study": "dei fuochi d'artificio",
+   "fromLevel": 5,
+   "fromTheme": "L5-vocab-maison",
+   "motif": "Feu d'artifice : loisirs et fêtes, pas la maison.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-loisirs",
+   "proposals": [
+    "P152"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-vocab-maison",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     14,
+     "phrases",
+     2
+    ],
+    "study": "dei fuochi d'artificio"
+   }
+  },
+  {
+   "p": "P153",
+   "id": "catalogue:it:3593",
+   "study": "il documento d'identità",
+   "fromLevel": 5,
+   "fromTheme": "L5-vocab-maison",
+   "motif": "Pièce d'identité : vocabulaire des démarches.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-travail",
+   "proposals": [
+    "P153"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-vocab-maison",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     14,
+     "phrases",
+     4
+    ],
+    "study": "il documento d'identità"
+   }
+  },
+  {
+   "p": "P154",
+   "id": "catalogue:it:3698",
+   "study": "un fornello",
+   "fromLevel": 5,
+   "fromTheme": "L5-vocab-actions",
+   "motif": "Doublon à l'article près dans le même thème : on garde la variante voisine, celle-ci passe en réserve.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P154"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+    "location": [
+     "themes",
+     18,
+     "phrases",
+     44
+    ],
+    "study": "un fornello"
+   }
+  },
+  {
+   "p": "P155",
+   "id": "catalogue:it:1456",
+   "study": "Avete un tavolo per due?",
+   "fromLevel": 6,
+   "fromTheme": "L6-repas",
+   "motif": "Doublon exact de 1420 dans le même thème ; on garde 1420.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P155"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     6
+    ],
+    "study": "Avete un tavolo per due?"
+   }
+  },
+  {
+   "p": "P156",
+   "id": "catalogue:it:1630",
+   "study": "Non riesco a crederci.",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Même thème, seule la ponctuation diffère : on garde la version avec « ! » (1640).",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P156"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     18
+    ],
+    "study": "Non riesco a crederci."
+   }
+  },
+  {
+   "p": "P157",
+   "id": "catalogue:it:3896",
+   "study": "Mi dispiace.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Formule de base de L1 ; rien d'un parcours à présenter (vérifier le doublon avec la carte L1 existante).",
+   "op": "to-reserve",
+   "toLevel": 1,
+   "toTheme": "saluer",
+   "proposals": [
+    "P157"
+   ],
+   "note": "la même phrase est déjà présentée au niveau L1 (catalogue:it:2658) : réserve plutôt que doublon",
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     13
+    ],
+    "study": "Mi dispiace."
+   }
+  },
+  {
+   "p": "P158",
+   "id": "catalogue:it:3983",
+   "study": "Bisogna andare.",
+   "fromLevel": 6,
+   "fromTheme": "L6-deplacements",
+   "motif": "Phrase de premier niveau, déjà présente en L1 (vérifier le doublon).",
+   "op": "to-reserve",
+   "toLevel": 1,
+   "toTheme": "deplacements",
+   "proposals": [
+    "P158"
+   ],
+   "note": "la même phrase est déjà présentée au niveau L1 (catalogue:it:2680) : réserve plutôt que doublon",
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     41
+    ],
+    "study": "Bisogna andare."
+   }
+  },
+  {
+   "p": "P159",
+   "id": "catalogue:it:1485",
+   "study": "Delle bacchette, per favore.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Demande à table.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-repas",
+   "proposals": [
+    "P159"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     4
+    ],
+    "study": "Delle bacchette, per favore."
+   }
+  },
+  {
+   "p": "P160",
+   "id": "catalogue:it:1561",
+   "study": "Meno olio, per favore.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Demande au restaurant.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-repas",
+   "proposals": [
+    "P160"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     8
+    ],
+    "study": "Meno olio, per favore."
+   }
+  },
+  {
+   "p": "P161",
+   "id": "catalogue:it:3917",
+   "study": "Un biglietto, per favore.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Achat d'un billet de transport.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-deplacements",
+   "proposals": [
+    "P161"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     14
+    ],
+    "study": "Un biglietto, per favore."
+   }
+  },
+  {
+   "p": "P162",
+   "id": "catalogue:it:1442",
+   "study": "Tieni questo, per favore.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Aucun thème L6 ne convient à cette consigne élémentaire.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "quotidien",
+   "proposals": [
+    "P162"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     0
+    ],
+    "study": "Tieni questo, per favore."
+   }
+  },
+  {
+   "p": "P163",
+   "id": "catalogue:it:1579",
+   "study": "Fiorirà in primavera.",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Jardin et saisons, pas une raison de choix.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-nature",
+   "proposals": [
+    "P163"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     12
+    ],
+    "study": "Fiorirà in primavera."
+   }
+  },
+  {
+   "p": "P164",
+   "id": "catalogue:it:1680",
+   "study": "Mi sono fatto male al ginocchio.",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Corps et blessure.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-personnes",
+   "proposals": [
+    "P164"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     25
+    ],
+    "study": "Mi sono fatto male al ginocchio."
+   }
+  },
+  {
+   "p": "P165",
+   "id": "catalogue:it:1515",
+   "study": "Friggerò delle patatine.",
+   "fromLevel": 6,
+   "fromTheme": "L6-deplacements",
+   "motif": "Verbe de cuisine au futur : vocabulaire d'action, ni voyage ni comparaison d'achats.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-actions",
+   "proposals": [
+    "P165"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     13
+    ],
+    "study": "Friggerò delle patatine."
+   }
+  },
+  {
+   "p": "P166",
+   "id": "catalogue:it:1637",
+   "study": "Grattugerò dello zenzero.",
+   "fromLevel": 6,
+   "fromTheme": "L6-deplacements",
+   "motif": "Verbe de cuisine au futur : vocabulaire d'action.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-actions",
+   "proposals": [
+    "P166"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     25
+    ],
+    "study": "Grattugerò dello zenzero."
+   }
+  },
+  {
+   "p": "P167",
+   "id": "catalogue:it:1691",
+   "study": "Lanceremo il progetto.",
+   "fromLevel": 6,
+   "fromTheme": "L6-deplacements",
+   "motif": "Lancement de projet : contexte professionnel.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P167"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     30
+    ],
+    "study": "Lanceremo il progetto."
+   }
+  },
+  {
+   "p": "P168",
+   "id": "catalogue:it:1440",
+   "study": "Ha superato l'esame.",
+   "fromLevel": 6,
+   "fromTheme": "L6-repas",
+   "motif": "Aucun thème d'études en L6.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-situation-etudes-apprentissage",
+   "proposals": [
+    "P168"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     5
+    ],
+    "study": "Ha superato l'esame."
+   }
+  },
+  {
+   "p": "P169",
+   "id": "catalogue:it:1444",
+   "study": "Mi sono storto la caviglia.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Corps et blessure.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-personnes",
+   "proposals": [
+    "P169"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     9
+    ],
+    "study": "Mi sono storto la caviglia."
+   }
+  },
+  {
+   "p": "P170",
+   "id": "catalogue:it:1549",
+   "study": "Avete la certificazione CE?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Question de conformité à un fournisseur.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P170"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     49
+    ],
+    "study": "Avete la certificazione CE?"
+   }
+  },
+  {
+   "p": "P171",
+   "id": "catalogue:it:1552",
+   "study": "Che driver utilizzate?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Question technique à un fournisseur.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P171"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     50
+    ],
+    "study": "Che driver utilizzate?"
+   }
+  },
+  {
+   "p": "P172",
+   "id": "catalogue:it:1555",
+   "study": "È conforme alle norme ASTM?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Question de conformité à un fournisseur.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P172"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     52
+    ],
+    "study": "È conforme alle norme ASTM?"
+   }
+  },
+  {
+   "p": "P173",
+   "id": "catalogue:it:1608",
+   "study": "Qual è la vostra capacità produttiva?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Question de capacité à un fournisseur.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P173"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     72
+    ],
+    "study": "Qual è la vostra capacità produttiva?"
+   }
+  },
+  {
+   "p": "P174",
+   "id": "catalogue:it:1609",
+   "study": "Qual è lo spessore del pannello?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Spécification technique.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P174"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     73
+    ],
+    "study": "Qual è lo spessore del pannello?"
+   }
+  },
+  {
+   "p": "P175",
+   "id": "catalogue:it:1610",
+   "study": "Potete formare i nostri tecnici?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Besoin professionnel de formation.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P175"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     74
+    ],
+    "study": "Potete formare i nostri tecnici?"
+   }
+  },
+  {
+   "p": "P176",
+   "id": "catalogue:it:1669",
+   "study": "Avete il certificato CE?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Question de conformité à un fournisseur.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P176"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     98
+    ],
+    "study": "Avete il certificato CE?"
+   }
+  },
+  {
+   "p": "P177",
+   "id": "catalogue:it:1670",
+   "study": "Avete un manuale in inglese?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Demande de documentation au fournisseur.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P177"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     99
+    ],
+    "study": "Avete un manuale in inglese?"
+   }
+  },
+  {
+   "p": "P178",
+   "id": "catalogue:it:1943",
+   "study": "— Come va? — Bene, grazie.",
+   "fromLevel": 7,
+   "fromTheme": "L7-saluer",
+   "motif": "Échange de salutation élémentaire.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "saluer",
+   "proposals": [
+    "P178"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     4
+    ],
+    "study": "— Come va? — Bene, grazie."
+   }
+  },
+  {
+   "p": "P179",
+   "id": "catalogue:it:3999",
+   "study": "È gratis.",
+   "fromLevel": 7,
+   "fromTheme": "L7-repas",
+   "motif": "Énoncé débutant, aucune négociation.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "repas",
+   "proposals": [
+    "P179"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     19
+    ],
+    "study": "È gratis."
+   }
+  },
+  {
+   "p": "P180",
+   "id": "catalogue:it:4012",
+   "study": "Buon appetito.",
+   "fromLevel": 7,
+   "fromTheme": "L7-repas",
+   "motif": "Formule figée de table, premier niveau.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "repas",
+   "proposals": [
+    "P180"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     20
+    ],
+    "study": "Buon appetito."
+   }
+  },
+  {
+   "p": "P181",
+   "id": "catalogue:it:4077",
+   "study": "Piove molto.",
+   "fromLevel": 7,
+   "fromTheme": "L7-quotidien",
+   "motif": "Aucune hypothèse ; L7-vocab-nature est possible mais l'énoncé est de niveau débutant.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "quotidien",
+   "proposals": [
+    "P181"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     18
+    ],
+    "study": "Piove molto."
+   }
+  },
+  {
+   "p": "P182",
+   "id": "catalogue:it:4086",
+   "study": "Piove.",
+   "fromLevel": 7,
+   "fromTheme": "L7-quotidien",
+   "motif": "Énoncé d'un mot : on le descend au L1 plutôt que de le ranger en L7.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "quotidien",
+   "proposals": [
+    "P182",
+    "P183"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     19
+    ],
+    "study": "Piove."
+   }
+  },
+  {
+   "p": "P184",
+   "id": "catalogue:it:4071",
+   "study": "Abbracciami.",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Doublon exact de 4058 dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P184"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     156
+    ],
+    "study": "Abbracciami."
+   }
+  },
+  {
+   "p": "P185",
+   "id": "catalogue:it:1818",
+   "study": "Esce con qualcuno del suo lavoro.",
+   "fromLevel": 7,
+   "fromTheme": "L7-travail",
+   "motif": "Aucun thème L7 ne convient ; « reserve » serait aussi défendable.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-quotidien",
+   "proposals": [
+    "P185"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     14
+    ],
+    "study": "Esce con qualcuno del suo lavoro."
+   }
+  },
+  {
+   "p": "P186",
+   "id": "catalogue:it:1933",
+   "study": "Prendo appunti durante la lezione.",
+   "fromLevel": 7,
+   "fromTheme": "L7-travail",
+   "motif": "Contexte scolaire, sans négociation.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-piste-cours-aide",
+   "proposals": [
+    "P186"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     20
+    ],
+    "study": "Prendo appunti durante la lezione."
+   }
+  },
+  {
+   "p": "P187",
+   "id": "catalogue:it:4145",
+   "study": "Il conto, per favore.",
+   "fromLevel": 8,
+   "fromTheme": "L8-repas",
+   "motif": "Formule de base au restaurant.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "repas",
+   "proposals": [
+    "P187"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     29
+    ],
+    "study": "Il conto, per favore."
+   }
+  },
+  {
+   "p": "P188",
+   "id": "catalogue:it:2111",
+   "study": "Può farmi una foto, per favore?",
+   "fromLevel": 8,
+   "fromTheme": "L8-saluer",
+   "motif": "Demande de service courante, rien d'une présentation.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-comprendre",
+   "proposals": [
+    "P188"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     4
+    ],
+    "study": "Può farmi una foto, per favore?"
+   }
+  },
+  {
+   "p": "P189",
+   "id": "catalogue:it:2161",
+   "study": "Può riscaldarlo, per favore?",
+   "fromLevel": 8,
+   "fromTheme": "L8-saluer",
+   "motif": "Demande au restaurant.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-repas",
+   "proposals": [
+    "P189"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     6
+    ],
+    "study": "Può riscaldarlo, per favore?"
+   }
+  },
+  {
+   "p": "P190",
+   "id": "catalogue:it:2110",
+   "study": "Ha qualcosa contro il mal di testa?",
+   "fromLevel": 8,
+   "fromTheme": "L8-ressentis",
+   "motif": "Demande pratique de santé, sans émotion nuancée.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-ressentis",
+   "proposals": [
+    "P190"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     0
+    ],
+    "study": "Ha qualcosa contro il mal di testa?"
+   }
+  },
+  {
+   "p": "P191",
+   "id": "catalogue:it:4172",
+   "study": "Lo stirerò.",
+   "fromLevel": 8,
+   "fromTheme": "L8-deplacements",
+   "motif": "Verbe d'action isolé.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P191"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     37
+    ],
+    "study": "Lo stirerò."
+   }
+  },
+  {
+   "p": "P192",
+   "id": "catalogue:it:4187",
+   "study": "Lo misurerò.",
+   "fromLevel": 8,
+   "fromTheme": "L8-deplacements",
+   "motif": "Verbe d'action isolé.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P192"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     41
+    ],
+    "study": "Lo misurerò."
+   }
+  },
+  {
+   "p": "P193",
+   "id": "catalogue:it:4154",
+   "study": "Stai dritto.",
+   "fromLevel": 8,
+   "fromTheme": "L8-deplacements",
+   "motif": "Consigne de posture, vocabulaire d'action.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P193"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     33
+    ],
+    "study": "Stai dritto."
+   }
+  },
+  {
+   "p": "P194",
+   "id": "catalogue:it:2242",
+   "study": "Sbatti le uova prima di aggiungerle.",
+   "fromLevel": 8,
+   "fromTheme": "L8-repas",
+   "motif": "Consigne de recette.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P194"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     21
+    ],
+    "study": "Sbatti le uova prima di aggiungerle."
+   }
+  },
+  {
+   "p": "P195",
+   "id": "catalogue:it:2089",
+   "study": "Inviatemi un video per verificare.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Demande de preuve dans une réclamation.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-situation-piste-reclamation-tact",
+   "proposals": [
+    "P195"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     33
+    ],
+    "study": "Inviatemi un video per verificare."
+   }
+  },
+  {
+   "p": "P196",
+   "id": "catalogue:it:2093",
+   "study": "C'è una riunione alle quindici.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Information de bureau.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P196"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     35
+    ],
+    "study": "C'è una riunione alle quindici."
+   }
+  },
+  {
+   "p": "P197",
+   "id": "catalogue:it:2096",
+   "study": "Sono rimasto perché avevo promesso.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Explication d'une raison, sans désaccord.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-ressentis",
+   "proposals": [
+    "P197"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     36
+    ],
+    "study": "Sono rimasto perché avevo promesso."
+   }
+  },
+  {
+   "p": "P198",
+   "id": "catalogue:it:2098",
+   "study": "Può richiamarmi lui?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Échange téléphonique en contexte professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P198"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     37
+    ],
+    "study": "Può richiamarmi lui?"
+   }
+  },
+  {
+   "p": "P199",
+   "id": "catalogue:it:2102",
+   "study": "Quando potete caricare il container?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Logistique professionnelle.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P199"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     38
+    ],
+    "study": "Quando potete caricare il container?"
+   }
+  },
+  {
+   "p": "P200",
+   "id": "catalogue:it:2104",
+   "study": "Mi ha detto che sarebbe venuto.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Discours rapporté : reformuler ce qu'on a entendu ; « reserve » défendable.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-comprendre",
+   "proposals": [
+    "P200"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     39
+    ],
+    "study": "Mi ha detto che sarebbe venuto."
+   }
+  },
+  {
+   "p": "P201",
+   "id": "catalogue:it:2106",
+   "study": "È impermeabile, grado IP65?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Spécification technique.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P201"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     41
+    ],
+    "study": "È impermeabile, grado IP65?"
+   }
+  },
+  {
+   "p": "P202",
+   "id": "catalogue:it:2107",
+   "study": "C'è un problema di solidità dei colori.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Constat de défaut dans une réclamation.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-situation-piste-reclamation-tact",
+   "proposals": [
+    "P202"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     42
+    ],
+    "study": "C'è un problema di solidità dei colori."
+   }
+  },
+  {
+   "p": "P203",
+   "id": "catalogue:it:2108",
+   "study": "Bisogna prenotare in anticipo.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Contrainte de séjour.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-deplacements",
+   "proposals": [
+    "P203"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     43
+    ],
+    "study": "Bisogna prenotare in anticipo."
+   }
+  },
+  {
+   "p": "P204",
+   "id": "catalogue:it:2117",
+   "study": "Scrivimi quando torni.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Aucun thème L8 ne convient.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-quotidien",
+   "proposals": [
+    "P204"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     44
+    ],
+    "study": "Scrivimi quando torni."
+   }
+  },
+  {
+   "p": "P205",
+   "id": "catalogue:it:2124",
+   "study": "Mi pettino prima di uscire.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Routine quotidienne, sans désaccord.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-quotidien",
+   "proposals": [
+    "P205"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     45
+    ],
+    "study": "Mi pettino prima di uscire."
+   }
+  },
+  {
+   "p": "P206",
+   "id": "catalogue:it:2128",
+   "study": "Com'era, prima?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Question sur l'état antérieur : changement.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-decrire",
+   "proposals": [
+    "P206"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     46
+    ],
+    "study": "Com'era, prima?"
+   }
+  },
+  {
+   "p": "P207",
+   "id": "catalogue:it:2133",
+   "study": "Prego, passi pure.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Politesse courante ; L1-situation-piste-visite-proches également possible.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-saluer",
+   "proposals": [
+    "P207"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     47
+    ],
+    "study": "Prego, passi pure."
+   }
+  },
+  {
+   "p": "P208",
+   "id": "catalogue:it:2148",
+   "study": "Visto che lo conosci, chiamalo.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Pas de désaccord ; L6-conversation (donner son avis) également défendable.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-ressentis",
+   "proposals": [
+    "P208"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     50
+    ],
+    "study": "Visto che lo conosci, chiamalo."
+   }
+  },
+  {
+   "p": "P209",
+   "id": "catalogue:it:2151",
+   "study": "Alla fine, abbiamo deciso di restare.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Connecteur de récit.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-reperes",
+   "proposals": [
+    "P209"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     51
+    ],
+    "study": "Alla fine, abbiamo deciso di restare."
+   }
+  },
+  {
+   "p": "P210",
+   "id": "catalogue:it:2164",
+   "study": "Riattacco, ci risentiamo.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Clôture d'appel, sans désaccord.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-numerique-quotidien",
+   "proposals": [
+    "P210"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     52
+    ],
+    "study": "Riattacco, ci risentiamo."
+   }
+  },
+  {
+   "p": "P211",
+   "id": "catalogue:it:2165",
+   "study": "Possiamo negoziare le condizioni di pagamento?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Négociation commerciale de conditions.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P211"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     53
+    ],
+    "study": "Possiamo negoziare le condizioni di pagamento?"
+   }
+  },
+  {
+   "p": "P212",
+   "id": "catalogue:it:2166",
+   "study": "Può confermarmi per iscritto?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Demande professionnelle formelle.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P212"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     54
+    ],
+    "study": "Può confermarmi per iscritto?"
+   }
+  },
+  {
+   "p": "P213",
+   "id": "catalogue:it:2167",
+   "study": "Esigiamo una compensazione.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Exigence de réclamation.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-situation-piste-reclamation-tact",
+   "proposals": [
+    "P213"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     55
+    ],
+    "study": "Esigiamo una compensazione."
+   }
+  },
+  {
+   "p": "P214",
+   "id": "catalogue:it:2169",
+   "study": "Avete inviato il numero di tracking?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Suivi d'expédition.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P214"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     56
+    ],
+    "study": "Avete inviato il numero di tracking?"
+   }
+  },
+  {
+   "p": "P215",
+   "id": "catalogue:it:2170",
+   "study": "Chi stipula l'assicurazione?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Question de logistique commerciale.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P215"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     57
+    ],
+    "study": "Chi stipula l'assicurazione?"
+   }
+  },
+  {
+   "p": "P216",
+   "id": "catalogue:it:2171",
+   "study": "Può passarmi l'ufficio acquisti?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Appel professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P216"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     58
+    ],
+    "study": "Può passarmi l'ufficio acquisti?"
+   }
+  },
+  {
+   "p": "P217",
+   "id": "catalogue:it:2172",
+   "study": "Quanti ne avete già prodotti?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Suivi de production.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P217"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     59
+    ],
+    "study": "Quanti ne avete già prodotti?"
+   }
+  },
+  {
+   "p": "P218",
+   "id": "catalogue:it:2173",
+   "study": "Devo verificare con il mio team.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Manière diplomatique de ne pas dire oui dans une négociation ; L8-travail aussi défendable.",
+   "op": "keep",
+   "proposals": [
+    "P218"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     60
+    ],
+    "study": "Devo verificare con il mio team."
+   }
+  },
+  {
+   "p": "P219",
+   "id": "catalogue:it:2175",
+   "study": "Mi dia il numero di tracking.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Suivi d'expédition.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P219"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     61
+    ],
+    "study": "Mi dia il numero di tracking."
+   }
+  },
+  {
+   "p": "P220",
+   "id": "catalogue:it:2176",
+   "study": "Mi tenga aggiornato sulle novità.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Formule professionnelle de suivi.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P220"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     62
+    ],
+    "study": "Mi tenga aggiornato sulle novità."
+   }
+  },
+  {
+   "p": "P221",
+   "id": "catalogue:it:2177",
+   "study": "Questo lotto contiene pezzi difettosi.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Constat de défaut dans une réclamation.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-situation-piste-reclamation-tact",
+   "proposals": [
+    "P221"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     63
+    ],
+    "study": "Questo lotto contiene pezzi difettosi."
+   }
+  },
+  {
+   "p": "P222",
+   "id": "catalogue:it:2212",
+   "study": "Detto per inciso, il dolce era divino.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Incise nuancée (« detto per inciso »), pas un désaccord.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-decrire",
+   "proposals": [
+    "P222"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     67
+    ],
+    "study": "Detto per inciso, il dolce era divino."
+   }
+  },
+  {
+   "p": "P223",
+   "id": "catalogue:it:2214",
+   "study": "Avrò finito prima di mezzogiorno.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Délai d'achèvement : limites d'un projet.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-reperes",
+   "proposals": [
+    "P223"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     69
+    ],
+    "study": "Avrò finito prima di mezzogiorno."
+   }
+  },
+  {
+   "p": "P224",
+   "id": "catalogue:it:2224",
+   "study": "Posso prendere un messaggio?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Accueil téléphonique professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P224"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     74
+    ],
+    "study": "Posso prendere un messaggio?"
+   }
+  },
+  {
+   "p": "P225",
+   "id": "catalogue:it:2228",
+   "study": "Finisci i compiti, poi potrai giocare.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Règle familiale, comme « Riordina la camera prima di uscire ».",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-quotidien",
+   "proposals": [
+    "P225"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     75
+    ],
+    "study": "Finisci i compiti, poi potrai giocare."
+   }
+  },
+  {
+   "p": "P226",
+   "id": "catalogue:it:2240",
+   "study": "Possiamo ispezionare la macchina prima dell'invio?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Contrôle avant expédition.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P226"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     77
+    ],
+    "study": "Possiamo ispezionare la macchina prima dell'invio?"
+   }
+  },
+  {
+   "p": "P227",
+   "id": "catalogue:it:2241",
+   "study": "Esprimi un desiderio prima di soffiare.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Rituel familial d'anniversaire ; « reserve » défendable, aucun thème de fêtes.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-quotidien",
+   "proposals": [
+    "P227"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     78
+    ],
+    "study": "Esprimi un desiderio prima di soffiare."
+   }
+  },
+  {
+   "p": "P228",
+   "id": "catalogue:it:2244",
+   "study": "— Parli italiano? — Sì, un pochino.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Échange de premier niveau.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "comprendre",
+   "proposals": [
+    "P228"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     79
+    ],
+    "study": "— Parli italiano? — Sì, un pochino."
+   }
+  },
+  {
+   "p": "P229",
+   "id": "catalogue:it:2248",
+   "study": "Puoi annaffiare le piante mentre sono via?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Demande d'organisation domestique.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P229"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     80
+    ],
+    "study": "Puoi annaffiare le piante mentre sono via?"
+   }
+  },
+  {
+   "p": "P230",
+   "id": "catalogue:it:2254",
+   "study": "Abbiamo cenato, poi abbiamo guardato un film.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Récit enchaîné avec « poi ».",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-reperes",
+   "proposals": [
+    "P230"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     81
+    ],
+    "study": "Abbiamo cenato, poi abbiamo guardato un film."
+   }
+  },
+  {
+   "p": "P231",
+   "id": "catalogue:it:2263",
+   "study": "Festeggiamo un compleanno, avete una candelina?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Demande particulière au restaurant.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-repas",
+   "proposals": [
+    "P231"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     84
+    ],
+    "study": "Festeggiamo un compleanno, avete una candelina?"
+   }
+  },
+  {
+   "p": "P232",
+   "id": "catalogue:it:2264",
+   "study": "Quando ero piccolo, abitavo in campagna.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Évocation de son enfance.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-saluer",
+   "proposals": [
+    "P232"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     85
+    ],
+    "study": "Quando ero piccolo, abitavo in campagna."
+   }
+  },
+  {
+   "p": "P233",
+   "id": "catalogue:it:2265",
+   "study": "Qual è il servizio post-vendita?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Question commerciale sur le SAV.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P233"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     86
+    ],
+    "study": "Qual è il servizio post-vendita?"
+   }
+  },
+  {
+   "p": "P234",
+   "id": "catalogue:it:2266",
+   "study": "Avevo un nodo allo stomaco prima del colloquio.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Expression imagée d'une émotion.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-ressentis",
+   "proposals": [
+    "P234"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     87
+    ],
+    "study": "Avevo un nodo allo stomaco prima del colloquio."
+   }
+  },
+  {
+   "p": "P235",
+   "id": "catalogue:it:2269",
+   "study": "— Cosa faremmo senza di te? — Ve la cavereste benissimo.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Hypothèse au conditionnel ; L8-ressentis aussi possible.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-quotidien",
+   "proposals": [
+    "P235"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     88
+    ],
+    "study": "— Cosa faremmo senza di te? — Ve la cavereste benissimo."
+   }
+  },
+  {
+   "p": "P236",
+   "id": "catalogue:it:2273",
+   "study": "Ho preso l'ombrello perché stava per piovere.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Justification causale, sans désaccord.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-ressentis",
+   "proposals": [
+    "P236"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     89
+    ],
+    "study": "Ho preso l'ombrello perché stava per piovere."
+   }
+  },
+  {
+   "p": "P237",
+   "id": "catalogue:it:2283",
+   "study": "— Come hai capito che ero io? — Ho riconosciuto la tua voce.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Retour sur un fait passé.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-comprendre",
+   "proposals": [
+    "P237"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     91
+    ],
+    "study": "— Come hai capito che ero io? — Ho riconosciuto la tua voce."
+   }
+  },
+  {
+   "p": "P238",
+   "id": "catalogue:it:2287",
+   "study": "Mentre aspettiamo che asciughi, possiamo riordinare.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Organisation domestique.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P238"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     92
+    ],
+    "study": "Mentre aspettiamo che asciughi, possiamo riordinare."
+   }
+  },
+  {
+   "p": "P239",
+   "id": "catalogue:it:4132",
+   "study": "La ringrazio infinitamente.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Formule de remerciement, à côté de « Grazie per l'attenzione ».",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-saluer",
+   "proposals": [
+    "P239"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     95
+    ],
+    "study": "La ringrazio infinitamente."
+   }
+  },
+  {
+   "p": "P240",
+   "id": "catalogue:it:4135",
+   "study": "Nuoto bene.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Parler de ses capacités sportives.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-piste-sport-habitudes",
+   "proposals": [
+    "P240"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     96
+    ],
+    "study": "Nuoto bene."
+   }
+  },
+  {
+   "p": "P241",
+   "id": "catalogue:it:4136",
+   "study": "Richiamerò.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Formule téléphonique simple.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-numerique-quotidien",
+   "proposals": [
+    "P241"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     97
+    ],
+    "study": "Richiamerò."
+   }
+  },
+  {
+   "p": "P242",
+   "id": "catalogue:it:4148",
+   "study": "Riposati bene.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Formule de bienveillance.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-saluer",
+   "proposals": [
+    "P242"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     98
+    ],
+    "study": "Riposati bene."
+   }
+  },
+  {
+   "p": "P243",
+   "id": "catalogue:it:4151",
+   "study": "Ti riaccompagno.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Raccompagner un proche à la fin d'une visite.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-situation-piste-visite-proches",
+   "proposals": [
+    "P243"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     100
+    ],
+    "study": "Ti riaccompagno."
+   }
+  },
+  {
+   "p": "P244",
+   "id": "catalogue:it:4157",
+   "study": "I colori non corrispondono.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Constat de non-conformité.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-situation-piste-reclamation-tact",
+   "proposals": [
+    "P244"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     102
+    ],
+    "study": "I colori non corrispondono."
+   }
+  },
+  {
+   "p": "P245",
+   "id": "catalogue:it:4158",
+   "study": "La terrò al corrente.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Formule professionnelle de suivi.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P245"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     103
+    ],
+    "study": "La terrò al corrente."
+   }
+  },
+  {
+   "p": "P246",
+   "id": "catalogue:it:4169",
+   "study": "Richiamami.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Demande téléphonique simple.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-numerique-quotidien",
+   "proposals": [
+    "P246"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     104
+    ],
+    "study": "Richiamami."
+   }
+  },
+  {
+   "p": "P247",
+   "id": "catalogue:it:4171",
+   "study": "Ne riparleremo.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Report diplomatique typique d'un désaccord exprimé avec tact.",
+   "op": "keep",
+   "proposals": [
+    "P247"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     105
+    ],
+    "study": "Ne riparleremo."
+   }
+  },
+  {
+   "p": "P248",
+   "id": "catalogue:it:4173",
+   "study": "Ha riattaccato.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Constat téléphonique simple.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-numerique-quotidien",
+   "proposals": [
+    "P248"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     106
+    ],
+    "study": "Ha riattaccato."
+   }
+  },
+  {
+   "p": "P249",
+   "id": "catalogue:it:4175",
+   "study": "Il gatto si arrampica sull'albero.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Animal et nature.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-nature",
+   "proposals": [
+    "P249"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     107
+    ],
+    "study": "Il gatto si arrampica sull'albero."
+   }
+  },
+  {
+   "p": "P250",
+   "id": "catalogue:it:4178",
+   "study": "Il cielo è sereno.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Météo.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-nature",
+   "proposals": [
+    "P250"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     108
+    ],
+    "study": "Il cielo è sereno."
+   }
+  },
+  {
+   "p": "P251",
+   "id": "catalogue:it:4180",
+   "study": "Devo risparmiare.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Besoin simple, sans désaccord.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-ressentis",
+   "proposals": [
+    "P251"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     109
+    ],
+    "study": "Devo risparmiare."
+   }
+  },
+  {
+   "p": "P252",
+   "id": "catalogue:it:4210",
+   "study": "Fuori gela.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Météo.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-nature",
+   "proposals": [
+    "P252"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     110
+    ],
+    "study": "Fuori gela."
+   }
+  },
+  {
+   "p": "P253",
+   "id": "catalogue:it:4217",
+   "study": "Riposatevi bene.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Même acte que P242.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-saluer",
+   "proposals": [
+    "P253"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     111
+    ],
+    "study": "Riposatevi bene."
+   }
+  },
+  {
+   "p": "P254",
+   "id": "catalogue:it:4222",
+   "study": "Gela.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Météo.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-nature",
+   "proposals": [
+    "P254"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     112
+    ],
+    "study": "Gela."
+   }
+  },
+  {
+   "p": "P255",
+   "id": "catalogue:it:4227",
+   "study": "La prego di tenermi informato.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Formule professionnelle soutenue.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P255"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     114
+    ],
+    "study": "La prego di tenermi informato."
+   }
+  },
+  {
+   "p": "P256",
+   "id": "catalogue:it:4230",
+   "study": "La finitura è trascurata.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Constat de défaut.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-situation-piste-reclamation-tact",
+   "proposals": [
+    "P256"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     115
+    ],
+    "study": "La finitura è trascurata."
+   }
+  },
+  {
+   "p": "P257",
+   "id": "catalogue:it:4231",
+   "study": "Il difetto è visibile a occhio nudo.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Constat de défaut.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-situation-piste-reclamation-tact",
+   "proposals": [
+    "P257"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     116
+    ],
+    "study": "Il difetto è visibile a occhio nudo."
+   }
+  },
+  {
+   "p": "P258",
+   "id": "catalogue:it:4234",
+   "study": "Il certificato d'origine è pronto?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Document d'export.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P258"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     117
+    ],
+    "study": "Il certificato d'origine è pronto?"
+   }
+  },
+  {
+   "p": "P259",
+   "id": "catalogue:it:2217",
+   "study": "Tipo che arriva e ordina per tutti.",
+   "fromLevel": 8,
+   "fromTheme": "L8-travail",
+   "motif": "Description familière et implicite d'un comportement ; L10-conversation possible.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-decrire",
+   "proposals": [
+    "P259"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     22
+    ],
+    "study": "Tipo che arriva e ordina per tutti."
+   }
+  },
+  {
+   "p": "P260",
+   "id": "catalogue:it:2386",
+   "study": "Parla come se niente fosse.",
+   "fromLevel": 9,
+   "fromTheme": "L9-saluer",
+   "motif": "Pas une objection ; L9-comprendre (interpréter un propos) également défendable.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-decrire",
+   "proposals": [
+    "P260"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     4
+    ],
+    "study": "Parla come se niente fosse."
+   }
+  },
+  {
+   "p": "P261",
+   "id": "catalogue:it:4260",
+   "study": "La cucitura è fatta male.",
+   "fromLevel": 9,
+   "fromTheme": "L9-ressentis",
+   "motif": "Rendre compte d'un défaut de fabrication.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P261"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     7
+    ],
+    "study": "La cucitura è fatta male."
+   }
+  },
+  {
+   "p": "P262",
+   "id": "catalogue:it:4313",
+   "study": "Ha annuito.",
+   "fromLevel": 9,
+   "fromTheme": "L9-ressentis",
+   "motif": "Énoncé isolé, déjà couvert par une carte plus complète.",
+   "op": "to-reserve",
+   "proposals": [
+    "P262"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     8
+    ],
+    "study": "Ha annuito."
+   }
+  },
+  {
+   "p": "P263",
+   "id": "catalogue:it:4277",
+   "study": "È dolce.",
+   "fromLevel": 9,
+   "fromTheme": "L9-repas",
+   "motif": "Description élémentaire.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "decrire",
+   "proposals": [
+    "P263"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     9
+    ],
+    "study": "È dolce."
+   }
+  },
+  {
+   "p": "P264",
+   "id": "catalogue:it:4333",
+   "study": "Il pollo arrostisce.",
+   "fromLevel": 9,
+   "fromTheme": "L9-repas",
+   "motif": "Verbe de cuisine.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-vocab-actions",
+   "proposals": [
+    "P264"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     13
+    ],
+    "study": "Il pollo arrostisce."
+   }
+  },
+  {
+   "p": "P265",
+   "id": "catalogue:it:4242",
+   "study": "Vacci piano.",
+   "fromLevel": 9,
+   "fromTheme": "L9-deplacements",
+   "motif": "Sans rapport avec la mobilité.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-conversation",
+   "proposals": [
+    "P265"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     2
+    ],
+    "study": "Vacci piano."
+   }
+  },
+  {
+   "p": "P266",
+   "id": "catalogue:it:4246",
+   "study": "Stasera ripasserò.",
+   "fromLevel": 9,
+   "fromTheme": "L9-deplacements",
+   "motif": "Contexte d'études.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-situation-etudes-apprentissage",
+   "proposals": [
+    "P266"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     3
+    ],
+    "study": "Stasera ripasserò."
+   }
+  },
+  {
+   "p": "P267",
+   "id": "catalogue:it:4286",
+   "study": "Stasera gelerà.",
+   "fromLevel": 9,
+   "fromTheme": "L9-deplacements",
+   "motif": "Pas de thème météo au L9.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-nature",
+   "proposals": [
+    "P267"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     4
+    ],
+    "study": "Stasera gelerà."
+   }
+  },
+  {
+   "p": "P268",
+   "id": "catalogue:it:4315",
+   "study": "Lo scaricherò.",
+   "fromLevel": 9,
+   "fromTheme": "L9-deplacements",
+   "motif": "Verbe d'action isolé au futur.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-vocab-actions",
+   "proposals": [
+    "P268"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     5
+    ],
+    "study": "Lo scaricherò."
+   }
+  },
+  {
+   "p": "P269",
+   "id": "catalogue:it:4324",
+   "study": "Dribblerò.",
+   "fromLevel": 9,
+   "fromTheme": "L9-deplacements",
+   "motif": "Verbe d'action sportif isolé.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-vocab-actions",
+   "proposals": [
+    "P269"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     6
+    ],
+    "study": "Dribblerò."
+   }
+  },
+  {
+   "p": "P270",
+   "id": "catalogue:it:4337",
+   "study": "L'arbitro fischierà.",
+   "fromLevel": 9,
+   "fromTheme": "L9-deplacements",
+   "motif": "Verbe d'action sportif isolé.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-vocab-actions",
+   "proposals": [
+    "P270"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     7
+    ],
+    "study": "L'arbitro fischierà."
+   }
+  },
+  {
+   "p": "P271",
+   "id": "catalogue:it:4311",
+   "study": "Pioveva molto.",
+   "fromLevel": 9,
+   "fromTheme": "L9-reperes",
+   "motif": "Constat météo, sans argumentation.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-vocab-nature",
+   "proposals": [
+    "P271"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     12
+    ],
+    "study": "Pioveva molto."
+   }
+  },
+  {
+   "p": "P272",
+   "id": "catalogue:it:4276",
+   "study": "Lo stamperò.",
+   "fromLevel": 9,
+   "fromTheme": "L9-quotidien",
+   "motif": "Verbe d'action isolé au futur.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-vocab-actions",
+   "proposals": [
+    "P272"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     2
+    ],
+    "study": "Lo stamperò."
+   }
+  },
+  {
+   "p": "P273",
+   "id": "catalogue:it:4255",
+   "study": "È amaro.",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Description élémentaire d'un goût.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "decrire",
+   "proposals": [
+    "P273"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     58
+    ],
+    "study": "È amaro."
+   }
+  },
+  {
+   "p": "P274",
+   "id": "catalogue:it:4285",
+   "study": "Tossisco.",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Symptôme simple.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "ressentis",
+   "proposals": [
+    "P274"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     66
+    ],
+    "study": "Tossisco."
+   }
+  },
+  {
+   "p": "P275",
+   "id": "catalogue:it:4304",
+   "study": "È salato.",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Description élémentaire d'un goût.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "decrire",
+   "proposals": [
+    "P275"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     69
+    ],
+    "study": "È salato."
+   }
+  },
+  {
+   "p": "P276",
+   "id": "catalogue:it:4310",
+   "study": "Sudo.",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Sensation physique simple.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "ressentis",
+   "proposals": [
+    "P276"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     70
+    ],
+    "study": "Sudo."
+   }
+  },
+  {
+   "p": "P277",
+   "id": "catalogue:it:4251",
+   "study": "un chilo",
+   "fromLevel": 9,
+   "fromTheme": "L9-vocab-reperes",
+   "motif": "Unité de mesure courante, utile dès les achats.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-vocab-reperes",
+   "proposals": [
+    "P277"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-vocab-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     0
+    ],
+    "study": "un chilo"
+   }
+  },
+  {
+   "p": "P278",
+   "id": "catalogue:it:4322",
+   "study": "un litro",
+   "fromLevel": 9,
+   "fromTheme": "L9-vocab-reperes",
+   "motif": "Unité de mesure courante.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-vocab-reperes",
+   "proposals": [
+    "P278"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-vocab-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     1
+    ],
+    "study": "un litro"
+   }
+  },
+  {
+   "p": "P279",
+   "id": "catalogue:it:4288",
+   "study": "il logo",
+   "fromLevel": 9,
+   "fromTheme": "L9-vocab-actions",
+   "motif": "Mot transparent et simple ; mais il appartient au lexique commercial qui domine le L9.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-vocab-travail",
+   "proposals": [
+    "P279"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+    "location": [
+     "themes",
+     14,
+     "phrases",
+     13
+    ],
+    "study": "il logo"
+   }
+  }
+ ]
+}

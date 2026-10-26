@@ -2,34 +2,97 @@
  "id": "tri-themes-claude-fr-en",
  "pair": "fr-en",
  "baseSnapshotCommit": "13f42b5814f2b230d76d2d0ef267dcf406c523c2",
- "source": "docs/revue-integrale/lot7-fr-en-L1-L10/propositions-niveaux-themes.json (689 propositions, 672 identifiants)",
+ "source": "docs/revue-integrale/lot7-fr-en-L1-L10/propositions-niveaux-themes.json",
  "decisionsKartech": {
   "changementsDeNiveau": "acceptés quand aucun thème du niveau ne convient et qu’un thème clair existe à un autre niveau",
-  "doublons": "une seule variante présentée, l’autre passe en réserve, rien n’est supprimé",
-  "nouveauxThemes": "acceptés : L3-sante, L5-cuisine-recette, L9-telephone ; L9-saluer renommé"
+  "doublons": "une seule variante présentée, l’autre en réserve, rien n’est supprimé",
+  "nouveauxThemes": "validés (26 octobre 2026)",
+  "themesQuasiVides": "masqués ; leurs 0 à 2 cartes restantes passent en réserve ; ils pourront revenir avec de vraies cartes",
+  "L9-saluer": "formules de politesse soutenues gardées en L9 ; thème renommé"
  },
  "newThemes": [
   {
    "id": "L3-sante",
    "level": 3,
-   "title": "Santé : demander une aide médicale"
+   "title": "Santé : demander une aide médicale",
+   "cards": 3
   },
   {
    "id": "L5-cuisine-recette",
    "level": 5,
-   "title": "Cuisine : suivre une recette"
+   "title": "Cuisine : suivre une recette",
+   "cards": 3
   },
   {
    "id": "L9-telephone",
    "level": 9,
-   "title": "Téléphone : accueillir, filtrer et faire patienter"
+   "title": "Téléphone : accueillir, filtrer et faire patienter",
+   "cards": 3
   }
  ],
  "renameThemes": [
   {
    "id": "L9-saluer",
    "level": 9,
-   "newTitle": "Remercier et s’excuser en registre soutenu"
+   "newTitle": "Remercier et s’excuser en registre soutenu",
+   "cardsAfter": 11
+  }
+ ],
+ "hideThemes": [
+  {
+   "theme": "L3-decrire",
+   "level": 3,
+   "title": "Décrire un lieu ou une personne",
+   "cardsBefore": 8,
+   "remainingToReserve": [
+    "catalogue:en:575",
+    "catalogue:en:3421"
+   ]
+  },
+  {
+   "theme": "L4-saluer",
+   "level": 4,
+   "title": "Raconter une rencontre",
+   "cardsBefore": 4,
+   "remainingToReserve": []
+  },
+  {
+   "theme": "L9-ressentis",
+   "level": 9,
+   "title": "Expliquer des motivations complexes",
+   "cardsBefore": 5,
+   "remainingToReserve": []
+  },
+  {
+   "theme": "L9-repas",
+   "level": 9,
+   "title": "Défendre un choix de consommation",
+   "cardsBefore": 9,
+   "remainingToReserve": []
+  },
+  {
+   "theme": "L9-deplacements",
+   "level": 9,
+   "title": "Discuter des choix de mobilité",
+   "cardsBefore": 4,
+   "remainingToReserve": []
+  },
+  {
+   "theme": "L9-reperes",
+   "level": 9,
+   "title": "Structurer une argumentation",
+   "cardsBefore": 8,
+   "remainingToReserve": []
+  },
+  {
+   "theme": "L10-vocab-maison",
+   "level": 10,
+   "title": "Maison et mobilier",
+   "cardsBefore": 3,
+   "remainingToReserve": [
+    "catalogue:en:3676",
+    "catalogue:en:3690"
+   ]
   }
  ],
  "counts": {
@@ -38,7 +101,9 @@
   "to-reserve": 37,
   "keep": 23,
   "levelChanges": 127,
-  "intoNewThemes": 9
+  "intoNewThemes": 9,
+  "hiddenThemes": 7,
+  "remainingToReserve": 4
  },
  "ops": [
   {

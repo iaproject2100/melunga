@@ -1,0 +1,8882 @@
+{
+ "id": "tri-themes-claude-fr-zh",
+ "pair": "fr-zh",
+ "baseSnapshotCommit": "13f42b5814f2b230d76d2d0ef267dcf406c523c2",
+ "source": "docs/revue-integrale/lot3-fr-zh-L3-L10/propositions-niveaux-themes.json",
+ "decisionsKartech": {
+  "changementsDeNiveau": "acceptés quand aucun thème du niveau ne convient et qu’un thème clair existe à un autre niveau",
+  "doublons": "une seule variante présentée, l’autre en réserve, rien n’est supprimé",
+  "nouveauxThemes": "validés (26 octobre 2026)",
+  "themesQuasiVides": "masqués ; leurs 0 à 2 cartes restantes passent en réserve ; ils pourront revenir avec de vraies cartes",
+  "L9-saluer": "formules de politesse soutenues gardées en L9 ; thème renommé"
+ },
+ "newThemes": [],
+ "renameThemes": [],
+ "hideThemes": [
+  {
+   "theme": "L6-saluer",
+   "level": 6,
+   "title": "Présenter son parcours",
+   "cardsBefore": 12,
+   "remainingToReserve": [
+    "catalogue:zh:2477"
+   ]
+  },
+  {
+   "theme": "L9-deplacements",
+   "level": 9,
+   "title": "Discuter des choix de mobilité",
+   "cardsBefore": 4,
+   "remainingToReserve": [
+    "catalogue:zh:2042"
+   ]
+  }
+ ],
+ "counts": {
+  "cards": 340,
+  "move": 337,
+  "to-reserve": 2,
+  "keep": 1,
+  "levelChanges": 131,
+  "intoNewThemes": 0,
+  "hiddenThemes": 2,
+  "remainingToReserve": 2
+ },
+ "ops": [
+  {
+   "p": "P000",
+   "id": "catalogue:zh:2113",
+   "study": "我不太舒服，附近有医院吗？",
+   "fromLevel": 10,
+   "fromTheme": "L10-ressentis",
+   "motif": "Besoin immédiat de santé, phrase simple : relève des besoins du L2, pas de la culture et du style.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-ressentis",
+   "proposals": [
+    "P000"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     3
+    ],
+    "study": "我不太舒服，附近有医院吗？"
+   }
+  },
+  {
+   "p": "P001",
+   "id": "catalogue:zh:2103",
+   "study": "你好，我想了解一下你们的产品。",
+   "fromLevel": 10,
+   "fromTheme": "L10-travail",
+   "motif": "Premier contact commercial simple : demander une information au travail (L2).",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-travail",
+   "proposals": [
+    "P001"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     13
+    ],
+    "study": "你好，我想了解一下你们的产品。"
+   }
+  },
+  {
+   "p": "P002",
+   "id": "catalogue:zh:2139",
+   "study": "如果明天天气好，我们就去公园。",
+   "fromLevel": 10,
+   "fromTheme": "L10-reperes",
+   "motif": "如果…就 de base pour proposer une sortie : sert l'organisation d'une sortie au L3, bien en dessous du L10.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-loisirs-sorties",
+   "proposals": [
+    "P002"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     9
+    ],
+    "study": "如果明天天气好，我们就去公园。"
+   }
+  },
+  {
+   "p": "P003",
+   "id": "catalogue:zh:2075",
+   "study": "我们希望成为你们的独家代理。",
+   "fromLevel": 10,
+   "fromTheme": "L10-conversation",
+   "motif": "Demande commerciale (agent exclusif) : sert l'échange professionnel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P003"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     4
+    ],
+    "study": "我们希望成为你们的独家代理。"
+   }
+  },
+  {
+   "p": "P004",
+   "id": "catalogue:zh:2078",
+   "study": "我们需要更好的付款条件。",
+   "fromLevel": 10,
+   "fromTheme": "L10-conversation",
+   "motif": "Négociation des conditions de paiement : échange professionnel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P004"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     6
+    ],
+    "study": "我们需要更好的付款条件。"
+   }
+  },
+  {
+   "p": "P005",
+   "id": "catalogue:zh:2096",
+   "study": "质保期是多久？",
+   "fromLevel": 10,
+   "fromTheme": "L10-conversation",
+   "motif": "Question sur la garantie : échange professionnel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P005"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     12
+    ],
+    "study": "质保期是多久？"
+   }
+  },
+  {
+   "p": "P006",
+   "id": "catalogue:zh:2105",
+   "study": "交货前需要验货吗？",
+   "fromLevel": 10,
+   "fromTheme": "L10-conversation",
+   "motif": "Inspection avant expédition : échange professionnel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P006"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     15
+    ],
+    "study": "交货前需要验货吗？"
+   }
+  },
+  {
+   "p": "P007",
+   "id": "catalogue:zh:2125",
+   "study": "你们的质保条款是什么？",
+   "fromLevel": 10,
+   "fromTheme": "L10-conversation",
+   "motif": "Conditions de garantie : échange professionnel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P007"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     20
+    ],
+    "study": "你们的质保条款是什么？"
+   }
+  },
+  {
+   "p": "P008",
+   "id": "catalogue:zh:2135",
+   "study": "发货前请通知我。",
+   "fromLevel": 10,
+   "fromTheme": "L10-conversation",
+   "motif": "Consigne d'expédition : échange professionnel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P008"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     22
+    ],
+    "study": "发货前请通知我。"
+   }
+  },
+  {
+   "p": "P009",
+   "id": "catalogue:zh:2752",
+   "study": "一针见血",
+   "fromLevel": 10,
+   "fromTheme": "L10-vocab-reperes",
+   "motif": "Qualifie une parole incisive, comme 鞭辟入里 déjà dans les adjectifs ; rien de temporel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-vocab-adjectifs",
+   "proposals": [
+    "P009"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-vocab-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     0
+    ],
+    "study": "一针见血"
+   }
+  },
+  {
+   "p": "P010",
+   "id": "catalogue:zh:383",
+   "study": "我觉得可以",
+   "fromLevel": 3,
+   "fromTheme": "L3-ressentis",
+   "motif": "Doublon strict de 352 (même étude, même thème) : on retire la seconde occurrence.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P010"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     5
+    ],
+    "study": "我觉得可以"
+   }
+  },
+  {
+   "p": "P011",
+   "id": "catalogue:zh:596",
+   "study": "时不我待",
+   "fromLevel": 3,
+   "fromTheme": "L3-reperes",
+   "motif": "Chengyu littéraire sur le temps : à sa place parmi les expressions de temps du L8.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-reperes",
+   "proposals": [
+    "P011"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     9
+    ],
+    "study": "时不我待"
+   }
+  },
+  {
+   "p": "P012",
+   "id": "catalogue:zh:348",
+   "study": "你喜欢什么？",
+   "fromLevel": 3,
+   "fromTheme": "L3-comprendre",
+   "motif": "Interroge sur les goûts, objectif de « Parler de ses goûts ».",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-ressentis",
+   "proposals": [
+    "P012"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     0
+    ],
+    "study": "你喜欢什么？"
+   }
+  },
+  {
+   "p": "P013",
+   "id": "catalogue:zh:4859",
+   "study": "我房间的空调坏了。",
+   "fromLevel": 3,
+   "fromTheme": "L3-deplacements",
+   "motif": "Problème de chambre pendant le séjour à l'hôtel.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-hotel-sejour",
+   "proposals": [
+    "P013"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     12
+    ],
+    "study": "我房间的空调坏了。"
+   }
+  },
+  {
+   "p": "P014",
+   "id": "catalogue:zh:4867",
+   "study": "隔壁太吵了。",
+   "fromLevel": 3,
+   "fromTheme": "L3-deplacements",
+   "motif": "Plainte sur le bruit pendant le séjour à l'hôtel.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-hotel-sejour",
+   "proposals": [
+    "P014"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     13
+    ],
+    "study": "隔壁太吵了。"
+   }
+  },
+  {
+   "p": "P015",
+   "id": "situation-conversation:fr-zh:loisirs-sorties-04",
+   "study": "我经常运动。",
+   "fromLevel": 3,
+   "fromTheme": "L3-situation-loisirs-sorties",
+   "motif": "Décrit une habitude sportive, sans organiser de sortie.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-piste-sport-habitudes",
+   "proposals": [
+    "P015"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-situation-loisirs-sorties",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     11,
+     "phrases",
+     3
+    ],
+    "study": "我经常运动。"
+   }
+  },
+  {
+   "p": "P016",
+   "id": "catalogue:zh:374",
+   "study": "有备而战",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-voyage",
+   "motif": "Formule imagée à quatre caractères, sans lien avec le voyage.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P016"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-voyage",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     17,
+     "phrases",
+     0
+    ],
+    "study": "有备而战"
+   }
+  },
+  {
+   "p": "P017",
+   "id": "catalogue:zh:491",
+   "study": "言多必失",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-reperes",
+   "motif": "Maxime chengyu : expression imagée du L8, rien de temporel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P017"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     0
+    ],
+    "study": "言多必失"
+   }
+  },
+  {
+   "p": "P018",
+   "id": "catalogue:zh:3254",
+   "study": "定制产品",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-reperes",
+   "motif": "Vocabulaire commercial, pas un repère de temps.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-travail",
+   "proposals": [
+    "P018"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     22
+    ],
+    "study": "定制产品"
+   }
+  },
+  {
+   "p": "P019",
+   "id": "catalogue:zh:382",
+   "study": "掉以轻心",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Chengyu de registre écrit, hors de portée du L3.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P019"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     1
+    ],
+    "study": "掉以轻心"
+   }
+  },
+  {
+   "p": "P020",
+   "id": "catalogue:zh:433",
+   "study": "厚积而薄发",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Formule classique imagée, registre écrit : L8.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P020"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     2
+    ],
+    "study": "厚积而薄发"
+   }
+  },
+  {
+   "p": "P021",
+   "id": "catalogue:zh:470",
+   "study": "无可厚非",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Chengyu à valeur d'appréciation (irréprochable) : se range parmi les adjectifs du L8.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-adjectifs",
+   "proposals": [
+    "P021"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     6
+    ],
+    "study": "无可厚非"
+   }
+  },
+  {
+   "p": "P022",
+   "id": "catalogue:zh:489",
+   "study": "全力以赴",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Chengyu courant de manière (« de toutes ses forces »), à côté de 尽心尽力 et 一鼓作气 au L7.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-vocab-adverbes",
+   "proposals": [
+    "P022"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     7
+    ],
+    "study": "全力以赴"
+   }
+  },
+  {
+   "p": "P023",
+   "id": "catalogue:zh:532",
+   "study": "将心比心待人",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Expression imagée de registre écrit : L8.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P023"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     8
+    ],
+    "study": "将心比心待人"
+   }
+  },
+  {
+   "p": "P024",
+   "id": "catalogue:zh:608",
+   "study": "喜怒不形于色",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Formule littéraire (于 classique) : L8.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P024"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     12
+    ],
+    "study": "喜怒不形于色"
+   }
+  },
+  {
+   "p": "P025",
+   "id": "catalogue:zh:3317",
+   "study": "办理入住",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Vocabulaire d'hôtel et de voyage.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-voyage",
+   "proposals": [
+    "P025"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     53
+    ],
+    "study": "办理入住"
+   }
+  },
+  {
+   "p": "P026",
+   "id": "catalogue:zh:3319",
+   "study": "转机",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Vocabulaire de transport aérien.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-voyage",
+   "proposals": [
+    "P026"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     54
+    ],
+    "study": "转机"
+   }
+  },
+  {
+   "p": "P027",
+   "id": "catalogue:zh:3321",
+   "study": "堵车",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Vocabulaire de circulation et de transport.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-voyage",
+   "proposals": [
+    "P027"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     55
+    ],
+    "study": "堵车"
+   }
+  },
+  {
+   "p": "P028",
+   "id": "catalogue:zh:3323",
+   "study": "停车场",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Vocabulaire de transport.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-voyage",
+   "proposals": [
+    "P028"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     56
+    ],
+    "study": "停车场"
+   }
+  },
+  {
+   "p": "P029",
+   "id": "catalogue:zh:358",
+   "study": "彬彬有礼",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-adjectifs",
+   "motif": "Chengyu descriptif de registre soutenu : L8.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-adjectifs",
+   "proposals": [
+    "P029"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-adjectifs",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     23,
+     "phrases",
+     0
+    ],
+    "study": "彬彬有礼"
+   }
+  },
+  {
+   "p": "P030",
+   "id": "catalogue:zh:359",
+   "study": "笑容可掬",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-adjectifs",
+   "motif": "Chengyu littéraire descriptif : L8.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-adjectifs",
+   "proposals": [
+    "P030"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-adjectifs",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+    "location": [
+     "themes",
+     23,
+     "phrases",
+     1
+    ],
+    "study": "笑容可掬"
+   }
+  },
+  {
+   "p": "P031",
+   "id": "catalogue:zh:659",
+   "study": "礼尚往来",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Chengyu imagé : L8, pas un récit simple.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P031"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     22
+    ],
+    "study": "礼尚往来"
+   }
+  },
+  {
+   "p": "P032",
+   "id": "catalogue:zh:661",
+   "study": "以柔克刚",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Chengyu imagé : L8.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P032"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     23
+    ],
+    "study": "以柔克刚"
+   }
+  },
+  {
+   "p": "P033",
+   "id": "catalogue:zh:773",
+   "study": "和实生物同则不继",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Citation classique du 国语 : culture et style.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-vocab-actions",
+   "proposals": [
+    "P033"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     64
+    ],
+    "study": "和实生物同则不继"
+   }
+  },
+  {
+   "p": "P034",
+   "id": "catalogue:zh:794",
+   "study": "水到渠成事自然",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Variante imagée de 水到渠成 : L8.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P034"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     78
+    ],
+    "study": "水到渠成事自然"
+   }
+  },
+  {
+   "p": "P035",
+   "id": "catalogue:zh:704",
+   "study": "请把垃圾带走",
+   "fromLevel": 4,
+   "fromTheme": "L4-saluer",
+   "motif": "Consigne domestique avec 把, sans récit : sert « Routines et proches » au L3.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-quotidien",
+   "proposals": [
+    "P035"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     2
+    ],
+    "study": "请把垃圾带走"
+   }
+  },
+  {
+   "p": "P036",
+   "id": "catalogue:zh:721",
+   "study": "剩下的打包。",
+   "fromLevel": 4,
+   "fromTheme": "L4-saluer",
+   "motif": "Demande au restaurant (emballer les restes) : sert « Commander selon ses besoins ».",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P036"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     3
+    ],
+    "study": "剩下的打包。"
+   }
+  },
+  {
+   "p": "P037",
+   "id": "catalogue:zh:777",
+   "study": "请打开窗户",
+   "fromLevel": 4,
+   "fromTheme": "L4-saluer",
+   "motif": "Demande simple à la maison : « Parler de chez soi » au L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-quotidien",
+   "proposals": [
+    "P037"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     4
+    ],
+    "study": "请打开窗户"
+   }
+  },
+  {
+   "p": "P038",
+   "id": "catalogue:zh:835",
+   "study": "请停止说话",
+   "fromLevel": 4,
+   "fromTheme": "L4-saluer",
+   "motif": "Injonction peu naturelle et abrupte, sans thème utile à aucun niveau : en réserve.",
+   "op": "to-reserve",
+   "proposals": [
+    "P038"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     5
+    ],
+    "study": "请停止说话"
+   }
+  },
+  {
+   "p": "P039",
+   "id": "catalogue:zh:840",
+   "study": "请给我解释一下",
+   "fromLevel": 4,
+   "fromTheme": "L4-saluer",
+   "motif": "Demande d'explication : sert la vérification du sens comme 您能再说一遍吗 dans ce thème.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-comprendre",
+   "proposals": [
+    "P039"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     6
+    ],
+    "study": "请给我解释一下"
+   }
+  },
+  {
+   "p": "P040",
+   "id": "catalogue:zh:842",
+   "study": "请遵循这些规则",
+   "fromLevel": 4,
+   "fromTheme": "L4-saluer",
+   "motif": "Consigne formelle de règles, plutôt en coordination d'équipe ; la réserve se défend aussi.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P040"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     7
+    ],
+    "study": "请遵循这些规则"
+   }
+  },
+  {
+   "p": "P041",
+   "id": "catalogue:zh:846",
+   "study": "请告诉我实话",
+   "fromLevel": 4,
+   "fromTheme": "L4-saluer",
+   "motif": "Exiger la vérité sert à vérifier ce qui s'est passé.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-comprendre",
+   "proposals": [
+    "P041"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     8
+    ],
+    "study": "请告诉我实话"
+   }
+  },
+  {
+   "p": "P042",
+   "id": "catalogue:zh:847",
+   "study": "请量一下尺寸",
+   "fromLevel": 4,
+   "fromTheme": "L4-saluer",
+   "motif": "Prendre les mesures sert à choisir la bonne taille.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-piste-vetement-taille",
+   "proposals": [
+    "P042"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     9
+    ],
+    "study": "请量一下尺寸"
+   }
+  },
+  {
+   "p": "P043",
+   "id": "catalogue:zh:848",
+   "study": "请写下你的名字",
+   "fromLevel": 4,
+   "fromTheme": "L4-saluer",
+   "motif": "Demande simple liée aux présentations, sans récit.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P043"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     10
+    ],
+    "study": "请写下你的名字"
+   }
+  },
+  {
+   "p": "P044",
+   "id": "catalogue:zh:849",
+   "study": "请说明一下原因",
+   "fromLevel": 4,
+   "fromTheme": "L4-saluer",
+   "motif": "Demander la raison sert à vérifier ce qui s'est passé.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-comprendre",
+   "proposals": [
+    "P044"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     11
+    ],
+    "study": "请说明一下原因"
+   }
+  },
+  {
+   "p": "P045",
+   "id": "catalogue:zh:895",
+   "study": "请把灯关了",
+   "fromLevel": 4,
+   "fromTheme": "L4-saluer",
+   "motif": "Demande domestique simple : « Parler de chez soi ».",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-quotidien",
+   "proposals": [
+    "P045"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     13
+    ],
+    "study": "请把灯关了"
+   }
+  },
+  {
+   "p": "P046",
+   "id": "catalogue:zh:896",
+   "study": "请把门关上",
+   "fromLevel": 4,
+   "fromTheme": "L4-saluer",
+   "motif": "Demande domestique simple : « Parler de chez soi ».",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-quotidien",
+   "proposals": [
+    "P046"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     14
+    ],
+    "study": "请把门关上"
+   }
+  },
+  {
+   "p": "P047",
+   "id": "catalogue:zh:768",
+   "study": "经验是慢慢沉淀的",
+   "fromLevel": 4,
+   "fromTheme": "L4-comprendre",
+   "motif": "Réflexion sur l'expérience : sert « Partager une expérience ».",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-conversation",
+   "proposals": [
+    "P047"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     10
+    ],
+    "study": "经验是慢慢沉淀的"
+   }
+  },
+  {
+   "p": "P048",
+   "id": "catalogue:zh:824",
+   "study": "租金包含保险吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-comprendre",
+   "motif": "Question de location en voyage, comme les questions pratiques du thème.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P048"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     12
+    ],
+    "study": "租金包含保险吗？"
+   }
+  },
+  {
+   "p": "P049",
+   "id": "catalogue:zh:620",
+   "study": "要多长时间？",
+   "fromLevel": 4,
+   "fromTheme": "L4-ressentis",
+   "motif": "Question simple de durée : « Donner l'heure et la quantité ».",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-reperes",
+   "proposals": [
+    "P049"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     1
+    ],
+    "study": "要多长时间？"
+   }
+  },
+  {
+   "p": "P050",
+   "id": "catalogue:zh:739",
+   "study": "要我帮你吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-ressentis",
+   "motif": "Offre d'aide : « Proposer et répondre ».",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-conversation",
+   "proposals": [
+    "P050"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     11
+    ],
+    "study": "要我帮你吗？"
+   }
+  },
+  {
+   "p": "P051",
+   "id": "catalogue:zh:748",
+   "study": "你能帮我翻译吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-ressentis",
+   "motif": "Demande d'aide pour comprendre, comme les autres demandes du thème.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-comprendre",
+   "proposals": [
+    "P051"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     12
+    ],
+    "study": "你能帮我翻译吗？"
+   }
+  },
+  {
+   "p": "P052",
+   "id": "catalogue:zh:810",
+   "study": "我需要看医生",
+   "fromLevel": 4,
+   "fromTheme": "L4-ressentis",
+   "motif": "Besoin de santé élémentaire : « Besoins, envies et santé ».",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "ressentis",
+   "proposals": [
+    "P052"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     13
+    ],
+    "study": "我需要看医生"
+   }
+  },
+  {
+   "p": "P053",
+   "id": "catalogue:zh:670",
+   "study": "帮我称一下重量",
+   "fromLevel": 4,
+   "fromTheme": "L4-ressentis",
+   "motif": "Demande pratique en magasin ; un thème vocab n'accueille pas de phrases.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-repas",
+   "proposals": [
+    "P053"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     2
+    ],
+    "study": "帮我称一下重量"
+   }
+  },
+  {
+   "p": "P054",
+   "id": "catalogue:zh:699",
+   "study": "我想换一个",
+   "fromLevel": 4,
+   "fromTheme": "L4-ressentis",
+   "motif": "Demande d'échange simple en magasin ou au restaurant.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P054"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     3
+    ],
+    "study": "我想换一个"
+   }
+  },
+  {
+   "p": "P055",
+   "id": "catalogue:zh:879",
+   "study": "我要去这个地址。",
+   "fromLevel": 4,
+   "fromTheme": "L4-ressentis",
+   "motif": "Indication de destination en taxi : déplacement.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P055"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     14
+    ],
+    "study": "我要去这个地址。"
+   }
+  },
+  {
+   "p": "P056",
+   "id": "catalogue:zh:624",
+   "study": "这是尺码表",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Tableau des tailles : sert à choisir la bonne taille.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-piste-vetement-taille",
+   "proposals": [
+    "P056"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     0
+    ],
+    "study": "这是尺码表"
+   }
+  },
+  {
+   "p": "P057",
+   "id": "catalogue:zh:639",
+   "study": "有没有小票？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Question simple en caisse ; un thème vocab n'accueille pas de phrases.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P057"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     1
+    ],
+    "study": "有没有小票？"
+   }
+  },
+  {
+   "p": "P058",
+   "id": "catalogue:zh:641",
+   "study": "能少一点吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Marchandage simple à l'achat.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P058"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     2
+    ],
+    "study": "能少一点吗？"
+   }
+  },
+  {
+   "p": "P059",
+   "id": "catalogue:zh:644",
+   "study": "儿童免费吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Question tarifaire de visiteur, avec les autres questions pratiques du voyage.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P059"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     3
+    ],
+    "study": "儿童免费吗？"
+   }
+  },
+  {
+   "p": "P060",
+   "id": "catalogue:zh:688",
+   "study": "你想喝什么？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Proposer une boisson : commander au L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P060"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     5
+    ],
+    "study": "你想喝什么？"
+   }
+  },
+  {
+   "p": "P061",
+   "id": "catalogue:zh:696",
+   "study": "这个可以试穿吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Demande d'essayage : choisir la bonne taille.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-piste-vetement-taille",
+   "proposals": [
+    "P061"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     6
+    ],
+    "study": "这个可以试穿吗？"
+   }
+  },
+  {
+   "p": "P062",
+   "id": "catalogue:zh:745",
+   "study": "这个尺寸能定制吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Question d'acheteur sur la personnalisation, comme 包装能防潮吗 dans ce thème.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P062"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     8
+    ],
+    "study": "这个尺寸能定制吗？"
+   }
+  },
+  {
+   "p": "P063",
+   "id": "catalogue:zh:749",
+   "study": "可以用外币吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Paiement en devises : question de voyageur.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P063"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     9
+    ],
+    "study": "可以用外币吗？"
+   }
+  },
+  {
+   "p": "P064",
+   "id": "catalogue:zh:756",
+   "study": "这张钞票是假的吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Vérifier un problème de paiement.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-situation-argent-paiements",
+   "proposals": [
+    "P064"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     10
+    ],
+    "study": "这张钞票是假的吗？"
+   }
+  },
+  {
+   "p": "P065",
+   "id": "catalogue:zh:758",
+   "study": "有免税店吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Question de voyageur à l'aéroport.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P065"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     11
+    ],
+    "study": "有免税店吗？"
+   }
+  },
+  {
+   "p": "P066",
+   "id": "catalogue:zh:765",
+   "study": "有不辣的菜吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Commander selon ses besoins (pas épicé), comme 这个辣吗.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P066"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     12
+    ],
+    "study": "有不辣的菜吗？"
+   }
+  },
+  {
+   "p": "P067",
+   "id": "catalogue:zh:795",
+   "study": "有英文菜单吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Question simple au restaurant.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P067"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     13
+    ],
+    "study": "有英文菜单吗？"
+   }
+  },
+  {
+   "p": "P068",
+   "id": "catalogue:zh:825",
+   "study": "学生有优惠吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Question de prix simple à l'achat.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P068"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     14
+    ],
+    "study": "学生有优惠吗？"
+   }
+  },
+  {
+   "p": "P069",
+   "id": "catalogue:zh:850",
+   "study": "有图片菜单吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Question simple au restaurant.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P069"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     15
+    ],
+    "study": "有图片菜单吗？"
+   }
+  },
+  {
+   "p": "P070",
+   "id": "catalogue:zh:851",
+   "study": "可以扫码付款吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Moyen de paiement, à côté de 这里能用支付宝吗 au L5.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-repas",
+   "proposals": [
+    "P070"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     16
+    ],
+    "study": "可以扫码付款吗？"
+   }
+  },
+  {
+   "p": "P071",
+   "id": "catalogue:zh:864",
+   "study": "你要喝点什么吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Proposer une boisson : commander au L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P071"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     18
+    ],
+    "study": "你要喝点什么吗？"
+   }
+  },
+  {
+   "p": "P072",
+   "id": "catalogue:zh:4888",
+   "study": "账单好像不对。",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Contester l'addition, comme 我被多收钱了 au L5.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-repas",
+   "proposals": [
+    "P072"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     21
+    ],
+    "study": "账单好像不对。"
+   }
+  },
+  {
+   "p": "P073",
+   "id": "catalogue:zh:615",
+   "study": "你今晚有空吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-reperes",
+   "motif": "Invitation pour ce soir : organiser une sortie.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-loisirs-sorties",
+   "proposals": [
+    "P073"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     0
+    ],
+    "study": "你今晚有空吗？"
+   }
+  },
+  {
+   "p": "P074",
+   "id": "catalogue:zh:626",
+   "study": "您可以等一下吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-reperes",
+   "motif": "Demande d'attente, comme 等我一下 au L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-reperes",
+   "proposals": [
+    "P074"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     1
+    ],
+    "study": "您可以等一下吗？"
+   }
+  },
+  {
+   "p": "P075",
+   "id": "catalogue:zh:3642",
+   "study": "稍等",
+   "fromLevel": 4,
+   "fromTheme": "L4-reperes",
+   "motif": "Formule d'attente courante : L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-reperes",
+   "proposals": [
+    "P075"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     24
+    ],
+    "study": "稍等"
+   }
+  },
+  {
+   "p": "P076",
+   "id": "catalogue:zh:760",
+   "study": "登机时间是几点？",
+   "fromLevel": 4,
+   "fromTheme": "L4-reperes",
+   "motif": "Question d'horaire en voyage ; c'est une phrase, elle va dans le thème de voyage plutôt que dans le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P076"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     11
+    ],
+    "study": "登机时间是几点？"
+   }
+  },
+  {
+   "p": "P077",
+   "id": "catalogue:zh:762",
+   "study": "节假日营业吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-reperes",
+   "motif": "Question pratique de visiteur.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P077"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     12
+    ],
+    "study": "节假日营业吗？"
+   }
+  },
+  {
+   "p": "P078",
+   "id": "catalogue:zh:877",
+   "study": "今天的汇率划算吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-reperes",
+   "motif": "Change de devises : question de voyageur.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P078"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     16
+    ],
+    "study": "今天的汇率划算吗？"
+   }
+  },
+  {
+   "p": "P079",
+   "id": "catalogue:zh:883",
+   "study": "参观大概要多久？",
+   "fromLevel": 4,
+   "fromTheme": "L4-reperes",
+   "motif": "Question pratique de visiteur.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P079"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     17
+    ],
+    "study": "参观大概要多久？"
+   }
+  },
+  {
+   "p": "P080",
+   "id": "catalogue:zh:884",
+   "study": "这里晚上安全吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-reperes",
+   "motif": "Question pratique de voyageur.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P080"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     18
+    ],
+    "study": "这里晚上安全吗？"
+   }
+  },
+  {
+   "p": "P081",
+   "id": "catalogue:zh:2382",
+   "study": "我们明天发货",
+   "fromLevel": 4,
+   "fromTheme": "L4-reperes",
+   "motif": "Point sur une expédition : tâche professionnelle.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P081"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     22
+    ],
+    "study": "我们明天发货"
+   }
+  },
+  {
+   "p": "P082",
+   "id": "catalogue:zh:697",
+   "study": "能加一张床吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-quotidien",
+   "motif": "Demande à l'hôtel en voyage.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P082"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     4
+    ],
+    "study": "能加一张床吗？"
+   }
+  },
+  {
+   "p": "P083",
+   "id": "catalogue:zh:875",
+   "study": "能打扫一下房间吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-quotidien",
+   "motif": "Demande à l'hôtel en voyage.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P083"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     12
+    ],
+    "study": "能打扫一下房间吗？"
+   }
+  },
+  {
+   "p": "P084",
+   "id": "catalogue:zh:881",
+   "study": "有没有靠窗的座位？",
+   "fromLevel": 4,
+   "fromTheme": "L4-quotidien",
+   "motif": "Choix de place dans un transport.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P084"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     13
+    ],
+    "study": "有没有靠窗的座位？"
+   }
+  },
+  {
+   "p": "P085",
+   "id": "catalogue:zh:656",
+   "study": "别太在意",
+   "fromLevel": 4,
+   "fromTheme": "L4-decrire",
+   "motif": "Réconfort en réaction à une expérience, comme 你会习惯的.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-conversation",
+   "proposals": [
+    "P085"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     0
+    ],
+    "study": "别太在意"
+   }
+  },
+  {
+   "p": "P086",
+   "id": "catalogue:zh:710",
+   "study": "我很想念你",
+   "fromLevel": 4,
+   "fromTheme": "L4-decrire",
+   "motif": "Exprime un ressenti.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-ressentis",
+   "proposals": [
+    "P086"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     1
+    ],
+    "study": "我很想念你"
+   }
+  },
+  {
+   "p": "P087",
+   "id": "catalogue:zh:806",
+   "study": "内部有几个夹层？",
+   "fromLevel": 4,
+   "fromTheme": "L4-decrire",
+   "motif": "Question d'acheteur sur un produit, avec ses semblables du thème.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P087"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     5
+    ],
+    "study": "内部有几个夹层？"
+   }
+  },
+  {
+   "p": "P088",
+   "id": "catalogue:zh:763",
+   "study": "能少放点油吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-decrire",
+   "motif": "Préférence de préparation, comme 不要放辣椒.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-repas-preferences",
+   "proposals": [
+    "P088"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     3
+    ],
+    "study": "能少放点油吗？"
+   }
+  },
+  {
+   "p": "P089",
+   "id": "catalogue:zh:2098",
+   "study": "请尽快确认",
+   "fromLevel": 4,
+   "fromTheme": "L4-decrire",
+   "motif": "Relance de travail : point sur une tâche.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P089"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     8
+    ],
+    "study": "请尽快确认"
+   }
+  },
+  {
+   "p": "P090",
+   "id": "catalogue:zh:2102",
+   "study": "我会尽快回复",
+   "fromLevel": 4,
+   "fromTheme": "L4-decrire",
+   "motif": "Engagement de réponse : point sur une tâche.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P090"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     9
+    ],
+    "study": "我会尽快回复"
+   }
+  },
+  {
+   "p": "P091",
+   "id": "catalogue:zh:621",
+   "study": "五金是电镀的吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Phrase d'acheteur : thème professionnel (déjà des questions produit), pas le vocab qui range des mots.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P091"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     3
+    ],
+    "study": "五金是电镀的吗？"
+   }
+  },
+  {
+   "p": "P092",
+   "id": "catalogue:zh:622",
+   "study": "承重多少公斤？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P092"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     4
+    ],
+    "study": "承重多少公斤？"
+   }
+  },
+  {
+   "p": "P093",
+   "id": "catalogue:zh:630",
+   "study": "色温是多少？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P093"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     7
+    ],
+    "study": "色温是多少？"
+   }
+  },
+  {
+   "p": "P094",
+   "id": "catalogue:zh:631",
+   "study": "有CE认证吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P094"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     8
+    ],
+    "study": "有CE认证吗？"
+   }
+  },
+  {
+   "p": "P095",
+   "id": "catalogue:zh:632",
+   "study": "噪音有多大？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P095"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     9
+    ],
+    "study": "噪音有多大？"
+   }
+  },
+  {
+   "p": "P096",
+   "id": "catalogue:zh:633",
+   "study": "有防水处理吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P096"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     10
+    ],
+    "study": "有防水处理吗？"
+   }
+  },
+  {
+   "p": "P097",
+   "id": "catalogue:zh:634",
+   "study": "鞋底是防滑的吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P097"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     11
+    ],
+    "study": "鞋底是防滑的吗？"
+   }
+  },
+  {
+   "p": "P098",
+   "id": "catalogue:zh:635",
+   "study": "符合我们的要求",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Validation de conformité : point sur une tâche.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P098"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     12
+    ],
+    "study": "符合我们的要求"
+   }
+  },
+  {
+   "p": "P099",
+   "id": "catalogue:zh:636",
+   "study": "这是百分百纯棉",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Spécification produit dans un échange commercial.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P099"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     13
+    ],
+    "study": "这是百分百纯棉"
+   }
+  },
+  {
+   "p": "P100",
+   "id": "catalogue:zh:637",
+   "study": "用的是什么塑料？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P100"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     14
+    ],
+    "study": "用的是什么塑料？"
+   }
+  },
+  {
+   "p": "P101",
+   "id": "catalogue:zh:638",
+   "study": "电池是内置的吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P101"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     15
+    ],
+    "study": "电池是内置的吗？"
+   }
+  },
+  {
+   "p": "P102",
+   "id": "catalogue:zh:693",
+   "study": "散热做得好吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P102"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     40
+    ],
+    "study": "散热做得好吗？"
+   }
+  },
+  {
+   "p": "P103",
+   "id": "catalogue:zh:694",
+   "study": "一箱装几双？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question de conditionnement : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P103"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     41
+    ],
+    "study": "一箱装几双？"
+   }
+  },
+  {
+   "p": "P104",
+   "id": "catalogue:zh:742",
+   "study": "有防水涂层吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P104"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     50
+    ],
+    "study": "有防水涂层吗？"
+   }
+  },
+  {
+   "p": "P105",
+   "id": "catalogue:zh:743",
+   "study": "能定制包装盒吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question d'emballage, comme 包装能防潮吗 dans ce thème.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P105"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     51
+    ],
+    "study": "能定制包装盒吗？"
+   }
+  },
+  {
+   "p": "P106",
+   "id": "catalogue:zh:744",
+   "study": "边角有没有做防护？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P106"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     52
+    ],
+    "study": "边角有没有做防护？"
+   }
+  },
+  {
+   "p": "P107",
+   "id": "catalogue:zh:746",
+   "study": "布艺是什么材质？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P107"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     53
+    ],
+    "study": "布艺是什么材质？"
+   }
+  },
+  {
+   "p": "P108",
+   "id": "catalogue:zh:747",
+   "study": "有阻燃认证吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question de certification : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P108"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     54
+    ],
+    "study": "有阻燃认证吗？"
+   }
+  },
+  {
+   "p": "P109",
+   "id": "catalogue:zh:751",
+   "study": "灯珠是进口的吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P109"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     55
+    ],
+    "study": "灯珠是进口的吗？"
+   }
+  },
+  {
+   "p": "P110",
+   "id": "catalogue:zh:752",
+   "study": "有操作手册吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P110"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     56
+    ],
+    "study": "有操作手册吗？"
+   }
+  },
+  {
+   "p": "P111",
+   "id": "catalogue:zh:754",
+   "study": "能定制印花吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question de personnalisation : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P111"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     57
+    ],
+    "study": "能定制印花吗？"
+   }
+  },
+  {
+   "p": "P112",
+   "id": "catalogue:zh:755",
+   "study": "有磁铁部件吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P112"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     58
+    ],
+    "study": "有磁铁部件吗？"
+   }
+  },
+  {
+   "p": "P113",
+   "id": "catalogue:zh:807",
+   "study": "这个支持快充吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P113"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     85
+    ],
+    "study": "这个支持快充吗？"
+   }
+  },
+  {
+   "p": "P114",
+   "id": "catalogue:zh:808",
+   "study": "蓝牙版本是多少？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P114"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     86
+    ],
+    "study": "蓝牙版本是多少？"
+   }
+  },
+  {
+   "p": "P115",
+   "id": "catalogue:zh:809",
+   "study": "五金件是进口的吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P115"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     87
+    ],
+    "study": "五金件是进口的吗？"
+   }
+  },
+  {
+   "p": "P116",
+   "id": "catalogue:zh:812",
+   "study": "防护等级是多少？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel, pas le vocab.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P116"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     89
+    ],
+    "study": "防护等级是多少？"
+   }
+  },
+  {
+   "p": "P117",
+   "id": "catalogue:zh:623",
+   "study": "这是几号出口？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Orientation de voyageur.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P117"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     5
+    ],
+    "study": "这是几号出口？"
+   }
+  },
+  {
+   "p": "P118",
+   "id": "catalogue:zh:629",
+   "study": "给小费是习惯吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Usage local demandé par un voyageur.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P118"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     6
+    ],
+    "study": "给小费是习惯吗？"
+   }
+  },
+  {
+   "p": "P119",
+   "id": "catalogue:zh:761",
+   "study": "有语音导览吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question de visiteur (audioguide).",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P119"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     59
+    ],
+    "study": "有语音导览吗？"
+   }
+  },
+  {
+   "p": "P120",
+   "id": "catalogue:zh:646",
+   "study": "能包装成礼物吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Demande pratique en magasin ; une phrase n'a pas sa place dans le vocab.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-repas",
+   "proposals": [
+    "P120"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     17
+    ],
+    "study": "能包装成礼物吗？"
+   }
+  },
+  {
+   "p": "P121",
+   "id": "catalogue:zh:673",
+   "study": "能帮我热一下吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Demande simple au restaurant ou au magasin.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P121"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     29
+    ],
+    "study": "能帮我热一下吗？"
+   }
+  },
+  {
+   "p": "P122",
+   "id": "catalogue:zh:908",
+   "study": "艰难困苦玉汝于成",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Sentence classique de Zhang Zai : culture et style.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-vocab-actions",
+   "proposals": [
+    "P122"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     136
+    ],
+    "study": "艰难困苦玉汝于成"
+   }
+  },
+  {
+   "p": "P123",
+   "id": "catalogue:zh:664",
+   "study": "炉火纯青登峰造极",
+   "fromLevel": 4,
+   "fromTheme": "L4-vocab-actions",
+   "motif": "Combinaison de 炉火纯青 et 登峰造极, tous deux déjà au L10-vocab-actions : à ranger avec eux.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-vocab-actions",
+   "proposals": [
+    "P123"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     3
+    ],
+    "study": "炉火纯青登峰造极"
+   }
+  },
+  {
+   "p": "P124",
+   "id": "catalogue:zh:652",
+   "study": "大巧若拙之境",
+   "fromLevel": 4,
+   "fromTheme": "L4-vocab-actions",
+   "motif": "Formule taoïste littéraire avec 之境 : culture et style.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-vocab-actions",
+   "proposals": [
+    "P124"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     0
+    ],
+    "study": "大巧若拙之境"
+   }
+  },
+  {
+   "p": "P125",
+   "id": "catalogue:zh:899",
+   "study": "厚积薄发之势",
+   "fromLevel": 4,
+   "fromTheme": "L4-vocab-actions",
+   "motif": "Chengyu + 之势, registre écrit : L8, avec 厚积而薄发.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P125"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     9
+    ],
+    "study": "厚积薄发之势"
+   }
+  },
+  {
+   "p": "P126",
+   "id": "catalogue:zh:720",
+   "study": "大器晚成之才",
+   "fromLevel": 4,
+   "fromTheme": "L4-vocab-reperes",
+   "motif": "Qualifie une personne (chengyu + 之才), registre soutenu ; rien de temporel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-adjectifs",
+   "proposals": [
+    "P126"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-vocab-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     18,
+     "phrases",
+     0
+    ],
+    "study": "大器晚成之才"
+   }
+  },
+  {
+   "p": "P127",
+   "id": "catalogue:zh:843",
+   "study": "不打无准备之仗",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Maxime de structure littéraire : expression imagée du L8.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-actions",
+   "proposals": [
+    "P127"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     104
+    ],
+    "study": "不打无准备之仗"
+   }
+  },
+  {
+   "p": "P128",
+   "id": "catalogue:zh:790",
+   "study": "我在一家公司工作",
+   "fromLevel": 4,
+   "fromTheme": "L4-travail",
+   "motif": "Phrase de présentation de premier contact : « Se présenter et échanger ».",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P128"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     5
+    ],
+    "study": "我在一家公司工作"
+   }
+  },
+  {
+   "p": "P129",
+   "id": "catalogue:zh:4877",
+   "study": "按这个进度没问题。",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Point sur l'avancement d'une tâche.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P129"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     149
+    ],
+    "study": "按这个进度没问题。"
+   }
+  },
+  {
+   "p": "P130",
+   "id": "catalogue:zh:3577",
+   "study": "优点",
+   "fromLevel": 4,
+   "fromTheme": "L4-vocab-reperes",
+   "motif": "Avec 缺点 et 特点 ; rien de temporel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-vocab-actions",
+   "proposals": [
+    "P130"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-vocab-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     18,
+     "phrases",
+     6
+    ],
+    "study": "优点"
+   }
+  },
+  {
+   "p": "P131",
+   "id": "catalogue:zh:3635",
+   "study": "措施",
+   "fromLevel": 4,
+   "fromTheme": "L4-vocab-reperes",
+   "motif": "Vocabulaire de démarches, pas un repère temporel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-vocab-travail",
+   "proposals": [
+    "P131"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-vocab-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     18,
+     "phrases",
+     11
+    ],
+    "study": "措施"
+   }
+  },
+  {
+   "p": "P132",
+   "id": "catalogue:zh:813",
+   "study": "使用寿命多久？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur, avec ses semblables du thème professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P132"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     90
+    ],
+    "study": "使用寿命多久？"
+   }
+  },
+  {
+   "p": "P133",
+   "id": "catalogue:zh:814",
+   "study": "需要现场安装吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question d'acheteur sur l'installation : thème professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P133"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     91
+    ],
+    "study": "需要现场安装吗？"
+   }
+  },
+  {
+   "p": "P134",
+   "id": "catalogue:zh:815",
+   "study": "鞋垫可以拆卸吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P134"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     92
+    ],
+    "study": "鞋垫可以拆卸吗？"
+   }
+  },
+  {
+   "p": "P135",
+   "id": "catalogue:zh:816",
+   "study": "这个款式好卖吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question commerciale : thème professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P135"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     93
+    ],
+    "study": "这个款式好卖吗？"
+   }
+  },
+  {
+   "p": "P136",
+   "id": "catalogue:zh:817",
+   "study": "站台在哪边？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Orientation en gare : déplacement.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P136"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     94
+    ],
+    "study": "站台在哪边？"
+   }
+  },
+  {
+   "p": "P137",
+   "id": "catalogue:zh:820",
+   "study": "在下一个路口停。",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Consigne à un chauffeur : déplacement.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P137"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     96
+    ],
+    "study": "在下一个路口停。"
+   }
+  },
+  {
+   "p": "P138",
+   "id": "catalogue:zh:821",
+   "study": "有当地特色菜吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question simple au restaurant : commander.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P138"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     97
+    ],
+    "study": "有当地特色菜吗？"
+   }
+  },
+  {
+   "p": "P139",
+   "id": "catalogue:zh:868",
+   "study": "这个是头层牛皮吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P139"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     113
+    ],
+    "study": "这个是头层牛皮吗？"
+   }
+  },
+  {
+   "p": "P140",
+   "id": "catalogue:zh:869",
+   "study": "这个是原装芯片吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P140"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     114
+    ],
+    "study": "这个是原装芯片吗？"
+   }
+  },
+  {
+   "p": "P141",
+   "id": "catalogue:zh:870",
+   "study": "芯片来自哪个厂家？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P141"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     115
+    ],
+    "study": "芯片来自哪个厂家？"
+   }
+  },
+  {
+   "p": "P142",
+   "id": "catalogue:zh:872",
+   "study": "这个是什么灯头？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P142"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     117
+    ],
+    "study": "这个是什么灯头？"
+   }
+  },
+  {
+   "p": "P143",
+   "id": "catalogue:zh:873",
+   "study": "电压支持一百一十伏吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question technique d'acheteur : thème professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P143"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     118
+    ],
+    "study": "电压支持一百一十伏吗？"
+   }
+  },
+  {
+   "p": "P144",
+   "id": "catalogue:zh:874",
+   "study": "这个型号停产了吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question commerciale sur un modèle : thème professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P144"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     119
+    ],
+    "study": "这个型号停产了吗？"
+   }
+  },
+  {
+   "p": "P145",
+   "id": "catalogue:zh:880",
+   "study": "这个能退换吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Demande pratique de retour ou d'échange en magasin.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-repas",
+   "proposals": [
+    "P145"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     120
+    ],
+    "study": "这个能退换吗？"
+   }
+  },
+  {
+   "p": "P146",
+   "id": "catalogue:zh:885",
+   "study": "有英文导游吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Service touristique demandé en voyage.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P146"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     122
+    ],
+    "study": "有英文导游吗？"
+   }
+  },
+  {
+   "p": "P147",
+   "id": "catalogue:zh:887",
+   "study": "能借充电宝吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Recharger son téléphone, comme 我需要给手机充电.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-numerique-quotidien",
+   "proposals": [
+    "P147"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     123
+    ],
+    "study": "能借充电宝吗？"
+   }
+  },
+  {
+   "p": "P148",
+   "id": "catalogue:zh:888",
+   "study": "能开通国际漫游吗？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Itinérance à l'étranger : besoin de voyageur.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P148"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     124
+    ],
+    "study": "能开通国际漫游吗？"
+   }
+  },
+  {
+   "p": "P149",
+   "id": "catalogue:zh:890",
+   "study": "有没有洗衣服务？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Service hôtelier en voyage.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P149"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     125
+    ],
+    "study": "有没有洗衣服务？"
+   }
+  },
+  {
+   "p": "P150",
+   "id": "catalogue:zh:2002",
+   "study": "保修期多久？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question de garantie d'acheteur : thème professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P150"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     137
+    ],
+    "study": "保修期多久？"
+   }
+  },
+  {
+   "p": "P151",
+   "id": "catalogue:zh:2017",
+   "study": "这个保修多久？",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Question de garantie d'acheteur : thème professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P151"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     138
+    ],
+    "study": "这个保修多久？"
+   }
+  },
+  {
+   "p": "P152",
+   "id": "catalogue:zh:4874",
+   "study": "大批量我们可以再谈。",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Ouverture de négociation commerciale : thème professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P152"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     147
+    ],
+    "study": "大批量我们可以再谈。"
+   }
+  },
+  {
+   "p": "P153",
+   "id": "catalogue:zh:4878",
+   "study": "目标客户是年轻人。",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Énoncé de cible commerciale : thème professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P153"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     150
+    ],
+    "study": "目标客户是年轻人。"
+   }
+  },
+  {
+   "p": "P154",
+   "id": "catalogue:zh:4880",
+   "study": "合作愉快，干杯！",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Toast de conclusion d'un échange professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P154"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     151
+    ],
+    "study": "合作愉快，干杯！"
+   }
+  },
+  {
+   "p": "P155",
+   "id": "catalogue:zh:610",
+   "study": "这个我们没点。",
+   "fromLevel": 4,
+   "fromTheme": "L4-travail",
+   "motif": "Réclamation simple au restaurant sur la commande.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P155"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     0
+    ],
+    "study": "这个我们没点。"
+   }
+  },
+  {
+   "p": "P156",
+   "id": "catalogue:zh:786",
+   "study": "和为贵",
+   "fromLevel": 4,
+   "fromTheme": "L4-travail",
+   "motif": "Maxime qu'on invoque pour apaiser un désaccord : « Exprimer un désaccord avec tact ».",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-conversation",
+   "proposals": [
+    "P156"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     4
+    ],
+    "study": "和为贵"
+   }
+  },
+  {
+   "p": "P157",
+   "id": "catalogue:zh:1743",
+   "study": "他很聪明，而且很努力。",
+   "fromLevel": 4,
+   "fromTheme": "L4-travail",
+   "motif": "Décrit une personne : « Décrire un lieu ou une personne ».",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-decrire",
+   "proposals": [
+    "P157"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     8
+    ],
+    "study": "他很聪明，而且很努力。"
+   }
+  },
+  {
+   "p": "P158",
+   "id": "catalogue:zh:4895",
+   "study": "为了省钱，他走路上班。",
+   "fromLevel": 4,
+   "fromTheme": "L4-travail",
+   "motif": "Raconte une habitude quotidienne avec son but.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-quotidien",
+   "proposals": [
+    "P158"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     52
+    ],
+    "study": "为了省钱，他走路上班。"
+   }
+  },
+  {
+   "p": "P159",
+   "id": "catalogue:zh:3615",
+   "study": "外卖",
+   "fromLevel": 4,
+   "fromTheme": "L4-vocab-travail",
+   "motif": "Vocabulaire de restauration.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-vocab-restaurant",
+   "proposals": [
+    "P159"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-vocab-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     145
+    ],
+    "study": "外卖"
+   }
+  },
+  {
+   "p": "P160",
+   "id": "catalogue:zh:660",
+   "study": "有目共睹",
+   "fromLevel": 4,
+   "fromTheme": "L4-vocab-adjectifs",
+   "motif": "Chengyu de registre soutenu : L8.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-adjectifs",
+   "proposals": [
+    "P160"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-vocab-adjectifs",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     1
+    ],
+    "study": "有目共睹"
+   }
+  },
+  {
+   "p": "P161",
+   "id": "catalogue:zh:1135",
+   "study": "吾日三省吾身",
+   "fromLevel": 5,
+   "fromTheme": "L5-reperes",
+   "motif": "Citation des Entretiens en chinois classique : culture et style.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-vocab-actions",
+   "proposals": [
+    "P161"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     22
+    ],
+    "study": "吾日三省吾身"
+   }
+  },
+  {
+   "p": "P162",
+   "id": "catalogue:zh:1089",
+   "study": "生于忧患死于安乐",
+   "fromLevel": 5,
+   "fromTheme": "L5-quotidien",
+   "motif": "Citation de Mencius : culture et style.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-vocab-actions",
+   "proposals": [
+    "P162"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     12
+    ],
+    "study": "生于忧患死于安乐"
+   }
+  },
+  {
+   "p": "P163",
+   "id": "catalogue:zh:1010",
+   "study": "有教无类",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Maxime confucéenne : culture et style.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-vocab-actions",
+   "proposals": [
+    "P163"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     48
+    ],
+    "study": "有教无类"
+   }
+  },
+  {
+   "p": "P164",
+   "id": "catalogue:zh:909",
+   "study": "剩下的帮我打包。",
+   "fromLevel": 5,
+   "fromTheme": "L5-saluer",
+   "motif": "Demande pratique au restaurant.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-repas",
+   "proposals": [
+    "P164"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     0
+    ],
+    "study": "剩下的帮我打包。"
+   }
+  },
+  {
+   "p": "P165",
+   "id": "catalogue:zh:975",
+   "study": "适合几岁的孩子？",
+   "fromLevel": 5,
+   "fromTheme": "L5-saluer",
+   "motif": "Sert à choisir un produit adapté.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-decrire",
+   "proposals": [
+    "P165"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     4
+    ],
+    "study": "适合几岁的孩子？"
+   }
+  },
+  {
+   "p": "P166",
+   "id": "catalogue:zh:3902",
+   "study": "请重启一下电脑",
+   "fromLevel": 5,
+   "fromTheme": "L5-saluer",
+   "motif": "Étape de dépannage informatique.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-situation-piste-depannage-connexion",
+   "proposals": [
+    "P166"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     14
+    ],
+    "study": "请重启一下电脑"
+   }
+  },
+  {
+   "p": "P167",
+   "id": "catalogue:zh:1118",
+   "study": "请帮我报警。",
+   "fromLevel": 5,
+   "fromTheme": "L5-saluer",
+   "motif": "Urgence concrète : se rapproche de « Expliquer un problème concret », mais le thème est surtout émotionnel ; la réserve se défend aussi.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-ressentis",
+   "proposals": [
+    "P167"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     9
+    ],
+    "study": "请帮我报警。"
+   }
+  },
+  {
+   "p": "P168",
+   "id": "catalogue:zh:4881",
+   "study": "久仰久仰。",
+   "fromLevel": 5,
+   "fromTheme": "L5-comprendre",
+   "motif": "Formule de politesse à la première rencontre.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-saluer",
+   "proposals": [
+    "P168"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     11
+    ],
+    "study": "久仰久仰。"
+   }
+  },
+  {
+   "p": "P169",
+   "id": "catalogue:zh:1012",
+   "study": "他获得了第一名",
+   "fromLevel": 5,
+   "fromTheme": "L5-deplacements",
+   "motif": "Raconte une réussite, sans lien avec le voyage ; « apprentissage réussi » convient si c'est un concours scolaire, sinon réserve.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-situation-etudes-apprentissage",
+   "proposals": [
+    "P169"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     9
+    ],
+    "study": "他获得了第一名"
+   }
+  },
+  {
+   "p": "P170",
+   "id": "catalogue:zh:1059",
+   "study": "这个可以带上飞机吗？",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Question pratique d'aéroport : sert « Changer ses plans de voyage » mieux que les demandes de restaurant/réservation.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-deplacements",
+   "proposals": [
+    "P170"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     69
+    ],
+    "study": "这个可以带上飞机吗？"
+   }
+  },
+  {
+   "p": "P171",
+   "id": "catalogue:zh:1068",
+   "study": "我要托运这个行李。",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Enregistrement de bagage : scénario de voyage, rangé avec les déplacements L5.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-deplacements",
+   "proposals": [
+    "P171"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     74
+    ],
+    "study": "我要托运这个行李。"
+   }
+  },
+  {
+   "p": "P172",
+   "id": "catalogue:zh:1070",
+   "study": "请问检票口在哪里？",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Trouver le contrôle des billets en gare : besoin de voyage.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-deplacements",
+   "proposals": [
+    "P172"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     75
+    ],
+    "study": "请问检票口在哪里？"
+   }
+  },
+  {
+   "p": "P173",
+   "id": "catalogue:zh:1077",
+   "study": "订单支撑着我们的生产",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Constat sur la production : discours professionnel, pas un accord.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P173"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     81
+    ],
+    "study": "订单支撑着我们的生产"
+   }
+  },
+  {
+   "p": "P174",
+   "id": "catalogue:zh:1087",
+   "study": "海纳百川有容乃大",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Maxime classique en wenyan : relève de culture et style (L10).",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P174"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     87
+    ],
+    "study": "海纳百川有容乃大"
+   }
+  },
+  {
+   "p": "P175",
+   "id": "catalogue:zh:1088",
+   "study": "大巧若拙大辩若讷",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Citation de Laozi en wenyan : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P175"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     88
+    ],
+    "study": "大巧若拙大辩若讷"
+   }
+  },
+  {
+   "p": "P176",
+   "id": "catalogue:zh:1091",
+   "study": "学而不厌诲人不倦",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Citation des Entretiens : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P176"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     89
+    ],
+    "study": "学而不厌诲人不倦"
+   }
+  },
+  {
+   "p": "P177",
+   "id": "catalogue:zh:1105",
+   "study": "电池容量是多少？",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Question technique sur un produit à un fournisseur.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P177"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     96
+    ],
+    "study": "电池容量是多少？"
+   }
+  },
+  {
+   "p": "P178",
+   "id": "catalogue:zh:1112",
+   "study": "能加LOGO印刷吗？",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Demande de personnalisation fournisseur.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P178"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     97
+    ],
+    "study": "能加LOGO印刷吗？"
+   }
+  },
+  {
+   "p": "P179",
+   "id": "catalogue:zh:1136",
+   "study": "锲而不舍金石可镂",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Citation de Xunzi en wenyan : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P179"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     104
+    ],
+    "study": "锲而不舍金石可镂"
+   }
+  },
+  {
+   "p": "P180",
+   "id": "catalogue:zh:1160",
+   "study": "手柄能承重多少？",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Question technique produit.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P180"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     117
+    ],
+    "study": "手柄能承重多少？"
+   }
+  },
+  {
+   "p": "P181",
+   "id": "catalogue:zh:1161",
+   "study": "能定制logo压印吗？",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Demande de personnalisation fournisseur.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P181"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     118
+    ],
+    "study": "能定制logo压印吗？"
+   }
+  },
+  {
+   "p": "P182",
+   "id": "catalogue:zh:1169",
+   "study": "什么时候开始批量生产？",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Calendrier de production : coordination d'une tâche.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P182"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     120
+    ],
+    "study": "什么时候开始批量生产？"
+   }
+  },
+  {
+   "p": "P183",
+   "id": "catalogue:zh:1170",
+   "study": "能按我们的颜色染色吗？",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Demande de personnalisation fournisseur.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P183"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     121
+    ],
+    "study": "能按我们的颜色染色吗？"
+   }
+  },
+  {
+   "p": "P184",
+   "id": "catalogue:zh:1172",
+   "study": "这个能带上飞机吗？",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Question de bagage cabine : voyage.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-deplacements",
+   "proposals": [
+    "P184"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     123
+    ],
+    "study": "这个能带上飞机吗？"
+   }
+  },
+  {
+   "p": "P185",
+   "id": "catalogue:zh:1186",
+   "study": "这个多重？超重了吗？",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Poids et surpoids du bagage : voyage.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-deplacements",
+   "proposals": [
+    "P185"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     126
+    ],
+    "study": "这个多重？超重了吗？"
+   }
+  },
+  {
+   "p": "P186",
+   "id": "catalogue:zh:1200",
+   "study": "天生我材必有用",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Vers de Li Bai : culture et style.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P186"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     132
+    ],
+    "study": "天生我材必有用"
+   }
+  },
+  {
+   "p": "P187",
+   "id": "catalogue:zh:1201",
+   "study": "其身正不令而行",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Citation des Entretiens : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P187"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     133
+    ],
+    "study": "其身正不令而行"
+   }
+  },
+  {
+   "p": "P188",
+   "id": "catalogue:zh:1203",
+   "study": "不患寡而患不均",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Citation des Entretiens : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P188"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     134
+    ],
+    "study": "不患寡而患不均"
+   }
+  },
+  {
+   "p": "P189",
+   "id": "catalogue:zh:1210",
+   "study": "授人以鱼不如授人以渔",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Proverbe imagé très courant : L8 (expressions imagées) ou L10 (citation classique) se défendent.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-conversation",
+   "proposals": [
+    "P189"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     138
+    ],
+    "study": "授人以鱼不如授人以渔"
+   }
+  },
+  {
+   "p": "P190",
+   "id": "catalogue:zh:4864",
+   "study": "余款见提单副本支付。",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Condition de paiement commerciale.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P190"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     166
+    ],
+    "study": "余款见提单副本支付。"
+   }
+  },
+  {
+   "p": "P191",
+   "id": "catalogue:zh:4875",
+   "study": "尾款发货前付清。",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Condition de paiement commerciale.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P191"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     167
+    ],
+    "study": "尾款发货前付清。"
+   }
+  },
+  {
+   "p": "P192",
+   "id": "catalogue:zh:4882",
+   "study": "产品有防伪标签。",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Description produit professionnelle.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P192"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     169
+    ],
+    "study": "产品有防伪标签。"
+   }
+  },
+  {
+   "p": "P193",
+   "id": "catalogue:zh:4883",
+   "study": "质量问题我们全额退款。",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Condition commerciale fournisseur.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P193"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     170
+    ],
+    "study": "质量问题我们全额退款。"
+   }
+  },
+  {
+   "p": "P194",
+   "id": "catalogue:zh:1164",
+   "study": "供不应求",
+   "fromLevel": 5,
+   "fromTheme": "L5-vocab-personnes",
+   "motif": "Terme commercial.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-travail",
+   "proposals": [
+    "P194"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-vocab-personnes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     16,
+     "phrases",
+     0
+    ],
+    "study": "供不应求"
+   }
+  },
+  {
+   "p": "P195",
+   "id": "catalogue:zh:3763",
+   "study": "政策",
+   "fromLevel": 5,
+   "fromTheme": "L5-vocab-reperes",
+   "motif": "Vocabulaire des démarches, pas un repère.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-travail",
+   "proposals": [
+    "P195"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-vocab-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     17,
+     "phrases",
+     1
+    ],
+    "study": "政策"
+   }
+  },
+  {
+   "p": "P196",
+   "id": "catalogue:zh:1137",
+   "study": "躬自厚而薄责于人",
+   "fromLevel": 5,
+   "fromTheme": "L5-vocab-actions",
+   "motif": "Citation des Entretiens : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-vocab-actions",
+   "proposals": [
+    "P196"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     18,
+     "phrases",
+     1
+    ],
+    "study": "躬自厚而薄责于人"
+   }
+  },
+  {
+   "p": "P197",
+   "id": "catalogue:zh:1202",
+   "study": "敏于事而慎于言",
+   "fromLevel": 5,
+   "fromTheme": "L5-vocab-actions",
+   "motif": "Citation des Entretiens : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-vocab-actions",
+   "proposals": [
+    "P197"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     18,
+     "phrases",
+     3
+    ],
+    "study": "敏于事而慎于言"
+   }
+  },
+  {
+   "p": "P198",
+   "id": "catalogue:zh:1263",
+   "study": "与朋友交而不信乎",
+   "fromLevel": 6,
+   "fromTheme": "L6-quotidien",
+   "motif": "Citation du Lunyu : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P198"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     3
+    ],
+    "study": "与朋友交而不信乎"
+   }
+  },
+  {
+   "p": "P199",
+   "id": "catalogue:zh:1328",
+   "study": "为人谋而不忠乎",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Citation du Lunyu : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P199"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     46
+    ],
+    "study": "为人谋而不忠乎"
+   }
+  },
+  {
+   "p": "P200",
+   "id": "catalogue:zh:1425",
+   "study": "学而时习之不亦说乎",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Citation du Lunyu : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P200"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     93
+    ],
+    "study": "学而时习之不亦说乎"
+   }
+  },
+  {
+   "p": "P201",
+   "id": "catalogue:zh:1472",
+   "study": "学而不思则罔思而不学则殆",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Citation du Lunyu : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P201"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     110
+    ],
+    "study": "学而不思则罔思而不学则殆"
+   }
+  },
+  {
+   "p": "P202",
+   "id": "catalogue:zh:1324",
+   "study": "三人行必有我师焉",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Citation du Lunyu, sans lien avec durée ou coût : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P202"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     11
+    ],
+    "study": "三人行必有我师焉"
+   }
+  },
+  {
+   "p": "P203",
+   "id": "catalogue:zh:1323",
+   "study": "逝者如斯夫不舍昼夜",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Citation classique sur le temps qui passe : L10 temps et conséquences.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-reperes",
+   "proposals": [
+    "P203"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     10
+    ],
+    "study": "逝者如斯夫不舍昼夜"
+   }
+  },
+  {
+   "p": "P204",
+   "id": "catalogue:zh:1477",
+   "study": "有朋自远方来不亦乐乎",
+   "fromLevel": 6,
+   "fromTheme": "L6-quotidien",
+   "motif": "Citation d'accueil classique : sert à entrer en relation avec aisance (L10).",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-saluer",
+   "proposals": [
+    "P204"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     14
+    ],
+    "study": "有朋自远方来不亦乐乎"
+   }
+  },
+  {
+   "p": "P205",
+   "id": "catalogue:zh:1262",
+   "study": "四海之内皆兄弟也",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Citation classique : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P205"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     18
+    ],
+    "study": "四海之内皆兄弟也"
+   }
+  },
+  {
+   "p": "P206",
+   "id": "catalogue:zh:1479",
+   "study": "吾生也有涯而知也无涯",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Citation de Zhuangzi : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P206"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     114
+    ],
+    "study": "吾生也有涯而知也无涯"
+   }
+  },
+  {
+   "p": "P207",
+   "id": "catalogue:zh:1476",
+   "study": "宁静以致远淡泊以明志",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Citation de Zhuge Liang : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P207"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     113
+    ],
+    "study": "宁静以致远淡泊以明志"
+   }
+  },
+  {
+   "p": "P208",
+   "id": "catalogue:zh:1374",
+   "study": "大巧若拙大智若愚",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Citation de Laozi : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P208"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     71
+    ],
+    "study": "大巧若拙大智若愚"
+   }
+  },
+  {
+   "p": "P209",
+   "id": "catalogue:zh:1381",
+   "study": "岁月不居时节如流",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Citation classique sur le temps : L10 temps et conséquences.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-reperes",
+   "proposals": [
+    "P209"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     13
+    ],
+    "study": "岁月不居时节如流"
+   }
+  },
+  {
+   "p": "P210",
+   "id": "catalogue:zh:1372",
+   "study": "海内存知己天涯若比邻",
+   "fromLevel": 6,
+   "fromTheme": "L6-quotidien",
+   "motif": "Vers d'amitié cité en relation (adieux, retrouvailles) : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-saluer",
+   "proposals": [
+    "P210"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     10
+    ],
+    "study": "海内存知己天涯若比邻"
+   }
+  },
+  {
+   "p": "P211",
+   "id": "catalogue:zh:1234",
+   "study": "请确认收到。",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Consigne professionnelle, pas un parcours.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P211"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     0
+    ],
+    "study": "请确认收到。"
+   }
+  },
+  {
+   "p": "P212",
+   "id": "catalogue:zh:1266",
+   "study": "请抽空回复我",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Demande professionnelle.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P212"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     2
+    ],
+    "study": "请抽空回复我"
+   }
+  },
+  {
+   "p": "P213",
+   "id": "catalogue:zh:1449",
+   "study": "请查收邮件。",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Consigne de courriel professionnel.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P213"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     8
+    ],
+    "study": "请查收邮件。"
+   }
+  },
+  {
+   "p": "P214",
+   "id": "catalogue:zh:2478",
+   "study": "敬请回复",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Formule de courrier professionnel.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P214"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     11
+    ],
+    "study": "敬请回复"
+   }
+  },
+  {
+   "p": "P215",
+   "id": "catalogue:zh:1326",
+   "study": "请更新你的信息",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Demande administrative.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P215"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     3
+    ],
+    "study": "请更新你的信息"
+   }
+  },
+  {
+   "p": "P216",
+   "id": "catalogue:zh:1394",
+   "study": "请检查一下",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Consigne de travail.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P216"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     6
+    ],
+    "study": "请检查一下"
+   }
+  },
+  {
+   "p": "P217",
+   "id": "catalogue:zh:1456",
+   "study": "请帮我确认一下",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Demande de vérification au travail.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P217"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     9
+    ],
+    "study": "请帮我确认一下"
+   }
+  },
+  {
+   "p": "P218",
+   "id": "catalogue:zh:1327",
+   "study": "请大家互相配合",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Consigne d'équipe.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P218"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     4
+    ],
+    "study": "请大家互相配合"
+   }
+  },
+  {
+   "p": "P219",
+   "id": "catalogue:zh:1255",
+   "study": "请问，洗手间在哪里？",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Besoin de base (toilettes), déjà couvert au L1 « Chez soi et avec ses proches ».",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "quotidien",
+   "proposals": [
+    "P219"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     1
+    ],
+    "study": "请问，洗手间在哪里？"
+   }
+  },
+  {
+   "p": "P220",
+   "id": "catalogue:zh:1346",
+   "study": "一想到明天我就紧张。",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Exprimer son stress : rejoint les émotions déjà rangées en L6-ressentis.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-ressentis",
+   "proposals": [
+    "P220"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     5
+    ],
+    "study": "一想到明天我就紧张。"
+   }
+  },
+  {
+   "p": "P221",
+   "id": "catalogue:zh:1436",
+   "study": "我先走了，回头联系。",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Prise de congé simple, à côté de 回头见 / 明天见.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P221"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     7
+    ],
+    "study": "我先走了，回头联系。"
+   }
+  },
+  {
+   "p": "P222",
+   "id": "catalogue:zh:2477",
+   "study": "您好，",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Ouverture de courriel formel (virgule), série avec 敬请回复 ; 您好 nu existe déjà au L1, un passage au L1 créerait un doublon.",
+   "op": "keep",
+   "proposals": [
+    "P222"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     10
+    ],
+    "study": "您好，"
+   }
+  },
+  {
+   "p": "P223",
+   "id": "catalogue:zh:1260",
+   "study": "敏而好学不耻下问",
+   "fromLevel": 6,
+   "fromTheme": "L6-vocab-actions",
+   "motif": "Citation des Entretiens : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-vocab-actions",
+   "proposals": [
+    "P223"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     0
+    ],
+    "study": "敏而好学不耻下问"
+   }
+  },
+  {
+   "p": "P224",
+   "id": "catalogue:zh:1261",
+   "study": "鞠躬尽瘁死而后已",
+   "fromLevel": 6,
+   "fromTheme": "L6-vocab-actions",
+   "motif": "Citation de Zhuge Liang : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-vocab-actions",
+   "proposals": [
+    "P224"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     1
+    ],
+    "study": "鞠躬尽瘁死而后已"
+   }
+  },
+  {
+   "p": "P225",
+   "id": "catalogue:zh:1533",
+   "study": "——你是哪里人？——我是法国人。",
+   "fromLevel": 7,
+   "fromTheme": "L7-saluer",
+   "motif": "Échange de premier contact : L1.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "saluer",
+   "proposals": [
+    "P225"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     0
+    ],
+    "study": "——你是哪里人？——我是法国人。"
+   }
+  },
+  {
+   "p": "P226",
+   "id": "catalogue:zh:1535",
+   "study": "——你多大了？——我二十五。",
+   "fromLevel": 7,
+   "fromTheme": "L7-saluer",
+   "motif": "Échange de premier contact : L1.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "saluer",
+   "proposals": [
+    "P226"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     1
+    ],
+    "study": "——你多大了？——我二十五。"
+   }
+  },
+  {
+   "p": "P227",
+   "id": "catalogue:zh:1636",
+   "study": "——你叫什么名字？——我叫李明。",
+   "fromLevel": 7,
+   "fromTheme": "L7-saluer",
+   "motif": "Échange de premier contact : L1.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "saluer",
+   "proposals": [
+    "P227"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     5
+    ],
+    "study": "——你叫什么名字？——我叫李明。"
+   }
+  },
+  {
+   "p": "P228",
+   "id": "catalogue:zh:1637",
+   "study": "——现在几点了？——三点半。",
+   "fromLevel": 7,
+   "fromTheme": "L7-reperes",
+   "motif": "Demander l'heure : L1 « Temps et nombres ».",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "reperes",
+   "proposals": [
+    "P228"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     18
+    ],
+    "study": "——现在几点了？——三点半。"
+   }
+  },
+  {
+   "p": "P229",
+   "id": "catalogue:zh:1633",
+   "study": "——多少钱？——一共十块。",
+   "fromLevel": 7,
+   "fromTheme": "L7-repas",
+   "motif": "Demander un prix, 一共 vu au L1 : L1 « Sortir, commander et acheter ».",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "repas",
+   "proposals": [
+    "P229"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     13
+    ],
+    "study": "——多少钱？——一共十块。"
+   }
+  },
+  {
+   "p": "P230",
+   "id": "catalogue:zh:1604",
+   "study": "不愤不启不悱不发",
+   "fromLevel": 7,
+   "fromTheme": "L7-comprendre",
+   "motif": "Citation classique : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P230"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     5
+    ],
+    "study": "不愤不启不悱不发"
+   }
+  },
+  {
+   "p": "P231",
+   "id": "catalogue:zh:1605",
+   "study": "人能弘道非道弘人",
+   "fromLevel": 7,
+   "fromTheme": "L7-quotidien",
+   "motif": "Citation classique : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P231"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     1
+    ],
+    "study": "人能弘道非道弘人"
+   }
+  },
+  {
+   "p": "P232",
+   "id": "catalogue:zh:1731",
+   "study": "人生自古谁无死留取丹心照汗青",
+   "fromLevel": 7,
+   "fromTheme": "L7-ressentis",
+   "motif": "Vers de Wen Tianxiang : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P232"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     15
+    ],
+    "study": "人生自古谁无死留取丹心照汗青"
+   }
+  },
+  {
+   "p": "P233",
+   "id": "catalogue:zh:1698",
+   "study": "问渠那得清如许为有源头活水来",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Vers de Zhu Xi : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P233"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     98
+    ],
+    "study": "问渠那得清如许为有源头活水来"
+   }
+  },
+  {
+   "p": "P234",
+   "id": "catalogue:zh:1715",
+   "study": "博学之审问之慎思之明辨之笃行之",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Citation du Zhongyong : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P234"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     108
+    ],
+    "study": "博学之审问之慎思之明辨之笃行之"
+   }
+  },
+  {
+   "p": "P235",
+   "id": "catalogue:zh:1717",
+   "study": "不识庐山真面目只缘身在此山中",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Vers de Su Shi : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P235"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     109
+    ],
+    "study": "不识庐山真面目只缘身在此山中"
+   }
+  },
+  {
+   "p": "P236",
+   "id": "catalogue:zh:1732",
+   "study": "苟利国家生死以岂因祸福避趋之",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Vers de Lin Zexu : L10.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-conversation",
+   "proposals": [
+    "P236"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     113
+    ],
+    "study": "苟利国家生死以岂因祸福避趋之"
+   }
+  },
+  {
+   "p": "P237",
+   "id": "catalogue:zh:2157",
+   "study": "早知道我就早点来了",
+   "fromLevel": 7,
+   "fromTheme": "L7-reperes",
+   "motif": "Contrefactuel : imaginer une situation différente.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-quotidien",
+   "proposals": [
+    "P237"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     24
+    ],
+    "study": "早知道我就早点来了"
+   }
+  },
+  {
+   "p": "P238",
+   "id": "catalogue:zh:1494",
+   "study": "我来协调这件事",
+   "fromLevel": 7,
+   "fromTheme": "L7-deplacements",
+   "motif": "Prendre en charge une coordination : acte professionnel.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P238"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     0
+    ],
+    "study": "我来协调这件事"
+   }
+  },
+  {
+   "p": "P239",
+   "id": "catalogue:zh:1654",
+   "study": "这有助于促进销量",
+   "fromLevel": 7,
+   "fromTheme": "L7-ressentis",
+   "motif": "Argument commercial sur les ventes.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P239"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     12
+    ],
+    "study": "这有助于促进销量"
+   }
+  },
+  {
+   "p": "P240",
+   "id": "catalogue:zh:1511",
+   "study": "我气得说不出话。",
+   "fromLevel": 7,
+   "fromTheme": "L7-comprendre",
+   "motif": "Expression d'une émotion forte, avec les ressentis L7.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-ressentis",
+   "proposals": [
+    "P240"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     1
+    ],
+    "study": "我气得说不出话。"
+   }
+  },
+  {
+   "p": "P241",
+   "id": "catalogue:zh:1551",
+   "study": "他拒绝了我的请求",
+   "fromLevel": 7,
+   "fromTheme": "L7-comprendre",
+   "motif": "Récit simple d'un fait ; aucun thème L7 ne convient, « Partager une expérience » (L4) est le plus proche.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-conversation",
+   "proposals": [
+    "P241"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     3
+    ],
+    "study": "他拒绝了我的请求"
+   }
+  },
+  {
+   "p": "P242",
+   "id": "catalogue:zh:1718",
+   "study": "提起这事我还是会鼻子一酸。",
+   "fromLevel": 7,
+   "fromTheme": "L7-comprendre",
+   "motif": "Émotion persistante, avec les ressentis L7.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-ressentis",
+   "proposals": [
+    "P242"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     6
+    ],
+    "study": "提起这事我还是会鼻子一酸。"
+   }
+  },
+  {
+   "p": "P243",
+   "id": "catalogue:zh:1612",
+   "study": "与此同时，他在准备晚饭。",
+   "fromLevel": 7,
+   "fromTheme": "L7-repas",
+   "motif": "Connecteur de simultanéité dans un récit : « Relier les étapes d'un récit ».",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-reperes",
+   "proposals": [
+    "P243"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     12
+    ],
+    "study": "与此同时，他在准备晚饭。"
+   }
+  },
+  {
+   "p": "P244",
+   "id": "catalogue:zh:1826",
+   "study": "会议改到明天可以吗？",
+   "fromLevel": 8,
+   "fromTheme": "L8-saluer",
+   "motif": "Reprogrammer une réunion : registre professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P244"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     6
+    ],
+    "study": "会议改到明天可以吗？"
+   }
+  },
+  {
+   "p": "P245",
+   "id": "catalogue:zh:1830",
+   "study": "请提供技术参数表。",
+   "fromLevel": 8,
+   "fromTheme": "L8-saluer",
+   "motif": "Demande fournisseur.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P245"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     7
+    ],
+    "study": "请提供技术参数表。"
+   }
+  },
+  {
+   "p": "P246",
+   "id": "catalogue:zh:1840",
+   "study": "请确认一下生产进度。",
+   "fromLevel": 8,
+   "fromTheme": "L8-saluer",
+   "motif": "Suivi de production.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P246"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     8
+    ],
+    "study": "请确认一下生产进度。"
+   }
+  },
+  {
+   "p": "P247",
+   "id": "catalogue:zh:1928",
+   "study": "——你今天怎么样？——挺好的，谢谢。",
+   "fromLevel": 8,
+   "fromTheme": "L8-saluer",
+   "motif": "Salutation élémentaire : L2 « Se présenter et échanger ».",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P247"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     10
+    ],
+    "study": "——你今天怎么样？——挺好的，谢谢。"
+   }
+  },
+  {
+   "p": "P248",
+   "id": "catalogue:zh:1972",
+   "study": "——这是你的吗？——不是，我不知道是谁的。",
+   "fromLevel": 8,
+   "fromTheme": "L8-comprendre",
+   "motif": "Question-réponse simple : L2 « Poser et reprendre une question ».",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-conversation",
+   "proposals": [
+    "P248"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     10
+    ],
+    "study": "——这是你的吗？——不是，我不知道是谁的。"
+   }
+  },
+  {
+   "p": "P249",
+   "id": "catalogue:zh:1780",
+   "study": "——你想去吗？——当然想啊！",
+   "fromLevel": 8,
+   "fromTheme": "L8-ressentis",
+   "motif": "Dire ce qu'on veut : L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-ressentis",
+   "proposals": [
+    "P249"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     0
+    ],
+    "study": "——你想去吗？——当然想啊！"
+   }
+  },
+  {
+   "p": "P250",
+   "id": "catalogue:zh:1827",
+   "study": "这会推动销量增长",
+   "fromLevel": 8,
+   "fromTheme": "L8-ressentis",
+   "motif": "Énoncé commercial.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P250"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     2
+    ],
+    "study": "这会推动销量增长"
+   }
+  },
+  {
+   "p": "P251",
+   "id": "catalogue:zh:1946",
+   "study": "我要去这个地方，帮我看下地图。",
+   "fromLevel": 8,
+   "fromTheme": "L8-ressentis",
+   "motif": "Demande d'itinéraire en séjour.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-deplacements",
+   "proposals": [
+    "P251"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     10
+    ],
+    "study": "我要去这个地方，帮我看下地图。"
+   }
+  },
+  {
+   "p": "P252",
+   "id": "catalogue:zh:1782",
+   "study": "——你吃了吗？——还没呢，你呢？",
+   "fromLevel": 8,
+   "fromTheme": "L8-repas",
+   "motif": "« Tu as mangé ? » est une salutation usuelle : L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P252"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     2
+    ],
+    "study": "——你吃了吗？——还没呢，你呢？"
+   }
+  },
+  {
+   "p": "P253",
+   "id": "catalogue:zh:1929",
+   "study": "——你要喝咖啡吗？——好啊，谢谢。",
+   "fromLevel": 8,
+   "fromTheme": "L8-repas",
+   "motif": "Offre et acceptation simples : L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P253"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     10
+    ],
+    "study": "——你要喝咖啡吗？——好啊，谢谢。"
+   }
+  },
+  {
+   "p": "P254",
+   "id": "catalogue:zh:1930",
+   "study": "——这个多少钱？——不贵，二十块。",
+   "fromLevel": 8,
+   "fromTheme": "L8-repas",
+   "motif": "Demander un prix : L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P254"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     11
+    ],
+    "study": "——这个多少钱？——不贵，二十块。"
+   }
+  },
+  {
+   "p": "P255",
+   "id": "catalogue:zh:1784",
+   "study": "——你在哪儿？——快到了，五分钟。",
+   "fromLevel": 8,
+   "fromTheme": "L8-deplacements",
+   "motif": "Dire où on est : L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-deplacements",
+   "proposals": [
+    "P255"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     1
+    ],
+    "study": "——你在哪儿？——快到了，五分钟。"
+   }
+  },
+  {
+   "p": "P256",
+   "id": "catalogue:zh:1935",
+   "study": "——远吗？——不远，走五分钟就到。",
+   "fromLevel": 8,
+   "fromTheme": "L8-deplacements",
+   "motif": "Distance à pied : « Trouver son chemin ».",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-deplacements",
+   "proposals": [
+    "P256"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     9
+    ],
+    "study": "——远吗？——不远，走五分钟就到。"
+   }
+  },
+  {
+   "p": "P257",
+   "id": "catalogue:zh:1748",
+   "study": "气死我了，他又迟到了！",
+   "fromLevel": 8,
+   "fromTheme": "L8-reperes",
+   "motif": "Agacement : émotion.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-ressentis",
+   "proposals": [
+    "P257"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     4
+    ],
+    "study": "气死我了，他又迟到了！"
+   }
+  },
+  {
+   "p": "P258",
+   "id": "catalogue:zh:1749",
+   "study": "我激动得一晚上没睡着。",
+   "fromLevel": 8,
+   "fromTheme": "L8-reperes",
+   "motif": "Excitation : émotion.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-ressentis",
+   "proposals": [
+    "P258"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     5
+    ],
+    "study": "我激动得一晚上没睡着。"
+   }
+  },
+  {
+   "p": "P259",
+   "id": "catalogue:zh:1755",
+   "study": "听到这个消息，我一天心情都好了。",
+   "fromLevel": 8,
+   "fromTheme": "L8-reperes",
+   "motif": "Effet d'une nouvelle sur l'humeur : émotion.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-ressentis",
+   "proposals": [
+    "P259"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     6
+    ],
+    "study": "听到这个消息，我一天心情都好了。"
+   }
+  },
+  {
+   "p": "P260",
+   "id": "catalogue:zh:1785",
+   "study": "——你明天来吗？——来，一定来。",
+   "fromLevel": 8,
+   "fromTheme": "L8-quotidien",
+   "motif": "Répondre à une invitation : L3 « Proposer et répondre ».",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-conversation",
+   "proposals": [
+    "P260"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     3
+    ],
+    "study": "——你明天来吗？——来，一定来。"
+   }
+  },
+  {
+   "p": "P261",
+   "id": "catalogue:zh:1890",
+   "study": "我的手机没电了，哪里能充电？",
+   "fromLevel": 8,
+   "fromTheme": "L8-quotidien",
+   "motif": "Contrainte pratique en séjour.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-deplacements",
+   "proposals": [
+    "P261"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     5
+    ],
+    "study": "我的手机没电了，哪里能充电？"
+   }
+  },
+  {
+   "p": "P262",
+   "id": "catalogue:zh:1905",
+   "study": "由于天气原因，航班延误了。",
+   "fromLevel": 8,
+   "fromTheme": "L8-quotidien",
+   "motif": "Vol retardé : contrainte de voyage.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-deplacements",
+   "proposals": [
+    "P262"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     6
+    ],
+    "study": "由于天气原因，航班延误了。"
+   }
+  },
+  {
+   "p": "P263",
+   "id": "catalogue:zh:1974",
+   "study": "——你昨天做了什么？——我在家休息。",
+   "fromLevel": 8,
+   "fromTheme": "L8-quotidien",
+   "motif": "Raconter sa journée d'hier : L4 « Raconter sa journée ».",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-quotidien",
+   "proposals": [
+    "P263"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     12
+    ],
+    "study": "——你昨天做了什么？——我在家休息。"
+   }
+  },
+  {
+   "p": "P264",
+   "id": "catalogue:zh:1790",
+   "study": "请查收附件",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Formule de courriel professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P264"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     22
+    ],
+    "study": "请查收附件"
+   }
+  },
+  {
+   "p": "P265",
+   "id": "catalogue:zh:1794",
+   "study": "我们在优化生产流程",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Énoncé professionnel neutre.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P265"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     24
+    ],
+    "study": "我们在优化生产流程"
+   }
+  },
+  {
+   "p": "P266",
+   "id": "catalogue:zh:1795",
+   "study": "我们要规避这个风险",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Énoncé professionnel neutre.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P266"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     25
+    ],
+    "study": "我们要规避这个风险"
+   }
+  },
+  {
+   "p": "P267",
+   "id": "catalogue:zh:1798",
+   "study": "logo 怎么印上去？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Question fournisseur.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P267"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     26
+    ],
+    "study": "logo 怎么印上去？"
+   }
+  },
+  {
+   "p": "P268",
+   "id": "catalogue:zh:1799",
+   "study": "能拍几张生产照片吗？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Demande fournisseur.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P268"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     27
+    ],
+    "study": "能拍几张生产照片吗？"
+   }
+  },
+  {
+   "p": "P269",
+   "id": "catalogue:zh:1800",
+   "study": "能给我们区域独家吗？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Demande commerciale.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P269"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     28
+    ],
+    "study": "能给我们区域独家吗？"
+   }
+  },
+  {
+   "p": "P270",
+   "id": "catalogue:zh:1801",
+   "study": "定金收到我们就开工。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Condition commerciale.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P270"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     29
+    ],
+    "study": "定金收到我们就开工。"
+   }
+  },
+  {
+   "p": "P271",
+   "id": "catalogue:zh:1804",
+   "study": "这个符合欧盟标准吗？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Question de conformité produit.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P271"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     30
+    ],
+    "study": "这个符合欧盟标准吗？"
+   }
+  },
+  {
+   "p": "P272",
+   "id": "catalogue:zh:1805",
+   "study": "能提供高清产品图吗？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Demande fournisseur.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P272"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     31
+    ],
+    "study": "能提供高清产品图吗？"
+   }
+  },
+  {
+   "p": "P273",
+   "id": "catalogue:zh:1806",
+   "study": "你们接受小批量定制吗？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Question fournisseur.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P273"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     32
+    ],
+    "study": "你们接受小批量定制吗？"
+   }
+  },
+  {
+   "p": "P274",
+   "id": "catalogue:zh:1810",
+   "study": "市场反馈很不错。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Compte rendu commercial.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P274"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     34
+    ],
+    "study": "市场反馈很不错。"
+   }
+  },
+  {
+   "p": "P275",
+   "id": "catalogue:zh:1811",
+   "study": "能给我们账期吗？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Demande de délai de paiement.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P275"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     35
+    ],
+    "study": "能给我们账期吗？"
+   }
+  },
+  {
+   "p": "P276",
+   "id": "catalogue:zh:1818",
+   "study": "我们付百分之三十定金。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Condition de paiement.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P276"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     39
+    ],
+    "study": "我们付百分之三十定金。"
+   }
+  },
+  {
+   "p": "P277",
+   "id": "catalogue:zh:1821",
+   "study": "我把详细规格发您邮箱。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Échange professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P277"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     42
+    ],
+    "study": "我把详细规格发您邮箱。"
+   }
+  },
+  {
+   "p": "P278",
+   "id": "catalogue:zh:1822",
+   "study": "我们通过银行电汇付款。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Mode de paiement.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P278"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     43
+    ],
+    "study": "我们通过银行电汇付款。"
+   }
+  },
+  {
+   "p": "P279",
+   "id": "catalogue:zh:1825",
+   "study": "我们对这次合作很满意。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Formule de satisfaction professionnelle.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P279"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     44
+    ],
+    "study": "我们对这次合作很满意。"
+   }
+  },
+  {
+   "p": "P280",
+   "id": "catalogue:zh:1831",
+   "study": "跟踪号发给我了吗？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Suivi logistique.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P280"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     46
+    ],
+    "study": "跟踪号发给我了吗？"
+   }
+  },
+  {
+   "p": "P281",
+   "id": "catalogue:zh:1832",
+   "study": "毛重和净重是多少？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Question logistique.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P281"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     47
+    ],
+    "study": "毛重和净重是多少？"
+   }
+  },
+  {
+   "p": "P282",
+   "id": "catalogue:zh:1833",
+   "study": "原产地证明能开吗？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Document d'export.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P282"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     48
+    ],
+    "study": "原产地证明能开吗？"
+   }
+  },
+  {
+   "p": "P283",
+   "id": "catalogue:zh:1834",
+   "study": "很高兴和您做生意。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Formule de relation d'affaires.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P283"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     49
+    ],
+    "study": "很高兴和您做生意。"
+   }
+  },
+  {
+   "p": "P284",
+   "id": "catalogue:zh:1835",
+   "study": "我们想开拓新市场。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Objectif commercial.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P284"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     50
+    ],
+    "study": "我们想开拓新市场。"
+   }
+  },
+  {
+   "p": "P285",
+   "id": "catalogue:zh:1836",
+   "study": "零配件容易买到吗？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Question fournisseur.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P285"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     51
+    ],
+    "study": "零配件容易买到吗？"
+   }
+  },
+  {
+   "p": "P286",
+   "id": "catalogue:zh:1844",
+   "study": "我们想拓展海外市场",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Objectif commercial.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P286"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     53
+    ],
+    "study": "我们想拓展海外市场"
+   }
+  },
+  {
+   "p": "P287",
+   "id": "catalogue:zh:1846",
+   "study": "你们的月产能是多少？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Question fournisseur.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P287"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     54
+    ],
+    "study": "你们的月产能是多少？"
+   }
+  },
+  {
+   "p": "P288",
+   "id": "catalogue:zh:1847",
+   "study": "主要出口到哪些国家？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Question fournisseur.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P288"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     55
+    ],
+    "study": "主要出口到哪些国家？"
+   }
+  },
+  {
+   "p": "P289",
+   "id": "catalogue:zh:1848",
+   "study": "请代我问候你们团队。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Formule de salutation polie, avec 敬请谅解 / 感谢您的回复.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-saluer",
+   "proposals": [
+    "P289"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     56
+    ],
+    "study": "请代我问候你们团队。"
+   }
+  },
+  {
+   "p": "P290",
+   "id": "catalogue:zh:1849",
+   "study": "我们再约时间深入谈。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Organisation d'un rendez-vous d'affaires.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P290"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     57
+    ],
+    "study": "我们再约时间深入谈。"
+   }
+  },
+  {
+   "p": "P291",
+   "id": "catalogue:zh:1857",
+   "study": "请留言，我会回复。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Message de répondeur professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P291"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     60
+    ],
+    "study": "请留言，我会回复。"
+   }
+  },
+  {
+   "p": "P292",
+   "id": "catalogue:zh:1859",
+   "study": "汇款手续费谁承担？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Frais de paiement.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P292"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     61
+    ],
+    "study": "汇款手续费谁承担？"
+   }
+  },
+  {
+   "p": "P293",
+   "id": "catalogue:zh:1864",
+   "study": "收到货款后请安排生产。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Consigne de production.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P293"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     62
+    ],
+    "study": "收到货款后请安排生产。"
+   }
+  },
+  {
+   "p": "P294",
+   "id": "catalogue:zh:1865",
+   "study": "请把银行账户信息发我。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Demande de coordonnées bancaires.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P294"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     63
+    ],
+    "study": "请把银行账户信息发我。"
+   }
+  },
+  {
+   "p": "P295",
+   "id": "catalogue:zh:1866",
+   "study": "我是ABC公司的采购。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Se présenter dans un rôle professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P295"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     64
+    ],
+    "study": "我是ABC公司的采购。"
+   }
+  },
+  {
+   "p": "P296",
+   "id": "catalogue:zh:1868",
+   "study": "希望我们合作长长久久。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Vœu de collaboration.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P296"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     65
+    ],
+    "study": "希望我们合作长长久久。"
+   }
+  },
+  {
+   "p": "P297",
+   "id": "catalogue:zh:1869",
+   "study": "期待与您长期合作。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Formule de collaboration.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P297"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     66
+    ],
+    "study": "期待与您长期合作。"
+   }
+  },
+  {
+   "p": "P298",
+   "id": "catalogue:zh:1879",
+   "study": "之后可以走月结吗？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Condition de paiement.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P298"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     70
+    ],
+    "study": "之后可以走月结吗？"
+   }
+  },
+  {
+   "p": "P299",
+   "id": "catalogue:zh:1882",
+   "study": "售后能提供技术支持吗？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Question SAV fournisseur.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P299"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     72
+    ],
+    "study": "售后能提供技术支持吗？"
+   }
+  },
+  {
+   "p": "P300",
+   "id": "catalogue:zh:1884",
+   "study": "保修期是多久？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Question garantie fournisseur.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P300"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     73
+    ],
+    "study": "保修期是多久？"
+   }
+  },
+  {
+   "p": "P301",
+   "id": "catalogue:zh:1888",
+   "study": "这个季节穿什么合适？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Adapter son séjour à la saison.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-deplacements",
+   "proposals": [
+    "P301"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     74
+    ],
+    "study": "这个季节穿什么合适？"
+   }
+  },
+  {
+   "p": "P302",
+   "id": "catalogue:zh:1896",
+   "study": "有没有本地人常去的小店？",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Question de voyageur.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-deplacements",
+   "proposals": [
+    "P302"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     75
+    ],
+    "study": "有没有本地人常去的小店？"
+   }
+  },
+  {
+   "p": "P303",
+   "id": "catalogue:zh:1942",
+   "study": "我的东西被偷了，要报案。",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Incident en séjour (vol) ; alternative : L4-situation-piste-incident-objet.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-deplacements",
+   "proposals": [
+    "P303"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     89
+    ],
+    "study": "我的东西被偷了，要报案。"
+   }
+  },
+  {
+   "p": "P304",
+   "id": "catalogue:zh:1733",
+   "study": "不好意思，这不是我点的菜。",
+   "fromLevel": 8,
+   "fromTheme": "L8-travail",
+   "motif": "Réclamation délicate au restaurant.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-repas",
+   "proposals": [
+    "P304"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     0
+    ],
+    "study": "不好意思，这不是我点的菜。"
+   }
+  },
+  {
+   "p": "P305",
+   "id": "catalogue:zh:2601",
+   "study": "出差",
+   "fromLevel": 8,
+   "fromTheme": "L8-vocab-actions",
+   "motif": "Nom du vocabulaire professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-travail",
+   "proposals": [
+    "P305"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     7
+    ],
+    "study": "出差"
+   }
+  },
+  {
+   "p": "P306",
+   "id": "catalogue:zh:2603",
+   "study": "绩效",
+   "fromLevel": 8,
+   "fromTheme": "L8-vocab-actions",
+   "motif": "Nom du vocabulaire professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-travail",
+   "proposals": [
+    "P306"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     8
+    ],
+    "study": "绩效"
+   }
+  },
+  {
+   "p": "P307",
+   "id": "catalogue:zh:2604",
+   "study": "晋升",
+   "fromLevel": 8,
+   "fromTheme": "L8-vocab-actions",
+   "motif": "Nom du vocabulaire professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-travail",
+   "proposals": [
+    "P307"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     9
+    ],
+    "study": "晋升"
+   }
+  },
+  {
+   "p": "P308",
+   "id": "catalogue:zh:2605",
+   "study": "团队",
+   "fromLevel": 8,
+   "fromTheme": "L8-vocab-actions",
+   "motif": "Nom du vocabulaire professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-travail",
+   "proposals": [
+    "P308"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     10
+    ],
+    "study": "团队"
+   }
+  },
+  {
+   "p": "P309",
+   "id": "catalogue:zh:2606",
+   "study": "部门",
+   "fromLevel": 8,
+   "fromTheme": "L8-vocab-actions",
+   "motif": "Nom du vocabulaire professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-travail",
+   "proposals": [
+    "P309"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     11
+    ],
+    "study": "部门"
+   }
+  },
+  {
+   "p": "P310",
+   "id": "catalogue:zh:2608",
+   "study": "流程",
+   "fromLevel": 8,
+   "fromTheme": "L8-vocab-actions",
+   "motif": "Nom du vocabulaire professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-travail",
+   "proposals": [
+    "P310"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     12
+    ],
+    "study": "流程"
+   }
+  },
+  {
+   "p": "P311",
+   "id": "catalogue:zh:2610",
+   "study": "战略",
+   "fromLevel": 8,
+   "fromTheme": "L8-vocab-actions",
+   "motif": "Nom du vocabulaire professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-travail",
+   "proposals": [
+    "P311"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     13
+    ],
+    "study": "战略"
+   }
+  },
+  {
+   "p": "P312",
+   "id": "catalogue:zh:2611",
+   "study": "资源",
+   "fromLevel": 8,
+   "fromTheme": "L8-vocab-actions",
+   "motif": "Nom du vocabulaire professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-travail",
+   "proposals": [
+    "P312"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     14
+    ],
+    "study": "资源"
+   }
+  },
+  {
+   "p": "P313",
+   "id": "catalogue:zh:2612",
+   "study": "竞争",
+   "fromLevel": 8,
+   "fromTheme": "L8-vocab-actions",
+   "motif": "Nom du vocabulaire professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-travail",
+   "proposals": [
+    "P313"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     15
+    ],
+    "study": "竞争"
+   }
+  },
+  {
+   "p": "P314",
+   "id": "catalogue:zh:2613",
+   "study": "优先",
+   "fromLevel": 8,
+   "fromTheme": "L8-vocab-actions",
+   "motif": "Nom du vocabulaire professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-travail",
+   "proposals": [
+    "P314"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     16
+    ],
+    "study": "优先"
+   }
+  },
+  {
+   "p": "P315",
+   "id": "catalogue:zh:2614",
+   "study": "职责",
+   "fromLevel": 8,
+   "fromTheme": "L8-vocab-actions",
+   "motif": "Nom du vocabulaire professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-travail",
+   "proposals": [
+    "P315"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     17
+    ],
+    "study": "职责"
+   }
+  },
+  {
+   "p": "P316",
+   "id": "catalogue:zh:2615",
+   "study": "同行",
+   "fromLevel": 8,
+   "fromTheme": "L8-vocab-actions",
+   "motif": "Nom du vocabulaire professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-travail",
+   "proposals": [
+    "P316"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     18
+    ],
+    "study": "同行"
+   }
+  },
+  {
+   "p": "P317",
+   "id": "catalogue:zh:1989",
+   "study": "期待您的回信",
+   "fromLevel": 9,
+   "fromTheme": "L9-saluer",
+   "motif": "Formule de courrier formel, avec 感谢您的回复 / 敬请指正.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-saluer",
+   "proposals": [
+    "P317"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     0
+    ],
+    "study": "期待您的回信"
+   }
+  },
+  {
+   "p": "P318",
+   "id": "catalogue:zh:2001",
+   "study": "感谢您抽空见我。",
+   "fromLevel": 9,
+   "fromTheme": "L9-saluer",
+   "motif": "Remerciement formel pour un rendez-vous, avec les formules de L8-saluer.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-saluer",
+   "proposals": [
+    "P318"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     1
+    ],
+    "study": "感谢您抽空见我。"
+   }
+  },
+  {
+   "p": "P319",
+   "id": "catalogue:zh:2008",
+   "study": "我在想你能不能帮我。",
+   "fromLevel": 9,
+   "fromTheme": "L9-comprendre",
+   "motif": "Demande d'aide polie, à côté de 我可以问一个问题吗？.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-comprendre",
+   "proposals": [
+    "P319"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     0
+    ],
+    "study": "我在想你能不能帮我。"
+   }
+  },
+  {
+   "p": "P320",
+   "id": "catalogue:zh:2012",
+   "study": "货到港后我会安排清关。",
+   "fromLevel": 9,
+   "fromTheme": "L9-deplacements",
+   "motif": "Logistique commerciale (dédouanement).",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P320"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     0
+    ],
+    "study": "货到港后我会安排清关。"
+   }
+  },
+  {
+   "p": "P321",
+   "id": "catalogue:zh:2024",
+   "study": "保持联系，这是我的名片。",
+   "fromLevel": 9,
+   "fromTheme": "L9-deplacements",
+   "motif": "Échange de cartes de visite : se présenter en contexte professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-saluer",
+   "proposals": [
+    "P321"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     1
+    ],
+    "study": "保持联系，这是我的名片。"
+   }
+  },
+  {
+   "p": "P322",
+   "id": "catalogue:zh:2035",
+   "study": "这是我的名片，加个微信吧。",
+   "fromLevel": 9,
+   "fromTheme": "L9-deplacements",
+   "motif": "Carte de visite et WeChat : se présenter en contexte professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-saluer",
+   "proposals": [
+    "P322"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     2
+    ],
+    "study": "这是我的名片，加个微信吧。"
+   }
+  },
+  {
+   "p": "P323",
+   "id": "catalogue:zh:1996",
+   "study": "我们在广交会上见过。",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Rappeler une rencontre passée : « Raconter une rencontre ».",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-saluer",
+   "proposals": [
+    "P323"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     2
+    ],
+    "study": "我们在广交会上见过。"
+   }
+  },
+  {
+   "p": "P324",
+   "id": "catalogue:zh:1997",
+   "study": "我们想做OEM贴牌。",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Projet commercial (OEM).",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P324"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     3
+    ],
+    "study": "我们想做OEM贴牌。"
+   }
+  },
+  {
+   "p": "P325",
+   "id": "catalogue:zh:1998",
+   "study": "我们支持贴牌和定制。",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Présentation d'une offre commerciale.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P325"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     4
+    ],
+    "study": "我们支持贴牌和定制。"
+   }
+  },
+  {
+   "p": "P326",
+   "id": "catalogue:zh:1999",
+   "study": "产品的使用寿命是多久？",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Question produit fournisseur.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P326"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     5
+    ],
+    "study": "产品的使用寿命是多久？"
+   }
+  },
+  {
+   "p": "P327",
+   "id": "catalogue:zh:2004",
+   "study": "当地有什么禁忌要注意？",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "S'informer des usages locaux pour adapter son séjour.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-deplacements",
+   "proposals": [
+    "P327"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     6
+    ],
+    "study": "当地有什么禁忌要注意？"
+   }
+  },
+  {
+   "p": "P328",
+   "id": "catalogue:zh:2015",
+   "study": "保持联系，常来常往。",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Formule de prise de congé soutenue.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-saluer",
+   "proposals": [
+    "P328"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     10
+    ],
+    "study": "保持联系，常来常往。"
+   }
+  },
+  {
+   "p": "P329",
+   "id": "catalogue:zh:2019",
+   "study": "保修期可以延伸吗？",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Question garantie fournisseur.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P329"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     13
+    ],
+    "study": "保修期可以延伸吗？"
+   }
+  },
+  {
+   "p": "P330",
+   "id": "catalogue:zh:2029",
+   "study": "这顿我请，别客气。",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Inviter à table, à côté de 随便吃，别客气.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-repas",
+   "proposals": [
+    "P330"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     19
+    ],
+    "study": "这顿我请，别客气。"
+   }
+  },
+  {
+   "p": "P331",
+   "id": "catalogue:zh:2032",
+   "study": "如有疑问，随时联系。",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Formule de fin de courrier.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-saluer",
+   "proposals": [
+    "P331"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     22
+    ],
+    "study": "如有疑问，随时联系。"
+   }
+  },
+  {
+   "p": "P332",
+   "id": "catalogue:zh:2036",
+   "study": "有没有配套的售后服务？",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Question SAV fournisseur.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P332"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     24
+    ],
+    "study": "有没有配套的售后服务？"
+   }
+  },
+  {
+   "p": "P333",
+   "id": "catalogue:zh:2037",
+   "study": "有新产品第一时间告诉我。",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Demande commerciale.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P333"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     25
+    ],
+    "study": "有新产品第一时间告诉我。"
+   }
+  },
+  {
+   "p": "P334",
+   "id": "catalogue:zh:2039",
+   "study": "量大的话，价格能优惠多少？",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Négociation de remise.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P334"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     26
+    ],
+    "study": "量大的话，价格能优惠多少？"
+   }
+  },
+  {
+   "p": "P335",
+   "id": "catalogue:zh:2040",
+   "study": "能对接我们的电商平台吗？",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Question technique d'intégration.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P335"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     27
+    ],
+    "study": "能对接我们的电商平台吗？"
+   }
+  },
+  {
+   "p": "P336",
+   "id": "catalogue:zh:2047",
+   "study": "加个微信，方便随时沟通。",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Proposer d'échanger les contacts en contexte professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-saluer",
+   "proposals": [
+    "P336"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     32
+    ],
+    "study": "加个微信，方便随时沟通。"
+   }
+  },
+  {
+   "p": "P337",
+   "id": "catalogue:zh:4620",
+   "study": "观点",
+   "fromLevel": 9,
+   "fromTheme": "L9-vocab-personnes",
+   "motif": "Vocabulaire de l'argumentation, avec 论点 / 见解.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-vocab-actions",
+   "proposals": [
+    "P337"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-vocab-personnes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     0
+    ],
+    "study": "观点"
+   }
+  },
+  {
+   "p": "P338",
+   "id": "catalogue:zh:4629",
+   "study": "论据",
+   "fromLevel": 9,
+   "fromTheme": "L9-vocab-personnes",
+   "motif": "Vocabulaire de l'argumentation, avec 论点.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-vocab-actions",
+   "proposals": [
+    "P338"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-vocab-personnes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     1
+    ],
+    "study": "论据"
+   }
+  },
+  {
+   "p": "P339",
+   "id": "catalogue:zh:3907",
+   "study": "路上小心",
+   "fromLevel": 5,
+   "fromTheme": "L5-deplacements",
+   "motif": "Formule de congé simple, à côté de 回头见 / 明天见.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P339"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     32
+    ],
+    "study": "路上小心"
+   }
+  }
+ ]
+}
