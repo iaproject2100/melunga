@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#143b56">
   <title>Melunga — parcours par thèmes et par niveaux</title>
-  <link rel="stylesheet" href="maquette-guidee.css?v=12">
+  <link rel="stylesheet" href="maquette-guidee.css?v=13">
 </head>
 <body data-ambience="ocean">
   <div class="mg-previewnotice"><span>Maquette</span><a href="https://melunga.com/" target="_blank" rel="noopener">Site actuel ↗</a></div>
@@ -17,7 +17,8 @@
         <span class="mg-wordmark">Melunga</span>
       </a>
       <div class="mg-controls">
-        <label class="mg-round mg-level mg-level-control" title="Choisir un niveau"><span id="mgLevelText" aria-hidden="true">L1</span><select id="mgLevel" aria-label="Choisir un niveau" disabled><option value="1">L1</option></select></label>
+        <button id="mgLevelTrigger" class="mg-round mg-level mg-level-control" type="button" title="Choisir un niveau" aria-label="Choisir un niveau" aria-haspopup="dialog" aria-controls="mgLevelDialog" aria-expanded="false" disabled><span id="mgLevelText" aria-hidden="true">L1</span></button>
+        <select id="mgLevel" aria-label="Choisir un niveau" tabindex="-1" aria-hidden="true" hidden disabled><option value="1">L1</option></select>
         <label class="mg-round mg-language-control" title="Changer de langue">
           <span id="mgLanguageFlag" aria-hidden="true">🇨🇳</span>
           <select id="mgLanguage" aria-label="Langue à apprendre" disabled><option>…</option></select>
@@ -70,12 +71,20 @@
       </footer>
     </main>
   </div>
+  <dialog id="mgLevelDialog" class="mg-menu-dialog mg-level-dialog" aria-labelledby="mgLevelTitle">
+    <header class="mg-menu-head">
+      <h2 id="mgLevelTitle">Choisir un niveau</h2>
+      <button id="mgLevelClose" class="mg-menu-close" type="button" aria-label="Fermer les niveaux">×</button>
+    </header>
+    <div class="mg-menu-body"><div id="mgLevelChoices" class="mg-level-grid"></div></div>
+  </dialog>
   <dialog id="mgMenuDialog" class="mg-menu-dialog" aria-labelledby="mgMenuTitle">
     <header class="mg-menu-head">
       <button id="mgMenuBack" class="mg-menu-back" type="button" aria-label="Revenir au menu" hidden>‹</button>
       <h2 id="mgMenuTitle">Menu</h2>
       <button id="mgMenuClose" class="mg-menu-close" type="button" aria-label="Fermer le menu">×</button>
     </header>
+    <div id="mgMenuBody" class="mg-menu-body">
     <nav id="mgMenuNav" class="mg-menu-nav" aria-label="Rubriques"></nav>
     <section id="mgVoicePanel" class="mg-menu-section" hidden>
       <label class="mg-menu-label" for="mgVoice" data-mg-i18n="Voix">Voix</label>
@@ -118,9 +127,10 @@
       </ol>
       <p class="mg-menu-empty" data-mg-i18n="L’oreille permet toujours de réécouter ou de révéler le modèle.">L’oreille permet toujours de réécouter ou de révéler le modèle.</p>
     </section>
+    </div>
   </dialog>
   <p id="mgCardToast" class="mg-card-toast" role="status" aria-live="polite" hidden></p>
   <script src="course-access.js?v=1"></script>
-  <script src="maquette-guidee.js?v=17"></script>
+  <script src="maquette-guidee.js?v=19"></script>
 </body>
 </html>

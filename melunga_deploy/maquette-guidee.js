@@ -5,9 +5,10 @@
   const byId = id => document.getElementById(id);
   const ui = {
     language: byId('mgLanguage'), flag: byId('mgLanguageFlag'), palette: byId('mgPalette'),
-    level: byId('mgLevel'), levelText: byId('mgLevelText'),
+    level: byId('mgLevel'), levelText: byId('mgLevelText'), levelTrigger: byId('mgLevelTrigger'),
+    levelDialog: byId('mgLevelDialog'), levelChoices: byId('mgLevelChoices'), levelClose: byId('mgLevelClose'),
     menuTrigger: byId('mgMenuTrigger'), menu: byId('mgMenuDialog'), menuNav: byId('mgMenuNav'),
-    menuTitle: byId('mgMenuTitle'), menuBack: byId('mgMenuBack'), menuClose: byId('mgMenuClose'),
+    menuTitle: byId('mgMenuTitle'), menuBack: byId('mgMenuBack'), menuClose: byId('mgMenuClose'), menuBody: byId('mgMenuBody'),
     voice: byId('mgVoice'), speed: byId('mgSpeed'), reviewTheme: byId('mgReviewTheme'),
     reviewModel: byId('mgReviewModel'), reviewRecall: byId('mgReviewRecall'),
     savedReviewList: byId('mgSavedReviewList'), savedReviewEmpty: byId('mgSavedReviewEmpty'),
@@ -98,7 +99,7 @@
     'Cette carte ne peut pas être enregistrée. Réessaie avant de quitter cette page.': '无法保存这张卡片。离开前请重试。',
     'Ce contenu a été actualisé. Tu peux le retrouver dans les thèmes.': '内容已更新，可以在主题中重新查找。',
     'Menu': '菜单', 'Menu des rubriques': '栏目菜单', 'Rubriques': '栏目',
-    'Revenir au menu': '返回菜单', 'Fermer le menu': '关闭菜单',
+    'Revenir au menu': '返回菜单', 'Fermer le menu': '关闭菜单', 'Fermer les niveaux': '关闭级别选择',
     'Accueil': '首页', 'Révisions et exercices': '复习与练习', 'Toutes les leçons': '所有课程',
     'Voix': '语音', 'Couleur': '背景颜色', 'Comment ça marche': '使用方法',
     'Avis': '意见反馈', 'Se connecter / Créer un compte': '登录 / 注册账号',
@@ -356,14 +357,65 @@
       .forEach(([node, label]) => node.setAttribute('aria-label', tr(label)));
   }
 
-  function positionMenu() {
-    if (!ui.menu.open) return;
-    const anchor = ui.menuTrigger.getBoundingClientRect();
-    const rect = ui.menu.getBoundingClientRect();
-    const left = innerWidth > 760 ? Math.min(anchor.right + 14, innerWidth - rect.width - 14) : (innerWidth - rect.width) / 2;
-    const top = Math.min(innerWidth > 760 ? anchor.top : anchor.bottom + 10, innerHeight - rect.height - 14);
-    ui.menu.style.setProperty('--mg-menu-left', Math.max(14, left) + 'px');
-    ui.menu.style.setProperty('--mg-menu-top', Math.max(14, top) + 'px');
+  function positionPopup(dialog, trigger) {
+    if (!dialog?.open) return;
+    const viewport = window.visualViewport;
+    const bounds = { left: viewport?.offsetLeft || 0, top: viewport?.offsetTop || 0,
+      width: viewport?.width || innerWidth, height: viewport?.height || innerHeight };
+    const gutter = 12;
+    dialog.style.setProperty('--mg-dialog-max-width', Math.max(0, bounds.width - gutter * 2) + 'px');
+    dialog.style.setProperty('--mg-dialog-max-height', Math.max(0, bounds.height - gutter * 2) + 'px');
+    const anchor = trigger.getBoundingClientRect(), rect = dialog.getBoundingClientRect();
+    const left = bounds.width > 760 ? anchor.right + 14 : bounds.left + (bounds.width - rect.width) / 2;
+    const top = bounds.width > 760 ? anchor.top : anchor.bottom + 10;
+    dialog.style.setProperty('--mg-menu-left', Math.max(bounds.left + gutter,
+      Math.min(left, bounds.left + bounds.width - rect.width - gutter)) + 'px');
+    dialog.style.setProperty('--mg-menu-top', Math.max(bounds.top + gutter,
+      Math.min(top, bounds.top + bounds.height - rect.height - gutter)) + 'px');
+  }
+
+  function positionMenu() { positionPopup(ui.menu, ui.menuTrigger); }
+  function positionPopups() { positionMenu(); positionPopup(ui.levelDialog, ui.levelTrigger); }
+
+  const levelColors = ['#228574', '#237e99', '#3369aa', '#5e5bb4', '#8b51ad',
+    '#a54982', '#b2485c', '#a95d30', '#89671b', '#5f782d'];
+  function buildLevelChoices(metadata) {
+    if (!ui.levelChoices) return;
+    text(byId('mgLevelTitle'), tr('Choisir un niveau'));
+    ui.levelClose.setAttribute('aria-label', tr('Fermer les niveaux'));
+    ui.levelTrigger.disabled = false;
+    ui.levelTrigger.style.setProperty('--mg-level-color', levelColors[state.pair.level - 1]);
+    ui.levelChoices.replaceChildren(...metadata.levels.map(level => {
+      const button = document.createElement('button'); button.type = 'button';
+      button.className = 'mg-level-option'; button.dataset.level = String(level.level);
+      button.style.setProperty('--mg-level-color', levelColors[level.level - 1]);
+      button.setAttribute('aria-pressed', String(level.level === state.pair.level));
+      const badge = document.createElement('span'); badge.className = 'mg-level-badge';
+      badge.textContent = 'L' + level.level;
+      const title = document.createElement('span'); title.className = 'mg-level-title'; title.textContent = level.title;
+      button.append(badge, title);
+      button.addEventListener('click', () => {
+        closeLevels();
+        if (state.screen !== 'loading' && state.pair.level === level.level) return;
+        ui.level.value = String(level.level);
+        ui.level.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+      return button;
+    }));
+  }
+  function closeLevels() {
+    if (ui.levelDialog?.open) ui.levelDialog.close();
+    ui.levelTrigger?.setAttribute('aria-expanded', 'false');
+  }
+  function openLevels() {
+    if (!state.pair || ui.levelTrigger.disabled) return;
+    if (ui.levelDialog.open) return closeLevels();
+    stopAudio(); closeHelp(); closeMenu(); resetCardMotion();
+    ui.levelDialog.showModal(); ui.levelTrigger.setAttribute('aria-expanded', 'true');
+    positionPopup(ui.levelDialog, ui.levelTrigger);
+    const selected = ui.levelChoices.querySelector('[aria-pressed="true"]');
+    selected?.focus({ preventScroll: true });
+    selected?.scrollIntoView({ block: 'nearest' });
   }
 
   function fillVoices() {
@@ -390,7 +442,7 @@
       ui.reviewTheme.replaceChildren(...themes.map(theme => new Option(themeLabel(theme), theme.id)));
       if (state.theme && themes.includes(state.theme)) ui.reviewTheme.value = state.theme.id;
     }
-    ui.menu.scrollTop = 0;
+    ui.menuBody.scrollTop = 0;
     positionMenu();
     const section = view === 'nav' ? ui.menuNav : menuPanels[view];
     section.querySelector('button,a,select,input,textarea')?.focus({ preventScroll: true });
@@ -399,7 +451,7 @@
   function openMenu() {
     if (!state.pair) return;
     if (ui.menu.open) return closeMenu();
-    stopAudio(); closeHelp(); buildMenu();
+    stopAudio(); closeHelp(); closeLevels(); buildMenu();
     ui.menu.showModal();
     ui.menuTrigger.setAttribute('aria-expanded', 'true');
     setMenuView('nav');
@@ -917,7 +969,7 @@
     text(byId('mgThemeHeading'), pair.levelTitle || tr('Tes thèmes'));
     [[ui.palette, 'Changer d’ambiance'], [ui.menuTrigger, 'Menu des rubriques'], [ui.language, 'Langue à apprendre'],
       [ui.help, 'Aide pour cette étape'], [ui.choices, 'Choisir une réponse'],
-      [ui.level || document.querySelector('.mg-level'), ui.level ? 'Choisir un niveau' : 'Niveau 1']].forEach(([node, label]) => {
+      [ui.levelTrigger || ui.level || document.querySelector('.mg-level'), ui.level ? 'Choisir un niveau' : 'Niveau 1']].forEach(([node, label]) => {
       node.setAttribute('aria-label', tr(label));
     });
     ui.palette.title = tr('Changer d’ambiance');
@@ -931,7 +983,8 @@
       ui.level.value = String(pair.level);
       ui.level.disabled = false;
       text(ui.levelText, 'L' + pair.level);
-      ui.level.parentElement.title = 'L' + pair.level + ' · ' + pair.levelTitle;
+      ui.levelTrigger.title = 'L' + pair.level + ' · ' + pair.levelTitle;
+      buildLevelChoices(metadata);
     }
     const url = new URL(window.location.href);
     url.searchParams.set('pair', pair.id);
@@ -1472,6 +1525,25 @@
 
   ui.language.addEventListener('change', () => choosePair(ui.language.value));
   ui.level?.addEventListener('change', () => choosePair(ui.language.value, ui.level.value));
+  ui.levelTrigger?.addEventListener('click', openLevels);
+  ui.levelClose?.addEventListener('click', closeLevels);
+  ui.levelDialog?.addEventListener('close', () => ui.levelTrigger.setAttribute('aria-expanded', 'false'));
+  ui.levelDialog?.addEventListener('click', event => {
+    if (event.target !== ui.levelDialog) return;
+    const rect = ui.levelDialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeLevels();
+  });
+  ui.levelChoices?.addEventListener('keydown', event => {
+    const buttons = [...ui.levelChoices.querySelectorAll('button')];
+    const index = buttons.indexOf(event.target);
+    if (index < 0) return;
+    const columns = getComputedStyle(ui.levelChoices).gridTemplateColumns.split(' ').length;
+    const moves = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -columns, ArrowDown: columns };
+    const target = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1
+      : Object.hasOwn(moves, event.key) ? Math.max(0, Math.min(buttons.length - 1, index + moves[event.key])) : -1;
+    if (target < 0) return;
+    event.preventDefault(); buttons[target].focus();
+  });
   ui.menuTrigger.addEventListener('click', openMenu);
   ui.menuClose.addEventListener('click', closeMenu);
   ui.menuBack.addEventListener('click', () => setMenuView('nav'));
@@ -1481,7 +1553,9 @@
     const rect = ui.menu.getBoundingClientRect();
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeMenu();
   });
-  window.addEventListener('resize', positionMenu);
+  window.addEventListener('resize', positionPopups);
+  window.visualViewport?.addEventListener('resize', positionPopups);
+  window.visualViewport?.addEventListener('scroll', positionPopups);
   ui.voice.addEventListener('change', () => state.voiceChoices.set(state.pair.studyLanguage, ui.voice.value));
   ui.speed.addEventListener('change', () => {
     const rate = Number(ui.speed.value);
@@ -1561,7 +1635,7 @@
   ui.lessonView.addEventListener('touchstart', event => {
     resetCardMotion();
     cardMotion.suppressClickUntil = 0;
-    if (state.screen !== 'lesson' || ui.next.disabled || ui.menu.open || event.touches.length !== 1
+    if (state.screen !== 'lesson' || ui.next.disabled || ui.menu.open || ui.levelDialog?.open || event.touches.length !== 1
         || event.target.closest('button,a,input,textarea,select,[contenteditable]')
         || window.getSelection()?.toString().trim()) return;
     const touch = event.touches[0];
@@ -1571,7 +1645,7 @@
   ui.lessonView.addEventListener('touchmove', event => {
     const gesture = cardMotion.gesture;
     if (!gesture) return;
-    if (event.touches.length !== 1 || ui.menu.open || state.screen !== 'lesson'
+    if (event.touches.length !== 1 || ui.menu.open || ui.levelDialog?.open || state.screen !== 'lesson'
         || gesture.pairId !== state.pair.id || gesture.sequence !== state.sequence || gesture.index !== state.stepIndex
         || window.getSelection()?.toString().trim()) { resetCardMotion(); return; }
     const touch = event.touches[0];
@@ -1586,7 +1660,7 @@
     const gesture = cardMotion.gesture;
     resetCardMotion();
     const touch = event.changedTouches[0];
-    if (!gesture || !touch || event.touches.length || state.screen !== 'lesson' || ui.menu.open
+    if (!gesture || !touch || event.touches.length || state.screen !== 'lesson' || ui.menu.open || ui.levelDialog?.open
         || gesture.pairId !== state.pair.id || gesture.sequence !== state.sequence || gesture.index !== state.stepIndex
         || window.getSelection()?.toString().trim()) return;
     const dx = touch.clientX - gesture.x, dy = touch.clientY - gesture.y;
