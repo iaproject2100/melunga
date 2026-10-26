@@ -13,3 +13,5 @@ Les aperçus Netlify de ce projet gardent leur accès de relecture explicite ; l
 La vérification indépendante comprend six groupes et 22 cas navigateur : essai, connexion réelle de la page, retours refusés, ancien gratuit, accès payé/non payé et déconnexion. Toutes les API sont simulées localement ; aucune opération de compte réelle n’est effectuée. Les tests de contenu comparent les 78 JSON octet par octet et recalculent les droits historiques depuis le classique approuvé.
 
 Ce correctif d’entrée est séparé de la PR #19 des séquences visibles. Les séquences ne sont pas publiées par cette livraison.
+
+Le contrôle indépendant de contenu utilise le commit source du raccordement comme référence protégée (`62c1466`), car le changement de coquille `app.html`/`index.html` est précisément autorisé dans ce lot. Cette comparaison ne remplace pas la preuve séparée contre `ebd6519` : les 78 JSON, les littéraux complets du catalogue et des familles, le backend et les tarifs sont comparés à la version publiée précédente. Le libellé du rapport est corrigé pour nommer cette référence de contrôle sans la confondre avec `origin/main`.

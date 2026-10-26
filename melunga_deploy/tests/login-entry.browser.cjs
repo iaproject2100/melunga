@@ -39,7 +39,7 @@ after(async()=>{
 async function open({width=390,height=844,locale='fr',delayLoad=false}={}){
   const context=await browser.newContext({viewport:{width,height},isMobile:width<1024,
     hasTouch:width<1024,reducedMotion:'reduce',locale:'fr-FR'});
-  const fixture={requests:[],paths:[],errors:[],paid:false,release:null,slowRequested:false};
+  const fixture={requests:[],paths:[],urls:[],errors:[],paid:false,release:null,slowRequested:false};
   await context.addInitScript(({locale,delayLoad})=>{
     localStorage.setItem('melunga-app-language',JSON.stringify({locale,label:locale}));
     localStorage.setItem('ox_imm','1');
@@ -74,9 +74,14 @@ async function open({width=390,height=844,locale='fr',delayLoad=false}={}){
       fixture.slowRequested=true;
       await new Promise(resolve=>{
         fixture.release=async()=>{
-          await route.fulfill({contentType:'image/png',body:Buffer.from(
-            'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aK/0AAAAASUVORK5CYII=','base64')});
-          resolve();
+          try{
+            await route.fulfill({contentType:'image/png',body:Buffer.from(
+              'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aK/0AAAAASUVORK5CYII=','base64')});
+          }catch(error){
+            // Successful sign-in now navigates to the normal course entry;
+            // Chromium can cancel this deliberately held old-document image.
+            if(!/cancel|closed|disposed|invalid interception|already handled/i.test(error.message))throw error;
+          }finally{resolve();}
         };
       });
       return;
@@ -99,7 +104,14 @@ async function open({width=390,height=844,locale='fr',delayLoad=false}={}){
   });
   const page=await context.newPage();
   page.on('pageerror',error=>fixture.errors.push(error.message));
-  page.on('framenavigated',frame=>{if(frame===page.mainFrame())fixture.paths.push(new URL(frame.url()).pathname);});
+  page.on('framenavigated',frame=>{
+    if(frame!==page.mainFrame())return;
+    const url=new URL(frame.url());fixture.urls.push(url.href);
+    // The normal course updates its pair/level query through history.replaceState.
+    // Record screen transitions without treating a same-path URL update as
+    // another intermediate screen; every raw URL remains available for diagnosis.
+    if(fixture.paths.at(-1)!==url.pathname)fixture.paths.push(url.pathname);
+  });
   await page.goto(base+'/index.html');
   await page.locator('[data-go="signin"]:visible').first().waitFor();
   return {page,context,fixture};
@@ -198,7 +210,7 @@ test('closing before window load is respected and does not reopen the form later
   }finally{await h.context.close();}
 });
 
-test('a successful fictitious login before load remains signed in after late initialization',async()=>{
+test('a successful fictitious login before load reaches the normal course after server confirmation',async()=>{
   const h=await open({delayLoad:true});
   try{
     await clickSignIn(h,{beforeLoad:true});
@@ -206,17 +218,22 @@ test('a successful fictitious login before load remains signed in after late ini
     await h.page.locator('#pwLoginEmail').fill(EMAIL);
     await h.page.locator('#pwLoginPassword').fill(PASSWORD);
     await h.page.locator('#pwLoginBtn').click();
-    await h.page.locator('#paywall').waitFor({state:'hidden'});
-    assert.equal(await h.page.evaluate(()=>isPaid),true);
+    await h.page.waitForURL(url=>url.pathname==='/parcours-niveaux.html');
+    await h.page.waitForFunction(()=>window.MelungaCourseAccess?.state().ready
+      &&window.MelungaCourseAccess.state().paid
+      &&window.MelungaMockup?.state().screen==='themes');
+    assert.equal(new URL(h.page.url()).searchParams.get('pair'),'fr-en');
+    assert.equal(new URL(h.page.url()).searchParams.get('level'),'1');
     const requests=h.fixture.requests.filter(req=>req.path.endsWith('/login'));
     assert.equal(requests.length,1);
     assert.equal(requests[0].body.email,EMAIL);
     await h.fixture.release();
     await h.page.waitForLoadState('load');
     await h.page.waitForTimeout(450);
-    assert.equal(await h.page.evaluate(()=>isPaid),true);
-    assert.equal(await h.page.locator('#paywall').isVisible(),false);
-    assert.equal(await h.page.locator('#card').isVisible(),true);
+    assert.equal(new URL(h.page.url()).pathname,'/parcours-niveaux.html','late classic initialization cannot replace the normal course entry');
+    assert.equal(await h.page.evaluate(()=>window.MelungaCourseAccess.state().paid),true);
+    assert.equal(await h.page.locator('#mgThemeGrid').isVisible(),true);
+    assert.deepEqual(h.fixture.paths,['/index.html','/app.html','/parcours-niveaux.html']);
     assert.deepEqual(h.fixture.errors,[]);
   }finally{await h.context.close();}
 });

@@ -20,8 +20,29 @@ const REGISTRY_SHAS = {'fr-en':'dfcde432da30d22ca3375c5544e14fb5f7b6e84db04af9ce
 const DESCRIPTOR_SHA256 = '57d7731c5001d065ce53ced537f782953dcd40dd61846627739adeb1bfd06f20';
 const MANIFEST_SHA256 = 'd0c785ebd39b1cc5fa14f6445b08c7982dda03255741f61bcf21c991c34c423c';
 const INDEPENDENT_CHECKER_SHA256 = '81b140ac5c245acfaf804cd8a8cd8e95138975c8a671bfbda58853664f03685a';
-const CLASSIFIED_JS_SHA256 = '0a7b0342a1a4d4947c961163c1247e4d3567ceeec4cf792e4ab7440310797957';
-const CLASSIFIED_HTML_SHA256 = {'melunga_deploy/maquette-guidee.html':'cd6ec4b702fc15de9f246cc5e541f9c7623754c9a17c699868566c0038f16041','melunga_deploy/parcours-niveaux.html':'850dcc2037fcbcfeb5053b8363027943fcce5e8cb9f166d3b71755029f774c0b'};
+const CLASSIFIED_JS_SHA256 = '5bf9fe7c1edd00add0d7f4444cbef38ed4b49154bcb7ed7c8416d5f9da93d046';
+const CLASSIFIED_HTML_SHA256 = {'melunga_deploy/maquette-guidee.html':'23b4735f311080b24ead739e4bdaa8ec7d76608d213aa80cdeae17a341953dbc','melunga_deploy/parcours-niveaux.html':'ca6f93476cc3130993d3a5b852cf7846fcf9c22fd1dfac6c446d31e435aa292f'};
+// Authorized entry shell: exact current assets are validated before any old UI
+// is exposed to historical source tests. Authentication behavior is exercised
+// independently by course-entry-access.browser.cjs with simulated APIs.
+const ENTRY_ASSET_SHA256 = {
+  'melunga_deploy/app.html':'7faee15f692c0c79c0f3937bc87f246225efc4f410bd10c4bf5401b5c38b8d90',
+  'melunga_deploy/index.html':'00dc701d8b9b5a84b025e9cc369d336317610fd92f2af4d34802cd830969fdbb',
+  'melunga_deploy/course-access.js':'78757809d2d80ec44a190a65acebd93650c4503e431df9322b87568d2b4a8324',
+  'melunga_deploy/content/course-access.json':'35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05',
+  'melunga_deploy/maquette-guidee.js':CLASSIFIED_JS_SHA256,...CLASSIFIED_HTML_SHA256
+};
+function validateEntryAssets(){
+  for(const [filename, expected]of Object.entries(ENTRY_ASSET_SHA256))assert.equal(sha256(fs.readFileSync(path.join(ROOT,filename))),expected,'authorized whole entry asset '+filename);
+  const current=fs.readFileSync(path.join(ROOT,'melunga_deploy/app.html'),'utf8'),original=anchorBytes('melunga_deploy/app.html').toString();
+  for(const name of ['DECKS','PEDAGOGY_FAMILIES']){
+    const prefix='var '+name+' = ';
+    const now=current.split('\n').filter(line=>line.startsWith(prefix)),before=original.split('\n').filter(line=>line.startsWith(prefix));
+    assert.equal(now.length,1,'current classic '+name+' literal exists exactly once');
+    assert.equal(before.length,1,'historic classic '+name+' literal exists exactly once');
+    assert.equal(now[0],before[0],'classic whole '+name+' literal preserved despite authorized entry shell');
+  }
+}
 const clone = v => JSON.parse(JSON.stringify(v));
 const sha256 = raw => crypto.createHash('sha256').update(raw).digest('hex');
 function canonical(v) { return Array.isArray(v) ? '['+v.map(canonical).join(',')+']' : v && typeof v === 'object' ? '{'+Object.keys(v).sort().map(k=>JSON.stringify(k)+':'+canonical(v[k])).join(',')+'}' : JSON.stringify(v); }
@@ -166,6 +187,7 @@ function identityProfiles(pack){
 function ensureProjection() {
   if(projectedCache)return projectedCache;
   const actual=actualPack(),audit=assertOwnClassification(actual),program=path.join(ROOT,'tools/maquette-guidee/check_all_classification_independent.py');
+  validateEntryAssets();
   assert.equal(sha256(fs.readFileSync(program)),INDEPENDENT_CHECKER_SHA256,'whole independent checker is frozen');
   assert.equal(sha256(fs.readFileSync(path.join(ROOT,PREFIX+'manifest.json'))),MANIFEST_SHA256,'exact frozen composed manifest');
   const result=JSON.parse(execFileSync('python3',['-B',program,'--root',ROOT,'--project-all-runtimes'],{cwd:ROOT,encoding:'utf8',maxBuffer:512*1024*1024}));
@@ -192,15 +214,27 @@ const relativeFilename=f=>(path.isAbsolute(f)?path.relative(ROOT,f):f).split(pat
 function beforeRead(filename,document){filename=relativeFilename(filename);if(!filename.startsWith(PREFIX))return typeof document==='string'||Buffer.isBuffer(document)?JSON.parse(document):document;const s=ensureProjection();assert.ok(Object.hasOwn(s.documents,filename));assert.equal(sha256(fs.readFileSync(path.join(ROOT,filename))),s.fingerprints[filename],'actual file cannot change after validation');if(typeof document==='string'||Buffer.isBuffer(document))assert.equal(sha256(document),s.fingerprints[filename],'input bytes were validated');else assert.deepEqual(document,s.actual[filename],'mutated document cannot be hidden by historical projection');return clone(s.documents[filename]);}
 function beforeBytes(filename){filename=relativeFilename(filename);if(!filename.startsWith(PREFIX))return fs.readFileSync(path.join(ROOT,filename));const s=ensureProjection();assert.equal(sha256(fs.readFileSync(path.join(ROOT,filename))),s.fingerprints[filename]);return Buffer.from(anchorBytes(filename));}
 function projectPhrase(pairId,phrase){if(!PAIRS.includes(pairId)||!phrase?.id)return phrase;const candidates=ensureProjection().phraseCandidates.get(pairId+'\0'+phrase.id)||[];for(const [current,before]of candidates)if(isDeepStrictEqual(phrase,current))return clone(before);throw Error('Unvalidated composed tuple cannot be hidden: '+pairId+'/'+phrase.id);}
-function beforeAssetBytes(filename){filename=relativeFilename(filename);const actual=fs.readFileSync(path.join(ROOT,filename));if(!['melunga_deploy/maquette-guidee.js','melunga_deploy/parcours-niveaux.html','melunga_deploy/maquette-guidee.html'].includes(filename))return actual;const before=baselineBytes(filename);assert.ok(before.equals(anchorBytes(filename)),'approved B+C did not change original assets');if(filename.endsWith('.js'))assert.equal(sha256(actual),CLASSIFIED_JS_SHA256,'whole composed runtime classification edit is frozen');else{assert.equal(before.toString().split('maquette-guidee.js?v=12').length,2);assert.equal(actual.toString(),before.toString().replace('maquette-guidee.js?v=12','maquette-guidee.js?v=15'));assert.equal(sha256(actual),CLASSIFIED_HTML_SHA256[filename]);}return before;}
-function inputFiles(){const layers=['docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json','docs/niveaux-progressifs/conventions-tranchees/registre/conventions-tranchees.json'];const evidence=layers.flatMap(file=>{const registry=rawRead(file);return[file,...registry.evidenceFiles.map(p=>p.path)];});return[...evidence.map(f=>path.join(ROOT,f)),...['uncertain-content.cjs','convention-corrections.cjs'].map(f=>path.join(WEB,'tests',f)),path.join(ROOT,'docs/niveaux-progressifs/contenu-tranche/exceptions-contenu-tranche.json'),__filename,path.join(ROOT,'tools/maquette-guidee/check_all_classification_independent.py'),path.join(ROOT,'tools/maquette-guidee/check_conventions_independent.py'),path.join(ROOT,'tools/maquette-guidee/check_uncertain_content_independent.py'),path.join(ROOT,REVIEW+'/visuels.json'),path.join(ROOT,REVIEW+'/registre/composition-entree.json'),...PAIRS.map(p=>path.join(ROOT,REVIEW+'/registre/'+p+'.json')),...documentPaths().map(f=>path.join(ROOT,f))];}
+function beforeAssetBytes(filename){
+  filename=relativeFilename(filename);
+  const actual=fs.readFileSync(path.join(ROOT,filename));
+  if(!Object.hasOwn(ENTRY_ASSET_SHA256,filename))return actual;
+  ensureProjection();validateEntryAssets();
+  if(['melunga_deploy/course-access.js','melunga_deploy/content/course-access.json'].includes(filename))return actual;
+  const before=baselineBytes(filename);
+  assert.ok(before.equals(anchorBytes(filename)),'approved B+C did not change original asset '+filename);
+  if(Object.hasOwn(CLASSIFIED_HTML_SHA256,filename)){
+    assert.equal(actual.toString().replace('  <script src="course-access.js?v=1"></script>\n','').replace('maquette-guidee.js?v=17','maquette-guidee.js?v=12'),before.toString(),'only the approved script entry is added to historical HTML');
+  }
+  return before;
+}
+function inputFiles(){const layers=['docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json','docs/niveaux-progressifs/conventions-tranchees/registre/conventions-tranchees.json'];const evidence=layers.flatMap(file=>{const registry=rawRead(file);return[file,...registry.evidenceFiles.map(p=>p.path)];});return[...Object.keys(ENTRY_ASSET_SHA256).map(f=>path.join(ROOT,f)),...evidence.map(f=>path.join(ROOT,f)),...['uncertain-content.cjs','convention-corrections.cjs'].map(f=>path.join(WEB,'tests',f)),path.join(ROOT,'docs/niveaux-progressifs/contenu-tranche/exceptions-contenu-tranche.json'),__filename,path.join(ROOT,'tools/maquette-guidee/check_all_classification_independent.py'),path.join(ROOT,'tools/maquette-guidee/check_conventions_independent.py'),path.join(ROOT,'tools/maquette-guidee/check_uncertain_content_independent.py'),path.join(ROOT,REVIEW+'/visuels.json'),path.join(ROOT,REVIEW+'/registre/composition-entree.json'),...PAIRS.map(p=>path.join(ROOT,REVIEW+'/registre/'+p+'.json')),...documentPaths().map(f=>path.join(ROOT,f))];}
 function auditRuntime(){return ensureProjection().summary;}
 module.exports={loadLedger,baseline,baselineBytes,anchor,anchorBytes,contentBaseline,contentBytes,rawRead,actualPack,canonicalIndex,expectedPhrase,assertOwnClassification,ensureProjection,beforeRead,beforeBytes,beforeAssetBytes,projectPhrase,inputFiles,auditRuntime};
 
 if(require.main===module){
   const {test,before,after}=require('node:test'),http=require('node:http'),{chromium}=require('playwright-core');
   let server,browser,base,snapshots;
-  const report={status:'running',scope:'local seven-pair classified runtime and emulated Chromium',publicSiteChecked:false,physicalDeviceChecked:false,nativeOrPedagogicalValidation:false,speechMechanism:'mock speechSynthesis; unchanged whole source text only',checks:[],cases:[],errors:[],externalRequests:[],apiRequests:[],negativeCasesRejected:0};
+  const report={status:'running',scope:'local seven-pair classified runtime and emulated Chromium',publicSiteChecked:false,physicalDeviceChecked:false,nativeOrPedagogicalValidation:false,speechMechanism:'mock speechSynthesis; unchanged whole source text only',checks:[],cases:[],errors:[],externalRequests:[],apiRequests:[],simulatedAccessChecks:[],negativeCasesRejected:0};
   const required=['all-2906-decisions-33654-whole-tuples','classification-tamper-rejection','all-seventy-cells-load','new-nine-photos-thirty-eight-cards','preserved-core-aliases-and-typed-tail','reserved-bank-aliases-and-heard-role','saved-review-moves-hidden-and-reserve','saved-review-migration-race','runtime-policy-and-body-integrity','finite-policy-scope-and-small-themes','cards-fit-mobile-and-desktop','content-and-convention-composition-whole-objects','composed-overlap-current-dom'];
   const fingerprint=()=>Object.fromEntries([...new Set([...inputFiles(),...['maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html','app.html'].map(f=>path.join(WEB,f))])].sort().map(f=>[path.relative(ROOT,f),sha256(fs.readFileSync(f))]));
   before(async()=>{
@@ -213,7 +247,7 @@ if(require.main===module){
   async function pageFixture(viewport={width:390,height:844},options={}){
     const context=await browser.newContext({viewport,isMobile:viewport.width<=760,hasTouch:viewport.width<=760,reducedMotion:'reduce'});
     await context.addInitScript(entries=>{window.__classificationSpeech=[];window.SpeechSynthesisUtterance=class{constructor(text){this.text=text;}};Object.defineProperty(window,'speechSynthesis',{value:{cancel(){},getVoices(){return[];},addEventListener(){},speak(u){window.__classificationSpeech.push({text:u.text,lang:u.lang});u.onend?.();}}});if(entries)localStorage.setItem('melunga-guided-review-v1',JSON.stringify({version:1,entries}));},options.savedEntries||null);
-    await context.route('**/*',async route=>{const url=new URL(route.request().url());if(url.origin!==base){report.externalRequests.push(url.origin+url.pathname);return route.abort();}if(/\/(?:\.netlify|api)\//.test(url.pathname)){report.apiRequests.push(url.pathname);return route.abort();}if(options.intercept&&await options.intercept(route,url))return;await route.continue();});
+    await context.route('**/*',async route=>{const url=new URL(route.request().url());if(url.origin!==base){report.externalRequests.push(url.origin+url.pathname);return route.abort();}if(url.pathname==='/.netlify/functions/check-status'&&route.request().method()==='GET'){report.simulatedAccessChecks.push({path:url.pathname,method:'GET',paid:true});return route.fulfill({json:{paid:true}});}if(/\/(?:\.netlify|api)\//.test(url.pathname)){report.apiRequests.push(url.pathname);return route.abort();}if(options.intercept&&await options.intercept(route,url))return;await route.continue();});
     const page=await context.newPage();page.on('pageerror',e=>report.errors.push(e.message));return{context,page};
   }
   async function ready(page,pairId,level){await page.waitForFunction(({pairId,level})=>{const s=window.MelungaMockup?.state();return s?.screen==='themes'&&s.pairId===pairId&&s.level===level;},{pairId,level});}
@@ -236,7 +270,7 @@ if(require.main===module){
 
   test('all 2906 decisions preserve all 33654 complete canonical tuples and exact routes',()=>{
     const a=auditRuntime();assert.equal(a.operations,2906);assert.equal(a.canonical,33654);assert.equal(a.active,32448);assert.equal(a.reserve,1206);
-    for(const f of ['app.html','maquette-guidee.css'])assert.ok(fs.readFileSync(path.join(WEB,f)).equals(baselineBytes('melunga_deploy/'+f)),'existing application and visual layout source unchanged');
+    assert.ok(beforeAssetBytes(path.join(WEB,'app.html')).equals(baselineBytes('melunga_deploy/app.html')),'authorized entry shell restores the exact verified historic classic source');assert.ok(fs.readFileSync(path.join(WEB,'maquette-guidee.css')).equals(baselineBytes('melunga_deploy/maquette-guidee.css')),'visual layout source unchanged');
     for(const f of ['maquette-guidee.js','parcours-niveaux.html','maquette-guidee.html'])beforeAssetBytes(path.join(WEB,f));
     report.checks.push('all-2906-decisions-33654-whole-tuples');
   });
