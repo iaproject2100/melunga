@@ -13,7 +13,7 @@ const {execFileSync} = require('node:child_process');
 const {test, before, after} = require('node:test');
 const {chromium} = require('playwright-core');
 const phoneticCorrections = require('./phonetic-corrections.cjs');
-const uncertainContent = require('./uncertain-content.cjs');
+const allClassification = require('./all-classification.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'content/niveaux-progressifs');
@@ -223,13 +223,13 @@ function repertoire(pairId) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, metadata.repertoirePath)));
 }
 function historicalCell(pair, level) {
-  const file = path.join(DATA, pair, 'L' + level + '.json');
-  return uncertainContent.beforeRead(file, fs.readFileSync(file));
+  const filename = path.join(DATA, pair, 'L' + level + '.json');
+  return allClassification.beforeRead(filename, JSON.parse(fs.readFileSync(filename)));
 }
 function historicalRepertoire(pairId) {
   const metadata = manifest.pairs.find(pair => pair.id === pairId);
-  const file = path.join(ROOT, metadata.repertoirePath);
-  return uncertainContent.beforeRead(file, fs.readFileSync(file));
+  const filename = path.join(ROOT, metadata.repertoirePath);
+  return allClassification.beforeRead(filename, JSON.parse(fs.readFileSync(filename)));
 }
 function reviewFixture(pairId) {
   for (let level = 2; level <= 10; level++) {
@@ -298,8 +298,9 @@ async function ready(page, pair, level) {
 }
 
 async function inspectCell(page, expected, bank, exhaustive) {
+  allClassification.auditRuntime(); // validates the exact frozen policy before any finite auditor exception
   const additionalThemes = situationPlan.themes.filter(theme => theme.level === expected.level);
-  return page.evaluate(({expected, bank, exhaustive, additionalThemes}) => {
+  return page.evaluate(({expected, bank, exhaustive, additionalThemes, classification}) => {
     const eq = (actual, wanted, label) => {
       if (actual !== wanted) throw new Error(label + ': ' + JSON.stringify(actual) + ' != ' + JSON.stringify(wanted));
     };
@@ -335,10 +336,11 @@ async function inspectCell(page, expected, bank, exhaustive) {
     for (const type of ['utterance', 'vocabulary', 'number', 'incomplete', 'review']) {
       eq(combined.filter(phrase => phrase.contentType === type).length, expected.counts[type], 'partition ' + type);
     }
-    if (reserve.some(phrase => !['incomplete', 'review'].includes(phrase.contentType))) throw new Error('active content leaked into reserve');
+    if (reserve.some(phrase => !['incomplete', 'review'].includes(phrase.contentType) && !([...(classification?.reserveIds || []), ...(classification?.hiddenThemeReserveIds || [])].includes(phrase.id) && ['to-reserve', 'hide-theme-to-reserve'].includes(phrase.classification?.operation) && phrase.classification.registrySha256 === classification.registrySha256))) throw new Error('active content leaked into reserve');
     if (active.some(phrase => reserveIds.has(phrase.id) || !['utterance', 'vocabulary', 'number'].includes(phrase.contentType))) throw new Error('reserve leaked into active themes');
-    const bankPhrases = new Map((bank?.phrases || []).map(phrase => [phrase.id, phrase]));
-    const canonicalPhrases = new Map([...(bank?.phrases || []), ...active].map(phrase => [phrase.id, phrase]));
+    const learnable = (bank?.phrases || []).filter(phrase => !phrase.canonicalReserveLocation);
+    const bankPhrases = new Map(learnable.map(phrase => [phrase.id, phrase]));
+    const canonicalPhrases = new Map([...learnable, ...active].map(phrase => [phrase.id, phrase]));
     const receivedModels = new Map((bank?.receivedModels || []).map(phrase => [phrase.id, phrase]));
     const allModels = new Map([...receivedModels, ...canonicalPhrases]);
     const additional = expected.themes.filter(theme => theme.isAdditionalSituation);
@@ -373,14 +375,27 @@ async function inspectCell(page, expected, bank, exhaustive) {
       const references = theme.reviewReferences || [];
       const reviews = new Set(references.map(reference => reference.id));
       const contextual = theme.contextReferences || [];
+      const mixed = classification?.mixedThemes.find(t => t.level === expected.level && t.id === theme.id);
+      const thin = classification?.smallThemeExceptions.find(t => t.level === expected.level && t.id === theme.id);
+      const extension = classification?.situationExtensions.find(t => t.level === expected.level && t.id === theme.id);
+      const classificationExtras = new Set(extension?.addedIds || []);
+      const typedExtensions = (classification?.typedSituationExtensions || []).filter(item => item.themeId === theme.id);
+      const typedIds = new Set(typedExtensions.map(item => item.id));
+      eq(JSON.stringify(theme.classificationTypedExtensionIds || []), JSON.stringify([...typedIds]), 'exact finite typed tail');
+      if (typedExtensions.some(item => !classificationExtras.has(item.id)
+          || theme.phrases.find(phrase => phrase.id === item.id)?.contentType !== item.contentType)) throw new Error('unbound typed extension');
       const contextIds = new Set(contextual.map(reference => reference.id));
+      const aliases = (classification?.contextPrimaryAliases || []).filter(alias => alias.themeId === theme.id);
+      const retainedCoreIds = new Set((classification?.outboundCoreContextReuses || []).filter(item => item.themeId === theme.id).map(item => item.id));
       const newIds = new Set(theme.phrases.map(phrase => phrase.id));
       eq(theme.newCount, newIds.size, 'new count excludes reviews');
       eq(theme.reviewCount, reviews.size, 'review count');
-      eq(theme.reuseCount || 0, contextIds.size, 'context reuse count');
-      eq(theme.presentedCount, newIds.size + reviews.size + contextIds.size, 'presentation count distinguishes first introduction/revision/context reuse');
-      if (theme.presentedCount < 6) throw new Error('visible theme has fewer than six presentations');
-      if (!Number.isInteger(theme.pedagogicalConceptCount) || theme.pedagogicalConceptCount < 6) throw new Error('visible theme declares fewer than six concepts');
+      eq(theme.reuseCount || 0, [...contextIds].filter(id => !newIds.has(id)).length, 'context reuse count');
+      eq(theme.presentedCount, new Set([...newIds, ...reviews, ...contextIds]).size, 'presentation count distinguishes first introduction/revision/context reuse');
+      const minimum = thin ? thin.minimum : 6;
+      if (thin) {eq(thin.presentedCount, theme.presentedCount, 'finite small-theme exception count'); if (minimum < 1) throw new Error('zero minimum exception');}
+      if (theme.presentedCount < minimum) throw new Error('visible theme below reviewed minimum');
+      if (!Number.isInteger(theme.pedagogicalConceptCount) || theme.pedagogicalConceptCount < minimum) throw new Error('visible theme declares fewer than reviewed concepts');
       let countLabel = quantity(theme.presentedCount, theme.contentType);
       if (theme.reviewCount) countLabel += expected.nativeLanguage === 'zh' ? ' · 其中 ' + theme.reviewCount + ' 项复习' : ' · ' + theme.reviewCount + (theme.reviewCount === 1 ? ' révision' : ' révisions');
       if (theme.reuseCount) countLabel += expected.nativeLanguage === 'zh' ? ' · 其中 ' + theme.reuseCount + ' 项情境复用' : ' · ' + theme.reuseCount + (theme.reuseCount === 1 ? ' réemploi' : ' réemplois');
@@ -393,14 +408,15 @@ async function inspectCell(page, expected, bank, exhaustive) {
         if (reference.firstEditorialLevel >= expected.level) throw new Error('future review');
         eq(reference.canonicalThemeId, phrase.canonicalLocation.themeId, 'review first theme');
         eq(phrase.canonicalLocation.pairId, expected.id, 'review belongs to this pair');
-        eq(phrase.contentType, theme.contentType, 'review preserves content type');
+        if (mixed) { if (!mixed.contentTypes.includes(phrase.contentType)) throw new Error('review has unapproved mixed type'); }
+        else eq(phrase.contentType, theme.contentType, 'review preserves content type');
         eq(phrase.placement.domain, theme.domain, 'review preserves family');
         if (reserveIds.has(reference.id)) throw new Error('reserve became a review');
       }
       reviewReferences += references.length;
       for (const reference of contextual) {
         const phrase = bankPhrases.get(reference.id);
-        if (!theme.isAdditionalSituation || !phrase || newIds.has(reference.id) || reviews.has(reference.id)) throw new Error('context reuse is missing, mixed with review or a duplicate primary');
+        if (!theme.isAdditionalSituation || !phrase || newIds.has(reference.id) && !aliases.some(alias => alias.id === reference.id && alias.intentId === reference.intentId) || reviews.has(reference.id)) throw new Error('context reuse is missing, mixed with review or a duplicate primary');
         eq(reference.firstEditorialLevel, phrase.canonicalLocation.level, 'context reuse first level');
         if (reference.firstEditorialLevel > expected.level) throw new Error('future context reuse');
         eq(reference.canonicalThemeId, phrase.canonicalLocation.themeId, 'context reuse first theme');
@@ -412,11 +428,18 @@ async function inspectCell(page, expected, bank, exhaustive) {
         if (local) for (const field of ['study', 'native', 'phon', 'reading']) eq(phrase[field], local[field], 'same-level reuse keeps canonical ' + field);
       }
       contextReferences += contextual.length;
-      if (!['utterance', 'vocabulary', 'number'].includes(theme.contentType)) throw new Error('invalid theme type');
-      eq(theme.section, theme.contentType === 'utterance' ? 'situations' : 'vocabulary', 'theme section');
-      if (theme.phrases.some(phrase => phrase.contentType !== theme.contentType || phrase.isTemplate)) throw new Error('mixed or incomplete theme ' + theme.id);
-      if (theme.contentType === 'vocabulary') {
-        for (const phrase of theme.phrases) if (phrase.lexicalClass && !['adjective', 'preposition', 'adverb', 'color', 'other', 'uncertain'].includes(phrase.lexicalClass)) throw new Error('invalid lexical family');
+      if (mixed) {
+        eq(theme.contentType, 'mixed', 'only registered themes may declare mixed content');
+        eq(JSON.stringify(theme.contentTypes), JSON.stringify(mixed.contentTypes), 'exact reviewed mixed content types');
+        eq(JSON.stringify(theme.phrases.map(phrase => phrase.id)), JSON.stringify(mixed.phraseIds), 'exact reviewed mixed primary identities');
+        if (!['situations', 'vocabulary'].includes(theme.section)) throw new Error('unapproved mixed theme section');
+      } else {
+        if (!['utterance', 'vocabulary', 'number'].includes(theme.contentType)) throw new Error('invalid theme type');
+        eq(theme.section, theme.contentType === 'utterance' ? 'situations' : 'vocabulary', 'theme section');
+      }
+      if (theme.phrases.some(phrase => phrase.isTemplate || phrase.contentType !== theme.contentType && !(mixed?.phraseIds.includes(phrase.id) && mixed.contentTypes.includes(phrase.contentType)))) throw new Error('unregistered mixed or incomplete theme ' + theme.id);
+      if (theme.contentType === 'vocabulary' || mixed) {
+        for (const phrase of theme.phrases.filter(phrase => phrase.contentType === 'vocabulary')) if (phrase.lexicalClass && !['adjective', 'preposition', 'adverb', 'color', 'other', 'uncertain'].includes(phrase.lexicalClass)) throw new Error('invalid lexical family');
       }
       const photo = tile.querySelector('.mg-theme-photo');
       const img = photo?.querySelector('img');
@@ -477,13 +500,13 @@ async function inspectCell(page, expected, bank, exhaustive) {
         eq(support.analyse, false, 'word support is not an automatic sentence exercise');
         eq(support.countsTowardProductionProgression, false, 'word support does not inflate learner phrase progression');
         eq(support.insertedIntoPhraseSteps, false, 'word remains outside sentence steps');
-        if (primaryIds.includes(model.id) || allSteps.some(step => step.utterance === model.id)) throw new Error('isolated word entered situation practice');
+        if ((primaryIds.includes(model.id) || allSteps.some(step => step.utterance === model.id)) && !typedIds.has(model.id)) throw new Error('isolated word entered situation practice');
         lexicalSupportChecks++;
       }
       if (theme.isAdditionalSituation) {
         const planned = additionalThemes.find(candidate => candidate.themeId === theme.id);
         if (!planned) throw new Error('new situation is absent from the frozen plan');
-        eq(theme.contentType, 'utterance', 'new situation contains phrases');
+        eq(theme.contentType, mixed ? 'mixed' : 'utterance', 'additional situation type is ordinary utterance or its finite registered extension');
         eq(theme.section, 'situations', 'new situation section');
         eq(theme.visualId, planned.visualId, 'new situation photo identity');
         eq(theme.title, planned.title[expected.nativeLanguage], 'localized new situation title');
@@ -491,21 +514,23 @@ async function inspectCell(page, expected, bank, exhaustive) {
         eq(JSON.stringify(theme.intentIds), JSON.stringify(expectedIntentOrder), 'eight intents preserve their planned order');
         const intentForPhrase = id => contextual.find(reference => reference.id === id)?.intentId
           || (() => { const phrase = theme.phrases.find(phrase => phrase.id === id); return phrase?.situationIntentId || phrase?.intentId; })();
-        const presentedIntentOrder = primaryIds.map(intentForPhrase);
+        const plannedIds = primaryIds.filter(id => !classificationExtras.has(id));
+        eq(JSON.stringify(primaryIds.slice(8)), JSON.stringify(extension?.addedIds || []), 'classification additions follow the eight original intents');
+        const presentedIntentOrder = plannedIds.map(intentForPhrase);
         eq(JSON.stringify(presentedIntentOrder), JSON.stringify(expectedIntentOrder), 'main phrase order follows intentions 01 to 08, mixing primaries and context reuse');
         for (const kinds of [['understand'], ['imitate'], ['choose-and-recall', 'reply-without-model', 'recall']]) {
-          const phaseOrder = allSteps.filter(step => !step.isPreparation && kinds.includes(step.kind)).map(step => intentForPhrase(step.utterance));
+          const phaseOrder = allSteps.filter(step => !step.isPreparation && !classificationExtras.has(step.utterance) && kinds.includes(step.kind)).map(step => intentForPhrase(step.utterance));
           eq(JSON.stringify(phaseOrder), JSON.stringify(expectedIntentOrder), 'planned intent order within phase ' + kinds.join('/'));
         }
         eq(theme.intentIds.length, 8, 'eight new situation intents');
         eq(theme.reviewCount, 0, 'a context reuse is not relabeled as a revision');
-        eq(primaryIds.length, 8, 'eight whole phrase positions');
-        eq(new Set(primaryIds).size, 8, 'eight unique canonical phrases per new situation');
-        const forms = primaryIds.map(id => canonicalPhrases.get(id)?.study?.normalize('NFKC').toLocaleLowerCase()
+        eq(primaryIds.length, 8 + classificationExtras.size, 'eight planned positions plus exact classification additions');
+        eq(new Set(plannedIds).size, 8, 'eight unique planned canonical phrases per new situation');
+        const forms = plannedIds.map(id => canonicalPhrases.get(id)?.study?.normalize('NFKC').toLocaleLowerCase()
           .replace(/\p{P}/gu, '').replace(/\s+/gu, ' ').trim());
         if (forms.some(form => !form)) throw new Error('new situation contains an empty whole phrase');
         eq(new Set(forms).size, 8, 'eight distinct whole utterances, not punctuation variants');
-        if (primaryIds.some(id => canonicalPhrases.get(id)?.contentType !== 'utterance' || canonicalPhrases.get(id)?.isTemplate)) throw new Error('lexical or open fragment in a new situation');
+        if (primaryIds.some(id => canonicalPhrases.get(id)?.isTemplate || canonicalPhrases.get(id)?.contentType !== 'utterance' && !classificationExtras.has(id))) throw new Error('lexical or open fragment in a new situation');
         situationCases.push({pair: expected.id, level: expected.level, topicId: planned.id,
           themeId: theme.id, intentIds: [...theme.intentIds], newCount: theme.newCount,
           reuseCount: theme.reuseCount || 0, reviewCount: theme.reviewCount,
@@ -525,7 +550,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
       }
       for (const id of contextIds) {
         const reuseSteps = allSteps.filter(step => step.utterance === id);
-        if (reuseSteps.some(step => step.isContextReuse !== true || step.isReview)) throw new Error('context reuse cycle is not explicitly marked');
+        if (reuseSteps.some(step => step.isContextReuse !== !retainedCoreIds.has(id) || step.isReview)) throw new Error('context reuse cycle is not explicitly marked');
         const kinds = reuseSteps.map(step => step.kind);
         if (!kinds.includes('understand') || !kinds.includes('imitate') || !kinds.some(kind => ['choose-and-recall', 'reply-without-model', 'recall'].includes(kind))) throw new Error('context reuse omits a complete hear/imitate/recall cycle');
       }
@@ -539,8 +564,9 @@ async function inspectCell(page, expected, bank, exhaustive) {
         });
         for (const step of sequence.steps) {
           const references = [step.utterance, ...(step.choices || [])].filter(Boolean);
-          if (references.some(id => reserveIds.has(id))) throw new Error('reserve became an exercise ' + step.id);
-          if (theme.contentType === 'utterance' && references.some(id => allModels.get(id)?.contentType !== 'utterance')) throw new Error('lexeme became a situation exercise ' + step.id);
+          if (references.some(id => reserveIds.has(id) && !(step.kind === 'receive' && receivedModels.get(id)?.heardOnly && receivedModels.get(id)?.canonicalReserveLocation))) throw new Error('reserve became an exercise ' + step.id);
+          if ((theme.contentType === 'utterance' || theme.isAdditionalSituation && references.some(id => !classificationExtras.has(id)))
+              && references.some(id => allModels.get(id)?.contentType !== 'utterance')) throw new Error('lexeme became a situation exercise ' + step.id);
         }
       });
       // At 390px check every rendered step/field. Other widths exercise each theme entry.
@@ -553,7 +579,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
         eq(state().phraseId, phrase.id, 'phrase identity');
         const received = step.kind === 'receive';
         const review = !received && reviews.has(phrase.id);
-        const contextReuse = !received && contextIds.has(phrase.id);
+        const contextReuse = !received && contextIds.has(phrase.id) && !retainedCoreIds.has(phrase.id);
         eq(!!step.isReview, review, 'review step is explicitly marked');
         eq(!!step.isContextReuse, contextReuse, 'context reuse step is explicitly marked');
         eq(byId('mgLessonTheme').textContent, String(i + 1).padStart(2, '0') + ' · ' + theme.title
@@ -561,7 +587,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
             : contextReuse ? expected.nativeLanguage === 'zh' ? ' · 情境复用' : ' · Réemploi' : ''), 'explicit review/context-reuse badge');
         if (review) reviewSteps++;
         if (contextReuse) contextSteps++;
-        if (reserveIds.has(state().phraseId)) throw new Error('reserve reached DOM/audio state');
+        if (reserveIds.has(state().phraseId) && !(received && receivedModels.get(state().phraseId)?.heardOnly && receivedModels.get(state().phraseId)?.canonicalReserveLocation)) throw new Error('reserve reached learner DOM/audio state');
         eq(byId('mgCounter').textContent, (primaryIds.indexOf(step.prepares || phrase.id) + 1) + ' / ' + primaryIds.length, 'primary-only lesson counter');
         const learnerStepCount = allSteps.filter(candidate => candidate.kind !== 'receive').length;
         const completedLearnerSteps = allSteps.slice(0, index + 1).filter(candidate => candidate.kind !== 'receive').length;
@@ -664,7 +690,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
       receivedSteps, receivedAudio, receivedFields, receivedCounterChecks, preparedAnswerChecks, lexicalSupportChecks,
       additionalAudioByKind, themes: expected.themes.length,
       renderedByType, reserved: reserve.length, held: held.length, canonical: combined.length};
-  }, {expected, bank, exhaustive, additionalThemes});
+  }, {expected, bank, exhaustive, additionalThemes, classification: manifest.allClassification?.pairs.find(pair => pair.pair === expected.id) || null});
 }
 
 for (const width of report.widths) test('70 pair/level cells at ' + width + 'px', {timeout: 300000}, async () => checked('matrix-' + width, async () => {
@@ -718,7 +744,7 @@ test('196 additional situations preserve 1568 whole source positions without inf
   // Check the exact approved after-help, annotation and whole-card conservation
   // first. Only source comparisons below project back to the original whole aid;
   // the DOM matrix continues to expect the actual corrected runtime JSON.
-  report.uncertainContentSourceAudit = uncertainContent.auditRuntime();
+  report.allClassificationAudit = allClassification.auditRuntime();
   report.phoneticCorrectionsSourceAudit = phoneticCorrections.auditRuntime();
   report.reviewedFieldCorrectionsSourceAudit = report.phoneticCorrectionsSourceAudit.lot3;
   report.lot4CorrectionsSourceAudit = report.phoneticCorrectionsSourceAudit.lot3.lot4;
@@ -1196,9 +1222,9 @@ test('first manifest and first cell failures have an operational retry', {timeou
 }));
 
 test('L1 received/context references load their bank and a failed bank can be retried', {timeout: 30000}, async () => checked('repertoire-loading-and-retry', async () => {
-  const pairId = manifest.pairs[0].id;
+  const pairId = 'fr-es'; // generic corruption fixtures stay outside the pinned English edition
   const target = reviewFixture(pairId);
-  const bankPath = '/' + manifest.pairs[0].repertoirePath;
+  const bankPath = '/' + manifest.pairs.find(pair => pair.id === pairId).repertoirePath;
   const noBank = await open(390);
   try {
     await noBank.page.goto(base + '/parcours-niveaux.html?pair=' + pairId + '&level=1'); await ready(noBank.page, pairId, 1);
@@ -1274,7 +1300,7 @@ test('same-level context reuse is explicit, audible and distinct from a revision
 }));
 
 test('invalid context intent, future, type and review markers are refused and a corrected bank reloads', {timeout: 90000}, async () => checked('context-reference-guards-and-retry', async () => {
-  const pairId = manifest.pairs[0].id;
+  const pairId = 'fr-es'; // generic corruption fixtures stay outside the pinned English edition
   const basic = contextFixture(pairId);
   report.contextGuardResults = [];
   for (const alteration of ['future', 'intent', 'type', 'not-additional', 'mixed-review-marker', 'missing-context-marker', 'missing-intent-position', 'duplicate-intent', 'intent-order']) {
@@ -1315,7 +1341,7 @@ test('invalid context intent, future, type and review markers are refused and a 
         })})).filter(sequence => sequence.phraseIds.length);
     }
     const cellPath = '/content/niveaux-progressifs/' + pairId + '/L' + target.level + '.json';
-    const bankPath = '/' + manifest.pairs[0].repertoirePath;
+    const bankPath = '/' + manifest.pairs.find(pair => pair.id === pairId).repertoirePath;
     let corrupted = true;
     const fixture = await open(390, async (route, url) => {
       if (url.pathname === cellPath || url.pathname === bankPath) {
@@ -1356,7 +1382,7 @@ test('invalid context intent, future, type and review markers are refused and a 
 }));
 
 test('corrupt interlocutor roles, preparation, progress and lexical wiring are refused; corrected bank retries restore a full cycle', {timeout: 180000}, async () => checked('received-reference-guards-and-retry', async () => {
-  const pairId = manifest.pairs[0].id;
+  const pairId = 'fr-es'; // generic corruption fixtures stay outside the pinned English edition
   const basic = receivedFixture(pairId);
   report.receivedGuardResults = [];
   const alterations = ['future-first-hearing', 'wrong-model-type', 'role-on-model', 'production-progress',
@@ -1399,7 +1425,7 @@ test('corrupt interlocutor roles, preparation, progress and lexical wiring are r
       sequence.steps.unshift({id: 'injected-word', kind: 'understand', utterance: theme.lexicalSupports[0].utterance || theme.lexicalSupports[0].id});
     }
     const cellPath = '/content/niveaux-progressifs/' + pairId + '/L' + target.level + '.json';
-    const bankPath = '/' + manifest.pairs[0].repertoirePath;
+    const bankPath = '/' + manifest.pairs.find(pair => pair.id === pairId).repertoirePath;
     let corrupted = true;
     const fixture = await open(390, async (route, url) => {
       if (url.pathname === cellPath || url.pathname === bankPath) {
@@ -1460,7 +1486,7 @@ test('corrupt interlocutor roles, preparation, progress and lexical wiring are r
 }));
 
 test('future, wrong-type, wrong-family, wrong-subclass and insufficient-concept references are refused', {timeout: 60000}, async () => checked('repertoire-reference-guards', async () => {
-  const pairId = manifest.pairs[0].id;
+  const pairId = 'fr-es'; // generic corruption fixtures stay outside the pinned English edition
   const basic = reviewFixture(pairId);
   for (const alteration of ['future', 'type', 'family', 'subclass', 'concept-count']) {
     const target = JSON.parse(JSON.stringify(basic.data));
@@ -1487,7 +1513,7 @@ test('future, wrong-type, wrong-family, wrong-subclass and insufficient-concept 
       phrase.placement.domain = theme.domain === 'vocab-maison' ? 'vocab-voyage' : 'vocab-maison';
     }
     const cellPath = '/content/niveaux-progressifs/' + pairId + '/L' + target.level + '.json';
-    const bankPath = '/' + manifest.pairs[0].repertoirePath;
+    const bankPath = '/' + manifest.pairs.find(pair => pair.id === pairId).repertoirePath;
     let corrupted = true;
     const fixture = await open(390, async (route, url) => {
       if (url.pathname === cellPath || url.pathname === bankPath) {
@@ -1510,9 +1536,9 @@ test('future, wrong-type, wrong-family, wrong-subclass and insufficient-concept 
 }));
 
 test('a delayed old bank cannot overwrite a newly selected pair or its review audio', {timeout: 30000}, async () => checked('repertoire-pair-race', async () => {
-  const first = manifest.pairs[0].id, second = manifest.pairs[1].id;
+  const first = 'fr-es', second = 'fr-zh'; // generic late-response behavior, independently of English raw-body integrity
   const firstTarget = reviewFixture(first), secondTarget = reviewFixture(second);
-  const firstBankPath = '/' + manifest.pairs[0].repertoirePath;
+  const firstBankPath = '/' + manifest.pairs.find(pair => pair.id === first).repertoirePath;
   let release;
   let requestedResolve;
   const requested = new Promise(resolve => { requestedResolve = resolve; });

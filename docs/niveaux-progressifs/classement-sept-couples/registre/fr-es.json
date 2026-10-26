@@ -1,0 +1,8078 @@
+{
+ "id": "tri-themes-claude-fr-es",
+ "pair": "fr-es",
+ "baseSnapshotCommit": "13f42b5814f2b230d76d2d0ef267dcf406c523c2",
+ "source": "docs/revue-integrale/lot8-fr-es-L1-L10/propositions-niveaux-themes.json",
+ "decisionsKartech": {
+  "changementsDeNiveau": "acceptés quand aucun thème du niveau ne convient et qu’un thème clair existe à un autre niveau",
+  "doublons": "une seule variante présentée, l’autre en réserve, rien n’est supprimé",
+  "nouveauxThemes": "validés (26 octobre 2026)",
+  "themesQuasiVides": "masqués ; leurs 0 à 2 cartes restantes passent en réserve ; ils pourront revenir avec de vraies cartes",
+  "L9-saluer": "formules de politesse soutenues gardées en L9 ; thème renommé"
+ },
+ "newThemes": [],
+ "renameThemes": [],
+ "hideThemes": [
+  {
+   "theme": "L4-decrire",
+   "level": 4,
+   "title": "Décrire un changement",
+   "cardsBefore": 5,
+   "remainingToReserve": []
+  },
+  {
+   "theme": "L7-vocab-adverbes",
+   "level": 7,
+   "title": "Adverbes",
+   "cardsBefore": 3,
+   "remainingToReserve": [
+    "catalogue:es:4082",
+    "catalogue:es:4090"
+   ]
+  },
+  {
+   "theme": "L9-saluer",
+   "level": 9,
+   "title": "Présenter un parcours en détail",
+   "cardsBefore": 5,
+   "remainingToReserve": [
+    "catalogue:es:3211"
+   ]
+  },
+  {
+   "theme": "L9-comprendre",
+   "level": 9,
+   "title": "Interpréter et reformuler un propos",
+   "cardsBefore": 3,
+   "remainingToReserve": [
+    "catalogue:es:3120",
+    "catalogue:es:4615"
+   ]
+  },
+  {
+   "theme": "L9-quotidien",
+   "level": 9,
+   "title": "Discuter des modes de vie",
+   "cardsBefore": 5,
+   "remainingToReserve": [
+    "catalogue:es:4652"
+   ]
+  }
+ ],
+ "counts": {
+  "cards": 308,
+  "move": 302,
+  "to-reserve": 5,
+  "keep": 1,
+  "levelChanges": 33,
+  "intoNewThemes": 0,
+  "hiddenThemes": 5,
+  "remainingToReserve": 6
+ },
+ "ops": [
+  {
+   "p": "P000",
+   "id": "catalogue:es:3466",
+   "study": "Ni hablar.",
+   "fromLevel": 1,
+   "fromTheme": "comprendre",
+   "motif": "Refus en réplique (« pas question ») : réaction conversationnelle, pas de la compréhension.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "conversation",
+   "proposals": [
+    "P000"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L1.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     5
+    ],
+    "study": "Ni hablar."
+   }
+  },
+  {
+   "p": "P001",
+   "id": "catalogue:es:3541",
+   "study": "Mejor ni hablar.",
+   "fromLevel": 1,
+   "fromTheme": "comprendre",
+   "motif": "Réplique pour écarter un sujet : fait vivre la conversation.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "conversation",
+   "proposals": [
+    "P001"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L1.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     11
+    ],
+    "study": "Mejor ni hablar."
+   }
+  },
+  {
+   "p": "P002",
+   "id": "catalogue:es:4586",
+   "study": "A mí me va bien.",
+   "fromLevel": 1,
+   "fromTheme": "deplacements",
+   "motif": "Accord en réplique, sans lien avec le déplacement.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "conversation",
+   "proposals": [
+    "P002"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L1.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     11
+    ],
+    "study": "A mí me va bien."
+   }
+  },
+  {
+   "p": "P003",
+   "id": "catalogue:es:3423",
+   "study": "Vale.",
+   "fromLevel": 1,
+   "fromTheme": "conversation",
+   "motif": "Même thème pour les deux ; on garde la version exclamative.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P003"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L1.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     5
+    ],
+    "study": "Vale."
+   }
+  },
+  {
+   "p": "P004",
+   "id": "catalogue:es:3508",
+   "study": "Ya ves.",
+   "fromLevel": 1,
+   "fromTheme": "conversation",
+   "motif": "Même thème pour les deux ; on garde la version exclamative.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P004"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L1.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     34
+    ],
+    "study": "Ya ves."
+   }
+  },
+  {
+   "p": "P005",
+   "id": "catalogue:es:3484",
+   "study": "¿En serio?",
+   "fromLevel": 1,
+   "fromTheme": "reserve",
+   "motif": "La version déjà en réserve reste en réserve ; celle rangée en L1-vocab-adverbes est mieux placée.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P005"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "reserve",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L1.json",
+    "location": [
+     "reserve",
+     5
+    ],
+    "study": "¿En serio?"
+   }
+  },
+  {
+   "p": "P006",
+   "id": "catalogue:es:3318",
+   "study": "¿Cabe todo en un envío?",
+   "fromLevel": 10,
+   "fromTheme": "L10-ressentis",
+   "motif": "Question logistique d'expédition : échange professionnel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P006"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     2
+    ],
+    "study": "¿Cabe todo en un envío?"
+   }
+  },
+  {
+   "p": "P007",
+   "id": "catalogue:es:3265",
+   "study": "¿Cuánto cuesta el envío exprés?",
+   "fromLevel": 10,
+   "fromTheme": "L10-repas",
+   "motif": "Coût d'un envoi express : logistique, pas un échange autour d'une table.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P007"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     0
+    ],
+    "study": "¿Cuánto cuesta el envío exprés?"
+   }
+  },
+  {
+   "p": "P008",
+   "id": "catalogue:es:4411",
+   "study": "El poliéster es más barato que el algodón.",
+   "fromLevel": 10,
+   "fromTheme": "L10-repas",
+   "motif": "Comparer le prix de matières textiles relève du négoce.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P008"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     10
+    ],
+    "study": "El poliéster es más barato que el algodón."
+   }
+  },
+  {
+   "p": "P009",
+   "id": "catalogue:es:3365",
+   "study": "Le expreso mi más sincero agradecimiento.",
+   "fromLevel": 10,
+   "fromTheme": "L10-decrire",
+   "motif": "Formule de remerciement soutenue, comme les formules de politesse de L10-saluer.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-saluer",
+   "proposals": [
+    "P009"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     3
+    ],
+    "study": "Le expreso mi más sincero agradecimiento."
+   }
+  },
+  {
+   "p": "P010",
+   "id": "catalogue:es:4383",
+   "study": "La placa base está defectuosa.",
+   "fromLevel": 10,
+   "fromTheme": "L10-quotidien",
+   "motif": "Signalement d'un défaut technique : échange professionnel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P010"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     8
+    ],
+    "study": "La placa base está defectuosa."
+   }
+  },
+  {
+   "p": "P011",
+   "id": "catalogue:es:4636",
+   "study": "Sin picante para mí, por favor.",
+   "fromLevel": 2,
+   "fromTheme": "L2-saluer",
+   "motif": "Préférence alimentaire au repas.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-repas-preferences",
+   "proposals": [
+    "P011"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     26
+    ],
+    "study": "Sin picante para mí, por favor."
+   }
+  },
+  {
+   "p": "P012",
+   "id": "catalogue:es:4642",
+   "study": "Una caña y una de bravas, por favor.",
+   "fromLevel": 2,
+   "fromTheme": "L2-saluer",
+   "motif": "Commande au bar.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P012"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     27
+    ],
+    "study": "Una caña y una de bravas, por favor."
+   }
+  },
+  {
+   "p": "P013",
+   "id": "catalogue:es:4644",
+   "study": "A esta dirección, por favor.",
+   "fromLevel": 2,
+   "fromTheme": "L2-saluer",
+   "motif": "Donner une adresse au taxi : déplacement.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-deplacements",
+   "proposals": [
+    "P013"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     28
+    ],
+    "study": "A esta dirección, por favor."
+   }
+  },
+  {
+   "p": "P014",
+   "id": "catalogue:es:92",
+   "study": "Voy a intentarlo.",
+   "fromLevel": 2,
+   "fromTheme": "L2-repas",
+   "motif": "Exprime une intention, sans lien avec la commande.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-ressentis",
+   "proposals": [
+    "P014"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     0
+    ],
+    "study": "Voy a intentarlo."
+   }
+  },
+  {
+   "p": "P015",
+   "id": "catalogue:es:224",
+   "study": "Vamos a intentarlo.",
+   "fromLevel": 2,
+   "fromTheme": "L2-repas",
+   "motif": "Exprime une intention, sans lien avec la commande.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-ressentis",
+   "proposals": [
+    "P015"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     6
+    ],
+    "study": "Vamos a intentarlo."
+   }
+  },
+  {
+   "p": "P016",
+   "id": "catalogue:es:3652",
+   "study": "Lo intento.",
+   "fromLevel": 2,
+   "fromTheme": "L2-repas",
+   "motif": "Exprime une intention, sans lien avec la commande.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-ressentis",
+   "proposals": [
+    "P016"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     27
+    ],
+    "study": "Lo intento."
+   }
+  },
+  {
+   "p": "P017",
+   "id": "catalogue:es:59",
+   "study": "Me lo pensaré.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Réponse à une proposition, pour différer la décision : réplique de conversation.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-conversation",
+   "proposals": [
+    "P017"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     0
+    ],
+    "study": "Me lo pensaré."
+   }
+  },
+  {
+   "p": "P018",
+   "id": "catalogue:es:65",
+   "study": "Me parece bien.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Accord en réplique.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-conversation",
+   "proposals": [
+    "P018"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     1
+    ],
+    "study": "Me parece bien."
+   }
+  },
+  {
+   "p": "P019",
+   "id": "catalogue:es:96",
+   "study": "Voy a pensarlo.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Réponse à une proposition, pour différer la décision : réplique de conversation.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-conversation",
+   "proposals": [
+    "P019"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     3
+    ],
+    "study": "Voy a pensarlo."
+   }
+  },
+  {
+   "p": "P020",
+   "id": "catalogue:es:321",
+   "study": "Te lo voy a decir.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Gestion de l'échange, sans lien avec le chemin.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-conversation",
+   "proposals": [
+    "P020"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     24
+    ],
+    "study": "Te lo voy a decir."
+   }
+  },
+  {
+   "p": "P021",
+   "id": "catalogue:es:498",
+   "study": "Lo voy a pensar.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Réponse à une proposition, pour différer la décision : réplique de conversation.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-conversation",
+   "proposals": [
+    "P021"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     34
+    ],
+    "study": "Lo voy a pensar."
+   }
+  },
+  {
+   "p": "P022",
+   "id": "catalogue:es:3616",
+   "study": "A lo que iba.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Marqueur pour reprendre le fil de la conversation.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-conversation",
+   "proposals": [
+    "P022"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     42
+    ],
+    "study": "A lo que iba."
+   }
+  },
+  {
+   "p": "P023",
+   "id": "catalogue:es:3648",
+   "study": "¡Anda ya!",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Réaction d'incrédulité.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-conversation",
+   "proposals": [
+    "P023"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     43
+    ],
+    "study": "¡Anda ya!"
+   }
+  },
+  {
+   "p": "P024",
+   "id": "catalogue:es:208",
+   "study": "No me queda bien.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Essayage d'un vêtement.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-piste-vetement-taille",
+   "proposals": [
+    "P024"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     14
+    ],
+    "study": "No me queda bien."
+   }
+  },
+  {
+   "p": "P025",
+   "id": "catalogue:es:215",
+   "study": "Me queda perfecto.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Essayage d'un vêtement.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-piste-vetement-taille",
+   "proposals": [
+    "P025"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     15
+    ],
+    "study": "Me queda perfecto."
+   }
+  },
+  {
+   "p": "P026",
+   "id": "catalogue:es:171",
+   "study": "Lo coloco aquí.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Ranger un objet chez soi : la phrase sert mieux le thème « Parler de chez soi » qu'un thème de vocabulaire.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-quotidien",
+   "proposals": [
+    "P026"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     11
+    ],
+    "study": "Lo coloco aquí."
+   }
+  },
+  {
+   "p": "P027",
+   "id": "catalogue:es:280",
+   "study": "Voy a añadirlo.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Geste domestique (ajouter un ingrédient, un objet) : chez soi.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-quotidien",
+   "proposals": [
+    "P027"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     20
+    ],
+    "study": "Voy a añadirlo."
+   }
+  },
+  {
+   "p": "P028",
+   "id": "catalogue:es:289",
+   "study": "Dóblalo por aquí.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Consigne domestique (plier) : chez soi.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-quotidien",
+   "proposals": [
+    "P028"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     22
+    ],
+    "study": "Dóblalo por aquí."
+   }
+  },
+  {
+   "p": "P029",
+   "id": "catalogue:es:341",
+   "study": "Me hago una idea.",
+   "fromLevel": 2,
+   "fromTheme": "L2-deplacements",
+   "motif": "Signale une compréhension approximative.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-comprendre",
+   "proposals": [
+    "P029"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     27
+    ],
+    "study": "Me hago una idea."
+   }
+  },
+  {
+   "p": "P030",
+   "id": "catalogue:es:222",
+   "study": "Ya lo tengo claro.",
+   "fromLevel": 2,
+   "fromTheme": "L2-reperes",
+   "motif": "Confirme qu'on a compris.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-comprendre",
+   "proposals": [
+    "P030"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     11
+    ],
+    "study": "Ya lo tengo claro."
+   }
+  },
+  {
+   "p": "P031",
+   "id": "catalogue:es:413",
+   "study": "No te rindas ahora.",
+   "fromLevel": 2,
+   "fromTheme": "L2-reperes",
+   "motif": "Encouragement, qui exprime un souhait pour l'autre ; ni heure ni quantité.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-ressentis",
+   "proposals": [
+    "P031"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     32
+    ],
+    "study": "No te rindas ahora."
+   }
+  },
+  {
+   "p": "P032",
+   "id": "catalogue:es:505",
+   "study": "Algo es algo.",
+   "fromLevel": 2,
+   "fromTheme": "L2-reperes",
+   "motif": "Réaction en réplique.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-conversation",
+   "proposals": [
+    "P032"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     38
+    ],
+    "study": "Algo es algo."
+   }
+  },
+  {
+   "p": "P033",
+   "id": "catalogue:es:436",
+   "study": "¿Qué tal?",
+   "fromLevel": 2,
+   "fromTheme": "L2-ressentis",
+   "motif": "Salutation.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P033"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     37
+    ],
+    "study": "¿Qué tal?"
+   }
+  },
+  {
+   "p": "P034",
+   "id": "catalogue:es:491",
+   "study": "¿Cómo está la familia?",
+   "fromLevel": 2,
+   "fromTheme": "L2-ressentis",
+   "motif": "Prendre des nouvelles : échange social.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P034"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     40
+    ],
+    "study": "¿Cómo está la familia?"
+   }
+  },
+  {
+   "p": "P035",
+   "id": "catalogue:es:373",
+   "study": "No te oigo bien.",
+   "fromLevel": 2,
+   "fromTheme": "L2-ressentis",
+   "motif": "Signaler qu'on entend mal, pour faire répéter.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-comprendre",
+   "proposals": [
+    "P035"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     27
+    ],
+    "study": "No te oigo bien."
+   }
+  },
+  {
+   "p": "P036",
+   "id": "catalogue:es:356",
+   "study": "No me funciona la tarjeta.",
+   "fromLevel": 2,
+   "fromTheme": "L2-quotidien",
+   "motif": "Problème de paiement par carte en commerce.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P036"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     10
+    ],
+    "study": "No me funciona la tarjeta."
+   }
+  },
+  {
+   "p": "P037",
+   "id": "catalogue:es:165",
+   "study": "Me esfuerzo mucho.",
+   "fromLevel": 2,
+   "fromTheme": "L2-decrire",
+   "motif": "Parler de soi et de son effort, pas décrire ce qu'on cherche.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-ressentis",
+   "proposals": [
+    "P037"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     2
+    ],
+    "study": "Me esfuerzo mucho."
+   }
+  },
+  {
+   "p": "P038",
+   "id": "catalogue:es:186",
+   "study": "Me río mucho.",
+   "fromLevel": 2,
+   "fromTheme": "L2-decrire",
+   "motif": "Exprime un ressenti.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-ressentis",
+   "proposals": [
+    "P038"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     3
+    ],
+    "study": "Me río mucho."
+   }
+  },
+  {
+   "p": "P039",
+   "id": "catalogue:es:202",
+   "study": "Te lo agradezco mucho.",
+   "fromLevel": 2,
+   "fromTheme": "L2-decrire",
+   "motif": "Remerciement, à côté de « Gracias por todo » dans L2-saluer.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P039"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     4
+    ],
+    "study": "Te lo agradezco mucho."
+   }
+  },
+  {
+   "p": "P040",
+   "id": "catalogue:es:336",
+   "study": "Me lo paso genial.",
+   "fromLevel": 2,
+   "fromTheme": "L2-decrire",
+   "motif": "Exprime un ressenti.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-ressentis",
+   "proposals": [
+    "P040"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     8
+    ],
+    "study": "Me lo paso genial."
+   }
+  },
+  {
+   "p": "P041",
+   "id": "catalogue:es:394",
+   "study": "Me conmovió mucho.",
+   "fromLevel": 2,
+   "fromTheme": "L2-decrire",
+   "motif": "Exprime un ressenti.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-ressentis",
+   "proposals": [
+    "P041"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     10
+    ],
+    "study": "Me conmovió mucho."
+   }
+  },
+  {
+   "p": "P042",
+   "id": "catalogue:es:409",
+   "study": "Me caes genial.",
+   "fromLevel": 2,
+   "fromTheme": "L2-decrire",
+   "motif": "Exprime un ressenti envers quelqu'un (comme « Me caes bien »).",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-ressentis",
+   "proposals": [
+    "P042"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     11
+    ],
+    "study": "Me caes genial."
+   }
+  },
+  {
+   "p": "P043",
+   "id": "catalogue:es:419",
+   "study": "Me muero de ganas.",
+   "fromLevel": 2,
+   "fromTheme": "L2-decrire",
+   "motif": "Exprime une envie.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-ressentis",
+   "proposals": [
+    "P043"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     12
+    ],
+    "study": "Me muero de ganas."
+   }
+  },
+  {
+   "p": "P044",
+   "id": "catalogue:es:3674",
+   "study": "No tener abuela.",
+   "fromLevel": 2,
+   "fromTheme": "L2-vocab-actions",
+   "motif": "Expression imagée opaque sur le caractère d'une personne : relève du niveau L8.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-personnes",
+   "proposals": [
+    "P044"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     10
+    ],
+    "study": "No tener abuela."
+   }
+  },
+  {
+   "p": "P045",
+   "id": "catalogue:es:942",
+   "study": "No me lo puedo creer.",
+   "fromLevel": 3,
+   "fromTheme": "L3-ressentis",
+   "motif": "Même thème pour les deux ; on garde la version exclamative.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P045"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     51
+    ],
+    "study": "No me lo puedo creer."
+   }
+  },
+  {
+   "p": "P046",
+   "id": "catalogue:es:3700",
+   "study": "La carta, por favor.",
+   "fromLevel": 3,
+   "fromTheme": "L3-saluer",
+   "motif": "Demande au restaurant. Le thème de vocabulaire convient moins à une demande.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-repas",
+   "proposals": [
+    "P046"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     12
+    ],
+    "study": "La carta, por favor."
+   }
+  },
+  {
+   "p": "P047",
+   "id": "catalogue:es:3762",
+   "study": "El doble, por favor.",
+   "fromLevel": 3,
+   "fromTheme": "L3-saluer",
+   "motif": "Commande.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-repas",
+   "proposals": [
+    "P047"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     15
+    ],
+    "study": "El doble, por favor."
+   }
+  },
+  {
+   "p": "P048",
+   "id": "catalogue:es:831",
+   "study": "¿Qué te gusta hacer?",
+   "fromLevel": 3,
+   "fromTheme": "L3-comprendre",
+   "motif": "Question sur les goûts.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-ressentis",
+   "proposals": [
+    "P048"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     5
+    ],
+    "study": "¿Qué te gusta hacer?"
+   }
+  },
+  {
+   "p": "P049",
+   "id": "catalogue:es:664",
+   "study": "¿Dónde está el hospital?",
+   "fromLevel": 3,
+   "fromTheme": "L3-ressentis",
+   "motif": "Demander où se trouve un lieu.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-deplacements",
+   "proposals": [
+    "P049"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     21
+    ],
+    "study": "¿Dónde está el hospital?"
+   }
+  },
+  {
+   "p": "P050",
+   "id": "catalogue:es:2444",
+   "study": "Quiero hacer el check-in.",
+   "fromLevel": 3,
+   "fromTheme": "L3-ressentis",
+   "motif": "Démarche à l'hôtel.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-hotel-sejour",
+   "proposals": [
+    "P050"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     57
+    ],
+    "study": "Quiero hacer el check-in."
+   }
+  },
+  {
+   "p": "P051",
+   "id": "catalogue:es:2452",
+   "study": "Quiero hacer el check-out.",
+   "fromLevel": 3,
+   "fromTheme": "L3-ressentis",
+   "motif": "Démarche à l'hôtel.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-hotel-sejour",
+   "proposals": [
+    "P051"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     58
+    ],
+    "study": "Quiero hacer el check-out."
+   }
+  },
+  {
+   "p": "P052",
+   "id": "catalogue:es:612",
+   "study": "Voy a barrer.",
+   "fromLevel": 3,
+   "fromTheme": "L3-deplacements",
+   "motif": "Tâche ménagère.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-quotidien",
+   "proposals": [
+    "P052"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     4
+    ],
+    "study": "Voy a barrer."
+   }
+  },
+  {
+   "p": "P053",
+   "id": "catalogue:es:659",
+   "study": "Me voy a la cama.",
+   "fromLevel": 3,
+   "fromTheme": "L3-deplacements",
+   "motif": "Routine du coucher.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-quotidien",
+   "proposals": [
+    "P053"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     10
+    ],
+    "study": "Me voy a la cama."
+   }
+  },
+  {
+   "p": "P054",
+   "id": "catalogue:es:1231",
+   "study": "¿Vamos al cine?",
+   "fromLevel": 3,
+   "fromTheme": "L3-deplacements",
+   "motif": "Proposer une sortie au cinéma.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-loisirs-sorties",
+   "proposals": [
+    "P054"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     45
+    ],
+    "study": "¿Vamos al cine?"
+   }
+  },
+  {
+   "p": "P055",
+   "id": "catalogue:es:619",
+   "study": "Corro cada mañana.",
+   "fromLevel": 3,
+   "fromTheme": "L3-travail",
+   "motif": "Habitude sportive.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-piste-sport-habitudes",
+   "proposals": [
+    "P055"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     5
+    ],
+    "study": "Corro cada mañana."
+   }
+  },
+  {
+   "p": "P056",
+   "id": "catalogue:es:1111",
+   "study": "Quisiera el precio FOB.",
+   "fromLevel": 4,
+   "fromTheme": "L4-repas",
+   "motif": "Demande commerciale. L4-travail contient déjà des demandes au fournisseur (« Quisiera unas muestras »).",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P056"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     18
+    ],
+    "study": "Quisiera el precio FOB."
+   }
+  },
+  {
+   "p": "P057",
+   "id": "catalogue:es:1287",
+   "study": "Recoge tu cuarto.",
+   "fromLevel": 4,
+   "fromTheme": "L4-deplacements",
+   "motif": "Consigne domestique.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-quotidien",
+   "proposals": [
+    "P057"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     41
+    ],
+    "study": "Recoge tu cuarto."
+   }
+  },
+  {
+   "p": "P058",
+   "id": "catalogue:es:1416",
+   "study": "Me da mucha rabia.",
+   "fromLevel": 4,
+   "fromTheme": "L4-decrire",
+   "motif": "Exprime un ressenti.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-ressentis",
+   "proposals": [
+    "P058"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     4
+    ],
+    "study": "Me da mucha rabia."
+   }
+  },
+  {
+   "p": "P059",
+   "id": "catalogue:es:961",
+   "study": "Me gustaría saber más.",
+   "fromLevel": 4,
+   "fromTheme": "L4-decrire",
+   "motif": "Relance pour qu'on raconte davantage, ce qui sert le partage d'expérience.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-conversation",
+   "proposals": [
+    "P059"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     0
+    ],
+    "study": "Me gustaría saber más."
+   }
+  },
+  {
+   "p": "P060",
+   "id": "catalogue:es:1071",
+   "study": "¿Qué es lo más típico?",
+   "fromLevel": 4,
+   "fromTheme": "L4-decrire",
+   "motif": "Question posée en sortie, au restaurant ou en visite.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-repas",
+   "proposals": [
+    "P060"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     1
+    ],
+    "study": "¿Qué es lo más típico?"
+   }
+  },
+  {
+   "p": "P061",
+   "id": "catalogue:es:1238",
+   "study": "Hay mucha gente.",
+   "fromLevel": 4,
+   "fromTheme": "L4-decrire",
+   "motif": "Constat qui sert à raconter une sortie.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-repas",
+   "proposals": [
+    "P061"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     2
+    ],
+    "study": "Hay mucha gente."
+   }
+  },
+  {
+   "p": "P062",
+   "id": "catalogue:es:1395",
+   "study": "Es más grande que el otro.",
+   "fromLevel": 4,
+   "fromTheme": "L4-decrire",
+   "motif": "Comparaison simple, qui correspond à « Décrire et comparer » au L1. Garder la carte en L4-decrire reste défendable.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "decrire",
+   "proposals": [
+    "P062"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     3
+    ],
+    "study": "Es más grande que el otro."
+   }
+  },
+  {
+   "p": "P063",
+   "id": "catalogue:es:1385",
+   "study": "Llame a una ambulancia.",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Même thème pour les deux ; on garde la version exclamative (catalogue:es:1348).",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P063"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     160
+    ],
+    "study": "Llame a una ambulancia."
+   }
+  },
+  {
+   "p": "P064",
+   "id": "catalogue:es:3907",
+   "study": "Sé nadar.",
+   "fromLevel": 5,
+   "fromTheme": "L5-comprendre",
+   "motif": "Compétence sportive simple ; aucun thème L5 ne convient.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-piste-sport-habitudes",
+   "proposals": [
+    "P064"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     12
+    ],
+    "study": "Sé nadar."
+   }
+  },
+  {
+   "p": "P065",
+   "id": "catalogue:es:1499",
+   "study": "Pare aquí, por favor.",
+   "fromLevel": 5,
+   "fromTheme": "L5-saluer",
+   "motif": "Consigne au chauffeur.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-deplacements",
+   "proposals": [
+    "P065"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     1
+    ],
+    "study": "Pare aquí, por favor."
+   }
+  },
+  {
+   "p": "P066",
+   "id": "catalogue:es:1611",
+   "study": "Lléveme aquí, por favor.",
+   "fromLevel": 5,
+   "fromTheme": "L5-saluer",
+   "motif": "Consigne de trajet.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-deplacements",
+   "proposals": [
+    "P066"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     7
+    ],
+    "study": "Lléveme aquí, por favor."
+   }
+  },
+  {
+   "p": "P067",
+   "id": "catalogue:es:1771",
+   "study": "Ponme dos, por favor.",
+   "fromLevel": 5,
+   "fromTheme": "L5-saluer",
+   "motif": "Commande au comptoir.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-repas",
+   "proposals": [
+    "P067"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     10
+    ],
+    "study": "Ponme dos, por favor."
+   }
+  },
+  {
+   "p": "P068",
+   "id": "catalogue:es:1615",
+   "study": "Quiero reservar para cuatro.",
+   "fromLevel": 5,
+   "fromTheme": "L5-ressentis",
+   "motif": "Réservation.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-repas",
+   "proposals": [
+    "P068"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     12
+    ],
+    "study": "Quiero reservar para cuatro."
+   }
+  },
+  {
+   "p": "P069",
+   "id": "catalogue:es:1727",
+   "study": "Necesito un asiento de pasillo.",
+   "fromLevel": 5,
+   "fromTheme": "L5-ressentis",
+   "motif": "Demande de siège en voyage.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-deplacements",
+   "proposals": [
+    "P069"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     19
+    ],
+    "study": "Necesito un asiento de pasillo."
+   }
+  },
+  {
+   "p": "P070",
+   "id": "catalogue:es:1493",
+   "study": "Necesito cambiar mi itinerario.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Correspond exactement à « Changer ses plans de voyage ».",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-deplacements",
+   "proposals": [
+    "P070"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     23
+    ],
+    "study": "Necesito cambiar mi itinerario."
+   }
+  },
+  {
+   "p": "P071",
+   "id": "catalogue:es:1807",
+   "study": "¿A qué colegio va?",
+   "fromLevel": 5,
+   "fromTheme": "L5-travail",
+   "motif": "Vie de famille et scolarité : organisation du quotidien.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P071"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     19
+    ],
+    "study": "¿A qué colegio va?"
+   }
+  },
+  {
+   "p": "P072",
+   "id": "catalogue:es:4628",
+   "study": "En plan, llega y pide por todos.",
+   "fromLevel": 5,
+   "fromTheme": "L5-travail",
+   "motif": "Récit familier sur le comportement de quelqu'un, qui sert « Partager une expérience ». Le garder en L5-conversation reste défendable.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-conversation",
+   "proposals": [
+    "P072"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     27
+    ],
+    "study": "En plan, llega y pide por todos."
+   }
+  },
+  {
+   "p": "P073",
+   "id": "catalogue:es:2072",
+   "study": "Medio kilo, por favor.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Achat au poids.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-repas",
+   "proposals": [
+    "P073"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     4
+    ],
+    "study": "Medio kilo, por favor."
+   }
+  },
+  {
+   "p": "P074",
+   "id": "catalogue:es:2161",
+   "study": "Llénelo, por favor.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Station-service : voyage en voiture.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-deplacements",
+   "proposals": [
+    "P074"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     7
+    ],
+    "study": "Llénelo, por favor."
+   }
+  },
+  {
+   "p": "P075",
+   "id": "catalogue:es:2327",
+   "study": "¿Puede calentarlo, por favor?",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Demande au restaurant.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-repas",
+   "proposals": [
+    "P075"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     13
+    ],
+    "study": "¿Puede calentarlo, por favor?"
+   }
+  },
+  {
+   "p": "P076",
+   "id": "catalogue:es:4018",
+   "study": "Un plazo firme, por favor.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Exigence de délai professionnelle.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P076"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     15
+    ],
+    "study": "Un plazo firme, por favor."
+   }
+  },
+  {
+   "p": "P077",
+   "id": "catalogue:es:1953",
+   "study": "Perdón, ¿dónde está el baño?",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Demande de lieu élémentaire, qui sert « Trouver son chemin ».",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-deplacements",
+   "proposals": [
+    "P077"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     1
+    ],
+    "study": "Perdón, ¿dónde está el baño?"
+   }
+  },
+  {
+   "p": "P078",
+   "id": "catalogue:es:1942",
+   "study": "Necesito un taxi al aeropuerto.",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Demande de transport.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-deplacements",
+   "proposals": [
+    "P078"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     0
+    ],
+    "study": "Necesito un taxi al aeropuerto."
+   }
+  },
+  {
+   "p": "P079",
+   "id": "catalogue:es:1956",
+   "study": "¿Dónde está el hospital más cercano?",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Se repérer en déplacement, comme « ¿Sabe dónde está el metro? » déjà dans ce thème.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-deplacements",
+   "proposals": [
+    "P079"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     1
+    ],
+    "study": "¿Dónde está el hospital más cercano?"
+   }
+  },
+  {
+   "p": "P080",
+   "id": "catalogue:es:2002",
+   "study": "Haré una oferta especial.",
+   "fromLevel": 6,
+   "fromTheme": "L6-deplacements",
+   "motif": "Offre commerciale.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P080"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     5
+    ],
+    "study": "Haré una oferta especial."
+   }
+  },
+  {
+   "p": "P081",
+   "id": "catalogue:es:2014",
+   "study": "¿Cuál es su política de devolución?",
+   "fromLevel": 6,
+   "fromTheme": "L6-deplacements",
+   "motif": "Conditions de retour d'un achat.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-repas",
+   "proposals": [
+    "P081"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     6
+    ],
+    "study": "¿Cuál es su política de devolución?"
+   }
+  },
+  {
+   "p": "P082",
+   "id": "catalogue:es:1954",
+   "study": "¿De qué país eres?",
+   "fromLevel": 6,
+   "fromTheme": "L6-deplacements",
+   "motif": "Question sur l'origine : présentation.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-saluer",
+   "proposals": [
+    "P082"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     3
+    ],
+    "study": "¿De qué país eres?"
+   }
+  },
+  {
+   "p": "P083",
+   "id": "catalogue:es:1981",
+   "study": "Sopla brisa fresca.",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Constat météo ; L4-quotidien contient déjà « Hace mucho viento ».",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-quotidien",
+   "proposals": [
+    "P083"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     4
+    ],
+    "study": "Sopla brisa fresca."
+   }
+  },
+  {
+   "p": "P084",
+   "id": "catalogue:es:2075",
+   "study": "Me casé el año pasado.",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Étape de vie : présenter son parcours.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-saluer",
+   "proposals": [
+    "P084"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     13
+    ],
+    "study": "Me casé el año pasado."
+   }
+  },
+  {
+   "p": "P085",
+   "id": "catalogue:es:2145",
+   "study": "¿Ha cambiado la puerta de embarque?",
+   "fromLevel": 6,
+   "fromTheme": "L6-quotidien",
+   "motif": "Imprévu à l'aéroport.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-deplacements",
+   "proposals": [
+    "P085"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     7
+    ],
+    "study": "¿Ha cambiado la puerta de embarque?"
+   }
+  },
+  {
+   "p": "P086",
+   "id": "catalogue:es:2209",
+   "study": "¿Dónde está la farmacia más cercana?",
+   "fromLevel": 6,
+   "fromTheme": "L6-decrire",
+   "motif": "Se repérer en déplacement.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-deplacements",
+   "proposals": [
+    "P086"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     6
+    ],
+    "study": "¿Dónde está la farmacia más cercana?"
+   }
+  },
+  {
+   "p": "P087",
+   "id": "catalogue:es:1931",
+   "study": "¿Cuál es el voltaje de entrada?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Question technique sur un produit.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P087"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     10
+    ],
+    "study": "¿Cuál es el voltaje de entrada?"
+   }
+  },
+  {
+   "p": "P088",
+   "id": "catalogue:es:1945",
+   "study": "¿Dónde puedo alquilar una bici?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Choisir un moyen de transport (vélo).",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-deplacements",
+   "proposals": [
+    "P088"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     18
+    ],
+    "study": "¿Dónde puedo alquilar una bici?"
+   }
+  },
+  {
+   "p": "P089",
+   "id": "catalogue:es:3981",
+   "study": "Es mediodía.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Dire l'heure : premier niveau (L1 « Temps et nombres »).",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "reperes",
+   "proposals": [
+    "P089"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     197
+    ],
+    "study": "Es mediodía."
+   }
+  },
+  {
+   "p": "P090",
+   "id": "catalogue:es:3982",
+   "study": "Tiene barba.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Description physique élémentaire (L1 « Décrire et comparer »).",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "decrire",
+   "proposals": [
+    "P090"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     198
+    ],
+    "study": "Tiene barba."
+   }
+  },
+  {
+   "p": "P091",
+   "id": "catalogue:es:3993",
+   "study": "Lo seco.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Geste domestique élémentaire (L1 « Chez soi et avec ses proches »).",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "quotidien",
+   "proposals": [
+    "P091"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     201
+    ],
+    "study": "Lo seco."
+   }
+  },
+  {
+   "p": "P092",
+   "id": "catalogue:es:1986",
+   "study": "Pienso ir el año que viene.",
+   "fromLevel": 6,
+   "fromTheme": "L6-travail",
+   "motif": "Projet de voyage personnel.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-deplacements",
+   "proposals": [
+    "P092"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     3
+    ],
+    "study": "Pienso ir el año que viene."
+   }
+  },
+  {
+   "p": "P093",
+   "id": "catalogue:es:2082",
+   "study": "Está en primaria.",
+   "fromLevel": 6,
+   "fromTheme": "L6-travail",
+   "motif": "Vie de famille, à côté de « Esta es mi esposa ».",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P093"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     7
+    ],
+    "study": "Está en primaria."
+   }
+  },
+  {
+   "p": "P094",
+   "id": "catalogue:es:1950",
+   "study": "¿Dónde está la oficina de correos?",
+   "fromLevel": 6,
+   "fromTheme": "L6-travail",
+   "motif": "Se repérer en ville.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-deplacements",
+   "proposals": [
+    "P094"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     2
+    ],
+    "study": "¿Dónde está la oficina de correos?"
+   }
+  },
+  {
+   "p": "P095",
+   "id": "catalogue:es:2125",
+   "study": "Vamos al grano.",
+   "fromLevel": 6,
+   "fromTheme": "L6-vocab-voyage",
+   "motif": "Phrase pour recadrer la discussion, sans lien avec le voyage.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-conversation",
+   "proposals": [
+    "P095"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-vocab-voyage",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     0
+    ],
+    "study": "Vamos al grano."
+   }
+  },
+  {
+   "p": "P096",
+   "id": "catalogue:es:2488",
+   "study": "— ¿De dónde eres? — Soy de China.",
+   "fromLevel": 7,
+   "fromTheme": "L7-deplacements",
+   "motif": "Échange de présentation de premier niveau.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "saluer",
+   "proposals": [
+    "P096"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     14
+    ],
+    "study": "— ¿De dónde eres? — Soy de China."
+   }
+  },
+  {
+   "p": "P097",
+   "id": "catalogue:es:4145",
+   "study": "No grites.",
+   "fromLevel": 7,
+   "fromTheme": "L7-comprendre",
+   "motif": "Impératif simple de la vie courante, comme « Cierra la puerta » au L1.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "quotidien",
+   "proposals": [
+    "P097"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     5
+    ],
+    "study": "No grites."
+   }
+  },
+  {
+   "p": "P098",
+   "id": "catalogue:es:4103",
+   "study": "Te ayudé.",
+   "fromLevel": 7,
+   "fromTheme": "L7-ressentis",
+   "motif": "Passé simple élémentaire, qui sert à « Raconter sa journée ».",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-quotidien",
+   "proposals": [
+    "P098"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     29
+    ],
+    "study": "Te ayudé."
+   }
+  },
+  {
+   "p": "P099",
+   "id": "catalogue:es:2461",
+   "study": "Abra el maletero, por favor.",
+   "fromLevel": 7,
+   "fromTheme": "L7-saluer",
+   "motif": "Demande au chauffeur en voyage.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-deplacements",
+   "proposals": [
+    "P099"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     1
+    ],
+    "study": "Abra el maletero, por favor."
+   }
+  },
+  {
+   "p": "P100",
+   "id": "catalogue:es:4104",
+   "study": "Sin picante, por favor.",
+   "fromLevel": 7,
+   "fromTheme": "L7-saluer",
+   "motif": "Préférence alimentaire de base, qui correspond au L2. Un déplacement en L7-repas (« Négocier une option ») reste défendable.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-repas-preferences",
+   "proposals": [
+    "P100"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     7
+    ],
+    "study": "Sin picante, por favor."
+   }
+  },
+  {
+   "p": "P101",
+   "id": "catalogue:es:4147",
+   "study": "Sin cebolla, por favor.",
+   "fromLevel": 7,
+   "fromTheme": "L7-saluer",
+   "motif": "Préférence alimentaire de base, qui correspond au L2. Un déplacement en L7-repas reste défendable.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-repas-preferences",
+   "proposals": [
+    "P101"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     8
+    ],
+    "study": "Sin cebolla, por favor."
+   }
+  },
+  {
+   "p": "P102",
+   "id": "catalogue:es:2695",
+   "study": "¿Ya saben lo que van a pedir?",
+   "fromLevel": 7,
+   "fromTheme": "L7-deplacements",
+   "motif": "Question du serveur sur la commande.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-repas",
+   "proposals": [
+    "P102"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     25
+    ],
+    "study": "¿Ya saben lo que van a pedir?"
+   }
+  },
+  {
+   "p": "P103",
+   "id": "catalogue:es:2418",
+   "study": "Adelante, le escucho.",
+   "fromLevel": 7,
+   "fromTheme": "L7-deplacements",
+   "motif": "Formule pour inviter l'autre à parler.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-conversation",
+   "proposals": [
+    "P103"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     0
+    ],
+    "study": "Adelante, le escucho."
+   }
+  },
+  {
+   "p": "P104",
+   "id": "catalogue:es:2454",
+   "study": "¿Cuál es la especialidad de la casa?",
+   "fromLevel": 7,
+   "fromTheme": "L7-quotidien",
+   "motif": "Choisir un plat au restaurant.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-repas",
+   "proposals": [
+    "P104"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     3
+    ],
+    "study": "¿Cuál es la especialidad de la casa?"
+   }
+  },
+  {
+   "p": "P105",
+   "id": "catalogue:es:2489",
+   "study": "¿Juegas a videojuegos?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Question simple sur les loisirs (« Parler de ses goûts ») ; aucun thème loisirs en L7.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-ressentis",
+   "proposals": [
+    "P105"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     73
+    ],
+    "study": "¿Juegas a videojuegos?"
+   }
+  },
+  {
+   "p": "P106",
+   "id": "catalogue:es:2490",
+   "study": "¿Cobran mantenimiento?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Question à un fournisseur.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P106"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     74
+    ],
+    "study": "¿Cobran mantenimiento?"
+   }
+  },
+  {
+   "p": "P107",
+   "id": "catalogue:es:2526",
+   "study": "¿Cuál es su capacidad máxima?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Question à un fournisseur.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P107"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     86
+    ],
+    "study": "¿Cuál es su capacidad máxima?"
+   }
+  },
+  {
+   "p": "P108",
+   "id": "catalogue:es:2527",
+   "study": "¿Cuál es su capacidad mensual?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Question à un fournisseur.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P108"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     87
+    ],
+    "study": "¿Cuál es su capacidad mensual?"
+   }
+  },
+  {
+   "p": "P109",
+   "id": "catalogue:es:2529",
+   "study": "Queremos producción interna.",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Exigence de production.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P109"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     88
+    ],
+    "study": "Queremos producción interna."
+   }
+  },
+  {
+   "p": "P110",
+   "id": "catalogue:es:2537",
+   "study": "¿Cuántos empleados tienen?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Question à un fournisseur.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P110"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     93
+    ],
+    "study": "¿Cuántos empleados tienen?"
+   }
+  },
+  {
+   "p": "P111",
+   "id": "catalogue:es:2538",
+   "study": "¿Cuántos turnos tienen?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Question à un fournisseur.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P111"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     94
+    ],
+    "study": "¿Cuántos turnos tienen?"
+   }
+  },
+  {
+   "p": "P112",
+   "id": "catalogue:es:2542",
+   "study": "¿Hacen surtidos?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Question à un fournisseur.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P112"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     96
+    ],
+    "study": "¿Hacen surtidos?"
+   }
+  },
+  {
+   "p": "P113",
+   "id": "catalogue:es:2547",
+   "study": "¿Aceptan pedidos mixtos?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Condition de commande.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P113"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     98
+    ],
+    "study": "¿Aceptan pedidos mixtos?"
+   }
+  },
+  {
+   "p": "P114",
+   "id": "catalogue:es:2565",
+   "study": "¿Quiénes son sus clientes?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Question à un fournisseur.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P114"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     107
+    ],
+    "study": "¿Quiénes son sus clientes?"
+   }
+  },
+  {
+   "p": "P115",
+   "id": "catalogue:es:2566",
+   "study": "¿Está terminado el ensamblaje?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Suivi de production.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P115"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     108
+    ],
+    "study": "¿Está terminado el ensamblaje?"
+   }
+  },
+  {
+   "p": "P116",
+   "id": "catalogue:es:2572",
+   "study": "¿Cuál es la capacidad de producción?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Question à un fournisseur.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P116"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     110
+    ],
+    "study": "¿Cuál es la capacidad de producción?"
+   }
+  },
+  {
+   "p": "P117",
+   "id": "catalogue:es:2574",
+   "study": "¿Hay gastos de demora?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Frais logistiques.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P117"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     111
+    ],
+    "study": "¿Hay gastos de demora?"
+   }
+  },
+  {
+   "p": "P118",
+   "id": "catalogue:es:2575",
+   "study": "Muéstrenme el almacén.",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Visite chez un fournisseur.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P118"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     112
+    ],
+    "study": "Muéstrenme el almacén."
+   }
+  },
+  {
+   "p": "P119",
+   "id": "catalogue:es:2577",
+   "study": "¿Cuánto mide cada pieza?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Spécification technique.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P119"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     113
+    ],
+    "study": "¿Cuánto mide cada pieza?"
+   }
+  },
+  {
+   "p": "P120",
+   "id": "catalogue:es:2581",
+   "study": "¿Cómo se marcan las cajas?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Marquage des colis à l'export.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P120"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     115
+    ],
+    "study": "¿Cómo se marcan las cajas?"
+   }
+  },
+  {
+   "p": "P121",
+   "id": "catalogue:es:2594",
+   "study": "¿Pueden añadir nuestra etiqueta?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Demande de personnalisation.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P121"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     121
+    ],
+    "study": "¿Pueden añadir nuestra etiqueta?"
+   }
+  },
+  {
+   "p": "P122",
+   "id": "catalogue:es:2601",
+   "study": "¿Cumple con RoHS?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Conformité réglementaire.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P122"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     125
+    ],
+    "study": "¿Cumple con RoHS?"
+   }
+  },
+  {
+   "p": "P123",
+   "id": "catalogue:es:2602",
+   "study": "¿Se encargan de la aduana?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Prise en charge de la douane.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P123"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     126
+    ],
+    "study": "¿Se encargan de la aduana?"
+   }
+  },
+  {
+   "p": "P124",
+   "id": "catalogue:es:2613",
+   "study": "Envíenme un render.",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Consigne au fournisseur.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P124"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     132
+    ],
+    "study": "Envíenme un render."
+   }
+  },
+  {
+   "p": "P125",
+   "id": "catalogue:es:2614",
+   "study": "¿Cuál es la tolerancia permitida?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Spécification technique.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P125"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     133
+    ],
+    "study": "¿Cuál es la tolerancia permitida?"
+   }
+  },
+  {
+   "p": "P126",
+   "id": "catalogue:es:2618",
+   "study": "¿Hay caída de flujo luminoso?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Spécification technique.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P126"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     135
+    ],
+    "study": "¿Hay caída de flujo luminoso?"
+   }
+  },
+  {
+   "p": "P127",
+   "id": "catalogue:es:2619",
+   "study": "¿Suministran repuestos?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Service après-vente fournisseur.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P127"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     136
+    ],
+    "study": "¿Suministran repuestos?"
+   }
+  },
+  {
+   "p": "P128",
+   "id": "catalogue:es:2620",
+   "study": "¿Es cuero auténtico o PU?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Question sur la matière d'un produit.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P128"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     137
+    ],
+    "study": "¿Es cuero auténtico o PU?"
+   }
+  },
+  {
+   "p": "P129",
+   "id": "catalogue:es:2621",
+   "study": "Necesitamos tela antiarrugas.",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Exigence de matière.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-travail",
+   "proposals": [
+    "P129"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     138
+    ],
+    "study": "Necesitamos tela antiarrugas."
+   }
+  },
+  {
+   "p": "P130",
+   "id": "catalogue:es:2624",
+   "study": "¿Dónde está el mostrador de facturación?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Demande pratique en voyage. L7-deplacements contient déjà ce type de demande (location de voiture, départ de la chambre).",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-deplacements",
+   "proposals": [
+    "P130"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     139
+    ],
+    "study": "¿Dónde está el mostrador de facturación?"
+   }
+  },
+  {
+   "p": "P131",
+   "id": "catalogue:es:2628",
+   "study": "¿Hay buenos sitios para fotos?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Demande pratique en voyage.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-deplacements",
+   "proposals": [
+    "P131"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     140
+    ],
+    "study": "¿Hay buenos sitios para fotos?"
+   }
+  },
+  {
+   "p": "P132",
+   "id": "catalogue:es:2634",
+   "study": "¿Nos puede sacar una foto a todos?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Demande pratique en voyage.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-deplacements",
+   "proposals": [
+    "P132"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     142
+    ],
+    "study": "¿Nos puede sacar una foto a todos?"
+   }
+  },
+  {
+   "p": "P133",
+   "id": "catalogue:es:2646",
+   "study": "¿Qué hay interesante por aquí cerca?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Demande pratique en voyage.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-deplacements",
+   "proposals": [
+    "P133"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     145
+    ],
+    "study": "¿Qué hay interesante por aquí cerca?"
+   }
+  },
+  {
+   "p": "P134",
+   "id": "catalogue:es:2682",
+   "study": "¿Hay visitas guiadas en chino?",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Demande pratique en voyage.",
+   "op": "move",
+   "toLevel": 7,
+   "toTheme": "L7-deplacements",
+   "proposals": [
+    "P134"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     160
+    ],
+    "study": "¿Hay visitas guiadas en chino?"
+   }
+  },
+  {
+   "p": "P135",
+   "id": "catalogue:es:4106",
+   "study": "Un billete para Madrid.",
+   "fromLevel": 7,
+   "fromTheme": "L7-vocab-voyage",
+   "motif": "Formule de base du voyage, très en deçà du niveau L7.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-vocab-voyage",
+   "proposals": [
+    "P135"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-vocab-voyage",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     11,
+     "phrases",
+     0
+    ],
+    "study": "Un billete para Madrid."
+   }
+  },
+  {
+   "p": "P136",
+   "id": "catalogue:es:4107",
+   "study": "Todo recto.",
+   "fromLevel": 7,
+   "fromTheme": "L7-vocab-adverbes",
+   "motif": "Indication de direction de base.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-vocab-adverbes",
+   "proposals": [
+    "P136"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-vocab-adverbes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+    "location": [
+     "themes",
+     17,
+     "phrases",
+     2
+    ],
+    "study": "Todo recto."
+   }
+  },
+  {
+   "p": "P137",
+   "id": "catalogue:es:2741",
+   "study": "Necesito la ficha técnica.",
+   "fromLevel": 8,
+   "fromTheme": "L8-ressentis",
+   "motif": "Demande de document commercial.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P137"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     0
+    ],
+    "study": "Necesito la ficha técnica."
+   }
+  },
+  {
+   "p": "P138",
+   "id": "catalogue:es:2810",
+   "study": "Necesito la lista de empaque.",
+   "fromLevel": 8,
+   "fromTheme": "L8-ressentis",
+   "motif": "Demande de document logistique.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P138"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     3
+    ],
+    "study": "Necesito la lista de empaque."
+   }
+  },
+  {
+   "p": "P139",
+   "id": "catalogue:es:2817",
+   "study": "Quiero ver el producto terminado.",
+   "fromLevel": 8,
+   "fromTheme": "L8-ressentis",
+   "motif": "Demande au fournisseur.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P139"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     4
+    ],
+    "study": "Quiero ver el producto terminado."
+   }
+  },
+  {
+   "p": "P140",
+   "id": "catalogue:es:2826",
+   "study": "Lo necesitamos con urgencia.",
+   "fromLevel": 8,
+   "fromTheme": "L8-ressentis",
+   "motif": "Urgence professionnelle.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P140"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     5
+    ],
+    "study": "Lo necesitamos con urgencia."
+   }
+  },
+  {
+   "p": "P141",
+   "id": "catalogue:es:2890",
+   "study": "¿Necesita algo más de nuestra parte?",
+   "fromLevel": 8,
+   "fromTheme": "L8-ressentis",
+   "motif": "Formule de service professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P141"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     6
+    ],
+    "study": "¿Necesita algo más de nuestra parte?"
+   }
+  },
+  {
+   "p": "P142",
+   "id": "catalogue:es:2899",
+   "study": "Necesito el certificado de origen.",
+   "fromLevel": 8,
+   "fromTheme": "L8-ressentis",
+   "motif": "Demande de document d'export.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P142"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     7
+    ],
+    "study": "Necesito el certificado de origen."
+   }
+  },
+  {
+   "p": "P143",
+   "id": "catalogue:es:2780",
+   "study": "Quiero hacer una transferencia.",
+   "fromLevel": 8,
+   "fromTheme": "L8-ressentis",
+   "motif": "Démarche bancaire ou administrative.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P143"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     1
+    ],
+    "study": "Quiero hacer una transferencia."
+   }
+  },
+  {
+   "p": "P144",
+   "id": "catalogue:es:4218",
+   "study": "La costura está mal hecha.",
+   "fromLevel": 8,
+   "fromTheme": "L8-ressentis",
+   "motif": "Constat de défaut posé sans détour : il va avec « Esto no es lo que pedimos » plutôt qu'avec la réclamation « avec tact ».",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P144"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     17
+    ],
+    "study": "La costura está mal hecha."
+   }
+  },
+  {
+   "p": "P145",
+   "id": "catalogue:es:2987",
+   "study": "¿Me ayuda a planear un itinerario de un día?",
+   "fromLevel": 8,
+   "fromTheme": "L8-ressentis",
+   "motif": "Organiser un séjour.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-deplacements",
+   "proposals": [
+    "P145"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     10
+    ],
+    "study": "¿Me ayuda a planear un itinerario de un día?"
+   }
+  },
+  {
+   "p": "P146",
+   "id": "catalogue:es:2990",
+   "study": "Quiero ir aquí, ayúdeme con el mapa.",
+   "fromLevel": 8,
+   "fromTheme": "L8-ressentis",
+   "motif": "Se faire aider pour un trajet.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-deplacements",
+   "proposals": [
+    "P146"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     11
+    ],
+    "study": "Quiero ir aquí, ayúdeme con el mapa."
+   }
+  },
+  {
+   "p": "P147",
+   "id": "catalogue:es:2709",
+   "study": "¿Tienen tienda online?",
+   "fromLevel": 8,
+   "fromTheme": "L8-repas",
+   "motif": "Question de négoce.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P147"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     0
+    ],
+    "study": "¿Tienen tienda online?"
+   }
+  },
+  {
+   "p": "P148",
+   "id": "catalogue:es:2740",
+   "study": "¿Quién asume el coste?",
+   "fromLevel": 8,
+   "fromTheme": "L8-repas",
+   "motif": "Question de négoce.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P148"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     1
+    ],
+    "study": "¿Quién asume el coste?"
+   }
+  },
+  {
+   "p": "P149",
+   "id": "catalogue:es:2773",
+   "study": "¿Los precios son en dólares?",
+   "fromLevel": 8,
+   "fromTheme": "L8-repas",
+   "motif": "Question de négoce.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P149"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     2
+    ],
+    "study": "¿Los precios son en dólares?"
+   }
+  },
+  {
+   "p": "P150",
+   "id": "catalogue:es:2776",
+   "study": "Denos su lista de precios.",
+   "fromLevel": 8,
+   "fromTheme": "L8-repas",
+   "motif": "Demande commerciale.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P150"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     3
+    ],
+    "study": "Denos su lista de precios."
+   }
+  },
+  {
+   "p": "P151",
+   "id": "catalogue:es:2778",
+   "study": "¿Quién paga los aranceles?",
+   "fromLevel": 8,
+   "fromTheme": "L8-repas",
+   "motif": "Question de négoce.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P151"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     4
+    ],
+    "study": "¿Quién paga los aranceles?"
+   }
+  },
+  {
+   "p": "P152",
+   "id": "catalogue:es:2779",
+   "study": "¿El precio es FOB o CIF?",
+   "fromLevel": 8,
+   "fromTheme": "L8-repas",
+   "motif": "Question d'Incoterm.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P152"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     5
+    ],
+    "study": "¿El precio es FOB o CIF?"
+   }
+  },
+  {
+   "p": "P153",
+   "id": "catalogue:es:2782",
+   "study": "¿Pueden enviar la lista de precios?",
+   "fromLevel": 8,
+   "fromTheme": "L8-repas",
+   "motif": "Demande commerciale.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P153"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     6
+    ],
+    "study": "¿Pueden enviar la lista de precios?"
+   }
+  },
+  {
+   "p": "P154",
+   "id": "catalogue:es:2790",
+   "study": "Confirmo que recibí el pago.",
+   "fromLevel": 8,
+   "fromTheme": "L8-repas",
+   "motif": "Confirmation de paiement.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P154"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     7
+    ],
+    "study": "Confirmo que recibí el pago."
+   }
+  },
+  {
+   "p": "P155",
+   "id": "catalogue:es:2875",
+   "study": "¿Cuál es el precio para mil unidades?",
+   "fromLevel": 8,
+   "fromTheme": "L8-repas",
+   "motif": "demande de prix en volume, échange fournisseur, pas une demande délicate de consommateur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P155"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     10
+    ],
+    "study": "¿Cuál es el precio para mil unidades?"
+   }
+  },
+  {
+   "p": "P156",
+   "id": "catalogue:es:2721",
+   "study": "Le atiende un agente.",
+   "fromLevel": 8,
+   "fromTheme": "L8-deplacements",
+   "motif": "formule de service client professionnel, sans lien avec un séjour",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P156"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     0
+    ],
+    "study": "Le atiende un agente."
+   }
+  },
+  {
+   "p": "P157",
+   "id": "catalogue:es:2724",
+   "study": "Vamos a formalizarlo.",
+   "fromLevel": 8,
+   "fromTheme": "L8-deplacements",
+   "motif": "officialiser un accord : registre professionnel",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P157"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     2
+    ],
+    "study": "Vamos a formalizarlo."
+   }
+  },
+  {
+   "p": "P158",
+   "id": "catalogue:es:2765",
+   "study": "Vamos a lanzar el producto.",
+   "fromLevel": 8,
+   "fromTheme": "L8-deplacements",
+   "motif": "lancement de produit : registre professionnel",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P158"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     3
+    ],
+    "study": "Vamos a lanzar el producto."
+   }
+  },
+  {
+   "p": "P159",
+   "id": "catalogue:es:2769",
+   "study": "¿A qué puerto llega?",
+   "fromLevel": 8,
+   "fromTheme": "L8-deplacements",
+   "motif": "port d'arrivée d'une marchandise : logistique",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P159"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     4
+    ],
+    "study": "¿A qué puerto llega?"
+   }
+  },
+  {
+   "p": "P160",
+   "id": "catalogue:es:2833",
+   "study": "Vengo de la feria.",
+   "fromLevel": 8,
+   "fromTheme": "L8-deplacements",
+   "motif": "salon professionnel, contexte de travail",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P160"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     5
+    ],
+    "study": "Vengo de la feria."
+   }
+  },
+  {
+   "p": "P161",
+   "id": "catalogue:es:2891",
+   "study": "¿Va por barco o por avión?",
+   "fromLevel": 8,
+   "fromTheme": "L8-deplacements",
+   "motif": "mode d'expédition d'une marchandise, pas un voyage personnel",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P161"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     6
+    ],
+    "study": "¿Va por barco o por avión?"
+   }
+  },
+  {
+   "p": "P162",
+   "id": "catalogue:es:4530",
+   "study": "El transitario ya reservó el espacio.",
+   "fromLevel": 8,
+   "fromTheme": "L8-deplacements",
+   "motif": "transitaire et fret : logistique professionnelle",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P162"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     31
+    ],
+    "study": "El transitario ya reservó el espacio."
+   }
+  },
+  {
+   "p": "P163",
+   "id": "catalogue:es:2739",
+   "study": "¿Cuál es su producto más nuevo?",
+   "fromLevel": 8,
+   "fromTheme": "L8-decrire",
+   "motif": "question à un fournisseur, sans description nuancée",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P163"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     1
+    ],
+    "study": "¿Cuál es su producto más nuevo?"
+   }
+  },
+  {
+   "p": "P164",
+   "id": "catalogue:es:2824",
+   "study": "¿Cuál es su producto más vendido?",
+   "fromLevel": 8,
+   "fromTheme": "L8-decrire",
+   "motif": "question à un fournisseur, sans description nuancée",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P164"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     2
+    ],
+    "study": "¿Cuál es su producto más vendido?"
+   }
+  },
+  {
+   "p": "P165",
+   "id": "catalogue:es:2892",
+   "study": "¿Pueden manejar un volumen mayor?",
+   "fromLevel": 8,
+   "fromTheme": "L8-decrire",
+   "motif": "capacité de production : échange fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P165"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     3
+    ],
+    "study": "¿Pueden manejar un volumen mayor?"
+   }
+  },
+  {
+   "p": "P166",
+   "id": "catalogue:es:2703",
+   "study": "Damos el visto bueno.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "validation formelle, aucun désaccord",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P166"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     0
+    ],
+    "study": "Damos el visto bueno."
+   }
+  },
+  {
+   "p": "P167",
+   "id": "catalogue:es:2704",
+   "study": "No compartan nuestro diseño.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "consigne de confidentialité commerciale",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P167"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     1
+    ],
+    "study": "No compartan nuestro diseño."
+   }
+  },
+  {
+   "p": "P168",
+   "id": "catalogue:es:2706",
+   "study": "Salimos ganando los dos.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "argument de négociation gagnant-gagnant, pas un désaccord",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P168"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     2
+    ],
+    "study": "Salimos ganando los dos."
+   }
+  },
+  {
+   "p": "P169",
+   "id": "catalogue:es:2708",
+   "study": "¿Cuál es el peso por unidad?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "question technique fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P169"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     3
+    ],
+    "study": "¿Cuál es el peso por unidad?"
+   }
+  },
+  {
+   "p": "P170",
+   "id": "catalogue:es:2711",
+   "study": "Somos clientes habituales.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "positionnement client dans une relation commerciale",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P170"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     4
+    ],
+    "study": "Somos clientes habituales."
+   }
+  },
+  {
+   "p": "P171",
+   "id": "catalogue:es:2713",
+   "study": "Pasó todos los controles.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "contrôle qualité, registre professionnel",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P171"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     5
+    ],
+    "study": "Pasó todos los controles."
+   }
+  },
+  {
+   "p": "P172",
+   "id": "catalogue:es:2714",
+   "study": "¿Tienen su propio molde?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "question de production fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P172"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     6
+    ],
+    "study": "¿Tienen su propio molde?"
+   }
+  },
+  {
+   "p": "P173",
+   "id": "catalogue:es:2715",
+   "study": "Avísenme cuando se envíe.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "suivi d'expédition",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P173"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     7
+    ],
+    "study": "Avísenme cuando se envíe."
+   }
+  },
+  {
+   "p": "P174",
+   "id": "catalogue:es:2716",
+   "study": "¿Tienen ficha técnica?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "demande de document technique",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P174"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     8
+    ],
+    "study": "¿Tienen ficha técnica?"
+   }
+  },
+  {
+   "p": "P175",
+   "id": "catalogue:es:2717",
+   "study": "Todo claro por nuestra parte.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "validation en réunion d'affaires, aucun désaccord",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P175"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     9
+    ],
+    "study": "Todo claro por nuestra parte."
+   }
+  },
+  {
+   "p": "P176",
+   "id": "catalogue:es:2718",
+   "study": "¿Pueden absorber el flete?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "négociation du fret",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P176"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     10
+    ],
+    "study": "¿Pueden absorber el flete?"
+   }
+  },
+  {
+   "p": "P177",
+   "id": "catalogue:es:2719",
+   "study": "¿El pago es treinta setenta?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "conditions de paiement",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P177"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     11
+    ],
+    "study": "¿El pago es treinta setenta?"
+   }
+  },
+  {
+   "p": "P178",
+   "id": "catalogue:es:2722",
+   "study": "¿Exportan a Europa?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "question fournisseur export",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P178"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     12
+    ],
+    "study": "¿Exportan a Europa?"
+   }
+  },
+  {
+   "p": "P179",
+   "id": "catalogue:es:2725",
+   "study": "¿Cuántas unidades por cartón?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "conditionnement, question fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P179"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     13
+    ],
+    "study": "¿Cuántas unidades por cartón?"
+   }
+  },
+  {
+   "p": "P180",
+   "id": "catalogue:es:2728",
+   "study": "Reenvío por si acaso.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "suivi de correspondance professionnelle",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P180"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     14
+    ],
+    "study": "Reenvío por si acaso."
+   }
+  },
+  {
+   "p": "P181",
+   "id": "catalogue:es:2730",
+   "study": "Es una oportunidad.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "argument commercial, pas un désaccord",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P181"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     16
+    ],
+    "study": "Es una oportunidad."
+   }
+  },
+  {
+   "p": "P182",
+   "id": "catalogue:es:2732",
+   "study": "¿Pueden poner código de barras?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "demande d'étiquetage fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P182"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     17
+    ],
+    "study": "¿Pueden poner código de barras?"
+   }
+  },
+  {
+   "p": "P183",
+   "id": "catalogue:es:2734",
+   "study": "Traemos un intérprete.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "organisation d'une réunion d'affaires",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P183"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     19
+    ],
+    "study": "Traemos un intérprete."
+   }
+  },
+  {
+   "p": "P184",
+   "id": "catalogue:es:2736",
+   "study": "Encienda su cámara.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "consigne de visioconférence professionnelle",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P184"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     21
+    ],
+    "study": "Encienda su cámara."
+   }
+  },
+  {
+   "p": "P185",
+   "id": "catalogue:es:2737",
+   "study": "¿Cuál es el puerto de salida?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "logistique d'expédition",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P185"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     22
+    ],
+    "study": "¿Cuál es el puerto de salida?"
+   }
+  },
+  {
+   "p": "P186",
+   "id": "catalogue:es:2745",
+   "study": "¿Cuál es la tasa de defectos?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "question qualité fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P186"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     23
+    ],
+    "study": "¿Cuál es la tasa de defectos?"
+   }
+  },
+  {
+   "p": "P187",
+   "id": "catalogue:es:2746",
+   "study": "¿Cuál es el MOQ por color?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "minimum de commande, question fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P187"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     24
+    ],
+    "study": "¿Cuál es el MOQ por color?"
+   }
+  },
+  {
+   "p": "P188",
+   "id": "catalogue:es:2748",
+   "study": "¿Cuándo zarpa el barco?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "logistique maritime",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P188"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     25
+    ],
+    "study": "¿Cuándo zarpa el barco?"
+   }
+  },
+  {
+   "p": "P189",
+   "id": "catalogue:es:2749",
+   "study": "¿Tienen sello oficial?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "formalité documentaire",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P189"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     26
+    ],
+    "study": "¿Tienen sello oficial?"
+   }
+  },
+  {
+   "p": "P190",
+   "id": "catalogue:es:2750",
+   "study": "Su reputación es excelente.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "compliment commercial, pas un désaccord",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P190"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     27
+    ],
+    "study": "Su reputación es excelente."
+   }
+  },
+  {
+   "p": "P191",
+   "id": "catalogue:es:2751",
+   "study": "Es para el mercado europeo.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "cible de marché, échange fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P191"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     28
+    ],
+    "study": "Es para el mercado europeo."
+   }
+  },
+  {
+   "p": "P192",
+   "id": "catalogue:es:2755",
+   "study": "Queremos edición limitada.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "demande produit au fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P192"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     29
+    ],
+    "study": "Queremos edición limitada."
+   }
+  },
+  {
+   "p": "P193",
+   "id": "catalogue:es:2756",
+   "study": "Envíenme fotos del avance.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "suivi de production",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P193"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     30
+    ],
+    "study": "Envíenme fotos del avance."
+   }
+  },
+  {
+   "p": "P194",
+   "id": "catalogue:es:2758",
+   "study": "¿En qué stand están?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "salon professionnel",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P194"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     31
+    ],
+    "study": "¿En qué stand están?"
+   }
+  },
+  {
+   "p": "P195",
+   "id": "catalogue:es:2759",
+   "study": "¿Cuál es su horario de atención?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "horaires de service, échange professionnel",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P195"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     32
+    ],
+    "study": "¿Cuál es su horario de atención?"
+   }
+  },
+  {
+   "p": "P196",
+   "id": "catalogue:es:2761",
+   "study": "¿Qué descuento por pago adelantado?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "conditions de paiement",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P196"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     33
+    ],
+    "study": "¿Qué descuento por pago adelantado?"
+   }
+  },
+  {
+   "p": "P197",
+   "id": "catalogue:es:2762",
+   "study": "Su éxito es nuestro éxito.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "formule de partenariat",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P197"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     34
+    ],
+    "study": "Su éxito es nuestro éxito."
+   }
+  },
+  {
+   "p": "P198",
+   "id": "catalogue:es:2764",
+   "study": "¿Tiene certificación CE?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "conformité produit",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P198"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     35
+    ],
+    "study": "¿Tiene certificación CE?"
+   }
+  },
+  {
+   "p": "P199",
+   "id": "catalogue:es:2771",
+   "study": "Deje un mensaje de voz.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "communication professionnelle, aucun désaccord",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P199"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     36
+    ],
+    "study": "Deje un mensaje de voz."
+   }
+  },
+  {
+   "p": "P200",
+   "id": "catalogue:es:2774",
+   "study": "¿Hacen dropshipping?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "modèle commercial du fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P200"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     38
+    ],
+    "study": "¿Hacen dropshipping?"
+   }
+  },
+  {
+   "p": "P201",
+   "id": "catalogue:es:2775",
+   "study": "¿Cuál es el país de origen?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "origine du produit, question fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P201"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     39
+    ],
+    "study": "¿Cuál es el país de origen?"
+   }
+  },
+  {
+   "p": "P202",
+   "id": "catalogue:es:2777",
+   "study": "Confirme el calendario de producción.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "planning de production",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P202"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     40
+    ],
+    "study": "Confirme el calendario de producción."
+   }
+  },
+  {
+   "p": "P203",
+   "id": "catalogue:es:2783",
+   "study": "¿Hacen descuento por fidelidad?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "négociation de remise",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P203"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     41
+    ],
+    "study": "¿Hacen descuento por fidelidad?"
+   }
+  },
+  {
+   "p": "P204",
+   "id": "catalogue:es:2786",
+   "study": "Adjunto las fotos del defecto.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "réclamation écrite factuelle, registre professionnel",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P204"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     42
+    ],
+    "study": "Adjunto las fotos del defecto."
+   }
+  },
+  {
+   "p": "P205",
+   "id": "catalogue:es:2789",
+   "study": "Queremos una compensación.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "exigence commerciale directe, sans tact particulier",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P205"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     43
+    ],
+    "study": "Queremos una compensación."
+   }
+  },
+  {
+   "p": "P206",
+   "id": "catalogue:es:2792",
+   "study": "Pasemos al siguiente punto.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "conduite de réunion",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P206"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     44
+    ],
+    "study": "Pasemos al siguiente punto."
+   }
+  },
+  {
+   "p": "P207",
+   "id": "catalogue:es:2793",
+   "study": "Enséñeme la gama alta.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "demande de gamme au fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P207"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     45
+    ],
+    "study": "Enséñeme la gama alta."
+   }
+  },
+  {
+   "p": "P208",
+   "id": "catalogue:es:2794",
+   "study": "Buscamos relaciones duraderas.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "formule de partenariat",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P208"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     46
+    ],
+    "study": "Buscamos relaciones duraderas."
+   }
+  },
+  {
+   "p": "P209",
+   "id": "catalogue:es:2798",
+   "study": "Detállenme todos los costes.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "demande de détail des coûts",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P209"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     48
+    ],
+    "study": "Detállenme todos los costes."
+   }
+  },
+  {
+   "p": "P210",
+   "id": "catalogue:es:2800",
+   "study": "¿Cuál es la causa del defecto?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "analyse de défaut, échange qualité",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P210"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     49
+    ],
+    "study": "¿Cuál es la causa del defecto?"
+   }
+  },
+  {
+   "p": "P211",
+   "id": "catalogue:es:2804",
+   "study": "Ambos salimos ganando.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "argument gagnant-gagnant en négociation",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P211"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     51
+    ],
+    "study": "Ambos salimos ganando."
+   }
+  },
+  {
+   "p": "P212",
+   "id": "catalogue:es:2808",
+   "study": "¿Subcontratan la producción?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "question fournisseur sur la production",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P212"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     52
+    ],
+    "study": "¿Subcontratan la producción?"
+   }
+  },
+  {
+   "p": "P213",
+   "id": "catalogue:es:2812",
+   "study": "¿Aceptan pago fraccionado?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "conditions de paiement",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P213"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     54
+    ],
+    "study": "¿Aceptan pago fraccionado?"
+   }
+  },
+  {
+   "p": "P214",
+   "id": "catalogue:es:2814",
+   "study": "¿Nos falta algo por acordar?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "clôture de négociation",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P214"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     55
+    ],
+    "study": "¿Nos falta algo por acordar?"
+   }
+  },
+  {
+   "p": "P215",
+   "id": "catalogue:es:2815",
+   "study": "¿Prefiere correo o WeChat?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "canal de communication professionnel",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P215"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     56
+    ],
+    "study": "¿Prefiere correo o WeChat?"
+   }
+  },
+  {
+   "p": "P216",
+   "id": "catalogue:es:2816",
+   "study": "Mantengamos el contacto.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "formule de fin d'échange professionnel",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P216"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     57
+    ],
+    "study": "Mantengamos el contacto."
+   }
+  },
+  {
+   "p": "P217",
+   "id": "catalogue:es:2818",
+   "study": "¿Venden al por menor también?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "question fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P217"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     58
+    ],
+    "study": "¿Venden al por menor también?"
+   }
+  },
+  {
+   "p": "P218",
+   "id": "catalogue:es:2819",
+   "study": "¿Cuándo emiten el B/L?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "document de transport",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P218"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     59
+    ],
+    "study": "¿Cuándo emiten el B/L?"
+   }
+  },
+  {
+   "p": "P219",
+   "id": "catalogue:es:2822",
+   "study": "¿Tienen almacén en Europa?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "logistique fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P219"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     61
+    ],
+    "study": "¿Tienen almacén en Europa?"
+   }
+  },
+  {
+   "p": "P220",
+   "id": "catalogue:es:2825",
+   "study": "Pagamos el 30% por adelantado.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "conditions de paiement",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P220"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     62
+    ],
+    "study": "Pagamos el 30% por adelantado."
+   }
+  },
+  {
+   "p": "P221",
+   "id": "catalogue:es:2827",
+   "study": "Contamos con su compromiso.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "formule d'engagement commercial",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P221"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     63
+    ],
+    "study": "Contamos con su compromiso."
+   }
+  },
+  {
+   "p": "P222",
+   "id": "catalogue:es:2828",
+   "study": "¿Cumple normativa europea?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "conformité réglementaire",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P222"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     64
+    ],
+    "study": "¿Cumple normativa europea?"
+   }
+  },
+  {
+   "p": "P223",
+   "id": "catalogue:es:2829",
+   "study": "Esperamos su confirmación final.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "formule de correspondance professionnelle",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P223"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     65
+    ],
+    "study": "Esperamos su confirmación final."
+   }
+  },
+  {
+   "p": "P224",
+   "id": "catalogue:es:2830",
+   "study": "¿Cobran por el diseño?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "question tarifaire fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P224"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     66
+    ],
+    "study": "¿Cobran por el diseño?"
+   }
+  },
+  {
+   "p": "P225",
+   "id": "catalogue:es:2831",
+   "study": "¿Tienen certificado CE?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "conformité produit",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P225"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     67
+    ],
+    "study": "¿Tienen certificado CE?"
+   }
+  },
+  {
+   "p": "P226",
+   "id": "catalogue:es:2832",
+   "study": "Repetiremos la inspección.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "contrôle qualité",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P226"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     68
+    ],
+    "study": "Repetiremos la inspección."
+   }
+  },
+  {
+   "p": "P227",
+   "id": "catalogue:es:2834",
+   "study": "¿Tienen referencias de clientes?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "vérification d'un fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P227"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     69
+    ],
+    "study": "¿Tienen referencias de clientes?"
+   }
+  },
+  {
+   "p": "P228",
+   "id": "catalogue:es:2836",
+   "study": "Firmemos por ambas partes.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "signature de contrat",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P228"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     70
+    ],
+    "study": "Firmemos por ambas partes."
+   }
+  },
+  {
+   "p": "P229",
+   "id": "catalogue:es:2837",
+   "study": "¿Pueden personalizar el logo?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "personnalisation produit",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P229"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     71
+    ],
+    "study": "¿Pueden personalizar el logo?"
+   }
+  },
+  {
+   "p": "P230",
+   "id": "catalogue:es:2839",
+   "study": "Nos lo recomendó un socio.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "prise de contact professionnelle",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P230"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     73
+    ],
+    "study": "Nos lo recomendó un socio."
+   }
+  },
+  {
+   "p": "P231",
+   "id": "catalogue:es:2840",
+   "study": "¿El HS code es correcto?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "douane et classification",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P231"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     74
+    ],
+    "study": "¿El HS code es correcto?"
+   }
+  },
+  {
+   "p": "P232",
+   "id": "catalogue:es:2841",
+   "study": "Inspeccionaremos al recibir.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "contrôle à réception",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P232"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     75
+    ],
+    "study": "Inspeccionaremos al recibir."
+   }
+  },
+  {
+   "p": "P233",
+   "id": "catalogue:es:2842",
+   "study": "No superó la prueba.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "résultat de test qualité",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P233"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     76
+    ],
+    "study": "No superó la prueba."
+   }
+  },
+  {
+   "p": "P234",
+   "id": "catalogue:es:2843",
+   "study": "¿Qué materiales usan?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "question technique fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P234"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     77
+    ],
+    "study": "¿Qué materiales usan?"
+   }
+  },
+  {
+   "p": "P235",
+   "id": "catalogue:es:2844",
+   "study": "Ahorramos en logística.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "argument logistique",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P235"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     78
+    ],
+    "study": "Ahorramos en logística."
+   }
+  },
+  {
+   "p": "P236",
+   "id": "catalogue:es:2845",
+   "study": "Queremos crecer con ustedes.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "formule de partenariat",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P236"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     79
+    ],
+    "study": "Queremos crecer con ustedes."
+   }
+  },
+  {
+   "p": "P237",
+   "id": "catalogue:es:2847",
+   "study": "Apúntalo en la agenda.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "organisation d'agenda, aucun désaccord",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P237"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     81
+    ],
+    "study": "Apúntalo en la agenda."
+   }
+  },
+  {
+   "p": "P238",
+   "id": "catalogue:es:2848",
+   "study": "¿Pueden enviar fotos de la línea?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "vérification de production",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P238"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     82
+    ],
+    "study": "¿Pueden enviar fotos de la línea?"
+   }
+  },
+  {
+   "p": "P239",
+   "id": "catalogue:es:2852",
+   "study": "Nos avala la experiencia.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "argument de crédibilité commerciale",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P239"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     83
+    ],
+    "study": "Nos avala la experiencia."
+   }
+  },
+  {
+   "p": "P240",
+   "id": "catalogue:es:2853",
+   "study": "¿Dan exclusividad?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "négociation d'exclusivité",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P240"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     84
+    ],
+    "study": "¿Dan exclusividad?"
+   }
+  },
+  {
+   "p": "P241",
+   "id": "catalogue:es:2854",
+   "study": "¿Garantizan disponibilidad?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "question d'approvisionnement",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P241"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     85
+    ],
+    "study": "¿Garantizan disponibilidad?"
+   }
+  },
+  {
+   "p": "P242",
+   "id": "catalogue:es:2855",
+   "study": "¿Aceptan carta de crédito?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "moyen de paiement international",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P242"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     86
+    ],
+    "study": "¿Aceptan carta de crédito?"
+   }
+  },
+  {
+   "p": "P243",
+   "id": "catalogue:es:2861",
+   "study": "¿Cumple la normativa europea?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "conformité réglementaire",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P243"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     87
+    ],
+    "study": "¿Cumple la normativa europea?"
+   }
+  },
+  {
+   "p": "P244",
+   "id": "catalogue:es:2863",
+   "study": "Estamos disponibles por WeChat.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "canal de contact professionnel",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P244"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     88
+    ],
+    "study": "Estamos disponibles por WeChat."
+   }
+  },
+  {
+   "p": "P245",
+   "id": "catalogue:es:2865",
+   "study": "¿Ofrecen repuestos?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "question après-vente fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P245"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     90
+    ],
+    "study": "¿Ofrecen repuestos?"
+   }
+  },
+  {
+   "p": "P246",
+   "id": "catalogue:es:2866",
+   "study": "¿Cuáles son las medidas exactas?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "spécification technique",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P246"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     91
+    ],
+    "study": "¿Cuáles son las medidas exactas?"
+   }
+  },
+  {
+   "p": "P247",
+   "id": "catalogue:es:2867",
+   "study": "¿Cuántos trabajadores tienen?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "question sur l'entreprise fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P247"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     92
+    ],
+    "study": "¿Cuántos trabajadores tienen?"
+   }
+  },
+  {
+   "p": "P248",
+   "id": "catalogue:es:2868",
+   "study": "¿Cubren los gastos de inspección?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "répartition des frais",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P248"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     93
+    ],
+    "study": "¿Cubren los gastos de inspección?"
+   }
+  },
+  {
+   "p": "P249",
+   "id": "catalogue:es:2872",
+   "study": "Corregiremos el defecto.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "engagement qualité côté fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P249"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     95
+    ],
+    "study": "Corregiremos el defecto."
+   }
+  },
+  {
+   "p": "P250",
+   "id": "catalogue:es:2876",
+   "study": "Revisaré con mi abogado.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "réserve juridique, cadre professionnel",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P250"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     97
+    ],
+    "study": "Revisaré con mi abogado."
+   }
+  },
+  {
+   "p": "P251",
+   "id": "catalogue:es:2877",
+   "study": "Adjunto los resultados de la prueba.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "correspondance qualité",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P251"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     98
+    ],
+    "study": "Adjunto los resultados de la prueba."
+   }
+  },
+  {
+   "p": "P252",
+   "id": "catalogue:es:2883",
+   "study": "¿Es ODM u OEM?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "modèle de fabrication",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P252"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     101
+    ],
+    "study": "¿Es ODM u OEM?"
+   }
+  },
+  {
+   "p": "P253",
+   "id": "catalogue:es:2887",
+   "study": "Necesitamos etiqueta CE.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "exigence de conformité",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P253"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     105
+    ],
+    "study": "Necesitamos etiqueta CE."
+   }
+  },
+  {
+   "p": "P254",
+   "id": "catalogue:es:2888",
+   "study": "¿Cuántas faltan de este lote?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "suivi de lot",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P254"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     106
+    ],
+    "study": "¿Cuántas faltan de este lote?"
+   }
+  },
+  {
+   "p": "P255",
+   "id": "catalogue:es:2889",
+   "study": "¿Cuándo estará en el mercado?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "calendrier de mise sur le marché",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P255"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     107
+    ],
+    "study": "¿Cuándo estará en el mercado?"
+   }
+  },
+  {
+   "p": "P256",
+   "id": "catalogue:es:2893",
+   "study": "Envíeme un vídeo para verificar.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "vérification à distance fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P256"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     108
+    ],
+    "study": "Envíeme un vídeo para verificar."
+   }
+  },
+  {
+   "p": "P257",
+   "id": "catalogue:es:2895",
+   "study": "¿Puedo cambiarlo por otro modelo?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "demande d'échange côté client : demande délicate d'achat plutôt que registre professionnel",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-repas",
+   "proposals": [
+    "P257"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     109
+    ],
+    "study": "¿Puedo cambiarlo por otro modelo?"
+   }
+  },
+  {
+   "p": "P258",
+   "id": "catalogue:es:2896",
+   "study": "¿Pueden asignar un contacto fijo?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "organisation de la relation fournisseur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P258"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     110
+    ],
+    "study": "¿Pueden asignar un contacto fijo?"
+   }
+  },
+  {
+   "p": "P259",
+   "id": "catalogue:es:2897",
+   "study": "Esto necesita la firma del jefe.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "circuit de validation interne",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P259"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     111
+    ],
+    "study": "Esto necesita la firma del jefe."
+   }
+  },
+  {
+   "p": "P260",
+   "id": "catalogue:es:2898",
+   "study": "¿Ponen nuestra marca?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "marquage produit",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P260"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     112
+    ],
+    "study": "¿Ponen nuestra marca?"
+   }
+  },
+  {
+   "p": "P261",
+   "id": "catalogue:es:2901",
+   "study": "Necesitamos otra versión.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "demande de modification produit",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P261"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     113
+    ],
+    "study": "Necesitamos otra versión."
+   }
+  },
+  {
+   "p": "P262",
+   "id": "catalogue:es:2902",
+   "study": "¿Cuál es el número de seguimiento?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "suivi d'envoi",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P262"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     114
+    ],
+    "study": "¿Cuál es el número de seguimiento?"
+   }
+  },
+  {
+   "p": "P263",
+   "id": "catalogue:es:2911",
+   "study": "¿Cuándo pueden cargar el contenedor?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "logistique conteneur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P263"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     116
+    ],
+    "study": "¿Cuándo pueden cargar el contenedor?"
+   }
+  },
+  {
+   "p": "P264",
+   "id": "catalogue:es:2914",
+   "study": "Hay un problema de solidez del color.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "constat de défaut, échange qualité",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P264"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     117
+    ],
+    "study": "Hay un problema de solidez del color."
+   }
+  },
+  {
+   "p": "P265",
+   "id": "catalogue:es:2935",
+   "study": "Envío el correo.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "correspondance professionnelle",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P265"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     122
+    ],
+    "study": "Envío el correo."
+   }
+  },
+  {
+   "p": "P266",
+   "id": "catalogue:es:2970",
+   "study": "Representamos varias marcas.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "présentation de l'entreprise",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P266"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     139
+    ],
+    "study": "Representamos varias marcas."
+   }
+  },
+  {
+   "p": "P267",
+   "id": "catalogue:es:2971",
+   "study": "¿Piden depósito para empezar?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "conditions de paiement",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P267"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     140
+    ],
+    "study": "¿Piden depósito para empezar?"
+   }
+  },
+  {
+   "p": "P268",
+   "id": "catalogue:es:2972",
+   "study": "Es un contenedor de 40 pies.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "logistique conteneur",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P268"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     141
+    ],
+    "study": "Es un contenedor de 40 pies."
+   }
+  },
+  {
+   "p": "P269",
+   "id": "catalogue:es:2973",
+   "study": "Necesitamos el certificado.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "demande de document",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P269"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     142
+    ],
+    "study": "Necesitamos el certificado."
+   }
+  },
+  {
+   "p": "P270",
+   "id": "catalogue:es:2974",
+   "study": "¿Pueden garantizarlo por escrito?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "garantie écrite, registre professionnel",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P270"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     143
+    ],
+    "study": "¿Pueden garantizarlo por escrito?"
+   }
+  },
+  {
+   "p": "P271",
+   "id": "catalogue:es:2975",
+   "study": "¿Me puede agregar al grupo?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "groupe de messagerie professionnel",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P271"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     144
+    ],
+    "study": "¿Me puede agregar al grupo?"
+   }
+  },
+  {
+   "p": "P272",
+   "id": "catalogue:es:4233",
+   "study": "La pantalla tiene un píxel muerto.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "constat de défaut produit",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P272"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     182
+    ],
+    "study": "La pantalla tiene un píxel muerto."
+   }
+  },
+  {
+   "p": "P273",
+   "id": "catalogue:es:4239",
+   "study": "La máquina debe embalarse en caja de madera.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "exigence d'emballage",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P273"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     183
+    ],
+    "study": "La máquina debe embalarse en caja de madera."
+   }
+  },
+  {
+   "p": "P274",
+   "id": "catalogue:es:4521",
+   "study": "El acabado es descuidado.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "critique qualité directe, sans tact",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P274"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     184
+    ],
+    "study": "El acabado es descuidado."
+   }
+  },
+  {
+   "p": "P275",
+   "id": "catalogue:es:2916",
+   "study": "Perdí el transporte, ¿qué hago?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "imprévu de voyage à gérer",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-deplacements",
+   "proposals": [
+    "P275"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     118
+    ],
+    "study": "Perdí el transporte, ¿qué hago?"
+   }
+  },
+  {
+   "p": "P276",
+   "id": "catalogue:es:2925",
+   "study": "¿Es un sitio imprescindible?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "choix de visite pendant un séjour",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-deplacements",
+   "proposals": [
+    "P276"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     120
+    ],
+    "study": "¿Es un sitio imprescindible?"
+   }
+  },
+  {
+   "p": "P277",
+   "id": "catalogue:es:2926",
+   "study": "Me robaron, tengo que denunciar.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "incident de séjour et démarche",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-deplacements",
+   "proposals": [
+    "P277"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     121
+    ],
+    "study": "Me robaron, tengo que denunciar."
+   }
+  },
+  {
+   "p": "P278",
+   "id": "catalogue:es:2940",
+   "study": "Tengo que renovar el visado.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "contrainte administrative de séjour",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-deplacements",
+   "proposals": [
+    "P278"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     125
+    ],
+    "study": "Tengo que renovar el visado."
+   }
+  },
+  {
+   "p": "P279",
+   "id": "catalogue:es:3061",
+   "study": "Reduzcan el plazo, por favor.",
+   "fromLevel": 9,
+   "fromTheme": "L9-saluer",
+   "motif": "requête commerciale formelle",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P279"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     0
+    ],
+    "study": "Reduzcan el plazo, por favor."
+   }
+  },
+  {
+   "p": "P280",
+   "id": "catalogue:es:3130",
+   "study": "Confirmen la recepción, por favor.",
+   "fromLevel": 9,
+   "fromTheme": "L9-saluer",
+   "motif": "requête commerciale formelle",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P280"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     1
+    ],
+    "study": "Confirmen la recepción, por favor."
+   }
+  },
+  {
+   "p": "P281",
+   "id": "catalogue:es:4526",
+   "study": "Por favor, atiendan esta queja con prioridad.",
+   "fromLevel": 9,
+   "fromTheme": "L9-saluer",
+   "motif": "réclamation formelle",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P281"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     4
+    ],
+    "study": "Por favor, atiendan esta queja con prioridad."
+   }
+  },
+  {
+   "p": "P282",
+   "id": "catalogue:es:3155",
+   "study": "Gracias por su atención.",
+   "fromLevel": 9,
+   "fromTheme": "L9-saluer",
+   "motif": "formule de clôture d'un compte rendu ou exposé",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P282"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     2
+    ],
+    "study": "Gracias por su atención."
+   }
+  },
+  {
+   "p": "P283",
+   "id": "catalogue:es:3211",
+   "study": "Le ruego que me disculpe.",
+   "fromLevel": 9,
+   "fromTheme": "L9-saluer",
+   "motif": "excuse formelle proche des formules de L10-saluer ; aucun thème L9 ne convient, réserve possible vu la proximité avec « Le ruego disculpe las molestias »",
+   "op": "keep",
+   "toLevel": 10,
+   "toTheme": "L10-saluer",
+   "proposals": [
+    "P283"
+   ],
+   "note": "formule de politesse soutenue : reste dans L9-saluer (thème renommé « Remercier et s’excuser en registre soutenu »)",
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     3
+    ],
+    "study": "Le ruego que me disculpe."
+   }
+  },
+  {
+   "p": "P284",
+   "id": "catalogue:es:3074",
+   "study": "Cualquier consulta, aquí estamos.",
+   "fromLevel": 9,
+   "fromTheme": "L9-comprendre",
+   "motif": "formule de service client professionnel",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P284"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     0
+    ],
+    "study": "Cualquier consulta, aquí estamos."
+   }
+  },
+  {
+   "p": "P285",
+   "id": "catalogue:es:3051",
+   "study": "Necesito el conocimiento de embarque.",
+   "fromLevel": 9,
+   "fromTheme": "L9-ressentis",
+   "motif": "demande de document logistique",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P285"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     0
+    ],
+    "study": "Necesito el conocimiento de embarque."
+   }
+  },
+  {
+   "p": "P286",
+   "id": "catalogue:es:3110",
+   "study": "Necesito una proforma actualizada.",
+   "fromLevel": 9,
+   "fromTheme": "L9-ressentis",
+   "motif": "demande de document commercial",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P286"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     2
+    ],
+    "study": "Necesito una proforma actualizada."
+   }
+  },
+  {
+   "p": "P287",
+   "id": "catalogue:es:3137",
+   "study": "Necesito el formulario de reclamación.",
+   "fromLevel": 9,
+   "fromTheme": "L9-ressentis",
+   "motif": "démarche de réclamation",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P287"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     3
+    ],
+    "study": "Necesito el formulario de reclamación."
+   }
+  },
+  {
+   "p": "P288",
+   "id": "catalogue:es:3186",
+   "study": "Necesito ver un vídeo de la línea.",
+   "fromLevel": 9,
+   "fromTheme": "L9-ressentis",
+   "motif": "vérification de production",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P288"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     10
+    ],
+    "study": "Necesito ver un vídeo de la línea."
+   }
+  },
+  {
+   "p": "P289",
+   "id": "catalogue:es:3080",
+   "study": "¿Recibió la transferencia?",
+   "fromLevel": 9,
+   "fromTheme": "L9-repas",
+   "motif": "suivi de paiement",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P289"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     0
+    ],
+    "study": "¿Recibió la transferencia?"
+   }
+  },
+  {
+   "p": "P290",
+   "id": "catalogue:es:3145",
+   "study": "Aún no hemos recibido la mercancía.",
+   "fromLevel": 9,
+   "fromTheme": "L9-repas",
+   "motif": "suivi de livraison, rendre compte",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P290"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     4
+    ],
+    "study": "Aún no hemos recibido la mercancía."
+   }
+  },
+  {
+   "p": "P291",
+   "id": "catalogue:es:3226",
+   "study": "¿Pueden enviar el logo en alta resolución?",
+   "fromLevel": 9,
+   "fromTheme": "L9-deplacements",
+   "motif": "demande de fichier professionnel",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-travail",
+   "proposals": [
+    "P291"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     3
+    ],
+    "study": "¿Pueden enviar el logo en alta resolución?"
+   }
+  },
+  {
+   "p": "P292",
+   "id": "catalogue:es:4283",
+   "study": "Conéctalo aquí.",
+   "fromLevel": 9,
+   "fromTheme": "L9-deplacements",
+   "motif": "consigne pratique simple, comme « Conéctate al wifi » en L3-quotidien",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-quotidien",
+   "proposals": [
+    "P292"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     8
+    ],
+    "study": "Conéctalo aquí."
+   }
+  },
+  {
+   "p": "P293",
+   "id": "catalogue:es:4334",
+   "study": "Flipas.",
+   "fromLevel": 9,
+   "fromTheme": "L9-deplacements",
+   "motif": "réaction familière qui fait vivre la conversation ; registre argotique, la réserve est l'autre option",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "conversation",
+   "proposals": [
+    "P293"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     11
+    ],
+    "study": "Flipas."
+   }
+  },
+  {
+   "p": "P294",
+   "id": "catalogue:es:4336",
+   "study": "Antes vivía en Pekín.",
+   "fromLevel": 9,
+   "fromTheme": "L9-reperes",
+   "motif": "phrase simple de parcours personnel à l'imparfait, pas une argumentation",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-saluer",
+   "proposals": [
+    "P294",
+    "P309"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     20
+    ],
+    "study": "Antes vivía en Pekín."
+   }
+  },
+  {
+   "p": "P295",
+   "id": "catalogue:es:4280",
+   "study": "Mézclalo bien.",
+   "fromLevel": 9,
+   "fromTheme": "L9-quotidien",
+   "motif": "consigne domestique simple à l'impératif",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-quotidien",
+   "proposals": [
+    "P295"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     0
+    ],
+    "study": "Mézclalo bien."
+   }
+  },
+  {
+   "p": "P296",
+   "id": "catalogue:es:4282",
+   "study": "Pégalo aquí.",
+   "fromLevel": 9,
+   "fromTheme": "L9-quotidien",
+   "motif": "consigne pratique simple à l'impératif",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-quotidien",
+   "proposals": [
+    "P296"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     1
+    ],
+    "study": "Pégalo aquí."
+   }
+  },
+  {
+   "p": "P297",
+   "id": "catalogue:es:4332",
+   "study": "Bórralo.",
+   "fromLevel": 9,
+   "fromTheme": "L9-quotidien",
+   "motif": "consigne pratique simple à l'impératif",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-quotidien",
+   "proposals": [
+    "P297"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     2
+    ],
+    "study": "Bórralo."
+   }
+  },
+  {
+   "p": "P298",
+   "id": "catalogue:es:3151",
+   "study": "¿Cómo conviene vestir en esta temporada?",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "conseil pratique de voyage selon la saison ; L9-quotidien serait l'alternative au même niveau",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-deplacements",
+   "proposals": [
+    "P298"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     56
+    ],
+    "study": "¿Cómo conviene vestir en esta temporada?"
+   }
+  },
+  {
+   "p": "P299",
+   "id": "catalogue:es:4270",
+   "study": "Lo planché.",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "action domestique au passé, raconter sa journée",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-quotidien",
+   "proposals": [
+    "P299"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     117
+    ],
+    "study": "Lo planché."
+   }
+  },
+  {
+   "p": "P300",
+   "id": "catalogue:es:4284",
+   "study": "Ya hirvió.",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "constat domestique au passé",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-quotidien",
+   "proposals": [
+    "P300"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     126
+    ],
+    "study": "Ya hirvió."
+   }
+  },
+  {
+   "p": "P301",
+   "id": "catalogue:es:4333",
+   "study": "Empataron.",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "raconter le résultat d'un match vu lors d'une sortie",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-repas",
+   "proposals": [
+    "P301"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     145
+    ],
+    "study": "Empataron."
+   }
+  },
+  {
+   "p": "P302",
+   "id": "catalogue:es:4354",
+   "study": "Está nublado.",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "phrase météo de base, comme « Hace buen tiempo »",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "quotidien",
+   "proposals": [
+    "P302",
+    "P307"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     152
+    ],
+    "study": "Está nublado."
+   }
+  },
+  {
+   "p": "P303",
+   "id": "catalogue:es:4359",
+   "study": "Que descanses.",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "souhait de prise de congé, comme « Que vaya bien »",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-saluer",
+   "proposals": [
+    "P303"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     155
+    ],
+    "study": "Que descanses."
+   }
+  },
+  {
+   "p": "P304",
+   "id": "catalogue:es:4296",
+   "study": "¡Hala!",
+   "fromLevel": 9,
+   "fromTheme": "L9-ressentis",
+   "motif": "interjection de base, niveau L1",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "conversation",
+   "proposals": [
+    "P304"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     15
+    ],
+    "study": "¡Hala!"
+   }
+  },
+  {
+   "p": "P305",
+   "id": "catalogue:es:4303",
+   "study": "¡Uf!",
+   "fromLevel": 9,
+   "fromTheme": "L9-ressentis",
+   "motif": "interjection de base, niveau L1",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "conversation",
+   "proposals": [
+    "P305"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     16
+    ],
+    "study": "¡Uf!"
+   }
+  },
+  {
+   "p": "P306",
+   "id": "catalogue:es:4352",
+   "study": "Está nevando.",
+   "fromLevel": 9,
+   "fromTheme": "L9-quotidien",
+   "motif": "phrase météo de base, niveau L1",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "quotidien",
+   "proposals": [
+    "P306"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     3
+    ],
+    "study": "Está nevando."
+   }
+  },
+  {
+   "p": "P308",
+   "id": "catalogue:es:4315",
+   "study": "Aprendo español.",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "présentation élémentaire, niveau L1",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "saluer",
+   "proposals": [
+    "P308"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     136
+    ],
+    "study": "Aprendo español."
+   }
+  }
+ ]
+}
