@@ -1,0 +1,78 @@
+✔ lot3 freezes 95 events into 91 exact identities and all 98 objects without other runtime or UI changes (270515.420089ms)
+✔ unreviewed fields, forged chain/evidence, stale copies and source/role changes are rejected (1247.215932ms)
+✔ four active corrected Pinyin readings toggle verbatim and the ear always speaks unchanged study text (21030.542287ms)
+✔ after-B final aid and first/later revision copies use the same approved edition in the real lesson UI (12422.507909ms)
+✔ both received-only les→雷 aids remain visible, audible and outside learner production (7352.574646ms)
+✔ 259 frozen whole aids and separate 35 content transactions retain every source, placement, role and UI file (202218.419274ms)
+✔ forged proof, added field, partial atomic bundle and stale final values are rejected (2897.070879ms)
+✖ truncated aid, obligatory liaison, feminine form and French bus/acronym aid display their whole final source (7483.475637ms)
+✔ canonical and later review copy share the corrected edition; heard models stay outside production (10751.592402ms)
+✔ 757 and 1900 are served as whole transactions, including spoken study and corrected Pinyin (8565.432631ms)
+✔ new complete study and longer corrected glosses fit mobile and desktop cards without scrolling or clipping (17587.16419ms)
+✔ 4 paired aids/readings and 26 selected glosses preserve complete runtime documents and all original UI/access fields (162804.950216ms)
+✔ partial pair, forged source, wrong proof, unapproved gloss and stale transport values are rejected (2007.504408ms)
+✔ three active aid/reading pairs and the later 4320 transport copy display exact final values and speak unchanged Japanese (13563.043601ms)
+✔ all five 日本語 glosses say Japanese, the seat question keeps its polarity and other selected meanings are shown (27392.533605ms)
+✔ the longer corrected quoted-word gloss still fits the complete mobile and desktop card (6738.967889ms)
+✔ 18 frozen aid transactions and 47 separate content transactions preserve all 77 runtime documents (137390.038112ms)
+✔ partial pairs/bundles, forged proof/source, unapproved gloss and stale after values are rejected (4447.417447ms)
+✖ all five linked reading pairs and both L1 romanization corrections display final whole aids and speak unchanged Hangul (12241.716306ms)
+✔ both atomic spelling bundles display complete study/reading/aid editions and dispatch their corrected Hangul to TTS (5904.166773ms)
+✔ all five reviewed 한국어 glosses say Korean, the currency is won, and selected exact meanings reach the actual lesson DOM (17586.454358ms)
+✔ the longest corrected Korean atomic bundle fits a complete mobile and desktop card without scrolling (5166.642984ms)
+✔ 228 frozen English aids and 16 separate content transactions preserve all 77 runtime documents (103437.563628ms)
+✔ partial bundles, stale copies and received aids, forged proofs, sources and undeclared fields are rejected (2307.714975ms)
+✔ each G/W/A/H/Z/T family, hard-g exceptions and three received models display final whole aids and dispatch English study (27338.636541ms)
+✔ all five atomic English content bundles display complete editions and speak the corrected whole study (11481.489887ms)
+✔ all eleven certain glosses reach the actual lesson DOM, including eight full-width question marks and three corrected meanings (21244.630763ms)
+✔ all five corrected English atomic bundles fit a complete mobile and desktop card without scrolling (18540.509957ms)
+✔ 63 frozen Spanish aids and 23 separate content transactions preserve all 77 runtime documents (53365.514276ms)
+✔ partial Spanish bundles, punctuation-only leaks, stale copies, received models and forged metadata are rejected (3194.015418ms)
+✔ S/G/R/A/T families, the B3159 chain and one received model display whole aids and dispatch Spanish study (19388.714874ms)
+✔ three atomic Spanish bundles and two punctuation-only studies display and speak their exact complete editions (8497.151789ms)
+✔ all eighteen certain glosses reach the actual lesson DOM and the stomach support copy preserves the exact new meaning (32076.989828ms)
+✔ all three Spanish bundles and two punctuated studies fit complete mobile and desktop cards without scrolling (18833.010159ms)
+✔ 70 frozen Italian aids, 37 content events and one EN71 erratum preserve all 77 runtime documents (15177.230808ms)
+✔ partial Italian bundles, stale copies, received models and forged EN71 chain are rejected (1187.343622ms)
+✔ N/S/T/A families and all three received corrections display whole aids and speak complete Italian studies (10898.333478ms)
+✖ three atomic Italian bundles and all active certain glosses reach the real lesson DOM with unchanged native-only phonetics (10388.904207ms)
+✔ EN71 serves explicit E and N while preserving the earlier S-event and speaking the Spanish whole sentence (2618.552723ms)
+✔ all three changed Italian studies fit complete mobile and desktop cards without scrolling (10111.391078ms)
+✔ 774 reviewer events compose into 772 exact corrections with all non-phonetic fields and transports conserved (143171.217435ms)
+✔ unapproved rule, changed after-aid, broken chained event and wrong evidence hash are rejected (420.656417ms)
+✔ 我要那个 uses the corrected gueu at first encounter and later contextual reuse; djinn keeps original Pinyin and spoken study (2207.457275ms)
+✔ all 17 les→雷 corrections are rendered verbatim and speak unchanged French study text (7266.944294ms)
+ℹ tests 44
+ℹ suites 0
+ℹ pass 41
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 807390.691659
+
+✖ failing tests:
+
+test at tests/lot4-corrections.cjs:304:2
+✖ truncated aid, obligatory liaison, feminine form and French bus/acronym aid display their whole final source (7483.475637ms)
+  Error: No real active fixture zh-fr/catalogue:fr:2915/later=false/received=false
+      at fixture (/workspace/melunga-classement-sept/melunga_deploy/tests/lot4-corrections.cjs:250:11)
+      at TestContext.<anonymous> (/workspace/melunga-classement-sept/melunga_deploy/tests/lot4-corrections.cjs:309:70)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at tests/lot6-corrections.cjs:262:2
+✖ all five linked reading pairs and both L1 romanization corrections display final whole aids and speak unchanged Hangul (12241.716306ms)
+  Error: No real active fixture catalogue:ko:4125/received=false
+      at fixture (/workspace/melunga-classement-sept/melunga_deploy/tests/lot6-corrections.cjs:193:11)
+      at TestContext.<anonymous> (/workspace/melunga-classement-sept/melunga_deploy/tests/lot6-corrections.cjs:265:54)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at tests/lot9-corrections.cjs:288:2
+✖ three atomic Italian bundles and all active certain glosses reach the real lesson DOM with unchanged native-only phonetics (10388.904207ms)
+  Error: No real active fixture catalogue:it:629/received=false
+      at fixture (/workspace/melunga-classement-sept/melunga_deploy/tests/lot9-corrections.cjs:209:11)
+      at TestContext.<anonymous> (/workspace/melunga-classement-sept/melunga_deploy/tests/lot9-corrections.cjs:290:175)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

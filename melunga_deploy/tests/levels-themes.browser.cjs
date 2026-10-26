@@ -1167,7 +1167,7 @@ test('latest pair/level wins delayed responses; failed cells can be retried', {t
     const delayedLevel = /\/fr-zh\/L(2|4)\.json$/.exec(url.pathname)?.[1];
     if (delayedLevel && !releases.has(delayedLevel)) {
       await new Promise(resolve => { releases.set(delayedLevel, async () => {
-        try { await route.fulfill({contentType: 'application/json', body: JSON.stringify(cell('fr-zh', Number(delayedLevel)))}); } catch (_) {}
+        try { await route.fulfill({contentType: 'application/json', body: fs.readFileSync(path.join(DATA, 'fr-zh', 'L' + delayedLevel + '.json'))}); } catch (_) {}
         resolve();
       }); });
       return true;
@@ -1222,7 +1222,7 @@ test('first manifest and first cell failures have an operational retry', {timeou
 }));
 
 test('L1 received/context references load their bank and a failed bank can be retried', {timeout: 30000}, async () => checked('repertoire-loading-and-retry', async () => {
-  const pairId = 'fr-es'; // generic corruption fixtures stay outside the pinned English edition
+  const pairId = 'fr-es'; // Corrupt the actual reviewed edition; genuine replies retain their exact served bytes.
   const target = reviewFixture(pairId);
   const bankPath = '/' + manifest.pairs.find(pair => pair.id === pairId).repertoirePath;
   const noBank = await open(390);
@@ -1300,7 +1300,7 @@ test('same-level context reuse is explicit, audible and distinct from a revision
 }));
 
 test('invalid context intent, future, type and review markers are refused and a corrected bank reloads', {timeout: 90000}, async () => checked('context-reference-guards-and-retry', async () => {
-  const pairId = 'fr-es'; // generic corruption fixtures stay outside the pinned English edition
+  const pairId = 'fr-es'; // Corrupt the actual reviewed edition; genuine replies retain their exact served bytes.
   const basic = contextFixture(pairId);
   report.contextGuardResults = [];
   for (const alteration of ['future', 'intent', 'type', 'not-additional', 'mixed-review-marker', 'missing-context-marker', 'missing-intent-position', 'duplicate-intent', 'intent-order']) {
@@ -1344,9 +1344,13 @@ test('invalid context intent, future, type and review markers are refused and a 
     const bankPath = '/' + manifest.pairs.find(pair => pair.id === pairId).repertoirePath;
     let corrupted = true;
     const fixture = await open(390, async (route, url) => {
-      if (url.pathname === cellPath || url.pathname === bankPath) {
-        const body = corrupted ? url.pathname === cellPath ? target : bank
-          : url.pathname === cellPath ? cell(pairId, target.level) : repertoire(pairId);
+      if (corrupted && (url.pathname === cellPath || url.pathname === bankPath)) {
+        const body = url.pathname === cellPath ? target : bank;
+        const original = url.pathname === cellPath ? basic.data : repertoire(pairId);
+        // An unchanged document and every recovery response use the real HTTP
+        // body, including its final newline. Only the altered body is replaced;
+        // the pinned digest must reject it before any partial lesson is cached.
+        if (canonicalJson(body) === canonicalJson(original)) return false;
         await route.fulfill({contentType: 'application/json', body: JSON.stringify(body)}); return true;
       }
       return false;
@@ -1363,7 +1367,10 @@ test('invalid context intent, future, type and review markers are refused and a 
       const originalTheme = basic.data.themes[basic.themeIndex];
       await fixture.page.locator('#mgThemeGrid > button').nth(basic.themeIndex).click();
       assert.equal((await fixture.page.evaluate(() => window.MelungaMockup.state())).screen, 'lesson');
-      assert.equal(originalTheme.presentedCount, 8);
+      const extension = manifest.allClassification.pairs.find(pair => pair.pair === pairId)
+        .situationExtensions.find(item => item.id === originalTheme.id && item.level === basic.level);
+      assert.equal(originalTheme.intentIds.length, 8, 'the original eight-intent core remains intact');
+      assert.equal(originalTheme.presentedCount, 8 + (extension?.addedIds.length || 0), 'only reviewed classification additions extend the scene');
       const originalPhrase = repertoire(pairId).phrases.find(candidate => candidate.id === basic.reference.id);
       const originalSteps = originalTheme.sequences.flatMap(sequence => sequence.steps);
       const referenceIndex = originalSteps.findIndex(step => step.utterance === basic.reference.id);
@@ -1374,7 +1381,7 @@ test('invalid context intent, future, type and review markers are refused and a 
       }
       await fixture.page.click('#mgEar');
       assert.equal(await fixture.page.evaluate(() => window.__speech.at(-1).text), originalPhrase.study);
-      report.contextGuardResults.push({alteration, refused: true, bankRequestsBeforeRetry: before,
+      report.contextGuardResults.push({alteration, refused: true, refusalLayer: 'pinned-raw-body-integrity', bankRequestsBeforeRetry: before,
         bankRequestsAfterRetry: after, retryRestored: true, correctedWholeFields: 4, correctedAudioText: true});
       assert.deepEqual(fixture.errors, []);
     } finally { await fixture.context.close(); }
@@ -1382,7 +1389,7 @@ test('invalid context intent, future, type and review markers are refused and a 
 }));
 
 test('corrupt interlocutor roles, preparation, progress and lexical wiring are refused; corrected bank retries restore a full cycle', {timeout: 180000}, async () => checked('received-reference-guards-and-retry', async () => {
-  const pairId = 'fr-es'; // generic corruption fixtures stay outside the pinned English edition
+  const pairId = 'fr-es'; // Corrupt the actual reviewed edition; genuine replies retain their exact served bytes.
   const basic = receivedFixture(pairId);
   report.receivedGuardResults = [];
   const alterations = ['future-first-hearing', 'wrong-model-type', 'role-on-model', 'production-progress',
@@ -1428,9 +1435,13 @@ test('corrupt interlocutor roles, preparation, progress and lexical wiring are r
     const bankPath = '/' + manifest.pairs.find(pair => pair.id === pairId).repertoirePath;
     let corrupted = true;
     const fixture = await open(390, async (route, url) => {
-      if (url.pathname === cellPath || url.pathname === bankPath) {
-        const body = corrupted ? url.pathname === cellPath ? target : bank
-          : url.pathname === cellPath ? cell(pairId, target.level) : repertoire(pairId);
+      if (corrupted && (url.pathname === cellPath || url.pathname === bankPath)) {
+        const body = url.pathname === cellPath ? target : bank;
+        const original = url.pathname === cellPath ? basic.data : repertoire(pairId);
+        // An unchanged document and every recovery response use the real HTTP
+        // body, including its final newline. Only the altered body is replaced;
+        // the pinned digest must reject it before any partial lesson is cached.
+        if (canonicalJson(body) === canonicalJson(original)) return false;
         await route.fulfill({contentType: 'application/json', body: JSON.stringify(body)}); return true;
       }
       return false;
@@ -1478,7 +1489,7 @@ test('corrupt interlocutor roles, preparation, progress and lexical wiring are r
       assert.equal(await page.locator('#mgPhrase').textContent(), closeModel.study, 'closure remains comprehension only');
       assert.deepEqual(closing.answerWith, []);
       await page.click('#mgEar'); assert.equal(await page.evaluate(() => window.__speech.at(-1).text), closeModel.study);
-      report.receivedGuardResults.push({alteration, refused: true, retryRestored: true, bankRequestsBeforeRetry: before,
+      report.receivedGuardResults.push({alteration, refused: true, refusalLayer: 'pinned-raw-body-integrity', retryRestored: true, bankRequestsBeforeRetry: before,
         bankRequestsAfterRetry: after, correctedWholeFields: 4, questionPreparedReplyClosure: true, progressAtCue});
       assert.deepEqual(fixture.errors, []);
     } finally { await fixture.context.close(); }
@@ -1486,7 +1497,7 @@ test('corrupt interlocutor roles, preparation, progress and lexical wiring are r
 }));
 
 test('future, wrong-type, wrong-family, wrong-subclass and insufficient-concept references are refused', {timeout: 60000}, async () => checked('repertoire-reference-guards', async () => {
-  const pairId = 'fr-es'; // generic corruption fixtures stay outside the pinned English edition
+  const pairId = 'fr-es'; // Corrupt the actual reviewed edition; genuine replies retain their exact served bytes.
   const basic = reviewFixture(pairId);
   for (const alteration of ['future', 'type', 'family', 'subclass', 'concept-count']) {
     const target = JSON.parse(JSON.stringify(basic.data));
@@ -1504,7 +1515,7 @@ test('future, wrong-type, wrong-family, wrong-subclass and insufficient-concept 
       phrase.editorialLevel = target.level;
       phrase.canonicalLocation.level = target.level;
     } else if (alteration === 'type') {
-      phrase.contentType = theme.contentType === 'utterance' ? 'vocabulary' : 'utterance';
+      phrase.contentType = phrase.contentType === 'utterance' ? 'vocabulary' : 'utterance';
     } else if (alteration === 'subclass') {
       phrase.lexicalClass = phrase.lexicalClass === 'adjective' ? 'color' : 'adjective';
     } else if (alteration === 'concept-count') {
@@ -1516,9 +1527,13 @@ test('future, wrong-type, wrong-family, wrong-subclass and insufficient-concept 
     const bankPath = '/' + manifest.pairs.find(pair => pair.id === pairId).repertoirePath;
     let corrupted = true;
     const fixture = await open(390, async (route, url) => {
-      if (url.pathname === cellPath || url.pathname === bankPath) {
-        const body = corrupted ? url.pathname === cellPath ? target : bank
-          : url.pathname === cellPath ? cell(pairId, target.level) : repertoire(pairId);
+      if (corrupted && (url.pathname === cellPath || url.pathname === bankPath)) {
+        const body = url.pathname === cellPath ? target : bank;
+        const original = url.pathname === cellPath ? basic.data : repertoire(pairId);
+        // An unchanged document and every recovery response use the real HTTP
+        // body, including its final newline. Only the altered body is replaced;
+        // the pinned digest must reject it before any partial lesson is cached.
+        if (canonicalJson(body) === canonicalJson(original)) return false;
         await route.fulfill({contentType: 'application/json', body: JSON.stringify(body)}); return true;
       }
       return false;
@@ -1527,16 +1542,18 @@ test('future, wrong-type, wrong-family, wrong-subclass and insufficient-concept 
       await fixture.page.goto(base + '/parcours-niveaux.html?pair=' + pairId + '&level=' + target.level);
       await fixture.page.locator('#mgRetry').waitFor({state: 'visible'});
       assert.equal((await fixture.page.evaluate(() => window.MelungaMockup.state())).screen, 'loading', alteration + ' must not display a partial lesson');
+      const before = fixture.localRequests.filter(value => value === bankPath).length;
       corrupted = false;
       await fixture.page.click('#mgRetry'); await ready(fixture.page, pairId, target.level);
-      assert.equal(fixture.localRequests.filter(value => value === bankPath).length, 2, alteration + ' retry refetches the corrected bank');
+      assert.equal(fixture.localRequests.filter(value => value === bankPath).length, before + 1,
+        alteration + ' retry refetches the genuine bank after an early cell or bank integrity refusal');
       assert.deepEqual(fixture.errors, []);
     } finally { await fixture.context.close(); }
   }
 }));
 
 test('a delayed old bank cannot overwrite a newly selected pair or its review audio', {timeout: 30000}, async () => checked('repertoire-pair-race', async () => {
-  const first = 'fr-es', second = 'fr-zh'; // generic late-response behavior, independently of English raw-body integrity
+  const first = 'fr-es', second = 'fr-zh'; // Release a genuine reviewed body after another pair has won the request race.
   const firstTarget = reviewFixture(first), secondTarget = reviewFixture(second);
   const firstBankPath = '/' + manifest.pairs.find(pair => pair.id === first).repertoirePath;
   let release;
@@ -1545,7 +1562,7 @@ test('a delayed old bank cannot overwrite a newly selected pair or its review au
   const fixture = await open(390, async (route, url) => {
     if (url.pathname === firstBankPath && !release) {
       await new Promise(resolve => {
-        release = async () => { try { await route.fulfill({contentType: 'application/json', body: JSON.stringify(repertoire(first))}); } catch (_) {} resolve(); };
+        release = async () => { try { await route.fulfill({contentType: 'application/json', body: fs.readFileSync(path.join(ROOT, manifest.pairs.find(pair => pair.id === first).repertoirePath))}); } catch (_) {} resolve(); };
         requestedResolve();
       }); return true;
     }

@@ -1,0 +1,222 @@
+{
+  "version": 1,
+  "status": "passed-after-targeted-fixture-retest",
+  "resultKind": "consolidated-evidence-from-two-executions",
+  "generatedAt": "2026-10-26T14:13:15.418305+00:00",
+  "scope": "19 unique local browser groups for the seven-pair preview; no product files changed between the full execution and the targeted retest",
+  "singleFullGreenExecution": false,
+  "requiredUniqueGroups": 19,
+  "coveredUniqueGroups": 19,
+  "allUniqueGroupsPassed": true,
+  "fullExecution": {
+    "report": "controle-matrice-navigateur.json",
+    "sha256": "897b7c0ee22155f024939b2f942fdfd1cbd59b41f3cf0b306fe0e0635f0efea2",
+    "executedAt": "2026-10-26T13:58:36.645Z",
+    "status": "failed",
+    "groupsPassed": 16,
+    "groupsFailed": 3,
+    "originalFailures": [
+      {
+        "check": "context-reference-guards-and-retry",
+        "error": "page.waitForFunction: Timeout 30000ms exceeded."
+      },
+      {
+        "check": "received-reference-guards-and-retry",
+        "error": "page.waitForFunction: Timeout 30000ms exceeded."
+      },
+      {
+        "check": "repertoire-reference-guards",
+        "error": "page.waitForFunction: Timeout 30000ms exceeded."
+      }
+    ],
+    "originalReportPreserved": true
+  },
+  "targetedRetest": {
+    "report": "controle-matrice-reprises.json",
+    "sha256": "7a5fa9ee027fb0ce4751c325d57d98cd426ab7fd07a3512ad17eb719d6bcc08e",
+    "log": "controle-matrice-reprises.log",
+    "logSha256": "cbb4c62301757198e3bcabb070881a06a15f0a41d8b57245f54be66b9e70ac7b",
+    "executedAt": "2026-10-26T14:10:41.116Z",
+    "status": "partial",
+    "groupsPassed": 5,
+    "groupsFailed": 0,
+    "isPartialExecution": true,
+    "retestedGroups": [
+      "fetch-races-and-retry",
+      "context-reference-guards-and-retry",
+      "received-reference-guards-and-retry",
+      "repertoire-reference-guards",
+      "repertoire-pair-race"
+    ],
+    "command": "NODE_PATH=/tmp/melunga-review-tools/node_modules LEVELS_BROWSER_REPORT=/tmp/melunga-classification-matrix-fixture-retest.json node --test --test-name-pattern='latest pair/level|invalid context|corrupt interlocutor|future, wrong-type|a delayed old bank' tests/levels-themes.browser.cjs"
+  },
+  "fixtureCorrections": {
+    "changedInputPaths": [
+      "melunga_deploy/tests/levels-themes.browser.cjs"
+    ],
+    "scriptSha256Before": "2ae557e4b3d3fd391797f04d3c89ca18620bca9c82e9afb1e4e010a8805593ee",
+    "scriptSha256After": "c8a38c154273e7511fc3ccf1e12352e680bc5105c78f5d4e4ab9c1247a5ba2bd",
+    "behavior": [
+      "Genuine and unmodified cell/bank responses retain the exact served bytes, including the final newline.",
+      "Only an actually changed corrupt document is replaced, so a bank-only mutation reaches the bank request.",
+      "Delayed genuine cell/bank responses now preserve their reviewed raw digest.",
+      "Retry bank request counts are measured before and after the refusal; early cell rejection may precede the first bank fetch.",
+      "The Spanish mini-scene retains eight original intentions plus exactly two approved classification additions.",
+      "Wrong-type mutations flip the actual reference type, including a reference inside a reviewed mixed theme."
+    ],
+    "runtimeRefusalLayer": "pinned-raw-body-integrity",
+    "doesNotClaimSemanticGuardBypass": true,
+    "independentSemanticFaultEvidence": "audit-independant.json"
+  },
+  "productAndSourceBundlesUnchanged": true,
+  "productFingerprints": {
+    "manifestSha256": "120cd6d8396a0c439b93bf9c352866f342a3d1b6a73a4aaa05400be5aa895a56",
+    "cellBundleSha256": "5f0fca1eaefc21bab92ecb14100e14af0685d7886dd0f80c05e90f3ef0bee68f",
+    "repertoireBundleSha256": "fcbef81fc6b4817f4f0c91224fd197b46007c70c5511d4a2654ad760590cba72",
+    "authoredSourceSha256": "db4a040fef882b2c35304e76b357b16e5928f838398c7f9029521b4402c99fb6",
+    "situationPlanSha256": "d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379"
+  },
+  "allOtherEnumeratedInputSha256Unchanged": true,
+  "inputsStableWithinBothExecutions": true,
+  "matrixEvidence": {
+    "widths": [
+      320,
+      390,
+      1440
+    ],
+    "cellViews": 210,
+    "themeEntries": 4845,
+    "domSteps": 164963,
+    "runtimeJsonFieldsCompared": 659852,
+    "completeMatrixCoverage": true,
+    "additionalWholeUtterancesChecked": 1568,
+    "receivedDomSteps": 273
+  },
+  "correctedRefusalAndRecoveryCases": {
+    "context": 9,
+    "receivedAndSupport": 13,
+    "reviewReference": 5,
+    "total": 27
+  },
+  "checks": [
+    {
+      "check": "matrix-320",
+      "status": "passed",
+      "evidence": "controle-matrice-navigateur.json",
+      "evidenceExecutedAt": "2026-10-26T13:58:36.645Z"
+    },
+    {
+      "check": "matrix-390",
+      "status": "passed",
+      "evidence": "controle-matrice-navigateur.json",
+      "evidenceExecutedAt": "2026-10-26T13:58:36.645Z"
+    },
+    {
+      "check": "matrix-1440",
+      "status": "passed",
+      "evidence": "controle-matrice-navigateur.json",
+      "evidenceExecutedAt": "2026-10-26T13:58:36.645Z"
+    },
+    {
+      "check": "additional-situation-whole-source-and-intents",
+      "status": "passed",
+      "evidence": "controle-matrice-navigateur.json",
+      "evidenceExecutedAt": "2026-10-26T13:58:36.645Z"
+    },
+    {
+      "check": "lexical-family-priority",
+      "status": "passed",
+      "evidence": "controle-matrice-navigateur.json",
+      "evidenceExecutedAt": "2026-10-26T13:58:36.645Z"
+    },
+    {
+      "check": "authored-source-and-bank-conservation",
+      "status": "passed",
+      "evidence": "controle-matrice-navigateur.json",
+      "evidenceExecutedAt": "2026-10-26T13:58:36.645Z"
+    },
+    {
+      "check": "ja-ko-semantic-routing-regressions",
+      "status": "passed",
+      "evidence": "controle-matrice-navigateur.json",
+      "evidenceExecutedAt": "2026-10-26T13:58:36.645Z"
+    },
+    {
+      "check": "fetch-races-and-retry",
+      "status": "passed",
+      "evidence": "controle-matrice-reprises.json",
+      "evidenceExecutedAt": "2026-10-26T14:10:41.116Z"
+    },
+    {
+      "check": "initial-load-retries",
+      "status": "passed",
+      "evidence": "controle-matrice-navigateur.json",
+      "evidenceExecutedAt": "2026-10-26T13:58:36.645Z"
+    },
+    {
+      "check": "repertoire-loading-and-retry",
+      "status": "passed",
+      "evidence": "controle-matrice-navigateur.json",
+      "evidenceExecutedAt": "2026-10-26T13:58:36.645Z"
+    },
+    {
+      "check": "same-level-context-reuse",
+      "status": "passed",
+      "evidence": "controle-matrice-navigateur.json",
+      "evidenceExecutedAt": "2026-10-26T13:58:36.645Z"
+    },
+    {
+      "check": "context-reference-guards-and-retry",
+      "status": "passed",
+      "evidence": "controle-matrice-reprises.json",
+      "evidenceExecutedAt": "2026-10-26T14:10:41.116Z"
+    },
+    {
+      "check": "repertoire-reference-guards",
+      "status": "passed",
+      "evidence": "controle-matrice-reprises.json",
+      "evidenceExecutedAt": "2026-10-26T14:10:41.116Z"
+    },
+    {
+      "check": "repertoire-pair-race",
+      "status": "passed",
+      "evidence": "controle-matrice-reprises.json",
+      "evidenceExecutedAt": "2026-10-26T14:10:41.116Z"
+    },
+    {
+      "check": "menu-palette-targets",
+      "status": "passed",
+      "evidence": "controle-matrice-navigateur.json",
+      "evidenceExecutedAt": "2026-10-26T13:58:36.645Z"
+    },
+    {
+      "check": "legacy-v1-compatibility",
+      "status": "passed",
+      "evidence": "controle-matrice-navigateur.json",
+      "evidenceExecutedAt": "2026-10-26T13:58:36.645Z"
+    },
+    {
+      "check": "photo-atlases-and-network-isolation",
+      "status": "passed",
+      "evidence": "controle-matrice-navigateur.json",
+      "evidenceExecutedAt": "2026-10-26T13:58:36.645Z"
+    },
+    {
+      "check": "received-and-lexical-source-contract",
+      "status": "passed",
+      "evidence": "controle-matrice-navigateur.json",
+      "evidenceExecutedAt": "2026-10-26T13:58:36.645Z"
+    },
+    {
+      "check": "received-reference-guards-and-retry",
+      "status": "passed",
+      "evidence": "controle-matrice-reprises.json",
+      "evidenceExecutedAt": "2026-10-26T14:10:41.116Z"
+    }
+  ],
+  "externalRequests": [],
+  "apiRequests": [],
+  "publicSiteChecked": false,
+  "physicalDeviceChecked": false,
+  "nativeOrPedagogicalValidation": false
+}
