@@ -45,3 +45,14 @@ Le registre est [`registre-batchim.json`](registre-batchim.json).
 Le convertisseur est dans [`outils/`](outils/).
 
 Référence : `13f42b5`. Rien n'est fusionné dans `main` ni publié sur melunga.com.
+
+## Errata 1 (réponse à Codex)
+
+L'erratum est dans [`errata-1.json`](errata-1.json). Il corrige cinq aides où l'insertion de ㄴ manquait dans un mot composé :
+- `ko:3090` 꽃잎 → `kkon-nip` ;
+- `ko:4275` 알약 → `al-lyak` ;
+- `ko:3870`, `ko:1433` et `ko:4193` : 큰일 → `keun-nil`. Pour ces trois cartes, l'aide entière devient `ha-ma-to-myon keun-nil nal ppon-hè-sso-yo`.
+
+Chaque événement remplace entièrement l'après livré. J'ai ajouté ces mots à la liste fermée du convertisseur.
+
+J'ai ensuite relevé dans tout le couple les 212 suites où une syllabe en 이, 야, 여, 요 ou 유 suit un batchim. Aucun autre composé de ce type n'y figure.
