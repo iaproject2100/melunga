@@ -1,3 +1,5 @@
+> Cette première variante SVG est conservée comme historique. Le logo actuellement affiché dans l’aperçu #23 utilise le PNG d’origine avec un masque CSS, conformément à la photo de Kartech. Voir `docs/progression-niveau/README.md`.
+
 # Même mascotte, sans contour sombre
 
 Le PNG utilisé par le parcours inclut un fond bleu nuit autour du disque bleu. Le nouveau `melunga-logo.svg` reprend intégralement le SVG déjà présent dans la barre `.lockup` du classique ; seul le namespace XML nécessaire au fichier externe est ajouté. Aucun tracé, couleur ou détail de la mascotte n’est redessiné. Les deux pages du parcours pointent vers cet asset, avec les mêmes classes et dimensions. Les PNG restent intacts pour leurs autres usages.

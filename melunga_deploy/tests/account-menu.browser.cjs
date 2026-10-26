@@ -11,6 +11,8 @@ const {test,before,after} = require('node:test');
 const {chromium} = require('playwright-core');
 const REPO=path.resolve(__dirname,'../..'), WEB=path.join(REPO,'melunga_deploy');
 const BASE='a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f';
+// The reviewed original-logo clipping is the only allowed CSS change.
+const LOGO_CSS_SHA='40e8c1ad854c4147ef303a7cd4b77633dcd554b689d035e21800f5204ddbf7a2';
 const DEVICE='account-menu-fixture', ORIGIN='https://account-menu.test';
 const read=f=>fs.readFileSync(path.join(WEB,f));
 const json=f=>JSON.parse(read(f));
@@ -21,6 +23,7 @@ const products=['course-access.js','maquette-guidee.js','parcours-niveaux.html',
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const fingerprint=()=>Object.fromEntries([__filename,...sources.concat(protectedFiles,products).map(f=>path.join(WEB,f))].sort().map(f=>[path.relative(REPO,f),sha(fs.readFileSync(f))]));
 const report={status:'running',baseCommit:BASE,environment:'local Chromium; emulated mobile and desktop sizes',publicSiteChecked:false,physicalPhoneChecked:false,realAccountsUsed:false,actualAudioPlayed:false,allApiCallsMocked:true,apiFixture:'GET check-status and user-confirmed test POST logout only',checks:[],cases:[],errors:[],unexpectedRequests:[],requests:[],screenshots:[]};
+report.reviewedLogoCssSha256=LOGO_CSS_SHA;
 const REQUIRED=['source-integrity','paid-account-stays-in-course','guest-and-preview','ordinary-logout','permanent-logout','pending-status-and-legacy'];
 let browser,inputs;
 const checked=async(name,fn)=>{try{await fn();report.checks.push(name);}catch(e){report.errors.push(name+': '+e.message);throw e;}};
@@ -75,7 +78,7 @@ async function accountFits(page){const b=await page.locator('#mgMenuDialog').eva
 function section(text,name){const start=text.indexOf('  function '+name+'(');assert.ok(start>=0);const tail=text.slice(start+1);let candidates=['\n  function ','\n  async function ','\n  // Returning'].map(token=>tail.indexOf(token)).filter(i=>i>=0);const end=candidates.length?start+1+Math.min(...candidates):text.length;return text.slice(start,end);}
 
 test('card data, classic account backend, pricing and access filter functions are preserved',()=>checked('source-integrity',async()=>{
- assert.equal(sources.length,78);for(const f of [...sources,...protectedFiles]){const old=execFileSync('git',['show',BASE+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});assert.ok(read(f).equals(old),'protected '+f);}
+ assert.equal(sources.length,78);for(const f of [...sources,...protectedFiles]){if(f==='maquette-guidee.css'){assert.equal(sha(read(f)),LOGO_CSS_SHA,'whole reviewed logo CSS');continue;}const old=execFileSync('git',['show',BASE+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});assert.ok(read(f).equals(old),'protected '+f);}
  const current=read('course-access.js').toString(),old=execFileSync('git',['show',BASE+':melunga_deploy/course-access.js'],{cwd:REPO}).toString();
  for(const name of ['canLearn','loginUrl','classicUrl','buildLearningView'])assert.equal(section(current,name),section(old,name),'unchanged whole filter '+name);
  report.sourceJsonCount=78;report.protectedFileCount=protectedFiles.length;report.cases.push({name:'unchanged-data-and-account-backend',json:78,protected:protectedFiles.length});

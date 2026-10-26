@@ -8,8 +8,9 @@ const {test,before,after}=require('node:test');
 const {chromium}=require('playwright-core');
 const REPO=path.resolve(__dirname,'../..'),WEB=path.join(REPO,'melunga_deploy');
 const BASE='a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f',ORIGIN='https://level-progress.test';
-// Only the reviewed account component changes course-access; every other
-// protected file and all card sources keep the public main reference above.
+// The account component changes course-access. Original-logo clipping has
+// its own whole CSS pin; other protected files keep the public main reference.
+const LOGO_CSS_SHA='40e8c1ad854c4147ef303a7cd4b77633dcd554b689d035e21800f5204ddbf7a2';
 const ACCOUNT_COMPONENT_REF='665d0def5df2644bb8421553ed4876292ef23f10';
 const KNOWN='melunga-guided-known-v1',REVIEW='melunga-guided-review-v1';
 const read=f=>JSON.parse(fs.readFileSync(path.join(WEB,f),'utf8'));
@@ -95,7 +96,7 @@ async function capture(page,name){const dir=process.env.LEVEL_PROGRESS_CAPTURES;
 async function getState(page){return page.evaluate(()=>window.MelungaMockup.state());}
 
 test('card sources, access, prices, logo and per-theme counters are preserved', {timeout:60000},()=>checked('source-and-unchanged-theme-counts',async()=>{
- assert.equal(sourceFiles.length,78);for(const f of sourceFiles.concat(protectedFiles))assert.ok(baseline(f).equals(fs.readFileSync(path.join(WEB,f))),'whole protected file '+f);
+ assert.equal(sourceFiles.length,78);for(const f of sourceFiles.concat(protectedFiles)){if(f==='maquette-guidee.css'){assert.equal(sha(fs.readFileSync(path.join(WEB,f))),LOGO_CSS_SHA,'whole reviewed logo CSS');continue;}assert.ok(baseline(f).equals(fs.readFileSync(path.join(WEB,f))),'whole protected file '+f);}report.reviewedLogoCssSha256=LOGO_CSS_SHA;
  const a=await fixture({baselineJs:true}),b=await fixture();try{const oldCounts=await a.page.locator('#mgThemeGrid .mg-theme-count').allTextContents(),newCounts=await b.page.locator('#mgThemeGrid .mg-theme-count').allTextContents();assert.deepEqual(newCounts,oldCounts);assert.ok(newCounts.includes('15 expressions'));assert.match(await a.page.locator('#mgCounter').textContent(),/116 expressions.*234 mots/);await progress(b.page,'fr-ja',1,[]);report.cases.push({name:'conservation',runtimeJson:78,protectedFiles:protectedFiles.length,themeCounts:newCounts});}finally{await a.context.close();await b.context.close();}
 }));
 
