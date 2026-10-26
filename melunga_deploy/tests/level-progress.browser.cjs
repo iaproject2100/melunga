@@ -11,7 +11,7 @@ const REPO=path.resolve(__dirname,'../..'),WEB=path.join(REPO,'melunga_deploy');
 const BASE='a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f',ORIGIN='https://level-progress.test';
 // The account component changes course-access. The reviewed presentation has
 // its own whole CSS pin; other protected files keep the public main reference.
-const REVIEWED_CSS_SHA='af06c0518e80af465eeb4349f5ff1d4a0615bf18b37ac7eeacf5b38eca1bf968';
+const REVIEWED_CSS_SHA='2da16667452ebe1781a5d202f68fd811b554086b6831a8d0fa164e9588cc348e';
 const ACCOUNT_COMPONENT_REF='665d0def5df2644bb8421553ed4876292ef23f10';
 const BEFORE_CAPSULE_REF='711537b';
 const KNOWN='melunga-guided-known-v1',REVIEW='melunga-guided-review-v1';
@@ -112,6 +112,17 @@ async function capsuleGeometry(page){
  assert.ok(g.pill.scrollWidth<=g.pill.clientWidth+1&&g.end.scrollWidth<=g.end.clientWidth+1,'percentage and Fin are complete '+JSON.stringify(g));
  return g;
 }
+function completeFill(g){
+ assert.ok(g.fill.left<=g.end.left+.5&&g.fill.right>=g.end.right-.5,'100% fill includes the complete Fin area '+JSON.stringify(g));
+ assert.ok(g.fill.top<=g.end.top+.5&&g.fill.bottom>=g.end.bottom-.5,'100% fill includes Fin through the capsule height '+JSON.stringify(g));
+}
+function contrastRatio(background,ink){
+ const rgb=value=>(value.match(/[\d.]+/g)||[]).slice(0,3).map(Number),luminance=v=>v.map(x=>{x/=255;return x<=.04045?x/12.92:((x+.055)/1.055)**2.4;}).reduce((sum,x,i)=>sum+x*[.2126,.7152,.0722][i],0),bg=Array.isArray(background)?background:rgb(background),fg=Array.isArray(ink)?ink:rgb(ink);assert.equal(bg.length,3);assert.equal(fg.length,3);const a=luminance(bg),b=luminance(fg);return(Math.max(a,b)+.05)/(Math.min(a,b)+.05);
+}
+async function finContrast(page){
+ const style=await page.locator('#mgLevelEnd').evaluate(n=>{const s=getComputedStyle(n);return{background:s.backgroundColor,ink:s.color};}),components=(style.background.match(/[\d.]+/g)||[]).map(Number);
+ assert.ok(components.length===3||components.length===4&&components[3]===1,'Fin has an opaque readable background '+JSON.stringify(style));const contrast=contrastRatio(style.background,style.ink);assert.ok(contrast>=4.5,'Fin remains readable over the colored finish '+JSON.stringify({...style,contrast}));return{...style,contrast};
+}
 async function seedKnown(page,pair,ids){const value=registry({[pair]:ids});await page.evaluate(({key,value})=>{localStorage.setItem(key,value);window.dispatchEvent(new StorageEvent('storage',{key,newValue:value}));},{key:KNOWN,value});}
 async function capsuleHidden(page){
  assert.equal(await page.locator('body').evaluate(n=>n.classList.contains('mg-has-level-progress')),false);
@@ -127,6 +138,7 @@ async function themes(page){await page.locator('#mgBack').click();await page.wai
 async function gesture(page,dx,dy=0){const box=await page.locator('#mgTranslation').boundingBox();assert.ok(box);const x=box.x+box.width/2,y=box.y+box.height/2,cdp=await page.context().newCDPSession(page);try{await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+dx/2,y:y+dy/2}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+dx,y:y+dy}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});}finally{await cdp.detach();}await settled(page);await page.waitForTimeout(230);}
 async function next(page){if(await page.locator('#mgContinue').isDisabled())await page.locator('#mgChoices .mg-choice').first().click();await page.locator('#mgContinue').click();await settled(page);}
 async function capture(page,name){const dir=process.env.LEVEL_PROGRESS_CAPTURES;if(!dir)return;fs.mkdirSync(dir,{recursive:true});const f=path.join(dir,name+'.png');await page.screenshot({path:f});report.screenshots.push(f);}
+async function captureCapsule(page,name){const dir=process.env.LEVEL_PROGRESS_CAPTURES;if(!dir)return;fs.mkdirSync(dir,{recursive:true});const f=path.join(dir,name+'.png');await page.locator('.mg-progress.is-level-progress').screenshot({path:f});report.screenshots.push(f);}
 async function getState(page){return page.evaluate(()=>window.MelungaMockup.state());}
 
 test('card sources, access, prices, logo and per-theme counters are preserved', {timeout:60000},()=>checked('source-and-unchanged-theme-counts',async()=>{
@@ -142,11 +154,12 @@ test('French and Chinese capsules keep the percentage fixed while filling toward
  for(const pair of ['fr-ja','zh-fr'])for(const width of [320,390,1440]){
   const f=await fixture({pair,width,height:width>760?900:700});try{
    const ids=levelData(pair).ids,positions=[],fills=[];
-   for(const target of [0,25,50,99,100]){
+   for(const target of [0,25,50,75,99,100]){
     const known=ids.slice(0,Math.ceil(ids.length*target/100));await seedKnown(f.page,pair,known);const p=await progress(f.page,pair,1,known);assert.equal(p.percent,target);
-    const geometry=await capsuleGeometry(f.page);assert.ok(Math.abs(geometry.fill.width/geometry.lane.width-p.ratio)<0.005,'fill uses the whole-level ratio relative to its lane');positions.push(geometry.pill.left-geometry.lane.left);fills.push(geometry.fill.width);
-    report.cases.push({name:'localized-fixed-capsule',pair,width,target,...p,geometry});
+    const geometry=await capsuleGeometry(f.page);assert.ok(Math.abs(geometry.fill.width-geometry.host.clientWidth*p.ratio)<=1.1,'fill uses the whole-level ratio relative to the full capsule including Fin');positions.push(geometry.pill.left-geometry.lane.left);fills.push(geometry.fill.width);if(target===100)completeFill(geometry);
+    const fin=await finContrast(f.page);report.cases.push({name:'localized-fixed-capsule',pair,width,target,...p,geometry,fin});
     if(pair==='fr-ja'&&width===390&&target===0)await capture(f.page,'fresh-level-zero');
+    if(pair==='fr-ja'&&width===390&&target!==99)await captureCapsule(f.page,'capsule-390-'+target);
     if(pair==='zh-fr'&&width===390&&target===25)await capture(f.page,'chinese-native-level-progress');
     if(pair==='fr-ja'&&width===320&&[25,50].includes(target))await capture(f.page,'fixed-capsule-mobile-320-'+target);
     if(pair==='fr-ja'&&width===1440&&target===50)await capture(f.page,'fixed-capsule-desktop');
@@ -169,6 +182,15 @@ test('French and Chinese capsules keep the percentage fixed while filling toward
   for(const width of [320,1440,390]){await page.setViewportSize({width,height:width>760?900:700});await settled(page);await capsuleGeometry(page);}
   const after=await page.evaluate(({known,review})=>[localStorage.getItem(known),localStorage.getItem(review)],{known:KNOWN,review:REVIEW});assert.deepEqual(after,before,'ambience, motion preference and resizing do not write progress');report.cases.push({name:'reduced-motion-and-resize',...reduced});
  }finally{await colors.context.close();}
+ for(const pair of ['fr-ja','zh-fr']){
+  const ids=levelData(pair).ids,f=await fixture({pair,knownRaw:registry({[pair]:ids})});try{
+   const before=await f.page.evaluate(({known,review})=>[localStorage.getItem(known),localStorage.getItem(review)],{known:KNOWN,review:REVIEW});
+   for(const ambience of ['ocean','aurora','dusk']){
+    assert.equal(await f.page.locator('body').getAttribute('data-ambience'),ambience);await progress(f.page,pair,1,ids);const geometry=await capsuleGeometry(f.page);completeFill(geometry);const fin=await finContrast(f.page);report.cases.push({name:'complete-fill-includes-readable-finish',pair,ambience,geometry,fin});await f.page.locator('#mgPalette').click();
+   }
+   const after=await f.page.evaluate(({known,review})=>[localStorage.getItem(known),localStorage.getItem(review)],{known:KNOWN,review:REVIEW});assert.deepEqual(after,before,'finish colors do not change known/review decisions');
+  }finally{await f.context.close();}
+ }
  const ids=levelData('fr-ja').ids,duplicates=levelData('fr-ja').positions.filter((id,i,list)=>list.indexOf(id)!==i),same=duplicates[0];assert.ok(same);
  const f=await fixture({knownRaw:registry({'fr-ja':[same,same,same,'not-a-current-card']})});try{const p=await progress(f.page,'fr-ja',1,[same]);assert.equal(p.known,1);report.cases.push({name:'deduplicated-known-and-presentations',...p});}finally{await f.context.close();}
 }));

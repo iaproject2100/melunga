@@ -17,3 +17,5 @@ Douze combinaisons de largeur et pourcentage ont été vérifiées localement : 
 La variante 2 (pastille mobile) est retenue. `proposition-capsule.html` présente désormais cette variante seule avec le dégradé turquoise → vert → doré. Le parcours réel l’intègre également ; les rapports de composition courants sont dans `../capsule-coloree/`. Les images des variantes antérieures restent des archives de comparaison.
 
 Kartech préfère finalement la variante 1 : pourcentage fixe à gauche, avec les couleurs de la capsule. Le parcours et la démonstration sont actualisés ; les contrôles courants sont dans `../capsule-fixe-coloree/`. Les captures précédentes de pastille mobile sont historiques.
+
+La capsule inclut désormais le repère « Fin » dans le remplissage complet, avec un fond coloré assorti pour le repère. La démonstration ajoute 75 % et montre les cinq valeurs 0/25/50/75/100 %. Contrôles et recadrages réels dans `../capsule-fin-coloree/`.

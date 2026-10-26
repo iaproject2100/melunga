@@ -46,14 +46,14 @@ a{color:inherit;text-underline-offset:3px}
 .mg-has-level-progress .mg-topbar{min-height:25px;padding-bottom:8px}
 .mg-has-level-progress .mg-counter{margin-inline-start:0;text-align:left;font-size:15px;line-height:1.2}
 .mg-progress.is-level-progress{position:relative;display:flex;align-items:stretch;height:46px;flex:0 0 46px;border:1px solid var(--mg-line);border-radius:25px;background:var(--mg-surface);overflow:hidden;margin-bottom:18px;--mg-journey-colour:rgb(80,214,232)}
-.is-level-progress .mg-progress-lane{position:relative;flex:1 1 0;min-width:0;height:100%}
-.mg-progress.is-level-progress #mgProgress{border-radius:0;background:linear-gradient(90deg,#35b9ce,var(--mg-journey-colour));transition:width .3s ease}
-.mg-level-percent{position:absolute;left:6px;top:5px;display:flex;align-items:center;justify-content:center;width:72px;min-width:72px;height:34px;padding:0 8px;border-radius:20px;background:var(--mg-journey-colour);color:#153c47;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1;white-space:nowrap;box-shadow:0 2px 7px rgba(1,25,43,.1);transition:background-color .3s ease}
-.mg-level-end{display:flex;align-items:center;justify-content:center;flex:0 0 52px;min-width:52px;height:100%;padding:0 8px;color:var(--mg-ink);font-size:15px;font-weight:650;line-height:1;white-space:nowrap}
+.is-level-progress .mg-progress-lane{position:static;flex:1 1 0;min-width:0;height:100%}
+.mg-progress.is-level-progress #mgProgress{position:absolute;left:0;top:0;z-index:0;pointer-events:none;border-radius:0;background:linear-gradient(90deg,#35b9ce,var(--mg-journey-colour));transition:width .3s ease}
+.mg-level-percent{position:absolute;left:6px;z-index:1;top:5px;display:flex;align-items:center;justify-content:center;width:72px;min-width:72px;height:34px;padding:0 8px;border-radius:20px;background:var(--mg-journey-colour);color:#153c47;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1;white-space:nowrap;box-shadow:0 2px 7px rgba(1,25,43,.1);transition:background-color .3s ease}
+.mg-level-end{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;flex:0 0 52px;min-width:52px;height:34px;margin:5px 6px;padding:0 8px;border-radius:20px;background:var(--mg-journey-colour);color:#153c47;font-size:15px;font-weight:650;line-height:1;white-space:nowrap;transition:background-color .3s ease}
 .is-level-progress.is-complete{border-color:var(--mg-journey-colour)}
 .is-level-progress.is-complete .mg-level-end{font-weight:800}
 body[data-ambience="dusk"] .mg-progress.is-level-progress #mgProgress{filter:brightness(.66) saturate(1.12)}
-@media(prefers-reduced-motion:reduce){.mg-progress.is-level-progress #mgProgress,.mg-level-percent{transition:none}}
+@media(prefers-reduced-motion:reduce){.mg-progress.is-level-progress #mgProgress,.mg-level-percent,.mg-level-end{transition:none}}
 .mg-content{min-width:0;min-height:0;flex:1 1 auto;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--mg-line) transparent;padding:0 4px 4px}
 .mg-view{width:100%;min-width:0;min-height:100%}
 .mg-sectionhead{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:0 0 22px;padding:10px 6px 0}

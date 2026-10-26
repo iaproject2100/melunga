@@ -13,7 +13,7 @@ const old=f=>execFileSync('git',['show',BASE+':melunga_deploy/'+f],{cwd:REPO,max
 // Historical logo assertions retain the exact pre-capsule snapshot after the
 // current files have passed their finite whole-byte pins; no broad skip flag.
 const CAPSULE_UI_BASE='711537b27778c38f43e49fc47bfca513e8d94d97';
-const CAPSULE_UI_SHA256={'maquette-guidee.css': 'af06c0518e80af465eeb4349f5ff1d4a0615bf18b37ac7eeacf5b38eca1bf968', 'maquette-guidee.js': '7da1a3539013ced41084d2dfa300c8f6c18b96b7cf9bab33b4955e2c113e29ae', 'parcours-niveaux.html': '79dcf5d726defbd2471b2f8410342e225f0fb28bf6036fe3a32e4b937bf600a3', 'maquette-guidee.html': 'd056161c748e2339ecfddb920a3f07c50273c59e8bc3a3103e2e6abfe12b4e91'};
+const CAPSULE_UI_SHA256={'maquette-guidee.css': '2da16667452ebe1781a5d202f68fd811b554086b6831a8d0fa164e9588cc348e', 'maquette-guidee.js': '7da1a3539013ced41084d2dfa300c8f6c18b96b7cf9bab33b4955e2c113e29ae', 'parcours-niveaux.html': '683697aa9028965fd8e5599a991e3a165dc918a4782dd284ac37928f489cec85', 'maquette-guidee.html': '27cc4f0fc6a563dd4f44a34bc40721423723a510b1619e8310d0e008241026a2'};
 function beforeCapsuleUi(f){
  const actual=fs.readFileSync(path.join(WEB,f));
  if(!Object.hasOwn(CAPSULE_UI_SHA256,f))return actual;
