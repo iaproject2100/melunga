@@ -258,5 +258,6 @@
     }
   ],
   "errors": [],
-  "inspection": "All four captures inspected after original mobile header restoration: larger centered logo above four coloured controls, same positions between grids and lesson, complete Pinyin learner card and footer, desktop unchanged, legible sequence labels/ranges without horizontal overflow."
+  "inspection": "All four captures inspected with correct SVG MIME and decode before capture: canonical mascot visible without dark perimeter, existing desktop/mobile geometry and sequence controls preserved.",
+  "captureHarness": "Static fixture serves .svg as image/svg+xml and awaits img.decode(); earlier non-SVG fixture captures were replaced."
 }
