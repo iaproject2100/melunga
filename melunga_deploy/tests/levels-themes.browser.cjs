@@ -319,6 +319,19 @@ async function chooseLevel(page, level) {
   await page.locator('#mgLevelChoices button[data-level="' + level + '"]').click();
 }
 
+// Select an actual visible chunk before advancing to an existing source step.
+// The source model remains global; progress and navigation are sequence-local.
+async function selectVisibleSequence(page, steps = [], globalIndex = 0) {
+  return page.evaluate(({stepId,globalIndex}) => {
+    if (window.MelungaMockup.state().screen !== 'sequences') return globalIndex;
+    const plans = window.MelungaMockup.visibleSequences();
+    const index = stepId ? plans.findIndex(plan => plan.steps.some(step => step.id === stepId)) : 0;
+    if (index < 0) throw new Error('Source step missing from visible sequence plans');
+    document.querySelectorAll('#mgSequences > button')[index].click();
+    return stepId ? plans[index].steps.findIndex(step => step.id === stepId) : 0;
+  }, {stepId: steps[globalIndex]?.id, globalIndex});
+}
+
 async function inspectCell(page, expected, bank, exhaustive) {
   allClassification.auditRuntime(); // validates the exact frozen policy before any finite auditor exception
   const additionalThemes = situationPlan.themes.filter(theme => theme.level === expected.level);
@@ -475,11 +488,23 @@ async function inspectCell(page, expected, bank, exhaustive) {
       const box = tile.getBoundingClientRect();
       if (box.height < 44 || box.width < 44) throw new Error(theme.id + ': small theme target');
       tile.click();
-      eq(state().screen, 'lesson', 'one-click theme entry');
-      eq(state().lessonScope, 'theme', 'one lesson per theme');
-      if (visible(byId('mgSequenceView'))) throw new Error('sequence screen became visible');
       const allSteps = theme.sequences.flatMap(sequence => sequence.steps);
       const primaryIds = theme.sequences.flatMap(sequence => sequence.phraseIds);
+      const longTheme = expected.version === 2 && theme.presentedCount > 100;
+      const visiblePlans = longTheme ? window.MelungaMockup.visibleSequences() : [];
+      if (longTheme) {
+        eq(state().screen, 'sequences', 'long theme opens its visible sequence picker');
+        eq(JSON.stringify(visiblePlans.flatMap(plan => plan.phraseIds)), JSON.stringify(primaryIds), 'visible sequences preserve the complete presentation order');
+        eq(JSON.stringify(visiblePlans.flatMap(plan => plan.steps)), JSON.stringify(allSteps), 'visible sequences preserve every whole source step and role');
+        if (visiblePlans.some(plan => plan.phraseIds.length < 30 || plan.phraseIds.length > 40)) throw new Error('visible sequence outside the reviewed 30–40 card range');
+        eq(document.querySelectorAll('#mgSequences > button').length, visiblePlans.length, 'one real navigation target per visible sequence');
+        document.querySelector('#mgSequences > button').click();
+      } else {
+        eq(state().screen, 'lesson', 'short theme retains one-click entry');
+        eq(state().lessonScope, 'theme', 'short theme remains one lesson');
+        if (visible(byId('mgSequenceView'))) throw new Error('short theme unexpectedly gained a sequence screen');
+      }
+      const planOffsets = visiblePlans.map((plan, index) => visiblePlans.slice(0, index).reduce((total, earlier) => total + earlier.steps.length, 0));
       const receivedUses = new Map((theme.receivedTurns || []).map(turn => [turn.id, turn]));
       const preparedAnswers = new Map();
       const seenReceived = new Set();
@@ -597,22 +622,33 @@ async function inspectCell(page, expected, bank, exhaustive) {
         const step = allSteps[index];
         const phrase = allModels.get(step.utterance || step.choices?.[0]);
         if (!phrase) throw new Error('Unresolved step ' + step.id);
-        eq(state().stepIndex, index, 'step index');
+        const planIndex = longTheme ? visiblePlans.findIndex((plan, candidate) => index >= planOffsets[candidate] && index < planOffsets[candidate] + plan.steps.length) : -1;
+        const currentPlan = longTheme ? visiblePlans[planIndex] : {phraseIds: primaryIds, steps: allSteps};
+        const localIndex = longTheme ? index - planOffsets[planIndex] : index;
+        eq(state().stepIndex, localIndex, 'current sequence step index');
+        if (longTheme) {
+          eq(state().visibleSequenceIndex, planIndex + 1, 'visible sequence index remains attached to source order');
+          eq(state().visibleSequenceCount, visiblePlans.length, 'visible sequence count');
+          eq(state().lessonScope, 'sequence', 'long lesson uses the selected visible sequence');
+        }
         eq(state().phraseId, phrase.id, 'phrase identity');
         const received = step.kind === 'receive';
         const review = !received && reviews.has(phrase.id);
         const contextReuse = !received && contextIds.has(phrase.id) && !retainedCoreIds.has(phrase.id);
         eq(!!step.isReview, review, 'review step is explicitly marked');
         eq(!!step.isContextReuse, contextReuse, 'context reuse step is explicitly marked');
-        eq(byId('mgLessonTheme').textContent, String(i + 1).padStart(2, '0') + ' · ' + theme.title
+        const sequenceContext = longTheme ? ' · ' + (expected.nativeLanguage === 'zh'
+          ? '第 ' + (planIndex + 1) + '/' + visiblePlans.length + ' 组'
+          : 'Séquence ' + (planIndex + 1) + '/' + visiblePlans.length) : '';
+        eq(byId('mgLessonTheme').textContent, String(i + 1).padStart(2, '0') + ' · ' + theme.title + sequenceContext
           + (review ? expected.nativeLanguage === 'zh' ? ' · 复习' : ' · Révision'
             : contextReuse ? expected.nativeLanguage === 'zh' ? ' · 情境复用' : ' · Réemploi' : ''), 'explicit review/context-reuse badge');
         if (review) reviewSteps++;
         if (contextReuse) contextSteps++;
         if (reserveIds.has(state().phraseId) && !(received && receivedModels.get(state().phraseId)?.heardOnly && receivedModels.get(state().phraseId)?.canonicalReserveLocation)) throw new Error('reserve reached learner DOM/audio state');
-        eq(byId('mgCounter').textContent, (primaryIds.indexOf(step.prepares || phrase.id) + 1) + ' / ' + primaryIds.length, 'primary-only lesson counter');
-        const learnerStepCount = allSteps.filter(candidate => candidate.kind !== 'receive').length;
-        const completedLearnerSteps = allSteps.slice(0, index + 1).filter(candidate => candidate.kind !== 'receive').length;
+        eq(byId('mgCounter').textContent, (currentPlan.phraseIds.indexOf(step.prepares || phrase.id) + 1) + ' / ' + currentPlan.phraseIds.length, 'primary-only counter of the current visible sequence');
+        const learnerStepCount = currentPlan.steps.filter(candidate => candidate.kind !== 'receive').length;
+        const completedLearnerSteps = currentPlan.steps.slice(0, localIndex + 1).filter(candidate => candidate.kind !== 'receive').length;
         const expectedProgress = completedLearnerSteps / learnerStepCount * 100;
         if (Math.abs(parseFloat(byId('mgProgress').style.width) - expectedProgress) > 0.001) throw new Error('interlocutor listening inflated learner progression');
         if (received) {
@@ -696,12 +732,21 @@ async function inspectCell(page, expected, bank, exhaustive) {
           }
         }
         steps++;
-        if (index < limit - 1) byId('mgContinue').click();
+        if (index < limit - 1) {
+          byId('mgContinue').click();
+          if (longTheme && state().screen === 'done') {
+            eq(localIndex, currentPlan.steps.length - 1, 'visible sequence completes exactly at its source boundary');
+            if (planIndex >= visiblePlans.length - 1) throw new Error('long theme completed before all source steps were visited');
+            byId('mgContinue').click();
+          }
+        }
       }
       if (exhaustive) {
-        byId('mgContinue').click(); eq(state().screen, 'done', 'theme reaches completion');
+        byId('mgContinue').click(); eq(state().screen, 'done', longTheme ? 'last visible sequence completes' : 'theme reaches completion');
         byId('mgContinue').click();
+        if (longTheme) eq(state().screen, 'sequences', 'completion returns to all visible sequences');
       } else byId('mgBack').click();
+      if (state().screen === 'sequences') byId('mgBack').click();
       eq(state().screen, 'themes', 'return to themes');
     });
     eq(visualPositions.size, expected.themes.length, 'one distinct photo tile per theme');
@@ -1305,7 +1350,8 @@ test('same-level context reuse is explicit, audible and distinct from a revision
     const recallIndex = steps.findIndex(step => step.utterance === reference.id && ['choose-and-recall', 'reply-without-model', 'recall'].includes(step.kind));
     assert.ok(readIndex >= 0 && recallIndex > readIndex);
     await page.locator('#mgThemeGrid > button').nth(target.themeIndex).click();
-    await page.evaluate(count => { for (let index = 0; index < count; index++) document.getElementById('mgContinue').click(); }, readIndex);
+    const localReadIndex = await selectVisibleSequence(page, steps, readIndex);
+    await page.evaluate(count => { for (let index = 0; index < count; index++) document.getElementById('mgContinue').click(); }, localReadIndex);
     assert.equal((await page.evaluate(() => window.MelungaMockup.state())).phraseId, phrase.id);
     for (const [node, field] of [['#mgPhrase', 'study'], ['#mgPhon', 'phon'], ['#mgTranslation', 'native'], ['#mgReading', 'reading']]) {
       assert.equal(await page.locator(node).textContent(), phrase[field] || '', 'same-level context whole ' + field);
@@ -1618,7 +1664,8 @@ test('a delayed old bank cannot overwrite a newly selected pair or its review au
     const reviewIndex = steps.findIndex(step => step.isReview);
     assert.ok(reviewIndex >= 0);
     await page.locator('#mgThemeGrid > button').nth(secondTarget.themeIndex).click();
-    await page.evaluate(count => { for (let index = 0; index < count; index++) document.getElementById('mgContinue').click(); }, reviewIndex);
+    const localReviewIndex = await selectVisibleSequence(page, steps, reviewIndex);
+    await page.evaluate(count => { for (let index = 0; index < count; index++) document.getElementById('mgContinue').click(); }, localReviewIndex);
     const step = steps[reviewIndex];
     const phrase = repertoire(second).phrases.find(candidate => candidate.id === step.utterance);
     assert.equal((await page.evaluate(() => window.MelungaMockup.state())).phraseId, phrase.id);
@@ -1654,6 +1701,7 @@ test('L5 menu, three ambiences and minimum controls at all widths', {timeout: 60
       await page.click('#mgMenuClose');
       assert.equal((await page.evaluate(() => window.MelungaMockup.state())).level, 5);
       await page.locator('#mgThemeGrid > button').first().click();
+      await selectVisibleSequence(page);
       const small = await page.locator('#mgBack, #mgHelp, #mgEar, #mgReplay, #mgContinue').evaluateAll(nodes => nodes
         .filter(node => !node.hidden && getComputedStyle(node).display !== 'none')
         .map(node => ({id: node.id, width: node.getBoundingClientRect().width, height: node.getBoundingClientRect().height}))

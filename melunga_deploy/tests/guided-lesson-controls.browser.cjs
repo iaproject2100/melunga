@@ -37,7 +37,7 @@ function bank(pairId) {
 }
 
 function fingerprints() {
-  const files = [__filename, ...['maquette-guidee.js', 'maquette-guidee.css',
+  const files = [__filename, ...['maquette-guidee.js', 'visible-sequences.js', 'maquette-guidee.css',
     'parcours-niveaux.html', 'maquette-guidee.html', 'app.html'].map(file => path.join(ROOT, file)),
     path.join(ROOT, 'content/maquette-guidee.json'), path.join(DATA, 'manifest.json')];
   for (const pair of manifest.pairs) {
@@ -174,6 +174,15 @@ function phraseFixtures(pairId, level) {
 async function enter(page, fixture) {
   await visit(page, fixture.pairId, fixture.level);
   await page.locator('#mgThemeGrid > button').nth(fixture.themeIndex).click();
+  let localStepIndex = fixture.stepIndex;
+  if ((await page.evaluate(() => window.MelungaMockup.state())).screen === 'sequences') {
+    const plans = await page.evaluate(() => window.MelungaMockup.visibleSequences());
+    const sequenceIndex = plans.findIndex(sequence => sequence.steps.some(step => step.id === fixture.step.id));
+    assert.ok(sequenceIndex >= 0, 'approved whole fixture belongs to exactly one visible sequence');
+    assert.equal(plans.filter(sequence => sequence.steps.some(step => step.id === fixture.step.id)).length, 1);
+    localStepIndex = plans[sequenceIndex].steps.findIndex(step => step.id === fixture.step.id);
+    await page.locator('#mgSequences > button').nth(sequenceIndex).click();
+  }
   // Use the real public controls to reach a fixture; the debug API is read-only.
   await page.evaluate(target => {
     for (let index = 0; index < target; index++) {
@@ -183,7 +192,7 @@ async function enter(page, fixture) {
       if (next.disabled) throw new Error('Fixture unexpectedly requires another action.');
       next.click();
     }
-  }, fixture.stepIndex);
+  }, localStepIndex);
   assert.equal(await page.evaluate(() => window.MelungaMockup.state().phraseId), fixture.phrase.id);
   await settled(page);
 }

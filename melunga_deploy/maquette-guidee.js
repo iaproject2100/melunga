@@ -51,6 +51,7 @@
   }
   const reviewStorageKey = 'melunga-guided-review-v1';
   const readingStorageKey = 'melunga-guided-reading-v1';
+  const visibleSequenceCache = new WeakMap();
   const cardMotion = { gesture: null, suppressClickUntil: 0, animationTimer: 0, toastTimer: 0, fitFrame: 0 };
   state.savedReview = loadSavedReview();
   try {
@@ -92,6 +93,7 @@
     'Thème terminé': '本主题已完成', 'Facultatif': '可选',
     'Abonnement': '订阅解锁', 'gratuits': '免费', 'Mon compte': '我的账户',
     'Révision terminée': '复习已完成',
+    'Les séquences ne sont pas disponibles. Recharge la page pour réessayer.': '学习分组暂时不可用，请刷新页面后重试。',
     'À revoir': '待复习', 'Revoir': '复习', 'Retirer': '移除', 'Pinyin': '拼音',
     'Enregistré dans À revoir.': '已加入待复习。', 'Je connais.': '我会了。',
     'Elle reviendra': '稍后再练', 'Rangée': '已掌握',
@@ -715,8 +717,45 @@
     showView('themes');
   }
 
+  function hasVisibleSequences(theme = state.theme) {
+    return Boolean(theme && state.pair?.version === 2 && phraseCount(theme) > 100);
+  }
+
+  function learningSequences(theme = state.theme) {
+    if (!hasVisibleSequences(theme)) return theme?.sequences || [];
+    if (visibleSequenceCache.has(theme)) return visibleSequenceCache.get(theme);
+    const partition = window.MelungaVisibleSequences?.partitionGroupBoundaries;
+    if (typeof partition !== 'function') throw new Error('Visible sequence partition is unavailable');
+    const boundaries = partition(theme.sequences.map(sequence => sequence.phraseIds.length));
+    const sequences = boundaries.map((boundary, index) => {
+      const groups = theme.sequences.slice(boundary.groupStart, boundary.groupEndExclusive);
+      return {
+        id: state.pair.id + ':' + theme.id + ':visible:' + (index + 1),
+        index: index + 1,
+        ...boundary,
+        phraseIds: groups.flatMap(sequence => sequence.phraseIds),
+        preparationIds: groups.flatMap(sequence => sequence.preparationIds || []),
+        steps: groups.flatMap(sequence => sequence.steps)
+      };
+    });
+    visibleSequenceCache.set(theme, sequences);
+    return sequences;
+  }
+
+  function sequencePosition() {
+    return state.lessonScope === 'sequence' && hasVisibleSequences()
+      ? learningSequences().indexOf(state.sequence) + 1 : 0;
+  }
+
+  function sequenceLabel(index, count) {
+    return state.pair.nativeLanguage === 'zh'
+      ? '第 ' + index + (count ? '/' + count : '') + ' 组'
+      : 'Séquence ' + index + (count ? '/' + count : '');
+  }
+
   function openTheme(theme) {
     if (theme._accessLocked) { openAccount(); return; }
+    if (hasVisibleSequences(theme)) return showSequences(theme);
     state.theme = theme;
     // Keep the prepared groups in order, but make the whole theme one lesson.
     startSequence({
@@ -728,6 +767,13 @@
 
   function showSequences(theme = state.theme) {
     if (!theme) return showThemes();
+    if (!hasVisibleSequences(theme)) return openTheme(theme);
+    let sequences;
+    try { sequences = learningSequences(theme); }
+    catch (_) {
+      setStatus('Les séquences ne sont pas disponibles. Recharge la page pour réessayer.');
+      return;
+    }
     stopAudio();
     closeHelp();
     state.theme = theme;
@@ -736,12 +782,18 @@
     setStatus('');
     text(ui.sequenceHeading, themeLabel(theme));
     text(ui.backText, tr('Thèmes'));
-    text(ui.counter, quantityLabel(phraseCount(theme)));
+    text(ui.counter, quantityLabel(phraseCount(theme), theme.contentType));
     ui.progress.style.width = '0%';
-    ui.sequences.replaceChildren(...theme.sequences.map((sequence, index) => tile(
-      sequence.title || (state.pair.nativeLanguage === 'zh' ? '第 ' + (index + 1) + ' 组' : 'Séquence ' + (index + 1)),
-      sequence.phraseIds.length, themeIcon(theme), () => startSequence(sequence), 'mg-sequence'
-    )));
+    ui.sequences.replaceChildren(...sequences.map((sequence, index) => {
+      const button = tile(sequenceLabel(index + 1), sequence.phraseIds.length, themeIcon(theme),
+        () => startSequence(sequence), 'mg-sequence', { contentType: theme.contentType });
+      button.dataset.sequenceIndex = String(index + 1);
+      button.dataset.sequenceCount = String(sequences.length);
+      button.dataset.firstPresentation = String(sequence.firstPresentation);
+      button.dataset.lastPresentation = String(sequence.lastPresentation);
+      button.querySelector('.mg-theme-count').append(' · ' + sequence.firstPresentation + '–' + sequence.lastPresentation);
+      return button;
+    }));
     showView('sequences');
     ui.sequenceHeading.focus({ preventScroll: true });
   }
@@ -805,7 +857,9 @@
     ui.done.hidden = true;
     ui.help.hidden = false;
     ui.phase.hidden = false;
-    text(ui.lessonTheme, themeLabel(state.theme) + (step.isReview
+    const sequenceIndex = sequencePosition();
+    const sequenceContext = sequenceIndex ? ' · ' + sequenceLabel(sequenceIndex, learningSequences().length) : '';
+    text(ui.lessonTheme, themeLabel(state.theme) + sequenceContext + (step.isReview
       ? state.pair.nativeLanguage === 'zh' ? ' · 复习' : ' · Révision'
       : step.isContextReuse ? state.pair.nativeLanguage === 'zh' ? ' · 情境复用' : ' · Réemploi' : ''));
     text(ui.backText, tr(state.lessonScope !== 'sequence' ? 'Thèmes' : 'Séquences'));
@@ -872,9 +926,10 @@
     ui.replay.disabled = false;
     ui.next.disabled = false;
     text(ui.replayText, tr('Rejouer'));
-    const index = state.theme.sequences.indexOf(state.sequence);
+    const sequences = state.lessonScope === 'sequence' ? learningSequences() : [];
+    const index = sequences.indexOf(state.sequence);
     text(ui.nextText, tr(state.lessonScope === 'saved-review' ? 'À revoir' : state.lessonScope !== 'sequence' ? 'Thèmes'
-      : index < state.theme.sequences.length - 1 ? 'Séquence suivante' : 'Les séquences'));
+      : index < sequences.length - 1 ? 'Séquence suivante' : 'Les séquences'));
     setStatus('');
     showView('done');
   }
@@ -1622,7 +1677,8 @@
     if (state.screen === 'done') {
       if (state.lessonScope === 'saved-review') { openMenu(); setMenuView('saved'); return; }
       if (state.lessonScope !== 'sequence') return showThemes();
-      const nextSequence = state.theme.sequences[state.theme.sequences.indexOf(state.sequence) + 1];
+      const sequences = learningSequences();
+      const nextSequence = sequences[sequences.indexOf(state.sequence) + 1];
       if (nextSequence) startSequence(nextSequence);
       else showSequences();
       return;
@@ -1698,13 +1754,22 @@
   document.fonts?.ready.then(queueLessonFit);
 
   // Read-only state supports preview checks without touching the real application.
-  window.MelungaMockup = Object.freeze({ state: () => Object.freeze({
-    screen: state.screen, pairId: state.pair && state.pair.id, level: state.pair && state.pair.level || 1,
-    themeId: state.theme && state.theme.id,
-    sequenceId: state.sequence && state.sequence.id, stepIndex: state.stepIndex, lessonScope: state.lessonScope,
-    phraseId: currentPhrase() && currentPhrase().id, masked: isMasked(), helpOpen: state.helpOpen,
-    readingVisible: state.readingVisible, access: courseAccess?.state() || null,
-    template: isTemplate(currentPhrase()), totalPhrases: state.pair ? pairCount(state.pair) : 0
-  }) });
+  const immutableSnapshot = value => Array.isArray(value) ? Object.freeze(value.map(immutableSnapshot))
+    : value && typeof value === 'object'
+      ? Object.freeze(Object.fromEntries(Object.entries(value).map(([key, item]) => [key, immutableSnapshot(item)])))
+      : value;
+  window.MelungaMockup = Object.freeze({
+    visibleSequences: () => immutableSnapshot(hasVisibleSequences() ? visibleSequenceCache.get(state.theme) || [] : []),
+    state: () => Object.freeze({
+      screen: state.screen, pairId: state.pair && state.pair.id, level: state.pair && state.pair.level || 1,
+      themeId: state.theme && state.theme.id,
+      sequenceId: state.sequence && state.sequence.id, stepIndex: state.stepIndex, lessonScope: state.lessonScope,
+      visibleSequenceIndex: sequencePosition(),
+      visibleSequenceCount: hasVisibleSequences() ? (visibleSequenceCache.get(state.theme) || []).length : 0,
+      phraseId: currentPhrase() && currentPhrase().id, masked: isMasked(), helpOpen: state.helpOpen,
+      readingVisible: state.readingVisible, access: courseAccess?.state() || null,
+      template: isTemplate(currentPhrase()), totalPhrases: state.pair ? pairCount(state.pair) : 0
+    })
+  });
   loadData();
 })();
