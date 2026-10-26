@@ -2,6 +2,8 @@
 
 Cette branche dépend de la PR de contenu #16, commit d’entrée `e85c8c355be8cc0213543eddb21467432edb57b8`. Les blocs de contenu sont appliqués avant les aides `afterContentRegister`. Elle ne contient pas le nouveau classement de la PR #17.
 
+La PR #18 vise `main` pour que Netlify construise son aperçu ; elle contient les deux commits de #16. Le [diff propre aux conventions](https://github.com/iaproject2100/melunga/compare/review/contenu-incertain-tranche...review/conventions-jota-batchim) reste séparé. Cette cible technique n’autorise aucune fusion. La réunion future avec #17 exigera une composition et une vérification explicites.
+
 Les registres de `68031b7`, l’erratum de contenu `4247ca4` et les cinq corrections coréennes de `d5ad5e4` sont conservés comme preuves entières. Aucun convertisseur phonétique n’est exécuté sur le reste du corpus.
 
 Résultat : **2 100 identités, 2 167 objets avec copies et modèles reçus, 2 122 références de preuve**. Les 21 suites après contenu sont confrontées aux blocs exacts avant application. Les cinq aides de l’erratum remplacent seulement leurs après livrés : `kkon-nip`, `al-lyak` et les trois aides entières avec `keun-nil`.
