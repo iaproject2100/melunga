@@ -59041,7 +59041,7 @@
         "situation-support-conversation:fr-es:piste-douleur-simple-support-02"
       ],
       "canonicalCardsAdded": 0,
-      "fileSha256": "cc0bc7a345438aa4f8cb6c940514c1a5ae5ee2ae9b49b41480003b6cc305c2d9",
+      "fileSha256": "d6b319286d0f75a8c02ce205c97bdeec19546ccce09d58cbf0fa09395b371547",
       "receivedModelTransports": 36
     },
     {
@@ -60346,7 +60346,7 @@
         "situation-support-authored:fr-ko:piste-trouver-gare-lexical-02"
       ],
       "canonicalCardsAdded": 0,
-      "fileSha256": "c5f6ccbc60bb4f7402107236a1e6543db2a5b947ed6baffbcaaa61e9ca2d12dd",
+      "fileSha256": "8d3a705412b3930de24dd873cdc421cffd3d6fd0b4e1372a1535e56d282ff8ca",
       "receivedModelTransports": 36
     },
     {
@@ -208287,7 +208287,7 @@
   "editorialReferenceOrderClosed": false,
   "structuralUtteranceReferenceOrderClosed": true,
   "progressivityValidationBlocked": true,
-  "manifestSha256": "cff9f974183ab4997612aff16b3315eb9c29a3ba2b7ed546e75ac05a8d134b61",
+  "manifestSha256": "18a04f9cde5938113264d16bcd5c23b333afc47feacf02671da633d6512e32fe",
   "phoneticCorrections": {
     "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
     "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
@@ -209408,5 +209408,76 @@
     "globalPhoneticApproval": false,
     "globalNativeApproval": false,
     "sourceValidation": "Original sources and all preceding layers checked before frozen whole content events; exact tuples, complete objects and atomic blocs only."
+  },
+  "conventionCorrections": {
+    "registryPath": "docs/niveaux-progressifs/conventions-tranchees/registre/conventions-tranchees.json",
+    "registrySha256": "3058f970810166d471607251a2544cb7cdb73e50422794a8bbbedbd613b62705",
+    "baseSnapshotCommit": "13f42b5814f2b230d76d2d0ef267dcf406c523c2",
+    "appliesAfter": [
+      {
+        "registryPath": "docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json",
+        "registrySha256": "3fa187478a03e1398e7b14fa545c0950bf1ff166789a480745ca689061377130"
+      }
+    ],
+    "correctionCount": 2100,
+    "sourceEventCount": 2099,
+    "postContentOverrideCount": 21,
+    "supersededSourceEventCount": 3,
+    "batchimErratumEventCount": 5,
+    "appliedSourceReferenceCount": 2122,
+    "notAppliedCount": 69,
+    "evidenceCommits": [
+      "68031b7c8643e78cae7b40ad59600db32b08f79a",
+      "4247ca470354f59ea37992608b38e3728a6e22f9",
+      "d5ad5e422f3fe1563d425ef8e0a07bea7b874559"
+    ],
+    "occurrenceCount": 2167,
+    "occurrenceProfiles": {
+      "canonical": 2099,
+      "received-model": 2,
+      "transport-phrase": 66
+    },
+    "changedRuntimeFields": 2167,
+    "changedFieldOccurrences": {
+      "phon": 2167
+    },
+    "modifiedRuntimeFiles": [
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L1.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L10.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L1.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L10.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L6.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L8.json",
+      "melunga_deploy/content/niveaux-progressifs/fr-ko/L9.json",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/fr-es.json",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/fr-ko.json"
+    ],
+    "transportSha256ByPair": {
+      "fr-en": "d96708742971c1e52b622b5fd255ec43d5c6f04aa26611e12da6fb2004c0f01f",
+      "fr-es": "d6b319286d0f75a8c02ce205c97bdeec19546ccce09d58cbf0fa09395b371547",
+      "fr-it": "34aa558e6ef3bc9035251c6430d6064b465ac38cc585447a59d5ef70b88af8c1",
+      "fr-zh": "017b0bf1f3c0cb1825db384227c1d30efc826d58e1fa7e1bfc2573e48b9e9e91",
+      "fr-ja": "1e895d9a8013c8883c70bf0f69756fe9d4fbb387f4a90160f067b850937e2e4a",
+      "fr-ko": "8d3a705412b3930de24dd873cdc421cffd3d6fd0b4e1372a1535e56d282ff8ca",
+      "zh-fr": "2af421e530a4ac28615a5bbc2e00b35f0f0b34adc95b792a0a44c260b96fee79"
+    },
+    "protectedExcludedIdentities": 72,
+    "protectedExcludedOccurrences": 78,
+    "globalPhoneticApproval": false,
+    "globalNativeApproval": false,
+    "sourceValidation": "Exact whole aids after the frozen content layer; all source, type, level, copied metadata and prior annotations preserved."
   }
 }

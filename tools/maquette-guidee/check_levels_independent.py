@@ -26,6 +26,10 @@ from check_uncertain_content_independent import (
     input_data as read_uncertain_content_inputs,
     validate_and_project as check_uncertain_content_pack,
 )
+from check_conventions_independent import (
+    input_data as read_convention_inputs,
+    validate_and_project as check_convention_pack,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -281,6 +285,7 @@ def read_pack(root):
                     "Lot9/erratum evidence path escapes its separate directory")
             pack[name + "EvidenceRaw"][relative] = raw(relative)
     pack["uncertainContentInputs"] = read_uncertain_content_inputs(root, raw)
+    pack["conventionInputs"] = read_convention_inputs(root, raw)
     return pack
 
 
@@ -3275,6 +3280,13 @@ def check_pack(pack):
     return check_uncertain_content_pack(pack, _check_before_uncertain_content_pack)
 
 
+_check_before_convention_pack = check_pack
+
+
+def check_pack(pack):
+    return check_convention_pack(pack, _check_before_convention_pack)
+
+
 def check_original_pack(pack):
     decks, manifest, decisions, enrichment, plan = (
         pack[k] for k in ("decks", "manifest", "decisions", "enrichments", "plan")
@@ -5876,6 +5888,17 @@ def main():
                 "Voir [la vérification de cette tranche](contenu-tranche/verification-independante.md) et "
                 "[la contrelecture linguistique intégrale](contenu-tranche/contrelecture-linguistique-independante.md). "
                 "Aucune certification native globale n’est revendiquée.\n"
+            )
+        if "conventionCorrections" in result:
+            outputs[REVIEW_ROOT + "/verification-independante.md"] += (
+                "\nLa couche des conventions vérifie 2 100 identités / 2 167 objets, avec 2 122 références de preuve. "
+                "Les 21 après-contenu remplacent 17 événements et ajoutent quatre identités ; cinq après erronés "
+                "sont remplacés par les aides entières de l’erratum batchim officiel. Les trois événements rendus "
+                "sans objet par l’erratum de contenu et les 69 exclus conservent leur tuple B complet. "
+                "Les 77 documents et le manifeste réels sont vérifiés avant projection privée convention → contenu "
+                "→ historique. Voir [le contrôle des conventions](conventions-tranchees/verification-independante.md) "
+                "et [sa contrelecture linguistique](conventions-tranchees/contrelecture-linguistique-independante.md). "
+                "Aucune certification native ou phonétique globale n’est revendiquée.\n"
             )
         if args.write_report:
             for relative, content in outputs.items():

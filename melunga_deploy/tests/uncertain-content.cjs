@@ -105,7 +105,7 @@ function annotation(entry, before) {
     originalPhoneticReviewStatusPresent: Object.hasOwn(before, 'phoneticReviewStatus'), originalPhoneticReviewStatus: before.phoneticReviewStatus ?? null,
     evidenceCommits: [COMMIT, ERRATUM_COMMIT], kind: entry.kind, evidenceEventIndex: entry.eventIndex};
 }
-function assertOwnContent(pack) {
+function assertOwnContent(pack, projectedBankHashes) {
   const audit = loadLedger(), objects = new Map(), profiles = {}, fields = {}, occurrences = new Map();
   for (const [filename, document] of Object.entries(pack)) {
     if (filename.endsWith('/manifest.json')) continue;
@@ -161,7 +161,7 @@ function assertOwnContent(pack) {
   for (const field of ['appliesAfter','correctionCount','eventCount','approvedFieldCount','changedFieldCount','kindCounts','pairCounts','rejectedCount','rejectedCounts','sourceEventCount','withdrawnEventCount','withdrawnEvents','exceptionsFile','authorErratum']) declaration[field] = clone(audit.registry[field]);
   Object.assign(declaration, {registryPath: REGISTRY, registrySha256: REGISTRY_SHA, baseSnapshotCommit: BASE, evidenceCommits: [COMMIT, ERRATUM_COMMIT]});
   expectedManifest.uncertainContentCorrections = declaration;
-  for (const pair of expectedManifest.pairs) pair.repertoireSha256 = hash(fs.readFileSync(path.join(WEB, pair.repertoirePath)));
+  for (const pair of expectedManifest.pairs) pair.repertoireSha256 = projectedBankHashes ? projectedBankHashes['melunga_deploy/' + pair.repertoirePath] : hash(fs.readFileSync(path.join(WEB, pair.repertoirePath)));
   assert.deepEqual(pack[PREFIX + 'manifest.json'], expectedManifest, 'only finite content declaration and actual bank hashes');
   for (const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html','content/maquette-guidee.json']) assert.ok(fs.readFileSync(path.join(WEB, filename)).equals(baselineBytes('melunga_deploy/' + filename)), 'classic/UI/prices/free access remains byte-for-byte unchanged');
   return {events: 637, glosses: 478, blocks: 159, objects: 654, fields: 887, profiles, fieldOccurrences: fields, metadataChanges: 7, recountedThemes, wholeDocuments: 78};
@@ -169,9 +169,14 @@ function assertOwnContent(pack) {
 let projectedCache;
 function ensureProjection() {
   if (projectedCache) return projectedCache;
-  const actual = actualPack(), summary = assertOwnContent(actual);
+  const actual = actualPack();
+  // C proves current whole objects and its exact B inverse before B source checks.
+  const conventions = actual[PREFIX + 'manifest.json'].conventionCorrections ? require('./convention-corrections.cjs').ensureProjection() : null;
+  if (conventions) assert.deepEqual(actual, conventions.actual, 'the same actual C documents enter both independent layers');
+  const contentActual = conventions ? conventions.beforeB : actual;
+  const summary = assertOwnContent(contentActual, conventions?.bankHashes);
   assert.equal(hash(fs.readFileSync(path.join(ROOT, CHECKER))), CHECKER_SHA, 'pinned independent inverse checker');
-  const result = JSON.parse(execFileSync('python3', ['-B', path.join(ROOT, CHECKER), '--root', ROOT, '--project-runtime'], {cwd: ROOT, encoding: 'utf8', maxBuffer: 96 * 1024 * 1024}));
+  const result = conventions ? {documents:conventions.documents, summary:conventions.summary.independent.content, actualRawDocumentSha256:conventions.fingerprints} : JSON.parse(execFileSync('python3', ['-B', path.join(ROOT, CHECKER), '--root', ROOT, '--project-runtime'], {cwd: ROOT, encoding: 'utf8', maxBuffer: 96 * 1024 * 1024}));
   assert.ok(result.documents && result.summary && result.actualRawDocumentSha256);
   const fingerprints = {}, phraseCandidates = new Map();
   for (const [filename, document] of Object.entries(actual)) {
@@ -184,7 +189,7 @@ function ensureProjection() {
       phraseCandidates.get(identity).push([node, at(result.documents[filename], location)]);
     }
   }
-  projectedCache = {actual, documents: result.documents, fingerprints, phraseCandidates, summary: {...summary, independent: result.summary}};
+  projectedCache = {actual, contentActual, documents: result.documents, fingerprints, phraseCandidates, summary: {...summary, independent: result.summary, ...(conventions ? {conventions:conventions.summary} : {})}};
   return projectedCache;
 }
 const relative = filename => (path.isAbsolute(filename) ? path.relative(ROOT, filename) : filename).split(path.sep).join('/');
@@ -210,7 +215,7 @@ function projectPhrase(pair, phrase) {
   for (const [actual, before] of candidates) if (isDeepStrictEqual(phrase, actual) || isDeepStrictEqual(phrase, before)) return clone(before);
   throw new Error('An unvalidated content tuple cannot be hidden: ' + pair + '/' + phrase.id);
 }
-function inputFiles() {return [__filename, path.join(ROOT, REGISTRY), path.join(ROOT, CHECKER), ...loadLedger().registry.evidenceFiles.map(f => path.join(ROOT, f.path)), path.join(ROOT, DIRECTORY + 'exceptions-contenu-tranche.json'), ...['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html','content/maquette-guidee.json'].map(f => path.join(WEB,f)), ...Object.keys(actualPack()).map(f => path.join(ROOT, f))];}
+function inputFiles() {return [...(rawRead(PREFIX + 'manifest.json').conventionCorrections ? require('./convention-corrections.cjs').inputFiles() : []), __filename, path.join(ROOT, REGISTRY), path.join(ROOT, CHECKER), ...loadLedger().registry.evidenceFiles.map(f => path.join(ROOT, f.path)), path.join(ROOT, DIRECTORY + 'exceptions-contenu-tranche.json'), ...['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html','content/maquette-guidee.json'].map(f => path.join(WEB,f)), ...Object.keys(actualPack()).map(f => path.join(ROOT, f))];}
 function auditRuntime() {return ensureProjection().summary;}
 module.exports = {loadLedger, baseline, rawRead, actualPack, assertOwnContent, beforeRead, beforeBytes, projectPhrase, inputFiles, auditRuntime, ensureProjection};
 
@@ -282,7 +287,9 @@ if (require.main === module) {
     report.productionIsolation = {protectedIds: protectedIds.size, steps, received}; report.checks.push('whole-runtime');
   });
   test('partial bundles, stale copies, status promotion, false roles and historical concealment are rejected', () => {
-    const audit = loadLedger(), pack = ensureProjection().actual;
+    const audit = loadLedger(), pack = ensureProjection().contentActual;
+    const bankHashes = Object.fromEntries(pack[PREFIX + 'manifest.json'].pairs.map(pair => ['melunga_deploy/' + pair.repertoirePath, pair.repertoireSha256]));
+    assertOwnContent(pack, bankHashes); // Positive B inverse must pass before its negative specimens.
     const atomic = audit.registry.corrections.find(e => e.kind === 'bloc' && e.fields.phon);
     const native = audit.registry.corrections.find(e => e.kind === 'glose');
     const studyOnly = audit.registry.corrections.find(e => e.kind === 'bloc' && !e.fields.phon);
@@ -301,9 +308,9 @@ if (require.main === module) {
     ];
     for (const [entry, mutate, role] of faults) {
       const changed = clone(pack), occurrence = role ? entry.occurrences.find(o => o.profile === role) : entry.occurrences[0];
-      mutate(at(changed[occurrence.path], occurrence.location)); assert.throws(() => assertOwnContent(changed));
+      mutate(at(changed[occurrence.path], occurrence.location)); assert.throws(() => assertOwnContent(changed, bankHashes));
     }
-    const held = audit.events[211], changed = clone(pack); Object.assign(at(changed[held.occurrence.path], held.occurrence.location), held.after); assert.throws(() => assertOwnContent(changed));
+    const held = audit.events[211], changed = clone(pack); Object.assign(at(changed[held.occurrence.path], held.occurrence.location), held.after); assert.throws(() => assertOwnContent(changed, bankHashes));
     const documentPath = atomic.occurrences[0].path, bad = clone(pack[documentPath]); at(bad, atomic.occurrences[0].location).study = 'unapproved';
     assert.throws(() => beforeRead(documentPath, bad));
     const phrase = clone(at(pack[documentPath], atomic.occurrences[0].location)); phrase.native += ' unapproved'; assert.throws(() => projectPhrase(atomic.pairId, phrase));

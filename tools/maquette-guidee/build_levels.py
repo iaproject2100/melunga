@@ -77,6 +77,9 @@ _lot9_spec.loader.exec_module(lot9_corrections)
 _uncertain_content_spec = importlib.util.spec_from_file_location("audited_uncertain_content_corrections", Path(__file__).with_name("uncertain_content_corrections.py"))
 uncertain_content_corrections = importlib.util.module_from_spec(_uncertain_content_spec)
 _uncertain_content_spec.loader.exec_module(uncertain_content_corrections)
+_convention_spec = importlib.util.spec_from_file_location("decided_convention_corrections", Path(__file__).with_name("convention_corrections.py"))
+convention_corrections = importlib.util.module_from_spec(_convention_spec)
+_convention_spec.loader.exec_module(convention_corrections)
 
 
 def canonical(value):
@@ -1679,8 +1682,10 @@ def make(include_situations=True):
         report["lot9ContentCorrections"] = lot9_content_summary
         outputs, uncertain_content_summary = uncertain_content_corrections.apply_to_outputs(ROOT, outputs, report)
         report["uncertainContentCorrections"] = uncertain_content_summary
+        outputs, convention_summary = convention_corrections.apply_to_outputs(ROOT, outputs, report)
+        report["conventionCorrections"] = convention_summary
         for transport in report["reviewTransports"]:
-            transport["fileSha256"] = uncertain_content_summary["transportSha256ByPair"][transport["pair"]]
+            transport["fileSha256"] = convention_summary["transportSha256ByPair"][transport["pair"]]
         report["manifestSha256"] = sha(json.loads(outputs[OUTPUT / "manifest.json"]))
     # include_situations=False is the source-exact historical baseline used by
     # validate_situation_drafts.py. It is not a served runtime edition and has
@@ -1837,6 +1842,14 @@ def markdown(report):
             "L’erratum officiel 4247ca4 retire le bloc italien catalogue:it:1239 (événement 211), dont la carte reste intégralement inchangée. Il corrige l’aide du bloc coréen catalogue:ko:3637 en « gueu-nyo-neun sam-guè gou-go-reul hè-sso-yo » et confirme les blocs seuls es:3353 et ko:3767. Les 145 propositions écartées ne sont pas appliquées.", "",
             "Seuls les 150 objets dont l’aide change reçoivent le nouveau statut phonétique. Toutes les annotations antérieures restent intactes. Sept compteurs de concepts sont recalculés à partir des présentations existantes : trois étaient déjà périmés, quatre changent avec cette couche. Aucun emplacement, ordre, niveau source, rôle, droit ou tarif ne change. Les descriptions des lots précédents ci-dessus retracent leur état avant cette nouvelle couche.", "",
             f"Empreinte du registre : `{uncertain['registrySha256']}`. La preuve de 638 événements demeure inchangée ; cette application ne vaut pas validation native ou phonétique globale.", ""])
+    conventions = report.get("conventionCorrections")
+    if conventions:
+        lines.extend(["## Conventions tranchées — jota espagnole et batchim coréen", "",
+            f"Après le contenu tranché, le registre `{conventions['registryPath']}` applique **{conventions['correctionCount']} aides entières**, dans **{conventions['occurrenceCount']} objets** : 2 099 canoniques, 66 copies de transport et deux modèles reçus. Cette couche change uniquement l’aide, son statut et son annotation de provenance ; l’étude, le sens, la lecture, les sources, les anciennes annotations, les types, les niveaux et les emplacements issus de la couche précédente restent intacts.", "",
+            "Les preuves initiales contiennent 110 événements de jota et 1 989 événements de batchim. Les 21 aides coréennes explicites après contenu remplacent 17 événements et ajoutent quatre identités. L’erratum officiel 4247ca4 rend trois événements de convention sans objet : les tuples finaux es:3353, ko:3767 et ko:3637 sont déjà fournis par le contenu et restent protégés.", "",
+            "L’erratum batchim d5ad5e4 remplace cinq après entiers, sans changer leurs avant : 꽃잎 reçoit « kkon-nip », 알약 reçoit « al-lyak », et les trois cartes 하마터면 큰일 날 뻔했어요. reçoivent « ha-ma-to-myon keun-nil nal ppon-hè-sso-yo ». Aucun de ces cinq événements ne reste en attente. Les lignes exécutables citent 2 122 références de preuve.", "",
+            "Les 69 suggestions notApplied restent exclues ; trois de leurs cartes conservent uniquement la glose approuvée dans la couche de contenu précédente. Aucune règle du convertisseur n’est exécutée ou étendue. Les mentions historiques de conventions non appliquées ci-dessus décrivent l’état de chaque lot avant cette couche. L’application de ces littéraux figés ne vaut pas validation native ou phonétique globale.", "",
+            f"Empreinte du registre : `{conventions['registrySha256']}` ; preuves sources 68031b7, erratum de contenu 4247ca4 et erratum batchim d5ad5e4.", ""])
     return "\n".join(lines)
 
 

@@ -237,3 +237,15 @@ L’erratum officiel 4247ca4 retire le bloc italien catalogue:it:1239 (événeme
 Seuls les 150 objets dont l’aide change reçoivent le nouveau statut phonétique. Toutes les annotations antérieures restent intactes. Sept compteurs de concepts sont recalculés à partir des présentations existantes : trois étaient déjà périmés, quatre changent avec cette couche. Aucun emplacement, ordre, niveau source, rôle, droit ou tarif ne change. Les descriptions des lots précédents ci-dessus retracent leur état avant cette nouvelle couche.
 
 Empreinte du registre : `3fa187478a03e1398e7b14fa545c0950bf1ff166789a480745ca689061377130`. La preuve de 638 événements demeure inchangée ; cette application ne vaut pas validation native ou phonétique globale.
+
+## Conventions tranchées — jota espagnole et batchim coréen
+
+Après le contenu tranché, le registre `docs/niveaux-progressifs/conventions-tranchees/registre/conventions-tranchees.json` applique **2100 aides entières**, dans **2167 objets** : 2 099 canoniques, 66 copies de transport et deux modèles reçus. Cette couche change uniquement l’aide, son statut et son annotation de provenance ; l’étude, le sens, la lecture, les sources, les anciennes annotations, les types, les niveaux et les emplacements issus de la couche précédente restent intacts.
+
+Les preuves initiales contiennent 110 événements de jota et 1 989 événements de batchim. Les 21 aides coréennes explicites après contenu remplacent 17 événements et ajoutent quatre identités. L’erratum officiel 4247ca4 rend trois événements de convention sans objet : les tuples finaux es:3353, ko:3767 et ko:3637 sont déjà fournis par le contenu et restent protégés.
+
+L’erratum batchim d5ad5e4 remplace cinq après entiers, sans changer leurs avant : 꽃잎 reçoit « kkon-nip », 알약 reçoit « al-lyak », et les trois cartes 하마터면 큰일 날 뻔했어요. reçoivent « ha-ma-to-myon keun-nil nal ppon-hè-sso-yo ». Aucun de ces cinq événements ne reste en attente. Les lignes exécutables citent 2 122 références de preuve.
+
+Les 69 suggestions notApplied restent exclues ; trois de leurs cartes conservent uniquement la glose approuvée dans la couche de contenu précédente. Aucune règle du convertisseur n’est exécutée ou étendue. Les mentions historiques de conventions non appliquées ci-dessus décrivent l’état de chaque lot avant cette couche. L’application de ces littéraux figés ne vaut pas validation native ou phonétique globale.
+
+Empreinte du registre : `3058f970810166d471607251a2544cb7cdb73e50422794a8bbbedbd613b62705` ; preuves sources 68031b7, erratum de contenu 4247ca4 et erratum batchim d5ad5e4.
