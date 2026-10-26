@@ -7,8 +7,8 @@
   const RIGHTS_SHA = '35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05';
   const preview = /^deploy-preview-\d+--chic-dragon-e2baf2\.netlify\.app$/.test(location.hostname);
   const rights = new Map();
-  let ready = false, paid = false, serverStatus = 'checking', rightsReady = false;
-  let generation = 0, initialization = null;
+  let ready = false, paid = false, permanent = false, serverStatus = 'checking', rightsReady = false;
+  let generation = 0, initialization = null, logoutPending = null;
   const read = key => { try { return localStorage.getItem(key) || ''; } catch (_) { return ''; } };
   const write = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
   const snapshot = () => Object.freeze({ready, paid, unrestricted: preview,
@@ -62,6 +62,7 @@
       });
       const data = await response.json();
       return {paid: response.ok && data.paid === true,
+        permanent: response.ok && data.paid === true && data.permanent === true,
         status: response.ok || response.status === 401 ? 'ready' : 'unavailable'};
     } catch (_) { return {paid:false, status:'unavailable'}; }
     finally { clearTimeout(timeout); }
@@ -73,7 +74,7 @@
 
   async function refresh() {
     if (preview) {
-      ready = true; paid = false; serverStatus = 'preview';
+      ready = true; paid = false; permanent = false; serverStatus = 'preview';
       notify();
       return snapshot();
     }
@@ -81,17 +82,19 @@
     const before = snapshot();
     if (paid) {
       paid = false;
+      permanent = false;
       serverStatus = 'checking';
       notify();
     }
     const [rightsResult, server] = await Promise.allSettled([loadRights(), checkServer()]);
     if (current !== generation) return snapshot();
     if (rightsResult.status !== 'fulfilled') {
-      ready = false; paid = false; serverStatus = 'invalid-free-rights';
+      ready = false; paid = false; permanent = false; serverStatus = 'invalid-free-rights';
       notify();
       throw new Error('Historical course access could not be verified');
     }
     paid = server.status === 'fulfilled' && server.value.paid === true;
+    permanent = paid && server.value.permanent === true;
     serverStatus = server.status === 'fulfilled' ? server.value.status : 'unavailable';
     ready = true;
     // This is only a shared UI hint; it never grants progressive-course access.
@@ -103,6 +106,50 @@
   function initialize() {
     if (!initialization) initialization = refresh().catch(error => { initialization = null; throw error; });
     return initialization;
+  }
+
+  // Match the existing classic logout contracts. Permanent/shared access
+  // revokes the session on the server and keeps the registered device place;
+  // ordinary access resets the local device identity as before.
+  function logout() {
+    if (preview) return Promise.resolve(false);
+    if (logoutPending) return logoutPending;
+    logoutPending = (async () => {
+      if (!paid) return false;
+      if (permanent) {
+        const id = read('ox_device');
+        if (!id) throw new Error('Missing device identity');
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 8000);
+        try {
+          const response = await fetch('/.netlify/functions/logout', {
+            method:'POST', credentials:'same-origin', signal:controller.signal,
+            headers:{'Content-Type':'application/json'}, body:JSON.stringify({device_id:id})
+          });
+          const data = await response.json();
+          if (!response.ok || data.success !== true) throw new Error('Logout refused');
+        } finally { clearTimeout(timeout); }
+      } else {
+        let previousHint;
+        try {
+          previousHint = localStorage.getItem('ox_paid');
+          localStorage.setItem('ox_paid', '0');
+          localStorage.setItem('ox_device', '');
+        } catch (error) {
+          try {
+            if (previousHint === null) localStorage.removeItem('ox_paid');
+            else if (typeof previousHint === 'string') localStorage.setItem('ox_paid', previousHint);
+          } catch (_) {}
+          throw error;
+        }
+      }
+      ++generation; // A status request begun before logout must not regrant it.
+      paid = false; permanent = false; serverStatus = 'ready';
+      write('ox_paid', '0');
+      notify();
+      return true;
+    })().finally(() => { logoutPending = null; });
+    return logoutPending;
   }
 
   function canLearn(pairId, phrase, editorialLevel) {
@@ -263,7 +310,7 @@
     if (ready && !preview && ['ox_device', 'ox_paid', 'ox_session'].includes(event.key)) refresh().catch(() => {});
   });
 
-  Object.defineProperty(window, 'MelungaCourseAccess', {value:Object.freeze({initialize, refresh,
+  Object.defineProperty(window, 'MelungaCourseAccess', {value:Object.freeze({initialize, refresh, logout,
     state:snapshot, canLearn, loginUrl, classicUrl,
     learningView:(pair, references) => {
       if (!ready) throw new Error('Course access is not ready');

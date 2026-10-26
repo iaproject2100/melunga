@@ -119,6 +119,15 @@
         <p id="mgFeedbackStatus" class="mg-menu-empty" role="status" aria-live="polite"></p>
       </form>
     </section>
+    <section id="mgAccountPanel" class="mg-menu-section" hidden>
+      <p id="mgAccountStatus" class="mg-menu-empty"></p>
+      <div class="mg-menu-actions">
+        <button id="mgAccountBack" class="mg-action mg-action-primary" type="button" data-mg-i18n="Revenir aux leçons">Revenir aux leçons</button>
+        <button id="mgAccountLogout" class="mg-action" type="button">Se déconnecter</button>
+        <a id="mgAccountLogin" class="mg-action" href="app.html?login=1" data-mg-i18n="Se connecter / Créer un compte" hidden>Se connecter / Créer un compte</a>
+      </div>
+      <p id="mgAccountError" class="mg-menu-empty" role="alert"></p>
+    </section>
     <section id="mgInfoPanel" class="mg-menu-section" hidden>
       <ol class="mg-menu-steps">
         <li data-mg-i18n="Choisis un thème et écoute la phrase.">Choisis un thème et écoute la phrase.</li>
@@ -130,7 +139,7 @@
     </div>
   </dialog>
   <p id="mgCardToast" class="mg-card-toast" role="status" aria-live="polite" hidden></p>
-  <script src="course-access.js?v=1"></script>
-  <script src="maquette-guidee.js?v=19"></script>
+  <script src="course-access.js?v=2"></script>
+  <script src="maquette-guidee.js?v=22"></script>
 </body>
 </html>

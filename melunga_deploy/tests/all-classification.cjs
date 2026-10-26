@@ -20,8 +20,8 @@ const REGISTRY_SHAS = {'fr-en':'dfcde432da30d22ca3375c5544e14fb5f7b6e84db04af9ce
 const DESCRIPTOR_SHA256 = '57d7731c5001d065ce53ced537f782953dcd40dd61846627739adeb1bfd06f20';
 const MANIFEST_SHA256 = 'd0c785ebd39b1cc5fa14f6445b08c7982dda03255741f61bcf21c991c34c423c';
 const INDEPENDENT_CHECKER_SHA256 = '81b140ac5c245acfaf804cd8a8cd8e95138975c8a671bfbda58853664f03685a';
-const CLASSIFIED_JS_SHA256 = '8213af1bad99f620b379297299161910ec2c683e89d5b4bf8b443c55a70760f8';
-const CLASSIFIED_HTML_SHA256 = {'melunga_deploy/maquette-guidee.html':'72436182e911bceb6c182c039d0e357b91071fe227c3e5b4ed4350dc8cdd299f','melunga_deploy/parcours-niveaux.html':'1c511c376c2d93f8d816475007470ae3219c80981850338ee57669b26866cce0'};
+const CLASSIFIED_JS_SHA256 = 'ca80b3984a927441d7c7ca160729cd5bee75990c25b9511169665210d19505d4';
+const CLASSIFIED_HTML_SHA256 = {'melunga_deploy/maquette-guidee.html':'ba35746e52e13983f7fb28b6dcea0efacd6ab888eca3394b331dae24cee3ebaa','melunga_deploy/parcours-niveaux.html':'fa5eb3b17333a96e5800fc3c77cfeb7b881449fc05a76a2f908618e3a5e2ef9b'};
 // Authorized entry/mobile UI shell: exact whole current assets are validated
 // before historical source tests may see the unchanged earlier presentation.
 // Account and current mobile behavior have independent course-entry-access and
@@ -30,7 +30,7 @@ const CLASSIFIED_HTML_SHA256 = {'melunga_deploy/maquette-guidee.html':'72436182e
 const ENTRY_ASSET_SHA256 = {
   'melunga_deploy/app.html':'7faee15f692c0c79c0f3937bc87f246225efc4f410bd10c4bf5401b5c38b8d90',
   'melunga_deploy/index.html':'00dc701d8b9b5a84b025e9cc369d336317610fd92f2af4d34802cd830969fdbb',
-  'melunga_deploy/course-access.js':'78757809d2d80ec44a190a65acebd93650c4503e431df9322b87568d2b4a8324',
+  'melunga_deploy/course-access.js':'b5b3e0d547c84aa24b59d7381a5bfbf11a27836885b875e284b5795873abd082',
   'melunga_deploy/content/course-access.json':'35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05',
   'melunga_deploy/maquette-guidee.css':'c8dc71391b45821fdf8f3b3ed70fd3f73bfcea48dfdb021cc87ce3174cb28690',
   'melunga_deploy/maquette-guidee.js':CLASSIFIED_JS_SHA256,...CLASSIFIED_HTML_SHA256
