@@ -1,0 +1,103 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-26T19:06:30.870624+00:00",
+  "baseCommit": "05c5110ec051aa354a6206a02909775517706245",
+  "scope": "header layout restore: finite asset gates and byte-exact source conservation, no full source audit or browser matrix rerun",
+  "wholeAssetGate": {
+    "status": "passed",
+    "wholeAssetPins": 8,
+    "classicWholeDeckAndFamilyLiteralsVerified": true,
+    "assetSha256": {
+      "melunga_deploy/app.html": "7faee15f692c0c79c0f3937bc87f246225efc4f410bd10c4bf5401b5c38b8d90",
+      "melunga_deploy/index.html": "00dc701d8b9b5a84b025e9cc369d336317610fd92f2af4d34802cd830969fdbb",
+      "melunga_deploy/course-access.js": "78757809d2d80ec44a190a65acebd93650c4503e431df9322b87568d2b4a8324",
+      "melunga_deploy/content/course-access.json": "35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05",
+      "melunga_deploy/maquette-guidee.css": "c8dc71391b45821fdf8f3b3ed70fd3f73bfcea48dfdb021cc87ce3174cb28690",
+      "melunga_deploy/maquette-guidee.js": "8213af1bad99f620b379297299161910ec2c683e89d5b4bf8b443c55a70760f8",
+      "melunga_deploy/maquette-guidee.html": "72436182e911bceb6c182c039d0e357b91071fe227c3e5b4ed4350dc8cdd299f",
+      "melunga_deploy/parcours-niveaux.html": "1c511c376c2d93f8d816475007470ae3219c80981850338ee57669b26866cce0"
+    }
+  },
+  "negativeWholeAssetChecks": {
+    "status": "passed",
+    "scope": "in-memory fs overlays; no physical product changes",
+    "cases": [
+      {
+        "file": "melunga_deploy/maquette-guidee.js",
+        "mutation": "unapproved appended bytes in memory only",
+        "rejected": true
+      },
+      {
+        "file": "melunga_deploy/maquette-guidee.css",
+        "mutation": "unapproved appended bytes in memory only",
+        "rejected": true
+      },
+      {
+        "file": "melunga_deploy/maquette-guidee.html",
+        "mutation": "unapproved appended bytes in memory only",
+        "rejected": true
+      },
+      {
+        "file": "melunga_deploy/parcours-niveaux.html",
+        "mutation": "unapproved appended bytes in memory only",
+        "rejected": true
+      }
+    ]
+  },
+  "sourceConservation": {
+    "runtimeJsonCount": 78,
+    "allByteExactToBase": true,
+    "bundleSha256": "bbacc6a42bfaa15a469a8455cd7688e2b2c06fbbf57e8208c1b535035a8fbe86",
+    "bundleHashMethod": "sorted repository paths followed by NUL and exact file bytes",
+    "unchangedEntryAndAccountAssets": [
+      "melunga_deploy/maquette-guidee.js",
+      "melunga_deploy/app.html",
+      "melunga_deploy/index.html",
+      "melunga_deploy/course-access.js",
+      "melunga_deploy/content/course-access.json"
+    ],
+    "onlyChangedProductPaths": [
+      "melunga_deploy/maquette-guidee.css",
+      "melunga_deploy/maquette-guidee.html",
+      "melunga_deploy/parcours-niveaux.html"
+    ],
+    "otherProductAssetsIncludingLogoPricesAndBackendUnchanged": true
+  },
+  "priorContentAuditReuse": {
+    "report": "docs/correctif-navigation-mobile/compatibilite-et-courses.json",
+    "reportSha256": "826bd83457bb34f2dcafe62d6de74f73560a8dae989a11cdb59718d50aded2a8",
+    "status": "reused for byte-identical data only; UI gates superseded above",
+    "counts": {
+      "operations": 2906,
+      "moves": 2532,
+      "toReserve": 318,
+      "keep": 56,
+      "levelChanges": 622,
+      "canonical": 33654,
+      "active": 32448,
+      "reserve": 1206,
+      "hiddenAdditional": 33,
+      "alreadyReserved": 7,
+      "smallThemes": 72,
+      "mixedThemes": 58,
+      "largeThemes": 67,
+      "newThemes": 9,
+      "newThemeCards": 38,
+      "bankReservedAliases": 13,
+      "contextPrimaryAliases": 5,
+      "outboundCoreReuses": 1,
+      "typedExtensions": 1,
+      "stepsChecked": 119755
+    },
+    "fullAuditRerun": false
+  },
+  "currentBrowserCoverage": "separate geometric header QA owned by sibling, not claimed by this source check",
+  "nodeParse": "passed",
+  "gitDiffCheck": "passed",
+  "changedOwnedFiles": [
+    "melunga_deploy/tests/all-classification.cjs"
+  ],
+  "ownedFileSha256": "a3545a6a19a107babdea66fe664ef1445a7dbc4ddd5f38f88c69044b683dd3fd",
+  "committedByThisAgent": false,
+  "pushedByThisAgent": false
+}
