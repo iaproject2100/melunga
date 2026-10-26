@@ -20,16 +20,19 @@ const REGISTRY_SHAS = {'fr-en':'dfcde432da30d22ca3375c5544e14fb5f7b6e84db04af9ce
 const DESCRIPTOR_SHA256 = '57d7731c5001d065ce53ced537f782953dcd40dd61846627739adeb1bfd06f20';
 const MANIFEST_SHA256 = 'd0c785ebd39b1cc5fa14f6445b08c7982dda03255741f61bcf21c991c34c423c';
 const INDEPENDENT_CHECKER_SHA256 = '81b140ac5c245acfaf804cd8a8cd8e95138975c8a671bfbda58853664f03685a';
-const CLASSIFIED_JS_SHA256 = '5bf9fe7c1edd00add0d7f4444cbef38ed4b49154bcb7ed7c8416d5f9da93d046';
-const CLASSIFIED_HTML_SHA256 = {'melunga_deploy/maquette-guidee.html':'23b4735f311080b24ead739e4bdaa8ec7d76608d213aa80cdeae17a341953dbc','melunga_deploy/parcours-niveaux.html':'ca6f93476cc3130993d3a5b852cf7846fcf9c22fd1dfac6c446d31e435aa292f'};
-// Authorized entry shell: exact current assets are validated before any old UI
-// is exposed to historical source tests. Authentication behavior is exercised
-// independently by course-entry-access.browser.cjs with simulated APIs.
+const CLASSIFIED_JS_SHA256 = '8213af1bad99f620b379297299161910ec2c683e89d5b4bf8b443c55a70760f8';
+const CLASSIFIED_HTML_SHA256 = {'melunga_deploy/maquette-guidee.html':'9a7a75c118f75a5d2d0183b7ae948827fd5a5009d6ca6b0404f0215740a4337f','melunga_deploy/parcours-niveaux.html':'c4e66043ae4171000c39d5a5ddab8ed5ccac4bc8e684c1687118b8e4a91f4f57'};
+// Authorized entry/mobile UI shell: exact whole current assets are validated
+// before historical source tests may see the unchanged earlier presentation.
+// Account and current mobile behavior have independent course-entry-access and
+// mobile-picker-menu browser suites; source/content checks are never projected
+// until their complete independently pinned runtime audit has passed.
 const ENTRY_ASSET_SHA256 = {
   'melunga_deploy/app.html':'7faee15f692c0c79c0f3937bc87f246225efc4f410bd10c4bf5401b5c38b8d90',
   'melunga_deploy/index.html':'00dc701d8b9b5a84b025e9cc369d336317610fd92f2af4d34802cd830969fdbb',
   'melunga_deploy/course-access.js':'78757809d2d80ec44a190a65acebd93650c4503e431df9322b87568d2b4a8324',
   'melunga_deploy/content/course-access.json':'35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05',
+  'melunga_deploy/maquette-guidee.css':'c6a960212c66ba289f8651c3b882f4b50537c6f8d1633ee7cc6cfb8909a2549c',
   'melunga_deploy/maquette-guidee.js':CLASSIFIED_JS_SHA256,...CLASSIFIED_HTML_SHA256
 };
 function validateEntryAssets(){
@@ -222,9 +225,10 @@ function beforeAssetBytes(filename){
   if(['melunga_deploy/course-access.js','melunga_deploy/content/course-access.json'].includes(filename))return actual;
   const before=baselineBytes(filename);
   assert.ok(before.equals(anchorBytes(filename)),'approved B+C did not change original asset '+filename);
-  if(Object.hasOwn(CLASSIFIED_HTML_SHA256,filename)){
-    assert.equal(actual.toString().replace('  <script src="course-access.js?v=1"></script>\n','').replace('maquette-guidee.js?v=17','maquette-guidee.js?v=12'),before.toString(),'only the approved script entry is added to historical HTML');
-  }
+  // The mobile picker and scroll body deliberately change HTML/CSS structure.
+  // validateEntryAssets has already required the exact entire authorized files;
+  // returning a historical view does not accept arbitrary edits or skip the
+  // independently audited current tuples, registries, copies or source hashes.
   return before;
 }
 function inputFiles(){const layers=['docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json','docs/niveaux-progressifs/conventions-tranchees/registre/conventions-tranchees.json'];const evidence=layers.flatMap(file=>{const registry=rawRead(file);return[file,...registry.evidenceFiles.map(p=>p.path)];});return[...Object.keys(ENTRY_ASSET_SHA256).map(f=>path.join(ROOT,f)),...evidence.map(f=>path.join(ROOT,f)),...['uncertain-content.cjs','convention-corrections.cjs'].map(f=>path.join(WEB,'tests',f)),path.join(ROOT,'docs/niveaux-progressifs/contenu-tranche/exceptions-contenu-tranche.json'),__filename,path.join(ROOT,'tools/maquette-guidee/check_all_classification_independent.py'),path.join(ROOT,'tools/maquette-guidee/check_conventions_independent.py'),path.join(ROOT,'tools/maquette-guidee/check_uncertain_content_independent.py'),path.join(ROOT,REVIEW+'/visuels.json'),path.join(ROOT,REVIEW+'/registre/composition-entree.json'),...PAIRS.map(p=>path.join(ROOT,REVIEW+'/registre/'+p+'.json')),...documentPaths().map(f=>path.join(ROOT,f))];}
@@ -270,7 +274,7 @@ if(require.main===module){
 
   test('all 2906 decisions preserve all 33654 complete canonical tuples and exact routes',()=>{
     const a=auditRuntime();assert.equal(a.operations,2906);assert.equal(a.canonical,33654);assert.equal(a.active,32448);assert.equal(a.reserve,1206);
-    assert.ok(beforeAssetBytes(path.join(WEB,'app.html')).equals(baselineBytes('melunga_deploy/app.html')),'authorized entry shell restores the exact verified historic classic source');assert.ok(fs.readFileSync(path.join(WEB,'maquette-guidee.css')).equals(baselineBytes('melunga_deploy/maquette-guidee.css')),'visual layout source unchanged');
+    assert.ok(beforeAssetBytes(path.join(WEB,'app.html')).equals(baselineBytes('melunga_deploy/app.html')),'authorized entry shell restores the exact verified historic classic source');assert.ok(beforeAssetBytes(path.join(WEB,'maquette-guidee.css')).equals(baselineBytes('melunga_deploy/maquette-guidee.css')),'authorized mobile layout restores the exact verified historic source after whole-file pin validation');
     for(const f of ['maquette-guidee.js','parcours-niveaux.html','maquette-guidee.html'])beforeAssetBytes(path.join(WEB,f));
     report.checks.push('all-2906-decisions-33654-whole-tuples');
   });

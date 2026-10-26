@@ -1,0 +1,11 @@
+# Niveaux colorés et rubriques mobiles accessibles
+
+Le sélecteur natif Android ne reprenait pas les couleurs du site. Il est remplacé par une fenêtre intégrée, avec dix badges colorés, les titres complets, la sélection courante et une navigation au clavier. Le sélecteur interne conservé pour le chargement est masqué aux lecteurs d’écran ; le bouton visible et la fenêtre portent leurs propres libellés. Le parcours utilise toujours le même chargeur validé et les mêmes droits.
+
+Le menu faisait défiler ses rubriques sous le titre et calculait sa position sur la fenêtre complète. Il garde maintenant un en-tête fixe et un corps défilant séparé. La fenêtre suit le viewport réellement visible, son décalage, le zoom et la rotation, avec les marges sûres du téléphone. Les dix rubriques, de l’accueil à la connexion, restent accessibles. La page L1 ancienne reste compatible.
+
+Six tests indépendants passent sur cinq formats, les trois ambiances, du texte agrandi ×2 et un zoom tactile ×1,5 : 27 cas et 17 captures. Un vrai geste tactile fait défiler le corps du menu. Les captures retenues ici ont été inspectées. Le comportement défectueux précédent a été reproduit depuis `main@1b1d60e`, sans modifier les fichiers produit. Ces mesures utilisent Chromium local et des écrans simulés ; elles ne prétendent pas représenter un téléphone physique.
+
+Les 78 JSON du parcours, le catalogue, les pages d’entrée, les fichiers de droits, comptes et prix restent identiques à la base publiée. Les seuls appels d’accès des tests locaux sont des GET simulés. La PR des séquences reste séparée et non approuvée pour fusion.
+
+Le test de courses du chargeur a aussi été adapté au sélecteur visible. Il vérifie le retour au niveau affiché pendant une requête retardée, puis les cas précédents de changement de niveau/langue et de reprise après HTTP503. Servir l’ancienne garde uniquement en mémoire fait échouer ce nouveau scénario ; le fichier produit n’est pas modifié pour cette contre-épreuve. Les huit assets finaux sont vérifiés par empreintes complètes, et quatre altérations non autorisées sont refusées. L’audit de contenu complet précédent est réutilisé uniquement pour les données inchangées ; le rapport le distingue des contrôles finaux de l’interface.

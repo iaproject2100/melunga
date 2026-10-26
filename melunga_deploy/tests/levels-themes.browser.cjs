@@ -312,6 +312,13 @@ async function ready(page, pair, level) {
   }, {pair, level});
 }
 
+// Exercise the actual level dialog; the hidden source select is not a user control.
+async function chooseLevel(page, level) {
+  await page.click('#mgLevelTrigger');
+  await page.locator('#mgLevelDialog').waitFor({state: 'visible'});
+  await page.locator('#mgLevelChoices button[data-level="' + level + '"]').click();
+}
+
 async function inspectCell(page, expected, bank, exhaustive) {
   allClassification.auditRuntime(); // validates the exact frozen policy before any finite auditor exception
   const additionalThemes = situationPlan.themes.filter(theme => theme.level === expected.level);
@@ -719,7 +726,7 @@ for (const width of report.widths) test('70 pair/level cells at ' + width + 'px'
           const previousLevel = Number(await page.locator('#mgLevel').inputValue());
           await page.selectOption('#mgLanguage', pair.id); await ready(page, pair.id, previousLevel);
         }
-        if (Number(await page.locator('#mgLevel').inputValue()) !== level) await page.selectOption('#mgLevel', String(level));
+        if (Number(await page.locator('#mgLevel').inputValue()) !== level) await chooseLevel(page, String(level));
         await ready(page, pair.id, level);
         let result;
         try { result = await inspectCell(page, cell(pair.id, level), repertoire(pair.id), width === 390); }
@@ -1195,22 +1202,36 @@ test('latest pair/level wins delayed responses; failed cells can be retried', {t
   try {
     const {page} = fixture;
     await page.goto(base + '/parcours-niveaux.html?pair=fr-zh&level=1'); await ready(page, 'fr-zh', 1);
-    await page.selectOption('#mgLevel', '2');
+    // Returning to the currently displayed level must cancel a pending request,
+    // even though its button still represents the last successfully loaded pair.
+    await chooseLevel(page, '2');
     await page.waitForFunction(() => document.body.dataset.view === 'loading');
-    await page.selectOption('#mgLevel', '3'); await ready(page, 'fr-zh', 3);
+    await chooseLevel(page, '1');
+    await page.waitForFunction(() => {
+      const s = window.MelungaMockup?.state();
+      return s?.screen === 'themes' && s.pairId === 'fr-zh' && s.level === 1;
+    }, null, {timeout: 3000});
+    assert.ok(releases.has('2'));
+    await releases.get('2')(); releases.delete('2');
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    assert.equal((await page.evaluate(() => window.MelungaMockup.state())).level, 1);
+    // Keep the original newer-level case as a separate delayed request.
+    await chooseLevel(page, '2');
+    await page.waitForFunction(() => document.body.dataset.view === 'loading');
+    await chooseLevel(page, '3'); await ready(page, 'fr-zh', 3);
     assert.ok(releases.has('2')); await releases.get('2')();
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
     assert.equal((await page.evaluate(() => window.MelungaMockup.state())).level, 3);
-    await page.selectOption('#mgLevel', '4');
+    await chooseLevel(page, '4');
     await page.waitForFunction(() => document.body.dataset.view === 'loading');
     await page.selectOption('#mgLanguage', 'fr-es'); await ready(page, 'fr-es', 4);
-    await page.selectOption('#mgLevel', '3'); await ready(page, 'fr-es', 3);
+    await chooseLevel(page, '3'); await ready(page, 'fr-es', 3);
     assert.ok(releases.has('4')); await releases.get('4')();
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
     assert.equal((await page.evaluate(() => window.MelungaMockup.state())).pairId, 'fr-es');
     assert.equal((await page.evaluate(() => window.MelungaMockup.state())).level, 3);
     assert.match(page.url(), /pair=fr-es/); assert.match(page.url(), /level=3/);
-    await page.selectOption('#mgLevel', '7'); await page.locator('#mgRetry').waitFor({state: 'visible'});
+    await chooseLevel(page, '7'); await page.locator('#mgRetry').waitFor({state: 'visible'});
     assert.equal((await page.evaluate(() => window.MelungaMockup.state())).screen, 'loading');
     await page.click('#mgRetry'); await ready(page, 'fr-es', 7);
     assert.equal(await page.locator('#mgLevelText').textContent(), 'L7');
@@ -1588,7 +1609,7 @@ test('a delayed old bank cannot overwrite a newly selected pair or its review au
     await page.goto(base + '/parcours-niveaux.html?pair=' + first + '&level=' + firstTarget.level);
     await requested;
     await page.selectOption('#mgLanguage', second); await ready(page, second, firstTarget.level);
-    if (firstTarget.level !== secondTarget.level) { await page.selectOption('#mgLevel', String(secondTarget.level)); await ready(page, second, secondTarget.level); }
+    if (firstTarget.level !== secondTarget.level) { await chooseLevel(page, String(secondTarget.level)); await ready(page, second, secondTarget.level); }
     await release();
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
     assert.equal((await page.evaluate(() => window.MelungaMockup.state())).pairId, second);

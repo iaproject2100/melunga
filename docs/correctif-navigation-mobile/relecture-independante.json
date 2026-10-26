@@ -1,0 +1,48 @@
+{
+  "status": "no-blocking-findings",
+  "scope": "independent read-only source review; no browser or account operations",
+  "reviewedAt": "2026-10-26T18:45:16.817217+00:00",
+  "baseCommit": "1b1d60e6a8756018fa4e9d6abce8457986a04550",
+  "runtimeJsonByteExactCount": 78,
+  "protectedShellRightsAccountPricingFilesByteExactCount": 7,
+  "findings": [],
+  "resolvedFindings": [
+    {
+      "issue": "Mobile media padding shorthands overrode the safe-area bottom inset",
+      "resolution": "Both 760px and 340px media rules now retain max(padding,env(safe-area-inset-bottom)); viewport-fit=cover stays supported"
+    },
+    {
+      "issue": "Clicking the currently rendered level during an in-flight different-level request previously returned before cancelling that request",
+      "resolution": "The same-level fast return is now limited to state.screen !== 'loading'; during loading the existing select change starts choosePair, increments its generation and aborts the previous request"
+    }
+  ],
+  "reviewed": [
+    "Level choices are real page buttons within native modal dialog; hidden legacy select is excluded from accessibility tree",
+    "Selected level is labelled by pressed state and visible tick; colour is not the sole selection cue",
+    "Close/Escape uses native dialog lifecycle and preserves expanded state; level and navigation dialogs close one another",
+    "Arrow/Home/End navigation uses the computed responsive grid column count",
+    "Popup bounds use visualViewport offsets and dimensions with resize/scroll listeners",
+    "Non-scrolling dialog header is separate from a min-height-zero, touch-scrollable body",
+    "Legacy L1 page has no level dialog; all new level event hooks and positioning calls are null-safe",
+    "Responsive auto-fit grid permits a single column in narrow/pinched visual viewports without shrinking text",
+    "Level change reuses the existing change event, choosePair, immutable content validation and course-access learning view; no entitlement shortcut",
+    "No data, catalogue, price, server account code, rights module or course-access manifest changed",
+    "Same-level selection during an in-flight request follows the existing generation/abort path; no new access or data path is introduced"
+  ],
+  "limits": [
+    "Source review only; browser, physical-device and native screen-reader validation are not claimed"
+  ],
+  "sha256": {
+    "melunga_deploy/maquette-guidee.css": "c6a960212c66ba289f8651c3b882f4b50537c6f8d1633ee7cc6cfb8909a2549c",
+    "melunga_deploy/maquette-guidee.js": "8213af1bad99f620b379297299161910ec2c683e89d5b4bf8b443c55a70760f8",
+    "melunga_deploy/parcours-niveaux.html": "c4e66043ae4171000c39d5a5ddab8ed5ccac4bc8e684c1687118b8e4a91f4f57",
+    "melunga_deploy/maquette-guidee.html": "9a7a75c118f75a5d2d0183b7ae948827fd5a5009d6ca6b0404f0215740a4337f"
+  },
+  "advisories": [
+    {
+      "severity": "non-blocking",
+      "scope": "extreme font-only enlargement",
+      "detail": "Level badges have fixed dimensions; extreme text-only sizing may make L10 text exceed its coloured circle. The button label and level title remain present; no separate badge-sizing feature is introduced in this fix."
+    }
+  ]
+}
