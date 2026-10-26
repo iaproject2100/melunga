@@ -15,7 +15,7 @@ const sourceFiles=['content/niveaux-progressifs/manifest.json',...manifest.pairs
 const protectedFiles=['maquette-guidee.css','melunga-logo.png','assets/melunga-logo.png','app.html','index.html','desktop-home.js','course-access.js','content/course-access.json','store-billing.js','netlify/functions/get-pricing.mjs','netlify/functions/login.mjs','netlify/functions/check-status.mjs','netlify/functions/create-payment-link.mjs'];
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const baseline=f=>execFileSync('git',['show',BASE+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});
-const fingerprint=()=>Object.fromEntries([__filename,...sourceFiles.concat(protectedFiles,['maquette-guidee.js','parcours-niveaux.html','maquette-guidee.html']).map(f=>path.join(WEB,f))].sort().map(f=>[path.relative(REPO,f),sha(fs.readFileSync(f))]));
+const fingerprint=()=>Object.fromEntries([__filename,...sourceFiles.concat(protectedFiles,['maquette-guidee.js','parcours-niveaux.html','maquette-guidee.html','melunga-logo.svg']).map(f=>path.join(WEB,f))].sort().map(f=>[path.relative(REPO,f),sha(fs.readFileSync(f))]));
 const cells=new Map(),banks=new Map();
 function cell(pair,level=1){const key=pair+':'+level;if(!cells.has(key))cells.set(key,read('content/niveaux-progressifs/'+pair+'/L'+level+'.json'));return cells.get(key);}
 function bank(pair){if(!banks.has(pair))banks.set(pair,read('content/niveaux-progressifs/repertoires/'+pair+'.json'));return banks.get(pair);}

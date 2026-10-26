@@ -21,7 +21,7 @@ const DESCRIPTOR_SHA256 = '57d7731c5001d065ce53ced537f782953dcd40dd61846627739ad
 const MANIFEST_SHA256 = 'd0c785ebd39b1cc5fa14f6445b08c7982dda03255741f61bcf21c991c34c423c';
 const INDEPENDENT_CHECKER_SHA256 = '81b140ac5c245acfaf804cd8a8cd8e95138975c8a671bfbda58853664f03685a';
 const CLASSIFIED_JS_SHA256 = 'd049dc79587d42c081d60a80c7e2aea8913bfc787f59c1689871f39081ed7b1b';
-const CLASSIFIED_HTML_SHA256 = {'melunga_deploy/maquette-guidee.html':'98723bf843a7175fac58b0a0ecf7f0581e08b67eb8d54baa60f7e3aeb6262056','melunga_deploy/parcours-niveaux.html':'562ce667441bd6cd42abba1bc60c9f7b5b1bc6d181632123fb9402694043e5b3'};
+const CLASSIFIED_HTML_SHA256 = {"melunga_deploy/maquette-guidee.html":"33ef74ac6131a39f76538af32d67adad3724f6a4a75afb978709cc36cf6472d3","melunga_deploy/parcours-niveaux.html":"80c1f29ae2edd18cccb2b23287e1768914618fe0fc85656b771137d3cc350cd1"};
 // Authorized entry/mobile UI shell: exact whole current assets are validated
 // before historical source tests may see the unchanged earlier presentation.
 // Account and current mobile behavior have independent course-entry-access and
@@ -32,6 +32,7 @@ const ENTRY_ASSET_SHA256 = {
   'melunga_deploy/index.html':'00dc701d8b9b5a84b025e9cc369d336317610fd92f2af4d34802cd830969fdbb',
   'melunga_deploy/course-access.js':'78757809d2d80ec44a190a65acebd93650c4503e431df9322b87568d2b4a8324',
   'melunga_deploy/content/course-access.json':'35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05',
+  'melunga_deploy/melunga-logo.svg':'b653fbd78c7b2a3853ad628d83e4230726a17f71e0a5441a01947dd854f86cec',
   'melunga_deploy/maquette-guidee.css':'c8dc71391b45821fdf8f3b3ed70fd3f73bfcea48dfdb021cc87ce3174cb28690',
   'melunga_deploy/maquette-guidee.js':CLASSIFIED_JS_SHA256,...CLASSIFIED_HTML_SHA256
 };
@@ -222,7 +223,7 @@ function beforeAssetBytes(filename){
   const actual=fs.readFileSync(path.join(ROOT,filename));
   if(!Object.hasOwn(ENTRY_ASSET_SHA256,filename))return actual;
   ensureProjection();validateEntryAssets();
-  if(['melunga_deploy/course-access.js','melunga_deploy/content/course-access.json'].includes(filename))return actual;
+  if(['melunga_deploy/course-access.js','melunga_deploy/content/course-access.json','melunga_deploy/melunga-logo.svg'].includes(filename))return actual;
   const before=baselineBytes(filename);
   assert.ok(before.equals(anchorBytes(filename)),'approved B+C did not change original asset '+filename);
   // The mobile picker and scroll body deliberately change HTML/CSS structure.
