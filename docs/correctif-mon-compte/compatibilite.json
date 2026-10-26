@@ -1,0 +1,145 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-26T20:44:12.197217+00:00",
+  "previewOnly": true,
+  "baseCommit": "a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f",
+  "scope": "Mon compte client account/logout UI: finite whole asset gates and byte-exact data conservation, no full content audit or browser matrix rerun",
+  "assetGates": {
+    "status": "passed",
+    "wholeAssetPins": 8,
+    "assetSha256": {
+      "melunga_deploy/app.html": "7faee15f692c0c79c0f3937bc87f246225efc4f410bd10c4bf5401b5c38b8d90",
+      "melunga_deploy/index.html": "00dc701d8b9b5a84b025e9cc369d336317610fd92f2af4d34802cd830969fdbb",
+      "melunga_deploy/course-access.js": "b5b3e0d547c84aa24b59d7381a5bfbf11a27836885b875e284b5795873abd082",
+      "melunga_deploy/content/course-access.json": "35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05",
+      "melunga_deploy/maquette-guidee.css": "c8dc71391b45821fdf8f3b3ed70fd3f73bfcea48dfdb021cc87ce3174cb28690",
+      "melunga_deploy/maquette-guidee.js": "ca80b3984a927441d7c7ca160729cd5bee75990c25b9511169665210d19505d4",
+      "melunga_deploy/maquette-guidee.html": "ba35746e52e13983f7fb28b6dcea0efacd6ab888eca3394b331dae24cee3ebaa",
+      "melunga_deploy/parcours-niveaux.html": "fa5eb3b17333a96e5800fc3c77cfeb7b881449fc05a76a2f908618e3a5e2ef9b"
+    },
+    "negativeChecks": [
+      {
+        "path": "melunga_deploy/course-access.js",
+        "unapprovedAppendedBytesRejected": true,
+        "physicalFileChanged": false
+      },
+      {
+        "path": "melunga_deploy/maquette-guidee.js",
+        "unapprovedAppendedBytesRejected": true,
+        "physicalFileChanged": false
+      },
+      {
+        "path": "melunga_deploy/maquette-guidee.css",
+        "unapprovedAppendedBytesRejected": true,
+        "physicalFileChanged": false
+      },
+      {
+        "path": "melunga_deploy/maquette-guidee.html",
+        "unapprovedAppendedBytesRejected": true,
+        "physicalFileChanged": false
+      },
+      {
+        "path": "melunga_deploy/parcours-niveaux.html",
+        "unapprovedAppendedBytesRejected": true,
+        "physicalFileChanged": false
+      }
+    ],
+    "accessEligibilityAndUrlMethods": [
+      {
+        "method": "canLearn",
+        "wholeImplementationByteExact": true,
+        "sha256": "17532e3d90ef745896fa9779c61e34cfc0bd38bac3a57f09d95a6720683318ce"
+      },
+      {
+        "method": "learningView",
+        "wholeImplementationByteExact": true,
+        "sha256": "d6ca384ff445e3a6473f56ab47d452e1387259dccd9bea73da5abaa8ce7b1c5f"
+      },
+      {
+        "method": "loginUrl",
+        "wholeImplementationByteExact": true,
+        "sha256": "2d42259accede29d17d3a4fecf2d890c95ea6233635a96b854c9513659c12d83"
+      },
+      {
+        "method": "classicUrl",
+        "wholeImplementationByteExact": true,
+        "sha256": "41d2ebf556d685c5e6f15ae3b49d8c962a62243304021a52571a6df5deb90e26"
+      },
+      {
+        "method": "buildLearningView",
+        "wholeImplementationByteExact": true,
+        "sha256": "a0235bd21260ba94f26684dcc5cd4991b3bda23121fc809411c0b835f5f6c6d4"
+      }
+    ],
+    "permissionModuleChanged": true,
+    "permissionModuleBeforeSha256": "78757809d2d80ec44a190a65acebd93650c4503e431df9322b87568d2b4a8324",
+    "permissionModuleAfterSha256": "b5b3e0d547c84aa24b59d7381a5bfbf11a27836885b875e284b5795873abd082",
+    "methodComparison": "isolated VM, no initialize/refresh/logout invocation and no network/storage operation"
+  },
+  "authorizedAccessCodeChanges": {
+    "module": "melunga_deploy/course-access.js",
+    "wholeModuleByteExactToBase": false,
+    "purpose": "account logout and session/permanent state transitions; exposed logout capability, refresh tracks permanent status",
+    "permissionEligibilityAndLearningViewUnchanged": "canLearn, learningView and complete buildLearningView implementations compared verbatim in isolated VMs",
+    "loginAndClassicUrlsUnchanged": "loginUrl and classicUrl implementations compared verbatim",
+    "backendUnchanged": true,
+    "accountOperationInvokedByThisTask": false
+  },
+  "sourceConservation": {
+    "runtimeJsonCount": 78,
+    "allByteExactToBase": true,
+    "bundleSha256": "bbacc6a42bfaa15a469a8455cd7688e2b2c06fbbf57e8208c1b535035a8fbe86",
+    "bundleHashMethod": "sorted repository paths followed by NUL and exact file bytes",
+    "unchangedVisualClassicAndHistoricalRightsFiles": [
+      "melunga_deploy/maquette-guidee.css",
+      "melunga_deploy/app.html",
+      "melunga_deploy/index.html",
+      "melunga_deploy/content/course-access.json"
+    ],
+    "authorizedChangedProductPaths": [
+      "melunga_deploy/course-access.js",
+      "melunga_deploy/maquette-guidee.js",
+      "melunga_deploy/maquette-guidee.html",
+      "melunga_deploy/parcours-niveaux.html"
+    ],
+    "pricesBackendImagesAndOtherProductFilesUnchanged": true
+  },
+  "priorContentAuditReuse": {
+    "report": "docs/correctif-navigation-mobile/compatibilite-et-courses.json",
+    "reportSha256": "826bd83457bb34f2dcafe62d6de74f73560a8dae989a11cdb59718d50aded2a8",
+    "status": "reused only for byte-identical data; current client assets gated independently above",
+    "counts": {
+      "operations": 2906,
+      "moves": 2532,
+      "toReserve": 318,
+      "keep": 56,
+      "levelChanges": 622,
+      "canonical": 33654,
+      "active": 32448,
+      "reserve": 1206,
+      "hiddenAdditional": 33,
+      "alreadyReserved": 7,
+      "smallThemes": 72,
+      "mixedThemes": 58,
+      "largeThemes": 67,
+      "newThemes": 9,
+      "newThemeCards": 38,
+      "bankReservedAliases": 13,
+      "contextPrimaryAliases": 5,
+      "outboundCoreReuses": 1,
+      "typedExtensions": 1,
+      "stepsChecked": 119755
+    },
+    "fullAuditRerun": false
+  },
+  "currentBrowserCoverage": "separate account6 and course-entry6 QA by sibling/root, not rerun or claimed by this source task",
+  "nodeParse": "passed",
+  "gitDiffCheck": "passed",
+  "changedOwnedFiles": [
+    "melunga_deploy/tests/all-classification.cjs"
+  ],
+  "ownedFileSha256": "5a721f41a00706acf34dd4b1f5577011d28107d39023ec157cab208cac7ea978",
+  "committedByThisAgent": false,
+  "pushedByThisAgent": false,
+  "mergedByThisAgent": false
+}

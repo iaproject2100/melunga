@@ -8,13 +8,16 @@ const {test,before,after}=require('node:test');
 const {chromium}=require('playwright-core');
 const REPO=path.resolve(__dirname,'../..'),WEB=path.join(REPO,'melunga_deploy');
 const BASE='a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f',ORIGIN='https://level-progress.test';
+// Only the reviewed account component changes course-access; every other
+// protected file and all card sources keep the public main reference above.
+const ACCOUNT_COMPONENT_REF='665d0def5df2644bb8421553ed4876292ef23f10';
 const KNOWN='melunga-guided-known-v1',REVIEW='melunga-guided-review-v1';
 const read=f=>JSON.parse(fs.readFileSync(path.join(WEB,f),'utf8'));
 const manifest=read('content/niveaux-progressifs/manifest.json');
 const sourceFiles=['content/niveaux-progressifs/manifest.json',...manifest.pairs.flatMap(p=>[p.repertoirePath,...p.levels.map(l=>l.dataPath)])];
 const protectedFiles=['maquette-guidee.css','melunga-logo.png','assets/melunga-logo.png','app.html','index.html','desktop-home.js','course-access.js','content/course-access.json','store-billing.js','netlify/functions/get-pricing.mjs','netlify/functions/login.mjs','netlify/functions/check-status.mjs','netlify/functions/create-payment-link.mjs'];
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
-const baseline=f=>execFileSync('git',['show',BASE+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});
+const baseline=f=>execFileSync('git',['show',(f==='course-access.js'?ACCOUNT_COMPONENT_REF:BASE)+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});
 const fingerprint=()=>Object.fromEntries([__filename,...sourceFiles.concat(protectedFiles,['maquette-guidee.js','parcours-niveaux.html','maquette-guidee.html','melunga-logo.svg']).map(f=>path.join(WEB,f))].sort().map(f=>[path.relative(REPO,f),sha(fs.readFileSync(f))]));
 const cells=new Map(),banks=new Map();
 function cell(pair,level=1){const key=pair+':'+level;if(!cells.has(key))cells.set(key,read('content/niveaux-progressifs/'+pair+'/L'+level+'.json'));return cells.get(key);}
@@ -33,7 +36,7 @@ function levelData(pair,level=1){
 }
 function registry(pairs){return JSON.stringify({version:1,pairs});}
 function expected(pair,level,known){const ids=levelData(pair,level).ids,knownSet=new Set(known||[]),count=ids.filter(id=>knownSet.has(id)).length;return{known:count,total:ids.length,ratio:ids.length?count/ids.length:0,percent:ids.length?Math.floor(count/ids.length*100):0};}
-const report={status:'running',baseCommit:BASE,environment:'local Chromium, mobile and desktop sizes emulated',publicSiteChecked:false,physicalPhoneChecked:false,realAccountsUsed:false,actualAudioPlayed:false,
+const report={status:'running',baseCommit:BASE,courseAccessSourceRef:ACCOUNT_COMPONENT_REF,environment:'local Chromium, mobile and desktop sizes emulated',publicSiteChecked:false,physicalPhoneChecked:false,realAccountsUsed:false,actualAudioPlayed:false,
  apiFixture:'only GET check-status mocked; browser speech instrumented; no login, billing, feedback or TTS API calls',checks:[],cases:[],errors:[],unexpectedRequests:[],mockedStatusChecks:0,signInHandoffs:[],screenshots:[]};
 const required=['source-and-unchanged-theme-counts','fresh-and-localized-header','known-review-and-persistence','continue-storage-events-and-pair-scope','whole-level-free-access-denominator','storage-failure-and-legacy-scope'];
 let browser,inputs;

@@ -15,6 +15,8 @@
     feedbackForm: byId('mgFeedbackForm'), feedbackMessage: byId('mgFeedbackMessage'),
     feedbackEmail: byId('mgFeedbackEmail'), feedbackHp: byId('mgFeedbackHp'),
     feedbackSend: byId('mgFeedbackSend'), feedbackStatus: byId('mgFeedbackStatus'),
+    accountStatus: byId('mgAccountStatus'), accountBack: byId('mgAccountBack'),
+    accountLogout: byId('mgAccountLogout'), accountLogin: byId('mgAccountLogin'), accountError: byId('mgAccountError'),
     back: byId('mgBack'), backText: byId('mgBackText'),
     counter: byId('mgCounter'), progress: byId('mgProgress'), progressTrack: byId('mgProgress').parentElement, content: byId('mgContent'),
     loading: byId('mgLoading'), loadingText: byId('mgLoadingText'), retry: byId('mgRetry'),
@@ -37,7 +39,7 @@
     voiceChoices: new Map(), speechRate: 0.85, level: 1, requestedPair: null,
     loadGeneration: 0, request: null, levelCache: new Map(),
     referenceMap: new Map(), repertoireCache: new Map(), savedReview: [], readingPreferences: {},
-    deferredPhraseIds: new Set(), resumeGeneration: 0, allClassification: null, classificationOps: new Map()
+    deferredPhraseIds: new Set(), resumeGeneration: 0, allClassification: null, classificationOps: new Map(), accountLogoutPending: false
   };
   const courseAccess = window.MelungaCourseAccess;
   state.sourcePhraseMap = new Map();
@@ -95,6 +97,12 @@
     'Réécouter': '再听一次', 'Rejouer': '再练一次', 'Séquence terminée': '本组已完成',
     'Thème terminé': '本主题已完成', 'Facultatif': '可选',
     'Abonnement': '订阅解锁', 'gratuits': '免费', 'Mon compte': '我的账户',
+    'Accès complet actif sur cet appareil.': '此设备可使用全部内容。',
+    'Aperçu de l’espace compte.': '账户页面预览。',
+    'Connecte-toi pour retrouver ton accès.': '登录以恢复访问权限。',
+    'Revenir aux leçons': '返回课程', 'Se déconnecter': '退出登录',
+    'Déconnexion en cours…': '正在退出…', 'Déconnexion impossible. Réessaie.': '暂时无法退出，请重试。',
+    'Se déconnecter ? Cet appareil sera verrouillé jusqu’à ta prochaine connexion.': '确定退出登录？此设备将被锁定，直到你重新登录。',
     'Révision terminée': '复习已完成',
     'À revoir': '待复习', 'Revoir': '复习', 'Retirer': '移除', 'Pinyin': '拼音',
     'Enregistré dans À revoir.': '已加入待复习。', 'Je connais.': '我会了。',
@@ -285,9 +293,9 @@
   const menuPanels = {
     voice: byId('mgVoicePanel'), review: byId('mgReviewPanel'),
     saved: byId('mgSavedReviewPanel'),
-    feedback: byId('mgFeedbackPanel'), info: byId('mgInfoPanel')
+    feedback: byId('mgFeedbackPanel'), info: byId('mgInfoPanel'), account: byId('mgAccountPanel')
   };
-  const menuTitles = { nav: 'Menu', voice: 'Voix', review: 'Révisions et exercices', saved: 'À revoir', feedback: 'Avis', info: 'Comment ça marche' };
+  const menuTitles = { nav: 'Menu', voice: 'Voix', review: 'Révisions et exercices', saved: 'À revoir', feedback: 'Avis', info: 'Comment ça marche', account: 'Mon compte' };
 
   function loadSavedReview() {
     try {
@@ -413,6 +421,7 @@
   }
 
   function buildMenu() {
+    const account = courseAccess?.state();
     const rows = [
       { label: 'Accueil', icon: icons.home, href: 'index.html' },
       { label: 'Thèmes', icon: icons.folder, action: () => { closeMenu(); showThemes(); } },
@@ -426,8 +435,9 @@
       } },
       { label: 'Comment ça marche', icon: icons.info, panel: 'info' },
       { label: 'Avis', icon: icons.chat, panel: 'feedback' },
-      { label: courseAccess?.state().paid ? 'Mon compte' : 'Se connecter / Créer un compte', icon: icons.person,
-        href: courseAccess?.state().paid ? lessonUrl() : lessonUrl(true) }
+      account?.paid || account?.unrestricted
+        ? { label: 'Mon compte', icon: icons.person, panel: 'account' }
+        : { label: 'Se connecter / Créer un compte', icon: icons.person, href: lessonUrl(true) }
     ];
     ui.menuNav.replaceChildren(...rows.map(row => {
       const item = document.createElement(row.href ? 'a' : 'button');
@@ -529,6 +539,7 @@
     text(ui.menuTitle, tr(menuTitles[view]));
     if (view === 'voice') fillVoices();
     if (view === 'saved') renderSavedReview();
+    if (view === 'account') renderAccount();
     if (view === 'review') {
       const themes = state.pair.themes.filter(theme => !theme.isTemplateCollection);
       ui.reviewTheme.replaceChildren(...themes.map(theme => new Option(themeLabel(theme), theme.id)));
@@ -552,6 +563,37 @@
   function closeMenu() {
     if (ui.menu.open) ui.menu.close();
     ui.menuTrigger.setAttribute('aria-expanded', 'false');
+  }
+
+  function renderAccount() {
+    const account = courseAccess?.state();
+    text(ui.accountStatus, tr(account?.unrestricted ? 'Aperçu de l’espace compte.'
+      : account?.paid ? 'Accès complet actif sur cet appareil.' : 'Connecte-toi pour retrouver ton accès.'));
+    text(ui.accountError, '');
+    text(ui.accountLogout, tr(state.accountLogoutPending ? 'Déconnexion en cours…' : 'Se déconnecter'));
+    ui.accountLogout.hidden = !account?.paid && !account?.unrestricted;
+    ui.accountLogout.disabled = !account?.paid || state.accountLogoutPending;
+    ui.accountLogin.hidden = Boolean(account?.paid || account?.unrestricted);
+    ui.accountLogin.href = lessonUrl(true);
+  }
+
+  async function logoutAccount() {
+    if (state.accountLogoutPending || !courseAccess?.state().paid) return;
+    if (!window.confirm(tr('Se déconnecter ? Cet appareil sera verrouillé jusqu’à ta prochaine connexion.'))) return;
+    state.accountLogoutPending = true;
+    renderAccount();
+    ui.accountLogout.setAttribute('aria-busy', 'true');
+    try {
+      if (await courseAccess.logout() !== true) throw new Error('Logout unavailable');
+      closeMenu();
+    } catch (_) {
+      text(ui.accountError, tr('Déconnexion impossible. Réessaie.'));
+    } finally {
+      state.accountLogoutPending = false;
+      ui.accountLogout.removeAttribute('aria-busy');
+      ui.accountLogout.disabled = !courseAccess.state().paid;
+      text(ui.accountLogout, tr('Se déconnecter'));
+    }
   }
 
   function reviewTheme(recall) {
@@ -1647,6 +1689,8 @@
   ui.menuTrigger.addEventListener('click', openMenu);
   ui.menuClose.addEventListener('click', closeMenu);
   ui.menuBack.addEventListener('click', () => setMenuView('nav'));
+  ui.accountBack.addEventListener('click', closeMenu);
+  ui.accountLogout.addEventListener('click', logoutAccount);
   ui.menu.addEventListener('close', () => ui.menuTrigger.setAttribute('aria-expanded', 'false'));
   ui.menu.addEventListener('click', event => {
     if (event.target !== ui.menu) return;
