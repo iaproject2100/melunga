@@ -1,0 +1,110 @@
+{
+  "status": "passed",
+  "executedAt": "2026-10-26T18:49:08.274220+00:00",
+  "scope": "final mobile UI compatibility; full source audit reused only for byte-identical data, final whole assets checked separately, one targeted browser test",
+  "base": "1b1d60e6a8756018fa4e9d6abce8457986a04550",
+  "sourceAudit": {
+    "status": "passed-reused-for-unchanged-data",
+    "originalReport": "/tmp/melunga-mobile-menu-legacy-before-race.json",
+    "counts": {
+      "operations": 2906,
+      "moves": 2532,
+      "toReserve": 318,
+      "keep": 56,
+      "levelChanges": 622,
+      "canonical": 33654,
+      "active": 32448,
+      "reserve": 1206,
+      "hiddenAdditional": 33,
+      "alreadyReserved": 7,
+      "smallThemes": 72,
+      "mixedThemes": 58,
+      "largeThemes": 67,
+      "newThemes": 9,
+      "newThemeCards": 38,
+      "bankReservedAliases": 13,
+      "contextPrimaryAliases": 5,
+      "outboundCoreReuses": 1,
+      "typedExtensions": 1,
+      "stepsChecked": 119755
+    },
+    "originalWholeUiAssetChecksSuperseded": true,
+    "currentByteExactRuntimeJsonCount": 78,
+    "currentContentProof": "/tmp/melunga-mobile-menu-final-content.json"
+  },
+  "finalAssetGate": {
+    "status": "passed",
+    "wholeAssetPins": 8,
+    "classicWholeDeckAndFamilyLiteralsVerified": true,
+    "assetSha256": {
+      "melunga_deploy/app.html": "7faee15f692c0c79c0f3937bc87f246225efc4f410bd10c4bf5401b5c38b8d90",
+      "melunga_deploy/index.html": "00dc701d8b9b5a84b025e9cc369d336317610fd92f2af4d34802cd830969fdbb",
+      "melunga_deploy/course-access.js": "78757809d2d80ec44a190a65acebd93650c4503e431df9322b87568d2b4a8324",
+      "melunga_deploy/content/course-access.json": "35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05",
+      "melunga_deploy/maquette-guidee.css": "c6a960212c66ba289f8651c3b882f4b50537c6f8d1633ee7cc6cfb8909a2549c",
+      "melunga_deploy/maquette-guidee.js": "8213af1bad99f620b379297299161910ec2c683e89d5b4bf8b443c55a70760f8",
+      "melunga_deploy/maquette-guidee.html": "9a7a75c118f75a5d2d0183b7ae948827fd5a5009d6ca6b0404f0215740a4337f",
+      "melunga_deploy/parcours-niveaux.html": "c4e66043ae4171000c39d5a5ddab8ed5ccac4bc8e684c1687118b8e4a91f4f57"
+    }
+  },
+  "wholeAssetNegativeChecks": {
+    "status": "passed",
+    "scope": "in-memory fs overlays; no physical product changes",
+    "cases": [
+      {
+        "file": "melunga_deploy/maquette-guidee.js",
+        "mutation": "unapproved appended bytes in memory only",
+        "rejected": true
+      },
+      {
+        "file": "melunga_deploy/maquette-guidee.css",
+        "mutation": "unapproved appended bytes in memory only",
+        "rejected": true
+      },
+      {
+        "file": "melunga_deploy/maquette-guidee.html",
+        "mutation": "unapproved appended bytes in memory only",
+        "rejected": true
+      },
+      {
+        "file": "melunga_deploy/parcours-niveaux.html",
+        "mutation": "unapproved appended bytes in memory only",
+        "rejected": true
+      }
+    ]
+  },
+  "targetedRace": {
+    "status": "passed",
+    "test": "latest pair/level wins delayed responses; failed cells can be retried",
+    "browserReport": "/tmp/melunga-mobile-menu-race.json",
+    "suiteCoverage": "partial, one targeted test, not the complete matrix",
+    "cases": [
+      "L2 delayed then return to current L1",
+      "L2 delayed then L3",
+      "L4 delayed then language change and L3",
+      "L7 HTTP503 then retry"
+    ],
+    "apiCalls": "only simulated read-only GET check-status; other APIs blocked",
+    "siteChecked": false,
+    "physicalPhoneChecked": false
+  },
+  "sameLevelGuardNegativeFixture": {
+    "status": "expected-rejection-confirmed",
+    "browserReport": "/tmp/melunga-mobile-menu-race-negative.json",
+    "expectedExitCode": 1,
+    "reason": "the historical same-level early return leaves the screen loading when L2 is delayed and L1 is selected; the new first assertion times out exactly there",
+    "transport": "in-memory historical guard in local HTTP response; no physical product modification"
+  },
+  "nodeParse": "passed",
+  "gitDiffCheck": "passed",
+  "changedOwnedFiles": [
+    "melunga_deploy/tests/all-classification.cjs",
+    "melunga_deploy/tests/levels-themes.browser.cjs"
+  ],
+  "ownedSha256": {
+    "melunga_deploy/tests/all-classification.cjs": "44b549571d2524a12fcb10a09305701889829d1f0a7cce5d6a1e3da9b7f04dc2",
+    "melunga_deploy/tests/levels-themes.browser.cjs": "872e0487c565854c6ffa0ceb8fc31fb48ac3746da7646f7e1db5a4d16164f414"
+  },
+  "committedByThisAgent": false,
+  "pushedByThisAgent": false
+}
