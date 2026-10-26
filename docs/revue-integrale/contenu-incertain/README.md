@@ -49,3 +49,14 @@ Le registre est [`registre-contenu.json`](registre-contenu.json). Il contient 63
 Un bloc est atomique : son étude, son aide, sa lecture et sa glose s'appliquent ensemble.
 
 Rien n'est fusionné dans `main` ni publié sur melunga.com.
+
+## Errata 1 (réponse à Codex)
+
+L'erratum est dans [`errata-1.json`](errata-1.json). Il traite quatre cas.
+
+- **`it:1239`** : l'événement de contenu est **retiré**. « Si guadagna bene la vita » n'est pas meilleur que l'étude actuelle, « Si guadagna bene da vivere. », qui reste correcte.
+- **`es:3353`** : on applique le **bloc seul**, car son aide écrit déjà la jota en `r`. L'événement jota correspondant devient sans objet.
+- **`ko:3767`** : on applique le **bloc seul**, car « 잘라요 » → `djal-la-yo` est déjà la prononciation. L'événement batchim devient sans objet.
+- **`ko:3637`** : on applique le **bloc avec l'aide `gueu-nyo-neun sam-guè gou-go-reul hè-sso-yo`**. 국어를 se prononce [구거를]. Le convertisseur avait écarté cette étude parce qu'elle contient un chiffre.
+
+Une vérification complète des recouvrements entre les blocs de contenu et les deux conventions ne trouve aucun autre cas sans aide chaînée. Pour la jota, `es:3353` est le seul recouvrement. Pour le batchim, il y a 19 recouvrements : 17 sont couverts par `afterContentRegister`, et les deux autres sont `ko:3767` et `ko:3637`.

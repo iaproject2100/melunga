@@ -1,0 +1,36 @@
+{
+ "id": "contenu-incertain-errata-1",
+ "reference": "17b0038 et 68031b7",
+ "reason": "Réponse à Codex : quatre cas signalés. Ce sont les trois seuls recouvrements entre un bloc de contenu et un événement de convention sans aide chaînée, plus un retrait.",
+ "events": [
+  {
+   "id": "catalogue:it:1239",
+   "action": "retirer-l-evenement-de-contenu",
+   "reason": "« Si guadagna bene la vita » n'est pas meilleur : « bene » s'insère mal dans « guadagnarsi la vita ». L'étude actuelle « Si guadagna bene da vivere. » reste correcte (guadagnarsi da vivere). La carte garde son étude, son aide et sa glose."
+  },
+  {
+   "id": "catalogue:es:3353",
+   "action": "appliquer-le-bloc-seul",
+   "supersedes": "convention-jota-es/registre-jota.json, événement catalogue:es:3353",
+   "reason": "L'aide du bloc (« soy a-LÉR-ri-ko al ma-RIS-ko lo YÉ-ba ÉS-té PLA-to ») écrit déjà la jota en r. L'événement jota, dont l'avant est l'ancienne aide, devient sans objet.",
+   "finalPhon": "soy a-LÉR-ri-ko al ma-RIS-ko lo YÉ-ba ÉS-té PLA-to"
+  },
+  {
+   "id": "catalogue:ko:3767",
+   "action": "appliquer-le-bloc-seul",
+   "supersedes": "convention-batchim-ko/registre-batchim.json, événement catalogue:ko:3767",
+   "reason": "Le bloc réduit l'étude à « 잘라요. » ; son aide « djal-la-yo » est déjà la prononciation. L'événement batchim, qui portait sur 당신이, devient sans objet.",
+   "finalPhon": "djal-la-yo"
+  },
+  {
+   "id": "catalogue:ko:3637",
+   "action": "appliquer-le-bloc-avec-cette-aide",
+   "supersedes": "convention-batchim-ko/registre-batchim.json, événement catalogue:ko:3637",
+   "reason": "L'étude « 그녀는 3개 국어를 했어요. » contient un chiffre : le convertisseur l'avait écartée. Prononciation de 국어를 : [구거를], d'où gou-go-reul. 3개 se lit 삼개 : sam-guè.",
+   "blocAfterPhon": "gueu-nyo-neun sam-guè gouk-o-reul hè-sso-yo",
+   "finalPhon": "gueu-nyo-neun sam-guè gou-go-reul hè-sso-yo",
+   "reading": "geu-nyeo-neun sam-gae guk-eo-reul hae-sseo-yo",
+   "study": "그녀는 3개 국어를 했어요."
+  }
+ ]
+}
