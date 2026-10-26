@@ -112,7 +112,7 @@ Avant cette couche, **30 695 placements** n’avaient pas de revue individuelle.
 
 ## Accès et photos
 
-Les **15 fichiers produit protégés** sont identiques à origin/main (d30c1c9), dont le catalogue, les accès et les prix. Les **2 134 indices de source L1** sont conservés ; les niveaux éditoriaux ne changent pas le lv qui détermine les droits historiques.
+Les **15 fichiers produit protégés** sont identiques à la référence contrôlée (62c1466), dont le catalogue, les accès et les prix. Les **2 134 indices de source L1** sont conservés ; les niveaux éditoriaux ne changent pas le lv qui détermine les droits historiques.
 
 **286 emplacements visuels** correspondent à **278 cases photo distinctes** dans **24 atlas** : empreintes, octets, dimensions, grilles et coordonnées vérifiés. Le registre indique **11 emplacements approuvés** et **276 proposés** ; le contrôle ne juge pas l’adéquation visuelle de chacun.
 

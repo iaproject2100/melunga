@@ -344,6 +344,7 @@
         <div class="app-header"><button class="back" data-go="welcome">‹</button><span class="step-label">UN SEUL CHOIX POUR COMMENCER</span><span style="width:46px"></span></div>
         <div class="question" style="margin-top:20px"><h2>Quelle langue veux-tu parler ?</h2><p>Choisis une langue et commence immédiatement. Tu pourras changer plus tard.</p></div>
         <div class="options">
+          <button class="option" data-study-language="fr" hidden style="display:none"><span class="flag">🇫🇷</span><span><strong>法语</strong><small>适合中文使用者</small></span></button>
           <button class="option selected" data-study-language="en"><span class="flag">🇬🇧</span><span><strong>Anglais</strong><small>Pour francophones</small></span></button>
           <button class="option" data-study-language="es"><span class="flag">🇪🇸</span><span><strong>Espagnol</strong><small>Pour francophones</small></span></button>
           <button class="option" data-study-language="zh"><span class="flag">🇨🇳</span><span><strong>Chinois</strong><small>Pour francophones</small></span></button>
@@ -567,6 +568,7 @@
       CH:'CHF',LI:'CHF',GB:'GBP',CN:'CNY',HK:'HKD',JP:'JPY',KR:'KRW',SG:'SGD',CA:'CAD',AU:'AUD'
     };
     let currentAppLocale='fr';
+    let explicitStudyChoice=false;
     let currentPriceMarket=priceMarkets.EUR;
     let selectedPlan='yearly';
     let selectedAccess='free';
@@ -593,11 +595,58 @@
       const selected=document.querySelector('[data-study-language].selected');
       return selected ? selected.dataset.studyLanguage : 'en';
     }
+    function nativeCourseEntry(){
+      try{
+        if(window.location.protocol==='capacitor:' || window.location.protocol==='file:') return true;
+        const bridge=window.Capacitor;
+        if(bridge && typeof bridge.isNativePlatform==='function') return bridge.isNativePlatform();
+        return !!(bridge && typeof bridge.getPlatform==='function' && bridge.getPlatform()!=='web');
+      }catch(_error){return true;}
+    }
+    function selectedLoginStudyLanguage(){
+      if(!explicitStudyChoice){
+        try{
+          const previousPair=localStorage.getItem('melunga-course-pair');
+          if(previousPair && previousPair.split('-')[0]===currentAppLocale && coursePair(currentAppLocale,previousPair.split('-')[1])===previousPair) return previousPair.split('-')[1];
+          const previousNative=localStorage.getItem('ox_nat');
+          const previousStudy=localStorage.getItem('ox_lang');
+          if(previousNative===currentAppLocale && /^(fr|en|es|zh|it|ja|ko)$/.test(previousStudy||'')) return previousStudy;
+        }catch(_error){}
+      }
+      return selectedStudyLanguage();
+    }
+    function selectedLoginCourseLevel(studyLanguage){
+      if(!explicitStudyChoice){
+        try{
+          const previousPair=localStorage.getItem('melunga-course-pair');
+          const previousLevel=localStorage.getItem('melunga-course-level');
+          if(previousPair===coursePair(currentAppLocale,studyLanguage) && /^(?:[1-9]|10)$/.test(previousLevel||'')) return previousLevel;
+        }catch(_error){}
+      }
+      return '1';
+    }
+    function coursePair(nativeLanguage,studyLanguage){
+      const pair=nativeLanguage+'-'+studyLanguage;
+      return ['fr-en','fr-es','fr-it','fr-zh','fr-ja','fr-ko','zh-fr'].includes(pair) ? pair : '';
+    }
     function openFullApp(mode){
+      const study=mode==='login' ? selectedLoginStudyLanguage() : selectedStudyLanguage();
+      const pair=nativeCourseEntry() ? '' : coursePair(currentAppLocale,study);
+      if(pair && mode!=='login' && mode!=='premium'){
+        const courseQuery=new URLSearchParams({pair,level:'1'});
+        window.location.href=`parcours-niveaux.html?${courseQuery.toString()}`;
+        return;
+      }
       const query=new URLSearchParams({lang:currentAppLocale});
-      if(mode==='login') query.set('login','1');
-      else{
-        query.set('study',selectedStudyLanguage());
+      if(mode==='login'){
+        query.set('login','1');
+        if(pair){
+          query.set('study',study);
+          query.set('courseReturn',pair);
+          query.set('courseLevel',selectedLoginCourseLevel(study));
+        }
+      }else{
+        query.set('study',study);
         if(mode==='premium') query.set('checkout',selectedPlan==='yearly'?'annual':'monthly');
         else query.set('start','1');
       }
@@ -724,6 +773,16 @@
     function applyAppLanguage(locale,label){
       const texts=welcomeTranslations[locale]||welcomeTranslations.fr;
       currentAppLocale=locale;
+      const frenchChoice=document.querySelector('[data-study-language="fr"]');
+      if(frenchChoice){
+        frenchChoice.hidden=locale!=='zh';
+        frenchChoice.style.display=locale==='zh'?'':'none';
+        const selected=document.querySelector('[data-study-language].selected');
+        if(!explicitStudyChoice || selected===frenchChoice && frenchChoice.hidden){
+          const defaultStudy=locale==='zh'?'fr':'en';
+          document.querySelectorAll('[data-study-language]').forEach(choice=>choice.classList.toggle('selected',choice.dataset.studyLanguage===defaultStudy));
+        }
+      }
       document.querySelectorAll('[data-welcome-i18n]').forEach(element=>{const value=texts[element.dataset.welcomeI18n];if(value!==undefined)element.innerHTML=value;});
       document.documentElement.lang=locale;
       const languageNames={fr:'Français',en:'English',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어'};
@@ -853,7 +912,7 @@
         return;
       }
       const goBtn=e.target.closest('[data-go]');if(goBtn){go(goBtn.dataset.go);return;}
-      const option=e.target.closest('.option');if(option){const box=option.closest('.options');if(box) box.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));option.classList.add('selected');}
+      const option=e.target.closest('.option');if(option){if(option.matches('[data-study-language]'))explicitStudyChoice=true;const box=option.closest('.options');if(box) box.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));option.classList.add('selected');}
       const time=e.target.closest('.time');if(time){document.querySelectorAll('.time').forEach(t=>t.classList.remove('selected'));time.classList.add('selected');}
     });
     try{

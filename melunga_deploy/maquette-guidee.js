@@ -1,4 +1,4 @@
-/* A standalone preview. No account, payment or lesson-state APIs are used here. */
+/* Published progressive course; immutable content is validated before account access views. */
 (() => {
   'use strict';
 
@@ -38,6 +38,16 @@
     referenceMap: new Map(), repertoireCache: new Map(), savedReview: [], readingPreferences: {},
     deferredPhraseIds: new Set(), resumeGeneration: 0, allClassification: null, classificationOps: new Map()
   };
+  const courseAccess = window.MelungaCourseAccess;
+  state.sourcePhraseMap = new Map();
+  state.accessContextStepIds = new Set();
+  const canProduce = phrase => !ui.level || courseAccess?.canLearn(state.pair?.id, phrase, state.pair?.level) === true;
+  const canShowCurrent = (step, phrase) => canProduce(phrase) || state.accessContextStepIds.has(step?.id)
+    && (step?.kind === 'receive' || step?.isPreparation && step.kind === 'understand' && step.requiresProduction === false);
+  function openAccount() {
+    stopAudio();
+    window.location.href = courseAccess?.loginUrl(state.pair?.id, state.pair?.level) || lessonUrl(true);
+  }
   const reviewStorageKey = 'melunga-guided-review-v1';
   const readingStorageKey = 'melunga-guided-reading-v1';
   const cardMotion = { gesture: null, suppressClickUntil: 0, animationTimer: 0, toastTimer: 0, fitFrame: 0 };
@@ -79,6 +89,7 @@
     'Tes thèmes': '主题', 'Thèmes': '主题', 'Séquences': '学习小组', 'Continuer': '继续',
     'Réécouter': '再听一次', 'Rejouer': '再练一次', 'Séquence terminée': '本组已完成',
     'Thème terminé': '本主题已完成', 'Facultatif': '可选',
+    'Abonnement': '订阅解锁', 'gratuits': '免费', 'Mon compte': '我的账户',
     'Révision terminée': '复习已完成',
     'À revoir': '待复习', 'Revoir': '复习', 'Retirer': '移除', 'Pinyin': '拼音',
     'Enregistré dans À revoir.': '已加入待复习。', 'Je connais.': '我会了。',
@@ -133,6 +144,7 @@
     return count + (isChinese ? ' 句表达' : count === 1 ? ' expression' : ' expressions');
   };
   const levelQuantityLabel = () => {
+    if (state.pair._accessView && !state.pair.themes.some(theme => theme.presentedCount > 0)) return tr('Abonnement');
     if (!state.pair.counts) return quantityLabel(pairCount(state.pair));
     const presented = new Map();
     for (const theme of state.pair.themes) for (const phrase of presentedPhrases(theme)) presented.set(phrase.id, phrase);
@@ -156,7 +168,7 @@
       const phrase = theme.phrases.find(candidate => candidate.id === id);
       if (phrase) return phrase;
     }
-    return state.referenceMap.get(id) || null;
+    return state.referenceMap.get(id) || state.sourcePhraseMap.get(id) || null;
   };
   const presentedPhrases = theme => {
     const primary = new Map((theme.phrases || []).map(phrase => [phrase.id, phrase]));
@@ -259,6 +271,8 @@
     const theme = state.pair.themes.find(candidate => candidate.id === targetTheme && presentedPhrases(candidate).some(phrase => phrase.id === entry.id))
       || state.pair.themes.find(candidate => presentedPhrases(candidate).some(phrase => phrase.id === entry.id));
     const phrase = theme && presentedPhrases(theme).find(candidate => candidate.id === entry.id);
+    const sourcePhrase = phrase || state.sourcePhraseMap.get(entry.id);
+    if (sourcePhrase && !canProduce(sourcePhrase)) { openAccount(); return; }
     if (!phrase || phrase.isTemplate || phrase.kind === 'received' || phrase.speaker === 'B') {
       showThemes(); setStatus('Ce contenu a été actualisé. Tu peux le retrouver dans les thèmes.'); return;
     }
@@ -278,7 +292,7 @@
 
   function markForReview() {
     const phrase = currentPhrase();
-    if (state.screen !== 'lesson' || ui.next.disabled || !phrase || isTemplate(phrase) || isReceived(currentStep(), phrase)) return;
+    if (state.screen !== 'lesson' || ui.next.disabled || !phrase || !canProduce(phrase) || isTemplate(phrase) || isReceived(currentStep(), phrase)) return;
     const inTheme = presentedPhrases(state.theme).some(candidate => candidate.id === phrase.id);
     const location = state.referenceMap.get(phrase.id)?.canonicalLocation;
     const originalTheme = state.pair.themes.find(theme => theme.phrases.some(candidate => candidate.id === phrase.id));
@@ -296,6 +310,9 @@
   }
 
   function lessonUrl(login = false) {
+    if (courseAccess) return login
+      ? courseAccess.loginUrl(state.pair.id, state.pair.level)
+      : courseAccess.classicUrl(state.pair.id);
     const query = new URLSearchParams({ lang: state.pair.nativeLanguage });
     if (login) query.set('login', '1');
     else { query.set('start', '1'); query.set('study', state.pair.studyLanguage); }
@@ -316,7 +333,8 @@
       } },
       { label: 'Comment ça marche', icon: icons.info, panel: 'info' },
       { label: 'Avis', icon: icons.chat, panel: 'feedback' },
-      { label: 'Se connecter / Créer un compte', icon: icons.person, href: lessonUrl(true) }
+      { label: courseAccess?.state().paid ? 'Mon compte' : 'Se connecter / Créer un compte', icon: icons.person,
+        href: courseAccess?.state().paid ? lessonUrl() : lessonUrl(true) }
     ];
     ui.menuNav.replaceChildren(...rows.map(row => {
       const item = document.createElement(row.href ? 'a' : 'button');
@@ -395,6 +413,7 @@
   function reviewTheme(recall) {
     const theme = state.pair.themes.find(item => item.id === ui.reviewTheme.value);
     if (!theme) return;
+    if (theme._accessLocked) { closeMenu(); openAccount(); return; }
     closeMenu();
     const phrases = presentedPhrases(theme).filter(phrase => !phrase.isTemplate);
     state.theme = theme;
@@ -591,6 +610,13 @@
         : ' · ' + theme.reuseCount + (theme.reuseCount === 1 ? ' réemploi' : ' réemplois');
     }
     if (theme && theme.optional) quantity.textContent += ' · ' + tr('Facultatif');
+    if (theme?._accessLocked) {
+      quantity.textContent = quantityLabel(theme._accessTotalPresentedCount, theme.contentType) + ' · 🔒 ' + tr('Abonnement');
+      button.dataset.access = 'paid';
+    } else if (theme?._accessView && theme.presentedCount < theme._accessTotalPresentedCount) {
+      quantity.textContent += ' · ' + tr('gratuits');
+      button.dataset.access = 'free';
+    }
     content.append(label, quantity);
     const arrow = document.createElement('span');
     arrow.className = 'mg-tile-arrow';
@@ -638,6 +664,7 @@
   }
 
   function openTheme(theme) {
+    if (theme._accessLocked) { openAccount(); return; }
     state.theme = theme;
     // Keep the prepared groups in order, but make the whole theme one lesson.
     startSequence({
@@ -697,7 +724,7 @@
     if (ui.choices.hidden) return;
     choiceIds.forEach(id => {
       const phrase = phraseById(id);
-      if (!phrase) return;
+      if (!phrase || !canProduce(phrase)) return;
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'mg-choice';
@@ -716,6 +743,7 @@
     const step = currentStep();
     const phrase = currentPhrase();
     if (!step || !phrase) return showDone();
+    if (!canShowCurrent(step, phrase)) { openAccount(); return; }
     const masked = isMasked();
     const template = isTemplate(phrase);
     const hasChoices = !step.utterance && Array.isArray(step.choices) && step.choices.length > 1;
@@ -769,7 +797,7 @@
     ui.speaker.hidden = !isReceived(step, phrase);
     const role = step.role;
     text(ui.speaker, (typeof role === 'string' ? role : role?.[state.pair.nativeLanguage]) || step.speakerName || phrase.speakerName || tr('Interlocuteur'));
-    ui.replay.disabled = template || isReceived(step, phrase) || waitingForChoice;
+    ui.replay.disabled = template || isReceived(step, phrase) || waitingForChoice || !canProduce(phrase);
     text(ui.replayText, tr('À revoir'));
     text(ui.nextText, tr('Continuer'));
     ui.next.disabled = waitingForChoice;
@@ -832,7 +860,7 @@
 
   function markKnown() {
     const phrase = currentPhrase();
-    if (state.screen !== 'lesson' || ui.next.disabled || !phrase || isTemplate(phrase) || isReceived(currentStep(), phrase)) return;
+    if (state.screen !== 'lesson' || ui.next.disabled || !phrase || !canProduce(phrase) || isTemplate(phrase) || isReceived(currentStep(), phrase)) return;
     if (!saveReviewEntries(state.savedReview.filter(entry => entry.pairId !== state.pair.id || entry.id !== phrase.id))) return;
     state.deferredPhraseIds.add(phrase.id);
     browsePhrase(1);
@@ -842,7 +870,7 @@
 
   function speak(shouldReveal) {
     const phrase = currentPhrase();
-    if (state.screen !== 'lesson' || !phrase || isTemplate(phrase)) return;
+    if (state.screen !== 'lesson' || !phrase || !canShowCurrent(currentStep(), phrase) || isTemplate(phrase)) return;
     if (isMasked()) {
       if (!shouldReveal) return;
       state.revealed = true;
@@ -967,7 +995,14 @@
       state.levelCache.set(key, pair);
       while (state.levelCache.size > 4) state.levelCache.delete(state.levelCache.keys().next().value);
       state.referenceMap = references;
-      displayPair(pair);
+      state.sourcePhraseMap = new Map([...references, ...[...pair.themes, ...(pair.heldThemes || [])]
+        .flatMap(theme => theme.phrases.map(phrase => [phrase.id, phrase]))]);
+      const accessView = courseAccess.learningView(pair, references);
+      state.accessContextStepIds = accessView.contextStepIds;
+      displayPair(accessView.pair);
+      try { localStorage.setItem('melunga-course-pair', pair.id); localStorage.setItem('melunga-course-level', String(pair.level)); } catch (_) {}
+      if (courseAccess.state().status === 'unavailable') setStatus(pair.nativeLanguage === 'zh'
+        ? '网络暂时不可用，免费内容仍可使用。' : 'Connexion indisponible : le contenu gratuit reste accessible.');
     } catch (error) {
       if (generation !== state.loadGeneration || error.name === 'AbortError') return;
       text(ui.loadingText, metadata.nativeLanguage === 'zh' ? '主题暂时无法加载。' : 'Les thèmes n’ont pas pu se charger.');
@@ -1402,6 +1437,11 @@
     ui.retry.hidden = true;
     ui.language.disabled = true;
     try {
+      if (ui.level) {
+        if (!courseAccess) throw new Error('Course access unavailable');
+        await courseAccess.initialize();
+        if (courseAccess.state().mode === 'production') document.querySelector('.mg-previewnotice')?.remove();
+      }
       const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
       if (!response.ok) throw new Error('HTTP ' + response.status);
       const data = await response.json();
@@ -1567,6 +1607,12 @@
   ui.retry.addEventListener('click', () => ui.level && state.data
     ? choosePair(state.requestedPair || ui.language.value, state.level) : loadData());
   document.addEventListener('keydown', event => { if (event.key === 'Escape') closeHelp(); });
+  window.addEventListener('melunga:course-access', () => {
+    if (ui.level && state.data && state.pair) {
+      stopAudio();
+      choosePair(state.pair.id, state.pair.level);
+    }
+  });
   window.addEventListener('pagehide', stopAudio);
   window.addEventListener('resize', queueLessonFit);
   window.visualViewport?.addEventListener('resize', () => { if (window.visualViewport.scale === 1) queueLessonFit(); });
@@ -1583,7 +1629,7 @@
     themeId: state.theme && state.theme.id,
     sequenceId: state.sequence && state.sequence.id, stepIndex: state.stepIndex, lessonScope: state.lessonScope,
     phraseId: currentPhrase() && currentPhrase().id, masked: isMasked(), helpOpen: state.helpOpen,
-    readingVisible: state.readingVisible,
+    readingVisible: state.readingVisible, access: courseAccess?.state() || null,
     template: isTemplate(currentPhrase()), totalPhrases: state.pair ? pairCount(state.pair) : 0
   }) });
   loadData();

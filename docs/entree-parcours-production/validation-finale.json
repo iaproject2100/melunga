@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "generatorCheck": {
+    "command": "python3 -B tools/maquette-guidee/build_levels.py --check",
+    "exitCode": 0
+  },
+  "independentContentCheck": {
+    "command": "python3 -B tools/maquette-guidee/check_levels_independent.py --base-ref 62c14669cbb33c5c1a8b67722fc0c0f6c4189b6b --write-report --require-visuals --strict-editorial --require-no-held",
+    "exitCode": 0,
+    "metricCount": 274,
+    "checkerSha256": "c3b85bfd21831a3c6a9a6f7e555a4e53e32538b527b573af9a7f7c5012f3fdc2",
+    "reportSha256": "d2ae5df04767f22c266e23ccddaf57094f545fb525da944a976309cff4803a45"
+  },
+  "runtimeJsonByteExactCount": 78,
+  "sourceBase": "ebd6519a6088e52c157231b44ae4cf41507f0667",
+  "productBase": "62c14669cbb33c5c1a8b67722fc0c0f6c4189b6b",
+  "browserApiCalls": "mocked",
+  "deployedBrowserJourneyChecked": false,
+  "physicalPhoneChecked": false
+}

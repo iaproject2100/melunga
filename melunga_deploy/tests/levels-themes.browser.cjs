@@ -1,6 +1,8 @@
 /* Local browser acceptance checks for the editorial L1–L10 preview.
  * NODE_PATH=/tmp/melunga-review-tools/node_modules node --test tests/levels-themes.browser.cjs
- * No account, payment, e-mail or external network request is permitted.
+ * No real account, payment, e-mail or external network request is permitted.
+ * Only the read-only access check is simulated as paid for full-view DOM tests;
+ * guest rights and access denial have a separate course-entry-access suite.
  * Viewports emulate screen sizes; this is not a physical-phone attestation.
  * The DOM matrix uses the actual composed content. Historical source-only
  * comparisons use the independently verified classification → conventions →
@@ -131,7 +133,7 @@ const report = {
   authoredSourceSha256: crypto.createHash('sha256').update(fs.readFileSync(authoredPath)).digest('hex'),
   situationInputsSha256: situationInputs(),
   situationPlanSha256: sha256(fs.readFileSync(situationPlanPath)),
-  externalRequests: [], apiRequests: []
+  externalRequests: [], apiRequests: [], simulatedAccessChecks: []
 };
 let browser, server, base;
 
@@ -285,6 +287,12 @@ async function open(width = 390, intercept = async () => false) {
     const url = new URL(route.request().url());
     if (url.origin !== base) { report.externalRequests.push(url.origin + url.pathname); await route.abort(); return; }
     localRequests.push(url.pathname);
+    // These current-DOM field tests exercise the full subscriber view. Only
+    // the read-only access check is simulated; all other APIs remain forbidden.
+    if (url.pathname === '/.netlify/functions/check-status' && route.request().method() === 'GET') {
+      report.simulatedAccessChecks.push({path:url.pathname,method:'GET',paid:true});
+      await route.fulfill({json:{paid:true}}); return;
+    }
     if (/\/(?:\.netlify|api)\//.test(url.pathname)) {
       report.apiRequests.push({path: url.pathname, method: route.request().method()});
       await route.fulfill({json: {success: false, error: 'blocked-test-fixture'}}); return;
@@ -798,7 +806,7 @@ test('196 additional situations preserve 1568 whole source positions without inf
     assert.equal(ledger.items.length, 224, '224 combined pair intent candidates');
     assert.equal(new Set(ledger.items.map(item => item.intentId)).size, 224, 'no repeated pair intent');
     for (const [relative, expectedHash] of Object.entries(situationPlan.extension.preservedInputFingerprints)) {
-      assert.equal(sha256(fs.readFileSync(path.resolve(ROOT, '..', relative))), expectedHash, 'protected previous file ' + relative);
+      assert.equal(sha256(allClassification.beforeAssetBytes(path.resolve(ROOT, '..', relative))), expectedHash, 'protected previous source view after authorized entry-asset validation ' + relative);
     }
     const bank = new Map(historicalRepertoire(pair.id).phrases.map(phrase => [phrase.id, phrase]));
     for (const topic of situationPlan.themes) {
@@ -1677,7 +1685,7 @@ test('approved L1-only page stays compatible with v1 data and no level selector'
   } finally { await fixture.context.close(); }
 }));
 
-test('278 registered photo slots in 24 distinct atlases; no external or API operations', {timeout: 30000}, async () => checked('photo-atlases-and-network-isolation', async () => {
+test('278 registered photo slots in 24 distinct atlases; no external or unexpected API operations', {timeout: 30000}, async () => checked('photo-atlases-and-network-isolation', async () => {
   const fixture = await open();
   try {
     await fixture.page.goto(base + '/parcours-niveaux.html'); await ready(fixture.page, 'fr-zh', 1);
