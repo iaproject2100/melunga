@@ -1,4 +1,4 @@
-"""Apply the seven frozen, authorized placement registers after correction lot 9.
+"""Apply the seven frozen placement registers after approved content/conventions.
 
 All expectedBefore positions are checked against the same immutable input edition.
 Cards keep their exact text, source, types and prior annotations. Only current
@@ -10,6 +10,7 @@ from collections import Counter
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 
 PAIR_IDS = ('fr-en', 'fr-es', 'fr-it', 'fr-ja', 'fr-ko', 'fr-zh', 'zh-fr')
 EVIDENCE_COMMIT = '342600641c8a621019d0c05d75a481843640e9ed'
@@ -160,8 +161,12 @@ BASE_HASHES = {'melunga_deploy/content/niveaux-progressifs/fr-en/L1.json': '4d57
  'melunga_deploy/content/niveaux-progressifs/repertoires/zh-fr.json': '04690a0e54358094e585ff396fb16af2902fa5cb13cf2fa4505a7b7d0cc7a64a',
  'melunga_deploy/content/niveaux-progressifs/manifest.json': 'a8184cf3d8f4242b81b8c3b511e3e37c6d3364d6e6c153dc3f786a405e11d326'}
 VISUALS_SHA256 = "e2703326a63f8cf7a2b8d49454b3f6e55722a382809672abcaa0063826655f6a"
-FROZEN_DESCRIPTOR_SHA256 = "a095a8475ef6244453d0e76b6c1c4dd7eef0988afb7dbb129dc9a2d15f7641f4"
-FROZEN_MANIFEST_SHA256 = "120cd6d8396a0c439b93bf9c352866f342a3d1b6a73a4aaa05400be5aa895a56"
+FROZEN_DESCRIPTOR_SHA256 = "57d7731c5001d065ce53ced537f782953dcd40dd61846627739adeb1bfd06f20"
+FROZEN_MANIFEST_SHA256 = "d0c785ebd39b1cc5fa14f6445b08c7982dda03255741f61bcf21c991c34c423c"
+COMPOSITION_INPUT_COMMIT = "d30c1c97769fa180e2370e6b182535e3886bc70f"
+COMPOSITION_INPUT = REGISTRY_DIRECTORY + "/composition-entree.json"
+COMPOSITION_INPUT_SHA256 = "e3a227bfb6a9a927ed64330c3d1c4ccef6df548005dc7f0d1b7d8578d65e5091"
+_REFERENCE_CACHE = {}
 
 def ensure(ok, reason):
     if not ok:
@@ -349,6 +354,40 @@ def load_evidence(root):
     return registers, visuals
 
 
+def load_composition(root):
+    raw = (root / COMPOSITION_INPUT).read_bytes()
+    ensure(file_hash(raw) == COMPOSITION_INPUT_SHA256, "composition input proof changed")
+    proof = json.loads(raw)
+    composition = proof["composition"]
+    ensure(proof["version"] == 1
+           and proof["id"] == "seven-pair-classification-approved-composition-input"
+           and composition["version"] == 1
+           and composition["classificationReferenceCommit"] == BASE_SNAPSHOT
+           and composition["inputCommit"] == COMPOSITION_INPUT_COMMIT
+           and composition["expectedBeforeChecksUse"] == "classification-reference"
+           and composition["routesCurrentWholeObjects"] is True
+           and proof["referenceRuntimeSha256ByPath"] == BASE_HASHES
+           and set(proof["inputRuntimeSha256ByPath"]) == set(BASE_HASHES)
+           and composition["inputManifestSha256"] == proof["inputRuntimeSha256ByPath"][MANIFEST]
+           and proof["doesNotChangeRawClassificationRegisters"] is True,
+           "composition input contract differs")
+    return proof
+
+
+def reference_inventory(root, pair_id):
+    """Resolve original expectedBefore anchors; never use them as current cards."""
+    key = str(root.resolve()), pair_id
+    if key not in _REFERENCE_CACHE:
+        cells = []
+        for level in range(1, 11):
+            path = PREFIX + f"{pair_id}/L{level}.json"
+            raw = subprocess.check_output(["git", "show", BASE_SNAPSHOT + ":" + path], cwd=root)
+            ensure(file_hash(raw) == BASE_HASHES[path], "classification reference bytes changed: " + path)
+            cells.append(json.loads(raw))
+        _REFERENCE_CACHE[key] = inventory(cells)
+    return _REFERENCE_CACHE[key]
+
+
 def apply_pair(root, result, manifest, report, pair_id, register, visuals, sequence_builder):
     native = pair_id.split("-")[0]
     bank_path = PREFIX + "repertoires/" + pair_id + ".json"
@@ -361,17 +400,21 @@ def apply_pair(root, result, manifest, report, pair_id, register, visuals, seque
     old_themes = copy.deepcopy(themes)
     new_ids = {t["id"] for t in register["newThemes"]}
     registry_hash = REGISTRY_SHA256[pair_id]
+    reference_original = reference_inventory(root, pair_id)
     # Resolve every expectedBefore from the immutable input, never an already
     # moved neighbour. This is deliberately separate from the mutation loops.
     for operation in register["ops"]:
         before = operation["expectedBefore"]
         ensure(operation["id"] in original, "missing canonical operation target")
         loc = original[operation["id"]]
+        anchor = reference_original[operation["id"]]
         ensure(before["path"] == PREFIX + f"{pair_id}/L{operation['fromLevel']}.json"
                and before["level"] == operation["fromLevel"] and before["theme"] == operation["fromTheme"]
                and loc["cell"]["level"] == before["level"] and loc["location"] == before["location"]
-               and loc["phrase"]["study"] == before["study"] == operation["study"], "expectedBefore mismatch: " + operation["id"])
+               and anchor["cell"]["level"] == before["level"] and anchor["location"] == before["location"]
+               and anchor["phrase"]["study"] == before["study"] == operation["study"], "expectedBefore mismatch: " + operation["id"])
         ensure((loc["theme"]["id"] if loc["theme"] else "reserve") == operation["fromTheme"], "expected source theme differs")
+        ensure((anchor["theme"]["id"] if anchor["theme"] else "reserve") == operation["fromTheme"], "classification reference theme differs")
         if operation["op"] == "move":
             destination = operation["toTheme"]
             ensure(destination in themes or destination in new_ids, "unknown destination")
@@ -642,10 +685,13 @@ def apply_pair(root, result, manifest, report, pair_id, register, visuals, seque
 def apply_to_outputs(root, outputs, report, sequence_builder):
     root = Path(root)
     registers, visuals = load_evidence(root)
+    composition_input = load_composition(root)
+    composition = composition_input["composition"]
     result = dict(outputs)
     manifest = json.loads(result[root / MANIFEST])
     if "allClassification" in manifest:
         descriptor = manifest["allClassification"]
+        ensure(descriptor["composition"] == composition, "classified composition changed")
         ensure(FROZEN_DESCRIPTOR_SHA256 and file_hash(canonical(descriptor)) == FROZEN_DESCRIPTOR_SHA256, "classified descriptor changed")
         ensure(FROZEN_MANIFEST_SHA256 and file_hash(result[root / MANIFEST]) == FROZEN_MANIFEST_SHA256, "classified manifest changed")
         ensure(set(descriptor["runtimeSha256ByPath"]) == set(BASE_HASHES) - {MANIFEST}, "classified runtime file set changed")
@@ -653,15 +699,21 @@ def apply_to_outputs(root, outputs, report, sequence_builder):
             ensure(file_hash(result[root / path]) == digest, "classified runtime differs: " + path)
         return result, copy.deepcopy(descriptor)
     ensure("englishClassification" not in manifest, "the superseded English edition cannot be reclassified as the source baseline")
-    for path, digest in BASE_HASHES.items():
-        ensure(root / path in result and file_hash(result[root / path]) == digest, "pre-classification snapshot differs: " + path)
+    for path, digest in composition_input["inputRuntimeSha256ByPath"].items():
+        ensure(root / path in result and file_hash(result[root / path]) == digest, "approved composition input differs: " + path)
+    for layer in composition["preservedLayers"]:
+        key = layer["manifestKey"]
+        ensure(manifest[key]["registrySha256"] == layer["registrySha256"]
+               and file_hash(canonical(manifest[key])) == composition_input["preservedLayerDescriptorSha256"][key],
+               "approved predecessor correction layer differs: " + key)
     original_checks = copy.deepcopy(report["checks"])
-    report["historicalSourceChecksBeforeClassification"] = {"stage": "source-generation-before-frozen-corrections-and-seven-pair-classification",
-        "baseSnapshotCommit": BASE_SNAPSHOT, "meaning": "Historical source checks are preserved separately from current routing metrics.", "checks": original_checks}
+    report["historicalSourceChecksBeforeClassification"] = {"stage": "approved-content-and-conventions-before-seven-pair-classification",
+        "baseSnapshotCommit": BASE_SNAPSHOT, "inputSnapshotCommit": COMPOSITION_INPUT_COMMIT,
+        "meaning": "Approved correction-layer counts before routing; source corrections retain their own complete evidence.", "checks": original_checks}
     pairs = [apply_pair(root, result, manifest, report, pair_id, registers[pair_id], visuals, sequence_builder) for pair_id in PAIR_IDS]
     totals = dict(sum((Counter(p["counts"]) for p in pairs), Counter()))
     summary = {"version": 1, "id": "classement-sept-couples", "pairIds": list(PAIR_IDS), "evidenceCommit": EVIDENCE_COMMIT,
-        "baseSnapshotCommit": BASE_SNAPSHOT, "counts": totals, "pairs": pairs,
+        "baseSnapshotCommit": BASE_SNAPSHOT, "composition": copy.deepcopy(composition), "counts": totals, "pairs": pairs,
         "hiddenThemeAdditionalReserves": sum(len(p["hiddenThemeReserveIds"]) for p in pairs),
         "reserveLevelChanges": sum(len(p["reserveLevelChanges"]) for p in pairs),
         "reserveOperationsAlreadyReserved": sum(len(p["reserveOperationsAlreadyReservedIds"]) for p in pairs),

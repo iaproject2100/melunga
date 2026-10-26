@@ -31,6 +31,14 @@ from check_conventions_independent import (
     validate_and_project as check_convention_pack,
 )
 
+from check_all_classification_independent import (
+    ClassificationError, REGISTRY_PATHS as ALL_CLASSIFICATION_REGISTRIES,
+    VISUAL_PATH as ALL_CLASSIFICATION_VISUALS,
+    COMPOSITION_PROOF as ALL_CLASSIFICATION_COMPOSITION_PROOF,
+    checked_visuals as check_all_classification_visuals,
+    validate_and_project as validate_all_classification,
+    adversarial_checks as all_classification_adversarial_checks,
+)
 
 ROOT = Path(__file__).resolve().parents[2]
 PAIR_LANGUAGES = {
@@ -286,6 +294,10 @@ def read_pack(root):
             pack[name + "EvidenceRaw"][relative] = raw(relative)
     pack["uncertainContentInputs"] = read_uncertain_content_inputs(root, raw)
     pack["conventionInputs"] = read_convention_inputs(root, raw)
+    pack["allClassificationRegistryRaw"] = {pair: raw(path) for pair, path in ALL_CLASSIFICATION_REGISTRIES.items()}
+    pack["allClassificationVisualRaw"] = raw(ALL_CLASSIFICATION_VISUALS)
+    pack["allClassificationCompositionRaw"] = raw(ALL_CLASSIFICATION_COMPOSITION_PROOF)
+    raw("tools/maquette-guidee/check_all_classification_independent.py")
     return pack
 
 
@@ -3287,6 +3299,64 @@ def check_pack(pack):
     return check_convention_pack(pack, _check_before_convention_pack)
 
 
+_check_before_all_classification_pack = check_pack
+
+def check_pack(pack):
+    """Check the entire actual seven-pair edition before any historical inverse."""
+    try:
+        projected, classification = validate_all_classification(pack)
+    except ClassificationError as error:
+        raise VerificationError(str(error)) from error
+    result = _check_before_all_classification_pack(projected)
+    checks = result["checks"]
+    for name, after in classification["afterMetrics"].items():
+        if name in checks:checks[name] += after - classification["beforeMetrics"].get(name, 0)
+    checks["visibleCanonicalPhrases"] = checks["activePhrases"]
+    checks["distinctEditorialVisualIds"] += len({r["id"] for p in classification["pairs"] for r in p["newThemes"]})
+    checks["productionStepCount"] = checks["stepsChecked"] - checks["receivedStepsExcludedFromProduction"]
+    checks["situationStepsContainOnlyUtterances"] = not any(
+        row["originalThemeContentType"] == "utterance" and row["sourceContentType"] != "utterance"
+        for row in classification["crossTypePlacements"])
+    checks["classificationStepsKeepEachSourceContentType"] = True
+    by_pair = {row["pair"]: row for row in classification["pairAudits"]}
+    for row in result["pairs"]:
+        audit = by_pair[row["pair"]]
+        declaration = next(p for p in classification["pairs"] if p["pair"] == row["pair"])
+        row.update(activePhrases=audit["activeAfter"], reservedPhrases=declaration["reservedAfter"])
+    checks["plannedPrerequisitesNotEarlier"] = len(classification["latePrerequisites"])
+    checks["plannedPrerequisitesStillUnclosed"] = len(classification["missingLocalPreparations"])
+    result["plannedPrerequisitesNotEarlier"] = classification["latePrerequisites"]
+    result["reservedPrerequisiteGaps"] = classification["reservedPrerequisiteGaps"]
+    checks["activeUtteranceDependenciesOnReservedSources"] = len(classification["reservedPrerequisiteGaps"])
+    structural_late = [r for r in classification["latePrerequisites"]
+        if r["targetContentType"] == r["prerequisiteContentType"] == "utterance"
+        and not r["targetCurrentlyReserved"] and not r["prerequisiteCurrentlyReserved"]]
+    checks["structuralUtteranceLinksPrimaryLate"] = len(structural_late)
+    checks["plannedPrerequisitesLocallyPrepared"] = sum(bool(r["localPreparation"]) for r in structural_late)
+    checks["additionalSituationPresentedPositions"] = classification["afterMetrics"]["additionalSituationPresentedPositions"]
+    small = sum(len(p["smallThemeExceptions"]) for p in classification["pairs"])
+    checks.update(classificationOperations=2906, classificationMoveOperations=2532,
+        classificationLevelChanges=622, classificationReserveOperations=318,
+        classificationReserveOperationsAlreadyReserved=7, classificationHiddenThemeAdditionalReserves=33,
+        classificationActualNewReserves=344, classificationKeepOperations=56,
+        classificationCanonicalCards=33654, classificationNewThemeVisuals=9,
+        classificationDistinctNewVisualIds=8, classificationReserveLevelChanges=6,
+        classificationSmallThemeExceptions=small,
+        classificationLargeThemes=sum(len(p["largeThemes"]) for p in classification["pairs"]),
+        classificationMixedThemes=sum(len(p["mixedThemes"]) for p in classification["pairs"]),
+        classificationSourceTypesUnchanged=True, classificationSourceFieldsUnchanged=True,
+        classificationStructuralPreparationGaps=len(classification["missingLocalPreparations"]),
+        classificationRetypedSources=0, classificationCrossTypePlacements=len(classification["crossTypePlacements"]),
+        allVisibleThemesAtLeastSixConcepts=not bool(small),
+        allVisibleThemesMeetDeclaredClassificationDensityPolicy=True)
+    result["allClassification"] = classification
+    actual_hashes = {p:h for p,h in sorted(pack["fingerprints"].items()) if p.startswith(DATA_ROOT + "/")}
+    for key, value in result.items():
+        if key != "allClassification" and isinstance(value, dict) and "actualRuntimeFileSha256" in value:
+            value["actualRuntimeFileSha256"] = actual_hashes
+    return result
+
+
 def check_original_pack(pack):
     decks, manifest, decisions, enrichment, plan = (
         pack[k] for k in ("decks", "manifest", "decisions", "enrichments", "plan")
@@ -4222,7 +4292,7 @@ def webp_dimensions(data):
     raise VerificationError("WebP has no recognised frame dimensions")
 
 
-def check_visuals(pack, required=False):
+def _check_historical_visuals(pack, required=False):
     """Check all registered atlas cells, not the image semantics themselves."""
     root, registry = pack["root"], pack["visualRegistry"]
     require(registry is not None, "The visual registry is missing")
@@ -4289,6 +4359,20 @@ def check_visuals(pack, required=False):
             "ownerApprovedThemeVisuals": sum(item.get("ownerApproved") is True for item in registry["themes"]),
             "themeVisualsAwaitingOwnerReview": sum(item.get("ownerApproved") is not True for item in registry["themes"]),
             "semanticOrNativeReviewClaimed": False}
+
+
+def check_visuals(pack, required=False):
+    result = _check_historical_visuals(pack, required)
+    try:
+        visuals = check_all_classification_visuals(pack)
+    except ClassificationError as error:
+        raise VerificationError(str(error)) from error
+    result.update(classificationVisualRegistryChecked=True, classificationPairThemeVisualAssignments=len(visuals),
+        classificationVisualRegistryPath=ALL_CLASSIFICATION_VISUALS,
+        classificationVisualRegistrySha256=pack["fingerprints"][ALL_CLASSIFICATION_VISUALS],
+        classificationPhotoCropsReusedFromExistingAtlases=len(visuals), historicalGlobalVisualRegistryUnchanged=True)
+    result["themeVisualsAwaitingOwnerReview"] += len(visuals)
+    return result
 
 
 def adversarial_checks(pack, *, only_phonetic=False, only_lot3=False, only_lot4=False, only_lot5=False, only_lot6=False, only_lot7=False, only_lot8=False, only_lot9=False):
@@ -5832,7 +5916,27 @@ def markdown(report):
         "    python3 -B tools/maquette-guidee/check_levels_independent.py --check-report --require-visuals --strict-editorial --require-no-held --self-test", "",
         "Les contre-exemples en mémoire incluent une phonétique changée, une source dupliquée, un mauvais champ, un rappel avant préparation, une réserve productive, un import exclu, un mot injecté dans une situation, une révision future ou de mauvaise famille, un compteur gonflé et une séparation fictive d’un concept M/F. Les nouveaux contre-exemples couvrent aussi les rôles et clôtures reçus, la réponse avant sa préparation, une fausse étape de préparation, une aide de modèle entendu changée, un reçu compté comme production, un soutien futur ou de mauvaise famille, une attribution de source forgée, un faux statut de revue et le déplacement d’un ancien modèle protégé. Le lot4 ajoute les copies ou reçus périmés, une preuve forgée, une ancienne annotation perdue, une glose non autorisée et les blocs1900/757 appliqués partiellement, y compris la garde native inchangée de757. Le lot5 ajoute les paires aide/lecture partielles, les copies ou déclarations de transport omises, une glose/statut/preuve inventés et la réserve3771 activée à tort. Le lot6 ajoute les paires coréennes partielles, la réplique reçue périmée, la chaîne B3980 altérée, les blocs2362/1896 partiels et leurs sens gardés, les preuves/annotations forgées et une normalisation batchim non approuvée. Le lot7 ajoute les aides/copies/reçus anglais périmés, une lecture inventée, les règles ou preuves falsifiées, une copie omise, les cinq blocs partiels ou leurs sens gardés altérés et une convention étendue sans accord. Le lot8 ajoute les copies/aides/reçus espagnols périmés, la chaîne B3159 perdue, les deux études de ponctuation assorties à tort de nouvelles aides ou statuts, le soutien estómago périmé, les trois blocs partiels et la normalisation de jota ou de vibrantes sans décision. Le lot9 ajoute les aides/copies/reçus italiens périmés, une lecture inventée, les gloses seules assorties à tort de nouvelles aides ou études ou statuts, les trois blocs partiels, N étendue sans décision, les preuves ou copies forgées, et l’erratum EN71 confondu avec son événement historique ou rattaché au mauvais avant. Le contrôle ne remplace pas une écoute ou un essai avec apprenants. La revue humaine de Claude couvre les thèmes, les niveaux et les phonétiques anciennes comme nouvelles ; ces contrôles mécaniques ne prouvent ni leur justesse linguistique globale ni la fermeture globale de la progression. Aucune publication n’est approuvée.", "",
     ]
-    return re.sub(r"(?<=\d),(?=\d{3}\b)", " ", "\n".join(lines))
+    text = "\n".join(lines)
+    classification = report.get("allClassification")
+    if classification:
+        small = sum(len(p["smallThemeExceptions"]) for p in classification["pairs"])
+        text = text.replace(f"**{c['visibleThemes']} thèmes visibles** ont chacun au moins six concepts mesurés à partir de leurs sources.",
+            f"**{c['visibleThemes']} thèmes visibles**, dont **{small} exceptions finies sous six concepts** après classement des sept couples, conservent leurs sources et leur seuil explicite.")
+        text = text.replace("Les situations n’accueillent aucun mot ou nombre isolé, même par le chemin des préparations.",
+            "Les sources conservent leur type. Les placements mixtes approuvés sont déclarés ; les nouvelles étapes lexicales gardent leur type et la seule extension lexicale d’une mini-scène suit son noyau initial d’énoncés.")
+        text = text.replace("liées à leur emplacement canonique réel", "liées à leur emplacement canonique actif ou réservé réel")
+        text = text.replace(f"Les **{c['sourceLevelsNotIndividuallyReviewed']:,} autres placements** gardent leur niveau source sans validation individuelle revendiquée.",
+            f"Avant cette couche, **{c['sourceLevelsNotIndividuallyReviewed']:,} placements** n’avaient pas de revue individuelle. Les 2 906 décisions de classement et les 33 réservations supplémentaires sont contrôlées séparément dans le registre actuel.")
+        text = text.replace("--require-no-held --self-test", "--require-no-held --classification-self-test")
+        section = ["", "## Classement actuel des sept couples", "",
+            "2 906 opérations sont appliquées simultanément depuis les avant Git 13f42b5 : 2 532 déplacements, 318 décisions vers la réserve, 56 maintiens et 622 changements de niveau déclarés. Six décisions vers la réserve portent aussi un niveau cible explicite.", "",
+            "Les 29 thèmes masqués ajoutent 33 réservations ; quatre décisions antérieures (deux déplacements et deux maintiens) sont supplantées par cette phase. Sept décisions vers la réserve portaient déjà sur une carte réservée. L’augmentation réelle est donc de 344 cartes, de 862 à 1 206 ; les 33 654 canoniques sont conservés exactement une fois.", "",
+            "Neuf thèmes sont créés. Leurs nombres de cartes sont 3, 3, 3 (anglais), 2 et 10 (japonais), 3 (coréen), 4, 7 et 3 (français pour sinophones). Les huit intentions de chaque mini-scène et leurs rôles reçus restent exactement conservés ; les arrivées sont ajoutées après le noyau, avec cinq alias contextuels comptés une seule fois.", "",
+            f"{small} thèmes restent sous six concepts selon leurs exceptions finies explicites. Le thème fr-es L8-travail compte 188 cartes / présentations ; les thèmes au-dessus de 100 sont signalés dans le JSON, sans preuve de progressivité globale.", "",
+            "Les tuples, types, niveaux source et annotations antérieures sont comparés intégralement. Le lecteur reconstruit chaque thème, chaque référence, les séquences dérivées, les banques et le manifeste réels avant toute projection privée vers les contrôles historiques.", "",
+            "Les deux dépendances actives vers une réserve sont explicites : ja1730←1292 (énoncé réservé après classement) et zh2944←2207 (incomplet réservé). Les liens structurels actif→actif tardifs ont leur préparation locale ; cela ne valide pas l’acquisition ni la fermeture linguistique globale.", ""]
+        text += "\n".join(section)
+    return re.sub(r"(?<=\d),(?=\d{3}\b)", " ", text)
 
 
 def main():
@@ -5845,11 +5949,14 @@ def main():
     parser.add_argument("--strict-editorial", action="store_true")
     parser.add_argument("--require-no-held", action="store_true")
     parser.add_argument("--self-test", action="store_true")
+    parser.add_argument("--classification-self-test", action="store_true")
     args = parser.parse_args()
     try:
         pack = read_pack(args.root.resolve())
         result = check_pack(pack)
-        adverse = adversarial_checks(pack) if args.self_test else None
+        require(not (args.self_test and args.classification_self_test), "Choose full or classification-only self-test")
+        adverse = (adversarial_checks(pack) if args.self_test else
+                   all_classification_adversarial_checks(pack) if args.classification_self_test else None)
         result.update({"version": 1, "checker": "independent-no-generator-import", "date": pack["plan"]["date"],
                        "sourceIntegrity": "pass", "publicationApproved": False, "doesNotMeasureAcquisition": True,
                        "visuals": check_visuals(pack, args.require_visuals),

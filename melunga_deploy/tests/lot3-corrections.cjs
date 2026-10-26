@@ -216,9 +216,9 @@ function auditRuntime() {
   for (const pair of expected.pairs) pair.repertoireSha256=hash(uncertainContent.beforeBytes(path.join(WEB,pair.repertoirePath)));
   assert.deepEqual(manifest,expected,'only new declaration and actual bank hashes change in manifest');
   for (const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html']) {
-    const actual=fs.readFileSync(path.join(WEB,filename));
+    const actual=uncertainContent.beforeAssetBytes(path.join(WEB,filename));
     const original=execFileSync('git',['show',BASELINE+':melunga_deploy/'+filename],{cwd:ROOT,maxBuffer:32*1024*1024});
-    assert.ok(actual.equals(original),'UI/classic file stays byte-for-byte intact: '+filename);
+    assert.ok(actual.equals(original),'historical UI and current classic bytes match their protected source: '+filename);
   }
   assert.equal(fields,102);
   return {correctionCount:91,eventCount:95,phoneticEvents:90,readingEvents:5,occurrences:98,fields,profiles:audit.profiles,files:77,lot4:lot4Audit};
@@ -244,6 +244,8 @@ if (require.main===module) {
       res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css'})[path.extname(file)] || 'application/octet-stream');
       // This server is a historical inverse fixture, validated against actual bytes first.
       if (file.includes('/content/niveaux-progressifs/')) return res.end(uncertainContent.beforeBytes(file));
+      // Historical fixture assets are exposed only after the current A/B/C edition is verified.
+      if (['maquette-guidee.js', 'parcours-niveaux.html', 'maquette-guidee.html'].includes(path.relative(WEB, file))) return res.end(uncertainContent.beforeAssetBytes(file));
       fs.createReadStream(file).pipe(res);
     });
     await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));

@@ -2,6 +2,9 @@
  * NODE_PATH=/tmp/melunga-review-tools/node_modules node --test tests/levels-themes.browser.cjs
  * No account, payment, e-mail or external network request is permitted.
  * Viewports emulate screen sizes; this is not a physical-phone attestation.
+ * The DOM matrix uses the actual composed content. Historical source-only
+ * comparisons use the independently verified classification → conventions →
+ * content inverse, restoring 13f42b5 before reading the original ledgers.
  */
 'use strict';
 const assert = require('node:assert/strict');
@@ -106,6 +109,9 @@ const report = {
   status: 'running', environment: 'local Chromium; emulated viewports, no physical device',
   speechMechanism: 'mock speechSynthesis: whole study text dispatch and reveal behavior, not human audio or linguistic phonetic validation',
   publicSiteChecked: false, nativeOrPedagogicalValidation: false,
+  sourceComparisonCommit: '13f42b5814f2b230d76d2d0ef267dcf406c523c2',
+  sourceComparisonInverse: ['classification', 'conventions', 'content'],
+  domExpectationsUseActualComposedContent: true,
   widths: [320, 390, 1440], cellViews: 0, themeEntries: 0, domSteps: 0,
   runtimeJsonFieldsCompared: 0, templateSteps: 0, preparationSteps: 0, reserveCardsTracked: 0,
   heldCardsTracked: 0, canonicalCardsTracked: 0, reviewSteps: 0, reviewReferencesTracked: 0,
@@ -224,12 +230,13 @@ function repertoire(pairId) {
 }
 function historicalCell(pair, level) {
   const filename = path.join(DATA, pair, 'L' + level + '.json');
-  return allClassification.beforeRead(filename, JSON.parse(fs.readFileSync(filename)));
+  // Verify these exact current bytes before exposing the whole historical view.
+  return allClassification.beforeRead(filename, fs.readFileSync(filename));
 }
 function historicalRepertoire(pairId) {
   const metadata = manifest.pairs.find(pair => pair.id === pairId);
   const filename = path.join(ROOT, metadata.repertoirePath);
-  return allClassification.beforeRead(filename, JSON.parse(fs.readFileSync(filename)));
+  return allClassification.beforeRead(filename, fs.readFileSync(filename));
 }
 function reviewFixture(pairId) {
   for (let level = 2; level <= 10; level++) {
@@ -741,9 +748,9 @@ for (const width of report.widths) test('70 pair/level cells at ' + width + 'px'
 }));
 
 test('196 additional situations preserve 1568 whole source positions without inflating canonical entries', async () => checked('additional-situation-whole-source-and-intents', async () => {
-  // Check the exact approved after-help, annotation and whole-card conservation
-  // first. Only source comparisons below project back to the original whole aid;
-  // the DOM matrix continues to expect the actual corrected runtime JSON.
+  // Validate the composed current edition, all approved fields and provenance
+  // first. Only source comparisons below restore the whole 13f42b5 documents;
+  // the DOM matrix continues to expect the actual corrected/classified JSON.
   report.allClassificationAudit = allClassification.auditRuntime();
   report.phoneticCorrectionsSourceAudit = phoneticCorrections.auditRuntime();
   report.reviewedFieldCorrectionsSourceAudit = report.phoneticCorrectionsSourceAudit.lot3;

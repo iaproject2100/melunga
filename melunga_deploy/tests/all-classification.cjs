@@ -9,25 +9,32 @@ const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const {isDeepStrictEqual} = require('node:util');
 const ROOT = path.resolve(__dirname, '..', '..'), WEB = path.join(ROOT, 'melunga_deploy');
-const BASE = '13f42b5814f2b230d76d2d0ef267dcf406c523c2';
+const BASE = '13f42b5814f2b230d76d2d0ef267dcf406c523c2'; // Immutable classification anchors.
+const INPUT = 'd30c1c97769fa180e2370e6b182535e3886bc70f'; // Approved complete B+C objects.
+const CONTENT_INPUT = 'e85c8c355be8cc0213543eddb21467432edb57b8';
 const COMMIT = '342600641c8a621019d0c05d75a481843640e9ed';
 const REVIEW = 'docs/niveaux-progressifs/classement-sept-couples';
 const PREFIX = 'melunga_deploy/content/niveaux-progressifs/';
 const PAIRS = ['fr-en','fr-es','fr-it','fr-ja','fr-ko','fr-zh','zh-fr'];
 const REGISTRY_SHAS = {'fr-en':'dfcde432da30d22ca3375c5544e14fb5f7b6e84db04af9cec8271cf696e984e9','fr-es':'6bb12de6032dc75d68a9d5f4fe1ad37129b01b51870c38e882627856dac63aee','fr-it':'1705666cea584e445b8c2f77548da2728b353e2931789798fb30c2b2896ae754','fr-ja':'04c62d9afe93415a0eaa28da0c7a721a0bdb0795a2cac6f70e34441a14f6659d','fr-ko':'42c3d363fdf494ba5cb46b5979a3dce645431c82b6d2cdd37e25b08ec958acc6','fr-zh':'c89ec95f6d592cd296b506d8542db90becb6eca8c9569e8096611a53b9317480','zh-fr':'fb2123136e462cc72cdcd881b5c86bebd019cab66f182acb5c5320c80a7199f4'};
-const DESCRIPTOR_SHA256 = 'a095a8475ef6244453d0e76b6c1c4dd7eef0988afb7dbb129dc9a2d15f7641f4';
-const MANIFEST_SHA256 = '120cd6d8396a0c439b93bf9c352866f342a3d1b6a73a4aaa05400be5aa895a56';
-const INDEPENDENT_CHECKER_SHA256 = '125dfca5c8144379219ad7f91e3c1338318a6f4256941b0498133f7785db41be';
-const CLASSIFIED_JS_SHA256 = '2e82e5e2cc93296fadf3a123dbd34243db9673f8dd0d615163711eabe390dd97';
-const CLASSIFIED_HTML_SHA256 = {'melunga_deploy/maquette-guidee.html':'a436ad5a892e80f961ab605cd243814dbd807d1bf4f9d4b3b0ec958c42bf8fdb','melunga_deploy/parcours-niveaux.html':'19a79038be1f2694345e8a57c3be5fff978876d7d6d5852ba4ac353ac84fc437'};
+const DESCRIPTOR_SHA256 = '57d7731c5001d065ce53ced537f782953dcd40dd61846627739adeb1bfd06f20';
+const MANIFEST_SHA256 = 'd0c785ebd39b1cc5fa14f6445b08c7982dda03255741f61bcf21c991c34c423c';
+const INDEPENDENT_CHECKER_SHA256 = '81b140ac5c245acfaf804cd8a8cd8e95138975c8a671bfbda58853664f03685a';
+const CLASSIFIED_JS_SHA256 = '0a7b0342a1a4d4947c961163c1247e4d3567ceeec4cf792e4ab7440310797957';
+const CLASSIFIED_HTML_SHA256 = {'melunga_deploy/maquette-guidee.html':'cd6ec4b702fc15de9f246cc5e541f9c7623754c9a17c699868566c0038f16041','melunga_deploy/parcours-niveaux.html':'850dcc2037fcbcfeb5053b8363027943fcce5e8cb9f166d3b71755029f774c0b'};
 const clone = v => JSON.parse(JSON.stringify(v));
 const sha256 = raw => crypto.createHash('sha256').update(raw).digest('hex');
 function canonical(v) { return Array.isArray(v) ? '['+v.map(canonical).join(',')+']' : v && typeof v === 'object' ? '{'+Object.keys(v).sort().map(k=>JSON.stringify(k)+':'+canonical(v[k])).join(',')+'}' : JSON.stringify(v); }
 const at = (node, location) => location.reduce((v,k)=>v[k],node);
 const rawRead = filename => JSON.parse(fs.readFileSync(path.join(ROOT, filename), 'utf8'));
-const baseCache = new Map(), baseBytesCache = new Map(), ledgerCache = new Map();
-function baselineBytes(filename) { if (!baseBytesCache.has(filename)) baseBytesCache.set(filename,execFileSync('git',['show',BASE+':'+filename],{cwd:ROOT,maxBuffer:40*1024*1024})); return baseBytesCache.get(filename); }
+const baseCache = new Map(), baseBytesCache = new Map(), ledgerCache = new Map(), anchorCache=new Map(), anchorBytesCache=new Map(), contentCache=new Map(), contentBytesCache=new Map();
+function baselineBytes(filename) { if (!baseBytesCache.has(filename)) baseBytesCache.set(filename,execFileSync('git',['show',INPUT+':'+filename],{cwd:ROOT,maxBuffer:40*1024*1024})); return baseBytesCache.get(filename); }
 function baseline(filename) { if (!baseCache.has(filename)) baseCache.set(filename,JSON.parse(baselineBytes(filename))); return baseCache.get(filename); }
+function anchorBytes(filename){if(!anchorBytesCache.has(filename))anchorBytesCache.set(filename,execFileSync('git',['show',BASE+':'+filename],{cwd:ROOT,maxBuffer:64*1024*1024}));return anchorBytesCache.get(filename);}
+function anchor(filename){if(!anchorCache.has(filename))anchorCache.set(filename,JSON.parse(anchorBytes(filename)));return anchorCache.get(filename);}
+function contentBytes(filename){if(!contentBytesCache.has(filename))contentBytesCache.set(filename,execFileSync('git',['show',CONTENT_INPUT+':'+filename],{cwd:ROOT,maxBuffer:64*1024*1024}));return contentBytesCache.get(filename);}
+function contentBaseline(filename){if(!contentCache.has(filename))contentCache.set(filename,JSON.parse(contentBytes(filename)));return contentCache.get(filename);}
+
 function canonicalIndex(pack,pairId) {
   const entries=new Map();
   for(let level=1;level<=10;level++) {
@@ -51,8 +58,8 @@ function loadLedger(pairId) {
   for(const op of ledger.ops) {
     assert.ok(!ops.has(op.id),'one final operation per ID'); assert.ok(['move','keep','to-reserve'].includes(op.op));
     const e=op.expectedBefore; assert.equal(e.path,PREFIX+pairId+'/L'+op.fromLevel+'.json'); assert.equal(e.level,op.fromLevel); assert.equal(e.theme,op.fromTheme);
-    const phrase=at(baseline(e.path),e.location); assert.equal(phrase.id,op.id); assert.equal(phrase.study,e.study); assert.equal(phrase.study,op.study); assert.equal(phrase.editorialLevel,op.fromLevel);
-    if(e.location[0]==='reserve') assert.equal(op.fromTheme,'reserve'); else assert.equal(baseline(e.path).themes[e.location[1]].id,op.fromTheme);
+    const phrase=at(anchor(e.path),e.location); assert.equal(phrase.id,op.id); assert.equal(phrase.study,e.study); assert.equal(phrase.study,op.study); assert.equal(phrase.editorialLevel,op.fromLevel);
+    if(e.location[0]==='reserve') assert.equal(op.fromTheme,'reserve'); else assert.equal(anchor(e.path).themes[e.location[1]].id,op.fromTheme);
     ops.set(op.id,op);
   }
   const result={ledger,ops,originalById,registry}; ledgerCache.set(pairId,result); return result;
@@ -77,7 +84,7 @@ function expectedPhrase(original,op,route,theme,registrySha) {
 function assertOwnClassification(pack) {
   const manifest=pack[PREFIX+'manifest.json'],descriptor=manifest?.allClassification;
   assert.ok(descriptor,'actual edition has seven-pair descriptor'); assert.equal(sha256(canonical(descriptor)),DESCRIPTOR_SHA256,'entire finite policy is independently pinned');
-  assert.deepEqual(descriptor.pairIds,PAIRS); assert.equal(descriptor.evidenceCommit,COMMIT); assert.equal(descriptor.baseSnapshotCommit,BASE);
+  assert.deepEqual(descriptor.pairIds,PAIRS); assert.equal(descriptor.evidenceCommit,COMMIT); assert.equal(descriptor.baseSnapshotCommit,BASE); assert.equal(descriptor.composition?.inputCommit,INPUT); assert.equal(descriptor.composition?.classificationReferenceCommit,BASE);
   assert.deepEqual(descriptor.counts,{cards:2906,move:2532,'to-reserve':318,keep:56,levelChanges:622,intoNewThemes:38,hiddenThemes:29,remainingToReserve:33});
   const totals={operations:0,moves:0,toReserve:0,keep:0,levelChanges:0,canonical:0,active:0,reserve:0,hiddenAdditional:0,alreadyReserved:0,smallThemes:0,mixedThemes:0,largeThemes:0,newThemes:0,newThemeCards:0,bankReservedAliases:0,contextPrimaryAliases:0,outboundCoreReuses:0,typedExtensions:0,stepsChecked:0};
   for(const pairId of PAIRS) {
@@ -148,34 +155,53 @@ function assertOwnClassification(pack) {
   return totals;
 }
 let projectedCache;
+function identityProfiles(pack){
+  const result=new Map();
+  for(const pairId of PAIRS){
+    for(const [id,row]of canonicalIndex(pack,pairId))result.set(pairId+'\0canonical\0'+id,row.phrase);
+    const bank=pack[PREFIX+'repertoires/'+pairId+'.json'];
+    for(const field of ['phrases','receivedModels'])for(const phrase of bank[field]||[])result.set(pairId+'\0'+field+'\0'+phrase.id,phrase);
+  }return result;
+}
 function ensureProjection() {
   if(projectedCache)return projectedCache;
   const actual=actualPack(),audit=assertOwnClassification(actual),program=path.join(ROOT,'tools/maquette-guidee/check_all_classification_independent.py');
   assert.equal(sha256(fs.readFileSync(program)),INDEPENDENT_CHECKER_SHA256,'whole independent checker is frozen');
-  assert.equal(sha256(fs.readFileSync(path.join(ROOT,PREFIX+'manifest.json'))),MANIFEST_SHA256,'exact frozen manifest');
-  const result=JSON.parse(execFileSync('python3',['-B',program,'--root',ROOT,'--project-runtime'],{cwd:ROOT,encoding:'utf8',maxBuffer:128*1024*1024}));
-  assert.ok(result.documents&&result.summary);const fingerprints={};
+  assert.equal(sha256(fs.readFileSync(path.join(ROOT,PREFIX+'manifest.json'))),MANIFEST_SHA256,'exact frozen composed manifest');
+  const result=JSON.parse(execFileSync('python3',['-B',program,'--root',ROOT,'--project-all-runtimes'],{cwd:ROOT,encoding:'utf8',maxBuffer:512*1024*1024}));
+  assert.ok(result.documentsByStage&&result.summary);
+  const beforeClassification=result.documentsByStage.conventions,beforeConventions=result.documentsByStage.content,documents=result.documentsByStage.historical,fingerprints={};
+  assert.ok(beforeClassification&&beforeConventions&&documents,'all three independently checked private inverse views');
   for(const filename of documentPaths()){
-    assert.deepEqual(result.documents[filename],baseline(filename),'private inverse restores the complete original document');
+    assert.deepEqual(beforeClassification[filename],baseline(filename),'classification inverse restores every whole approved B+C document');
+    assert.deepEqual(beforeConventions[filename],contentBaseline(filename),'convention inverse restores every whole approved B document');
+    assert.deepEqual(documents[filename],anchor(filename),'historical inverse restores every whole 13f source document');
     fingerprints[filename]=sha256(fs.readFileSync(path.join(ROOT,filename)));
-    assert.equal(result.actualRawDocumentSha256[filename],fingerprints[filename],'subprocess validated these actual bytes');
+    assert.equal(result.actualRawDocumentSha256[filename],fingerprints[filename],'subprocess validated these actual composed bytes');
   }
-  projectedCache={actual,documents:result.documents,summary:{...audit,independent:result.summary},fingerprints,canonicalByPair:new Map(PAIRS.map(p=>[p,canonicalIndex(actual,p)]))};return projectedCache;
+  const historicalProfiles=identityProfiles(documents),phraseCandidates=new Map();
+  for(const pack of [actual,beforeClassification,beforeConventions,documents])for(const [profile,phrase]of identityProfiles(pack)){
+    const before=historicalProfiles.get(profile);if(!before)continue;
+    const [pairId,,id]=profile.split('\0'),identity=pairId+'\0'+id;
+    if(!phraseCandidates.has(identity))phraseCandidates.set(identity,[]);
+    phraseCandidates.get(identity).push([phrase,before]);
+  }
+  projectedCache={actual,beforeClassification,beforeConventions,documents,summary:{...audit,independent:result.summary},fingerprints,phraseCandidates,canonicalByPair:new Map(PAIRS.map(p=>[p,canonicalIndex(actual,p)]))};return projectedCache;
 }
 const relativeFilename=f=>(path.isAbsolute(f)?path.relative(ROOT,f):f).split(path.sep).join('/');
 function beforeRead(filename,document){filename=relativeFilename(filename);if(!filename.startsWith(PREFIX))return typeof document==='string'||Buffer.isBuffer(document)?JSON.parse(document):document;const s=ensureProjection();assert.ok(Object.hasOwn(s.documents,filename));assert.equal(sha256(fs.readFileSync(path.join(ROOT,filename))),s.fingerprints[filename],'actual file cannot change after validation');if(typeof document==='string'||Buffer.isBuffer(document))assert.equal(sha256(document),s.fingerprints[filename],'input bytes were validated');else assert.deepEqual(document,s.actual[filename],'mutated document cannot be hidden by historical projection');return clone(s.documents[filename]);}
-function beforeBytes(filename){filename=relativeFilename(filename);if(!filename.startsWith(PREFIX))return fs.readFileSync(path.join(ROOT,filename));const s=ensureProjection();assert.equal(sha256(fs.readFileSync(path.join(ROOT,filename))),s.fingerprints[filename]);return Buffer.from(baselineBytes(filename));}
-function projectPhrase(pairId,phrase){if(!PAIRS.includes(pairId)||!phrase?.id)return phrase;const s=ensureProjection(),bankPath=PREFIX+'repertoires/'+pairId+'.json',candidates=[];const a=s.canonicalByPair.get(pairId).get(phrase.id),b=loadLedger(pairId).originalById.get(phrase.id);if(a&&b)candidates.push([a.phrase,b.phrase]);for(const field of ['phrases','receivedModels']){const x=s.actual[bankPath][field]?.find(p=>p.id===phrase.id),y=s.documents[bankPath][field]?.find(p=>p.id===phrase.id);if(x&&y)candidates.push([x,y]);}for(const [actual,before]of candidates)if(isDeepStrictEqual(phrase,actual)||isDeepStrictEqual(phrase,before))return clone(before);throw Error('Unvalidated classified tuple cannot be hidden: '+pairId+'/'+phrase.id);}
-function beforeAssetBytes(filename){filename=relativeFilename(filename);const actual=fs.readFileSync(path.join(ROOT,filename));if(!['melunga_deploy/maquette-guidee.js','melunga_deploy/parcours-niveaux.html','melunga_deploy/maquette-guidee.html'].includes(filename))return actual;const before=baselineBytes(filename);if(filename.endsWith('.js'))assert.equal(sha256(actual),CLASSIFIED_JS_SHA256,'whole runtime classification edit is frozen');else{assert.equal(before.toString().split('maquette-guidee.js?v=12').length,2);assert.equal(actual.toString(),before.toString().replace('maquette-guidee.js?v=12','maquette-guidee.js?v=14'));assert.equal(sha256(actual),CLASSIFIED_HTML_SHA256[filename]);}return before;}
-function inputFiles(){return[__filename,path.join(ROOT,'tools/maquette-guidee/check_all_classification_independent.py'),path.join(ROOT,REVIEW+'/visuels.json'),...PAIRS.map(p=>path.join(ROOT,REVIEW+'/registre/'+p+'.json')),...documentPaths().map(f=>path.join(ROOT,f))];}
+function beforeBytes(filename){filename=relativeFilename(filename);if(!filename.startsWith(PREFIX))return fs.readFileSync(path.join(ROOT,filename));const s=ensureProjection();assert.equal(sha256(fs.readFileSync(path.join(ROOT,filename))),s.fingerprints[filename]);return Buffer.from(anchorBytes(filename));}
+function projectPhrase(pairId,phrase){if(!PAIRS.includes(pairId)||!phrase?.id)return phrase;const candidates=ensureProjection().phraseCandidates.get(pairId+'\0'+phrase.id)||[];for(const [current,before]of candidates)if(isDeepStrictEqual(phrase,current))return clone(before);throw Error('Unvalidated composed tuple cannot be hidden: '+pairId+'/'+phrase.id);}
+function beforeAssetBytes(filename){filename=relativeFilename(filename);const actual=fs.readFileSync(path.join(ROOT,filename));if(!['melunga_deploy/maquette-guidee.js','melunga_deploy/parcours-niveaux.html','melunga_deploy/maquette-guidee.html'].includes(filename))return actual;const before=baselineBytes(filename);assert.ok(before.equals(anchorBytes(filename)),'approved B+C did not change original assets');if(filename.endsWith('.js'))assert.equal(sha256(actual),CLASSIFIED_JS_SHA256,'whole composed runtime classification edit is frozen');else{assert.equal(before.toString().split('maquette-guidee.js?v=12').length,2);assert.equal(actual.toString(),before.toString().replace('maquette-guidee.js?v=12','maquette-guidee.js?v=15'));assert.equal(sha256(actual),CLASSIFIED_HTML_SHA256[filename]);}return before;}
+function inputFiles(){const layers=['docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json','docs/niveaux-progressifs/conventions-tranchees/registre/conventions-tranchees.json'];const evidence=layers.flatMap(file=>{const registry=rawRead(file);return[file,...registry.evidenceFiles.map(p=>p.path)];});return[...evidence.map(f=>path.join(ROOT,f)),...['uncertain-content.cjs','convention-corrections.cjs'].map(f=>path.join(WEB,'tests',f)),path.join(ROOT,'docs/niveaux-progressifs/contenu-tranche/exceptions-contenu-tranche.json'),__filename,path.join(ROOT,'tools/maquette-guidee/check_all_classification_independent.py'),path.join(ROOT,'tools/maquette-guidee/check_conventions_independent.py'),path.join(ROOT,'tools/maquette-guidee/check_uncertain_content_independent.py'),path.join(ROOT,REVIEW+'/visuels.json'),path.join(ROOT,REVIEW+'/registre/composition-entree.json'),...PAIRS.map(p=>path.join(ROOT,REVIEW+'/registre/'+p+'.json')),...documentPaths().map(f=>path.join(ROOT,f))];}
 function auditRuntime(){return ensureProjection().summary;}
-module.exports={loadLedger,baseline,rawRead,actualPack,canonicalIndex,expectedPhrase,assertOwnClassification,beforeRead,beforeBytes,beforeAssetBytes,projectPhrase,inputFiles,auditRuntime};
+module.exports={loadLedger,baseline,baselineBytes,anchor,anchorBytes,contentBaseline,contentBytes,rawRead,actualPack,canonicalIndex,expectedPhrase,assertOwnClassification,ensureProjection,beforeRead,beforeBytes,beforeAssetBytes,projectPhrase,inputFiles,auditRuntime};
 
 if(require.main===module){
   const {test,before,after}=require('node:test'),http=require('node:http'),{chromium}=require('playwright-core');
   let server,browser,base,snapshots;
   const report={status:'running',scope:'local seven-pair classified runtime and emulated Chromium',publicSiteChecked:false,physicalDeviceChecked:false,nativeOrPedagogicalValidation:false,speechMechanism:'mock speechSynthesis; unchanged whole source text only',checks:[],cases:[],errors:[],externalRequests:[],apiRequests:[],negativeCasesRejected:0};
-  const required=['all-2906-decisions-33654-whole-tuples','classification-tamper-rejection','all-seventy-cells-load','new-nine-photos-thirty-eight-cards','preserved-core-aliases-and-typed-tail','reserved-bank-aliases-and-heard-role','saved-review-moves-hidden-and-reserve','saved-review-migration-race','runtime-policy-and-body-integrity','finite-policy-scope-and-small-themes','cards-fit-mobile-and-desktop'];
+  const required=['all-2906-decisions-33654-whole-tuples','classification-tamper-rejection','all-seventy-cells-load','new-nine-photos-thirty-eight-cards','preserved-core-aliases-and-typed-tail','reserved-bank-aliases-and-heard-role','saved-review-moves-hidden-and-reserve','saved-review-migration-race','runtime-policy-and-body-integrity','finite-policy-scope-and-small-themes','cards-fit-mobile-and-desktop','content-and-convention-composition-whole-objects','composed-overlap-current-dom'];
   const fingerprint=()=>Object.fromEntries([...new Set([...inputFiles(),...['maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html','app.html'].map(f=>path.join(WEB,f))])].sort().map(f=>[path.relative(ROOT,f),sha256(fs.readFileSync(f))]));
   before(async()=>{
     snapshots=fingerprint();report.inputSha256=snapshots;report.classification=auditRuntime();
@@ -196,12 +222,12 @@ if(require.main===module){
   function locate(pairId,id,options={}){
     const pack=ensureProjection().actual,index=canonicalIndex(pack,pairId);
     for(let level=1;level<=10;level++)for(const[themeIndex,theme]of pack[PREFIX+pairId+'/L'+level+'.json'].themes.entries()){
-      if(options.themeId&&theme.id!==options.themeId)continue;
+      if(options.themeId&&theme.id!==options.themeId||options.level&&level!==options.level)continue;
       const steps=theme.sequences.flatMap(s=>s.steps),stepIndex=steps.findIndex(s=>s.utterance===id&&s.kind===(options.received?'receive':'understand'));
       if(stepIndex>=0){const phrase=options.received?pack[PREFIX+'repertoires/'+pairId+'.json'].receivedModels.find(p=>p.id===id):index.get(id)?.phrase;assert.ok(phrase);return{pairId,id,level,themeIndex,theme,steps,stepIndex,phrase};}
     }throw Error('No active fixture '+pairId+'/'+id+'/'+(options.themeId||''));
   }
-  async function enter(page,target){await visit(page,target.level,target.pairId);await page.locator('#mgThemeGrid > button').nth(target.themeIndex).click();await page.evaluate(count=>{for(let n=0;n<count;n++)document.getElementById('mgContinue').click();},target.stepIndex);assert.equal(await page.evaluate(()=>window.MelungaMockup.state().phraseId),target.id);}
+  async function enter(page,target){await visit(page,target.level,target.pairId);await page.locator('#mgThemeGrid > button').nth(target.themeIndex).click();await page.evaluate(count=>{for(let n=0;n<count;n++){document.querySelector('#mgChoices:not([hidden]) button')?.click();const next=document.getElementById('mgContinue');if(next.disabled)throw Error('Prepared actual lesson blocked while advancing');next.click();}},target.stepIndex);assert.equal(await page.evaluate(()=>window.MelungaMockup.state().phraseId),target.id);}
   async function checkDom(page,target){for(const[selector,field]of [['#mgPhrase','study'],['#mgPhon','phon'],['#mgTranslation','native'],['#mgReading','reading']])assert.equal(await page.locator(selector).textContent(),target.phrase[field]||'','unchanged whole '+field);await page.click('#mgEar');const spoken=await page.evaluate(()=>window.__classificationSpeech.at(-1));assert.equal(spoken.text,target.phrase.study);assert.equal(spoken.lang.split('-')[0],target.pairId.split('-')[1]);}
   async function savedPanel(page){await page.click('#mgMenuTrigger');await page.locator('[data-menu-item="À revoir"]').click();assert.equal(await page.locator('#mgSavedReviewPanel').isVisible(),true);}
   const cachedEntry=(pairId,op)=>({id:op.id,pairId,level:op.fromLevel,themeId:op.fromTheme,study:'STALE CACHE STUDY',native:'STALE CACHE MEANING',addedAt:100});
@@ -233,6 +259,59 @@ if(require.main===module){
     const bad=clone(actual[PREFIX+'fr-ko/L1.json']);bad.themes[0].phrases[0].phon+=' changed';assert.throws(()=>beforeRead(PREFIX+'fr-ko/L1.json',bad));
     const phrase=clone(canonicalIndex(actual,'fr-ko').values().next().value.phrase);phrase.phon+=' changed';assert.throws(()=>projectPhrase('fr-ko',phrase));report.negativeCasesRejected+=2;
     report.checks.push('classification-tamper-rejection');
+  });
+  function compositionCases(){
+    const state=ensureProjection(),content=require('./uncertain-content.cjs').loadLedger().entries,conventions=require('./convention-corrections.cjs').loadLedger().entries,rows=[];
+    for(const pairId of PAIRS)for(const op of loadLedger(pairId).ledger.ops){const identity=pairId+'\0'+op.id,b=content.get(identity),c=conventions.get(identity);if(b||c){const row=state.canonicalByPair.get(pairId).get(op.id);assert.ok(row);rows.push({pairId,id:op.id,op,b,c,current:row.phrase,route:row});}}
+    return{rows,content,conventions};
+  }
+  test('75 content overlaps and 211 convention overlaps retain complete corrected objects through classification',()=>{
+    const {rows}=compositionCases(),b=rows.filter(r=>r.b),c=rows.filter(r=>r.c),triples=rows.filter(r=>r.b&&r.c);
+    assert.equal(b.length,75);assert.equal(c.length,211);assert.equal(triples.length,6);
+    let changedStudies=0;
+    for(const row of rows){
+      const source=loadLedger(row.pairId).originalById.get(row.id).phrase;
+      for(const f of ['study','native','phon','reading','source','phoneticReviewStatus','uncertainContentCorrection','conventionCorrection'])assert.deepEqual(row.current[f],source[f],'the corrected whole current input field survives the approved route '+row.pairId+'/'+row.id+'/'+f);
+      if(row.b){for(const[field,event]of Object.entries(row.b.fields))assert.equal(row.current[field],field==='phon'&&row.c?row.c.afterPhon:event.after,'content literal survives, followed only by its declared convention literal');
+        if(row.current.study!==at(anchor(row.op.expectedBefore.path),row.op.expectedBefore.location).study)changedStudies++;
+      }
+      if(row.c)assert.equal(row.current.phon,row.c.afterPhon,'the final frozen whole convention aid survives the move');
+    }
+    assert.equal(changedStudies,23);
+    const actual=ensureProjection().actual,changedB=b.find(r=>r.current.study!==at(anchor(r.op.expectedBefore.path),r.op.expectedBefore.location).study),changedC=c.find(r=>r.current.phon!==at(anchor(r.op.expectedBefore.path),r.op.expectedBefore.location).phon);
+    assert.ok(changedB&&changedC);
+    const mutations=[
+      [changedB,p=>{p.study=at(anchor(changedB.op.expectedBefore.path),changedB.op.expectedBefore.location).study;}],
+      [changedC,p=>{p.phon=at(anchor(changedC.op.expectedBefore.path),changedC.op.expectedBefore.location).phon;}],
+      [triples[0],p=>{delete p.uncertainContentCorrection;}],
+      [triples[0],p=>{delete p.conventionCorrection;}]
+    ];
+    for(const[row,mutate]of mutations){const bad=clone(actual);mutate(canonicalIndex(bad,row.pairId).get(row.id).phrase);assert.throws(()=>assertOwnClassification(bad),'an old aid/study or missing prior correction cannot be hidden behind valid routing');report.negativeCasesRejected++;}
+    const errata=['catalogue:ko:3090','catalogue:ko:4275','catalogue:ko:3870','catalogue:ko:1433','catalogue:ko:4193'];
+    const expected=['kkon-nip','al-lyak',...Array(3).fill('ha-ma-to-myon keun-nil nal ppon-hè-sso-yo')];
+    report.composition={approvedInputCommit:INPUT,sourceContentOverlaps:b.length,sourceConventionOverlaps:c.length,tripleOverlaps:triples.length,changedStudies,errata:errata.map((id,index)=>{const row=ensureProjection().canonicalByPair.get('fr-ko').get(id);assert.equal(row.phrase.phon,expected[index]);return{id,level:row.level,themeId:row.themeId,reserved:row.reserved};})};
+    report.checks.push('content-and-convention-composition-whole-objects');
+  });
+  test('corrected moved studies and aids remain visible, audible and complete at both viewport sizes',{timeout:600000},async()=>{
+    const {rows,content,conventions}=compositionCases(),state=ensureProjection(),selected=new Map(),reserved=[];
+    function add(pairId,id){const row=state.canonicalByPair.get(pairId)?.get(id);if(!row)return;if(row.reserved){reserved.push({pairId,id,level:row.level,phon:row.phrase.phon});return;}const target=locate(pairId,id,{level:row.level,themeId:row.themeId});selected.set(pairId+'\0'+id,target);}
+    for(const row of rows.filter(r=>r.b&&r.c))add(row.pairId,row.id);
+    for(const pairId of PAIRS){const changed=rows.find(r=>r.pairId===pairId&&r.b&&r.current.study!==at(anchor(r.op.expectedBefore.path),r.op.expectedBefore.location).study&&!r.route.reserved),any=rows.find(r=>r.pairId===pairId&&r.b&&!r.route.reserved);if(changed)add(pairId,changed.id);if(any)add(pairId,any.id);}
+    for(const pairId of ['fr-es','fr-ko']){const entry=[...conventions.values()].find(e=>e.pairId===pairId&&!state.canonicalByPair.get(pairId).get(e.id)?.reserved&&state.canonicalByPair.get(pairId).has(e.id));assert.ok(entry);add(pairId,entry.id);}
+    for(const id of ['catalogue:ko:3090','catalogue:ko:4275','catalogue:ko:3870','catalogue:ko:1433','catalogue:ko:4193'])add('fr-ko',id);
+    const targets=[...selected.values()];assert.ok(targets.length>=10,'representative whole overlaps remain active');
+    const {context,page}=await pageFixture();try{
+      for(const viewport of [{width:320,height:640},{width:1280,height:720}])for(const target of targets){
+        await page.setViewportSize(viewport);await enter(page,target);await checkDom(page,target);
+        await page.evaluate(async()=>{await document.fonts.ready;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});
+        const fit=await page.evaluate(()=>{const rect=n=>{const r=n.getBoundingClientRect();return{top:r.top,bottom:r.bottom,left:r.left,right:r.right};},visible=n=>n&&!n.hidden&&getComputedStyle(n).display!=='none'&&n.getBoundingClientRect().width>0;return{card:rect(document.getElementById('mgLessonView')),texts:['mgPhrase','mgPhon','mgTranslation','mgReading'].map(id=>document.getElementById(id)).filter(visible).map(n=>{const range=document.createRange();range.selectNodeContents(n);return{id:n.id,rect:rect(range)};}),scroll:[document.scrollingElement,...['mgContent','mgLessonView','mgModel'].map(id=>document.getElementById(id))].map(n=>({id:n.id||n.tagName,vertical:n.scrollHeight-n.clientHeight,horizontal:n.scrollWidth-n.clientWidth})),controls:['mgEar','mgReplay','mgContinue'].every(id=>visible(document.getElementById(id)))};});
+        for(const n of fit.scroll){assert.ok(n.vertical<=2,n.id+' complete composed card without vertical scrolling');assert.ok(n.horizontal<=2,n.id+' complete composed card without horizontal scrolling');}
+        for(const n of fit.texts){assert.ok(n.rect.top>=fit.card.top-2&&n.rect.bottom<=fit.card.bottom+2,n.id+' whole text vertically visible');assert.ok(n.rect.left>=fit.card.left-2&&n.rect.right<=fit.card.right+2,n.id+' whole text laterally visible');}
+        for(let i=0;i<fit.texts.length;i++)for(let j=i+1;j<fit.texts.length;j++){const a=fit.texts[i].rect,b=fit.texts[j].rect;assert.ok(Math.min(a.right,b.right)-Math.max(a.left,b.left)<=1||Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)<=1,'corrected whole text fields do not overlap');}assert.ok(fit.controls);
+        report.cases.push({check:'composed-current-card',pairId:target.pairId,id:target.id,level:target.level,themeId:target.theme.id,viewport,fit});
+      }
+      report.compositionDom={models:targets.length,reservedNotProduced:reserved};report.checks.push('composed-overlap-current-dom');
+    }finally{await context.close();}
   });
   test('all seven pairs and seventy exact cells pass browser guards',async()=>{const{context,page}=await pageFixture();try{for(const pairId of PAIRS)for(let level=1;level<=10;level++){await visit(page,level,pairId);const expected=ensureProjection().actual[PREFIX+pairId+'/L'+level+'.json'];assert.equal(await page.locator('#mgThemeGrid > button').count(),expected.themes.length);report.cases.push({check:'cell-load',pairId,level});}report.checks.push('all-seventy-cells-load');}finally{await context.close();}});
   test('nine reviewed new theme assignments show eight distinct photo crops and all 38 cards enter in one click',async()=>{

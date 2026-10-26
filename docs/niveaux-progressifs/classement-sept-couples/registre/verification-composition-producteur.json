@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "entryCommit": "d30c1c97769fa180e2370e6b182535e3886bc70f",
+  "classificationReferenceCommit": "13f42b5814f2b230d76d2d0ef267dcf406c523c2",
+  "all78OutputBytesMatchGeneration": true,
+  "idempotent": true,
+  "scopedMutationCases": [
+    {
+      "fault": "approved-b-native-reverted",
+      "rejected": true,
+      "reason": "Seven-pair classification: approved composition input differs: melunga_deploy/content/niveaux-progressifs/fr-en/L1.json"
+    },
+    {
+      "fault": "approved-c-phonetic-reverted",
+      "rejected": true,
+      "reason": "Seven-pair classification: approved composition input differs: melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json"
+    },
+    {
+      "fault": "current-b-proof-removed",
+      "rejected": true,
+      "reason": "Seven-pair classification: approved composition input differs: melunga_deploy/content/niveaux-progressifs/fr-en/L1.json"
+    },
+    {
+      "fault": "composed-descriptor-input-rebound",
+      "rejected": true,
+      "reason": "Seven-pair classification: classified composition changed"
+    },
+    {
+      "fault": "classified-current-card-body-changed",
+      "rejected": true,
+      "reason": "Seven-pair classification: classified runtime differs: melunga_deploy/content/niveaux-progressifs/fr-ko/L1.json"
+    }
+  ],
+  "scopedMutationsRejected": 5,
+  "descriptorSha256": "57d7731c5001d065ce53ced537f782953dcd40dd61846627739adeb1bfd06f20",
+  "manifestSha256": "d0c785ebd39b1cc5fa14f6445b08c7982dda03255741f61bcf21c991c34c423c",
+  "producerSha256": "da93ba630aa353bb0e861062242ef70037a91ff9f1128ac265def587bcfc5015",
+  "builderSha256": "c878ae25a3a4c561a2d9436f4631f058c6e263679195f2396fc9e4f34124861e",
+  "doesNotMeasureAcquisition": true,
+  "publicationApproved": false,
+  "fullGeneratorWritten": true,
+  "fullGeneratorCheckPassed": true,
+  "fullGeneratorCheckCommand": "python3 -B tools/maquette-guidee/build_levels.py --check",
+  "originalRegistersVerbatim": [
+    {
+      "pair": "fr-en",
+      "sha256": "dfcde432da30d22ca3375c5544e14fb5f7b6e84db04af9cec8271cf696e984e9",
+      "unchanged": true
+    },
+    {
+      "pair": "fr-es",
+      "sha256": "6bb12de6032dc75d68a9d5f4fe1ad37129b01b51870c38e882627856dac63aee",
+      "unchanged": true
+    },
+    {
+      "pair": "fr-it",
+      "sha256": "1705666cea584e445b8c2f77548da2728b353e2931789798fb30c2b2896ae754",
+      "unchanged": true
+    },
+    {
+      "pair": "fr-ja",
+      "sha256": "04c62d9afe93415a0eaa28da0c7a721a0bdb0795a2cac6f70e34441a14f6659d",
+      "unchanged": true
+    },
+    {
+      "pair": "fr-ko",
+      "sha256": "42c3d363fdf494ba5cb46b5979a3dce645431c82b6d2cdd37e25b08ec958acc6",
+      "unchanged": true
+    },
+    {
+      "pair": "fr-zh",
+      "sha256": "c89ec95f6d592cd296b506d8542db90becb6eca8c9569e8096611a53b9317480",
+      "unchanged": true
+    },
+    {
+      "pair": "zh-fr",
+      "sha256": "fb2123136e462cc72cdcd881b5c86bebd019cab66f182acb5c5320c80a7199f4",
+      "unchanged": true
+    }
+  ]
+}

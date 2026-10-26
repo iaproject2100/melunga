@@ -36,8 +36,14 @@ DATA_ROOT = "melunga_deploy/content/niveaux-progressifs"
 PAIRS = ("fr-en", "fr-es", "fr-it", "fr-ja", "fr-ko", "fr-zh", "zh-fr")
 MANIFEST_PATH = DATA_ROOT + "/manifest.json"
 # Frozen only after independently checking every actual object and derived field.
-DESCRIPTOR_SHA = "a095a8475ef6244453d0e76b6c1c4dd7eef0988afb7dbb129dc9a2d15f7641f4"
-MANIFEST_SHA = "120cd6d8396a0c439b93bf9c352866f342a3d1b6a73a4aaa05400be5aa895a56"
+DESCRIPTOR_SHA = "57d7731c5001d065ce53ced537f782953dcd40dd61846627739adeb1bfd06f20"
+MANIFEST_SHA = "d0c785ebd39b1cc5fa14f6445b08c7982dda03255741f61bcf21c991c34c423c"
+COMPOSITION_INPUT = "d30c1c97769fa180e2370e6b182535e3886bc70f"
+COMPOSITION_MANIFEST_SHA = "8dfc984fd2384deec689b6d59670a0efb128c76ac783fbc602ad985231789b9b"
+COMPOSITION_PROOF = REVIEW_ROOT + "/registre/composition-entree.json"
+COMPOSITION_PROOF_SHA = "e3a227bfb6a9a927ed64330c3d1c4ccef6df548005dc7f0d1b7d8578d65e5091"
+CONVENTION_CHECKER_SHA = "9da06b3f30b2282c445aa6f79eb91b36b05ad85576d66ef8bd457c0082b6ce43"
+_COMPOSITION_CACHE = {}
 
 class ClassificationError(ValueError):
     pass
@@ -62,6 +68,7 @@ def document_paths():
 
 
 _GIT_CACHE = {}
+_BASELINE_CACHE = {}
 
 
 def git_bytes(root, commit, path):
@@ -72,7 +79,82 @@ def git_bytes(root, commit, path):
 
 
 def baseline_documents(root):
-    return {path: json.loads(git_bytes(root, BASE, path)) for path in [*document_paths(), MANIFEST_PATH]}
+    # Immutable Git anchors are read-only; expected objects are always copied
+    # before construction. Reuse avoids reparsing 78 documents for every fault.
+    key=str(root),BASE
+    if key not in _BASELINE_CACHE:
+        _BASELINE_CACHE[key]={path:json.loads(git_bytes(root,BASE,path)) for path in [*document_paths(),MANIFEST_PATH]}
+    return _BASELINE_CACHE[key]
+
+
+def composition_metadata():
+    return {"version": 1, "classificationReferenceCommit": BASE,
+        "inputCommit": COMPOSITION_INPUT, "inputManifestSha256": COMPOSITION_MANIFEST_SHA,
+        "preservedLayers": [
+            {"manifestKey": "uncertainContentCorrections", "registrySha256": "3fa187478a03e1398e7b14fa545c0950bf1ff166789a480745ca689061377130"},
+            {"manifestKey": "conventionCorrections", "registrySha256": "3058f970810166d471607251a2544cb7cdb73e50422794a8bbbedbd613b62705"}],
+        "expectedBeforeChecksUse": "classification-reference", "routesCurrentWholeObjects": True}
+
+
+def composition_documents(pack):
+    """Independently validate the approved C input, distinct from A's anchors.
+
+    Only immutable Git documents are admitted. The existing independent C
+    reader reconstructs B and C from their frozen evidence before those whole
+    current objects can be routed by classification. No producer is imported.
+    """
+    import check_uncertain_content_independent as content
+    import check_conventions_independent as conventions
+    root = Path(pack["root"])
+    checker_path = "tools/maquette-guidee/check_conventions_independent.py"
+    require(sha((root / checker_path).read_bytes()) == CONVENTION_CHECKER_SHA,
+            "pinned independent convention reader differs")
+    pack["fingerprints"][checker_path] = CONVENTION_CHECKER_SHA
+    raw_proof = pack.get("allClassificationCompositionRaw", (root / COMPOSITION_PROOF).read_bytes())
+    require(sha(raw_proof) == COMPOSITION_PROOF_SHA, "composition input proof differs")
+    pack["fingerprints"][COMPOSITION_PROOF] = COMPOSITION_PROOF_SHA
+    proof = json.loads(raw_proof)
+    require(proof.get("version") == 1 and proof.get("id") == "seven-pair-classification-approved-composition-input"
+            and canonical(proof.get("composition")) == canonical(composition_metadata())
+            and proof.get("doesNotChangeRawClassificationRegisters") is True,
+            "composition contract identity or scope differs")
+    require(subprocess.run(["git", "merge-base", "--is-ancestor", COMPOSITION_INPUT, "HEAD"],
+            cwd=root, capture_output=True).returncode == 0, "approved composition input is not an ancestor")
+    paths = [*document_paths(), MANIFEST_PATH]
+    raw = {path: git_bytes(root, COMPOSITION_INPUT, path) for path in paths}
+    raw_hashes = {path: sha(value) for path, value in raw.items()}
+    require(raw_hashes[MANIFEST_PATH] == COMPOSITION_MANIFEST_SHA
+            and proof.get("inputRuntimeSha256ByPath") == raw_hashes,
+            "approved C input whole raw hashes differ")
+    reference_hashes = {path: sha(git_bytes(root, BASE, path)) for path in paths}
+    require(proof.get("referenceRuntimeSha256ByPath") == reference_hashes,
+            "classification anchor whole raw hashes differ")
+    input_manifest=json.loads(raw[MANIFEST_PATH])
+    require(proof.get("preservedLayerDescriptorSha256") == {
+        layer["manifestKey"]: sha(canonical(input_manifest[layer["manifestKey"]]))
+        for layer in composition_metadata()["preservedLayers"]}, "preserved layer descriptors differ")
+    def source_raw(path):
+        value = (root / path).read_bytes(); pack["fingerprints"][path] = sha(value)
+        return value
+    inputs = pack.get("uncertainContentInputs") or content.input_data(root, source_raw)
+    convention_inputs = pack.get("conventionInputs") or conventions.input_data(root, source_raw)
+    pack["uncertainContentInputs"]=inputs
+    pack["conventionInputs"]=convention_inputs
+    cache_key = (str(root), sha(canonical({key:sha(value) for key,value in inputs.items()})),
+                 sha(canonical({key:sha(value) for key,value in convention_inputs.items()})))
+    if cache_key not in _COMPOSITION_CACHE:
+        documents = {path: json.loads(value) for path,value in raw.items()}
+        original = dict(pack)
+        original.update(cells={(pair, level): documents[f"{DATA_ROOT}/{pair}/L{level}.json"]
+            for pair in PAIRS for level in range(1,11)},
+            repertoires={pair: documents[f"{DATA_ROOT}/repertoires/{pair}.json"] for pair in PAIRS},
+            manifest=documents[MANIFEST_PATH], fingerprints={**pack["fingerprints"], **raw_hashes},
+            uncertainContentInputs=inputs, conventionInputs=convention_inputs)
+        validated = conventions.validate(original)
+        require(validated["runtimeObjects"] == 2167 and len(validated["selected"]) == 2100,
+                "approved convention input scope differs")
+        _COMPOSITION_CACHE[cache_key] = (documents, raw_hashes)
+    return _COMPOSITION_CACHE[cache_key]
 
 
 def at(document, location):
@@ -168,18 +250,22 @@ def read_registries(root, overrides=None):
 def read_minimal_pack(root):
     root = Path(root).resolve()
     fingerprints = {}
+    def raw_read(path):
+        value = (root / path).read_bytes(); fingerprints[path] = sha(value)
+        return value
     def read(path):
-        raw = (root / path).read_bytes(); fingerprints[path] = sha(raw)
-        return json.loads(raw)
+        return json.loads(raw_read(path))
     manifest = read(MANIFEST_PATH)
     documents = {path: read(path) for path in document_paths()}
+    raw_read("tools/maquette-guidee/check_all_classification_independent.py")
     return {"root": root, "manifest": manifest,
             "cells": {(pair, level): documents[f"{DATA_ROOT}/{pair}/L{level}.json"]
                       for pair in PAIRS for level in range(1, 11)},
             "repertoires": {pair: documents[f"{DATA_ROOT}/repertoires/{pair}.json"] for pair in PAIRS},
             "fingerprints": fingerprints,
-            "allClassificationRegistryRaw": {pair: (root / path).read_bytes() for pair, path in REGISTRY_PATHS.items()},
-            "allClassificationVisualRaw": (root / VISUAL_PATH).read_bytes()}
+            "allClassificationRegistryRaw": {pair: raw_read(path) for pair, path in REGISTRY_PATHS.items()},
+            "allClassificationVisualRaw": raw_read(VISUAL_PATH),
+            "allClassificationCompositionRaw": raw_read(COMPOSITION_PROOF)}
 
 
 def runtime_documents(pack):
@@ -189,8 +275,10 @@ def runtime_documents(pack):
     return result
 
 
-def expected_canonicals(pair, ledger, before):
+def expected_canonicals(pair, ledger, before, anchor_before):
     old = index_canonical(before, pair)
+    anchors = index_canonical(anchor_before, pair)
+    require(set(old) == set(anchors), "corrected input changed canonical inventory")
     definitions = {(level, theme["id"]): theme for level in range(1, 11)
                    for theme in before[f"{DATA_ROOT}/{pair}/L{level}.json"]["themes"]}
     for row in ledger["newThemes"]:
@@ -200,14 +288,14 @@ def expected_canonicals(pair, ledger, before):
     # All before anchors resolve against the same original edition; no operation
     # or hide may alter the evidence used to validate a later operation.
     for op in ledger["ops"]:
-        require(op["id"] in old, "unknown source operation: " + op["id"])
-        level, theme, path, location, original = old[op["id"]]
+        require(op["id"] in anchors, "unknown source operation: " + op["id"])
+        level, theme, path, location, original = anchors[op["id"]]
         source_theme = "reserve" if theme is None else theme
         require(op["expectedBefore"] == {"level": level, "theme": source_theme, "path": path,
                 "location": location, "study": original["study"]}
                 and op["fromLevel"] == level and op["fromTheme"] == source_theme
                 and op["study"] == original["study"], "whole before anchor differs: " + op["id"])
-        require(at(before[path], location) == original, "unresolved before object")
+        require(at(anchor_before[path], location) == original, "unresolved before object")
     expected, locations = {}, {}
     for identifier, (level, theme, _path, _location, original) in old.items():
         phrase = copy.deepcopy(original); destination = level, theme
@@ -339,8 +427,8 @@ def expected_sequences(pair, level, theme_id, blocks, expected, locations, posit
     return result
 
 
-def validate_pair(pack, pair, ledger, before, actual, visuals):
-    old, expected, locations, orders, definitions, hidden_ids, superseded_ids, ignored = expected_canonicals(pair, ledger, before)
+def validate_pair(pack, pair, ledger, before, actual, visuals, anchor_before):
+    old, expected, locations, orders, definitions, hidden_ids, superseded_ids, ignored = expected_canonicals(pair, ledger, before, anchor_before)
     current = index_canonical(actual, pair)
     require(set(current) == set(old), "canonical inventory lost or invented a card: " + pair)
     for identifier, row in current.items():
@@ -562,12 +650,13 @@ def validate_and_project(pack):
     """Validate the entire actual edition before returning a private historical view."""
     root = Path(pack["root"])
     ledgers = read_registries(root, pack.get("allClassificationRegistryRaw"))
-    before, actual = baseline_documents(root), runtime_documents(pack)
+    anchor_before = baseline_documents(root)
+    (before, before_raw_hashes), actual = composition_documents(pack), runtime_documents(pack)
     require(set(actual) == set(before), "runtime pack omits or adds a document")
     visuals = checked_visuals(pack, ledgers)
     declarations, audits = [], []
     for pair in PAIRS:
-        declaration, audit = validate_pair(pack, pair, ledgers[pair], before, actual, visuals)
+        declaration, audit = validate_pair(pack, pair, ledgers[pair], before, actual, visuals, anchor_before)
         declarations.append(declaration);audits.append(audit)
     totals = dict(sum((Counter(r["counts"]) for r in declarations), Counter()))
     already_reserved = sum(len(r["reserveOperationsAlreadyReservedIds"]) for r in declarations)
@@ -576,7 +665,7 @@ def validate_and_project(pack):
     require(already_reserved == 7 and hidden_additions == 33 and actual_new == 344,
             "explicit reservations and hiding do not reconcile with the simultaneous source edition")
     declaration = {"version": 1, "id": "classement-sept-couples", "pairIds": list(PAIRS), "evidenceCommit": EVIDENCE,
-        "baseSnapshotCommit": BASE, "counts": totals, "pairs": declarations,
+        "baseSnapshotCommit": BASE, "composition": composition_metadata(), "counts": totals, "pairs": declarations,
         "hiddenThemeAdditionalReserves": hidden_additions,
         "reserveLevelChanges": sum(len(r["reserveLevelChanges"]) for r in declarations),
         "reserveOperationsAlreadyReserved": already_reserved, "actualNewReserves": actual_new,
@@ -643,12 +732,30 @@ def validate_and_project(pack):
     before_metrics, after_metrics = Counter(), Counter()
     for audit in audits:
         before_metrics.update(audit["beforeMetrics"]);after_metrics.update(audit["afterMetrics"])
-    summary = {**declaration, "descriptor": declaration, "pairAudits": audits,
+    operation_ids={(pair,op["id"]) for pair,ledger in ledgers.items() for op in ledger["ops"]}
+    content_registry=json.loads((root/"docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json").read_bytes())
+    convention_registry=json.loads((root/"docs/niveaux-progressifs/conventions-tranchees/registre/conventions-tranchees.json").read_bytes())
+    content_ids={(row["pairId"],row["id"]) for row in content_registry["corrections"]}
+    convention_ids={(row["pairId"],row["id"]) for row in convention_registry["corrections"]}
+    current_indices={pair:index_canonical(before,pair) for pair in PAIRS}
+    composition_counts={"operationContentOverlaps":len(operation_ids&content_ids),
+        "operationConventionOverlaps":len(operation_ids&convention_ids),
+        "operationContentAndConventionOverlaps":len(operation_ids&content_ids&convention_ids),
+        "operationStudyAnchorsDifferentFromCurrentStudy":sum(op["study"]!=current_indices[pair][op["id"]][4]["study"]
+            for pair,ledger in ledgers.items() for op in ledger["ops"]),
+        "canonicalCorrectedContentIdentitiesPreserved":sum("uncertainContentCorrection" in row[4] for index in current_indices.values() for row in index.values()),
+        "canonicalConventionIdentitiesPreserved":sum("conventionCorrection" in row[4] for index in current_indices.values() for row in index.values())}
+    require(composition_counts=={"operationContentOverlaps":75,"operationConventionOverlaps":211,
+        "operationContentAndConventionOverlaps":6,"operationStudyAnchorsDifferentFromCurrentStudy":23,
+        "canonicalCorrectedContentIdentitiesPreserved":626,"canonicalConventionIdentitiesPreserved":2099},
+        "approved composition overlap scope differs")
+    summary = {**declaration, "descriptor": declaration, "pairAudits": audits, "compositionCounts":composition_counts,
         "beforeMetrics": dict(before_metrics), "afterMetrics": dict(after_metrics),
         "crossTypePlacements": [r for audit in audits for r in audit["crossTypePlacements"]],
         "newThemeCounts": [{"pair": audit["pair"], **r} for audit in audits for r in audit["newThemeCounts"]],
         "latePrerequisites": late, "missingLocalPreparations": missing, "reservedPrerequisiteGaps": reserved_gaps,
         "sourceFieldsPreserved": True, "actualEditionCheckedBeforePrivateHistoricalProjection": True,
+        "compositionInputIndependentlyValidated": True, "classificationAnchorsRetainedAtOriginalEdition": True,
         "newThemeVisuals": len(visuals)}
     projected = dict(pack)
     projected["cells"] = {(pair, level): copy.deepcopy(before[f"{DATA_ROOT}/{pair}/L{level}.json"])
@@ -656,7 +763,7 @@ def validate_and_project(pack):
     projected["repertoires"] = {pair: copy.deepcopy(before[f"{DATA_ROOT}/repertoires/{pair}.json"]) for pair in PAIRS}
     projected["manifest"] = copy.deepcopy(before[MANIFEST_PATH])
     projected["fingerprints"] = dict(pack["fingerprints"])
-    for path in [*document_paths(), MANIFEST_PATH]:projected["fingerprints"][path] = sha(git_bytes(root, BASE, path))
+    for path in [*document_paths(), MANIFEST_PATH]:projected["fingerprints"][path] = before_raw_hashes[path]
     return projected, summary
 
 
@@ -714,6 +821,33 @@ def adversarial_checks(pack):
         ("typed-tail-source-retyped",typed_source),
         ("reviewed-arrivals-reordered",lambda p:theme(p,predicate=lambda t:t["id"]=="L3-sante")["phrases"].reverse()),
         ("publication-approval-invented",lambda p:p["manifest"].__setitem__("publicationApproved",True))]
+    def corrected_canonical(p, annotation, field=None):
+        return next(row[4] for pair in PAIRS for row in index_canonical(runtime_documents(p),pair).values()
+            if annotation in row[4] and (field is None or field in row[4][annotation]["beforeFields"])
+            and row[4].get("classification"))
+    def rollback_content_study(p):
+        row=corrected_canonical(p,"uncertainContentCorrection","study")
+        row["study"]=row["uncertainContentCorrection"]["beforeFields"]["study"]
+    def rollback_convention_phon(p):
+        row=corrected_canonical(p,"conventionCorrection","phon")
+        row["phon"]=row["conventionCorrection"]["beforeFields"]["phon"]
+    def stale_transport(p, annotation, field):
+        row=next(card for bank in p["repertoires"].values() for card in bank["phrases"]
+            if annotation in card and field in card[annotation]["beforeFields"]
+            and card[field] != card[annotation]["beforeFields"][field])
+        row[field]=row[annotation]["beforeFields"][field]
+    cases += [
+        ("composition-content-study-rolled-back-after-routing",rollback_content_study),
+        ("composition-convention-phon-rolled-back-after-routing",rollback_convention_phon),
+        ("composition-current-content-annotation-lost",lambda p:corrected_canonical(p,"uncertainContentCorrection").pop("uncertainContentCorrection")),
+        ("composition-current-convention-annotation-lost",lambda p:corrected_canonical(p,"conventionCorrection").pop("conventionCorrection")),
+        ("composition-corrected-content-transport-stale",lambda p:stale_transport(p,"uncertainContentCorrection","native")),
+        ("composition-corrected-convention-transport-stale",lambda p:stale_transport(p,"conventionCorrection","phon")),
+        ("composition-preserved-content-manifest-lost",lambda p:p["manifest"].pop("uncertainContentCorrections")),
+        ("composition-preserved-convention-manifest-lost",lambda p:p["manifest"].pop("conventionCorrections")),
+        ("composition-wrong-input-commit",lambda p:descriptor(p)["composition"].__setitem__("inputCommit",BASE)),
+        ("composition-input-proof-bytes-changed",lambda p:p.__setitem__("allClassificationCompositionRaw",p["allClassificationCompositionRaw"]+b"\n")),
+        ("composition-official-compound-erratum-rolled-back",lambda p:index_canonical(runtime_documents(p),"fr-ko")["catalogue:ko:3090"][4].__setitem__("phon","kko-tchip"))]
     results=[]
     for label, mutation in cases:
         candidate=copy.deepcopy(pack)
@@ -739,6 +873,8 @@ def write_audit(root, summary, adverse=None):
         "actualManifestSha256":MANIFEST_SHA,"descriptorSha256":DESCRIPTOR_SHA,
         "sourceRegistrySha256ByPair":REGISTRY_SHAS,"visualRegistrySha256":VISUAL_SHA,
         "evidenceCommit":EVIDENCE,"baseSnapshotCommit":BASE,
+        "approvedCompositionInputCommit":COMPOSITION_INPUT,"compositionProofSha256":COMPOSITION_PROOF_SHA,
+        "independentConventionReaderSha256":CONVENTION_CHECKER_SHA,
         "actualEditionCheckedBeforePrivateHistoricalProjection":True,"summary":summary,
         "adversarialFaultsRejected":len(adverse) if adverse is not None else None,
         "adversarialChecks":adverse,"publicationApproved":False}
@@ -746,7 +882,8 @@ def write_audit(root, summary, adverse=None):
     directory.mkdir(parents=True,exist_ok=True)
     (directory/"audit-independant.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
     rows=["# Audit indépendant du classement des sept couples", "",
-        f"Les sept registres proviennent du commit `{EVIDENCE}` et tous les avant sont résolus simultanément dans `{BASE}`.", "",
+        f"Les sept registres proviennent du commit `{EVIDENCE}` et tous les avant de classement sont résolus simultanément dans `{BASE}`. Les objets entiers routés proviennent de l’édition approuvée `{COMPOSITION_INPUT}`, dont les corrections de contenu et conventions sont reconstruites indépendamment avant utilisation.", "",
+        "La composition conserve 626 canoniques corrigés par le contenu et 2 099 par les conventions. Parmi les opérations de classement, 75 rencontrent le contenu, 211 les conventions et six les deux ; 23 études diffèrent de leur ancre historique et gardent l’étude actuelle approuvée. La projection privée rend les 78 documents C exacts avant la chaîne C → B → historique.", "",
         f"{summary['canonicalPhrasesRetained']} cartes canoniques sont conservées exactement une fois ; {summary['counts']['cards']} opérations, {summary['counts']['levelChanges']} changements de niveau déclarés, plus 6 niveaux cibles explicites de réserve. Aucun texte, aide, lecture, type, niveau source ni preuve antérieure n’est modifié.", "",
         f"{summary['counts']['to-reserve']} décisions vers la réserve comprennent 7 cartes déjà réservées. Les 29 thèmes masqués ajoutent 33 cartes réservées, dont deux déplacements et deux maintiens supplantés. La réserve augmente de 344 cartes, de {summary['reservedBefore']} à {summary['reservedAfter']}.", "",
         "Les nouvelles photos sont des découpes des atlas existants ; les octets et coordonnées sont vérifiés. Les huit intentions et leurs séquences reçues sont conservées ; les extensions typées sont ajoutées après ce noyau. Une présentation déjà contextuelle garde son alias d’intention et compte une seule fois.","",
@@ -763,7 +900,11 @@ def write_audit(root, summary, adverse=None):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root",type=Path,default=ROOT)
-    parser.add_argument("--project-runtime",action="store_true")
+    views=parser.add_mutually_exclusive_group()
+    views.add_argument("--project-runtime",action="store_true",help="Verified C whole documents before classification")
+    views.add_argument("--project-conventions-runtime",action="store_true",help="Verified B documents before conventions")
+    views.add_argument("--project-historical-runtime",action="store_true",help="Verified13f before content/conventions/classification")
+    views.add_argument("--project-all-runtimes",action="store_true",help="All three verified stages after current edition validation")
     parser.add_argument("--self-test",action="store_true")
     parser.add_argument("--write-report",action="store_true")
     args=parser.parse_args()
@@ -774,10 +915,31 @@ def main():
         if args.write_report:write_audit(args.root,summary,adverse)
         output={"summary":summary}
         if adverse is not None:output.update(adversarialFaultsRejected=len(adverse),adversarialChecks=adverse)
-        if args.project_runtime:
-            output["documents"]=runtime_documents(projected)
+        if args.project_runtime or args.project_conventions_runtime or args.project_historical_runtime or args.project_all_runtimes:
+            stages={"conventions": runtime_documents(projected)}
+            if not args.project_runtime:
+                import check_conventions_independent as conventions
+                import check_uncertain_content_independent as content
+                after_convention_projection, convention_validated=conventions.project_runtime(projected)
+                stages["content"]=convention_validated["beforeDocuments"]
+                require(all(canonical(document) == canonical(json.loads(git_bytes(pack["root"], conventions.CONTENT_DEPENDENCY_COMMIT, path)))
+                        for path,document in stages["content"].items()), "private B export differs from complete approved Git documents")
+                output["projectionSummaries"]={"conventions": {**conventions.declaration({}), "runtimeObjects":convention_validated["runtimeObjects"]}}
+                if args.project_historical_runtime or args.project_all_runtimes:
+                    after_content_projection, content_validated=content.project_runtime(after_convention_projection)
+                    stages["historical"]=content.export_before_documents(after_content_projection, content_validated)
+                    require(all(canonical(document) == canonical(json.loads(git_bytes(pack["root"], BASE, path)))
+                            for path,document in stages["historical"].items()), "private historical export differs from complete source Git documents")
+                    output["projectionSummaries"]["content"]={**content_validated["declaration"],"runtimeObjects":content_validated["runtimeObjects"],
+                        "runtimeProfiles":content_validated["runtimeProfiles"],"runtimeChangedFields":content_validated["runtimeChangedFields"]}
+            if args.project_all_runtimes:output["documentsByStage"]=stages
+            else:
+                stage="conventions" if args.project_runtime else "content" if args.project_conventions_runtime else "historical"
+                output["projectionStage"]=stage;output["documents"]=stages[stage]
             output["actualDocumentsSha256"]={p:sha(canonical(d)) for p,d in runtime_documents(pack).items()}
             output["actualRawDocumentSha256"]={p:pack["fingerprints"][p] for p in runtime_documents(pack)}
+            for path,checksum in pack["fingerprints"].items():
+                require(sha((pack["root"]/path).read_bytes())==checksum,"actual source/runtime changed during projection: "+path)
         print(json.dumps(output,ensure_ascii=False,separators=(",",":")))
         return 0
     except (ClassificationError,OSError,KeyError,ValueError,subprocess.CalledProcessError) as exc:

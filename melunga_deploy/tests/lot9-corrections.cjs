@@ -182,7 +182,7 @@ function auditRuntime(){
  }
  for(const file of files){const document=read(file),pair=document.pairId||document.id;assert.deepEqual(projectDocument(pair,document,file.includes('/repertoires/')),baseline(file),'no undeclared change anywhere in runtime document: '+file);}
  const expected=clone(old);Object.assign(expected,manifestDeclarations());for(const pair of expected.pairs)pair.repertoireSha256=hash(uncertainContent.beforeBytes(path.join(WEB,pair.repertoirePath)));assert.deepEqual(manifest,expected,'only three new declarations and actual bank hashes');
- for(const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html'])assert.ok(fs.readFileSync(path.join(WEB,filename)).equals(execFileSync('git',['show',BASELINE+':melunga_deploy/'+filename],{cwd:ROOT,maxBuffer:32*1024*1024})),'UI/classic byte-for-byte unchanged');
+ for(const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html'])assert.ok(uncertainContent.beforeAssetBytes(path.join(WEB,filename)).equals(execFileSync('git',['show',BASELINE+':melunga_deploy/'+filename],{cwd:ROOT,maxBuffer:32*1024*1024})),'historical UI and current classic source bytes preserved');
  assert.equal(stats.A.changedFields,74);assert.equal(stats.B.changedFields,43);
  assert.deepEqual([...audits.A.entries.keys()].filter(id=>audits.B.entries.has(id)),[key('fr-it','catalogue:it:1736')],'one explicit A→B identity chain');
  const erratum= auditErratum();
@@ -200,6 +200,8 @@ if(require.main===module){
   for(const file of files)snapshots.set(file,hash(fs.readFileSync(file)));
   server=http.createServer((req,res)=>{const file=path.resolve(WEB,'.'+new URL(req.url,'http://local').pathname);if(!file.startsWith(WEB+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile())return res.writeHead(404).end();res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css'})[path.extname(file)]||'application/octet-stream');// This server is a historical inverse fixture, validated against actual bytes first.
       if (file.includes('/content/niveaux-progressifs/')) return res.end(uncertainContent.beforeBytes(file));
+      // Historical fixture assets are exposed only after the current A/B/C edition is verified.
+      if (['maquette-guidee.js', 'parcours-niveaux.html', 'maquette-guidee.html'].includes(path.relative(WEB, file))) return res.end(uncertainContent.beforeAssetBytes(file));
       fs.createReadStream(file).pipe(res);});
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));base='http://127.0.0.1:'+server.address().port;
   browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});

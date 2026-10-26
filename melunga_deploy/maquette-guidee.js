@@ -979,7 +979,7 @@
 
   // Only this reviewed ledger may relax density or type guards. The complete
   // finite policy is pinned; changing the manifest cannot widen an exception.
-  const allClassificationPolicySha = 'a095a8475ef6244453d0e76b6c1c4dd7eef0988afb7dbb129dc9a2d15f7641f4';
+  const allClassificationPolicySha = '57d7731c5001d065ce53ced537f782953dcd40dd61846627739adeb1bfd06f20';
   const classificationPairIds = ['fr-en', 'fr-es', 'fr-it', 'fr-ja', 'fr-ko', 'fr-zh', 'zh-fr'];
   const stableJson = value => JSON.stringify((function sort(item) {
     if (Array.isArray(item)) return item.map(sort);
@@ -1002,6 +1002,7 @@
     if (!policy || policy.version !== 1 || policy.id !== 'classement-sept-couples'
         || !sameItems(policy.pairIds, classificationPairIds)
         || policy.baseSnapshotCommit !== '13f42b5814f2b230d76d2d0ef267dcf406c523c2'
+        || policy.composition?.inputCommit !== 'd30c1c97769fa180e2370e6b182535e3886bc70f'
         || policy.evidenceCommit !== '342600641c8a621019d0c05d75a481843640e9ed'
         || !Array.isArray(policy.pairs) || policy.pairs.length !== 7
         || !window.crypto?.subtle) throw new Error('Invalid classification policy');

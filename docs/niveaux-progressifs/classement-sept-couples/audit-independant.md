@@ -1,6 +1,8 @@
 # Audit indépendant du classement des sept couples
 
-Les sept registres proviennent du commit `342600641c8a621019d0c05d75a481843640e9ed` et tous les avant sont résolus simultanément dans `13f42b5814f2b230d76d2d0ef267dcf406c523c2`.
+Les sept registres proviennent du commit `342600641c8a621019d0c05d75a481843640e9ed` et tous les avant de classement sont résolus simultanément dans `13f42b5814f2b230d76d2d0ef267dcf406c523c2`. Les objets entiers routés proviennent de l’édition approuvée `d30c1c97769fa180e2370e6b182535e3886bc70f`, dont les corrections de contenu et conventions sont reconstruites indépendamment avant utilisation.
+
+La composition conserve 626 canoniques corrigés par le contenu et 2 099 par les conventions. Parmi les opérations de classement, 75 rencontrent le contenu, 211 les conventions et six les deux ; 23 études diffèrent de leur ancre historique et gardent l’étude actuelle approuvée. La projection privée rend les 78 documents C exacts avant la chaîne C → B → historique.
 
 33654 cartes canoniques sont conservées exactement une fois ; 2906 opérations, 622 changements de niveau déclarés, plus 6 niveaux cibles explicites de réserve. Aucun texte, aide, lecture, type, niveau source ni preuve antérieure n’est modifié.
 
@@ -26,4 +28,4 @@ Les seuils des petits thèmes sont des exceptions finies calculées sur cette é
 
 72 thèmes visibles restent sous six concepts avec leurs seuils finis explicites. Le thème fr-es L8-travail contient 188 cartes et 188 présentations, au-dessus du seuil d’alerte de 100.
 
-Contre-exemples ciblés rejetés : 26. Aucune publication n’est approuvée.
+Contre-exemples ciblés rejetés : 37. Aucune publication n’est approuvée.

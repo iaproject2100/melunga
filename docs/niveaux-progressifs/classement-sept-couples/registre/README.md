@@ -14,12 +14,19 @@ anglaise n’est utilisée comme entrée.
 
 ## Édition et ordre d’application
 
-`all_classification.py` applique cette couche après les corrections existantes,
-jusqu’au contenu du lot 9. Les fichiers d’entrée sont liés au snapshot
-`13f42b5814f2b230d76d2d0ef267dcf406c523c2`. Pour chaque couple, tous les
-`expectedBefore` sont confrontés à cette même édition avant la première mutation.
-Le texte, l’identité, le niveau, le thème, le chemin et la position doivent
-correspondre exactement. Un écart arrête la génération.
+`all_classification.py` applique cette couche après le contenu tranché et les
+conventions approuvées, déjà réunis dans `main` au commit
+`d30c1c97769fa180e2370e6b182535e3886bc70f`. Les 78 fichiers de cette entrée
+corrigée sont figés dans [composition-entree.json](composition-entree.json).
+
+Les sept registres originaux ne sont pas réécrits : leurs `expectedBefore`
+restent confrontés au snapshot de référence
+`13f42b5814f2b230d76d2d0ef267dcf406c523c2`. Le texte attendu, l’identité, le
+niveau, le thème, le chemin et la position doivent correspondre exactement à
+cette référence. Les positions courantes doivent aussi être identiques ; les
+objets entiers déplacés sont cependant ceux de l’entrée corrigée, avec leurs
+nouvelles études, sens, aides, lectures et annotations. Un écart de preuve ou
+d’entrée complète arrête la génération.
 
 Les cartes survivantes gardent leur ordre ; les entrantes suivent l’ordre stable
 du registre. Les neuf nouveaux thèmes sont insérés avant la première rubrique
@@ -64,7 +71,7 @@ réserve suit ce niveau d’arrivée, déclaré séparément par `reserveLevelCh
 
 ## Champs et présentations
 
-Les seuls champs canoniques modifiés sont `editorialLevel`, les trois clés
+Par rapport à l’entrée approuvée après contenu et conventions, les seuls champs canoniques modifiés sont `editorialLevel`, les trois clés
 courantes `placement.domain`, `placement.themeId`, `placement.section`, et la
 nouvelle annotation `classification`. Tous les autres champs sont comparés
 égaux après restauration de ces cinq éléments : étude, sens, aide entière,
@@ -103,7 +110,7 @@ d’écoute. Seuls deux pointeurs changent : `catalogue:en:748` désigne désorm
 réserve canonique L3 et `catalogue:zh:3907` le canonique actif L2. Les étapes
 `receive` d’origine restent hors production et hors progression de production.
 
-## Empreintes et composition future
+## Empreintes et composition de la livraison
 
 Le manifeste et le rapport portent `allClassification`. Son empreinte canonique
 complète est figée, ainsi que le manifeste entier et les onze fichiers de chaque
@@ -112,11 +119,24 @@ exacte est sans effet ; un descripteur ou un fichier de sortie modifié est
 refusé. Le mode historique `include_situations=False` conserve ses sorties
 historiques sans cette couche.
 
-Cette PR contient uniquement le classement. Les travaux séparés de contenu
-incertain et de conventions ne sont pas incorporés. Leur composition future
-nécessitera un ordre de couches explicite, une nouvelle confrontation aux
-preuves et un nouveau gel des empreintes ; aucun flottement de référence ne
-les appliquera implicitement.
+Les trois lots sont composés explicitement dans cet ordre : contenu tranché,
+conventions, classement. Les 637 événements de contenu et les 2 100 aides de
+convention sont déjà approuvés dans l’entrée `main`. Le nouveau diff de cette
+PR porte sur le classement et sur le raccord explicite de ces couches.
+
+Parmi les opérations de classement, 75 identités ont aussi une correction de
+contenu, dont 23 études changées ; 211 ont une correction de convention, et six
+sont communes aux trois lots. Le [relevé des recouvrements](recouvrements-composition.json)
+les énumère. Aucun avant historique n’est remplacé par un après pour faire
+passer le contrôle. Les preuves de correction restent des événements
+historiques à leurs positions d’origine ; la couche de classement déclare les
+emplacements actuels et conserve leurs annotations.
+
+Le descripteur `allClassification.composition` nomme les deux snapshots et les
+deux registres préservés. Ses empreintes et celles des sorties sont à nouveau
+figées. Le contrôle indépendant vérifie l’édition composée avant de restituer
+une copie privée exacte de l’entrée approuvée, puis de vérifier les couches de
+convention et de contenu précédentes.
 
 Les visuels utilisent neuf affectations et huit cadrages photographiques
 existants, le cadrage Téléphone étant partagé entre fr-en et fr-ja ; aucun asset
@@ -126,4 +146,4 @@ n’est créé. Le registre et les cadrages sont documentés dans
 Les contrôles de traçabilité ne prouvent ni acquisition ni validation pédagogique
 de chaque apprenant. Aucun `lv` source, prix, abonnement, droit gratuit,
 authentification ou carte du catalogue classique de 32 115 cartes ne change.
-Aucune fusion dans `main` ni publication sur melunga.com n’est autorisée ici.
+La PR #17 attend le dernier accord de Kartech sur son aperçu composé avant fusion et publication.
