@@ -48,7 +48,7 @@ a{color:inherit;text-underline-offset:3px}
 .mg-progress.is-level-progress{position:relative;display:flex;align-items:stretch;height:46px;flex:0 0 46px;border:1px solid var(--mg-line);border-radius:25px;background:var(--mg-surface);overflow:hidden;margin-bottom:18px;--mg-journey-colour:rgb(80,214,232)}
 .is-level-progress .mg-progress-lane{position:relative;flex:1 1 0;min-width:0;height:100%}
 .mg-progress.is-level-progress #mgProgress{border-radius:0;background:linear-gradient(90deg,#35b9ce,var(--mg-journey-colour));transition:width .3s ease}
-.mg-level-percent{position:absolute;left:clamp(6px,calc(var(--mg-level-ratio,0%) - 36px),calc(100% - 78px));top:5px;display:flex;align-items:center;justify-content:center;width:72px;min-width:72px;height:34px;padding:0 8px;border-radius:20px;background:var(--mg-journey-colour);color:#153c47;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1;white-space:nowrap;box-shadow:0 2px 7px rgba(1,25,43,.1);transition:left .3s ease,background-color .3s ease}
+.mg-level-percent{position:absolute;left:6px;top:5px;display:flex;align-items:center;justify-content:center;width:72px;min-width:72px;height:34px;padding:0 8px;border-radius:20px;background:var(--mg-journey-colour);color:#153c47;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1;white-space:nowrap;box-shadow:0 2px 7px rgba(1,25,43,.1);transition:background-color .3s ease}
 .mg-level-end{display:flex;align-items:center;justify-content:center;flex:0 0 52px;min-width:52px;height:100%;padding:0 8px;color:var(--mg-ink);font-size:15px;font-weight:650;line-height:1;white-space:nowrap}
 .is-level-progress.is-complete{border-color:var(--mg-journey-colour)}
 .is-level-progress.is-complete .mg-level-end{font-weight:800}

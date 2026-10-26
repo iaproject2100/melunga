@@ -1,5 +1,5 @@
 /* Level progress acceptance: exact independent card identities, explicit known
- * declarations, persistent local status, a theme-only moving capsule, and an
+ * declarations, persistent local status, a theme-only fixed-label capsule, and an
  * unchanged lesson/classic UI.
  * Local Chromium and emulated screens; only read-only access GETs are mocked. */
 'use strict';
@@ -11,7 +11,7 @@ const REPO=path.resolve(__dirname,'../..'),WEB=path.join(REPO,'melunga_deploy');
 const BASE='a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f',ORIGIN='https://level-progress.test';
 // The account component changes course-access. The reviewed presentation has
 // its own whole CSS pin; other protected files keep the public main reference.
-const REVIEWED_CSS_SHA='1673adf7d53263dd643b59a298d06caf6de595bce1587025317af54fed2033b8';
+const REVIEWED_CSS_SHA='af06c0518e80af465eeb4349f5ff1d4a0615bf18b37ac7eeacf5b38eca1bf968';
 const ACCOUNT_COMPONENT_REF='665d0def5df2644bb8421553ed4876292ef23f10';
 const BEFORE_CAPSULE_REF='711537b';
 const KNOWN='melunga-guided-known-v1',REVIEW='melunga-guided-review-v1';
@@ -105,8 +105,9 @@ async function capsuleGeometry(page){
  });
  assert.ok(g.pill.width>0&&g.end.width>0&&g.host.height>0,'theme capsule is visible');
  assert.ok(g.host.left>=-1&&g.host.right<=g.viewport+1&&g.documentWidth<=g.viewport+1,'capsule fits viewport '+JSON.stringify(g));
- assert.ok(g.pill.left>=g.lane.left-1&&g.pill.right<=g.lane.right+1,'moving percentage stays inside its lane '+JSON.stringify(g));
- assert.ok(g.pill.right<=g.end.left-2,'moving percentage never overlaps Fin '+JSON.stringify(g));
+ assert.ok(g.pill.left>=g.lane.left-1&&g.pill.right<=g.lane.right+1,'fixed percentage stays inside its lane '+JSON.stringify(g));
+ assert.ok(Math.abs(g.pill.left-g.lane.left-6)<=.5,'percentage remains six pixels from the lane start at every size and value '+JSON.stringify(g));
+ assert.ok(g.pill.right<=g.end.left-2,'fixed percentage never overlaps Fin '+JSON.stringify(g));
  assert.ok(g.pill.top>=g.host.top-1&&g.pill.bottom<=g.host.bottom+1,'percentage stays inside capsule vertically '+JSON.stringify(g));
  assert.ok(g.pill.scrollWidth<=g.pill.clientWidth+1&&g.end.scrollWidth<=g.end.clientWidth+1,'percentage and Fin are complete '+JSON.stringify(g));
  return g;
@@ -136,21 +137,21 @@ test('card sources, access, prices, logo and per-theme counters are preserved', 
  const a=await fixture({baselineJs:true}),b=await fixture();try{const oldCounts=await a.page.locator('#mgThemeGrid .mg-theme-count').allTextContents(),newCounts=await b.page.locator('#mgThemeGrid .mg-theme-count').allTextContents();assert.deepEqual(newCounts,oldCounts);assert.ok(newCounts.includes('15 expressions'));assert.match(await a.page.locator('#mgCounter').textContent(),/116 expressions.*234 mots/);await progress(b.page,'fr-ja',1,[]);report.cases.push({name:'conservation',runtimeJson:78,protectedFiles:protectedFiles.length,themeCounts:newCounts});}finally{await a.context.close();await b.context.close();}
 }));
 
-test('French and Chinese capsules move toward Fin at every size without overlap and remain readable in three ambiences', {timeout:90000},()=>checked('fresh-and-localized-header',async()=>{
+test('French and Chinese capsules keep the percentage fixed while filling toward Fin at every size and in three ambiences', {timeout:90000},()=>checked('fresh-and-localized-header',async()=>{
  assert.equal(levelData('fr-ja').ids.length,361);assert.equal(levelData('fr-zh').ids.length,314);assert.equal(levelData('zh-fr').ids.length,344);assert.equal(levelData('fr-ja').positions.length,363);
  for(const pair of ['fr-ja','zh-fr'])for(const width of [320,390,1440]){
   const f=await fixture({pair,width,height:width>760?900:700});try{
-   const ids=levelData(pair).ids,positions=[];
+   const ids=levelData(pair).ids,positions=[],fills=[];
    for(const target of [0,25,50,99,100]){
     const known=ids.slice(0,Math.ceil(ids.length*target/100));await seedKnown(f.page,pair,known);const p=await progress(f.page,pair,1,known);assert.equal(p.percent,target);
-    const geometry=await capsuleGeometry(f.page);assert.ok(Math.abs(geometry.fill.width/geometry.lane.width-p.ratio)<0.005,'fill uses the whole-level ratio relative to its lane');positions.push(geometry.pill.left);
-    report.cases.push({name:'localized-moving-capsule',pair,width,target,...p,geometry});
+    const geometry=await capsuleGeometry(f.page);assert.ok(Math.abs(geometry.fill.width/geometry.lane.width-p.ratio)<0.005,'fill uses the whole-level ratio relative to its lane');positions.push(geometry.pill.left-geometry.lane.left);fills.push(geometry.fill.width);
+    report.cases.push({name:'localized-fixed-capsule',pair,width,target,...p,geometry});
     if(pair==='fr-ja'&&width===390&&target===0)await capture(f.page,'fresh-level-zero');
     if(pair==='zh-fr'&&width===390&&target===25)await capture(f.page,'chinese-native-level-progress');
-    if(pair==='fr-ja'&&width===320&&target===25)await capture(f.page,'moving-capsule-mobile-320');
-    if(pair==='fr-ja'&&width===1440&&target===50)await capture(f.page,'moving-capsule-desktop');
+    if(pair==='fr-ja'&&width===320&&[25,50].includes(target))await capture(f.page,'fixed-capsule-mobile-320-'+target);
+    if(pair==='fr-ja'&&width===1440&&target===50)await capture(f.page,'fixed-capsule-desktop');
    }
-   assert.ok(positions.every((x,i)=>i===0||x>=positions[i-1]-.5),'percentage moves monotonically toward Fin');assert.ok(positions[0]<positions[2]&&positions[2]<positions[4],'percentage visibly advances rather than staying fixed');
+   assert.ok(positions.every(x=>Math.abs(x-positions[0])<=.5),'percentage stays in the same position at every completion value');assert.ok(fills.every((x,i)=>i===0||x>fills[i-1]),'actual fill advances monotonically toward Fin');
   }finally{await f.context.close();}
  }
  const malformed=await fixture({width:280,height:500,knownRaw:'{malformed-json'});try{await progress(malformed.page,'fr-ja',1,[]);await capsuleGeometry(malformed.page);}finally{await malformed.context.close();}

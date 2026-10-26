@@ -15,3 +15,5 @@ Vérification locale Chromium : douze combinaisons (320, 390 et 1440 px × quatr
 Douze combinaisons de largeur et pourcentage ont été vérifiées localement : 320, 390 et 1200 px, aux quatre valeurs. Aucun chevauchement entre le chiffre et « Fin », aucune erreur JS ni requête API. La pastille réserve la largeur de « 100 % » et reste bornée aux deux extrémités.
 
 La variante 2 (pastille mobile) est retenue. `proposition-capsule.html` présente désormais cette variante seule avec le dégradé turquoise → vert → doré. Le parcours réel l’intègre également ; les rapports de composition courants sont dans `../capsule-coloree/`. Les images des variantes antérieures restent des archives de comparaison.
+
+Kartech préfère finalement la variante 1 : pourcentage fixe à gauche, avec les couleurs de la capsule. Le parcours et la démonstration sont actualisés ; les contrôles courants sont dans `../capsule-fixe-coloree/`. Les captures précédentes de pastille mobile sont historiques.
