@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-26T21:59:48.123Z",
+  "preCapsuleCommit": "711537b27778c38f43e49fc47bfca513e8d94d97",
+  "scope": "four finite whole UI assets, preserved historical logo/source gate; no full classification audit or browser matrix",
+  "wholeAssetPins": 9,
+  "assetSha256": {
+    "melunga_deploy/app.html": "7faee15f692c0c79c0f3937bc87f246225efc4f410bd10c4bf5401b5c38b8d90",
+    "melunga_deploy/index.html": "00dc701d8b9b5a84b025e9cc369d336317610fd92f2af4d34802cd830969fdbb",
+    "melunga_deploy/course-access.js": "b5b3e0d547c84aa24b59d7381a5bfbf11a27836885b875e284b5795873abd082",
+    "melunga_deploy/content/course-access.json": "35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05",
+    "melunga_deploy/melunga-logo.svg": "b653fbd78c7b2a3853ad628d83e4230726a17f71e0a5441a01947dd854f86cec",
+    "melunga_deploy/maquette-guidee.css": "1673adf7d53263dd643b59a298d06caf6de595bce1587025317af54fed2033b8",
+    "melunga_deploy/maquette-guidee.js": "7da1a3539013ced41084d2dfa300c8f6c18b96b7cf9bab33b4955e2c113e29ae",
+    "melunga_deploy/maquette-guidee.html": "c143138077075e79a71e5b827b74a8b78a054b5c87f6142456b6de134933d020",
+    "melunga_deploy/parcours-niveaux.html": "523aa448cddf2974492bf63db9bf024846e3105e28bcb36cd3ed970c03afcc9c"
+  },
+  "unauthorizedUiMutationsRejected": [
+    {
+      "file": "melunga_deploy/maquette-guidee.js",
+      "rejected": true,
+      "inMemoryOnly": true
+    },
+    {
+      "file": "melunga_deploy/maquette-guidee.css",
+      "rejected": true,
+      "inMemoryOnly": true
+    },
+    {
+      "file": "melunga_deploy/maquette-guidee.html",
+      "rejected": true,
+      "inMemoryOnly": true
+    },
+    {
+      "file": "melunga_deploy/parcours-niveaux.html",
+      "rejected": true,
+      "inMemoryOnly": true
+    }
+  ],
+  "historicalLogoCanonicalSourceGate": "passed existing canonical-source callback only; browser hooks not executed",
+  "runtimeJsonByteExactCount": 78,
+  "logoPngAndEntire43PercentCssRulePreserved": true,
+  "knownProgressMathByteExact": true,
+  "onlyAuthorizedProductPaths": [
+    "melunga_deploy/maquette-guidee.js",
+    "melunga_deploy/maquette-guidee.css",
+    "melunga_deploy/maquette-guidee.html",
+    "melunga_deploy/parcours-niveaux.html"
+  ],
+  "accountBackendPricesAndOtherProductFilesUnchanged": true,
+  "changedOwnedTests": [
+    "melunga_deploy/tests/all-classification.cjs",
+    "melunga_deploy/tests/logo-outline.browser.cjs"
+  ],
+  "ownedSha256": {
+    "melunga_deploy/tests/all-classification.cjs": "e6b8550189824a774b74446df456742075eb29b4f07bde39048f953ac522ecc1",
+    "melunga_deploy/tests/logo-outline.browser.cjs": "d3f9f23fe98591abfd22c5a204eb80679778e2613e811f63463e6cb2542b5077"
+  },
+  "syntaxChecks": 2,
+  "gitDiffCheck": "passed",
+  "fullAuditRerun": false,
+  "browserRerun": false,
+  "committedByThisAgent": false,
+  "pushedByThisAgent": false,
+  "mergedByThisAgent": false
+}

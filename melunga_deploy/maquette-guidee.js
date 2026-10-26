@@ -18,7 +18,8 @@
     accountStatus: byId('mgAccountStatus'), accountBack: byId('mgAccountBack'),
     accountLogout: byId('mgAccountLogout'), accountLogin: byId('mgAccountLogin'), accountError: byId('mgAccountError'),
     back: byId('mgBack'), backText: byId('mgBackText'),
-    counter: byId('mgCounter'), progress: byId('mgProgress'), progressTrack: byId('mgProgress').parentElement, content: byId('mgContent'),
+    counter: byId('mgCounter'), progress: byId('mgProgress'), progressTrack: byId('mgProgress').closest('.mg-progress'), content: byId('mgContent'),
+    levelPercent: byId('mgLevelPercent'), levelEnd: byId('mgLevelEnd'),
     loading: byId('mgLoading'), loadingText: byId('mgLoadingText'), retry: byId('mgRetry'),
     themeView: byId('mgThemeView'), themeGrid: byId('mgThemeGrid'),
     sequenceView: byId('mgSequenceView'), sequenceHeading: byId('mgSequenceHeading'),
@@ -113,7 +114,7 @@
     'Menu': '菜单', 'Menu des rubriques': '栏目菜单', 'Rubriques': '栏目',
     'Revenir au menu': '返回菜单', 'Fermer le menu': '关闭菜单', 'Fermer les niveaux': '关闭级别选择',
     'Cette progression ne peut pas être enregistrée. Réessaie avant de quitter cette page.': '无法保存学习进度。请在离开此页前重试。',
-    'Accueil': '首页', 'Révisions et exercices': '复习与练习', 'Toutes les leçons': '所有课程',
+    'Accueil': '首页', 'Révisions et exercices': '复习与练习', 'Toutes les leçons': '所有课程', 'Fin': '完成',
     'Voix': '语音', 'Couleur': '背景颜色', 'Comment ça marche': '使用方法',
     'Avis': '意见反馈', 'Se connecter / Créer un compte': '登录 / 注册账号',
     'Voix automatique': '自动选择语音', 'Vitesse de lecture': '语速',
@@ -234,8 +235,19 @@
     const levelName = state.pair.nativeLanguage === 'zh'
       ? '第 ' + state.pair.level + ' 级' : 'Niveau ' + state.pair.level;
     const label = levelName + ' · ' + summary.percent + ' %';
-    text(ui.counter, label);
+    text(ui.counter, 'L' + state.pair.level);
+    text(ui.levelPercent, summary.percent + ' %');
+    text(ui.levelEnd, tr('Fin'));
     ui.progress.style.width = summary.ratio * 100 + '%';
+    ui.progressTrack.style.setProperty('--mg-level-ratio', summary.ratio * 100 + '%');
+    // Positive colour cues are presentation only; the known-card ratio above
+    // remains the sole source of progress and completion.
+    const stops = [[80, 214, 232], [112, 234, 173], [255, 216, 113]];
+    const stage = summary.ratio < 0.5 ? 0 : 1;
+    const blend = stage ? (summary.ratio - 0.5) * 2 : summary.ratio * 2;
+    const colour = stops[stage].map((channel, index) => Math.round(channel + (stops[stage + 1][index] - channel) * blend));
+    ui.progressTrack.style.setProperty('--mg-journey-colour', 'rgb(' + colour.join(', ') + ')');
+    ui.progressTrack.classList.toggle('is-complete', summary.known === summary.total && summary.total > 0);
     ui.progressTrack.removeAttribute('aria-hidden');
     ui.progressTrack.setAttribute('role', 'progressbar');
     ui.progressTrack.setAttribute('aria-label', levelName);
@@ -641,7 +653,12 @@
     ui.menuTrigger.disabled = screen === 'loading';
     ui.content.scrollTop = 0;
     document.body.dataset.view = screen;
-    if (ui.level && screen === 'themes') renderLevelProgress();
+    const levelSummary = Boolean(ui.level && screen === 'themes');
+    document.body.classList.toggle('mg-has-level-progress', levelSummary);
+    ui.progressTrack.classList.toggle('is-level-progress', levelSummary);
+    if (ui.levelPercent) ui.levelPercent.hidden = !levelSummary;
+    if (ui.levelEnd) ui.levelEnd.hidden = !levelSummary;
+    if (levelSummary) renderLevelProgress();
     else {
       ui.progressTrack.setAttribute('aria-hidden', 'true');
       for (const attr of ['role', 'aria-label', 'aria-valuemin', 'aria-valuemax', 'aria-valuenow', 'aria-valuetext']) ui.progressTrack.removeAttribute(attr);

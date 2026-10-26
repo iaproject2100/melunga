@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#143b56">
   <title>Melunga — la capsule de progression</title>
-  <link rel="stylesheet" href="maquette-guidee.css?v=15">
+  <link rel="stylesheet" href="maquette-guidee.css?v=16">
   <style>
     :root{--example:25%}
     .capsule-page{max-width:760px;margin:auto;padding:22px 20px 32px}
@@ -26,11 +26,11 @@
     .description{font-size:14px;color:var(--mg-muted);margin:0 0 24px}
     .level{display:block;font-size:15px;line-height:1;margin-bottom:11px;color:var(--mg-muted);font-weight:700}
     .capsule{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;min-height:52px;border:1px solid rgba(235,250,255,.3);border-radius:28px;overflow:hidden;background:rgba(4,29,58,.13)}
-    .fill{position:absolute;inset:0 auto 0 0;width:var(--example);height:100%;background:rgba(164,236,220,.27);z-index:-1;transition:width .25s ease}
+    .fill{position:absolute;inset:0 auto 0 0;width:var(--example);height:100%;background:linear-gradient(90deg,#35b9ce,var(--example-colour,#50d6e8));z-index:-1;transition:width .25s ease}
     .percentage{margin-left:18px;font-size:21px;font-weight:800;letter-spacing:-.025em;white-space:nowrap;font-variant-numeric:tabular-nums}
     .end{display:block;flex:0 0 48px;line-height:1;text-align:center;margin-right:12px;font-size:16px;font-weight:650;color:rgba(246,251,255,.84)}
     .moving .lane{position:relative;flex:1 1 0;min-width:0;align-self:stretch}
-    .moving .percentage{position:absolute;top:7px;left:clamp(6px,calc(var(--example) - 36px),calc(100% - 78px));display:flex;align-items:center;justify-content:center;width:72px;min-width:72px;height:36px;margin:0;padding:0 8px;border-radius:20px;background:var(--mg-accent);color:var(--mg-accent-ink);font-size:19px;transition:left .25s ease}
+    .moving .percentage{position:absolute;top:7px;left:clamp(6px,calc(var(--example) - 36px),calc(100% - 78px));display:flex;align-items:center;justify-content:center;width:72px;min-width:72px;height:36px;margin:0;padding:0 8px;border-radius:20px;background:var(--example-colour,#50d6e8);color:#153c47;font-size:19px;transition:left .25s ease}
     .moving .end{align-self:center}
     .moving .fill{z-index:0;pointer-events:none}
     .moving .percentage,.moving .end{z-index:1}
@@ -45,8 +45,8 @@
       <a href="parcours-niveaux.html?pair=fr-zh&amp;level=1" aria-label="Melunga, revenir au parcours"><img class="mg-logo" src="melunga-logo.png" alt=""><span>Melunga</span></a>
       <a href="propositions-progression.html">Les 4 propositions</a>
     </header>
-    <h1>La capsule, jusqu’à « Fin »</h1>
-    <p class="intro">Le pourcentage indique l’avancement et « Fin » marque l’arrivée à 100 %.</p>
+    <h1>Votre capsule de progression</h1>
+    <p class="intro">La pastille avance, du turquoise au vert, puis au doré à 100 %.</p>
     <div class="examples" aria-label="Choisir un exemple">
       <span>Exemples de progression</span>
       <button type="button" data-percent="0" aria-pressed="false">0 %</button>
@@ -56,15 +56,7 @@
     </div>
     <div class="capsule-options">
       <article class="proposal">
-        <h2>1. Pourcentage fixe</h2>
-        <p class="description">Le chiffre reste à gauche, la capsule se remplit.</p>
-        <span class="level">L1</span>
-        <div class="capsule" role="progressbar" aria-label="Niveau 1" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25">
-          <span class="fill"></span><span class="percentage">25 %</span><span class="end">Fin</span>
-        </div>
-      </article>
-      <article class="proposal">
-        <h2>2. Pourcentage qui avance</h2>
+        <h2>La pastille avance vers « Fin »</h2>
         <p class="description">Le chiffre avance vers « Fin ».</p>
         <span class="level">L1</span>
         <div class="capsule moving" role="progressbar" aria-label="Niveau 1" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25">
@@ -80,6 +72,12 @@
     const buttons = [...document.querySelectorAll('[data-percent]')];
     function showExample(percent) {
       document.documentElement.style.setProperty('--example', percent + '%');
+      const ratio = percent / 100;
+      const stops = [[80, 214, 232], [112, 234, 173], [255, 216, 113]];
+      const stage = ratio < 0.5 ? 0 : 1;
+      const blend = stage ? (ratio - 0.5) * 2 : ratio * 2;
+      const colour = stops[stage].map((channel, index) => Math.round(channel + (stops[stage + 1][index] - channel) * blend));
+      document.documentElement.style.setProperty('--example-colour', 'rgb(' + colour.join(', ') + ')');
       document.querySelectorAll('.percentage').forEach(node => { node.textContent = percent + ' %'; });
       document.querySelectorAll('[role="progressbar"]').forEach(node => {
         node.setAttribute('aria-valuenow', String(percent));

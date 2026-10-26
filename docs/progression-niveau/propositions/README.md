@@ -13,3 +13,5 @@ Vérification locale Chromium : douze combinaisons (320, 390 et 1440 px × quatr
 `melunga_deploy/proposition-capsule.html` montre deux variantes : pourcentage fixe à gauche, ou pastille mobile vers « Fin ». Le libellé du niveau reste « L1 ». Le pourcentage est illustratif, piloté par les boutons 0/25/50/100 ; « Fin » est un repère sans action. La présentation effective du parcours reste celle de `802a19e` pendant le choix.
 
 Douze combinaisons de largeur et pourcentage ont été vérifiées localement : 320, 390 et 1200 px, aux quatre valeurs. Aucun chevauchement entre le chiffre et « Fin », aucune erreur JS ni requête API. La pastille réserve la largeur de « 100 % » et reste bornée aux deux extrémités.
+
+La variante 2 (pastille mobile) est retenue. `proposition-capsule.html` présente désormais cette variante seule avec le dégradé turquoise → vert → doré. Le parcours réel l’intègre également ; les rapports de composition courants sont dans `../capsule-coloree/`. Les images des variantes antérieures restent des archives de comparaison.

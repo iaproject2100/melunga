@@ -1,5 +1,6 @@
 /* Level progress acceptance: exact independent card identities, explicit known
- * declarations, persistent local status and an unchanged lesson/classic UI.
+ * declarations, persistent local status, a theme-only moving capsule, and an
+ * unchanged lesson/classic UI.
  * Local Chromium and emulated screens; only read-only access GETs are mocked. */
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
@@ -8,10 +9,11 @@ const {test,before,after}=require('node:test');
 const {chromium}=require('playwright-core');
 const REPO=path.resolve(__dirname,'../..'),WEB=path.join(REPO,'melunga_deploy');
 const BASE='a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f',ORIGIN='https://level-progress.test';
-// The account component changes course-access. Original-logo clipping has
+// The account component changes course-access. The reviewed presentation has
 // its own whole CSS pin; other protected files keep the public main reference.
-const LOGO_CSS_SHA='40e8c1ad854c4147ef303a7cd4b77633dcd554b689d035e21800f5204ddbf7a2';
+const REVIEWED_CSS_SHA='1673adf7d53263dd643b59a298d06caf6de595bce1587025317af54fed2033b8';
 const ACCOUNT_COMPONENT_REF='665d0def5df2644bb8421553ed4876292ef23f10';
+const BEFORE_CAPSULE_REF='711537b';
 const KNOWN='melunga-guided-known-v1',REVIEW='melunga-guided-review-v1';
 const read=f=>JSON.parse(fs.readFileSync(path.join(WEB,f),'utf8'));
 const manifest=read('content/niveaux-progressifs/manifest.json');
@@ -19,6 +21,7 @@ const sourceFiles=['content/niveaux-progressifs/manifest.json',...manifest.pairs
 const protectedFiles=['maquette-guidee.css','melunga-logo.png','assets/melunga-logo.png','app.html','index.html','desktop-home.js','course-access.js','content/course-access.json','store-billing.js','netlify/functions/get-pricing.mjs','netlify/functions/login.mjs','netlify/functions/check-status.mjs','netlify/functions/create-payment-link.mjs'];
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const baseline=f=>execFileSync('git',['show',(f==='course-access.js'?ACCOUNT_COMPONENT_REF:BASE)+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});
+const functionText=(source,name)=>{const start=source.indexOf('  function '+name+'(');assert.ok(start>=0,'source function '+name);const end=source.indexOf('\n  function ',start+1);assert.ok(end>start,'source function boundary '+name);return source.slice(start,end);};
 const fingerprint=()=>Object.fromEntries([__filename,...sourceFiles.concat(protectedFiles,['maquette-guidee.js','parcours-niveaux.html','maquette-guidee.html','melunga-logo.svg']).map(f=>path.join(WEB,f))].sort().map(f=>[path.relative(REPO,f),sha(fs.readFileSync(f))]));
 const cells=new Map(),banks=new Map();
 function cell(pair,level=1){const key=pair+':'+level;if(!cells.has(key))cells.set(key,read('content/niveaux-progressifs/'+pair+'/L'+level+'.json'));return cells.get(key);}
@@ -44,8 +47,8 @@ let browser,inputs;
 const checked=async(name,fn)=>{try{await fn();report.checks.push(name);}catch(error){report.errors.push(name+': '+error.message);throw error;}};
 before(async()=>{inputs=fingerprint();browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});});
 after(async()=>{await browser?.close();report.inputsStable=JSON.stringify(inputs)===JSON.stringify(fingerprint());report.inputSha256=inputs;report.missingChecks=required.filter(n=>!report.checks.includes(n));report.status=!report.errors.length&&!report.unexpectedRequests.length&&!report.missingChecks.length&&report.inputsStable?'passed':'failed';if(process.env.LEVEL_PROGRESS_REPORT)fs.writeFileSync(process.env.LEVEL_PROGRESS_REPORT,JSON.stringify(report,null,2)+'\n');assert.equal(report.inputsStable,true);assert.deepEqual(report.errors,[]);assert.deepEqual(report.unexpectedRequests,[]);assert.deepEqual(report.missingChecks,[]);});
-async function fixture({pair='fr-ja',level=1,width=390,height=700,paid=false,knownRaw,reviewEntries=[],baselineJs=false,legacy=false}={}){
- const context=await browser.newContext({viewport:{width,height},isMobile:width<=760,hasTouch:width<=760,reducedMotion:'reduce',serviceWorkers:'block'});
+async function fixture({pair='fr-ja',level=1,width=390,height=700,paid=false,knownRaw,reviewEntries=[],baselineJs=false,legacy=false,reducedMotion='reduce'}={}){
+ const context=await browser.newContext({viewport:{width,height},isMobile:width<=760,hasTouch:width<=760,reducedMotion,serviceWorkers:'block'});
  await context.addInitScript(({knownRaw,hasSeed,reviewEntries,knownKey,reviewKey})=>{
   if(!localStorage.getItem('__level-progress-fixture-seeded')){
    localStorage.setItem('__level-progress-fixture-seeded','1');localStorage.setItem('ox_device','level-progress-regression');
@@ -77,16 +80,46 @@ async function knownIds(page,pair){return page.evaluate(({key,pair})=>{try{retur
 async function review(page){return page.evaluate(key=>{try{return JSON.parse(localStorage.getItem(key)||'{}').entries||[];}catch(_){return[];}},REVIEW);}
 async function progress(page,pair,level,known){
  const e=expected(pair,level,known),caption=(pair==='zh-fr'?'第 '+level+' 级':'Niveau '+level)+' · '+e.percent+' %';
- await page.waitForFunction(c=>document.getElementById('mgCounter').textContent===c,caption);
- assert.equal(await page.locator('#mgCounter').textContent(),caption);
- const actual=await page.locator('#mgProgress').evaluate(n=>({width:parseFloat(n.style.width)||0,track:n.parentElement.getAttribute('role'),hidden:n.parentElement.getAttribute('aria-hidden'),now:n.parentElement.getAttribute('aria-valuenow'),min:n.parentElement.getAttribute('aria-valuemin'),max:n.parentElement.getAttribute('aria-valuemax'),label:n.parentElement.getAttribute('aria-label'),text:n.parentElement.getAttribute('aria-valuetext')}));
+ await page.waitForFunction(c=>document.getElementById('mgProgress').closest('.mg-progress').getAttribute('aria-valuetext')===c,caption);
+ assert.equal(await page.locator('#mgCounter').textContent(),'L'+level);
+ assert.equal(await page.locator('#mgLevelPercent').textContent(),e.percent+' %');
+ assert.equal(await page.locator('#mgLevelEnd').textContent(),pair==='zh-fr'?'完成':'Fin');
+ await settled(page);
+ const actual=await page.locator('#mgProgress').evaluate(n=>{const host=n.closest('.mg-progress');return{width:parseFloat(n.style.width)||0,track:host.getAttribute('role'),hidden:host.getAttribute('aria-hidden'),now:host.getAttribute('aria-valuenow'),min:host.getAttribute('aria-valuemin'),max:host.getAttribute('aria-valuemax'),label:host.getAttribute('aria-label'),text:host.getAttribute('aria-valuetext')};});
  assert.ok(Math.abs(actual.width-e.ratio*100)<0.0001,'bar reflects the independently computed whole-level share '+JSON.stringify({actual,e}));
  assert.equal(actual.track,'progressbar');assert.notEqual(actual.hidden,'true');assert.equal(Number(actual.min),0);assert.equal(Number(actual.max),100);assert.ok(Math.abs(Number(actual.now)-e.ratio*100)<1.001);
  assert.ok((actual.label||actual.text||'').includes(pair==='zh-fr'?'级':'Niveau'),'progress has a native-language accessible label');
  if(actual.text)assert.equal(actual.text,caption);
  const b=await page.locator('#mgCounter').evaluate(n=>{const r=n.getBoundingClientRect();return{left:r.left,right:r.right,top:r.top,bottom:r.bottom,scrollWidth:n.scrollWidth,clientWidth:n.clientWidth,innerWidth,bodyWidth:document.documentElement.scrollWidth};});
  assert.ok(b.left>=-1&&b.right<=b.innerWidth+1&&b.scrollWidth<=b.clientWidth+1&&b.bodyWidth<=b.innerWidth+1,'short progress caption fits mobile '+JSON.stringify(b));
+ assert.equal(await page.locator('body').evaluate(n=>n.classList.contains('mg-has-level-progress')),true);
+ assert.equal(await page.locator('#mgProgress').evaluate(n=>n.closest('.mg-progress').classList.contains('is-level-progress')),true);
+ assert.equal(await page.locator('#mgLevelPercent').getAttribute('aria-hidden'),'true');assert.equal(await page.locator('#mgLevelEnd').getAttribute('aria-hidden'),'true');
  return{...e,caption,track:actual};
+}
+async function capsuleGeometry(page){
+ const g=await page.evaluate(()=>{
+  const rect=n=>{const r=n.getBoundingClientRect();return{left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height,scrollWidth:n.scrollWidth,clientWidth:n.clientWidth};};
+  const percent=document.getElementById('mgLevelPercent'),lane=document.getElementById('mgLevelLane'),end=document.getElementById('mgLevelEnd'),fill=document.getElementById('mgProgress');
+  return{pill:rect(percent),lane:rect(lane),end:rect(end),host:rect(fill.closest('.mg-progress')),fill:rect(fill),viewport:innerWidth,documentWidth:document.documentElement.scrollWidth,pillText:percent.textContent};
+ });
+ assert.ok(g.pill.width>0&&g.end.width>0&&g.host.height>0,'theme capsule is visible');
+ assert.ok(g.host.left>=-1&&g.host.right<=g.viewport+1&&g.documentWidth<=g.viewport+1,'capsule fits viewport '+JSON.stringify(g));
+ assert.ok(g.pill.left>=g.lane.left-1&&g.pill.right<=g.lane.right+1,'moving percentage stays inside its lane '+JSON.stringify(g));
+ assert.ok(g.pill.right<=g.end.left-2,'moving percentage never overlaps Fin '+JSON.stringify(g));
+ assert.ok(g.pill.top>=g.host.top-1&&g.pill.bottom<=g.host.bottom+1,'percentage stays inside capsule vertically '+JSON.stringify(g));
+ assert.ok(g.pill.scrollWidth<=g.pill.clientWidth+1&&g.end.scrollWidth<=g.end.clientWidth+1,'percentage and Fin are complete '+JSON.stringify(g));
+ return g;
+}
+async function seedKnown(page,pair,ids){const value=registry({[pair]:ids});await page.evaluate(({key,value})=>{localStorage.setItem(key,value);window.dispatchEvent(new StorageEvent('storage',{key,newValue:value}));},{key:KNOWN,value});}
+async function capsuleHidden(page){
+ assert.equal(await page.locator('body').evaluate(n=>n.classList.contains('mg-has-level-progress')),false);
+ assert.equal(await page.locator('#mgLevelPercent').isVisible(),false);assert.equal(await page.locator('#mgLevelEnd').isVisible(),false);
+ assert.equal(await page.getByRole('progressbar').count(),0);
+}
+async function sessionBar(page){
+ const s=await page.locator('#mgProgress').evaluate(n=>{const host=n.closest('.mg-progress');return{width:n.getBoundingClientRect().width,hostWidth:host.clientWidth,height:host.getBoundingClientRect().height,percent:parseFloat(n.style.width)||0};});
+ assert.ok(s.height>0&&s.height<=4,'session keeps its original thin bar '+JSON.stringify(s));assert.ok(Math.abs(s.width-s.hostWidth*s.percent/100)<=1,'new lane does not shrink or widen the session fill '+JSON.stringify(s));return s;
 }
 async function enter(page,index=0){await page.locator('#mgThemeGrid .mg-theme').nth(index).click();await page.waitForFunction(()=>window.MelungaMockup.state().screen==='lesson');await settled(page);}
 async function themes(page){await page.locator('#mgBack').click();await page.waitForFunction(()=>window.MelungaMockup.state().screen==='themes');await settled(page);}
@@ -96,15 +129,45 @@ async function capture(page,name){const dir=process.env.LEVEL_PROGRESS_CAPTURES;
 async function getState(page){return page.evaluate(()=>window.MelungaMockup.state());}
 
 test('card sources, access, prices, logo and per-theme counters are preserved', {timeout:60000},()=>checked('source-and-unchanged-theme-counts',async()=>{
- assert.equal(sourceFiles.length,78);for(const f of sourceFiles.concat(protectedFiles)){if(f==='maquette-guidee.css'){assert.equal(sha(fs.readFileSync(path.join(WEB,f))),LOGO_CSS_SHA,'whole reviewed logo CSS');continue;}assert.ok(baseline(f).equals(fs.readFileSync(path.join(WEB,f))),'whole protected file '+f);}report.reviewedLogoCssSha256=LOGO_CSS_SHA;
+ assert.equal(sourceFiles.length,78);for(const f of sourceFiles.concat(protectedFiles)){if(f==='maquette-guidee.css'){assert.equal(sha(fs.readFileSync(path.join(WEB,f))),REVIEWED_CSS_SHA,'whole reviewed capsule CSS');continue;}assert.ok(baseline(f).equals(fs.readFileSync(path.join(WEB,f))),'whole protected file '+f);}report.reviewedCapsuleCssSha256=REVIEWED_CSS_SHA;
+ const beforeCapsule=execFileSync('git',['show',BEFORE_CAPSULE_REF+':melunga_deploy/maquette-guidee.js'],{cwd:REPO,maxBuffer:40*1024*1024}).toString(),currentJs=fs.readFileSync(path.join(WEB,'maquette-guidee.js'),'utf8');
+ const preserved=['collectLevelProgressIds','levelProgress','loadKnownCards','saveKnownCard','saveCardDecision','markKnown','markForReview'];
+ for(const name of preserved)assert.equal(functionText(currentJs,name),functionText(beforeCapsule,name),'whole unchanged progress math/persistence function '+name);report.preservedProgressFunctions=preserved;
  const a=await fixture({baselineJs:true}),b=await fixture();try{const oldCounts=await a.page.locator('#mgThemeGrid .mg-theme-count').allTextContents(),newCounts=await b.page.locator('#mgThemeGrid .mg-theme-count').allTextContents();assert.deepEqual(newCounts,oldCounts);assert.ok(newCounts.includes('15 expressions'));assert.match(await a.page.locator('#mgCounter').textContent(),/116 expressions.*234 mots/);await progress(b.page,'fr-ja',1,[]);report.cases.push({name:'conservation',runtimeJson:78,protectedFiles:protectedFiles.length,themeCounts:newCounts});}finally{await a.context.close();await b.context.close();}
 }));
 
-test('fresh and Chinese-native students see a fitting zero or persisted level percentage', {timeout:60000},()=>checked('fresh-and-localized-header',async()=>{
+test('French and Chinese capsules move toward Fin at every size without overlap and remain readable in three ambiences', {timeout:90000},()=>checked('fresh-and-localized-header',async()=>{
  assert.equal(levelData('fr-ja').ids.length,361);assert.equal(levelData('fr-zh').ids.length,314);assert.equal(levelData('zh-fr').ids.length,344);assert.equal(levelData('fr-ja').positions.length,363);
- for(const options of [{pair:'fr-ja',width:390,height:700,capture:'fresh-level-zero'},{pair:'zh-fr',width:390,height:700,capture:'chinese-native-level-progress',knownRaw:registry({'zh-fr':levelData('zh-fr').ids.slice(0,86)})},{pair:'fr-ja',width:280,height:500,knownRaw:'{malformed-json'}]){
-  const f=await fixture(options);try{const seeded=options.pair==='zh-fr'?levelData('zh-fr').ids.slice(0,86):[];const p=await progress(f.page,options.pair,1,seeded);if(options.capture)await capture(f.page,options.capture);report.cases.push({name:'fresh-localized-mobile',pair:options.pair,width:options.width,...p});}finally{await f.context.close();}
+ for(const pair of ['fr-ja','zh-fr'])for(const width of [320,390,1440]){
+  const f=await fixture({pair,width,height:width>760?900:700});try{
+   const ids=levelData(pair).ids,positions=[];
+   for(const target of [0,25,50,99,100]){
+    const known=ids.slice(0,Math.ceil(ids.length*target/100));await seedKnown(f.page,pair,known);const p=await progress(f.page,pair,1,known);assert.equal(p.percent,target);
+    const geometry=await capsuleGeometry(f.page);assert.ok(Math.abs(geometry.fill.width/geometry.lane.width-p.ratio)<0.005,'fill uses the whole-level ratio relative to its lane');positions.push(geometry.pill.left);
+    report.cases.push({name:'localized-moving-capsule',pair,width,target,...p,geometry});
+    if(pair==='fr-ja'&&width===390&&target===0)await capture(f.page,'fresh-level-zero');
+    if(pair==='zh-fr'&&width===390&&target===25)await capture(f.page,'chinese-native-level-progress');
+    if(pair==='fr-ja'&&width===320&&target===25)await capture(f.page,'moving-capsule-mobile-320');
+    if(pair==='fr-ja'&&width===1440&&target===50)await capture(f.page,'moving-capsule-desktop');
+   }
+   assert.ok(positions.every((x,i)=>i===0||x>=positions[i-1]-.5),'percentage moves monotonically toward Fin');assert.ok(positions[0]<positions[2]&&positions[2]<positions[4],'percentage visibly advances rather than staying fixed');
+  }finally{await f.context.close();}
  }
+ const malformed=await fixture({width:280,height:500,knownRaw:'{malformed-json'});try{await progress(malformed.page,'fr-ja',1,[]);await capsuleGeometry(malformed.page);}finally{await malformed.context.close();}
+ const colors=await fixture({knownRaw:registry({'fr-ja':levelData('fr-ja').ids.slice(0,181)}),reducedMotion:'no-preference'});try{
+  const {page}=colors;await progress(page,'fr-ja',1,levelData('fr-ja').ids.slice(0,181));await page.waitForTimeout(320);
+  const before=await page.evaluate(({known,review})=>[localStorage.getItem(known),localStorage.getItem(review)],{known:KNOWN,review:REVIEW});
+  for(const ambience of ['ocean','aurora','dusk']){
+   assert.equal(await page.locator('body').getAttribute('data-ambience'),ambience);await capsuleGeometry(page);
+   const styles=await page.locator('#mgLevelPercent').evaluate(n=>{const pill=getComputedStyle(n),fill=getComputedStyle(document.getElementById('mgProgress'));return{background:pill.backgroundColor,ink:pill.color,fill:fill.backgroundImage,transition:pill.transitionDuration};});
+   const rgb=value=>(value.match(/[\d.]+/g)||[]).slice(0,3).map(Number),luminance=v=>v.map(x=>{x/=255;return x<=.04045?x/12.92:((x+.055)/1.055)**2.4;}).reduce((sum,x,i)=>sum+x*[.2126,.7152,.0722][i],0),bg=rgb(styles.background),ink=rgb(styles.ink);assert.equal(bg.length,3);assert.equal(ink.length,3);
+   const a=luminance(bg),b=luminance(ink),contrast=(Math.max(a,b)+.05)/(Math.min(a,b)+.05);assert.ok(contrast>=4.5,'percentage contrast '+ambience+' '+contrast+' '+JSON.stringify(styles));assert.ok(Math.max(...bg)-Math.min(...bg)>35,'percentage has a cheerful color rather than grey');assert.match(styles.fill,/gradient/,'capsule uses the chosen colorful filling');
+   report.cases.push({name:'capsule-colors-and-normal-motion',ambience,contrast,styles});await capture(page,'capsule-'+ambience+'-mobile');await page.locator('#mgPalette').click();
+  }
+  await page.emulateMedia({reducedMotion:'reduce'});const reduced=await page.locator('#mgLevelPercent').evaluate(n=>({pill:getComputedStyle(n).transitionDuration,fill:getComputedStyle(document.getElementById('mgProgress')).transitionDuration,animation:getComputedStyle(n).animationName}));assert.equal(reduced.pill,'0s');assert.equal(reduced.fill,'0s');assert.equal(reduced.animation,'none');
+  for(const width of [320,1440,390]){await page.setViewportSize({width,height:width>760?900:700});await settled(page);await capsuleGeometry(page);}
+  const after=await page.evaluate(({known,review})=>[localStorage.getItem(known),localStorage.getItem(review)],{known:KNOWN,review:REVIEW});assert.deepEqual(after,before,'ambience, motion preference and resizing do not write progress');report.cases.push({name:'reduced-motion-and-resize',...reduced});
+ }finally{await colors.context.close();}
  const ids=levelData('fr-ja').ids,duplicates=levelData('fr-ja').positions.filter((id,i,list)=>list.indexOf(id)!==i),same=duplicates[0];assert.ok(same);
  const f=await fixture({knownRaw:registry({'fr-ja':[same,same,same,'not-a-current-card']})});try{const p=await progress(f.page,'fr-ja',1,[same]);assert.equal(p.known,1);report.cases.push({name:'deduplicated-known-and-presentations',...p});}finally{await f.context.close();}
 }));
@@ -127,14 +190,14 @@ test('Continue, listening and theme completion do not declare knowledge; storage
  const ja=levelData('fr-ja').ids,zh=levelData('fr-zh').ids,seed={'fr-ja':ja.slice(0,37),'fr-zh':zh.slice(0,73)};
  const f=await fixture({knownRaw:registry(seed)});try{
   const {page}=f;await progress(page,'fr-ja',1,seed['fr-ja']);const original=await page.evaluate(key=>localStorage.getItem(key),KNOWN);
-  await enter(page);const counter=await page.locator('#mgCounter').textContent();assert.match(counter,/\d+ \/ \d+/);assert.equal(await page.getByRole('progressbar').count(),0,'lesson progress is not announced as the whole-level percentage');await next(page);await page.locator('#mgEar').click();await settled(page);assert.equal(await page.evaluate(key=>localStorage.getItem(key),KNOWN),original,'continue/listening do not write known status');await themes(page);await progress(page,'fr-ja',1,seed['fr-ja']);
+  await enter(page);const counter=await page.locator('#mgCounter').textContent();assert.match(counter,/\d+ \/ \d+/);await capsuleHidden(page);assert.equal(await page.locator('#mgProgress').isVisible(),true,'classic session bar is still visible');await next(page);await sessionBar(page);await page.locator('#mgEar').click();await settled(page);assert.equal(await page.evaluate(key=>localStorage.getItem(key),KNOWN),original,'continue/listening do not write known status');await themes(page);await progress(page,'fr-ja',1,seed['fr-ja']);
   await page.goto(ORIGIN+'/parcours-niveaux.html?pair=fr-zh&level=1');await ready(page,'fr-zh');await progress(page,'fr-zh',1,seed['fr-zh']);
   await page.locator('#mgLevelTrigger').click();await page.locator('#mgLevelChoices button[data-level="2"]').click();await ready(page,'fr-zh',2);const p2=await progress(page,'fr-zh',2,seed['fr-zh']);report.cases.push({name:'pair-and-level-scoped-identities',...p2});
   await page.goto(ORIGIN+'/parcours-niveaux.html?pair=fr-ja&level=1');await ready(page,'fr-ja');
   const other=await f.context.newPage();other.on('pageerror',e=>report.errors.push(e.message));await other.goto(ORIGIN+'/parcours-niveaux.html?pair=fr-ja&level=1');await ready(other,'fr-ja');await other.evaluate(({key,value})=>localStorage.setItem(key,value),{key:KNOWN,value:registry({'fr-ja':ja.slice(0,74)})});await progress(page,'fr-ja',1,ja.slice(0,74));
   await enter(page);const before=await getState(page),lessonCounter=await page.locator('#mgCounter').textContent();await other.evaluate(({key,value})=>localStorage.setItem(key,value),{key:KNOWN,value:registry({'fr-ja':ja})});await page.waitForTimeout(60);assert.equal((await getState(page)).phraseId,before.phraseId);assert.equal((await getState(page)).stepIndex,before.stepIndex);assert.equal(await page.locator('#mgCounter').textContent(),lessonCounter);await themes(page);await progress(page,'fr-ja',1,ja);await other.close();
  }finally{await f.context.close();}
- const z=await fixture({pair:'fr-zh'});try{const shortest=cell('fr-zh').themes.map((t,i)=>({i,steps:t.sequences.flatMap(s=>s.steps).length})).sort((a,b)=>a.steps-b.steps)[0];await enter(z.page,shortest.i);for(let n=0;n<160&&(await getState(z.page)).screen!=='done';n++)await next(z.page);assert.equal((await getState(z.page)).screen,'done');assert.deepEqual(await knownIds(z.page,'fr-zh'),[]);await z.page.locator('.mg-brand').click();await ready(z.page,'fr-zh');await progress(z.page,'fr-zh',1,[]);report.cases.push({name:'completion-does-not-imply-knowledge',steps:shortest.steps});}finally{await z.context.close();}
+ const z=await fixture({pair:'fr-zh'});try{const shortest=cell('fr-zh').themes.map((t,i)=>({i,steps:t.sequences.flatMap(s=>s.steps).length})).sort((a,b)=>a.steps-b.steps)[0];await enter(z.page,shortest.i);for(let n=0;n<160&&(await getState(z.page)).screen!=='done';n++)await next(z.page);assert.equal((await getState(z.page)).screen,'done');await capsuleHidden(z.page);assert.equal((await sessionBar(z.page)).percent,100);assert.deepEqual(await knownIds(z.page,'fr-zh'),[]);await z.page.locator('.mg-brand').click();await ready(z.page,'fr-zh');await progress(z.page,'fr-zh',1,[]);report.cases.push({name:'completion-does-not-imply-knowledge',steps:shortest.steps});}finally{await z.context.close();}
 }));
 
 test('non-paying progress uses the complete raw level denominator and never unlocks paid topics', {timeout:60000},()=>checked('whole-level-free-access-denominator',async()=>{
@@ -148,5 +211,5 @@ test('failed local persistence does not advance or fake knowledge and legacy L1 
  const f=await fixture({knownRaw:registry({'fr-ja':remaining}),reviewEntries:[saved]});try{await enter(f.page);const before=await getState(f.page);await f.page.evaluate(()=>{window.__knownWriteFail=true;});await gesture(f.page,105,3);assert.equal((await getState(f.page)).phraseId,before.phraseId);assert.equal((await getState(f.page)).stepIndex,before.stepIndex);assert.deepEqual(await knownIds(f.page,'fr-ja'),remaining);assert.deepEqual(await review(f.page),[saved],'failed known write restores the saved review row');assert.ok((await f.page.locator('#mgStatus').textContent()).length>0);
   await f.page.evaluate(()=>{window.__knownWriteFail=false;});await gesture(f.page,105,3);assert.ok((await knownIds(f.page,'fr-ja')).includes(first));await themes(f.page);await progress(f.page,'fr-ja',1,data.ids);report.cases.push({name:'failed-known-write-does-not-consume-card'});
  }finally{await f.context.close();}
- const legacy=await fixture({pair:'fr-zh',legacy:true,knownRaw:registry({'fr-zh':levelData('fr-zh').ids.slice(0,37)})});try{assert.ok(!/^Niveau/.test(await legacy.page.locator('#mgCounter').textContent()));assert.equal(await legacy.page.getByRole('progressbar').count(),0);const before=await legacy.page.evaluate(key=>localStorage.getItem(key),KNOWN);await enter(legacy.page);await gesture(legacy.page,105,3);assert.equal(await legacy.page.evaluate(key=>localStorage.getItem(key),KNOWN),before,'legacy preview does not create modern progress');report.cases.push({name:'legacy-L1-preserved'});}finally{await legacy.context.close();}
+ const legacy=await fixture({pair:'fr-zh',legacy:true,knownRaw:registry({'fr-zh':levelData('fr-zh').ids.slice(0,37)})});try{assert.ok(!/^Niveau/.test(await legacy.page.locator('#mgCounter').textContent()));await capsuleHidden(legacy.page);const before=await legacy.page.evaluate(key=>localStorage.getItem(key),KNOWN);await enter(legacy.page);await capsuleHidden(legacy.page);await gesture(legacy.page,105,3);assert.equal(await legacy.page.evaluate(key=>localStorage.getItem(key),KNOWN),before,'legacy preview does not create modern progress');report.cases.push({name:'legacy-L1-preserved'});}finally{await legacy.context.close();}
 }));

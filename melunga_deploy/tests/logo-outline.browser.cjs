@@ -9,6 +9,17 @@ const REPO=path.resolve(__dirname,'../..'),WEB=path.join(REPO,'melunga_deploy');
 // This visual-only correction is compared with the reviewed account/progress preview.
 const BASE='f13eafd270df3958507d88cdbb585ce5bc51099d',ORIGIN='https://logo-outline.test';
 const old=f=>execFileSync('git',['show',BASE+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});
+// Only these four whole files belong to the approved capsule presentation.
+// Historical logo assertions retain the exact pre-capsule snapshot after the
+// current files have passed their finite whole-byte pins; no broad skip flag.
+const CAPSULE_UI_BASE='711537b27778c38f43e49fc47bfca513e8d94d97';
+const CAPSULE_UI_SHA256={'maquette-guidee.css': '1673adf7d53263dd643b59a298d06caf6de595bce1587025317af54fed2033b8', 'maquette-guidee.js': '7da1a3539013ced41084d2dfa300c8f6c18b96b7cf9bab33b4955e2c113e29ae', 'parcours-niveaux.html': '523aa448cddf2974492bf63db9bf024846e3105e28bcb36cd3ed970c03afcc9c', 'maquette-guidee.html': 'c143138077075e79a71e5b827b74a8b78a054b5c87f6142456b6de134933d020'};
+function beforeCapsuleUi(f){
+ const actual=fs.readFileSync(path.join(WEB,f));
+ if(!Object.hasOwn(CAPSULE_UI_SHA256,f))return actual;
+ assert.equal(hash(actual),CAPSULE_UI_SHA256[f],'exact approved capsule whole file '+f);
+ return execFileSync('git',['show',CAPSULE_UI_BASE+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});
+}
 const read=f=>JSON.parse(fs.readFileSync(path.join(WEB,f),'utf8'));
 const manifest=read('content/niveaux-progressifs/manifest.json');
 const runtimeFiles=['content/niveaux-progressifs/manifest.json',...manifest.pairs.flatMap(p=>[p.repertoirePath,...p.levels.map(l=>l.dataPath)])];
@@ -43,11 +54,11 @@ test('the exact original PNG, source data and application are preserved',()=>che
    assert.equal(reviewed.toString().split(row).length,2,'exactly one reviewed menu row');
    expected=Buffer.from(reviewed.toString().replace(row,''));
   }
-  assert.ok(expected.equals(fs.readFileSync(path.join(WEB,f))),'whole protected source '+f);
+  assert.ok(expected.equals(beforeCapsuleUi(f)),'whole protected source after finite capsule-only UI projection '+f);
  }
  assert.equal(hash(fs.readFileSync(path.join(WEB,'melunga-logo.png'))),'1aa277028faa2128c78405c839748dff8b1497827c04b02610216056c92b18c0','original bitmap bytes and two-bubble design preserved');
- for(const f of ['parcours-niveaux.html','maquette-guidee.html']){const a=old(f).toString(),expected=a.replace('<img class="mg-logo" src="melunga-logo.svg" alt="">','<img class="mg-logo" src="melunga-logo.png" alt="">').replace('maquette-guidee.css?v=14','maquette-guidee.css?v=15').replace('maquette-guidee.js?v=23','maquette-guidee.js?v=24');assert.equal(fs.readFileSync(path.join(WEB,f),'utf8'),expected,'only original logo, CSS cache and explicitly approved navigation-script cache change '+f);}
- const css=fs.readFileSync(path.join(WEB,'maquette-guidee.css'),'utf8'),rule=css.match(/\.mg-logo\{[^}]*\}/)[0],mask=rule.match(/;clip-path:circle\([^;{}]*\)/);assert.ok(mask,'one circular display mask');assert.equal(css.replace(mask[0],''),old('maquette-guidee.css').toString(),'all other CSS remains exact');
+ for(const f of ['parcours-niveaux.html','maquette-guidee.html']){const a=old(f).toString(),expected=a.replace('<img class="mg-logo" src="melunga-logo.svg" alt="">','<img class="mg-logo" src="melunga-logo.png" alt="">').replace('maquette-guidee.css?v=14','maquette-guidee.css?v=15').replace('maquette-guidee.js?v=23','maquette-guidee.js?v=24');assert.equal(beforeCapsuleUi(f).toString(),expected,'only original logo, CSS cache and approved navigation cache before the pinned capsule layer '+f);}
+ const css=beforeCapsuleUi('maquette-guidee.css').toString(),rule=css.match(/\.mg-logo\{[^}]*\}/)[0],mask=rule.match(/;clip-path:circle\([^;{}]*\)/);assert.ok(mask,'one circular display mask');assert.equal(fs.readFileSync(path.join(WEB,'maquette-guidee.css'),'utf8').match(/\.mg-logo\{[^}]*\}/)[0],rule,'capsule and palette changes preserve the entire original PNG logo rule');assert.equal(css.replace(mask[0],''),old('maquette-guidee.css').toString(),'all other CSS remains exact');
  report.cases.push({name:'original-source-preserved',runtimeFiles:78,protectedFiles:protectedFiles.length,pngSha256:hash(fs.readFileSync(path.join(WEB,'melunga-logo.png'))),mask:mask[0]});
 }));
 
