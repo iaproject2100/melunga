@@ -65,7 +65,7 @@ Le L1 contenait lui-même quelques-unes de ces exceptions (`an-co-ra`, `im-por-t
 
 **Règle A.** *rivedere* est accentué ri-ve-DE-re.
 
-## Lot de contenu séparé : 34 gloses certaines, 3 blocs, 93 propositions
+## Lot de contenu séparé : 34 gloses certaines, 3 blocs, 96 propositions incertaines
 
 Le lot est dans [`lot-contenu-gloses.json`](lot-contenu-gloses.json).
 
@@ -135,3 +135,8 @@ J'en ai écarté deux autres :
 - J'ai gardé *la via amichevole*, qui est juste. *Soluzione amichevole* serait une variante.
 
 Une écoute native reste nécessaire. Rien n'est fusionné dans `main` ni publié sur melunga.com.
+
+## Errata documentaire (réponse à Codex)
+
+- **Contenu incertain : 96 lignes, et non 93.** `lot-contenu-gloses.json` contient 130 items, soit 34 certains et 96 incertains, sur 96 identifiants distincts. Les 3 blocs sont à part. Le JSON n'est pas modifié.
+- **Doublon `catalogue:it:901`.** La destination `catalogue:it:889` est juste. La justification du lecteur cite les positions de sa partie de lecture (`themes/8/phrases/31 et 37`). Dans le fichier source, ce sont les positions **62 et 68**. Seuls les identifiants font foi, et la preuve figée n'est pas modifiée.

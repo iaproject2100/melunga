@@ -24,7 +24,7 @@ Chaque événement est un avant/après entier et figé. Ce n'est pas une règle 
 - `lot-contenu-gloses.json` :
   - **34 gloses certaines**, dont cinq *italiano* traduits « français » ;
   - **3 blocs** étude/glose/aide à appliquer en entier : *Faccio seguito alla mia mail*, *la via amichevole*, *offre un prezzo più basso* ;
-  - 93 propositions incertaines.
+  - 96 propositions incertaines.
 - `propositions-niveaux-themes.json` : **280 propositions sur 278 identifiants**, non appliquées :
   - 217 thèmes : 150 destinations nommées existant au même niveau, 67 `null` ;
   - 47 doublons, dont 28 exacts ;
