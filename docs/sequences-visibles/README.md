@@ -1,6 +1,6 @@
 # Séquences visibles pour les longues rubriques
 
-Cette PR part de `1b1d60e`, qui contient #17 et le raccordement de l’accueil au parcours publié séparément dans #20. Les données du parcours restent celles approuvées à `ebd6519`. Elle transforme l’entrée des **67 rubriques de plus de 100 présentations** en un choix de **337 séquences de 30 à 40 cartes**. Les rubriques plus courtes gardent leur entrée directe.
+Cette PR part de `05c5110`, qui contient #17, le raccordement publié par #20 et le correctif des niveaux/menu mobiles publié par #21. Les données du parcours restent celles approuvées à `ebd6519`. Elle transforme l’entrée des **67 rubriques de plus de 100 présentations** en un choix de **337 séquences de 30 à 40 cartes**. Les rubriques plus courtes gardent leur entrée directe.
 
 Le découpage suit les frontières des groupes techniques existants. Une partition déterministe cherche un nombre de séquences proche de 35 cartes chacune, sans couper un groupe ni créer de petite séquence finale. Les 11 809 présentations et leurs 35 427 étapes gardent leur ordre exact. Les onze rubriques dont les groupes partiels ne sont pas tous à la fin sont prises en compte.
 
@@ -15,3 +15,5 @@ Vérifications : six groupes ciblés réussis, couvrant les 67 rubriques aux deu
 Le raccordement de l’accueil et de la connexion au nouveau parcours est publié sur `main` par #20, conformément à l’instruction de Kartech. Les 87 fichiers publics ont été vérifiés en HTTP sur melunga.com : 84 exacts octet par octet, dont les 78 JSON, et trois HTML dont seuls quatre liens connus sont réécrits par Netlify Pretty URLs. Le rapport précise intégralement ces transformations ; aucun contenu ni script n’est différent. Cette PR des séquences reste en aperçu, sans autorisation de fusion ni de publication.
 
 Contrôle après publication de #20 : les deux parcours L1 fr→zh et fr→es ont été joués depuis l’accueil contre les vraies réponses de melunga.com, avec serveur `paid:false`, écrans 390×844 et 1440×900, Pinyin, progression et À revoir local. Aucun compte, POST, TTS ni réponse simulée ; aucune erreur JS et aucun débordement. Le navigateur reçoit les réponses réelles via un relais Playwright API qui conserve le proxy et vérifie TLS : son propre magasin CA ne reconnaît pas le certificat du proxy. Cette adaptation de transport est consignée dans le rapport ; aucun téléphone physique n’a été testé.
+
+Le sélecteur coloré et le menu corrigé de #21 sont conservés dans cet aperçu. Les preuves de leur publication réelle sur `main@05c5110` sont dans `docs/correctif-navigation-mobile/verification-production.json` ; les rapports de publication #20 plus anciens gardent leur commit de référence explicite. Les séquences restent une proposition non fusionnée.
