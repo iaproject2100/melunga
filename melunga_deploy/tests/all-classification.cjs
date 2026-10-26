@@ -21,7 +21,7 @@ const DESCRIPTOR_SHA256 = '57d7731c5001d065ce53ced537f782953dcd40dd61846627739ad
 const MANIFEST_SHA256 = 'd0c785ebd39b1cc5fa14f6445b08c7982dda03255741f61bcf21c991c34c423c';
 const INDEPENDENT_CHECKER_SHA256 = '81b140ac5c245acfaf804cd8a8cd8e95138975c8a671bfbda58853664f03685a';
 const CLASSIFIED_JS_SHA256 = '421114df06384660d1b2ea9ba780aaf769fb3d6e2402f2b85473a3933bbf64ba';
-const CLASSIFIED_HTML_SHA256 = {"melunga_deploy/maquette-guidee.html":'5ee86556098408d005c470974d79504b9bbb3913cf007e4154ddff52a99f1afd',"melunga_deploy/parcours-niveaux.html":'9e69b53886364c68b727f397720c2bc2e55bffc87d1cd8f9cea0a16e22345782'};
+const CLASSIFIED_HTML_SHA256 = {"melunga_deploy/maquette-guidee.html":'412fb88efc2573d6d3170698e4dd088699450bfd537b96583c133ad77c7d5029',"melunga_deploy/parcours-niveaux.html":'1aab748254dbd63542016a78626d39954259aeb6466faec82b6b22dc18655f36'};
 const NAVIGATION_UI_BASE = 'a5c721f51a217750c3b83ecd56c85dbfc4ccb7f8';
 const COURSE_LOGIN_HEAD = '<link rel="stylesheet" href="course-login.css?v=1">\n<script src="course-login.js?v=1" defer></script>\n';
 // Authorized entry/mobile UI shell: exact whole current assets are validated
@@ -37,7 +37,7 @@ const ENTRY_ASSET_SHA256 = {
   'melunga_deploy/course-access.js':'b5b3e0d547c84aa24b59d7381a5bfbf11a27836885b875e284b5795873abd082',
   'melunga_deploy/content/course-access.json':'35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05',
   'melunga_deploy/melunga-logo.svg':'b653fbd78c7b2a3853ad628d83e4230726a17f71e0a5441a01947dd854f86cec',
-  'melunga_deploy/maquette-guidee.css':'ca527260443b006ee70b43af3a91829a5986725c2e58895475d27674653f61fd',
+  'melunga_deploy/maquette-guidee.css':'fbbc745263b5899641882d9dbf2053210bdd243896ba7a055471f20f779c0b13',
   'melunga_deploy/maquette-guidee.js':CLASSIFIED_JS_SHA256,...CLASSIFIED_HTML_SHA256
 };
 function validateEntryAssets(){

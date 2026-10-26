@@ -19,4 +19,6 @@ Le seul changement dans `app.html` est l’inclusion des deux nouveaux fichiers 
 
 Les captures sont des rendus locaux avec tailles de téléphone simulées et comptes/API simulés. Aucun compte réel, achat, déconnexion réelle ou essai sur téléphone physique n’est revendiqué. Les confirmations de retour d’authentification locales utilisent une cible sentinelle dont l’URL exacte est vérifiée.
 
-Ce lot est distinct de la publication de la capsule. Il est préparé pour un aperçu dans une PR vers `main`, sans autorisation de fusion reçue pour cette nouvelle présentation.
+Kartech a validé la présentation de la PR #25 et demandé de renforcer le titre du thème dans les fiches. Le titre passe à 20–24 px sur ordinateur et 16 px sur mobile, graisse 800 et couleur principale de l’interface, dans les trois ambiances. Les sept contrôles de navigation et de titre réussissent ; une vraie fiche au titre de 53 caractères et au contenu de 238 caractères tient sur 320 px sans défilement ou chevauchement. Les fonctions de calcul et les sources restent exactes. La nouvelle empreinte CSS est épinglée et les deux HTML passent au cache CSS v20. Cette composition est autorisée à la publication par la validation de Kartech.
+
+La passe finale de titre est décrite dans `controle-titre-theme.json` et `empreintes-titre-theme.json`, avec les captures `titre-theme-*.png`. Les autres rapports conservent la provenance des composants déjà vérifiés : les six contrôles de compte et de progression ne sont pas présentés comme rejoués après cette seule retouche typographique.
