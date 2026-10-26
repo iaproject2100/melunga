@@ -1,0 +1,2537 @@
+{
+  "id": "codex-lot9-selected-content-counter-review",
+  "reviewedAt": "2026-10-26T09:12:39.695989+00:00",
+  "humanDateParis": "26/10/2026",
+  "sourceCommit": "5d450cc79f32d180f9331c5d06387fe36e8d94a6",
+  "beforeSnapshotCommit": "40d4c0b264b364fe31d4fd1bc9acae03dc130e01",
+  "evidencePathAtSource": "docs/revue-integrale/lot9-fr-it-L1-L10/lot-contenu-gloses.json",
+  "evidenceSha256": "cf20a6f4595f4e8c3627aac8bd4956ef5724bd9f220b2676288a88878f4636a0",
+  "status": "selected-content-accepted",
+  "publicationApproved": false,
+  "globalNativeApproval": false,
+  "runtimeChecked": true,
+  "runtimeDocumentsScanned": 77,
+  "certainNativeGlosses": 34,
+  "punctuationOnlyStudies": 0,
+  "linkedBundles": 3,
+  "selectedIds": 37,
+  "canonicalObjects": 35,
+  "transportCopies": 0,
+  "receivedModels": 2,
+  "approvedFieldCounts": {
+    "native": 37,
+    "study": 3,
+    "phon": 3
+  },
+  "approvedFieldTotal": 43,
+  "runtimeFieldCounts": {
+    "native": 37,
+    "study": 3,
+    "phon": 3
+  },
+  "runtimeFieldTotal": 43,
+  "beforeMismatches": 0,
+  "overlapWithPhoneticRegistry": [
+    "catalogue:it:1736"
+  ],
+  "priorCorrectionAnnotationsOnSelectedObjects": [],
+  "unappliedUncertainContentItems": 96,
+  "uncertainCountAnnouncedInSourceReadme": 93,
+  "uncertainCountDiscrepancy": "The source JSON contains 130 items: 34 certain and 96 uncertain. Three linked bundles are in a separate array, not three of those uncertain items.",
+  "linguisticQualifications": [
+    "Il troppo stroppia is rendered by the accepted proverb L'exces nuit en tout; Trop c'est trop can also convey excess in context and is not universally a mistranslation.",
+    "Biglietto can elliptically designate a business card in a suitable exchange; mon billet is the explicit reading retained for catalogue:it:1603 in the existing travel theme.",
+    "Siete aperti is plural in Italian; the selected French agreement ouverts makes that plural explicit. French service questions can instead address one representative with polite singular agreement, depending on the addressee.",
+    "Resti in linea is interpreted here as a formal telephone imperative. Resti can have other grammatical analyses outside this complete telephone request.",
+    "Torno da voi may have a metaphorical discourse use. Faccio seguito alla mia mail is the explicit professional follow-up chosen for this card, not a general prohibition on every metaphorical tornare.",
+    "La via amichevole is a valid amicable-settlement formulation; soluzione amichevole would be another valid choice, not a required substitution.",
+    "Offre un prezzo piu basso explicitly supplies the price complement missing from the selected supplier comparison.",
+    "The three complete replacement aids are copied whole; no segments are generated or joined by this checker.",
+    "catalogue:it:1736 receives its complete phonetic event first, then its native-gloss event. Both provenance declarations and the phonetic status after the first event are preserved."
+  ],
+  "limitations": [
+    "Targeted individual counter-reading of 37 selected content records, not a second reading of all 4,756 positions.",
+    "No real audio or native-speaker certification.",
+    "280 placement proposals, 30 conventions and all 96 uncertain source-JSON content items are not applied."
+  ],
+  "corrections": [
+    {
+      "id": "catalogue:it:2647",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Le proverbe français retenu explicite le caractère nuisible de l’excès ; l’ancienne glose peut néanmoins convenir dans certains contextes.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Trop, c'est trop."
+      },
+      "after": {
+        "native": "L'excès nuit en tout."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            0
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:2647",
+            "study": "Il troppo stroppia.",
+            "native": "Trop, c'est trop.",
+            "phon": "il trop-po strop-pia",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 1,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Sens de la forme étudiée et traduction contrôlés sur cette carte entière ; décision éditoriale individuelle, sans validation phonétique."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 2647,
+              "sourceLevel": 1,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "5cf66a2a71db512e1a5451fa68be07cb7922f3839b6525cb7941c57f82d6307c"
+            },
+            "placement": {
+              "domain": "decrire",
+              "classification": "description",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "decrire",
+              "section": "situations",
+              "themeId": "decrire"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:218",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Le remerciement grazie est désormais rendu sans changer la réception exprimée.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "J'ai bien reçu."
+      },
+      "after": {
+        "native": "J'ai bien reçu, merci."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            19
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:218",
+            "study": "Ho ricevuto, grazie.",
+            "native": "J'ai bien reçu.",
+            "phon": "o ri-tché-vou-to, gra-tsié",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 2,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 218,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "1856c2b02bc4284777987f7c3430365de891ba674bd426bde70e6224f395cceb"
+            },
+            "placement": {
+              "domain": "repas",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "repas",
+              "section": "situations",
+              "themeId": "L2-repas"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:321",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Ti impose ici le tutoiement dans la demande du montant dû.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Combien je vous dois ?"
+      },
+      "after": {
+        "native": "Combien je te dois ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            137
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:321",
+            "study": "Quanto ti devo?",
+            "native": "Combien je vous dois ?",
+            "phon": "couann-to ti dé-vo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 2,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 321,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "75f1f0799e55e299bdf233f3fe07b2109809bef92a09b8bd3fb89a1b22285e74"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L2-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:2883",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Assurdo exprime une appréciation d’absurdité, sans imposer une approbation argotique.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Grave !"
+      },
+      "after": {
+        "native": "C'est absurde !"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+          "location": [
+            "themes",
+            21,
+            "phrases",
+            17
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:2883",
+            "study": "Assurdo!",
+            "native": "Grave !",
+            "phon": "as-sour-do",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 2,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Entrée lexicale courte sans proposition ni acte de parole identifié : nom, adjectif, infinitif ou locution à apprendre à part.",
+              "lexicalClassReason": "Entrée lexicale nominale, verbale ou mot-outil autre ; aucune preuve suffisante pour les trois classes spécialisées.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 2883,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "e6cdba6d5aa7e2d6ea0ccedc81a673e59ee88a8ea2659be10cd883db9ed17f3e"
+            },
+            "placement": {
+              "domain": "vocab-actions",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "previous-domain-fallback-needs-review",
+              "themeId": "L2-vocab-actions"
+            },
+            "lexicalClass": "other"
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:3272",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "La langue étudiée nommée l’italiano est bien l’italien.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Depuis quand tu apprends le français ?"
+      },
+      "after": {
+        "native": "Depuis quand tu apprends l'italien ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            21
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:3272",
+            "study": "Da quando studi l'italiano?",
+            "native": "Depuis quand tu apprends le français ?",
+            "phon": "da couann-do stou-di li-ta-lia-no",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 3272,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "5426a057bcf6b567811192c99856fd7e32ebe0dc1575da1068ceb7576c812670"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "section": "situations",
+              "themeId": "L3-reperes"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:1794",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "L’accord ouverts rend explicite le pluriel italien ; le français de service peut ailleurs viser un représentant singulier.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Est-ce que vous êtes ouvert le dimanche ?"
+      },
+      "after": {
+        "native": "Est-ce que vous êtes ouverts le dimanche ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            16
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:1794",
+            "study": "Siete aperti la domenica?",
+            "native": "Est-ce que vous êtes ouvert le dimanche ?",
+            "phon": "siè-té a-pèr-ti la do-mé-ni-ca",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 1794,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "f708cb59e3648578d752866ca5f207fee18f87ecfc858f82566e9926fa1c6139"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "french-meaning",
+              "decision": "explicit-proposal",
+              "reason": "Question sur un service connu avec siete et un jour ; préparer l’accord et l’expression la domenica.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "section": "situations",
+              "themeId": "L3-reperes"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "situation-authored:fr-it:piste-sport-habitudes-04",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Le sujet ogni allenamento et la durée générale sont restitués.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Je m’entraîne pendant une demi-heure."
+      },
+      "after": {
+        "native": "Chaque entraînement dure une demi-heure."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+          "location": [
+            "themes",
+            14,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "situation-authored:fr-it:piste-sport-habitudes-04",
+            "study": "Ogni allenamento dura mezz’ora.",
+            "native": "Je m’entraîne pendant une demi-heure.",
+            "phon": "O-nyi al-lé-na-MÈNN-to DOU-ra mèd-DZO-ra",
+            "speaker": "A",
+            "kind": "learner",
+            "contentType": "utterance",
+            "isTemplate": false,
+            "sourceDeclaredTemplate": false,
+            "editorialLevel": 3,
+            "phoneticReviewStatus": "pending-Claude",
+            "source": {
+              "collection": "situation-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-it.json",
+              "ledgerFileSha256": "7b6190d1f0554d2c2a56374f542a169a48ae162c764cd1f4d3e8336fd5e66c88",
+              "itemId": "fr-it:piste-sport-habitudes-04",
+              "sourceSha256": "39e8dd23b37c0796287b25e066cf3427c496ab6c65f7bde94d36dc649fe0ba93",
+              "ledgerItemSha256": "39e8dd23b37c0796287b25e066cf3427c496ab6c65f7bde94d36dc649fe0ba93",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Forme entière autonome choisie pour l’acte du plan, sans retouche d’une aide existante."
+            },
+            "placement": {
+              "domain": "piste-sport-habitudes",
+              "section": "situations",
+              "classification": "new-situation-whole-utterance",
+              "reason": "Forme entière autonome choisie pour l’acte du plan, sans retouche d’une aide existante.",
+              "plannedPrerequisiteIndices": [],
+              "themeId": "L3-situation-piste-sport-habitudes"
+            },
+            "intentId": "piste-sport-habitudes-04",
+            "topicId": "piste-sport-habitudes"
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:502",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Da parte mia est rendu explicitement par de ma part.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Dis-lui bonjour."
+      },
+      "after": {
+        "native": "Dis-lui bonjour de ma part."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+          "location": [
+            "themes",
+            17,
+            "phrases",
+            0
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:502",
+            "study": "Salutalo da parte mia.",
+            "native": "Dis-lui bonjour.",
+            "phon": "sa-lou-ta-lo da par-té mi-a",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Entrée lexicale courte sans proposition ni acte de parole identifié : nom, adjectif, infinitif ou locution à apprendre à part.",
+              "lexicalClassReason": "Entrée lexicale nominale, verbale ou mot-outil autre ; aucune preuve suffisante pour les trois classes spécialisées.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 502,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "6f846fc50a632414f2f08186a21062df0087eaf4ddaa9b6e9177255717647808"
+            },
+            "placement": {
+              "domain": "vocab-personnes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "saluer",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "previous-domain-fallback-needs-review",
+              "themeId": "L3-vocab-personnes"
+            },
+            "lexicalClass": "other"
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:629",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "La demande téléphonique est comprise comme impératif formel Lei, donc ne quittez pas.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Ne quitte pas."
+      },
+      "after": {
+        "native": "Ne quittez pas."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+          "location": [
+            "themes",
+            19,
+            "phrases",
+            4
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:629",
+            "study": "Resti in linea.",
+            "native": "Ne quitte pas.",
+            "phon": "rès-ti inn li-né-a",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Entrée lexicale courte sans proposition ni acte de parole identifié : nom, adjectif, infinitif ou locution à apprendre à part.",
+              "lexicalClassReason": "Entrée lexicale nominale, verbale ou mot-outil autre ; aucune preuve suffisante pour les trois classes spécialisées.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 629,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "52ffd8faa4e9061a3f2366e9550bd55cc610c7d7570cf00085c2a2237477b803"
+            },
+            "placement": {
+              "domain": "vocab-actions",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "previous-domain-fallback-needs-review",
+              "themeId": "L3-vocab-actions"
+            },
+            "lexicalClass": "other"
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:3092",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Stare per exprime l’imminence, distincte du progressif stare avec gérondif.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Je suis en train de..."
+      },
+      "after": {
+        "native": "Je suis sur le point de..."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+          "location": [
+            "reserve",
+            7
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:3092",
+            "study": "Sto per...",
+            "native": "Je suis en train de...",
+            "phon": "sto pèr",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": true,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": true,
+            "contentType": "incomplete",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Forme étudiée explicitement ouverte : emplacement, pointillés ou complément à fournir."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 3092,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "72f9566a33ec0f30e717df42e5b942d2aea14587d353eb17bbf7c36e7008adb4"
+            },
+            "placement": {
+              "domain": "reserve",
+              "classification": "source-template",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "personnaliser",
+              "section": "reserve",
+              "themeId": null
+            },
+            "reserveReason": "Forme étudiée explicitement ouverte : emplacement, pointillés ou complément à fournir."
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:970",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Vuoi exprime la volonté à la deuxième personne.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Tu vas goûter ?"
+      },
+      "after": {
+        "native": "Tu veux goûter ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            22
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:970",
+            "study": "Vuoi assaggiare?",
+            "native": "Tu vas goûter ?",
+            "phon": "vouoï as-sadj-dja-ré",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 970,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "1dbf53912d0b7e869c9eb4f9319f063beffa06ad00bdf4d99d2a10f38d29a7cc"
+            },
+            "placement": {
+              "domain": "deplacements",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "deplacements",
+              "section": "situations",
+              "themeId": "L4-deplacements"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:930",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Sotto zero est traduit sans l’expression numérique incohérente moins zéro.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Il fait moins zéro."
+      },
+      "after": {
+        "native": "On est en dessous de zéro."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            5
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:930",
+            "study": "Siamo sotto zero.",
+            "native": "Il fait moins zéro.",
+            "phon": "sia-mo sot-to dzè-ro",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 930,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "435cdd16dcf7b6c69a98e72deb34d926105a92badc20b88a5d3ff8c22a23628b"
+            },
+            "placement": {
+              "domain": "decrire",
+              "classification": "description",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "decrire",
+              "section": "situations",
+              "themeId": "L4-decrire"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:734",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Le complément le abitudini est restitué sans changer le sujet implicite.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Ça me change."
+      },
+      "after": {
+        "native": "Ça change mes habitudes."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            4
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:734",
+            "study": "Mi cambia le abitudini.",
+            "native": "Ça me change.",
+            "phon": "mi camm-bia lé a-bi-tou-di-ni",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 734,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "c75b64e0980d2c69c15f93369acbd6dc01a8c8c513710ac1c673e9353bee1ae0"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L4-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:841",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Le clitique ne de parlarne est rendu par en.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "On peut parler plus tard ?"
+      },
+      "after": {
+        "native": "On peut en parler plus tard ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            8
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:841",
+            "study": "Possiamo parlarne più tardi?",
+            "native": "On peut parler plus tard ?",
+            "phon": "pos-sia-mo par-lar-né piou tar-di",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 841,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "13cb3d7eb00e2bbee94879f9f59807a90081d0e7ee419ad4cb6f95b309b8e494"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "section": "situations",
+              "themeId": "L4-reperes"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:846",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "La formulation française retenue conserve l’anticipation au futur et le tour idiomatique.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "On aura tout vu."
+      },
+      "after": {
+        "native": "On en verra de belles."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            44
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:846",
+            "study": "Ne vedremo delle belle.",
+            "native": "On aura tout vu.",
+            "phon": "né vé-dré-mo dèl-lé bèl-lé",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 846,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "68e96457c761a80a0ce634ca103dc31d6a14279a4bc209eefadb0b24027f141e"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L4-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:978",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Fai et tua indiquent un tutoiement singulier.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Faites comme chez vous."
+      },
+      "after": {
+        "native": "Fais comme chez toi."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            110
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:978",
+            "study": "Fai come a casa tua.",
+            "native": "Faites comme chez vous.",
+            "phon": "faï co-mé a ca-za tou-a",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Consigne à l'impératif dans le sens français ; elle fonctionne comme tour complet."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 978,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "57a496327477db230ecdd8cf372264772282cd526ff9c520bce058b24139a5e5"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L4-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "situation-authored:fr-it:transport-imprevus-06",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Usare ancora exprime la possibilité d’utiliser encore le billet, au-delà de sa seule conservation.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Est-ce que je peux garder le même billet ?"
+      },
+      "after": {
+        "native": "Est-ce que je peux encore utiliser le même billet ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            10,
+            "phrases",
+            4
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "situation-authored:fr-it:transport-imprevus-06",
+            "study": "Posso usare ancora lo stesso biglietto?",
+            "native": "Est-ce que je peux garder le même billet ?",
+            "phon": "POS-so ou-ZA-ré ann-KO-ra lo STÈS-so bi-LIÈT-to",
+            "speaker": "A",
+            "kind": "learner",
+            "contentType": "utterance",
+            "isTemplate": false,
+            "sourceDeclaredTemplate": false,
+            "editorialLevel": 4,
+            "phoneticReviewStatus": "pending-Claude",
+            "source": {
+              "collection": "situation-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/fr-it.json",
+              "ledgerFileSha256": "d78f3912eb2fc8bc2f33ca77329f6bb7deb408a1c00949d0fc905f38e6b7982b",
+              "itemId": "fr-it:transport-imprevus-06",
+              "sourceSha256": "de8a7fd586dc3621f907798c93d44b37188fb9799a0288e18cb24879b60e73b9",
+              "ledgerItemSha256": "de8a7fd586dc3621f907798c93d44b37188fb9799a0288e18cb24879b60e73b9",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Phrase entière correspondant à l’intention « Vérifier si le même billet peut encore servir. » ; préparation de sa forme complète avant rappel, sans dériver ni assembler de phonétique."
+            },
+            "placement": {
+              "domain": "transport-imprevus",
+              "section": "situations",
+              "classification": "new-situation-whole-utterance",
+              "reason": "Phrase entière correspondant à l’intention « Vérifier si le même billet peut encore servir. » ; préparation de sa forme complète avant rappel, sans dériver ni assembler de phonétique.",
+              "plannedPrerequisiteIndices": [],
+              "themeId": "L4-situation-transport-imprevus"
+            },
+            "intentId": "transport-imprevus-06",
+            "topicId": "transport-imprevus"
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "situation-authored:fr-it:piste-equipement-chambre-08",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Bene est rendu par bien dans le remerciement après le séjour.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Merci, j’ai pu dormir normalement."
+      },
+      "after": {
+        "native": "Merci, j’ai pu bien dormir."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            14,
+            "phrases",
+            7
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "situation-authored:fr-it:piste-equipement-chambre-08",
+            "study": "Grazie, ho potuto dormire bene.",
+            "native": "Merci, j’ai pu dormir normalement.",
+            "phon": "GRA-tsié o po-TOU-to dor-MI-ré BÉ-né",
+            "speaker": "A",
+            "kind": "learner",
+            "contentType": "utterance",
+            "isTemplate": false,
+            "sourceDeclaredTemplate": false,
+            "editorialLevel": 4,
+            "phoneticReviewStatus": "pending-Claude",
+            "source": {
+              "collection": "situation-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-it.json",
+              "ledgerFileSha256": "7b6190d1f0554d2c2a56374f542a169a48ae162c764cd1f4d3e8336fd5e66c88",
+              "itemId": "fr-it:piste-equipement-chambre-08",
+              "sourceSha256": "e787a12bdbb7451724c56b75fdebd0d789f4f1665e27c67d5bd0eacbe342d009",
+              "ledgerItemSha256": "e787a12bdbb7451724c56b75fdebd0d789f4f1665e27c67d5bd0eacbe342d009",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Énoncé complet cohérent avec la situation, sans changement des champs d’une source existante."
+            },
+            "placement": {
+              "domain": "piste-equipement-chambre",
+              "section": "situations",
+              "classification": "new-situation-whole-utterance",
+              "reason": "Énoncé complet cohérent avec la situation, sans changement des champs d’une source existante.",
+              "plannedPrerequisiteIndices": [],
+              "themeId": "L4-situation-piste-equipement-chambre"
+            },
+            "intentId": "piste-equipement-chambre-08",
+            "topicId": "piste-equipement-chambre"
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:1375",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Les deux clitiques te et lo sont tous deux rendus.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "J'ai oublié de te dire."
+      },
+      "after": {
+        "native": "J'ai oublié de te le dire."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            1,
+            "phrases",
+            8
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:1375",
+            "study": "Ho dimenticato di dirtelo.",
+            "native": "J'ai oublié de te dire.",
+            "phon": "o di-mènn-ti-ca-to di dir-té-lo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 1375,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "5aed9b1f724d639ac8b2cf3a46c8f7896873435751d5d757138cf052240025be"
+            },
+            "placement": {
+              "domain": "comprendre",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "comprendre",
+              "section": "situations",
+              "themeId": "L5-comprendre"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:1208",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Centrare il bersaglio exprime le résultat d’atteindre la cible.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Il a visé la cible."
+      },
+      "after": {
+        "native": "Il a touché la cible."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            61
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:1208",
+            "study": "Ha centrato il bersaglio.",
+            "native": "Il a visé la cible.",
+            "phon": "a tchènn-tra-to il bèr-sa-lio",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 1208,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "57afc66fdafe50534419fc2dcc198852ff91f3d0ad0da8fee7734cade9504881"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L5-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "situation-authored:fr-it:piste-depannage-connexion-05",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Un’altra rete reste indéfini : un autre réseau.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Le problème continue sur cet autre réseau."
+      },
+      "after": {
+        "native": "Le problème continue sur un autre réseau."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            12,
+            "phrases",
+            4
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "situation-authored:fr-it:piste-depannage-connexion-05",
+            "study": "Il problema continua su un’altra rete.",
+            "native": "Le problème continue sur cet autre réseau.",
+            "phon": "il pro-BLÈ-ma konn-TI-noua sou ounn AL-tra RÉ-té",
+            "speaker": "A",
+            "kind": "learner",
+            "contentType": "utterance",
+            "isTemplate": false,
+            "sourceDeclaredTemplate": false,
+            "editorialLevel": 5,
+            "phoneticReviewStatus": "pending-Claude",
+            "source": {
+              "collection": "situation-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-it.json",
+              "ledgerFileSha256": "7b6190d1f0554d2c2a56374f542a169a48ae162c764cd1f4d3e8336fd5e66c88",
+              "itemId": "fr-it:piste-depannage-connexion-05",
+              "sourceSha256": "c8e6ebb5bab1dcd3bdaa7fd9e24b55e08dff98c4936a9459428b464c572348ce",
+              "ledgerItemSha256": "c8e6ebb5bab1dcd3bdaa7fd9e24b55e08dff98c4936a9459428b464c572348ce",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Énoncé complet cohérent avec la situation, sans changement des champs d’une source existante."
+            },
+            "placement": {
+              "domain": "piste-depannage-connexion",
+              "section": "situations",
+              "classification": "new-situation-whole-utterance",
+              "reason": "Énoncé complet cohérent avec la situation, sans changement des champs d’une source existante.",
+              "plannedPrerequisiteIndices": [],
+              "themeId": "L5-situation-piste-depannage-connexion"
+            },
+            "intentId": "piste-depannage-connexion-05",
+            "topicId": "piste-depannage-connexion"
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:1603",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Mon billet est cohérent avec le thème déplacements ; biglietto peut ailleurs désigner une carte de visite par ellipse.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Voici ma carte."
+      },
+      "after": {
+        "native": "Voici mon billet."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            23
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:1603",
+            "study": "Ecco il mio biglietto.",
+            "native": "Voici ma carte.",
+            "phon": "èc-co il mi-o bi-liét-to",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 6,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Sens de la forme étudiée et traduction contrôlés sur cette carte entière ; décision éditoriale individuelle, sans validation phonétique."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 1603,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "52273c8a4f7db19983ac3eaff72ee1099f0e2f8d66bb00469a7d75b392ad4d26"
+            },
+            "placement": {
+              "domain": "deplacements",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "deplacements",
+              "section": "situations",
+              "themeId": "L6-deplacements"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:1466",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "L’expression indique l’opportunité, pas l’évidence.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Ça tombe sous le sens."
+      },
+      "after": {
+        "native": "Ça tombe bien."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            16
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:1466",
+            "study": "Cade a proposito.",
+            "native": "Ça tombe sous le sens.",
+            "phon": "ca-dé a pro-po-zi-to",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 6,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 1466,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "01739f9919e1e1496b9b76784b4472c36eb78d7fc7950f843ac2c45ff11c7f6b"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L6-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:1506",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Precisare est rendu explicitement par préciser.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Permets-moi de nuancer."
+      },
+      "after": {
+        "native": "Permets-moi de préciser."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            32
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:1506",
+            "study": "Permettimi di precisare.",
+            "native": "Permets-moi de nuancer.",
+            "phon": "pèr-mèt-ti-mi di pré-tchi-za-ré",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 6,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Consigne à l'impératif dans le sens français ; elle fonctionne comme tour complet."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 1506,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "e4569b256ac40f3ef116874c5e36fc9f5169e64c7803f226aedf3a0665f152aa"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L6-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:1591",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "In italiano désigne l’italien, sans substitution par la langue de l’interface.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Comment on dit ça en français ?"
+      },
+      "after": {
+        "native": "Comment on dit ça en italien ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            66
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:1591",
+            "study": "Come si dice in italiano?",
+            "native": "Comment on dit ça en français ?",
+            "phon": "co-mé si di-tché inn i-ta-lia-no",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 6,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 1591,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "bc45d0fc82ccac3f164d96638cd0dae8afa1a6a788ca3c0798b2cf8c9038b8f2"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L6-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:1736",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "L’objet l’ est restitué ; la correction phonétique antérieure du même lot est conservée.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Je n'ai pas encore reçu."
+      },
+      "after": {
+        "native": "Je ne l'ai pas encore reçu."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:1736",
+            "study": "Non l'ho ancora ricevuto.",
+            "native": "Je n'ai pas encore reçu.",
+            "phon": "nonn lo an-co-ra ri-tché-vou-to",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 1736,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "e7067ff7446cb8af0bdff39565b9ee9c35a3f9a7b6b5eef2d79b8f9b75dca7a6"
+            },
+            "placement": {
+              "domain": "repas",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "repas",
+              "section": "situations",
+              "themeId": "L7-repas"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:1859",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Domattina indique demain matin ; à la première heure garde ici l’idée de presto.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Je m'en occupe dès la première heure."
+      },
+      "after": {
+        "native": "Je m'en occupe demain à la première heure."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            9
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:1859",
+            "study": "Me ne occupo domattina presto.",
+            "native": "Je m'en occupe dès la première heure.",
+            "phon": "mé né oc-cou-po do-mat-ti-na près-to",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 1859,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "8d99a0c8543581bd2ddc7818ac7eb90f6531147c23f63c7d9aa0b1fb761d5704"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "section": "situations",
+              "themeId": "L7-reperes"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:4091",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Direi est un conditionnel, rendu par dirais.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "En conclusion, je dirai que..."
+      },
+      "after": {
+        "native": "En conclusion, je dirais que..."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+          "location": [
+            "reserve",
+            16
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:4091",
+            "study": "In conclusione, direi che...",
+            "native": "En conclusion, je dirai que...",
+            "phon": "inn conn-clou-zio-né, di-rèï qué",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": true,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": true,
+            "contentType": "incomplete",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Forme étudiée explicitement ouverte : emplacement, pointillés ou complément à fournir."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 4091,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "a90d50fcb130375677afbf1a4da5eebe15e1c2efa459ee73278d31cbcea55551"
+            },
+            "placement": {
+              "domain": "reserve",
+              "classification": "source-template",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "personnaliser",
+              "section": "reserve",
+              "themeId": null
+            },
+            "reserveReason": "Forme étudiée explicitement ouverte : emplacement, pointillés ou complément à fournir."
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:2249",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "L’italien nommé dans la question est conservé dans le dialogue.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "— Depuis quand tu apprends le français ? — Depuis six mois."
+      },
+      "after": {
+        "native": "— Depuis quand tu apprends l'italien ? — Depuis six mois."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            22
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:2249",
+            "study": "— Da quando studi l'italiano? — Da sei mesi.",
+            "native": "— Depuis quand tu apprends le français ? — Depuis six mois.",
+            "phon": "da couann-do stou-di li-ta-lia-no — da sèï mé-zi",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 2249,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "859927dccdc6c296493015e3490b40cbf28d920496254be5f4ad0e8c9c44e950"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "section": "situations",
+              "themeId": "L8-reperes"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:2270",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "La question vise l’italien et le mot cité reste appuntamento ; sa traduction lexicale ne remplace pas la citation.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "— Comment on dit ça en français ? — On dit « rendez-vous »."
+      },
+      "after": {
+        "native": "— Comment on dit ça en italien ? — On dit « appuntamento »."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            23
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:2270",
+            "study": "— Come si dice in italiano? — Si dice « appuntamento ».",
+            "native": "— Comment on dit ça en français ? — On dit « rendez-vous ».",
+            "phon": "co-mé si di-tché inn i-ta-lia-no — si di-tché ap-pounn-ta-mènn-to",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 2270,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "5ddf91ca41808151740281a5aafde5c7f3de544e5fbb573a58d69ad8a216c119"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "section": "situations",
+              "themeId": "L8-reperes"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:2244",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "La question porte sur la maîtrise de l’italien.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "— Tu parles français ? — Oui, un petit peu."
+      },
+      "after": {
+        "native": "— Tu parles italien ? — Oui, un petit peu."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            79
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:2244",
+            "study": "— Parli italiano? — Sì, un pochino.",
+            "native": "— Tu parles français ? — Oui, un petit peu.",
+            "phon": "par-li i-ta-lia-no — si, oun po-qui-no",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 2244,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "a6b31e17e6238d02be36ba0c41effe0f84618da180c5a88cc82cfbdfad6d119a"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L8-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:2360",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Ravi de faire votre connaissance convient à cette formule de rencontre formelle.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Au plaisir de vous rencontrer."
+      },
+      "after": {
+        "native": "Ravi de faire votre connaissance."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            33
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:2360",
+            "study": "Piacere di conoscerla.",
+            "native": "Au plaisir de vous rencontrer.",
+            "phon": "pia-tché-ré di co-no-chèr-la",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 9,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 2360,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "11f6f66f9caef2ced1e1fc8edb937db509d43601f7afb16e895dd7a7dc7aa62b"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L9-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "heard-authored:fr-it:piste-depannage-connexion-received-01",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Mi est restitué par m’ dans la question reçue.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Vous entendez mieux maintenant ?"
+      },
+      "after": {
+        "native": "Vous m’entendez mieux maintenant ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-it.json",
+          "location": [
+            "receivedModels",
+            6
+          ],
+          "profile": "received-model",
+          "phrase": {
+            "id": "heard-authored:fr-it:piste-depannage-connexion-received-01",
+            "study": "Mi sente meglio adesso?",
+            "native": "Vous entendez mieux maintenant ?",
+            "phon": "mi SÈNN-té MÈ-lio a-DÈS-so",
+            "contentType": "utterance",
+            "heardOnly": true,
+            "firstHeardLevel": 5,
+            "isTemplate": false,
+            "phoneticReviewStatus": "pending-Claude",
+            "source": {
+              "collection": "situation-received-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-it.json",
+              "ledgerFileSha256": "7b6190d1f0554d2c2a56374f542a169a48ae162c764cd1f4d3e8336fd5e66c88",
+              "itemId": "fr-it:piste-depannage-connexion-received-01",
+              "sourceSha256": "a1706bdb2a45a37778c0460ec48c2a30183d4943d1185dc4250454dc2ed0f785",
+              "ledgerItemSha256": "a1706bdb2a45a37778c0460ec48c2a30183d4943d1185dc4250454dc2ed0f785",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "referenceOnly": true
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "heard-authored:fr-it:piste-vetement-taille-received-01",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Prende est rendu par prenez dans la question sur la taille.",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Quelle taille gardez-vous ?"
+      },
+      "after": {
+        "native": "Quelle taille prenez-vous ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-it.json",
+          "location": [
+            "receivedModels",
+            32
+          ],
+          "profile": "received-model",
+          "phrase": {
+            "id": "heard-authored:fr-it:piste-vetement-taille-received-01",
+            "study": "Quale taglia prende?",
+            "native": "Quelle taille gardez-vous ?",
+            "phon": "KOUA-lé TA-lia PRÈNN-dé",
+            "contentType": "utterance",
+            "heardOnly": true,
+            "firstHeardLevel": 2,
+            "isTemplate": false,
+            "phoneticReviewStatus": "pending-Claude",
+            "source": {
+              "collection": "situation-received-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-it.json",
+              "ledgerFileSha256": "7b6190d1f0554d2c2a56374f542a169a48ae162c764cd1f4d3e8336fd5e66c88",
+              "itemId": "fr-it:piste-vetement-taille-received-01",
+              "sourceSha256": "35e26914e2dea8bd177e704e6570d62afa36121a30b5e82ccb2a586e75a7a317",
+              "ledgerItemSha256": "35e26914e2dea8bd177e704e6570d62afa36121a30b5e82ccb2a586e75a7a317",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "referenceOnly": true
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:2489",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Faccio seguito alla mia mail est une relance professionnelle explicite ; l’ancienne formule n’interdit pas tout usage métaphorique de tornare.",
+      "fields": [
+        "native",
+        "phon",
+        "study"
+      ],
+      "before": {
+        "study": "Torno da voi in seguito alla mia mail.",
+        "native": "Je reviens vers vous suite à mon mail.",
+        "phon": "tor-no da voï inn sé-goui-to al-la mi-a mèïl"
+      },
+      "after": {
+        "study": "Faccio seguito alla mia mail.",
+        "native": "Je fais suite à mon mail.",
+        "phon": "fatch-tcho sé-goui-to al-la mi-a mèïl"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:2489",
+            "study": "Torno da voi in seguito alla mia mail.",
+            "native": "Je reviens vers vous suite à mon mail.",
+            "phon": "tor-no da voï inn sé-goui-to al-la mi-a mèïl",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 10,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 2489,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "c82f59ad444dc76b3b7a4a430ebd8b5b5204718a0cbf6d4341728e6e132fbd8f"
+            },
+            "placement": {
+              "domain": "deplacements",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "deplacements",
+              "section": "situations",
+              "themeId": "L10-deplacements"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:3879",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "La via amichevole explicite la voie amiable dans le litige ; soluzione amichevole serait une variante possible.",
+      "fields": [
+        "native",
+        "phon",
+        "study"
+      ],
+      "before": {
+        "study": "In caso di controversia, privilegiamo l'amichevole.",
+        "native": "En cas de litige, on privilégie l'amiable.",
+        "phon": "inn ca-zo di conn-tro-vèr-sia, pri-vi-lé-dja-mo la-mi-qué-vo-lé"
+      },
+      "after": {
+        "study": "In caso di controversia, privilegiamo la via amichevole.",
+        "native": "En cas de litige, on privilégie la voie amiable.",
+        "phon": "inn ca-zo di conn-tro-vèr-sia, pri-vi-lé-dja-mo la vi-a a-mi-qué-vo-lé"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            202
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:3879",
+            "study": "In caso di controversia, privilegiamo l'amichevole.",
+            "native": "En cas de litige, on privilégie l'amiable.",
+            "phon": "inn ca-zo di conn-tro-vèr-sia, pri-vi-lé-dja-mo la-mi-qué-vo-lé",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 3879,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "9d33254d1a850ce5afac4c247d4d2acbd39ce78edfea2453712f0205084f35d4"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L5-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:it:4098",
+      "decision": "accepted-as-a-bounded-event",
+      "individualLinguisticNote": "Offre un prezzo più basso fournit une comparaison de prix complète pour le fournisseur.",
+      "fields": [
+        "native",
+        "phon",
+        "study"
+      ],
+      "before": {
+        "study": "Un altro fornitore propone meno caro.",
+        "native": "Un autre fournisseur propose moins cher.",
+        "phon": "oun al-tro for-ni-to-ré pro-po-né mé-no ca-ro"
+      },
+      "after": {
+        "study": "Un altro fornitore offre un prezzo più basso.",
+        "native": "Un autre fournisseur offre un prix plus bas.",
+        "phon": "oun al-tro for-ni-to-ré of-fré oun prèt-tso piou bas-so"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            27
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:it:4098",
+            "study": "Un altro fornitore propone meno caro.",
+            "native": "Un autre fournisseur propose moins cher.",
+            "phon": "oun al-tro for-ni-to-ré pro-po-né mé-no ca-ro",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.it",
+              "sourceIndex": 4098,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "5fc1ab1cde7d945c7f6416e80709e8b27095393e006625ba5596066af0d84639"
+            },
+            "placement": {
+              "domain": "travail",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "travail",
+              "section": "situations",
+              "themeId": "L7-travail"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    }
+  ]
+}

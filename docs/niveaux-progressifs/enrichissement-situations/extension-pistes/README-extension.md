@@ -22,12 +22,12 @@ Les trois reçus clarifiés apportent respectivement une direction réelle vers 
 
 Les anciens dix modules, leurs 560 positions et le stock lexical rédigé précédent sont protégés. Les 32 115 cartes historiques, leurs champs et leurs niveaux d’accès restent intacts ; le niveau éditorial ne réécrit pas `lv`. Codex assure le sens, le classement, la cohérence et la progression ; Claude relit aussi les thèmes et niveaux dans le mandat élargi de revue intégrale. Rien dans ce document ne constitue une publication.
 
-Manifeste : `183eea8ecc7b0a57ff94a0e23f08e64c8aba173a1c25918e75306cf2d57248e8`. Plan : `d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379`.
+Manifeste : `a8184cf3d8f4242b81b8c3b511e3e37c6d3364d6e6c153dc3f786a405e11d326`. Plan : `d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379`.
 
 
-La vérification navigateur du **2026-10-25T22:14:05.870Z** réussit **19 contrôles sur 19**, avec **210 vues** (320, 390 et 1440 px), 196 rubriques de situation et 1 568 positions apprenant. Les 259 reçus et 252 soutiens sont sourcés ; 133 questions/objections ciblent une réponse comprise et imitée, 126 clôtures déclarent une liste de réponse vide. Neuf corruptions du réemploi et treize corruptions des reçus/soutiens sont refusées avant rechargement d’une banque corrigée. Les 278 emplacements photo dans 24 atlas et la page L1 v1 sont vérifiés. Les cellules, banques, ledgers, sources, images et le code restent stables pendant l’exécution.
+La vérification navigateur du **2026-10-26T09:29:21.172Z** réussit **19 contrôles sur 19**, avec **210 vues** (320, 390 et 1440 px), 196 rubriques de situation et 1 568 positions apprenant. Les 259 reçus et 252 soutiens sont sourcés ; 133 questions/objections ciblent une réponse comprise et imitée, 126 clôtures déclarent une liste de réponse vide. Neuf corruptions du réemploi et treize corruptions des reçus/soutiens sont refusées avant rechargement d’une banque corrigée. Les 278 emplacements photo dans 24 atlas et la page L1 v1 sont vérifiés. Les cellules, banques, ledgers, sources, images et le code restent stables pendant l’exécution.
 
-Rapport détaillé : [verification-navigateur.json](../../verification-navigateur.json), empreinte `6e55e152c1902d3b890b4b91d96b9f1afd097de9b4d0198cc44327796463d4be`. Le contrôle audio utilise un témoin TTS qui vérifie le texte entier et sa langue ; il ne valide pas le son réel ni la phonétique. Aucun site déployé ni téléphone physique n’est certifié par ce passage local.
+Rapport détaillé : [verification-navigateur.json](../../verification-navigateur.json), empreinte `083dd3f484cefbab9cfea0e6e9134adc37bfcdf800de70b70ea5007fb96217c5`. Le contrôle audio utilise un témoin TTS qui vérifie le texte entier et sa langue ; il ne valide pas le son réel ni la phonétique. Aucun site déployé ni téléphone physique n’est certifié par ce passage local.
 
 Le raccord phonétique du 25 octobre vérifie les après exacts et leurs annotations avant de comparer les tuples sources sur une projection privée vers les avant. Les indicateurs `sourceTuplesMatchLedger` se rapportent à ce contrôle des origines, pas à une identité verbatim des aides corrigées avec le ledger historique. L’affichage est comparé aux après réels. Voir [la vérification du raccord](../../verification-raccord-phonetique.md).
 
@@ -58,3 +58,10 @@ comparaison des origines sur une projection privée. Les 310 propositions,
 phonétiques conventionnels restent gardés ; une glose peut être corrigée
 séparément sur la même carte. La lecture individuelle annoncée atteint 60/70,
 les dix cellules fr→it restent à lire.
+
+Le lot 9 termine la lecture individuelle annoncée par Claude : 70/70 cellules.
+Le raccord reprend 70 aides italiennes, 34 gloses, trois blocs complets et
+l’erratum espagnol EN71 dans trois couches distinctes. Les après et annotations
+sont contrôlés avant projection des origines. Les 280 propositions,
+30 conventions et 96 contenus incertains restent non appliqués ; la couverture
+ne vaut pas clôture des décisions ou validation pédagogique globale.

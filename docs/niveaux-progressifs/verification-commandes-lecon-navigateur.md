@@ -1,6 +1,6 @@
 # Vérification des commandes et de la fiche sans défilement
 
-Exécution : `2026-10-25T22:08:39.757Z` — **9 contrôles sur 9 réussis**.
+Exécution : `2026-10-26T09:15:33.118Z` — **9 contrôles sur 9 réussis**.
 
 Chromium local, écrans émulés. Aucun téléphone physique ni site public testé. Les voix sont simulées pour vérifier le texte transmis ; ce rapport ne valide ni le son réel ni les phonétiques.
 
@@ -55,3 +55,11 @@ seules gardent aide, sens et statut ; les trois blocs changent étude et aide
 ensemble, un seul change aussi le sens. Les après sont validés avant projection
 privée des seules corrections attestées vers les sources historiques. Les 310
 propositions et 151 conventions restent non appliquées. Voir [le raccord lot 8](verification-raccord-lot8.md).
+
+L’édition du lot 9 ajoute 70 aides italiennes, puis 34 gloses et trois blocs
+complets dans une couche de contenu distincte. La carte 1736 conserve l’aide
+de A avant sa glose B. Les deux reçus de contenu restent hors production et
+les deux réserves restent en réserve. EN71 a sa propre correction entière
+après le lot 8, dont les preuves et annotations sont gardées. Les 280
+propositions, 30 conventions et 96 contenus incertains ne sont pas appliqués.
+Voir [le raccord lot 9](verification-raccord-lot9.md).

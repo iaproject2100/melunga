@@ -209,3 +209,21 @@ Le registre `docs/niveaux-progressifs/corrections-contenu/lot8/revue-contenu-lot
 Les 310 propositions et 119 corrections incertaines restent non appliquées. Aucun niveau, thème, rôle ou droit ne change.
 
 Empreinte du registre de contenu : `756c2e867928b24a0e4e8a86216072f4fea2dfa832d3938b5e38dc622c01a8ce`.
+
+## Erratum espagnol EN71 après le lot 8
+
+Un événement figé épelle distinctement E et N ; la provenance du lot 8 est conservée.
+
+1 objets / 1 champs. Registre `docs/niveaux-progressifs/corrections-phonetiques/lot8-errata-1/revue-claude-lot8-errata-1.json` ; SHA-256 `cbbfa4e5f1ca6afd83e53eb8f12045d3cd0d2d7e879f1053efa69bf4e9e1361e`.
+
+## Aides italiennes figées — lot 9
+
+70 aides entières, dont un modèle reçu ; quatre copies de transport sont conservées avec leur canonique. N ne couvre que les 63 cartes du registre. Aucune lecture ne change.
+
+74 objets / 74 champs. Registre `docs/niveaux-progressifs/corrections-phonetiques/lot9/revue-claude-lot9.json` ; SHA-256 `313973bdf60a2bf629b4410ae7895e1e0bb4604f08bde2c5037058fa332e5665`.
+
+## Contenu italien séparé — lot 9
+
+34 gloses certaines et trois blocs atomiques étude/sens/aide. Les 280 propositions, 30 conventions et 96 contenus incertains restent non appliqués.
+
+37 objets / 43 champs. Registre `docs/niveaux-progressifs/corrections-contenu/lot9/revue-contenu-lot9.json` ; SHA-256 `db40f6ae9a0b88595b0c4f5591b7ca1263b5ff1facfb9d6c1c723e6ed204ad74`.

@@ -71,6 +71,9 @@ _lot7_spec.loader.exec_module(lot7_corrections)
 _lot8_spec = importlib.util.spec_from_file_location("audited_lot8_corrections", Path(__file__).with_name("lot8_corrections.py"))
 lot8_corrections = importlib.util.module_from_spec(_lot8_spec)
 _lot8_spec.loader.exec_module(lot8_corrections)
+_lot9_spec = importlib.util.spec_from_file_location("audited_lot9_corrections", Path(__file__).with_name("lot9_corrections.py"))
+lot9_corrections = importlib.util.module_from_spec(_lot9_spec)
+_lot9_spec.loader.exec_module(lot9_corrections)
 
 
 def canonical(value):
@@ -1665,8 +1668,14 @@ def make(include_situations=True):
         report["lot8PhoneticCorrections"] = lot8_phonetic_summary
         outputs, lot8_content_summary = lot8_corrections.apply_to_outputs(ROOT, outputs, report, "content")
         report["lot8ContentCorrections"] = lot8_content_summary
+        outputs, lot8_erratum_summary = lot9_corrections.apply_to_outputs(ROOT, outputs, report, "erratum")
+        report["lot8Erratum1Corrections"] = lot8_erratum_summary
+        outputs, lot9_phonetic_summary = lot9_corrections.apply_to_outputs(ROOT, outputs, report, "phonetic")
+        report["lot9PhoneticCorrections"] = lot9_phonetic_summary
+        outputs, lot9_content_summary = lot9_corrections.apply_to_outputs(ROOT, outputs, report, "content")
+        report["lot9ContentCorrections"] = lot9_content_summary
         for transport in report["reviewTransports"]:
-            transport["fileSha256"] = lot8_content_summary["transportSha256ByPair"][transport["pair"]]
+            transport["fileSha256"] = lot9_content_summary["transportSha256ByPair"][transport["pair"]]
         report["manifestSha256"] = sha(json.loads(outputs[OUTPUT / "manifest.json"]))
     # include_situations=False is the source-exact historical baseline used by
     # validate_situation_drafts.py. It is not a served runtime edition and has
@@ -1807,6 +1816,15 @@ def markdown(report):
             f"Le registre `{lot8_content['registryPath']}` applique **18 gloses, deux études de ponctuation seules et trois blocs atomiques étude/aide ± sens**, dans **{lot8_content['occurrenceCount']} objets / {lot8_content['changedRuntimeFields']} champs**. Les études seules gardent aides, sens et statuts phonétiques ; la copie du soutien estómago est mise à jour avec son canonique.", "",
             "Les 310 propositions et 119 corrections incertaines restent non appliquées. Aucun niveau, thème, rôle ou droit ne change.", "",
             f"Empreinte du registre de contenu : `{lot8_content['registrySha256']}`.", ""])
+    for key, title, description in (
+        ("lot8Erratum1Corrections", "Erratum espagnol EN71 après le lot 8", "Un événement figé épelle distinctement E et N ; la provenance du lot 8 est conservée."),
+        ("lot9PhoneticCorrections", "Aides italiennes figées — lot 9", "70 aides entières, dont un modèle reçu ; quatre copies de transport sont conservées avec leur canonique. N ne couvre que les 63 cartes du registre. Aucune lecture ne change."),
+        ("lot9ContentCorrections", "Contenu italien séparé — lot 9", "34 gloses certaines et trois blocs atomiques étude/sens/aide. Les 280 propositions, 30 conventions et 96 contenus incertains restent non appliqués."),
+    ):
+        batch = report.get(key)
+        if batch:
+            lines.extend(["## " + title, "", description, "",
+                f"{batch['occurrenceCount']} objets / {batch['changedRuntimeFields']} champs. Registre `{batch['registryPath']}` ; SHA-256 `{batch['registrySha256']}`.", ""])
     return "\n".join(lines)
 
 

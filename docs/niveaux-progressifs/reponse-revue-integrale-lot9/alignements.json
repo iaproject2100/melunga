@@ -1,0 +1,1883 @@
+{
+  "schemaVersion": 1,
+  "baseSnapshotCommit": "40d4c0b264b364fe31d4fd1bc9acae03dc130e01",
+  "evidenceCommit": "5d450cc79f32d180f9331c5d06387fe36e8d94a6",
+  "publicationApproved": false,
+  "globalNativeApproval": false,
+  "scope": "70 aides figées, erratum EN71 distinct et conventions ; aucune écoute native",
+  "evidenceSha256": {
+    "registre-phonetique.json": "661131a84a421f29d017872879713ccc3ddcbd8a5f4f9b441a312dcedaaa51e9",
+    "lot-contenu-gloses.json": "cf20a6f4595f4e8c3627aac8bd4956ef5724bd9f220b2676288a88878f4636a0",
+    "conventions-a-decider.json": "03dc5421ff176eab2005c2d905d1cf8f4190c62af6979a70e1784e86262e7eb1",
+    "errata-1.json": "480f4c9348a393d29f1c3c3d6d0ffe5e16b01e802d94403840d90c15b52f7535"
+  },
+  "runtimeChecked": true,
+  "runtimeDocumentsCompared": 77,
+  "beforeMismatches": 0,
+  "afterMismatches": 0,
+  "phoneticEventCount": 70,
+  "readingEventCount": 0,
+  "phoneticRuleCounts": {
+    "N": 63,
+    "S": 3,
+    "T": 3,
+    "A": 1
+  },
+  "targetObjects": 74,
+  "profiles": {
+    "canonical": 69,
+    "transport-phrase": 4,
+    "received-model": 1
+  },
+  "priorEventChains": [],
+  "contentProjectedSeparately": {
+    "ids": 37,
+    "profiles": {
+      "canonical": 35,
+      "received-model": 2
+    },
+    "phoneticOverlapNativeOnly": [
+      "catalogue:it:1736"
+    ]
+  },
+  "conventions": {
+    "rows": 30,
+    "distinctIds": 30,
+    "bySourceGroup": {
+      "accent tonique discutable": 2,
+      "autres aides à confirmer": 8,
+      "emprunts anglais (wifi, label, puzzle)": 6,
+      "gli écrit lli": 5,
+      "sc devant e/i écrit sh": 3,
+      "voyelle nasale (cas laissés : SIM, team, Wang)": 2,
+      "z sourd ou sonore": 4
+    },
+    "byReaderCertainty": {
+      "incertain": 30
+    },
+    "byField": {
+      "phon": 30
+    },
+    "byStage": {
+      "snapshot-40d4c0b": 30
+    },
+    "overlapWithAppliedEvents": 0,
+    "applied": false,
+    "sourceGroupsAreLabelsOnly": true
+  },
+  "events": [
+    {
+      "id": "conversation:L1-fr-it.json:L1-fr-it-01:v1",
+      "study": "Sono francese.",
+      "native": "Je suis français.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "SO-no fran-TCHÉ-zé",
+      "afterPhon": "SO-no frann-TCHÉ-zé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+          "location": [
+            "themes",
+            0,
+            "phrases",
+            2
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2670",
+      "study": "È importante.",
+      "native": "C'est important.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "è im-por-tann-té",
+      "afterPhon": "è imm-por-tann-té",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            2
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2792",
+      "study": "imbarazzato",
+      "native": "gêné",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "im-ba-rat-tsa-to",
+      "afterPhon": "imm-ba-rat-tsa-to",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+          "location": [
+            "themes",
+            14,
+            "phrases",
+            15
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2801",
+      "study": "impaziente",
+      "native": "impatient",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "im-pa-tsiènn-té",
+      "afterPhon": "imm-pa-tsiènn-té",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+          "location": [
+            "themes",
+            14,
+            "phrases",
+            22
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2555",
+      "study": "non ancora",
+      "native": "pas encore",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "nonn an-co-ra",
+      "afterPhon": "nonn ann-co-ra",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+          "location": [
+            "themes",
+            15,
+            "phrases",
+            2
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2762",
+      "study": "importante",
+      "native": "important",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "im-por-tann-té",
+      "afterPhon": "imm-por-tann-té",
+      "priorCorrection": false,
+      "transportCopies": 1,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+          "location": [
+            "themes",
+            19,
+            "phrases",
+            33
+          ],
+          "profile": "canonical"
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-it.json",
+          "location": [
+            "phrases",
+            81
+          ],
+          "profile": "transport-phrase"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2527",
+      "study": "Ancora.",
+      "native": "Encore.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "an-co-ra",
+      "afterPhon": "ann-co-ra",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+          "location": [
+            "themes",
+            21,
+            "phrases",
+            4
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2754",
+      "study": "ancora",
+      "native": "encore",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "an-co-ra",
+      "afterPhon": "ann-co-ra",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+          "location": [
+            "themes",
+            21,
+            "phrases",
+            28
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:110",
+      "study": "Fa ancora male.",
+      "native": "Ça fait encore mal.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "fa an-co-ra ma-lé",
+      "afterPhon": "fa ann-co-ra ma-lé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            12
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:227",
+      "study": "Mi piacciono entrambi.",
+      "native": "J'aime les deux.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "mi piatch-tcho-no ènn-tram-bi",
+      "afterPhon": "mi piatch-tcho-no ènn-tramm-bi",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            20
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:213",
+      "study": "Mi fa impazzire.",
+      "native": "Ça me rend fou.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "mi fa im-pat-tsi-ré",
+      "afterPhon": "mi fa imm-pat-tsi-ré",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            82
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2856",
+      "study": "È impossibile.",
+      "native": "C'est impossible.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "è im-pos-si-bi-lé",
+      "afterPhon": "è imm-pos-si-bi-lé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            166
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "situation-conversation:fr-it:repas-preferences-01",
+      "study": "non mangio carne",
+      "native": "je ne mange pas de viande",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "non MAN-djo KAR-né",
+      "afterPhon": "nonn MANN-djo KAR-né",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L2.json",
+          "location": [
+            "themes",
+            10,
+            "phrases",
+            0
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:496",
+      "study": "Ho impastato il pane.",
+      "native": "J'ai pétri le pain.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "o im-pas-ta-to il pa-né",
+      "afterPhon": "o imm-pas-ta-to il pa-né",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            11
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:490",
+      "study": "Non ho ancora deciso.",
+      "native": "Je n'ai pas encore décidé.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "nonn o an-co-ra dé-tchi-zo",
+      "afterPhon": "nonn o ann-co-ra dé-tchi-zo",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            49
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:585",
+      "study": "Non ho ancora scelto.",
+      "native": "Je n'ai pas encore choisi.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "nonn o an-co-ra chèl-to",
+      "afterPhon": "nonn o ann-co-ra chèl-to",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            83
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:643",
+      "study": "Imparo il francese.",
+      "native": "J'apprends le français.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "im-pa-ro il frann-tché-zé",
+      "afterPhon": "imm-pa-ro il frann-tché-zé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            106
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:885",
+      "study": "Non lo so ancora.",
+      "native": "Je ne sais pas encore.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "nonn lo so an-co-ra",
+      "afterPhon": "nonn lo so ann-co-ra",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            1,
+            "phrases",
+            1
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:750",
+      "study": "È importante per me.",
+      "native": "C'est important pour moi.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "è im-por-tann-té pèr mé",
+      "afterPhon": "è imm-por-tann-té pèr mé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            2
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:722",
+      "study": "Ci sono ancora posti?",
+      "native": "Est-ce qu'il reste des places ?",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "tchi so-no an-co-ra pos-ti",
+      "afterPhon": "tchi so-no ann-co-ra pos-ti",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            0
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:821",
+      "study": "Imparo il cinese.",
+      "native": "J'apprends le chinois.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "im-pa-ro il tchi-né-zé",
+      "afterPhon": "imm-pa-ro il tchi-né-zé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            34
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:824",
+      "study": "Non importa.",
+      "native": "Peu importe.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "nonn im-por-ta",
+      "afterPhon": "nonn imm-por-ta",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            7
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:875",
+      "study": "Impossibile!",
+      "native": "Pas possible !",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "im-pos-si-bi-lé",
+      "afterPhon": "imm-pos-si-bi-lé",
+      "priorCorrection": false,
+      "transportCopies": 1,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            23,
+            "phrases",
+            1
+          ],
+          "profile": "canonical"
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-it.json",
+          "location": [
+            "phrases",
+            253
+          ],
+          "profile": "transport-phrase"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1174",
+      "study": "Ancora uno, per favore.",
+      "native": "Encore un, s'il vous plaît.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "an-co-ra ou-no, pèr fa-vo-ré",
+      "afterPhon": "ann-co-ra ou-no, pèr fa-vo-ré",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            0,
+            "phrases",
+            2
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1408",
+      "study": "Ci vorrà ancora molto tempo.",
+      "native": "Ce n'est pas demain la veille.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "tchi vor-ra an-co-ra mol-to tèm-po",
+      "afterPhon": "tchi vor-ra ann-co-ra mol-to tèm-po",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            22
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1167",
+      "study": "Qual è il gate d'imbarco?",
+      "native": "Quelle est la porte d'embarquement ?",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "coua-lè il guèït dim-bar-co",
+      "afterPhon": "coua-lè il guèït dimm-bar-co",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            6,
+            "phrases",
+            5
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1155",
+      "study": "È impermeabile?",
+      "native": "C'est imperméable ?",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "è im-pèr-mé-a-bi-lé",
+      "afterPhon": "è imm-pèr-mé-a-bi-lé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            37
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1221",
+      "study": "Impasto la pasta.",
+      "native": "Je pétris la pâte.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "im-pas-to la pas-ta",
+      "afterPhon": "imm-pas-to la pas-ta",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            69
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:3863",
+      "study": "Non importa.",
+      "native": "Ça ne fait rien.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "nonn im-por-ta",
+      "afterPhon": "nonn imm-por-ta",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            192
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:3877",
+      "study": "Il prossimo lotto deve essere impeccabile.",
+      "native": "Le prochain lot doit être irréprochable.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "il pros-si-mo lot-to dé-vé ès-sé-ré im-pèc-ca-bi-lé",
+      "afterPhon": "il pros-si-mo lot-to dé-vé ès-sé-ré imm-pèc-ca-bi-lé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            200
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "situation-authored:fr-it:piste-depannage-connexion-01",
+      "study": "La connessione si interrompe durante la chiamata.",
+      "native": "La connexion se coupe pendant l’appel.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "la konn-nès-SIO-né si inn-tèr-ROM-pé dou-RANN-té la kia-MA-ta",
+      "afterPhon": "la konn-nès-SIO-né si inn-tèr-ROMM-pé dou-RANN-té la kia-MA-ta",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            12,
+            "phrases",
+            0
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:3772",
+      "study": "un impermeabile",
+      "native": "un imperméable",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "oun im-pèr-mé-a-bi-lé",
+      "afterPhon": "oun imm-pèr-mé-a-bi-lé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            18,
+            "phrases",
+            106
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1705",
+      "study": "Vuoi restare ancora un po'?",
+      "native": "Tu veux rester encore un peu ?",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "vouoï rès-ta-ré an-co-ra oun po",
+      "afterPhon": "vouoï rès-ta-ré ann-co-ra oun po",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            28
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1625",
+      "study": "L'anno prossimo imparerò il cinese.",
+      "native": "L'année prochaine, j'apprendrai le chinois.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "lann-no pros-si-mo im-pa-ré-ro il tchi-né-zé",
+      "afterPhon": "lann-no pros-si-mo imm-pa-ré-ro il tchi-né-zé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            20
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1429",
+      "study": "È ancora disponibile?",
+      "native": "Est-ce que c'est encore disponible ?",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "è an-co-ra dis-po-ni-bi-lé",
+      "afterPhon": "è ann-co-ra dis-po-ni-bi-lé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            7
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "situation-conversation:fr-it:invitations-limites-01",
+      "study": "Purtroppo non posso, ho già un impegno.",
+      "native": "Malheureusement je ne peux pas, j'ai déjà un engagement.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "pour-TROP-po non POS-so, o DJA oun im-PÉ-gno",
+      "afterPhon": "pour-TROP-po nonn POS-so, o DJA oun imm-PÉ-gno",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+          "location": [
+            "themes",
+            10,
+            "phrases",
+            0
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "situation-conversation:fr-it:invitations-limites-03",
+      "study": "Sabato non posso, ma domenica sì.",
+      "native": "Samedi je ne peux pas, mais dimanche oui.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "SA-ba-to non POS-so, ma do-MÉ-ni-ka SI",
+      "afterPhon": "SA-ba-to nonn POS-so, ma do-MÉ-ni-ka SI",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+          "location": [
+            "themes",
+            10,
+            "phrases",
+            2
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1939",
+      "study": "Sono imbarazzato.",
+      "native": "Je suis gêné.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "so-no im-ba-rat-tsa-to",
+      "afterPhon": "so-no imm-ba-rat-tsa-to",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            10
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1736",
+      "study": "Non l'ho ancora ricevuto.",
+      "native": "Je n'ai pas encore reçu.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "nonn lo an-co-ra ri-tché-vou-to",
+      "afterPhon": "nonn lo ann-co-ra ri-tché-vou-to",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            3
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:4011",
+      "study": "Crescerà ancora.",
+      "native": "Il va grandir encore.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "cré-ché-ra an-co-ra",
+      "afterPhon": "cré-ché-ra ann-co-ra",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            31
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1860",
+      "study": "Non siamo ancora fuori dal tunnel.",
+      "native": "On n'est pas sortis de l'auberge.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "nonn sia-mo an-co-ra fouo-ri dal tounn-nèl",
+      "afterPhon": "nonn sia-mo ann-co-ra fouo-ri dal tounn-nèl",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            59
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1999",
+      "study": "Impossibile non è francese.",
+      "native": "Impossible n'est pas français.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "im-pos-si-bi-lé nonn è frann-tché-zé",
+      "afterPhon": "imm-pos-si-bi-lé nonn è frann-tché-zé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            126
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2153",
+      "study": "Più imparo, più mi piace.",
+      "native": "Plus j'apprends, plus j'aime ça.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "piou im-pa-ro, piou mi pia-tché",
+      "afterPhon": "piou imm-pa-ro, piou mi pia-tché",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            8
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2232",
+      "study": "Sono stanco, quindi vado a letto presto.",
+      "native": "Je suis fatigué, donc je vais me coucher tôt.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "so-no stan-co, couinn-di va-do a lèt-to près-to",
+      "afterPhon": "so-no stann-co, couinn-di va-do a lèt-to près-to",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            15
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2160",
+      "study": "Ancora un po' di pane, per favore.",
+      "native": "Encore un peu de pain, s'il vous plaît.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "an-co-ra oun po di pa-né, pèr fa-vo-ré",
+      "afterPhon": "ann-co-ra oun po di pa-né, pèr fa-vo-ré",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            9
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2162",
+      "study": "Avete scelto o vi serve ancora un momento?",
+      "native": "Vous avez choisi ou il vous faut encore un moment ?",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "a-vé-té chèl-to o vi sèr-vé an-co-ra oun mo-mènn-to",
+      "afterPhon": "a-vé-té chèl-to o vi sèr-vé ann-co-ra oun mo-mènn-to",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            17
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2106",
+      "study": "È impermeabile, grado IP65?",
+      "native": "C'est étanche, indice IP65 ?",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "è im-pèr-mé-a-bi-lé, gra-do i-pi-sès-sann-ta-tchinn-coué",
+      "afterPhon": "è imm-pèr-mé-a-bi-lé, gra-do i-pi-sès-sann-ta-tchinn-coué",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            41
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2228",
+      "study": "Finisci i compiti, poi potrai giocare.",
+      "native": "Finis tes devoirs, ensuite tu pourras jouer.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "fi-ni-chi i com-pi-ti, poï po-traï djo-ca-ré",
+      "afterPhon": "fi-ni-chi i comm-pi-ti, poï po-traï djo-ca-ré",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            75
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2264",
+      "study": "Quando ero piccolo, abitavo in campagna.",
+      "native": "Quand j'étais petit, j'habitais à la campagne.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "couann-do è-ro pic-co-lo, a-bi-ta-vo inn cam-pa-gna",
+      "afterPhon": "couann-do è-ro pic-co-lo, a-bi-ta-vo inn camm-pa-gna",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            85
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2278",
+      "study": "— Tu cosa ne pensi? — Sinceramente, sto ancora esitando.",
+      "native": "— Tu en penses quoi ? — Franchement, j'hésite encore.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "tou co-za né pènn-si — sinn-tché-ra-mènn-té, sto an-co-ra é-zi-tann-do",
+      "afterPhon": "tou co-za né pènn-si — sinn-tché-ra-mènn-té, sto ann-co-ra é-zi-tann-do",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            90
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "situation-authored:fr-it:piste-reclamation-tact-06",
+      "study": "Vorrei concordare in quanto tempo avverrà la sostituzione.",
+      "native": "Je voudrais convenir du délai nécessaire au remplacement.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "vor-RÈÏ konn-kor-DA-ré inn KOUAN-to TÈM-po av-vèr-RÀ la sos-ti-tou-TSIO-né",
+      "afterPhon": "vor-RÈÏ konn-kor-DA-ré inn KOUANN-to TÈM-po av-vèr-RÀ la sos-ti-tou-TSIO-né",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+          "location": [
+            "themes",
+            10,
+            "phrases",
+            5
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2307",
+      "study": "Bisogna impastare a lungo.",
+      "native": "Il faut pétrir longtemps.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "bi-zo-gna im-pas-ta-ré a lounn-go",
+      "afterPhon": "bi-zo-gna imm-pas-ta-ré a lounn-go",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            7
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:4256",
+      "study": "il gate d'imbarco",
+      "native": "la porte d'embarquement",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "il guèït dim-bar-co",
+      "afterPhon": "il guèït dimm-bar-co",
+      "priorCorrection": false,
+      "transportCopies": 1,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+          "location": [
+            "themes",
+            12,
+            "phrases",
+            0
+          ],
+          "profile": "canonical"
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-it.json",
+          "location": [
+            "phrases",
+            236
+          ],
+          "profile": "transport-phrase"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:4261",
+      "study": "la carta d'imbarco",
+      "native": "la carte d'embarquement",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "la car-ta dim-bar-co",
+      "afterPhon": "la car-ta dimm-bar-co",
+      "priorCorrection": false,
+      "transportCopies": 1,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+          "location": [
+            "themes",
+            12,
+            "phrases",
+            1
+          ],
+          "profile": "canonical"
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-it.json",
+          "location": [
+            "phrases",
+            239
+          ],
+          "profile": "transport-phrase"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2515",
+      "study": "Se firmiamo sul lungo termine, il prezzo scende ancora?",
+      "native": "Si on signe sur le long terme, le prix baisse encore ?",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "sé fir-mia-mo soul lounn-go tèr-mi-né, il prèt-tso chènn-dé an-co-ra",
+      "afterPhon": "sé fir-mia-mo soul lounn-go tèr-mi-né, il prèt-tso chènn-dé ann-co-ra",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            3
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:4470",
+      "study": "Non m'importa.",
+      "native": "Je m'en fiche.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "nonn mim-por-ta",
+      "afterPhon": "nonn mimm-por-ta",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            76
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:4501",
+      "study": "Sbagliando si impara.",
+      "native": "C'est en forgeant qu'on devient forgeron.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "zba-liann-do si im-pa-ra",
+      "afterPhon": "zba-liann-do si imm-pa-ra",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            88
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:4413",
+      "study": "impermeabile",
+      "native": "imperméable",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "im-pèr-mé-a-bi-lé",
+      "afterPhon": "imm-pèr-mé-a-bi-lé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L10.json",
+          "location": [
+            "themes",
+            15,
+            "phrases",
+            0
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:955",
+      "study": "Clicca sul link.",
+      "native": "Clique sur le lien.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "clic-ca soul link",
+      "afterPhon": "clic-ca soul linnk",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            15
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1123",
+      "study": "Mandami il link.",
+      "native": "Envoie-moi le lien.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "mann-da-mi il link",
+      "afterPhon": "mann-da-mi il linnk",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            20
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2329",
+      "study": "Vi invio il link della riunione.",
+      "native": "Je vous envoie le lien de la réunion.",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "vi inn-vi-o il link dèl-la riou-nio-né",
+      "afterPhon": "vi inn-vi-o il linnk dèl-la riou-nio-né",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L9.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            20
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:3442",
+      "study": "dei jeans",
+      "native": "un jean",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "dèï djins",
+      "afterPhon": "dèï djinnss",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L4.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            74
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:3702",
+      "study": "lo shampoo",
+      "native": "le shampoing",
+      "rules": [
+        "N"
+      ],
+      "beforePhon": "lo champ-po",
+      "afterPhon": "lo chamm-po",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L5.json",
+          "location": [
+            "themes",
+            18,
+            "phrases",
+            48
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1549",
+      "study": "Avete la certificazione CE?",
+      "native": "Avez-vous la certification CE ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "a-vé-té la tchèr-ti-fi-ca-tsio-né tché-é",
+      "afterPhon": "a-vé-té la tchèr-ti-fi-ca-tsio-né tchi-é",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            49
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1669",
+      "study": "Avete il certificato CE?",
+      "native": "Avez-vous le certificat CE ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "a-vé-té il tchèr-ti-fi-ca-to tché-é",
+      "afterPhon": "a-vé-té il tchèr-ti-fi-ca-to tchi-é",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            98
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:1555",
+      "study": "È conforme alle norme ASTM?",
+      "native": "C'est conforme aux normes ASTM ?",
+      "rules": [
+        "S"
+      ],
+      "beforePhon": "è conn-for-mé al-lé nor-mé a-ès-té-èm",
+      "afterPhon": "è conn-for-mé al-lé nor-mé a-ès-sé-ti-èm-mé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            52
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "heard-authored:fr-it:piste-cours-aide-received-01",
+      "study": "Quale parte vuoi rivedere?",
+      "native": "Quelle partie veux-tu revoir ?",
+      "rules": [
+        "A"
+      ],
+      "beforePhon": "KOUA-lé PAR-té vouoï ri-VÉ-dé-ré",
+      "afterPhon": "KOUA-lé PAR-té vouoï ri-vé-DÉ-ré",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-it.json",
+          "location": [
+            "receivedModels",
+            4
+          ],
+          "profile": "received-model"
+        }
+      ]
+    },
+    {
+      "id": "catalogue:it:2615",
+      "study": "Sciocchezze.",
+      "native": "N'importe quoi.",
+      "rules": [
+        "T"
+      ],
+      "beforePhon": "chioc-qué-tsé",
+      "afterPhon": "choc-quét-tsé",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L1.json",
+          "location": [
+            "themes",
+            16,
+            "phrases",
+            12
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "situation-authored:fr-it:piste-gouts-activites-05",
+      "study": "Guardo spesso delle commedie.",
+      "native": "Je regarde souvent des comédies.",
+      "rules": [
+        "T"
+      ],
+      "beforePhon": "GOUAR-do SPÈS-so DÈL-lé kom-MÈD-dié",
+      "afterPhon": "GOUAR-do SPÈS-so DÈL-lé kom-MÈ-dié",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L3.json",
+          "location": [
+            "themes",
+            11,
+            "phrases",
+            4
+          ],
+          "profile": "canonical"
+        }
+      ]
+    },
+    {
+      "id": "situation-authored:fr-it:piste-reclamation-tact-02",
+      "study": "Vorrei trovare una soluzione senza complicare la situazione.",
+      "native": "Je souhaite trouver une solution sans compliquer la situation.",
+      "rules": [
+        "T"
+      ],
+      "beforePhon": "vor-RÈÏ tro-Va-ré OU-na so-lou-TSIO-né SÈNN-tsa komm-pli-KA-ré la si-tou-a-TSIO-né",
+      "afterPhon": "vor-RÈÏ tro-VA-ré OU-na so-lou-TSIO-né SÈNN-tsa komm-pli-KA-ré la si-tou-a-TSIO-né",
+      "priorCorrection": false,
+      "transportCopies": 0,
+      "linguisticCounterReview": "selected-after-value-accepted-no-certain-false-fix-found",
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-it/L8.json",
+          "location": [
+            "themes",
+            10,
+            "phrases",
+            1
+          ],
+          "profile": "canonical"
+        }
+      ]
+    }
+  ],
+  "erratum": {
+    "id": "catalogue:es:2205",
+    "level": 6,
+    "study": "¿Cumple la norma EN71?",
+    "beforePhon": "KOUM-plé la NOR-ma én",
+    "deliveredAfterPhon": "KOUM-plé la NOR-ma é-né sé-TÉN-ta i OU-no",
+    "afterPhon": "KOUM-plé la NOR-ma é É-né sé-TÉN-ta i OU-no",
+    "rules": [
+      "S"
+    ],
+    "evidenceCommit": "76602a1b0be0a3539171090733d0a17b079644c6",
+    "targetObjects": 1,
+    "priorLot8AnnotationPreserved": true,
+    "originalLot8RegistryPreserved": true
+  },
+  "linguisticCounterReview": {
+    "selectedAfterValuesAccepted": 70,
+    "certainFalseAfterValuesFound": 0,
+    "notes": [
+      "N se borne aux 63 événements : nn/mm évite la lecture nasale française ; il ne déclare pas des géminées italiennes nouvelles.",
+      "SIM, team, Wang et les autres conventions ne sont pas normalisés ; le libellé d'un groupe ne prouve pas la présence de ces mots dans ses lignes.",
+      "CE nomme C comme ci ; ASTM explicite a esse ti emme. Ces trois événements ne décident pas de tous les sigles.",
+      "rivedere est accentué sur DE. Les T corrigent le i muet de sciocchezze, le d de commedie et la capitale de trovare.",
+      "djinnss conserve une voyelle orale et un s final audible pour jeans ; c'est la chaîne sélectionnée, pas une règle générale des emprunts.",
+      "EN71 : Claude a confirmé l'épellation séparée e + ene ; é É-né distingue les deux noms de lettre. L'ancien événement lot8 reste conservé, suivi d'un erratum entier."
+    ]
+  },
+  "limitations": [
+    "Les 30 conventions restent non appliquées ; aucune normalisation globale n'est décidée.",
+    "La lecture des 33 aides s intervocaliques par Claude n'ajoute pas 33 corrections : aucune erreur certaine en italien standard n'est annoncée.",
+    "Cette contrelecture ciblée ne répète pas la lecture individuelle des 4 756 positions annoncée par Claude.",
+    "Ni voix native, ni sortie audio réelle, ni navigateur hébergé ne sont évalués par ce script."
+  ]
+}

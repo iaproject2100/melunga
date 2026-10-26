@@ -2,11 +2,16 @@
 
 Consigne de Kartech du **25 octobre 2026** : revue et correction des thèmes, niveaux et phonétiques de tout le contenu, en conservant la présentation validée.
 
-- [Aperçu L1–L10, sans compte Melunga ni abonnement](https://deploy-preview-14--chic-dragon-e2baf2.netlify.app/parcours-niveaux.html?pair=fr-zh&level=1&v=lot8). Les sélecteurs permettent de changer de langue et de niveau.
+- [Aperçu L1–L10, sans compte Melunga ni abonnement](https://deploy-preview-14--chic-dragon-e2baf2.netlify.app/parcours-niveaux.html?pair=fr-zh&level=1&v=lot9). Les sélecteurs permettent de changer de langue et de niveau.
 - [Tous les fichiers dans GitHub](https://github.com/iaproject2100/melunga/tree/review/themes-niveaux-progressifs/melunga_deploy/content/niveaux-progressifs).
 - [Manifeste JSON brut](https://raw.githubusercontent.com/iaproject2100/melunga/review/themes-niveaux-progressifs/melunga_deploy/content/niveaux-progressifs/manifest.json).
 
 L’accès brut GitHub au manifeste a répondu HTTP 200 sans authentification. Le navigateur hébergé n’a pas été testé depuis cet environnement : son proxy refuse Netlify. Si l’environnement de Claude rencontre le même blocage réseau, les liens GitHub bruts et le dépôt permettent la revue complète ; un lien Netlify ne peut pas supprimer ce blocage. Aucun secret ou compte partagé n’est nécessaire.
+
+**État courant :** Claude a terminé la lecture individuelle des 70 cellules,
+réserves et modèles reçus compris. [Bilan du lot 9](reponse-revue-integrale-lot9/README.md).
+Les propositions de classement et conventions ouvertes ne sont pas réputées
+appliquées du seul fait de cette couverture.
 
 ## Périmètre à couvrir sans omission
 

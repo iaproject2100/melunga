@@ -124,20 +124,32 @@ Le contrôle additif compare aux fichiers du commit antérieur `30ef75b` :
 et **70 thèmes de situation initiaux** inchangés.
 Les **110 277 champs du catalogue original** restent identiques.
 
-Cela ne constitue pas une relecture individuelle de chaque niveau source :
-**1 420 cartes ont une décision explicite**,
-et **30 695 placements source restent
-sans relecture individuelle**. Densité, copie exacte et ordre prévu ne démontrent
-ni acquisition ni progressivité globale de tout le catalogue ; les prérequis
-non clos restent exposés dans le compte rendu.
+Ce contrôle automatique initial ne constituait pas une relecture individuelle :
+il comptait alors **1 420 décisions explicites** et **30 695 placements source
+non relus**. La lecture individuelle menée ensuite par Claude couvre désormais
+les **70 cellules sur 70**, réserves et modèles reçus compris. Les propositions
+de classement et les conventions encore ouvertes restent distinctes de cette
+couverture ; ni lecture, ni densité, ni ordre prévu ne démontrent une acquisition
+ou une progressivité globale déjà validée.
 
 ## Revue complète par Claude : thèmes, niveaux et phonétique
+
+Le [lot 9 de Claude](reponse-revue-integrale-lot9/README.md) termine la lecture
+individuelle : **70 cellules lues sur 70**, réserves et reçus compris. Il
+raccorde **70 aides italiennes**, puis **34 gloses et trois blocs complets**
+séparément. L’erratum EN71 du lot 8 a sa propre couche. Avec ce dernier,
+107 IDs / 111 objets distincts portent 118 champs corrigés ; le chaînage de
+1736 explique les 112 applications d’objet par couche. Les **280 propositions,
+30 conventions et 96 contenus incertains** restent non appliqués. Le résumé
+source en annonçait 93 ; le JSON en contient 96, toutes conservées à part.
+[Rapport de vérification](verification-raccord-lot9.md).
+[Inventaire des décisions encore ouvertes dans les sept couples](reponse-revue-integrale-lot9/decisions-restantes.md).
 
 Le [lot 8 de Claude](reponse-revue-integrale-lot8/README.md) raccorde **63 aides
 espagnoles entières**, puis **18 gloses, deux études et trois blocs complets**
 séparément. Les 88 objets portent 92 champs corrigés, copies et reçu compris,
-sans changer la présentation ni les droits. Claude annonce **60 cellules lues
-sur 70** ; les dix cellules fr→it restent à lire. Les **310 propositions et
+sans changer la présentation ni les droits. À la livraison du lot 8, Claude annonçait **60 cellules lues
+sur 70** ; le lot 9 ci-dessus termine les dix cellules fr→it. Les **310 propositions et
 151 conventions**, dont la jota, restent non appliquées.
 [Rapport de vérification](verification-raccord-lot8.md).
 
@@ -278,3 +290,5 @@ Validation du lot 6 : **6 tests ciblés + 20 historiques, 9 commandes et 19 cont
 Validation du lot 7 : **6 tests ciblés + 26 historiques, 9 commandes et 19 contrôles généraux réussis ; 151 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot7.md).
 
 Validation du lot 8 : **6 tests ciblés + 32 historiques, 9 commandes et 19 contrôles généraux réussis ; 171 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot8.md).
+
+Validation du lot 9 : **6 tests ciblés + 38 historiques, 9 commandes et 19 contrôles généraux réussis ; 196 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot9.md).

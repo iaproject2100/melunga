@@ -1100,7 +1100,7 @@
         }
       ],
       "repertoirePath": "content/niveaux-progressifs/repertoires/fr-it.json",
-      "repertoireSha256": "a9bc15c5426f5330e56e7ed84663b66ca4fb109df4f69928ae11c63d47dda788"
+      "repertoireSha256": "2768e0871221b7c752bc2539692d8a1746a8e902586600e6131e338668eebf1e"
     },
     {
       "id": "fr-zh",
@@ -2517,6 +2517,60 @@
     "changedFieldCount": 27,
     "evidenceCommits": [
       "e12c600f97a6339a0566cdaf879aa0d449f96284"
+    ]
+  },
+  "lot8Erratum1Corrections": {
+    "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot8-errata-1/revue-claude-lot8-errata-1.json",
+    "registrySha256": "cbbfa4e5f1ca6afd83e53eb8f12045d3cd0d2d7e879f1053efa69bf4e9e1361e",
+    "baseSnapshotCommit": "40d4c0b264b364fe31d4fd1bc9acae03dc130e01",
+    "appliesAfter": [
+      {
+        "registryPath": "docs/niveaux-progressifs/corrections-contenu/lot8/revue-contenu-lot8.json",
+        "registrySha256": "756c2e867928b24a0e4e8a86216072f4fea2dfa832d3938b5e38dc622c01a8ce"
+      }
+    ],
+    "correctionCount": 1,
+    "eventCount": 1,
+    "approvedFieldCount": 1,
+    "changedFieldCount": 1,
+    "evidenceCommits": [
+      "76602a1b0be0a3539171090733d0a17b079644c6"
+    ]
+  },
+  "lot9PhoneticCorrections": {
+    "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot9/revue-claude-lot9.json",
+    "registrySha256": "313973bdf60a2bf629b4410ae7895e1e0bb4604f08bde2c5037058fa332e5665",
+    "baseSnapshotCommit": "40d4c0b264b364fe31d4fd1bc9acae03dc130e01",
+    "appliesAfter": [
+      {
+        "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot8-errata-1/revue-claude-lot8-errata-1.json",
+        "registrySha256": "cbbfa4e5f1ca6afd83e53eb8f12045d3cd0d2d7e879f1053efa69bf4e9e1361e"
+      }
+    ],
+    "correctionCount": 70,
+    "eventCount": 70,
+    "approvedFieldCount": 70,
+    "changedFieldCount": 70,
+    "evidenceCommits": [
+      "5d450cc79f32d180f9331c5d06387fe36e8d94a6"
+    ]
+  },
+  "lot9ContentCorrections": {
+    "registryPath": "docs/niveaux-progressifs/corrections-contenu/lot9/revue-contenu-lot9.json",
+    "registrySha256": "db40f6ae9a0b88595b0c4f5591b7ca1263b5ff1facfb9d6c1c723e6ed204ad74",
+    "baseSnapshotCommit": "40d4c0b264b364fe31d4fd1bc9acae03dc130e01",
+    "appliesAfter": [
+      {
+        "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot9/revue-claude-lot9.json",
+        "registrySha256": "313973bdf60a2bf629b4410ae7895e1e0bb4604f08bde2c5037058fa332e5665"
+      }
+    ],
+    "correctionCount": 37,
+    "eventCount": 37,
+    "approvedFieldCount": 43,
+    "changedFieldCount": 43,
+    "evidenceCommits": [
+      "5d450cc79f32d180f9331c5d06387fe36e8d94a6"
     ]
   }
 }

@@ -1,6 +1,6 @@
 # Vérification navigateur du parcours local
 
-Exécution : `2026-10-25T22:14:05.870Z` — statut **passed**.
+Exécution : `2026-10-26T09:29:21.172Z` — statut **passed**.
 
 Chromium local, largeurs 320, 390 et 1440 px. Ces vues émulent des écrans ; aucun téléphone physique ni site déployé n’a été testé par cette suite.
 
@@ -25,11 +25,12 @@ Le TTS est remplacé par un témoin d’envoi : cette suite vérifie le texte tr
 
 Rapport détaillé : [verification-navigateur.json](verification-navigateur.json).
 Plan : `d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379`.
-Manifeste : `183eea8ecc7b0a57ff94a0e23f08e64c8aba173a1c25918e75306cf2d57248e8`.
+Manifeste : `a8184cf3d8f4242b81b8c3b511e3e37c6d3364d6e6c153dc3f786a405e11d326`.
 
-L’édition du lot 8 ajoute 63 aides espagnoles, puis 18 gloses, deux études
-ponctuées et trois blocs complets dans un registre distinct. Les deux études
-seules gardent aide, sens et statut ; les trois blocs changent étude et aide
-ensemble, un seul change aussi le sens. Les après sont validés avant projection
-privée des seules corrections attestées vers les sources historiques. Les 310
-propositions et 151 conventions restent non appliquées. Voir [le raccord lot 8](verification-raccord-lot8.md).
+L’édition du lot 9 ajoute 70 aides italiennes, puis 34 gloses et trois blocs
+complets dans une couche de contenu distincte. La carte 1736 conserve l’aide
+de A avant sa glose B. Les deux reçus de contenu restent hors production et
+les deux réserves restent en réserve. EN71 a sa propre correction entière
+après le lot 8, dont les preuves et annotations sont gardées. Les 280
+propositions, 30 conventions et 96 contenus incertains ne sont pas appliqués.
+Voir [le raccord lot 9](verification-raccord-lot9.md).

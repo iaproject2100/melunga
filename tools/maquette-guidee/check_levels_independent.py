@@ -265,6 +265,17 @@ def read_pack(root):
                     and ".." not in Path(relative).parts and (root / relative).resolve().is_relative_to(root.resolve()),
                     "Lot8 evidence path escapes its separate directory")
             pack[name + "EvidenceRaw"][relative] = raw(relative)
+    for name, config in LOT9_CONFIG.items():
+        content = raw(config["registryPath"])
+        pack[name + "RegistryRaw"] = content
+        pack[name + "Registry"] = json.loads(content)
+        pack[name + "EvidenceRaw"] = {}
+        for descriptor in pack[name + "Registry"].get("evidenceFiles", []):
+            relative = descriptor.get("path")
+            require(isinstance(relative, str) and relative.startswith(config["directory"] + "/")
+                    and ".." not in Path(relative).parts and (root / relative).resolve().is_relative_to(root.resolve()),
+                    "Lot9/erratum evidence path escapes its separate directory")
+            pack[name + "EvidenceRaw"][relative] = raw(relative)
     return pack
 
 
@@ -2737,7 +2748,7 @@ def _lot8_validate_project(pack, name, data):
         "globalNativeApproval": False}
 
 
-def check_pack(pack):
+def _check_before_lot9_pack(pack):
     """Validate both lot8 layers without mutating caller data or older sources."""
     paired = _lot8_declarations(pack, "lot8Phonetic")
     content = _lot8_declarations(pack, "lot8Content", paired)
@@ -2821,6 +2832,433 @@ def check_pack(pack):
         "studyMeaningReadingPlacementAndAccessUnchangedByThisLayer": True, "onlyWholePhoneticEventsNoBroadRules": True}
     result["lot8ContentCorrections"] = {**content_summary, "actualRuntimeFileSha256": actual_hashes,
         "originalSourcesAndAccessUnchanged": True, "threeWholeStudyAidNativeBundlesAtomic": True, "twoStudyOnlyPunctuationEventsAreNotPhoneticRewrites": True}
+    return result
+
+
+
+LOT9_BASE_COMMIT = "40d4c0b264b364fe31d4fd1bc9acae03dc130e01"
+LOT9_EVIDENCE_COMMIT = "5d450cc79f32d180f9331c5d06387fe36e8d94a6"
+LOT9_PREVIOUS_CONTENT_SHA = "756c2e867928b24a0e4e8a86216072f4fea2dfa832d3938b5e38dc622c01a8ce"
+LOT9_ERRATUM_COMMIT = "76602a1b0be0a3539171090733d0a17b079644c6"
+LOT9_CONFIG = {
+    "lot8Erratum1": {
+        "registryPath": REVIEW_ROOT + "/corrections-phonetiques/lot8-errata-1/revue-claude-lot8-errata-1.json",
+        "directory": REVIEW_ROOT + "/corrections-phonetiques/lot8-errata-1",
+        "id": "revue-claude-lot8-errata-1", "status": "frozen-whole-phonetic-erratum-not-global-native-approval",
+        "annotation": "lot8Erratum1Correction", "manifest": "lot8Erratum1Corrections",
+        "counts": (1, 1, 1, 1), "commit": LOT9_ERRATUM_COMMIT, "pair": "fr-es",
+        "pins": {"docs/revue-integrale/lot8-fr-es-L1-L10/errata-1.json":
+            ("480f4c9348a393d29f1c3c3d6d0ffe5e16b01e802d94403840d90c15b52f7535", "phon")},
+    },
+    "lot9Phonetic": {
+        "registryPath": REVIEW_ROOT + "/corrections-phonetiques/lot9/revue-claude-lot9.json",
+        "directory": REVIEW_ROOT + "/corrections-phonetiques/lot9",
+        "id": "revue-claude-lot9-phonetique", "status": "frozen-whole-phonetic-events-not-global-native-approval",
+        "annotation": "lot9PhoneticCorrection", "manifest": "lot9PhoneticCorrections",
+        "counts": (70, 70, 70, 70), "commit": LOT9_EVIDENCE_COMMIT, "pair": "fr-it",
+        "pins": {"docs/revue-integrale/lot9-fr-it-L1-L10/registre-phonetique.json":
+            ("661131a84a421f29d017872879713ccc3ddcbd8a5f4f9b441a312dcedaaa51e9", "phon")},
+    },
+    "lot9Content": {
+        "registryPath": REVIEW_ROOT + "/corrections-contenu/lot9/revue-contenu-lot9.json",
+        "directory": REVIEW_ROOT + "/corrections-contenu/lot9",
+        "id": "revue-contenu-lot9", "status": "frozen-certain-gloss-and-linked-bundle-events-not-global-native-approval",
+        "annotation": "lot9ContentCorrection", "manifest": "lot9ContentCorrections",
+        "counts": (37, 37, 43, 43), "commit": LOT9_EVIDENCE_COMMIT, "pair": "fr-it",
+        "pins": {"docs/revue-integrale/lot9-fr-it-L1-L10/lot-contenu-gloses.json":
+            ("cf20a6f4595f4e8c3627aac8bd4956ef5724bd9f220b2676288a88878f4636a0", "native")},
+    },
+}
+_LOT9_GIT_DOCUMENTS = {}
+_LOT9_BASE_ENTRIES = {}
+
+
+def _lot9_profile(phrase):
+    profile = _lot8_profile(phrase)
+    for name in ("lot8ContentCorrection", "lot8Erratum1Correction", "lot9PhoneticCorrection"):
+        profile[name + "Present"] = name in phrase
+        profile[name] = phrase.get(name)
+    return profile
+
+
+def _lot9_git_document(pack, path):
+    key = str(pack["root"].resolve()), path
+    if key not in _LOT9_GIT_DOCUMENTS:
+        raw = subprocess.run(["git", "show", LOT9_BASE_COMMIT + ":" + path], cwd=pack["root"],
+                             capture_output=True, check=True).stdout
+        _LOT9_GIT_DOCUMENTS[key] = json.loads(raw)
+    return _LOT9_GIT_DOCUMENTS[key]
+
+
+def _lot9_baseline_entries(pack):
+    """Reconstruct all source roles/copies from Git, not editable declarations."""
+    cache_key = str(pack["root"].resolve())
+    if cache_key not in _LOT9_BASE_ENTRIES:
+        entries = {}
+        for pair_id in ("fr-es", "fr-it"):
+            for level in range(1, 11):
+                path = f"{DATA_ROOT}/{pair_id}/L{level}.json"
+                cell = _lot9_git_document(pack, path)
+                for section in ("themes", "heldThemes"):
+                    for ti, theme in enumerate(cell.get(section, [])):
+                        for pi, phrase in enumerate(theme.get("phrases", [])):
+                            entries.setdefault((pair_id, phrase["id"]), {})[(path, (section, ti, "phrases", pi))] = ("canonical", phrase)
+                for pi, phrase in enumerate(cell.get("reserve", [])):
+                    entries.setdefault((pair_id, phrase["id"]), {})[(path, ("reserve", pi))] = ("canonical", phrase)
+            path = f"{DATA_ROOT}/repertoires/{pair_id}.json"
+            bank = _lot9_git_document(pack, path)
+            for field, role in (("phrases", "transport-phrase"), ("receivedModels", "received-model")):
+                for pi, phrase in enumerate(bank.get(field, [])):
+                    entries.setdefault((pair_id, phrase["id"]), {})[(path, (field, pi))] = (role, phrase)
+        _LOT9_BASE_ENTRIES[cache_key] = entries
+    return _LOT9_BASE_ENTRIES[cache_key]
+
+
+def _lot9_annotation(name, entry, before, checksum):
+    config = LOT9_CONFIG[name]
+    return {"id": entry["id"], "registryPath": config["registryPath"], "registrySha256": checksum,
+        "baseSnapshotCommit": LOT9_BASE_COMMIT, "evidenceCommits": [config["commit"]],
+        "fields": sorted(entry["fields"]),
+        "beforeFields": {field: value["before"] for field, value in entry["fields"].items()},
+        "originalPhoneticReviewStatusPresent": before["phoneticReviewStatusPresent"],
+        "originalPhoneticReviewStatus": before["phoneticReviewStatus"]}
+
+
+def _lot9_status(name, entry):
+    if name == "lot8Erratum1":return "corrected-by-Claude-lot8-errata-1-S"
+    return "corrected-by-Claude-lot9-" + "+".join(entry["rules"]) if entry["rules"] else "corrected-by-Claude-content-lot9"
+
+
+def _lot9_declarations(pack, name, prior=None):
+    config = LOT9_CONFIG[name]
+    registry, raw_registry = pack.get(name + "Registry"), pack.get(name + "RegistryRaw")
+    require(isinstance(registry, dict) and isinstance(raw_registry, bytes) and json.loads(raw_registry) == registry,
+            "Lot9 registry differs from its loaded bytes")
+    checksum = digest(raw_registry)
+    require(pack["fingerprints"].get(config["registryPath"]) == checksum, "Lot9 registry fingerprint differs")
+    require(registry.get("version") == 1 and registry.get("id") == config["id"]
+            and registry.get("status") == config["status"] and registry.get("baseSnapshotCommit") == LOT9_BASE_COMMIT,
+            "Lot9 changes its batch identity, before edition, or approval scope")
+    require(tuple(registry.get(field) for field in ("correctionCount", "eventCount", "approvedFieldCount", "changedFieldCount"))
+            == config["counts"], "Lot9 finite identity/event/field counts differ")
+    if name == "lot8Erratum1":
+        predecessor = [{"registryPath": LOT8_CONFIG["lot8Content"]["registryPath"],
+                        "registrySha256": LOT9_PREVIOUS_CONTENT_SHA}]
+        require(digest(pack["lot8ContentRegistryRaw"]) == LOT9_PREVIOUS_CONTENT_SHA,
+                "Lot9 predecessor content registry changed")
+    elif name == "lot9Phonetic":
+        predecessor = [{"registryPath": LOT9_CONFIG["lot8Erratum1"]["registryPath"], "registrySha256": prior[1]}]
+    else:
+        predecessor = [{"registryPath": LOT9_CONFIG["lot9Phonetic"]["registryPath"], "registrySha256": prior[1]}]
+    require(registry.get("appliesAfter") == predecessor, "Lot9 drops or forges its preceding layer")
+    descriptors = registry.get("evidenceFiles")
+    require(isinstance(descriptors, list) and len(descriptors) == len(config["pins"]), "Lot9 evidence file count differs")
+    approved, used_paths, used_git_paths = {}, set(), set()
+    for descriptor in descriptors:
+        path, git_path = descriptor.get("path"), descriptor.get("gitPath")
+        require(isinstance(path, str) and path.startswith(config["directory"] + "/")
+                and ".." not in Path(path).parts and path not in used_paths and git_path in config["pins"]
+                and git_path not in used_git_paths, "Unknown, duplicated or unsafe lot9 evidence path")
+        used_paths.add(path); used_git_paths.add(git_path)
+        expected_hash, field = config["pins"][git_path]
+        raw = pack.get(name + "EvidenceRaw", {}).get(path)
+        require(isinstance(raw, bytes) and digest(raw) == expected_hash
+                and pack["fingerprints"].get(path) == expected_hash
+                and descriptor == {"path": path, "gitPath": git_path, "gitCommit": config["commit"], "sha256": expected_hash},
+                "Pinned lot9 evidence fingerprint or descriptor differs")
+        original = subprocess.run(["git", "show", config["commit"] + ":" + git_path], cwd=pack["root"],
+                                  capture_output=True, check=True).stdout
+        require(raw == original, "Lot9 evidence differs from pinned Git bytes")
+        evidence = json.loads(raw)
+        if name == "lot8Erratum1":
+            require(evidence.get("id") == "revue-claude-lot8-fr-es-errata-1"
+                    and evidence.get("reference") == "e12c600" and len(evidence.get("events", [])) == 1,
+                    "EN71 erratum changes its source or scope")
+            selected = [("events", index, row) for index, row in enumerate(evidence["events"])]
+        elif name == "lot9Phonetic":
+            require(evidence.get("eventCount") == 70 and evidence.get("baseSnapshotCommit") == LOT9_BASE_COMMIT,
+                    "Lot9 phonetic proof has another count or before edition")
+            selected = [("events", index, row) for index, row in enumerate(evidence["events"])]
+            require(Counter(rule for _collection, _index, row in selected for rule in row.get("rules", []))
+                    == {"N":63, "S":3, "T":3, "A":1}, "Lot9 frozen Italian rule membership changed")
+        else:
+            require(evidence.get("reference") == LOT9_BASE_COMMIT and evidence.get("certainCount") == 34,
+                    "Lot9 content before edition/count differs")
+            selected = [("items", index, row) for index, row in enumerate(evidence["items"])
+                        if row.get("certainty") == "certain"]
+            require(len(selected) == 34 and all(row.get("field") == "native" for _, _, row in selected)
+                    and len(evidence.get("linkedBundles", [])) == 3, "Lot9 certain-only content selection differs")
+            selected.extend(("linkedBundles", index, row) for index, row in enumerate(evidence["linkedBundles"]))
+        for collection, index, row in selected:
+            key = (config["pair"], row.get("id"))
+            require(isinstance(key[1], str), "Lot9 proof has no identity")
+            if name == "lot8Erratum1":
+                require(row["id"] == "catalogue:es:2205" and row["rules"] == ["S"]
+                        and row["beforePhon"] == "KOUM-plé la NOR-ma én"
+                        and row["deliveredAfterPhon"] == "KOUM-plé la NOR-ma é-né sé-TÉN-ta i OU-no"
+                        and row["afterPhon"] == "KOUM-plé la NOR-ma é É-né sé-TÉN-ta i OU-no",
+                        "EN71 frozen source, delivered predecessor or separate spelling differs")
+                changes = {"phon": {"before": row["deliveredAfterPhon"], "after": row["afterPhon"]}}
+            elif name == "lot9Phonetic":
+                require(row.get("pair") == key[0] and row.get("priorCorrection") is False
+                        and isinstance(row.get("rules"), list) and row["rules"]
+                        and set(row["rules"]) <= {"N", "S", "T", "A"}
+                        and len(row["rules"]) == len(set(row["rules"])),
+                        "Lot9 phonetic pair, prior event, or scoped rules differ")
+                changes = {"phon": {"before": row["beforePhon"], "after": row["afterPhon"]}}
+            elif collection == "items":
+                require(row.get("field") == "native", "Lot9 certain content invents another field")
+                changes = {"native": {"before": row["before"], "after": row["after"]}}
+            else:
+                require(row.get("certainty") == "certain" and row.get("applyTogether") is True
+                        and set(row["before"]) == set(row["after"])
+                        and set(row["before"]) == {"study", "native", "phon"},
+                        "Lot9 whole study/aid/native content bundle is partial or uncertain")
+                changes = {f: {"before": row["before"][f], "after": row["after"][f]}
+                           for f in row["before"]}
+            entry = approved.setdefault(key, {"fields": {}, "refs": {}, "proofs": {}, "events": []})
+            ref = {"evidencePath": path, "evidenceCollection": collection, "evidenceIndex": index}
+            entry["events"].append(ref)
+            for changed_field, change in changes.items():
+                require(isinstance(change["before"], str) and isinstance(change["after"], str)
+                        and change["before"] != change["after"], "Lot9 event lacks literal whole changes")
+                require(changed_field not in entry["fields"], "Lot9 duplicates a field event")
+                entry["fields"][changed_field] = change
+                entry["refs"][changed_field] = ref
+                entry["proofs"][changed_field] = row
+    require(len(approved) == config["counts"][0], "Lot9 approved identity set is incomplete")
+    for key, entry in approved.items():
+        fields = list(entry["fields"])
+        if name in {"lot8Erratum1", "lot9Phonetic"}:
+            require(set(fields) == {"phon"}, "Lot9 phonetic batch invents a reading or another field")
+            entry["rules"] = entry["proofs"]["phon"]["rules"]
+        else:
+            require(set(fields) in ({"native"}, {"study", "native", "phon"}),
+                    "Lot9 study/aid/native content bundle is partial")
+            entry["rules"] = []
+        entry["atomicBundle"] = len(fields) > 1
+    require(sum(len(e["events"]) for e in approved.values()) == config["counts"][1],
+            "Lot9 event coverage differs")
+    rows, lookup, locations = registry.get("corrections"), {}, set()
+    require(isinstance(rows, list) and len(rows) == config["counts"][0], "Lot9 registry identity coverage differs")
+    baseline_entries = _lot9_baseline_entries(pack)
+    for entry in rows:
+        key = entry.get("pairId"), entry.get("id")
+        require(key in approved and key not in lookup, "Unknown or duplicated lot9 identity")
+        source = approved[key]
+        require(all(entry.get(field) == source[field] for field in ("fields", "events", "rules"))
+                and entry.get("atomicBundle") is source["atomicBundle"],
+                "Lot9 frozen event pair or certain glose is altered")
+        occurrences = entry.get("occurrences")
+        require(isinstance(occurrences, list) and occurrences, "Lot9 identity has no occurrences")
+        addresses = set()
+        for occurrence in occurrences:
+            path, location, profile = occurrence.get("path"), occurrence.get("location"), occurrence.get("profile")
+            require(isinstance(path, str) and isinstance(location, list) and location
+                    and all(type(token) is int and token >= 0 or isinstance(token, str) and token and token not in {"..", "/"}
+                            for token in location), "Lot9 occurrence path/location malformed")
+            address = path, tuple(location)
+            require(address not in locations and address in baseline_entries.get(key, {}),
+                    "Lot9 occurrence duplicated or absent from pinned edition")
+            locations.add(address); addresses.add(address)
+            expected_profile, original = baseline_entries[key][address]
+            require(profile == expected_profile, "Lot9 changes an original canonical/transport/received role")
+            original = copy.deepcopy(original)
+            if name == "lot9Content" and prior is not None and key in prior[0]:
+                previous = prior[0][key]; before_previous = _lot9_profile(original)
+                for field, value in previous["fields"].items():
+                    require(original.get(field) == value["before"], "Lot9 content predecessor before differs")
+                    original[field] = value["after"]
+                original["phoneticReviewStatus"] = _lot9_status("lot9Phonetic", previous)
+                original["lot9PhoneticCorrection"] = _lot9_annotation("lot9Phonetic", previous, before_previous, prior[1])
+            before = occurrence.get("expectedBefore")
+            require(isinstance(before, dict) and set(before) == set(_lot9_profile({})) and before == _lot9_profile(original),
+                    "Lot9 original tuple/source/status/prior annotations differ from Git 40d4c0b")
+            for field, value in entry["fields"].items():
+                require(before.get(field) == value["before"], "Lot9 field before is not its exact predecessor")
+                proof = source["proofs"][field]
+                if "study" in proof:
+                    require(before["study"] == proof["study"], "Lot9 proof targets another studied phrase")
+                if name == "lot9Phonetic":
+                    phon_proof = source["proofs"]["phon"]
+                    require(before["native"] == phon_proof["native"], "Lot9 phonetic/reading proof changes its meaning")
+                    require(any(before.get(name + "Present") for name in ("phoneticCorrection", "reviewedFieldCorrection", "lot4PhoneticCorrection", "reviewedContentCorrection", "lot5FieldCorrection", "lot5ContentCorrection", "lot6FieldCorrection", "lot6ContentCorrection", "lot7PhoneticCorrection", "lot7ContentCorrection", "lot8PhoneticCorrection", "lot8ContentCorrection")) is phon_proof["priorCorrection"],
+                            "Lot9 prior correction declared incorrectly")
+                    anchor = proof["occurrence"]
+                    require(any(o["path"] == anchor["path"] and o["location"] == anchor["location"] for o in occurrences),
+                            "Lot9 proof anchor is absent from its original roles")
+        require(addresses == set(baseline_entries[key]), "Lot9 before declarations omit a source role or transport copy")
+        if name == "lot9Phonetic":
+            require(sum(role == "transport-phrase" for role, _phrase in baseline_entries[key].values())
+                    == source["proofs"]["phon"]["transportCopies"],
+                    "Lot9 transport copy count differs from frozen proof")
+        lookup[key] = entry
+    require(set(lookup) == set(approved), "Lot9 registry omits approved identities")
+    counts = config["counts"]
+    require(sum(len(entry["fields"]) for entry in rows) == counts[2]
+            and sum(value["before"] != value["after"] for entry in rows for value in entry["fields"].values()) == counts[3],
+            "Lot9 approved/changed field counts differ")
+    declaration = {"registryPath": config["registryPath"], "registrySha256": checksum,
+        "baseSnapshotCommit": LOT9_BASE_COMMIT, "appliesAfter": predecessor,
+        "correctionCount": counts[0], "eventCount": counts[1], "approvedFieldCount": counts[2],
+        "changedFieldCount": counts[3], "evidenceCommits": [config["commit"]]}
+    require(pack["manifest"].get(config["manifest"]) == declaration, "Lot9 manifest declaration absent or forged")
+    return lookup, checksum, declaration
+
+
+def _lot9_validate_project(pack, name, data):
+    """Check after values, then restore just this layer in an already private pack."""
+    config = LOT9_CONFIG[name]; lookup, checksum, declaration = data
+    seen, profiles, fields, addresses, profile_counts = Counter(), Counter(), Counter(), set(), Counter()
+    canonical_ids = set()
+    for pair, path, location, profile, phrase in _runtime_objects(pack):
+        key = pair, phrase.get("id")
+        actual_phrase = all(isinstance(phrase.get(field), str) for field in ("id", "study", "native", "phon"))
+        if not actual_phrase or key not in lookup:
+            require(config["annotation"] not in phrase, "Stray lot9 annotation outside its identity")
+            continue
+        entry = lookup[key]; annotation = phrase.get(config["annotation"])
+        require(isinstance(annotation, dict), "Lot9 corrected card/copy lacks exact annotation")
+        restored = copy.deepcopy(phrase);restored.pop(config["annotation"], None)
+        restored.update({field: value["before"] for field, value in entry["fields"].items()})
+        candidates = []
+        for occurrence in entry["occurrences"]:
+            if occurrence["profile"] != profile and not (profile == "transport-phrase" and occurrence["profile"] == "canonical"):
+                continue
+            before = occurrence["expectedBefore"]
+            if "phon" in entry["fields"]:
+                if before["phoneticReviewStatusPresent"]:restored["phoneticReviewStatus"] = before["phoneticReviewStatus"]
+                else:restored.pop("phoneticReviewStatus", None)
+            if _lot9_profile(restored) == before:candidates.append(before)
+        require(candidates, "Lot9 before tuple, provenance, status or earlier annotations altered")
+        before = candidates[0]
+        require(annotation == _lot9_annotation(name, entry, before, checksum), "Lot9 annotation before/hash/fields changed")
+        for field, value in entry["fields"].items():
+            require(phrase.get(field) == value["after"], "Lot9 actual after differs, or aid/reading pair is partial")
+            fields[(profile, field)] += 1
+        if "phon" in entry["fields"]:
+            require(phrase.get("phoneticReviewStatus") == _lot9_status(name, entry), "Lot9 paired local phonetic status changed")
+        else:
+            require(("phoneticReviewStatus" in phrase) == before["phoneticReviewStatusPresent"]
+                    and phrase.get("phoneticReviewStatus") == before["phoneticReviewStatus"],
+                    "Lot9 content without phon change invents a phonetic status")
+        if profile == "canonical":
+            require(key not in canonical_ids, "Duplicate lot9 canonical identity")
+            canonical_ids.add(key)
+        seen[key] += 1;profiles[profile] += 1;profile_counts[(key, profile)] += 1;addresses.add((path, location))
+        phrase.update({field: value["before"] for field, value in entry["fields"].items()})
+        if "phon" in entry["fields"]:
+            if before["phoneticReviewStatusPresent"]:phrase["phoneticReviewStatus"] = before["phoneticReviewStatus"]
+            else:phrase.pop("phoneticReviewStatus", None)
+        del phrase[config["annotation"]]
+    require(set(seen) == set(lookup), "Lot9 declared identity missing from actual runtime")
+    for key, entry in lookup.items():
+        expected = Counter(row["profile"] for row in entry["occurrences"])
+        for profile in ("canonical", "received-model"):
+            require(profile_counts[(key, profile)] == expected[profile], "Lot9 canonical/received occurrence missing or duplicated")
+        require(profile_counts[(key, "transport-phrase")] >= expected["transport-phrase"], "Lot9 transport copy missing")
+    pack["manifest"].pop(config["manifest"])
+    return {**declaration, "runtimeObjects": sum(profiles.values()),
+        "runtimeProfiles": {profile: profiles[profile] for profile in ("canonical", "transport-phrase", "received-model")},
+        "runtimeApprovedFields": sum(fields.values()), "runtimeChangedFields": sum(fields.values()),
+        "canonicalChangedFields": sum(n for (profile, _), n in fields.items() if profile == "canonical"),
+        "fieldProfiles": {profile: {field: fields[(profile, field)] for field in ("study", "native", "phon", "reading")}
+                          for profile in ("canonical", "transport-phrase", "received-model")},
+        "validation": "pinned literal whole aids and certain content, Git 40d4c0b full before profiles, actual after before private content→phonetic→older layers projection",
+        "globalNativeApproval": False}
+
+
+def check_pack(pack):
+    """Validate finite lot9/EN71 afters before private inverse projection."""
+    erratum = _lot9_declarations(pack, "lot8Erratum1")
+    paired = _lot9_declarations(pack, "lot9Phonetic", erratum)
+    content = _lot9_declarations(pack, "lot9Content", paired)
+    for pair in pack["manifest"]["pairs"]:
+        path = f"{DATA_ROOT}/repertoires/{pair['id']}.json"
+        require(pair.get("repertoireSha256") == pack["fingerprints"].get(path), "Actual lot9 bank fingerprint differs from manifest")
+    keys = set(erratum[0]) | set(paired[0]) | set(content[0])
+    changed_paths = {path for pair, path, _location, _profile, phrase in _runtime_objects(pack)
+                     if (pair, phrase.get("id")) in keys
+                     and all(isinstance(phrase.get(field), str) for field in ("study", "native", "phon"))}
+    projected = _private_runtime_copy(pack, changed_paths)
+    content_summary = _lot9_validate_project(projected, "lot9Content", content)
+    paired_summary = _lot9_validate_project(projected, "lot9Phonetic", paired)
+    erratum_summary = _lot9_validate_project(projected, "lot8Erratum1", erratum)
+    for pair in projected["manifest"]["pairs"]:
+        path = f"{DATA_ROOT}/repertoires/{pair['id']}.json"
+        value = digest((json.dumps(projected["repertoires"][pair["id"]], ensure_ascii=False, indent=2) + "\n").encode())
+        projected["fingerprints"][path] = value;pair["repertoireSha256"] = value
+    result = _check_before_lot9_pack(projected)
+    checks = result["checks"]
+    actual_hashes = {path: value for path, value in sorted(pack["fingerprints"].items()) if path.startswith(DATA_ROOT + "/")}
+    differences, canonical_fields = Counter(), set()
+    combined_ids, combined_objects, combined_fields, combined_canonical_ids, combined_canonical_fields = set(), set(), set(), set(), set()
+    noncatalogue_canonical_fields, heard_only_changed_fields = Counter(), 0
+    combined_phonetic_ids = set()
+    annotations = ("phoneticCorrection", "reviewedFieldCorrection", "lot4PhoneticCorrection", "reviewedContentCorrection", "lot5FieldCorrection", "lot5ContentCorrection", "lot6FieldCorrection", "lot6ContentCorrection", "lot7PhoneticCorrection", "lot7ContentCorrection", "lot8PhoneticCorrection", "lot8ContentCorrection", "lot8Erratum1Correction", "lot9PhoneticCorrection", "lot9ContentCorrection")
+    for pair, path, location, profile, phrase in _runtime_objects(pack):
+        if not all(isinstance(phrase.get(field), str) for field in ("id", "study", "native", "phon")):continue
+        changed = {"phon"} if "phoneticCorrection" in phrase else set()
+        for annotation_name in annotations[1:]:
+            annotation = phrase.get(annotation_name)
+            if annotation:changed.update(field for field in annotation["fields"] if phrase.get(field) != annotation["beforeFields"].get(field))
+        if changed:
+            address, identity = (path, location), (pair, phrase["id"])
+            combined_ids.add(identity);combined_objects.add(address);combined_fields.update((address, field) for field in changed)
+            if "phon" in changed:combined_phonetic_ids.add(identity)
+            if profile == "canonical":
+                combined_canonical_ids.add(identity);combined_canonical_fields.update((identity, field) for field in changed)
+        collection = phrase.get("source", {}).get("collection", "")
+        if profile == "received-model" and collection.startswith("situation-received-"):heard_only_changed_fields += len(changed)
+        if profile != "canonical":continue
+        if collection.startswith("DECKS."):
+            card = pack["decks"][PAIR_LANGUAGES[pair][1]][phrase["source"]["sourceIndex"]]
+            for field, original in field_map(PAIR_LANGUAGES[pair][1]).items():
+                if phrase.get(field) != card.get(original):
+                    differences[field] += 1;canonical_fields.add((pair, phrase["id"], field))
+        else:noncatalogue_canonical_fields[collection] += len(changed)
+    checks.update({"catalogueFieldDifferences": len(canonical_fields),
+        "catalogueVerbatimFields": checks["catalogueFieldsCompared"] - len(canonical_fields),
+        "cataloguePhoneticFieldDifferences": differences["phon"], "catalogueReadingFieldDifferences": differences["reading"],
+        "catalogueStudyFieldDifferences": differences["study"], "catalogueNativeFieldDifferences": differences["native"],
+        "catalogueUnauthorizedFieldDifferences": 0,
+        "lot9PhoneticIdentities": 70, "lot9PhoneticEvidenceEvents": 70,
+        "lot9PhoneticRuntimeObjects": paired_summary["runtimeObjects"],
+        "lot9PhoneticRuntimeFields": paired_summary["runtimeChangedFields"],
+        "lot9PhoneticCanonicalObjects": paired_summary["runtimeProfiles"]["canonical"],
+        "lot9PhoneticTransportObjects": paired_summary["runtimeProfiles"]["transport-phrase"],
+        "lot9PhoneticReceivedObjects": paired_summary["runtimeProfiles"]["received-model"],
+        "lot9GlossIdentities": 34, "lot9ContentBundleIdentities": 3,
+        "lot9ContentEvidenceEvents": 37, "lot9ContentRuntimeObjects": content_summary["runtimeObjects"],
+        "lot9ContentRuntimeFields": content_summary["runtimeChangedFields"],
+        "lot9ThreeStudyAidNativeBundlesAppliedAtomically": True,
+        "lot9ReadingsUnchanged": True, "lot9ItalianRuleNDoesNotNormalizeOtherWords": True,
+        "lot9OnlyFiniteWholeEventsAppliedNoRuleExtension": True,
+        "lot8Erratum1Identities": 1, "lot8Erratum1EvidenceEvents": 1,
+        "lot8Erratum1RuntimeObjects": erratum_summary["runtimeObjects"],
+        "lot8Erratum1RuntimeFields": erratum_summary["runtimeChangedFields"],
+        "lot8Erratum1PreservesOriginalLot8RegistryAndAnnotation": True,
+        "combinedCorrectedPhoneticIdentities": len(combined_phonetic_ids),
+        "combinedCorrectedIdentities": len(combined_ids), "combinedCorrectedRuntimeObjects": len(combined_objects),
+        "combinedCorrectedRuntimeFields": len(combined_fields), "combinedCorrectedCanonicalIdentities": len(combined_canonical_ids),
+        "combinedCorrectedCanonicalFields": len(combined_canonical_fields),
+        "combinedEvidenceEvents": 774+95+259+35+8+26+23+47+228+16+63+23+1+70+37,
+        "callerPackMutatedByProjection": False, "lot9PlacementLevelsRolesStepsAndAccessUnchanged": True,
+        "lot9StudyAndMeaningExceptionsOnlyInSeparateContentRegistry": True,
+        "allReadingExceptionsAreExplicitlyRegistered": True})
+    checks["importedVerbatimFields"] = checks["importedFieldsCompared"] - noncatalogue_canonical_fields["conversation"]
+    checks["newEditorialVerbatimFields"] = checks["newEditorialFieldsCompared"] - noncatalogue_canonical_fields["editorial-authored"]
+    checks["newSituationVerbatimWholeFields"] = checks["newSituationWholeFieldsCompared"] - sum(noncatalogue_canonical_fields[n] for n in ("situation-authored", "situation-conversation"))
+    checks["newSupportVerbatimWholeFields"] = checks["newSupportWholeFieldsCompared"] - sum(noncatalogue_canonical_fields[n] for n in ("situation-support-authored", "situation-support-conversation"))
+    checks["newReceivedVerbatimWholeFields"] = checks["newReceivedWholeFieldsCompared"] - heard_only_changed_fields
+    for name in ("phoneticCorrections", "reviewedFieldCorrections", "lot4PhoneticCorrections", "reviewedContentCorrections", "lot5FieldCorrections", "lot5ContentCorrections", "lot6FieldCorrections", "lot6ContentCorrections", "lot7PhoneticCorrections", "lot7ContentCorrections", "lot8PhoneticCorrections", "lot8ContentCorrections"):
+        result[name]["actualRuntimeFileSha256"] = actual_hashes
+    result["lot9PhoneticCorrections"] = {**paired_summary, "actualRuntimeFileSha256": actual_hashes,
+        "studyMeaningReadingPlacementAndAccessUnchangedByThisLayer": True, "onlyWholePhoneticEventsNoBroadRules": True}
+    result["lot9ContentCorrections"] = {**content_summary, "actualRuntimeFileSha256": actual_hashes,
+        "originalSourcesAndAccessUnchanged": True, "threeWholeStudyAidNativeBundlesAtomic": True}
+    result["lot8Erratum1Corrections"] = {**erratum_summary, "actualRuntimeFileSha256": actual_hashes,
+        "originalLot8RegistryPreserved": True, "twoLettersSeparatelySpelled": True}
     return result
 
 
@@ -3829,7 +4267,7 @@ def check_visuals(pack, required=False):
             "semanticOrNativeReviewClaimed": False}
 
 
-def adversarial_checks(pack, *, only_phonetic=False, only_lot3=False, only_lot4=False, only_lot5=False, only_lot6=False, only_lot7=False, only_lot8=False):
+def adversarial_checks(pack, *, only_phonetic=False, only_lot3=False, only_lot4=False, only_lot5=False, only_lot6=False, only_lot7=False, only_lot8=False, only_lot9=False):
     """In-memory faults exercise this reader; no source or generated file is edited."""
     def locate(test_pack, predicate):
         for cell in test_pack["cells"].values():
@@ -5103,6 +5541,145 @@ def adversarial_checks(pack, *, only_phonetic=False, only_lot3=False, only_lot4=
     if only_lot8:mutations = lot8_mutations
     elif not any((only_phonetic, only_lot3, only_lot4, only_lot5, only_lot6, only_lot7)):mutations.extend(lot8_mutations)
 
+    def lot9_fixture(test_pack, name="lot9Phonetic", predicate=lambda phrase, profile: True):
+        annotation = LOT9_CONFIG[name]["annotation"]
+        for _pair, _path, _location, profile, phrase in _runtime_objects(test_pack):
+            if annotation in phrase and predicate(phrase, profile):return phrase
+        raise VerificationError("Missing lot9/erratum adversarial fixture")
+
+    def lot9_rebind(test_pack, name):
+        config = LOT9_CONFIG[name]
+        raw = canonical(test_pack[name + "Registry"])
+        checksum = digest(raw)
+        test_pack[name + "RegistryRaw"] = raw
+        test_pack["fingerprints"][config["registryPath"]] = checksum
+        test_pack["manifest"][config["manifest"]]["registrySha256"] = checksum
+        next_name = {"lot8Erratum1":"lot9Phonetic", "lot9Phonetic":"lot9Content"}.get(name)
+        if next_name:
+            test_pack[next_name + "Registry"]["appliesAfter"][0]["registrySha256"] = checksum
+            test_pack["manifest"][LOT9_CONFIG[next_name]["manifest"]]["appliesAfter"][0]["registrySha256"] = checksum
+            lot9_rebind(test_pack, next_name)
+
+    def lot9_canonical_after_stale(test_pack):
+        phrase = lot9_fixture(test_pack, predicate=lambda p, profile: profile == "canonical")
+        phrase["phon"] = phrase["lot9PhoneticCorrection"]["beforeFields"]["phon"]
+
+    def lot9_transport_after_stale(test_pack):
+        phrase = lot9_fixture(test_pack, predicate=lambda p, profile: profile == "transport-phrase")
+        phrase["phon"] = phrase["lot9PhoneticCorrection"]["beforeFields"]["phon"]
+
+    def lot9_received_after_stale(test_pack):
+        phrase = lot9_fixture(test_pack, predicate=lambda p, profile: profile == "received-model")
+        phrase["phon"] = phrase["lot9PhoneticCorrection"]["beforeFields"]["phon"]
+
+    def lot9_content_received_after_stale(test_pack):
+        phrase = lot9_fixture(test_pack, "lot9Content", lambda p, profile: profile == "received-model")
+        phrase["native"] = phrase["lot9ContentCorrection"]["beforeFields"]["native"]
+
+    def lot9_phonetic_batch_invents_reading(test_pack):
+        lot9_fixture(test_pack)["reading"] = "unapproved-reading"
+
+    def lot9_native_only_changes_phonetic_aid(test_pack):
+        phrase = lot9_fixture(test_pack, "lot9Content", lambda p, _: p["lot9ContentCorrection"]["fields"] == ["native"])
+        phrase["phon"] += " unapproved"
+
+    def lot9_native_only_changes_study(test_pack):
+        phrase = lot9_fixture(test_pack, "lot9Content", lambda p, _: p["lot9ContentCorrection"]["fields"] == ["native"])
+        phrase["study"] += " unapproved"
+
+    def lot9_native_only_invents_phonetic_status(test_pack):
+        phrase = lot9_fixture(test_pack, "lot9Content", lambda p, _: p["lot9ContentCorrection"]["fields"] == ["native"])
+        phrase["phoneticReviewStatus"] = "invented-review-approval"
+
+    def lot9_bundle_study_only(test_pack):
+        phrase = lot9_fixture(test_pack, "lot9Content", lambda p, _: "study" in p["lot9ContentCorrection"]["fields"])
+        phrase["phon"] = phrase["lot9ContentCorrection"]["beforeFields"]["phon"]
+
+    def lot9_bundle_aid_only(test_pack):
+        phrase = lot9_fixture(test_pack, "lot9Content", lambda p, _: "study" in p["lot9ContentCorrection"]["fields"])
+        phrase["study"] = phrase["lot9ContentCorrection"]["beforeFields"]["study"]
+
+    def lot9_bundle_native_missing(test_pack):
+        phrase = lot9_fixture(test_pack, "lot9Content", lambda p, _: "study" in p["lot9ContentCorrection"]["fields"])
+        phrase["native"] = phrase["lot9ContentCorrection"]["beforeFields"]["native"]
+
+    def lot9_bundle_declaration_partial(test_pack):
+        entry = next(e for e in test_pack["lot9ContentRegistry"]["corrections"] if "study" in e["fields"])
+        del entry["fields"]["native"]
+        lot9_rebind(test_pack, "lot9Content")
+
+    def lot9_finite_rule_N_extended(test_pack):
+        entry = next(e for e in test_pack["lot9PhoneticRegistry"]["corrections"] if "N" in e["rules"])
+        entry["rules"].append("N-global")
+        lot9_rebind(test_pack, "lot9Phonetic")
+
+    def lot9_proof_and_registry_forged(test_pack):
+        path = next(iter(test_pack["lot9PhoneticEvidenceRaw"]))
+        raw = test_pack["lot9PhoneticEvidenceRaw"][path] + b"\n"
+        test_pack["lot9PhoneticEvidenceRaw"][path] = raw;test_pack["fingerprints"][path] = digest(raw)
+        test_pack["lot9PhoneticRegistry"]["evidenceFiles"][0]["sha256"] = digest(raw)
+        lot9_rebind(test_pack, "lot9Phonetic")
+
+    def lot9_unknown_after_forged(test_pack):
+        entry = test_pack["lot9PhoneticRegistry"]["corrections"][0]
+        entry["fields"]["phon"]["after"] += " invented"
+        for _pair, _path, _location, _profile, phrase in _runtime_objects(test_pack):
+            if phrase.get("id") == entry["id"] and "lot9PhoneticCorrection" in phrase:phrase["phon"] = entry["fields"]["phon"]["after"]
+        lot9_rebind(test_pack, "lot9Phonetic")
+
+    def lot9_transport_declaration_omitted(test_pack):
+        entry = next(e for e in test_pack["lot9PhoneticRegistry"]["corrections"] if any(o["profile"] == "transport-phrase" for o in e["occurrences"]))
+        entry["occurrences"] = [o for o in entry["occurrences"] if o["profile"] != "transport-phrase"]
+        lot9_rebind(test_pack, "lot9Phonetic")
+
+    def lot9_unapproved_normalization(test_pack):
+        _, phrase = locate(test_pack, lambda p: p["id"].startswith("catalogue:it:") and "lot9PhoneticCorrection" not in p and "lot9ContentCorrection" not in p)
+        phrase["phon"] += " convention-non-approuvée"
+
+    def lot9_unapproved_level_move(test_pack):
+        phrase = lot9_fixture(test_pack)
+        phrase["editorialLevel"] = phrase["editorialLevel"] % 10 + 1
+
+    def lot8_erratum1_delivered_value_served(test_pack):
+        phrase = lot9_fixture(test_pack, "lot8Erratum1")
+        phrase["phon"] = "KOUM-plé la NOR-ma é-né sé-TÉN-ta i OU-no"
+
+    def lot8_erratum1_original_source_served(test_pack):
+        lot9_fixture(test_pack, "lot8Erratum1")["phon"] = "KOUM-plé la NOR-ma én"
+
+    def lot8_erratum1_original_annotation_lost(test_pack):
+        del lot9_fixture(test_pack, "lot8Erratum1")["lot8PhoneticCorrection"]
+
+    def lot8_erratum1_original_before_spoofed(test_pack):
+        entry = test_pack["lot8Erratum1Registry"]["corrections"][0]
+        entry["fields"]["phon"]["before"] = "KOUM-plé la NOR-ma én"
+        lot9_rebind(test_pack, "lot8Erratum1")
+
+    def lot8_erratum1_prior_annotation_forged(test_pack):
+        phrase = lot9_fixture(test_pack, "lot8Erratum1")
+        phrase["lot8PhoneticCorrection"]["registrySha256"] = "0" * 64
+
+    def lot8_erratum1_annotation_disguised_as_original(test_pack):
+        phrase = lot9_fixture(test_pack, "lot8Erratum1")
+        phrase["lot8PhoneticCorrection"] = phrase.pop("lot8Erratum1Correction")
+
+    def lot8_erratum1_drops_separate_predecessor(test_pack):
+        test_pack["lot8Erratum1Registry"]["appliesAfter"] = []
+        lot9_rebind(test_pack, "lot8Erratum1")
+
+    lot9_mutations = [lot9_canonical_after_stale, lot9_transport_after_stale, lot9_received_after_stale,
+        lot9_content_received_after_stale, lot9_phonetic_batch_invents_reading,
+        lot9_native_only_changes_phonetic_aid, lot9_native_only_changes_study,
+        lot9_native_only_invents_phonetic_status, lot9_bundle_study_only, lot9_bundle_aid_only,
+        lot9_bundle_native_missing, lot9_bundle_declaration_partial, lot9_finite_rule_N_extended,
+        lot9_proof_and_registry_forged, lot9_unknown_after_forged, lot9_transport_declaration_omitted,
+        lot9_unapproved_normalization, lot9_unapproved_level_move, lot8_erratum1_delivered_value_served,
+        lot8_erratum1_original_source_served, lot8_erratum1_original_annotation_lost,
+        lot8_erratum1_original_before_spoofed, lot8_erratum1_prior_annotation_forged,
+        lot8_erratum1_annotation_disguised_as_original, lot8_erratum1_drops_separate_predecessor]
+    if only_lot9:mutations = lot9_mutations
+    elif not any((only_phonetic, only_lot3, only_lot4, only_lot5, only_lot6, only_lot7, only_lot8)):mutations.extend(lot9_mutations)
+
     results = []
     for mutation in mutations:
         changed = copy.deepcopy(pack)
@@ -5165,6 +5742,13 @@ def markdown(report):
             f"Le **lot de contenu séparé** applique **{c['contentCorrectionIdentities']} identifiants / {c['contentCorrectionEvidenceEvents']} événements atomiques** : 25 gloses amendées du lot3, huit gloses du lot4 et les blocs 1900 et757. Il déclare **{c['contentApprovedRegistryFields']} champs à l’échelle des entrées du registre**, dont **{c['contentChangedRegistryFields']} valeurs changent**. Dans le runtime : **{c['contentRuntimeObjects']} objets, {c['contentRuntimeApprovedFields']} champs approuvés et {c['contentRuntimeChangedFields']} changements effectifs**. Le sens natif de757 est une garde inchangée ; étude et aide changent ensemble. Le bloc1900 change étude, lecture, aide et sens ensemble. Une application partielle est refusée.", "",
             "Les valeurs après des deux couches du lot4 sont contrôlées avant leur projection privée commune, puis les deux couches historiques et les sources originales sont vérifiées. La provenance, les annotations précédentes, identifiants, types, emplacements, niveaux éditoriaux, rôles, étapes et accès restent conservés. Les exceptions d’étude/sens/lecture de ce lot sont explicitement nommées ; les lectures liées et gloses du lot5 sont déclarées séparément ci-dessous. Aucune proposition de thème/niveau ni convention ouverte n’est appliquée.", "",
         ]
+    if "lot9PhoneticCorrections" in report:
+        lines.extend([
+            f"Le **lot9 italien** vérifie **{c['lot9PhoneticIdentities']} aides entières figées**, dans **{c['lot9PhoneticRuntimeObjects']} objets / {c['lot9PhoneticRuntimeFields']} champs** : {c['lot9PhoneticCanonicalObjects']} canoniques, {c['lot9PhoneticTransportObjects']} copies et {c['lot9PhoneticReceivedObjects']} modèle reçu. Les avant complets sont ancrés à Git `40d4c0b`, les preuves à `5d450cc`. N reste limité à ses 63 événements ; aucune convention générale de nasalisation, de s ou d'emprunts n'est décidée. Aucune lecture complémentaire ne change.", "",
+            f"La couche de contenu séparée vérifie **{c['lot9GlossIdentities']} gloses certaines et {c['lot9ContentBundleIdentities']} blocs étude/sens/aide**, soit **{c['lot9ContentRuntimeObjects']} objets / {c['lot9ContentRuntimeFields']} champs**. Les trois blocs 2489/3879/4098 changent leurs trois champs d'un seul tenant. Les gloses seules gardent aide, étude, lecture et statut phonétique. Les modèles reçus sont vérifiés dans leur rôle propre.", "",
+            f"L'**erratum EN71 du lot8** est une couche distincte : **{c['lot8Erratum1RuntimeObjects']} objet / {c['lot8Erratum1RuntimeFields']} champ**, preuve Git `76602a1`. Il part de l'après réellement livré `é-né` et donne l'épellation séparée `é É-né` ; le registre et l'annotation historiques du lot8 restent inchangés. Les après sont vérifiés avant projection privée contenu9→phonétique9→erratum8→lots8/7/6/5/4/3/2→sources.", "",
+            "Les 280 propositions, 30 conventions et 96 contenus incertains du lot9 restent non appliqués. La relecture individuelle de Claude couvre désormais 70 cellules sur 70 ; ce lecteur mécanique ne vaut ni validation native ni adoption des propositions de classement. La présentation, les droits, les prix, les niveaux du catalogue et les cartes classiques sont conservés. Aucune publication n'est approuvée.", "",
+        ])
     if "lot8PhoneticCorrections" in report:
         lines.extend([
             f"Le **lot8 espagnol** vérifie **{c['lot8PhoneticIdentities']} aides entières figées**, dans **{c['lot8PhoneticRuntimeObjects']} objets / {c['lot8PhoneticRuntimeFields']} champs** : {c['lot8PhoneticCanonicalObjects']} canoniques, {c['lot8PhoneticTransportObjects']} copie et {c['lot8PhoneticReceivedObjects']} modèle reçu. Les avant complets sont ancrés à Git `224e459`, les preuves à `e12c600`. L'ancienne correction B de3159 est conservée. Aucune lecture ne change.", "",
@@ -5222,7 +5806,7 @@ def markdown(report):
         "", "## Reproduire", "",
         "    python3 -B tools/maquette-guidee/check_levels_independent.py --write-report --require-visuals --strict-editorial --require-no-held",
         "    python3 -B tools/maquette-guidee/check_levels_independent.py --check-report --require-visuals --strict-editorial --require-no-held --self-test", "",
-        "Les contre-exemples en mémoire incluent une phonétique changée, une source dupliquée, un mauvais champ, un rappel avant préparation, une réserve productive, un import exclu, un mot injecté dans une situation, une révision future ou de mauvaise famille, un compteur gonflé et une séparation fictive d’un concept M/F. Les nouveaux contre-exemples couvrent aussi les rôles et clôtures reçus, la réponse avant sa préparation, une fausse étape de préparation, une aide de modèle entendu changée, un reçu compté comme production, un soutien futur ou de mauvaise famille, une attribution de source forgée, un faux statut de revue et le déplacement d’un ancien modèle protégé. Le lot4 ajoute les copies ou reçus périmés, une preuve forgée, une ancienne annotation perdue, une glose non autorisée et les blocs1900/757 appliqués partiellement, y compris la garde native inchangée de757. Le lot5 ajoute les paires aide/lecture partielles, les copies ou déclarations de transport omises, une glose/statut/preuve inventés et la réserve3771 activée à tort. Le lot6 ajoute les paires coréennes partielles, la réplique reçue périmée, la chaîne B3980 altérée, les blocs2362/1896 partiels et leurs sens gardés, les preuves/annotations forgées et une normalisation batchim non approuvée. Le lot7 ajoute les aides/copies/reçus anglais périmés, une lecture inventée, les règles ou preuves falsifiées, une copie omise, les cinq blocs partiels ou leurs sens gardés altérés et une convention étendue sans accord. Le lot8 ajoute les copies/aides/reçus espagnols périmés, la chaîne B3159 perdue, les deux études de ponctuation assorties à tort de nouvelles aides ou statuts, le soutien estómago périmé, les trois blocs partiels et la normalisation de jota ou de vibrantes sans décision. Le contrôle ne remplace pas une écoute ou un essai avec apprenants. La revue humaine de Claude couvre les thèmes, les niveaux et les phonétiques anciennes comme nouvelles ; ces contrôles mécaniques ne prouvent ni leur justesse linguistique globale ni la fermeture globale de la progression. Aucune publication n’est approuvée.", "",
+        "Les contre-exemples en mémoire incluent une phonétique changée, une source dupliquée, un mauvais champ, un rappel avant préparation, une réserve productive, un import exclu, un mot injecté dans une situation, une révision future ou de mauvaise famille, un compteur gonflé et une séparation fictive d’un concept M/F. Les nouveaux contre-exemples couvrent aussi les rôles et clôtures reçus, la réponse avant sa préparation, une fausse étape de préparation, une aide de modèle entendu changée, un reçu compté comme production, un soutien futur ou de mauvaise famille, une attribution de source forgée, un faux statut de revue et le déplacement d’un ancien modèle protégé. Le lot4 ajoute les copies ou reçus périmés, une preuve forgée, une ancienne annotation perdue, une glose non autorisée et les blocs1900/757 appliqués partiellement, y compris la garde native inchangée de757. Le lot5 ajoute les paires aide/lecture partielles, les copies ou déclarations de transport omises, une glose/statut/preuve inventés et la réserve3771 activée à tort. Le lot6 ajoute les paires coréennes partielles, la réplique reçue périmée, la chaîne B3980 altérée, les blocs2362/1896 partiels et leurs sens gardés, les preuves/annotations forgées et une normalisation batchim non approuvée. Le lot7 ajoute les aides/copies/reçus anglais périmés, une lecture inventée, les règles ou preuves falsifiées, une copie omise, les cinq blocs partiels ou leurs sens gardés altérés et une convention étendue sans accord. Le lot8 ajoute les copies/aides/reçus espagnols périmés, la chaîne B3159 perdue, les deux études de ponctuation assorties à tort de nouvelles aides ou statuts, le soutien estómago périmé, les trois blocs partiels et la normalisation de jota ou de vibrantes sans décision. Le lot9 ajoute les aides/copies/reçus italiens périmés, une lecture inventée, les gloses seules assorties à tort de nouvelles aides ou études ou statuts, les trois blocs partiels, N étendue sans décision, les preuves ou copies forgées, et l’erratum EN71 confondu avec son événement historique ou rattaché au mauvais avant. Le contrôle ne remplace pas une écoute ou un essai avec apprenants. La revue humaine de Claude couvre les thèmes, les niveaux et les phonétiques anciennes comme nouvelles ; ces contrôles mécaniques ne prouvent ni leur justesse linguistique globale ni la fermeture globale de la progression. Aucune publication n’est approuvée.", "",
     ]
     return re.sub(r"(?<=\d),(?=\d{3}\b)", " ", "\n".join(lines))
 

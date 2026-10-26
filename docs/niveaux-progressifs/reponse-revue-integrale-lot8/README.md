@@ -64,3 +64,7 @@ interrompues ne sont pas incluses.
 Aucune certification native globale, fusion dans main ni publication sur melunga.com.
 
 Validation du lot 8 : **6 tests ciblés + 32 historiques, 9 commandes et 19 contrôles généraux réussis ; 171 contre-épreuves Python refusées**. [Rapport et limites](../verification-raccord-lot8.md).
+
+État historique du lot 8 ci-dessus. Le [lot 9](../reponse-revue-integrale-lot9/README.md)
+termine les cellules fr→it et raccorde l’erratum EN71 `76602a1` en une couche
+séparée. Les preuves et valeurs historiques du lot 8 restent conservées.
