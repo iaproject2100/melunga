@@ -13,7 +13,7 @@ const crypto = require('node:crypto');
 const {test, before, after} = require('node:test');
 const {chromium} = require('playwright-core');
 
-const PRODUCT_BASE = '902b31ef410b18a58d88ce67a7abfd4961180f90';
+const PRODUCT_BASE = '946b254179e75cd342ecedab0b5448017079ffdc';
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'content/niveaux-progressifs');
 const readJson = filename => JSON.parse(fs.readFileSync(filename, 'utf8'));

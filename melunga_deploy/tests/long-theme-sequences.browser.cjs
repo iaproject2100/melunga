@@ -16,7 +16,7 @@ const {chromium} = require('playwright-core');
 
 const WEB = path.resolve(__dirname, '..'), REPO = path.resolve(WEB, '..');
 const DATA_BASE = 'ebd6519a6088e52c157231b44ae4cf41507f0667';
-const PRODUCT_BASE = '902b31ef410b18a58d88ce67a7abfd4961180f90';
+const PRODUCT_BASE = '946b254179e75cd342ecedab0b5448017079ffdc';
 const helperPath = path.join(WEB, 'visible-sequences.js');
 const manifestPath = 'content/niveaux-progressifs/manifest.json';
 const read = name => JSON.parse(fs.readFileSync(path.join(WEB, name), 'utf8'));
