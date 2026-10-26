@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "executedAt": "2026-10-26T18:06:42.467219+00:00",
+  "base": "1b1d60e6a8756018fa4e9d6abce8457986a04550",
+  "head": "5e31c5322140de5a75d1a7f3bbabb4f6abd08c6c",
+  "rebaseConflictsResolved": [
+    "melunga_deploy/tests/all-classification.cjs"
+  ],
+  "productAssetsUnchangedFrom": "1901947",
+  "loginAndPhoneticTestsUnchangedFromMain": true,
+  "finiteWholeAssetPins": 8,
+  "historicalHtmlInverse": "remove exact course-access.js?v=1 and visible-sequences.js?v=1 script tags; replace maquette-guidee.js?v=18 with v12",
+  "checks": {
+    "nodeCheck": 6,
+    "gitDiffCheck": "passed",
+    "sourceAudit": {
+      "status": "passed",
+      "scope": "source-only classification and finite entry/sequence assets; no browser or site",
+      "counts": {
+        "operations": 2906,
+        "moves": 2532,
+        "toReserve": 318,
+        "keep": 56,
+        "levelChanges": 622,
+        "canonical": 33654,
+        "active": 32448,
+        "reserve": 1206,
+        "largeThemes": 67,
+        "newThemes": 9,
+        "newThemeCards": 38,
+        "stepsChecked": 119755
+      }
+    }
+  },
+  "hashes": {
+    "product": {
+      "melunga_deploy/maquette-guidee.js": "a16498734ee9de85eda1afeb0490b5b115aae13f24f6f6dee34e646f10bc52db",
+      "melunga_deploy/maquette-guidee.html": "db62bcab9391fb53b08c917dd150550e069e4599e17f2686e4b2f868bd9e315b",
+      "melunga_deploy/parcours-niveaux.html": "29b26104235290cf83496cc6fdd14d6dfdc277bfc3e12827a3d86ded470078af",
+      "melunga_deploy/visible-sequences.js": "44069d7aa35142e698ae7e42132a94b9e3b10c37bd03a294960414be3190ef01"
+    },
+    "tests": {
+      "melunga_deploy/tests/all-classification.cjs": "01f3919dd09b9cb520cb47f44f943f15dfa2a1000e835027a07a12ea00a4a906",
+      "melunga_deploy/tests/levels-themes.browser.cjs": "b1579c9b747ef0f63e968ca6387e1c126346147099e87655234c1bb98cb95d10",
+      "melunga_deploy/tests/login-entry.browser.cjs": "b239626c90e20857491e68c9ef473b5360871ba10a161a2aea1ec2e9b649adea",
+      "melunga_deploy/tests/phonetic-corrections.cjs": "fabbdeb92985ea9a63414991edd6bac4f4d3111a0a6c868954ca429bf180067d"
+    },
+    "base": "1b1d60e6a8756018fa4e9d6abce8457986a04550",
+    "head": "5e31c5322140de5a75d1a7f3bbabb4f6abd08c6c"
+  },
+  "browserTestsRerun": false,
+  "fullMatrixRerun": false,
+  "productionSiteChecked": false,
+  "extraCommitCreated": false,
+  "pushed": false
+}

@@ -1,9 +1,32 @@
 {
-  "status": "passed",
+  "status": "passed-visual-inspection",
   "environment": "local Chromium with emulated viewport",
   "publicSiteChecked": false,
   "physicalPhoneChecked": false,
   "sourceFilesEdited": false,
+  "accountMechanism": "Only GET check-status mocked paid:true; no real account or service request",
+  "mockedStatusRequests": [
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "paid": true
+    },
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "paid": true
+    },
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "paid": true
+    },
+    {
+      "method": "GET",
+      "path": "/.netlify/functions/check-status",
+      "paid": true
+    }
+  ],
   "cases": [
     {
       "name": "largest-sequence-grid-desktop",
@@ -30,6 +53,14 @@
           "masked": false,
           "helpOpen": false,
           "readingVisible": false,
+          "access": {
+            "ready": true,
+            "paid": true,
+            "unrestricted": false,
+            "mode": "production",
+            "status": "ready",
+            "historicalRightsReady": true
+          },
           "template": false,
           "totalPhrases": 730
         },
@@ -53,8 +84,7 @@
         "contentClientHeight": 561,
         "lessonScrollHeight": 0,
         "lessonClientHeight": 0
-      },
-      "imageSha256": "2c2c3c26a0fe6bf802ee0c9c6cbfd77fe9c999ad69031987ff5ed872af35c1f2"
+      }
     },
     {
       "name": "largest-sequence-grid-mobile",
@@ -81,6 +111,14 @@
           "masked": false,
           "helpOpen": false,
           "readingVisible": false,
+          "access": {
+            "ready": true,
+            "paid": true,
+            "unrestricted": false,
+            "mode": "production",
+            "status": "ready",
+            "historicalRightsReady": true
+          },
           "template": false,
           "totalPhrases": 730
         },
@@ -104,8 +142,7 @@
         "contentClientHeight": 621,
         "lessonScrollHeight": 0,
         "lessonClientHeight": 0
-      },
-      "imageSha256": "67d009a226df93994f8b21389aac1781a0ba01cb7825961d92b01af1863057a2"
+      }
     },
     {
       "name": "first-sequence-lesson-mobile",
@@ -132,6 +169,14 @@
           "masked": false,
           "helpOpen": false,
           "readingVisible": false,
+          "access": {
+            "ready": true,
+            "paid": true,
+            "unrestricted": false,
+            "mode": "production",
+            "status": "ready",
+            "historicalRightsReady": true
+          },
           "template": false,
           "totalPhrases": 730
         },
@@ -155,8 +200,7 @@
         "contentClientHeight": 636,
         "lessonScrollHeight": 634,
         "lessonClientHeight": 634
-      },
-      "imageSha256": "c48ec41337d8caa99be85b06c76bf7f852075ec82c512ae34e35a2282dff3359"
+      }
     },
     {
       "name": "chinese-localized-sequence-grid",
@@ -183,6 +227,14 @@
           "masked": false,
           "helpOpen": false,
           "readingVisible": false,
+          "access": {
+            "ready": true,
+            "paid": true,
+            "unrestricted": false,
+            "mode": "production",
+            "status": "ready",
+            "historicalRightsReady": true
+          },
           "template": false,
           "totalPhrases": 694
         },
@@ -202,17 +254,9 @@
         "contentClientHeight": 621,
         "lessonScrollHeight": 0,
         "lessonClientHeight": 0
-      },
-      "imageSha256": "9776ed434f1c59b88ea7677740d7e7356f1fdbbd6da113e8f26d497eb83b20f2"
+      }
     }
   ],
   "errors": [],
-  "visualInspectionPerformed": true,
-  "observations": [
-    "Desktop 1280×720 shows all eleven sequences of the 387-card theme without horizontal clipping.",
-    "Mobile sequence menus scroll vertically; sequence titles, card counts and ranges remain readable, with no horizontal overflow.",
-    "The mobile lesson shows sequence context, Chinese text, phonetic aid, translation, Pinyin and both actions within one screen.",
-    "Chinese-native labels and counts are localized on the zh-fr sequence menu.",
-    "No source, data, theme, card or style file was edited while capturing or inspecting these four views."
-  ]
+  "inspection": "Four captures inspected: legible titles and ranges, full mobile learner card with Pinyin and actions, no horizontal overflow; grid uses normal vertical list on mobile."
 }
