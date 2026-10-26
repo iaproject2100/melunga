@@ -1,0 +1,7862 @@
+{
+ "id": "tri-themes-claude-zh-fr",
+ "pair": "zh-fr",
+ "baseSnapshotCommit": "13f42b5814f2b230d76d2d0ef267dcf406c523c2",
+ "source": "docs/revue-integrale/lot4-zh-fr-L1-L10/propositions-niveaux-themes.json",
+ "decisionsKartech": {
+  "changementsDeNiveau": "acceptés quand aucun thème du niveau ne convient et qu’un thème clair existe à un autre niveau",
+  "doublons": "une seule variante présentée, l’autre en réserve, rien n’est supprimé",
+  "nouveauxThemes": "validés (26 octobre 2026)",
+  "themesQuasiVides": "masqués ; leurs 0 à 2 cartes restantes passent en réserve ; ils pourront revenir avec de vraies cartes",
+  "L9-saluer": "formules de politesse soutenues gardées en L9 ; thème renommé"
+ },
+ "newThemes": [
+  {
+   "id": "L6-souhaits",
+   "level": 6,
+   "title": "Souhaiter, encourager et réconforter",
+   "cards": 4
+  },
+  {
+   "id": "L6-relations",
+   "level": 6,
+   "title": "Parler de sa vie sentimentale",
+   "cards": 7
+  },
+  {
+   "id": "L8-marqueurs-oraux",
+   "level": 8,
+   "title": "Nuancer un récit avec les marqueurs de l’oral",
+   "cards": 3
+  }
+ ],
+ "renameThemes": [
+  {
+   "id": "L9-saluer",
+   "level": 9,
+   "newTitle": "Remercier et s’excuser en registre soutenu",
+   "cardsAfter": 6
+  }
+ ],
+ "hideThemes": [
+  {
+   "theme": "L7-vocab-voyage",
+   "level": 7,
+   "title": "出行与交通",
+   "cardsBefore": 3,
+   "remainingToReserve": [
+    "catalogue:fr:3326"
+   ]
+  },
+  {
+   "theme": "L10-comprendre",
+   "level": 10,
+   "title": "澄清言外之意",
+   "cardsBefore": 3,
+   "remainingToReserve": [
+    "catalogue:fr:2821",
+    "catalogue:fr:3652"
+   ]
+  },
+  {
+   "theme": "L10-repas",
+   "level": 10,
+   "title": "餐桌上的自由交谈",
+   "cardsBefore": 6,
+   "remainingToReserve": [
+    "catalogue:fr:2740",
+    "catalogue:fr:2794"
+   ]
+  }
+ ],
+ "counts": {
+  "cards": 300,
+  "move": 264,
+  "to-reserve": 30,
+  "keep": 6,
+  "levelChanges": 63,
+  "intoNewThemes": 14,
+  "hiddenThemes": 3,
+  "remainingToReserve": 5
+ },
+ "ops": [
+  {
+   "p": "P000",
+   "id": "catalogue:fr:4471",
+   "study": "La carte, s'il vous plaît.",
+   "fromLevel": 1,
+   "fromTheme": "saluer",
+   "motif": "Demander la carte est un acte de commande au restaurant.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "repas",
+   "proposals": [
+    "P000"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     24
+    ],
+    "study": "La carte, s'il vous plaît."
+   }
+  },
+  {
+   "p": "P001",
+   "id": "catalogue:fr:2858",
+   "study": "Monsieur",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-maison",
+   "motif": "Désigne une personne, pas la maison.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-vocab-personnes",
+   "proposals": [
+    "P001"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-maison",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     0
+    ],
+    "study": "Monsieur"
+   }
+  },
+  {
+   "p": "P002",
+   "id": "catalogue:fr:2916",
+   "study": "Madame",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-maison",
+   "motif": "Désigne une personne, pas la maison.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-vocab-personnes",
+   "proposals": [
+    "P002"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-maison",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     2
+    ],
+    "study": "Madame"
+   }
+  },
+  {
+   "p": "P003",
+   "id": "catalogue:fr:2910",
+   "study": "mes enfants",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-maison",
+   "motif": "Membres de la famille : vocabulaire des personnes.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-vocab-personnes",
+   "proposals": [
+    "P003"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-maison",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     1
+    ],
+    "study": "mes enfants"
+   }
+  },
+  {
+   "p": "P004",
+   "id": "catalogue:fr:4396",
+   "study": "les gens",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-maison",
+   "motif": "Désigne des personnes, pas la maison.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-vocab-personnes",
+   "proposals": [
+    "P004"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-maison",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     10
+    ],
+    "study": "les gens"
+   }
+  },
+  {
+   "p": "P005",
+   "id": "catalogue:fr:4384",
+   "study": "un tout-petit",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-maison",
+   "motif": "Désigne une personne, pas la maison.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-vocab-personnes",
+   "proposals": [
+    "P005"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-maison",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+    "location": [
+     "themes",
+     12,
+     "phrases",
+     9
+    ],
+    "study": "un tout-petit"
+   }
+  },
+  {
+   "p": "P006",
+   "id": "catalogue:fr:2892",
+   "study": "Merci beaucoup.",
+   "fromLevel": 1,
+   "fromTheme": "saluer",
+   "motif": "Même thème ; on garde la version avec « ! » (catalogue:fr:221).",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P006"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     20
+    ],
+    "study": "Merci beaucoup."
+   }
+  },
+  {
+   "p": "P007",
+   "id": "catalogue:fr:2915",
+   "study": "Bonne chance.",
+   "fromLevel": 1,
+   "fromTheme": "saluer",
+   "motif": "Même thème ; on garde la version avec « ! » (catalogue:fr:260).",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P007"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     21
+    ],
+    "study": "Bonne chance."
+   }
+  },
+  {
+   "p": "P008",
+   "id": "catalogue:fr:2883",
+   "study": "mon père",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-personnes",
+   "motif": "Même thème, à la casse et au point près ; un seul suffit.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P008"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-personnes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+    "location": [
+     "themes",
+     14,
+     "phrases",
+     3
+    ],
+    "study": "mon père"
+   }
+  },
+  {
+   "p": "P009",
+   "id": "catalogue:fr:2891",
+   "study": "ma mère",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-personnes",
+   "motif": "Même thème, à la casse et au point près ; un seul suffit.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P009"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-personnes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+    "location": [
+     "themes",
+     14,
+     "phrases",
+     6
+    ],
+    "study": "ma mère"
+   }
+  },
+  {
+   "p": "P010",
+   "id": "catalogue:fr:3723",
+   "study": "avant",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-reperes",
+   "motif": "Même thème, à la casse et au point près ; un seul suffit.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P010"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+    "location": [
+     "themes",
+     15,
+     "phrases",
+     6
+    ],
+    "study": "avant"
+   }
+  },
+  {
+   "p": "P011",
+   "id": "catalogue:fr:3722",
+   "study": "après",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-reperes",
+   "motif": "Même thème, à la casse et au point près ; un seul suffit.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P011"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+    "location": [
+     "themes",
+     15,
+     "phrases",
+     5
+    ],
+    "study": "après"
+   }
+  },
+  {
+   "p": "P012",
+   "id": "catalogue:fr:265",
+   "study": "tout de suite",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-adverbes",
+   "motif": "Même thème, à la casse et au point près ; un seul suffit.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P012"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-adverbes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     2
+    ],
+    "study": "tout de suite"
+   }
+  },
+  {
+   "p": "P013",
+   "id": "catalogue:fr:3727",
+   "study": "encore",
+   "fromLevel": 1,
+   "fromTheme": "L1-vocab-adverbes",
+   "motif": "Même thème, à la casse et au point près ; un seul suffit.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P013"
+   ],
+   "expectedBefore": {
+    "level": 1,
+    "theme": "L1-vocab-adverbes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     43
+    ],
+    "study": "encore"
+   }
+  },
+  {
+   "p": "P014",
+   "id": "catalogue:fr:3564",
+   "study": "Le code Wi-Fi, s'il vous plaît.",
+   "fromLevel": 10,
+   "fromTheme": "L10-comprendre",
+   "motif": "Demande élémentaire du mot de passe Wi-Fi : scénario numérique de L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-numerique-quotidien",
+   "proposals": [
+    "P014"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     1
+    ],
+    "study": "Le code Wi-Fi, s'il vous plaît."
+   }
+  },
+  {
+   "p": "P015",
+   "id": "catalogue:fr:2741",
+   "study": "Lève la main si tu as une question.",
+   "fromLevel": 10,
+   "fromTheme": "L10-ressentis",
+   "motif": "Consigne de classe, pas un ressenti ; pourrait aussi rester comme exemple de structure en « si ».",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-piste-cours-aide",
+   "proposals": [
+    "P015"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     0
+    ],
+    "study": "Lève la main si tu as une question."
+   }
+  },
+  {
+   "p": "P016",
+   "id": "catalogue:fr:2785",
+   "study": "Je veux le rapport de contrôle final avant l'envoi.",
+   "fromLevel": 10,
+   "fromTheme": "L10-ressentis",
+   "motif": "Exigence de contrôle qualité : échange professionnel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P016"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     2
+    ],
+    "study": "Je veux le rapport de contrôle final avant l'envoi."
+   }
+  },
+  {
+   "p": "P017",
+   "id": "catalogue:fr:3594",
+   "study": "La boîte à chaussures est abîmée.",
+   "fromLevel": 10,
+   "fromTheme": "L10-repas",
+   "motif": "Réclamation sur un produit livré, pas une conversation de table.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P017"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     2
+    ],
+    "study": "La boîte à chaussures est abîmée."
+   }
+  },
+  {
+   "p": "P018",
+   "id": "catalogue:fr:3607",
+   "study": "Les tailles ne sont pas exactes.",
+   "fromLevel": 10,
+   "fromTheme": "L10-repas",
+   "motif": "Réclamation sur des tailles : échange fournisseur.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P018"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     3
+    ],
+    "study": "Les tailles ne sont pas exactes."
+   }
+  },
+  {
+   "p": "P019",
+   "id": "catalogue:fr:3624",
+   "study": "Le polyester est moins cher que le coton.",
+   "fromLevel": 10,
+   "fromTheme": "L10-repas",
+   "motif": "Comparaison de matières pour un achat professionnel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P019"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     4
+    ],
+    "study": "Le polyester est moins cher que le coton."
+   }
+  },
+  {
+   "p": "P020",
+   "id": "catalogue:fr:3632",
+   "study": "À ce prix-là, c'est d'accord.",
+   "fromLevel": 10,
+   "fromTheme": "L10-repas",
+   "motif": "Accord sur un prix dans une négociation.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P020"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     5
+    ],
+    "study": "À ce prix-là, c'est d'accord."
+   }
+  },
+  {
+   "p": "P021",
+   "id": "catalogue:fr:3650",
+   "study": "Faisons moitié-moitié.",
+   "fromLevel": 10,
+   "fromTheme": "L10-reperes",
+   "motif": "La glose 各让一半 en fait un compromis de négociation.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P021"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     13
+    ],
+    "study": "Faisons moitié-moitié."
+   }
+  },
+  {
+   "p": "P022",
+   "id": "catalogue:fr:3619",
+   "study": "La carte mère est défectueuse.",
+   "fromLevel": 10,
+   "fromTheme": "L10-quotidien",
+   "motif": "Constat de défaut technique : échange professionnel.",
+   "op": "move",
+   "toLevel": 10,
+   "toTheme": "L10-travail",
+   "proposals": [
+    "P022"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     4
+    ],
+    "study": "La carte mère est défectueuse."
+   }
+  },
+  {
+   "p": "P023",
+   "id": "catalogue:fr:3597",
+   "study": "Apporte-le-moi.",
+   "fromLevel": 10,
+   "fromTheme": "L10-conversation",
+   "motif": "Demande simple (impératif avec deux pronoms) : niveau débutant, demande d'aide.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-comprendre",
+   "proposals": [
+    "P023"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     45
+    ],
+    "study": "Apporte-le-moi."
+   }
+  },
+  {
+   "p": "P024",
+   "id": "catalogue:fr:3605",
+   "study": "Le wifi ne marche pas.",
+   "fromLevel": 10,
+   "fromTheme": "L10-conversation",
+   "motif": "Problème de connexion élémentaire : scénario numérique de L2.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-numerique-quotidien",
+   "proposals": [
+    "P024"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     48
+    ],
+    "study": "Le wifi ne marche pas."
+   }
+  },
+  {
+   "p": "P025",
+   "id": "catalogue:fr:3637",
+   "study": "Télécharge l'application.",
+   "fromLevel": 10,
+   "fromTheme": "L10-conversation",
+   "motif": "Consigne numérique élémentaire.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-numerique-quotidien",
+   "proposals": [
+    "P025"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     57
+    ],
+    "study": "Télécharge l'application."
+   }
+  },
+  {
+   "p": "P026",
+   "id": "catalogue:fr:3672",
+   "study": "Éteins-le.",
+   "fromLevel": 10,
+   "fromTheme": "L10-conversation",
+   "motif": "Consigne domestique élémentaire.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-quotidien",
+   "proposals": [
+    "P026"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     71
+    ],
+    "study": "Éteins-le."
+   }
+  },
+  {
+   "p": "P027",
+   "id": "catalogue:fr:3673",
+   "study": "Allume-le.",
+   "fromLevel": 10,
+   "fromTheme": "L10-conversation",
+   "motif": "Consigne domestique élémentaire.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-quotidien",
+   "proposals": [
+    "P027"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     72
+    ],
+    "study": "Allume-le."
+   }
+  },
+  {
+   "p": "P028",
+   "id": "catalogue:fr:3570",
+   "study": "un aller-retour",
+   "fromLevel": 10,
+   "fromTheme": "L10-vocab-actions",
+   "motif": "Même thème, à la casse et au point près ; un seul suffit.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P028"
+   ],
+   "expectedBefore": {
+    "level": 10,
+    "theme": "L10-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L10.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     2
+    ],
+    "study": "un aller-retour"
+   }
+  },
+  {
+   "p": "P029",
+   "id": "catalogue:fr:4472",
+   "study": "Sans piment pour moi, s'il vous plaît.",
+   "fromLevel": 2,
+   "fromTheme": "L2-saluer",
+   "motif": "Préférence alimentaire exprimée en commandant.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-repas-preferences",
+   "proposals": [
+    "P029"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     11
+    ],
+    "study": "Sans piment pour moi, s'il vous plaît."
+   }
+  },
+  {
+   "p": "P030",
+   "id": "catalogue:fr:4474",
+   "study": "Le service est compris ?",
+   "fromLevel": 2,
+   "fromTheme": "L2-comprendre",
+   "motif": "Question sur l'addition au restaurant.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P030"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     7
+    ],
+    "study": "Le service est compris ?"
+   }
+  },
+  {
+   "p": "P031",
+   "id": "catalogue:fr:151",
+   "study": "C'est fait maison ?",
+   "fromLevel": 2,
+   "fromTheme": "L2-quotidien",
+   "motif": "Porte sur un plat, pas sur le logement.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P031"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     1
+    ],
+    "study": "C'est fait maison ?"
+   }
+  },
+  {
+   "p": "P032",
+   "id": "catalogue:fr:239",
+   "study": "Ça fait longtemps.",
+   "fromLevel": 2,
+   "fromTheme": "L2-saluer",
+   "motif": "Même thème ; on garde la version avec « ! » (catalogue:fr:240).",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P032"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     3
+    ],
+    "study": "Ça fait longtemps."
+   }
+  },
+  {
+   "p": "P033",
+   "id": "catalogue:fr:2993",
+   "study": "Bonne année.",
+   "fromLevel": 2,
+   "fromTheme": "L2-saluer",
+   "motif": "Même thème ; on garde la version avec « ! » (catalogue:fr:305).",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P033"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     9
+    ],
+    "study": "Bonne année."
+   }
+  },
+  {
+   "p": "P034",
+   "id": "catalogue:fr:110",
+   "study": "J'adore ça.",
+   "fromLevel": 2,
+   "fromTheme": "L2-ressentis",
+   "motif": "Même thème ; on garde la version avec « ! » (catalogue:fr:109).",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P034"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     5
+    ],
+    "study": "J'adore ça."
+   }
+  },
+  {
+   "p": "P035",
+   "id": "catalogue:fr:72",
+   "study": "C'est délicieux.",
+   "fromLevel": 2,
+   "fromTheme": "L2-repas",
+   "motif": "Même thème ; on garde la version avec « ! » (catalogue:fr:71).",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P035"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     4
+    ],
+    "study": "C'est délicieux."
+   }
+  },
+  {
+   "p": "P036",
+   "id": "catalogue:fr:149",
+   "study": "Ça marche.",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Même thème ; on garde la version avec « ! » (catalogue:fr:35).",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P036"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     74
+    ],
+    "study": "Ça marche."
+   }
+  },
+  {
+   "p": "P037",
+   "id": "catalogue:fr:148",
+   "study": "Ça suffit.",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Même thème ; on garde la version avec « ! » (catalogue:fr:129).",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P037"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     73
+    ],
+    "study": "Ça suffit."
+   }
+  },
+  {
+   "p": "P038",
+   "id": "catalogue:fr:743",
+   "study": "J'apprends le français.",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Présentation de soi.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P038"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     214
+    ],
+    "study": "J'apprends le français."
+   }
+  },
+  {
+   "p": "P039",
+   "id": "catalogue:fr:854",
+   "study": "Où est la sortie ?",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Demande de chemin.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-deplacements",
+   "proposals": [
+    "P039"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     215
+    ],
+    "study": "Où est la sortie ?"
+   }
+  },
+  {
+   "p": "P040",
+   "id": "catalogue:fr:988",
+   "study": "Je suis étudiant.",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Présentation de soi.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P040"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     218
+    ],
+    "study": "Je suis étudiant."
+   }
+  },
+  {
+   "p": "P041",
+   "id": "catalogue:fr:1201",
+   "study": "Où se trouve la pharmacie ?",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Demande de chemin.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-deplacements",
+   "proposals": [
+    "P041"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     219
+    ],
+    "study": "Où se trouve la pharmacie ?"
+   }
+  },
+  {
+   "p": "P042",
+   "id": "catalogue:fr:1602",
+   "study": "Je suis allergique aux noix.",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Contrainte alimentaire signalée au repas ; scénario plus précis que L2-ressentis.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-repas-preferences",
+   "proposals": [
+    "P042"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     222
+    ],
+    "study": "Je suis allergique aux noix."
+   }
+  },
+  {
+   "p": "P043",
+   "id": "catalogue:fr:1603",
+   "study": "Je suis allergique aux cacahuètes.",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Contrainte alimentaire signalée au repas ; scénario plus précis que L2-ressentis.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-repas-preferences",
+   "proposals": [
+    "P043"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     223
+    ],
+    "study": "Je suis allergique aux cacahuètes."
+   }
+  },
+  {
+   "p": "P044",
+   "id": "catalogue:fr:3033",
+   "study": "Absolument.",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Même thème ; on garde la version avec « ! » (catalogue:fr:313).",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P044"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     235
+    ],
+    "study": "Absolument."
+   }
+  },
+  {
+   "p": "P045",
+   "id": "catalogue:fr:4482",
+   "study": "Un dessert pour finir ?",
+   "fromLevel": 2,
+   "fromTheme": "L2-conversation",
+   "motif": "Proposition de dessert au restaurant.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P045"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     241
+    ],
+    "study": "Un dessert pour finir ?"
+   }
+  },
+  {
+   "p": "P046",
+   "id": "catalogue:fr:61",
+   "study": "On commande ?",
+   "fromLevel": 2,
+   "fromTheme": "L2-travail",
+   "motif": "La glose 点菜 en fait une commande au restaurant.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P046"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     0
+    ],
+    "study": "On commande ?"
+   }
+  },
+  {
+   "p": "P047",
+   "id": "catalogue:fr:859",
+   "study": "Je voudrais commander.",
+   "fromLevel": 2,
+   "fromTheme": "L2-travail",
+   "motif": "La glose 点菜 en fait une commande au restaurant.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P047"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     9
+    ],
+    "study": "Je voudrais commander."
+   }
+  },
+  {
+   "p": "P048",
+   "id": "catalogue:fr:4149",
+   "study": "les cheveux",
+   "fromLevel": 2,
+   "fromTheme": "L2-vocab-actions",
+   "motif": "Partie du corps.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-vocab-personnes",
+   "proposals": [
+    "P048"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     5
+    ],
+    "study": "les cheveux"
+   }
+  },
+  {
+   "p": "P049",
+   "id": "catalogue:fr:4166",
+   "study": "la joue",
+   "fromLevel": 2,
+   "fromTheme": "L2-vocab-actions",
+   "motif": "Partie du corps.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-vocab-personnes",
+   "proposals": [
+    "P049"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     6
+    ],
+    "study": "la joue"
+   }
+  },
+  {
+   "p": "P050",
+   "id": "catalogue:fr:4219",
+   "study": "un avocat",
+   "fromLevel": 2,
+   "fromTheme": "L2-vocab-actions",
+   "motif": "Métier.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-vocab-travail",
+   "proposals": [
+    "P050"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     8
+    ],
+    "study": "un avocat"
+   }
+  },
+  {
+   "p": "P051",
+   "id": "catalogue:fr:4243",
+   "study": "l'oncle",
+   "fromLevel": 2,
+   "fromTheme": "L2-vocab-actions",
+   "motif": "Membre de la famille.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-vocab-personnes",
+   "proposals": [
+    "P051"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     9
+    ],
+    "study": "l'oncle"
+   }
+  },
+  {
+   "p": "P052",
+   "id": "catalogue:fr:4258",
+   "study": "un garçon",
+   "fromLevel": 2,
+   "fromTheme": "L2-vocab-actions",
+   "motif": "Personne.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-vocab-personnes",
+   "proposals": [
+    "P052"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     10
+    ],
+    "study": "un garçon"
+   }
+  },
+  {
+   "p": "P053",
+   "id": "catalogue:fr:4260",
+   "study": "les parents",
+   "fromLevel": 2,
+   "fromTheme": "L2-vocab-actions",
+   "motif": "Membres de la famille.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-vocab-personnes",
+   "proposals": [
+    "P053"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     21,
+     "phrases",
+     11
+    ],
+    "study": "les parents"
+   }
+  },
+  {
+   "p": "P054",
+   "id": "catalogue:fr:253",
+   "study": "tôt ou tard",
+   "fromLevel": 2,
+   "fromTheme": "L2-vocab-adverbes",
+   "motif": "Même thème, à la casse et au point près ; un seul suffit.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P054"
+   ],
+   "expectedBefore": {
+    "level": 2,
+    "theme": "L2-vocab-adverbes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+    "location": [
+     "themes",
+     26,
+     "phrases",
+     5
+    ],
+    "study": "tôt ou tard"
+   }
+  },
+  {
+   "p": "P055",
+   "id": "catalogue:fr:3101",
+   "study": "Le plein, s'il vous plaît.",
+   "fromLevel": 3,
+   "fromTheme": "L3-saluer",
+   "motif": "Demande à la station-service en préparant un trajet.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-deplacements",
+   "proposals": [
+    "P055"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     12
+    ],
+    "study": "Le plein, s'il vous plaît."
+   }
+  },
+  {
+   "p": "P056",
+   "id": "catalogue:fr:438",
+   "study": "Ça mijote doucement.",
+   "fromLevel": 3,
+   "fromTheme": "L3-comprendre",
+   "motif": "Cuisine à la maison : routine quotidienne, pas une demande d'aide.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-quotidien",
+   "proposals": [
+    "P056"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     0
+    ],
+    "study": "Ça mijote doucement."
+   }
+  },
+  {
+   "p": "P057",
+   "id": "catalogue:fr:586",
+   "study": "Je peux vous aider ?",
+   "fromLevel": 3,
+   "fromTheme": "L3-ressentis",
+   "motif": "Offre d'aide.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-comprendre",
+   "proposals": [
+    "P057"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     14
+    ],
+    "study": "Je peux vous aider ?"
+   }
+  },
+  {
+   "p": "P058",
+   "id": "catalogue:fr:587",
+   "study": "Je peux vous aider.",
+   "fromLevel": 3,
+   "fromTheme": "L3-ressentis",
+   "motif": "Offre d'aide.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-comprendre",
+   "proposals": [
+    "P058"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     15
+    ],
+    "study": "Je peux vous aider."
+   }
+  },
+  {
+   "p": "P059",
+   "id": "catalogue:fr:664",
+   "study": "Tourne la tête.",
+   "fromLevel": 3,
+   "fromTheme": "L3-ressentis",
+   "motif": "Consigne gestuelle : action, pas une préférence.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-actions",
+   "proposals": [
+    "P059"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     19
+    ],
+    "study": "Tourne la tête."
+   }
+  },
+  {
+   "p": "P060",
+   "id": "catalogue:fr:713",
+   "study": "Je vais t'aider.",
+   "fromLevel": 3,
+   "fromTheme": "L3-ressentis",
+   "motif": "Offre d'aide.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-comprendre",
+   "proposals": [
+    "P060"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     27
+    ],
+    "study": "Je vais t'aider."
+   }
+  },
+  {
+   "p": "P061",
+   "id": "catalogue:fr:718",
+   "study": "C'est combien un timbre ?",
+   "fromLevel": 3,
+   "fromTheme": "L3-repas",
+   "motif": "L3-repas regroupe déjà achats et paiements (« Où je paie ? ») ; demander un prix y a sa place.",
+   "op": "keep",
+   "proposals": [
+    "P061"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     26
+    ],
+    "study": "C'est combien un timbre ?"
+   }
+  },
+  {
+   "p": "P062",
+   "id": "catalogue:fr:759",
+   "study": "L'eau a gelé.",
+   "fromLevel": 3,
+   "fromTheme": "L3-repas",
+   "motif": "Constat sur le temps et le gel.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-nature",
+   "proposals": [
+    "P062"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     34
+    ],
+    "study": "L'eau a gelé."
+   }
+  },
+  {
+   "p": "P063",
+   "id": "catalogue:fr:514",
+   "study": "Je te remercie beaucoup.",
+   "fromLevel": 3,
+   "fromTheme": "L3-decrire",
+   "motif": "Remerciement : L3-saluer contient déjà « Merci d'être venu ».",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-saluer",
+   "proposals": [
+    "P063"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     2
+    ],
+    "study": "Je te remercie beaucoup."
+   }
+  },
+  {
+   "p": "P064",
+   "id": "catalogue:fr:795",
+   "study": "Tu me manques beaucoup.",
+   "fromLevel": 3,
+   "fromTheme": "L3-decrire",
+   "motif": "Doublon exact dans le même thème.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P064"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     13
+    ],
+    "study": "Tu me manques beaucoup."
+   }
+  },
+  {
+   "p": "P065",
+   "id": "catalogue:fr:3054",
+   "study": "un aller simple",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Même thème, à la casse et au point près ; on garde « Un aller simple. ».",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P065",
+    "P066"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     3
+    ],
+    "study": "un aller simple"
+   }
+  },
+  {
+   "p": "P067",
+   "id": "catalogue:fr:3886",
+   "study": "le couteau",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Objet de la maison.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-maison",
+   "proposals": [
+    "P067"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     14
+    ],
+    "study": "le couteau"
+   }
+  },
+  {
+   "p": "P068",
+   "id": "catalogue:fr:3888",
+   "study": "la bouteille",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Objet de la maison.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-maison",
+   "proposals": [
+    "P068"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     15
+    ],
+    "study": "la bouteille"
+   }
+  },
+  {
+   "p": "P069",
+   "id": "catalogue:fr:3916",
+   "study": "le mur",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Partie de la maison.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-maison",
+   "proposals": [
+    "P069"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     17
+    ],
+    "study": "le mur"
+   }
+  },
+  {
+   "p": "P070",
+   "id": "catalogue:fr:3918",
+   "study": "le toit",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Partie de la maison.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-maison",
+   "proposals": [
+    "P070"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     18
+    ],
+    "study": "le toit"
+   }
+  },
+  {
+   "p": "P071",
+   "id": "catalogue:fr:3919",
+   "study": "le garage",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Partie de la maison.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-maison",
+   "proposals": [
+    "P071"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     19
+    ],
+    "study": "le garage"
+   }
+  },
+  {
+   "p": "P072",
+   "id": "catalogue:fr:3935",
+   "study": "un couteau",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Objet de la maison.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-maison",
+   "proposals": [
+    "P072"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     20
+    ],
+    "study": "un couteau"
+   }
+  },
+  {
+   "p": "P073",
+   "id": "catalogue:fr:3976",
+   "study": "la couverture",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Objet de la maison.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-maison",
+   "proposals": [
+    "P073"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     21
+    ],
+    "study": "la couverture"
+   }
+  },
+  {
+   "p": "P074",
+   "id": "catalogue:fr:3979",
+   "study": "la prise",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Équipement de la maison.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-maison",
+   "proposals": [
+    "P074"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     22
+    ],
+    "study": "la prise"
+   }
+  },
+  {
+   "p": "P075",
+   "id": "catalogue:fr:4010",
+   "study": "le fromage",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Aliment.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-restaurant",
+   "proposals": [
+    "P075"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     23
+    ],
+    "study": "le fromage"
+   }
+  },
+  {
+   "p": "P076",
+   "id": "catalogue:fr:4034",
+   "study": "un gâteau",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Aliment.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-restaurant",
+   "proposals": [
+    "P076"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     25
+    ],
+    "study": "un gâteau"
+   }
+  },
+  {
+   "p": "P077",
+   "id": "catalogue:fr:4048",
+   "study": "une souris",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Animal.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-nature",
+   "proposals": [
+    "P077"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     26
+    ],
+    "study": "une souris"
+   }
+  },
+  {
+   "p": "P078",
+   "id": "catalogue:fr:4067",
+   "study": "un ours",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Animal.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-nature",
+   "proposals": [
+    "P078"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     27
+    ],
+    "study": "un ours"
+   }
+  },
+  {
+   "p": "P079",
+   "id": "catalogue:fr:4095",
+   "study": "une pierre",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Élément naturel.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-nature",
+   "proposals": [
+    "P079"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     28
+    ],
+    "study": "une pierre"
+   }
+  },
+  {
+   "p": "P080",
+   "id": "catalogue:fr:4101",
+   "study": "une île",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Élément naturel.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-nature",
+   "proposals": [
+    "P080"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     29
+    ],
+    "study": "une île"
+   }
+  },
+  {
+   "p": "P081",
+   "id": "catalogue:fr:4104",
+   "study": "un champ",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Élément naturel.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-nature",
+   "proposals": [
+    "P081"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     30
+    ],
+    "study": "un champ"
+   }
+  },
+  {
+   "p": "P082",
+   "id": "catalogue:fr:4109",
+   "study": "la nature",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Élément naturel.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-nature",
+   "proposals": [
+    "P082"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     31
+    ],
+    "study": "la nature"
+   }
+  },
+  {
+   "p": "P083",
+   "id": "catalogue:fr:4152",
+   "study": "le cou",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Partie du corps.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P083"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     32
+    ],
+    "study": "le cou"
+   }
+  },
+  {
+   "p": "P084",
+   "id": "catalogue:fr:4154",
+   "study": "le doigt",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Partie du corps.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P084"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     33
+    ],
+    "study": "le doigt"
+   }
+  },
+  {
+   "p": "P085",
+   "id": "catalogue:fr:4160",
+   "study": "la peau",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Partie du corps.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P085"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     34
+    ],
+    "study": "la peau"
+   }
+  },
+  {
+   "p": "P086",
+   "id": "catalogue:fr:4161",
+   "study": "les dents",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Partie du corps.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P086"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     35
+    ],
+    "study": "les dents"
+   }
+  },
+  {
+   "p": "P087",
+   "id": "catalogue:fr:4162",
+   "study": "la langue",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Partie du corps.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P087"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     36
+    ],
+    "study": "la langue"
+   }
+  },
+  {
+   "p": "P088",
+   "id": "catalogue:fr:4163",
+   "study": "les lèvres",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Partie du corps.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P088"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     37
+    ],
+    "study": "les lèvres"
+   }
+  },
+  {
+   "p": "P089",
+   "id": "catalogue:fr:4164",
+   "study": "la gorge",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Partie du corps.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P089"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     38
+    ],
+    "study": "la gorge"
+   }
+  },
+  {
+   "p": "P090",
+   "id": "catalogue:fr:4168",
+   "study": "l'os",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Partie du corps.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P090"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     39
+    ],
+    "study": "l'os"
+   }
+  },
+  {
+   "p": "P091",
+   "id": "catalogue:fr:4169",
+   "study": "le cerveau",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Partie du corps.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P091"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     40
+    ],
+    "study": "le cerveau"
+   }
+  },
+  {
+   "p": "P092",
+   "id": "catalogue:fr:4186",
+   "study": "la taille",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Partie du corps (glose 腰).",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P092"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     42
+    ],
+    "study": "la taille"
+   }
+  },
+  {
+   "p": "P093",
+   "id": "catalogue:fr:4195",
+   "study": "la veste",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Vêtement : thème achats.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-restaurant",
+   "proposals": [
+    "P093"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     43
+    ],
+    "study": "la veste"
+   }
+  },
+  {
+   "p": "P094",
+   "id": "catalogue:fr:4197",
+   "study": "le chapeau",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Vêtement : thème achats.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-restaurant",
+   "proposals": [
+    "P094"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     44
+    ],
+    "study": "le chapeau"
+   }
+  },
+  {
+   "p": "P095",
+   "id": "catalogue:fr:4204",
+   "study": "une veste",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Vêtement : thème achats.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-restaurant",
+   "proposals": [
+    "P095"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     45
+    ],
+    "study": "une veste"
+   }
+  },
+  {
+   "p": "P096",
+   "id": "catalogue:fr:4206",
+   "study": "un chapeau",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Vêtement : thème achats.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-restaurant",
+   "proposals": [
+    "P096"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     46
+    ],
+    "study": "un chapeau"
+   }
+  },
+  {
+   "p": "P097",
+   "id": "catalogue:fr:4213",
+   "study": "un costume",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Vêtement : thème achats.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-restaurant",
+   "proposals": [
+    "P097"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     47
+    ],
+    "study": "un costume"
+   }
+  },
+  {
+   "p": "P098",
+   "id": "catalogue:fr:4217",
+   "study": "une infirmière",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Personne (métier).",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P098"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     48
+    ],
+    "study": "une infirmière"
+   }
+  },
+  {
+   "p": "P099",
+   "id": "catalogue:fr:4221",
+   "study": "un chauffeur",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Personne (métier).",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P099"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     49
+    ],
+    "study": "un chauffeur"
+   }
+  },
+  {
+   "p": "P100",
+   "id": "catalogue:fr:4224",
+   "study": "un directeur",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Personne (métier).",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P100"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     50
+    ],
+    "study": "un directeur"
+   }
+  },
+  {
+   "p": "P101",
+   "id": "catalogue:fr:4227",
+   "study": "un policier",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Personne (métier).",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P101"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     51
+    ],
+    "study": "un policier"
+   }
+  },
+  {
+   "p": "P102",
+   "id": "catalogue:fr:4241",
+   "study": "un soldat",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Personne (métier).",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P102"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     52
+    ],
+    "study": "un soldat"
+   }
+  },
+  {
+   "p": "P103",
+   "id": "catalogue:fr:4244",
+   "study": "la tante",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Membre de la famille.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P103"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     53
+    ],
+    "study": "la tante"
+   }
+  },
+  {
+   "p": "P104",
+   "id": "catalogue:fr:4331",
+   "study": "le cousin",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Membre de la famille.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P104"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     65
+    ],
+    "study": "le cousin"
+   }
+  },
+  {
+   "p": "P105",
+   "id": "catalogue:fr:4350",
+   "study": "un match",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Vocabulaire sportif.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-loisirs",
+   "proposals": [
+    "P105"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     67
+    ],
+    "study": "un match"
+   }
+  },
+  {
+   "p": "P106",
+   "id": "catalogue:fr:4359",
+   "study": "un invité",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Personne.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-personnes",
+   "proposals": [
+    "P106"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     68
+    ],
+    "study": "un invité"
+   }
+  },
+  {
+   "p": "P107",
+   "id": "catalogue:fr:4393",
+   "study": "le terrain",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-actions",
+   "motif": "Vocabulaire sportif (glose 球场).",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-vocab-loisirs",
+   "proposals": [
+    "P107"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     20,
+     "phrases",
+     72
+    ],
+    "study": "le terrain"
+   }
+  },
+  {
+   "p": "P108",
+   "id": "catalogue:fr:2868",
+   "study": "en fait",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-adverbes",
+   "motif": "Même thème, à la casse et au point près ; on garde « En fait. » (glose plus complète).",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P108",
+    "P109"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-adverbes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     24,
+     "phrases",
+     5
+    ],
+    "study": "en fait"
+   }
+  },
+  {
+   "p": "P110",
+   "id": "catalogue:fr:3100",
+   "study": "à l'avenir",
+   "fromLevel": 3,
+   "fromTheme": "L3-vocab-adverbes",
+   "motif": "Même thème, à la casse et au point près ; on garde « À l'avenir. ».",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P110",
+    "P111"
+   ],
+   "expectedBefore": {
+    "level": 3,
+    "theme": "L3-vocab-adverbes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+    "location": [
+     "themes",
+     24,
+     "phrases",
+     14
+    ],
+    "study": "à l'avenir"
+   }
+  },
+  {
+   "p": "P112",
+   "id": "catalogue:fr:919",
+   "study": "Appelez une ambulance.",
+   "fromLevel": 4,
+   "fromTheme": "L4-conversation",
+   "motif": "Même thème ; on garde la version avec « ! » (catalogue:fr:918).",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P112"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L4.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     30
+    ],
+    "study": "Appelez une ambulance."
+   }
+  },
+  {
+   "p": "P113",
+   "id": "catalogue:fr:3135",
+   "study": "À partir de quel âge ?",
+   "fromLevel": 4,
+   "fromTheme": "L4-saluer",
+   "motif": "Question sur l'âge requis pour une activité ; aucun thème L4 ne convient (L2-decrire défendable s'il s'agit d'un produit).",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-loisirs-sorties",
+   "proposals": [
+    "P113"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L4.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     13
+    ],
+    "study": "À partir de quel âge ?"
+   }
+  },
+  {
+   "p": "P114",
+   "id": "catalogue:fr:874",
+   "study": "Je sais skier.",
+   "fromLevel": 4,
+   "fromTheme": "L4-comprendre",
+   "motif": "Dire ce qu'on sait faire en sport ; aucun thème L4 ne convient.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-piste-sport-habitudes",
+   "proposals": [
+    "P114"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L4.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     1
+    ],
+    "study": "Je sais skier."
+   }
+  },
+  {
+   "p": "P115",
+   "id": "catalogue:fr:4488",
+   "study": "Le logo doit être imprimé ici.",
+   "fromLevel": 4,
+   "fromTheme": "L4-deplacements",
+   "motif": "Consigne de production : échange professionnel.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-travail",
+   "proposals": [
+    "P115"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L4.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     13
+    ],
+    "study": "Le logo doit être imprimé ici."
+   }
+  },
+  {
+   "p": "P116",
+   "id": "catalogue:fr:1090",
+   "study": "Je compte voyager.",
+   "fromLevel": 4,
+   "fromTheme": "L4-travail",
+   "motif": "Projet de voyage, pas l'avancement d'une tâche.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-deplacements",
+   "proposals": [
+    "P116"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L4.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     3
+    ],
+    "study": "Je compte voyager."
+   }
+  },
+  {
+   "p": "P117",
+   "id": "catalogue:fr:3154",
+   "study": "après les repas",
+   "fromLevel": 4,
+   "fromTheme": "L4-vocab-adverbes",
+   "motif": "Même thème, même glose, à la casse et au point près.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P117"
+   ],
+   "expectedBefore": {
+    "level": 4,
+    "theme": "L4-vocab-adverbes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L4.json",
+    "location": [
+     "themes",
+     24,
+     "phrases",
+     8
+    ],
+    "study": "après les repas"
+   }
+  },
+  {
+   "p": "P118",
+   "id": "catalogue:fr:1591",
+   "study": "Ce n'est pas demain la veille.",
+   "fromLevel": 5,
+   "fromTheme": "L5-reperes",
+   "motif": "Expression imagée sur un délai : relève de L8 (implicite), thème des contraintes de planning.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-reperes",
+   "proposals": [
+    "P118"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     23
+    ],
+    "study": "Ce n'est pas demain la veille."
+   }
+  },
+  {
+   "p": "P119",
+   "id": "catalogue:fr:1572",
+   "study": "On écoute de la musique ?",
+   "fromLevel": 5,
+   "fromTheme": "L5-comprendre",
+   "motif": "Proposition d'activité simple ; correspond à « 提议并作出回应 », aucun thème L5 ne convient.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-conversation",
+   "proposals": [
+    "P119"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     8
+    ],
+    "study": "On écoute de la musique ?"
+   }
+  },
+  {
+   "p": "P120",
+   "id": "catalogue:fr:1328",
+   "study": "Je vais viser plus haut.",
+   "fromLevel": 5,
+   "fromTheme": "L5-deplacements",
+   "motif": "Sens littéral (viser) sans contexte clair ; au figuré, pourrait aller en L8.",
+   "op": "to-reserve",
+   "proposals": [
+    "P120"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     6
+    ],
+    "study": "Je vais viser plus haut."
+   }
+  },
+  {
+   "p": "P121",
+   "id": "catalogue:fr:1466",
+   "study": "Quelle est la capacité par heure ?",
+   "fromLevel": 5,
+   "fromTheme": "L5-reperes",
+   "motif": "Question de capacité de production : coordination professionnelle.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P121"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     10
+    ],
+    "study": "Quelle est la capacité par heure ?"
+   }
+  },
+  {
+   "p": "P122",
+   "id": "catalogue:fr:1520",
+   "study": "Ça va fleurir au printemps.",
+   "fromLevel": 5,
+   "fromTheme": "L5-ressentis",
+   "motif": "Jardinage et saisons ; le thème contient déjà potager, arrosoir.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-vocab-nature",
+   "proposals": [
+    "P122"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     27
+    ],
+    "study": "Ça va fleurir au printemps."
+   }
+  },
+  {
+   "p": "P123",
+   "id": "catalogue:fr:1204",
+   "study": "J'ai le nez qui coule.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Décrire un symptôme : exposer un problème concret.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-ressentis",
+   "proposals": [
+    "P123"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     6
+    ],
+    "study": "J'ai le nez qui coule."
+   }
+  },
+  {
+   "p": "P124",
+   "id": "catalogue:fr:1237",
+   "study": "J'ai glissé sur la glace.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Expliquer un incident vécu : problème concret.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-ressentis",
+   "proposals": [
+    "P124"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     21
+    ],
+    "study": "J'ai glissé sur la glace."
+   }
+  },
+  {
+   "p": "P125",
+   "id": "catalogue:fr:1246",
+   "study": "Fais de beaux rêves.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Vœu du soir ; L5-saluer contient déjà des vœux (« Prenez soin de vous »).",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-saluer",
+   "proposals": [
+    "P125"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     26
+    ],
+    "study": "Fais de beaux rêves."
+   }
+  },
+  {
+   "p": "P126",
+   "id": "catalogue:fr:1306",
+   "study": "Où est le commissariat ?",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Demande d'un lieu, comme « Où je peux prendre un taxi ? » dans ce thème.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-deplacements",
+   "proposals": [
+    "P126"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     52
+    ],
+    "study": "Où est le commissariat ?"
+   }
+  },
+  {
+   "p": "P127",
+   "id": "catalogue:fr:1377",
+   "study": "Fais-moi un câlin.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Doublon exact dans le même thème ; gloses équivalentes.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P127",
+    "P128"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     96
+    ],
+    "study": "Fais-moi un câlin."
+   }
+  },
+  {
+   "p": "P129",
+   "id": "catalogue:fr:1408",
+   "study": "Je voudrais ouvrir un compte.",
+   "fromLevel": 5,
+   "fromTheme": "L5-travail",
+   "motif": "Doublon exact dans le même thème ; gloses équivalentes.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P129",
+    "P130"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     7
+    ],
+    "study": "Je voudrais ouvrir un compte."
+   }
+  },
+  {
+   "p": "P131",
+   "id": "catalogue:fr:1331",
+   "study": "Il est drôle.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Décrire une personne, comme « Il est beau. » en L3-decrire.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-decrire",
+   "proposals": [
+    "P131"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     65
+    ],
+    "study": "Il est drôle."
+   }
+  },
+  {
+   "p": "P132",
+   "id": "catalogue:fr:1333",
+   "study": "Elle est jolie.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Décrire une personne.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-decrire",
+   "proposals": [
+    "P132"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     67
+    ],
+    "study": "Elle est jolie."
+   }
+  },
+  {
+   "p": "P133",
+   "id": "catalogue:fr:1335",
+   "study": "Je suis professeur.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Présentation de soi élémentaire, comme « Je suis français. ».",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "saluer",
+   "proposals": [
+    "P133"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     69
+    ],
+    "study": "Je suis professeur."
+   }
+  },
+  {
+   "p": "P134",
+   "id": "catalogue:fr:1336",
+   "study": "Tu es mignon.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Décrire une personne.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-decrire",
+   "proposals": [
+    "P134"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     70
+    ],
+    "study": "Tu es mignon."
+   }
+  },
+  {
+   "p": "P135",
+   "id": "catalogue:fr:1338",
+   "study": "Elle est gentille.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Décrire une personne.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-decrire",
+   "proposals": [
+    "P135"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     72
+    ],
+    "study": "Elle est gentille."
+   }
+  },
+  {
+   "p": "P136",
+   "id": "catalogue:fr:1427",
+   "study": "Tu es marié ?",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Question de présentation mutuelle.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P136"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     123
+    ],
+    "study": "Tu es marié ?"
+   }
+  },
+  {
+   "p": "P137",
+   "id": "catalogue:fr:1436",
+   "study": "Tu aimes la musique ?",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Demander les goûts de l'autre.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-piste-gouts-activites",
+   "proposals": [
+    "P137"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     128
+    ],
+    "study": "Tu aimes la musique ?"
+   }
+  },
+  {
+   "p": "P138",
+   "id": "catalogue:fr:3197",
+   "study": "Enchanté.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Formule de première rencontre.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "saluer",
+   "proposals": [
+    "P138"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     216
+    ],
+    "study": "Enchanté."
+   }
+  },
+  {
+   "p": "P139",
+   "id": "catalogue:fr:1353",
+   "study": "J'ai dépoussiéré l'étagère.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Tâche domestique.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P139"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     82
+    ],
+    "study": "J'ai dépoussiéré l'étagère."
+   }
+  },
+  {
+   "p": "P140",
+   "id": "catalogue:fr:1382",
+   "study": "Je balaie la cuisine.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Tâche domestique.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P140"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     99
+    ],
+    "study": "Je balaie la cuisine."
+   }
+  },
+  {
+   "p": "P141",
+   "id": "catalogue:fr:1394",
+   "study": "J'imprime le document.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Tâche quotidienne.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P141"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     103
+    ],
+    "study": "J'imprime le document."
+   }
+  },
+  {
+   "p": "P142",
+   "id": "catalogue:fr:1395",
+   "study": "Je télécharge l'appli.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Tâche quotidienne (le thème contient « Je peux recharger mon téléphone ? »).",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P142"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     104
+    ],
+    "study": "Je télécharge l'appli."
+   }
+  },
+  {
+   "p": "P143",
+   "id": "catalogue:fr:1504",
+   "study": "Je hache l'oignon.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Geste de cuisine ; L5-repas contient déjà « Je grille du pain ».",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-repas",
+   "proposals": [
+    "P143"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     164
+    ],
+    "study": "Je hache l'oignon."
+   }
+  },
+  {
+   "p": "P144",
+   "id": "catalogue:fr:1529",
+   "study": "Je plante des tomates.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Activité de jardinage quotidienne.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P144"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     176
+    ],
+    "study": "Je plante des tomates."
+   }
+  },
+  {
+   "p": "P145",
+   "id": "catalogue:fr:1530",
+   "study": "Je peins le mur.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Travaux domestiques (le thème contient « Je vais bricoler un peu »).",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P145"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     177
+    ],
+    "study": "Je peins le mur."
+   }
+  },
+  {
+   "p": "P146",
+   "id": "catalogue:fr:1531",
+   "study": "Je révise mes leçons.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Activité quotidienne.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P146"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     178
+    ],
+    "study": "Je révise mes leçons."
+   }
+  },
+  {
+   "p": "P147",
+   "id": "catalogue:fr:1555",
+   "study": "Je repasse mes chemises.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Tâche domestique.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P147"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     191
+    ],
+    "study": "Je repasse mes chemises."
+   }
+  },
+  {
+   "p": "P148",
+   "id": "catalogue:fr:1556",
+   "study": "Je mémorise les mots.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Activité quotidienne.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-quotidien",
+   "proposals": [
+    "P148"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     192
+    ],
+    "study": "Je mémorise les mots."
+   }
+  },
+  {
+   "p": "P149",
+   "id": "catalogue:fr:1557",
+   "study": "Je râpe le fromage.",
+   "fromLevel": 5,
+   "fromTheme": "L5-conversation",
+   "motif": "Geste de cuisine ; L5-repas contient déjà « Je grille du pain ».",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-repas",
+   "proposals": [
+    "P149"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     193
+    ],
+    "study": "Je râpe le fromage."
+   }
+  },
+  {
+   "p": "P150",
+   "id": "catalogue:fr:4491",
+   "study": "Le solde à réception des documents.",
+   "fromLevel": 5,
+   "fromTheme": "L5-vocab-actions",
+   "motif": "Condition de paiement commerciale ; phrase complète, mieux dans le thème travail que dans le vocabulaire.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-travail",
+   "proposals": [
+    "P150"
+   ],
+   "expectedBefore": {
+    "level": 5,
+    "theme": "L5-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     168
+    ],
+    "study": "Le solde à réception des documents."
+   }
+  },
+  {
+   "p": "P151",
+   "id": "catalogue:fr:1613",
+   "study": "J'attends des excuses.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Exigence dans un conflit, aucun thème L6 ne convient ; L8 « 细致表达情绪或愿望 » ou réserve.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-ressentis",
+   "proposals": [
+    "P151"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     0
+    ],
+    "study": "J'attends des excuses."
+   }
+  },
+  {
+   "p": "P152",
+   "id": "catalogue:fr:1659",
+   "study": "Signez ici, s'il vous plaît.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Consigne administrative ; phrase complète, mieux en L6-travail qu'en vocabulaire.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P152"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     2
+    ],
+    "study": "Signez ici, s'il vous plaît."
+   }
+  },
+  {
+   "p": "P153",
+   "id": "catalogue:fr:1726",
+   "study": "Merci de votre aide précieuse.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Les thèmes saluer accueillent les remerciements à chaque niveau (cf. L8-saluer).",
+   "op": "keep",
+   "proposals": [
+    "P153"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     3
+    ],
+    "study": "Merci de votre aide précieuse."
+   }
+  },
+  {
+   "p": "P154",
+   "id": "catalogue:fr:1729",
+   "study": "Désolé, là je ne peux pas.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Refus poli : exprimer une limite.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-situation-invitations-limites",
+   "proposals": [
+    "P154"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     4
+    ],
+    "study": "Désolé, là je ne peux pas."
+   }
+  },
+  {
+   "p": "P155",
+   "id": "catalogue:fr:1772",
+   "study": "Merci de votre appel.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Formule de remerciement ; L6-saluer regroupe déjà ces formules (Merci de votre aide précieuse) ; un thème vocab n'accueille pas une formule.",
+   "op": "keep",
+   "proposals": [
+    "P155"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     5
+    ],
+    "study": "Merci de votre appel."
+   }
+  },
+  {
+   "p": "P156",
+   "id": "catalogue:fr:1867",
+   "study": "Merci de votre attention.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Formule de politesse de clôture, à sa place parmi les remerciements de L6-saluer ; pas du vocabulaire.",
+   "op": "keep",
+   "proposals": [
+    "P156"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     6
+    ],
+    "study": "Merci de votre attention."
+   }
+  },
+  {
+   "p": "P157",
+   "id": "catalogue:fr:1868",
+   "study": "Désolé pour le retard.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Excuse de politesse ; L6-saluer contient déjà les excuses (J'attends des excuses).",
+   "op": "keep",
+   "proposals": [
+    "P157"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     7
+    ],
+    "study": "Désolé pour le retard."
+   }
+  },
+  {
+   "p": "P158",
+   "id": "catalogue:fr:1869",
+   "study": "Merci de votre confiance.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Remerciement formel, même famille que les autres formules de L6-saluer.",
+   "op": "keep",
+   "proposals": [
+    "P158"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     8
+    ],
+    "study": "Merci de votre confiance."
+   }
+  },
+  {
+   "p": "P159",
+   "id": "catalogue:fr:1879",
+   "study": "Moins d'huile, s'il vous plaît.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Demande précise au restaurant : sert le thème repas plutôt qu'un thème de vocabulaire.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-repas",
+   "proposals": [
+    "P159"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     9
+    ],
+    "study": "Moins d'huile, s'il vous plaît."
+   }
+  },
+  {
+   "p": "P160",
+   "id": "catalogue:fr:3252",
+   "study": "Un billet, s'il vous plaît.",
+   "fromLevel": 6,
+   "fromTheme": "L6-saluer",
+   "motif": "Formule de survie : à ranger en L1 « 出行与旅行 », en cohérence avec P161.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "deplacements",
+   "proposals": [
+    "P160",
+    "P161"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     10
+    ],
+    "study": "Un billet, s'il vous plaît."
+   }
+  },
+  {
+   "p": "P163",
+   "id": "catalogue:fr:1680",
+   "study": "Il a hoché la tête.",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Description d'un geste, relève des actions et descriptions.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-actions",
+   "proposals": [
+    "P163"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     5
+    ],
+    "study": "Il a hoché la tête."
+   }
+  },
+  {
+   "p": "P164",
+   "id": "catalogue:fr:1803",
+   "study": "J'aime faire la cuisine le dimanche.",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Habitude personnelle : sert « 解释自己的习惯 ».",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P164"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     12
+    ],
+    "study": "J'aime faire la cuisine le dimanche."
+   }
+  },
+  {
+   "p": "P165",
+   "id": "catalogue:fr:1812",
+   "study": "Je voulais devenir médecin.",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Évoquer un projet passé, c'est présenter son parcours : « 介绍自己的经历 ».",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-saluer",
+   "proposals": [
+    "P165"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     13
+    ],
+    "study": "Je voulais devenir médecin."
+   }
+  },
+  {
+   "p": "P166",
+   "id": "catalogue:fr:1831",
+   "study": "Je me suis fait mal au genou.",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Corps et santé : domaine « 身体、人物与情绪 ».",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-personnes",
+   "proposals": [
+    "P166"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     15
+    ],
+    "study": "Je me suis fait mal au genou."
+   }
+  },
+  {
+   "p": "P167",
+   "id": "catalogue:fr:1833",
+   "study": "Elle m'a fait signe de la main.",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Description d'un geste.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-actions",
+   "proposals": [
+    "P167"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     16
+    ],
+    "study": "Elle m'a fait signe de la main."
+   }
+  },
+  {
+   "p": "P168",
+   "id": "catalogue:fr:1842",
+   "study": "Je suis gêné.",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Émotion, sans justification de choix.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-personnes",
+   "proposals": [
+    "P168"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     18
+    ],
+    "study": "Je suis gêné."
+   }
+  },
+  {
+   "p": "P170",
+   "id": "catalogue:fr:1846",
+   "study": "Combien de temps ça va durer ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Question de durée : « 比较时长、频率和费用 ».",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-reperes",
+   "proposals": [
+    "P170"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     21
+    ],
+    "study": "Combien de temps ça va durer ?"
+   }
+  },
+  {
+   "p": "P171",
+   "id": "catalogue:fr:1897",
+   "study": "Viens te réchauffer près du feu.",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Invitation chaleureuse entre proches ; aucun thème L6 ne convient, « 日常作息与亲友 » au L3 est le plus proche (sinon réserve).",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-quotidien",
+   "proposals": [
+    "P171"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     23
+    ],
+    "study": "Viens te réchauffer près du feu."
+   }
+  },
+  {
+   "p": "P172",
+   "id": "catalogue:fr:1906",
+   "study": "Il aime jouer de la musique.",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Loisir, pas une justification de choix.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-loisirs",
+   "proposals": [
+    "P172"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     24
+    ],
+    "study": "Il aime jouer de la musique."
+   }
+  },
+  {
+   "p": "P173",
+   "id": "catalogue:fr:1617",
+   "study": "Je vais éplucher une pomme.",
+   "fromLevel": 6,
+   "fromTheme": "L6-repas",
+   "motif": "Activité de cuisine à la maison : une phrase d'action relève des habitudes quotidiennes, pas d'un thème de vocabulaire.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P173"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     1
+    ],
+    "study": "Je vais éplucher une pomme."
+   }
+  },
+  {
+   "p": "P174",
+   "id": "catalogue:fr:1628",
+   "study": "Je vais frire des frites.",
+   "fromLevel": 6,
+   "fromTheme": "L6-repas",
+   "motif": "Activité de cuisine à la maison (même traitement que P173).",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P174"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     2
+    ],
+    "study": "Je vais frire des frites."
+   }
+  },
+  {
+   "p": "P175",
+   "id": "catalogue:fr:1629",
+   "study": "Je vais rôtir des légumes.",
+   "fromLevel": 6,
+   "fromTheme": "L6-repas",
+   "motif": "Activité de cuisine à la maison (même traitement que P173).",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P175"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     3
+    ],
+    "study": "Je vais rôtir des légumes."
+   }
+  },
+  {
+   "p": "P176",
+   "id": "catalogue:fr:1709",
+   "study": "Je vais râper du gingembre.",
+   "fromLevel": 6,
+   "fromTheme": "L6-repas",
+   "motif": "Activité de cuisine à la maison (même traitement que P173).",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P176"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     8
+    ],
+    "study": "Je vais râper du gingembre."
+   }
+  },
+  {
+   "p": "P177",
+   "id": "catalogue:fr:1721",
+   "study": "Je vais faire bouillir les œufs.",
+   "fromLevel": 6,
+   "fromTheme": "L6-repas",
+   "motif": "Activité de cuisine à la maison (même traitement que P173).",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P177"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     9
+    ],
+    "study": "Je vais faire bouillir les œufs."
+   }
+  },
+  {
+   "p": "P178",
+   "id": "catalogue:fr:1763",
+   "study": "Je suis en train de cuisiner.",
+   "fromLevel": 6,
+   "fromTheme": "L6-repas",
+   "motif": "Activité en cours à la maison (même traitement que P173).",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P178"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     14
+    ],
+    "study": "Je suis en train de cuisiner."
+   }
+  },
+  {
+   "p": "P179",
+   "id": "catalogue:fr:1794",
+   "study": "Il n'y a pas d'eau chaude.",
+   "fromLevel": 6,
+   "fromTheme": "L6-repas",
+   "motif": "Problème domestique ; ou bien niveau L4 : L4-situation-piste-equipement-chambre s'il s'agit d'un logement de voyage.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-maison",
+   "proposals": [
+    "P179"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     18
+    ],
+    "study": "Il n'y a pas d'eau chaude."
+   }
+  },
+  {
+   "p": "P180",
+   "id": "catalogue:fr:1809",
+   "study": "Je vais faire cuire le riz.",
+   "fromLevel": 6,
+   "fromTheme": "L6-repas",
+   "motif": "Activité de cuisine à la maison (même traitement que P173).",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P180"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     21
+    ],
+    "study": "Je vais faire cuire le riz."
+   }
+  },
+  {
+   "p": "P181",
+   "id": "catalogue:fr:1836",
+   "study": "J'épluche les pommes de terre.",
+   "fromLevel": 6,
+   "fromTheme": "L6-repas",
+   "motif": "Activité de cuisine à la maison (même traitement que P173).",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P181"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     22
+    ],
+    "study": "J'épluche les pommes de terre."
+   }
+  },
+  {
+   "p": "P182",
+   "id": "catalogue:fr:1894",
+   "study": "Je lui ai emprunté de l'argent.",
+   "fromLevel": 6,
+   "fromTheme": "L6-repas",
+   "motif": "Récit d'un fait passé : correspond à « 分享经历 » (L4) ; aucun thème L6 ne convient.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-conversation",
+   "proposals": [
+    "P182"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     29
+    ],
+    "study": "Je lui ai emprunté de l'argent."
+   }
+  },
+  {
+   "p": "P183",
+   "id": "catalogue:fr:1928",
+   "study": "Chat échaudé craint l'eau froide.",
+   "fromLevel": 6,
+   "fromTheme": "L6-repas",
+   "motif": "Proverbe imagé : en L8 (« 有分寸地描述 »), en cohérence avec P184.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-decrire",
+   "proposals": [
+    "P183",
+    "P184"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     30
+    ],
+    "study": "Chat échaudé craint l'eau froide."
+   }
+  },
+  {
+   "p": "P185",
+   "id": "catalogue:fr:1675",
+   "study": "Y a-t-il un service en chambre ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-deplacements",
+   "motif": "Service d'hôtel ; aucun thème L6 sur l'hôtel, le scénario hôtel existe au L3.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-hotel-sejour",
+   "proposals": [
+    "P185"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     4
+    ],
+    "study": "Y a-t-il un service en chambre ?"
+   }
+  },
+  {
+   "p": "P186",
+   "id": "catalogue:fr:1718",
+   "study": "Il a réparé ma voiture.",
+   "fromLevel": 6,
+   "fromTheme": "L6-deplacements",
+   "motif": "Récit d'un fait de la vie courante au passé composé : « 讲述自己的一天 » (L4).",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-quotidien",
+   "proposals": [
+    "P186"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     8
+    ],
+    "study": "Il a réparé ma voiture."
+   }
+  },
+  {
+   "p": "P187",
+   "id": "catalogue:fr:1793",
+   "study": "Est-ce qu'il y a le wifi ici ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-deplacements",
+   "motif": "Question sur le wifi : scénario « 数字生活：连接与联系 » (L2).",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-numerique-quotidien",
+   "proposals": [
+    "P187"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     13
+    ],
+    "study": "Est-ce qu'il y a le wifi ici ?"
+   }
+  },
+  {
+   "p": "P188",
+   "id": "catalogue:fr:1823",
+   "study": "Vas-y.",
+   "fromLevel": 6,
+   "fromTheme": "L6-deplacements",
+   "motif": "Relance élémentaire (vas-y) : « 延续对话 » au L1.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "conversation",
+   "proposals": [
+    "P188"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     14
+    ],
+    "study": "Vas-y."
+   }
+  },
+  {
+   "p": "P189",
+   "id": "catalogue:fr:3305",
+   "study": "La chambre est trop froide.",
+   "fromLevel": 6,
+   "fromTheme": "L6-deplacements",
+   "motif": "Réclamation sur la chambre, comme « La chambre était trop chaude ».",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-situation-piste-equipement-chambre",
+   "proposals": [
+    "P189"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-deplacements",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     4,
+     "phrases",
+     18
+    ],
+    "study": "La chambre est trop froide."
+   }
+  },
+  {
+   "p": "P190",
+   "id": "catalogue:fr:1621",
+   "study": "Je m'étire le matin.",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Habitude, pas une comparaison de durée ou de coût.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P190"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     0
+    ],
+    "study": "Je m'étire le matin."
+   }
+  },
+  {
+   "p": "P191",
+   "id": "catalogue:fr:1644",
+   "study": "Il ne le saura jamais.",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Commentaire, ou avis, dans un échange ; rien sur la durée ou le coût (sinon réserve).",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-conversation",
+   "proposals": [
+    "P191"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     1
+    ],
+    "study": "Il ne le saura jamais."
+   }
+  },
+  {
+   "p": "P192",
+   "id": "catalogue:fr:1699",
+   "study": "On célèbre la nouvelle année.",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Coutume (fêter le nouvel an) : explication d'une habitude ; pas une comparaison.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P192"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     7
+    ],
+    "study": "On célèbre la nouvelle année."
+   }
+  },
+  {
+   "p": "P193",
+   "id": "catalogue:fr:1714",
+   "study": "Je me couche tôt ce soir.",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Rythme de sommeil : habitude quotidienne.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P193"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     8
+    ],
+    "study": "Je me couche tôt ce soir."
+   }
+  },
+  {
+   "p": "P194",
+   "id": "catalogue:fr:1720",
+   "study": "Mets à jour l'application.",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Consigne de dépannage d'application : scénario numérique du L5.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-situation-piste-depannage-connexion",
+   "proposals": [
+    "P194"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     9
+    ],
+    "study": "Mets à jour l'application."
+   }
+  },
+  {
+   "p": "P196",
+   "id": "catalogue:fr:1818",
+   "study": "Je me lève à sept heures.",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Habitude quotidienne.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P196"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     17
+    ],
+    "study": "Je me lève à sept heures."
+   }
+  },
+  {
+   "p": "P197",
+   "id": "catalogue:fr:1910",
+   "study": "Je me réveille à sept heures.",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Habitude quotidienne.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P197"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     23
+    ],
+    "study": "Je me réveille à sept heures."
+   }
+  },
+  {
+   "p": "P199",
+   "id": "catalogue:fr:4465",
+   "study": "Entre parenthèses, il ne m'a jamais remboursé.",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Marqueur de digression : sert à « 发表看法并继续交谈 ».",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-conversation",
+   "proposals": [
+    "P199"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     32
+    ],
+    "study": "Entre parenthèses, il ne m'a jamais remboursé."
+   }
+  },
+  {
+   "p": "P200",
+   "id": "catalogue:fr:1598",
+   "study": "Il paraît qu'il va neiger.",
+   "fromLevel": 6,
+   "fromTheme": "L6-quotidien",
+   "motif": "Météo : domaine « 自然、园艺与天气 », pas une habitude.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-nature",
+   "proposals": [
+    "P200"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     0
+    ],
+    "study": "Il paraît qu'il va neiger."
+   }
+  },
+  {
+   "p": "P201",
+   "id": "catalogue:fr:1671",
+   "study": "Quelle est la porte d'embarquement ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-quotidien",
+   "motif": "Question à l'aéroport : thème des déplacements plutôt que vocabulaire.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-deplacements",
+   "proposals": [
+    "P201"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     4
+    ],
+    "study": "Quelle est la porte d'embarquement ?"
+   }
+  },
+  {
+   "p": "P202",
+   "id": "catalogue:fr:1730",
+   "study": "Ils construisent une maison.",
+   "fromLevel": 6,
+   "fromTheme": "L6-quotidien",
+   "motif": "Description d'une action, pas une habitude ; ou bien réserve.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-actions",
+   "proposals": [
+    "P202"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     7
+    ],
+    "study": "Ils construisent une maison."
+   }
+  },
+  {
+   "p": "P203",
+   "id": "catalogue:fr:1780",
+   "study": "Avez-vous une solution clé en main ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-quotidien",
+   "motif": "Demande professionnelle : « 说明工作中的需求 ».",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P203"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     11
+    ],
+    "study": "Avez-vous une solution clé en main ?"
+   }
+  },
+  {
+   "p": "P207",
+   "id": "catalogue:fr:1927",
+   "study": "Il a plu toute la nuit.",
+   "fromLevel": 6,
+   "fromTheme": "L6-quotidien",
+   "motif": "Météo.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-nature",
+   "proposals": [
+    "P207"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     25
+    ],
+    "study": "Il a plu toute la nuit."
+   }
+  },
+  {
+   "p": "P208",
+   "id": "catalogue:fr:1933",
+   "study": "Chacun voit midi à sa porte.",
+   "fromLevel": 6,
+   "fromTheme": "L6-quotidien",
+   "motif": "Proverbe pour relativiser un point de vue : en L8, cohérent avec P209.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-conversation",
+   "proposals": [
+    "P208",
+    "P209"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     26
+    ],
+    "study": "Chacun voit midi à sa porte."
+   }
+  },
+  {
+   "p": "P210",
+   "id": "catalogue:fr:3296",
+   "study": "Lève-toi.",
+   "fromLevel": 6,
+   "fromTheme": "L6-quotidien",
+   "motif": "Impératif élémentaire de la vie à la maison, comme « Ouvre la porte. » (L1).",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "quotidien",
+   "proposals": [
+    "P210"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     27
+    ],
+    "study": "Lève-toi."
+   }
+  },
+  {
+   "p": "P211",
+   "id": "catalogue:fr:1601",
+   "study": "Je peux avoir plus de serviettes ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-decrire",
+   "motif": "Demande à l'hôtel ; aucun thème L6 ne couvre l'hôtel.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-hotel-sejour",
+   "proposals": [
+    "P211"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     0
+    ],
+    "study": "Je peux avoir plus de serviettes ?"
+   }
+  },
+  {
+   "p": "P212",
+   "id": "catalogue:fr:1905",
+   "study": "Je ne me rappelle plus son nom.",
+   "fromLevel": 6,
+   "fromTheme": "L6-decrire",
+   "motif": "Trou de mémoire en pleine conversation ; rien d'une comparaison (sinon réserve).",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-conversation",
+   "proposals": [
+    "P212"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     6
+    ],
+    "study": "Je ne me rappelle plus son nom."
+   }
+  },
+  {
+   "p": "P213",
+   "id": "catalogue:fr:1595",
+   "study": "Je vous le passe.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Transfert d'appel au travail.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P213"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     1
+    ],
+    "study": "Je vous le passe."
+   }
+  },
+  {
+   "p": "P214",
+   "id": "catalogue:fr:1599",
+   "study": "Avez-vous le certificat CE ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Exigence B2B.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P214"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     3
+    ],
+    "study": "Avez-vous le certificat CE ?"
+   }
+  },
+  {
+   "p": "P215",
+   "id": "catalogue:fr:1600",
+   "study": "Y a-t-il des petites pièces ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Question technique B2B.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P215"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     4
+    ],
+    "study": "Y a-t-il des petites pièces ?"
+   }
+  },
+  {
+   "p": "P216",
+   "id": "catalogue:fr:1616",
+   "study": "Je suis de mauvaise humeur.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Émotion.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-personnes",
+   "proposals": [
+    "P216"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     6
+    ],
+    "study": "Je suis de mauvaise humeur."
+   }
+  },
+  {
+   "p": "P217",
+   "id": "catalogue:fr:1618",
+   "study": "Je fais attention à mon budget.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Habitude de dépense : « 解释自己的习惯 ».",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P217"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     7
+    ],
+    "study": "Je fais attention à mon budget."
+   }
+  },
+  {
+   "p": "P218",
+   "id": "catalogue:fr:1619",
+   "study": "Il faut assaisonner.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Cuisine à la maison (même traitement que P173).",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P218"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     8
+    ],
+    "study": "Il faut assaisonner."
+   }
+  },
+  {
+   "p": "P219",
+   "id": "catalogue:fr:1623",
+   "study": "Il a dribblé deux joueurs.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Sport.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-loisirs",
+   "proposals": [
+    "P219"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     9
+    ],
+    "study": "Il a dribblé deux joueurs."
+   }
+  },
+  {
+   "p": "P220",
+   "id": "catalogue:fr:1630",
+   "study": "J'en ai eu des frissons.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Émotion ou sensation.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-personnes",
+   "proposals": [
+    "P220"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     11
+    ],
+    "study": "J'en ai eu des frissons."
+   }
+  },
+  {
+   "p": "P221",
+   "id": "catalogue:fr:1632",
+   "study": "J'étais vert de jalousie.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Émotion.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-personnes",
+   "proposals": [
+    "P221"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     12
+    ],
+    "study": "J'étais vert de jalousie."
+   }
+  },
+  {
+   "p": "P222",
+   "id": "catalogue:fr:1648",
+   "study": "Tu as éteint la lumière ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Action domestique.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-actions",
+   "proposals": [
+    "P222"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     14
+    ],
+    "study": "Tu as éteint la lumière ?"
+   }
+  },
+  {
+   "p": "P223",
+   "id": "catalogue:fr:1651",
+   "study": "On partage une entrée ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Choix au restaurant : thème repas plutôt que vocabulaire.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-repas",
+   "proposals": [
+    "P223"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     15
+    ],
+    "study": "On partage une entrée ?"
+   }
+  },
+  {
+   "p": "P224",
+   "id": "catalogue:fr:1652",
+   "study": "Je suis allergique aux arachides.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Contrainte alimentaire à signaler au restaurant.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-repas",
+   "proposals": [
+    "P224"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     16
+    ],
+    "study": "Je suis allergique aux arachides."
+   }
+  },
+  {
+   "p": "P225",
+   "id": "catalogue:fr:1653",
+   "study": "Quel est le poids à vide ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Question technique B2B.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P225"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     17
+    ],
+    "study": "Quel est le poids à vide ?"
+   }
+  },
+  {
+   "p": "P226",
+   "id": "catalogue:fr:1654",
+   "study": "Pouvez-vous changer la fermeture ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Demande technique B2B.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P226"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     18
+    ],
+    "study": "Pouvez-vous changer la fermeture ?"
+   }
+  },
+  {
+   "p": "P227",
+   "id": "catalogue:fr:1656",
+   "study": "C'est un produit défectueux.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Réclamation produit en contexte professionnel.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P227"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     20
+    ],
+    "study": "C'est un produit défectueux."
+   }
+  },
+  {
+   "p": "P228",
+   "id": "catalogue:fr:1658",
+   "study": "Pouvez-vous changer la finition ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Demande technique B2B.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P228"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     21
+    ],
+    "study": "Pouvez-vous changer la finition ?"
+   }
+  },
+  {
+   "p": "P229",
+   "id": "catalogue:fr:1661",
+   "study": "Pouvez-vous installer à distance ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Demande technique B2B.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P229"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     23
+    ],
+    "study": "Pouvez-vous installer à distance ?"
+   }
+  },
+  {
+   "p": "P230",
+   "id": "catalogue:fr:1662",
+   "study": "Quelle est la forme du moule ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Question technique B2B.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P230"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     24
+    ],
+    "study": "Quelle est la forme du moule ?"
+   }
+  },
+  {
+   "p": "P231",
+   "id": "catalogue:fr:1664",
+   "study": "C'est conforme à nos exigences.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Exigence professionnelle.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P231"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     25
+    ],
+    "study": "C'est conforme à nos exigences."
+   }
+  },
+  {
+   "p": "P232",
+   "id": "catalogue:fr:1665",
+   "study": "Pouvez-vous corriger ce défaut ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Demande technique B2B.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P232"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     26
+    ],
+    "study": "Pouvez-vous corriger ce défaut ?"
+   }
+  },
+  {
+   "p": "P233",
+   "id": "catalogue:fr:1667",
+   "study": "Avez-vous un rapport de test ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Demande technique B2B.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P233"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     27
+    ],
+    "study": "Avez-vous un rapport de test ?"
+   }
+  },
+  {
+   "p": "P234",
+   "id": "catalogue:fr:1672",
+   "study": "Je voudrais m'enregistrer.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Arrivée à l'hôtel (办入住) : scénario hôtel du L3.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-hotel-sejour",
+   "proposals": [
+    "P234"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     28
+    ],
+    "study": "Je voudrais m'enregistrer."
+   }
+  },
+  {
+   "p": "P235",
+   "id": "catalogue:fr:1679",
+   "study": "On a lancé le produit.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Information professionnelle.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P235"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     30
+    ],
+    "study": "On a lancé le produit."
+   }
+  },
+  {
+   "p": "P236",
+   "id": "catalogue:fr:1681",
+   "study": "Il a sifflé une faute.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Sport.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-loisirs",
+   "proposals": [
+    "P236"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     31
+    ],
+    "study": "Il a sifflé une faute."
+   }
+  },
+  {
+   "p": "P237",
+   "id": "catalogue:fr:1683",
+   "study": "Je joue aux jeux vidéo.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Loisir.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-loisirs",
+   "proposals": [
+    "P237"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     32
+    ],
+    "study": "Je joue aux jeux vidéo."
+   }
+  },
+  {
+   "p": "P240",
+   "id": "catalogue:fr:1691",
+   "study": "Je suis en paix.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Émotion.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-personnes",
+   "proposals": [
+    "P240"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     35
+    ],
+    "study": "Je suis en paix."
+   }
+  },
+  {
+   "p": "P241",
+   "id": "catalogue:fr:1692",
+   "study": "Il a une barbe.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Description physique élémentaire, en cohérence avec P242.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-vocab-personnes",
+   "proposals": [
+    "P241",
+    "P242"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     36
+    ],
+    "study": "Il a une barbe."
+   }
+  },
+  {
+   "p": "P243",
+   "id": "catalogue:fr:1693",
+   "study": "Appuie sur le bouton.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Consigne d'action.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-actions",
+   "proposals": [
+    "P243"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     37
+    ],
+    "study": "Appuie sur le bouton."
+   }
+  },
+  {
+   "p": "P244",
+   "id": "catalogue:fr:1694",
+   "study": "Elle les a reçus.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Phrase à pronoms au passé composé pour confirmer un fait : « 确认发生了什么 » (L4) ; sinon réserve.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-comprendre",
+   "proposals": [
+    "P244"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     38
+    ],
+    "study": "Elle les a reçus."
+   }
+  },
+  {
+   "p": "P245",
+   "id": "catalogue:fr:1695",
+   "study": "Je pétris la pâte.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Cuisine à la maison (même traitement que P173).",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-quotidien",
+   "proposals": [
+    "P245"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     39
+    ],
+    "study": "Je pétris la pâte."
+   }
+  },
+  {
+   "p": "P246",
+   "id": "catalogue:fr:1696",
+   "study": "Il fronce les sourcils.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Expression du visage.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-personnes",
+   "proposals": [
+    "P246"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     40
+    ],
+    "study": "Il fronce les sourcils."
+   }
+  },
+  {
+   "p": "P247",
+   "id": "catalogue:fr:1700",
+   "study": "Il a sauté du mur.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Action physique.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-actions",
+   "proposals": [
+    "P247"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     43
+    ],
+    "study": "Il a sauté du mur."
+   }
+  },
+  {
+   "p": "P248",
+   "id": "catalogue:fr:1705",
+   "study": "Je t'ai apporté quelque chose.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Offrir un cadeau en arrivant : formule de rencontre (« 安排一次见面 », L5) ; aucun thème L6 ne convient.",
+   "op": "move",
+   "toLevel": 5,
+   "toTheme": "L5-saluer",
+   "proposals": [
+    "P248"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     45
+    ],
+    "study": "Je t'ai apporté quelque chose."
+   }
+  },
+  {
+   "p": "P249",
+   "id": "catalogue:fr:1706",
+   "study": "Je fais confiance à mon équipe.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Travail d'équipe.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P249"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     46
+    ],
+    "study": "Je fais confiance à mon équipe."
+   }
+  },
+  {
+   "p": "P250",
+   "id": "catalogue:fr:1708",
+   "study": "Ils nous ont répondu.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Suivi professionnel.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-travail",
+   "proposals": [
+    "P250"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     48
+    ],
+    "study": "Ils nous ont répondu."
+   }
+  },
+  {
+   "p": "P251",
+   "id": "catalogue:fr:1716",
+   "study": "Il a les cheveux longs.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Description physique.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-personnes",
+   "proposals": [
+    "P251"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     50
+    ],
+    "study": "Il a les cheveux longs."
+   }
+  },
+  {
+   "p": "P252",
+   "id": "catalogue:fr:1717",
+   "study": "Elle a de longs cheveux.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Description physique.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-personnes",
+   "proposals": [
+    "P252"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     51
+    ],
+    "study": "Elle a de longs cheveux."
+   }
+  },
+  {
+   "p": "P253",
+   "id": "catalogue:fr:1725",
+   "study": "Branche-le dans la prise.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Consigne d'action.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-actions",
+   "proposals": [
+    "P253"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     53
+    ],
+    "study": "Branche-le dans la prise."
+   }
+  },
+  {
+   "p": "P255",
+   "id": "catalogue:fr:1915",
+   "study": "Ça me travaille depuis ce matin.",
+   "fromLevel": 6,
+   "fromTheme": "L6-travail",
+   "motif": "Idiome de préoccupation (ça me tracasse) : rien à voir avec les besoins au travail.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-conversation",
+   "proposals": [
+    "P255"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     12
+    ],
+    "study": "Ça me travaille depuis ce matin."
+   }
+  },
+  {
+   "p": "P256",
+   "id": "catalogue:fr:3224",
+   "study": "le numéro de siège",
+   "fromLevel": 6,
+   "fromTheme": "L6-vocab-actions",
+   "motif": "Nom du domaine transport.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-voyage",
+   "proposals": [
+    "P256"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     17,
+     "phrases",
+     1
+    ],
+    "study": "le numéro de siège"
+   }
+  },
+  {
+   "p": "P257",
+   "id": "catalogue:fr:3251",
+   "study": "le porc",
+   "fromLevel": 6,
+   "fromTheme": "L6-vocab-actions",
+   "motif": "Aliment.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-restaurant",
+   "proposals": [
+    "P257"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     17,
+     "phrases",
+     4
+    ],
+    "study": "le porc"
+   }
+  },
+  {
+   "p": "P258",
+   "id": "catalogue:fr:3259",
+   "study": "la tension",
+   "fromLevel": 6,
+   "fromTheme": "L6-vocab-actions",
+   "motif": "Santé (血压).",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-personnes",
+   "proposals": [
+    "P258"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     17,
+     "phrases",
+     8
+    ],
+    "study": "la tension"
+   }
+  },
+  {
+   "p": "P259",
+   "id": "catalogue:fr:3276",
+   "study": "le rayon frais",
+   "fromLevel": 6,
+   "fromTheme": "L6-vocab-actions",
+   "motif": "Courses alimentaires.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-restaurant",
+   "proposals": [
+    "P259"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     17,
+     "phrases",
+     13
+    ],
+    "study": "le rayon frais"
+   }
+  },
+  {
+   "p": "P260",
+   "id": "catalogue:fr:3280",
+   "study": "les produits frais",
+   "fromLevel": 6,
+   "fromTheme": "L6-vocab-actions",
+   "motif": "Courses alimentaires.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-restaurant",
+   "proposals": [
+    "P260"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     17,
+     "phrases",
+     14
+    ],
+    "study": "les produits frais"
+   }
+  },
+  {
+   "p": "P261",
+   "id": "catalogue:fr:3303",
+   "study": "la salade",
+   "fromLevel": 6,
+   "fromTheme": "L6-vocab-actions",
+   "motif": "Aliment.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-vocab-restaurant",
+   "proposals": [
+    "P261"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     17,
+     "phrases",
+     21
+    ],
+    "study": "la salade"
+   }
+  },
+  {
+   "p": "P262",
+   "id": "catalogue:fr:3289",
+   "study": "c'est-à-dire",
+   "fromLevel": 6,
+   "fromTheme": "reserve",
+   "motif": "Même expression à la casse près, toutes deux en réserve ; on garde la forme de phrase « C'est-à-dire... ».",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P262"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "reserve",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "reserve",
+     12
+    ],
+    "study": "c'est-à-dire"
+   }
+  },
+  {
+   "p": "P263",
+   "id": "catalogue:fr:2168",
+   "study": "Pouvez-vous baisser le prix ?",
+   "fromLevel": 7,
+   "fromTheme": "L7-repas",
+   "motif": "Doublon exact dans le même thème ; on garde 2167.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P263"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     8
+    ],
+    "study": "Pouvez-vous baisser le prix ?"
+   }
+  },
+  {
+   "p": "P264",
+   "id": "catalogue:fr:2049",
+   "study": "Je n'arrive pas à y croire.",
+   "fromLevel": 7,
+   "fromTheme": "L7-ressentis",
+   "motif": "Ponctuation seule ; même thème : on garde la version avec « ! ».",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P264"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     1,
+     "phrases",
+     5
+    ],
+    "study": "Je n'arrive pas à y croire."
+   }
+  },
+  {
+   "p": "P265",
+   "id": "catalogue:fr:3347",
+   "study": "Montre-moi.",
+   "fromLevel": 7,
+   "fromTheme": "L7-comprendre",
+   "motif": "Demande élémentaire d'aide, pour comprendre : L1 « 理解与求助 ».",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "comprendre",
+   "proposals": [
+    "P265"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     8
+    ],
+    "study": "Montre-moi."
+   }
+  },
+  {
+   "p": "P266",
+   "id": "catalogue:fr:3320",
+   "study": "Bon appétit.",
+   "fromLevel": 7,
+   "fromTheme": "L7-repas",
+   "motif": "Formule de table de base : L1 « 用餐、点单与购物 ».",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "repas",
+   "proposals": [
+    "P266"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     22
+    ],
+    "study": "Bon appétit."
+   }
+  },
+  {
+   "p": "P267",
+   "id": "catalogue:fr:2034",
+   "study": "Il y a du vent.",
+   "fromLevel": 7,
+   "fromTheme": "L7-quotidien",
+   "motif": "Météo élémentaire, comme « Il pleut. » au L1-quotidien.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "quotidien",
+   "proposals": [
+    "P267"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     4
+    ],
+    "study": "Il y a du vent."
+   }
+  },
+  {
+   "p": "P268",
+   "id": "catalogue:fr:2036",
+   "study": "Il y a des nuages.",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Météo élémentaire, comme « Il fait beau. » au L1-quotidien.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "quotidien",
+   "proposals": [
+    "P268"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     51
+    ],
+    "study": "Il y a des nuages."
+   }
+  },
+  {
+   "p": "P269",
+   "id": "catalogue:fr:2166",
+   "study": "C'est moi-même.",
+   "fromLevel": 7,
+   "fromTheme": "L7-decrire",
+   "motif": "Réponse de base au téléphone (« c'est moi ») : se présenter (« 介绍自己并交流 », L2) ; aucun thème L7 ne convient.",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P269"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-decrire",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     5
+    ],
+    "study": "C'est moi-même."
+   }
+  },
+  {
+   "p": "P270",
+   "id": "catalogue:fr:1990",
+   "study": "Il faut appuyer ici.",
+   "fromLevel": 7,
+   "fromTheme": "L7-comprendre",
+   "motif": "Consigne pratique simple, comme « Serre bien la vis. » (L4) ; pas d'hypothèse à vérifier.",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-quotidien",
+   "proposals": [
+    "P270"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-comprendre",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     1
+    ],
+    "study": "Il faut appuyer ici."
+   }
+  },
+  {
+   "p": "P271",
+   "id": "catalogue:fr:2920",
+   "study": "N'importe quoi.",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Ponctuation seule, même thème : on garde « N'importe quoi ! » ; mais la glose 随便 de 2920 couvre aussi le sens « n'importe lequel », qui pourrait justifier de garder les deux.",
+   "op": "to-reserve",
+   "reason": "doublon : une seule variante présentée",
+   "proposals": [
+    "P271"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     163
+    ],
+    "study": "N'importe quoi."
+   }
+  },
+  {
+   "p": "P272",
+   "id": "catalogue:fr:2064",
+   "study": "Il a été reçu à son examen.",
+   "fromLevel": 7,
+   "fromTheme": "L7-travail",
+   "motif": "Récit de réussite scolaire : « 学习：讲述一次学习进展 » (L4).",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-situation-etudes-apprentissage",
+   "proposals": [
+    "P272"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     13
+    ],
+    "study": "Il a été reçu à son examen."
+   }
+  },
+  {
+   "p": "P274",
+   "id": "catalogue:fr:2075",
+   "study": "Je vais mettre en ligne les photos.",
+   "fromLevel": 7,
+   "fromTheme": "L7-travail",
+   "motif": "Action numérique courante au futur proche : vie numérique (L2).",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-numerique-quotidien",
+   "proposals": [
+    "P274"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     15
+    ],
+    "study": "Je vais mettre en ligne les photos."
+   }
+  },
+  {
+   "p": "P275",
+   "id": "catalogue:fr:2194",
+   "study": "Je prends des notes pendant le cours.",
+   "fromLevel": 7,
+   "fromTheme": "L7-travail",
+   "motif": "Habitude en cours : scénario « 课堂 » du L3.",
+   "op": "move",
+   "toLevel": 3,
+   "toTheme": "L3-situation-piste-cours-aide",
+   "proposals": [
+    "P275"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     28
+    ],
+    "study": "Je prends des notes pendant le cours."
+   }
+  },
+  {
+   "p": "P276",
+   "id": "catalogue:fr:2219",
+   "study": "Attends-moi.",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Impératif élémentaire pour aller quelque part ensemble : L1 « 出行与旅行 ».",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "deplacements",
+   "proposals": [
+    "P276"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     131
+    ],
+    "study": "Attends-moi."
+   }
+  },
+  {
+   "p": "P277",
+   "id": "catalogue:fr:3375",
+   "study": "Suis-moi.",
+   "fromLevel": 7,
+   "fromTheme": "L7-conversation",
+   "motif": "Impératif élémentaire de déplacement : L1.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "deplacements",
+   "proposals": [
+    "P277"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     177
+    ],
+    "study": "Suis-moi."
+   }
+  },
+  {
+   "p": "P278",
+   "id": "catalogue:fr:3315",
+   "study": "le métro",
+   "fromLevel": 7,
+   "fromTheme": "L7-vocab-voyage",
+   "motif": "Mot de transport de base.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-vocab-voyage",
+   "proposals": [
+    "P278"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-vocab-voyage",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     10,
+     "phrases",
+     0
+    ],
+    "study": "le métro"
+   }
+  },
+  {
+   "p": "P279",
+   "id": "catalogue:fr:3342",
+   "study": "le ticket",
+   "fromLevel": 7,
+   "fromTheme": "L7-vocab-voyage",
+   "motif": "Mot de transport de base.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-vocab-voyage",
+   "proposals": [
+    "P279"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-vocab-voyage",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     10,
+     "phrases",
+     2
+    ],
+    "study": "le ticket"
+   }
+  },
+  {
+   "p": "P280",
+   "id": "catalogue:fr:3361",
+   "study": "le zoo",
+   "fromLevel": 7,
+   "fromTheme": "L7-vocab-actions",
+   "motif": "Lieu de loisir de base.",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "L1-vocab-loisirs",
+   "proposals": [
+    "P280"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     18
+    ],
+    "study": "le zoo"
+   }
+  },
+  {
+   "p": "P281",
+   "id": "catalogue:fr:2406",
+   "study": "Vous pouvez me prendre en photo, s'il vous plaît ?",
+   "fromLevel": 8,
+   "fromTheme": "L8-saluer",
+   "motif": "Demande polie de service : « 委婉地提出请求 ».",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-repas",
+   "proposals": [
+    "P281"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     4
+    ],
+    "study": "Vous pouvez me prendre en photo, s'il vous plaît ?"
+   }
+  },
+  {
+   "p": "P282",
+   "id": "catalogue:fr:2438",
+   "study": "Ils se sont rencontrés il y a dix ans.",
+   "fromLevel": 8,
+   "fromTheme": "L8-saluer",
+   "motif": "Raconter une rencontre : « 讲述一次相遇 » (L4).",
+   "op": "move",
+   "toLevel": 4,
+   "toTheme": "L4-saluer",
+   "proposals": [
+    "P282"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     5
+    ],
+    "study": "Ils se sont rencontrés il y a dix ans."
+   }
+  },
+  {
+   "p": "P286",
+   "id": "catalogue:fr:2463",
+   "study": "Nous exigeons une compensation.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Réclamation commerciale, langue professionnelle.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P286"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     72
+    ],
+    "study": "Nous exigeons une compensation."
+   }
+  },
+  {
+   "p": "P287",
+   "id": "catalogue:fr:2464",
+   "study": "Je vous envoie les photos du problème.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Suivi de réclamation professionnelle.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P287"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     73
+    ],
+    "study": "Je vous envoie les photos du problème."
+   }
+  },
+  {
+   "p": "P288",
+   "id": "catalogue:fr:2465",
+   "study": "On attend un remboursement.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Réclamation commerciale.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P288"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     74
+    ],
+    "study": "On attend un remboursement."
+   }
+  },
+  {
+   "p": "P289",
+   "id": "catalogue:fr:2475",
+   "study": "Peut-on inspecter la machine avant l'envoi ?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Contrôle qualité avant expédition.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P289"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     77
+    ],
+    "study": "Peut-on inspecter la machine avant l'envoi ?"
+   }
+  },
+  {
+   "p": "P290",
+   "id": "catalogue:fr:3418",
+   "study": "Les couleurs ne correspondent pas.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Constat de non-conformité commerciale.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P290"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     107
+    ],
+    "study": "Les couleurs ne correspondent pas."
+   }
+  },
+  {
+   "p": "P291",
+   "id": "catalogue:fr:4402",
+   "study": "La finition est bâclée.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Constat de qualité, pas un désaccord avec tact.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P291"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     116
+    ],
+    "study": "La finition est bâclée."
+   }
+  },
+  {
+   "p": "P292",
+   "id": "catalogue:fr:4403",
+   "study": "Le défaut est visible à l'œil nu.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Constat de défaut en contexte professionnel.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P292"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     117
+    ],
+    "study": "Le défaut est visible à l'œil nu."
+   }
+  },
+  {
+   "p": "P293",
+   "id": "catalogue:fr:4407",
+   "study": "Le certificat d'origine est-il prêt ?",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Document d'export.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-travail",
+   "proposals": [
+    "P293"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     118
+    ],
+    "study": "Le certificat d'origine est-il prêt ?"
+   }
+  },
+  {
+   "p": "P294",
+   "id": "catalogue:fr:2533",
+   "study": "Excusez-moi, ce n'est pas ce que j'ai commandé.",
+   "fromLevel": 8,
+   "fromTheme": "L8-travail",
+   "motif": "Réclamation polie au restaurant : « 委婉地提出请求 ».",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-repas",
+   "proposals": [
+    "P294"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     30
+    ],
+    "study": "Excusez-moi, ce n'est pas ce que j'ai commandé."
+   }
+  },
+  {
+   "p": "P295",
+   "id": "catalogue:fr:3408",
+   "study": "Chez le coiffeur.",
+   "fromLevel": 8,
+   "fromTheme": "L8-vocab-adverbes",
+   "motif": "Complément de lieu : « 时间与方位 ».",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-vocab-reperes",
+   "proposals": [
+    "P295"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-vocab-adverbes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     19,
+     "phrases",
+     1
+    ],
+    "study": "Chez le coiffeur."
+   }
+  },
+  {
+   "p": "P296",
+   "id": "catalogue:fr:3397",
+   "study": "Volontiers.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Accepter poliment : formule de base de l'échange (L2).",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P296"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     103
+    ],
+    "study": "Volontiers."
+   }
+  },
+  {
+   "p": "P297",
+   "id": "catalogue:fr:3427",
+   "study": "Rappelle-moi.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Demande de rappel : « 数字生活：连接与联系 » (L2).",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-situation-numerique-quotidien",
+   "proposals": [
+    "P297"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     110
+    ],
+    "study": "Rappelle-moi."
+   }
+  },
+  {
+   "p": "P298",
+   "id": "catalogue:fr:3411",
+   "study": "Repose-toi bien.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Formule de bienveillance de base (L2).",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P298"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     105
+    ],
+    "study": "Repose-toi bien."
+   }
+  },
+  {
+   "p": "P299",
+   "id": "catalogue:fr:3467",
+   "study": "Reposez-vous bien.",
+   "fromLevel": 8,
+   "fromTheme": "L8-conversation",
+   "motif": "Formule de bienveillance de base, forme de politesse (même destination que P298).",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-saluer",
+   "proposals": [
+    "P299"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     114
+    ],
+    "study": "Reposez-vous bien."
+   }
+  },
+  {
+   "p": "P300",
+   "id": "catalogue:fr:2412",
+   "study": "J'ai payé la facture.",
+   "fromLevel": 8,
+   "fromTheme": "L8-travail",
+   "motif": "Série de temps (passé, présent, futur) au travail, avec P301 et P302 ; L2-travail contient déjà « J'ai travaillé hier ».",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-travail",
+   "proposals": [
+    "P300"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     23
+    ],
+    "study": "J'ai payé la facture."
+   }
+  },
+  {
+   "p": "P301",
+   "id": "catalogue:fr:2415",
+   "study": "Je fais un devis.",
+   "fromLevel": 8,
+   "fromTheme": "L8-travail",
+   "motif": "Série de temps au travail (présent).",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-travail",
+   "proposals": [
+    "P301"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     24
+    ],
+    "study": "Je fais un devis."
+   }
+  },
+  {
+   "p": "P302",
+   "id": "catalogue:fr:2479",
+   "study": "Je vais faire un devis.",
+   "fromLevel": 8,
+   "fromTheme": "L8-travail",
+   "motif": "Série de temps au travail (futur proche).",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-travail",
+   "proposals": [
+    "P302"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     9,
+     "phrases",
+     29
+    ],
+    "study": "Je vais faire un devis."
+   }
+  },
+  {
+   "p": "P303",
+   "id": "catalogue:fr:3481",
+   "study": "Accélère.",
+   "fromLevel": 9,
+   "fromTheme": "L9-conversation",
+   "motif": "Impératif élémentaire en voiture : L1 « 出行与旅行 ».",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "deplacements",
+   "proposals": [
+    "P303"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L9.json",
+    "location": [
+     "themes",
+     7,
+     "phrases",
+     74
+    ],
+    "study": "Accélère."
+   }
+  },
+  {
+   "p": "P304",
+   "id": "catalogue:fr:3549",
+   "study": "Le poulet rôtit.",
+   "fromLevel": 9,
+   "fromTheme": "L9-repas",
+   "motif": "Phrase de cuisine simple, comme « C'est prêt. » (L2-repas).",
+   "op": "move",
+   "toLevel": 2,
+   "toTheme": "L2-repas",
+   "proposals": [
+    "P304"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-repas",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L9.json",
+    "location": [
+     "themes",
+     3,
+     "phrases",
+     4
+    ],
+    "study": "Le poulet rôtit."
+   }
+  },
+  {
+   "p": "P305",
+   "id": "catalogue:fr:3538",
+   "study": "Des baguettes, s'il vous plaît.",
+   "fromLevel": 9,
+   "fromTheme": "L9-saluer",
+   "motif": "Demande de survie à table, comme « Un thé, s'il vous plaît. » (L1).",
+   "op": "move",
+   "toLevel": 1,
+   "toTheme": "repas",
+   "proposals": [
+    "P305"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L9.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     6
+    ],
+    "study": "Des baguettes, s'il vous plaît."
+   }
+  },
+  {
+   "p": "P306",
+   "id": "catalogue:fr:3488",
+   "study": "la porte d'embarquement",
+   "fromLevel": 9,
+   "fromTheme": "L9-vocab-maison",
+   "motif": "Vocabulaire d'aéroport.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-vocab-voyage",
+   "proposals": [
+    "P306"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-vocab-maison",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L9.json",
+    "location": [
+     "themes",
+     10,
+     "phrases",
+     1
+    ],
+    "study": "la porte d'embarquement"
+   }
+  },
+  {
+   "p": "P307",
+   "id": "catalogue:fr:3496",
+   "study": "le terminal",
+   "fromLevel": 9,
+   "fromTheme": "L9-vocab-actions",
+   "motif": "Vocabulaire d'aéroport.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-vocab-voyage",
+   "proposals": [
+    "P307"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L9.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     6
+    ],
+    "study": "le terminal"
+   }
+  },
+  {
+   "p": "P308",
+   "id": "catalogue:fr:3527",
+   "study": "l'embarquement",
+   "fromLevel": 9,
+   "fromTheme": "L9-vocab-actions",
+   "motif": "Vocabulaire d'aéroport.",
+   "op": "move",
+   "toLevel": 9,
+   "toTheme": "L9-vocab-voyage",
+   "proposals": [
+    "P308"
+   ],
+   "expectedBefore": {
+    "level": 9,
+    "theme": "L9-vocab-actions",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L9.json",
+    "location": [
+     "themes",
+     13,
+     "phrases",
+     17
+    ],
+    "study": "l'embarquement"
+   }
+  },
+  {
+   "p": "P162",
+   "id": "catalogue:fr:1607",
+   "study": "J'espère que tu te sens mieux.",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Souhait de rétablissement : pas une justification de choix ; quatre cartes L6 forment ce besoin.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-souhaits",
+   "newTheme": true,
+   "proposals": [
+    "P162"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     0
+    ],
+    "study": "J'espère que tu te sens mieux."
+   }
+  },
+  {
+   "p": "P169",
+   "id": "catalogue:fr:1845",
+   "study": "Tu veux sortir avec moi ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-ressentis",
+   "motif": "Invitation sentimentale ; six cartes L6 sur la vie sentimentale n'ont aucun thème.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-relations",
+   "newTheme": true,
+   "proposals": [
+    "P169"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-ressentis",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     2,
+     "phrases",
+     20
+    ],
+    "study": "Tu veux sortir avec moi ?"
+   }
+  },
+  {
+   "p": "P195",
+   "id": "catalogue:fr:1811",
+   "study": "Bientôt, tout ira mieux.",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Encouragement : relève du nouveau thème proposé.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-souhaits",
+   "newTheme": true,
+   "proposals": [
+    "P195"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     16
+    ],
+    "study": "Bientôt, tout ira mieux."
+   }
+  },
+  {
+   "p": "P198",
+   "id": "catalogue:fr:3227",
+   "study": "N'abandonne jamais.",
+   "fromLevel": 6,
+   "fromTheme": "L6-reperes",
+   "motif": "Encouragement : relève du nouveau thème proposé.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-souhaits",
+   "newTheme": true,
+   "proposals": [
+    "P198"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-reperes",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     5,
+     "phrases",
+     29
+    ],
+    "study": "N'abandonne jamais."
+   }
+  },
+  {
+   "p": "P204",
+   "id": "catalogue:fr:1817",
+   "study": "Ils sont en train de rompre.",
+   "fromLevel": 6,
+   "fromTheme": "L6-quotidien",
+   "motif": "Vie sentimentale.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-relations",
+   "newTheme": true,
+   "proposals": [
+    "P204"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     15
+    ],
+    "study": "Ils sont en train de rompre."
+   }
+  },
+  {
+   "p": "P205",
+   "id": "catalogue:fr:1848",
+   "study": "Tu es célibataire ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-quotidien",
+   "motif": "Vie sentimentale.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-relations",
+   "newTheme": true,
+   "proposals": [
+    "P205"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     18
+    ],
+    "study": "Tu es célibataire ?"
+   }
+  },
+  {
+   "p": "P206",
+   "id": "catalogue:fr:1917",
+   "study": "Tu vas flirter avec lui ?",
+   "fromLevel": 6,
+   "fromTheme": "L6-quotidien",
+   "motif": "Vie sentimentale.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-relations",
+   "newTheme": true,
+   "proposals": [
+    "P206"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-quotidien",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     6,
+     "phrases",
+     24
+    ],
+    "study": "Tu vas flirter avec lui ?"
+   }
+  },
+  {
+   "p": "P238",
+   "id": "catalogue:fr:1686",
+   "study": "Elle a rompu avec lui.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Vie sentimentale.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-relations",
+   "newTheme": true,
+   "proposals": [
+    "P238"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     33
+    ],
+    "study": "Elle a rompu avec lui."
+   }
+  },
+  {
+   "p": "P239",
+   "id": "catalogue:fr:1689",
+   "study": "Tous mes vœux de bonheur.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Vœux (mariage) : relève du nouveau thème des souhaits.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-souhaits",
+   "newTheme": true,
+   "proposals": [
+    "P239"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     34
+    ],
+    "study": "Tous mes vœux de bonheur."
+   }
+  },
+  {
+   "p": "P254",
+   "id": "catalogue:fr:1733",
+   "study": "Ils ont célébré leur mariage.",
+   "fromLevel": 6,
+   "fromTheme": "L6-conversation",
+   "motif": "Mariage : vie sentimentale.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-relations",
+   "newTheme": true,
+   "proposals": [
+    "P254"
+   ],
+   "expectedBefore": {
+    "level": 6,
+    "theme": "L6-conversation",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     55
+    ],
+    "study": "Ils ont célébré leur mariage."
+   }
+  },
+  {
+   "p": "P273",
+   "id": "catalogue:fr:2065",
+   "study": "Elle sort avec quelqu'un de son travail.",
+   "fromLevel": 7,
+   "fromTheme": "L7-travail",
+   "motif": "Vie sentimentale, ni anticipation ni négociation ; aucun thème existant ne convient.",
+   "op": "move",
+   "toLevel": 6,
+   "toTheme": "L6-relations",
+   "newTheme": true,
+   "proposals": [
+    "P273"
+   ],
+   "expectedBefore": {
+    "level": 7,
+    "theme": "L7-travail",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json",
+    "location": [
+     "themes",
+     8,
+     "phrases",
+     14
+    ],
+    "study": "Elle sort avec quelqu'un de son travail."
+   }
+  },
+  {
+   "p": "P283",
+   "id": "catalogue:fr:2508",
+   "study": "Genre, il est parti sans dire au revoir.",
+   "fromLevel": 8,
+   "fromTheme": "L8-saluer",
+   "motif": "« Genre » : marqueur familier ; trois cartes L8 forment ce besoin, qu'aucun thème ne couvre.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-marqueurs-oraux",
+   "newTheme": true,
+   "proposals": [
+    "P283"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     7
+    ],
+    "study": "Genre, il est parti sans dire au revoir."
+   }
+  },
+  {
+   "p": "P284",
+   "id": "catalogue:fr:2511",
+   "study": "Mine de rien, ça fait déjà dix ans.",
+   "fromLevel": 8,
+   "fromTheme": "L8-saluer",
+   "motif": "« Mine de rien » : marqueur de l'oral.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-marqueurs-oraux",
+   "newTheme": true,
+   "proposals": [
+    "P284"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     8
+    ],
+    "study": "Mine de rien, ça fait déjà dix ans."
+   }
+  },
+  {
+   "p": "P285",
+   "id": "catalogue:fr:2569",
+   "study": "Toujours est-il que, mine de rien, on a fini à l'heure.",
+   "fromLevel": 8,
+   "fromTheme": "L8-saluer",
+   "motif": "« Toujours est-il que, mine de rien » : marqueurs de l'oral.",
+   "op": "move",
+   "toLevel": 8,
+   "toTheme": "L8-marqueurs-oraux",
+   "newTheme": true,
+   "proposals": [
+    "P285"
+   ],
+   "expectedBefore": {
+    "level": 8,
+    "theme": "L8-saluer",
+    "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+    "location": [
+     "themes",
+     0,
+     "phrases",
+     10
+    ],
+    "study": "Toujours est-il que, mine de rien, on a fini à l'heure."
+   }
+  }
+ ]
+}

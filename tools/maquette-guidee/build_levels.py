@@ -80,6 +80,9 @@ _uncertain_content_spec.loader.exec_module(uncertain_content_corrections)
 _convention_spec = importlib.util.spec_from_file_location("decided_convention_corrections", Path(__file__).with_name("convention_corrections.py"))
 convention_corrections = importlib.util.module_from_spec(_convention_spec)
 _convention_spec.loader.exec_module(convention_corrections)
+_classification_spec = importlib.util.spec_from_file_location("seven_pair_classification", Path(__file__).with_name("all_classification.py"))
+all_classification = importlib.util.module_from_spec(_classification_spec)
+_classification_spec.loader.exec_module(all_classification)
 
 
 def canonical(value):
@@ -1684,8 +1687,10 @@ def make(include_situations=True):
         report["uncertainContentCorrections"] = uncertain_content_summary
         outputs, convention_summary = convention_corrections.apply_to_outputs(ROOT, outputs, report)
         report["conventionCorrections"] = convention_summary
+        outputs, classification_summary = all_classification.apply_to_outputs(ROOT, outputs, report, sequences)
+        report["allClassification"] = classification_summary
         for transport in report["reviewTransports"]:
-            transport["fileSha256"] = convention_summary["transportSha256ByPair"][transport["pair"]]
+            transport["fileSha256"] = classification_summary["runtimeSha256ByPath"]["melunga_deploy/" + transport["path"]]
         report["manifestSha256"] = sha(json.loads(outputs[OUTPUT / "manifest.json"]))
     # include_situations=False is the source-exact historical baseline used by
     # validate_situation_drafts.py. It is not a served runtime edition and has
@@ -1696,6 +1701,7 @@ def make(include_situations=True):
 
 def markdown(report):
     checks = report["checks"]
+    historical_checks = report.get("historicalSourceChecksBeforeClassification", {}).get("checks", checks)
     counts = checks["contentTypeCounts"]
     lines = ["# Classement éditorial L1–L10 — proposition à relire", "",
         "Les thèmes de situation et les rubriques de vocabulaire figurent dans la même grille, sans nouvel écran de sélection. Une situation ne présente que des phrases ou répliques communicatives entières. Les mots, groupes lexicaux et nombres isolés se pratiquent dans leurs rubriques dédiées. Les modèles ouverts et les cas incertains sont conservés dans une réserve de revue, hors entraînement.", "",
@@ -1765,7 +1771,7 @@ def markdown(report):
                 f"Les dix-huit pistes supplémentaires ajoutent des échanges avec **{checks['receivedUsageCount']} répliques reçues**, dont **{checks['newReceivedAuthoredModels']} modèles entiers réellement rédigés pour l’écoute** et **{checks['receivedExistingConversationImports']} imports conversation réservés à l’écoute**. Les autres usages reçus réemploient un canonique existant sans le déplacer. Les reçus ont un rôle explicite, `analyse: false`, et une liste `answerWith` explicite ; les clôtures portent `answerWith: []`.", "",
                 f"Une question est entendue immédiatement avant le rappel de sa réponse, après les étapes comprendre et imiter réellement inscrites ; la clôture vient immédiatement après la réponse. Ces **{checks['receivedStepCount']} étapes d’écoute** sont exclues du compteur et des mesures de production. Le niveau de première écoute ne déplace pas le niveau de première production d’une source existante.", "",
                 f"Les modules déclarent **{checks['lexicalSupportUses']} références de soutien lexical**, dont **{checks['newSituationAuthoredLexicalSupports']} mots réellement rédigés** et **{checks['newSituationImportedLexicalSupports']} imports lexicaux entiers**. Les mots se trouvent dans leurs familles dédiées ; aucun n’est introduit en exercice de phrase et aucun ne gonfle les huit intentions du module.", "",
-                f"Le verrou additif conserve les **{checks['previousCanonicalTuplesAndSourcesIntact']} tuples et sources du lot antérieur**, les **{checks['protectedPreviousCanonicalLocationsIntact']} premiers emplacements protégés** et les **{checks['protectedOriginalSituationThemesIntact']} thèmes initiaux**. Les nouvelles aides entières de production, de réception et de vocabulaire restent à relire par Claude ; cette conservation n’est pas une validation pédagogique ou native.", ""])
+                ("Avant le classement des objets corrigés, " if report.get("allClassification") else "") + f"Le verrou additif conserve les **{historical_checks['previousCanonicalTuplesAndSourcesIntact']} tuples et sources du lot antérieur**, les **{historical_checks['protectedPreviousCanonicalLocationsIntact']} premiers emplacements protégés** et les **{historical_checks['protectedOriginalSituationThemesIntact']} thèmes initiaux**. Les nouvelles aides entières de production, de réception et de vocabulaire restent à relire par Claude ; cette conservation n’est pas une validation pédagogique ou native.", ""])
         lines.extend(["Dans ces rubriques de situation, les intentions 01 à 08 définissent l’ordre global : sources contextuelles et nouvelles premières rencontres restent mélangées à leur place. Le générateur ne repousse pas une conclusion au début sous prétexte qu’elle est réemployée. Les préparations structurelles explicites précèdent leur cible. La règle de révisions en amont reste applicable aux rubriques historiques, pas à ce nouveau déroulé de contexte.", ""])
     lines.extend(["", "## Réemploi de sources existantes", "",
         f"Phrases existantes importées depuis des variantes entières de conversation : **{checks['importedExistingPhrases']}**, avec **{checks['importedSourceFieldComparisons']} champs** copiés. Candidats exclus en attendant une décision sur l’aide ou le sens : **{checks['excludedEnrichmentCandidates']}**. Ces imports restent des copies entières.", "",
@@ -1850,6 +1856,25 @@ def markdown(report):
             "L’erratum batchim d5ad5e4 remplace cinq après entiers, sans changer leurs avant : 꽃잎 reçoit « kkon-nip », 알약 reçoit « al-lyak », et les trois cartes 하마터면 큰일 날 뻔했어요. reçoivent « ha-ma-to-myon keun-nil nal ppon-hè-sso-yo ». Aucun de ces cinq événements ne reste en attente. Les lignes exécutables citent 2 122 références de preuve.", "",
             "Les 69 suggestions notApplied restent exclues ; trois de leurs cartes conservent uniquement la glose approuvée dans la couche de contenu précédente. Aucune règle du convertisseur n’est exécutée ou étendue. Les mentions historiques de conventions non appliquées ci-dessus décrivent l’état de chaque lot avant cette couche. L’application de ces littéraux figés ne vaut pas validation native ou phonétique globale.", "",
             f"Empreinte du registre : `{conventions['registrySha256']}` ; preuves sources 68031b7, erratum de contenu 4247ca4 et erratum batchim d5ad5e4.", ""])
+    classification = report.get("allClassification")
+    if classification:
+        lines[2] = ("Les thèmes de situation et les rubriques de vocabulaire figurent dans la même grille, sans nouvel écran de sélection. "
+            "Le classement conserve le type de chaque carte ; les thèmes devenus mixtes et leurs cartes sont déclarés précisément dans le descripteur. "
+            "Les mini-scènes gardent leurs huit intentions d’origine ; les cartes entrantes se pratiquent ensuite selon leur type, sans transformer un mot en phrase. "
+            "Les modèles ouverts et les cas réservés restent hors production.")
+        pairs = classification["pairs"]
+        lines.extend(["## Classement des sept couples après les corrections", "",
+            "Les trois lots sont composés dans cet ordre : contenu tranché, conventions, puis classement. Les expectedBefore de classement restent vérifiés contre 13f42b5 ; les objets actuellement corrigés viennent du main approuvé d30c1c9 et sont conservés entiers.", "",
+            f"**{classification['counts']['cards']} opérations** : {classification['counts']['move']} déplacements, dont {classification['counts']['levelChanges']} changements de niveau déclarés, {classification['counts']['to-reserve']} opérations de réserve et {classification['counts']['keep']} maintiens. "
+            f"Les {classification['reserveOperationsAlreadyReserved']} cartes déjà réservées ne sont pas copiées une seconde fois ; les 29 thèmes masqués apportent {classification['hiddenThemeAdditionalReserves']} réserves supplémentaires. "
+            f"Le gain net est {classification['actualNewReserves']}, de {classification['reservedBefore']} à {classification['reservedAfter']} cartes en réserve, sur {classification['canonicalPhrasesRetained']} canoniques conservés.", "",
+            f"Neuf nouveaux thèmes, cinq titres renommés, {sum(len(p['mixedThemes']) for p in pairs)} thèmes mixtes explicites et {sum(len(p['smallThemeExceptions']) for p in pairs)} petits thèmes non vides signalés. "
+            f"Les {sum(len(p['largeThemes']) for p in pairs)} thèmes au-delà de 100 présentations restent identifiables dans le descripteur ; les groupes de pratique restent limités à cinq cartes.", "",
+            f"Les mini-scènes gardent toutes leurs étapes d’origine ; {checks['classificationAppendedSituationPhrases']} cartes supplémentaires se pratiquent après ce noyau, avec les alias de contexte et l’extension lexicale italienne déclarés séparément. "
+            "Les reçus gardent leurs rôles d’écoute et n’entrent pas dans la production.", "",
+            "Les sept registres exacts, les 33 réserves de masquage, les six niveaux d’arrivée explicites en réserve, les alias et les empreintes figées sont détaillés dans [le contrat d’application](classement-sept-couples/registre/README.md). "
+            "Les [visuels des neuf nouveaux thèmes](classement-sept-couples/visuels.md) réemploient des cadrages existants.", "",
+            "Par rapport à l’édition approuvée après contenu et conventions, les textes, aides, lectures, types, sources, niveaux source et annotations précédentes restent identiques. Cette couche ne change ni les droits ni les prix et ne constitue pas une approbation de publication.", ""])
     return "\n".join(lines)
 
 

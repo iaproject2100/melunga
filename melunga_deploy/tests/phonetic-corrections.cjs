@@ -227,6 +227,8 @@ if (require.main === module) {
       res.setHeader('Content-Type', ({'.html':'text/html', '.js':'text/javascript', '.json':'application/json', '.css':'text/css'})[path.extname(file)] || 'application/octet-stream');
       // This server is a historical inverse fixture, validated against actual bytes first.
       if (file.includes('/content/niveaux-progressifs/')) return res.end(uncertainContent.beforeBytes(file));
+      // Historical fixture assets are exposed only after the current A/B/C edition is verified.
+      if (['maquette-guidee.js', 'parcours-niveaux.html', 'maquette-guidee.html'].includes(path.relative(WEB, file))) return res.end(uncertainContent.beforeAssetBytes(file));
       fs.createReadStream(file).pipe(res);
     });
     await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));

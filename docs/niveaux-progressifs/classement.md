@@ -1,6 +1,6 @@
 # Classement éditorial L1–L10 — proposition à relire
 
-Les thèmes de situation et les rubriques de vocabulaire figurent dans la même grille, sans nouvel écran de sélection. Une situation ne présente que des phrases ou répliques communicatives entières. Les mots, groupes lexicaux et nombres isolés se pratiquent dans leurs rubriques dédiées. Les modèles ouverts et les cas incertains sont conservés dans une réserve de revue, hors entraînement.
+Les thèmes de situation et les rubriques de vocabulaire figurent dans la même grille, sans nouvel écran de sélection. Le classement conserve le type de chaque carte ; les thèmes devenus mixtes et leurs cartes sont déclarés précisément dans le descripteur. Les mini-scènes gardent leurs huit intentions d’origine ; les cartes entrantes se pratiquent ensuite selon leur type, sans transformer un mot en phrase. Les modèles ouverts et les cas réservés restent hors production.
 
 **32115 cartes du catalogue** sont conservées exactement une fois, entre rubriques actives et réserve ; **110277 champs** sont vérifiés identiques aux sources avant application des couches figées d’aides, de lectures et de contenu tracées ci-dessous. Les identités source restent intactes ; les champs corrigés sont déclarés séparément, sans prétendre qu’ils figuraient dans la source originale. Les **2134 cartes historiquement lv1** restent présentes avec leur niveau source. Les droits de l’application classique sont inchangés.
 
@@ -16,7 +16,7 @@ Le lot comporte **1420 décisions explicites** de placement. Les **30695 autres 
 | Modèles incomplets | 495 | Réserve, aucune étape |
 | Cas à revoir | 367 | Réserve, aucune étape |
 
-Total canonique : **33654** ; contenu canonique hors réserve : **32792** ; réserve : **862**. Parmi les contenus hors réserve, **32792** sont présentés dans les thèmes et **0** restent dans **0 thèmes en attente de consolidation**, accessibles à l’inventaire. Aucun thème de moins de six concepts n’est publié comme une petite leçon complète.
+Total canonique : **33654** ; contenu canonique hors réserve : **32448** ; réserve : **1206**. Parmi les contenus hors réserve, **32448** sont présentés dans les thèmes et **0** restent dans **0 thèmes en attente de consolidation**, accessibles à l’inventaire. Aucun thème de moins de six concepts n’est publié comme une petite leçon complète.
 
 Les sept partitions s’appuient sur des indices et une empreinte du deck source. Elles distinguent la fonction communicative du lexème : Bonjour, Merci ou Oui peuvent former une réplique entière ; un groupe lexical de plusieurs mots peut rester du vocabulaire. Le nombre de mots, la ponctuation et la catégorie source ne constituent pas à eux seuls ce jugement. Les classements candidats et leurs raisons restent exposés pour revue. Les familles lexicales déduites de signaux ou de l’ancien domaine sont aussi des propositions, sans prétention de relecture exhaustive.
 
@@ -24,13 +24,13 @@ Les sept partitions s’appuient sur des indices et une empreinte du deck source
 
 | Couple | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | Réserve | Canonique |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| fr-en | 389 | 570 | 749 | 529 | 711 | 484 | 444 | 308 | 173 | 222 | 125 | 4704 |
-| fr-es | 343 | 672 | 574 | 603 | 601 | 504 | 472 | 436 | 315 | 276 | 163 | 4959 |
-| fr-it | 395 | 585 | 589 | 642 | 676 | 401 | 396 | 396 | 235 | 256 | 149 | 4720 |
-| fr-zh | 307 | 606 | 614 | 706 | 682 | 516 | 459 | 525 | 296 | 307 | 92 | 5110 |
-| fr-ja | 365 | 592 | 572 | 653 | 690 | 430 | 503 | 331 | 229 | 247 | 115 | 4727 |
-| fr-ko | 363 | 505 | 571 | 627 | 709 | 449 | 513 | 409 | 240 | 261 | 87 | 4734 |
-| zh-fr | 335 | 592 | 678 | 615 | 682 | 422 | 416 | 378 | 225 | 226 | 131 | 4700 |
+| fr-en | 396 | 595 | 775 | 477 | 712 | 461 | 437 | 312 | 153 | 220 | 166 | 4704 |
+| fr-es | 353 | 676 | 580 | 607 | 599 | 501 | 462 | 437 | 295 | 276 | 173 | 4959 |
+| fr-it | 401 | 585 | 585 | 645 | 679 | 400 | 389 | 372 | 217 | 248 | 199 | 4720 |
+| fr-zh | 314 | 644 | 608 | 660 | 675 | 499 | 446 | 542 | 284 | 342 | 96 | 5110 |
+| fr-ja | 361 | 591 | 571 | 650 | 696 | 431 | 490 | 292 | 184 | 244 | 217 | 4727 |
+| fr-ko | 371 | 482 | 564 | 622 | 703 | 448 | 501 | 399 | 205 | 249 | 190 | 4734 |
+| zh-fr | 344 | 601 | 689 | 618 | 671 | 405 | 397 | 374 | 222 | 214 | 165 | 4700 |
 
 ## Corrections phonétiques après validation des sources
 
@@ -98,7 +98,7 @@ Empreinte du registre de contenu : `ef394ba1007bc474ca98cc4a166cc680d185ad824c89
 
 Les **1257 nouvelles aides entières** restent `pending-Claude`. Les 140 entrées du lot précédent sont inchangées et comptées séparément. Les recherches de doublons portent aussi sur l’index portable des 70 conversations : espaces, ponctuation et casse ne suffisent jamais à faire une nouvelle forme ; aucun champ source n’est normalisé à l’affichage.
 
-**109 réemplois contextuels** conservent l’identifiant, les champs et le premier emplacement canoniques. Une première rencontre au même niveau est autorisée, avec compréhension, imitation et rappel ici ; elle ne suppose aucune acquisition antérieure. Les sources plus tardives ne sont introduites plus tôt que par une décision explicite, tracée sans modifier leur niveau d’accès d’origine.
+**105 réemplois contextuels** conservent l’identifiant, les champs et le premier emplacement canoniques. Une première rencontre au même niveau est autorisée, avec compréhension, imitation et rappel ici ; elle ne suppose aucune acquisition antérieure. Les sources plus tardives ne sont introduites plus tôt que par une décision explicite, tracée sans modifier leur niveau d’accès d’origine.
 
 Les dix-huit pistes supplémentaires ajoutent des échanges avec **259 répliques reçues**, dont **219 modèles entiers réellement rédigés pour l’écoute** et **1 imports conversation réservés à l’écoute**. Les autres usages reçus réemploient un canonique existant sans le déplacer. Les reçus ont un rôle explicite, `analyse: false`, et une liste `answerWith` explicite ; les clôtures portent `answerWith: []`.
 
@@ -106,7 +106,7 @@ Une question est entendue immédiatement avant le rappel de sa réponse, après 
 
 Les modules déclarent **252 références de soutien lexical**, dont **53 mots réellement rédigés** et **4 imports lexicaux entiers**. Les mots se trouvent dans leurs familles dédiées ; aucun n’est introduit en exercice de phrase et aucun ne gonfle les huit intentions du module.
 
-Le verrou additif conserve les **32779 tuples et sources du lot antérieur**, les **700 premiers emplacements protégés** et les **70 thèmes initiaux**. Les nouvelles aides entières de production, de réception et de vocabulaire restent à relire par Claude ; cette conservation n’est pas une validation pédagogique ou native.
+Avant le classement des objets corrigés, Le verrou additif conserve les **32779 tuples et sources du lot antérieur**, les **700 premiers emplacements protégés** et les **70 thèmes initiaux**. Les nouvelles aides entières de production, de réception et de vocabulaire restent à relire par Claude ; cette conservation n’est pas une validation pédagogique ou native.
 
 Dans ces rubriques de situation, les intentions 01 à 08 définissent l’ordre global : sources contextuelles et nouvelles premières rencontres restent mélangées à leur place. Le générateur ne repousse pas une conclusion au début sous prétexte qu’elle est réemployée. Les préparations structurelles explicites précèdent leur cible. La règle de révisions en amont reste applicable aux rubriques historiques, pas à ce nouveau déroulé de contexte.
 
@@ -123,7 +123,7 @@ Compléments distincts : **30 introductions supplémentaires**, **8 localisateur
 
 ## Densité et révisions sourcées
 
-Les thèmes visibles réunissent **40290 présentations**, dont **7389 révisions référencées**. Une même source reste une seule carte canonique. Les banques de transport contiennent **2021 copies de sources reprises sélectionnées**, vérifiables contre leur première cellule et marquées `referenceOnly` ; elles ne créent ni nouvelle carte ni nouvelle première rencontre.
+Les thèmes visibles réunissent **39822 présentations**, dont **7269 révisions référencées**. Une même source reste une seule carte canonique. Les banques de transport contiennent **2021 copies de sources reprises sélectionnées**, vérifiables contre leur première cellule et marquées `referenceOnly` ; elles ne créent ni nouvelle carte ni nouvelle première rencontre.
 
 Chaque révision conserve la même famille et le même type, et sa première rencontre est strictement antérieure. Une source en attente de consolidation n’est jamais prétendue déjà présentée. Adjectifs et Couleurs constituent des répertoires cumulatifs explicites ; les autres thèmes reprennent le complément antérieur pertinent. Les révisions sont d’abord réactivées, avec leur rappel, puis viennent les nouveautés dans leurs propres groupes. Dans chacun des deux blocs, les adjectifs privilégient grand, petit, gros, beau, léger, lourd, triste, heureux, en regroupant les variantes de concept déclarées ; un prérequis topologique reste prioritaire. Les nombres suivent numberOrder, le niveau de première rencontre ne départageant que les égalités. Les autres révisions suivent leur première rencontre croissante. Ce déroulé ne prouve pas l’acquisition. Nouveautés, révisions et concepts distincts sont comptés séparément ; les variantes explicitement liées au même concept ne gonflent pas le seuil pédagogique.
 
@@ -135,11 +135,11 @@ Les groupes internes comptent au maximum cinq expressions primaires et s’encha
 
 Parmi les **360 marqueurs source de modèle**, **11 faux marqueurs** ont une exception explicite approuvée par indice : entrées lexicales bornées ou formules conventionnelles complètes. Leur source reste intacte ; leur statut n’autorise aucune phrase fabriquée à partir d’un mot.
 
-Le graphe déclare **418 liens** : **295 liens entre répliques entières**, **68 liens lexicaux**, **45 liens touchant la réserve**, **0 liens touchant un contenu en attente de consolidation** et **10 liens entre d’autres types, non clos et à revoir**. Les supports lexicaux admissibles sont référencés par **56 `reuseVocabularyIds`** canoniques, au même niveau ou à un niveau antérieur documenté. Aucun mot ni nombre de ces références n’est inséré dans les étapes de situation.
+Le graphe déclare **418 liens** : **295 liens entre répliques entières**, **68 liens lexicaux**, **48 liens touchant la réserve**, **0 liens touchant un contenu en attente de consolidation** et **7 liens entre d’autres types, non clos et à revoir**. Les supports lexicaux admissibles sont référencés par **56 `reuseVocabularyIds`** canoniques, au même niveau ou à un niveau antérieur documenté. Aucun mot ni nombre de ces références n’est inséré dans les étapes de situation.
 
 Les reprises locales entre phrases entières ajoutent **15 références**, soit **30 étapes** de compréhension et d’imitation. Elles ne recopient pas la carte et n’augmentent pas le compteur primaire. Liens structurels sans fermeture de l’ordre éditorial : **0**. La fermeture globale vaut **false** ; les références lexicales prévues et les liens vers réserve ne sont pas présentés comme une préparation accomplie.
 
-Les deux compteurs de position et de reprise ont des périmètres différents : `plannedPrerequisitesNotEarlier` compte **31 liens** dont le prérequis ne précède pas la cible dans l’ordre canonique ; `plannedPrerequisitesWithoutEarlierPresentation` compte **403 liens** sans reprise locale explicitement insérée, y compris des prérequis déjà antérieurs dans l’ordre prévu. Ils ne mesurent pas l’acquisition et ne sont pas interchangeables.
+Les deux compteurs de position et de reprise ont des périmètres différents : `plannedPrerequisitesNotEarlier` compte **33 liens** dont le prérequis ne précède pas la cible dans l’ordre canonique ; `plannedPrerequisitesWithoutEarlierPresentation` compte **403 liens** sans reprise locale explicitement insérée, y compris des prérequis déjà antérieurs dans l’ordre prévu. Ils ne mesurent pas l’acquisition et ne sont pas interchangeables.
 
 L’ordre entre thèmes reste libre. Un emplacement antérieur est un rendez-vous éditorial prévu, pas la preuve que la personne l’a parcouru ou acquis. Les étapes réellement ajoutées, les liens lexicaux, les réserves et les écarts sont détaillés séparément dans le JSON de rapport. Un cycle du graphe complet fait échouer la génération. Les dépendances à une source réservée restent des écarts explicites ; elles ne réintroduisent aucun modèle incomplet dans une leçon.
 
@@ -249,3 +249,17 @@ L’erratum batchim d5ad5e4 remplace cinq après entiers, sans changer leurs ava
 Les 69 suggestions notApplied restent exclues ; trois de leurs cartes conservent uniquement la glose approuvée dans la couche de contenu précédente. Aucune règle du convertisseur n’est exécutée ou étendue. Les mentions historiques de conventions non appliquées ci-dessus décrivent l’état de chaque lot avant cette couche. L’application de ces littéraux figés ne vaut pas validation native ou phonétique globale.
 
 Empreinte du registre : `3058f970810166d471607251a2544cb7cdb73e50422794a8bbbedbd613b62705` ; preuves sources 68031b7, erratum de contenu 4247ca4 et erratum batchim d5ad5e4.
+
+## Classement des sept couples après les corrections
+
+Les trois lots sont composés dans cet ordre : contenu tranché, conventions, puis classement. Les expectedBefore de classement restent vérifiés contre 13f42b5 ; les objets actuellement corrigés viennent du main approuvé d30c1c9 et sont conservés entiers.
+
+**2906 opérations** : 2532 déplacements, dont 622 changements de niveau déclarés, 318 opérations de réserve et 56 maintiens. Les 7 cartes déjà réservées ne sont pas copiées une seconde fois ; les 29 thèmes masqués apportent 33 réserves supplémentaires. Le gain net est 344, de 862 à 1206 cartes en réserve, sur 33654 canoniques conservés.
+
+Neuf nouveaux thèmes, cinq titres renommés, 58 thèmes mixtes explicites et 72 petits thèmes non vides signalés. Les 67 thèmes au-delà de 100 présentations restent identifiables dans le descripteur ; les groupes de pratique restent limités à cinq cartes.
+
+Les mini-scènes gardent toutes leurs étapes d’origine ; 163 cartes supplémentaires se pratiquent après ce noyau, avec les alias de contexte et l’extension lexicale italienne déclarés séparément. Les reçus gardent leurs rôles d’écoute et n’entrent pas dans la production.
+
+Les sept registres exacts, les 33 réserves de masquage, les six niveaux d’arrivée explicites en réserve, les alias et les empreintes figées sont détaillés dans [le contrat d’application](classement-sept-couples/registre/README.md). Les [visuels des neuf nouveaux thèmes](classement-sept-couples/visuels.md) réemploient des cadrages existants.
+
+Par rapport à l’édition approuvée après contenu et conventions, les textes, aides, lectures, types, sources, niveaux source et annotations précédentes restent identiques. Cette couche ne change ni les droits ni les prix et ne constitue pas une approbation de publication.

@@ -163,13 +163,23 @@ function assertOwnContent(pack, projectedBankHashes) {
   expectedManifest.uncertainContentCorrections = declaration;
   for (const pair of expectedManifest.pairs) pair.repertoireSha256 = projectedBankHashes ? projectedBankHashes['melunga_deploy/' + pair.repertoirePath] : hash(fs.readFileSync(path.join(WEB, pair.repertoirePath)));
   assert.deepEqual(pack[PREFIX + 'manifest.json'], expectedManifest, 'only finite content declaration and actual bank hashes');
-  for (const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html','content/maquette-guidee.json']) assert.ok(fs.readFileSync(path.join(WEB, filename)).equals(baselineBytes('melunga_deploy/' + filename)), 'classic/UI/prices/free access remains byte-for-byte unchanged');
+  for (const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html','content/maquette-guidee.json']) {const file='melunga_deploy/'+filename; const bytes=rawRead(PREFIX+'manifest.json').allClassification?require('./all-classification.cjs').beforeAssetBytes(file):fs.readFileSync(path.join(WEB,filename));assert.ok(bytes.equals(baselineBytes(file)), 'classic/prices/free access unchanged; any classification-only UI difference separately frozen');}
   return {events: 637, glosses: 478, blocks: 159, objects: 654, fields: 887, profiles, fieldOccurrences: fields, metadataChanges: 7, recountedThemes, wholeDocuments: 78};
 }
 let projectedCache;
 function ensureProjection() {
   if (projectedCache) return projectedCache;
   const actual = actualPack();
+  if(actual[PREFIX+'manifest.json'].allClassification){
+    const classification=require('./all-classification.cjs').ensureProjection();
+    assert.deepEqual(actual,classification.actual,'the same complete actual edition enters the outer classification proof');
+    const contentActual=classification.beforeConventions;
+    const bankHashes=Object.fromEntries(contentActual[PREFIX+'manifest.json'].pairs.map(pair=>['melunga_deploy/'+pair.repertoirePath,pair.repertoireSha256]));
+    const summary=assertOwnContent(contentActual,bankHashes);
+    assert.equal(hash(fs.readFileSync(path.join(ROOT,CHECKER))),CHECKER_SHA,'the content proof checker is still frozen');
+    projectedCache={actual,contentActual,documents:classification.documents,fingerprints:classification.fingerprints,phraseCandidates:classification.phraseCandidates,summary:{...summary,independent:classification.summary.independent,classification:classification.summary}};
+    return projectedCache;
+  }
   // C proves current whole objects and its exact B inverse before B source checks.
   const conventions = actual[PREFIX + 'manifest.json'].conventionCorrections ? require('./convention-corrections.cjs').ensureProjection() : null;
   if (conventions) assert.deepEqual(actual, conventions.actual, 'the same actual C documents enter both independent layers');
@@ -202,9 +212,14 @@ function beforeRead(filename, document) {
   else assert.deepEqual(document, state.actual[filename], 'mutated input cannot be concealed by a historical projection');
   return clone(state.documents[filename]);
 }
+function beforeAssetBytes(filename){
+  filename=relative(filename);
+  if(rawRead(PREFIX+'manifest.json').allClassification)return require('./all-classification.cjs').beforeAssetBytes(filename);
+  return fs.readFileSync(path.join(ROOT,filename));
+}
 function beforeBytes(filename) {
   filename = relative(filename);
-  if (!filename.startsWith(PREFIX)) return fs.readFileSync(path.join(ROOT, filename));
+  if (!filename.startsWith(PREFIX)) return beforeAssetBytes(filename);
   const state = ensureProjection(); assert.equal(hash(fs.readFileSync(path.join(ROOT, filename))), state.fingerprints[filename]);
   return baselineBytes(filename);
 }
@@ -215,9 +230,9 @@ function projectPhrase(pair, phrase) {
   for (const [actual, before] of candidates) if (isDeepStrictEqual(phrase, actual) || isDeepStrictEqual(phrase, before)) return clone(before);
   throw new Error('An unvalidated content tuple cannot be hidden: ' + pair + '/' + phrase.id);
 }
-function inputFiles() {return [...(rawRead(PREFIX + 'manifest.json').conventionCorrections ? require('./convention-corrections.cjs').inputFiles() : []), __filename, path.join(ROOT, REGISTRY), path.join(ROOT, CHECKER), ...loadLedger().registry.evidenceFiles.map(f => path.join(ROOT, f.path)), path.join(ROOT, DIRECTORY + 'exceptions-contenu-tranche.json'), ...['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html','content/maquette-guidee.json'].map(f => path.join(WEB,f)), ...Object.keys(actualPack()).map(f => path.join(ROOT, f))];}
+function inputFiles() {return [...(rawRead(PREFIX+'manifest.json').allClassification?require('./all-classification.cjs').inputFiles():[]), ...(rawRead(PREFIX + 'manifest.json').conventionCorrections ? require('./convention-corrections.cjs').inputFiles() : []), __filename, path.join(ROOT, REGISTRY), path.join(ROOT, CHECKER), ...loadLedger().registry.evidenceFiles.map(f => path.join(ROOT, f.path)), path.join(ROOT, DIRECTORY + 'exceptions-contenu-tranche.json'), ...['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html','content/maquette-guidee.json'].map(f => path.join(WEB,f)), ...Object.keys(actualPack()).map(f => path.join(ROOT, f))];}
 function auditRuntime() {return ensureProjection().summary;}
-module.exports = {loadLedger, baseline, rawRead, actualPack, assertOwnContent, beforeRead, beforeBytes, projectPhrase, inputFiles, auditRuntime, ensureProjection};
+module.exports = {loadLedger, baseline, rawRead, actualPack, assertOwnContent, beforeRead, beforeBytes, beforeAssetBytes, projectPhrase, inputFiles, auditRuntime, ensureProjection};
 
 if (require.main === module) {
   const {test, before, after} = require('node:test'), http = require('node:http');
@@ -251,13 +266,15 @@ if (require.main === module) {
     const audit = loadLedger(), pack = ensureProjection().actual, result = [];
     for (const pair of pack[PREFIX + 'manifest.json'].pairs) {
       const bank = pack['melunga_deploy/' + pair.repertoirePath], models = new Map([...bank.phrases, ...(bank.receivedModels || [])].map(p => [p.id, p]));
+      const receivedModels=new Map((bank.receivedModels||[]).map(p=>[p.id,p]));
+      const canonical=new Map(pair.levels.flatMap(level=>{const cell=pack['melunga_deploy/'+level.dataPath];return[...cell.themes,...(cell.heldThemes||[])].flatMap(t=>t.phrases).concat(cell.reserve||[]);}).map(p=>[p.id,p]));
       for (const level of pair.levels) {
         const cell = pack['melunga_deploy/' + level.dataPath];
         for (const [themeIndex, theme] of cell.themes.entries()) {
           for (const phrase of theme.phrases) models.set(phrase.id, phrase);
           for (const [stepIndex, step] of theme.sequences.flatMap(s => s.steps).entries()) {
             const entry = audit.entries.get(key(pair.id, step.utterance));
-            if (entry) {assert.ok(models.has(step.utterance)); result.push({pairId: pair.id, studyLanguage: pair.studyLanguage, level: level.level, themeIndex, stepIndex, step, entry, phrase: models.get(step.utterance)});}
+            if (entry) {const phrase=step.kind==='receive'?receivedModels.get(step.utterance):canonical.get(step.utterance)||models.get(step.utterance);assert.ok(phrase,'real current model '+pair.id+'/'+step.utterance+'/'+step.kind); result.push({pairId: pair.id, studyLanguage: pair.studyLanguage, level: level.level, themeIndex, stepIndex, step, entry, phrase});}
           }
         }
       }
@@ -267,7 +284,7 @@ if (require.main === module) {
   test('637 whole accepted events, 654 objects and 887 fields preserve every complete runtime document', () => {
     const audit = auditRuntime(); assert.equal(audit.events, 637); assert.equal(audit.objects, 654); assert.equal(audit.fields, 887);
     const pack = ensureProjection().actual, source = loadLedger().events[211];
-    const held = at(pack[source.occurrence.path], source.occurrence.location);
+    const held = at(ensureProjection().contentActual[source.occurrence.path], source.occurrence.location); // Source withdrawal tested in the verified B view; routing is tested on actual A below.
     assert.deepEqual(held, at(baseline(source.occurrence.path), source.occurrence.location), 'withdrawn Italian tuple remains completely unchanged');
     assert.equal(held.study, 'Si guadagna bene da vivere.');
     const protectedIds = new Set(); let received = 0, steps = 0;
@@ -362,13 +379,17 @@ if (require.main === module) {
     const all = fixtures(), selected = new Map();
     for (const target of all) if (target.entry.kind === 'bloc' && ['understand','receive'].includes(target.step.kind) && !selected.has(key(target.pairId, target.entry.id))) selected.set(key(target.pairId, target.entry.id), target);
     const blocks = [...selected.values()];
-    const reservedBlocks = loadLedger().registry.corrections.filter(e => e.kind === 'bloc' && e.occurrences.some(o => o.location[0] === 'reserve'));
-    const allBlockIds = loadLedger().registry.corrections.filter(e => e.kind === 'bloc' && !reservedBlocks.includes(e)).map(e => key(e.pairId,e.id));
-    assert.deepEqual([...selected.keys()].sort(), allBlockIds.sort(), 'every non-reserved accepted block reaches a real active or receive-only model');
-    report.activeCanonicalBlocks = blocks.filter(t => t.step.kind !== 'receive').length; report.receivedOnlyBlocks = blocks.filter(t => t.step.kind === 'receive').length; report.reservedBlocks = reservedBlocks.length;
-    assert.equal(blocks.length, 155); assert.equal(report.activeCanonicalBlocks, 154); assert.equal(report.receivedOnlyBlocks, 1); assert.equal(report.reservedBlocks, 4);
+    const pack=ensureProjection().actual, reservedIds=new Set();
+    for(const pair of pack[PREFIX+'manifest.json'].pairs)for(const level of pair.levels){const cell=pack['melunga_deploy/'+level.dataPath];for(const phrase of [...(cell.reserve||[]),...(cell.heldThemes||[]).flatMap(t=>t.phrases)])reservedIds.add(key(pair.id,phrase.id));}
+    const allBlocks=loadLedger().registry.corrections.filter(e=>e.kind==='bloc'),reservedBlocks=allBlocks.filter(e=>!selected.has(key(e.pairId,e.id)));
+    for(const entry of reservedBlocks)assert.ok(reservedIds.has(key(entry.pairId,entry.id)),'a non-displayed accepted block is retained in the exact current reserve');
+    assert.equal(allBlocks.length,159);assert.equal(blocks.length+reservedBlocks.length,159,'all accepted whole studies are either shown or explicitly reserved');
+    report.activeCanonicalBlocks=blocks.filter(t=>t.step.kind!=='receive').length;report.receivedOnlyBlocks=blocks.filter(t=>t.step.kind==='receive').length;report.reservedBlocks=reservedBlocks.length;
+    report.classificationActive=!!pack[PREFIX+'manifest.json'].allClassification;
+    if(!report.classificationActive){assert.equal(blocks.length,155);assert.equal(report.activeCanonicalBlocks,154);assert.equal(report.receivedOnlyBlocks,1);assert.equal(report.reservedBlocks,4);}
     // Longest native-only forms and every corrected receive-only model also get
-    // viewport checks, in addition to all 155 displayed changed studies.
+    // viewport checks, in addition to every displayed accepted changed study.
+    // Current classification reserves are counted explicitly, never silently skipped.
     for (const pair of new Set(all.map(t => t.pairId))) {
       const longest = all.filter(t => t.pairId === pair && t.entry.kind === 'glose' && ['understand','receive'].includes(t.step.kind)).sort((a,b) => b.phrase.native.length - a.phrase.native.length)[0]; if (longest) selected.set(key(longest.pairId,longest.entry.id),longest);
     }
