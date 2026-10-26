@@ -171,17 +171,18 @@ test('each level has its own colour and the dialog follows all three site ambien
   }finally{await f.context.close();}
 }));
 
-test('all ten menu entries remain reachable without passing behind its header', {timeout:90000},()=>checked('menu-scroll-and-reachability',async()=>{
+test('all nine menu entries remain reachable without passing behind its header', {timeout:90000},()=>checked('menu-scroll-and-reachability',async()=>{
   for(const size of sizes){
     const f=await fixture(size);
     try{
       const {page}=f;await opened(page,'#mgMenuTrigger','#mgMenuDialog');
       const b=await assertBounds(page,'#mgMenuDialog','menu '+JSON.stringify(size));
-      assert.equal(await page.locator('#mgMenuNav .mg-menu-item').count(),10);
+      assert.equal(await page.locator('#mgMenuNav .mg-menu-item').count(),9);
+      assert.equal(await page.locator('[data-menu-item="Toutes les leçons"]').count(),0,'removed menu entry remains absent');
       const scroll=page.locator('#mgMenuDialog .mg-menu-body');assert.equal(await scroll.count(),1,'header and scroll area are separate');
       const container=await scroll.evaluate(node=>({overflow:getComputedStyle(node).overflowY,scrollHeight:node.scrollHeight,clientHeight:node.clientHeight}));
       assert.ok(['auto','scroll'].includes(container.overflow),'menu body explicitly scrolls');
-      for(const index of [0,1,9])await reachable(page,'#mgMenuNav .mg-menu-item:nth-child('+(index+1)+')','#mgMenuDialog');
+      for(const index of [0,1,8])await reachable(page,'#mgMenuNav .mg-menu-item:nth-child('+(index+1)+')','#mgMenuDialog');
       await page.locator('#mgMenuClose').scrollIntoViewIfNeeded();
       const closeBox=await page.locator('#mgMenuClose').boundingBox();
       assert.ok(closeBox.y>=b.top&&closeBox.y+closeBox.height<=b.bottom,'close remains on screen at the end of the list');
@@ -237,7 +238,7 @@ test('Escape, focus return, switching dialogs and the legacy L1 menu remain usab
   try{
     assert.equal(await legacy.page.locator('#mgLevelTrigger').count(),0,'legacy L1 stays fixed at L1');
     await opened(legacy.page,'#mgMenuTrigger','#mgMenuDialog');
-    await reachable(legacy.page,'#mgMenuNav .mg-menu-item:nth-child(10)','#mgMenuDialog');
+    await reachable(legacy.page,'#mgMenuNav .mg-menu-item:nth-child(9)','#mgMenuDialog');
     await closeDialog(legacy.page,'#mgMenuDialog');
     report.cases.push({name:'keyboard-lifecycle-and-legacy'});
   }finally{await legacy.context.close();}
@@ -254,11 +255,11 @@ test('large text and viewport changes keep both dialog headers and last controls
     });
     await opened(page,'#mgMenuTrigger','#mgMenuDialog');
     await assertBounds(page,'#mgMenuDialog','menu at 200% text');
-    for(const index of [1,10])await reachable(page,'#mgMenuNav .mg-menu-item:nth-child('+index+')','#mgMenuDialog');
+    for(const index of [1,9])await reachable(page,'#mgMenuNav .mg-menu-item:nth-child('+index+')','#mgMenuDialog');
     await screenshot(page,'menu-large-text');
     await page.setViewportSize({width:844,height:390});
     await assertBounds(page,'#mgMenuDialog','resized landscape menu');
-    await reachable(page,'#mgMenuNav .mg-menu-item:nth-child(10)','#mgMenuDialog');
+    await reachable(page,'#mgMenuNav .mg-menu-item:nth-child(9)','#mgMenuDialog');
     await closeDialog(page,'#mgMenuDialog');
     await opened(page,'#mgLevelTrigger','#mgLevelDialog');
     await assertBounds(page,'#mgLevelDialog','large text landscape levels');
@@ -268,7 +269,7 @@ test('large text and viewport changes keep both dialog headers and last controls
     await page.setViewportSize({width:390,height:700});
     const cdp=await f.context.newCDPSession(page);
     for(const [trigger,dialog,last] of [
-      ['#mgMenuTrigger','#mgMenuDialog','#mgMenuNav .mg-menu-item:nth-child(10)'],
+      ['#mgMenuTrigger','#mgMenuDialog','#mgMenuNav .mg-menu-item:nth-child(9)'],
       ['#mgLevelTrigger','#mgLevelDialog','#mgLevelDialog button[data-level="10"]']
     ]){
       await opened(page,trigger,dialog);

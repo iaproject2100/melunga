@@ -1654,7 +1654,8 @@ test('L5 menu, three ambiences and minimum controls at all widths', {timeout: 60
       for (let i = 0; i < 3; i++) { ambiences.add(await page.locator('body').getAttribute('data-ambience')); await page.click('#mgPalette'); }
       assert.equal(ambiences.size, 3);
       await page.click('#mgMenuTrigger'); assert.equal(await page.locator('#mgMenuTrigger').getAttribute('aria-expanded'), 'true');
-      assert.equal(await page.locator('#mgMenuNav > *').count(), 10);
+      assert.equal(await page.locator('#mgMenuNav > *').count(), 9);
+      assert.equal(await page.locator('[data-menu-item="Toutes les leçons"]').count(), 0, 'removed all-lessons menu entry stays absent');
       assert.equal(await page.locator('[data-menu-item="À revoir"]').count(), 1, 'saved review joins the existing menu');
       const targets = await page.locator('#mgMenuNav > *').evaluateAll(nodes => nodes.map(node => ({
         label: node.textContent, width: node.getBoundingClientRect().width, height: node.getBoundingClientRect().height
