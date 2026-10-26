@@ -15,8 +15,11 @@
     feedbackForm: byId('mgFeedbackForm'), feedbackMessage: byId('mgFeedbackMessage'),
     feedbackEmail: byId('mgFeedbackEmail'), feedbackHp: byId('mgFeedbackHp'),
     feedbackSend: byId('mgFeedbackSend'), feedbackStatus: byId('mgFeedbackStatus'),
+    accountStatus: byId('mgAccountStatus'), accountBack: byId('mgAccountBack'),
+    accountLogout: byId('mgAccountLogout'), accountLogin: byId('mgAccountLogin'), accountError: byId('mgAccountError'),
     back: byId('mgBack'), backText: byId('mgBackText'),
-    counter: byId('mgCounter'), progress: byId('mgProgress'), content: byId('mgContent'),
+    counter: byId('mgCounter'), progress: byId('mgProgress'), progressTrack: byId('mgProgress').closest('.mg-progress'), content: byId('mgContent'),
+    levelPercent: byId('mgLevelPercent'), levelEnd: byId('mgLevelEnd'),
     loading: byId('mgLoading'), loadingText: byId('mgLoadingText'), retry: byId('mgRetry'),
     themeView: byId('mgThemeView'), themeGrid: byId('mgThemeGrid'),
     sequenceView: byId('mgSequenceView'), sequenceHeading: byId('mgSequenceHeading'),
@@ -37,11 +40,12 @@
     voiceChoices: new Map(), speechRate: 0.85, level: 1, requestedPair: null,
     loadGeneration: 0, request: null, levelCache: new Map(),
     referenceMap: new Map(), repertoireCache: new Map(), savedReview: [], readingPreferences: {},
-    deferredPhraseIds: new Set(), resumeGeneration: 0, allClassification: null, classificationOps: new Map()
+    deferredPhraseIds: new Set(), resumeGeneration: 0, allClassification: null, classificationOps: new Map(), accountLogoutPending: false
   };
   const courseAccess = window.MelungaCourseAccess;
   state.sourcePhraseMap = new Map();
   state.accessContextStepIds = new Set();
+  state.levelProgressIds = new Set();
   const canProduce = phrase => !ui.level || courseAccess?.canLearn(state.pair?.id, phrase, state.pair?.level) === true;
   const canShowCurrent = (step, phrase) => canProduce(phrase) || state.accessContextStepIds.has(step?.id)
     && (step?.kind === 'receive' || step?.isPreparation && step.kind === 'understand' && step.requiresProduction === false);
@@ -51,8 +55,11 @@
   }
   const reviewStorageKey = 'melunga-guided-review-v1';
   const readingStorageKey = 'melunga-guided-reading-v1';
+  const knownStorageKey = 'melunga-guided-known-v1';
+  const progressPairs = ['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr'];
   const cardMotion = { gesture: null, suppressClickUntil: 0, animationTimer: 0, toastTimer: 0, fitFrame: 0 };
   state.savedReview = loadSavedReview();
+  state.knownCards = loadKnownCards();
   try {
     const preferences = JSON.parse(localStorage.getItem(readingStorageKey) || '{}');
     if (preferences.version === 1 && preferences.pairs && typeof preferences.pairs === 'object') {
@@ -91,6 +98,12 @@
     'Réécouter': '再听一次', 'Rejouer': '再练一次', 'Séquence terminée': '本组已完成',
     'Thème terminé': '本主题已完成', 'Facultatif': '可选',
     'Abonnement': '订阅解锁', 'gratuits': '免费', 'Mon compte': '我的账户',
+    'Accès complet actif sur cet appareil.': '此设备可使用全部内容。',
+    'Aperçu de l’espace compte.': '账户页面预览。',
+    'Connecte-toi pour retrouver ton accès.': '登录以恢复访问权限。',
+    'Revenir aux leçons': '返回课程', 'Se déconnecter': '退出登录',
+    'Déconnexion en cours…': '正在退出…', 'Déconnexion impossible. Réessaie.': '暂时无法退出，请重试。',
+    'Se déconnecter ? Cet appareil sera verrouillé jusqu’à ta prochaine connexion.': '确定退出登录？此设备将被锁定，直到你重新登录。',
     'Révision terminée': '复习已完成',
     'À revoir': '待复习', 'Revoir': '复习', 'Retirer': '移除', 'Pinyin': '拼音',
     'Enregistré dans À revoir.': '已加入待复习。', 'Je connais.': '我会了。',
@@ -100,7 +113,8 @@
     'Ce contenu a été actualisé. Tu peux le retrouver dans les thèmes.': '内容已更新，可以在主题中重新查找。',
     'Menu': '菜单', 'Menu des rubriques': '栏目菜单', 'Rubriques': '栏目',
     'Revenir au menu': '返回菜单', 'Fermer le menu': '关闭菜单', 'Fermer les niveaux': '关闭级别选择',
-    'Accueil': '首页', 'Révisions et exercices': '复习与练习', 'Toutes les leçons': '所有课程',
+    'Cette progression ne peut pas être enregistrée. Réessaie avant de quitter cette page.': '无法保存学习进度。请在离开此页前重试。',
+    'Accueil': '首页', 'Révisions et exercices': '复习与练习', 'Toutes les leçons': '所有课程', 'Fin': '完成',
     'Voix': '语音', 'Couleur': '背景颜色', 'Comment ça marche': '使用方法',
     'Avis': '意见反馈', 'Se connecter / Créer un compte': '登录 / 注册账号',
     'Voix automatique': '自动选择语音', 'Vitesse de lecture': '语速',
@@ -190,12 +204,110 @@
   };
   const setStatus = message => text(ui.status, tr(message));
 
+  // Only an explicit “Je connais” decision counts. Source identity, not the
+  // number of appearances or lesson steps, makes a card unique in a level.
+  function collectLevelProgressIds(pair, models) {
+    const ids = new Set();
+    for (const theme of pair.themes) {
+      if (theme.isTemplate || theme.isTemplateCollection) continue;
+      for (const sequence of theme.sequences) for (const id of sequence.phraseIds) {
+        const phrase = models.get(id);
+        if (phrase && !phrase.isTemplate && phrase.kind !== 'received' && phrase.speaker !== 'B') ids.add(id);
+      }
+    }
+    return ids;
+  }
+
+  function levelProgress() {
+    const ids = state.levelProgressIds;
+    const knownIds = state.knownCards.get(state.pair?.id);
+    let known = 0;
+    for (const id of ids) if (knownIds?.has(id)) known += 1;
+    const total = ids.size;
+    const ratio = total ? known / total : 0;
+    // Integer labels never announce 100% while any card remains unknown.
+    return { known, total, ratio, percent: Math.floor(ratio * 100) };
+  }
+
+  function renderLevelProgress() {
+    if (!ui.level || !state.pair) return;
+    const summary = levelProgress();
+    const levelName = state.pair.nativeLanguage === 'zh'
+      ? '第 ' + state.pair.level + ' 级' : 'Niveau ' + state.pair.level;
+    const label = levelName + ' · ' + summary.percent + ' %';
+    text(ui.counter, 'L' + state.pair.level);
+    text(ui.levelPercent, summary.percent + ' %');
+    text(ui.levelEnd, tr('Fin'));
+    ui.progress.style.width = summary.ratio * 100 + '%';
+    ui.progressTrack.style.setProperty('--mg-level-ratio', summary.ratio * 100 + '%');
+    // Positive colour cues are presentation only; the known-card ratio above
+    // remains the sole source of progress and completion.
+    const stops = [[80, 214, 232], [112, 234, 173], [255, 216, 113]];
+    const stage = summary.ratio < 0.5 ? 0 : 1;
+    const blend = stage ? (summary.ratio - 0.5) * 2 : summary.ratio * 2;
+    const colour = stops[stage].map((channel, index) => Math.round(channel + (stops[stage + 1][index] - channel) * blend));
+    ui.progressTrack.style.setProperty('--mg-journey-colour', 'rgb(' + colour.join(', ') + ')');
+    ui.progressTrack.classList.toggle('is-complete', summary.known === summary.total && summary.total > 0);
+    ui.progressTrack.removeAttribute('aria-hidden');
+    ui.progressTrack.setAttribute('role', 'progressbar');
+    ui.progressTrack.setAttribute('aria-label', levelName);
+    ui.progressTrack.setAttribute('aria-valuemin', '0');
+    ui.progressTrack.setAttribute('aria-valuemax', '100');
+    ui.progressTrack.setAttribute('aria-valuenow', String(summary.ratio * 100));
+    ui.progressTrack.setAttribute('aria-valuetext', label);
+  }
+
+  function loadKnownCards() {
+    const pairs = new Map();
+    try {
+      const stored = JSON.parse(localStorage.getItem(knownStorageKey) || '{}');
+      if (stored.version !== 1 || !stored.pairs || typeof stored.pairs !== 'object' || Array.isArray(stored.pairs)) return pairs;
+      for (const pair of progressPairs) {
+        const values = stored.pairs[pair];
+        if (!Array.isArray(values)) continue;
+        pairs.set(pair, new Set(values.filter(id => typeof id === 'string' && id.length > 0 && id.length <= 512)));
+      }
+    } catch (_) { /* No prior decisions can be inferred from missing storage. */ }
+    return pairs;
+  }
+
+  function saveKnownCard(pairId, id, known) {
+    const pairs = loadKnownCards();
+    const ids = pairs.get(pairId) || new Set();
+    if (ids.has(id) === known) { state.knownCards = pairs; return true; }
+    if (known) ids.add(id); else ids.delete(id);
+    if (ids.size) pairs.set(pairId, ids); else pairs.delete(pairId);
+    try {
+      localStorage.setItem(knownStorageKey, JSON.stringify({ version: 1,
+        pairs: Object.fromEntries([...pairs].map(([pair, values]) => [pair, [...values]])) }));
+      state.knownCards = pairs;
+      return true;
+    } catch (_) {
+      setStatus('Cette progression ne peut pas être enregistrée. Réessaie avant de quitter cette page.');
+      return false;
+    }
+  }
+
+  function saveCardDecision(phrase, known, reviewEntries) {
+    if (!ui.level) return saveReviewEntries(reviewEntries);
+    const previousReview = state.savedReview;
+    const changed = previousReview.length !== reviewEntries.length
+      || previousReview.some((entry, index) => entry !== reviewEntries[index]);
+    if (changed && !saveReviewEntries(reviewEntries)) return false;
+    if (ui.level && !saveKnownCard(state.pair.id, phrase.id, known)) {
+      // Keep the prior reminder if the separate progress write is refused.
+      if (changed) saveReviewEntries(previousReview);
+      return false;
+    }
+    return true;
+  }
+
   const menuPanels = {
     voice: byId('mgVoicePanel'), review: byId('mgReviewPanel'),
     saved: byId('mgSavedReviewPanel'),
-    feedback: byId('mgFeedbackPanel'), info: byId('mgInfoPanel')
+    feedback: byId('mgFeedbackPanel'), info: byId('mgInfoPanel'), account: byId('mgAccountPanel')
   };
-  const menuTitles = { nav: 'Menu', voice: 'Voix', review: 'Révisions et exercices', saved: 'À revoir', feedback: 'Avis', info: 'Comment ça marche' };
+  const menuTitles = { nav: 'Menu', voice: 'Voix', review: 'Révisions et exercices', saved: 'À revoir', feedback: 'Avis', info: 'Comment ça marche', account: 'Mon compte' };
 
   function loadSavedReview() {
     try {
@@ -303,7 +415,7 @@
       themeId: inTheme ? state.theme.id : location?.themeId || originalTheme?.id || state.theme.id,
       study: phrase.study, native: phrase.native, addedAt: previous?.addedAt || Date.now() };
     const entries = state.savedReview.filter(item => item.pairId !== entry.pairId || item.id !== entry.id);
-    if (!saveReviewEntries([...entries, entry])) return;
+    if (!saveCardDecision(phrase, false, [...entries, entry])) return;
     state.deferredPhraseIds.add(phrase.id);
     browsePhrase(1);
     showCardToast('Elle reviendra');
@@ -321,12 +433,12 @@
   }
 
   function buildMenu() {
+    const account = courseAccess?.state();
     const rows = [
       { label: 'Accueil', icon: icons.home, href: 'index.html' },
       { label: 'Thèmes', icon: icons.folder, action: () => { closeMenu(); showThemes(); } },
       { label: 'À revoir', icon: icons.recall, panel: 'saved', key: 'À revoir' },
       { label: 'Révisions et exercices', icon: icons.cap, panel: 'review' },
-      { label: 'Toutes les leçons', icon: icons.globe, href: lessonUrl() },
       { label: 'Voix', icon: icons.headphones, panel: 'voice' },
       { label: 'Couleur', icon: '<span class="mg-colorwheel" aria-hidden="true"></span>', action: () => {
         state.ambienceIndex = (state.ambienceIndex + 1) % ambiences.length;
@@ -334,8 +446,9 @@
       } },
       { label: 'Comment ça marche', icon: icons.info, panel: 'info' },
       { label: 'Avis', icon: icons.chat, panel: 'feedback' },
-      { label: courseAccess?.state().paid ? 'Mon compte' : 'Se connecter / Créer un compte', icon: icons.person,
-        href: courseAccess?.state().paid ? lessonUrl() : lessonUrl(true) }
+      account?.paid || account?.unrestricted
+        ? { label: 'Mon compte', icon: icons.person, panel: 'account' }
+        : { label: 'Se connecter / Créer un compte', icon: icons.person, href: lessonUrl(true) }
     ];
     ui.menuNav.replaceChildren(...rows.map(row => {
       const item = document.createElement(row.href ? 'a' : 'button');
@@ -437,6 +550,7 @@
     text(ui.menuTitle, tr(menuTitles[view]));
     if (view === 'voice') fillVoices();
     if (view === 'saved') renderSavedReview();
+    if (view === 'account') renderAccount();
     if (view === 'review') {
       const themes = state.pair.themes.filter(theme => !theme.isTemplateCollection);
       ui.reviewTheme.replaceChildren(...themes.map(theme => new Option(themeLabel(theme), theme.id)));
@@ -460,6 +574,37 @@
   function closeMenu() {
     if (ui.menu.open) ui.menu.close();
     ui.menuTrigger.setAttribute('aria-expanded', 'false');
+  }
+
+  function renderAccount() {
+    const account = courseAccess?.state();
+    text(ui.accountStatus, tr(account?.unrestricted ? 'Aperçu de l’espace compte.'
+      : account?.paid ? 'Accès complet actif sur cet appareil.' : 'Connecte-toi pour retrouver ton accès.'));
+    text(ui.accountError, '');
+    text(ui.accountLogout, tr(state.accountLogoutPending ? 'Déconnexion en cours…' : 'Se déconnecter'));
+    ui.accountLogout.hidden = !account?.paid && !account?.unrestricted;
+    ui.accountLogout.disabled = !account?.paid || state.accountLogoutPending;
+    ui.accountLogin.hidden = Boolean(account?.paid || account?.unrestricted);
+    ui.accountLogin.href = lessonUrl(true);
+  }
+
+  async function logoutAccount() {
+    if (state.accountLogoutPending || !courseAccess?.state().paid) return;
+    if (!window.confirm(tr('Se déconnecter ? Cet appareil sera verrouillé jusqu’à ta prochaine connexion.'))) return;
+    state.accountLogoutPending = true;
+    renderAccount();
+    ui.accountLogout.setAttribute('aria-busy', 'true');
+    try {
+      if (await courseAccess.logout() !== true) throw new Error('Logout unavailable');
+      closeMenu();
+    } catch (_) {
+      text(ui.accountError, tr('Déconnexion impossible. Réessaie.'));
+    } finally {
+      state.accountLogoutPending = false;
+      ui.accountLogout.removeAttribute('aria-busy');
+      ui.accountLogout.disabled = !courseAccess.state().paid;
+      text(ui.accountLogout, tr('Se déconnecter'));
+    }
   }
 
   function reviewTheme(recall) {
@@ -508,6 +653,16 @@
     ui.menuTrigger.disabled = screen === 'loading';
     ui.content.scrollTop = 0;
     document.body.dataset.view = screen;
+    const levelSummary = Boolean(ui.level && screen === 'themes');
+    document.body.classList.toggle('mg-has-level-progress', levelSummary);
+    ui.progressTrack.classList.toggle('is-level-progress', levelSummary);
+    if (ui.levelPercent) ui.levelPercent.hidden = !levelSummary;
+    if (ui.levelEnd) ui.levelEnd.hidden = !levelSummary;
+    if (levelSummary) renderLevelProgress();
+    else {
+      ui.progressTrack.setAttribute('aria-hidden', 'true');
+      for (const attr of ['role', 'aria-label', 'aria-valuemin', 'aria-valuemax', 'aria-valuenow', 'aria-valuetext']) ui.progressTrack.removeAttribute(attr);
+    }
     queueLessonFit();
   }
 
@@ -695,8 +850,10 @@
     state.sequence = null;
     state.lessonScope = 'sequence';
     setStatus('');
-    text(ui.counter, levelQuantityLabel());
-    ui.progress.style.width = '0%';
+    if (!ui.level) {
+      text(ui.counter, levelQuantityLabel());
+      ui.progress.style.width = '0%';
+    }
     const cards = [];
     let section = null;
     for (const theme of state.pair.themes) {
@@ -913,7 +1070,7 @@
   function markKnown() {
     const phrase = currentPhrase();
     if (state.screen !== 'lesson' || ui.next.disabled || !phrase || !canProduce(phrase) || isTemplate(phrase) || isReceived(currentStep(), phrase)) return;
-    if (!saveReviewEntries(state.savedReview.filter(entry => entry.pairId !== state.pair.id || entry.id !== phrase.id))) return;
+    if (!saveCardDecision(phrase, true, state.savedReview.filter(entry => entry.pairId !== state.pair.id || entry.id !== phrase.id))) return;
     state.deferredPhraseIds.add(phrase.id);
     browsePhrase(1);
     showCardToast('Rangée');
@@ -1050,6 +1207,7 @@
       state.referenceMap = references;
       state.sourcePhraseMap = new Map([...references, ...[...pair.themes, ...(pair.heldThemes || [])]
         .flatMap(theme => theme.phrases.map(phrase => [phrase.id, phrase]))]);
+      state.levelProgressIds = collectLevelProgressIds(pair, state.sourcePhraseMap);
       const accessView = courseAccess.learningView(pair, references);
       state.accessContextStepIds = accessView.contextStepIds;
       displayPair(accessView.pair);
@@ -1547,6 +1705,8 @@
   ui.menuTrigger.addEventListener('click', openMenu);
   ui.menuClose.addEventListener('click', closeMenu);
   ui.menuBack.addEventListener('click', () => setMenuView('nav'));
+  ui.accountBack.addEventListener('click', closeMenu);
+  ui.accountLogout.addEventListener('click', logoutAccount);
   ui.menu.addEventListener('close', () => ui.menuTrigger.setAttribute('aria-expanded', 'false'));
   ui.menu.addEventListener('click', event => {
     if (event.target !== ui.menu) return;
@@ -1687,6 +1847,11 @@
       choosePair(state.pair.id, state.pair.level);
     }
   });
+  window.addEventListener('storage', event => {
+    if (event.key !== knownStorageKey && event.key !== null) return;
+    state.knownCards = loadKnownCards();
+    if (ui.level && state.screen === 'themes') renderLevelProgress();
+  });
   window.addEventListener('pagehide', stopAudio);
   window.addEventListener('resize', queueLessonFit);
   window.visualViewport?.addEventListener('resize', () => { if (window.visualViewport.scale === 1) queueLessonFit(); });
@@ -1704,6 +1869,7 @@
     sequenceId: state.sequence && state.sequence.id, stepIndex: state.stepIndex, lessonScope: state.lessonScope,
     phraseId: currentPhrase() && currentPhrase().id, masked: isMasked(), helpOpen: state.helpOpen,
     readingVisible: state.readingVisible, access: courseAccess?.state() || null,
+    levelProgress: ui.level && state.pair ? Object.freeze(levelProgress()) : null,
     template: isTemplate(currentPhrase()), totalPhrases: state.pair ? pairCount(state.pair) : 0
   }) });
   loadData();

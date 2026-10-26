@@ -1,0 +1,74 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-26T22:08:11.560004+00:00",
+  "preCapsuleCommit": "711537b27778c38f43e49fc47bfca513e8d94d97",
+  "scope": "fixed percentage badge CSS and CSSv17 cache, plus explicitly requested proposition-capsule.html demo; bounded nine-asset/source logo gate, no browser/full audit rerun",
+  "wholeAssetPins": 9,
+  "assetSha256": {
+    "melunga_deploy/app.html": "7faee15f692c0c79c0f3937bc87f246225efc4f410bd10c4bf5401b5c38b8d90",
+    "melunga_deploy/index.html": "00dc701d8b9b5a84b025e9cc369d336317610fd92f2af4d34802cd830969fdbb",
+    "melunga_deploy/course-access.js": "b5b3e0d547c84aa24b59d7381a5bfbf11a27836885b875e284b5795873abd082",
+    "melunga_deploy/content/course-access.json": "35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05",
+    "melunga_deploy/melunga-logo.svg": "b653fbd78c7b2a3853ad628d83e4230726a17f71e0a5441a01947dd854f86cec",
+    "melunga_deploy/maquette-guidee.css": "af06c0518e80af465eeb4349f5ff1d4a0615bf18b37ac7eeacf5b38eca1bf968",
+    "melunga_deploy/maquette-guidee.js": "7da1a3539013ced41084d2dfa300c8f6c18b96b7cf9bab33b4955e2c113e29ae",
+    "melunga_deploy/maquette-guidee.html": "d056161c748e2339ecfddb920a3f07c50273c59e8bc3a3103e2e6abfe12b4e91",
+    "melunga_deploy/parcours-niveaux.html": "79dcf5d726defbd2471b2f8410342e225f0fb28bf6036fe3a32e4b937bf600a3"
+  },
+  "unauthorizedUiMutationsRejected": [
+    {
+      "file": "melunga_deploy/maquette-guidee.js",
+      "rejected": true,
+      "inMemoryOnly": true
+    },
+    {
+      "file": "melunga_deploy/maquette-guidee.css",
+      "rejected": true,
+      "inMemoryOnly": true
+    },
+    {
+      "file": "melunga_deploy/maquette-guidee.html",
+      "rejected": true,
+      "inMemoryOnly": true
+    },
+    {
+      "file": "melunga_deploy/parcours-niveaux.html",
+      "rejected": true,
+      "inMemoryOnly": true
+    }
+  ],
+  "historicalLogoCanonicalSourceGate": "passed existing canonical-source callback only; browser hooks not executed",
+  "runtimeJsonByteExactCount": 78,
+  "logoPngAndEntire43PercentCssRulePreserved": true,
+  "knownProgressMathByteExact": true,
+  "onlyAuthorizedProductPaths": [
+    "melunga_deploy/maquette-guidee.js",
+    "melunga_deploy/maquette-guidee.css",
+    "melunga_deploy/maquette-guidee.html",
+    "melunga_deploy/parcours-niveaux.html",
+    "melunga_deploy/proposition-capsule.html"
+  ],
+  "accountBackendPricesAndOtherProductFilesUnchanged": true,
+  "changedOwnedTests": [
+    "melunga_deploy/tests/all-classification.cjs",
+    "melunga_deploy/tests/logo-outline.browser.cjs"
+  ],
+  "ownedSha256": {
+    "melunga_deploy/tests/all-classification.cjs": "0b1f6c8806b583dc0c9a0d0f54d70e07d1a9d915bd63190e7986befd26d54476",
+    "melunga_deploy/tests/logo-outline.browser.cjs": "f7f7b709a4975e22fc1c206bbd93cdc360fed9ff358b343d6a4a816206a957d2"
+  },
+  "syntaxChecks": 2,
+  "gitDiffCheck": "passed",
+  "fullAuditRerun": false,
+  "browserRerun": false,
+  "committedByThisAgent": false,
+  "pushedByThisAgent": false,
+  "mergedByThisAgent": false,
+  "currentCorrectionBase": "72014095a49225e3bb86a27cc88e977d65e29112",
+  "javascriptByteExactToCurrentBase": true,
+  "onlyRuntimeHtmlChange": "CSS cache v16 to v17",
+  "ownedChangesOnlyThreeShaEachFile": true,
+  "additionalApprovedDemo": "melunga_deploy/proposition-capsule.html",
+  "demoSha256": "b9c6511862899a3c13face94c89fe28693ede24d89a16c17507039cc670818c3",
+  "firstHarnessAttempt": "rejected the explicitly requested demo because the older helper allowlist covered only four runtime files; final allowlist names that one demo exactly"
+}

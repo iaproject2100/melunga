@@ -1,0 +1,171 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-26T19:43:12.771155+00:00",
+  "previewOnly": true,
+  "baseCommit": "a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f",
+  "scope": "finite asset gates, byte-exact content and updated legacy matrix expectations; no full source audit or 70-cell matrix rerun",
+  "wholeAssetGate": {
+    "status": "passed",
+    "wholeAssetPins": 8,
+    "classicWholeDeckAndFamilyLiteralsVerified": true,
+    "assetSha256": {
+      "melunga_deploy/app.html": "7faee15f692c0c79c0f3937bc87f246225efc4f410bd10c4bf5401b5c38b8d90",
+      "melunga_deploy/index.html": "00dc701d8b9b5a84b025e9cc369d336317610fd92f2af4d34802cd830969fdbb",
+      "melunga_deploy/course-access.js": "78757809d2d80ec44a190a65acebd93650c4503e431df9322b87568d2b4a8324",
+      "melunga_deploy/content/course-access.json": "35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05",
+      "melunga_deploy/maquette-guidee.css": "c8dc71391b45821fdf8f3b3ed70fd3f73bfcea48dfdb021cc87ce3174cb28690",
+      "melunga_deploy/maquette-guidee.js": "d049dc79587d42c081d60a80c7e2aea8913bfc787f59c1689871f39081ed7b1b",
+      "melunga_deploy/maquette-guidee.html": "98723bf843a7175fac58b0a0ecf7f0581e08b67eb8d54baa60f7e3aeb6262056",
+      "melunga_deploy/parcours-niveaux.html": "562ce667441bd6cd42abba1bc60c9f7b5b1bc6d181632123fb9402694043e5b3"
+    }
+  },
+  "negativeWholeAssetChecks": {
+    "status": "passed",
+    "scope": "in-memory fs overlays; no physical product changes",
+    "cases": [
+      {
+        "file": "melunga_deploy/maquette-guidee.js",
+        "mutation": "unapproved appended bytes in memory only",
+        "rejected": true
+      },
+      {
+        "file": "melunga_deploy/maquette-guidee.css",
+        "mutation": "unapproved appended bytes in memory only",
+        "rejected": true
+      },
+      {
+        "file": "melunga_deploy/maquette-guidee.html",
+        "mutation": "unapproved appended bytes in memory only",
+        "rejected": true
+      },
+      {
+        "file": "melunga_deploy/parcours-niveaux.html",
+        "mutation": "unapproved appended bytes in memory only",
+        "rejected": true
+      }
+    ]
+  },
+  "sourceConservation": {
+    "runtimeJsonCount": 78,
+    "allByteExactToBase": true,
+    "bundleSha256": "bbacc6a42bfaa15a469a8455cd7688e2b2c06fbbf57e8208c1b535035a8fbe86",
+    "bundleHashMethod": "sorted repository paths followed by NUL and exact file bytes",
+    "unchangedVisualAndAccessAssets": [
+      "melunga_deploy/maquette-guidee.css",
+      "melunga_deploy/app.html",
+      "melunga_deploy/index.html",
+      "melunga_deploy/course-access.js",
+      "melunga_deploy/content/course-access.json"
+    ],
+    "onlyChangedProductPaths": [
+      "melunga_deploy/maquette-guidee.js",
+      "melunga_deploy/maquette-guidee.html",
+      "melunga_deploy/parcours-niveaux.html"
+    ],
+    "otherProductAssetsIncludingLogoPricesAndBackendUnchanged": true
+  },
+  "priorContentAuditReuse": {
+    "report": "docs/correctif-navigation-mobile/compatibilite-et-courses.json",
+    "reportSha256": "826bd83457bb34f2dcafe62d6de74f73560a8dae989a11cdb59718d50aded2a8",
+    "status": "reused for byte-identical data only; current UI pins checked above",
+    "counts": {
+      "operations": 2906,
+      "moves": 2532,
+      "toReserve": 318,
+      "keep": 56,
+      "levelChanges": 622,
+      "canonical": 33654,
+      "active": 32448,
+      "reserve": 1206,
+      "hiddenAdditional": 33,
+      "alreadyReserved": 7,
+      "smallThemes": 72,
+      "mixedThemes": 58,
+      "largeThemes": 67,
+      "newThemes": 9,
+      "newThemeCards": 38,
+      "bankReservedAliases": 13,
+      "contextPrimaryAliases": 5,
+      "outboundCoreReuses": 1,
+      "typedExtensions": 1,
+      "stepsChecked": 119755
+    },
+    "fullAuditRerun": false
+  },
+  "legacyMatrixExpectationUpdate": {
+    "initialFrenchLabel": "Niveau N · 0 %",
+    "initialChineseLabel": "第 N 级 · 0 %",
+    "initialProgressWidth": "0%",
+    "initialAccessibleProgressNow": "0",
+    "sourceInventoryCalculationsRetained": true,
+    "sourceQuantitiesAddedToDiagnosticReport": true,
+    "perThemeCountersAndWholeFieldChecksUnchanged": true,
+    "lessonStepCountersAndReceivedProgressChecksUnchanged": true,
+    "matrixRerun": false
+  },
+  "separateBrowserEvidence": {
+    "report": "/tmp/melunga-level-progress-qa.json",
+    "reportSha256": "3f7fe8a3372e6cb0b81b51ed507dea00a94633cd5b19ea4f378af8c37e0650cd",
+    "owner": "independent sibling QA; not rerun by this source gate task",
+    "status": "passed",
+    "checks": 6,
+    "productAssetsMatchThisEdition": true,
+    "freshZeroProgressEvidence": [
+      {
+        "name": "fresh-localized-mobile",
+        "pair": "fr-ja",
+        "width": 390,
+        "known": 0,
+        "total": 361,
+        "ratio": 0,
+        "percent": 0,
+        "caption": "Niveau 1 · 0 %",
+        "track": {
+          "width": 0,
+          "track": "progressbar",
+          "hidden": null,
+          "now": "0",
+          "min": "0",
+          "max": "100",
+          "label": "Niveau 1",
+          "text": "Niveau 1 · 0 %"
+        }
+      },
+      {
+        "name": "fresh-localized-mobile",
+        "pair": "fr-ja",
+        "width": 280,
+        "known": 0,
+        "total": 361,
+        "ratio": 0,
+        "percent": 0,
+        "caption": "Niveau 1 · 0 %",
+        "track": {
+          "width": 0,
+          "track": "progressbar",
+          "hidden": null,
+          "now": "0",
+          "min": "0",
+          "max": "100",
+          "label": "Niveau 1",
+          "text": "Niveau 1 · 0 %"
+        }
+      }
+    ],
+    "physicalPhoneChecked": false,
+    "publicSiteChecked": false
+  },
+  "nodeParse": "passed for both owned files",
+  "gitDiffCheck": "passed",
+  "changedOwnedFiles": [
+    "melunga_deploy/tests/all-classification.cjs",
+    "melunga_deploy/tests/levels-themes.browser.cjs"
+  ],
+  "ownedSha256": {
+    "melunga_deploy/tests/all-classification.cjs": "2449c0630a4951195470be45d1ef0709b79c6289e6c4a509dc06f6df3dc04a17",
+    "melunga_deploy/tests/levels-themes.browser.cjs": "ec1dff715d08aace9a24a7e66a85891bfcbb9f835c84ea365d5050e29237024d"
+  },
+  "committedByThisAgent": false,
+  "pushedByThisAgent": false,
+  "mergedByThisAgent": false
+}

@@ -1,0 +1,41 @@
+{
+  "status": "no-blocking-findings",
+  "reviewMode": "read-only source and isolated VM; no browser account operations",
+  "base": "a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f",
+  "runtimeJsonByteExactCount": 78,
+  "protectedFilesByteExactCount": 14,
+  "unexpectedDifferences": [],
+  "productSha256": {
+    "melunga_deploy/course-access.js": "b5b3e0d547c84aa24b59d7381a5bfbf11a27836885b875e284b5795873abd082",
+    "melunga_deploy/maquette-guidee.js": "ca80b3984a927441d7c7ca160729cd5bee75990c25b9511169665210d19505d4",
+    "melunga_deploy/maquette-guidee.html": "ba35746e52e13983f7fb28b6dcea0efacd6ab888eca3394b331dae24cee3ebaa",
+    "melunga_deploy/parcours-niveaux.html": "fa5eb3b17333a96e5800fc3c77cfeb7b881449fc05a76a2f908618e3a5e2ef9b"
+  },
+  "confirmed": [
+    "paid Mon compte now uses internal panel; no classic document navigation",
+    "existing production free login route retained",
+    "preview panel labels itself an overview and disables logout",
+    "permanent classification private and strict server boolean with paid+HTTP success",
+    "permanent logout POST retains device place; ordinary local reset rolls back paid hint on refused write",
+    "pending logout promise coalesces duplicate requests; successful logout invalidates stale status generation",
+    "content, price, device/session backend and classic flows remain byte-exact"
+  ],
+  "physicalDeviceChecked": false,
+  "filesModified": [],
+  "findings": [],
+  "resolvedFindings": [
+    {
+      "severity": "medium-api-edge",
+      "id": "logout-while-status-unknown",
+      "description": "refresh marks paid=false before awaiting status. A concurrent logout returns true immediately and does not advance generation; the pending paid:true response regrants. UI guard usually prevents the click, but the public API reports a false success.",
+      "reproduction": "/tmp/melunga-account-race-review.json",
+      "recommendedMinimalFix": "Reject logout with false while unpaid status is checking/unavailable/unready; true idempotent only if an inactive ready state is confirmed. Preserve pending-promise coalescing first.",
+      "resolution": "logout now returns false while paid is false, rather than announcing success. The pending status remains a valid check because logout was expressly refused.",
+      "verifiedAfter": "/tmp/melunga-account-race-after-fix.json"
+    }
+  ],
+  "limits": [
+    "ordinary storage rollback is best-effort if storage also refuses restoration; no additional account mutation in this source review",
+    "no real logout, production subscriber account or physical device exercised"
+  ]
+}

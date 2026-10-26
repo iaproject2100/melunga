@@ -115,6 +115,7 @@ const report = {
   sourceComparisonInverse: ['classification', 'conventions', 'content'],
   domExpectationsUseActualComposedContent: true,
   widths: [320, 390, 1440], cellViews: 0, themeEntries: 0, domSteps: 0,
+  sourcePresentationSummaries: [],
   runtimeJsonFieldsCompared: 0, templateSteps: 0, preparationSteps: 0, reserveCardsTracked: 0,
   heldCardsTracked: 0, canonicalCardsTracked: 0, reviewSteps: 0, reviewReferencesTracked: 0,
   contextReuseSteps: 0, contextReferencesTracked: 0,
@@ -374,7 +375,16 @@ async function inspectCell(page, expected, bank, exhaustive) {
     if ([...presented.values()].some(phrase => !phrase)) throw new Error('unknown presented reference');
     const expectedQuantity = ['utterance', 'vocabulary', 'number'].map(type => [type, [...presented.values()].filter(phrase => phrase.contentType === type).length])
       .filter(([, count]) => count).map(([type, count]) => quantity(count, type)).join(' · ');
-    eq(byId('mgCounter').textContent, expectedQuantity, 'presented counter by type, excluding reserve and hidden stock');
+    // The inventory remains a source diagnostic; the themes header now shows
+    // only explicit Je connais decisions. This matrix never rates a card known.
+    const levelName = expected.nativeLanguage === 'zh' ? '第 ' + expected.level + ' 级' : 'Niveau ' + expected.level;
+    const initialLevelProgress = levelName + ' · 0 %';
+    eq(byId('mgCounter').textContent, initialLevelProgress, 'initial level progress label');
+    eq(byId('mgProgress').style.width, '0%', 'initial level progress bar');
+    const levelTrack = byId('mgProgress').parentElement;
+    eq(levelTrack.getAttribute('role'), 'progressbar', 'themes expose the level progress bar');
+    eq(levelTrack.getAttribute('aria-valuenow'), '0', 'initial accessible level progress');
+    eq(levelTrack.getAttribute('aria-valuetext'), initialLevelProgress, 'localized accessible progress label');
     eq(state().totalPhrases, expected.themes.reduce((sum, theme) => sum + theme.presentedCount, 0), 'runtime presentation count');
     const sections = expected.themes.map(theme => theme.section).filter((section, index, list) => index === 0 || section !== list[index - 1]);
     eq(JSON.stringify([...document.querySelectorAll('#mgThemeGrid > h2')].map(node => node.textContent)),
@@ -707,7 +717,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
     eq(visualPositions.size, expected.themes.length, 'one distinct photo tile per theme');
     eq(ids.size, expected.themes.length, 'distinct theme visual identities');
     if (document.documentElement.scrollWidth > innerWidth + 1) throw new Error('horizontal document overflow');
-    return {steps, fields, templates, preparations, reviewSteps, reviewReferences, usageChecks,
+    return {sourcePresentedQuantity: expectedQuantity, steps, fields, templates, preparations, reviewSteps, reviewReferences, usageChecks,
       contextSteps, contextReferences, situationCases, additionalAudio, additionalRecall, additionalFields,
       receivedSteps, receivedAudio, receivedFields, receivedCounterChecks, preparedAnswerChecks, lexicalSupportChecks,
       additionalAudioByKind, themes: expected.themes.length,
@@ -732,6 +742,7 @@ for (const width of report.widths) test('70 pair/level cells at ' + width + 'px'
         try { result = await inspectCell(page, cell(pair.id, level), repertoire(pair.id), width === 390); }
         catch (error) { throw new Error(pair.id + '/L' + level + ' @' + width + ': ' + error.message); }
         report.cellViews++; report.themeEntries += result.themes; report.domSteps += result.steps;
+        report.sourcePresentationSummaries.push({pair: pair.id, level, width, quantity: result.sourcePresentedQuantity});
         report.runtimeJsonFieldsCompared += result.fields; report.templateSteps += result.templates;
         report.preparationSteps += result.preparations;
         report.reviewSteps += result.reviewSteps;
@@ -1643,7 +1654,8 @@ test('L5 menu, three ambiences and minimum controls at all widths', {timeout: 60
       for (let i = 0; i < 3; i++) { ambiences.add(await page.locator('body').getAttribute('data-ambience')); await page.click('#mgPalette'); }
       assert.equal(ambiences.size, 3);
       await page.click('#mgMenuTrigger'); assert.equal(await page.locator('#mgMenuTrigger').getAttribute('aria-expanded'), 'true');
-      assert.equal(await page.locator('#mgMenuNav > *').count(), 10);
+      assert.equal(await page.locator('#mgMenuNav > *').count(), 9);
+      assert.equal(await page.locator('[data-menu-item="Toutes les leçons"]').count(), 0, 'removed all-lessons menu entry stays absent');
       assert.equal(await page.locator('[data-menu-item="À revoir"]').count(), 1, 'saved review joins the existing menu');
       const targets = await page.locator('#mgMenuNav > *').evaluateAll(nodes => nodes.map(node => ({
         label: node.textContent, width: node.getBoundingClientRect().width, height: node.getBoundingClientRect().height

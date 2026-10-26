@@ -412,8 +412,14 @@ test('actual free and paid modern pages preserve source fields, moved freebies a
     }
     assert.equal(await free.page.evaluate(()=>window.MelungaMockup.state().screen),'done');
     assert.deepEqual([...seen].sort(),expectedIds.sort(),'the entire free mixed theme retains all original freebies and no paid cards');
-    await free.page.locator('#mgMenuTrigger').click();const classic=free.page.locator('[data-menu-item="Toutes les leçons"]');
-    assert.equal(new URL(await classic.getAttribute('href'),free.origin).pathname,'/app.html');
+    await free.page.locator('#mgMenuTrigger').click();
+    assert.equal(await free.page.locator('[data-menu-item="Toutes les leçons"]').count(),0,'removed menu entry stays absent');
+    // Removing a navigation row does not remove the existing classic fallback
+    // or its historical free-card rights, checked independently above.
+    const classicHref=await free.page.evaluate(pair=>window.MelungaCourseAccess.classicUrl(pair),mixed.pair);
+    const classic=new URL(classicHref,free.origin);
+    assert.equal(classic.pathname,'/app.html');
+    assert.equal(classic.searchParams.get('classic'),'1');
   }finally{await close(free);}
   for(const paid of [false,true]){
     const h=await open({paid});

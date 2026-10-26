@@ -18,7 +18,7 @@ a{color:inherit;text-underline-offset:3px}
 .mg-app{height:calc(100vh - 34px);height:calc(100dvh - 34px);min-height:420px;max-width:1740px;margin:0 auto;display:grid;grid-template-columns:112px minmax(0,1fr);gap:24px;padding:22px 28px 22px 22px}
 .mg-sidebar{min-width:0;display:flex;flex-direction:column;align-items:center;padding:18px 12px;border:1px solid var(--mg-line);border-radius:32px;background:var(--mg-surface);box-shadow:0 18px 60px var(--mg-shadow);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
 .mg-brand{display:flex;flex-direction:column;align-items:center;gap:9px;color:inherit;text-decoration:none;max-width:100%}
-.mg-logo{display:block;width:58px;height:58px;border-radius:50%;object-fit:contain}
+.mg-logo{display:block;width:58px;height:58px;border-radius:50%;object-fit:contain;clip-path:circle(43% at 49.3% 50.7%)}
 .mg-wordmark{font-size:16px;font-weight:800;letter-spacing:-.04em;line-height:1.1}
 .mg-controls{display:flex;flex-direction:column;align-items:center;gap:15px;width:100%;margin-top:28px}
 .mg-round{display:inline-flex;align-items:center;justify-content:center;position:relative;flex:0 0 54px;width:54px;height:54px;min-width:44px;min-height:44px;padding:0;border:1px solid var(--mg-line);border-radius:50%;background:var(--mg-soft);color:var(--mg-ink);box-shadow:inset 0 1px 0 rgba(255,255,255,.12);text-decoration:none;font-size:24px;line-height:1;transition:background .16s ease,transform .16s ease,border-color .16s ease}
@@ -41,7 +41,19 @@ a{color:inherit;text-underline-offset:3px}
 .mg-topbar h1,.mg-topbar p{margin:0}
 .mg-counter{margin-inline-start:auto;min-width:56px;font-size:15px;font-weight:750;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
 .mg-progress{height:3px;flex:0 0 3px;border-radius:3px;overflow:hidden;background:var(--mg-line);margin:0 4px 16px}
-.mg-progress>span{display:block;width:0;height:100%;border-radius:inherit;background:var(--mg-accent);transition:width .18s ease}
+.mg-progress #mgProgress{display:block;width:0;height:100%;border-radius:inherit;background:var(--mg-accent);transition:width .18s ease}
+.mg-progress-lane{height:100%;min-width:0}
+.mg-has-level-progress .mg-topbar{min-height:25px;padding-bottom:8px}
+.mg-has-level-progress .mg-counter{margin-inline-start:0;text-align:left;font-size:15px;line-height:1.2}
+.mg-progress.is-level-progress{position:relative;display:flex;align-items:stretch;height:46px;flex:0 0 46px;border:1px solid var(--mg-line);border-radius:25px;background:var(--mg-surface);overflow:hidden;margin-bottom:18px;--mg-journey-colour:rgb(80,214,232)}
+.is-level-progress .mg-progress-lane{position:static;flex:1 1 0;min-width:0;height:100%}
+.mg-progress.is-level-progress #mgProgress{position:absolute;left:0;top:0;z-index:0;pointer-events:none;border-radius:0;background:linear-gradient(90deg,#35b9ce,var(--mg-journey-colour));transition:width .3s ease}
+.mg-level-percent{position:absolute;left:6px;z-index:1;top:5px;display:flex;align-items:center;justify-content:center;width:72px;min-width:72px;height:34px;padding:0 8px;border-radius:20px;background:var(--mg-journey-colour);color:#153c47;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1;white-space:nowrap;box-shadow:0 2px 7px rgba(1,25,43,.1);transition:background-color .3s ease}
+.mg-level-end{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;flex:0 0 52px;min-width:52px;height:34px;margin:5px 6px;padding:0 8px;border-radius:20px;background:var(--mg-journey-colour);color:#153c47;font-size:15px;font-weight:650;line-height:1;white-space:nowrap;transition:background-color .3s ease}
+.is-level-progress.is-complete{border-color:var(--mg-journey-colour)}
+.is-level-progress.is-complete .mg-level-end{font-weight:800}
+body[data-ambience="dusk"] .mg-progress.is-level-progress #mgProgress{filter:brightness(.66) saturate(1.12)}
+@media(prefers-reduced-motion:reduce){.mg-progress.is-level-progress #mgProgress,.mg-level-percent,.mg-level-end{transition:none}}
 .mg-content{min-width:0;min-height:0;flex:1 1 auto;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--mg-line) transparent;padding:0 4px 4px}
 .mg-view{width:100%;min-width:0;min-height:100%}
 .mg-sectionhead{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:0 0 22px;padding:10px 6px 0}
