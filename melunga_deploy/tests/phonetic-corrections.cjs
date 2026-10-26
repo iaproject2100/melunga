@@ -3,6 +3,7 @@
  * Browser checks use local Chromium and mocked TTS, never a public service.
  */
 'use strict';
+const englishClassification = require('./english-classification.cjs');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -21,7 +22,7 @@ const EVIDENCE = {
   'docs/revue-integrale/registre-tj.json': '856ccdd4525fdd74706ae16081c28e60bd629b3e83039502df81f824ebca74d0'
 };
 const fields = ['study', 'native', 'phon', 'reading'];
-const read = filename => JSON.parse(fs.readFileSync(path.join(ROOT, filename), 'utf8'));
+const read = filename => englishClassification.beforeRead(filename, fs.readFileSync(path.join(ROOT, filename), 'utf8'));
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const clone = value => JSON.parse(JSON.stringify(value));
 const key = (pair, id) => pair + '\0' + id;
@@ -200,7 +201,7 @@ function auditRuntime() {
     correctionCount:772, eventCount:774, evidenceCommit:EVIDENCE_COMMIT};
   expectedManifest.reviewedFieldCorrections = lot3Corrections.declaration();
   Object.assign(expectedManifest, lot4Corrections.manifestDeclarations());
-  for (const pair of expectedManifest.pairs) pair.repertoireSha256 = hash(fs.readFileSync(path.join(WEB, pair.repertoirePath)));
+  for (const pair of expectedManifest.pairs) pair.repertoireSha256 = hash(englishClassification.beforeBytes(path.join(WEB, pair.repertoirePath)));
   assert.deepEqual(manifest, expectedManifest, 'manifest changes only overlay proof and real transport hashes');
   const legacy = 'melunga_deploy/content/maquette-guidee.json';
   assert.deepEqual(read(legacy), baseline(legacy), 'legacy v1 source remains untouched');

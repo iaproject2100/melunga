@@ -1,3 +1,5 @@
+Évolution sur la branche de classement anglais : [670 décisions appliquées](../classement-fr-en/README.md). Le tableau ci-dessous conserve l’inventaire historique des propositions ; la ligne anglaise est désormais tranchée par ce registre, avec ses limites de provenance explicitées. Les autres couples restent non appliqués.
+
 # Après la lecture des 70 cellules : décisions restantes
 
 Les corrections certaines raccordées aux générateurs ne valent pas application des propositions de classement. **Les thèmes, niveaux et doublons recensés ci-dessous restent à examiner**, avec la présentation validée conservée. Les conventions restent des décisions distinctes ; aucune modification générale de phonétique n'est déduite de la fin de la lecture individuelle.

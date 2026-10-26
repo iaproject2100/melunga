@@ -1,10 +1,10 @@
 # Classement éditorial L1–L10 — proposition à relire
 
-Les thèmes de situation et les rubriques de vocabulaire figurent dans la même grille, sans nouvel écran de sélection. Une situation ne présente que des phrases ou répliques communicatives entières. Les mots, groupes lexicaux et nombres isolés se pratiquent dans leurs rubriques dédiées. Les modèles ouverts et les cas incertains sont conservés dans une réserve de revue, hors entraînement.
+Le classement anglais applique le registre accepté, en conservant les types de chaque carte. Les rubriques comportant plusieurs types sont marquées mixed, bornées par identifiants et signalées dans le rapport. Les mots ne sont pas réétiquetés phrases et les phrases ne sont pas réétiquetées mots. Les modèles incomplets et les réserves de classement restent hors production.
 
 **32115 cartes du catalogue** sont conservées exactement une fois, entre rubriques actives et réserve ; **110277 champs** sont vérifiés identiques aux sources avant application des couches figées d’aides, de lectures et de contenu tracées ci-dessous. Les identités source restent intactes ; les champs corrigés sont déclarés séparément, sans prétendre qu’ils figuraient dans la source originale. Les **2134 cartes historiquement lv1** restent présentes avec leur niveau source. Les droits de l’application classique sont inchangés.
 
-Le lot comporte **1420 décisions explicites** de placement. Les **30695 autres cartes** gardent un niveau source non revu individuellement. Ni une partition complète ni la conservation des textes ne prouvent la progressivité ou l’acquisition.
+Le classement initial comportait **1420 décisions explicites** de placement. Les **30695 autres cartes** conservaient alors leur niveau source ; le registre anglais appliqué ensuite est déclaré séparément. Ni une partition complète ni la conservation des textes ne prouvent la progressivité ou l’acquisition.
 
 ## Typage et couverture
 
@@ -16,7 +16,7 @@ Le lot comporte **1420 décisions explicites** de placement. Les **30695 autres 
 | Modèles incomplets | 495 | Réserve, aucune étape |
 | Cas à revoir | 367 | Réserve, aucune étape |
 
-Total canonique : **33654** ; contenu canonique hors réserve : **32792** ; réserve : **862**. Parmi les contenus hors réserve, **32792** sont présentés dans les thèmes et **0** restent dans **0 thèmes en attente de consolidation**, accessibles à l’inventaire. Aucun thème de moins de six concepts n’est publié comme une petite leçon complète.
+Total canonique : **33654** ; contenu canonique hors réserve : **32755** ; réserve : **899**. Parmi les contenus hors réserve, **32755** sont présentés dans les thèmes et **0** restent dans **0 thèmes en attente de consolidation**, accessibles à l’inventaire. Le classement anglais conserve visibles les thèmes devenus petits, avec des exceptions finies et des effectifs exposés ; il ne les complète pas artificiellement.
 
 Les sept partitions s’appuient sur des indices et une empreinte du deck source. Elles distinguent la fonction communicative du lexème : Bonjour, Merci ou Oui peuvent former une réplique entière ; un groupe lexical de plusieurs mots peut rester du vocabulaire. Le nombre de mots, la ponctuation et la catégorie source ne constituent pas à eux seuls ce jugement. Les classements candidats et leurs raisons restent exposés pour revue. Les familles lexicales déduites de signaux ou de l’ancien domaine sont aussi des propositions, sans prétention de relecture exhaustive.
 
@@ -24,7 +24,7 @@ Les sept partitions s’appuient sur des indices et une empreinte du deck source
 
 | Couple | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 | L9 | L10 | Réserve | Canonique |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| fr-en | 389 | 570 | 749 | 529 | 711 | 484 | 444 | 308 | 173 | 222 | 125 | 4704 |
+| fr-en | 396 | 595 | 777 | 477 | 712 | 461 | 437 | 312 | 153 | 222 | 162 | 4704 |
 | fr-es | 343 | 672 | 574 | 603 | 601 | 504 | 472 | 436 | 315 | 276 | 163 | 4959 |
 | fr-it | 395 | 585 | 589 | 642 | 676 | 401 | 396 | 396 | 235 | 256 | 149 | 4720 |
 | fr-zh | 307 | 606 | 614 | 706 | 682 | 516 | 459 | 525 | 296 | 307 | 92 | 5110 |
@@ -106,7 +106,7 @@ Une question est entendue immédiatement avant le rappel de sa réponse, après 
 
 Les modules déclarent **252 références de soutien lexical**, dont **53 mots réellement rédigés** et **4 imports lexicaux entiers**. Les mots se trouvent dans leurs familles dédiées ; aucun n’est introduit en exercice de phrase et aucun ne gonfle les huit intentions du module.
 
-Le verrou additif conserve les **32779 tuples et sources du lot antérieur**, les **700 premiers emplacements protégés** et les **70 thèmes initiaux**. Les nouvelles aides entières de production, de réception et de vocabulaire restent à relire par Claude ; cette conservation n’est pas une validation pédagogique ou native.
+Avant les couches de corrections et le classement anglais, le contrôle additif avait conservé les **32779 tuples et sources du lot antérieur**, les **700 premiers emplacements protégés** et les **70 thèmes initiaux**. Ces compteurs sont historiques et ne décrivent pas les placements actuellement reclassés. Les nouvelles aides entières de production, de réception et de vocabulaire restent à relire par Claude ; cette conservation n’est pas une validation pédagogique ou native.
 
 Dans ces rubriques de situation, les intentions 01 à 08 définissent l’ordre global : sources contextuelles et nouvelles premières rencontres restent mélangées à leur place. Le générateur ne repousse pas une conclusion au début sous prétexte qu’elle est réemployée. Les préparations structurelles explicites précèdent leur cible. La règle de révisions en amont reste applicable aux rubriques historiques, pas à ce nouveau déroulé de contexte.
 
@@ -123,7 +123,7 @@ Compléments distincts : **30 introductions supplémentaires**, **8 localisateur
 
 ## Densité et révisions sourcées
 
-Les thèmes visibles réunissent **40290 présentations**, dont **7389 révisions référencées**. Une même source reste une seule carte canonique. Les banques de transport contiennent **2021 copies de sources reprises sélectionnées**, vérifiables contre leur première cellule et marquées `referenceOnly` ; elles ne créent ni nouvelle carte ni nouvelle première rencontre.
+Les thèmes visibles réunissent **40231 présentations**, dont **7367 révisions référencées**. Une même source reste une seule carte canonique. Les banques de transport contiennent **2021 copies de sources reprises sélectionnées**, vérifiables contre leur première cellule et marquées `referenceOnly` ; elles ne créent ni nouvelle carte ni nouvelle première rencontre.
 
 Chaque révision conserve la même famille et le même type, et sa première rencontre est strictement antérieure. Une source en attente de consolidation n’est jamais prétendue déjà présentée. Adjectifs et Couleurs constituent des répertoires cumulatifs explicites ; les autres thèmes reprennent le complément antérieur pertinent. Les révisions sont d’abord réactivées, avec leur rappel, puis viennent les nouveautés dans leurs propres groupes. Dans chacun des deux blocs, les adjectifs privilégient grand, petit, gros, beau, léger, lourd, triste, heureux, en regroupant les variantes de concept déclarées ; un prérequis topologique reste prioritaire. Les nombres suivent numberOrder, le niveau de première rencontre ne départageant que les égalités. Les autres révisions suivent leur première rencontre croissante. Ce déroulé ne prouve pas l’acquisition. Nouveautés, révisions et concepts distincts sont comptés séparément ; les variantes explicitement liées au même concept ne gonflent pas le seuil pédagogique.
 
@@ -190,7 +190,7 @@ Empreinte du registre : `27991b959c40fe0b93787d974a95082b8e6b9314e468c6108ffe63f
 
 Le registre `docs/niveaux-progressifs/corrections-contenu/lot7/revue-contenu-lot7.json` applique **11 gloses certaines et cinq blocs complets étude/aide, avec glose quand elle change**, dans **16 objets / 24 champs**. Les deux blocs à deux champs gardent leur sens original, les trois autres changent les trois champs ensemble.
 
-Les 95 gloses incertaines, 689 propositions de thème/niveau/doublon et 30 conventions restent non appliquées. Aucun placement, niveau ni droit n’est modifié.
+À la livraison du lot 7, les propositions de classement n’étaient pas appliquées. Le présent registre anglais tranche leur classement séparément ; les 95 gloses incertaines et 30 conventions restent non appliquées, et les droits ne changent pas.
 
 Empreinte du registre de contenu : `68a81f3568ba85f1de5f0ca3e2f5494728f65e806536e36f136376b22fac22a0`.
 
@@ -227,3 +227,22 @@ Un événement figé épelle distinctement E et N ; la provenance du lot 8 est c
 34 gloses certaines et trois blocs atomiques étude/sens/aide. Les 280 propositions, 30 conventions et 96 contenus incertains restent non appliqués.
 
 37 objets / 43 champs. Registre `docs/niveaux-progressifs/corrections-contenu/lot9/revue-contenu-lot9.json` ; SHA-256 `db40f6ae9a0b88595b0c4f5591b7ca1263b5ff1facfb9d6c1c723e6ed204ad74`.
+
+
+## Classement anglais accepté — registre distinct
+
+**670 opérations : 610 déplacements, dont 127 changements de niveau éditorial, 37 passages en réserve et 23 maintiens.** Les 4 704 identités canoniques restent présentes : 4 542 actives et 162 en réserve. Les champs étudiés, sens, aides, lectures, types et sources ne changent pas dans cette couche ; les niveaux source d’accès restent intacts.
+
+Les trois nouveaux thèmes présentent chacun trois cartes. Les **25 petits thèmes** sont signalés sans ajout inventé ; **7 thèmes dépassent le seuil de suivi de 100 présentations**. Ce seuil est un repère d’inventaire, pas une preuve de difficulté ou une limite automatiquement imposée. Deux thèmes sans présentation sont retirés de la grille, avec leurs métadonnées conservées, sans suppression de carte.
+
+Les 151 placements traversant les anciens types de rubrique donnent 25 thèmes mixtes explicitement bornés. Neuf exceptions de classe lexicale conservent leurs annotations source. Les 29 compléments de situation suivent les huit intentions et leurs répliques reçues d’origine, sans les remplacer ni inventer des intentions supplémentaires.
+
+Le déroulé courant contient **120982 étapes**, dont **259 reçues**, soit **120723 étapes hors réception**. Ce compteur hors réception ne signifie pas que chaque étape exige une production orale. Les **1402 cartes catalogue** dont le niveau éditorial diffère du niveau source constituent un autre périmètre que les 127 déplacements entre niveaux de ce registre.
+
+Le contrôle courant situationStepsContainOnlyUtterances vaut **false** : quatre identités lexicales approuvées dans les rubriques initialement de situation produisent **12 étapes**, avec leur type source conservé. Elles sont exposées dans classifiedSituationNonUtteranceSteps. Les situations additionnelles présentent désormais **1597 positions**, dont les 29 compléments classés après les intentions d’origine.
+
+Les 700 emplacements et 70 thèmes protégés appartiennent au contrôle historique avant les couches révisées ; ils sont conservés sous historicalSourceChecksBeforeClassification, sans prétendre être tous intacts dans le classement courant.
+
+Les révisions devenues incompatibles sont retirées des références : 22 références supprimées, quatre pointeurs mis à jour ; un soutien lexical change de pointeur. Les copies de transport suivent leur source. Have a good trip. reste une réplique entendue au niveau 2, alors que son identité de production est réservée au niveau canonique 3. La préparation locale de 2442 avant 2787 reste insérée.
+
+Registre `docs/niveaux-progressifs/classement-fr-en/registre/registre-classement.json` ; SHA-256 `a605a44eb886e598014dab0ed4b1000c819060ad4dcf83f939fd70c9a4dc020a` ; preuve `1bf76c72f58e2ffe37e27d2b137a1ebe350e097f`. La lecture et l’ordre prévu ne démontrent pas l’acquisition. Aucune fusion ou publication n’est autorisée dans ce lot.

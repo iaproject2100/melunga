@@ -2,6 +2,7 @@
  * and its separate certain glosses/bundles. No producer is imported. The private
  * reverse projection follows content -> reviewed fields -> served 40d4c0b. */
 'use strict';
+const englishClassification = require('./english-classification.cjs');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
@@ -25,7 +26,7 @@ const SPEC={
 const PRIOR=['phoneticCorrection','reviewedFieldCorrection','lot4PhoneticCorrection','reviewedContentCorrection','lot5FieldCorrection','lot5ContentCorrection','lot6FieldCorrection','lot6ContentCorrection','lot7PhoneticCorrection','lot7ContentCorrection','lot8PhoneticCorrection','lot8ContentCorrection','lot8Erratum1Correction','lot9PhoneticCorrection'];
 const clone=value=>JSON.parse(JSON.stringify(value));
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
-const read=filename=>JSON.parse(fs.readFileSync(path.join(ROOT,filename),'utf8'));
+const read=filename=>englishClassification.beforeRead(filename,fs.readFileSync(path.join(ROOT,filename),'utf8'));
 const key=(pair,id)=>pair+'\0'+id;
 const at=(document,location)=>location.reduce((value,part)=>value[part],document);
 const baselines=new Map();
@@ -156,7 +157,7 @@ function projectStage(which,pair,phrase,expectedBefore){
  if(entry.fields.phon||before.phoneticReviewStatusPresent)assert.equal(phrase.phoneticReviewStatus,statusFor(which,entry,before));
  return copy;
 }
-function projectBefore(pair,phrase){return projectErratum(pair,projectStage('A',pair,projectStage('B',pair,phrase)));}
+function projectBefore(pair,phrase){phrase=englishClassification.projectPhrase(pair,phrase);return projectErratum(pair,projectStage('A',pair,projectStage('B',pair,phrase)));}
 function verifyPhrase(pair,phrase){projectBefore(pair,phrase);return phrase;}
 function projectDocument(pair,document,isBank){
  const copy=clone(document);
@@ -166,7 +167,7 @@ function projectDocument(pair,document,isBank){
 }
 function declaration(which,audit=loadRegistries()[which]){const r=audit.registry;return{registryPath:SPEC[which].path,registrySha256:audit.registrySha256,baseSnapshotCommit:BASELINE,appliesAfter:r.appliesAfter,correctionCount:r.correctionCount,eventCount:r.eventCount,approvedFieldCount:r.approvedFieldCount,changedFieldCount:r.changedFieldCount,evidenceCommits:[COMMIT]};}
 function manifestDeclarations(){return {...Object.fromEntries(['A','B'].map(which=>[SPEC[which].manifest,declaration(which)])),lot8Erratum1Corrections:erratumDeclaration()};}
-function inputFiles(){const audits=loadRegistries();return[__filename,...erratumInputs(),...['A','B'].flatMap(which=>[path.join(ROOT,SPEC[which].path),...audits[which].registry.evidenceFiles.map(file=>path.join(ROOT,file.path))])];}
+function inputFiles(){const audits=loadRegistries();return[__filename,...englishClassification.inputFiles(),...erratumInputs(),...['A','B'].flatMap(which=>[path.join(ROOT,SPEC[which].path),...audits[which].registry.evidenceFiles.map(file=>path.join(ROOT,file.path))])];}
 function auditRuntime(){
  const audits=loadRegistries(),manifestPath='melunga_deploy/content/niveaux-progressifs/manifest.json',manifest=read(manifestPath),old=baseline(manifestPath);
  const files=old.pairs.flatMap(pair=>[pair.repertoirePath,...pair.levels.map(level=>level.dataPath)]).map(file=>'melunga_deploy/'+file);assert.equal(files.length,77);const stats={};
@@ -178,8 +179,8 @@ function auditRuntime(){
   stats[which]={identities:audit.entries.size,events:audit.registry.eventCount,objects:audit.objects,profiles:audit.profiles,changedFields:changed};
  }
  for(const file of files){const document=read(file),pair=document.pairId||document.id;assert.deepEqual(projectDocument(pair,document,file.includes('/repertoires/')),baseline(file),'no undeclared change anywhere in runtime document: '+file);}
- const expected=clone(old);Object.assign(expected,manifestDeclarations());for(const pair of expected.pairs)pair.repertoireSha256=hash(fs.readFileSync(path.join(WEB,pair.repertoirePath)));assert.deepEqual(manifest,expected,'only three new declarations and actual bank hashes');
- for(const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html'])assert.ok(fs.readFileSync(path.join(WEB,filename)).equals(execFileSync('git',['show',BASELINE+':melunga_deploy/'+filename],{cwd:ROOT,maxBuffer:32*1024*1024})),'UI/classic byte-for-byte unchanged');
+ const expected=clone(old);Object.assign(expected,manifestDeclarations());for(const pair of expected.pairs)pair.repertoireSha256=hash(englishClassification.beforeBytes(path.join(WEB,pair.repertoirePath)));assert.deepEqual(manifest,expected,'only three new declarations and actual bank hashes');
+ for(const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html'])assert.ok(englishClassification.beforeAssetBytes(path.join(WEB,filename)).equals(execFileSync('git',['show',BASELINE+':melunga_deploy/'+filename],{cwd:ROOT,maxBuffer:32*1024*1024})),'UI/classic byte-for-byte unchanged');
  assert.equal(stats.A.changedFields,74);assert.equal(stats.B.changedFields,43);
  assert.deepEqual([...audits.A.entries.keys()].filter(id=>audits.B.entries.has(id)),[key('fr-it','catalogue:it:1736')],'one explicit A→B identity chain');
  const erratum= auditErratum();

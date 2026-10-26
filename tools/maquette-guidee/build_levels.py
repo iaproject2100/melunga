@@ -74,6 +74,9 @@ _lot8_spec.loader.exec_module(lot8_corrections)
 _lot9_spec = importlib.util.spec_from_file_location("audited_lot9_corrections", Path(__file__).with_name("lot9_corrections.py"))
 lot9_corrections = importlib.util.module_from_spec(_lot9_spec)
 _lot9_spec.loader.exec_module(lot9_corrections)
+_english_classification_spec = importlib.util.spec_from_file_location("audited_english_classification", Path(__file__).with_name("english_classification.py"))
+english_classification = importlib.util.module_from_spec(_english_classification_spec)
+_english_classification_spec.loader.exec_module(english_classification)
 
 
 def canonical(value):
@@ -1674,8 +1677,11 @@ def make(include_situations=True):
         report["lot9PhoneticCorrections"] = lot9_phonetic_summary
         outputs, lot9_content_summary = lot9_corrections.apply_to_outputs(ROOT, outputs, report, "content")
         report["lot9ContentCorrections"] = lot9_content_summary
+        outputs, english_classification_summary = english_classification.apply_to_outputs(ROOT, outputs, report, sequences)
+        report["englishClassification"] = english_classification_summary
         for transport in report["reviewTransports"]:
-            transport["fileSha256"] = lot9_content_summary["transportSha256ByPair"][transport["pair"]]
+            if transport["pair"] != "fr-en":
+                transport["fileSha256"] = lot9_content_summary["transportSha256ByPair"][transport["pair"]]
         report["manifestSha256"] = sha(json.loads(outputs[OUTPUT / "manifest.json"]))
     # include_situations=False is the source-exact historical baseline used by
     # validate_situation_drafts.py. It is not a served runtime edition and has
@@ -1686,6 +1692,7 @@ def make(include_situations=True):
 
 def markdown(report):
     checks = report["checks"]
+    source_checks = report.get("historicalSourceChecksBeforeClassification", {}).get("checks", checks)
     counts = checks["contentTypeCounts"]
     lines = ["# Classement éditorial L1–L10 — proposition à relire", "",
         "Les thèmes de situation et les rubriques de vocabulaire figurent dans la même grille, sans nouvel écran de sélection. Une situation ne présente que des phrases ou répliques communicatives entières. Les mots, groupes lexicaux et nombres isolés se pratiquent dans leurs rubriques dédiées. Les modèles ouverts et les cas incertains sont conservés dans une réserve de revue, hors entraînement.", "",
@@ -1755,7 +1762,7 @@ def markdown(report):
                 f"Les dix-huit pistes supplémentaires ajoutent des échanges avec **{checks['receivedUsageCount']} répliques reçues**, dont **{checks['newReceivedAuthoredModels']} modèles entiers réellement rédigés pour l’écoute** et **{checks['receivedExistingConversationImports']} imports conversation réservés à l’écoute**. Les autres usages reçus réemploient un canonique existant sans le déplacer. Les reçus ont un rôle explicite, `analyse: false`, et une liste `answerWith` explicite ; les clôtures portent `answerWith: []`.", "",
                 f"Une question est entendue immédiatement avant le rappel de sa réponse, après les étapes comprendre et imiter réellement inscrites ; la clôture vient immédiatement après la réponse. Ces **{checks['receivedStepCount']} étapes d’écoute** sont exclues du compteur et des mesures de production. Le niveau de première écoute ne déplace pas le niveau de première production d’une source existante.", "",
                 f"Les modules déclarent **{checks['lexicalSupportUses']} références de soutien lexical**, dont **{checks['newSituationAuthoredLexicalSupports']} mots réellement rédigés** et **{checks['newSituationImportedLexicalSupports']} imports lexicaux entiers**. Les mots se trouvent dans leurs familles dédiées ; aucun n’est introduit en exercice de phrase et aucun ne gonfle les huit intentions du module.", "",
-                f"Le verrou additif conserve les **{checks['previousCanonicalTuplesAndSourcesIntact']} tuples et sources du lot antérieur**, les **{checks['protectedPreviousCanonicalLocationsIntact']} premiers emplacements protégés** et les **{checks['protectedOriginalSituationThemesIntact']} thèmes initiaux**. Les nouvelles aides entières de production, de réception et de vocabulaire restent à relire par Claude ; cette conservation n’est pas une validation pédagogique ou native.", ""])
+                f"Le verrou additif conserve les **{source_checks['previousCanonicalTuplesAndSourcesIntact']} tuples et sources du lot antérieur**, les **{source_checks['protectedPreviousCanonicalLocationsIntact']} premiers emplacements protégés** et les **{source_checks['protectedOriginalSituationThemesIntact']} thèmes initiaux**. Les nouvelles aides entières de production, de réception et de vocabulaire restent à relire par Claude ; cette conservation n’est pas une validation pédagogique ou native.", ""])
         lines.extend(["Dans ces rubriques de situation, les intentions 01 à 08 définissent l’ordre global : sources contextuelles et nouvelles premières rencontres restent mélangées à leur place. Le générateur ne repousse pas une conclusion au début sous prétexte qu’elle est réemployée. Les préparations structurelles explicites précèdent leur cible. La règle de révisions en amont reste applicable aux rubriques historiques, pas à ce nouveau déroulé de contexte.", ""])
     lines.extend(["", "## Réemploi de sources existantes", "",
         f"Phrases existantes importées depuis des variantes entières de conversation : **{checks['importedExistingPhrases']}**, avec **{checks['importedSourceFieldComparisons']} champs** copiés. Candidats exclus en attendant une décision sur l’aide ou le sens : **{checks['excludedEnrichmentCandidates']}**. Ces imports restent des copies entières.", "",
@@ -1825,6 +1832,21 @@ def markdown(report):
         if batch:
             lines.extend(["## " + title, "", description, "",
                 f"{batch['occurrenceCount']} objets / {batch['changedRuntimeFields']} champs. Registre `{batch['registryPath']}` ; SHA-256 `{batch['registrySha256']}`.", ""])
+    classification = report.get("englishClassification")
+    if classification:
+        lines[2] = "Le classement anglais applique le registre accepté, en conservant les types de chaque carte. Les rubriques comportant plusieurs types sont marquées mixed, bornées par identifiants et signalées dans le rapport. Les mots ne sont pas réétiquetés phrases et les phrases ne sont pas réétiquetées mots. Les modèles incomplets et les réserves de classement restent hors production."
+        lines = [line.replace("Le lot comporte **", "Le classement initial comportait **").replace("autres cartes** gardent un niveau source non revu individuellement.", "autres cartes** conservaient alors leur niveau source ; le registre anglais appliqué ensuite est déclaré séparément.").replace("Aucun thème de moins de six concepts n’est publié comme une petite leçon complète.", "Le classement anglais conserve visibles les thèmes devenus petits, avec des exceptions finies et des effectifs exposés ; il ne les complète pas artificiellement.") for line in lines]
+        lines = [line.replace("Les 95 gloses incertaines, 689 propositions de thème/niveau/doublon et 30 conventions restent non appliquées. Aucun placement, niveau ni droit n’est modifié.", "À la livraison du lot 7, les propositions de classement n’étaient pas appliquées. Le présent registre anglais tranche leur classement séparément ; les 95 gloses incertaines et 30 conventions restent non appliquées, et les droits ne changent pas.") for line in lines]
+        lines = [line.replace("Le verrou additif conserve les **", "Avant les couches de corrections et le classement anglais, le contrôle additif avait conservé les **").replace("premiers emplacements protégés** et les **", "premiers emplacements protégés** et les **").replace("thèmes initiaux**. Les nouvelles aides entières", "thèmes initiaux**. Ces compteurs sont historiques et ne décrivent pas les placements actuellement reclassés. Les nouvelles aides entières") for line in lines]
+        lines.extend(["", "## Classement anglais accepté — registre distinct", "",
+            "**670 opérations : 610 déplacements, dont 127 changements de niveau éditorial, 37 passages en réserve et 23 maintiens.** Les 4 704 identités canoniques restent présentes : 4 542 actives et 162 en réserve. Les champs étudiés, sens, aides, lectures, types et sources ne changent pas dans cette couche ; les niveaux source d’accès restent intacts.", "",
+            f"Les trois nouveaux thèmes présentent chacun trois cartes. Les **{len(classification['smallThemeExceptions'])} petits thèmes** sont signalés sans ajout inventé ; **{len(classification['largeThemes'])} thèmes dépassent le seuil de suivi de 100 présentations**. Ce seuil est un repère d’inventaire, pas une preuve de difficulté ou une limite automatiquement imposée. Deux thèmes sans présentation sont retirés de la grille, avec leurs métadonnées conservées, sans suppression de carte.", "",
+            "Les 151 placements traversant les anciens types de rubrique donnent 25 thèmes mixtes explicitement bornés. Neuf exceptions de classe lexicale conservent leurs annotations source. Les 29 compléments de situation suivent les huit intentions et leurs répliques reçues d’origine, sans les remplacer ni inventer des intentions supplémentaires.", "",
+            f"Le déroulé courant contient **{checks['steps']} étapes**, dont **{checks['receivedStepCount']} reçues**, soit **{checks['productionStepCount']} étapes hors réception**. Ce compteur hors réception ne signifie pas que chaque étape exige une production orale. Les **{checks['explicitLevelChanges']} cartes catalogue** dont le niveau éditorial diffère du niveau source constituent un autre périmètre que les 127 déplacements entre niveaux de ce registre.", "",
+            f"Le contrôle courant situationStepsContainOnlyUtterances vaut **{str(checks['situationStepsContainOnlyUtterances']).lower()}** : quatre identités lexicales approuvées dans les rubriques initialement de situation produisent **{checks['classifiedSituationNonUtteranceStepCount']} étapes**, avec leur type source conservé. Elles sont exposées dans classifiedSituationNonUtteranceSteps. Les situations additionnelles présentent désormais **{checks['additionalSituationPresentedPositions']} positions**, dont les 29 compléments classés après les intentions d’origine.", "",
+            "Les 700 emplacements et 70 thèmes protégés appartiennent au contrôle historique avant les couches révisées ; ils sont conservés sous historicalSourceChecksBeforeClassification, sans prétendre être tous intacts dans le classement courant.", "",
+            "Les révisions devenues incompatibles sont retirées des références : 22 références supprimées, quatre pointeurs mis à jour ; un soutien lexical change de pointeur. Les copies de transport suivent leur source. Have a good trip. reste une réplique entendue au niveau 2, alors que son identité de production est réservée au niveau canonique 3. La préparation locale de 2442 avant 2787 reste insérée.", "",
+            f"Registre `{classification['registryPath']}` ; SHA-256 `{classification['registrySha256']}` ; preuve `{classification['evidenceCommit']}`. La lecture et l’ordre prévu ne démontrent pas l’acquisition. Aucune fusion ou publication n’est autorisée dans ce lot.", ""])
     return "\n".join(lines)
 
 

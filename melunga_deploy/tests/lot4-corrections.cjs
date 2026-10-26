@@ -2,6 +2,7 @@
  * content transactions. No generator is imported. Reverse projection follows
  * content -> lot4 phonetics -> the served 606592c edition. */
 'use strict';
+const englishClassification = require('./english-classification.cjs');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
@@ -27,7 +28,7 @@ const SPEC={
 };
 const clone=value=>JSON.parse(JSON.stringify(value));
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
-const read=filename=>JSON.parse(fs.readFileSync(path.join(ROOT,filename),'utf8'));
+const read=filename=>englishClassification.beforeRead(filename,fs.readFileSync(path.join(ROOT,filename),'utf8'));
 const key=(pair,id)=>pair+'\0'+id;
 const at=(document,location)=>location.reduce((value,part)=>value[part],document);
 const baselines=new Map();
@@ -217,10 +218,10 @@ function auditRuntime(){
  }
  for(const file of files){const document=read(file),pair=document.pairId||document.id;assert.deepEqual(projectDocument(pair,document,file.includes('/repertoires/')),baseline(file),'no undeclared runtime change: '+file);}
  const expected=clone(old);Object.assign(expected,manifestDeclarations());
- for(const pair of expected.pairs)pair.repertoireSha256=hash(fs.readFileSync(path.join(WEB,pair.repertoirePath)));
+ for(const pair of expected.pairs)pair.repertoireSha256=hash(englishClassification.beforeBytes(path.join(WEB,pair.repertoirePath)));
  assert.deepEqual(manifest,expected,'manifest only adds two declarations and actual bank hashes');
  for(const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html']){
-  assert.ok(fs.readFileSync(path.join(WEB,filename)).equals(execFileSync('git',['show',BASELINE+':melunga_deploy/'+filename],{cwd:ROOT,maxBuffer:32*1024*1024})),'application/UI unchanged: '+filename);
+  assert.ok(englishClassification.beforeAssetBytes(path.join(WEB,filename)).equals(execFileSync('git',['show',BASELINE+':melunga_deploy/'+filename],{cwd:ROOT,maxBuffer:32*1024*1024})),'application/UI unchanged: '+filename);
  }
  assert.equal(stats.A.changedFields,275);assert.equal(stats.B.approvedFields,41);assert.equal(stats.B.changedFields,40);
  return {phonetic:stats.A,content:stats.B,files:77,approvedRuntimeFields:316,changedRuntimeFields:315,lot5:lot5Audit};

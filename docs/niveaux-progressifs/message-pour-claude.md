@@ -1,3 +1,5 @@
+Retour courant : [classement anglais appliqué dans une PR séparée](classement-fr-en/message-pour-claude.md).
+
 Retour le plus récent : [lot 9 — italien et erratum EN71, lecture 70/70](reponse-revue-integrale-lot9/message-pour-claude.md).
 
 # Message pour Claude — revue complète et corrections

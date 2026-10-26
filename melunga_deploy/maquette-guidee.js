@@ -36,7 +36,7 @@
     voiceChoices: new Map(), speechRate: 0.85, level: 1, requestedPair: null,
     loadGeneration: 0, request: null, levelCache: new Map(),
     referenceMap: new Map(), repertoireCache: new Map(), savedReview: [], readingPreferences: {},
-    deferredPhraseIds: new Set(), resumeGeneration: 0
+    deferredPhraseIds: new Set(), resumeGeneration: 0, englishClassification: null, classificationOps: new Map()
   };
   const reviewStorageKey = 'melunga-guided-review-v1';
   const readingStorageKey = 'melunga-guided-reading-v1';
@@ -219,7 +219,8 @@
       const copy = document.createElement('div'); copy.className = 'mg-saved-review-copy';
       const study = document.createElement('strong'); study.textContent = entry.study; study.lang = state.pair.studyLanguage;
       const native = document.createElement('span'); native.textContent = entry.native; native.lang = state.pair.nativeLanguage;
-      const level = document.createElement('small'); level.textContent = 'L' + entry.level;
+      const relocation = entry.pairId === 'fr-en' && state.classificationOps.get(entry.id);
+      const level = document.createElement('small'); level.textContent = 'L' + (relocation?.op === 'move' ? relocation.toLevel : entry.level);
       copy.append(study, native, level);
       const actions = document.createElement('div'); actions.className = 'mg-saved-review-actions';
       for (const action of ['resume', 'remove']) {
@@ -244,16 +245,26 @@
   async function resumeSavedReview(entry) {
     const token = ++state.resumeGeneration;
     closeMenu();
-    const loading = choosePair(entry.pairId, entry.level);
+    const operation = entry.pairId === 'fr-en' && state.classificationOps.get(entry.id);
+    const targetLevel = operation?.op === 'move' ? operation.toLevel : entry.level;
+    const targetTheme = operation?.op === 'move' ? operation.toTheme : entry.themeId;
+    const loading = choosePair(entry.pairId, targetLevel);
     const generation = state.loadGeneration;
     await loading;
     if (token !== state.resumeGeneration || generation !== state.loadGeneration || state.screen === 'loading'
-        || state.pair?.id !== entry.pairId || ui.level && state.pair.level !== entry.level) return;
-    const theme = state.pair.themes.find(candidate => candidate.id === entry.themeId && presentedPhrases(candidate).some(phrase => phrase.id === entry.id))
+        || state.pair?.id !== entry.pairId || ui.level && state.pair.level !== targetLevel) return;
+    if (operation?.op === 'to-reserve') {
+      showThemes(); setStatus('Cette fiche reste enregistrée dans À revoir, mais n’est plus proposée dans le parcours.'); return;
+    }
+    const theme = state.pair.themes.find(candidate => candidate.id === targetTheme && presentedPhrases(candidate).some(phrase => phrase.id === entry.id))
       || state.pair.themes.find(candidate => presentedPhrases(candidate).some(phrase => phrase.id === entry.id));
     const phrase = theme && presentedPhrases(theme).find(candidate => candidate.id === entry.id);
     if (!phrase || phrase.isTemplate || phrase.kind === 'received' || phrase.speaker === 'B') {
       showThemes(); setStatus('Ce contenu a été actualisé. Tu peux le retrouver dans les thèmes.'); return;
+    }
+    if (operation?.op === 'move' && (entry.level !== targetLevel || entry.themeId !== theme.id)) {
+      saveReviewEntries(state.savedReview.map(item => item.pairId === entry.pairId && item.id === entry.id
+        ? { ...item, level: targetLevel, themeId: theme.id, study: phrase.study, native: phrase.native } : item));
     }
     state.theme = theme;
     const id = state.pair.id + ':saved:' + phrase.id;
@@ -923,7 +934,7 @@
       if (!pair) {
         const response = await fetch(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
         if (!response.ok) throw new Error('Level unavailable');
-        pair = await response.json();
+        pair = await readRuntimeJson(response, entry.dataPath);
         if (pair.id !== id || pair.level !== entry.level) throw new Error('Wrong level');
       }
       let references = new Map();
@@ -936,7 +947,7 @@
         if (!bank) {
           const response = await fetch(repertoirePath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
           if (!response.ok) throw new Error('Repertoire unavailable');
-          bank = validateRepertoire(await response.json(), id);
+          bank = validateRepertoire(await readRuntimeJson(response, repertoirePath), id);
         }
         references = new Map([...bank.phrases, ...(bank.receivedModels || [])].map(phrase => [phrase.id, phrase]));
         if (generation !== state.loadGeneration) return;
@@ -963,8 +974,117 @@
     }
   }
 
+  // Only this reviewed ledger may relax density or type guards. The complete
+  // finite policy is pinned; changing the manifest cannot widen an exception.
+  const englishClassificationRegistrySha = 'a605a44eb886e598014dab0ed4b1000c819060ad4dcf83f939fd70c9a4dc020a';
+  const englishClassificationPolicySha = '665103174b46c0946e2e9195b1b4675fb8f32fbc4d3bb78c51cabebd0b9f65f1';
+  const stableJson = value => JSON.stringify((function sort(item) {
+    if (Array.isArray(item)) return item.map(sort);
+    if (item && typeof item === 'object') return Object.fromEntries(Object.keys(item).sort().map(key => [key, sort(item[key])]));
+    return item;
+  })(value));
+  const sameItems = (left, right) => Array.isArray(left) && Array.isArray(right)
+    && left.length === right.length && new Set(left).size === left.length
+    && left.every(item => right.includes(item));
+
+  async function loadClassificationPolicy(manifest) {
+    state.englishClassification = null;
+    state.classificationOps = new Map();
+    const policy = manifest.englishClassification;
+    if (policy === undefined) return;
+    if (!policy || policy.version !== 1 || policy.id !== 'tri-themes-claude-fr-en' || policy.pair !== 'fr-en'
+        || policy.registrySha256 !== englishClassificationRegistrySha
+        || policy.baseSnapshotCommit !== '13f42b5814f2b230d76d2d0ef267dcf406c523c2'
+        || policy.evidenceCommit !== '1bf76c72f58e2ffe37e27d2b137a1ebe350e097f'
+        || !Array.isArray(policy.operations) || policy.operations.length !== 670
+        || !window.crypto?.subtle) throw new Error('Invalid classification policy');
+    const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(stableJson(policy)));
+    const actual = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('');
+    if (actual !== englishClassificationPolicySha) throw new Error('Unapproved classification policy');
+    const operations = new Map(policy.operations.map(operation => [operation.id, operation]));
+    if (operations.size !== 670 || policy.operations.filter(operation => operation.op === 'move').length !== 610
+        || policy.operations.filter(operation => operation.op === 'to-reserve').length !== 37
+        || policy.operations.filter(operation => operation.op === 'keep').length !== 23
+        || !sameItems(policy.reserveIds, policy.operations.filter(operation => operation.op === 'to-reserve').map(operation => operation.id))) {
+      throw new Error('Invalid classification inventory');
+    }
+    state.englishClassification = policy;
+    state.classificationOps = operations;
+  }
+
+  async function readRuntimeJson(response, dataPath) {
+    const raw = await response.text();
+    const expected = state.englishClassification?.runtimeSha256ByPath?.['melunga_deploy/' + dataPath];
+    if (expected) {
+      const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw));
+      const actual = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('');
+      if (actual !== expected) throw new Error('Classified content differs from its reviewed edition');
+    } else if (state.englishClassification && (dataPath.startsWith('content/niveaux-progressifs/fr-en/')
+        || dataPath === 'content/niveaux-progressifs/repertoires/fr-en.json')) throw new Error('Missing classified artifact');
+    return JSON.parse(raw);
+  }
+
+  function classificationFor(pair) {
+    const edition = pair.englishClassificationEdition;
+    if (pair.id !== 'fr-en') {
+      if (edition !== undefined) throw new Error('Classification on another pair');
+      return null;
+    }
+    if (!state.englishClassification) {
+      if (edition !== undefined) throw new Error('Missing classification policy');
+      return null;
+    }
+    if (!edition || edition.pair !== 'fr-en' || edition.registrySha256 !== englishClassificationRegistrySha) {
+      throw new Error('Wrong classification edition');
+    }
+    return state.englishClassification;
+  }
+
+  function classificationAnnotation(phrase, operation) {
+    if (!operation || operation.op === 'keep') return phrase.englishClassification === undefined;
+    const expected = { registrySha256: englishClassificationRegistrySha, operation: operation.op,
+      fromLevel: operation.fromLevel, fromTheme: operation.fromTheme,
+      toLevel: operation.toLevel ?? operation.fromLevel,
+      toTheme: operation.op === 'to-reserve' ? null : operation.toTheme };
+    return stableJson(phrase.englishClassification) === stableJson(expected);
+  }
+
+  function validateClassifiedLocations(pair, policy) {
+    if (!policy) return;
+    const found = new Map();
+    for (const theme of pair.themes) for (const phrase of theme.phrases) found.set(phrase.id, { phrase, themeId: theme.id, reserve: false });
+    for (const phrase of pair.reserve || []) found.set(phrase.id, { phrase, themeId: null, reserve: true });
+    for (const operation of policy.operations) {
+      const level = operation.op === 'move' ? operation.toLevel : operation.fromLevel;
+      const target = found.get(operation.id);
+      if (level !== pair.level) { if (target) throw new Error('Classification duplicated across levels'); continue; }
+      const reserved = operation.op === 'to-reserve' || operation.op === 'keep' && operation.fromTheme === 'reserve';
+      const themeId = reserved ? null : operation.op === 'move' ? operation.toTheme : operation.fromTheme;
+      if (!target || target.reserve !== reserved || target.themeId !== themeId
+          || target.phrase.contentType !== operation.contentType || target.phrase.editorialLevel !== level
+          || !classificationAnnotation(target.phrase, operation)) throw new Error('Wrong classified placement');
+      if (operation.op !== 'keep' && (target.phrase.placement?.themeId !== themeId
+          || reserved && (target.phrase.placement?.domain !== 'reserve' || target.phrase.placement?.section !== 'reserve'))) {
+        throw new Error('Wrong classified source placement');
+      }
+    }
+    for (const { phrase } of found.values()) if (phrase.englishClassification !== undefined
+        && !state.classificationOps.has(phrase.id)) throw new Error('Undeclared classification');
+  }
+
+  function classifiedTheme(policy, group, pair, theme) {
+    return policy && (policy[group] || []).find(item => item.id === theme.id && item.level === pair.level);
+  }
+
+  function approvedLexicalClass(policy, pair, theme, phrase, expected) {
+    return policy && (policy.lexicalClassExceptions || []).some(item => item.id === phrase.id
+      && (item.themeId || item.theme) === theme.id && item.level === pair.level
+      && item.expected === expected && (item.actual ?? null) === (phrase.lexicalClass ?? null));
+  }
+
   function validateRepertoire(bank, pairId) {
     if (!bank || bank.version !== 1 || bank.pairId !== pairId || !Array.isArray(bank.phrases)) throw new Error('Invalid repertoire');
+    const classification = classificationFor({ id: pairId, englishClassificationEdition: bank.englishClassificationEdition });
     const ids = new Set();
     for (const phrase of bank.phrases) {
       const location = phrase.canonicalLocation;
@@ -976,6 +1096,11 @@
           || !location || location.pairId !== pairId || !location.themeId
           || !Number.isInteger(location.level) || location.level < 1 || location.level > 10
           || phrase.editorialLevel !== location.level) throw new Error('Invalid repertoire phrase');
+      const operation = classification && state.classificationOps.get(phrase.id);
+      if (operation && (!classificationAnnotation(phrase, operation) || operation.op === 'to-reserve'
+          || operation.op === 'move' && (location.level !== operation.toLevel || location.themeId !== operation.toTheme))) {
+        throw new Error('Stale classified repertoire');
+      }
       ids.add(phrase.id);
     }
     const receivedIds = new Set();
@@ -991,6 +1116,10 @@
       const location = phrase.canonicalLocation;
       if (location && (location.pairId !== pairId || !location.themeId
           || !Number.isInteger(location.level) || location.level < 1 || location.level > 10)) throw new Error('Invalid received source location');
+      const reserve = phrase.canonicalReserveLocation;
+      if (reserve !== undefined && (!classification || state.classificationOps.get(phrase.id)?.op !== 'to-reserve'
+          || reserve.pairId !== pairId || reserve.level !== state.classificationOps.get(phrase.id).fromLevel
+          || location !== undefined)) throw new Error('Invalid heard reserve location');
       receivedIds.add(phrase.id);
     }
     return bank;
@@ -1019,6 +1148,8 @@
     data.pairs.forEach(pair => {
       if (!pair || !pair.id || pairIds.has(pair.id) || !Array.isArray(pair.themes) || !pair.themes.length) throw new Error('Invalid pair');
       pairIds.add(pair.id);
+      const classification = classificationFor(pair);
+      validateClassifiedLocations(pair, classification);
       const allThemes = [...pair.themes, ...(pair.heldThemes || [])];
       const active = allThemes.flatMap(theme => theme.phrases || []);
       const canonical = new Set(active.map(phrase => phrase.id));
@@ -1033,13 +1164,33 @@
         for (const type of ['utterance', 'vocabulary', 'number', 'incomplete', 'review']) {
           if (all.filter(phrase => phrase.contentType === type).length !== pair.counts[type]) throw new Error('Invalid content counts');
         }
-        if (reserve.some(phrase => !['incomplete', 'review'].includes(phrase.contentType))) throw new Error('Invalid reserve');
+        if (reserve.some(phrase => !['incomplete', 'review'].includes(phrase.contentType)
+            && !(classification?.reserveIds.includes(phrase.id)
+              && state.classificationOps.get(phrase.id)?.op === 'to-reserve'
+              && classificationAnnotation(phrase, state.classificationOps.get(phrase.id))))) throw new Error('Invalid reserve');
       }
       pair.themes.forEach(theme => {
         if (!theme.id || !theme.title || !Array.isArray(theme.phrases) || !Array.isArray(theme.sequences) || !theme.sequences.length) throw new Error('Invalid theme');
-        if (pair.counts && (!['utterance', 'vocabulary', 'number'].includes(theme.contentType)
-            || theme.section !== (theme.contentType === 'utterance' ? 'situations' : 'vocabulary')
-            || theme.phrases.some(phrase => phrase.contentType !== theme.contentType || phrase.isTemplate))) throw new Error('Mixed content theme');
+        const mixed = classifiedTheme(classification, 'mixedThemes', pair, theme);
+        const types = new Set(mixed ? mixed.contentTypes : [theme.contentType]);
+        if (mixed && (theme.contentType !== 'mixed' || !sameItems(theme.contentTypes, mixed.contentTypes)
+            || !sameItems(theme.phrases.map(phrase => phrase.id), mixed.phraseIds))) throw new Error('Invalid classified mixed theme');
+        if (pair.counts && (!(mixed ? theme.contentType === 'mixed' && types.size > 1
+              : ['utterance', 'vocabulary', 'number'].includes(theme.contentType))
+            || (mixed ? !['situations', 'vocabulary'].includes(theme.section)
+              : theme.section !== (theme.contentType === 'utterance' ? 'situations' : 'vocabulary'))
+            || theme.phrases.some(phrase => !types.has(phrase.contentType) || phrase.isTemplate))) throw new Error('Mixed content theme');
+        const extension = classifiedTheme(classification, 'situationExtensions', pair, theme);
+        const extraIds = extension?.addedIds || [];
+        if (!sameItems(theme.classificationExtensionIds || [], extraIds)) throw new Error('Unapproved situation extension');
+        const extra = new Set(extraIds);
+        const small = classifiedTheme(classification, 'smallThemeExceptions', pair, theme);
+        const minimum = small ? small.minimum : 6;
+        if (small && (!Number.isInteger(minimum) || minimum < 1 || minimum > 5
+            || small.presentedCount !== theme.presentedCount
+            || small.pedagogicalConceptCount !== undefined && small.pedagogicalConceptCount !== theme.pedagogicalConceptCount)) {
+          throw new Error('Invalid reviewed small theme');
+        }
         if (theme.photo && (!/^assets\/(?:theme-scenes(?:-L(?:[2-9]|10))?|vocabulary-scenes-L(?:1|3|5|7|9)-L(?:2|4|6|8|10)|pos-scenes-L1-L4|pos-scenes-L5-L8|pos-scenes-L9-L10|color-scenes|nature-scenes|leisure-scenes|situation-scenes|situation-pistes-[12])\.webp$/.test(theme.photo.asset)
             || ![3, 4].includes(theme.photo.columns) || theme.photo.rows !== 4
             || !Number.isInteger(theme.photo.column) || theme.photo.column < 0 || theme.photo.column >= theme.photo.columns
@@ -1048,16 +1199,18 @@
         const lexicalClass = { 'vocab-adjectifs': 'adjective', 'vocab-couleurs': 'color', 'vocab-adverbes': 'adverb' }[theme.domain];
         theme.phrases.forEach(phrase => {
           if (!phrase.id || ids.has(phrase.id) || typeof phrase.study !== 'string' || typeof phrase.native !== 'string' || typeof phrase.phon !== 'string') throw new Error('Invalid phrase');
-          if (lexicalClass && phrase.lexicalClass !== lexicalClass) throw new Error('Invalid lexical class');
+          if (lexicalClass && phrase.lexicalClass !== lexicalClass
+              && !approvedLexicalClass(classification, pair, theme, phrase, lexicalClass)) throw new Error('Invalid lexical class');
           ids.add(phrase.id);
         });
         const reviewIds = new Set();
         for (const reference of theme.reviewReferences || []) {
           const phrase = references.get(reference.id);
           if (!phrase || ids.has(reference.id) || reviewIds.has(reference.id)
-              || phrase.contentType !== theme.contentType
+              || !types.has(phrase.contentType)
               || phrase.placement?.domain !== theme.domain
               || lexicalClass && phrase.lexicalClass !== lexicalClass
+                && !approvedLexicalClass(classification, pair, theme, phrase, lexicalClass)
               || reference.firstEditorialLevel !== phrase.canonicalLocation.level
               || reference.firstEditorialLevel >= pair.level
               || reference.canonicalThemeId !== phrase.canonicalLocation.themeId
@@ -1066,7 +1219,7 @@
         }
         const contextIds = new Set();
         if (theme.isAdditionalSituation !== undefined && typeof theme.isAdditionalSituation !== 'boolean') throw new Error('Invalid situation marker');
-        if (theme.isAdditionalSituation && (theme.contentType !== 'utterance'
+        if (theme.isAdditionalSituation && (!(theme.contentType === 'utterance' || mixed)
             || theme.section !== 'situations' || !Array.isArray(theme.intentIds)
             || theme.intentIds.some(id => typeof id !== 'string' || !id.trim())
             || theme.intentIds.length !== 8 || new Set(theme.intentIds).size !== 8)) throw new Error('Invalid additional situation');
@@ -1081,10 +1234,10 @@
           contextIds.add(reference.id);
         }
         const presentedIds = new Set([...ids, ...reviewIds, ...contextIds]);
-        if (theme.isAdditionalSituation && presentedIds.size !== 8) throw new Error('Incomplete additional situation');
+        if (theme.isAdditionalSituation && presentedIds.size !== 8 + extra.size) throw new Error('Incomplete additional situation');
         if (theme.isAdditionalSituation) {
           const coveredIntents = [
-            ...theme.phrases.map(phrase => phrase.situationIntentId || phrase.intentId),
+            ...theme.phrases.filter(phrase => !extra.has(phrase.id)).map(phrase => phrase.situationIntentId || phrase.intentId),
             ...(theme.contextReferences || []).map(reference => reference.intentId)
           ];
           if (coveredIntents.length !== 8 || new Set(coveredIntents).size !== 8
@@ -1093,11 +1246,11 @@
         if (pair.counts && Number.isInteger(theme.presentedCount)
             && (theme.newCount !== ids.size || theme.reviewCount !== reviewIds.size
                 || (theme.reuseCount || 0) !== contextIds.size
-                || theme.presentedCount !== presentedIds.size || theme.presentedCount < 6
+                || theme.presentedCount !== presentedIds.size || theme.presentedCount < minimum
                 || !Number.isInteger(theme.pedagogicalConceptCount)
-                || theme.pedagogicalConceptCount < 6)) throw new Error('Invalid theme repertoire counts');
+                || theme.pedagogicalConceptCount < minimum)) throw new Error('Invalid theme repertoire counts');
         const intentByPhrase = new Map([
-          ...theme.phrases.map(phrase => [phrase.id, phrase.situationIntentId || phrase.intentId]),
+          ...theme.phrases.filter(phrase => !extra.has(phrase.id)).map(phrase => [phrase.id, phrase.situationIntentId || phrase.intentId]),
           ...(theme.contextReferences || []).map(reference => [reference.id, reference.intentId])
         ]);
         const phraseByIntent = new Map([...intentByPhrase].map(([id, intent]) => [intent, id]));
@@ -1193,7 +1346,7 @@
         if (heardUses.size !== receivedUses.size) throw new Error('Missing interlocutor turn');
         if (included.length !== presentedIds.size || new Set(included).size !== presentedIds.size) throw new Error('Incomplete theme');
         if (theme.isAdditionalSituation) {
-          if (included.some((id, index) => intentByPhrase.get(id) !== theme.intentIds[index])) throw new Error('Invalid situation order');
+          if (included.filter(id => !extra.has(id)).some((id, index) => intentByPhrase.get(id) !== theme.intentIds[index])) throw new Error('Invalid situation order');
         }
       });
     });
@@ -1208,7 +1361,9 @@
     try {
       const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
       if (!response.ok) throw new Error('HTTP ' + response.status);
-      state.data = (ui.level ? validateManifest : validateData)(await response.json());
+      const data = await response.json();
+      if (ui.level) await loadClassificationPolicy(data);
+      state.data = (ui.level ? validateManifest : validateData)(data);
       ui.language.replaceChildren(...state.data.pairs.map(pair => {
         const option = document.createElement('option');
         option.value = pair.id;

@@ -1,6 +1,6 @@
 # Vérification des commandes et de la fiche sans défilement
 
-Exécution : `2026-10-26T09:15:33.118Z` — **9 contrôles sur 9 réussis**.
+Exécution : `2026-10-26T11:27:03.884Z` — **9 contrôles sur 9 réussis**.
 
 Chromium local, écrans émulés. Aucun téléphone physique ni site public testé. Les voix sont simulées pour vérifier le texte transmis ; ce rapport ne valide ni le son réel ni les phonétiques.
 
@@ -63,3 +63,10 @@ les deux réserves restent en réserve. EN71 a sa propre correction entière
 après le lot 8, dont les preuves et annotations sont gardées. Les 280
 propositions, 30 conventions et 96 contenus incertains ne sont pas appliqués.
 Voir [le raccord lot 9](verification-raccord-lot9.md).
+
+Le registre anglais 1bf76c7 applique 670 décisions sur 4 704 cartes conservées,
+avec 127 changements de niveau éditorial et 37 mises en réserve. Les champs
+étudiés, phonétiques, sources et anciens correctifs sont préservés. Les
+exceptions de type, densité et scènes sont bornées au registre. Les cartes
+À revoir changées de niveau retrouvent leur adresse canonique vérifiée.
+Voir le [compte rendu anglais](classement-fr-en/README.md).

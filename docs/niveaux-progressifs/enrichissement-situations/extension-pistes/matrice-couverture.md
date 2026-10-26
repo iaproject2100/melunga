@@ -36,7 +36,7 @@ Les 18 pistes sont désormais instanciées dans les sept couples : 126 rubriques
 La passe de couverture des reçus explicite trois fonctions dans les formulations finales, sans changer les IDs ni l’ordre du plan : comprendre une vraie indication vers la gare avant de confirmer la marche ; entendre que le nouveau code a été envoyé avant de confirmer la connexion ; entendre que l’appareil a été réparé avant de confirmer son fonctionnement. La référence française du plan reste un repère de sens. Les champs anglais entiers et l’empreinte de leur ledger sont consignés dans `receivedCoverageRefinement` pour les trois lignes concernées ; les autres langues déclinent les mêmes fonctions dans leurs propres ledgers.
 
 
-La matrice complète réussit **19 contrôles sur 19** sur le manifeste `a8184cf3d8f4242b81b8c3b511e3e37c6d3364d6e6c153dc3f786a405e11d326` : 210 vues, 1 568 positions apprenant et tous les reçus/soutiens comparés aux sources. Le JSON de chaque piste contient ses sept réalisations effectives et le lien de preuve global. Rapport : [verification-navigateur.json](../../verification-navigateur.json), SHA-256 `083dd3f484cefbab9cfea0e6e9134adc37bfcdf800de70b70ea5007fb96217c5`. Ces contrôles ne mesurent ni l’acquisition ni la qualité sonore réelle.
+La matrice complète réussit **19 contrôles sur 19** sur le manifeste `780e204750a7f8325af319c441a9f8bbe206b57b249924313bfc6768cac66865` : 210 vues, 1 568 positions apprenant et tous les reçus/soutiens comparés aux sources. Le JSON de chaque piste contient ses sept réalisations effectives et le lien de preuve global. Rapport : [verification-navigateur.json](../../verification-navigateur.json), SHA-256 `7b99c354a737d600ca276164d7f418007836171c10579f6770f2d41b161bd6b2`. Ces contrôles ne mesurent ni l’acquisition ni la qualité sonore réelle.
 
 Le raccord phonétique du 25 octobre vérifie les après exacts et leurs annotations avant de comparer les tuples sources sur une projection privée vers les avant. Les indicateurs `sourceTuplesMatchLedger` se rapportent à ce contrôle des origines, pas à une identité verbatim des aides corrigées avec le ledger historique. L’affichage est comparé aux après réels. Voir [la vérification du raccord](../../verification-raccord-phonetique.md).
 
@@ -74,3 +74,9 @@ l’erratum espagnol EN71 dans trois couches distinctes. Les après et annotatio
 sont contrôlés avant projection des origines. Les 280 propositions,
 30 conventions et 96 contenus incertains restent non appliqués ; la couverture
 ne vaut pas clôture des décisions ou validation pédagogique globale.
+
+Le registre anglais conserve le corpus de 1 568 intentions initiales des
+28 situations par couple. Les 29 cartes anglaises déjà existantes classées
+dans ces scènes suivent leurs huit intentions d’origine ; ce ne sont pas
+29 créations ni un nouvel enrichissement. Les 670 décisions sont contrôlées
+sur les fichiers actuels avant toute projection historique privée.

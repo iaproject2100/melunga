@@ -5,6 +5,22 @@ puis pratique en un clic sur mobile et ordinateur. Les quatre carrés ouvrent
 le menu. La page `melunga_deploy/parcours-niveaux.html` reste un aperçu distinct
 de l’application publiée sur melunga.com.
 
+
+## Classement anglais appliqué sur une branche de revue distincte
+
+Le [registre anglais](classement-fr-en/README.md), commit source `1bf76c7`,
+applique 670 décisions : 610 déplacements, dont 127 changements de niveau,
+37 mises en réserve et 23 maintiens. Textes, phonétique, lectures, niveaux
+source d’accès et cartes classiques sont conservés. Le classement reste en
+PR distincte, sans nouvelle fusion ou publication autorisée.
+
+L’état courant de cette branche contient **32 755 cartes actives, 899 en réserve
+et 1 637 thèmes visibles**, toujours 33 654 cartes canoniques. Trois nouveaux
+thèmes ont trois cartes ; 22 autres rubriques passent aussi sous six concepts.
+Les tailles réelles et sept rubriques de plus de 100 présentations sont signalées.
+Les chiffres de densité des lots antérieurs ci-dessous décrivent leurs
+snapshots, pas un maintien universel du seuil de six après ce registre.
+
 ## Commandes des leçons
 
 Sur mobile et ordinateur, la phrase entière, la phonétique, le sens et les
@@ -94,10 +110,10 @@ Les modèles réservés à l’écoute de l’interlocuteur sont à part : ils n
 ni ajoutés au total de production, ni utilisés pour gonfler le compteur de leçon.
 Les copies de transport, révisions et références de contexte n’ajoutent aucune carte.
 
-Le total comprend **32 792 entrées dans les thèmes visibles**
-et **862 modèles incomplets/cas incertains en réserve**.
-Il y a **1 636 thèmes affichés**, tous d’au moins six concepts,
-et **0 thème retenu hors écran pour manque de contenu**.
+Avant le registre anglais, le total comprenait **32 792 entrées visibles**,
+**862 réserves** et **1 636 thèmes**, tous d’au moins six concepts. Le registre
+ci-dessus donne l’état courant : **32 755 visibles / 899 réserves / 1 637 thèmes**.
+Les 25 petites rubriques sont explicites ; aucun thème non vide n’est retenu hors écran.
 
 ## Progression, cohérence et limites
 
@@ -292,3 +308,5 @@ Validation du lot 7 : **6 tests ciblés + 26 historiques, 9 commandes et 19 cont
 Validation du lot 8 : **6 tests ciblés + 32 historiques, 9 commandes et 19 contrôles généraux réussis ; 171 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot8.md).
 
 Validation du lot 9 : **6 tests ciblés + 38 historiques, 9 commandes et 19 contrôles généraux réussis ; 196 contre-épreuves Python refusées**. [Rapport et limites](verification-raccord-lot9.md).
+
+Classement anglais : **80 essais locaux réussis et 36 contre-épreuves du registre refusées**. [Preuves et limites](classement-fr-en/verification.md).

@@ -6,7 +6,7 @@ Ce lecteur ne charge aucun générateur. Il relit le catalogue réel, les partit
 
 | Couple | Catalogue exact | Imports L1 | Lot lexical rédigé | Ajouts situations et soutiens | Hors réserve | Réserve | L1 historique conservé |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| fr-en | 4502 | 5 | 9 | 188 | 4579 | 125 | 323 |
+| fr-en | 4502 | 5 | 9 | 188 | 4542 | 162 | 323 |
 | fr-es | 4672 | 7 | 69 | 211 | 4796 | 163 | 289 |
 | fr-it | 4509 | 5 | 12 | 194 | 4571 | 149 | 338 |
 | fr-zh | 4903 | 8 | 15 | 184 | 5018 | 92 | 314 |
@@ -18,7 +18,7 @@ Ce lecteur ne charge aucun générateur. Il relit le catalogue réel, les partit
 
 Le registre phonétique déclare **772 identités / 774 événements B, C et D**, soit **786 objets runtime**, dont **14 copies de transport ou modèles reçus**. Les canoniques corrigés se répartissent entre **727 aides du catalogue** et **45 aides de phrases rédigées**. Chaque événement doit égaler une entrée des deux preuves Git dont les SHA sont épinglées dans ce lecteur ; les deux chaînes B→D restent ordonnées. Les aides corrigées, statuts et annotations sont contrôlés dans toutes les cellules et banques avant toute projection. Les empreintes du rapport sont celles des fichiers corrigés réels ; aucune donnée du pack appelant n'est réécrite. Ces corrections locales ne certifient pas la phonétique complète ni une relecture native.
 
-Le total canonique est **33 654**, dont **32 792 entrées hors réserve** et **862 réservées**. Les banques et les révisions ne sont jamais ajoutées à ces totaux. La réserve n’a aucune étape de leçon.
+Le total canonique est **33 654**, dont **32 755 entrées hors réserve** et **899 réservées**. Les banques et les révisions ne sont jamais ajoutées à ces totaux. La réserve n’a aucune étape de leçon.
 
 Les champs sont relus indépendamment : pf pour en/es/it/ja/ko, phf pour zh, phon et cn pour les apprenants sinophones du français ; py sert seulement de lecture complémentaire. Aucun morceau de phonétique n’est extrait ou assemblé.
 
@@ -52,7 +52,7 @@ Le **lot7 anglais** vérifie **228 aides entières figées**, dans **238 objets 
 
 La couche de contenu séparée vérifie **11 gloses certaines et 5 blocs étude/aide/glose**, soit **16 objets / 24 champs**. Chaque bloc conserve exactement ses deux ou trois champs déclarés ; les sens non corrigés de1024/2732 restent gardés. Les après sont validés avant projection privée contenu→phonétique→lots6/5/4/3/2→sources.
 
-Les règles G/W/A/H/Z/T sont des étiquettes de ces événements anglais seulement. G reprend le principe du g dur, sans étendre une substitution ; A désigne l'accent anglais et ne réactive pas l'ancienne proposition espagnole A retirée. Les 689 propositions, 30 conventions et 95 gloses incertaines restent non appliquées. Identifiants, sources, emplacements, rôles, étapes, niveaux, tarifs, droits et présentation restent conservés. La lecture individuelle annoncée par Claude est 50 cellules sur70, pas une validation native globale par ces essais.
+Les règles G/W/A/H/Z/T sont des étiquettes de ces événements anglais seulement. G reprend le principe du g dur, sans étendre une substitution ; A désigne l'accent anglais et ne réactive pas l'ancienne proposition espagnole A retirée. À la livraison du lot7, les 689 propositions, 30 conventions et 95 gloses incertaines restaient non appliquées. Le registre anglais distinct applique désormais 670 décisions issues de ces propositions ; ses conventions et gloses incertaines restent hors de ce lot. Identifiants, sources, emplacements, rôles, étapes, niveaux, tarifs, droits et présentation restent conservés. La lecture individuelle annoncée par Claude est 50 cellules sur70, pas une validation native globale par ces essais.
 
 Le **lot6 coréen** vérifie **18 aides entières** et **5 lectures liées**, soit **23 événements / 18 objets / 23 champs**. Les cinq paires restent atomiques ; les treize autres aides ne changent aucune lecture. Les preuves sont épinglées à `87357b1`, les avant complets à Git `161d0eb`, et la chaîne antérieure B de 3980 reste explicite.
 
@@ -83,19 +83,19 @@ Les intentions de dépendance de ces situations restent prévues : ce contrôle 
 
 Les **140 entrées rédigées / 453 champs** correspondent intégralement au master. Leurs aides gardent pending-Claude : **139 nouvelles propositions entières** et **1 reprise du mot entier light**, dont la forme et l’aide sont comparées directement à la carte nominale d’origine. Le nouveau sens adjectival ne modifie pas cette carte. Les formes M/F liées à un même concept ne peuvent inventer deux concepts.
 
-Le catalogue comporte **22 505 énoncés**, **8 525 entrées lexicales**, **223 nombres isolés**, **495 incomplets** et **367 réserves sémantiques**. La partition est complète et ses décisions de type/POS/destination sont comparées à l’exécution. Les situations n’accueillent aucun mot ou nombre isolé, même par le chemin des préparations.
+Le catalogue comporte **22 505 énoncés**, **8 525 entrées lexicales**, **223 nombres isolés**, **495 incomplets** et **367 réserves sémantiques**. La partition est complète et ses décisions de type/POS/destination sont comparées à l’exécution. Le classement anglais conserve le type de chaque source : ses 151 placements dans une rubrique d’un autre type sont déclarés dans 25 thèmes mixtes, et chaque étape garde le type de sa carte. Une préparation structurelle reste une phrase entière ; aucun mot isolé n’y est injecté.
 
-Les classes spécialisées ont priorité sur les familles générales. Une famille fonctionnelle de relations peut aussi contenir un groupe locatif entier ou un localisateur chinois de classe other, sans le présenter comme une préposition française. Les régressions Saludos a tu familia→Saluer et Salirse con la suya→lexique Actions sont vérifiées séparément des heuristiques.
+Les classes spécialisées ont priorité dans les couches historiques ; les neuf destinations adverbes de ce registre conservent leur lexicalClass source et exposent une exception bornée, sans réécriture silencieuse. Une famille fonctionnelle de relations peut aussi contenir un groupe locatif entier ou un localisateur chinois de classe other, sans le présenter comme une préposition française. Les régressions Saludos a tu familia→Saluer et Salirse con la suya→lexique Actions sont vérifiées séparément des heuristiques.
 
 ## Densité réelle et reprises
 
-**1636 thèmes visibles** ont chacun au moins six concepts mesurés à partir de leurs sources. **0 thèmes / 0 cartes** sont conservés en attente sans entraînement ; **32 792 cartes canoniques** sont visibles. Le drapeau require-no-held exige zéro contenu en attente.
+**1637 thèmes visibles**, dont **25 exceptions anglaises finies sous six concepts** après application du registre. Les trois nouveaux thèmes ont chacun trois cartes ; les 22 anciens thèmes devenus petits restent visibles et signalés à enrichir. **0 thèmes / 0 cartes** sont conservés en attente sans entraînement ; **32 755 cartes canoniques** sont visibles. Le drapeau require-no-held exige zéro contenu en attente.
 
-Les **7389 révisions présentées** sont strictement postérieures à leur première rencontre, dans la même famille et le même type. Le transport commun aux révisions, réemplois contextuels et soutiens contient **2021 copies uniques**, marquées referenceOnly et liées à leur emplacement canonique réel. Chaque copie, tous ses champs et sa provenance correspondent à cet original. Les compteurs newCount, reviewCount, presentedCount et pedagogicalConceptCount sont recalculés.
+Les **7367 révisions présentées** sont strictement postérieures à leur première rencontre, dans la même famille et le même type. Le transport commun aux révisions, réemplois contextuels et soutiens contient **2021 copies uniques**, marquées referenceOnly et liées à leur emplacement canonique réel. Chaque copie, tous ses champs et sa provenance correspondent à cet original. Les compteurs newCount, reviewCount, presentedCount et pedagogicalConceptCount sont recalculés.
 
 Un concept explicitement lié dans les décisions ou le master garde exactement cet identifiant. Seul l’alias éditorial déclaré leger/léger est rapproché pour compter et trier les variantes, sans changer les identifiants ni aucun texte/phonétique source. À défaut, le couple étudié/sens exact sert de clé de comptage : cette mesure n’est pas une analyse universelle de synonymie. Elle ne remplace pas la revue sémantique de Codex.
 
-Les **121 159 étapes** comprennent **72 658 étapes de situation** et **48 501 étapes lexicales**. Compréhension puis imitation précèdent chaque rappel. Dans les anciennes rubriques, les groupes de révision sont séparés et terminent leurs rappels avant les nouveautés ; les nouveaux thèmes suivent leurs huit intentions dans l’ordre global du plan. Les nombres sont triés par numberOrder séparément dans le bloc révision puis dans le bloc nouveau. Les adjectifs suivent les concepts prioritaires grand/petit/gros/beau/léger/lourd/triste/heureux, avec variantes groupées et traits de personnalité après les propriétés. Les autres révisions suivent leur première rencontre croissante.
+Les **120 982 étapes** comprennent **72 565 étapes de situation** et **48 417 étapes lexicales**. Compréhension puis imitation précèdent chaque rappel. Dans les anciennes rubriques, les groupes de révision sont séparés et terminent leurs rappels avant les nouveautés ; les nouveaux thèmes suivent leurs huit intentions dans l’ordre global du plan. Les nombres sont triés par numberOrder séparément dans le bloc révision puis dans le bloc nouveau. Les adjectifs suivent les concepts prioritaires grand/petit/gros/beau/léger/lourd/triste/heureux, avec variantes groupées et traits de personnalité après les propriétés. Les autres révisions suivent leur première rencontre croissante.
 
 ## Prérequis : ce qui reste ouvert
 
@@ -107,17 +107,73 @@ Les **68 liens lexicaux** et **56 références de mots/nombres** restent distinc
 
 Le seul lien retiré, fr-zh245←2168, conserve son motif et sa trace : 是 est traduit « oui / c’est ça » dans sa carte autonome, ce qui ne prépare pas la copule. Aucun autre lien de revue n’est effacé.
 
-Les **30 695 autres placements** gardent leur niveau source sans validation individuelle revendiquée. Exactitude des copies, densité et ordre prévu ne démontrent ni une acquisition ni la progressivité globale L1–L10.
+Le compteur historique **30 695** décrit les placements avant le registre anglais. Les 670 opérations actuelles sont contrôlées séparément ; la lecture des 70 cellules annoncée par Claude ne signifie pas que toutes les propositions des autres couples soient appliquées. Exactitude des copies, densité et ordre prévu ne démontrent ni une acquisition ni la progressivité globale L1–L10.
 
 ## Accès et photos
 
-Les **15 fichiers produit protégés** sont identiques à origin/main (562431e), dont le catalogue, les accès et les prix. Les **2 134 indices de source L1** sont conservés ; les niveaux éditoriaux ne changent pas le lv qui détermine les droits historiques.
+Les **15 fichiers produit protégés** sont identiques à origin/main (fadadd3), dont le catalogue, les accès et les prix. Les **2 134 indices de source L1** sont conservés ; les niveaux éditoriaux ne changent pas le lv qui détermine les droits historiques.
 
-**278 emplacements visuels** correspondent à **278 cases photo distinctes** dans **24 atlas** : empreintes, octets, dimensions, grilles et coordonnées vérifiés. Le registre indique **11 emplacements approuvés** et **267 proposés** ; le contrôle ne juge pas l’adéquation visuelle de chacun.
+**281 emplacements visuels** correspondent à **278 cases photo distinctes** dans **24 atlas** : empreintes, octets, dimensions, grilles et coordonnées vérifiés. Le registre indique **11 emplacements approuvés** et **270 proposés** ; le contrôle ne juge pas l’adéquation visuelle de chacun.
+
+## Registre anglais de classement — contrôles avant projection
+
+Les 670 emplacements expectedBefore sont comparés simultanément au Git 13f42b5 : 610 déplacements, dont 127 changements de niveau, 37 réserves et 23 décisions de conservation. Les 4 704 objets canoniques restent présents une fois ; étude, sens, phonétique, lecture, source, type et anciennes corrections sont conservés. Les survivants gardent leur ordre ; les arrivées suivent l’ordre du registre.
+
+Après application : 4 542 cartes actives et 162 réservées. Les 22 révisions devenues futures ou hors famille sont retirées de la pratique, quatre sont retargetées et un soutien lexical retrouve son nouvel emplacement. Le reçu entendu catalogue:en:748 reste entendu, avec son canonique conservé en réserve L3 ; son premier usage reçu L2 ne déplace pas cette réserve.
+
+Les huit intentions et les tours reçus de chaque situation restent identiques. Treize situations ont une annexe de 29 cartes ordinaires ; les nouvelles étapes gardent compréhension, imitation et rappel, ainsi que le type de chaque source. Les trois nouveaux visuels empruntent trois recadrages distincts à des atlas existants, avec registre et empreintes séparés ; aucun ancien fichier image n’est modifié.
+
+### Rubriques à enrichir
+
+| Niveau | Thème | Concepts | Présentations | Origine |
+|---|---|---:|---:|---|
+| L2 | L2-vocab-travail | 5 | 5 | ancien devenu petit |
+| L3 | L3-decrire | 2 | 2 | ancien devenu petit |
+| L3 | L3-sante | 3 | 3 | nouveau approuvé |
+| L4 | L4-saluer | 2 | 2 | ancien devenu petit |
+| L4 | L4-reperes | 3 | 3 | ancien devenu petit |
+| L4 | L4-decrire | 1 | 1 | ancien devenu petit |
+| L5 | L5-cuisine-recette | 3 | 3 | nouveau approuvé |
+| L6 | L6-comprendre | 4 | 4 | ancien devenu petit |
+| L6 | L6-vocab-maison | 4 | 4 | ancien devenu petit |
+| L6 | L6-vocab-reperes | 4 | 4 | ancien devenu petit |
+| L7 | L7-vocab-restaurant | 5 | 5 | ancien devenu petit |
+| L7 | L7-vocab-maison | 3 | 3 | ancien devenu petit |
+| L7 | L7-vocab-reperes | 3 | 3 | ancien devenu petit |
+| L7 | L7-vocab-nature | 5 | 5 | ancien devenu petit |
+| L8 | L8-comprendre | 5 | 5 | ancien devenu petit |
+| L9 | L9-comprendre | 5 | 5 | ancien devenu petit |
+| L9 | L9-ressentis | 1 | 1 | ancien devenu petit |
+| L9 | L9-deplacements | 2 | 2 | ancien devenu petit |
+| L9 | L9-quotidien | 5 | 5 | ancien devenu petit |
+| L9 | L9-telephone | 3 | 3 | nouveau approuvé |
+| L9 | L9-vocab-maison | 4 | 4 | ancien devenu petit |
+| L9 | L9-vocab-personnes | 5 | 5 | ancien devenu petit |
+| L9 | L9-vocab-nature | 5 | 5 | ancien devenu petit |
+| L10 | L10-vocab-maison | 4 | 4 | ancien devenu petit |
+| L10 | L10-vocab-reperes | 4 | 4 | ancien devenu petit |
+
+### Rubriques volumineuses
+
+Seuil de signalement explicite : plus de 100 présentations, sans découpage supplémentaire appliqué.
+
+| Niveau | Thème | Présentations |
+|---|---|---:|
+| L2 | L2-conversation | 223 |
+| L3 | L3-conversation | 225 |
+| L4 | L4-conversation | 105 |
+| L4 | L4-vocab-actions | 162 |
+| L5 | L5-conversation | 124 |
+| L5 | L5-vocab-actions | 213 |
+| L7 | L7-conversation | 198 |
+
+Les deux rubriques entièrement vides L9-repas et L9-reperes quittent la grille, avec leur définition conservée en retiredThemes. Aucune carte n’est supprimée. Les six autres couples restent identiques au snapshot approuvé. Le niveau source lv, les droits gratuits, les tarifs et les cartes classiques restent inchangés.
 
 ## Reproduire
 
     python3 -B tools/maquette-guidee/check_levels_independent.py --write-report --require-visuals --strict-editorial --require-no-held
-    python3 -B tools/maquette-guidee/check_levels_independent.py --check-report --require-visuals --strict-editorial --require-no-held --self-test
+    python3 -B tools/maquette-guidee/check_levels_independent.py --check-report --require-visuals --strict-editorial --require-no-held --classification-self-test
 
 Les contre-exemples en mémoire incluent une phonétique changée, une source dupliquée, un mauvais champ, un rappel avant préparation, une réserve productive, un import exclu, un mot injecté dans une situation, une révision future ou de mauvaise famille, un compteur gonflé et une séparation fictive d’un concept M/F. Les nouveaux contre-exemples couvrent aussi les rôles et clôtures reçus, la réponse avant sa préparation, une fausse étape de préparation, une aide de modèle entendu changée, un reçu compté comme production, un soutien futur ou de mauvaise famille, une attribution de source forgée, un faux statut de revue et le déplacement d’un ancien modèle protégé. Le lot4 ajoute les copies ou reçus périmés, une preuve forgée, une ancienne annotation perdue, une glose non autorisée et les blocs1900/757 appliqués partiellement, y compris la garde native inchangée de757. Le lot5 ajoute les paires aide/lecture partielles, les copies ou déclarations de transport omises, une glose/statut/preuve inventés et la réserve3771 activée à tort. Le lot6 ajoute les paires coréennes partielles, la réplique reçue périmée, la chaîne B3980 altérée, les blocs2362/1896 partiels et leurs sens gardés, les preuves/annotations forgées et une normalisation batchim non approuvée. Le lot7 ajoute les aides/copies/reçus anglais périmés, une lecture inventée, les règles ou preuves falsifiées, une copie omise, les cinq blocs partiels ou leurs sens gardés altérés et une convention étendue sans accord. Le lot8 ajoute les copies/aides/reçus espagnols périmés, la chaîne B3159 perdue, les deux études de ponctuation assorties à tort de nouvelles aides ou statuts, le soutien estómago périmé, les trois blocs partiels et la normalisation de jota ou de vibrantes sans décision. Le lot9 ajoute les aides/copies/reçus italiens périmés, une lecture inventée, les gloses seules assorties à tort de nouvelles aides ou études ou statuts, les trois blocs partiels, N étendue sans décision, les preuves ou copies forgées, et l’erratum EN71 confondu avec son événement historique ou rattaché au mauvais avant. Le contrôle ne remplace pas une écoute ou un essai avec apprenants. La revue humaine de Claude couvre les thèmes, les niveaux et les phonétiques anciennes comme nouvelles ; ces contrôles mécaniques ne prouvent ni leur justesse linguistique globale ni la fermeture globale de la progression. Aucune publication n’est approuvée.
+
+Les contre-épreuves ciblées de classement sont distinctes de la suite historique complète, toujours disponible avec --self-test. Elles incluent les emplacements, copies, types, réserves, étapes, preuves et exceptions forgés ; les empreintes superficielles sont recalculées avant de vérifier leur refus.

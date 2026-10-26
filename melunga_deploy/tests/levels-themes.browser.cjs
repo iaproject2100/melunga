@@ -13,6 +13,7 @@ const {execFileSync} = require('node:child_process');
 const {test, before, after} = require('node:test');
 const {chromium} = require('playwright-core');
 const phoneticCorrections = require('./phonetic-corrections.cjs');
+const englishClassification = require('./english-classification.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'content/niveaux-progressifs');
@@ -102,6 +103,7 @@ function repertoireBundleSha256() {
   return bundle.digest('hex');
 }
 const report = {
+  matrixSmokeScope: process.env.LEVELS_MATRIX_SMOKE ? {pair: 'fr-en', levels: [1, 3, 9]} : null,
   status: 'running', environment: 'local Chromium; emulated viewports, no physical device',
   speechMechanism: 'mock speechSynthesis: whole study text dispatch and reveal behavior, not human audio or linguistic phonetic validation',
   publicSiteChecked: false, nativeOrPedagogicalValidation: false,
@@ -221,6 +223,15 @@ function repertoire(pairId) {
   const metadata = manifest.pairs.find(pair => pair.id === pairId);
   return JSON.parse(fs.readFileSync(path.join(ROOT, metadata.repertoirePath)));
 }
+function historicalCell(pair, level) {
+  const filename = path.join(DATA, pair, 'L' + level + '.json');
+  return englishClassification.beforeRead(filename, JSON.parse(fs.readFileSync(filename)));
+}
+function historicalRepertoire(pairId) {
+  const metadata = manifest.pairs.find(pair => pair.id === pairId);
+  const filename = path.join(ROOT, metadata.repertoirePath);
+  return englishClassification.beforeRead(filename, JSON.parse(fs.readFileSync(filename)));
+}
 function reviewFixture(pairId) {
   for (let level = 2; level <= 10; level++) {
     const data = cell(pairId, level);
@@ -288,8 +299,9 @@ async function ready(page, pair, level) {
 }
 
 async function inspectCell(page, expected, bank, exhaustive) {
+  if (expected.id === 'fr-en') englishClassification.auditRuntime(); // validates the exact frozen policy before any finite auditor exception
   const additionalThemes = situationPlan.themes.filter(theme => theme.level === expected.level);
-  return page.evaluate(({expected, bank, exhaustive, additionalThemes}) => {
+  return page.evaluate(({expected, bank, exhaustive, additionalThemes, classification}) => {
     const eq = (actual, wanted, label) => {
       if (actual !== wanted) throw new Error(label + ': ' + JSON.stringify(actual) + ' != ' + JSON.stringify(wanted));
     };
@@ -325,7 +337,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
     for (const type of ['utterance', 'vocabulary', 'number', 'incomplete', 'review']) {
       eq(combined.filter(phrase => phrase.contentType === type).length, expected.counts[type], 'partition ' + type);
     }
-    if (reserve.some(phrase => !['incomplete', 'review'].includes(phrase.contentType))) throw new Error('active content leaked into reserve');
+    if (reserve.some(phrase => !['incomplete', 'review'].includes(phrase.contentType) && !(classification?.reserveIds.includes(phrase.id) && phrase.englishClassification?.operation === 'to-reserve' && phrase.englishClassification.registrySha256 === classification.registrySha256))) throw new Error('active content leaked into reserve');
     if (active.some(phrase => reserveIds.has(phrase.id) || !['utterance', 'vocabulary', 'number'].includes(phrase.contentType))) throw new Error('reserve leaked into active themes');
     const bankPhrases = new Map((bank?.phrases || []).map(phrase => [phrase.id, phrase]));
     const canonicalPhrases = new Map([...(bank?.phrases || []), ...active].map(phrase => [phrase.id, phrase]));
@@ -363,14 +375,20 @@ async function inspectCell(page, expected, bank, exhaustive) {
       const references = theme.reviewReferences || [];
       const reviews = new Set(references.map(reference => reference.id));
       const contextual = theme.contextReferences || [];
+      const mixed = classification?.mixedThemes.find(t => t.level === expected.level && t.id === theme.id);
+      const thin = classification?.smallThemeExceptions.find(t => t.level === expected.level && t.id === theme.id);
+      const extension = classification?.situationExtensions.find(t => t.level === expected.level && t.id === theme.id);
+      const classificationExtras = new Set(extension?.addedIds || []);
       const contextIds = new Set(contextual.map(reference => reference.id));
       const newIds = new Set(theme.phrases.map(phrase => phrase.id));
       eq(theme.newCount, newIds.size, 'new count excludes reviews');
       eq(theme.reviewCount, reviews.size, 'review count');
       eq(theme.reuseCount || 0, contextIds.size, 'context reuse count');
       eq(theme.presentedCount, newIds.size + reviews.size + contextIds.size, 'presentation count distinguishes first introduction/revision/context reuse');
-      if (theme.presentedCount < 6) throw new Error('visible theme has fewer than six presentations');
-      if (!Number.isInteger(theme.pedagogicalConceptCount) || theme.pedagogicalConceptCount < 6) throw new Error('visible theme declares fewer than six concepts');
+      const minimum = thin ? thin.minimum : 6;
+      if (thin) {eq(thin.presentedCount, theme.presentedCount, 'finite small-theme exception count'); if (minimum < 1) throw new Error('zero minimum exception');}
+      if (theme.presentedCount < minimum) throw new Error('visible theme below reviewed minimum');
+      if (!Number.isInteger(theme.pedagogicalConceptCount) || theme.pedagogicalConceptCount < minimum) throw new Error('visible theme declares fewer than reviewed concepts');
       let countLabel = quantity(theme.presentedCount, theme.contentType);
       if (theme.reviewCount) countLabel += expected.nativeLanguage === 'zh' ? ' · 其中 ' + theme.reviewCount + ' 项复习' : ' · ' + theme.reviewCount + (theme.reviewCount === 1 ? ' révision' : ' révisions');
       if (theme.reuseCount) countLabel += expected.nativeLanguage === 'zh' ? ' · 其中 ' + theme.reuseCount + ' 项情境复用' : ' · ' + theme.reuseCount + (theme.reuseCount === 1 ? ' réemploi' : ' réemplois');
@@ -383,7 +401,8 @@ async function inspectCell(page, expected, bank, exhaustive) {
         if (reference.firstEditorialLevel >= expected.level) throw new Error('future review');
         eq(reference.canonicalThemeId, phrase.canonicalLocation.themeId, 'review first theme');
         eq(phrase.canonicalLocation.pairId, expected.id, 'review belongs to this pair');
-        eq(phrase.contentType, theme.contentType, 'review preserves content type');
+        if (mixed) { if (!mixed.contentTypes.includes(phrase.contentType)) throw new Error('review has unapproved mixed type'); }
+        else eq(phrase.contentType, theme.contentType, 'review preserves content type');
         eq(phrase.placement.domain, theme.domain, 'review preserves family');
         if (reserveIds.has(reference.id)) throw new Error('reserve became a review');
       }
@@ -402,11 +421,18 @@ async function inspectCell(page, expected, bank, exhaustive) {
         if (local) for (const field of ['study', 'native', 'phon', 'reading']) eq(phrase[field], local[field], 'same-level reuse keeps canonical ' + field);
       }
       contextReferences += contextual.length;
-      if (!['utterance', 'vocabulary', 'number'].includes(theme.contentType)) throw new Error('invalid theme type');
-      eq(theme.section, theme.contentType === 'utterance' ? 'situations' : 'vocabulary', 'theme section');
-      if (theme.phrases.some(phrase => phrase.contentType !== theme.contentType || phrase.isTemplate)) throw new Error('mixed or incomplete theme ' + theme.id);
-      if (theme.contentType === 'vocabulary') {
-        for (const phrase of theme.phrases) if (phrase.lexicalClass && !['adjective', 'preposition', 'adverb', 'color', 'other', 'uncertain'].includes(phrase.lexicalClass)) throw new Error('invalid lexical family');
+      if (mixed) {
+        eq(theme.contentType, 'mixed', 'only registered themes may declare mixed content');
+        eq(JSON.stringify(theme.contentTypes), JSON.stringify(mixed.contentTypes), 'exact reviewed mixed content types');
+        eq(JSON.stringify(theme.phrases.map(phrase => phrase.id)), JSON.stringify(mixed.phraseIds), 'exact reviewed mixed primary identities');
+        if (!['situations', 'vocabulary'].includes(theme.section)) throw new Error('unapproved mixed theme section');
+      } else {
+        if (!['utterance', 'vocabulary', 'number'].includes(theme.contentType)) throw new Error('invalid theme type');
+        eq(theme.section, theme.contentType === 'utterance' ? 'situations' : 'vocabulary', 'theme section');
+      }
+      if (theme.phrases.some(phrase => phrase.isTemplate || phrase.contentType !== theme.contentType && !(mixed?.phraseIds.includes(phrase.id) && mixed.contentTypes.includes(phrase.contentType)))) throw new Error('unregistered mixed or incomplete theme ' + theme.id);
+      if (theme.contentType === 'vocabulary' || mixed) {
+        for (const phrase of theme.phrases.filter(phrase => phrase.contentType === 'vocabulary')) if (phrase.lexicalClass && !['adjective', 'preposition', 'adverb', 'color', 'other', 'uncertain'].includes(phrase.lexicalClass)) throw new Error('invalid lexical family');
       }
       const photo = tile.querySelector('.mg-theme-photo');
       const img = photo?.querySelector('img');
@@ -473,7 +499,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
       if (theme.isAdditionalSituation) {
         const planned = additionalThemes.find(candidate => candidate.themeId === theme.id);
         if (!planned) throw new Error('new situation is absent from the frozen plan');
-        eq(theme.contentType, 'utterance', 'new situation contains phrases');
+        eq(theme.contentType, mixed ? 'mixed' : 'utterance', 'additional situation type is ordinary utterance or its finite registered extension');
         eq(theme.section, 'situations', 'new situation section');
         eq(theme.visualId, planned.visualId, 'new situation photo identity');
         eq(theme.title, planned.title[expected.nativeLanguage], 'localized new situation title');
@@ -481,21 +507,23 @@ async function inspectCell(page, expected, bank, exhaustive) {
         eq(JSON.stringify(theme.intentIds), JSON.stringify(expectedIntentOrder), 'eight intents preserve their planned order');
         const intentForPhrase = id => contextual.find(reference => reference.id === id)?.intentId
           || (() => { const phrase = theme.phrases.find(phrase => phrase.id === id); return phrase?.situationIntentId || phrase?.intentId; })();
-        const presentedIntentOrder = primaryIds.map(intentForPhrase);
+        const plannedIds = primaryIds.filter(id => !classificationExtras.has(id));
+        eq(JSON.stringify(primaryIds.slice(8)), JSON.stringify(extension?.addedIds || []), 'classification additions follow the eight original intents');
+        const presentedIntentOrder = plannedIds.map(intentForPhrase);
         eq(JSON.stringify(presentedIntentOrder), JSON.stringify(expectedIntentOrder), 'main phrase order follows intentions 01 to 08, mixing primaries and context reuse');
         for (const kinds of [['understand'], ['imitate'], ['choose-and-recall', 'reply-without-model', 'recall']]) {
-          const phaseOrder = allSteps.filter(step => !step.isPreparation && kinds.includes(step.kind)).map(step => intentForPhrase(step.utterance));
+          const phaseOrder = allSteps.filter(step => !step.isPreparation && !classificationExtras.has(step.utterance) && kinds.includes(step.kind)).map(step => intentForPhrase(step.utterance));
           eq(JSON.stringify(phaseOrder), JSON.stringify(expectedIntentOrder), 'planned intent order within phase ' + kinds.join('/'));
         }
         eq(theme.intentIds.length, 8, 'eight new situation intents');
         eq(theme.reviewCount, 0, 'a context reuse is not relabeled as a revision');
-        eq(primaryIds.length, 8, 'eight whole phrase positions');
-        eq(new Set(primaryIds).size, 8, 'eight unique canonical phrases per new situation');
-        const forms = primaryIds.map(id => canonicalPhrases.get(id)?.study?.normalize('NFKC').toLocaleLowerCase()
+        eq(primaryIds.length, 8 + classificationExtras.size, 'eight planned positions plus exact classification additions');
+        eq(new Set(plannedIds).size, 8, 'eight unique planned canonical phrases per new situation');
+        const forms = plannedIds.map(id => canonicalPhrases.get(id)?.study?.normalize('NFKC').toLocaleLowerCase()
           .replace(/\p{P}/gu, '').replace(/\s+/gu, ' ').trim());
         if (forms.some(form => !form)) throw new Error('new situation contains an empty whole phrase');
         eq(new Set(forms).size, 8, 'eight distinct whole utterances, not punctuation variants');
-        if (primaryIds.some(id => canonicalPhrases.get(id)?.contentType !== 'utterance' || canonicalPhrases.get(id)?.isTemplate)) throw new Error('lexical or open fragment in a new situation');
+        if (primaryIds.some(id => canonicalPhrases.get(id)?.isTemplate || canonicalPhrases.get(id)?.contentType !== 'utterance' && !classificationExtras.has(id))) throw new Error('lexical or open fragment in a new situation');
         situationCases.push({pair: expected.id, level: expected.level, topicId: planned.id,
           themeId: theme.id, intentIds: [...theme.intentIds], newCount: theme.newCount,
           reuseCount: theme.reuseCount || 0, reviewCount: theme.reviewCount,
@@ -530,7 +558,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
         for (const step of sequence.steps) {
           const references = [step.utterance, ...(step.choices || [])].filter(Boolean);
           if (references.some(id => reserveIds.has(id))) throw new Error('reserve became an exercise ' + step.id);
-          if (theme.contentType === 'utterance' && references.some(id => allModels.get(id)?.contentType !== 'utterance')) throw new Error('lexeme became a situation exercise ' + step.id);
+          if (theme.contentType === 'utterance' && references.some(id => allModels.get(id)?.contentType !== 'utterance' && !(mixed?.phraseIds.includes(id) && mixed.contentTypes.includes(allModels.get(id)?.contentType)))) throw new Error('lexeme became a situation exercise ' + step.id);
         }
       });
       // At 390px check every rendered step/field. Other widths exercise each theme entry.
@@ -551,7 +579,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
             : contextReuse ? expected.nativeLanguage === 'zh' ? ' · 情境复用' : ' · Réemploi' : ''), 'explicit review/context-reuse badge');
         if (review) reviewSteps++;
         if (contextReuse) contextSteps++;
-        if (reserveIds.has(state().phraseId)) throw new Error('reserve reached DOM/audio state');
+        if (reserveIds.has(state().phraseId) && !(received && receivedModels.get(state().phraseId)?.heardOnly && receivedModels.get(state().phraseId)?.canonicalReserveLocation)) throw new Error('reserve reached learner DOM/audio state');
         eq(byId('mgCounter').textContent, (primaryIds.indexOf(step.prepares || phrase.id) + 1) + ' / ' + primaryIds.length, 'primary-only lesson counter');
         const learnerStepCount = allSteps.filter(candidate => candidate.kind !== 'receive').length;
         const completedLearnerSteps = allSteps.slice(0, index + 1).filter(candidate => candidate.kind !== 'receive').length;
@@ -654,7 +682,7 @@ async function inspectCell(page, expected, bank, exhaustive) {
       receivedSteps, receivedAudio, receivedFields, receivedCounterChecks, preparedAnswerChecks, lexicalSupportChecks,
       additionalAudioByKind, themes: expected.themes.length,
       renderedByType, reserved: reserve.length, held: held.length, canonical: combined.length};
-  }, {expected, bank, exhaustive, additionalThemes});
+  }, {expected, bank, exhaustive, additionalThemes, classification: expected.id === 'fr-en' ? manifest.englishClassification : null});
 }
 
 for (const width of report.widths) test('70 pair/level cells at ' + width + 'px', {timeout: 300000}, async () => checked('matrix-' + width, async () => {
@@ -663,7 +691,9 @@ for (const width of report.widths) test('70 pair/level cells at ' + width + 'px'
     const {page} = fixture;
     await page.goto(base + '/parcours-niveaux.html?pair=' + manifest.pairs[0].id + '&level=1');
     for (const pair of manifest.pairs) {
+      if (process.env.LEVELS_MATRIX_SMOKE && pair.id !== 'fr-en') continue;
       for (let level = 1; level <= 10; level++) {
+        if (process.env.LEVELS_MATRIX_SMOKE && ![1, 3, 9].includes(level)) continue;
         if (await page.locator('#mgLanguage').inputValue() !== pair.id) {
           const previousLevel = Number(await page.locator('#mgLevel').inputValue());
           await page.selectOption('#mgLanguage', pair.id); await ready(page, pair.id, previousLevel);
@@ -708,6 +738,7 @@ test('196 additional situations preserve 1568 whole source positions without inf
   // Check the exact approved after-help, annotation and whole-card conservation
   // first. Only source comparisons below project back to the original whole aid;
   // the DOM matrix continues to expect the actual corrected runtime JSON.
+  report.englishClassificationAudit = englishClassification.auditRuntime();
   report.phoneticCorrectionsSourceAudit = phoneticCorrections.auditRuntime();
   report.reviewedFieldCorrectionsSourceAudit = report.phoneticCorrectionsSourceAudit.lot3;
   report.lot4CorrectionsSourceAudit = report.phoneticCorrectionsSourceAudit.lot3.lot4;
@@ -731,7 +762,7 @@ test('196 additional situations preserve 1568 whole source positions without inf
     .flatMap(({data}) => [...data.items, ...(data.receivedTurns || []), ...(data.lexicalSupports || [])]).map(item => [item.id, item]));
   const canonical = new Map();
   for (const pair of manifest.pairs) for (let level = 1; level <= 10; level++) {
-    const data = cell(pair.id, level);
+    const data = historicalCell(pair.id, level);
     for (const theme of [...data.themes, ...(data.heldThemes || [])]) for (const phrase of theme.phrases) {
       const key = pair.id + ':' + phrase.id;
       assert.ok(!canonical.has(key), 'one canonical across all levels ' + key);
@@ -756,9 +787,9 @@ test('196 additional situations preserve 1568 whole source positions without inf
     for (const [relative, expectedHash] of Object.entries(situationPlan.extension.preservedInputFingerprints)) {
       assert.equal(sha256(fs.readFileSync(path.resolve(ROOT, '..', relative))), expectedHash, 'protected previous file ' + relative);
     }
-    const bank = new Map(repertoire(pair.id).phrases.map(phrase => [phrase.id, phrase]));
+    const bank = new Map(historicalRepertoire(pair.id).phrases.map(phrase => [phrase.id, phrase]));
     for (const topic of situationPlan.themes) {
-      const levelData = cell(pair.id, topic.level);
+      const levelData = historicalCell(pair.id, topic.level);
       const theme = levelData.themes.find(theme => theme.id === topic.themeId);
       assert.ok(theme?.isAdditionalSituation, 'additional theme is visible ' + pair.id + ':' + topic.id);
       assert.equal(theme.presentedCount, 8);
@@ -926,12 +957,12 @@ test('259 interlocutor turns and all lexical supports preserve whole sources and
   }
   for (const pair of manifest.pairs) {
     const ledger = situationLedgers.get(pair.id).extensionData;
-    const bank = repertoire(pair.id);
+    const bank = historicalRepertoire(pair.id);
     const heard = new Map((bank.receivedModels || []).map(model => [model.id, model]));
     const active = new Map(bank.phrases.map(model => [model.id, model]));
     assert.equal(ledger.receivedTurns.length, situationPlan.receivedTurnsDefs.length);
     for (const topic of situationPlan.themes.slice(baseSituationPlan.themes.length)) {
-      const theme = cell(pair.id, topic.level).themes.find(candidate => candidate.id === topic.themeId);
+      const theme = historicalCell(pair.id, topic.level).themes.find(candidate => candidate.id === topic.themeId);
       assert.ok(theme, 'appended theme is visible ' + pair.id + ':' + topic.id);
       const primaryIds = theme.sequences.flatMap(sequence => sequence.phraseIds);
       const steps = theme.sequences.flatMap(sequence => sequence.steps);
@@ -1013,7 +1044,7 @@ test('native lexical classes and reviewed relational groups follow their declare
     ['fr-es:3894', 'whole-locative-prepositional-group-with-complement']
   ]);
   for (const pair of manifest.pairs) for (const metadata of pair.levels) {
-    const data = cell(pair.id, metadata.level);
+    const data = historicalCell(pair.id, metadata.level);
     for (const theme of [...data.themes, ...(data.heldThemes || [])]) {
       for (const phrase of theme.phrases) {
         if (phrase.contentType !== 'vocabulary') continue;
@@ -1043,7 +1074,7 @@ test('native lexical classes and reviewed relational groups follow their declare
 test('new whole entries copy the authored source; review transport creates no canonical cards', async () => checked('authored-source-and-bank-conservation', async () => {
   const canonical = new Map();
   for (const pair of manifest.pairs) for (const metadata of pair.levels) {
-    const data = cell(pair.id, metadata.level);
+    const data = historicalCell(pair.id, metadata.level);
     for (const phrase of [...data.themes, ...(data.heldThemes || [])].flatMap(theme => theme.phrases).concat(data.reserve || [])) {
       const key = pair.id + ':' + phrase.id;
       assert.ok(!canonical.has(key), 'one canonical first placement ' + key);
@@ -1051,7 +1082,7 @@ test('new whole entries copy the authored source; review transport creates no ca
     }
   }
   for (const pair of manifest.pairs) {
-    const bank = repertoire(pair.id);
+    const bank = historicalRepertoire(pair.id);
     assert.equal(bank.pairId, pair.id);
     assert.equal(new Set(bank.phrases.map(phrase => phrase.id)).size, bank.phrases.length);
     for (const phrase of bank.phrases) {
@@ -1083,7 +1114,7 @@ test('reviewed Japanese/Korean semantic corrections reach the actual canonical t
   const corrections = JSON.parse(fs.readFileSync(path.resolve(ROOT, '../docs/niveaux-progressifs/corrections-themes/ja-ko.json')));
   const routes = new Map();
   for (const pair of ['fr-ja', 'fr-ko']) for (let level = 1; level <= 10; level++) {
-    const data = cell(pair, level);
+    const data = historicalCell(pair, level);
     for (const theme of [...data.themes, ...(data.heldThemes || [])]) for (const phrase of theme.phrases) {
       if (phrase.source?.sourceIndex !== undefined) routes.set(pair + ':' + phrase.source.sourceIndex, {domain: theme.domain, phrase});
     }
@@ -1117,7 +1148,7 @@ test('reviewed Japanese/Korean semantic corrections reach the actual canonical t
   report.jaKoSemanticDestinationsExplicitlyIntroducedInSituations = explicitSituationIntroductions;
   report.jaKoWholeNumericQuantitiesChecked = (corrections.isolatedNumberCorrections || []).length;
   for (const [pair, first, second] of [['fr-ja', 'catalogue:ja:3062', 'catalogue:ja:3063'], ['fr-ko', 'catalogue:ko:2213', 'catalogue:ko:2214']]) {
-    const adjectives = cell(pair, 1).themes.find(theme => theme.domain === 'vocab-adjectifs');
+    const adjectives = historicalCell(pair, 1).themes.find(theme => theme.domain === 'vocab-adjectifs');
     assert.ok(adjectives);
     assert.deepEqual(adjectives.sequences.flatMap(sequence => sequence.phraseIds).slice(0, 2), [first, second], 'begin with large then small, before authored extensions');
   }
@@ -1185,9 +1216,9 @@ test('first manifest and first cell failures have an operational retry', {timeou
 }));
 
 test('L1 received/context references load their bank and a failed bank can be retried', {timeout: 30000}, async () => checked('repertoire-loading-and-retry', async () => {
-  const pairId = manifest.pairs[0].id;
+  const pairId = 'fr-es'; // generic corruption fixtures stay outside the pinned English edition
   const target = reviewFixture(pairId);
-  const bankPath = '/' + manifest.pairs[0].repertoirePath;
+  const bankPath = '/' + manifest.pairs.find(pair => pair.id === pairId).repertoirePath;
   const noBank = await open(390);
   try {
     await noBank.page.goto(base + '/parcours-niveaux.html?pair=' + pairId + '&level=1'); await ready(noBank.page, pairId, 1);
@@ -1263,7 +1294,7 @@ test('same-level context reuse is explicit, audible and distinct from a revision
 }));
 
 test('invalid context intent, future, type and review markers are refused and a corrected bank reloads', {timeout: 90000}, async () => checked('context-reference-guards-and-retry', async () => {
-  const pairId = manifest.pairs[0].id;
+  const pairId = 'fr-es'; // generic corruption fixtures stay outside the pinned English edition
   const basic = contextFixture(pairId);
   report.contextGuardResults = [];
   for (const alteration of ['future', 'intent', 'type', 'not-additional', 'mixed-review-marker', 'missing-context-marker', 'missing-intent-position', 'duplicate-intent', 'intent-order']) {
@@ -1304,7 +1335,7 @@ test('invalid context intent, future, type and review markers are refused and a 
         })})).filter(sequence => sequence.phraseIds.length);
     }
     const cellPath = '/content/niveaux-progressifs/' + pairId + '/L' + target.level + '.json';
-    const bankPath = '/' + manifest.pairs[0].repertoirePath;
+    const bankPath = '/' + manifest.pairs.find(pair => pair.id === pairId).repertoirePath;
     let corrupted = true;
     const fixture = await open(390, async (route, url) => {
       if (url.pathname === cellPath || url.pathname === bankPath) {
@@ -1345,7 +1376,7 @@ test('invalid context intent, future, type and review markers are refused and a 
 }));
 
 test('corrupt interlocutor roles, preparation, progress and lexical wiring are refused; corrected bank retries restore a full cycle', {timeout: 180000}, async () => checked('received-reference-guards-and-retry', async () => {
-  const pairId = manifest.pairs[0].id;
+  const pairId = 'fr-es'; // generic corruption fixtures stay outside the pinned English edition
   const basic = receivedFixture(pairId);
   report.receivedGuardResults = [];
   const alterations = ['future-first-hearing', 'wrong-model-type', 'role-on-model', 'production-progress',
@@ -1388,7 +1419,7 @@ test('corrupt interlocutor roles, preparation, progress and lexical wiring are r
       sequence.steps.unshift({id: 'injected-word', kind: 'understand', utterance: theme.lexicalSupports[0].utterance || theme.lexicalSupports[0].id});
     }
     const cellPath = '/content/niveaux-progressifs/' + pairId + '/L' + target.level + '.json';
-    const bankPath = '/' + manifest.pairs[0].repertoirePath;
+    const bankPath = '/' + manifest.pairs.find(pair => pair.id === pairId).repertoirePath;
     let corrupted = true;
     const fixture = await open(390, async (route, url) => {
       if (url.pathname === cellPath || url.pathname === bankPath) {
@@ -1449,7 +1480,7 @@ test('corrupt interlocutor roles, preparation, progress and lexical wiring are r
 }));
 
 test('future, wrong-type, wrong-family, wrong-subclass and insufficient-concept references are refused', {timeout: 60000}, async () => checked('repertoire-reference-guards', async () => {
-  const pairId = manifest.pairs[0].id;
+  const pairId = 'fr-es'; // generic corruption fixtures stay outside the pinned English edition
   const basic = reviewFixture(pairId);
   for (const alteration of ['future', 'type', 'family', 'subclass', 'concept-count']) {
     const target = JSON.parse(JSON.stringify(basic.data));
@@ -1476,7 +1507,7 @@ test('future, wrong-type, wrong-family, wrong-subclass and insufficient-concept 
       phrase.placement.domain = theme.domain === 'vocab-maison' ? 'vocab-voyage' : 'vocab-maison';
     }
     const cellPath = '/content/niveaux-progressifs/' + pairId + '/L' + target.level + '.json';
-    const bankPath = '/' + manifest.pairs[0].repertoirePath;
+    const bankPath = '/' + manifest.pairs.find(pair => pair.id === pairId).repertoirePath;
     let corrupted = true;
     const fixture = await open(390, async (route, url) => {
       if (url.pathname === cellPath || url.pathname === bankPath) {
@@ -1499,9 +1530,9 @@ test('future, wrong-type, wrong-family, wrong-subclass and insufficient-concept 
 }));
 
 test('a delayed old bank cannot overwrite a newly selected pair or its review audio', {timeout: 30000}, async () => checked('repertoire-pair-race', async () => {
-  const first = manifest.pairs[0].id, second = manifest.pairs[1].id;
+  const first = 'fr-es', second = 'fr-zh'; // generic late-response behavior, independently of English raw-body integrity
   const firstTarget = reviewFixture(first), secondTarget = reviewFixture(second);
-  const firstBankPath = '/' + manifest.pairs[0].repertoirePath;
+  const firstBankPath = '/' + manifest.pairs.find(pair => pair.id === first).repertoirePath;
   let release;
   let requestedResolve;
   const requested = new Promise(resolve => { requestedResolve = resolve; });

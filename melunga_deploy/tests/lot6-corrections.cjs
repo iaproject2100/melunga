@@ -2,6 +2,7 @@
  * and its separate certain glosses/bundles. No producer is imported. The private
  * reverse projection follows content -> reviewed fields -> served 161d0eb. */
 'use strict';
+const englishClassification = require('./english-classification.cjs');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
@@ -27,7 +28,7 @@ const SPEC={
 const PRIOR=['phoneticCorrection','reviewedFieldCorrection','lot4PhoneticCorrection','reviewedContentCorrection','lot5FieldCorrection','lot5ContentCorrection','lot6FieldCorrection'];
 const clone=value=>JSON.parse(JSON.stringify(value));
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
-const read=filename=>JSON.parse(fs.readFileSync(path.join(ROOT,filename),'utf8'));
+const read=filename=>englishClassification.beforeRead(filename,fs.readFileSync(path.join(ROOT,filename),'utf8'));
 const key=(pair,id)=>pair+'\0'+id;
 const at=(document,location)=>location.reduce((value,part)=>value[part],document);
 const baselines=new Map();
@@ -160,8 +161,8 @@ function auditRuntime(){
   stats[which]={identities:audit.entries.size,events:audit.registry.eventCount,objects:audit.objects,profiles:audit.profiles,changedFields:changed};
  }
  for(const file of files){const document=read(file),pair=document.pairId||document.id;assert.deepEqual(projectDocument(pair,document,file.includes('/repertoires/')),baseline(file),'no undeclared change anywhere in runtime document: '+file);}
- const expected=clone(old);Object.assign(expected,manifestDeclarations());for(const pair of expected.pairs)pair.repertoireSha256=hash(fs.readFileSync(path.join(WEB,pair.repertoirePath)));assert.deepEqual(manifest,expected,'only two new declarations and actual bank hashes');
- for(const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html'])assert.ok(fs.readFileSync(path.join(WEB,filename)).equals(execFileSync('git',['show',BASELINE+':melunga_deploy/'+filename],{cwd:ROOT,maxBuffer:32*1024*1024})),'UI/classic byte-for-byte unchanged');
+ const expected=clone(old);Object.assign(expected,manifestDeclarations());for(const pair of expected.pairs)pair.repertoireSha256=hash(englishClassification.beforeBytes(path.join(WEB,pair.repertoirePath)));assert.deepEqual(manifest,expected,'only two new declarations and actual bank hashes');
+ for(const filename of ['app.html','maquette-guidee.js','maquette-guidee.css','parcours-niveaux.html','maquette-guidee.html'])assert.ok(englishClassification.beforeAssetBytes(path.join(WEB,filename)).equals(execFileSync('git',['show',BASELINE+':melunga_deploy/'+filename],{cwd:ROOT,maxBuffer:32*1024*1024})),'UI/classic byte-for-byte unchanged');
  assert.equal(stats.A.changedFields,23);assert.equal(stats.B.changedFields,51);
  // Unapproved convention changes, level/theme changes and all other card edits
  // are excluded by the complete document comparison above. In particular the

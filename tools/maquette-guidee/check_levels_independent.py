@@ -22,6 +22,14 @@ from check_situations_independent import (
     validate_sources as validate_situation_sources,
     resolve_sources as resolve_situation_sources,
 )
+from check_english_classification_independent import (
+    ClassificationError,
+    REGISTRY_PATH as ENGLISH_CLASSIFICATION_REGISTRY,
+    VISUAL_PATH as ENGLISH_CLASSIFICATION_VISUALS,
+    checked_visuals as check_english_classification_visuals,
+    validate_and_project as validate_english_classification,
+    adversarial_checks as english_classification_adversarial_checks,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -276,6 +284,9 @@ def read_pack(root):
                     and ".." not in Path(relative).parts and (root / relative).resolve().is_relative_to(root.resolve()),
                     "Lot9/erratum evidence path escapes its separate directory")
             pack[name + "EvidenceRaw"][relative] = raw(relative)
+    pack["englishClassificationRegistryRaw"] = raw(ENGLISH_CLASSIFICATION_REGISTRY)
+    pack["englishClassificationVisualRaw"] = raw(ENGLISH_CLASSIFICATION_VISUALS)
+    raw("tools/maquette-guidee/check_english_classification_independent.py")
     return pack
 
 
@@ -3168,7 +3179,7 @@ def _lot9_validate_project(pack, name, data):
         "globalNativeApproval": False}
 
 
-def check_pack(pack):
+def _check_before_english_classification_pack(pack):
     """Validate finite lot9/EN71 afters before private inverse projection."""
     erratum = _lot9_declarations(pack, "lot8Erratum1")
     paired = _lot9_declarations(pack, "lot9Phonetic", erratum)
@@ -3259,6 +3270,55 @@ def check_pack(pack):
         "originalSourcesAndAccessUnchanged": True, "threeWholeStudyAidNativeBundlesAtomic": True}
     result["lot8Erratum1Corrections"] = {**erratum_summary, "actualRuntimeFileSha256": actual_hashes,
         "originalLot8RegistryPreserved": True, "twoLettersSeparatelySpelled": True}
+    return result
+
+
+def check_pack(pack):
+    """Check actual classification and all derived roles before historical checks."""
+    try:
+        projected, classification = validate_english_classification(pack)
+    except ClassificationError as error:
+        raise VerificationError(str(error)) from error
+    result = _check_before_english_classification_pack(projected)
+    checks = result["checks"]
+    for name, after in classification["afterMetrics"].items():
+        if name in checks:
+            checks[name] += after - classification["beforeMetrics"].get(name, 0)
+    checks["visibleCanonicalPhrases"] = checks["activePhrases"]
+    checks["distinctEditorialVisualIds"] += 3
+    checks["productionStepCount"] = checks["stepsChecked"] - checks["receivedStepsExcludedFromProduction"]
+    checks["situationStepsContainOnlyUtterances"] = not any(
+        row["originalThemeContentType"] == "utterance" and row["sourceContentType"] != "utterance"
+        for row in classification["crossTypePlacements"])
+    checks["classificationStepsKeepEachSourceContentType"] = True
+    for pair in result["pairs"]:
+        if pair["pair"] == "fr-en":
+            pair.update(activePhrases=4542, reservedPhrases=162)
+    previous_english_late = [row for row in result["plannedPrerequisitesNotEarlier"] if row["pair"] == "fr-en"]
+    checks["plannedPrerequisitesNotEarlier"] += len(classification["lateEnglishPrerequisites"]) - len(previous_english_late)
+    result["plannedPrerequisitesNotEarlier"] = [row for row in result["plannedPrerequisitesNotEarlier"] if row["pair"] != "fr-en"] + classification["lateEnglishPrerequisites"]
+    checks.update(englishClassificationOperations=670, englishClassificationMoveOperations=610,
+        englishClassificationLevelChanges=127, englishClassificationReserveOperations=37,
+        englishClassificationKeepOperations=23, englishClassificationCanonicalCards=4704,
+        englishClassificationNewThemeVisuals=3,
+        englishClassificationSmallThemeExceptions=len(classification["smallThemes"]),
+        englishClassificationLargeThemes=len(classification["largeThemes"]),
+        englishClassificationMixedThemes=len(classification["mixedThemes"]),
+        englishClassificationSourceTypesUnchanged=True,
+        englishClassificationSourceFieldsUnchanged=True,
+        englishClassificationStructuralPreparationGaps=0,
+        englishClassificationReservedHeardOnly748Preserved=True,
+        englishClassificationOtherSixPairsUnchanged=True,
+        englishClassificationRetypedSources=0,
+        englishClassificationMixedThemeMemberships=sum(len(row["phraseIds"]) for row in classification["mixedThemes"]),
+        englishClassificationCrossTypePlacements=len(classification["crossTypePlacements"]),
+        allVisibleThemesAtLeastSixConcepts=not bool(classification["smallThemes"]),
+        allVisibleThemesMeetDeclaredClassificationDensityPolicy=True)
+    result["englishClassification"] = classification
+    actual_hashes = {p: h for p, h in sorted(pack["fingerprints"].items()) if p.startswith(DATA_ROOT + "/")}
+    for key, value in result.items():
+        if key != "englishClassification" and isinstance(value, dict) and "actualRuntimeFileSha256" in value:
+            value["actualRuntimeFileSha256"] = actual_hashes
     return result
 
 
@@ -4198,7 +4258,7 @@ def webp_dimensions(data):
     raise VerificationError("WebP has no recognised frame dimensions")
 
 
-def check_visuals(pack, required=False):
+def _check_historical_visuals(pack, required=False):
     """Check all registered atlas cells, not the image semantics themselves."""
     root, registry = pack["root"], pack["visualRegistry"]
     require(registry is not None, "The visual registry is missing")
@@ -4265,6 +4325,21 @@ def check_visuals(pack, required=False):
             "ownerApprovedThemeVisuals": sum(item.get("ownerApproved") is True for item in registry["themes"]),
             "themeVisualsAwaitingOwnerReview": sum(item.get("ownerApproved") is not True for item in registry["themes"]),
             "semanticOrNativeReviewClaimed": False}
+
+
+def check_visuals(pack, required=False):
+    result = _check_historical_visuals(pack, required)
+    try:
+        visuals = check_english_classification_visuals(pack)
+    except ClassificationError as error:
+        raise VerificationError(str(error)) from error
+    result.update(classificationVisualRegistryChecked=True, classificationVisualIds=len(visuals),
+        classificationVisualRegistryPath=ENGLISH_CLASSIFICATION_VISUALS,
+        classificationVisualRegistrySha256=pack["fingerprints"][ENGLISH_CLASSIFICATION_VISUALS],
+        classificationPhotoCropsReusedFromExistingAtlases=3,
+        historicalGlobalVisualRegistryUnchanged=True)
+    result["themeVisualsAwaitingOwnerReview"] += 3
+    return result
 
 
 def adversarial_checks(pack, *, only_phonetic=False, only_lot3=False, only_lot4=False, only_lot5=False, only_lot6=False, only_lot7=False, only_lot8=False, only_lot9=False):
@@ -5808,7 +5883,35 @@ def markdown(report):
         "    python3 -B tools/maquette-guidee/check_levels_independent.py --check-report --require-visuals --strict-editorial --require-no-held --self-test", "",
         "Les contre-exemples en mémoire incluent une phonétique changée, une source dupliquée, un mauvais champ, un rappel avant préparation, une réserve productive, un import exclu, un mot injecté dans une situation, une révision future ou de mauvaise famille, un compteur gonflé et une séparation fictive d’un concept M/F. Les nouveaux contre-exemples couvrent aussi les rôles et clôtures reçus, la réponse avant sa préparation, une fausse étape de préparation, une aide de modèle entendu changée, un reçu compté comme production, un soutien futur ou de mauvaise famille, une attribution de source forgée, un faux statut de revue et le déplacement d’un ancien modèle protégé. Le lot4 ajoute les copies ou reçus périmés, une preuve forgée, une ancienne annotation perdue, une glose non autorisée et les blocs1900/757 appliqués partiellement, y compris la garde native inchangée de757. Le lot5 ajoute les paires aide/lecture partielles, les copies ou déclarations de transport omises, une glose/statut/preuve inventés et la réserve3771 activée à tort. Le lot6 ajoute les paires coréennes partielles, la réplique reçue périmée, la chaîne B3980 altérée, les blocs2362/1896 partiels et leurs sens gardés, les preuves/annotations forgées et une normalisation batchim non approuvée. Le lot7 ajoute les aides/copies/reçus anglais périmés, une lecture inventée, les règles ou preuves falsifiées, une copie omise, les cinq blocs partiels ou leurs sens gardés altérés et une convention étendue sans accord. Le lot8 ajoute les copies/aides/reçus espagnols périmés, la chaîne B3159 perdue, les deux études de ponctuation assorties à tort de nouvelles aides ou statuts, le soutien estómago périmé, les trois blocs partiels et la normalisation de jota ou de vibrantes sans décision. Le lot9 ajoute les aides/copies/reçus italiens périmés, une lecture inventée, les gloses seules assorties à tort de nouvelles aides ou études ou statuts, les trois blocs partiels, N étendue sans décision, les preuves ou copies forgées, et l’erratum EN71 confondu avec son événement historique ou rattaché au mauvais avant. Le contrôle ne remplace pas une écoute ou un essai avec apprenants. La revue humaine de Claude couvre les thèmes, les niveaux et les phonétiques anciennes comme nouvelles ; ces contrôles mécaniques ne prouvent ni leur justesse linguistique globale ni la fermeture globale de la progression. Aucune publication n’est approuvée.", "",
     ]
-    return re.sub(r"(?<=\d),(?=\d{3}\b)", " ", "\n".join(lines))
+    text = "\n".join(lines)
+    classification = report.get("englishClassification")
+    if classification:
+        text = text.replace(
+            f"**{c['visibleThemes']} thèmes visibles** ont chacun au moins six concepts mesurés à partir de leurs sources.",
+            f"**{c['visibleThemes']} thèmes visibles**, dont **{len(classification['smallThemes'])} exceptions anglaises finies sous six concepts** après application du registre. Les trois nouveaux thèmes ont chacun trois cartes ; les 22 anciens thèmes devenus petits restent visibles et signalés à enrichir.")
+        text = text.replace("Les situations n’accueillent aucun mot ou nombre isolé, même par le chemin des préparations.",
+            "Le classement anglais conserve le type de chaque source : ses 151 placements dans une rubrique d’un autre type sont déclarés dans 25 thèmes mixtes, et chaque étape garde le type de sa carte. Une préparation structurelle reste une phrase entière ; aucun mot isolé n’y est injecté.")
+        text = text.replace("Les classes spécialisées ont priorité sur les familles générales.",
+            "Les classes spécialisées ont priorité dans les couches historiques ; les neuf destinations adverbes de ce registre conservent leur lexicalClass source et exposent une exception bornée, sans réécriture silencieuse.")
+        text = text.replace("Les 689 propositions, 30 conventions et 95 gloses incertaines restent non appliquées.",
+            "À la livraison du lot7, les 689 propositions, 30 conventions et 95 gloses incertaines restaient non appliquées. Le registre anglais distinct applique désormais 670 décisions issues de ces propositions ; ses conventions et gloses incertaines restent hors de ce lot.")
+        text = text.replace(
+            f"Les **{c['sourceLevelsNotIndividuallyReviewed']:,} autres placements** gardent leur niveau source sans validation individuelle revendiquée.",
+            f"Le compteur historique **{c['sourceLevelsNotIndividuallyReviewed']:,}** décrit les placements avant le registre anglais. Les 670 opérations actuelles sont contrôlées séparément ; la lecture des 70 cellules annoncée par Claude ne signifie pas que toutes les propositions des autres couples soient appliquées.")
+        section = ["## Registre anglais de classement — contrôles avant projection", "",
+            "Les 670 emplacements expectedBefore sont comparés simultanément au Git 13f42b5 : 610 déplacements, dont 127 changements de niveau, 37 réserves et 23 décisions de conservation. Les 4 704 objets canoniques restent présents une fois ; étude, sens, phonétique, lecture, source, type et anciennes corrections sont conservés. Les survivants gardent leur ordre ; les arrivées suivent l’ordre du registre.", "",
+            "Après application : 4 542 cartes actives et 162 réservées. Les 22 révisions devenues futures ou hors famille sont retirées de la pratique, quatre sont retargetées et un soutien lexical retrouve son nouvel emplacement. Le reçu entendu catalogue:en:748 reste entendu, avec son canonique conservé en réserve L3 ; son premier usage reçu L2 ne déplace pas cette réserve.", "",
+            "Les huit intentions et les tours reçus de chaque situation restent identiques. Treize situations ont une annexe de 29 cartes ordinaires ; les nouvelles étapes gardent compréhension, imitation et rappel, ainsi que le type de chaque source. Les trois nouveaux visuels empruntent trois recadrages distincts à des atlas existants, avec registre et empreintes séparés ; aucun ancien fichier image n’est modifié.", "",
+            "### Rubriques à enrichir", "", "| Niveau | Thème | Concepts | Présentations | Origine |", "|---|---|---:|---:|---|"]
+        for row in classification["smallThemes"]:
+            section.append(f"| L{row['level']} | {row['id']} | {row['conceptCount']} | {row['presentedCount']} | {'nouveau approuvé' if row['newTheme'] else 'ancien devenu petit'} |")
+        section += ["", "### Rubriques volumineuses", "", "Seuil de signalement explicite : plus de 100 présentations, sans découpage supplémentaire appliqué.", "", "| Niveau | Thème | Présentations |", "|---|---|---:|"]
+        for row in classification["largeThemes"]:section.append(f"| L{row['level']} | {row['id']} | {row['presentedCount']} |")
+        section += ["", "Les deux rubriques entièrement vides L9-repas et L9-reperes quittent la grille, avec leur définition conservée en retiredThemes. Aucune carte n’est supprimée. Les six autres couples restent identiques au snapshot approuvé. Le niveau source lv, les droits gratuits, les tarifs et les cartes classiques restent inchangés.", ""]
+        text = text.replace("## Reproduire", "\n".join(section) + "\n## Reproduire", 1)
+        text = text.replace("--require-no-held --self-test", "--require-no-held --classification-self-test")
+        text += "\nLes contre-épreuves ciblées de classement sont distinctes de la suite historique complète, toujours disponible avec --self-test. Elles incluent les emplacements, copies, types, réserves, étapes, preuves et exceptions forgés ; les empreintes superficielles sont recalculées avant de vérifier leur refus.\n"
+    return re.sub(r"(?<=\d),(?=\d{3}\b)", " ", text)
 
 
 def main():
@@ -5821,11 +5924,14 @@ def main():
     parser.add_argument("--strict-editorial", action="store_true")
     parser.add_argument("--require-no-held", action="store_true")
     parser.add_argument("--self-test", action="store_true")
+    parser.add_argument("--classification-self-test", action="store_true")
     args = parser.parse_args()
     try:
         pack = read_pack(args.root.resolve())
         result = check_pack(pack)
-        adverse = adversarial_checks(pack) if args.self_test else None
+        require(not (args.self_test and args.classification_self_test), "Choose the full or classification-only self-test, not both")
+        adverse = (adversarial_checks(pack) if args.self_test else
+                   english_classification_adversarial_checks(pack) if args.classification_self_test else None)
         result.update({"version": 1, "checker": "independent-no-generator-import", "date": pack["plan"]["date"],
                        "sourceIntegrity": "pass", "publicationApproved": False, "doesNotMeasureAcquisition": True,
                        "visuals": check_visuals(pack, args.require_visuals),

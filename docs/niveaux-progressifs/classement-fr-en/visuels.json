@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "id": "classification-fr-en-new-theme-visuals",
+  "baseSnapshotCommit": "13f42b5814f2b230d76d2d0ef267dcf406c523c2",
+  "decisionSourceCommit": "1bf76c72f58e2ffe37e27d2b137a1ebe350e097f",
+  "decisionSourcePath": "docs/revue-integrale/classement-fr-en/registre-classement.json",
+  "decisionSourceSha256": "a605a44eb886e598014dab0ed4b1000c819060ad4dcf83f939fd70c9a4dc020a",
+  "scope": "Only the three new English classification themes; existing global visual registry and image bytes unchanged",
+  "photographsAreSynthetic": true,
+  "thirdPartyImageRequests": 0,
+  "newImageAssets": 0,
+  "distinctNewThemePhotos": true,
+  "themes": [
+    {
+      "pair": "fr-en",
+      "level": 3,
+      "themeId": "L3-sante",
+      "visualId": "L3-sante",
+      "title": "Santé : demander une aide médicale",
+      "photo": {
+        "asset": "assets/vocabulary-scenes-L5-L6.webp",
+        "column": 3,
+        "row": 2,
+        "columns": 4,
+        "rows": 4
+      },
+      "assetSha256": "e2be4b07b68306e696a28c1c72d1e26899b67f40a53056df26fa8e49feee1c8f",
+      "brief": "Un cœur rouge et un stéthoscope évoquent directement une aide médicale.",
+      "existingCropSourceThemeId": "L6-vocab-personnes",
+      "newImageGenerated": false,
+      "placementReviewStatus": "proposed-in-separate-classification-pr"
+    },
+    {
+      "pair": "fr-en",
+      "level": 5,
+      "themeId": "L5-cuisine-recette",
+      "visualId": "L5-cuisine-recette",
+      "title": "Cuisine : suivre une recette",
+      "photo": {
+        "asset": "assets/theme-scenes-L3.webp",
+        "column": 0,
+        "row": 2,
+        "columns": 3,
+        "rows": 4
+      },
+      "assetSha256": "ac1eea8c1c5e018a40794b4d4791ad8cebd9c4689af04c06af68ea1649db3c2d",
+      "brief": "Deux personnes préparent un petit-déjeuner ; les aliments et les gestes évoquent une préparation de cuisine.",
+      "existingCropSourceThemeId": "L3-quotidien",
+      "newImageGenerated": false,
+      "placementReviewStatus": "proposed-in-separate-classification-pr"
+    },
+    {
+      "pair": "fr-en",
+      "level": 9,
+      "themeId": "L9-telephone",
+      "visualId": "L9-telephone",
+      "title": "Téléphone : accueillir, filtrer et faire patienter",
+      "photo": {
+        "asset": "assets/situation-scenes.webp",
+        "column": 1,
+        "row": 0,
+        "columns": 3,
+        "rows": 4
+      },
+      "assetSha256": "7e094f471981c77dfb70e888a798737c28cad519385ad107aafe2d12c0cd50e8",
+      "brief": "Une personne utilise son téléphone portable ; la scène évoque le contact à distance.",
+      "existingCropSourceThemeId": "L2-situation-numerique-quotidien",
+      "newImageGenerated": false,
+      "placementReviewStatus": "proposed-in-separate-classification-pr"
+    }
+  ],
+  "renamedThemePhoto": {
+    "pair": "fr-en",
+    "level": 9,
+    "themeId": "L9-saluer",
+    "visualId": "L9-saluer",
+    "title": "Remercier et s’excuser en registre soutenu",
+    "photo": {
+      "asset": "assets/theme-scenes-L9.webp",
+      "column": 0,
+      "row": 0,
+      "columns": 3,
+      "rows": 4
+    },
+    "unchanged": true
+  }
+}
