@@ -15,7 +15,8 @@ const {test, before, after} = require('node:test');
 const {chromium} = require('playwright-core');
 
 const WEB = path.resolve(__dirname, '..'), REPO = path.resolve(WEB, '..');
-const BASE = 'ebd6519a6088e52c157231b44ae4cf41507f0667';
+const DATA_BASE = 'ebd6519a6088e52c157231b44ae4cf41507f0667';
+const PRODUCT_BASE = '62c14669cbb33c5c1a8b67722fc0c0f6c4189b6b';
 const helperPath = path.join(WEB, 'visible-sequences.js');
 const manifestPath = 'content/niveaux-progressifs/manifest.json';
 const read = name => JSON.parse(fs.readFileSync(path.join(WEB, name), 'utf8'));
@@ -44,15 +45,16 @@ function sourcePhrase(row, identifier) {
   return [...bank.phrases, ...(bank.receivedModels || []), ...row.cell.themes.flatMap(theme => theme.phrases)].find(phrase => phrase.id === identifier);
 }
 function fingerprints() {
-  const files = [__filename, helperPath, ...['app.html', 'maquette-guidee.js', 'maquette-guidee.css', 'parcours-niveaux.html', 'maquette-guidee.html'].map(file => path.join(WEB, file)), ...documentPaths.map(file => path.join(WEB, file))];
+  const files = [__filename, helperPath, ...['app.html', 'index.html', 'course-access.js', 'content/course-access.json', 'maquette-guidee.js', 'maquette-guidee.css', 'parcours-niveaux.html', 'maquette-guidee.html'].map(file => path.join(WEB, file)), ...documentPaths.map(file => path.join(WEB, file))];
   return Object.fromEntries(files.sort().map(file => [path.relative(REPO, file), sha(fs.readFileSync(file))]));
 }
 const report = {
-  status: 'running', approvedSourceCommit: BASE,
+  status: 'running', approvedSourceCommit: DATA_BASE, approvedEntryProductCommit: PRODUCT_BASE,
   environment: 'local Chromium with emulated mobile/desktop sizes',
   hostedBrowserJourneyChecked: false, physicalPhoneChecked: false, nativeOrPhoneticApproval: false,
   speechMechanism: 'instrumented speechSynthesis; dispatch must equal the complete study text',
-  checks: [], partitions: [], cases: [], errors: [], externalRequests: [], apiRequests: [],
+  accountMechanism: 'only GET check-status is mocked paid:true locally to exercise the full course; no real account or service request',
+  checks: [], partitions: [], cases: [], errors: [], externalRequests: [], apiRequests: [], mockedStatusRequests: [],
   sourceDocumentsCompared: 0, productFilesCompared: 0, totalVisibleSequences: 0,
   browserThemeViews: 0, browserSequencesCompared: 0, modelFieldChecks: 0, speechChecks: 0, fitChecks: 0,
   inputSha256: fingerprints()
@@ -107,6 +109,7 @@ after(async () => {
   await browser?.close(); if (server) await new Promise(resolve => server.close(resolve));
   report.inputsStable = JSON.stringify(fingerprints()) === JSON.stringify(report.inputSha256);
   if (!report.inputsStable) report.errors.push('Sources changed during the run.');
+  if (!report.mockedStatusRequests.length) report.errors.push('The full-course account fixture was not exercised.');
   report.status = !report.errors.length && !report.externalRequests.length && !report.apiRequests.length && report.checks.length === 6 ? 'passed' : 'failed';
   report.executedAt = new Date().toISOString();
   if (process.env.SEQUENCES_BROWSER_REPORT) fs.writeFileSync(process.env.SEQUENCES_BROWSER_REPORT, JSON.stringify(report, null, 2) + '\n');
@@ -114,17 +117,17 @@ after(async () => {
 });
 
 test('all approved data, cards, themes and phonetics remain byte-exact; 67 topics become 337 ordered chunks', () => checked('whole-source-and-partitions', () => {
-  const existing = execFileSync('git', ['ls-tree', '-r', '--name-only', BASE, 'melunga_deploy/content/niveaux-progressifs'], {cwd: REPO, encoding: 'utf8'}).trim().split('\n');
+  const existing = execFileSync('git', ['ls-tree', '-r', '--name-only', DATA_BASE, 'melunga_deploy/content/niveaux-progressifs'], {cwd: REPO, encoding: 'utf8'}).trim().split('\n');
   assert.deepEqual(existing.sort(), documentPaths.map(p => 'melunga_deploy/' + p).sort());
   for (const filename of documentPaths) {
-    const actual = fs.readFileSync(path.join(WEB, filename)), before = execFileSync('git', ['show', BASE + ':melunga_deploy/' + filename], {cwd: REPO, maxBuffer: 32 * 1024 * 1024});
+    const actual = fs.readFileSync(path.join(WEB, filename)), before = execFileSync('git', ['show', DATA_BASE + ':melunga_deploy/' + filename], {cwd: REPO, maxBuffer: 32 * 1024 * 1024});
     assert.ok(actual.equals(before), 'approved complete JSON bytes: ' + filename); report.sourceDocumentsCompared++;
   }
-  const product = execFileSync('git', ['ls-tree', '-r', '--name-only', BASE, 'melunga_deploy'], {cwd: REPO, encoding: 'utf8'}).trim().split('\n');
+  const product = execFileSync('git', ['ls-tree', '-r', '--name-only', PRODUCT_BASE, 'melunga_deploy'], {cwd: REPO, encoding: 'utf8'}).trim().split('\n');
   const allowed = new Set(['melunga_deploy/maquette-guidee.js', 'melunga_deploy/maquette-guidee.html', 'melunga_deploy/parcours-niveaux.html']);
-  for (const filename of product.filter(p => p.includes('/netlify/') || /^melunga_deploy\/[^/]+\.(?:html|js|css)$/.test(p))) {
+  for (const filename of product.filter(p => p.includes('/netlify/') || /^melunga_deploy\/[^/]+\.(?:html|js|css)$/.test(p) || p === 'melunga_deploy/content/course-access.json')) {
     if (allowed.has(filename)) continue;
-    assert.ok(fs.readFileSync(path.join(REPO, filename)).equals(execFileSync('git', ['show', BASE + ':' + filename], {cwd: REPO, maxBuffer: 32 * 1024 * 1024})), 'classic catalogue/auth/prices and unrelated UI unchanged: ' + filename); report.productFilesCompared++;
+    assert.ok(fs.readFileSync(path.join(REPO, filename)).equals(execFileSync('git', ['show', PRODUCT_BASE + ':' + filename], {cwd: REPO, maxBuffer: 32 * 1024 * 1024})), 'approved catalogue/auth/access/prices and unrelated UI unchanged: ' + filename); report.productFilesCompared++;
   }
   assert.equal(topics.reduce((sum, row) => sum + row.theme.phrases.length, 0) + [...cells.values()].reduce((sum, cell) => sum + cell.reserve.length, 0), 33654);
   assert.equal(longTopics.length, 67);
@@ -162,6 +165,10 @@ async function open(width, height) {
   await context.route('**/*', async route => {
     const url = new URL(route.request().url());
     if (url.origin !== base) { report.externalRequests.push(url.origin + url.pathname); await route.abort(); }
+    else if (url.pathname === '/.netlify/functions/check-status' && route.request().method() === 'GET') {
+      report.mockedStatusRequests.push({method:'GET', path:url.pathname, paid:true});
+      await route.fulfill({status:200, contentType:'application/json', body:JSON.stringify({paid:true})});
+    }
     else if (/\/(?:\.netlify|api)\//.test(url.pathname)) { report.apiRequests.push(url.pathname); await route.abort(); }
     else await route.continue();
   });

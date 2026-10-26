@@ -37,7 +37,7 @@ function bank(pairId) {
 }
 
 function fingerprints() {
-  const files = [__filename, ...['maquette-guidee.js', 'visible-sequences.js', 'maquette-guidee.css',
+  const files = [__filename, ...['maquette-guidee.js', 'visible-sequences.js', 'course-access.js', 'content/course-access.json', 'maquette-guidee.css',
     'parcours-niveaux.html', 'maquette-guidee.html', 'app.html'].map(file => path.join(ROOT, file)),
     path.join(ROOT, 'content/maquette-guidee.json'), path.join(DATA, 'manifest.json')];
   for (const pair of manifest.pairs) {
@@ -52,7 +52,8 @@ const report = {
   publicSiteChecked: false, physicalDeviceChecked: false,
   phoneticOrNativeValidation: false,
   speechMechanism: 'mock speechSynthesis; whole study text dispatch only',
-  checks: [], cases: [], errors: [], externalRequests: [], apiRequests: [],
+  accountMechanism: 'only GET check-status is mocked paid:true locally to exercise the full course; no real account or service request',
+  checks: [], cases: [], errors: [], externalRequests: [], apiRequests: [], mockedStatusRequests: [],
   inputSha256: fingerprints(),
   requiredChecks: ['desktop-complete-card', 'pinyin-switch-persistence-and-recall',
     'mobile-four-direction-swipes', 'mobile-swipes-ignore-other-interactions',
@@ -85,6 +86,7 @@ after(async () => {
   report.inputsStableDuringRun = JSON.stringify(fingerprints()) === JSON.stringify(report.inputSha256);
   if (!report.inputsStableDuringRun) report.errors.push('Product or source files changed during the run.');
   if (report.externalRequests.length || report.apiRequests.length) report.errors.push('Unexpected external/API operation.');
+  if (!report.mockedStatusRequests.length) report.errors.push('The full-course account fixture was not exercised.');
   if (report.requiredChecks.some(name => !report.checks.includes(name))) report.errors.push('Incomplete lesson-control coverage.');
   const fits = report.cases.filter(entry => entry.measurements);
   report.fullCardMeasurements = fits.length;
@@ -102,7 +104,7 @@ after(async () => {
   }
   assert.equal(report.inputsStableDuringRun, true, 'controls and content remain stable during this run');
   assert.deepEqual(report.externalRequests, [], 'no external requests');
-  assert.deepEqual(report.apiRequests, [], 'no account or service requests');
+  assert.deepEqual(report.apiRequests, [], 'no unexpected account or service requests; only GET check-status is mocked');
   assert.deepEqual(report.errors, [], 'no page errors or failed control checks');
 });
 
@@ -130,6 +132,11 @@ async function open(width = 390, height = 844, intercept = async () => false, op
     const url = new URL(route.request().url());
     if (url.origin !== base) {
       report.externalRequests.push(url.origin + url.pathname); await route.abort(); return;
+    }
+    if (url.pathname === '/.netlify/functions/check-status' && route.request().method() === 'GET') {
+      report.mockedStatusRequests.push({method:'GET', path:url.pathname, paid:true});
+      await route.fulfill({status:200, contentType:'application/json', body:JSON.stringify({paid:true})});
+      return;
     }
     if (/\/(?:\.netlify|api)\//.test(url.pathname)) {
       report.apiRequests.push(url.pathname); await route.abort(); return;
