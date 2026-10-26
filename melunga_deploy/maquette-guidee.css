@@ -29,9 +29,8 @@ a{color:inherit;text-underline-offset:3px}
 .mg-level{font-size:19px;font-weight:800;cursor:default}
 .mg-level:hover{background:var(--mg-soft);border-color:var(--mg-line)}
 .mg-language-control{overflow:hidden;position:relative}
-.mg-language-control select{position:absolute;inset:-1px;width:calc(100% + 2px);height:calc(100% + 2px);min-width:44px;min-height:44px;opacity:0;cursor:pointer;border:0}
-.mg-language-control select option{color:#173440;background:#f5fafb;font-size:16px}
-.mg-language-control:focus-within{outline:2px solid var(--mg-accent);outline-offset:4px}
+.mg-language-control:focus-visible{outline:2px solid var(--mg-accent);outline-offset:4px}
+.mg-desktop-nav{display:none}
 .mg-level-control{cursor:pointer;background:var(--mg-level-color,var(--mg-soft));color:#fff;border-color:rgba(255,255,255,.4)}
 .mg-level-control:hover{background:var(--mg-level-color,var(--mg-soft));filter:brightness(1.12)}
 .mg-level-control:focus-visible{outline:2px solid var(--mg-accent);outline-offset:4px}
@@ -303,3 +302,33 @@ body[data-view="done"] .mg-done{min-height:0;gap:12px;padding:12px 8px}
 .mg-level-title{min-width:0;font-size:13px;font-weight:650;overflow-wrap:anywhere}
 .mg-level-option[aria-pressed="true"] .mg-level-title::after{content:" ✓";color:var(--mg-accent)}
 @media(max-width:360px){.mg-level-grid{gap:7px}.mg-level-option{gap:8px;padding:10px}.mg-level-title{font-size:12px}.mg-level-badge{width:34px;height:34px;flex-basis:34px}}
+
+/* Language and level choices use the same rounded cards on every device. */
+.mg-language-dialog{width:min(520px,var(--mg-dialog-max-width,calc(100vw - 28px)))}
+.mg-language-grid,.mg-level-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.mg-language-option{display:flex;align-items:center;gap:12px;width:100%;min-width:0;min-height:72px;padding:11px 12px;border:1px solid var(--mg-line);border-radius:17px;background:var(--mg-soft);color:var(--mg-ink);text-align:left;line-height:1.35}
+.mg-language-option:hover,.mg-language-option:focus-visible{outline:2px solid var(--mg-accent);outline-offset:-2px;background:var(--mg-surface)}
+.mg-language-option[aria-pressed="true"]{border-color:var(--mg-accent);box-shadow:inset 0 0 0 1px var(--mg-accent)}
+.mg-language-badge{display:flex;align-items:center;justify-content:center;flex:0 0 38px;width:38px;height:38px;border-radius:50%;background:var(--mg-soft);font-size:27px;line-height:1}
+.mg-language-title{min-width:0;font-size:14px;font-weight:650;overflow-wrap:anywhere}
+.mg-language-option[aria-pressed="true"] .mg-language-title::after{content:" ✓";color:var(--mg-accent)}
+@media(max-width:360px){.mg-language-grid{gap:7px}.mg-language-option{gap:8px;padding:10px}.mg-language-title{font-size:13px}.mg-language-badge{width:34px;height:34px;flex-basis:34px;font-size:25px}}
+
+/* A wide screen exposes the same nine menu actions directly, in two columns. */
+@media(min-width:1024px){
+ .mg-app{grid-template-columns:180px minmax(0,1fr)}
+ .mg-sidebar{padding:16px 10px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+ .mg-controls{display:grid;grid-template-columns:repeat(2,54px);justify-content:center;gap:12px;margin-top:20px}
+ .mg-controls>#mgPalette,.mg-controls>#mgMenuTrigger{display:none}
+ .mg-desktop-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 4px;width:100%;margin-top:22px}
+ .mg-rail-item{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;min-width:0;min-height:68px;padding:0 2px;border:0;border-radius:15px;background:transparent;color:var(--mg-ink);text-decoration:none;text-align:center;font-size:12px;font-weight:650;line-height:1.35}
+ .mg-rail-item>span:last-child{max-width:100%;overflow-wrap:anywhere}
+ .mg-rail-icon{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;border:1px solid var(--mg-line);border-radius:50%;background:var(--mg-soft);color:var(--mg-accent);box-shadow:inset 0 1px 0 rgba(255,255,255,.12);transition:background .16s ease,border-color .16s ease,transform .16s ease}
+ .mg-rail-icon svg{display:block;width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+ .mg-rail-icon .mg-colorwheel{width:26px;height:26px}
+ .mg-rail-item:hover .mg-rail-icon,.mg-rail-item:focus-visible .mg-rail-icon{background:rgba(255,255,255,.21);border-color:var(--mg-accent)}
+ .mg-rail-item:focus-visible{outline:2px solid var(--mg-accent);outline-offset:3px}
+ .mg-rail-item:active .mg-rail-icon{transform:scale(.96)}
+ .mg-rail-item:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:50%}
+ .mg-desktop-nav[inert]{opacity:.45}
+}

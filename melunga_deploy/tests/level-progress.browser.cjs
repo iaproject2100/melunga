@@ -11,9 +11,16 @@ const REPO=path.resolve(__dirname,'../..'),WEB=path.join(REPO,'melunga_deploy');
 const BASE='a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f',ORIGIN='https://level-progress.test';
 // The account component changes course-access. The reviewed presentation has
 // its own whole CSS pin; other protected files keep the public main reference.
-const REVIEWED_CSS_SHA='2da16667452ebe1781a5d202f68fd811b554086b6831a8d0fa164e9588cc348e';
+const REVIEWED_CSS_SHA='ca527260443b006ee70b43af3a91829a5986725c2e58895475d27674653f61fd';
 const ACCOUNT_COMPONENT_REF='665d0def5df2644bb8421553ed4876292ef23f10';
 const BEFORE_CAPSULE_REF='711537b';
+// The classic data remain exact; only these two account-presentation includes
+// are authorized in its document shell.
+function approvedAccountHead(raw){
+ const text=raw.toString(),marker='<link rel="stylesheet" href="account-ui.css">\n';
+ assert.equal(text.split(marker).length,2,'one account UI include in the baseline');
+ return Buffer.from(text.replace(marker,'<link rel="stylesheet" href="account-ui.css">\n<link rel="stylesheet" href="course-login.css?v=1">\n<script src="course-login.js?v=1" defer></script>\n'));
+}
 const KNOWN='melunga-guided-known-v1',REVIEW='melunga-guided-review-v1';
 const read=f=>JSON.parse(fs.readFileSync(path.join(WEB,f),'utf8'));
 const manifest=read('content/niveaux-progressifs/manifest.json');
@@ -142,7 +149,7 @@ async function captureCapsule(page,name){const dir=process.env.LEVEL_PROGRESS_CA
 async function getState(page){return page.evaluate(()=>window.MelungaMockup.state());}
 
 test('card sources, access, prices, logo and per-theme counters are preserved', {timeout:60000},()=>checked('source-and-unchanged-theme-counts',async()=>{
- assert.equal(sourceFiles.length,78);for(const f of sourceFiles.concat(protectedFiles)){if(f==='maquette-guidee.css'){assert.equal(sha(fs.readFileSync(path.join(WEB,f))),REVIEWED_CSS_SHA,'whole reviewed capsule CSS');continue;}assert.ok(baseline(f).equals(fs.readFileSync(path.join(WEB,f))),'whole protected file '+f);}report.reviewedCapsuleCssSha256=REVIEWED_CSS_SHA;
+ assert.equal(sourceFiles.length,78);for(const f of sourceFiles.concat(protectedFiles)){if(f==='maquette-guidee.css'){assert.equal(sha(fs.readFileSync(path.join(WEB,f))),REVIEWED_CSS_SHA,'whole reviewed capsule CSS');continue;}const expected=baseline(f);assert.ok((f==='app.html'?approvedAccountHead(expected):expected).equals(fs.readFileSync(path.join(WEB,f))),'whole protected source with exact two account head includes '+f);}report.reviewedCapsuleCssSha256=REVIEWED_CSS_SHA;
  const beforeCapsule=execFileSync('git',['show',BEFORE_CAPSULE_REF+':melunga_deploy/maquette-guidee.js'],{cwd:REPO,maxBuffer:40*1024*1024}).toString(),currentJs=fs.readFileSync(path.join(WEB,'maquette-guidee.js'),'utf8');
  const preserved=['collectLevelProgressIds','levelProgress','loadKnownCards','saveKnownCard','saveCardDecision','markKnown','markForReview'];
  for(const name of preserved)assert.equal(functionText(currentJs,name),functionText(beforeCapsule,name),'whole unchanged progress math/persistence function '+name);report.preservedProgressFunctions=preserved;
@@ -203,7 +210,7 @@ test('real right swipes persist explicit knowledge and À revoir reverses it wit
   await enter(page);assert.equal((await getState(page)).phraseId,first);await gesture(page,105,3);assert.ok((await knownIds(page,'fr-ja')).includes(first));await themes(page);await progress(page,'fr-ja',1,ids);
   await page.reload();await ready(page,'fr-ja');await progress(page,'fr-ja',1,ids);assert.equal(await page.evaluate(()=>localStorage.getItem('ox_known_ja')),classicBefore,'classic progress is not touched');
   await enter(page);assert.equal((await getState(page)).phraseId,first);await page.locator('#mgReplay').click();assert.ok(!(await knownIds(page,'fr-ja')).includes(first));assert.ok((await review(page)).some(row=>row.id===first));await themes(page);await progress(page,'fr-ja',1,initial);
-  await page.locator('#mgMenuTrigger').click();await page.locator('[data-menu-item="À revoir"]').click();await page.locator('.mg-saved-review-item[data-review-id="'+first+'"] [data-review-action="remove"]').click();await page.keyboard.press('Escape');await page.locator('#mgMenuDialog').waitFor({state:'hidden'});await progress(page,'fr-ja',1,initial);assert.ok(!(await knownIds(page,'fr-ja')).includes(first),'removing a review bookmark does not declare knowledge');
+  await page.locator('#mgMenuTrigger').click();await page.locator('#mgMenuNav [data-menu-item="À revoir"]').click();await page.locator('.mg-saved-review-item[data-review-id="'+first+'"] [data-review-action="remove"]').click();await page.keyboard.press('Escape');await page.locator('#mgMenuDialog').waitFor({state:'hidden'});await progress(page,'fr-ja',1,initial);assert.ok(!(await knownIds(page,'fr-ja')).includes(first),'removing a review bookmark does not declare knowledge');
   const sample=ids.slice(0,37);await page.evaluate(({key,value})=>{localStorage.setItem(key,value);window.dispatchEvent(new StorageEvent('storage',{key,newValue:value}));},{key:KNOWN,value:registry({'fr-ja':sample})});await progress(page,'fr-ja',1,sample);await page.reload();await ready(page,'fr-ja');await progress(page,'fr-ja',1,sample);await capture(page,'persisted-level-progress');
   report.cases.push({name:'known-persistence-and-review-reversal',total:ids.length,knownAfterExplicitSwipe:ids.length,knownAfterReview:initial.length});
  }finally{await f.context.close();}

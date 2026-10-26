@@ -5,6 +5,8 @@
   const byId = id => document.getElementById(id);
   const ui = {
     language: byId('mgLanguage'), flag: byId('mgLanguageFlag'), palette: byId('mgPalette'),
+    languageTrigger: byId('mgLanguageTrigger'), languageDialog: byId('mgLanguageDialog'),
+    languageChoices: byId('mgLanguageChoices'), languageClose: byId('mgLanguageClose'), desktopNav: byId('mgDesktopNav'),
     level: byId('mgLevel'), levelText: byId('mgLevelText'), levelTrigger: byId('mgLevelTrigger'),
     levelDialog: byId('mgLevelDialog'), levelChoices: byId('mgLevelChoices'), levelClose: byId('mgLevelClose'),
     menuTrigger: byId('mgMenuTrigger'), menu: byId('mgMenuDialog'), menuNav: byId('mgMenuNav'),
@@ -43,6 +45,7 @@
     deferredPhraseIds: new Set(), resumeGeneration: 0, allClassification: null, classificationOps: new Map(), accountLogoutPending: false
   };
   const courseAccess = window.MelungaCourseAccess;
+  let menuAnchor = ui.menuTrigger;
   state.sourcePhraseMap = new Map();
   state.accessContextStepIds = new Set();
   state.levelProgressIds = new Set();
@@ -67,6 +70,19 @@
     }
   } catch (_) { /* Storage can be unavailable; the lesson still works. */ }
   const ambiences = ['ocean', 'aurora', 'dusk'];
+  try {
+    const savedAmbience = sessionStorage.getItem('melunga-course-ambience');
+    if (ambiences.includes(savedAmbience)) {
+      state.ambienceIndex = ambiences.indexOf(savedAmbience);
+      document.body.dataset.ambience = savedAmbience;
+    }
+  } catch (_) { /* The selected colour still works when storage is unavailable. */ }
+  function changeAmbience() {
+    state.ambienceIndex = (state.ambienceIndex + 1) % ambiences.length;
+    const ambience = ambiences[state.ambienceIndex];
+    document.body.dataset.ambience = ambience;
+    try { sessionStorage.setItem('melunga-course-ambience', ambience); } catch (_) { /* Keep the current colour. */ }
+  }
   // One local image atlas, shared by all languages. Each tile is a 4:3 scene.
   const themePhotos = new Map([
     'saluer', 'comprendre', 'ressentis', 'repas', 'deplacements', 'reperes',
@@ -133,7 +149,10 @@
     'Écouter la phrase': '听这句话', 'Écouter': '听一听',
     'Révéler et écouter la phrase': '显示并听这句话', 'Révéler et écouter': '显示并听一听',
     'Changer d’ambiance': '更换背景', 'Voir les thèmes': '查看主题',
-    'Langue à apprendre': '学习语言', 'Choisir un niveau': '选择级别', 'Aide pour cette étape': '本步骤帮助',
+    'Langue à apprendre': '学习语言', 'Choisir une langue': '选择学习语言', 'Fermer les langues': '关闭语言选择',
+    'Anglais': '英语', 'Espagnol': '西班牙语', 'Italien': '意大利语', 'Chinois': '中文', 'Japonais': '日语', 'Coréen': '韩语', 'Français': '法语',
+    'Révisions': '复习', 'Aide': '帮助', 'Connexion': '登录',
+    'Choisir un niveau': '选择级别', 'Aide pour cette étape': '本步骤帮助',
     'Choisir une réponse': '选择回答', 'Niveau 1': '第一级',
     'Modèle': '待补全', 'Écouter l’autre': '听对方说话', 'Se rappeler': '回忆',
     'Répéter': '跟读', 'Comparer': '比较',
@@ -432,42 +451,53 @@
     return 'app.html?' + query;
   }
 
-  function buildMenu() {
+  function menuRows() {
     const account = courseAccess?.state();
-    const rows = [
+    return [
       { label: 'Accueil', icon: icons.home, href: 'index.html' },
       { label: 'Thèmes', icon: icons.folder, action: () => { closeMenu(); showThemes(); } },
       { label: 'À revoir', icon: icons.recall, panel: 'saved', key: 'À revoir' },
-      { label: 'Révisions et exercices', icon: icons.cap, panel: 'review' },
+      { label: 'Révisions et exercices', shortLabel: 'Révisions', icon: icons.cap, panel: 'review' },
       { label: 'Voix', icon: icons.headphones, panel: 'voice' },
-      { label: 'Couleur', icon: '<span class="mg-colorwheel" aria-hidden="true"></span>', action: () => {
-        state.ambienceIndex = (state.ambienceIndex + 1) % ambiences.length;
-        document.body.dataset.ambience = ambiences[state.ambienceIndex];
-      } },
-      { label: 'Comment ça marche', icon: icons.info, panel: 'info' },
+      { label: 'Couleur', icon: '<span class="mg-colorwheel" aria-hidden="true"></span>', action: changeAmbience },
+      { label: 'Comment ça marche', shortLabel: 'Aide', icon: icons.info, panel: 'info' },
       { label: 'Avis', icon: icons.chat, panel: 'feedback' },
       account?.paid || account?.unrestricted
         ? { label: 'Mon compte', icon: icons.person, panel: 'account' }
-        : { label: 'Se connecter / Créer un compte', icon: icons.person, href: lessonUrl(true) }
+        : { label: 'Se connecter / Créer un compte', shortLabel: 'Connexion', icon: icons.person, href: lessonUrl(true) }
     ];
-    ui.menuNav.replaceChildren(...rows.map(row => {
-      const item = document.createElement(row.href ? 'a' : 'button');
-      item.className = 'mg-menu-item';
-      item.dataset.menuItem = row.key || row.panel || row.label;
-      if (row.href) item.href = row.href;
-      else {
-        item.type = 'button';
-        item.addEventListener('click', row.action || (() => setMenuView(row.panel)));
+  }
+
+  function menuItem(row, desktop = false) {
+    const item = document.createElement(row.href ? 'a' : 'button');
+    item.className = desktop ? 'mg-rail-item' : 'mg-menu-item';
+    item.dataset.menuItem = row.key || row.panel || row.label;
+    item.setAttribute('aria-label', tr(row.label));
+    if (desktop) item.title = tr(row.label);
+    if (row.href) item.href = row.href;
+    else {
+      item.type = 'button';
+      if (row.panel) {
+        item.setAttribute('aria-haspopup', 'dialog');
+        item.setAttribute('aria-controls', 'mgMenuDialog');
       }
-      const icon = document.createElement('span');
-      icon.className = 'mg-menu-icon'; icon.innerHTML = row.icon; icon.setAttribute('aria-hidden', 'true');
-      const label = document.createElement('span'); label.textContent = tr(row.label);
-      item.append(icon, label);
-      return item;
-    }));
+      item.addEventListener('click', row.action || (() => desktop ? openMenu(item, row.panel) : setMenuView(row.panel)));
+    }
+    const icon = document.createElement('span');
+    icon.className = desktop ? 'mg-rail-icon' : 'mg-menu-icon';
+    icon.innerHTML = row.icon; icon.setAttribute('aria-hidden', 'true');
+    const label = document.createElement('span'); label.textContent = tr(desktop ? row.shortLabel || row.label : row.label);
+    item.append(icon, label);
+    return item;
+  }
+
+  function buildMenu(includeDesktop = true) {
+    const rows = menuRows();
+    ui.menuNav.replaceChildren(...rows.map(row => menuItem(row)));
+    if (includeDesktop && ui.desktopNav) ui.desktopNav.replaceChildren(...rows.map(row => menuItem(row, true)));
     document.querySelectorAll('[data-mg-i18n]').forEach(node => text(node, tr(node.dataset.mgI18n)));
-    [[ui.menuClose, 'Fermer le menu'], [ui.menuBack, 'Revenir au menu'], [ui.menuNav, 'Rubriques']]
-      .forEach(([node, label]) => node.setAttribute('aria-label', tr(label)));
+    [[ui.menuClose, 'Fermer le menu'], [ui.menuBack, 'Revenir au menu'], [ui.menuNav, 'Rubriques'], [ui.desktopNav, 'Rubriques']]
+      .forEach(([node, label]) => node?.setAttribute('aria-label', tr(label)));
   }
 
   function positionPopup(dialog, trigger) {
@@ -487,8 +517,46 @@
       Math.min(top, bounds.top + bounds.height - rect.height - gutter)) + 'px');
   }
 
-  function positionMenu() { positionPopup(ui.menu, ui.menuTrigger); }
-  function positionPopups() { positionMenu(); positionPopup(ui.levelDialog, ui.levelTrigger); }
+  function positionMenu() { positionPopup(ui.menu, menuAnchor); }
+  function positionPopups() {
+    positionMenu(); positionPopup(ui.levelDialog, ui.levelTrigger); positionPopup(ui.languageDialog, ui.languageTrigger);
+  }
+
+  function buildLanguageChoices() {
+    const names = { en: 'Anglais', es: 'Espagnol', it: 'Italien', zh: 'Chinois', ja: 'Japonais', ko: 'Coréen', fr: 'Français' };
+    text(byId('mgLanguageTitle'), tr('Choisir une langue'));
+    ui.languageClose.setAttribute('aria-label', tr('Fermer les langues'));
+    ui.languageTrigger.disabled = false;
+    ui.languageChoices.replaceChildren(...state.data.pairs.map(pair => {
+      const button = document.createElement('button'); button.type = 'button';
+      button.className = 'mg-language-option'; button.dataset.pair = pair.id;
+      button.setAttribute('aria-pressed', String(pair.id === state.pair.id));
+      const badge = document.createElement('span'); badge.className = 'mg-language-badge';
+      badge.textContent = pair.flag; badge.setAttribute('aria-hidden', 'true');
+      const title = document.createElement('span'); title.className = 'mg-language-title';
+      title.textContent = tr(names[pair.studyLanguage] || pair.name);
+      button.append(badge, title);
+      button.addEventListener('click', () => {
+        closeLanguages();
+        if (state.screen !== 'loading' && state.pair.id === pair.id) return;
+        ui.language.value = pair.id;
+        ui.language.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+      return button;
+    }));
+  }
+  function closeLanguages() {
+    if (ui.languageDialog?.open) ui.languageDialog.close();
+    ui.languageTrigger?.setAttribute('aria-expanded', 'false');
+  }
+  function openLanguages() {
+    if (!state.pair || ui.languageTrigger.disabled) return;
+    if (ui.languageDialog.open) return closeLanguages();
+    stopAudio(); closeHelp(); closeMenu(); closeLevels(); resetCardMotion();
+    ui.languageDialog.showModal(); ui.languageTrigger.setAttribute('aria-expanded', 'true');
+    positionPopup(ui.languageDialog, ui.languageTrigger);
+    ui.languageChoices.querySelector('[aria-pressed="true"]')?.focus({ preventScroll: true });
+  }
 
   const levelColors = ['#228574', '#237e99', '#3369aa', '#5e5bb4', '#8b51ad',
     '#a54982', '#b2485c', '#a95d30', '#89671b', '#5f782d'];
@@ -523,7 +591,7 @@
   function openLevels() {
     if (!state.pair || ui.levelTrigger.disabled) return;
     if (ui.levelDialog.open) return closeLevels();
-    stopAudio(); closeHelp(); closeMenu(); resetCardMotion();
+    stopAudio(); closeHelp(); closeMenu(); closeLanguages(); resetCardMotion();
     ui.levelDialog.showModal(); ui.levelTrigger.setAttribute('aria-expanded', 'true');
     positionPopup(ui.levelDialog, ui.levelTrigger);
     const selected = ui.levelChoices.querySelector('[aria-pressed="true"]');
@@ -562,13 +630,14 @@
     section.querySelector('button,a,select,input,textarea')?.focus({ preventScroll: true });
   }
 
-  function openMenu() {
+  function openMenu(anchor = ui.menuTrigger, view = 'nav') {
     if (!state.pair) return;
     if (ui.menu.open) return closeMenu();
-    stopAudio(); closeHelp(); closeLevels(); buildMenu();
+    stopAudio(); closeHelp(); closeLevels(); closeLanguages(); buildMenu(false);
+    menuAnchor = anchor;
     ui.menu.showModal();
     ui.menuTrigger.setAttribute('aria-expanded', 'true');
-    setMenuView('nav');
+    setMenuView(view);
   }
 
   function closeMenu() {
@@ -651,6 +720,9 @@
     ui.footer.hidden = !['lesson', 'done'].includes(screen);
     ui.back.hidden = ['loading', 'themes'].includes(screen);
     ui.menuTrigger.disabled = screen === 'loading';
+    ui.languageTrigger.disabled = screen === 'loading';
+    if (ui.levelTrigger) ui.levelTrigger.disabled = screen === 'loading';
+    if (ui.desktopNav) ui.desktopNav.inert = screen === 'loading';
     ui.content.scrollTop = 0;
     document.body.dataset.view = screen;
     const levelSummary = Boolean(ui.level && screen === 'themes');
@@ -1125,6 +1197,7 @@
     document.documentElement.lang = pair.nativeLanguage;
     text(byId('mgThemeHeading'), pair.levelTitle || tr('Tes thèmes'));
     [[ui.palette, 'Changer d’ambiance'], [ui.menuTrigger, 'Menu des rubriques'], [ui.language, 'Langue à apprendre'],
+      [ui.languageTrigger, 'Choisir une langue'],
       [ui.help, 'Aide pour cette étape'], [ui.choices, 'Choisir une réponse'],
       [ui.levelTrigger || ui.level || document.querySelector('.mg-level'), ui.level ? 'Choisir un niveau' : 'Niveau 1']].forEach(([node, label]) => {
       node.setAttribute('aria-label', tr(label));
@@ -1134,6 +1207,9 @@
     ui.language.value = pair.id;
     text(ui.flag, pair.flag);
     ui.language.title = pair.name;
+    ui.languageTrigger.title = pair.name;
+    buildLanguageChoices();
+    buildMenu();
     if (ui.level) {
       const metadata = state.data.pairs.find(candidate => candidate.id === pair.id);
       ui.level.replaceChildren(...metadata.levels.map(level => new Option('L' + level.level + ' · ' + level.title, level.level)));
@@ -1162,7 +1238,7 @@
     const request = state.request;
     state.level = entry.level;
     state.requestedPair = id;
-    stopAudio(); closeHelp(); closeMenu();
+    stopAudio(); closeHelp(); closeMenu(); closeLanguages(); closeLevels();
     showView('loading');
     ui.retry.hidden = true;
     text(ui.loadingText, metadata.nativeLanguage === 'zh' ? '主题正在加载…' : 'Tes thèmes arrivent…');
@@ -1682,6 +1758,14 @@
   }
 
   ui.language.addEventListener('change', () => choosePair(ui.language.value));
+  ui.languageTrigger.addEventListener('click', openLanguages);
+  ui.languageClose.addEventListener('click', closeLanguages);
+  ui.languageDialog.addEventListener('close', () => ui.languageTrigger.setAttribute('aria-expanded', 'false'));
+  ui.languageDialog.addEventListener('click', event => {
+    if (event.target !== ui.languageDialog) return;
+    const rect = ui.languageDialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeLanguages();
+  });
   ui.level?.addEventListener('change', () => choosePair(ui.language.value, ui.level.value));
   ui.levelTrigger?.addEventListener('click', openLevels);
   ui.levelClose?.addEventListener('click', closeLevels);
@@ -1691,18 +1775,18 @@
     const rect = ui.levelDialog.getBoundingClientRect();
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeLevels();
   });
-  ui.levelChoices?.addEventListener('keydown', event => {
-    const buttons = [...ui.levelChoices.querySelectorAll('button')];
+  [ui.levelChoices, ui.languageChoices].filter(Boolean).forEach(choices => choices.addEventListener('keydown', event => {
+    const buttons = [...choices.querySelectorAll('button')];
     const index = buttons.indexOf(event.target);
     if (index < 0) return;
-    const columns = getComputedStyle(ui.levelChoices).gridTemplateColumns.split(' ').length;
+    const columns = getComputedStyle(choices).gridTemplateColumns.split(' ').length;
     const moves = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -columns, ArrowDown: columns };
     const target = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1
       : Object.hasOwn(moves, event.key) ? Math.max(0, Math.min(buttons.length - 1, index + moves[event.key])) : -1;
     if (target < 0) return;
     event.preventDefault(); buttons[target].focus();
-  });
-  ui.menuTrigger.addEventListener('click', openMenu);
+  }));
+  ui.menuTrigger.addEventListener('click', () => openMenu());
   ui.menuClose.addEventListener('click', closeMenu);
   ui.menuBack.addEventListener('click', () => setMenuView('nav'));
   ui.accountBack.addEventListener('click', closeMenu);
@@ -1759,10 +1843,7 @@
     if (state.screen === 'sequences' || state.lessonScope !== 'sequence') showThemes();
     else showSequences();
   });
-  ui.palette.addEventListener('click', () => {
-    state.ambienceIndex = (state.ambienceIndex + 1) % ambiences.length;
-    document.body.dataset.ambience = ambiences[state.ambienceIndex];
-  });
+  ui.palette.addEventListener('click', changeAmbience);
   ui.help.addEventListener('click', () => {
     state.helpOpen = !state.helpOpen;
     ui.helpPanel.hidden = !state.helpOpen;
@@ -1795,7 +1876,7 @@
   ui.lessonView.addEventListener('touchstart', event => {
     resetCardMotion();
     cardMotion.suppressClickUntil = 0;
-    if (state.screen !== 'lesson' || ui.next.disabled || ui.menu.open || ui.levelDialog?.open || event.touches.length !== 1
+    if (state.screen !== 'lesson' || ui.next.disabled || ui.menu.open || ui.levelDialog?.open || ui.languageDialog.open || event.touches.length !== 1
         || event.target.closest('button,a,input,textarea,select,[contenteditable]')
         || window.getSelection()?.toString().trim()) return;
     const touch = event.touches[0];
@@ -1805,7 +1886,7 @@
   ui.lessonView.addEventListener('touchmove', event => {
     const gesture = cardMotion.gesture;
     if (!gesture) return;
-    if (event.touches.length !== 1 || ui.menu.open || ui.levelDialog?.open || state.screen !== 'lesson'
+    if (event.touches.length !== 1 || ui.menu.open || ui.levelDialog?.open || ui.languageDialog.open || state.screen !== 'lesson'
         || gesture.pairId !== state.pair.id || gesture.sequence !== state.sequence || gesture.index !== state.stepIndex
         || window.getSelection()?.toString().trim()) { resetCardMotion(); return; }
     const touch = event.touches[0];
@@ -1820,7 +1901,7 @@
     const gesture = cardMotion.gesture;
     resetCardMotion();
     const touch = event.changedTouches[0];
-    if (!gesture || !touch || event.touches.length || state.screen !== 'lesson' || ui.menu.open || ui.levelDialog?.open
+    if (!gesture || !touch || event.touches.length || state.screen !== 'lesson' || ui.menu.open || ui.levelDialog?.open || ui.languageDialog.open
         || gesture.pairId !== state.pair.id || gesture.sequence !== state.sequence || gesture.index !== state.stepIndex
         || window.getSelection()?.toString().trim()) return;
     const dx = touch.clientX - gesture.x, dy = touch.clientY - gesture.y;

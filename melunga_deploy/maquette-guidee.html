@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#143b56">
   <title>Melunga — maquette du parcours par thèmes</title>
   <link rel="preload" as="image" href="assets/theme-scenes.webp">
-  <link rel="stylesheet" href="maquette-guidee.css?v=18">
+  <link rel="stylesheet" href="maquette-guidee.css?v=19">
 </head>
 <body data-ambience="ocean">
   <div class="mg-previewnotice"><span>Maquette</span><a href="https://melunga.com/" target="_blank" rel="noopener">Site actuel ↗</a></div>
@@ -19,15 +19,14 @@
       </a>
       <div class="mg-controls">
         <span class="mg-round mg-level" aria-label="Niveau 1">L1</span>
-        <label class="mg-round mg-language-control" title="Changer de langue">
-          <span id="mgLanguageFlag" aria-hidden="true">🇨🇳</span>
-          <select id="mgLanguage" aria-label="Langue à apprendre" disabled><option>…</option></select>
-        </label>
+        <button id="mgLanguageTrigger" class="mg-round mg-language-control" type="button" title="Changer de langue" aria-label="Choisir une langue" aria-haspopup="dialog" aria-controls="mgLanguageDialog" aria-expanded="false" disabled><span id="mgLanguageFlag" aria-hidden="true">🇨🇳</span></button>
+        <select id="mgLanguage" aria-label="Langue à apprendre" tabindex="-1" aria-hidden="true" hidden disabled><option>…</option></select>
         <button id="mgPalette" class="mg-round" type="button" aria-label="Changer d’ambiance" title="Changer d’ambiance"><span class="mg-colorwheel" aria-hidden="true"></span></button>
         <button id="mgMenuTrigger" class="mg-round mg-menu-toggle" type="button" aria-label="Menu des rubriques" title="Menu" aria-haspopup="dialog" aria-controls="mgMenuDialog" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
         </button>
       </div>
+      <nav id="mgDesktopNav" class="mg-desktop-nav" aria-label="Rubriques"></nav>
     </aside>
     <main class="mg-main">
       <div class="mg-topbar">
@@ -71,6 +70,13 @@
       </footer>
     </main>
   </div>
+  <dialog id="mgLanguageDialog" class="mg-menu-dialog mg-language-dialog" aria-labelledby="mgLanguageTitle">
+    <header class="mg-menu-head">
+      <h2 id="mgLanguageTitle">Choisir une langue</h2>
+      <button id="mgLanguageClose" class="mg-menu-close" type="button" aria-label="Fermer les langues">×</button>
+    </header>
+    <div class="mg-menu-body"><div id="mgLanguageChoices" class="mg-language-grid"></div></div>
+  </dialog>
   <dialog id="mgMenuDialog" class="mg-menu-dialog" aria-labelledby="mgMenuTitle">
     <header class="mg-menu-head">
       <button id="mgMenuBack" class="mg-menu-back" type="button" aria-label="Revenir au menu" hidden>‹</button>
@@ -133,6 +139,6 @@
   </dialog>
   <p id="mgCardToast" class="mg-card-toast" role="status" aria-live="polite" hidden></p>
   <script src="course-access.js?v=2"></script>
-  <script src="maquette-guidee.js?v=25"></script>
+  <script src="maquette-guidee.js?v=26"></script>
 </body>
 </html>

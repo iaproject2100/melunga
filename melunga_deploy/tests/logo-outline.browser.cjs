@@ -14,8 +14,32 @@ const old=f=>execFileSync('git',['show',BASE+':melunga_deploy/'+f],{cwd:REPO,max
 // current files have passed their finite whole-byte pins; no broad skip flag.
 const CAPSULE_UI_BASE='711537b27778c38f43e49fc47bfca513e8d94d97';
 const CAPSULE_UI_SHA256={'maquette-guidee.css': '2da16667452ebe1781a5d202f68fd811b554086b6831a8d0fa164e9588cc348e', 'maquette-guidee.js': '7da1a3539013ced41084d2dfa300c8f6c18b96b7cf9bab33b4955e2c113e29ae', 'parcours-niveaux.html': '683697aa9028965fd8e5599a991e3a165dc918a4782dd284ac37928f489cec85', 'maquette-guidee.html': '27cc4f0fc6a563dd4f44a34bc40721423723a510b1619e8310d0e008241026a2'};
-function beforeCapsuleUi(f){
+// The bounded desktop navigation and guest login skin are a later, separately
+// checked layer. Project exactly these whole files to the approved main first;
+// the capsule projection below retains its original independent pins.
+const NAVIGATION_UI_BASE='a5c721f51a217750c3b83ecd56c85dbfc4ccb7f8';
+const NAVIGATION_UI_SHA256={
+ 'maquette-guidee.css':'ca527260443b006ee70b43af3a91829a5986725c2e58895475d27674653f61fd',
+ 'maquette-guidee.js':'421114df06384660d1b2ea9ba780aaf769fb3d6e2402f2b85473a3933bbf64ba',
+ 'parcours-niveaux.html':'9e69b53886364c68b727f397720c2bc2e55bffc87d1cd8f9cea0a16e22345782',
+ 'maquette-guidee.html':'5ee86556098408d005c470974d79504b9bbb3913cf007e4154ddff52a99f1afd',
+ 'app.html':'3544302224ad8e162b9ba40e76b8e5905dbebce2987431c8e8d30fca85df5c1a'
+};
+const LOGIN_HELPER_SHA256={'course-login.css':'bdcfa4b4bc85daca76b728a14e3e97326a739b13137ae6f17b6cd90d059ff46c','course-login.js':'3ec780d1f6a10b68b54f7bcedd6aa96f2e39a334175841973be8e4e785654291'};
+function beforeNavigationUi(f){
  const actual=fs.readFileSync(path.join(WEB,f));
+ if(!Object.hasOwn(NAVIGATION_UI_SHA256,f))return actual;
+ assert.equal(hash(actual),NAVIGATION_UI_SHA256[f],'exact approved navigation whole file '+f);
+ const previous=execFileSync('git',['show',NAVIGATION_UI_BASE+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});
+ if(f==='app.html'){
+  const includes='<link rel="stylesheet" href="course-login.css?v=1">\n<script src="course-login.js?v=1" defer></script>\n';
+  assert.equal(actual.toString().split(includes).length,2,'exactly two bounded head includes once');
+  assert.equal(actual.toString().replace(includes,''),previous.toString(),'the entire classic application remains exact outside these head includes');
+ }
+ return previous;
+}
+function beforeCapsuleUi(f){
+ const actual=beforeNavigationUi(f);
  if(!Object.hasOwn(CAPSULE_UI_SHA256,f))return actual;
  assert.equal(hash(actual),CAPSULE_UI_SHA256[f],'exact approved capsule whole file '+f);
  return execFileSync('git',['show',CAPSULE_UI_BASE+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});
@@ -24,7 +48,7 @@ const read=f=>JSON.parse(fs.readFileSync(path.join(WEB,f),'utf8'));
 const manifest=read('content/niveaux-progressifs/manifest.json');
 const runtimeFiles=['content/niveaux-progressifs/manifest.json',...manifest.pairs.flatMap(p=>[p.repertoirePath,...p.levels.map(l=>l.dataPath)])];
 const protectedFiles=['app.html','index.html','desktop-home.js','maquette-guidee.js','melunga-logo.png','assets/melunga-logo.png','course-access.js','content/course-access.json','store-billing.js','netlify/functions/get-pricing.mjs','netlify/functions/login.mjs','netlify/functions/check-status.mjs'];
-const sourceFiles=[...runtimeFiles,...protectedFiles,'parcours-niveaux.html','maquette-guidee.html','maquette-guidee.css','melunga-logo.svg'];
+const sourceFiles=[...runtimeFiles,...protectedFiles,'parcours-niveaux.html','maquette-guidee.html','maquette-guidee.css','melunga-logo.svg',...Object.keys(LOGIN_HELPER_SHA256)];
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 const fingerprints=()=>Object.fromEntries([__filename,...sourceFiles.map(f=>path.join(WEB,f))].sort().map(f=>[path.relative(REPO,f),hash(fs.readFileSync(f))]));
 const report={status:'running',baseCommit:BASE,environment:'local Chromium with mobile/desktop viewports',publicSiteChecked:false,physicalDeviceChecked:false,realAccountsUsed:false,actualAudioPlayed:false,apiFixture:'only GET check-status mocked',checks:[],cases:[],errors:[],unexpectedRequests:[],mockedStatusChecks:0,screenshots:[]};
@@ -36,16 +60,16 @@ after(async()=>{await browser?.close();report.inputsStable=JSON.stringify(inputs
 async function fixture({width=390,height=700,baseline=false}={}){
  const context=await browser.newContext({viewport:{width,height},isMobile:width<=760,hasTouch:width<=760,reducedMotion:'reduce',serviceWorkers:'block'});
  await context.addInitScript(()=>{localStorage.setItem('ox_device','logo-outline-regression');window.SpeechSynthesisUtterance=class{constructor(text){this.text=text;}};Object.defineProperty(window,'speechSynthesis',{value:{cancel(){},speak(){throw Error('Audio not expected');},getVoices(){return[];},addEventListener(){}}});});
- await context.route('**/*',async route=>{const req=route.request(),url=new URL(req.url());if(url.origin!==ORIGIN){report.unexpectedRequests.push({path:url.origin+url.pathname,method:req.method()});return route.abort();}if(url.pathname==='/.netlify/functions/check-status'&&req.method()==='GET'){report.mockedStatusChecks++;return route.fulfill({json:{paid:false}});}if(req.method()!=='GET'||/^\/(?:\.netlify|api)\//.test(url.pathname)){report.unexpectedRequests.push({path:url.pathname,method:req.method()});return route.abort();}const relative=decodeURIComponent(url.pathname).replace(/^\//,'')||'parcours-niveaux.html',file=path.resolve(WEB,relative);if(!file.startsWith(WEB+path.sep)||!fs.existsSync(file))return route.fulfill({status:404,body:'Not found'});const type={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'}[path.extname(file)]||'application/octet-stream';return route.fulfill({contentType:type,body:baseline&&['parcours-niveaux.html','maquette-guidee.html','maquette-guidee.css'].includes(relative)?old(relative):fs.readFileSync(file)});});
+ await context.route('**/*',async route=>{const req=route.request(),url=new URL(req.url());if(url.origin!==ORIGIN){report.unexpectedRequests.push({path:url.origin+url.pathname,method:req.method()});return route.abort();}if(url.pathname==='/.netlify/functions/check-status'&&req.method()==='GET'){report.mockedStatusChecks++;return route.fulfill({json:{paid:false}});}if(req.method()!=='GET'||/^\/(?:\.netlify|api)\//.test(url.pathname)){report.unexpectedRequests.push({path:url.pathname,method:req.method()});return route.abort();}const relative=decodeURIComponent(url.pathname).replace(/^\//,'')||'parcours-niveaux.html',file=path.resolve(WEB,relative);if(!file.startsWith(WEB+path.sep)||!fs.existsSync(file))return route.fulfill({status:404,body:'Not found'});const type={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'}[path.extname(file)]||'application/octet-stream';return route.fulfill({contentType:type,body:baseline&&['parcours-niveaux.html','maquette-guidee.html','maquette-guidee.css','maquette-guidee.js'].includes(relative)?old(relative):fs.readFileSync(file)});});
  const page=await context.newPage();page.on('pageerror',e=>report.errors.push(e.message));await page.goto(ORIGIN+'/parcours-niveaux.html?pair=fr-zh&level=1');await page.waitForFunction(()=>window.MelungaMockup?.state().screen==='themes');await page.locator('.mg-logo').evaluate(n=>n.decode());return{context,page};
 }
-async function geometry(page){return page.evaluate(()=>{const r=n=>{const q=n.getBoundingClientRect();return{x:q.x,y:q.y,width:q.width,height:q.height};};return{brand:r(document.querySelector('.mg-brand')),logo:r(document.querySelector('.mg-logo')),wordmark:r(document.querySelector('.mg-wordmark')),controls:r(document.querySelector('.mg-controls')),commands:[...document.querySelectorAll('.mg-controls .mg-round')].map(r)};});}
+async function geometry(page){return page.evaluate(()=>{const r=n=>{const q=n.getBoundingClientRect();return{x:q.x,y:q.y,width:q.width,height:q.height};};return{brand:r(document.querySelector('.mg-brand')),logo:r(document.querySelector('.mg-logo')),wordmark:r(document.querySelector('.mg-wordmark')),controls:r(document.querySelector('.mg-controls')),sidebar:r(document.querySelector('.mg-sidebar')),commands:[...document.querySelectorAll('.mg-controls .mg-round')].map(r),visibleCommands:[...document.querySelectorAll('.mg-controls .mg-round')].filter(n=>getComputedStyle(n).display!=='none').map(n=>({id:n.id,rect:r(n)})),rail:[...document.querySelectorAll('#mgDesktopNav .mg-rail-item')].filter(n=>n.getBoundingClientRect().width>0).map(n=>({id:n.dataset.menuItem,rect:r(n)}))};});}
 async function settled(page){await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));}
 async function enter(page){await page.locator('#mgThemeGrid button').first().click();await page.waitForFunction(()=>window.MelungaMockup.state().screen==='lesson');await settled(page);}
 async function capture(page,name){const dir=process.env.LOGO_OUTLINE_CAPTURES||'/tmp/melunga-logo-outline-qa';fs.mkdirSync(dir,{recursive:true});const f=path.join(dir,name+'.png');await page.screenshot({path:f});report.screenshots.push(f);}
 
 test('the exact original PNG, source data and application are preserved',()=>checked('canonical-source',async()=>{
- assert.equal(runtimeFiles.length,78);for(const f of runtimeFiles.concat(protectedFiles)){
+ assert.equal(runtimeFiles.length,78);for(const [f,pin] of Object.entries(LOGIN_HELPER_SHA256))assert.equal(hash(fs.readFileSync(path.join(WEB,f))),pin,'exact bounded guest helper '+f);for(const f of runtimeFiles.concat(protectedFiles)){
   let expected=old(f);
   if(f==='maquette-guidee.js'){
    const reviewed=execFileSync('git',['show','f2e536e6f782def5c3c77e40b1f2564fe7dea7af:melunga_deploy/maquette-guidee.js'],{cwd:REPO});
@@ -72,7 +96,7 @@ test('CSS removes the outer dark background without changing the original artwor
 }));
 
 test('mobile and desktop preserve brand, logo and controls geometry in themes and lessons',{timeout:60000},async()=>checked('preserved-mobile-and-desktop-layout',async()=>{
- for(const size of [{width:390,height:700},{width:1440,height:900}]){const a=await fixture({...size,baseline:true}),b=await fixture(size);try{for(const screen of ['themes','lesson']){if(screen==='lesson'){await enter(a.page);await enter(b.page);}const before=await geometry(a.page),after=await geometry(b.page);for(const key of ['brand','logo','wordmark','controls'])assert.deepEqual(after[key],before[key],'unchanged '+screen+' '+key+' '+size.width);assert.deepEqual(after.commands,before.commands,'all four controls are unmoved');assert.equal(after.commands.length,4);if(size.width===390)assert.ok(after.brand.y+after.brand.height<=after.controls.y+1,'logo keeps its centered row above the controls');report.cases.push({name:'geometry',screen,...size,geometry:after});}await capture(b.page,size.width===390?'logo-clean-mobile':'logo-clean-desktop');}finally{await a.context.close();await b.context.close();}}
+ for(const size of [{width:390,height:700},{width:1440,height:900}]){const a=await fixture({...size,baseline:true}),b=await fixture(size);try{for(const screen of ['themes','lesson']){if(screen==='lesson'){await enter(a.page);await enter(b.page);}const before=await geometry(a.page),after=await geometry(b.page);if(size.width===390){for(const key of ['brand','logo','wordmark','controls'])assert.deepEqual(after[key],before[key],'unchanged mobile '+screen+' '+key);assert.deepEqual(after.commands,before.commands,'all four mobile controls are unmoved');assert.equal(after.visibleCommands.length,4);assert.equal(after.rail.length,0);assert.ok(after.brand.y+after.brand.height<=after.controls.y+1,'logo keeps its centered row above the controls');}else{assert.equal(after.sidebar.width,180,'authorized desktop rail width');for(const key of ['width','height'])assert.equal(after.logo[key],before.logo[key],'unchanged desktop logo size '+key);assert.deepEqual(after.visibleCommands.map(n=>n.id),['mgLevelTrigger','mgLanguageTrigger'],'desktop keeps level and language above the direct menu');assert.equal(after.rail.length,9,'all nine existing actions are exposed');for(const item of [...after.visibleCommands,...after.rail]){assert.ok(item.rect.x>=after.sidebar.x&&item.rect.x+item.rect.width<=after.sidebar.x+after.sidebar.width+1,'action remains inside rail '+item.id);assert.ok(item.rect.y>=after.sidebar.y&&item.rect.y+item.rect.height<=after.sidebar.y+after.sidebar.height+1,'action is visible without scrolling '+item.id);}}assert.equal(after.commands.length,4,'the four original mobile controls are retained in the DOM');report.cases.push({name:'geometry',screen,...size,geometry:after});}await capture(b.page,size.width===390?'logo-clean-mobile':'logo-clean-desktop');}finally{await a.context.close();await b.context.close();}}
 }));
 
 test('Pinyin, coloured levels and menu remain usable with the borderless logo',{timeout:30000},async()=>checked('lesson-controls',async()=>{
