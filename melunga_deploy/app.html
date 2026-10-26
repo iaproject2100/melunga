@@ -3528,6 +3528,55 @@ function getDeviceId(){
   }
   return id;
 }
+/* A course return is a pair and level, never a caller-supplied URL.
+   Existing classic/native entries keep their original lesson and account flow. */
+function courseReturnIsNative(){
+  try{
+    if(location.protocol==='capacitor:' || location.protocol==='file:') return true;
+    var bridge=window.Capacitor;
+    if(bridge && typeof bridge.isNativePlatform==='function') return bridge.isNativePlatform();
+    return !!(bridge && typeof bridge.getPlatform==='function' && bridge.getPlatform()!=='web');
+  }catch(_error){ return true; }
+}
+function validateCourseReturn(pair,level,nativeLanguage,studyLanguage){
+  if(courseReturnIsNative() || ['fr-en','fr-es','fr-it','fr-zh','fr-ja','fr-ko','zh-fr'].indexOf(pair)<0) return null;
+  var languages=pair.split('-');
+  if(nativeLanguage!==languages[0] || studyLanguage && studyLanguage!==languages[1]) return null;
+  var rawLevel=level===null || level===undefined || level==='' ? '1' : String(level);
+  if(!/^(?:[1-9]|10)$/.test(rawLevel)) return null;
+  return {pair:pair,level:Number(rawLevel),nativeLanguage:languages[0],studyLanguage:languages[1]};
+}
+function clearPendingCourseReturn(){
+  try{sessionStorage.removeItem('melunga-course-return');}catch(_error){}
+}
+function readApprovedCourseReturn(){
+  try{
+    var query=new URLSearchParams(location.search);
+    if(query.get('classic')==='1' || courseReturnIsNative()){clearPendingCourseReturn();return null;}
+    if(query.has('checkout') && !query.has('courseReturn')){clearPendingCourseReturn();return null;}
+    if(query.has('courseReturn')){
+      if(query.getAll('courseReturn').length!==1 || query.getAll('courseLevel').length>1) return null;
+      return validateCourseReturn(query.get('courseReturn'),query.get('courseLevel'),query.get('lang')||'fr',query.get('study')||'');
+    }
+    var pending=JSON.parse(sessionStorage.getItem('melunga-course-return')||'null');
+    if(!pending || !Number.isFinite(pending.createdAt) || Date.now()-pending.createdAt<0 || Date.now()-pending.createdAt>86400000){clearPendingCourseReturn();return null;}
+    return validateCourseReturn(pending.pair,pending.level,pending.nativeLanguage,pending.studyLanguage);
+  }catch(_error){return null;}
+}
+var approvedCourseReturn=readApprovedCourseReturn();
+function rememberCourseReturnForCheckout(){
+  if(!approvedCourseReturn) return;
+  try{sessionStorage.setItem('melunga-course-return',JSON.stringify(Object.assign({createdAt:Date.now()},approvedCourseReturn)));}catch(_error){}
+}
+function completeApprovedCourseReturn(serverConfirmed,data){
+  if(!approvedCourseReturn || !serverConfirmed || !data || data.paid!==true && data.success!==true) return false;
+  lsSet('ox_paid','1');
+  var query=new URLSearchParams({pair:approvedCourseReturn.pair,level:String(approvedCourseReturn.level)});
+  approvedCourseReturn=null;
+  clearPendingCourseReturn();
+  location.replace('parcours-niveaux.html?'+query.toString());
+  return true;
+}
 var currentPricing = null;
 async function loadPricing(){
   try{
@@ -3551,6 +3600,7 @@ async function checkPaidStatus(){
     isPermanentAccess = !!(res.ok && data.paid && data.permanent===true);
     if(res.ok) rememberPermanentLogout(isPermanentAccess);
     lsSet('ox_paid', isPaid ? '1' : '0');
+    completeApprovedCourseReturn(res.ok && data.paid===true,data);
   }catch(e){ /* hors ligne : on garde le dernier statut connu en local */ }
 }
 function pwSwitchTab(tab){
@@ -3587,6 +3637,7 @@ async function unlock(plan){
     });
     var data = await res.json();
     if(data && data.url){
+      rememberCourseReturnForCheckout();
       window.location.href = data.url;
     } else {
       if(btn){ btn.disabled = false; } if(otherBtn){ otherBtn.disabled = false; }
@@ -3620,6 +3671,7 @@ async function loginExisting(){
       hidePaywall();
       buildLevels();
       updateUtilBar();
+      completeApprovedCourseReturn(res.ok,data);
     } else {
       if(btn) btn.disabled = false;
       var errKey = (data && data.error==='subscription_expired') ? 'subExpired' : 'loginError';

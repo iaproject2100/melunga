@@ -1,0 +1,33 @@
+{
+  "initialRouterProof": {
+    "baseCommit": "ebd6519a6088e52c157231b44ae4cf41507f0667",
+    "ownedFiles": [
+      "melunga_deploy/index.html",
+      "melunga_deploy/app.html"
+    ],
+    "existingPricingAndAccountFunctionsEqualAfterRemovingOnlyExplicitReturnCalls": {
+      "async function loadPricing(){": true,
+      "async function checkPaidStatus(){": true,
+      "async function unlock(plan){": true,
+      "async function loginExisting(){": true
+    },
+    "noNewDeviceRecoveryFlow": true,
+    "serverConfirmedPaidOrSuccessRequiredForReturn": true,
+    "allowedPairIds": [
+      "fr-en",
+      "fr-es",
+      "fr-it",
+      "fr-zh",
+      "fr-ja",
+      "fr-ko",
+      "zh-fr"
+    ],
+    "nativeAndUnsupportedPairsStayClassic": true,
+    "sourceGelSha256": {
+      "melunga_deploy/index.html": "00dc701d8b9b5a84b025e9cc369d336317610fd92f2af4d34802cd830969fdbb",
+      "melunga_deploy/app.html": "42088b849f9edecbaeff72cf2541523054c9d941c3ffd231806311a60cffe4cd"
+    }
+  },
+  "currentAppSha256": "7faee15f692c0c79c0f3937bc87f246225efc4f410bd10c4bf5401b5c38b8d90",
+  "subsequentCleanup": "Removed unused token storage only in the new return helper. Final independent acceptance proof uses current source hash."
+}
