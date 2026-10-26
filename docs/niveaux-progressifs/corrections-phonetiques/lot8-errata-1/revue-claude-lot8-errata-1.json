@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "id": "revue-claude-lot8-errata-1",
+  "status": "frozen-whole-phonetic-erratum-not-global-native-approval",
+  "baseSnapshotCommit": "40d4c0b264b364fe31d4fd1bc9acae03dc130e01",
+  "appliesAfter": [
+    {
+      "registryPath": "docs/niveaux-progressifs/corrections-contenu/lot8/revue-contenu-lot8.json",
+      "registrySha256": "756c2e867928b24a0e4e8a86216072f4fea2dfa832d3938b5e38dc622c01a8ce"
+    }
+  ],
+  "correctionCount": 1,
+  "eventCount": 1,
+  "approvedFieldCount": 1,
+  "changedFieldCount": 1,
+  "evidenceFiles": [
+    {
+      "path": "docs/niveaux-progressifs/corrections-phonetiques/lot8-errata-1/evidence-errata-1.json",
+      "gitPath": "docs/revue-integrale/lot8-fr-es-L1-L10/errata-1.json",
+      "gitCommit": "76602a1b0be0a3539171090733d0a17b079644c6",
+      "sha256": "480f4c9348a393d29f1c3c3d6d0ffe5e16b01e802d94403840d90c15b52f7535"
+    }
+  ],
+  "corrections": [
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:2205",
+      "fields": {
+        "phon": {
+          "before": "KOUM-plé la NOR-ma é-né sé-TÉN-ta i OU-no",
+          "after": "KOUM-plé la NOR-ma é É-né sé-TÉN-ta i OU-no"
+        }
+      },
+      "rules": [
+        "S"
+      ],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot8-errata-1/evidence-errata-1.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 0
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            143
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "¿Cumple la norma EN71?",
+            "native": "c'est conforme à la norme EN71 ?",
+            "phon": "KOUM-plé la NOR-ma é-né sé-TÉN-ta i OU-no",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2205,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "5b60dc2f63c4675a4dfbdf574c9f5bd3db44adc9d0a05e29fc648857f5e4b736"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "corrected-by-Claude-lot8-S",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": true,
+            "lot8PhoneticCorrection": {
+              "id": "catalogue:es:2205",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot8/revue-claude-lot8.json",
+              "registrySha256": "c58e4d14762d53cec30721acc36d97a2d8bfa40bdb22e4827d283ba3be773ed1",
+              "baseSnapshotCommit": "224e45948ac3739066f34178375b2e4437197e90",
+              "fields": [
+                "phon"
+              ],
+              "beforeFields": {
+                "phon": "KOUM-plé la NOR-ma én"
+              },
+              "originalPhoneticReviewStatusPresent": false,
+              "originalPhoneticReviewStatus": null,
+              "evidenceCommits": [
+                "e12c600f97a6339a0566cdaf879aa0d449f96284"
+              ]
+            },
+            "lot8ContentCorrectionPresent": false,
+            "lot8ContentCorrection": null,
+            "lot8Erratum1CorrectionPresent": false,
+            "lot8Erratum1Correction": null,
+            "lot9PhoneticCorrectionPresent": false,
+            "lot9PhoneticCorrection": null
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1946 @@
+{
+  "version": 1,
+  "status": "editorial-framework-awaiting-source-fit-review",
+  "date": "2026-10-24",
+  "doesNotMeasureAcquisition": true,
+  "publicationApproved": false,
+  "catalogueLevelsMutated": false,
+  "phoneticsChanged": false,
+  "scope": "Cadre de classement éditorial commun aux sept couples ; aucun classement de carte n’est validé par ce seul fichier.",
+  "domains": [
+    "saluer",
+    "comprendre",
+    "ressentis",
+    "repas",
+    "deplacements",
+    "reperes",
+    "quotidien",
+    "decrire",
+    "conversation",
+    "travail",
+    "personnaliser"
+  ],
+  "sourceReferences": [
+    {
+      "branch": "review/progression-L1-L10",
+      "path": "docs/progression-corrections/README.md",
+      "role": "Le reclassement des 841 unités conversation demeure une source distincte, pas un classement des 32 115 cartes."
+    },
+    {
+      "branch": "review/progression-L1-L10",
+      "path": "docs/progression-corrections/reprise-globale/cadre-commun.md",
+      "role": "Principe de compétence commune, variations préparées et adaptations propres aux langues."
+    },
+    {
+      "branch": "review/progression-L1-L10",
+      "path": "docs/progression-corrections/element-prepare.md",
+      "role": "Préparation éditoriale prévue distincte d’un acquis observé."
+    }
+  ],
+  "method": {
+    "learnerSequence": [
+      "comprendre une phrase entière située",
+      "imiter avec les aides existantes",
+      "réemployer un groupe déjà préparé dans un cadre stable",
+      "rappeler avec accès explicite au modèle"
+    ],
+    "oneNewProductionOperationAtATime": true,
+    "fullSentenceAndPhoneticFromSameSource": true,
+    "receivedTurnsAreNotLearnerProduction": true,
+    "templateCollections": "Compréhension seule tant que la phrase est incomplète ; ni phrase ni phonétique générée par collage.",
+    "plannedPrerequisitesAreNotAcquisitionEvidence": true,
+    "notCEFRAlignment": true
+  },
+  "visualPolicy": {
+    "distinctVisualForDistinctTheme": true,
+    "sameThemeSharedAcrossLanguagePairs": true,
+    "l1ApprovedAtlas": "assets/theme-scenes.webp",
+    "l1AtlasSha256": "ba431628deddbaafa34384b196c1f3428d606673662681a3835c4b92fe5d7a1c",
+    "newVisualsStatus": "Les 99 visuels L2–L10 sont générés et référencés dans visuels.json ; ils restent à juger par Kartech. Les onze photos L1 approuvées sont conservées.",
+    "noTitleOverlay": true,
+    "titleRemainsAuthoritative": true,
+    "doNotReuseApprovedL1PhotoForAnotherTheme": true
+  },
+  "displayPolicy": {
+    "sameArchitecture": true,
+    "singleClickFromThemeToWholeThemeLesson": true,
+    "noSequenceSelectionScreen": true,
+    "noVisibleGrammarPrerequisiteWall": true,
+    "omitEmptyThemes": true,
+    "themeNumberingRestartsPerLevel": true,
+    "optionalProfessionalDomain": "travail",
+    "catalogueCoverageMustBeVerifiedSeparately": true
+  },
+  "accessPolicy": {
+    "editorialLevelDoesNotAlterSourceLevel": true,
+    "sourceLevelOneRightsRemainIntact": true,
+    "noPriceOrSubscriptionChange": true,
+    "warning": "isFreeCard teste lv === 1 dans le catalogue ; modifier ce niveau source modifierait les droits. Ne pas utiliser ce plan pour cette écriture."
+  },
+  "levels": [
+    {
+      "level": 1,
+      "title": {
+        "fr": "Premiers échanges",
+        "zh": "初次交流"
+      },
+      "goal": {
+        "fr": "Entrer dans un échange court avec des phrases entières utiles, puis changer un élément déjà préparé.",
+        "zh": "先用实用的完整句子开始简短交流，再替换一个已经练习过的部分。"
+      },
+      "newProductionOperation": "Une phrase entière située ; une seule variation préparée à la fois.",
+      "plannedPrerequisiteLevels": [],
+      "reviewStatus": "editorial-plan-awaiting-source-fit-review",
+      "themes": [
+        {
+          "id": "saluer",
+          "domain": "saluer",
+          "order": 1,
+          "title": {
+            "fr": "Saluer et faire connaissance",
+            "zh": "问候与相识"
+          },
+          "visualId": "saluer",
+          "visualStatus": "owner-approved",
+          "visualBrief": "Deux personnes se saluent devant un café",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "comprendre",
+          "domain": "comprendre",
+          "order": 2,
+          "title": {
+            "fr": "Se comprendre et demander de l’aide",
+            "zh": "理解与求助"
+          },
+          "visualId": "comprendre",
+          "visualStatus": "owner-approved",
+          "visualBrief": "Une personne aide une autre avec une carte",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "ressentis",
+          "domain": "ressentis",
+          "order": 3,
+          "title": {
+            "fr": "Besoins, envies et santé",
+            "zh": "需求、感受与健康"
+          },
+          "visualId": "ressentis",
+          "visualStatus": "owner-approved",
+          "visualBrief": "Eau, pomme et stéthoscope",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "repas",
+          "domain": "repas",
+          "order": 4,
+          "title": {
+            "fr": "Sortir, commander et acheter",
+            "zh": "用餐、点单与购物"
+          },
+          "visualId": "repas",
+          "visualStatus": "owner-approved",
+          "visualBrief": "Un café servi au comptoir",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "deplacements",
+          "domain": "deplacements",
+          "order": 5,
+          "title": {
+            "fr": "Se déplacer et voyager",
+            "zh": "出行与旅行"
+          },
+          "visualId": "deplacements",
+          "visualStatus": "owner-approved",
+          "visualBrief": "Valise et train sur un quai",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "reperes",
+          "domain": "reperes",
+          "order": 6,
+          "title": {
+            "fr": "Temps et nombres",
+            "zh": "时间与数字"
+          },
+          "visualId": "reperes",
+          "visualStatus": "owner-approved",
+          "visualBrief": "Réveil et calendrier",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "quotidien",
+          "domain": "quotidien",
+          "order": 7,
+          "title": {
+            "fr": "Chez soi et avec ses proches",
+            "zh": "居家与亲友"
+          },
+          "visualId": "quotidien",
+          "visualStatus": "owner-approved",
+          "visualBrief": "Des proches dans un salon",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "decrire",
+          "domain": "decrire",
+          "order": 8,
+          "title": {
+            "fr": "Décrire et comparer",
+            "zh": "描述与比较"
+          },
+          "visualId": "decrire",
+          "visualStatus": "owner-approved",
+          "visualBrief": "Deux bols de tailles et couleurs différentes",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "conversation",
+          "domain": "conversation",
+          "order": 9,
+          "title": {
+            "fr": "Faire vivre la conversation",
+            "zh": "延续对话"
+          },
+          "visualId": "conversation",
+          "visualStatus": "owner-approved",
+          "visualBrief": "Des amis discutent à table",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "travail",
+          "domain": "travail",
+          "order": 10,
+          "title": {
+            "fr": "Travail et échanges professionnels",
+            "zh": "工作与商务交流"
+          },
+          "visualId": "travail",
+          "visualStatus": "owner-approved",
+          "visualBrief": "Deux collègues autour d’un ordinateur",
+          "optional": true,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "personnaliser",
+          "domain": "personnaliser",
+          "order": 11,
+          "title": {
+            "fr": "À personnaliser",
+            "zh": "待补全的表达"
+          },
+          "visualId": "personnaliser",
+          "visualStatus": "owner-approved",
+          "visualBrief": "Carnet et notes colorées",
+          "optional": false,
+          "isTemplateCollection": true,
+          "sourceFitStatus": "to-review"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "title": {
+        "fr": "Besoins et intentions",
+        "zh": "表达需求和意图"
+      },
+      "goal": {
+        "fr": "Exprimer un besoin ou une intention simple et préciser une chose, une quantité ou un lieu dans un cadre connu.",
+        "zh": "在熟悉的表达中说明简单的需求或意图，并补充物品、数量或地点。"
+      },
+      "newProductionOperation": "Préciser un paramètre en conservant le groupe entier et le cadre préparés.",
+      "plannedPrerequisiteLevels": [
+        1
+      ],
+      "reviewStatus": "editorial-plan-awaiting-source-fit-review",
+      "themes": [
+        {
+          "id": "L2-saluer",
+          "domain": "saluer",
+          "order": 1,
+          "title": {
+            "fr": "Se présenter et échanger",
+            "zh": "介绍自己并交流"
+          },
+          "visualId": "L2-saluer",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne présente son badge à un interlocuteur",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L2-comprendre",
+          "domain": "comprendre",
+          "order": 2,
+          "title": {
+            "fr": "Préciser et faire répéter",
+            "zh": "澄清并请对方重复"
+          },
+          "visualId": "L2-comprendre",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne demande de répéter avec un geste de la main vers son oreille",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L2-ressentis",
+          "domain": "ressentis",
+          "order": 3,
+          "title": {
+            "fr": "Exprimer ce qu’on veut",
+            "zh": "表达自己的需要"
+          },
+          "visualId": "L2-ressentis",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne choisit un pull chaud pour elle-même",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L2-repas",
+          "domain": "repas",
+          "order": 4,
+          "title": {
+            "fr": "Commander selon ses besoins",
+            "zh": "按需要点单"
+          },
+          "visualId": "L2-repas",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne indique ses préférences au comptoir d’un repas",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L2-deplacements",
+          "domain": "deplacements",
+          "order": 5,
+          "title": {
+            "fr": "Trouver son chemin",
+            "zh": "问路与找路"
+          },
+          "visualId": "L2-deplacements",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Un passant désigne la direction dans une rue",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L2-reperes",
+          "domain": "reperes",
+          "order": 6,
+          "title": {
+            "fr": "Donner l’heure et la quantité",
+            "zh": "表达时间和数量"
+          },
+          "visualId": "L2-reperes",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une montre et des pièces regroupées sur une table",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L2-quotidien",
+          "domain": "quotidien",
+          "order": 7,
+          "title": {
+            "fr": "Parler de chez soi",
+            "zh": "谈论自己的住处"
+          },
+          "visualId": "L2-quotidien",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne ouvre la porte de son appartement",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L2-decrire",
+          "domain": "decrire",
+          "order": 8,
+          "title": {
+            "fr": "Décrire ce qu’on cherche",
+            "zh": "描述想找的东西"
+          },
+          "visualId": "L2-decrire",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne cherche une veste parmi deux portants",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L2-conversation",
+          "domain": "conversation",
+          "order": 9,
+          "title": {
+            "fr": "Poser et reprendre une question",
+            "zh": "提问并接着问"
+          },
+          "visualId": "L2-conversation",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux personnes se répondent à un arrêt de bus",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L2-travail",
+          "domain": "travail",
+          "order": 10,
+          "title": {
+            "fr": "Demander une information au travail",
+            "zh": "在工作中询问信息"
+          },
+          "visualId": "L2-travail",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne demande une information à un bureau d’accueil",
+          "optional": true,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L2-personnaliser",
+          "domain": "personnaliser",
+          "order": 11,
+          "title": {
+            "fr": "Préciser une phrase",
+            "zh": "为句子补充细节"
+          },
+          "visualId": "L2-personnaliser",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une main précise un choix avec une étiquette vierge",
+          "optional": false,
+          "isTemplateCollection": true,
+          "sourceFitStatus": "to-review"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "title": {
+        "fr": "Routines et projets",
+        "zh": "日常习惯与计划"
+      },
+      "goal": {
+        "fr": "Parler d’habitudes, situer une activité et proposer un projet proche en réemployant les cadres connus.",
+        "zh": "运用熟悉的表达谈论习惯，说明活动的时间，并提出近期计划。"
+      },
+      "newProductionOperation": "Ajouter un repère de temps ou une proposition simple, après préparation séparée.",
+      "plannedPrerequisiteLevels": [
+        1,
+        2
+      ],
+      "reviewStatus": "editorial-plan-awaiting-source-fit-review",
+      "themes": [
+        {
+          "id": "L3-saluer",
+          "domain": "saluer",
+          "order": 1,
+          "title": {
+            "fr": "Présenter sa vie quotidienne",
+            "zh": "介绍自己的日常生活"
+          },
+          "visualId": "L3-saluer",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne présente les photos de ses activités quotidiennes",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L3-comprendre",
+          "domain": "comprendre",
+          "order": 2,
+          "title": {
+            "fr": "Demander et confirmer un service",
+            "zh": "请求并确认帮助"
+          },
+          "visualId": "L3-comprendre",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne confirme la remise d’un petit colis",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L3-ressentis",
+          "domain": "ressentis",
+          "order": 3,
+          "title": {
+            "fr": "Parler de ses goûts",
+            "zh": "谈论自己的喜好"
+          },
+          "visualId": "L3-ressentis",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne montre son activité de loisir préférée",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L3-repas",
+          "domain": "repas",
+          "order": 4,
+          "title": {
+            "fr": "Organiser une sortie",
+            "zh": "安排一次外出"
+          },
+          "visualId": "L3-repas",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Des amis choisissent une séance devant un cinéma",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L3-deplacements",
+          "domain": "deplacements",
+          "order": 5,
+          "title": {
+            "fr": "Préparer un déplacement",
+            "zh": "准备一次出行"
+          },
+          "visualId": "L3-deplacements",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne prépare son sac et son itinéraire",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L3-reperes",
+          "domain": "reperes",
+          "order": 6,
+          "title": {
+            "fr": "Situer ses activités",
+            "zh": "说明活动的时间"
+          },
+          "visualId": "L3-reperes",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne organise des activités avec un agenda hebdomadaire",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L3-quotidien",
+          "domain": "quotidien",
+          "order": 7,
+          "title": {
+            "fr": "Routines et proches",
+            "zh": "日常作息与亲友"
+          },
+          "visualId": "L3-quotidien",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Des proches préparent ensemble le petit déjeuner",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L3-decrire",
+          "domain": "decrire",
+          "order": 8,
+          "title": {
+            "fr": "Décrire un lieu ou une personne",
+            "zh": "描述地点或人物"
+          },
+          "visualId": "L3-decrire",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne présente une pièce de la maison",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L3-conversation",
+          "domain": "conversation",
+          "order": 9,
+          "title": {
+            "fr": "Proposer et répondre",
+            "zh": "提议并作出回应"
+          },
+          "visualId": "L3-conversation",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne propose une activité à une autre dans un parc",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L3-travail",
+          "domain": "travail",
+          "order": 10,
+          "title": {
+            "fr": "Parler de son activité",
+            "zh": "谈论自己的工作"
+          },
+          "visualId": "L3-travail",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne présente ses outils de travail",
+          "optional": true,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L3-personnaliser",
+          "domain": "personnaliser",
+          "order": 11,
+          "title": {
+            "fr": "Adapter une phrase connue",
+            "zh": "调整熟悉的句子"
+          },
+          "visualId": "L3-personnaliser",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Des cartes colorées sont disposées autour d’un petit projet",
+          "optional": false,
+          "isTemplateCollection": true,
+          "sourceFitStatus": "to-review"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "title": {
+        "fr": "Raconter simplement",
+        "zh": "简单讲述经历"
+      },
+      "goal": {
+        "fr": "Situer un événement terminé, ordonner deux faits préparés et répondre à une question sur ce récit.",
+        "zh": "说明一件已经发生的事，按顺序连接两个练习过的事实，并回答相关问题。"
+      },
+      "newProductionOperation": "Relier deux événements préparés ; les moyens de récit sont propres à chaque langue.",
+      "plannedPrerequisiteLevels": [
+        1,
+        2,
+        3
+      ],
+      "reviewStatus": "editorial-plan-awaiting-source-fit-review",
+      "themes": [
+        {
+          "id": "L4-saluer",
+          "domain": "saluer",
+          "order": 1,
+          "title": {
+            "fr": "Raconter une rencontre",
+            "zh": "讲述一次相遇"
+          },
+          "visualId": "L4-saluer",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux personnes retrouvent une photo de leur première rencontre",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L4-comprendre",
+          "domain": "comprendre",
+          "order": 2,
+          "title": {
+            "fr": "Vérifier ce qui s’est passé",
+            "zh": "确认发生了什么"
+          },
+          "visualId": "L4-comprendre",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux personnes vérifient une image sur un téléphone",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L4-ressentis",
+          "domain": "ressentis",
+          "order": 3,
+          "title": {
+            "fr": "Raconter un ressenti",
+            "zh": "讲述当时的感受"
+          },
+          "visualId": "L4-ressentis",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne raconte un moment émouvant à un proche",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L4-repas",
+          "domain": "repas",
+          "order": 4,
+          "title": {
+            "fr": "Raconter une sortie",
+            "zh": "讲述一次外出"
+          },
+          "visualId": "L4-repas",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Des amis se remémorent un repas à l’aide d’une photo",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L4-deplacements",
+          "domain": "deplacements",
+          "order": 5,
+          "title": {
+            "fr": "Voyages et souvenirs",
+            "zh": "旅行与回忆"
+          },
+          "visualId": "L4-deplacements",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne ouvre un album de voyage",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L4-reperes",
+          "domain": "reperes",
+          "order": 6,
+          "title": {
+            "fr": "Relier les étapes d’un récit",
+            "zh": "连接叙述的各个阶段"
+          },
+          "visualId": "L4-reperes",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Plusieurs photos d’une même journée sont alignées chronologiquement",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L4-quotidien",
+          "domain": "quotidien",
+          "order": 7,
+          "title": {
+            "fr": "Raconter sa journée",
+            "zh": "讲述自己的一天"
+          },
+          "visualId": "L4-quotidien",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne partage le récit de sa journée à la maison",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L4-decrire",
+          "domain": "decrire",
+          "order": 8,
+          "title": {
+            "fr": "Décrire un changement",
+            "zh": "描述变化"
+          },
+          "visualId": "L4-decrire",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une pièce présente un changement avant et après une rénovation",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L4-conversation",
+          "domain": "conversation",
+          "order": 9,
+          "title": {
+            "fr": "Partager une expérience",
+            "zh": "分享经历"
+          },
+          "visualId": "L4-conversation",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne montre un souvenir à un groupe",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L4-travail",
+          "domain": "travail",
+          "order": 10,
+          "title": {
+            "fr": "Faire un point sur une tâche",
+            "zh": "汇报一项任务的进展"
+          },
+          "visualId": "L4-travail",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne montre à un collègue une tâche terminée",
+          "optional": true,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L4-personnaliser",
+          "domain": "personnaliser",
+          "order": 11,
+          "title": {
+            "fr": "Préciser un récit",
+            "zh": "为叙述补充细节"
+          },
+          "visualId": "L4-personnaliser",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une main complète les détails d’un carnet de voyage",
+          "optional": false,
+          "isTemplateCollection": true,
+          "sourceFitStatus": "to-review"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "title": {
+        "fr": "S’organiser et se débrouiller",
+        "zh": "安排行动与解决实际问题"
+      },
+      "goal": {
+        "fr": "Exposer un problème concret, convenir d’une solution et confirmer qui fait quoi, où et quand.",
+        "zh": "说明一个实际问题，商定解决办法，并确认谁在何时何地做什么。"
+      },
+      "newProductionOperation": "Ajouter une contrainte concrète et confirmer la solution reçue, sans hypothèse complexe imposée.",
+      "plannedPrerequisiteLevels": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "reviewStatus": "editorial-plan-awaiting-source-fit-review",
+      "themes": [
+        {
+          "id": "L5-saluer",
+          "domain": "saluer",
+          "order": 1,
+          "title": {
+            "fr": "Préparer une rencontre",
+            "zh": "安排一次见面"
+          },
+          "visualId": "L5-saluer",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Des personnes préparent la disposition d’une table pour une rencontre",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L5-comprendre",
+          "domain": "comprendre",
+          "order": 2,
+          "title": {
+            "fr": "Faire préciser une solution",
+            "zh": "请对方说明解决办法"
+          },
+          "visualId": "L5-comprendre",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux personnes examinent ensemble une réparation concrète",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L5-ressentis",
+          "domain": "ressentis",
+          "order": 3,
+          "title": {
+            "fr": "Expliquer un problème concret",
+            "zh": "说明一个实际问题"
+          },
+          "visualId": "L5-ressentis",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne montre une roue de vélo dégonflée",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L5-repas",
+          "domain": "repas",
+          "order": 4,
+          "title": {
+            "fr": "Réservations et demandes pratiques",
+            "zh": "预订与实际需求"
+          },
+          "visualId": "L5-repas",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne confirme une réservation à un comptoir",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L5-deplacements",
+          "domain": "deplacements",
+          "order": 5,
+          "title": {
+            "fr": "Changer ses plans de voyage",
+            "zh": "调整旅行计划"
+          },
+          "visualId": "L5-deplacements",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne modifie son trajet dans une gare",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L5-reperes",
+          "domain": "reperes",
+          "order": 6,
+          "title": {
+            "fr": "Fixer un rendez-vous",
+            "zh": "约定见面时间"
+          },
+          "visualId": "L5-reperes",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux personnes comparent leurs agendas pour un rendez-vous",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L5-quotidien",
+          "domain": "quotidien",
+          "order": 7,
+          "title": {
+            "fr": "S’organiser au quotidien",
+            "zh": "安排日常事务"
+          },
+          "visualId": "L5-quotidien",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Des proches répartissent les tâches ménagères",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L5-decrire",
+          "domain": "decrire",
+          "order": 8,
+          "title": {
+            "fr": "Choisir une solution adaptée",
+            "zh": "选择合适的解决办法"
+          },
+          "visualId": "L5-decrire",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne choisit l’outil adapté à une petite réparation",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L5-conversation",
+          "domain": "conversation",
+          "order": 9,
+          "title": {
+            "fr": "Se mettre d’accord",
+            "zh": "达成一致"
+          },
+          "visualId": "L5-conversation",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux personnes confirment une décision par une poignée de main",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L5-travail",
+          "domain": "travail",
+          "order": 10,
+          "title": {
+            "fr": "Coordonner une tâche",
+            "zh": "协调一项任务"
+          },
+          "visualId": "L5-travail",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une équipe répartit une tâche sur une table de travail",
+          "optional": true,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L5-personnaliser",
+          "domain": "personnaliser",
+          "order": 11,
+          "title": {
+            "fr": "Organiser sa réponse",
+            "zh": "组织自己的回答"
+          },
+          "visualId": "L5-personnaliser",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une main organise trois cartes vierges dans un ordre clair",
+          "optional": false,
+          "isTemplateCollection": true,
+          "sourceFitStatus": "to-review"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "title": {
+        "fr": "Expliquer et comparer",
+        "zh": "解释与比较"
+      },
+      "goal": {
+        "fr": "Exprimer un avis ou un choix, donner une raison et comparer des options déjà décrites.",
+        "zh": "表达看法或选择，说明理由，并比较已经描述过的选项。"
+      },
+      "newProductionOperation": "Relier un choix et une raison, puis comparer deux options préparées.",
+      "plannedPrerequisiteLevels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "reviewStatus": "editorial-plan-awaiting-source-fit-review",
+      "themes": [
+        {
+          "id": "L6-saluer",
+          "domain": "saluer",
+          "order": 1,
+          "title": {
+            "fr": "Présenter son parcours",
+            "zh": "介绍自己的经历"
+          },
+          "visualId": "L6-saluer",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne présente son parcours avec un album de réalisations",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L6-comprendre",
+          "domain": "comprendre",
+          "order": 2,
+          "title": {
+            "fr": "Expliquer et vérifier le sens",
+            "zh": "解释并确认意思"
+          },
+          "visualId": "L6-comprendre",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne explique un schéma à une autre",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L6-ressentis",
+          "domain": "ressentis",
+          "order": 3,
+          "title": {
+            "fr": "Donner les raisons d’un choix",
+            "zh": "说明选择的理由"
+          },
+          "visualId": "L6-ressentis",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne compare deux chaussures et explique sa préférence",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L6-repas",
+          "domain": "repas",
+          "order": 4,
+          "title": {
+            "fr": "Comparer des sorties et des achats",
+            "zh": "比较外出和购物的选择"
+          },
+          "visualId": "L6-repas",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux personnes comparent deux menus de restaurant",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L6-deplacements",
+          "domain": "deplacements",
+          "order": 5,
+          "title": {
+            "fr": "Choisir une façon de voyager",
+            "zh": "选择出行方式"
+          },
+          "visualId": "L6-deplacements",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne compare vélo et transport collectif",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L6-reperes",
+          "domain": "reperes",
+          "order": 6,
+          "title": {
+            "fr": "Comparer durée, fréquence et coût",
+            "zh": "比较时长、频率和费用"
+          },
+          "visualId": "L6-reperes",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux sabliers de durées différentes et une calculatrice",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L6-quotidien",
+          "domain": "quotidien",
+          "order": 7,
+          "title": {
+            "fr": "Expliquer ses habitudes",
+            "zh": "解释自己的习惯"
+          },
+          "visualId": "L6-quotidien",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne explique sa routine sportive à un ami",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L6-decrire",
+          "domain": "decrire",
+          "order": 8,
+          "title": {
+            "fr": "Comparer et justifier",
+            "zh": "比较并说明理由"
+          },
+          "visualId": "L6-decrire",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux objets identiques de matériaux différents sont comparés",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L6-conversation",
+          "domain": "conversation",
+          "order": 9,
+          "title": {
+            "fr": "Donner son avis et relancer",
+            "zh": "发表看法并继续交谈"
+          },
+          "visualId": "L6-conversation",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux amis échangent leurs avis devant une exposition",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L6-travail",
+          "domain": "travail",
+          "order": 10,
+          "title": {
+            "fr": "Expliquer un besoin professionnel",
+            "zh": "说明工作中的需求"
+          },
+          "visualId": "L6-travail",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne explique un besoin matériel à un collègue",
+          "optional": true,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L6-personnaliser",
+          "domain": "personnaliser",
+          "order": 11,
+          "title": {
+            "fr": "Relier deux idées",
+            "zh": "连接两个想法"
+          },
+          "visualId": "L6-personnaliser",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux idées sont reliées par des cartes et une corde colorée",
+          "optional": false,
+          "isTemplateCollection": true,
+          "sourceFitStatus": "to-review"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "title": {
+        "fr": "Conditions et possibilités",
+        "zh": "条件与可能性"
+      },
+      "goal": {
+        "fr": "Évoquer une possibilité, poser une condition et proposer une alternative dans une situation préparée.",
+        "zh": "在练习过的情境中谈论可能性、提出条件，并给出替代方案。"
+      },
+      "newProductionOperation": "Ajouter une relation de condition ou de possibilité ; ne pas confondre les deux opérations.",
+      "plannedPrerequisiteLevels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "reviewStatus": "editorial-plan-awaiting-source-fit-review",
+      "themes": [
+        {
+          "id": "L7-saluer",
+          "domain": "saluer",
+          "order": 1,
+          "title": {
+            "fr": "Évoquer un autre parcours",
+            "zh": "谈论另一种人生选择"
+          },
+          "visualId": "L7-saluer",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne imagine un autre métier devant une vitrine d’atelier",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L7-comprendre",
+          "domain": "comprendre",
+          "order": 2,
+          "title": {
+            "fr": "Vérifier une hypothèse",
+            "zh": "验证一个假设"
+          },
+          "visualId": "L7-comprendre",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux personnes comparent un plan et une situation réelle",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L7-ressentis",
+          "domain": "ressentis",
+          "order": 3,
+          "title": {
+            "fr": "Exprimer un souhait et ses conditions",
+            "zh": "表达愿望及其条件"
+          },
+          "visualId": "L7-ressentis",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne imagine un jardin à aménager avec des contraintes concrètes",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L7-repas",
+          "domain": "repas",
+          "order": 4,
+          "title": {
+            "fr": "Négocier une option",
+            "zh": "协商一种选择"
+          },
+          "visualId": "L7-repas",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne négocie une option de livraison en magasin",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L7-deplacements",
+          "domain": "deplacements",
+          "order": 5,
+          "title": {
+            "fr": "Prévoir une autre possibilité",
+            "zh": "预留另一种出行可能"
+          },
+          "visualId": "L7-deplacements",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne prépare un parapluie et un autre itinéraire",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L7-reperes",
+          "domain": "reperes",
+          "order": 6,
+          "title": {
+            "fr": "Conditions, délais et priorités",
+            "zh": "条件、期限与优先事项"
+          },
+          "visualId": "L7-reperes",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Un plan de travail présente plusieurs délais possibles",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L7-quotidien",
+          "domain": "quotidien",
+          "order": 7,
+          "title": {
+            "fr": "Imaginer une situation différente",
+            "zh": "设想另一种情况"
+          },
+          "visualId": "L7-quotidien",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne imagine un nouvel aménagement avec une maquette",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L7-decrire",
+          "domain": "decrire",
+          "order": 8,
+          "title": {
+            "fr": "Comparer des possibilités",
+            "zh": "比较不同可能性"
+          },
+          "visualId": "L7-decrire",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux personnes comparent deux chemins à une bifurcation",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L7-conversation",
+          "domain": "conversation",
+          "order": 9,
+          "title": {
+            "fr": "Proposer une alternative",
+            "zh": "提出替代方案"
+          },
+          "visualId": "L7-conversation",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne propose une autre activité à des amis",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L7-travail",
+          "domain": "travail",
+          "order": 10,
+          "title": {
+            "fr": "Anticiper et négocier",
+            "zh": "预判并协商"
+          },
+          "visualId": "L7-travail",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux collègues anticipent plusieurs étapes d’un projet",
+          "optional": true,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L7-personnaliser",
+          "domain": "personnaliser",
+          "order": 11,
+          "title": {
+            "fr": "Construire une alternative",
+            "zh": "构思一个替代方案"
+          },
+          "visualId": "L7-personnaliser",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une main construit une deuxième organisation avec les mêmes pièces",
+          "optional": false,
+          "isTemplateCollection": true,
+          "sourceFitStatus": "to-review"
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "title": {
+        "fr": "Nuancer et adapter",
+        "zh": "委婉表达与调整措辞"
+      },
+      "goal": {
+        "fr": "Adapter une demande, son degré de certitude et son registre ; articuler des raisons et des limites.",
+        "zh": "根据情境调整请求、确定程度和语体，并说明理由及其限制。"
+      },
+      "newProductionOperation": "Modifier un degré, une réserve ou un registre préparé sans introduire plusieurs changements cachés.",
+      "plannedPrerequisiteLevels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "reviewStatus": "editorial-plan-awaiting-source-fit-review",
+      "themes": [
+        {
+          "id": "L8-saluer",
+          "domain": "saluer",
+          "order": 1,
+          "title": {
+            "fr": "Adapter sa présentation",
+            "zh": "根据情境介绍自己"
+          },
+          "visualId": "L8-saluer",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne adapte sa présentation à un petit groupe professionnel",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L8-comprendre",
+          "domain": "comprendre",
+          "order": 2,
+          "title": {
+            "fr": "Reformuler avec précision",
+            "zh": "准确地换一种说法"
+          },
+          "visualId": "L8-comprendre",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux personnes reformulent ensemble un message sur un carnet",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L8-ressentis",
+          "domain": "ressentis",
+          "order": 3,
+          "title": {
+            "fr": "Nuancer une émotion ou un souhait",
+            "zh": "细致表达情绪或愿望"
+          },
+          "visualId": "L8-ressentis",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux proches expriment un ressenti avec tact",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L8-repas",
+          "domain": "repas",
+          "order": 4,
+          "title": {
+            "fr": "Formuler une demande délicate",
+            "zh": "委婉地提出请求"
+          },
+          "visualId": "L8-repas",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne fait une demande discrète à la réception d’un hôtel",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L8-deplacements",
+          "domain": "deplacements",
+          "order": 5,
+          "title": {
+            "fr": "Adapter un séjour à ses contraintes",
+            "zh": "按限制条件调整行程"
+          },
+          "visualId": "L8-deplacements",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne adapte une excursion à une contrainte physique",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L8-reperes",
+          "domain": "reperes",
+          "order": 6,
+          "title": {
+            "fr": "Préciser les limites d’un projet",
+            "zh": "说明计划的限制"
+          },
+          "visualId": "L8-reperes",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Des personnes ajustent la taille d’un projet sur un plan",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L8-quotidien",
+          "domain": "quotidien",
+          "order": 7,
+          "title": {
+            "fr": "Respecter les préférences de chacun",
+            "zh": "尊重彼此的偏好"
+          },
+          "visualId": "L8-quotidien",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Des proches choisissent une activité qui convient à chacun",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L8-decrire",
+          "domain": "decrire",
+          "order": 8,
+          "title": {
+            "fr": "Décrire avec nuance",
+            "zh": "有分寸地描述"
+          },
+          "visualId": "L8-decrire",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne décrit les nuances de plusieurs tissus",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L8-conversation",
+          "domain": "conversation",
+          "order": 9,
+          "title": {
+            "fr": "Exprimer un désaccord avec tact",
+            "zh": "得体地表达不同意见"
+          },
+          "visualId": "L8-conversation",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux personnes échangent calmement malgré un désaccord",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L8-travail",
+          "domain": "travail",
+          "order": 10,
+          "title": {
+            "fr": "Adapter son registre professionnel",
+            "zh": "调整工作场合的语体"
+          },
+          "visualId": "L8-travail",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne adapte un message à un destinataire professionnel",
+          "optional": true,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L8-personnaliser",
+          "domain": "personnaliser",
+          "order": 11,
+          "title": {
+            "fr": "Ajuster le sens d’une phrase",
+            "zh": "调整句子的含义"
+          },
+          "visualId": "L8-personnaliser",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une main ajuste une position sur une palette de cartes vierges",
+          "optional": false,
+          "isTemplateCollection": true,
+          "sourceFitStatus": "to-review"
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "title": {
+        "fr": "Développer un point de vue",
+        "zh": "展开自己的观点"
+      },
+      "goal": {
+        "fr": "Construire une argumentation, prendre en compte une objection et rapporter ou reformuler un point de vue.",
+        "zh": "组织论述，考虑不同意见，并转述或换一种方式表达观点。"
+      },
+      "newProductionOperation": "Enchaîner position, justification et réponse à une objection préparée.",
+      "plannedPrerequisiteLevels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reviewStatus": "editorial-plan-awaiting-source-fit-review",
+      "themes": [
+        {
+          "id": "L9-saluer",
+          "domain": "saluer",
+          "order": 1,
+          "title": {
+            "fr": "Présenter un parcours en détail",
+            "zh": "详细介绍自己的经历"
+          },
+          "visualId": "L9-saluer",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne présente plusieurs étapes de son parcours à un auditoire",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L9-comprendre",
+          "domain": "comprendre",
+          "order": 2,
+          "title": {
+            "fr": "Interpréter et reformuler un propos",
+            "zh": "理解并转述他人的话"
+          },
+          "visualId": "L9-comprendre",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne restitue les idées d’une réunion à une autre",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L9-ressentis",
+          "domain": "ressentis",
+          "order": 3,
+          "title": {
+            "fr": "Expliquer des motivations complexes",
+            "zh": "说明复杂的动机"
+          },
+          "visualId": "L9-ressentis",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne explique les raisons d’un engagement personnel",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L9-repas",
+          "domain": "repas",
+          "order": 4,
+          "title": {
+            "fr": "Défendre un choix de consommation",
+            "zh": "为消费选择说明理由"
+          },
+          "visualId": "L9-repas",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Un groupe discute d’un achat durable en comparant ses conséquences",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L9-deplacements",
+          "domain": "deplacements",
+          "order": 5,
+          "title": {
+            "fr": "Discuter des choix de mobilité",
+            "zh": "讨论出行方式的选择"
+          },
+          "visualId": "L9-deplacements",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Des personnes débattent autour d’une maquette de quartier et de transports",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L9-reperes",
+          "domain": "reperes",
+          "order": 6,
+          "title": {
+            "fr": "Structurer une argumentation",
+            "zh": "组织论述"
+          },
+          "visualId": "L9-reperes",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne organise arguments et réserves sur un tableau sans texte",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L9-quotidien",
+          "domain": "quotidien",
+          "order": 7,
+          "title": {
+            "fr": "Discuter des modes de vie",
+            "zh": "讨论不同的生活方式"
+          },
+          "visualId": "L9-quotidien",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Des personnes discutent de leurs façons de vivre dans un salon",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L9-decrire",
+          "domain": "decrire",
+          "order": 8,
+          "title": {
+            "fr": "Évaluer des avantages et des limites",
+            "zh": "评估优点与限制"
+          },
+          "visualId": "L9-decrire",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux personnes évaluent les avantages et limites d’un prototype",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L9-conversation",
+          "domain": "conversation",
+          "order": 9,
+          "title": {
+            "fr": "Répondre à une objection",
+            "zh": "回应不同意见"
+          },
+          "visualId": "L9-conversation",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne répond posément à une objection dans un groupe",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L9-travail",
+          "domain": "travail",
+          "order": 10,
+          "title": {
+            "fr": "Argumenter et rendre compte",
+            "zh": "论证并汇报工作"
+          },
+          "visualId": "L9-travail",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne rend compte d’un résultat professionnel",
+          "optional": true,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L9-personnaliser",
+          "domain": "personnaliser",
+          "order": 11,
+          "title": {
+            "fr": "Développer son point de vue",
+            "zh": "展开自己的观点"
+          },
+          "visualId": "L9-personnaliser",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Plusieurs arguments convergent autour d’une carte centrale vierge",
+          "optional": false,
+          "isTemplateCollection": true,
+          "sourceFitStatus": "to-review"
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "title": {
+        "fr": "Converser avec souplesse",
+        "zh": "灵活自如地交流"
+      },
+      "goal": {
+        "fr": "Conduire un échange ouvert, reformuler une idée complexe, nuancer un désaccord et conclure sans modèle fixe.",
+        "zh": "灵活参与开放式交流，转述复杂想法，细致表达分歧，并在没有固定范本的情况下结束讨论。"
+      },
+      "newProductionOperation": "Choisir entre plusieurs constructions préparées et réparer un échange ouvert.",
+      "plannedPrerequisiteLevels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "reviewStatus": "editorial-plan-awaiting-source-fit-review",
+      "themes": [
+        {
+          "id": "L10-saluer",
+          "domain": "saluer",
+          "order": 1,
+          "title": {
+            "fr": "Entrer en relation avec aisance",
+            "zh": "自然地与人建立联系"
+          },
+          "visualId": "L10-saluer",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Des personnes de milieux différents entrent naturellement en relation lors d’un événement",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L10-comprendre",
+          "domain": "comprendre",
+          "order": 2,
+          "title": {
+            "fr": "Clarifier les implicites",
+            "zh": "澄清言外之意"
+          },
+          "visualId": "L10-comprendre",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux personnes discutent d’une intention sous-entendue dans une situation réelle",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L10-ressentis",
+          "domain": "ressentis",
+          "order": 3,
+          "title": {
+            "fr": "Exprimer des ressentis subtils",
+            "zh": "表达细微的感受"
+          },
+          "visualId": "L10-ressentis",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Deux proches échangent un ressenti subtil dans un cadre calme",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L10-repas",
+          "domain": "repas",
+          "order": 4,
+          "title": {
+            "fr": "Échanger librement autour d’une table",
+            "zh": "餐桌上的自由交谈"
+          },
+          "visualId": "L10-repas",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une table réunit une conversation libre et animée entre adultes",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L10-deplacements",
+          "domain": "deplacements",
+          "order": 5,
+          "title": {
+            "fr": "Gérer une situation imprévue",
+            "zh": "应对出行中的意外情况"
+          },
+          "visualId": "L10-deplacements",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Des voyageurs cherchent ensemble une solution à un imprévu",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L10-reperes",
+          "domain": "reperes",
+          "order": 6,
+          "title": {
+            "fr": "Relier causes, temps et conséquences",
+            "zh": "关联原因、时间与结果"
+          },
+          "visualId": "L10-reperes",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne relie plusieurs événements et leurs conséquences sur des images",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L10-quotidien",
+          "domain": "quotidien",
+          "order": 7,
+          "title": {
+            "fr": "Parler de la vie et de la société",
+            "zh": "谈论生活与社会"
+          },
+          "visualId": "L10-quotidien",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Un groupe échange sur un sujet de société dans un lieu public",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L10-decrire",
+          "domain": "decrire",
+          "order": 8,
+          "title": {
+            "fr": "Choisir le mot juste",
+            "zh": "选用恰当的词语"
+          },
+          "visualId": "L10-decrire",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne choisit soigneusement un objet parmi des nuances proches",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L10-conversation",
+          "domain": "conversation",
+          "order": 9,
+          "title": {
+            "fr": "Converser et nuancer librement",
+            "zh": "自由交谈并细致表达"
+          },
+          "visualId": "L10-conversation",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Plusieurs adultes poursuivent un échange ouvert en écoutant chacun",
+          "optional": false,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L10-travail",
+          "domain": "travail",
+          "order": 10,
+          "title": {
+            "fr": "Conduire un échange professionnel",
+            "zh": "主持工作交流"
+          },
+          "visualId": "L10-travail",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne conduit une discussion professionnelle avec plusieurs interlocuteurs",
+          "optional": true,
+          "isTemplateCollection": false,
+          "sourceFitStatus": "to-review"
+        },
+        {
+          "id": "L10-personnaliser",
+          "domain": "personnaliser",
+          "order": 11,
+          "title": {
+            "fr": "Trouver sa formulation",
+            "zh": "找到适合自己的表达方式"
+          },
+          "visualId": "L10-personnaliser",
+          "visualStatus": "generated-awaiting-owner-review",
+          "visualBrief": "Une personne compose librement sa présentation avec plusieurs ressources connues",
+          "optional": false,
+          "isTemplateCollection": true,
+          "sourceFitStatus": "to-review"
+        }
+      ]
+    }
+  ]
+}

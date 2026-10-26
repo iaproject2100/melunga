@@ -1,0 +1,4961 @@
+{
+  "version": 1,
+  "id": "revue-claude-lot3",
+  "status": "reviewed-frozen-field-events-not-global-native-approval",
+  "baseSnapshotCommit": "3df885df8db00f0bdc2a703b92bd17801accabce",
+  "evidenceCommit": "d06a62ea36120ffd73b8059645848c13bd4f172d",
+  "appliesAfter": {
+    "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+    "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc"
+  },
+  "correctionCount": 91,
+  "eventCount": 95,
+  "phoneticEventCount": 90,
+  "readingEventCount": 5,
+  "evidenceFiles": [
+    {
+      "path": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+      "gitPath": "docs/revue-integrale/lot3-fr-zh-L3-L10/registre-phonetique.json",
+      "sha256": "09e470b8fba9004b62bcb9fbc5fe036dbda2d91c68868b178f9ba810a06ea9ba",
+      "eventCount": 90,
+      "field": "phon"
+    },
+    {
+      "path": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-lectures.json",
+      "gitPath": "docs/revue-integrale/lot3-fr-zh-L3-L10/registre-lectures.json",
+      "sha256": "c029d571a59303733d5bfa85fec59b94f0b989eb24a4d3c490a4a9fe50fd4ea8",
+      "eventCount": 5,
+      "field": "reading"
+    }
+  ],
+  "corrections": [
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3111",
+      "fields": {
+        "phon": {
+          "before": "taï ang",
+          "after": "taï yang",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 0,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L1.json",
+          "location": [
+            "themes",
+            22,
+            "phrases",
+            1
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "太阳",
+            "native": "soleil",
+            "phon": "taï ang",
+            "readingPresent": true,
+            "reading": "tài yáng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3111,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "bc80323cb0bf3a39ce58d1f45cd6e55d3f307fb3329a4c569eb901aeedd0302e"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:110",
+      "fields": {
+        "phon": {
+          "before": "djeu ang i laï",
+          "after": "djeu yang i laï",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 1,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            10
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这样一来",
+            "native": "ainsi",
+            "phon": "djeu ang i laï",
+            "readingPresent": true,
+            "reading": "zhè yàng yì lái",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 110,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "37cd60a1b0caab7298bd4c01bd8017613efd8d901baf49aaf197bc4fc7c8d97b"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:143",
+      "fields": {
+        "phon": {
+          "before": "djeu ang dzouèï hao",
+          "after": "djeu yang dzouèï hao",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 2,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            47
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这样最好",
+            "native": "c'est mieux ainsi",
+            "phon": "djeu ang dzouèï hao",
+            "readingPresent": true,
+            "reading": "zhè yàng zuì hǎo",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 143,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "d344b748735d749bbfe4de4bc960971fe4687bbec2bb60ed4d4b43c0d79a1870"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+          "location": [
+            "phrases",
+            9
+          ],
+          "profile": "transport-phrase",
+          "expectedBefore": {
+            "study": "这样最好",
+            "native": "c'est mieux ainsi",
+            "phon": "djeu ang dzouèï hao",
+            "readingPresent": true,
+            "reading": "zhè yàng zuì hǎo",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 143,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "d344b748735d749bbfe4de4bc960971fe4687bbec2bb60ed4d4b43c0d79a1870"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:22",
+      "fields": {
+        "phon": {
+          "before": "dzeune meu ang?",
+          "after": "dzeune meu yang?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 3,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            0
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "怎么样？",
+            "native": "ça te va ?",
+            "phon": "dzeune meu ang?",
+            "readingPresent": true,
+            "reading": "zěn me yàng?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 22,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "656cd6740c6668d7b18806dbe8de763ce39ca153f9b7a78fe622652d1718c910"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2270",
+      "fields": {
+        "phon": {
+          "before": "ker-eune",
+          "after": "keu-jeune",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 4,
+          "rules": [
+            "G"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "location": [
+            "themes",
+            21,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "客人",
+            "native": "client / invité",
+            "phon": "ker-eune",
+            "readingPresent": true,
+            "reading": "kèrén",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2270,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "04ea1296767afa454a7896e4009d62f6132ad58213a12afc87bef92897b0f096"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:251",
+      "fields": {
+        "phon": {
+          "before": "djeu ang yé ching",
+          "after": "djeu yang yé ching",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 5,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            92
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这样也行",
+            "native": "ça marche aussi",
+            "phon": "djeu ang yé ching",
+            "readingPresent": true,
+            "reading": "zhè yàng yě xíng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 251,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "84feb5bac42784e40ddb011237483e08971e5480d28c06584a776045a717ebe4"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+          "location": [
+            "phrases",
+            106
+          ],
+          "profile": "transport-phrase",
+          "expectedBefore": {
+            "study": "这样也行",
+            "native": "ça marche aussi",
+            "phon": "djeu ang yé ching",
+            "readingPresent": true,
+            "reading": "zhè yàng yě xíng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 251,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "84feb5bac42784e40ddb011237483e08971e5480d28c06584a776045a717ebe4"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3154",
+      "fields": {
+        "phon": {
+          "before": "keu i da ang ma?",
+          "after": "keu i da yang ma?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 6,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            17
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "可以打样吗？",
+            "native": "vous pouvez faire un prototype ?",
+            "phon": "keu i da ang ma?",
+            "readingPresent": true,
+            "reading": "kě yǐ dǎ yàng ma?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3154,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "df57d65fdd264f87d68500da506edb7dc5c81d10097b09e00e112d9a64e577b7"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3155",
+      "fields": {
+        "phon": {
+          "before": "ang pinn feï",
+          "after": "yang pinn feï",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 7,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "location": [
+            "themes",
+            21,
+            "phrases",
+            17
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "样品费",
+            "native": "frais d'échantillon",
+            "phon": "ang pinn feï",
+            "readingPresent": true,
+            "reading": "yàng pǐn fèi",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3155,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "bfed137d6c16c5ce13c4daab84f1f6eed0ae9939c87df93712fbc27073b2ec19"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:52",
+      "fields": {
+        "phon": {
+          "before": "djyo djeu ang",
+          "after": "djyo djeu yang",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 8,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            17
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "就这样",
+            "native": "c'est comme ça",
+            "phon": "djyo djeu ang",
+            "readingPresent": true,
+            "reading": "jiù zhè yàng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 52,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "bb4758589d91a43d775734b02550648716e06fb3f44b502ea150eee66c660be4"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2319",
+      "fields": {
+        "phon": {
+          "before": "keune-eung",
+          "after": "keu-neung",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 9,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            20
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "可能",
+            "native": "peut-être / possible",
+            "phon": "keune-eung",
+            "readingPresent": true,
+            "reading": "kěnéng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2319,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "832ea1a65ec6ac157c248a220df2d5b665a9d4dc6f981465224bc51771a40698"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2859",
+      "fields": {
+        "phon": {
+          "before": "yo ang pinn ma?",
+          "after": "yo yang pinn ma?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 10,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            4
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "有样品吗？",
+            "native": "avez-vous des échantillons ?",
+            "phon": "yo ang pinn ma?",
+            "readingPresent": true,
+            "reading": "yǒu yàng pǐn ma?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2859,
+              "sourceLevel": 1,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "3c62ba234875a82cca2424968ca827ea4d4bede08bff6025b39cd8339dfcd097"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3168",
+      "fields": {
+        "phon": {
+          "before": "lao-chr byao-ang leu ta",
+          "after": "lao-chr byao-yang leu ta",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 11,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            140
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "老师表扬了他",
+            "native": "le professeur l'a félicité",
+            "phon": "lao-chr byao-ang leu ta",
+            "readingPresent": true,
+            "reading": "lǎoshī biǎoyáng le tā",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3168,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "5f28a5b1d5946b71e4f1b9b1887b911297dcc3c3158a7d5f1c234f8286248a14"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3206",
+      "fields": {
+        "phon": {
+          "before": "ouo meune chu yao ang pinn",
+          "after": "ouo meune chu yao yang pinn",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 12,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            22
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我们需要样品",
+            "native": "il nous faut des échantillons",
+            "phon": "ouo meune chu yao ang pinn",
+            "readingPresent": true,
+            "reading": "wǒ men xū yào yàng pǐn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3206,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "53151fa1fb9aa66c1b43a2712d8bacf510a6da8b59ef7ea2d159df4ceb5fe2a4"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3212",
+      "fields": {
+        "phon": {
+          "before": "neung dji ang pinn ma?",
+          "after": "neung dji yang pinn ma?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 13,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            27
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "能寄样品吗？",
+            "native": "vous pouvez envoyer un échantillon ?",
+            "phon": "neung dji ang pinn ma?",
+            "readingPresent": true,
+            "reading": "néng jì yàng pǐn ma?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3212,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "f22ed9158d4605d01c7975e34e55b1d6b2654a1857110279566e975bb438aeff"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:525",
+      "fields": {
+        "phon": {
+          "before": "yo i-Fi ma?",
+          "after": "yo ouaï-faï ma?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 14,
+          "rules": [
+            "I"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            90
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "有Wi-Fi吗？",
+            "native": "y a-t-il du Wi-Fi ?",
+            "phon": "yo i-Fi ma?",
+            "readingPresent": true,
+            "reading": "yǒu Wi-Fi ma?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 525,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "ecb1a7ac6137e1585d4f40c01d32290ebdcf4784c74426a745da2266154ee038"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:552",
+      "fields": {
+        "phon": {
+          "before": "é-é ouo meunn djeu ba.",
+          "after": "ouo meunn é-é djeu ba.",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 15,
+          "rules": [
+            "I"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            17
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我们AA制吧。",
+            "native": "On partage l'addition.",
+            "phon": "é-é ouo meunn djeu ba.",
+            "readingPresent": true,
+            "reading": "wǒ men AA zhì ba.",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 552,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "605e57a02b0bc4cf4568999c5534e53efcc8772fa8f55212c1b4ef8bf55bcc21"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "editorial:new-fr-zh-gold",
+      "fields": {
+        "phon": {
+          "before": "tchin seu",
+          "after": "djinn seu",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 16,
+          "rules": [
+            "H"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            25,
+            "phrases",
+            0
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "金色",
+            "native": "doré",
+            "phon": "tchin seu",
+            "readingPresent": true,
+            "reading": "jīn sè",
+            "source": {
+              "collection": "editorial-authored",
+              "kind": "editorial-authored-whole-entry",
+              "file": "docs/niveaux-progressifs/corrections-themes/enrichissements-rediges.json",
+              "sourceFileSha256": "db4a040fef882b2c35304e76b357b16e5928f838398c7f9029521b4402c99fb6",
+              "itemId": "new-fr-zh-gold",
+              "sourceSha256": "62b30bd9e7e33c143f3399b5f780017af827aca7ed95f42b1c86de5937fe7dcc",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              }
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "pending-Claude",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+          "location": [
+            "phrases",
+            473
+          ],
+          "profile": "transport-phrase",
+          "expectedBefore": {
+            "study": "金色",
+            "native": "doré",
+            "phon": "tchin seu",
+            "readingPresent": true,
+            "reading": "jīn sè",
+            "source": {
+              "collection": "editorial-authored",
+              "kind": "editorial-authored-whole-entry",
+              "file": "docs/niveaux-progressifs/corrections-themes/enrichissements-rediges.json",
+              "sourceFileSha256": "db4a040fef882b2c35304e76b357b16e5928f838398c7f9029521b4402c99fb6",
+              "itemId": "new-fr-zh-gold",
+              "sourceSha256": "62b30bd9e7e33c143f3399b5f780017af827aca7ed95f42b1c86de5937fe7dcc",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              }
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "pending-Claude",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "situation-conversation:fr-zh:loisirs-sorties-04",
+      "fields": {
+        "phon": {
+          "before": "ouo ting-tchang yun-tong",
+          "after": "ouo djing-tchang yun-tong",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 17,
+          "rules": [
+            "H"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            11,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我经常运动。",
+            "native": "Je fais souvent du sport.",
+            "phon": "ouo ting-tchang yun-tong",
+            "readingPresent": true,
+            "reading": "wǒ jīngcháng yùndòng.",
+            "source": {
+              "collection": "situation-conversation",
+              "kind": "conversation-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/fr-zh.json",
+              "ledgerFileSha256": "9ec01a94f8d1a7e27e1c1737485ba75f306b0a5cb31d04e83726261527d48519",
+              "itemId": "fr-zh:loisirs-sorties-04",
+              "sourceSha256": "67238af8854982c8dedbc47186bc68a53d8d80dcfb7de54536fd1fbdc803d0a7",
+              "ledgerItemSha256": "50576419264a00f6c1caa48f90d73e4e38608783b459698a28d6f0aead41a052",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              },
+              "provenance": {
+                "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L4-fr-zh.json",
+                "jsonPointer": "/units/7/variants/1",
+                "fileSha256": "4afac71b61e6b2ea190bb3eccc0d09f0b367a83cbd3eb68e78233ef0c0b8dfe0",
+                "entrySha256": "67238af8854982c8dedbc47186bc68a53d8d80dcfb7de54536fd1fbdc803d0a7",
+                "sourceLevel": 4,
+                "originalRole": "variante entière d’apprenant",
+                "originalUnitId": "L4-fr-zh-08",
+                "originalSituation": "Fréquence"
+              },
+              "sourceLevel": 4
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "existing-verbatim",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+          "location": [
+            "phrases",
+            483
+          ],
+          "profile": "transport-phrase",
+          "expectedBefore": {
+            "study": "我经常运动。",
+            "native": "Je fais souvent du sport.",
+            "phon": "ouo ting-tchang yun-tong",
+            "readingPresent": true,
+            "reading": "wǒ jīngcháng yùndòng.",
+            "source": {
+              "collection": "situation-conversation",
+              "kind": "conversation-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/fr-zh.json",
+              "ledgerFileSha256": "9ec01a94f8d1a7e27e1c1737485ba75f306b0a5cb31d04e83726261527d48519",
+              "itemId": "fr-zh:loisirs-sorties-04",
+              "sourceSha256": "67238af8854982c8dedbc47186bc68a53d8d80dcfb7de54536fd1fbdc803d0a7",
+              "ledgerItemSha256": "50576419264a00f6c1caa48f90d73e4e38608783b459698a28d6f0aead41a052",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              },
+              "provenance": {
+                "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L4-fr-zh.json",
+                "jsonPointer": "/units/7/variants/1",
+                "fileSha256": "4afac71b61e6b2ea190bb3eccc0d09f0b367a83cbd3eb68e78233ef0c0b8dfe0",
+                "entrySha256": "67238af8854982c8dedbc47186bc68a53d8d80dcfb7de54536fd1fbdc803d0a7",
+                "sourceLevel": 4,
+                "originalRole": "variante entière d’apprenant",
+                "originalUnitId": "L4-fr-zh-08",
+                "originalSituation": "Fréquence"
+              },
+              "sourceLevel": 4
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "existing-verbatim",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "situation-conversation:fr-zh:loisirs-sorties-05",
+      "fields": {
+        "phon": {
+          "before": "ouo-meun dzaï tiou-tièn meun-kou tièn",
+          "after": "ouo-meun dzaï djyo-tièn meun-kou djyèn",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 18,
+          "rules": [
+            "H"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            11,
+            "phrases",
+            4
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我们在酒店门口见。",
+            "native": "On se retrouve à l'entrée de l'hôtel.",
+            "phon": "ouo-meun dzaï tiou-tièn meun-kou tièn",
+            "readingPresent": true,
+            "reading": "wǒmen zài jiǔdiàn ménkǒu jiàn.",
+            "source": {
+              "collection": "situation-conversation",
+              "kind": "conversation-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/fr-zh.json",
+              "ledgerFileSha256": "9ec01a94f8d1a7e27e1c1737485ba75f306b0a5cb31d04e83726261527d48519",
+              "itemId": "fr-zh:loisirs-sorties-05",
+              "sourceSha256": "3dbe86badaab3e1a552b24d8b858e83bc35f3ea904e4af33599758a36afbd8d4",
+              "ledgerItemSha256": "7d95cc2dd128af2c2b9333a35dd411bab7d7495a234d2cee1034e6c26f8c74c1",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              },
+              "provenance": {
+                "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L2-fr-zh.json",
+                "jsonPointer": "/units/10/variants/2",
+                "fileSha256": "384340dc305f9a71c4ce2d576a03768378d818643fda9c6a5e41f859288fff40",
+                "entrySha256": "3dbe86badaab3e1a552b24d8b858e83bc35f3ea904e4af33599758a36afbd8d4",
+                "sourceLevel": 2,
+                "originalRole": "variante entière d’apprenant",
+                "originalUnitId": "L2-fr-zh-11",
+                "originalSituation": "Lieu de rendez-vous"
+              },
+              "sourceLevel": 2
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "existing-verbatim",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "situation-conversation:fr-zh:loisirs-sorties-08",
+      "fields": {
+        "phon": {
+          "before": "hao a ! chr-eur tièn tièn",
+          "after": "hao a ! chr-eur tièn djyèn",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 19,
+          "rules": [
+            "H"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            11,
+            "phrases",
+            7
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "好啊！十二点见。",
+            "native": "D'accord ! À midi.",
+            "phon": "hao a ! chr-eur tièn tièn",
+            "readingPresent": true,
+            "reading": "hǎo a! shí'èr diǎn jiàn.",
+            "source": {
+              "collection": "situation-conversation",
+              "kind": "conversation-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/fr-zh.json",
+              "ledgerFileSha256": "9ec01a94f8d1a7e27e1c1737485ba75f306b0a5cb31d04e83726261527d48519",
+              "itemId": "fr-zh:loisirs-sorties-08",
+              "sourceSha256": "ba18e868947dc0ff4441bec4dae911c34536165a84ec8f8800b1a36747f4e4b7",
+              "ledgerItemSha256": "79b3bd578e053780456d0aaf17f71cc3015c803662d44ecb687ef23f64de5c71",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              },
+              "provenance": {
+                "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L3-fr-zh.json",
+                "jsonPointer": "/dialogues/0/turns/7",
+                "fileSha256": "e9a98a2abf44e80cc25c5da593d4798deeb60b88f142994ea952d0be39ebe7f8",
+                "entrySha256": "ba18e868947dc0ff4441bec4dae911c34536165a84ec8f8800b1a36747f4e4b7",
+                "sourceLevel": 3,
+                "originalSpeaker": "B",
+                "originalRole": "Un collègue",
+                "originalLearnerRole": "A",
+                "originalSituation": "Premier jour au travail"
+              },
+              "sourceLevel": 3
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "existing-verbatim",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2098",
+      "fields": {
+        "phon": {
+          "before": "tching djinn-kouaï tchu-er-eune",
+          "after": "tching djinn-kouaï tchué-jeune",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 20,
+          "rules": [
+            "G"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            8
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "请尽快确认",
+            "native": "veuillez confirmer au plus vite",
+            "phon": "tching djinn-kouaï tchu-er-eune",
+            "readingPresent": true,
+            "reading": "qǐng jǐnkuài quèrèn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2098,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "a728af8e290b7c9b973c3878b73c1ab5de015e093771713e87d33f89d03f8cb7"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2377",
+      "fields": {
+        "phon": {
+          "before": "ang-pinn",
+          "after": "yang-pinn",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 21,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            5
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "样品",
+            "native": "échantillon",
+            "phon": "ang-pinn",
+            "readingPresent": true,
+            "reading": "yàngpǐn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2377,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "3c10b60f544a0e925c9ddc5486b9675356467a47bd660a3f84ef3b681ed40621"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3449",
+      "fields": {
+        "phon": {
+          "before": "ang bann",
+          "after": "yang bann",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 22,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            70
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "样板",
+            "native": "modèle",
+            "phon": "ang bann",
+            "readingPresent": true,
+            "reading": "yàng bǎn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3449,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "69226f0a0e4ca3a6be3117ab9d4363623d8fae07332e66b6aac288231ae625d1"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3537",
+      "fields": {
+        "phon": {
+          "before": "ang pinn cheune meu chr hou neung hao?",
+          "after": "yang pinn cheune meu chr hou neung hao?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 23,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            32
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "样品什么时候能好？",
+            "native": "quand l'échantillon sera-t-il prêt ?",
+            "phon": "ang pinn cheune meu chr hou neung hao?",
+            "readingPresent": true,
+            "reading": "yàng pǐn shén me shí hou néng hǎo?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3537,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "3e97359e94774656cf6a34d84eb584d0d3f352f498a41ba58ab6d0057134dcaa"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3538",
+      "fields": {
+        "phon": {
+          "before": "chyèn kann ang pinn",
+          "after": "chyèn kann yang pinn",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 24,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            33
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "先看样品",
+            "native": "voyons d'abord un échantillon",
+            "phon": "chyèn kann ang pinn",
+            "readingPresent": true,
+            "reading": "xiān kàn yàng pǐn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3538,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "7510d3c237272eacb5455ba5f90b670bcacc58693c7f15e0b8fea7c84fad3841"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3565",
+      "fields": {
+        "phon": {
+          "before": "ang",
+          "after": "yang",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 25,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            17,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "痒",
+            "native": "démanger",
+            "phon": "ang",
+            "readingPresent": true,
+            "reading": "yǎng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3565,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "a777684399d4c7ea87d2d93638f0138f41e02964bb7159b0b0dff95b949e884c"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:621",
+      "fields": {
+        "phon": {
+          "before": "ou-djinn chr dyèn-douo deu ma?",
+          "after": "ou-djinn chr dyèn-dou deu ma?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 26,
+          "rules": [
+            "J"
+          ]
+        },
+        "reading": {
+          "before": "wǔjīn shì diànduó de ma?",
+          "after": "wǔjīn shì diàndù de ma?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-lectures.json",
+          "evidenceIndex": 0
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "五金是电镀的吗？",
+            "native": "la quincaillerie est-elle plaquée ?",
+            "phon": "ou-djinn chr dyèn-douo deu ma?",
+            "readingPresent": true,
+            "reading": "wǔjīn shì diànduó de ma?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 621,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "cfd7d96799048954811f179c8206f8b05205563d599c27d3d6c45ef1ff905807"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:631",
+      "fields": {
+        "phon": {
+          "before": "yo tseu jeune-djeung ma?",
+          "after": "yo sé-eu jeune-djeung ma?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 27,
+          "rules": [
+            "I"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            8
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "有CE认证吗？",
+            "native": "y a-t-il une certification CE ?",
+            "phon": "yo tseu jeune-djeung ma?",
+            "readingPresent": true,
+            "reading": "yǒu CE rènzhèng ma?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 631,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "121aab565c5105bfb63e3b39d28f9ae82e73dcf179bb620fd68545532564def3"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:695",
+      "fields": {
+        "phon": {
+          "before": "ang-pinn yao douo-djyo?",
+          "after": "yang-pinn yao douo-djyo?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 28,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            2
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "样品要多久？",
+            "native": "quel est le délai pour les échantillons ?",
+            "phon": "ang-pinn yao douo-djyo?",
+            "readingPresent": true,
+            "reading": "yàngpǐn yào duōjiǔ?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 695,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "641afadf1eb5e53bab7fa66f6ca8e471eb978374e8089183aea61969d76db1b8"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:753",
+      "fields": {
+        "phon": {
+          "before": "neung dji douèï-seu ang ma?",
+          "after": "neung dji douèï-seu yang ma?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 29,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "能寄对色样吗？",
+            "native": "pouvez-vous m'envoyer le contre-échantillon ?",
+            "phon": "neung dji douèï-seu ang ma?",
+            "readingPresent": true,
+            "reading": "néng jì duìsè yàng ma?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 753,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "2c522bdd62dfac10e3bb2b3a38853e7bb74700805e6c73eaff53e8da2175e93b"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:789",
+      "fields": {
+        "phon": {
+          "before": "djeu-ang neung cheung tchyèn",
+          "after": "djeu-yang neung cheung tchyèn",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 30,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            74
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这样能省钱",
+            "native": "comme ça on économise de l'argent",
+            "phon": "djeu-ang neung cheung tchyèn",
+            "readingPresent": true,
+            "reading": "zhèyàng néng shěng qián",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 789,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "71a5177f8fd65c82fe048e88e3a3d83bd2240fbeb8fcf60cc6d55cf40c0b76a0"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:893",
+      "fields": {
+        "phon": {
+          "before": "ouo-meune bounn-eung dzaï touo-yèn leu",
+          "after": "ouo-meune bou-neung dzaï touo-yèn leu",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 31,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            7
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我们不能再拖延了",
+            "native": "nous ne pouvons plus tarder",
+            "phon": "ouo-meune bounn-eung dzaï touo-yèn leu",
+            "readingPresent": true,
+            "reading": "wǒmen bùnéng zài tuōyán le",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 893,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "d9133a083dc8a4c34b61aaa77b27ea95ef993c24e290a5de39af193e33e2a4d2"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:906",
+      "fields": {
+        "phon": {
+          "before": "ouo-meune tchang-dao houann-bao linn-yèn",
+          "after": "ouo-meune tchang-dao houann-bao li-nyèn",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 32,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            134
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我们倡导环保理念",
+            "native": "nous prônons des valeurs écologiques",
+            "phon": "ouo-meune tchang-dao houann-bao linn-yèn",
+            "readingPresent": true,
+            "reading": "wǒmen chàngdǎo huánbǎo lǐniàn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 906,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "bcc06d9ee903a13198e840b6f93c15db3c690005f66ebef0340217e594936d5b"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1006",
+      "fields": {
+        "phon": {
+          "before": "djeu chu-er-ouo leu ouo-meune deu yo-chr",
+          "after": "djeu chu-eu-jouo leu ouo-meune deu yo-chr",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 33,
+          "rules": [
+            "G"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            44
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这削弱了我们的优势",
+            "native": "ça a affaibli notre avantage",
+            "phon": "djeu chu-er-ouo leu ouo-meune deu yo-chr",
+            "readingPresent": true,
+            "reading": "zhè xuēruò le wǒmen de yōushì",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1006,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "2ae017bfed3205802b7ac2672a6320598eeb43e3b4045ffde0ddcdbfabdcb550"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1007",
+      "fields": {
+        "phon": {
+          "before": "djinn-eung chou-dji i-djing pou-dji leu",
+          "after": "djr-neung chou-dji i-djing pou-dji leu",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 34,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            45
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "智能手机已经普及了",
+            "native": "les smartphones se sont généralisés",
+            "phon": "djinn-eung chou-dji i-djing pou-dji leu",
+            "readingPresent": true,
+            "reading": "zhìnéng shǒujī yǐjīng pǔjí le",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1007,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "ad39ce5fec9355135e2c5ce0aa0c114fad219e8b6b728d583d52250093a00b23"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1016",
+      "fields": {
+        "phon": {
+          "before": "djeu-gueu dzer-eune ouo laï kang",
+          "after": "djeu-gueu dzeu-jeune ouo laï kang",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 35,
+          "rules": [
+            "G"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            49
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这个责任我来扛",
+            "native": "je prends cette responsabilité sur moi",
+            "phon": "djeu-gueu dzer-eune ouo laï kang",
+            "readingPresent": true,
+            "reading": "zhège zérèn wǒ lái káng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1016,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "4988fd6082dc0225bbd3c7bd0e11e5acb7fc2f3d45305b2093de8ff70ee293d8"
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "corrected-by-Claude-g-devant-e-i",
+            "phoneticCorrectionPresent": true,
+            "phoneticCorrection": {
+              "id": "catalogue:zh:1016",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+              "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+              "beforePhon": "djeu-geu dzer-eune ouo laï kang",
+              "originalReviewStatusPresent": false,
+              "originalReviewStatus": null,
+              "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+              "rule": "B"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1047",
+      "fields": {
+        "phon": {
+          "before": "yo djinn-eung kong-djr gong-neung ma?",
+          "after": "yo djr-neung kong-djr gong-neung ma?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 36,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            60
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "有智能控制功能吗？",
+            "native": "a-t-il des fonctions de contrôle intelligent ?",
+            "phon": "yo djinn-eung kong-djr gong-neung ma?",
+            "readingPresent": true,
+            "reading": "yǒu zhìnéng kòngzhì gōngnéng ma?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1047,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "d8b298a7f589fcfd394a8898cb393c2c18add91d95c6152b01549bb681c9412c"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1143",
+      "fields": {
+        "phon": {
+          "before": "djeu-gueu chr-djyèn tsouèï-houa leu byang-eu",
+          "after": "djeu-gueu chr-djyèn tsouèï-houa leu byèn-gueu",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 37,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            108
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这个事件催化了变革",
+            "native": "cet événement a catalysé le changement",
+            "phon": "djeu-gueu chr-djyèn tsouèï-houa leu byang-eu",
+            "readingPresent": true,
+            "reading": "zhège shìjiàn cuīhuà le biàngé",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1143,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "ac33b8c763f1500c4b950a52c94793a10485ec89549e103185b7057ce7206034"
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "corrected-by-Claude-g-devant-e-i",
+            "phoneticCorrectionPresent": true,
+            "phoneticCorrection": {
+              "id": "catalogue:zh:1143",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+              "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+              "beforePhon": "djeu-geu chr-djyèn tsouèï-houa leu byang-eu",
+              "originalReviewStatusPresent": false,
+              "originalReviewStatus": null,
+              "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+              "rule": "B"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1193",
+      "fields": {
+        "phon": {
+          "before": "ap dje gue yao dzeunn me chya dzaï?",
+          "after": "dje gue ap yao dzeunn me chya dzaï?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 38,
+          "rules": [
+            "I"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            129
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这个app要怎么下载？",
+            "native": "Comment télécharger cette appli ?",
+            "phon": "ap dje gue yao dzeunn me chya dzaï?",
+            "readingPresent": true,
+            "reading": "zhè ge app yào zěn me xià zǎi?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1193,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "b8c07628f57a5d0cc45438e14882a34dcff1556b62fd7f83bbce76c5b2090178"
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "corrected-by-Claude-g-devant-e-i",
+            "phoneticCorrectionPresent": true,
+            "phoneticCorrection": {
+              "id": "catalogue:zh:1193",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+              "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+              "beforePhon": "ap dje ge yao dzeunn me chya dzaï?",
+              "originalReviewStatusPresent": false,
+              "originalReviewStatus": null,
+              "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+              "rule": "B"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2432",
+      "fields": {
+        "phon": {
+          "before": "dzer-eune",
+          "after": "dzeu-jeune",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 39,
+          "rules": [
+            "G"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            18,
+            "phrases",
+            17
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "责任",
+            "native": "responsabilité",
+            "phon": "dzer-eune",
+            "readingPresent": true,
+            "reading": "zérèn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2432,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "ff5a508558f78a1d9f6018c36c5d120b025861d6ff1b22f1a0e897bab61e34aa"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3788",
+      "fields": {
+        "phon": {
+          "before": "djr yé sou ang",
+          "after": "djr yé sou yang",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 40,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            19,
+            "phrases",
+            65
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "职业素养",
+            "native": "professionnalisme",
+            "phon": "djr yé sou ang",
+            "readingPresent": true,
+            "reading": "zhí yè sù yǎng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3788,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "6cb315ab422745448b977df1954e14fb11499f616291ed7259783611f2248476"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3875",
+      "fields": {
+        "phon": {
+          "before": "ang taï",
+          "after": "yang taï",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 41,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            14,
+            "phrases",
+            2
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "阳台",
+            "native": "balcon",
+            "phon": "ang taï",
+            "readingPresent": true,
+            "reading": "yáng tái",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3875,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "562dcf96f4e5fb0aafde604605828e0021fecfc4f2ac25c1a46e3782074d2217"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:960",
+      "fields": {
+        "phon": {
+          "before": "tching fa ang-pinn",
+          "after": "tching fa yang-pinn",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 42,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "请发样品",
+            "native": "envoyez un échantillon, svp",
+            "phon": "tching fa ang-pinn",
+            "readingPresent": true,
+            "reading": "qǐng fā yàngpǐn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 960,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "1176609e387e18018e25de92484aa9101a7caac56fa1add8e4292d73c8dc6923"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:997",
+      "fields": {
+        "phon": {
+          "before": "djeu-ang neung djyé-cheung chr-djyèn",
+          "after": "djeu-yang neung djyé-cheung chr-djyèn",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 43,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            8
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这样能节省时间",
+            "native": "comme ça on économise du temps",
+            "phon": "djeu-ang neung djyé-cheung chr-djyèn",
+            "readingPresent": true,
+            "reading": "zhèyàng néng jiéshěng shíjiān",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 997,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "6d1fb570a8a2f23fda94d3db6651033267915960303f33e5bb465918562e1696"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1251",
+      "fields": {
+        "phon": {
+          "before": "a-té-èm dje fou djinn yoou ma?",
+          "after": "dje fou djinn yoou a-té-èm ma?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 44,
+          "rules": [
+            "I"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            0
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这附近有ATM吗？",
+            "native": "Il y a un distributeur près d'ici ?",
+            "phon": "a-té-èm dje fou djinn yoou ma?",
+            "readingPresent": true,
+            "reading": "zhè fù jìn yǒu ATM ma?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1251,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "abd940057b6c69c705a5ffbee1d21ca9a28af49f28d9f3ba94595acc60dfc5c1"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1298",
+      "fields": {
+        "phon": {
+          "before": "la-lyèn djr-lyang dzeune-meu-ang?",
+          "after": "la-lyèn djr-lyang dzeune-meu-yang?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 45,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "拉链质量怎么样？",
+            "native": "quelle est la qualité de la fermeture éclair ?",
+            "phon": "la-lyèn djr-lyang dzeune-meu-ang?",
+            "readingPresent": true,
+            "reading": "lāliàn zhìliàng zěnmeyàng?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1298,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "4ac68b6584728cf32fb4a2853748cd78e33da48b646286bab5e197d66e92fbc5"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1308",
+      "fields": {
+        "phon": {
+          "before": "ouaï-faï dje li dzeunn me lyenn",
+          "after": "dje li dzeunn me lyenn ouaï-faï",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 46,
+          "rules": [
+            "I"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            6,
+            "phrases",
+            6
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这里怎么连wifi？",
+            "native": "Comment se connecter au wifi ici ?",
+            "phon": "ouaï-faï dje li dzeunn me lyenn",
+            "readingPresent": true,
+            "reading": "zhè lǐ zěn me lián wifi?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1308,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "e80a8c1160b02bdc5076b82ce739c86d41f0d2524b860e5590d533bab59b719f"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1405",
+      "fields": {
+        "phon": {
+          "before": "ouo-meune keu-i ti-gong ang-pinn",
+          "after": "ouo-meune keu-i ti-gong yang-pinn",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 47,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            11
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我们可以提供样品",
+            "native": "nous pouvons fournir des échantillons",
+            "phon": "ouo-meune keu-i ti-gong ang-pinn",
+            "readingPresent": true,
+            "reading": "wǒmen kěyǐ tígōng yàngpǐn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1405,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "ab64feca4e8422cfaf9b387a09269c12c89e9c1f058b114d10c4cae7b59abf95"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1412",
+      "fields": {
+        "phon": {
+          "before": "me-nu in-glich yoou meï yoou",
+          "after": "yoou meï yoou in-glich me-nu",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 48,
+          "rules": [
+            "I"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            13
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "有没有english menu？",
+            "native": "Y a-t-il un menu en anglais ?",
+            "phon": "me-nu in-glich yoou meï yoou",
+            "readingPresent": true,
+            "reading": "yǒu méi yǒu english menu?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1412,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "9fd45d207f13edeff237293a1d0f588de6845159a158e3d30a36414fd268c111"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1450",
+      "fields": {
+        "phon": {
+          "before": "sé-eu neung ti gong jeunn djeung ma?",
+          "after": "neung ti gong sé-eu jeunn djeung ma?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 49,
+          "rules": [
+            "I"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            103
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "能提供CE认证吗？",
+            "native": "Pouvez-vous fournir la certification CE ?",
+            "phon": "sé-eu neung ti gong jeunn djeung ma?",
+            "readingPresent": true,
+            "reading": "néng tí gōng CE rèn zhèng ma?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1450,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "8a3345d0a746d6bc5a651100fc19f751648f82c1d7fdfe3aff1595843159626d"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1456",
+      "fields": {
+        "phon": {
+          "before": "tching bang ouo tchu-er-eune i-chya",
+          "after": "tching bang ouo tchué-jeune i-chya",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 50,
+          "rules": [
+            "G"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            0,
+            "phrases",
+            9
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "请帮我确认一下",
+            "native": "aide-moi à confirmer s'il te plaît",
+            "phon": "tching bang ouo tchu-er-eune i-chya",
+            "readingPresent": true,
+            "reading": "qǐng bāng wǒ quèrèn yíxià",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1456,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "1d90de5deab6501167e2359516ccad04e08701b0c0b85246b4731e2fdad963f9"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1474",
+      "fields": {
+        "phon": {
+          "before": "tching-chu bounn-eung djr-peï ni deu dju-eu-ding",
+          "after": "tching-chu bou-neung djr-peï ni deu dju-eu-ding",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 51,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            111
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "情绪不能支配你的决定",
+            "native": "les émotions ne doivent pas dicter tes décisions",
+            "phon": "tching-chu bounn-eung djr-peï ni deu dju-eu-ding",
+            "readingPresent": true,
+            "reading": "qíngxù bùnéng zhīpèi nǐ de juédìng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1474,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "fc448c0a2d9ba977f4f6964fcb3b9d3c3c21dc0873f9f739359c2f5e1b1f4cc6"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3994",
+      "fields": {
+        "phon": {
+          "before": "peï ang",
+          "after": "peï yang",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 52,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            14,
+            "phrases",
+            28
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "培养",
+            "native": "former",
+            "phon": "peï ang",
+            "readingPresent": true,
+            "reading": "péi yǎng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3994,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "538fe02c417cb7608a9466fdf7838a18e5c4d5a4ba7abbbcac8957303353348a"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4054",
+      "fields": {
+        "phon": {
+          "before": "chinn ouang-ong heune kouaï jong-jou leu touann-douèï",
+          "after": "chinn uèn-gong heune kouaï jong-jou leu touann-douèï",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 53,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            121
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "新员工很快融入了团队",
+            "native": "le nouvel employé s'est vite intégré à l'équipe",
+            "phon": "chinn ouang-ong heune kouaï jong-jou leu touann-douèï",
+            "readingPresent": true,
+            "reading": "xīn yuángōng hěn kuài róngrù le tuánduì",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4054,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "2c526fcf8476675b346af595a78133e544e1267c99fc290953bbc762648aa608"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4086",
+      "fields": {
+        "phon": {
+          "before": "bang ang",
+          "after": "bang yang",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 54,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            13,
+            "phrases",
+            77
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "榜样",
+            "native": "exemple à suivre",
+            "phon": "bang ang",
+            "readingPresent": true,
+            "reading": "bǎng yàng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4086,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "8d9a38a71de224546202f4e07c6115ee5458a85b9658f67810003fa924f3bc9e"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4194",
+      "fields": {
+        "phon": {
+          "before": "djeu ang chouang fang dou heu chr",
+          "after": "djeu yang chouang fang dou heu chr",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 55,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            10,
+            "phrases",
+            5
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这样双方都合适",
+            "native": "comme ça ça arrange les deux",
+            "phon": "djeu ang chouang fang dou heu chr",
+            "readingPresent": true,
+            "reading": "zhè yàng shuāng fāng dōu hé shì",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4194,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "e1905f6eac623d39db7772cc77ed7d44f62f7cb14ada752a89f652aa74816f21"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1608",
+      "fields": {
+        "phon": {
+          "before": "tchyèn mo ouann dji haï djyèn djinn jeune er dong chi nann beï feung",
+          "after": "tchyèn mo ouann dji haï djyèn djing jeune er dong chi nann beï feung",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 56,
+          "rules": [
+            "J"
+          ]
+        },
+        "reading": {
+          "before": "qiān mó wàn jī hái jiān jìn rèn ěr dōng xī nán běi fēng",
+          "after": "qiān mó wàn jī hái jiān jìng rèn ěr dōng xī nán běi fēng",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-lectures.json",
+          "evidenceIndex": 3
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "location": [
+            "reserve",
+            1
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "千磨万击还坚劲任尔东西南北风",
+            "native": "inébranlable face à mille épreuves",
+            "phon": "tchyèn mo ouann dji haï djyèn djinn jeune er dong chi nann beï feung",
+            "readingPresent": true,
+            "reading": "qiān mó wàn jī hái jiān jìn rèn ěr dōng xī nán běi fēng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1608,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "e9b7ab935236228fc390b9d5996f09ac17fb7ec8447beaa83cf9719593f74a6e"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1680",
+      "fields": {
+        "phon": {
+          "before": "yoou cheunn me beunn di jeunn tsaï djeu dao de hao tchu tchou?",
+          "after": "yoou cheunn me dang di jeunn tsaï djeu dao de hao tchu tchou?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 57,
+          "rules": [
+            "J"
+          ]
+        },
+        "reading": {
+          "before": "yǒu shén me běn dì rén cái zhī dào de hǎo qù chù?",
+          "after": "yǒu shén me dāng dì rén cái zhī dào de hǎo qù chù?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-lectures.json",
+          "evidenceIndex": 1
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            91
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "有什么当地人才知道的好去处？",
+            "native": "Des coins secrets connus des locaux ?",
+            "phon": "yoou cheunn me beunn di jeunn tsaï djeu dao de hao tchu tchou?",
+            "readingPresent": true,
+            "reading": "yǒu shén me běn dì rén cái zhī dào de hǎo qù chù?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1680,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "cf8902563b78a0d61449108ae6abaa2392611c0c9b09d359f7b5094c1b55b1d2"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1695",
+      "fields": {
+        "phon": {
+          "before": "ta inn-dao ouo-meune tsang-ouann gong-tchang",
+          "after": "ta inn-dao ouo-meune tsann-gouann gong-tchang",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 58,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            26
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "他引导我们参观工厂",
+            "native": "il nous a guidés lors de la visite de l'usine",
+            "phon": "ta inn-dao ouo-meune tsang-ouann gong-tchang",
+            "readingPresent": true,
+            "reading": "tā yǐndǎo wǒmen cānguān gōngchǎng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1695,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "78e075152ce5e1fc0d0f43ae5ad835a1146c44dc9ed34f93df5313af2c099cd0"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1728",
+      "fields": {
+        "phon": {
+          "before": "djeu houo-dong chr ouèï-leu hong-ang tchouann-tong ounn-houa",
+          "after": "djeu houo-dong chr ouèï-leu hong-yang tchouann-tong ounn-houa",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 59,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            112
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这活动是为了弘扬传统文化",
+            "native": "cet événement vise à promouvoir la culture traditionnelle",
+            "phon": "djeu houo-dong chr ouèï-leu hong-ang tchouann-tong ounn-houa",
+            "readingPresent": true,
+            "reading": "zhè huódòng shì wèile hóngyáng chuántǒng wénhuà",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1728,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "a7810d6ef92270e0bcc19417047f134b0c4f18d0ad24ab09d6837b2a56f08f3d"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2554",
+      "fields": {
+        "phon": {
+          "before": "gang-a",
+          "after": "gann-ga",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 60,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "location": [
+            "themes",
+            14,
+            "phrases",
+            9
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "尴尬",
+            "native": "gêné / embarrassant",
+            "phon": "gang-a",
+            "readingPresent": true,
+            "reading": "gāngà",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2554,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "137057dfc502efff2ea70f4fee78652ab19a3f76328cab58a1206df108f66994"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+          "location": [
+            "phrases",
+            124
+          ],
+          "profile": "transport-phrase",
+          "expectedBefore": {
+            "study": "尴尬",
+            "native": "gêné / embarrassant",
+            "phon": "gang-a",
+            "readingPresent": true,
+            "reading": "gāngà",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2554,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "137057dfc502efff2ea70f4fee78652ab19a3f76328cab58a1206df108f66994"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2558",
+      "fields": {
+        "phon": {
+          "before": "kann-dao djeu-ang ouo heune chinn-teung",
+          "after": "kann-dao djeu-yang ouo heune chinn-teung",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 61,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            16
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "看到这样我很心疼",
+            "native": "ça me fait mal au cœur de voir ça",
+            "phon": "kann-dao djeu-ang ouo heune chinn-teung",
+            "readingPresent": true,
+            "reading": "kàndào zhèyàng wǒ hěn xīnténg",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2558,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "1fbafa18875d292d3f28b9bf092550f0369029a7e918535bb21c6b723ea36f2c"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2560",
+      "fields": {
+        "phon": {
+          "before": "ounn-aï",
+          "after": "ou-naï",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 62,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "location": [
+            "themes",
+            14,
+            "phrases",
+            14
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "无奈",
+            "native": "impuissant / sans choix",
+            "phon": "ounn-aï",
+            "readingPresent": true,
+            "reading": "wúnài",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2560,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "91d6486bc75e3424e8267695f3656d59dc237716ce6548dbfebac8b2295edcc1"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+          "location": [
+            "phrases",
+            129
+          ],
+          "profile": "transport-phrase",
+          "expectedBefore": {
+            "study": "无奈",
+            "native": "impuissant / sans choix",
+            "phon": "ounn-aï",
+            "readingPresent": true,
+            "reading": "wúnài",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2560,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "91d6486bc75e3424e8267695f3656d59dc237716ce6548dbfebac8b2295edcc1"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4239",
+      "fields": {
+        "phon": {
+          "before": "ang pinn mann i djyo chya dann",
+          "after": "yang pinn mann i djyo chya dann",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 63,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            51
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "样品满意就下单",
+            "native": "si l'échantillon convient, on commande",
+            "phon": "ang pinn mann i djyo chya dann",
+            "readingPresent": true,
+            "reading": "yàng pǐn mǎn yì jiù xià dān",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4239,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "b7c8899af37d26fda8c4b8190acf6216a3ca5b5a5817a03c1c6e2dd59032dbda"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1860",
+      "fields": {
+        "phon": {
+          "before": "ouo-meune yao djyang-ou djr-lyang heu tcheung-beune",
+          "after": "ouo-meune yao djyèn-gou djr-lyang heu tcheung-beune",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 64,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            13
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我们要兼顾质量和成本",
+            "native": "nous devons concilier qualité et coût",
+            "phon": "ouo-meune yao djyang-ou djr-lyang heu tcheung-beune",
+            "readingPresent": true,
+            "reading": "wǒmen yào jiāngù zhìliàng hé chéngběn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1860,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "45b2e60d771d769dec913f6b8e2fd0e9b9d1fc004a867c9a5138bbe9e2b713f7"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1866",
+      "fields": {
+        "phon": {
+          "before": "a-bé-sé ouo cheu gong sseu de tsaï goou.",
+          "after": "ouo cheu a-bé-sé gong sseu de tsaï goou.",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 65,
+          "rules": [
+            "I"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            64
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我是ABC公司的采购。",
+            "native": "Je suis l'acheteur de la société ABC.",
+            "phon": "a-bé-sé ouo cheu gong sseu de tsaï goou.",
+            "readingPresent": true,
+            "reading": "wǒ shì ABC gōng sī de cǎi gòu.",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1866,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "9b6300d44a7dbe4b3944f6b08c351dedd337c32b3f22c8b2a5c42b835a8a7a18"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1898",
+      "fields": {
+        "phon": {
+          "before": "ouo-meune yao fa-ang djeu-gueu tchouann-tong",
+          "after": "ouo-meune yao fa-yang djeu-gueu tchouann-tong",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 66,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            76
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我们要发扬这个传统",
+            "native": "nous devons perpétuer cette tradition",
+            "phon": "ouo-meune yao fa-ang djeu-gueu tchouann-tong",
+            "readingPresent": true,
+            "reading": "wǒmen yào fāyáng zhège chuántǒng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1898,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "002f4793caeedc6e56d46fa3d118f94d7de3dac2fc2b2f37a546acb81ab3ae22"
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "corrected-by-Claude-g-devant-e-i",
+            "phoneticCorrectionPresent": true,
+            "phoneticCorrection": {
+              "id": "catalogue:zh:1898",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+              "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+              "beforePhon": "ouo-meune yao fa-ang djeu-geu tchouann-tong",
+              "originalReviewStatusPresent": false,
+              "originalReviewStatus": null,
+              "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+              "rule": "B"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4283",
+      "fields": {
+        "phon": {
+          "before": "ang tchang bi douann",
+          "after": "yang tchang bi douann",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 67,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            14,
+            "phrases",
+            2
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "扬长避短",
+            "native": "jouer sur ses atouts",
+            "phon": "ang tchang bi douann",
+            "readingPresent": true,
+            "reading": "yáng cháng bì duǎn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4283,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "cf6e3c5c8c0a3b7e45fc7b3e052fc1f64965619eb3266f563d08aa82531748f3"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4298",
+      "fields": {
+        "phon": {
+          "before": "djyo ang",
+          "after": "djyo yang",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 68,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            27
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "久仰",
+            "native": "j'ai beaucoup entendu parler de vous",
+            "phon": "djyo ang",
+            "readingPresent": true,
+            "reading": "jiǔ yǎng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4298,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "66b4abc3b6b88ac52f541fc98e0aa45af09edda6d0942bcf0b9808fb438b6f93"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4321",
+      "fields": {
+        "phon": {
+          "before": "ouang ang bou lao",
+          "after": "ouang yang bou lao",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 69,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            12,
+            "phrases",
+            4
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "亡羊补牢",
+            "native": "mieux vaut tard que jamais",
+            "phon": "ouang ang bou lao",
+            "readingPresent": true,
+            "reading": "wáng yáng bǔ láo",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4321,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "946363d114d78681f718cc4f937d2358e5dd82b0b227a5b5140309b0b69130db"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4409",
+      "fields": {
+        "phon": {
+          "before": "ang feung inn ouèï",
+          "after": "yang feung inn ouèï",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 70,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            13,
+            "phrases",
+            55
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "阳奉阴违",
+            "native": "faire semblant d'obéir",
+            "phon": "ang feung inn ouèï",
+            "readingPresent": true,
+            "reading": "yáng fèng yīn wéi",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4409,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "d92f31ce8bff25f7f82eb6fb26b29bb6a5e2e1348272c45c077a3d2ec129bae4"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4812",
+      "fields": {
+        "phon": {
+          "before": "da-houo djr-lyang yao heu chyao-ang i-ang",
+          "after": "da-houo djr-lyang yao heu chyao-yang i-ang",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 71,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            46
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "大货质量要和小样一样",
+            "native": "la qualité du grand lot doit être identique.",
+            "phon": "da-houo djr-lyang yao heu chyao-ang i-ang",
+            "readingPresent": true,
+            "reading": "dàhuò zhìliàng yào hé xiǎoyàng yíyàng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4812,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "cf31de1377122824359f4050f8758fc56843f829550199be1a351080601dee1c"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1997",
+      "fields": {
+        "phon": {
+          "before": "o-eu-èm ouo meunn chyang dzouo tyé paï.",
+          "after": "ouo meunn chyang dzouo o-eu-èm tyé paï.",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 72,
+          "rules": [
+            "I"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我们想做OEM贴牌。",
+            "native": "Nous voulons faire du OEM en marque blanche.",
+            "phon": "o-eu-èm ouo meunn chyang dzouo tyé paï.",
+            "readingPresent": true,
+            "reading": "wǒ men xiǎng zuò OEM tiē pái.",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1997,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "dc3feaafbb2f39782f01b669ccfade6aae043dcd81ead43a6b8461b4052e8631"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2018",
+      "fields": {
+        "phon": {
+          "before": "beunn-laï keunn-eung gueung tsao",
+          "after": "beunn-laï keu-neung gueung tsao",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 73,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            12
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "本来可能更糟。",
+            "native": "Ça aurait pu être pire.",
+            "phon": "beunn-laï keunn-eung gueung tsao",
+            "readingPresent": true,
+            "reading": "běnlái kěnéng gèng zāo",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2018,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "a3288f9f392b644e7f818976df38b0ff267613e5e770958af0cff2ee0f284477"
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "corrected-by-Claude-g-devant-e-i",
+            "phoneticCorrectionPresent": true,
+            "phoneticCorrection": {
+              "id": "catalogue:zh:2018",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+              "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+              "beforePhon": "beunn-laï keunn-eung geung tsao",
+              "originalReviewStatusPresent": false,
+              "originalReviewStatus": null,
+              "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+              "rule": "B"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2698",
+      "fields": {
+        "phon": {
+          "before": "nann-yé deu-dang",
+          "after": "na-nyé deu-dang",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 74,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            26
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "拿捏得当",
+            "native": "doser avec justesse",
+            "phon": "nann-yé deu-dang",
+            "readingPresent": true,
+            "reading": "nániē dédàng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2698,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "2a30e51dd774444f357f659497a9d9205028ee908a696c9211284be85b12e978"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4604",
+      "fields": {
+        "phon": {
+          "before": "douo ang",
+          "after": "douo yang",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 75,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+          "location": [
+            "themes",
+            10,
+            "phrases",
+            26
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "多样",
+            "native": "varié",
+            "phon": "douo ang",
+            "readingPresent": true,
+            "reading": "duō yàng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4604,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "65a576d7405b12ade13a75f9e264346be3a071709def0e4af64d97dd0964a81d"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+          "location": [
+            "phrases",
+            445
+          ],
+          "profile": "transport-phrase",
+          "expectedBefore": {
+            "study": "多样",
+            "native": "varié",
+            "phon": "douo ang",
+            "readingPresent": true,
+            "reading": "duō yàng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4604,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "65a576d7405b12ade13a75f9e264346be3a071709def0e4af64d97dd0964a81d"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4653",
+      "fields": {
+        "phon": {
+          "before": "douo ang ching",
+          "after": "douo yang ching",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 76,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            90
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "多样性",
+            "native": "diversité",
+            "phon": "douo ang ching",
+            "readingPresent": true,
+            "reading": "duō yàng xìng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4653,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "153bd369a666c54fe21cc82d4cd6771b59f36b9192745669ec7b34694f959ab5"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2074",
+      "fields": {
+        "phon": {
+          "before": "sé-i-èf èf-o-bé djyao houo fang cheu cheu haï cheu",
+          "after": "djyao houo fang cheu cheu èf-o-bé haï cheu sé-i-èf",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 77,
+          "rules": [
+            "I"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            2
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "交货方式是FOB还是CIF？",
+            "native": "La livraison est en FOB ou CIF ?",
+            "phon": "sé-i-èf èf-o-bé djyao houo fang cheu cheu haï cheu",
+            "readingPresent": true,
+            "reading": "jiāo huò fāng shì shì FOB hái shì CIF?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2074,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "620c24c0916a7aad08c5c693b8cedea8e85b5791228d70a44a2108e34538993c"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2077",
+      "fields": {
+        "phon": {
+          "before": "lo-go bao djouang chang neung inn ouo meunn de ma?",
+          "after": "bao djouang chang neung inn ouo meunn de lo-go ma?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 78,
+          "rules": [
+            "I"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "包装上能印我们的logo吗？",
+            "native": "Notre logo peut-il figurer sur l'emballage ?",
+            "phon": "lo-go bao djouang chang neung inn ouo meunn de ma?",
+            "readingPresent": true,
+            "reading": "bāo zhuāng shàng néng yìn wǒ men de logo ma?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2077,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "260bda4277b33843fb4e1a53611e0b056b937f316c5bcb86e808c3bc97baa780"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2116",
+      "fields": {
+        "phon": {
+          "before": "tching djinn-kouaï gouèï-houann ang-pinn",
+          "after": "tching djinn-kouaï gouèï-houann yang-pinn",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 79,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            16
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "请尽快归还样品",
+            "native": "merci de restituer l'échantillon rapidement",
+            "phon": "tching djinn-kouaï gouèï-houann ang-pinn",
+            "readingPresent": true,
+            "reading": "qǐng jǐnkuài guīhuán yàngpǐn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2116,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "064c926d596ef25268bd30ecd2a90136b634764765ffef1ca19a1a53e8587ab0"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2126",
+      "fields": {
+        "phon": {
+          "before": "bao-djya hang-aï unn-feï ma?",
+          "after": "bao-djya hann-gaï unn-feï ma?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 80,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            20
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "报价涵盖运费吗？",
+            "native": "le devis couvre-t-il les frais de port ?",
+            "phon": "bao-djya hang-aï unn-feï ma?",
+            "readingPresent": true,
+            "reading": "bàojià hángài yùnfèi ma?",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2126,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "d220de7bc3c23042586fd2ecda6e5dc360b2fa2263d1c530fdd58a76dae4c3b9"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2143",
+      "fields": {
+        "phon": {
+          "before": "da-houo tchyèn bi-chu chyèn tchu-er-eune ang-pinn",
+          "after": "da-houo tchyèn bi-chu chyèn tchué-jeune yang-pinn",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 81,
+          "rules": [
+            "G",
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            27
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "大货前必须先确认样品",
+            "native": "il faut valider l'échantillon avant le grand lot.",
+            "phon": "da-houo tchyèn bi-chu chyèn tchu-er-eune ang-pinn",
+            "readingPresent": true,
+            "reading": "dàhuò qián bìxū xiān quèrèn yàngpǐn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2143,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "bbd20d5deb7b7cd8d09d5db4592af1d026b7d7ad099ae3bc45279498270ee489"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2145",
+      "fields": {
+        "phon": {
+          "before": "ouo-meune bounn-eung taï i-laï i gueu gong-ing-chang",
+          "after": "ouo-meune bou-neung taï i-laï i gueu gong-ing-chang",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 82,
+          "rules": [
+            "F"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            28
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我们不能太依赖一个供应商",
+            "native": "nous ne pouvons pas trop dépendre d'un seul fournisseur",
+            "phon": "ouo-meune bounn-eung taï i-laï i gueu gong-ing-chang",
+            "readingPresent": true,
+            "reading": "wǒmen bùnéng tài yīlài yí ge gōngyìngshāng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2145,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "08569ae45381e7e0ecf3f0a8e08634b4424fd407f7ac5a3641955e0ddde87d5f"
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "corrected-by-Claude-g-devant-e-i",
+            "phoneticCorrectionPresent": true,
+            "phoneticCorrection": {
+              "id": "catalogue:zh:2145",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+              "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+              "beforePhon": "ouo-meune bounn-eung taï i-laï i geu gong-ing-chang",
+              "originalReviewStatusPresent": false,
+              "originalReviewStatus": null,
+              "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+              "rule": "B"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2155",
+      "fields": {
+        "phon": {
+          "before": "ouo-meune yao djyé-ding dzer-eune fann-ouèï",
+          "after": "ouo-meune yao djyé-ding dzeu-jeune fann-ouèï",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 83,
+          "rules": [
+            "G"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "location": [
+            "themes",
+            6,
+            "phrases",
+            24
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "我们要界定责任范围",
+            "native": "nous devons définir le champ des responsabilités",
+            "phon": "ouo-meune yao djyé-ding dzer-eune fann-ouèï",
+            "readingPresent": true,
+            "reading": "wǒmen yào jièdìng zérèn fànwéi",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2155,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "df768e3794a0ac8b0bfe03472106f7c687c6fb4f22a3b97c46c26f3381792263"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2164",
+      "fields": {
+        "phon": {
+          "before": "djeu-gueu djr-ouèï fou-u ta gueung douo dzer-eune",
+          "after": "djeu-gueu djr-ouèï fou-u ta gueung douo dzeu-jeune",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 84,
+          "rules": [
+            "G"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            36
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "这个职位赋予他更多责任",
+            "native": "ce poste lui confère plus de responsabilités",
+            "phon": "djeu-gueu djr-ouèï fou-u ta gueung douo dzer-eune",
+            "readingPresent": true,
+            "reading": "zhège zhíwèi fùyǔ tā gèng duō zérèn",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2164,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "b57d7812af6a61848c725eb4842520171eb623a4c214092d182f2ec3c8498f11"
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "corrected-by-Claude-g-devant-e-i",
+            "phoneticCorrectionPresent": true,
+            "phoneticCorrection": {
+              "id": "catalogue:zh:2164",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+              "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+              "beforePhon": "djeu-geu djr-ouèï fou-u ta geung douo dzer-eune",
+              "originalReviewStatusPresent": false,
+              "originalReviewStatus": null,
+              "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+              "rule": "B"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2743",
+      "fields": {
+        "phon": {
+          "before": "djyo ang da ming",
+          "after": "djyo yang da ming",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 85,
+          "rules": [
+            "E"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "location": [
+            "themes",
+            6,
+            "phrases",
+            41
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "久仰大名",
+            "native": "je vous admire depuis longtemps",
+            "phon": "djyo ang da ming",
+            "readingPresent": true,
+            "reading": "jiǔ yǎng dà míng",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2743,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "8565bc8e7a45f2e46ca07267cc2349205ab48ad4b6afcee6a89d9f24f13b0904"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4810",
+      "fields": {
+        "phon": {
+          "before": "djunn dzeu dji meï chr er ming bou tcheung yèn",
+          "after": "djunn dzeu dji mo chr er ming bou tcheung yèn",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 86,
+          "rules": [
+            "J"
+          ]
+        },
+        "reading": {
+          "before": "jūn zǐ jí méi shì ér míng bù chēng yān",
+          "after": "jūn zǐ jí mò shì ér míng bù chēng yān",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-lectures.json",
+          "evidenceIndex": 2
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "location": [
+            "themes",
+            6,
+            "phrases",
+            87
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "君子疾没世而名不称焉",
+            "native": "le sage craint de mourir sans laisser un nom digne",
+            "phon": "djunn dzeu dji meï chr er ming bou tcheung yèn",
+            "readingPresent": true,
+            "reading": "jūn zǐ jí méi shì ér míng bù chēng yān",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4810,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "abfc997c363fcb75a292e2c2035f144344ecf1a788159b7888b9f40a611cf87e"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "heard-conversation:fr-zh-piste-sport-habitudes-received-01",
+      "fields": {
+        "phon": {
+          "before": "ni ting-tchang yun-tong ma ?",
+          "after": "ni djing-tchang yun-tong ma ?",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 87,
+          "rules": [
+            "H"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+          "location": [
+            "receivedModels",
+            35
+          ],
+          "profile": "received-model",
+          "expectedBefore": {
+            "study": "你经常运动吗？",
+            "native": "Tu fais souvent du sport ?",
+            "phon": "ni ting-tchang yun-tong ma ?",
+            "readingPresent": true,
+            "reading": "nǐ jīngcháng yùndòng ma?",
+            "source": {
+              "collection": "situation-received-conversation",
+              "kind": "conversation-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-zh.json",
+              "ledgerFileSha256": "07b5c5822a81920048e4ab0b4fd7755a647566acd21a36c9374804b8b7d93be0",
+              "itemId": "fr-zh-piste-sport-habitudes-received-01",
+              "sourceSha256": "0c908160644346a0ba758af4d226f4e9f39c14db589f1086f3189756a2a0e32c",
+              "ledgerItemSha256": "6d025ebddb38cab1f6685eb8a3fa46969e4eda00c960c712301f88ad6366f4e1",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              },
+              "provenance": {
+                "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-zh/L4-fr-zh.json",
+                "jsonPointer": "/dialogues/2/turns/2",
+                "fileSha256": "4afac71b61e6b2ea190bb3eccc0d09f0b367a83cbd3eb68e78233ef0c0b8dfe0",
+                "entrySha256": "0c908160644346a0ba758af4d226f4e9f39c14db589f1086f3189756a2a0e32c",
+                "sourceLevel": 4,
+                "originalRole": "rôle du tour entier consulté",
+                "originalDialogueId": "L4-fr-zh-d3"
+              },
+              "sourceLevel": 4
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "existing-verbatim",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "heard-authored:situation-zh-fr-piste-gouts-activites-received-01",
+      "fields": {
+        "phon": {
+          "before": "蒂 埃姆 普吕托 莱 扎克蒂维泰 卡勒姆",
+          "after": "蒂 埃姆 普吕托 雷 扎克蒂维泰 卡勒姆",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 88,
+          "rules": [
+            "C"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/zh-fr.json",
+          "location": [
+            "receivedModels",
+            16
+          ],
+          "profile": "received-model",
+          "expectedBefore": {
+            "study": "Tu aimes plutôt les activités calmes ?",
+            "native": "你更喜欢安静的活动吗？",
+            "phon": "蒂 埃姆 普吕托 莱 扎克蒂维泰 卡勒姆",
+            "readingPresent": false,
+            "reading": null,
+            "source": {
+              "collection": "situation-received-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-zh-fr.json",
+              "ledgerFileSha256": "16b316ded3597ccf4981b39a917dfa4123048907aa8e324232e3887471645c81",
+              "itemId": "situation-zh-fr-piste-gouts-activites-received-01",
+              "sourceSha256": "f2c554daabbe37a5a27d92ad32f5ff38cc6566bfedcdd96ff762bb6e7cd1171c",
+              "ledgerItemSha256": "f2c554daabbe37a5a27d92ad32f5ff38cc6566bfedcdd96ff762bb6e7cd1171c",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "pending-Claude",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "heard-authored:situation-zh-fr-piste-repondre-objection-received-03",
+      "fields": {
+        "phon": {
+          "before": "热 孔普朗 米厄 沃特尔 波齐西翁，孔帕龙 莱 德 福尔马",
+          "after": "热 孔普朗 米厄 沃特尔 波齐西翁，孔帕龙 雷 德 福尔马",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-phonetique.json",
+          "evidenceIndex": 89,
+          "rules": [
+            "C"
+          ]
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/zh-fr.json",
+          "location": [
+            "receivedModels",
+            28
+          ],
+          "profile": "received-model",
+          "expectedBefore": {
+            "study": "Je comprends mieux votre position, comparons les deux formats.",
+            "native": "我更理解您的立场了，让我们比较一下这两种形式。",
+            "phon": "热 孔普朗 米厄 沃特尔 波齐西翁，孔帕龙 莱 德 福尔马",
+            "readingPresent": false,
+            "reading": null,
+            "source": {
+              "collection": "situation-received-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-zh-fr.json",
+              "ledgerFileSha256": "16b316ded3597ccf4981b39a917dfa4123048907aa8e324232e3887471645c81",
+              "itemId": "situation-zh-fr-piste-repondre-objection-received-03",
+              "sourceSha256": "6a92b5fd151bac6568a69e1986c8c06405f0d4bd8c6430e4f0930ba7fc45f9cd",
+              "ledgerItemSha256": "6a92b5fd151bac6568a69e1986c8c06405f0d4bd8c6430e4f0930ba7fc45f9cd",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "pending-Claude",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1323",
+      "fields": {
+        "reading": {
+          "before": "shì zhě rú sī fū bù shě zhòu yè",
+          "after": "shì zhě rú sī fú bù shě zhòu yè",
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/evidence-registre-lectures.json",
+          "evidenceIndex": 4
+        }
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            10
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "逝者如斯夫不舍昼夜",
+            "native": "le temps s'écoule ainsi, sans jamais s'arrêter",
+            "phon": "chr djeu jou seu fou bou cheu djou yé",
+            "readingPresent": true,
+            "reading": "shì zhě rú sī fū bù shě zhòu yè",
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1323,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "9ca18c48c1e169a28194478822b55b3e54f5adbc45b38bf42859f6fb3e346281"
+            },
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null
+          }
+        }
+      ]
+    }
+  ]
+}

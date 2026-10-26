@@ -1,0 +1,436 @@
+{
+  "schemaVersion": 1,
+  "baseSnapshotCommit": "161d0ebef38bb38ea9e26a836ca701b9d136f6d2",
+  "evidenceCommit": "87357b16c7d77a1c94fdbd940dcb3f232758748d",
+  "scope": "18 aides et 5 lectures ciblées ; classification des conventions ; aucune écoute native",
+  "evidenceSha256": {
+    "registre-phonetique.json": "4c5861f15f7c77b4107c70ba3a7a2106065874ed42147f1bf428cc97e5230239",
+    "registre-lectures.json": "d250e9fbd5b2d5d6b27eb9469c7563fac20d6cbc12f410b28cf172b9d24f89de",
+    "conventions-a-decider.json": "74c40c97582c8bb55bdfe0d20af897aa946571f5f015709f60eef6f4c05b7d9f"
+  },
+  "runtimeChecked": true,
+  "beforeMismatches": 0,
+  "afterMismatches": 0,
+  "phoneticEventCount": 18,
+  "readingEventCount": 5,
+  "phoneticRuleCounts": {
+    "R": 12,
+    "S": 6
+  },
+  "targetObjects": 18,
+  "canonicalObjects": 17,
+  "receivedObjects": 1,
+  "transportCopies": 0,
+  "priorEventChains": [
+    "catalogue:ko:3980"
+  ],
+  "conventions": {
+    "rows": 260,
+    "distinctIds": 259,
+    "bySourceGroup": {
+      "aspiration (h, ph, kh, th)": 13,
+      "autres aides à confirmer": 10,
+      "batchim écrit selon l’orthographe (liaison, palatalisation, ㅊ final, groupes doubles)": 115,
+      "consonnes ㅈ/ㅉ/ㅊ, surtout dans les cartes de situation": 66,
+      "nasalisation et assimilations non rendues": 53,
+      "의 et 희": 3
+    },
+    "byReaderCertainty": {
+      "incertain": 228,
+      "certain": 32
+    },
+    "byField": {
+      "phon": 259,
+      "reading": 1
+    },
+    "byStage": {
+      "snapshot-161d0eb": 260
+    },
+    "overlapWithAppliedPhoneticEvents": 0,
+    "applied": false
+  },
+  "events": [
+    {
+      "id": "conversation:L1-fr-ko.json:L1-fr-ko-01:v1",
+      "study": "저는 프랑스 사람이에요.",
+      "beforePhon": "djeo-neun peu-rang-seu sa-ram-i-é-yo",
+      "afterPhon": "djo-neun peu-rang-seu sa-ram-i-é-yo",
+      "beforeReading": "jeoneun peurangseu saram-ieyo.",
+      "afterReading": "jeoneun peurangseu saram-ieyo.",
+      "readingChanged": false,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L1.json",
+          "location": [
+            "themes",
+            0,
+            "phrases",
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conversation:L1-fr-ko.json:L1-fr-ko-09:v0",
+      "study": "커피 하나 주세요.",
+      "beforePhon": "keo-pi ha-na djou-sé-yo",
+      "afterPhon": "ko-pi ha-na djou-sé-yo",
+      "beforeReading": "keopi hana juseyo.",
+      "afterReading": "keopi hana juseyo.",
+      "readingChanged": false,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L1.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:2075",
+      "study": "어차피 기다릴 거면 앉아요.",
+      "beforePhon": "o-tcha-pi gui-da-ril go-myon anj-a-yo",
+      "afterPhon": "o-tcha-pi gui-da-ril go-myon an-dja-yo",
+      "beforeReading": "eo-cha-pi gi-da-ril geo-myeon anj-a-yo",
+      "afterReading": "eo-cha-pi gi-da-ril geo-myeon anj-a-yo",
+      "readingChanged": false,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L10.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "situation-authored:fr-ko:numerique-quotidien-01",
+      "study": "휴대폰을 충전해야 해요.",
+      "beforePhon": "hyu-dè-po-neul tchoung-djon-hè-ya hè-yo",
+      "afterPhon": "hyou-dè-po-neul tchoung-djon-hè-ya hè-yo",
+      "beforeReading": "Hyudaeponeul chungjeonhaeya haeyo.",
+      "afterReading": "Hyudaeponeul chungjeonhaeya haeyo.",
+      "readingChanged": false,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json",
+          "location": [
+            "themes",
+            11,
+            "phrases",
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:313",
+      "study": "앉아도 돼요?",
+      "beforePhon": "anj-a-do douè-yo",
+      "afterPhon": "an-dja-do douè-yo",
+      "beforeReading": "anj-a-do dwae-yo",
+      "afterReading": "anj-a-do dwae-yo",
+      "readingChanged": false,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "situation-authored:fr-ko:piste-recuperer-compte-06",
+      "study": "휴대폰에서 링크를 열 수 있어요.",
+      "beforePhon": "hyu-dè-po-né-so ling-keu-reul yol ssou i-sso-yo",
+      "afterPhon": "hyou-dè-po-né-so ling-keu-reul yol ssou i-sso-yo",
+      "beforeReading": "Hyudaeponeseo ringkeureul yeol su isseoyo.",
+      "afterReading": "Hyudaeponeseo ringkeureul yeol su isseoyo.",
+      "readingChanged": false,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json",
+          "location": [
+            "themes",
+            13,
+            "phrases",
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:2712",
+      "study": "앉아요.",
+      "beforePhon": "anj-a-yo",
+      "afterPhon": "an-dja-yo",
+      "beforeReading": "anj-a-yo",
+      "afterReading": "anj-a-yo",
+      "readingChanged": false,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+          "location": [
+            "themes",
+            6,
+            "phrases",
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:822",
+      "study": "밖에 앉아도 돼요?",
+      "beforePhon": "bakk-é anj-a-do douè-yo",
+      "afterPhon": "bakk-é an-dja-do douè-yo",
+      "beforeReading": "bakk-e anj-a-do dwae-yo",
+      "afterReading": "bakk-e anj-a-do dwae-yo",
+      "readingChanged": false,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            105
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:3766",
+      "study": "닭을 구웠어요.",
+      "beforePhon": "dak-eul gou-ouo-sso-yo",
+      "afterPhon": "dal-gueul gou-ouo-sso-yo",
+      "beforeReading": "dak-eul gu-wo-sseo-yo",
+      "afterReading": "dalg-eul gu-wo-sseo-yo",
+      "readingChanged": true,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            37
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:3980",
+      "study": "닭을 튀겼어요.",
+      "beforePhon": "dak-eul toui-guyo-sso-yo",
+      "afterPhon": "dal-gueul toui-guyo-sso-yo",
+      "beforeReading": "dak-eul twi-gyeo-sseo-yo",
+      "afterReading": "dalg-eul twi-gyeo-sseo-yo",
+      "readingChanged": true,
+      "priorCorrectionPreserved": true,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            39
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:4341",
+      "study": "무슨 소재예요? ABS예요?",
+      "beforePhon": "mou-seun so-djè-yé-yo é-i-bi-ét-yé-yo",
+      "afterPhon": "mou-seun so-djè-yé-yo é-i-bi-é-seu-yé-yo",
+      "beforeReading": "mu-seun so-jae-ye-yo e-i-bi-es-ye-yo",
+      "afterReading": "mu-seun so-jae-ye-yo e-i-bi-e-seu-ye-yo",
+      "readingChanged": true,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "situation-authored:fr-ko:piste-incident-objet-07",
+      "study": "네, 제 휴대폰 맞아요.",
+      "beforePhon": "né, djé hyu-dè-phon ma-dja-yo",
+      "afterPhon": "né, djé hyou-dè-phon ma-dja-yo",
+      "beforeReading": "Ne, je hyudaepon majayo.",
+      "afterReading": "Ne, je hyudaepon majayo.",
+      "readingChanged": false,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+          "location": [
+            "themes",
+            12,
+            "phrases",
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:4391",
+      "study": "QR 코드를 스캔해요.",
+      "beforePhon": "kyou-a-reul ko-deu-reul seu-kèn-hè-yo",
+      "afterPhon": "kyou-al ko-deu-reul seu-kèn-hè-yo",
+      "beforeReading": "kyu-a-reul ko-deu-reul seu-kaen-hae-yo",
+      "afterReading": "kyu-al ko-deu-reul seu-kaen-hae-yo",
+      "readingChanged": true,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            211
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:4271",
+      "study": "ASTM 기준에 맞아요?",
+      "beforePhon": "é-i-ét-ti-ém gui-djoun-é mat-a-yo",
+      "afterPhon": "é-i-é-seu-ti-ém gui-djoun-é mat-a-yo",
+      "beforeReading": "e-i-es-ti-em gi-jun-e maj-a-yo",
+      "afterReading": "e-i-es-ti-em gi-jun-e maj-a-yo",
+      "readingChanged": false,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            155
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1474",
+      "study": "테라스에 앉을 수 있어요?",
+      "beforePhon": "té-ra-seu-é anj-eul sou i-sso-yo",
+      "afterPhon": "té-ra-seu-é an-djeul sou i-sso-yo",
+      "beforeReading": "te-ra-seu-e anj-eul su i-sseo-yo",
+      "afterReading": "te-ra-seu-e anj-eul su i-sseo-yo",
+      "readingChanged": false,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            28
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1968",
+      "study": "자, 앉으세요.",
+      "beforePhon": "dja anj-eu-sé-yo",
+      "afterPhon": "dja an-djeu-sé-yo",
+      "beforeReading": "ja anj-eu-se-yo",
+      "afterReading": "ja anj-eu-se-yo",
+      "readingChanged": false,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L9.json",
+          "location": [
+            "themes",
+            0,
+            "phrases",
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:4125",
+      "study": "닭이 구워지고 있어요.",
+      "beforePhon": "dak-i gou-ouo-dji-go i-sso-yo",
+      "afterPhon": "dal-gui gou-ouo-dji-go i-sso-yo",
+      "beforeReading": "dak-i gu-wo-ji-go i-sseo-yo",
+      "afterReading": "dalg-i gu-wo-ji-go i-sseo-yo",
+      "readingChanged": true,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L9.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heard-authored:fr-ko:piste-incident-objet-received-01",
+      "study": "이게 본인 휴대폰이에요?",
+      "beforePhon": "i-gué po-nin hyu-dè-pho-ni-é-yo",
+      "afterPhon": "i-gué po-nin hyou-dè-pho-ni-é-yo",
+      "beforeReading": "Ige bonin hyudaeponieyo?",
+      "afterReading": "Ige bonin hyudaeponieyo?",
+      "readingChanged": false,
+      "priorCorrectionPreserved": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-ko.json",
+          "location": [
+            "receivedModels",
+            15
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Les décisions phonologiques générales restent à Kartech ; aucune convention n'est adoptée ici.",
+    "Les aides après sont des chaînes entières figées, pas les résultats d'un remplacement générique.",
+    "La contrelecture est ciblée ; elle ne répète pas la lecture individuelle des 4 770 positions de Claude.",
+    "Ni voix native, ni sortie audio réelle, ni navigateur hébergé ne sont évalués par ce script."
+  ]
+}

@@ -1,0 +1,675 @@
+{
+  "version": 1,
+  "status": "structural-audit-complete-content-proposals-separated-not-applied",
+  "structuralAudit": {
+    "referenceCommit": "3df885df8db00f0bdc2a703b92bd17801accabce",
+    "evidenceCommit": "d06a62ea36120ffd73b8059645848c13bd4f172d",
+    "evidenceSha256": {
+      "couverture.json": "097a573a3655e22b9002b26113e2623ca070206030b8e4d48489b6c8a3c44a29",
+      "registre-phonetique.json": "09e470b8fba9004b62bcb9fbc5fe036dbda2d91c68868b178f9ba810a06ea9ba",
+      "registre-lectures.json": "c029d571a59303733d5bfa85fec59b94f0b989eb24a4d3c490a4a9fe50fd4ea8",
+      "lot-contenu-gloses.json": "4e3851a7a3e7651534047b8d6ecbb6dd2260d6168dd5108e863b8b7a87da0302",
+      "propositions-niveaux-themes.json": "4e44a564c728973da30c5d7115bd59f5599db81c1669aaa960212c493658a459",
+      "conventions-a-decider.json": "55ae40f5f0d32c8ca141ca18a1b63b440a3d2d17aad2f4f086f10b77f2adfa73"
+    },
+    "snapshotSha256": {
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L1.json": "ef7c4880540ca82ab1474362db558882bea32cfa5122089d05a6e519894bd58d",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L2.json": "375f450a46d2fd3758f5994c36e2edc76611d609d06e08afbe243c2ac0ddd397",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json": "5eafb6122f570f25b482b02cc5e8e46af5241e300f7a57bea435653096355500",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json": "96ad2bfa72ef72e7edefbf2992799ddb0316ed8502dce7e2e359f9555d1b0118",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json": "49835dd5445adc8570adc50e0aca204636a2c9b852f573778e5c1faa5d0d8253",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json": "847546f96a8445218ac760797fc001d85f7c98a2fbfa4cd6a777272c57684590",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json": "3a966b19ea150fd48b5f151c3eb5b3bf5910f661ef5ef5bedc12f18e9716192b",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json": "0e515a5345b5f39e72ffe8a371ea4202072b6a2e114d115b56d2d515b231a9d0",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json": "02113e969beb1327a9d9d627440a10224f7dc6b8014849e586c6113d58e10872",
+      "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json": "5dffcec03f6117afa7c776a2875d2652d6329ce97732a7d09112c292f35dcc8b",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json": "88934e99b0d8bf4765ea10902c883ecf01533da2cdf21726ec7acb017998a65f",
+      "melunga_deploy/content/niveaux-progressifs/repertoires/zh-fr.json": "1831ff0bcc1381d49cac191c975230ec2f09dff50856070d5e37e27150963eb6"
+    },
+    "scope": {
+      "canonicalL3L10": 4181,
+      "receivedModelsFrZh": 36,
+      "announced4217MeansPositions": 4217,
+      "distinctIdsInDeclaredCoreScope": 4215,
+      "canonicalReceivedCoreOverlaps": [
+        "catalogue:zh:2414",
+        "catalogue:zh:3907"
+      ],
+      "coverageRows": 4228,
+      "coverageDistinctIds": 4226,
+      "coverageDeclaredTotal": 4228,
+      "coverageExtraIds": [
+        {
+          "id": "catalogue:zh:110",
+          "level": 2
+        },
+        {
+          "id": "catalogue:zh:143",
+          "level": 2
+        },
+        {
+          "id": "catalogue:zh:22",
+          "level": 2
+        },
+        {
+          "id": "catalogue:zh:2270",
+          "level": 2
+        },
+        {
+          "id": "catalogue:zh:251",
+          "level": 2
+        },
+        {
+          "id": "catalogue:zh:3111",
+          "level": 1
+        },
+        {
+          "id": "catalogue:zh:3154",
+          "level": 2
+        },
+        {
+          "id": "catalogue:zh:3155",
+          "level": 2
+        },
+        {
+          "id": "catalogue:zh:52",
+          "level": 2
+        },
+        {
+          "id": "heard-authored:situation-zh-fr-piste-gouts-activites-received-01",
+          "level": null
+        },
+        {
+          "id": "heard-authored:situation-zh-fr-piste-repondre-objection-received-03",
+          "level": null
+        }
+      ],
+      "missingCoreIds": [],
+      "duplicatedCoverageIds": [
+        {
+          "id": "catalogue:zh:3907",
+          "count": 2,
+          "rows": [
+            {
+              "id": "catalogue:zh:3907",
+              "chunk": "fr-zh-L5-part1",
+              "status": "proposition"
+            },
+            {
+              "id": "catalogue:zh:3907",
+              "chunk": "fr-zh-recus",
+              "status": "proposition"
+            }
+          ],
+          "statusesAgree": true
+        },
+        {
+          "id": "catalogue:zh:2414",
+          "count": 2,
+          "rows": [
+            {
+              "id": "catalogue:zh:2414",
+              "chunk": "fr-zh-L5-part2",
+              "status": "verifie"
+            },
+            {
+              "id": "catalogue:zh:2414",
+              "chunk": "fr-zh-recus",
+              "status": "verifie"
+            }
+          ],
+          "statusesAgree": true
+        }
+      ],
+      "actualStatusCounts": {
+        "verifie": 3664,
+        "proposition": 332,
+        "glose-a-corriger": 25,
+        "incertain": 116,
+        "corrige": 91
+      },
+      "declaredStatusCountsMatch": true,
+      "statusMembershipErrors": [],
+      "followUpNotInThisCoverage": [
+        "catalogue:zh:2818"
+      ],
+      "eachRoleHasOneRow": true
+    },
+    "separateContent": {
+      "glossEvents": 101,
+      "glossDistinctIds": 99,
+      "certainGlossEvents": 27,
+      "certainGlossDistinctIds": 26,
+      "certainFields": {
+        "native": 26,
+        "study": 1
+      },
+      "uncertainGlossEvents": 74,
+      "proposalRows": 340,
+      "proposalDistinctIds": 340,
+      "proposalKinds": {
+        "level": 78,
+        "theme": 261,
+        "duplicate": 1
+      },
+      "themeTargetsExistAndTitleMatchesAtCurrentLevel": 180,
+      "contextualThemeRowsWithoutDestination": 81,
+      "contextualThemeIds": [
+        "catalogue:zh:704",
+        "catalogue:zh:721",
+        "catalogue:zh:777",
+        "catalogue:zh:835",
+        "catalogue:zh:840",
+        "catalogue:zh:842",
+        "catalogue:zh:846",
+        "catalogue:zh:847",
+        "catalogue:zh:848",
+        "catalogue:zh:849",
+        "catalogue:zh:895",
+        "catalogue:zh:896",
+        "catalogue:zh:768",
+        "catalogue:zh:824",
+        "catalogue:zh:620",
+        "catalogue:zh:739",
+        "catalogue:zh:748",
+        "catalogue:zh:810",
+        "catalogue:zh:615",
+        "catalogue:zh:626",
+        "catalogue:zh:3642",
+        "catalogue:zh:656",
+        "catalogue:zh:710",
+        "catalogue:zh:806",
+        "catalogue:zh:813",
+        "catalogue:zh:814",
+        "catalogue:zh:815",
+        "catalogue:zh:816",
+        "catalogue:zh:817",
+        "catalogue:zh:820",
+        "catalogue:zh:821",
+        "catalogue:zh:868",
+        "catalogue:zh:869",
+        "catalogue:zh:870",
+        "catalogue:zh:872",
+        "catalogue:zh:873",
+        "catalogue:zh:874",
+        "catalogue:zh:880",
+        "catalogue:zh:885",
+        "catalogue:zh:887",
+        "catalogue:zh:888",
+        "catalogue:zh:890",
+        "catalogue:zh:2002",
+        "catalogue:zh:2017",
+        "catalogue:zh:4874",
+        "catalogue:zh:4878",
+        "catalogue:zh:4880",
+        "catalogue:zh:610",
+        "catalogue:zh:786",
+        "catalogue:zh:1743",
+        "catalogue:zh:4895",
+        "catalogue:zh:1118",
+        "catalogue:zh:1012",
+        "catalogue:zh:1255",
+        "catalogue:zh:1346",
+        "catalogue:zh:1436",
+        "catalogue:zh:1511",
+        "catalogue:zh:1551",
+        "catalogue:zh:1718",
+        "catalogue:zh:1612",
+        "catalogue:zh:1942",
+        "catalogue:zh:1989",
+        "catalogue:zh:2001",
+        "catalogue:zh:2008",
+        "catalogue:zh:2012",
+        "catalogue:zh:2024",
+        "catalogue:zh:2035",
+        "catalogue:zh:1996",
+        "catalogue:zh:1997",
+        "catalogue:zh:1998",
+        "catalogue:zh:1999",
+        "catalogue:zh:2004",
+        "catalogue:zh:2015",
+        "catalogue:zh:2019",
+        "catalogue:zh:2029",
+        "catalogue:zh:2032",
+        "catalogue:zh:2036",
+        "catalogue:zh:2037",
+        "catalogue:zh:2039",
+        "catalogue:zh:2040",
+        "catalogue:zh:2047"
+      ],
+      "themeDestinationErrors": [],
+      "conventionRows": 58,
+      "conventionDistinctIds": 57,
+      "conventionFields": {
+        "phon": 50,
+        "reading": 8
+      },
+      "beforeOrSnapshotErrors": []
+    },
+    "doesNotVerifyNativePronunciation": true,
+    "doesNotProveIndividualReadingByCounting": true,
+    "productMutated": false
+  },
+  "certainContentReview": {
+    "declaredCertainEvents": 27,
+    "distinctIds": 26,
+    "dispositions": {
+      "adjust-native-after": 3,
+      "ready-native-only": 21,
+      "coupled-study-reading-phon-review": 2,
+      "native-after-valid-reason-needs-fix": 1
+    },
+    "nativeAfterValuesAcceptable": 22,
+    "nativeAfterValuesNeedAdjustment": 3,
+    "coupledStudyNativeEvents": 2,
+    "coupledStudyNativeIds": 1,
+    "items": [
+      {
+        "id": "catalogue:zh:2165",
+        "level": 10,
+        "field": "native",
+        "certainty": "certain",
+        "study": "退一步说，就算贵一点也值得",
+        "before": "pour le dire autrement, même un peu plus cher ça vaut le coup",
+        "after": "au pire, même un peu plus cher, ça vaut le coup",
+        "reason": "退一步说 signifie « en concédant / même en admettant le moins favorable », pas « pour le dire autrement ».",
+        "codexReviewDisposition": "adjust-native-after",
+        "codexReviewReason": "La concession de 退一步说 ne signifie pas en général un scénario défavorable. « Au pire » est trop restrictif.",
+        "suggestedAfter": "même en admettant que ce soit un peu plus cher, ça vaut le coup",
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:4796",
+        "level": 10,
+        "field": "native",
+        "certainty": "certain",
+        "study": "三十而立四十而不惑",
+        "before": "à trente ans, être établi ; à quarante, sans doute",
+        "after": "à trente ans, être établi ; à quarante, ne plus avoir de doutes",
+        "reason": "« sans doute » signifie « probablement » en français : contresens sur 不惑 (ne plus être dans le doute).",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "不惑 signifie ne plus être dans le doute/confusion ; l’après évite « sans doute » compris comme probablement.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:602",
+        "level": 3,
+        "field": "native",
+        "certainty": "certain",
+        "study": "我上传了照片",
+        "before": "j'ai téléchargé les photos",
+        "after": "j'ai mis en ligne les photos",
+        "reason": "上传 = envoyer vers un serveur (upload) ; « télécharger » se comprend d'abord comme récupérer (下载).",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "上传 est l’envoi vers un service distant ; mettre en ligne convient sans nécessairement rendre public.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:2317",
+        "level": 3,
+        "field": "native",
+        "certainty": "certain",
+        "study": "应该",
+        "before": "devoir (should)",
+        "after": "devoir (conseil)",
+        "reason": "Anglicisme : la glose française contient le mot anglais « should ».",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "Conseil convient au sens ciblé par should ; 应该 possède aussi des emplois d’attente/probabilité non couverts ici.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:2318",
+        "level": 3,
+        "field": "native",
+        "certainty": "certain",
+        "study": "得",
+        "before": "devoir (must)",
+        "after": "devoir (obligation)",
+        "reason": "Anglicisme : la glose française contient le mot anglais « must ».",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "Obligation correspond à děi, déjà sélectionné par la glose must ; ne pas généraliser aux autres lectures de 得.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:666",
+        "level": 4,
+        "field": "native",
+        "certainty": "certain",
+        "study": "一码归一码",
+        "before": "chaque chose en son temps",
+        "after": "une chose est une chose (ne mélangeons pas tout)",
+        "reason": "一码归一码 signifie qu’il faut traiter séparément des affaires distinctes, pas une notion de succession dans le temps : « chaque chose en son temps » est un faux sens.",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "Le temps du before est erroné. Ne mélangeons pas tout restitue la séparation des affaires ; la première parenthèse peut être allégée.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:880",
+        "level": 4,
+        "field": "native",
+        "certainty": "certain",
+        "study": "这个能退换吗？",
+        "before": "Puis-je échanger ou rembourser ça ?",
+        "after": "Puis-je le retourner ou l'échanger ?",
+        "reason": "退换 = rendre (retour) ou échanger l'article ; « rembourser ça » ferait du client celui qui rembourse (faux sens).",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "Retour/échange correct, sans faire du client celui qui rembourse.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:3452",
+        "level": 4,
+        "field": "native",
+        "certainty": "certain",
+        "study": "保质期",
+        "before": "date de péremption",
+        "after": "durée de conservation",
+        "reason": "保质期 désigne la période de garantie de qualité (durée de conservation), pas une date ; la date serait 到期日 / 保质期至.",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "Durée de conservation, non date précise.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:3433",
+        "level": 4,
+        "field": "native",
+        "certainty": "certain",
+        "study": "总监",
+        "before": "directeur général",
+        "after": "directeur (d'un département ou d'une fonction)",
+        "reason": "总监 désigne le directeur d'une fonction ou d'un département (销售总监 = directeur commercial) ; « directeur général » correspond à 总经理.",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "Directeur d’une fonction/département est adéquat au contexte courant ; les équivalences de titres d’entreprise ne sont pas universelles.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:845",
+        "level": 4,
+        "field": "native",
+        "certainty": "certain",
+        "study": "牵一发而动全身",
+        "before": "tout tient à un fil",
+        "after": "tout est lié : un détail peut tout ébranler",
+        "reason": "牵一发而动全身 = tirer un cheveu fait bouger tout le corps (un petit changement a des répercussions sur l'ensemble) ; « tout tient à un fil » exprime la précarité : contresens.",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "Le before de précarité est un contresens. L’après rend les répercussions, mais « ébranler » peut être remplacé par une formulation neutre si le contexte ne les juge pas négatives.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:898",
+        "level": 4,
+        "field": "native",
+        "certainty": "certain",
+        "study": "登高必自卑",
+        "before": "gravir haut part du bas",
+        "after": "pour monter haut, il faut partir d'en bas",
+        "reason": "Tournure agrammaticale en français ; le sens (登高必自卑) est conservé.",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "自卑 signifie ici un lieu bas, et non le sentiment de dévalorisation. L’après est français et fidèle.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:2452",
+        "level": 5,
+        "field": "native",
+        "certainty": "certain",
+        "study": "我很羡慕你",
+        "before": "je t'admire beaucoup",
+        "after": "je t'envie beaucoup",
+        "reason": "羡慕 = envier (sans malveillance), désirer ce qu'a l'autre ; « admirer » correspond à 钦佩/佩服.",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "Je t’envie restitue directement 羡慕 ; sans malveillance est une nuance habituelle, pas une garantie psychologique absolue.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:1110",
+        "level": 5,
+        "field": "native",
+        "certainty": "certain",
+        "study": "有增大一码的版本吗？",
+        "before": "y a-t-il une version demi-pointure au-dessus ?",
+        "after": "y a-t-il une version une taille au-dessus ?",
+        "reason": "一码 = une taille/pointure ; « demi » est ajouté, le chinois ne le dit pas.",
+        "codexReviewDisposition": "adjust-native-after",
+        "codexReviewReason": "Le retrait de demi est fondé (一码 = une taille/pointure), mais la formulation française est maladroite. Si le chinois 增大一码的版本 est aussi réécrit, il faudra une nouvelle lecture et une nouvelle aide entières.",
+        "suggestedAfter": "Existe-t-il une version dans la taille au-dessus ?",
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:1149",
+        "level": 5,
+        "field": "native",
+        "certainty": "certain",
+        "study": "这件事困扰了我一整天。",
+        "before": "Ça me travaille depuis ce matin.",
+        "after": "Ça m'a tracassé toute la journée.",
+        "reason": "一整天 = « toute la journée » ; « depuis ce matin » est un sens ajouté/déplacé.",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "一整天 est toute la journée, pas nécessairement depuis ce matin.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:3883",
+        "level": 5,
+        "field": "native",
+        "certainty": "certain",
+        "study": "垃圾",
+        "before": "poubelle (déchets)",
+        "after": "déchets, ordures",
+        "reason": "垃圾 désigne les ordures elles-mêmes, pas le récipient ; la poubelle est 垃圾桶 (carte suivante).",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "垃圾 désigne les déchets, pas leur récipient.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:3767",
+        "level": 5,
+        "field": "native",
+        "certainty": "certain",
+        "study": "退一步来说",
+        "before": "en y réfléchissant",
+        "after": "en admettant même que / au pis aller",
+        "reason": "退一步来说 introduit une concession (« même en faisant un pas en arrière, même en admettant cela »), pas l'idée de réfléchir.",
+        "codexReviewDisposition": "adjust-native-after",
+        "codexReviewReason": "Ni réflexion simple ni nécessairement pis aller : la locution introduit une concession.",
+        "suggestedAfter": "même en admettant que… / à supposer même que…",
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:2451",
+        "level": 5,
+        "field": "native",
+        "certainty": "certain",
+        "study": "无聊",
+        "before": "ennuyé",
+        "after": "qui s'ennuie / ennuyeux",
+        "reason": "En français « ennuyé » signifie surtout embarrassé ou contrarié ; 无聊 = s'ennuyer, ennuyeux.",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "Qui s’ennuie/ennuyeux lève l’ambiguïté française ennuyé = contrarié ou embarrassé.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:613",
+        "level": 6,
+        "field": "native",
+        "certainty": "certain",
+        "study": "我羡慕得不得了。",
+        "before": "J'étais fou de jalousie.",
+        "after": "Je l'envie terriblement.",
+        "reason": "羡慕 = envier (admiration, sans hostilité), pas la jalousie (嫉妒) ; le chinois n’impose pas non plus le passé.",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "L’après rend l’intensité et ne force pas le passé. Nuancer le motif : jalousie peut aussi se dire d’une envie sans hostilité en français.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:4141",
+        "level": 7,
+        "field": "native",
+        "certainty": "certain",
+        "study": "物超所值",
+        "before": "dépasse sa valeur",
+        "after": "vaut plus que son prix",
+        "reason": "物超所值 = la marchandise vaut plus que ce qu'on paie ; « dépasse sa valeur » peut se comprendre comme « trop cher », contresens.",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "La valeur reçue dépasse le prix payé, pas une idée de surfacturation.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:1774",
+        "level": 8,
+        "field": "native",
+        "certainty": "certain",
+        "study": "这家伙，嘴上从来不饶人！",
+        "before": "Toujours le mot pour rire, celui-là !",
+        "after": "Celui-là, il a toujours la langue bien acérée !",
+        "reason": "嘴上从来不饶人 = ne jamais épargner personne en paroles (langue acérée, répartie mordante), pas « avoir le mot pour rire ».",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "Parole mordante qui n’épargne pas l’interlocuteur, pas nécessairement humour aimable.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:1900",
+        "level": 8,
+        "field": "study",
+        "certainty": "certain",
+        "study": "过而不改是谓过矣是知也",
+        "before": "过而不改是谓过矣是知也",
+        "after": "过而不改是谓过矣",
+        "reason": "Citation composite : 过而不改，是谓过矣 (Entretiens XV.30) suivi de 是知也, qui appartient à l'autre citation 知之为知之…是知也 (II.17). Retirer 是知也 ; pinyin → « guò ér bù gǎi shì wèi guò yǐ », aide → « gouo er bou gaï chr ouèï gouo i ».",
+        "codexReviewDisposition": "coupled-study-reading-phon-review",
+        "codexReviewReason": "La suppression de 是知也 touche le texte étudié. Étude, lecture, aide entière et sens doivent être corrigés ensemble. La phonétique indiquée dans le reason du registre n’est pas une aide validée par ce raccord.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:1900",
+        "level": 8,
+        "field": "native",
+        "certainty": "certain",
+        "study": "过而不改是谓过矣是知也",
+        "before": "la vraie sagesse est d'admettre et corriger ses fautes",
+        "after": "commettre une faute sans la corriger, voilà la vraie faute",
+        "reason": "过而不改，是谓过矣 signifie « ne pas corriger sa faute, c'est cela la vraie faute » ; la glose actuelle vient du 是知也 parasite et change le sens.",
+        "codexReviewDisposition": "coupled-study-reading-phon-review",
+        "codexReviewReason": "L’après traduit la phrase après suppression de 是知也 ; il ne doit pas être appliqué seul à la cible actuellement plus longue.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:4378",
+        "level": 8,
+        "field": "native",
+        "certainty": "certain",
+        "study": "感谢贵方的理解与支持",
+        "before": "merci de votre compréhension et soutien",
+        "after": "merci de votre compréhension et de votre soutien",
+        "reason": "Faute de français : la préposition et le déterminant doivent être répétés devant le second complément coordonné (« et de votre soutien »).",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "Coordination française plus naturelle et soignée ; ne pas confondre cette retouche avec un contresens chinois.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:4812",
+        "level": 8,
+        "field": "native",
+        "certainty": "certain",
+        "study": "大货质量要和小样一样",
+        "before": "la qualité du grand lot doit être identique.",
+        "after": "la qualité du grand lot doit être identique à celle de l'échantillon.",
+        "reason": "La glose omet 和小样 (« à l'échantillon ») : « identique » reste sans terme de comparaison, le sens du chinois est tronqué.",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "Le terme de comparaison 小样 est rétabli. Lot de production serait plus idiomatique que grand lot, sans changement de cible.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:2660",
+        "level": 9,
+        "field": "native",
+        "certainty": "certain",
+        "study": "己所不欲，勿施于人",
+        "before": "ne fais pas à autrui ce que tu ne voudrais pas",
+        "after": "ne fais pas à autrui ce que tu ne voudrais pas qu'on te fasse",
+        "reason": "La glose est tronquée : il manque « qu'on te fasse » (勿施于人), d'où un sens incomplet.",
+        "codexReviewDisposition": "native-after-valid-reason-needs-fix",
+        "codexReviewReason": "L’après est correct ; le motif attribue à tort le manque à 勿施于人, déjà rendu par ne fais pas à autrui. C’est le rendu français de 己所不欲 qui doit être complété.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "catalogue:zh:4504",
+        "level": 9,
+        "field": "native",
+        "certainty": "certain",
+        "study": "知彼知己百战不殆",
+        "before": "se connaître et connaître l'autre",
+        "after": "qui connaît l'autre et se connaît soi-même ne sera jamais en péril, même en cent batailles",
+        "reason": "La glose ne rend que 知彼知己 et omet 百战不殆, qui est le cœur de la maxime. Elle est aussi identique à celle de 知己知彼 (catalogue:zh:2663).",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "L’après rétablit 百战不殆 : absence de péril, sans promesse de victoire. Adversaire serait plus précis que l’autre en contexte militaire.",
+        "suggestedAfter": null,
+        "applied": false
+      },
+      {
+        "id": "heard-authored:fr-zh:piste-reclamation-tact-received-01",
+        "level": null,
+        "field": "native",
+        "certainty": "certain",
+        "study": "只更换有问题的零件，您能接受吗？",
+        "before": "Un remplacement des pièces concernées vous conviendrait-il ?",
+        "after": "Un remplacement des seules pièces concernées vous conviendrait-il ?",
+        "reason": "La glose omet 只 (« seulement »), qui porte le sens de la proposition limitée dans une réclamation.",
+        "codexReviewDisposition": "ready-native-only",
+        "codexReviewReason": "Seules rétablit la restriction 只. Pièces présentant un problème serait plus explicite que pièces concernées, sans rendre ce dernier faux dans son contexte.",
+        "suggestedAfter": null,
+        "applied": false
+      }
+    ]
+  },
+  "proposalQualityExamples": [
+    {
+      "id": "catalogue:zh:2139",
+      "study": "如果明天天气好，我们就去公园。",
+      "proposed": "L10 → L2",
+      "review": "La condition 如果…就… est explicite. Son usage quotidien ne suffit pas à justifier L2 quand le cadre commun introduit une condition en L7. Décider la première rencontre exacte et sa préparation, pas le seul sujet du parc.",
+      "applied": false
+    },
+    {
+      "id": "catalogue:zh:1637",
+      "study": "——现在几点了？——三点半。",
+      "proposed": "L7 → L1",
+      "review": "Le thème est élémentaire, mais la carte contient deux rôles et une heure avec demi. L1 chinois ne présente que les nombres0–10, tandis que l’heure/quantité est un objectif L2. Ne pas déplacer la carte entière sans résoudre préparation et rôles.",
+      "applied": false
+    },
+    {
+      "id": "catalogue:zh:1535",
+      "study": "——你多大了？——我二十五。",
+      "proposed": "L7 → L1",
+      "review": "Demande d’âge simple, mais la réponse contient vingt-cinq, au-delà des nombres0–10 du lexiqueL1. L’intention ne suffit pas à fermer ce prérequis ni à faire produire deux personnes.",
+      "applied": false
+    }
+  ],
+  "limits": [
+    "This audit reconstructs coverage and exact sources; it does not independently repeat the full4217-position linguistic reading.",
+    "Native pronunciation, audio naturalness and classical quotation editions are not certified by this check.",
+    "No source, runtime, level, theme, price, access or phonetic was modified by these files."
+  ]
+}

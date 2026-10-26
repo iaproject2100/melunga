@@ -1,0 +1,2872 @@
+{
+  "version": 1,
+  "date": "2026-10-25",
+  "baseSnapshotCommit": "606592ccf11886810a6bb9fbabc56728cf5055c9",
+  "purpose": "Bounded semantic counter-review and exact-before audit of separately applied content corrections",
+  "sourceEvidence": [
+    {
+      "commit": "c849bf3d13d4141eae8b34f8cc5d3d43167bec60",
+      "gitPath": "docs/revue-integrale/lot3-fr-zh-L3-L10/lot-contenu-gloses.json",
+      "sha256": "b78984789b573c89d1cb0a755cc14a097a331927c3143b38fcbabaf4207a3367",
+      "selectedCertainNativeItems": 25,
+      "selectedAtomicBundles": 1
+    },
+    {
+      "commit": "7631c0fe64170f952e086487462e94c87bfb13e1",
+      "gitPath": "docs/revue-integrale/lot4-zh-fr-L1-L10/lot-contenu-gloses.json",
+      "sha256": "2a9fb36c77f2749d646faac352fe527d7c9df3d922b1e1c6baccca4d970f2ba6",
+      "selectedCertainNativeItems": 8,
+      "selectedAtomicBundles": 1
+    }
+  ],
+  "summary": {
+    "selectedSingleFieldEvents": 33,
+    "selectedAtomicBundleEvents": 2,
+    "distinctIds": 35,
+    "runtimeOccurrences": 36,
+    "occurrenceProfiles": {
+      "canonical": 34,
+      "transport-phrase": 1,
+      "received-model": 1
+    },
+    "approvedSourceFields": 40,
+    "actuallyChangedSourceFields": 39,
+    "approvedRuntimeFields": 41,
+    "actuallyChangedRuntimeFields": 40,
+    "exactBeforeDifferencesAgainst606592c": 0,
+    "intersectionsWith259PhoneticEvents": 0,
+    "rejectedFrozenAfterValues": 0,
+    "phoneticConventionChangesInvented": 0
+  },
+  "atomicBundles": {
+    "catalogue:zh:1900": {
+      "requiredFields": [
+        "study",
+        "reading",
+        "phon",
+        "native"
+      ],
+      "sourceCitation": "Entretiens XV.30 ; excroissance de la fin de II.17 retirée",
+      "pinyin": "guò ér bù gǎi shì wèi guò yǐ",
+      "phoneticAlignment": [
+        {
+          "study": "过",
+          "reading": "guò",
+          "phon": "gouo"
+        },
+        {
+          "study": "而",
+          "reading": "ér",
+          "phon": "er"
+        },
+        {
+          "study": "不",
+          "reading": "bù",
+          "phon": "bou"
+        },
+        {
+          "study": "改",
+          "reading": "gǎi",
+          "phon": "gaï"
+        },
+        {
+          "study": "是",
+          "reading": "shì",
+          "phon": "chr"
+        },
+        {
+          "study": "谓",
+          "reading": "wèi",
+          "phon": "ouèï"
+        },
+        {
+          "study": "过",
+          "reading": "guò",
+          "phon": "gouo"
+        },
+        {
+          "study": "矣",
+          "reading": "yǐ",
+          "phon": "i"
+        }
+      ]
+    },
+    "catalogue:fr:757": {
+      "requiredFields": [
+        "study",
+        "phon",
+        "native"
+      ],
+      "changedFields": [
+        "study",
+        "phon"
+      ],
+      "unchangedGuardFields": [
+        "native"
+      ],
+      "phoneticAlignment": [
+        {
+          "study": "Il",
+          "phon": "伊尔"
+        },
+        {
+          "study": "fait",
+          "phon": "费"
+        },
+        {
+          "study": "en",
+          "phon": "昂"
+        },
+        {
+          "study": "dessous",
+          "phon": "德苏"
+        },
+        {
+          "study": "de",
+          "phon": "德"
+        },
+        {
+          "study": "zéro",
+          "phon": "泽罗"
+        }
+      ],
+      "methodLimit": "Chinese characters approximate French sounds; alignment covers the entire final utterance without asserting exact IPA or native audio certification."
+    }
+  },
+  "priorAnnotationsToPreserve": [
+    "catalogue:zh:880",
+    "catalogue:zh:4812"
+  ],
+  "reviews": [
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2165",
+      "evidenceCollection": "items",
+      "evidenceIndex": 0,
+      "level": 10,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "pour le dire autrement, même un peu plus cher ça vaut le coup",
+          "after": "même en admettant que ce soit un peu plus cher, ça vaut le coup"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La formulation amendée conserve la concession. Elle ne réduit plus le raisonnement à un scénario défavorable (« au pire »).",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            3
+          ],
+          "profile": "canonical",
+          "themeTitle": "Échanger librement autour d’une table",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:2165",
+            "study": "退一步说，就算贵一点也值得",
+            "native": "pour le dire autrement, même un peu plus cher ça vaut le coup",
+            "phon": "touèï i bou chouo, djyo-souann gouèï i-dyèn yé djr-deu",
+            "reading": "tuì yí bù shuō, jiùsuàn guì yìdiǎn yě zhídé",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 10,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Le sens source exprime une affirmation, question, consigne ou réponse complète."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2165,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "6c4f5ffa35a4ff303024b150211b4128921dc6e283beb48fd756519cf4121d71"
+            },
+            "placement": {
+              "domain": "repas",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "repas",
+              "section": "situations",
+              "themeId": "L10-repas"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "a18bfcc9f734766dd0254f7d305a7b6e4123cee773648ba0b7e4225a2c7c41c2"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4796",
+      "evidenceCollection": "items",
+      "evidenceIndex": 6,
+      "level": 10,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "à trente ans, être établi ; à quarante, sans doute",
+          "after": "à trente ans, être établi ; à quarante, ne plus avoir de doutes"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "Ne plus avoir de doutes désambiguïse 不惑 ; le français « sans doute » peut être compris comme probablement. Ce n’est pas une promesse psychologique universelle à quarante ans.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L10.json",
+          "location": [
+            "reserve",
+            8
+          ],
+          "profile": "canonical",
+          "themeTitle": "RESERVE",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:4796",
+            "study": "三十而立四十而不惑",
+            "native": "à trente ans, être établi ; à quarante, sans doute",
+            "phon": "sann chr er li seu chr er bou houo",
+            "reading": "sān shí ér lì sì shí ér bú huò",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 10,
+            "sourceDeclaredTemplate": false,
+            "contentType": "review",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Frontière entre locution lexicale et énoncé non tranchée automatiquement ; aucune production imposée."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4796,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "b5196fd24ed7a514f458fff62c3d9d5a3fd1e42db5dcbfa3e36e9aea8c48a37f"
+            },
+            "placement": {
+              "domain": "reserve",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "section": "reserve",
+              "themeId": null
+            },
+            "reserveReason": "Frontière entre locution lexicale et énoncé non tranchée automatiquement ; aucune production imposée."
+          },
+          "expectedBeforeCanonicalSha256": "0c41af29dc806d8d3bed83b922b9a280d8606b05b501afa3010d9b126a927312"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:602",
+      "evidenceCollection": "items",
+      "evidenceIndex": 9,
+      "level": 3,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "j'ai téléchargé les photos",
+          "after": "j'ai mis en ligne les photos"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "Le sens est l’envoi de photos vers le serveur. Mis en ligne distingue l’action d’une récupération de fichiers.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            130
+          ],
+          "profile": "canonical",
+          "themeTitle": "Proposer et répondre",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:602",
+            "study": "我上传了照片",
+            "native": "j'ai téléchargé les photos",
+            "phon": "ouo chang-tchouann leu djao-pyèn",
+            "reading": "wǒ shàngchuán le zhàopiàn",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Énoncé avec participant et prédication ; la catégorie source n’est pas utilisée comme preuve."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 602,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "ff9b685caa3aa83dc7d77c26119e7d26f334098bb3520dff0cf8ddf9a283d109"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L3-conversation"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "7e6e812634ae076d862613d92e0c7c4b0a7331592ae6a379d4f7f5dc913a80b5"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2317",
+      "evidenceCollection": "items",
+      "evidenceIndex": 13,
+      "level": 3,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "devoir (should)",
+          "after": "devoir (conseil)"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La glose vise explicitement l’usage modal de conseil. Le remplacement de should par conseil ne prétend pas épuiser les usages épistémiques de 应该.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            18
+          ],
+          "profile": "canonical",
+          "themeTitle": "Actions et descriptions",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:2317",
+            "study": "应该",
+            "native": "devoir (should)",
+            "phon": "ing-gaï",
+            "reading": "yīnggāi",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "L’entrée est donnée comme verbe ou locution verbale à l’infinitif, sans acte de parole complet.",
+              "lexicalClassReason": "Verbe ou locution verbale chinoise dans le sens lexical source ; hors des trois classes grammaticales demandées.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2317,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "bc03f910b0e4434539242fa6ab69c6789599c2b5d22afc1707a0b8e9deac25db"
+            },
+            "placement": {
+              "domain": "vocab-actions",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "previous-domain-fallback-needs-review",
+              "themeId": "L3-vocab-actions"
+            },
+            "lexicalClass": "other"
+          },
+          "expectedBeforeCanonicalSha256": "a98b6e12405b4c4f9e9e8a4c07b43cc8edd3b90ee8f56baffd6f5b733a56deb7"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2318",
+      "evidenceCollection": "items",
+      "evidenceIndex": 14,
+      "level": 3,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "devoir (must)",
+          "after": "devoir (obligation)"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La lecture source est bien děi et l’aide deï. Le modal devoir/obligation est donc cohérent avec la lecture choisie ; ce n’est pas dé obtenir.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L3.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            19
+          ],
+          "profile": "canonical",
+          "themeTitle": "Actions et descriptions",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:2318",
+            "study": "得",
+            "native": "devoir (must)",
+            "phon": "deï",
+            "reading": "děi",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "得 est ici le modal děi (« devoir »), pas la particule de complément de degré.",
+              "lexicalClassReason": "Verbe ou locution verbale chinoise dans le sens lexical source ; hors des trois classes grammaticales demandées.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2318,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "3412c9ed43a8b6cd466157d8c049fcfe027585f4198781d08096516947c9b53f"
+            },
+            "placement": {
+              "domain": "vocab-actions",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "previous-domain-fallback-needs-review",
+              "themeId": "L3-vocab-actions"
+            },
+            "lexicalClass": "other"
+          },
+          "expectedBeforeCanonicalSha256": "11f313e91ee4e6f2fafb408f96a73020c13e0ceb985f3f6c1e1e12f01801fe2f"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:666",
+      "evidenceCollection": "items",
+      "evidenceIndex": 16,
+      "level": 4,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "chaque chose en son temps",
+          "after": "une chose est une chose (ne mélangeons pas tout)"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La formule demande de distinguer les affaires ou les questions. L’après lève le faux repère temporel du français initial.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            2
+          ],
+          "profile": "canonical",
+          "themeTitle": "Relier les étapes d’un récit",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:666",
+            "study": "一码归一码",
+            "native": "chaque chose en son temps",
+            "phon": "i ma gouèï i ma",
+            "reading": "yì mǎ guī yì mǎ",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "La forme chinoise et son sens ont été lus comme énoncé, consigne ou réplique complets, sans ajout de contexte lexical."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 666,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "f78157b66a5abb88e4979ee010081472063037e4110dfed7e4d08b8de00c68e7"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "section": "situations",
+              "themeId": "L4-reperes"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "58c93bf95b3cd080ca3fa66c3ef75efb9428184e485424f806cb6fc7f12044a5"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:880",
+      "evidenceCollection": "items",
+      "evidenceIndex": 23,
+      "level": 4,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "Puis-je échanger ou rembourser ça ?",
+          "after": "Puis-je le retourner ou l'échanger ?"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "Le retour ou l’échange de la marchandise est rétabli. Le remboursement éventuel n’est pas l’acte directement demandé par 退换.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            120
+          ],
+          "profile": "canonical",
+          "themeTitle": "Partager une expérience",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:880",
+            "study": "这个能退换吗？",
+            "native": "Puis-je échanger ou rembourser ça ?",
+            "phon": "dje gue neung toueï houann ma?",
+            "reading": "zhè ge néng tuì huàn ma?",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question entière ou question elliptique contextualisable, conservée sans découpage."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 880,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "03bccc1a35c65132b9ffeda49c8c88438d008f0b7f5567697de0a888f8ed304f"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L4-conversation"
+            },
+            "phoneticReviewStatus": "corrected-by-Claude-g-devant-e-i",
+            "phoneticCorrection": {
+              "id": "catalogue:zh:880",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+              "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+              "beforePhon": "dje ge neung toueï houann ma?",
+              "originalReviewStatusPresent": false,
+              "originalReviewStatus": null,
+              "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+              "rule": "B"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "f479b692c7274116b8b486ae150e7243d2230010720e8b0cc84efdba36507a73"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3452",
+      "evidenceCollection": "items",
+      "evidenceIndex": 24,
+      "level": 4,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "date de péremption",
+          "after": "durée de conservation"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "Une durée de conservation ne doit pas être présentée comme une date précise de péremption. Le sens lexical reste ciblé.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            18,
+            "phrases",
+            4
+          ],
+          "profile": "canonical",
+          "themeTitle": "Temps et repères",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:3452",
+            "study": "保质期",
+            "native": "date de péremption",
+            "phon": "bao djr tchi",
+            "reading": "bǎo zhì qī",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Mot ou locution courte dans le sens donné, sans indice de tour de parole autonome.",
+              "lexicalClassReason": "Entrée lexicale hors des inventaires explicites d’adjectifs, prépositions et adverbes ; proposition nominale, verbale ou idiomatique à confirmer lors de la revue sémantique.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3452,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "44a795ce7082997765df165e150448e352b923fbae68a5cfd7bacf236d3545c9"
+            },
+            "placement": {
+              "domain": "vocab-reperes",
+              "classification": "source-business",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "travail",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "source-semantic-signal-candidate",
+              "themeId": "L4-vocab-reperes"
+            },
+            "lexicalClass": "other"
+          },
+          "expectedBeforeCanonicalSha256": "0d61b9630617d9d12b3140ce64f6300524eac2bf87bb12f0e558e58f80543217"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3433",
+      "evidenceCollection": "items",
+      "evidenceIndex": 29,
+      "level": 4,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "directeur général",
+          "after": "directeur (d'un département ou d'une fonction)"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La fonction de directeur d’un domaine est mieux rendue. Le titre exact dépend de l’organisation ; 总监 ne suffit pas à imposer directeur général de toute l’entreprise.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            57
+          ],
+          "profile": "canonical",
+          "themeTitle": "Travail et démarches",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:3433",
+            "study": "总监",
+            "native": "directeur général",
+            "phon": "dzong djyèn",
+            "reading": "zǒng jiān",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Mot ou locution courte dans le sens donné, sans indice de tour de parole autonome.",
+              "lexicalClassReason": "Entrée lexicale hors des inventaires explicites d’adjectifs, prépositions et adverbes ; proposition nominale, verbale ou idiomatique à confirmer lors de la revue sémantique.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3433,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "911baacc1311afb7173b1798fc521553170814e22bcdbea4804b088542ef99a1"
+            },
+            "placement": {
+              "domain": "vocab-travail",
+              "classification": "source-business",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "travail",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "previous-domain-fallback-needs-review",
+              "themeId": "L4-vocab-travail"
+            },
+            "lexicalClass": "other"
+          },
+          "expectedBeforeCanonicalSha256": "38909d331d904e8873058c203e298e9370774d82586beac094ed9fb0184be1e4"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:845",
+      "evidenceCollection": "items",
+      "evidenceIndex": 33,
+      "level": 4,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "tout tient à un fil",
+          "after": "tout est lié : un détail peut tout ébranler"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La conséquence d’un changement local sur l’ensemble est rétablie, sans la remplacer par la seule précarité de tout tenir à un fil.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "reserve",
+            5
+          ],
+          "profile": "canonical",
+          "themeTitle": "RESERVE",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:845",
+            "study": "牵一发而动全身",
+            "native": "tout tient à un fil",
+            "phon": "tchyèn i fa er dong tchuèn cheune",
+            "reading": "qiān yí fà ér dòng quán shēn",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "review",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Frontière entre locution lexicale et énoncé non tranchée automatiquement ; aucune production imposée."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 845,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "dd0848428aa517a480893e1e3013e63f6d4207065f2403e1cc3984747652e5a7"
+            },
+            "placement": {
+              "domain": "reserve",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "reserve",
+              "themeId": null
+            },
+            "reserveReason": "Frontière entre locution lexicale et énoncé non tranchée automatiquement ; aucune production imposée."
+          },
+          "expectedBeforeCanonicalSha256": "46523f5ba0959b9bb362c60bc3d5187df0a845107cdaeb62556d4c6cb17874c0"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:898",
+      "evidenceCollection": "items",
+      "evidenceIndex": 35,
+      "level": 4,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "gravir haut part du bas",
+          "after": "pour monter haut, il faut partir d'en bas"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La phrase française redevient naturelle tout en conservant l’idée de partir du bas pour monter haut.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L4.json",
+          "location": [
+            "reserve",
+            6
+          ],
+          "profile": "canonical",
+          "themeTitle": "RESERVE",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:898",
+            "study": "登高必自卑",
+            "native": "gravir haut part du bas",
+            "phon": "deung gao bi dzeu beï",
+            "reading": "dēng gāo bì zì bēi",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "review",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Frontière entre locution lexicale et énoncé non tranchée automatiquement ; aucune production imposée."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 898,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "f6fd68e109dd89b7c6a717fd5afd1d4538de000ee37c8726a97d975d9b1f609f"
+            },
+            "placement": {
+              "domain": "reserve",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "reserve",
+              "themeId": null
+            },
+            "reserveReason": "Frontière entre locution lexicale et énoncé non tranchée automatiquement ; aucune production imposée."
+          },
+          "expectedBeforeCanonicalSha256": "18d4c5c02a173a6a3b168820507326dbf99a3e86023c2df8b0d6d3cf3cb9bcc6"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2452",
+      "evidenceCollection": "items",
+      "evidenceIndex": 36,
+      "level": 5,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "je t'admire beaucoup",
+          "after": "je t'envie beaucoup"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "Envier rend le souhait d’avoir la situation ou l’avantage de l’autre. Cela ne doit pas devenir une règle disant que 羡慕 et admiration sont toujours émotionnellement opposés.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            6
+          ],
+          "profile": "canonical",
+          "themeTitle": "Choisir une solution adaptée",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:2452",
+            "study": "我很羡慕你",
+            "native": "je t'admire beaucoup",
+            "phon": "ouo heune chyèn-mou ni",
+            "reading": "wǒ hěn xiànmù nǐ",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Énoncé avec participant et prédication ; la catégorie source n’est pas utilisée comme preuve."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2452,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "5472544dbfdfba835065aa83bade212a1fa89dc7eef99c219d3a099e3950a4e6"
+            },
+            "placement": {
+              "domain": "decrire",
+              "classification": "description",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "decrire",
+              "section": "situations",
+              "themeId": "L5-decrire"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "5a608859b5f9b66edad30a9ed05daabee794a4411c5d76c7543b1b85f398601f"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1110",
+      "evidenceCollection": "items",
+      "evidenceIndex": 37,
+      "level": 5,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "y a-t-il une version demi-pointure au-dessus ?",
+          "after": "Existe-t-il une version dans la taille au-dessus ?"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La demi-pointure ajoutée par le français disparaît. La forme chinoise jugée peu naturelle reste inchangée ici ; sa réécriture est une proposition distincte.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            9
+          ],
+          "profile": "canonical",
+          "themeTitle": "Réservations et demandes pratiques",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:1110",
+            "study": "有增大一码的版本吗？",
+            "native": "y a-t-il une version demi-pointure au-dessus ?",
+            "phon": "yo dzeung-da i ma deu bann-beune ma?",
+            "reading": "yǒu zēngdà yì mǎ de bǎnběn ma?",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Question entière ou question elliptique contextualisable, conservée sans découpage."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1110,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "d963dab3ecb303ae87f2b87cc7cbd7f5cdfae48c0912a9f841fed3cf6fa6ba2a"
+            },
+            "placement": {
+              "domain": "repas",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "deplacements",
+              "situationClassification": "reviewed-source-situation-override",
+              "section": "situations",
+              "themeId": "L5-repas"
+            },
+            "situationDomainOverride": "repas",
+            "situationDomainOverrideReason": "Cuisine, menu, achat/retour de produit, taille ou monnaie effectivement visés ; la cible chinoise distingue notamment 钞票 (billet de banque) d’un titre de transport."
+          },
+          "expectedBeforeCanonicalSha256": "769d506856e01484cc5ed26aac38c97ea0ddff7563575b7f864701fc13aa6659"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1149",
+      "evidenceCollection": "items",
+      "evidenceIndex": 44,
+      "level": 5,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "Ça me travaille depuis ce matin.",
+          "after": "Ça m'a tracassé toute la journée."
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "Toute la journée est rendue explicitement. Depuis ce matin n’est pas imposé par 一整天.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            13
+          ],
+          "profile": "canonical",
+          "themeTitle": "Coordonner une tâche",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:1149",
+            "study": "这件事困扰了我一整天。",
+            "native": "Ça me travaille depuis ce matin.",
+            "phon": "dje djyenn cheu kouenn jao le ouo i djeung tyenn.",
+            "reading": "zhè jiàn shì kùn rǎo le wǒ yì zhěng tiān.",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Le sens source exprime une affirmation, question, consigne ou réponse complète."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1149,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "149027e7a8757ed2c8fef6c67eb8adc2c4369962b0aa4a276f3b5a72f4068a56"
+            },
+            "placement": {
+              "domain": "travail",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "travail",
+              "section": "situations",
+              "themeId": "L5-travail"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "99dc0ad353bd8073a73d9c81e09fc8749bc027cdbe1c5e5a53cf9844d7ed7225"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3883",
+      "evidenceCollection": "items",
+      "evidenceIndex": 45,
+      "level": 5,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "poubelle (déchets)",
+          "after": "déchets, ordures"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La matière jetée est distinguée du récipient 垃圾桶.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            14,
+            "phrases",
+            10
+          ],
+          "profile": "canonical",
+          "themeTitle": "Maison et mobilier",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:3883",
+            "study": "垃圾",
+            "native": "poubelle (déchets)",
+            "phon": "la dji",
+            "reading": "lā jī",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Mot ou locution courte dans le sens donné, sans indice de tour de parole autonome.",
+              "lexicalClassReason": "Entrée lexicale hors des inventaires explicites d’adjectifs, prépositions et adverbes ; proposition nominale, verbale ou idiomatique à confirmer lors de la revue sémantique.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3883,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "383c3aa41b2ca741703ec153021f656c3ee48aac09b695972b92de29aa810321"
+            },
+            "placement": {
+              "domain": "vocab-maison",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "reviewed-source-lexical-family-override",
+              "themeId": "L5-vocab-maison"
+            },
+            "lexicalClass": "other",
+            "lexicalFamilyOverride": "vocab-maison",
+            "lexicalFamilyOverrideReason": "Équipement, appareil ou élément matériel du logement/bâtiment explicitement désigné ; sens propre conservé."
+          },
+          "expectedBeforeCanonicalSha256": "f41fad39aaaae3bb84eeb293bc87107c4ee1153d49da612d0e2d215607606598"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:3767",
+      "evidenceCollection": "items",
+      "evidenceIndex": 46,
+      "level": 5,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "en y réfléchissant",
+          "after": "même en admettant que… / à supposer même que…"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La concession est rendue comme telle. L’après amendé ne force ni réflexion simple ni pis-aller.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            18,
+            "phrases",
+            34
+          ],
+          "profile": "canonical",
+          "themeTitle": "Actions et descriptions",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:3767",
+            "study": "退一步来说",
+            "native": "en y réfléchissant",
+            "phon": "touèï i bou laï chouo",
+            "reading": "tuì yí bù lái shuō",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "La source présente un mot, groupe nominal ou locution lexicale ; une traduction française développée n’en fait pas automatiquement une phrase chinoise.",
+              "lexicalClassReason": "Entrée lexicale hors des inventaires explicites d’adjectifs, prépositions et adverbes ; proposition nominale, verbale ou idiomatique à confirmer lors de la revue sémantique.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 3767,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "cc39692722857de07e90d9d7eda692fe8533ac04d1af7755808b8c0e843ea609"
+            },
+            "placement": {
+              "domain": "vocab-actions",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "previous-domain-fallback-needs-review",
+              "themeId": "L5-vocab-actions"
+            },
+            "lexicalClass": "other"
+          },
+          "expectedBeforeCanonicalSha256": "6958ca00420c2379d2d23585f7d3ca68e84aacfd3a399839f9dd52f2bfe5ec03"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2451",
+      "evidenceCollection": "items",
+      "evidenceIndex": 47,
+      "level": 5,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "ennuyé",
+          "after": "qui s'ennuie / ennuyeux"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La double entrée qui s’ennuie/ennuyeux lève l’ambiguïté du français ennuyé. La réalisation personnelle ou descriptive se choisit en contexte.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L5.json",
+          "location": [
+            "themes",
+            20,
+            "phrases",
+            14
+          ],
+          "profile": "canonical",
+          "themeTitle": "Adjectifs",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:2451",
+            "study": "无聊",
+            "native": "ennuyé",
+            "phon": "ou-lyao",
+            "reading": "wúliáo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Mot ou locution courte dans le sens donné, sans indice de tour de parole autonome.",
+              "lexicalClassReason": "Mot ou locution chinoise de propriété ou d’état dans le sens source ; aucune phrase prédicative complète n’est extraite.",
+              "lexicalClassStatus": "reviewed"
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2451,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "b6a0ee9f3be283e44b14e7454e04ecf28ab5af0dca039ee7c7e0bd34ce99d43e"
+            },
+            "placement": {
+              "domain": "vocab-adjectifs",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "explicit-source-lexical-class-candidate",
+              "themeId": "L5-vocab-adjectifs"
+            },
+            "lexicalClass": "adjective"
+          },
+          "expectedBeforeCanonicalSha256": "3bdfbbf0f78e9159e61aa4cec87b42b1bd85b24f8c883f21229784e564a07378"
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+          "location": [
+            "phrases",
+            99
+          ],
+          "profile": "transport-phrase",
+          "themeTitle": "phrases",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:2451",
+            "study": "无聊",
+            "native": "ennuyé",
+            "phon": "ou-lyao",
+            "reading": "wúliáo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Mot ou locution courte dans le sens donné, sans indice de tour de parole autonome.",
+              "lexicalClassReason": "Mot ou locution chinoise de propriété ou d’état dans le sens source ; aucune phrase prédicative complète n’est extraite.",
+              "lexicalClassStatus": "reviewed"
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2451,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "b6a0ee9f3be283e44b14e7454e04ecf28ab5af0dca039ee7c7e0bd34ce99d43e"
+            },
+            "placement": {
+              "domain": "vocab-adjectifs",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "explicit-source-lexical-class-candidate",
+              "themeId": "L5-vocab-adjectifs"
+            },
+            "lexicalClass": "adjective",
+            "referenceOnly": true,
+            "sourceHash": "b6a0ee9f3be283e44b14e7454e04ecf28ab5af0dca039ee7c7e0bd34ce99d43e",
+            "canonicalLocation": {
+              "pairId": "fr-zh",
+              "level": 5,
+              "themeId": "L5-vocab-adjectifs"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "1f2dda28d7f9ce7581189b80a2632dccb00ca1b573011a7fb4c0972d2f9990d0"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:613",
+      "evidenceCollection": "items",
+      "evidenceIndex": 56,
+      "level": 6,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "J'étais fou de jalousie.",
+          "after": "Je l'envie terriblement."
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "L’intensité de l’envie est rendue sans imposer de passé. Jalousie n’est pas toujours hostile en français ; c’est l’ensemble « étais fou de jalousie » qui surinterprétait ici.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            0
+          ],
+          "profile": "canonical",
+          "themeTitle": "Donner son avis et relancer",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:613",
+            "study": "我羡慕得不得了。",
+            "native": "J'étais fou de jalousie.",
+            "phon": "ouo chyenn mou de bou de lyao.",
+            "reading": "wǒ xiàn mù de bù dé liǎo.",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 6,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Énoncé avec participant et prédication ; la catégorie source n’est pas utilisée comme preuve."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 613,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "942e962b2432fe97be2eaf8e164570f4baed560874c771116e2abbf7d157e5f1"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "explicit-proposal",
+              "reason": "得不得了 n’est pas une simple substitution dans l’expression d’un état ; préparer le degré/intensification avant cette extension.",
+              "plannedPrerequisiteIndices": [
+                332
+              ],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L6-conversation"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "2be07c3f8a7a5edb029444ebf5b73a2013c28a9fb4cda008f6070d525bb66686"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4141",
+      "evidenceCollection": "items",
+      "evidenceIndex": 73,
+      "level": 7,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "dépasse sa valeur",
+          "after": "vaut plus que son prix"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "L’évaluation rapporte la valeur obtenue au prix payé, plutôt qu’un dépassement vague de la valeur.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L7.json",
+          "location": [
+            "themes",
+            13,
+            "phrases",
+            4
+          ],
+          "profile": "canonical",
+          "themeTitle": "Travail et démarches",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:4141",
+            "study": "物超所值",
+            "native": "dépasse sa valeur",
+            "phon": "ou tchao souo djr",
+            "reading": "wù chāo suǒ zhí",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Mot ou locution courte dans le sens donné, sans indice de tour de parole autonome.",
+              "lexicalClassReason": "Entrée lexicale hors des inventaires explicites d’adjectifs, prépositions et adverbes ; proposition nominale, verbale ou idiomatique à confirmer lors de la revue sémantique.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4141,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "547640172257de35ab3bf15f5465bb6392b848788414e4725545fbd00ecb6a63"
+            },
+            "placement": {
+              "domain": "vocab-travail",
+              "classification": "source-business",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "travail",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "previous-domain-fallback-needs-review",
+              "themeId": "L7-vocab-travail"
+            },
+            "lexicalClass": "other"
+          },
+          "expectedBeforeCanonicalSha256": "c0ff13a58f82c014bce1ab154d13bf45fba792216b4ff681b9d9146a691439e2"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1774",
+      "evidenceCollection": "items",
+      "evidenceIndex": 78,
+      "level": 8,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "Toujours le mot pour rire, celui-là !",
+          "after": "Celui-là, il a toujours la langue bien acérée !"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La langue acérée rend des paroles qui n’épargnent personne. L’humour aimable n’est pas imposé.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            10
+          ],
+          "profile": "canonical",
+          "themeTitle": "Préciser les limites d’un projet",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:1774",
+            "study": "这家伙，嘴上从来不饶人！",
+            "native": "Toujours le mot pour rire, celui-là !",
+            "phon": "dje djya houo, dzoueï chang tsong laï bou jao jeunn!",
+            "reading": "zhè jiā huo, zuǐ shang cóng lái bù ráo rén!",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "La forme chinoise et son sens ont été lus comme énoncé, consigne ou réplique complets, sans ajout de contexte lexical."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1774,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "a26b13dad8a18b784d58a726cbea5edc663b746303e76d07955817cf835a2ebe"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "section": "situations",
+              "themeId": "L8-reperes"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "12f0095954a33c612d9a9cc550ecce07e98c9e1aeabbf4afa800ec0f53db1642"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4378",
+      "evidenceCollection": "items",
+      "evidenceIndex": 79,
+      "level": 8,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "merci de votre compréhension et soutien",
+          "after": "merci de votre compréhension et de votre soutien"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "Retouche française plus soignée de la coordination. Il n’est pas nécessaire de la présenter comme un contresens chinois ou d’énoncer une interdiction absolue de l’ellipse en français.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            38
+          ],
+          "profile": "canonical",
+          "themeTitle": "Adapter son registre professionnel",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:4378",
+            "study": "感谢贵方的理解与支持",
+            "native": "merci de votre compréhension et soutien",
+            "phon": "gann chyé gouèï fang deu li djyé u djr tchr",
+            "reading": "gǎn xiè guì fāng de lǐ jiě yǔ zhī chí",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Formule sociale ou réponse autonome indiquée par le sens source."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4378,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "208bc5cb480c5790a0f69140193886d6c046945242eb1283c2cfe9f61128da84"
+            },
+            "placement": {
+              "domain": "travail",
+              "classification": "source-business",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "travail",
+              "section": "situations",
+              "themeId": "L8-travail"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "8fdbfd2e92c62f93a105173b11616f92cf4b2d986e801ff22d52b859db7ad693"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4812",
+      "evidenceCollection": "items",
+      "evidenceIndex": 80,
+      "level": 8,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "la qualité du grand lot doit être identique.",
+          "after": "la qualité du lot de production doit être identique à celle de l'échantillon."
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "Le terme de comparaison 小样 est rétabli et lot de production remplace l’ambiguïté de grand lot. L’annotation phonétique du lot 3 reste distincte.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            46
+          ],
+          "profile": "canonical",
+          "themeTitle": "Adapter son registre professionnel",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:4812",
+            "study": "大货质量要和小样一样",
+            "native": "la qualité du grand lot doit être identique.",
+            "phon": "da-houo djr-lyang yao heu chyao-yang i-ang",
+            "reading": "dàhuò zhìliàng yào hé xiǎoyàng yíyàng",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Le sens source contient une prédication complète, même sans sujet pronominal initial."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4812,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "cf31de1377122824359f4050f8758fc56843f829550199be1a351080601dee1c"
+            },
+            "placement": {
+              "domain": "travail",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "travail",
+              "section": "situations",
+              "themeId": "L8-travail"
+            },
+            "phoneticReviewStatus": "corrected-by-Claude-lot3-E",
+            "reviewedFieldCorrection": {
+              "id": "catalogue:zh:4812",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot3/revue-claude-lot3.json",
+              "registrySha256": "20ad657496a94a036c8e6aa74088f172ddc8c4ebb7eacb074f2133fa84beb393",
+              "evidenceCommit": "d06a62ea36120ffd73b8059645848c13bd4f172d",
+              "baseSnapshotCommit": "3df885df8db00f0bdc2a703b92bd17801accabce",
+              "fields": [
+                "phon"
+              ],
+              "beforeFields": {
+                "phon": "da-houo djr-lyang yao heu chyao-ang i-ang"
+              },
+              "originalPhoneticReviewStatusPresent": false,
+              "originalPhoneticReviewStatus": null
+            }
+          },
+          "expectedBeforeCanonicalSha256": "1de22802ec067caf1557035a62bfec02966488784c32ab2bb2b1f39d7af85af2"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:2660",
+      "evidenceCollection": "items",
+      "evidenceIndex": 91,
+      "level": 9,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "ne fais pas à autrui ce que tu ne voudrais pas",
+          "after": "ne fais pas à autrui ce que tu ne voudrais pas qu'on te fasse"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La relative française est complétée pour rendre 己所不欲. Le motif amendé n’attribue plus le manque à 勿施于人 déjà rendu par ne fais pas à autrui.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            36
+          ],
+          "profile": "canonical",
+          "themeTitle": "Répondre à une objection",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:2660",
+            "study": "己所不欲，勿施于人",
+            "native": "ne fais pas à autrui ce que tu ne voudrais pas",
+            "phon": "dji souo bou u, ou chr u jeune",
+            "reading": "jǐ suǒ bú yù, wù shī yú rén",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 9,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Le sens source exprime une affirmation, question, consigne ou réponse complète."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 2660,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "282c3afe8e8506843b20be79a4cdc0c2f195a86ac753368d31b802cedb215c63"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L9-conversation"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "006805c69887c96406014a0f15d63dfb9f943eaf9a79ec2fb721c384cfb44dd6"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:4504",
+      "evidenceCollection": "items",
+      "evidenceIndex": 93,
+      "level": 9,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "se connaître et connaître l'autre",
+          "after": "qui connaît l'adversaire et se connaît soi-même ne sera jamais en péril, même en cent batailles"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La maxime conserve l’absence de péril et le contexte d’adversaire. L’après ne doit pas être glosé comme une promesse supplémentaire de victoire.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L9.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            14
+          ],
+          "profile": "canonical",
+          "themeTitle": "Argumenter et rendre compte",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:4504",
+            "study": "知彼知己百战不殆",
+            "native": "se connaître et connaître l'autre",
+            "phon": "djr bi djr dji baï djann bou daï",
+            "reading": "zhī bǐ zhī jǐ bǎi zhàn bú dài",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 9,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "La forme chinoise et son sens ont été lus comme énoncé, consigne ou réplique complets, sans ajout de contexte lexical."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 4504,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "a014024ff894edc63fccf7e95af4bf508487c8fd7d706b10073f23e1ff64f7f9"
+            },
+            "placement": {
+              "domain": "travail",
+              "classification": "source-business",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "travail",
+              "section": "situations",
+              "themeId": "L9-travail"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "b206a04a228bfb4d13a22a307d7bedc92076e12b83c68448faad0daad0ce3f04"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "heard-authored:fr-zh:piste-reclamation-tact-received-01",
+      "evidenceCollection": "items",
+      "evidenceIndex": 97,
+      "level": null,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "Un remplacement des pièces concernées vous conviendrait-il ?",
+          "after": "Un remplacement des seules pièces présentant un problème vous conviendrait-il ?"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La restriction 只 est rendue par seules, et les pièces présentant un problème sont explicites. Le rôle reste celui d’un interlocuteur en compréhension, sans nouvelle production.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-zh.json",
+          "location": [
+            "receivedModels",
+            30
+          ],
+          "profile": "received-model",
+          "themeTitle": "receivedModels",
+          "expectedBeforeFull": {
+            "id": "heard-authored:fr-zh:piste-reclamation-tact-received-01",
+            "study": "只更换有问题的零件，您能接受吗？",
+            "native": "Un remplacement des pièces concernées vous conviendrait-il ?",
+            "phon": "djr gueung-houann yeou oueunn-ti deu ling-djyèn, ninn neung djyé-cheou ma ?",
+            "reading": "zhǐ gēnghuàn yǒu wèntí de língjiàn, nín néng jiēshòu ma?",
+            "contentType": "utterance",
+            "heardOnly": true,
+            "firstHeardLevel": 8,
+            "isTemplate": false,
+            "phoneticReviewStatus": "pending-Claude",
+            "source": {
+              "collection": "situation-received-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-zh.json",
+              "ledgerFileSha256": "07b5c5822a81920048e4ab0b4fd7755a647566acd21a36c9374804b8b7d93be0",
+              "itemId": "fr-zh:piste-reclamation-tact-received-01",
+              "sourceSha256": "d143d8913f5b226c7224ab7cba8046c5f86824adfcdc64febbaceb08b8dc6c94",
+              "ledgerItemSha256": "d143d8913f5b226c7224ab7cba8046c5f86824adfcdc64febbaceb08b8dc6c94",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "referenceOnly": true
+          },
+          "expectedBeforeCanonicalSha256": "9892a3b06aef675bda1b2b491df17b70ba04ea37fe823a3b6954e58a740f060f"
+        }
+      ]
+    },
+    {
+      "pairId": "fr-zh",
+      "id": "catalogue:zh:1900",
+      "evidenceCollection": "linkedBundles",
+      "evidenceIndex": 0,
+      "level": 8,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": true,
+      "fields": {
+        "study": {
+          "before": "过而不改是谓过矣是知也",
+          "after": "过而不改是谓过矣"
+        },
+        "reading": {
+          "before": "guò ér bù gǎi shì wèi guò yǐ shì zhī yě",
+          "after": "guò ér bù gǎi shì wèi guò yǐ"
+        },
+        "phon": {
+          "before": "gouo er bou gaï chr ouèï gouo i chr djr yé",
+          "after": "gouo er bou gaï chr ouèï gouo i"
+        },
+        "native": {
+          "before": "la vraie sagesse est d'admettre et corriger ses fautes",
+          "after": "ne pas corriger sa faute, voilà la vraie faute"
+        }
+      },
+      "actualChangedFields": [
+        "study",
+        "reading",
+        "phon",
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La cible abrégée est la formule 过而不改，是谓过矣 des Entretiens XV.30. 是知也 appartient à la formule de connaissance des Entretiens II.17. Texte, Pinyin, aide et sens après concordent ; conserver les quatre champs dans une transaction.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-zh/L8.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            78
+          ],
+          "profile": "canonical",
+          "themeTitle": "Exprimer un désaccord avec tact",
+          "expectedBeforeFull": {
+            "id": "catalogue:zh:1900",
+            "study": "过而不改是谓过矣是知也",
+            "native": "la vraie sagesse est d'admettre et corriger ses fautes",
+            "phon": "gouo er bou gaï chr ouèï gouo i chr djr yé",
+            "reading": "guò ér bù gǎi shì wèi guò yǐ shì zhī yě",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Le sens source contient une prédication complète, même sans sujet pronominal initial."
+            },
+            "source": {
+              "collection": "DECKS.zh",
+              "sourceIndex": 1900,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "phf",
+                "reading": "py"
+              },
+              "sourceSha256": "1c617eaa422dc4f7f838dffb9df573006bf17df063ab7b28f772f0973e8e6a29"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L8-conversation"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "000dcb09246fd3cb225580b504ae8d756e1876b6b01ad58c83b02afd3bd5092a"
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:2922",
+      "evidenceCollection": "items",
+      "evidenceIndex": 0,
+      "level": 1,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "申请表",
+          "after": "请求 / 申请"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La demande est une requête ou une demande adressée, pas le formulaire de demande. Le double sens 请求/申请 reste assez général.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L1.json",
+          "location": [
+            "themes",
+            16,
+            "phrases",
+            2
+          ],
+          "profile": "canonical",
+          "themeTitle": "动作与描述",
+          "expectedBeforeFull": {
+            "id": "catalogue:fr:2922",
+            "study": "la demande",
+            "native": "申请表",
+            "phon": "拉 德蒙德",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 1,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Groupe nominal fermé sans prédicat ; vocabulaire malgré cat ou la majuscule.",
+              "lexicalClassReason": "Groupe nominal fermé ; ses éventuels adjectifs ou prépositions ne changent pas le type de l’ensemble.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 2922,
+              "sourceLevel": 1,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "1bbdae7aac1391d5f83258580848c358009c1e2d8c157847046ce93efea67683"
+            },
+            "placement": {
+              "domain": "vocab-actions",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "comprendre",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "previous-domain-fallback-needs-review",
+              "themeId": "L1-vocab-actions"
+            },
+            "lexicalClass": "other"
+          },
+          "expectedBeforeCanonicalSha256": "89603315fd1dc7d883a56807635fea5a6ae428f523817c5d818e104470f591af"
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:210",
+      "evidenceCollection": "items",
+      "evidenceIndex": 19,
+      "level": 2,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "修一下就好",
+          "after": "就一点点"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "L’après rend la petite quantité sans inventer une réparation ou une coupe de cheveux. Le contexte spécialisé de 修 n’est pas dans le texte français.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L2.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            92
+          ],
+          "profile": "canonical",
+          "themeTitle": "提问并接着问",
+          "expectedBeforeFull": {
+            "id": "catalogue:fr:210",
+            "study": "Juste un peu.",
+            "native": "修一下就好",
+            "phon": "朱斯特 安 普",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 2,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Formule conventionnelle ou réplique autonome, même sans verbe conjugué."
+            },
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 210,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "d493a9d7daa30691a8a22146c20736582202f77413db75a99211db5ad181de89"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L2-conversation"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "e538dbd278b5f0fc1cd6eb148fdd0a250f620663da3e83ade737874db2e1c71c"
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:802",
+      "evidenceCollection": "items",
+      "evidenceIndex": 32,
+      "level": 3,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "我为什么要？",
+          "after": "我为什么要这么做？"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "La glose finale nomme l’acte 这么做 et peut servir seule avec cette carte. 我为什么要 peut se rencontrer elliptiquement en dialogue ; ne pas affirmer qu’il est toujours impossible en chinois.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            169
+          ],
+          "profile": "canonical",
+          "themeTitle": "提议并作出回应",
+          "expectedBeforeFull": {
+            "id": "catalogue:fr:802",
+            "study": "Pourquoi je ferais ça ?",
+            "native": "我为什么要？",
+            "phon": "普尔瓜 热 弗雷 萨",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome ou question elliptique fermée, sans emplacement restant à remplir."
+            },
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 802,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "0d7a0a77bd641ae6796bb9a04e542e83df696a8a7f59518b391c5de530ccbb12"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L3-conversation"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "edd1101d511acfa1548462764bb2fb41deb8eccd8bdd16eb8db899a41efbb2bd"
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:4187",
+      "evidenceCollection": "items",
+      "evidenceIndex": 62,
+      "level": 5,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "臀部",
+          "after": "髋部"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "髋部 désigne bien la hanche ; 臀部 désigne les fesses. Distinction anatomique nette.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+          "location": [
+            "themes",
+            19,
+            "phrases",
+            112
+          ],
+          "profile": "canonical",
+          "themeTitle": "动作与描述",
+          "expectedBeforeFull": {
+            "id": "catalogue:fr:4187",
+            "study": "la hanche",
+            "native": "臀部",
+            "phon": "拉 翁什",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Groupe nominal fermé sans prédicat ; vocabulaire malgré cat ou la majuscule.",
+              "lexicalClassReason": "Groupe nominal fermé ; ses éventuels adjectifs ou prépositions ne changent pas le type de l’ensemble.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 4187,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "33950ca1552e315f2eef0f3c04ffa5790a71386d52b62f4bf89f33fa97b5faa8"
+            },
+            "placement": {
+              "domain": "vocab-actions",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "previous-domain-fallback-needs-review",
+              "themeId": "L5-vocab-actions"
+            },
+            "lexicalClass": "other"
+          },
+          "expectedBeforeCanonicalSha256": "e2184d846dc1ad630abd6a4cc386800f683f30c802cd49bedaebac99eeaf9a79"
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:3178",
+      "evidenceCollection": "items",
+      "evidenceIndex": 64,
+      "level": 5,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "承蒙刚才的交谈。",
+          "after": "继我们的谈话之后。"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "L’après formel exprime le fait de faire suite à une conversation et retire la gratitude de 承蒙 ainsi que 刚才 non précisé. La tournure chinoise est formelle et un peu littérale, mais son sens est défendable pour cette amorce réservée.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L5.json",
+          "location": [
+            "reserve",
+            2
+          ],
+          "profile": "canonical",
+          "themeTitle": "RESERVE",
+          "expectedBeforeFull": {
+            "id": "catalogue:fr:3178",
+            "study": "Suite à notre conversation.",
+            "native": "承蒙刚才的交谈。",
+            "phon": "绪伊特 阿 诺特尔 公韦尔萨西翁",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "review",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Renvoi épistolaire sans proposition principale ; emploi à préciser avant production."
+            },
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 3178,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "99817e4db3b39263e167b841babceb53bfd654b90b591be66ff5c40e8b25dccf"
+            },
+            "placement": {
+              "domain": "reserve",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "reserve",
+              "themeId": null
+            },
+            "reserveReason": "Renvoi épistolaire sans proposition principale ; emploi à préciser avant production."
+          },
+          "expectedBeforeCanonicalSha256": "ae306a175adc2c1ee54f7461dcefeda421be5ec2e74c1ab02981cf8baaa39db8"
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:1702",
+      "evidenceCollection": "items",
+      "evidenceIndex": 66,
+      "level": 6,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "我快到机场了。（将来）",
+          "after": "我快到机场了。"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "L’annotation grammaticale 将来 est retirée du sens destiné à l’apprenant. La proximité de l’arrivée reste la même qu’avant cette retouche.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L6.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            6
+          ],
+          "profile": "canonical",
+          "themeTitle": "选择出行方式",
+          "expectedBeforeFull": {
+            "id": "catalogue:fr:1702",
+            "study": "Je vais arriver à l'aéroport.",
+            "native": "我快到机场了。（将来）",
+            "phon": "热 维 阿里维 阿 拉埃罗波尔",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 6,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition personnelle ou présentative complète ; le classement ne dépend pas de cat."
+            },
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 1702,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "62b669ad54cecccecda2318594f4ce1034a5a1640ab4da35629da93dbb8ce2c4"
+            },
+            "placement": {
+              "domain": "deplacements",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "deplacements",
+              "section": "situations",
+              "themeId": "L6-deplacements"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "8bd7b65d92b774436104b12676d8d780261e3e36892d4608cec3519c431d5e32"
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:2330",
+      "evidenceCollection": "items",
+      "evidenceIndex": 94,
+      "level": 8,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "我们把它录下来吧",
+          "after": "我们把会议录下来吧"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "会议 rend explicitement la réunion. 它 était une anaphore possible dans un contexte, et non une phrase agrammaticale ; la correction rend la carte autonome.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            20
+          ],
+          "profile": "canonical",
+          "themeTitle": "得体地表达不同意见",
+          "expectedBeforeFull": {
+            "id": "catalogue:fr:2330",
+            "study": "Enregistrons la réunion.",
+            "native": "我们把它录下来吧",
+            "phon": "翁勒吉斯特隆 拉 雷于尼翁",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Consigne ou demande à l’impératif, avec ses compléments déjà fournis."
+            },
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 2330,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "32b24d109a6c3f0f9da27c9a1667485228ea263b5287a641cd614421c27c9703"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L8-conversation"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "c742950434f3733e8027765845093faabe87fbd3d03edcc8dfbdd11de0105a44"
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:3505",
+      "evidenceCollection": "items",
+      "evidenceIndex": 102,
+      "level": 9,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": false,
+      "fields": {
+        "native": {
+          "before": "售票员",
+          "after": "检票员 / 查票员"
+        }
+      },
+      "actualChangedFields": [
+        "native"
+      ],
+      "unchangedGuardFields": [],
+      "linguisticReview": "检票员/查票员 vise le contrôleur des billets, conformément au contexte de transport déjà visé par la glose précédente 售票员. Ce n’est pas la traduction exhaustive de tout emploi financier ou industriel de contrôleur.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L9.json",
+          "location": [
+            "themes",
+            13,
+            "phrases",
+            10
+          ],
+          "profile": "canonical",
+          "themeTitle": "动作与描述",
+          "expectedBeforeFull": {
+            "id": "catalogue:fr:3505",
+            "study": "le contrôleur",
+            "native": "售票员",
+            "phon": "勒 孔特罗勒尔",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 9,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Groupe nominal fermé sans prédicat ; vocabulaire malgré cat ou la majuscule.",
+              "lexicalClassReason": "Groupe nominal fermé ; ses éventuels adjectifs ou prépositions ne changent pas le type de l’ensemble.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 3505,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "130b6c93a4dd53cdb6f954a2e73fbf1395c816e6bccd53fc2f6df61efb0b65f3"
+            },
+            "placement": {
+              "domain": "vocab-actions",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "previous-domain-fallback-needs-review",
+              "themeId": "L9-vocab-actions"
+            },
+            "lexicalClass": "other"
+          },
+          "expectedBeforeCanonicalSha256": "c7e18d07f61d6d952a45fba9fa63400f039da30c0f6cf6d1fbb0cba0e8330cd9"
+        }
+      ]
+    },
+    {
+      "pairId": "zh-fr",
+      "id": "catalogue:fr:757",
+      "evidenceCollection": "linkedBundles",
+      "evidenceIndex": 0,
+      "level": 3,
+      "verdict": "accept-frozen-after-for-preview-not-global-native-approval",
+      "atomic": true,
+      "fields": {
+        "study": {
+          "before": "Il fait moins zéro.",
+          "after": "Il fait en dessous de zéro."
+        },
+        "phon": {
+          "before": "伊尔 费 姆万 泽罗",
+          "after": "伊尔 费 昂 德苏 德 泽罗"
+        },
+        "native": {
+          "before": "零下",
+          "after": "零下"
+        }
+      },
+      "actualChangedFields": [
+        "study",
+        "phon"
+      ],
+      "unchangedGuardFields": [
+        "native"
+      ],
+      "linguisticReview": "Il fait en dessous de zéro est une formulation orale météorologique défendable pour 零下. L’aide après est fournie entière et couvre tous ses mots ; aucune phrase ou aide n’est calculée par collage.",
+      "intersectsLot4PhoneticEvent": false,
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/zh-fr/L3.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            9
+          ],
+          "profile": "canonical",
+          "themeTitle": "描述地点或人物",
+          "expectedBeforeFull": {
+            "id": "catalogue:fr:757",
+            "study": "Il fait moins zéro.",
+            "native": "零下",
+            "phon": "伊尔 费 姆万 泽罗",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition personnelle ou présentative complète ; le classement ne dépend pas de cat."
+            },
+            "source": {
+              "collection": "DECKS.fr",
+              "sourceIndex": 757,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "cn",
+                "phon": "phon"
+              },
+              "sourceSha256": "0a8d31bf2e666405ff628e4246565a299a0125e91dfd13b01db97d7640ddce6f"
+            },
+            "placement": {
+              "domain": "decrire",
+              "classification": "description",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "decrire",
+              "section": "situations",
+              "themeId": "L3-decrire"
+            }
+          },
+          "expectedBeforeCanonicalSha256": "ade802e112bb920fefce2b828fb9caf819755641dd09710d0ea0f35614c1cb69"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "All selected text/meaning pairs and both whole bundles were read; this is not native certification.",
+    "Only the supplied certain events are accepted; no uncertain rewrite, theme/level proposal or convention is approved by this review.",
+    "No source or product file has been edited by this counter-review; generator integration belongs to the producer.",
+    "The previous annotation, source object, type, role, editorial level and rights must remain intact, including reserved sources."
+  ],
+  "productChangedByThisAgent": false,
+  "publicationApproved": false
+}

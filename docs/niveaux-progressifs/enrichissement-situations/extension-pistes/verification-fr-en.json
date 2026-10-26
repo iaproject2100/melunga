@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-24T19:07:12.215455+00:00",
+  "pair": "fr-en",
+  "status": "source-and-structure-checked",
+  "planSha256": "d2ce2e8d9476756ee7e6651a3103b449ee89625ec1065c4fdf6f83382010a379",
+  "ledgerSha256": "7004a46b7da5726fb0e548f73b5b3ae9c845e51cec2cc67f3e5945457f120c95",
+  "counts": {
+    "items": {
+      "catalogue-reference": 25,
+      "editorial-authored-whole-entry": 115,
+      "conversation-whole-entry": 4
+    },
+    "receivedTurns": {
+      "editorial-authored-whole-entry": 31,
+      "catalogue-reference": 6
+    },
+    "lexicalSupports": {
+      "catalogue-reference": 36
+    }
+  },
+  "wholeEntriesValidated": 217,
+  "existingSourceFieldsCompared": 213,
+  "newWholeAidsPendingClaude": 146,
+  "meaningAndProgressionOwner": "Codex",
+  "phoneticReviewOwner": "Claude",
+  "protectedInputsUnchanged": {
+    "docs/niveaux-progressifs/enrichissement-situations/fr-en.json": true,
+    "docs/niveaux-progressifs/enrichissement-situations/fr-es.json": true,
+    "docs/niveaux-progressifs/enrichissement-situations/fr-it.json": true,
+    "docs/niveaux-progressifs/enrichissement-situations/fr-zh.json": true,
+    "docs/niveaux-progressifs/enrichissement-situations/fr-ja.json": true,
+    "docs/niveaux-progressifs/enrichissement-situations/fr-ko.json": true,
+    "docs/niveaux-progressifs/enrichissement-situations/zh-fr.json": true,
+    "docs/niveaux-progressifs/corrections-themes/enrichissements-rediges.json": true
+  },
+  "checks": {
+    "modules": 18,
+    "learnerFormsDistinctPerModule": 8,
+    "learnerIntentOrder": "01..08",
+    "receivedPlanDefinitions": 37,
+    "lexicalPositions": 36,
+    "sourceFieldsReassembled": false,
+    "sourceCatalogueLevelsMutated": false
+  },
+  "limitations": [
+    "No deployed browser run for this ledger yet",
+    "New whole aids await Claude phonetic review; content is not publication"
+  ],
+  "semanticRefinements": [
+    {
+      "topicId": "piste-trouver-gare",
+      "receivedDefinitionId": "piste-trouver-gare-received-01",
+      "function": "understand-a-whole-direction-before-confirming-walking",
+      "study": "The station is straight ahead. Are you walking there?",
+      "native": "La gare est tout droit. Vous y allez à pied ?",
+      "sourceStatus": "whole-authored-phonetic-pending-Claude",
+      "planHashUnchanged": true
+    },
+    {
+      "topicId": "piste-recuperer-compte",
+      "receivedDefinitionId": "piste-recuperer-compte-received-01",
+      "function": "interlocutor-explicitly-provides-solution-before-checking-result",
+      "study": "I've sent you a new code. Can you log in now?",
+      "native": "Je vous ai envoyé un nouveau code. Pouvez-vous vous connecter maintenant ?",
+      "sourceStatus": "whole-authored-phonetic-pending-Claude",
+      "planHashUnchanged": true
+    },
+    {
+      "topicId": "piste-equipement-chambre",
+      "receivedDefinitionId": "piste-equipement-chambre-received-01",
+      "function": "interlocutor-explicitly-provides-solution-before-checking-result",
+      "study": "We've repaired the unit. Is it working now?",
+      "native": "Nous avons réparé l’appareil. Fonctionne-t-il maintenant ?",
+      "sourceStatus": "whole-authored-phonetic-pending-Claude",
+      "planHashUnchanged": true
+    }
+  ]
+}

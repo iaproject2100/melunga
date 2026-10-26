@@ -1,0 +1,1340 @@
+{
+  "version": 1,
+  "id": "revue-claude-lot6-phonetique-lectures",
+  "status": "frozen-whole-and-paired-reading-events-not-global-native-approval",
+  "baseSnapshotCommit": "161d0ebef38bb38ea9e26a836ca701b9d136f6d2",
+  "appliesAfter": [
+    {
+      "registryPath": "docs/niveaux-progressifs/corrections-contenu/lot5/revue-contenu-lot5.json",
+      "registrySha256": "ef394ba1007bc474ca98cc4a166cc680d185ad824c894b710656e5e60ca1758a"
+    }
+  ],
+  "correctionCount": 18,
+  "eventCount": 23,
+  "approvedFieldCount": 23,
+  "changedFieldCount": 23,
+  "evidenceFiles": [
+    {
+      "path": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+      "gitPath": "docs/revue-integrale/lot6-fr-ko-L1-L10/registre-phonetique.json",
+      "gitCommit": "87357b16c7d77a1c94fdbd940dcb3f232758748d",
+      "sha256": "4c5861f15f7c77b4107c70ba3a7a2106065874ed42147f1bf428cc97e5230239"
+    },
+    {
+      "path": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-lectures.json",
+      "gitPath": "docs/revue-integrale/lot6-fr-ko-L1-L10/registre-lectures.json",
+      "gitCommit": "87357b16c7d77a1c94fdbd940dcb3f232758748d",
+      "sha256": "d250e9fbd5b2d5d6b27eb9469c7563fac20d6cbc12f410b28cf172b9d24f89de"
+    }
+  ],
+  "corrections": [
+    {
+      "pairId": "fr-ko",
+      "id": "conversation:L1-fr-ko.json:L1-fr-ko-01:v1",
+      "fields": {
+        "phon": {
+          "before": "djeo-neun peu-rang-seu sa-ram-i-é-yo",
+          "after": "djo-neun peu-rang-seu sa-ram-i-é-yo"
+        }
+      },
+      "rules": [
+        "R"
+      ],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 0
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L1.json",
+          "location": [
+            "themes",
+            0,
+            "phrases",
+            2
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "저는 프랑스 사람이에요.",
+            "native": "Je suis français.",
+            "phon": "djeo-neun peu-rang-seu sa-ram-i-é-yo",
+            "source": {
+              "collection": "conversation",
+              "kind": "conversation-variant",
+              "file": "docs/niveaux-progressifs/sources/conversation/L1-fr-ko.json",
+              "sourceFileSha256": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+              "unitId": "L1-fr-ko-01",
+              "variantIndex": 1,
+              "sourceLevel": 1,
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              },
+              "sourceSha256": "29a4c82c53d3ce237eaebe0ad75d179a58153acf66c8d8a1e5ba827c04d25ca8"
+            },
+            "readingPresent": true,
+            "reading": "jeoneun peurangseu saram-ieyo.",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "conversation:L1-fr-ko.json:L1-fr-ko-09:v0",
+      "fields": {
+        "phon": {
+          "before": "keo-pi ha-na djou-sé-yo",
+          "after": "ko-pi ha-na djou-sé-yo"
+        }
+      },
+      "rules": [
+        "R"
+      ],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 1
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L1.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            0
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "커피 하나 주세요.",
+            "native": "Un café, s'il vous plaît.",
+            "phon": "keo-pi ha-na djou-sé-yo",
+            "source": {
+              "collection": "conversation",
+              "kind": "conversation-variant",
+              "file": "docs/niveaux-progressifs/sources/conversation/L1-fr-ko.json",
+              "sourceFileSha256": "266ea2c2d498886b965f9d67c678dd7c2f1a001092a51f0a489fdd039652cc97",
+              "unitId": "L1-fr-ko-09",
+              "variantIndex": 0,
+              "sourceLevel": 1,
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              },
+              "sourceSha256": "55ccc91ea663fef3aaafb26fa76c06ccb1cc0447af3f039b05e647de3eb19094"
+            },
+            "readingPresent": true,
+            "reading": "keopi hana juseyo.",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "catalogue:ko:2075",
+      "fields": {
+        "phon": {
+          "before": "o-tcha-pi gui-da-ril go-myon anj-a-yo",
+          "after": "o-tcha-pi gui-da-ril go-myon an-dja-yo"
+        }
+      },
+      "rules": [
+        "R"
+      ],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 2
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L10.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            26
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "어차피 기다릴 거면 앉아요.",
+            "native": "Quitte à attendre, autant s'asseoir.",
+            "phon": "o-tcha-pi gui-da-ril go-myon anj-a-yo",
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 2075,
+              "sourceLevel": 10,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "93c5b23a4a5b44e10121aba75869c1aa5130dbe4b706876c96fe36af327179e6"
+            },
+            "readingPresent": true,
+            "reading": "eo-cha-pi gi-da-ril geo-myeon anj-a-yo",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "situation-authored:fr-ko:numerique-quotidien-01",
+      "fields": {
+        "phon": {
+          "before": "hyu-dè-po-neul tchoung-djon-hè-ya hè-yo",
+          "after": "hyou-dè-po-neul tchoung-djon-hè-ya hè-yo"
+        }
+      },
+      "rules": [
+        "R"
+      ],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 3
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json",
+          "location": [
+            "themes",
+            11,
+            "phrases",
+            0
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "휴대폰을 충전해야 해요.",
+            "native": "J’ai besoin de recharger mon téléphone.",
+            "phon": "hyu-dè-po-neul tchoung-djon-hè-ya hè-yo",
+            "source": {
+              "collection": "situation-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/fr-ko.json",
+              "ledgerFileSha256": "045a4b5f596d7a233e43f4c891d205364cccc9df9516767c1ced1db15578de77",
+              "itemId": "fr-ko:numerique-quotidien-01",
+              "sourceSha256": "20ed35766854b968a5f8afe24fab5c462626773260a7e293e7aef295c8829afd",
+              "ledgerItemSha256": "20ed35766854b968a5f8afe24fab5c462626773260a7e293e7aef295c8829afd",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "readingPresent": true,
+            "reading": "Hyudaeponeul chungjeonhaeya haeyo.",
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "pending-Claude",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "catalogue:ko:313",
+      "fields": {
+        "phon": {
+          "before": "anj-a-do douè-yo",
+          "after": "an-dja-do douè-yo"
+        }
+      },
+      "rules": [
+        "R"
+      ],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 4
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            4
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "앉아도 돼요?",
+            "native": "Je peux m'asseoir ?",
+            "phon": "anj-a-do douè-yo",
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 313,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "03ef05925221966433d185982d63c7c76557e14e93eba0210017c5791a10defb"
+            },
+            "readingPresent": true,
+            "reading": "anj-a-do dwae-yo",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "situation-authored:fr-ko:piste-recuperer-compte-06",
+      "fields": {
+        "phon": {
+          "before": "hyu-dè-po-né-so ling-keu-reul yol ssou i-sso-yo",
+          "after": "hyou-dè-po-né-so ling-keu-reul yol ssou i-sso-yo"
+        }
+      },
+      "rules": [
+        "R"
+      ],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 5
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json",
+          "location": [
+            "themes",
+            13,
+            "phrases",
+            5
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "휴대폰에서 링크를 열 수 있어요.",
+            "native": "Je peux ouvrir le lien sur mon téléphone.",
+            "phon": "hyu-dè-po-né-so ling-keu-reul yol ssou i-sso-yo",
+            "source": {
+              "collection": "situation-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-ko.json",
+              "ledgerFileSha256": "92bcbc87974eba9cbe1d84089865de21ee413cb7dbc0dda8199ff0abb676f7ef",
+              "itemId": "fr-ko:piste-recuperer-compte-06",
+              "sourceSha256": "d28d6dcc8bafccee4e6e315943d34b6270d611824f4859367302806390a4da23",
+              "ledgerItemSha256": "d28d6dcc8bafccee4e6e315943d34b6270d611824f4859367302806390a4da23",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "readingPresent": true,
+            "reading": "Hyudaeponeseo ringkeureul yeol su isseoyo.",
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "pending-Claude",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "catalogue:ko:2712",
+      "fields": {
+        "phon": {
+          "before": "anj-a-yo",
+          "after": "an-dja-yo"
+        }
+      },
+      "rules": [
+        "R"
+      ],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 6
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+          "location": [
+            "themes",
+            6,
+            "phrases",
+            13
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "앉아요.",
+            "native": "Assieds-toi.",
+            "phon": "anj-a-yo",
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 2712,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "2291ae4573392997b872ad3f407438114951e5c15bf137ba871520e62aafbcc8"
+            },
+            "readingPresent": true,
+            "reading": "anj-a-yo",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "catalogue:ko:822",
+      "fields": {
+        "phon": {
+          "before": "bakk-é anj-a-do douè-yo",
+          "after": "bakk-é an-dja-do douè-yo"
+        }
+      },
+      "rules": [
+        "R"
+      ],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 7
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            105
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "밖에 앉아도 돼요?",
+            "native": "On peut s'asseoir dehors ?",
+            "phon": "bakk-é anj-a-do douè-yo",
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 822,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "db156082429dc8196a0d67015891604ad6907f51a786e21131b5e2f95e581d13"
+            },
+            "readingPresent": true,
+            "reading": "bakk-e anj-a-do dwae-yo",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "catalogue:ko:3766",
+      "fields": {
+        "phon": {
+          "before": "dak-eul gou-ouo-sso-yo",
+          "after": "dal-gueul gou-ouo-sso-yo"
+        },
+        "reading": {
+          "before": "dak-eul gu-wo-sseo-yo",
+          "after": "dalg-eul gu-wo-sseo-yo"
+        }
+      },
+      "rules": [
+        "S"
+      ],
+      "atomicBundle": true,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 8
+        },
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-lectures.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 0
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            37
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "닭을 구웠어요.",
+            "native": "J'ai rôti un poulet.",
+            "phon": "dak-eul gou-ouo-sso-yo",
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 3766,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "98222383c56a82a3c12a92353674cd84393c2a5d073739ff416a052dfa1bc5a3"
+            },
+            "readingPresent": true,
+            "reading": "dak-eul gu-wo-sseo-yo",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "catalogue:ko:3980",
+      "fields": {
+        "phon": {
+          "before": "dak-eul toui-guyo-sso-yo",
+          "after": "dal-gueul toui-guyo-sso-yo"
+        },
+        "reading": {
+          "before": "dak-eul twi-gyeo-sseo-yo",
+          "after": "dalg-eul twi-gyeo-sseo-yo"
+        }
+      },
+      "rules": [
+        "S"
+      ],
+      "atomicBundle": true,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 9
+        },
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-lectures.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 1
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            39
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "닭을 튀겼어요.",
+            "native": "J'ai frit du poulet.",
+            "phon": "dak-eul toui-guyo-sso-yo",
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 3980,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "a586f5f4dccff3ce99cfd4735fd36786e87e977514db91cffe3c57702cbb1b9b"
+            },
+            "readingPresent": true,
+            "reading": "dak-eul twi-gyeo-sseo-yo",
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "corrected-by-Claude-g-devant-e-i",
+            "phoneticCorrectionPresent": true,
+            "phoneticCorrection": {
+              "id": "catalogue:ko:3980",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+              "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+              "beforePhon": "dak-eul toui-gyo-sso-yo",
+              "originalReviewStatusPresent": false,
+              "originalReviewStatus": null,
+              "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+              "rule": "B"
+            },
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "catalogue:ko:4341",
+      "fields": {
+        "phon": {
+          "before": "mou-seun so-djè-yé-yo é-i-bi-ét-yé-yo",
+          "after": "mou-seun so-djè-yé-yo é-i-bi-é-seu-yé-yo"
+        },
+        "reading": {
+          "before": "mu-seun so-jae-ye-yo e-i-bi-es-ye-yo",
+          "after": "mu-seun so-jae-ye-yo e-i-bi-e-seu-ye-yo"
+        }
+      },
+      "rules": [
+        "S"
+      ],
+      "atomicBundle": true,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 10
+        },
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-lectures.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 2
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            4
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "무슨 소재예요? ABS예요?",
+            "native": "Quel matériau ? De l'ABS ?",
+            "phon": "mou-seun so-djè-yé-yo é-i-bi-ét-yé-yo",
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 4341,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "d90b97388464c892a4f2ddfebf16f812391383dedb0c80872999b20417db2362"
+            },
+            "readingPresent": true,
+            "reading": "mu-seun so-jae-ye-yo e-i-bi-es-ye-yo",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "situation-authored:fr-ko:piste-incident-objet-07",
+      "fields": {
+        "phon": {
+          "before": "né, djé hyu-dè-phon ma-dja-yo",
+          "after": "né, djé hyou-dè-phon ma-dja-yo"
+        }
+      },
+      "rules": [
+        "R"
+      ],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 11
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+          "location": [
+            "themes",
+            12,
+            "phrases",
+            6
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "네, 제 휴대폰 맞아요.",
+            "native": "Oui, c’est bien mon téléphone.",
+            "phon": "né, djé hyu-dè-phon ma-dja-yo",
+            "source": {
+              "collection": "situation-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-ko.json",
+              "ledgerFileSha256": "92bcbc87974eba9cbe1d84089865de21ee413cb7dbc0dda8199ff0abb676f7ef",
+              "itemId": "fr-ko:piste-incident-objet-07",
+              "sourceSha256": "1037999f05d639c21bdc2b00c99c39aeaf304bd63035bbb15a06c2a6a49476ef",
+              "ledgerItemSha256": "1037999f05d639c21bdc2b00c99c39aeaf304bd63035bbb15a06c2a6a49476ef",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "readingPresent": true,
+            "reading": "Ne, je hyudaepon majayo.",
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "pending-Claude",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "catalogue:ko:4391",
+      "fields": {
+        "phon": {
+          "before": "kyou-a-reul ko-deu-reul seu-kèn-hè-yo",
+          "after": "kyou-al ko-deu-reul seu-kèn-hè-yo"
+        },
+        "reading": {
+          "before": "kyu-a-reul ko-deu-reul seu-kaen-hae-yo",
+          "after": "kyu-al ko-deu-reul seu-kaen-hae-yo"
+        }
+      },
+      "rules": [
+        "S"
+      ],
+      "atomicBundle": true,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 12
+        },
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-lectures.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 3
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            211
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "QR 코드를 스캔해요.",
+            "native": "Scanne le QR code.",
+            "phon": "kyou-a-reul ko-deu-reul seu-kèn-hè-yo",
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 4391,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "01e5aac06a96022f7fb884498c4ae6fdf5570fc588abd77b4714a077ab71d32e"
+            },
+            "readingPresent": true,
+            "reading": "kyu-a-reul ko-deu-reul seu-kaen-hae-yo",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "catalogue:ko:4271",
+      "fields": {
+        "phon": {
+          "before": "é-i-ét-ti-ém gui-djoun-é mat-a-yo",
+          "after": "é-i-é-seu-ti-ém gui-djoun-é mat-a-yo"
+        }
+      },
+      "rules": [
+        "S"
+      ],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 13
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            155
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "ASTM 기준에 맞아요?",
+            "native": "C'est conforme aux normes ASTM ?",
+            "phon": "é-i-ét-ti-ém gui-djoun-é mat-a-yo",
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 4271,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "9fd16377b90146f8b70b82e830a286805d91181ceb4cdb03ef6d762b9e0c69dc"
+            },
+            "readingPresent": true,
+            "reading": "e-i-es-ti-em gi-jun-e maj-a-yo",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "catalogue:ko:1474",
+      "fields": {
+        "phon": {
+          "before": "té-ra-seu-é anj-eul sou i-sso-yo",
+          "after": "té-ra-seu-é an-djeul sou i-sso-yo"
+        }
+      },
+      "rules": [
+        "R"
+      ],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 14
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            28
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "테라스에 앉을 수 있어요?",
+            "native": "On peut s'asseoir en terrasse ?",
+            "phon": "té-ra-seu-é anj-eul sou i-sso-yo",
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1474,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "c84a8601ed98e66c04c7840bdc1d1873ddf32187c6653aba2115d0adbd75d25f"
+            },
+            "readingPresent": true,
+            "reading": "te-ra-seu-e anj-eul su i-sseo-yo",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "catalogue:ko:1968",
+      "fields": {
+        "phon": {
+          "before": "dja anj-eu-sé-yo",
+          "after": "dja an-djeu-sé-yo"
+        }
+      },
+      "rules": [
+        "R"
+      ],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 15
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L9.json",
+          "location": [
+            "themes",
+            0,
+            "phrases",
+            5
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "자, 앉으세요.",
+            "native": "Je vous en prie, asseyez-vous.",
+            "phon": "dja anj-eu-sé-yo",
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1968,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "f63902b22a7cec02d2a807b25bbdded1a7304c9489bf66fa4c1e3260bf044a49"
+            },
+            "readingPresent": true,
+            "reading": "ja anj-eu-se-yo",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "catalogue:ko:4125",
+      "fields": {
+        "phon": {
+          "before": "dak-i gou-ouo-dji-go i-sso-yo",
+          "after": "dal-gui gou-ouo-dji-go i-sso-yo"
+        },
+        "reading": {
+          "before": "dak-i gu-wo-ji-go i-sseo-yo",
+          "after": "dalg-i gu-wo-ji-go i-sseo-yo"
+        }
+      },
+      "rules": [
+        "S"
+      ],
+      "atomicBundle": true,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 16
+        },
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-lectures.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 4
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L9.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            10
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "닭이 구워지고 있어요.",
+            "native": "Le poulet rôtit.",
+            "phon": "dak-i gou-ouo-dji-go i-sso-yo",
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 4125,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "902a2358a93070f8cf073b411758c2ff4f187306ea4cdd10baa9fc174116c3c2"
+            },
+            "readingPresent": true,
+            "reading": "dak-i gu-wo-ji-go i-sseo-yo",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ko",
+      "id": "heard-authored:fr-ko:piste-incident-objet-received-01",
+      "fields": {
+        "phon": {
+          "before": "i-gué po-nin hyu-dè-pho-ni-é-yo",
+          "after": "i-gué po-nin hyou-dè-pho-ni-é-yo"
+        }
+      },
+      "rules": [
+        "R"
+      ],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot6/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 17
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-ko.json",
+          "location": [
+            "receivedModels",
+            15
+          ],
+          "profile": "received-model",
+          "expectedBefore": {
+            "study": "이게 본인 휴대폰이에요?",
+            "native": "Est-ce que c’est votre téléphone ?",
+            "phon": "i-gué po-nin hyu-dè-pho-ni-é-yo",
+            "source": {
+              "collection": "situation-received-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-ko.json",
+              "ledgerFileSha256": "92bcbc87974eba9cbe1d84089865de21ee413cb7dbc0dda8199ff0abb676f7ef",
+              "itemId": "fr-ko:piste-incident-objet-received-01",
+              "sourceSha256": "0b1e9dd5d567b29de8189d175a374b85cc90b4c0227b47988e68946b43452b81",
+              "ledgerItemSha256": "0b1e9dd5d567b29de8189d175a374b85cc90b4c0227b47988e68946b43452b81",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "readingPresent": true,
+            "reading": "Ige bonin hyudaeponieyo?",
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "pending-Claude",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null
+          }
+        }
+      ]
+    }
+  ]
+}

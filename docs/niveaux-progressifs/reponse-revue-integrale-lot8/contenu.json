@@ -1,0 +1,1666 @@
+{
+  "id": "codex-lot8-selected-content-counter-review",
+  "reviewedAt": "2026-10-25T22:04:28.742862+00:00",
+  "humanDateParis": "25/10/2026",
+  "sourceCommit": "e12c600f97a6339a0566cdaf879aa0d449f96284",
+  "beforeSnapshotCommit": "224e45948ac3739066f34178375b2e4437197e90",
+  "evidencePathAtSource": "docs/revue-integrale/lot8-fr-es-L1-L10/lot-contenu-gloses.json",
+  "evidenceSha256": "4c078120ce79094af6d968c6c3ac590cb01958eb3f9dfe9e5152d4e35c3ae821",
+  "status": "selected-content-accepted",
+  "publicationApproved": false,
+  "globalNativeApproval": false,
+  "runtimeChecked": true,
+  "runtimeDocumentsScanned": 77,
+  "certainNativeGlosses": 18,
+  "punctuationOnlyStudies": 2,
+  "linkedBundles": 3,
+  "selectedIds": 23,
+  "canonicalObjects": 23,
+  "transportCopies": 1,
+  "transportCopyId": "situation-support-conversation:fr-es:piste-douleur-simple-support-02",
+  "receivedModels": 0,
+  "approvedFieldCounts": {
+    "native": 19,
+    "study": 5,
+    "phon": 3
+  },
+  "approvedFieldTotal": 27,
+  "runtimeFieldCounts": {
+    "native": 20,
+    "study": 5,
+    "phon": 3
+  },
+  "runtimeFieldTotal": 28,
+  "beforeMismatches": 0,
+  "overlapWithPhoneticRegistry": [],
+  "priorCorrectionAnnotationsOnSelectedObjects": [],
+  "unappliedUncertainContentItems": 119,
+  "linguisticQualifications": [
+    "No hay que can express lack of necessity or a recommendation/prohibition depending on context; the retained gloss chooses lack of necessity, not a universal prohibition on the former translation.",
+    "Flipas is present morphology, but tu vas halluciner can be a natural colloquial pragmatic equivalent. Tu délires is a defensible selected reading, not proof that any future French paraphrase is wrong.",
+    "Muy is rendered tres rather than trop for these unmarked lexical cards; context can license an excessive-degree interpretation elsewhere.",
+    "French on can render a first-person Spanish question idiomatically in context; the retained je makes the person explicit without declaring every impersonal rendering ungrammatical.",
+    "The two exclamations change orthography only. Their complete aids, native glosses, status and all other attributes stay guarded.",
+    "Poner is not restricted to clothing; me lo pone is the selected client-to-server request in this take-away context.",
+    "Video may be mass-like elsewhere; un video is chosen here for the countable exemplar already expressed in the native gloss.",
+    "The three complete replacement aids are copied whole; no segments are generated or joined by this checker."
+  ],
+  "limitations": [
+    "Targeted individual counter-reading of 23 selected content records, not a second reading of all 4,995 positions.",
+    "No real audio or native-speaker certification.",
+    "310 placement proposals, 151 conventions (including 112 jota) and 119 uncertain content items are not applied."
+  ],
+  "corrections": [
+    {
+      "id": "situation-support-conversation:fr-es:piste-douleur-simple-support-02",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "au ventre"
+      },
+      "after": {
+        "native": "l'estomac"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+          "location": [
+            "themes",
+            17,
+            "phrases",
+            0
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "situation-support-conversation:fr-es:piste-douleur-simple-support-02",
+            "study": "el estómago",
+            "native": "au ventre",
+            "phon": "él és-TO-ma-go",
+            "speaker": "A",
+            "kind": "learner",
+            "contentType": "vocabulary",
+            "isTemplate": false,
+            "sourceDeclaredTemplate": false,
+            "editorialLevel": 2,
+            "phoneticReviewStatus": "existing-verbatim",
+            "source": {
+              "collection": "situation-support-conversation",
+              "kind": "conversation-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-es.json",
+              "ledgerFileSha256": "4638082462d028ef93c5d93b4be941fca8c7ed1054d6743e447fd936b038d299",
+              "itemId": "fr-es:piste-douleur-simple-support-02",
+              "sourceSha256": "3102fc7df47b52d154708997d696254a826ce9273d91d397350f5c4f3ef6f4c8",
+              "ledgerItemSha256": "1100cccc4ce3b10b721fc61b370964ed7049d2963ea85973a53df304e49c7082",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-es/L9-fr-es.json",
+                "jsonPointer": "/units/9/variants/1/slot",
+                "fileSha256": "9213141af73a699177b03fa653d32e39370728c1131dfbe6abbea8bef2f81673",
+                "entrySha256": "3102fc7df47b52d154708997d696254a826ce9273d91d397350f5c4f3ef6f4c8",
+                "sourceCommit": "7d245568102f16fb8ae9e29c46bb89221358058b"
+              },
+              "sourceLevel": 9
+            },
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Formulation entière correspondant à cet acte dans le module ; aucune phonétique dérivée ou harmonisée."
+            },
+            "placement": {
+              "domain": "vocab-personnes",
+              "section": "vocabulary",
+              "classification": "new-situation-lexical-support",
+              "reason": "Formulation entière correspondant à cet acte dans le module ; aucune phonétique dérivée ou harmonisée.",
+              "plannedPrerequisiteIndices": [],
+              "lexicalFamilyClassification": "reviewed-whole-situation-support",
+              "themeId": "L2-vocab-personnes"
+            },
+            "lexicalClass": "other"
+          }
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-es.json",
+          "location": [
+            "phrases",
+            188
+          ],
+          "profile": "transport-phrase",
+          "phrase": {
+            "id": "situation-support-conversation:fr-es:piste-douleur-simple-support-02",
+            "study": "el estómago",
+            "native": "au ventre",
+            "phon": "él és-TO-ma-go",
+            "speaker": "A",
+            "kind": "learner",
+            "contentType": "vocabulary",
+            "isTemplate": false,
+            "sourceDeclaredTemplate": false,
+            "editorialLevel": 2,
+            "phoneticReviewStatus": "existing-verbatim",
+            "source": {
+              "collection": "situation-support-conversation",
+              "kind": "conversation-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-es.json",
+              "ledgerFileSha256": "4638082462d028ef93c5d93b4be941fca8c7ed1054d6743e447fd936b038d299",
+              "itemId": "fr-es:piste-douleur-simple-support-02",
+              "sourceSha256": "3102fc7df47b52d154708997d696254a826ce9273d91d397350f5c4f3ef6f4c8",
+              "ledgerItemSha256": "1100cccc4ce3b10b721fc61b370964ed7049d2963ea85973a53df304e49c7082",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-es/L9-fr-es.json",
+                "jsonPointer": "/units/9/variants/1/slot",
+                "fileSha256": "9213141af73a699177b03fa653d32e39370728c1131dfbe6abbea8bef2f81673",
+                "entrySha256": "3102fc7df47b52d154708997d696254a826ce9273d91d397350f5c4f3ef6f4c8",
+                "sourceCommit": "7d245568102f16fb8ae9e29c46bb89221358058b"
+              },
+              "sourceLevel": 9
+            },
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Formulation entière correspondant à cet acte dans le module ; aucune phonétique dérivée ou harmonisée."
+            },
+            "placement": {
+              "domain": "vocab-personnes",
+              "section": "vocabulary",
+              "classification": "new-situation-lexical-support",
+              "reason": "Formulation entière correspondant à cet acte dans le module ; aucune phonétique dérivée ou harmonisée.",
+              "plannedPrerequisiteIndices": [],
+              "lexicalFamilyClassification": "reviewed-whole-situation-support",
+              "themeId": "L2-vocab-personnes"
+            },
+            "lexicalClass": "other",
+            "referenceOnly": true,
+            "sourceHash": "3102fc7df47b52d154708997d696254a826ce9273d91d397350f5c4f3ef6f4c8",
+            "canonicalLocation": {
+              "pairId": "fr-es",
+              "level": 2,
+              "themeId": "L2-vocab-personnes"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "situation-authored:fr-es:piste-sport-habitudes-04",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Je m’entraîne pendant une demi-heure."
+      },
+      "after": {
+        "native": "Chaque entraînement dure une demi-heure."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+          "location": [
+            "themes",
+            15,
+            "phrases",
+            2
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "situation-authored:fr-es:piste-sport-habitudes-04",
+            "study": "Cada entrenamiento dura media hora.",
+            "native": "Je m’entraîne pendant une demi-heure.",
+            "phon": "KA-da ènn-tré-na-MIÈNN-to DOU-ra MÉ-dia O-ra",
+            "speaker": "A",
+            "kind": "learner",
+            "contentType": "utterance",
+            "isTemplate": false,
+            "sourceDeclaredTemplate": false,
+            "editorialLevel": 3,
+            "phoneticReviewStatus": "pending-Claude",
+            "source": {
+              "collection": "situation-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-es.json",
+              "ledgerFileSha256": "4638082462d028ef93c5d93b4be941fca8c7ed1054d6743e447fd936b038d299",
+              "itemId": "fr-es:piste-sport-habitudes-04",
+              "sourceSha256": "8dc9393c221d548b27883acb9b658f9cdf366cb334007a7e2b97928da9143396",
+              "ledgerItemSha256": "8dc9393c221d548b27883acb9b658f9cdf366cb334007a7e2b97928da9143396",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Forme entière autonome choisie pour l’acte du plan, sans retouche d’une aide existante."
+            },
+            "placement": {
+              "domain": "piste-sport-habitudes",
+              "section": "situations",
+              "classification": "new-situation-whole-utterance",
+              "reason": "Forme entière autonome choisie pour l’acte du plan, sans retouche d’une aide existante.",
+              "plannedPrerequisiteIndices": [],
+              "themeId": "L3-situation-piste-sport-habitudes"
+            },
+            "intentId": "piste-sport-habitudes-04",
+            "topicId": "piste-sport-habitudes"
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:999",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "ne fais pas si confiance"
+      },
+      "after": {
+        "native": "ne fais pas trop confiance"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            13
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:999",
+            "study": "No te fíes tanto.",
+            "native": "ne fais pas si confiance",
+            "phon": "no té FI-és TAN-to",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Consigne à l'impératif dans le sens français ; elle fonctionne comme tour complet."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 999,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "70871c6513c5b2e413a26d10967b4ba4bbd04b413ebbe4a81ffdb8358e865f4a"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L4-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "situation-authored:fr-es:piste-incident-objet-03",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Je l’ai posé sur cette table."
+      },
+      "after": {
+        "native": "Je l’ai posé sur la table."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+          "location": [
+            "themes",
+            12,
+            "phrases",
+            1
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "situation-authored:fr-es:piste-incident-objet-03",
+            "study": "Lo dejé sobre la mesa.",
+            "native": "Je l’ai posé sur cette table.",
+            "phon": "lo dé-KHÉ SO-bré la MÉ-sa",
+            "speaker": "A",
+            "kind": "learner",
+            "contentType": "utterance",
+            "isTemplate": false,
+            "sourceDeclaredTemplate": false,
+            "editorialLevel": 4,
+            "phoneticReviewStatus": "pending-Claude",
+            "source": {
+              "collection": "situation-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-es.json",
+              "ledgerFileSha256": "4638082462d028ef93c5d93b4be941fca8c7ed1054d6743e447fd936b038d299",
+              "itemId": "fr-es:piste-incident-objet-03",
+              "sourceSha256": "738156eb3ee80adaff59d08851ef7bd2400ab309970fca45100d44282a9578f5",
+              "ledgerItemSha256": "738156eb3ee80adaff59d08851ef7bd2400ab309970fca45100d44282a9578f5",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Énoncé complet cohérent avec la situation, sans changement des champs d’une source existante."
+            },
+            "placement": {
+              "domain": "piste-incident-objet",
+              "section": "situations",
+              "classification": "new-situation-whole-utterance",
+              "reason": "Énoncé complet cohérent avec la situation, sans changement des champs d’une source existante.",
+              "plannedPrerequisiteIndices": [],
+              "themeId": "L4-situation-piste-incident-objet"
+            },
+            "intentId": "piste-incident-objet-03",
+            "topicId": "piste-incident-objet"
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:1738",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "J'ai besoin des urgences."
+      },
+      "after": {
+        "native": "Je dois aller aux urgences."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            20
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:1738",
+            "study": "Necesito ir a urgencias.",
+            "native": "J'ai besoin des urgences.",
+            "phon": "né-cé-SI-to ir a our-RHÈN-cias",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 1738,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "5b1619c22b08297a902d0cd8c590fb4cdd81cd3ca3040a8d3681526641c19230"
+            },
+            "placement": {
+              "domain": "ressentis",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "ressentis",
+              "section": "situations",
+              "themeId": "L5-ressentis"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:1743",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Peut-on rendre la voiture ailleurs ?"
+      },
+      "after": {
+        "native": "Je peux le rendre ailleurs ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            31
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:1743",
+            "study": "¿Puedo devolverlo en otro sitio?",
+            "native": "Peut-on rendre la voiture ailleurs ?",
+            "phon": "POUÉ-do dé-bol-BÈR-lo èn O-tro SI-tio",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 1743,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "5838136ed6598153a688ec599e66ef70a89f2fe382fdf9cf419f3f7cd9954615"
+            },
+            "placement": {
+              "domain": "deplacements",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "deplacements",
+              "section": "situations",
+              "themeId": "L5-deplacements"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:1840",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Vous êtes touriste aussi ?"
+      },
+      "after": {
+        "native": "Toi aussi, tu es touriste ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            171
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:1840",
+            "study": "¿Tú también eres turista?",
+            "native": "Vous êtes touriste aussi ?",
+            "phon": "tou tam-BIÈN É-rés tou-RIS-ta",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 1840,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "7fd2b1e00c03be729e45c131d37579dd3cb2945fd0b6b62eec3e440c8a044e81"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L5-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:2288",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Peut-on se regrouper pour une visite ?"
+      },
+      "after": {
+        "native": "On peut s'inscrire ensemble dans un groupe ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            176
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:2288",
+            "study": "¿Podemos apuntarnos juntos a un grupo?",
+            "native": "Peut-on se regrouper pour une visite ?",
+            "phon": "po-DÉ-mos a-poun-TAR-nos RHOUN-tos a oun GROU-po",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 6,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2288,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "9fcf52a1a8ac86e3e7034cf05a78e6596c2d96998282ecc3227e6223ac478dbe"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L6-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:4032",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "le délai de livraison est trop long"
+      },
+      "after": {
+        "native": "le délai de livraison est très long"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            26
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:4032",
+            "study": "El plazo de entrega es muy largo.",
+            "native": "le délai de livraison est trop long",
+            "phon": "él PLA-sso dé én-TRÉ-ga és mouy LAR-go",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 6,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 4032,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "b2c26210d2bfe1abd3dd23674ce638ebff39a7568b1a511f6bfaeb21c266b43c"
+            },
+            "placement": {
+              "domain": "travail",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "travail",
+              "section": "situations",
+              "themeId": "L6-travail"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:2478",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "il ne faut pas décider aujourd'hui"
+      },
+      "after": {
+        "native": "pas besoin de décider aujourd'hui"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            14
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:2478",
+            "study": "No hay que decidir hoy.",
+            "native": "il ne faut pas décider aujourd'hui",
+            "phon": "no AY ké dé-si-DIR OY",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2478,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "d9cfa3ff3f79fb359795694c465dfbdd3fafd881b4bde04087e9521677e346a9"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "section": "situations",
+              "themeId": "L7-reperes"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:2439",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Y a-t-il une supérette ? J'ai besoin d'eau."
+      },
+      "after": {
+        "native": "Y a-t-il un magasin près d'ici ? J'ai besoin d'eau."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            6
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:2439",
+            "study": "¿Hay una tienda cerca? Necesito agua.",
+            "native": "Y a-t-il une supérette ? J'ai besoin d'eau.",
+            "phon": "aïlle OU-na TIÈN-da CÈR-ka né-cé-SI-to A-goua",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Sens de la forme étudiée et traduction contrôlés sur cette carte entière ; décision éditoriale individuelle, sans validation phonétique."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2439,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "721c745e0a783c9f3ac75e2744370c6366110e47678e2e9e2480a42c3fb07b0d"
+            },
+            "placement": {
+              "domain": "repas",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "repas",
+              "section": "situations",
+              "themeId": "L7-repas"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:2696",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Conseillez un plat que les locaux adorent."
+      },
+      "after": {
+        "native": "Recommandez-moi quelque chose qui plaise aux gens du coin."
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            30
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:2696",
+            "study": "Recomiéndeme algo que guste a los locales.",
+            "native": "Conseillez un plat que les locaux adorent.",
+            "phon": "ré-ko-MIÈN-dé-mé AL-go ké GOUS-té a los lo-KA-lés",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Consigne à l'impératif dans le sens français ; elle fonctionne comme tour complet."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2696,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "2962c83cfcfdfe53005506c3e1b4b659b5573a0adbfa63bcaa5e373389b5672a"
+            },
+            "placement": {
+              "domain": "repas",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "repas",
+              "section": "situations",
+              "themeId": "L7-repas"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:2623",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "où récupère-t-on la voiture de location ?"
+      },
+      "after": {
+        "native": "où est-ce que je récupère la voiture de location ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            17
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:2623",
+            "study": "¿Dónde recojo el coche de alquiler?",
+            "native": "où récupère-t-on la voiture de location ?",
+            "phon": "DON-dé ré-KO-ro él KO-tché dé al-ki-LÉR",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2623,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "ccbdb51c8487ae3bbbaf973b66e5509bdc24352a83a77639697a1e8e24545052"
+            },
+            "placement": {
+              "domain": "deplacements",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "deplacements",
+              "section": "situations",
+              "themeId": "L7-deplacements"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:2633",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Y a-t-il des vélos en libre-service ?"
+      },
+      "after": {
+        "native": "Y a-t-il des vélos en libre-service près d'ici ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            141
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:2633",
+            "study": "¿Hay bicis compartidas cerca?",
+            "native": "Y a-t-il des vélos en libre-service ?",
+            "phon": "aïlle BI-cis kom-par-TI-das CÈR-ka",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2633,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "364dc62dfb1e053a8d946467a57c248b93481dec794a99b2f148451cfeddbeff"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L7-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:2638",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "Faut-il rendre le plein fait ?"
+      },
+      "after": {
+        "native": "Faut-il le rendre avec le plein fait ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            143
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:2638",
+            "study": "¿Hay que devolverlo con el depósito lleno?",
+            "native": "Faut-il rendre le plein fait ?",
+            "phon": "aïlle ké dé-bol-BÈR-lo kon èl dé-PO-si-to YÉ-no",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2638,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "9cd047624c72b443ffd14f1db2bac4025e09a142b15d7baac1393e80e7556910"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L7-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:4174",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "l'angle du faisceau est trop large"
+      },
+      "after": {
+        "native": "l'angle du faisceau est très large"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            7
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:4174",
+            "study": "El ángulo del haz es muy ancho.",
+            "native": "l'angle du faisceau est trop large",
+            "phon": "él AN-gou-lo dél AS és mouy AN-tcho",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 4174,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "91f7b3ea6ec1531883dd33425622273d61e0da58fb1b2fe79904e41a28a31786"
+            },
+            "placement": {
+              "domain": "decrire",
+              "classification": "description",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "decrire",
+              "section": "situations",
+              "themeId": "L8-decrire"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:4334",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "tu vas halluciner"
+      },
+      "after": {
+        "native": "tu délires"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            11
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:4334",
+            "study": "Flipas.",
+            "native": "tu vas halluciner",
+            "phon": "FLI-pas",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 9,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 4334,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "e8a8c1486ae25e216168a9c76f1abdbf60f39d274405c5e3d3c6f376ac824f07"
+            },
+            "placement": {
+              "domain": "deplacements",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "deplacements",
+              "section": "situations",
+              "themeId": "L9-deplacements"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:3195",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native"
+      ],
+      "before": {
+        "native": "est-ce que ça entraîne une pénalité ?"
+      },
+      "after": {
+        "native": "est-ce que cela couvre une pénalité ?"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            76
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:3195",
+            "study": "¿Cubre esto una penalización?",
+            "native": "est-ce que ça entraîne une pénalité ?",
+            "phon": "KOUB-ré ÉS-to OU-na pé-na-li-ssa-SION",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 9,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 3195,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "be51c7d08ae978dfc5e380ce60cbc6c5a4da9f751e77fa8eae33afba9a3c5840"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L9-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:661",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "study"
+      ],
+      "before": {
+        "study": "Qué día tan largo."
+      },
+      "after": {
+        "study": "¡Qué día tan largo!"
+      },
+      "nativeGuardsUnchanged": [
+        "Quelle longue journée."
+      ],
+      "phoneticAndStatusGuardForStudyOnly": true,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            10
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:661",
+            "study": "Qué día tan largo.",
+            "native": "Quelle longue journée.",
+            "phon": "ké DI-a tan LAR-go",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Énoncé ou exclamation complet sur le temps, la météo, une vue ou une échéance ; il ne doit pas être présenté comme mot isolé."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 661,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "3c8d36ef3311e102e3eac2dbb27687eaa36fc4cb34f42981820a4c2982e44bef"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "situationClassification": "reviewed-source-situation-override",
+              "section": "situations",
+              "themeId": "L3-reperes"
+            },
+            "situationDomainOverride": "reperes",
+            "situationDomainOverrideReason": "Énoncé ou exclamation complet sur le temps, la météo, une vue ou une échéance ; il ne doit pas être présenté comme mot isolé."
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:875",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "study"
+      ],
+      "before": {
+        "study": "Qué bochorno hace."
+      },
+      "after": {
+        "study": "¡Qué bochorno hace!"
+      },
+      "nativeGuardsUnchanged": [
+        "quelle chaleur lourde"
+      ],
+      "phoneticAndStatusGuardForStudyOnly": true,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            28
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:875",
+            "study": "Qué bochorno hace.",
+            "native": "quelle chaleur lourde",
+            "phon": "KÉ bo-TCHOR-no A-sé",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Énoncé ou exclamation complet sur le temps, la météo, une vue ou une échéance ; il ne doit pas être présenté comme mot isolé."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 875,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "72f1f94f8ec72f71b9fc0ed2063030403fab2bd3b4f420d5b109eebe98de9f6b"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "situationClassification": "reviewed-source-situation-override",
+              "section": "situations",
+              "themeId": "L3-reperes"
+            },
+            "situationDomainOverride": "reperes",
+            "situationDomainOverrideReason": "Énoncé ou exclamation complet sur le temps, la météo, une vue ou une échéance ; il ne doit pas être présenté comme mot isolé."
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:1340",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "native",
+        "phon",
+        "study"
+      ],
+      "before": {
+        "study": "¿Me lo pongo para llevar?",
+        "native": "Puis-je l'emporter ?",
+        "phon": "mé lo PON-go PA-ra yé-BAR"
+      },
+      "after": {
+        "study": "¿Me lo pone para llevar?",
+        "native": "Vous me le mettez à emporter ?",
+        "phon": "mé lo PO-né PA-ra yé-BAR"
+      },
+      "nativeGuardsUnchanged": [],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            143
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:1340",
+            "study": "¿Me lo pongo para llevar?",
+            "native": "Puis-je l'emporter ?",
+            "phon": "mé lo PON-go PA-ra yé-BAR",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 1340,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "ea69107f9a97408d9046b59a2ccab85fac0342a61546fe6078f5b75d3413ccbe"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L4-conversation"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:2727",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "phon",
+        "study"
+      ],
+      "before": {
+        "study": "¿Cuánto tarda a España?",
+        "phon": "KOUAN-to TAR-da a és-PA-nya"
+      },
+      "after": {
+        "study": "¿Cuánto tarda en llegar a España?",
+        "phon": "KOUAN-to TAR-da én yé-GAR a és-PA-nya"
+      },
+      "nativeGuardsUnchanged": [
+        "combien de temps ça met jusqu'en Espagne ?"
+      ],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            1
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:2727",
+            "study": "¿Cuánto tarda a España?",
+            "native": "combien de temps ça met jusqu'en Espagne ?",
+            "phon": "KOUAN-to TAR-da a és-PA-nya",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Question autonome : forme interrogative explicite et proposition ou formule interrogative identifiable."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2727,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "ac592962e97ed9eb7306525dcfe4e5578f97b349ab675fa665fe806330296f09"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "section": "situations",
+              "themeId": "L8-reperes"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    },
+    {
+      "id": "catalogue:es:3186",
+      "decision": "accepted-as-a-bounded-event",
+      "fields": [
+        "phon",
+        "study"
+      ],
+      "before": {
+        "study": "Necesito ver vídeo de la línea.",
+        "phon": "né-sé-SSI-to BÉR BI-dé-o dé la LI-né-a"
+      },
+      "after": {
+        "study": "Necesito ver un vídeo de la línea.",
+        "phon": "né-sé-SSI-to BÉR oun BI-dé-o dé la LI-né-a"
+      },
+      "nativeGuardsUnchanged": [
+        "j'ai besoin de voir une vidéo de la ligne"
+      ],
+      "phoneticAndStatusGuardForStudyOnly": false,
+      "sourceOccurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            10
+          ],
+          "profile": "canonical",
+          "phrase": {
+            "id": "catalogue:es:3186",
+            "study": "Necesito ver vídeo de la línea.",
+            "native": "j'ai besoin de voir une vidéo de la ligne",
+            "phon": "né-sé-SSI-to BÉR BI-dé-o dé la LI-né-a",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 9,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "Proposition avec prédication finie identifiable dans le texte étudié ou son sens français ; ni étiquette ni ponctuation seules."
+            },
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 3186,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "6ed1bbb8b706155542e700fb2a0772812607b91417a61a3182c20e58d8af5e23"
+            },
+            "placement": {
+              "domain": "ressentis",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "ressentis",
+              "section": "situations",
+              "themeId": "L9-ressentis"
+            }
+          }
+        }
+      ],
+      "runtimeChecked": true
+    }
+  ]
+}

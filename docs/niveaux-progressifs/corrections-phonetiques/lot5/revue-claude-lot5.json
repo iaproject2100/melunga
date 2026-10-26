@@ -1,0 +1,361 @@
+{
+  "version": 1,
+  "id": "revue-claude-lot5-phonetique-lectures",
+  "status": "frozen-paired-reading-events-not-global-native-approval",
+  "baseSnapshotCommit": "f22202cc4622c26794a6ada0c88d1741b82c1967",
+  "appliesAfter": [
+    {
+      "registryPath": "docs/niveaux-progressifs/corrections-contenu/lot3-lot4/revue-contenu-lot3-lot4.json",
+      "registrySha256": "346a85c459bb3adfc556c8946262509d19e9ffd46e65e9aa2dba40729aceab91"
+    }
+  ],
+  "correctionCount": 4,
+  "eventCount": 8,
+  "approvedFieldCount": 8,
+  "changedFieldCount": 8,
+  "evidenceFiles": [
+    {
+      "path": "docs/niveaux-progressifs/corrections-phonetiques/lot5/evidence-registre-phonetique.json",
+      "gitPath": "docs/revue-integrale/lot5-fr-ja-L1-L10/registre-phonetique.json",
+      "gitCommit": "62daa86414d937b0554831a4c032e05b3046bb61",
+      "sha256": "76a8bed5f6218fc74aa0fb75f7f19b2bcd9518aa1440780877d5dd03b6789158"
+    },
+    {
+      "path": "docs/niveaux-progressifs/corrections-phonetiques/lot5/evidence-registre-lectures.json",
+      "gitPath": "docs/revue-integrale/lot5-fr-ja-L1-L10/registre-lectures.json",
+      "gitCommit": "62daa86414d937b0554831a4c032e05b3046bb61",
+      "sha256": "2e863193df9228431b04011f343acc38af3bb4266921777291f97077100195c5"
+    }
+  ],
+  "corrections": [
+    {
+      "pairId": "fr-ja",
+      "id": "catalogue:ja:3630",
+      "fields": {
+        "phon": {
+          "before": "cho-kki a-ra-i-ki",
+          "after": "cho-kou-sén-ki"
+        },
+        "reading": {
+          "before": "sho-k-ki a-ra-i-ki",
+          "after": "sho-ku-se-n-ki"
+        }
+      },
+      "rules": [
+        "M"
+      ],
+      "atomicBundle": true,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot5/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 0
+        },
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot5/evidence-registre-lectures.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 0
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L4.json",
+          "location": [
+            "themes",
+            16,
+            "phrases",
+            18
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "食洗機",
+            "native": "le lave-vaisselle",
+            "phon": "cho-kki a-ra-i-ki",
+            "source": {
+              "collection": "DECKS.ja",
+              "sourceIndex": 3630,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "ac500a4ff8a1dfaba6f88dadc7b541a646b0a765e5ad86ccea774a689d3ee506"
+            },
+            "readingPresent": true,
+            "reading": "sho-k-ki a-ra-i-ki",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ja",
+      "id": "catalogue:ja:3771",
+      "fields": {
+        "phon": {
+          "before": "ko-no ba-sou-oua é i-ki-ma-sou-ka",
+          "after": "ko-no ba-sou-oua ni i-ki-ma-sou-ka"
+        },
+        "reading": {
+          "before": "ko-no ba-su-wa e i-ki-ma-su-ka",
+          "after": "ko-no ba-su-wa ni i-ki-ma-su-ka"
+        }
+      },
+      "rules": [
+        "P"
+      ],
+      "atomicBundle": true,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot5/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 1
+        },
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot5/evidence-registre-lectures.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 1
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L5.json",
+          "location": [
+            "reserve",
+            4
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "このバスは〜に行きますか？",
+            "native": "Ce bus va à... ?",
+            "phon": "ko-no ba-sou-oua é i-ki-ma-sou-ka",
+            "source": {
+              "collection": "DECKS.ja",
+              "sourceIndex": 3771,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "b04ea9a63a43fecfee0de12243545b8767b86b5029a691148e9e160e719d216b"
+            },
+            "readingPresent": true,
+            "reading": "ko-no ba-su-wa e i-ki-ma-su-ka",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ja",
+      "id": "catalogue:ja:2400",
+      "fields": {
+        "phon": {
+          "before": "nan-ka sa-yo-o-na-ra-mo i-oua-zou-ni ka-é-ttan-dé-sou-yo",
+          "after": "nan-ka sa-yo-na-ra-mo i-oua-zou-ni ka-é-ttan-dé-sou-yo"
+        },
+        "reading": {
+          "before": "na-n-ka sa-yo-o-na-ra-mo i-wa-zu-ni ka-e-t-ta-n-de-su-yo",
+          "after": "na-n-ka sa-yo-na-ra-mo i-wa-zu-ni ka-e-t-ta-n-de-su-yo"
+        }
+      },
+      "rules": [
+        "M"
+      ],
+      "atomicBundle": true,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot5/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 2
+        },
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot5/evidence-registre-lectures.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 2
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L7.json",
+          "location": [
+            "themes",
+            0,
+            "phrases",
+            9
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "なんか、さよならも言わずに帰ったんですよ。",
+            "native": "Genre, il est parti sans dire au revoir.",
+            "phon": "nan-ka sa-yo-o-na-ra-mo i-oua-zou-ni ka-é-ttan-dé-sou-yo",
+            "source": {
+              "collection": "DECKS.ja",
+              "sourceIndex": 2400,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "0dbe1a387d547018f44ebb6927be5918814943f5e343d299cc75281a972a68d7"
+            },
+            "readingPresent": true,
+            "reading": "na-n-ka sa-yo-o-na-ra-mo i-wa-zu-ni ka-e-t-ta-n-de-su-yo",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-ja",
+      "id": "catalogue:ja:4320",
+      "fields": {
+        "phon": {
+          "before": "bo-di-i so-o-pou",
+          "after": "bo-di so-o-pou"
+        },
+        "reading": {
+          "before": "bo-di-i so-o-pu",
+          "after": "bo-di so-o-pu"
+        }
+      },
+      "rules": [
+        "M"
+      ],
+      "atomicBundle": true,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot5/evidence-registre-phonetique.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 3
+        },
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-phonetiques/lot5/evidence-registre-lectures.json",
+          "evidenceCollection": "events",
+          "evidenceIndex": 3
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ja/L9.json",
+          "location": [
+            "themes",
+            12,
+            "phrases",
+            1
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "ボディソープ",
+            "native": "le gel douche",
+            "phon": "bo-di-i so-o-pou",
+            "source": {
+              "collection": "DECKS.ja",
+              "sourceIndex": 4320,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "4d7820c33932824209776be86ecd332f80339fdc570668bc37cbf5c788af7bc2"
+            },
+            "readingPresent": true,
+            "reading": "bo-di-i so-o-pu",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null
+          }
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-ja.json",
+          "location": [
+            "phrases",
+            210
+          ],
+          "profile": "transport-phrase",
+          "expectedBefore": {
+            "study": "ボディソープ",
+            "native": "le gel douche",
+            "phon": "bo-di-i so-o-pou",
+            "source": {
+              "collection": "DECKS.ja",
+              "sourceIndex": 4320,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "4d7820c33932824209776be86ecd332f80339fdc570668bc37cbf5c788af7bc2"
+            },
+            "readingPresent": true,
+            "reading": "bo-di-i so-o-pu",
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null
+          }
+        }
+      ]
+    }
+  ]
+}

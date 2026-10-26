@@ -1,0 +1,3233 @@
+{
+  "id": "counterreview-lot6-content",
+  "reviewedAt": "2026-10-25T19:16:08.429050+00:00",
+  "humanDateParis": "25/10/2026",
+  "sourceCommit": "87357b16c7d77a1c94fdbd940dcb3f232758748d",
+  "beforeSnapshotCommit": "161d0ebef38bb38ea9e26a836ca701b9d136f6d2",
+  "evidencePathAtSource": "docs/revue-integrale/lot6-fr-ko-L1-L10/lot-contenu-gloses.json",
+  "evidenceSha256": "9a522d18d620ce38b2b462ab543a6c78179bf5b00b5989427a82c2ae6df8f73e",
+  "status": "accepted-for-separated-frozen-registry",
+  "counts": {
+    "certainNativeGlossesReadIndividually": 45,
+    "atomicBundlesReadIndividually": 2,
+    "distinctIds": 47,
+    "runtimeOccurrencesAtSnapshot": 47,
+    "copiedOccurrencesBeyondCanonical": 0,
+    "exactBeforeMismatches": 0,
+    "authorizedFieldValues": 51,
+    "overlapWithLot6PhoneticIds": 0,
+    "uncertainGlossesNotApplied": 148,
+    "registerContextCases": 18,
+    "koreanLanguageNameGlosses": 6
+  },
+  "decisions": [
+    "The 45 explicit native replacements are accepted as contextual glosses, without inferring a general Korean honorific = French vous rule.",
+    "The two bundles change study, reading and phon as a single event.",
+    "The native gloss of ko:1896 is already about ordering for everyone; 모두의 것을 preserves that intended meaning.",
+    "Keep eui as provided for 의; no convention normalization.",
+    "ko:2362 has a prior phoneticCorrection annotation, which must be retained by the new content event.",
+    "The authored network gloss only adds même; cet autre is preserved from the source.",
+    "No placement, original source level, source provenance, price or access change is authorized by this content review."
+  ],
+  "limitations": [
+    "Textual counterreview of 47 targeted candidates and exact comparison against the immutable Git snapshot; not a new review of all 4770 positions.",
+    "No native-speaker endorsement, real audio listening or acquisition claim.",
+    "148 uncertain gloss proposals, 447 placement proposals and 260 convention rows remain outside this integration."
+  ],
+  "items": [
+    {
+      "id": "catalogue:ko:1917",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1917",
+        "level": 1,
+        "field": "native",
+        "certainty": "certain",
+        "study": "만나서 반가워요.",
+        "before": "Au plaisir de vous rencontrer.",
+        "after": "Ravi de vous rencontrer.",
+        "reason": "« Au plaisir de vous rencontrer » annonce une rencontre future ; 만나서 반가워요 se dit à la rencontre."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L1.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            7
+          ],
+          "snapshotFileSha256": "21dad96a75b87e5d5251c1563104263aa4624699e7e7233eee9c1660b80a5cd1",
+          "beforeProfile": {
+            "id": "catalogue:ko:1917",
+            "study": "만나서 반가워요.",
+            "native": "Au plaisir de vous rencontrer.",
+            "phon": "man-na-so ban-ga-ouo-yo",
+            "reading": "man-na-seo ban-ga-wo-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 1,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1917,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "1b5f6f65065806b5fd67d9408b0f59df912c7adbecbab55e403c1b2411223405"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "explicit-proposal",
+              "reason": "Formule de rencontre usuelle apprise entière après la salutation ; la traduction française contextuelle reste à relire, sans être modifiée ici.",
+              "plannedPrerequisiteIndices": [
+                4
+              ],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:2160",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:2160",
+        "level": 1,
+        "field": "native",
+        "certainty": "certain",
+        "study": "제 형",
+        "before": "mon frère",
+        "after": "mon grand frère",
+        "reason": "형 = grand frère (d’un homme) ; la notion d’aîné est omise."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L1.json",
+          "location": [
+            "themes",
+            14,
+            "phrases",
+            12
+          ],
+          "snapshotFileSha256": "21dad96a75b87e5d5251c1563104263aa4624699e7e7233eee9c1660b80a5cd1",
+          "beforeProfile": {
+            "id": "catalogue:ko:2160",
+            "study": "제 형",
+            "native": "mon frère",
+            "phon": "djé hyong",
+            "reading": "je hyeong",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 1,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Forme sans finale de réplique détectée et sens lexical (mot ou locution), confirmé par la fonction de la carte ; les métadonnées source ne sont qu’un indice supplémentaire.",
+              "lexicalClassReason": "Entrée nominale ou nom de couleur/calendrier, pas adjectif ou adverbe par sa seule traduction. La décision de vocabulaire n’est pas changée.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 2160,
+              "sourceLevel": 1,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "15781fb4d786a4c2f734ac6e064f175e29fdcf41b80eb8b62f03327f7d4237b5"
+            },
+            "placement": {
+              "domain": "vocab-personnes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "quotidien",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "reviewed-source-lexical-family-override",
+              "themeId": "L1-vocab-personnes"
+            },
+            "lexicalClass": "other",
+            "lexicalFamilyOverride": "vocab-personnes",
+            "lexicalFamilyOverrideReason": "La cible concerne la famille, une personne, un organe, la santé ou une relation humaine ; ce n’est pas un objet de maison. Cible source : 제 형"
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:129",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:129",
+        "level": 2,
+        "field": "native",
+        "certainty": "certain",
+        "study": "쭉 가세요.",
+        "before": "Va tout droit.",
+        "after": "Allez tout droit.",
+        "reason": "가세요 porte l'honorifique -시- : vouvoiement attendu."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            12
+          ],
+          "snapshotFileSha256": "03b88757ab18face5fc93b9a1a9da8c2cc260286d76f02bf1e5e68e49a877881",
+          "beforeProfile": {
+            "id": "catalogue:ko:129",
+            "study": "쭉 가세요.",
+            "native": "Va tout droit.",
+            "phon": "ddjouk ga-sé-yo",
+            "reading": "jjuk ga-se-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 2,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 129,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "868395ab08d58e2a35a26a94f640b02bf201719646e0763b4bc6eb77cb87affc"
+            },
+            "placement": {
+              "domain": "deplacements",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "deplacements",
+              "section": "situations",
+              "themeId": "L2-deplacements"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:263",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:263",
+        "level": 2,
+        "field": "native",
+        "certainty": "certain",
+        "study": "영하예요.",
+        "before": "Il fait moins zéro.",
+        "after": "Il fait en dessous de zéro.",
+        "reason": "« Il fait moins zéro » n'est pas correct en français ; 영하 = au-dessous de zéro."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            8
+          ],
+          "snapshotFileSha256": "03b88757ab18face5fc93b9a1a9da8c2cc260286d76f02bf1e5e68e49a877881",
+          "beforeProfile": {
+            "id": "catalogue:ko:263",
+            "study": "영하예요.",
+            "native": "Il fait moins zéro.",
+            "phon": "yong-ha-yé-yo",
+            "reading": "yeong-ha-ye-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 2,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 263,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "286ce309097432c1d18e2491c989f2093c8212faa5bbceab20297748b9de236d"
+            },
+            "placement": {
+              "domain": "decrire",
+              "classification": "description",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "decrire",
+              "section": "situations",
+              "themeId": "L2-decrire"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:117",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:117",
+        "level": 2,
+        "field": "native",
+        "certainty": "certain",
+        "study": "누구세요?",
+        "before": "Qui es-tu ?",
+        "after": "Qui est-ce ?",
+        "reason": "누구세요 porte l'honorifique -시- (formule polie, souvent « Qui est-ce ? » à la porte) : « Qui es-tu ? » ne convient pas."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            56
+          ],
+          "snapshotFileSha256": "03b88757ab18face5fc93b9a1a9da8c2cc260286d76f02bf1e5e68e49a877881",
+          "beforeProfile": {
+            "id": "catalogue:ko:117",
+            "study": "누구세요?",
+            "native": "Qui es-tu ?",
+            "phon": "nou-gou-sé-yo",
+            "reading": "nu-gu-se-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 2,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 117,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "c296cbeba8d2dab2c7498efb0cf2ec810cf538d0ee07885a0b61f0c25649e09b"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L2-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:182",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:182",
+        "level": 2,
+        "field": "native",
+        "certainty": "certain",
+        "study": "예쁘세요.",
+        "before": "Tu es belle.",
+        "after": "Vous êtes belle.",
+        "reason": "예쁘세요 porte l'honorifique -시- : vouvoiement attendu."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            89
+          ],
+          "snapshotFileSha256": "03b88757ab18face5fc93b9a1a9da8c2cc260286d76f02bf1e5e68e49a877881",
+          "beforeProfile": {
+            "id": "catalogue:ko:182",
+            "study": "예쁘세요.",
+            "native": "Tu es belle.",
+            "phon": "yé-ppeu-sé-yo",
+            "reading": "ye-ppeu-se-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 2,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 182,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "89095186416c4c1a2e0b731973fda43e0f9d29a8e966ff4489a3c4a26e89c584"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L2-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:228",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:228",
+        "level": 2,
+        "field": "native",
+        "certainty": "certain",
+        "study": "몇 개요?",
+        "before": "Combien de ?",
+        "after": "Combien ?",
+        "reason": "« Combien de ? » est une phrase française incomplète ; 몇 개요 = « Combien (d'unités) ? »."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            112
+          ],
+          "snapshotFileSha256": "03b88757ab18face5fc93b9a1a9da8c2cc260286d76f02bf1e5e68e49a877881",
+          "beforeProfile": {
+            "id": "catalogue:ko:228",
+            "study": "몇 개요?",
+            "native": "Combien de ?",
+            "phon": "myoch guè-yo",
+            "reading": "myeoch gae-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 2,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 228,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "fa8d551db744e5b4e5b36e58a37782f735a5869ae5fa0b0d5e4b1ecbcb7963cf"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L2-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:293",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:293",
+        "level": 2,
+        "field": "native",
+        "certainty": "certain",
+        "study": "끊지 마세요.",
+        "before": "Ne quitte pas.",
+        "after": "Ne quittez pas.",
+        "reason": "마세요 contient l'honorifique -(으)시- : le tutoiement ne correspond pas au registre (la carte 142 donne déjà « Ne quittez pas. »)."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            141
+          ],
+          "snapshotFileSha256": "03b88757ab18face5fc93b9a1a9da8c2cc260286d76f02bf1e5e68e49a877881",
+          "beforeProfile": {
+            "id": "catalogue:ko:293",
+            "study": "끊지 마세요.",
+            "native": "Ne quitte pas.",
+            "phon": "kkeunh-dji ma-sé-yo",
+            "reading": "kkeunh-ji ma-se-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 2,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 293,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "8993440bb95f499d142e9813d68392579eb7d8ad3591e70954954c8896f47eb4"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L2-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:370",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:370",
+        "level": 3,
+        "field": "native",
+        "certainty": "certain",
+        "study": "정말 죄송해요.",
+        "before": "Je suis désolé.",
+        "after": "Je suis vraiment désolé.",
+        "reason": "정말 (vraiment) est omis dans la glose."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json",
+          "location": [
+            "themes",
+            0,
+            "phrases",
+            2
+          ],
+          "snapshotFileSha256": "c01894dc8449ce69e34996eb9667a3f43b60a9cf4f33ea830febcf9499d8b0f0",
+          "beforeProfile": {
+            "id": "catalogue:ko:370",
+            "study": "정말 죄송해요.",
+            "native": "Je suis désolé.",
+            "phon": "djong-mal djoué-song-hè-yo",
+            "reading": "jeong-mal joe-song-hae-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 370,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "7984a632eab2ab57707fbde216d076f8f5da7c5e6d6725b75c551f77d9c75381"
+            },
+            "placement": {
+              "domain": "saluer",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "saluer",
+              "section": "situations",
+              "themeId": "L3-saluer"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:2675",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:2675",
+        "level": 3,
+        "field": "native",
+        "certainty": "certain",
+        "study": "고기가 너무 익었어요.",
+        "before": "La viande est trop cuite pour moi.",
+        "after": "La viande est trop cuite.",
+        "reason": "« pour moi » est ajouté : rien dans le coréen ne le dit."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            19
+          ],
+          "snapshotFileSha256": "c01894dc8449ce69e34996eb9667a3f43b60a9cf4f33ea830febcf9499d8b0f0",
+          "beforeProfile": {
+            "id": "catalogue:ko:2675",
+            "study": "고기가 너무 익었어요.",
+            "native": "La viande est trop cuite pour moi.",
+            "phon": "go-gui-ga no-mou ik-o-sso-yo",
+            "reading": "go-gi-ga neo-mu ik-eo-sseo-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 2675,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "b7bee596a70693c5253ec3178a24c20f032a3165cc4ef017a0c6d8221138154e"
+            },
+            "placement": {
+              "domain": "repas",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "repas",
+              "section": "situations",
+              "themeId": "L3-repas"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:4498",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:4498",
+        "level": 3,
+        "field": "native",
+        "certainty": "certain",
+        "study": "맛있게 드세요!",
+        "before": "Régale-toi !",
+        "after": "Régalez-vous !",
+        "reason": "드세요 est la forme honorifique (드시다) : le tutoiement contredit le registre."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            33
+          ],
+          "snapshotFileSha256": "c01894dc8449ce69e34996eb9667a3f43b60a9cf4f33ea830febcf9499d8b0f0",
+          "beforeProfile": {
+            "id": "catalogue:ko:4498",
+            "study": "맛있게 드세요!",
+            "native": "Régale-toi !",
+            "phon": "mat-iss-gué deu-sé-yo",
+            "reading": "mas-iss-ge deu-se-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 4498,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "3f9b5958772a2f863cd65c3d8f47d2f9006de15a7e2830579d85c357cbdfe180"
+            },
+            "placement": {
+              "domain": "repas",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "repas",
+              "section": "situations",
+              "themeId": "L3-repas"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:2520",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:2520",
+        "level": 3,
+        "field": "native",
+        "certainty": "certain",
+        "study": "신호등",
+        "before": "un feu rouge",
+        "after": "un feu de signalisation",
+        "reason": "신호등 désigne le feu de circulation en général, pas spécialement le feu rouge (빨간불, carte précédente catalogue:ko:2519)."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L3.json",
+          "location": [
+            "themes",
+            18,
+            "phrases",
+            7
+          ],
+          "snapshotFileSha256": "c01894dc8449ce69e34996eb9667a3f43b60a9cf4f33ea830febcf9499d8b0f0",
+          "beforeProfile": {
+            "id": "catalogue:ko:2520",
+            "study": "신호등",
+            "native": "un feu rouge",
+            "phon": "chin-ho-deung",
+            "reading": "sin-ho-deung",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 3,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Forme sans finale de réplique détectée et sens lexical (mot ou locution), confirmé par la fonction de la carte ; les métadonnées source ne sont qu’un indice supplémentaire.",
+              "lexicalClassReason": "Entrée nominale ou nom de couleur/calendrier, pas adjectif ou adverbe par sa seule traduction. La décision de vocabulaire n’est pas changée.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 2520,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "91055fa355718d3bdb75a63ccc35ba222d60bfd725203b743c1038721b389760"
+            },
+            "placement": {
+              "domain": "vocab-voyage",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "reviewed-source-lexical-family-override",
+              "themeId": "L3-vocab-voyage"
+            },
+            "lexicalClass": "other",
+            "lexicalFamilyOverride": "vocab-voyage",
+            "lexicalFamilyOverrideReason": "La cible désigne réellement un déplacement, un transport ou son infrastructure ; il ne s’agit pas d’un emploi figuré d’un verbe français. Cible source : 신호등"
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:720",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:720",
+        "level": 4,
+        "field": "native",
+        "certainty": "certain",
+        "study": "도와주실 수 있을까요?",
+        "before": "Ça te dérange de m'aider ?",
+        "after": "Pourriez-vous m’aider ?",
+        "reason": "Honorifique -시- (도와주실) : le vouvoiement s’impose ; « Ça te dérange » ajoute en outre une nuance absente."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            15
+          ],
+          "snapshotFileSha256": "ae486bd5cd6d58dc06a21f0052f46cfd6ab6d9b90b16c0a95be45fdfb311f200",
+          "beforeProfile": {
+            "id": "catalogue:ko:720",
+            "study": "도와주실 수 있을까요?",
+            "native": "Ça te dérange de m'aider ?",
+            "phon": "do-oua-djou-chil sou iss-eul-kka-yo",
+            "reading": "do-wa-ju-sil su iss-eul-kka-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 720,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "b44d71310bff3f241623345d50c2833285a39461dc17ea144ac084979d1775dd"
+            },
+            "placement": {
+              "domain": "ressentis",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "ressentis",
+              "section": "situations",
+              "themeId": "L4-ressentis"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:2915",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:2915",
+        "level": 4,
+        "field": "native",
+        "certainty": "certain",
+        "study": "경쟁사가 더 좋은 조건을 제시했어요.",
+        "before": "Le concurrent nous fait une meilleure offre.",
+        "after": "Le concurrent a proposé de meilleures conditions.",
+        "reason": "제시했어요 est au passé (« a proposé ») et 조건 = conditions ; « nous » est ajouté."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            139
+          ],
+          "snapshotFileSha256": "ae486bd5cd6d58dc06a21f0052f46cfd6ab6d9b90b16c0a95be45fdfb311f200",
+          "beforeProfile": {
+            "id": "catalogue:ko:2915",
+            "study": "경쟁사가 더 좋은 조건을 제시했어요.",
+            "native": "Le concurrent nous fait une meilleure offre.",
+            "phon": "guyong-djèng-sa-ga do djo-eun djo-gon-eul djé-chi-hè-sso-yo",
+            "reading": "gyeong-jaeng-sa-ga deo jo-eun jo-geon-eul je-si-hae-sseo-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 4,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 2915,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "5510fca88a5e115a4c35f56a1a018af5565ce17bd1c1d1e8f10d67ebf66d552a"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L4-conversation"
+            },
+            "phoneticReviewStatus": "corrected-by-Claude-g-devant-e-i",
+            "phoneticCorrection": {
+              "id": "catalogue:ko:2915",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+              "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+              "beforePhon": "gyong-djèng-sa-ga do djo-eun djo-gon-eul djé-chi-hè-sso-yo",
+              "originalReviewStatusPresent": false,
+              "originalReviewStatus": null,
+              "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+              "rule": "B"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:909",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:909",
+        "level": 5,
+        "field": "native",
+        "certainty": "certain",
+        "study": "결혼하셨어요?",
+        "before": "Tu es marié ?",
+        "after": "Vous êtes marié ?",
+        "reason": "결혼하셨어요 porte l'honorifique -시- : le tutoiement ne convient pas."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            13
+          ],
+          "snapshotFileSha256": "e82de0babed8de225088a0abd7a8b1fbb9eaa337371a56a6f425183f8e4dfeb0",
+          "beforeProfile": {
+            "id": "catalogue:ko:909",
+            "study": "결혼하셨어요?",
+            "native": "Tu es marié ?",
+            "phon": "guyol-hon-ha-syo-sso-yo",
+            "reading": "gyeol-hon-ha-syeo-sseo-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 909,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "705b223a49f015042a2032d22c3118a0cf2287f8332b3fe697600b0c6edee5aa"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L5-conversation"
+            },
+            "phoneticReviewStatus": "corrected-by-Claude-g-devant-e-i",
+            "phoneticCorrection": {
+              "id": "catalogue:ko:909",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+              "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+              "beforePhon": "gyol-hon-ha-syo-sso-yo",
+              "originalReviewStatusPresent": false,
+              "originalReviewStatus": null,
+              "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+              "rule": "B"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:912",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:912",
+        "level": 5,
+        "field": "native",
+        "certainty": "certain",
+        "study": "준비되셨어요?",
+        "before": "Es-tu prêt ?",
+        "after": "Êtes-vous prêt ?",
+        "reason": "준비되셨어요 contient l'honorifique -시- (되셨어요) : le tutoiement ne correspond pas au registre."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            14
+          ],
+          "snapshotFileSha256": "e82de0babed8de225088a0abd7a8b1fbb9eaa337371a56a6f425183f8e4dfeb0",
+          "beforeProfile": {
+            "id": "catalogue:ko:912",
+            "study": "준비되셨어요?",
+            "native": "Es-tu prêt ?",
+            "phon": "djoun-bi-doué-syo-sso-yo",
+            "reading": "jun-bi-doe-syeo-sseo-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 912,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "fc8fff5fc9e33ebf528fa148db188d45b804a5816c21f77a34be8a327417d240"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L5-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:914",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:914",
+        "level": 5,
+        "field": "native",
+        "certainty": "certain",
+        "study": "무슨 일 하세요?",
+        "before": "Tu fais quoi dans la vie ?",
+        "after": "Vous faites quoi dans la vie ?",
+        "reason": "하세요 contient l'honorifique -시- : vouvoiement attendu."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            16
+          ],
+          "snapshotFileSha256": "e82de0babed8de225088a0abd7a8b1fbb9eaa337371a56a6f425183f8e4dfeb0",
+          "beforeProfile": {
+            "id": "catalogue:ko:914",
+            "study": "무슨 일 하세요?",
+            "native": "Tu fais quoi dans la vie ?",
+            "phon": "mou-seun il ha-sé-yo",
+            "reading": "mu-seun il ha-se-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 914,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "7297eb086ecaa6c9657bc7e6d454f780a9bd75299f1ce8a100b77b26df8d8200"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L5-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:974",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:974",
+        "level": 5,
+        "field": "native",
+        "certainty": "certain",
+        "study": "당신 생일을 축하해요.",
+        "before": "On fête ton anniversaire.",
+        "after": "Joyeux anniversaire !",
+        "reason": "축하해요 = je te félicite / je te souhaite ; « On fête ton anniversaire » est un contresens (aucune fête organisée)."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            38
+          ],
+          "snapshotFileSha256": "e82de0babed8de225088a0abd7a8b1fbb9eaa337371a56a6f425183f8e4dfeb0",
+          "beforeProfile": {
+            "id": "catalogue:ko:974",
+            "study": "당신 생일을 축하해요.",
+            "native": "On fête ton anniversaire.",
+            "phon": "dang-chin sèng-il-eul tchouk-ha-hè-yo",
+            "reading": "dang-sin saeng-il-eul chuk-ha-hae-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 974,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "285bc8553516fbbd613d7ea5281fe8c379e8f30529b4ab461462fc4d001cb6c8"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L5-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1021",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1021",
+        "level": 5,
+        "field": "native",
+        "certainty": "certain",
+        "study": "얼마 드리면 돼요?",
+        "before": "Je te dois combien ?",
+        "after": "Je vous dois combien ?",
+        "reason": "드리다 (forme humble envers l'interlocuteur) : tutoiement incohérent ; la même phrase en 1077 est glosée « Je vous dois combien ? »."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            54
+          ],
+          "snapshotFileSha256": "e82de0babed8de225088a0abd7a8b1fbb9eaa337371a56a6f425183f8e4dfeb0",
+          "beforeProfile": {
+            "id": "catalogue:ko:1021",
+            "study": "얼마 드리면 돼요?",
+            "native": "Je te dois combien ?",
+            "phon": "ol-ma deu-ri-myon douè-yo",
+            "reading": "eol-ma deu-ri-myeon dwae-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1021,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "a88aa8c73c188a59d1ab5ce0512ad420eba351cb5d21c97063d4acc3a6ac7abb"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L5-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1149",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1149",
+        "level": 5,
+        "field": "native",
+        "certainty": "certain",
+        "study": "아직 준비가 안 됐어요.",
+        "before": "Je ne suis pas prêt.",
+        "after": "Je ne suis pas encore prêt.",
+        "reason": "아직 (« encore ») est omis dans la glose."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            112
+          ],
+          "snapshotFileSha256": "e82de0babed8de225088a0abd7a8b1fbb9eaa337371a56a6f425183f8e4dfeb0",
+          "beforeProfile": {
+            "id": "catalogue:ko:1149",
+            "study": "아직 준비가 안 됐어요.",
+            "native": "Je ne suis pas prêt.",
+            "phon": "a-djik djoun-bi-ga an douè-sso-yo",
+            "reading": "a-jik jun-bi-ga an dwae-sseo-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1149,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "3740104b83d4c629a1ad4895ffe9d22101a57d2423ad12e280929f2c6615d35d"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L5-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "situation-authored:fr-ko:piste-depannage-connexion-05",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "situation-authored:fr-ko:piste-depannage-connexion-05",
+        "level": 5,
+        "field": "native",
+        "certainty": "certain",
+        "study": "다른 네트워크에서도 문제가 계속돼요.",
+        "before": "Le problème continue sur cet autre réseau.",
+        "after": "Le problème persiste même sur cet autre réseau.",
+        "reason": "-에서도 = « même sur / aussi sur » ; la glose omet 도 et 다른 = « un autre », pas « cet autre »."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+          "location": [
+            "themes",
+            13,
+            "phrases",
+            4
+          ],
+          "snapshotFileSha256": "e82de0babed8de225088a0abd7a8b1fbb9eaa337371a56a6f425183f8e4dfeb0",
+          "beforeProfile": {
+            "id": "situation-authored:fr-ko:piste-depannage-connexion-05",
+            "study": "다른 네트워크에서도 문제가 계속돼요.",
+            "native": "Le problème continue sur cet autre réseau.",
+            "phon": "ta-reun né-theu-ouo-keu-é-so-do moun-djé-ga kyé-sok-touè-yo",
+            "reading": "Dareun neteuwokeueseodo munjega gyesokdwaeyo.",
+            "speaker": "A",
+            "kind": "learner",
+            "contentType": "utterance",
+            "isTemplate": false,
+            "sourceDeclaredTemplate": false,
+            "editorialLevel": 5,
+            "phoneticReviewStatus": "pending-Claude",
+            "source": {
+              "collection": "situation-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-ko.json",
+              "ledgerFileSha256": "92bcbc87974eba9cbe1d84089865de21ee413cb7dbc0dda8199ff0abb676f7ef",
+              "itemId": "fr-ko:piste-depannage-connexion-05",
+              "sourceSha256": "f27632700858fae4a5cae5fcf21fa28b5732c9ba8ad7e3e3b74150bb778c799c",
+              "ledgerItemSha256": "f27632700858fae4a5cae5fcf21fa28b5732c9ba8ad7e3e3b74150bb778c799c",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon",
+                "reading": "reading"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Forme entière rédigée pour la fonction concrète de cette scène ; les correspondances consultées ne couvraient pas ce sens, ce rôle et cet acte de parole. L’aide est un littéral entier à vérifier par Claude."
+            },
+            "placement": {
+              "domain": "piste-depannage-connexion",
+              "section": "situations",
+              "classification": "new-situation-whole-utterance",
+              "reason": "Forme entière rédigée pour la fonction concrète de cette scène ; les correspondances consultées ne couvraient pas ce sens, ce rôle et cet acte de parole. L’aide est un littéral entier à vérifier par Claude.",
+              "plannedPrerequisiteIndices": [],
+              "themeId": "L5-situation-piste-depannage-connexion"
+            },
+            "intentId": "piste-depannage-connexion-05",
+            "topicId": "piste-depannage-connexion",
+            "readingScript": "latin"
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:3108",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:3108",
+        "level": 5,
+        "field": "native",
+        "certainty": "certain",
+        "study": "엉덩이",
+        "before": "la hanche",
+        "after": "les fesses",
+        "reason": "엉덩이 désigne les fesses (le derrière), pas la hanche (골반 / 고관절). Soit corriger la glose, soit remplacer l’étude par 골반 si la carte vise « la hanche ». — Si la carte doit enseigner « la hanche », c'est l'étude (골반 / 엉덩이뼈) qui changerait ; la correction proposée garde le coréen et corrige la glose."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L5.json",
+          "location": [
+            "themes",
+            17,
+            "phrases",
+            13
+          ],
+          "snapshotFileSha256": "e82de0babed8de225088a0abd7a8b1fbb9eaa337371a56a6f425183f8e4dfeb0",
+          "beforeProfile": {
+            "id": "catalogue:ko:3108",
+            "study": "엉덩이",
+            "native": "la hanche",
+            "phon": "ong-dong-i",
+            "reading": "eong-deong-i",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 5,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Forme sans finale de réplique détectée et sens lexical (mot ou locution), confirmé par la fonction de la carte ; les métadonnées source ne sont qu’un indice supplémentaire.",
+              "lexicalClassReason": "Entrée nominale ou nom de couleur/calendrier, pas adjectif ou adverbe par sa seule traduction. La décision de vocabulaire n’est pas changée.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 3108,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "32909f076be5598890cdf3f7f95da68d0fb28c0b87b29e9be9585eecf2c6d93a"
+            },
+            "placement": {
+              "domain": "vocab-personnes",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "reviewed-source-lexical-family-override",
+              "themeId": "L5-vocab-personnes"
+            },
+            "lexicalClass": "other",
+            "lexicalFamilyOverride": "vocab-personnes",
+            "lexicalFamilyOverrideReason": "La cible concerne la famille, une personne, un organe, la santé ou une relation humaine ; ce n’est pas un objet de maison. Cible source : 엉덩이"
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1172",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1172",
+        "level": 6,
+        "field": "native",
+        "certainty": "certain",
+        "study": "분명 좋아할 거예요.",
+        "before": "Tu vas être content.",
+        "after": "Ça va sûrement plaire.",
+        "reason": "분명 (sûrement) omis ; 좋아하다 = aimer/plaire, pas « être content »."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L6.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            0
+          ],
+          "snapshotFileSha256": "c56733fd938be0f8b872ed7849926dea5fa7a3881ab937d2a3297d83e8491342",
+          "beforeProfile": {
+            "id": "catalogue:ko:1172",
+            "study": "분명 좋아할 거예요.",
+            "native": "Tu vas être content.",
+            "phon": "boun-myong djo-a-hal go-yé-yo",
+            "reading": "bun-myeong jo-a-hal geo-ye-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 6,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1172,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "e699e30dc8de846514416cf93ef6a6f91b592c45cb294fd988fa267ddc3df35b"
+            },
+            "placement": {
+              "domain": "ressentis",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "ressentis",
+              "section": "situations",
+              "themeId": "L6-ressentis"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1276",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1276",
+        "level": 6,
+        "field": "native",
+        "certainty": "certain",
+        "study": "그가 악수를 청했어요.",
+        "before": "Il m'a serré la main.",
+        "after": "Il m'a tendu la main.",
+        "reason": "청하다 = demander/proposer : il a proposé une poignée de main, pas « il m'a serré la main »."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L6.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            7
+          ],
+          "snapshotFileSha256": "c56733fd938be0f8b872ed7849926dea5fa7a3881ab937d2a3297d83e8491342",
+          "beforeProfile": {
+            "id": "catalogue:ko:1276",
+            "study": "그가 악수를 청했어요.",
+            "native": "Il m'a serré la main.",
+            "phon": "gueu-ga ak-sou-reul tchong-hè-sso-yo",
+            "reading": "geu-ga ak-su-reul cheong-hae-sseo-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 6,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1276,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "2fc76d84fa4cd85877de113b45777e891f7dd13e20a21cd2232aae78820493c4"
+            },
+            "placement": {
+              "domain": "ressentis",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "ressentis",
+              "section": "situations",
+              "themeId": "L6-ressentis"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:3614",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:3614",
+        "level": 6,
+        "field": "native",
+        "certainty": "certain",
+        "study": "소포를 받으실 거예요.",
+        "before": "Tu vas recevoir un colis.",
+        "after": "Vous allez recevoir un colis.",
+        "reason": "받으실 contient l'honorifique -(으)시- : le tutoiement ne convient pas."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L6.json",
+          "location": [
+            "themes",
+            6,
+            "phrases",
+            18
+          ],
+          "snapshotFileSha256": "c56733fd938be0f8b872ed7849926dea5fa7a3881ab937d2a3297d83e8491342",
+          "beforeProfile": {
+            "id": "catalogue:ko:3614",
+            "study": "소포를 받으실 거예요.",
+            "native": "Tu vas recevoir un colis.",
+            "phon": "so-po-reul bat-eu-chil go-yé-yo",
+            "reading": "so-po-reul bad-eu-sil geo-ye-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 6,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 3614,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "974cc5273525ee5b75d8eb1ded70127e467c10eaf26c5cad652f66613d8008cb"
+            },
+            "placement": {
+              "domain": "quotidien",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "quotidien",
+              "section": "situations",
+              "themeId": "L6-quotidien"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1304",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1304",
+        "level": 6,
+        "field": "native",
+        "certainty": "certain",
+        "study": "손가락을 베였어요.",
+        "before": "Je me suis coupé.",
+        "after": "Je me suis coupé le doigt.",
+        "reason": "손가락 (doigt) omis dans la glose."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            41
+          ],
+          "snapshotFileSha256": "c56733fd938be0f8b872ed7849926dea5fa7a3881ab937d2a3297d83e8491342",
+          "beforeProfile": {
+            "id": "catalogue:ko:1304",
+            "study": "손가락을 베였어요.",
+            "native": "Je me suis coupé.",
+            "phon": "son-ga-rak-eul bé-yo-sso-yo",
+            "reading": "son-ga-rak-eul be-yeo-sseo-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 6,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1304,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "0859a0c8bef14a23b52cd3b0a74156baea658b8065d934ff45dd3513b200bd4d"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L6-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:3925",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:3925",
+        "level": 6,
+        "field": "native",
+        "certainty": "certain",
+        "study": "아주 잘하시네요.",
+        "before": "Tu te débrouilles très bien.",
+        "after": "Vous vous débrouillez très bien.",
+        "reason": "잘하시네요 porte l'honorifique -시- : le tutoiement ne convient pas."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            128
+          ],
+          "snapshotFileSha256": "c56733fd938be0f8b872ed7849926dea5fa7a3881ab937d2a3297d83e8491342",
+          "beforeProfile": {
+            "id": "catalogue:ko:3925",
+            "study": "아주 잘하시네요.",
+            "native": "Tu te débrouilles très bien.",
+            "phon": "a-djou djal-ha-chi-né-yo",
+            "reading": "a-ju jal-ha-si-ne-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 6,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 3925,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "6ef0e17c71870dc0cb5684e53f2fdf516d40234f4af7ccb5483ed405611427a0"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L6-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1678",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1678",
+        "level": 7,
+        "field": "native",
+        "certainty": "certain",
+        "study": "— 얼마예요? — 만 원이에요.",
+        "before": "— C'est combien ? — Ça fait dix euros.",
+        "after": "— C'est combien ? — Ça fait dix mille wons.",
+        "reason": "만 원 = 10 000 wons, pas dix euros : faux sens sur le montant et la devise."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            29
+          ],
+          "snapshotFileSha256": "93a13e763cc454e9a82bd9c74943f13c0a6f13e5bc3cb6435fbb2eef2e0aecac",
+          "beforeProfile": {
+            "id": "catalogue:ko:1678",
+            "study": "— 얼마예요? — 만 원이에요.",
+            "native": "— C'est combien ? — Ça fait dix euros.",
+            "phon": "ol-ma-yé-yo man ouon-i-é-yo",
+            "reading": "eol-ma-ye-yo man won-i-e-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1678,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "be9ae89522e6b3627d1f867665aacc9800685bc891861ca5c68771b83f1e5efa"
+            },
+            "placement": {
+              "domain": "repas",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "repas",
+              "section": "situations",
+              "themeId": "L7-repas"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1679",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1679",
+        "level": 7,
+        "field": "native",
+        "certainty": "certain",
+        "study": "언제부터 한국어를 배웠어요?",
+        "before": "Depuis quand tu apprends le français ?",
+        "after": "Depuis quand tu apprends le coréen ?",
+        "reason": "한국어 = le coréen, pas le français."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            29
+          ],
+          "snapshotFileSha256": "93a13e763cc454e9a82bd9c74943f13c0a6f13e5bc3cb6435fbb2eef2e0aecac",
+          "beforeProfile": {
+            "id": "catalogue:ko:1679",
+            "study": "언제부터 한국어를 배웠어요?",
+            "native": "Depuis quand tu apprends le français ?",
+            "phon": "on-djé-bou-to han-gouk-o-reul bè-ouo-sso-yo",
+            "reading": "eon-je-bu-teo han-guk-eo-reul bae-wo-sseo-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1679,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "3556b6a790b2ba77295211cf63d66d91f83f75a2ffa9143f576a65b7150e986f"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "section": "situations",
+              "themeId": "L7-reperes"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1472",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1472",
+        "level": 7,
+        "field": "native",
+        "certainty": "certain",
+        "study": "이거 한국어로 어떻게 말해요?",
+        "before": "Comment on dit ça en français ?",
+        "after": "Comment on dit ça en coréen ?",
+        "reason": "한국어로 = en coréen, pas en français."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            27
+          ],
+          "snapshotFileSha256": "93a13e763cc454e9a82bd9c74943f13c0a6f13e5bc3cb6435fbb2eef2e0aecac",
+          "beforeProfile": {
+            "id": "catalogue:ko:1472",
+            "study": "이거 한국어로 어떻게 말해요?",
+            "native": "Comment on dit ça en français ?",
+            "phon": "i-go han-gouk-o-ro o-tto-gué mal-hè-yo",
+            "reading": "i-geo han-guk-eo-ro eo-tteoh-ge mal-hae-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1472,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "030d035fa0277768977a178840549db35261c378e864ee971a86cf6e2afea850"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L7-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1615",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1615",
+        "level": 7,
+        "field": "native",
+        "certainty": "certain",
+        "study": "뭘 도와드릴까요?",
+        "before": "En quoi je peux t'être utile ?",
+        "after": "En quoi puis-je vous aider ?",
+        "reason": "도와드리다 est une forme humble/honorifique (드리다) : le tutoiement ne convient pas."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            90
+          ],
+          "snapshotFileSha256": "93a13e763cc454e9a82bd9c74943f13c0a6f13e5bc3cb6435fbb2eef2e0aecac",
+          "beforeProfile": {
+            "id": "catalogue:ko:1615",
+            "study": "뭘 도와드릴까요?",
+            "native": "En quoi je peux t'être utile ?",
+            "phon": "mouol do-oua-deu-ril-kka-yo",
+            "reading": "mwol do-wa-deu-ril-kka-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1615,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "6b1b96cf3811d50b4510fa70d439c8908c8f0f40c43d1b4e7949af25737f0c7a"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L7-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:3284",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:3284",
+        "level": 7,
+        "field": "native",
+        "certainty": "certain",
+        "study": "신경이 곤두서 있어요.",
+        "before": "Être sur les nerfs.",
+        "after": "Je suis sur les nerfs.",
+        "reason": "La phrase coréenne est conjuguée (곤두서 있어요), la glose est un infinitif de dictionnaire."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            113
+          ],
+          "snapshotFileSha256": "93a13e763cc454e9a82bd9c74943f13c0a6f13e5bc3cb6435fbb2eef2e0aecac",
+          "beforeProfile": {
+            "id": "catalogue:ko:3284",
+            "study": "신경이 곤두서 있어요.",
+            "native": "Être sur les nerfs.",
+            "phon": "chin-guyong-i gon-dou-so i-sso-yo",
+            "reading": "sin-gyeong-i gon-du-seo i-sseo-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 3284,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "6bfbddb988b829d0ef690f1febc40add2dbdced754d9c88346fd29bbaee76939"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L7-conversation"
+            },
+            "phoneticReviewStatus": "corrected-by-Claude-g-devant-e-i",
+            "phoneticCorrection": {
+              "id": "catalogue:ko:3284",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+              "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+              "beforePhon": "chin-gyong-i gon-dou-so i-sso-yo",
+              "originalReviewStatusPresent": false,
+              "originalReviewStatus": null,
+              "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+              "rule": "B"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:4393",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:4393",
+        "level": 7,
+        "field": "native",
+        "certainty": "certain",
+        "study": "파리 거리를 거닐어요.",
+        "before": "Flâner dans les rues de Paris.",
+        "after": "Je flâne dans les rues de Paris.",
+        "reason": "거닐어요 est conjugué ; la glose à l'infinitif ne rend pas la phrase."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            206
+          ],
+          "snapshotFileSha256": "93a13e763cc454e9a82bd9c74943f13c0a6f13e5bc3cb6435fbb2eef2e0aecac",
+          "beforeProfile": {
+            "id": "catalogue:ko:4393",
+            "study": "파리 거리를 거닐어요.",
+            "native": "Flâner dans les rues de Paris.",
+            "phon": "pa-ri go-ri-reul go-nil-o-yo",
+            "reading": "pa-ri geo-ri-reul geo-nil-eo-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 4393,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "9e7233f0ecdd125471dfd1b417c0607b2897761913a29f2dff4b41b1653b2be5"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L7-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:4288",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:4288",
+        "level": 7,
+        "field": "native",
+        "certainty": "certain",
+        "study": "조금 덧붙일게요.",
+        "before": "Permets-moi de nuancer.",
+        "after": "J'ajoute juste un mot.",
+        "reason": "덧붙이다 = ajouter, compléter ; « nuancer » est un faux sens."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            197
+          ],
+          "snapshotFileSha256": "93a13e763cc454e9a82bd9c74943f13c0a6f13e5bc3cb6435fbb2eef2e0aecac",
+          "beforeProfile": {
+            "id": "catalogue:ko:4288",
+            "study": "조금 덧붙일게요.",
+            "native": "Permets-moi de nuancer.",
+            "phon": "djo-gueum dot-bout-il-gué-yo",
+            "reading": "jo-geum deos-but-il-ge-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 7,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 4288,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "122f1ad596039f381a8f75db400459929822e45a331b0a5bca76b304cd723a55"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L7-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1822",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1822",
+        "level": 8,
+        "field": "native",
+        "certainty": "certain",
+        "study": "원하시면요.",
+        "before": "Si tu veux.",
+        "after": "Si vous voulez.",
+        "reason": "원하시면요 porte l'honorifique -시- : le vouvoiement s'impose."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L8.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            10
+          ],
+          "snapshotFileSha256": "a207bdb8bb282efa0c546b7acfd376ab7801fc38acdf755e1ddac3065f8a785a",
+          "beforeProfile": {
+            "id": "catalogue:ko:1822",
+            "study": "원하시면요.",
+            "native": "Si tu veux.",
+            "phon": "ouon-ha-chi-myon-yo",
+            "reading": "won-ha-si-myeon-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1822,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "f2cede9430e20bcc223991087db102125b63211646790ab692b184c3ea557c47"
+            },
+            "placement": {
+              "domain": "ressentis",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "ressentis",
+              "section": "situations",
+              "themeId": "L8-ressentis"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1846",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1846",
+        "level": 8,
+        "field": "native",
+        "certainty": "certain",
+        "study": "— 커피 드실래요? — 네, 좋아요.",
+        "before": "— Tu veux un café ? — Oui, volontiers.",
+        "after": "— Vous voulez un café ? — Oui, volontiers.",
+        "reason": "드실래요 est honorifique (드시다) : vouvoiement attendu."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L8.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            11
+          ],
+          "snapshotFileSha256": "a207bdb8bb282efa0c546b7acfd376ab7801fc38acdf755e1ddac3065f8a785a",
+          "beforeProfile": {
+            "id": "catalogue:ko:1846",
+            "study": "— 커피 드실래요? — 네, 좋아요.",
+            "native": "— Tu veux un café ? — Oui, volontiers.",
+            "phon": "ko-pi deu-chil-lè-yo né djo-a-yo",
+            "reading": "keo-pi deu-sil-lae-yo ne jo-a-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1846,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "338f4dfa5556a15ae69b4f07a75e106a3e2702fd55f85e71bdc22cb815486bea"
+            },
+            "placement": {
+              "domain": "repas",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "repas",
+              "section": "situations",
+              "themeId": "L8-repas"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1900",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1900",
+        "level": 8,
+        "field": "native",
+        "certainty": "certain",
+        "study": "— 이거 한국어로 어떻게 말해요? — 약속이라고 해요.",
+        "before": "— Comment on dit ça en français ? — On dit « rendez-vous ».",
+        "after": "— Comment on dit ça en coréen ? — On dit « yaksok » (rendez-vous).",
+        "reason": "Contresens : 한국어로 = « en coréen », et la réponse donne le mot coréen 약속, pas « rendez-vous » en français."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L8.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            17
+          ],
+          "snapshotFileSha256": "a207bdb8bb282efa0c546b7acfd376ab7801fc38acdf755e1ddac3065f8a785a",
+          "beforeProfile": {
+            "id": "catalogue:ko:1900",
+            "study": "— 이거 한국어로 어떻게 말해요? — 약속이라고 해요.",
+            "native": "— Comment on dit ça en français ? — On dit « rendez-vous ».",
+            "phon": "i-go han-gouk-o-ro o-tto-gué mal-hè-yo yak-sok-i-ra-go hè-yo",
+            "reading": "i-geo han-guk-eo-ro eo-tteoh-ge mal-hae-yo yak-sok-i-ra-go hae-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1900,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "569330a2a7bc43ccf5dc809e31769d17e8ba1db38d60c61e61cab8b64a2982bd"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "section": "situations",
+              "themeId": "L8-reperes"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1902",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1902",
+        "level": 8,
+        "field": "native",
+        "certainty": "certain",
+        "study": "— 언제부터 한국어를 배웠어요? — 육 개월 전부터요.",
+        "before": "— Depuis quand tu apprends le français ? — Depuis six mois.",
+        "after": "— Depuis quand tu apprends le coréen ? — Depuis six mois.",
+        "reason": "Contresens : 한국어 = le coréen, pas le français."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L8.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            18
+          ],
+          "snapshotFileSha256": "a207bdb8bb282efa0c546b7acfd376ab7801fc38acdf755e1ddac3065f8a785a",
+          "beforeProfile": {
+            "id": "catalogue:ko:1902",
+            "study": "— 언제부터 한국어를 배웠어요? — 육 개월 전부터요.",
+            "native": "— Depuis quand tu apprends le français ? — Depuis six mois.",
+            "phon": "on-djé-bou-to han-gouk-o-reul bè-ouo-sso-yo youk guè-ouol djon-bou-to-yo",
+            "reading": "eon-je-bu-teo han-guk-eo-reul bae-wo-sseo-yo yuk gae-wol jeon-bu-teo-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1902,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "be50c0ac66518c276c8f608dd2f98926cf7f2433de4d6d8ddbffb96a63387d6f"
+            },
+            "placement": {
+              "domain": "reperes",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "reperes",
+              "section": "situations",
+              "themeId": "L8-reperes"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:3514",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:3514",
+        "level": 8,
+        "field": "native",
+        "certainty": "certain",
+        "study": "어쨌든 우리는 그럭저럭 제시간에 끝냈어요.",
+        "before": "Toujours est-il que, mine de rien, on a fini à l'heure.",
+        "after": "Toujours est-il qu'on a fini à l'heure, tant bien que mal.",
+        "reason": "그럭저럭 = « tant bien que mal / à peu près », pas « mine de rien »."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L8.json",
+          "location": [
+            "themes",
+            0,
+            "phrases",
+            11
+          ],
+          "snapshotFileSha256": "a207bdb8bb282efa0c546b7acfd376ab7801fc38acdf755e1ddac3065f8a785a",
+          "beforeProfile": {
+            "id": "catalogue:ko:3514",
+            "study": "어쨌든 우리는 그럭저럭 제시간에 끝냈어요.",
+            "native": "Toujours est-il que, mine de rien, on a fini à l'heure.",
+            "phon": "o-ddjèss-deun ou-ri-neun gueu-rok-djo-rok djé-chi-gan-é kkeun-nè-sso-yo",
+            "reading": "eo-jjaess-deun u-ri-neun geu-reok-jeo-reok je-si-gan-e kkeun-nae-sseo-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 3514,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "dcabaf2b06eeb9559a984960e007e862359b7b3baee583e658971cfad00a687c"
+            },
+            "placement": {
+              "domain": "saluer",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "saluer",
+              "section": "situations",
+              "themeId": "L8-saluer"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1831",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1831",
+        "level": 8,
+        "field": "native",
+        "certainty": "certain",
+        "study": "괜찮으시면요.",
+        "before": "Si tu es d'accord.",
+        "after": "Si vous êtes d'accord.",
+        "reason": "괜찮으시면 contient l'honorifique -(으)시- : tutoiement incohérent, vouvoiement attendu."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            46
+          ],
+          "snapshotFileSha256": "a207bdb8bb282efa0c546b7acfd376ab7801fc38acdf755e1ddac3065f8a785a",
+          "beforeProfile": {
+            "id": "catalogue:ko:1831",
+            "study": "괜찮으시면요.",
+            "native": "Si tu es d'accord.",
+            "phon": "gouèn-tchan-eu-chi-myon-yo",
+            "reading": "gwaen-chan-eu-si-myeon-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1831,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "0ef80d137a9d81b7ee88bcf1f1857760c9d280a017f3302ea296af908b15f916"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L8-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1847",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1847",
+        "level": 8,
+        "field": "native",
+        "certainty": "certain",
+        "study": "— 한국어 할 줄 알아요? — 네, 조금요.",
+        "before": "— Tu parles français ? — Oui, un petit peu.",
+        "after": "— Tu parles coréen ? — Oui, un petit peu.",
+        "reason": "한국어 = le coréen, pas le français : faux sens."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            48
+          ],
+          "snapshotFileSha256": "a207bdb8bb282efa0c546b7acfd376ab7801fc38acdf755e1ddac3065f8a785a",
+          "beforeProfile": {
+            "id": "catalogue:ko:1847",
+            "study": "— 한국어 할 줄 알아요? — 네, 조금요.",
+            "native": "— Tu parles français ? — Oui, un petit peu.",
+            "phon": "han-gouk-o hal djoul al-a-yo né djo-gueum-yo",
+            "reading": "han-guk-eo hal jul al-a-yo ne jo-geum-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1847,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "a0e4990884293d4570e6b2ae90438595a70857d126d28c7c83d551c9281b242f"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L8-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:3765",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:3765",
+        "level": 8,
+        "field": "native",
+        "certainty": "certain",
+        "study": "건강하세요!",
+        "before": "À vos souhaits !",
+        "after": "Portez-vous bien !",
+        "reason": "건강하세요 = « restez en bonne santé / portez-vous bien » ; ce n'est pas la formule dite après un éternuement (calque de l'anglais « bless you »)."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L8.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            95
+          ],
+          "snapshotFileSha256": "a207bdb8bb282efa0c546b7acfd376ab7801fc38acdf755e1ddac3065f8a785a",
+          "beforeProfile": {
+            "id": "catalogue:ko:3765",
+            "study": "건강하세요!",
+            "native": "À vos souhaits !",
+            "phon": "gon-gang-ha-sé-yo",
+            "reading": "geon-gang-ha-se-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 3765,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "66ff52b08275ae46c97e2a66b0b955793df2f4b817ebbcd0e9b2cd1e1cec6437"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L8-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1984",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1984",
+        "level": 9,
+        "field": "native",
+        "certainty": "certain",
+        "study": "괜찮으시다면요.",
+        "before": "Si ça ne te dérange pas.",
+        "after": "Si cela ne vous dérange pas.",
+        "reason": "괜찮으시다면요 contient l'honorifique -(으)시- : le tutoiement ne convient pas."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L9.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            22
+          ],
+          "snapshotFileSha256": "06b264b6ce7cbf2c826df540b8d4cbf50210f33c576d73dcd988a37d4ef8adc3",
+          "beforeProfile": {
+            "id": "catalogue:ko:1984",
+            "study": "괜찮으시다면요.",
+            "native": "Si ça ne te dérange pas.",
+            "phon": "gouèn-tchan-eu-chi-da-myon-yo",
+            "reading": "gwaen-chan-eu-si-da-myeon-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 9,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1984,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "818723ed7d39493deef82a2af393aef52a27a5434a60b9134183e34f4a124910"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L9-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:3435",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:3435",
+        "level": 9,
+        "field": "native",
+        "certainty": "certain",
+        "study": "동의하시면 서명해요.",
+        "before": "Si tu es d'accord, on signe.",
+        "after": "Si vous êtes d'accord, on signe.",
+        "reason": "동의하시면 porte l'honorifique -시- : vouvoiement attendu."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L9.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            26
+          ],
+          "snapshotFileSha256": "06b264b6ce7cbf2c826df540b8d4cbf50210f33c576d73dcd988a37d4ef8adc3",
+          "beforeProfile": {
+            "id": "catalogue:ko:3435",
+            "study": "동의하시면 서명해요.",
+            "native": "Si tu es d'accord, on signe.",
+            "phon": "dong-eui-ha-chi-myon so-myong-hè-yo",
+            "reading": "dong-ui-ha-si-myeon seo-myeong-hae-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 9,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 3435,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "1c6fb206124d29dbdbce2a789fb88981561c4374ce2507d7b87f0fc880f36b3a"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L9-conversation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:3910",
+      "kind": "native-gloss",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:3910",
+        "level": 9,
+        "field": "native",
+        "certainty": "certain",
+        "study": "세일",
+        "before": "le solde",
+        "after": "les soldes",
+        "reason": "Au sens de « vente au rabais », le français dit « les soldes » (pluriel) ; « le solde » = reliquat d'un compte."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L9.json",
+          "location": [
+            "themes",
+            11,
+            "phrases",
+            1
+          ],
+          "snapshotFileSha256": "06b264b6ce7cbf2c826df540b8d4cbf50210f33c576d73dcd988a37d4ef8adc3",
+          "beforeProfile": {
+            "id": "catalogue:ko:3910",
+            "study": "세일",
+            "native": "le solde",
+            "phon": "sé-il",
+            "reading": "se-il",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 9,
+            "sourceDeclaredTemplate": false,
+            "contentType": "vocabulary",
+            "semanticReview": {
+              "status": "reviewed",
+              "reason": "Forme sans finale de réplique détectée et sens lexical (mot ou locution), confirmé par la fonction de la carte ; les métadonnées source ne sont qu’un indice supplémentaire.",
+              "lexicalClassReason": "Entrée nominale ou nom de couleur/calendrier, pas adjectif ou adverbe par sa seule traduction. La décision de vocabulaire n’est pas changée.",
+              "lexicalClassStatus": "rule-based-candidate"
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 3910,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "08e59617da5df43325eebcb3ec02dcabe6e7f78e2ba4e085da63257ca4f5f3f8"
+            },
+            "placement": {
+              "domain": "vocab-restaurant",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "vocabulary",
+              "lexicalFamilyClassification": "reviewed-source-lexical-family-override",
+              "themeId": "L9-vocab-restaurant"
+            },
+            "lexicalClass": "other",
+            "lexicalFamilyOverride": "vocab-restaurant",
+            "lexicalFamilyOverrideReason": "세일 signifie une vente promotionnelle/des soldes ; la glose française « le solde » ne doit pas entraîner un classement en finance. Cible source : 세일"
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:2362",
+      "kind": "atomic-study-reading-phon",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:2362",
+        "level": 2,
+        "certainty": "certain",
+        "applyTogether": true,
+        "before": {
+          "study": "최악의 경우에요.",
+          "reading": "choe-ak-ui gyeong-u-e-yo",
+          "phon": "tchoué-ak-eui guyong-ou-é-yo"
+        },
+        "after": {
+          "study": "최악의 경우예요.",
+          "reading": "choe-ak-ui gyeong-u-ye-yo",
+          "phon": "tchoué-ak-eui guyong-ou-yé-yo"
+        },
+        "reason": "après une voyelle, la copule s'écrit -예요 : 경우에요 est une faute d'orthographe. Étude, lecture et aide changent ensemble ; la glose « Au pire. » reste (incertitude séparée sur son sens exact)."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L2.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            151
+          ],
+          "snapshotFileSha256": "03b88757ab18face5fc93b9a1a9da8c2cc260286d76f02bf1e5e68e49a877881",
+          "beforeProfile": {
+            "id": "catalogue:ko:2362",
+            "study": "최악의 경우에요.",
+            "native": "Au pire.",
+            "phon": "tchoué-ak-eui guyong-ou-é-yo",
+            "reading": "choe-ak-ui gyeong-u-e-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 2,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 2362,
+              "sourceLevel": 2,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "117a3e830d0df67adc89ca46d0bf1965d281941963f62c3e0cd89cce7fe63a60"
+            },
+            "placement": {
+              "domain": "conversation",
+              "classification": "conversation-expression",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "conversation",
+              "section": "situations",
+              "themeId": "L2-conversation"
+            },
+            "phoneticReviewStatus": "corrected-by-Claude-g-devant-e-i",
+            "phoneticCorrection": {
+              "id": "catalogue:ko:2362",
+              "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/revue-claude-lot2.json",
+              "registrySha256": "efc075c6bbfbe660e1f62cc83ced4244fa8df8368b8e70ef90c6faf5897acbdc",
+              "beforePhon": "tchoué-ak-eui gyong-ou-é-yo",
+              "originalReviewStatusPresent": false,
+              "originalReviewStatus": null,
+              "evidenceCommit": "dfc665bf5574dd99d308c756efc69c571aec62cc",
+              "rule": "B"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "catalogue:ko:1896",
+      "kind": "atomic-study-reading-phon",
+      "verdict": "accepted-as-explicit-event",
+      "sourceEvent": {
+        "id": "catalogue:ko:1896",
+        "level": 8,
+        "certainty": "certain",
+        "applyTogether": true,
+        "before": {
+          "study": "예를 들면 오자마자 모두 것을 주문한다니까요.",
+          "reading": "ye-reul deul-myeon o-ja-ma-ja mo-du geos-eul ju-mun-han-da-ni-kka-yo",
+          "phon": "yé-reul deul-myon o-dja-ma-dja mo-dou got-eul djou-moun-han-da-ni-kka-yo"
+        },
+        "after": {
+          "study": "예를 들면 오자마자 모두의 것을 주문한다니까요.",
+          "reading": "ye-reul deul-myeon o-ja-ma-ja mo-du-ui geos-eul ju-mun-han-da-ni-kka-yo",
+          "phon": "yé-reul deul-myon o-dja-ma-dja mo-dou-eui got-eul djou-moun-han-da-ni-kka-yo"
+        },
+        "reason": "« 모두 것을 » est agrammatical : 모두의 것을. Seuls les segments de 모두의 changent ; 의 garde la graphie eui du deck."
+      },
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-ko/L8.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            19
+          ],
+          "snapshotFileSha256": "a207bdb8bb282efa0c546b7acfd376ab7801fc38acdf755e1ddac3065f8a785a",
+          "beforeProfile": {
+            "id": "catalogue:ko:1896",
+            "study": "예를 들면 오자마자 모두 것을 주문한다니까요.",
+            "native": "Du genre, il arrive et il commande pour tout le monde.",
+            "phon": "yé-reul deul-myon o-dja-ma-dja mo-dou got-eul djou-moun-han-da-ni-kka-yo",
+            "reading": "ye-reul deul-myeon o-ja-ma-ja mo-du geos-eul ju-mun-han-da-ni-kka-yo",
+            "speaker": "A",
+            "kind": "learner",
+            "isTemplate": false,
+            "editorialLevel": 8,
+            "sourceDeclaredTemplate": false,
+            "contentType": "utterance",
+            "semanticReview": {
+              "status": "rule-based-candidate",
+              "reason": "La forme coréenne porte une finale de réplique polie/finie, sans emplacement à compléter ; les noms homographes en 요 sont exclus de cette règle."
+            },
+            "source": {
+              "collection": "DECKS.ko",
+              "sourceIndex": 1896,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf",
+                "reading": "py"
+              },
+              "sourceSha256": "16b3f89add1b6559f9400d98b56beb7eff04e0523a952939f534fb47fbd3943b"
+            },
+            "placement": {
+              "domain": "travail",
+              "classification": "french-meaning",
+              "decision": "source-level-retained",
+              "reason": "Niveau source conservé en attente de sa revue pédagogique.",
+              "plannedPrerequisiteIndices": [],
+              "originalDomain": "travail",
+              "section": "situations",
+              "themeId": "L8-travail"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

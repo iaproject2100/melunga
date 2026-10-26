@@ -1,0 +1,5076 @@
+{
+  "baseSnapshotCommit": "606592ccf11886810a6bb9fbabc56728cf5055c9",
+  "evidenceCommit": "7631c0fe64170f952e086487462e94c87bfb13e1",
+  "evidenceSha256": "15237777a65b287a4008d53167b458dde2e486af27deafb31698e91c99ff5167",
+  "linguisticReviewScope": "259 whole before/after aids read with studied French, Chinese meaning and alignment; targeted changes only, not native certification",
+  "eventsRead": 259,
+  "idsRead": 259,
+  "readBatches": [
+    [
+      0,
+      51
+    ],
+    [
+      52,
+      103
+    ],
+    [
+      104,
+      155
+    ],
+    [
+      156,
+      207
+    ],
+    [
+      208,
+      258
+    ]
+  ],
+  "actualRuntimeOccurrenceProfiles": {
+    "canonical": 257,
+    "transport-phrase": 15,
+    "received-model": 3
+  },
+  "actualRuntimeObjects": 275,
+  "transportCards": 15,
+  "priorCorrectionsFound": [],
+  "transportCounterDifferences": [],
+  "originalCatalogueTruncations": {
+    "count": 50,
+    "ids": [
+      "catalogue:fr:1128",
+      "catalogue:fr:1293",
+      "catalogue:fr:156",
+      "catalogue:fr:2192",
+      "catalogue:fr:446",
+      "catalogue:fr:1129",
+      "catalogue:fr:3113",
+      "catalogue:fr:1305",
+      "catalogue:fr:1329",
+      "catalogue:fr:1485",
+      "catalogue:fr:1510",
+      "catalogue:fr:3176",
+      "catalogue:fr:3216",
+      "catalogue:fr:1668",
+      "catalogue:fr:1724",
+      "catalogue:fr:3255",
+      "catalogue:fr:3264",
+      "catalogue:fr:2047",
+      "catalogue:fr:2061",
+      "catalogue:fr:2085",
+      "catalogue:fr:2191",
+      "catalogue:fr:2212",
+      "catalogue:fr:2266",
+      "catalogue:fr:2283",
+      "catalogue:fr:3314",
+      "catalogue:fr:3328",
+      "catalogue:fr:3354",
+      "catalogue:fr:3374",
+      "catalogue:fr:2300",
+      "catalogue:fr:2352",
+      "catalogue:fr:2354",
+      "catalogue:fr:2365",
+      "catalogue:fr:2386",
+      "catalogue:fr:2396",
+      "catalogue:fr:3425",
+      "catalogue:fr:3446",
+      "catalogue:fr:3448",
+      "catalogue:fr:2583",
+      "catalogue:fr:2617",
+      "catalogue:fr:2646",
+      "catalogue:fr:2660",
+      "catalogue:fr:2690",
+      "catalogue:fr:3499",
+      "catalogue:fr:2715",
+      "catalogue:fr:2726",
+      "catalogue:fr:2823",
+      "catalogue:fr:3577",
+      "catalogue:fr:3610",
+      "catalogue:fr:3660",
+      "catalogue:fr:3671"
+    ],
+    "allWholeStudiesAndShortAidsAlreadyPresentVerbatimInDECKSfrAtBaseline": true,
+    "causeBound": "Pre-existing in classic source; not introduced by generator or transport reuse. This identifies the data origin, not the historical editorial process that caused truncation."
+  },
+  "metadataNotes": [
+    {
+      "eventIndex": 43,
+      "id": "catalogue:fr:604",
+      "issue": "afterPhon uses 比斯 for bus but reason still cites 布斯; description needs to follow frozen after"
+    },
+    {
+      "eventIndex": 150,
+      "id": "catalogue:fr:2158",
+      "issue": "afterPhon uses 云 without optional z liaison after Fixons; reason still cites 祖讷"
+    },
+    {
+      "eventIndex": 191,
+      "id": "catalogue:fr:2463",
+      "issue": "afterPhon uses 戎 while reason cites 雄; do not present cited candidate as actual after"
+    }
+  ],
+  "openWholeAidReservations": [
+    {
+      "eventIndex": 194,
+      "id": "catalogue:fr:2573",
+      "segment": "de l’autre → 德 楼特",
+      "issue": "No explicit final-r cue in 楼特; Latin before LOHTR had an r. Check the convention/native rendering before claiming the entire new aid is phonemically complete. This is not a definite exclusion of the targeted script replacement."
+    },
+    {
+      "eventIndex": 64,
+      "id": "catalogue:fr:3883",
+      "segment": "savon → 萨旺",
+      "issue": "The claimed repair of v remains an approximation through a Mandarin w-like onset, while 旺 also changes the vowel toward a/ang. Confirmation is needed for the vɔ̃ mapping; no acoustic claim of exact v restoration."
+    }
+  ],
+  "limitations": [
+    "Chinese-character aids approximate French sounds absent in Mandarin; replacing a target segment does not certify every remaining segment",
+    "Liaison t after est/c’est may be retained as a pronunciation choice; do not relabel every such liaison as universally mandatory",
+    "v/vy, rounded-front vowels, nasals, supporting syllables and some final consonants remain convention/native-review questions",
+    "No rule may be extended automatically from these frozen events",
+    "No interface/source/product change by this review"
+  ],
+  "events": [
+    {
+      "eventIndex": 0,
+      "id": "catalogue:fr:0",
+      "study": "Non.",
+      "native": "不",
+      "beforePhon": "诺",
+      "afterPhon": "农",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 1,
+      "id": "catalogue:fr:1128",
+      "study": "Pouvez-vous écrire ça ?",
+      "native": "您能写下来吗？",
+      "beforePhon": "普维武艾克里尔",
+      "afterPhon": "普维武艾克里尔萨",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 2,
+      "id": "catalogue:fr:1293",
+      "study": "Vous pouvez parler plus lentement ?",
+      "native": "您能说慢点吗？",
+      "beforePhon": "武普维帕雷",
+      "afterPhon": "武普维帕雷普吕隆特芒",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 3,
+      "id": "catalogue:fr:222",
+      "study": "S'il vous plaît.",
+      "native": "请",
+      "beforePhon": "斯库普雷",
+      "afterPhon": "西尔武普雷",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 4,
+      "id": "catalogue:fr:2915",
+      "study": "Bonne chance.",
+      "native": "祝你好运",
+      "beforePhon": "波 尚斯",
+      "afterPhon": "波讷 尚斯",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 5,
+      "id": "catalogue:fr:3120",
+      "study": "Un café, s'il vous plaît.",
+      "native": "请给我一杯咖啡",
+      "beforePhon": "安卡费斯库普雷",
+      "afterPhon": "安卡费西尔武普雷",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 6,
+      "id": "catalogue:fr:4256",
+      "study": "un homme",
+      "native": "一个男人",
+      "beforePhon": "安 奥姆",
+      "afterPhon": "安 诺姆",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 7,
+      "id": "catalogue:fr:130",
+      "study": "C'est frustrant.",
+      "native": "真让人沮丧",
+      "beforePhon": "塞 弗拉斯特隆",
+      "afterPhon": "塞 弗吕斯特隆",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 8,
+      "id": "catalogue:fr:156",
+      "study": "J'ai besoin d'aide.",
+      "native": "我需要帮助",
+      "beforePhon": "热布祝安艾德",
+      "afterPhon": "热布祝安代德",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 9,
+      "id": "catalogue:fr:192",
+      "study": "C'est une urgence.",
+      "native": "紧急情况",
+      "beforePhon": "塞 团 于尔仲斯",
+      "afterPhon": "塞 迪讷 于尔仲斯",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 10,
+      "id": "catalogue:fr:215",
+      "study": "On est le combien ?",
+      "native": "今天几号？",
+      "beforePhon": "翁 埃 勒 孔比央",
+      "afterPhon": "翁 内 勒 孔比央",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 11,
+      "id": "catalogue:fr:267",
+      "study": "J'ai fait une erreur.",
+      "native": "我犯了个错",
+      "beforePhon": "热 费 团 埃勒尔",
+      "afterPhon": "热 费 于 内勒尔",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 12,
+      "id": "catalogue:fr:289",
+      "study": "Quelle bonne nouvelle !",
+      "native": "真是好消息！",
+      "beforePhon": "凯尔 波 努维尔",
+      "afterPhon": "凯尔 波讷 努维尔",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 13,
+      "id": "catalogue:fr:3006",
+      "study": "en haut",
+      "native": "在上面",
+      "beforePhon": "翁 诺",
+      "afterPhon": "翁 奥",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 14,
+      "id": "catalogue:fr:3026",
+      "study": "Grâce à toi, j'ai trouvé un travail.",
+      "native": "多亏了你，我找到了工作。",
+      "beforePhon": "格拉斯阿图瓦热特鲁维安特拉瓦耶",
+      "afterPhon": "格拉斯阿图瓦热特鲁维安特拉瓦伊",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 15,
+      "id": "catalogue:fr:307",
+      "study": "J'ai un examen.",
+      "native": "我有考试",
+      "beforePhon": "热 安 埃格扎曼",
+      "afterPhon": "热 安 内格扎曼",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 16,
+      "id": "catalogue:fr:310",
+      "study": "Prends une photo.",
+      "native": "拍张照片",
+      "beforePhon": "普隆 战 佛托",
+      "afterPhon": "普隆 云 佛托",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 17,
+      "id": "catalogue:fr:331",
+      "study": "Il vient.",
+      "native": "他来了。",
+      "beforePhon": "伊尔 比安",
+      "afterPhon": "伊尔 维安",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 18,
+      "id": "catalogue:fr:333",
+      "study": "C'est une belle maison.",
+      "native": "房子很不错",
+      "beforePhon": "塞 团 贝尔 梅宗",
+      "afterPhon": "塞 迪讷 贝尔 梅宗",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 19,
+      "id": "catalogue:fr:336",
+      "study": "J'ai commencé la production.",
+      "native": "我开始生产了。（过去）",
+      "beforePhon": "热 科蒙塞 拉 普罗达克西翁",
+      "afterPhon": "热 科蒙塞 拉 普罗迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 20,
+      "id": "catalogue:fr:3755",
+      "study": "foncé",
+      "native": "深色的",
+      "beforePhon": "蓬塞",
+      "afterPhon": "丰塞",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 21,
+      "id": "catalogue:fr:3784",
+      "study": "frustré",
+      "native": "沮丧的",
+      "beforePhon": "弗拉斯特雷",
+      "afterPhon": "弗吕斯特雷",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 22,
+      "id": "catalogue:fr:392",
+      "study": "Bonne route !",
+      "native": "一路平安！",
+      "beforePhon": "蓬 鲁特",
+      "afterPhon": "波讷 鲁特",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 23,
+      "id": "catalogue:fr:396",
+      "study": "Bon week-end !",
+      "native": "周末愉快！",
+      "beforePhon": "波 维肯德",
+      "afterPhon": "蓬 维肯德",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 24,
+      "id": "catalogue:fr:4041",
+      "study": "un oiseau",
+      "native": "鸟",
+      "beforePhon": "安 瓦佐",
+      "afterPhon": "安 纳瓦佐",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 25,
+      "id": "catalogue:fr:4145",
+      "study": "le ventre",
+      "native": "肚子",
+      "beforePhon": "勒 翁特勒",
+      "afterPhon": "勒 旺特勒",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 26,
+      "id": "catalogue:fr:4219",
+      "study": "un avocat",
+      "native": "律师",
+      "beforePhon": "安 阿沃卡",
+      "afterPhon": "安 纳沃卡",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 27,
+      "id": "catalogue:fr:427",
+      "study": "Je voudrais une chambre.",
+      "native": "我要一个房间",
+      "beforePhon": "热 乌德雷 战 尚布勒",
+      "afterPhon": "热 乌德雷 云 尚布勒",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 28,
+      "id": "catalogue:fr:600",
+      "study": "J'ai mal au ventre.",
+      "native": "我肚子疼",
+      "beforePhon": "热 马 楼 翁特勒",
+      "afterPhon": "热 马 楼 旺特勒",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 29,
+      "id": "situation-authored:situation-zh-fr-numerique-quotidien-07",
+      "study": "La connexion fonctionne maintenant.",
+      "native": "现在网络连接正常了。",
+      "beforePhon": "拉 科奈克西翁 丰克西翁 曼特囊",
+      "afterPhon": "拉 科奈克西翁 丰克西奥讷 曼特囊",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": null,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 30,
+      "id": "catalogue:fr:2192",
+      "study": "Je ne comprends pas les indications.",
+      "native": "我看不懂指示",
+      "beforePhon": "茹讷孔普蓉帕雷",
+      "afterPhon": "茹讷孔普蓉帕雷赞迪卡西翁",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 31,
+      "id": "catalogue:fr:2865",
+      "study": "en plus",
+      "native": "此外",
+      "beforePhon": "翁 普吕",
+      "afterPhon": "翁 普吕斯",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 32,
+      "id": "catalogue:fr:3053",
+      "study": "Un aller simple.",
+      "native": "单程票",
+      "beforePhon": "安 阿雷 桑普勒",
+      "afterPhon": "安 纳雷 桑普勒",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 33,
+      "id": "catalogue:fr:3104",
+      "study": "Voici l'adresse.",
+      "native": "这是地址",
+      "beforePhon": "瓦西 拉准斯",
+      "afterPhon": "瓦西 拉德雷斯",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 34,
+      "id": "catalogue:fr:3841",
+      "study": "bleu foncé",
+      "native": "深蓝色",
+      "beforePhon": "布勒 蓬塞",
+      "afterPhon": "布勒 丰塞",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 35,
+      "id": "catalogue:fr:432",
+      "study": "On est quel jour ?",
+      "native": "今天星期几？",
+      "beforePhon": "翁 埃 凯尔 茹尔",
+      "afterPhon": "翁 内 凯尔 茹尔",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 36,
+      "id": "catalogue:fr:4381",
+      "study": "une alerte",
+      "native": "警报",
+      "beforePhon": "安 纳莱尔特",
+      "afterPhon": "于 纳莱尔特",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 37,
+      "id": "catalogue:fr:446",
+      "study": "C'est important pour moi.",
+      "native": "这对我很重要",
+      "beforePhon": "赛坦波尔东",
+      "afterPhon": "赛坦波尔东普尔姆瓦",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 38,
+      "id": "catalogue:fr:460",
+      "study": "Bon appétit !",
+      "native": "请慢用！",
+      "beforePhon": "邦阿佩提",
+      "afterPhon": "波纳佩提",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 39,
+      "id": "catalogue:fr:463",
+      "study": "Bonne journée !",
+      "native": "祝你一天愉快！",
+      "beforePhon": "邦茹尼",
+      "afterPhon": "波讷茹尔内",
+      "rules": [
+        "G",
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "received-model": 1
+      }
+    },
+    {
+      "eventIndex": 40,
+      "id": "catalogue:fr:497",
+      "study": "Il est une heure.",
+      "native": "一点了",
+      "beforePhon": "伊尔 埃 团 勒尔",
+      "afterPhon": "伊尔 埃 迪 讷尔",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 41,
+      "id": "catalogue:fr:517",
+      "study": "Je vais imprimer ça.",
+      "native": "我去打印这个。",
+      "beforePhon": "热 韦 坦普里梅 萨",
+      "afterPhon": "热 韦 安普里梅 萨",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 42,
+      "id": "catalogue:fr:533",
+      "study": "On a perdu.",
+      "native": "我们输了",
+      "beforePhon": "翁 阿 佩尔居",
+      "afterPhon": "翁 纳 佩尔居",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 43,
+      "id": "catalogue:fr:604",
+      "study": "Je prends le bus.",
+      "native": "我坐公交车",
+      "beforePhon": "茹普朗勒巴斯",
+      "afterPhon": "茹普朗勒比斯",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 44,
+      "id": "catalogue:fr:650",
+      "study": "J'ai réussi l'examen.",
+      "native": "我考试过了。",
+      "beforePhon": "热 雷绪西 雷格藏",
+      "afterPhon": "热 雷绪西 雷格扎曼",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 45,
+      "id": "catalogue:fr:653",
+      "study": "Je fais une fête.",
+      "native": "我要办个聚会",
+      "beforePhon": "热 费 战 费特",
+      "afterPhon": "热 费 云 费特",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 46,
+      "id": "catalogue:fr:657",
+      "study": "J'ai imprimé le billet.",
+      "native": "我打印了票。",
+      "beforePhon": "热 坦普里梅 勒 比耶",
+      "afterPhon": "热 安普里梅 勒 比耶",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 47,
+      "id": "catalogue:fr:723",
+      "study": "Il me faut une ordonnance ?",
+      "native": "需要处方吗？",
+      "beforePhon": "伊尔 么 佛 团 奥尔多农斯",
+      "afterPhon": "伊尔 么 佛 于 诺尔多农斯",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 48,
+      "id": "catalogue:fr:777",
+      "study": "On a fêté ça hier.",
+      "native": "我们昨天庆祝了。",
+      "beforePhon": "翁 阿 费泰 萨 伊耶尔",
+      "afterPhon": "翁 纳 费泰 萨 伊耶尔",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 49,
+      "id": "catalogue:fr:785",
+      "study": "Je me souviens de toi.",
+      "native": "我记得你",
+      "beforePhon": "热 摹 苏夫尼扬 德 特瓦",
+      "afterPhon": "热 摹 苏维扬 德 特瓦",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 50,
+      "id": "catalogue:fr:791",
+      "study": "Ça me rend heureux.",
+      "native": "这让我很幸福。",
+      "beforePhon": "萨姆朗泽勒",
+      "afterPhon": "萨姆朗厄勒",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 51,
+      "id": "catalogue:fr:829",
+      "study": "Je vais commencer la production.",
+      "native": "我要开始生产。（将来）",
+      "beforePhon": "热 维 科蒙塞 拉 普罗达克西翁",
+      "afterPhon": "热 维 科蒙塞 拉 普罗迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 52,
+      "id": "catalogue:fr:843",
+      "study": "Je voudrais le prix FOB.",
+      "native": "我想要FOB价格。",
+      "beforePhon": "热 乌德雷 勒 普里 艾弗欧比",
+      "afterPhon": "热 乌德雷 勒 普里 艾弗欧贝",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 53,
+      "id": "catalogue:fr:852",
+      "study": "J'ai passé une bonne journée.",
+      "native": "我今天过得很好。",
+      "beforePhon": "热帕塞于讷崩茹尔内",
+      "afterPhon": "热帕塞于讷波讷茹尔内",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 54,
+      "id": "catalogue:fr:1004",
+      "study": "Elle a mal au ventre.",
+      "native": "她肚子疼",
+      "beforePhon": "埃尔 阿 马 奥 翁特",
+      "afterPhon": "埃尔 阿 马 奥 旺特",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 55,
+      "id": "catalogue:fr:1034",
+      "study": "Passez une bonne journée.",
+      "native": "祝您今天愉快",
+      "beforePhon": "帕塞 云 波 茹尔内",
+      "afterPhon": "帕塞 云 波讷 茹尔内",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 56,
+      "id": "catalogue:fr:1042",
+      "study": "C'est un emballage à plat ?",
+      "native": "是平板包装吗？",
+      "beforePhon": "塞 安 昂巴拉日 阿 普拉",
+      "afterPhon": "塞 安 农巴拉日 阿 普拉",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 57,
+      "id": "catalogue:fr:1129",
+      "study": "L'addition, s'il vous plaît.",
+      "native": "请买单",
+      "beforePhon": "拉迪西翁",
+      "afterPhon": "拉迪西翁西尔乌普雷",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 58,
+      "id": "catalogue:fr:1154",
+      "study": "On a bien ri.",
+      "native": "我们笑得很开心。",
+      "beforePhon": "翁 阿 比安 里",
+      "afterPhon": "翁 纳 比安 里",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 59,
+      "id": "catalogue:fr:1188",
+      "study": "Chaque chose en son temps.",
+      "native": "万事皆有时",
+      "beforePhon": "沙克索兹昂松东",
+      "afterPhon": "沙克肖兹昂松东",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 60,
+      "id": "catalogue:fr:1614",
+      "study": "J'allume la lumière.",
+      "native": "我开灯。",
+      "beforePhon": "热吕姆 拉 吕米耶尔",
+      "afterPhon": "扎吕姆 拉 吕米耶尔",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 61,
+      "id": "catalogue:fr:3113",
+      "study": "Bien que ce soit difficile...",
+      "native": "尽管很困难...",
+      "beforePhon": "边克斯瓦",
+      "afterPhon": "边克瑟斯瓦迪菲西勒",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 62,
+      "id": "catalogue:fr:3145",
+      "study": "Laisse-moi réfléchir.",
+      "native": "让我想想",
+      "beforePhon": "雷斯莫瓦雷弗雷谢",
+      "afterPhon": "雷斯莫瓦雷弗雷希尔",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 63,
+      "id": "catalogue:fr:3862",
+      "study": "novembre",
+      "native": "十一月",
+      "beforePhon": "诺翁布勒",
+      "afterPhon": "诺旺布勒",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 64,
+      "id": "catalogue:fr:3883",
+      "study": "le savon",
+      "native": "肥皂",
+      "beforePhon": "勒 萨翁",
+      "afterPhon": "勒 萨旺",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 65,
+      "id": "catalogue:fr:3927",
+      "study": "une échelle",
+      "native": "梯子",
+      "beforePhon": "安 内谢尔",
+      "afterPhon": "于 内谢尔",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 66,
+      "id": "catalogue:fr:3933",
+      "study": "une assiette",
+      "native": "盘子",
+      "beforePhon": "安 纳西埃特",
+      "afterPhon": "于 纳西埃特",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 67,
+      "id": "catalogue:fr:4218",
+      "study": "un ingénieur",
+      "native": "工程师",
+      "beforePhon": "安 安热尼厄尔",
+      "afterPhon": "安 南热尼厄尔",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 68,
+      "id": "catalogue:fr:4336",
+      "study": "le métal",
+      "native": "金属",
+      "beforePhon": "勒 梅塔",
+      "afterPhon": "勒 梅塔尔",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 69,
+      "id": "catalogue:fr:4356",
+      "study": "une invitation",
+      "native": "请柬",
+      "beforePhon": "安 难维塔西翁",
+      "afterPhon": "于 难维塔西翁",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 70,
+      "id": "catalogue:fr:875",
+      "study": "Je commence la production.",
+      "native": "我开始生产。（现在）",
+      "beforePhon": "热 科蒙斯 拉 普罗达克西翁",
+      "afterPhon": "热 科蒙斯 拉 普罗迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 71,
+      "id": "catalogue:fr:909",
+      "study": "On a gagné.",
+      "native": "我们赢了",
+      "beforePhon": "翁 阿 加尼耶",
+      "afterPhon": "翁 纳 加尼耶",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 72,
+      "id": "catalogue:fr:922",
+      "study": "J'ai échoué à l'examen.",
+      "native": "我考试没过。",
+      "beforePhon": "热 埃舒埃 阿 雷格藏",
+      "afterPhon": "热 埃舒埃 阿 雷格扎曼",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 73,
+      "id": "catalogue:fr:956",
+      "study": "C'est une question d'opinion.",
+      "native": "这见仁见智",
+      "beforePhon": "塞 团 凯斯提翁 多皮尼翁",
+      "afterPhon": "塞 迪讷 凯斯提翁 多皮尼翁",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 74,
+      "id": "catalogue:fr:964",
+      "study": "On fait une pause ?",
+      "native": "我们休息一下吧？",
+      "beforePhon": "翁 费 团 波兹",
+      "afterPhon": "翁 费 云 波兹",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 75,
+      "id": "catalogue:fr:971",
+      "study": "On aura tout vu.",
+      "native": "真是什么都见识到了。",
+      "beforePhon": "翁诺拉图于",
+      "afterPhon": "翁诺拉图维",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 76,
+      "id": "catalogue:fr:1207",
+      "study": "C'est une journée ensoleillée.",
+      "native": "今天大晴天",
+      "beforePhon": "塞 团 茹尔内 翁索雷耶",
+      "afterPhon": "塞 迪讷 茹尔内 翁索雷耶",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 77,
+      "id": "catalogue:fr:1305",
+      "study": "Je voudrais réserver une table.",
+      "native": "我想预订一张桌",
+      "beforePhon": "茹武德雷雷泽维",
+      "afterPhon": "茹武德雷雷泽维云塔布勒",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 78,
+      "id": "catalogue:fr:1307",
+      "study": "Où est le distributeur ?",
+      "native": "取款机在哪里？",
+      "beforePhon": "乌艾勒迪斯特里布特",
+      "afterPhon": "乌艾勒迪斯特里布特尔",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 79,
+      "id": "catalogue:fr:1315",
+      "study": "C'est un acheté un offert.",
+      "native": "买一送一",
+      "beforePhon": "塞 团 阿什得 安 诺费尔",
+      "afterPhon": "塞 团 纳什得 安 诺费尔",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 80,
+      "id": "catalogue:fr:1329",
+      "study": "Je suis allergique au gluten.",
+      "native": "我对麸质过敏",
+      "beforePhon": "茹斯威阿莱日克",
+      "afterPhon": "茹斯威阿莱日克奥格吕滕",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 81,
+      "id": "catalogue:fr:1389",
+      "study": "C'est à eux de décider.",
+      "native": "这要他们来决定。",
+      "beforePhon": "塞 阿 厄 德 代西德",
+      "afterPhon": "塞 阿 厄 德 代西代",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 82,
+      "id": "catalogue:fr:1391",
+      "study": "Ils vont construire ici.",
+      "native": "他们要在这儿建。",
+      "beforePhon": "伊尔 翁 公斯特鲁伊尔 伊西",
+      "afterPhon": "伊尔 冯 公斯特鲁伊尔 伊西",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 83,
+      "id": "catalogue:fr:1434",
+      "study": "Tu as passé une bonne journée ?",
+      "native": "你今天过得好吗？",
+      "beforePhon": "居 阿 帕塞 云 波 茹尔内",
+      "afterPhon": "居 阿 帕塞 云 波讷 茹尔内",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 84,
+      "id": "catalogue:fr:1451",
+      "study": "Ce n'était pas prévu.",
+      "native": "这不在计划之内。",
+      "beforePhon": "瑟内泰帕普雷夫",
+      "afterPhon": "瑟内泰帕普雷维",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 85,
+      "id": "catalogue:fr:1469",
+      "study": "Est-ce qu'il y a une réduction ?",
+      "native": "有折扣吗？",
+      "beforePhon": "埃斯 基利亚 云 雷达克西翁",
+      "afterPhon": "埃斯 基利亚 云 雷迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 86,
+      "id": "catalogue:fr:1484",
+      "study": "Je suis en train de réfléchir.",
+      "native": "我正在思考",
+      "beforePhon": "茹斯威昂特兰德雷弗雷谢",
+      "afterPhon": "茹斯威昂特兰德雷弗雷希尔",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 87,
+      "id": "catalogue:fr:1485",
+      "study": "Où est la station de métro ?",
+      "native": "地铁站在哪里？",
+      "beforePhon": "乌艾拉斯塔西翁",
+      "afterPhon": "乌艾拉斯塔西翁德梅特罗",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 88,
+      "id": "catalogue:fr:1488",
+      "study": "J'ai couru dix kilomètres.",
+      "native": "我跑了十公里。",
+      "beforePhon": "热 库吕 迪斯 基洛梅特尔",
+      "afterPhon": "热 库吕 迪 基洛梅特尔",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 89,
+      "id": "catalogue:fr:1506",
+      "study": "On a tourné à gauche.",
+      "native": "我们左转了。",
+      "beforePhon": "翁 阿 图尔内 阿 戈什",
+      "afterPhon": "翁 纳 图尔内 阿 戈什",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 90,
+      "id": "catalogue:fr:1510",
+      "study": "Mieux vaut prévenir que guérir.",
+      "native": "预防胜于治疗",
+      "beforePhon": "米约沃普雷弗尼尔",
+      "afterPhon": "米约沃普雷弗尼尔克盖里尔",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 91,
+      "id": "catalogue:fr:1536",
+      "study": "Scanne le QR code.",
+      "native": "扫二维码",
+      "beforePhon": "斯坎 勒 求阿 寇德",
+      "afterPhon": "斯坎 勒 屈埃尔 寇德",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 92,
+      "id": "catalogue:fr:1562",
+      "study": "Ça m'a fait chaud au cœur.",
+      "native": "这暖了我的心。",
+      "beforePhon": "萨马菲休奥克尔",
+      "afterPhon": "萨马菲肖奥克尔",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 93,
+      "id": "catalogue:fr:1564",
+      "study": "On se retrouve à quelle heure ?",
+      "native": "我们几点见？",
+      "beforePhon": "昂斯热图瓦阿克尔欧",
+      "afterPhon": "昂斯勒特鲁夫阿克尔欧",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 94,
+      "id": "catalogue:fr:1572",
+      "study": "On écoute de la musique ?",
+      "native": "我们听音乐吧？",
+      "beforePhon": "翁 埃库特 德 拉 米兹克",
+      "afterPhon": "翁 内库特 德 拉 米兹克",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 95,
+      "id": "catalogue:fr:3176",
+      "study": "Je vous prie de bien vouloir...",
+      "native": "请您...（正式）",
+      "beforePhon": "茹武普利",
+      "afterPhon": "茹武普利德比安武卢瓦尔",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 96,
+      "id": "catalogue:fr:3194",
+      "study": "L'offre comprend...",
+      "native": "报价包含...",
+      "beforePhon": "洛夫热孔普朗",
+      "afterPhon": "洛夫勒孔普朗",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 97,
+      "id": "catalogue:fr:3216",
+      "study": "À quelle heure ferme le restaurant ?",
+      "native": "餐厅几点关门？",
+      "beforePhon": "阿克尔欧菲尔姆",
+      "afterPhon": "阿克尔欧菲尔姆勒雷斯托朗",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 98,
+      "id": "catalogue:fr:3923",
+      "study": "un clou",
+      "native": "钉子",
+      "beforePhon": "安 库",
+      "afterPhon": "安 克卢",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 99,
+      "id": "catalogue:fr:3958",
+      "study": "une éponge",
+      "native": "海绵",
+      "beforePhon": "安 内蓬日",
+      "afterPhon": "于 内蓬日",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 100,
+      "id": "catalogue:fr:4051",
+      "study": "un éléphant",
+      "native": "大象",
+      "beforePhon": "安 埃雷封",
+      "afterPhon": "安 内雷封",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 101,
+      "id": "catalogue:fr:4057",
+      "study": "une abeille",
+      "native": "蜜蜂",
+      "beforePhon": "安 纳贝伊",
+      "afterPhon": "于 纳贝伊",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 102,
+      "id": "catalogue:fr:4059",
+      "study": "une araignée",
+      "native": "蜘蛛",
+      "beforePhon": "安 纳雷尼耶",
+      "afterPhon": "于 纳雷尼耶",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 103,
+      "id": "catalogue:fr:4208",
+      "study": "une écharpe",
+      "native": "围巾",
+      "beforePhon": "安 内沙尔普",
+      "afterPhon": "于 内沙尔普",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 104,
+      "id": "catalogue:fr:4226",
+      "study": "un agriculteur",
+      "native": "农民",
+      "beforePhon": "安 阿格里库尔图尔",
+      "afterPhon": "安 纳格里库尔图尔",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 105,
+      "id": "catalogue:fr:4274",
+      "study": "une appli",
+      "native": "应用",
+      "beforePhon": "安 纳普利",
+      "afterPhon": "于 纳普利",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 106,
+      "id": "catalogue:fr:4377",
+      "study": "une inondation",
+      "native": "洪水",
+      "beforePhon": "安 尼农达西翁",
+      "afterPhon": "于 尼农达西翁",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 107,
+      "id": "catalogue:fr:4380",
+      "study": "une évacuation",
+      "native": "疏散",
+      "beforePhon": "安 内瓦库阿西翁",
+      "afterPhon": "于 内瓦库阿西翁",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 108,
+      "id": "catalogue:fr:4401",
+      "study": "Le produit ne fonctionne pas.",
+      "native": "产品用不了",
+      "beforePhon": "勒 普罗迪 呢 公克西翁 帕",
+      "afterPhon": "勒 普罗迪 呢 丰克西奥讷 帕",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 109,
+      "id": "situation-authored:situation-zh-fr-service-client-08",
+      "study": "Le nouvel article fonctionne correctement.",
+      "native": "新的商品能正常使用。",
+      "beforePhon": "勒 努韦勒 阿尔蒂克勒 丰克西翁 科雷克特芒",
+      "afterPhon": "勒 努韦勒 阿尔蒂克勒 丰克西奥讷 科雷克特芒",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": null,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 110,
+      "id": "catalogue:fr:1664",
+      "study": "C'est conforme à nos exigences.",
+      "native": "符合我们的要求。",
+      "beforePhon": "塞 公福尔姆 阿 诺 泽格藏斯",
+      "afterPhon": "塞 公福尔姆 阿 诺 泽格齐让斯",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 111,
+      "id": "catalogue:fr:1668",
+      "study": "Avez-vous une table pour deux ?",
+      "native": "有两人桌吗？",
+      "beforePhon": "阿维武安塔布",
+      "afterPhon": "阿维武云塔布勒普尔德",
+      "rules": [
+        "T",
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 112,
+      "id": "catalogue:fr:1679",
+      "study": "On a lancé le produit.",
+      "native": "我们推出了产品。",
+      "beforePhon": "翁 阿 朗塞 勒 普罗迪",
+      "afterPhon": "翁 纳 朗塞 勒 普罗迪",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 113,
+      "id": "catalogue:fr:1707",
+      "study": "On est réconciliés.",
+      "native": "我们和好了",
+      "beforePhon": "翁 埃 雷孔西利耶",
+      "afterPhon": "翁 内 雷孔西利耶",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 114,
+      "id": "catalogue:fr:1724",
+      "study": "C'est à dix minutes à pied.",
+      "native": "走路十分钟",
+      "beforePhon": "赛塔迪米尼特",
+      "afterPhon": "赛塔迪米尼特阿皮耶",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 115,
+      "id": "catalogue:fr:1770",
+      "study": "l'adresse de livraison",
+      "native": "收货地址",
+      "beforePhon": "拉准斯 德 利夫雷宗",
+      "afterPhon": "拉德雷斯 德 利夫雷宗",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 116,
+      "id": "catalogue:fr:1771",
+      "study": "On fait une pause.",
+      "native": "我们休息一下",
+      "beforePhon": "翁 费 团 波兹",
+      "afterPhon": "翁 费 云 波兹",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 117,
+      "id": "catalogue:fr:1805",
+      "study": "Il a les yeux bleus.",
+      "native": "他眼睛是蓝色的",
+      "beforePhon": "伊尔 阿 雷 耶 布勒",
+      "afterPhon": "伊尔 阿 雷 齐厄 布勒",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 118,
+      "id": "catalogue:fr:1815",
+      "study": "On est de la même famille.",
+      "native": "我们是一家人",
+      "beforePhon": "翁 埃 德 拉 梅姆 法米伊",
+      "afterPhon": "翁 内 德 拉 梅姆 法米伊",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 119,
+      "id": "catalogue:fr:1834",
+      "study": "Ils se sont enfin réconciliés.",
+      "native": "他们终于和好了",
+      "beforePhon": "伊尔 色 松东 翁方 雷孔西利耶",
+      "afterPhon": "伊尔 色 松 东方 雷孔西利耶",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 120,
+      "id": "catalogue:fr:1866",
+      "study": "Où en est la production ?",
+      "native": "生产进度怎么样了？",
+      "beforePhon": "乌 翁 内 拉 普罗达克西翁",
+      "afterPhon": "乌 翁 内 拉 普罗迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 121,
+      "id": "catalogue:fr:1870",
+      "study": "Quand peut-on inspecter ?",
+      "native": "什么时候可以验货？",
+      "beforePhon": "孔 珀东 赞斯佩克得",
+      "afterPhon": "孔 珀东 安斯佩克得",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 122,
+      "id": "catalogue:fr:1887",
+      "study": "On a construit un mur.",
+      "native": "我们砌了一堵墙。",
+      "beforePhon": "翁 阿 公斯特鲁伊 安 米尔",
+      "afterPhon": "翁 纳 公斯特鲁伊 安 米尔",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 123,
+      "id": "catalogue:fr:1889",
+      "study": "On a planté un arbre.",
+      "native": "我们种了一棵树。",
+      "beforePhon": "翁 阿 普朗泰 安 纳尔布尔",
+      "afterPhon": "翁 纳 普朗泰 安 纳尔布尔",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 124,
+      "id": "catalogue:fr:1893",
+      "study": "On a dansé toute la nuit.",
+      "native": "我们跳了一整夜。",
+      "beforePhon": "翁 阿 当塞 图特 拉 尼伊",
+      "afterPhon": "翁 纳 当塞 图特 拉 尼伊",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 125,
+      "id": "catalogue:fr:1894",
+      "study": "Je lui ai emprunté de l'argent.",
+      "native": "我向他借了钱。",
+      "beforePhon": "热 吕伊 埃 唐普伦泰 德 拉尔让",
+      "afterPhon": "热 吕伊 埃 昂普伦泰 德 拉尔让",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 126,
+      "id": "catalogue:fr:1900",
+      "study": "On a grimpé la montagne.",
+      "native": "我们爬上了山。",
+      "beforePhon": "翁 阿 格兰佩 拉 蒙塔涅",
+      "afterPhon": "翁 纳 格兰佩 拉 蒙塔涅",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 127,
+      "id": "catalogue:fr:1901",
+      "study": "On organise une fête samedi.",
+      "native": "我们周六办派对",
+      "beforePhon": "翁 奥尔嘎尼兹 云 费特 萨姆地",
+      "afterPhon": "翁 诺尔嘎尼兹 云 费特 萨姆地",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 128,
+      "id": "catalogue:fr:1912",
+      "study": "On a nagé dans la mer.",
+      "native": "我们在海里游了泳。",
+      "beforePhon": "翁 阿 纳热 当 拉 梅尔",
+      "afterPhon": "翁 纳 纳热 当 拉 梅尔",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 129,
+      "id": "catalogue:fr:3249",
+      "study": "peu profond",
+      "native": "浅的",
+      "beforePhon": "普 普罗蓬",
+      "afterPhon": "普 普罗丰",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 130,
+      "id": "catalogue:fr:3255",
+      "study": "Dans l'attente de votre réponse...",
+      "native": "期待您的回复...",
+      "beforePhon": "东拉东特",
+      "afterPhon": "东拉东特德沃特尔雷蓬斯",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 131,
+      "id": "catalogue:fr:3264",
+      "study": "Suite à notre entretien...",
+      "native": "接上次我们的谈话...",
+      "beforePhon": "斯威特阿诺特",
+      "afterPhon": "斯威特阿诺特朗特勒蒂安",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 132,
+      "id": "catalogue:fr:3269",
+      "study": "une analyse de sang",
+      "native": "验血",
+      "beforePhon": "安 纳纳利兹 德 松",
+      "afterPhon": "于 纳纳利兹 德 松",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 133,
+      "id": "catalogue:fr:3272",
+      "study": "une alerte tempête",
+      "native": "暴风预警",
+      "beforePhon": "安 纳莱尔特 东佩特",
+      "afterPhon": "于 纳莱尔特 东佩特",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 134,
+      "id": "catalogue:fr:3287",
+      "study": "La qualité n'est pas bonne.",
+      "native": "质量不好",
+      "beforePhon": "拉 卡利得 内 帕 蓬",
+      "afterPhon": "拉 卡利得 内 帕 波讷",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 135,
+      "id": "catalogue:fr:3300",
+      "study": "la production",
+      "native": "产量",
+      "beforePhon": "拉 普罗达克西翁",
+      "afterPhon": "拉 普罗迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 136,
+      "id": "catalogue:fr:1949",
+      "study": "Quel est le prix FOB ?",
+      "native": "FOB价格是多少？",
+      "beforePhon": "凯尔 埃 勒 普里 艾弗欧比",
+      "afterPhon": "凯尔 埃 勒 普里 艾弗欧贝",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 137,
+      "id": "catalogue:fr:1964",
+      "study": "Confirmez l'adresse de livraison.",
+      "native": "请确认收货地址",
+      "beforePhon": "孔菲尔梅 拉准斯 德 利夫雷宗",
+      "afterPhon": "孔菲尔梅 拉德雷斯 德 利夫雷宗",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 138,
+      "id": "catalogue:fr:1969",
+      "study": "On peut lancer la production.",
+      "native": "可以开始量产",
+      "beforePhon": "翁 普 隆塞 拉 普罗达克西翁",
+      "afterPhon": "翁 普 隆塞 拉 普罗迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 139,
+      "id": "catalogue:fr:1971",
+      "study": "On a été coupés.",
+      "native": "电话断了",
+      "beforePhon": "翁 阿 埃得 库佩",
+      "afterPhon": "翁 纳 埃得 库佩",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 140,
+      "id": "catalogue:fr:1994",
+      "study": "Pouvez-vous garantir l'uniformité ?",
+      "native": "能保证一致性吗？",
+      "beforePhon": "普韦 武 加朗迪尔 于尼福尔米泰",
+      "afterPhon": "普韦 武 加朗迪尔 吕尼福尔米泰",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 141,
+      "id": "catalogue:fr:1996",
+      "study": "C'est étanche, indice IP65 ?",
+      "native": "防水吗，IP65？",
+      "beforePhon": "塞 泰唐什 安迪斯 伊佩 散特散克",
+      "afterPhon": "塞 泰唐什 安迪斯 伊佩 斯瓦桑特散克",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 142,
+      "id": "catalogue:fr:2011",
+      "study": "Avez-vous la certification EN71 ?",
+      "native": "有EN71认证吗？",
+      "beforePhon": "阿韦 武 拉 塞尔迪菲卡西翁 厄恩 斯瓦桑特翁兹",
+      "afterPhon": "阿韦 武 拉 塞尔迪菲卡西翁 厄恩 斯瓦桑特埃翁兹",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 143,
+      "id": "catalogue:fr:2047",
+      "study": "Avoir du pain sur la planche.",
+      "native": "有很多工作要做",
+      "beforePhon": "阿瓦尔迪邦",
+      "afterPhon": "阿瓦尔迪邦续尔拉普朗什",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 144,
+      "id": "catalogue:fr:2060",
+      "study": "On a trinqué à ta santé.",
+      "native": "我们为你干了杯。",
+      "beforePhon": "翁 阿 特兰凯 阿 塔 桑泰",
+      "afterPhon": "翁 纳 特兰凯 阿 塔 桑泰",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 145,
+      "id": "catalogue:fr:2061",
+      "study": "Flâner dans les rues de Paris.",
+      "native": "漫步在巴黎街头",
+      "beforePhon": "弗拉内东雷吕",
+      "afterPhon": "弗拉内东雷吕德帕里",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 146,
+      "id": "catalogue:fr:2080",
+      "study": "On a patiné sur le lac.",
+      "native": "我们在湖上滑了冰。",
+      "beforePhon": "翁 阿 帕迪内 绪尔 勒 拉克",
+      "afterPhon": "翁 纳 帕迪内 绪尔 勒 拉克",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 147,
+      "id": "catalogue:fr:2085",
+      "study": "L'art de vivre à la française.",
+      "native": "法式生活艺术",
+      "beforePhon": "拉尔德维夫尔",
+      "afterPhon": "拉尔德维夫尔阿拉弗朗塞兹",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 148,
+      "id": "catalogue:fr:2152",
+      "study": "Je partage mon écran.",
+      "native": "我分享屏幕",
+      "beforePhon": "热 帕尔塔日 蒙 埃克隆",
+      "afterPhon": "热 帕尔塔日 蒙 内克隆",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 149,
+      "id": "catalogue:fr:2153",
+      "study": "Je voudrais que tu viennes.",
+      "native": "我希望你来",
+      "beforePhon": "茹武德雷克图维安",
+      "afterPhon": "茹武德雷克图维埃讷",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 150,
+      "id": "catalogue:fr:2158",
+      "study": "Fixons une date limite.",
+      "native": "我们定个截止日期",
+      "beforePhon": "飞克松 战 达特 利米特",
+      "afterPhon": "飞克松 云 达特 利米特",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 151,
+      "id": "catalogue:fr:2177",
+      "study": "Il se peut qu'on arrive un peu plus tard.",
+      "native": "我们可能会晚一点到。",
+      "beforePhon": "eel suh PUH kohn nah-REEV uhn PUH plu TAR",
+      "afterPhon": "伊尔 色 珀 孔 纳里夫 安 珀 普吕 塔尔",
+      "rules": [
+        "R"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 152,
+      "id": "catalogue:fr:2179",
+      "study": "Quelle est la durée de vie en heures ?",
+      "native": "寿命多少小时？",
+      "beforePhon": "凯 莱 拉 迪雷 德 维 昂 厄尔",
+      "afterPhon": "凯 莱 拉 迪雷 德 维 昂 讷尔",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 153,
+      "id": "catalogue:fr:2185",
+      "study": "Pouvez-vous m'envoyer le contre-échantillon ?",
+      "native": "您能发我回样吗？",
+      "beforePhon": "普韦 武 芒瓦耶 勒 公特尔 内尚迪翁",
+      "afterPhon": "普韦 武 芒瓦耶 勒 公特尔 埃尚迪翁",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 154,
+      "id": "catalogue:fr:2191",
+      "study": "Pouvez-vous me recommander un restaurant ?",
+      "native": "您能推荐个餐厅吗？",
+      "beforePhon": "普维武木",
+      "afterPhon": "普维武么勒科芒代安雷斯托朗",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 155,
+      "id": "catalogue:fr:2206",
+      "study": "Dépêche-toi, on est en retard.",
+      "native": "快点，我们迟到了",
+      "beforePhon": "得佩什 特瓦 翁 埃 通 勒塔尔",
+      "afterPhon": "得佩什 特瓦 翁 内 通 勒塔尔",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 156,
+      "id": "catalogue:fr:2211",
+      "study": "On a fait un bonhomme de neige hier.",
+      "native": "我们昨天堆了个雪人",
+      "beforePhon": "翁 阿 费 安 波农姆 德 内日 伊耶尔",
+      "afterPhon": "翁 纳 费 安 波农姆 德 内日 伊耶尔",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 157,
+      "id": "catalogue:fr:2212",
+      "study": "Fais cuire au four pendant vingt minutes.",
+      "native": "烤二十分钟",
+      "beforePhon": "库伊库尔 奥 富尔 蓬东 万 米努特",
+      "afterPhon": "费 库伊尔 奥 富尔 蓬东 万 米努特",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 158,
+      "id": "catalogue:fr:2262",
+      "study": "On a skié tout le week-end.",
+      "native": "我们滑了一整个周末雪。",
+      "beforePhon": "翁 阿 斯基耶 图 勒 维肯德",
+      "afterPhon": "翁 纳 斯基耶 图 勒 维肯德",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 159,
+      "id": "catalogue:fr:2265",
+      "study": "On a cueilli des fleurs dans le jardin.",
+      "native": "我们在花园里摘了花",
+      "beforePhon": "翁 阿 克伊利 德 弗勒尔 东 勒 扎尔丹",
+      "afterPhon": "翁 纳 克伊伊 德 弗勒尔 东 勒 扎尔丹",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 160,
+      "id": "catalogue:fr:2266",
+      "study": "L'essentiel est invisible pour les yeux.",
+      "native": "真正重要的是看不见的",
+      "beforePhon": "莱桑西耶尔",
+      "afterPhon": "莱桑西耶尔埃安维齐布勒普尔雷泽约",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 161,
+      "id": "catalogue:fr:2283",
+      "study": "Savoir-vivre et savoir-faire.",
+      "native": "生活情趣与专业技艺",
+      "beforePhon": "萨瓦尔维夫尔",
+      "afterPhon": "萨瓦尔维夫尔埃萨瓦尔费尔",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 162,
+      "id": "catalogue:fr:2861",
+      "study": "de plus",
+      "native": "另外",
+      "beforePhon": "德 普吕",
+      "afterPhon": "德 普吕斯",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 163,
+      "id": "catalogue:fr:2919",
+      "study": "N'importe quoi !",
+      "native": "什么鬼！胡说！",
+      "beforePhon": "尼波科瓦",
+      "afterPhon": "南波尔特科瓦",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 164,
+      "id": "catalogue:fr:3308",
+      "study": "Les enfants font un château de sable.",
+      "native": "孩子们在堆沙堡",
+      "beforePhon": "雷 桑翁方 丰 安 沙托 德 萨布勒",
+      "afterPhon": "雷 桑方 丰 安 沙托 德 萨布勒",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 165,
+      "id": "catalogue:fr:3309",
+      "study": "la ligne de production",
+      "native": "生产线",
+      "beforePhon": "拉 林 德 普罗达克西翁",
+      "afterPhon": "拉 林 德 普罗迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 166,
+      "id": "catalogue:fr:3314",
+      "study": "Mon objectif professionnel est...",
+      "native": "我的职业目标是...",
+      "beforePhon": "蒙诺布热克蒂弗",
+      "afterPhon": "蒙诺布热克蒂弗普罗费西奥内勒埃",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 167,
+      "id": "catalogue:fr:3328",
+      "study": "Les termes du contrat sont...",
+      "native": "合同条款是...",
+      "beforePhon": "雷泰尔姆迪孔特拉",
+      "afterPhon": "雷泰尔姆迪孔特拉松",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 168,
+      "id": "catalogue:fr:3339",
+      "study": "la production de masse",
+      "native": "量产",
+      "beforePhon": "拉 普罗达克西翁 德 马斯",
+      "afterPhon": "拉 普罗迪克西翁 德 马斯",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 169,
+      "id": "catalogue:fr:3349",
+      "study": "la capacité de production",
+      "native": "产能",
+      "beforePhon": "拉 卡帕西得 德 普罗达克西翁",
+      "afterPhon": "拉 卡帕西得 德 普罗迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 170,
+      "id": "catalogue:fr:3354",
+      "study": "J'ai X années d'expérience dans...",
+      "native": "我在...有X年经验",
+      "beforePhon": "热艾克斯阿内德艾克斯佩里昂",
+      "afterPhon": "热艾克斯阿内德艾克斯佩里昂斯当",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 171,
+      "id": "catalogue:fr:3374",
+      "study": "En conclusion, je dirai que...",
+      "native": "总结来说，我要说...",
+      "beforePhon": "昂孔克吕西翁",
+      "afterPhon": "昂孔克吕西翁热迪雷克",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 172,
+      "id": "catalogue:fr:4416",
+      "study": "Un autre fournisseur propose moins cher.",
+      "native": "别家报价更低",
+      "beforePhon": "藏 诺特 富尼瑟尔 普罗波兹 姆万 谢尔",
+      "afterPhon": "安 诺特 富尼瑟尔 普罗波兹 姆万 谢尔",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 173,
+      "id": "catalogue:fr:2299",
+      "study": "Confirmez le planning de production.",
+      "native": "请确认生产排期",
+      "beforePhon": "孔菲尔梅 勒 普拉宁 德 普罗达克西翁",
+      "afterPhon": "孔菲尔梅 勒 普拉宁 德 普罗迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 174,
+      "id": "catalogue:fr:2300",
+      "study": "Je n'aurais pas dû le faire.",
+      "native": "我本不应该这样做",
+      "beforePhon": "茹诺雷帕迪",
+      "afterPhon": "茹诺雷帕迪勒费尔",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 175,
+      "id": "catalogue:fr:2310",
+      "study": "Pouvez-vous accélérer la production ?",
+      "native": "您能加快生产吗？",
+      "beforePhon": "普维 乌 扎克塞雷雷 拉 普罗达克西翁",
+      "afterPhon": "普维 乌 扎克塞雷雷 拉 普罗迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 176,
+      "id": "catalogue:fr:2325",
+      "study": "Combien en avez-vous déjà produit ?",
+      "native": "已经生产了多少？",
+      "beforePhon": "孔比央 翁 阿维 武 得扎 普罗迪",
+      "afterPhon": "孔比央 翁 纳维 武 得扎 普罗迪",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 177,
+      "id": "catalogue:fr:2352",
+      "study": "Je reviens vers vous rapidement.",
+      "native": "我会尽快回复您",
+      "beforePhon": "茹热维安维尔武",
+      "afterPhon": "茹勒维安维尔武拉皮德芒",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 178,
+      "id": "catalogue:fr:2354",
+      "study": "Je me permets de vous contacter.",
+      "native": "冒昧打扰您",
+      "beforePhon": "茹木佩尔梅",
+      "afterPhon": "茹木佩尔梅德乌孔塔克泰",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 179,
+      "id": "catalogue:fr:2357",
+      "study": "Tout le monde voit mon écran ?",
+      "native": "大家都能看到我的屏幕吗？",
+      "beforePhon": "图 勒 蒙德 瓦 蒙 埃克隆",
+      "afterPhon": "图 勒 蒙德 瓦 蒙 内克隆",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 180,
+      "id": "catalogue:fr:2365",
+      "study": "Nous pourrions trouver un accord.",
+      "native": "我们可以达成协议",
+      "beforePhon": "努普里昂图维",
+      "afterPhon": "努普里昂特鲁维安纳科尔",
+      "rules": [
+        "T",
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 181,
+      "id": "catalogue:fr:2372",
+      "study": "Je vous appelle sur votre portable.",
+      "native": "我打你手机",
+      "beforePhon": "热 武 阿佩勒 续尔 沃特尔 波尔塔布勒",
+      "afterPhon": "热 武 扎佩勒 续尔 沃特尔 波尔塔布勒",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 182,
+      "id": "catalogue:fr:2386",
+      "study": "Je suis disponible immédiatement.",
+      "native": "我可以立即上班",
+      "beforePhon": "茹斯威迪斯波尼布勒",
+      "afterPhon": "茹斯威迪斯波尼布勒伊梅迪亚特芒",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 183,
+      "id": "catalogue:fr:2390",
+      "study": "Probablement, mais je préfère vérifier d'abord.",
+      "native": "很可能，不过我想先确认一下。",
+      "beforePhon": "pro-bah-bluh-MAH may zhuh pray-FAIR vay-ree-fee-YAY dah-BOR",
+      "afterPhon": "普罗巴布勒芒 梅 热 普雷费尔 维里菲耶 达波尔",
+      "rules": [
+        "R"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 184,
+      "id": "catalogue:fr:2395",
+      "study": "D'habitude, je prends le bus le matin.",
+      "native": "我通常早上坐公交车。",
+      "beforePhon": "dah-bee-TUDE zhuh PRAHN luh BUS luh mah-TAN",
+      "afterPhon": "达比蒂德 热 普隆 勒 比斯 勒 马坦",
+      "rules": [
+        "R"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 185,
+      "id": "catalogue:fr:2396",
+      "study": "Il m'a dit qu'il viendrait.",
+      "native": "他告诉我他会来",
+      "beforePhon": "伊尔马迪基尔",
+      "afterPhon": "伊尔马迪基尔维安德雷",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 186,
+      "id": "catalogue:fr:2405",
+      "study": "On a nagé dans la mer toute la journée.",
+      "native": "我们在海里游了一整天",
+      "beforePhon": "翁 阿 纳热 东 拉 梅尔 图特 拉 如尔内",
+      "afterPhon": "翁 纳 纳热 东 拉 梅尔 图特 拉 如尔内",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 187,
+      "id": "catalogue:fr:2419",
+      "study": "Je me coiffe avant de sortir.",
+      "native": "我出门前会梳头",
+      "beforePhon": "热 摹 库瓦费 阿翁 德 索尔提尔",
+      "afterPhon": "热 摹 库瓦夫 阿翁 德 索尔提尔",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 188,
+      "id": "catalogue:fr:2426",
+      "study": "Ça fait combien de temps qu'on ne s'est pas vus ?",
+      "native": "我们多久没见了？",
+      "beforePhon": "萨菲孔比安德唐孔讷塞帕于",
+      "afterPhon": "萨菲孔比安德唐孔讷塞帕维",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 189,
+      "id": "catalogue:fr:2439",
+      "study": "Ça fait longtemps qu'on ne s'est pas vus.",
+      "native": "我们好久没见了。",
+      "beforePhon": "萨菲隆唐孔讷塞帕于",
+      "afterPhon": "萨菲隆唐孔讷塞帕维",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 190,
+      "id": "catalogue:fr:2447",
+      "study": "Plus j'apprends, plus j'aime ça.",
+      "native": "越学越喜欢。",
+      "beforePhon": "普吕 热普朗 普吕 热姆 萨",
+      "afterPhon": "普吕 扎普朗 普吕 热姆 萨",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 191,
+      "id": "catalogue:fr:2463",
+      "study": "Nous exigeons une compensation.",
+      "native": "我们要求赔偿",
+      "beforePhon": "努 泽格藏 云 孔庞萨西翁",
+      "afterPhon": "努 泽格齐戎 云 孔庞萨西翁",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 192,
+      "id": "catalogue:fr:2486",
+      "study": "Non seulement c'est utile, mais en plus c'est simple.",
+      "native": "不仅有用，而且简单。",
+      "beforePhon": "农 瑟尔曼 塞 提尔 梅 昂 普吕斯 塞 桑普勒",
+      "afterPhon": "农 瑟尔曼 塞 于提尔 梅 昂 普吕斯 塞 桑普勒",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1,
+        "transport-phrase": 1
+      }
+    },
+    {
+      "eventIndex": 193,
+      "id": "catalogue:fr:2510",
+      "study": "Petit à petit, l'oiseau fait son nid.",
+      "native": "一点一滴，聚沙成塔。",
+      "beforePhon": "普蒂阿普蒂卢瓦佐菲松尼",
+      "afterPhon": "普蒂塔普蒂卢瓦佐菲松尼",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 194,
+      "id": "catalogue:fr:2573",
+      "study": "D'un côté, c'est pratique ; de l'autre, c'est cher.",
+      "native": "一方面很方便，另一方面很贵。",
+      "beforePhon": "dun ko-TAY say pra-TEEK duh LOHTR say SHAIR",
+      "afterPhon": "丹 科得 塞 普拉蒂克 德 楼特 塞 谢尔",
+      "rules": [
+        "R"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 195,
+      "id": "catalogue:fr:2581",
+      "study": "L'hôtel est simple ; en revanche, la vue est magnifique.",
+      "native": "酒店很简朴，但风景非常壮观。",
+      "beforePhon": "罗泰勒埃桑普勒昂勒旺什拉于埃马尼菲克",
+      "afterPhon": "罗泰勒埃桑普勒昂勒旺什拉维埃马尼菲克",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 196,
+      "id": "catalogue:fr:2956",
+      "study": "À moins que...",
+      "native": "除非...",
+      "beforePhon": "阿门克",
+      "afterPhon": "阿姆万克",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 197,
+      "id": "catalogue:fr:3409",
+      "study": "le délai de production",
+      "native": "生产周期",
+      "beforePhon": "勒 得雷 德 普罗达克西翁",
+      "afterPhon": "勒 得雷 德 普罗迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 198,
+      "id": "catalogue:fr:3425",
+      "study": "Mon principal atout est...",
+      "native": "我最大的优势是...",
+      "beforePhon": "蒙普赖西帕尔阿图",
+      "afterPhon": "蒙普兰西帕尔阿图埃",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 199,
+      "id": "catalogue:fr:3439",
+      "study": "une étiquette",
+      "native": "标签",
+      "beforePhon": "安 内提凯特",
+      "afterPhon": "于 内提凯特",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 200,
+      "id": "catalogue:fr:3443",
+      "study": "un bon de réduction",
+      "native": "优惠券",
+      "beforePhon": "安 蓬 德 雷达克西翁",
+      "afterPhon": "安 蓬 德 雷迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 201,
+      "id": "catalogue:fr:3446",
+      "study": "Il convient de noter que...",
+      "native": "值得注意的是...",
+      "beforePhon": "伊尔孔维安德诺泰",
+      "afterPhon": "伊尔孔维安德诺泰克",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 202,
+      "id": "catalogue:fr:3448",
+      "study": "La liberté, l'égalité, la fraternité.",
+      "native": "自由、平等、博爱",
+      "beforePhon": "拉利贝泰",
+      "afterPhon": "拉利贝泰，莱加利泰，拉弗拉泰尔尼泰",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 203,
+      "id": "catalogue:fr:3457",
+      "study": "une réduction",
+      "native": "折扣",
+      "beforePhon": "云 雷达克西翁",
+      "afterPhon": "云 雷迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 204,
+      "id": "catalogue:fr:3469",
+      "study": "une aire de jeux",
+      "native": "游乐场",
+      "beforePhon": "安 内尔 德 热",
+      "afterPhon": "于 内尔 德 热",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 205,
+      "id": "catalogue:fr:4400",
+      "study": "Le taux de défauts est trop élevé.",
+      "native": "次品率太高了",
+      "beforePhon": "勒 托 德 得佛 埃 特罗 泽勒维",
+      "afterPhon": "勒 托 德 得佛 埃 特罗 埃勒维",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 206,
+      "id": "situation-authored:situation-zh-fr-piste-reclamation-tact-01",
+      "study": "Je comprends vos contraintes, mais le défaut reste visible.",
+      "native": "我理解您有实际限制，但这个缺陷仍然看得见。",
+      "beforePhon": "热 孔普朗 沃特尔 孔特兰特，梅 勒 代福 雷斯特 维齐布勒",
+      "afterPhon": "热 孔普朗 沃 孔特兰特，梅 勒 代福 雷斯特 维齐布勒",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": null,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 207,
+      "id": "catalogue:fr:2583",
+      "study": "Nous vous garantissons la qualité.",
+      "native": "我们保证质量",
+      "beforePhon": "努武加朗提松",
+      "afterPhon": "努武加朗提松拉卡利泰",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 208,
+      "id": "catalogue:fr:2604",
+      "study": "L'emballage doit être antichoc.",
+      "native": "包装要防震。",
+      "beforePhon": "朗巴拉日 杜瓦 泽特尔 昂迪朔克",
+      "afterPhon": "朗巴拉日 杜瓦 泰特尔 昂迪朔克",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 209,
+      "id": "catalogue:fr:2617",
+      "study": "Notre proposition est la suivante.",
+      "native": "我们的提案如下",
+      "beforePhon": "诺特普罗波兹西翁",
+      "afterPhon": "诺特普罗波兹西翁埃拉斯维旺特",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 210,
+      "id": "catalogue:fr:2618",
+      "study": "C'est le maximum qu'on puisse accepter.",
+      "native": "这是我们能接受的上限",
+      "beforePhon": "塞 勒 马克西姆 孔 普伊斯 阿克塞普得",
+      "afterPhon": "塞 勒 马克西莫姆 孔 普伊斯 阿克塞普得",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 211,
+      "id": "catalogue:fr:2632",
+      "study": "Je vous envoie une vidéo du problème.",
+      "native": "我发您一段问题视频",
+      "beforePhon": "热 武 翁瓦 云 维得奥 居 普罗布莱姆",
+      "afterPhon": "热 武 宗瓦 云 维得奥 居 普罗布莱姆",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 212,
+      "id": "catalogue:fr:2635",
+      "study": "Pouvez-vous faire un échantillon d'abord ?",
+      "native": "能先做样品吗？",
+      "beforePhon": "普维 乌 费尔 安 埃尚提翁 达波尔",
+      "afterPhon": "普维 乌 费尔 安 内尚提翁 达波尔",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 213,
+      "id": "catalogue:fr:2646",
+      "study": "Quelles sont vos prétentions salariales ?",
+      "native": "您的薪资期望是多少？",
+      "beforePhon": "克尔松沃普雷东西翁",
+      "afterPhon": "克尔松沃普雷东西翁萨拉里亚勒",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 214,
+      "id": "catalogue:fr:2652",
+      "study": "C'est une coopération à long terme.",
+      "native": "这是长期合作",
+      "beforePhon": "塞 团 寇奥佩拉西翁 阿 隆 泰尔姆",
+      "afterPhon": "塞 迪讷 寇奥佩拉西翁 阿 隆 泰尔姆",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 215,
+      "id": "catalogue:fr:2653",
+      "study": "Je vous envoie le lien de la réunion.",
+      "native": "我发个会议链接给你",
+      "beforePhon": "热 武 翁瓦 勒 利安 德 拉 雷于尼翁",
+      "afterPhon": "热 武 宗瓦 勒 利安 德 拉 雷于尼翁",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 216,
+      "id": "catalogue:fr:2660",
+      "study": "Je vous propose l'ordre du jour suivant.",
+      "native": "我提议以下议程",
+      "beforePhon": "茹武普罗波兹",
+      "afterPhon": "茹武普罗波兹洛尔德迪茹尔斯维旺",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 217,
+      "id": "catalogue:fr:2669",
+      "study": "Je confirme la bonne réception.",
+      "native": "我确认已收到。",
+      "beforePhon": "热 公菲尔姆 拉 邦 雷塞普西翁",
+      "afterPhon": "热 公菲尔姆 拉 波讷 雷塞普西翁",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 218,
+      "id": "catalogue:fr:2671",
+      "study": "Nous acceptons vos conditions.",
+      "native": "我们接受您的条件。",
+      "beforePhon": "努 阿克塞普通 沃 公迪西翁",
+      "afterPhon": "努 扎克塞普通 沃 公迪西翁",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 219,
+      "id": "catalogue:fr:2686",
+      "study": "Pouvez-vous envoyer un échantillon gratuit ?",
+      "native": "能寄个免费样品吗？",
+      "beforePhon": "普维武芒瓦耶安内尚蒂翁格拉图威",
+      "afterPhon": "普维武翁瓦耶安内尚蒂翁格拉图威",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 220,
+      "id": "catalogue:fr:2690",
+      "study": "Il faut profiter de l'instant présent.",
+      "native": "要享受当下时光",
+      "beforePhon": "伊尔佛普罗菲泰",
+      "afterPhon": "伊尔佛普罗菲泰德兰斯唐普雷藏",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 221,
+      "id": "catalogue:fr:3477",
+      "study": "Le vol est retardé.",
+      "native": "航班延误",
+      "beforePhon": "勒 沃 埃 勒塔尔得",
+      "afterPhon": "勒 沃尔 埃 勒塔尔得",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 222,
+      "id": "catalogue:fr:3479",
+      "study": "La qualité du grand lot doit être identique.",
+      "native": "大货质量必须和样品一致。",
+      "beforePhon": "拉 卡利泰 迪 格朗 洛 杜瓦 泽特尔 阿当迪克",
+      "afterPhon": "拉 卡利泰 迪 格朗 洛 杜瓦 泰特尔 伊当迪克",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 223,
+      "id": "catalogue:fr:3495",
+      "study": "le code PIN",
+      "native": "密码",
+      "beforePhon": "勒 科德 班",
+      "afterPhon": "勒 科德 皮讷",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 224,
+      "id": "catalogue:fr:3496",
+      "study": "le terminal",
+      "native": "航站楼",
+      "beforePhon": "勒 泰尔米纳",
+      "afterPhon": "勒 泰尔米纳尔",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 225,
+      "id": "catalogue:fr:3499",
+      "study": "Je cède la parole à...",
+      "native": "我把发言权交给...",
+      "beforePhon": "茹赛德拉帕罗",
+      "afterPhon": "茹赛德拉帕罗勒阿",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 226,
+      "id": "catalogue:fr:3513",
+      "study": "Le logo doit être gravé.",
+      "native": "logo要压印。",
+      "beforePhon": "勒 洛戈 杜瓦 泽特尔 格拉韦",
+      "afterPhon": "勒 洛戈 杜瓦 泰特尔 格拉韦",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 227,
+      "id": "catalogue:fr:3521",
+      "study": "La clim ne marche pas.",
+      "native": "空调坏了",
+      "beforePhon": "拉 克兰 呢 玛尔什 帕",
+      "afterPhon": "拉 克利姆 呢 玛尔什 帕",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 228,
+      "id": "catalogue:fr:3545",
+      "study": "un échantillon de pré-production",
+      "native": "产前样",
+      "beforePhon": "安 内尚提扬 德 普雷普罗达克西翁",
+      "afterPhon": "安 内尚提扬 德 普雷普罗迪克西翁",
+      "rules": [
+        "A"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 229,
+      "id": "catalogue:fr:3556",
+      "study": "La quincaillerie doit être dorée.",
+      "native": "五金件要金色。",
+      "beforePhon": "拉 坎卡耶里 杜瓦 泽特尔 多雷",
+      "afterPhon": "拉 坎卡耶里 杜瓦 泰特尔 多雷",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 230,
+      "id": "catalogue:fr:4406",
+      "study": "Le prochain lot doit être sans défaut.",
+      "native": "下一批必须零缺陷",
+      "beforePhon": "勒 普罗尚 洛 杜瓦 泽特尔 松 得佛",
+      "afterPhon": "勒 普罗尚 洛 杜瓦 泰特尔 松 得佛",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 231,
+      "id": "catalogue:fr:2715",
+      "study": "Je me permets de postuler pour ce poste.",
+      "native": "我冒昧申请这个职位",
+      "beforePhon": "茹木佩尔梅德波斯蒂莱",
+      "afterPhon": "茹木佩尔梅德波斯蒂莱普尔瑟波斯特",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 232,
+      "id": "catalogue:fr:2724",
+      "study": "Réfléchissez-y et revenez vers moi.",
+      "native": "您考虑下再回复我",
+      "beforePhon": "雷弗雷希塞 伊 埃 勒弗内 维尔 姆瓦",
+      "afterPhon": "雷弗雷希塞 齐 埃 勒弗内 维尔 姆瓦",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 233,
+      "id": "catalogue:fr:2726",
+      "study": "Pourquoi voulez-vous rejoindre notre entreprise ?",
+      "native": "您为何想加入我们公司？",
+      "beforePhon": "普科瓦武雷武",
+      "afterPhon": "普科瓦武雷武勒茹安德尔诺特尔昂特勒普里兹",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 234,
+      "id": "catalogue:fr:2731",
+      "study": "Ce prix est valable jusqu'à la fin du mois.",
+      "native": "这个价格月底前有效。",
+      "beforePhon": "瑟普里埃瓦拉布勒жю斯卡拉凡杜穆瓦",
+      "afterPhon": "瑟普里埃瓦拉布勒朱斯卡拉凡杜穆瓦",
+      "rules": [
+        "R"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 235,
+      "id": "catalogue:fr:2737",
+      "study": "Il nous faut une facture proforma.",
+      "native": "我们要形式发票",
+      "beforePhon": "伊尔 努 佛 团 法克图尔 普罗佛尔马",
+      "afterPhon": "伊尔 努 佛 云 法克图尔 普罗佛尔马",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 236,
+      "id": "catalogue:fr:2752",
+      "study": "Nous avons étudié votre offre.",
+      "native": "我们研究了您的报价。",
+      "beforePhon": "努 阿翁 泽迪迪耶 沃特尔 奥弗尔",
+      "afterPhon": "努 扎翁 泽迪迪耶 沃特尔 奥弗尔",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 237,
+      "id": "catalogue:fr:2757",
+      "study": "Je vous enverrai le compte rendu.",
+      "native": "我会把会议纪要发给您。",
+      "beforePhon": "热 武 昂韦雷 勒 公特 朗迪",
+      "afterPhon": "热 武 藏韦雷 勒 公特 朗迪",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 238,
+      "id": "catalogue:fr:2770",
+      "study": "Je vous enverrai le compte-rendu après.",
+      "native": "会后我发纪要给大家",
+      "beforePhon": "热 武 昂韦雷 勒 公特 朗迪 阿普雷",
+      "afterPhon": "热 武 藏韦雷 勒 公特 朗迪 阿普雷",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 239,
+      "id": "catalogue:fr:2786",
+      "study": "Si la qualité est bonne, on commande plus.",
+      "native": "质量好的话我们多订",
+      "beforePhon": "西 拉 卡利得 埃 波讷 翁 科蒙德 普吕",
+      "afterPhon": "西 拉 卡利得 埃 波讷 翁 科蒙德 普吕斯",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 240,
+      "id": "catalogue:fr:2811",
+      "study": "Pourrions-nous convenir d'un rendez-vous ?",
+      "native": "我们能约个时间见面吗？",
+      "beforePhon": "普里翁 努 公夫尼尔 安 朗德武",
+      "afterPhon": "普里翁 努 公夫尼尔 丹 朗德武",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 241,
+      "id": "catalogue:fr:2823",
+      "study": "Si j'avais su, je serais venu.",
+      "native": "如果我知道，我就来了",
+      "beforePhon": "西扎维苏",
+      "afterPhon": "西扎维苏热瑟雷弗纽",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 242,
+      "id": "catalogue:fr:2827",
+      "study": "Si on commande plus, vous baissez le prix ?",
+      "native": "多订点能便宜吗？",
+      "beforePhon": "西 翁 科蒙德 普吕 乌 贝塞 勒 普里",
+      "afterPhon": "西 翁 科蒙德 普吕斯 乌 贝塞 勒 普里",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 243,
+      "id": "catalogue:fr:2829",
+      "study": "Il faut valider l'échantillon avant le grand lot.",
+      "native": "大货前要先确认样品。",
+      "beforePhon": "伊尔 福 瓦利德 内尚迪翁 阿旺 勒 格朗 洛",
+      "afterPhon": "伊尔 福 瓦利德 莱尚迪翁 阿旺 勒 格朗 洛",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 244,
+      "id": "catalogue:fr:2839",
+      "study": "Cependant, cette solution est plus lente, mais elle est plus sûre.",
+      "native": "不过，这个方案更慢，但更安全。",
+      "beforePhon": "suh-pahn-DAHN set so-lu-SYOH ay plu LAHNT may el ay plu SUR",
+      "afterPhon": "瑟庞当 塞特 索吕西翁 埃 普吕 朗特 梅 埃尔 埃 普吕 续尔",
+      "rules": [
+        "R"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 245,
+      "id": "catalogue:fr:3569",
+      "study": "Un aller-retour.",
+      "native": "往返票",
+      "beforePhon": "安 阿雷 勒图尔",
+      "afterPhon": "安 纳雷 勒图尔",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 246,
+      "id": "catalogue:fr:3577",
+      "study": "Suite à notre réunion, voici le compte-rendu.",
+      "native": "接上次会议，以下是纪要",
+      "beforePhon": "斯威特阿诺特雷尼翁",
+      "afterPhon": "斯威特阿诺特雷尼翁瓦西勒孔特朗杜",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 247,
+      "id": "catalogue:fr:3581",
+      "study": "une escale",
+      "native": "转机 / 经停",
+      "beforePhon": "安 内斯卡",
+      "afterPhon": "于 内斯卡勒",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 248,
+      "id": "catalogue:fr:3588",
+      "study": "La machine doit être emballée en caisse.",
+      "native": "机器要木箱包装。",
+      "beforePhon": "拉 马辛 杜瓦 泽特尔 昂巴雷 昂 凯斯",
+      "afterPhon": "拉 马辛 杜瓦 泰特尔 昂巴雷 昂 凯斯",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 249,
+      "id": "catalogue:fr:3602",
+      "study": "une échéance",
+      "native": "期限",
+      "beforePhon": "安 内谢翁斯",
+      "afterPhon": "于 内谢翁斯",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 250,
+      "id": "catalogue:fr:3610",
+      "study": "La laïcité est un principe fondamental.",
+      "native": "世俗主义是基本原则",
+      "beforePhon": "拉莱西泰",
+      "afterPhon": "拉莱西泰埃坦普兰西普丰达芒塔尔",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 251,
+      "id": "catalogue:fr:3640",
+      "study": "Bonne continuation.",
+      "native": "一切顺利",
+      "beforePhon": "波 孔提努阿西翁",
+      "afterPhon": "波讷 孔提努阿西翁",
+      "rules": [
+        "G"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 252,
+      "id": "catalogue:fr:3651",
+      "study": "Choisis-en un.",
+      "native": "选一个",
+      "beforePhon": "舒瓦齐 仲 安",
+      "afterPhon": "舒瓦齐 仲 南",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 253,
+      "id": "catalogue:fr:3660",
+      "study": "La gastronomie française est reconnue dans le monde entier.",
+      "native": "法国美食举世公认",
+      "beforePhon": "拉加斯特罗诺米",
+      "afterPhon": "拉加斯特罗诺米弗朗塞兹埃勒科纽当勒蒙德昂蒂耶",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 254,
+      "id": "catalogue:fr:3665",
+      "study": "J'ai la flemme.",
+      "native": "我懒得动。",
+      "beforePhon": "热 埃 拉 弗拉姆",
+      "afterPhon": "热 拉 弗莱姆",
+      "rules": [
+        "X"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 255,
+      "id": "catalogue:fr:3668",
+      "study": "Veuillez trouver ci-joint...",
+      "native": "请见附件...",
+      "beforePhon": "弗依耶图维西约恩",
+      "afterPhon": "弗依耶特鲁维西茹安",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 256,
+      "id": "catalogue:fr:3671",
+      "study": "Le budget alloué est de...",
+      "native": "分配的预算是...",
+      "beforePhon": "勒布热阿吕艾",
+      "afterPhon": "勒布热阿吕艾埃德",
+      "rules": [
+        "T"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": true,
+      "occurrenceProfiles": {
+        "canonical": 1
+      }
+    },
+    {
+      "eventIndex": 257,
+      "id": "heard-authored:situation-zh-fr-piste-limites-relationnelles-received-01",
+      "study": "Tu préfères qu'on parle d'autre chose ?",
+      "native": "你更希望我们聊点别的吗？",
+      "beforePhon": "蒂 普雷费尔 孔 帕尔勒 多特尔 舍兹",
+      "afterPhon": "蒂 普雷费尔 孔 帕尔勒 多特尔 肖兹",
+      "rules": [
+        "S"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": null,
+      "occurrenceProfiles": {
+        "received-model": 1
+      }
+    },
+    {
+      "eventIndex": 258,
+      "id": "heard-authored:situation-zh-fr-piste-sport-habitudes-received-02",
+      "study": "Bon entraînement.",
+      "native": "祝你训练愉快。",
+      "beforePhon": "邦 昂特雷讷芒",
+      "afterPhon": "波 南特雷讷芒",
+      "rules": [
+        "L"
+      ],
+      "wholeAidRead": true,
+      "targetedCorrectionOutcome": "no-certain-targeted-false-positive",
+      "snapshotBeforeExact": true,
+      "priorCorrectionPresent": false,
+      "sourceCatalogueTupleVerbatim": null,
+      "occurrenceProfiles": {
+        "received-model": 1
+      }
+    }
+  ]
+}

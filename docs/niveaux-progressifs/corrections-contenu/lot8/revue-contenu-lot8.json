@@ -1,0 +1,1805 @@
+{
+  "version": 1,
+  "id": "revue-contenu-lot8",
+  "status": "frozen-certain-gloss-and-linked-bundle-events-not-global-native-approval",
+  "baseSnapshotCommit": "224e45948ac3739066f34178375b2e4437197e90",
+  "appliesAfter": [
+    {
+      "registryPath": "docs/niveaux-progressifs/corrections-phonetiques/lot8/revue-claude-lot8.json",
+      "registrySha256": "c58e4d14762d53cec30721acc36d97a2d8bfa40bdb22e4827d283ba3be773ed1"
+    }
+  ],
+  "correctionCount": 23,
+  "eventCount": 23,
+  "approvedFieldCount": 27,
+  "changedFieldCount": 27,
+  "evidenceFiles": [
+    {
+      "path": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+      "gitPath": "docs/revue-integrale/lot8-fr-es-L1-L10/lot-contenu-gloses.json",
+      "gitCommit": "e12c600f97a6339a0566cdaf879aa0d449f96284",
+      "sha256": "4c078120ce79094af6d968c6c3ac590cb01958eb3f9dfe9e5152d4e35c3ae821"
+    }
+  ],
+  "corrections": [
+    {
+      "pairId": "fr-es",
+      "id": "situation-support-conversation:fr-es:piste-douleur-simple-support-02",
+      "fields": {
+        "native": {
+          "before": "au ventre",
+          "after": "l'estomac"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 0
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L2.json",
+          "location": [
+            "themes",
+            17,
+            "phrases",
+            0
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "el estómago",
+            "native": "au ventre",
+            "phon": "él és-TO-ma-go",
+            "source": {
+              "collection": "situation-support-conversation",
+              "kind": "conversation-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-es.json",
+              "ledgerFileSha256": "4638082462d028ef93c5d93b4be941fca8c7ed1054d6743e447fd936b038d299",
+              "itemId": "fr-es:piste-douleur-simple-support-02",
+              "sourceSha256": "3102fc7df47b52d154708997d696254a826ce9273d91d397350f5c4f3ef6f4c8",
+              "ledgerItemSha256": "1100cccc4ce3b10b721fc61b370964ed7049d2963ea85973a53df304e49c7082",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-es/L9-fr-es.json",
+                "jsonPointer": "/units/9/variants/1/slot",
+                "fileSha256": "9213141af73a699177b03fa653d32e39370728c1131dfbe6abbea8bef2f81673",
+                "entrySha256": "3102fc7df47b52d154708997d696254a826ce9273d91d397350f5c4f3ef6f4c8",
+                "sourceCommit": "7d245568102f16fb8ae9e29c46bb89221358058b"
+              },
+              "sourceLevel": 9
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "existing-verbatim",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        },
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/repertoires/fr-es.json",
+          "location": [
+            "phrases",
+            188
+          ],
+          "profile": "transport-phrase",
+          "expectedBefore": {
+            "study": "el estómago",
+            "native": "au ventre",
+            "phon": "él és-TO-ma-go",
+            "source": {
+              "collection": "situation-support-conversation",
+              "kind": "conversation-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-es.json",
+              "ledgerFileSha256": "4638082462d028ef93c5d93b4be941fca8c7ed1054d6743e447fd936b038d299",
+              "itemId": "fr-es:piste-douleur-simple-support-02",
+              "sourceSha256": "3102fc7df47b52d154708997d696254a826ce9273d91d397350f5c4f3ef6f4c8",
+              "ledgerItemSha256": "1100cccc4ce3b10b721fc61b370964ed7049d2963ea85973a53df304e49c7082",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "path": "docs/niveaux-progressifs/enrichissement-situations/sources/conversation/fr-es/L9-fr-es.json",
+                "jsonPointer": "/units/9/variants/1/slot",
+                "fileSha256": "9213141af73a699177b03fa653d32e39370728c1131dfbe6abbea8bef2f81673",
+                "entrySha256": "3102fc7df47b52d154708997d696254a826ce9273d91d397350f5c4f3ef6f4c8",
+                "sourceCommit": "7d245568102f16fb8ae9e29c46bb89221358058b"
+              },
+              "sourceLevel": 9
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "existing-verbatim",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "situation-authored:fr-es:piste-sport-habitudes-04",
+      "fields": {
+        "native": {
+          "before": "Je m’entraîne pendant une demi-heure.",
+          "after": "Chaque entraînement dure une demi-heure."
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 1
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+          "location": [
+            "themes",
+            15,
+            "phrases",
+            2
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "Cada entrenamiento dura media hora.",
+            "native": "Je m’entraîne pendant une demi-heure.",
+            "phon": "KA-da ènn-tré-na-MIÈNN-to DOU-ra MÉ-dia O-ra",
+            "source": {
+              "collection": "situation-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-es.json",
+              "ledgerFileSha256": "4638082462d028ef93c5d93b4be941fca8c7ed1054d6743e447fd936b038d299",
+              "itemId": "fr-es:piste-sport-habitudes-04",
+              "sourceSha256": "8dc9393c221d548b27883acb9b658f9cdf366cb334007a7e2b97928da9143396",
+              "ledgerItemSha256": "8dc9393c221d548b27883acb9b658f9cdf366cb334007a7e2b97928da9143396",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "pending-Claude",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:999",
+      "fields": {
+        "native": {
+          "before": "ne fais pas si confiance",
+          "after": "ne fais pas trop confiance"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 2
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            13
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "No te fíes tanto.",
+            "native": "ne fais pas si confiance",
+            "phon": "no té FI-és TAN-to",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 999,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "70871c6513c5b2e413a26d10967b4ba4bbd04b413ebbe4a81ffdb8358e865f4a"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "situation-authored:fr-es:piste-incident-objet-03",
+      "fields": {
+        "native": {
+          "before": "Je l’ai posé sur cette table.",
+          "after": "Je l’ai posé sur la table."
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 3
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+          "location": [
+            "themes",
+            12,
+            "phrases",
+            1
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "Lo dejé sobre la mesa.",
+            "native": "Je l’ai posé sur cette table.",
+            "phon": "lo dé-KHÉ SO-bré la MÉ-sa",
+            "source": {
+              "collection": "situation-authored",
+              "kind": "editorial-authored-whole-entry",
+              "ledgerFile": "docs/niveaux-progressifs/enrichissement-situations/extension-fr-es.json",
+              "ledgerFileSha256": "4638082462d028ef93c5d93b4be941fca8c7ed1054d6743e447fd936b038d299",
+              "itemId": "fr-es:piste-incident-objet-03",
+              "sourceSha256": "738156eb3ee80adaff59d08851ef7bd2400ab309970fca45100d44282a9578f5",
+              "ledgerItemSha256": "738156eb3ee80adaff59d08851ef7bd2400ab309970fca45100d44282a9578f5",
+              "fieldMap": {
+                "study": "study",
+                "native": "native",
+                "phon": "phon"
+              },
+              "provenance": {
+                "kind": "editorial-authored-whole-utterance"
+              }
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": true,
+            "phoneticReviewStatus": "pending-Claude",
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:1738",
+      "fields": {
+        "native": {
+          "before": "J'ai besoin des urgences.",
+          "after": "Je dois aller aux urgences."
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 4
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            20
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "Necesito ir a urgencias.",
+            "native": "J'ai besoin des urgences.",
+            "phon": "né-cé-SI-to ir a our-RHÈN-cias",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 1738,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "5b1619c22b08297a902d0cd8c590fb4cdd81cd3ca3040a8d3681526641c19230"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:1743",
+      "fields": {
+        "native": {
+          "before": "Peut-on rendre la voiture ailleurs ?",
+          "after": "Je peux le rendre ailleurs ?"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 5
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            31
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "¿Puedo devolverlo en otro sitio?",
+            "native": "Peut-on rendre la voiture ailleurs ?",
+            "phon": "POUÉ-do dé-bol-BÈR-lo èn O-tro SI-tio",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 1743,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "5838136ed6598153a688ec599e66ef70a89f2fe382fdf9cf419f3f7cd9954615"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:1840",
+      "fields": {
+        "native": {
+          "before": "Vous êtes touriste aussi ?",
+          "after": "Toi aussi, tu es touriste ?"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 6
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L5.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            171
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "¿Tú también eres turista?",
+            "native": "Vous êtes touriste aussi ?",
+            "phon": "tou tam-BIÈN É-rés tou-RIS-ta",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 1840,
+              "sourceLevel": 5,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "7fd2b1e00c03be729e45c131d37579dd3cb2945fd0b6b62eec3e440c8a044e81"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:2288",
+      "fields": {
+        "native": {
+          "before": "Peut-on se regrouper pour une visite ?",
+          "after": "On peut s'inscrire ensemble dans un groupe ?"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 7
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            176
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "¿Podemos apuntarnos juntos a un grupo?",
+            "native": "Peut-on se regrouper pour une visite ?",
+            "phon": "po-DÉ-mos a-poun-TAR-nos RHOUN-tos a oun GROU-po",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2288,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "9fcf52a1a8ac86e3e7034cf05a78e6596c2d96998282ecc3227e6223ac478dbe"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:4032",
+      "fields": {
+        "native": {
+          "before": "le délai de livraison est trop long",
+          "after": "le délai de livraison est très long"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 8
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L6.json",
+          "location": [
+            "themes",
+            9,
+            "phrases",
+            26
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "El plazo de entrega es muy largo.",
+            "native": "le délai de livraison est trop long",
+            "phon": "él PLA-sso dé én-TRÉ-ga és mouy LAR-go",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 4032,
+              "sourceLevel": 6,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "b2c26210d2bfe1abd3dd23674ce638ebff39a7568b1a511f6bfaeb21c266b43c"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:2478",
+      "fields": {
+        "native": {
+          "before": "il ne faut pas décider aujourd'hui",
+          "after": "pas besoin de décider aujourd'hui"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 9
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            14
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "No hay que decidir hoy.",
+            "native": "il ne faut pas décider aujourd'hui",
+            "phon": "no AY ké dé-si-DIR OY",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2478,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "d9cfa3ff3f79fb359795694c465dfbdd3fafd881b4bde04087e9521677e346a9"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:2439",
+      "fields": {
+        "native": {
+          "before": "Y a-t-il une supérette ? J'ai besoin d'eau.",
+          "after": "Y a-t-il un magasin près d'ici ? J'ai besoin d'eau."
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 10
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            6
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "¿Hay una tienda cerca? Necesito agua.",
+            "native": "Y a-t-il une supérette ? J'ai besoin d'eau.",
+            "phon": "aïlle OU-na TIÈN-da CÈR-ka né-cé-SI-to A-goua",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2439,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "721c745e0a783c9f3ac75e2744370c6366110e47678e2e9e2480a42c3fb07b0d"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:2696",
+      "fields": {
+        "native": {
+          "before": "Conseillez un plat que les locaux adorent.",
+          "after": "Recommandez-moi quelque chose qui plaise aux gens du coin."
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 11
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            3,
+            "phrases",
+            30
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "Recomiéndeme algo que guste a los locales.",
+            "native": "Conseillez un plat que les locaux adorent.",
+            "phon": "ré-ko-MIÈN-dé-mé AL-go ké GOUS-té a los lo-KA-lés",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2696,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "2962c83cfcfdfe53005506c3e1b4b659b5573a0adbfa63bcaa5e373389b5672a"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:2623",
+      "fields": {
+        "native": {
+          "before": "où récupère-t-on la voiture de location ?",
+          "after": "où est-ce que je récupère la voiture de location ?"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 12
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            17
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "¿Dónde recojo el coche de alquiler?",
+            "native": "où récupère-t-on la voiture de location ?",
+            "phon": "DON-dé ré-KO-ro él KO-tché dé al-ki-LÉR",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2623,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "ccbdb51c8487ae3bbbaf973b66e5509bdc24352a83a77639697a1e8e24545052"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:2633",
+      "fields": {
+        "native": {
+          "before": "Y a-t-il des vélos en libre-service ?",
+          "after": "Y a-t-il des vélos en libre-service près d'ici ?"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 13
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            141
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "¿Hay bicis compartidas cerca?",
+            "native": "Y a-t-il des vélos en libre-service ?",
+            "phon": "aïlle BI-cis kom-par-TI-das CÈR-ka",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2633,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "364dc62dfb1e053a8d946467a57c248b93481dec794a99b2f148451cfeddbeff"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:2638",
+      "fields": {
+        "native": {
+          "before": "Faut-il rendre le plein fait ?",
+          "after": "Faut-il le rendre avec le plein fait ?"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 14
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L7.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            143
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "¿Hay que devolverlo con el depósito lleno?",
+            "native": "Faut-il rendre le plein fait ?",
+            "phon": "aïlle ké dé-bol-BÈR-lo kon èl dé-PO-si-to YÉ-no",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2638,
+              "sourceLevel": 7,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "9cd047624c72b443ffd14f1db2bac4025e09a142b15d7baac1393e80e7556910"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:4174",
+      "fields": {
+        "native": {
+          "before": "l'angle du faisceau est trop large",
+          "after": "l'angle du faisceau est très large"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 15
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            7,
+            "phrases",
+            7
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "El ángulo del haz es muy ancho.",
+            "native": "l'angle du faisceau est trop large",
+            "phon": "él AN-gou-lo dél AS és mouy AN-tcho",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 4174,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "91f7b3ea6ec1531883dd33425622273d61e0da58fb1b2fe79904e41a28a31786"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:4334",
+      "fields": {
+        "native": {
+          "before": "tu vas halluciner",
+          "after": "tu délires"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 16
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+          "location": [
+            "themes",
+            4,
+            "phrases",
+            11
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "Flipas.",
+            "native": "tu vas halluciner",
+            "phon": "FLI-pas",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 4334,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "e8a8c1486ae25e216168a9c76f1abdbf60f39d274405c5e3d3c6f376ac824f07"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:3195",
+      "fields": {
+        "native": {
+          "before": "est-ce que ça entraîne une pénalité ?",
+          "after": "est-ce que cela couvre une pénalité ?"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 17
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            76
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "¿Cubre esto una penalización?",
+            "native": "est-ce que ça entraîne une pénalité ?",
+            "phon": "KOUB-ré ÉS-to OU-na pé-na-li-ssa-SION",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 3195,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "be51c7d08ae978dfc5e380ce60cbc6c5a4da9f751e77fa8eae33afba9a3c5840"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:661",
+      "fields": {
+        "study": {
+          "before": "Qué día tan largo.",
+          "after": "¡Qué día tan largo!"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 18
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            10
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "Qué día tan largo.",
+            "native": "Quelle longue journée.",
+            "phon": "ké DI-a tan LAR-go",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 661,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "3c8d36ef3311e102e3eac2dbb27687eaa36fc4cb34f42981820a4c2982e44bef"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:875",
+      "fields": {
+        "study": {
+          "before": "Qué bochorno hace.",
+          "after": "¡Qué bochorno hace!"
+        }
+      },
+      "rules": [],
+      "atomicBundle": false,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "items",
+          "evidenceIndex": 19
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L3.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            28
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "Qué bochorno hace.",
+            "native": "quelle chaleur lourde",
+            "phon": "KÉ bo-TCHOR-no A-sé",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 875,
+              "sourceLevel": 3,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "72f1f94f8ec72f71b9fc0ed2063030403fab2bd3b4f420d5b109eebe98de9f6b"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:1340",
+      "fields": {
+        "study": {
+          "before": "¿Me lo pongo para llevar?",
+          "after": "¿Me lo pone para llevar?"
+        },
+        "native": {
+          "before": "Puis-je l'emporter ?",
+          "after": "Vous me le mettez à emporter ?"
+        },
+        "phon": {
+          "before": "mé lo PON-go PA-ra yé-BAR",
+          "after": "mé lo PO-né PA-ra yé-BAR"
+        }
+      },
+      "rules": [],
+      "atomicBundle": true,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "linkedBundles",
+          "evidenceIndex": 0
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L4.json",
+          "location": [
+            "themes",
+            8,
+            "phrases",
+            143
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "¿Me lo pongo para llevar?",
+            "native": "Puis-je l'emporter ?",
+            "phon": "mé lo PON-go PA-ra yé-BAR",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 1340,
+              "sourceLevel": 4,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "ea69107f9a97408d9046b59a2ccab85fac0342a61546fe6078f5b75d3413ccbe"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:2727",
+      "fields": {
+        "study": {
+          "before": "¿Cuánto tarda a España?",
+          "after": "¿Cuánto tarda en llegar a España?"
+        },
+        "phon": {
+          "before": "KOUAN-to TAR-da a és-PA-nya",
+          "after": "KOUAN-to TAR-da én yé-GAR a és-PA-nya"
+        }
+      },
+      "rules": [],
+      "atomicBundle": true,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "linkedBundles",
+          "evidenceIndex": 1
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L8.json",
+          "location": [
+            "themes",
+            5,
+            "phrases",
+            1
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "¿Cuánto tarda a España?",
+            "native": "combien de temps ça met jusqu'en Espagne ?",
+            "phon": "KOUAN-to TAR-da a és-PA-nya",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 2727,
+              "sourceLevel": 8,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "ac592962e97ed9eb7306525dcfe4e5578f97b349ab675fa665fe806330296f09"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    },
+    {
+      "pairId": "fr-es",
+      "id": "catalogue:es:3186",
+      "fields": {
+        "study": {
+          "before": "Necesito ver vídeo de la línea.",
+          "after": "Necesito ver un vídeo de la línea."
+        },
+        "phon": {
+          "before": "né-sé-SSI-to BÉR BI-dé-o dé la LI-né-a",
+          "after": "né-sé-SSI-to BÉR oun BI-dé-o dé la LI-né-a"
+        }
+      },
+      "rules": [],
+      "atomicBundle": true,
+      "events": [
+        {
+          "evidencePath": "docs/niveaux-progressifs/corrections-contenu/lot8/evidence-contenu-lot8.json",
+          "evidenceCollection": "linkedBundles",
+          "evidenceIndex": 2
+        }
+      ],
+      "occurrences": [
+        {
+          "path": "melunga_deploy/content/niveaux-progressifs/fr-es/L9.json",
+          "location": [
+            "themes",
+            2,
+            "phrases",
+            10
+          ],
+          "profile": "canonical",
+          "expectedBefore": {
+            "study": "Necesito ver vídeo de la línea.",
+            "native": "j'ai besoin de voir une vidéo de la ligne",
+            "phon": "né-sé-SSI-to BÉR BI-dé-o dé la LI-né-a",
+            "source": {
+              "collection": "DECKS.es",
+              "sourceIndex": 3186,
+              "sourceLevel": 9,
+              "fieldMap": {
+                "study": "t",
+                "native": "frm",
+                "phon": "pf"
+              },
+              "sourceSha256": "6ed1bbb8b706155542e700fb2a0772812607b91417a61a3182c20e58d8af5e23"
+            },
+            "readingPresent": false,
+            "reading": null,
+            "phoneticReviewStatusPresent": false,
+            "phoneticReviewStatus": null,
+            "phoneticCorrectionPresent": false,
+            "phoneticCorrection": null,
+            "reviewedFieldCorrectionPresent": false,
+            "reviewedFieldCorrection": null,
+            "lot4PhoneticCorrectionPresent": false,
+            "lot4PhoneticCorrection": null,
+            "reviewedContentCorrectionPresent": false,
+            "reviewedContentCorrection": null,
+            "lot5FieldCorrectionPresent": false,
+            "lot5FieldCorrection": null,
+            "lot5ContentCorrectionPresent": false,
+            "lot5ContentCorrection": null,
+            "lot6FieldCorrectionPresent": false,
+            "lot6FieldCorrection": null,
+            "lot6ContentCorrectionPresent": false,
+            "lot6ContentCorrection": null,
+            "lot7PhoneticCorrectionPresent": false,
+            "lot7PhoneticCorrection": null,
+            "lot7ContentCorrectionPresent": false,
+            "lot7ContentCorrection": null,
+            "lot8PhoneticCorrectionPresent": false,
+            "lot8PhoneticCorrection": null
+          }
+        }
+      ]
+    }
+  ]
+}
