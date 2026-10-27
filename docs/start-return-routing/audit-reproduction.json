@@ -1,0 +1,102 @@
+{
+  "status": "read-only-route-audit-complete",
+  "checkedAtUtc": "2026-10-27T14:48:41.578987+00:00",
+  "tree": "dc503e1816ed55bea8a023aa538e99c0cabbaa6b",
+  "productionMain": "fca40d5",
+  "auditedEntryFilesEqualProductionMain": true,
+  "productFilesModified": false,
+  "publicRequestsMade": false,
+  "realAccountOrPostOrSynthesis": false,
+  "confirmedHomepagePremiumPath": {
+    "source": "index.html:677-698",
+    "generatedUrl": "app.html?lang=en&study=es&checkout=annual",
+    "missing": "courseReturn and courseLevel",
+    "modeCause": "selectedAccess premium is deliberately excluded from the modern free redirect",
+    "classicBootstrap": [
+      "app.html:2734 excludes checkout from early redirect",
+      "app.html:5123 calls wlcGoStep2; checkout prevents modern welcome redirect",
+      "entry-bridge.js:45-52 reapplies study es after700ms",
+      "course-login.js excludes checkout, so no cancel-to-course layer is installed"
+    ],
+    "paymentReturn": "readApprovedCourseReturn clears pending return when checkout lacks courseReturn; no approved return can be remembered or completed"
+  },
+  "localReproduction": {
+    "report": "/tmp/melunga-start-premium-local-audit/report.json",
+    "capture": "/tmp/melunga-start-premium-local-audit/premium-close-classic-EN-ES.png",
+    "allResponsesWereLocalFixtures": true,
+    "syntheticAccountAndHistoryOnly": {
+      "syntheticPaidResponse": true,
+      "languagePreferences": {
+        "ox_nat": "en",
+        "ox_lang": "es"
+      },
+      "syntheticArchivedSpanishIds": 44
+    },
+    "observedBeforeClosing": {
+      "url": "https://entry-route-audit.test/app.html?lang=en&study=es&checkout=annual",
+      "lang": "es",
+      "nat": "en",
+      "pool": 3713,
+      "mode": "all",
+      "first": "Eres lo mejor.",
+      "firstLevel": 2,
+      "approvedCourseReturn": null,
+      "courseLoginSkin": false,
+      "paywall": "block",
+      "audioAttempts": []
+    },
+    "observedAfterClosing": {
+      "url": "https://entry-route-audit.test/app.html?lang=en&study=es&checkout=annual",
+      "lang": "es",
+      "nat": "en",
+      "pool": 3713,
+      "mode": "all",
+      "first": "Eres lo mejor.",
+      "firstLevel": 2,
+      "count": "Phrase 1 of 600",
+      "ballLevel": "L2",
+      "paywall": "none",
+      "cardVisible": true,
+      "audioAttempts": [],
+      "visibleHeaderCounter": "1 / 3713",
+      "visibleHeaderCounterEvidence": "Inspected the saved screenshot; the older hidden #count element separately reads Phrase1of600."
+    },
+    "javascriptErrors": [],
+    "unexpectedRequests": [],
+    "externalFontsBlocked": [
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@500;600;700&family=Baloo+2:wght@700;800&display=swap",
+        "method": "GET",
+        "reason": "no external network in local reproduction"
+      }
+    ],
+    "limitation": "The screenshot visibly reproduces L2 /1of3713 /Eres lo mejor with synthetic paid access and44 archived Spanish cards. This proves the code path exists, not that the user had exactly this history or chose this path."
+  },
+  "additionalConditionalPaths": [
+    {
+      "route": "login=1 without explicit valid courseReturn",
+      "outcome": "classic form and lesson remain on cancellation; session-only return is not enough for course-login cancellation skin"
+    },
+    {
+      "route": "start=1 with valid en/es but invalid level, duplicate parameters or mismatched courseReturn",
+      "outcome": "early modern guard refuses it, but final goLesson still starts classic"
+    },
+    {
+      "route": "native Capacitor/file or native-detection exception",
+      "outcome": "nativeCourseEntry and courseReturnIsNative keep classic; no evidence of a browser false positive here"
+    },
+    {
+      "route": "plain app.html welcome with no entry flags, standard web",
+      "outcome": "wlcGoStep2 redirects modern first non-self language; classic stays only with explicit classic/native/entry flags"
+    }
+  ],
+  "oldStorageConclusion": "ox_nat/ox_lang and old known-card history explain the classic content after reaching app.html; they do not change selectedAccess free into premium or override a valid standard-web free redirect. mode starts all and L2 derives from the current card lv, not a restored route level.",
+  "narrowRecommendations": [
+    "Preserve a validated pair/level return descriptor when generating a web premium checkout, as already done for the login entry.",
+    "Extend the trusted cancellation/presentation boundary to checkout so closing or cancelling a purchase returns to the modern course without granting access.",
+    "Keep server-confirmed success handling and native/classic compatibility; avoid treating a local paid hint as a modern authorization.",
+    "For malformed web start entries, show a bounded error or recovery rather than silently falling into the classic final goLesson branch.",
+    "Cover premium annual/monthly start, paid existing status, unpaid cancel, checkout success return, login cancellation and legacy/native exceptions with fixtures."
+  ],
+  "cacheConclusion": "No cache conclusion: the relevant source files in this branch are byte-identical to current main."
+}

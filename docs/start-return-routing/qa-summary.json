@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "environment": "Local Chromium; desktop and emulated mobile viewport/touch",
+  "physicalDeviceTested": false,
+  "safariTested": false,
+  "actualAudioPlayed": false,
+  "realAccountsUsed": false,
+  "realPaymentsUsed": false,
+  "postRequestsAllowed": false,
+  "allApiResponsesMocked": true,
+  "inputsStable": true,
+  "checks": [
+    "premium-real-page-and-close",
+    "already-paid-premium-entry",
+    "saved-bare-welcome-start",
+    "incomplete-web-start",
+    "checkout-return-status",
+    "back-and-start-again",
+    "invalid-and-explicit-classic"
+  ],
+  "errors": [],
+  "unexpected": [],
+  "fixtureErrors": [],
+  "date": "2026-10-27",
+  "testGroups": 7,
+  "caseCount": 24,
+  "casesByName": {
+    "home-premium-close": 3,
+    "verified-premium-start": 2,
+    "legacy-login-without-return-parameters": 1,
+    "saved-bare-app-start": 2,
+    "bare-app-legacy-language-preferences": 1,
+    "bare-app-without-course-opens-home-choice": 1,
+    "saved-web-start": 3,
+    "pending-checkout-return": 2,
+    "start-with-checkout-close": 1,
+    "legacy-checkout-without-return-parameters": 1,
+    "back-then-start-again": 1,
+    "guarded-classic-entry": 6
+  },
+  "testFile": "melunga_deploy/tests/start-return-routing.browser.cjs",
+  "testSha256": "1ff436e53094c2a9c9c34cdfceb207f20c44f383616763b39fb2518a81dd1342",
+  "captures": [
+    "captures/premium-en-es-before-close-390.png",
+    "captures/modern-en-es-after-close-390.png",
+    "captures/modern-en-es-after-close-1366.png",
+    "captures/modern-en-es-bare-resume-L2-390.png"
+  ],
+  "fixtureAssets": [
+    "mobile-runtime.js: empty ordinary-web fixture, matching existing account-entry suites",
+    "Google Fonts stylesheet: empty offline CSS; local system fonts used",
+    "Chirp voice catalogue: explicit 503, no audio loaded or played"
+  ],
+  "returnTokenRegression": "Pending en-es L2 overrides contradictory fr-it L1 preferences, is consumed, and a later bare visit resumes new it-ko L3 preferences; exercised with both paid=false and paid=true server fixtures.",
+  "beforeFixReproduction": "Real mobile home premium → study es with native en → Démarrer: courseReturn was null instead of en-es.",
+  "limits": [
+    "Local Chromium only; mobile viewport/touch emulation, no physical phone or Safari.",
+    "All network responses are fixtures; no production site or real account used.",
+    "All non-GET requests forbidden; no login POST or payment POST sent.",
+    "No audio service or actual voice playback tested.",
+    "This report covers routing regressions, not a fresh corpus or pricing audit."
+  ]
+}

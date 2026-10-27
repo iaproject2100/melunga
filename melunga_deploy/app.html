@@ -2701,7 +2701,82 @@ body.immersif.pile-droite .stage {
 <link rel="stylesheet" href="lesson-pastilles.css">
 <link rel="stylesheet" href="account-ui.css">
 <link rel="stylesheet" href="course-login.css?v=1">
-<script src="course-login.js?v=1" defer></script>
+<script src="course-login.js?v=2" defer></script>
+<style>html.course-entry-redirect body{visibility:hidden!important}</style>
+<script>
+/* Web lessons default to the course. Account forms retain only a typed pair
+   and level; neither navigation nor stored preferences grant paid access. */
+(function(){
+  try{
+    if(location.protocol!=='https:' && location.protocol!=='http:') return;
+    var bridge=window.Capacitor;
+    if(bridge && (typeof bridge.isNativePlatform==='function' ? bridge.isNativePlatform()
+        : typeof bridge.getPlatform==='function' && bridge.getPlatform()!=='web')) return;
+    var query=new URLSearchParams(location.search);
+    if(query.get('classic')==='1') return;
+    var keys=['start','lang','study','level','courseLevel','courseReturn','classic','login','checkout'];
+    if(keys.some(function(key){return query.getAll(key).length>1;})) return;
+    var codes=['fr','en','es','it','zh','ja','ko'];
+    function validLanguage(value){return codes.indexOf(value)>=0;}
+    function pairOf(value){
+      if(typeof value!=='string') return null;
+      var pair=value.split('-');
+      return pair.length===2 && validLanguage(pair[0]) && validLanguage(pair[1]) && pair[0]!==pair[1] ? pair : null;
+    }
+    function read(key){try{return localStorage.getItem(key);}catch(_error){return null;}}
+    var wantsLogin=query.get('login')==='1', checkout=query.get('checkout');
+    if(query.has('login') && !wantsLogin || query.has('checkout') && checkout!=='monthly' && checkout!=='annual'
+        || wantsLogin && query.has('checkout') || query.has('start') && query.get('start')!=='1') return;
+    var account=wantsLogin || query.has('checkout');
+    if(query.has('lang') && !validLanguage(query.get('lang')) || query.has('study') && !validLanguage(query.get('study'))) return;
+    var explicit=pairOf(query.get('courseReturn'));
+    if(query.has('courseReturn') && !explicit) return;
+    if(explicit && (query.has('lang') && query.get('lang')!==explicit[0]
+        || query.has('study') && query.get('study')!==explicit[1])) return;
+    var saved=pairOf(read('melunga-course-pair')), legacyNative=read('ox_nat'), legacyStudy=read('ox_lang');
+    var applicationLocale=null;
+    try{applicationLocale=JSON.parse(read('melunga-app-language')||'null')?.locale;}catch(_error){}
+    var pending=null, readPending=false;
+    if(!account && !query.has('start') && !query.has('lang') && !query.has('study') && !explicit){
+      readPending=true;
+      try{
+        var candidate=JSON.parse(sessionStorage.getItem('melunga-course-return')||'null');
+        var candidatePair=candidate && pairOf(candidate.pair), age=candidate && Date.now()-candidate.createdAt;
+        if(candidatePair && Number.isFinite(candidate.createdAt) && age>=0 && age<=86400000
+            && candidate.nativeLanguage===candidatePair[0] && candidate.studyLanguage===candidatePair[1]
+            && /^(?:[1-9]|10)$/.test(String(candidate.level))) pending=candidate;
+      }catch(_error){}
+    }
+    var nativeLanguage=explicit ? explicit[0] : query.get('lang') || (pending && pending.nativeLanguage)
+      || (saved && saved[0]) || (validLanguage(legacyNative) ? legacyNative : null)
+      || (validLanguage(applicationLocale) ? applicationLocale : 'fr');
+    var studyLanguage=explicit ? explicit[1] : query.get('study') || (pending && pending.studyLanguage)
+      || (saved && saved[0]===nativeLanguage ? saved[1] : null)
+      || (legacyNative===nativeLanguage && validLanguage(legacyStudy) && legacyStudy!==nativeLanguage ? legacyStudy : null);
+    var hasStudy=!!studyLanguage;
+    if(!studyLanguage) studyLanguage=nativeLanguage==='fr' ? 'en' : 'fr';
+    if(nativeLanguage===studyLanguage) return;
+    var pair=nativeLanguage+'-'+studyLanguage;
+    var level=query.has('courseLevel') ? query.get('courseLevel') : query.has('level') ? query.get('level')
+      : pending ? String(pending.level) : !query.has('start') && saved && saved.join('-')===pair ? read('melunga-course-level')||'1' : '1';
+    if(!/^(?:[1-9]|10)$/.test(level) || query.has('level') && query.has('courseLevel') && query.get('level')!==level) return;
+    if(account){
+      query.set('lang',nativeLanguage);query.set('study',studyLanguage);
+      query.set('courseReturn',pair);query.set('courseLevel',level);
+      var normalized=new URL(location.href);normalized.search=query.toString();
+      if(normalized.href!==location.href) history.replaceState(null,'',normalized.href);
+      return;
+    }
+    if(readPending){try{sessionStorage.removeItem('melunga-course-return');}catch(_error){}}
+    window.__courseStartRedirecting=true;
+    document.documentElement.classList.add('course-entry-redirect');
+    var destination=!query.has('start') && !hasStudy && !explicit ? 'index.html?'+new URLSearchParams({lang:nativeLanguage}).toString()
+      : 'parcours-niveaux.html?'+new URLSearchParams({pair:pair,level:level}).toString();
+    location.replace(destination);
+  }catch(_error){document.documentElement.classList.remove('course-entry-redirect');}
+})();
+</script>
+
 </head>
 <body>
 <script>
@@ -2709,7 +2784,7 @@ body.immersif.pile-droite .stage {
    l'écran de bienvenue ET on pose un voile de chargement opaque, retiré une
    fois la leçon/le paywall prêts. Ainsi aucune page intermédiaire ne clignote. */
 (function(){try{
-  if(!/[?&](start|checkout|login)=/.test(location.search)) return;
+  if(window.__courseStartRedirecting || !/[?&](start|checkout|login)=/.test(location.search)) return;
   var st=document.createElement('style');
   st.textContent='#welcome{display:none!important}'
    +'#bootCover{position:fixed;inset:0;z-index:99998;background:linear-gradient(160deg,#0d3a56,#061e31);display:flex;align-items:center;justify-content:center;transition:opacity .28s}'

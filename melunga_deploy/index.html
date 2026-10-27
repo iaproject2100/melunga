@@ -692,7 +692,10 @@
         }
       }else{
         query.set('study',study);
-        if(mode==='premium') query.set('checkout',selectedPlan==='yearly'?'annual':'monthly');
+        if(mode==='premium'){
+          query.set('checkout',selectedPlan==='yearly'?'annual':'monthly');
+          if(pair){query.set('courseReturn',pair);query.set('courseLevel','1');}
+        }
         else query.set('start','1');
       }
       window.location.href=`app.html?${query.toString()}`;
