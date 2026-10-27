@@ -397,7 +397,7 @@
   });
   function renderLanguageChoice() {
     const locale = typeof currentAppLocale === 'string' ? currentAppLocale : 'fr';
-    const text = desktopChoices.matches && selectedAccess === 'free' ? (copy[locale] || copy.fr)[3] : window.MelungaCourseI18n.t(locale,'Démarrer ma première leçon');
+    const text = desktopChoices.matches && selectedAccess === 'free' ? (copy[locale] || copy.fr)[3] : homeText('Démarrer ma première leçon');
     if (courseLaunch.textContent !== text) courseLaunch.textContent = text;
     studyChoices.forEach(function (choice) {
       choice.setAttribute('aria-pressed',String(!choice.hidden&&choice.classList.contains('selected')));
