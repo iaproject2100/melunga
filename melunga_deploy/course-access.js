@@ -2,7 +2,9 @@
  * Catalogue levels and source content are never rewritten by this module. */
 (() => {
   'use strict';
-  const PAIRS = ['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr'];
+  const REVIEWED_PAIRS = ['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr'];
+  const nativeCourses = window.MelungaNativeCourses;
+  const PAIRS = nativeCourses?.pairIds || REVIEWED_PAIRS;
   const EXPECTED_COUNTS = {'fr-en':342,'fr-es':300,'fr-it':347,'fr-zh':331,'fr-ja':305,'fr-ko':284,'zh-fr':309};
   const RIGHTS_SHA = '35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05';
   const preview = /^deploy-preview-\d+--chic-dragon-e2baf2\.netlify\.app$/.test(location.hostname);
@@ -39,7 +41,7 @@
     const entries = new Map();
     for (const pair of data.pairs) {
       const study = pair.id?.split('-')[1];
-      if (!PAIRS.includes(pair.id) || entries.has(pair.id) || pair.count !== EXPECTED_COUNTS[pair.id]
+      if (!REVIEWED_PAIRS.includes(pair.id) || entries.has(pair.id) || pair.count !== EXPECTED_COUNTS[pair.id]
           || !Array.isArray(pair.historicalFreeIds) || pair.historicalFreeIds.length !== pair.count
           || new Set(pair.historicalFreeIds).size !== pair.count
           || pair.historicalFreeIds.some(id => !new RegExp('^catalogue:' + study + ':\\d+$').test(id))) {
@@ -154,16 +156,21 @@
 
   function canLearn(pairId, phrase, editorialLevel) {
     if (!ready || !PAIRS.includes(pairId) || !phrase || typeof phrase.id !== 'string') return false;
+    // Additional directions only accept identities in their verified source policy,
+    // including for paid/preview learners. A target identity alone is insufficient.
+    if (!REVIEWED_PAIRS.includes(pairId) && nativeCourses?.isEligible(pairId, phrase.id) !== true) return false;
     if (preview || paid) return true;
     const level = Number.isInteger(phrase.editorialLevel) ? phrase.editorialLevel : Number(editorialLevel);
     if (level === 1) return true;
-    if (rights.get(pairId)?.has(phrase.id)) return true;
+    if (REVIEWED_PAIRS.includes(pairId) ? rights.get(pairId)?.has(phrase.id)
+        : nativeCourses?.isHistoricalFree(pairId, phrase.id) === true) return true;
     // Existing level-one conversation units were already free in Mes phrases.
     return phrase.source?.sourceLevel === 1 && /^conversation/.test(phrase.source?.collection || '');
   }
 
   function loginUrl(pairId, level = 1) {
-    const pair = PAIRS.includes(pairId) ? pairId : 'fr-en';
+    if (!PAIRS.includes(pairId)) return 'index.html';
+    const pair = pairId;
     const [native, study] = pair.split('-');
     const selected = Number.isInteger(Number(level)) && Number(level) >= 1 && Number(level) <= 10 ? Number(level) : 1;
     return 'app.html?' + new URLSearchParams({login:'1',lang:native,study,
@@ -171,7 +178,8 @@
   }
 
   function classicUrl(pairId) {
-    const pair = PAIRS.includes(pairId) ? pairId : 'fr-en';
+    if (!PAIRS.includes(pairId)) return 'index.html';
+    const pair = pairId;
     const [native, study] = pair.split('-');
     return 'app.html?' + new URLSearchParams({start:'1',lang:native,study,classic:'1'});
   }

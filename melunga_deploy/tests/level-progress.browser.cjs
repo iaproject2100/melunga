@@ -5,6 +5,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {execFileSync}=require('node:child_process');
+const nativeLayer=require('./native-routing-layer.cjs');
 const {test,before,after}=require('node:test');
 const {chromium}=require('playwright-core');
 const REPO=path.resolve(__dirname,'../..'),WEB=path.join(REPO,'melunga_deploy');
@@ -29,7 +30,7 @@ const protectedFiles=['maquette-guidee.css','melunga-logo.png','assets/melunga-l
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const baseline=f=>execFileSync('git',['show',(f==='course-access.js'?ACCOUNT_COMPONENT_REF:BASE)+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});
 const functionText=(source,name)=>{const start=source.indexOf('  function '+name+'(');assert.ok(start>=0,'source function '+name);const end=source.indexOf('\n  function ',start+1);assert.ok(end>start,'source function boundary '+name);return source.slice(start,end);};
-const fingerprint=()=>Object.fromEntries([__filename,...sourceFiles.concat(protectedFiles,['maquette-guidee.js','parcours-niveaux.html','maquette-guidee.html','melunga-logo.svg']).map(f=>path.join(WEB,f))].sort().map(f=>[path.relative(REPO,f),sha(fs.readFileSync(f))]));
+const fingerprint=()=>Object.fromEntries([__filename,...sourceFiles.concat(protectedFiles,['maquette-guidee.js','parcours-niveaux.html','maquette-guidee.html','melunga-logo.svg']).map(f=>path.join(WEB,f)),...nativeLayer.inputFiles()].sort().map(f=>[path.relative(REPO,f),sha(fs.readFileSync(f))]));
 const cells=new Map(),banks=new Map();
 function cell(pair,level=1){const key=pair+':'+level;if(!cells.has(key))cells.set(key,read('content/niveaux-progressifs/'+pair+'/L'+level+'.json'));return cells.get(key);}
 function bank(pair){if(!banks.has(pair))banks.set(pair,read('content/niveaux-progressifs/repertoires/'+pair+'.json'));return banks.get(pair);}
@@ -48,7 +49,7 @@ function levelData(pair,level=1){
 function registry(pairs){return JSON.stringify({version:1,pairs});}
 function expected(pair,level,known){const ids=levelData(pair,level).ids,knownSet=new Set(known||[]),count=ids.filter(id=>knownSet.has(id)).length;return{known:count,total:ids.length,ratio:ids.length?count/ids.length:0,percent:ids.length?Math.floor(count/ids.length*100):0};}
 const report={status:'running',baseCommit:BASE,courseAccessSourceRef:ACCOUNT_COMPONENT_REF,environment:'local Chromium, mobile and desktop sizes emulated',publicSiteChecked:false,physicalPhoneChecked:false,realAccountsUsed:false,actualAudioPlayed:false,
- apiFixture:'only GET check-status mocked; browser speech instrumented; no login, billing, feedback or TTS API calls',checks:[],cases:[],errors:[],unexpectedRequests:[],mockedStatusChecks:0,signInHandoffs:[],screenshots:[]};
+ apiFixture:'only GET check-status mocked; Audio and browser speech instrumented in memory; no login, billing, feedback or TTS API calls',checks:[],cases:[],errors:[],unexpectedRequests:[],mockedStatusChecks:0,signInHandoffs:[],screenshots:[]};
 const required=['source-and-unchanged-theme-counts','fresh-and-localized-header','known-review-and-persistence','continue-storage-events-and-pair-scope','whole-level-free-access-denominator','storage-failure-and-legacy-scope'];
 let browser,inputs;
 const checked=async(name,fn)=>{try{await fn();report.checks.push(name);}catch(error){report.errors.push(name+': '+error.message);throw error;}};
@@ -66,6 +67,14 @@ async function fixture({pair='fr-ja',level=1,width=390,height=700,paid=false,kno
   window.__knownWriteFail=false;const nativeSet=Storage.prototype.setItem;
   Storage.prototype.setItem=function(key,value){if(window.__knownWriteFail&&key===knownKey)throw new DOMException('Fixture known-state quota failure','QuotaExceededError');return nativeSet.call(this,key,value);};
   window.__progressSpeech=[];window.SpeechSynthesisUtterance=class{constructor(text){this.text=text;}};
+  // Instrument the server player's media object without fetching or decoding
+  // any audio. Keep the existing study-text trace used by progress assertions.
+  window.Audio=class{
+   constructor(){this._src='';}
+   get src(){return this._src;} set src(value){this._src=String(value);}
+   play(){const url=new URL(this.src,location.href);if(url.origin!==location.origin||url.pathname!=='/.netlify/functions/tts'||!url.searchParams.has('text'))throw Error('Unexpected fixture media source');window.__progressSpeech.push(url.searchParams.get('text'));queueMicrotask(()=>{this.onplaying?.();this.onended?.();});return Promise.resolve();}
+   pause(){} load(){} removeAttribute(name){if(name==='src')this._src='';}
+  };
   Object.defineProperty(window,'speechSynthesis',{value:{cancel(){},getVoices(){return[];},addEventListener(){},speak(u){window.__progressSpeech.push(u.text);u.onend?.();}}});
  },{knownRaw:knownRaw??null,hasSeed:knownRaw!==undefined,reviewEntries,knownKey:KNOWN,reviewKey:REVIEW});
  await context.route('**/*',async route=>{
@@ -162,7 +171,7 @@ async function captureCapsule(page,name){const dir=process.env.LEVEL_PROGRESS_CA
 async function getState(page){return page.evaluate(()=>window.MelungaMockup.state());}
 
 test('card sources, access, prices, logo and per-theme counters are preserved', {timeout:60000},()=>checked('source-and-unchanged-theme-counts',async()=>{
- assert.equal(sourceFiles.length,78);for(const f of sourceFiles.concat(protectedFiles)){if(f==='maquette-guidee.css'){assert.equal(sha(fs.readFileSync(path.join(WEB,f))),REVIEWED_CSS_SHA,'whole reviewed capsule CSS');continue;}const expected=baseline(f);assert.ok((f==='app.html'?approvedAccountHead(expected):expected).equals(fs.readFileSync(path.join(WEB,f))),'whole protected source with exact two account head includes '+f);}report.reviewedCapsuleCssSha256=REVIEWED_CSS_SHA;
+ assert.equal(sourceFiles.length,78);for(const f of sourceFiles.concat(protectedFiles)){if(f==='maquette-guidee.css'){assert.equal(sha(fs.readFileSync(path.join(WEB,f))),REVIEWED_CSS_SHA,'whole reviewed capsule CSS');continue;}const expected=baseline(f);assert.ok((f==='app.html'?approvedAccountHead(expected):expected).equals(nativeLayer.beforeBytes(path.join(WEB,f))),'whole protected source before native A with exact two account head includes '+f);}report.reviewedCapsuleCssSha256=REVIEWED_CSS_SHA;
  const beforeCapsule=execFileSync('git',['show',BEFORE_CAPSULE_REF+':melunga_deploy/maquette-guidee.js'],{cwd:REPO,maxBuffer:40*1024*1024}).toString(),currentJs=fs.readFileSync(path.join(WEB,'maquette-guidee.js'),'utf8');
  const preserved=['collectLevelProgressIds','levelProgress','loadKnownCards','saveKnownCard','saveCardDecision','markKnown','markForReview'];
  for(const name of preserved)assert.equal(functionText(currentJs,name),functionText(beforeCapsule,name),'whole unchanged progress math/persistence function '+name);report.preservedProgressFunctions=preserved;

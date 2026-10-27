@@ -1,6 +1,8 @@
 {
   "status": "passed",
   "baseCommit": "ef147deacf85b4a5631c1b05ff8050de7918ea1f",
+  "nativeRoutingReference": "ef0733dd66e3a2cf4c8ee6809f08a77462032678",
+  "composition": "native routing A + server audio B; local combined preview candidate only",
   "environment": "local Chromium; Android user agent/touch/viewport emulation only",
   "publicSiteChecked": false,
   "physicalAndroidChecked": false,
@@ -21,8 +23,13 @@
     {
       "name": "source-conservation",
       "runtimeJson": 78,
-      "protectedWholeFiles": 29,
-      "ttsEndpointUnchanged": true
+      "originalBaseline": "ef147deacf85b4a5631c1b05ff8050de7918ea1f",
+      "nativeRoutingReference": "ef0733dd66e3a2cf4c8ee6809f08a77462032678",
+      "protectedWholeFiles": 46,
+      "originalImmutableFiles": 26,
+      "ttsEndpointUnchanged": true,
+      "homeCacheChangeOnly": true,
+      "localizedAudioKeysOnly": true
     },
     {
       "name": "seven-server-voice",
@@ -121,6 +128,50 @@
       },
       "sourceCard": "conversation:L1-zh-fr.json:L1-zh-fr-02:v0",
       "earAndSpeakerEquivalent": true
+    },
+    {
+      "name": "home-start-native-server-audio",
+      "profile": "Android-emulated-mobile",
+      "native": "en",
+      "study": "es",
+      "installedBrowserVoices": 0,
+      "navigations": [
+        "https://lesson-server-audio.test/index.html",
+        "https://lesson-server-audio.test/parcours-niveaux.html?pair=en-es&level=1",
+        "https://lesson-server-audio.test/parcours-niveaux.html?pair=en-es&level=1"
+      ],
+      "oldApplicationVisited": false,
+      "englishUi": true,
+      "sourceMeaningField": "en",
+      "request": {
+        "voice": "es-ES-Wavenet-F",
+        "lang": "es-ES",
+        "rate": 0.75,
+        "text": "Gracias."
+      },
+      "cardAndDecisionsUnchanged": true
+    },
+    {
+      "name": "home-start-native-server-audio",
+      "profile": "desktop",
+      "native": "en",
+      "study": "es",
+      "installedBrowserVoices": 0,
+      "navigations": [
+        "https://lesson-server-audio.test/index.html",
+        "https://lesson-server-audio.test/parcours-niveaux.html?pair=en-es&level=1",
+        "https://lesson-server-audio.test/parcours-niveaux.html?pair=en-es&level=1"
+      ],
+      "oldApplicationVisited": false,
+      "englishUi": true,
+      "sourceMeaningField": "en",
+      "request": {
+        "voice": "es-ES-Wavenet-F",
+        "lang": "es-ES",
+        "rate": 1,
+        "text": "Gracias."
+      },
+      "cardAndDecisionsUnchanged": true
     },
     {
       "name": "server-choices-and-rates",
@@ -291,20 +342,38 @@
   ],
   "errors": [],
   "unexpectedRequests": [],
-  "mockedStatusGets": 25,
+  "mockedStatusGets": 27,
+  "mockedGeolocationGets": 2,
   "screenshots": [
-    "/tmp/melunga-server-audio-browser-final/server-audio-english-desktop.png",
-    "/tmp/melunga-server-audio-browser-final/server-audio-spanish-mobile.png",
-    "/tmp/melunga-server-audio-browser-final/server-audio-chinese-pinyin-320.png",
-    "/tmp/melunga-server-audio-browser-final/server-audio-spanish-voice-menu.png"
+    "docs/audio-server/captures/server-audio-english-desktop.png",
+    "docs/audio-server/captures/server-audio-spanish-mobile.png",
+    "docs/audio-server/captures/server-audio-chinese-pinyin-320.png",
+    "docs/audio-server/captures/server-audio-home-english-spanish-mobile.png",
+    "docs/audio-server/captures/server-audio-home-english-spanish-desktop.png",
+    "docs/audio-server/captures/server-audio-spanish-voice-menu.png"
   ],
   "inputsStable": true,
   "inputSha256": {
     "melunga_deploy/account-ui.css": "67fde5b9a4c3e8f3bc964eb192f60ba6c8445e282a15a8f0cb300b5e6733456e",
     "melunga_deploy/account-ui.js": "c383089b43d48407e64f1eb7f8368c0dc6ff12076330b0632dcf909d73dbba92",
-    "melunga_deploy/app.html": "3544302224ad8e162b9ba40e76b8e5905dbebce2987431c8e8d30fca85df5c1a",
+    "melunga_deploy/app.html": "427f9e2ea4fa9cd96886487fefb2f6dfca5d46ac098c2d32a1065f495ef39cfa",
     "melunga_deploy/assets/melunga-logo.png": "1aa277028faa2128c78405c839748dff8b1497827c04b02610216056c92b18c0",
     "melunga_deploy/content/course-access.json": "35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05",
+    "melunga_deploy/content/course-locales/en.json": "71cae73ee97b6205e0326af376ddfca7e1e18d8b1172b68f0c196dc74ec9d9e9",
+    "melunga_deploy/content/course-locales/es.json": "20ed3633f0a3e9b283e34625371147b0c8a833c8ee058dae4f4db8de883a3371",
+    "melunga_deploy/content/course-locales/it.json": "3edcb5f5982e41552d985b1f05ee76e09cf0702d508c3d1cbf8cbfb79d307788",
+    "melunga_deploy/content/course-locales/ja.json": "5a47ecb9424e96bf25bbea9b20de24be674416af3aafb3714282720c351fee8c",
+    "melunga_deploy/content/course-locales/ko.json": "d270651090c905ffac6e2fe583bded09e4817ba060d6ebaafa8d8418ac565cd8",
+    "melunga_deploy/content/course-locales/supplements.json": "583e20ce3bc14a2df9f098df55a637cfdf0175b1563b4894481df0a9a6f7c313",
+    "melunga_deploy/content/course-locales/zh.json": "f706d3cf603ed1e16fb03dcdb00492a5dfab91d8f96c5e1d4945b093a94ab52e",
+    "melunga_deploy/content/native-catalogue/en.json": "d505038bcd86075b567f198e3977463aea9eb1a167fb6a3b1776324a9a8077c3",
+    "melunga_deploy/content/native-catalogue/es.json": "81ee3d77c36c6097c08d487d322d6751cf988de032dab35911bc7e28453e1040",
+    "melunga_deploy/content/native-catalogue/fr.json": "b16cf00f2ac7e5420403d9d6dc653a15a36c30149229864377e42633297cbbfe",
+    "melunga_deploy/content/native-catalogue/it.json": "dfc8f2c36186a1bb99101954f824c3c0626570e00f8b0afb855e59cad6587760",
+    "melunga_deploy/content/native-catalogue/ja.json": "ee1d68a3e26b69f965e50ce1d87addffe58b0ed87565a0edcd83002c2e23d19e",
+    "melunga_deploy/content/native-catalogue/ko.json": "bec3ec013019896f61b229aad28ff846b9b480ccd3085b56e55d37f6c08efcaa",
+    "melunga_deploy/content/native-catalogue/manifest.json": "6ec2f35df31e116910cd61eef648732878676dd2e5ea7fb4d7c94e45724b5c64",
+    "melunga_deploy/content/native-catalogue/zh.json": "4a3c59e3bd7c8e43f23c6197980e7634abbdd57823aae0c04232d1cdc23f4893",
     "melunga_deploy/content/niveaux-progressifs/fr-en/L1.json": "0a9a9bec42fceff014b3c2ff9c02cfb9c2b283debb90e4d5debefa9fc45814cf",
     "melunga_deploy/content/niveaux-progressifs/fr-en/L10.json": "a5f5501b2bcca610bc5dacec7c5dc16b5fda077bc11630bcd82069af3ae41532",
     "melunga_deploy/content/niveaux-progressifs/fr-en/L2.json": "f5000399db587eb809dd95086ff9d0973b6f37961b9ecdfbff3f4976469cf474",
@@ -383,13 +452,18 @@
     "melunga_deploy/content/niveaux-progressifs/zh-fr/L7.json": "1d5b74c9d6420e4a73e7165d466a5c0d3eb07d2fd35856396672e61560833dd8",
     "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json": "178f20914de8aeb0c67198263058f6cf00e8fd261b4158e37cec6f5fb456237c",
     "melunga_deploy/content/niveaux-progressifs/zh-fr/L9.json": "d0538c9a4d01ccb364fe7faeb0226513a5a6e614f0d88f34c84d27d79dc65655",
-    "melunga_deploy/course-access.js": "b5b3e0d547c84aa24b59d7381a5bfbf11a27836885b875e284b5795873abd082",
-    "melunga_deploy/desktop-home.js": "562cd10b5c4167ea2d45ab0245cddb6de668f53b15b5d32dd4a0aa1a33245784",
-    "melunga_deploy/index.html": "00dc701d8b9b5a84b025e9cc369d336317610fd92f2af4d34802cd830969fdbb",
+    "melunga_deploy/course-access.js": "dfc2990749ae9aaa6d2b86fad7af5dad62b32ee6c41a73889b335fe396f93f01",
+    "melunga_deploy/course-i18n.js": "7a943ff502eb089840e5bec1b5432dac4ffe81133f56fdb17075e29b9af9e289",
+    "melunga_deploy/course-login.js": "d05b0c5e2d085f130d0d77dde89b289208b966cbc7ad0a1699c814b59bffa9d4",
+    "melunga_deploy/course-native.js": "7f58e3949229fbdf9abd8b60a554fd3af1f46274153a4fd24cb8aa479fbb0165",
+    "melunga_deploy/desktop-home.css": "91cd33969c53598f9e9c397338f21540df78179e1e1b65aa514b5735cba6ace4",
+    "melunga_deploy/desktop-home.js": "72f7a48d92ccbdd84d5c73f0c859754359c686405213fdf92eac8ecbc5330900",
+    "melunga_deploy/entry-bridge.js": "8e9a557cd9d2e76447d068dde40b6c3fafa0fd2a806e7ccc8474c54fc573b5f5",
+    "melunga_deploy/index.html": "0562038c02dc5c6e3cba1095e1e0b471910295790b5dfdc521d2c07ea6a8d74d",
     "melunga_deploy/lesson-audio.js": "5eda5fbd765f197b1c6a758e6a7d1b0dd88203f662a369bc667465048ce70e0d",
     "melunga_deploy/maquette-guidee.css": "f31685f8b30f2dba14bd51e38c4a6bb2bb390609c21e895b5b8e20fab01ad00e",
-    "melunga_deploy/maquette-guidee.html": "68b970eb02fa34ba96d3a9b11a8795cf51a2081a1396246e1bbd16222dc96a40",
-    "melunga_deploy/maquette-guidee.js": "f692662a58b0899253ddfd79c1b5be9041c14e362c84184bf406585a919b835d",
+    "melunga_deploy/maquette-guidee.html": "3605efef4b24336b6c6d410925c23f494ba814a348c3eefe53398b75aa011909",
+    "melunga_deploy/maquette-guidee.js": "a365180bccf03eb21a013e84dd5e83aca8308b31ea55709f7acc9eccc9ed5810",
     "melunga_deploy/melunga-logo.png": "1aa277028faa2128c78405c839748dff8b1497827c04b02610216056c92b18c0",
     "melunga_deploy/netlify/functions/access-store.mjs": "d6c2103330b642793acafe508430c12fc91454265e3122d00e41e22591386d41",
     "melunga_deploy/netlify/functions/admin-create-account.mjs": "1c86342dabc113d602aaedff0c92f04708d9c994e1baf5251ad65307df54b294",
@@ -409,9 +483,9 @@
     "melunga_deploy/netlify/functions/seed-demo.mjs": "14f9327cfe6cddfd5c17c8a87bd42be60ae2fc201bb94245d046f7ddb86d4f0b",
     "melunga_deploy/netlify/functions/send-feedback.mjs": "c1bcdc4cc62604cbae19bbc3a690d4d8393fae0702fe9fda3baed2004ad9b583",
     "melunga_deploy/netlify/functions/tts.mjs": "56c68fc367ef63827c7d6836ed3b8e1e690f0b7d97b44ce8ca6d29447a347feb",
-    "melunga_deploy/parcours-niveaux.html": "f4254397645269e1129566a0037392a4ab6accb40a62fa4c3911a3d46f9e0312",
+    "melunga_deploy/parcours-niveaux.html": "149689f34eb59cd44ad5cec91aac3d3ad448e849cf5ce6b514d705d9bd4985d1",
     "melunga_deploy/store-billing.js": "87dde6c26517140eb5160081457b578a923f8fc78bc4baa928669a7d5c052eab",
-    "melunga_deploy/tests/lesson-server-audio.browser.cjs": "75ffdf763a649a88755e7f50e1343a674761117f494d55f6d8e55b723a2300e5"
+    "melunga_deploy/tests/lesson-server-audio.browser.cjs": "95521225de30761a20d913f97e303e2867d93992a82834cd8e6bdaae43808348"
   },
   "missingChecks": []
 }

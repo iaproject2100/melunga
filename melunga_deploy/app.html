@@ -2728,6 +2728,25 @@ body.immersif.pile-droite .stage {
     retry.onclick=function(){location.reload();}; c.appendChild(retry);
   },15000);
   window.__removeBootCover=function(){ var c=document.getElementById('bootCover'); if(c){ c.classList.add('hide'); setTimeout(function(){ if(c.parentNode) c.parentNode.removeChild(c); },300); } };
+  // Old explicit web-start links now enter the same native/cible course.
+  // Resolve this before the classic catalogue and lesson startup can run.
+  var query=new URLSearchParams(location.search);
+  if(query.get('start')!=='1' || query.has('login') || query.has('checkout') || query.get('classic')==='1') return;
+  var keys=['start','lang','study','level','courseLevel','courseReturn','classic','login','checkout'];
+  if(keys.some(function(key){return query.getAll(key).length>1;})) return;
+  if(location.protocol!=='https:' && location.protocol!=='http:') return;
+  var bridge=window.Capacitor;
+  if(bridge && (typeof bridge.isNativePlatform==='function' ? bridge.isNativePlatform()
+      : typeof bridge.getPlatform==='function' && bridge.getPlatform()!=='web')) return;
+  var codes=['fr','en','es','it','zh','ja','ko'];
+  var nativeLanguage=query.get('lang'), studyLanguage=query.get('study');
+  if(codes.indexOf(nativeLanguage)<0 || codes.indexOf(studyLanguage)<0 || nativeLanguage===studyLanguage) return;
+  var pair=nativeLanguage+'-'+studyLanguage;
+  if(query.has('courseReturn') && query.get('courseReturn')!==pair) return;
+  var level=query.has('courseLevel') ? query.get('courseLevel') : query.has('level') ? query.get('level') : '1';
+  if(!/^(?:[1-9]|10)$/.test(level) || query.has('courseLevel') && query.has('level') && query.get('level')!==level) return;
+  window.__courseStartRedirecting=true;
+  location.replace('parcours-niveaux.html?'+new URLSearchParams({pair:pair,level:level}).toString());
 }catch(e){}})();
 </script>
 <div class="wlc" id="welcome">
@@ -3541,8 +3560,10 @@ function courseReturnIsNative(){
   }catch(_error){ return true; }
 }
 function validateCourseReturn(pair,level,nativeLanguage,studyLanguage){
-  if(courseReturnIsNative() || ['fr-en','fr-es','fr-it','fr-zh','fr-ja','fr-ko','zh-fr'].indexOf(pair)<0) return null;
+  if(courseReturnIsNative() || typeof pair!=='string') return null;
+  var codes=['fr','en','es','it','zh','ja','ko'];
   var languages=pair.split('-');
+  if(languages.length!==2 || codes.indexOf(languages[0])<0 || codes.indexOf(languages[1])<0 || languages[0]===languages[1]) return null;
   if(nativeLanguage!==languages[0] || studyLanguage && studyLanguage!==languages[1]) return null;
   var rawLevel=level===null || level===undefined || level==='' ? '1' : String(level);
   if(!/^(?:[1-9]|10)$/.test(rawLevel)) return null;
@@ -3555,6 +3576,7 @@ function readApprovedCourseReturn(){
   try{
     var query=new URLSearchParams(location.search);
     if(query.get('classic')==='1' || courseReturnIsNative()){clearPendingCourseReturn();return null;}
+    if(['courseReturn','courseLevel','lang','study','login','checkout','classic'].some(function(key){return query.getAll(key).length>1;})) return null;
     if(query.has('checkout') && !query.has('courseReturn')){clearPendingCourseReturn();return null;}
     if(query.has('courseReturn')){
       if(query.getAll('courseReturn').length!==1 || query.getAll('courseLevel').length>1) return null;
@@ -3742,13 +3764,26 @@ function wlcRenderSite(){
 }
 function wlcSetSite(l){ WLCSITE=l; lsSet('ox_site',l); document.documentElement.lang=(l==='zh'?'zh-CN':l); wlcRenderSite(); }
 function wlcGoStep2(){
-  setNat(WLCSITE);
-  var order=['zh','en','es','fr'], first=null;
+  var order=['zh','en','es','fr','it','ja','ko'], first=null;
+  if(order.indexOf(WLCSITE)<0) return;
   for(var i=0;i<order.length;i++){ if(order[i]!==WLCSITE){ first=order[i]; break; } }
+  var query=new URLSearchParams(location.search);
+  var ambiguous=['start','lang','study','level','courseLevel','courseReturn','classic','login','checkout'].some(function(key){return query.getAll(key).length>1;});
+  if(first && !ambiguous && !courseReturnIsNative() && query.get('classic')!=='1'
+      && !query.has('start') && !query.has('login') && !query.has('checkout')){
+    window.__courseStartRedirecting=true;
+    location.replace('parcours-niveaux.html?'+new URLSearchParams({pair:WLCSITE+'-'+first,level:'1'}).toString());
+    return;
+  }
+  setNat(WLCSITE);
   if(first) setLang(first);
   dismissWelcome();
 }
-function wlcLogin(){
+function wlcLogin(studyLanguage){
+  if(studyLanguage && validateCourseReturn(WLCSITE+'-'+studyLanguage,1,WLCSITE,studyLanguage)){
+    lang=studyLanguage;
+    lsSet('ox_lang',studyLanguage);
+  }
   chooseNat(WLCSITE);
   try{
     if(typeof showPaywall==='function') showPaywall();
@@ -4500,6 +4535,7 @@ function fallback(text){
 }
 
 window.addEventListener('load',function(){
+  if(window.__courseStartRedirecting) return;
   document.getElementById('vF').classList.toggle('on', gender==='female');
   document.getElementById('vM').classList.toggle('on', gender==='male');
   // The direct login entry already initializes the lesson at DOMContentLoaded.
@@ -5210,7 +5246,7 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
 (function(){
   try{
     var q = new URLSearchParams(window.location.search);
-    if(q.get('start')!=='1') return;
+    if(window.__courseStartRedirecting || q.get('start')!=='1' || q.has('login') || q.has('checkout')) return;
     var lang = q.get('lang') || 'fr';
     function goLesson(){
       try{

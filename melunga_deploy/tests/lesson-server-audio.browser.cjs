@@ -13,6 +13,7 @@ const {chromium} = require('playwright-core');
 const REPO = path.resolve(__dirname, '../..');
 const WEB = path.join(REPO, 'melunga_deploy');
 const BASE = 'ef147deacf85b4a5631c1b05ff8050de7918ea1f';
+const NATIVE_BASE = 'ef0733dd66e3a2cf4c8ee6809f08a77462032678';
 const ORIGIN = 'https://lesson-server-audio.test';
 const ANDROID = 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36';
 const PAIRS = ['fr-en','fr-es','fr-it','fr-zh','fr-ja','fr-ko','zh-fr'];
@@ -29,11 +30,13 @@ const raw = file => fs.readFileSync(path.join(WEB, file));
 const json = file => JSON.parse(raw(file));
 const manifest = json('content/niveaux-progressifs/manifest.json');
 const runtimeFiles = ['content/niveaux-progressifs/manifest.json', ...manifest.pairs.flatMap(pair => [pair.repertoirePath, ...pair.levels.map(level => level.dataPath)])];
-const protectedFiles = ['app.html','index.html','desktop-home.js','maquette-guidee.css','course-access.js','content/course-access.json','store-billing.js','account-ui.js','account-ui.css','melunga-logo.png','assets/melunga-logo.png', ...fs.readdirSync(path.join(WEB, 'netlify/functions')).filter(file => file.endsWith('.mjs')).map(file => 'netlify/functions/'+file)];
-const productFiles = ['lesson-audio.js','maquette-guidee.js','maquette-guidee.html','parcours-niveaux.html'];
+const immutableFiles = ['maquette-guidee.css','desktop-home.css','content/course-access.json','store-billing.js','account-ui.js','account-ui.css','melunga-logo.png','assets/melunga-logo.png', ...fs.readdirSync(path.join(WEB, 'netlify/functions')).filter(file => file.endsWith('.mjs')).map(file => 'netlify/functions/'+file)];
+const nativeJson = ['content/native-catalogue','content/course-locales'].flatMap(dir => fs.readdirSync(path.join(WEB,dir)).filter(file => file.endsWith('.json') && file !== 'supplements.json').map(file => dir+'/'+file));
+const protectedFiles = ['app.html','desktop-home.js','course-access.js','entry-bridge.js','course-login.js','course-native.js', ...nativeJson, ...immutableFiles];
+const productFiles = ['index.html','course-i18n.js','content/course-locales/supplements.json','lesson-audio.js','maquette-guidee.js','maquette-guidee.html','parcours-niveaux.html'];
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const fingerprint = () => Object.fromEntries([__filename, ...runtimeFiles.concat(protectedFiles, productFiles).map(file => path.join(WEB, file))].sort().map(file => [path.relative(REPO, file), sha(fs.readFileSync(file))]));
-const report = {status:'running', baseCommit:BASE, environment:'local Chromium; Android user agent/touch/viewport emulation only', publicSiteChecked:false, physicalAndroidChecked:false, realAccountsUsed:false, actualAudioPlayed:false, serverWrites:false, externalTtsCalls:false, audioInstrumentation:'Audio sources/playback/events and speech voices are captured in memory; no audio media is fetched or decoded', checks:[], cases:[], errors:[], unexpectedRequests:[], mockedStatusGets:0, screenshots:[]};
+const report = {status:'running', baseCommit:BASE, nativeRoutingReference:NATIVE_BASE, composition:'native routing A + server audio B; local combined preview candidate only', environment:'local Chromium; Android user agent/touch/viewport emulation only', publicSiteChecked:false, physicalAndroidChecked:false, realAccountsUsed:false, actualAudioPlayed:false, serverWrites:false, externalTtsCalls:false, audioInstrumentation:'Audio sources/playback/events and speech voices are captured in memory; no audio media is fetched or decoded', checks:[], cases:[], errors:[], unexpectedRequests:[], mockedStatusGets:0, mockedGeolocationGets:0, screenshots:[]};
 const required = ['source-conservation','seven-server-voices','server-choice-and-speed','strict-browser-fallback','replacement-and-navigation','recall-reveal-and-controls'];
 let browser, inputs;
 const checked = async (name, fn) => {try {await fn(); report.checks.push(name);} catch (error) {report.errors.push(name+': '+error.message); throw error;}};
@@ -51,7 +54,7 @@ after(async () => {
   assert.deepEqual(report.missingChecks, []);
 });
 
-async function fixture({pair='fr-es', width=390, height=700, android=true, voices=[]}={}) {
+async function fixture({pair='fr-es', width=390, height=700, android=true, voices=[], entry='course'}={}) {
   const context = await browser.newContext({viewport:{width,height}, userAgent:android?ANDROID:undefined, isMobile:width<=760, hasTouch:width<=760, reducedMotion:'reduce', serviceWorkers:'block'});
   await context.addInitScript(({voices}) => {
     localStorage.setItem('ox_device','lesson-server-audio-fixture');
@@ -114,15 +117,17 @@ async function fixture({pair='fr-es', width=390, height=700, android=true, voice
     const req=route.request(),url=new URL(req.url());
     if(url.origin!==ORIGIN){report.unexpectedRequests.push({origin:url.origin,path:url.pathname,method:req.method()});return route.abort();}
     if(url.pathname==='/.netlify/functions/check-status'&&req.method()==='GET'){report.mockedStatusGets++;return route.fulfill({json:{paid:false}});}
+    if(url.pathname==='/api/geolocation'&&req.method()==='GET'){report.mockedGeolocationGets++;return route.fulfill({json:{country:'GB'}});}
     if(req.method()!=='GET'||/^\/(?:\.netlify|api)\//.test(url.pathname)){report.unexpectedRequests.push({path:url.pathname,method:req.method()});return route.abort();}
     const file=path.resolve(WEB,'.'+decodeURIComponent(url.pathname));
     if(!file.startsWith(WEB+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile())return route.fulfill({status:404,body:'Not found'});
     return route.fulfill({body:fs.readFileSync(file),contentType:({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml'})[path.extname(file)]||'application/octet-stream'});
   });
-  const page=await context.newPage();page.on('pageerror',error=>report.errors.push(error.message));
-  await page.goto(ORIGIN+'/parcours-niveaux.html?pair='+pair+'&level=1');
-  await ready(page,pair);
-  return {context,page,pair,width,height,android};
+  const navigations=[];
+  const page=await context.newPage();page.on('pageerror',error=>report.errors.push(error.message));page.on('framenavigated',frame=>{if(frame===page.mainFrame())navigations.push(frame.url());});
+  await page.goto(ORIGIN+(entry==='home'?'/index.html':'/parcours-niveaux.html?pair='+pair+'&level=1'));
+  if(entry!=='home')await ready(page,pair);
+  return {context,page,pair,width,height,android,navigations};
 }
 async function ready(page,pair){await page.waitForFunction(pair=>window.MelungaMockup?.state().screen==='themes'&&window.MelungaMockup.state().pairId===pair,pair);await settled(page);}
 async function settled(page){await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));}
@@ -140,15 +145,20 @@ async function assertFits(page){const fit=await page.evaluate(()=>({width:innerW
 function realRecall(pair){const cell=json('content/niveaux-progressifs/'+pair+'/L1.json');for(const theme of cell.themes){const steps=theme.sequences.flatMap(sequence=>sequence.steps),target=steps.findIndex(step=>step.kind==='choose-and-recall'&&step.utterance);if(target>=0)return{theme,index:cell.themes.indexOf(theme),steps,target};}throw Error('No real recall in '+pair);}
 async function enterRecall(page,pair){const source=realRecall(pair);await page.locator('#mgThemeGrid .mg-theme').nth(source.index).click();await page.waitForFunction(()=>window.MelungaMockup.state().screen==='lesson');for(let i=0;i<source.target;i++){assert.equal(await page.locator('#mgContinue').isEnabled(),true,'prepared source step advances without a synthetic choice');await page.locator('#mgContinue').click();}await settled(page);assert.equal(await page.evaluate(()=>window.MelungaMockup.state().masked),true);return source;}
 
-test('runtime content, classic application, endpoint, access and billing remain exact',()=>checked('source-conservation',async()=>{
+test('reviewed runtime content and billing remain exact; native entry retains reviewed A with the finite audio additions',()=>checked('source-conservation',async()=>{
   assert.equal(runtimeFiles.length,78);
-  execFileSync('git',['diff','--quiet',BASE,'--',...runtimeFiles.concat(protectedFiles).map(file=>'melunga_deploy/'+file)],{cwd:REPO});
+  execFileSync('git',['diff','--quiet',BASE,'--',...runtimeFiles.concat(immutableFiles).map(file=>'melunga_deploy/'+file)],{cwd:REPO});
+  execFileSync('git',['diff','--quiet',NATIVE_BASE,'--',...protectedFiles.map(file=>'melunga_deploy/'+file)],{cwd:REPO});
+  const nativeHome=execFileSync('git',['show',NATIVE_BASE+':melunga_deploy/index.html'],{cwd:REPO,encoding:'utf8'});
+  assert.equal(raw('index.html').toString(),nativeHome.replace('<script src="course-i18n.js?v=1"></script>','<script src="course-i18n.js?v=2"></script>'),'home differs from reviewed A only by the translated audio cache version');
+  const beforeSupplements=JSON.parse(execFileSync('git',['show',NATIVE_BASE+':melunga_deploy/content/course-locales/supplements.json'],{cwd:REPO,encoding:'utf8'})),afterSupplements=json('content/course-locales/supplements.json');
+  for(const locale of ['fr','en','es','it','zh','ja','ko']){const before={...beforeSupplements[locale]},after={...afterSupplements[locale]};for(const key of ['Voix féminine','Voix masculine','Audio indisponible. Réessaie.']){assert.ok(after[key]?.trim(),'localized audio copy '+locale+' '+key);delete after[key];}assert.deepEqual(after,before,'only the three audio labels are added to '+locale);}
   assert.equal(raw('netlify/functions/tts.mjs').toString(),execFileSync('git',['show',BASE+':melunga_deploy/netlify/functions/tts.mjs'],{cwd:REPO,encoding:'utf8'}));
   for(const html of ['parcours-niveaux.html','maquette-guidee.html']){const text=raw(html).toString();assert.equal((text.match(/<script\b[^>]*src="lesson-audio\.js\?v=\d+"/g)||[]).length,1);assert.ok(text.indexOf('src="lesson-audio.js?')<text.indexOf('src="maquette-guidee.js?'),'player loads before the course controller');}
-  report.cases.push({name:'source-conservation',runtimeJson:78,protectedWholeFiles:protectedFiles.length,ttsEndpointUnchanged:true});
+  report.cases.push({name:'source-conservation',runtimeJson:78,originalBaseline:BASE,nativeRoutingReference:NATIVE_BASE,protectedWholeFiles:protectedFiles.length,originalImmutableFiles:immutableFiles.length,ttsEndpointUnchanged:true,homeCacheChangeOnly:true,localizedAudioKeysOnly:true});
 }));
 
-test('all seven studied languages use their exact classic female WaveNet voice without installed browser voices',{timeout:60000},()=>checked('seven-server-voices',async()=>{
+test('seven server voices and English-home Spanish starts retain the native UI without installed browser voices',{timeout:90000},()=>checked('seven-server-voices',async()=>{
   for(const pair of PAIRS){const study=pair.split('-')[1],options=pair==='fr-zh'?{width:320,height:700}:pair==='fr-en'?{width:1366,height:768,android:false}:{};const f=await fixture({pair,voices:[],...options});try{const p=f.page;await firstLesson(p);const before=await state(p),text=await p.locator('#mgPhrase').textContent(),phon=await p.locator('#mgPhon').textContent();await p.locator('#mgListen').focus();await p.keyboard.press('Enter');let a=await busy(p,true);assert.equal(a.plays.length,1);assert.equal(a.speech.length,0);const request=assertServer(a.plays[0],study,text);assert.notEqual(request.text,phon);assert.deepEqual(await state(p),before);await emit(p,0,'playing');await busy(p,true);await emit(p,0,'ended');await busy(p,false);
     await p.locator('#mgEar').click();a=await busy(p,true);assert.equal(a.plays.length,2);assert.deepEqual(assertServer(a.plays[1],study,text),request);await emit(p,1,'ended');assert.equal((await busy(p,false)).speech.length,0);
     if(pair==='fr-zh'){await p.locator('#mgReadingToggle').click();assert.equal(await p.locator('#mgReadingToggle').getAttribute('aria-pressed'),'true');await p.locator('#mgListen').click();a=await busy(p,true);assertServer(a.plays[2],study,text);await emit(p,2,'ended');await assertFits(p);await capture(p,'server-audio-chinese-pinyin-320');}
@@ -156,6 +166,35 @@ test('all seven studied languages use their exact classic female WaveNet voice w
     if(pair==='fr-en')await capture(p,'server-audio-english-desktop');
     assert.deepEqual(await state(p),before);report.cases.push({name:'seven-server-voice',pair,androidEmulated:f.android,installedBrowserVoices:0,request,sourceCard:before.phraseId,earAndSpeakerEquivalent:true});
   }finally{await f.context.close();}}
+  for(const desktop of [false,true]){
+    const f=await fixture({pair:'en-es',entry:'home',width:desktop?1366:390,height:desktop?768:844,android:!desktop,voices:[]});
+    try{
+      const p=f.page;
+      if(desktop){await p.locator('.dh-language').selectOption('en');await p.locator('[data-dh-free]').first().click();}
+      else{await p.locator('[data-open-app-language]').click();await p.locator('[data-app-language="en"]').click();assert.equal(await p.locator('[data-screen="welcome"] [data-select-access="free"]').textContent(),'Try for free');await p.locator('[data-screen="welcome"] [data-select-access="free"]').click();}
+      assert.equal(await p.locator('html').getAttribute('lang'),'en');
+      const spanish=p.locator('[data-screen="language"] [data-study-language="es"]');
+      assert.equal(await spanish.locator('strong').textContent(),'Spanish');
+      assert.equal(await p.locator('[data-screen="language"] [data-study-language="en"]').isVisible(),false,'native English is not offered as the studied language');
+      await spanish.click();assert.match(await p.locator('[data-launch-course]').textContent(),/Start|Try for free/);
+      await p.locator('[data-launch-course]').click();await ready(p,'en-es');
+      const url=new URL(p.url());assert.equal(url.pathname,'/parcours-niveaux.html');assert.equal(url.searchParams.get('pair'),'en-es');assert.equal(url.searchParams.get('level'),'1');
+      assert.ok(f.navigations.every(href=>new URL(href).pathname!=='/app.html'),'Start never visits the old application');
+      assert.equal(await p.locator('html').getAttribute('lang'),'en');
+      assert.equal(await p.evaluate(()=>JSON.parse(localStorage.getItem('melunga-app-language')).locale),'en');
+      await firstLesson(p);const before=await state(p),text=await p.locator('#mgPhrase').textContent();
+      assert.match(before.phraseId,/^catalogue:es:\d+$/,'source is the Spanish catalogue, with the English native field');
+      const original=json('content/native-catalogue/es.json').cards[Number(before.phraseId.split(':')[2])];
+      assert.equal(text,original.t);assert.equal(await p.locator('#mgTranslation').textContent(),original.en);
+      assert.equal(await p.locator('#mgListen').getAttribute('aria-label'),'Listen to the sentence');assert.equal(await p.locator('#mgBackText').textContent(),'Topics');
+      await openVoice(p);assert.deepEqual(await p.locator('#mgVoice option').allTextContents(),['Female voice','Male voice']);
+      const rate=desktop?1:.75;await p.locator('#mgSpeed').selectOption(String(rate));await closeMenu(p);
+      await p.locator('#mgListen').click();let a=await busy(p,true);assert.equal(a.plays.length,1);assert.equal(a.speech.length,0);assert.equal(await p.evaluate(()=>speechSynthesis.getVoices().length),0);
+      const request=assertServer(a.plays[0],'es',text,{rate});await emit(p,0,'playing');await emit(p,0,'ended');await busy(p,false);
+      await assertFits(p);await capture(p,'server-audio-home-english-spanish-'+(desktop?'desktop':'mobile'));
+      assert.deepEqual(await state(p),before);report.cases.push({name:'home-start-native-server-audio',profile:desktop?'desktop':'Android-emulated-mobile',native:'en',study:'es',installedBrowserVoices:0,navigations:f.navigations,oldApplicationVisited:false,englishUi:true,sourceMeaningField:'en',request,cardAndDecisionsUnchanged:true});
+    }finally{await f.context.close();}
+  }
 }));
 
 test('voice and speed menus describe actual server choices and retain the selected rate',{timeout:30000},()=>checked('server-choice-and-speed',async()=>{

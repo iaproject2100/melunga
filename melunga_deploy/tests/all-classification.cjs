@@ -8,7 +8,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const {isDeepStrictEqual} = require('node:util');
-const serverAudioLayer = require('./serveur-audio-layer.cjs');
+const nativeLayer = require('./native-routing-layer.cjs');
 const ROOT = path.resolve(__dirname, '..', '..'), WEB = path.join(ROOT, 'melunga_deploy');
 const BASE = '13f42b5814f2b230d76d2d0ef267dcf406c523c2'; // Immutable classification anchors.
 const INPUT = 'd30c1c97769fa180e2370e6b182535e3886bc70f'; // Approved complete B+C objects.
@@ -42,9 +42,9 @@ const ENTRY_ASSET_SHA256 = {
   'melunga_deploy/maquette-guidee.js':CLASSIFIED_JS_SHA256,...CLASSIFIED_HTML_SHA256
 };
 function validateEntryAssets(){
-  serverAudioLayer.validate();
-  for(const [filename, expected]of Object.entries(ENTRY_ASSET_SHA256))assert.equal(sha256(serverAudioLayer.beforeAssetBytes(filename,fs.readFileSync(path.join(ROOT,filename)))),expected,'authorized whole entry asset '+filename);
-  const current=fs.readFileSync(path.join(ROOT,'melunga_deploy/app.html'),'utf8'),original=anchorBytes('melunga_deploy/app.html').toString();
+  nativeLayer.validate();
+  for(const [filename, expected]of Object.entries(ENTRY_ASSET_SHA256))assert.equal(sha256(nativeLayer.beforeBytes(filename)),expected,'authorized whole entry asset before exact native A layer '+filename);
+  const current=nativeLayer.beforeBytes('melunga_deploy/app.html').toString(),original=anchorBytes('melunga_deploy/app.html').toString();
   const approvedClassic=execFileSync('git',['show',NAVIGATION_UI_BASE+':melunga_deploy/app.html'],{cwd:ROOT,maxBuffer:40*1024*1024}).toString();
   assert.equal(current.split(COURSE_LOGIN_HEAD).length,2,'exactly one approved two-include head layer');
   assert.equal(current.replace(COURSE_LOGIN_HEAD,''),approvedClassic,'the whole classic application is unchanged outside two exact head includes');
@@ -229,7 +229,7 @@ function beforeBytes(filename){filename=relativeFilename(filename);if(!filename.
 function projectPhrase(pairId,phrase){if(!PAIRS.includes(pairId)||!phrase?.id)return phrase;const candidates=ensureProjection().phraseCandidates.get(pairId+'\0'+phrase.id)||[];for(const [current,before]of candidates)if(isDeepStrictEqual(phrase,current))return clone(before);throw Error('Unvalidated composed tuple cannot be hidden: '+pairId+'/'+phrase.id);}
 function beforeAssetBytes(filename){
   filename=relativeFilename(filename);
-  const actual=serverAudioLayer.beforeAssetBytes(filename,fs.readFileSync(path.join(ROOT,filename)));
+  const actual=nativeLayer.beforeBytes(filename);
   if(!Object.hasOwn(ENTRY_ASSET_SHA256,filename))return actual;
   ensureProjection();validateEntryAssets();
   if(['melunga_deploy/course-access.js','melunga_deploy/content/course-access.json','melunga_deploy/melunga-logo.svg','melunga_deploy/course-login.css','melunga_deploy/course-login.js'].includes(filename))return actual;
@@ -241,7 +241,7 @@ function beforeAssetBytes(filename){
   // independently audited current tuples, registries, copies or source hashes.
   return before;
 }
-function inputFiles(){const layers=['docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json','docs/niveaux-progressifs/conventions-tranchees/registre/conventions-tranchees.json'];const evidence=layers.flatMap(file=>{const registry=rawRead(file);return[file,...registry.evidenceFiles.map(p=>p.path)];});return[...Object.keys(ENTRY_ASSET_SHA256).map(f=>path.join(ROOT,f)),...serverAudioLayer.inputFiles(),...evidence.map(f=>path.join(ROOT,f)),...['uncertain-content.cjs','convention-corrections.cjs'].map(f=>path.join(WEB,'tests',f)),path.join(ROOT,'docs/niveaux-progressifs/contenu-tranche/exceptions-contenu-tranche.json'),__filename,path.join(ROOT,'tools/maquette-guidee/check_all_classification_independent.py'),path.join(ROOT,'tools/maquette-guidee/check_conventions_independent.py'),path.join(ROOT,'tools/maquette-guidee/check_uncertain_content_independent.py'),path.join(ROOT,REVIEW+'/visuels.json'),path.join(ROOT,REVIEW+'/registre/composition-entree.json'),...PAIRS.map(p=>path.join(ROOT,REVIEW+'/registre/'+p+'.json')),...documentPaths().map(f=>path.join(ROOT,f))];}
+function inputFiles(){const layers=['docs/niveaux-progressifs/contenu-tranche/registre-contenu-tranche.json','docs/niveaux-progressifs/conventions-tranchees/registre/conventions-tranchees.json'];const evidence=layers.flatMap(file=>{const registry=rawRead(file);return[file,...registry.evidenceFiles.map(p=>p.path)];});return[...Object.keys(ENTRY_ASSET_SHA256).map(f=>path.join(ROOT,f)),...evidence.map(f=>path.join(ROOT,f)),...['uncertain-content.cjs','convention-corrections.cjs'].map(f=>path.join(WEB,'tests',f)),path.join(ROOT,'docs/niveaux-progressifs/contenu-tranche/exceptions-contenu-tranche.json'),__filename,path.join(ROOT,'tools/maquette-guidee/check_all_classification_independent.py'),path.join(ROOT,'tools/maquette-guidee/check_conventions_independent.py'),path.join(ROOT,'tools/maquette-guidee/check_uncertain_content_independent.py'),path.join(ROOT,REVIEW+'/visuels.json'),path.join(ROOT,REVIEW+'/registre/composition-entree.json'),...PAIRS.map(p=>path.join(ROOT,REVIEW+'/registre/'+p+'.json')),...documentPaths().map(f=>path.join(ROOT,f)),...nativeLayer.inputFiles()];}
 function auditRuntime(){return ensureProjection().summary;}
 module.exports={loadLedger,baseline,baselineBytes,anchor,anchorBytes,contentBaseline,contentBytes,rawRead,actualPack,canonicalIndex,expectedPhrase,assertOwnClassification,ensureProjection,beforeRead,beforeBytes,beforeAssetBytes,projectPhrase,inputFiles,auditRuntime,validateEntryAssets};
 

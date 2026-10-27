@@ -6,8 +6,10 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const { execFileSync } = require('node:child_process');
+const composedLayer = require('./native-routing-layer.cjs');
 const ROOT = path.resolve(__dirname, '../..'), WEB = path.join(ROOT, 'melunga_deploy');
 const BASE = 'ef147deacf85b4a5631c1b05ff8050de7918ea1f';
+const AUDIO_COMMIT = 'd110366';
 const PATCH = 'docs/audio-server/runtime-layer.patch';
 const PATCH_SHA256 = '046138b8043992b46a282d8fe64db12113c15872279e95c0caeee11c7087d697';
 const LAYER = Object.freeze({
@@ -18,7 +20,11 @@ const LAYER = Object.freeze({
 const MODULE = 'melunga_deploy/lesson-audio.js';
 const MODULE_SHA256 = '5eda5fbd765f197b1c6a758e6a7d1b0dd88203f662a369bc667465048ce70e0d';
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
-const relative = filename => (path.isAbsolute(filename) ? path.relative(ROOT, filename) : filename).split(path.sep).join('/');
+const relative = filename => {
+  const value = path.relative(ROOT, path.resolve(ROOT, filename));
+  assert.ok(value && value !== '..' && !value.startsWith('..' + path.sep) && !path.isAbsolute(value), 'source stays inside repository');
+  return value.split(path.sep).join('/');
+};
 const actual = filename => fs.readFileSync(path.join(ROOT, filename));
 const baselineCache = new Map();
 function baseline(filename) {
@@ -32,7 +38,7 @@ const manifestPath = 'melunga_deploy/content/niveaux-progressifs/manifest.json';
 const manifest = JSON.parse(baseline(manifestPath));
 const runtime = [manifestPath, ...manifest.pairs.flatMap(pair => ['melunga_deploy/' + pair.repertoirePath,
   ...pair.levels.map(level => 'melunga_deploy/' + level.dataPath)])];
-const protectedFiles = [...new Set([...rootRuntime.filter(file => !Object.hasOwn(LAYER, file)),
+const protectedFiles = [...new Set([...rootRuntime.filter(file => !composedLayer.projectedPaths.includes(file)),
   ...backend, 'melunga_deploy/content/course-access.json'])].sort();
 
 function validate() {
@@ -40,31 +46,35 @@ function validate() {
   assert.ok(!baselinePaths.includes(MODULE), 'the module is the single new root runtime');
   const currentRoot = fs.readdirSync(WEB, { withFileTypes: true }).filter(entry => entry.isFile() && /\.(?:js|css|html)$/.test(entry.name))
     .map(entry => 'melunga_deploy/' + entry.name).sort();
-  assert.deepEqual(currentRoot, [...rootRuntime, MODULE].sort(), 'no other runtime asset may be introduced or removed');
+  const additionalRuntime = [MODULE, 'melunga_deploy/course-i18n.js', 'melunga_deploy/course-native.js'];
+  assert.deepEqual(currentRoot, [...rootRuntime, ...additionalRuntime].sort(), 'no other runtime asset may be introduced or removed');
   const currentBackend = fs.readdirSync(path.join(WEB, 'netlify/functions')).filter(file => file.endsWith('.mjs'))
     .map(file => 'melunga_deploy/netlify/functions/' + file).sort();
   assert.deepEqual(currentBackend, backend, 'server function inventory stays exact');
   for (const file of [...runtime, ...protectedFiles]) assert.ok(actual(file).equals(baseline(file)), 'actual protected bytes unchanged before projection: ' + file);
   for (const [file, pin] of Object.entries(LAYER)) {
     assert.equal(sha(baseline(file)), pin.before, 'exact pinned before: ' + file);
-    assert.equal(sha(actual(file)), pin.after, 'exact finite audio after: ' + file);
+    const audioBeforeComposition = execFileSync('git', ['show', AUDIO_COMMIT + ':' + file], { cwd: ROOT, maxBuffer: 40 * 1024 * 1024 });
+    assert.equal(sha(audioBeforeComposition), pin.after, 'exact reviewed B audio edition before composition: ' + file);
   }
   assert.equal(sha(actual(MODULE)), MODULE_SHA256, 'whole audio module is pinned');
   const patch = actual(PATCH);
   assert.equal(sha(patch), PATCH_SHA256, 'whole finite audio patch is pinned');
-  const actualPatch = execFileSync('git', ['diff', '--no-ext-diff', '--no-color', '--binary', '--full-index', '--unified=3',
-    '--src-prefix=a/', '--dst-prefix=b/', BASE, '--', ...Object.keys(LAYER)], { cwd: ROOT, maxBuffer: 4 * 1024 * 1024 });
-  assert.ok(actualPatch.equals(patch), 'patch exactly describes the three actual changes against ef147de');
-  return { baseline: BASE, layeredAssets: 3, newRuntimeAssets: 1, runtimeJson: runtime.length, protectedFiles: protectedFiles.length };
+  const originalAudioPatch = execFileSync('git', ['show', AUDIO_COMMIT + ':' + PATCH], { cwd: ROOT, maxBuffer: 4 * 1024 * 1024 });
+  assert.ok(originalAudioPatch.equals(patch), 'the original three-asset B patch remains immutable evidence');
+  const composition = composedLayer.validate({force:true});
+  return { baseline: BASE, layer: 'A+B', layeredAssets: 3, composedAssets: composition.modifiedFiles,
+    newRuntimeAssets: additionalRuntime.length, runtimeJson: runtime.length, protectedFiles: protectedFiles.length };
 }
 
 function beforeAssetBytes(filename, bytes) {
   filename = relative(filename);
   const input = bytes === undefined ? actual(filename) : Buffer.from(bytes);
-  if (!Object.hasOwn(LAYER, filename)) return input;
+  if (!composedLayer.projectedPaths.includes(filename)) return input;
   validate();
   assert.ok(input.equals(actual(filename)), 'mutated caller bytes cannot be hidden: ' + filename);
-  return Buffer.from(baseline(filename));
+  return composedLayer.beforeBytes(filename);
 }
-function inputFiles() { return [__filename, path.join(ROOT, PATCH), path.join(ROOT, MODULE)]; }
+function inputFiles() { return [__filename, path.join(ROOT, PATCH), path.join(ROOT, MODULE), ...composedLayer.inputFiles(),
+  ...runtime.concat(protectedFiles).map(file => path.join(ROOT, file))]; }
 module.exports = Object.freeze({ validate, beforeAssetBytes, inputFiles });
