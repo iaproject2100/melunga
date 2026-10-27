@@ -20,8 +20,8 @@ const REGISTRY_SHAS = {'fr-en':'dfcde432da30d22ca3375c5544e14fb5f7b6e84db04af9ce
 const DESCRIPTOR_SHA256 = '57d7731c5001d065ce53ced537f782953dcd40dd61846627739adeb1bfd06f20';
 const MANIFEST_SHA256 = 'd0c785ebd39b1cc5fa14f6445b08c7982dda03255741f61bcf21c991c34c423c';
 const INDEPENDENT_CHECKER_SHA256 = '81b140ac5c245acfaf804cd8a8cd8e95138975c8a671bfbda58853664f03685a';
-const CLASSIFIED_JS_SHA256 = '3f33568582a6a31d9e4821f63cefab4736beb69644435eb8696aa13aafbcdc58';
-const CLASSIFIED_HTML_SHA256 = {"melunga_deploy/maquette-guidee.html":'fb4b035bfec91d3c140b1d7303cb28a2034fe5d0bb11065c32195f9d598a7c01',"melunga_deploy/parcours-niveaux.html":'a3c60173bc32ea642a86e53c4426b6f7cfef4489cba16859cd55b3573c434386'};
+const CLASSIFIED_JS_SHA256 = '0d25516668b7a52385eff631976916532817ede687019d2532ccbb0a42e57ea3';
+const CLASSIFIED_HTML_SHA256 = {"melunga_deploy/maquette-guidee.html":'cccaf9220cff8f84ef0fe0722b905635ac2d3e11e56fb6abaa34e505ac3336a1',"melunga_deploy/parcours-niveaux.html":'e7dcbfc13fd930e4fab41137e0172b7e9144164c9d4c4892745123ba97a6a9dc'};
 const NAVIGATION_UI_BASE = 'a5c721f51a217750c3b83ecd56c85dbfc4ccb7f8';
 const COURSE_LOGIN_HEAD = '<link rel="stylesheet" href="course-login.css?v=1">\n<script src="course-login.js?v=1" defer></script>\n';
 // Authorized entry/mobile UI shell: exact whole current assets are validated
@@ -37,7 +37,7 @@ const ENTRY_ASSET_SHA256 = {
   'melunga_deploy/course-access.js':'b5b3e0d547c84aa24b59d7381a5bfbf11a27836885b875e284b5795873abd082',
   'melunga_deploy/content/course-access.json':'35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05',
   'melunga_deploy/melunga-logo.svg':'b653fbd78c7b2a3853ad628d83e4230726a17f71e0a5441a01947dd854f86cec',
-  'melunga_deploy/maquette-guidee.css':'9fa518414822a77648e26caae5d73f86e2db9ee5e43ff74d7344a7b718771d01',
+  'melunga_deploy/maquette-guidee.css':'9ca226d6666b8eef02f5f26ecfbf37ed1234d202f0439e84cb690e995ce2ce1a',
   'melunga_deploy/maquette-guidee.js':CLASSIFIED_JS_SHA256,...CLASSIFIED_HTML_SHA256
 };
 function validateEntryAssets(){

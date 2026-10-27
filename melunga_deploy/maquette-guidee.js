@@ -28,9 +28,9 @@
     sequences: byId('mgSequences'), lessonView: byId('mgLessonView'), lessonTheme: byId('mgLessonTheme'),
     phase: byId('mgPhaseIcon'), help: byId('mgHelp'), helpPanel: byId('mgHelpPanel'),
     helpText: byId('mgHelpText'), readingToggle: byId('mgReadingToggle'), readingToggleText: byId('mgReadingToggleText'),
-    model: byId('mgModel'), speaker: byId('mgSpeaker'), choices: byId('mgChoices'),
+    model: byId('mgModel'), modelTools: byId('mgModelTools'), speaker: byId('mgSpeaker'), choices: byId('mgChoices'),
     phrase: byId('mgPhrase'), phonrow: byId('mgPhonrow'), phon: byId('mgPhon'),
-    ear: byId('mgEar'), reading: byId('mgReading'), translation: byId('mgTranslation'),
+    ear: byId('mgEar'), listen: byId('mgListen'), reading: byId('mgReading'), translation: byId('mgTranslation'),
     done: byId('mgDone'), doneHeading: byId('mgDoneHeading'), status: byId('mgStatus'),
     footer: byId('mgFooter'), replay: byId('mgReplay'), replayText: byId('mgReplayText'),
     next: byId('mgContinue'), nextText: byId('mgContinueText'), toast: byId('mgCardToast')
@@ -689,11 +689,19 @@
     startSequence({ id: state.pair.id + ':' + theme.id + ':review', phraseIds: phrases.map(phrase => phrase.id), steps }, 'review');
   }
 
+  function setAudioPlaying(playing) {
+    for (const control of [ui.ear, ui.listen]) {
+      if (!control) continue;
+      control.classList.toggle('is-playing', playing);
+      if (playing) control.setAttribute('aria-busy', 'true');
+      else control.removeAttribute('aria-busy');
+    }
+  }
+
   function stopAudio() {
     state.speechGeneration += 1;
     if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-    ui.ear.classList.remove('is-playing');
-    ui.ear.removeAttribute('aria-busy');
+    setAudioPlaying(false);
   }
 
   function closeHelp() {
@@ -1067,6 +1075,11 @@
       ? masked ? 'Révéler et écouter le mot' : 'Écouter le mot'
       : masked ? 'Révéler et écouter la phrase' : 'Écouter la phrase'));
     ui.ear.title = tr(masked ? 'Révéler et écouter' : 'Écouter');
+    if (ui.listen) {
+      ui.listen.hidden = ui.ear.hidden;
+      ui.listen.setAttribute('aria-label', ui.ear.getAttribute('aria-label'));
+      ui.listen.title = ui.ear.title;
+    }
     text(ui.translation, waitingForChoice ? '' : phrase.native);
     ui.translation.lang = state.pair.nativeLanguage;
     text(ui.reading, phrase.reading);
@@ -1074,6 +1087,7 @@
     ui.readingToggle.hidden = !phrase.reading || state.pair.studyLanguage !== 'zh' && (masked || waitingForChoice);
     ui.readingToggle.disabled = masked || waitingForChoice;
     ui.readingToggle.setAttribute('aria-pressed', String(state.readingVisible));
+    if (ui.modelTools) ui.modelTools.hidden = ui.readingToggle.hidden && (!ui.listen || ui.listen.hidden);
     text(ui.readingToggleText, state.pair.studyLanguage === 'zh' ? tr('Pinyin') : tr(state.readingVisible ? 'Masquer la lecture' : 'Afficher la lecture'));
     ui.speaker.hidden = !isReceived(step, phrase);
     const role = step.role;
@@ -1175,8 +1189,7 @@
     if (preferredVoice || exactVoice || languageVoice) utterance.voice = preferredVoice || exactVoice || languageVoice;
     const finish = () => {
       if (token !== state.speechGeneration) return;
-      ui.ear.classList.remove('is-playing');
-      ui.ear.removeAttribute('aria-busy');
+      setAudioPlaying(false);
     };
     utterance.onend = finish;
     utterance.onerror = event => {
@@ -1184,8 +1197,7 @@
       finish();
       if (!['canceled', 'interrupted'].includes(event.error)) setStatus('L’audio n’a pas pu démarrer. Tu peux réessayer.');
     };
-    ui.ear.classList.add('is-playing');
-    ui.ear.setAttribute('aria-busy', 'true');
+    setAudioPlaying(true);
     try { window.speechSynthesis.speak(utterance); }
     catch (_) { finish(); setStatus('L’audio n’a pas pu démarrer. Tu peux réessayer.'); }
   }
@@ -1858,6 +1870,7 @@
     renderStep();
   });
   ui.ear.addEventListener('click', () => speak(true));
+  ui.listen?.addEventListener('click', () => speak(true));
   ui.replay.addEventListener('click', () => state.screen === 'done'
     ? startSequence(state.sequence, state.lessonScope) : markForReview());
   ui.next.addEventListener('click', () => {

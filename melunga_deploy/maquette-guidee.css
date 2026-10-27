@@ -266,10 +266,15 @@ body[data-view="done"] .mg-done{min-height:0;gap:12px;padding:12px 8px}
  body[data-view="lesson"] .mg-phonrow{padding-inline:10px 60px}
  body[data-view="lesson"] .mg-phonrow.is-recall{padding:0}
 }
-.mg-model>.mg-reading-toggle{display:inline-flex;align-items:center;justify-content:center;align-self:center;gap:10px;flex:0 0 auto;min-height:44px;min-width:44px;padding:9px 16px;border:1px solid var(--mg-line);border-radius:999px;background:var(--mg-soft);color:var(--mg-ink);box-shadow:inset 0 1px 0 rgba(255,255,255,.12);font-size:14px;font-weight:650;line-height:1.3}
-.mg-model>.mg-reading-toggle:hover{background:rgba(255,255,255,.21)}
+.mg-model>.mg-reading-toggle,.mg-model-tools>.mg-reading-toggle{display:inline-flex;align-items:center;justify-content:center;align-self:center;gap:10px;flex:0 0 auto;min-height:44px;min-width:44px;padding:9px 16px;border:1px solid var(--mg-line);border-radius:999px;background:var(--mg-soft);color:var(--mg-ink);box-shadow:inset 0 1px 0 rgba(255,255,255,.12);font-size:14px;font-weight:650;line-height:1.3}
+.mg-model>.mg-reading-toggle:hover,.mg-model-tools>.mg-reading-toggle:hover{background:rgba(255,255,255,.21)}
+.mg-model-tools{display:flex;align-items:center;justify-content:center;align-self:center;flex-wrap:wrap;gap:8px 12px;max-width:100%}
 .mg-reading-switch{position:relative;display:inline-block;flex:0 0 32px;width:32px;height:20px;border-radius:999px;background:rgba(230,246,255,.25)}
 .mg-reading-switch::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--mg-ink);box-shadow:0 1px 4px var(--mg-shadow);transition:transform .16s ease}
+.mg-listen{display:inline-flex;align-self:center;align-items:center;justify-content:center;flex:0 0 auto;width:clamp(48px,8dvh,64px);height:clamp(48px,8dvh,64px);min-width:44px;min-height:44px;padding:0;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:#39bfff;color:#0d3448;box-shadow:0 4px 14px var(--mg-shadow)}
+.mg-listen svg{display:block;width:28px;height:28px}
+.mg-listen:hover{filter:brightness(1.08)}
+.mg-listen.is-playing{outline:2px solid var(--mg-accent);outline-offset:3px}
 .mg-reading-toggle[aria-pressed="true"] .mg-reading-switch{background:var(--mg-accent)}
 .mg-reading-toggle[aria-pressed="true"] .mg-reading-switch::after{transform:translateX(12px);background:var(--mg-accent-ink)}
 .mg-saved-review-item{display:flex;flex-direction:column;gap:12px;min-width:0;margin-top:10px;padding:13px;border:1px solid var(--mg-line);border-radius:18px;background:var(--mg-soft)}
