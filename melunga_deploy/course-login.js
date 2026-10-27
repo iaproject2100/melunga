@@ -2,9 +2,12 @@
 (function () {
   'use strict';
   var query = new URLSearchParams(location.search);
-  if (query.get('login') !== '1' || query.getAll('login').length !== 1
+  var wantsLogin = query.get('login') === '1';
+  var wantsCheckout = ['monthly', 'annual'].includes(query.get('checkout'));
+  if (wantsLogin === wantsCheckout || wantsLogin && query.has('checkout') || wantsCheckout && query.has('login')
+      || ['login','checkout','lang','study','courseReturn','courseLevel'].some(function (key) {return query.getAll(key).length > 1;})
       || !query.has('courseReturn') || query.getAll('courseReturn').length !== 1
-      || query.has('checkout') || query.get('classic') === '1') return;
+      || query.get('classic') === '1') return;
   var approved = window.approvedCourseReturn;
   if (!approved || typeof window.validateCourseReturn !== 'function'
       || typeof window.courseReturnIsNative !== 'function' || window.courseReturnIsNative()) return;
@@ -16,9 +19,9 @@
   var target = 'parcours-niveaux.html?' + new URLSearchParams({
     pair: approved.pair, level: String(approved.level)
   });
-  var ambience = 'ocean';
+  var ambience = 'dusk';
   try {
-    var saved = sessionStorage.getItem('melunga-course-ambience');
+    var saved = localStorage.getItem('melunga-course-ambience') || sessionStorage.getItem('melunga-course-ambience');
     if (['ocean', 'aurora', 'dusk'].indexOf(saved) >= 0) ambience = saved;
   } catch (_) { /* A missing preference uses the normal course background. */ }
   document.documentElement.classList.add('course-login');

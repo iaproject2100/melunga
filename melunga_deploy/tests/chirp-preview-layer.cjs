@@ -13,10 +13,10 @@ const BASE = '4fafe31271df3d5e7b601f41ee9056511860bd17';
 const APPROVED_PREVIEW = 'ff4f1e0ca8b19ea93ea978a7372f43883eb18bca';
 const APPROVED_SELECTION_VERSION = 'kartech-2026-10-27';
 const FIXTURE = 'melunga_deploy/tests/fixtures/chirp-preview-layer.json';
-const FIXTURE_SHA256 = '17719c0f7a86bb16ef97c9782291d3a1d718b725b69044c68003245582d407f8';
+const FIXTURE_SHA256 = 'de35d9c8ae97add6128d65c4eff7459963c81230d32f56e57aca2427853f680b';
 const MODIFIED = Object.freeze(['app.html', 'maquette-guidee.js', 'maquette-guidee.html', 'parcours-niveaux.html',
   'lesson-audio.js', 'course-i18n.js', 'content/course-locales/supplements.json', 'netlify/functions/tts.mjs',
-  'index.html', 'desktop-home.js'].map(f => 'melunga_deploy/' + f));
+  'index.html', 'desktop-home.js', 'course-login.js'].map(f => 'melunga_deploy/' + f));
 const ADDED = Object.freeze(['voice-selection.js', 'comparaison-voix.html', 'voice-comparison.css', 'voice-comparison.js',
   'voice-comparison.webmanifest', 'netlify/functions/lib/chirp-catalog.mjs', 'course-startup.css', 'course-ambiences.css'].map(f => 'melunga_deploy/' + f));
 const PRESENTATION_STYLES = Object.freeze(['melunga_deploy/course-startup.css', 'melunga_deploy/course-ambiences.css']);
@@ -72,6 +72,7 @@ function fixture() {
   assert.equal(f.version, 1); assert.equal(f.id, 'chirp-preview-exact-layer'); assert.equal(f.baseCommit, BASE);
   assert.equal(f.selectionVersion, APPROVED_SELECTION_VERSION, 'the frozen voice defaults record the owner decision');
   assert.equal(f.startupPresentationBaseCommit, APPROVED_PREVIEW, 'startup presentation retains the approved audio preview');
+  assert.match(f.entryRoutingGuardSha256, /^[a-f0-9]{64}$/, 'the exact early course routing block is pinned');
   assert.deepEqual(Object.keys(f.modifiedFiles).sort(), [...MODIFIED].sort(), 'only explicit Chirp sources may be projected');
   assert.deepEqual(Object.keys(f.newFiles).sort(), [...ADDED].sort(), 'only explicit Chirp assets may be added');
   assert.equal(f.patchPath, 'melunga_deploy/tests/fixtures/chirp-preview-layer.patch');
@@ -98,6 +99,26 @@ function sourceFunction(source, name) {
   }
   throw Error('Unclosed source function ' + name);
 }
+function replaceOnce(source, before, after, label) {
+  const pieces = source.split(before);
+  assert.equal(pieces.length, 2, 'one exact authorized app edit: ' + label);
+  return pieces[0] + after + pieces[1];
+}
+function beforeCourseEntryApp(source) {
+  const startMarker = '<style>html.course-entry-redirect body{visibility:hidden!important}</style>\n<script>\n/* Web lessons default to the course.';
+  const endMarker = '})();\n</script>\n\n';
+  const start = source.indexOf(startMarker);
+  assert.ok(start >= 0 && source.indexOf(startMarker, start + 1) === -1, 'one exact early course routing block');
+  const end = source.indexOf(endMarker, start);
+  assert.ok(end >= start, 'bounded end of the early course routing block');
+  const block = source.slice(start, end + endMarker.length);
+  assert.equal(sha(Buffer.from(block)), fixture().entryRoutingGuardSha256, 'whole exact early course routing block');
+  let before = replaceOnce(source, block, '', 'early routing block');
+  before = replaceOnce(before, '<script src="course-login.js?v=2" defer></script>', '<script src="course-login.js?v=1" defer></script>', 'account helper cache version');
+  before = replaceOnce(before, "  if(window.__courseStartRedirecting || !/[?&](start|checkout|login)=/.test(location.search)) return;",
+    "  if(!/[?&](start|checkout|login)=/.test(location.search)) return;", 'old boot cover guard');
+  return Buffer.from(before);
+}
 function assertInvariants() {
   assert.ok(actual('melunga_deploy/voice-selection.js').toString().includes("const SELECTION_VERSION = '" + APPROVED_SELECTION_VERSION + "';"), 'actual client records the approved voice selection version');
   assert.ok(actual('melunga_deploy/netlify/functions/lib/chirp-catalog.mjs').toString().includes("export const APPROVED_SELECTION_VERSION = '" + APPROVED_SELECTION_VERSION + "';"), 'actual server records the approved voice selection version');
@@ -117,12 +138,15 @@ function assertInvariants() {
   for (const name of audio) assert.equal(sourceFunction(js, name), sourceFunction(approvedJs, name), 'startup preserves the approved complete audio function: ' + name);
   const approvedSources = ['melunga_deploy/app.html', 'melunga_deploy/lesson-audio.js', 'melunga_deploy/netlify/functions/tts.mjs',
     ...ADDED.filter(file => !PRESENTATION_STYLES.includes(file))];
-  for (const file of approvedSources) assert.ok(actual(file).equals(approvedPreview(file)), 'startup leaves the approved audio/app source exact: ' + file);
+  for (const file of approvedSources) {
+    const bytes = file === 'melunga_deploy/app.html' ? beforeCourseEntryApp(app) : actual(file);
+    assert.ok(bytes.equals(approvedPreview(file)), 'startup leaves the approved audio/app source exact after the three pinned app routing edits: ' + file);
+  }
   const access = actual('melunga_deploy/course-access.js').toString(), oldAccess = baseline('melunga_deploy/course-access.js').toString();
   const server = ['deviceId', 'checkServer', 'refresh', 'initialize', 'logout'];
   for (const name of server) assert.equal(sourceFunction(access, name), sourceFunction(oldAccess, name), 'actual server access contract unchanged by Chirp: ' + name);
   return {classicAuthFunctions: auth, progressFunctions: progress, serverAccessFunctions: server, approvedAudioFunctions: audio,
-    approvedAudioAppSources: approvedSources.length, protectedArtwork: artwork.length};
+    approvedAudioAppSources: approvedSources.length, normalizedAppRoutingEdits: 3, protectedArtwork: artwork.length};
 }
 function inputFiles() {
   const f = fixture();

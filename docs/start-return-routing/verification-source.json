@@ -1,0 +1,195 @@
+{
+  "status": "read-only-source-vm-check-complete",
+  "networkOrAccountOrAudio": false,
+  "productModified": false,
+  "guardSha256": "3705bfd082fb1d2cabd4be3ab33e041a1732741482face199a76c9e019593748",
+  "pendingFindingResolved": {
+    "firstReturn": {
+      "query": "",
+      "replaced": [
+        "https://guard-audit.test/parcours-niveaux.html?pair=en-es&level=2"
+      ],
+      "normalized": [],
+      "redirectFlag": true,
+      "sessionPendingStillPresent": false
+    },
+    "afterNewPairChosen": {
+      "query": "",
+      "replaced": [
+        "https://guard-audit.test/parcours-niveaux.html?pair=fr-it&level=4"
+      ],
+      "normalized": [],
+      "redirectFlag": true,
+      "sessionPendingStillPresent": false
+    },
+    "expectedAfterNewPairChosen": "pair=fr-it&level=4",
+    "reason": "The typed pending navigation descriptor is now consumed before the first bare-entry redirect."
+  },
+  "acceptedCases": {
+    "native": {
+      "query": "?start=1&lang=en&study=es",
+      "replaced": [],
+      "normalized": [],
+      "redirectFlag": false,
+      "sessionPendingStillPresent": false
+    },
+    "classic": {
+      "query": "?start=1&lang=en&study=es&classic=1",
+      "replaced": [],
+      "normalized": [],
+      "redirectFlag": false,
+      "sessionPendingStillPresent": false
+    },
+    "legacyCheckout": {
+      "query": "?checkout=annual&lang=en&study=es",
+      "replaced": [],
+      "normalized": [
+        "https://guard-audit.test/app.html?checkout=annual&lang=en&study=es&courseReturn=en-es&courseLevel=1"
+      ],
+      "redirectFlag": false,
+      "sessionPendingStillPresent": false
+    },
+    "fullCheckout": {
+      "query": "?checkout=annual&lang=en&study=es&courseReturn=en-es&courseLevel=1",
+      "replaced": [],
+      "normalized": [],
+      "redirectFlag": false,
+      "sessionPendingStillPresent": false
+    }
+  },
+  "pendingBoundaryCases": [
+    {
+      "name": "expired",
+      "query": "",
+      "replaced": [
+        "https://guard-audit.test/parcours-niveaux.html?pair=fr-it&level=4"
+      ],
+      "normalized": [],
+      "redirectFlag": true,
+      "sessionPendingStillPresent": false
+    },
+    {
+      "name": "future",
+      "query": "",
+      "replaced": [
+        "https://guard-audit.test/parcours-niveaux.html?pair=fr-it&level=4"
+      ],
+      "normalized": [],
+      "redirectFlag": true,
+      "sessionPendingStillPresent": false
+    },
+    {
+      "name": "malformed",
+      "query": "",
+      "replaced": [
+        "https://guard-audit.test/parcours-niveaux.html?pair=fr-it&level=4"
+      ],
+      "normalized": [],
+      "redirectFlag": true,
+      "sessionPendingStillPresent": false
+    },
+    {
+      "name": "wrong-pair",
+      "query": "",
+      "replaced": [
+        "https://guard-audit.test/parcours-niveaux.html?pair=fr-it&level=4"
+      ],
+      "normalized": [],
+      "redirectFlag": true,
+      "sessionPendingStillPresent": false
+    },
+    {
+      "name": "explicit-entry-keeps-pending",
+      "query": "?login=1&lang=fr&study=it",
+      "replaced": [],
+      "normalized": [
+        "https://guard-audit.test/app.html?login=1&lang=fr&study=it&courseReturn=fr-it&courseLevel=4"
+      ],
+      "redirectFlag": false,
+      "sessionPendingStillPresent": true
+    },
+    {
+      "name": "explicit-entry-keeps-pending",
+      "query": "?checkout=annual&lang=fr&study=it",
+      "replaced": [],
+      "normalized": [
+        "https://guard-audit.test/app.html?checkout=annual&lang=fr&study=it&courseReturn=fr-it&courseLevel=4"
+      ],
+      "redirectFlag": false,
+      "sessionPendingStillPresent": true
+    },
+    {
+      "name": "explicit-entry-keeps-pending",
+      "query": "?start=1&lang=fr&study=it",
+      "replaced": [
+        "https://guard-audit.test/parcours-niveaux.html?pair=fr-it&level=1"
+      ],
+      "normalized": [],
+      "redirectFlag": true,
+      "sessionPendingStillPresent": true
+    }
+  ],
+  "validFinitePairCases": 42,
+  "invalidAmbiguitiesRejected": [
+    {
+      "query": "?start=1&lang=en&study=es&lang=fr",
+      "replaced": [],
+      "normalized": [],
+      "redirectFlag": false,
+      "sessionPendingStillPresent": true
+    },
+    {
+      "query": "?start=1&lang=en&study=es&level=99",
+      "replaced": [],
+      "normalized": [],
+      "redirectFlag": false,
+      "sessionPendingStillPresent": true
+    },
+    {
+      "query": "?start=1&lang=en&study=es&courseReturn=fr-it",
+      "replaced": [],
+      "normalized": [],
+      "redirectFlag": false,
+      "sessionPendingStillPresent": true
+    },
+    {
+      "query": "?login=1&checkout=annual",
+      "replaced": [],
+      "normalized": [],
+      "redirectFlag": false,
+      "sessionPendingStillPresent": true
+    },
+    {
+      "query": "?login=1&checkout=bogus",
+      "replaced": [],
+      "normalized": [],
+      "redirectFlag": false,
+      "sessionPendingStillPresent": true
+    },
+    {
+      "query": "?login=0&checkout=annual",
+      "replaced": [],
+      "normalized": [],
+      "redirectFlag": false,
+      "sessionPendingStillPresent": true
+    }
+  ],
+  "businessFunctionsUnchanged": {
+    "validateCourseReturn": true,
+    "readApprovedCourseReturn": true,
+    "rememberCourseReturnForCheckout": true,
+    "completeApprovedCourseReturn": true,
+    "checkPaidStatus": true,
+    "loadPricing": true,
+    "unlock": true,
+    "loginExisting": true
+  },
+  "runtimeSha256": {
+    "melunga_deploy/app.html": "125a02d6433ad7117672818112077b9d0c2a1c17cb7a63d46ef05e24ae032f16",
+    "melunga_deploy/index.html": "cfccf856f0650d46c375cfe5392f1a724d4007012dd99973b572afce22cc1e4c",
+    "melunga_deploy/course-login.js": "03b52710857996322a9e3c3f311bbcb095e16206f5c7df3338525be90ec70b07"
+  },
+  "remainingConcreteConcerns": [],
+  "websitePriceMarketsUnchanged": true,
+  "scopeLimit": "Malformed or ambiguous URLs are rejected by the modern guard and remain eligible for the pre-existing classic fallback, as in the intended compatibility tests; this review does not claim that all malformed links now show a modern error screen."
+}
