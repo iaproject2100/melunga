@@ -10,6 +10,7 @@
     lessonTheme: byId('mgLessonTheme'), listen: byId('mgListen'), next: byId('mgContinue'),
     footer: byId('mgFooter'), done: byId('mgDone'), tools: byId('mgModelTools'),
     reading: byId('mgReadingToggle'),
+    themeGrid: byId('mgThemeGrid'), themeTitle: byId('mgThemeHeading'),
     themeHeading: document.querySelector('#mgThemeView .mg-sectionhead'),
     sequenceHeading: document.querySelector('#mgSequenceView .mg-sectionhead')
   };
@@ -51,12 +52,19 @@
     heading.className = 'mg-desktop-heading';
     const titles = document.createElement('div');
     titles.className = 'mg-desktop-heading-copy';
+    const photo = document.createElement('div');
+    photo.className = 'mg-desktop-theme-photo';
+    photo.setAttribute('aria-hidden', 'true');
+    photo.hidden = true;
+    const levelTitle = document.createElement('p');
+    levelTitle.className = 'mg-desktop-level-title';
+    levelTitle.hidden = true;
     const title = document.createElement('h1');
     title.className = 'mg-desktop-theme-title';
-    titles.append(title);
+    titles.append(levelTitle, title);
     const context = document.createElement('div');
     context.className = 'mg-desktop-context';
-    heading.append(titles, context);
+    heading.append(photo, titles, context);
     nodes.app.prepend(header);
     nodes.main.prepend(heading);
     const listenLabel = document.createElement('span');
@@ -65,7 +73,7 @@
     const menuLabel = document.createElement('span');
     menuLabel.className = 'mg-desktop-menu-text';
     nodes.menu.append(menuLabel);
-    layout = {header, heading, titles, title, context, listenLabel, menuLabel};
+    layout = {header, heading, photo, levelTitle, titles, title, context, listenLabel, menuLabel, photoSource:null};
     document.body.classList.add('mg-desktop-course');
     moved = true;
   }
@@ -83,6 +91,27 @@
     moved = true;
   }
 
+  function refreshThemePhoto(view) {
+    const selected = window.MelungaMockup?.state();
+    const hasTheme = ['lesson', 'done', 'sequences'].includes(view) && selected?.themeId;
+    const tile = hasTheme ? [...nodes.themeGrid.children].find(node => node.dataset.themeId === selected.themeId) : null;
+    const source = tile?.querySelector('.mg-theme-photo');
+    if (layout.photoSource !== source) {
+      const copy = source?.cloneNode(true);
+      const image = copy?.querySelector('img');
+      if (image) {
+        image.loading = 'eager';
+        image.addEventListener('error', () => image.remove(), {once:true});
+      }
+      layout.photo.replaceChildren(...(copy ? [copy] : []));
+      layout.photoSource = source;
+      moved = true;
+    }
+    layout.photo.hidden = !source;
+    layout.levelTitle.hidden = !hasTheme;
+    setText(layout.levelTitle, hasTheme ? nodes.themeTitle.textContent : '');
+  }
+
   function refresh() {
     pending = 0;
     moved = false;
@@ -96,6 +125,7 @@
       move(nodes.menu, layout.header);
       move(nodes.controls, layout.context);
       const view = document.body.dataset.view;
+      refreshThemePhoto(view);
       if (view === 'themes') move(nodes.themeHeading, layout.titles);
       else restore(nodes.themeHeading);
       if (view === 'sequences') move(nodes.sequenceHeading, layout.titles);
@@ -125,6 +155,8 @@
   const observer = new MutationObserver(schedule);
   observer.observe(document.body, {attributes: true, attributeFilter: ['data-view']});
   observer.observe(nodes.nav, {childList: true});
+  observer.observe(nodes.themeGrid, {childList: true});
+  observer.observe(nodes.themeTitle, {childList: true, characterData: true, subtree: true});
   observer.observe(nodes.lessonTheme, {childList: true, characterData: true, subtree: true,
     attributes: true, attributeFilter: ['title', 'aria-label']});
   observer.observe(nodes.listen, {attributes: true, attributeFilter: ['hidden', 'title', 'aria-label']});

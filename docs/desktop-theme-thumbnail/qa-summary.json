@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "baseCommit": "7b17e56",
+  "environment": "Local Chromium; desktop and mobile viewport/touch emulation",
+  "physicalDeviceTested": false,
+  "safariTested": false,
+  "realAudioPlayed": false,
+  "upstreamTtsCalled": false,
+  "realAccountsUsed": false,
+  "nonGetRequestsAllowed": false,
+  "allResponsesLocalFixtures": true,
+  "inputsStable": true,
+  "checks": [
+    "desktop-exact-theme-photo",
+    "theme-locale-level-and-viewport-transitions",
+    "mobile-grid-and-lesson-baseline"
+  ],
+  "errors": [],
+  "unexpected": [],
+  "fixtureErrors": [],
+  "date": "2026-10-27",
+  "testGroups": 3,
+  "profiles": 6,
+  "harnessPath": "/tmp/melunga-desktop-theme-thumbnail.browser.cjs",
+  "harnessSha256": "fc2511d5923231c7ded6c12735d3236571843474abea465b3c126cfdecff14b6",
+  "selectedCaptures": [
+    "captures/desktop-fr-es-L8-1366.png",
+    "captures/desktop-fr-es-L1-1440.png",
+    "captures/desktop-fr-es-L1-1366.png",
+    "captures/mobile-fr-es-L1-390.png"
+  ],
+  "sourcePreservation": {
+    "wholeFiles": 121,
+    "baseCommit": "7b17e56",
+    "allProtectedFilesMatch": true
+  },
+  "thumbAssertions": [
+    "src and visualId identical to selected existing grid tile",
+    "four crop custom properties identical",
+    "local clone image decoded and natural dimensions nonzero",
+    "photo, image, caption and theme title visibly rendered through every ancestor",
+    "photo left of selected theme name, translated existing level title above",
+    "context pills right of title; full card and actions within viewport",
+    "next changes phrase but retains same clone and does not classify known",
+    "two L8 themes share atlas URL but differ in crop; stale crop refused",
+    "theme, level, language and desktop/mobile transitions clear or rebuild correctly",
+    "all mobile grid image URLs, crop variables, labels and geometry match actual Git baseline",
+    "mobile Continue matches original step advancement"
+  ],
+  "limits": [
+    "Local Chromium only; no physical Android, iPhone or Safari.",
+    "All account/status/catalogue responses are explicit local fixtures; no POST or upstream TTS.",
+    "Local images are loaded and decoded; audio playback is in-memory events, not heard.",
+    "Targeted suite, not a rerun of the earlier 26-case matrix.",
+    "No publication by the QA agent."
+  ]
+}

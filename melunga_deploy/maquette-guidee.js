@@ -963,6 +963,7 @@
     arrow.innerHTML = icons.arrow;
     arrow.setAttribute('aria-hidden', 'true');
     if (className === 'mg-theme') {
+      button.dataset.themeId = theme.id;
       const number = document.createElement('span');
       number.className = 'mg-theme-number';
       number.textContent = themeNumber(theme);
