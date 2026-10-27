@@ -21,6 +21,8 @@
     "errors-and-partial-catalogue",
     "selection-export-and-modern-lesson",
     "classic-choice-and-wave-net",
+    "approved-defaults-in-both-readers",
+    "missing-approved-default-never-substitutes",
     "short-screen-layout"
   ],
   "cases": [
@@ -89,7 +91,7 @@
     {
       "name": "named-same-text-comparison",
       "language": "en",
-      "voice": "en-GB-Chirp3-HD-Aoede",
+      "voice": "en-GB-Chirp3-HD-Kore",
       "engine": "chirp3",
       "gender": "FEMALE",
       "text": "Can you speak more slowly?",
@@ -315,12 +317,178 @@
     },
     {
       "name": "classic-and-modern-preference-speed",
-      "chirpVoice": "es-ES-Chirp3-HD-Kore",
+      "chirpVoice": "es-ES-Chirp3-HD-Charon",
       "classicSlowRate": 0.75,
       "classicSlowExercisedVia": "existing controller; legacy speed control is hidden",
       "waveNetVoice": "es-ES-Wavenet-F",
       "waveNetServerRate": 0.75,
       "rateAppliedOnce": true
+    },
+    {
+      "name": "fresh-device-approved-default",
+      "language": "fr",
+      "reader": "modern",
+      "voice": "fr-FR-Chirp3-HD-Aoede",
+      "languageCode": "fr-FR",
+      "gender": "FEMALE",
+      "selectionVersion": "kartech-2026-10-27",
+      "choiceSource": "approved-default",
+      "personalFavoriteWritten": false
+    },
+    {
+      "name": "fresh-device-approved-default",
+      "language": "fr",
+      "reader": "classic",
+      "voice": "fr-FR-Chirp3-HD-Aoede",
+      "languageCode": "fr-FR",
+      "gender": "FEMALE",
+      "selectionVersion": "kartech-2026-10-27",
+      "choiceSource": "approved-default",
+      "personalFavoriteWritten": false
+    },
+    {
+      "name": "fresh-device-approved-default",
+      "language": "en",
+      "reader": "modern",
+      "voice": "en-GB-Chirp3-HD-Kore",
+      "languageCode": "en-GB",
+      "gender": "FEMALE",
+      "selectionVersion": "kartech-2026-10-27",
+      "choiceSource": "approved-default",
+      "personalFavoriteWritten": false
+    },
+    {
+      "name": "fresh-device-approved-default",
+      "language": "en",
+      "reader": "classic",
+      "voice": "en-GB-Chirp3-HD-Kore",
+      "languageCode": "en-GB",
+      "gender": "FEMALE",
+      "selectionVersion": "kartech-2026-10-27",
+      "choiceSource": "approved-default",
+      "personalFavoriteWritten": false
+    },
+    {
+      "name": "fresh-device-approved-default",
+      "language": "es",
+      "reader": "modern",
+      "voice": "es-ES-Chirp3-HD-Kore",
+      "languageCode": "es-ES",
+      "gender": "FEMALE",
+      "selectionVersion": "kartech-2026-10-27",
+      "choiceSource": "approved-default",
+      "personalFavoriteWritten": false
+    },
+    {
+      "name": "fresh-device-approved-default",
+      "language": "es",
+      "reader": "classic",
+      "voice": "es-ES-Chirp3-HD-Kore",
+      "languageCode": "es-ES",
+      "gender": "FEMALE",
+      "selectionVersion": "kartech-2026-10-27",
+      "choiceSource": "approved-default",
+      "personalFavoriteWritten": false
+    },
+    {
+      "name": "fresh-device-approved-default",
+      "language": "zh",
+      "reader": "modern",
+      "voice": "cmn-CN-Chirp3-HD-Kore",
+      "languageCode": "cmn-CN",
+      "gender": "FEMALE",
+      "selectionVersion": "kartech-2026-10-27",
+      "choiceSource": "approved-default",
+      "personalFavoriteWritten": false
+    },
+    {
+      "name": "fresh-device-approved-default",
+      "language": "zh",
+      "reader": "classic",
+      "voice": "cmn-CN-Chirp3-HD-Kore",
+      "languageCode": "cmn-CN",
+      "gender": "FEMALE",
+      "selectionVersion": "kartech-2026-10-27",
+      "choiceSource": "approved-default",
+      "personalFavoriteWritten": false
+    },
+    {
+      "name": "fresh-device-approved-default",
+      "language": "it",
+      "reader": "modern",
+      "voice": "it-IT-Chirp3-HD-Charon",
+      "languageCode": "it-IT",
+      "gender": "MALE",
+      "selectionVersion": "kartech-2026-10-27",
+      "choiceSource": "approved-default",
+      "personalFavoriteWritten": false
+    },
+    {
+      "name": "fresh-device-approved-default",
+      "language": "it",
+      "reader": "classic",
+      "voice": "it-IT-Chirp3-HD-Charon",
+      "languageCode": "it-IT",
+      "gender": "MALE",
+      "selectionVersion": "kartech-2026-10-27",
+      "choiceSource": "approved-default",
+      "personalFavoriteWritten": false
+    },
+    {
+      "name": "fresh-device-approved-default",
+      "language": "ja",
+      "reader": "modern",
+      "voice": "ja-JP-Chirp3-HD-Kore",
+      "languageCode": "ja-JP",
+      "gender": "FEMALE",
+      "selectionVersion": "kartech-2026-10-27",
+      "choiceSource": "approved-default",
+      "personalFavoriteWritten": false
+    },
+    {
+      "name": "fresh-device-approved-default",
+      "language": "ja",
+      "reader": "classic",
+      "voice": "ja-JP-Chirp3-HD-Kore",
+      "languageCode": "ja-JP",
+      "gender": "FEMALE",
+      "selectionVersion": "kartech-2026-10-27",
+      "choiceSource": "approved-default",
+      "personalFavoriteWritten": false
+    },
+    {
+      "name": "fresh-device-approved-default",
+      "language": "ko",
+      "reader": "modern",
+      "voice": "ko-KR-Chirp3-HD-Kore",
+      "languageCode": "ko-KR",
+      "gender": "FEMALE",
+      "selectionVersion": "kartech-2026-10-27",
+      "choiceSource": "approved-default",
+      "personalFavoriteWritten": false
+    },
+    {
+      "name": "fresh-device-approved-default",
+      "language": "ko",
+      "reader": "classic",
+      "voice": "ko-KR-Chirp3-HD-Kore",
+      "languageCode": "ko-KR",
+      "gender": "FEMALE",
+      "selectionVersion": "kartech-2026-10-27",
+      "choiceSource": "approved-default",
+      "personalFavoriteWritten": false
+    },
+    {
+      "name": "missing-approved-default-no-implicit-substitution",
+      "language": "es",
+      "implicitMediaPlays": 0,
+      "explicitOverride": "es-ES-Wavenet-F"
+    },
+    {
+      "name": "incomplete-comparison-retains-approved-default",
+      "language": "it",
+      "choices": 2,
+      "voice": "it-IT-Chirp3-HD-Charon"
     },
     {
       "name": "reachable-comparison-layout",
@@ -495,96 +663,221 @@
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 503
+      "status": 503,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     },
     {
       "path": "/.netlify/functions/tts",
       "kind": "catalogue",
-      "status": 200
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
+    },
+    {
+      "path": "/.netlify/functions/tts",
+      "kind": "catalogue",
+      "status": 200,
+      "selectionVersion": "kartech-2026-10-27"
     }
   ],
   "screenshots": [
-    "/tmp/melunga-chirp-comparison-browser/comparison-android-profile-390.png",
-    "/tmp/melunga-chirp-comparison-browser/comparison-1440x900.png",
-    "/tmp/melunga-chirp-comparison-browser/comparison-390x700.png",
-    "/tmp/melunga-chirp-comparison-browser/comparison-320x568.png",
-    "/tmp/melunga-chirp-comparison-browser/comparison-844x390.png",
-    "/tmp/melunga-chirp-comparison-browser/comparison-320x568-large-text.png"
+    "/tmp/melunga-chirp-approved-defaults-browser/comparison-android-profile-390.png",
+    "/tmp/melunga-chirp-approved-defaults-browser/comparison-1440x900.png",
+    "/tmp/melunga-chirp-approved-defaults-browser/comparison-390x700.png",
+    "/tmp/melunga-chirp-approved-defaults-browser/comparison-320x568.png",
+    "/tmp/melunga-chirp-approved-defaults-browser/comparison-844x390.png",
+    "/tmp/melunga-chirp-approved-defaults-browser/comparison-320x568-large-text.png"
   ],
   "inputsStable": true,
   "inputSha256": {
@@ -592,11 +885,11 @@
     "melunga_deploy/account-ui.js": "c383089b43d48407e64f1eb7f8368c0dc6ff12076330b0632dcf909d73dbba92",
     "melunga_deploy/activer-compte-partage.html": "b11d9f4060992aa98aa74133596d671d852bd9724f8e83f53e7e0c7780cd6c24",
     "melunga_deploy/activer-compte-partage.js": "a9196c2bca7b9f2cd6a4a6f21c2d3ce06ed9a84017166b70233bd77fdcd6e4d3",
-    "melunga_deploy/app.html": "68f5aa8ec6e67d678930b70a8ecec008b3710d66c001f195dcb4f4117818d537",
+    "melunga_deploy/app.html": "f05dc7ecb599966846262a93f7c5d7b6f4e26489490dd1bd23bf1626b5aba811",
     "melunga_deploy/assets/melunga-logo.png": "1aa277028faa2128c78405c839748dff8b1497827c04b02610216056c92b18c0",
-    "melunga_deploy/comparaison-voix.html": "b8a02f92b7041eaa4b7f408dcb1df116c9ed058b2f40e95ed6b5eeb1b498b7c5",
+    "melunga_deploy/comparaison-voix.html": "80fb6c1bfe82f4af03dc3347a324f908b5e5904534a1d878effb625fe9d07f9d",
     "melunga_deploy/content/course-access.json": "35bd897d1e7f4995e7bd0c4dfa154049e63fcf1063282951b2a9f604481d7c05",
-    "melunga_deploy/content/course-locales/supplements.json": "b75ec883bd4c6b415b76266e44469281b7156f8d12670195d0e2ab0d17bf9a10",
+    "melunga_deploy/content/course-locales/supplements.json": "3eaa75830e56b49ef7cc37f172d45e94532df637e6129024718689e0abac15ae",
     "melunga_deploy/content/native-catalogue/en.json": "d505038bcd86075b567f198e3977463aea9eb1a167fb6a3b1776324a9a8077c3",
     "melunga_deploy/content/native-catalogue/es.json": "81ee3d77c36c6097c08d487d322d6751cf988de032dab35911bc7e28453e1040",
     "melunga_deploy/content/native-catalogue/fr.json": "b16cf00f2ac7e5420403d9d6dc653a15a36c30149229864377e42633297cbbfe",
@@ -684,7 +977,7 @@
     "melunga_deploy/content/niveaux-progressifs/zh-fr/L8.json": "178f20914de8aeb0c67198263058f6cf00e8fd261b4158e37cec6f5fb456237c",
     "melunga_deploy/content/niveaux-progressifs/zh-fr/L9.json": "d0538c9a4d01ccb364fe7faeb0226513a5a6e614f0d88f34c84d27d79dc65655",
     "melunga_deploy/course-access.js": "dfc2990749ae9aaa6d2b86fad7af5dad62b32ee6c41a73889b335fe396f93f01",
-    "melunga_deploy/course-i18n.js": "a06818ee3fae7866c392009385d329dab4d7fe10cb36458d2875283d96d16f29",
+    "melunga_deploy/course-i18n.js": "79f4386be4dd57e0d6faf08d57c051782552ca4f578ff6fc1d7dbc1c2a1fdd10",
     "melunga_deploy/course-login.css": "bdcfa4b4bc85daca76b728a14e3e97326a739b13137ae6f17b6cd90d059ff46c",
     "melunga_deploy/course-login.js": "d05b0c5e2d085f130d0d77dde89b289208b966cbc7ad0a1699c814b59bffa9d4",
     "melunga_deploy/course-native.js": "7f58e3949229fbdf9abd8b60a554fd3af1f46274153a4fd24cb8aa479fbb0165",
@@ -696,7 +989,7 @@
     "melunga_deploy/device-replacement-ui.js": "17e7644e586072ee47acacc670c669c4c28c79b7864ca52efcce5861c04d813c",
     "melunga_deploy/entry-bridge.js": "8e9a557cd9d2e76447d068dde40b6c3fafa0fd2a806e7ccc8474c54fc573b5f5",
     "melunga_deploy/index.html": "0562038c02dc5c6e3cba1095e1e0b471910295790b5dfdc521d2c07ea6a8d74d",
-    "melunga_deploy/lesson-audio.js": "5e8d03b95d25d643f3d04cc5983eb15e61783d400117a9c1745a40745895583c",
+    "melunga_deploy/lesson-audio.js": "871f7d014ada225f2625dd693099ae361bd98b96e2bd3cac825f83e2f6a1a1c0",
     "melunga_deploy/lesson-chrome.css": "d790afbde99d0c0f60392a4825bf618fd9aa0a0fb84f07f3f2cf7015f30a83dd",
     "melunga_deploy/lesson-controls.css": "2b40e92321df3cc7af85eb91b5af9aa4b9b2eb38b413316726df26cfdc8aaa38",
     "melunga_deploy/lesson-controls.js": "28de670d49ee4fc5aa7a461e35112ad9c97790b1fb7892b10bccd50be54d29ff",
@@ -706,8 +999,8 @@
     "melunga_deploy/lesson-pickers.js": "b1087657371ab1ecc3a10d79afa5181c8ded7f566c09b22051e997fec03416bc",
     "melunga_deploy/manifest.webmanifest": "d4e88177abb8361e6b5c5a5609f2fcc053056ee29465015e50690b8df3e54bf2",
     "melunga_deploy/maquette-guidee.css": "f31685f8b30f2dba14bd51e38c4a6bb2bb390609c21e895b5b8e20fab01ad00e",
-    "melunga_deploy/maquette-guidee.html": "2ac9af3a2ac3f2dd793ce9f304d1e8312f0bd5b4bad0889f85f992e95f08b032",
-    "melunga_deploy/maquette-guidee.js": "534415c9e827244e0a662de506b1658e998bbd4cab085afbe9829246cda5b239",
+    "melunga_deploy/maquette-guidee.html": "6b9d7245308dee4dd7b0fa33d1ad7cd7c704e36d4ac0a4033abf96a98f5e186f",
+    "melunga_deploy/maquette-guidee.js": "a06e5f47ca2257cb527abf5bb1eafcd9719c0bb6e11a7423e3c63a73a0076fa3",
     "melunga_deploy/melunga-logo.png": "1aa277028faa2128c78405c839748dff8b1497827c04b02610216056c92b18c0",
     "melunga_deploy/mobile-lessons.css": "55e85eaeccb4eac8ae74e42715fb4a10df28d1695a745637aa45a16650d4f181",
     "melunga_deploy/native-speech.js": "3d9d8cea7927687b7b8d6e1449d8757a8a6e2e218e158d4af384bcdaecaa2914",
@@ -722,15 +1015,15 @@
     "melunga_deploy/netlify/functions/create-payment-link.mjs": "d0ef3c7d0d396ea01f565264b726354b7d05989c628dd506036a80566d615f52",
     "melunga_deploy/netlify/functions/device-access.mjs": "0d17a3ca00c6381c8e00800a942ea941751a65055ca7d66456ef248802013b2f",
     "melunga_deploy/netlify/functions/get-pricing.mjs": "1958e29523b59db084bfc680d2e7fd3321cc2894384cba3656ce071e6423f361",
-    "melunga_deploy/netlify/functions/lib/chirp-catalog.mjs": "fc470592599cf8b3d86c142bf6187d1c0e90daa64f0d5c252769ad8d6ba84447",
+    "melunga_deploy/netlify/functions/lib/chirp-catalog.mjs": "fd69b1b9efc7d79498d1a25f1734e329a95b296e54b9284d75ba4d1e10ab2e5a",
     "melunga_deploy/netlify/functions/login.mjs": "99dab91e3d091cbac113a35e6eceef55c1bc1afec3b475466b7f290aedeab57a",
     "melunga_deploy/netlify/functions/logout.mjs": "a6cc7487c1360d1b395c2aa25259a2820cef407821dc1419b95d0c44d2575b68",
     "melunga_deploy/netlify/functions/pricing-table.mjs": "0d2e5c6c6a8b70225bd8912ed5215858da382cc34ce1025cafcf6cd18ffafa0b",
     "melunga_deploy/netlify/functions/request-device-replacement.mjs": "4ce67121985059135f75c7962dc7a298737e0cf82564768beb58ffb23a0d720a",
     "melunga_deploy/netlify/functions/seed-demo.mjs": "14f9327cfe6cddfd5c17c8a87bd42be60ae2fc201bb94245d046f7ddb86d4f0b",
     "melunga_deploy/netlify/functions/send-feedback.mjs": "c1bcdc4cc62604cbae19bbc3a690d4d8393fae0702fe9fda3baed2004ad9b583",
-    "melunga_deploy/netlify/functions/tts.mjs": "c672b9476cf16e4499e5d49c8ea77991307299513784df9d4c8b08f43f0d55d3",
-    "melunga_deploy/parcours-niveaux.html": "a996d2d586cfd3477249003ad92c5a61f0a6bc417340237180a1ef7a910e6b5d",
+    "melunga_deploy/netlify/functions/tts.mjs": "7a60d8fe55a2eb7ea3c48918f2515cd74bda3d34d96dcb771227a911e38e0df9",
+    "melunga_deploy/parcours-niveaux.html": "5d8fe3609cae63c1e90eb5e4782ba36f7bb4f3d59bb18ed675e9a6af5b13510c",
     "melunga_deploy/privacy-en.html": "68d402b39b4b3efd6e4e692ee4c426b9254f8eace58565d6f5e80cfe253d8c7c",
     "melunga_deploy/privacy-es.html": "a9c397a1700db7affba27acc7dbb40c9bd6ddc6c89e280dd2b886a1c29807ea1",
     "melunga_deploy/privacy-zh.html": "bc996c1d0e4ead98ceec1deb85535457c458fe3f9328638165165e3ec43568e1",
@@ -743,11 +1036,11 @@
     "melunga_deploy/terms-es.html": "e798285cc3f283a9794576434792f2786c17544c3a27e00291ea658a2cfb9311",
     "melunga_deploy/terms-zh.html": "5a07947a6f880497edfca2a2d4ef025336446ef07257944c1ed34f65ca928e2d",
     "melunga_deploy/terms.html": "7a30f503b1082851f12385c0ec5f0177a2af53207fd44bac2742211e3d2a133a",
-    "melunga_deploy/tests/chirp-comparison.browser.cjs": "4bcd5a0e3fc09fb03a558c55ab3db2c7236350cb317b7b9fe02fa54aca4cda96",
+    "melunga_deploy/tests/chirp-comparison.browser.cjs": "2d926d41f34fd93e8beee573782a2eb8282f9f8f57dc47c344caf02d789705e9",
     "melunga_deploy/voice-comparison.css": "faa3bedb2ca63d9410d107f166dd6d8df17aba87f3a4955642fcd6e50e41d81a",
     "melunga_deploy/voice-comparison.js": "562249c76e53a84846d817e503ab714fb0caf3dd832f42db46b96685bc105e89",
     "melunga_deploy/voice-comparison.webmanifest": "eef06e50d853d44b3611ae57385d2cbe9bf5d0bcfd1ca1b615de2ddd97340211",
-    "melunga_deploy/voice-selection.js": "9da15a1bf88ecb04828ed2e373abe0b43ee1c46a8fd894525b631472e062a086",
+    "melunga_deploy/voice-selection.js": "0e23f47de0db5e4d580a72e514066fd22059dddf8df8bf475bfe8412cc7ad3d6",
     "melunga_deploy/web-access-v2.js": "dca7690ccdebf34feae8cbe6a826ad415781d73c170b539f81dacbea4c3d3f69"
   },
   "missingChecks": []

@@ -15,18 +15,21 @@ const female = {
 };
 const male = { fr: 'fr-FR-Wavenet-G', en: 'en-GB-Wavenet-D', es: 'es-ES-Wavenet-E',
   zh: 'cmn-CN-Wavenet-B', it: 'it-IT-Wavenet-F', ja: 'ja-JP-Wavenet-C', ko: 'ko-KR-Wavenet-C' };
+const approvedNames = {fr:'fr-FR-Chirp3-HD-Aoede',en:'en-GB-Chirp3-HD-Kore',es:'es-ES-Chirp3-HD-Kore',
+  zh:'cmn-CN-Chirp3-HD-Kore',it:'it-IT-Chirp3-HD-Charon',ja:'ja-JP-Chirp3-HD-Kore',ko:'ko-KR-Chirp3-HD-Kore'};
 const voice = (lang, name = lang) => ({ lang, name, voiceURI: 'test:' + name });
 const deferred = () => { let resolve, reject; const promise = new Promise((a, b) => { resolve = a; reject = b; }); return { promise, resolve, reject }; };
 // Catalogue response fixtures exercise selection; their names do not assert
 // that a provider currently offers these candidates in a live deployment.
 function previewCatalogue() {
-  return {version:1,source:'google-voices-list',previewOnly:true,
+  return {version:1,source:'google-voices-list',previewOnly:true,selectionVersion:'kartech-2026-10-27',
     verifiedAt:new Date().toISOString(),expiresAt:new Date(Date.now()+300000).toISOString(),
-    languages:Object.fromEntries(Object.entries(female).map(([language,[name,locale]])=>[language,{
-      language,available:true,waveNet:{name,languageCode:locale,gender:'FEMALE',engine:'wavenet',rateMode:'server'},
-      chirp:[['Aoede','FEMALE'],['Kore','FEMALE'],['Charon','MALE']].map(([suffix,gender])=>({
-        name:locale+'-Chirp3-HD-'+suffix,languageCode:locale,gender,engine:'chirp3',rateMode:'client'}))
-    }]))};
+    languages:Object.fromEntries(Object.entries(female).map(([language,[name,locale]])=>{
+      const chirp=[['Aoede','FEMALE'],['Kore','FEMALE'],['Charon','MALE']].map(([suffix,gender])=>({
+        name:locale+'-Chirp3-HD-'+suffix,languageCode:locale,gender,engine:'chirp3',rateMode:'client'}));
+      return [language,{language,available:true,waveNet:{name,languageCode:locale,gender:'FEMALE',engine:'wavenet',rateMode:'server'},
+        chirp,defaultVoice:chirp.find(voice=>voice.name===approvedNames[language])}];
+    }))};
 }
 function fixture(options = {}) {
   const f = { audio: [], speech: [], unavailable: 0, playing: false, canceled: 0,
@@ -187,11 +190,11 @@ test('preloaded Chirp preview plays synchronously at natural server speed and ap
     assert.equal(f.player.play({text,language,rate}),true);
     const audio=f.last(),url=new URL(audio.src,'https://lesson.test');
     assert.equal(audio.plays,1,'Audio.play has run before the click handler returns');
-    assert.equal(url.searchParams.get('voice'),f.selection.getChoices(language)[1].name);
+    assert.equal(url.searchParams.get('voice'),approvedNames[language]);
     assert.equal(url.searchParams.get('text'),text);assert.equal(url.searchParams.get('rate'),'1');
     assert.equal(audio.playbackRate,rate);assert.equal(audio.preservesPitch,true);assert.equal(audio.webkitPreservesPitch,true);
     assert.equal(f.selection.getSelected(language),null);assert.equal(f.storage.size,0);
-    assert.equal(f.voiceEvents.at(-1).provisional,true);assert.equal(f.voiceEvents.at(-1).engine,'chirp3');
+    assert.equal(f.voiceEvents.at(-1).provisional,false);assert.equal(f.voiceEvents.at(-1).engine,'chirp3');
     audio.onplaying();audio.onended();assert.equal(f.playing,false);assert.equal(f.unavailable,0);
   }
 });
@@ -283,4 +286,13 @@ test('a changed local favourite cancels current Chirp and stale callbacks cannot
   lateError();lateEnd();pending.reject(new Error('Old play aborted'));await Promise.resolve();await Promise.resolve();
   assert.equal(f.last(),latest);assert.equal(f.playing,true);assert.equal(f.speech.length,0);assert.equal(f.unavailable,0);
   f.player.destroy();assert.equal(latest.src,'');assert.equal(f.timers.size,0);
+});
+
+test('an unavailable approved default cannot silently play the first listed Chirp or a local voice instead',async()=>{
+  for(const language of Object.keys(approvedNames)){
+    const catalogue=previewCatalogue();catalogue.languages[language].defaultVoice=null;
+    const f=fixture({preview:true,catalogue,voices:[voice(female[language][1])]});await f.ready;
+    assert.equal(f.player.play({text:'Phrase.',language}),false);assert.equal(f.audio.length,0);assert.equal(f.speech.length,0);
+    assert.equal(f.unavailable,1);assert.equal(f.voiceEvents.length,0);assert.equal(f.storage.size,0);
+  }
 });

@@ -8,6 +8,8 @@ const read=file=>fs.readFileSync(path.join(WEB,file),'utf8');
 const classic=read('app.html'),modern=read('maquette-guidee.js');
 const sha=value=>crypto.createHash('sha256').update(value).digest('hex');
 const LANGUAGES=['fr','en','es','it','zh','ja','ko'];
+const SELECTION_VERSION='kartech-2026-10-27';
+const APPROVED={fr:'fr-FR-Chirp3-HD-Aoede',en:'en-GB-Chirp3-HD-Kore',es:'es-ES-Chirp3-HD-Kore',it:'it-IT-Chirp3-HD-Charon',zh:'cmn-CN-Chirp3-HD-Kore',ja:'ja-JP-Chirp3-HD-Kore',ko:'ko-KR-Chirp3-HD-Kore'};
 function fn(source,name){
  const match=new RegExp('\\b(?:async\\s+)?function\\s+'+name+'\\s*\\([^)]*\\)\\s*\\{').exec(source);assert.ok(match,name);
  let i=match.index+match[0].length-1,depth=0,quote=null,escape=false,line=false,block=false;
@@ -16,7 +18,11 @@ function fn(source,name){
 }
 function catalogue(){
  const codes={fr:'fr-FR',en:'en-GB',es:'es-ES',it:'it-IT',zh:'cmn-CN',ja:'ja-JP',ko:'ko-KR'};
- return{version:1,previewOnly:true,source:'google-voices-list',verifiedAt:new Date(Date.now()-1000).toISOString(),expiresAt:new Date(Date.now()+600000).toISOString(),languages:Object.fromEntries(LANGUAGES.map(language=>{const code=codes[language];return[language,{language,available:true,waveNet:{name:code+'-Wavenet-A',languageCode:code,gender:'FEMALE',engine:'wavenet',rateMode:'server'},chirp:[['Achernar','FEMALE'],['Charon','MALE'],['Kore','FEMALE']].map(([name,gender])=>({name:code+'-Chirp3-HD-'+name,languageCode:code,gender,engine:'chirp3',rateMode:'client'}))}];}))};
+ return{version:1,previewOnly:true,source:'google-voices-list',selectionVersion:SELECTION_VERSION,verifiedAt:new Date(Date.now()-1000).toISOString(),expiresAt:new Date(Date.now()+600000).toISOString(),languages:Object.fromEntries(LANGUAGES.map(language=>{
+  const code=codes[language],names=language==='fr'?[['Kore','FEMALE'],['Charon','MALE'],['Aoede','FEMALE']]:[['Aoede','FEMALE'],['Charon','MALE'],['Kore','FEMALE']];
+  const chirp=names.map(([name,gender])=>({name:code+'-Chirp3-HD-'+name,languageCode:code,gender,engine:'chirp3',rateMode:'client'}));
+  return[language,{language,available:true,waveNet:{name:code+'-Wavenet-A',languageCode:code,gender:'FEMALE',engine:'wavenet',rateMode:'server'},chirp,defaultVoice:chirp.find(voice=>voice.name===APPROVED[language])}];
+ }))};
 }
 class Node{
  constructor(){this.childNodes=[];this.textContent='';this.title='';this.style={};this.dataset={};this.attributes=new Map();this.values=new Set();this.classList={toggle:(name,on)=>{if(on===undefined)on=!this.values.has(name);on?this.values.add(name):this.values.delete(name);},remove:name=>this.values.delete(name),contains:name=>this.values.has(name)};}
@@ -24,7 +30,7 @@ class Node{
  replaceChildren(...options){this.options=options;this._value=options[0]?.value||'';}
  get value(){return this._value||'';}set value(value){this._value=String(value);}
 }
-async function context({failure=false}={}){
+async function context({failure=false,catalogueData=null}={}){
  const nodes=new Map(),storage=new Map(),events=new Map(),plays=[],speech=[],fetches=[];
  const get=id=>{if(!nodes.has(id))nodes.set(id,new Node());return nodes.get(id);};
  let ctx;
@@ -33,7 +39,7 @@ async function context({failure=false}={}){
   localStorage:{getItem:key=>storage.get(key)||null,setItem:(key,value)=>storage.set(key,String(value))},
   document:{hidden:false,getElementById:get,addEventListener:(name,callback)=>events.set('document:'+name,callback)},
   addEventListener:(name,callback)=>events.set(name,callback),
-  fetch:async url=>{fetches.push(url);assert.match(url,/\/\.netlify\/functions\/tts\?catalog=chirp3$/);if(failure)throw Error('fixture catalogue unavailable');return{ok:true,json:async()=>catalogue()};},
+  fetch:async url=>{fetches.push(url);const request=new URL(url,'https://fixture.test');assert.equal(request.pathname,'/.netlify/functions/tts');assert.equal(request.searchParams.get('catalog'),'chirp3');assert.equal(request.searchParams.get('selectionVersion'),SELECTION_VERSION);assert.deepEqual([...request.searchParams.keys()].sort(),['catalog','selectionVersion']);if(failure)throw Error('fixture catalogue unavailable');return{ok:true,json:async()=>catalogueData||catalogue()};},
   Audio:class{constructor(){this.src='';this.playbackRate=1;}play(){plays.push({source:this.src,playbackRate:this.playbackRate,preservesPitch:this.preservesPitch});return Promise.resolve();}pause(){}load(){}removeAttribute(name){if(name==='src')this.src='';}},
   SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},
   speechSynthesis:{getVoices:()=>[{name:'French fixture',lang:'fr-FR',voiceURI:'fixture-fr'},{name:'Spanish fixture',lang:'es-ES',voiceURI:'fixture-es'}],cancel(){},speak(utterance){speech.push(utterance);utterance.onstart?.();}},
@@ -73,27 +79,29 @@ test('classic source literals, eight account/payment functions, rights and revie
 });
 
 test('both HTML shells load selection before the shared player and current controller; classic loads the same modules',()=>{
- for(const file of ['parcours-niveaux.html','maquette-guidee.html']){const source=read(file),selection=source.indexOf('voice-selection.js?v=1'),player=source.indexOf('lesson-audio.js?v=2'),controller=source.indexOf('maquette-guidee.js?v=32');assert.ok(selection>0&&selection<player&&player<controller);assert.match(source,/course-i18n\.js\?v=3/);}
- assert.ok(classic.indexOf('voice-selection.js?v=1')<classic.indexOf('lesson-audio.js?v=2'));
- assert.ok(classic.indexOf('lesson-audio.js?v=2')<classic.indexOf('var DECKS = '));
+ for(const file of ['parcours-niveaux.html','maquette-guidee.html']){const source=read(file),selection=source.indexOf('voice-selection.js?v=2'),player=source.indexOf('lesson-audio.js?v=3'),controller=source.indexOf('maquette-guidee.js?v=33');assert.ok(selection>0&&selection<player&&player<controller);assert.match(source,/course-i18n\.js\?v=4/);}
+ assert.ok(classic.indexOf('voice-selection.js?v=2')<classic.indexOf('lesson-audio.js?v=3'));
+ assert.ok(classic.indexOf('lesson-audio.js?v=3')<classic.indexOf('var DECKS = '));
 });
 
-test('seven study languages use Chirp synchronously in both apps with unchanged source payload and native-independent target',async t=>{
+test('seven fresh profiles use the exact approved defaults synchronously in both apps without writing a local favourite',async t=>{
  for(const language of LANGUAGES)await t.test(language,async()=>{
   const f=await context();installClassic(f);const c=f.ctx;c.lang=language;c.nat=language==='fr'?'zh':'fr';
-  const initialFetches=f.fetches.length;assert.equal(c.MelungaVoiceSelection.getSelected(language),null);
+  const initialFetches=f.fetches.length;assert.equal(f.storage.size,0,'fresh profile has no stored choice');assert.equal(c.MelungaVoiceSelection.getSelected(language),null);
+  const approved=c.MelungaVoiceSelection.getSnapshot(language);assert.equal(approved.voice.name,APPROVED[language]);assert.equal(approved.defaultVoice.name,APPROVED[language]);assert.equal(approved.approvedDefault.name,APPROVED[language]);assert.equal(approved.usesApprovedDefault,true);assert.equal(approved.provisional,false);assert.equal(approved.sourceMetadata.selectionVersion,SELECTION_VERSION);assert.equal(approved.sourceMetadata.choiceSource,'approved-default');assert.equal(approved.voice.gender,language==='it'?'MALE':'FEMALE');assert.notEqual(c.MelungaVoiceSelection.getChoices(language).find(voice=>voice.engine==='chirp3').name,APPROVED[language],'fixture order intentionally differs from the approved default');
+  c.applyVoiceUI();assert.equal(f.get(language==='it'?'vM':'vF').classList.contains('on'),true,'classic control reflects the approved voice gender');
   c.speak('Exact classic <'+language+'> payload.',f.get('listen'));
   assert.equal(f.plays.length,1,'play starts inside the gesture');const classicRequest=new URL(f.plays[0].source,'https://fixture.test');
-  assert.equal(classicRequest.pathname,'/.netlify/functions/tts');assert.match(classicRequest.searchParams.get('voice'),/-Chirp3-HD-/);assert.equal(classicRequest.searchParams.get('text'),'Exact classic <'+language+'> payload.');assert.equal(classicRequest.searchParams.get('rate'),'1');
-  assert.equal(c.MelungaVoiceSelection.getSelected(language),null,'provisional first candidate is never silently saved');
-  c.stopClassicAudio();installModern(f);c.state.pair={id:c.nat+'-'+language,studyLanguage:language,nativeLanguage:c.nat};c.speak(true);
-  assert.equal(f.plays.length,2);const modernRequest=new URL(f.plays[1].source,'https://fixture.test');assert.equal(modernRequest.searchParams.get('text'),'Exact modern payload.');assert.equal(modernRequest.searchParams.get('voice'),classicRequest.searchParams.get('voice'));assert.equal(f.plays[1].playbackRate,.85);assert.equal(modernRequest.searchParams.get('rate'),'1');assert.equal(f.fetches.length,initialFetches,'no catalogue wait or fetch in a successful play gesture');c.lessonAudio.stop();
+  assert.equal(classicRequest.pathname,'/.netlify/functions/tts');assert.equal(classicRequest.searchParams.get('voice'),APPROVED[language]);assert.equal(classicRequest.searchParams.get('text'),'Exact classic <'+language+'> payload.');assert.equal(classicRequest.searchParams.get('rate'),'1');
+  assert.equal(c.MelungaVoiceSelection.getSelected(language),null,'approved default is not a personal favourite');assert.equal(f.storage.size,0,'classic playback does not write local storage');
+  c.stopClassicAudio();installModern(f);c.state.pair={id:c.nat+'-'+language,studyLanguage:language,nativeLanguage:c.nat};c.fillVoices();assert.equal(c.ui.voice.value,APPROVED[language],'modern menu shows the exact approved default');c.speak(true);
+  assert.equal(f.plays.length,2);const modernRequest=new URL(f.plays[1].source,'https://fixture.test');assert.equal(modernRequest.searchParams.get('text'),'Exact modern payload.');assert.equal(modernRequest.searchParams.get('voice'),APPROVED[language]);assert.equal(modernRequest.searchParams.get('voice'),classicRequest.searchParams.get('voice'));assert.equal(f.plays[1].playbackRate,.85);assert.equal(modernRequest.searchParams.get('rate'),'1');assert.equal(f.fetches.length,initialFetches,'no catalogue wait or fetch in a successful play gesture');assert.equal(f.storage.size,0,'neither app silently stores an approved default');assert.equal(c.MelungaVoiceSelection.getSelected(language),null);c.lessonAudio.stop();
  });
 });
 
 test('classic male control saves a real male Chirp for both apps and preserves the previous .75 primary slow speed exactly',async()=>{
  const f=await context();installClassic(f);const c=f.ctx;
- c.setVoice('male',f.get('vM'));const chosen=c.MelungaVoiceSelection.getSelected('es');assert.equal(chosen.gender,'MALE');assert.equal(chosen.engine,'chirp3');assert.match(new URL(f.plays.at(-1).source,'https://fixture.test').searchParams.get('voice'),/-Charon$/);
+ c.setVoice('male',f.get('vM'));const chosen=c.MelungaVoiceSelection.getSelected('es');assert.equal(chosen.gender,'MALE');assert.equal(chosen.engine,'chirp3');assert.equal(c.MelungaVoiceSelection.getSnapshot('es').usesApprovedDefault,false);assert.equal(c.MelungaVoiceSelection.getSnapshot('es').sourceMetadata.choiceSource,'local');assert.match(new URL(f.plays.at(-1).source,'https://fixture.test').searchParams.get('voice'),/-Charon$/);
  c.setSpeed(true);assert.equal(f.plays.at(-1).playbackRate,.75);assert.equal(new URL(f.plays.at(-1).source,'https://fixture.test').searchParams.get('rate'),'1');assert.equal(f.plays.at(-1).preservesPitch,true);
  c.stopClassicAudio();installModern(f);c.fillVoices();assert.equal(c.ui.voice.value,chosen.name);assert.equal(c.ui.voice.options.length,3);assert.ok(c.ui.voice.options.every(option=>option.value.includes('-Chirp3-HD-')));c.speak(true);assert.equal(new URL(f.plays.at(-1).source,'https://fixture.test').searchParams.get('voice'),chosen.name);c.lessonAudio.stop();
 });
@@ -110,4 +118,13 @@ test('failed catalogue is explicit, never waits to play, and the only fallback h
 
 test('final failure in both apps says Audio indisponible even while catalogue refresh retries in background',async()=>{
  const f=await context({failure:true});installClassic(f);const c=f.ctx;c.speechSynthesis.getVoices=()=>[{name:'French only',lang:'fr-FR',voiceURI:'fixture-fr'}];c.lang='es';c.nat='fr';c.speak('Exact classic failure.');assert.equal(f.plays.length,0);assert.equal(f.speech.length,0);assert.equal(f.get('heard').textContent,'fr:Audio indisponible. Réessaie.');c.stopClassicAudio();await c.MelungaVoiceSelection.ready().catch(()=>{});installModern(f);c.speak(true);assert.equal(c.lastStatus,'Audio indisponible. Réessaie.');assert.equal(f.plays.length,0);assert.equal(f.speech.length,0);c.lessonAudio.stop();
+});
+
+
+test('a missing verified default never falls back to the first candidate in either app',async()=>{
+ const data=catalogue();data.languages.es.defaultVoice=null;
+ const f=await context({catalogueData:data});installClassic(f);const c=f.ctx;
+ assert.equal(c.MelungaVoiceSelection.getVoice('es'),null);assert.equal(c.MelungaVoiceSelection.getSnapshot('es').approvedDefault,null);assert.equal(c.MelungaVoiceSelection.getSnapshot('es').usesApprovedDefault,false);
+ c.speak('No unapproved first-candidate fallback.');assert.equal(f.plays.length,0);assert.equal(f.speech.length,0);c.stopClassicAudio();
+ installModern(f);c.fillVoices();assert.equal(c.ui.voice.value,'');c.speak(true);assert.equal(f.plays.length,0);assert.equal(f.speech.length,0);assert.equal(f.storage.size,0);c.lessonAudio.stop();
 });

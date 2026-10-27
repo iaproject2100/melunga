@@ -10,6 +10,17 @@ export const CHIRP_LOCALES = Object.freeze({
   ko: Object.freeze({languageCodes:Object.freeze(['ko-KR']), waveNet:'ko-KR-Wavenet-A'})
 });
 
+export const APPROVED_SELECTION_VERSION = 'kartech-2026-10-27';
+const APPROVED_DEFAULTS = Object.freeze({
+  fr:Object.freeze({name:'fr-FR-Chirp3-HD-Aoede', gender:'FEMALE'}),
+  en:Object.freeze({name:'en-GB-Chirp3-HD-Kore', gender:'FEMALE'}),
+  es:Object.freeze({name:'es-ES-Chirp3-HD-Kore', gender:'FEMALE'}),
+  zh:Object.freeze({name:'cmn-CN-Chirp3-HD-Kore', gender:'FEMALE'}),
+  it:Object.freeze({name:'it-IT-Chirp3-HD-Charon', gender:'MALE'}),
+  ja:Object.freeze({name:'ja-JP-Chirp3-HD-Kore', gender:'FEMALE'}),
+  ko:Object.freeze({name:'ko-KR-Chirp3-HD-Kore', gender:'FEMALE'})
+});
+
 const PREFERENCES = Object.freeze([['Aoede','FEMALE'], ['Kore','FEMALE'], ['Charon','MALE']]);
 const CATALOGUE_URL = 'https://texttospeech.googleapis.com/v1/voices';
 const TIMEOUT_MS = 8000;
@@ -40,17 +51,25 @@ function candidatesFor(language, definition, voices) {
   };
   const actual = [...records.values()].filter(voice => !conflicts.has(voice.name))
     .sort((a,b) => rank(a) - rank(b) || a.name.localeCompare(b.name, 'en'));
+  const approved = APPROVED_DEFAULTS[language];
+  const defaultVoice = actual.find(voice => voice.name === approved.name && voice.gender === approved.gender) || null;
+  const defaultReason = defaultVoice ? null : conflicts.has(approved.name) ? 'approved_voice_conflict'
+    : records.has(approved.name) ? 'approved_voice_gender_mismatch' : 'approved_voice_unavailable';
   const selected = actual.slice(0,3);
+  if (defaultVoice && !selected.includes(defaultVoice)) selected[selected.length - 1] = defaultVoice;
   if (selected.length === 3 && new Set(selected.map(voice => voice.gender)).size === 1) {
     const opposite = actual.find(voice => voice.gender !== selected[0].gender);
-    if (opposite) selected[2] = opposite;
+    const replace = selected.findLastIndex(voice => voice !== defaultVoice);
+    if (opposite && replace >= 0) selected[replace] = opposite;
   }
+  selected.sort((a,b) => rank(a) - rank(b) || a.name.localeCompare(b.name, 'en'));
   const available = selected.length === 3 && new Set(selected.map(voice => voice.gender)).size === 2;
   const waveNetLanguage = definition.waveNet.split('-Wavenet-')[0];
   return {
     language, available,
     waveNet:{name:definition.waveNet, languageCode:waveNetLanguage, gender:'FEMALE', engine:'wavenet', rateMode:'server'},
-    chirp:available ? selected : [],
+    chirp:available ? selected : defaultVoice ? [defaultVoice] : [],
+    defaultVoice, defaultReason,
     ...(available ? {} : {reason:'insufficient_voices'})
   };
 }
@@ -70,6 +89,7 @@ export function createChirpCatalogue({fetchImpl=(...args) => fetch(...args), now
       const verifiedAt = now();
       return freeze({version:1, source:'google-voices-list', verifiedAt:new Date(verifiedAt).toISOString(),
         expiresAt:new Date(verifiedAt + ttlMs).toISOString(), previewOnly:true,
+        selectionVersion:APPROVED_SELECTION_VERSION,
         languages:Object.fromEntries(Object.entries(CHIRP_LOCALES).map(([language,definition]) =>
           [language, candidatesFor(language, definition, payload.voices)]))});
     } finally {

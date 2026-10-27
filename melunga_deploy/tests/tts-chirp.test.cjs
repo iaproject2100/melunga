@@ -21,6 +21,16 @@ const WAVENET = {
   ja:[['ja-JP-Wavenet-B','FEMALE'],['ja-JP-Wavenet-C','MALE']],
   ko:[['ko-KR-Wavenet-A','FEMALE'],['ko-KR-Wavenet-C','MALE']]
 };
+const APPROVED = {
+  fr:{name:'fr-FR-Chirp3-HD-Aoede',gender:'FEMALE'},
+  en:{name:'en-GB-Chirp3-HD-Kore',gender:'FEMALE'},
+  es:{name:'es-ES-Chirp3-HD-Kore',gender:'FEMALE'},
+  zh:{name:'cmn-CN-Chirp3-HD-Kore',gender:'FEMALE'},
+  it:{name:'it-IT-Chirp3-HD-Charon',gender:'MALE'},
+  ja:{name:'ja-JP-Chirp3-HD-Kore',gender:'FEMALE'},
+  ko:{name:'ko-KR-Chirp3-HD-Kore',gender:'FEMALE'}
+};
+const SELECTION_VERSION = 'kartech-2026-10-27';
 let createHandler, createChirpCatalogue, CHIRP_LOCALES, realFetch;
 before(async () => {
   realFetch = global.fetch;
@@ -89,6 +99,7 @@ test('catalogue lists exactly three provider-observed mixed-gender Chirp voices 
   assert.deepEqual(Object.keys(CHIRP_LOCALES).sort(),Object.keys(LOCALES).sort());
   const f=fixture(),result=await f.handler(catalogEvent()),body=jsonResult(result,200);
   assert.equal(body.version,1);assert.equal(body.source,'google-voices-list');assert.equal(body.previewOnly,true);
+  assert.equal(body.selectionVersion,SELECTION_VERSION);
   assert.equal(body.verifiedAt,new Date(START).toISOString());assert.equal(body.expiresAt,new Date(START+300000).toISOString());
   assert.deepEqual(Object.keys(body.languages).sort(),Object.keys(LOCALES).sort());
   assert.equal(result.headers['cache-control'],'public, max-age=300');assert.equal(result.headers['netlify-cdn-cache-control'],'public, max-age=300');
@@ -109,6 +120,8 @@ test('catalogue fallbacks choose real mixed-gender candidates rather than invent
   assert.equal(body.languages.es.available,true);assert.equal(selected.length,3);assert.equal(new Set(selected.map(v=>v.gender)).size,2);
   for(const voice of selected)assert.ok(voices.some(v=>v.name===voice.name&&v.ssmlGender===voice.gender));
   assert.ok(selected.every(v=>!/(?:Aoede|Kore|Charon)$/.test(v.name)));
+  assert.equal(body.languages.es.defaultVoice,null,'comparison choices never become an automatic replacement for absent Kore');
+  assert.equal(body.languages.es.defaultReason,'approved_voice_unavailable');
 });
 
 test('malformed voices, wrong locales and conflicting duplicates cannot fill a missing candidate',async()=>{
@@ -122,12 +135,73 @@ test('malformed voices, wrong locales and conflicting duplicates cannot fill a m
     {name:'es-ES-Wavenet-F',languageCodes:['es-ES'],ssmlGender:'FEMALE'}
   ]);
   const f=fixture({voices}),body=jsonResult(await f.handler(catalogEvent()),200);
-  assert.equal(body.languages.es.available,false);assert.deepEqual(body.languages.es.chirp,[]);assert.equal(body.languages.es.reason,'insufficient_voices');
+  assert.equal(body.languages.es.available,false);assert.deepEqual(body.languages.es.chirp.map(v=>v.name),['es-ES-Chirp3-HD-Kore']);assert.equal(body.languages.es.reason,'insufficient_voices');
+  assert.equal(body.languages.es.defaultVoice.name,'es-ES-Chirp3-HD-Kore','a valid approved voice remains usable without three comparison voices');
   assert.equal(body.languages.fr.available,true);
-  noStore(await f.handler(event({voice:'es-ES-Chirp3-HD-Kore',lang:'es-ES',text:'Hola.'})),400);assert.equal(f.synth().length,0);
+  noStore(await f.handler(event({voice:'es-ES-Chirp3-HD-Aoede',lang:'es-ES',text:'Hola.'})),400);assert.equal(f.synth().length,0);
   const singleGender=fixture({voices:[providerVoice('es-ES','Aoede','FEMALE'),providerVoice('es-ES','Kore','FEMALE'),providerVoice('es-ES','Autonoe','FEMALE')]});
   const unavailable=jsonResult(await singleGender.handler(catalogEvent()),200).languages.es;
-  assert.equal(unavailable.available,false);assert.deepEqual(unavailable.chirp,[]);
+  assert.equal(unavailable.available,false);assert.deepEqual(unavailable.chirp.map(v=>v.name),['es-ES-Chirp3-HD-Kore']);
+});
+
+test('the seven approved defaults are exact verified members, with one versioned cache URL and no free parameters',async()=>{
+  const f=fixture(),legacy=jsonResult(await f.handler(catalogEvent()),200);
+  const versioned=jsonResult(await f.handler(event({catalog:'chirp3',selectionVersion:SELECTION_VERSION})),200);
+  assert.deepEqual(versioned,legacy);assert.equal(versioned.selectionVersion,SELECTION_VERSION);assert.equal(f.list().length,1);
+  for(const [language,expected] of Object.entries(APPROVED)){
+    const row=versioned.languages[language];
+    assert.deepEqual(row.defaultVoice,{...expected,languageCode:LOCALES[language],engine:'chirp3',rateMode:'client'});
+    assert.equal(row.defaultReason,null);assert.ok(row.chirp.some(v=>JSON.stringify(v)===JSON.stringify(row.defaultVoice)));
+  }
+  for(const params of [{catalog:'chirp3',selectionVersion:'older-version'},{catalog:'chirp3',selectionVersion:''},
+    {catalog:'chirp3',selectionVersion:SELECTION_VERSION,other:'free-param'}])noStore(await f.handler(event(params)),400);
+  assert.equal(f.list().length,1,'invalid versions and free parameters never reach the provider');
+});
+
+test('absent, wrong-gender and conflicting approved IDs never default to another real candidate',async()=>{
+  for(const [language,approved] of Object.entries(APPROVED))for(const scenario of ['missing','wrong-gender','conflict']){
+    const voices=providers().filter(v=>v.name!==approved.name);
+    if(scenario==='wrong-gender'||scenario==='conflict')voices.push({...providerVoice(LOCALES[language],approved.name.split('-').at(-1),approved.gender==='FEMALE'?'MALE':'FEMALE')});
+    if(scenario==='conflict')voices.push(providerVoice(LOCALES[language],approved.name.split('-').at(-1),approved.gender));
+    const f=fixture({voices}),row=jsonResult(await f.handler(catalogEvent()),200).languages[language];
+    assert.equal(row.defaultVoice,null,language+' '+scenario+' never selects another default');
+    assert.equal(row.defaultReason,scenario==='missing'?'approved_voice_unavailable':scenario==='wrong-gender'?'approved_voice_gender_mismatch':'approved_voice_conflict');
+    if(scenario==='missing')noStore(await f.handler(event({voice:approved.name,lang:LOCALES[language],text:'Fixture phrase.'})),400);
+    assert.equal(f.synth().length,0);
+  }
+});
+
+test('one observed approved voice can be synthesized while the three-voice comparison remains unavailable',async()=>{
+  for(const [language,approved] of Object.entries(APPROVED)){
+    const f=fixture({voices:[providerVoice(LOCALES[language],approved.name.split('-').at(-1),approved.gender)]});
+    const row=jsonResult(await f.handler(catalogEvent()),200).languages[language];
+    assert.equal(row.available,false);assert.equal(row.reason,'insufficient_voices');assert.equal(row.defaultReason,null);
+    assert.deepEqual(row.chirp,[row.defaultVoice]);assert.equal(row.defaultVoice.name,approved.name);
+    audioResult(await f.handler(event({voice:approved.name,lang:LOCALES[language],text:'Fixture phrase.',rate:'0.7'})));
+    assert.deepEqual(f.synth().at(-1).body,{input:{text:'Fixture phrase.'},voice:{name:approved.name,languageCode:LOCALES[language]},audioConfig:{audioEncoding:'MP3'}});
+    const alternative=approved.name.endsWith('-Aoede')?'Kore':'Aoede';
+    noStore(await f.handler(event({voice:LOCALES[language]+'-Chirp3-HD-'+alternative,lang:LOCALES[language],text:'Fixture phrase.'})),400);
+    assert.equal(f.synth().length,1);
+  }
+});
+
+test('Mandarin aliases preserve the exact approved cmn-CN Kore among three mixed candidates and never substitute zh-CN',async()=>{
+  const voices=providers().concat(['Aoede','Kore','Charon'].map(name=>providerVoice('zh-CN',name,name==='Charon'?'MALE':'FEMALE')));
+  const f=fixture({voices}),row=jsonResult(await f.handler(catalogEvent()),200).languages.zh;
+  assert.equal(row.available,true);assert.equal(row.chirp.length,3);assert.equal(new Set(row.chirp.map(v=>v.gender)).size,2);
+  assert.equal(row.defaultVoice.name,'cmn-CN-Chirp3-HD-Kore');assert.ok(row.chirp.some(v=>v.name===row.defaultVoice.name));
+  const onlyAlias=fixture({voices:voices.filter(v=>!v.name.startsWith('cmn-CN-'))});
+  const missing=jsonResult(await onlyAlias.handler(catalogEvent()),200).languages.zh;
+  assert.equal(missing.available,true);assert.equal(missing.defaultVoice,null);assert.equal(missing.defaultReason,'approved_voice_unavailable');
+});
+
+test('an approved default disappearing at expiry is not retained or replaced from a previous catalogue',async()=>{
+  const f=fixture();assert.equal(jsonResult(await f.handler(catalogEvent()),200).languages.it.defaultVoice.name,APPROVED.it.name);
+  f.voices=f.voices.filter(v=>v.name!==APPROVED.it.name);f.time+=300000;
+  const current=jsonResult(await f.handler(event({catalog:'chirp3',selectionVersion:SELECTION_VERSION})),200).languages.it;
+  assert.equal(current.defaultVoice,null);assert.equal(current.defaultReason,'approved_voice_unavailable');
+  assert.equal(current.available,true,'three real comparison candidates may remain without changing the owner choice');
+  noStore(await f.handler(event({voice:APPROVED.it.name,lang:'it-IT',text:'Ciao.'})),400);assert.equal(f.synth().length,0);
 });
 
 test('all 21 selected Chirp voices synthesize MP3 only and explicitly leave playback speed to the client',async()=>{

@@ -641,7 +641,8 @@
     ui.voice.disabled = choices.length === 0;
     ui.voice.value = snapshot?.voice?.name || '';
     ui.voice.title = tr(snapshot?.provisional ? 'Voix provisoire de prévisualisation'
-      : snapshot?.selected ? 'Voix enregistrée pour cette langue' : 'Choisir une voix');
+      : snapshot?.selected ? 'Voix enregistrée pour cette langue'
+      : snapshot?.usesApprovedDefault ? 'Voix par défaut' : 'Choisir une voix');
     ui.voice.dataset.provisional = String(!!snapshot?.provisional);
     ui.speed.value = String(state.speechRate);
     if (snapshot?.status === 'error' || snapshot?.status === 'expired') voiceSelection.preload().catch(() => {});

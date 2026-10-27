@@ -117,7 +117,7 @@
         const catalogueStatus = selection.state().status;
         candidate = voiceName === undefined ? selection.getVoice(language)
           : selection.getChoices(language).find(item => item.name === voiceName);
-        provisional = voiceName === undefined && !!candidate && !selection.getSelected(language);
+        provisional = voiceName === undefined && !!candidate && selection.getSnapshot(language).provisional;
         // No delayed play after a catalogue request: a second explicit gesture
         // can retry when preload is ready, without losing mobile activation.
         if (!candidate) {

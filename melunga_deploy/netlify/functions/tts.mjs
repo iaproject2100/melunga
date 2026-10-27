@@ -1,4 +1,4 @@
-import {createChirpCatalogue, CHIRP_LOCALES} from './lib/chirp-catalog.mjs';
+import {createChirpCatalogue, CHIRP_LOCALES, APPROVED_SELECTION_VERSION} from './lib/chirp-catalog.mjs';
 
 const VOICES = Object.freeze({
   'fr-FR-Wavenet-F': { languageCode: 'fr-FR', gender: 'FEMALE' },
@@ -72,7 +72,8 @@ export function createHandler({fetchImpl=(...args) => fetch(...args), now=() => 
 
   const params = event.queryStringParameters || {};
   if (Object.hasOwn(params, 'catalog')) {
-    if (params.catalog !== 'chirp3' || Object.keys(params).some(name => name !== 'catalog')) {
+    if (params.catalog !== 'chirp3' || Object.keys(params).some(name => !['catalog','selectionVersion'].includes(name))
+        || Object.hasOwn(params,'selectionVersion') && params.selectionVersion !== APPROVED_SELECTION_VERSION) {
       return json(event, 400, { error:'invalid_catalogue' });
     }
     try {

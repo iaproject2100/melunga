@@ -1,9 +1,19 @@
-/* Preview-only voice choices come from the live server catalogue. Nothing is
- * selected or published globally: explicit choices stay on this device. */
+/* Approved defaults are verified by the live server catalogue. Explicit
+ * personal choices stay on this device and take priority over those defaults. */
 (() => {
   'use strict';
   const LANGUAGES = Object.freeze(['fr', 'en', 'es', 'zh', 'it', 'ja', 'ko']);
   const STORAGE_KEY = 'melunga-preview-voice-selection-v1';
+  const SELECTION_VERSION = 'kartech-2026-10-27';
+  const APPROVED_DEFAULTS = Object.freeze({
+    fr: Object.freeze({name:'fr-FR-Chirp3-HD-Aoede',gender:'FEMALE'}),
+    en: Object.freeze({name:'en-GB-Chirp3-HD-Kore',gender:'FEMALE'}),
+    es: Object.freeze({name:'es-ES-Chirp3-HD-Kore',gender:'FEMALE'}),
+    zh: Object.freeze({name:'cmn-CN-Chirp3-HD-Kore',gender:'FEMALE'}),
+    it: Object.freeze({name:'it-IT-Chirp3-HD-Charon',gender:'MALE'}),
+    ja: Object.freeze({name:'ja-JP-Chirp3-HD-Kore',gender:'FEMALE'}),
+    ko: Object.freeze({name:'ko-KR-Chirp3-HD-Kore',gender:'FEMALE'})
+  });
   const listeners = new Set();
   let catalogue = null, pending = null, status = 'idle', error = null;
   let selected = Object.create(null);
@@ -54,6 +64,7 @@
   }
   function validateCatalogue(data) {
     if (data?.version !== 1 || data.previewOnly !== true || data.source !== 'google-voices-list'
+      || data.selectionVersion !== SELECTION_VERSION
       || !data.languages || typeof data.languages !== 'object'
       || !Number.isFinite(Date.parse(data.verifiedAt)) || !Number.isFinite(Date.parse(data.expiresAt))
       || Date.parse(data.expiresAt) <= Date.now() || Date.parse(data.verifiedAt) > Date.parse(data.expiresAt)
@@ -66,17 +77,32 @@
       }
       const waveNet = validateVoice(row.waveNet, language, 'wavenet');
       const chirp = row.chirp.map(candidate => validateVoice(candidate, language, 'chirp3'));
-      if (row.available ? chirp.length !== 3 || new Set(chirp.map(v => v.gender)).size !== 2 : chirp.length !== 0) {
+      if (row.available ? chirp.length !== 3 || new Set(chirp.map(v => v.gender)).size !== 2 : chirp.length > 1) {
         throw new Error('Invalid voice catalogue availability');
       }
       for (const candidate of [waveNet, ...chirp]) {
         if (names.has(candidate.name)) throw new Error('Duplicate voice catalogue candidate');
         names.add(candidate.name);
       }
+      let defaultVoice = null;
+      if (row.defaultVoice !== undefined && row.defaultVoice !== null) {
+        const approved = APPROVED_DEFAULTS[language];
+        const candidate = validateVoice(row.defaultVoice, language, 'chirp3');
+        defaultVoice = chirp.find(voice => ['name','languageCode','gender','engine','rateMode']
+          .every(field => voice[field] === candidate[field]));
+        if (!defaultVoice || candidate.name !== approved.name || candidate.gender !== approved.gender) {
+          throw new Error('Invalid approved default voice');
+        }
+      }
+      if (!row.available && chirp.length === 1 && defaultVoice !== chirp[0]) {
+        throw new Error('Incomplete comparison may only retain its approved default');
+      }
       languages[language] = Object.freeze({language, available: row.available, waveNet,
-        chirp: Object.freeze(chirp), ...(typeof row.reason === 'string' ? {reason: row.reason} : {})});
+        chirp: Object.freeze(chirp), defaultVoice,
+        ...(typeof row.reason === 'string' ? {reason: row.reason} : {}),
+        ...(typeof row.defaultReason === 'string' ? {defaultReason: row.defaultReason} : {})});
     }
-    return Object.freeze({version: 1, previewOnly: true, source: data.source,
+    return Object.freeze({version: 1, previewOnly: true, source: data.source, selectionVersion: SELECTION_VERSION,
       verifiedAt: data.verifiedAt, expiresAt: data.expiresAt, languages: Object.freeze(languages)});
   }
   const fresh = () => catalogue && Date.parse(catalogue.expiresAt) > Date.now();
@@ -93,7 +119,7 @@
     status = 'loading'; error = null;
     pending = Promise.resolve().then(() => {
       if (typeof window.fetch !== 'function') throw new Error('Voice catalogue unavailable');
-      return window.fetch(endpointBase + '/.netlify/functions/tts?catalog=chirp3',
+      return window.fetch(endpointBase + '/.netlify/functions/tts?catalog=chirp3&selectionVersion=' + encodeURIComponent(SELECTION_VERSION),
         {method: 'GET', credentials: endpointBase ? 'omit' : 'same-origin', cache: 'no-store'});
     }).then(response => {
       if (!response?.ok) throw new Error('Voice catalogue unavailable');
@@ -117,12 +143,18 @@
   }
   function getVoice(language) {
     if (!LANGUAGES.includes(language) || !fresh()) return null;
-    return getSelected(language) || catalogue.languages[language].chirp[0] || null;
+    return getSelected(language) || catalogue.languages[language].defaultVoice;
   }
   function getSnapshot(language) {
     const choice = getSelected(language), voice = getVoice(language);
+    const defaultVoice = LANGUAGES.includes(language) && fresh() ? catalogue.languages[language].defaultVoice : null;
+    const sourceMetadata = fresh() ? Object.freeze({source: catalogue.source,
+      selectionVersion: catalogue.selectionVersion, verifiedAt: catalogue.verifiedAt, expiresAt: catalogue.expiresAt,
+      choiceSource: choice ? 'local' : defaultVoice ? 'approved-default' : null}) : null;
     return Object.freeze({status: state().status, language, choices: getChoices(language),
-      selected: choice, voice, provisional: !!voice && !choice});
+      selected: choice, voice, provisional: false, defaultVoice,
+      approvedDefault: defaultVoice,
+      usesApprovedDefault: !!voice && !choice && voice.name === defaultVoice?.name, sourceMetadata});
   }
   function setVoice(language, name) {
     if (!LANGUAGES.includes(language) || !getChoices(language).some(candidate => candidate.name === name)) return false;

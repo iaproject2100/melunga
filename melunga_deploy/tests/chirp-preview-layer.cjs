@@ -10,8 +10,9 @@ const {execFileSync} = require('node:child_process');
 const ROOT = path.resolve(__dirname, '../..');
 const WEB = path.join(ROOT, 'melunga_deploy');
 const BASE = '4fafe31271df3d5e7b601f41ee9056511860bd17';
+const APPROVED_SELECTION_VERSION = 'kartech-2026-10-27';
 const FIXTURE = 'melunga_deploy/tests/fixtures/chirp-preview-layer.json';
-const FIXTURE_SHA256 = '4657c25aee96a719d8ab48f517ded65c1599737e194d858590c9f8414c6020cf';
+const FIXTURE_SHA256 = '9ecded1e6a58517975f3bb45ed03370002101e4e63ade46dadaddeb8faec84f5';
 const MODIFIED = Object.freeze(['app.html', 'maquette-guidee.js', 'maquette-guidee.html', 'parcours-niveaux.html',
   'lesson-audio.js', 'course-i18n.js', 'content/course-locales/supplements.json', 'netlify/functions/tts.mjs'].map(f => 'melunga_deploy/' + f));
 const ADDED = Object.freeze(['voice-selection.js', 'comparaison-voix.html', 'voice-comparison.css', 'voice-comparison.js',
@@ -60,6 +61,7 @@ function fixture() {
   assert.equal(sha(raw), FIXTURE_SHA256, 'whole finite Chirp fixture is pinned');
   const f = JSON.parse(raw);
   assert.equal(f.version, 1); assert.equal(f.id, 'chirp-preview-exact-layer'); assert.equal(f.baseCommit, BASE);
+  assert.equal(f.selectionVersion, APPROVED_SELECTION_VERSION, 'the frozen voice defaults record the owner decision');
   assert.deepEqual(Object.keys(f.modifiedFiles).sort(), [...MODIFIED].sort(), 'only explicit Chirp sources may be projected');
   assert.deepEqual(Object.keys(f.newFiles).sort(), [...ADDED].sort(), 'only explicit Chirp assets may be added');
   assert.equal(f.patchPath, 'melunga_deploy/tests/fixtures/chirp-preview-layer.patch');
@@ -87,6 +89,8 @@ function sourceFunction(source, name) {
   throw Error('Unclosed source function ' + name);
 }
 function assertInvariants() {
+  assert.ok(actual('melunga_deploy/voice-selection.js').toString().includes("const SELECTION_VERSION = '" + APPROVED_SELECTION_VERSION + "';"), 'actual client records the approved voice selection version');
+  assert.ok(actual('melunga_deploy/netlify/functions/lib/chirp-catalog.mjs').toString().includes("export const APPROVED_SELECTION_VERSION = '" + APPROVED_SELECTION_VERSION + "';"), 'actual server records the approved voice selection version');
   const app = actual('melunga_deploy/app.html').toString(), oldApp = baseline('melunga_deploy/app.html').toString();
   for (const name of ['DECKS', 'PEDAGOGY_FAMILIES']) {
     const lines = source => source.split('\n').filter(line => line.startsWith('var ' + name + ' = '));
@@ -124,7 +128,7 @@ function validate({force = false} = {}) {
   const diff = execFileSync('git', ['diff', '--binary', '--no-ext-diff', '--no-textconv', '--unified=0', BASE, '--', ...MODIFIED], {cwd: ROOT, maxBuffer: 32 * 1024 * 1024});
   assert.ok(diff.equals(patch), 'actual complete Chirp delta equals its exact frozen patch');
   const invariants = assertInvariants();
-  const summary = Object.freeze({layer: 'Chirp-preview', baseCommit: BASE, fixtureSha256: FIXTURE_SHA256, modifiedFiles: MODIFIED.length, newFiles: ADDED.length, runtimeJson: runtime.length, ...invariants});
+  const summary = Object.freeze({layer: 'Chirp-preview', baseCommit: BASE, selectionVersion: APPROVED_SELECTION_VERSION, fixtureSha256: FIXTURE_SHA256, modifiedFiles: MODIFIED.length, newFiles: ADDED.length, runtimeJson: runtime.length, ...invariants});
   cache = {summary, reader: fs.readFileSync, lister: fs.readdirSync, stamps: new Map(files.map(file => [file, stamp(file)]))};
   return summary;
 }

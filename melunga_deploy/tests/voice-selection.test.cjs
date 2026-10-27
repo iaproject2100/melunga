@@ -8,20 +8,28 @@ const vm = require('node:vm');
 const source = fs.readFileSync(path.join(__dirname, '../voice-selection.js'), 'utf8');
 const NOW = Date.parse('2026-10-27T12:00:00Z');
 const STORAGE_KEY = 'melunga-preview-voice-selection-v1';
+const SELECTION_VERSION = 'kartech-2026-10-27';
+const CATALOGUE_PATH = '/.netlify/functions/tts?catalog=chirp3&selectionVersion='+SELECTION_VERSION;
+const approved = {
+  fr:['fr-FR-Chirp3-HD-Aoede','FEMALE'],en:['en-GB-Chirp3-HD-Kore','FEMALE'],
+  es:['es-ES-Chirp3-HD-Kore','FEMALE'],zh:['cmn-CN-Chirp3-HD-Kore','FEMALE'],
+  it:['it-IT-Chirp3-HD-Charon','MALE'],ja:['ja-JP-Chirp3-HD-Kore','FEMALE'],ko:['ko-KR-Chirp3-HD-Kore','FEMALE']
+};
 const definitions = {
   fr:['fr-FR','F'],en:['en-GB','C'],es:['es-ES','F'],zh:['cmn-CN','A'],
   it:['it-IT','E'],ja:['ja-JP','B'],ko:['ko-KR','A']
 };
 const copy = value => JSON.parse(JSON.stringify(value));
 function catalogue() {
-  return {version:1, source:'google-voices-list', previewOnly:true,
+  return {version:1, source:'google-voices-list', previewOnly:true,selectionVersion:SELECTION_VERSION,
     verifiedAt:new Date(NOW).toISOString(), expiresAt:new Date(NOW+300000).toISOString(),
-    languages:Object.fromEntries(Object.entries(definitions).map(([language,[locale,suffix]])=>[language,{
-      language, available:true,
-      waveNet:{name:locale+'-Wavenet-'+suffix,languageCode:locale,gender:'FEMALE',engine:'wavenet',rateMode:'server'},
-      chirp:[['Aoede','FEMALE'],['Kore','FEMALE'],['Charon','MALE']].map(([name,gender])=>({
-        name:locale+'-Chirp3-HD-'+name,languageCode:locale,gender,engine:'chirp3',rateMode:'client'}))
-    }]))};
+    languages:Object.fromEntries(Object.entries(definitions).map(([language,[locale,suffix]])=>{
+      const chirp=[['Aoede','FEMALE'],['Kore','FEMALE'],['Charon','MALE']].map(([name,gender])=>({
+        name:locale+'-Chirp3-HD-'+name,languageCode:locale,gender,engine:'chirp3',rateMode:'client'}));
+      return [language,{language,available:true,
+        waveNet:{name:locale+'-Wavenet-'+suffix,languageCode:locale,gender:'FEMALE',engine:'wavenet',rateMode:'server'},
+        chirp,defaultVoice:chirp.find(voice=>voice.name===approved[language][0])}];
+    }))};
 }
 function fixture({data=catalogue(),storage=new Map(),storageFails=false,networkFails=false,status=200,protocol='https:',hostname='preview.test',native=false,bridgeAbsent=false}={}) {
   const f={calls:[],writes:[],listeners:{},now:NOW,storage,networkFails};
@@ -39,15 +47,18 @@ function fixture({data=catalogue(),storage=new Map(),storageFails=false,networkF
   f.api=context.MelungaVoiceSelection;return f;
 }
 
-test('catalogue preloads once before a play gesture, exposes seven real response maps and never saves a default',async()=>{
+test('a fresh profile uses the seven exact approved defaults without writing local favourites',async()=>{
   const f=fixture();assert.equal(f.api.getVoice('es'),null);
   const pending=f.api.ready();assert.equal(f.api.ready(),pending);await pending;
-  assert.equal(f.calls.length,1);assert.equal(f.calls[0].url,'/.netlify/functions/tts?catalog=chirp3');
+  assert.equal(f.calls.length,1);assert.equal(f.calls[0].url,CATALOGUE_PATH);
   assert.equal(f.api.state().status,'ready');
   for(const language of Object.keys(definitions)){
     const snapshot=f.api.getSnapshot(language);
-    assert.equal(snapshot.choices.length,4);assert.equal(snapshot.selected,null);assert.equal(snapshot.provisional,true);
-    assert.equal(snapshot.voice.name,catalogue().languages[language].chirp[0].name);
+    assert.equal(snapshot.choices.length,4);assert.equal(snapshot.selected,null);assert.equal(snapshot.provisional,false);
+    assert.equal(snapshot.voice.name,approved[language][0]);assert.equal(snapshot.voice.gender,approved[language][1]);
+    assert.equal(snapshot.usesApprovedDefault,true);assert.equal(snapshot.approvedDefault.name,approved[language][0]);
+    assert.equal(snapshot.defaultVoice.name,approved[language][0]);
+    assert.equal(snapshot.sourceMetadata.selectionVersion,SELECTION_VERSION);assert.equal(snapshot.sourceMetadata.choiceSource,'approved-default');
     assert.equal(snapshot.voice.engine,'chirp3');assert.equal(snapshot.voice.rateMode,'client');
   }
   assert.deepEqual(f.writes,[]);assert.equal(f.api.getVoice('de'),null);assert.equal(f.api.getChoices('__proto__').length,0);
@@ -58,6 +69,7 @@ test('explicit local favourites are independent by language, survive reload and 
   const es=f.api.getChoices('es')[3],fr=f.api.getChoices('fr')[0];
   assert.equal(f.api.setVoice('es',es.name),true);assert.equal(f.api.getSelected('es').name,es.name);
   assert.equal(f.api.getSelected('fr'),null);assert.equal(f.api.getSnapshot('es').provisional,false);
+  assert.equal(f.api.getSnapshot('es').usesApprovedDefault,false);assert.equal(f.api.getSnapshot('es').sourceMetadata.choiceSource,'local');
   assert.equal(f.api.setVoice('es',fr.name),false);assert.equal(f.api.setVoice('es','unverified-provider-id'),false);
   assert.equal(f.api.setVoice('__proto__',fr.name),false);assert.equal(f.writes.length,1);
   assert.equal(f.api.setVoice('fr',fr.name),true);assert.equal(f.api.getVoice('fr').engine,'wavenet');
@@ -83,6 +95,9 @@ test('malformed or stale stored identities never become a selection, and blocked
 test('invalid, cross-language, duplicate or expired provider catalogues fail closed',async()=>{
   const mutations=[
     data=>{data.previewOnly=false;},data=>{delete data.languages.ko;},
+    data=>{delete data.selectionVersion;},data=>{data.selectionVersion='unapproved-version';},
+    data=>{data.languages.es.defaultVoice=copy(data.languages.es.chirp[0]);},
+    data=>{data.languages.it.defaultVoice.gender='FEMALE';},
     data=>{data.languages.es.chirp[0].languageCode='fr-FR';},
     data=>{data.languages.es.chirp[0].languageCode='es-MX';},
     data=>{data.languages.es.chirp[0].name='fr-FR-Chirp3-HD-Aoede';},
@@ -103,7 +118,7 @@ test('provider errors and missing candidates permit retry without a French or un
   const f=fixture({networkFails:true});await assert.rejects(f.api.ready());
   assert.equal(f.api.getChoices('es').length,0);assert.equal(f.api.getVoice('es'),null);
   f.networkFails=false;await f.api.ready();assert.equal(f.api.getVoice('es').languageCode,'es-ES');
-  const data=catalogue();data.languages.es.available=false;data.languages.es.chirp=[];data.languages.es.reason='insufficient_voices';
+  const data=catalogue();data.languages.es.available=false;data.languages.es.chirp=[];data.languages.es.defaultVoice=null;data.languages.es.reason='insufficient_voices';
   const unavailable=fixture({data});await unavailable.api.ready();
   assert.equal(unavailable.api.getVoice('es'),null);assert.equal(unavailable.api.getChoices('es').length,1);
   assert.equal(unavailable.api.getSnapshot('es').provisional,false);
@@ -115,20 +130,20 @@ test('expiry requires a refreshed catalogue and native containers use the existi
   assert.equal(f.api.getVoice('es'),null);await assert.rejects(f.api.ready());
   for(const options of [{protocol:'file:'},{protocol:'capacitor:',bridgeAbsent:true},{native:true}]){
     const n=fixture(options);await n.api.ready();
-    assert.equal(n.calls[0].url,'https://melunga.com/.netlify/functions/tts?catalog=chirp3');
+    assert.equal(n.calls[0].url,'https://melunga.com'+CATALOGUE_PATH);
     assert.equal(n.calls[0].options.credentials,'omit');
   }
 });
 
 test('HTTPS localhost uses the public native endpoint even before the Capacitor bridge exists',async()=>{
   const f=fixture({protocol:'https:',hostname:'localhost',bridgeAbsent:true});await f.api.ready();
-  assert.equal(f.calls[0].url,'https://melunga.com/.netlify/functions/tts?catalog=chirp3');
+  assert.equal(f.calls[0].url,'https://melunga.com'+CATALOGUE_PATH);
   assert.equal(f.calls[0].options.credentials,'omit');assert.equal(f.api.state().endpointBase,'https://melunga.com');
 });
 
 test('HTTP localhost development keeps the same-origin endpoint without a native bridge',async()=>{
   const f=fixture({protocol:'http:',hostname:'localhost',bridgeAbsent:true});await f.api.ready();
-  assert.equal(f.calls[0].url,'/.netlify/functions/tts?catalog=chirp3');
+  assert.equal(f.calls[0].url,CATALOGUE_PATH);
   assert.equal(f.calls[0].options.credentials,'same-origin');assert.equal(f.api.state().endpointBase,'');
 });
 
@@ -148,4 +163,28 @@ test('read-only getters never start a fetch and reentrant subscribers reuse the 
   f.networkFails=false;await f.api.preload();assert.equal(f.calls.length,2);assert.equal(notifications,2);
   f.now=NOW+300001;assert.equal(f.api.getVoice('es'),null);assert.equal(f.api.getSnapshot('es').status,'expired');
   assert.equal(f.calls.length,2,'expired getters remain side-effect free');
+});
+
+test('a missing approved default never falls back to the first candidate, while explicit personal choices still work',async()=>{
+  for(const language of Object.keys(definitions))for(const missing of [true,false]){
+    const data=catalogue();if(missing)delete data.languages[language].defaultVoice;else data.languages[language].defaultVoice=null;
+    const f=fixture({data});await f.api.ready();const snapshot=f.api.getSnapshot(language);
+    assert.equal(snapshot.voice,null);assert.equal(snapshot.defaultVoice,null);assert.equal(snapshot.approvedDefault,null);assert.equal(snapshot.usesApprovedDefault,false);
+    assert.equal(snapshot.sourceMetadata.choiceSource,null);assert.equal(f.writes.length,0);
+    const explicit=f.api.getChoices(language)[1];assert.equal(f.api.setVoice(language,explicit.name),true);
+    assert.equal(f.api.getVoice(language).name,explicit.name);assert.equal(f.api.getSnapshot(language).sourceMetadata.choiceSource,'local');
+    assert.equal(f.api.clearVoice(language),true);assert.equal(f.api.getVoice(language),null);
+  }
+});
+
+test('a verified approved default works alone when three-way comparison is unavailable, but an unapproved singleton is rejected',async()=>{
+  for(const language of Object.keys(definitions)){
+    const data=catalogue(),row=data.languages[language];row.available=false;row.chirp=[row.defaultVoice];
+    const f=fixture({data});await f.api.ready();assert.equal(f.api.getVoice(language).name,approved[language][0]);
+    assert.equal(f.api.getChoices(language).length,2);assert.equal(f.api.getSnapshot(language).usesApprovedDefault,true);assert.equal(f.writes.length,0);
+    const invalid=catalogue();invalid.languages[language].available=false;
+    invalid.languages[language].chirp=[invalid.languages[language].chirp.find(candidate=>candidate.name!==approved[language][0])];
+    invalid.languages[language].defaultVoice=null;
+    await assert.rejects(fixture({data:invalid}).api.ready());
+  }
 });

@@ -15,6 +15,11 @@ const ORIGIN = 'https://deploy-preview-999--chic-dragon-e2baf2.netlify.app';
 const PAGE = '/comparaison-voix.html';
 const ANDROID = 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36';
 const STORAGE = 'melunga-preview-voice-selection-v1';
+const SELECTION_VERSION = 'kartech-2026-10-27';
+const APPROVED_DEFAULTS = Object.freeze({
+  fr: 'fr-FR-Chirp3-HD-Aoede', en: 'en-GB-Chirp3-HD-Kore', es: 'es-ES-Chirp3-HD-Kore',
+  zh: 'cmn-CN-Chirp3-HD-Kore', it: 'it-IT-Chirp3-HD-Charon', ja: 'ja-JP-Chirp3-HD-Kore', ko: 'ko-KR-Chirp3-HD-Kore'
+});
 const LANGUAGES = ['fr', 'en', 'es', 'zh', 'it', 'ja', 'ko'];
 const VOICES = {
   fr: ['fr-FR', 'fr-FR-Wavenet-F'], en: ['en-GB', 'en-GB-Wavenet-C'],
@@ -41,7 +46,7 @@ function productFiles() {
 const fingerprint = () => Object.fromEntries([__filename, ...productFiles().map(f => path.join(WEB, f))].sort().map(f => [path.relative(ROOT, f), sha(fs.readFileSync(f))]));
 const reportPath = process.env.CHIRP_COMPARISON_REPORT || '/tmp/melunga-chirp-comparison-browser.json';
 const captures = process.env.CHIRP_COMPARISON_CAPTURES || '/tmp/melunga-chirp-comparison-browser';
-const required = ['preserved-content-and-prices', 'seven-language-comparisons', 'errors-and-partial-catalogue', 'selection-export-and-modern-lesson', 'classic-choice-and-wave-net', 'short-screen-layout'];
+const required = ['preserved-content-and-prices', 'seven-language-comparisons', 'errors-and-partial-catalogue', 'selection-export-and-modern-lesson', 'classic-choice-and-wave-net', 'approved-defaults-in-both-readers', 'missing-approved-default-never-substitutes', 'short-screen-layout'];
 const report = {status: 'running', baseCommit: BASE, environment: 'Chromium Linux headless; Android touch/viewport/user-agent emulation',
   chromiumExecutable: process.env.CHROMIUM_PATH || '/usr/bin/chromium', webkitInstalled: fs.existsSync(webkit.executablePath()),
   safariTested: false, physicalAndroidTested: false, physicalIPhoneTested: false, installedPwaTested: false, hardwareMuteSwitchTested: false,
@@ -59,24 +64,29 @@ after(async () => {
   assert.equal(report.inputsStable, true, 'product inputs were frozen throughout independent QA');
   assert.deepEqual(report.errors, []); assert.deepEqual(report.unexpected, []); assert.deepEqual(report.missingChecks, []);
 });
-function catalogue({unavailable = []} = {}) {
+function catalogue({unavailable = [], missingDefaults = [], defaultOnly = []} = {}) {
   const now = Date.now();
-  return {version: 1, source: 'google-voices-list', previewOnly: true, verifiedAt: new Date(now - 1000).toISOString(), expiresAt: new Date(now + 240000).toISOString(),
+  return {version: 1, source: 'google-voices-list', previewOnly: true, selectionVersion: SELECTION_VERSION, verifiedAt: new Date(now - 1000).toISOString(), expiresAt: new Date(now + 240000).toISOString(),
     languages: Object.fromEntries(LANGUAGES.map(language => {
       const [languageCode, waveName] = VOICES[language];
       // Deliberately vary the gender distribution. The UI must describe records,
       // rather than assume a fixed female/male order from these fixture names.
-      const candidates = language === 'en' ? [['Charon', 'MALE'], ['Aoede', 'FEMALE'], ['Fenrir', 'MALE']]
+      const candidates = language === 'en' ? [['Charon', 'MALE'], ['Kore', 'FEMALE'], ['Fenrir', 'MALE']]
         : [['Aoede', 'FEMALE'], ['Kore', 'FEMALE'], ['Charon', 'MALE']];
-      const available = !unavailable.includes(language);
+      const available = !unavailable.includes(language) && !defaultOnly.includes(language);
+      let chirp = unavailable.includes(language) ? [] : candidates.map(([name, gender]) => ({name: languageCode + '-Chirp3-HD-' + name, languageCode, gender, engine: 'chirp3', rateMode: 'client'}));
+      if (missingDefaults.includes(language)) chirp = chirp.map(voice => voice.name === APPROVED_DEFAULTS[language]
+        ? {...voice, name: languageCode + '-Chirp3-HD-Zephyr', gender: 'FEMALE'} : voice);
+      const defaultVoice = chirp.find(voice => voice.name === APPROVED_DEFAULTS[language]) || null;
+      if (defaultOnly.includes(language)) chirp = defaultVoice ? [defaultVoice] : [];
       return [language, {language, available, waveNet: {name: waveName, languageCode, gender: 'FEMALE', engine: 'wavenet', rateMode: 'server'},
-        chirp: available ? candidates.map(([name, gender]) => ({name: languageCode + '-Chirp3-HD-' + name, languageCode, gender, engine: 'chirp3', rateMode: 'client'})) : [],
+        chirp, defaultVoice, defaultReason: defaultVoice ? null : 'approved_voice_unavailable',
         ...(!available ? {reason: 'insufficient_voices'} : {})}];
     }))};
 }
-async function fixture({width = 390, height = 844, android = true, mode = 'ready', unavailable = [], saved = null, entry = PAGE} = {}) {
+async function fixture({width = 390, height = 844, android = true, mode = 'ready', unavailable = [], missingDefaults = [], defaultOnly = [], saved = null, entry = PAGE} = {}) {
   const context = await browser.newContext({viewport: {width, height}, userAgent: android ? ANDROID : undefined, isMobile: android, hasTouch: android, reducedMotion: 'reduce', serviceWorkers: 'block', acceptDownloads: true});
-  const f = {context, catalogue: catalogue({unavailable}), catalogueStatus: mode === 'failed' ? 503 : 200, catalogueGets: 0, navigation: []};
+  const f = {context, catalogue: catalogue({unavailable, missingDefaults, defaultOnly}), catalogueStatus: mode === 'failed' ? 503 : 200, catalogueGets: 0, navigation: []};
   await context.addInitScript(({saved, key}) => {
     if (!localStorage.getItem('__chirpQASeed')) {
       localStorage.setItem('__chirpQASeed', '1'); localStorage.setItem('ox_device', 'chirp-independent-fixture');
@@ -124,7 +134,9 @@ async function fixture({width = 390, height = 844, android = true, mode = 'ready
       report.unexpected.push({origin: url.origin, path: url.pathname, method: req.method()}); return route.abort();
     }
     if (url.pathname === '/.netlify/functions/tts' && req.method() === 'GET' && url.searchParams.get('catalog') === 'chirp3') {
-      f.catalogueGets++; report.api.push({path: url.pathname, kind: 'catalogue', status: f.catalogueStatus});
+      assert.equal(url.searchParams.get('selectionVersion'), SELECTION_VERSION, 'catalogue URL pins the approved selection edition');
+      assert.deepEqual([...url.searchParams.keys()].sort(), ['catalog', 'selectionVersion']);
+      f.catalogueGets++; report.api.push({path: url.pathname, kind: 'catalogue', status: f.catalogueStatus, selectionVersion: url.searchParams.get('selectionVersion')});
       return route.fulfill({status: f.catalogueStatus, json: f.catalogueStatus === 200 ? f.catalogue : {error: 'tts_catalogue_unavailable'}});
     }
     if (url.pathname === '/.netlify/functions/check-status' && req.method() === 'GET') return route.fulfill({json: {paid: false}});
@@ -150,10 +162,9 @@ async function emit(page, id, type, stale = false) {await page.evaluate(({id, ty
 function request(play) {const u = new URL(play.src); assert.equal(u.origin, ORIGIN); assert.equal(u.pathname, '/.netlify/functions/tts'); assert.deepEqual([...u.searchParams.keys()].sort(), ['lang', 'rate', 'text', 'voice']); return {voice: u.searchParams.get('voice'), languageCode: u.searchParams.get('lang'), text: u.searchParams.get('text'), rate: Number(u.searchParams.get('rate'))};}
 async function assertSingleMedia(page) {const s = await media(page); assert.ok(s.records.filter(r => !r.paused && !r.ended && r.src).length <= 1, 'only one media remains active'); assert.equal(s.speech.length, 0, 'no browser voice replaces a comparison'); return s;}
 async function shot(page, name) {const file = path.join(captures, name + '.png'); await page.screenshot({path: file, animations: 'disabled'}); report.screenshots.push(file);}
-async function firstModernLesson(page, pair) {await page.waitForFunction(pair => window.MelungaMockup?.state().screen === 'themes' && window.MelungaMockup.state().pairId === pair, pair); await page.locator('#mgThemeGrid .mg-theme:not([data-access="paid"])').first().click(); await page.waitForFunction(() => window.MelungaMockup.state().screen === 'lesson'); await settled(page);}
+async function firstModernLesson(page, pair) {await page.waitForFunction(pair => window.MelungaMockup?.state().screen === 'themes' && window.MelungaMockup.state().pairId === pair, pair); await page.locator('#mgThemeGrid .mg-theme:not([data-access="paid"])').first().click(); await page.waitForFunction(() => window.MelungaMockup.state().screen === 'lesson'); await page.waitForFunction(() => window.MelungaVoiceSelection?.state().status === 'ready'); await settled(page);}
 async function modernVoiceMenu(page) {if (await page.locator('#mgMenuTrigger').isVisible()) {await page.locator('#mgMenuTrigger').click(); await page.locator('#mgMenuNav [data-menu-item="voice"]').click();} else await page.locator('#mgDesktopNav [data-menu-item="voice"]').click(); await page.locator('#mgVoicePanel').waitFor({state: 'visible'});}
 
-// Assertions are appended once the product DOM/export contract is frozen.
 
 test('card sources, classic literals and payment contracts stay identical before the voice preview', () => checked('preserved-content-and-prices', async () => {
   assert.equal(canonicalFiles.length, 78);
@@ -295,7 +306,8 @@ test('explicit choices persist, export exact names and route the modern lesson t
 }));
 
 test('classic and modern readers honor an explicit WaveNet or Chirp preference without applying speed twice', {timeout: 90000}, () => checked('classic-choice-and-wave-net', async () => {
-  const data = catalogue(), chirp = data.languages.es.chirp[1], wave = data.languages.es.waveNet;
+  const data = catalogue(), chirp = data.languages.es.chirp.find(voice => voice.name !== APPROVED_DEFAULTS.es && voice.gender === 'MALE'), wave = data.languages.es.waveNet;
+  assert.ok(chirp && chirp.name !== APPROVED_DEFAULTS.es, 'classic explicit choice must differ from its approved default');
   const f = await fixture({width: 1366, height: 900, android: false, saved: {version: 1, choices: {es: chirp.name}}, entry: '/app.html?classic=1&start=1&lang=fr&study=es'});
   try {
     const p = f.page; await p.waitForFunction(() => window.MelungaVoiceSelection?.state().status === 'ready' && typeof lang === 'string' && lang === 'es' && typeof pool !== 'undefined' && pool.length > 0);
@@ -312,6 +324,73 @@ test('classic and modern readers honor an explicit WaveNet or Chirp preference w
     assert.deepEqual(request(play), {voice: wave.name, languageCode: wave.languageCode, text: studied, rate: 0.75}); assert.equal(play.playbackRate, 1);
     report.cases.push({name: 'classic-and-modern-preference-speed', chirpVoice: chirp.name, classicSlowRate: 0.75, classicSlowExercisedVia: 'existing controller; legacy speed control is hidden', waveNetVoice: wave.name, waveNetServerRate: 0.75, rateAppliedOnce: true});
   } finally {await f.context.close();}
+}));
+
+test('fresh devices use the seven approved defaults in both readers without writing personal favorites', {timeout: 150000}, () => checked('approved-defaults-in-both-readers', async () => {
+  for (const language of LANGUAGES) {
+    const pair = language === 'fr' ? 'zh-fr' : 'fr-' + language;
+    for (const reader of ['modern', 'classic']) {
+      const entry = reader === 'modern' ? '/parcours-niveaux.html?pair=' + pair + '&level=1'
+        : '/app.html?classic=1&start=1&lang=' + pair.split('-')[0] + '&study=' + language;
+      const f = await fixture({entry, width: reader === 'classic' ? 1366 : 390, height: 844, android: reader !== 'classic'});
+      try {
+        const p = f.page;
+        if (reader === 'modern') await firstModernLesson(p, pair);
+        else await p.waitForFunction(language => window.MelungaVoiceSelection?.state().status === 'ready'
+          && typeof lang === 'string' && lang === language && typeof pool !== 'undefined' && pool.length > 0, language);
+        await p.waitForFunction(() => window.MelungaVoiceSelection?.state().status === 'ready');
+        const before = await media(p); assert.equal(before.selected, null, 'approved defaults are not personal storage choices');
+        const snapshot = await p.evaluate(language => window.MelungaVoiceSelection.getSnapshot(language), language);
+        assert.equal(snapshot.selected, null); assert.equal(snapshot.voice.name, APPROVED_DEFAULTS[language]);
+        assert.equal(snapshot.defaultVoice.name, APPROVED_DEFAULTS[language]); assert.equal(snapshot.approvedDefault.name, APPROVED_DEFAULTS[language]); assert.equal(snapshot.usesApprovedDefault, true); assert.equal(snapshot.provisional, false);
+        assert.equal(snapshot.sourceMetadata.selectionVersion, SELECTION_VERSION); assert.equal(snapshot.sourceMetadata.choiceSource, 'approved-default');
+        assert.equal(snapshot.voice.gender, language === 'it' ? 'MALE' : 'FEMALE');
+        await p.locator(reader === 'modern' ? '#mgListen' : '#listen').click(); await settled(p);
+        const current = await assertSingleMedia(p), played = current.plays.at(-1), sent = request(played);
+        assert.equal(sent.voice, APPROVED_DEFAULTS[language], language + ' ' + reader + ' uses the approved voice, not the first candidate');
+        assert.equal(sent.languageCode, VOICES[language][0]); assert.equal(sent.rate, 1);
+        assert.equal(played.playbackRate, reader === 'modern' ? 0.85 : 1);
+        assert.equal(current.selected, null); assert.equal(current.speech.length, 0);
+        assert.equal(await p.evaluate(() => localStorage.getItem('melunga-guided-known-v1')), null);
+        assert.equal(await p.evaluate(() => localStorage.getItem('melunga-guided-review-v1')), null);
+        report.cases.push({name: 'fresh-device-approved-default', language, reader, voice: sent.voice, languageCode: sent.languageCode,
+          gender: snapshot.voice.gender, selectionVersion: SELECTION_VERSION, choiceSource: 'approved-default', personalFavoriteWritten: false});
+      } finally {await f.context.close();}
+    }
+  }
+}));
+
+test('an unavailable approved voice never silently switches to another Chirp and an incomplete comparison may retain its verified default', {timeout: 60000}, () => checked('missing-approved-default-never-substitutes', async () => {
+  {
+    const f = await fixture({missingDefaults: ['es'], entry: '/parcours-niveaux.html?pair=fr-es&level=1'});
+    try {
+      const p = f.page; await firstModernLesson(p, 'fr-es'); await p.waitForFunction(() => window.MelungaVoiceSelection?.state().status === 'ready');
+      const snapshot = await p.evaluate(() => window.MelungaVoiceSelection.getSnapshot('es'));
+      assert.equal(snapshot.defaultVoice, null); assert.equal(snapshot.voice, null); assert.equal(snapshot.selected, null); assert.equal(snapshot.choices.length, 4);
+      await p.locator('#mgListen').click(); await settled(p); const s = await media(p);
+      assert.equal(s.plays.length, 0); assert.equal(s.speech.length, 0); assert.equal(s.selected, null);
+      assert.match(await p.locator('#mgStatus').textContent(), /Audio indisponible/i);
+      await p.goto(ORIGIN + PAGE); await readyPage(f); assert.equal(await p.locator('[data-select]:checked').count(), 0);
+      const explicit = f.catalogue.languages.es.waveNet;
+      await radio(p, 'es', explicit.name).check();
+      await p.goto(ORIGIN + '/parcours-niveaux.html?pair=fr-es&level=1'); await firstModernLesson(p, 'fr-es');
+      await p.locator('#mgListen').click(); await settled(p); const chosen = await media(p);
+      assert.equal(request(chosen.plays.at(-1)).voice, explicit.name, 'a valid explicit preference still overrides a missing default');
+      report.cases.push({name: 'missing-approved-default-no-implicit-substitution', language: 'es', implicitMediaPlays: 0, explicitOverride: explicit.name});
+    } finally {await f.context.close();}
+  }
+  {
+    const f = await fixture({defaultOnly: ['it'], entry: '/parcours-niveaux.html?pair=fr-it&level=1'});
+    try {
+      const p = f.page; await firstModernLesson(p, 'fr-it'); await p.waitForFunction(() => window.MelungaVoiceSelection?.state().status === 'ready');
+      const snapshot = await p.evaluate(() => window.MelungaVoiceSelection.getSnapshot('it'));
+      assert.equal(snapshot.choices.length, 2); assert.equal(snapshot.defaultVoice.name, APPROVED_DEFAULTS.it); assert.equal(snapshot.voice.name, APPROVED_DEFAULTS.it);
+      assert.equal(snapshot.approvedDefault.name, APPROVED_DEFAULTS.it); assert.equal(snapshot.usesApprovedDefault, true); assert.equal(snapshot.selected, null);
+      await p.locator('#mgListen').click(); await settled(p); const s = await media(p);
+      assert.equal(request(s.plays.at(-1)).voice, APPROVED_DEFAULTS.it); assert.equal(s.selected, null);
+      report.cases.push({name: 'incomplete-comparison-retains-approved-default', language: 'it', choices: 2, voice: APPROVED_DEFAULTS.it});
+    } finally {await f.context.close();}
+  }
 }));
 
 test('comparison controls and full language rows remain reachable on desktop, short Android profiles and large text', {timeout: 90000}, () => checked('short-screen-layout', async () => {
