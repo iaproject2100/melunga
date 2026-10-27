@@ -27,3 +27,5 @@ L’environnement n’autorise actuellement ni les pages Google Cloud concernée
 Chromium et un profil Android émulé sont vérifiés. Safari, l’installation sur l’écran d’accueil d’un iPhone, le commutateur silencieux et les sorties physiques ne sont pas attestés. La [matrice de 16 essais réels](../device-test-matrix.md) garde ces lignes « Non exécuté » jusqu’à une observation sur l’appareil. Le manifeste prépare un démarrage autonome du comparateur, sans voix hors ligne ni garantie d’installation testée.
 
 Aucune fusion ni publication sur melunga.com avant le choix des voix par Kartech. Le correctif du bouton Démarrer fait partie de la branche d’aperçu précédente et reste conservé dans cet aperçu.
+
+La PR #34 reste en brouillon et cible main pour déclencher l’aperçu Netlify. Elle contient la composition #33, sans la fusionner ni publier le site. Le lien d’écoute est la page `/comparaison-voix.html` de cet aperçu.
