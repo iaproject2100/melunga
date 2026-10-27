@@ -10,18 +10,20 @@ const {execFileSync} = require('node:child_process');
 const ROOT = path.resolve(__dirname, '../..');
 const WEB = path.join(ROOT, 'melunga_deploy');
 const BASE = '4fafe31271df3d5e7b601f41ee9056511860bd17';
+const APPROVED_PREVIEW = 'ff4f1e0ca8b19ea93ea978a7372f43883eb18bca';
 const APPROVED_SELECTION_VERSION = 'kartech-2026-10-27';
 const FIXTURE = 'melunga_deploy/tests/fixtures/chirp-preview-layer.json';
-const FIXTURE_SHA256 = '9ecded1e6a58517975f3bb45ed03370002101e4e63ade46dadaddeb8faec84f5';
+const FIXTURE_SHA256 = '3ecdbef26a62399fb76b197e178d5c69617059b4ef0ead8399ab66dae664d1ad';
 const MODIFIED = Object.freeze(['app.html', 'maquette-guidee.js', 'maquette-guidee.html', 'parcours-niveaux.html',
   'lesson-audio.js', 'course-i18n.js', 'content/course-locales/supplements.json', 'netlify/functions/tts.mjs'].map(f => 'melunga_deploy/' + f));
 const ADDED = Object.freeze(['voice-selection.js', 'comparaison-voix.html', 'voice-comparison.css', 'voice-comparison.js',
-  'voice-comparison.webmanifest', 'netlify/functions/lib/chirp-catalog.mjs'].map(f => 'melunga_deploy/' + f));
+  'voice-comparison.webmanifest', 'netlify/functions/lib/chirp-catalog.mjs', 'course-startup.css'].map(f => 'melunga_deploy/' + f));
 const NATIVE_CONTEXT = new Set(['app.html', 'course-access.js', 'course-login.js', 'desktop-home.js', 'entry-bridge.js',
   'index.html', 'maquette-guidee.html', 'maquette-guidee.js', 'parcours-niveaux.html'].map(f => 'melunga_deploy/' + f));
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const actual = file => fs.readFileSync(path.join(ROOT, file));
 const baselineCache = new Map();
+const approvedCache = new Map();
 let cache = null;
 function relative(file) {
   const value = path.relative(ROOT, path.resolve(ROOT, file));
@@ -32,14 +34,19 @@ function baseline(file) {
   if (!baselineCache.has(file)) baselineCache.set(file, execFileSync('git', ['show', BASE + ':' + file], {cwd: ROOT, maxBuffer: 40 * 1024 * 1024}));
   return baselineCache.get(file);
 }
+function approvedPreview(file) {
+  if (!approvedCache.has(file)) approvedCache.set(file, execFileSync('git', ['show', APPROVED_PREVIEW + ':' + file], {cwd: ROOT, maxBuffer: 40 * 1024 * 1024}));
+  return approvedCache.get(file);
+}
 const baselinePaths = execFileSync('git', ['ls-tree', '-r', '--name-only', BASE, '--', 'melunga_deploy'], {cwd: ROOT, encoding: 'utf8'}).trim().split('\n');
 const rootRuntime = baselinePaths.filter(f => /^melunga_deploy\/[^/]+\.(?:js|css|html|webmanifest)$/.test(f)).sort();
 const backend = baselinePaths.filter(f => /^melunga_deploy\/netlify\/functions\//.test(f)).sort();
+const artwork = baselinePaths.filter(f => /\.(?:png|svg|webp)$/.test(f)).sort();
 const manifestFile = 'melunga_deploy/content/niveaux-progressifs/manifest.json';
 const manifest = JSON.parse(baseline(manifestFile));
 const runtime = [manifestFile, ...manifest.pairs.flatMap(pair => ['melunga_deploy/' + pair.repertoirePath,
   ...pair.levels.map(level => 'melunga_deploy/' + level.dataPath)])];
-const protectedFiles = [...new Set([...rootRuntime, ...backend, 'melunga_deploy/content/course-access.json'])].filter(f => !MODIFIED.includes(f)).sort();
+const protectedFiles = [...new Set([...rootRuntime, ...backend, ...artwork, 'melunga_deploy/content/course-access.json'])].filter(f => !MODIFIED.includes(f)).sort();
 function inventory(directory, prefix, recursive = false) {
   const files = [];
   for (const entry of fs.readdirSync(directory, {withFileTypes: true})) {
@@ -62,6 +69,7 @@ function fixture() {
   const f = JSON.parse(raw);
   assert.equal(f.version, 1); assert.equal(f.id, 'chirp-preview-exact-layer'); assert.equal(f.baseCommit, BASE);
   assert.equal(f.selectionVersion, APPROVED_SELECTION_VERSION, 'the frozen voice defaults record the owner decision');
+  assert.equal(f.startupPresentationBaseCommit, APPROVED_PREVIEW, 'startup presentation retains the approved audio preview');
   assert.deepEqual(Object.keys(f.modifiedFiles).sort(), [...MODIFIED].sort(), 'only explicit Chirp sources may be projected');
   assert.deepEqual(Object.keys(f.newFiles).sort(), [...ADDED].sort(), 'only explicit Chirp assets may be added');
   assert.equal(f.patchPath, 'melunga_deploy/tests/fixtures/chirp-preview-layer.patch');
@@ -102,10 +110,17 @@ function assertInvariants() {
   const progress = ['collectLevelProgressIds', 'levelProgress', 'loadKnownCards', 'saveKnownCard', 'saveCardDecision', 'markKnown', 'markForReview'];
   const js = actual('melunga_deploy/maquette-guidee.js').toString(), oldJs = baseline('melunga_deploy/maquette-guidee.js').toString();
   for (const name of progress) assert.equal(sourceFunction(js, name), sourceFunction(oldJs, name), 'actual progress function unchanged by Chirp: ' + name);
+  const approvedJs = approvedPreview('melunga_deploy/maquette-guidee.js').toString();
+  const audio = ['speak', 'stopAudio', 'setAudioPlaying', 'fillVoices'];
+  for (const name of audio) assert.equal(sourceFunction(js, name), sourceFunction(approvedJs, name), 'startup preserves the approved complete audio function: ' + name);
+  const approvedSources = ['melunga_deploy/app.html', 'melunga_deploy/lesson-audio.js', 'melunga_deploy/netlify/functions/tts.mjs',
+    ...ADDED.filter(file => file !== 'melunga_deploy/course-startup.css')];
+  for (const file of approvedSources) assert.ok(actual(file).equals(approvedPreview(file)), 'startup leaves the approved audio/app source exact: ' + file);
   const access = actual('melunga_deploy/course-access.js').toString(), oldAccess = baseline('melunga_deploy/course-access.js').toString();
   const server = ['deviceId', 'checkServer', 'refresh', 'initialize', 'logout'];
   for (const name of server) assert.equal(sourceFunction(access, name), sourceFunction(oldAccess, name), 'actual server access contract unchanged by Chirp: ' + name);
-  return {classicAuthFunctions: auth, progressFunctions: progress, serverAccessFunctions: server};
+  return {classicAuthFunctions: auth, progressFunctions: progress, serverAccessFunctions: server, approvedAudioFunctions: audio,
+    approvedAudioAppSources: approvedSources.length, protectedArtwork: artwork.length};
 }
 function inputFiles() {
   const f = fixture();
@@ -128,7 +143,8 @@ function validate({force = false} = {}) {
   const diff = execFileSync('git', ['diff', '--binary', '--no-ext-diff', '--no-textconv', '--unified=0', BASE, '--', ...MODIFIED], {cwd: ROOT, maxBuffer: 32 * 1024 * 1024});
   assert.ok(diff.equals(patch), 'actual complete Chirp delta equals its exact frozen patch');
   const invariants = assertInvariants();
-  const summary = Object.freeze({layer: 'Chirp-preview', baseCommit: BASE, selectionVersion: APPROVED_SELECTION_VERSION, fixtureSha256: FIXTURE_SHA256, modifiedFiles: MODIFIED.length, newFiles: ADDED.length, runtimeJson: runtime.length, ...invariants});
+  const summary = Object.freeze({layer: 'Chirp-preview', baseCommit: BASE, selectionVersion: APPROVED_SELECTION_VERSION, startupPresentationBaseCommit: APPROVED_PREVIEW,
+    fixtureSha256: FIXTURE_SHA256, modifiedFiles: MODIFIED.length, newFiles: ADDED.length, runtimeJson: runtime.length, ...invariants});
   cache = {summary, reader: fs.readFileSync, lister: fs.readdirSync, stamps: new Map(files.map(file => [file, stamp(file)]))};
   return summary;
 }
@@ -169,6 +185,7 @@ if (require.main === module) {
   test('caller tampering, runtime edits and evidence edits are rejected rather than projected', () => {
     const file = MODIFIED[0]; assert.throws(() => beforeChirpBytes(file, Buffer.concat([actual(file), Buffer.from('\n')])), /mutated caller bytes/);
     changedRead(runtime[1], () => assert.throws(() => beforeChirpBytes(file), error => error.message.includes(runtime[1])));
+    changedRead('melunga_deploy/melunga-logo.png', () => assert.throws(() => beforeChirpBytes(file), /melunga-logo\.png/));
     changedRead(FIXTURE, () => assert.throws(() => validate(), /whole finite Chirp fixture/));
     changedRead(fixture().patchPath, () => assert.throws(() => validate(), /whole finite Chirp patch/));
   });

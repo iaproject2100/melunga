@@ -17,7 +17,7 @@ Le chemin classique étudié ne contient plus Google Translate TTS, StreamElemen
 
 `DECKS`, `PEDAGOGY_FAMILIES`, les huit fonctions d'authentification/paiement, les sélecteurs classiques, les droits, les prix et les fonctions de progression modernes restent inchangés. Les blocs étudiés sont transmis tels que les appelants existants les fournissent ; le nettoyage classique antérieur est conservé.
 
-Les deux pages modernes chargent I18n v4, sélection v2, lecteur v3 puis contrôleur v33. La page classique charge les mêmes modules partagés avant son script existant.
+Les deux pages modernes chargent I18n v5, sélection v2, lecteur v3 puis contrôleur v34, avec la feuille de démarrage v1. La page classique charge les mêmes modules partagés avant son script existant.
 
 ## Vérification locale
 

@@ -767,6 +767,8 @@
   function showView(screen) {
     resetCardMotion();
     state.screen = screen;
+    if (screen === 'loading') ui.loading.classList.remove('has-error');
+    ui.loading.setAttribute('aria-busy', String(screen === 'loading'));
     ui.loading.hidden = screen !== 'loading';
     ui.themeView.hidden = screen !== 'themes';
     ui.sequenceView.hidden = screen !== 'sequences';
@@ -1283,9 +1285,10 @@
     state.level = entry.level;
     state.requestedPair = id;
     stopAudio(); closeHelp(); closeMenu(); closeLanguages(); closeLevels();
+    renderLoadingContext(id, entry.level);
     showView('loading');
     ui.retry.hidden = true;
-    text(ui.loadingText, tr('Tes thèmes arrivent…'));
+    text(ui.loadingText, tr('Chargement des leçons…'));
     text(ui.retry, tr('Réessayer'));
     try {
       if (metadata.nativeCatalogue) {
@@ -1295,6 +1298,15 @@
         return;
       }
       const key = id + ':' + entry.level;
+      const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
+      const bankTask = (async () => {
+        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
+        const cached = state.repertoireCache.get(id);
+        if (cached) return cached;
+        const response = await fetch(repertoirePath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
+        if (!response.ok) throw new Error('Repertoire unavailable');
+        return validateRepertoire(await readRuntimeJson(response, repertoirePath), id);
+      })().then(bank => ({bank}), error => ({error}));
       let pair = state.levelCache.get(key);
       if (!pair) {
         const response = await fetch(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
@@ -1306,14 +1318,9 @@
       let validatedBank = null;
       if (pair.themes.some(theme => (theme.reviewReferences || []).length || (theme.contextReferences || []).length
           || (theme.receivedTurns || []).length || (theme.lexicalSupports || []).length)) {
-        const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
-        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
-        let bank = state.repertoireCache.get(id);
-        if (!bank) {
-          const response = await fetch(repertoirePath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
-          if (!response.ok) throw new Error('Repertoire unavailable');
-          bank = validateRepertoire(await readRuntimeJson(response, repertoirePath), id);
-        }
+        const result = await bankTask;
+        if (result.error) throw result.error;
+        const bank = result.bank;
         // Reserved canonical aliases remain validated in the bank, but cannot
         // supply a learnable phrase. A separate heard-only model stays listenable.
         references = new Map([...bank.phrases.filter(phrase => !phrase.canonicalReserveLocation),
@@ -1334,8 +1341,7 @@
       installPairView(pair, references);
     } catch (error) {
       if (generation !== state.loadGeneration || error.name === 'AbortError') return;
-      text(ui.loadingText, tr('Les thèmes n’ont pas pu se charger.'));
-      ui.retry.hidden = false;
+      showLoadingError('Les thèmes n’ont pas pu se charger.');
     } finally {
       if (state.request === request) state.request = null;
     }
@@ -1772,26 +1778,61 @@
     return data;
   }
 
+  function renderLoadingContext(id, level = state.level) {
+    const flags = {fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷'};
+    if (!nativeCourses?.isPair(id) || id.split('-')[0] !== state.nativeLanguage || state.invalidPair) {
+      text(ui.flag, '…'); delete ui.flag.dataset.language;
+      delete document.body.dataset.loadingContext;
+      return;
+    }
+    const study = id.split('-')[1];
+    text(ui.flag, flags[study]); ui.flag.dataset.language = study;
+    ui.languageTrigger.title = courseI18n.languageName(state.nativeLanguage, study);
+    const selected = !ui.level ? 1 : Number.isInteger(Number(level)) && Number(level) >= 1 && Number(level) <= 10 ? Number(level) : 1;
+    if (ui.levelText) text(ui.levelText, 'L' + selected);
+    if (ui.levelTrigger) {
+      ui.levelTrigger.title = format('level', selected);
+      ui.levelTrigger.style.setProperty('--mg-level-color', levelColors[selected - 1]);
+    }
+    document.documentElement.lang = state.nativeLanguage;
+    document.body.dataset.loadingContext = 'ready';
+  }
+
+  function showLoadingError(message) {
+    ui.loading.classList.add('has-error');
+    ui.loading.setAttribute('aria-busy', 'false');
+    text(ui.loadingText, tr(message));
+    ui.retry.hidden = false;
+  }
+
   async function loadData() {
+    const initialPair = nativeCourses?.isPair(explicitPair) ? explicitPair
+      : nativeCourses?.isPair(savedPair) && savedPair.split('-')[0] === state.nativeLanguage ? savedPair
+      : state.nativeLanguage + '-' + (state.nativeLanguage === 'fr' ? 'en' : 'fr');
+    renderLoadingContext(initialPair, Number(routeParameters.get('level') || (explicitPair === null ? savedLevel : 1)));
     showView('loading');
-    text(ui.loadingText, tr('Tes thèmes arrivent…'));
+    text(ui.loadingText, tr('Chargement des leçons…'));
     ui.retry.hidden = true;
     ui.language.disabled = true;
     try {
       if (ui.level) {
         if (!courseAccess) throw new Error('Course access unavailable');
-        await courseAccess.initialize();
-        if (courseAccess.state().mode === 'production') document.querySelector('.mg-previewnotice')?.remove();
+        // The content request and status verification may run together. No
+        // cards are installed until both have succeeded below.
       }
-      const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
-      if (!response.ok) throw new Error('HTTP ' + response.status);
-      const data = await response.json();
-      if (ui.level) await loadClassificationPolicy(data);
-      state.data = (ui.level ? validateManifest : validateData)(data);
+      const content = (async () => {
+        const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const data = await response.json();
+        if (ui.level) await loadClassificationPolicy(data);
+        return (ui.level ? validateManifest : validateData)(data);
+      })();
+      const [, data] = await Promise.all([ui.level ? courseAccess.initialize() : null, content]);
+      state.data = data;
       if (ui.level) state.data = {...state.data, pairs:[...state.data.pairs, ...nativeCourses.metadata(state.data)]};
       if (state.invalidPair) {
-        text(ui.loadingText, tr('Ce couple de langues n’est pas disponible. Choisis tes langues pour continuer.'));
-        text(ui.retry, tr('Choisir mes langues')); ui.retry.hidden = false; return;
+        showLoadingError('Ce couple de langues n’est pas disponible. Choisis tes langues pour continuer.');
+        text(ui.retry, tr('Choisir mes langues')); return;
       }
       const choices = availablePairs();
       ui.language.replaceChildren(...choices.map(pair => {
@@ -1810,9 +1851,8 @@
       }
       await choosePair(firstPair.id);
     } catch (_) {
-      text(ui.loadingText, tr('Les thèmes n’ont pas pu se charger.'));
+      showLoadingError('Les thèmes n’ont pas pu se charger.');
       text(ui.retry, tr('Réessayer'));
-      ui.retry.hidden = false;
       setStatus('');
     }
   }

@@ -79,7 +79,8 @@ test('classic source literals, eight account/payment functions, rights and revie
 });
 
 test('both HTML shells load selection before the shared player and current controller; classic loads the same modules',()=>{
- for(const file of ['parcours-niveaux.html','maquette-guidee.html']){const source=read(file),selection=source.indexOf('voice-selection.js?v=2'),player=source.indexOf('lesson-audio.js?v=3'),controller=source.indexOf('maquette-guidee.js?v=33');assert.ok(selection>0&&selection<player&&player<controller);assert.match(source,/course-i18n\.js\?v=4/);}
+ for(const file of ['parcours-niveaux.html','maquette-guidee.html']){const source=read(file),selection=source.indexOf('voice-selection.js?v=2'),player=source.indexOf('lesson-audio.js?v=3'),controller=source.indexOf('maquette-guidee.js?v=34');assert.ok(selection>0&&selection<player&&player<controller);assert.match(source,/course-i18n\.js\?v=5/);assert.match(source,/course-startup\.css\?v=1/);}
+ assert.match(classic,/course-i18n\.js\?v=4/);assert.doesNotMatch(classic,/course-startup\.css/);
  assert.ok(classic.indexOf('voice-selection.js?v=2')<classic.indexOf('lesson-audio.js?v=3'));
  assert.ok(classic.indexOf('lesson-audio.js?v=3')<classic.indexOf('var DECKS = '));
 });

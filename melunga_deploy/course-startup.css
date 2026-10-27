@@ -1,0 +1,24 @@
+/* A complete application frame, including before the course data is ready. */
+.mg-app{height:100vh;height:100dvh}
+body:is([data-view="lesson"],[data-view="done"]){--mg-notice-height:0px}
+body[data-view="loading"] .mg-app{min-height:0}
+body[data-view="loading"] .mg-content{padding-bottom:0}
+body[data-view="loading"] .mg-topbar,body[data-view="loading"] .mg-progress{display:none}
+body[data-view="loading"] #mgLevelTrigger:disabled,body[data-view="loading"] #mgLanguageTrigger:disabled{opacity:1}
+.mg-loading{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;min-height:0;gap:20px;width:100%;max-width:1120px;margin:0 auto;padding:18px 4px 0}
+.mg-loading-message{display:flex;align-items:center;gap:12px;margin:0;color:var(--mg-ink);font-size:16px;font-weight:600;line-height:1.5}
+.mg-loading-message::before{content:"";width:20px;height:20px;flex:0 0 20px;border:2px solid var(--mg-line);border-top-color:var(--mg-accent);border-radius:50%;animation:mg-startup-spin 1s linear infinite}
+.mg-loading-skeleton{display:flex;flex-direction:column;gap:22px;min-width:0}
+.mg-loading-heading{display:block;width:min(240px,65%);height:27px;border-radius:8px;background:var(--mg-soft)}
+.mg-loading-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;min-width:0}
+.mg-loading-card{display:grid;grid-template-columns:50px minmax(0,1fr);grid-template-rows:20px 12px;gap:14px 13px;align-content:center;min-width:0;min-height:142px;border:1px solid var(--mg-line);border-radius:28px;padding:22px;background:var(--mg-surface)}
+.mg-loading-card i{grid-row:span 2;border-radius:14px;background:var(--mg-soft);width:50px;height:50px}
+.mg-loading-card b,.mg-loading-card small{display:block;border-radius:6px;background:var(--mg-soft);width:95%;min-width:0}
+.mg-loading-card small{width:60%}
+.mg-loading.has-error .mg-loading-skeleton,.mg-loading.has-error .mg-loading-message::before{display:none}
+.mg-loading .mg-action{align-self:flex-start;min-width:160px}
+@keyframes mg-startup-spin{to{transform:rotate(360deg)}}
+@media(max-width:1100px){.mg-loading-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.mg-loading{padding:8px 2px 0;gap:18px}.mg-loading-cards{grid-template-columns:minmax(0,1fr);gap:13px}.mg-loading-card{min-height:102px;padding:17px 20px;border-radius:24px}.mg-loading-skeleton{gap:17px}}
+@media(max-height:520px){.mg-loading{padding-top:4px;gap:12px}.mg-loading-heading{height:18px}.mg-loading-skeleton{gap:12px}.mg-loading-card{min-height:76px;padding:12px 16px}.mg-loading-card:last-child{display:none}}
+@media(prefers-reduced-motion:reduce){.mg-loading-message::before{animation:none}}
