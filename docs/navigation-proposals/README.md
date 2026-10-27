@@ -1,5 +1,7 @@
 # Trois présentations du menu ordinateur
 
+Accès public : [comparer les trois versions](https://melunga.com/apercus/navigation/) ou [télécharger le ZIP](https://melunga.com/apercus/navigation/maquettes-navigation.zip).
+
 Ces maquettes sont des documents de comparaison. Aucun fichier de l’application, contenu, réglage, tarif ou droit n’est modifié. Aucun script de l’application ni appel serveur n’est exécuté.
 
 Le fichier [maquettes-ordinateur.html](maquettes-ordinateur.html) embarque les styles et les deux images pour comparer les trois versions sans dépendance au projet. Son rendu et les trois boutons sont vérifiés avec Chromium local sans requête externe ([rapport](standalone-verification.json)). [index.html](index.html) conserve les références du projet pour les développeurs. Utiliser les trois boutons placés en dehors de l’écran élève. Le paramètre `capture=1` masque ces commandes de comparaison et leur commentaire.

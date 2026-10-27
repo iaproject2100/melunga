@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "environment": "local Chromium desktop and Android user-agent/viewport/touch profiles",
+  "physicalDeviceTested": false,
+  "safariTested": false,
+  "allApiResponsesMocked": true,
+  "actualAudioPlayed": false,
+  "realAccountUsed": false,
+  "publicSiteOpened": false,
+  "inputsStable": true,
+  "checks": [
+    "complete-dictionaries",
+    "seven-languages-five-slides",
+    "locale-switch-and-return",
+    "carousel-mobile-and-desktop-geometry",
+    "localized-audio-events",
+    "absent-and-old-i18n-module",
+    "initial-locale-precedence"
+  ],
+  "errors": [],
+  "fixtureErrors": [],
+  "unexpected": [],
+  "date": "2026-10-27",
+  "testGroups": 7,
+  "cases": 250,
+  "casesByName": {
+    "dictionary-coverage": 1,
+    "five-slide-content": 35,
+    "locale-switch": 8,
+    "saved-locale-reload-skip-back": 1,
+    "geometry": 105,
+    "audio-ui-events": 7,
+    "external-module-fallback": 70,
+    "audio-ui-events-with-module-fallback": 14,
+    "initial-locale-precedence": 9
+  },
+  "captures": [
+    "captures/fr-slide-1-390.png",
+    "captures/en-slide-1-390.png",
+    "captures/en-slide-5-390.png",
+    "captures/es-slide-1-390.png",
+    "captures/zh-slide-1-390.png",
+    "captures/zh-slide-5-390.png",
+    "captures/it-slide-1-390.png",
+    "captures/ja-slide-1-390.png",
+    "captures/ko-slide-1-390.png",
+    "captures/en-slide-4-320.png",
+    "captures/zh-slide-1-1440.png",
+    "captures/ja-slide-1-without-external-module-390.png"
+  ],
+  "apiRequestCount": 0,
+  "testSha256": "d02b1d2dde342a191eeb5275a4ac0f5a36fc17a51a84074853426c0f5043d525",
+  "independentTestReview": "Static review: interception, all fallback audio states, vertical reachability and English word-range assertions reviewed; no remaining concrete defect reported.",
+  "limitations": [
+    "Chromium local only; mobile user-agent, touch and viewport emulation.",
+    "No physical Android or iPhone; no Safari, installed PWA or mute-switch testing.",
+    "All audio is stubbed in memory; no playback, decoding, voice availability or listening assessed.",
+    "French demo phrase and pronunciation aid intentionally preserved, with translated disclosure in other native languages.",
+    "Existing dictionary strings checked for exact rendering and coverage; this is not a fresh linguistic review."
+  ]
+}

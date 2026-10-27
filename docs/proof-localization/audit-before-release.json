@@ -1,0 +1,161 @@
+{
+  "status": "read-only-audit-complete",
+  "checkedAtUtc": "2026-10-27T14:00:35.396602+00:00",
+  "productFilesModified": false,
+  "realAccountOrPostOrAudioUsed": false,
+  "publicNaturalRendering": {
+    "profiles": 7,
+    "locales": [
+      "fr",
+      "en",
+      "es",
+      "it",
+      "zh",
+      "ja",
+      "ko"
+    ],
+    "slidesPerLocale": 5,
+    "managedCopyNodesPerLocale": 31,
+    "nonFrenchUntranslatedManagedNodes": {
+      "en": 0,
+      "es": 0,
+      "it": 0,
+      "zh": 0,
+      "ja": 0,
+      "ko": 0
+    },
+    "javascriptErrors": [],
+    "unexpectedRequests": [],
+    "claim": "The fully French proof is not reproduced when selecting a locale in a fresh current public home session."
+  },
+  "assets": [
+    {
+      "name": "index",
+      "url": "https://melunga.com/",
+      "exit": 0,
+      "status": 200,
+      "seconds": 0.79519,
+      "bytes": 108605,
+      "sha256": "0562038c02dc5c6e3cba1095e1e0b471910295790b5dfdc521d2c07ea6a8d74d"
+    },
+    {
+      "name": "i18n-v2",
+      "url": "https://melunga.com/course-i18n.js?v=2",
+      "exit": 0,
+      "status": 200,
+      "seconds": 0.76454,
+      "bytes": 215742,
+      "sha256": "9693c6f403028ce36e93aedc5e786ab4dfc72c6b179ff4ba9a6af5157dce75b9"
+    },
+    {
+      "name": "i18n-v5",
+      "url": "https://melunga.com/course-i18n.js?v=5",
+      "exit": 0,
+      "status": 200,
+      "seconds": 0.73723,
+      "bytes": 215742,
+      "sha256": "9693c6f403028ce36e93aedc5e786ab4dfc72c6b179ff4ba9a6af5157dce75b9"
+    },
+    {
+      "name": "desktop",
+      "url": "https://melunga.com/desktop-home.js",
+      "exit": 0,
+      "status": 200,
+      "seconds": 0.668813,
+      "bytes": 26544,
+      "sha256": "72f7a48d92ccbdd84d5c73f0c859754359c686405213fdf92eac8ecbc5330900"
+    }
+  ],
+  "certainUnlocalizedExample": {
+    "mobileMeaning": "Je voudrais de l’eau.",
+    "mobilePhonetics": "aïe wouD laïk / seum WÔ-teur",
+    "studyExample": "I would like some water.",
+    "sourceLocations": [
+      "index.html:259-260",
+      "index.html:521",
+      "desktop-home.js:443-448"
+    ],
+    "explanation": "Those sample fields are outside proofCopySources; desktop renderSample deliberately writes the fixed .fr and phonetic fields. Non-French instructions explicitly say the example uses a French guide/translation."
+  },
+  "coveredInstructions": {
+    "proofKickers": 5,
+    "headings": 5,
+    "heroParagraph": 1,
+    "stepParagraphsIncludingAccent": 3,
+    "methodParagraphs": 2,
+    "methodFlowLabels": 6,
+    "methodPillarLabels": 6,
+    "signature": 1,
+    "result": 1,
+    "listenButton": 1,
+    "total": 31,
+    "otherControls": "Swipe hint, skip, five next-button labels, back/dot labels are localized too."
+  },
+  "controlledCases": {
+    "scope": "Intentional local dictionary-request abort or isolated language-preference setup; not a current observed public outage. No account state was seeded.",
+    "dictionaryAborted": {
+      "nativeSelected": "en",
+      "welcomeTranslated": "See an example",
+      "proofStayedFrench": true,
+      "expectedFaultErrors": [
+        "Cannot read properties of undefined (reading 't')",
+        "Cannot read properties of undefined (reading 't')",
+        "Cannot read properties of undefined (reading 't')",
+        "Cannot read properties of undefined (reading 't')"
+      ],
+      "importantCorrection": "homeText falls back silently, but desktop-home also directly calls MelungaCourseI18n.t, raising errors and leaving the native-language dialog open until manually closed."
+    },
+    "legacyNativeOnly": {
+      "seededLanguageOnly": {
+        "ox_nat": "en",
+        "ox_lang": "es"
+      },
+      "effectiveHomeLocale": "fr"
+    },
+    "savedCourseOnly": {
+      "seededLanguageOnly": {
+        "melunga-course-pair": "en-es"
+      },
+      "effectiveHomeLocale": "fr"
+    }
+  },
+  "sourceConclusions": [
+    "No subsequent overwrite found for translated hero or step1 instruction.",
+    "homeText falls back to original French when the dictionary or a key is missing.",
+    "The home initializes only from melunga-app-language, ignoring ox_nat and melunga-course-pair; missing home preference therefore starts French and persists that choice.",
+    "v2 and v5 return identical current dictionary bytes, so a stale cache is not demonstrated by current HTTP evidence.",
+    "The generator validates its declared key set but does not itself discover every future DOM text node."
+  ],
+  "recommendations": [
+    "Unify the initial native-language preference policy between home and course, respecting an explicit home preference first and a valid stored native/course only as fallback.",
+    "Handle dictionary unavailability explicitly instead of presenting a French demo under a translated welcome screen; include a retry/loading state and guard desktop direct calls.",
+    "Keep the home dictionary cache version aligned with the compiled bundle, without treating a version bump alone as a demonstrated fix.",
+    "Either adapt the demo sample meaning and phonetic aid from verified existing content per native language, or retain and clearly label the French-specific example until a distinct content pass.",
+    "Add a DOM inventory assertion for every managed demo instruction and preserve rich-text tags, including accent strong and title span."
+  ],
+  "verificationSteps": [
+    "For each of fr,en,es,it,zh,ja,ko use a fresh isolated context, choose native on the home, open the proof and inspect all five slides plus CTA/back/skip/dot labels.",
+    "Assert all31 managed source nodes use the expected dictionary value; for non-French locales separately assert they do not remain equal to French source.",
+    "Check the sample language/phonetic convention explicitly rather than counting unchanged study examples as UI translation failures.",
+    "Reload with the chosen native, then test a legacy native-only preference and a valid saved-pair-only preference.",
+    "Abort only the dictionary request in a labeled counter-test; verify a safe localized recovery state and no unhandled desktop calls.",
+    "Check English long-title wrapping at390px and Chinese/Japanese/Korean rich-text shapes visually.",
+    "Use no audio click, account access, login, payment, feedback or POST."
+  ],
+  "limits": [
+    "Public rendering used Chromium390x844 touch emulation via strict-TLS proxy transport; not a physical phone or Safari.",
+    "The user screenshot session and its cache/network were not available, so its exact failure cause is not established."
+  ],
+  "evidence": {
+    "naturalReport": "/tmp/melunga-proof-audit/render-report.json",
+    "controlledReport": "/tmp/melunga-proof-audit/faults/render-report.json",
+    "screenshots": [
+      "/tmp/melunga-proof-audit/public-fr-step0.png",
+      "/tmp/melunga-proof-audit/public-fr-step1.png",
+      "/tmp/melunga-proof-audit/public-en-step0.png",
+      "/tmp/melunga-proof-audit/public-en-step1.png",
+      "/tmp/melunga-proof-audit/public-zh-step0.png",
+      "/tmp/melunga-proof-audit/public-zh-step1.png"
+    ]
+  }
+}
