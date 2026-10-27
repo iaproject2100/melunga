@@ -7,7 +7,7 @@
   var wantsLogin = query.get('login') === '1';
   var comesFromMobileEntry = wantsLogin || query.get('start') === '1' || query.has('checkout');
 
-  if (!comesFromMobileEntry) return;
+  if (!comesFromMobileEntry || window.__courseStartRedirecting) return;
 
   function removeBootCover() {
     try {
@@ -18,10 +18,15 @@
   if (wantsLogin) {
     function openLogin() {
       try {
+        var approved = window.approvedCourseReturn;
+        approved = approved && typeof window.validateCourseReturn === 'function'
+          ? window.validateCourseReturn(approved.pair, approved.level, approved.nativeLanguage, approved.studyLanguage) : null;
+        if (approved) nativeLanguage = approved.nativeLanguage;
         if (!Object.prototype.hasOwnProperty.call(window.WLC_I18N || {}, nativeLanguage)) nativeLanguage = 'fr';
         if (typeof window.wlcSetSite === 'function') window.wlcSetSite(nativeLanguage);
         if (typeof window.wlcLogin !== 'function') return;
-        window.wlcLogin();
+        if (approved) window.wlcLogin(approved.studyLanguage);
+        else window.wlcLogin();
         var panel = document.getElementById('paywall');
         if (!panel || panel.style.display !== 'block') return;
         window.__loginEntryReady = true;
