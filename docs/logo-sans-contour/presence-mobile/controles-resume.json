@@ -1,0 +1,64 @@
+[
+  {
+    "status": "passed",
+    "environment": "local Chromium with mobile/desktop viewports",
+    "publicSiteChecked": false,
+    "physicalDeviceChecked": false,
+    "checks": [
+      "canonical-source",
+      "outer-ring-counterexample",
+      "preserved-mobile-and-desktop-layout",
+      "lesson-controls"
+    ],
+    "inputsStable": true,
+    "errors": [],
+    "unexpectedRequests": [],
+    "caseCount": 13,
+    "rawReportPath": "/tmp/melunga-mobile-brand-qa.json",
+    "rawReportSha256": "7263eb9e677e1b7e5c746969e0979ec5f19e7a566480784aeceee10f886608c0",
+    "inputSha256": {
+      "melunga_deploy/maquette-guidee.css": "9fa518414822a77648e26caae5d73f86e2db9ee5e43ff74d7344a7b718771d01",
+      "melunga_deploy/maquette-guidee.html": "fb4b035bfec91d3c140b1d7303cb28a2034fe5d0bb11065c32195f9d598a7c01",
+      "melunga_deploy/maquette-guidee.js": "3f33568582a6a31d9e4821f63cefab4736beb69644435eb8696aa13aafbcdc58",
+      "melunga_deploy/melunga-logo.png": "1aa277028faa2128c78405c839748dff8b1497827c04b02610216056c92b18c0",
+      "melunga_deploy/parcours-niveaux.html": "a3c60173bc32ea642a86e53c4426b6f7cfef4489cba16859cd55b3573c434386",
+      "melunga_deploy/tests/logo-outline.browser.cjs": "12ef0c32e9db0a9929a68f1f32e491932f8b52be4535bd5f83bc647650fe08aa"
+    }
+  },
+  {
+    "status": "partial-scoped-passed",
+    "environment": "local Chromium; desktop and phone viewport emulation",
+    "publicSiteChecked": false,
+    "physicalPhoneChecked": false,
+    "checks": [
+      "source-conservation",
+      "lesson-theme-emphasis"
+    ],
+    "inputsStable": true,
+    "errors": [],
+    "unexpectedRequests": [],
+    "requestedChecks": [
+      "source-conservation",
+      "lesson-theme-emphasis"
+    ],
+    "fullSuiteExecuted": false,
+    "intentionallyUnselectedChecks": [
+      "desktop-direct-rail",
+      "language-picker",
+      "level-picker",
+      "shared-menu-actions",
+      "mobile-and-legacy"
+    ],
+    "caseCount": 44,
+    "rawReportPath": "/tmp/melunga-brand-lessons-qa.json",
+    "rawReportSha256": "d93334736d8ec2bf681f3724df69c3f2a67abd997b2ebe0558f679ed660d646f",
+    "inputSha256": {
+      "melunga_deploy/maquette-guidee.css": "9fa518414822a77648e26caae5d73f86e2db9ee5e43ff74d7344a7b718771d01",
+      "melunga_deploy/maquette-guidee.html": "fb4b035bfec91d3c140b1d7303cb28a2034fe5d0bb11065c32195f9d598a7c01",
+      "melunga_deploy/maquette-guidee.js": "3f33568582a6a31d9e4821f63cefab4736beb69644435eb8696aa13aafbcdc58",
+      "melunga_deploy/melunga-logo.png": "1aa277028faa2128c78405c839748dff8b1497827c04b02610216056c92b18c0",
+      "melunga_deploy/parcours-niveaux.html": "a3c60173bc32ea642a86e53c4426b6f7cfef4489cba16859cd55b3573c434386",
+      "melunga_deploy/tests/desktop-navigation.browser.cjs": "1474c09b460e444067588ad83314197bd65cca877f8d36782fc1da3089194437"
+    }
+  }
+]

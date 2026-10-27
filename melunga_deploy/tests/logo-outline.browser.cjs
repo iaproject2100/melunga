@@ -9,6 +9,8 @@ const REPO=path.resolve(__dirname,'../..'),WEB=path.join(REPO,'melunga_deploy');
 // This visual-only correction is compared with the reviewed account/progress preview.
 const BASE='f13eafd270df3958507d88cdbb585ce5bc51099d',ORIGIN='https://logo-outline.test';
 const old=f=>execFileSync('git',['show',BASE+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});
+const BRAND_BASE='40f671a';
+const beforeBrand=f=>execFileSync('git',['show',BRAND_BASE+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});
 // Only these four whole files belong to the approved capsule presentation.
 // Historical logo assertions retain the exact pre-capsule snapshot after the
 // current files have passed their finite whole-byte pins; no broad skip flag.
@@ -19,10 +21,10 @@ const CAPSULE_UI_SHA256={'maquette-guidee.css': '2da16667452ebe1781a5d202f68fd81
 // the capsule projection below retains its original independent pins.
 const NAVIGATION_UI_BASE='a5c721f51a217750c3b83ecd56c85dbfc4ccb7f8';
 const NAVIGATION_UI_SHA256={
- 'maquette-guidee.css':'739ccbcd0401faca7cd67b497b5b97e6098b29979512215b850213457234f0a2',
+ 'maquette-guidee.css':'9fa518414822a77648e26caae5d73f86e2db9ee5e43ff74d7344a7b718771d01',
  'maquette-guidee.js':'3f33568582a6a31d9e4821f63cefab4736beb69644435eb8696aa13aafbcdc58',
- 'parcours-niveaux.html':'503994f99ae5361825b662f82647649eea4fba3517e1d064fe890fe5dcbed0c5',
- 'maquette-guidee.html':'2a6fc7d109bf1f656ab907ce1f132758ef1d90df20caeec93ce2879d73096688',
+ 'parcours-niveaux.html':'a3c60173bc32ea642a86e53c4426b6f7cfef4489cba16859cd55b3573c434386',
+ 'maquette-guidee.html':'fb4b035bfec91d3c140b1d7303cb28a2034fe5d0bb11065c32195f9d598a7c01',
  'app.html':'3544302224ad8e162b9ba40e76b8e5905dbebce2987431c8e8d30fca85df5c1a'
 };
 const LOGIN_HELPER_SHA256={'course-login.css':'bdcfa4b4bc85daca76b728a14e3e97326a739b13137ae6f17b6cd90d059ff46c','course-login.js':'3ec780d1f6a10b68b54f7bcedd6aa96f2e39a334175841973be8e4e785654291'};
@@ -60,10 +62,14 @@ after(async()=>{await browser?.close();report.inputsStable=JSON.stringify(inputs
 async function fixture({width=390,height=700,baseline=false}={}){
  const context=await browser.newContext({viewport:{width,height},isMobile:width<=760,hasTouch:width<=760,reducedMotion:'reduce',serviceWorkers:'block'});
  await context.addInitScript(()=>{localStorage.setItem('ox_device','logo-outline-regression');window.SpeechSynthesisUtterance=class{constructor(text){this.text=text;}};Object.defineProperty(window,'speechSynthesis',{value:{cancel(){},speak(){throw Error('Audio not expected');},getVoices(){return[];},addEventListener(){}}});});
- await context.route('**/*',async route=>{const req=route.request(),url=new URL(req.url());if(url.origin!==ORIGIN){report.unexpectedRequests.push({path:url.origin+url.pathname,method:req.method()});return route.abort();}if(url.pathname==='/.netlify/functions/check-status'&&req.method()==='GET'){report.mockedStatusChecks++;return route.fulfill({json:{paid:false}});}if(req.method()!=='GET'||/^\/(?:\.netlify|api)\//.test(url.pathname)){report.unexpectedRequests.push({path:url.pathname,method:req.method()});return route.abort();}const relative=decodeURIComponent(url.pathname).replace(/^\//,'')||'parcours-niveaux.html',file=path.resolve(WEB,relative);if(!file.startsWith(WEB+path.sep)||!fs.existsSync(file))return route.fulfill({status:404,body:'Not found'});const type={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'}[path.extname(file)]||'application/octet-stream';return route.fulfill({contentType:type,body:baseline&&['parcours-niveaux.html','maquette-guidee.html','maquette-guidee.css','maquette-guidee.js'].includes(relative)?old(relative):fs.readFileSync(file)});});
+ await context.route('**/*',async route=>{const req=route.request(),url=new URL(req.url());if(url.origin!==ORIGIN){report.unexpectedRequests.push({path:url.origin+url.pathname,method:req.method()});return route.abort();}if(url.pathname==='/.netlify/functions/check-status'&&req.method()==='GET'){report.mockedStatusChecks++;return route.fulfill({json:{paid:false}});}if(req.method()!=='GET'||/^\/(?:\.netlify|api)\//.test(url.pathname)){report.unexpectedRequests.push({path:url.pathname,method:req.method()});return route.abort();}const relative=decodeURIComponent(url.pathname).replace(/^\//,'')||'parcours-niveaux.html',file=path.resolve(WEB,relative);if(!file.startsWith(WEB+path.sep)||!fs.existsSync(file))return route.fulfill({status:404,body:'Not found'});const type={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'}[path.extname(file)]||'application/octet-stream';return route.fulfill({contentType:type,body:baseline&&['parcours-niveaux.html','maquette-guidee.html','maquette-guidee.css','maquette-guidee.js'].includes(relative)?beforeBrand(relative):fs.readFileSync(file)});});
  const page=await context.newPage();page.on('pageerror',e=>report.errors.push(e.message));await page.goto(ORIGIN+'/parcours-niveaux.html?pair=fr-zh&level=1');await page.waitForFunction(()=>window.MelungaMockup?.state().screen==='themes');await page.locator('.mg-logo').evaluate(n=>n.decode());return{context,page};
 }
-async function geometry(page){return page.evaluate(()=>{const r=n=>{const q=n.getBoundingClientRect();return{x:q.x,y:q.y,width:q.width,height:q.height};};return{brand:r(document.querySelector('.mg-brand')),logo:r(document.querySelector('.mg-logo')),wordmark:r(document.querySelector('.mg-wordmark')),controls:r(document.querySelector('.mg-controls')),sidebar:r(document.querySelector('.mg-sidebar')),commands:[...document.querySelectorAll('.mg-controls .mg-round')].map(r),visibleCommands:[...document.querySelectorAll('.mg-controls .mg-round')].filter(n=>getComputedStyle(n).display!=='none').map(n=>({id:n.id,rect:r(n)})),rail:[...document.querySelectorAll('#mgDesktopNav .mg-rail-item')].filter(n=>n.getBoundingClientRect().width>0).map(n=>({id:n.dataset.menuItem,rect:r(n)}))};});}
+async function geometry(page){return page.evaluate(()=>{
+ const r=n=>{const q=n.getBoundingClientRect();return{x:q.x,y:q.y,width:q.width,height:q.height};},logo=document.querySelector('.mg-logo'),wordmark=document.querySelector('.mg-wordmark'),clip=getComputedStyle(logo).clipPath,parts=clip.match(/circle\(([\d.]+)% at ([\d.]+)% ([\d.]+)%\)/);if(!parts)throw Error('Expected original circle mask '+clip);
+ const logoBounds=r(logo),radius=Number(parts[1])/100*Math.min(logoBounds.width,logoBounds.height),cx=logoBounds.x+Number(parts[2])/100*logoBounds.width,cy=logoBounds.y+Number(parts[3])/100*logoBounds.height;
+ return{brand:r(document.querySelector('.mg-brand')),logo:logoBounds,wordmark:r(wordmark),wordmarkFont:parseFloat(getComputedStyle(wordmark).fontSize),wordmarkOverflow:wordmark.scrollWidth-wordmark.clientWidth,clip,visibleLogo:{x:cx-radius,y:cy-radius,width:radius*2,height:radius*2},controls:r(document.querySelector('.mg-controls')),sidebar:r(document.querySelector('.mg-sidebar')),commands:[...document.querySelectorAll('.mg-controls .mg-round')].map(r),visibleCommands:[...document.querySelectorAll('.mg-controls .mg-round')].filter(n=>getComputedStyle(n).display!=='none').map(n=>({id:n.id,rect:r(n)})),rail:[...document.querySelectorAll('#mgDesktopNav .mg-rail-item')].filter(n=>n.getBoundingClientRect().width>0).map(n=>({id:n.dataset.menuItem,rect:r(n)})),viewport:{width:innerWidth,height:innerHeight,documentWidth:document.documentElement.scrollWidth}};
+});}
 async function settled(page){await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));}
 async function enter(page){await page.locator('#mgThemeGrid button').first().click();await page.waitForFunction(()=>window.MelungaMockup.state().screen==='lesson');await settled(page);}
 async function capture(page,name){const dir=process.env.LOGO_OUTLINE_CAPTURES||'/tmp/melunga-logo-outline-qa';fs.mkdirSync(dir,{recursive:true});const f=path.join(dir,name+'.png');await page.screenshot({path:f});report.screenshots.push(f);}
@@ -95,8 +101,30 @@ test('CSS removes the outer dark background without changing the original artwor
  }finally{await f.context.close();}
 }));
 
-test('mobile and desktop preserve brand, logo and controls geometry in themes and lessons',{timeout:60000},async()=>checked('preserved-mobile-and-desktop-layout',async()=>{
- for(const size of [{width:390,height:700},{width:1440,height:900}]){const a=await fixture({...size,baseline:true}),b=await fixture(size);try{for(const screen of ['themes','lesson']){if(screen==='lesson'){await enter(a.page);await enter(b.page);}const before=await geometry(a.page),after=await geometry(b.page);if(size.width===390){for(const key of ['brand','logo','wordmark','controls'])assert.deepEqual(after[key],before[key],'unchanged mobile '+screen+' '+key);assert.deepEqual(after.commands,before.commands,'all four mobile controls are unmoved');assert.equal(after.visibleCommands.length,4);assert.equal(after.rail.length,0);assert.ok(after.brand.y+after.brand.height<=after.controls.y+1,'logo keeps its centered row above the controls');}else{assert.equal(after.sidebar.width,180,'authorized desktop rail width');for(const key of ['width','height'])assert.equal(after.logo[key],before.logo[key],'unchanged desktop logo size '+key);assert.deepEqual(after.visibleCommands.map(n=>n.id),['mgLevelTrigger','mgLanguageTrigger'],'desktop keeps level and language above the direct menu');assert.equal(after.rail.length,9,'all nine existing actions are exposed');for(const item of [...after.visibleCommands,...after.rail]){assert.ok(item.rect.x>=after.sidebar.x&&item.rect.x+item.rect.width<=after.sidebar.x+after.sidebar.width+1,'action remains inside rail '+item.id);assert.ok(item.rect.y>=after.sidebar.y&&item.rect.y+item.rect.height<=after.sidebar.y+after.sidebar.height+1,'action is visible without scrolling '+item.id);}}assert.equal(after.commands.length,4,'the four original mobile controls are retained in the DOM');report.cases.push({name:'geometry',screen,...size,geometry:after});}await capture(b.page,size.width===390?'logo-clean-mobile':'logo-clean-desktop');}finally{await a.context.close();await b.context.close();}}
+test('mobile brand is visibly stronger than controls while desktop geometry is preserved',{timeout:60000},async()=>checked('preserved-mobile-and-desktop-layout',async()=>{
+ const sizes=[{width:320,height:700},{width:390,height:700},{width:461,height:700},{width:640,height:480},{width:1440,height:900}];
+ for(const size of sizes){const a=await fixture({...size,baseline:true}),b=await fixture(size);try{
+  for(const screen of ['themes','lesson']){
+   if(screen==='lesson'){await enter(a.page);await enter(b.page);}const before=await geometry(a.page),after=await geometry(b.page);
+   assert.equal(after.clip,before.clip,'the original artwork mask is unchanged at every size');
+   if(size.width<=760){
+    assert.equal(after.logo.width,64);assert.equal(after.logo.height,64);assert.equal(after.wordmarkFont,size.width<340?28:30);assert.ok(after.wordmarkOverflow<=1,'complete Melunga wordmark fits');
+    assert.equal(after.visibleCommands.length,4);assert.equal(after.rail.length,0);assert.deepEqual(after.visibleCommands.map(n=>n.id),['mgLevelTrigger','mgLanguageTrigger','mgPalette','mgMenuTrigger']);
+    for(const item of after.visibleCommands){assert.equal(item.rect.width,44);assert.equal(item.rect.height,44);assert.ok(after.visibleLogo.width>item.rect.width&&after.visibleLogo.height>item.rect.height,'actual visible logo after clipping is bigger than '+item.id);}
+    assert.ok(after.visibleLogo.width>before.visibleLogo.width,'visible mascot is larger than the previous production version');assert.ok(after.wordmarkFont>before.wordmarkFont,'Melunga name is more visible than before');
+    for(const [id,box] of [['brand',after.brand],['logo',after.logo],['visible-logo',after.visibleLogo],['wordmark',after.wordmark],['controls',after.controls],...after.visibleCommands.map(n=>[n.id,n.rect])])assert.ok(box.x>=-1&&box.y>=-1&&box.x+box.width<=size.width+1&&box.y+box.height<=size.height+1,'complete mobile header element '+id+' '+JSON.stringify(box));
+    assert.ok(after.logo.x+after.logo.width<=after.wordmark.x+1,'mascot and name do not overlap');
+    const overlapX=Math.min(after.brand.x+after.brand.width,after.controls.x+after.controls.width)-Math.max(after.brand.x,after.controls.x),overlapY=Math.min(after.brand.y+after.brand.height,after.controls.y+after.controls.height)-Math.max(after.brand.y,after.controls.y);assert.ok(overlapX<=1||overlapY<=1,'brand and four controls do not overlap');
+    if(size.width<=460)assert.ok(after.brand.y+after.brand.height<=after.controls.y+1,'compact phones keep the brand on its own row');
+    assert.ok(after.viewport.documentWidth<=size.width+1,'larger brand does not create horizontal overflow');
+   }else{
+    assert.deepEqual(after,before,'the complete desktop brand, rail and controls geometry stays exact');assert.equal(after.sidebar.width,180);assert.deepEqual(after.visibleCommands.map(n=>n.id),['mgLevelTrigger','mgLanguageTrigger']);assert.equal(after.rail.length,9);
+    for(const item of [...after.visibleCommands,...after.rail]){assert.ok(item.rect.x>=after.sidebar.x&&item.rect.x+item.rect.width<=after.sidebar.x+after.sidebar.width+1,'action remains inside rail '+item.id);assert.ok(item.rect.y>=after.sidebar.y&&item.rect.y+item.rect.height<=after.sidebar.y+after.sidebar.height+1,'action stays visible without scrolling '+item.id);}
+   }
+   assert.equal(after.commands.length,4,'the four original controls remain in the DOM');report.cases.push({name:'geometry',screen,...size,baselineCommit:BRAND_BASE,geometry:after});
+  }
+  await capture(b.page,'brand-'+size.width+'x'+size.height);
+ }finally{await a.context.close();await b.context.close();}}
 }));
 
 test('Pinyin, coloured levels and menu remain usable with the borderless logo',{timeout:30000},async()=>checked('lesson-controls',async()=>{
