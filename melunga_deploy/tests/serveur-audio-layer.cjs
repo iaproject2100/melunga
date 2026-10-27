@@ -7,6 +7,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const { execFileSync } = require('node:child_process');
 const composedLayer = require('./native-routing-layer.cjs');
+const chirpLayer = require('./chirp-preview-layer.cjs');
 const ROOT = path.resolve(__dirname, '../..'), WEB = path.join(ROOT, 'melunga_deploy');
 const BASE = 'ef147deacf85b4a5631c1b05ff8050de7918ea1f';
 const AUDIO_COMMIT = 'd110366';
@@ -42,29 +43,37 @@ const protectedFiles = [...new Set([...rootRuntime.filter(file => !composedLayer
   ...backend, 'melunga_deploy/content/course-access.json'])].sort();
 
 function validate() {
+  const chirp = chirpLayer.validate();
   assert.equal(runtime.length, 78, 'actual historical runtime stays at 78 whole JSON files');
   assert.ok(!baselinePaths.includes(MODULE), 'the module is the single new root runtime');
   const currentRoot = fs.readdirSync(WEB, { withFileTypes: true }).filter(entry => entry.isFile() && /\.(?:js|css|html)$/.test(entry.name))
     .map(entry => 'melunga_deploy/' + entry.name).sort();
   const additionalRuntime = [MODULE, 'melunga_deploy/course-i18n.js', 'melunga_deploy/course-native.js'];
-  assert.deepEqual(currentRoot, [...rootRuntime, ...additionalRuntime].sort(), 'no other runtime asset may be introduced or removed');
+  const chirpRuntime = chirpLayer.addedPaths.filter(file => /^melunga_deploy\/[^/]+\.(?:js|css|html)$/.test(file));
+  assert.deepEqual(currentRoot, [...rootRuntime, ...additionalRuntime, ...chirpRuntime].sort(), 'no other runtime asset may be introduced or removed');
   const currentBackend = fs.readdirSync(path.join(WEB, 'netlify/functions')).filter(file => file.endsWith('.mjs'))
     .map(file => 'melunga_deploy/netlify/functions/' + file).sort();
   assert.deepEqual(currentBackend, backend, 'server function inventory stays exact');
-  for (const file of [...runtime, ...protectedFiles]) assert.ok(actual(file).equals(baseline(file)), 'actual protected bytes unchanged before projection: ' + file);
+  for (const file of [...runtime, ...protectedFiles]) {
+    // Only the separately sealed actual TTS upgrade is viewed historically;
+    // runtime JSON and every other protected source remain actual bytes.
+    const bytes = file === 'melunga_deploy/netlify/functions/tts.mjs' ? chirpLayer.beforeChirpBytes(file) : actual(file);
+    assert.ok(bytes.equals(baseline(file)), 'actual protected bytes unchanged before projection: ' + file);
+  }
   for (const [file, pin] of Object.entries(LAYER)) {
     assert.equal(sha(baseline(file)), pin.before, 'exact pinned before: ' + file);
     const audioBeforeComposition = execFileSync('git', ['show', AUDIO_COMMIT + ':' + file], { cwd: ROOT, maxBuffer: 40 * 1024 * 1024 });
     assert.equal(sha(audioBeforeComposition), pin.after, 'exact reviewed B audio edition before composition: ' + file);
   }
-  assert.equal(sha(actual(MODULE)), MODULE_SHA256, 'whole audio module is pinned');
+  assert.equal(sha(chirpLayer.beforeChirpBytes(MODULE)), MODULE_SHA256, 'whole audio module is pinned');
   const patch = actual(PATCH);
   assert.equal(sha(patch), PATCH_SHA256, 'whole finite audio patch is pinned');
   const originalAudioPatch = execFileSync('git', ['show', AUDIO_COMMIT + ':' + PATCH], { cwd: ROOT, maxBuffer: 4 * 1024 * 1024 });
   assert.ok(originalAudioPatch.equals(patch), 'the original three-asset B patch remains immutable evidence');
   const composition = composedLayer.validate({force:true});
   return { baseline: BASE, layer: 'A+B', layeredAssets: 3, composedAssets: composition.modifiedFiles,
-    newRuntimeAssets: additionalRuntime.length, runtimeJson: runtime.length, protectedFiles: protectedFiles.length };
+    newRuntimeAssets: additionalRuntime.length, chirpRuntimeAssets: chirpRuntime.length, chirpLayer: chirp.layer,
+    runtimeJson: runtime.length, protectedFiles: protectedFiles.length };
 }
 
 function beforeAssetBytes(filename, bytes) {
@@ -76,5 +85,5 @@ function beforeAssetBytes(filename, bytes) {
   return composedLayer.beforeBytes(filename);
 }
 function inputFiles() { return [__filename, path.join(ROOT, PATCH), path.join(ROOT, MODULE), ...composedLayer.inputFiles(),
-  ...runtime.concat(protectedFiles).map(file => path.join(ROOT, file))]; }
+  ...runtime.concat(protectedFiles).map(file => path.join(ROOT, file)), ...chirpLayer.inputFiles()]; }
 module.exports = Object.freeze({ validate, beforeAssetBytes, inputFiles });

@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "baseCommit": "4fafe31271df3d5e7b601f41ee9056511860bd17",
+  "testedCommands": [
+    {
+      "command": "node --test melunga_deploy/tests/chirp-preview-layer.cjs melunga_deploy/tests/serveur-audio-layer.test.cjs",
+      "tests": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "command": "native.validate({force:true}); classification.validateEntryAssets()",
+      "passed": true
+    }
+  ],
+  "actualRuntimeJson": 78,
+  "runtimeJsonProjected": 0,
+  "modifiedProductFiles": 8,
+  "newProductFiles": 6,
+  "allFrozenProductPinsStillMatch": true,
+  "unchangedHistoricalConstants": {
+    "native-routing-layer.cjs": [
+      "BASE",
+      "FIXTURE",
+      "AUDIO_BASE",
+      "AUDIO_MODULE",
+      "AUDIO_MODULE_SHA256",
+      "FIXTURE_SHA256",
+      "ALLOWED"
+    ],
+    "serveur-audio-layer.cjs": [
+      "BASE",
+      "AUDIO_COMMIT",
+      "PATCH",
+      "PATCH_SHA256",
+      "LAYER",
+      "MODULE",
+      "MODULE_SHA256"
+    ]
+  },
+  "immutableEvidenceSha256": {
+    "melunga_deploy/tests/fixtures/native-routing-layer.json": "1bb6ce85a7bf2f931c7a3a81fe3bdeec0f53c6b222cecb4219f313736653268f",
+    "melunga_deploy/tests/fixtures/native-routing-layer.patch": "252e35aadca4c932243e3519d5f61a84a5de17d0d1a725706fcb6dff2c3559a0",
+    "docs/audio-server/runtime-layer.patch": "046138b8043992b46a282d8fe64db12113c15872279e95c0caeee11c7087d697",
+    "melunga_deploy/tests/serveur-audio-layer.test.cjs": "8f7d12f6bd54e2003d52fa6cf1fa73391906e4453ca85c9d5e74ca4a5cb24527"
+  },
+  "fixtureSha256": "4657c25aee96a719d8ab48f517ded65c1599737e194d858590c9f8414c6020cf",
+  "patchSha256": "4827a9eebf7808464df204821f989c648956a271fbd114fb6f02ae5d48e46977",
+  "ownedTestFilesSha256": {
+    "chirp-preview-layer.cjs": "14a0d69cc4cf7e20ed0670ad92dde900ad55615ebf9d0f6d1b1efae3330dc3b1",
+    "native-routing-layer.cjs": "36e41863162f5aafd45b904db997254e27cc1333cf496b1f755618f27843faf8",
+    "serveur-audio-layer.cjs": "d2fe1582f60b2c23eb3c7e68cc87ffacdf027544bce5d8847a6cfb42d0d24bfd"
+  },
+  "noProductEditsByThisAgent": true,
+  "noCommitOrPush": true
+}

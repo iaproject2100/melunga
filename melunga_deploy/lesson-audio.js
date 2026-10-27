@@ -1,5 +1,6 @@
-/* Lesson audio uses the existing same-origin WaveNet endpoint. A browser voice
- * is a fallback only when its declared language matches the studied language. */
+/* The preview catalogue selects actual Chirp 3 HD candidates before the click.
+ * Pages without that preview module keep the existing WaveNet contract. A
+ * browser voice is a fallback only when it matches the studied language. */
 (() => {
   'use strict';
 
@@ -23,9 +24,12 @@
     return !cantonese && (primary === 'cmn' || primary === 'zh' && !/(?:^|-)(?:hk|mo)(?:-|$)/.test(tag));
   }
 
-  function createPlayer({ onPlaying = () => {}, onUnavailable = () => {} } = {}) {
+  function createPlayer({ onPlaying = () => {}, onUnavailable = () => {}, onVoice = () => {}, endpointBase } = {}) {
     let generation = 0, current = null;
     const isCurrent = request => current === request && request.generation === generation;
+    const selection = window.MelungaVoiceSelection;
+    const base = endpointBase === undefined ? selection?.state?.().endpointBase || '' : String(endpointBase).replace(/\/$/, '');
+    if (!['', 'https://melunga.com'].includes(base)) throw new Error('Unsupported voice endpoint');
 
     function clearTimer(request) {
       if (request.timer !== null) clearTimeout(request.timer);
@@ -100,19 +104,42 @@
       } catch (_) { finish(request, true); }
     }
 
-    function play({ text, language, rate = 0.85, voice = 'female' } = {}) {
+    function play({ text, language, rate = 0.85, voice = 'female', voiceName } = {}) {
       stop();
       const config = voices[language];
       if (!config || typeof text !== 'string' || !text.trim()
-          || ![0.75, 0.85, 1].includes(rate) || !['female', 'male'].includes(voice)) {
+          || ![0.7, 0.75, 0.85, 1].includes(rate) || !['female', 'male'].includes(voice)) {
         onUnavailable();
         return false;
       }
+      let candidate = null, provisional = false, browserOnly = false;
+      if (selection) {
+        const catalogueStatus = selection.state().status;
+        candidate = voiceName === undefined ? selection.getVoice(language)
+          : selection.getChoices(language).find(item => item.name === voiceName);
+        provisional = voiceName === undefined && !!candidate && !selection.getSelected(language);
+        // No delayed play after a catalogue request: a second explicit gesture
+        // can retry when preload is ready, without losing mobile activation.
+        if (!candidate) {
+          if (voiceName === undefined && ['error', 'expired'].includes(catalogueStatus)) {
+            browserOnly = true;
+            // Retry the catalogue for a later gesture; this request is handled
+            // immediately by a matching local voice and is never replayed.
+            selection.preload().catch(() => {});
+          } else { onUnavailable(); return false; }
+        }
+      } else {
+        if (voiceName !== undefined) { onUnavailable(); return false; }
+        candidate = {name: config[voice], languageCode: config.serverLanguage, engine: 'wavenet', rateMode: 'server'};
+      }
+      const clientRate = candidate?.rateMode === 'client';
       const request = { generation, text, language, rate, config, audio: null,
         utterance: null, timer: null, usedFallback: false };
       current = request;
+      if (candidate) onVoice(Object.freeze({name: candidate.name, engine: candidate.engine, provisional,
+        rateMode: candidate.rateMode, serverRate: clientRate ? 1 : rate, playbackRate: clientRate ? rate : 1}));
       onPlaying(true);
-      if (typeof window.Audio !== 'function') {
+      if (browserOnly || typeof window.Audio !== 'function') {
         browserFallback(request);
         return true;
       }
@@ -126,13 +153,16 @@
           request.timer = setTimeout(() => { if (active()) browserFallback(request); }, 10000);
         };
         audio.preload = 'auto';
-        audio.playbackRate = 1; // The endpoint applies the requested speakingRate.
+        // Chirp receives MP3 only at its natural speed. WaveNet already applies
+        // speakingRate on the server, so it must not also be slowed here.
+        audio.playbackRate = clientRate ? rate : 1;
+        if (clientRate) { audio.preservesPitch = true; audio.webkitPreservesPitch = true; }
         audio.onplaying = () => { if (active()) clearTimer(request); };
         audio.onended = () => { if (active()) finish(request); };
         audio.onerror = () => { if (active()) browserFallback(request); };
         audio.onwaiting = audio.onstalled = waitForAudio;
-        audio.src = '/.netlify/functions/tts?' + new URLSearchParams({
-          voice: config[voice], lang: config.serverLanguage, rate: String(rate), text
+        audio.src = base + '/.netlify/functions/tts?' + new URLSearchParams({
+          voice: candidate.name, lang: candidate.languageCode, rate: String(clientRate ? 1 : rate), text
         }).toString();
         if (!active()) return true;
         waitForAudio();
@@ -143,7 +173,8 @@
       } catch (_) { browserFallback(request); }
       return true;
     }
-    return Object.freeze({ play, stop });
+    const unsubscribe = selection?.subscribe?.((_state, reason) => { if (reason === 'selection') stop(); });
+    return Object.freeze({ play, stop, destroy() { stop(); unsubscribe?.(); } });
   }
 
   window.MelungaLessonAudio = Object.freeze({ createPlayer });

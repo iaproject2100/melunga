@@ -47,6 +47,8 @@
   const courseAccess = window.MelungaCourseAccess;
   const nativeCourses = window.MelungaNativeCourses;
   const courseI18n = window.MelungaCourseI18n;
+  const voiceSelection = window.MelungaVoiceSelection;
+  voiceSelection?.preload().catch(() => {});
   const nativeCodes = ['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko'];
   const routeParameters = new URL(window.location.href).searchParams;
   const explicitPair = routeParameters.get('pair');
@@ -622,10 +624,27 @@
   }
 
   function fillVoices() {
-    ui.voice.replaceChildren(new Option(tr('Voix féminine'), 'female'), new Option(tr('Voix masculine'), 'male'));
-    ui.voice.value = state.voiceChoices.get(state.pair.studyLanguage) || 'female';
-    if (ui.voice.selectedIndex < 0) ui.voice.selectedIndex = 0;
+    const language = state.pair.studyLanguage;
+    const snapshot = voiceSelection?.getSnapshot(language);
+    const chirp = (snapshot?.choices || []).filter(candidate => candidate.engine === 'chirp3');
+    const choices = snapshot?.selected?.engine === 'wavenet' ? [snapshot.selected, ...chirp] : chirp;
+    const options = choices.map(candidate => {
+      const number = candidate.engine === 'wavenet' ? candidate.name : tr('Voix ' + (chirp.indexOf(candidate) + 1));
+      const name = candidate.name.replace(/^.*-(?:Chirp3-HD|Wavenet)-/, '');
+      const gender = tr(candidate.gender === 'MALE' ? 'Voix masculine' : 'Voix féminine');
+      return new Option(number + ' · ' + name + ' · ' + gender, candidate.name);
+    });
+    if (!choices.length) options.push(new Option(tr(snapshot?.status === 'loading' || snapshot?.status === 'idle'
+      ? 'Catalogue des voix en cours de chargement…' : 'Catalogue des voix indisponible. Réessaie.'), ''));
+    else if (!snapshot?.voice) options.unshift(new Option(tr('Choisir une voix'), ''));
+    ui.voice.replaceChildren(...options);
+    ui.voice.disabled = choices.length === 0;
+    ui.voice.value = snapshot?.voice?.name || '';
+    ui.voice.title = tr(snapshot?.provisional ? 'Voix provisoire de prévisualisation'
+      : snapshot?.selected ? 'Voix enregistrée pour cette langue' : 'Choisir une voix');
+    ui.voice.dataset.provisional = String(!!snapshot?.provisional);
     ui.speed.value = String(state.speechRate);
+    if (snapshot?.status === 'error' || snapshot?.status === 'expired') voiceSelection.preload().catch(() => {});
   }
 
   function setMenuView(view) {
@@ -719,6 +738,9 @@
   const lessonAudio = window.MelungaLessonAudio?.createPlayer({
     onPlaying: setAudioPlaying,
     onUnavailable: () => setStatus('Audio indisponible. Réessaie.')
+  });
+  voiceSelection?.subscribe(() => {
+    if (state.pair && ui.menu.open && state.menuView === 'voice') fillVoices();
   });
 
   function stopAudio() {
@@ -1199,12 +1221,15 @@
     }
     stopAudio();
     setStatus('');
-    if (!lessonAudio) {
+    if (!lessonAudio || !voiceSelection) {
       setStatus('Audio indisponible. Réessaie.');
       return;
     }
-    lessonAudio.play({ text: phrase.study, language: state.pair.studyLanguage,
-      rate: state.speechRate, voice: state.voiceChoices.get(state.pair.studyLanguage) || 'female' });
+    if (['idle', 'loading'].includes(voiceSelection.state().status)) {
+      setStatus('Catalogue des voix en cours de chargement…');
+      return;
+    }
+    lessonAudio.play({ text: phrase.study, language: state.pair.studyLanguage, rate: state.speechRate });
   }
 
   function displayPair(pair) {
@@ -1835,9 +1860,14 @@
   window.visualViewport?.addEventListener('resize', positionPopups);
   window.visualViewport?.addEventListener('scroll', positionPopups);
   ui.voice.addEventListener('change', () => {
-    if (!['female', 'male'].includes(ui.voice.value)) return;
     stopAudio();
+    if (!voiceSelection?.setVoice(state.pair.studyLanguage, ui.voice.value)) {
+      setStatus('Catalogue des voix indisponible. Réessaie.');
+      fillVoices();
+      return;
+    }
     state.voiceChoices.set(state.pair.studyLanguage, ui.voice.value);
+    fillVoices();
   });
   ui.speed.addEventListener('change', () => {
     const rate = Number(ui.speed.value);

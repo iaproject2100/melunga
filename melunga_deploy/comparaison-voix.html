@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0c4968">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voix Melunga">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Choisir les voix · Melunga</title>
+  <meta name="description" content="Compare les voix Melunga et enregistre tes préférées sur cet appareil.">
+  <link rel="icon" href="assets/melunga-logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/melunga-logo.png">
+  <link rel="manifest" href="voice-comparison.webmanifest">
+  <link rel="stylesheet" href="voice-comparison.css?v=1">
+</head>
+<body>
+  <header class="vc-hero">
+    <div class="vc-shell">
+      <div class="vc-topline">
+        <a class="vc-brand" href="comparaison-voix.html" aria-label="Melunga · comparaison des voix"><img src="melunga-logo.png" alt="" width="80" height="80"><span>Melunga</span></a>
+        <a id="vcLessons" class="vc-back" href="parcours-niveaux.html">Revenir aux leçons <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="vc-eyebrow">Le choix de la voix</p>
+      <h1>Écoute. Compare. Choisis.</h1>
+      <p class="vc-intro">Pour chaque langue, la même phrase avec trois voix Chirp 3 HD et la voix actuelle. Choisis celle que tu préfères.</p>
+      <nav class="vc-jumps" aria-label="Aller à une langue">
+        <a href="#lang-fr" data-language-jump>Français</a><a href="#lang-en" data-language-jump>Anglais</a><a href="#lang-es" data-language-jump>Espagnol</a><a href="#lang-zh" data-language-jump>Chinois</a><a href="#lang-it" data-language-jump>Italien</a><a href="#lang-ja" data-language-jump>Japonais</a><a href="#lang-ko" data-language-jump>Coréen</a>
+      </nav>
+    </div>
+  </header>
+  <main class="vc-shell vc-main">
+    <section class="vc-summary" aria-label="Mes choix">
+      <div><strong id="vcChoiceCount">Aucune langue choisie</strong><p>Tes choix sont enregistrés sur cet appareil. Aucun favori n’est présélectionné.</p></div>
+      <div class="vc-summary-actions"><button id="vcCopy" class="vc-button" type="button" disabled>Copier mes choix</button><button id="vcDownload" class="vc-button vc-button-quiet" type="button" disabled>Télécharger</button></div>
+      <p id="vcExportStatus" class="vc-status vc-export-status" role="status" aria-live="polite"></p>
+    </section>
+    <div class="vc-catalogue">
+      <p id="vcCatalogueStatus" role="status" aria-live="polite">Chargement du catalogue des voix…</p>
+      <button id="vcRetryCatalogue" class="vc-button vc-button-quiet" type="button" hidden>Réessayer</button>
+    </div>
+    <div id="vcLanguages" class="vc-languages" aria-busy="true"></div>
+    <noscript><p class="vc-error">Active JavaScript pour charger le catalogue et comparer les voix.</p></noscript>
+    <p class="vc-footnote">Le lecteur ci-dessous permet aussi de lancer, mettre en pause ou reprendre l’écoute. Chaque bouton utilise la voix indiquée.</p>
+  </main>
+  <section id="vcPlayerPanel" class="vc-player" aria-label="Lecteur de comparaison" hidden>
+    <div class="vc-player-inner"><div class="vc-now"><strong id="vcNowLanguage"></strong><span id="vcNowVoice"></span></div><button id="vcStop" class="vc-button vc-stop" type="button">Arrêter</button><audio id="audioComparison" controls playsinline preload="none" aria-label="Écouter la voix choisie"></audio></div>
+  </section>
+  <script src="voice-selection.js?v=1" defer></script>
+  <script src="voice-comparison.js?v=1" defer></script>
+</body>
+</html>

@@ -4,6 +4,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {execFileSync}=require('node:child_process');
+const chirpLayer=require('./chirp-preview-layer.cjs');
 const ROOT=path.resolve(__dirname,'../..');
 const BASE='ef147deacf85b4a5631c1b05ff8050de7918ea1f';
 const FIXTURE='melunga_deploy/tests/fixtures/native-routing-layer.json';
@@ -35,11 +36,12 @@ function fixture(){
 }
 function stamp(filename){const s=fs.statSync(path.join(ROOT,filename),{bigint:true});return[s.dev,s.ino,s.mode,s.size,s.mtimeNs,s.ctimeNs].join(':');}
 function inputFiles(){const f=fixture();return[__filename,path.join(ROOT,FIXTURE),path.join(ROOT,f.patchPath),path.join(ROOT,f.audioEvidencePath),
- ...Object.keys(f.modifiedFiles).concat(Object.keys(f.newFiles)).map(file=>path.join(ROOT,file))];}
+ ...Object.keys(f.modifiedFiles).concat(Object.keys(f.newFiles)).map(file=>path.join(ROOT,file)),...chirpLayer.inputFiles()];}
 function assertCurrentBytes(filename,bytes){
  filename=relative(filename);const f=fixture(),pin=f.modifiedFiles[filename]?.currentSha256||f.newFiles[filename];
- assert.ok(pin,'source has an explicit native A+B pin: '+filename);assert.equal(sha(bytes),pin,'whole native A+B source '+filename);
- return bytes;
+ const beforeChirp=chirpLayer.beforeChirpBytes(filename,bytes);
+ assert.ok(pin,'source has an explicit native A+B pin: '+filename);assert.equal(sha(beforeChirp),pin,'whole native A+B source '+filename);
+ return beforeChirp;
 }
 function sourceFunction(source,name){
  const match=new RegExp('\\b(?:async\\s+)?function\\s+'+name+'\\s*\\([^)]*\\)\\s*\\{').exec(source);
@@ -77,14 +79,17 @@ function assertSourceInvariants(current,before){
  return {classicAuthFunctions:auth,progressFunctions:progress,audioFunctions:audio};
 }
 function validate({force=false}={}){
+ chirpLayer.validate();
  const f=fixture(),files=inputFiles();
  if(!force&&validationCache&&validationCache.readFileSync===fs.readFileSync&&files.every(file=>validationCache.stamps.get(file)===stamp(path.relative(ROOT,file))))return validationCache.summary;
- assert.equal(sha(read(AUDIO_MODULE)),AUDIO_MODULE_SHA256,'whole audio module is pinned');
+ assert.equal(sha(chirpLayer.beforeChirpBytes(AUDIO_MODULE)),AUDIO_MODULE_SHA256,'whole audio module is pinned');
  const audioEvidence=read(f.audioEvidencePath);
  assert.equal(sha(audioEvidence),f.audioEvidenceSha256,'whole finite audio patch is pinned');
  assert.ok(audioEvidence.equals(execFileSync('git',['show',AUDIO_BASE+':'+f.audioEvidencePath],{cwd:ROOT,maxBuffer:4*1024*1024})),'original B patch remains immutable evidence');
  const patch=read(f.patchPath);assert.equal(sha(patch),f.patchSha256,'exact composed A+B patch bytes');
- const actualDiff=execFileSync('git',['diff','--binary','--no-ext-diff','--no-textconv','--unified=0',BASE,'--',...ALLOWED],{cwd:ROOT,maxBuffer:32*1024*1024});
+ // The actual complete Chirp delta has already passed. Its finite before view
+ // is exactly 4fafe31, so the original immutable A+B patch remains unchanged.
+ const actualDiff=execFileSync('git',['diff','--binary','--no-ext-diff','--no-textconv','--unified=0',BASE,chirpLayer.baseCommit,'--',...ALLOWED],{cwd:ROOT,maxBuffer:32*1024*1024});
  assert.ok(actualDiff.equals(patch),'actual composed A+B delta equals its complete frozen patch');
  const current=new Map(),before=new Map();
  for(const file of ALLOWED){
