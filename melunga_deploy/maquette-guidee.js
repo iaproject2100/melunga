@@ -479,6 +479,21 @@
     return 'app.html?' + query;
   }
 
+  function legalMenuRows() {
+    const labels = {
+      fr: ['Conditions générales', 'Confidentialité'], en: ['Terms and Conditions', 'Privacy'],
+      es: ['Términos', 'Privacidad'], zh: ['服务条款', '隐私政策'],
+      it: ['Termini', 'Privacy'], ja: ['利用規約', 'プライバシー'], ko: ['이용약관', '개인정보']
+    };
+    const native = state.nativeLanguage;
+    const language = ['fr', 'en', 'es', 'zh'].includes(native) ? native : 'en';
+    const suffix = language === 'fr' ? '' : '-' + language;
+    return ['terms', 'privacy'].map((key, index) => ({
+      key, label: labels[native][index] + (language === native ? '' : ' (EN)'),
+      icon: icons.info, href: key + suffix + '.html', language, newTab: true, secondaryOnly: true
+    }));
+  }
+
   function menuRows() {
     const account = courseAccess?.state();
     return [
@@ -492,7 +507,8 @@
       { label: 'Avis', icon: icons.chat, panel: 'feedback' },
       account?.paid || account?.unrestricted
         ? { label: 'Mon compte', icon: icons.person, panel: 'account' }
-        : { label: 'Se connecter / Créer un compte', shortLabel: 'Connexion', icon: icons.person, href: lessonUrl(true) }
+        : { label: 'Se connecter / Créer un compte', shortLabel: 'Connexion', icon: icons.person, href: lessonUrl(true) },
+      ...legalMenuRows()
     ];
   }
 
@@ -502,7 +518,11 @@
     item.dataset.menuItem = row.key || row.panel || row.label;
     item.setAttribute('aria-label', tr(row.label));
     if (desktop) item.title = tr(row.label);
-    if (row.href) item.href = row.href;
+    if (row.href) {
+      item.href = row.href;
+      if (row.language) item.hreflang = row.language;
+      if (row.newTab) { item.target = '_blank'; item.rel = 'noopener'; }
+    }
     else {
       item.type = 'button';
       if (row.panel) {
@@ -522,7 +542,7 @@
   function buildMenu(includeDesktop = true) {
     const rows = menuRows();
     ui.menuNav.replaceChildren(...rows.map(row => menuItem(row)));
-    if (includeDesktop && ui.desktopNav) ui.desktopNav.replaceChildren(...rows.map(row => menuItem(row, true)));
+    if (includeDesktop && ui.desktopNav) ui.desktopNav.replaceChildren(...rows.filter(row => !row.secondaryOnly).map(row => menuItem(row, true)));
     document.querySelectorAll('[data-mg-i18n]').forEach(node => text(node, tr(node.dataset.mgI18n)));
     [[ui.menuClose, 'Fermer le menu'], [ui.menuBack, 'Revenir au menu'], [ui.menuNav, 'Rubriques'], [ui.desktopNav, 'Rubriques']]
       .forEach(([node, label]) => node?.setAttribute('aria-label', tr(label)));
