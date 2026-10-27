@@ -19,10 +19,10 @@ const CAPSULE_UI_SHA256={'maquette-guidee.css': '2da16667452ebe1781a5d202f68fd81
 // the capsule projection below retains its original independent pins.
 const NAVIGATION_UI_BASE='a5c721f51a217750c3b83ecd56c85dbfc4ccb7f8';
 const NAVIGATION_UI_SHA256={
- 'maquette-guidee.css':'c311f02a1f38fecfedc2de66f3cfddad0c14c41c88a04ec6972f677f331b16b5',
+ 'maquette-guidee.css':'739ccbcd0401faca7cd67b497b5b97e6098b29979512215b850213457234f0a2',
  'maquette-guidee.js':'3f33568582a6a31d9e4821f63cefab4736beb69644435eb8696aa13aafbcdc58',
- 'parcours-niveaux.html':'4ee4496adaeabaf1a543d063bb13c35b976707b2fb79e0d1ad3dbe6d14ed49a4',
- 'maquette-guidee.html':'9916501b19caeb03770062d1cf9554fe4eb266ffe121fbe185eed56816e2acc5',
+ 'parcours-niveaux.html':'503994f99ae5361825b662f82647649eea4fba3517e1d064fe890fe5dcbed0c5',
+ 'maquette-guidee.html':'2a6fc7d109bf1f656ab907ce1f132758ef1d90df20caeec93ce2879d73096688',
  'app.html':'3544302224ad8e162b9ba40e76b8e5905dbebce2987431c8e8d30fca85df5c1a'
 };
 const LOGIN_HELPER_SHA256={'course-login.css':'bdcfa4b4bc85daca76b728a14e3e97326a739b13137ae6f17b6cd90d059ff46c','course-login.js':'3ec780d1f6a10b68b54f7bcedd6aa96f2e39a334175841973be8e4e785654291'};

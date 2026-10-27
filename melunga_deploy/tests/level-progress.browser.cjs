@@ -11,7 +11,7 @@ const REPO=path.resolve(__dirname,'../..'),WEB=path.join(REPO,'melunga_deploy');
 const BASE='a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f',ORIGIN='https://level-progress.test';
 // The account component changes course-access. The reviewed presentation has
 // its own whole CSS pin; other protected files keep the public main reference.
-const REVIEWED_CSS_SHA='c311f02a1f38fecfedc2de66f3cfddad0c14c41c88a04ec6972f677f331b16b5';
+const REVIEWED_CSS_SHA='739ccbcd0401faca7cd67b497b5b97e6098b29979512215b850213457234f0a2';
 const ACCOUNT_COMPONENT_REF='665d0def5df2644bb8421553ed4876292ef23f10';
 const BEFORE_CAPSULE_REF='711537b';
 // The classic data remain exact; only these two account-presentation includes
@@ -98,7 +98,10 @@ async function progress(page,pair,level,known){
  assert.ok((actual.label||actual.text||'').includes(pair==='zh-fr'?'级':'Niveau'),'progress has a native-language accessible label');
  if(actual.text)assert.equal(actual.text,caption);
  const b=await page.locator('#mgCounter').evaluate(n=>{const r=n.getBoundingClientRect();return{left:r.left,right:r.right,top:r.top,bottom:r.bottom,scrollWidth:n.scrollWidth,clientWidth:n.clientWidth,innerWidth,bodyWidth:document.documentElement.scrollWidth};});
- assert.ok(b.left>=-1&&b.right<=b.innerWidth+1&&b.scrollWidth<=b.clientWidth+1&&b.bodyWidth<=b.innerWidth+1,'short progress caption fits mobile '+JSON.stringify(b));
+ const mobile=await page.evaluate(()=>matchMedia('(max-width:760px)').matches),counterVisible=await page.locator('#mgCounter').isVisible(),row=await page.locator('.mg-topbar').evaluate(n=>({display:getComputedStyle(n).display,height:n.getBoundingClientRect().height}));
+ assert.equal(counterVisible,!mobile,'repeated level caption is hidden only on the mobile theme list');assert.equal(row.display==='none',mobile,'the complete redundant row is removed only on mobile');if(mobile)assert.equal(row.height,0);else assert.ok(row.height>0);
+ assert.equal(await page.locator('#mgLevelTrigger').isVisible(),true,'the main level badge stays available');assert.match(await page.locator('#mgLevelTrigger').textContent(),new RegExp('L'+level));
+ assert.ok(b.left>=-1&&b.right<=b.innerWidth+1&&b.scrollWidth<=b.clientWidth+1&&b.bodyWidth<=b.innerWidth+1,'short progress caption fits '+JSON.stringify(b));
  assert.equal(await page.locator('body').evaluate(n=>n.classList.contains('mg-has-level-progress')),true);
  assert.equal(await page.locator('#mgProgress').evaluate(n=>n.closest('.mg-progress').classList.contains('is-level-progress')),true);
  assert.equal(await page.locator('#mgLevelPercent').getAttribute('aria-hidden'),'true');assert.equal(await page.locator('#mgLevelEnd').getAttribute('aria-hidden'),'true');
@@ -126,9 +129,19 @@ function completeFill(g){
 function contrastRatio(background,ink){
  const rgb=value=>(value.match(/[\d.]+/g)||[]).slice(0,3).map(Number),luminance=v=>v.map(x=>{x/=255;return x<=.04045?x/12.92:((x+.055)/1.055)**2.4;}).reduce((sum,x,i)=>sum+x*[.2126,.7152,.0722][i],0),bg=Array.isArray(background)?background:rgb(background),fg=Array.isArray(ink)?ink:rgb(ink);assert.equal(bg.length,3);assert.equal(fg.length,3);const a=luminance(bg),b=luminance(fg);return(Math.max(a,b)+.05)/(Math.min(a,b)+.05);
 }
+async function finAppearance(page){
+ const style=await page.locator('#mgLevelEnd').evaluate(n=>{const s=getComputedStyle(n);return{background:s.backgroundColor,image:s.backgroundImage,ink:s.color,fillFilter:getComputedStyle(document.getElementById('mgProgress')).filter,complete:n.closest('.mg-progress').classList.contains('is-complete')};}),components=(style.background.match(/[\d.]+/g)||[]).map(Number);
+ assert.equal(style.image,'none','no decorative background replaces the actual progress fill');
+ if(style.complete){assert.equal(components.length,4);assert.equal(components[3],0,'Fin becomes transparent when the full bar reaches it');}
+ else{assert.ok(components.length>=3);assert.equal(Math.max(...components.slice(0,3))-Math.min(...components.slice(0,3)),0,'unfinished Fin uses a neutral surface, not a separate progress colour');assert.ok(components.length===3||components[3]>0,'neutral finish label remains legible before completion');}
+ return style;
+}
 async function finContrast(page){
- const style=await page.locator('#mgLevelEnd').evaluate(n=>{const s=getComputedStyle(n);return{background:s.backgroundColor,ink:s.color};}),components=(style.background.match(/[\d.]+/g)||[]).map(Number);
- assert.ok(components.length===3||components.length===4&&components[3]===1,'Fin has an opaque readable background '+JSON.stringify(style));const contrast=contrastRatio(style.background,style.ink);assert.ok(contrast>=4.5,'Fin remains readable over the colored finish '+JSON.stringify({...style,contrast}));return{...style,contrast};
+ const style=await finAppearance(page),geometry=await capsuleGeometry(page),png=await page.locator('.mg-progress.is-level-progress').screenshot({animations:'disabled'});
+ // Sample the actual painted capsule just above the text, at three positions
+ // within Fin. This includes the real gradient and the dusk brightness filter.
+ const pixels=await page.evaluate(async({url,g})=>{const im=new Image();im.src=url;await im.decode();const c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;const x=c.getContext('2d');x.drawImage(im,0,0);return[.25,.5,.75].map(f=>{const px=Math.floor((g.end.left-g.host.left+g.end.width*f)*c.width/g.host.width),py=Math.floor((g.end.top-g.host.top+2)*c.height/g.host.height);return[...x.getImageData(px,py,1,1).data].slice(0,3);});},{url:'data:image/png;base64,'+png.toString('base64'),g:geometry});
+ const contrasts=pixels.map(background=>contrastRatio(background,style.ink)),contrast=Math.min(...contrasts);assert.ok(contrast>=4.5,'Fin remains readable on the actual filtered fill '+JSON.stringify({...style,pixels,contrasts}));return{...style,pixels,contrasts,contrast,measurement:'actual rendered capsule PNG; clear pixels above the label'};
 }
 async function seedKnown(page,pair,ids){const value=registry({[pair]:ids});await page.evaluate(({key,value})=>{localStorage.setItem(key,value);window.dispatchEvent(new StorageEvent('storage',{key,newValue:value}));},{key:KNOWN,value});}
 async function capsuleHidden(page){
@@ -160,18 +173,23 @@ test('French and Chinese capsules keep the percentage fixed while filling toward
  assert.equal(levelData('fr-ja').ids.length,361);assert.equal(levelData('fr-zh').ids.length,314);assert.equal(levelData('zh-fr').ids.length,344);assert.equal(levelData('fr-ja').positions.length,363);
  for(const pair of ['fr-ja','zh-fr'])for(const width of [320,390,1440]){
   const f=await fixture({pair,width,height:width>760?900:700});try{
-   const ids=levelData(pair).ids,positions=[],fills=[];
-   for(const target of [0,25,50,75,99,100]){
-    const known=ids.slice(0,Math.ceil(ids.length*target/100));await seedKnown(f.page,pair,known);const p=await progress(f.page,pair,1,known);assert.equal(p.percent,target);
-    const geometry=await capsuleGeometry(f.page);assert.ok(Math.abs(geometry.fill.width-geometry.host.clientWidth*p.ratio)<=1.1,'fill uses the whole-level ratio relative to the full capsule including Fin');positions.push(geometry.pill.left-geometry.lane.left);fills.push(geometry.fill.width);if(target===100)completeFill(geometry);
-    const fin=await finContrast(f.page);report.cases.push({name:'localized-fixed-capsule',pair,width,target,...p,geometry,fin});
-    if(pair==='fr-ja'&&width===390&&target===0)await capture(f.page,'fresh-level-zero');
-    if(pair==='fr-ja'&&width===390&&target!==99)await captureCapsule(f.page,'capsule-390-'+target);
-    if(pair==='zh-fr'&&width===390&&target===25)await capture(f.page,'chinese-native-level-progress');
-    if(pair==='fr-ja'&&width===320&&[25,50].includes(target))await capture(f.page,'fixed-capsule-mobile-320-'+target);
-    if(pair==='fr-ja'&&width===1440&&target===50)await capture(f.page,'fixed-capsule-desktop');
+   const ids=levelData(pair).ids;
+   for(const ambience of ['ocean','aurora','dusk']){
+    await f.page.locator('body').evaluate((n,value)=>{n.dataset.ambience=value;},ambience);const positions=[],fills=[];
+    for(const target of [0,25,50,75,99,100]){
+     const known=ids.slice(0,Math.ceil(ids.length*target/100));await seedKnown(f.page,pair,known);const p=await progress(f.page,pair,1,known);assert.equal(p.percent,target);
+     const geometry=await capsuleGeometry(f.page);assert.ok(Math.abs(geometry.fill.width-geometry.host.clientWidth*p.ratio)<=1.1,'fill uses the whole-level ratio relative to the full capsule including Fin');positions.push(geometry.pill.left-geometry.lane.left);fills.push(geometry.fill.width);if(target===100)completeFill(geometry);
+     const fin=[0,99,100].includes(target)?await finContrast(f.page):await finAppearance(f.page);report.cases.push({name:'localized-fixed-capsule',pair,width,ambience,target,...p,geometry,fin});
+     if(pair==='fr-ja'&&width===390&&ambience==='ocean'&&target===0)await capture(f.page,'fresh-level-zero');
+     if(pair==='fr-ja'&&width===390&&ambience==='ocean'&&target!==99)await captureCapsule(f.page,'capsule-390-'+target);
+     if(pair==='fr-ja'&&width===390&&target===50)await capture(f.page,'mobile-level-header-'+ambience);
+     if(pair==='zh-fr'&&width===390&&ambience==='ocean'&&target===25)await capture(f.page,'chinese-native-level-progress');
+     if(pair==='fr-ja'&&width===320&&ambience==='ocean'&&[25,50].includes(target))await capture(f.page,'fixed-capsule-mobile-320-'+target);
+     if(pair==='fr-ja'&&width===1440&&ambience==='ocean'&&target===50)await capture(f.page,'fixed-capsule-desktop');
+    }
+    assert.ok(positions.every(x=>Math.abs(x-positions[0])<=.5),'percentage stays in the same position at every completion value');assert.ok(fills.every((x,i)=>i===0||x>fills[i-1]),'actual fill advances monotonically toward Fin');
    }
-   assert.ok(positions.every(x=>Math.abs(x-positions[0])<=.5),'percentage stays in the same position at every completion value');assert.ok(fills.every((x,i)=>i===0||x>fills[i-1]),'actual fill advances monotonically toward Fin');
+   const before=await f.page.evaluate(key=>localStorage.getItem(key),KNOWN);await enter(f.page);assert.equal(await f.page.locator('#mgCounter').isVisible(),true,'lesson counter stays visible on phone and desktop');assert.match(await f.page.locator('#mgCounter').textContent(),/\d+ \/ \d+/);assert.ok(await f.page.locator('.mg-topbar').evaluate(n=>n.getBoundingClientRect().height)>0,'lesson navigation row stays available');await sessionBar(f.page);if(pair==='fr-ja'&&width===390)await capture(f.page,'mobile-lesson-counter');await themes(f.page);await progress(f.page,pair,1,ids);assert.equal(await f.page.evaluate(key=>localStorage.getItem(key),KNOWN),before,'entering and leaving the lesson does not change known decisions');report.cases.push({name:'theme-only-mobile-row-removal',pair,width,lessonCounterPreserved:true});
   }finally{await f.context.close();}
  }
  const malformed=await fixture({width:280,height:500,knownRaw:'{malformed-json'});try{await progress(malformed.page,'fr-ja',1,[]);await capsuleGeometry(malformed.page);}finally{await malformed.context.close();}
