@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Melunga · Trois façons d’écouter et continuer</title>
+  <link rel="stylesheet" href="navigation-desktop-v3.css">
+</head>
+<body>
+  <!-- Comparison controls and notes are outside the learner interface. -->
+  <header class="nv-reviewbar">
+    <strong>Barre haute · Écouter et continuer</strong>
+    <nav aria-label="Comparer les propositions">
+      <button type="button" data-variant="a">A · Près de la phrase</button>
+      <button type="button" data-variant="b">B · Sur le côté</button>
+      <button type="button" data-variant="c">C · Barre fixe</button>
+    </nav>
+  </header>
+  <div id="proposalStage"></div>
+  <aside class="nv-notes">
+    <strong id="variantName"></strong><span id="variantSummary"></span>
+    <details><summary>En savoir plus</summary><div><p id="variantDescription"></p><p>Maquettes ordinateur uniquement. Les boutons audio sont visuels et silencieux. « Suivant » parcourt trois cartes espagnoles existantes, sans marquer « Je connais » ni enregistrer de progression.</p></div></details>
+  </aside>
+  <script id="sourceCards" type="application/json">[{"id":"conversation:L1-fr-es.json:L1-fr-es-02:v0","study":"Me llamo María.","native":"Je m'appelle Marie.","phon":"mé YA-mo ma-RI-a"},{"id":"conversation:L1-fr-es.json:L1-fr-es-02:v1","study":"Me llamo Pablo.","native":"Je m'appelle Paul.","phon":"mé YA-mo PA-blo"},{"id":"conversation:L1-fr-es.json:L1-fr-es-01:v0","study":"Soy estudiante.","native":"Je suis étudiant.","phon":"SOY és-tou-DIAN-té"}]</script>
+  <script>
+  (() => {
+    const cards = JSON.parse(document.getElementById('sourceCards').textContent);
+    const svg = paths => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+paths+'</svg>';
+    const icons = {
+      folder:svg('<path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/><path d="M3 11h18"/>'),
+      cap:svg('<path d="m2 9 10-5 10 5-10 5L2 9Zm4 2v6c4 3 8 3 12 0v-6m4-2v8"/>'),
+      menu:svg('<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>'),
+      speaker:svg('<path d="m11 5-5 4H3v6h3l5 4V5Z"/><path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>'),
+      arrow:svg('<path d="M4 12h16m-6-6 6 6-6 6"/>'),
+      review:svg('<path d="M3 10a9 9 0 1 1 2 9m-2-9h6M3 10V4"/>'),
+      person:svg('<circle cx="12" cy="7" r="3.3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3"/>'),
+      headphones:svg('<path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="12" width="5" height="9" rx="2"/><rect x="16" y="12" width="5" height="9" rx="2"/>'),
+      info:svg('<circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/>')
+    };
+    const versions = {
+      a:{name:'A · Les commandes près de la phrase',summary:'Écouter et continuer au même endroit.',description:'Les trois commandes sont regroupées juste sous la traduction. Après l’écoute, la carte suivante reste à un clic, sans revenir au bas de la page. C’est la proposition recommandée : une seule zone d’action, proche de la lecture.'},
+      b:{name:'B · Un petit rail à droite',summary:'Écouter puis avancer sur le bord de la carte.',description:'Un rail compact accompagne la carte à mi-hauteur. Le haut-parleur et le petit bouton Suivant restent voisins dans le parcours du regard, avec À revoir en retrait. La zone de lecture garde son calme.'},
+      c:{name:'C · Une barre de commandes fixe',summary:'Les actions gardent toujours leur place.',description:'Une barre indépendante reste fixée au bas de l’écran élève, sous la carte. Écouter et Suivant sont immédiatement voisins ; À revoir est disponible à gauche. La carte réserve cet espace, y compris sur un ordinateur portable.'}
+    };
+    let variant = 'a', cardIndex = 0;
+    const button = (kind, label, icon) => '<button type="button" class="nv-action nv-'+kind+'" data-'+kind+'>'+icons[icon]+'<span>'+label+'</span></button>';
+    const actions = () => '<div class="nv-command-set">'+button('review','À revoir','review')+button('listen','Écouter','speaker')+button('next','Suivant','arrow')+'</div>';
+    function render() {
+      const stage = document.getElementById('proposalStage');
+      stage.innerHTML = '<section class="nv-student nv-variant-'+variant+'" aria-label="Écran élève Melunga">'+
+        '<header class="nv-topbar"><a href="#" class="nv-brand" aria-label="Melunga"><img src="../../melunga_deploy/melunga-logo.png" alt=""><span>Melunga</span></a><nav class="nv-primary" aria-label="Apprendre"><button type="button" class="is-active">'+icons.folder+'<span>Thèmes</span></button><button type="button">'+icons.review+'<span>À revoir</span></button><button type="button">'+icons.cap+'<span>Révisions</span></button></nav><button class="nv-menu-button" type="button" data-open-menu aria-expanded="false" aria-controls="secondaryMenu">'+icons.menu+'<span>Menu</span></button><div id="secondaryMenu" class="nv-menu" hidden><strong>Menu</strong><button type="button">'+icons.review+'À revoir</button><button type="button">'+icons.headphones+'Voix</button><button type="button">'+icons.info+'Aide</button><button type="button">'+icons.person+'Mon compte</button></div></header>'+
+        '<main class="nv-main"><div class="nv-learning"><header class="nv-theme-heading"><div class="nv-theme-name"><span class="nv-photo" role="img" aria-label="Deux personnes font connaissance"></span><div><p>Premiers échanges</p><h1>Saluer et faire connaissance</h1></div></div><div class="nv-context" aria-label="Niveau, langue et couleur"><button class="nv-pill nv-level" type="button" aria-label="Niveau 1" title="Niveaux">L1</button><button class="nv-pill nv-language" type="button" aria-label="Espagnol" title="Langues"><span class="nv-spain" aria-hidden="true"></span></button><button class="nv-pill nv-color" type="button" aria-label="Couleur" title="Couleur"><span class="nv-colorwheel" aria-hidden="true"></span></button></div></header>'+
+        '<div class="nv-progress" role="progressbar" aria-label="Progression du niveau" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25"><span class="nv-progress-fill"></span><strong>25 %</strong><span class="nv-end">Fin</span></div>'+
+        '<section class="nv-card" aria-label="Phrase à pratiquer"><header class="nv-card-top"><span class="nv-sequence">01</span><span class="nv-position"></span></header><div class="nv-card-body"><p class="nv-study" lang="es"></p><div class="nv-phonetic"><p></p></div><p class="nv-meaning" lang="fr"></p>'+(variant==='a'?actions():'')+'</div>'+(variant==='b'?'<div class="nv-side-rail">'+actions()+'</div>':'')+'</section></div></main>'+
+        (variant==='c'?'<div class="nv-fixed-commands">'+actions()+'</div>':'')+'<p class="nv-feedback" role="status" aria-live="polite"></p></section>';
+      stage.querySelector('.nv-brand').addEventListener('click', e => e.preventDefault());
+      stage.querySelector('[data-next]').addEventListener('click', () => {cardIndex=(cardIndex+1)%cards.length;renderCard();});
+      stage.querySelector('[data-review]').addEventListener('click', () => {stage.querySelector('.nv-feedback').textContent='Elle reviendra';setTimeout(()=>{const node=stage.querySelector('.nv-feedback');if(node)node.textContent='';},1200);});
+      const menuButton=stage.querySelector('[data-open-menu]'), menu=stage.querySelector('.nv-menu');
+      menuButton.addEventListener('click',()=>{menu.hidden=!menu.hidden;menuButton.setAttribute('aria-expanded',String(!menu.hidden));});
+      document.getElementById('variantName').textContent=versions[variant].name;
+      document.getElementById('variantSummary').textContent=versions[variant].summary;
+      document.getElementById('variantDescription').textContent=versions[variant].description;
+      document.querySelectorAll('[data-variant]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.variant===variant)));
+      document.body.dataset.variant=variant;renderCard();
+      const url=new URL(location.href);url.searchParams.set('variant',variant);history.replaceState(null,'',url);
+    }
+    function renderCard() {
+      const card=cards[cardIndex], stage=document.getElementById('proposalStage');
+      stage.querySelector('.nv-study').textContent=card.study;stage.querySelector('.nv-phonetic p').textContent=card.phon;stage.querySelector('.nv-meaning').textContent=card.native;
+      stage.querySelector('.nv-position').textContent=(cardIndex+1)+' / '+cards.length;stage.querySelector('.nv-card').dataset.cardId=card.id;
+    }
+    document.querySelectorAll('[data-variant]').forEach(b=>b.addEventListener('click',()=>{variant=b.dataset.variant;render();}));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){const menu=document.getElementById('secondaryMenu');if(menu)menu.hidden=true;document.querySelector('[data-open-menu]')?.setAttribute('aria-expanded','false');}});
+    const query=new URL(location.href).searchParams;document.body.classList.toggle('is-capture',query.get('capture')==='1');variant=Object.hasOwn(versions,query.get('variant'))?query.get('variant'):'a';render();
+  })();
+  </script>
+</body>
+</html>
