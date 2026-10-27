@@ -481,6 +481,13 @@ index c74efd4..3dc5559 100644
 +    "Comparer les voix": "음성 비교",
 +    "Voix par défaut": "기본 음성",
 +    "Chargement des leçons…": "학습 내용을 불러오는 중…"
+diff --git a/melunga_deploy/course-access.js b/melunga_deploy/course-access.js
+index 812e6c7..e3e3004 100644
+--- a/melunga_deploy/course-access.js
++++ b/melunga_deploy/course-access.js
+@@ -30 +30 @@
+-    const response = await fetch('content/course-access.json', {cache:'no-cache', credentials:'same-origin'});
++    const response = await (window.MelungaCourseData?.fetch || fetch)('content/course-access.json', {cache:'no-cache', credentials:'same-origin'});
 diff --git a/melunga_deploy/course-i18n.js b/melunga_deploy/course-i18n.js
 index 1dc0119..5afa676 100644
 --- a/melunga_deploy/course-i18n.js
@@ -507,6 +514,13 @@ index c5f114d..63ad15c 100644
 @@ -21 +24 @@
 -    var saved = sessionStorage.getItem('melunga-course-ambience');
 +    var saved = localStorage.getItem('melunga-course-ambience') || sessionStorage.getItem('melunga-course-ambience');
+diff --git a/melunga_deploy/course-native.js b/melunga_deploy/course-native.js
+index e212587..6c29b7b 100644
+--- a/melunga_deploy/course-native.js
++++ b/melunga_deploy/course-native.js
+@@ -53 +53 @@
+-    const response = await fetch(path, {credentials:'omit', cache:'no-cache', signal});
++    const response = await (globalThis.MelungaCourseData?.fetch || fetch)(path, {credentials:'omit', cache:'no-cache', signal});
 diff --git a/melunga_deploy/desktop-home.js b/melunga_deploy/desktop-home.js
 index 6c92871..d3211d8 100644
 --- a/melunga_deploy/desktop-home.js
@@ -639,7 +653,7 @@ index 671acf7..c66f971 100644
 +    const unsubscribe = selection?.subscribe?.((_state, reason) => { if (reason === 'selection') stop(); });
 +    return Object.freeze({ play, stop, destroy() { stop(); unsubscribe?.(); } });
 diff --git a/melunga_deploy/maquette-guidee.html b/melunga_deploy/maquette-guidee.html
-index 7663cf5..006731c 100644
+index 7663cf5..a829944 100644
 --- a/melunga_deploy/maquette-guidee.html
 +++ b/melunga_deploy/maquette-guidee.html
 @@ -7,2 +7,2 @@
@@ -647,19 +661,20 @@ index 7663cf5..006731c 100644
 -  <title>Melunga — maquette du parcours par thèmes</title>
 +  <meta name="theme-color" content="#edc7bd">
 +  <title>Melunga — parcours par thèmes</title>
-@@ -10,0 +11,2 @@
+@@ -10,0 +11,3 @@
 +  <link rel="stylesheet" href="course-ambiences.css?v=1">
 +  <link rel="stylesheet" href="course-startup.css?v=1">
-@@ -12,2 +14 @@
++  <link rel="stylesheet" href="course-desktop.css?v=1">
+@@ -12,2 +15 @@
 -<body data-ambience="ocean">
 -  <div class="mg-previewnotice"><span>Maquette</span><a href="https://melunga.com/" target="_blank" rel="noopener">Site actuel ↗</a></div>
 +<body data-ambience="dusk" data-view="loading">
-@@ -21,2 +22,2 @@
+@@ -21,2 +23,2 @@
 -        <span class="mg-round mg-level" aria-label="Niveau 1">L1</span>
 -        <button id="mgLanguageTrigger" class="mg-round mg-language-control" type="button" title="Changer de langue" aria-label="Choisir une langue" aria-haspopup="dialog" aria-controls="mgLanguageDialog" aria-expanded="false" disabled><span id="mgLanguageFlag" aria-hidden="true">🇨🇳</span></button>
 +        <span id="mgLevelText" class="mg-round mg-level" aria-label="Niveau 1">…</span>
 +        <button id="mgLanguageTrigger" class="mg-round mg-language-control" type="button" title="Changer de langue" aria-label="Choisir une langue" aria-haspopup="dialog" aria-controls="mgLanguageDialog" aria-expanded="false" disabled><span id="mgLanguageFlag" aria-hidden="true">…</span></button>
-@@ -38 +39,12 @@
+@@ -38 +40,12 @@
 -        <section id="mgLoading" class="mg-view mg-loading" aria-live="polite"><p id="mgLoadingText">Tes thèmes arrivent…</p><button id="mgRetry" class="mg-action" type="button" hidden>Réessayer</button></section>
 +        <section id="mgLoading" class="mg-view mg-loading" aria-live="polite" aria-busy="true">
 +          <p id="mgLoadingText" class="mg-loading-message">Chargement des leçons…</p>
@@ -673,37 +688,44 @@ index 7663cf5..006731c 100644
 +          </div>
 +          <button id="mgRetry" class="mg-action" type="button" hidden>Réessayer</button>
 +        </section>
-@@ -144 +156 @@
+@@ -144,5 +157,8 @@
 -  <script src="course-i18n.js?v=2"></script>
-+  <script src="course-i18n.js?v=5"></script>
-@@ -147,2 +159,3 @@
+-  <script src="course-native.js?v=1"></script>
+-  <script src="course-access.js?v=3"></script>
 -  <script src="lesson-audio.js?v=1"></script>
 -  <script src="maquette-guidee.js?v=31"></script>
++  <script src="course-i18n.js?v=5"></script>
++  <script src="course-data.js?v=1"></script>
++  <script src="course-native.js?v=2"></script>
++  <script src="course-access.js?v=4"></script>
 +  <script src="voice-selection.js?v=2"></script>
 +  <script src="lesson-audio.js?v=3"></script>
-+  <script src="maquette-guidee.js?v=35"></script>
++  <script src="maquette-guidee.js?v=36"></script>
++  <script src="course-desktop.js?v=1"></script>
 diff --git a/melunga_deploy/maquette-guidee.js b/melunga_deploy/maquette-guidee.js
-index 5ba1c6c..71e749e 100644
+index 5ba1c6c..f9b06a6 100644
 --- a/melunga_deploy/maquette-guidee.js
 +++ b/melunga_deploy/maquette-guidee.js
-@@ -49,0 +50,2 @@
+@@ -46,0 +47 @@
++  const fetchCourseDocument = window.MelungaCourseData?.fetch || fetch;
+@@ -49,0 +51,2 @@
 +  const voiceSelection = window.MelungaVoiceSelection;
 +  voiceSelection?.preload().catch(() => {});
-@@ -88 +90,5 @@
+@@ -88 +91,5 @@
 -  const ambiences = ['ocean', 'aurora', 'dusk'];
 +  const ambiences = ['dusk', 'ocean', 'aurora',
 +    'legacy-gamified', 'legacy-zen', 'legacy-premium', 'legacy-sunset', 'legacy-neon',
 +    'legacy-ocean', 'legacy-forest', 'legacy-spotify', 'legacy-plum', 'legacy-lantern',
 +    'legacy-aurora', 'legacy-cafe', 'legacy-insta', 'legacy-bordeaux'];
 +  let savedAmbience = null;
-@@ -90,5 +96 @@
+@@ -90,5 +97 @@
 -    const savedAmbience = sessionStorage.getItem('melunga-course-ambience');
 -    if (ambiences.includes(savedAmbience)) {
 -      state.ambienceIndex = ambiences.indexOf(savedAmbience);
 -      document.body.dataset.ambience = savedAmbience;
 -    }
 +    savedAmbience = localStorage.getItem('melunga-course-ambience');
-@@ -95,0 +98,7 @@
+@@ -95,0 +99,7 @@
 +  if (!ambiences.includes(savedAmbience)) {
 +    try { savedAmbience = sessionStorage.getItem('melunga-course-ambience'); } catch (_) {}
 +  }
@@ -711,9 +733,9 @@ index 5ba1c6c..71e749e 100644
 +    state.ambienceIndex = ambiences.indexOf(savedAmbience);
 +    document.body.dataset.ambience = savedAmbience;
 +  }
-@@ -99,0 +109 @@
+@@ -99,0 +110 @@
 +    try { localStorage.setItem('melunga-course-ambience', ambience); } catch (_) { /* Keep the current colour. */ }
-@@ -625,3 +635,20 @@
+@@ -625,3 +636,20 @@
 -    ui.voice.replaceChildren(new Option(tr('Voix féminine'), 'female'), new Option(tr('Voix masculine'), 'male'));
 -    ui.voice.value = state.voiceChoices.get(state.pair.studyLanguage) || 'female';
 -    if (ui.voice.selectedIndex < 0) ui.voice.selectedIndex = 0;
@@ -737,19 +759,19 @@ index 5ba1c6c..71e749e 100644
 +      : snapshot?.selected ? 'Voix enregistrée pour cette langue'
 +      : snapshot?.usesApprovedDefault ? 'Voix par défaut' : 'Choisir une voix');
 +    ui.voice.dataset.provisional = String(!!snapshot?.provisional);
-@@ -628,0 +656 @@
+@@ -628,0 +657 @@
 +    if (snapshot?.status === 'error' || snapshot?.status === 'expired') voiceSelection.preload().catch(() => {});
-@@ -722,0 +751,3 @@
+@@ -722,0 +752,3 @@
 +  voiceSelection?.subscribe(() => {
 +    if (state.pair && ui.menu.open && state.menuView === 'voice') fillVoices();
 +  });
-@@ -746,0 +778,2 @@
+@@ -746,0 +779,2 @@
 +    if (screen === 'loading') ui.loading.classList.remove('has-error');
 +    ui.loading.setAttribute('aria-busy', String(screen === 'loading'));
-@@ -1202 +1235 @@
+@@ -1202 +1236 @@
 -    if (!lessonAudio) {
 +    if (!lessonAudio || !voiceSelection) {
-@@ -1206,2 +1239,5 @@
+@@ -1206,2 +1240,5 @@
 -    lessonAudio.play({ text: phrase.study, language: state.pair.studyLanguage,
 -      rate: state.speechRate, voice: state.voiceChoices.get(state.pair.studyLanguage) || 'female' });
 +    if (['idle', 'loading'].includes(voiceSelection.state().status)) {
@@ -757,22 +779,25 @@ index 5ba1c6c..71e749e 100644
 +      return;
 +    }
 +    lessonAudio.play({ text: phrase.study, language: state.pair.studyLanguage, rate: state.speechRate });
-@@ -1259,0 +1296 @@
+@@ -1259,0 +1297 @@
 +    renderLoadingContext(id, entry.level);
-@@ -1262 +1299 @@
+@@ -1262 +1300 @@
 -    text(ui.loadingText, tr('Tes thèmes arrivent…'));
 +    text(ui.loadingText, tr('Chargement des leçons…'));
-@@ -1271,0 +1309,9 @@
+@@ -1271,0 +1310,9 @@
 +      const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
 +      const bankTask = (async () => {
 +        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
 +        const cached = state.repertoireCache.get(id);
 +        if (cached) return cached;
-+        const response = await fetch(repertoirePath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
++        const response = await fetchCourseDocument(repertoirePath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
 +        if (!response.ok) throw new Error('Repertoire unavailable');
 +        return validateRepertoire(await readRuntimeJson(response, repertoirePath), id);
 +      })().then(bank => ({bank}), error => ({error}));
-@@ -1283,8 +1329,3 @@
+@@ -1274 +1321 @@
+-        const response = await fetch(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
++        const response = await fetchCourseDocument(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
+@@ -1283,8 +1330,3 @@
 -        const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
 -        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
 -        let bank = state.repertoireCache.get(id);
@@ -784,11 +809,11 @@ index 5ba1c6c..71e749e 100644
 +        const result = await bankTask;
 +        if (result.error) throw result.error;
 +        const bank = result.bank;
-@@ -1311,2 +1352 @@
+@@ -1311,2 +1353 @@
 -      text(ui.loadingText, tr('Les thèmes n’ont pas pu se charger.'));
 -      ui.retry.hidden = false;
 +      showLoadingError('Les thèmes n’ont pas pu se charger.');
-@@ -1748,0 +1789,27 @@
+@@ -1748,0 +1790,27 @@
 +  function renderLoadingContext(id, level = state.level) {
 +    const flags = {fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷'};
 +    if (!nativeCourses?.isPair(id) || id.split('-')[0] !== state.nativeLanguage || state.invalidPair) {
@@ -816,27 +841,27 @@ index 5ba1c6c..71e749e 100644
 +    ui.retry.hidden = false;
 +  }
 +
-@@ -1749,0 +1817,4 @@
+@@ -1749,0 +1818,4 @@
 +    const initialPair = nativeCourses?.isPair(explicitPair) ? explicitPair
 +      : nativeCourses?.isPair(savedPair) && savedPair.split('-')[0] === state.nativeLanguage ? savedPair
 +      : state.nativeLanguage + '-' + (state.nativeLanguage === 'fr' ? 'en' : 'fr');
 +    renderLoadingContext(initialPair, Number(routeParameters.get('level') || (explicitPair === null ? savedLevel : 1)));
-@@ -1751 +1822 @@
+@@ -1751 +1823 @@
 -    text(ui.loadingText, tr('Tes thèmes arrivent…'));
 +    text(ui.loadingText, tr('Chargement des leçons…'));
-@@ -1757,2 +1828,2 @@
+@@ -1757,2 +1829,2 @@
 -        await courseAccess.initialize();
 -        if (courseAccess.state().mode === 'production') document.querySelector('.mg-previewnotice')?.remove();
 +        // The content request and status verification may run together. No
 +        // cards are installed until both have succeeded below.
-@@ -1760,5 +1831,9 @@
+@@ -1760,5 +1832,9 @@
 -      const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
 -      if (!response.ok) throw new Error('HTTP ' + response.status);
 -      const data = await response.json();
 -      if (ui.level) await loadClassificationPolicy(data);
 -      state.data = (ui.level ? validateManifest : validateData)(data);
 +      const content = (async () => {
-+        const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
++        const response = await fetchCourseDocument(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
 +        if (!response.ok) throw new Error('HTTP ' + response.status);
 +        const data = await response.json();
 +        if (ui.level) await loadClassificationPolicy(data);
@@ -844,26 +869,32 @@ index 5ba1c6c..71e749e 100644
 +      })();
 +      const [, data] = await Promise.all([ui.level ? courseAccess.initialize() : null, content]);
 +      state.data = data;
-@@ -1767,2 +1842,2 @@
+@@ -1767,2 +1843,2 @@
 -        text(ui.loadingText, tr('Ce couple de langues n’est pas disponible. Choisis tes langues pour continuer.'));
 -        text(ui.retry, tr('Choisir mes langues')); ui.retry.hidden = false; return;
 +        showLoadingError('Ce couple de langues n’est pas disponible. Choisis tes langues pour continuer.');
 +        text(ui.retry, tr('Choisir mes langues')); return;
-@@ -1787 +1862 @@
+@@ -1787 +1863 @@
 -      text(ui.loadingText, tr('Les thèmes n’ont pas pu se charger.'));
 +      showLoadingError('Les thèmes n’ont pas pu se charger.');
-@@ -1789 +1863,0 @@
+@@ -1789 +1864,0 @@
 -      ui.retry.hidden = false;
-@@ -1838 +1911,0 @@
+@@ -1838 +1912,0 @@
 -    if (!['female', 'male'].includes(ui.voice.value)) return;
-@@ -1839,0 +1913,5 @@
+@@ -1839,0 +1914,5 @@
 +    if (!voiceSelection?.setVoice(state.pair.studyLanguage, ui.voice.value)) {
 +      setStatus('Catalogue des voix indisponible. Réessaie.');
 +      fillVoices();
 +      return;
 +    }
-@@ -1840,0 +1919 @@
+@@ -1840,0 +1920 @@
 +    fillVoices();
+@@ -1910 +1990,2 @@
+-    advanceStep();
++    if (document.body.classList.contains('mg-desktop-course')) browsePhrase(1);
++    else advanceStep();
+@@ -1961,0 +2043 @@
++    if (!courseAccess || !nativeCourses || !courseI18n) { window.location.reload(); return; }
 diff --git a/melunga_deploy/netlify/functions/tts.mjs b/melunga_deploy/netlify/functions/tts.mjs
 index aeaebf7..b3713ca 100644
 --- a/melunga_deploy/netlify/functions/tts.mjs
@@ -948,26 +979,27 @@ index aeaebf7..b3713ca 100644
 +
 +export const handler = createHandler();
 diff --git a/melunga_deploy/parcours-niveaux.html b/melunga_deploy/parcours-niveaux.html
-index 6e9b44c..f376ede 100644
+index 6e9b44c..e86633a 100644
 --- a/melunga_deploy/parcours-niveaux.html
 +++ b/melunga_deploy/parcours-niveaux.html
 @@ -7 +7 @@
 -  <meta name="theme-color" content="#143b56">
 +  <meta name="theme-color" content="#edc7bd">
-@@ -9,0 +10,2 @@
+@@ -9,0 +10,3 @@
 +  <link rel="stylesheet" href="course-ambiences.css?v=1">
 +  <link rel="stylesheet" href="course-startup.css?v=1">
-@@ -11,2 +13 @@
++  <link rel="stylesheet" href="course-desktop.css?v=1">
+@@ -11,2 +14 @@
 -<body data-ambience="ocean">
 -  <div class="mg-previewnotice"><span>Maquette</span><a href="https://melunga.com/" target="_blank" rel="noopener">Site actuel ↗</a></div>
 +<body data-ambience="dusk" data-view="loading">
-@@ -20 +21 @@
+@@ -20 +22 @@
 -        <button id="mgLevelTrigger" class="mg-round mg-level mg-level-control" type="button" title="Choisir un niveau" aria-label="Choisir un niveau" aria-haspopup="dialog" aria-controls="mgLevelDialog" aria-expanded="false" disabled><span id="mgLevelText" aria-hidden="true">L1</span></button>
 +        <button id="mgLevelTrigger" class="mg-round mg-level mg-level-control" type="button" title="Choisir un niveau" aria-label="Choisir un niveau" aria-haspopup="dialog" aria-controls="mgLevelDialog" aria-expanded="false" disabled><span id="mgLevelText" aria-hidden="true">…</span></button>
-@@ -22 +23 @@
+@@ -22 +24 @@
 -        <button id="mgLanguageTrigger" class="mg-round mg-language-control" type="button" title="Changer de langue" aria-label="Choisir une langue" aria-haspopup="dialog" aria-controls="mgLanguageDialog" aria-expanded="false" disabled><span id="mgLanguageFlag" aria-hidden="true">🇨🇳</span></button>
 +        <button id="mgLanguageTrigger" class="mg-round mg-language-control" type="button" title="Changer de langue" aria-label="Choisir une langue" aria-haspopup="dialog" aria-controls="mgLanguageDialog" aria-expanded="false" disabled><span id="mgLanguageFlag" aria-hidden="true">…</span></button>
-@@ -41 +42,12 @@
+@@ -41 +43,12 @@
 -        <section id="mgLoading" class="mg-view mg-loading" aria-live="polite"><p id="mgLoadingText">Tes thèmes arrivent…</p><button id="mgRetry" class="mg-action" type="button" hidden>Réessayer</button></section>
 +        <section id="mgLoading" class="mg-view mg-loading" aria-live="polite" aria-busy="true">
 +          <p id="mgLoadingText" class="mg-loading-message">Chargement des leçons…</p>
@@ -981,12 +1013,17 @@ index 6e9b44c..f376ede 100644
 +          </div>
 +          <button id="mgRetry" class="mg-action" type="button" hidden>Réessayer</button>
 +        </section>
-@@ -154 +166 @@
+@@ -154,5 +167,8 @@
 -  <script src="course-i18n.js?v=2"></script>
-+  <script src="course-i18n.js?v=5"></script>
-@@ -157,2 +169,3 @@
+-  <script src="course-native.js?v=1"></script>
+-  <script src="course-access.js?v=3"></script>
 -  <script src="lesson-audio.js?v=1"></script>
 -  <script src="maquette-guidee.js?v=31"></script>
++  <script src="course-i18n.js?v=5"></script>
++  <script src="course-data.js?v=1"></script>
++  <script src="course-native.js?v=2"></script>
++  <script src="course-access.js?v=4"></script>
 +  <script src="voice-selection.js?v=2"></script>
 +  <script src="lesson-audio.js?v=3"></script>
-+  <script src="maquette-guidee.js?v=35"></script>
++  <script src="maquette-guidee.js?v=36"></script>
++  <script src="course-desktop.js?v=1"></script>
