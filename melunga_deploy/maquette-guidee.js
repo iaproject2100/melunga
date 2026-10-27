@@ -1042,9 +1042,12 @@
     ui.done.hidden = true;
     ui.help.hidden = false;
     ui.phase.hidden = false;
-    text(ui.lessonTheme, themeLabel(state.theme) + (step.isReview
+    const themeDescription = themeLabel(state.theme) + (step.isReview
       ? state.pair.nativeLanguage === 'zh' ? ' · 复习' : ' · Révision'
-      : step.isContextReuse ? state.pair.nativeLanguage === 'zh' ? ' · 情境复用' : ' · Réemploi' : ''));
+      : step.isContextReuse ? state.pair.nativeLanguage === 'zh' ? ' · 情境复用' : ' · Réemploi' : '');
+    text(ui.lessonTheme, state.pair.themes.includes(state.theme) ? themeNumber(state.theme) : state.theme.title);
+    ui.lessonTheme.setAttribute('aria-label', themeDescription);
+    ui.lessonTheme.title = themeDescription;
     text(ui.backText, tr(state.lessonScope !== 'sequence' ? 'Thèmes' : 'Séquences'));
     ui.phase.innerHTML = definition.icon;
     ui.phase.setAttribute('aria-label', tr(definition.label));
