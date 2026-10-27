@@ -57,4 +57,3 @@ La page à publier est `/apercus/ordinateur-confort/`. Elle permet de choisir le
 Le ZIP contient six images PNG et une courte notice. Elles s’ouvrent indépendamment de la page interactive, sans installation ni serveur. Les six images archivées sont identiques aux captures publiées. La galerie mobile à 390 × 844 et le téléchargement effectif du ZIP ont été vérifiés dans Chromium sur un serveur HTTP local ; voir [verification-downloads.json](verification-downloads.json) et [verification-bundle.json](verification-bundle.json).
 
 Les fichiers existants de l’application, du catalogue, des comptes, des prix et des conditions générales sont conservés. Seuls les nouveaux fichiers statiques de comparaison et leur documentation sont ajoutés. Les contrôles des ressources d’entrée de l’application continuent de passer : [verification-entry-gates.log](verification-entry-gates.log).
-
