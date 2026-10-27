@@ -13,11 +13,12 @@ const BASE = '4fafe31271df3d5e7b601f41ee9056511860bd17';
 const APPROVED_PREVIEW = 'ff4f1e0ca8b19ea93ea978a7372f43883eb18bca';
 const APPROVED_SELECTION_VERSION = 'kartech-2026-10-27';
 const FIXTURE = 'melunga_deploy/tests/fixtures/chirp-preview-layer.json';
-const FIXTURE_SHA256 = '3ecdbef26a62399fb76b197e178d5c69617059b4ef0ead8399ab66dae664d1ad';
+const FIXTURE_SHA256 = 'cf5149c4d077e26edb1b8b60f41288f8d23a00ae70869c06ca25e0a59030db42';
 const MODIFIED = Object.freeze(['app.html', 'maquette-guidee.js', 'maquette-guidee.html', 'parcours-niveaux.html',
   'lesson-audio.js', 'course-i18n.js', 'content/course-locales/supplements.json', 'netlify/functions/tts.mjs'].map(f => 'melunga_deploy/' + f));
 const ADDED = Object.freeze(['voice-selection.js', 'comparaison-voix.html', 'voice-comparison.css', 'voice-comparison.js',
-  'voice-comparison.webmanifest', 'netlify/functions/lib/chirp-catalog.mjs', 'course-startup.css'].map(f => 'melunga_deploy/' + f));
+  'voice-comparison.webmanifest', 'netlify/functions/lib/chirp-catalog.mjs', 'course-startup.css', 'course-ambiences.css'].map(f => 'melunga_deploy/' + f));
+const PRESENTATION_STYLES = Object.freeze(['melunga_deploy/course-startup.css', 'melunga_deploy/course-ambiences.css']);
 const NATIVE_CONTEXT = new Set(['app.html', 'course-access.js', 'course-login.js', 'desktop-home.js', 'entry-bridge.js',
   'index.html', 'maquette-guidee.html', 'maquette-guidee.js', 'parcours-niveaux.html'].map(f => 'melunga_deploy/' + f));
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
@@ -114,7 +115,7 @@ function assertInvariants() {
   const audio = ['speak', 'stopAudio', 'setAudioPlaying', 'fillVoices'];
   for (const name of audio) assert.equal(sourceFunction(js, name), sourceFunction(approvedJs, name), 'startup preserves the approved complete audio function: ' + name);
   const approvedSources = ['melunga_deploy/app.html', 'melunga_deploy/lesson-audio.js', 'melunga_deploy/netlify/functions/tts.mjs',
-    ...ADDED.filter(file => file !== 'melunga_deploy/course-startup.css')];
+    ...ADDED.filter(file => !PRESENTATION_STYLES.includes(file))];
   for (const file of approvedSources) assert.ok(actual(file).equals(approvedPreview(file)), 'startup leaves the approved audio/app source exact: ' + file);
   const access = actual('melunga_deploy/course-access.js').toString(), oldAccess = baseline('melunga_deploy/course-access.js').toString();
   const server = ['deviceId', 'checkServer', 'refresh', 'initialize', 'logout'];

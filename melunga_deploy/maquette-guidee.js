@@ -87,18 +87,26 @@
       for (const [pair, value] of Object.entries(preferences.pairs)) if (/^[a-z]{2}-[a-z]{2}$/.test(pair) && typeof value === 'boolean') state.readingPreferences[pair] = value;
     }
   } catch (_) { /* Storage can be unavailable; the lesson still works. */ }
-  const ambiences = ['ocean', 'aurora', 'dusk'];
+  const ambiences = ['dusk', 'ocean', 'aurora',
+    'legacy-gamified', 'legacy-zen', 'legacy-premium', 'legacy-sunset', 'legacy-neon',
+    'legacy-ocean', 'legacy-forest', 'legacy-spotify', 'legacy-plum', 'legacy-lantern',
+    'legacy-aurora', 'legacy-cafe', 'legacy-insta', 'legacy-bordeaux'];
+  let savedAmbience = null;
   try {
-    const savedAmbience = sessionStorage.getItem('melunga-course-ambience');
-    if (ambiences.includes(savedAmbience)) {
-      state.ambienceIndex = ambiences.indexOf(savedAmbience);
-      document.body.dataset.ambience = savedAmbience;
-    }
+    savedAmbience = localStorage.getItem('melunga-course-ambience');
   } catch (_) { /* The selected colour still works when storage is unavailable. */ }
+  if (!ambiences.includes(savedAmbience)) {
+    try { savedAmbience = sessionStorage.getItem('melunga-course-ambience'); } catch (_) {}
+  }
+  if (ambiences.includes(savedAmbience)) {
+    state.ambienceIndex = ambiences.indexOf(savedAmbience);
+    document.body.dataset.ambience = savedAmbience;
+  }
   function changeAmbience() {
     state.ambienceIndex = (state.ambienceIndex + 1) % ambiences.length;
     const ambience = ambiences[state.ambienceIndex];
     document.body.dataset.ambience = ambience;
+    try { localStorage.setItem('melunga-course-ambience', ambience); } catch (_) { /* Keep the current colour. */ }
     try { sessionStorage.setItem('melunga-course-ambience', ambience); } catch (_) { /* Keep the current colour. */ }
   }
   // One local image atlas, shared by all languages. Each tile is a 4:3 scene.
