@@ -11,7 +11,7 @@ const REPO=path.resolve(__dirname,'../..'),WEB=path.join(REPO,'melunga_deploy');
 const BASE='a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f',ORIGIN='https://level-progress.test';
 // The account component changes course-access. The reviewed presentation has
 // its own whole CSS pin; other protected files keep the public main reference.
-const REVIEWED_CSS_SHA='9fa518414822a77648e26caae5d73f86e2db9ee5e43ff74d7344a7b718771d01';
+const REVIEWED_CSS_SHA='9ca226d6666b8eef02f5f26ecfbf37ed1234d202f0439e84cb690e995ce2ce1a';
 const ACCOUNT_COMPONENT_REF='665d0def5df2644bb8421553ed4876292ef23f10';
 const BEFORE_CAPSULE_REF='711537b';
 // The classic data remain exact; only these two account-presentation includes
