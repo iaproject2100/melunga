@@ -1,0 +1,143 @@
+{
+  "status": "passed",
+  "environment": "Local Chromium, desktop viewports only",
+  "physicalDeviceTested": false,
+  "safariTested": false,
+  "realAudioPlayed": false,
+  "realAccountsUsed": false,
+  "apiCallsAllowed": false,
+  "storageWritesAllowed": false,
+  "allResourcesLocal": true,
+  "inputsStable": true,
+  "checks": [
+    "source-provenance",
+    "normal-desktop-matrix",
+    "clean-capture-matrix"
+  ],
+  "errors": [],
+  "unexpected": [],
+  "fixtureErrors": [],
+  "deferredPackagingRequests": [],
+  "date": "2026-10-27",
+  "testGroups": 3,
+  "normalCases": 12,
+  "captureCases": 6,
+  "viewports": [
+    {
+      "width": 1366,
+      "height": 768
+    },
+    {
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "captureViewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "source": {
+    "sourceFile": "melunga_deploy/content/niveaux-progressifs/fr-es/L1.json",
+    "sourceSha256": "261b48291098ed4e57416b9dbb4d341a66a8b830ee4ead1dfa6f488e260a1fb3",
+    "themes": 26,
+    "cards": 353
+  },
+  "harnessPath": "/tmp/melunga-desktop-comfort.browser.cjs",
+  "harnessSha256": "961e72552619cb12b16afee22c171ff9b47c6165258c72ca7685fbb3ebaee065",
+  "selectedCaptures": [
+    "captures/a-themes-1366.png",
+    "captures/a-lecon-1366.png",
+    "captures/b-themes-1366.png",
+    "captures/b-lecon-1366.png",
+    "captures/c-themes-1366.png",
+    "captures/c-lecon-1366.png"
+  ],
+  "observedBottomMargins": {
+    "a": [
+      48
+    ],
+    "b": [
+      60
+    ],
+    "c": [
+      56
+    ]
+  },
+  "railProofs": [
+    {
+      "config": {
+        "width": 1366,
+        "height": 768,
+        "variant": "a",
+        "view": "themes"
+      },
+      "width": 16,
+      "thumbWidth": 10,
+      "purplePixels": 730,
+      "trackClickScroll": 326,
+      "dragToBottom": 1332,
+      "dragToTop": 0
+    },
+    {
+      "config": {
+        "width": 1366,
+        "height": 768,
+        "variant": "b",
+        "view": "themes"
+      },
+      "width": 16,
+      "thumbWidth": 10,
+      "purplePixels": 620,
+      "trackClickScroll": 315,
+      "dragToBottom": 1488,
+      "dragToTop": 0
+    },
+    {
+      "config": {
+        "width": 1920,
+        "height": 1080,
+        "variant": "a",
+        "view": "themes"
+      },
+      "width": 16,
+      "thumbWidth": 10,
+      "purplePixels": 2510,
+      "trackClickScroll": 592,
+      "dragToBottom": 1036,
+      "dragToTop": 0
+    },
+    {
+      "config": {
+        "width": 1920,
+        "height": 1080,
+        "variant": "b",
+        "view": "themes"
+      },
+      "width": 16,
+      "thumbWidth": 10,
+      "purplePixels": 2220,
+      "trackClickScroll": 581,
+      "dragToBottom": 1192,
+      "dragToTop": 0
+    }
+  ],
+  "assertions": [
+    "26 exact source theme titles, photos and canonical card membership/order; 353 unchanged study/native/phon triples",
+    "every rendered tile title, quantity, image src and four crop values match its source",
+    "every local photo and logo decoded with nonzero dimensions before each screenshot",
+    "12 normal comparison layouts and six clean captures fit with no horizontal/document scrolling",
+    "96px logo, bounded main width, at least 48px below primary learner content",
+    "study, phonetic aid, meaning and listen/next controls remain whole and visible",
+    "DOM rail is painted purple (pixel measurement), track-click and drag synchronized, keyboard pane usable",
+    "all 26 topics reached and last topic actually opened; C exposes seven pages",
+    "next shows the actual second source card, writes no storage and rates no card",
+    "legal links in Menu and C footer use exact existing absolute URLs, without external navigation",
+    "prototype and tracked application file fingerprints stable during QA"
+  ],
+  "limits": [
+    "Desktop local Chromium only; no physical device or Safari.",
+    "No API, real account, payment, audio or storage writing.",
+    "Mobile gallery, public ZIP and standalone packaging checked separately after assembly.",
+    "No product application change, commit or publication by the QA agent."
+  ]
+}
