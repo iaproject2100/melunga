@@ -1,0 +1,46 @@
+{
+  "status": "official-proto-retrieved-chirp-rate-unverified",
+  "checkedAtUtc": "2026-10-27T11:47:26.348222+00:00",
+  "source": "https://raw.githubusercontent.com/googleapis/googleapis/933dd1be8180a22bca2dc473b53d4f4297ee3b0c/google/cloud/texttospeech/v1/cloud_tts.proto",
+  "browserSource": "https://github.com/googleapis/googleapis/blob/933dd1be8180a22bca2dc473b53d4f4297ee3b0c/google/cloud/texttospeech/v1/cloud_tts.proto",
+  "repositoryCommit": "933dd1be8180a22bca2dc473b53d4f4297ee3b0c",
+  "sha256": "fea01fc4de24eb4fb646b9a2e2ee51e6cfd674aacab6ce7842b60068baf17875",
+  "httpStatus": 200,
+  "transport": "normal official raw GitHub source via inherited proxy with TLS verification; not a proxy or cached copy of blocked Google documentation",
+  "findings": {
+    "speakingRate": {
+      "lines": [
+        456,
+        463
+      ],
+      "scope": "general AudioConfig field, range[0.25,2.0], no explicit Chirp support/exclusion"
+    },
+    "pitch": {
+      "lines": [
+        465,
+        471
+      ],
+      "scope": "general AudioConfig field, range[-20,20], no explicit Chirp support/exclusion"
+    },
+    "advancedVoiceOptions": {
+      "lines": [
+        162,
+        244
+      ],
+      "scope": "Journey latency and Gemini safety/text normalization; no Chirp rate/pitch decision"
+    },
+    "explicitChirpFields": {
+      "lines": [
+        367,
+        369,
+        607,
+        609
+      ],
+      "scope": "input markup specifically for Chirp3-HD"
+    }
+  },
+  "conclusion": "Chirp rate and pitch support remain unverified. This official proto does not establish that they are unsupported. MP3-only synthesis with client speed is a deliberate preview choice, not a proven provider limitation.",
+  "productFilesModified": false,
+  "synthesisProbePerformed": false,
+  "physicalListeningPerformed": false
+}

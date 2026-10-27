@@ -1,3 +1,5 @@
+import {createChirpCatalogue, CHIRP_LOCALES, APPROVED_SELECTION_VERSION} from './lib/chirp-catalog.mjs';
+
 const VOICES = Object.freeze({
   'fr-FR-Wavenet-F': { languageCode: 'fr-FR', gender: 'FEMALE' },
   'fr-FR-Wavenet-G': { languageCode: 'fr-FR', gender: 'MALE' },
@@ -48,7 +50,9 @@ const json = (event, statusCode, payload) => ({
   body: JSON.stringify(payload)
 });
 
-export const handler = async (event) => {
+export function createHandler({fetchImpl=(...args) => fetch(...args), now=() => Date.now(), apiKey=() => process.env.GOOGLE_TTS_API_KEY} = {}) {
+  const catalogue = createChirpCatalogue({fetchImpl, now});
+  return async (event) => {
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 204,
@@ -61,19 +65,50 @@ export const handler = async (event) => {
     return json(event, 405, { error: 'method_not_allowed' });
   }
 
-  const apiKey = process.env.GOOGLE_TTS_API_KEY;
-  if (!apiKey) {
+  const key = apiKey();
+  if (!key) {
     return json(event, 503, { error: 'tts_not_configured' });
   }
 
   const params = event.queryStringParameters || {};
+  if (Object.hasOwn(params, 'catalog')) {
+    if (params.catalog !== 'chirp3' || Object.keys(params).some(name => !['catalog','selectionVersion'].includes(name))
+        || Object.hasOwn(params,'selectionVersion') && params.selectionVersion !== APPROVED_SELECTION_VERSION) {
+      return json(event, 400, { error:'invalid_catalogue' });
+    }
+    try {
+      const current = await catalogue.get(key);
+      const maxAge = Math.max(0, Math.min(300, Math.floor((Date.parse(current.expiresAt) - now()) / 1000)));
+      const result = json(event, 200, current);
+      result.headers['cache-control'] = 'public, max-age=' + maxAge;
+      result.headers['netlify-cdn-cache-control'] = 'public, max-age=' + maxAge;
+      return result;
+    } catch {
+      return json(event, 502, { error:'voice_catalogue_unavailable' });
+    }
+  }
   const text = String(params.text || '').trim();
   const voiceName = String(params.voice || '');
   const requestedLanguage = String(params.lang || '');
-  const selected = VOICES[voiceName];
+  let selected = VOICES[voiceName], isChirp = false;
 
   if (!text || text.length > 500) {
     return json(event, 400, { error: 'invalid_text' });
+  }
+  if (!selected) {
+    const supported = Object.values(CHIRP_LOCALES).some(definition => definition.languageCodes.some(code =>
+      requestedLanguage === code && voiceName.startsWith(code + '-Chirp3-HD-')));
+    if (!supported || !/^[a-z]{2,3}-[A-Z]{2}-Chirp3-HD-[A-Za-z][A-Za-z0-9]*$/.test(voiceName)) {
+      return json(event, 400, { error:'invalid_voice' });
+    }
+    try {
+      const current = await catalogue.get(key);
+      const actual = Object.values(current.languages).flatMap(language => language.chirp)
+        .find(voice => voice.name === voiceName && voice.languageCode === requestedLanguage);
+      if (actual) {selected = {languageCode:actual.languageCode, gender:actual.gender}; isChirp = true;}
+    } catch {
+      return json(event, 502, { error:'voice_catalogue_unavailable' });
+    }
   }
   if (!selected || selected.languageCode !== requestedLanguage) {
     return json(event, 400, { error: 'invalid_voice' });
@@ -85,33 +120,30 @@ export const handler = async (event) => {
     : 1;
 
   try {
-    const response = await fetch(
+    const response = await fetchImpl(
       'https://texttospeech.googleapis.com/v1/text:synthesize',
       {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
-          'x-goog-api-key': apiKey
+          'x-goog-api-key': key
         },
         body: JSON.stringify({
           input: { text },
           voice: {
             languageCode: selected.languageCode,
             name: voiceName,
-            ssmlGender: selected.gender
+            ...(isChirp ? {} : {ssmlGender: selected.gender})
           },
           audioConfig: {
             audioEncoding: 'MP3',
-            speakingRate,
-            pitch: 0
+            ...(isChirp ? {} : {speakingRate, pitch:0})
           }
         })
       }
     );
 
     if (!response.ok) {
-      const details = await response.text();
-      console.error('Google TTS error', response.status, details.slice(0, 500));
       return json(event, 502, { error: 'tts_provider_error' });
     }
 
@@ -127,13 +159,16 @@ export const handler = async (event) => {
         'content-type': 'audio/mpeg',
         'cache-control': 'public, max-age=31536000, immutable',
         'netlify-cdn-cache-control': 'public, durable, max-age=31536000, stale-while-revalidate=86400',
-        'x-content-type-options': 'nosniff'
+        'x-content-type-options': 'nosniff',
+        ...(isChirp ? {'x-melunga-applied-rate':'1', 'access-control-expose-headers':'x-melunga-applied-rate'} : {})
       },
       isBase64Encoded: true,
       body: payload.audioContent
     };
-  } catch (error) {
-    console.error('TTS function failure', error);
+  } catch {
     return json(event, 502, { error: 'tts_unavailable' });
   }
-};
+  };
+}
+
+export const handler = createHandler();

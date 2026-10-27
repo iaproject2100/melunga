@@ -3,6 +3,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {execFileSync}=require('node:child_process');
+const nativeLayer=require('./native-routing-layer.cjs');
 const {test,before,after}=require('node:test');
 const {chromium}=require('playwright-core');
 const REPO=path.resolve(__dirname,'../..'),WEB=path.join(REPO,'melunga_deploy');
@@ -29,7 +30,7 @@ const NAVIGATION_UI_SHA256={
 };
 const LOGIN_HELPER_SHA256={'course-login.css':'bdcfa4b4bc85daca76b728a14e3e97326a739b13137ae6f17b6cd90d059ff46c','course-login.js':'3ec780d1f6a10b68b54f7bcedd6aa96f2e39a334175841973be8e4e785654291'};
 function beforeNavigationUi(f){
- const actual=fs.readFileSync(path.join(WEB,f));
+ const actual=nativeLayer.beforeBytes(path.join(WEB,f));
  if(!Object.hasOwn(NAVIGATION_UI_SHA256,f))return actual;
  assert.equal(hash(actual),NAVIGATION_UI_SHA256[f],'exact approved navigation whole file '+f);
  const previous=execFileSync('git',['show',NAVIGATION_UI_BASE+':melunga_deploy/'+f],{cwd:REPO,maxBuffer:40*1024*1024});
@@ -52,7 +53,7 @@ const runtimeFiles=['content/niveaux-progressifs/manifest.json',...manifest.pair
 const protectedFiles=['app.html','index.html','desktop-home.js','maquette-guidee.js','melunga-logo.png','assets/melunga-logo.png','course-access.js','content/course-access.json','store-billing.js','netlify/functions/get-pricing.mjs','netlify/functions/login.mjs','netlify/functions/check-status.mjs'];
 const sourceFiles=[...runtimeFiles,...protectedFiles,'parcours-niveaux.html','maquette-guidee.html','maquette-guidee.css','melunga-logo.svg',...Object.keys(LOGIN_HELPER_SHA256)];
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
-const fingerprints=()=>Object.fromEntries([__filename,...sourceFiles.map(f=>path.join(WEB,f))].sort().map(f=>[path.relative(REPO,f),hash(fs.readFileSync(f))]));
+const fingerprints=()=>Object.fromEntries([__filename,...sourceFiles.map(f=>path.join(WEB,f)),...nativeLayer.inputFiles()].sort().map(f=>[path.relative(REPO,f),hash(fs.readFileSync(f))]));
 const report={status:'running',baseCommit:BASE,environment:'local Chromium with mobile/desktop viewports',publicSiteChecked:false,physicalDeviceChecked:false,realAccountsUsed:false,actualAudioPlayed:false,apiFixture:'only GET check-status mocked',checks:[],cases:[],errors:[],unexpectedRequests:[],mockedStatusChecks:0,screenshots:[]};
 const required=['canonical-source','outer-ring-counterexample','preserved-mobile-and-desktop-layout','lesson-controls'];
 let browser,inputs;
@@ -75,7 +76,7 @@ async function enter(page){await page.locator('#mgThemeGrid button').first().cli
 async function capture(page,name){const dir=process.env.LOGO_OUTLINE_CAPTURES||'/tmp/melunga-logo-outline-qa';fs.mkdirSync(dir,{recursive:true});const f=path.join(dir,name+'.png');await page.screenshot({path:f});report.screenshots.push(f);}
 
 test('the exact original PNG, source data and application are preserved',()=>checked('canonical-source',async()=>{
- assert.equal(runtimeFiles.length,78);for(const [f,pin] of Object.entries(LOGIN_HELPER_SHA256))assert.equal(hash(fs.readFileSync(path.join(WEB,f))),pin,'exact bounded guest helper '+f);for(const f of runtimeFiles.concat(protectedFiles)){
+ assert.equal(runtimeFiles.length,78);for(const [f,pin] of Object.entries(LOGIN_HELPER_SHA256))assert.equal(hash(nativeLayer.beforeBytes(path.join(WEB,f))),pin,'exact bounded guest helper before native A '+f);for(const f of runtimeFiles.concat(protectedFiles)){
   let expected=old(f);
   if(f==='maquette-guidee.js'){
    const reviewed=execFileSync('git',['show','f2e536e6f782def5c3c77e40b1f2564fe7dea7af:melunga_deploy/maquette-guidee.js'],{cwd:REPO});

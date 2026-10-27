@@ -45,6 +45,24 @@
     deferredPhraseIds: new Set(), resumeGeneration: 0, allClassification: null, classificationOps: new Map(), accountLogoutPending: false
   };
   const courseAccess = window.MelungaCourseAccess;
+  const nativeCourses = window.MelungaNativeCourses;
+  const courseI18n = window.MelungaCourseI18n;
+  const voiceSelection = window.MelungaVoiceSelection;
+  voiceSelection?.preload().catch(() => {});
+  const nativeCodes = ['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko'];
+  const routeParameters = new URL(window.location.href).searchParams;
+  const explicitPair = routeParameters.get('pair');
+  let savedPair = '', savedLevel = '1', preferredNative = 'fr';
+  try {
+    savedPair = localStorage.getItem('melunga-course-pair') || '';
+    savedLevel = localStorage.getItem('melunga-course-level') || '1';
+    const locale = JSON.parse(localStorage.getItem('melunga-app-language') || 'null')?.locale;
+    const native = nativeCodes.includes(locale) ? locale : localStorage.getItem('ox_nat');
+    if (nativeCodes.includes(native)) preferredNative = native;
+    else if (nativeCourses?.isPair(savedPair)) preferredNative = savedPair.split('-')[0];
+  } catch (_) {}
+  state.nativeLanguage = nativeCourses?.isPair(explicitPair) ? explicitPair.split('-')[0] : preferredNative;
+  state.invalidPair = routeParameters.getAll('pair').length > 1 || explicitPair !== null && !nativeCourses?.isPair(explicitPair);
   let menuAnchor = ui.menuTrigger;
   state.sourcePhraseMap = new Map();
   state.accessContextStepIds = new Set();
@@ -59,7 +77,7 @@
   const reviewStorageKey = 'melunga-guided-review-v1';
   const readingStorageKey = 'melunga-guided-reading-v1';
   const knownStorageKey = 'melunga-guided-known-v1';
-  const progressPairs = ['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr'];
+  const progressPairs = nativeCourses?.pairIds || ['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr'];
   const cardMotion = { gesture: null, suppressClickUntil: 0, animationTimer: 0, toastTimer: 0, fitFrame: 0 };
   state.savedReview = loadSavedReview();
   state.knownCards = loadKnownCards();
@@ -88,7 +106,6 @@
     'saluer', 'comprendre', 'ressentis', 'repas', 'deplacements', 'reperes',
     'quotidien', 'decrire', 'conversation', 'travail', 'personnaliser'
   ].map((id, index) => [id, { column: index % 3, row: Math.floor(index / 3) }]));
-  const voices = { zh: 'zh-CN', es: 'es-ES', en: 'en-GB', fr: 'fr-FR', it: 'it-IT', ko: 'ko-KR', ja: 'ja-JP' };
   const svg = paths => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + paths + '</svg>';
   const icons = {
     chat: svg('<path d="M21 11.5a8.4 8.4 0 0 1-9 8.2 10 10 0 0 1-4-.8L3 21l1.4-5.3A8.2 8.2 0 0 1 3 11.5a9 9 0 0 1 18 0Z"/><path d="M8 11h.01M12 11h.01M16 11h.01"/>'),
@@ -168,15 +185,18 @@
     'Retrouve le mot à partir de son sens. L’oreille révèle le modèle et permet de le réécouter.': '根据意思回忆这个词语。点击耳朵可以查看并再次听到它。',
     'Écouter le mot': '听这个词语', 'Révéler et écouter le mot': '显示并听这个词语',
     'L’audio n’est pas disponible sur ce navigateur.': '此浏览器暂不支持播放语音。',
-    'L’audio n’a pas pu démarrer. Tu peux réessayer.': '语音未能播放，请重试。'
+    'L’audio n’a pas pu démarrer. Tu peux réessayer.': '语音未能播放，请重试。',
+    'Voix féminine': '女声', 'Voix masculine': '男声',
+    'Audio indisponible. Réessaie.': '语音暂不可用，请重试。'
   };
-  const tr = value => state.pair && state.pair.nativeLanguage === 'zh' ? chinese[value] || value : value;
-  const quantityLabel = (count, contentType) => {
-    const isChinese = state.pair && state.pair.nativeLanguage === 'zh';
-    if (contentType === 'vocabulary') return count + (isChinese ? ' 个词语' : count === 1 ? ' mot ou locution' : ' mots et locutions');
-    if (contentType === 'number') return count + (isChinese ? ' 个数词' : count === 1 ? ' nombre' : ' nombres');
-    return count + (isChinese ? ' 句表达' : count === 1 ? ' expression' : ' expressions');
-  };
+  const tr = value => courseI18n ? courseI18n.t(state.nativeLanguage, value)
+    : state.nativeLanguage === 'zh' ? chinese[value] || value : value;
+  const format = (key, n) => courseI18n.format(state.nativeLanguage, key, {n});
+  const quantityLabel = (count, contentType) => format(
+    (contentType === 'vocabulary' ? 'vocabulary' : contentType === 'number' ? 'number' : 'expression')
+      + (count === 1 ? 'One' : 'Other'), count);
+  const availablePairs = () => state.data.pairs.filter(pair =>
+    pair.nativeLanguage === state.nativeLanguage && pair.studyLanguage !== state.nativeLanguage);
   const levelQuantityLabel = () => {
     if (state.pair._accessView && !state.pair.themes.some(theme => theme.presentedCount > 0)) return tr('Abonnement');
     if (!state.pair.counts) return quantityLabel(pairCount(state.pair));
@@ -251,8 +271,7 @@
   function renderLevelProgress() {
     if (!ui.level || !state.pair) return;
     const summary = levelProgress();
-    const levelName = state.pair.nativeLanguage === 'zh'
-      ? '第 ' + state.pair.level + ' 级' : 'Niveau ' + state.pair.level;
+    const levelName = format('level', state.pair.level);
     const label = levelName + ' · ' + summary.percent + ' %';
     text(ui.counter, 'L' + state.pair.level);
     text(ui.levelPercent, summary.percent + ' %');
@@ -523,18 +542,17 @@
   }
 
   function buildLanguageChoices() {
-    const names = { en: 'Anglais', es: 'Espagnol', it: 'Italien', zh: 'Chinois', ja: 'Japonais', ko: 'Coréen', fr: 'Français' };
     text(byId('mgLanguageTitle'), tr('Langues'));
     ui.languageClose.setAttribute('aria-label', tr('Fermer les langues'));
     ui.languageTrigger.disabled = false;
-    ui.languageChoices.replaceChildren(...state.data.pairs.map(pair => {
+    ui.languageChoices.replaceChildren(...availablePairs().map(pair => {
       const button = document.createElement('button'); button.type = 'button';
       button.className = 'mg-language-option'; button.dataset.pair = pair.id;
       button.setAttribute('aria-pressed', String(pair.id === state.pair.id));
       const badge = document.createElement('span'); badge.className = 'mg-language-badge';
       badge.textContent = pair.flag; badge.dataset.language = pair.studyLanguage; badge.setAttribute('aria-hidden', 'true');
       const title = document.createElement('span'); title.className = 'mg-language-title';
-      title.textContent = tr(names[pair.studyLanguage] || pair.name);
+      title.textContent = courseI18n.languageName(state.nativeLanguage, pair.studyLanguage);
       button.append(badge, title);
       button.addEventListener('click', () => {
         closeLanguages();
@@ -555,7 +573,13 @@
     stopAudio(); closeHelp(); closeMenu(); closeLevels(); resetCardMotion();
     ui.languageDialog.showModal(); ui.languageTrigger.setAttribute('aria-expanded', 'true');
     positionPopup(ui.languageDialog, ui.languageTrigger);
-    ui.languageChoices.querySelector('[aria-pressed="true"]')?.focus({ preventScroll: true });
+    const selected = ui.languageChoices.querySelector('[aria-pressed="true"]');
+    const body = ui.languageChoices.closest('.mg-menu-body');
+    if (body) {
+      body.scrollTop = 0;
+      if (selected) body.scrollTop = Math.max(0, selected.offsetTop - body.offsetTop - (body.clientHeight - selected.offsetHeight) / 2);
+    }
+    selected?.focus({ preventScroll: true });
   }
 
   const levelColors = ['#228574', '#237e99', '#3369aa', '#5e5bb4', '#8b51ad',
@@ -600,14 +624,28 @@
   }
 
   function fillVoices() {
-    const options = [new Option(tr('Voix automatique'), '')];
-    if ('speechSynthesis' in window) window.speechSynthesis.getVoices()
-      .filter(voice => voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage)
-      .forEach(voice => options.push(new Option(voice.name, voice.voiceURI)));
+    const language = state.pair.studyLanguage;
+    const snapshot = voiceSelection?.getSnapshot(language);
+    const chirp = (snapshot?.choices || []).filter(candidate => candidate.engine === 'chirp3');
+    const choices = snapshot?.selected?.engine === 'wavenet' ? [snapshot.selected, ...chirp] : chirp;
+    const options = choices.map(candidate => {
+      const number = candidate.engine === 'wavenet' ? candidate.name : tr('Voix ' + (chirp.indexOf(candidate) + 1));
+      const name = candidate.name.replace(/^.*-(?:Chirp3-HD|Wavenet)-/, '');
+      const gender = tr(candidate.gender === 'MALE' ? 'Voix masculine' : 'Voix féminine');
+      return new Option(number + ' · ' + name + ' · ' + gender, candidate.name);
+    });
+    if (!choices.length) options.push(new Option(tr(snapshot?.status === 'loading' || snapshot?.status === 'idle'
+      ? 'Catalogue des voix en cours de chargement…' : 'Catalogue des voix indisponible. Réessaie.'), ''));
+    else if (!snapshot?.voice) options.unshift(new Option(tr('Choisir une voix'), ''));
     ui.voice.replaceChildren(...options);
-    ui.voice.value = state.voiceChoices.get(state.pair.studyLanguage) || '';
-    if (ui.voice.selectedIndex < 0) ui.voice.selectedIndex = 0;
+    ui.voice.disabled = choices.length === 0;
+    ui.voice.value = snapshot?.voice?.name || '';
+    ui.voice.title = tr(snapshot?.provisional ? 'Voix provisoire de prévisualisation'
+      : snapshot?.selected ? 'Voix enregistrée pour cette langue'
+      : snapshot?.usesApprovedDefault ? 'Voix par défaut' : 'Choisir une voix');
+    ui.voice.dataset.provisional = String(!!snapshot?.provisional);
     ui.speed.value = String(state.speechRate);
+    if (snapshot?.status === 'error' || snapshot?.status === 'expired') voiceSelection.preload().catch(() => {});
   }
 
   function setMenuView(view) {
@@ -698,9 +736,17 @@
     }
   }
 
+  const lessonAudio = window.MelungaLessonAudio?.createPlayer({
+    onPlaying: setAudioPlaying,
+    onUnavailable: () => setStatus('Audio indisponible. Réessaie.')
+  });
+  voiceSelection?.subscribe(() => {
+    if (state.pair && ui.menu.open && state.menuView === 'voice') fillVoices();
+  });
+
   function stopAudio() {
     state.speechGeneration += 1;
-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    lessonAudio?.stop();
     setAudioPlaying(false);
   }
 
@@ -721,6 +767,8 @@
   function showView(screen) {
     resetCardMotion();
     state.screen = screen;
+    if (screen === 'loading') ui.loading.classList.remove('has-error');
+    ui.loading.setAttribute('aria-busy', String(screen === 'loading'));
     ui.loading.hidden = screen !== 'loading';
     ui.themeView.hidden = screen !== 'themes';
     ui.sequenceView.hidden = screen !== 'sequences';
@@ -887,14 +935,10 @@
     quantity.className = 'mg-theme-count';
     quantity.textContent = quantityLabel(count, theme && theme.contentType);
     if (theme && theme.reviewCount) {
-      quantity.textContent += state.pair.nativeLanguage === 'zh'
-        ? ' · 其中 ' + theme.reviewCount + ' 项复习'
-        : ' · ' + theme.reviewCount + (theme.reviewCount === 1 ? ' révision' : ' révisions');
+      quantity.textContent += ' · ' + format(theme.reviewCount === 1 ? 'reviewOne' : 'reviewOther', theme.reviewCount);
     }
     if (theme && theme.reuseCount) {
-      quantity.textContent += state.pair.nativeLanguage === 'zh'
-        ? ' · 其中 ' + theme.reuseCount + ' 项情境复用'
-        : ' · ' + theme.reuseCount + (theme.reuseCount === 1 ? ' réemploi' : ' réemplois');
+      quantity.textContent += ' · ' + format(theme.reuseCount === 1 ? 'reuseOne' : 'reuseOther', theme.reuseCount);
     }
     if (theme && theme.optional) quantity.textContent += ' · ' + tr('Facultatif');
     if (theme?._accessLocked) {
@@ -941,9 +985,7 @@
         section = theme.section;
         const heading = document.createElement('h2');
         heading.className = 'mg-grid-section';
-        heading.textContent = state.pair.nativeLanguage === 'zh'
-          ? section === 'situations' ? '情境表达' : '词汇与数字'
-          : section === 'situations' ? 'Situations' : 'Vocabulaire et nombres';
+        heading.textContent = tr(section === 'situations' ? 'Situations' : 'Vocabulaire et nombres');
         cards.push(heading);
       }
       cards.push(tile(theme.title, phraseCount(theme), themeIcon(theme), () => openTheme(theme), 'mg-theme', theme));
@@ -976,7 +1018,7 @@
     text(ui.counter, quantityLabel(phraseCount(theme)));
     ui.progress.style.width = '0%';
     ui.sequences.replaceChildren(...theme.sequences.map((sequence, index) => tile(
-      sequence.title || (state.pair.nativeLanguage === 'zh' ? '第 ' + (index + 1) + ' 组' : 'Séquence ' + (index + 1)),
+      sequence.title || format('sequence', index + 1),
       sequence.phraseIds.length, themeIcon(theme), () => startSequence(sequence), 'mg-sequence'
     )));
     showView('sequences');
@@ -1043,8 +1085,7 @@
     ui.help.hidden = false;
     ui.phase.hidden = false;
     const themeDescription = themeLabel(state.theme) + (step.isReview
-      ? state.pair.nativeLanguage === 'zh' ? ' · 复习' : ' · Révision'
-      : step.isContextReuse ? state.pair.nativeLanguage === 'zh' ? ' · 情境复用' : ' · Réemploi' : '');
+      ? ' · ' + tr('Révision') : step.isContextReuse ? ' · ' + tr('Réemploi') : '');
     text(ui.lessonTheme, state.pair.themes.includes(state.theme) ? themeNumber(state.theme) : state.theme.title);
     ui.lessonTheme.setAttribute('aria-label', themeDescription);
     ui.lessonTheme.title = themeDescription;
@@ -1054,7 +1095,11 @@
     ui.phase.title = tr(definition.label);
     const formHelp = phrase.lexicalUsage?.requiresNounInUtterance
       ? 'Cette forme s’emploie devant un nom ; elle ne constitue pas une phrase toute seule.' : '';
-    text(ui.helpText, tr(definition.help) + (formHelp ? ' ' + tr(formHelp) : ''));
+    const phoneticHelp = phrase.phoneticMode === 'english-fallback'
+      ? 'Cette aide reprend la notation anglaise du catalogue d’origine.'
+      : ['pinyin-fallback', 'unavailable'].includes(phrase.phoneticMode)
+        ? 'La phonétique adaptée à ta langue maternelle n’est pas encore disponible pour cette carte.' : '';
+    text(ui.helpText, [definition.help, formHelp, phoneticHelp].filter(Boolean).map(tr).join(' '));
     const position = Math.max(0, state.sequence.phraseIds.indexOf(step.prepares || phrase.id)) + 1;
     text(ui.counter, position + ' / ' + state.sequence.phraseIds.length);
     // Listening to the other speaker is context, never another learner task.
@@ -1067,7 +1112,10 @@
     ui.phrase.hidden = masked || waitingForChoice;
     const pinyin = state.pair.studyLanguage === 'zh' && state.readingVisible && Boolean(phrase.reading);
     text(ui.phon, pinyin ? phrase.reading : phrase.phon);
-    ui.phon.lang = pinyin ? 'zh-Latn' : state.pair.nativeLanguage;
+    ui.phon.lang = pinyin || phrase.phoneticMode === 'pinyin-fallback' ? 'zh-Latn'
+      : phrase.phoneticMode === 'english-fallback' ? 'en' : state.pair.nativeLanguage;
+    ui.phon.title = phrase.phoneticMode === 'english-fallback' ? tr('Transcription anglaise') : '';
+    ui.phonrow.dataset.phoneticMode = phrase.phoneticMode || 'reviewed';
     ui.phonrow.dataset.readingMode = pinyin ? 'pinyin' : 'phonetic';
     ui.phon.hidden = masked || waitingForChoice || !phrase.phon;
     ui.phonrow.classList.toggle('is-recall', masked || waitingForChoice || !phrase.phon);
@@ -1176,33 +1224,15 @@
     }
     stopAudio();
     setStatus('');
-    if (!('speechSynthesis' in window) || typeof window.SpeechSynthesisUtterance !== 'function') {
-      setStatus('L’audio n’est pas disponible sur ce navigateur.');
+    if (!lessonAudio || !voiceSelection) {
+      setStatus('Audio indisponible. Réessaie.');
       return;
     }
-    const token = state.speechGeneration;
-    const utterance = new SpeechSynthesisUtterance(phrase.study);
-    utterance.lang = voices[state.pair.studyLanguage] || state.pair.studyLanguage;
-    utterance.rate = state.speechRate;
-    const voiceList = window.speechSynthesis.getVoices();
-    const exactVoice = voiceList.find(voice => voice.lang.toLowerCase() === utterance.lang.toLowerCase());
-    const languageVoice = voiceList.find(voice => voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage);
-    const preferredVoice = voiceList.find(voice => voice.voiceURI === state.voiceChoices.get(state.pair.studyLanguage)
-      && voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage);
-    if (preferredVoice || exactVoice || languageVoice) utterance.voice = preferredVoice || exactVoice || languageVoice;
-    const finish = () => {
-      if (token !== state.speechGeneration) return;
-      setAudioPlaying(false);
-    };
-    utterance.onend = finish;
-    utterance.onerror = event => {
-      if (token !== state.speechGeneration) return;
-      finish();
-      if (!['canceled', 'interrupted'].includes(event.error)) setStatus('L’audio n’a pas pu démarrer. Tu peux réessayer.');
-    };
-    setAudioPlaying(true);
-    try { window.speechSynthesis.speak(utterance); }
-    catch (_) { finish(); setStatus('L’audio n’a pas pu démarrer. Tu peux réessayer.'); }
+    if (['idle', 'loading'].includes(voiceSelection.state().status)) {
+      setStatus('Catalogue des voix en cours de chargement…');
+      return;
+    }
+    lessonAudio.play({ text: phrase.study, language: state.pair.studyLanguage, rate: state.speechRate });
   }
 
   function displayPair(pair) {
@@ -1243,8 +1273,8 @@
   }
 
   async function choosePair(id, requestedLevel = state.level) {
-    const metadata = state.data.pairs.find(candidate => candidate.id === id);
-    if (!metadata) return;
+    const metadata = availablePairs().find(candidate => candidate.id === id);
+    if (!metadata) { if (state.pair) ui.language.value = state.pair.id; return; }
     if (!ui.level) { displayPair(metadata); return; }
     const entry = metadata.levels.find(candidate => candidate.level === Number(requestedLevel));
     if (!entry) return;
@@ -1255,11 +1285,28 @@
     state.level = entry.level;
     state.requestedPair = id;
     stopAudio(); closeHelp(); closeMenu(); closeLanguages(); closeLevels();
+    renderLoadingContext(id, entry.level);
     showView('loading');
     ui.retry.hidden = true;
-    text(ui.loadingText, metadata.nativeLanguage === 'zh' ? '主题正在加载…' : 'Tes thèmes arrivent…');
+    text(ui.loadingText, tr('Chargement des leçons…'));
+    text(ui.retry, tr('Réessayer'));
     try {
+      if (metadata.nativeCatalogue) {
+        const loaded = await nativeCourses.loadPair(id, entry.level, {signal:request.signal});
+        if (generation !== state.loadGeneration) return;
+        installPairView(loaded.pair, loaded.referenceMap, loaded.sourcePhraseMap);
+        return;
+      }
       const key = id + ':' + entry.level;
+      const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
+      const bankTask = (async () => {
+        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
+        const cached = state.repertoireCache.get(id);
+        if (cached) return cached;
+        const response = await fetch(repertoirePath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
+        if (!response.ok) throw new Error('Repertoire unavailable');
+        return validateRepertoire(await readRuntimeJson(response, repertoirePath), id);
+      })().then(bank => ({bank}), error => ({error}));
       let pair = state.levelCache.get(key);
       if (!pair) {
         const response = await fetch(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
@@ -1271,14 +1318,9 @@
       let validatedBank = null;
       if (pair.themes.some(theme => (theme.reviewReferences || []).length || (theme.contextReferences || []).length
           || (theme.receivedTurns || []).length || (theme.lexicalSupports || []).length)) {
-        const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
-        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
-        let bank = state.repertoireCache.get(id);
-        if (!bank) {
-          const response = await fetch(repertoirePath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
-          if (!response.ok) throw new Error('Repertoire unavailable');
-          bank = validateRepertoire(await readRuntimeJson(response, repertoirePath), id);
-        }
+        const result = await bankTask;
+        if (result.error) throw result.error;
+        const bank = result.bank;
         // Reserved canonical aliases remain validated in the bank, but cannot
         // supply a learnable phrase. A separate heard-only model stays listenable.
         references = new Map([...bank.phrases.filter(phrase => !phrase.canonicalReserveLocation),
@@ -1296,23 +1338,25 @@
       state.levelCache.delete(key);
       state.levelCache.set(key, pair);
       while (state.levelCache.size > 4) state.levelCache.delete(state.levelCache.keys().next().value);
-      state.referenceMap = references;
-      state.sourcePhraseMap = new Map([...references, ...[...pair.themes, ...(pair.heldThemes || [])]
-        .flatMap(theme => theme.phrases.map(phrase => [phrase.id, phrase]))]);
-      state.levelProgressIds = collectLevelProgressIds(pair, state.sourcePhraseMap);
-      const accessView = courseAccess.learningView(pair, references);
-      state.accessContextStepIds = accessView.contextStepIds;
-      displayPair(accessView.pair);
-      try { localStorage.setItem('melunga-course-pair', pair.id); localStorage.setItem('melunga-course-level', String(pair.level)); } catch (_) {}
-      if (courseAccess.state().status === 'unavailable') setStatus(pair.nativeLanguage === 'zh'
-        ? '网络暂时不可用，免费内容仍可使用。' : 'Connexion indisponible : le contenu gratuit reste accessible.');
+      installPairView(pair, references);
     } catch (error) {
       if (generation !== state.loadGeneration || error.name === 'AbortError') return;
-      text(ui.loadingText, metadata.nativeLanguage === 'zh' ? '主题暂时无法加载。' : 'Les thèmes n’ont pas pu se charger.');
-      ui.retry.hidden = false;
+      showLoadingError('Les thèmes n’ont pas pu se charger.');
     } finally {
       if (state.request === request) state.request = null;
     }
+  }
+
+  function installPairView(pair, references, sourceModels = new Map()) {
+    state.referenceMap = references;
+    state.sourcePhraseMap = new Map([...sourceModels, ...references, ...[...pair.themes, ...(pair.heldThemes || [])]
+      .flatMap(theme => theme.phrases.map(phrase => [phrase.id, phrase]))]);
+    state.levelProgressIds = collectLevelProgressIds(pair, state.sourcePhraseMap);
+    const accessView = courseAccess.learningView(pair, references);
+    state.accessContextStepIds = accessView.contextStepIds;
+    displayPair(accessView.pair);
+    try { localStorage.setItem('melunga-course-pair', pair.id); localStorage.setItem('melunga-course-level', String(pair.level)); } catch (_) {}
+    if (courseAccess.state().status === 'unavailable') setStatus('Connexion indisponible : le contenu gratuit reste accessible.');
   }
 
   // Only this reviewed ledger may relax density or type guards. The complete
@@ -1734,41 +1778,81 @@
     return data;
   }
 
+  function renderLoadingContext(id, level = state.level) {
+    const flags = {fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷'};
+    if (!nativeCourses?.isPair(id) || id.split('-')[0] !== state.nativeLanguage || state.invalidPair) {
+      text(ui.flag, '…'); delete ui.flag.dataset.language;
+      delete document.body.dataset.loadingContext;
+      return;
+    }
+    const study = id.split('-')[1];
+    text(ui.flag, flags[study]); ui.flag.dataset.language = study;
+    ui.languageTrigger.title = courseI18n.languageName(state.nativeLanguage, study);
+    const selected = !ui.level ? 1 : Number.isInteger(Number(level)) && Number(level) >= 1 && Number(level) <= 10 ? Number(level) : 1;
+    if (ui.levelText) text(ui.levelText, 'L' + selected);
+    if (ui.levelTrigger) {
+      ui.levelTrigger.title = format('level', selected);
+      ui.levelTrigger.style.setProperty('--mg-level-color', levelColors[selected - 1]);
+    }
+    document.documentElement.lang = state.nativeLanguage;
+    document.body.dataset.loadingContext = 'ready';
+  }
+
+  function showLoadingError(message) {
+    ui.loading.classList.add('has-error');
+    ui.loading.setAttribute('aria-busy', 'false');
+    text(ui.loadingText, tr(message));
+    ui.retry.hidden = false;
+  }
+
   async function loadData() {
+    const initialPair = nativeCourses?.isPair(explicitPair) ? explicitPair
+      : nativeCourses?.isPair(savedPair) && savedPair.split('-')[0] === state.nativeLanguage ? savedPair
+      : state.nativeLanguage + '-' + (state.nativeLanguage === 'fr' ? 'en' : 'fr');
+    renderLoadingContext(initialPair, Number(routeParameters.get('level') || (explicitPair === null ? savedLevel : 1)));
     showView('loading');
-    text(ui.loadingText, 'Tes thèmes arrivent…');
+    text(ui.loadingText, tr('Chargement des leçons…'));
     ui.retry.hidden = true;
     ui.language.disabled = true;
     try {
       if (ui.level) {
         if (!courseAccess) throw new Error('Course access unavailable');
-        await courseAccess.initialize();
-        if (courseAccess.state().mode === 'production') document.querySelector('.mg-previewnotice')?.remove();
+        // The content request and status verification may run together. No
+        // cards are installed until both have succeeded below.
       }
-      const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
-      if (!response.ok) throw new Error('HTTP ' + response.status);
-      const data = await response.json();
-      if (ui.level) await loadClassificationPolicy(data);
-      state.data = (ui.level ? validateManifest : validateData)(data);
-      ui.language.replaceChildren(...state.data.pairs.map(pair => {
+      const content = (async () => {
+        const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const data = await response.json();
+        if (ui.level) await loadClassificationPolicy(data);
+        return (ui.level ? validateManifest : validateData)(data);
+      })();
+      const [, data] = await Promise.all([ui.level ? courseAccess.initialize() : null, content]);
+      state.data = data;
+      if (ui.level) state.data = {...state.data, pairs:[...state.data.pairs, ...nativeCourses.metadata(state.data)]};
+      if (state.invalidPair) {
+        showLoadingError('Ce couple de langues n’est pas disponible. Choisis tes langues pour continuer.');
+        text(ui.retry, tr('Choisir mes langues')); return;
+      }
+      const choices = availablePairs();
+      ui.language.replaceChildren(...choices.map(pair => {
         const option = document.createElement('option');
         option.value = pair.id;
-        option.textContent = pair.flag + ' ' + pair.name;
+        option.textContent = pair.flag + ' ' + courseI18n.languageName(state.nativeLanguage, pair.studyLanguage);
         return option;
       }));
       ui.language.disabled = false;
-      const requested = new URL(window.location.href).searchParams.get('pair');
-      const firstPair = state.data.pairs.find(pair => pair.id === requested)
-        || state.data.pairs.find(pair => pair.nativeLanguage === 'fr' && pair.studyLanguage === 'zh')
-        || state.data.pairs[0];
+      const firstPair = choices.find(pair => pair.id === explicitPair)
+        || choices.find(pair => pair.id === savedPair) || choices.find(pair => pair.studyLanguage === (state.nativeLanguage === 'fr' ? 'en' : 'fr')) || choices[0];
+      if (!firstPair) throw new Error('No native course available');
       if (ui.level) {
-        const requestedLevel = Number(new URL(window.location.href).searchParams.get('level') || 1);
+        const requestedLevel = Number(routeParameters.get('level') || (explicitPair === null ? savedLevel : 1));
         state.level = Number.isInteger(requestedLevel) && requestedLevel >= 1 && requestedLevel <= 10 ? requestedLevel : 1;
       }
       await choosePair(firstPair.id);
     } catch (_) {
-      text(ui.loadingText, 'Les thèmes n’ont pas pu se charger.');
-      ui.retry.hidden = false;
+      showLoadingError('Les thèmes n’ont pas pu se charger.');
+      text(ui.retry, tr('Réessayer'));
       setStatus('');
     }
   }
@@ -1816,13 +1900,22 @@
   window.addEventListener('resize', positionPopups);
   window.visualViewport?.addEventListener('resize', positionPopups);
   window.visualViewport?.addEventListener('scroll', positionPopups);
-  ui.voice.addEventListener('change', () => state.voiceChoices.set(state.pair.studyLanguage, ui.voice.value));
+  ui.voice.addEventListener('change', () => {
+    stopAudio();
+    if (!voiceSelection?.setVoice(state.pair.studyLanguage, ui.voice.value)) {
+      setStatus('Catalogue des voix indisponible. Réessaie.');
+      fillVoices();
+      return;
+    }
+    state.voiceChoices.set(state.pair.studyLanguage, ui.voice.value);
+    fillVoices();
+  });
   ui.speed.addEventListener('change', () => {
     const rate = Number(ui.speed.value);
-    if ([0.75, 0.85, 1].includes(rate)) state.speechRate = rate;
-  });
-  if ('speechSynthesis' in window) window.speechSynthesis.addEventListener?.('voiceschanged', () => {
-    if (ui.menu.open && state.menuView === 'voice') fillVoices();
+    if ([0.75, 0.85, 1].includes(rate)) {
+      stopAudio();
+      state.speechRate = rate;
+    }
   });
   ui.reviewModel.addEventListener('click', () => reviewTheme(false));
   ui.reviewRecall.addEventListener('click', () => reviewTheme(true));
@@ -1936,8 +2029,11 @@
     if (event.detail === 0 || Date.now() > cardMotion.suppressClickUntil) return;
     event.preventDefault(); event.stopImmediatePropagation();
   }, true);
-  ui.retry.addEventListener('click', () => ui.level && state.data
-    ? choosePair(state.requestedPair || ui.language.value, state.level) : loadData());
+  ui.retry.addEventListener('click', () => {
+    if (state.invalidPair) { window.location.href = 'index.html'; return; }
+    if (ui.level && state.data && state.requestedPair) choosePair(state.requestedPair, state.level);
+    else loadData();
+  });
   document.addEventListener('keydown', event => { if (event.key === 'Escape') closeHelp(); });
   window.addEventListener('melunga:course-access', () => {
     if (ui.level && state.data && state.pair) {

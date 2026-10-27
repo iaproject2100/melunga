@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#143b56">
-  <title>Melunga — maquette du parcours par thèmes</title>
+  <title>Melunga — parcours par thèmes</title>
   <link rel="preload" as="image" href="assets/theme-scenes.webp">
   <link rel="stylesheet" href="maquette-guidee.css?v=26">
+  <link rel="stylesheet" href="course-startup.css?v=1">
 </head>
-<body data-ambience="ocean">
-  <div class="mg-previewnotice"><span>Maquette</span><a href="https://melunga.com/" target="_blank" rel="noopener">Site actuel ↗</a></div>
+<body data-ambience="ocean" data-view="loading">
   <div class="mg-app">
     <aside class="mg-sidebar" aria-label="Commandes">
       <a class="mg-brand" href="maquette-guidee.html" aria-label="Melunga, revenir aux thèmes">
@@ -18,8 +18,8 @@
         <span class="mg-wordmark">Melunga</span>
       </a>
       <div class="mg-controls">
-        <span class="mg-round mg-level" aria-label="Niveau 1">L1</span>
-        <button id="mgLanguageTrigger" class="mg-round mg-language-control" type="button" title="Changer de langue" aria-label="Choisir une langue" aria-haspopup="dialog" aria-controls="mgLanguageDialog" aria-expanded="false" disabled><span id="mgLanguageFlag" aria-hidden="true">🇨🇳</span></button>
+        <span id="mgLevelText" class="mg-round mg-level" aria-label="Niveau 1">…</span>
+        <button id="mgLanguageTrigger" class="mg-round mg-language-control" type="button" title="Changer de langue" aria-label="Choisir une langue" aria-haspopup="dialog" aria-controls="mgLanguageDialog" aria-expanded="false" disabled><span id="mgLanguageFlag" aria-hidden="true">…</span></button>
         <select id="mgLanguage" aria-label="Langue à apprendre" tabindex="-1" aria-hidden="true" hidden disabled><option>…</option></select>
         <button id="mgPalette" class="mg-round" type="button" aria-label="Changer d’ambiance" title="Changer d’ambiance"><span class="mg-colorwheel" aria-hidden="true"></span></button>
         <button id="mgMenuTrigger" class="mg-round mg-menu-toggle" type="button" aria-label="Menu des rubriques" title="Menu" aria-haspopup="dialog" aria-controls="mgMenuDialog" aria-expanded="false">
@@ -35,7 +35,18 @@
       </div>
       <div class="mg-progress" aria-hidden="true"><span id="mgProgress"></span></div>
       <div id="mgContent" class="mg-content">
-        <section id="mgLoading" class="mg-view mg-loading" aria-live="polite"><p id="mgLoadingText">Tes thèmes arrivent…</p><button id="mgRetry" class="mg-action" type="button" hidden>Réessayer</button></section>
+        <section id="mgLoading" class="mg-view mg-loading" aria-live="polite" aria-busy="true">
+          <p id="mgLoadingText" class="mg-loading-message">Chargement des leçons…</p>
+          <div class="mg-loading-skeleton" aria-hidden="true">
+            <span class="mg-loading-heading"></span>
+            <div class="mg-loading-cards">
+              <span class="mg-loading-card"><i></i><b></b><small></small></span>
+              <span class="mg-loading-card"><i></i><b></b><small></small></span>
+              <span class="mg-loading-card"><i></i><b></b><small></small></span>
+            </div>
+          </div>
+          <button id="mgRetry" class="mg-action" type="button" hidden>Réessayer</button>
+        </section>
         <section id="mgThemeView" class="mg-view" hidden aria-labelledby="mgThemeHeading">
           <header class="mg-sectionhead"><h1 id="mgThemeHeading">Tes thèmes</h1></header>
           <div id="mgThemeGrid" class="mg-grid"></div>
@@ -141,7 +152,11 @@
     </div>
   </dialog>
   <p id="mgCardToast" class="mg-card-toast" role="status" aria-live="polite" hidden></p>
-  <script src="course-access.js?v=2"></script>
-  <script src="maquette-guidee.js?v=29"></script>
+  <script src="course-i18n.js?v=5"></script>
+  <script src="course-native.js?v=1"></script>
+  <script src="course-access.js?v=3"></script>
+  <script src="voice-selection.js?v=2"></script>
+  <script src="lesson-audio.js?v=3"></script>
+  <script src="maquette-guidee.js?v=34"></script>
 </body>
 </html>

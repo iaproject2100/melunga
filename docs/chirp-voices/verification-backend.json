@@ -1,0 +1,47 @@
+{
+  "status": "passed-local-mocked-provider",
+  "checkedAtUtc": "2026-10-27T11:44:38.932430+00:00",
+  "baseline": "4fafe31271df3d5e7b601f41ee9056511860bd17",
+  "unitTests": {
+    "passed": 14,
+    "failed": 0,
+    "skipped": 0,
+    "test": "melunga_deploy/tests/tts-chirp.test.cjs",
+    "executedByIndependentQa": true,
+    "serverSourceMatchesTestedHash": true
+  },
+  "coverage": {
+    "historicalWaveNetVoices": 14,
+    "selectedChirpVoicesInProviderFixture": 21,
+    "ChirpSynthesisRatesPerVoice": [
+      0.75,
+      1
+    ],
+    "catalogueSeconds": 300,
+    "catalogueTimeoutMs": 8000,
+    "mixedGendersRequired": true,
+    "unselectedFourthChirpRejected": true,
+    "extraWaveNetRejected": true,
+    "originalAudioHeadersExact": true,
+    "catalogueCoalescingExpiryAndKeyIsolation": true,
+    "providerErrorBodiesAndKeysNotLogged": true
+  },
+  "sourceConservation": {
+    "reviewedRuntimeJson": 78,
+    "reviewedRuntimeUnchanged": true,
+    "otherExistingBackendFilesUnchanged": true
+  },
+  "limits": {
+    "realGoogleVoicesListObtained": false,
+    "realProviderSynthesisCalled": false,
+    "audioHeard": false,
+    "physicalPhoneChecked": false,
+    "productionOrPreviewDeployedByThisQa": false,
+    "mergeApproved": false
+  },
+  "sourceSha256": {
+    "melunga_deploy/netlify/functions/tts.mjs": "c672b9476cf16e4499e5d49c8ea77991307299513784df9d4c8b08f43f0d55d3",
+    "melunga_deploy/netlify/functions/lib/chirp-catalog.mjs": "fc470592599cf8b3d86c142bf6187d1c0e90daa64f0d5c252769ad8d6ba84447",
+    "melunga_deploy/tests/tts-chirp.test.cjs": "cdd2786a4f834671509d39a9a56fd734042d2a68f0c67ea00dff9404747987b4"
+  }
+}

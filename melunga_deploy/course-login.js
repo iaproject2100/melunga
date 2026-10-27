@@ -41,7 +41,11 @@
   var cancel = document.createElement('button');
   cancel.id = 'courseLoginBack';
   cancel.type = 'button';
-  cancel.textContent = approved.nativeLanguage === 'zh' ? '返回主题' : 'Retour aux thèmes';
+  var backLabels = {
+    fr: 'Retour aux thèmes', en: 'Back to topics', es: 'Volver a los temas',
+    it: 'Torna ai temi', zh: '返回主题', ja: 'テーマに戻る', ko: '주제로 돌아가기'
+  };
+  cancel.textContent = backLabels[approved.nativeLanguage];
   panel.appendChild(cancel);
 
   function isAccountFrontmost() {

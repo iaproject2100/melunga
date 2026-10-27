@@ -388,7 +388,6 @@
   const desktopChoices = window.matchMedia('(min-width:960px)');
   const languageStep = document.querySelector('[data-screen="language"]');
   const courseLaunch = languageStep.querySelector('[data-launch-course]');
-  const originalCourseLabel = courseLaunch.textContent;
   const studyChoices = Array.from(languageStep.querySelectorAll('[data-study-language]'));
   studyChoices.forEach(function (choice) {
     const flag = document.createElement('span');
@@ -398,11 +397,10 @@
   });
   function renderLanguageChoice() {
     const locale = typeof currentAppLocale === 'string' ? currentAppLocale : 'fr';
-    const text = desktopChoices.matches && selectedAccess === 'free' ? (copy[locale] || copy.fr)[3] : originalCourseLabel;
+    const text = desktopChoices.matches && selectedAccess === 'free' ? (copy[locale] || copy.fr)[3] : window.MelungaCourseI18n.t(locale,'Démarrer ma première leçon');
     if (courseLaunch.textContent !== text) courseLaunch.textContent = text;
     studyChoices.forEach(function (choice) {
-      if (desktopChoices.matches) choice.setAttribute('aria-pressed',String(choice.classList.contains('selected')));
-      else choice.removeAttribute('aria-pressed');
+      choice.setAttribute('aria-pressed',String(!choice.hidden&&choice.classList.contains('selected')));
     });
   }
   const originalGo = window.go;
