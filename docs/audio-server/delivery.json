@@ -1,0 +1,62 @@
+{
+  "status": "ready-for-preview-review",
+  "baseline": "ef147deacf85b4a5631c1b05ff8050de7918ea1f",
+  "checkedAtUtc": "2026-10-27T11:11:23.650Z",
+  "publicationApproved": false,
+  "commitOrPushPerformed": false,
+  "productInputsStillMatchBrowserQa": true,
+  "unitTests": {
+    "passed": 13,
+    "failed": 0,
+    "test": "melunga_deploy/tests/lesson-audio.test.cjs"
+  },
+  "browserQa": {
+    "status": "passed",
+    "groups": 6,
+    "cases": 26,
+    "errors": [],
+    "unexpectedRequests": [],
+    "inputsStable": true,
+    "physicalAndroidChecked": false,
+    "actualAudioPlayed": false,
+    "report": "docs/audio-server/verification-browser.json"
+  },
+  "historicalGate": {
+    "status": "passed",
+    "baseline": "ef147deacf85b4a5631c1b05ff8050de7918ea1f",
+    "layeredAssets": 3,
+    "newRuntimeAssets": 1,
+    "runtimeJson": 78,
+    "protectedFiles": 58,
+    "testsPassed": 8,
+    "historicalPinsChanged": false,
+    "patch": "docs/audio-server/runtime-layer.patch"
+  },
+  "existingService": {
+    "realReadOnlyGets": 7,
+    "all200": true,
+    "allNonemptyMp3": true,
+    "sampleRate": 24000,
+    "heardOnPhysicalDevice": false,
+    "responseReport": "docs/audio-server/service-seven-voices.json",
+    "mediaReport": "docs/audio-server/service-seven-voices-media.json"
+  },
+  "sourceSha256": {
+    "melunga_deploy/lesson-audio.js": "5eda5fbd765f197b1c6a758e6a7d1b0dd88203f662a369bc667465048ce70e0d",
+    "melunga_deploy/maquette-guidee.js": "f692662a58b0899253ddfd79c1b5be9041c14e362c84184bf406585a919b835d",
+    "melunga_deploy/maquette-guidee.html": "68b970eb02fa34ba96d3a9b11a8795cf51a2081a1396246e1bbd16222dc96a40",
+    "melunga_deploy/parcours-niveaux.html": "f4254397645269e1129566a0037392a4ab6accb40a62fa4c3911a3d46f9e0312",
+    "melunga_deploy/tests/all-classification.cjs": "09543c8a717c1a17b09fe18f185b443b70bf3cfe1175e3ceb44e9733426511eb",
+    "melunga_deploy/tests/serveur-audio-layer.cjs": "9b59fd0dfd56ff90c8c67b3eade605017a622c8e0d5717669bef656f0ea850a8",
+    "melunga_deploy/tests/serveur-audio-layer.test.cjs": "fcf87e28caea13e4fc9e2897d3de67a17b170c6217d920d052efeec1e4bb591b",
+    "melunga_deploy/tests/lesson-audio.test.cjs": "42ee29501a1301a0365110e852fc199fb1ff1303489dffb2594aedffa9899109",
+    "melunga_deploy/tests/lesson-server-audio.browser.cjs": "75ffdf763a649a88755e7f50e1343a674761117f494d55f6d8e55b723a2300e5",
+    "docs/audio-server/runtime-layer.patch": "046138b8043992b46a282d8fe64db12113c15872279e95c0caeee11c7087d697"
+  },
+  "screenshots": [
+    "docs/audio-server/captures/server-audio-chinese-pinyin-320.png",
+    "docs/audio-server/captures/server-audio-english-desktop.png",
+    "docs/audio-server/captures/server-audio-spanish-mobile.png",
+    "docs/audio-server/captures/server-audio-spanish-voice-menu.png"
+  ]
+}
