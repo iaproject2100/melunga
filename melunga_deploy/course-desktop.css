@@ -48,11 +48,13 @@
   body.mg-desktop-course .mg-lesson{padding:14px 26px 16px}
   body.mg-desktop-course .mg-model{gap:var(--mg-fit-gap,17px);padding:var(--mg-fit-model-padding,10px) 0}
   body.mg-desktop-course #mgPhonrow.is-recall{display:none}
-  body.mg-desktop-course #mgPhonrow{flex-direction:column;gap:0;min-height:64px;padding:10px 68px 10px 16px;border:1px solid #b59bda;border-radius:22px;background:#3b2757;color:#fbf7ff}
-  body.mg-desktop-course #mgPhon{color:#fbf7ff}
-  body.mg-desktop-course .mg-desktop-phonetic-label{display:block;margin:0 0 4px;color:#eadcff;font-size:12px;line-height:16px;font-weight:650;letter-spacing:.06em}
-  body.mg-desktop-course #mgEar:not([hidden]){display:flex;right:12px;width:44px;height:44px;min-width:44px;min-height:44px;border:1px solid #b59bda;background:#52366f;color:#fbf7ff}
-  body.mg-desktop-course #mgEar:hover,body.mg-desktop-course #mgEar.is-playing{background:#694a8d;color:#fbf7ff}
+  body.mg-desktop-course{--mg-desktop-phon-glass:rgba(151,120,199,.14);--mg-desktop-phon-ink:#fbf7ff;--mg-desktop-phon-caption:#eadcff;--mg-desktop-phon-line:rgba(205,181,237,.5);--mg-desktop-ear-glass:rgba(235,220,255,.16);--mg-desktop-ear-active:rgba(235,220,255,.26)}
+  body.mg-desktop-course:is([data-ambience="dusk"],[data-ambience="legacy-gamified"],[data-ambience="legacy-zen"],[data-ambience="legacy-plum"],[data-ambience="legacy-cafe"]){--mg-desktop-phon-glass:rgba(115,83,161,.12);--mg-desktop-phon-ink:#3b2757;--mg-desktop-phon-caption:#59466f;--mg-desktop-phon-line:rgba(105,74,141,.32);--mg-desktop-ear-glass:rgba(255,255,255,.4);--mg-desktop-ear-active:rgba(255,255,255,.62)}
+  body.mg-desktop-course #mgPhonrow{flex-direction:column;gap:0;min-height:64px;padding:10px 68px 10px 16px;border:1px solid var(--mg-desktop-phon-line);border-radius:22px;background:var(--mg-desktop-phon-glass);color:var(--mg-desktop-phon-ink);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  body.mg-desktop-course #mgPhon{color:var(--mg-desktop-phon-ink)}
+  body.mg-desktop-course .mg-desktop-phonetic-label{display:block;margin:0 0 4px;color:var(--mg-desktop-phon-caption);font-size:12px;line-height:16px;font-weight:650;letter-spacing:.06em}
+  body.mg-desktop-course #mgEar:not([hidden]){display:flex;right:12px;width:44px;height:44px;min-width:44px;min-height:44px;border:1px solid var(--mg-desktop-phon-line);background:var(--mg-desktop-ear-glass);color:var(--mg-desktop-phon-ink)}
+  body.mg-desktop-course #mgEar:hover,body.mg-desktop-course #mgEar.is-playing{background:var(--mg-desktop-ear-active);color:var(--mg-desktop-phon-ink)}
   body.mg-desktop-course #mgModelTools.mg-desktop-tools-empty{display:none}
   body.mg-desktop-course #mgModel #mgFooter,body.mg-desktop-course #mgDone #mgFooter{display:flex;align-items:stretch;justify-content:center;gap:12px;flex:0 0 auto;width:100%;max-width:760px;margin:8px auto 0;padding:0}
   body.mg-desktop-course #mgFooter>.mg-action,body.mg-desktop-course #mgFooter>#mgListen{display:flex;align-items:center;justify-content:center;gap:10px;flex:1 1 0;min-width:0;min-height:54px;height:auto;margin:0;padding:11px 18px;border:1px solid var(--mg-line);border-radius:20px;font-size:16px;font-weight:650;line-height:1.3;white-space:normal}
