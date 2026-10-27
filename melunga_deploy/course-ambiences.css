@@ -1,0 +1,94 @@
+/* The 14 immersive AMB palettes from app.html, in their original cycle order.
+ * The three card-only variants stay excluded. The modern palettes stay in the core stylesheet. */
+body[data-ambience^="legacy-"]{
+  color-scheme:dark;
+  --mg-ink:#F4F8FC;--mg-muted:#CDD9E4;--mg-line:#39434F;
+  --mg-surface:var(--mg-legacy-card);--mg-soft:rgba(255,255,255,.12);
+  --mg-shadow:rgba(0,0,0,.22);--mg-accent:var(--mg-legacy-accent);
+  --mg-accent-ink:#071b22;--mg-phon:#dff0ff;
+}
+body:is([data-ambience="legacy-gamified"],[data-ambience="legacy-zen"],[data-ambience="legacy-plum"],[data-ambience="legacy-cafe"]){
+  color-scheme:light;
+  --mg-ink:#23262B;--mg-muted:#62584c;--mg-line:rgba(81,64,66,.26);
+  --mg-soft:rgba(255,255,255,.72);--mg-shadow:rgba(50,30,48,.15);
+  --mg-accent-ink:#fff;--mg-phon:#3f3156;
+}
+/* 🎮 Gamifié · 🎬 Plein écran */
+body[data-ambience="legacy-gamified"]{
+  background-color:#F7F3EC;background-image:radial-gradient(120% 80% at 50% 30%,#FFF9EC,#EDE1C9);
+  --mg-legacy-card:#FFFFFF;--mg-legacy-accent:#1D9E70;
+  --mg-accent-ink:#05291c;
+}
+/* 🌅 Zen · 🎬 Plein écran */
+body[data-ambience="legacy-zen"]{
+  background-color:#FFE8CF;background-image:linear-gradient(180deg,#FFD98E,#FF9E7A 55%,#C77DBB);
+  --mg-legacy-card:#FFFFFF;--mg-legacy-accent:#7C5CE0;
+}
+/* 🌙 Premium · 🎬 Plein écran */
+body[data-ambience="legacy-premium"]{
+  background-color:#12151C;background-image:radial-gradient(120% 80% at 50% 30%,#20252F,#0A0C11);
+  --mg-legacy-card:#1A1E26;--mg-legacy-accent:#0EA5E9;
+}
+/* 🌆 Coucher de soleil */
+body[data-ambience="legacy-sunset"]{
+  background-color:#2A1A3E;background-image:linear-gradient(180deg,#833AB4,#FD1D1D 55%,#FCB045);
+  --mg-legacy-card:#3A2450;--mg-legacy-accent:#FFB86C;
+}
+/* 🌌 Nuit néon */
+body[data-ambience="legacy-neon"]{
+  background-color:#12081F;background-image:linear-gradient(180deg,#7303C0,#EC38BC 50%,#03001E);
+  --mg-legacy-card:#241238;--mg-legacy-accent:#F72585;
+}
+/* 🌊 Océan */
+body[data-ambience="legacy-ocean"]{
+  background-color:#06283D;background-image:linear-gradient(180deg,#1CB5E0,#000851);
+  --mg-legacy-card:#0C3B57;--mg-legacy-accent:#47B5FF;
+}
+/* 🍃 Forêt */
+body[data-ambience="legacy-forest"]{
+  background-color:#0B2818;background-image:linear-gradient(180deg,#134E5E,#71B280);
+  --mg-legacy-card:#123A24;--mg-legacy-accent:#4ADE80;
+}
+/* 🎧 Spotify */
+body[data-ambience="legacy-spotify"]{
+  background-color:#0A0A0A;background-image:linear-gradient(180deg,#1DB954,#0A0A0A 60%);
+  --mg-legacy-card:#181818;--mg-legacy-accent:#1DB954;
+}
+/* 🌸 Fleur de prunier · 梅花 */
+body[data-ambience="legacy-plum"]{
+  background-color:#FFE9F0;background-image:linear-gradient(180deg,#FFE9F0,#F6A8C8 45%,#9C5B9E);
+  --mg-legacy-card:#FFFFFF;--mg-legacy-accent:#C2417E;
+}
+/* 🏮 Lanterne · 上海之夜 */
+body[data-ambience="legacy-lantern"]{
+  background-color:#3D0000;background-image:linear-gradient(180deg,#3D0000,#8E0E00 55%,#D4A017 120%);
+  --mg-legacy-card:#5A1010;--mg-legacy-accent:#FFD166;
+}
+/* 🌌 Aurore boréale */
+body[data-ambience="legacy-aurora"]{
+  background-color:#001510;background-image:linear-gradient(180deg,#001510,#003D2E 40%,#0E7B5A 75%,#5B2A86 115%);
+  --mg-legacy-card:#0A2A20;--mg-legacy-accent:#2DD4BF;
+}
+/* ☕ Café parisien */
+body[data-ambience="legacy-cafe"]{
+  background-color:#F2E5D0;background-image:linear-gradient(180deg,#F2E5D0,#D9BE9C 55%,#8A6242);
+  --mg-legacy-card:#FFFFFF;--mg-legacy-accent:#8A5A2B;
+}
+/* 📸 Insta */
+body[data-ambience="legacy-insta"]{
+  background-color:#2A1650;background-image:linear-gradient(135deg,#4F5BD5 0%,#962FBF 28%,#D62976 55%,#FA7E1E 80%,#FEDA75 105%);
+  --mg-legacy-card:#3A2260;--mg-legacy-accent:#FA7E1E;
+}
+/* 🍷 Bordeaux */
+body[data-ambience="legacy-bordeaux"]{
+  background-color:#3C1830;background-image:linear-gradient(160deg,#8A3550,#5B2340 55%,#3C1830);
+  --mg-legacy-card:#5B2340;--mg-legacy-accent:#E75480;
+}
+/* Opaque palette surfaces also cover language/level dialogs and native select options. */
+body[data-ambience^="legacy-"] .mg-menu-dialog,
+body[data-ambience^="legacy-"] .mg-help-panel{
+  background:var(--mg-legacy-card);color:var(--mg-ink);
+}
+body[data-ambience^="legacy-"] .mg-menu-dialog::backdrop{background:rgba(20,12,28,.2)}
+body[data-ambience^="legacy-"] .mg-menu-field option{background:var(--mg-legacy-card);color:var(--mg-ink)}
+body:is([data-ambience="legacy-gamified"],[data-ambience="legacy-zen"],[data-ambience="legacy-plum"],[data-ambience="legacy-cafe"]) .mg-progress.is-level-progress #mgProgress{filter:brightness(.66) saturate(1.12)}
