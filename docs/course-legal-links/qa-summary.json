@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "baseCommit": "e7f54fff59e4acc4fb91b7988a503ebe8cbff0fc",
+  "environment": "Local Chromium; desktop and mobile viewport/touch emulation",
+  "physicalDeviceTested": false,
+  "safariTested": false,
+  "realAudioPlayed": false,
+  "upstreamTtsCalled": false,
+  "realAccountsUsed": false,
+  "nonGetRequestsAllowed": false,
+  "allResponsesLocalFixtures": true,
+  "inputsStable": true,
+  "checks": [
+    "unchanged-legal-and-source-documents",
+    "seven-native-legal-menu-links"
+  ],
+  "errors": [],
+  "unexpected": [],
+  "fixtureErrors": [],
+  "date": "2026-10-27",
+  "testGroups": 2,
+  "profiles": 14,
+  "nativeLanguages": [
+    "fr",
+    "en",
+    "es",
+    "zh",
+    "it",
+    "ja",
+    "ko"
+  ],
+  "viewports": [
+    {
+      "width": 1366,
+      "height": 768
+    },
+    {
+      "width": 390,
+      "height": 700
+    }
+  ],
+  "linksChecked": 28,
+  "actualDocumentClicks": [
+    {
+      "pathname": "/terms.html",
+      "lang": "fr",
+      "heading": "Conditions Générales d'Utilisation"
+    },
+    {
+      "pathname": "/privacy-en.html",
+      "lang": "en",
+      "heading": "Privacy Policy"
+    }
+  ],
+  "protectedWholeFiles": 129,
+  "legalSourceSha256": {
+    "terms.html": "7a30f503b1082851f12385c0ec5f0177a2af53207fd44bac2742211e3d2a133a",
+    "privacy.html": "2c3657c8df798265dcfd2fe692b1be3697318b23f86e87bd0861fbcd66d07bf9",
+    "terms-en.html": "55d1e81281e8c78f8fc60ed9a51338984272601c2ba278440a75a722083ee7ba",
+    "privacy-en.html": "68d402b39b4b3efd6e4e692ee4c426b9254f8eace58565d6f5e80cfe253d8c7c",
+    "terms-es.html": "e798285cc3f283a9794576434792f2786c17544c3a27e00291ea658a2cfb9311",
+    "privacy-es.html": "a9c397a1700db7affba27acc7dbb40c9bd6ddc6c89e280dd2b886a1c29807ea1",
+    "terms-zh.html": "5a07947a6f880497edfca2a2d4ef025336446ef07257944c1ed34f65ca928e2d",
+    "privacy-zh.html": "bc996c1d0e4ead98ceec1deb85535457c458fe3f9328638165165e3ec43568e1"
+  },
+  "harnessPath": "/tmp/melunga-course-legal-links.browser.cjs",
+  "harnessSha256": "6940f52d7263414021fe2bb46eca47314f2033e69596d9ef1a2781e4dfb34ab3",
+  "selectedCaptures": [
+    "captures/menu-fr-1366.png",
+    "captures/menu-fr-390.png"
+  ],
+  "scope": "Only restore the two existing legal document links in the secondary course menu; no legal, price or rights content changes.",
+  "limits": [
+    "Local Chromium only, no physical mobile or Safari.",
+    "Network/account status/catalogue are explicit local fixtures; no real accounts, payment, POST or TTS upstream.",
+    "Existing legal HTML is loaded through actual clicks, not replaced with placeholder pages.",
+    "No legal-content review and no publication by the QA agent."
+  ]
+}

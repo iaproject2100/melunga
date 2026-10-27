@@ -653,7 +653,7 @@ index 671acf7..c66f971 100644
 +    const unsubscribe = selection?.subscribe?.((_state, reason) => { if (reason === 'selection') stop(); });
 +    return Object.freeze({ play, stop, destroy() { stop(); unsubscribe?.(); } });
 diff --git a/melunga_deploy/maquette-guidee.html b/melunga_deploy/maquette-guidee.html
-index 7663cf5..df5e4eb 100644
+index 7663cf5..baded3b 100644
 --- a/melunga_deploy/maquette-guidee.html
 +++ b/melunga_deploy/maquette-guidee.html
 @@ -7,2 +7,2 @@
@@ -700,10 +700,10 @@ index 7663cf5..df5e4eb 100644
 +  <script src="course-access.js?v=4"></script>
 +  <script src="voice-selection.js?v=2"></script>
 +  <script src="lesson-audio.js?v=3"></script>
-+  <script src="maquette-guidee.js?v=37"></script>
++  <script src="maquette-guidee.js?v=38"></script>
 +  <script src="course-desktop.js?v=2"></script>
 diff --git a/melunga_deploy/maquette-guidee.js b/melunga_deploy/maquette-guidee.js
-index 5ba1c6c..f8445b9 100644
+index 5ba1c6c..95f60fd 100644
 --- a/melunga_deploy/maquette-guidee.js
 +++ b/melunga_deploy/maquette-guidee.js
 @@ -46,0 +47 @@
@@ -735,7 +735,37 @@ index 5ba1c6c..f8445b9 100644
 +  }
 @@ -99,0 +110 @@
 +    try { localStorage.setItem('melunga-course-ambience', ambience); } catch (_) { /* Keep the current colour. */ }
-@@ -625,3 +636,20 @@
+@@ -470,0 +482,15 @@
++  function legalMenuRows() {
++    const labels = {
++      fr: ['Conditions générales', 'Confidentialité'], en: ['Terms and Conditions', 'Privacy'],
++      es: ['Términos', 'Privacidad'], zh: ['服务条款', '隐私政策'],
++      it: ['Termini', 'Privacy'], ja: ['利用規約', 'プライバシー'], ko: ['이용약관', '개인정보']
++    };
++    const native = state.nativeLanguage;
++    const language = ['fr', 'en', 'es', 'zh'].includes(native) ? native : 'en';
++    const suffix = language === 'fr' ? '' : '-' + language;
++    return ['terms', 'privacy'].map((key, index) => ({
++      key, label: labels[native][index] + (language === native ? '' : ' (EN)'),
++      icon: icons.info, href: key + suffix + '.html', language, newTab: true, secondaryOnly: true
++    }));
++  }
++
+@@ -484 +510,2 @@
+-        : { label: 'Se connecter / Créer un compte', shortLabel: 'Connexion', icon: icons.person, href: lessonUrl(true) }
++        : { label: 'Se connecter / Créer un compte', shortLabel: 'Connexion', icon: icons.person, href: lessonUrl(true) },
++      ...legalMenuRows()
+@@ -494 +521,5 @@
+-    if (row.href) item.href = row.href;
++    if (row.href) {
++      item.href = row.href;
++      if (row.language) item.hreflang = row.language;
++      if (row.newTab) { item.target = '_blank'; item.rel = 'noopener'; }
++    }
+@@ -514 +545 @@
+-    if (includeDesktop && ui.desktopNav) ui.desktopNav.replaceChildren(...rows.map(row => menuItem(row, true)));
++    if (includeDesktop && ui.desktopNav) ui.desktopNav.replaceChildren(...rows.filter(row => !row.secondaryOnly).map(row => menuItem(row, true)));
+@@ -625,3 +656,20 @@
 -    ui.voice.replaceChildren(new Option(tr('Voix féminine'), 'female'), new Option(tr('Voix masculine'), 'male'));
 -    ui.voice.value = state.voiceChoices.get(state.pair.studyLanguage) || 'female';
 -    if (ui.voice.selectedIndex < 0) ui.voice.selectedIndex = 0;
@@ -759,21 +789,21 @@ index 5ba1c6c..f8445b9 100644
 +      : snapshot?.selected ? 'Voix enregistrée pour cette langue'
 +      : snapshot?.usesApprovedDefault ? 'Voix par défaut' : 'Choisir une voix');
 +    ui.voice.dataset.provisional = String(!!snapshot?.provisional);
-@@ -628,0 +657 @@
+@@ -628,0 +677 @@
 +    if (snapshot?.status === 'error' || snapshot?.status === 'expired') voiceSelection.preload().catch(() => {});
-@@ -722,0 +752,3 @@
+@@ -722,0 +772,3 @@
 +  voiceSelection?.subscribe(() => {
 +    if (state.pair && ui.menu.open && state.menuView === 'voice') fillVoices();
 +  });
-@@ -746,0 +779,2 @@
+@@ -746,0 +799,2 @@
 +    if (screen === 'loading') ui.loading.classList.remove('has-error');
 +    ui.loading.setAttribute('aria-busy', String(screen === 'loading'));
-@@ -931,0 +966 @@
+@@ -931,0 +986 @@
 +      button.dataset.themeId = theme.id;
-@@ -1202 +1237 @@
+@@ -1202 +1257 @@
 -    if (!lessonAudio) {
 +    if (!lessonAudio || !voiceSelection) {
-@@ -1206,2 +1241,5 @@
+@@ -1206,2 +1261,5 @@
 -    lessonAudio.play({ text: phrase.study, language: state.pair.studyLanguage,
 -      rate: state.speechRate, voice: state.voiceChoices.get(state.pair.studyLanguage) || 'female' });
 +    if (['idle', 'loading'].includes(voiceSelection.state().status)) {
@@ -781,12 +811,12 @@ index 5ba1c6c..f8445b9 100644
 +      return;
 +    }
 +    lessonAudio.play({ text: phrase.study, language: state.pair.studyLanguage, rate: state.speechRate });
-@@ -1259,0 +1298 @@
+@@ -1259,0 +1318 @@
 +    renderLoadingContext(id, entry.level);
-@@ -1262 +1301 @@
+@@ -1262 +1321 @@
 -    text(ui.loadingText, tr('Tes thèmes arrivent…'));
 +    text(ui.loadingText, tr('Chargement des leçons…'));
-@@ -1271,0 +1311,9 @@
+@@ -1271,0 +1331,9 @@
 +      const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
 +      const bankTask = (async () => {
 +        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
@@ -796,10 +826,10 @@ index 5ba1c6c..f8445b9 100644
 +        if (!response.ok) throw new Error('Repertoire unavailable');
 +        return validateRepertoire(await readRuntimeJson(response, repertoirePath), id);
 +      })().then(bank => ({bank}), error => ({error}));
-@@ -1274 +1322 @@
+@@ -1274 +1342 @@
 -        const response = await fetch(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
 +        const response = await fetchCourseDocument(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
-@@ -1283,8 +1331,3 @@
+@@ -1283,8 +1351,3 @@
 -        const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
 -        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
 -        let bank = state.repertoireCache.get(id);
@@ -811,11 +841,11 @@ index 5ba1c6c..f8445b9 100644
 +        const result = await bankTask;
 +        if (result.error) throw result.error;
 +        const bank = result.bank;
-@@ -1311,2 +1354 @@
+@@ -1311,2 +1374 @@
 -      text(ui.loadingText, tr('Les thèmes n’ont pas pu se charger.'));
 -      ui.retry.hidden = false;
 +      showLoadingError('Les thèmes n’ont pas pu se charger.');
-@@ -1748,0 +1791,27 @@
+@@ -1748,0 +1811,27 @@
 +  function renderLoadingContext(id, level = state.level) {
 +    const flags = {fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷'};
 +    if (!nativeCourses?.isPair(id) || id.split('-')[0] !== state.nativeLanguage || state.invalidPair) {
@@ -843,20 +873,20 @@ index 5ba1c6c..f8445b9 100644
 +    ui.retry.hidden = false;
 +  }
 +
-@@ -1749,0 +1819,4 @@
+@@ -1749,0 +1839,4 @@
 +    const initialPair = nativeCourses?.isPair(explicitPair) ? explicitPair
 +      : nativeCourses?.isPair(savedPair) && savedPair.split('-')[0] === state.nativeLanguage ? savedPair
 +      : state.nativeLanguage + '-' + (state.nativeLanguage === 'fr' ? 'en' : 'fr');
 +    renderLoadingContext(initialPair, Number(routeParameters.get('level') || (explicitPair === null ? savedLevel : 1)));
-@@ -1751 +1824 @@
+@@ -1751 +1844 @@
 -    text(ui.loadingText, tr('Tes thèmes arrivent…'));
 +    text(ui.loadingText, tr('Chargement des leçons…'));
-@@ -1757,2 +1830,2 @@
+@@ -1757,2 +1850,2 @@
 -        await courseAccess.initialize();
 -        if (courseAccess.state().mode === 'production') document.querySelector('.mg-previewnotice')?.remove();
 +        // The content request and status verification may run together. No
 +        // cards are installed until both have succeeded below.
-@@ -1760,5 +1833,9 @@
+@@ -1760,5 +1853,9 @@
 -      const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
 -      if (!response.ok) throw new Error('HTTP ' + response.status);
 -      const data = await response.json();
@@ -871,31 +901,31 @@ index 5ba1c6c..f8445b9 100644
 +      })();
 +      const [, data] = await Promise.all([ui.level ? courseAccess.initialize() : null, content]);
 +      state.data = data;
-@@ -1767,2 +1844,2 @@
+@@ -1767,2 +1864,2 @@
 -        text(ui.loadingText, tr('Ce couple de langues n’est pas disponible. Choisis tes langues pour continuer.'));
 -        text(ui.retry, tr('Choisir mes langues')); ui.retry.hidden = false; return;
 +        showLoadingError('Ce couple de langues n’est pas disponible. Choisis tes langues pour continuer.');
 +        text(ui.retry, tr('Choisir mes langues')); return;
-@@ -1787 +1864 @@
+@@ -1787 +1884 @@
 -      text(ui.loadingText, tr('Les thèmes n’ont pas pu se charger.'));
 +      showLoadingError('Les thèmes n’ont pas pu se charger.');
-@@ -1789 +1865,0 @@
+@@ -1789 +1885,0 @@
 -      ui.retry.hidden = false;
-@@ -1838 +1913,0 @@
+@@ -1838 +1933,0 @@
 -    if (!['female', 'male'].includes(ui.voice.value)) return;
-@@ -1839,0 +1915,5 @@
+@@ -1839,0 +1935,5 @@
 +    if (!voiceSelection?.setVoice(state.pair.studyLanguage, ui.voice.value)) {
 +      setStatus('Catalogue des voix indisponible. Réessaie.');
 +      fillVoices();
 +      return;
 +    }
-@@ -1840,0 +1921 @@
+@@ -1840,0 +1941 @@
 +    fillVoices();
-@@ -1910 +1991,2 @@
+@@ -1910 +2011,2 @@
 -    advanceStep();
 +    if (document.body.classList.contains('mg-desktop-course')) browsePhrase(1);
 +    else advanceStep();
-@@ -1961,0 +2044 @@
+@@ -1961,0 +2064 @@
 +    if (!courseAccess || !nativeCourses || !courseI18n) { window.location.reload(); return; }
 diff --git a/melunga_deploy/netlify/functions/tts.mjs b/melunga_deploy/netlify/functions/tts.mjs
 index aeaebf7..b3713ca 100644
@@ -981,7 +1011,7 @@ index aeaebf7..b3713ca 100644
 +
 +export const handler = createHandler();
 diff --git a/melunga_deploy/parcours-niveaux.html b/melunga_deploy/parcours-niveaux.html
-index 6e9b44c..8923ed4 100644
+index 6e9b44c..3fff917 100644
 --- a/melunga_deploy/parcours-niveaux.html
 +++ b/melunga_deploy/parcours-niveaux.html
 @@ -7 +7 @@
@@ -1027,5 +1057,5 @@ index 6e9b44c..8923ed4 100644
 +  <script src="course-access.js?v=4"></script>
 +  <script src="voice-selection.js?v=2"></script>
 +  <script src="lesson-audio.js?v=3"></script>
-+  <script src="maquette-guidee.js?v=37"></script>
++  <script src="maquette-guidee.js?v=38"></script>
 +  <script src="course-desktop.js?v=2"></script>
