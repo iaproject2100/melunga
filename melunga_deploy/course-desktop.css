@@ -1,0 +1,41 @@
+/* Desktop layout A. Below this breakpoint the original DOM and core styles apply. */
+@media(min-width:1101px){
+  body.mg-desktop-course .mg-app{display:flex;flex-direction:column;gap:0;width:100%;max-width:none;height:var(--mg-usable-height,100dvh);min-height:0;padding:0}
+  body.mg-desktop-course .mg-sidebar{display:none}
+  body.mg-desktop-course .mg-desktop-header{display:flex;align-items:center;justify-content:space-between;gap:28px;flex:0 0 112px;min-height:112px;padding:8px 40px;border-bottom:1px solid var(--mg-line);background:var(--mg-surface)}
+  body.mg-desktop-course .mg-desktop-header .mg-brand{flex-direction:row;gap:10px;flex:0 0 auto;min-width:0}
+  body.mg-desktop-course .mg-desktop-header .mg-logo{width:96px;height:96px;flex:0 0 96px}
+  body.mg-desktop-course .mg-desktop-header .mg-wordmark{font-size:33px;line-height:1;letter-spacing:-.04em}
+  body.mg-desktop-course #mgDesktopNav{display:flex;align-items:center;justify-content:center;gap:16px;width:auto;min-width:0;margin:0 auto;padding:0;overflow:visible}
+  body.mg-desktop-course #mgDesktopNav>[data-menu-item]:not([data-menu-item="Thèmes"]):not([data-menu-item="À revoir"]):not([data-menu-item="review"]){display:none}
+  body.mg-desktop-course #mgDesktopNav>.mg-rail-item{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:10px;flex:0 1 auto;grid-column:auto;width:auto;min-width:0;min-height:48px;padding:9px 15px;border:1px solid transparent;border-radius:18px;font-size:15px;line-height:1.3}
+  body.mg-desktop-course #mgDesktopNav>.mg-rail-item>span:last-child{white-space:normal}
+  body.mg-desktop-course #mgDesktopNav>.mg-rail-item[data-menu-item="Thèmes"]{border-color:var(--mg-line);background:var(--mg-soft)}
+  body.mg-desktop-course #mgDesktopNav .mg-rail-icon{width:24px;height:24px;flex:0 0 24px;border:0;border-radius:0;background:transparent;box-shadow:none}
+  body.mg-desktop-course #mgDesktopNav .mg-rail-icon svg{width:24px;height:24px}
+  body.mg-desktop-course .mg-desktop-header #mgMenuTrigger{display:inline-flex;gap:10px;flex:0 0 auto;width:auto;min-width:48px;height:48px;margin:0;padding:9px 15px;border-radius:18px;font-size:14px;font-weight:600}
+  body.mg-desktop-course .mg-main{flex:1 1 auto;align-self:center;width:100%;max-width:1252px;min-width:0;min-height:0;padding:16px 46px 20px}
+  body.mg-desktop-course .mg-desktop-heading{display:flex;align-items:center;justify-content:space-between;gap:28px;flex:0 0 auto;min-height:68px;margin-bottom:12px}
+  body.mg-desktop-course .mg-desktop-heading-copy{flex:1 1 auto;min-width:0}
+  body.mg-desktop-course .mg-desktop-heading .mg-sectionhead{margin:0;padding:0}
+  body.mg-desktop-course .mg-desktop-heading h1{margin:0;font-size:28px;font-weight:760;line-height:1.2;letter-spacing:-.03em;overflow-wrap:anywhere}
+  body.mg-desktop-course .mg-desktop-context{flex:0 0 auto;min-width:0}
+  body.mg-desktop-course .mg-desktop-context .mg-controls{display:flex;flex-direction:row;align-items:center;justify-content:flex-end;gap:13px;width:auto;margin:0;padding:0}
+  body.mg-desktop-course .mg-desktop-context .mg-round{width:52px;height:52px;flex:0 0 52px;margin:0}
+  body.mg-desktop-course .mg-desktop-context #mgPalette{display:inline-flex}
+  body.mg-desktop-course .mg-topbar{min-height:0;padding:0;margin:0 0 8px}
+  body.mg-desktop-course[data-view="themes"] .mg-topbar{display:none}
+  body.mg-desktop-course .mg-counter{font-size:14px}
+  body.mg-desktop-course .mg-progress{margin:0 4px 12px}
+  body.mg-desktop-course .mg-content{min-height:0}
+  body.mg-desktop-course .mg-lesson{padding:14px 26px 16px}
+  body.mg-desktop-course .mg-model{gap:var(--mg-fit-gap,17px);padding:var(--mg-fit-model-padding,10px) 0}
+  body.mg-desktop-course #mgEar,body.mg-desktop-course #mgPhonrow.is-recall{display:none}
+  body.mg-desktop-course #mgModelTools.mg-desktop-tools-empty{display:none}
+  body.mg-desktop-course #mgModel #mgFooter,body.mg-desktop-course #mgDone #mgFooter{display:flex;align-items:stretch;justify-content:center;gap:12px;flex:0 0 auto;width:100%;max-width:760px;margin:8px auto 0;padding:0}
+  body.mg-desktop-course #mgFooter>.mg-action,body.mg-desktop-course #mgFooter>#mgListen{display:flex;align-items:center;justify-content:center;gap:10px;flex:1 1 0;min-width:0;min-height:54px;height:auto;margin:0;padding:11px 18px;border:1px solid var(--mg-line);border-radius:20px;font-size:16px;font-weight:650;line-height:1.3;white-space:normal}
+  body.mg-desktop-course #mgFooter>#mgListen{position:static;transform:none;background:var(--mg-soft);color:var(--mg-ink);box-shadow:0 9px 25px var(--mg-shadow)}
+  body.mg-desktop-course #mgFooter>#mgListen.is-playing{background:var(--mg-accent);color:var(--mg-accent-ink)}
+  body.mg-desktop-course #mgFooter>#mgListen svg{width:24px;height:24px;flex:0 0 24px}
+  body.mg-desktop-course .mg-done{min-height:0;padding:18px 8px;gap:20px}
+}

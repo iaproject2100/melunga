@@ -50,7 +50,7 @@
   async function checkedJson(path, expected, signal) {
     aborted(signal);
     requireValue(globalThis.crypto?.subtle && /^[a-f0-9]{64}$/.test(expected), 'SHA-256 verification unavailable');
-    const response = await fetch(path, {credentials:'omit', cache:'no-cache', signal});
+    const response = await (globalThis.MelungaCourseData?.fetch || fetch)(path, {credentials:'omit', cache:'no-cache', signal});
     requireValue(response.ok, 'source unavailable: ' + path);
     const bytes = await response.arrayBuffer();
     aborted(signal);

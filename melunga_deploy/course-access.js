@@ -27,7 +27,7 @@
 
   async function loadRights() {
     if (rightsReady) return;
-    const response = await fetch('content/course-access.json', {cache:'no-cache', credentials:'same-origin'});
+    const response = await (window.MelungaCourseData?.fetch || fetch)('content/course-access.json', {cache:'no-cache', credentials:'same-origin'});
     if (!response.ok) throw new Error('Historical rights unavailable');
     const raw = await response.text();
     const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw));

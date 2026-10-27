@@ -72,14 +72,17 @@ test('classic source literals, eight account/payment functions, rights and revie
  const before=execFileSync('git',['show',BASE+':melunga_deploy/app.html'],{cwd:ROOT,maxBuffer:40*1024*1024}).toString();
  for(const name of ['DECKS','PEDAGOGY_FAMILIES']){const prefix='var '+name+' = ';const a=classic.split('\n').filter(line=>line.startsWith(prefix)),b=before.split('\n').filter(line=>line.startsWith(prefix));assert.equal(a.length,1);assert.equal(b.length,1);assert.equal(sha(a[0]),sha(b[0]),'whole original literal '+name);}
  for(const name of ['doLogout','loadPricing','rememberPermanentLogout','checkPaidStatus','unlock','loginExisting','showPaywall','hidePaywall','isFreeCard','isLockedMode','activeDeck','guidedActiveDeck','guidedPool','meaningOf','phonOf','clean'])assert.equal(fn(classic,name),fn(before,name),name);
- execFileSync('git',['diff','--exit-code',BASE,'--','melunga_deploy/content/niveaux-progressifs','melunga_deploy/content/native-catalogue','melunga_deploy/content/course-access.json','melunga_deploy/course-access.js','melunga_deploy/store-billing.js'],{cwd:ROOT,stdio:'pipe'});
+ const access=read('course-access.js'), delegatedRights="await (window.MelungaCourseData?.fetch || fetch)('content/course-access.json',";
+ assert.equal(access.split(delegatedRights).length,2,'exactly one delegated static rights request');
+ assert.equal(access.replace(delegatedRights,"await fetch('content/course-access.json',"),execFileSync('git',['show',BASE+':melunga_deploy/course-access.js'],{cwd:ROOT}).toString(),'all access logic preserved after one read-only fetch delegation');
+ execFileSync('git',['diff','--exit-code',BASE,'--','melunga_deploy/content/niveaux-progressifs','melunga_deploy/content/native-catalogue','melunga_deploy/content/course-access.json','melunga_deploy/store-billing.js'],{cwd:ROOT,stdio:'pipe'});
  const oldModern=execFileSync('git',['show',BASE+':melunga_deploy/maquette-guidee.js'],{cwd:ROOT}).toString();
  for(const name of ['collectLevelProgressIds','levelProgress','loadKnownCards','saveKnownCard','saveCardDecision','markKnown','markForReview'])assert.equal(fn(modern,name),fn(oldModern,name),name);
  assert.doesNotMatch(classic,/translate\.google\.com\/translate_tts|api\.streamelements\.com|function trySE\(|function fallback\(/,'no unrequested third-party studied-speech route');
 });
 
 test('both HTML shells load selection before the shared player and current controller; classic loads the same modules',()=>{
- for(const file of ['parcours-niveaux.html','maquette-guidee.html']){const source=read(file),selection=source.indexOf('voice-selection.js?v=2'),player=source.indexOf('lesson-audio.js?v=3'),controller=source.indexOf('maquette-guidee.js?v=35');assert.ok(selection>0&&selection<player&&player<controller);assert.match(source,/course-i18n\.js\?v=5/);assert.match(source,/course-startup\.css\?v=1/);assert.match(source,/course-ambiences\.css\?v=1/);}
+ for(const file of ['parcours-niveaux.html','maquette-guidee.html']){const source=read(file),selection=source.indexOf('voice-selection.js?v=2'),player=source.indexOf('lesson-audio.js?v=3'),controller=source.indexOf('maquette-guidee.js?v=36');assert.ok(selection>0&&selection<player&&player<controller);assert.match(source,/course-i18n\.js\?v=5/);assert.match(source,/course-startup\.css\?v=1/);assert.match(source,/course-ambiences\.css\?v=1/);}
  assert.match(classic,/course-i18n\.js\?v=4/);assert.doesNotMatch(classic,/course-startup\.css/);
  assert.ok(classic.indexOf('voice-selection.js?v=2')<classic.indexOf('lesson-audio.js?v=3'));
  assert.ok(classic.indexOf('lesson-audio.js?v=3')<classic.indexOf('var DECKS = '));

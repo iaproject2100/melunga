@@ -44,6 +44,7 @@
     referenceMap: new Map(), repertoireCache: new Map(), savedReview: [], readingPreferences: {},
     deferredPhraseIds: new Set(), resumeGeneration: 0, allClassification: null, classificationOps: new Map(), accountLogoutPending: false
   };
+  const fetchCourseDocument = window.MelungaCourseData?.fetch || fetch;
   const courseAccess = window.MelungaCourseAccess;
   const nativeCourses = window.MelungaNativeCourses;
   const courseI18n = window.MelungaCourseI18n;
@@ -1311,13 +1312,13 @@
         if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
         const cached = state.repertoireCache.get(id);
         if (cached) return cached;
-        const response = await fetch(repertoirePath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
+        const response = await fetchCourseDocument(repertoirePath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
         if (!response.ok) throw new Error('Repertoire unavailable');
         return validateRepertoire(await readRuntimeJson(response, repertoirePath), id);
       })().then(bank => ({bank}), error => ({error}));
       let pair = state.levelCache.get(key);
       if (!pair) {
-        const response = await fetch(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
+        const response = await fetchCourseDocument(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
         if (!response.ok) throw new Error('Level unavailable');
         pair = await readRuntimeJson(response, entry.dataPath);
         if (pair.id !== id || pair.level !== entry.level) throw new Error('Wrong level');
@@ -1829,7 +1830,7 @@
         // cards are installed until both have succeeded below.
       }
       const content = (async () => {
-        const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
+        const response = await fetchCourseDocument(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
         if (!response.ok) throw new Error('HTTP ' + response.status);
         const data = await response.json();
         if (ui.level) await loadClassificationPolicy(data);
@@ -1986,7 +1987,8 @@
       else showSequences();
       return;
     }
-    advanceStep();
+    if (document.body.classList.contains('mg-desktop-course')) browsePhrase(1);
+    else advanceStep();
   });
   // Match the live mobile card: up/down browse, left defers, right acknowledges.
   // The card follows the finger in all four directions. Controls, selection,
@@ -2038,6 +2040,7 @@
     event.preventDefault(); event.stopImmediatePropagation();
   }, true);
   ui.retry.addEventListener('click', () => {
+    if (!courseAccess || !nativeCourses || !courseI18n) { window.location.reload(); return; }
     if (state.invalidPair) { window.location.href = 'index.html'; return; }
     if (ui.level && state.data && state.requestedPair) choosePair(state.requestedPair, state.level);
     else loadData();

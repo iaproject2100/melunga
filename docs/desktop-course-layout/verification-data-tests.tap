@@ -1,0 +1,18 @@
+✔ the exact document bytes, SHA input, status, headers and caller options survive the helper (31.378213ms)
+✔ each transient HTTP status receives exactly one retry before the current document succeeds (9.757018ms)
+✔ a continuing transient HTTP failure stops after two requests and returns its real final response (2.233469ms)
+✔ a 404 with a non-JSON error body is returned once without retry or fabricated course data (1.916731ms)
+✔ truncated JSON, a broken body stream and a raw network rejection retry once then recover (4.439346ms)
+✔ permanent network failure is rethrown after two attempts with no cached or fallback document (2.586551ms)
+✔ two truncated JSON downloads reject instead of exposing partial or replacement data (1.435926ms)
+✔ each attempt has a 12-second timeout and an exhausted timeout becomes TimeoutError (1.585381ms)
+✔ API, POST, external and non-content requests pass through once with their original options (8.571961ms)
+✔ caller abort propagates before a request, during fetch and during backoff without a retry (2.891051ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 151.709154
