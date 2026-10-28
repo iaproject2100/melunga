@@ -75,7 +75,7 @@ async function fixture({width=390,height=740,pair='fr-es',direct=true,ambience='
         samples.visible++;samples.firstVisible||=frame;
         let reason='';
         if(innerWidth<=760&&(!document.body.classList.contains('mg-mobile-dock-course')||
-            !document.getElementById('mgLevelTrigger')?.closest('.mg-mobile-context')))reason='old-mobile-controls';
+            !document.getElementById('mgLevelTrigger')?.closest(view==='themes'?'.mg-mobile-dock':'.mg-mobile-context')))reason='old-mobile-controls';
         if(innerWidth>=1101&&(!document.body.classList.contains('mg-desktop-course')||
             !document.querySelector('.mg-desktop-header')))reason='old-desktop-controls';
         if(view==='themes'&&!samples.allowThemes)reason='intermediate-themes-before-first-lesson';

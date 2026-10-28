@@ -422,9 +422,26 @@
     setMobileProperty('--mg-mobile-dock-space', space + 'px');
   }
 
+  function refreshMobileContext() {
+    if (!mobileDock) return;
+    const themes = document.body.dataset.view === 'themes';
+    for (const button of [nodes.level, nodes.language]) {
+      moveMobile(button, themes ? mobileDock.dock : mobileDock.context);
+    }
+    if (themes && mobileDock.dock.firstElementChild !== nodes.level) {
+      mobileDock.dock.prepend(nodes.level);
+      moved = true;
+    }
+    if (mobileDock.context.hidden !== themes) {
+      mobileDock.context.hidden = themes;
+      moved = true;
+    }
+  }
+
   function refreshMobileDock() {
     if (!mobileDock) createMobileDock();
     refreshMobileShortcuts();
+    refreshMobileContext();
     const native = locale();
     const t = key => window.MelungaCourseI18n?.t(native, key) || key;
     for (const [button, value] of [[nodes.level, t('Niveau')], [nodes.language, mobileLabels[native].language],
@@ -496,7 +513,12 @@
     if (!pending) pending = requestAnimationFrame(refresh);
   }
 
-  const observer = new MutationObserver(schedule);
+  const observer = new MutationObserver(records => {
+    // Move the two controls before the next paint when switching views.
+    if (mobileMedia.matches && records.some(record => record.target === document.body
+        && record.type === 'attributes' && record.attributeName === 'data-view')) refreshMobileContext();
+    schedule();
+  });
   observer.observe(document.body, {attributes: true, attributeFilter: ['data-view'], childList: true});
   observer.observe(nodes.footer, {attributes: true, attributeFilter: ['hidden']});
   observer.observe(nodes.model, {attributes:true, attributeFilter:['hidden']});
