@@ -358,7 +358,19 @@
   }
 
   function refreshMobileShortcuts() {
-    for (const panel of ['review', 'voice']) {
+    const panels = [document.body.dataset.view === 'themes' ? 'À revoir' : 'review', 'voice'];
+    for (const [panel, shortcut] of mobileDock.shortcuts) {
+      if (panels.includes(panel)) continue;
+      const marker = mobileSlots.get(shortcut.button);
+      restoreShortcutClasses(shortcut);
+      if (marker?.parentNode) marker.after(shortcut.button);
+      else shortcut.button.remove();
+      marker?.remove();
+      mobileSlots.delete(shortcut.button);
+      mobileDock.shortcuts.delete(panel);
+      moved = true;
+    }
+    for (const panel of panels) {
       const source = nodes.nav.querySelector('[data-menu-item="' + panel + '"]');
       const current = mobileDock.shortcuts.get(panel);
       const marker = current && mobileSlots.get(current.button);
@@ -382,7 +394,7 @@
         moveMobile(source, mobileDock.settings);
       }
     }
-    const ordered = ['review', 'voice'].map(panel => mobileDock.shortcuts.get(panel)?.button)
+    const ordered = panels.map(panel => mobileDock.shortcuts.get(panel)?.button)
       .filter(Boolean).concat(nodes.palette, nodes.menu);
     for (let index = 0; index < ordered.length; index += 1) {
       const button = ordered[index], before = mobileDock.settings.children[index];
@@ -516,7 +528,10 @@
   const observer = new MutationObserver(records => {
     // Move the two controls before the next paint when switching views.
     if (mobileMedia.matches && records.some(record => record.target === document.body
-        && record.type === 'attributes' && record.attributeName === 'data-view')) refreshMobileContext();
+        && record.type === 'attributes' && record.attributeName === 'data-view')) {
+      refreshMobileContext();
+      if (mobileDock) refreshMobileShortcuts();
+    }
     schedule();
   });
   observer.observe(document.body, {attributes: true, attributeFilter: ['data-view'], childList: true});
