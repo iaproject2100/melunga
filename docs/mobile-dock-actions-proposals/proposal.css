@@ -1,0 +1,33 @@
+/* Load after the chosen dock's review CSS. These styles are not loaded by the app. */
+@media(max-width:760px){
+  body[data-actions-proposal]:not([data-actions-proposal="reference"]) #mgFooter{display:none}
+  body[data-actions-proposal] .thumb-nav .thumb-control{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex:none;width:100%;height:68px;min-width:44px;min-height:44px;margin:0;padding:3px 0;border:0;border-radius:15px;overflow:visible;background:transparent;color:var(--mg-ink);box-shadow:none;font-family:inherit;font-size:11px;line-height:1.15;font-weight:650;white-space:normal}
+  body[data-actions-proposal] .dock-settings,body[data-actions-proposal] .dock-actions{min-width:0;display:grid;align-items:center}
+  body[data-actions-proposal="a"] .thumb-nav{left:8px;right:8px;grid-template-columns:repeat(6,minmax(0,1fr));gap:2px;padding-inline:5px;border-radius:25px}
+  body[data-actions-proposal="a"] .dock-settings,body[data-actions-proposal="a"] .dock-actions{display:contents}
+  body[data-actions-proposal="a"] .thumb-icon{width:32px;height:32px;border-radius:11px}
+  body[data-actions-proposal="a"] .thumb-icon>svg{width:23px;height:23px}
+  body[data-actions-proposal="a"] #mgContinue .thumb-icon{background:#147e77;color:#fff}
+  body[data-actions-proposal="b"]{--thumb-space:calc(148px + env(safe-area-inset-bottom,0px))}
+  body[data-actions-proposal="b"] .thumb-nav{grid-template-columns:minmax(0,1fr);gap:8px;min-height:130px;padding:8px 10px 10px}
+  body[data-actions-proposal="b"] .dock-settings{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+  body[data-actions-proposal="b"] .dock-settings .thumb-control{height:52px;gap:3px;padding:0}
+  body[data-actions-proposal="b"] .dock-settings .thumb-icon{width:30px;height:30px;border-radius:10px;font-size:16px}
+  body[data-actions-proposal="b"] .dock-settings .thumb-icon>svg{width:23px;height:23px}
+  body[data-actions-proposal="b"] .dock-actions{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  body:is([data-actions-proposal="b"],[data-actions-proposal="c"]) .thumb-nav .dock-action{flex-direction:row;gap:8px;height:48px;min-height:48px;padding:8px;border:1px solid var(--mg-line);border-radius:17px;background:rgba(255,255,255,.38)}
+  body:is([data-actions-proposal="b"],[data-actions-proposal="c"]) .dock-action .thumb-icon{width:21px;height:21px;background:transparent;border:0;border-radius:0}
+  body:is([data-actions-proposal="b"],[data-actions-proposal="c"]) .dock-action .thumb-icon>svg{width:21px;height:21px}
+  body:is([data-actions-proposal="b"],[data-actions-proposal="c"]) .dock-action .thumb-label{font-size:14px;font-weight:700}
+  body:is([data-actions-proposal="b"],[data-actions-proposal="c"]) #mgContinue{background:#147e77;color:#fff;border-color:transparent}
+  body:is([data-actions-proposal="b"],[data-actions-proposal="c"]) #mgContinue .thumb-icon{order:2}
+  body[data-actions-proposal="c"]{--thumb-space:calc(132px + env(safe-area-inset-bottom,0px))}
+  body[data-actions-proposal="c"] .thumb-nav{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;min-height:114px;padding:8px 9px}
+  body[data-actions-proposal="c"] .dock-settings{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
+  body[data-actions-proposal="c"] .dock-settings .thumb-control{height:46px;gap:2px;padding:0}
+  body[data-actions-proposal="c"] .dock-settings .thumb-icon{width:26px;height:26px;border-radius:9px;font-size:15px}
+  body[data-actions-proposal="c"] .dock-settings .thumb-icon>svg{width:22px;height:22px}
+  body[data-actions-proposal="c"] .dock-settings .mg-colorwheel{width:24px;height:24px}
+  body[data-actions-proposal="c"] .dock-actions{grid-template-columns:minmax(0,1fr);gap:6px}
+  body[data-actions-proposal="c"] .thumb-nav .dock-action{height:45px;min-height:45px}
+}
