@@ -1,0 +1,32 @@
+/* Four review-only arrangements. No product asset loads these styles. */
+@media(max-width:760px){
+  body[data-shortcuts-proposal] .mg-extra-shortcut{font-family:inherit}
+  body[data-shortcuts-proposal] .mg-extra-shortcut .mg-shortcut-label{display:none}
+  body[data-shortcuts-proposal] .mg-extra-shortcut .mg-dock-icon{color:var(--mg-ink)}
+  body[data-shortcuts-proposal] .mg-extra-shortcut svg{width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:1.7}
+  .mg-shortcuts-context{display:flex;align-items:center;gap:4px;margin-left:auto}
+  .mg-shortcuts-context>.mg-round{display:flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;min-width:44px;min-height:44px;margin:0;padding:0;border:0;border-radius:12px;background:transparent;box-shadow:none}
+  .mg-shortcuts-context #mgLevelTrigger:hover{filter:none}
+  body[data-shortcuts-proposal="1"] .mg-topbar{gap:8px}
+  body[data-shortcuts-proposal="1"] #mgCounter{margin-left:0}
+  body[data-shortcuts-proposal="2"] .mg-dock-settings{grid-template-columns:repeat(3,minmax(44px,1fr));grid-auto-rows:48px}
+  body[data-shortcuts-proposal="2"] .mg-dock-settings>.mg-round{grid-row:auto}
+  body[data-shortcuts-proposal="3"] .mg-mobile-dock{row-gap:8px}
+  body[data-shortcuts-proposal="3"] .mg-dock-settings{grid-template-columns:repeat(3,minmax(44px,1fr));grid-row:2}
+  body[data-shortcuts-proposal="3"] .mg-dock-actions>.mg-action{grid-row:2}
+  .mg-shortcuts-tray{display:grid;grid-template-columns:repeat(4,minmax(44px,1fr));grid-row:1;grid-column:1 / -1;gap:0;padding:4px;border-radius:17px;background:var(--mg-dock-glass);box-shadow:inset 0 0 0 1px var(--mg-dock-border);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+  .mg-shortcuts-tray>.mg-round{display:flex;align-items:center;justify-content:center;flex:none;width:100%;height:48px;min-width:44px;min-height:44px;margin:0;padding:0;border:0;border-radius:12px;background:transparent;color:var(--mg-ink);box-shadow:none}
+  body[data-shortcuts-proposal="3"] .mg-mobile-dock:has(.mg-shortcuts-tray[hidden]){row-gap:0}
+  body[data-shortcuts-proposal="3"] .mg-mobile-dock:has(.mg-shortcuts-tray[hidden]) .mg-dock-settings,
+  body[data-shortcuts-proposal="3"] .mg-mobile-dock:has(.mg-shortcuts-tray[hidden]) .mg-dock-actions>.mg-action{grid-row:1}
+  .mg-shortcuts-page{display:contents}
+  .mg-shortcuts-page>.mg-round{display:flex;grid-row:1;align-items:center;justify-content:center;flex:none;width:100%;height:48px;min-width:44px;min-height:44px;margin:0;padding:0;border:0;border-radius:12px;background:transparent;color:var(--mg-ink);box-shadow:none;font-family:inherit;font-size:11px;line-height:1.2;font-weight:650}
+  #mgShortcutPageToggle{grid-column:4}
+  #mgShortcutPageToggle .mg-dock-icon{flex-direction:column;gap:3px}
+  #mgShortcutPageToggle svg{width:21px;height:21px;flex:none;transition:none}
+  .mg-shortcuts-dots{display:flex;gap:4px;height:3px}
+  .mg-shortcuts-dots i{display:block;width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.35}
+  [data-shortcuts-page="1"] .mg-shortcuts-dots i:first-child,
+  [data-shortcuts-page="2"] .mg-shortcuts-dots i:last-child{opacity:1}
+  [data-shortcuts-page="2"] #mgShortcutPageToggle svg{transform:rotate(180deg)}
+}
