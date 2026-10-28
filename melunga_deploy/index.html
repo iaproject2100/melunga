@@ -286,6 +286,33 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
     html.melunga-web .screen[data-screen="language"] .language-entry-options .option::after{content:'→';position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:23px;font-weight:600;color:#167c72}
     html.melunga-web .screen[data-screen="language"] .language-entry-options .option:hover{background:#eef8f3;border-color:#168675}
     html.melunga-web .screen[data-screen="language"] .language-entry-options .option:focus-visible{outline:3px solid #087c69;outline-offset:3px}
+    @media(max-width:959px){
+      html.melunga-web .screen[data-screen="language"].active{padding:20px 18px max(20px,env(safe-area-inset-bottom));gap:18px;background:linear-gradient(135deg,#fae5bb,#efd8d8 60%,#d8d0e8)}
+      html.melunga-web .screen[data-screen="language"].active .app-header{display:grid;grid-template-columns:44px 1fr;gap:10px;min-height:44px;margin:0;flex:none}
+      html.melunga-web .screen[data-screen="language"].active .step-label{display:none}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-brand{display:flex;align-items:center;justify-self:center;gap:8px;margin-right:44px;color:#163d49;font-size:22px;font-weight:850;letter-spacing:-.5px}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-brand img{width:48px;height:48px;object-fit:contain;clip-path:circle(44.5% at 50% 50%)}
+      html.melunga-web .screen[data-screen="language"].active .back{width:44px;height:44px;border:1px solid #ffffffb3;background:#ffffff66;border-radius:15px}
+      html.melunga-web .screen[data-screen="language"].active .question{margin:0!important;text-align:center;flex:none}
+      html.melunga-web .screen[data-screen="language"].active .question h2{margin:0 0 10px;font-size:28px;line-height:1.12;letter-spacing:-.7px;text-wrap:balance}
+      html.melunga-web .screen[data-screen="language"].active .question p{margin:0;font-size:13px;line-height:1.45;color:#49616b;text-wrap:balance}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0;padding:0;flex:none}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-width:0;min-height:104px;padding:14px 8px;border:1px solid #ffffffcc;border-radius:22px;background:rgba(255,255,255,.42);color:#163d49;box-shadow:inset 0 1px 0 #ffffff80;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);text-align:center}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option::after{content:none}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option strong{font-size:17px;line-height:1.25}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option small{display:none}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .flag{display:grid;place-items:center;flex:none;width:34px;font-size:0}
+      html.melunga-web .screen[data-screen="language"].active .desktop-study-flag{display:block;width:32px;height:22px;border-radius:3px}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option:hover{background:rgba(255,255,255,.6);border-color:#168675}
+    }
+    @media(max-width:959px) and (max-height:620px){
+      html.melunga-web .screen[data-screen="language"].active{padding:14px 16px;gap:14px}
+      html.melunga-web .screen[data-screen="language"].active .question h2{font-size:26px;margin-bottom:8px}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options{gap:10px}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option{min-height:88px;padding:10px 7px;gap:8px}
+    }
+    @media(max-width:959px) and (max-height:540px){html.melunga-web .screen[data-screen="language"].active .question p{display:none}}
+    @media(min-width:600px) and (max-width:959px){html.melunga-web .screen[data-screen="language"].active .language-entry-options{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(min-width:960px){
       html.melunga-web body:has(.screen[data-screen="language"].active){background:linear-gradient(125deg,#fae5bb,#efd8d8 60%,#d8d0e8)}
       html.melunga-web body:has(.screen[data-screen="language"].active)>.stage{padding:36px}
