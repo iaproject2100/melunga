@@ -1,0 +1,18 @@
+/* Review-only layouts: remove inherited footer spacing, keeping the original controls. */
+@media(max-width:760px){
+  body[data-tight-proposal] .mg-mobile-dock{min-height:0;gap:2px;padding:4px 10px;border-radius:21px}
+  body[data-tight-proposal] .mg-mobile-dock #mgFooter{padding:0}
+  body[data-tight-proposal] .mg-mobile-dock #mgFooter>.mg-action{padding-block:6px}
+  body[data-tight-proposal="2"] .mg-mobile-dock{left:0;right:0;bottom:var(--mg-dock-obstruction,0px);gap:0;padding:4px 12px calc(4px + var(--mg-dock-safe-area));border-width:1px 0 0;border-radius:0;box-shadow:none}
+  body[data-tight-proposal="2"] .mg-mobile-dock #mgFooter>.mg-action{min-height:44px}
+  body[data-tight-proposal="3"] .mg-mobile-dock{left:8px;right:8px;grid-template-columns:repeat(4,minmax(44px,1fr)) repeat(2,minmax(50px,1.2fr));gap:2px;padding:3px 5px;border-radius:19px}
+  body[data-tight-proposal="3"] .mg-dock-settings,body[data-tight-proposal="3"] .mg-mobile-dock #mgFooter{display:contents}
+  body[data-tight-proposal="3"] .mg-dock-settings>.mg-round{height:48px}
+  body[data-tight-proposal="3"] .mg-mobile-dock #mgFooter>.mg-action{flex-direction:column;gap:2px;width:100%;min-height:48px;padding:2px;border-radius:13px;font-size:11px;line-height:1.2;white-space:normal}
+  body[data-tight-proposal="3"] .mg-mobile-dock #mgFooter>.mg-action>svg{width:19px;height:19px;flex:0 0 19px}
+  body[data-tight-proposal="3"] .mg-dock-next-label{order:0}
+  body[data-tight-proposal="4"] .mg-mobile-dock{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+  body[data-tight-proposal="4"] .mg-dock-settings{grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}
+  body[data-tight-proposal="4"] .mg-mobile-dock #mgFooter{grid-template-columns:minmax(0,1fr);gap:2px}
+  body[data-tight-proposal="4"] .mg-mobile-dock #mgFooter>.mg-action{min-height:44px;gap:6px}
+}
