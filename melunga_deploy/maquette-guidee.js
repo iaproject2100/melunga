@@ -2120,5 +2120,8 @@
     levelProgress: ui.level && state.pair ? Object.freeze(levelProgress()) : null,
     template: isTemplate(currentPhrase()), totalPhrases: state.pair ? pairCount(state.pair) : 0
   }) });
-  loadData();
+  loadData().finally(() => {
+    window.__courseEntryReady = true;
+    window.dispatchEvent(new Event('melunga:course-entry-ready'));
+  });
 })();

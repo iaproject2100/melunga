@@ -489,6 +489,7 @@
     previousView = document.body.dataset.view;
     // Reuse the application's existing viewport fit and popup positioning.
     if (moved) window.dispatchEvent(new Event('resize'));
+    window.__finishCoursePresentation?.();
   }
 
   function schedule() {
@@ -515,6 +516,7 @@
   if (mobileMedia.addEventListener) mobileMedia.addEventListener('change', schedule);
   else mobileMedia.addListener(schedule);
   window.addEventListener('resize', schedule);
+  window.addEventListener('melunga:course-entry-ready', schedule);
   window.visualViewport?.addEventListener('resize', schedule);
   window.MelungaDesktopCourse = Object.freeze({refresh: schedule});
   schedule();
