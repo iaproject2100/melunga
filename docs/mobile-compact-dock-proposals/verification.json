@@ -1,0 +1,3413 @@
+{
+  "status": "passed",
+  "baseCommit": "6a22ff28c08f90edef5e178a23da8b37a9305f07",
+  "cases": [
+    {
+      "name": "themes-compact",
+      "size": {
+        "width": 320,
+        "height": 680
+      },
+      "option": 1,
+      "originalHeight": 72,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 680
+        },
+        "document": {
+          "width": 320,
+          "height": 680
+        },
+        "dock": {
+          "left": 0,
+          "right": 320,
+          "top": 625,
+          "bottom": 680,
+          "width": 320,
+          "height": 55
+        },
+        "background": "rgb(7, 43, 69)",
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 617,
+          "width": 320,
+          "height": 617
+        },
+        "content": {
+          "left": 10,
+          "right": 310,
+          "top": 146,
+          "bottom": 609,
+          "width": 300,
+          "height": 463
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 12,
+              "right": 83,
+              "top": 631,
+              "bottom": 675,
+              "width": 71,
+              "height": 44
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 28.03125,
+              "right": 66.96875,
+              "top": 659.40625,
+              "bottom": 672.59375,
+              "width": 38.9375,
+              "height": 13.1875
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 87,
+              "right": 158,
+              "top": 631,
+              "bottom": 675,
+              "width": 71,
+              "height": 44
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 102.109375,
+              "right": 142.890625,
+              "top": 659.40625,
+              "bottom": 672.59375,
+              "width": 40.78125,
+              "height": 13.1875
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 162,
+              "right": 233,
+              "top": 631,
+              "bottom": 675,
+              "width": 71,
+              "height": 44
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 175.9375,
+              "right": 219.0625,
+              "top": 659.40625,
+              "bottom": 672.59375,
+              "width": 43.125,
+              "height": 13.1875
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 237,
+              "right": 308,
+              "top": 631,
+              "bottom": 675,
+              "width": 71,
+              "height": 44
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 256.828125,
+              "right": 288.15625,
+              "top": 659.40625,
+              "bottom": 672.59375,
+              "width": 31.328125,
+              "height": 13.1875
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      },
+      "contrast": [
+        {
+          "selector": "#mgLevelText",
+          "text": "L1",
+          "color": "rgb(255, 255, 255)",
+          "rect": {
+            "left": 39.53125,
+            "right": 55.453125,
+            "top": 635,
+            "bottom": 654
+          },
+          "ratio": 4.787628095583295
+        },
+        {
+          "selector": ".mg-dock-settings>button:nth-child(1) .mg-dock-label",
+          "text": "Niveau",
+          "color": "rgb(246, 251, 255)",
+          "rect": {
+            "left": 28.03125,
+            "right": 66.96875,
+            "top": 658.40625,
+            "bottom": 673.40625
+          },
+          "ratio": 13.995952590179577
+        },
+        {
+          "selector": ".mg-dock-settings>button:nth-child(2) .mg-dock-label",
+          "text": "Langue",
+          "color": "rgb(246, 251, 255)",
+          "rect": {
+            "left": 102.109375,
+            "right": 142.890625,
+            "top": 658.40625,
+            "bottom": 673.40625
+          },
+          "ratio": 13.995952590179577
+        },
+        {
+          "selector": ".mg-dock-settings>button:nth-child(3) .mg-dock-label",
+          "text": "Couleur",
+          "color": "rgb(246, 251, 255)",
+          "rect": {
+            "left": 175.9375,
+            "right": 219.0625,
+            "top": 658.40625,
+            "bottom": 673.40625
+          },
+          "ratio": 13.995952590179577
+        },
+        {
+          "selector": ".mg-dock-settings>button:nth-child(4) .mg-dock-label",
+          "text": "Menu",
+          "color": "rgb(246, 251, 255)",
+          "rect": {
+            "left": 256.828125,
+            "right": 288.15625,
+            "top": 658.40625,
+            "bottom": 673.40625
+          },
+          "ratio": 13.995952590179577
+        }
+      ]
+    },
+    {
+      "name": "themes-compact",
+      "size": {
+        "width": 320,
+        "height": 680
+      },
+      "option": 2,
+      "originalHeight": 72,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 680
+        },
+        "document": {
+          "width": 320,
+          "height": 680
+        },
+        "dock": {
+          "left": 14,
+          "right": 306,
+          "top": 612,
+          "bottom": 670,
+          "width": 292,
+          "height": 58
+        },
+        "background": "rgba(5, 29, 52, 0.35)",
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 604,
+          "width": 320,
+          "height": 604
+        },
+        "content": {
+          "left": 10,
+          "right": 310,
+          "top": 146,
+          "bottom": 596,
+          "width": 300,
+          "height": 450
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 25,
+              "right": 89.5,
+              "top": 619,
+              "bottom": 663,
+              "width": 64.5,
+              "height": 44
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 37.78125,
+              "right": 76.71875,
+              "top": 647.40625,
+              "bottom": 660.59375,
+              "width": 38.9375,
+              "height": 13.1875
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 93.5,
+              "right": 158,
+              "top": 619,
+              "bottom": 663,
+              "width": 64.5,
+              "height": 44
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 105.359375,
+              "right": 146.140625,
+              "top": 647.40625,
+              "bottom": 660.59375,
+              "width": 40.78125,
+              "height": 13.1875
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 162,
+              "right": 226.5,
+              "top": 619,
+              "bottom": 663,
+              "width": 64.5,
+              "height": 44
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 172.6875,
+              "right": 215.8125,
+              "top": 647.40625,
+              "bottom": 660.59375,
+              "width": 43.125,
+              "height": 13.1875
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 230.5,
+              "right": 295,
+              "top": 619,
+              "bottom": 663,
+              "width": 64.5,
+              "height": 44
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 247.078125,
+              "right": 278.40625,
+              "top": 647.40625,
+              "bottom": 660.59375,
+              "width": 31.328125,
+              "height": 13.1875
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      },
+      "contrast": [
+        {
+          "selector": "#mgLevelText",
+          "text": "L1",
+          "color": "rgb(255, 255, 255)",
+          "rect": {
+            "left": 49.28125,
+            "right": 65.203125,
+            "top": 623,
+            "bottom": 642
+          },
+          "ratio": 4.787628095583295
+        },
+        {
+          "selector": ".mg-dock-settings>button:nth-child(1) .mg-dock-label",
+          "text": "Niveau",
+          "color": "rgb(246, 251, 255)",
+          "rect": {
+            "left": 37.78125,
+            "right": 76.71875,
+            "top": 646.40625,
+            "bottom": 661.40625
+          },
+          "ratio": 13.378845968782773
+        },
+        {
+          "selector": ".mg-dock-settings>button:nth-child(2) .mg-dock-label",
+          "text": "Langue",
+          "color": "rgb(246, 251, 255)",
+          "rect": {
+            "left": 105.359375,
+            "right": 146.140625,
+            "top": 646.40625,
+            "bottom": 661.40625
+          },
+          "ratio": 13.727643291031397
+        },
+        {
+          "selector": ".mg-dock-settings>button:nth-child(3) .mg-dock-label",
+          "text": "Couleur",
+          "color": "rgb(246, 251, 255)",
+          "rect": {
+            "left": 172.6875,
+            "right": 215.8125,
+            "top": 646.40625,
+            "bottom": 661.40625
+          },
+          "ratio": 14.077242356809021
+        },
+        {
+          "selector": ".mg-dock-settings>button:nth-child(4) .mg-dock-label",
+          "text": "Menu",
+          "color": "rgb(246, 251, 255)",
+          "rect": {
+            "left": 247.078125,
+            "right": 278.40625,
+            "top": 646.40625,
+            "bottom": 661.40625
+          },
+          "ratio": 14.426606846512623
+        }
+      ]
+    },
+    {
+      "name": "themes-compact",
+      "size": {
+        "width": 320,
+        "height": 680
+      },
+      "option": 3,
+      "originalHeight": 72,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 680
+        },
+        "document": {
+          "width": 320,
+          "height": 680
+        },
+        "dock": {
+          "left": 28,
+          "right": 292,
+          "top": 622,
+          "bottom": 670,
+          "width": 264,
+          "height": 48
+        },
+        "background": "rgb(7, 43, 69)",
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 614,
+          "width": 320,
+          "height": 614
+        },
+        "content": {
+          "left": 10,
+          "right": 310,
+          "top": 146,
+          "bottom": 606,
+          "width": 300,
+          "height": 460
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 35,
+              "right": 94.5,
+              "top": 624,
+              "bottom": 668,
+              "width": 59.5,
+              "height": 44
+            },
+            "caption": "Niveau",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 98.5,
+              "right": 158,
+              "top": 624,
+              "bottom": 668,
+              "width": 59.5,
+              "height": 44
+            },
+            "caption": "Langue",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 162,
+              "right": 221.5,
+              "top": 624,
+              "bottom": 668,
+              "width": 59.5,
+              "height": 44
+            },
+            "caption": "Couleur",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 225.5,
+              "right": 285,
+              "top": 624,
+              "bottom": 668,
+              "width": 59.5,
+              "height": 44
+            },
+            "caption": "Menu",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      },
+      "contrast": [
+        {
+          "selector": "#mgLevelText",
+          "text": "L1",
+          "color": "rgb(255, 255, 255)",
+          "rect": {
+            "left": 56.78125,
+            "right": 72.703125,
+            "top": 635.59375,
+            "bottom": 654.59375
+          },
+          "ratio": 4.787628095583295
+        }
+      ]
+    },
+    {
+      "name": "themes-compact",
+      "size": {
+        "width": 320,
+        "height": 680
+      },
+      "option": 4,
+      "originalHeight": 72,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 680
+        },
+        "document": {
+          "width": 320,
+          "height": 680
+        },
+        "dock": {
+          "left": 14,
+          "right": 306,
+          "top": 614,
+          "bottom": 670,
+          "width": 292,
+          "height": 56
+        },
+        "background": "rgba(0, 0, 0, 0)",
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 606,
+          "width": 320,
+          "height": 606
+        },
+        "content": {
+          "left": 10,
+          "right": 310,
+          "top": 146,
+          "bottom": 598,
+          "width": 300,
+          "height": 452
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 20,
+              "right": 84,
+              "top": 618,
+              "bottom": 666,
+              "width": 64,
+              "height": 48
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 32.53125,
+              "right": 71.46875,
+              "top": 650.40625,
+              "bottom": 663.59375,
+              "width": 38.9375,
+              "height": 13.1875
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 92,
+              "right": 156,
+              "top": 618,
+              "bottom": 666,
+              "width": 64,
+              "height": 48
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 103.609375,
+              "right": 144.390625,
+              "top": 650.40625,
+              "bottom": 663.59375,
+              "width": 40.78125,
+              "height": 13.1875
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 164,
+              "right": 228,
+              "top": 618,
+              "bottom": 666,
+              "width": 64,
+              "height": 48
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 174.4375,
+              "right": 217.5625,
+              "top": 650.40625,
+              "bottom": 663.59375,
+              "width": 43.125,
+              "height": 13.1875
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 236,
+              "right": 300,
+              "top": 618,
+              "bottom": 666,
+              "width": 64,
+              "height": 48
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 252.328125,
+              "right": 283.65625,
+              "top": 650.40625,
+              "bottom": 663.59375,
+              "width": 31.328125,
+              "height": 13.1875
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      },
+      "contrast": [
+        {
+          "selector": "#mgLevelText",
+          "text": "L1",
+          "color": "rgb(255, 255, 255)",
+          "rect": {
+            "left": 44.03125,
+            "right": 59.953125,
+            "top": 624,
+            "bottom": 643
+          },
+          "ratio": 4.792469368010235
+        },
+        {
+          "selector": ".mg-dock-settings>button:nth-child(1) .mg-dock-label",
+          "text": "Niveau",
+          "color": "rgb(246, 251, 255)",
+          "rect": {
+            "left": 32.53125,
+            "right": 71.46875,
+            "top": 649.40625,
+            "bottom": 664.40625
+          },
+          "ratio": 11.539166004281913
+        },
+        {
+          "selector": ".mg-dock-settings>button:nth-child(2) .mg-dock-label",
+          "text": "Langue",
+          "color": "rgb(246, 251, 255)",
+          "rect": {
+            "left": 103.609375,
+            "right": 144.390625,
+            "top": 649.40625,
+            "bottom": 664.40625
+          },
+          "ratio": 12.170785139755061
+        },
+        {
+          "selector": ".mg-dock-settings>button:nth-child(3) .mg-dock-label",
+          "text": "Couleur",
+          "color": "rgb(246, 251, 255)",
+          "rect": {
+            "left": 174.4375,
+            "right": 217.5625,
+            "top": 649.40625,
+            "bottom": 664.40625
+          },
+          "ratio": 12.788326515498408
+        },
+        {
+          "selector": ".mg-dock-settings>button:nth-child(4) .mg-dock-label",
+          "text": "Menu",
+          "color": "rgb(246, 251, 255)",
+          "rect": {
+            "left": 252.328125,
+            "right": 283.65625,
+            "top": 649.40625,
+            "bottom": 664.40625
+          },
+          "ratio": 13.442829204859702
+        }
+      ]
+    },
+    {
+      "name": "themes-compact",
+      "size": {
+        "width": 390,
+        "height": 780
+      },
+      "option": 1,
+      "originalHeight": 72,
+      "geometry": {
+        "viewport": {
+          "width": 390,
+          "height": 780
+        },
+        "document": {
+          "width": 390,
+          "height": 780
+        },
+        "dock": {
+          "left": 0,
+          "right": 390,
+          "top": 725,
+          "bottom": 780,
+          "width": 390,
+          "height": 55
+        },
+        "background": "rgb(7, 43, 69)",
+        "app": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 717,
+          "width": 390,
+          "height": 717
+        },
+        "content": {
+          "left": 12,
+          "right": 378,
+          "top": 148,
+          "bottom": 707,
+          "width": 366,
+          "height": 559
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 12,
+              "right": 100.5,
+              "top": 731,
+              "bottom": 775,
+              "width": 88.5,
+              "height": 44
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 36.78125,
+              "right": 75.71875,
+              "top": 759.40625,
+              "bottom": 772.59375,
+              "width": 38.9375,
+              "height": 13.1875
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 104.5,
+              "right": 193,
+              "top": 731,
+              "bottom": 775,
+              "width": 88.5,
+              "height": 44
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 128.359375,
+              "right": 169.140625,
+              "top": 759.40625,
+              "bottom": 772.59375,
+              "width": 40.78125,
+              "height": 13.1875
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 197,
+              "right": 285.5,
+              "top": 731,
+              "bottom": 775,
+              "width": 88.5,
+              "height": 44
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 219.6875,
+              "right": 262.8125,
+              "top": 759.40625,
+              "bottom": 772.59375,
+              "width": 43.125,
+              "height": 13.1875
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 289.5,
+              "right": 378,
+              "top": 731,
+              "bottom": 775,
+              "width": 88.5,
+              "height": 44
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 318.078125,
+              "right": 349.40625,
+              "top": 759.40625,
+              "bottom": 772.59375,
+              "width": 31.328125,
+              "height": 13.1875
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      },
+      "contrast": null
+    },
+    {
+      "name": "themes-compact",
+      "size": {
+        "width": 390,
+        "height": 780
+      },
+      "option": 2,
+      "originalHeight": 72,
+      "geometry": {
+        "viewport": {
+          "width": 390,
+          "height": 780
+        },
+        "document": {
+          "width": 390,
+          "height": 780
+        },
+        "dock": {
+          "left": 14,
+          "right": 376,
+          "top": 712,
+          "bottom": 770,
+          "width": 362,
+          "height": 58
+        },
+        "background": "rgba(5, 29, 52, 0.35)",
+        "app": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 704,
+          "width": 390,
+          "height": 704
+        },
+        "content": {
+          "left": 12,
+          "right": 378,
+          "top": 148,
+          "bottom": 694,
+          "width": 366,
+          "height": 546
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 25,
+              "right": 107,
+              "top": 719,
+              "bottom": 763,
+              "width": 82,
+              "height": 44
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 46.53125,
+              "right": 85.46875,
+              "top": 747.40625,
+              "bottom": 760.59375,
+              "width": 38.9375,
+              "height": 13.1875
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 111,
+              "right": 193,
+              "top": 719,
+              "bottom": 763,
+              "width": 82,
+              "height": 44
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 131.609375,
+              "right": 172.390625,
+              "top": 747.40625,
+              "bottom": 760.59375,
+              "width": 40.78125,
+              "height": 13.1875
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 197,
+              "right": 279,
+              "top": 719,
+              "bottom": 763,
+              "width": 82,
+              "height": 44
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 216.4375,
+              "right": 259.5625,
+              "top": 747.40625,
+              "bottom": 760.59375,
+              "width": 43.125,
+              "height": 13.1875
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 283,
+              "right": 365,
+              "top": 719,
+              "bottom": 763,
+              "width": 82,
+              "height": 44
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 308.328125,
+              "right": 339.65625,
+              "top": 747.40625,
+              "bottom": 760.59375,
+              "width": 31.328125,
+              "height": 13.1875
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      },
+      "contrast": null
+    },
+    {
+      "name": "themes-compact",
+      "size": {
+        "width": 390,
+        "height": 780
+      },
+      "option": 3,
+      "originalHeight": 72,
+      "geometry": {
+        "viewport": {
+          "width": 390,
+          "height": 780
+        },
+        "document": {
+          "width": 390,
+          "height": 780
+        },
+        "dock": {
+          "left": 28,
+          "right": 362,
+          "top": 722,
+          "bottom": 770,
+          "width": 334,
+          "height": 48
+        },
+        "background": "rgb(7, 43, 69)",
+        "app": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 714,
+          "width": 390,
+          "height": 714
+        },
+        "content": {
+          "left": 12,
+          "right": 378,
+          "top": 148,
+          "bottom": 704,
+          "width": 366,
+          "height": 556
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 35,
+              "right": 112,
+              "top": 724,
+              "bottom": 768,
+              "width": 77,
+              "height": 44
+            },
+            "caption": "Niveau",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 116,
+              "right": 193,
+              "top": 724,
+              "bottom": 768,
+              "width": 77,
+              "height": 44
+            },
+            "caption": "Langue",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 197,
+              "right": 274,
+              "top": 724,
+              "bottom": 768,
+              "width": 77,
+              "height": 44
+            },
+            "caption": "Couleur",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 278,
+              "right": 355,
+              "top": 724,
+              "bottom": 768,
+              "width": 77,
+              "height": 44
+            },
+            "caption": "Menu",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      },
+      "contrast": null
+    },
+    {
+      "name": "themes-compact",
+      "size": {
+        "width": 390,
+        "height": 780
+      },
+      "option": 4,
+      "originalHeight": 72,
+      "geometry": {
+        "viewport": {
+          "width": 390,
+          "height": 780
+        },
+        "document": {
+          "width": 390,
+          "height": 780
+        },
+        "dock": {
+          "left": 14,
+          "right": 376,
+          "top": 714,
+          "bottom": 770,
+          "width": 362,
+          "height": 56
+        },
+        "background": "rgba(0, 0, 0, 0)",
+        "app": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 706,
+          "width": 390,
+          "height": 706
+        },
+        "content": {
+          "left": 12,
+          "right": 378,
+          "top": 148,
+          "bottom": 696,
+          "width": 366,
+          "height": 548
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 20,
+              "right": 101.5,
+              "top": 718,
+              "bottom": 766,
+              "width": 81.5,
+              "height": 48
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 41.28125,
+              "right": 80.21875,
+              "top": 750.40625,
+              "bottom": 763.59375,
+              "width": 38.9375,
+              "height": 13.1875
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 109.5,
+              "right": 191,
+              "top": 718,
+              "bottom": 766,
+              "width": 81.5,
+              "height": 48
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 129.859375,
+              "right": 170.640625,
+              "top": 750.40625,
+              "bottom": 763.59375,
+              "width": 40.78125,
+              "height": 13.1875
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 199,
+              "right": 280.5,
+              "top": 718,
+              "bottom": 766,
+              "width": 81.5,
+              "height": 48
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 218.1875,
+              "right": 261.3125,
+              "top": 750.40625,
+              "bottom": 763.59375,
+              "width": 43.125,
+              "height": 13.1875
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 288.5,
+              "right": 370,
+              "top": 718,
+              "bottom": 766,
+              "width": 81.5,
+              "height": 48
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 313.578125,
+              "right": 344.90625,
+              "top": 750.40625,
+              "bottom": 763.59375,
+              "width": 31.328125,
+              "height": 13.1875
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      },
+      "contrast": null
+    },
+    {
+      "name": "themes-compact",
+      "size": {
+        "width": 430,
+        "height": 780
+      },
+      "option": 1,
+      "originalHeight": 72,
+      "geometry": {
+        "viewport": {
+          "width": 430,
+          "height": 780
+        },
+        "document": {
+          "width": 430,
+          "height": 780
+        },
+        "dock": {
+          "left": 0,
+          "right": 430,
+          "top": 725,
+          "bottom": 780,
+          "width": 430,
+          "height": 55
+        },
+        "background": "rgb(7, 43, 69)",
+        "app": {
+          "left": 0,
+          "right": 430,
+          "top": 0,
+          "bottom": 717,
+          "width": 430,
+          "height": 717
+        },
+        "content": {
+          "left": 12,
+          "right": 418,
+          "top": 148,
+          "bottom": 707,
+          "width": 406,
+          "height": 559
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 12,
+              "right": 110.5,
+              "top": 731,
+              "bottom": 775,
+              "width": 98.5,
+              "height": 44
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 41.78125,
+              "right": 80.71875,
+              "top": 759.40625,
+              "bottom": 772.59375,
+              "width": 38.9375,
+              "height": 13.1875
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 114.5,
+              "right": 213,
+              "top": 731,
+              "bottom": 775,
+              "width": 98.5,
+              "height": 44
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 143.359375,
+              "right": 184.140625,
+              "top": 759.40625,
+              "bottom": 772.59375,
+              "width": 40.78125,
+              "height": 13.1875
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 217,
+              "right": 315.5,
+              "top": 731,
+              "bottom": 775,
+              "width": 98.5,
+              "height": 44
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 244.6875,
+              "right": 287.8125,
+              "top": 759.40625,
+              "bottom": 772.59375,
+              "width": 43.125,
+              "height": 13.1875
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 319.5,
+              "right": 418,
+              "top": 731,
+              "bottom": 775,
+              "width": 98.5,
+              "height": 44
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 353.078125,
+              "right": 384.40625,
+              "top": 759.40625,
+              "bottom": 772.59375,
+              "width": 31.328125,
+              "height": 13.1875
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      },
+      "contrast": null
+    },
+    {
+      "name": "themes-compact",
+      "size": {
+        "width": 430,
+        "height": 780
+      },
+      "option": 2,
+      "originalHeight": 72,
+      "geometry": {
+        "viewport": {
+          "width": 430,
+          "height": 780
+        },
+        "document": {
+          "width": 430,
+          "height": 780
+        },
+        "dock": {
+          "left": 14,
+          "right": 416,
+          "top": 712,
+          "bottom": 770,
+          "width": 402,
+          "height": 58
+        },
+        "background": "rgba(5, 29, 52, 0.35)",
+        "app": {
+          "left": 0,
+          "right": 430,
+          "top": 0,
+          "bottom": 704,
+          "width": 430,
+          "height": 704
+        },
+        "content": {
+          "left": 12,
+          "right": 418,
+          "top": 148,
+          "bottom": 694,
+          "width": 406,
+          "height": 546
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 25,
+              "right": 117,
+              "top": 719,
+              "bottom": 763,
+              "width": 92,
+              "height": 44
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 51.53125,
+              "right": 90.46875,
+              "top": 747.40625,
+              "bottom": 760.59375,
+              "width": 38.9375,
+              "height": 13.1875
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 121,
+              "right": 213,
+              "top": 719,
+              "bottom": 763,
+              "width": 92,
+              "height": 44
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 146.609375,
+              "right": 187.390625,
+              "top": 747.40625,
+              "bottom": 760.59375,
+              "width": 40.78125,
+              "height": 13.1875
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 217,
+              "right": 309,
+              "top": 719,
+              "bottom": 763,
+              "width": 92,
+              "height": 44
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 241.4375,
+              "right": 284.5625,
+              "top": 747.40625,
+              "bottom": 760.59375,
+              "width": 43.125,
+              "height": 13.1875
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 313,
+              "right": 405,
+              "top": 719,
+              "bottom": 763,
+              "width": 92,
+              "height": 44
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 343.328125,
+              "right": 374.65625,
+              "top": 747.40625,
+              "bottom": 760.59375,
+              "width": 31.328125,
+              "height": 13.1875
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      },
+      "contrast": null
+    },
+    {
+      "name": "themes-compact",
+      "size": {
+        "width": 430,
+        "height": 780
+      },
+      "option": 3,
+      "originalHeight": 72,
+      "geometry": {
+        "viewport": {
+          "width": 430,
+          "height": 780
+        },
+        "document": {
+          "width": 430,
+          "height": 780
+        },
+        "dock": {
+          "left": 28,
+          "right": 402,
+          "top": 722,
+          "bottom": 770,
+          "width": 374,
+          "height": 48
+        },
+        "background": "rgb(7, 43, 69)",
+        "app": {
+          "left": 0,
+          "right": 430,
+          "top": 0,
+          "bottom": 714,
+          "width": 430,
+          "height": 714
+        },
+        "content": {
+          "left": 12,
+          "right": 418,
+          "top": 148,
+          "bottom": 704,
+          "width": 406,
+          "height": 556
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 35,
+              "right": 122,
+              "top": 724,
+              "bottom": 768,
+              "width": 87,
+              "height": 44
+            },
+            "caption": "Niveau",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 126,
+              "right": 213,
+              "top": 724,
+              "bottom": 768,
+              "width": 87,
+              "height": 44
+            },
+            "caption": "Langue",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 217,
+              "right": 304,
+              "top": 724,
+              "bottom": 768,
+              "width": 87,
+              "height": 44
+            },
+            "caption": "Couleur",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 308,
+              "right": 395,
+              "top": 724,
+              "bottom": 768,
+              "width": 87,
+              "height": 44
+            },
+            "caption": "Menu",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      },
+      "contrast": null
+    },
+    {
+      "name": "themes-compact",
+      "size": {
+        "width": 430,
+        "height": 780
+      },
+      "option": 4,
+      "originalHeight": 72,
+      "geometry": {
+        "viewport": {
+          "width": 430,
+          "height": 780
+        },
+        "document": {
+          "width": 430,
+          "height": 780
+        },
+        "dock": {
+          "left": 14,
+          "right": 416,
+          "top": 714,
+          "bottom": 770,
+          "width": 402,
+          "height": 56
+        },
+        "background": "rgba(0, 0, 0, 0)",
+        "app": {
+          "left": 0,
+          "right": 430,
+          "top": 0,
+          "bottom": 706,
+          "width": 430,
+          "height": 706
+        },
+        "content": {
+          "left": 12,
+          "right": 418,
+          "top": 148,
+          "bottom": 696,
+          "width": 406,
+          "height": 548
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 20,
+              "right": 111.5,
+              "top": 718,
+              "bottom": 766,
+              "width": 91.5,
+              "height": 48
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 46.28125,
+              "right": 85.21875,
+              "top": 750.40625,
+              "bottom": 763.59375,
+              "width": 38.9375,
+              "height": 13.1875
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 119.5,
+              "right": 211,
+              "top": 718,
+              "bottom": 766,
+              "width": 91.5,
+              "height": 48
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 144.859375,
+              "right": 185.640625,
+              "top": 750.40625,
+              "bottom": 763.59375,
+              "width": 40.78125,
+              "height": 13.1875
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 219,
+              "right": 310.5,
+              "top": 718,
+              "bottom": 766,
+              "width": 91.5,
+              "height": 48
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 243.1875,
+              "right": 286.3125,
+              "top": 750.40625,
+              "bottom": 763.59375,
+              "width": 43.125,
+              "height": 13.1875
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 318.5,
+              "right": 410,
+              "top": 718,
+              "bottom": 766,
+              "width": 91.5,
+              "height": 48
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 348.578125,
+              "right": 379.90625,
+              "top": 750.40625,
+              "bottom": 763.59375,
+              "width": 31.328125,
+              "height": 13.1875
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      },
+      "contrast": null
+    },
+    {
+      "name": "lesson-large-actions",
+      "option": 1,
+      "geometry": {
+        "viewport": {
+          "width": 390,
+          "height": 700
+        },
+        "document": {
+          "width": 390,
+          "height": 700
+        },
+        "dock": {
+          "left": 0,
+          "right": 390,
+          "top": 583,
+          "bottom": 700,
+          "width": 390,
+          "height": 117
+        },
+        "background": "rgb(7, 43, 69)",
+        "app": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 575,
+          "width": 390,
+          "height": 575
+        },
+        "content": {
+          "left": 12,
+          "right": 378,
+          "top": 139,
+          "bottom": 567,
+          "width": 366,
+          "height": 428
+        },
+        "footerVisible": true,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 12,
+              "right": 100.5,
+              "top": 589,
+              "bottom": 633,
+              "width": 88.5,
+              "height": 44
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 36.78125,
+              "right": 75.71875,
+              "top": 617.40625,
+              "bottom": 630.59375,
+              "width": 38.9375,
+              "height": 13.1875
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 104.5,
+              "right": 193,
+              "top": 589,
+              "bottom": 633,
+              "width": 88.5,
+              "height": 44
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 128.359375,
+              "right": 169.140625,
+              "top": 617.40625,
+              "bottom": 630.59375,
+              "width": 40.78125,
+              "height": 13.1875
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 197,
+              "right": 285.5,
+              "top": 589,
+              "bottom": 633,
+              "width": 88.5,
+              "height": 44
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 219.6875,
+              "right": 262.8125,
+              "top": 617.40625,
+              "bottom": 630.59375,
+              "width": 43.125,
+              "height": 13.1875
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 289.5,
+              "right": 378,
+              "top": 589,
+              "bottom": 633,
+              "width": 88.5,
+              "height": 44
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 318.078125,
+              "right": 349.40625,
+              "top": 617.40625,
+              "bottom": 630.59375,
+              "width": 31.328125,
+              "height": 13.1875
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "bounds": {
+              "left": 12,
+              "right": 191,
+              "top": 647,
+              "bottom": 695,
+              "width": 179,
+              "height": 48
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "bounds": {
+              "left": 199,
+              "right": 378,
+              "top": 647,
+              "bottom": 695,
+              "width": 179,
+              "height": 48
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "lesson-large-actions",
+      "option": 2,
+      "geometry": {
+        "viewport": {
+          "width": 390,
+          "height": 700
+        },
+        "document": {
+          "width": 390,
+          "height": 700
+        },
+        "dock": {
+          "left": 14,
+          "right": 376,
+          "top": 570,
+          "bottom": 690,
+          "width": 362,
+          "height": 120
+        },
+        "background": "rgba(5, 29, 52, 0.35)",
+        "app": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 562,
+          "width": 390,
+          "height": 562
+        },
+        "content": {
+          "left": 12,
+          "right": 378,
+          "top": 139,
+          "bottom": 554,
+          "width": 366,
+          "height": 415
+        },
+        "footerVisible": true,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 25,
+              "right": 107,
+              "top": 577,
+              "bottom": 621,
+              "width": 82,
+              "height": 44
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 46.53125,
+              "right": 85.46875,
+              "top": 605.40625,
+              "bottom": 618.59375,
+              "width": 38.9375,
+              "height": 13.1875
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 111,
+              "right": 193,
+              "top": 577,
+              "bottom": 621,
+              "width": 82,
+              "height": 44
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 131.609375,
+              "right": 172.390625,
+              "top": 605.40625,
+              "bottom": 618.59375,
+              "width": 40.78125,
+              "height": 13.1875
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 197,
+              "right": 279,
+              "top": 577,
+              "bottom": 621,
+              "width": 82,
+              "height": 44
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 216.4375,
+              "right": 259.5625,
+              "top": 605.40625,
+              "bottom": 618.59375,
+              "width": 43.125,
+              "height": 13.1875
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 283,
+              "right": 365,
+              "top": 577,
+              "bottom": 621,
+              "width": 82,
+              "height": 44
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 308.328125,
+              "right": 339.65625,
+              "top": 605.40625,
+              "bottom": 618.59375,
+              "width": 31.328125,
+              "height": 13.1875
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "bounds": {
+              "left": 25,
+              "right": 191,
+              "top": 635,
+              "bottom": 683,
+              "width": 166,
+              "height": 48
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "bounds": {
+              "left": 199,
+              "right": 365,
+              "top": 635,
+              "bottom": 683,
+              "width": 166,
+              "height": 48
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "lesson-large-actions",
+      "option": 3,
+      "geometry": {
+        "viewport": {
+          "width": 390,
+          "height": 700
+        },
+        "document": {
+          "width": 390,
+          "height": 700
+        },
+        "dock": {
+          "left": 28,
+          "right": 362,
+          "top": 580,
+          "bottom": 690,
+          "width": 334,
+          "height": 110
+        },
+        "background": "rgb(7, 43, 69)",
+        "app": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 572,
+          "width": 390,
+          "height": 572
+        },
+        "content": {
+          "left": 12,
+          "right": 378,
+          "top": 139,
+          "bottom": 564,
+          "width": 366,
+          "height": 425
+        },
+        "footerVisible": true,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 35,
+              "right": 112,
+              "top": 582,
+              "bottom": 626,
+              "width": 77,
+              "height": 44
+            },
+            "caption": "Niveau",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 116,
+              "right": 193,
+              "top": 582,
+              "bottom": 626,
+              "width": 77,
+              "height": 44
+            },
+            "caption": "Langue",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 197,
+              "right": 274,
+              "top": 582,
+              "bottom": 626,
+              "width": 77,
+              "height": 44
+            },
+            "caption": "Couleur",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 278,
+              "right": 355,
+              "top": 582,
+              "bottom": 626,
+              "width": 77,
+              "height": 44
+            },
+            "caption": "Menu",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "bounds": {
+              "left": 35,
+              "right": 191,
+              "top": 640,
+              "bottom": 688,
+              "width": 156,
+              "height": 48
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "bounds": {
+              "left": 199,
+              "right": 355,
+              "top": 640,
+              "bottom": 688,
+              "width": 156,
+              "height": 48
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "lesson-large-actions",
+      "option": 4,
+      "geometry": {
+        "viewport": {
+          "width": 390,
+          "height": 700
+        },
+        "document": {
+          "width": 390,
+          "height": 700
+        },
+        "dock": {
+          "left": 14,
+          "right": 376,
+          "top": 572,
+          "bottom": 690,
+          "width": 362,
+          "height": 118
+        },
+        "background": "rgba(0, 0, 0, 0)",
+        "app": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 564,
+          "width": 390,
+          "height": 564
+        },
+        "content": {
+          "left": 12,
+          "right": 378,
+          "top": 139,
+          "bottom": 556,
+          "width": 366,
+          "height": 417
+        },
+        "footerVisible": true,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 20,
+              "right": 101.5,
+              "top": 576,
+              "bottom": 624,
+              "width": 81.5,
+              "height": 48
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 41.28125,
+              "right": 80.21875,
+              "top": 608.40625,
+              "bottom": 621.59375,
+              "width": 38.9375,
+              "height": 13.1875
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 109.5,
+              "right": 191,
+              "top": 576,
+              "bottom": 624,
+              "width": 81.5,
+              "height": 48
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 129.859375,
+              "right": 170.640625,
+              "top": 608.40625,
+              "bottom": 621.59375,
+              "width": 40.78125,
+              "height": 13.1875
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 199,
+              "right": 280.5,
+              "top": 576,
+              "bottom": 624,
+              "width": 81.5,
+              "height": 48
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 218.1875,
+              "right": 261.3125,
+              "top": 608.40625,
+              "bottom": 621.59375,
+              "width": 43.125,
+              "height": 13.1875
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 288.5,
+              "right": 370,
+              "top": 576,
+              "bottom": 624,
+              "width": 81.5,
+              "height": 48
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 313.578125,
+              "right": 344.90625,
+              "top": 608.40625,
+              "bottom": 621.59375,
+              "width": 31.328125,
+              "height": 13.1875
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "bounds": {
+              "left": 20,
+              "right": 191,
+              "top": 638,
+              "bottom": 686,
+              "width": 171,
+              "height": 48
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "bounds": {
+              "left": 199,
+              "right": 370,
+              "top": 638,
+              "bottom": 686,
+              "width": 171,
+              "height": 48
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "enlarged-caption-fixture",
+      "option": 1,
+      "captionFontPx": 18,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 700
+        },
+        "document": {
+          "width": 320,
+          "height": 700
+        },
+        "dock": {
+          "left": 0,
+          "right": 320,
+          "top": 637.40625,
+          "bottom": 700,
+          "width": 320,
+          "height": 62.59375
+        },
+        "background": "rgb(7, 43, 69)",
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 629,
+          "width": 320,
+          "height": 629
+        },
+        "content": {
+          "left": 10,
+          "right": 310,
+          "top": 146,
+          "bottom": 621,
+          "width": 300,
+          "height": 475
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 12,
+              "right": 83,
+              "top": 643.40625,
+              "bottom": 695,
+              "width": 71,
+              "height": 51.59375
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 15.640625,
+              "right": 79.34375,
+              "top": 671.40625,
+              "bottom": 693,
+              "width": 63.703125,
+              "height": 21.59375
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 87,
+              "right": 158,
+              "top": 643.40625,
+              "bottom": 695,
+              "width": 71,
+              "height": 51.59375
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 89.125,
+              "right": 155.859375,
+              "top": 671.40625,
+              "bottom": 693,
+              "width": 66.734375,
+              "height": 21.59375
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 162,
+              "right": 233,
+              "top": 643.40625,
+              "bottom": 695,
+              "width": 71,
+              "height": 51.59375
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 162.21875,
+              "right": 232.78125,
+              "top": 671.40625,
+              "bottom": 693,
+              "width": 70.5625,
+              "height": 21.59375
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 237,
+              "right": 308,
+              "top": 643.40625,
+              "bottom": 695,
+              "width": 71,
+              "height": 51.59375
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 246.859375,
+              "right": 298.125,
+              "top": 671.40625,
+              "bottom": 693,
+              "width": 51.265625,
+              "height": 21.59375
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "enlarged-caption-fixture",
+      "option": 2,
+      "captionFontPx": 18,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 700
+        },
+        "document": {
+          "width": 320,
+          "height": 700
+        },
+        "dock": {
+          "left": 14,
+          "right": 306,
+          "top": 602.8125,
+          "bottom": 690,
+          "width": 292,
+          "height": 87.1875
+        },
+        "background": "rgba(5, 29, 52, 0.35)",
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 594,
+          "width": 320,
+          "height": 594
+        },
+        "content": {
+          "left": 10,
+          "right": 310,
+          "top": 146,
+          "bottom": 586,
+          "width": 300,
+          "height": 440
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 25,
+              "right": 89.5,
+              "top": 609.8125,
+              "bottom": 683,
+              "width": 64.5,
+              "height": 73.1875
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 25.390625,
+              "right": 89.09375,
+              "top": 648.609375,
+              "bottom": 670.203125,
+              "width": 63.703125,
+              "height": 21.59375
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 93.5,
+              "right": 158,
+              "top": 609.8125,
+              "bottom": 683,
+              "width": 64.5,
+              "height": 73.1875
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 93.5,
+              "right": 158,
+              "top": 637.8125,
+              "bottom": 681,
+              "width": 64.5,
+              "height": 43.1875
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 162,
+              "right": 226.5,
+              "top": 609.8125,
+              "bottom": 683,
+              "width": 64.5,
+              "height": 73.1875
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 162,
+              "right": 226.5,
+              "top": 637.8125,
+              "bottom": 681,
+              "width": 64.5,
+              "height": 43.1875
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 230.5,
+              "right": 295,
+              "top": 609.8125,
+              "bottom": 683,
+              "width": 64.5,
+              "height": 73.1875
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 237.109375,
+              "right": 288.375,
+              "top": 648.609375,
+              "bottom": 670.203125,
+              "width": 51.265625,
+              "height": 21.59375
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "enlarged-caption-fixture",
+      "option": 3,
+      "captionFontPx": 18,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 700
+        },
+        "document": {
+          "width": 320,
+          "height": 700
+        },
+        "dock": {
+          "left": 28,
+          "right": 292,
+          "top": 642,
+          "bottom": 690,
+          "width": 264,
+          "height": 48
+        },
+        "background": "rgb(7, 43, 69)",
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 634,
+          "width": 320,
+          "height": 634
+        },
+        "content": {
+          "left": 10,
+          "right": 310,
+          "top": 146,
+          "bottom": 626,
+          "width": 300,
+          "height": 480
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 35,
+              "right": 94.5,
+              "top": 644,
+              "bottom": 688,
+              "width": 59.5,
+              "height": 44
+            },
+            "caption": "Niveau",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 98.5,
+              "right": 158,
+              "top": 644,
+              "bottom": 688,
+              "width": 59.5,
+              "height": 44
+            },
+            "caption": "Langue",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 162,
+              "right": 221.5,
+              "top": 644,
+              "bottom": 688,
+              "width": 59.5,
+              "height": 44
+            },
+            "caption": "Couleur",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 225.5,
+              "right": 285,
+              "top": 644,
+              "bottom": 688,
+              "width": 59.5,
+              "height": 44
+            },
+            "caption": "Menu",
+            "captionVisible": false,
+            "captionBounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "enlarged-caption-fixture",
+      "option": 4,
+      "captionFontPx": 18,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 700
+        },
+        "document": {
+          "width": 320,
+          "height": 700
+        },
+        "dock": {
+          "left": 14,
+          "right": 306,
+          "top": 604.8125,
+          "bottom": 690,
+          "width": 292,
+          "height": 85.1875
+        },
+        "background": "rgba(0, 0, 0, 0)",
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 596,
+          "width": 320,
+          "height": 596
+        },
+        "content": {
+          "left": 10,
+          "right": 310,
+          "top": 146,
+          "bottom": 588,
+          "width": 300,
+          "height": 442
+        },
+        "footerVisible": false,
+        "buttons": [
+          {
+            "id": "mgLevelTrigger",
+            "bounds": {
+              "left": 20,
+              "right": 84,
+              "top": 608.8125,
+              "bottom": 686,
+              "width": 64,
+              "height": 77.1875
+            },
+            "caption": "Niveau",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 20.140625,
+              "right": 83.84375,
+              "top": 651.609375,
+              "bottom": 673.203125,
+              "width": 63.703125,
+              "height": 21.59375
+            },
+            "accessible": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "bounds": {
+              "left": 92,
+              "right": 156,
+              "top": 608.8125,
+              "bottom": 686,
+              "width": 64,
+              "height": 77.1875
+            },
+            "caption": "Langue",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 92,
+              "right": 156,
+              "top": 640.8125,
+              "bottom": 684,
+              "width": 64,
+              "height": 43.1875
+            },
+            "accessible": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "bounds": {
+              "left": 164,
+              "right": 228,
+              "top": 608.8125,
+              "bottom": 686,
+              "width": 64,
+              "height": 77.1875
+            },
+            "caption": "Couleur",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 164,
+              "right": 228,
+              "top": 640.8125,
+              "bottom": 684,
+              "width": 64,
+              "height": 43.1875
+            },
+            "accessible": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "bounds": {
+              "left": 236,
+              "right": 300,
+              "top": 608.8125,
+              "bottom": 686,
+              "width": 64,
+              "height": 77.1875
+            },
+            "caption": "Menu",
+            "captionVisible": true,
+            "captionBounds": {
+              "left": 242.359375,
+              "right": 293.625,
+              "top": 651.609375,
+              "bottom": 673.203125,
+              "width": 51.265625,
+              "height": 21.59375
+            },
+            "accessible": "Menu des rubriques"
+          }
+        ],
+        "actions": [
+          {
+            "id": "mgReplay",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "id": "mgContinue",
+            "visible": false,
+            "bounds": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "original-controls",
+      "dialogs": 3,
+      "palette": true
+    }
+  ],
+  "errors": [],
+  "physicalDeviceTested": false,
+  "safariTested": false,
+  "upstreamAudioCalled": false,
+  "allResponsesLocalFixtures": true,
+  "inputsStable": true,
+  "prototypeSha256": {
+    "proposal.css": "28f2cc0e580cf40923c490b71463f8bc13e781fcac1407ebedbf06f5976b998a",
+    "proposal.js": "4872f00bdb68d8968d7e72549d78a7c3686e27af41f71b0216baa38d4be658a0"
+  }
+}

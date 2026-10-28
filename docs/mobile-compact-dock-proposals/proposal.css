@@ -1,0 +1,21 @@
+/* Review only: compact visuals on the real dock, without shrinking course text. */
+@media(max-width:760px){
+  body[data-compact-proposal]{--compact-solid:#072b45;--compact-cell:#123b56;--compact-glass:rgba(5,29,52,.35)}
+  body[data-compact-proposal]:is([data-ambience="dusk"],[data-ambience="legacy-gamified"],[data-ambience="legacy-zen"],[data-ambience="legacy-plum"],[data-ambience="legacy-cafe"]){--compact-solid:#f6eee7;--compact-cell:#fff9ef;--compact-glass:rgba(255,255,255,.36)}
+  body[data-compact-proposal] .mg-mobile-dock{gap:6px;min-height:0;padding:5px 8px;border-radius:19px;background:var(--compact-solid);backdrop-filter:none;-webkit-backdrop-filter:none}
+  body[data-compact-proposal] .mg-dock-settings>.mg-round{height:auto;min-height:44px;gap:2px;padding:2px 0}
+  body[data-compact-proposal] .mg-dock-icon{width:24px;height:24px;border-radius:8px;font-size:14px}
+  body[data-compact-proposal] .mg-dock-icon>svg{width:21px;height:21px}
+  body[data-compact-proposal] #mgLanguageTrigger .mg-dock-icon svg{width:24px;height:16px}
+  body[data-compact-proposal] .mg-dock-icon>.mg-colorwheel{width:22px;height:22px}
+  body[data-compact-proposal] .mg-dock-label{font-size:11px;line-height:1.2;white-space:normal;overflow-wrap:anywhere}
+  body[data-compact-proposal="1"] .mg-mobile-dock{left:0;right:0;bottom:var(--mg-dock-obstruction,0px);padding:5px 12px calc(5px + var(--mg-dock-safe-area));border-width:1px 0 0;border-radius:0;box-shadow:none}
+  body[data-compact-proposal="2"] .mg-mobile-dock{padding:6px 10px;border-radius:21px;background:var(--compact-glass);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+  body[data-compact-proposal="3"] .mg-mobile-dock{left:28px;right:28px;padding:1px 6px;border-radius:18px}
+  body[data-compact-proposal="3"] .mg-dock-label{display:none}
+  body[data-compact-proposal="4"] .mg-mobile-dock{padding:4px 6px;border:0;border-radius:0;background:transparent;box-shadow:none}
+  body[data-compact-proposal="4"] .mg-dock-settings{gap:8px}
+  body[data-compact-proposal="4"] .mg-dock-settings>.mg-round{min-height:48px}
+  body[data-compact-proposal="4"] .mg-dock-icon{width:28px;height:28px;border:1px solid var(--mg-line);border-radius:9px;background:var(--compact-cell)}
+  body[data-compact-proposal="4"] #mgLevelTrigger .mg-dock-icon{background:linear-gradient(rgba(0,0,0,.04),rgba(0,0,0,.04)),var(--mg-level-color,#147e77)}
+}
