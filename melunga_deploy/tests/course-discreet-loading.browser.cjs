@@ -1,4 +1,4 @@
-/* Ocean swimming-logo loading presentation regression. Static assets/content are real files;
+/* Underwater logo-path loading presentation regression. Static assets/content are real files;
  * status and voice catalogue are explicit local fixtures. No real accounts,
  * payments, providers or audio are used. Chromium emulation is not phone QA. */
 'use strict';
@@ -11,7 +11,7 @@ const os=require('node:os');
 const {chromium} = require('playwright-core');
 const ROOT = path.resolve(__dirname, '../..'), WEB = path.join(ROOT, 'melunga_deploy');
 const ORIGIN = 'https://course-startup-presentation.test';
-const OUT = process.env.COURSE_DISCREET_LOADING_REPORT_DIR || '/tmp/melunga-course-loading-ocean-animation';
+const OUT = process.env.COURSE_DISCREET_LOADING_REPORT_DIR || '/tmp/melunga-course-loading-underwater-animation';
 const ORIGINAL_LOGO_SHA='1aa277028faa2128c78405c839748dff8b1497827c04b02610216056c92b18c0';
 const CODES = ['fr','en','es','zh','it','ja','ko'];
 const sha = value => crypto.createHash('sha256').update(value).digest('hex');
@@ -182,7 +182,7 @@ async function indicator(f) {
   assert.equal(visual.artworkHiddenFromAT,'true','animation decorative; localized status is the announcement');
   assert.equal(sha(fs.readFileSync(path.join(WEB,visual.logo.src.slice(1)))),ORIGINAL_LOGO_SHA,'original logo asset bytes unchanged');
   assert.ok(visual.logo.naturalWidth>0&&visual.logo.naturalHeight>0,'actual original logo decoded');
-  assert.ok(visual.logo.width<=132&&visual.logo.height<=132,'loading logo stays moderate in size');
+  assert.ok(visual.logo.width<=146&&visual.logo.height<=146,'moving loading logo stays moderate in size');
   assert.ok(visual.text.length>3,'localized loading text');
   for(const b of [visual.status,visual.artwork])assert.ok(b.width<=visual.viewport.width-24&&b.x>=12&&b.bottom<=visual.viewport.height&&b.y>=0,'loading elements fit');
   assert.ok(visual.artwork.bottom<=visual.status.y,'logo above loading caption without overlap');
@@ -191,26 +191,36 @@ async function indicator(f) {
   return visual;
 }
 
-async function movingArtwork(f) {
+async function movingArtwork(f,{short=false}={}) {
   const p=f.page;
   const before=await p.locator('.mg-presentation-mascot').evaluate(n=>getComputedStyle(n).transform);
   await p.waitForTimeout(250);
   const after=await p.locator('.mg-presentation-mascot').evaluate(n=>getComputedStyle(n).transform);
-  assert.notEqual(before,after,'logo moves under normal-motion preference');
+  assert.notEqual(before,after,'logo actually travels under normal-motion preference');
   const active=await p.locator('#mgPresentationArtwork').evaluate(n=>n.getAnimations({subtree:true}).map(a=>({name:a.animationName,playState:a.playState})));
   assert.ok(active.length>=5&&active.every(a=>a.playState==='running'),'logo, halo and all three bubbles actually run');
   const swim=await p.locator('.mg-presentation-mascot').evaluate(async n=>{
+    const box=node=>{const r=node.getBoundingClientRect();return{x:r.x,y:r.y,right:r.right,bottom:r.bottom,width:r.width,height:r.height};};
     const a=n.getAnimations()[0],previous=a.currentTime; a.pause(); const samples=[];
-    for(const time of [0,1000,2000,3000]){
+    for(const time of [0,1000,2000,3000,4000,5000,6000,7000]){
       a.currentTime=time;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
-      const m=new DOMMatrixReadOnly(getComputedStyle(n).transform);
-      samples.push({time,x:m.m41,y:m.m42,degrees:Math.atan2(m.m12,m.m11)*180/Math.PI});
+      const m=new DOMMatrixReadOnly(getComputedStyle(n).transform),logo=n.querySelector('img');
+      samples.push({time,x:m.m41,y:m.m42,degrees:Math.atan2(m.m12,m.m11)*180/Math.PI,
+        scale:Math.hypot(m.m11,m.m12),logo:box(logo),art:box(document.getElementById('mgPresentationArtwork')),
+        status:box(document.getElementById('mgPresentationStatus')),viewport:{width:innerWidth,height:innerHeight}});
     }
     a.currentTime=previous;a.play();return samples;
   });
   const range=key=>Math.max(...swim.map(s=>s[key]))-Math.min(...swim.map(s=>s[key]));
-  assert.ok(range('x')>=7.9&&range('y')>=5.9&&range('degrees')>=2.9,'gentle swimming includes horizontal motion, vertical motion and tilt');
-  return{before,after,active,swim};
+  assert.ok(range('x')>=(short?50:80)&&range('y')>=(short?15:35),'underwater trajectory visibly travels sideways and vertically');
+  assert.ok(range('scale')>=.12,'depth changes make the logo approach and recede');
+  assert.ok(range('degrees')>=3,'logo gently tilts while swimming');
+  for(const sample of swim){
+    const b=sample.logo;
+    assert.ok(b.x>=0&&b.y>=0&&b.right<=sample.viewport.width&&b.bottom<=sample.viewport.height,'travelling logo stays in viewport '+JSON.stringify(sample));
+    assert.ok(b.bottom+4<=sample.status.y,'travelling logo remains clear of loading caption '+JSON.stringify(sample));
+  }
+  return{before,after,active,swim,ranges:{x:range('x'),y:range('y'),scale:range('scale'),degrees:range('degrees')}};
 }
 
 async function readableLoading(f,{retry=false}={}) {
@@ -235,10 +245,10 @@ async function readableLoading(f,{retry=false}={}) {
 async function captureAnimation(f) {
   const p=f.page,frames=fs.mkdtempSync(path.join(os.tmpdir(),'melunga-logo-frames-'));
   // Each frame is a screenshot of actual browser pixels. Pause only the artwork's
-  // real CSS animations and advance their time evenly to export its four-second cycle.
+  // real CSS animations and advance their time evenly to export its full eight-second cycle.
   const cdp=await p.context().newCDPSession(p);
   await p.locator('#mgPresentationArtwork').evaluate(n=>{window.__logoPreviewAnimations=n.getAnimations({subtree:true});for(const a of window.__logoPreviewAnimations)a.pause();});
-  for(let index=0;index<48;index++){
+  for(let index=0;index<96;index++){
     await p.evaluate(ms=>{for(const a of window.__logoPreviewAnimations)a.currentTime=ms;},index*1000/12);
     await p.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
     const shot=await cdp.send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
@@ -248,7 +258,7 @@ async function captureAnimation(f) {
   const file=path.join(OUT,'animation-logo-melunga.gif');
   execFileSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-framerate','12','-i',path.join(frames,'frame-%03d.png'),'-filter_complex_threads','1','-filter_complex','split[a][b];[a]palettegen=max_colors=192[p];[b][p]paletteuse=dither=bayer:bayer_scale=3','-loop','0',file],{stdio:'pipe'});
   await p.locator('#mgPresentationArtwork').evaluate(()=>{for(const a of window.__logoPreviewAnimations)a.play();delete window.__logoPreviewAnimations;});
-  return{file:path.basename(file),frames:48,fps:12,seconds:4,sha256:sha(fs.readFileSync(file)),capture:'actual Chromium artwork CSS animation pixels'};
+  return{file:path.basename(file),frames:96,fps:12,seconds:8,sha256:sha(fs.readFileSync(file)),capture:'actual Chromium artwork CSS animation pixels'};
 }
 
 (async()=>{
@@ -282,7 +292,7 @@ async function captureAnimation(f) {
         if(config.width===320){await screenshotWhileParserHeld(f.page,path.join(OUT,'logo-chargement-anime-mobile.png'));if(process.env.COURSE_LOADING_ANIMATION_CAPTURE==='1')report.animationPreview=await captureAnimation(f);}
         if(config.width===1366)await screenshotWhileParserHeld(f.page,path.join(OUT,'logo-chargement-ordinateur.png'));
         f.release();await launch;const final=await accepted(f,'fr-es');
-        report.cases.push({name:'real-language-click-ocean-swimming-logo',...config,visual,motion,oldVisibleFrames:final.samples.bad.length});
+        report.cases.push({name:'real-language-click-underwater-path-logo',...config,visual,motion,oldVisibleFrames:final.samples.bad.length});
       }finally{await f.close();}
     }
     const early=await fixture({width:390,pair:'fr-es'});try{
@@ -312,12 +322,19 @@ async function captureAnimation(f) {
       assert.equal(await p.locator('#mgPresentationLogo').count(),1);assert.equal(await p.locator('#mgPresentationBoot strong').count(),0);
       const short=await p.locator('#mgPresentationBoot').evaluate(n=>{const r=x=>{const b=x.getBoundingClientRect();return{x:b.x,y:b.y,right:b.right,bottom:b.bottom,width:b.width,height:b.height};};return{logo:r(n.querySelector('#mgPresentationLogo')),art:r(n.querySelector('#mgPresentationArtwork')),status:r(n.querySelector('#mgPresentationStatus')),retry:r(n.querySelector('#mgPresentationRetry')),w:innerWidth,h:innerHeight};});
       for(const b of [short.art,short.status,short.retry])assert.ok(b.x>=0&&b.y>=0&&b.right<=short.w&&b.bottom<=short.h,'short landscape loading and retry fit');
-      await readableLoading(failure,{retry:true});assert.ok(short.logo.width<=100&&short.logo.height<=100,'logo reduced on short landscape');await screenshotWhileParserHeld(p,path.join(OUT,'logo-chargement-paysage.png'));
+      await readableLoading(failure,{retry:true});assert.ok(short.logo.width<=100&&short.logo.height<=100,'logo reduced on short landscape');await p.emulateMedia({reducedMotion:'no-preference'});const shortMotion=await movingArtwork(failure,{short:true});await screenshotWhileParserHeld(p,path.join(OUT,'logo-chargement-paysage.png'));
       assert.equal(await p.locator('.mg-app').evaluate(n=>getComputedStyle(n).visibility),'hidden');
       assert.equal(await p.locator('html').evaluate(n=>n.classList.contains('course-presentation-slow')),true,'failure immediately exposes status and retry');
       await p.locator('#mgPresentationRetry').click();const final=await accepted(failure,'en-fr');
-      report.cases.push({name:'short-landscape-asset-error-still-retries-original-direct-lesson',bounds:short,oldVisibleFrames:final.samples.bad.length});
+      report.cases.push({name:'short-landscape-asset-error-still-retries-original-direct-lesson',bounds:short,motion:shortMotion,oldVisibleFrames:final.samples.bad.length});
     }finally{await failure.close();}
+    const narrow=await fixture({width:280,height:620,pair:'fr-es',hold:'course-desktop.js'});try{
+      const p=narrow.page;await p.emulateMedia({reducedMotion:'no-preference'});
+      const launch=narrow.course('&start=lesson');const visual=await indicator(narrow),motion=await movingArtwork(narrow);
+      await readableLoading(narrow);await screenshotWhileParserHeld(p,path.join(OUT,'logo-chargement-etroit.png'));
+      narrow.release();await launch;const final=await accepted(narrow,'fr-es');
+      report.cases.push({name:'narrow-280px-underwater-path-remains-clear',visual,motion,oldVisibleFrames:final.samples.bad.length});
+    }finally{await narrow.close();}
     assert.deepEqual(report.errors,[]);assert.deepEqual(report.fixtureErrors,[]);assert.deepEqual(report.unexpected,[]);
     report.inputsStable=JSON.stringify(inputs)===JSON.stringify(fingerprint());assert.equal(report.inputsStable,true,'runtime stayed frozen');
     report.inputSha256=inputs;report.status='passed';
