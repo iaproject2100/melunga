@@ -1,0 +1,37 @@
+/* All function supports are independent translucent circles. Theme artwork,
+ * content cards, progress, typography and brand retain the actual course UI. */
+@media(max-width:760px){
+  body[data-round-glass]{--rg-size:52px;--rg-fill:rgba(255,255,255,.22);--rg-edge:rgba(255,255,255,.72);--rg-shadow:inset 0 1px 1px #ffffff80,0 3px 9px #2743500c;--rg-blur:14px;--rg-ink:#173f47}
+  body[data-round-glass="2"]{--rg-fill:rgba(255,255,255,.46);--rg-edge:rgba(255,255,255,.82);--rg-shadow:inset 0 1px 3px #ffffffa0,0 5px 12px #4b375012;--rg-blur:25px}
+  body[data-round-glass="3"]{--rg-fill:rgba(17,61,69,.62);--rg-edge:rgba(255,255,255,.55);--rg-shadow:inset 0 1px 0 #ffffff60,0 4px 12px #153e4715;--rg-blur:18px;--rg-ink:#fff}
+  body[data-round-glass="4"]{--rg-fill:rgba(255,255,255,.28);--rg-edge:rgba(255,255,255,.85);--rg-shadow:inset 2px 3px 4px #ffffffcc,inset -2px -3px 6px #5c454d25,0 8px 16px #4b375035;--rg-blur:18px}
+  body[data-round-glass] .mg-mobile-context{gap:12px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+  body[data-round-glass] .mg-mobile-dock,
+  body[data-round-glass] .mg-mobile-dock:has(#mgFooter[hidden]){padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;gap:4px}
+  body[data-round-glass] .mg-dock-settings{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;justify-items:center}
+  body[data-round-glass] .mg-mobile-context>.mg-round,
+  body[data-round-glass] .mg-dock-settings>.mg-round,
+  body[data-round-glass] .mg-dock-actions>.mg-action,
+  body[data-round-glass] .mg-mobile-dock.mg-dock-has-listen>.mg-dock-listen,
+  body[data-round-glass] :is(#mgBack,#mgHelp,#mgEar,#mgReadingToggle){
+    display:flex;align-items:center;justify-content:center;flex:0 0 var(--rg-size);justify-self:center;
+    width:var(--rg-size);height:var(--rg-size);min-width:44px;min-height:44px;
+    margin:0;padding:0;border:1px solid var(--rg-edge);border-radius:50%;
+    background:var(--rg-fill);color:var(--rg-ink);box-shadow:var(--rg-shadow);
+    backdrop-filter:blur(var(--rg-blur));-webkit-backdrop-filter:blur(var(--rg-blur));
+  }
+  body[data-round-glass] .mg-dock-actions>.mg-action{--rg-size:46px}
+  body[data-round-glass] .mg-dock-actions>#mgReplay,
+  body[data-round-glass] .mg-dock-actions>#mgContinue{background:var(--rg-fill);color:var(--rg-ink);box-shadow:var(--rg-shadow)}
+  body[data-round-glass] .mg-dock-settings>.mg-round{width:min(100%,var(--rg-size))}
+  body[data-round-glass] .mg-mobile-dock:not(:has(#mgFooter[hidden])) .mg-dock-settings>.mg-round{--rg-size:44px}
+  body[data-round-glass] .mg-dock-icon,
+  body[data-round-glass] #mgLevelTrigger .mg-dock-icon{width:32px;height:32px;border:0;border-radius:50%;background:transparent;color:inherit;box-shadow:none;font-size:19px}
+  body[data-round-glass] :is(#mgHelp,#mgEar,#mgReadingToggle){--rg-size:44px}
+  body[data-round-glass] .mg-mobile-dock.mg-dock-has-listen>.mg-dock-listen{width:52px;min-height:52px;height:52px}
+  body[data-round-glass] :is(.mg-dock-listen-label,.mg-dock-next-label,#mgReplayText,#mgContinueText,#mgBackText,#mgReadingToggleText){display:none!important}
+  body[data-round-glass] .mg-dock-actions>.mg-action>span{display:none}
+  body[data-round-glass] :is(.mg-mobile-dock button,.mg-mobile-context button,#mgBack,#mgHelp,#mgEar,#mgReadingToggle):focus-visible{outline:3px solid #176d70;outline-offset:3px}
+  body[data-round-glass] .mg-dock-settings>.mg-round>svg{width:26px;height:26px}
+  body[data-round-glass] .mg-mobile-context #mgLevelTrigger:hover{filter:none}
+}
