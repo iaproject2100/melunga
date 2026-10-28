@@ -161,6 +161,43 @@
     @media (max-height:560px){.proof-top{height:58px}.proof-slide{padding-top:16px}.proof-slide-logo{width:72px;height:72px;margin-bottom:12px}.proof-footer{padding-top:5px}.proof-next{min-height:50px}.proof-dots{margin-bottom:8px}}
   </style>
   <link rel="stylesheet" href="desktop-home.css">
+  <style>
+    .language-entry-brand{display:none}
+    html.melunga-web .screen[data-screen="language"] .back{flex:0 0 44px;min-width:44px;min-height:44px}
+    html.melunga-web .screen[data-screen="language"] .language-entry-options{padding-bottom:12px}
+    html.melunga-web .screen[data-screen="language"] .language-entry-options .option{position:relative;padding-right:44px;text-align:left}
+    html.melunga-web .screen[data-screen="language"] .language-entry-options .option.selected{background:#fff;border-color:#dfe9ef;box-shadow:none}
+    html.melunga-web .screen[data-screen="language"] .language-entry-options .option::after{content:'→';position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:23px;font-weight:600;color:#167c72}
+    html.melunga-web .screen[data-screen="language"] .language-entry-options .option:hover{background:#eef8f3;border-color:#168675}
+    html.melunga-web .screen[data-screen="language"] .language-entry-options .option:focus-visible{outline:3px solid #087c69;outline-offset:3px}
+    @media(min-width:960px){
+      html.melunga-web body:has(.screen[data-screen="language"].active){background:linear-gradient(125deg,#fae5bb,#efd8d8 60%,#d8d0e8)}
+      html.melunga-web body:has(.screen[data-screen="language"].active)>.stage{padding:36px}
+      html.melunga-web body:has(.screen[data-screen="language"].active) .phone{width:min(960px,100%);height:auto;min-height:0;max-height:calc(100dvh - 72px);overflow:auto;border:1px solid rgba(255,255,255,.65);background:rgba(255,255,255,.5);border-radius:30px;box-shadow:0 18px 60px #153d4b0b}
+      html.melunga-web .screen[data-screen="language"].active{position:relative;inset:auto;overflow:visible;gap:28px;padding:30px 40px 40px;background:transparent}
+      html.melunga-web .screen[data-screen="language"].active .app-header{display:grid;grid-template-columns:44px 1fr auto;gap:18px;min-height:64px}
+      html.melunga-web .screen[data-screen="language"].active .back{width:44px;height:44px;background:rgba(255,255,255,.62);border:1px solid #ffffffa0;border-radius:15px;color:#234a55}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-brand{display:flex;align-items:center;gap:9px;font-size:25px;font-weight:850;letter-spacing:-.6px;color:#163d49}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-brand img{width:68px;height:68px;object-fit:contain;clip-path:circle(44.5% at 50% 50%)}
+      html.melunga-web .screen[data-screen="language"].active .step-label{max-width:190px;text-align:right;color:#52696f;font-size:10px;line-height:1.5;letter-spacing:1.2px}
+      html.melunga-web .screen[data-screen="language"].active .question{text-align:center;margin:4px auto 2px!important;max-width:660px}
+      html.melunga-web .screen[data-screen="language"].active .question h2{font-size:34px;line-height:1.15;letter-spacing:-.9px;color:#153e49;margin-bottom:12px;text-wrap:balance}
+      html.melunga-web .screen[data-screen="language"].active .question p{font-size:15px;line-height:1.6;color:#4f6770;max-width:560px;margin:auto;text-wrap:balance}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:0;margin:0}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option{min-height:112px;padding:20px 35px 20px 16px;gap:12px;border:1px solid #ffffffd0;border-radius:22px;background:rgba(255,255,255,.55);box-shadow:inset 0 1px 0 #ffffff80;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option::after{right:13px;font-size:21px}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option:hover{background:rgba(255,255,255,.8);border-color:#168675}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option strong{font-size:19px;line-height:1.3}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option small{font-size:12px;line-height:1.45;color:#4d6570}
+    }
+    @media(min-width:960px) and (max-height:650px){
+      html.melunga-web body:has(.screen[data-screen="language"].active)>.stage{padding:20px}
+      html.melunga-web body:has(.screen[data-screen="language"].active) .phone{max-height:calc(100dvh - 40px)}
+      html.melunga-web .screen[data-screen="language"].active{padding:20px 32px 28px;gap:18px}
+      html.melunga-web .screen[data-screen="language"].active .question h2{font-size:30px}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option{min-height:90px;padding-block:14px}
+    }
+  </style>
 </head>
 <body>
   <main class="stage">
@@ -349,9 +386,9 @@
       </article>
 
       <article class="screen" data-screen="language">
-        <div class="app-header"><button class="back" data-go="welcome">‹</button><span class="step-label">UN SEUL CHOIX POUR COMMENCER</span><span style="width:46px"></span></div>
+        <div class="app-header"><button class="back" data-go="welcome">‹</button><div class="language-entry-brand"><img src="assets/melunga-logo.png" alt=""><strong>Melunga</strong></div><span class="step-label">UN SEUL CHOIX POUR COMMENCER</span></div>
         <div class="question" style="margin-top:20px"><h2>Quelle langue veux-tu parler ?</h2><p>Choisis une langue et commence immédiatement. Tu pourras changer plus tard.</p></div>
-        <div class="options">
+        <div class="options language-entry-options">
           <button class="option" data-study-language="fr" hidden style="display:none"><span class="flag">🇫🇷</span><span><strong>法语</strong><small>适合中文使用者</small></span></button>
           <button class="option selected" data-study-language="en"><span class="flag">🇬🇧</span><span><strong>Anglais</strong><small>Pour francophones</small></span></button>
           <button class="option" data-study-language="es"><span class="flag">🇪🇸</span><span><strong>Espagnol</strong><small>Pour francophones</small></span></button>
@@ -360,7 +397,6 @@
           <button class="option" data-study-language="ja"><span class="flag">🇯🇵</span><span><strong>Japonais</strong><small>Pour francophones</small></span></button>
           <button class="option" data-study-language="ko"><span class="flag">🇰🇷</span><span><strong>Coréen</strong><small>Pour francophones</small></span></button>
         </div>
-        <div class="sticky-action"><button class="primary" style="width:100%" data-launch-course>Démarrer ma première leçon</button></div>
       </article>
 
       <article class="screen" data-screen="goal">
@@ -521,7 +557,6 @@
       languageScreen.querySelector('.step-label').textContent=homeText('UN SEUL CHOIX POUR COMMENCER');
       languageScreen.querySelector('h2').textContent=homeText('Quelle langue veux-tu parler ?');
       languageScreen.querySelector('.question p').textContent=homeText('Choisis une langue et commence immédiatement. Tu pourras changer plus tard.');
-      languageScreen.querySelector('[data-launch-course]').textContent=homeText('Démarrer ma première leçon');
       languageScreen.querySelector('.back').setAttribute('aria-label',homeText('Retour'));
       document.querySelectorAll('[data-study-language]').forEach(choice=>{
         choice.querySelector('strong').textContent=homeLanguageName(choice.dataset.studyLanguage);
@@ -678,7 +713,7 @@
       const study=mode==='login' ? selectedLoginStudyLanguage() : selectedStudyLanguage();
       const pair=nativeCourseEntry() ? '' : coursePair(currentAppLocale,study);
       if(pair && mode!=='login' && mode!=='premium'){
-        const courseQuery=new URLSearchParams({pair,level:'1'});
+        const courseQuery=new URLSearchParams({pair,level:'1',start:'lesson'});
         window.location.href=`parcours-niveaux.html?${courseQuery.toString()}`;
         return;
       }
@@ -862,7 +897,7 @@
       currentAppLocale=locale;
       document.querySelectorAll('[data-study-language]').forEach(choice=>{
         const available=choice.dataset.studyLanguage!==locale,isSelected=available&&choice.dataset.studyLanguage===target;
-        choice.hidden=!available;choice.style.display=available?'':'none';choice.classList.toggle('selected',isSelected);choice.setAttribute('aria-pressed',String(isSelected));
+        choice.hidden=!available;choice.style.display=available?'':'none';choice.classList.toggle('selected',isSelected);choice.removeAttribute('aria-pressed');
       });
       document.querySelectorAll('[data-app-language]').forEach(choice=>{const selected=choice.dataset.appLanguage===locale;choice.classList.toggle('selected',selected);choice.setAttribute('aria-pressed',String(selected));});
       document.querySelectorAll('[data-welcome-i18n]').forEach(element=>{const value=texts[element.dataset.welcomeI18n];if(value!==undefined)element.innerHTML=value;});
@@ -956,7 +991,6 @@
       }
       const accessChoice=e.target.closest('[data-select-access]');if(accessChoice){selectedAccess=accessChoice.dataset.selectAccess;go('language');return;}
       if(e.target.closest('[data-launch-login]')){openFullApp('login');return;}
-      if(e.target.closest('[data-launch-course]')){openFullApp(selectedAccess);return;}
       if(e.target.closest('[data-cycle-theme]')){applyLessonTheme(lessonThemeIndex+1);return;}
       if(e.target.closest('[data-quick-language]')){openLessonPanel('languages');return;}
       if(e.target.closest('[data-quick-level]')){openLessonPanel('levels');return;}
@@ -991,7 +1025,17 @@
         return;
       }
       const goBtn=e.target.closest('[data-go]');if(goBtn){go(goBtn.dataset.go);return;}
-      const option=e.target.closest('.option');if(option){if(option.matches('[data-study-language]')){if(!coursePair(currentAppLocale,option.dataset.studyLanguage)||option.hidden)return;explicitStudyChoice=true;}const box=option.closest('.options');if(box)box.querySelectorAll('.option').forEach(o=>{o.classList.remove('selected');if(o.matches('[data-study-language]'))o.setAttribute('aria-pressed','false');});option.classList.add('selected');if(option.matches('[data-study-language]'))option.setAttribute('aria-pressed','true');}
+      const option=e.target.closest('.option');if(option){
+        const studyChoice=option.matches('[data-study-language]');
+        if(studyChoice){
+          if(!option.closest('[data-screen="language"].active')||option.disabled||option.hidden||!coursePair(currentAppLocale,option.dataset.studyLanguage))return;
+          explicitStudyChoice=true;
+        }
+        const box=option.closest('.options');
+        if(box)box.querySelectorAll('.option').forEach(o=>{o.classList.remove('selected');if(o.matches('[data-study-language]'))o.removeAttribute('aria-pressed');});
+        option.classList.add('selected');
+        if(studyChoice){option.removeAttribute('aria-pressed');openFullApp(selectedAccess);return;}
+      }
       const time=e.target.closest('.time');if(time){document.querySelectorAll('.time').forEach(t=>t.classList.remove('selected'));time.classList.add('selected');}
     });
     let savedHomeLanguage=null,legacyNative=null,previousCourse=null;
@@ -1005,6 +1049,6 @@
     detectPricingCountry();
   </script>
   <script src="store-billing.js"></script>
-  <script src="desktop-home.js?v=2"></script>
+  <script src="desktop-home.js?v=3"></script>
 </body>
 </html>

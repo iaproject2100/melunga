@@ -385,9 +385,7 @@
   const flag = code => `<span class="home-flag home-flag-${code}" aria-hidden="true"></span>`;
   const root = document.createElement('main');
   root.className = 'desktop-home';
-  const desktopChoices = window.matchMedia('(min-width:960px)');
   const languageStep = document.querySelector('[data-screen="language"]');
-  const courseLaunch = languageStep.querySelector('[data-launch-course]');
   const studyChoices = Array.from(languageStep.querySelectorAll('[data-study-language]'));
   studyChoices.forEach(function (choice) {
     const flag = document.createElement('span');
@@ -396,16 +394,12 @@
     choice.querySelector('.flag').append(flag);
   });
   function renderLanguageChoice() {
-    const locale = typeof currentAppLocale === 'string' ? currentAppLocale : 'fr';
-    const text = desktopChoices.matches && selectedAccess === 'free' ? (copy[locale] || copy.fr)[3] : homeText('Démarrer ma première leçon');
-    if (courseLaunch.textContent !== text) courseLaunch.textContent = text;
     studyChoices.forEach(function (choice) {
-      choice.setAttribute('aria-pressed',String(!choice.hidden&&choice.classList.contains('selected')));
+      choice.removeAttribute('aria-pressed');
     });
   }
   const originalGo = window.go;
   window.go = function () { const result = originalGo.apply(this,arguments); renderLanguageChoice(); return result; };
-  desktopChoices.addEventListener('change',renderLanguageChoice);
   document.addEventListener('click',function (event) {
     if (event.target.closest('[data-study-language]')) renderLanguageChoice();
   });

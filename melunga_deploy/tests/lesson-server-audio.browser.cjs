@@ -176,13 +176,14 @@ test('seven server voices and English-home Spanish starts retain the native UI w
       const spanish=p.locator('[data-screen="language"] [data-study-language="es"]');
       assert.equal(await spanish.locator('strong').textContent(),'Spanish');
       assert.equal(await p.locator('[data-screen="language"] [data-study-language="en"]').isVisible(),false,'native English is not offered as the studied language');
-      await spanish.click();assert.match(await p.locator('[data-launch-course]').textContent(),/Start|Try for free/);
-      await p.locator('[data-launch-course]').click();await ready(p,'en-es');
+      assert.equal(await p.locator('[data-launch-course]').count(),0,'language choice starts without a second button');
+      await spanish.click();await p.waitForFunction(()=>{const s=window.MelungaMockup?.state();return s?.screen==='lesson'&&s.pairId==='en-es';});await settled(p);
+      assert.equal(new URL(p.url()).searchParams.get('start'),null,'direct-lesson intent is consumed');
       const url=new URL(p.url());assert.equal(url.pathname,'/parcours-niveaux.html');assert.equal(url.searchParams.get('pair'),'en-es');assert.equal(url.searchParams.get('level'),'1');
       assert.ok(f.navigations.every(href=>new URL(href).pathname!=='/app.html'),'Start never visits the old application');
       assert.equal(await p.locator('html').getAttribute('lang'),'en');
       assert.equal(await p.evaluate(()=>JSON.parse(localStorage.getItem('melunga-app-language')).locale),'en');
-      await firstLesson(p);const before=await state(p),text=await p.locator('#mgPhrase').textContent();
+      const before=await state(p),text=await p.locator('#mgPhrase').textContent();assert.equal(before.screen,'lesson','first lesson opens directly from the language');
       assert.match(before.phraseId,/^catalogue:es:\d+$/,'source is the Spanish catalogue, with the English native field');
       const original=json('content/native-catalogue/es.json').cards[Number(before.phraseId.split(':')[2])];
       assert.equal(text,original.t);assert.equal(await p.locator('#mgTranslation').textContent(),original.en);

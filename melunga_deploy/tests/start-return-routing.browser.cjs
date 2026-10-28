@@ -9,7 +9,7 @@ const ROOT=path.resolve(__dirname,'../..'),WEB=path.join(ROOT,'melunga_deploy'),
 const REPORT=process.env.START_RETURN_ROUTING_REPORT||'/tmp/melunga-start-return-routing-browser.json';
 const CAPTURES=process.env.START_RETURN_ROUTING_CAPTURES||'/tmp/melunga-start-return-routing-browser';
 const CODES=['fr','en','es','zh','it','ja','ko'];
-const REQUIRED=['premium-real-page-and-close','already-paid-premium-entry','saved-bare-welcome-start','incomplete-web-start','checkout-return-status','back-and-start-again','invalid-and-explicit-classic'];
+const REQUIRED=['premium-real-page-and-close','already-paid-premium-entry','saved-bare-welcome-start','incomplete-web-start','checkout-return-status','back-and-start-again','first-lesson-entry-once','invalid-and-explicit-classic'];
 const report={status:'running',environment:'Local Chromium; desktop and emulated mobile viewport/touch',physicalDeviceTested:false,safariTested:false,
   actualAudioPlayed:false,realAccountsUsed:false,realPaymentsUsed:false,postRequestsAllowed:false,allApiResponsesMocked:true,checks:[],cases:[],api:[],assetFixtures:[],errors:[],unexpected:[],fixtureErrors:[],screenshots:[]};
 const checked=async(name,fn)=>{try{await fn();report.checks.push(name);}catch(e){report.errors.push(name+': '+e.message);throw e;}};
@@ -72,10 +72,16 @@ async function fixture({paid=false,width=390,height=700,local={},session={},stat
   const page=f.page=await context.newPage();page.setDefaultTimeout(7000);page.on('pageerror',e=>report.errors.push(e.message));page.on('framenavigated',frame=>{if(frame===page.mainFrame())f.paths.push(new URL(frame.url()).pathname);});
   f.close=async()=>{f.closed=true;await context.close();};return f;
 }
-async function modern(f,pair,level){
+async function modern(f,pair,level,screen='themes'){
   const p=f.page;await p.waitForURL(u=>u.pathname==='/parcours-niveaux.html',{timeout:12000});
   const url=new URL(p.url());assert.equal(url.searchParams.get('pair'),pair);assert.equal(url.searchParams.get('level'),String(level));
-  await p.waitForFunction(({pair,level})=>{const s=window.MelungaMockup?.state();return s?.screen==='themes'&&s.pairId===pair&&s.level===level;},{pair,level},{timeout:20000});
+  await p.waitForFunction(({pair,level,screen})=>{const s=window.MelungaMockup?.state();return s?.screen===screen&&s.pairId===pair&&s.level===level;},{pair,level,screen},{timeout:20000});
+  if(screen==='lesson'){
+    const state=await p.evaluate(()=>window.MelungaMockup.state());
+    assert.equal(state.lessonScope,'theme');assert.equal(state.stepIndex,0);
+    assert.equal(new URL(p.url()).searchParams.has('start'),false,'the first-lesson request is consumed before rendering');
+    await p.locator('#mgLessonView').waitFor({state:'visible'});
+  }
   assert.equal(await p.locator('html').getAttribute('lang'),pair.split('-')[0]);assert.equal(await p.evaluate(()=>window.MelungaCourseAccess.state().paid),f.status===200&&f.paid===true);
   assert.deepEqual(await p.evaluate(()=>JSON.parse(sessionStorage.getItem('__start-return-audio')||'[]')),[],'no audio was played on any previous document');assert.deepEqual(await p.evaluate(()=>JSON.parse(sessionStorage.getItem('__start-return-legacy-frames')||'[]')),[],'no classic lesson is exposed during ordinary web start/return');
 }
@@ -88,7 +94,7 @@ async function premiumStart(f,{locale='en',study='es',plan='yearly'}={}){
   if(p.viewportSize().width>=960)await p.locator('[data-dh-plan="'+plan+'"]').first().click();
   else{await p.locator('[data-screen="welcome"].active [data-go="method"]').click();await p.locator('.proof-skip').click();}
   await p.locator('[data-screen="premium"].active').waitFor();await p.locator('[data-plan="'+plan+'"]').click();await p.locator('[data-start-trial]').click();
-  await p.locator('[data-screen="language"].active').waitFor();await p.locator('[data-study-language="'+study+'"]').click();await p.locator('[data-launch-course]').click();
+  await p.locator('[data-screen="language"].active').waitFor();await p.locator('[data-study-language="'+study+'"]').click();
   await p.waitForURL(u=>u.pathname!=='/index.html');return locale+'-'+study;
 }
 async function shot(page,name){const file=path.join(CAPTURES,name+'.png');await page.screenshot({path:file,animations:'disabled'});report.screenshots.push(file);}
@@ -174,11 +180,36 @@ test('returning to the language choice after closing checkout starts the same mo
     if(!await f.page.locator('[data-screen="language"].active').isVisible())await f.page.locator('[data-select-access="free"]:visible').first().click();
     await f.page.locator('[data-screen="language"].active').waitFor();
     assert.equal(await f.page.locator('[data-study-language].selected').getAttribute('data-study-language'),'es');
-    await f.page.locator('[data-launch-course]').click();
+    assert.equal(await f.page.locator('[data-launch-course]').count(),0,'choosing the language is the only start action');
+    await f.page.locator('[data-study-language="es"]').click();
     await f.page.waitForURL(u=>u.pathname!=='/index.html');
-    if(new URL(f.page.url()).pathname==='/app.html')await closeCheckout(f);
-    await modern(f,'en-es',1);report.cases.push({name:'back-then-start-again',pair:'en-es',level:1,paths:f.paths});
+    const checkout=new URL(f.page.url()).pathname==='/app.html';
+    if(checkout)await closeCheckout(f);
+    await modern(f,'en-es',1,checkout?'themes':'lesson');report.cases.push({name:'back-then-start-again',pair:'en-es',level:1,checkout,paths:f.paths});
   }finally{await f.close();}
+}));
+
+test('a first-lesson request is consumed once and malformed or noninitial requests leave the themes available',()=>checked('first-lesson-entry-once',async()=>{
+  const first=await fixture();try{
+    await first.page.goto(ORIGIN+'/parcours-niveaux.html?pair=fr-es&level=1&start=lesson');
+    await modern(first,'fr-es',1,'lesson');
+    await first.page.locator('#mgBack').click();await modern(first,'fr-es',1);
+    await first.page.reload();await modern(first,'fr-es',1);
+    assert.equal(new URL(first.page.url()).searchParams.has('start'),false,'returning and refreshing cannot replay the consumed request');
+    report.cases.push({name:'first-lesson-request-consumed',pair:'fr-es',level:1,returnAndRefreshStayOnThemes:true,paths:first.paths});
+  }finally{await first.close();}
+  for(const {query,level} of [
+    {query:'pair=fr-es&level=1&start=other',level:1},
+    {query:'pair=fr-es&level=1&start=lesson&start=lesson',level:1},
+    {query:'pair=fr-es&level=2&start=lesson',level:2}
+  ]){
+    const f=await fixture();try{
+      await f.page.goto(ORIGIN+'/parcours-niveaux.html?'+query);await modern(f,'fr-es',level);
+      assert.equal(await f.page.locator('#mgThemeView').isVisible(),true);
+      assert.equal(await f.page.locator('#mgLessonView').isVisible(),false);
+      report.cases.push({name:'noninitial-lesson-request-ignored',query,level,paths:f.paths});
+    }finally{await f.close();}
+  }
 }));
 
 test('invalid and ambiguous old starts never invent a course, and explicit classic or native entries stay classic',()=>checked('invalid-and-explicit-classic',async()=>{

@@ -64,6 +64,9 @@
   } catch (_) {}
   state.nativeLanguage = nativeCourses?.isPair(explicitPair) ? explicitPair.split('-')[0] : preferredNative;
   state.invalidPair = routeParameters.getAll('pair').length > 1 || explicitPair !== null && !nativeCourses?.isPair(explicitPair);
+  let firstLessonEntryPending = Boolean(ui.level) && !state.invalidPair && nativeCourses?.isPair(explicitPair)
+    && routeParameters.getAll('start').length === 1 && routeParameters.get('start') === 'lesson'
+    && routeParameters.getAll('level').length === 1 && routeParameters.get('level') === '1';
   let menuAnchor = ui.menuTrigger;
   state.sourcePhraseMap = new Map();
   state.accessContextStepIds = new Set();
@@ -1835,6 +1838,25 @@
     ui.retry.hidden = false;
   }
 
+  async function chooseEntryPair(id, requestedLevel = state.level) {
+    const generation = state.loadGeneration + 1;
+    await choosePair(id, requestedLevel);
+    if (!firstLessonEntryPending || state.loadGeneration !== generation || state.screen !== 'themes'
+        || state.pair?.id !== explicitPair || state.pair.level !== 1) return;
+    // Consume only after content and rights are installed. A failed first
+    // request may be retried; later language/level changes never start a lesson.
+    firstLessonEntryPending = false;
+    const url = new URL(window.location.href);
+    url.searchParams.delete('start');
+    window.history.replaceState(null, '', url);
+    const theme = state.pair.themes.find(candidate => !candidate._accessLocked
+      && candidate.sequences.some(sequence => sequence.steps.length > 0 && sequence.phraseIds.some(phraseId => {
+        const phrase = phraseById(phraseId);
+        return phrase && canProduce(phrase);
+      })));
+    if (theme) openTheme(theme);
+  }
+
   async function loadData() {
     const initialPair = nativeCourses?.isPair(explicitPair) ? explicitPair
       : nativeCourses?.isPair(savedPair) && savedPair.split('-')[0] === state.nativeLanguage ? savedPair
@@ -1879,7 +1901,7 @@
         const requestedLevel = Number(routeParameters.get('level') || (explicitPair === null ? savedLevel : 1));
         state.level = Number.isInteger(requestedLevel) && requestedLevel >= 1 && requestedLevel <= 10 ? requestedLevel : 1;
       }
-      await choosePair(firstPair.id);
+      await chooseEntryPair(firstPair.id);
     } catch (_) {
       showLoadingError('Les thèmes n’ont pas pu se charger.');
       text(ui.retry, tr('Réessayer'));
@@ -2063,7 +2085,7 @@
   ui.retry.addEventListener('click', () => {
     if (!courseAccess || !nativeCourses || !courseI18n) { window.location.reload(); return; }
     if (state.invalidPair) { window.location.href = 'index.html'; return; }
-    if (ui.level && state.data && state.requestedPair) choosePair(state.requestedPair, state.level);
+    if (ui.level && state.data && state.requestedPair) chooseEntryPair(state.requestedPair, state.level);
     else loadData();
   });
   document.addEventListener('keydown', event => { if (event.key === 'Escape') closeHelp(); });
