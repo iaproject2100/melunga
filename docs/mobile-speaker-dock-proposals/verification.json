@@ -1,0 +1,3486 @@
+{
+  "status": "passed",
+  "baseCommit": "46b34fcba27c94e82140953577804d0a4aaf6528",
+  "physicalDeviceTested": false,
+  "safariTested": false,
+  "allResponsesLocalFixtures": true,
+  "realAudioPlayed": false,
+  "upstreamAudioCalled": false,
+  "cases": [
+    {
+      "name": "layout",
+      "option": 1,
+      "size": {
+        "width": 320,
+        "height": 620
+      },
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 620
+        },
+        "document": {
+          "width": 320,
+          "height": 620
+        },
+        "context": {
+          "left": 155,
+          "right": 255,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 494,
+          "width": 320,
+          "height": 494
+        },
+        "dock": {
+          "left": 6,
+          "right": 314,
+          "top": 502,
+          "bottom": 612,
+          "width": 308,
+          "height": 110
+        },
+        "card": {
+          "left": 12,
+          "right": 308,
+          "top": 143,
+          "bottom": 486,
+          "width": 296,
+          "height": 343
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 60,
+              "top": 556,
+              "bottom": 612,
+              "width": 54,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 159,
+              "right": 203,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 207,
+              "right": 251,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 160,
+              "right": 208,
+              "top": 560,
+              "bottom": 608,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 208,
+              "right": 256,
+              "top": 560,
+              "bottom": 608,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 64,
+              "right": 112,
+              "top": 560,
+              "bottom": 608,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 112,
+              "right": 160,
+              "top": 560,
+              "bottom": 608,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 260,
+              "right": 314,
+              "top": 556,
+              "bottom": 612,
+              "width": 54,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 263,
+              "right": 311,
+              "top": 502,
+              "bottom": 550,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 58.515625,
+              "right": 261.484375,
+              "top": 272.484375,
+              "bottom": 314.484375,
+              "width": 202.96875,
+              "height": 42
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 50.046875,
+              "right": 219.9375,
+              "top": 324.78125,
+              "bottom": 354.78125,
+              "width": 169.890625,
+              "height": 30
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 79.46875,
+              "right": 240.515625,
+              "top": 366.71875,
+              "bottom": 398.71875,
+              "width": 161.046875,
+              "height": 32
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "original-audio-panels-and-actions",
+      "option": 1,
+      "audio": [
+        {
+          "control": "#mgListen",
+          "voice": "es-ES-Chirp3-HD-Kore",
+          "language": "es-ES",
+          "serverRate": 1,
+          "playbackRate": 0.85,
+          "text": "Es muy ligero."
+        }
+      ],
+      "revisions": true,
+      "voice": true,
+      "dialogs": 3,
+      "palette": true,
+      "review": true,
+      "next": true
+    },
+    {
+      "name": "layout",
+      "option": 2,
+      "size": {
+        "width": 320,
+        "height": 620
+      },
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 620
+        },
+        "document": {
+          "width": 320,
+          "height": 620
+        },
+        "context": {
+          "left": 155,
+          "right": 255,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 494,
+          "width": 320,
+          "height": 494
+        },
+        "dock": {
+          "left": 6,
+          "right": 314,
+          "top": 502,
+          "bottom": 612,
+          "width": 308,
+          "height": 110
+        },
+        "card": {
+          "left": 12,
+          "right": 308,
+          "top": 143,
+          "bottom": 486,
+          "width": 296,
+          "height": 343
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 60,
+              "top": 556,
+              "bottom": 612,
+              "width": 54,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 159,
+              "right": 203,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 207,
+              "right": 251,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 160,
+              "right": 208,
+              "top": 560,
+              "bottom": 608,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 208,
+              "right": 256,
+              "top": 560,
+              "bottom": 608,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 64,
+              "right": 112,
+              "top": 560,
+              "bottom": 608,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 112,
+              "right": 160,
+              "top": 560,
+              "bottom": 608,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 260,
+              "right": 314,
+              "top": 556,
+              "bottom": 612,
+              "width": 54,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 9,
+              "right": 57,
+              "top": 502,
+              "bottom": 550,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Écouter la phrase"
+          },
+          {
+            "id": "mgListenMirror",
+            "visible": true,
+            "rect": {
+              "left": 263,
+              "right": 311,
+              "top": 502,
+              "bottom": 550,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 58.515625,
+              "right": 261.484375,
+              "top": 272.484375,
+              "bottom": 314.484375,
+              "width": 202.96875,
+              "height": 42
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 50.046875,
+              "right": 219.9375,
+              "top": 324.78125,
+              "bottom": 354.78125,
+              "width": 169.890625,
+              "height": 30
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 79.46875,
+              "right": 240.515625,
+              "top": 366.71875,
+              "bottom": 398.71875,
+              "width": 161.046875,
+              "height": 32
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "original-audio-panels-and-actions",
+      "option": 2,
+      "audio": [
+        {
+          "control": "#mgListen",
+          "voice": "es-ES-Chirp3-HD-Kore",
+          "language": "es-ES",
+          "serverRate": 1,
+          "playbackRate": 0.85,
+          "text": "Es muy ligero."
+        },
+        {
+          "control": "#mgListenMirror",
+          "voice": "es-ES-Chirp3-HD-Kore",
+          "language": "es-ES",
+          "serverRate": 1,
+          "playbackRate": 0.85,
+          "text": "Es muy ligero."
+        }
+      ],
+      "revisions": true,
+      "voice": true,
+      "dialogs": 3,
+      "palette": true,
+      "review": true,
+      "next": true
+    },
+    {
+      "name": "layout",
+      "option": 3,
+      "size": {
+        "width": 320,
+        "height": 620
+      },
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 620
+        },
+        "document": {
+          "width": 320,
+          "height": 620
+        },
+        "context": {
+          "left": 155,
+          "right": 255,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 494,
+          "width": 320,
+          "height": 494
+        },
+        "dock": {
+          "left": 6,
+          "right": 314,
+          "top": 502,
+          "bottom": 612,
+          "width": 308,
+          "height": 110
+        },
+        "card": {
+          "left": 12,
+          "right": 308,
+          "top": 143,
+          "bottom": 486,
+          "width": 296,
+          "height": 343
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 29.5,
+              "right": 85.5,
+              "top": 556,
+              "bottom": 612,
+              "width": 56,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 159,
+              "right": 203,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 207,
+              "right": 251,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 160,
+              "right": 208,
+              "top": 502,
+              "bottom": 550,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 208,
+              "right": 256,
+              "top": 502,
+              "bottom": 550,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 64,
+              "right": 112,
+              "top": 502,
+              "bottom": 550,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 112,
+              "right": 160,
+              "top": 502,
+              "bottom": 550,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 234.5,
+              "right": 290.5,
+              "top": 556,
+              "bottom": 612,
+              "width": 56,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 132,
+              "right": 188,
+              "top": 556,
+              "bottom": 612,
+              "width": 56,
+              "height": 56
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 58.515625,
+              "right": 261.484375,
+              "top": 272.484375,
+              "bottom": 314.484375,
+              "width": 202.96875,
+              "height": 42
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 50.046875,
+              "right": 219.9375,
+              "top": 324.78125,
+              "bottom": 354.78125,
+              "width": 169.890625,
+              "height": 30
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 79.46875,
+              "right": 240.515625,
+              "top": 366.71875,
+              "bottom": 398.71875,
+              "width": 161.046875,
+              "height": 32
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "original-audio-panels-and-actions",
+      "option": 3,
+      "audio": [
+        {
+          "control": "#mgListen",
+          "voice": "es-ES-Chirp3-HD-Kore",
+          "language": "es-ES",
+          "serverRate": 1,
+          "playbackRate": 0.85,
+          "text": "Es muy ligero."
+        }
+      ],
+      "revisions": true,
+      "voice": true,
+      "dialogs": 3,
+      "palette": true,
+      "review": true,
+      "next": true
+    },
+    {
+      "name": "layout",
+      "option": 4,
+      "size": {
+        "width": 320,
+        "height": 620
+      },
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 620
+        },
+        "document": {
+          "width": 320,
+          "height": 620
+        },
+        "context": {
+          "left": 155,
+          "right": 255,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 498,
+          "width": 320,
+          "height": 498
+        },
+        "dock": {
+          "left": 6,
+          "right": 314,
+          "top": 506,
+          "bottom": 612,
+          "width": 308,
+          "height": 106
+        },
+        "card": {
+          "left": 12,
+          "right": 308,
+          "top": 143,
+          "bottom": 490,
+          "width": 296,
+          "height": 347
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 60,
+              "top": 556,
+              "bottom": 612,
+              "width": 54,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 159,
+              "right": 203,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 207,
+              "right": 251,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 160,
+              "right": 208,
+              "top": 560,
+              "bottom": 608,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 208,
+              "right": 256,
+              "top": 560,
+              "bottom": 608,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 64,
+              "right": 112,
+              "top": 560,
+              "bottom": 608,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 112,
+              "right": 160,
+              "top": 560,
+              "bottom": 608,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 260,
+              "right": 314,
+              "top": 556,
+              "bottom": 612,
+              "width": 54,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 314,
+              "top": 506,
+              "bottom": 550,
+              "width": 308,
+              "height": 44
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 58.515625,
+              "right": 261.484375,
+              "top": 274.484375,
+              "bottom": 316.484375,
+              "width": 202.96875,
+              "height": 42
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 50.046875,
+              "right": 219.9375,
+              "top": 326.78125,
+              "bottom": 356.78125,
+              "width": 169.890625,
+              "height": 30
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 79.46875,
+              "right": 240.515625,
+              "top": 368.71875,
+              "bottom": 400.71875,
+              "width": 161.046875,
+              "height": 32
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "original-audio-panels-and-actions",
+      "option": 4,
+      "audio": [
+        {
+          "control": "#mgListen",
+          "voice": "es-ES-Chirp3-HD-Kore",
+          "language": "es-ES",
+          "serverRate": 1,
+          "playbackRate": 0.85,
+          "text": "Es muy ligero."
+        }
+      ],
+      "revisions": true,
+      "voice": true,
+      "dialogs": 3,
+      "palette": true,
+      "review": true,
+      "next": true
+    },
+    {
+      "name": "layout",
+      "option": 1,
+      "size": {
+        "width": 320,
+        "height": 568
+      },
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 568
+        },
+        "document": {
+          "width": 320,
+          "height": 568
+        },
+        "context": {
+          "left": 155,
+          "right": 255,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 442,
+          "width": 320,
+          "height": 442
+        },
+        "dock": {
+          "left": 6,
+          "right": 314,
+          "top": 450,
+          "bottom": 560,
+          "width": 308,
+          "height": 110
+        },
+        "card": {
+          "left": 12,
+          "right": 308,
+          "top": 143,
+          "bottom": 434,
+          "width": 296,
+          "height": 291
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 60,
+              "top": 504,
+              "bottom": 560,
+              "width": 54,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 159,
+              "right": 203,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 207,
+              "right": 251,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 160,
+              "right": 208,
+              "top": 508,
+              "bottom": 556,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 208,
+              "right": 256,
+              "top": 508,
+              "bottom": 556,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 64,
+              "right": 112,
+              "top": 508,
+              "bottom": 556,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 112,
+              "right": 160,
+              "top": 508,
+              "bottom": 556,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 260,
+              "right": 314,
+              "top": 504,
+              "bottom": 560,
+              "width": 54,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 263,
+              "right": 311,
+              "top": 450,
+              "bottom": 498,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 58.515625,
+              "right": 261.484375,
+              "top": 247,
+              "bottom": 289,
+              "width": 202.96875,
+              "height": 42
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 50.046875,
+              "right": 219.9375,
+              "top": 298.78125,
+              "bottom": 328.78125,
+              "width": 169.890625,
+              "height": 30
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 79.46875,
+              "right": 240.515625,
+              "top": 340.203125,
+              "bottom": 372.203125,
+              "width": 161.046875,
+              "height": 32
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "layout",
+      "option": 2,
+      "size": {
+        "width": 320,
+        "height": 568
+      },
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 568
+        },
+        "document": {
+          "width": 320,
+          "height": 568
+        },
+        "context": {
+          "left": 155,
+          "right": 255,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 442,
+          "width": 320,
+          "height": 442
+        },
+        "dock": {
+          "left": 6,
+          "right": 314,
+          "top": 450,
+          "bottom": 560,
+          "width": 308,
+          "height": 110
+        },
+        "card": {
+          "left": 12,
+          "right": 308,
+          "top": 143,
+          "bottom": 434,
+          "width": 296,
+          "height": 291
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 60,
+              "top": 504,
+              "bottom": 560,
+              "width": 54,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 159,
+              "right": 203,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 207,
+              "right": 251,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 160,
+              "right": 208,
+              "top": 508,
+              "bottom": 556,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 208,
+              "right": 256,
+              "top": 508,
+              "bottom": 556,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 64,
+              "right": 112,
+              "top": 508,
+              "bottom": 556,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 112,
+              "right": 160,
+              "top": 508,
+              "bottom": 556,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 260,
+              "right": 314,
+              "top": 504,
+              "bottom": 560,
+              "width": 54,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 9,
+              "right": 57,
+              "top": 450,
+              "bottom": 498,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Écouter la phrase"
+          },
+          {
+            "id": "mgListenMirror",
+            "visible": true,
+            "rect": {
+              "left": 263,
+              "right": 311,
+              "top": 450,
+              "bottom": 498,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 58.515625,
+              "right": 261.484375,
+              "top": 247,
+              "bottom": 289,
+              "width": 202.96875,
+              "height": 42
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 50.046875,
+              "right": 219.9375,
+              "top": 298.78125,
+              "bottom": 328.78125,
+              "width": 169.890625,
+              "height": 30
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 79.46875,
+              "right": 240.515625,
+              "top": 340.203125,
+              "bottom": 372.203125,
+              "width": 161.046875,
+              "height": 32
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "layout",
+      "option": 3,
+      "size": {
+        "width": 320,
+        "height": 568
+      },
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 568
+        },
+        "document": {
+          "width": 320,
+          "height": 568
+        },
+        "context": {
+          "left": 155,
+          "right": 255,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 442,
+          "width": 320,
+          "height": 442
+        },
+        "dock": {
+          "left": 6,
+          "right": 314,
+          "top": 450,
+          "bottom": 560,
+          "width": 308,
+          "height": 110
+        },
+        "card": {
+          "left": 12,
+          "right": 308,
+          "top": 143,
+          "bottom": 434,
+          "width": 296,
+          "height": 291
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 29.5,
+              "right": 85.5,
+              "top": 504,
+              "bottom": 560,
+              "width": 56,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 159,
+              "right": 203,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 207,
+              "right": 251,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 160,
+              "right": 208,
+              "top": 450,
+              "bottom": 498,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 208,
+              "right": 256,
+              "top": 450,
+              "bottom": 498,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 64,
+              "right": 112,
+              "top": 450,
+              "bottom": 498,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 112,
+              "right": 160,
+              "top": 450,
+              "bottom": 498,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 234.5,
+              "right": 290.5,
+              "top": 504,
+              "bottom": 560,
+              "width": 56,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 132,
+              "right": 188,
+              "top": 504,
+              "bottom": 560,
+              "width": 56,
+              "height": 56
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 58.515625,
+              "right": 261.484375,
+              "top": 247,
+              "bottom": 289,
+              "width": 202.96875,
+              "height": 42
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 50.046875,
+              "right": 219.9375,
+              "top": 298.78125,
+              "bottom": 328.78125,
+              "width": 169.890625,
+              "height": 30
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 79.46875,
+              "right": 240.515625,
+              "top": 340.203125,
+              "bottom": 372.203125,
+              "width": 161.046875,
+              "height": 32
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "layout",
+      "option": 4,
+      "size": {
+        "width": 320,
+        "height": 568
+      },
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 568
+        },
+        "document": {
+          "width": 320,
+          "height": 568
+        },
+        "context": {
+          "left": 155,
+          "right": 255,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "bottom": 446,
+          "width": 320,
+          "height": 446
+        },
+        "dock": {
+          "left": 6,
+          "right": 314,
+          "top": 454,
+          "bottom": 560,
+          "width": 308,
+          "height": 106
+        },
+        "card": {
+          "left": 12,
+          "right": 308,
+          "top": 143,
+          "bottom": 438,
+          "width": 296,
+          "height": 295
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 60,
+              "top": 504,
+              "bottom": 560,
+              "width": 54,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 159,
+              "right": 203,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 207,
+              "right": 251,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 160,
+              "right": 208,
+              "top": 508,
+              "bottom": 556,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 208,
+              "right": 256,
+              "top": 508,
+              "bottom": 556,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 64,
+              "right": 112,
+              "top": 508,
+              "bottom": 556,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 112,
+              "right": 160,
+              "top": 508,
+              "bottom": 556,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 260,
+              "right": 314,
+              "top": 504,
+              "bottom": 560,
+              "width": 54,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 314,
+              "top": 454,
+              "bottom": 498,
+              "width": 308,
+              "height": 44
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 58.515625,
+              "right": 261.484375,
+              "top": 249,
+              "bottom": 291,
+              "width": 202.96875,
+              "height": 42
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 50.046875,
+              "right": 219.9375,
+              "top": 300.78125,
+              "bottom": 330.78125,
+              "width": 169.890625,
+              "height": 30
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 79.46875,
+              "right": 240.515625,
+              "top": 342.203125,
+              "bottom": 374.203125,
+              "width": 161.046875,
+              "height": 32
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "layout",
+      "option": 1,
+      "size": {
+        "width": 390,
+        "height": 780
+      },
+      "geometry": {
+        "viewport": {
+          "width": 390,
+          "height": 780
+        },
+        "document": {
+          "width": 390,
+          "height": 780
+        },
+        "context": {
+          "left": 223,
+          "right": 323,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 654,
+          "width": 390,
+          "height": 654
+        },
+        "dock": {
+          "left": 6,
+          "right": 384,
+          "top": 662,
+          "bottom": 772,
+          "width": 378,
+          "height": 110
+        },
+        "card": {
+          "left": 14,
+          "right": 376,
+          "top": 143,
+          "bottom": 646,
+          "width": 362,
+          "height": 503
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 73.125,
+              "top": 716,
+              "bottom": 772,
+              "width": 67.125,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 227,
+              "right": 271,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 275,
+              "right": 319,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 195,
+              "right": 253.9375,
+              "top": 720,
+              "bottom": 768,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 253.9375,
+              "right": 312.875,
+              "top": 720,
+              "bottom": 768,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 77.125,
+              "right": 136.0625,
+              "top": 720,
+              "bottom": 768,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 136.0625,
+              "right": 195,
+              "top": 720,
+              "bottom": 768,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 316.875,
+              "right": 384,
+              "top": 716,
+              "bottom": 772,
+              "width": 67.125,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 326.4375,
+              "right": 374.4375,
+              "top": 662,
+              "bottom": 710,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 71.375,
+              "right": 318.625,
+              "top": 340.109375,
+              "bottom": 391.109375,
+              "width": 247.25,
+              "height": 51
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 67.609375,
+              "right": 272.375,
+              "top": 402.84375,
+              "bottom": 438.84375,
+              "width": 204.765625,
+              "height": 36
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 96.828125,
+              "right": 293.15625,
+              "top": 451.796875,
+              "bottom": 489.796875,
+              "width": 196.328125,
+              "height": 38
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "layout",
+      "option": 2,
+      "size": {
+        "width": 390,
+        "height": 780
+      },
+      "geometry": {
+        "viewport": {
+          "width": 390,
+          "height": 780
+        },
+        "document": {
+          "width": 390,
+          "height": 780
+        },
+        "context": {
+          "left": 223,
+          "right": 323,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 654,
+          "width": 390,
+          "height": 654
+        },
+        "dock": {
+          "left": 6,
+          "right": 384,
+          "top": 662,
+          "bottom": 772,
+          "width": 378,
+          "height": 110
+        },
+        "card": {
+          "left": 14,
+          "right": 376,
+          "top": 143,
+          "bottom": 646,
+          "width": 362,
+          "height": 503
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 73.125,
+              "top": 716,
+              "bottom": 772,
+              "width": 67.125,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 227,
+              "right": 271,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 275,
+              "right": 319,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 195,
+              "right": 253.9375,
+              "top": 720,
+              "bottom": 768,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 253.9375,
+              "right": 312.875,
+              "top": 720,
+              "bottom": 768,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 77.125,
+              "right": 136.0625,
+              "top": 720,
+              "bottom": 768,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 136.0625,
+              "right": 195,
+              "top": 720,
+              "bottom": 768,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 316.875,
+              "right": 384,
+              "top": 716,
+              "bottom": 772,
+              "width": 67.125,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 15.5625,
+              "right": 63.5625,
+              "top": 662,
+              "bottom": 710,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Écouter la phrase"
+          },
+          {
+            "id": "mgListenMirror",
+            "visible": true,
+            "rect": {
+              "left": 326.4375,
+              "right": 374.4375,
+              "top": 662,
+              "bottom": 710,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 71.375,
+              "right": 318.625,
+              "top": 340.109375,
+              "bottom": 391.109375,
+              "width": 247.25,
+              "height": 51
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 67.609375,
+              "right": 272.375,
+              "top": 402.84375,
+              "bottom": 438.84375,
+              "width": 204.765625,
+              "height": 36
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 96.828125,
+              "right": 293.15625,
+              "top": 451.796875,
+              "bottom": 489.796875,
+              "width": 196.328125,
+              "height": 38
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "layout",
+      "option": 3,
+      "size": {
+        "width": 390,
+        "height": 780
+      },
+      "geometry": {
+        "viewport": {
+          "width": 390,
+          "height": 780
+        },
+        "document": {
+          "width": 390,
+          "height": 780
+        },
+        "context": {
+          "left": 223,
+          "right": 323,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 654,
+          "width": 390,
+          "height": 654
+        },
+        "dock": {
+          "left": 6,
+          "right": 384,
+          "top": 662,
+          "bottom": 772,
+          "width": 378,
+          "height": 110
+        },
+        "card": {
+          "left": 14,
+          "right": 376,
+          "top": 143,
+          "bottom": 646,
+          "width": 362,
+          "height": 503
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 41.53125,
+              "right": 97.53125,
+              "top": 716,
+              "bottom": 772,
+              "width": 56,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 227,
+              "right": 271,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 275,
+              "right": 319,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 195,
+              "right": 253.9375,
+              "top": 662,
+              "bottom": 710,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 253.9375,
+              "right": 312.875,
+              "top": 662,
+              "bottom": 710,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 77.125,
+              "right": 136.0625,
+              "top": 662,
+              "bottom": 710,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 136.0625,
+              "right": 195,
+              "top": 662,
+              "bottom": 710,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 292.46875,
+              "right": 348.46875,
+              "top": 716,
+              "bottom": 772,
+              "width": 56,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 167,
+              "right": 223,
+              "top": 716,
+              "bottom": 772,
+              "width": 56,
+              "height": 56
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 71.375,
+              "right": 318.625,
+              "top": 340.109375,
+              "bottom": 391.109375,
+              "width": 247.25,
+              "height": 51
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 67.609375,
+              "right": 272.375,
+              "top": 402.84375,
+              "bottom": 438.84375,
+              "width": 204.765625,
+              "height": 36
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 96.828125,
+              "right": 293.15625,
+              "top": 451.796875,
+              "bottom": 489.796875,
+              "width": 196.328125,
+              "height": 38
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "layout",
+      "option": 4,
+      "size": {
+        "width": 390,
+        "height": 780
+      },
+      "geometry": {
+        "viewport": {
+          "width": 390,
+          "height": 780
+        },
+        "document": {
+          "width": 390,
+          "height": 780
+        },
+        "context": {
+          "left": 223,
+          "right": 323,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 658,
+          "width": 390,
+          "height": 658
+        },
+        "dock": {
+          "left": 6,
+          "right": 384,
+          "top": 666,
+          "bottom": 772,
+          "width": 378,
+          "height": 106
+        },
+        "card": {
+          "left": 14,
+          "right": 376,
+          "top": 143,
+          "bottom": 650,
+          "width": 362,
+          "height": 507
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 73.125,
+              "top": 716,
+              "bottom": 772,
+              "width": 67.125,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 227,
+              "right": 271,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 275,
+              "right": 319,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 195,
+              "right": 253.9375,
+              "top": 720,
+              "bottom": 768,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 253.9375,
+              "right": 312.875,
+              "top": 720,
+              "bottom": 768,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 77.125,
+              "right": 136.0625,
+              "top": 720,
+              "bottom": 768,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 136.0625,
+              "right": 195,
+              "top": 720,
+              "bottom": 768,
+              "width": 58.9375,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 316.875,
+              "right": 384,
+              "top": 716,
+              "bottom": 772,
+              "width": 67.125,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 384,
+              "top": 666,
+              "bottom": 710,
+              "width": 378,
+              "height": 44
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 71.375,
+              "right": 318.625,
+              "top": 342.109375,
+              "bottom": 393.109375,
+              "width": 247.25,
+              "height": 51
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 67.609375,
+              "right": 272.375,
+              "top": 404.84375,
+              "bottom": 440.84375,
+              "width": 204.765625,
+              "height": 36
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 96.828125,
+              "right": 293.15625,
+              "top": 453.796875,
+              "bottom": 491.796875,
+              "width": 196.328125,
+              "height": 38
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "layout",
+      "option": 1,
+      "size": {
+        "width": 430,
+        "height": 780
+      },
+      "geometry": {
+        "viewport": {
+          "width": 430,
+          "height": 780
+        },
+        "document": {
+          "width": 430,
+          "height": 780
+        },
+        "context": {
+          "left": 263,
+          "right": 363,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 430,
+          "top": 0,
+          "bottom": 654,
+          "width": 430,
+          "height": 654
+        },
+        "dock": {
+          "left": 6,
+          "right": 424,
+          "top": 662,
+          "bottom": 772,
+          "width": 418,
+          "height": 110
+        },
+        "card": {
+          "left": 14,
+          "right": 416,
+          "top": 143,
+          "bottom": 646,
+          "width": 402,
+          "height": 503
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 80.625,
+              "top": 716,
+              "bottom": 772,
+              "width": 74.625,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 267,
+              "right": 311,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 315,
+              "right": 359,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 215,
+              "right": 280.1875,
+              "top": 720,
+              "bottom": 768,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 280.1875,
+              "right": 345.375,
+              "top": 720,
+              "bottom": 768,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 84.625,
+              "right": 149.8125,
+              "top": 720,
+              "bottom": 768,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 149.8125,
+              "right": 215,
+              "top": 720,
+              "bottom": 768,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 349.375,
+              "right": 424,
+              "top": 716,
+              "bottom": 772,
+              "width": 74.625,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 362.6875,
+              "right": 410.6875,
+              "top": 662,
+              "bottom": 710,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 78.671875,
+              "right": 351.3125,
+              "top": 334.3125,
+              "bottom": 390.3125,
+              "width": 272.640625,
+              "height": 56
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 77.125,
+              "right": 302.875,
+              "top": 401.65625,
+              "bottom": 441.65625,
+              "width": 225.75,
+              "height": 40
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 106.78125,
+              "right": 323.21875,
+              "top": 454,
+              "bottom": 496,
+              "width": 216.4375,
+              "height": 42
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "layout",
+      "option": 2,
+      "size": {
+        "width": 430,
+        "height": 780
+      },
+      "geometry": {
+        "viewport": {
+          "width": 430,
+          "height": 780
+        },
+        "document": {
+          "width": 430,
+          "height": 780
+        },
+        "context": {
+          "left": 263,
+          "right": 363,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 430,
+          "top": 0,
+          "bottom": 654,
+          "width": 430,
+          "height": 654
+        },
+        "dock": {
+          "left": 6,
+          "right": 424,
+          "top": 662,
+          "bottom": 772,
+          "width": 418,
+          "height": 110
+        },
+        "card": {
+          "left": 14,
+          "right": 416,
+          "top": 143,
+          "bottom": 646,
+          "width": 402,
+          "height": 503
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 80.625,
+              "top": 716,
+              "bottom": 772,
+              "width": 74.625,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 267,
+              "right": 311,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 315,
+              "right": 359,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 215,
+              "right": 280.1875,
+              "top": 720,
+              "bottom": 768,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 280.1875,
+              "right": 345.375,
+              "top": 720,
+              "bottom": 768,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 84.625,
+              "right": 149.8125,
+              "top": 720,
+              "bottom": 768,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 149.8125,
+              "right": 215,
+              "top": 720,
+              "bottom": 768,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 349.375,
+              "right": 424,
+              "top": 716,
+              "bottom": 772,
+              "width": 74.625,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 19.3125,
+              "right": 67.3125,
+              "top": 662,
+              "bottom": 710,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Écouter la phrase"
+          },
+          {
+            "id": "mgListenMirror",
+            "visible": true,
+            "rect": {
+              "left": 362.6875,
+              "right": 410.6875,
+              "top": 662,
+              "bottom": 710,
+              "width": 48,
+              "height": 48
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 78.671875,
+              "right": 351.3125,
+              "top": 334.3125,
+              "bottom": 390.3125,
+              "width": 272.640625,
+              "height": 56
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 77.125,
+              "right": 302.875,
+              "top": 401.65625,
+              "bottom": 441.65625,
+              "width": 225.75,
+              "height": 40
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 106.78125,
+              "right": 323.21875,
+              "top": 454,
+              "bottom": 496,
+              "width": 216.4375,
+              "height": 42
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "layout",
+      "option": 3,
+      "size": {
+        "width": 430,
+        "height": 780
+      },
+      "geometry": {
+        "viewport": {
+          "width": 430,
+          "height": 780
+        },
+        "document": {
+          "width": 430,
+          "height": 780
+        },
+        "context": {
+          "left": 263,
+          "right": 363,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 430,
+          "top": 0,
+          "bottom": 654,
+          "width": 430,
+          "height": 654
+        },
+        "dock": {
+          "left": 6,
+          "right": 424,
+          "top": 662,
+          "bottom": 772,
+          "width": 418,
+          "height": 110
+        },
+        "card": {
+          "left": 14,
+          "right": 416,
+          "top": 143,
+          "bottom": 646,
+          "width": 402,
+          "height": 503
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 48.40625,
+              "right": 104.40625,
+              "top": 716,
+              "bottom": 772,
+              "width": 56,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 267,
+              "right": 311,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 315,
+              "right": 359,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 215,
+              "right": 280.1875,
+              "top": 662,
+              "bottom": 710,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 280.1875,
+              "right": 345.375,
+              "top": 662,
+              "bottom": 710,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 84.625,
+              "right": 149.8125,
+              "top": 662,
+              "bottom": 710,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 149.8125,
+              "right": 215,
+              "top": 662,
+              "bottom": 710,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 325.59375,
+              "right": 381.59375,
+              "top": 716,
+              "bottom": 772,
+              "width": 56,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 187,
+              "right": 243,
+              "top": 716,
+              "bottom": 772,
+              "width": 56,
+              "height": 56
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 78.671875,
+              "right": 351.3125,
+              "top": 334.3125,
+              "bottom": 390.3125,
+              "width": 272.640625,
+              "height": 56
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 77.125,
+              "right": 302.875,
+              "top": 401.65625,
+              "bottom": 441.65625,
+              "width": 225.75,
+              "height": 40
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 106.78125,
+              "right": 323.21875,
+              "top": 454,
+              "bottom": 496,
+              "width": 216.4375,
+              "height": 42
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "layout",
+      "option": 4,
+      "size": {
+        "width": 430,
+        "height": 780
+      },
+      "geometry": {
+        "viewport": {
+          "width": 430,
+          "height": 780
+        },
+        "document": {
+          "width": 430,
+          "height": 780
+        },
+        "context": {
+          "left": 263,
+          "right": 363,
+          "top": 82,
+          "bottom": 130,
+          "width": 100,
+          "height": 48
+        },
+        "app": {
+          "left": 0,
+          "right": 430,
+          "top": 0,
+          "bottom": 658,
+          "width": 430,
+          "height": 658
+        },
+        "dock": {
+          "left": 6,
+          "right": 424,
+          "top": 666,
+          "bottom": 772,
+          "width": 418,
+          "height": 106
+        },
+        "card": {
+          "left": 14,
+          "right": 416,
+          "top": 143,
+          "bottom": 650,
+          "width": 402,
+          "height": 507
+        },
+        "buttons": [
+          {
+            "id": "mgReplay",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 80.625,
+              "top": 716,
+              "bottom": 772,
+              "width": 74.625,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgLevelTrigger",
+            "visible": true,
+            "rect": {
+              "left": 267,
+              "right": 311,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir un niveau"
+          },
+          {
+            "id": "mgLanguageTrigger",
+            "visible": true,
+            "rect": {
+              "left": 315,
+              "right": 359,
+              "top": 84,
+              "bottom": 128,
+              "width": 44,
+              "height": 44
+            },
+            "name": "Choisir une langue"
+          },
+          {
+            "id": "mgPalette",
+            "visible": true,
+            "rect": {
+              "left": 215,
+              "right": 280.1875,
+              "top": 720,
+              "bottom": 768,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Changer d’ambiance"
+          },
+          {
+            "id": "mgMenuTrigger",
+            "visible": true,
+            "rect": {
+              "left": 280.1875,
+              "right": 345.375,
+              "top": 720,
+              "bottom": 768,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Menu des rubriques"
+          },
+          {
+            "id": "mgRevisionShortcut",
+            "visible": true,
+            "rect": {
+              "left": 84.625,
+              "right": 149.8125,
+              "top": 720,
+              "bottom": 768,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Révisions et exercices"
+          },
+          {
+            "id": "mgVoiceShortcut",
+            "visible": true,
+            "rect": {
+              "left": 149.8125,
+              "right": 215,
+              "top": 720,
+              "bottom": 768,
+              "width": 65.1875,
+              "height": 48
+            },
+            "name": "Voix"
+          },
+          {
+            "id": "mgContinue",
+            "visible": true,
+            "rect": {
+              "left": 349.375,
+              "right": 424,
+              "top": 716,
+              "bottom": 772,
+              "width": 74.625,
+              "height": 56
+            },
+            "name": null
+          },
+          {
+            "id": "mgListen",
+            "visible": true,
+            "rect": {
+              "left": 6,
+              "right": 424,
+              "top": 666,
+              "bottom": 710,
+              "width": 418,
+              "height": 44
+            },
+            "name": "Écouter la phrase"
+          }
+        ],
+        "fields": [
+          {
+            "id": "mgPhrase",
+            "ink": {
+              "left": 78.671875,
+              "right": 351.3125,
+              "top": 336.3125,
+              "bottom": 392.3125,
+              "width": 272.640625,
+              "height": 56
+            },
+            "text": "Es muy ligero."
+          },
+          {
+            "id": "mgPhon",
+            "ink": {
+              "left": 77.125,
+              "right": 302.875,
+              "top": 403.65625,
+              "bottom": 443.65625,
+              "width": 225.75,
+              "height": 40
+            },
+            "text": "és mouy li-RÉ-ro"
+          },
+          {
+            "id": "mgTranslation",
+            "ink": {
+              "left": 106.78125,
+              "right": 323.21875,
+              "top": 456,
+              "bottom": 498,
+              "width": 216.4375,
+              "height": 42
+            },
+            "text": "c'est très léger"
+          }
+        ],
+        "originalNodes": true
+      }
+    },
+    {
+      "name": "mirrored-native-reveal-and-hidden-state",
+      "actualMaskedState": true,
+      "hiddenDisabledPresentationFixture": true
+    }
+  ],
+  "errors": [],
+  "inputsStable": true
+}
