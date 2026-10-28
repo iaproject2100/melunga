@@ -1,0 +1,12 @@
+/* Presentation prototypes only: injected into local mobile captures, not loaded by the app. */
+@media(max-width:1100px){
+  body[data-photo-proposal] .mg-proposal-theme{display:inline-flex;align-items:center;flex:0 0 auto;gap:10px;min-height:44px;max-width:calc(100% - 94px)}
+  body[data-photo-proposal] .mg-proposal-theme #mgLessonTheme{flex:0 0 auto;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--mg-ink);font-size:17px;line-height:1.2;font-weight:800}
+  body[data-photo-proposal] .mg-proposal-theme .mg-theme-photo{display:block;flex:0 0 48px;width:48px;height:36px;min-width:0;min-height:0;margin:0;border-radius:11px;box-shadow:0 2px 6px var(--mg-shadow)}
+  body[data-photo-proposal="2"] .mg-proposal-theme{gap:10px;min-height:48px;padding:5px 13px 5px 5px;border:1px solid var(--mg-line);border-radius:17px;background:var(--mg-soft)}
+  body[data-photo-proposal="2"] .mg-proposal-theme .mg-theme-photo{flex-basis:44px;width:44px;height:33px;border-radius:11px;box-shadow:none}
+  body[data-photo-proposal="3"] .mg-lesson-top{min-height:48px;padding-bottom:7px;border-bottom:1px solid var(--mg-line)}
+  body[data-photo-proposal="3"] .mg-proposal-theme{gap:12px;min-height:48px}
+  body[data-photo-proposal="3"] .mg-proposal-theme .mg-theme-photo{flex-basis:64px;width:64px;height:48px;border-radius:12px}
+  body[data-photo-proposal="3"] .mg-proposal-theme #mgLessonTheme{font-size:19px}
+}
