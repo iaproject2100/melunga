@@ -1,0 +1,60 @@
+/* Visual proposals only. Original actions sit at the two ends of the dock. */
+@media(max-width:760px){
+  body[data-thumbs-proposal] .mg-mobile-dock{
+    left:8px;right:8px;bottom:calc(8px + var(--mg-dock-safe-area) + var(--mg-dock-obstruction,0px));
+    display:grid;grid-template-columns:minmax(50px,1.2fr) repeat(4,minmax(44px,1fr)) minmax(50px,1.2fr);
+    align-items:center;gap:1px;padding:4px;border-radius:18px;min-height:0;
+    background:var(--mg-dock-glass);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  }
+  body[data-thumbs-proposal] .mg-dock-settings,
+  body[data-thumbs-proposal] .mg-mobile-dock #mgFooter{display:contents;padding:0}
+  body[data-thumbs-proposal] .mg-dock-settings>.mg-round{height:48px;min-height:44px;grid-row:1;border-radius:12px}
+  body[data-thumbs-proposal] #mgLevelTrigger{grid-column:2}
+  body[data-thumbs-proposal] #mgLanguageTrigger{grid-column:3}
+  body[data-thumbs-proposal] #mgPalette{grid-column:4}
+  body[data-thumbs-proposal] #mgMenuTrigger{grid-column:5}
+  body[data-thumbs-proposal] .mg-mobile-dock #mgFooter>.mg-action{
+    grid-row:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;
+    width:100%;height:48px;min-height:44px;padding:2px 0;border:0;border-radius:12px;
+    font-size:11px;line-height:1.2;white-space:nowrap;box-shadow:none;
+  }
+  body[data-thumbs-proposal] .mg-mobile-dock #mgFooter>#mgReplay{grid-column:1;background:var(--mg-dock-review-glass);color:var(--mg-ink);box-shadow:inset 0 0 0 1px var(--mg-line)}
+  body[data-thumbs-proposal] .mg-mobile-dock #mgFooter>#mgContinue{grid-column:6;background:var(--mg-accent);color:var(--mg-accent-ink)}
+  body[data-thumbs-proposal] .mg-mobile-dock #mgFooter>.mg-action>svg{width:23px;height:23px;flex:0 0 23px}
+  body[data-thumbs-proposal] .mg-mobile-dock #mgFooter>.mg-action>span{overflow-wrap:normal}
+  body[data-thumbs-proposal] .mg-mobile-dock .mg-dock-next-label{order:0}
+  body[data-thumbs-proposal] .mg-dock-icon{background:transparent}
+  body[data-thumbs-proposal] #mgLevelTrigger .mg-dock-icon{background:linear-gradient(rgba(0,0,0,.04),rgba(0,0,0,.04)),var(--mg-level-color,#147e77)}
+  /* 1. Balanced glass capsule, with the two actions at opposite ends. */
+  body[data-thumbs-proposal="1"] .mg-mobile-dock #mgFooter>#mgReplay{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--mg-accent) 65%,transparent)}
+  /* 2. Two raised keys provide stronger thumb anchors. */
+  body[data-thumbs-proposal="2"] .mg-mobile-dock{padding-block:3px}
+  body[data-thumbs-proposal="2"] .mg-mobile-dock #mgFooter>.mg-action{height:56px;border-radius:14px;transform:translateY(-2px);box-shadow:0 4px 9px var(--mg-shadow)}
+  body[data-thumbs-proposal="2"] .mg-mobile-dock #mgFooter>#mgReplay{background:color-mix(in srgb,var(--mg-accent) 19%,var(--mg-dock-review-glass));box-shadow:inset 0 0 0 1px var(--mg-accent),0 4px 9px var(--mg-shadow)}
+  body[data-thumbs-proposal="2"] .mg-mobile-dock #mgFooter>.mg-action>svg{width:27px;height:27px;flex-basis:27px}
+  /* 3. Each thumb has its own key, with a separate settings capsule between them. */
+  body[data-thumbs-proposal="3"] .mg-mobile-dock{
+    left:6px;right:6px;grid-template-columns:minmax(54px,1.2fr) repeat(4,minmax(44px,1fr)) minmax(54px,1.2fr);
+    gap:4px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;
+  }
+  body[data-thumbs-proposal="3"] .mg-dock-settings{display:grid;grid-row:1;grid-column:2 / span 4;grid-template-columns:repeat(4,minmax(44px,1fr));gap:0;padding:4px 0;border-radius:17px;background:var(--mg-dock-glass);box-shadow:inset 0 0 0 1px var(--mg-dock-border);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+  body[data-thumbs-proposal="3"] .mg-dock-settings>#mgLevelTrigger,
+  body[data-thumbs-proposal="3"] .mg-dock-settings>#mgLanguageTrigger,
+  body[data-thumbs-proposal="3"] .mg-dock-settings>#mgPalette,
+  body[data-thumbs-proposal="3"] .mg-dock-settings>#mgMenuTrigger{grid-column:auto}
+  body[data-thumbs-proposal="3"] .mg-mobile-dock #mgFooter>.mg-action{height:56px;border-radius:17px}
+  body[data-thumbs-proposal="3"] .mg-mobile-dock #mgFooter>#mgReplay{background:var(--mg-dock-review-glass);box-shadow:inset 0 0 0 1px var(--mg-dock-border)}
+  /* 4. A keyboard-like edge-to-edge band gives more width to both actions. */
+  body[data-thumbs-proposal="4"] .mg-mobile-dock{
+    left:0;right:0;bottom:var(--mg-dock-obstruction,0px);grid-template-columns:minmax(62px,1fr) repeat(4,44px) minmax(62px,1fr);
+    gap:0;padding:5px 5px calc(5px + var(--mg-dock-safe-area));border-width:1px 0 0;border-radius:21px 21px 0 0;
+  }
+  body[data-thumbs-proposal="4"] .mg-mobile-dock #mgFooter>.mg-action{height:54px;border-radius:15px;font-size:12px}
+  body[data-thumbs-proposal="4"] .mg-mobile-dock #mgFooter>#mgReplay{background:color-mix(in srgb,var(--mg-accent) 16%,var(--mg-dock-review-glass));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--mg-accent) 65%,transparent)}
+  body[data-thumbs-proposal="4"] .mg-mobile-dock #mgFooter>.mg-action>svg{width:26px;height:26px;flex-basis:26px}
+  /* Themes have no learning actions. */
+  body[data-thumbs-proposal] .mg-mobile-dock:has(#mgFooter[hidden]){grid-template-columns:repeat(4,minmax(44px,1fr))}
+  body[data-thumbs-proposal] .mg-mobile-dock:has(#mgFooter[hidden]) .mg-dock-settings{display:contents}
+  body[data-thumbs-proposal] .mg-mobile-dock:has(#mgFooter[hidden]) .mg-dock-settings>.mg-round{grid-column:auto}
+  body[data-thumbs-proposal="3"] .mg-mobile-dock:has(#mgFooter[hidden]){gap:0;padding:4px;border-radius:17px;background:var(--mg-dock-glass);box-shadow:inset 0 0 0 1px var(--mg-dock-border)}
+}
