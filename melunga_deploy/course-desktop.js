@@ -10,6 +10,7 @@
     lessonTheme: byId('mgLessonTheme'), listen: byId('mgListen'), next: byId('mgContinue'),
     footer: byId('mgFooter'), done: byId('mgDone'), tools: byId('mgModelTools'),
     reading: byId('mgReadingToggle'),
+    topbar: document.querySelector('.mg-topbar'), counter: byId('mgCounter'),
     level: byId('mgLevelTrigger'), language: byId('mgLanguageTrigger'), palette: byId('mgPalette'),
     phonrow: byId('mgPhonrow'), phon: byId('mgPhon'),
     themeGrid: byId('mgThemeGrid'), themeTitle: byId('mgThemeHeading'),
@@ -281,6 +282,10 @@
     dock.className = 'mg-mobile-dock';
     const settings = document.createElement('div');
     settings.className = 'mg-dock-settings';
+    const context = document.createElement('div');
+    context.className = 'mg-mobile-context';
+    context.setAttribute('role', 'group');
+    nodes.counter.before(context);
     const children = new Map(), captions = new Map();
     for (const button of [nodes.level, nodes.language, nodes.palette, nodes.menu]) {
       const original = [...button.childNodes];
@@ -294,18 +299,24 @@
       button.classList.add('mg-dock-control');
       children.set(button, original);
       captions.set(button, caption);
-      moveMobile(button, settings);
+      moveMobile(button, button === nodes.level || button === nodes.language ? context : settings);
     }
     const nextLabel = document.createElement('span');
     nextLabel.className = 'mg-dock-next-label';
     nodes.next.append(nextLabel);
+    const listenLabel = document.createElement('span');
+    listenLabel.className = 'mg-dock-listen-label';
+    nodes.listen.append(listenLabel);
+    nodes.listen.classList.add('mg-dock-listen');
     nodes.footer.classList.add('mg-dock-actions');
+    moveMobile(nodes.listen, dock);
     dock.append(settings);
     moveMobile(nodes.footer, dock);
     nodes.app.append(dock);
     document.body.classList.add('mg-mobile-dock-course');
     const resizeObserver = typeof ResizeObserver === 'function' ? new ResizeObserver(schedule) : null;
-    mobileDock = {dock, settings, children, captions, nextLabel, resizeObserver};
+    mobileDock = {dock, settings, context, children, captions, nextLabel, listenLabel,
+      shortcuts:new Map(), resizeObserver};
     resizeObserver?.observe(dock);
     moved = true;
   }
@@ -322,8 +333,13 @@
       button.replaceChildren(...children);
       button.classList.remove('mg-dock-control');
     }
+    for (const shortcut of mobileDock.shortcuts.values()) restoreShortcutClasses(shortcut);
     nodes.footer.classList.remove('mg-dock-actions');
+    nodes.listen.classList.remove('mg-dock-listen');
+    nodes.tools.classList.remove('mg-dock-tools-empty');
     mobileDock.nextLabel.remove();
+    mobileDock.listenLabel.remove();
+    mobileDock.context.remove();
     mobileDock.dock.remove();
     document.body.classList.remove('mg-mobile-dock-course');
     for (const property of ['--mg-mobile-dock-space', '--mg-dock-usable-height', '--mg-dock-obstruction']) {
@@ -331,6 +347,50 @@
     }
     mobileDock = null;
     moved = true;
+  }
+
+  function restoreShortcutClasses(shortcut) {
+    for (const [node, value] of [[shortcut.button, shortcut.buttonClass], [shortcut.icon, shortcut.iconClass],
+      [shortcut.caption, shortcut.captionClass]]) {
+      if (value === null) node.removeAttribute('class');
+      else node.setAttribute('class', value);
+    }
+  }
+
+  function refreshMobileShortcuts() {
+    for (const panel of ['review', 'voice']) {
+      const source = nodes.nav.querySelector('[data-menu-item="' + panel + '"]');
+      const current = mobileDock.shortcuts.get(panel);
+      const marker = current && mobileSlots.get(current.button);
+      if (current && (!marker?.parentNode || source && source !== current.button)) {
+        restoreShortcutClasses(current);
+        current.button.remove();
+        marker?.remove();
+        mobileSlots.delete(current.button);
+        mobileDock.shortcuts.delete(panel);
+        moved = true;
+      }
+      if (source && !mobileDock.shortcuts.has(panel)) {
+        const icon = source.firstElementChild, caption = source.lastElementChild;
+        if (!icon || !caption || icon === caption) continue;
+        const shortcut = {button:source, icon, caption, buttonClass:source.getAttribute('class'),
+          iconClass:icon.getAttribute('class'), captionClass:caption.getAttribute('class')};
+        source.className = 'mg-round mg-dock-control mg-dock-shortcut';
+        icon.className = 'mg-dock-icon';
+        caption.className = 'mg-dock-shortcut-label';
+        mobileDock.shortcuts.set(panel, shortcut);
+        moveMobile(source, mobileDock.settings);
+      }
+    }
+    const ordered = ['review', 'voice'].map(panel => mobileDock.shortcuts.get(panel)?.button)
+      .filter(Boolean).concat(nodes.palette, nodes.menu);
+    for (let index = 0; index < ordered.length; index += 1) {
+      const button = ordered[index], before = mobileDock.settings.children[index];
+      if (before !== button) {
+        mobileDock.settings.insertBefore(button, before || null);
+        moved = true;
+      }
+    }
   }
 
   function setMobileProperty(name, value) {
@@ -364,15 +424,26 @@
 
   function refreshMobileDock() {
     if (!mobileDock) createMobileDock();
+    refreshMobileShortcuts();
     const native = locale();
     const t = key => window.MelungaCourseI18n?.t(native, key) || key;
     for (const [button, value] of [[nodes.level, t('Niveau')], [nodes.language, mobileLabels[native].language],
       [nodes.palette, t('Couleur')], [nodes.menu, t('Menu')]]) setText(mobileDock.captions.get(button), value);
     setText(mobileDock.nextLabel, mobileLabels[native].nextStep);
+    setText(mobileDock.listenLabel, nodes.listen.getAttribute('aria-label') || nodes.listen.title || t('Écouter la phrase'));
     const description = t('Rubriques');
     if (mobileDock.dock.getAttribute('aria-label') !== description) mobileDock.dock.setAttribute('aria-label', description);
+    const contextDescription = t('Niveau') + ' · ' + mobileLabels[native].language;
+    if (mobileDock.context.getAttribute('aria-label') !== contextDescription) mobileDock.context.setAttribute('aria-label', contextDescription);
     const inactive = document.body.dataset.view === 'loading';
     if (mobileDock.dock.inert !== inactive) mobileDock.dock.inert = inactive;
+    if (mobileDock.context.inert !== inactive) mobileDock.context.inert = inactive;
+    const hasListen = document.body.dataset.view === 'lesson' && !nodes.listen.hidden && !nodes.model.hidden;
+    if (mobileDock.dock.classList.contains('mg-dock-has-listen') !== hasListen) {
+      mobileDock.dock.classList.toggle('mg-dock-has-listen', hasListen);
+      moved = true;
+    }
+    nodes.tools.classList.toggle('mg-dock-tools-empty', nodes.reading.hidden);
     measureMobileDock();
   }
 
@@ -427,6 +498,7 @@
   const observer = new MutationObserver(schedule);
   observer.observe(document.body, {attributes: true, attributeFilter: ['data-view'], childList: true});
   observer.observe(nodes.footer, {attributes: true, attributeFilter: ['hidden']});
+  observer.observe(nodes.model, {attributes:true, attributeFilter:['hidden']});
   observer.observe(nodes.nav, {childList: true});
   observer.observe(nodes.themeGrid, {childList: true});
   observer.observe(nodes.themeTitle, {childList: true, characterData: true, subtree: true});
