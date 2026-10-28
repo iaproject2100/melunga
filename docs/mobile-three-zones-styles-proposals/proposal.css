@@ -1,0 +1,60 @@
+/* Review-only styling of the selected three-zone mobile layout. */
+@media(max-width:760px){
+  body[data-action-style]{
+    --thumb-review-bg:#e8f3f1;--thumb-review-ink:#145b57;
+    --thumb-next-bg:#147d78;--thumb-next-ink:#fff;
+    --thumb-review-shadow:inset 0 0 0 1px #92bdb6,0 2px 7px rgba(18,71,67,.12);
+    --thumb-next-shadow:0 2px 8px rgba(9,66,62,.2);
+  }
+  body[data-action-style] .mg-mobile-dock{
+    left:6px;right:6px;bottom:calc(8px + var(--mg-dock-safe-area) + var(--mg-dock-obstruction,0px));
+    display:grid;grid-template-columns:minmax(54px,1.2fr) repeat(4,minmax(44px,1fr)) minmax(54px,1.2fr);
+    align-items:center;gap:4px;min-height:0;padding:0;border:0;border-radius:0;
+    background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;
+  }
+  body[data-action-style] .mg-dock-settings{
+    display:grid;grid-row:1;grid-column:2 / span 4;grid-template-columns:repeat(4,minmax(44px,1fr));gap:0;padding:4px 0;
+    border-radius:17px;background:var(--mg-dock-glass);box-shadow:inset 0 0 0 1px var(--mg-dock-border);
+    backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  }
+  body[data-action-style] .mg-dock-settings>.mg-round{grid-row:1;grid-column:auto;height:48px;min-height:44px;border-radius:12px}
+  body[data-action-style] .mg-dock-icon{background:transparent}
+  body[data-action-style] #mgLevelTrigger .mg-dock-icon{background:linear-gradient(rgba(0,0,0,.04),rgba(0,0,0,.04)),var(--mg-level-color,#147e77)}
+  body[data-action-style] .mg-mobile-dock #mgFooter{display:contents;padding:0}
+  body[data-action-style] .mg-mobile-dock #mgFooter>.mg-action{
+    grid-row:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;
+    width:100%;height:56px;min-height:44px;padding:2px 0;border:0;border-radius:17px;
+    font-size:11px;line-height:1.2;white-space:nowrap;filter:none;
+  }
+  body[data-action-style] .mg-mobile-dock #mgFooter>.mg-action>svg{width:23px;height:23px;flex:0 0 23px}
+  body[data-action-style] .mg-mobile-dock #mgFooter>.mg-action>span{overflow-wrap:normal}
+  body[data-action-style] .mg-mobile-dock .mg-dock-next-label{order:0}
+  body[data-action-style] .mg-mobile-dock #mgFooter>#mgReplay{grid-column:1;background:var(--thumb-review-bg);color:var(--thumb-review-ink);box-shadow:var(--thumb-review-shadow)}
+  body[data-action-style] .mg-mobile-dock #mgFooter>#mgContinue{grid-column:6;background:var(--thumb-next-bg);color:var(--thumb-next-ink);box-shadow:var(--thumb-next-shadow)}
+  /* 1. Quiet turquoise, with a clear primary action. */
+  /* 2. Blue raised keys. */
+  body[data-action-style="2"]{
+    --thumb-review-bg:linear-gradient(#f1f6ff,#dce8fa);--thumb-review-ink:#234f88;
+    --thumb-next-bg:linear-gradient(#2f69b4,#1d4b8b);--thumb-next-ink:#fff;
+    --thumb-review-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 0 0 1px #a9bfdf,0 3px 0 #879dbd,0 5px 10px rgba(25,46,85,.2);
+    --thumb-next-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 3px 0 #143b70,0 5px 10px rgba(20,40,80,.25);
+  }
+  /* 3. Frosted light glass and deep plum glass. */
+  body[data-action-style="3"]{
+    --thumb-review-bg:rgba(255,255,255,.7);--thumb-review-ink:#3c2c4b;
+    --thumb-next-bg:rgba(78,45,99,.93);--thumb-next-ink:#fff;
+    --thumb-review-shadow:inset 0 1px 0 #fff,inset 0 0 0 1px rgba(255,255,255,.8),0 3px 10px rgba(53,30,68,.12);
+    --thumb-next-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 0 0 1px rgba(255,255,255,.45),0 3px 10px rgba(53,30,68,.2);
+  }
+  body[data-action-style="3"] .mg-mobile-dock #mgFooter>.mg-action{backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+  /* 4. Warm ivory and amber, with a soft keycap bevel. */
+  body[data-action-style="4"]{
+    --thumb-review-bg:linear-gradient(#fff8e9,#f5e5c4);--thumb-review-ink:#65491e;
+    --thumb-next-bg:linear-gradient(#ffda86,#edb74f);--thumb-next-ink:#49310d;
+    --thumb-review-shadow:inset 0 2px 0 rgba(255,255,255,.95),inset 0 0 0 1px #c7ad7d,0 3px 0 #ab8c62,0 5px 10px rgba(80,52,24,.18);
+    --thumb-next-shadow:inset 0 2px 0 rgba(255,255,255,.7),inset 0 0 0 1px #c28c30,0 3px 0 #a37526,0 5px 10px rgba(80,52,24,.2);
+  }
+  /* The themes screen retains the selected central capsule, with no lesson actions. */
+  body[data-action-style] .mg-mobile-dock:has(#mgFooter[hidden]){grid-template-columns:repeat(4,minmax(44px,1fr));gap:0;padding:4px;border-radius:17px;background:var(--mg-dock-glass);box-shadow:inset 0 0 0 1px var(--mg-dock-border)}
+  body[data-action-style] .mg-mobile-dock:has(#mgFooter[hidden]) .mg-dock-settings{display:contents}
+}
