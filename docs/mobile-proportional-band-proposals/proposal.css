@@ -1,0 +1,54 @@
+/* Review-only: four slim mobile bands, using the original course controls. */
+@media(max-width:760px){
+  body[data-band-proposal] .mg-mobile-dock{
+    left:8px;right:8px;bottom:calc(8px + var(--mg-dock-safe-area) + var(--mg-dock-obstruction,0px));
+    display:grid;grid-template-columns:repeat(4,minmax(44px,1fr)) repeat(2,minmax(50px,1.2fr));
+    align-items:center;gap:1px;padding:4px;border-radius:18px;min-height:0;
+  }
+  body[data-band-proposal] .mg-dock-settings,
+  body[data-band-proposal] .mg-mobile-dock #mgFooter{display:contents;padding:0}
+  body[data-band-proposal] .mg-dock-settings>.mg-round{height:48px;min-height:44px;border-radius:12px}
+  body[data-band-proposal] .mg-mobile-dock #mgFooter>.mg-action{
+    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;
+    width:100%;height:48px;min-height:44px;padding:2px 0;border:0;border-radius:12px;
+    font-size:11px;line-height:1.2;white-space:nowrap;background:transparent;
+  }
+  body[data-band-proposal] .mg-mobile-dock #mgFooter>.mg-action>svg{width:22px;height:22px;flex:0 0 22px}
+  body[data-band-proposal] .mg-mobile-dock #mgFooter>.mg-action>span{overflow-wrap:normal}
+  body[data-band-proposal] .mg-mobile-dock .mg-dock-next-label{order:0}
+  body[data-band-proposal] .mg-mobile-dock #mgFooter>#mgContinue{background:var(--mg-accent);color:var(--mg-accent-ink)}
+  body[data-band-proposal] .mg-dock-icon{background:transparent}
+  body[data-band-proposal] #mgLevelTrigger .mg-dock-icon{background:linear-gradient(rgba(0,0,0,.04),rgba(0,0,0,.04)),var(--mg-level-color,#147e77)}
+  /* 1. Edge-to-edge, like a native app tab bar. */
+  body[data-band-proposal="1"] .mg-mobile-dock{
+    left:0;right:0;bottom:var(--mg-dock-obstruction,0px);gap:0;padding:4px 6px calc(4px + var(--mg-dock-safe-area));
+    border-width:1px 0 0;border-radius:18px 18px 0 0;box-shadow:0 -3px 16px var(--mg-shadow);
+    background:#14243b;
+  }
+  body[data-band-proposal="1"][data-ambience="legacy-plum"] .mg-mobile-dock{background:#f8e8f3}
+  body[data-band-proposal="1"][data-ambience="dusk"] .mg-mobile-dock{background:#f6e6d8}
+  body[data-band-proposal="1"] .mg-mobile-dock #mgFooter>#mgContinue{background:transparent;color:var(--mg-ink)}
+  body[data-band-proposal="1"] .mg-mobile-dock #mgFooter>#mgContinue>svg{background:var(--mg-accent);color:var(--mg-accent-ink);border-radius:7px;padding:2px;box-sizing:content-box;width:18px;height:18px;flex-basis:18px}
+  /* 2. A single, translucent floating capsule. */
+  body[data-band-proposal="2"] .mg-mobile-dock{background:var(--mg-dock-glass);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+  /* 3. Settings and learning actions in two distinct, aligned groups. */
+  body[data-band-proposal="3"] .mg-mobile-dock{
+    left:6px;right:6px;grid-template-columns:minmax(176px,3fr) minmax(116px,2fr);gap:6px;
+    padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;
+  }
+  body[data-band-proposal="3"] .mg-dock-settings{display:grid;grid-template-columns:repeat(4,minmax(44px,1fr));gap:0;padding:4px 0;border-radius:17px;background:var(--mg-dock-glass);box-shadow:inset 0 0 0 1px var(--mg-dock-border);backdrop-filter:blur(22px)}
+  body[data-band-proposal="3"] .mg-mobile-dock #mgFooter{display:grid;grid-template-columns:repeat(2,minmax(50px,1fr));gap:3px;padding:4px 0}
+  body[data-band-proposal="3"] .mg-mobile-dock #mgFooter>#mgReplay{background:var(--mg-dock-review-glass);box-shadow:inset 0 0 0 1px var(--mg-dock-border)}
+  /* 4. A slim rail with a more prominent Next target. */
+  body[data-band-proposal="4"] .mg-mobile-dock{
+    left:0;right:0;bottom:var(--mg-dock-obstruction,0px);grid-template-columns:repeat(4,minmax(44px,1fr)) minmax(50px,1.15fr) minmax(62px,1.4fr);
+    gap:0;padding:2px 5px calc(2px + var(--mg-dock-safe-area));border-width:1px 0 0;border-radius:0;
+    background:var(--mg-dock-glass);box-shadow:0 -2px 14px var(--mg-shadow);
+  }
+  body[data-band-proposal="4"] .mg-mobile-dock #mgFooter>#mgContinue{height:58px;transform:translateY(-6px);border-radius:17px;box-shadow:0 4px 12px var(--mg-shadow)}
+  body[data-band-proposal="4"] .mg-mobile-dock #mgFooter>#mgContinue>svg{width:26px;height:26px;flex-basis:26px}
+  /* The themes screen has only the four settings controls. */
+  body[data-band-proposal] .mg-mobile-dock:has(#mgFooter[hidden]){grid-template-columns:repeat(4,minmax(44px,1fr))}
+  body[data-band-proposal] .mg-mobile-dock:has(#mgFooter[hidden]) .mg-dock-settings{display:contents}
+  body[data-band-proposal="3"] .mg-mobile-dock:has(#mgFooter[hidden]){gap:0;padding:4px;border-radius:17px;background:var(--mg-dock-glass);box-shadow:inset 0 0 0 1px var(--mg-dock-border)}
+}
