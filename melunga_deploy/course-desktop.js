@@ -1,4 +1,4 @@
-/* Responsive presentation: desktop controls and the approved mobile theme thumbnail. */
+/* Responsive presentation: desktop controls, the mobile thumbnail and the approved mobile dock. */
 (() => {
   'use strict';
 
@@ -10,6 +10,7 @@
     lessonTheme: byId('mgLessonTheme'), listen: byId('mgListen'), next: byId('mgContinue'),
     footer: byId('mgFooter'), done: byId('mgDone'), tools: byId('mgModelTools'),
     reading: byId('mgReadingToggle'),
+    level: byId('mgLevelTrigger'), language: byId('mgLanguageTrigger'), palette: byId('mgPalette'),
     phonrow: byId('mgPhonrow'), phon: byId('mgPhon'),
     themeGrid: byId('mgThemeGrid'), themeTitle: byId('mgThemeHeading'),
     themeHeading: document.querySelector('#mgThemeView .mg-sectionhead'),
@@ -18,7 +19,9 @@
   if (Object.values(nodes).some(node => !node)) return;
 
   const media = window.matchMedia('(min-width: 1101px)');
+  const mobileMedia = window.matchMedia('(max-width: 760px)');
   const slots = new Map();
+  const mobileSlots = new Map();
   const gridVisibility = new Map();
   const labels = {
     fr: {previous:'Précédents', next:'Suivants', pages:'Pages de thèmes', of:'sur', phonetic:'Phonétique', terms:'Conditions générales', privacy:'Confidentialité', legal:'Documents juridiques'},
@@ -29,7 +32,17 @@
     ja: {previous:'前へ', next:'次へ', pages:'テーマのページ', of:'/', phonetic:'発音ガイド', terms:'利用規約', privacy:'プライバシー', legal:'法的文書'},
     ko: {previous:'이전', next:'다음', pages:'주제 페이지', of:'/', phonetic:'발음 표기', terms:'이용약관', privacy:'개인정보', legal:'법적 문서'}
   };
+  const mobileLabels = {
+    fr: {language:'Langue', nextStep:'Suivant'},
+    en: {language:'Language', nextStep:'Next'},
+    es: {language:'Idioma', nextStep:'Siguiente'},
+    it: {language:'Lingua', nextStep:'Avanti'},
+    zh: {language:'语言', nextStep:'下一步'},
+    ja: {language:'言語', nextStep:'次へ'},
+    ko: {language:'언어', nextStep:'다음'}
+  };
   let layout = null, pending = 0, moved = false;
+  let mobileDock = null;
   let mobilePhoto = null, mobilePhotoSource = null;
   let pageIndex = 0, pageKey = '', firstGridNode = null, previousView = '', selectedThemeId = null;
   const locale = () => {
@@ -252,13 +265,127 @@
     nodes.lessonTheme.parentElement.classList.add('mg-has-theme-photo');
   }
 
+  function moveMobile(node, parent) {
+    if (node.parentNode === parent) return;
+    if (!mobileSlots.has(node)) {
+      const marker = document.createComment('mobile dock slot');
+      node.before(marker);
+      mobileSlots.set(node, marker);
+    }
+    parent.append(node);
+    moved = true;
+  }
+
+  function createMobileDock() {
+    const dock = document.createElement('nav');
+    dock.className = 'mg-mobile-dock';
+    const settings = document.createElement('div');
+    settings.className = 'mg-dock-settings';
+    const children = new Map(), captions = new Map();
+    for (const button of [nodes.level, nodes.language, nodes.palette, nodes.menu]) {
+      const original = [...button.childNodes];
+      const icon = document.createElement('span');
+      icon.className = 'mg-dock-icon';
+      icon.setAttribute('aria-hidden', 'true');
+      icon.append(...original);
+      const caption = document.createElement('span');
+      caption.className = 'mg-dock-label';
+      button.replaceChildren(icon, caption);
+      button.classList.add('mg-dock-control');
+      children.set(button, original);
+      captions.set(button, caption);
+      moveMobile(button, settings);
+    }
+    const nextLabel = document.createElement('span');
+    nextLabel.className = 'mg-dock-next-label';
+    nodes.next.append(nextLabel);
+    nodes.footer.classList.add('mg-dock-actions');
+    dock.append(settings);
+    moveMobile(nodes.footer, dock);
+    nodes.app.append(dock);
+    document.body.classList.add('mg-mobile-dock-course');
+    const resizeObserver = typeof ResizeObserver === 'function' ? new ResizeObserver(schedule) : null;
+    mobileDock = {dock, settings, children, captions, nextLabel, resizeObserver};
+    resizeObserver?.observe(dock);
+    moved = true;
+  }
+
+  function restoreMobileDock() {
+    if (!mobileDock) return;
+    mobileDock.resizeObserver?.disconnect();
+    for (const [node, marker] of [...mobileSlots.entries()].reverse()) {
+      if (marker.parentNode) marker.after(node);
+    }
+    for (const marker of mobileSlots.values()) marker.remove();
+    mobileSlots.clear();
+    for (const [button, children] of mobileDock.children) {
+      button.replaceChildren(...children);
+      button.classList.remove('mg-dock-control');
+    }
+    nodes.footer.classList.remove('mg-dock-actions');
+    mobileDock.nextLabel.remove();
+    mobileDock.dock.remove();
+    document.body.classList.remove('mg-mobile-dock-course');
+    for (const property of ['--mg-mobile-dock-space', '--mg-dock-usable-height', '--mg-dock-obstruction']) {
+      document.body.style.removeProperty(property);
+    }
+    mobileDock = null;
+    moved = true;
+  }
+
+  function setMobileProperty(name, value) {
+    if (document.body.style.getPropertyValue(name) !== value) {
+      document.body.style.setProperty(name, value);
+      moved = true;
+    }
+  }
+
+  function measureMobileDock() {
+    const viewport = window.visualViewport;
+    let usableHeight = viewport && viewport.scale === 1
+      ? Math.min(window.innerHeight, viewport.height) : window.innerHeight;
+    // Match the core's external preview-toolbar reservation without changing its variable.
+    for (const element of document.body.children) {
+      if (element.matches('.mg-app,.mg-previewnotice,.mg-card-toast,dialog,script,style')) continue;
+      const bounds = element.getBoundingClientRect();
+      if (getComputedStyle(element).position === 'fixed' && bounds.width >= window.innerWidth * 0.4
+          && bounds.height >= 20 && bounds.height <= 180 && bounds.top >= window.innerHeight * 0.6
+          && bounds.bottom >= window.innerHeight - 4) usableHeight = Math.min(usableHeight, bounds.top - 6);
+    }
+    usableHeight = Math.max(0, Math.floor(usableHeight));
+    const obstruction = Math.max(0, window.innerHeight - usableHeight);
+    setMobileProperty('--mg-dock-usable-height', usableHeight + 'px');
+    setMobileProperty('--mg-dock-obstruction', obstruction + 'px');
+    const bottom = parseFloat(getComputedStyle(mobileDock.dock).bottom) || 0;
+    const height = mobileDock.dock.getBoundingClientRect().height;
+    const space = Math.ceil(height + Math.max(0, bottom - obstruction) + 8);
+    setMobileProperty('--mg-mobile-dock-space', space + 'px');
+  }
+
+  function refreshMobileDock() {
+    if (!mobileDock) createMobileDock();
+    const native = locale();
+    const t = key => window.MelungaCourseI18n?.t(native, key) || key;
+    for (const [button, value] of [[nodes.level, t('Niveau')], [nodes.language, mobileLabels[native].language],
+      [nodes.palette, t('Couleur')], [nodes.menu, t('Menu')]]) setText(mobileDock.captions.get(button), value);
+    setText(mobileDock.nextLabel, mobileLabels[native].nextStep);
+    const description = t('Rubriques');
+    if (mobileDock.dock.getAttribute('aria-label') !== description) mobileDock.dock.setAttribute('aria-label', description);
+    const inactive = document.body.dataset.view === 'loading';
+    if (mobileDock.dock.inert !== inactive) mobileDock.dock.inert = inactive;
+    measureMobileDock();
+  }
+
   function refresh() {
     pending = 0;
     moved = false;
     if (!media.matches) {
       restoreLayout();
       refreshMobilePhoto();
+      if (mobileMedia.matches) refreshMobileDock();
+      else restoreMobileDock();
     } else {
+      restoreMobileDock();
       removeMobilePhoto();
       if (!layout) createLayout();
       move(nodes.brand, layout.header);
@@ -298,7 +425,8 @@
   }
 
   const observer = new MutationObserver(schedule);
-  observer.observe(document.body, {attributes: true, attributeFilter: ['data-view']});
+  observer.observe(document.body, {attributes: true, attributeFilter: ['data-view'], childList: true});
+  observer.observe(nodes.footer, {attributes: true, attributeFilter: ['hidden']});
   observer.observe(nodes.nav, {childList: true});
   observer.observe(nodes.themeGrid, {childList: true});
   observer.observe(nodes.themeTitle, {childList: true, characterData: true, subtree: true});
@@ -312,6 +440,10 @@
   observer.observe(nodes.reading, {attributes: true, attributeFilter: ['hidden']});
   if (media.addEventListener) media.addEventListener('change', schedule);
   else media.addListener(schedule);
+  if (mobileMedia.addEventListener) mobileMedia.addEventListener('change', schedule);
+  else mobileMedia.addListener(schedule);
+  window.addEventListener('resize', schedule);
+  window.visualViewport?.addEventListener('resize', schedule);
   window.MelungaDesktopCourse = Object.freeze({refresh: schedule});
   schedule();
 })();

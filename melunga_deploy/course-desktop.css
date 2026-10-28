@@ -69,3 +69,32 @@
   .mg-lesson-top.mg-has-theme-photo>.mg-mobile-theme-photo{display:block;flex:0 0 48px;width:48px;height:36px;min-width:0;min-height:0;margin:0 2px 0 0;border-radius:11px;box-shadow:0 2px 6px var(--mg-shadow)}
   .mg-lesson-top.mg-has-theme-photo>#mgLessonTheme{flex:0 0 auto;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--mg-ink);font-size:17px;line-height:1.2;font-weight:800}
 }
+
+.mg-mobile-dock,.mg-dock-next-label{display:none}
+
+/* Mobile dock B: the original settings and action footer share one glass surface. */
+@media(max-width:760px){
+  body.mg-mobile-dock-course{--mg-dock-safe-area:env(safe-area-inset-bottom,0px);--mg-mobile-dock-space:calc(148px + var(--mg-dock-safe-area));--mg-dock-glass:rgba(8,17,31,.78);--mg-dock-border:rgba(235,250,255,.3);--mg-dock-icon-glass:rgba(255,255,255,.1);--mg-dock-review-glass:rgba(255,255,255,.1)}
+  body.mg-mobile-dock-course:is([data-ambience="dusk"],[data-ambience="legacy-gamified"],[data-ambience="legacy-zen"],[data-ambience="legacy-plum"],[data-ambience="legacy-cafe"]){--mg-dock-glass:rgba(255,255,255,.36);--mg-dock-border:rgba(255,255,255,.65);--mg-dock-icon-glass:rgba(255,255,255,.25);--mg-dock-review-glass:rgba(255,255,255,.38)}
+  body.mg-mobile-dock-course .mg-app{height:calc(var(--mg-dock-usable-height,100dvh) - var(--mg-mobile-dock-space))}
+  body.mg-mobile-dock-course .mg-controls{display:none}
+  body.mg-mobile-dock-course .mg-sidebar{padding-bottom:10px}
+  .mg-mobile-dock{position:fixed;z-index:20;left:14px;right:14px;bottom:calc(10px + var(--mg-dock-safe-area) + var(--mg-dock-obstruction,0px));display:grid;grid-template-columns:minmax(0,1fr);gap:8px;min-height:72px;padding:8px 10px 10px;border:1px solid var(--mg-dock-border);border-radius:27px;background:var(--mg-dock-glass);color:var(--mg-ink);box-shadow:0 7px 25px var(--mg-shadow);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+  .mg-dock-settings{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;min-width:0}
+  .mg-dock-settings>.mg-round{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:none;width:100%;height:52px;min-width:44px;min-height:44px;margin:0;padding:0;border:0;border-radius:15px;overflow:visible;background:transparent;color:var(--mg-ink);box-shadow:none;font-family:inherit;font-size:11px;line-height:1.2;font-weight:650}
+  .mg-dock-icon{display:flex;align-items:center;justify-content:center;flex:none;width:30px;height:30px;border-radius:10px;background:var(--mg-dock-icon-glass);font-size:16px;font-weight:800}
+  .mg-dock-icon>svg{width:23px;height:23px}
+  .mg-dock-icon>.mg-colorwheel{width:26px;height:26px}
+  #mgLevelTrigger .mg-dock-icon{background:linear-gradient(rgba(0,0,0,.04),rgba(0,0,0,.04)),var(--mg-level-color,#147e77);color:#fff}
+  .mg-dock-label{font-size:11px;font-weight:650;white-space:nowrap;letter-spacing:0;line-height:1.2}
+  .mg-mobile-dock .mg-dock-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:8px;width:100%;min-width:0;margin:0;padding:0}
+  .mg-dock-actions>.mg-action{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:8px;flex:none;width:100%;height:auto;min-width:44px;min-height:48px;margin:0;padding:9px 8px;border:1px solid var(--mg-line);border-radius:17px;background:var(--mg-dock-review-glass);color:var(--mg-ink);box-shadow:none;font-size:clamp(12px,3.6vw,14px);font-weight:700;line-height:1.2;white-space:normal}
+  .mg-dock-actions>.mg-action>svg{width:21px;height:21px;flex:0 0 21px}
+  .mg-dock-actions>.mg-action>span{min-width:0;overflow-wrap:anywhere}
+  .mg-dock-actions>#mgContinue{background:var(--mg-accent);color:var(--mg-accent-ink);border-color:transparent}
+  .mg-mobile-dock .mg-action:hover,.mg-mobile-dock #mgLevelTrigger:hover{filter:none}
+  .mg-mobile-dock .mg-dock-next-label{display:none;order:-1}
+  body[data-view="lesson"] .mg-mobile-dock #mgContinueText{display:none}
+  body[data-view="lesson"] .mg-mobile-dock .mg-dock-next-label{display:inline}
+  body.mg-mobile-dock-course .mg-card-toast{bottom:calc(var(--mg-mobile-dock-space) + var(--mg-dock-obstruction,0px) + 8px)}
+}
