@@ -63,3 +63,9 @@
   body.mg-desktop-course #mgFooter>#mgListen svg{width:24px;height:24px;flex:0 0 24px}
   body.mg-desktop-course .mg-done{min-height:0;padding:18px 8px;gap:20px}
 }
+
+/* Approved mobile option 1: the original photo beside the existing number. */
+@media(max-width:1100px){
+  .mg-lesson-top.mg-has-theme-photo>.mg-mobile-theme-photo{display:block;flex:0 0 48px;width:48px;height:36px;min-width:0;min-height:0;margin:0 2px 0 0;border-radius:11px;box-shadow:0 2px 6px var(--mg-shadow)}
+  .mg-lesson-top.mg-has-theme-photo>#mgLessonTheme{flex:0 0 auto;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--mg-ink);font-size:17px;line-height:1.2;font-weight:800}
+}

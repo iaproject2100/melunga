@@ -1,4 +1,4 @@
-/* Desktop presentation only: move existing controls, then restore their exact slots. */
+/* Responsive presentation: desktop controls and the approved mobile theme thumbnail. */
 (() => {
   'use strict';
 
@@ -30,6 +30,7 @@
     ko: {previous:'이전', next:'다음', pages:'주제 페이지', of:'/', phonetic:'발음 표기', terms:'이용약관', privacy:'개인정보', legal:'법적 문서'}
   };
   let layout = null, pending = 0, moved = false;
+  let mobilePhoto = null, mobilePhotoSource = null;
   let pageIndex = 0, pageKey = '', firstGridNode = null, previousView = '', selectedThemeId = null;
   const locale = () => {
     const value = document.documentElement.lang.split('-')[0];
@@ -217,12 +218,48 @@
     setText(layout.levelTitle, hasTheme ? nodes.themeTitle.textContent : '');
   }
 
+  function removeMobilePhoto() {
+    if (mobilePhoto) {
+      mobilePhoto.remove();
+      mobilePhoto = mobilePhotoSource = null;
+      moved = true;
+    }
+    nodes.lessonTheme.parentElement.classList.remove('mg-has-theme-photo');
+  }
+
+  function refreshMobilePhoto() {
+    const selected = window.MelungaMockup?.state();
+    const hasTheme = ['lesson', 'done'].includes(document.body.dataset.view) && selected?.themeId;
+    const tile = hasTheme ? [...nodes.themeGrid.children].find(node => node.dataset.themeId === selected.themeId) : null;
+    const source = tile?.querySelector('.mg-theme-photo');
+    if (!source) {removeMobilePhoto(); return;}
+    if (mobilePhotoSource !== source || !mobilePhoto?.isConnected) {
+      const copy = source.cloneNode(true);
+      copy.classList.add('mg-mobile-theme-photo');
+      copy.setAttribute('aria-hidden', 'true');
+      const image = copy.querySelector('img');
+      if (image) {
+        image.loading = 'eager';
+        image.alt = '';
+        image.addEventListener('error', () => image.remove(), {once:true});
+      }
+      if (mobilePhoto) mobilePhoto.replaceWith(copy);
+      else nodes.lessonTheme.before(copy);
+      mobilePhoto = copy;
+      mobilePhotoSource = source;
+      moved = true;
+    }
+    nodes.lessonTheme.parentElement.classList.add('mg-has-theme-photo');
+  }
+
   function refresh() {
     pending = 0;
     moved = false;
     if (!media.matches) {
       restoreLayout();
+      refreshMobilePhoto();
     } else {
+      removeMobilePhoto();
       if (!layout) createLayout();
       move(nodes.brand, layout.header);
       // Keep this whole node: buildMenu() replaces its children on each course change.
