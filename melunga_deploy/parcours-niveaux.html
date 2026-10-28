@@ -60,23 +60,23 @@
   <style>
     .mg-presentation-boot{display:none}
     html.course-presentation-pending .mg-app,html.course-presentation-pending .mg-mobile-dock{visibility:hidden!important}
-    html.course-presentation-pending .mg-presentation-boot{position:fixed;inset:0;z-index:2147483000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;background:linear-gradient(135deg,#fae5bb,#efd8d8 60%,#d8d0e8);color:#163d49;font-family:"Segoe UI",sans-serif}
+    html.course-presentation-pending .mg-presentation-boot{position:fixed;inset:0;z-index:2147483000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;background:linear-gradient(180deg,#1cb5e0,#000851);color:#f4fbff;font-family:"Segoe UI",sans-serif}
     .mg-presentation-artwork{position:relative;flex:0 0 156px;width:156px;height:156px;visibility:hidden}
     html.course-presentation-slow .mg-presentation-artwork{visibility:visible}
-    .mg-presentation-artwork::before{content:"";position:absolute;inset:14px;border-radius:50%;background:radial-gradient(circle,#0bbac92b,transparent 72%);animation:mg-presentation-breathe 4s ease-in-out infinite}
-    .mg-presentation-mascot{position:absolute;inset:14px;display:grid;place-items:center;animation:mg-presentation-float 4s ease-in-out infinite}
+    .mg-presentation-artwork::before{content:"";position:absolute;inset:14px;border-radius:50%;background:radial-gradient(circle,#47b5ff40,transparent 72%);animation:mg-presentation-breathe 4s ease-in-out infinite}
+    .mg-presentation-mascot{position:absolute;inset:14px;display:grid;place-items:center;transform-origin:50% 60%;animation:mg-presentation-swim 4s ease-in-out infinite}
     .mg-presentation-mascot img{display:block;width:128px;height:128px;object-fit:contain;clip-path:circle(44.5% at 50% 50%)}
     .mg-presentation-bubble{position:absolute;left:7px;top:115px;width:11px;height:11px;border:1px solid #fff3c8b3;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff8df,#e7bc56c7 65%,#c99f3a80);box-shadow:inset 0 1px 2px #fff8;animation:mg-presentation-bubbles 4s ease-in-out infinite}
     .mg-presentation-bubble:nth-of-type(2){left:auto;right:5px;top:92px;width:8px;height:8px;animation-delay:-1.3s}
     .mg-presentation-bubble:nth-of-type(3){left:120px;top:42px;width:6px;height:6px;animation-delay:-2.6s}
-    @keyframes mg-presentation-float{0%,100%{transform:translateY(3px)}50%{transform:translateY(-3px)}}
+    @keyframes mg-presentation-swim{0%,100%{transform:translate(-4px,2px) rotate(-1.5deg)}25%{transform:translate(0,-3px) rotate(0)}50%{transform:translate(4px,0) rotate(1.5deg)}75%{transform:translate(0,3px) rotate(0)}}
     @keyframes mg-presentation-breathe{0%,100%{transform:scale(.95);opacity:.6}50%{transform:scale(1.06);opacity:1}}
     @keyframes mg-presentation-bubbles{0%{transform:translate(0,0);opacity:0}20%{opacity:.85}80%{opacity:.6}100%{transform:translate(3px,-48px);opacity:0}}
     @media(max-height:380px){.mg-presentation-artwork{flex-basis:108px;width:108px;height:108px}.mg-presentation-mascot{inset:6px}.mg-presentation-mascot img{width:96px;height:96px}.mg-presentation-bubble:nth-of-type(3){left:88px}}
-    .mg-presentation-status{display:flex;align-items:center;gap:10px;max-width:100%;margin:0;padding:12px 18px;border:1px solid #ffffffcc;border-radius:999px;background:#ffffff70;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-size:14px;line-height:1.4;visibility:hidden}
+    .mg-presentation-status{display:flex;align-items:center;gap:10px;max-width:100%;margin:0;padding:12px 18px;border:1px solid #ffffff66;border-radius:999px;background:#06283d80;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-size:14px;line-height:1.4;visibility:hidden}
     html.course-presentation-slow .mg-presentation-status{visibility:visible}
     @media(prefers-reduced-motion:reduce){.mg-presentation-mascot,.mg-presentation-artwork::before,.mg-presentation-bubble{animation:none}}
-    .mg-presentation-boot button{min-width:120px;min-height:48px;padding:10px 25px;border:1px solid #ffffffcc;border-radius:999px;background:#ffffff80;color:#163d49;font:700 16px "Segoe UI",sans-serif;cursor:pointer}
+    .mg-presentation-boot button{min-width:120px;min-height:48px;padding:10px 25px;border:1px solid #ffffff66;border-radius:999px;background:#06283d80;color:#f4fbff;font:700 16px "Segoe UI",sans-serif;cursor:pointer}
     .mg-presentation-boot button[hidden]{display:none}
   </style>
 

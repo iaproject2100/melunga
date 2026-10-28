@@ -1,4 +1,4 @@
-/* Animated loading-logo presentation regression. Static assets/content are real files;
+/* Ocean swimming-logo loading presentation regression. Static assets/content are real files;
  * status and voice catalogue are explicit local fixtures. No real accounts,
  * payments, providers or audio are used. Chromium emulation is not phone QA. */
 'use strict';
@@ -11,7 +11,7 @@ const os=require('node:os');
 const {chromium} = require('playwright-core');
 const ROOT = path.resolve(__dirname, '../..'), WEB = path.join(ROOT, 'melunga_deploy');
 const ORIGIN = 'https://course-startup-presentation.test';
-const OUT = process.env.COURSE_DISCREET_LOADING_REPORT_DIR || '/tmp/melunga-course-loading-logo-animation';
+const OUT = process.env.COURSE_DISCREET_LOADING_REPORT_DIR || '/tmp/melunga-course-loading-ocean-animation';
 const ORIGINAL_LOGO_SHA='1aa277028faa2128c78405c839748dff8b1497827c04b02610216056c92b18c0';
 const CODES = ['fr','en','es','zh','it','ja','ko'];
 const sha = value => crypto.createHash('sha256').update(value).digest('hex');
@@ -21,7 +21,7 @@ const fingerprint = () => Object.fromEntries(productFiles(WEB).filter(file => !f
   .concat(__filename).sort().map(file => [path.relative(ROOT,file),sha(fs.readFileSync(file))]));
 const report = {status:'running',environment:'Local Chromium; desktop and emulated touch/mobile viewports',
   physicalDeviceTested:false,safariTested:false,realAccountsUsed:false,realPaymentsUsed:false,actualAudioPlayed:false,
-  allResponsesLocalFixtures:true,cases:[],errors:[],fixtureErrors:[],unexpected:[],requests:[]};
+  allResponsesLocalFixtures:true,contrast:[],cases:[],errors:[],fixtureErrors:[],unexpected:[],requests:[]};
 let browser;
 
 function catalogue() {
@@ -168,14 +168,14 @@ async function indicator(f) {
     return {background:s.backgroundImage,images:n.querySelectorAll('img').length,wordmarks:n.querySelectorAll('strong').length,
       text:n.querySelector('#mgPresentationText').textContent,locale:document.documentElement.lang,status:box(status),artwork:box(art),
       logo:{...box(logo),src:new URL(logo.currentSrc||logo.src).pathname,naturalWidth:logo.naturalWidth,naturalHeight:logo.naturalHeight,alt:logo.alt},
-      artworkHiddenFromAT:art.getAttribute('aria-hidden'),viewport:{width:innerWidth,height:innerHeight},
+      artworkHiddenFromAT:art.getAttribute('aria-hidden'),viewport:{width:innerWidth,height:innerHeight},statusColor:getComputedStyle(status).color,
       mascotAnimation:getComputedStyle(mascot).animationName,mascotTransform:getComputedStyle(mascot).transform,
       haloAnimation:getComputedStyle(art,'::before').animationName,
       bubbles:bubbles.map(b=>({box:box(b),animation:getComputedStyle(b).animationName,opacity:getComputedStyle(b).opacity})),
       activeAnimations:art.getAnimations({subtree:true}).map(a=>({name:a.animationName,playState:a.playState}))};
   });
   assert.match(visual.background,/linear-gradient/);
-  assert.ok(visual.background.includes('rgb(250, 229, 187)')&&visual.background.includes('rgb(216, 208, 232)'),'same pastel endpoints as language choices');
+  assert.ok(visual.background.includes('rgb(28, 181, 224)')&&visual.background.includes('rgb(0, 8, 81)'),'ocean-blue gradient is rendered');
   assert.equal(visual.images,1,'one original Melunga logo');
   assert.equal(visual.wordmarks,0,'no large wordmark');
   assert.equal(visual.logo.src,'/melunga-logo.png');assert.equal(visual.logo.alt,'');
@@ -199,7 +199,37 @@ async function movingArtwork(f) {
   assert.notEqual(before,after,'logo moves under normal-motion preference');
   const active=await p.locator('#mgPresentationArtwork').evaluate(n=>n.getAnimations({subtree:true}).map(a=>({name:a.animationName,playState:a.playState})));
   assert.ok(active.length>=5&&active.every(a=>a.playState==='running'),'logo, halo and all three bubbles actually run');
-  return{before,after,active};
+  const swim=await p.locator('.mg-presentation-mascot').evaluate(async n=>{
+    const a=n.getAnimations()[0],previous=a.currentTime; a.pause(); const samples=[];
+    for(const time of [0,1000,2000,3000]){
+      a.currentTime=time;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+      const m=new DOMMatrixReadOnly(getComputedStyle(n).transform);
+      samples.push({time,x:m.m41,y:m.m42,degrees:Math.atan2(m.m12,m.m11)*180/Math.PI});
+    }
+    a.currentTime=previous;a.play();return samples;
+  });
+  const range=key=>Math.max(...swim.map(s=>s[key]))-Math.min(...swim.map(s=>s[key]));
+  assert.ok(range('x')>=7.9&&range('y')>=5.9&&range('degrees')>=2.9,'gentle swimming includes horizontal motion, vertical motion and tilt');
+  return{before,after,active,swim};
+}
+
+async function readableLoading(f,{retry=false}={}) {
+  const p=f.page;
+  const nodes=await p.evaluate(retry=>['mgPresentationStatus',...(retry?['mgPresentationRetry']:[])].map(id=>{
+    const n=document.getElementById(id),r=n.getBoundingClientRect();return{id,x:Math.round(r.x+12),y:Math.round(r.y+r.height/2),color:getComputedStyle(n).color};
+  }),retry);
+  const cdp=await p.context().newCDPSession(p),shot=await cdp.send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await cdp.detach();
+  const backgrounds=await p.evaluate(async ({data,nodes})=>{
+    const img=new Image();img.src='data:image/png;base64,'+data;await img.decode();
+    const canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;
+    const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0);
+    return nodes.map(n=>({...n,bg:[...ctx.getImageData(n.x,n.y,1,1).data].slice(0,3)}));
+  },{data:shot.data,nodes});
+  const channel=x=>{x/=255;return x<=.04045?x/12.92:((x+.055)/1.055)**2.4;};
+  const lum=a=>.2126*channel(a[0])+.7152*channel(a[1])+.0722*channel(a[2]);
+  const values=backgrounds.map(n=>{const fg=n.color.match(/[\d.]+/g).slice(0,3).map(Number),a=lum(fg),b=lum(n.bg);return{...n,ratio:(Math.max(a,b)+.05)/(Math.min(a,b)+.05)};});
+  for(const n of values)assert.ok(n.ratio>=4.5,'actual ocean loading text contrast '+JSON.stringify(n));
+  report.contrast.push(...values);return values;
 }
 
 async function captureAnimation(f) {
@@ -234,7 +264,7 @@ async function captureAnimation(f) {
         const launch=f.course('&start=lesson');
         const visual=await indicator(f);
         assert.equal(visual.locale,locale,'loading copy uses native locale even before final adapter');
-        labels[locale]=visual.text;
+        labels[locale]=visual.text;await readableLoading(f);
         assert.equal(visual.mascotAnimation,'none','reduced motion keeps logo still');assert.equal(visual.haloAnimation,'none');assert.ok(visual.bubbles.every(b=>b.animation==='none'),'reduced motion keeps bubbles still');assert.equal(visual.activeAnimations.length,0,'all decorative animations disabled');
         if(locale==='fr')await screenshotWhileParserHeld(f.page,path.join(OUT,'logo-chargement-mobile.png'));
         f.release();await launch;const final=await accepted(f,pair);
@@ -248,11 +278,11 @@ async function captureAnimation(f) {
       const f=await fixture({...config,pair:'fr-es'});try{
         await f.page.emulateMedia({reducedMotion:'no-preference'});
         const launch=f.home();const visual=await indicator(f);
-        assert.notEqual(visual.mascotAnimation,'none','normal motion logo has animation');assert.notEqual(visual.haloAnimation,'none');assert.ok(visual.bubbles.every(b=>b.animation!=='none'));const motion=await movingArtwork(f);
+        assert.notEqual(visual.mascotAnimation,'none','normal motion logo has animation');assert.notEqual(visual.haloAnimation,'none');assert.ok(visual.bubbles.every(b=>b.animation!=='none'));const motion=await movingArtwork(f);await readableLoading(f);
         if(config.width===320){await screenshotWhileParserHeld(f.page,path.join(OUT,'logo-chargement-anime-mobile.png'));if(process.env.COURSE_LOADING_ANIMATION_CAPTURE==='1')report.animationPreview=await captureAnimation(f);}
         if(config.width===1366)await screenshotWhileParserHeld(f.page,path.join(OUT,'logo-chargement-ordinateur.png'));
         f.release();await launch;const final=await accepted(f,'fr-es');
-        report.cases.push({name:'real-language-click-pastel-indicator',...config,visual,motion,oldVisibleFrames:final.samples.bad.length});
+        report.cases.push({name:'real-language-click-ocean-swimming-logo',...config,visual,motion,oldVisibleFrames:final.samples.bad.length});
       }finally{await f.close();}
     }
     const early=await fixture({width:390,pair:'fr-es'});try{
@@ -282,7 +312,7 @@ async function captureAnimation(f) {
       assert.equal(await p.locator('#mgPresentationLogo').count(),1);assert.equal(await p.locator('#mgPresentationBoot strong').count(),0);
       const short=await p.locator('#mgPresentationBoot').evaluate(n=>{const r=x=>{const b=x.getBoundingClientRect();return{x:b.x,y:b.y,right:b.right,bottom:b.bottom,width:b.width,height:b.height};};return{logo:r(n.querySelector('#mgPresentationLogo')),art:r(n.querySelector('#mgPresentationArtwork')),status:r(n.querySelector('#mgPresentationStatus')),retry:r(n.querySelector('#mgPresentationRetry')),w:innerWidth,h:innerHeight};});
       for(const b of [short.art,short.status,short.retry])assert.ok(b.x>=0&&b.y>=0&&b.right<=short.w&&b.bottom<=short.h,'short landscape loading and retry fit');
-      assert.ok(short.logo.width<=100&&short.logo.height<=100,'logo reduced on short landscape');await screenshotWhileParserHeld(p,path.join(OUT,'logo-chargement-paysage.png'));
+      await readableLoading(failure,{retry:true});assert.ok(short.logo.width<=100&&short.logo.height<=100,'logo reduced on short landscape');await screenshotWhileParserHeld(p,path.join(OUT,'logo-chargement-paysage.png'));
       assert.equal(await p.locator('.mg-app').evaluate(n=>getComputedStyle(n).visibility),'hidden');
       assert.equal(await p.locator('html').evaluate(n=>n.classList.contains('course-presentation-slow')),true,'failure immediately exposes status and retry');
       await p.locator('#mgPresentationRetry').click();const final=await accepted(failure,'en-fr');
