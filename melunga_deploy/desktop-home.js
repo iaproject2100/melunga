@@ -1,7 +1,10 @@
 /* A separate web presentation; learning, billing and native runtime remain in the existing app. */
 (function () {
   'use strict';
-  if (window.Capacitor && typeof window.Capacitor.isNativePlatform === 'function' && window.Capacitor.isNativePlatform()) return;
+  if (window.Capacitor && typeof window.Capacitor.isNativePlatform === 'function' && window.Capacitor.isNativePlatform()) {
+    window.__finishWelcomePresentation?.();
+    return;
+  }
   document.documentElement.classList.add('melunga-web');
   // Approved mobile welcome; original navigation handlers remain attached.
 (function () {
@@ -570,4 +573,5 @@
   window.addEventListener('pagehide',stopAudio);
   window.matchMedia('(min-width:960px)').addEventListener('change',stopAudio);
   renderSample(); render();
+  window.__finishWelcomePresentation?.();
 })();

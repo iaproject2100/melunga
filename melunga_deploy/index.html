@@ -4,6 +4,42 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0b3554">
+  <script>
+    (function () {
+      if (window.Capacitor && typeof window.Capacitor.isNativePlatform === 'function' && window.Capacitor.isNativePlatform()) return;
+      document.documentElement.classList.add('welcome-pending');
+      var timer;
+      window.__finishWelcomePresentation = function () {
+        clearTimeout(timer);
+        document.documentElement.classList.remove('welcome-pending');
+        document.getElementById('welcomeBoot')?.remove();
+      };
+      function offerRetry() {
+        var button = document.getElementById('welcomeBootRetry');
+        if (!button) return;
+        var locale = 'fr';
+        try { locale = new URL(location.href).searchParams.get('lang') || JSON.parse(localStorage.getItem('melunga-app-language') || 'null')?.locale || 'fr'; } catch (_) {}
+        var labels = {fr:'Réessayer',en:'Try again',es:'Reintentar',zh:'重试',it:'Riprova',ja:'再試行',ko:'다시 시도'};
+        button.textContent = labels[locale] || labels.fr;
+        button.hidden = false;
+        button.onclick = function () { location.reload(); };
+      }
+      timer = setTimeout(offerRetry, 12000);
+      window.addEventListener('error', function (event) {
+        if (event.target?.tagName === 'SCRIPT' && /\/desktop-home\.js(?:\?|$)/.test(event.target.src)) offerRetry();
+      }, true);
+    })();
+  </script>
+  <style>
+    .welcome-boot{display:none}
+    html.welcome-pending body{background:#0b3554}
+    html.welcome-pending .stage,html.welcome-pending .desktop-home{visibility:hidden!important}
+    html.welcome-pending .welcome-boot{position:fixed;inset:0;z-index:2147483000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#0b3554;color:#fff;font-family:"Segoe UI",sans-serif}
+    .welcome-boot img{width:132px;height:132px;object-fit:contain;clip-path:circle(44.5% at 50% 50%)}
+    .welcome-boot strong{font-size:36px;letter-spacing:-1px}
+    .welcome-boot button{margin-top:16px;min-height:48px;padding:10px 25px;border:1px solid #ffffff80;border-radius:999px;background:#ffffff20;color:#fff;font:700 16px "Segoe UI",sans-serif;cursor:pointer}
+    .welcome-boot button[hidden]{display:none}
+  </style>
   <title>Melunga — Des phrases utiles pour oser parler</title>
   <meta name="description" content="Apprends avec des phrases utiles, une phonétique dans ta langue et des révisions. Découvre Melunga gratuitement avec le niveau 1.">
   <link rel="canonical" href="https://melunga.com/">
@@ -280,6 +316,7 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
   </style>
 </head>
 <body>
+  <div id="welcomeBoot" class="welcome-boot" role="status" aria-live="polite"><img src="assets/melunga-logo.png" alt=""><strong>Melunga</strong><button id="welcomeBootRetry" type="button" hidden>Réessayer</button></div>
   <main class="stage">
     <section class="phone" aria-label="Melunga">
       <article class="screen night active" data-screen="welcome">
@@ -1129,6 +1166,6 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
     detectPricingCountry();
   </script>
   <script src="store-billing.js"></script>
-  <script src="desktop-home.js?v=4"></script>
+  <script src="desktop-home.js?v=5"></script>
 </body>
 </html>
