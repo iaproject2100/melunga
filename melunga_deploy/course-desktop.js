@@ -14,6 +14,8 @@
     level: byId('mgLevelTrigger'), language: byId('mgLanguageTrigger'), palette: byId('mgPalette'),
     phonrow: byId('mgPhonrow'), phon: byId('mgPhon'),
     themeGrid: byId('mgThemeGrid'), themeTitle: byId('mgThemeHeading'),
+    content: byId('mgContent'), lesson: byId('mgLessonView'), help: byId('mgHelp'),
+    progress: byId('mgProgress')?.closest('.mg-progress'),
     themeHeading: document.querySelector('#mgThemeView .mg-sectionhead'),
     sequenceHeading: document.querySelector('#mgSequenceView .mg-sectionhead')
   };
@@ -41,6 +43,15 @@
     zh: {language:'语言', nextStep:'下一步'},
     ja: {language:'言語', nextStep:'次へ'},
     ko: {language:'언어', nextStep:'다음'}
+  };
+  const sidebarLabels = {
+    fr: {themes:'Tes thèmes', allThemes:'Tous les thèmes'},
+    en: {themes:'Your topics', allThemes:'All topics'},
+    es: {themes:'Tus temas', allThemes:'Todos los temas'},
+    it: {themes:'I tuoi argomenti', allThemes:'Tutti gli argomenti'},
+    zh: {themes:'主题', allThemes:'全部主题'},
+    ja: {themes:'テーマ', allThemes:'すべてのテーマ'},
+    ko: {themes:'주제', allThemes:'모든 주제'}
   };
   let layout = null, pending = 0, moved = false;
   let mobileDock = null;
@@ -128,8 +139,38 @@
     const phoneticCaption = document.createElement('span');
     phoneticCaption.className = 'mg-desktop-phonetic-label';
     nodes.phonrow.prepend(phoneticCaption);
+    const workspace = document.createElement('div');
+    workspace.className = 'mg-desktop-lesson-workspace';
+    workspace.hidden = true;
+    const sidebar = document.createElement('aside');
+    sidebar.className = 'mg-desktop-theme-sidebar';
+    const sidebarHeading = document.createElement('h2');
+    sidebarHeading.id = 'mgDesktopThemeSidebarHeading';
+    sidebarHeading.className = 'mg-desktop-theme-sidebar-title';
+    sidebar.setAttribute('aria-labelledby', sidebarHeading.id);
+    const sidebarContent = document.createElement('div');
+    sidebarContent.className = 'mg-desktop-theme-sidebar-content';
+    const allThemes = document.createElement('button');
+    allThemes.type = 'button';
+    allThemes.className = 'mg-desktop-all-themes';
+    allThemes.setAttribute('aria-controls', 'mgThemeView');
+    allThemes.addEventListener('click', () => {
+      const selectedId = selectedThemeId;
+      // Use the current original button: buildMenu() replaces it on course changes.
+      nodes.nav.querySelector('[data-menu-item="Thèmes"]')?.click();
+      schedule();
+      requestAnimationFrame(() => {
+        if (!media.matches || document.body.dataset.view !== 'themes') return;
+        const selected = [...nodes.themeGrid.children].find(tile => tile.dataset.themeId === selectedId && !tile.hidden);
+        selected?.focus({preventScroll:true});
+      });
+    });
+    sidebar.append(sidebarHeading, sidebarContent, allThemes);
+    workspace.append(sidebar);
+    nodes.content.before(workspace);
     layout = {header, heading, photo, levelTitle, titles, title, context, listenLabel, menuLabel,
-      pagination, previous, range, nextPage, legal, terms, privacy, phoneticCaption, photoSource:null};
+      pagination, previous, range, nextPage, legal, terms, privacy, phoneticCaption, photoSource:null,
+      workspace, sidebar, sidebarHeading, sidebarContent, allThemes, sidebarSelectedTile:null};
     document.body.classList.add('mg-desktop-course');
     moved = true;
   }
@@ -141,14 +182,52 @@
     slots.clear();
     for (const [node, hidden] of gridVisibility) node.hidden = hidden;
     gridVisibility.clear();
-    nodes.themeGrid.classList.remove('mg-desktop-paged');
+    nodes.themeGrid.classList.remove('mg-desktop-paged', 'mg-desktop-lesson-grid');
+    clearSidebarSelection();
     nodes.tools.classList.remove('mg-desktop-tools-empty');
     layout.listenLabel.remove(); layout.menuLabel.remove();
     layout.pagination.remove(); layout.legal.remove(); layout.phoneticCaption.remove();
     layout.header.remove(); layout.heading.remove();
-    document.body.classList.remove('mg-desktop-course');
+    layout.workspace.remove();
+    document.body.classList.remove('mg-desktop-course', 'mg-desktop-has-theme-sidebar');
     layout = null;
     moved = true;
+  }
+
+  function clearSidebarSelection() {
+    for (const tile of nodes.themeGrid.children) {
+      tile.classList.remove('is-current');
+      tile.removeAttribute('aria-current');
+    }
+  }
+
+  function refreshThemeSidebar(view) {
+    if (!layout) return;
+    const active = ['lesson', 'done'].includes(view);
+    if (document.body.classList.contains('mg-desktop-has-theme-sidebar') !== active) {
+      document.body.classList.toggle('mg-desktop-has-theme-sidebar', active);
+      moved = true;
+    }
+    if (layout.workspace.hidden === active) {
+      layout.workspace.hidden = !active;
+      moved = true;
+    }
+    if (active) {
+      move(nodes.content, layout.workspace);
+      move(nodes.themeGrid, layout.sidebarContent);
+      move(nodes.counter, nodes.lessonTheme.parentElement, nodes.help);
+      move(nodes.progress, nodes.lesson, nodes.model);
+    } else {
+      restore(nodes.progress);
+      restore(nodes.counter);
+      restore(nodes.themeGrid);
+      restore(nodes.content);
+      layout.sidebarSelectedTile = null;
+      clearSidebarSelection();
+    }
+    const copy = sidebarLabels[locale()];
+    setText(layout.sidebarHeading, copy.themes);
+    setText(layout.allThemes, copy.allThemes + ' →');
   }
 
   function refreshPagination(view) {
@@ -174,14 +253,20 @@
     const pages = Math.max(1, Math.ceil(tiles.length / 4));
     pageIndex = Math.min(Math.max(0, pageIndex), pages - 1);
     const first = pageIndex * 4;
+    const sidebar = ['lesson', 'done'].includes(view);
     for (const node of children) {
       if (node.matches('.mg-grid-section')) node.hidden = true;
       else if (node.matches('.mg-theme')) {
         const index = tiles.indexOf(node);
-        node.hidden = gridVisibility.get(node) || index < first || index >= first + 4;
+        node.hidden = gridVisibility.get(node) || !sidebar && (index < first || index >= first + 4);
+        const current = sidebar && node.dataset.themeId === selectedThemeId;
+        node.classList.toggle('is-current', current);
+        if (current) node.setAttribute('aria-current', 'true');
+        else node.removeAttribute('aria-current');
       }
     }
-    nodes.themeGrid.classList.add('mg-desktop-paged');
+    nodes.themeGrid.classList.toggle('mg-desktop-paged', !sidebar);
+    nodes.themeGrid.classList.toggle('mg-desktop-lesson-grid', sidebar);
     const copy = labels[locale()];
     setText(layout.previous, '‹ ' + copy.previous);
     setText(layout.nextPage, copy.next + ' ›');
@@ -191,7 +276,16 @@
     layout.pagination.dataset.pages = String(pages);
     layout.previous.disabled = pageIndex === 0;
     layout.nextPage.disabled = pageIndex === pages - 1;
-    layout.pagination.hidden = !tiles.length;
+    layout.pagination.hidden = sidebar || !tiles.length;
+    const current = sidebar ? tiles.find(tile => tile.dataset.themeId === selectedThemeId) : null;
+    if (current && layout.sidebarSelectedTile !== current) {
+      // Scroll only the topic list, never the lesson or the page.
+      const bounds = layout.sidebarContent.getBoundingClientRect();
+      const tile = current.getBoundingClientRect();
+      if (tile.top < bounds.top) layout.sidebarContent.scrollTop += tile.top - bounds.top;
+      else if (tile.bottom > bounds.bottom) layout.sidebarContent.scrollTop += tile.bottom - bounds.bottom;
+      layout.sidebarSelectedTile = current;
+    }
     if (document.activeElement === layout.nextPage && layout.nextPage.disabled && !layout.previous.disabled) layout.previous.focus({preventScroll:true});
     else if (document.activeElement === layout.previous && layout.previous.disabled && !layout.nextPage.disabled) layout.nextPage.focus({preventScroll:true});
   }
@@ -494,6 +588,7 @@
       move(nodes.menu, layout.header);
       move(nodes.controls, layout.context);
       const view = document.body.dataset.view;
+      refreshThemeSidebar(view);
       refreshPagination(view);
       refreshDesktopLabels();
       refreshThemePhoto(view);
@@ -531,6 +626,11 @@
         && record.type === 'attributes' && record.attributeName === 'data-view')) {
       refreshMobileContext();
       if (mobileDock) refreshMobileShortcuts();
+    }
+    if (media.matches && layout && records.some(record => record.target === document.body
+        && record.type === 'attributes' && record.attributeName === 'data-view')) {
+      refreshThemeSidebar(document.body.dataset.view);
+      refreshPagination(document.body.dataset.view);
     }
     schedule();
   });
