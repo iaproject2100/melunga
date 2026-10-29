@@ -84,7 +84,7 @@
   <link rel="stylesheet" href="maquette-guidee.css?v=26">
   <link rel="stylesheet" href="course-ambiences.css?v=1">
   <link rel="stylesheet" href="course-startup.css?v=1">
-  <link rel="stylesheet" href="course-desktop.css?v=17">
+  <link rel="stylesheet" href="course-desktop.css?v=18">
 </head>
 <body data-ambience="dusk" data-view="loading">
   <div id="mgPresentationBoot" class="mg-presentation-boot" role="status" aria-live="polite">
@@ -138,11 +138,13 @@
         </section>
         <section id="mgSequenceView" class="mg-view" hidden aria-labelledby="mgSequenceHeading">
           <header class="mg-sectionhead"><h1 id="mgSequenceHeading" tabindex="-1"></h1></header>
+          <p id="mgSequenceOverview" class="mg-sequence-overview" hidden></p>
           <div id="mgSequences" class="mg-sequences"></div>
         </section>
         <section id="mgLessonView" class="mg-view mg-lesson" hidden aria-label="Phrase à pratiquer">
           <header class="mg-lesson-top">
             <span id="mgLessonTheme" class="mg-theme-label" role="heading" aria-level="2"></span>
+            <button id="mgVisibleSequenceContext" class="mg-visible-sequence-context" type="button" aria-controls="mgSequenceView" hidden></button>
             <span id="mgPhaseIcon" class="mg-phase-icon" role="img"></span>
             <button id="mgHelp" class="mg-help" type="button" aria-label="Aide pour cette étape" aria-expanded="false" aria-controls="mgHelpPanel" title="Aide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/></svg></button>
           </header>
@@ -250,7 +252,7 @@
   <script src="course-access.js?v=4"></script>
   <script src="voice-selection.js?v=2"></script>
   <script src="lesson-audio.js?v=3"></script>
-  <script src="maquette-guidee.js?v=41"></script>
+  <script src="maquette-guidee.js?v=42"></script>
   <script src="course-desktop.js?v=10"></script>
 </body>
 </html>

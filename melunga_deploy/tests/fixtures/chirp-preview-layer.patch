@@ -942,7 +942,7 @@ index 671acf7..c66f971 100644
 +    const unsubscribe = selection?.subscribe?.((_state, reason) => { if (reason === 'selection') stop(); });
 +    return Object.freeze({ play, stop, destroy() { stop(); unsubscribe?.(); } });
 diff --git a/melunga_deploy/maquette-guidee.html b/melunga_deploy/maquette-guidee.html
-index 7663cf5..4271550 100644
+index 7663cf5..78b7139 100644
 --- a/melunga_deploy/maquette-guidee.html
 +++ b/melunga_deploy/maquette-guidee.html
 @@ -7,2 +7,2 @@
@@ -953,7 +953,7 @@ index 7663cf5..4271550 100644
 @@ -10,0 +11,3 @@
 +  <link rel="stylesheet" href="course-ambiences.css?v=1">
 +  <link rel="stylesheet" href="course-startup.css?v=1">
-+  <link rel="stylesheet" href="course-desktop.css?v=17">
++  <link rel="stylesheet" href="course-desktop.css?v=18">
 @@ -12,2 +15 @@
 -<body data-ambience="ocean">
 -  <div class="mg-previewnotice"><span>Maquette</span><a href="https://melunga.com/" target="_blank" rel="noopener">Site actuel ↗</a></div>
@@ -977,7 +977,11 @@ index 7663cf5..4271550 100644
 +          </div>
 +          <button id="mgRetry" class="mg-action" type="button" hidden>Réessayer</button>
 +        </section>
-@@ -144,5 +157,8 @@
+@@ -44,0 +58 @@
++          <p id="mgSequenceOverview" class="mg-sequence-overview" hidden></p>
+@@ -49,0 +64 @@
++            <button id="mgVisibleSequenceContext" class="mg-visible-sequence-context" type="button" aria-controls="mgSequenceView" hidden></button>
+@@ -144,5 +159,8 @@
 -  <script src="course-i18n.js?v=2"></script>
 -  <script src="course-native.js?v=1"></script>
 -  <script src="course-access.js?v=3"></script>
@@ -989,36 +993,52 @@ index 7663cf5..4271550 100644
 +  <script src="course-access.js?v=4"></script>
 +  <script src="voice-selection.js?v=2"></script>
 +  <script src="lesson-audio.js?v=3"></script>
-+  <script src="maquette-guidee.js?v=41"></script>
++  <script src="maquette-guidee.js?v=42"></script>
 +  <script src="course-desktop.js?v=10"></script>
 diff --git a/melunga_deploy/maquette-guidee.js b/melunga_deploy/maquette-guidee.js
-index 5ba1c6c..78ba96c 100644
+index 5ba1c6c..6dcff1a 100644
 --- a/melunga_deploy/maquette-guidee.js
 +++ b/melunga_deploy/maquette-guidee.js
-@@ -46,0 +47 @@
+@@ -27 +27 @@
+-    sequenceView: byId('mgSequenceView'), sequenceHeading: byId('mgSequenceHeading'),
++    sequenceView: byId('mgSequenceView'), sequenceHeading: byId('mgSequenceHeading'), sequenceOverview: byId('mgSequenceOverview'),
+@@ -28,0 +29 @@
++    visibleSequenceContext: byId('mgVisibleSequenceContext'),
+@@ -46,0 +48 @@
 +  const fetchCourseDocument = window.MelungaCourseData?.fetch || fetch;
-@@ -49,0 +51,2 @@
+@@ -49,0 +52,2 @@
 +  const voiceSelection = window.MelungaVoiceSelection;
 +  voiceSelection?.preload().catch(() => {});
-@@ -63,0 +67,3 @@
+@@ -63,0 +68,3 @@
 +  let firstLessonEntryPending = Boolean(ui.level) && !state.invalidPair && nativeCourses?.isPair(explicitPair)
 +    && routeParameters.getAll('start').length === 1 && routeParameters.get('start') === 'lesson'
 +    && routeParameters.getAll('level').length === 1 && routeParameters.get('level') === '1';
-@@ -88 +94,5 @@
+@@ -78,0 +86,10 @@
++  const visibleSequenceCache = new WeakMap();
++  const visibleSequenceLabels = {
++    fr: {stage:'Étape', stages:'étapes', cards:'cartes', known:'acquises', unavailable:'Les étapes ne sont pas disponibles. Réessaie.'},
++    en: {stage:'Stage', stages:'stages', cards:'cards', known:'learned', unavailable:'Stages are unavailable. Please try again.'},
++    es: {stage:'Etapa', stages:'etapas', cards:'tarjetas', known:'aprendidas', unavailable:'Las etapas no están disponibles. Inténtalo de nuevo.'},
++    it: {stage:'Fase', stages:'fasi', cards:'schede', known:'apprese', unavailable:'Le fasi non sono disponibili. Riprova.'},
++    zh: {stage:'阶段', stages:'个阶段', cards:'张卡片', known:'已掌握', unavailable:'学习阶段暂时不可用，请重试。'},
++    ja: {stage:'ステップ', stages:'ステップ', cards:'枚のカード', known:'習得済み', unavailable:'ステップを表示できません。もう一度お試しください。'},
++    ko: {stage:'단계', stages:'단계', cards:'개 카드', known:'학습 완료', unavailable:'단계를 불러올 수 없습니다. 다시 시도해 주세요.'}
++  };
+@@ -88 +105,5 @@
 -  const ambiences = ['ocean', 'aurora', 'dusk'];
 +  const ambiences = ['dusk', 'ocean', 'aurora',
 +    'legacy-gamified', 'legacy-zen', 'legacy-premium', 'legacy-sunset', 'legacy-neon',
 +    'legacy-ocean', 'legacy-forest', 'legacy-spotify', 'legacy-plum', 'legacy-lantern',
 +    'legacy-aurora', 'legacy-cafe', 'legacy-insta', 'legacy-bordeaux'];
 +  let savedAmbience = null;
-@@ -90,5 +100 @@
+@@ -90,5 +111 @@
 -    const savedAmbience = sessionStorage.getItem('melunga-course-ambience');
 -    if (ambiences.includes(savedAmbience)) {
 -      state.ambienceIndex = ambiences.indexOf(savedAmbience);
 -      document.body.dataset.ambience = savedAmbience;
 -    }
 +    savedAmbience = localStorage.getItem('melunga-course-ambience');
-@@ -95,0 +102,7 @@
+@@ -95,0 +113,7 @@
 +  if (!ambiences.includes(savedAmbience)) {
 +    try { savedAmbience = sessionStorage.getItem('melunga-course-ambience'); } catch (_) {}
 +  }
@@ -1026,12 +1046,12 @@ index 5ba1c6c..78ba96c 100644
 +    state.ambienceIndex = ambiences.indexOf(savedAmbience);
 +    document.body.dataset.ambience = savedAmbience;
 +  }
-@@ -99,0 +113 @@
+@@ -99,0 +124 @@
 +    try { localStorage.setItem('melunga-course-ambience', ambience); } catch (_) { /* Keep the current colour. */ }
-@@ -244 +258 @@
+@@ -244 +269 @@
 -  // Only an explicit “Je connais” decision counts. Source identity, not the
 +  // Only an explicit card validation counts. Source identity, not the
-@@ -470,0 +485,15 @@
+@@ -470,0 +496,15 @@
 +  function legalMenuRows() {
 +    const labels = {
 +      fr: ['Conditions générales', 'Confidentialité'], en: ['Terms and Conditions', 'Privacy'],
@@ -1047,21 +1067,21 @@ index 5ba1c6c..78ba96c 100644
 +    }));
 +  }
 +
-@@ -484 +513,2 @@
+@@ -484 +524,2 @@
 -        : { label: 'Se connecter / Créer un compte', shortLabel: 'Connexion', icon: icons.person, href: lessonUrl(true) }
 +        : { label: 'Se connecter / Créer un compte', shortLabel: 'Connexion', icon: icons.person, href: lessonUrl(true) },
 +      ...legalMenuRows()
-@@ -494 +524,5 @@
+@@ -494 +535,5 @@
 -    if (row.href) item.href = row.href;
 +    if (row.href) {
 +      item.href = row.href;
 +      if (row.language) item.hreflang = row.language;
 +      if (row.newTab) { item.target = '_blank'; item.rel = 'noopener'; }
 +    }
-@@ -514 +548 @@
+@@ -514 +559 @@
 -    if (includeDesktop && ui.desktopNav) ui.desktopNav.replaceChildren(...rows.map(row => menuItem(row, true)));
 +    if (includeDesktop && ui.desktopNav) ui.desktopNav.replaceChildren(...rows.filter(row => !row.secondaryOnly).map(row => menuItem(row, true)));
-@@ -625,3 +659,20 @@
+@@ -625,3 +670,20 @@
 -    ui.voice.replaceChildren(new Option(tr('Voix féminine'), 'female'), new Option(tr('Voix masculine'), 'male'));
 -    ui.voice.value = state.voiceChoices.get(state.pair.studyLanguage) || 'female';
 -    if (ui.voice.selectedIndex < 0) ui.voice.selectedIndex = 0;
@@ -1085,25 +1105,25 @@ index 5ba1c6c..78ba96c 100644
 +      : snapshot?.selected ? 'Voix enregistrée pour cette langue'
 +      : snapshot?.usesApprovedDefault ? 'Voix par défaut' : 'Choisir une voix');
 +    ui.voice.dataset.provisional = String(!!snapshot?.provisional);
-@@ -628,0 +680 @@
+@@ -628,0 +691 @@
 +    if (snapshot?.status === 'error' || snapshot?.status === 'expired') voiceSelection.preload().catch(() => {});
-@@ -722,0 +775,3 @@
+@@ -722,0 +786,3 @@
 +  voiceSelection?.subscribe(() => {
 +    if (state.pair && ui.menu.open && state.menuView === 'voice') fillVoices();
 +  });
-@@ -746,0 +802,2 @@
+@@ -746,0 +813,2 @@
 +    if (screen === 'loading') ui.loading.classList.remove('has-error');
 +    ui.loading.setAttribute('aria-busy', String(screen === 'loading'));
-@@ -772,3 +829,2 @@
+@@ -772,3 +840,2 @@
 -  // Fit the complete text, rather than truncating it or giving the lesson an
 -  // inner scrollbar. Short cards retain their normal large type. Longer cards
 -  // first use tighter spacing, then adapt to the available viewport.
 +  // Keep complete text readable: tighter spacing first, then desktop scrolling
 +  // or the existing mobile viewport fit.
-@@ -785,0 +842,2 @@
+@@ -785,0 +853,2 @@
 +    const desktopScrollTop = root.classList.contains('mg-desktop-lesson-scroll') ? ui.content.scrollTop : 0;
 +    root.classList.remove('mg-desktop-lesson-scroll');
-@@ -818,0 +877,12 @@
+@@ -818,0 +888,12 @@
 +    // Preserve readable desktop type when browser zoom or a long phrase leaves
 +    // too little height. The course content can scroll without shrinking text.
 +    if (root.classList.contains('mg-desktop-course')) {
@@ -1116,9 +1136,174 @@ index 5ba1c6c..78ba96c 100644
 +      }
 +      return;
 +    }
-@@ -931,0 +1002 @@
+@@ -931,0 +1013 @@
 +      button.dataset.themeId = theme.id;
-@@ -1162,0 +1234,14 @@
+@@ -971,0 +1054,106 @@
++  // Same deterministic partitioner as review/sequences-longues@899f36b.
++  function partitionGroupBoundaries(weights) {
++    function compareBounds(a, b) {
++      for (let i = 0; i < Math.min(a.length, b.length); i++) if (a[i] !== b[i]) return a[i] - b[i];
++      return a.length - b.length;
++    }
++    if (!Array.isArray(weights) || !weights.length || Array.from(weights).some(n => !Number.isInteger(n) || n < 1 || n > 40)) throw new Error('Invalid technical group weights');
++    const prefix = [0];
++    weights.forEach(n => prefix.push(prefix.at(-1) + n));
++    const total = prefix.at(-1), count = weights.length;
++    if (total <= 100) return [{groupStart: 0, groupEndExclusive: count, cards: total, firstPresentation: 1, lastPresentation: total}];
++    let chosen;
++    for (let k = Math.ceil(total / 40); k <= Math.floor(total / 30); k++) {
++      let previous = new Map([[0, {cost: 0, ends: []}]]);
++      for (let used = 1; used <= k; used++) {
++        const next = new Map();
++        for (let end = 1; end <= count; end++) {
++          for (let start = end - 1; start >= 0; start--) {
++            const size = prefix[end] - prefix[start];
++            if (size > 40) break;
++            if (size < 30 || !previous.has(start)) continue;
++            const before = previous.get(start), candidate = {cost: before.cost + (size - 35) ** 2, ends: [...before.ends, end]};
++            const current = next.get(end);
++            if (!current || candidate.cost < current.cost || candidate.cost === current.cost && compareBounds(candidate.ends, current.ends) < 0) next.set(end, candidate);
++          }
++        }
++        previous = next;
++      }
++      const result = previous.get(count);
++      if (!result) continue;
++      const candidate = {distance: Math.abs(total - 35 * k), cost: result.cost, k, ends: result.ends};
++      if (!chosen || candidate.distance < chosen.distance || candidate.distance === chosen.distance && (candidate.cost < chosen.cost || candidate.cost === chosen.cost && (candidate.k < chosen.k || candidate.k === chosen.k && compareBounds(candidate.ends, chosen.ends) < 0))) chosen = candidate;
++    }
++    if (!chosen) throw new Error('No contiguous 30–40-card partition preserves the technical groups');
++    let start = 0;
++    return chosen.ends.map(end => {
++      const chunk = {groupStart: start, groupEndExclusive: end, cards: prefix[end] - prefix[start], firstPresentation: prefix[start] + 1, lastPresentation: prefix[end]};
++      start = end;
++      return chunk;
++    });
++  }
++
++  function hasVisibleSequences(theme = state.theme) {
++    return Boolean(ui.level && theme && phraseCount(theme) > 100);
++  }
++
++  function learningSequences(theme = state.theme) {
++    if (!hasVisibleSequences(theme)) return theme?.sequences || [];
++    if (visibleSequenceCache.has(theme)) return visibleSequenceCache.get(theme);
++    const boundaries = partitionGroupBoundaries(theme.sequences.map(sequence => sequence.phraseIds.length));
++    const sequences = boundaries.map((boundary, index) => {
++      const groups = theme.sequences.slice(boundary.groupStart, boundary.groupEndExclusive);
++      return {
++        id: state.pair.id + ':' + theme.id + ':visible:' + (index + 1), index: index + 1, ...boundary,
++        phraseIds: groups.flatMap(sequence => sequence.phraseIds),
++        preparationIds: groups.flatMap(sequence => sequence.preparationIds || []),
++        steps: groups.flatMap(sequence => sequence.steps)
++      };
++    });
++    visibleSequenceCache.set(theme, sequences);
++    return sequences;
++  }
++
++  function sequencePosition() {
++    return state.lessonScope === 'sequence' && hasVisibleSequences()
++      ? learningSequences().indexOf(state.sequence) + 1 : 0;
++  }
++
++  function sequenceLabel(index, count) {
++    const copy = visibleSequenceLabels[state.nativeLanguage] || visibleSequenceLabels.fr;
++    return copy.stage + ' ' + index + (count ? ' / ' + count : '');
++  }
++
++  function refreshVisibleSequenceContext() {
++    const index = sequencePosition();
++    ui.visibleSequenceContext.hidden = !index;
++    if (!index) return;
++    const label = sequenceLabel(index, learningSequences().length);
++    text(ui.visibleSequenceContext, label + ' ▾');
++    ui.visibleSequenceContext.title = tr('Les séquences');
++    ui.visibleSequenceContext.setAttribute('aria-label', label + ' · ' + tr('Les séquences'));
++  }
++
++  function renderVisibleSequenceProgress() {
++    if (state.screen !== 'sequences' || !hasVisibleSequences()) return;
++    const copy = visibleSequenceLabels[state.nativeLanguage] || visibleSequenceLabels.fr;
++    const known = state.knownCards.get(state.pair.id);
++    const sequences = learningSequences();
++    for (const button of ui.sequences.children) {
++      const sequence = sequences[Number(button.dataset.sequenceIndex) - 1];
++      if (!sequence) continue;
++      const ids = [...new Set(sequence.phraseIds)].filter(id => state.levelProgressIds.has(id));
++      const acquired = ids.filter(id => known?.has(id)).length;
++      const track = button.querySelector('.mg-sequence-progress');
++      const label = button.querySelector('.mg-sequence-progress-label');
++      const ratio = ids.length ? acquired / ids.length : 0;
++      track.firstElementChild.style.width = ratio * 100 + '%';
++      track.setAttribute('aria-label', sequenceLabel(sequence.index) + ' · ' + copy.known);
++      track.setAttribute('aria-valuenow', String(acquired));
++      track.setAttribute('aria-valuemax', String(ids.length));
++      text(label, acquired + ' / ' + ids.length + ' ' + copy.known);
++      button.dataset.known = String(acquired);
++      button.dataset.total = String(ids.length);
++    }
++  }
++
+@@ -973,0 +1162 @@
++    if (hasVisibleSequences(theme)) return showSequences(theme);
+@@ -984,0 +1174,7 @@
++    if (ui.level && !hasVisibleSequences(theme)) return openTheme(theme);
++    let sequences;
++    try { sequences = learningSequences(theme); }
++    catch (_) {
++      setStatus((visibleSequenceLabels[state.nativeLanguage] || visibleSequenceLabels.fr).unavailable);
++      return;
++    }
+@@ -993 +1189 @@
+-    text(ui.counter, quantityLabel(phraseCount(theme)));
++    text(ui.counter, quantityLabel(phraseCount(theme), theme.contentType));
+@@ -995,4 +1191,27 @@
+-    ui.sequences.replaceChildren(...theme.sequences.map((sequence, index) => tile(
+-      sequence.title || format('sequence', index + 1),
+-      sequence.phraseIds.length, themeIcon(theme), () => startSequence(sequence), 'mg-sequence'
+-    )));
++    const visible = hasVisibleSequences(theme);
++    ui.sequenceView.classList.toggle('mg-has-visible-sequences', visible);
++    ui.sequenceOverview.hidden = !visible;
++    if (visible) {
++      const copy = visibleSequenceLabels[state.nativeLanguage] || visibleSequenceLabels.fr;
++      text(ui.sequenceOverview, sequences.length + ' ' + copy.stages + ' · ' + phraseCount(theme) + ' ' + copy.cards);
++    }
++    ui.sequences.replaceChildren(...sequences.map((sequence, index) => {
++      const button = tile(visible ? sequenceLabel(index + 1) : sequence.title || format('sequence', index + 1),
++        sequence.phraseIds.length, themeIcon(theme), () => startSequence(sequence), 'mg-sequence', {contentType:theme.contentType});
++      if (!visible) return button;
++      button.dataset.sequenceIndex = String(index + 1);
++      button.dataset.sequenceCount = String(sequences.length);
++      button.dataset.firstPresentation = String(sequence.firstPresentation);
++      button.dataset.lastPresentation = String(sequence.lastPresentation);
++      const content = button.querySelector('.mg-sequence-copy');
++      button.querySelector('.mg-theme-count').append(' · ' + sequence.firstPresentation + '–' + sequence.lastPresentation);
++      const track = document.createElement('span');
++      track.className = 'mg-sequence-progress';
++      track.setAttribute('role', 'progressbar');
++      track.setAttribute('aria-valuemin', '0');
++      track.append(document.createElement('i'));
++      const label = document.createElement('span');
++      label.className = 'mg-sequence-progress-label';
++      content.append(track, label);
++      return button;
++    }));
+@@ -999,0 +1219 @@
++    renderVisibleSequenceProgress();
+@@ -1061,0 +1282 @@
++    refreshVisibleSequenceContext();
+@@ -1136,0 +1358 @@
++    refreshVisibleSequenceContext();
+@@ -1144 +1366,2 @@
+-    const index = state.theme.sequences.indexOf(state.sequence);
++    const sequences = state.lessonScope === 'sequence' ? learningSequences() : [];
++    const index = sequences.indexOf(state.sequence);
+@@ -1146 +1369 @@
+-      : index < state.theme.sequences.length - 1 ? 'Séquence suivante' : 'Les séquences'));
++      : index < sequences.length - 1 ? 'Séquence suivante' : 'Les séquences'));
+@@ -1162,0 +1386,14 @@
 +  function validateNextPhrase() {
 +    const step = currentStep();
 +    const phrase = currentPhrase();
@@ -1133,10 +1318,10 @@ index 5ba1c6c..78ba96c 100644
 +      state.savedReview.filter(entry => entry.pairId !== state.pair.id || entry.id !== phrase.id));
 +  }
 +
-@@ -1202 +1287 @@
+@@ -1202 +1439 @@
 -    if (!lessonAudio) {
 +    if (!lessonAudio || !voiceSelection) {
-@@ -1206,2 +1291,5 @@
+@@ -1206,2 +1443,5 @@
 -    lessonAudio.play({ text: phrase.study, language: state.pair.studyLanguage,
 -      rate: state.speechRate, voice: state.voiceChoices.get(state.pair.studyLanguage) || 'female' });
 +    if (['idle', 'loading'].includes(voiceSelection.state().status)) {
@@ -1144,12 +1329,12 @@ index 5ba1c6c..78ba96c 100644
 +      return;
 +    }
 +    lessonAudio.play({ text: phrase.study, language: state.pair.studyLanguage, rate: state.speechRate });
-@@ -1259,0 +1348 @@
+@@ -1259,0 +1500 @@
 +    renderLoadingContext(id, entry.level);
-@@ -1262 +1351 @@
+@@ -1262 +1503 @@
 -    text(ui.loadingText, tr('Tes thèmes arrivent…'));
 +    text(ui.loadingText, tr('Chargement des leçons…'));
-@@ -1271,0 +1361,9 @@
+@@ -1271,0 +1513,9 @@
 +      const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
 +      const bankTask = (async () => {
 +        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
@@ -1159,10 +1344,10 @@ index 5ba1c6c..78ba96c 100644
 +        if (!response.ok) throw new Error('Repertoire unavailable');
 +        return validateRepertoire(await readRuntimeJson(response, repertoirePath), id);
 +      })().then(bank => ({bank}), error => ({error}));
-@@ -1274 +1372 @@
+@@ -1274 +1524 @@
 -        const response = await fetch(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
 +        const response = await fetchCourseDocument(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
-@@ -1283,8 +1381,3 @@
+@@ -1283,8 +1533,3 @@
 -        const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
 -        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
 -        let bank = state.repertoireCache.get(id);
@@ -1174,11 +1359,11 @@ index 5ba1c6c..78ba96c 100644
 +        const result = await bankTask;
 +        if (result.error) throw result.error;
 +        const bank = result.bank;
-@@ -1311,2 +1404 @@
+@@ -1311,2 +1556 @@
 -      text(ui.loadingText, tr('Les thèmes n’ont pas pu se charger.'));
 -      ui.retry.hidden = false;
 +      showLoadingError('Les thèmes n’ont pas pu se charger.');
-@@ -1748,0 +1841,46 @@
+@@ -1748,0 +1993,46 @@
 +  function renderLoadingContext(id, level = state.level) {
 +    const flags = {fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷'};
 +    if (!nativeCourses?.isPair(id) || id.split('-')[0] !== state.nativeLanguage || state.invalidPair) {
@@ -1225,20 +1410,20 @@ index 5ba1c6c..78ba96c 100644
 +    if (theme) openTheme(theme);
 +  }
 +
-@@ -1749,0 +1888,4 @@
+@@ -1749,0 +2040,4 @@
 +    const initialPair = nativeCourses?.isPair(explicitPair) ? explicitPair
 +      : nativeCourses?.isPair(savedPair) && savedPair.split('-')[0] === state.nativeLanguage ? savedPair
 +      : state.nativeLanguage + '-' + (state.nativeLanguage === 'fr' ? 'en' : 'fr');
 +    renderLoadingContext(initialPair, Number(routeParameters.get('level') || (explicitPair === null ? savedLevel : 1)));
-@@ -1751 +1893 @@
+@@ -1751 +2045 @@
 -    text(ui.loadingText, tr('Tes thèmes arrivent…'));
 +    text(ui.loadingText, tr('Chargement des leçons…'));
-@@ -1757,2 +1899,2 @@
+@@ -1757,2 +2051,2 @@
 -        await courseAccess.initialize();
 -        if (courseAccess.state().mode === 'production') document.querySelector('.mg-previewnotice')?.remove();
 +        // The content request and status verification may run together. No
 +        // cards are installed until both have succeeded below.
-@@ -1760,5 +1902,9 @@
+@@ -1760,5 +2054,9 @@
 -      const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
 -      if (!response.ok) throw new Error('HTTP ' + response.status);
 -      const data = await response.json();
@@ -1253,40 +1438,60 @@ index 5ba1c6c..78ba96c 100644
 +      })();
 +      const [, data] = await Promise.all([ui.level ? courseAccess.initialize() : null, content]);
 +      state.data = data;
-@@ -1767,2 +1913,2 @@
+@@ -1767,2 +2065,2 @@
 -        text(ui.loadingText, tr('Ce couple de langues n’est pas disponible. Choisis tes langues pour continuer.'));
 -        text(ui.retry, tr('Choisir mes langues')); ui.retry.hidden = false; return;
 +        showLoadingError('Ce couple de langues n’est pas disponible. Choisis tes langues pour continuer.');
 +        text(ui.retry, tr('Choisir mes langues')); return;
-@@ -1785 +1931 @@
+@@ -1785 +2083 @@
 -      await choosePair(firstPair.id);
 +      await chooseEntryPair(firstPair.id);
-@@ -1787 +1933 @@
+@@ -1787 +2085 @@
 -      text(ui.loadingText, tr('Les thèmes n’ont pas pu se charger.'));
 +      showLoadingError('Les thèmes n’ont pas pu se charger.');
-@@ -1789 +1934,0 @@
+@@ -1789 +2086,0 @@
 -      ui.retry.hidden = false;
-@@ -1838 +1982,0 @@
+@@ -1838 +2134,0 @@
 -    if (!['female', 'male'].includes(ui.voice.value)) return;
-@@ -1839,0 +1984,5 @@
+@@ -1839,0 +2136,5 @@
 +    if (!voiceSelection?.setVoice(state.pair.studyLanguage, ui.voice.value)) {
 +      setStatus('Catalogue des voix indisponible. Réessaie.');
 +      fillVoices();
 +      return;
 +    }
-@@ -1840,0 +1990 @@
+@@ -1840,0 +2142 @@
 +    fillVoices();
-@@ -1910 +2060,3 @@
+@@ -1883,0 +2186 @@
++  ui.visibleSequenceContext.addEventListener('click', () => ui.back.click());
+@@ -1905 +2208,2 @@
+-      const nextSequence = state.theme.sequences[state.theme.sequences.indexOf(state.sequence) + 1];
++      const sequences = learningSequences();
++      const nextSequence = sequences[sequences.indexOf(state.sequence) + 1];
+@@ -1910 +2214,3 @@
 -    advanceStep();
 +    if (!validateNextPhrase()) return;
 +    if (document.body.classList.contains('mg-desktop-course')) browsePhrase(1);
 +    else advanceStep();
-@@ -1961,0 +2114 @@
+@@ -1961,0 +2268 @@
 +    if (!courseAccess || !nativeCourses || !courseI18n) { window.location.reload(); return; }
-@@ -1963 +2116 @@
+@@ -1963 +2270 @@
 -    if (ui.level && state.data && state.requestedPair) choosePair(state.requestedPair, state.level);
 +    if (ui.level && state.data && state.requestedPair) chooseEntryPair(state.requestedPair, state.level);
-@@ -1998 +2151,4 @@
+@@ -1976,0 +2284 @@
++    else if (state.screen === 'sequences') renderVisibleSequenceProgress();
+@@ -1989 +2297,7 @@
+-  window.MelungaMockup = Object.freeze({ state: () => Object.freeze({
++  const immutableSnapshot = value => Array.isArray(value) ? Object.freeze(value.map(immutableSnapshot))
++    : value && typeof value === 'object'
++      ? Object.freeze(Object.fromEntries(Object.entries(value).map(([key, item]) => [key, immutableSnapshot(item)])))
++      : value;
++  window.MelungaMockup = Object.freeze({
++    visibleSequences: () => immutableSnapshot(hasVisibleSequences() ? visibleSequenceCache.get(state.theme) || [] : []),
++    state: () => Object.freeze({
+@@ -1992,0 +2307,2 @@
++    visibleSequenceIndex: sequencePosition(),
++    visibleSequenceCount: hasVisibleSequences() ? (visibleSequenceCache.get(state.theme) || []).length : 0,
+@@ -1998 +2314,4 @@
 -  loadData();
 +  loadData().finally(() => {
 +    window.__courseEntryReady = true;
@@ -1376,7 +1581,7 @@ index aeaebf7..b3713ca 100644
 +
 +export const handler = createHandler();
 diff --git a/melunga_deploy/parcours-niveaux.html b/melunga_deploy/parcours-niveaux.html
-index 6e9b44c..9dcb4dc 100644
+index 6e9b44c..cde4fd4 100644
 --- a/melunga_deploy/parcours-niveaux.html
 +++ b/melunga_deploy/parcours-niveaux.html
 @@ -7 +7,76 @@
@@ -1460,7 +1665,7 @@ index 6e9b44c..9dcb4dc 100644
 @@ -9,0 +85,3 @@
 +  <link rel="stylesheet" href="course-ambiences.css?v=1">
 +  <link rel="stylesheet" href="course-startup.css?v=1">
-+  <link rel="stylesheet" href="course-desktop.css?v=17">
++  <link rel="stylesheet" href="course-desktop.css?v=18">
 @@ -11,2 +89,6 @@
 -<body data-ambience="ocean">
 -  <div class="mg-previewnotice"><span>Maquette</span><a href="https://melunga.com/" target="_blank" rel="noopener">Site actuel ↗</a></div>
@@ -1490,7 +1695,11 @@ index 6e9b44c..9dcb4dc 100644
 +          </div>
 +          <button id="mgRetry" class="mg-action" type="button" hidden>Réessayer</button>
 +        </section>
-@@ -154,5 +247,8 @@
+@@ -47,0 +141 @@
++          <p id="mgSequenceOverview" class="mg-sequence-overview" hidden></p>
+@@ -52,0 +147 @@
++            <button id="mgVisibleSequenceContext" class="mg-visible-sequence-context" type="button" aria-controls="mgSequenceView" hidden></button>
+@@ -154,5 +249,8 @@
 -  <script src="course-i18n.js?v=2"></script>
 -  <script src="course-native.js?v=1"></script>
 -  <script src="course-access.js?v=3"></script>
@@ -1502,5 +1711,5 @@ index 6e9b44c..9dcb4dc 100644
 +  <script src="course-access.js?v=4"></script>
 +  <script src="voice-selection.js?v=2"></script>
 +  <script src="lesson-audio.js?v=3"></script>
-+  <script src="maquette-guidee.js?v=41"></script>
++  <script src="maquette-guidee.js?v=42"></script>
 +  <script src="course-desktop.js?v=10"></script>

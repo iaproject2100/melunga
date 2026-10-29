@@ -1,5 +1,7 @@
 # Séquences visibles pour les longues rubriques
 
+> Actualisation du 29 octobre 2026 : cette branche de revue intègre désormais le `main` `f252506` (présentation ordinateur, accès direct aux leçons, voix et progression actuels). Les aperçus et contrôles du port sont dans [sequences-longues-actualisees](../sequences-longues-actualisees/README.md). Les preuves ci-dessous décrivent la version historique du 26 octobre ; elles ne constituent pas une validation du port actuel. Aucune fusion dans `main` n’est effectuée par cette actualisation.
+
 Cette PR part de `a1085e8`, qui contient #17, le raccordement publié par #20, les niveaux/menu mobiles corrigés par #21 et le logo/disposition mobile restaurés par #22. Les données du parcours restent celles approuvées à `ebd6519`. Elle transforme l’entrée des **67 rubriques de plus de 100 présentations** en un choix de **337 séquences de 30 à 40 cartes**. Les rubriques plus courtes gardent leur entrée directe.
 
 Le découpage suit les frontières des groupes techniques existants. Une partition déterministe cherche un nombre de séquences proche de 35 cartes chacune, sans couper un groupe ni créer de petite séquence finale. Les 11 809 présentations et leurs 35 427 étapes gardent leur ordre exact. Les onze rubriques dont les groupes partiels ne sont pas tous à la fin sont prises en compte.

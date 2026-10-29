@@ -24,8 +24,9 @@
     levelPercent: byId('mgLevelPercent'), levelEnd: byId('mgLevelEnd'),
     loading: byId('mgLoading'), loadingText: byId('mgLoadingText'), retry: byId('mgRetry'),
     themeView: byId('mgThemeView'), themeGrid: byId('mgThemeGrid'),
-    sequenceView: byId('mgSequenceView'), sequenceHeading: byId('mgSequenceHeading'),
+    sequenceView: byId('mgSequenceView'), sequenceHeading: byId('mgSequenceHeading'), sequenceOverview: byId('mgSequenceOverview'),
     sequences: byId('mgSequences'), lessonView: byId('mgLessonView'), lessonTheme: byId('mgLessonTheme'),
+    visibleSequenceContext: byId('mgVisibleSequenceContext'),
     phase: byId('mgPhaseIcon'), help: byId('mgHelp'), helpPanel: byId('mgHelpPanel'),
     helpText: byId('mgHelpText'), readingToggle: byId('mgReadingToggle'), readingToggleText: byId('mgReadingToggleText'),
     model: byId('mgModel'), modelTools: byId('mgModelTools'), speaker: byId('mgSpeaker'), choices: byId('mgChoices'),
@@ -82,6 +83,16 @@
   const readingStorageKey = 'melunga-guided-reading-v1';
   const knownStorageKey = 'melunga-guided-known-v1';
   const progressPairs = nativeCourses?.pairIds || ['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr'];
+  const visibleSequenceCache = new WeakMap();
+  const visibleSequenceLabels = {
+    fr: {stage:'Étape', stages:'étapes', cards:'cartes', known:'acquises', unavailable:'Les étapes ne sont pas disponibles. Réessaie.'},
+    en: {stage:'Stage', stages:'stages', cards:'cards', known:'learned', unavailable:'Stages are unavailable. Please try again.'},
+    es: {stage:'Etapa', stages:'etapas', cards:'tarjetas', known:'aprendidas', unavailable:'Las etapas no están disponibles. Inténtalo de nuevo.'},
+    it: {stage:'Fase', stages:'fasi', cards:'schede', known:'apprese', unavailable:'Le fasi non sono disponibili. Riprova.'},
+    zh: {stage:'阶段', stages:'个阶段', cards:'张卡片', known:'已掌握', unavailable:'学习阶段暂时不可用，请重试。'},
+    ja: {stage:'ステップ', stages:'ステップ', cards:'枚のカード', known:'習得済み', unavailable:'ステップを表示できません。もう一度お試しください。'},
+    ko: {stage:'단계', stages:'단계', cards:'개 카드', known:'학습 완료', unavailable:'단계를 불러올 수 없습니다. 다시 시도해 주세요.'}
+  };
   const cardMotion = { gesture: null, suppressClickUntil: 0, animationTimer: 0, toastTimer: 0, fitFrame: 0 };
   state.savedReview = loadSavedReview();
   state.knownCards = loadKnownCards();
@@ -1040,8 +1051,115 @@
     showView('themes');
   }
 
+  // Same deterministic partitioner as review/sequences-longues@899f36b.
+  function partitionGroupBoundaries(weights) {
+    function compareBounds(a, b) {
+      for (let i = 0; i < Math.min(a.length, b.length); i++) if (a[i] !== b[i]) return a[i] - b[i];
+      return a.length - b.length;
+    }
+    if (!Array.isArray(weights) || !weights.length || Array.from(weights).some(n => !Number.isInteger(n) || n < 1 || n > 40)) throw new Error('Invalid technical group weights');
+    const prefix = [0];
+    weights.forEach(n => prefix.push(prefix.at(-1) + n));
+    const total = prefix.at(-1), count = weights.length;
+    if (total <= 100) return [{groupStart: 0, groupEndExclusive: count, cards: total, firstPresentation: 1, lastPresentation: total}];
+    let chosen;
+    for (let k = Math.ceil(total / 40); k <= Math.floor(total / 30); k++) {
+      let previous = new Map([[0, {cost: 0, ends: []}]]);
+      for (let used = 1; used <= k; used++) {
+        const next = new Map();
+        for (let end = 1; end <= count; end++) {
+          for (let start = end - 1; start >= 0; start--) {
+            const size = prefix[end] - prefix[start];
+            if (size > 40) break;
+            if (size < 30 || !previous.has(start)) continue;
+            const before = previous.get(start), candidate = {cost: before.cost + (size - 35) ** 2, ends: [...before.ends, end]};
+            const current = next.get(end);
+            if (!current || candidate.cost < current.cost || candidate.cost === current.cost && compareBounds(candidate.ends, current.ends) < 0) next.set(end, candidate);
+          }
+        }
+        previous = next;
+      }
+      const result = previous.get(count);
+      if (!result) continue;
+      const candidate = {distance: Math.abs(total - 35 * k), cost: result.cost, k, ends: result.ends};
+      if (!chosen || candidate.distance < chosen.distance || candidate.distance === chosen.distance && (candidate.cost < chosen.cost || candidate.cost === chosen.cost && (candidate.k < chosen.k || candidate.k === chosen.k && compareBounds(candidate.ends, chosen.ends) < 0))) chosen = candidate;
+    }
+    if (!chosen) throw new Error('No contiguous 30–40-card partition preserves the technical groups');
+    let start = 0;
+    return chosen.ends.map(end => {
+      const chunk = {groupStart: start, groupEndExclusive: end, cards: prefix[end] - prefix[start], firstPresentation: prefix[start] + 1, lastPresentation: prefix[end]};
+      start = end;
+      return chunk;
+    });
+  }
+
+  function hasVisibleSequences(theme = state.theme) {
+    return Boolean(ui.level && theme && phraseCount(theme) > 100);
+  }
+
+  function learningSequences(theme = state.theme) {
+    if (!hasVisibleSequences(theme)) return theme?.sequences || [];
+    if (visibleSequenceCache.has(theme)) return visibleSequenceCache.get(theme);
+    const boundaries = partitionGroupBoundaries(theme.sequences.map(sequence => sequence.phraseIds.length));
+    const sequences = boundaries.map((boundary, index) => {
+      const groups = theme.sequences.slice(boundary.groupStart, boundary.groupEndExclusive);
+      return {
+        id: state.pair.id + ':' + theme.id + ':visible:' + (index + 1), index: index + 1, ...boundary,
+        phraseIds: groups.flatMap(sequence => sequence.phraseIds),
+        preparationIds: groups.flatMap(sequence => sequence.preparationIds || []),
+        steps: groups.flatMap(sequence => sequence.steps)
+      };
+    });
+    visibleSequenceCache.set(theme, sequences);
+    return sequences;
+  }
+
+  function sequencePosition() {
+    return state.lessonScope === 'sequence' && hasVisibleSequences()
+      ? learningSequences().indexOf(state.sequence) + 1 : 0;
+  }
+
+  function sequenceLabel(index, count) {
+    const copy = visibleSequenceLabels[state.nativeLanguage] || visibleSequenceLabels.fr;
+    return copy.stage + ' ' + index + (count ? ' / ' + count : '');
+  }
+
+  function refreshVisibleSequenceContext() {
+    const index = sequencePosition();
+    ui.visibleSequenceContext.hidden = !index;
+    if (!index) return;
+    const label = sequenceLabel(index, learningSequences().length);
+    text(ui.visibleSequenceContext, label + ' ▾');
+    ui.visibleSequenceContext.title = tr('Les séquences');
+    ui.visibleSequenceContext.setAttribute('aria-label', label + ' · ' + tr('Les séquences'));
+  }
+
+  function renderVisibleSequenceProgress() {
+    if (state.screen !== 'sequences' || !hasVisibleSequences()) return;
+    const copy = visibleSequenceLabels[state.nativeLanguage] || visibleSequenceLabels.fr;
+    const known = state.knownCards.get(state.pair.id);
+    const sequences = learningSequences();
+    for (const button of ui.sequences.children) {
+      const sequence = sequences[Number(button.dataset.sequenceIndex) - 1];
+      if (!sequence) continue;
+      const ids = [...new Set(sequence.phraseIds)].filter(id => state.levelProgressIds.has(id));
+      const acquired = ids.filter(id => known?.has(id)).length;
+      const track = button.querySelector('.mg-sequence-progress');
+      const label = button.querySelector('.mg-sequence-progress-label');
+      const ratio = ids.length ? acquired / ids.length : 0;
+      track.firstElementChild.style.width = ratio * 100 + '%';
+      track.setAttribute('aria-label', sequenceLabel(sequence.index) + ' · ' + copy.known);
+      track.setAttribute('aria-valuenow', String(acquired));
+      track.setAttribute('aria-valuemax', String(ids.length));
+      text(label, acquired + ' / ' + ids.length + ' ' + copy.known);
+      button.dataset.known = String(acquired);
+      button.dataset.total = String(ids.length);
+    }
+  }
+
   function openTheme(theme) {
     if (theme._accessLocked) { openAccount(); return; }
+    if (hasVisibleSequences(theme)) return showSequences(theme);
     state.theme = theme;
     // Keep the prepared groups in order, but make the whole theme one lesson.
     startSequence({
@@ -1053,6 +1171,13 @@
 
   function showSequences(theme = state.theme) {
     if (!theme) return showThemes();
+    if (ui.level && !hasVisibleSequences(theme)) return openTheme(theme);
+    let sequences;
+    try { sequences = learningSequences(theme); }
+    catch (_) {
+      setStatus((visibleSequenceLabels[state.nativeLanguage] || visibleSequenceLabels.fr).unavailable);
+      return;
+    }
     stopAudio();
     closeHelp();
     state.theme = theme;
@@ -1061,13 +1186,37 @@
     setStatus('');
     text(ui.sequenceHeading, themeLabel(theme));
     text(ui.backText, tr('Thèmes'));
-    text(ui.counter, quantityLabel(phraseCount(theme)));
+    text(ui.counter, quantityLabel(phraseCount(theme), theme.contentType));
     ui.progress.style.width = '0%';
-    ui.sequences.replaceChildren(...theme.sequences.map((sequence, index) => tile(
-      sequence.title || format('sequence', index + 1),
-      sequence.phraseIds.length, themeIcon(theme), () => startSequence(sequence), 'mg-sequence'
-    )));
+    const visible = hasVisibleSequences(theme);
+    ui.sequenceView.classList.toggle('mg-has-visible-sequences', visible);
+    ui.sequenceOverview.hidden = !visible;
+    if (visible) {
+      const copy = visibleSequenceLabels[state.nativeLanguage] || visibleSequenceLabels.fr;
+      text(ui.sequenceOverview, sequences.length + ' ' + copy.stages + ' · ' + phraseCount(theme) + ' ' + copy.cards);
+    }
+    ui.sequences.replaceChildren(...sequences.map((sequence, index) => {
+      const button = tile(visible ? sequenceLabel(index + 1) : sequence.title || format('sequence', index + 1),
+        sequence.phraseIds.length, themeIcon(theme), () => startSequence(sequence), 'mg-sequence', {contentType:theme.contentType});
+      if (!visible) return button;
+      button.dataset.sequenceIndex = String(index + 1);
+      button.dataset.sequenceCount = String(sequences.length);
+      button.dataset.firstPresentation = String(sequence.firstPresentation);
+      button.dataset.lastPresentation = String(sequence.lastPresentation);
+      const content = button.querySelector('.mg-sequence-copy');
+      button.querySelector('.mg-theme-count').append(' · ' + sequence.firstPresentation + '–' + sequence.lastPresentation);
+      const track = document.createElement('span');
+      track.className = 'mg-sequence-progress';
+      track.setAttribute('role', 'progressbar');
+      track.setAttribute('aria-valuemin', '0');
+      track.append(document.createElement('i'));
+      const label = document.createElement('span');
+      label.className = 'mg-sequence-progress-label';
+      content.append(track, label);
+      return button;
+    }));
     showView('sequences');
+    renderVisibleSequenceProgress();
     ui.sequenceHeading.focus({ preventScroll: true });
   }
 
@@ -1130,6 +1279,7 @@
     ui.done.hidden = true;
     ui.help.hidden = false;
     ui.phase.hidden = false;
+    refreshVisibleSequenceContext();
     const themeDescription = themeLabel(state.theme) + (step.isReview
       ? ' · ' + tr('Révision') : step.isContextReuse ? ' · ' + tr('Réemploi') : '');
     text(ui.lessonTheme, state.pair.themes.includes(state.theme) ? themeNumber(state.theme) : state.theme.title);
@@ -1205,6 +1355,7 @@
     ui.done.hidden = false;
     ui.help.hidden = true;
     ui.phase.hidden = true;
+    refreshVisibleSequenceContext();
     text(ui.doneHeading, tr(['review', 'saved-review'].includes(state.lessonScope) ? 'Révision terminée'
       : state.lessonScope === 'theme' ? 'Thème terminé' : 'Séquence terminée'));
     text(ui.counter, state.sequence.phraseIds.length + ' / ' + state.sequence.phraseIds.length);
@@ -1212,9 +1363,10 @@
     ui.replay.disabled = false;
     ui.next.disabled = false;
     text(ui.replayText, tr('Rejouer'));
-    const index = state.theme.sequences.indexOf(state.sequence);
+    const sequences = state.lessonScope === 'sequence' ? learningSequences() : [];
+    const index = sequences.indexOf(state.sequence);
     text(ui.nextText, tr(state.lessonScope === 'saved-review' ? 'À revoir' : state.lessonScope !== 'sequence' ? 'Thèmes'
-      : index < state.theme.sequences.length - 1 ? 'Séquence suivante' : 'Les séquences'));
+      : index < sequences.length - 1 ? 'Séquence suivante' : 'Les séquences'));
     setStatus('');
     showView('done');
   }
@@ -2031,6 +2183,7 @@
     if (state.screen === 'sequences' || state.lessonScope !== 'sequence') showThemes();
     else showSequences();
   });
+  ui.visibleSequenceContext.addEventListener('click', () => ui.back.click());
   ui.palette.addEventListener('click', changeAmbience);
   ui.help.addEventListener('click', () => {
     state.helpOpen = !state.helpOpen;
@@ -2052,7 +2205,8 @@
     if (state.screen === 'done') {
       if (state.lessonScope === 'saved-review') { openMenu(); setMenuView('saved'); return; }
       if (state.lessonScope !== 'sequence') return showThemes();
-      const nextSequence = state.theme.sequences[state.theme.sequences.indexOf(state.sequence) + 1];
+      const sequences = learningSequences();
+      const nextSequence = sequences[sequences.indexOf(state.sequence) + 1];
       if (nextSequence) startSequence(nextSequence);
       else showSequences();
       return;
@@ -2127,6 +2281,7 @@
     if (event.key !== knownStorageKey && event.key !== null) return;
     state.knownCards = loadKnownCards();
     if (ui.level && state.screen === 'themes') renderLevelProgress();
+    else if (state.screen === 'sequences') renderVisibleSequenceProgress();
   });
   window.addEventListener('pagehide', stopAudio);
   window.addEventListener('resize', queueLessonFit);
@@ -2139,10 +2294,18 @@
   document.fonts?.ready.then(queueLessonFit);
 
   // Read-only state supports preview checks without touching the real application.
-  window.MelungaMockup = Object.freeze({ state: () => Object.freeze({
+  const immutableSnapshot = value => Array.isArray(value) ? Object.freeze(value.map(immutableSnapshot))
+    : value && typeof value === 'object'
+      ? Object.freeze(Object.fromEntries(Object.entries(value).map(([key, item]) => [key, immutableSnapshot(item)])))
+      : value;
+  window.MelungaMockup = Object.freeze({
+    visibleSequences: () => immutableSnapshot(hasVisibleSequences() ? visibleSequenceCache.get(state.theme) || [] : []),
+    state: () => Object.freeze({
     screen: state.screen, pairId: state.pair && state.pair.id, level: state.pair && state.pair.level || 1,
     themeId: state.theme && state.theme.id,
     sequenceId: state.sequence && state.sequence.id, stepIndex: state.stepIndex, lessonScope: state.lessonScope,
+    visibleSequenceIndex: sequencePosition(),
+    visibleSequenceCount: hasVisibleSequences() ? (visibleSequenceCache.get(state.theme) || []).length : 0,
     phraseId: currentPhrase() && currentPhrase().id, masked: isMasked(), helpOpen: state.helpOpen,
     readingVisible: state.readingVisible, access: courseAccess?.state() || null,
     levelProgress: ui.level && state.pair ? Object.freeze(levelProgress()) : null,

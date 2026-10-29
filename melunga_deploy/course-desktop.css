@@ -217,3 +217,34 @@
   body.mg-mobile-dock-course .mg-topbar{gap:4px;padding-inline:0}
   body[data-view="themes"] .mg-mobile-dock:has(#mgFooter[hidden]){gap:0}
 }
+
+/* Review preview: bounded, consecutive stages for themes exceeding 100 cards. */
+.mg-visible-sequence-context:not([hidden]){display:inline-flex;align-items:center;justify-content:center;flex:0 1 auto;min-height:30px;padding:5px 9px;border:1px solid var(--mg-line);border-radius:12px;background:var(--mg-soft);color:var(--mg-ink);font:inherit;font-size:12px;font-weight:650;line-height:1.2;white-space:nowrap;cursor:pointer}
+.mg-visible-sequence-context:focus-visible{outline:2px solid var(--mg-accent);outline-offset:3px}
+#mgSequenceView.mg-has-visible-sequences:not([hidden]){display:flex;flex-direction:column;height:100%;min-height:0;overflow:hidden}
+.mg-sequence-overview{flex:0 0 auto;margin:4px 4px 14px;color:var(--mg-muted);font-size:14px;line-height:1.4}
+body[data-view="sequences"]:has(#mgSequenceView.mg-has-visible-sequences) #mgCounter,
+body[data-view="sequences"]:has(#mgSequenceView.mg-has-visible-sequences) .mg-progress{display:none}
+.mg-has-visible-sequences #mgSequences{flex:1 1 0;min-height:0;overflow-y:auto;overscroll-behavior:contain;align-content:start;grid-auto-rows:min-content;padding:3px 5px 16px;scrollbar-width:auto;scrollbar-color:var(--mg-accent) var(--mg-soft)}
+.mg-has-visible-sequences .mg-sequence{min-height:112px;padding:16px;gap:12px}
+.mg-has-visible-sequences .mg-sequence-copy{flex:1 1 auto;min-width:0}
+.mg-has-visible-sequences .mg-sequence-icon{display:inline-flex;align-items:center;justify-content:center;flex:0 0 36px;width:36px;height:36px;border:1px solid var(--mg-line);border-radius:12px;background:var(--mg-soft);color:var(--mg-accent)}
+.mg-sequence .mg-sequence-progress{display:block;width:100%;height:5px;margin-top:10px;border-radius:5px;background:var(--mg-line);overflow:hidden}
+.mg-sequence-progress>i{display:block;height:100%;width:0;border-radius:inherit;background:var(--mg-accent)}
+.mg-sequence .mg-sequence-progress-label{display:block;margin-top:5px;font-size:11px;font-weight:550;color:var(--mg-muted);line-height:1.4}
+@media(min-width:1101px){
+  body.mg-desktop-course[data-view="sequences"] .mg-content{overflow:hidden}
+  body.mg-desktop-course[data-view="sequences"] .mg-sequence-overview{margin-top:0;margin-bottom:16px}
+  body.mg-desktop-course[data-view="sequences"] .mg-has-visible-sequences .mg-sequence{background:var(--mg-soft)}
+}
+@media(max-width:760px){
+  .mg-has-visible-sequences #mgSequences{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .mg-has-visible-sequences .mg-sequence{min-height:112px;padding:13px 12px}
+  .mg-has-visible-sequences .mg-sequence-icon,.mg-has-visible-sequences .mg-tile-arrow{display:none}
+  .mg-has-visible-sequences .mg-sequence strong{font-size:16px}
+  .mg-visible-sequence-context:not([hidden]){font-size:11px;padding:5px 7px}
+}
+@media(max-width:340px){
+  .mg-visible-sequence-context:not([hidden]){min-height:28px;font-size:10px;padding:4px 5px}
+  .mg-has-visible-sequences .mg-sequence{padding:12px 10px}
+}
