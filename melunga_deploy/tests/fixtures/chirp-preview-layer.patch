@@ -942,7 +942,7 @@ index 671acf7..c66f971 100644
 +    const unsubscribe = selection?.subscribe?.((_state, reason) => { if (reason === 'selection') stop(); });
 +    return Object.freeze({ play, stop, destroy() { stop(); unsubscribe?.(); } });
 diff --git a/melunga_deploy/maquette-guidee.html b/melunga_deploy/maquette-guidee.html
-index 7663cf5..eb7cad3 100644
+index 7663cf5..4271550 100644
 --- a/melunga_deploy/maquette-guidee.html
 +++ b/melunga_deploy/maquette-guidee.html
 @@ -7,2 +7,2 @@
@@ -953,7 +953,7 @@ index 7663cf5..eb7cad3 100644
 @@ -10,0 +11,3 @@
 +  <link rel="stylesheet" href="course-ambiences.css?v=1">
 +  <link rel="stylesheet" href="course-startup.css?v=1">
-+  <link rel="stylesheet" href="course-desktop.css?v=16">
++  <link rel="stylesheet" href="course-desktop.css?v=17">
 @@ -12,2 +15 @@
 -<body data-ambience="ocean">
 -  <div class="mg-previewnotice"><span>Maquette</span><a href="https://melunga.com/" target="_blank" rel="noopener">Site actuel ↗</a></div>
@@ -1376,7 +1376,7 @@ index aeaebf7..b3713ca 100644
 +
 +export const handler = createHandler();
 diff --git a/melunga_deploy/parcours-niveaux.html b/melunga_deploy/parcours-niveaux.html
-index 6e9b44c..dfcc45c 100644
+index 6e9b44c..9dcb4dc 100644
 --- a/melunga_deploy/parcours-niveaux.html
 +++ b/melunga_deploy/parcours-niveaux.html
 @@ -7 +7,76 @@
@@ -1460,7 +1460,7 @@ index 6e9b44c..dfcc45c 100644
 @@ -9,0 +85,3 @@
 +  <link rel="stylesheet" href="course-ambiences.css?v=1">
 +  <link rel="stylesheet" href="course-startup.css?v=1">
-+  <link rel="stylesheet" href="course-desktop.css?v=16">
++  <link rel="stylesheet" href="course-desktop.css?v=17">
 @@ -11,2 +89,6 @@
 -<body data-ambience="ocean">
 -  <div class="mg-previewnotice"><span>Maquette</span><a href="https://melunga.com/" target="_blank" rel="noopener">Site actuel ↗</a></div>
