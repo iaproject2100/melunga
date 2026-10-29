@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "physicalDeviceTested": false,
+  "safariTested": false,
+  "realAccountsUsed": false,
+  "realPaymentsUsed": false,
+  "actualAudioPlayed": false,
+  "allResponsesLocalFixtures": true,
+  "reports": [
+    {
+      "report": "start-return-report.json",
+      "status": "passed",
+      "checks": 8,
+      "cases": 28,
+      "inputsStable": true,
+      "sourceInputCount": 55,
+      "errors": [],
+      "sourceInputsMatchAtTestCompletion": true,
+      "finalRuntimeChangedInputs": [
+        "melunga_deploy/maquette-guidee.html"
+      ],
+      "finalValidationMetadataChangedInputs": []
+    },
+    {
+      "report": "course-entry-report.json",
+      "status": "passed",
+      "checks": 6,
+      "cases": 29,
+      "inputsStable": true,
+      "sourceInputCount": 208,
+      "errors": [],
+      "sourceInputsMatchAtTestCompletion": true,
+      "finalRuntimeChangedInputs": [
+        "melunga_deploy/maquette-guidee.html"
+      ],
+      "finalValidationMetadataChangedInputs": [
+        "melunga_deploy/tests/chirp-preview-layer.cjs",
+        "melunga_deploy/tests/fixtures/chirp-preview-layer.json",
+        "melunga_deploy/tests/fixtures/chirp-preview-layer.patch"
+      ]
+    }
+  ],
+  "finalDeltaProof": "final-delta.json",
+  "finalRuntimeInputsAllMatchExceptUnexecutedLegacyHtml": true,
+  "finalLegacyHtmlValidation": "Separate root-owned browser report; not covered by these existing suites."
+}

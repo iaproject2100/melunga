@@ -1,0 +1,580 @@
+diff --git a/melunga_deploy/app.html b/melunga_deploy/app.html
+index 89d7db9..e963215 100644
+--- a/melunga_deploy/app.html
++++ b/melunga_deploy/app.html
+@@ -2730,0 +2731,19 @@ body.immersif.pile-droite .stage {
++  // Old explicit web-start links now enter the same native/cible course.
++  // Resolve this before the classic catalogue and lesson startup can run.
++  var query=new URLSearchParams(location.search);
++  if(query.get('start')!=='1' || query.has('login') || query.has('checkout') || query.get('classic')==='1') return;
++  var keys=['start','lang','study','level','courseLevel','courseReturn','classic','login','checkout'];
++  if(keys.some(function(key){return query.getAll(key).length>1;})) return;
++  if(location.protocol!=='https:' && location.protocol!=='http:') return;
++  var bridge=window.Capacitor;
++  if(bridge && (typeof bridge.isNativePlatform==='function' ? bridge.isNativePlatform()
++      : typeof bridge.getPlatform==='function' && bridge.getPlatform()!=='web')) return;
++  var codes=['fr','en','es','it','zh','ja','ko'];
++  var nativeLanguage=query.get('lang'), studyLanguage=query.get('study');
++  if(codes.indexOf(nativeLanguage)<0 || codes.indexOf(studyLanguage)<0 || nativeLanguage===studyLanguage) return;
++  var pair=nativeLanguage+'-'+studyLanguage;
++  if(query.has('courseReturn') && query.get('courseReturn')!==pair) return;
++  var level=query.has('courseLevel') ? query.get('courseLevel') : query.has('level') ? query.get('level') : '1';
++  if(!/^(?:[1-9]|10)$/.test(level) || query.has('courseLevel') && query.has('level') && query.get('level')!==level) return;
++  window.__courseStartRedirecting=true;
++  location.replace('parcours-niveaux.html?'+new URLSearchParams({pair:pair,level:level}).toString());
+@@ -3544 +3563,2 @@ function validateCourseReturn(pair,level,nativeLanguage,studyLanguage){
+-  if(courseReturnIsNative() || ['fr-en','fr-es','fr-it','fr-zh','fr-ja','fr-ko','zh-fr'].indexOf(pair)<0) return null;
++  if(courseReturnIsNative() || typeof pair!=='string') return null;
++  var codes=['fr','en','es','it','zh','ja','ko'];
+@@ -3545,0 +3566 @@ function validateCourseReturn(pair,level,nativeLanguage,studyLanguage){
++  if(languages.length!==2 || codes.indexOf(languages[0])<0 || codes.indexOf(languages[1])<0 || languages[0]===languages[1]) return null;
+@@ -3557,0 +3579 @@ function readApprovedCourseReturn(){
++    if(['courseReturn','courseLevel','lang','study','login','checkout','classic'].some(function(key){return query.getAll(key).length>1;})) return null;
+@@ -3745,2 +3767,2 @@ function wlcGoStep2(){
+-  setNat(WLCSITE);
+-  var order=['zh','en','es','fr'], first=null;
++  var order=['zh','en','es','fr','it','ja','ko'], first=null;
++  if(order.indexOf(WLCSITE)<0) return;
+@@ -3747,0 +3770,9 @@ function wlcGoStep2(){
++  var query=new URLSearchParams(location.search);
++  var ambiguous=['start','lang','study','level','courseLevel','courseReturn','classic','login','checkout'].some(function(key){return query.getAll(key).length>1;});
++  if(first && !ambiguous && !courseReturnIsNative() && query.get('classic')!=='1'
++      && !query.has('start') && !query.has('login') && !query.has('checkout')){
++    window.__courseStartRedirecting=true;
++    location.replace('parcours-niveaux.html?'+new URLSearchParams({pair:WLCSITE+'-'+first,level:'1'}).toString());
++    return;
++  }
++  setNat(WLCSITE);
+@@ -3751 +3782,5 @@ function wlcGoStep2(){
+-function wlcLogin(){
++function wlcLogin(studyLanguage){
++  if(studyLanguage && validateCourseReturn(WLCSITE+'-'+studyLanguage,1,WLCSITE,studyLanguage)){
++    lang=studyLanguage;
++    lsSet('ox_lang',studyLanguage);
++  }
+@@ -4502,0 +4538 @@ window.addEventListener('load',function(){
++  if(window.__courseStartRedirecting) return;
+@@ -5213 +5249 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
+-    if(q.get('start')!=='1') return;
++    if(window.__courseStartRedirecting || q.get('start')!=='1' || q.has('login') || q.has('checkout')) return;
+diff --git a/melunga_deploy/course-access.js b/melunga_deploy/course-access.js
+index 32ffd41..812e6c7 100644
+--- a/melunga_deploy/course-access.js
++++ b/melunga_deploy/course-access.js
+@@ -5 +5,3 @@
+-  const PAIRS = ['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr'];
++  const REVIEWED_PAIRS = ['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr'];
++  const nativeCourses = window.MelungaNativeCourses;
++  const PAIRS = nativeCourses?.pairIds || REVIEWED_PAIRS;
+@@ -42 +44 @@
+-      if (!PAIRS.includes(pair.id) || entries.has(pair.id) || pair.count !== EXPECTED_COUNTS[pair.id]
++      if (!REVIEWED_PAIRS.includes(pair.id) || entries.has(pair.id) || pair.count !== EXPECTED_COUNTS[pair.id]
+@@ -156,0 +159,3 @@
++    // Additional directions only accept identities in their verified source policy,
++    // including for paid/preview learners. A target identity alone is insufficient.
++    if (!REVIEWED_PAIRS.includes(pairId) && nativeCourses?.isEligible(pairId, phrase.id) !== true) return false;
+@@ -160 +165,2 @@
+-    if (rights.get(pairId)?.has(phrase.id)) return true;
++    if (REVIEWED_PAIRS.includes(pairId) ? rights.get(pairId)?.has(phrase.id)
++        : nativeCourses?.isHistoricalFree(pairId, phrase.id) === true) return true;
+@@ -166 +172,2 @@
+-    const pair = PAIRS.includes(pairId) ? pairId : 'fr-en';
++    if (!PAIRS.includes(pairId)) return 'index.html';
++    const pair = pairId;
+@@ -174 +181,2 @@
+-    const pair = PAIRS.includes(pairId) ? pairId : 'fr-en';
++    if (!PAIRS.includes(pairId)) return 'index.html';
++    const pair = pairId;
+diff --git a/melunga_deploy/course-login.js b/melunga_deploy/course-login.js
+index 449792c..c5f114d 100644
+--- a/melunga_deploy/course-login.js
++++ b/melunga_deploy/course-login.js
+@@ -44 +44,5 @@
+-  cancel.textContent = approved.nativeLanguage === 'zh' ? '返回主题' : 'Retour aux thèmes';
++  var backLabels = {
++    fr: 'Retour aux thèmes', en: 'Back to topics', es: 'Volver a los temas',
++    it: 'Torna ai temi', zh: '返回主题', ja: 'テーマに戻る', ko: '주제로 돌아가기'
++  };
++  cancel.textContent = backLabels[approved.nativeLanguage];
+diff --git a/melunga_deploy/desktop-home.js b/melunga_deploy/desktop-home.js
+index 2ed39b3..6c92871 100644
+--- a/melunga_deploy/desktop-home.js
++++ b/melunga_deploy/desktop-home.js
+@@ -391 +390,0 @@
+-  const originalCourseLabel = courseLaunch.textContent;
+@@ -401 +400 @@
+-    const text = desktopChoices.matches && selectedAccess === 'free' ? (copy[locale] || copy.fr)[3] : originalCourseLabel;
++    const text = desktopChoices.matches && selectedAccess === 'free' ? (copy[locale] || copy.fr)[3] : window.MelungaCourseI18n.t(locale,'Démarrer ma première leçon');
+@@ -404,2 +403 @@
+-      if (desktopChoices.matches) choice.setAttribute('aria-pressed',String(choice.classList.contains('selected')));
+-      else choice.removeAttribute('aria-pressed');
++      choice.setAttribute('aria-pressed',String(!choice.hidden&&choice.classList.contains('selected')));
+diff --git a/melunga_deploy/entry-bridge.js b/melunga_deploy/entry-bridge.js
+index 8caf54f..b339d35 100644
+--- a/melunga_deploy/entry-bridge.js
++++ b/melunga_deploy/entry-bridge.js
+@@ -10 +10 @@
+-  if (!comesFromMobileEntry) return;
++  if (!comesFromMobileEntry || window.__courseStartRedirecting) return;
+@@ -20,0 +21,4 @@
++        var approved = window.approvedCourseReturn;
++        approved = approved && typeof window.validateCourseReturn === 'function'
++          ? window.validateCourseReturn(approved.pair, approved.level, approved.nativeLanguage, approved.studyLanguage) : null;
++        if (approved) nativeLanguage = approved.nativeLanguage;
+@@ -24 +28,2 @@
+-        window.wlcLogin();
++        if (approved) window.wlcLogin(approved.studyLanguage);
++        else window.wlcLogin();
+diff --git a/melunga_deploy/index.html b/melunga_deploy/index.html
+index 4b5bdb9..f5d1aec 100644
+--- a/melunga_deploy/index.html
++++ b/melunga_deploy/index.html
+@@ -146 +146,8 @@
+-    .lesson-context{display:flex;align-items:center;justify-content:center;gap:8px;margin:5px 0 6px}.lesson-context-btn{border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.1);color:inherit;padding:8px 12px;border-radius:999px;font:inherit;font-size:13px;font-weight:900;cursor:pointer;white-space:nowrap}.lesson-context-btn:active{transform:scale(.97)}.lesson-topic{text-align:center;min-height:18px;margin:0 0 9px;color:rgba(255,255,255,.7);font-size:11px;font-weight:850;letter-spacing:.3px}.lesson.theme-light .lesson-context-btn{background:rgba(255,255,255,.35);border-color:rgba(35,38,43,.15)}.lesson.theme-light .lesson-topic{color:rgba(35,38,43,.62)}.drawer-choice.selected,.level-choice.selected{border-color:var(--blue);background:#eaf7fd;color:var(--navy)}.level-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.level-choice{border:1px solid var(--line);background:white;border-radius:18px;padding:15px 10px;color:var(--ink);font-size:16px;font-weight:950;cursor:pointer}.level-choice small{display:block;color:var(--soft);font-size:10px;margin-top:4px;font-weight:750}.app-language-backdrop{position:absolute;inset:0;z-index:35;background:rgba(2,18,29,.34);display:flex;align-items:flex-start;justify-content:flex-end;padding:calc(70px + env(safe-area-inset-top)) 16px 18px;opacity:0;pointer-events:none;transition:.18s opacity}.app-language-backdrop.open{opacity:1;pointer-events:auto}.app-language-sheet{width:min(310px,calc(100% - 34px));max-height:calc(100% - 86px);overflow:hidden;background:rgba(248,251,253,.98);color:var(--ink);border:1px solid rgba(255,255,255,.75);border-radius:23px;padding:11px 13px 14px;box-shadow:0 20px 55px rgba(2,18,29,.28);transform:translateY(-14px) scale(.97);transform-origin:top right;opacity:0;transition:.22s transform,.18s opacity}.app-language-backdrop.open .app-language-sheet{transform:none;opacity:1}.app-language-sheet .drawer-handle{display:none}.app-language-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}.app-language-head h3{font-size:17px;margin:0}.app-language-head .drawer-close{width:36px;height:36px;border-radius:12px;font-size:18px}.app-language-grid{display:flex;flex-direction:column;gap:4px;max-height:min(410px,58vh);overflow-y:auto;overscroll-behavior:contain;scroll-snap-type:y proximity;padding:2px 2px 6px;scrollbar-width:thin;scrollbar-color:#b8cad4 transparent}.app-language-choice{flex:0 0 auto;width:100%;min-height:51px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);border-radius:13px;padding:8px 11px;display:flex;align-items:center;gap:11px;text-align:left;font-size:14px;font-weight:900;cursor:pointer;scroll-snap-align:start}.app-language-choice b{font-size:21px}.app-language-choice:after{content:'✓';margin-left:auto;color:var(--blue);font-size:17px;opacity:0;transform:scale(.7);transition:.18s opacity,.18s transform}.app-language-choice.selected{background:#eaf7fd;color:var(--navy)}.app-language-choice.selected:after{opacity:1;transform:scale(1)}.demo-note{position:fixed;right:16px;bottom:16px;background:#122b3a;color:white;padding:10px 13px;border-radius:12px;font-size:12px;box-shadow:var(--shadow)}
++    .lesson-context{display:flex;align-items:center;justify-content:center;gap:8px;margin:5px 0 6px}.lesson-context-btn{border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.1);color:inherit;padding:8px 12px;border-radius:999px;font:inherit;font-size:13px;font-weight:900;cursor:pointer;white-space:nowrap}.lesson-context-btn:active{transform:scale(.97)}.lesson-topic{text-align:center;min-height:18px;margin:0 0 9px;color:rgba(255,255,255,.7);font-size:11px;font-weight:850;letter-spacing:.3px}.lesson.theme-light .lesson-context-btn{background:rgba(255,255,255,.35);border-color:rgba(35,38,43,.15)}.lesson.theme-light .lesson-topic{color:rgba(35,38,43,.62)}.drawer-choice.selected,.level-choice.selected{border-color:var(--blue);background:#eaf7fd;color:var(--navy)}.level-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.level-choice{border:1px solid var(--line);background:white;border-radius:18px;padding:15px 10px;color:var(--ink);font-size:16px;font-weight:950;cursor:pointer}.level-choice small{display:block;color:var(--soft);font-size:10px;margin-top:4px;font-weight:750}.app-language-backdrop{position:fixed;inset:auto;margin:0;border:0;max-width:none;max-height:none;width:100vw;height:100dvh;padding:0;overflow:hidden;color:var(--ink);background:rgba(2,18,29,.34)}
++    .app-language-backdrop:not([open]){display:none}.app-language-backdrop::backdrop{background:transparent}
++    .app-language-sheet{position:absolute;left:12px;top:12px;display:flex;flex-direction:column;min-height:0;width:min(310px,calc(100% - 24px));max-height:calc(100% - 24px);overflow:hidden;background:rgba(248,251,253,.98);color:var(--ink);border:1px solid rgba(255,255,255,.75);border-radius:23px;padding:11px 13px max(14px,env(safe-area-inset-bottom));box-shadow:0 20px 55px rgba(2,18,29,.28)}
++    .app-language-sheet .drawer-handle{display:none}.app-language-head{display:flex;flex:0 0 auto;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}.app-language-head h3{min-width:0;font-size:17px;margin:0}.app-language-head .drawer-close{flex:0 0 44px;width:44px;height:44px;border-radius:12px;font-size:18px}
++    .app-language-grid{display:flex;flex:1 1 auto;flex-direction:column;gap:4px;min-height:0;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y;padding:4px 2px 8px;scroll-padding-block:8px;scrollbar-width:thin;scrollbar-color:#b8cad4 transparent}
++    .app-language-choice{flex:0 0 auto;width:100%;min-height:51px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);border-radius:13px;padding:8px 11px;display:flex;align-items:center;gap:11px;text-align:left;font-size:14px;font-weight:900;cursor:pointer}.app-language-choice b{font-size:21px}.app-language-choice:after{content:'✓';margin-left:auto;color:var(--blue);font-size:17px;opacity:0}.app-language-choice.selected{background:#eaf7fd;color:var(--navy)}.app-language-choice.selected:after{opacity:1}.app-language-choice:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
++    .screen[data-screen="language"]>*{flex-shrink:0}.screen[data-screen="language"] .sticky-action{position:static;flex:none;margin-top:auto;padding-top:16px;padding-bottom:max(4px,env(safe-area-inset-bottom));background:none}.screen[data-screen="language"] [data-study-language][hidden]{display:none!important}
++    .demo-note{position:fixed;right:16px;bottom:16px;background:#122b3a;color:white;padding:10px 13px;border-radius:12px;font-size:12px;box-shadow:var(--shadow)}
+@@ -174 +181 @@
+-        <div class="topline"><span></span><button type="button" class="home-start" data-select-access="free" data-welcome-i18n="tryFree">Essayer gratuitement</button><button class="lang-pill" data-open-app-language aria-label="Choisir la langue de l’application"><span class="home-flag home-flag-fr" aria-hidden="true"></span><span>Français⌄</span></button></div>
++        <div class="topline"><span></span><button type="button" class="home-start" data-select-access="free" data-welcome-i18n="tryFree">Essayer gratuitement</button><button class="lang-pill" type="button" data-open-app-language aria-label="Choisir la langue de l’application" aria-haspopup="dialog" aria-controls="appLanguageMenu" aria-expanded="false"><span class="home-flag home-flag-fr" aria-hidden="true"></span><span>Français⌄</span></button></div>
+@@ -186,2 +193,2 @@
+-        <div class="app-language-backdrop" id="appLanguageMenu" aria-hidden="true">
+-          <div class="app-language-sheet" role="dialog" aria-modal="true" aria-label="Langue de l’application">
++        <dialog class="app-language-backdrop" id="appLanguageMenu" aria-labelledby="appLanguageTitle">
++          <div class="app-language-sheet">
+@@ -189 +196 @@
+-            <div class="app-language-head"><h3 data-welcome-i18n="languageTitle">Langue de l’application</h3><button class="drawer-close" data-close-app-language aria-label="Fermer">×</button></div>
++            <div class="app-language-head"><h3 id="appLanguageTitle" data-welcome-i18n="languageTitle">Langue de l’application</h3><button class="drawer-close" data-close-app-language aria-label="Fermer">×</button></div>
+@@ -200 +207 @@
+-        </div>
++        </dialog>
+@@ -251 +258 @@
+-                  <p>Elle utilise les repères sonores de ta langue native.</p>
++                  <p data-proof-native-note>Elle utilise les repères sonores de ta langue native.</p>
+@@ -487,0 +495 @@
++  <script src="course-i18n.js?v=2"></script>
+@@ -495,0 +504,25 @@
++    const homeLanguageCodes=['fr','en','es','zh','it','ja','ko'];
++    const homeLanguageNames={fr:'Français',en:'English',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어'};
++    const proofCopySources=[...new Set(document.querySelectorAll('[data-screen="method"] .proof-kicker,[data-screen="method"] h2,[data-screen="method"] .proof-hero>p,[data-screen="method"] .proof-step>p,[data-screen="method"] .method-slide>p,[data-screen="method"] .method-flow-step strong,[data-screen="method"] .method-flow-step span,[data-screen="method"] .method-pillar strong,[data-screen="method"] .method-pillar span,[data-screen="method"] .method-signature,#wowProof,[data-speak-demo]'))].map(node=>({node,source:node.innerHTML}));
++    function homeText(source){return window.MelungaCourseI18n?.t(currentAppLocale,source)||source;}
++    function homeLanguageName(code){return window.MelungaCourseI18n?.languageName(currentAppLocale,code)||homeLanguageNames[code];}
++    function localizeHomeFlow(){
++      const languageScreen=document.querySelector('[data-screen="language"]');
++      languageScreen.querySelector('.step-label').textContent=homeText('UN SEUL CHOIX POUR COMMENCER');
++      languageScreen.querySelector('h2').textContent=homeText('Quelle langue veux-tu parler ?');
++      languageScreen.querySelector('.question p').textContent=homeText('Choisis une langue et commence immédiatement. Tu pourras changer plus tard.');
++      languageScreen.querySelector('[data-launch-course]').textContent=homeText('Démarrer ma première leçon');
++      languageScreen.querySelector('.back').setAttribute('aria-label',homeText('Retour'));
++      document.querySelectorAll('[data-study-language]').forEach(choice=>{
++        choice.querySelector('strong').textContent=homeLanguageName(choice.dataset.studyLanguage);
++        choice.querySelector('small').textContent=window.MelungaCourseI18n?.format(currentAppLocale,'nativeAudience')||'';
++      });
++      document.querySelector('[data-close-app-language]').setAttribute('aria-label',homeText('Fermer'));
++      for(const {node,source} of proofCopySources){const value=node.matches('[data-proof-native-note]')&&currentAppLocale!=='fr'?'Cet exemple utilise une aide phonétique et une traduction françaises.':source;node.innerHTML=homeText(value);}
++      const hint=document.querySelector('.swipe-hint');hint.firstChild.textContent=homeText('Glisse vers la gauche')+' ';
++      document.querySelector('.proof-skip').textContent=homeText('PASSER');
++      document.querySelector('.proof-top [data-go="welcome"]').setAttribute('aria-label',homeText('Retour'));
++      document.querySelector('.proof-dots').setAttribute('aria-label',homeText('Progression de la démonstration'));
++      proofDots.forEach((dot,index)=>dot.setAttribute('aria-label',window.MelungaCourseI18n?.format(currentAppLocale,'page',{n:index+1})||String(index+1)));
++      proofNext.textContent=homeText(proofLabels[proofIndex]);
++    }
+@@ -585 +618 @@
+-      proofNext.textContent=proofLabels[proofIndex];
++      proofNext.textContent=homeText(proofLabels[proofIndex]);
+@@ -590,0 +624,2 @@
++      if(name==='language')localizeHomeFlow();
++      if(appLanguageMenu.open)closeAppLanguageMenu();
+@@ -596 +631,2 @@
+-      return selected ? selected.dataset.studyLanguage : 'en';
++      const target=selected?.dataset.studyLanguage;
++      return coursePair(currentAppLocale,target)?target:currentAppLocale==='fr'?'en':'fr';
+@@ -613 +649 @@
+-          if(previousNative===currentAppLocale && /^(fr|en|es|zh|it|ja|ko)$/.test(previousStudy||'')) return previousStudy;
++          if(previousNative===currentAppLocale && coursePair(currentAppLocale,previousStudy)) return previousStudy;
+@@ -629,2 +665 @@
+-      const pair=nativeLanguage+'-'+studyLanguage;
+-      return ['fr-en','fr-es','fr-it','fr-zh','fr-ja','fr-ko','zh-fr'].includes(pair) ? pair : '';
++      return homeLanguageCodes.includes(nativeLanguage)&&homeLanguageCodes.includes(studyLanguage)&&nativeLanguage!==studyLanguage?nativeLanguage+'-'+studyLanguage:'';
+@@ -655,2 +690,30 @@
+-    function openAppLanguageMenu(){appLanguageMenu.classList.add('open');appLanguageMenu.setAttribute('aria-hidden','false');}
+-    function closeAppLanguageMenu(){appLanguageMenu.classList.remove('open');appLanguageMenu.setAttribute('aria-hidden','true');}
++    function positionAppLanguageMenu(){
++      if(!appLanguageMenu.open)return;
++      const viewport=window.visualViewport,bounds={left:viewport?.offsetLeft||0,top:viewport?.offsetTop||0,width:viewport?.width||innerWidth,height:viewport?.height||innerHeight},gutter=12;
++      Object.assign(appLanguageMenu.style,{left:bounds.left+'px',top:bounds.top+'px',width:bounds.width+'px',height:bounds.height+'px'});
++      const sheet=appLanguageMenu.querySelector('.app-language-sheet');sheet.style.maxHeight=Math.max(0,bounds.height-gutter*2)+'px';
++      const anchor=appLanguageButton.getBoundingClientRect(),rect=sheet.getBoundingClientRect();
++      sheet.style.left=Math.max(gutter,Math.min(anchor.right-bounds.left-rect.width,bounds.width-rect.width-gutter))+'px';
++      sheet.style.top=Math.max(gutter,Math.min(anchor.bottom-bounds.top+8,bounds.height-rect.height-gutter))+'px';
++    }
++    function revealAppLanguageChoice(choice){
++      const list=appLanguageMenu.querySelector('.app-language-grid'),bounds=list.getBoundingClientRect(),rect=choice.getBoundingClientRect();
++      if(rect.top<bounds.top+4)list.scrollTop-=bounds.top+4-rect.top;
++      else if(rect.bottom>bounds.bottom-8)list.scrollTop+=rect.bottom-bounds.bottom+8;
++    }
++    function openAppLanguageMenu(){
++      appLanguageMenu.showModal();appLanguageMenu.classList.add('open');appLanguageButton.setAttribute('aria-expanded','true');
++      const list=appLanguageMenu.querySelector('.app-language-grid');list.scrollTop=0;positionAppLanguageMenu();
++      const choice=list.querySelector('.selected')||list.firstElementChild;choice?.focus({preventScroll:true});if(choice)revealAppLanguageChoice(choice);
++    }
++    function closeAppLanguageMenu(){
++      if(appLanguageMenu.open)appLanguageMenu.close();appLanguageMenu.classList.remove('open');appLanguageButton.setAttribute('aria-expanded','false');appLanguageButton.focus({preventScroll:true});
++    }
++    appLanguageMenu.addEventListener('cancel',event=>{event.preventDefault();closeAppLanguageMenu();});
++    appLanguageMenu.addEventListener('close',()=>{if(appLanguageMenu.open)return;appLanguageMenu.classList.remove('open');appLanguageButton.setAttribute('aria-expanded','false');});
++    appLanguageMenu.addEventListener('keydown',event=>{
++      const choices=[...appLanguageMenu.querySelectorAll('[data-app-language]')],index=choices.indexOf(document.activeElement);
++      if(index<0)return;const next=event.key==='Home'?0:event.key==='End'?choices.length-1:event.key==='ArrowUp'?Math.max(0,index-1):event.key==='ArrowDown'?Math.min(choices.length-1,index+1):-1;
++      if(next<0)return;event.preventDefault();choices[next].focus({preventScroll:true});revealAppLanguageChoice(choices[next]);
++    });
++    window.addEventListener('resize',positionAppLanguageMenu);window.visualViewport?.addEventListener('resize',positionAppLanguageMenu);window.visualViewport?.addEventListener('scroll',positionAppLanguageMenu);
+@@ -774,11 +837,10 @@
+-      const texts=welcomeTranslations[locale]||welcomeTranslations.fr;
+-      currentAppLocale=locale;
+-      const frenchChoice=document.querySelector('[data-study-language="fr"]');
+-      if(frenchChoice){
+-        frenchChoice.hidden=locale!=='zh';
+-        frenchChoice.style.display=locale==='zh'?'':'none';
+-        const selected=document.querySelector('[data-study-language].selected');
+-        if(!explicitStudyChoice || selected===frenchChoice && frenchChoice.hidden){
+-          const defaultStudy=locale==='zh'?'fr':'en';
+-          document.querySelectorAll('[data-study-language]').forEach(choice=>choice.classList.toggle('selected',choice.dataset.studyLanguage===defaultStudy));
+-        }
++      if(!homeLanguageCodes.includes(locale))locale='fr';
++      const texts=welcomeTranslations[locale]||welcomeTranslations.fr,selected=document.querySelector('[data-study-language].selected');
++      let target=explicitStudyChoice&&coursePair(locale,selected?.dataset.studyLanguage)?selected.dataset.studyLanguage:null;
++      if(!target){
++        explicitStudyChoice=false;
++        try{
++          const previousPair=localStorage.getItem('melunga-course-pair'),previousNative=localStorage.getItem('ox_nat'),previousStudy=localStorage.getItem('ox_lang');
++          if(previousPair?.split('-')[0]===locale&&coursePair(locale,previousPair.split('-')[1])===previousPair)target=previousPair.split('-')[1];
++          else if(previousNative===locale&&coursePair(locale,previousStudy))target=previousStudy;
++        }catch(_error){}
+@@ -785,0 +848,7 @@
++      if(!target)target=locale==='fr'?'en':'fr';
++      currentAppLocale=locale;
++      document.querySelectorAll('[data-study-language]').forEach(choice=>{
++        const available=choice.dataset.studyLanguage!==locale,isSelected=available&&choice.dataset.studyLanguage===target;
++        choice.hidden=!available;choice.style.display=available?'':'none';choice.classList.toggle('selected',isSelected);choice.setAttribute('aria-pressed',String(isSelected));
++      });
++      document.querySelectorAll('[data-app-language]').forEach(choice=>{const selected=choice.dataset.appLanguage===locale;choice.classList.toggle('selected',selected);choice.setAttribute('aria-pressed',String(selected));});
+@@ -788,8 +857,5 @@
+-      const languageNames={fr:'Français',en:'English',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어'};
+-      const flag=document.createElement('span');flag.className='home-flag home-flag-'+(languageNames[locale]?locale:'fr');flag.setAttribute('aria-hidden','true');
+-      const name=document.createElement('span');name.textContent=(languageNames[locale]||label)+'⌄';
+-      appLanguageButton.replaceChildren(flag,name);
+-      appLanguageButton.setAttribute('aria-label',texts.languageTitle||'Langue de l’application');
+-      renderWelcomePrice();
+-      applyPremiumLanguage();
+-      try{localStorage.setItem('melunga-app-language',JSON.stringify({locale,label}));}catch(_e){}
++      const flag=document.createElement('span');flag.className='home-flag home-flag-'+locale;flag.setAttribute('aria-hidden','true');
++      const name=document.createElement('span');name.textContent=homeLanguageNames[locale]+'⌄';appLanguageButton.replaceChildren(flag,name);
++      appLanguageButton.setAttribute('aria-label',texts.languageTitle);localizeHomeFlow();
++      renderWelcomePrice();applyPremiumLanguage();
++      try{localStorage.setItem('melunga-app-language',JSON.stringify({locale,label:label||homeLanguageNames[locale]}));}catch(_e){}
+@@ -822 +888 @@
+-      button.textContent='🔊 Réécouter la voix native';
++      button.textContent=homeText('🔊 Réécouter la voix native');
+@@ -834 +900 @@
+-        utterance.onerror=()=>{button.textContent='🔊 Réessayer';button.removeAttribute('aria-busy');};
++        utterance.onerror=()=>{button.textContent=homeText('🔊 Réessayer');button.removeAttribute('aria-busy');};
+@@ -836 +902 @@
+-      }catch(_error){button.textContent='🔊 Réessayer';button.removeAttribute('aria-busy');}
++      }catch(_error){button.textContent=homeText('🔊 Réessayer');button.removeAttribute('aria-busy');}
+@@ -839 +905 @@
+-      button.textContent='Chargement de la voix…';
++      button.textContent=homeText('Chargement de la voix…');
+@@ -915 +981 @@
+-      const option=e.target.closest('.option');if(option){if(option.matches('[data-study-language]'))explicitStudyChoice=true;const box=option.closest('.options');if(box) box.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));option.classList.add('selected');}
++      const option=e.target.closest('.option');if(option){if(option.matches('[data-study-language]')){if(!coursePair(currentAppLocale,option.dataset.studyLanguage)||option.hidden)return;explicitStudyChoice=true;}const box=option.closest('.options');if(box)box.querySelectorAll('.option').forEach(o=>{o.classList.remove('selected');if(o.matches('[data-study-language]'))o.setAttribute('aria-pressed','false');});option.classList.add('selected');if(option.matches('[data-study-language]'))option.setAttribute('aria-pressed','true');}
+@@ -917,0 +984 @@
++    let initialAppLocale='fr',initialAppLanguageLabel='FR Français';
+@@ -920,5 +987 @@
+-      if(savedLanguage&&welcomeTranslations[savedLanguage.locale]){
+-        const savedChoice=document.querySelector(`[data-app-language="${savedLanguage.locale}"]`);
+-        document.querySelectorAll('[data-app-language]').forEach(item=>item.classList.toggle('selected',item===savedChoice));
+-        applyAppLanguage(savedLanguage.locale,savedLanguage.label);
+-      }
++      if(savedLanguage&&homeLanguageCodes.includes(savedLanguage.locale)){initialAppLocale=savedLanguage.locale;initialAppLanguageLabel=savedLanguage.label;}
+@@ -925,0 +989 @@
++    applyAppLanguage(initialAppLocale,initialAppLanguageLabel);
+diff --git a/melunga_deploy/maquette-guidee.html b/melunga_deploy/maquette-guidee.html
+index 65d29cb..7663cf5 100644
+--- a/melunga_deploy/maquette-guidee.html
++++ b/melunga_deploy/maquette-guidee.html
+@@ -144,2 +144,5 @@
+-  <script src="course-access.js?v=2"></script>
+-  <script src="maquette-guidee.js?v=29"></script>
++  <script src="course-i18n.js?v=2"></script>
++  <script src="course-native.js?v=1"></script>
++  <script src="course-access.js?v=3"></script>
++  <script src="lesson-audio.js?v=1"></script>
++  <script src="maquette-guidee.js?v=31"></script>
+diff --git a/melunga_deploy/maquette-guidee.js b/melunga_deploy/maquette-guidee.js
+index 97b17db..5ba1c6c 100644
+--- a/melunga_deploy/maquette-guidee.js
++++ b/melunga_deploy/maquette-guidee.js
+@@ -47,0 +48,16 @@
++  const nativeCourses = window.MelungaNativeCourses;
++  const courseI18n = window.MelungaCourseI18n;
++  const nativeCodes = ['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko'];
++  const routeParameters = new URL(window.location.href).searchParams;
++  const explicitPair = routeParameters.get('pair');
++  let savedPair = '', savedLevel = '1', preferredNative = 'fr';
++  try {
++    savedPair = localStorage.getItem('melunga-course-pair') || '';
++    savedLevel = localStorage.getItem('melunga-course-level') || '1';
++    const locale = JSON.parse(localStorage.getItem('melunga-app-language') || 'null')?.locale;
++    const native = nativeCodes.includes(locale) ? locale : localStorage.getItem('ox_nat');
++    if (nativeCodes.includes(native)) preferredNative = native;
++    else if (nativeCourses?.isPair(savedPair)) preferredNative = savedPair.split('-')[0];
++  } catch (_) {}
++  state.nativeLanguage = nativeCourses?.isPair(explicitPair) ? explicitPair.split('-')[0] : preferredNative;
++  state.invalidPair = routeParameters.getAll('pair').length > 1 || explicitPair !== null && !nativeCourses?.isPair(explicitPair);
+@@ -62 +78 @@
+-  const progressPairs = ['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr'];
++  const progressPairs = nativeCourses?.pairIds || ['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr'];
+@@ -91 +106,0 @@
+-  const voices = { zh: 'zh-CN', es: 'es-ES', en: 'en-GB', fr: 'fr-FR', it: 'it-IT', ko: 'ko-KR', ja: 'ja-JP' };
+@@ -171,8 +186,3 @@
+-    'L’audio n’a pas pu démarrer. Tu peux réessayer.': '语音未能播放，请重试。'
+-  };
+-  const tr = value => state.pair && state.pair.nativeLanguage === 'zh' ? chinese[value] || value : value;
+-  const quantityLabel = (count, contentType) => {
+-    const isChinese = state.pair && state.pair.nativeLanguage === 'zh';
+-    if (contentType === 'vocabulary') return count + (isChinese ? ' 个词语' : count === 1 ? ' mot ou locution' : ' mots et locutions');
+-    if (contentType === 'number') return count + (isChinese ? ' 个数词' : count === 1 ? ' nombre' : ' nombres');
+-    return count + (isChinese ? ' 句表达' : count === 1 ? ' expression' : ' expressions');
++    'L’audio n’a pas pu démarrer. Tu peux réessayer.': '语音未能播放，请重试。',
++    'Voix féminine': '女声', 'Voix masculine': '男声',
++    'Audio indisponible. Réessaie.': '语音暂不可用，请重试。'
+@@ -179,0 +190,8 @@
++  const tr = value => courseI18n ? courseI18n.t(state.nativeLanguage, value)
++    : state.nativeLanguage === 'zh' ? chinese[value] || value : value;
++  const format = (key, n) => courseI18n.format(state.nativeLanguage, key, {n});
++  const quantityLabel = (count, contentType) => format(
++    (contentType === 'vocabulary' ? 'vocabulary' : contentType === 'number' ? 'number' : 'expression')
++      + (count === 1 ? 'One' : 'Other'), count);
++  const availablePairs = () => state.data.pairs.filter(pair =>
++    pair.nativeLanguage === state.nativeLanguage && pair.studyLanguage !== state.nativeLanguage);
+@@ -254,2 +272 @@
+-    const levelName = state.pair.nativeLanguage === 'zh'
+-      ? '第 ' + state.pair.level + ' 级' : 'Niveau ' + state.pair.level;
++    const levelName = format('level', state.pair.level);
+@@ -526 +542,0 @@
+-    const names = { en: 'Anglais', es: 'Espagnol', it: 'Italien', zh: 'Chinois', ja: 'Japonais', ko: 'Coréen', fr: 'Français' };
+@@ -530 +546 @@
+-    ui.languageChoices.replaceChildren(...state.data.pairs.map(pair => {
++    ui.languageChoices.replaceChildren(...availablePairs().map(pair => {
+@@ -537 +553 @@
+-      title.textContent = tr(names[pair.studyLanguage] || pair.name);
++      title.textContent = courseI18n.languageName(state.nativeLanguage, pair.studyLanguage);
+@@ -558 +574,7 @@
+-    ui.languageChoices.querySelector('[aria-pressed="true"]')?.focus({ preventScroll: true });
++    const selected = ui.languageChoices.querySelector('[aria-pressed="true"]');
++    const body = ui.languageChoices.closest('.mg-menu-body');
++    if (body) {
++      body.scrollTop = 0;
++      if (selected) body.scrollTop = Math.max(0, selected.offsetTop - body.offsetTop - (body.clientHeight - selected.offsetHeight) / 2);
++    }
++    selected?.focus({ preventScroll: true });
+@@ -603,6 +625,2 @@
+-    const options = [new Option(tr('Voix automatique'), '')];
+-    if ('speechSynthesis' in window) window.speechSynthesis.getVoices()
+-      .filter(voice => voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage)
+-      .forEach(voice => options.push(new Option(voice.name, voice.voiceURI)));
+-    ui.voice.replaceChildren(...options);
+-    ui.voice.value = state.voiceChoices.get(state.pair.studyLanguage) || '';
++    ui.voice.replaceChildren(new Option(tr('Voix féminine'), 'female'), new Option(tr('Voix masculine'), 'male'));
++    ui.voice.value = state.voiceChoices.get(state.pair.studyLanguage) || 'female';
+@@ -700,0 +719,5 @@
++  const lessonAudio = window.MelungaLessonAudio?.createPlayer({
++    onPlaying: setAudioPlaying,
++    onUnavailable: () => setStatus('Audio indisponible. Réessaie.')
++  });
++
+@@ -703 +726 @@
+-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
++    lessonAudio?.stop();
+@@ -890,3 +913 @@
+-      quantity.textContent += state.pair.nativeLanguage === 'zh'
+-        ? ' · 其中 ' + theme.reviewCount + ' 项复习'
+-        : ' · ' + theme.reviewCount + (theme.reviewCount === 1 ? ' révision' : ' révisions');
++      quantity.textContent += ' · ' + format(theme.reviewCount === 1 ? 'reviewOne' : 'reviewOther', theme.reviewCount);
+@@ -895,3 +916 @@
+-      quantity.textContent += state.pair.nativeLanguage === 'zh'
+-        ? ' · 其中 ' + theme.reuseCount + ' 项情境复用'
+-        : ' · ' + theme.reuseCount + (theme.reuseCount === 1 ? ' réemploi' : ' réemplois');
++      quantity.textContent += ' · ' + format(theme.reuseCount === 1 ? 'reuseOne' : 'reuseOther', theme.reuseCount);
+@@ -944,3 +963 @@
+-        heading.textContent = state.pair.nativeLanguage === 'zh'
+-          ? section === 'situations' ? '情境表达' : '词汇与数字'
+-          : section === 'situations' ? 'Situations' : 'Vocabulaire et nombres';
++        heading.textContent = tr(section === 'situations' ? 'Situations' : 'Vocabulaire et nombres');
+@@ -979 +996 @@
+-      sequence.title || (state.pair.nativeLanguage === 'zh' ? '第 ' + (index + 1) + ' 组' : 'Séquence ' + (index + 1)),
++      sequence.title || format('sequence', index + 1),
+@@ -1046,2 +1063 @@
+-      ? state.pair.nativeLanguage === 'zh' ? ' · 复习' : ' · Révision'
+-      : step.isContextReuse ? state.pair.nativeLanguage === 'zh' ? ' · 情境复用' : ' · Réemploi' : '');
++      ? ' · ' + tr('Révision') : step.isContextReuse ? ' · ' + tr('Réemploi') : '');
+@@ -1057 +1073,5 @@
+-    text(ui.helpText, tr(definition.help) + (formHelp ? ' ' + tr(formHelp) : ''));
++    const phoneticHelp = phrase.phoneticMode === 'english-fallback'
++      ? 'Cette aide reprend la notation anglaise du catalogue d’origine.'
++      : ['pinyin-fallback', 'unavailable'].includes(phrase.phoneticMode)
++        ? 'La phonétique adaptée à ta langue maternelle n’est pas encore disponible pour cette carte.' : '';
++    text(ui.helpText, [definition.help, formHelp, phoneticHelp].filter(Boolean).map(tr).join(' '));
+@@ -1070 +1090,4 @@
+-    ui.phon.lang = pinyin ? 'zh-Latn' : state.pair.nativeLanguage;
++    ui.phon.lang = pinyin || phrase.phoneticMode === 'pinyin-fallback' ? 'zh-Latn'
++      : phrase.phoneticMode === 'english-fallback' ? 'en' : state.pair.nativeLanguage;
++    ui.phon.title = phrase.phoneticMode === 'english-fallback' ? tr('Transcription anglaise') : '';
++    ui.phonrow.dataset.phoneticMode = phrase.phoneticMode || 'reviewed';
+@@ -1179,2 +1202,2 @@
+-    if (!('speechSynthesis' in window) || typeof window.SpeechSynthesisUtterance !== 'function') {
+-      setStatus('L’audio n’est pas disponible sur ce navigateur.');
++    if (!lessonAudio) {
++      setStatus('Audio indisponible. Réessaie.');
+@@ -1183,23 +1206,2 @@
+-    const token = state.speechGeneration;
+-    const utterance = new SpeechSynthesisUtterance(phrase.study);
+-    utterance.lang = voices[state.pair.studyLanguage] || state.pair.studyLanguage;
+-    utterance.rate = state.speechRate;
+-    const voiceList = window.speechSynthesis.getVoices();
+-    const exactVoice = voiceList.find(voice => voice.lang.toLowerCase() === utterance.lang.toLowerCase());
+-    const languageVoice = voiceList.find(voice => voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage);
+-    const preferredVoice = voiceList.find(voice => voice.voiceURI === state.voiceChoices.get(state.pair.studyLanguage)
+-      && voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage);
+-    if (preferredVoice || exactVoice || languageVoice) utterance.voice = preferredVoice || exactVoice || languageVoice;
+-    const finish = () => {
+-      if (token !== state.speechGeneration) return;
+-      setAudioPlaying(false);
+-    };
+-    utterance.onend = finish;
+-    utterance.onerror = event => {
+-      if (token !== state.speechGeneration) return;
+-      finish();
+-      if (!['canceled', 'interrupted'].includes(event.error)) setStatus('L’audio n’a pas pu démarrer. Tu peux réessayer.');
+-    };
+-    setAudioPlaying(true);
+-    try { window.speechSynthesis.speak(utterance); }
+-    catch (_) { finish(); setStatus('L’audio n’a pas pu démarrer. Tu peux réessayer.'); }
++    lessonAudio.play({ text: phrase.study, language: state.pair.studyLanguage,
++      rate: state.speechRate, voice: state.voiceChoices.get(state.pair.studyLanguage) || 'female' });
+@@ -1246,2 +1248,2 @@
+-    const metadata = state.data.pairs.find(candidate => candidate.id === id);
+-    if (!metadata) return;
++    const metadata = availablePairs().find(candidate => candidate.id === id);
++    if (!metadata) { if (state.pair) ui.language.value = state.pair.id; return; }
+@@ -1260 +1262,2 @@
+-    text(ui.loadingText, metadata.nativeLanguage === 'zh' ? '主题正在加载…' : 'Tes thèmes arrivent…');
++    text(ui.loadingText, tr('Tes thèmes arrivent…'));
++    text(ui.retry, tr('Réessayer'));
+@@ -1261,0 +1265,6 @@
++      if (metadata.nativeCatalogue) {
++        const loaded = await nativeCourses.loadPair(id, entry.level, {signal:request.signal});
++        if (generation !== state.loadGeneration) return;
++        installPairView(loaded.pair, loaded.referenceMap, loaded.sourcePhraseMap);
++        return;
++      }
+@@ -1299,10 +1308 @@
+-      state.referenceMap = references;
+-      state.sourcePhraseMap = new Map([...references, ...[...pair.themes, ...(pair.heldThemes || [])]
+-        .flatMap(theme => theme.phrases.map(phrase => [phrase.id, phrase]))]);
+-      state.levelProgressIds = collectLevelProgressIds(pair, state.sourcePhraseMap);
+-      const accessView = courseAccess.learningView(pair, references);
+-      state.accessContextStepIds = accessView.contextStepIds;
+-      displayPair(accessView.pair);
+-      try { localStorage.setItem('melunga-course-pair', pair.id); localStorage.setItem('melunga-course-level', String(pair.level)); } catch (_) {}
+-      if (courseAccess.state().status === 'unavailable') setStatus(pair.nativeLanguage === 'zh'
+-        ? '网络暂时不可用，免费内容仍可使用。' : 'Connexion indisponible : le contenu gratuit reste accessible.');
++      installPairView(pair, references);
+@@ -1311 +1311 @@
+-      text(ui.loadingText, metadata.nativeLanguage === 'zh' ? '主题暂时无法加载。' : 'Les thèmes n’ont pas pu se charger.');
++      text(ui.loadingText, tr('Les thèmes n’ont pas pu se charger.'));
+@@ -1317,0 +1318,12 @@
++  function installPairView(pair, references, sourceModels = new Map()) {
++    state.referenceMap = references;
++    state.sourcePhraseMap = new Map([...sourceModels, ...references, ...[...pair.themes, ...(pair.heldThemes || [])]
++      .flatMap(theme => theme.phrases.map(phrase => [phrase.id, phrase]))]);
++    state.levelProgressIds = collectLevelProgressIds(pair, state.sourcePhraseMap);
++    const accessView = courseAccess.learningView(pair, references);
++    state.accessContextStepIds = accessView.contextStepIds;
++    displayPair(accessView.pair);
++    try { localStorage.setItem('melunga-course-pair', pair.id); localStorage.setItem('melunga-course-level', String(pair.level)); } catch (_) {}
++    if (courseAccess.state().status === 'unavailable') setStatus('Connexion indisponible : le contenu gratuit reste accessible.');
++  }
++
+@@ -1739 +1751 @@
+-    text(ui.loadingText, 'Tes thèmes arrivent…');
++    text(ui.loadingText, tr('Tes thèmes arrivent…'));
+@@ -1753 +1765,7 @@
+-      ui.language.replaceChildren(...state.data.pairs.map(pair => {
++      if (ui.level) state.data = {...state.data, pairs:[...state.data.pairs, ...nativeCourses.metadata(state.data)]};
++      if (state.invalidPair) {
++        text(ui.loadingText, tr('Ce couple de langues n’est pas disponible. Choisis tes langues pour continuer.'));
++        text(ui.retry, tr('Choisir mes langues')); ui.retry.hidden = false; return;
++      }
++      const choices = availablePairs();
++      ui.language.replaceChildren(...choices.map(pair => {
+@@ -1756 +1774 @@
+-        option.textContent = pair.flag + ' ' + pair.name;
++        option.textContent = pair.flag + ' ' + courseI18n.languageName(state.nativeLanguage, pair.studyLanguage);
+@@ -1760,4 +1778,3 @@
+-      const requested = new URL(window.location.href).searchParams.get('pair');
+-      const firstPair = state.data.pairs.find(pair => pair.id === requested)
+-        || state.data.pairs.find(pair => pair.nativeLanguage === 'fr' && pair.studyLanguage === 'zh')
+-        || state.data.pairs[0];
++      const firstPair = choices.find(pair => pair.id === explicitPair)
++        || choices.find(pair => pair.id === savedPair) || choices.find(pair => pair.studyLanguage === (state.nativeLanguage === 'fr' ? 'en' : 'fr')) || choices[0];
++      if (!firstPair) throw new Error('No native course available');
+@@ -1765 +1782 @@
+-        const requestedLevel = Number(new URL(window.location.href).searchParams.get('level') || 1);
++        const requestedLevel = Number(routeParameters.get('level') || (explicitPair === null ? savedLevel : 1));
+@@ -1770 +1787,2 @@
+-      text(ui.loadingText, 'Les thèmes n’ont pas pu se charger.');
++      text(ui.loadingText, tr('Les thèmes n’ont pas pu se charger.'));
++      text(ui.retry, tr('Réessayer'));
+@@ -1819 +1837,5 @@
+-  ui.voice.addEventListener('change', () => state.voiceChoices.set(state.pair.studyLanguage, ui.voice.value));
++  ui.voice.addEventListener('change', () => {
++    if (!['female', 'male'].includes(ui.voice.value)) return;
++    stopAudio();
++    state.voiceChoices.set(state.pair.studyLanguage, ui.voice.value);
++  });
+@@ -1822,4 +1844,4 @@
+-    if ([0.75, 0.85, 1].includes(rate)) state.speechRate = rate;
+-  });
+-  if ('speechSynthesis' in window) window.speechSynthesis.addEventListener?.('voiceschanged', () => {
+-    if (ui.menu.open && state.menuView === 'voice') fillVoices();
++    if ([0.75, 0.85, 1].includes(rate)) {
++      stopAudio();
++      state.speechRate = rate;
++    }
+@@ -1939,2 +1961,5 @@
+-  ui.retry.addEventListener('click', () => ui.level && state.data
+-    ? choosePair(state.requestedPair || ui.language.value, state.level) : loadData());
++  ui.retry.addEventListener('click', () => {
++    if (state.invalidPair) { window.location.href = 'index.html'; return; }
++    if (ui.level && state.data && state.requestedPair) choosePair(state.requestedPair, state.level);
++    else loadData();
++  });
+diff --git a/melunga_deploy/parcours-niveaux.html b/melunga_deploy/parcours-niveaux.html
+index 3a402a3..6e9b44c 100644
+--- a/melunga_deploy/parcours-niveaux.html
++++ b/melunga_deploy/parcours-niveaux.html
+@@ -154,2 +154,5 @@
+-  <script src="course-access.js?v=2"></script>
+-  <script src="maquette-guidee.js?v=29"></script>
++  <script src="course-i18n.js?v=2"></script>
++  <script src="course-native.js?v=1"></script>
++  <script src="course-access.js?v=3"></script>
++  <script src="lesson-audio.js?v=1"></script>
++  <script src="maquette-guidee.js?v=31"></script>

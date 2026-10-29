@@ -1,0 +1,513 @@
+{
+  "status": "passed",
+  "baseCommit": "a5c721f",
+  "environment": "local Chromium; mobile/desktop emulated",
+  "realAccountsUsed": false,
+  "remoteApiCalls": false,
+  "publicSiteChecked": false,
+  "courseReturnTargetStubbed": true,
+  "checks": [
+    "source-integrity",
+    "ambience-and-layout",
+    "explicit-cancellation",
+    "route-scope",
+    "auth-and-replacement-handoffs"
+  ],
+  "cases": [
+    {
+      "name": "source-integrity",
+      "businessFunctions": [
+        "validateCourseReturn",
+        "readApprovedCourseReturn",
+        "completeApprovedCourseReturn",
+        "loginExisting",
+        "unlock",
+        "getDeviceId",
+        "checkPaidStatus"
+      ],
+      "classicCards": 32115,
+      "classicDeckSha256": "cd5c049204cc07b07a6fb46bb02fa29ead0007b6a6097fc933e899a48316314a",
+      "protectedModules": 7,
+      "backendFiles": 18
+    },
+    {
+      "name": "ambience-and-layout",
+      "locale": "fr",
+      "ambience": "ocean",
+      "width": 1440,
+      "bounds": {
+        "left": 500,
+        "top": 208.9765625,
+        "right": 940,
+        "bottom": 691.0234375,
+        "width": 1440,
+        "height": 900
+      },
+      "body": "radial-gradient(at 15% 0px, rgba(58, 207, 219, 0.85), rgba(0, 0, 0, 0) 60%), linear-gradient(155deg, rgb(24, 143, 183) 0%, rgb(18, 83, 139) 48%, rgb(19, 35, 79) 100%)",
+      "panel": "linear-gradient(rgba(18, 65, 100, 0.88), rgba(18, 65, 100, 0.88)), radial-gradient(at 15% 0px, rgba(58, 207, 219, 0.85), rgba(0, 0, 0, 0) 60%), linear-gradient(155deg, rgb(24, 143, 183) 0%, rgb(18, 83, 139) 48%, rgb(19, 35, 79) 100%)",
+      "chromeHidden": true,
+      "nonHidden": [],
+      "formHiddenAncestor": false,
+      "bodyWidth": 1440,
+      "targets": [
+        {
+          "id": "pwClose",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "id": "pwTabNew",
+          "width": 190,
+          "height": 46
+        },
+        {
+          "id": "pwTabExisting",
+          "width": 190,
+          "height": 46
+        },
+        {
+          "id": "pwLoginEmail",
+          "width": 394,
+          "height": 50
+        },
+        {
+          "id": "pwLoginPassword",
+          "width": 394,
+          "height": 50
+        },
+        {
+          "id": "pwLoginBtn",
+          "width": 394,
+          "height": 50
+        },
+        {
+          "id": "courseLoginBack",
+          "width": 394,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "name": "ambience-and-layout",
+      "locale": "fr",
+      "ambience": "aurora",
+      "width": 1440,
+      "bounds": {
+        "left": 500,
+        "top": 208.9765625,
+        "right": 940,
+        "bottom": 691.0234375,
+        "width": 1440,
+        "height": 900
+      },
+      "body": "radial-gradient(at 5% 2%, rgba(125, 95, 231, 0.9), rgba(0, 0, 0, 0) 60%), radial-gradient(at 95% 92%, rgba(243, 158, 79, 0.7), rgba(0, 0, 0, 0) 62%), linear-gradient(145deg, rgb(96, 49, 139), rgb(164, 42, 118) 50%, rgb(139, 66, 76))",
+      "panel": "linear-gradient(rgba(94, 42, 101, 0.88), rgba(94, 42, 101, 0.88)), radial-gradient(at 5% 2%, rgba(125, 95, 231, 0.9), rgba(0, 0, 0, 0) 60%), radial-gradient(at 95% 92%, rgba(243, 158, 79, 0.7), rgba(0, 0, 0, 0) 62%), linear-gradient(145deg, rgb(96, 49, 139), rgb(164, 42, 118) 50%, rgb(139, 66, 76))",
+      "chromeHidden": true,
+      "nonHidden": [],
+      "formHiddenAncestor": false,
+      "bodyWidth": 1440,
+      "targets": [
+        {
+          "id": "pwClose",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "id": "pwTabNew",
+          "width": 190,
+          "height": 46
+        },
+        {
+          "id": "pwTabExisting",
+          "width": 190,
+          "height": 46
+        },
+        {
+          "id": "pwLoginEmail",
+          "width": 394,
+          "height": 50
+        },
+        {
+          "id": "pwLoginPassword",
+          "width": 394,
+          "height": 50
+        },
+        {
+          "id": "pwLoginBtn",
+          "width": 394,
+          "height": 50
+        },
+        {
+          "id": "courseLoginBack",
+          "width": 394,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "name": "ambience-and-layout",
+      "locale": "fr",
+      "ambience": "dusk",
+      "width": 1440,
+      "bounds": {
+        "left": 500,
+        "top": 208.9765625,
+        "right": 940,
+        "bottom": 691.0234375,
+        "width": 1440,
+        "height": 900
+      },
+      "body": "radial-gradient(at 8% 0px, rgba(255, 229, 178, 0.9), rgba(0, 0, 0, 0) 60%), radial-gradient(at 95% 100%, rgba(194, 182, 227, 0.8), rgba(0, 0, 0, 0) 65%), linear-gradient(145deg, rgb(237, 206, 168), rgb(237, 199, 189) 53%, rgb(213, 191, 216))",
+      "panel": "linear-gradient(rgba(245, 222, 205, 0.88), rgba(245, 222, 205, 0.88)), radial-gradient(at 8% 0px, rgba(255, 229, 178, 0.9), rgba(0, 0, 0, 0) 60%), radial-gradient(at 95% 100%, rgba(194, 182, 227, 0.8), rgba(0, 0, 0, 0) 65%), linear-gradient(145deg, rgb(237, 206, 168), rgb(237, 199, 189) 53%, rgb(213, 191, 216))",
+      "chromeHidden": true,
+      "nonHidden": [],
+      "formHiddenAncestor": false,
+      "bodyWidth": 1440,
+      "targets": [
+        {
+          "id": "pwClose",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "id": "pwTabNew",
+          "width": 190,
+          "height": 46
+        },
+        {
+          "id": "pwTabExisting",
+          "width": 190,
+          "height": 46
+        },
+        {
+          "id": "pwLoginEmail",
+          "width": 394,
+          "height": 50
+        },
+        {
+          "id": "pwLoginPassword",
+          "width": 394,
+          "height": 50
+        },
+        {
+          "id": "pwLoginBtn",
+          "width": 394,
+          "height": 50
+        },
+        {
+          "id": "courseLoginBack",
+          "width": 394,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "name": "ambience-and-layout",
+      "locale": "zh",
+      "ambience": "ocean",
+      "width": 390,
+      "bounds": {
+        "left": 16,
+        "top": 203.4765625,
+        "right": 374,
+        "bottom": 696.5234375,
+        "width": 390,
+        "height": 900
+      },
+      "body": "radial-gradient(at 15% 0px, rgba(58, 207, 219, 0.85), rgba(0, 0, 0, 0) 60%), linear-gradient(155deg, rgb(24, 143, 183) 0%, rgb(18, 83, 139) 48%, rgb(19, 35, 79) 100%)",
+      "panel": "linear-gradient(rgba(18, 65, 100, 0.88), rgba(18, 65, 100, 0.88)), radial-gradient(at 15% 0px, rgba(58, 207, 219, 0.85), rgba(0, 0, 0, 0) 60%), linear-gradient(155deg, rgb(24, 143, 183) 0%, rgb(18, 83, 139) 48%, rgb(19, 35, 79) 100%)",
+      "chromeHidden": true,
+      "nonHidden": [],
+      "formHiddenAncestor": false,
+      "bodyWidth": 390,
+      "targets": [
+        {
+          "id": "pwClose",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "id": "pwTabNew",
+          "width": 149,
+          "height": 46
+        },
+        {
+          "id": "pwTabExisting",
+          "width": 149,
+          "height": 46
+        },
+        {
+          "id": "pwLoginEmail",
+          "width": 312,
+          "height": 50
+        },
+        {
+          "id": "pwLoginPassword",
+          "width": 312,
+          "height": 50
+        },
+        {
+          "id": "pwLoginBtn",
+          "width": 312,
+          "height": 50
+        },
+        {
+          "id": "courseLoginBack",
+          "width": 312,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "name": "ambience-and-layout",
+      "locale": "zh",
+      "ambience": "aurora",
+      "width": 390,
+      "bounds": {
+        "left": 16,
+        "top": 203.4765625,
+        "right": 374,
+        "bottom": 696.5234375,
+        "width": 390,
+        "height": 900
+      },
+      "body": "radial-gradient(at 5% 2%, rgba(125, 95, 231, 0.9), rgba(0, 0, 0, 0) 60%), radial-gradient(at 95% 92%, rgba(243, 158, 79, 0.7), rgba(0, 0, 0, 0) 62%), linear-gradient(145deg, rgb(96, 49, 139), rgb(164, 42, 118) 50%, rgb(139, 66, 76))",
+      "panel": "linear-gradient(rgba(94, 42, 101, 0.88), rgba(94, 42, 101, 0.88)), radial-gradient(at 5% 2%, rgba(125, 95, 231, 0.9), rgba(0, 0, 0, 0) 60%), radial-gradient(at 95% 92%, rgba(243, 158, 79, 0.7), rgba(0, 0, 0, 0) 62%), linear-gradient(145deg, rgb(96, 49, 139), rgb(164, 42, 118) 50%, rgb(139, 66, 76))",
+      "chromeHidden": true,
+      "nonHidden": [],
+      "formHiddenAncestor": false,
+      "bodyWidth": 390,
+      "targets": [
+        {
+          "id": "pwClose",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "id": "pwTabNew",
+          "width": 149,
+          "height": 46
+        },
+        {
+          "id": "pwTabExisting",
+          "width": 149,
+          "height": 46
+        },
+        {
+          "id": "pwLoginEmail",
+          "width": 312,
+          "height": 50
+        },
+        {
+          "id": "pwLoginPassword",
+          "width": 312,
+          "height": 50
+        },
+        {
+          "id": "pwLoginBtn",
+          "width": 312,
+          "height": 50
+        },
+        {
+          "id": "courseLoginBack",
+          "width": 312,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "name": "ambience-and-layout",
+      "locale": "zh",
+      "ambience": "dusk",
+      "width": 390,
+      "bounds": {
+        "left": 16,
+        "top": 203.4765625,
+        "right": 374,
+        "bottom": 696.5234375,
+        "width": 390,
+        "height": 900
+      },
+      "body": "radial-gradient(at 8% 0px, rgba(255, 229, 178, 0.9), rgba(0, 0, 0, 0) 60%), radial-gradient(at 95% 100%, rgba(194, 182, 227, 0.8), rgba(0, 0, 0, 0) 65%), linear-gradient(145deg, rgb(237, 206, 168), rgb(237, 199, 189) 53%, rgb(213, 191, 216))",
+      "panel": "linear-gradient(rgba(245, 222, 205, 0.88), rgba(245, 222, 205, 0.88)), radial-gradient(at 8% 0px, rgba(255, 229, 178, 0.9), rgba(0, 0, 0, 0) 60%), radial-gradient(at 95% 100%, rgba(194, 182, 227, 0.8), rgba(0, 0, 0, 0) 65%), linear-gradient(145deg, rgb(237, 206, 168), rgb(237, 199, 189) 53%, rgb(213, 191, 216))",
+      "chromeHidden": true,
+      "nonHidden": [],
+      "formHiddenAncestor": false,
+      "bodyWidth": 390,
+      "targets": [
+        {
+          "id": "pwClose",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "id": "pwTabNew",
+          "width": 149,
+          "height": 46
+        },
+        {
+          "id": "pwTabExisting",
+          "width": 149,
+          "height": 46
+        },
+        {
+          "id": "pwLoginEmail",
+          "width": 312,
+          "height": 50
+        },
+        {
+          "id": "pwLoginPassword",
+          "width": 312,
+          "height": 50
+        },
+        {
+          "id": "pwLoginBtn",
+          "width": 312,
+          "height": 50
+        },
+        {
+          "id": "courseLoginBack",
+          "width": 312,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "name": "ambience-fallback",
+      "ambience": "unknown<script>"
+    },
+    {
+      "name": "ambience-fallback",
+      "ambience": null
+    },
+    {
+      "name": "ambience-fallback",
+      "storageFails": true
+    },
+    {
+      "name": "explicit-cancellation",
+      "mode": "cross"
+    },
+    {
+      "name": "explicit-cancellation",
+      "mode": "back"
+    },
+    {
+      "name": "explicit-cancellation",
+      "mode": "backdrop"
+    },
+    {
+      "name": "explicit-cancellation",
+      "mode": "escape"
+    },
+    {
+      "name": "route-scope",
+      "query": "login=1&lang=fr"
+    },
+    {
+      "name": "route-scope",
+      "query": "login=1&lang=fr&study=es&courseReturn=https%3A%2F%2Fevil.test&courseLevel=4"
+    },
+    {
+      "name": "route-scope",
+      "query": "login=1&lang=fr&study=es&courseReturn=fr-es&courseLevel=99"
+    },
+    {
+      "name": "route-scope",
+      "query": "login=1&lang=fr&study=es&courseReturn=fr-es&courseLevel=4&classic=1"
+    },
+    {
+      "name": "route-scope",
+      "query": "login=1&lang=fr&study=es&courseReturn=fr-es&courseLevel=4&checkout=annual"
+    },
+    {
+      "name": "route-scope",
+      "query": "login=1&lang=fr&study=es&courseReturn=fr-es&courseLevel=4&login=1"
+    },
+    {
+      "name": "route-scope",
+      "query": "start=1&lang=fr&study=es&courseReturn=fr-es&courseLevel=4"
+    },
+    {
+      "name": "route-scope",
+      "query": "login=1&lang=fr&study=es&courseReturn=fr-es&courseLevel=4",
+      "native": true
+    },
+    {
+      "name": "auth-failure-programmatic-hide-and-replacement",
+      "posts": [
+        "/.netlify/functions/login",
+        "/.netlify/functions/request-device-replacement",
+        "/.netlify/functions/request-device-replacement",
+        "/.netlify/functions/confirm-device-replacement"
+      ]
+    },
+    {
+      "name": "existing-login-success-course-handoff"
+    }
+  ],
+  "errors": [],
+  "api": [
+    {
+      "method": "POST",
+      "path": "/.netlify/functions/login",
+      "body": {
+        "device_id": "course-login-fixture-device",
+        "email": "course-login-fixture@example.test",
+        "password": "Fictitious-course-password-91"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/.netlify/functions/request-device-replacement",
+      "body": {
+        "email": "course-login-fixture@example.test",
+        "password": "fictitious-replacement-password",
+        "device_id": "course-login-fixture-device",
+        "device_type": "desktop",
+        "device_label": "Fixture",
+        "language": "fr"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/.netlify/functions/request-device-replacement",
+      "body": {
+        "email": "course-login-fixture@example.test",
+        "password": "fictitious-replacement-password",
+        "device_id": "course-login-fixture-device",
+        "device_type": "desktop",
+        "device_label": "Fixture",
+        "language": "fr"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/.netlify/functions/confirm-device-replacement",
+      "body": {
+        "email": "course-login-fixture@example.test",
+        "device_id": "course-login-fixture-device",
+        "device_type": "desktop",
+        "code": "123456"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/.netlify/functions/login",
+      "body": {
+        "device_id": "course-login-fixture-device",
+        "email": "course-login-fixture@example.test",
+        "password": "Fictitious-course-password-91"
+      }
+    }
+  ],
+  "screenshots": [
+    "/tmp/melunga-course-login-qa/fr-ocean-1440.png",
+    "/tmp/melunga-course-login-qa/fr-aurora-1440.png",
+    "/tmp/melunga-course-login-qa/fr-dusk-1440.png",
+    "/tmp/melunga-course-login-qa/zh-ocean-390.png",
+    "/tmp/melunga-course-login-qa/zh-aurora-390.png",
+    "/tmp/melunga-course-login-qa/zh-dusk-390.png"
+  ],
+  "inputsStable": true
+}

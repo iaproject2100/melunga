@@ -1,0 +1,197 @@
+{
+  "status": "passed",
+  "baseCommit": "a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f",
+  "courseAccessSourceRef": "665d0def5df2644bb8421553ed4876292ef23f10",
+  "environment": "local Chromium, mobile and desktop sizes emulated",
+  "publicSiteChecked": false,
+  "physicalPhoneChecked": false,
+  "realAccountsUsed": false,
+  "actualAudioPlayed": false,
+  "apiFixture": "only GET check-status mocked; browser speech instrumented; no login, billing, feedback or TTS API calls",
+  "checks": [
+    "source-and-unchanged-theme-counts",
+    "fresh-and-localized-header",
+    "known-review-and-persistence",
+    "continue-storage-events-and-pair-scope",
+    "whole-level-free-access-denominator",
+    "storage-failure-and-legacy-scope"
+  ],
+  "cases": [
+    {
+      "name": "conservation",
+      "runtimeJson": 78,
+      "protectedFiles": 13,
+      "themeCounts": [
+        "15 expressions",
+        "6 expressions",
+        "12 expressions",
+        "11 expressions",
+        "9 expressions",
+        "8 expressions",
+        "7 expressions",
+        "6 expressions",
+        "28 expressions",
+        "8 expressions · 1 réemploi",
+        "8 expressions · 1 réemploi",
+        "8 mots et locutions",
+        "6 mots et locutions",
+        "8 mots et locutions",
+        "29 mots et locutions",
+        "24 mots et locutions",
+        "29 mots et locutions",
+        "12 mots et locutions",
+        "11 nombres",
+        "59 mots et locutions",
+        "11 mots et locutions",
+        "25 mots et locutions",
+        "8 mots et locutions",
+        "9 mots et locutions",
+        "6 mots et locutions"
+      ]
+    },
+    {
+      "name": "fresh-localized-mobile",
+      "pair": "fr-ja",
+      "width": 390,
+      "known": 0,
+      "total": 361,
+      "ratio": 0,
+      "percent": 0,
+      "caption": "Niveau 1 · 0 %",
+      "track": {
+        "width": 0,
+        "track": "progressbar",
+        "hidden": null,
+        "now": "0",
+        "min": "0",
+        "max": "100",
+        "label": "Niveau 1",
+        "text": "Niveau 1 · 0 %"
+      }
+    },
+    {
+      "name": "fresh-localized-mobile",
+      "pair": "zh-fr",
+      "width": 390,
+      "known": 86,
+      "total": 344,
+      "ratio": 0.25,
+      "percent": 25,
+      "caption": "第 1 级 · 25 %",
+      "track": {
+        "width": 25,
+        "track": "progressbar",
+        "hidden": null,
+        "now": "25",
+        "min": "0",
+        "max": "100",
+        "label": "第 1 级",
+        "text": "第 1 级 · 25 %"
+      }
+    },
+    {
+      "name": "fresh-localized-mobile",
+      "pair": "fr-ja",
+      "width": 280,
+      "known": 0,
+      "total": 361,
+      "ratio": 0,
+      "percent": 0,
+      "caption": "Niveau 1 · 0 %",
+      "track": {
+        "width": 0,
+        "track": "progressbar",
+        "hidden": null,
+        "now": "0",
+        "min": "0",
+        "max": "100",
+        "label": "Niveau 1",
+        "text": "Niveau 1 · 0 %"
+      }
+    },
+    {
+      "name": "deduplicated-known-and-presentations",
+      "known": 1,
+      "total": 361,
+      "ratio": 0.002770083102493075,
+      "percent": 0,
+      "caption": "Niveau 1 · 0 %",
+      "track": {
+        "width": 0.277008,
+        "track": "progressbar",
+        "hidden": null,
+        "now": "0.2770083102493075",
+        "min": "0",
+        "max": "100",
+        "label": "Niveau 1",
+        "text": "Niveau 1 · 0 %"
+      }
+    },
+    {
+      "name": "known-persistence-and-review-reversal",
+      "total": 361,
+      "knownAfterExplicitSwipe": 361,
+      "knownAfterReview": 360
+    },
+    {
+      "name": "pair-and-level-scoped-identities",
+      "known": 4,
+      "total": 670,
+      "ratio": 0.005970149253731343,
+      "percent": 0,
+      "caption": "Niveau 2 · 0 %",
+      "track": {
+        "width": 0.597015,
+        "track": "progressbar",
+        "hidden": null,
+        "now": "0.5970149253731344",
+        "min": "0",
+        "max": "100",
+        "label": "Niveau 2",
+        "text": "Niveau 2 · 0 %"
+      }
+    },
+    {
+      "name": "completion-does-not-imply-knowledge",
+      "steps": 18
+    },
+    {
+      "name": "full-denominator-with-free-subset",
+      "accessible": 97,
+      "known": 97,
+      "total": 674,
+      "ratio": 0.14391691394658754,
+      "percent": 14,
+      "caption": "Niveau 2 · 14 %",
+      "track": {
+        "width": 14.3917,
+        "track": "progressbar",
+        "hidden": null,
+        "now": "14.391691394658753",
+        "min": "0",
+        "max": "100",
+        "label": "Niveau 2",
+        "text": "Niveau 2 · 14 %"
+      }
+    },
+    {
+      "name": "failed-known-write-does-not-consume-card"
+    },
+    {
+      "name": "legacy-L1-preserved"
+    }
+  ],
+  "errors": [],
+  "unexpectedRequests": [],
+  "mockedStatusChecks": 16,
+  "signInHandoffs": [
+    "/app.html?login=1&lang=fr&study=ja&courseReturn=fr-ja&courseLevel=2"
+  ],
+  "screenshots": [
+    "/tmp/melunga-account-progress-progress/fresh-level-zero.png",
+    "/tmp/melunga-account-progress-progress/chinese-native-level-progress.png",
+    "/tmp/melunga-account-progress-progress/persisted-level-progress.png"
+  ],
+  "inputsStable": true,
+  "missingChecks": []
+}

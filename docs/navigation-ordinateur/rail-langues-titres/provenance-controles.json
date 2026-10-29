@@ -1,0 +1,25 @@
+{
+  "finalCssSha256": "5c9eecd86820901b1719040a40dac11e0f3b7915287b7ccc8ae8236505862d2e",
+  "finalGates": [
+    "/tmp/melunga-rail-final-source.json",
+    "/tmp/melunga-rail-final-logo.json"
+  ],
+  "earlierGates": [
+    {
+      "name": "account",
+      "report": "/tmp/melunga-rail-pins-account.json",
+      "status": "passed",
+      "testedCssSha256": "9fac26f3f820f238c9e251fd9be47d76c219df0cd7d0dda3021c98108cdf46e3",
+      "rerunOnFinalCss": false,
+      "reason": "Only the <=560px rail margins changed after this successful run; final short-rail QA is separate."
+    },
+    {
+      "name": "progress",
+      "report": "/tmp/melunga-rail-pins-progress.json",
+      "status": "passed",
+      "testedCssSha256": "9fac26f3f820f238c9e251fd9be47d76c219df0cd7d0dda3021c98108cdf46e3",
+      "rerunOnFinalCss": false,
+      "reason": "Only the <=560px rail margins changed after this successful run; final short-rail QA is separate."
+    }
+  ]
+}

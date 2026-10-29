@@ -10,10 +10,14 @@ const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const {test, before, after} = require('node:test');
 const {chromium} = require('playwright-core');
+const nativeLayer = require('./native-routing-layer.cjs');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const WEB = path.join(ROOT, 'melunga_deploy');
 const BASE = 'ebd6519a6088e52c157231b44ae4cf41507f0667';
+// Chirp was approved before the direct-language entry change. Keep that exact
+// whole TTS source while every other existing backend file retains BASE.
+const APPROVED_TTS_COMMIT = 'ba3ac02313820b19cb4506c647c1e17f08543480';
 const PAIRS = ['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr'];
 const COUNTS = {'fr-en':342, 'fr-es':300, 'fr-it':347, 'fr-zh':331, 'fr-ja':305, 'fr-ko':284, 'zh-fr':309};
 const PREFIX = 'content/niveaux-progressifs/';
@@ -67,6 +71,21 @@ function independentHistoricalRights() {
 }
 const historical = independentHistoricalRights();
 const rightsFile = () => json('content/course-access.json');
+// The access suite does not compare voices, but its reveal-audio assertion
+// needs a verified catalogue. Return only the independently approved default
+// per language; media itself stays inside the in-memory Audio fixture below.
+function voiceCatalogue() {
+  const approved={fr:['fr-FR','Aoede','FEMALE','F'],en:['en-GB','Kore','FEMALE','C'],
+    es:['es-ES','Kore','FEMALE','F'],it:['it-IT','Charon','MALE','E'],
+    zh:['cmn-CN','Kore','FEMALE','A'],ja:['ja-JP','Kore','FEMALE','B'],ko:['ko-KR','Kore','FEMALE','A']};
+  return {version:1,previewOnly:true,source:'google-voices-list',selectionVersion:'kartech-2026-10-27',
+    verifiedAt:new Date(Date.now()-1000).toISOString(),expiresAt:new Date(Date.now()+600000).toISOString(),
+    languages:Object.fromEntries(Object.entries(approved).map(([language,[languageCode,name,gender,waveNet]])=>{
+      const voice={name:languageCode+'-Chirp3-HD-'+name,languageCode,gender,engine:'chirp3',rateMode:'client'};
+      return [language,{language,available:false,chirp:[voice],defaultVoice:voice,
+        waveNet:{name:languageCode+'-Wavenet-'+waveNet,languageCode,gender:'FEMALE',engine:'wavenet',rateMode:'server'}}];
+    }))};
+}
 function expectedFree(pair, phrase, level) {
   return (Number.isInteger(phrase.editorialLevel)?phrase.editorialLevel:level)===1
     || historical[pair].ids.includes(phrase.id)
@@ -76,7 +95,7 @@ function expectedFree(pair, phrase, level) {
 function fingerprint() {
   const files = [__filename, ...['index.html','desktop-home.js','app.html','maquette-guidee.js',
     'maquette-guidee.html','parcours-niveaux.html','maquette-guidee.css','course-access.js',
-    'content/course-access.json'].map(file=>path.join(WEB,file)), ...[...documents.keys()].map(file=>path.join(WEB,file))];
+    'content/course-access.json'].map(file=>path.join(WEB,file)), ...[...documents.keys()].map(file=>path.join(WEB,file)), ...nativeLayer.inputFiles()];
   return Object.fromEntries(files.filter(file=>fs.existsSync(file)).sort().map(file=>[path.relative(ROOT,file), hash(fs.readFileSync(file))]));
 }
 const report = {status:'running', baseCommit:BASE, actualProductionHostUsed:false, physicalPhoneChecked:false,
@@ -85,6 +104,8 @@ const report = {status:'running', baseCommit:BASE, actualProductionHostUsed:fals
 const REQUIRED = ['rights-source-and-content','permission-policy','home-trial-routing','confirmed-login-return','return-allowlist','modern-free-paid-dom'];
 let browser, inputHashes;
 before(async()=>{
+  // Validate every actual byte of the finite A layer before using its source projection.
+  report.nativeRoutingLayer = nativeLayer.validate();
   inputHashes = fingerprint();
   browser = await chromium.launch({executablePath:process.env.CHROMIUM_PATH || '/usr/bin/chromium', args:['--no-sandbox']});
 });
@@ -150,7 +171,20 @@ async function open({hostname='melunga.com',paid=false,locale='fr',width=390,hei
     for(const [key,value] of Object.entries(localValues))localStorage.setItem(key,value);
     for(const [key,value] of Object.entries(sessionValues))sessionStorage.setItem(key,value);
     if(native)window.Capacitor={isNativePlatform:()=>true,getPlatform:()=> 'android'};
-    const voices=[];window.__entrySpeech=[];
+    const voices=[];window.__entrySpeech=[];window.__entryAudioPlays=[];
+    // Keep server audio entirely in memory; this suite exercises routing and
+    // access, while the separate player suite covers media event failures.
+    window.Audio=class {
+      constructor(src=''){this.src=src;this.playbackRate=1;}
+      play(){
+        window.__entryAudioPlays.push({src:this.src,playbackRate:this.playbackRate});
+        queueMicrotask(()=>{this.onplaying?.();this.onended?.();});
+        return Promise.resolve();
+      }
+      pause(){}
+      load(){}
+      removeAttribute(name){if(name==='src')this.src='';}
+    };
     const synthesis={cancel(){},getVoices:()=>voices,speak:u=>window.__entrySpeech.push({text:u.text,lang:u.lang}),addEventListener(){},removeEventListener(){}};
     Object.defineProperty(window,'speechSynthesis',{value:synthesis,configurable:true});
     window.SpeechSynthesisUtterance=class {constructor(text){this.text=text;}};
@@ -166,6 +200,10 @@ async function open({hostname='melunga.com',paid=false,locale='fr',width=390,hei
         return route.fulfill({status:checkStatus,json:checkBody??{paid:fixture.paid}});
       }
       if(url.pathname.endsWith('/get-pricing'))return route.fulfill({json:{country:'FR',monthlyDisplay:'7,90 €',annualDisplay:'42 €'}});
+      if(url.pathname.endsWith('/tts')&&url.searchParams.get('catalog')==='chirp3'){
+        assert.equal(url.searchParams.get('selectionVersion'),'kartech-2026-10-27');
+        return route.fulfill({json:voiceCatalogue()});
+      }
       if(url.pathname.endsWith('/tts'))return route.fulfill({status:503,json:{error:'simulated_audio_unavailable'}});
       if(url.pathname==='/api/geolocation')return route.fulfill({json:{country:'FR'}});
       if(url.pathname.endsWith('/login')){
@@ -188,9 +226,9 @@ async function open({hostname='melunga.com',paid=false,locale='fr',width=390,hei
   page.on('framenavigated',frame=>{if(frame===page.mainFrame())fixture.paths.push(new URL(frame.url()).pathname);});
   return {page,context,fixture,origin};
 }
-async function readyCourse(page,pair,level){
-  await page.waitForFunction(({pair,level})=>window.MelungaMockup?.state().screen==='themes'
-    &&window.MelungaMockup.state().pairId===pair&&window.MelungaMockup.state().level===level,{pair,level},{timeout:20000});
+async function readyCourse(page,pair,level,screen='themes'){
+  await page.waitForFunction(({pair,level,screen})=>window.MelungaMockup?.state().screen===screen
+    &&window.MelungaMockup.state().pairId===pair&&window.MelungaMockup.state().level===level,{pair,level,screen},{timeout:20000});
 }
 async function close(h){await h.context.close();report.cases.push({paths:h.fixture.paths,api:h.fixture.api,loginCalls:h.fixture.loginCalls});}
 
@@ -204,12 +242,15 @@ test('historical free rights reproduce the approved classic definitions and all 
     if(row.historicalCatalogueFreeIds)assert.deepEqual([...row.historicalCatalogueFreeIds].sort(),historical[pair].sourceIds);
     if(row.historicalGuidedFreeIds)assert.deepEqual([...row.historicalGuidedFreeIds].sort(),historical[pair].guidedIds);
   }
-  const current=read('app.html').toString();
+  const current=nativeLayer.beforeBytes(path.join(WEB,'app.html')).toString();
   assert.deepEqual(variable(current,'DECKS'),decks,'32,115 classic cards are unchanged');
   assert.deepEqual(variable(current,'PEDAGOGY_FAMILIES'),families,'old guided families unchanged');
   for(const [filename] of documents)assert.ok(read(filename).equals(baseline(filename)),filename+' unchanged');
   const backend=execFileSync('git',['ls-tree','-r','--name-only',BASE,'melunga_deploy/netlify'],{cwd:ROOT}).toString().trim().split('\n');
-  for(const filename of backend)assert.ok(fs.readFileSync(path.join(ROOT,filename)).equals(execFileSync('git',['show',BASE+':'+filename],{cwd:ROOT,maxBuffer:8*1024*1024})),filename+' backend unchanged');
+  for(const filename of backend){
+    const anchor=filename==='melunga_deploy/netlify/functions/tts.mjs'?APPROVED_TTS_COMMIT:BASE;
+    assert.ok(fs.readFileSync(path.join(ROOT,filename)).equals(execFileSync('git',['show',anchor+':'+filename],{cwd:ROOT,maxBuffer:8*1024*1024})),filename+' whole approved backend unchanged');
+  }
   report.historicalFreeCounts=COUNTS;report.freeIdCount=2218;report.contentJsonCount=documents.size;report.checks.push('rights-source-and-content');
 });
 
@@ -276,21 +317,28 @@ test('production access ignores forged paid cache, keeps every old free card and
   report.freeViewStepsChecked=freeViewSteps;report.historicalFreePresentationsRetained=retainedHistorical;report.checks.push('permission-policy');
 });
 
-test('home free trial enters the new supported course; unsupported and native entries keep the classic route', {timeout:90000},async()=>{
+test('home free trial enters every supported web direction; native-device entries keep the classic route', {timeout:90000},async()=>{
   for(const config of [{locale:'fr',study:'zh',pair:'fr-zh',width:1280},{locale:'fr',study:'es',pair:'fr-es',width:390},
-    {locale:'zh',study:'fr',pair:'zh-fr',width:390}]){
+    {locale:'zh',study:'fr',pair:'zh-fr',width:390},
+    {locale:'en',study:'es',pair:'en-es',width:1280}]){
     const h=await open(config);
     try{
       await h.page.goto(h.origin+'/index.html');
       const cta=h.page.locator('[data-dh-free]:visible,[data-go="language"]:visible,[data-select-access="free"]:visible').first();await cta.click();
+      assert.equal(await h.page.locator('[data-launch-course]').count(),0,'no second start action is required');
       await h.page.locator('[data-study-language="'+config.study+'"]:visible').click();
-      await h.page.locator('[data-launch-course]:visible').click();
       await h.page.waitForURL(url=>url.pathname==='/parcours-niveaux.html');
       const url=new URL(h.page.url());assert.equal(url.searchParams.get('pair'),config.pair);assert.equal(url.searchParams.get('level'),'1');
-      await readyCourse(h.page,config.pair,1);
+      await readyCourse(h.page,config.pair,1,'lesson');
+      const state=await h.page.evaluate(()=>window.MelungaMockup.state());
+      assert.equal(state.lessonScope,'theme');assert.equal(state.stepIndex,0);
+      assert.equal(new URL(h.page.url()).searchParams.has('start'),false,'the first-lesson entry flag is consumed');
+      await h.page.locator('#mgLessonView').waitFor({state:'visible'});
+      assert.deepEqual(await h.page.evaluate(()=>window.__entryAudioPlays),[],'opening the first lesson never autoplays audio');
+      assert.ok(!h.fixture.paths.includes('/app.html'),'free trial goes directly to the progressive lesson');
     }finally{await close(h);}
   }
-  for(const config of [{locale:'en',study:'es'},{locale:'fr',study:'zh',native:true}]){
+  for(const config of [{locale:'fr',study:'zh',native:true}]){
     const h=await open({...config,legacyPlaceholder:true});
     try{
       await h.page.goto(h.origin+'/index.html');
@@ -302,7 +350,7 @@ test('home free trial enters the new supported course; unsupported and native en
           for(let index=0;index<5;index++)await h.page.locator('[data-proof-next]:visible').click();
         }
         await h.page.locator('[data-dh-free]:visible,[data-go="language"]:visible,[data-select-access="free"]:visible').first().click();
-        await h.page.locator('[data-study-language="'+config.study+'"]:visible').click();await h.page.locator('[data-launch-course]:visible').click();
+        await h.page.locator('[data-study-language="'+config.study+'"]:visible').click();
         await h.page.waitForURL(url=>url.pathname==='/app.html');assert.equal(new URL(h.page.url()).searchParams.get('start'),'1');
       }
       assert.equal(new URL(h.page.url()).searchParams.get('courseReturn'),null);
@@ -314,7 +362,6 @@ test('home free trial enters the new supported course; unsupported and native en
     await checkout.page.locator('[data-dh-plan="yearly"]:visible').first().click();
     await checkout.page.locator('[data-start-trial]:visible').click();
     await checkout.page.locator('[data-study-language="zh"]:visible').click();
-    await checkout.page.locator('[data-launch-course]:visible').click();
     await checkout.page.waitForURL(url=>url.pathname==='/app.html');
     const url=new URL(checkout.page.url());assert.equal(url.searchParams.get('checkout'),'annual','annual checkout keeps the current payment flow');
     assert.equal(url.searchParams.get('study'),'zh');
@@ -334,6 +381,14 @@ test('only a server-confirmed classic login returns to the allowlisted new cours
     await readyCourse(home.page,'fr-es',4);
     assert.equal(await home.page.evaluate(()=>localStorage.getItem('ox_session')),null,'the existing inline login does not gain new bearer storage');
   }finally{await close(home);}
+  // The 42-pair domain now also includes English-native learners of French.
+  const additional=await open({paid:true,locale:'en',cachedPaid:'0'});
+  try{
+    await additional.page.goto(additional.origin+'/app.html?login=1&lang=en&study=fr&courseReturn=en-fr&courseLevel=2');
+    await additional.page.waitForURL(url=>url.pathname==='/parcours-niveaux.html');
+    await readyCourse(additional.page,'en-fr',2);
+    assert.equal(additional.fixture.loginCalls,0,'a confirmed device uses the newly supported direction without another login');
+  }finally{await close(additional);}
   const target='/app.html?login=1&lang=fr&study=zh&courseReturn=fr-zh&courseLevel=2';
   const h=await open();
   try{
@@ -360,13 +415,21 @@ test('only a server-confirmed classic login returns to the allowlisted new cours
 });
 
 test('return parameters refuse foreign URLs, wrong native pairs and a forged cached paid status', {timeout:90000},async()=>{
-  for(const value of ['https://outside.example/path','//outside.example/path','../index.html','javascript:alert(1)','fr-fr','zh-fr']){
+  for(const value of ['https://outside.example/path','//outside.example/path','../index.html','javascript:alert(1)','fr-fr','fr-de','zh-fr','en-fr']){
     const h=await open({paid:true,cachedPaid:'0'});
     try{
       await h.page.goto(h.origin+'/app.html?login=1&lang=fr&study=zh&courseReturn='+encodeURIComponent(value)+'&courseLevel=2');
       await h.page.waitForFunction(()=>typeof isPaid!=='undefined'&&isPaid===true);
       assert.equal(new URL(h.page.url()).pathname,'/app.html','invalid return stays classic');
     }finally{await close(h);}
+  }
+  for(const duplicate of ['&courseReturn=fr-zh','&lang=en','&study=en','&courseLevel=3']){
+    const duplicated=await open({paid:true,cachedPaid:'0'});
+    try{
+      await duplicated.page.goto(duplicated.origin+'/app.html?login=1&lang=fr&study=zh&courseReturn=fr-zh&courseLevel=2'+duplicate);
+      await duplicated.page.waitForFunction(()=>typeof isPaid!=='undefined'&&isPaid===true);
+      assert.equal(new URL(duplicated.page.url()).pathname,'/app.html','duplicate return coordinates cannot choose a course');
+    }finally{await close(duplicated);}
   }
   const h=await open({paid:false});
   try{
@@ -396,6 +459,7 @@ test('actual free and paid modern pages preserve source fields, moved freebies a
   const free=await open({paid:false});
   try{
     await free.page.goto(free.origin+'/parcours-niveaux.html?pair='+mixed.pair+'&level='+mixed.level);await readyCourse(free.page,mixed.pair,mixed.level);
+    await free.page.waitForFunction(()=>window.MelungaVoiceSelection?.state().status==='ready');
     assert.equal(await free.page.evaluate(()=>window.MelungaCourseAccess.state().paid),false);
     const freeCell=documents.get(PREFIX+mixed.pair+'/L'+mixed.level+'.json');
     await free.page.locator('#mgThemeGrid > button').nth(freeCell.themes.findIndex(theme=>theme.id===mixed.theme.id)).click();
@@ -405,15 +469,29 @@ test('actual free and paid modern pages preserve source fields, moved freebies a
       if(await free.page.locator('#mgContinue').isDisabled())await free.page.locator('#mgChoices button:visible').first().click();
       const state=await free.page.evaluate(()=>window.MelungaMockup.state()),entry=models.get(mixed.pair+'|'+state.phraseId);
       assert.ok(entry&&expectedFree(entry.pair,entry.phrase,entry.level),'every produced free-view model is allowed');seen.add(entry.phrase.id);
-      if(state.masked)await free.page.locator('#mgEar').click();
+      if(state.masked){
+        const beforeAudio=await free.page.evaluate(()=>window.__entryAudioPlays.length);
+        await free.page.locator('#mgEar').click();
+        const plays=await free.page.evaluate(()=>window.__entryAudioPlays);
+        assert.equal(plays.length,beforeAudio+1,'the revealed free card reaches the in-memory server audio fixture');
+        const audioUrl=new URL(plays.at(-1).src,free.origin);
+        assert.equal(audioUrl.pathname,'/.netlify/functions/tts');
+        assert.equal(audioUrl.searchParams.get('text'),entry.phrase.study,'audio receives the whole studied phrase, never its phonetic aid');
+      }
       assert.equal((await free.page.locator('#mgPhrase').textContent()).trim(),entry.phrase.study);
       assert.equal((await free.page.locator('#mgPhon').textContent()).trim(),entry.phrase.phon);
       await free.page.locator('#mgContinue').click();
     }
     assert.equal(await free.page.evaluate(()=>window.MelungaMockup.state().screen),'done');
     assert.deepEqual([...seen].sort(),expectedIds.sort(),'the entire free mixed theme retains all original freebies and no paid cards');
-    await free.page.locator('#mgMenuTrigger').click();const classic=free.page.locator('[data-menu-item="Toutes les leçons"]');
-    assert.equal(new URL(await classic.getAttribute('href'),free.origin).pathname,'/app.html');
+    await free.page.locator('#mgMenuTrigger').click();
+    assert.equal(await free.page.locator('[data-menu-item="Toutes les leçons"]').count(),0,'removed menu entry stays absent');
+    // Removing a navigation row does not remove the existing classic fallback
+    // or its historical free-card rights, checked independently above.
+    const classicHref=await free.page.evaluate(pair=>window.MelungaCourseAccess.classicUrl(pair),mixed.pair);
+    const classic=new URL(classicHref,free.origin);
+    assert.equal(classic.pathname,'/app.html');
+    assert.equal(classic.searchParams.get('classic'),'1');
   }finally{await close(free);}
   for(const paid of [false,true]){
     const h=await open({paid});
@@ -429,7 +507,7 @@ test('actual free and paid modern pages preserve source fields, moved freebies a
         assert.equal((await h.page.locator('#mgPhrase').textContent()).trim(),entry.phrase.study);
         assert.equal((await h.page.locator('#mgPhon').textContent()).trim(),entry.phrase.phon);
         h.fixture.paid=false;
-        const spoken=await h.page.evaluate(()=>window.__entrySpeech.length);
+        const spoken=await h.page.evaluate(()=>({speech:window.__entrySpeech.length,audio:window.__entryAudioPlays.length}));
         await h.page.evaluate(()=>{
           localStorage.removeItem('ox_device');localStorage.setItem('ox_paid','0');
           dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));
@@ -437,7 +515,7 @@ test('actual free and paid modern pages preserve source fields, moved freebies a
         await h.page.waitForFunction(()=>window.MelungaCourseAccess.state().ready&&!window.MelungaCourseAccess.state().paid
           &&window.MelungaMockup.state().screen==='themes');
         await h.page.evaluate(()=>document.getElementById('mgEar').click());
-        assert.equal(await h.page.evaluate(()=>window.__entrySpeech.length),spoken,'a restored revoked page cannot speak the old paid card');
+        assert.deepEqual(await h.page.evaluate(()=>({speech:window.__entrySpeech.length,audio:window.__entryAudioPlays.length})),spoken,'a restored revoked page cannot speak the old paid card through either audio path');
         assert.equal(await h.page.locator('#mgLessonView').isVisible(),false,'paid lesson is hidden after restored free state');
       }
     }finally{await close(h);}

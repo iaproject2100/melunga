@@ -115,6 +115,7 @@ const report = {
   sourceComparisonInverse: ['classification', 'conventions', 'content'],
   domExpectationsUseActualComposedContent: true,
   widths: [320, 390, 1440], cellViews: 0, themeEntries: 0, domSteps: 0,
+  sourcePresentationSummaries: [],
   runtimeJsonFieldsCompared: 0, templateSteps: 0, preparationSteps: 0, reserveCardsTracked: 0,
   heldCardsTracked: 0, canonicalCardsTracked: 0, reviewSteps: 0, reviewReferencesTracked: 0,
   contextReuseSteps: 0, contextReferencesTracked: 0,
@@ -319,19 +320,6 @@ async function chooseLevel(page, level) {
   await page.locator('#mgLevelChoices button[data-level="' + level + '"]').click();
 }
 
-// Select an actual visible chunk before advancing to an existing source step.
-// The source model remains global; progress and navigation are sequence-local.
-async function selectVisibleSequence(page, steps = [], globalIndex = 0) {
-  return page.evaluate(({stepId,globalIndex}) => {
-    if (window.MelungaMockup.state().screen !== 'sequences') return globalIndex;
-    const plans = window.MelungaMockup.visibleSequences();
-    const index = stepId ? plans.findIndex(plan => plan.steps.some(step => step.id === stepId)) : 0;
-    if (index < 0) throw new Error('Source step missing from visible sequence plans');
-    document.querySelectorAll('#mgSequences > button')[index].click();
-    return stepId ? plans[index].steps.findIndex(step => step.id === stepId) : 0;
-  }, {stepId: steps[globalIndex]?.id, globalIndex});
-}
-
 async function inspectCell(page, expected, bank, exhaustive) {
   allClassification.auditRuntime(); // validates the exact frozen policy before any finite auditor exception
   const additionalThemes = situationPlan.themes.filter(theme => theme.level === expected.level);
@@ -387,7 +375,16 @@ async function inspectCell(page, expected, bank, exhaustive) {
     if ([...presented.values()].some(phrase => !phrase)) throw new Error('unknown presented reference');
     const expectedQuantity = ['utterance', 'vocabulary', 'number'].map(type => [type, [...presented.values()].filter(phrase => phrase.contentType === type).length])
       .filter(([, count]) => count).map(([type, count]) => quantity(count, type)).join(' · ');
-    eq(byId('mgCounter').textContent, expectedQuantity, 'presented counter by type, excluding reserve and hidden stock');
+    // The inventory remains a source diagnostic; the themes header now shows
+    // only explicit Je connais decisions. This matrix never rates a card known.
+    const levelName = expected.nativeLanguage === 'zh' ? '第 ' + expected.level + ' 级' : 'Niveau ' + expected.level;
+    const initialLevelProgress = levelName + ' · 0 %';
+    eq(byId('mgCounter').textContent, initialLevelProgress, 'initial level progress label');
+    eq(byId('mgProgress').style.width, '0%', 'initial level progress bar');
+    const levelTrack = byId('mgProgress').parentElement;
+    eq(levelTrack.getAttribute('role'), 'progressbar', 'themes expose the level progress bar');
+    eq(levelTrack.getAttribute('aria-valuenow'), '0', 'initial accessible level progress');
+    eq(levelTrack.getAttribute('aria-valuetext'), initialLevelProgress, 'localized accessible progress label');
     eq(state().totalPhrases, expected.themes.reduce((sum, theme) => sum + theme.presentedCount, 0), 'runtime presentation count');
     const sections = expected.themes.map(theme => theme.section).filter((section, index, list) => index === 0 || section !== list[index - 1]);
     eq(JSON.stringify([...document.querySelectorAll('#mgThemeGrid > h2')].map(node => node.textContent)),
@@ -488,23 +485,11 @@ async function inspectCell(page, expected, bank, exhaustive) {
       const box = tile.getBoundingClientRect();
       if (box.height < 44 || box.width < 44) throw new Error(theme.id + ': small theme target');
       tile.click();
+      eq(state().screen, 'lesson', 'one-click theme entry');
+      eq(state().lessonScope, 'theme', 'one lesson per theme');
+      if (visible(byId('mgSequenceView'))) throw new Error('sequence screen became visible');
       const allSteps = theme.sequences.flatMap(sequence => sequence.steps);
       const primaryIds = theme.sequences.flatMap(sequence => sequence.phraseIds);
-      const longTheme = expected.version === 2 && theme.presentedCount > 100;
-      const visiblePlans = longTheme ? window.MelungaMockup.visibleSequences() : [];
-      if (longTheme) {
-        eq(state().screen, 'sequences', 'long theme opens its visible sequence picker');
-        eq(JSON.stringify(visiblePlans.flatMap(plan => plan.phraseIds)), JSON.stringify(primaryIds), 'visible sequences preserve the complete presentation order');
-        eq(JSON.stringify(visiblePlans.flatMap(plan => plan.steps)), JSON.stringify(allSteps), 'visible sequences preserve every whole source step and role');
-        if (visiblePlans.some(plan => plan.phraseIds.length < 30 || plan.phraseIds.length > 40)) throw new Error('visible sequence outside the reviewed 30–40 card range');
-        eq(document.querySelectorAll('#mgSequences > button').length, visiblePlans.length, 'one real navigation target per visible sequence');
-        document.querySelector('#mgSequences > button').click();
-      } else {
-        eq(state().screen, 'lesson', 'short theme retains one-click entry');
-        eq(state().lessonScope, 'theme', 'short theme remains one lesson');
-        if (visible(byId('mgSequenceView'))) throw new Error('short theme unexpectedly gained a sequence screen');
-      }
-      const planOffsets = visiblePlans.map((plan, index) => visiblePlans.slice(0, index).reduce((total, earlier) => total + earlier.steps.length, 0));
       const receivedUses = new Map((theme.receivedTurns || []).map(turn => [turn.id, turn]));
       const preparedAnswers = new Map();
       const seenReceived = new Set();
@@ -622,33 +607,22 @@ async function inspectCell(page, expected, bank, exhaustive) {
         const step = allSteps[index];
         const phrase = allModels.get(step.utterance || step.choices?.[0]);
         if (!phrase) throw new Error('Unresolved step ' + step.id);
-        const planIndex = longTheme ? visiblePlans.findIndex((plan, candidate) => index >= planOffsets[candidate] && index < planOffsets[candidate] + plan.steps.length) : -1;
-        const currentPlan = longTheme ? visiblePlans[planIndex] : {phraseIds: primaryIds, steps: allSteps};
-        const localIndex = longTheme ? index - planOffsets[planIndex] : index;
-        eq(state().stepIndex, localIndex, 'current sequence step index');
-        if (longTheme) {
-          eq(state().visibleSequenceIndex, planIndex + 1, 'visible sequence index remains attached to source order');
-          eq(state().visibleSequenceCount, visiblePlans.length, 'visible sequence count');
-          eq(state().lessonScope, 'sequence', 'long lesson uses the selected visible sequence');
-        }
+        eq(state().stepIndex, index, 'step index');
         eq(state().phraseId, phrase.id, 'phrase identity');
         const received = step.kind === 'receive';
         const review = !received && reviews.has(phrase.id);
         const contextReuse = !received && contextIds.has(phrase.id) && !retainedCoreIds.has(phrase.id);
         eq(!!step.isReview, review, 'review step is explicitly marked');
         eq(!!step.isContextReuse, contextReuse, 'context reuse step is explicitly marked');
-        const sequenceContext = longTheme ? ' · ' + (expected.nativeLanguage === 'zh'
-          ? '第 ' + (planIndex + 1) + '/' + visiblePlans.length + ' 组'
-          : 'Séquence ' + (planIndex + 1) + '/' + visiblePlans.length) : '';
-        eq(byId('mgLessonTheme').textContent, String(i + 1).padStart(2, '0') + ' · ' + theme.title + sequenceContext
+        eq(byId('mgLessonTheme').textContent, String(i + 1).padStart(2, '0') + ' · ' + theme.title
           + (review ? expected.nativeLanguage === 'zh' ? ' · 复习' : ' · Révision'
             : contextReuse ? expected.nativeLanguage === 'zh' ? ' · 情境复用' : ' · Réemploi' : ''), 'explicit review/context-reuse badge');
         if (review) reviewSteps++;
         if (contextReuse) contextSteps++;
         if (reserveIds.has(state().phraseId) && !(received && receivedModels.get(state().phraseId)?.heardOnly && receivedModels.get(state().phraseId)?.canonicalReserveLocation)) throw new Error('reserve reached learner DOM/audio state');
-        eq(byId('mgCounter').textContent, (currentPlan.phraseIds.indexOf(step.prepares || phrase.id) + 1) + ' / ' + currentPlan.phraseIds.length, 'primary-only counter of the current visible sequence');
-        const learnerStepCount = currentPlan.steps.filter(candidate => candidate.kind !== 'receive').length;
-        const completedLearnerSteps = currentPlan.steps.slice(0, localIndex + 1).filter(candidate => candidate.kind !== 'receive').length;
+        eq(byId('mgCounter').textContent, (primaryIds.indexOf(step.prepares || phrase.id) + 1) + ' / ' + primaryIds.length, 'primary-only lesson counter');
+        const learnerStepCount = allSteps.filter(candidate => candidate.kind !== 'receive').length;
+        const completedLearnerSteps = allSteps.slice(0, index + 1).filter(candidate => candidate.kind !== 'receive').length;
         const expectedProgress = completedLearnerSteps / learnerStepCount * 100;
         if (Math.abs(parseFloat(byId('mgProgress').style.width) - expectedProgress) > 0.001) throw new Error('interlocutor listening inflated learner progression');
         if (received) {
@@ -732,27 +706,18 @@ async function inspectCell(page, expected, bank, exhaustive) {
           }
         }
         steps++;
-        if (index < limit - 1) {
-          byId('mgContinue').click();
-          if (longTheme && state().screen === 'done') {
-            eq(localIndex, currentPlan.steps.length - 1, 'visible sequence completes exactly at its source boundary');
-            if (planIndex >= visiblePlans.length - 1) throw new Error('long theme completed before all source steps were visited');
-            byId('mgContinue').click();
-          }
-        }
+        if (index < limit - 1) byId('mgContinue').click();
       }
       if (exhaustive) {
-        byId('mgContinue').click(); eq(state().screen, 'done', longTheme ? 'last visible sequence completes' : 'theme reaches completion');
+        byId('mgContinue').click(); eq(state().screen, 'done', 'theme reaches completion');
         byId('mgContinue').click();
-        if (longTheme) eq(state().screen, 'sequences', 'completion returns to all visible sequences');
       } else byId('mgBack').click();
-      if (state().screen === 'sequences') byId('mgBack').click();
       eq(state().screen, 'themes', 'return to themes');
     });
     eq(visualPositions.size, expected.themes.length, 'one distinct photo tile per theme');
     eq(ids.size, expected.themes.length, 'distinct theme visual identities');
     if (document.documentElement.scrollWidth > innerWidth + 1) throw new Error('horizontal document overflow');
-    return {steps, fields, templates, preparations, reviewSteps, reviewReferences, usageChecks,
+    return {sourcePresentedQuantity: expectedQuantity, steps, fields, templates, preparations, reviewSteps, reviewReferences, usageChecks,
       contextSteps, contextReferences, situationCases, additionalAudio, additionalRecall, additionalFields,
       receivedSteps, receivedAudio, receivedFields, receivedCounterChecks, preparedAnswerChecks, lexicalSupportChecks,
       additionalAudioByKind, themes: expected.themes.length,
@@ -777,6 +742,7 @@ for (const width of report.widths) test('70 pair/level cells at ' + width + 'px'
         try { result = await inspectCell(page, cell(pair.id, level), repertoire(pair.id), width === 390); }
         catch (error) { throw new Error(pair.id + '/L' + level + ' @' + width + ': ' + error.message); }
         report.cellViews++; report.themeEntries += result.themes; report.domSteps += result.steps;
+        report.sourcePresentationSummaries.push({pair: pair.id, level, width, quantity: result.sourcePresentedQuantity});
         report.runtimeJsonFieldsCompared += result.fields; report.templateSteps += result.templates;
         report.preparationSteps += result.preparations;
         report.reviewSteps += result.reviewSteps;
@@ -1350,8 +1316,7 @@ test('same-level context reuse is explicit, audible and distinct from a revision
     const recallIndex = steps.findIndex(step => step.utterance === reference.id && ['choose-and-recall', 'reply-without-model', 'recall'].includes(step.kind));
     assert.ok(readIndex >= 0 && recallIndex > readIndex);
     await page.locator('#mgThemeGrid > button').nth(target.themeIndex).click();
-    const localReadIndex = await selectVisibleSequence(page, steps, readIndex);
-    await page.evaluate(count => { for (let index = 0; index < count; index++) document.getElementById('mgContinue').click(); }, localReadIndex);
+    await page.evaluate(count => { for (let index = 0; index < count; index++) document.getElementById('mgContinue').click(); }, readIndex);
     assert.equal((await page.evaluate(() => window.MelungaMockup.state())).phraseId, phrase.id);
     for (const [node, field] of [['#mgPhrase', 'study'], ['#mgPhon', 'phon'], ['#mgTranslation', 'native'], ['#mgReading', 'reading']]) {
       assert.equal(await page.locator(node).textContent(), phrase[field] || '', 'same-level context whole ' + field);
@@ -1664,8 +1629,7 @@ test('a delayed old bank cannot overwrite a newly selected pair or its review au
     const reviewIndex = steps.findIndex(step => step.isReview);
     assert.ok(reviewIndex >= 0);
     await page.locator('#mgThemeGrid > button').nth(secondTarget.themeIndex).click();
-    const localReviewIndex = await selectVisibleSequence(page, steps, reviewIndex);
-    await page.evaluate(count => { for (let index = 0; index < count; index++) document.getElementById('mgContinue').click(); }, localReviewIndex);
+    await page.evaluate(count => { for (let index = 0; index < count; index++) document.getElementById('mgContinue').click(); }, reviewIndex);
     const step = steps[reviewIndex];
     const phrase = repertoire(second).phrases.find(candidate => candidate.id === step.utterance);
     assert.equal((await page.evaluate(() => window.MelungaMockup.state())).phraseId, phrase.id);
@@ -1690,7 +1654,8 @@ test('L5 menu, three ambiences and minimum controls at all widths', {timeout: 60
       for (let i = 0; i < 3; i++) { ambiences.add(await page.locator('body').getAttribute('data-ambience')); await page.click('#mgPalette'); }
       assert.equal(ambiences.size, 3);
       await page.click('#mgMenuTrigger'); assert.equal(await page.locator('#mgMenuTrigger').getAttribute('aria-expanded'), 'true');
-      assert.equal(await page.locator('#mgMenuNav > *').count(), 10);
+      assert.equal(await page.locator('#mgMenuNav > *').count(), 9);
+      assert.equal(await page.locator('[data-menu-item="Toutes les leçons"]').count(), 0, 'removed all-lessons menu entry stays absent');
       assert.equal(await page.locator('[data-menu-item="À revoir"]').count(), 1, 'saved review joins the existing menu');
       const targets = await page.locator('#mgMenuNav > *').evaluateAll(nodes => nodes.map(node => ({
         label: node.textContent, width: node.getBoundingClientRect().width, height: node.getBoundingClientRect().height
@@ -1701,7 +1666,6 @@ test('L5 menu, three ambiences and minimum controls at all widths', {timeout: 60
       await page.click('#mgMenuClose');
       assert.equal((await page.evaluate(() => window.MelungaMockup.state())).level, 5);
       await page.locator('#mgThemeGrid > button').first().click();
-      await selectVisibleSequence(page);
       const small = await page.locator('#mgBack, #mgHelp, #mgEar, #mgReplay, #mgContinue').evaluateAll(nodes => nodes
         .filter(node => !node.hidden && getComputedStyle(node).display !== 'none')
         .map(node => ({id: node.id, width: node.getBoundingClientRect().width, height: node.getBoundingClientRect().height}))

@@ -1,0 +1,32 @@
+{
+  "status": "no-blocking-findings",
+  "reviewedAtUtc": "2026-10-26T19:35:50Z",
+  "scope": "independent read-only source review, not browser or hosted-site testing",
+  "baseCommit": "a1085e8cd1b0a070af3b458e3c40b503d8ae0b6f",
+  "sourceRuntimeJsonByteExactCount": 78,
+  "protectedFilesByteExactCount": 13,
+  "unexpectedProtectedDifferences": [],
+  "findings": [],
+  "reviewed": [
+    "Denominator uses the complete validated source level before access filtering; union by phrase identity removes repeated presentations. Templates, received turns and preparations outside phraseIds are excluded.",
+    "Known persistence uses explicit currentPhrase.id and pair ID; no credit is inferred from advancing, listening, completing themes, previous review absence or classic storage.",
+    "Storage entries are restricted to known pairs and bounded strings; intersection with the source identity set bounds the numerator; integer percentage floors the exact ratio, so 100 requires all cards.",
+    "A revoir removes explicit known status; ordinary removal from the reminder list does not add known status. Existing access and template/received guards stay in place.",
+    "V1 saveCardDecision delegates directly to the old review save, preserving its previous write/error behavior. V1 keeps the old level quantity label.",
+    "Only the modern theme overview sets progressbar semantics and the localized level label. All other screens clear level ARIA attributes and preserve their prior lesson/sequence counters and visual progress.",
+    "Source load generation guard precedes denominator assignment; delayed old levels cannot replace the active denominator.",
+    "Cross-tab known storage events reload the known map; writes reload current stored pairs before mutation."
+  ],
+  "limitations": [
+    "Progress is local to this browser profile/device, not synchronized to an authenticated account or between devices.",
+    "Classic ox_known_<lang> uses study-text keys and is deliberately neither migrated nor changed. Previous modern Je connais decisions were not durable and cannot be recovered.",
+    "If the progress write fails after a reminder write, the previous reminder list is restored. The rollback is best-effort if storage also refuses that rollback; the action returns failure and does not advance or claim successful persistence.",
+    "The existing desktop Continuer behavior is unchanged; Je connais still follows the existing explicit right-swipe action rather than implying acquisition from lesson completion."
+  ],
+  "sha256": {
+    "melunga_deploy/maquette-guidee.js": "d049dc79587d42c081d60a80c7e2aea8913bfc787f59c1689871f39081ed7b1b",
+    "melunga_deploy/parcours-niveaux.html": "562ce667441bd6cd42abba1bc60c9f7b5b1bc6d181632123fb9402694043e5b3",
+    "melunga_deploy/maquette-guidee.html": "98723bf843a7175fac58b0a0ecf7f0581e08b67eb8d54baa60f7e3aeb6262056",
+    "melunga_deploy/maquette-guidee.css": "c8dc71391b45821fdf8f3b3ed70fd3f73bfcea48dfdb021cc87ce3174cb28690"
+  }
+}

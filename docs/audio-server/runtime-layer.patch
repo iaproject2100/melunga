@@ -1,0 +1,141 @@
+diff --git a/melunga_deploy/maquette-guidee.html b/melunga_deploy/maquette-guidee.html
+index 65d29cb6358ae5baa56f793c59eedc8dde745f9f..b63faf4a3be68e0226c8d918440f8f593770eb19 100644
+--- a/melunga_deploy/maquette-guidee.html
++++ b/melunga_deploy/maquette-guidee.html
+@@ -142,6 +142,7 @@
+   </dialog>
+   <p id="mgCardToast" class="mg-card-toast" role="status" aria-live="polite" hidden></p>
+   <script src="course-access.js?v=2"></script>
+-  <script src="maquette-guidee.js?v=29"></script>
++  <script src="lesson-audio.js?v=1"></script>
++  <script src="maquette-guidee.js?v=30"></script>
+ </body>
+ </html>
+diff --git a/melunga_deploy/maquette-guidee.js b/melunga_deploy/maquette-guidee.js
+index 97b17db8685e66480055a3a886325d22390eb612..de67190a92b73f36553622676b1813e58db56fd9 100644
+--- a/melunga_deploy/maquette-guidee.js
++++ b/melunga_deploy/maquette-guidee.js
+@@ -88,7 +88,6 @@
+     'saluer', 'comprendre', 'ressentis', 'repas', 'deplacements', 'reperes',
+     'quotidien', 'decrire', 'conversation', 'travail', 'personnaliser'
+   ].map((id, index) => [id, { column: index % 3, row: Math.floor(index / 3) }]));
+-  const voices = { zh: 'zh-CN', es: 'es-ES', en: 'en-GB', fr: 'fr-FR', it: 'it-IT', ko: 'ko-KR', ja: 'ja-JP' };
+   const svg = paths => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + paths + '</svg>';
+   const icons = {
+     chat: svg('<path d="M21 11.5a8.4 8.4 0 0 1-9 8.2 10 10 0 0 1-4-.8L3 21l1.4-5.3A8.2 8.2 0 0 1 3 11.5a9 9 0 0 1 18 0Z"/><path d="M8 11h.01M12 11h.01M16 11h.01"/>'),
+@@ -168,7 +167,9 @@
+     'Retrouve le mot à partir de son sens. L’oreille révèle le modèle et permet de le réécouter.': '根据意思回忆这个词语。点击耳朵可以查看并再次听到它。',
+     'Écouter le mot': '听这个词语', 'Révéler et écouter le mot': '显示并听这个词语',
+     'L’audio n’est pas disponible sur ce navigateur.': '此浏览器暂不支持播放语音。',
+-    'L’audio n’a pas pu démarrer. Tu peux réessayer.': '语音未能播放，请重试。'
++    'L’audio n’a pas pu démarrer. Tu peux réessayer.': '语音未能播放，请重试。',
++    'Voix féminine': '女声', 'Voix masculine': '男声',
++    'Audio indisponible. Réessaie.': '语音暂不可用，请重试。'
+   };
+   const tr = value => state.pair && state.pair.nativeLanguage === 'zh' ? chinese[value] || value : value;
+   const quantityLabel = (count, contentType) => {
+@@ -600,12 +601,8 @@
+   }
+ 
+   function fillVoices() {
+-    const options = [new Option(tr('Voix automatique'), '')];
+-    if ('speechSynthesis' in window) window.speechSynthesis.getVoices()
+-      .filter(voice => voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage)
+-      .forEach(voice => options.push(new Option(voice.name, voice.voiceURI)));
+-    ui.voice.replaceChildren(...options);
+-    ui.voice.value = state.voiceChoices.get(state.pair.studyLanguage) || '';
++    ui.voice.replaceChildren(new Option(tr('Voix féminine'), 'female'), new Option(tr('Voix masculine'), 'male'));
++    ui.voice.value = state.voiceChoices.get(state.pair.studyLanguage) || 'female';
+     if (ui.voice.selectedIndex < 0) ui.voice.selectedIndex = 0;
+     ui.speed.value = String(state.speechRate);
+   }
+@@ -698,9 +695,14 @@
+     }
+   }
+ 
++  const lessonAudio = window.MelungaLessonAudio?.createPlayer({
++    onPlaying: setAudioPlaying,
++    onUnavailable: () => setStatus('Audio indisponible. Réessaie.')
++  });
++
+   function stopAudio() {
+     state.speechGeneration += 1;
+-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
++    lessonAudio?.stop();
+     setAudioPlaying(false);
+   }
+ 
+@@ -1176,33 +1178,12 @@
+     }
+     stopAudio();
+     setStatus('');
+-    if (!('speechSynthesis' in window) || typeof window.SpeechSynthesisUtterance !== 'function') {
+-      setStatus('L’audio n’est pas disponible sur ce navigateur.');
++    if (!lessonAudio) {
++      setStatus('Audio indisponible. Réessaie.');
+       return;
+     }
+-    const token = state.speechGeneration;
+-    const utterance = new SpeechSynthesisUtterance(phrase.study);
+-    utterance.lang = voices[state.pair.studyLanguage] || state.pair.studyLanguage;
+-    utterance.rate = state.speechRate;
+-    const voiceList = window.speechSynthesis.getVoices();
+-    const exactVoice = voiceList.find(voice => voice.lang.toLowerCase() === utterance.lang.toLowerCase());
+-    const languageVoice = voiceList.find(voice => voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage);
+-    const preferredVoice = voiceList.find(voice => voice.voiceURI === state.voiceChoices.get(state.pair.studyLanguage)
+-      && voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage);
+-    if (preferredVoice || exactVoice || languageVoice) utterance.voice = preferredVoice || exactVoice || languageVoice;
+-    const finish = () => {
+-      if (token !== state.speechGeneration) return;
+-      setAudioPlaying(false);
+-    };
+-    utterance.onend = finish;
+-    utterance.onerror = event => {
+-      if (token !== state.speechGeneration) return;
+-      finish();
+-      if (!['canceled', 'interrupted'].includes(event.error)) setStatus('L’audio n’a pas pu démarrer. Tu peux réessayer.');
+-    };
+-    setAudioPlaying(true);
+-    try { window.speechSynthesis.speak(utterance); }
+-    catch (_) { finish(); setStatus('L’audio n’a pas pu démarrer. Tu peux réessayer.'); }
++    lessonAudio.play({ text: phrase.study, language: state.pair.studyLanguage,
++      rate: state.speechRate, voice: state.voiceChoices.get(state.pair.studyLanguage) || 'female' });
+   }
+ 
+   function displayPair(pair) {
+@@ -1816,13 +1797,17 @@
+   window.addEventListener('resize', positionPopups);
+   window.visualViewport?.addEventListener('resize', positionPopups);
+   window.visualViewport?.addEventListener('scroll', positionPopups);
+-  ui.voice.addEventListener('change', () => state.voiceChoices.set(state.pair.studyLanguage, ui.voice.value));
++  ui.voice.addEventListener('change', () => {
++    if (!['female', 'male'].includes(ui.voice.value)) return;
++    stopAudio();
++    state.voiceChoices.set(state.pair.studyLanguage, ui.voice.value);
++  });
+   ui.speed.addEventListener('change', () => {
+     const rate = Number(ui.speed.value);
+-    if ([0.75, 0.85, 1].includes(rate)) state.speechRate = rate;
+-  });
+-  if ('speechSynthesis' in window) window.speechSynthesis.addEventListener?.('voiceschanged', () => {
+-    if (ui.menu.open && state.menuView === 'voice') fillVoices();
++    if ([0.75, 0.85, 1].includes(rate)) {
++      stopAudio();
++      state.speechRate = rate;
++    }
+   });
+   ui.reviewModel.addEventListener('click', () => reviewTheme(false));
+   ui.reviewRecall.addEventListener('click', () => reviewTheme(true));
+diff --git a/melunga_deploy/parcours-niveaux.html b/melunga_deploy/parcours-niveaux.html
+index 3a402a3a6b492598735d50c75a3ff83d83a709bb..0924d0efae2e971857e1246f209ce321ac8993b1 100644
+--- a/melunga_deploy/parcours-niveaux.html
++++ b/melunga_deploy/parcours-niveaux.html
+@@ -152,6 +152,7 @@
+   </dialog>
+   <p id="mgCardToast" class="mg-card-toast" role="status" aria-live="polite" hidden></p>
+   <script src="course-access.js?v=2"></script>
+-  <script src="maquette-guidee.js?v=29"></script>
++  <script src="lesson-audio.js?v=1"></script>
++  <script src="maquette-guidee.js?v=30"></script>
+ </body>
+ </html>

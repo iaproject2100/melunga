@@ -1,0 +1,134 @@
+{
+  "status": "passed",
+  "baseCommit": "7b17e56",
+  "environment": "Local Chromium; desktop and mobile viewport/touch emulation",
+  "physicalDeviceTested": false,
+  "safariTested": false,
+  "realAudioPlayed": false,
+  "upstreamTtsCalled": false,
+  "realAccountsUsed": false,
+  "nonGetRequestsAllowed": false,
+  "allResponsesLocalFixtures": true,
+  "inputsStable": true,
+  "checks": [
+    "preserved-content-and-services",
+    "desktop-header-and-themes",
+    "desktop-pickers-menu-account",
+    "desktop-nearby-lesson-actions",
+    "mobile-baseline-layout",
+    "mobile-original-gestures",
+    "responsive-roundtrip",
+    "read-only-data-recovery"
+  ],
+  "errors": [],
+  "unexpected": [],
+  "fixtureErrors": [],
+  "date": "2026-10-27",
+  "testGroups": 8,
+  "caseCount": 26,
+  "casesByName": {
+    "source-preservation": 1,
+    "desktop-themes": 4,
+    "desktop-all-controls": 2,
+    "desktop-real-card": 6,
+    "mobile-baseline-comparison": 6,
+    "mobile-four-swipes": 2,
+    "desktop-mobile-desktop-roundtrip": 1,
+    "bank-transient-503-recovers-without-click": 1,
+    "manifest-and-rights-retry-keep-every-card-gated": 1,
+    "permanent-failure-then-real-retry": 1,
+    "incompatible-source-sha-remains-refused": 1
+  },
+  "selectedCaptures": [
+    "captures/themes-en-es-1366.png",
+    "captures/themes-en-es-1440.png",
+    "captures/initial-lesson-en-es-L1-1366.png",
+    "captures/initial-lesson-fr-es-L8-1366.png",
+    "captures/lesson-fr-zh-L1-1366.png",
+    "captures/menu-1366.png",
+    "captures/voice-1366.png",
+    "captures/account-1366.png",
+    "captures/mobile-unchanged-en-es-L1.png",
+    "captures/mobile-unchanged-fr-zh-L1.png",
+    "captures/mobile-unchanged-fr-es-L8.png"
+  ],
+  "totalGeneratedCaptures": 20,
+  "testSha256": "9ceeb79e96a7ff9bd544e4875a7718273e566af39a89e78551d15ae149b1f74b",
+  "mobileReference": "Actual 7b17e56 root HTML/CSS/JS served through the same browser fixture, source JSON protected byte-exact, viewport 390x700.",
+  "sourcePreservation": {
+    "name": "source-preservation",
+    "wholeFiles": 121,
+    "finiteReadWrappers": 2
+  },
+  "limits": [
+    "Local Chromium only: no physical Android, iPhone or Safari test.",
+    "All account status/catalogue/media are fixtures; no real account or TTS upstream.",
+    "Audio is in-memory playback events, without decoding or listening.",
+    "Topics list may scroll inside its own content region; lesson and desktop command row must fit the viewport.",
+    "Font ink extending beyond a line box with overflow:visible is measured by actual glyph rectangles, not treated as clipping."
+  ],
+  "desktopNextRegression": "All six real desktop cards require a different next phrase ID and counter +1; completion only permitted after the last phrase. A mere understand-to-imitate step does not pass.",
+  "mobileContinueRegression": "All three mobile fixtures are compared with actual 7b17e56: Continue advances exactly one original step with the same before/after IDs and indices as baseline.",
+  "desktopNextTransitions": [
+    {
+      "pair": "en-es",
+      "level": 1,
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "before": "catalogue:es:2",
+      "after": "catalogue:es:3"
+    },
+    {
+      "pair": "fr-zh",
+      "level": 1,
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "before": "conversation:L1-fr-zh.json:L1-fr-zh-02:v0",
+      "after": "conversation:L1-fr-zh.json:L1-fr-zh-02:v1"
+    },
+    {
+      "pair": "fr-es",
+      "level": 8,
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "before": "situation-authored:fr-es:piste-reclamation-tact-01",
+      "after": "situation-authored:fr-es:piste-reclamation-tact-02"
+    },
+    {
+      "pair": "en-es",
+      "level": 1,
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "before": "catalogue:es:2",
+      "after": "catalogue:es:3"
+    },
+    {
+      "pair": "fr-zh",
+      "level": 1,
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "before": "conversation:L1-fr-zh.json:L1-fr-zh-02:v0",
+      "after": "conversation:L1-fr-zh.json:L1-fr-zh-02:v1"
+    },
+    {
+      "pair": "fr-es",
+      "level": 8,
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "before": "situation-authored:fr-es:piste-reclamation-tact-01",
+      "after": "situation-authored:fr-es:piste-reclamation-tact-02"
+    }
+  ]
+}

@@ -13,7 +13,6 @@ const crypto = require('node:crypto');
 const {test, before, after} = require('node:test');
 const {chromium} = require('playwright-core');
 
-const PRODUCT_BASE = '946b254179e75cd342ecedab0b5448017079ffdc';
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'content/niveaux-progressifs');
 const readJson = filename => JSON.parse(fs.readFileSync(filename, 'utf8'));
@@ -38,7 +37,7 @@ function bank(pairId) {
 }
 
 function fingerprints() {
-  const files = [__filename, ...['maquette-guidee.js', 'visible-sequences.js', 'course-access.js', 'content/course-access.json', 'maquette-guidee.css',
+  const files = [__filename, ...['maquette-guidee.js', 'maquette-guidee.css',
     'parcours-niveaux.html', 'maquette-guidee.html', 'app.html'].map(file => path.join(ROOT, file)),
     path.join(ROOT, 'content/maquette-guidee.json'), path.join(DATA, 'manifest.json')];
   for (const pair of manifest.pairs) {
@@ -49,12 +48,11 @@ function fingerprints() {
 }
 
 const report = {
-  status: 'running', approvedEntryAndMobileProductCommit: PRODUCT_BASE, environment: 'local Chromium with emulated viewports',
+  status: 'running', environment: 'local Chromium with emulated viewports',
   publicSiteChecked: false, physicalDeviceChecked: false,
   phoneticOrNativeValidation: false,
   speechMechanism: 'mock speechSynthesis; whole study text dispatch only',
-  accountMechanism: 'only GET check-status is mocked paid:true locally to exercise the full course; no real account or service request',
-  checks: [], cases: [], errors: [], externalRequests: [], apiRequests: [], mockedStatusRequests: [],
+  checks: [], cases: [], errors: [], externalRequests: [], apiRequests: [],
   inputSha256: fingerprints(),
   requiredChecks: ['desktop-complete-card', 'pinyin-switch-persistence-and-recall',
     'mobile-four-direction-swipes', 'mobile-swipes-ignore-other-interactions',
@@ -87,7 +85,6 @@ after(async () => {
   report.inputsStableDuringRun = JSON.stringify(fingerprints()) === JSON.stringify(report.inputSha256);
   if (!report.inputsStableDuringRun) report.errors.push('Product or source files changed during the run.');
   if (report.externalRequests.length || report.apiRequests.length) report.errors.push('Unexpected external/API operation.');
-  if (!report.mockedStatusRequests.length) report.errors.push('The full-course account fixture was not exercised.');
   if (report.requiredChecks.some(name => !report.checks.includes(name))) report.errors.push('Incomplete lesson-control coverage.');
   const fits = report.cases.filter(entry => entry.measurements);
   report.fullCardMeasurements = fits.length;
@@ -105,7 +102,7 @@ after(async () => {
   }
   assert.equal(report.inputsStableDuringRun, true, 'controls and content remain stable during this run');
   assert.deepEqual(report.externalRequests, [], 'no external requests');
-  assert.deepEqual(report.apiRequests, [], 'no unexpected account or service requests; only GET check-status is mocked');
+  assert.deepEqual(report.apiRequests, [], 'no account or service requests');
   assert.deepEqual(report.errors, [], 'no page errors or failed control checks');
 });
 
@@ -133,11 +130,6 @@ async function open(width = 390, height = 844, intercept = async () => false, op
     const url = new URL(route.request().url());
     if (url.origin !== base) {
       report.externalRequests.push(url.origin + url.pathname); await route.abort(); return;
-    }
-    if (url.pathname === '/.netlify/functions/check-status' && route.request().method() === 'GET') {
-      report.mockedStatusRequests.push({method:'GET', path:url.pathname, paid:true});
-      await route.fulfill({status:200, contentType:'application/json', body:JSON.stringify({paid:true})});
-      return;
     }
     if (/\/(?:\.netlify|api)\//.test(url.pathname)) {
       report.apiRequests.push(url.pathname); await route.abort(); return;
@@ -182,15 +174,6 @@ function phraseFixtures(pairId, level) {
 async function enter(page, fixture) {
   await visit(page, fixture.pairId, fixture.level);
   await page.locator('#mgThemeGrid > button').nth(fixture.themeIndex).click();
-  let localStepIndex = fixture.stepIndex;
-  if ((await page.evaluate(() => window.MelungaMockup.state())).screen === 'sequences') {
-    const plans = await page.evaluate(() => window.MelungaMockup.visibleSequences());
-    const sequenceIndex = plans.findIndex(sequence => sequence.steps.some(step => step.id === fixture.step.id));
-    assert.ok(sequenceIndex >= 0, 'approved whole fixture belongs to exactly one visible sequence');
-    assert.equal(plans.filter(sequence => sequence.steps.some(step => step.id === fixture.step.id)).length, 1);
-    localStepIndex = plans[sequenceIndex].steps.findIndex(step => step.id === fixture.step.id);
-    await page.locator('#mgSequences > button').nth(sequenceIndex).click();
-  }
   // Use the real public controls to reach a fixture; the debug API is read-only.
   await page.evaluate(target => {
     for (let index = 0; index < target; index++) {
@@ -200,7 +183,7 @@ async function enter(page, fixture) {
       if (next.disabled) throw new Error('Fixture unexpectedly requires another action.');
       next.click();
     }
-  }, localStepIndex);
+  }, fixture.stepIndex);
   assert.equal(await page.evaluate(() => window.MelungaMockup.state().phraseId), fixture.phrase.id);
   await settled(page);
 }

@@ -1,0 +1,82 @@
+/* Isolated mobile welcome-page concepts. No production file imports this. */
+html[data-home-capsule-proposal] .hc-welcome {
+  padding: calc(24px + env(safe-area-inset-top)) 18px calc(12px + env(safe-area-inset-bottom));
+  background: linear-gradient(165deg, #0a2f4d 0%, #0d456b 62%, #116b74 100%);
+}
+html[data-home-capsule-proposal] .hc-welcome .brand { margin-top: clamp(8px, 3vh, 24px); }
+html[data-home-capsule-proposal] .hc-welcome .brand img {
+  width: 132px; height: 132px; object-fit: contain;
+  clip-path: circle(44.5% at 50% 50%); filter: none;
+}
+html[data-home-capsule-proposal] .hc-welcome .brand-name { font-size: 40px; letter-spacing: -1.2px; margin-top: 3px; }
+html[data-home-capsule-proposal] .hc-welcome .welcome-copy { margin: 24px 0 0; }
+html[data-home-capsule-proposal] .hc-welcome .eyebrow {
+  max-width: 340px; font-size: clamp(28px, 8.4vw, 34px); line-height: 1.14;
+  color: #a3e9f5; letter-spacing: -.8px;
+}
+html[data-home-capsule-proposal] .hc-welcome .welcome-offer { margin: 20px 0 0; padding: 0; }
+html[data-home-capsule-proposal] .hc-welcome .welcome-offer small {
+  font-size: 11px; font-weight: 750; line-height: 1.5; letter-spacing: 1.5px; color: #deeff5;
+}
+html[data-home-capsule-proposal] .hc-welcome .site-bubble { animation: none; opacity: 0; }
+html[data-home-capsule-proposal] .hc-welcome .site-bubble:nth-child(3) {
+  left: 9%; top: 43%; width: 24px; height: 24px; opacity: .24;
+}
+html[data-home-capsule-proposal] .hc-welcome .site-bubble:nth-child(9) {
+  left: auto; right: 5%; top: 20%; width: 35px; height: 35px; opacity: .35;
+}
+.hc-bottom { position: relative; z-index: 2; width: 100%; margin-top: auto; padding-top: 30px; flex-shrink: 0; }
+.hc-capsules { display: grid; gap: 10px; }
+html[data-home-capsule-proposal] .hc-capsules > button {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; max-width: none; min-width: 0; min-height: 54px; margin: 0; padding: 10px;
+  border: 1px solid rgba(255,255,255,.43); border-radius: 999px;
+  color: #fff; background: rgba(255,255,255,.10);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.16), 0 6px 18px rgba(2,23,38,.08);
+  backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+  font: 750 14px/1.25 Inter, "Segoe UI", sans-serif; text-align: center;
+  white-space: normal; text-wrap: balance; cursor: pointer; transition: none; opacity: 1;
+}
+html[data-home-capsule-proposal] .hc-capsules > .hc-trial {
+  background: rgba(83,237,204,.25); border-color: rgba(166,255,232,.65); font-size: 16px;
+}
+.hc-account svg { width: 21px; height: 21px; flex: 0 0 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+html[data-home-capsule-proposal] .hc-language .home-flag { width: 23px; height: 16px; border-radius: 2px; flex: 0 0 23px; }
+html[data-home-capsule-proposal] .hc-capsules > button:focus-visible,
+html[data-home-capsule-proposal] .hc-link:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+html[data-home-capsule-proposal] .hc-capsules > button:active { transform: scale(.98); }
+.hc-secondary { display: flex; justify-content: center; align-items: center; gap: 6px; margin-top: 8px; }
+html[data-home-capsule-proposal] .hc-secondary > .hc-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; min-width: 44px; margin: 0; padding: 6px 10px;
+  border: 0; border-radius: 12px; background: transparent; box-shadow: none; opacity: 1;
+  color: #e8f6fa; font: 600 13px/1.3 Inter, "Segoe UI", sans-serif; cursor: pointer;
+  text-decoration: underline; text-decoration-color: rgba(255,255,255,.42); text-underline-offset: 4px;
+}
+/* 1 — independent capsules: one clear primary action, two quiet choices. */
+html[data-home-capsule-proposal="1"] .hc-capsules { grid-template-columns: 1fr 1fr; }
+html[data-home-capsule-proposal="1"] .hc-capsules > .hc-trial { grid-column: 1 / -1; min-height: 58px; }
+/* Preserve the real native-language dialog, opening upward near the trigger. */
+html[data-home-capsule-proposal] .app-language-sheet { left: 12px !important; right: 12px; top: auto !important; bottom: 12px; width: auto; max-height: calc(100% - 24px); }
+@media(max-height: 640px) {
+  html[data-home-capsule-proposal] .hc-welcome { padding-top: 14px; }
+  html[data-home-capsule-proposal] .hc-welcome .brand { margin-top: 4px; }
+  html[data-home-capsule-proposal] .hc-welcome .brand img { width: 116px; height: 116px; }
+  html[data-home-capsule-proposal] .hc-welcome .brand-name { font-size: 35px; }
+  html[data-home-capsule-proposal] .hc-welcome .welcome-copy { margin-top: 18px; }
+  html[data-home-capsule-proposal] .hc-welcome .eyebrow { font-size: 29px; }
+  html[data-home-capsule-proposal] .hc-welcome .welcome-offer { margin-top: 14px; }
+  .hc-bottom { padding-top: 22px; }
+}
+
+/* Requested refinement: retain the original green primary example button. */
+html[data-home-capsule-proposal] .hc-welcome .hc-example { display: block; width: 100%; margin: 0 0 12px; }
+html[data-home-capsule-proposal] .hc-welcome .hc-example:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+/* Example stands in the middle; individual translucent capsules stay below. */
+html[data-home-capsule-proposal] .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
+.hc-bottom { padding-top: 20px; }
+@media(max-height:640px){
+ html[data-home-capsule-proposal] .hc-welcome .hc-example { margin-top: 18px; }
+ .hc-bottom { padding-top: 16px; }
+}

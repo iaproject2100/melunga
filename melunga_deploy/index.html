@@ -4,6 +4,42 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0b3554">
+  <script>
+    (function () {
+      if (window.Capacitor && typeof window.Capacitor.isNativePlatform === 'function' && window.Capacitor.isNativePlatform()) return;
+      document.documentElement.classList.add('welcome-pending');
+      var timer;
+      window.__finishWelcomePresentation = function () {
+        clearTimeout(timer);
+        document.documentElement.classList.remove('welcome-pending');
+        document.getElementById('welcomeBoot')?.remove();
+      };
+      function offerRetry() {
+        var button = document.getElementById('welcomeBootRetry');
+        if (!button) return;
+        var locale = 'fr';
+        try { locale = new URL(location.href).searchParams.get('lang') || JSON.parse(localStorage.getItem('melunga-app-language') || 'null')?.locale || 'fr'; } catch (_) {}
+        var labels = {fr:'Réessayer',en:'Try again',es:'Reintentar',zh:'重试',it:'Riprova',ja:'再試行',ko:'다시 시도'};
+        button.textContent = labels[locale] || labels.fr;
+        button.hidden = false;
+        button.onclick = function () { location.reload(); };
+      }
+      timer = setTimeout(offerRetry, 12000);
+      window.addEventListener('error', function (event) {
+        if (event.target?.tagName === 'SCRIPT' && /\/desktop-home\.js(?:\?|$)/.test(event.target.src)) offerRetry();
+      }, true);
+    })();
+  </script>
+  <style>
+    .welcome-boot{display:none}
+    html.welcome-pending body{background:#0b3554}
+    html.welcome-pending .stage,html.welcome-pending .desktop-home{visibility:hidden!important}
+    html.welcome-pending .welcome-boot{position:fixed;inset:0;z-index:2147483000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#0b3554;color:#fff;font-family:"Segoe UI",sans-serif}
+    .welcome-boot img{width:132px;height:132px;object-fit:contain;clip-path:circle(44.5% at 50% 50%)}
+    .welcome-boot strong{font-size:36px;letter-spacing:-1px}
+    .welcome-boot button{margin-top:16px;min-height:48px;padding:10px 25px;border:1px solid #ffffff80;border-radius:999px;background:#ffffff20;color:#fff;font:700 16px "Segoe UI",sans-serif;cursor:pointer}
+    .welcome-boot button[hidden]{display:none}
+  </style>
   <title>Melunga — Des phrases utiles pour oser parler</title>
   <meta name="description" content="Apprends avec des phrases utiles, une phonétique dans ta langue et des révisions. Découvre Melunga gratuitement avec le niveau 1.">
   <link rel="canonical" href="https://melunga.com/">
@@ -85,6 +121,7 @@
     .proof-slide-logo{width:96px;height:96px;object-fit:contain;filter:drop-shadow(0 15px 22px rgba(0,0,0,.2));margin-bottom:20px}
     .proof-kicker{font-size:12px;line-height:1;text-transform:uppercase;letter-spacing:2.2px;font-weight:950;color:var(--gold);margin-bottom:14px}
     .proof-hero h2{font-size:clamp(42px,12vw,58px);line-height:.94;letter-spacing:-2.6px;margin:0;text-transform:uppercase}.proof-hero h2 span{display:block;color:var(--sky)}
+    .proof-hero:lang(en) h2{font-size:clamp(27px,8vw,38px);letter-spacing:-.8px;overflow-wrap:normal}
     .proof-hero p{max-width:300px;margin:22px auto 0;color:rgba(255,255,255,.78);font-size:18px;line-height:1.45;font-weight:700}
     .swipe-hint{margin-top:28px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);border-radius:999px;padding:10px 15px;color:rgba(255,255,255,.72);font-size:12px;font-weight:850}.swipe-hint b{color:var(--sky);font-size:18px;margin-left:5px}
     .proof-step{width:100%;max-width:350px}.proof-step h2{font-size:clamp(28px,8.4vw,38px);line-height:1.06;letter-spacing:-1.2px;margin:0 auto 13px}.proof-step>p{color:rgba(255,255,255,.72);font-size:16px;line-height:1.45;margin:0 auto 22px;max-width:310px}
@@ -143,7 +180,14 @@
     .lesson.theme-light{color:#23262b}.lesson.theme-light .icon-btn{background:rgba(255,255,255,.42);color:#23262b}.lesson.theme-light .lesson-top .progress{background:rgba(35,38,43,.16)}.lesson.theme-light .lesson-count{color:rgba(35,38,43,.65)}.lesson.theme-light .lesson-context span{background:rgba(255,255,255,.35);border-color:rgba(35,38,43,.15)}.lesson.theme-light .lesson-card{background:rgba(255,255,255,.52);border-color:rgba(35,38,43,.14);box-shadow:0 20px 55px rgba(74,49,29,.15)}.lesson.theme-light .review{color:#7a470c;border-color:rgba(122,71,12,.25)}.lesson.theme-light .phonetic-box{background:rgba(255,255,255,.62);border-color:rgba(11,77,112,.38)}.lesson.theme-light .phonetic-box label,.lesson.theme-light .phonetic-box strong{color:#0b4d70}.lesson.theme-light .ear{background:rgba(11,77,112,.12)}.lesson.theme-plum .phonetic-box{background:rgba(255,255,255,.76);border-color:rgba(91,35,74,.46)}.lesson.theme-plum .phonetic-box label,.lesson.theme-plum .phonetic-box strong{color:#5b234a}.lesson.theme-plum .ear{background:rgba(91,35,74,.13)}
     .lesson-utility-row{display:grid;grid-template-columns:48px minmax(0,1fr) 48px;align-items:center;min-height:42px;margin:7px 0 2px}.theme-quick{position:static;z-index:12;grid-column:3;justify-self:center;width:38px;height:38px;padding:0;border:0;background:transparent;display:grid;place-items:center;cursor:pointer;opacity:.64;filter:drop-shadow(0 5px 9px rgba(0,0,0,.14));transition:.18s opacity,.18s transform}.theme-quick:hover,.theme-quick:focus-visible{opacity:.92}.theme-wheel{position:relative;width:32px;height:32px;border-radius:50%;background:conic-gradient(rgba(255,82,82,.78) 0 45deg,rgba(255,189,56,.78) 45deg 90deg,rgba(0,200,117,.78) 90deg 135deg,rgba(45,156,219,.78) 135deg 180deg,rgba(39,99,223,.78) 180deg 225deg,rgba(108,43,217,.78) 225deg 270deg,rgba(213,45,183,.78) 270deg 315deg,rgba(255,93,143,.78) 315deg 360deg);transition:.18s transform}.theme-wheel:after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.8);left:50%;top:50%;transform:translate(-50%,-50%)}.theme-quick:active .theme-wheel{transform:scale(.9) rotate(18deg)}
     .lesson-menu-backdrop{position:absolute;inset:0;z-index:20;background:rgba(2,18,29,.58);opacity:0;pointer-events:none;transition:.25s opacity;display:flex;align-items:flex-end}.lesson-menu-backdrop.open{opacity:1;pointer-events:auto}.lesson-drawer{width:100%;max-height:82%;overflow:auto;background:#f7fbfd;color:var(--ink);border-radius:30px 30px 0 0;padding:14px 18px calc(20px + env(safe-area-inset-bottom));transform:translateY(100%);transition:.3s transform}.lesson-menu-backdrop.open .lesson-drawer{transform:none}.drawer-handle{width:52px;height:5px;background:#cbd8df;border-radius:99px;margin:0 auto 13px}.drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.drawer-head h3{font-size:22px;margin:0}.drawer-close{border:0;width:42px;height:42px;border-radius:15px;background:#e9f0f4;font-size:20px;cursor:pointer}.menu-panel{display:none}.menu-panel.active{display:block}.menu-language{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#eaf7fd;border:1px solid #cae8f7;border-radius:18px;padding:12px 14px;margin-bottom:13px}.menu-language select{border:0;background:transparent;color:var(--navy);font-weight:900;max-width:170px}.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.menu-tile{border:1px solid var(--line);background:white;border-radius:19px;padding:15px 6px;display:grid;gap:7px;place-items:center;color:var(--ink);font-weight:900;font-size:12px;cursor:pointer}.menu-tile b{font-size:28px}.menu-wide{grid-column:span 2}.panel-back{border:0;background:transparent;color:var(--blue);font-weight:900;padding:6px 0 14px;cursor:pointer}.drawer-list{display:grid;gap:9px}.drawer-choice{width:100%;border:1px solid var(--line);background:white;border-radius:17px;padding:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;font-weight:900;color:var(--ink);cursor:pointer}.drawer-choice span{color:var(--soft);font-size:12px}.review-summary{background:linear-gradient(145deg,var(--navy),var(--navy-2));color:white;border-radius:22px;padding:18px;margin-bottom:13px}.review-summary strong{font-size:26px;display:block}.review-summary span{font-size:13px;color:rgba(255,255,255,.7)}.theme-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.theme-choice{border:2px solid transparent;background:white;border-radius:18px;padding:8px;text-align:left;font-weight:900;color:var(--ink);cursor:pointer}.theme-choice.selected{border-color:var(--blue)}.theme-swatch{height:51px;border-radius:12px;margin-bottom:7px}.swatch-gamified{background:radial-gradient(120% 80% at 50% 30%,#FFF9EC,#EDE1C9)}.swatch-zen{background:linear-gradient(180deg,#FFD98E,#FF9E7A 55%,#C77DBB)}.swatch-premium{background:radial-gradient(120% 80% at 50% 30%,#20252F,#0A0C11)}.swatch-sunset{background:linear-gradient(180deg,#833AB4,#FD1D1D 55%,#FCB045)}.swatch-neon{background:linear-gradient(180deg,#7303C0,#EC38BC 50%,#03001E)}.swatch-ocean{background:linear-gradient(180deg,#1CB5E0,#000851)}.swatch-forest{background:linear-gradient(180deg,#134E5E,#71B280)}.swatch-spotify{background:linear-gradient(180deg,#1DB954,#0A0A0A 60%)}.swatch-plum{background:linear-gradient(180deg,#FFE9F0,#F6A8C8 45%,#9C5B9E)}.swatch-lantern{background:linear-gradient(180deg,#3D0000,#8E0E00 55%,#D4A017 120%)}.swatch-aurora{background:linear-gradient(180deg,#001510,#003D2E 40%,#0E7B5A 75%,#5B2A86 115%)}.swatch-cafe{background:linear-gradient(180deg,#F2E5D0,#D9BE9C 55%,#8A6242)}.swatch-insta{background:linear-gradient(135deg,#4F5BD5 0%,#962FBF 28%,#D62976 55%,#FA7E1E 80%,#FEDA75 105%)}.swatch-bordeaux{background:linear-gradient(160deg,#8A3550,#5B2340 55%,#3C1830)}
-    .lesson-context{display:flex;align-items:center;justify-content:center;gap:8px;margin:5px 0 6px}.lesson-context-btn{border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.1);color:inherit;padding:8px 12px;border-radius:999px;font:inherit;font-size:13px;font-weight:900;cursor:pointer;white-space:nowrap}.lesson-context-btn:active{transform:scale(.97)}.lesson-topic{text-align:center;min-height:18px;margin:0 0 9px;color:rgba(255,255,255,.7);font-size:11px;font-weight:850;letter-spacing:.3px}.lesson.theme-light .lesson-context-btn{background:rgba(255,255,255,.35);border-color:rgba(35,38,43,.15)}.lesson.theme-light .lesson-topic{color:rgba(35,38,43,.62)}.drawer-choice.selected,.level-choice.selected{border-color:var(--blue);background:#eaf7fd;color:var(--navy)}.level-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.level-choice{border:1px solid var(--line);background:white;border-radius:18px;padding:15px 10px;color:var(--ink);font-size:16px;font-weight:950;cursor:pointer}.level-choice small{display:block;color:var(--soft);font-size:10px;margin-top:4px;font-weight:750}.app-language-backdrop{position:absolute;inset:0;z-index:35;background:rgba(2,18,29,.34);display:flex;align-items:flex-start;justify-content:flex-end;padding:calc(70px + env(safe-area-inset-top)) 16px 18px;opacity:0;pointer-events:none;transition:.18s opacity}.app-language-backdrop.open{opacity:1;pointer-events:auto}.app-language-sheet{width:min(310px,calc(100% - 34px));max-height:calc(100% - 86px);overflow:hidden;background:rgba(248,251,253,.98);color:var(--ink);border:1px solid rgba(255,255,255,.75);border-radius:23px;padding:11px 13px 14px;box-shadow:0 20px 55px rgba(2,18,29,.28);transform:translateY(-14px) scale(.97);transform-origin:top right;opacity:0;transition:.22s transform,.18s opacity}.app-language-backdrop.open .app-language-sheet{transform:none;opacity:1}.app-language-sheet .drawer-handle{display:none}.app-language-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}.app-language-head h3{font-size:17px;margin:0}.app-language-head .drawer-close{width:36px;height:36px;border-radius:12px;font-size:18px}.app-language-grid{display:flex;flex-direction:column;gap:4px;max-height:min(410px,58vh);overflow-y:auto;overscroll-behavior:contain;scroll-snap-type:y proximity;padding:2px 2px 6px;scrollbar-width:thin;scrollbar-color:#b8cad4 transparent}.app-language-choice{flex:0 0 auto;width:100%;min-height:51px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);border-radius:13px;padding:8px 11px;display:flex;align-items:center;gap:11px;text-align:left;font-size:14px;font-weight:900;cursor:pointer;scroll-snap-align:start}.app-language-choice b{font-size:21px}.app-language-choice:after{content:'✓';margin-left:auto;color:var(--blue);font-size:17px;opacity:0;transform:scale(.7);transition:.18s opacity,.18s transform}.app-language-choice.selected{background:#eaf7fd;color:var(--navy)}.app-language-choice.selected:after{opacity:1;transform:scale(1)}.demo-note{position:fixed;right:16px;bottom:16px;background:#122b3a;color:white;padding:10px 13px;border-radius:12px;font-size:12px;box-shadow:var(--shadow)}
+    .lesson-context{display:flex;align-items:center;justify-content:center;gap:8px;margin:5px 0 6px}.lesson-context-btn{border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.1);color:inherit;padding:8px 12px;border-radius:999px;font:inherit;font-size:13px;font-weight:900;cursor:pointer;white-space:nowrap}.lesson-context-btn:active{transform:scale(.97)}.lesson-topic{text-align:center;min-height:18px;margin:0 0 9px;color:rgba(255,255,255,.7);font-size:11px;font-weight:850;letter-spacing:.3px}.lesson.theme-light .lesson-context-btn{background:rgba(255,255,255,.35);border-color:rgba(35,38,43,.15)}.lesson.theme-light .lesson-topic{color:rgba(35,38,43,.62)}.drawer-choice.selected,.level-choice.selected{border-color:var(--blue);background:#eaf7fd;color:var(--navy)}.level-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.level-choice{border:1px solid var(--line);background:white;border-radius:18px;padding:15px 10px;color:var(--ink);font-size:16px;font-weight:950;cursor:pointer}.level-choice small{display:block;color:var(--soft);font-size:10px;margin-top:4px;font-weight:750}.app-language-backdrop{position:fixed;inset:auto;margin:0;border:0;max-width:none;max-height:none;width:100vw;height:100dvh;padding:0;overflow:hidden;color:var(--ink);background:rgba(2,18,29,.34)}
+    .app-language-backdrop:not([open]){display:none}.app-language-backdrop::backdrop{background:transparent}
+    .app-language-sheet{position:absolute;left:12px;top:12px;display:flex;flex-direction:column;min-height:0;width:min(310px,calc(100% - 24px));max-height:calc(100% - 24px);overflow:hidden;background:rgba(248,251,253,.98);color:var(--ink);border:1px solid rgba(255,255,255,.75);border-radius:23px;padding:11px 13px max(14px,env(safe-area-inset-bottom));box-shadow:0 20px 55px rgba(2,18,29,.28)}
+    .app-language-sheet .drawer-handle{display:none}.app-language-head{display:flex;flex:0 0 auto;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}.app-language-head h3{min-width:0;font-size:17px;margin:0}.app-language-head .drawer-close{flex:0 0 44px;width:44px;height:44px;border-radius:12px;font-size:18px}
+    .app-language-grid{display:flex;flex:1 1 auto;flex-direction:column;gap:4px;min-height:0;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y;padding:4px 2px 8px;scroll-padding-block:8px;scrollbar-width:thin;scrollbar-color:#b8cad4 transparent}
+    .app-language-choice{flex:0 0 auto;width:100%;min-height:51px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);border-radius:13px;padding:8px 11px;display:flex;align-items:center;gap:11px;text-align:left;font-size:14px;font-weight:900;cursor:pointer}.app-language-choice b{font-size:21px}.app-language-choice:after{content:'✓';margin-left:auto;color:var(--blue);font-size:17px;opacity:0}.app-language-choice.selected{background:#eaf7fd;color:var(--navy)}.app-language-choice.selected:after{opacity:1}.app-language-choice:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+    .screen[data-screen="language"]>*{flex-shrink:0}.screen[data-screen="language"] .sticky-action{position:static;flex:none;margin-top:auto;padding-top:16px;padding-bottom:max(4px,env(safe-area-inset-bottom));background:none}.screen[data-screen="language"] [data-study-language][hidden]{display:none!important}
+    .demo-note{position:fixed;right:16px;bottom:16px;background:#122b3a;color:white;padding:10px 13px;border-radius:12px;font-size:12px;box-shadow:var(--shadow)}
     @media(max-width:520px){.stage{padding:0;min-height:100vh;min-height:100dvh;align-items:start}.phone{width:100%;height:100vh;height:100dvh;min-height:0;border-radius:0}.screen{padding-inline:max(22px,env(safe-area-inset-left)) max(22px,env(safe-area-inset-right))}.screen>*{max-width:100%}.proof-slide{justify-content:flex-start;padding-top:clamp(22px,7vh,58px);padding-bottom:26px}.demo-note{display:none}}
     @media(prefers-reduced-motion:reduce){.site-bubbles{display:none}}
     @media(max-height:760px){.screen[data-screen="premium"]{padding-top:10px}.screen[data-screen="premium"] .app-header{min-height:44px;margin-bottom:4px}.premium-head{margin-bottom:14px}.premium-logo{width:82px;height:82px;margin-bottom:4px}.trial-badge{padding:5px 9px;font-size:10px}.premium-head h2{font-size:24px;margin:7px 0 4px}.premium-head p{font-size:12px}.plan-grid{margin-bottom:9px}.plan-option{min-height:82px;padding:11px 9px}.plan-option .plan-price{font-size:16px;margin-top:3px}.premium-action{gap:6px}.premium-action .primary{min-height:50px}.premium-free{padding:7px}.premium-terms{font-size:10px}}
@@ -153,10 +197,155 @@
     @media (max-height:560px){.proof-top{height:58px}.proof-slide{padding-top:16px}.proof-slide-logo{width:72px;height:72px;margin-bottom:12px}.proof-footer{padding-top:5px}.proof-next{min-height:50px}.proof-dots{margin-bottom:8px}}
   </style>
   <link rel="stylesheet" href="desktop-home.css">
+  <style>
+  @media(max-width:959px){
+/* Isolated mobile welcome-page concepts. No production file imports this. */
+html.melunga-web .hc-welcome {
+  padding: calc(24px + env(safe-area-inset-top)) 18px calc(12px + env(safe-area-inset-bottom));
+  background: linear-gradient(165deg, #0a2f4d 0%, #0d456b 62%, #116b74 100%);
+}
+html.melunga-web .hc-welcome .brand { margin-top: clamp(8px, 3vh, 24px); }
+html.melunga-web .hc-welcome .brand img {
+  width: 132px; height: 132px; object-fit: contain;
+  clip-path: circle(44.5% at 50% 50%); filter: none;
+}
+html.melunga-web .hc-welcome .brand-name { font-size: 40px; letter-spacing: -1.2px; margin-top: 3px; }
+html.melunga-web .hc-welcome .welcome-copy { margin: 24px 0 0; }
+html.melunga-web .hc-welcome .eyebrow {
+  max-width: 340px; font-size: clamp(28px, 8.4vw, 34px); line-height: 1.14;
+  color: #a3e9f5; letter-spacing: -.8px;
+}
+html.melunga-web .hc-welcome .welcome-offer { margin: 20px 0 0; padding: 0; }
+html.melunga-web .hc-welcome .welcome-offer small {
+  font-size: 11px; font-weight: 750; line-height: 1.5; letter-spacing: 1.5px; color: #deeff5;
+}
+.hc-bottom { position: relative; z-index: 2; width: 100%; margin-top: auto; padding-top: 30px; flex-shrink: 0; }
+.hc-capsules { display: grid; gap: 10px; }
+html.melunga-web .hc-capsules > button {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; max-width: none; min-width: 0; min-height: 54px; margin: 0; padding: 10px;
+  border: 1px solid rgba(255,255,255,.43); border-radius: 999px;
+  color: #fff; background: rgba(255,255,255,.10);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.16), 0 6px 18px rgba(2,23,38,.08);
+  backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+  font: 750 14px/1.25 Inter, "Segoe UI", sans-serif; text-align: center;
+  white-space: normal; text-wrap: balance; cursor: pointer; transition: none; opacity: 1;
+}
+html.melunga-web .hc-capsules > .hc-trial {
+  background: rgba(83,237,204,.25); border-color: rgba(166,255,232,.65); font-size: 16px;
+}
+.hc-account svg { width: 21px; height: 21px; flex: 0 0 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+html.melunga-web .hc-language .home-flag { width: 23px; height: 16px; border-radius: 2px; flex: 0 0 23px; }
+html.melunga-web .hc-capsules > button:focus-visible,
+html.melunga-web .hc-link:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+html.melunga-web .hc-capsules > button:active { transform: scale(.98); }
+.hc-secondary { display: flex; justify-content: center; align-items: center; gap: 6px; margin-top: 8px; }
+html.melunga-web .hc-secondary > .hc-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; min-width: 44px; margin: 0; padding: 6px 10px;
+  border: 0; border-radius: 12px; background: transparent; box-shadow: none; opacity: 1;
+  color: #e8f6fa; font: 600 13px/1.3 Inter, "Segoe UI", sans-serif; cursor: pointer;
+  text-decoration: underline; text-decoration-color: rgba(255,255,255,.42); text-underline-offset: 4px;
+}
+/* 1 — independent capsules: one clear primary action, two quiet choices. */
+html.melunga-web .hc-capsules { grid-template-columns: 1fr 1fr; }
+html.melunga-web .hc-capsules > .hc-trial { grid-column: 1 / -1; min-height: 58px; }
+/* Preserve the real native-language dialog, opening upward near the trigger. */
+html.melunga-web .app-language-sheet { left: 12px !important; right: 12px; top: auto !important; bottom: 12px; width: auto; max-height: calc(100% - 24px); }
+@media(max-height: 640px) {
+  html.melunga-web .hc-welcome { padding-top: 14px; }
+  html.melunga-web .hc-welcome .brand { margin-top: 4px; }
+  html.melunga-web .hc-welcome .brand img { width: 116px; height: 116px; }
+  html.melunga-web .hc-welcome .brand-name { font-size: 35px; }
+  html.melunga-web .hc-welcome .welcome-copy { margin-top: 18px; }
+  html.melunga-web .hc-welcome .eyebrow { font-size: 29px; }
+  html.melunga-web .hc-welcome .welcome-offer { margin-top: 14px; }
+  .hc-bottom { padding-top: 22px; }
+}
+
+/* Requested refinement: retain the original green primary example button. */
+html.melunga-web .hc-welcome .hc-example { display: block; width: 100%; margin: 0 0 12px; }
+html.melunga-web .hc-welcome .hc-example:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+/* Example stands in the middle; individual translucent capsules stay below. */
+html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
+.hc-bottom { padding-top: 20px; }
+@media(max-height:640px){
+ html.melunga-web .hc-welcome .hc-example { margin-top: 18px; }
+ .hc-bottom { padding-top: 16px; }
+}
+
+  }
+  </style>
+  <style>
+    .language-entry-brand{display:none}
+    html.melunga-web .screen[data-screen="language"] .back{flex:0 0 44px;min-width:44px;min-height:44px}
+    html.melunga-web .screen[data-screen="language"] .language-entry-options{padding-bottom:12px}
+    html.melunga-web .screen[data-screen="language"] .language-entry-options .option{position:relative;padding-right:44px;text-align:left}
+    html.melunga-web .screen[data-screen="language"] .language-entry-options .option.selected{background:#fff;border-color:#dfe9ef;box-shadow:none}
+    html.melunga-web .screen[data-screen="language"] .language-entry-options .option::after{content:'→';position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:23px;font-weight:600;color:#167c72}
+    html.melunga-web .screen[data-screen="language"] .language-entry-options .option:hover{background:#eef8f3;border-color:#168675}
+    html.melunga-web .screen[data-screen="language"] .language-entry-options .option:focus-visible{outline:3px solid #087c69;outline-offset:3px}
+    @media(max-width:959px){
+      html.melunga-web .screen[data-screen="language"].active{padding:20px 18px max(20px,env(safe-area-inset-bottom));gap:18px;background:linear-gradient(135deg,#fae5bb,#efd8d8 60%,#d8d0e8)}
+      html.melunga-web .screen[data-screen="language"].active .app-header{display:grid;grid-template-columns:44px 1fr;gap:10px;min-height:44px;margin:0;flex:none}
+      html.melunga-web .screen[data-screen="language"].active .step-label{display:none}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-brand{display:flex;align-items:center;justify-self:center;gap:8px;margin-right:44px;color:#163d49;font-size:22px;font-weight:850;letter-spacing:-.5px}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-brand img{width:48px;height:48px;object-fit:contain;clip-path:circle(44.5% at 50% 50%)}
+      html.melunga-web .screen[data-screen="language"].active .back{width:44px;height:44px;border:1px solid #ffffffb3;background:#ffffff66;border-radius:15px}
+      html.melunga-web .screen[data-screen="language"].active .question{margin:0!important;text-align:center;flex:none}
+      html.melunga-web .screen[data-screen="language"].active .question h2{margin:0 0 10px;font-size:28px;line-height:1.12;letter-spacing:-.7px;text-wrap:balance}
+      html.melunga-web .screen[data-screen="language"].active .question p{margin:0;font-size:13px;line-height:1.45;color:#49616b;text-wrap:balance}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0;padding:0;flex:none}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-width:0;min-height:104px;padding:14px 8px;border:1px solid #ffffffcc;border-radius:22px;background:rgba(255,255,255,.42);color:#163d49;box-shadow:inset 0 1px 0 #ffffff80;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);text-align:center}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option::after{content:none}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option strong{font-size:17px;line-height:1.25}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option small{display:none}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .flag{display:grid;place-items:center;flex:none;width:34px;font-size:0}
+      html.melunga-web .screen[data-screen="language"].active .desktop-study-flag{display:block;width:32px;height:22px;border-radius:3px}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option:hover{background:rgba(255,255,255,.6);border-color:#168675}
+    }
+    @media(max-width:959px) and (max-height:620px){
+      html.melunga-web .screen[data-screen="language"].active{padding:14px 16px;gap:14px}
+      html.melunga-web .screen[data-screen="language"].active .question h2{font-size:26px;margin-bottom:8px}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options{gap:10px}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option{min-height:88px;padding:10px 7px;gap:8px}
+    }
+    @media(max-width:959px) and (max-height:540px){html.melunga-web .screen[data-screen="language"].active .question p{display:none}}
+    @media(min-width:600px) and (max-width:959px){html.melunga-web .screen[data-screen="language"].active .language-entry-options{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(min-width:960px){
+      html.melunga-web body:has(.screen[data-screen="language"].active){background:linear-gradient(125deg,#fae5bb,#efd8d8 60%,#d8d0e8)}
+      html.melunga-web body:has(.screen[data-screen="language"].active)>.stage{padding:36px}
+      html.melunga-web body:has(.screen[data-screen="language"].active) .phone{width:min(960px,100%);height:auto;min-height:0;max-height:calc(100dvh - 72px);overflow:auto;border:1px solid rgba(255,255,255,.65);background:rgba(255,255,255,.5);border-radius:30px;box-shadow:0 18px 60px #153d4b0b}
+      html.melunga-web .screen[data-screen="language"].active{position:relative;inset:auto;overflow:visible;gap:28px;padding:30px 40px 40px;background:transparent}
+      html.melunga-web .screen[data-screen="language"].active .app-header{display:grid;grid-template-columns:44px 1fr auto;gap:18px;min-height:64px}
+      html.melunga-web .screen[data-screen="language"].active .back{width:44px;height:44px;background:rgba(255,255,255,.62);border:1px solid #ffffffa0;border-radius:15px;color:#234a55}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-brand{display:flex;align-items:center;gap:9px;font-size:25px;font-weight:850;letter-spacing:-.6px;color:#163d49}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-brand img{width:68px;height:68px;object-fit:contain;clip-path:circle(44.5% at 50% 50%)}
+      html.melunga-web .screen[data-screen="language"].active .step-label{max-width:190px;text-align:right;color:#52696f;font-size:10px;line-height:1.5;letter-spacing:1.2px}
+      html.melunga-web .screen[data-screen="language"].active .question{text-align:center;margin:4px auto 2px!important;max-width:660px}
+      html.melunga-web .screen[data-screen="language"].active .question h2{font-size:34px;line-height:1.15;letter-spacing:-.9px;color:#153e49;margin-bottom:12px;text-wrap:balance}
+      html.melunga-web .screen[data-screen="language"].active .question p{font-size:15px;line-height:1.6;color:#4f6770;max-width:560px;margin:auto;text-wrap:balance}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:0;margin:0}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option{min-height:112px;padding:20px 35px 20px 16px;gap:12px;border:1px solid #ffffffd0;border-radius:22px;background:rgba(255,255,255,.55);box-shadow:inset 0 1px 0 #ffffff80;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option::after{right:13px;font-size:21px}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option:hover{background:rgba(255,255,255,.8);border-color:#168675}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option strong{font-size:19px;line-height:1.3}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option small{font-size:12px;line-height:1.45;color:#4d6570}
+    }
+    @media(min-width:960px) and (max-height:650px){
+      html.melunga-web body:has(.screen[data-screen="language"].active)>.stage{padding:20px}
+      html.melunga-web body:has(.screen[data-screen="language"].active) .phone{max-height:calc(100dvh - 40px)}
+      html.melunga-web .screen[data-screen="language"].active{padding:20px 32px 28px;gap:18px}
+      html.melunga-web .screen[data-screen="language"].active .question h2{font-size:30px}
+      html.melunga-web .screen[data-screen="language"].active .language-entry-options .option{min-height:90px;padding-block:14px}
+    }
+  </style>
 </head>
 <body>
+  <div id="welcomeBoot" class="welcome-boot" role="status" aria-live="polite"><img src="assets/melunga-logo.png" alt=""><strong>Melunga</strong><button id="welcomeBootRetry" type="button" hidden>Réessayer</button></div>
   <main class="stage">
-    <section class="phone" aria-label="Prototype mobile Melunga">
+    <section class="phone" aria-label="Melunga">
       <article class="screen night active" data-screen="welcome">
         <div class="site-bubbles" aria-hidden="true">
           <span class="site-bubble" style="--x:3%;--s:20px;--d:20s;--delay:-7s;--drift:34px"></span>
@@ -171,7 +360,7 @@
           <span class="site-bubble" style="--x:86%;--s:12px;--d:21s;--delay:-11s;--drift:-22px"></span>
           <span class="site-bubble" style="--x:94%;--s:26px;--d:25s;--delay:-19s;--drift:30px"></span>
         </div>
-        <div class="topline"><span></span><button type="button" class="home-start" data-select-access="free" data-welcome-i18n="tryFree">Essayer gratuitement</button><button class="lang-pill" data-open-app-language aria-label="Choisir la langue de l’application"><span class="home-flag home-flag-fr" aria-hidden="true"></span><span>Français⌄</span></button></div>
+        <div class="topline"><span></span><button type="button" class="home-start" data-select-access="free" data-welcome-i18n="tryFree">Essayer gratuitement</button><button class="lang-pill" type="button" data-open-app-language aria-label="Choisir la langue de l’application" aria-haspopup="dialog" aria-controls="appLanguageMenu" aria-expanded="false"><span class="home-flag home-flag-fr" aria-hidden="true"></span><span>Français⌄</span></button></div>
         <div class="brand"><img src="assets/melunga-logo.png" alt="Logo Melunga"><div class="brand-name">Melunga</div></div>
         <div class="welcome-copy">
           <div class="eyebrow" data-welcome-i18n="eyebrow">Apprends à parler naturellement</div>
@@ -183,10 +372,10 @@
           <button class="primary" data-go="method" data-welcome-i18n="create">Voir un exemple</button>
           <button class="secondary" data-go="signin" data-welcome-i18n="signin">J’ai déjà un compte</button>
         </div>
-        <div class="app-language-backdrop" id="appLanguageMenu" aria-hidden="true">
-          <div class="app-language-sheet" role="dialog" aria-modal="true" aria-label="Langue de l’application">
+        <dialog class="app-language-backdrop" id="appLanguageMenu" aria-labelledby="appLanguageTitle">
+          <div class="app-language-sheet">
             <div class="drawer-handle"></div>
-            <div class="app-language-head"><h3 data-welcome-i18n="languageTitle">Langue de l’application</h3><button class="drawer-close" data-close-app-language aria-label="Fermer">×</button></div>
+            <div class="app-language-head"><h3 id="appLanguageTitle" data-welcome-i18n="languageTitle">Langue de l’application</h3><button class="drawer-close" data-close-app-language aria-label="Fermer">×</button></div>
             <div class="app-language-grid">
               <button class="app-language-choice selected" data-app-language="fr" data-app-language-label="FR Français"><b>🇫🇷</b>Français</button>
               <button class="app-language-choice" data-app-language="en" data-app-language-label="EN English"><b>🇬🇧</b>English</button>
@@ -197,7 +386,7 @@
               <button class="app-language-choice" data-app-language="ko" data-app-language-label="KR 한국어"><b>🇰🇷</b>한국어</button>
             </div>
           </div>
-        </div>
+        </dialog>
       </article>
 
       <article class="screen" data-screen="signup">
@@ -248,7 +437,7 @@
                 <div class="proof-step">
                   <div class="proof-kicker">1 · Lis à voix haute</div>
                   <h2>Lis uniquement cette phonétique.</h2>
-                  <p>Elle utilise les repères sonores de ta langue native.</p>
+                  <p data-proof-native-note>Elle utilise les repères sonores de ta langue native.</p>
                   <div class="proof-translation">Je voudrais de l’eau.</div>
                   <div class="phon-demo">aïe wouD laïk<br>seum WÔ-teur</div>
                   <p class="accent-note">Les <strong>MAJUSCULES</strong> montrent l’accentuation.</p>
@@ -341,9 +530,9 @@
       </article>
 
       <article class="screen" data-screen="language">
-        <div class="app-header"><button class="back" data-go="welcome">‹</button><span class="step-label">UN SEUL CHOIX POUR COMMENCER</span><span style="width:46px"></span></div>
+        <div class="app-header"><button class="back" data-go="welcome">‹</button><div class="language-entry-brand"><img src="assets/melunga-logo.png" alt=""><strong>Melunga</strong></div><span class="step-label">UN SEUL CHOIX POUR COMMENCER</span></div>
         <div class="question" style="margin-top:20px"><h2>Quelle langue veux-tu parler ?</h2><p>Choisis une langue et commence immédiatement. Tu pourras changer plus tard.</p></div>
-        <div class="options">
+        <div class="options language-entry-options">
           <button class="option" data-study-language="fr" hidden style="display:none"><span class="flag">🇫🇷</span><span><strong>法语</strong><small>适合中文使用者</small></span></button>
           <button class="option selected" data-study-language="en"><span class="flag">🇬🇧</span><span><strong>Anglais</strong><small>Pour francophones</small></span></button>
           <button class="option" data-study-language="es"><span class="flag">🇪🇸</span><span><strong>Espagnol</strong><small>Pour francophones</small></span></button>
@@ -352,7 +541,6 @@
           <button class="option" data-study-language="ja"><span class="flag">🇯🇵</span><span><strong>Japonais</strong><small>Pour francophones</small></span></button>
           <button class="option" data-study-language="ko"><span class="flag">🇰🇷</span><span><strong>Coréen</strong><small>Pour francophones</small></span></button>
         </div>
-        <div class="sticky-action"><button class="primary" style="width:100%" data-launch-course>Démarrer ma première leçon</button></div>
       </article>
 
       <article class="screen" data-screen="goal">
@@ -485,6 +673,7 @@
     </section>
   </main>
   <div class="demo-note">V2 · Un seul choix avant la première leçon</div>
+  <script src="course-i18n.js?v=5"></script>
   <script>
     const screens=[...document.querySelectorAll('.screen')];
     const proofTrack=document.getElementById('proofTrack');
@@ -493,6 +682,39 @@
     const proofNext=document.querySelector('[data-proof-next]');
     const appLanguageMenu=document.getElementById('appLanguageMenu');
     const appLanguageButton=document.querySelector('[data-open-app-language]');
+    const homeLanguageCodes=['fr','en','es','zh','it','ja','ko'];
+    const homeLanguageNames={fr:'Français',en:'English',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어'};
+    /* BEGIN GENERATED HOME I18N */
+    const homeDictionaries = {"fr":{"ui":{"PASSER":"PASSER","Découvre notre différence":"Découvre notre différence","La preuve\u003cspan>Melunga\u003c/span>":"La preuve\u003cspan>Melunga\u003c/span>","Tu vas bien prononcer une phrase étrangère dès ta première lecture.":"Tu vas bien prononcer une phrase étrangère dès ta première lecture.","Glisse vers la gauche":"Glisse vers la gauche","1 · Lis à voix haute":"1 · Lis à voix haute","Lis uniquement cette phonétique.":"Lis uniquement cette phonétique.","Cet exemple utilise une aide phonétique et une traduction françaises.":"Cet exemple utilise une aide phonétique et une traduction françaises.","Les \u003cstrong>MAJUSCULES\u003c/strong> montrent l’accentuation.":"Les \u003cstrong>MAJUSCULES\u003c/strong> montrent l’accentuation.","2 · Écoute la voix native":"2 · Écoute la voix native","Maintenant, compare.":"Maintenant, compare.","Tu vas entendre la phrase que tu viens de prononcer.":"Tu vas entendre la phrase que tu viens de prononcer.","🔊 Écouter la voix native":"🔊 Écouter la voix native","✨ Tu l’avais déjà bien prononcée.\u003cbr>C’est la différence Melunga.":"✨ Tu l’avais déjà bien prononcée.\u003cbr>C’est la différence Melunga.","La méthode Melunga":"La méthode Melunga","Une phrase apprise devient un modèle.":"Une phrase apprise devient un modèle.","Tu n’étudies pas une règle isolée. Tu acquiers une structure que tu peux réutiliser.":"Tu n’étudies pas une règle isolée. Tu acquiers une structure que tu peux réutiliser.","Écouter et imiter":"Écouter et imiter","Une phrase naturelle, avec sa voix et sa phonétique.":"Une phrase naturelle, avec sa voix et sa phonétique.","Mémoriser la phrase complète":"Mémoriser la phrase complète","Le vocabulaire et la structure sont acquis ensemble.":"Le vocabulaire et la structure sont acquis ensemble.","Remplacer et recombiner":"Remplacer et recombiner","Tu construis de nouvelles phrases avec les modèles acquis.":"Tu construis de nouvelles phrases avec les modèles acquis.","Du simple au nuancé":"Du simple au nuancé","Apprends comme on acquiert une langue.":"Apprends comme on acquiert une langue.","La difficulté augmente progressivement, sans cours de grammaire séparé.":"La difficulté augmente progressivement, sans cours de grammaire séparé.","Des phrases utiles":"Des phrases utiles","Des phrases complètes réellement utilisées dans la vie quotidienne.":"Des phrases complètes réellement utilisées dans la vie quotidienne.","Une phonétique native":"Une phonétique native","La prononciation est écrite avec les repères sonores de ta langue.":"La prononciation est écrite avec les repères sonores de ta langue.","Une progression L1–L10":"Une progression L1–L10","La longueur, les structures et les nuances augmentent pas à pas.":"La longueur, les structures et les nuances augmentent pas à pas.","Écouter · Mémoriser · Recombiner":"Écouter · Mémoriser · Recombiner","Découvrir la preuve":"Découvrir la preuve","J’ai lu la phonétique":"J’ai lu la phonétique","Comprendre la méthode":"Comprendre la méthode","Voir la progression":"Voir la progression","Créer mon compte":"Créer mon compte","Progression de la démonstration":"Progression de la démonstration","Retour":"Retour","Fermer":"Fermer","UN SEUL CHOIX POUR COMMENCER":"UN SEUL CHOIX POUR COMMENCER","Quelle langue veux-tu parler ?":"Quelle langue veux-tu parler ?","Choisis une langue et commence immédiatement. Tu pourras changer plus tard.":"Choisis une langue et commence immédiatement. Tu pourras changer plus tard.","Démarrer ma première leçon":"Démarrer ma première leçon","🔊 Réécouter la voix native":"🔊 Réécouter la voix native","Chargement de la voix…":"Chargement de la voix…","🔊 Réessayer":"🔊 Réessayer"},"languages":{"fr":"Français","en":"Anglais","es":"Espagnol","zh":"Chinois","it":"Italien","ja":"Japonais","ko":"Coréen"},"formats":{"page":"Page {n}","nativeAudience":"Pour francophones"}},"en":{"ui":{"PASSER":"SKIP","Découvre notre différence":"Discover what makes us different","La preuve\u003cspan>Melunga\u003c/span>":"The \u003cspan>Melunga\u003c/span> demonstration","Tu vas bien prononcer une phrase étrangère dès ta première lecture.":"You’ll pronounce a foreign sentence correctly on your first read.","Glisse vers la gauche":"Swipe left","1 · Lis à voix haute":"1 · Read aloud","Lis uniquement cette phonétique.":"Read only this pronunciation guide.","Cet exemple utilise une aide phonétique et une traduction françaises.":"This example uses a French pronunciation guide and translation.","Les \u003cstrong>MAJUSCULES\u003c/strong> montrent l’accentuation.":"\u003cstrong>CAPITAL LETTERS\u003c/strong> show the stress.","2 · Écoute la voix native":"2 · Listen to the native voice","Maintenant, compare.":"Now compare.","Tu vas entendre la phrase que tu viens de prononcer.":"You’ll hear the sentence you just pronounced.","🔊 Écouter la voix native":"🔊 Listen to the native voice","✨ Tu l’avais déjà bien prononcée.\u003cbr>C’est la différence Melunga.":"✨ You’d already pronounced it correctly.\u003cbr>That’s the Melunga difference.","La méthode Melunga":"The Melunga method","Une phrase apprise devient un modèle.":"A sentence you learn becomes a pattern.","Tu n’étudies pas une règle isolée. Tu acquiers une structure que tu peux réutiliser.":"You don’t study an isolated rule. You learn a structure you can reuse.","Écouter et imiter":"Listen and imitate","Une phrase naturelle, avec sa voix et sa phonétique.":"A natural sentence, with audio and a pronunciation guide.","Mémoriser la phrase complète":"Memorise the whole sentence","Le vocabulaire et la structure sont acquis ensemble.":"Vocabulary and structure are learned together.","Remplacer et recombiner":"Replace and recombine","Tu construis de nouvelles phrases avec les modèles acquis.":"Build new sentences using the patterns you’ve learned.","Du simple au nuancé":"From simple to nuanced","Apprends comme on acquiert une langue.":"Learn the way a language is acquired.","La difficulté augmente progressivement, sans cours de grammaire séparé.":"The difficulty increases gradually, without separate grammar lessons.","Des phrases utiles":"Useful sentences","Des phrases complètes réellement utilisées dans la vie quotidienne.":"Complete sentences people really use in everyday life.","Une phonétique native":"Pronunciation in your language","La prononciation est écrite avec les repères sonores de ta langue.":"Pronunciation is written using the familiar sounds of your language.","Une progression L1–L10":"An L1–L10 progression","La longueur, les structures et les nuances augmentent pas à pas.":"Length, structures and nuances develop step by step.","Écouter · Mémoriser · Recombiner":"Listen · Memorise · Recombine","Découvrir la preuve":"See the demonstration","J’ai lu la phonétique":"I’ve read the pronunciation guide","Comprendre la méthode":"Understand the method","Voir la progression":"View the progression","Créer mon compte":"Create my account","Progression de la démonstration":"Demonstration progress","Retour":"Back","Fermer":"Close","UN SEUL CHOIX POUR COMMENCER":"ONE CHOICE TO GET STARTED","Quelle langue veux-tu parler ?":"Which language would you like to speak?","Choisis une langue et commence immédiatement. Tu pourras changer plus tard.":"Choose a language and start straight away. You can change it later.","Démarrer ma première leçon":"Start my first lesson","🔊 Réécouter la voix native":"🔊 Replay the native audio","Chargement de la voix…":"Loading voice…","🔊 Réessayer":"🔊 Try again"},"languages":{"fr":"French","en":"English","es":"Spanish","zh":"Chinese","it":"Italian","ja":"Japanese","ko":"Korean"},"formats":{"page":"Page {n}","nativeAudience":"For English speakers"}},"es":{"ui":{"PASSER":"SALTAR","Découvre notre différence":"Descubre nuestra diferencia","La preuve\u003cspan>Melunga\u003c/span>":"La prueba\u003cspan>Melunga\u003c/span>","Tu vas bien prononcer une phrase étrangère dès ta première lecture.":"Pronunciarás bien una frase en otro idioma desde la primera lectura.","Glisse vers la gauche":"Desliza hacia la izquierda","1 · Lis à voix haute":"1 · Lee en voz alta","Lis uniquement cette phonétique.":"Lee únicamente esta guía de pronunciación.","Cet exemple utilise une aide phonétique et une traduction françaises.":"Este ejemplo utiliza una guía de pronunciación y una traducción en francés.","Les \u003cstrong>MAJUSCULES\u003c/strong> montrent l’accentuation.":"Las \u003cstrong>MAYÚSCULAS\u003c/strong> indican la sílaba tónica.","2 · Écoute la voix native":"2 · Escucha la voz nativa","Maintenant, compare.":"Ahora, compara.","Tu vas entendre la phrase que tu viens de prononcer.":"Vas a escuchar la frase que acabas de pronunciar.","🔊 Écouter la voix native":"🔊 Escuchar la voz nativa","✨ Tu l’avais déjà bien prononcée.\u003cbr>C’est la différence Melunga.":"✨ Ya la habías pronunciado bien.\u003cbr>Esa es la diferencia Melunga.","La méthode Melunga":"El método Melunga","Une phrase apprise devient un modèle.":"Una frase aprendida se convierte en un modelo.","Tu n’étudies pas une règle isolée. Tu acquiers une structure que tu peux réutiliser.":"No estudias una regla aislada. Aprendes una estructura que puedes reutilizar.","Écouter et imiter":"Escuchar e imitar","Une phrase naturelle, avec sa voix et sa phonétique.":"Una frase natural, con su voz y su guía de pronunciación.","Mémoriser la phrase complète":"Memorizar la frase completa","Le vocabulaire et la structure sont acquis ensemble.":"Aprendes el vocabulario y la estructura al mismo tiempo.","Remplacer et recombiner":"Sustituir y recombinar","Tu construis de nouvelles phrases avec les modèles acquis.":"Construyes frases nuevas con los modelos aprendidos.","Du simple au nuancé":"De lo sencillo a los matices","Apprends comme on acquiert une langue.":"Aprende como se adquiere un idioma.","La difficulté augmente progressivement, sans cours de grammaire séparé.":"La dificultad aumenta progresivamente, sin clases de gramática por separado.","Des phrases utiles":"Frases útiles","Des phrases complètes réellement utilisées dans la vie quotidienne.":"Frases completas que se usan de verdad en la vida cotidiana.","Une phonétique native":"Una guía fonética en tu idioma","La prononciation est écrite avec les repères sonores de ta langue.":"La pronunciación se escribe con los sonidos de referencia de tu idioma.","Une progression L1–L10":"Una progresión de L1 a L10","La longueur, les structures et les nuances augmentent pas à pas.":"La longitud, las estructuras y los matices aumentan paso a paso.","Écouter · Mémoriser · Recombiner":"Escuchar · Memorizar · Recombinar","Découvrir la preuve":"Descubrir la prueba","J’ai lu la phonétique":"He leído la guía de pronunciación","Comprendre la méthode":"Comprender el método","Voir la progression":"Ver la progresión","Créer mon compte":"Crear mi cuenta","Progression de la démonstration":"Progreso de la demostración","Retour":"Volver","Fermer":"Cerrar","UN SEUL CHOIX POUR COMMENCER":"UNA SOLA ELECCIÓN PARA EMPEZAR","Quelle langue veux-tu parler ?":"¿Qué idioma quieres hablar?","Choisis une langue et commence immédiatement. Tu pourras changer plus tard.":"Elige un idioma y empieza de inmediato. Podrás cambiarlo más adelante.","Démarrer ma première leçon":"Empezar mi primera lección","🔊 Réécouter la voix native":"🔊 Volver a escuchar la voz nativa","Chargement de la voix…":"Cargando la voz…","🔊 Réessayer":"🔊 Reintentar"},"languages":{"fr":"Francés","en":"Inglés","es":"Español","zh":"Chino","it":"Italiano","ja":"Japonés","ko":"Coreano"},"formats":{"page":"Página {n}","nativeAudience":"Para hispanohablantes"}},"it":{"ui":{"PASSER":"SALTA","Découvre notre différence":"Scopri la nostra differenza","La preuve\u003cspan>Melunga\u003c/span>":"La prova\u003cspan>Melunga\u003c/span>","Tu vas bien prononcer une phrase étrangère dès ta première lecture.":"Pronuncerai bene una frase straniera già alla prima lettura.","Glisse vers la gauche":"Scorri verso sinistra","1 · Lis à voix haute":"1 · Leggi ad alta voce","Lis uniquement cette phonétique.":"Leggi soltanto questa guida alla pronuncia.","Cet exemple utilise une aide phonétique et une traduction françaises.":"Questo esempio usa una guida alla pronuncia e una traduzione in francese.","Les \u003cstrong>MAJUSCULES\u003c/strong> montrent l’accentuation.":"Le \u003cstrong>MAIUSCOLE\u003c/strong> indicano l’accento.","2 · Écoute la voix native":"2 · Ascolta la voce madrelingua","Maintenant, compare.":"Ora confronta.","Tu vas entendre la phrase que tu viens de prononcer.":"Ascolterai la frase che hai appena pronunciato.","🔊 Écouter la voix native":"🔊 Ascolta la voce madrelingua","✨ Tu l’avais déjà bien prononcée.\u003cbr>C’est la différence Melunga.":"✨ L’avevi già pronunciata bene.\u003cbr>È la differenza Melunga.","La méthode Melunga":"Il metodo Melunga","Une phrase apprise devient un modèle.":"Una frase imparata diventa un modello.","Tu n’étudies pas une règle isolée. Tu acquiers une structure que tu peux réutiliser.":"Non studi una regola isolata. Acquisisci una struttura che puoi riutilizzare.","Écouter et imiter":"Ascoltare e imitare","Une phrase naturelle, avec sa voix et sa phonétique.":"Una frase naturale, con la sua voce e la sua guida alla pronuncia.","Mémoriser la phrase complète":"Memorizzare la frase completa","Le vocabulaire et la structure sont acquis ensemble.":"Il vocabolario e la struttura si imparano insieme.","Remplacer et recombiner":"Sostituire e ricombinare","Tu construis de nouvelles phrases avec les modèles acquis.":"Costruisci nuove frasi con i modelli imparati.","Du simple au nuancé":"Dal semplice alle sfumature","Apprends comme on acquiert une langue.":"Impara come si acquisisce una lingua.","La difficulté augmente progressivement, sans cours de grammaire séparé.":"La difficoltà aumenta gradualmente, senza lezioni di grammatica separate.","Des phrases utiles":"Frasi utili","Des phrases complètes réellement utilisées dans la vie quotidienne.":"Frasi complete usate davvero nella vita quotidiana.","Une phonétique native":"Una guida alla pronuncia nella tua lingua","La prononciation est écrite avec les repères sonores de ta langue.":"La pronuncia è scritta con i riferimenti sonori della tua lingua.","Une progression L1–L10":"Un percorso L1–L10","La longueur, les structures et les nuances augmentent pas à pas.":"La lunghezza, le strutture e le sfumature aumentano passo dopo passo.","Écouter · Mémoriser · Recombiner":"Ascoltare · Memorizzare · Ricombinare","Découvrir la preuve":"Scopri la prova","J’ai lu la phonétique":"Ho letto la guida alla pronuncia","Comprendre la méthode":"Comprendi il metodo","Voir la progression":"Vedi il percorso","Créer mon compte":"Crea un account","Progression de la démonstration":"Avanzamento della dimostrazione","Retour":"Indietro","Fermer":"Chiudi","UN SEUL CHOIX POUR COMMENCER":"UNA SOLA SCELTA PER INIZIARE","Quelle langue veux-tu parler ?":"Quale lingua vuoi parlare?","Choisis une langue et commence immédiatement. Tu pourras changer plus tard.":"Scegli una lingua e inizia subito. Potrai cambiarla in seguito.","Démarrer ma première leçon":"Inizia la prima lezione","🔊 Réécouter la voix native":"🔊 Riascolta la voce madrelingua","Chargement de la voix…":"Caricamento della voce…","🔊 Réessayer":"🔊 Riprova"},"languages":{"fr":"Francese","en":"Inglese","es":"Spagnolo","zh":"Cinese","it":"Italiano","ja":"Giapponese","ko":"Coreano"},"formats":{"page":"Pagina {n}","nativeAudience":"Per chi parla italiano"}},"zh":{"ui":{"PASSER":"跳过","Découvre notre différence":"了解我们的不同","La preuve\u003cspan>Melunga\u003c/span>":"亲自验证\u003cspan>Melunga\u003c/span>","Tu vas bien prononcer une phrase étrangère dès ta première lecture.":"第一次读，就能把外语句子念对。","Glisse vers la gauche":"向左滑动","1 · Lis à voix haute":"1 · 大声读出来","Lis uniquement cette phonétique.":"只读这行发音提示。","Cet exemple utilise une aide phonétique et une traduction françaises.":"这个示例使用法语发音提示和法语翻译。","Les \u003cstrong>MAJUSCULES\u003c/strong> montrent l’accentuation.":"\u003cstrong>大写字母\u003c/strong>表示重音。","2 · Écoute la voix native":"2 · 听母语者的发音","Maintenant, compare.":"现在，来比较一下。","Tu vas entendre la phrase que tu viens de prononcer.":"你将听到刚才自己读过的句子。","🔊 Écouter la voix native":"🔊 听母语者的发音","✨ Tu l’avais déjà bien prononcée.\u003cbr>C’est la différence Melunga.":"✨ 你刚才已经读对了。\u003cbr>这就是 Melunga 的不同。","La méthode Melunga":"Melunga 学习法","Une phrase apprise devient un modèle.":"学会一句，就掌握了一个句型。","Tu n’étudies pas une règle isolée. Tu acquiers une structure que tu peux réutiliser.":"不只单独学习规则，而是掌握可以反复运用的句子结构。","Écouter et imiter":"听与模仿","Une phrase naturelle, avec sa voix et sa phonétique.":"通过语音和发音提示，学习自然的句子。","Mémoriser la phrase complète":"记住完整的句子","Le vocabulaire et la structure sont acquis ensemble.":"把词汇和句子结构一起学会。","Remplacer et recombiner":"替换与组合","Tu construis de nouvelles phrases avec les modèles acquis.":"用已经掌握的句型，构建新的句子。","Du simple au nuancé":"从简单到细腻","Apprends comme on acquiert une langue.":"像自然习得语言一样学习。","La difficulté augmente progressivement, sans cours de grammaire séparé.":"无需另外上语法课，难度也会循序渐进。","Des phrases utiles":"实用的句子","Des phrases complètes réellement utilisées dans la vie quotidienne.":"学习日常生活中真正会用到的完整句子。","Une phonétique native":"用母语标注发音","La prononciation est écrite avec les repères sonores de ta langue.":"用你母语中熟悉的声音来标注发音。","Une progression L1–L10":"L1–L10 循序渐进","La longueur, les structures et les nuances augmentent pas à pas.":"句子长度、结构和表达的细腻程度逐步增加。","Écouter · Mémoriser · Recombiner":"听 · 记忆 · 组合","Découvrir la preuve":"亲自验证","J’ai lu la phonétique":"我已读过发音提示","Comprendre la méthode":"了解学习方法","Voir la progression":"查看学习进阶","Créer mon compte":"创建账户","Progression de la démonstration":"示范进度","Retour":"返回","Fermer":"关闭","UN SEUL CHOIX POUR COMMENCER":"选一种语言，即可开始","Quelle langue veux-tu parler ?":"你想说哪种语言？","Choisis une langue et commence immédiatement. Tu pourras changer plus tard.":"选择一种语言，马上开始。以后随时可以更换。","Démarrer ma première leçon":"开始第一课","🔊 Réécouter la voix native":"🔊 再听一次原声","Chargement de la voix…":"正在加载语音…","🔊 Réessayer":"🔊 重试"},"languages":{"fr":"法语","en":"英语","es":"西班牙语","zh":"中文","it":"意大利语","ja":"日语","ko":"韩语"},"formats":{"page":"第 {n} 页","nativeAudience":"适合中文使用者"}},"ja":{"ui":{"PASSER":"スキップ","Découvre notre différence":"学び方の違いを体験","La preuve\u003cspan>Melunga\u003c/span>":"体験でわかる\u003cspan>Melunga\u003c/span>","Tu vas bien prononcer une phrase étrangère dès ta première lecture.":"最初の一読で、外国語のフレーズを上手に発音できます。","Glisse vers la gauche":"左にスワイプ","1 · Lis à voix haute":"1 · 声に出して読む","Lis uniquement cette phonétique.":"この発音ガイドだけを読んでください。","Cet exemple utilise une aide phonétique et une traduction françaises.":"この例では、フランス語による発音ガイドと訳を使用しています。","Les \u003cstrong>MAJUSCULES\u003c/strong> montrent l’accentuation.":"\u003cstrong>大文字\u003c/strong>は強く発音する部分を示します。","2 · Écoute la voix native":"2 · 母語話者の音声を聞く","Maintenant, compare.":"では、比べてみましょう。","Tu vas entendre la phrase que tu viens de prononcer.":"今読んだフレーズの音声が流れます。","🔊 Écouter la voix native":"🔊 母語話者の音声を聞く","✨ Tu l’avais déjà bien prononcée.\u003cbr>C’est la différence Melunga.":"✨ 最初から上手に発音できていました。\u003cbr>これがMelungaの違いです。","La méthode Melunga":"Melungaの学習法","Une phrase apprise devient un modèle.":"覚えたフレーズが、使える文型になります。","Tu n’étudies pas une règle isolée. Tu acquiers une structure que tu peux réutiliser.":"単独の文法規則を学ぶのではなく、繰り返し使える文の形を身につけます。","Écouter et imiter":"聞いてまねする","Une phrase naturelle, avec sa voix et sa phonétique.":"自然なフレーズを、音声と発音ガイドとともに。","Mémoriser la phrase complète":"フレーズを丸ごと覚える","Le vocabulaire et la structure sont acquis ensemble.":"語彙と文の形を一緒に身につけます。","Remplacer et recombiner":"置き換えて組み合わせる","Tu construis de nouvelles phrases avec les modèles acquis.":"身につけた文型を使って、新しい文を作ります。","Du simple au nuancé":"簡単な表現から細やかな表現へ","Apprends comme on acquiert une langue.":"言葉を身につけるように学びましょう。","La difficulté augmente progressivement, sans cours de grammaire séparé.":"文法を別に学ぶ授業を挟まず、少しずつ難しくなります。","Des phrases utiles":"役立つフレーズ","Des phrases complètes réellement utilisées dans la vie quotidienne.":"日常生活で実際に使われる、完全なフレーズです。","Une phonétique native":"母語に合わせた発音ガイド","La prononciation est écrite avec les repères sonores de ta langue.":"母語の音を手がかりに、発音を表記しています。","Une progression L1–L10":"L1〜L10の学習コース","La longueur, les structures et les nuances augmentent pas à pas.":"文の長さ、構造、表現の細やかさが少しずつ増していきます。","Écouter · Mémoriser · Recombiner":"聞く · 覚える · 組み合わせる","Découvrir la preuve":"違いを体験する","J’ai lu la phonétique":"発音ガイドを読みました","Comprendre la méthode":"学習法を知る","Voir la progression":"学習の流れを見る","Créer mon compte":"アカウントを作成","Progression de la démonstration":"デモの進行状況","Retour":"戻る","Fermer":"閉じる","UN SEUL CHOIX POUR COMMENCER":"最初に一つ選ぶだけ","Quelle langue veux-tu parler ?":"何語を話したいですか？","Choisis une langue et commence immédiatement. Tu pourras changer plus tard.":"言語を選んで、すぐに始めましょう。後から変更できます。","Démarrer ma première leçon":"最初のレッスンを始める","🔊 Réécouter la voix native":"🔊 ネイティブ音声をもう一度聞く","Chargement de la voix…":"音声を読み込み中…","🔊 Réessayer":"🔊 再試行"},"languages":{"fr":"フランス語","en":"英語","es":"スペイン語","zh":"中国語","it":"イタリア語","ja":"日本語","ko":"韓国語"},"formats":{"page":"{n}ページ","nativeAudience":"日本語を話す方へ"}},"ko":{"ui":{"PASSER":"건너뛰기","Découvre notre différence":"Melunga의 차이를 만나 보세요","La preuve\u003cspan>Melunga\u003c/span>":"직접 확인하는 \u003cspan>Melunga\u003c/span>","Tu vas bien prononcer une phrase étrangère dès ta première lecture.":"처음 읽는 외국어 문장도 정확하게 발음할 수 있어요.","Glisse vers la gauche":"왼쪽으로 밀어 보세요","1 · Lis à voix haute":"1 · 소리 내어 읽기","Lis uniquement cette phonétique.":"이 발음 표기만 읽어 보세요.","Cet exemple utilise une aide phonétique et une traduction françaises.":"이 예시에는 프랑스어 발음 도움말과 번역이 사용돼요.","Les \u003cstrong>MAJUSCULES\u003c/strong> montrent l’accentuation.":"\u003cstrong>대문자\u003c/strong>는 강세를 나타내요.","2 · Écoute la voix native":"2 · 원어민 음성 듣기","Maintenant, compare.":"이제 비교해 보세요.","Tu vas entendre la phrase que tu viens de prononcer.":"방금 발음한 문장을 듣게 될 거예요.","🔊 Écouter la voix native":"🔊 원어민 음성 듣기","✨ Tu l’avais déjà bien prononcée.\u003cbr>C’est la différence Melunga.":"✨ 이미 정확하게 발음했어요.\u003cbr>이것이 Melunga의 차이예요.","La méthode Melunga":"Melunga 학습법","Une phrase apprise devient un modèle.":"익힌 문장 하나가 새로운 문장의 틀이 돼요.","Tu n’étudies pas une règle isolée. Tu acquiers une structure que tu peux réutiliser.":"규칙만 따로 공부하는 것이 아니라, 다시 활용할 수 있는 문장 구조를 익혀요.","Écouter et imiter":"듣고 따라 하기","Une phrase naturelle, avec sa voix et sa phonétique.":"자연스러운 문장을 음성과 발음 표기로 배워요.","Mémoriser la phrase complète":"문장 전체 기억하기","Le vocabulaire et la structure sont acquis ensemble.":"어휘와 문장 구조를 함께 익혀요.","Remplacer et recombiner":"바꾸고 조합하기","Tu construis de nouvelles phrases avec les modèles acquis.":"익힌 문장 틀로 새로운 문장을 만들어요.","Du simple au nuancé":"간단한 표현부터 섬세한 표현까지","Apprends comme on acquiert une langue.":"언어를 자연스럽게 익히듯 배워 보세요.","La difficulté augmente progressivement, sans cours de grammaire séparé.":"문법 수업을 따로 듣지 않아도 난이도가 점차 높아져요.","Des phrases utiles":"쓸모 있는 문장","Des phrases complètes réellement utilisées dans la vie quotidienne.":"일상에서 실제로 쓰는 완전한 문장을 배워요.","Une phonétique native":"모국어로 보는 발음","La prononciation est écrite avec les repères sonores de ta langue.":"모국어의 소리 표기로 발음을 안내해요.","Une progression L1–L10":"L1–L10 단계별 학습","La longueur, les structures et les nuances augmentent pas à pas.":"문장 길이와 구조, 표현의 뉘앙스가 차근차근 깊어져요.","Écouter · Mémoriser · Recombiner":"듣기 · 기억하기 · 조합하기","Découvrir la preuve":"직접 확인하기","J’ai lu la phonétique":"발음 표기를 읽었어요","Comprendre la méthode":"학습법 알아보기","Voir la progression":"학습 단계 보기","Créer mon compte":"계정 만들기","Progression de la démonstration":"시연 진행 상황","Retour":"뒤로","Fermer":"닫기","UN SEUL CHOIX POUR COMMENCER":"언어 하나만 고르면 시작할 수 있어요","Quelle langue veux-tu parler ?":"어떤 언어로 말하고 싶나요?","Choisis une langue et commence immédiatement. Tu pourras changer plus tard.":"언어를 선택하고 바로 시작하세요. 나중에 바꿀 수 있어요.","Démarrer ma première leçon":"첫 학습 시작하기","🔊 Réécouter la voix native":"🔊 원어민 음성 다시 듣기","Chargement de la voix…":"음성을 불러오는 중…","🔊 Réessayer":"🔊 다시 시도"},"languages":{"fr":"프랑스어","en":"영어","es":"스페인어","zh":"중국어","it":"이탈리아어","ja":"일본어","ko":"한국어"},"formats":{"page":"{n}페이지","nativeAudience":"한국어 사용자를 위한 과정"}}};
+    /* END GENERATED HOME I18N */
+    const proofCopySources=[...new Set(document.querySelectorAll('[data-screen="method"] .proof-kicker,[data-screen="method"] h2,[data-screen="method"] .proof-hero>p,[data-screen="method"] .proof-step>p,[data-screen="method"] .method-slide>p,[data-screen="method"] .method-flow-step strong,[data-screen="method"] .method-flow-step span,[data-screen="method"] .method-pillar strong,[data-screen="method"] .method-pillar span,[data-screen="method"] .method-signature,#wowProof,[data-speak-demo]'))].map(node=>({node,source:node.innerHTML}));
+    function homeText(source){
+      const ui=homeDictionaries[currentAppLocale].ui;
+      return Object.hasOwn(ui,source)?ui[source]:window.MelungaCourseI18n?.t(currentAppLocale,source)||source;
+    }
+    function homeLanguageName(code){return homeDictionaries[currentAppLocale].languages[code]||homeLanguageNames[code];}
+    function homeFormat(key,args={}){
+      return homeDictionaries[currentAppLocale].formats[key].replace(/\{(\w+)\}/g,(_,name)=>String(args[name]));
+    }
+    function localizeHomeFlow(){
+      const languageScreen=document.querySelector('[data-screen="language"]');
+      languageScreen.querySelector('.step-label').textContent=homeText('UN SEUL CHOIX POUR COMMENCER');
+      languageScreen.querySelector('h2').textContent=homeText('Quelle langue veux-tu parler ?');
+      languageScreen.querySelector('.question p').textContent=homeText('Choisis une langue et commence immédiatement. Tu pourras changer plus tard.');
+      languageScreen.querySelector('.back').setAttribute('aria-label',homeText('Retour'));
+      document.querySelectorAll('[data-study-language]').forEach(choice=>{
+        choice.querySelector('strong').textContent=homeLanguageName(choice.dataset.studyLanguage);
+        choice.querySelector('small').textContent=homeFormat('nativeAudience');
+      });
+      document.querySelector('[data-close-app-language]').setAttribute('aria-label',homeText('Fermer'));
+      for(const {node,source} of proofCopySources){const value=node.matches('[data-proof-native-note]')&&currentAppLocale!=='fr'?'Cet exemple utilise une aide phonétique et une traduction françaises.':source;node.innerHTML=homeText(value);}
+      const hint=document.querySelector('.swipe-hint');hint.firstChild.textContent=homeText('Glisse vers la gauche')+' ';
+      document.querySelector('.proof-skip').textContent=homeText('PASSER');
+      document.querySelector('.proof-top [data-go="welcome"]').setAttribute('aria-label',homeText('Retour'));
+      document.querySelector('.proof-dots').setAttribute('aria-label',homeText('Progression de la démonstration'));
+      proofDots.forEach((dot,index)=>dot.setAttribute('aria-label',homeFormat('page',{n:index+1})));
+      proofNext.textContent=homeText(proofLabels[proofIndex]);
+    }
     const lessonMenu=document.getElementById('lessonMenu');
     const lessonScreen=document.querySelector('[data-screen="lesson"]');
     const themeQuick=document.querySelector('[data-cycle-theme]');
@@ -582,18 +804,21 @@
       proofIndex=Math.max(0,Math.min(4,index));
       proofTrack.style.transform=`translateX(-${proofIndex*100}%)`;
       proofDots.forEach((dot,i)=>dot.classList.toggle('active',i===proofIndex));
-      proofNext.textContent=proofLabels[proofIndex];
+      proofNext.textContent=homeText(proofLabels[proofIndex]);
     }
     function go(name){
       if(name==='signin'){openFullApp('login');return;}
       screens.forEach(s=>s.classList.toggle('active',s.dataset.screen===name));
-      if(name==='method')setProofSlide(0);
+      if(name==='method'){localizeHomeFlow();setProofSlide(0);}
+      if(name==='language')localizeHomeFlow();
+      if(appLanguageMenu.open)closeAppLanguageMenu();
       if(name==='premium')applyPremiumLanguage();
       if(name!=='lesson')closeLessonMenu();
     }
     function selectedStudyLanguage(){
       const selected=document.querySelector('[data-study-language].selected');
-      return selected ? selected.dataset.studyLanguage : 'en';
+      const target=selected?.dataset.studyLanguage;
+      return coursePair(currentAppLocale,target)?target:currentAppLocale==='fr'?'en':'fr';
     }
     function nativeCourseEntry(){
       try{
@@ -610,7 +835,7 @@
           if(previousPair && previousPair.split('-')[0]===currentAppLocale && coursePair(currentAppLocale,previousPair.split('-')[1])===previousPair) return previousPair.split('-')[1];
           const previousNative=localStorage.getItem('ox_nat');
           const previousStudy=localStorage.getItem('ox_lang');
-          if(previousNative===currentAppLocale && /^(fr|en|es|zh|it|ja|ko)$/.test(previousStudy||'')) return previousStudy;
+          if(previousNative===currentAppLocale && coursePair(currentAppLocale,previousStudy)) return previousStudy;
         }catch(_error){}
       }
       return selectedStudyLanguage();
@@ -626,14 +851,13 @@
       return '1';
     }
     function coursePair(nativeLanguage,studyLanguage){
-      const pair=nativeLanguage+'-'+studyLanguage;
-      return ['fr-en','fr-es','fr-it','fr-zh','fr-ja','fr-ko','zh-fr'].includes(pair) ? pair : '';
+      return homeLanguageCodes.includes(nativeLanguage)&&homeLanguageCodes.includes(studyLanguage)&&nativeLanguage!==studyLanguage?nativeLanguage+'-'+studyLanguage:'';
     }
     function openFullApp(mode){
       const study=mode==='login' ? selectedLoginStudyLanguage() : selectedStudyLanguage();
       const pair=nativeCourseEntry() ? '' : coursePair(currentAppLocale,study);
       if(pair && mode!=='login' && mode!=='premium'){
-        const courseQuery=new URLSearchParams({pair,level:'1'});
+        const courseQuery=new URLSearchParams({pair,level:'1',start:'lesson'});
         window.location.href=`parcours-niveaux.html?${courseQuery.toString()}`;
         return;
       }
@@ -647,13 +871,44 @@
         }
       }else{
         query.set('study',study);
-        if(mode==='premium') query.set('checkout',selectedPlan==='yearly'?'annual':'monthly');
+        if(mode==='premium'){
+          query.set('checkout',selectedPlan==='yearly'?'annual':'monthly');
+          if(pair){query.set('courseReturn',pair);query.set('courseLevel','1');}
+        }
         else query.set('start','1');
       }
       window.location.href=`app.html?${query.toString()}`;
     }
-    function openAppLanguageMenu(){appLanguageMenu.classList.add('open');appLanguageMenu.setAttribute('aria-hidden','false');}
-    function closeAppLanguageMenu(){appLanguageMenu.classList.remove('open');appLanguageMenu.setAttribute('aria-hidden','true');}
+    function positionAppLanguageMenu(){
+      if(!appLanguageMenu.open)return;
+      const viewport=window.visualViewport,bounds={left:viewport?.offsetLeft||0,top:viewport?.offsetTop||0,width:viewport?.width||innerWidth,height:viewport?.height||innerHeight},gutter=12;
+      Object.assign(appLanguageMenu.style,{left:bounds.left+'px',top:bounds.top+'px',width:bounds.width+'px',height:bounds.height+'px'});
+      const sheet=appLanguageMenu.querySelector('.app-language-sheet');sheet.style.maxHeight=Math.max(0,bounds.height-gutter*2)+'px';
+      const anchor=appLanguageButton.getBoundingClientRect(),rect=sheet.getBoundingClientRect();
+      sheet.style.left=Math.max(gutter,Math.min(anchor.right-bounds.left-rect.width,bounds.width-rect.width-gutter))+'px';
+      sheet.style.top=Math.max(gutter,Math.min(anchor.bottom-bounds.top+8,bounds.height-rect.height-gutter))+'px';
+    }
+    function revealAppLanguageChoice(choice){
+      const list=appLanguageMenu.querySelector('.app-language-grid'),bounds=list.getBoundingClientRect(),rect=choice.getBoundingClientRect();
+      if(rect.top<bounds.top+4)list.scrollTop-=bounds.top+4-rect.top;
+      else if(rect.bottom>bounds.bottom-8)list.scrollTop+=rect.bottom-bounds.bottom+8;
+    }
+    function openAppLanguageMenu(){
+      appLanguageMenu.showModal();appLanguageMenu.classList.add('open');appLanguageButton.setAttribute('aria-expanded','true');
+      const list=appLanguageMenu.querySelector('.app-language-grid');list.scrollTop=0;positionAppLanguageMenu();
+      const choice=list.querySelector('.selected')||list.firstElementChild;choice?.focus({preventScroll:true});if(choice)revealAppLanguageChoice(choice);
+    }
+    function closeAppLanguageMenu(){
+      if(appLanguageMenu.open)appLanguageMenu.close();appLanguageMenu.classList.remove('open');appLanguageButton.setAttribute('aria-expanded','false');appLanguageButton.focus({preventScroll:true});
+    }
+    appLanguageMenu.addEventListener('cancel',event=>{event.preventDefault();closeAppLanguageMenu();});
+    appLanguageMenu.addEventListener('close',()=>{if(appLanguageMenu.open)return;appLanguageMenu.classList.remove('open');appLanguageButton.setAttribute('aria-expanded','false');});
+    appLanguageMenu.addEventListener('keydown',event=>{
+      const choices=[...appLanguageMenu.querySelectorAll('[data-app-language]')],index=choices.indexOf(document.activeElement);
+      if(index<0)return;const next=event.key==='Home'?0:event.key==='End'?choices.length-1:event.key==='ArrowUp'?Math.max(0,index-1):event.key==='ArrowDown'?Math.min(choices.length-1,index+1):-1;
+      if(next<0)return;event.preventDefault();choices[next].focus({preventScroll:true});revealAppLanguageChoice(choices[next]);
+    });
+    window.addEventListener('resize',positionAppLanguageMenu);window.visualViewport?.addEventListener('resize',positionAppLanguageMenu);window.visualViewport?.addEventListener('scroll',positionAppLanguageMenu);
     function marketForCountry(countryCode){
       const code=(countryCode||'').toUpperCase();
       return priceMarkets[currencyByCountry[code]||'USD'];
@@ -771,28 +1026,31 @@
       }catch(_error){applyCountryPricing(localCountryFallback());}
     }
     function applyAppLanguage(locale,label){
-      const texts=welcomeTranslations[locale]||welcomeTranslations.fr;
-      currentAppLocale=locale;
-      const frenchChoice=document.querySelector('[data-study-language="fr"]');
-      if(frenchChoice){
-        frenchChoice.hidden=locale!=='zh';
-        frenchChoice.style.display=locale==='zh'?'':'none';
-        const selected=document.querySelector('[data-study-language].selected');
-        if(!explicitStudyChoice || selected===frenchChoice && frenchChoice.hidden){
-          const defaultStudy=locale==='zh'?'fr':'en';
-          document.querySelectorAll('[data-study-language]').forEach(choice=>choice.classList.toggle('selected',choice.dataset.studyLanguage===defaultStudy));
-        }
+      if(!homeLanguageCodes.includes(locale))locale='fr';
+      const texts=welcomeTranslations[locale]||welcomeTranslations.fr,selected=document.querySelector('[data-study-language].selected');
+      let target=explicitStudyChoice&&coursePair(locale,selected?.dataset.studyLanguage)?selected.dataset.studyLanguage:null;
+      if(!target){
+        explicitStudyChoice=false;
+        try{
+          const previousPair=localStorage.getItem('melunga-course-pair'),previousNative=localStorage.getItem('ox_nat'),previousStudy=localStorage.getItem('ox_lang');
+          if(previousPair?.split('-')[0]===locale&&coursePair(locale,previousPair.split('-')[1])===previousPair)target=previousPair.split('-')[1];
+          else if(previousNative===locale&&coursePair(locale,previousStudy))target=previousStudy;
+        }catch(_error){}
       }
+      if(!target)target=locale==='fr'?'en':'fr';
+      currentAppLocale=locale;
+      document.querySelectorAll('[data-study-language]').forEach(choice=>{
+        const available=choice.dataset.studyLanguage!==locale,isSelected=available&&choice.dataset.studyLanguage===target;
+        choice.hidden=!available;choice.style.display=available?'':'none';choice.classList.toggle('selected',isSelected);choice.removeAttribute('aria-pressed');
+      });
+      document.querySelectorAll('[data-app-language]').forEach(choice=>{const selected=choice.dataset.appLanguage===locale;choice.classList.toggle('selected',selected);choice.setAttribute('aria-pressed',String(selected));});
       document.querySelectorAll('[data-welcome-i18n]').forEach(element=>{const value=texts[element.dataset.welcomeI18n];if(value!==undefined)element.innerHTML=value;});
       document.documentElement.lang=locale;
-      const languageNames={fr:'Français',en:'English',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어'};
-      const flag=document.createElement('span');flag.className='home-flag home-flag-'+(languageNames[locale]?locale:'fr');flag.setAttribute('aria-hidden','true');
-      const name=document.createElement('span');name.textContent=(languageNames[locale]||label)+'⌄';
-      appLanguageButton.replaceChildren(flag,name);
-      appLanguageButton.setAttribute('aria-label',texts.languageTitle||'Langue de l’application');
-      renderWelcomePrice();
-      applyPremiumLanguage();
-      try{localStorage.setItem('melunga-app-language',JSON.stringify({locale,label}));}catch(_e){}
+      const flag=document.createElement('span');flag.className='home-flag home-flag-'+locale;flag.setAttribute('aria-hidden','true');
+      const name=document.createElement('span');name.textContent=homeLanguageNames[locale]+'⌄';appLanguageButton.replaceChildren(flag,name);
+      appLanguageButton.setAttribute('aria-label',texts.languageTitle);localizeHomeFlow();
+      renderWelcomePrice();applyPremiumLanguage();
+      try{localStorage.setItem('melunga-app-language',JSON.stringify({locale,label:label||homeLanguageNames[locale]}));}catch(_e){}
     }
     function openLessonMenu(){lessonMenu.classList.add('open');lessonMenu.setAttribute('aria-hidden','false');showMenuPanel('main');}
     function openLessonPanel(name){lessonMenu.classList.add('open');lessonMenu.setAttribute('aria-hidden','false');showMenuPanel(name);}
@@ -819,7 +1077,7 @@
     let proofAudio=null;
     function revealProofResult(button){
       document.getElementById('wowProof').classList.add('show');
-      button.textContent='🔊 Réécouter la voix native';
+      button.textContent=homeText('🔊 Réécouter la voix native');
       button.removeAttribute('aria-busy');
     }
     function browserSpeechProof(button){
@@ -831,12 +1089,12 @@
         const voices=speechSynthesis.getVoices();
         utterance.voice=voices.find(voice=>voice.lang&&voice.lang.toLowerCase().startsWith('en-gb'))||voices.find(voice=>voice.lang&&voice.lang.toLowerCase().startsWith('en'))||null;
         utterance.onstart=()=>revealProofResult(button);
-        utterance.onerror=()=>{button.textContent='🔊 Réessayer';button.removeAttribute('aria-busy');};
+        utterance.onerror=()=>{button.textContent=homeText('🔊 Réessayer');button.removeAttribute('aria-busy');};
         speechSynthesis.speak(utterance);
-      }catch(_error){button.textContent='🔊 Réessayer';button.removeAttribute('aria-busy');}
+      }catch(_error){button.textContent=homeText('🔊 Réessayer');button.removeAttribute('aria-busy');}
     }
     function playProofDemo(button){
-      button.textContent='Chargement de la voix…';
+      button.textContent=homeText('Chargement de la voix…');
       button.setAttribute('aria-busy','true');
       try{
         if(proofAudio){proofAudio.pause();proofAudio.currentTime=0;}
@@ -877,7 +1135,6 @@
       }
       const accessChoice=e.target.closest('[data-select-access]');if(accessChoice){selectedAccess=accessChoice.dataset.selectAccess;go('language');return;}
       if(e.target.closest('[data-launch-login]')){openFullApp('login');return;}
-      if(e.target.closest('[data-launch-course]')){openFullApp(selectedAccess);return;}
       if(e.target.closest('[data-cycle-theme]')){applyLessonTheme(lessonThemeIndex+1);return;}
       if(e.target.closest('[data-quick-language]')){openLessonPanel('languages');return;}
       if(e.target.closest('[data-quick-level]')){openLessonPanel('levels');return;}
@@ -912,20 +1169,30 @@
         return;
       }
       const goBtn=e.target.closest('[data-go]');if(goBtn){go(goBtn.dataset.go);return;}
-      const option=e.target.closest('.option');if(option){if(option.matches('[data-study-language]'))explicitStudyChoice=true;const box=option.closest('.options');if(box) box.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));option.classList.add('selected');}
+      const option=e.target.closest('.option');if(option){
+        const studyChoice=option.matches('[data-study-language]');
+        if(studyChoice){
+          if(!option.closest('[data-screen="language"].active')||option.disabled||option.hidden||!coursePair(currentAppLocale,option.dataset.studyLanguage))return;
+          explicitStudyChoice=true;
+        }
+        const box=option.closest('.options');
+        if(box)box.querySelectorAll('.option').forEach(o=>{o.classList.remove('selected');if(o.matches('[data-study-language]'))o.removeAttribute('aria-pressed');});
+        option.classList.add('selected');
+        if(studyChoice){option.removeAttribute('aria-pressed');openFullApp(selectedAccess);return;}
+      }
       const time=e.target.closest('.time');if(time){document.querySelectorAll('.time').forEach(t=>t.classList.remove('selected'));time.classList.add('selected');}
     });
-    try{
-      const savedLanguage=JSON.parse(localStorage.getItem('melunga-app-language'));
-      if(savedLanguage&&welcomeTranslations[savedLanguage.locale]){
-        const savedChoice=document.querySelector(`[data-app-language="${savedLanguage.locale}"]`);
-        document.querySelectorAll('[data-app-language]').forEach(item=>item.classList.toggle('selected',item===savedChoice));
-        applyAppLanguage(savedLanguage.locale,savedLanguage.label);
-      }
-    }catch(_e){}
+    let savedHomeLanguage=null,legacyNative=null,previousCourse=null;
+    try{savedHomeLanguage=JSON.parse(localStorage.getItem('melunga-app-language'));}catch(_e){}
+    try{legacyNative=localStorage.getItem('ox_nat');previousCourse=localStorage.getItem('melunga-course-pair');}catch(_e){}
+    const requestedHomeLanguage=new URLSearchParams(location.search).get('lang');
+    const previousNative=/^(fr|en|es|it|zh|ja|ko)-(fr|en|es|it|zh|ja|ko)$/.test(previousCourse||'')&&previousCourse.split('-')[0]!==previousCourse.split('-')[1]?previousCourse.split('-')[0]:null;
+    const initialAppLocale=[requestedHomeLanguage,savedHomeLanguage?.locale,legacyNative,previousNative,'fr'].find(locale=>homeLanguageCodes.includes(locale));
+    const initialAppLanguageLabel=savedHomeLanguage?.locale===initialAppLocale?savedHomeLanguage.label:homeLanguageNames[initialAppLocale];
+    applyAppLanguage(initialAppLocale,initialAppLanguageLabel);
     detectPricingCountry();
   </script>
   <script src="store-billing.js"></script>
-  <script src="desktop-home.js"></script>
+  <script src="desktop-home.js?v=5"></script>
 </body>
 </html>

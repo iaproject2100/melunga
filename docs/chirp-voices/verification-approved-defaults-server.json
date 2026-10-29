@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "checkedAtUtc": "2026-10-27T12:31:38.316036+00:00",
+  "reference": "8ec5054cdff57b8bdbd04fcb64429ac2251d1e14",
+  "selectionVersion": "kartech-2026-10-27",
+  "tests": {
+    "passed": 19,
+    "failed": 0,
+    "skipped": 0,
+    "command": "node --test melunga_deploy/tests/tts-chirp.test.cjs"
+  },
+  "independentSourceReview": "no concrete concern; read-only, no second test run",
+  "approvedDefaults": {
+    "fr": "fr-FR-Chirp3-HD-Aoede",
+    "en": "en-GB-Chirp3-HD-Kore",
+    "es": "es-ES-Chirp3-HD-Kore",
+    "zh": "cmn-CN-Chirp3-HD-Kore",
+    "it": "it-IT-Chirp3-HD-Charon",
+    "ja": "ja-JP-Chirp3-HD-Kore",
+    "ko": "ko-KR-Chirp3-HD-Kore"
+  },
+  "defaultAbsence": "null, never an automatic alternative",
+  "incompleteComparison": "chirp retains only the verified approved voice; available false, defaultVoice usable",
+  "legacyCatalogCompatible": true,
+  "versionedCatalogQueryValidated": true,
+  "WaveNet14AndAudioCacheExact": true,
+  "realGoogleListOrAudioCalled": false,
+  "commitOrPush": false,
+  "sourceSha256": {
+    "melunga_deploy/netlify/functions/tts.mjs": "7a60d8fe55a2eb7ea3c48918f2515cd74bda3d34d96dcb771227a911e38e0df9",
+    "melunga_deploy/netlify/functions/lib/chirp-catalog.mjs": "fd69b1b9efc7d79498d1a25f1734e329a95b296e54b9284d75ba4d1e10ab2e5a",
+    "melunga_deploy/tests/tts-chirp.test.cjs": "86574ffd5fcd3c4d74f1a3c4c4da808ea9ddec5863a8e0dc1cb493f28328b21f"
+  }
+}

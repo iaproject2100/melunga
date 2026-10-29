@@ -1,0 +1,54 @@
+{
+  "status": "recommend-final-original-png-display-mask",
+  "scope": "read-only asset/source search and pixel geometry; no edited/generated image, no browser rerun",
+  "originalAsset": {
+    "path": "melunga_deploy/melunga-logo.png",
+    "mode": "RGB",
+    "size": [
+      143,
+      137
+    ],
+    "sha256": "1aa277028faa2128c78405c839748dff8b1497827c04b02610216056c92b18c0",
+    "duplicatePath": "melunga_deploy/assets/melunga-logo.png",
+    "duplicatesByteExact": true,
+    "gitBlob": "6370baa92a3e608cf956e99f3af7ef61d87ec856",
+    "introducedAt": "a1f4641"
+  },
+  "masterSearch": {
+    "fileAssets": "Only one raster logo blob exists in all named logo/mascot/favicon asset history; two current PNG copies are identical, no alpha-transparent raster master found.",
+    "toolbarSvg": "Existing lockup SVG is a variant with upper gradient #36A0D6, not exact original PNG palette.",
+    "welcomeSvg": "Embedded welcome SVG at app.html line2745 uses #4FB0E4→#1E86C4; eight original PNG blue samples fit that gradient to roughly0–1RGB. It is a likely source candidate, not established pixel-exact/geometry-identical master.",
+    "visibleBubbles": "Do not claim three visible SVG bubbles: the third declared circle is covered by the white head."
+  },
+  "finalDisplayRule": {
+    "objectFit": "contain (unchanged)",
+    "clipPath": "circle(43% at 49.3% 50.7%)",
+    "pngRemainsUnmodified": true,
+    "cssBoxRemainsUnchanged": true,
+    "sourceSpaceClipCenter": [
+      70.499,
+      69.501
+    ],
+    "sourceSpaceClipRadius": 61.49,
+    "visibleDiameterAt43pxCss": 36.98
+  },
+  "measuredBlueBoundaryApprox": {
+    "center": [
+      70.25561602542746,
+      69.1611652456775
+    ],
+    "radius": 63.020726886253264,
+    "clipCenterOffset": 0.4179993054111053,
+    "minimumInscribedSafetyMarginOriginalPixels": 1.112727580842157
+  },
+  "finalPixelChecks": {
+    "innerAnnulusWidthOriginalPixels": 4,
+    "innerAnnulusPixels": 1480,
+    "darkPixelsInsideAnnulus": 0,
+    "brightForegroundPixelsTotal": 4557,
+    "brightForegroundPixelsRetained": 4557
+  },
+  "reason": "Masking the original PNG guarantees the original artwork and pixel colours. Final conservative43% radius leaves an approximately1.1source-pixel safety margin against dark-background interpolation; broader earlier masks are not the final recommendation.",
+  "limitations": "Raw pixel geometry does not replace browser antialias visual inspection; parent QA is checking the final display.",
+  "filesModified": []
+}

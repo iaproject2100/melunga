@@ -1,0 +1,219 @@
+/* Chosen desktop layout 3. Below this breakpoint the original DOM and core styles apply. */
+@media(min-width:1101px){
+  body.mg-desktop-course .mg-app{position:relative;display:flex;flex-direction:column;gap:0;width:100%;max-width:none;height:var(--mg-usable-height,100dvh);min-height:0;padding:0}
+  body.mg-desktop-course .mg-sidebar{display:none}
+  body.mg-desktop-course .mg-desktop-header{display:flex;align-items:center;justify-content:space-between;gap:28px;flex:0 0 112px;min-height:112px;padding:8px 40px;border-bottom:1px solid var(--mg-line);background:var(--mg-surface)}
+  body.mg-desktop-course .mg-desktop-header .mg-brand{flex-direction:row;gap:10px;flex:0 0 auto;min-width:0}
+  body.mg-desktop-course .mg-desktop-header .mg-logo{width:96px;height:96px;flex:0 0 96px}
+  body.mg-desktop-course .mg-desktop-header .mg-wordmark{font-size:33px;line-height:1;letter-spacing:-.04em}
+  body.mg-desktop-course #mgDesktopNav{display:flex;align-items:center;justify-content:center;gap:16px;width:auto;min-width:0;margin:0 auto;padding:0;overflow:visible}
+  body.mg-desktop-course #mgDesktopNav>[data-menu-item]:not([data-menu-item="Thèmes"]):not([data-menu-item="À revoir"]):not([data-menu-item="review"]):not([data-menu-item="voice"]){display:none}
+  body.mg-desktop-course #mgDesktopNav>.mg-rail-item{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:10px;flex:0 1 auto;grid-column:auto;width:auto;min-width:0;min-height:48px;padding:9px 15px;border:1px solid transparent;border-radius:18px;font-size:15px;line-height:1.3}
+  body.mg-desktop-course #mgDesktopNav>.mg-rail-item>span:last-child{white-space:normal}
+  body.mg-desktop-course #mgDesktopNav>.mg-rail-item[data-menu-item="Thèmes"]{border-color:var(--mg-line);background:var(--mg-soft)}
+  body.mg-desktop-course #mgDesktopNav .mg-rail-icon{width:24px;height:24px;flex:0 0 24px;border:0;border-radius:0;background:transparent;box-shadow:none}
+  body.mg-desktop-course #mgDesktopNav .mg-rail-icon svg{width:24px;height:24px}
+  body.mg-desktop-course .mg-desktop-header #mgMenuTrigger{display:inline-flex;gap:10px;flex:0 0 auto;width:auto;min-width:48px;height:48px;margin:0;padding:9px 15px;border-radius:18px;font-size:14px;font-weight:600}
+  body.mg-desktop-course .mg-main{flex:1 1 auto;align-self:center;width:calc(100% - 96px);max-width:920px;min-width:0;min-height:0;padding:18px 0 56px}
+  body.mg-desktop-course .mg-desktop-heading{display:flex;align-items:center;justify-content:space-between;gap:28px;flex:0 0 auto;min-height:68px;margin-bottom:12px}
+  body.mg-desktop-course .mg-desktop-heading-copy{flex:1 1 auto;min-width:0}
+  body.mg-desktop-course .mg-desktop-theme-photo{flex:0 0 96px;margin-right:-12px}
+  body.mg-desktop-course .mg-desktop-theme-photo .mg-theme-photo{display:block;width:96px;height:72px;margin:0;border-radius:17px}
+  body.mg-desktop-course .mg-desktop-level-title{margin:0 0 5px;font-size:14px;line-height:1.35;font-weight:500;color:var(--mg-muted)}
+  body.mg-desktop-course .mg-desktop-heading .mg-sectionhead{margin:0;padding:0}
+  body.mg-desktop-course .mg-desktop-heading h1{margin:0;font-size:28px;font-weight:760;line-height:1.2;letter-spacing:-.03em;overflow-wrap:anywhere}
+  body.mg-desktop-course .mg-desktop-context{flex:0 0 auto;min-width:0}
+  body.mg-desktop-course .mg-desktop-context .mg-controls{display:flex;flex-direction:row;align-items:center;justify-content:flex-end;gap:13px;width:auto;margin:0;padding:0}
+  body.mg-desktop-course .mg-desktop-context .mg-round{width:52px;height:52px;flex:0 0 52px;margin:0}
+  body.mg-desktop-course .mg-desktop-context #mgPalette{display:inline-flex}
+  body.mg-desktop-course .mg-topbar{min-height:0;padding:0;margin:0 0 8px}
+  body.mg-desktop-course[data-view="themes"] .mg-topbar{display:none}
+  body.mg-desktop-course .mg-counter{font-size:14px}
+  body.mg-desktop-course .mg-progress{margin:0 4px 12px}
+  body.mg-desktop-course .mg-content{min-height:0;padding:0;overflow:hidden}
+  body.mg-desktop-course #mgThemeView:not([hidden]){display:flex;flex-direction:column;height:100%;min-height:0}
+  body.mg-desktop-course #mgThemeGrid.mg-desktop-paged{flex:1 1 auto;min-height:0;max-height:358px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:18px;align-content:start;padding:0}
+  body.mg-desktop-course .mg-desktop-paged>.mg-theme{display:grid;grid-template-columns:92px minmax(0,1fr);grid-template-rows:auto auto;column-gap:16px;row-gap:5px;align-content:center;align-items:center;height:100%;max-height:170px;min-height:0;padding:20px;border-radius:26px}
+  body.mg-desktop-course .mg-desktop-paged .mg-theme-icon{grid-column:1;grid-row:1 / span 2;align-self:center;margin:0}
+  body.mg-desktop-course .mg-desktop-paged .mg-theme-photo{width:92px;height:69px;flex-basis:92px}
+  body.mg-desktop-course .mg-desktop-paged .mg-theme-title{grid-column:2;grid-row:1;align-self:end;font-size:17px;line-height:1.3;margin-top:7px}
+  body.mg-desktop-course .mg-desktop-paged .mg-theme-count{grid-column:2;grid-row:2;align-self:start;font-size:12px;line-height:1.35}
+  body.mg-desktop-course .mg-desktop-paged .mg-theme-number{top:13px;right:17px;font-size:14px}
+  body.mg-desktop-course .mg-desktop-pagination{display:flex;align-items:center;justify-content:center;gap:20px;flex:0 0 44px;min-height:44px;margin-top:16px}
+  body.mg-desktop-course .mg-desktop-page{min-height:44px;padding:9px 15px;border:1px solid var(--mg-line);border-radius:15px;background:var(--mg-soft);color:var(--mg-ink);font:inherit;font-size:14px;font-weight:650;cursor:pointer}
+  body.mg-desktop-course .mg-desktop-page:disabled{opacity:.45;cursor:default}
+  body.mg-desktop-course .mg-desktop-page-range{min-width:104px;text-align:center;font-size:13px;font-weight:650;font-variant-numeric:tabular-nums}
+  body.mg-desktop-course .mg-desktop-legal{position:absolute;bottom:17px;left:24px;right:24px;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 20px;font-size:12px;line-height:1.4}
+  body.mg-desktop-course .mg-desktop-legal a{color:var(--mg-ink);text-underline-offset:4px}
+  body.mg-desktop-course .mg-lesson{padding:14px 26px 16px}
+  body.mg-desktop-course .mg-model{gap:var(--mg-fit-gap,17px);padding:var(--mg-fit-model-padding,10px) 0}
+  body.mg-desktop-course[data-view="lesson"] .mg-phrase{font-size:clamp(36px,6dvh,52px)}
+  body.mg-desktop-course[data-view="lesson"] .mg-phon{font-size:clamp(28px,4.5dvh,36px)}
+  body.mg-desktop-course[data-view="lesson"] .mg-translation{font-size:clamp(26px,4.2dvh,34px)}
+  body.mg-desktop-course.mg-desktop-lesson-scroll[data-view="lesson"] .mg-content{overflow-y:auto;scrollbar-width:auto;scrollbar-color:var(--mg-accent) var(--mg-soft);scrollbar-gutter:stable}
+  body.mg-desktop-course.mg-desktop-lesson-scroll[data-view="lesson"] .mg-lesson{flex:0 0 auto;height:auto;min-height:100%;max-height:none}
+  body.mg-desktop-course.mg-desktop-lesson-scroll[data-view="lesson"] .mg-model{flex:1 0 auto}
+  body.mg-desktop-course #mgPhonrow.is-recall{display:none}
+  body.mg-desktop-course{--mg-desktop-phon-glass:rgba(151,120,199,.14);--mg-desktop-phon-ink:#fbf7ff;--mg-desktop-phon-caption:#eadcff;--mg-desktop-phon-line:rgba(205,181,237,.5);--mg-desktop-ear-glass:rgba(235,220,255,.16);--mg-desktop-ear-active:rgba(235,220,255,.26)}
+  body.mg-desktop-course:is([data-ambience="dusk"],[data-ambience="legacy-gamified"],[data-ambience="legacy-zen"],[data-ambience="legacy-plum"],[data-ambience="legacy-cafe"]){--mg-desktop-phon-glass:rgba(115,83,161,.12);--mg-desktop-phon-ink:#3b2757;--mg-desktop-phon-caption:#59466f;--mg-desktop-phon-line:rgba(105,74,141,.32);--mg-desktop-ear-glass:rgba(255,255,255,.4);--mg-desktop-ear-active:rgba(255,255,255,.62)}
+  body.mg-desktop-course #mgPhonrow{flex-direction:column;gap:0;min-height:64px;padding:10px 68px 10px 16px;border:1px solid var(--mg-desktop-phon-line);border-radius:22px;background:var(--mg-desktop-phon-glass);color:var(--mg-desktop-phon-ink);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  body.mg-desktop-course #mgPhon{color:var(--mg-desktop-phon-ink)}
+  body.mg-desktop-course .mg-desktop-phonetic-label{display:block;margin:0 0 4px;color:var(--mg-desktop-phon-caption);font-size:12px;line-height:16px;font-weight:650;letter-spacing:.06em}
+  body.mg-desktop-course #mgEar:not([hidden]){display:flex;right:12px;width:44px;height:44px;min-width:44px;min-height:44px;border:1px solid var(--mg-desktop-phon-line);background:var(--mg-desktop-ear-glass);color:var(--mg-desktop-phon-ink)}
+  body.mg-desktop-course #mgEar:hover,body.mg-desktop-course #mgEar.is-playing{background:var(--mg-desktop-ear-active);color:var(--mg-desktop-phon-ink)}
+  body.mg-desktop-course #mgModelTools.mg-desktop-tools-empty{display:none}
+  body.mg-desktop-course #mgModel #mgFooter,body.mg-desktop-course #mgDone #mgFooter{display:flex;align-items:stretch;justify-content:center;gap:12px;flex:0 0 auto;width:100%;max-width:760px;margin:8px auto 0;padding:0}
+  body.mg-desktop-course #mgFooter>.mg-action,body.mg-desktop-course #mgFooter>#mgListen{display:flex;align-items:center;justify-content:center;gap:10px;flex:1 1 0;min-width:0;min-height:54px;height:auto;margin:0;padding:11px 18px;border:1px solid var(--mg-line);border-radius:20px;font-size:16px;font-weight:650;line-height:1.3;white-space:normal}
+  body.mg-desktop-course #mgFooter>#mgListen{position:static;transform:none;background:var(--mg-soft);color:var(--mg-ink);box-shadow:0 9px 25px var(--mg-shadow)}
+  body.mg-desktop-course #mgFooter>#mgListen.is-playing{background:var(--mg-accent);color:var(--mg-accent-ink)}
+  body.mg-desktop-course #mgFooter>#mgListen svg{width:24px;height:24px;flex:0 0 24px}
+  body.mg-desktop-course .mg-done{min-height:0;padding:18px 8px;gap:20px}
+}
+
+/* A short laptop viewport or browser zoom should keep the lesson readable. */
+@media(min-width:1101px) and (max-height:700px){
+  body.mg-desktop-course[data-view="lesson"] .mg-desktop-header{flex-basis:88px;min-height:88px;padding-block:8px}
+  body.mg-desktop-course[data-view="lesson"] .mg-desktop-header .mg-logo{width:72px;height:72px;flex-basis:72px}
+  body.mg-desktop-course[data-view="lesson"] .mg-desktop-header .mg-wordmark{font-size:30px}
+  body.mg-desktop-course[data-view="lesson"] .mg-main{padding-block:12px 40px}
+  body.mg-desktop-course[data-view="lesson"] .mg-desktop-heading{min-height:54px;margin-bottom:8px}
+  body.mg-desktop-course[data-view="lesson"] .mg-desktop-theme-photo{flex-basis:72px}
+  body.mg-desktop-course[data-view="lesson"] .mg-desktop-theme-photo .mg-theme-photo{width:72px;height:54px;border-radius:14px}
+  body.mg-desktop-course[data-view="lesson"] .mg-desktop-heading h1{font-size:24px}
+  body.mg-desktop-course[data-view="lesson"] .mg-desktop-level-title{margin-bottom:3px;font-size:12px}
+  body.mg-desktop-course[data-view="lesson"] .mg-lesson{padding:10px 20px}
+  body.mg-desktop-course[data-view="lesson"] .mg-theme-label{padding:8px 12px;font-size:20px}
+  body.mg-desktop-course[data-view="lesson"] #mgPhonrow{min-height:62px;padding-block:8px}
+  body.mg-desktop-course[data-view="lesson"] .mg-desktop-phonetic-label{font-size:11px;line-height:14px}
+  body.mg-desktop-course[data-view="lesson"] #mgModel #mgFooter{margin-top:4px}
+  body.mg-desktop-course[data-view="lesson"] #mgFooter>.mg-action,body.mg-desktop-course[data-view="lesson"] #mgFooter>#mgListen{min-height:48px;padding-block:10px}
+  body.mg-desktop-course[data-view="lesson"] .mg-desktop-legal{bottom:12px}
+}
+
+/* Approved desktop lesson: original themes on the left, original actions below. */
+@media(min-width:1101px){
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar{--mg-desktop-sidebar-glass:rgba(4,29,58,.24);--mg-desktop-sidebar-line:var(--mg-line)}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar:is([data-ambience="dusk"],[data-ambience="legacy-gamified"],[data-ambience="legacy-zen"],[data-ambience="legacy-plum"],[data-ambience="legacy-cafe"]){--mg-desktop-sidebar-glass:rgba(255,255,255,.42);--mg-desktop-sidebar-line:rgba(255,255,255,.7)}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-main{width:calc(100% - 72px);max-width:1080px;padding-top:20px}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-desktop-heading{margin-bottom:20px}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-desktop-theme-photo{flex-basis:88px}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-desktop-theme-photo .mg-theme-photo{width:88px;height:66px}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-desktop-heading h1{font-size:26px}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-topbar{display:none}
+  body.mg-desktop-course .mg-desktop-lesson-workspace{display:none}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-desktop-lesson-workspace{display:grid;grid-template-columns:250px minmax(0,1fr);grid-template-rows:minmax(0,1fr);gap:24px;flex:1 1 0;min-width:0;min-height:0}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-desktop-lesson-workspace>.mg-content{align-self:center;flex:none;width:100%;height:min(100%,480px);max-height:100%;min-width:0;min-height:0;padding:0}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-lesson{padding:22px 26px 24px;border-radius:30px}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-lesson-top{gap:12px}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-lesson-top .mg-counter{margin-left:auto;font-size:13px;white-space:nowrap}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-lesson>.mg-progress{flex:0 0 4px;min-height:4px;height:4px;margin:12px 0 10px}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-phrase{font-size:clamp(40px,5.1dvh,46px)}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-phon{font-size:clamp(29px,3.7dvh,34px)}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-translation{font-size:clamp(28px,3.5dvh,32px)}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar #mgModel #mgFooter{margin-top:10px}
+  body.mg-desktop-course .mg-desktop-theme-sidebar{display:flex;flex-direction:column;align-self:center;height:min(100%,542px);min-height:0;min-width:0;border:1px solid var(--mg-desktop-sidebar-line);border-radius:26px;background:var(--mg-desktop-sidebar-glass);box-shadow:0 12px 32px var(--mg-shadow);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);overflow:hidden}
+  body.mg-desktop-course .mg-desktop-theme-sidebar-title{flex:0 0 auto;margin:0;padding:17px 18px 13px;font-size:17px;line-height:1.35;font-weight:750;letter-spacing:-.02em}
+  body.mg-desktop-course .mg-desktop-theme-sidebar-content{flex:1 1 0;min-height:0;min-width:0;overflow-y:auto;overflow-x:hidden;padding:0 10px 6px;scrollbar-width:auto;scrollbar-color:var(--mg-accent) var(--mg-soft);scrollbar-gutter:stable;overscroll-behavior:contain}
+  body.mg-desktop-course .mg-desktop-theme-sidebar-content::-webkit-scrollbar{width:10px}
+  body.mg-desktop-course .mg-desktop-theme-sidebar-content::-webkit-scrollbar-thumb{background:var(--mg-accent);border:2px solid transparent;border-radius:8px;background-clip:padding-box}
+  body.mg-desktop-course .mg-desktop-theme-sidebar #mgThemeGrid{display:flex;flex-direction:column;gap:8px;width:100%;min-width:0;max-height:none;padding:0;overflow:visible}
+  body.mg-desktop-course .mg-desktop-theme-sidebar .mg-grid-section{display:none}
+  body.mg-desktop-course .mg-desktop-theme-sidebar .mg-theme{display:grid;grid-template-columns:68px minmax(0,1fr);grid-template-rows:auto auto;column-gap:10px;row-gap:3px;align-content:center;align-items:center;flex:none;width:100%;height:auto;min-height:76px;max-height:none;margin:0;padding:8px;border:1px solid transparent;border-radius:16px;background:rgba(255,255,255,.15);box-shadow:none;text-align:left}
+  body.mg-desktop-course .mg-desktop-theme-sidebar .mg-theme:hover{background:var(--mg-soft);border-color:var(--mg-line)}
+  body.mg-desktop-course .mg-desktop-theme-sidebar .mg-theme[aria-current]{background:var(--mg-soft);border-color:var(--mg-accent);box-shadow:inset 3px 0 0 var(--mg-accent)}
+  body.mg-desktop-course .mg-desktop-theme-sidebar .mg-theme-icon{grid-column:1;grid-row:1 / span 2;align-self:center;margin:0}
+  body.mg-desktop-course .mg-desktop-theme-sidebar .mg-theme-photo{width:68px;height:51px;flex-basis:68px;border-radius:11px}
+  body.mg-desktop-course .mg-desktop-theme-sidebar .mg-theme-title{grid-column:2;grid-row:1;align-self:end;margin:0;font-size:13px;line-height:1.3;font-weight:650;overflow-wrap:anywhere}
+  body.mg-desktop-course .mg-desktop-theme-sidebar .mg-theme-count{grid-column:2;grid-row:2;align-self:start;margin:0;font-size:11px;line-height:1.35;color:var(--mg-muted);overflow-wrap:anywhere}
+  body.mg-desktop-course .mg-desktop-theme-sidebar .mg-theme-number{display:none}
+  body.mg-desktop-course .mg-desktop-all-themes{flex:0 0 auto;min-height:44px;margin:8px 12px 10px;padding:10px 8px;border:0;border-top:1px solid var(--mg-line);border-radius:0;background:transparent;color:var(--mg-ink);font:inherit;font-size:12px;font-weight:650;line-height:1.35;cursor:pointer}
+  body.mg-desktop-course .mg-desktop-all-themes:focus-visible{outline:2px solid var(--mg-accent);outline-offset:-2px;border-radius:12px}
+}
+@media(min-width:1101px) and (max-width:1200px){
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-desktop-lesson-workspace{grid-template-columns:220px minmax(0,1fr);gap:18px}
+  body.mg-desktop-course .mg-desktop-theme-sidebar .mg-theme{grid-template-columns:60px minmax(0,1fr);gap:4px 8px;padding:7px;min-height:72px}
+  body.mg-desktop-course .mg-desktop-theme-sidebar .mg-theme-photo{width:60px;height:45px;flex-basis:60px}
+  body.mg-desktop-course .mg-desktop-theme-sidebar .mg-theme-title{font-size:12px}
+}
+@media(min-width:1101px) and (max-height:700px){
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-main{padding-block:12px 40px}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-desktop-heading{margin-bottom:12px;min-height:54px}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-desktop-theme-photo{flex-basis:72px}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-desktop-theme-photo .mg-theme-photo{width:72px;height:54px}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-desktop-heading h1{font-size:24px}
+  body.mg-desktop-course.mg-desktop-has-theme-sidebar .mg-lesson{padding:12px 20px 16px}
+  body.mg-desktop-course .mg-desktop-theme-sidebar-title{padding-block:12px 10px;font-size:16px}
+  body.mg-desktop-course .mg-desktop-theme-sidebar .mg-theme{min-height:68px;padding-block:6px}
+  body.mg-desktop-course .mg-desktop-all-themes{margin-block:4px 6px;min-height:40px;padding-block:8px}
+}
+
+/* Approved mobile option 1: the original photo beside the existing number. */
+@media(max-width:1100px){
+  .mg-lesson-top.mg-has-theme-photo>.mg-mobile-theme-photo{display:block;flex:0 0 48px;width:48px;height:36px;min-width:0;min-height:0;margin:0 2px 0 0;border-radius:11px;box-shadow:0 2px 6px var(--mg-shadow)}
+  .mg-lesson-top.mg-has-theme-photo>#mgLessonTheme{flex:0 0 auto;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--mg-ink);font-size:17px;line-height:1.2;font-weight:800}
+}
+
+.mg-mobile-dock,.mg-dock-next-label,.mg-dock-listen-label{display:none}
+
+/* Approved mobile dock 4: a wide listening key above the two thumb actions. */
+@media(max-width:760px){
+  body.mg-mobile-dock-course{--mg-dock-safe-area:env(safe-area-inset-bottom,0px);--mg-mobile-dock-space:calc(122px + var(--mg-dock-safe-area));--mg-dock-glass:rgba(8,17,31,.78);--mg-dock-border:rgba(235,250,255,.3)}
+  body.mg-mobile-dock-course:is([data-ambience="dusk"],[data-ambience="legacy-gamified"],[data-ambience="legacy-zen"],[data-ambience="legacy-plum"],[data-ambience="legacy-cafe"]){--mg-dock-glass:rgba(255,255,255,.36);--mg-dock-border:rgba(255,255,255,.65)}
+  body.mg-mobile-dock-course[data-ambience="ocean"]{--mg-dock-glass:rgba(5,29,52,.35)}
+  body.mg-mobile-dock-course .mg-app{height:calc(var(--mg-dock-usable-height,100dvh) - var(--mg-mobile-dock-space))}
+  body.mg-mobile-dock-course .mg-controls{display:none}
+  body.mg-mobile-dock-course .mg-sidebar{padding-bottom:10px}
+  body.mg-mobile-dock-course .mg-topbar{display:flex;gap:8px}
+  body.mg-mobile-dock-course #mgCounter{margin-left:0}
+  .mg-mobile-context{display:flex;align-items:center;gap:8px;margin-left:auto;padding:0;border:0;background:transparent;box-shadow:none}
+  .mg-mobile-context>.mg-round,.mg-mobile-dock>.mg-dock-control{display:flex;align-items:center;justify-content:center;flex:0 0 48px;width:48px;height:48px;min-width:48px;min-height:48px;margin:0;padding:0;border:1px solid var(--mg-dock-border);border-radius:50%;background:var(--mg-dock-glass);box-shadow:inset 0 1px 0 #ffffff30;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+  .mg-mobile-context>#mgLevelTrigger .mg-dock-icon,.mg-mobile-dock>#mgLevelTrigger .mg-dock-icon{border-radius:50%}
+  body.mg-mobile-dock-course:not(:is([data-view="lesson"],[data-view="done"],[data-view="sequences"])) #mgCounter{display:none}
+  body.mg-mobile-dock-course:not(:is([data-view="lesson"],[data-view="done"],[data-view="sequences"])) .mg-mobile-context{margin-inline:auto}
+  body.mg-mobile-dock-course .mg-dock-tools-empty{display:none}
+  .mg-mobile-dock{position:fixed;z-index:20;left:6px;right:6px;bottom:calc(8px + var(--mg-dock-safe-area) + var(--mg-dock-obstruction,0px));display:grid;grid-template-columns:minmax(54px,1.2fr) repeat(4,minmax(44px,1fr)) minmax(54px,1.2fr);align-items:center;gap:4px;min-height:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--mg-ink);box-shadow:none}
+  .mg-dock-settings{display:grid;grid-row:1;grid-column:2 / span 4;grid-template-columns:repeat(4,minmax(44px,1fr));gap:0;min-width:0;padding:4px 0;border-radius:17px;background:var(--mg-dock-glass);box-shadow:inset 0 0 0 1px var(--mg-dock-border);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+  .mg-dock-settings>.mg-round{display:flex;grid-row:1;align-items:center;justify-content:center;flex:none;width:100%;height:48px;min-width:44px;min-height:44px;margin:0;padding:0;border:0;border-radius:12px;overflow:visible;background:transparent;color:var(--mg-ink);box-shadow:none;font-family:inherit;font-size:11px;line-height:1.2;font-weight:650}
+  .mg-dock-icon{display:flex;align-items:center;justify-content:center;flex:none;width:32px;height:32px;border-radius:10px;background:transparent;font-size:17px;font-weight:800}
+  .mg-dock-icon>svg{width:26px;height:26px}
+  .mg-dock-shortcut .mg-dock-icon>svg{width:27px;height:27px}
+  .mg-dock-shortcut-label{display:none}
+  #mgLanguageTrigger #mgLanguageFlag[data-language]{width:32px;height:21.333px}
+  .mg-dock-icon>.mg-colorwheel{width:28px;height:28px}
+  #mgLevelTrigger .mg-dock-icon{background:linear-gradient(rgba(0,0,0,.04),rgba(0,0,0,.04)),var(--mg-level-color,#147e77);color:#fff}
+  .mg-dock-label{display:none}
+  .mg-mobile-dock .mg-dock-actions{display:contents;margin:0;padding:0}
+  body.mg-mobile-dock-course .mg-mobile-dock #mgFooter{padding:0}
+  .mg-dock-actions>.mg-action{display:flex;grid-row:1;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex:none;width:100%;height:56px;min-width:44px;min-height:44px;margin:0;padding:2px 0;border:0;border-radius:17px;font-size:11px;font-weight:700;line-height:1.2;white-space:normal}
+  body.mg-mobile-dock-course .mg-mobile-dock #mgFooter>.mg-action{padding-block:2px}
+  .mg-dock-actions>.mg-action>svg{width:23px;height:23px;flex:0 0 23px}
+  .mg-dock-actions>.mg-action>span{min-width:0;overflow-wrap:anywhere}
+  .mg-dock-actions>#mgReplay{grid-column:1;background:#e8f3f1;color:#145b57;box-shadow:inset 0 0 0 1px #92bdb6,0 2px 7px rgba(18,71,67,.12)}
+  .mg-dock-actions>#mgContinue{grid-column:6;background:#147d78;color:#fff;box-shadow:0 2px 8px rgba(9,66,62,.2)}
+  body[data-view="done"] .mg-dock-actions>.mg-action{height:auto;min-height:56px}
+  .mg-mobile-dock .mg-action:hover,.mg-mobile-dock #mgLevelTrigger:hover{filter:none}
+  .mg-mobile-dock .mg-dock-next-label{display:none;order:0}
+  body[data-view="lesson"] .mg-mobile-dock #mgContinueText{display:none}
+  body[data-view="lesson"] .mg-mobile-dock .mg-dock-next-label{display:inline}
+  .mg-mobile-dock>.mg-dock-listen{display:none}
+  .mg-mobile-dock.mg-dock-has-listen{row-gap:6px}
+  .mg-dock-has-listen .mg-dock-settings,.mg-dock-has-listen .mg-dock-actions>.mg-action{grid-row:2}
+  .mg-mobile-dock.mg-dock-has-listen>.mg-dock-listen{display:flex;grid-row:1;grid-column:1 / -1;align-items:center;justify-content:center;gap:8px;width:100%;height:auto;min-width:44px;min-height:44px;margin:0;padding:4px 8px;border:0;border-radius:17px;background:var(--mg-dock-glass);color:var(--mg-ink);box-shadow:inset 0 0 0 1px var(--mg-dock-border);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);filter:none}
+  .mg-mobile-dock .mg-dock-listen>svg{width:26px;height:26px;flex:0 0 26px}
+  .mg-mobile-dock .mg-dock-listen-label{display:inline;min-width:0;font-size:12px;font-weight:700;line-height:1.2;text-align:center;overflow-wrap:anywhere}
+  .mg-mobile-dock .mg-dock-listen:hover,.mg-mobile-context #mgLevelTrigger:hover{filter:none}
+  .mg-mobile-dock:has(#mgFooter[hidden]){grid-template-columns:repeat(4,minmax(44px,1fr));gap:0;padding:4px;border-radius:17px;background:var(--mg-dock-glass);box-shadow:inset 0 0 0 1px var(--mg-dock-border)}
+  .mg-mobile-dock:has(#mgFooter[hidden]) .mg-dock-settings{display:contents}
+  body.mg-mobile-dock-course[data-view="themes"] .mg-topbar{display:none}
+  body[data-view="themes"] .mg-mobile-dock:has(#mgFooter[hidden]){grid-template-columns:48px minmax(176px,1fr) 48px;gap:4px;padding:0;border-radius:0;background:transparent;box-shadow:none}
+  body[data-view="themes"] .mg-mobile-dock:has(#mgFooter[hidden]) .mg-dock-settings{display:grid;grid-column:2;grid-row:1}
+  body[data-view="themes"] .mg-mobile-dock>#mgLevelTrigger{grid-column:1;grid-row:1}
+  body[data-view="themes"] .mg-mobile-dock>#mgLanguageTrigger{grid-column:3;grid-row:1}
+  body.mg-mobile-dock-course .mg-card-toast{bottom:calc(var(--mg-mobile-dock-space) + var(--mg-dock-obstruction,0px) + 8px)}
+}
+
+@media(max-width:315px){
+  .mg-mobile-dock{left:2px;right:2px;grid-template-columns:minmax(50px,1fr) repeat(4,44px) minmax(50px,1fr);gap:0}
+  body.mg-mobile-dock-course .mg-topbar{gap:4px;padding-inline:0}
+  body[data-view="themes"] .mg-mobile-dock:has(#mgFooter[hidden]){gap:0}
+}

@@ -5,6 +5,8 @@
   const byId = id => document.getElementById(id);
   const ui = {
     language: byId('mgLanguage'), flag: byId('mgLanguageFlag'), palette: byId('mgPalette'),
+    languageTrigger: byId('mgLanguageTrigger'), languageDialog: byId('mgLanguageDialog'),
+    languageChoices: byId('mgLanguageChoices'), languageClose: byId('mgLanguageClose'), desktopNav: byId('mgDesktopNav'),
     level: byId('mgLevel'), levelText: byId('mgLevelText'), levelTrigger: byId('mgLevelTrigger'),
     levelDialog: byId('mgLevelDialog'), levelChoices: byId('mgLevelChoices'), levelClose: byId('mgLevelClose'),
     menuTrigger: byId('mgMenuTrigger'), menu: byId('mgMenuDialog'), menuNav: byId('mgMenuNav'),
@@ -15,17 +17,20 @@
     feedbackForm: byId('mgFeedbackForm'), feedbackMessage: byId('mgFeedbackMessage'),
     feedbackEmail: byId('mgFeedbackEmail'), feedbackHp: byId('mgFeedbackHp'),
     feedbackSend: byId('mgFeedbackSend'), feedbackStatus: byId('mgFeedbackStatus'),
+    accountStatus: byId('mgAccountStatus'), accountBack: byId('mgAccountBack'),
+    accountLogout: byId('mgAccountLogout'), accountLogin: byId('mgAccountLogin'), accountError: byId('mgAccountError'),
     back: byId('mgBack'), backText: byId('mgBackText'),
-    counter: byId('mgCounter'), progress: byId('mgProgress'), content: byId('mgContent'),
+    counter: byId('mgCounter'), progress: byId('mgProgress'), progressTrack: byId('mgProgress').closest('.mg-progress'), content: byId('mgContent'),
+    levelPercent: byId('mgLevelPercent'), levelEnd: byId('mgLevelEnd'),
     loading: byId('mgLoading'), loadingText: byId('mgLoadingText'), retry: byId('mgRetry'),
     themeView: byId('mgThemeView'), themeGrid: byId('mgThemeGrid'),
     sequenceView: byId('mgSequenceView'), sequenceHeading: byId('mgSequenceHeading'),
     sequences: byId('mgSequences'), lessonView: byId('mgLessonView'), lessonTheme: byId('mgLessonTheme'),
     phase: byId('mgPhaseIcon'), help: byId('mgHelp'), helpPanel: byId('mgHelpPanel'),
     helpText: byId('mgHelpText'), readingToggle: byId('mgReadingToggle'), readingToggleText: byId('mgReadingToggleText'),
-    model: byId('mgModel'), speaker: byId('mgSpeaker'), choices: byId('mgChoices'),
+    model: byId('mgModel'), modelTools: byId('mgModelTools'), speaker: byId('mgSpeaker'), choices: byId('mgChoices'),
     phrase: byId('mgPhrase'), phonrow: byId('mgPhonrow'), phon: byId('mgPhon'),
-    ear: byId('mgEar'), reading: byId('mgReading'), translation: byId('mgTranslation'),
+    ear: byId('mgEar'), listen: byId('mgListen'), reading: byId('mgReading'), translation: byId('mgTranslation'),
     done: byId('mgDone'), doneHeading: byId('mgDoneHeading'), status: byId('mgStatus'),
     footer: byId('mgFooter'), replay: byId('mgReplay'), replayText: byId('mgReplayText'),
     next: byId('mgContinue'), nextText: byId('mgContinueText'), toast: byId('mgCardToast')
@@ -37,11 +42,35 @@
     voiceChoices: new Map(), speechRate: 0.85, level: 1, requestedPair: null,
     loadGeneration: 0, request: null, levelCache: new Map(),
     referenceMap: new Map(), repertoireCache: new Map(), savedReview: [], readingPreferences: {},
-    deferredPhraseIds: new Set(), resumeGeneration: 0, allClassification: null, classificationOps: new Map()
+    deferredPhraseIds: new Set(), resumeGeneration: 0, allClassification: null, classificationOps: new Map(), accountLogoutPending: false
   };
+  const fetchCourseDocument = window.MelungaCourseData?.fetch || fetch;
   const courseAccess = window.MelungaCourseAccess;
+  const nativeCourses = window.MelungaNativeCourses;
+  const courseI18n = window.MelungaCourseI18n;
+  const voiceSelection = window.MelungaVoiceSelection;
+  voiceSelection?.preload().catch(() => {});
+  const nativeCodes = ['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko'];
+  const routeParameters = new URL(window.location.href).searchParams;
+  const explicitPair = routeParameters.get('pair');
+  let savedPair = '', savedLevel = '1', preferredNative = 'fr';
+  try {
+    savedPair = localStorage.getItem('melunga-course-pair') || '';
+    savedLevel = localStorage.getItem('melunga-course-level') || '1';
+    const locale = JSON.parse(localStorage.getItem('melunga-app-language') || 'null')?.locale;
+    const native = nativeCodes.includes(locale) ? locale : localStorage.getItem('ox_nat');
+    if (nativeCodes.includes(native)) preferredNative = native;
+    else if (nativeCourses?.isPair(savedPair)) preferredNative = savedPair.split('-')[0];
+  } catch (_) {}
+  state.nativeLanguage = nativeCourses?.isPair(explicitPair) ? explicitPair.split('-')[0] : preferredNative;
+  state.invalidPair = routeParameters.getAll('pair').length > 1 || explicitPair !== null && !nativeCourses?.isPair(explicitPair);
+  let firstLessonEntryPending = Boolean(ui.level) && !state.invalidPair && nativeCourses?.isPair(explicitPair)
+    && routeParameters.getAll('start').length === 1 && routeParameters.get('start') === 'lesson'
+    && routeParameters.getAll('level').length === 1 && routeParameters.get('level') === '1';
+  let menuAnchor = ui.menuTrigger;
   state.sourcePhraseMap = new Map();
   state.accessContextStepIds = new Set();
+  state.levelProgressIds = new Set();
   const canProduce = phrase => !ui.level || courseAccess?.canLearn(state.pair?.id, phrase, state.pair?.level) === true;
   const canShowCurrent = (step, phrase) => canProduce(phrase) || state.accessContextStepIds.has(step?.id)
     && (step?.kind === 'receive' || step?.isPreparation && step.kind === 'understand' && step.requiresProduction === false);
@@ -51,22 +80,44 @@
   }
   const reviewStorageKey = 'melunga-guided-review-v1';
   const readingStorageKey = 'melunga-guided-reading-v1';
-  const visibleSequenceCache = new WeakMap();
+  const knownStorageKey = 'melunga-guided-known-v1';
+  const progressPairs = nativeCourses?.pairIds || ['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr'];
   const cardMotion = { gesture: null, suppressClickUntil: 0, animationTimer: 0, toastTimer: 0, fitFrame: 0 };
   state.savedReview = loadSavedReview();
+  state.knownCards = loadKnownCards();
   try {
     const preferences = JSON.parse(localStorage.getItem(readingStorageKey) || '{}');
     if (preferences.version === 1 && preferences.pairs && typeof preferences.pairs === 'object') {
       for (const [pair, value] of Object.entries(preferences.pairs)) if (/^[a-z]{2}-[a-z]{2}$/.test(pair) && typeof value === 'boolean') state.readingPreferences[pair] = value;
     }
   } catch (_) { /* Storage can be unavailable; the lesson still works. */ }
-  const ambiences = ['ocean', 'aurora', 'dusk'];
+  const ambiences = ['dusk', 'ocean', 'aurora',
+    'legacy-gamified', 'legacy-zen', 'legacy-premium', 'legacy-sunset', 'legacy-neon',
+    'legacy-ocean', 'legacy-forest', 'legacy-spotify', 'legacy-plum', 'legacy-lantern',
+    'legacy-aurora', 'legacy-cafe', 'legacy-insta', 'legacy-bordeaux'];
+  let savedAmbience = null;
+  try {
+    savedAmbience = localStorage.getItem('melunga-course-ambience');
+  } catch (_) { /* The selected colour still works when storage is unavailable. */ }
+  if (!ambiences.includes(savedAmbience)) {
+    try { savedAmbience = sessionStorage.getItem('melunga-course-ambience'); } catch (_) {}
+  }
+  if (ambiences.includes(savedAmbience)) {
+    state.ambienceIndex = ambiences.indexOf(savedAmbience);
+    document.body.dataset.ambience = savedAmbience;
+  }
+  function changeAmbience() {
+    state.ambienceIndex = (state.ambienceIndex + 1) % ambiences.length;
+    const ambience = ambiences[state.ambienceIndex];
+    document.body.dataset.ambience = ambience;
+    try { localStorage.setItem('melunga-course-ambience', ambience); } catch (_) { /* Keep the current colour. */ }
+    try { sessionStorage.setItem('melunga-course-ambience', ambience); } catch (_) { /* Keep the current colour. */ }
+  }
   // One local image atlas, shared by all languages. Each tile is a 4:3 scene.
   const themePhotos = new Map([
     'saluer', 'comprendre', 'ressentis', 'repas', 'deplacements', 'reperes',
     'quotidien', 'decrire', 'conversation', 'travail', 'personnaliser'
   ].map((id, index) => [id, { column: index % 3, row: Math.floor(index / 3) }]));
-  const voices = { zh: 'zh-CN', es: 'es-ES', en: 'en-GB', fr: 'fr-FR', it: 'it-IT', ko: 'ko-KR', ja: 'ja-JP' };
   const svg = paths => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + paths + '</svg>';
   const icons = {
     chat: svg('<path d="M21 11.5a8.4 8.4 0 0 1-9 8.2 10 10 0 0 1-4-.8L3 21l1.4-5.3A8.2 8.2 0 0 1 3 11.5a9 9 0 0 1 18 0Z"/><path d="M8 11h.01M12 11h.01M16 11h.01"/>'),
@@ -92,8 +143,13 @@
     'Réécouter': '再听一次', 'Rejouer': '再练一次', 'Séquence terminée': '本组已完成',
     'Thème terminé': '本主题已完成', 'Facultatif': '可选',
     'Abonnement': '订阅解锁', 'gratuits': '免费', 'Mon compte': '我的账户',
+    'Accès complet actif sur cet appareil.': '此设备可使用全部内容。',
+    'Aperçu de l’espace compte.': '账户页面预览。',
+    'Connecte-toi pour retrouver ton accès.': '登录以恢复访问权限。',
+    'Revenir aux leçons': '返回课程', 'Se déconnecter': '退出登录',
+    'Déconnexion en cours…': '正在退出…', 'Déconnexion impossible. Réessaie.': '暂时无法退出，请重试。',
+    'Se déconnecter ? Cet appareil sera verrouillé jusqu’à ta prochaine connexion.': '确定退出登录？此设备将被锁定，直到你重新登录。',
     'Révision terminée': '复习已完成',
-    'Les séquences ne sont pas disponibles. Recharge la page pour réessayer.': '学习分组暂时不可用，请刷新页面后重试。',
     'À revoir': '待复习', 'Revoir': '复习', 'Retirer': '移除', 'Pinyin': '拼音',
     'Enregistré dans À revoir.': '已加入待复习。', 'Je connais.': '我会了。',
     'Elle reviendra': '稍后再练', 'Rangée': '已掌握',
@@ -102,7 +158,8 @@
     'Ce contenu a été actualisé. Tu peux le retrouver dans les thèmes.': '内容已更新，可以在主题中重新查找。',
     'Menu': '菜单', 'Menu des rubriques': '栏目菜单', 'Rubriques': '栏目',
     'Revenir au menu': '返回菜单', 'Fermer le menu': '关闭菜单', 'Fermer les niveaux': '关闭级别选择',
-    'Accueil': '首页', 'Révisions et exercices': '复习与练习', 'Toutes les leçons': '所有课程',
+    'Cette progression ne peut pas être enregistrée. Réessaie avant de quitter cette page.': '无法保存学习进度。请在离开此页前重试。',
+    'Accueil': '首页', 'Révisions et exercices': '复习与练习', 'Toutes les leçons': '所有课程', 'Fin': '完成',
     'Voix': '语音', 'Couleur': '背景颜色', 'Comment ça marche': '使用方法',
     'Avis': '意见反馈', 'Se connecter / Créer un compte': '登录 / 注册账号',
     'Voix automatique': '自动选择语音', 'Vitesse de lecture': '语速',
@@ -121,7 +178,10 @@
     'Écouter la phrase': '听这句话', 'Écouter': '听一听',
     'Révéler et écouter la phrase': '显示并听这句话', 'Révéler et écouter': '显示并听一听',
     'Changer d’ambiance': '更换背景', 'Voir les thèmes': '查看主题',
-    'Langue à apprendre': '学习语言', 'Choisir un niveau': '选择级别', 'Aide pour cette étape': '本步骤帮助',
+    'Langue à apprendre': '学习语言', 'Choisir une langue': '选择学习语言', 'Langues': '语言', 'Fermer les langues': '关闭语言选择',
+    'Anglais': '英语', 'Espagnol': '西班牙语', 'Italien': '意大利语', 'Chinois': '中文', 'Japonais': '日语', 'Coréen': '韩语', 'Français': '法语',
+    'Révisions': '复习', 'Aide': '帮助', 'Connexion': '登录',
+    'Choisir un niveau': '选择级别', 'Aide pour cette étape': '本步骤帮助',
     'Choisir une réponse': '选择回答', 'Niveau 1': '第一级',
     'Modèle': '待补全', 'Écouter l’autre': '听对方说话', 'Se rappeler': '回忆',
     'Répéter': '跟读', 'Comparer': '比较',
@@ -137,15 +197,18 @@
     'Retrouve le mot à partir de son sens. L’oreille révèle le modèle et permet de le réécouter.': '根据意思回忆这个词语。点击耳朵可以查看并再次听到它。',
     'Écouter le mot': '听这个词语', 'Révéler et écouter le mot': '显示并听这个词语',
     'L’audio n’est pas disponible sur ce navigateur.': '此浏览器暂不支持播放语音。',
-    'L’audio n’a pas pu démarrer. Tu peux réessayer.': '语音未能播放，请重试。'
+    'L’audio n’a pas pu démarrer. Tu peux réessayer.': '语音未能播放，请重试。',
+    'Voix féminine': '女声', 'Voix masculine': '男声',
+    'Audio indisponible. Réessaie.': '语音暂不可用，请重试。'
   };
-  const tr = value => state.pair && state.pair.nativeLanguage === 'zh' ? chinese[value] || value : value;
-  const quantityLabel = (count, contentType) => {
-    const isChinese = state.pair && state.pair.nativeLanguage === 'zh';
-    if (contentType === 'vocabulary') return count + (isChinese ? ' 个词语' : count === 1 ? ' mot ou locution' : ' mots et locutions');
-    if (contentType === 'number') return count + (isChinese ? ' 个数词' : count === 1 ? ' nombre' : ' nombres');
-    return count + (isChinese ? ' 句表达' : count === 1 ? ' expression' : ' expressions');
-  };
+  const tr = value => courseI18n ? courseI18n.t(state.nativeLanguage, value)
+    : state.nativeLanguage === 'zh' ? chinese[value] || value : value;
+  const format = (key, n) => courseI18n.format(state.nativeLanguage, key, {n});
+  const quantityLabel = (count, contentType) => format(
+    (contentType === 'vocabulary' ? 'vocabulary' : contentType === 'number' ? 'number' : 'expression')
+      + (count === 1 ? 'One' : 'Other'), count);
+  const availablePairs = () => state.data.pairs.filter(pair =>
+    pair.nativeLanguage === state.nativeLanguage && pair.studyLanguage !== state.nativeLanguage);
   const levelQuantityLabel = () => {
     if (state.pair._accessView && !state.pair.themes.some(theme => theme.presentedCount > 0)) return tr('Abonnement');
     if (!state.pair.counts) return quantityLabel(pairCount(state.pair));
@@ -192,12 +255,109 @@
   };
   const setStatus = message => text(ui.status, tr(message));
 
+  // Only an explicit card validation counts. Source identity, not the
+  // number of appearances or lesson steps, makes a card unique in a level.
+  function collectLevelProgressIds(pair, models) {
+    const ids = new Set();
+    for (const theme of pair.themes) {
+      if (theme.isTemplate || theme.isTemplateCollection) continue;
+      for (const sequence of theme.sequences) for (const id of sequence.phraseIds) {
+        const phrase = models.get(id);
+        if (phrase && !phrase.isTemplate && phrase.kind !== 'received' && phrase.speaker !== 'B') ids.add(id);
+      }
+    }
+    return ids;
+  }
+
+  function levelProgress() {
+    const ids = state.levelProgressIds;
+    const knownIds = state.knownCards.get(state.pair?.id);
+    let known = 0;
+    for (const id of ids) if (knownIds?.has(id)) known += 1;
+    const total = ids.size;
+    const ratio = total ? known / total : 0;
+    // Integer labels never announce 100% while any card remains unknown.
+    return { known, total, ratio, percent: Math.floor(ratio * 100) };
+  }
+
+  function renderLevelProgress() {
+    if (!ui.level || !state.pair) return;
+    const summary = levelProgress();
+    const levelName = format('level', state.pair.level);
+    const label = levelName + ' · ' + summary.percent + ' %';
+    text(ui.counter, 'L' + state.pair.level);
+    text(ui.levelPercent, summary.percent + ' %');
+    text(ui.levelEnd, tr('Fin'));
+    ui.progress.style.width = summary.ratio * 100 + '%';
+    ui.progressTrack.style.setProperty('--mg-level-ratio', summary.ratio * 100 + '%');
+    // Positive colour cues are presentation only; the known-card ratio above
+    // remains the sole source of progress and completion.
+    const stops = [[80, 214, 232], [112, 234, 173], [255, 216, 113]];
+    const stage = summary.ratio < 0.5 ? 0 : 1;
+    const blend = stage ? (summary.ratio - 0.5) * 2 : summary.ratio * 2;
+    const colour = stops[stage].map((channel, index) => Math.round(channel + (stops[stage + 1][index] - channel) * blend));
+    ui.progressTrack.style.setProperty('--mg-journey-colour', 'rgb(' + colour.join(', ') + ')');
+    ui.progressTrack.classList.toggle('is-complete', summary.known === summary.total && summary.total > 0);
+    ui.progressTrack.removeAttribute('aria-hidden');
+    ui.progressTrack.setAttribute('role', 'progressbar');
+    ui.progressTrack.setAttribute('aria-label', levelName);
+    ui.progressTrack.setAttribute('aria-valuemin', '0');
+    ui.progressTrack.setAttribute('aria-valuemax', '100');
+    ui.progressTrack.setAttribute('aria-valuenow', String(summary.ratio * 100));
+    ui.progressTrack.setAttribute('aria-valuetext', label);
+  }
+
+  function loadKnownCards() {
+    const pairs = new Map();
+    try {
+      const stored = JSON.parse(localStorage.getItem(knownStorageKey) || '{}');
+      if (stored.version !== 1 || !stored.pairs || typeof stored.pairs !== 'object' || Array.isArray(stored.pairs)) return pairs;
+      for (const pair of progressPairs) {
+        const values = stored.pairs[pair];
+        if (!Array.isArray(values)) continue;
+        pairs.set(pair, new Set(values.filter(id => typeof id === 'string' && id.length > 0 && id.length <= 512)));
+      }
+    } catch (_) { /* No prior decisions can be inferred from missing storage. */ }
+    return pairs;
+  }
+
+  function saveKnownCard(pairId, id, known) {
+    const pairs = loadKnownCards();
+    const ids = pairs.get(pairId) || new Set();
+    if (ids.has(id) === known) { state.knownCards = pairs; return true; }
+    if (known) ids.add(id); else ids.delete(id);
+    if (ids.size) pairs.set(pairId, ids); else pairs.delete(pairId);
+    try {
+      localStorage.setItem(knownStorageKey, JSON.stringify({ version: 1,
+        pairs: Object.fromEntries([...pairs].map(([pair, values]) => [pair, [...values]])) }));
+      state.knownCards = pairs;
+      return true;
+    } catch (_) {
+      setStatus('Cette progression ne peut pas être enregistrée. Réessaie avant de quitter cette page.');
+      return false;
+    }
+  }
+
+  function saveCardDecision(phrase, known, reviewEntries) {
+    if (!ui.level) return saveReviewEntries(reviewEntries);
+    const previousReview = state.savedReview;
+    const changed = previousReview.length !== reviewEntries.length
+      || previousReview.some((entry, index) => entry !== reviewEntries[index]);
+    if (changed && !saveReviewEntries(reviewEntries)) return false;
+    if (ui.level && !saveKnownCard(state.pair.id, phrase.id, known)) {
+      // Keep the prior reminder if the separate progress write is refused.
+      if (changed) saveReviewEntries(previousReview);
+      return false;
+    }
+    return true;
+  }
+
   const menuPanels = {
     voice: byId('mgVoicePanel'), review: byId('mgReviewPanel'),
     saved: byId('mgSavedReviewPanel'),
-    feedback: byId('mgFeedbackPanel'), info: byId('mgInfoPanel')
+    feedback: byId('mgFeedbackPanel'), info: byId('mgInfoPanel'), account: byId('mgAccountPanel')
   };
-  const menuTitles = { nav: 'Menu', voice: 'Voix', review: 'Révisions et exercices', saved: 'À revoir', feedback: 'Avis', info: 'Comment ça marche' };
+  const menuTitles = { nav: 'Menu', voice: 'Voix', review: 'Révisions et exercices', saved: 'À revoir', feedback: 'Avis', info: 'Comment ça marche', account: 'Mon compte' };
 
   function loadSavedReview() {
     try {
@@ -305,7 +465,7 @@
       themeId: inTheme ? state.theme.id : location?.themeId || originalTheme?.id || state.theme.id,
       study: phrase.study, native: phrase.native, addedAt: previous?.addedAt || Date.now() };
     const entries = state.savedReview.filter(item => item.pairId !== entry.pairId || item.id !== entry.id);
-    if (!saveReviewEntries([...entries, entry])) return;
+    if (!saveCardDecision(phrase, false, [...entries, entry])) return;
     state.deferredPhraseIds.add(phrase.id);
     browsePhrase(1);
     showCardToast('Elle reviendra');
@@ -322,41 +482,73 @@
     return 'app.html?' + query;
   }
 
-  function buildMenu() {
-    const rows = [
+  function legalMenuRows() {
+    const labels = {
+      fr: ['Conditions générales', 'Confidentialité'], en: ['Terms and Conditions', 'Privacy'],
+      es: ['Términos', 'Privacidad'], zh: ['服务条款', '隐私政策'],
+      it: ['Termini', 'Privacy'], ja: ['利用規約', 'プライバシー'], ko: ['이용약관', '개인정보']
+    };
+    const native = state.nativeLanguage;
+    const language = ['fr', 'en', 'es', 'zh'].includes(native) ? native : 'en';
+    const suffix = language === 'fr' ? '' : '-' + language;
+    return ['terms', 'privacy'].map((key, index) => ({
+      key, label: labels[native][index] + (language === native ? '' : ' (EN)'),
+      icon: icons.info, href: key + suffix + '.html', language, newTab: true, secondaryOnly: true
+    }));
+  }
+
+  function menuRows() {
+    const account = courseAccess?.state();
+    return [
       { label: 'Accueil', icon: icons.home, href: 'index.html' },
       { label: 'Thèmes', icon: icons.folder, action: () => { closeMenu(); showThemes(); } },
       { label: 'À revoir', icon: icons.recall, panel: 'saved', key: 'À revoir' },
-      { label: 'Révisions et exercices', icon: icons.cap, panel: 'review' },
-      { label: 'Toutes les leçons', icon: icons.globe, href: lessonUrl() },
+      { label: 'Révisions et exercices', shortLabel: 'Révisions', icon: icons.cap, panel: 'review' },
       { label: 'Voix', icon: icons.headphones, panel: 'voice' },
-      { label: 'Couleur', icon: '<span class="mg-colorwheel" aria-hidden="true"></span>', action: () => {
-        state.ambienceIndex = (state.ambienceIndex + 1) % ambiences.length;
-        document.body.dataset.ambience = ambiences[state.ambienceIndex];
-      } },
-      { label: 'Comment ça marche', icon: icons.info, panel: 'info' },
+      { label: 'Couleur', icon: '<span class="mg-colorwheel" aria-hidden="true"></span>', action: changeAmbience },
+      { label: 'Comment ça marche', shortLabel: 'Aide', icon: icons.info, panel: 'info' },
       { label: 'Avis', icon: icons.chat, panel: 'feedback' },
-      { label: courseAccess?.state().paid ? 'Mon compte' : 'Se connecter / Créer un compte', icon: icons.person,
-        href: courseAccess?.state().paid ? lessonUrl() : lessonUrl(true) }
+      account?.paid || account?.unrestricted
+        ? { label: 'Mon compte', icon: icons.person, panel: 'account' }
+        : { label: 'Se connecter / Créer un compte', shortLabel: 'Connexion', icon: icons.person, href: lessonUrl(true) },
+      ...legalMenuRows()
     ];
-    ui.menuNav.replaceChildren(...rows.map(row => {
-      const item = document.createElement(row.href ? 'a' : 'button');
-      item.className = 'mg-menu-item';
-      item.dataset.menuItem = row.key || row.panel || row.label;
-      if (row.href) item.href = row.href;
-      else {
-        item.type = 'button';
-        item.addEventListener('click', row.action || (() => setMenuView(row.panel)));
+  }
+
+  function menuItem(row, desktop = false) {
+    const item = document.createElement(row.href ? 'a' : 'button');
+    item.className = desktop ? 'mg-rail-item' : 'mg-menu-item';
+    item.dataset.menuItem = row.key || row.panel || row.label;
+    item.setAttribute('aria-label', tr(row.label));
+    if (desktop) item.title = tr(row.label);
+    if (row.href) {
+      item.href = row.href;
+      if (row.language) item.hreflang = row.language;
+      if (row.newTab) { item.target = '_blank'; item.rel = 'noopener'; }
+    }
+    else {
+      item.type = 'button';
+      if (row.panel) {
+        item.setAttribute('aria-haspopup', 'dialog');
+        item.setAttribute('aria-controls', 'mgMenuDialog');
       }
-      const icon = document.createElement('span');
-      icon.className = 'mg-menu-icon'; icon.innerHTML = row.icon; icon.setAttribute('aria-hidden', 'true');
-      const label = document.createElement('span'); label.textContent = tr(row.label);
-      item.append(icon, label);
-      return item;
-    }));
+      item.addEventListener('click', row.action || (() => desktop ? openMenu(item, row.panel) : setMenuView(row.panel)));
+    }
+    const icon = document.createElement('span');
+    icon.className = desktop ? 'mg-rail-icon' : 'mg-menu-icon';
+    icon.innerHTML = row.icon; icon.setAttribute('aria-hidden', 'true');
+    const label = document.createElement('span'); label.textContent = tr(desktop ? row.shortLabel || row.label : row.label);
+    item.append(icon, label);
+    return item;
+  }
+
+  function buildMenu(includeDesktop = true) {
+    const rows = menuRows();
+    ui.menuNav.replaceChildren(...rows.map(row => menuItem(row)));
+    if (includeDesktop && ui.desktopNav) ui.desktopNav.replaceChildren(...rows.filter(row => !row.secondaryOnly).map(row => menuItem(row, true)));
     document.querySelectorAll('[data-mg-i18n]').forEach(node => text(node, tr(node.dataset.mgI18n)));
-    [[ui.menuClose, 'Fermer le menu'], [ui.menuBack, 'Revenir au menu'], [ui.menuNav, 'Rubriques']]
-      .forEach(([node, label]) => node.setAttribute('aria-label', tr(label)));
+    [[ui.menuClose, 'Fermer le menu'], [ui.menuBack, 'Revenir au menu'], [ui.menuNav, 'Rubriques'], [ui.desktopNav, 'Rubriques']]
+      .forEach(([node, label]) => node?.setAttribute('aria-label', tr(label)));
   }
 
   function positionPopup(dialog, trigger) {
@@ -376,8 +568,51 @@
       Math.min(top, bounds.top + bounds.height - rect.height - gutter)) + 'px');
   }
 
-  function positionMenu() { positionPopup(ui.menu, ui.menuTrigger); }
-  function positionPopups() { positionMenu(); positionPopup(ui.levelDialog, ui.levelTrigger); }
+  function positionMenu() { positionPopup(ui.menu, menuAnchor); }
+  function positionPopups() {
+    positionMenu(); positionPopup(ui.levelDialog, ui.levelTrigger); positionPopup(ui.languageDialog, ui.languageTrigger);
+  }
+
+  function buildLanguageChoices() {
+    text(byId('mgLanguageTitle'), tr('Langues'));
+    ui.languageClose.setAttribute('aria-label', tr('Fermer les langues'));
+    ui.languageTrigger.disabled = false;
+    ui.languageChoices.replaceChildren(...availablePairs().map(pair => {
+      const button = document.createElement('button'); button.type = 'button';
+      button.className = 'mg-language-option'; button.dataset.pair = pair.id;
+      button.setAttribute('aria-pressed', String(pair.id === state.pair.id));
+      const badge = document.createElement('span'); badge.className = 'mg-language-badge';
+      badge.textContent = pair.flag; badge.dataset.language = pair.studyLanguage; badge.setAttribute('aria-hidden', 'true');
+      const title = document.createElement('span'); title.className = 'mg-language-title';
+      title.textContent = courseI18n.languageName(state.nativeLanguage, pair.studyLanguage);
+      button.append(badge, title);
+      button.addEventListener('click', () => {
+        closeLanguages();
+        if (state.screen !== 'loading' && state.pair.id === pair.id) return;
+        ui.language.value = pair.id;
+        ui.language.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+      return button;
+    }));
+  }
+  function closeLanguages() {
+    if (ui.languageDialog?.open) ui.languageDialog.close();
+    ui.languageTrigger?.setAttribute('aria-expanded', 'false');
+  }
+  function openLanguages() {
+    if (!state.pair || ui.languageTrigger.disabled) return;
+    if (ui.languageDialog.open) return closeLanguages();
+    stopAudio(); closeHelp(); closeMenu(); closeLevels(); resetCardMotion();
+    ui.languageDialog.showModal(); ui.languageTrigger.setAttribute('aria-expanded', 'true');
+    positionPopup(ui.languageDialog, ui.languageTrigger);
+    const selected = ui.languageChoices.querySelector('[aria-pressed="true"]');
+    const body = ui.languageChoices.closest('.mg-menu-body');
+    if (body) {
+      body.scrollTop = 0;
+      if (selected) body.scrollTop = Math.max(0, selected.offsetTop - body.offsetTop - (body.clientHeight - selected.offsetHeight) / 2);
+    }
+    selected?.focus({ preventScroll: true });
+  }
 
   const levelColors = ['#228574', '#237e99', '#3369aa', '#5e5bb4', '#8b51ad',
     '#a54982', '#b2485c', '#a95d30', '#89671b', '#5f782d'];
@@ -412,7 +647,7 @@
   function openLevels() {
     if (!state.pair || ui.levelTrigger.disabled) return;
     if (ui.levelDialog.open) return closeLevels();
-    stopAudio(); closeHelp(); closeMenu(); resetCardMotion();
+    stopAudio(); closeHelp(); closeMenu(); closeLanguages(); resetCardMotion();
     ui.levelDialog.showModal(); ui.levelTrigger.setAttribute('aria-expanded', 'true');
     positionPopup(ui.levelDialog, ui.levelTrigger);
     const selected = ui.levelChoices.querySelector('[aria-pressed="true"]');
@@ -421,14 +656,28 @@
   }
 
   function fillVoices() {
-    const options = [new Option(tr('Voix automatique'), '')];
-    if ('speechSynthesis' in window) window.speechSynthesis.getVoices()
-      .filter(voice => voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage)
-      .forEach(voice => options.push(new Option(voice.name, voice.voiceURI)));
+    const language = state.pair.studyLanguage;
+    const snapshot = voiceSelection?.getSnapshot(language);
+    const chirp = (snapshot?.choices || []).filter(candidate => candidate.engine === 'chirp3');
+    const choices = snapshot?.selected?.engine === 'wavenet' ? [snapshot.selected, ...chirp] : chirp;
+    const options = choices.map(candidate => {
+      const number = candidate.engine === 'wavenet' ? candidate.name : tr('Voix ' + (chirp.indexOf(candidate) + 1));
+      const name = candidate.name.replace(/^.*-(?:Chirp3-HD|Wavenet)-/, '');
+      const gender = tr(candidate.gender === 'MALE' ? 'Voix masculine' : 'Voix féminine');
+      return new Option(number + ' · ' + name + ' · ' + gender, candidate.name);
+    });
+    if (!choices.length) options.push(new Option(tr(snapshot?.status === 'loading' || snapshot?.status === 'idle'
+      ? 'Catalogue des voix en cours de chargement…' : 'Catalogue des voix indisponible. Réessaie.'), ''));
+    else if (!snapshot?.voice) options.unshift(new Option(tr('Choisir une voix'), ''));
     ui.voice.replaceChildren(...options);
-    ui.voice.value = state.voiceChoices.get(state.pair.studyLanguage) || '';
-    if (ui.voice.selectedIndex < 0) ui.voice.selectedIndex = 0;
+    ui.voice.disabled = choices.length === 0;
+    ui.voice.value = snapshot?.voice?.name || '';
+    ui.voice.title = tr(snapshot?.provisional ? 'Voix provisoire de prévisualisation'
+      : snapshot?.selected ? 'Voix enregistrée pour cette langue'
+      : snapshot?.usesApprovedDefault ? 'Voix par défaut' : 'Choisir une voix');
+    ui.voice.dataset.provisional = String(!!snapshot?.provisional);
     ui.speed.value = String(state.speechRate);
+    if (snapshot?.status === 'error' || snapshot?.status === 'expired') voiceSelection.preload().catch(() => {});
   }
 
   function setMenuView(view) {
@@ -439,6 +688,7 @@
     text(ui.menuTitle, tr(menuTitles[view]));
     if (view === 'voice') fillVoices();
     if (view === 'saved') renderSavedReview();
+    if (view === 'account') renderAccount();
     if (view === 'review') {
       const themes = state.pair.themes.filter(theme => !theme.isTemplateCollection);
       ui.reviewTheme.replaceChildren(...themes.map(theme => new Option(themeLabel(theme), theme.id)));
@@ -450,18 +700,50 @@
     section.querySelector('button,a,select,input,textarea')?.focus({ preventScroll: true });
   }
 
-  function openMenu() {
+  function openMenu(anchor = ui.menuTrigger, view = 'nav') {
     if (!state.pair) return;
     if (ui.menu.open) return closeMenu();
-    stopAudio(); closeHelp(); closeLevels(); buildMenu();
+    stopAudio(); closeHelp(); closeLevels(); closeLanguages(); buildMenu(false);
+    menuAnchor = anchor;
     ui.menu.showModal();
     ui.menuTrigger.setAttribute('aria-expanded', 'true');
-    setMenuView('nav');
+    setMenuView(view);
   }
 
   function closeMenu() {
     if (ui.menu.open) ui.menu.close();
     ui.menuTrigger.setAttribute('aria-expanded', 'false');
+  }
+
+  function renderAccount() {
+    const account = courseAccess?.state();
+    text(ui.accountStatus, tr(account?.unrestricted ? 'Aperçu de l’espace compte.'
+      : account?.paid ? 'Accès complet actif sur cet appareil.' : 'Connecte-toi pour retrouver ton accès.'));
+    text(ui.accountError, '');
+    text(ui.accountLogout, tr(state.accountLogoutPending ? 'Déconnexion en cours…' : 'Se déconnecter'));
+    ui.accountLogout.hidden = !account?.paid && !account?.unrestricted;
+    ui.accountLogout.disabled = !account?.paid || state.accountLogoutPending;
+    ui.accountLogin.hidden = Boolean(account?.paid || account?.unrestricted);
+    ui.accountLogin.href = lessonUrl(true);
+  }
+
+  async function logoutAccount() {
+    if (state.accountLogoutPending || !courseAccess?.state().paid) return;
+    if (!window.confirm(tr('Se déconnecter ? Cet appareil sera verrouillé jusqu’à ta prochaine connexion.'))) return;
+    state.accountLogoutPending = true;
+    renderAccount();
+    ui.accountLogout.setAttribute('aria-busy', 'true');
+    try {
+      if (await courseAccess.logout() !== true) throw new Error('Logout unavailable');
+      closeMenu();
+    } catch (_) {
+      text(ui.accountError, tr('Déconnexion impossible. Réessaie.'));
+    } finally {
+      state.accountLogoutPending = false;
+      ui.accountLogout.removeAttribute('aria-busy');
+      ui.accountLogout.disabled = !courseAccess.state().paid;
+      text(ui.accountLogout, tr('Se déconnecter'));
+    }
   }
 
   function reviewTheme(recall) {
@@ -477,11 +759,27 @@
     startSequence({ id: state.pair.id + ':' + theme.id + ':review', phraseIds: phrases.map(phrase => phrase.id), steps }, 'review');
   }
 
+  function setAudioPlaying(playing) {
+    for (const control of [ui.ear, ui.listen]) {
+      if (!control) continue;
+      control.classList.toggle('is-playing', playing);
+      if (playing) control.setAttribute('aria-busy', 'true');
+      else control.removeAttribute('aria-busy');
+    }
+  }
+
+  const lessonAudio = window.MelungaLessonAudio?.createPlayer({
+    onPlaying: setAudioPlaying,
+    onUnavailable: () => setStatus('Audio indisponible. Réessaie.')
+  });
+  voiceSelection?.subscribe(() => {
+    if (state.pair && ui.menu.open && state.menuView === 'voice') fillVoices();
+  });
+
   function stopAudio() {
     state.speechGeneration += 1;
-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-    ui.ear.classList.remove('is-playing');
-    ui.ear.removeAttribute('aria-busy');
+    lessonAudio?.stop();
+    setAudioPlaying(false);
   }
 
   function closeHelp() {
@@ -501,6 +799,8 @@
   function showView(screen) {
     resetCardMotion();
     state.screen = screen;
+    if (screen === 'loading') ui.loading.classList.remove('has-error');
+    ui.loading.setAttribute('aria-busy', String(screen === 'loading'));
     ui.loading.hidden = screen !== 'loading';
     ui.themeView.hidden = screen !== 'themes';
     ui.sequenceView.hidden = screen !== 'sequences';
@@ -508,14 +808,26 @@
     ui.footer.hidden = !['lesson', 'done'].includes(screen);
     ui.back.hidden = ['loading', 'themes'].includes(screen);
     ui.menuTrigger.disabled = screen === 'loading';
+    ui.languageTrigger.disabled = screen === 'loading';
+    if (ui.levelTrigger) ui.levelTrigger.disabled = screen === 'loading';
+    if (ui.desktopNav) ui.desktopNav.inert = screen === 'loading';
     ui.content.scrollTop = 0;
     document.body.dataset.view = screen;
+    const levelSummary = Boolean(ui.level && screen === 'themes');
+    document.body.classList.toggle('mg-has-level-progress', levelSummary);
+    ui.progressTrack.classList.toggle('is-level-progress', levelSummary);
+    if (ui.levelPercent) ui.levelPercent.hidden = !levelSummary;
+    if (ui.levelEnd) ui.levelEnd.hidden = !levelSummary;
+    if (levelSummary) renderLevelProgress();
+    else {
+      ui.progressTrack.setAttribute('aria-hidden', 'true');
+      for (const attr of ['role', 'aria-label', 'aria-valuemin', 'aria-valuemax', 'aria-valuenow', 'aria-valuetext']) ui.progressTrack.removeAttribute(attr);
+    }
     queueLessonFit();
   }
 
-  // Fit the complete text, rather than truncating it or giving the lesson an
-  // inner scrollbar. Short cards retain their normal large type. Longer cards
-  // first use tighter spacing, then adapt to the available viewport.
+  // Keep complete text readable: tighter spacing first, then desktop scrolling
+  // or the existing mobile viewport fit.
   function queueLessonFit() {
     if (cardMotion.fitFrame) return;
     cardMotion.fitFrame = requestAnimationFrame(() => {
@@ -527,6 +839,8 @@
   function fitLesson() {
     if (!['lesson', 'done'].includes(state.screen)) return;
     const root = document.body;
+    const desktopScrollTop = root.classList.contains('mg-desktop-lesson-scroll') ? ui.content.scrollTop : 0;
+    root.classList.remove('mg-desktop-lesson-scroll');
     // A deploy preview can add its own fixed bottom toolbar. Reserve its real
     // occupied space, including when it is injected after the lesson loads.
     let usableHeight = window.innerHeight;
@@ -560,6 +874,18 @@
     root.style.setProperty('--mg-fit-model-padding', '2px');
     root.style.setProperty('--mg-fit-phon-padding', '6px');
     if (fits()) return;
+    // Preserve readable desktop type when browser zoom or a long phrase leaves
+    // too little height. The course content can scroll without shrinking text.
+    if (root.classList.contains('mg-desktop-course')) {
+      root.classList.add('mg-desktop-lesson-scroll');
+      // Re-measuring must not pull the retry actions out of view after a failed
+      // save changes the status message and the available content height.
+      ui.content.scrollTop = desktopScrollTop;
+      if (ui.status.textContent && ui.footer.contains(document.activeElement)) {
+        ui.footer.scrollIntoView({ block: 'nearest' });
+      }
+      return;
+    }
     const scaleFonts = scale => visible.forEach((node, index) => {
       node.style.fontSize = Math.max(node === ui.reading ? 10 : 12, baseline[index] * scale) + 'px';
     });
@@ -654,14 +980,10 @@
     quantity.className = 'mg-theme-count';
     quantity.textContent = quantityLabel(count, theme && theme.contentType);
     if (theme && theme.reviewCount) {
-      quantity.textContent += state.pair.nativeLanguage === 'zh'
-        ? ' · 其中 ' + theme.reviewCount + ' 项复习'
-        : ' · ' + theme.reviewCount + (theme.reviewCount === 1 ? ' révision' : ' révisions');
+      quantity.textContent += ' · ' + format(theme.reviewCount === 1 ? 'reviewOne' : 'reviewOther', theme.reviewCount);
     }
     if (theme && theme.reuseCount) {
-      quantity.textContent += state.pair.nativeLanguage === 'zh'
-        ? ' · 其中 ' + theme.reuseCount + ' 项情境复用'
-        : ' · ' + theme.reuseCount + (theme.reuseCount === 1 ? ' réemploi' : ' réemplois');
+      quantity.textContent += ' · ' + format(theme.reuseCount === 1 ? 'reuseOne' : 'reuseOther', theme.reuseCount);
     }
     if (theme && theme.optional) quantity.textContent += ' · ' + tr('Facultatif');
     if (theme?._accessLocked) {
@@ -677,6 +999,7 @@
     arrow.innerHTML = icons.arrow;
     arrow.setAttribute('aria-hidden', 'true');
     if (className === 'mg-theme') {
+      button.dataset.themeId = theme.id;
       const number = document.createElement('span');
       number.className = 'mg-theme-number';
       number.textContent = themeNumber(theme);
@@ -697,8 +1020,10 @@
     state.sequence = null;
     state.lessonScope = 'sequence';
     setStatus('');
-    text(ui.counter, levelQuantityLabel());
-    ui.progress.style.width = '0%';
+    if (!ui.level) {
+      text(ui.counter, levelQuantityLabel());
+      ui.progress.style.width = '0%';
+    }
     const cards = [];
     let section = null;
     for (const theme of state.pair.themes) {
@@ -706,9 +1031,7 @@
         section = theme.section;
         const heading = document.createElement('h2');
         heading.className = 'mg-grid-section';
-        heading.textContent = state.pair.nativeLanguage === 'zh'
-          ? section === 'situations' ? '情境表达' : '词汇与数字'
-          : section === 'situations' ? 'Situations' : 'Vocabulaire et nombres';
+        heading.textContent = tr(section === 'situations' ? 'Situations' : 'Vocabulaire et nombres');
         cards.push(heading);
       }
       cards.push(tile(theme.title, phraseCount(theme), themeIcon(theme), () => openTheme(theme), 'mg-theme', theme));
@@ -717,45 +1040,8 @@
     showView('themes');
   }
 
-  function hasVisibleSequences(theme = state.theme) {
-    return Boolean(theme && state.pair?.version === 2 && phraseCount(theme) > 100);
-  }
-
-  function learningSequences(theme = state.theme) {
-    if (!hasVisibleSequences(theme)) return theme?.sequences || [];
-    if (visibleSequenceCache.has(theme)) return visibleSequenceCache.get(theme);
-    const partition = window.MelungaVisibleSequences?.partitionGroupBoundaries;
-    if (typeof partition !== 'function') throw new Error('Visible sequence partition is unavailable');
-    const boundaries = partition(theme.sequences.map(sequence => sequence.phraseIds.length));
-    const sequences = boundaries.map((boundary, index) => {
-      const groups = theme.sequences.slice(boundary.groupStart, boundary.groupEndExclusive);
-      return {
-        id: state.pair.id + ':' + theme.id + ':visible:' + (index + 1),
-        index: index + 1,
-        ...boundary,
-        phraseIds: groups.flatMap(sequence => sequence.phraseIds),
-        preparationIds: groups.flatMap(sequence => sequence.preparationIds || []),
-        steps: groups.flatMap(sequence => sequence.steps)
-      };
-    });
-    visibleSequenceCache.set(theme, sequences);
-    return sequences;
-  }
-
-  function sequencePosition() {
-    return state.lessonScope === 'sequence' && hasVisibleSequences()
-      ? learningSequences().indexOf(state.sequence) + 1 : 0;
-  }
-
-  function sequenceLabel(index, count) {
-    return state.pair.nativeLanguage === 'zh'
-      ? '第 ' + index + (count ? '/' + count : '') + ' 组'
-      : 'Séquence ' + index + (count ? '/' + count : '');
-  }
-
   function openTheme(theme) {
     if (theme._accessLocked) { openAccount(); return; }
-    if (hasVisibleSequences(theme)) return showSequences(theme);
     state.theme = theme;
     // Keep the prepared groups in order, but make the whole theme one lesson.
     startSequence({
@@ -767,13 +1053,6 @@
 
   function showSequences(theme = state.theme) {
     if (!theme) return showThemes();
-    if (!hasVisibleSequences(theme)) return openTheme(theme);
-    let sequences;
-    try { sequences = learningSequences(theme); }
-    catch (_) {
-      setStatus('Les séquences ne sont pas disponibles. Recharge la page pour réessayer.');
-      return;
-    }
     stopAudio();
     closeHelp();
     state.theme = theme;
@@ -782,18 +1061,12 @@
     setStatus('');
     text(ui.sequenceHeading, themeLabel(theme));
     text(ui.backText, tr('Thèmes'));
-    text(ui.counter, quantityLabel(phraseCount(theme), theme.contentType));
+    text(ui.counter, quantityLabel(phraseCount(theme)));
     ui.progress.style.width = '0%';
-    ui.sequences.replaceChildren(...sequences.map((sequence, index) => {
-      const button = tile(sequenceLabel(index + 1), sequence.phraseIds.length, themeIcon(theme),
-        () => startSequence(sequence), 'mg-sequence', { contentType: theme.contentType });
-      button.dataset.sequenceIndex = String(index + 1);
-      button.dataset.sequenceCount = String(sequences.length);
-      button.dataset.firstPresentation = String(sequence.firstPresentation);
-      button.dataset.lastPresentation = String(sequence.lastPresentation);
-      button.querySelector('.mg-theme-count').append(' · ' + sequence.firstPresentation + '–' + sequence.lastPresentation);
-      return button;
-    }));
+    ui.sequences.replaceChildren(...theme.sequences.map((sequence, index) => tile(
+      sequence.title || format('sequence', index + 1),
+      sequence.phraseIds.length, themeIcon(theme), () => startSequence(sequence), 'mg-sequence'
+    )));
     showView('sequences');
     ui.sequenceHeading.focus({ preventScroll: true });
   }
@@ -857,18 +1130,22 @@
     ui.done.hidden = true;
     ui.help.hidden = false;
     ui.phase.hidden = false;
-    const sequenceIndex = sequencePosition();
-    const sequenceContext = sequenceIndex ? ' · ' + sequenceLabel(sequenceIndex, learningSequences().length) : '';
-    text(ui.lessonTheme, themeLabel(state.theme) + sequenceContext + (step.isReview
-      ? state.pair.nativeLanguage === 'zh' ? ' · 复习' : ' · Révision'
-      : step.isContextReuse ? state.pair.nativeLanguage === 'zh' ? ' · 情境复用' : ' · Réemploi' : ''));
+    const themeDescription = themeLabel(state.theme) + (step.isReview
+      ? ' · ' + tr('Révision') : step.isContextReuse ? ' · ' + tr('Réemploi') : '');
+    text(ui.lessonTheme, state.pair.themes.includes(state.theme) ? themeNumber(state.theme) : state.theme.title);
+    ui.lessonTheme.setAttribute('aria-label', themeDescription);
+    ui.lessonTheme.title = themeDescription;
     text(ui.backText, tr(state.lessonScope !== 'sequence' ? 'Thèmes' : 'Séquences'));
     ui.phase.innerHTML = definition.icon;
     ui.phase.setAttribute('aria-label', tr(definition.label));
     ui.phase.title = tr(definition.label);
     const formHelp = phrase.lexicalUsage?.requiresNounInUtterance
       ? 'Cette forme s’emploie devant un nom ; elle ne constitue pas une phrase toute seule.' : '';
-    text(ui.helpText, tr(definition.help) + (formHelp ? ' ' + tr(formHelp) : ''));
+    const phoneticHelp = phrase.phoneticMode === 'english-fallback'
+      ? 'Cette aide reprend la notation anglaise du catalogue d’origine.'
+      : ['pinyin-fallback', 'unavailable'].includes(phrase.phoneticMode)
+        ? 'La phonétique adaptée à ta langue maternelle n’est pas encore disponible pour cette carte.' : '';
+    text(ui.helpText, [definition.help, formHelp, phoneticHelp].filter(Boolean).map(tr).join(' '));
     const position = Math.max(0, state.sequence.phraseIds.indexOf(step.prepares || phrase.id)) + 1;
     text(ui.counter, position + ' / ' + state.sequence.phraseIds.length);
     // Listening to the other speaker is context, never another learner task.
@@ -881,7 +1158,10 @@
     ui.phrase.hidden = masked || waitingForChoice;
     const pinyin = state.pair.studyLanguage === 'zh' && state.readingVisible && Boolean(phrase.reading);
     text(ui.phon, pinyin ? phrase.reading : phrase.phon);
-    ui.phon.lang = pinyin ? 'zh-Latn' : state.pair.nativeLanguage;
+    ui.phon.lang = pinyin || phrase.phoneticMode === 'pinyin-fallback' ? 'zh-Latn'
+      : phrase.phoneticMode === 'english-fallback' ? 'en' : state.pair.nativeLanguage;
+    ui.phon.title = phrase.phoneticMode === 'english-fallback' ? tr('Transcription anglaise') : '';
+    ui.phonrow.dataset.phoneticMode = phrase.phoneticMode || 'reviewed';
     ui.phonrow.dataset.readingMode = pinyin ? 'pinyin' : 'phonetic';
     ui.phon.hidden = masked || waitingForChoice || !phrase.phon;
     ui.phonrow.classList.toggle('is-recall', masked || waitingForChoice || !phrase.phon);
@@ -892,6 +1172,11 @@
       ? masked ? 'Révéler et écouter le mot' : 'Écouter le mot'
       : masked ? 'Révéler et écouter la phrase' : 'Écouter la phrase'));
     ui.ear.title = tr(masked ? 'Révéler et écouter' : 'Écouter');
+    if (ui.listen) {
+      ui.listen.hidden = ui.ear.hidden;
+      ui.listen.setAttribute('aria-label', ui.ear.getAttribute('aria-label'));
+      ui.listen.title = ui.ear.title;
+    }
     text(ui.translation, waitingForChoice ? '' : phrase.native);
     ui.translation.lang = state.pair.nativeLanguage;
     text(ui.reading, phrase.reading);
@@ -899,6 +1184,7 @@
     ui.readingToggle.hidden = !phrase.reading || state.pair.studyLanguage !== 'zh' && (masked || waitingForChoice);
     ui.readingToggle.disabled = masked || waitingForChoice;
     ui.readingToggle.setAttribute('aria-pressed', String(state.readingVisible));
+    if (ui.modelTools) ui.modelTools.hidden = ui.readingToggle.hidden && (!ui.listen || ui.listen.hidden);
     text(ui.readingToggleText, state.pair.studyLanguage === 'zh' ? tr('Pinyin') : tr(state.readingVisible ? 'Masquer la lecture' : 'Afficher la lecture'));
     ui.speaker.hidden = !isReceived(step, phrase);
     const role = step.role;
@@ -926,10 +1212,9 @@
     ui.replay.disabled = false;
     ui.next.disabled = false;
     text(ui.replayText, tr('Rejouer'));
-    const sequences = state.lessonScope === 'sequence' ? learningSequences() : [];
-    const index = sequences.indexOf(state.sequence);
+    const index = state.theme.sequences.indexOf(state.sequence);
     text(ui.nextText, tr(state.lessonScope === 'saved-review' ? 'À revoir' : state.lessonScope !== 'sequence' ? 'Thèmes'
-      : index < sequences.length - 1 ? 'Séquence suivante' : 'Les séquences'));
+      : index < state.theme.sequences.length - 1 ? 'Séquence suivante' : 'Les séquences'));
     setStatus('');
     showView('done');
   }
@@ -944,6 +1229,20 @@
     resetStep();
     if (state.stepIndex >= state.sequence.steps.length) showDone();
     else renderStep();
+  }
+
+  function validateNextPhrase() {
+    const step = currentStep();
+    const phrase = currentPhrase();
+    if (!ui.level || state.screen !== 'lesson' || ui.next.disabled || !phrase
+        || !canProduce(phrase) || step?.isPreparation || isTemplate(phrase) || isReceived(step, phrase)
+        || state.deferredPhraseIds.has(phrase.id) || !state.levelProgressIds.has(phrase.id)) return true;
+    // A phone keeps all guided steps: Next validates only the final recall.
+    // On desktop, Next already advances by a whole phrase.
+    if (!document.body.classList.contains('mg-desktop-course')
+        && (!isRecall(step) || step.requiresProduction !== true)) return true;
+    return saveCardDecision(phrase, true,
+      state.savedReview.filter(entry => entry.pairId !== state.pair.id || entry.id !== phrase.id));
   }
 
   function browsePhrase(direction) {
@@ -968,7 +1267,7 @@
   function markKnown() {
     const phrase = currentPhrase();
     if (state.screen !== 'lesson' || ui.next.disabled || !phrase || !canProduce(phrase) || isTemplate(phrase) || isReceived(currentStep(), phrase)) return;
-    if (!saveReviewEntries(state.savedReview.filter(entry => entry.pairId !== state.pair.id || entry.id !== phrase.id))) return;
+    if (!saveCardDecision(phrase, true, state.savedReview.filter(entry => entry.pairId !== state.pair.id || entry.id !== phrase.id))) return;
     state.deferredPhraseIds.add(phrase.id);
     browsePhrase(1);
     showCardToast('Rangée');
@@ -985,35 +1284,15 @@
     }
     stopAudio();
     setStatus('');
-    if (!('speechSynthesis' in window) || typeof window.SpeechSynthesisUtterance !== 'function') {
-      setStatus('L’audio n’est pas disponible sur ce navigateur.');
+    if (!lessonAudio || !voiceSelection) {
+      setStatus('Audio indisponible. Réessaie.');
       return;
     }
-    const token = state.speechGeneration;
-    const utterance = new SpeechSynthesisUtterance(phrase.study);
-    utterance.lang = voices[state.pair.studyLanguage] || state.pair.studyLanguage;
-    utterance.rate = state.speechRate;
-    const voiceList = window.speechSynthesis.getVoices();
-    const exactVoice = voiceList.find(voice => voice.lang.toLowerCase() === utterance.lang.toLowerCase());
-    const languageVoice = voiceList.find(voice => voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage);
-    const preferredVoice = voiceList.find(voice => voice.voiceURI === state.voiceChoices.get(state.pair.studyLanguage)
-      && voice.lang.toLowerCase().split('-')[0] === state.pair.studyLanguage);
-    if (preferredVoice || exactVoice || languageVoice) utterance.voice = preferredVoice || exactVoice || languageVoice;
-    const finish = () => {
-      if (token !== state.speechGeneration) return;
-      ui.ear.classList.remove('is-playing');
-      ui.ear.removeAttribute('aria-busy');
-    };
-    utterance.onend = finish;
-    utterance.onerror = event => {
-      if (token !== state.speechGeneration) return;
-      finish();
-      if (!['canceled', 'interrupted'].includes(event.error)) setStatus('L’audio n’a pas pu démarrer. Tu peux réessayer.');
-    };
-    ui.ear.classList.add('is-playing');
-    ui.ear.setAttribute('aria-busy', 'true');
-    try { window.speechSynthesis.speak(utterance); }
-    catch (_) { finish(); setStatus('L’audio n’a pas pu démarrer. Tu peux réessayer.'); }
+    if (['idle', 'loading'].includes(voiceSelection.state().status)) {
+      setStatus('Catalogue des voix en cours de chargement…');
+      return;
+    }
+    lessonAudio.play({ text: phrase.study, language: state.pair.studyLanguage, rate: state.speechRate });
   }
 
   function displayPair(pair) {
@@ -1023,6 +1302,7 @@
     document.documentElement.lang = pair.nativeLanguage;
     text(byId('mgThemeHeading'), pair.levelTitle || tr('Tes thèmes'));
     [[ui.palette, 'Changer d’ambiance'], [ui.menuTrigger, 'Menu des rubriques'], [ui.language, 'Langue à apprendre'],
+      [ui.languageTrigger, 'Choisir une langue'],
       [ui.help, 'Aide pour cette étape'], [ui.choices, 'Choisir une réponse'],
       [ui.levelTrigger || ui.level || document.querySelector('.mg-level'), ui.level ? 'Choisir un niveau' : 'Niveau 1']].forEach(([node, label]) => {
       node.setAttribute('aria-label', tr(label));
@@ -1031,7 +1311,11 @@
     ui.menuTrigger.title = tr('Menu');
     ui.language.value = pair.id;
     text(ui.flag, pair.flag);
+    ui.flag.dataset.language = pair.studyLanguage;
     ui.language.title = pair.name;
+    ui.languageTrigger.title = pair.name;
+    buildLanguageChoices();
+    buildMenu();
     if (ui.level) {
       const metadata = state.data.pairs.find(candidate => candidate.id === pair.id);
       ui.level.replaceChildren(...metadata.levels.map(level => new Option('L' + level.level + ' · ' + level.title, level.level)));
@@ -1049,8 +1333,8 @@
   }
 
   async function choosePair(id, requestedLevel = state.level) {
-    const metadata = state.data.pairs.find(candidate => candidate.id === id);
-    if (!metadata) return;
+    const metadata = availablePairs().find(candidate => candidate.id === id);
+    if (!metadata) { if (state.pair) ui.language.value = state.pair.id; return; }
     if (!ui.level) { displayPair(metadata); return; }
     const entry = metadata.levels.find(candidate => candidate.level === Number(requestedLevel));
     if (!entry) return;
@@ -1060,15 +1344,32 @@
     const request = state.request;
     state.level = entry.level;
     state.requestedPair = id;
-    stopAudio(); closeHelp(); closeMenu();
+    stopAudio(); closeHelp(); closeMenu(); closeLanguages(); closeLevels();
+    renderLoadingContext(id, entry.level);
     showView('loading');
     ui.retry.hidden = true;
-    text(ui.loadingText, metadata.nativeLanguage === 'zh' ? '主题正在加载…' : 'Tes thèmes arrivent…');
+    text(ui.loadingText, tr('Chargement des leçons…'));
+    text(ui.retry, tr('Réessayer'));
     try {
+      if (metadata.nativeCatalogue) {
+        const loaded = await nativeCourses.loadPair(id, entry.level, {signal:request.signal});
+        if (generation !== state.loadGeneration) return;
+        installPairView(loaded.pair, loaded.referenceMap, loaded.sourcePhraseMap);
+        return;
+      }
       const key = id + ':' + entry.level;
+      const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
+      const bankTask = (async () => {
+        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
+        const cached = state.repertoireCache.get(id);
+        if (cached) return cached;
+        const response = await fetchCourseDocument(repertoirePath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
+        if (!response.ok) throw new Error('Repertoire unavailable');
+        return validateRepertoire(await readRuntimeJson(response, repertoirePath), id);
+      })().then(bank => ({bank}), error => ({error}));
       let pair = state.levelCache.get(key);
       if (!pair) {
-        const response = await fetch(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
+        const response = await fetchCourseDocument(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
         if (!response.ok) throw new Error('Level unavailable');
         pair = await readRuntimeJson(response, entry.dataPath);
         if (pair.id !== id || pair.level !== entry.level) throw new Error('Wrong level');
@@ -1077,14 +1378,9 @@
       let validatedBank = null;
       if (pair.themes.some(theme => (theme.reviewReferences || []).length || (theme.contextReferences || []).length
           || (theme.receivedTurns || []).length || (theme.lexicalSupports || []).length)) {
-        const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
-        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
-        let bank = state.repertoireCache.get(id);
-        if (!bank) {
-          const response = await fetch(repertoirePath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
-          if (!response.ok) throw new Error('Repertoire unavailable');
-          bank = validateRepertoire(await readRuntimeJson(response, repertoirePath), id);
-        }
+        const result = await bankTask;
+        if (result.error) throw result.error;
+        const bank = result.bank;
         // Reserved canonical aliases remain validated in the bank, but cannot
         // supply a learnable phrase. A separate heard-only model stays listenable.
         references = new Map([...bank.phrases.filter(phrase => !phrase.canonicalReserveLocation),
@@ -1102,22 +1398,25 @@
       state.levelCache.delete(key);
       state.levelCache.set(key, pair);
       while (state.levelCache.size > 4) state.levelCache.delete(state.levelCache.keys().next().value);
-      state.referenceMap = references;
-      state.sourcePhraseMap = new Map([...references, ...[...pair.themes, ...(pair.heldThemes || [])]
-        .flatMap(theme => theme.phrases.map(phrase => [phrase.id, phrase]))]);
-      const accessView = courseAccess.learningView(pair, references);
-      state.accessContextStepIds = accessView.contextStepIds;
-      displayPair(accessView.pair);
-      try { localStorage.setItem('melunga-course-pair', pair.id); localStorage.setItem('melunga-course-level', String(pair.level)); } catch (_) {}
-      if (courseAccess.state().status === 'unavailable') setStatus(pair.nativeLanguage === 'zh'
-        ? '网络暂时不可用，免费内容仍可使用。' : 'Connexion indisponible : le contenu gratuit reste accessible.');
+      installPairView(pair, references);
     } catch (error) {
       if (generation !== state.loadGeneration || error.name === 'AbortError') return;
-      text(ui.loadingText, metadata.nativeLanguage === 'zh' ? '主题暂时无法加载。' : 'Les thèmes n’ont pas pu se charger.');
-      ui.retry.hidden = false;
+      showLoadingError('Les thèmes n’ont pas pu se charger.');
     } finally {
       if (state.request === request) state.request = null;
     }
+  }
+
+  function installPairView(pair, references, sourceModels = new Map()) {
+    state.referenceMap = references;
+    state.sourcePhraseMap = new Map([...sourceModels, ...references, ...[...pair.themes, ...(pair.heldThemes || [])]
+      .flatMap(theme => theme.phrases.map(phrase => [phrase.id, phrase]))]);
+    state.levelProgressIds = collectLevelProgressIds(pair, state.sourcePhraseMap);
+    const accessView = courseAccess.learningView(pair, references);
+    state.accessContextStepIds = accessView.contextStepIds;
+    displayPair(accessView.pair);
+    try { localStorage.setItem('melunga-course-pair', pair.id); localStorage.setItem('melunga-course-level', String(pair.level)); } catch (_) {}
+    if (courseAccess.state().status === 'unavailable') setStatus('Connexion indisponible : le contenu gratuit reste accessible.');
   }
 
   // Only this reviewed ledger may relax density or type guards. The complete
@@ -1539,46 +1838,113 @@
     return data;
   }
 
+  function renderLoadingContext(id, level = state.level) {
+    const flags = {fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷'};
+    if (!nativeCourses?.isPair(id) || id.split('-')[0] !== state.nativeLanguage || state.invalidPair) {
+      text(ui.flag, '…'); delete ui.flag.dataset.language;
+      delete document.body.dataset.loadingContext;
+      return;
+    }
+    const study = id.split('-')[1];
+    text(ui.flag, flags[study]); ui.flag.dataset.language = study;
+    ui.languageTrigger.title = courseI18n.languageName(state.nativeLanguage, study);
+    const selected = !ui.level ? 1 : Number.isInteger(Number(level)) && Number(level) >= 1 && Number(level) <= 10 ? Number(level) : 1;
+    if (ui.levelText) text(ui.levelText, 'L' + selected);
+    if (ui.levelTrigger) {
+      ui.levelTrigger.title = format('level', selected);
+      ui.levelTrigger.style.setProperty('--mg-level-color', levelColors[selected - 1]);
+    }
+    document.documentElement.lang = state.nativeLanguage;
+    document.body.dataset.loadingContext = 'ready';
+  }
+
+  function showLoadingError(message) {
+    ui.loading.classList.add('has-error');
+    ui.loading.setAttribute('aria-busy', 'false');
+    text(ui.loadingText, tr(message));
+    ui.retry.hidden = false;
+  }
+
+  async function chooseEntryPair(id, requestedLevel = state.level) {
+    const generation = state.loadGeneration + 1;
+    await choosePair(id, requestedLevel);
+    if (!firstLessonEntryPending || state.loadGeneration !== generation || state.screen !== 'themes'
+        || state.pair?.id !== explicitPair || state.pair.level !== 1) return;
+    // Consume only after content and rights are installed. A failed first
+    // request may be retried; later language/level changes never start a lesson.
+    firstLessonEntryPending = false;
+    const url = new URL(window.location.href);
+    url.searchParams.delete('start');
+    window.history.replaceState(null, '', url);
+    const theme = state.pair.themes.find(candidate => !candidate._accessLocked
+      && candidate.sequences.some(sequence => sequence.steps.length > 0 && sequence.phraseIds.some(phraseId => {
+        const phrase = phraseById(phraseId);
+        return phrase && canProduce(phrase);
+      })));
+    if (theme) openTheme(theme);
+  }
+
   async function loadData() {
+    const initialPair = nativeCourses?.isPair(explicitPair) ? explicitPair
+      : nativeCourses?.isPair(savedPair) && savedPair.split('-')[0] === state.nativeLanguage ? savedPair
+      : state.nativeLanguage + '-' + (state.nativeLanguage === 'fr' ? 'en' : 'fr');
+    renderLoadingContext(initialPair, Number(routeParameters.get('level') || (explicitPair === null ? savedLevel : 1)));
     showView('loading');
-    text(ui.loadingText, 'Tes thèmes arrivent…');
+    text(ui.loadingText, tr('Chargement des leçons…'));
     ui.retry.hidden = true;
     ui.language.disabled = true;
     try {
       if (ui.level) {
         if (!courseAccess) throw new Error('Course access unavailable');
-        await courseAccess.initialize();
-        if (courseAccess.state().mode === 'production') document.querySelector('.mg-previewnotice')?.remove();
+        // The content request and status verification may run together. No
+        // cards are installed until both have succeeded below.
       }
-      const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
-      if (!response.ok) throw new Error('HTTP ' + response.status);
-      const data = await response.json();
-      if (ui.level) await loadClassificationPolicy(data);
-      state.data = (ui.level ? validateManifest : validateData)(data);
-      ui.language.replaceChildren(...state.data.pairs.map(pair => {
+      const content = (async () => {
+        const response = await fetchCourseDocument(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const data = await response.json();
+        if (ui.level) await loadClassificationPolicy(data);
+        return (ui.level ? validateManifest : validateData)(data);
+      })();
+      const [, data] = await Promise.all([ui.level ? courseAccess.initialize() : null, content]);
+      state.data = data;
+      if (ui.level) state.data = {...state.data, pairs:[...state.data.pairs, ...nativeCourses.metadata(state.data)]};
+      if (state.invalidPair) {
+        showLoadingError('Ce couple de langues n’est pas disponible. Choisis tes langues pour continuer.');
+        text(ui.retry, tr('Choisir mes langues')); return;
+      }
+      const choices = availablePairs();
+      ui.language.replaceChildren(...choices.map(pair => {
         const option = document.createElement('option');
         option.value = pair.id;
-        option.textContent = pair.flag + ' ' + pair.name;
+        option.textContent = pair.flag + ' ' + courseI18n.languageName(state.nativeLanguage, pair.studyLanguage);
         return option;
       }));
       ui.language.disabled = false;
-      const requested = new URL(window.location.href).searchParams.get('pair');
-      const firstPair = state.data.pairs.find(pair => pair.id === requested)
-        || state.data.pairs.find(pair => pair.nativeLanguage === 'fr' && pair.studyLanguage === 'zh')
-        || state.data.pairs[0];
+      const firstPair = choices.find(pair => pair.id === explicitPair)
+        || choices.find(pair => pair.id === savedPair) || choices.find(pair => pair.studyLanguage === (state.nativeLanguage === 'fr' ? 'en' : 'fr')) || choices[0];
+      if (!firstPair) throw new Error('No native course available');
       if (ui.level) {
-        const requestedLevel = Number(new URL(window.location.href).searchParams.get('level') || 1);
+        const requestedLevel = Number(routeParameters.get('level') || (explicitPair === null ? savedLevel : 1));
         state.level = Number.isInteger(requestedLevel) && requestedLevel >= 1 && requestedLevel <= 10 ? requestedLevel : 1;
       }
-      await choosePair(firstPair.id);
+      await chooseEntryPair(firstPair.id);
     } catch (_) {
-      text(ui.loadingText, 'Les thèmes n’ont pas pu se charger.');
-      ui.retry.hidden = false;
+      showLoadingError('Les thèmes n’ont pas pu se charger.');
+      text(ui.retry, tr('Réessayer'));
       setStatus('');
     }
   }
 
   ui.language.addEventListener('change', () => choosePair(ui.language.value));
+  ui.languageTrigger.addEventListener('click', openLanguages);
+  ui.languageClose.addEventListener('click', closeLanguages);
+  ui.languageDialog.addEventListener('close', () => ui.languageTrigger.setAttribute('aria-expanded', 'false'));
+  ui.languageDialog.addEventListener('click', event => {
+    if (event.target !== ui.languageDialog) return;
+    const rect = ui.languageDialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeLanguages();
+  });
   ui.level?.addEventListener('change', () => choosePair(ui.language.value, ui.level.value));
   ui.levelTrigger?.addEventListener('click', openLevels);
   ui.levelClose?.addEventListener('click', closeLevels);
@@ -1588,20 +1954,22 @@
     const rect = ui.levelDialog.getBoundingClientRect();
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeLevels();
   });
-  ui.levelChoices?.addEventListener('keydown', event => {
-    const buttons = [...ui.levelChoices.querySelectorAll('button')];
+  [ui.levelChoices, ui.languageChoices].filter(Boolean).forEach(choices => choices.addEventListener('keydown', event => {
+    const buttons = [...choices.querySelectorAll('button')];
     const index = buttons.indexOf(event.target);
     if (index < 0) return;
-    const columns = getComputedStyle(ui.levelChoices).gridTemplateColumns.split(' ').length;
+    const columns = getComputedStyle(choices).gridTemplateColumns.split(' ').length;
     const moves = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -columns, ArrowDown: columns };
     const target = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1
       : Object.hasOwn(moves, event.key) ? Math.max(0, Math.min(buttons.length - 1, index + moves[event.key])) : -1;
     if (target < 0) return;
     event.preventDefault(); buttons[target].focus();
-  });
-  ui.menuTrigger.addEventListener('click', openMenu);
+  }));
+  ui.menuTrigger.addEventListener('click', () => openMenu());
   ui.menuClose.addEventListener('click', closeMenu);
   ui.menuBack.addEventListener('click', () => setMenuView('nav'));
+  ui.accountBack.addEventListener('click', closeMenu);
+  ui.accountLogout.addEventListener('click', logoutAccount);
   ui.menu.addEventListener('close', () => ui.menuTrigger.setAttribute('aria-expanded', 'false'));
   ui.menu.addEventListener('click', event => {
     if (event.target !== ui.menu) return;
@@ -1611,13 +1979,22 @@
   window.addEventListener('resize', positionPopups);
   window.visualViewport?.addEventListener('resize', positionPopups);
   window.visualViewport?.addEventListener('scroll', positionPopups);
-  ui.voice.addEventListener('change', () => state.voiceChoices.set(state.pair.studyLanguage, ui.voice.value));
+  ui.voice.addEventListener('change', () => {
+    stopAudio();
+    if (!voiceSelection?.setVoice(state.pair.studyLanguage, ui.voice.value)) {
+      setStatus('Catalogue des voix indisponible. Réessaie.');
+      fillVoices();
+      return;
+    }
+    state.voiceChoices.set(state.pair.studyLanguage, ui.voice.value);
+    fillVoices();
+  });
   ui.speed.addEventListener('change', () => {
     const rate = Number(ui.speed.value);
-    if ([0.75, 0.85, 1].includes(rate)) state.speechRate = rate;
-  });
-  if ('speechSynthesis' in window) window.speechSynthesis.addEventListener?.('voiceschanged', () => {
-    if (ui.menu.open && state.menuView === 'voice') fillVoices();
+    if ([0.75, 0.85, 1].includes(rate)) {
+      stopAudio();
+      state.speechRate = rate;
+    }
   });
   ui.reviewModel.addEventListener('click', () => reviewTheme(false));
   ui.reviewRecall.addEventListener('click', () => reviewTheme(true));
@@ -1654,10 +2031,7 @@
     if (state.screen === 'sequences' || state.lessonScope !== 'sequence') showThemes();
     else showSequences();
   });
-  ui.palette.addEventListener('click', () => {
-    state.ambienceIndex = (state.ambienceIndex + 1) % ambiences.length;
-    document.body.dataset.ambience = ambiences[state.ambienceIndex];
-  });
+  ui.palette.addEventListener('click', changeAmbience);
   ui.help.addEventListener('click', () => {
     state.helpOpen = !state.helpOpen;
     ui.helpPanel.hidden = !state.helpOpen;
@@ -1671,19 +2045,21 @@
     renderStep();
   });
   ui.ear.addEventListener('click', () => speak(true));
+  ui.listen?.addEventListener('click', () => speak(true));
   ui.replay.addEventListener('click', () => state.screen === 'done'
     ? startSequence(state.sequence, state.lessonScope) : markForReview());
   ui.next.addEventListener('click', () => {
     if (state.screen === 'done') {
       if (state.lessonScope === 'saved-review') { openMenu(); setMenuView('saved'); return; }
       if (state.lessonScope !== 'sequence') return showThemes();
-      const sequences = learningSequences();
-      const nextSequence = sequences[sequences.indexOf(state.sequence) + 1];
+      const nextSequence = state.theme.sequences[state.theme.sequences.indexOf(state.sequence) + 1];
       if (nextSequence) startSequence(nextSequence);
       else showSequences();
       return;
     }
-    advanceStep();
+    if (!validateNextPhrase()) return;
+    if (document.body.classList.contains('mg-desktop-course')) browsePhrase(1);
+    else advanceStep();
   });
   // Match the live mobile card: up/down browse, left defers, right acknowledges.
   // The card follows the finger in all four directions. Controls, selection,
@@ -1691,7 +2067,7 @@
   ui.lessonView.addEventListener('touchstart', event => {
     resetCardMotion();
     cardMotion.suppressClickUntil = 0;
-    if (state.screen !== 'lesson' || ui.next.disabled || ui.menu.open || ui.levelDialog?.open || event.touches.length !== 1
+    if (state.screen !== 'lesson' || ui.next.disabled || ui.menu.open || ui.levelDialog?.open || ui.languageDialog.open || event.touches.length !== 1
         || event.target.closest('button,a,input,textarea,select,[contenteditable]')
         || window.getSelection()?.toString().trim()) return;
     const touch = event.touches[0];
@@ -1701,7 +2077,7 @@
   ui.lessonView.addEventListener('touchmove', event => {
     const gesture = cardMotion.gesture;
     if (!gesture) return;
-    if (event.touches.length !== 1 || ui.menu.open || ui.levelDialog?.open || state.screen !== 'lesson'
+    if (event.touches.length !== 1 || ui.menu.open || ui.levelDialog?.open || ui.languageDialog.open || state.screen !== 'lesson'
         || gesture.pairId !== state.pair.id || gesture.sequence !== state.sequence || gesture.index !== state.stepIndex
         || window.getSelection()?.toString().trim()) { resetCardMotion(); return; }
     const touch = event.touches[0];
@@ -1716,7 +2092,7 @@
     const gesture = cardMotion.gesture;
     resetCardMotion();
     const touch = event.changedTouches[0];
-    if (!gesture || !touch || event.touches.length || state.screen !== 'lesson' || ui.menu.open || ui.levelDialog?.open
+    if (!gesture || !touch || event.touches.length || state.screen !== 'lesson' || ui.menu.open || ui.levelDialog?.open || ui.languageDialog.open
         || gesture.pairId !== state.pair.id || gesture.sequence !== state.sequence || gesture.index !== state.stepIndex
         || window.getSelection()?.toString().trim()) return;
     const dx = touch.clientX - gesture.x, dy = touch.clientY - gesture.y;
@@ -1734,14 +2110,23 @@
     if (event.detail === 0 || Date.now() > cardMotion.suppressClickUntil) return;
     event.preventDefault(); event.stopImmediatePropagation();
   }, true);
-  ui.retry.addEventListener('click', () => ui.level && state.data
-    ? choosePair(state.requestedPair || ui.language.value, state.level) : loadData());
+  ui.retry.addEventListener('click', () => {
+    if (!courseAccess || !nativeCourses || !courseI18n) { window.location.reload(); return; }
+    if (state.invalidPair) { window.location.href = 'index.html'; return; }
+    if (ui.level && state.data && state.requestedPair) chooseEntryPair(state.requestedPair, state.level);
+    else loadData();
+  });
   document.addEventListener('keydown', event => { if (event.key === 'Escape') closeHelp(); });
   window.addEventListener('melunga:course-access', () => {
     if (ui.level && state.data && state.pair) {
       stopAudio();
       choosePair(state.pair.id, state.pair.level);
     }
+  });
+  window.addEventListener('storage', event => {
+    if (event.key !== knownStorageKey && event.key !== null) return;
+    state.knownCards = loadKnownCards();
+    if (ui.level && state.screen === 'themes') renderLevelProgress();
   });
   window.addEventListener('pagehide', stopAudio);
   window.addEventListener('resize', queueLessonFit);
@@ -1754,22 +2139,17 @@
   document.fonts?.ready.then(queueLessonFit);
 
   // Read-only state supports preview checks without touching the real application.
-  const immutableSnapshot = value => Array.isArray(value) ? Object.freeze(value.map(immutableSnapshot))
-    : value && typeof value === 'object'
-      ? Object.freeze(Object.fromEntries(Object.entries(value).map(([key, item]) => [key, immutableSnapshot(item)])))
-      : value;
-  window.MelungaMockup = Object.freeze({
-    visibleSequences: () => immutableSnapshot(hasVisibleSequences() ? visibleSequenceCache.get(state.theme) || [] : []),
-    state: () => Object.freeze({
-      screen: state.screen, pairId: state.pair && state.pair.id, level: state.pair && state.pair.level || 1,
-      themeId: state.theme && state.theme.id,
-      sequenceId: state.sequence && state.sequence.id, stepIndex: state.stepIndex, lessonScope: state.lessonScope,
-      visibleSequenceIndex: sequencePosition(),
-      visibleSequenceCount: hasVisibleSequences() ? (visibleSequenceCache.get(state.theme) || []).length : 0,
-      phraseId: currentPhrase() && currentPhrase().id, masked: isMasked(), helpOpen: state.helpOpen,
-      readingVisible: state.readingVisible, access: courseAccess?.state() || null,
-      template: isTemplate(currentPhrase()), totalPhrases: state.pair ? pairCount(state.pair) : 0
-    })
+  window.MelungaMockup = Object.freeze({ state: () => Object.freeze({
+    screen: state.screen, pairId: state.pair && state.pair.id, level: state.pair && state.pair.level || 1,
+    themeId: state.theme && state.theme.id,
+    sequenceId: state.sequence && state.sequence.id, stepIndex: state.stepIndex, lessonScope: state.lessonScope,
+    phraseId: currentPhrase() && currentPhrase().id, masked: isMasked(), helpOpen: state.helpOpen,
+    readingVisible: state.readingVisible, access: courseAccess?.state() || null,
+    levelProgress: ui.level && state.pair ? Object.freeze(levelProgress()) : null,
+    template: isTemplate(currentPhrase()), totalPhrases: state.pair ? pairCount(state.pair) : 0
+  }) });
+  loadData().finally(() => {
+    window.__courseEntryReady = true;
+    window.dispatchEvent(new Event('melunga:course-entry-ready'));
   });
-  loadData();
 })();

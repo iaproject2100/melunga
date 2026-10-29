@@ -1,0 +1,91 @@
+{
+  "status": "passed",
+  "scope": "Final runtime delta proof after the existing browser suites; suites were not rerun.",
+  "reports": [
+    {
+      "report": "start-return-report.json",
+      "statusAtRun": "passed",
+      "inputsStableDuringRun": true,
+      "totalInputs": 55,
+      "runtimeInputCount": 54,
+      "unchangedFinalRuntimeInputs": 53,
+      "finalRuntimeChangedInputs": [
+        "melunga_deploy/maquette-guidee.html"
+      ],
+      "finalValidationMetadataChangedInputs": [],
+      "otherChangedInputs": [],
+      "navigationPathCount": 88,
+      "navigationPaths": [
+        "/app.html",
+        "/index.html",
+        "/parcours-niveaux.html"
+      ],
+      "legacyHtmlNavigationCount": 0
+    },
+    {
+      "report": "course-entry-report.json",
+      "statusAtRun": "passed",
+      "inputsStableDuringRun": true,
+      "totalInputs": 208,
+      "runtimeInputCount": 196,
+      "unchangedFinalRuntimeInputs": 195,
+      "finalRuntimeChangedInputs": [
+        "melunga_deploy/maquette-guidee.html"
+      ],
+      "finalValidationMetadataChangedInputs": [
+        "melunga_deploy/tests/chirp-preview-layer.cjs",
+        "melunga_deploy/tests/fixtures/chirp-preview-layer.json",
+        "melunga_deploy/tests/fixtures/chirp-preview-layer.patch"
+      ],
+      "otherChangedInputs": [],
+      "navigationPathCount": 58,
+      "navigationPaths": [
+        "/app.html",
+        "/index.html",
+        "/parcours-niveaux.html"
+      ],
+      "legacyHtmlNavigationCount": 0
+    }
+  ],
+  "soleFinalRuntimeDelta": {
+    "file": "melunga_deploy/maquette-guidee.html",
+    "headSha256": "f2cfef52a0cd3fbe37e02d463580a9e324ee5285e707650c71d85a2d80a00f70",
+    "testedSha256": "eb4503fac808a3c3aaa649416a66e218ca65834937d971fe6aa1dc13fb334cff",
+    "finalSha256": "2ec97a0d2e5485725321dd2dee5080907ce9168e643122a7f65359008035cde5",
+    "exactHeadWithOnlyController39To40AndAdapter6To7": true,
+    "notNavigatedByEitherSuite": true
+  },
+  "validationMetadataDelta": {
+    "explicitFiles": [
+      "melunga_deploy/tests/chirp-preview-layer.cjs",
+      "melunga_deploy/tests/fixtures/chirp-preview-layer.json",
+      "melunga_deploy/tests/fixtures/chirp-preview-layer.patch"
+    ],
+    "reason": "Root regenerated the existing exact Chirp source pins after restoring the unexecuted legacy HTML; these files are validation metadata, not browser runtime.",
+    "finalLegacyWholeFilePinMatches": true,
+    "gateRevalidation": "Separate root-owned source/integration/entry checks."
+  },
+  "sourceNavigationReview": [
+    {
+      "file": "melunga_deploy/tests/start-return-routing.browser.cjs",
+      "legacyHtmlLiteralOccurrences": [],
+      "interpretation": "No legacy HTML navigation or load target appears in this suite."
+    },
+    {
+      "file": "melunga_deploy/tests/course-entry-access.browser.cjs",
+      "legacyHtmlLiteralOccurrences": [
+        {
+          "line": 97,
+          "text": "'maquette-guidee.html','parcours-niveaux.html','maquette-guidee.css','course-access.js',"
+        }
+      ],
+      "interpretation": "Only the static fingerprint list references this HTML; no navigation loads it."
+    }
+  ],
+  "otherRuntimeDelta": false,
+  "notes": [
+    "maquette-guidee.html was fingerprinted, but neither suite navigated to or executed this legacy page.",
+    "The progressive page, controller, adapter, entry, account and payment runtime executed by these suites are unchanged.",
+    "Legacy-page behavior requires its separate final browser validation; this proof does not claim these two suites tested the final legacy HTML."
+  ]
+}

@@ -1,3 +1,5 @@
+> Cette première variante SVG est conservée comme historique. Le logo actuellement affiché dans l’aperçu #23 utilise le PNG d’origine avec un masque CSS, conformément à la photo de Kartech. Voir `docs/progression-niveau/README.md`.
+
 # Même mascotte, sans contour sombre
 
 Le PNG utilisé par le parcours inclut un fond bleu nuit autour du disque bleu. Le nouveau `melunga-logo.svg` reprend intégralement le SVG déjà présent dans la barre `.lockup` du classique ; seul le namespace XML nécessaire au fichier externe est ajouté. Aucun tracé, couleur ou détail de la mascotte n’est redessiné. Les deux pages du parcours pointent vers cet asset, avec les mêmes classes et dimensions. Les PNG restent intacts pour leurs autres usages.
@@ -6,4 +8,4 @@ Quatre contrôles indépendants réussis : égalité du SVG avec la source class
 
 Les 78 JSON et 13 fichiers protégés sont identiques à `main@a1085e8`. JavaScript, CSS, catalogue, droits, prix et backend restent inchangés. Neuf assets figés sont validés et cinq altérations non autorisées sont rejetées. Aucun audit exhaustif de données n’est prétendu rejoué. Les PR des séquences et de la progression du niveau restent séparées et non fusionnées.
 
-Ces premiers rapports portent sur le composant logo isolé à partir de `a1085e8`. La composition dans l’aperçu des séquences possède ses propres rapports dans `docs/sequences-visibles/`. Aucune publication isolée n’est effectuée : la validation de Kartech est attendue avant fusion.
+Ces premiers rapports portent sur le composant logo isolé à partir de `a1085e8`. La composition dans l’aperçu de progression possède ses propres rapports et captures dans `docs/progression-niveau/`. Aucune publication isolée n’est effectuée : la validation de Kartech est attendue avant fusion.
