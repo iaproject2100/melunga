@@ -243,18 +243,33 @@ test('real right swipes persist explicit knowledge and À revoir reverses it wit
  }finally{await f.context.close();}
 }));
 
-test('Continue, listening and theme completion do not declare knowledge; storage updates stay scoped', {timeout:90000},()=>checked('continue-storage-events-and-pair-scope',async()=>{
+test('Initial steps and listening do not validate; final Next and storage updates stay scoped', {timeout:90000},()=>checked('continue-storage-events-and-pair-scope',async()=>{
  const ja=levelData('fr-ja').ids,zh=levelData('fr-zh').ids,seed={'fr-ja':ja.slice(0,37),'fr-zh':zh.slice(0,73)};
  const f=await fixture({knownRaw:registry(seed)});try{
   const {page}=f;await progress(page,'fr-ja',1,seed['fr-ja']);const original=await page.evaluate(key=>localStorage.getItem(key),KNOWN);
-  await enter(page);const counter=await page.locator('#mgCounter').textContent();assert.match(counter,/\d+ \/ \d+/);await capsuleHidden(page);assert.equal(await page.locator('#mgProgress').isVisible(),true,'classic session bar is still visible');await next(page);await sessionBar(page);await page.locator('#mgEar').click();await settled(page);assert.equal(await page.evaluate(key=>localStorage.getItem(key),KNOWN),original,'continue/listening do not write known status');await themes(page);await progress(page,'fr-ja',1,seed['fr-ja']);
+  await enter(page);const counter=await page.locator('#mgCounter').textContent();assert.match(counter,/\d+ \/ \d+/);await capsuleHidden(page);assert.equal(await page.locator('#mgProgress').isVisible(),true,'classic session bar is still visible');await next(page);await sessionBar(page);await page.locator('#mgEar').click();await settled(page);assert.equal(await page.evaluate(key=>localStorage.getItem(key),KNOWN),original,'the initial guided step and listening do not validate a phrase');await themes(page);await progress(page,'fr-ja',1,seed['fr-ja']);
   await page.goto(ORIGIN+'/parcours-niveaux.html?pair=fr-zh&level=1');await ready(page,'fr-zh');await progress(page,'fr-zh',1,seed['fr-zh']);
   await page.locator('#mgLevelTrigger').click();await page.locator('#mgLevelChoices button[data-level="2"]').click();await ready(page,'fr-zh',2);const p2=await progress(page,'fr-zh',2,seed['fr-zh']);report.cases.push({name:'pair-and-level-scoped-identities',...p2});
   await page.goto(ORIGIN+'/parcours-niveaux.html?pair=fr-ja&level=1');await ready(page,'fr-ja');
   const other=await f.context.newPage();other.on('pageerror',e=>report.errors.push(e.message));await other.goto(ORIGIN+'/parcours-niveaux.html?pair=fr-ja&level=1');await ready(other,'fr-ja');await other.evaluate(({key,value})=>localStorage.setItem(key,value),{key:KNOWN,value:registry({'fr-ja':ja.slice(0,74)})});await progress(page,'fr-ja',1,ja.slice(0,74));
   await enter(page);const before=await getState(page),lessonCounter=await page.locator('#mgCounter').textContent();await other.evaluate(({key,value})=>localStorage.setItem(key,value),{key:KNOWN,value:registry({'fr-ja':ja})});await page.waitForTimeout(60);assert.equal((await getState(page)).phraseId,before.phraseId);assert.equal((await getState(page)).stepIndex,before.stepIndex);assert.equal(await page.locator('#mgCounter').textContent(),lessonCounter);await themes(page);await progress(page,'fr-ja',1,ja);await other.close();
  }finally{await f.context.close();}
- const z=await fixture({pair:'fr-zh'});try{const shortest=cell('fr-zh').themes.map((t,i)=>({i,steps:t.sequences.flatMap(s=>s.steps).length})).sort((a,b)=>a.steps-b.steps)[0];await enter(z.page,shortest.i);for(let n=0;n<160&&(await getState(z.page)).screen!=='done';n++)await next(z.page);assert.equal((await getState(z.page)).screen,'done');await capsuleHidden(z.page);assert.equal((await sessionBar(z.page)).percent,100);assert.deepEqual(await knownIds(z.page,'fr-zh'),[]);await z.page.locator('.mg-brand').click();await ready(z.page,'fr-zh');await progress(z.page,'fr-zh',1,[]);report.cases.push({name:'completion-does-not-imply-knowledge',steps:shortest.steps});}finally{await z.context.close();}
+ // The current Chirp/native browser fixture also exercises this decision in
+ // next-progress.browser.cjs, including persistence failures and deferred cards.
+ const z=await fixture({pair:'fr-zh'});try{
+  const data=levelData('fr-zh'),eligible=new Set(data.ids);
+  const shortest=data.raw.themes.map((t,i)=>({i,steps:t.sequences.flatMap(s=>s.steps).length})).sort((a,b)=>a.steps-b.steps)[0];
+  const completed=[...new Set(data.raw.themes[shortest.i].sequences.flatMap(s=>s.steps)
+   .filter(step=>!step.isPreparation&&step.requiresProduction===true&&['choose-and-recall','reply-without-model','recall'].includes(step.kind))
+   .map(step=>step.utterance||(step.choices||[])[0]).filter(id=>eligible.has(id)))];
+  await enter(z.page,shortest.i);
+  for(let n=0;n<160&&(await getState(z.page)).screen!=='done';n++)await next(z.page);
+  assert.equal((await getState(z.page)).screen,'done');await capsuleHidden(z.page);assert.equal((await sessionBar(z.page)).percent,100);
+  assert.deepEqual((await knownIds(z.page,'fr-zh')).sort(),[...completed].sort(),'only explicitly completed productive recalls are validated');
+  await z.page.locator('.mg-brand').click();await ready(z.page,'fr-zh');await progress(z.page,'fr-zh',1,completed);
+  await z.page.reload();await ready(z.page,'fr-zh');await progress(z.page,'fr-zh',1,completed);
+  report.cases.push({name:'final-next-validates-productive-recalls',steps:shortest.steps,known:completed.length});
+ }finally{await z.context.close();}
 }));
 
 test('non-paying progress uses the complete raw level denominator and never unlocks paid topics', {timeout:60000},()=>checked('whole-level-free-access-denominator',async()=>{

@@ -942,7 +942,7 @@ index 671acf7..c66f971 100644
 +    const unsubscribe = selection?.subscribe?.((_state, reason) => { if (reason === 'selection') stop(); });
 +    return Object.freeze({ play, stop, destroy() { stop(); unsubscribe?.(); } });
 diff --git a/melunga_deploy/maquette-guidee.html b/melunga_deploy/maquette-guidee.html
-index 7663cf5..6ed5430 100644
+index 7663cf5..de93c60 100644
 --- a/melunga_deploy/maquette-guidee.html
 +++ b/melunga_deploy/maquette-guidee.html
 @@ -7,2 +7,2 @@
@@ -953,7 +953,7 @@ index 7663cf5..6ed5430 100644
 @@ -10,0 +11,3 @@
 +  <link rel="stylesheet" href="course-ambiences.css?v=1">
 +  <link rel="stylesheet" href="course-startup.css?v=1">
-+  <link rel="stylesheet" href="course-desktop.css?v=14">
++  <link rel="stylesheet" href="course-desktop.css?v=15">
 @@ -12,2 +15 @@
 -<body data-ambience="ocean">
 -  <div class="mg-previewnotice"><span>Maquette</span><a href="https://melunga.com/" target="_blank" rel="noopener">Site actuel ↗</a></div>
@@ -989,10 +989,10 @@ index 7663cf5..6ed5430 100644
 +  <script src="course-access.js?v=4"></script>
 +  <script src="voice-selection.js?v=2"></script>
 +  <script src="lesson-audio.js?v=3"></script>
-+  <script src="maquette-guidee.js?v=40"></script>
++  <script src="maquette-guidee.js?v=41"></script>
 +  <script src="course-desktop.js?v=9"></script>
 diff --git a/melunga_deploy/maquette-guidee.js b/melunga_deploy/maquette-guidee.js
-index 5ba1c6c..f84f82f 100644
+index 5ba1c6c..78ba96c 100644
 --- a/melunga_deploy/maquette-guidee.js
 +++ b/melunga_deploy/maquette-guidee.js
 @@ -46,0 +47 @@
@@ -1028,6 +1028,9 @@ index 5ba1c6c..f84f82f 100644
 +  }
 @@ -99,0 +113 @@
 +    try { localStorage.setItem('melunga-course-ambience', ambience); } catch (_) { /* Keep the current colour. */ }
+@@ -244 +258 @@
+-  // Only an explicit “Je connais” decision counts. Source identity, not the
++  // Only an explicit card validation counts. Source identity, not the
 @@ -470,0 +485,15 @@
 +  function legalMenuRows() {
 +    const labels = {
@@ -1091,12 +1094,49 @@ index 5ba1c6c..f84f82f 100644
 @@ -746,0 +802,2 @@
 +    if (screen === 'loading') ui.loading.classList.remove('has-error');
 +    ui.loading.setAttribute('aria-busy', String(screen === 'loading'));
-@@ -931,0 +989 @@
+@@ -772,3 +829,2 @@
+-  // Fit the complete text, rather than truncating it or giving the lesson an
+-  // inner scrollbar. Short cards retain their normal large type. Longer cards
+-  // first use tighter spacing, then adapt to the available viewport.
++  // Keep complete text readable: tighter spacing first, then desktop scrolling
++  // or the existing mobile viewport fit.
+@@ -785,0 +842,2 @@
++    const desktopScrollTop = root.classList.contains('mg-desktop-lesson-scroll') ? ui.content.scrollTop : 0;
++    root.classList.remove('mg-desktop-lesson-scroll');
+@@ -818,0 +877,12 @@
++    // Preserve readable desktop type when browser zoom or a long phrase leaves
++    // too little height. The course content can scroll without shrinking text.
++    if (root.classList.contains('mg-desktop-course')) {
++      root.classList.add('mg-desktop-lesson-scroll');
++      // Re-measuring must not pull the retry actions out of view after a failed
++      // save changes the status message and the available content height.
++      ui.content.scrollTop = desktopScrollTop;
++      if (ui.status.textContent && ui.footer.contains(document.activeElement)) {
++        ui.footer.scrollIntoView({ block: 'nearest' });
++      }
++      return;
++    }
+@@ -931,0 +1002 @@
 +      button.dataset.themeId = theme.id;
-@@ -1202 +1260 @@
+@@ -1162,0 +1234,14 @@
++  function validateNextPhrase() {
++    const step = currentStep();
++    const phrase = currentPhrase();
++    if (!ui.level || state.screen !== 'lesson' || ui.next.disabled || !phrase
++        || !canProduce(phrase) || step?.isPreparation || isTemplate(phrase) || isReceived(step, phrase)
++        || state.deferredPhraseIds.has(phrase.id) || !state.levelProgressIds.has(phrase.id)) return true;
++    // A phone keeps all guided steps: Next validates only the final recall.
++    // On desktop, Next already advances by a whole phrase.
++    if (!document.body.classList.contains('mg-desktop-course')
++        && (!isRecall(step) || step.requiresProduction !== true)) return true;
++    return saveCardDecision(phrase, true,
++      state.savedReview.filter(entry => entry.pairId !== state.pair.id || entry.id !== phrase.id));
++  }
++
+@@ -1202 +1287 @@
 -    if (!lessonAudio) {
 +    if (!lessonAudio || !voiceSelection) {
-@@ -1206,2 +1264,5 @@
+@@ -1206,2 +1291,5 @@
 -    lessonAudio.play({ text: phrase.study, language: state.pair.studyLanguage,
 -      rate: state.speechRate, voice: state.voiceChoices.get(state.pair.studyLanguage) || 'female' });
 +    if (['idle', 'loading'].includes(voiceSelection.state().status)) {
@@ -1104,12 +1144,12 @@ index 5ba1c6c..f84f82f 100644
 +      return;
 +    }
 +    lessonAudio.play({ text: phrase.study, language: state.pair.studyLanguage, rate: state.speechRate });
-@@ -1259,0 +1321 @@
+@@ -1259,0 +1348 @@
 +    renderLoadingContext(id, entry.level);
-@@ -1262 +1324 @@
+@@ -1262 +1351 @@
 -    text(ui.loadingText, tr('Tes thèmes arrivent…'));
 +    text(ui.loadingText, tr('Chargement des leçons…'));
-@@ -1271,0 +1334,9 @@
+@@ -1271,0 +1361,9 @@
 +      const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
 +      const bankTask = (async () => {
 +        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
@@ -1119,10 +1159,10 @@ index 5ba1c6c..f84f82f 100644
 +        if (!response.ok) throw new Error('Repertoire unavailable');
 +        return validateRepertoire(await readRuntimeJson(response, repertoirePath), id);
 +      })().then(bank => ({bank}), error => ({error}));
-@@ -1274 +1345 @@
+@@ -1274 +1372 @@
 -        const response = await fetch(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
 +        const response = await fetchCourseDocument(entry.dataPath, { credentials: 'omit', cache: 'no-cache', signal: request.signal });
-@@ -1283,8 +1354,3 @@
+@@ -1283,8 +1381,3 @@
 -        const repertoirePath = 'content/niveaux-progressifs/repertoires/' + id + '.json';
 -        if (metadata.repertoirePath !== repertoirePath) throw new Error('Missing repertoire');
 -        let bank = state.repertoireCache.get(id);
@@ -1134,11 +1174,11 @@ index 5ba1c6c..f84f82f 100644
 +        const result = await bankTask;
 +        if (result.error) throw result.error;
 +        const bank = result.bank;
-@@ -1311,2 +1377 @@
+@@ -1311,2 +1404 @@
 -      text(ui.loadingText, tr('Les thèmes n’ont pas pu se charger.'));
 -      ui.retry.hidden = false;
 +      showLoadingError('Les thèmes n’ont pas pu se charger.');
-@@ -1748,0 +1814,46 @@
+@@ -1748,0 +1841,46 @@
 +  function renderLoadingContext(id, level = state.level) {
 +    const flags = {fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷'};
 +    if (!nativeCourses?.isPair(id) || id.split('-')[0] !== state.nativeLanguage || state.invalidPair) {
@@ -1185,20 +1225,20 @@ index 5ba1c6c..f84f82f 100644
 +    if (theme) openTheme(theme);
 +  }
 +
-@@ -1749,0 +1861,4 @@
+@@ -1749,0 +1888,4 @@
 +    const initialPair = nativeCourses?.isPair(explicitPair) ? explicitPair
 +      : nativeCourses?.isPair(savedPair) && savedPair.split('-')[0] === state.nativeLanguage ? savedPair
 +      : state.nativeLanguage + '-' + (state.nativeLanguage === 'fr' ? 'en' : 'fr');
 +    renderLoadingContext(initialPair, Number(routeParameters.get('level') || (explicitPair === null ? savedLevel : 1)));
-@@ -1751 +1866 @@
+@@ -1751 +1893 @@
 -    text(ui.loadingText, tr('Tes thèmes arrivent…'));
 +    text(ui.loadingText, tr('Chargement des leçons…'));
-@@ -1757,2 +1872,2 @@
+@@ -1757,2 +1899,2 @@
 -        await courseAccess.initialize();
 -        if (courseAccess.state().mode === 'production') document.querySelector('.mg-previewnotice')?.remove();
 +        // The content request and status verification may run together. No
 +        // cards are installed until both have succeeded below.
-@@ -1760,5 +1875,9 @@
+@@ -1760,5 +1902,9 @@
 -      const response = await fetch(ui.level ? 'content/niveaux-progressifs/manifest.json' : 'content/maquette-guidee.json', { credentials: 'omit', cache: 'no-cache' });
 -      if (!response.ok) throw new Error('HTTP ' + response.status);
 -      const data = await response.json();
@@ -1213,39 +1253,40 @@ index 5ba1c6c..f84f82f 100644
 +      })();
 +      const [, data] = await Promise.all([ui.level ? courseAccess.initialize() : null, content]);
 +      state.data = data;
-@@ -1767,2 +1886,2 @@
+@@ -1767,2 +1913,2 @@
 -        text(ui.loadingText, tr('Ce couple de langues n’est pas disponible. Choisis tes langues pour continuer.'));
 -        text(ui.retry, tr('Choisir mes langues')); ui.retry.hidden = false; return;
 +        showLoadingError('Ce couple de langues n’est pas disponible. Choisis tes langues pour continuer.');
 +        text(ui.retry, tr('Choisir mes langues')); return;
-@@ -1785 +1904 @@
+@@ -1785 +1931 @@
 -      await choosePair(firstPair.id);
 +      await chooseEntryPair(firstPair.id);
-@@ -1787 +1906 @@
+@@ -1787 +1933 @@
 -      text(ui.loadingText, tr('Les thèmes n’ont pas pu se charger.'));
 +      showLoadingError('Les thèmes n’ont pas pu se charger.');
-@@ -1789 +1907,0 @@
+@@ -1789 +1934,0 @@
 -      ui.retry.hidden = false;
-@@ -1838 +1955,0 @@
+@@ -1838 +1982,0 @@
 -    if (!['female', 'male'].includes(ui.voice.value)) return;
-@@ -1839,0 +1957,5 @@
+@@ -1839,0 +1984,5 @@
 +    if (!voiceSelection?.setVoice(state.pair.studyLanguage, ui.voice.value)) {
 +      setStatus('Catalogue des voix indisponible. Réessaie.');
 +      fillVoices();
 +      return;
 +    }
-@@ -1840,0 +1963 @@
+@@ -1840,0 +1990 @@
 +    fillVoices();
-@@ -1910 +2033,2 @@
+@@ -1910 +2060,3 @@
 -    advanceStep();
++    if (!validateNextPhrase()) return;
 +    if (document.body.classList.contains('mg-desktop-course')) browsePhrase(1);
 +    else advanceStep();
-@@ -1961,0 +2086 @@
+@@ -1961,0 +2114 @@
 +    if (!courseAccess || !nativeCourses || !courseI18n) { window.location.reload(); return; }
-@@ -1963 +2088 @@
+@@ -1963 +2116 @@
 -    if (ui.level && state.data && state.requestedPair) choosePair(state.requestedPair, state.level);
 +    if (ui.level && state.data && state.requestedPair) chooseEntryPair(state.requestedPair, state.level);
-@@ -1998 +2123,4 @@
+@@ -1998 +2151,4 @@
 -  loadData();
 +  loadData().finally(() => {
 +    window.__courseEntryReady = true;
@@ -1335,7 +1376,7 @@ index aeaebf7..b3713ca 100644
 +
 +export const handler = createHandler();
 diff --git a/melunga_deploy/parcours-niveaux.html b/melunga_deploy/parcours-niveaux.html
-index 6e9b44c..080a3c0 100644
+index 6e9b44c..87e9f31 100644
 --- a/melunga_deploy/parcours-niveaux.html
 +++ b/melunga_deploy/parcours-niveaux.html
 @@ -7 +7,76 @@
@@ -1419,7 +1460,7 @@ index 6e9b44c..080a3c0 100644
 @@ -9,0 +85,3 @@
 +  <link rel="stylesheet" href="course-ambiences.css?v=1">
 +  <link rel="stylesheet" href="course-startup.css?v=1">
-+  <link rel="stylesheet" href="course-desktop.css?v=14">
++  <link rel="stylesheet" href="course-desktop.css?v=15">
 @@ -11,2 +89,6 @@
 -<body data-ambience="ocean">
 -  <div class="mg-previewnotice"><span>Maquette</span><a href="https://melunga.com/" target="_blank" rel="noopener">Site actuel ↗</a></div>
@@ -1461,5 +1502,5 @@ index 6e9b44c..080a3c0 100644
 +  <script src="course-access.js?v=4"></script>
 +  <script src="voice-selection.js?v=2"></script>
 +  <script src="lesson-audio.js?v=3"></script>
-+  <script src="maquette-guidee.js?v=40"></script>
++  <script src="maquette-guidee.js?v=41"></script>
 +  <script src="course-desktop.js?v=9"></script>

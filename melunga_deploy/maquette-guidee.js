@@ -255,7 +255,7 @@
   };
   const setStatus = message => text(ui.status, tr(message));
 
-  // Only an explicit “Je connais” decision counts. Source identity, not the
+  // Only an explicit card validation counts. Source identity, not the
   // number of appearances or lesson steps, makes a card unique in a level.
   function collectLevelProgressIds(pair, models) {
     const ids = new Set();
@@ -826,9 +826,8 @@
     queueLessonFit();
   }
 
-  // Fit the complete text, rather than truncating it or giving the lesson an
-  // inner scrollbar. Short cards retain their normal large type. Longer cards
-  // first use tighter spacing, then adapt to the available viewport.
+  // Keep complete text readable: tighter spacing first, then desktop scrolling
+  // or the existing mobile viewport fit.
   function queueLessonFit() {
     if (cardMotion.fitFrame) return;
     cardMotion.fitFrame = requestAnimationFrame(() => {
@@ -840,6 +839,8 @@
   function fitLesson() {
     if (!['lesson', 'done'].includes(state.screen)) return;
     const root = document.body;
+    const desktopScrollTop = root.classList.contains('mg-desktop-lesson-scroll') ? ui.content.scrollTop : 0;
+    root.classList.remove('mg-desktop-lesson-scroll');
     // A deploy preview can add its own fixed bottom toolbar. Reserve its real
     // occupied space, including when it is injected after the lesson loads.
     let usableHeight = window.innerHeight;
@@ -873,6 +874,18 @@
     root.style.setProperty('--mg-fit-model-padding', '2px');
     root.style.setProperty('--mg-fit-phon-padding', '6px');
     if (fits()) return;
+    // Preserve readable desktop type when browser zoom or a long phrase leaves
+    // too little height. The course content can scroll without shrinking text.
+    if (root.classList.contains('mg-desktop-course')) {
+      root.classList.add('mg-desktop-lesson-scroll');
+      // Re-measuring must not pull the retry actions out of view after a failed
+      // save changes the status message and the available content height.
+      ui.content.scrollTop = desktopScrollTop;
+      if (ui.status.textContent && ui.footer.contains(document.activeElement)) {
+        ui.footer.scrollIntoView({ block: 'nearest' });
+      }
+      return;
+    }
     const scaleFonts = scale => visible.forEach((node, index) => {
       node.style.fontSize = Math.max(node === ui.reading ? 10 : 12, baseline[index] * scale) + 'px';
     });
@@ -1216,6 +1229,20 @@
     resetStep();
     if (state.stepIndex >= state.sequence.steps.length) showDone();
     else renderStep();
+  }
+
+  function validateNextPhrase() {
+    const step = currentStep();
+    const phrase = currentPhrase();
+    if (!ui.level || state.screen !== 'lesson' || ui.next.disabled || !phrase
+        || !canProduce(phrase) || step?.isPreparation || isTemplate(phrase) || isReceived(step, phrase)
+        || state.deferredPhraseIds.has(phrase.id) || !state.levelProgressIds.has(phrase.id)) return true;
+    // A phone keeps all guided steps: Next validates only the final recall.
+    // On desktop, Next already advances by a whole phrase.
+    if (!document.body.classList.contains('mg-desktop-course')
+        && (!isRecall(step) || step.requiresProduction !== true)) return true;
+    return saveCardDecision(phrase, true,
+      state.savedReview.filter(entry => entry.pairId !== state.pair.id || entry.id !== phrase.id));
   }
 
   function browsePhrase(direction) {
@@ -2030,6 +2057,7 @@
       else showSequences();
       return;
     }
+    if (!validateNextPhrase()) return;
     if (document.body.classList.contains('mg-desktop-course')) browsePhrase(1);
     else advanceStep();
   });

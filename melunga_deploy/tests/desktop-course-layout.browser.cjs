@@ -178,17 +178,20 @@ test('desktop language, level, voice, colour, secondary menu and account remain 
  }
 }));
 
-test('desktop listening and next stay nearby, fit whole real cards and advance without rating known',()=>checked('desktop-nearby-lesson-actions',async()=>{
+test('desktop listening and next stay nearby, fit whole real cards and validate the card explicitly left by Next',()=>checked('desktop-nearby-lesson-actions',async()=>{
  for(const size of [{width:1366,height:768},{width:1440,height:900}])for(const config of [{pair:'en-es',level:1},{pair:'fr-zh',level:1},{pair:'fr-es',level:8,long:true}]){
   const f=await fixture({...size,...config});try{
    const p=f.page;await enter(p,config);const phrase=await modelSource(p),before=await state(p),position=(await p.locator('#mgCounter').textContent()).match(/(\d+)\s*\/\s*(\d+)/);assert.ok(position,'real phrase counter exists');await shot(p,'initial-lesson-'+config.pair+'-L'+config.level+'-'+size.width);await wholeCard(p);await desktopLayout(p);
    const listen=await fits(p,'#mgListen'),next=await fits(p,'#mgContinue');assert.ok(Math.abs(listen.top-next.top)<=16,'audio and next share the same nearby command row');assert.ok(Math.abs((listen.left+listen.right)/2-(next.left+next.right)/2)<=310,'one short pointer movement reaches next');
    const known=await p.evaluate(()=>localStorage.getItem('melunga-guided-known-v1'));await p.locator('#mgListen').click();const media=await p.evaluate(()=>window.__desktopLayoutMedia.plays);assert.equal(media.length,1);const url=new URL(media[0].src,ORIGIN);assert.equal(url.searchParams.get('text'),phrase.study);assert.equal(url.searchParams.get('lang'),config.pair.endsWith('-zh')?'cmn-CN':'es-ES');
+   assert.equal(await p.evaluate(()=>localStorage.getItem('melunga-guided-known-v1')),known,'listening does not validate the card');
    await p.locator('#mgContinue').click();const after=await state(p);
    assert.equal(after.pairId,before.pairId);assert.equal(after.themeId,before.themeId);assert.equal(after.level,before.level);
    if(after.screen==='done')assert.equal(Number(position[1]),Number(position[2]),'completion is allowed only after the last phrase');
    else{assert.notEqual(after.phraseId,before.phraseId,'one desktop next click must change the phrase, not just understand→imitate');const nextPosition=(await p.locator('#mgCounter').textContent()).match(/(\d+)\s*\/\s*(\d+)/);assert.ok(nextPosition);assert.equal(Number(nextPosition[1]),Number(position[1])+1,'one click advances exactly one phrase');assert.equal(nextPosition[2],position[2]);await modelSource(p);}
-   assert.equal(await p.evaluate(()=>localStorage.getItem('melunga-guided-known-v1')),known,'next never rates the phrase known');
+   const expectedKnown=JSON.parse(known||'{"version":1,"pairs":{}}');
+   expectedKnown.pairs[before.pairId]=[...new Set([...(expectedKnown.pairs[before.pairId]||[]),before.phraseId])];
+   assert.deepEqual(await p.evaluate(()=>JSON.parse(localStorage.getItem('melunga-guided-known-v1'))),expectedKnown,'desktop Next validates exactly the production card it leaves and preserves all prior decisions');
    assert.deepEqual(await p.evaluate(()=>window.__desktopLayoutMedia.browser),[]);assert.ok(await p.evaluate(()=>window.__desktopLayoutMedia.instances.every(a=>a.paused)),'moving on cancels the previous media');
    if(config.pair==='fr-zh'){await p.locator('#mgReadingToggle').click();assert.equal(await p.locator('#mgReadingToggle').getAttribute('aria-pressed'),'true');await modelSource(p);}
    report.cases.push({name:'desktop-real-card',size,...config,phraseId:phrase.id,study:phrase.study,nextPhraseId:after.phraseId,nextScreen:after.screen,oneClickChangesPhrase:true,listen,next});await shot(p,'lesson-'+config.pair+'-L'+config.level+'-'+size.width);
@@ -201,9 +204,14 @@ test('mobile header, pills, original footer, card and Pinyin match the actual pu
   let before;for(const baseline of [true,false]){const f=await fixture({width:390,height:700,...config,baseline});try{
    const p=f.page;const themes=await mobileSnapshot(p);await enter(p,config);await modelSource(p);await wholeCard(p);const lesson=await mobileSnapshot(p);let pinyin=null;
    if(config.pair==='fr-zh'){await p.locator('#mgReadingToggle').click();await modelSource(p);pinyin=await mobileSnapshot(p);}
-   const oldStep=await state(p);await p.locator('#mgContinue').click();const newStep=await state(p),continued={beforePhrase:oldStep.phraseId,beforeIndex:oldStep.stepIndex,afterPhrase:newStep.phraseId,afterIndex:newStep.stepIndex};
+   const oldStep=await state(p),knownBefore=await p.evaluate(()=>localStorage.getItem('melunga-guided-known-v1'));await p.locator('#mgContinue').click();const newStep=await state(p),continued={beforePhrase:oldStep.phraseId,beforeIndex:oldStep.stepIndex,afterPhrase:newStep.phraseId,afterIndex:newStep.stepIndex};
    assert.equal(newStep.stepIndex,oldStep.stepIndex+1,'mobile Continue keeps its original one-step progression');
+   assert.equal(await p.evaluate(()=>localStorage.getItem('melunga-guided-known-v1')),knownBefore,'the first mobile guided step does not validate');
    if(baseline)before={themes,lesson,pinyin,continued};else{sameMobile(before.themes,themes);sameMobile(before.lesson,lesson);if(pinyin)sameMobile(before.pinyin,pinyin);assert.deepEqual(continued,before.continued,'mobile Continue matches actual baseline, independently of desktop phrase navigation');await shot(p,'mobile-unchanged-'+config.pair+'-L'+config.level);}
+   await p.locator('#mgContinue').click();const recallStep=await state(p);
+   assert.equal(recallStep.stepIndex,oldStep.stepIndex+2,'the second mobile click reaches the recall step without skipping it');
+   assert.equal(recallStep.phraseId,oldStep.phraseId,'the first two mobile clicks stay on the same production card');
+   assert.equal(await p.evaluate(()=>localStorage.getItem('melunga-guided-known-v1')),knownBefore,'the second mobile guided step does not validate before recall');
    report.cases.push({name:'mobile-baseline-comparison',...config,baseline,originalFooter:true,continueTransition:continued});
   }finally{await f.close();}}
  }

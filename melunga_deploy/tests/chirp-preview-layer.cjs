@@ -13,7 +13,7 @@ const BASE = '4fafe31271df3d5e7b601f41ee9056511860bd17';
 const APPROVED_PREVIEW = 'ff4f1e0ca8b19ea93ea978a7372f43883eb18bca';
 const APPROVED_SELECTION_VERSION = 'kartech-2026-10-27';
 const FIXTURE = 'melunga_deploy/tests/fixtures/chirp-preview-layer.json';
-const FIXTURE_SHA256 = '1c88b102e7a2bb591dca127de35d0767e43a5c82a96d015c5a5e00cb6b835e36';
+const FIXTURE_SHA256 = '56a812b3b863f6fa0f4586a35f8fb90110dc4b2716632ceb27fc145699fbbcb9';
 const MODIFIED = Object.freeze(['app.html', 'maquette-guidee.js', 'maquette-guidee.html', 'parcours-niveaux.html',
   'lesson-audio.js', 'course-i18n.js', 'content/course-locales/supplements.json', 'netlify/functions/tts.mjs',
   'index.html', 'desktop-home.js', 'course-login.js', 'course-native.js', 'course-access.js'].map(f => 'melunga_deploy/' + f));
