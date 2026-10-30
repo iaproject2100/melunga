@@ -15,9 +15,12 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const WEB = path.join(ROOT, 'melunga_deploy');
 const BASE = 'ef147deacf85b4a5631c1b05ff8050de7918ea1f';
 const LANGUAGES = ['fr','en','es','it','zh','ja','ko'];
+const STUDY_LANGUAGES = [...LANGUAGES,'de'];
 const REVIEWED = ['fr-en','fr-es','fr-it','fr-zh','fr-ja','fr-ko','zh-fr'];
-const PAIRS = LANGUAGES.flatMap(native => LANGUAGES.filter(study => native !== study).map(study => native+'-'+study));
-const DERIVED = PAIRS.filter(pair => !REVIEWED.includes(pair));
+const HISTORICAL_PAIRS = LANGUAGES.flatMap(native => LANGUAGES.filter(study => native !== study).map(study => native+'-'+study));
+const PAIRS = LANGUAGES.flatMap(native => STUDY_LANGUAGES.filter(study => native !== study).map(study => native+'-'+study));
+const DERIVED = HISTORICAL_PAIRS.filter(pair => !REVIEWED.includes(pair));
+const NATIVE_PAIRS = PAIRS.filter(pair => !REVIEWED.includes(pair));
 const BASE_PAIR = Object.fromEntries(REVIEWED.map(pair => [pair.split('-')[1],pair]));
 const read = file => fs.readFileSync(path.join(WEB,file));
 const json = file => JSON.parse(read(file));
@@ -58,7 +61,7 @@ vm.createContext(oracle);
 vm.runInContext(sourcingDeclaration+'\n'+freeDeclaration+'\n'+selectorNames.map(name=>sourceFunction(classic,name)).join('\n'),oracle);
 const sourceIndex=Object.fromEntries(LANGUAGES.map(lang=>[lang,new Map(decks[lang].map((card,index)=>[card,index]))]));
 const expected = new Map();
-for(const pairId of PAIRS){
+for(const pairId of HISTORICAL_PAIRS){
   const [native,study]=pairId.split('-');oracle.nat=native;oracle.lang=study;oracle.pinyinOn=false;
   const active=Array.from(oracle.activeDeck());
   const eligible=new Set(active.map(card=>sourceIndex[study].get(card)));
@@ -127,7 +130,7 @@ function fixture({hostname='melunga.com',server={paid:false},serverStatus=200,se
         if(serverFails)throw new Error('Simulated status network failure');
         return {ok:serverStatus>=200&&serverStatus<300,status:serverStatus,json:async()=>server};
       }
-      assert.match(url.pathname,/^\/content\/(?:native-catalogue\/(?:manifest|fr|en|es|it|zh|ja|ko)|course-access)\.json$/,'only local declared catalogue and rights fixtures');
+      assert.match(url.pathname,/^\/content\/(?:native-catalogue\/(?:manifest|fr|en|es|it|zh|ja|ko|de)|course-access)\.json$/,'only local declared catalogue and rights fixtures');
       let bytes=read(url.pathname.slice(1));
       if(mutate)bytes=Buffer.from(await mutate(url.pathname,bytes,options));
       return {ok:true,status:200,arrayBuffer:async()=>Uint8Array.from(bytes).buffer,
@@ -175,20 +178,23 @@ test('classic source functions, both literals, all 78 reviewed documents and his
   assert.equal(hash(read('content/course-access.json')),hash(historic('content/course-access.json')),'seven historical rights unchanged');
 });
 
-test('native domain has exactly 42 off-diagonal pairs, preserves the seven reviewed routes and adds 35 metadata records',()=>{
+test('native domain has 49 target pairs, preserves the historical 42 directions and excludes German as a native language',()=>{
   const {api}=fixture();
   assert.deepEqual(plain(api.pairIds),PAIRS);assert.deepEqual(plain(api.reviewedPairIds),REVIEWED);
+  assert.equal(PAIRS.length,49);assert.equal(HISTORICAL_PAIRS.length,42);assert.equal(DERIVED.length,35);
+  assert.deepEqual(plain(api.pairIds).filter(pair=>!pair.endsWith('-de')),HISTORICAL_PAIRS);
   for(const native of LANGUAGES)assert.equal(api.isPair(native+'-'+native),false,'native cannot equal study');
-  for(const pair of ['fr-de','en','xx-zh','FR-en','en-en','en-fr-extra',null])assert.equal(api.isPair(pair),false);
+  for(const pair of ['de-fr','de-en','de-de','xx-de','en','xx-zh','FR-en','en-en','en-fr-extra',null])assert.equal(api.isPair(pair),false);
   for(const pair of PAIRS){assert.equal(api.isPair(pair),true);assert.equal(api.isReviewed(pair),REVIEWED.includes(pair));}
   const snapshot=JSON.stringify(reviewedManifest),metadata=plain(api.metadata(reviewedManifest));
-  assert.deepEqual(metadata.map(row=>row.id),DERIVED);assert.equal(metadata.length,35);
+  assert.deepEqual(metadata.map(row=>row.id),NATIVE_PAIRS);assert.equal(metadata.length,42);
+  assert.deepEqual(metadata.filter(row=>row.studyLanguage!=='de').map(row=>row.id),DERIVED);
   for(const row of metadata){
-    const e=expected.get(row.id);assert.equal(row.nativeLanguage,e.native);assert.equal(row.studyLanguage,e.study);
-    assert.equal(row.name,e.native+':language:'+e.study);assert.equal(row.nativeCatalogue,true);
-    assert.equal(row.nativeCatalogueSourcePair,BASE_PAIR[e.study]);
+    const [native,study]=row.id.split('-');assert.equal(row.nativeLanguage,native);assert.equal(row.studyLanguage,study);
+    assert.equal(row.name,native+':language:'+study);assert.equal(row.nativeCatalogue,true);
+    assert.equal(row.nativeCatalogueSourcePair,study==='de'?null:BASE_PAIR[study]);
     assert.deepEqual(row.levels.map(level=>level.level),[1,2,3,4,5,6,7,8,9,10]);
-    assert(row.levels.every(level=>level.title===e.native+':level:'+level.level));
+    assert(row.levels.every(level=>level.title===native+':level:'+level.level));
   }
   assert.equal(JSON.stringify(reviewedManifest),snapshot,'metadata does not mutate reviewed data');
   assert.throws(()=>api.metadata({pairs:[]}),/reviewed metadata missing/);
@@ -200,7 +206,7 @@ test('all 42 eligibility and free matrices are independently recomputed through 
   const {api,calls}=fixture();
   for(const pair of PAIRS){const study=pair.split('-')[1];assert.equal(api.isEligible(pair,'catalogue:'+study+':0'),false);assert.equal(api.isHistoricalFree(pair,'catalogue:'+study+':0'),false);}
   await api.ensureRights();
-  for(const pair of PAIRS){
+  for(const pair of HISTORICAL_PAIRS){
     const e=expected.get(pair),actualEligible=[],actualFree=[];
     for(let index=0;index<decks[e.study].length;index++){
       const id='catalogue:'+e.study+':'+index;
@@ -278,7 +284,7 @@ test('35 native source projections preserve whole classic study/meaning/phon blo
 
 test('loader refuses reviewed routes, same-language pairs, invalid levels and pre-aborted requests',async()=>{
   const {api,calls}=fixture();
-  for(const pair of [...REVIEWED,'en-en','fr-de',null])await assert.rejects(api.loadPair(pair,1));
+  for(const pair of [...REVIEWED,'en-en','de-fr',null])await assert.rejects(api.loadPair(pair,1));
   for(const level of [0,11,1.5,'1',null])await assert.rejects(api.loadPair('en-fr',level));
   const controller=new AbortController();controller.abort();
   await assert.rejects(api.loadPair('en-fr',1,{signal:controller.signal}),error=>error.name==='AbortError');
@@ -286,13 +292,13 @@ test('loader refuses reviewed routes, same-language pairs, invalid levels and pr
 });
 
 test('the pinned manifest and each bank reject byte corruption even if the modified JSON has identical values',async()=>{
-  for(const pathname of ['/content/native-catalogue/manifest.json',...LANGUAGES.map(study=>'/content/native-catalogue/'+study+'.json')]){
+  for(const pathname of ['/content/native-catalogue/manifest.json',...STUDY_LANGUAGES.map(study=>'/content/native-catalogue/'+study+'.json')]){
     const f=fixture({mutate:(requested,bytes)=>requested===pathname?Buffer.concat([bytes,Buffer.from(' ')]):bytes});
     if(pathname.endsWith('/manifest.json')){
       await assert.rejects(f.api.ensureRights(),/fingerprint differs/);
       assert.equal(f.api.isEligible('en-fr','catalogue:fr:0'),false,'a corrupt manifest never installs access matrices');
     }else{
-      const study=path.basename(pathname,'.json'),pair=DERIVED.find(id=>id.endsWith('-'+study));
+      const study=path.basename(pathname,'.json'),pair=NATIVE_PAIRS.find(id=>id.endsWith('-'+study));
       await assert.rejects(f.api.loadPair(pair,1),/fingerprint differs/);
     }
   }
@@ -321,7 +327,7 @@ test('all 35 new pairs keep historical free identities and editorial L1 open; pa
     const model=sourcePhraseMap.get(paidSourceId(pairId));
     assert.equal(access.canLearn(pairId,model,model.editorialLevel),false,'nonpaying learner cannot open L2–L10 paid source');
   }
-  for(const pairId of ['en-en','xx-fr','en-xx','fr-de'])assert.equal(access.canLearn(pairId,{id:'catalogue:fr:0',editorialLevel:1},1),false);
+  for(const pairId of ['en-en','xx-fr','en-xx','de-fr'])assert.equal(access.canLearn(pairId,{id:'catalogue:fr:0',editorialLevel:1},1),false);
   assert(f.calls.every(call=>!call.path.includes('/login')&&!call.path.includes('/payment')),'all account calls are simulated status reads');
 });
 
@@ -366,7 +372,7 @@ test('the original seven reviewed bundles retain their previous free-access poli
   t.diagnostic(compared+' reviewed canonical models retain their previous free-access outcome.');
 });
 
-test('login and classic URLs preserve all 42 native/target directions; invalid or diagonal pairs return to language selection',()=>{
+test('login and classic URLs preserve all 49 native/target directions; invalid or German-native pairs return to language selection',()=>{
   const f=fixture(),access=f.access();
   for(const pairId of PAIRS){
     const [native,study]=pairId.split('-');
@@ -378,7 +384,7 @@ test('login and classic URLs preserve all 42 native/target directions; invalid o
     assert.equal(classicUrl.searchParams.get('start'),'1');assert.equal(classicUrl.searchParams.get('classic'),'1');
     for(const level of [0,11,'invalid',1.5])assert.equal(new URL(access.loginUrl(pairId,level),'https://fixture.example/').searchParams.get('courseLevel'),'1');
   }
-  for(const pairId of [...LANGUAGES.map(language=>language+'-'+language),'fr-de','xx-fr',null,'https://example.test']){
+  for(const pairId of [...STUDY_LANGUAGES.map(language=>language+'-'+language),'de-fr','de-en','xx-fr',null,'https://example.test']){
     assert.equal(access.loginUrl(pairId,7),'index.html');assert.equal(access.classicUrl(pairId),'index.html');
   }
   assert.equal(f.calls.length,0,'URL creation never logs in or makes a network call');

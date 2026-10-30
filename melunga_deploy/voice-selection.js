@@ -2,9 +2,9 @@
  * personal choices stay on this device and take priority over those defaults. */
 (() => {
   'use strict';
-  const LANGUAGES = Object.freeze(['fr', 'en', 'es', 'zh', 'it', 'ja', 'ko']);
+  const LANGUAGES = Object.freeze(['fr', 'en', 'es', 'zh', 'it', 'ja', 'ko', 'de']);
   const STORAGE_KEY = 'melunga-preview-voice-selection-v1';
-  const SELECTION_VERSION = 'kartech-2026-10-27';
+  const SELECTION_VERSION = 'kartech-2026-10-30-de';
   const APPROVED_DEFAULTS = Object.freeze({
     fr: Object.freeze({name:'fr-FR-Chirp3-HD-Aoede',gender:'FEMALE'}),
     en: Object.freeze({name:'en-GB-Chirp3-HD-Kore',gender:'FEMALE'}),
@@ -12,7 +12,8 @@
     zh: Object.freeze({name:'cmn-CN-Chirp3-HD-Kore',gender:'FEMALE'}),
     it: Object.freeze({name:'it-IT-Chirp3-HD-Charon',gender:'MALE'}),
     ja: Object.freeze({name:'ja-JP-Chirp3-HD-Kore',gender:'FEMALE'}),
-    ko: Object.freeze({name:'ko-KR-Chirp3-HD-Kore',gender:'FEMALE'})
+    ko: Object.freeze({name:'ko-KR-Chirp3-HD-Kore',gender:'FEMALE'}),
+    de: Object.freeze({name:'de-DE-Chirp3-HD-Kore',gender:'FEMALE'})
   });
   const listeners = new Set();
   let catalogue = null, pending = null, status = 'idle', error = null;

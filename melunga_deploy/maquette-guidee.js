@@ -1991,7 +1991,7 @@
   }
 
   function renderLoadingContext(id, level = state.level) {
-    const flags = {fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷'};
+    const flags = {fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪'};
     if (!nativeCourses?.isPair(id) || id.split('-')[0] !== state.nativeLanguage || state.invalidPair) {
       text(ui.flag, '…'); delete ui.flag.dataset.language;
       delete document.body.dataset.loadingContext;

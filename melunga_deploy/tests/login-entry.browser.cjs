@@ -156,7 +156,29 @@ async function readyAssertions(h,locale){
 
 async function closeAndReadLesson(h){
   await h.page.locator('#bootCover').waitFor({state:'hidden'});
+  const courseReturn=await h.page.evaluate(()=>document.documentElement.classList.contains('course-login')
+    ?window.approvedCourseReturn:null);
   await h.page.locator('#pwClose').click();
+  if(courseReturn){
+    // Closing a normal web account form has returned to the course since the
+    // approved entry presentation. The classic #card belongs to the old page.
+    await h.page.waitForURL(url=>url.pathname==='/parcours-niveaux.html');
+    await h.page.waitForFunction(pair=>window.MelungaCourseAccess?.state().ready
+      &&window.MelungaMockup?.state().screen==='themes'
+      &&window.MelungaMockup.state().pairId===pair,courseReturn.pair);
+    const url=new URL(h.page.url());
+    assert.equal(url.searchParams.get('pair'),courseReturn.pair);
+    assert.equal(url.searchParams.get('level'),String(courseReturn.level));
+    await h.page.locator('#mgThemeGrid .mg-theme:not([data-access="paid"])').first().click();
+    await h.page.waitForFunction(()=>window.MelungaMockup?.state().screen==='lesson');
+    await h.page.locator('#mgPhrase').waitFor({state:'visible'});
+    assert((await h.page.locator('#mgPhrase').textContent()).trim().length>0,
+      'closing the account form returns to a readable lesson in the current course');
+    assert.equal(await h.page.locator('#accountBackdrop').isVisible(),false);
+    assert.equal(await h.page.locator('#welcome').isVisible(),false);
+    return;
+  }
+  // Invalid/unsupported classic login URLs keep the existing classic fallback.
   await h.page.locator('#paywall').waitFor({state:'hidden'});
   await h.page.locator('#card').waitFor({state:'visible'});
   assert.equal(await h.page.locator('#accountBackdrop').isVisible(),false);
@@ -204,7 +226,7 @@ test('closing before window load is respected and does not reopen the form later
     await h.page.waitForLoadState('load');
     await h.page.waitForTimeout(450);
     assert.equal(await h.page.locator('#paywall').isVisible(),false);
-    assert.equal(await h.page.locator('#card').isVisible(),true);
+    assert.equal(await h.page.locator('#mgPhrase').isVisible(),true);
     assert.equal(await h.page.locator('#welcome').isVisible(),false);
     assert.deepEqual(h.fixture.errors,[]);
   }finally{await h.context.close();}

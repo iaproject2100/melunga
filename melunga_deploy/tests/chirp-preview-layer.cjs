@@ -7,6 +7,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
+const germanLayer = require('./german-launch-layer.cjs');
 const ROOT = path.resolve(__dirname, '../..');
 const WEB = path.join(ROOT, 'melunga_deploy');
 const BASE = '4fafe31271df3d5e7b601f41ee9056511860bd17';
@@ -25,7 +26,9 @@ const APPROVED_AUDIO_ADDED = Object.freeze(['voice-selection.js', 'comparaison-v
 const NATIVE_CONTEXT = new Set(['app.html', 'course-access.js', 'course-login.js', 'desktop-home.js', 'entry-bridge.js',
   'index.html', 'maquette-guidee.html', 'maquette-guidee.js', 'parcours-niveaux.html'].map(f => 'melunga_deploy/' + f));
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
-const actual = file => fs.readFileSync(path.join(ROOT, file));
+const rawActual = file => fs.readFileSync(path.join(ROOT, file));
+let germanView = null;
+const actual = file => germanView ? germanView(file) : rawActual(file);
 const baselineCache = new Map();
 const approvedCache = new Map();
 let cache = null;
@@ -170,10 +173,13 @@ function assertInvariants() {
 }
 function inputFiles() {
   const f = fixture();
-  return [...new Set([__filename, ...[FIXTURE, f.patchPath, ...MODIFIED, ...ADDED, ...runtime, ...protectedFiles].map(file => path.join(ROOT, file))])];
+  return [...new Set([__filename, ...[FIXTURE, f.patchPath, ...MODIFIED, ...ADDED, ...runtime, ...protectedFiles].map(file => path.join(ROOT, file)), ...germanLayer.inputFiles()])];
 }
 function stamp(file) { const s = fs.statSync(file, {bigint: true}); return [s.dev, s.ino, s.mode, s.size, s.mtimeNs, s.ctimeNs].join(':'); }
 function validate({force = false} = {}) {
+  // Validate the complete current German tuple before exposing the exact
+  // approved 541afb7 source view. Original Chirp fixture and pins stay frozen.
+  germanView = germanLayer.sourceView();
   assertInventories();
   const f = fixture(), files = inputFiles();
   if (!force && cache && cache.reader === fs.readFileSync && cache.lister === fs.readdirSync && files.every(file => cache.stamps.get(file) === stamp(file))) return cache.summary;
@@ -186,7 +192,7 @@ function validate({force = false} = {}) {
   for (const file of ADDED) assert.equal(sha(actual(file)), f.newFiles[file], 'whole finite new Chirp asset: ' + file);
   const patch = actual(f.patchPath);
   assert.equal(sha(patch), f.patchSha256, 'whole finite Chirp patch is pinned');
-  const diff = execFileSync('git', ['diff', '--binary', '--no-ext-diff', '--no-textconv', '--unified=0', BASE, '--', ...MODIFIED], {cwd: ROOT, maxBuffer: 32 * 1024 * 1024});
+  const diff = execFileSync('git', ['diff', '--binary', '--no-ext-diff', '--no-textconv', '--unified=0', BASE, germanLayer.baseCommit, '--', ...MODIFIED], {cwd: ROOT, maxBuffer: 32 * 1024 * 1024});
   assert.ok(diff.equals(patch), 'actual complete Chirp delta equals its exact frozen patch');
   const invariants = assertInvariants();
   const summary = Object.freeze({layer: 'Chirp-preview', baseCommit: BASE, selectionVersion: APPROVED_SELECTION_VERSION, startupPresentationBaseCommit: APPROVED_PREVIEW,
@@ -197,7 +203,7 @@ function validate({force = false} = {}) {
 function beforeChirpBytes(file, bytes) {
   file = relative(file); validate();
   const current = actual(file);
-  if (bytes !== undefined) assert.ok(Buffer.from(bytes).equals(current), 'mutated caller bytes cannot be hidden by Chirp: ' + file);
+  if (bytes !== undefined) assert.ok(Buffer.from(bytes).equals(rawActual(file)), 'mutated caller bytes cannot be hidden by Chirp: ' + file);
   return MODIFIED.includes(file) ? Buffer.from(baseline(file)) : current;
 }
 module.exports = Object.freeze({validate, beforeChirpBytes, inputFiles, baseCommit: BASE, modifiedPaths: MODIFIED, addedPaths: ADDED});

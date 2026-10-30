@@ -5,6 +5,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {execFileSync}=require('node:child_process');
 const chirpLayer=require('./chirp-preview-layer.cjs');
+const germanLayer=require('./german-launch-layer.cjs');
 const ROOT=path.resolve(__dirname,'../..');
 const BASE='ef147deacf85b4a5631c1b05ff8050de7918ea1f';
 const FIXTURE='melunga_deploy/tests/fixtures/native-routing-layer.json';
@@ -106,7 +107,7 @@ function validate({force=false}={}){
 }
 function beforeBytes(filename){
  filename=relative(filename);validate();
- return ALLOWED.includes(filename)?Buffer.from(validationCache.before.get(filename)):read(filename);
+ return ALLOWED.includes(filename)?Buffer.from(validationCache.before.get(filename)):germanLayer.beforeGermanBytes(filename);
 }
 module.exports={validate,beforeBytes,inputFiles,assertCurrentBytes,projectedPaths:ALLOWED};
 if(require.main===module)console.log(JSON.stringify(validate()));

@@ -9,11 +9,13 @@ const vm = require('node:vm');
 const crypto = require('node:crypto');
 const { execFileSync } = require('node:child_process');
 const { test, before, after } = require('node:test');
+const germanLayer = require('./german-launch-layer.cjs');
 
 const ROOT = path.resolve(__dirname, '../..');
 const WEB = path.join(ROOT, 'melunga_deploy');
 const BASE = 'f25250627f94334fd097a4eed0d4da814d65561f';
 const CONTROLLER = 'maquette-guidee.js';
+const GERMAN_SOURCE = 'tools/maquette-guidee/imports/de-deck-v3.1.json';
 const read = file => fs.readFileSync(path.join(WEB, file));
 const json = file => JSON.parse(read(file));
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
@@ -29,14 +31,18 @@ const reviewedFiles = ['content/niveaux-progressifs/manifest.json',
   ...manifest.pairs.flatMap(pair => [pair.repertoirePath, ...pair.levels.map(level => level.dataPath)])];
 const nativeFiles = ['content/native-catalogue/manifest.json',
   ...Object.values(nativeManifest.banks).map(bank => bank.path)];
+const historicalNativeManifest = JSON.parse(baseline('content/native-catalogue/manifest.json'));
+const historicalNativeFiles = ['content/native-catalogue/manifest.json',
+  ...Object.values(historicalNativeManifest.banks).map(bank => bank.path)];
 const artworkFiles = execFileSync('git', ['ls-tree', '-r', '--name-only', BASE, '--', 'melunga_deploy'],
   { cwd: ROOT, encoding: 'utf8' }).trim().split('\n').filter(file => /\.(png|svg|webp)$/.test(file))
   .map(file => file.slice('melunga_deploy/'.length));
-const protectedFiles = [...reviewedFiles, ...nativeFiles, ...artworkFiles, 'content/course-access.json',
+const protectedFiles = [...reviewedFiles, ...historicalNativeFiles, ...artworkFiles, 'content/course-access.json',
   'course-access.js', 'course-native.js'];
-const inputFiles = [...new Set([...protectedFiles, CONTROLLER, 'course-i18n.js'])].sort();
+const inputFiles = [...new Set([...protectedFiles, ...nativeFiles, CONTROLLER, 'course-i18n.js'])].sort();
 const fingerprints = () => Object.fromEntries([
   ['melunga_deploy/tests/long-sequences-partition.test.cjs', sha(fs.readFileSync(__filename))],
+  [GERMAN_SOURCE, sha(fs.readFileSync(path.join(ROOT, GERMAN_SOURCE)))],
   ...inputFiles.map(file => ['melunga_deploy/' + file, sha(read(file))])
 ]);
 
@@ -64,13 +70,13 @@ function functionSource(source, name) {
   assert.fail('unclosed function ' + name);
 }
 
-let partitionContext, inputs, rows = [], firstThemes = [];
+let partitionContext, inputs, rows = [], firstThemes = [], germanFirstThemes = [];
 const report = {
   status: 'running', sourceReference: BASE, scope: 'pure function and source conservation; no DOM',
   actualProviderCalls: false, realAccountsUsed: false, contentSourceBytesIdentical: null,
   reviewedRuntimeJson: reviewedFiles.length, nativeCatalogueJson: nativeFiles.length,
   protectedArtworkFiles: artworkFiles.length,
-  checks: [], errors: [], references: [], totals: {}, firstThemes: [], longThemes: []
+  checks: [], errors: [], references: [], totals: {}, firstThemes: [], germanFirstThemes: [], longThemes: []
 };
 function partition(weights) {
   partitionContext.weights = weights;
@@ -80,7 +86,7 @@ function partition(weights) {
 const zeroTotals = () => ({ themes: 0, cards: 0, guidedSteps: 0, chunks: 0,
   preparations: 0, receivedSteps: 0, receivedModels: 0, templates: 0,
   reviewSteps: 0, contextReuseSteps: 0, duplicateIds: 0 });
-const totals = { reviewed: zeroTotals(), native: zeroTotals() };
+const totals = { reviewed: zeroTotals(), native: zeroTotals(), german: zeroTotals() };
 let maximumTechnicalGroupWeight = 0, checkedThemes = 0;
 
 function checkTheme(pairId, level, theme, kind, sourceModels) {
@@ -118,9 +124,16 @@ function checkTheme(pairId, level, theme, kind, sourceModels) {
   assert.deepEqual(partition(weights), chunks, 'partition is deterministic');
   checkedThemes++;
   if (level === 1 && theme === sourceModels.firstTheme) {
-    assert.ok(ids.length <= 100, 'the first L1 theme remains compatible with direct lesson entry: ' + pairId);
-    assert.equal(chunks.length, 1);
-    firstThemes.push({ pairId, level, themeId: theme.id, cards: ids.length, stages: chunks.length });
+    const first = { pairId, level, themeId: theme.id, cards: ids.length, stages: chunks.length };
+    if (kind === 'german') {
+      assert.equal(ids.length, 270, 'German L1 retains all original non-template cards');
+      assert.equal(chunks.length, 8, 'German L1 enters its first prepared stage');
+      germanFirstThemes.push(first);
+    } else {
+      assert.ok(ids.length <= 100, 'the first historical L1 theme remains compatible with direct lesson entry: ' + pairId);
+      assert.equal(chunks.length, 1);
+      firstThemes.push(first);
+    }
   }
   if (ids.length <= 100) return;
   const refIds = new Set([...ids, ...steps.flatMap(step => [step.utterance, ...(step.choices || [])])]);
@@ -163,6 +176,9 @@ function nativeBuilder(fromBaseline) {
 }
 
 before(() => {
+  // Only this sealed whole delta may expose the historical manifest/builder.
+  // Functional loading and all unchanged banks/runtime documents stay actual.
+  report.germanLaunchLayer = germanLayer.validate();
   inputs = fingerprints();
   const source = functionSource(read(CONTROLLER).toString(), 'partitionGroupBoundaries');
   partitionContext = vm.createContext({});
@@ -176,29 +192,34 @@ after(() => {
   report.maximumTechnicalGroupWeight = maximumTechnicalGroupWeight;
   report.totals = totals;
   report.firstThemes = firstThemes.sort((a, b) => a.pairId.localeCompare(b.pairId));
+  report.germanFirstThemes = germanFirstThemes.sort((a, b) => a.pairId.localeCompare(b.pairId));
   report.longThemes = rows;
-  report.status = report.checks.length === 5 && !report.errors.length && report.inputsStable ? 'passed' : 'failed';
+  report.status = report.checks.length === 6 && !report.errors.length && report.inputsStable ? 'passed' : 'failed';
   if (process.env.LONG_SEQUENCES_CONSERVATION_REPORT) fs.writeFileSync(
     process.env.LONG_SEQUENCES_CONSERVATION_REPORT, JSON.stringify(report, null, 2) + '\n');
   assert.equal(report.inputsStable, true, 'all inspected source bytes remain frozen throughout the run');
   assert.deepEqual(report.errors, []);
-  assert.equal(report.checks.length, 5, 'all five conservation groups completed');
+  assert.equal(report.checks.length, 6, 'all six conservation groups completed');
 });
 async function checked(name, run) {
   try { await run(); report.checks.push(name); }
   catch (error) { report.errors.push(name + ': ' + error.message); throw error; }
 }
 
-test('78 reviewed JSON files, eight native catalogue JSON files, original artwork, rights and the native builder remain byte exact', () => checked('protected-source-bytes', () => {
+test('78 actual reviewed JSON files, seven actual historical banks, artwork and rights stay byte exact before the sealed German manifest/builder delta', () => checked('protected-source-bytes', () => {
   assert.equal(reviewedFiles.length, 78);
-  assert.equal(nativeFiles.length, 8);
+  assert.equal(nativeFiles.length, 9);assert.equal(historicalNativeFiles.length, 8);
   assert.equal(artworkFiles.length, 33);
-  for (const file of protectedFiles) assert.ok(read(file).equals(baseline(file)), 'whole source preserved: ' + file);
+  const projected = new Set(['content/native-catalogue/manifest.json', 'course-native.js']);
+  for (const file of protectedFiles) {
+    const bytes = projected.has(file) ? germanLayer.beforeGermanBytes('melunga_deploy/' + file, read(file)) : read(file);
+    assert.ok(bytes.equals(baseline(file)), 'whole historical source preserved: ' + file);
+  }
   report.contentSourceBytesIdentical = true;
   report.protectedSourceSha256 = Object.fromEntries(protectedFiles.map(file => [file, sha(read(file))]));
 }));
 
-test('all reviewed and actual generated native themes preserve groups, every card and complete step metadata', { timeout: 120000 }, () => checked('all-42-pair-content-conservation', async () => {
+test('all reviewed and actual generated historical native themes preserve groups, every card and complete step metadata', { timeout: 120000 }, () => checked('all-42-pair-content-conservation', async () => {
   for (const descriptor of manifest.pairs) {
     const bank = json(descriptor.repertoirePath);
     for (const spec of descriptor.levels) {
@@ -210,10 +231,15 @@ test('all reviewed and actual generated native themes preserve groups, every car
     }
   }
   const current = nativeBuilder(false), original = nativeBuilder(true);
-  for (const pairId of nativeManifest.derivedPairIds) for (let level = 1; level <= 10; level++) {
+  for (const pairId of historicalNativeManifest.derivedPairIds) for (let level = 1; level <= 10; level++) {
     const [actual, prior] = await Promise.all([current.loadPair(pairId, level), original.loadPair(pairId, level)]);
-    assert.equal(sha(JSON.stringify(actual.pair)), sha(JSON.stringify(prior.pair)),
-      'whole native theme order, metadata, content and photos match the baseline: ' + pairId + '/L' + level);
+    assert.equal(actual.pair.nativeCatalogueManifestSha256, sha(read('content/native-catalogue/manifest.json')));
+    assert.equal(prior.pair.nativeCatalogueManifestSha256, sha(baseline('content/native-catalogue/manifest.json')));
+    // The manifest acquired the exactly pinned German source. Every other
+    // field and all ordered arrays of the historical views remain equal.
+    assert.deepEqual(JSON.parse(JSON.stringify({...actual.pair,
+      nativeCatalogueManifestSha256: prior.pair.nativeCatalogueManifestSha256})), JSON.parse(JSON.stringify(prior.pair)),
+      'whole historical native theme metadata, content, order and photos match the baseline: ' + pairId + '/L' + level);
     const models = new Map(actual.pair.themes.flatMap(theme => theme.phrases).map(model => [model.id, model]));
     for (const theme of actual.pair.themes) checkTheme(pairId, level, theme, 'native',
       { models, firstTheme: actual.pair.themes[0] });
@@ -225,6 +251,40 @@ test('all reviewed and actual generated native themes preserve groups, every car
     preparations: 0, receivedSteps: 0, receivedModels: 0, templates: 0,
     reviewSteps: 0, contextReuseSteps: 0, duplicateIds: 0 });
   assert.equal(maximumTechnicalGroupWeight, 5);
+}));
+
+test('all 70 German level views keep original active order and complete prepared stages, with templates reserved', { timeout: 120000 }, () => checked('german-70-level-content-conservation', async () => {
+  const current = nativeBuilder(false), natives = ['fr','en','es','it','zh','ja','ko'];
+  const germanPairs = nativeManifest.derivedPairIds.filter(pairId => pairId.endsWith('-de'));
+  assert.deepEqual(germanPairs, natives.map(native => native + '-de'));
+  assert.equal(nativeManifest.pairIds.length, 49);
+  assert.ok(nativeManifest.pairIds.every(pairId => !pairId.startsWith('de-')));
+  const imported = JSON.parse(fs.readFileSync(path.join(ROOT, GERMAN_SOURCE)));
+  assert.equal(imported.length, 4519);
+  const activeCounts = [270,532,661,589,704,423,422,398,223,222];
+  const stageCounts = [8,15,19,17,20,12,12,11,6,6];
+  for (const pairId of germanPairs) {
+    let active = 0, reserve = 0;
+    for (let level = 1; level <= 10; level++) {
+      const {pair, sourcePhraseMap} = await current.loadPair(pairId, level);
+      assert.equal(pair.themes.length, 1);assert.equal(sourcePhraseMap.size, 4519);
+      const theme = pair.themes[0], ids = theme.sequences.flatMap(group => group.phraseIds);
+      const expected = imported.flatMap((card, index) => card.lv === level && card.cat !== 'template' ? ['catalogue:de:' + index] : []);
+      assert.equal(ids.length, activeCounts[level - 1]);
+      assert.deepEqual(JSON.parse(JSON.stringify(ids)), expected, 'German active cards retain complete original source order');
+      assert.deepEqual(JSON.parse(JSON.stringify(pair.reserve.map(model => model.id))),
+        imported.flatMap((card, index) => card.lv === level && card.cat === 'template' ? ['catalogue:de:' + index] : []));
+      assert.ok(pair.reserve.every(model => model.isTemplate && !ids.includes(model.id)));
+      checkTheme(pairId, level, theme, 'german', {models:sourcePhraseMap, firstTheme:theme});
+      const chunks = partition(theme.sequences.map(group => group.phraseIds.length));
+      assert.equal(chunks.length, stageCounts[level - 1], pairId + '/L' + level + ' independent stage count');
+      active += ids.length;reserve += pair.reserve.length;
+    }
+    assert.equal(active, 4444);assert.equal(reserve, 75);
+  }
+  assert.deepEqual(totals.german, {themes:70, cards:31108, guidedSteps:93324, chunks:882,
+    preparations:0, receivedSteps:0, receivedModels:0, templates:0,
+    reviewSteps:0, contextReuseSteps:0, duplicateIds:0});
 }));
 
 test('independent reference partitions and presentation ranges identify real Spanish, Chinese and Korean-native examples', () => checked('reference-partitions', () => {
@@ -246,8 +306,11 @@ test('independent reference partitions and presentation ranges identify real Spa
 
 test('the first L1 themes of all 42 native/study pairs remain one unchanged direct-entry lesson', () => checked('first-theme-direct-entry', () => {
   assert.equal(firstThemes.length, 42);
-  assert.deepEqual(new Set(firstThemes.map(row => row.pairId)), new Set(nativeManifest.pairIds));
+  assert.deepEqual(new Set(firstThemes.map(row => row.pairId)), new Set(historicalNativeManifest.pairIds));
   assert.ok(firstThemes.every(row => row.cards > 0 && row.cards <= 100 && row.stages === 1));
+  assert.equal(germanFirstThemes.length, 7);
+  assert.deepEqual(new Set(germanFirstThemes.map(row => row.pairId)), new Set(['fr','en','es','it','zh','ja','ko'].map(native => native + '-de')));
+  assert.ok(germanFirstThemes.every(row => row.cards === 270 && row.stages === 8));
 }));
 
 test('short themes stay whole; invalid or impossible atomic inputs fail without splitting a group', () => checked('thresholds-and-atomic-errors', () => {

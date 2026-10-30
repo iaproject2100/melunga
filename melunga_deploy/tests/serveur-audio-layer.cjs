@@ -8,6 +8,7 @@ const crypto = require('node:crypto');
 const { execFileSync } = require('node:child_process');
 const composedLayer = require('./native-routing-layer.cjs');
 const chirpLayer = require('./chirp-preview-layer.cjs');
+const germanLayer = require('./german-launch-layer.cjs');
 const ROOT = path.resolve(__dirname, '../..'), WEB = path.join(ROOT, 'melunga_deploy');
 const BASE = 'ef147deacf85b4a5631c1b05ff8050de7918ea1f';
 const AUDIO_COMMIT = 'd110366';
@@ -55,9 +56,10 @@ function validate() {
     .map(file => 'melunga_deploy/netlify/functions/' + file).sort();
   assert.deepEqual(currentBackend, backend, 'server function inventory stays exact');
   for (const file of [...runtime, ...protectedFiles]) {
-    // Only the separately sealed actual TTS upgrade is viewed historically;
-    // runtime JSON and every other protected source remain actual bytes.
-    const bytes = file === 'melunga_deploy/netlify/functions/tts.mjs' ? chirpLayer.beforeChirpBytes(file) : actual(file);
+    // The complete actual German tuple passed above. Its source-only delta
+    // restores the 541afb7 edition; the separate Chirp proof restores TTS.
+    // All 78 historical runtime documents and access rights remain actual.
+    const bytes = file === 'melunga_deploy/netlify/functions/tts.mjs' ? chirpLayer.beforeChirpBytes(file) : germanLayer.beforeGermanBytes(file);
     assert.ok(bytes.equals(baseline(file)), 'actual protected bytes unchanged before projection: ' + file);
   }
   for (const [file, pin] of Object.entries(LAYER)) {

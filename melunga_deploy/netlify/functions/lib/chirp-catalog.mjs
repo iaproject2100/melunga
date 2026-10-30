@@ -1,5 +1,5 @@
 /* Only candidates observed in Google's current voices:list may be synthesized.
- * The seven course languages and three choices per language are deliberately finite. */
+ * The eight studied languages and three choices per language are deliberately finite. */
 export const CHIRP_LOCALES = Object.freeze({
   fr: Object.freeze({languageCodes:Object.freeze(['fr-FR']), waveNet:'fr-FR-Wavenet-F'}),
   en: Object.freeze({languageCodes:Object.freeze(['en-GB']), waveNet:'en-GB-Wavenet-C'}),
@@ -7,10 +7,13 @@ export const CHIRP_LOCALES = Object.freeze({
   zh: Object.freeze({languageCodes:Object.freeze(['cmn-CN','zh-CN']), waveNet:'cmn-CN-Wavenet-A'}),
   it: Object.freeze({languageCodes:Object.freeze(['it-IT']), waveNet:'it-IT-Wavenet-E'}),
   ja: Object.freeze({languageCodes:Object.freeze(['ja-JP']), waveNet:'ja-JP-Wavenet-B'}),
-  ko: Object.freeze({languageCodes:Object.freeze(['ko-KR']), waveNet:'ko-KR-Wavenet-A'})
+  ko: Object.freeze({languageCodes:Object.freeze(['ko-KR']), waveNet:'ko-KR-Wavenet-A'}),
+  de: Object.freeze({languageCodes:Object.freeze(['de-DE']), waveNet:'de-DE-Wavenet-A'})
 });
 
-export const APPROVED_SELECTION_VERSION = 'kartech-2026-10-27';
+export const APPROVED_SELECTION_VERSION = 'kartech-2026-10-30-de';
+export const LEGACY_SELECTION_VERSION = 'kartech-2026-10-27';
+const LEGACY_LANGUAGES = Object.freeze(['fr', 'en', 'es', 'zh', 'it', 'ja', 'ko']);
 const APPROVED_DEFAULTS = Object.freeze({
   fr:Object.freeze({name:'fr-FR-Chirp3-HD-Aoede', gender:'FEMALE'}),
   en:Object.freeze({name:'en-GB-Chirp3-HD-Kore', gender:'FEMALE'}),
@@ -18,7 +21,8 @@ const APPROVED_DEFAULTS = Object.freeze({
   zh:Object.freeze({name:'cmn-CN-Chirp3-HD-Kore', gender:'FEMALE'}),
   it:Object.freeze({name:'it-IT-Chirp3-HD-Charon', gender:'MALE'}),
   ja:Object.freeze({name:'ja-JP-Chirp3-HD-Kore', gender:'FEMALE'}),
-  ko:Object.freeze({name:'ko-KR-Chirp3-HD-Kore', gender:'FEMALE'})
+  ko:Object.freeze({name:'ko-KR-Chirp3-HD-Kore', gender:'FEMALE'}),
+  de:Object.freeze({name:'de-DE-Chirp3-HD-Kore', gender:'FEMALE'})
 });
 
 const PREFERENCES = Object.freeze([['Aoede','FEMALE'], ['Kore','FEMALE'], ['Charon','MALE']]);
@@ -28,6 +32,13 @@ const TIMEOUT_MS = 8000;
 function freeze(value) {
   for (const child of Object.values(value)) if (child && typeof child === 'object') freeze(child);
   return Object.freeze(value);
+}
+
+// Cached seven-language clients require their exact version and row inventory.
+// Both contracts share the same fresh provider observation and unchanged voices.
+export function legacyChirpCatalogue(catalogue) {
+  return freeze({...catalogue, selectionVersion:LEGACY_SELECTION_VERSION,
+    languages:Object.fromEntries(LEGACY_LANGUAGES.map(language => [language, catalogue.languages[language]]))});
 }
 
 function candidatesFor(language, definition, voices) {

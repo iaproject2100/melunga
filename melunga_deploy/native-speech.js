@@ -10,7 +10,7 @@
   function languageCode() {
     var codes = {
       fr: 'fr-FR', en: 'en-US', es: 'es-ES', zh: 'zh-CN',
-      it: 'it-IT', ja: 'ja-JP', ko: 'ko-KR'
+      it: 'it-IT', ja: 'ja-JP', ko: 'ko-KR', de: 'de-DE'
     };
     return codes[typeof lang === 'string' ? lang : 'en'] || 'en-US';
   }

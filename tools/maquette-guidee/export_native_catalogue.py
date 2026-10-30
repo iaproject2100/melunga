@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export original catalogue blocks and reviewed placements for 35 native views.
+"""Export 35 original native views plus seven views of the pinned German import.
 
 No reviewed runtime is rewritten. --check compares deterministic output bytes;
 only the DECKS/PEDAGOGY literals and relevant source functions pin app.html, so
@@ -19,8 +19,12 @@ import sys
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_COMMIT = 'ef147deacf85b4a5631c1b05ff8050de7918ea1f'
 LANGUAGES = ('fr', 'en', 'es', 'it', 'zh', 'ja', 'ko')
+STUDY_LANGUAGES = LANGUAGES + ('de',)
+GERMAN_SOURCE = 'tools/maquette-guidee/imports/de-deck-v3.1.json'
+GERMAN_SOURCE_SHA256 = '49d6f1cd3b2a44b4ab4efcbae4c5f58988ebc7e142ebb74b1505d4ce9e39d789'
+GERMAN_FIELDS = {'t', 'py', 'pf', 'ps', 'pi', 'phon', 'cn', 'en', 'frm', 'esm', 'itm', 'jam', 'kom', 'lv', 'cat'}
 REVIEWED = ('fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr')
-PAIRS = tuple(f'{native}-{study}' for native in LANGUAGES for study in LANGUAGES if native != study)
+PAIRS = tuple(f'{native}-{study}' for native in LANGUAGES for study in STUDY_LANGUAGES if native != study)
 BASE_PAIRS = {pair.split('-')[1]: pair for pair in REVIEWED}
 APP = 'melunga_deploy/app.html'
 RUNTIME = 'melunga_deploy/content/niveaux-progressifs'
@@ -94,6 +98,47 @@ def source_paths():
         f'{RUNTIME}/repertoires/{pair}.json' for pair in REVIEWED]
 
 
+def german_bank(root):
+    """Place the accepted import without inventing a semantic curriculum.
+
+    The source has levels and categories, but no theme assignments. One neutral
+    existing interface label per level preserves its complete active order.
+    Open templates remain in the canonical reserve, as for the existing banks.
+    """
+    raw = (root / GERMAN_SOURCE).read_bytes()
+    require(sha(raw) == GERMAN_SOURCE_SHA256, 'German v3.1 import fingerprint differs')
+    cards = json.loads(raw)
+    require(isinstance(cards, list) and len(cards) == 4519, 'German import inventory differs')
+    for card in cards:
+        require(isinstance(card, dict) and set(card) == GERMAN_FIELDS
+                and type(card['lv']) is int and 1 <= card['lv'] <= 10
+                and card['cat'] in ('core', 'vocab', 'template', 'basics', 'bonus')
+                and all(isinstance(value, str) and value.strip() for key, value in card.items() if key != 'lv'),
+                'invalid original German source block')
+    locations, levels = [], []
+    for card in cards:
+        reserve = card['cat'] == 'template'
+        kind = 'incomplete' if reserve else 'vocabulary' if card['cat'] == 'vocab' else 'utterance'
+        locations.append([card['lv'], None if reserve else 'all-lessons', kind, None, reserve, None])
+    for level in range(1, 11):
+        active = [f'catalogue:de:{index}' for index, card in enumerate(cards)
+                  if card['lv'] == level and card['cat'] != 'template']
+        reserved = [f'catalogue:de:{index}' for index, card in enumerate(cards)
+                    if card['lv'] == level and card['cat'] == 'template']
+        levels.append({'level': level, 'sourceTitle': 'L' + str(level), 'themes': [{
+            'id': 'all-lessons', 'title': 'Toutes les leçons', 'titleSource': 'interface',
+            'domain': 'conversation', 'section': 'situations', 'visualId': 'conversation',
+            'photo': {'asset': 'assets/theme-scenes.webp', 'column': 2, 'row': 2, 'columns': 3, 'rows': 4},
+            'optional': False, 'isTemplateCollection': False, 'phraseIds': active}], 'reserveIds': reserved})
+    return {'version': 1, 'id': 'native-catalogue-de', 'studyLanguage': 'de', 'reviewedPairId': None,
+            'sourceType': 'validated-import', 'importedSourcePath': GERMAN_SOURCE,
+            'importedSourceSha256': GERMAN_SOURCE_SHA256, 'sourceDeckSha256': sha(canonical(cards)),
+            'placementPolicy': 'source-level-and-order; one neutral interface rubric; templates reserved',
+            'cards': cards,
+            'locationFields': ['editorialLevel', 'themeId', 'contentType', 'lexicalClass', 'isTemplate', 'lexicalConceptId'],
+            'locations': locations, 'levels': levels}
+
+
 def make(root):
     app = (root / APP).read_bytes()
     original_app = git(root, APP)
@@ -127,7 +172,9 @@ def make(root):
             key = prefix + str(len(keys));keys[identity] = key;groups[key] = list(identity)
         return keys[identity]
     for pair in PAIRS:
-        native, study = pair.split('-');cards = decks[study]
+        native, study = pair.split('-')
+        if study == 'de':continue
+        cards = decks[study]
         translated = [i for i, card in enumerate(cards) if isinstance(card.get(MEANING_FIELDS[native]), str) and card[MEANING_FIELDS[native]].strip()]
         require(len(translated) == len(cards), 'a native meaning is missing: ' + pair)
         sourcing = native == 'zh' or study == 'zh' or native in ('fr', 'es') and study == 'en'
@@ -215,22 +262,54 @@ def make(root):
         banks[study] = {'path': path.removeprefix('melunga_deploy/'), 'sha256': sha(outputs[path]),
             'bytes': len(outputs[path]), 'sourceCardCount': len(cards), 'activeCatalogueCount': active,
             'reservedCatalogueCount': reserved, 'excludedModernExtraCount': extras, 'reviewedPairId': pair}
-    manifest = {'version': 1, 'id': 'native-catalogue-35-source-views', 'sourceSnapshotCommit': SOURCE_COMMIT,
-        'languageIds': list(LANGUAGES), 'pairIds': list(PAIRS), 'reviewedPairIds': list(REVIEWED),
+    imported = german_bank(root);cards = imported['cards']
+    imported_path = OUTPUT + '/de.json';outputs[imported_path] = encoded(imported)
+    reserved = sum(card['cat'] == 'template' for card in cards)
+    banks['de'] = {'path': imported_path.removeprefix('melunga_deploy/'), 'sha256': sha(outputs[imported_path]),
+        'bytes': len(outputs[imported_path]), 'sourceCardCount': len(cards),
+        'activeCatalogueCount': len(cards) - reserved, 'reservedCatalogueCount': reserved,
+        'excludedModernExtraCount': 0, 'reviewedPairId': None, 'sourceType': 'validated-import',
+        'importedSourcePath': GERMAN_SOURCE, 'importedSourceSha256': GERMAN_SOURCE_SHA256}
+    eligible = list(range(len(cards)));free = [index for index, card in enumerate(cards) if card['lv'] == 1]
+    for native in LANGUAGES:
+        pair = native + '-de';primary = PHON_FIELDS[native]
+        require(all(cards[index][MEANING_FIELDS[native]].strip() for index in eligible), 'German native meaning missing: ' + pair)
+        policy = {'nativeLanguage': native, 'studyLanguage': 'de',
+            'eligibilityGroup': group(eligible, eligibility_groups, eligibility_keys, 'eligible-'),
+            'historicalFreeGroup': group(free, free_groups, free_keys, 'free-'),
+            'eligibleCount': len(cards), 'historicalFreeCount': len(free),
+            'classicActiveDeckCount': 0, 'guidedPoolUniqueCount': 0, 'guidedOnlyCount': 0,
+            'sourceType': 'validated-import', 'importedEligibleCount': len(cards),
+            'freePolicy': 'original imported source lv=1'}
+        pair_policies[pair] = policy
+        fallback = [index for index in eligible if not cards[index].get(primary) and native != 'zh' and cards[index].get('py')]
+        without_phon = [index for index in eligible if not cards[index].get(primary) and not (native != 'zh' and cards[index].get('py'))]
+        coverage[pair] = {key: policy[key] for key in ('classicActiveDeckCount', 'guidedPoolUniqueCount', 'guidedOnlyCount', 'eligibleCount', 'historicalFreeCount', 'importedEligibleCount')}
+        coverage[pair].update(eligibleActiveCatalogueCount=len(cards) - reserved, eligibleReservedCatalogueCount=reserved,
+            missingAdaptedPhoneticCount=sum(not cards[index].get(primary) for index in eligible),
+            phoneticFallbackCount=len(fallback), missingAnyPhoneticCount=len(without_phon), historicalFreeOutsideEligibilityCount=0)
+    policies['importedSourceEligibility'] = 'all original validated-import identities; same seven native meaning and phonetic selectors'
+    policies['importedSourceFree'] = 'original imported source lv=1; no historical reviewed access IDs modified'
+    manifest = {'version': 1, 'id': 'native-catalogue-42-source-views', 'sourceSnapshotCommit': SOURCE_COMMIT,
+        'languageIds': list(LANGUAGES), 'nativeLanguageIds': list(LANGUAGES), 'studyLanguageIds': list(STUDY_LANGUAGES),
+        'pairIds': list(PAIRS), 'reviewedPairIds': list(REVIEWED),
         'derivedPairIds': [pair for pair in PAIRS if pair not in REVIEWED],
         'source': {'appPath': APP, 'decksLiteralSha256': sha(decks_raw), 'pedagogyLiteralSha256': sha(pedagogy_raw),
             'reviewedRuntimeSha256ByPath': dict(sorted(input_hashes.items())), 'historicalAccessPath': rights_path,
-            'historicalAccessSha256': sha(rights_raw), 'reviewedHistoricalFreeIdsVerified': 2218},
+            'historicalAccessSha256': sha(rights_raw), 'reviewedHistoricalFreeIdsVerified': 2218,
+            'importedSources': {'de': {'path': GERMAN_SOURCE, 'sha256': GERMAN_SOURCE_SHA256,
+                'sourceCardCount': len(cards), 'sourceDeckSha256': imported['sourceDeckSha256']}}},
         'policies': policies, 'policiesSha256': sha(canonical(policies)),
         'eligibilityGroups': eligibility_groups, 'historicalFreeGroups': free_groups,
-        'pairs': pair_policies, 'banks': banks, 'coverageByPair': {pair: coverage[pair] for pair in PAIRS}, 'sourceCardCount': 32115,
+        'pairs': {pair: pair_policies[pair] for pair in PAIRS}, 'banks': banks,
+        'coverageByPair': {pair: coverage[pair] for pair in PAIRS}, 'sourceCardCount': 36634,
         'activeCatalogueCount': sum(row['activeCatalogueCount'] for row in banks.values()),
         'reservedCatalogueCount': sum(row['reservedCatalogueCount'] for row in banks.values()),
         'excludedModernExtraCount': sum(row['excludedModernExtraCount'] for row in banks.values()),
         'newTranslationsCreated': 0, 'newPhoneticsCreated': 0, 'reviewedRuntimeModified': False,
         'doesNotMeasureAcquisition': True}
-    require(len(manifest['derivedPairIds']) == 35 and manifest['activeCatalogueCount'] == 30909
-            and manifest['reservedCatalogueCount'] == 1206 and manifest['excludedModernExtraCount'] == 1539, 'whole export inventory differs')
+    require(len(manifest['derivedPairIds']) == 42 and manifest['activeCatalogueCount'] == 35353
+            and manifest['reservedCatalogueCount'] == 1281 and manifest['excludedModernExtraCount'] == 1539, 'whole export inventory differs')
     outputs[OUTPUT + '/manifest.json'] = encoded(manifest)
     for path, checksum in input_hashes.items():require(sha((root / path).read_bytes()) == checksum, 'reviewed input changed during export: ' + path)
     require(literal((root / APP).read_bytes(), 'DECKS')[0] == decks_raw, 'DECKS changed during export')
@@ -258,7 +337,7 @@ def main():
             (root / OUTPUT).mkdir(parents=True, exist_ok=True)
             for path, raw in outputs.items():(root / path).write_bytes(raw)
             if source != expected_loader:loader.write_text(expected_loader)
-        print(json.dumps({'status': 'checked' if args.check else 'exported', 'banks': 7, 'derivedPairs': 35,
+        print(json.dumps({'status': 'checked' if args.check else 'exported', 'banks': 8, 'derivedPairs': 42,
             'sourceCards': manifest['sourceCardCount'], 'activeCatalogue': manifest['activeCatalogueCount'],
             'reservedCatalogue': manifest['reservedCatalogueCount'], 'excludedModernExtras': manifest['excludedModernExtraCount'],
             'reviewedHistoricalFreeIdsVerified': 2218, 'manifestSha256': manifest_sha,

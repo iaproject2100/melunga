@@ -1,15 +1,18 @@
 /* Source-verbatim native catalogue views. Reviewed pair bundles are never projected here. */
 (() => {
   'use strict';
-  const MANIFEST_SHA256 = '6ec2f35df31e116910cd61eef648732878676dd2e5ea7fb4d7c94e45724b5c64';
+  const MANIFEST_SHA256 = '8fc121caefe58a6206f318006baafe262415f81ec5bdb4723ec68a45495f2e7a';
   const ROOT = 'content/native-catalogue/';
   const languages = Object.freeze(['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko']);
+  const studyLanguages = Object.freeze([...languages, 'de']);
+  const GERMAN_SOURCE = 'tools/maquette-guidee/imports/de-deck-v3.1.json';
+  const GERMAN_SOURCE_SHA256 = '49d6f1cd3b2a44b4ab4efcbae4c5f58988ebc7e142ebb74b1505d4ce9e39d789';
   const reviewedPairIds = Object.freeze(['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr']);
-  const pairIds = Object.freeze(languages.flatMap(native => languages.filter(study => study !== native).map(study => native + '-' + study)));
+  const pairIds = Object.freeze(languages.flatMap(native => studyLanguages.filter(study => study !== native).map(study => native + '-' + study)));
   const reviewed = new Set(reviewedPairIds), validPairs = new Set(pairIds);
-  const cardCounts = Object.freeze({fr:4500, en:4502, es:4672, it:4509, zh:4903, ja:4509, ko:4520});
-  const basePairs = Object.freeze({fr:'zh-fr', en:'fr-en', es:'fr-es', it:'fr-it', zh:'fr-zh', ja:'fr-ja', ko:'fr-ko'});
-  const flags = Object.freeze({fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷'});
+  const cardCounts = Object.freeze({fr:4500, en:4502, es:4672, it:4509, zh:4903, ja:4509, ko:4520, de:4519});
+  const basePairs = Object.freeze({fr:'zh-fr', en:'fr-en', es:'fr-es', it:'fr-it', zh:'fr-zh', ja:'fr-ja', ko:'fr-ko', de:null});
+  const flags = Object.freeze({fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪'});
   const contentTypes = new Set(['utterance', 'vocabulary', 'number', 'incomplete', 'review']);
   let manifest = null, manifestPromise = null;
   const eligibleByPair = new Map(), freeByPair = new Map(), bankCache = new Map(), modelCache = new Map();
@@ -65,23 +68,32 @@
     return new Set(values);
   }
   function validateManifest(document) {
-    requireValue(document?.version === 1 && document.id === 'native-catalogue-35-source-views'
+    requireValue(document?.version === 1 && document.id === 'native-catalogue-42-source-views'
       && document.sourceSnapshotCommit === 'ef147deacf85b4a5631c1b05ff8050de7918ea1f'
       && same(document.languageIds, languages) && same(document.pairIds, pairIds)
+      && same(document.nativeLanguageIds, languages) && same(document.studyLanguageIds, studyLanguages)
       && same(document.reviewedPairIds, reviewedPairIds)
       && same(document.derivedPairIds, pairIds.filter(id => !reviewed.has(id)))
-      && Object.keys(document.pairs || {}).length === 42, 'invalid pair domain');
-    requireValue(document.sourceCardCount === 32115 && document.activeCatalogueCount === 30909
-      && document.reservedCatalogueCount === 1206 && document.excludedModernExtraCount === 1539
+      && Object.keys(document.pairs || {}).length === 49, 'invalid pair domain');
+    requireValue(document.sourceCardCount === 36634 && document.activeCatalogueCount === 35353
+      && document.reservedCatalogueCount === 1281 && document.excludedModernExtraCount === 1539
       && document.source?.reviewedHistoricalFreeIdsVerified === 2218
       && document.newTranslationsCreated === 0 && document.newPhoneticsCreated === 0
       && document.reviewedRuntimeModified === false, 'invalid source inventory');
+    const imported = document.source?.importedSources?.de;
+    requireValue(imported?.path === GERMAN_SOURCE && imported.sha256 === GERMAN_SOURCE_SHA256
+      && imported.sourceCardCount === cardCounts.de && /^[a-f0-9]{64}$/.test(imported.sourceDeckSha256), 'invalid German import provenance');
     const eligibility = new Map(), historical = new Map();
     for (const pair of pairIds) {
       const [native, study] = pair.split('-'), policy = document.pairs[pair], bank = document.banks?.[study];
       requireValue(policy?.nativeLanguage === native && policy.studyLanguage === study
         && bank?.path === ROOT + study + '.json' && /^[a-f0-9]{64}$/.test(bank.sha256)
         && bank.sourceCardCount === cardCounts[study] && bank.reviewedPairId === basePairs[study], 'invalid pair policy');
+      if (study === 'de') requireValue(policy.sourceType === 'validated-import' && policy.importedEligibleCount === cardCounts.de
+        && policy.eligibleCount === cardCounts.de
+        && policy.historicalFreeCount === 283 && bank.sourceType === 'validated-import'
+        && bank.importedSourcePath === GERMAN_SOURCE && bank.importedSourceSha256 === GERMAN_SOURCE_SHA256
+        && bank.activeCatalogueCount === 4444 && bank.reservedCatalogueCount === 75, 'invalid German import policy');
       const allowed = indices(document.eligibilityGroups?.[policy.eligibilityGroup], cardCounts[study]);
       const free = indices(document.historicalFreeGroups?.[policy.historicalFreeGroup], cardCounts[study]);
       requireValue(allowed.size === policy.eligibleCount && free.size === policy.historicalFreeCount
@@ -116,7 +128,11 @@
   }
   function validateBank(bank, study, descriptor, source) {
     requireValue(bank?.version === 1 && bank.id === 'native-catalogue-' + study && bank.studyLanguage === study
-      && bank.reviewedPairId === basePairs[study] && bank.decksLiteralSha256 === source.decksLiteralSha256
+      && bank.reviewedPairId === basePairs[study]
+      && (study === 'de' ? bank.sourceType === 'validated-import'
+        && bank.importedSourcePath === GERMAN_SOURCE && bank.importedSourceSha256 === GERMAN_SOURCE_SHA256
+        && bank.sourceDeckSha256 === source.importedSources.de.sourceDeckSha256
+        : bank.decksLiteralSha256 === source.decksLiteralSha256)
       && Array.isArray(bank.cards) && bank.cards.length === cardCounts[study]
       && Array.isArray(bank.locations) && bank.locations.length === bank.cards.length
       && same(bank.locationFields, ['editorialLevel', 'themeId', 'contentType', 'lexicalClass', 'isTemplate', 'lexicalConceptId'])
@@ -138,7 +154,7 @@
           && Array.isArray(theme.phraseIds) && theme.phraseIds.length > 0, 'invalid source theme');
         themes.add(theme.id);
         for (const id of theme.phraseIds) {
-          const index = catalogueIndex(basePairs[study], id);
+          const index = catalogueIndex(study === 'de' ? 'fr-de' : basePairs[study], id);
           requireValue(index !== null && !seen.has(index) && bank.locations[index][0] === level.level
             && bank.locations[index][1] === theme.id && bank.locations[index][4] === false
             && ['utterance', 'vocabulary', 'number'].includes(bank.locations[index][2]), 'invalid active source placement');
@@ -146,7 +162,7 @@
         }
       }
       for (const id of level.reserveIds) {
-        const index = catalogueIndex(basePairs[study], id);
+        const index = catalogueIndex(study === 'de' ? 'fr-de' : basePairs[study], id);
         requireValue(index !== null && !seen.has(index) && bank.locations[index][0] === level.level
           && bank.locations[index][1] === null, 'invalid reserved source placement');
         seen.add(index);reserved += 1;
@@ -186,9 +202,12 @@
       const model = {id, study:raw.t, native:raw[nativeField], phon, reading:study === 'zh' ? raw.py || '' : '',
         speaker:'A', kind:'learner', isTemplate:location[4], contentType:location[2], editorialLevel:location[0],
         phoneticMode, phoneticSourceField:phoneticField, nativeCatalogue:true, nativeCatalogueReserved:location[1] === null,
-        source:{collection:'DECKS.' + study, sourceIndex:index, sourceLevel:raw.lv,
+        source:{collection:study === 'de' ? 'validated-import.de' : 'DECKS.' + study, sourceIndex:index, sourceLevel:raw.lv,
           fieldMap:{study:'t', native:nativeField, phon:phoneticField, ...(study === 'zh' ? {reading:'py'} : {})},
-          decksLiteralSha256:document.source.decksLiteralSha256, nativeCataloguePath:ROOT + study + '.json', classicFields:raw},
+          nativeCataloguePath:ROOT + study + '.json', ...(study === 'de' ? {
+            sourceType:'validated-import', importedSourcePath:GERMAN_SOURCE, importedSourceSha256:GERMAN_SOURCE_SHA256,
+            sourceDeckSha256:bank.sourceDeckSha256, originalFields:raw
+          } : {decksLiteralSha256:document.source.decksLiteralSha256, classicFields:raw})},
         placement:{domain:definition?.domain || 'reserve', themeId:location[1], section:definition?.section || 'reserve',
           classification:'existing-catalogue-native-source-view', plannedPrerequisiteIndices:[]}};
       if (location[3] !== null) model.lexicalClass = location[3];
@@ -224,11 +243,13 @@
   }
   function lexicalCounts(phrases) {
     const result = {};
-    for (const phrase of phrases) if (phrase.contentType === 'vocabulary') result[phrase.lexicalClass] = (result[phrase.lexicalClass] || 0) + 1;
+    for (const phrase of phrases) if (phrase.contentType === 'vocabulary') {
+      const kind = phrase.lexicalClass || 'unspecified';result[kind] = (result[kind] || 0) + 1;
+    }
     return Object.fromEntries(Object.entries(result).sort(([left], [right]) => left.localeCompare(right)));
   }
   async function loadPair(pairId, level, {signal} = {}) {
-    requireValue(isPair(pairId) && !isReviewed(pairId), 'only the 35 additional native pairs use this loader');
+    requireValue(isPair(pairId) && !isReviewed(pairId), 'only the 42 additional native pairs use this loader');
     requireValue(Number.isInteger(level) && level >= 1 && level <= 10, 'invalid level');
     aborted(signal);
     const document = await ensureRights(), [native, study] = pairId.split('-');
@@ -240,7 +261,8 @@
       if (!phrases.length) continue;
       const kinds = [...new Set(phrases.map(phrase => phrase.contentType))].sort();
       const concepts = new Set(phrases.map(phrase => phrase.lexicalConceptId || JSON.stringify([phrase.study, phrase.native])));
-      const theme = {...definition, title:dictionary.theme(native, definition.title), phrases,
+      const theme = {...definition, title:study === 'de' && definition.titleSource === 'interface'
+        ? dictionary.t(native, definition.title) : dictionary.theme(native, definition.title), phrases,
         contentType:kinds.length === 1 ? kinds[0] : 'mixed', totalPhrases:phrases.length,
         reviewReferences:[], contextReferences:[], newCount:phrases.length, reviewCount:0, reuseCount:0,
         presentedCount:phrases.length, pedagogicalConceptCount:concepts.size, densityStatus:'native-catalogue-source-view',

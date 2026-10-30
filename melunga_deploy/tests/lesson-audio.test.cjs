@@ -11,18 +11,18 @@ const female = {
   fr: ['fr-FR-Wavenet-F', 'fr-FR'], en: ['en-GB-Wavenet-C', 'en-GB'],
   es: ['es-ES-Wavenet-F', 'es-ES'], zh: ['cmn-CN-Wavenet-A', 'cmn-CN'],
   it: ['it-IT-Wavenet-E', 'it-IT'], ja: ['ja-JP-Wavenet-B', 'ja-JP'],
-  ko: ['ko-KR-Wavenet-A', 'ko-KR']
+  ko: ['ko-KR-Wavenet-A', 'ko-KR'], de: ['de-DE-Wavenet-A', 'de-DE']
 };
 const male = { fr: 'fr-FR-Wavenet-G', en: 'en-GB-Wavenet-D', es: 'es-ES-Wavenet-E',
-  zh: 'cmn-CN-Wavenet-B', it: 'it-IT-Wavenet-F', ja: 'ja-JP-Wavenet-C', ko: 'ko-KR-Wavenet-C' };
+  zh: 'cmn-CN-Wavenet-B', it: 'it-IT-Wavenet-F', ja: 'ja-JP-Wavenet-C', ko: 'ko-KR-Wavenet-C', de: 'de-DE-Wavenet-B' };
 const approvedNames = {fr:'fr-FR-Chirp3-HD-Aoede',en:'en-GB-Chirp3-HD-Kore',es:'es-ES-Chirp3-HD-Kore',
-  zh:'cmn-CN-Chirp3-HD-Kore',it:'it-IT-Chirp3-HD-Charon',ja:'ja-JP-Chirp3-HD-Kore',ko:'ko-KR-Chirp3-HD-Kore'};
+  zh:'cmn-CN-Chirp3-HD-Kore',it:'it-IT-Chirp3-HD-Charon',ja:'ja-JP-Chirp3-HD-Kore',ko:'ko-KR-Chirp3-HD-Kore',de:'de-DE-Chirp3-HD-Kore'};
 const voice = (lang, name = lang) => ({ lang, name, voiceURI: 'test:' + name });
 const deferred = () => { let resolve, reject; const promise = new Promise((a, b) => { resolve = a; reject = b; }); return { promise, resolve, reject }; };
 // Catalogue response fixtures exercise selection; their names do not assert
 // that a provider currently offers these candidates in a live deployment.
 function previewCatalogue() {
-  return {version:1,source:'google-voices-list',previewOnly:true,selectionVersion:'kartech-2026-10-27',
+  return {version:1,source:'google-voices-list',previewOnly:true,selectionVersion:'kartech-2026-10-30-de',
     verifiedAt:new Date().toISOString(),expiresAt:new Date(Date.now()+300000).toISOString(),
     languages:Object.fromEntries(Object.entries(female).map(([language,[name,locale]])=>{
       const chirp=[['Aoede','FEMALE'],['Kore','FEMALE'],['Charon','MALE']].map(([suffix,gender])=>({
@@ -61,7 +61,7 @@ function fixture(options = {}) {
   return f;
 }
 
-test('all seven server voices preserve whole study text and apply each speed once, without needing a browser voice', () => {
+test('all eight server voices preserve whole study text and apply each speed once, without needing a browser voice', () => {
   for (const [language, [name, locale]] of Object.entries(female)) for (const rate of [0.75, 0.85, 1]) {
     const f = fixture({ noSynthesis: true }), text = 'Étude entière : 我叫玛丽。 & + ?';
     assert.equal(f.player.play({ text, language, rate }), true);
@@ -176,7 +176,7 @@ test('server callbacks saved before fallback cannot finish the active system utt
 });
 
 test('unsupported language, self-invented voice and invalid rate cannot choose a different server voice', () => {
-  for (const request of [{ text: ' ', language: 'es' }, { text: 'Text', language: 'de' },
+  for (const request of [{ text: ' ', language: 'es' }, { text: 'Text', language: 'ar' },
     { text: 'Text', language: 'es', rate: 9 }, { text: 'Text', language: 'es', voice: 'fr-FR-Wavenet-F' }]) {
     const f = fixture(); assert.equal(f.player.play(request), false); assert.equal(f.audio.length, 0);
     assert.equal(f.speech.length, 0); assert.equal(f.unavailable, 1); assert.equal(f.playing, false);
@@ -245,13 +245,14 @@ test('catalogue retry completion neither interrupts local fallback nor starts a 
 });
 
 test('an expired catalogue uses only matching browser speech while its refresh remains a later-gesture operation',async()=>{
-  const f=fixture({preview:true,voices:[voice('fr-FR'),voice('es-ES')]});await f.ready;f.now+=300001;
+  const f=fixture({preview:true,voices:[voice('fr-FR'),voice('es-ES')]});await f.ready;
+  f.now=Date.parse(f.selection.getSnapshot('es').sourceMetadata.expiresAt)+1;
   assert.equal(f.selection.state().status,'expired');assert.equal(f.player.play({text:'Una frase.',language:'es'}),true);
   assert.equal(f.audio.length,0);assert.equal(f.speech.length,1);assert.equal(f.speech[0].lang,'es-ES');
   await assert.rejects(f.selection.ready());assert.equal(f.speech.length,1);assert.equal(f.playing,true);f.player.stop();
 });
 
-test('explicit male selection uses the actual masculine catalogue candidate in each of the seven languages',async()=>{
+test('explicit male selection uses the actual masculine catalogue candidate in each of eight languages',async()=>{
   for(const language of Object.keys(female)){
     const f=fixture({preview:true});await f.ready;
     const candidate=f.selection.getChoices(language).find(item=>item.engine==='chirp3'&&item.gender==='MALE');
@@ -294,5 +295,38 @@ test('an unavailable approved default cannot silently play the first listed Chir
     const f=fixture({preview:true,catalogue,voices:[voice(female[language][1])]});await f.ready;
     assert.equal(f.player.play({text:'Phrase.',language}),false);assert.equal(f.audio.length,0);assert.equal(f.speech.length,0);
     assert.equal(f.unavailable,1);assert.equal(f.voiceEvents.length,0);assert.equal(f.storage.size,0);
+  }
+});
+
+test('German fallback prefers de-DE, accepts another German locale, and refuses every foreign or absent voice',async()=>{
+  const preferred=voice('de-DE'),regional=voice('de-AT');
+  for(const candidates of [[voice('fr-FR'),regional,preferred],[voice('fr-FR'),regional],[voice('fr-FR')],[]]){
+    const f=fixture({preview:true,voices:candidates});await f.ready;
+    assert.equal(f.player.play({text:'Können Sie langsamer sprechen?',language:'de',rate:.75}),true);
+    const url=new URL(f.last().src,'https://fixture.test');
+    assert.equal(url.searchParams.get('voice'),'de-DE-Chirp3-HD-Kore');
+    assert.equal(url.searchParams.get('lang'),'de-DE');assert.equal(url.searchParams.get('rate'),'1');
+    assert.equal(f.last().playbackRate,.75);f.last().onerror();
+    const expected=candidates.includes(preferred)?preferred:candidates.includes(regional)?regional:null;
+    assert.equal(f.speech.length,expected?1:0);
+    if(expected){assert.equal(f.speech[0].voice,expected);assert.equal(f.speech[0].lang,expected.lang);
+      assert.equal(f.speech[0].text,'Können Sie langsamer sprechen?');assert.equal(f.speech[0].rate,.75);}
+    else assert.equal(f.unavailable,1);
+    f.player.stop();
+  }
+  const failed=fixture({preview:true,catalogueFails:true,voices:[voice('fr-FR')]});await assert.rejects(failed.ready);
+  assert.equal(failed.player.play({text:'Guten Tag.',language:'de'}),true);
+  assert.equal(failed.audio.length,0);assert.equal(failed.speech.length,0);assert.equal(failed.unavailable,1);
+});
+
+test('native recognition uses de-DE while preserving the seven existing language mappings',async()=>{
+  const nativeSource=fs.readFileSync(path.join(__dirname,'../native-speech.js'),'utf8');
+  const requests=[],c={lang:'de',pool:[{t:'Guten Tag.'}],idx:0,startRec(){},
+    Capacitor:{Plugins:{MelungaSpeech:{async recognize(request){requests.push(request);return{cancelled:true};}}}},
+    document:{readyState:'complete',getElementById:()=>null}};
+  c.window=c;vm.runInNewContext(nativeSource,c);
+  const locales={fr:'fr-FR',en:'en-US',es:'es-ES',zh:'zh-CN',it:'it-IT',ja:'ja-JP',ko:'ko-KR',de:'de-DE'};
+  for(const [language,locale] of Object.entries(locales)){
+    c.lang=language;await c.startRec();assert.equal(requests.at(-1).language,locale);
   }
 });

@@ -8,16 +8,17 @@ const vm = require('node:vm');
 const source = fs.readFileSync(path.join(__dirname, '../voice-selection.js'), 'utf8');
 const NOW = Date.parse('2026-10-27T12:00:00Z');
 const STORAGE_KEY = 'melunga-preview-voice-selection-v1';
-const SELECTION_VERSION = 'kartech-2026-10-27';
+const SELECTION_VERSION = 'kartech-2026-10-30-de';
 const CATALOGUE_PATH = '/.netlify/functions/tts?catalog=chirp3&selectionVersion='+SELECTION_VERSION;
 const approved = {
   fr:['fr-FR-Chirp3-HD-Aoede','FEMALE'],en:['en-GB-Chirp3-HD-Kore','FEMALE'],
   es:['es-ES-Chirp3-HD-Kore','FEMALE'],zh:['cmn-CN-Chirp3-HD-Kore','FEMALE'],
-  it:['it-IT-Chirp3-HD-Charon','MALE'],ja:['ja-JP-Chirp3-HD-Kore','FEMALE'],ko:['ko-KR-Chirp3-HD-Kore','FEMALE']
+  it:['it-IT-Chirp3-HD-Charon','MALE'],ja:['ja-JP-Chirp3-HD-Kore','FEMALE'],ko:['ko-KR-Chirp3-HD-Kore','FEMALE'],
+  de:['de-DE-Chirp3-HD-Kore','FEMALE']
 };
 const definitions = {
   fr:['fr-FR','F'],en:['en-GB','C'],es:['es-ES','F'],zh:['cmn-CN','A'],
-  it:['it-IT','E'],ja:['ja-JP','B'],ko:['ko-KR','A']
+  it:['it-IT','E'],ja:['ja-JP','B'],ko:['ko-KR','A'],de:['de-DE','A']
 };
 const copy = value => JSON.parse(JSON.stringify(value));
 function catalogue() {
@@ -47,7 +48,7 @@ function fixture({data=catalogue(),storage=new Map(),storageFails=false,networkF
   f.api=context.MelungaVoiceSelection;return f;
 }
 
-test('a fresh profile uses the seven exact approved defaults without writing local favourites',async()=>{
+test('a fresh profile uses all eight exact approved defaults without writing local favourites',async()=>{
   const f=fixture();assert.equal(f.api.getVoice('es'),null);
   const pending=f.api.ready();assert.equal(f.api.ready(),pending);await pending;
   assert.equal(f.calls.length,1);assert.equal(f.calls[0].url,CATALOGUE_PATH);
@@ -61,7 +62,7 @@ test('a fresh profile uses the seven exact approved defaults without writing loc
     assert.equal(snapshot.sourceMetadata.selectionVersion,SELECTION_VERSION);assert.equal(snapshot.sourceMetadata.choiceSource,'approved-default');
     assert.equal(snapshot.voice.engine,'chirp3');assert.equal(snapshot.voice.rateMode,'client');
   }
-  assert.deepEqual(f.writes,[]);assert.equal(f.api.getVoice('de'),null);assert.equal(f.api.getChoices('__proto__').length,0);
+  assert.deepEqual(f.writes,[]);assert.equal(f.api.getVoice('ar'),null);assert.equal(f.api.getChoices('__proto__').length,0);
 });
 
 test('explicit local favourites are independent by language, survive reload and only accept current catalogue candidates',async()=>{
@@ -82,6 +83,23 @@ test('explicit local favourites are independent by language, survive reload and 
   assert.throws(()=>{reloaded.api.getVoice('fr').name='tampered';},TypeError);
 });
 
+test('adding a German favourite preserves all seven existing language choices under the unchanged storage key',async()=>{
+  const choices=Object.fromEntries(Object.entries(approved).filter(([language])=>language!=='de')
+    .map(([language,[name]])=>[language,name]));
+  const storage=new Map([[STORAGE_KEY,JSON.stringify({version:1,choices})]]),f=fixture({storage});
+  await f.api.ready();assert.equal(f.writes.length,0);
+  for(const [language,name] of Object.entries(choices))assert.equal(f.api.getSelected(language).name,name);
+  const german=f.api.getChoices('de').find(candidate=>candidate.gender==='MALE');
+  assert.equal(f.api.setVoice('de',german.name),true);
+  assert.deepEqual(JSON.parse(storage.get(STORAGE_KEY)),{version:1,choices:{...choices,de:german.name}});
+  const reloaded=fixture({storage});await reloaded.api.ready();
+  assert.equal(reloaded.api.getSelected('de').name,german.name);
+  for(const [language,name] of Object.entries(choices))assert.equal(reloaded.api.getSelected(language).name,name);
+  assert.equal(reloaded.api.setVoice('de',approved.fr[0]),false);
+  assert.equal(reloaded.api.clearVoice('de'),true);assert.equal(reloaded.api.getVoice('de').name,approved.de[0]);
+  assert.deepEqual(JSON.parse(storage.get(STORAGE_KEY)).choices,choices);
+});
+
 test('malformed or stale stored identities never become a selection, and blocked storage never reports a saved favourite',async()=>{
   for(const raw of ['not-json','null','{"version":2,"choices":{"es":"bad"}}',JSON.stringify({version:1,choices:{es:'fr-FR-Wavenet-F',fr:'invented'}})]){
     const f=fixture({storage:new Map([[STORAGE_KEY,raw]])});await f.api.ready();
@@ -96,6 +114,7 @@ test('invalid, cross-language, duplicate or expired provider catalogues fail clo
   const mutations=[
     data=>{data.previewOnly=false;},data=>{delete data.languages.ko;},
     data=>{delete data.selectionVersion;},data=>{data.selectionVersion='unapproved-version';},
+    data=>{data.selectionVersion='kartech-2026-10-27';},data=>{delete data.languages.de;},
     data=>{data.languages.es.defaultVoice=copy(data.languages.es.chirp[0]);},
     data=>{data.languages.it.defaultVoice.gender='FEMALE';},
     data=>{data.languages.es.chirp[0].languageCode='fr-FR';},

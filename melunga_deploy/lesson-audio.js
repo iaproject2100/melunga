@@ -11,7 +11,8 @@
     zh: Object.freeze({ locale: 'zh-CN', serverLanguage: 'cmn-CN', female: 'cmn-CN-Wavenet-A', male: 'cmn-CN-Wavenet-B' }),
     it: Object.freeze({ locale: 'it-IT', serverLanguage: 'it-IT', female: 'it-IT-Wavenet-E', male: 'it-IT-Wavenet-F' }),
     ja: Object.freeze({ locale: 'ja-JP', serverLanguage: 'ja-JP', female: 'ja-JP-Wavenet-B', male: 'ja-JP-Wavenet-C' }),
-    ko: Object.freeze({ locale: 'ko-KR', serverLanguage: 'ko-KR', female: 'ko-KR-Wavenet-A', male: 'ko-KR-Wavenet-C' })
+    ko: Object.freeze({ locale: 'ko-KR', serverLanguage: 'ko-KR', female: 'ko-KR-Wavenet-A', male: 'ko-KR-Wavenet-C' }),
+    de: Object.freeze({ locale: 'de-DE', serverLanguage: 'de-DE', female: 'de-DE-Wavenet-A', male: 'de-DE-Wavenet-B' })
   });
   const normalizedLanguage = value => String(value || '').toLowerCase().replace(/_/g, '-');
   function matchesLanguage(voice, language) {

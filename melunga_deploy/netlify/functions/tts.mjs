@@ -1,4 +1,5 @@
-import {createChirpCatalogue, CHIRP_LOCALES, APPROVED_SELECTION_VERSION} from './lib/chirp-catalog.mjs';
+import {createChirpCatalogue, legacyChirpCatalogue, CHIRP_LOCALES,
+  APPROVED_SELECTION_VERSION, LEGACY_SELECTION_VERSION} from './lib/chirp-catalog.mjs';
 
 const VOICES = Object.freeze({
   'fr-FR-Wavenet-F': { languageCode: 'fr-FR', gender: 'FEMALE' },
@@ -14,7 +15,9 @@ const VOICES = Object.freeze({
   'ja-JP-Wavenet-B': { languageCode: 'ja-JP', gender: 'FEMALE' },
   'ja-JP-Wavenet-C': { languageCode: 'ja-JP', gender: 'MALE' },
   'ko-KR-Wavenet-A': { languageCode: 'ko-KR', gender: 'FEMALE' },
-  'ko-KR-Wavenet-C': { languageCode: 'ko-KR', gender: 'MALE' }
+  'ko-KR-Wavenet-C': { languageCode: 'ko-KR', gender: 'MALE' },
+  'de-DE-Wavenet-A': { languageCode: 'de-DE', gender: 'FEMALE' },
+  'de-DE-Wavenet-B': { languageCode: 'de-DE', gender: 'MALE' }
 });
 
 const ALLOWED_ORIGINS = new Set([
@@ -73,11 +76,13 @@ export function createHandler({fetchImpl=(...args) => fetch(...args), now=() => 
   const params = event.queryStringParameters || {};
   if (Object.hasOwn(params, 'catalog')) {
     if (params.catalog !== 'chirp3' || Object.keys(params).some(name => !['catalog','selectionVersion'].includes(name))
-        || Object.hasOwn(params,'selectionVersion') && params.selectionVersion !== APPROVED_SELECTION_VERSION) {
+        || Object.hasOwn(params,'selectionVersion')
+          && ![APPROVED_SELECTION_VERSION, LEGACY_SELECTION_VERSION].includes(params.selectionVersion)) {
       return json(event, 400, { error:'invalid_catalogue' });
     }
     try {
-      const current = await catalogue.get(key);
+      const complete = await catalogue.get(key);
+      const current = params.selectionVersion === APPROVED_SELECTION_VERSION ? complete : legacyChirpCatalogue(complete);
       const maxAge = Math.max(0, Math.min(300, Math.floor((Date.parse(current.expiresAt) - now()) / 1000)));
       const result = json(event, 200, current);
       result.headers['cache-control'] = 'public, max-age=' + maxAge;

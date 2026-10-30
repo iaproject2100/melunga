@@ -41,7 +41,8 @@
   }
 
   window.addEventListener('load', function () {
-    if (studyLanguage && studyLanguage !== nativeLanguage) {
+    if (studyLanguage && studyLanguage !== nativeLanguage
+        && Object.prototype.hasOwnProperty.call(window.DECKS || {}, studyLanguage)) {
       window.setTimeout(function () {
         try {
           // setLang resets the lesson and hides its paywall. Preserve an open checkout.

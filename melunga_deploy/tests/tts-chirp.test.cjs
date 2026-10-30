@@ -11,7 +11,7 @@ const SYNTH_URL = 'https://texttospeech.googleapis.com/v1/text:synthesize';
 const KEY = 'fake-test-key-not-a-credential';
 const START = Date.parse('2026-10-27T12:00:00.000Z');
 const AUDIO = Buffer.from('fixture-mp3-not-played').toString('base64');
-const LOCALES = {fr:'fr-FR',en:'en-GB',es:'es-ES',zh:'cmn-CN',it:'it-IT',ja:'ja-JP',ko:'ko-KR'};
+const LOCALES = {fr:'fr-FR',en:'en-GB',es:'es-ES',zh:'cmn-CN',it:'it-IT',ja:'ja-JP',ko:'ko-KR',de:'de-DE'};
 const WAVENET = {
   fr:[['fr-FR-Wavenet-F','FEMALE'],['fr-FR-Wavenet-G','MALE']],
   en:[['en-GB-Wavenet-C','FEMALE'],['en-GB-Wavenet-D','MALE']],
@@ -19,7 +19,8 @@ const WAVENET = {
   zh:[['cmn-CN-Wavenet-A','FEMALE'],['cmn-CN-Wavenet-B','MALE']],
   it:[['it-IT-Wavenet-E','FEMALE'],['it-IT-Wavenet-F','MALE']],
   ja:[['ja-JP-Wavenet-B','FEMALE'],['ja-JP-Wavenet-C','MALE']],
-  ko:[['ko-KR-Wavenet-A','FEMALE'],['ko-KR-Wavenet-C','MALE']]
+  ko:[['ko-KR-Wavenet-A','FEMALE'],['ko-KR-Wavenet-C','MALE']],
+  de:[['de-DE-Wavenet-A','FEMALE'],['de-DE-Wavenet-B','MALE']]
 };
 const APPROVED = {
   fr:{name:'fr-FR-Chirp3-HD-Aoede',gender:'FEMALE'},
@@ -28,9 +29,11 @@ const APPROVED = {
   zh:{name:'cmn-CN-Chirp3-HD-Kore',gender:'FEMALE'},
   it:{name:'it-IT-Chirp3-HD-Charon',gender:'MALE'},
   ja:{name:'ja-JP-Chirp3-HD-Kore',gender:'FEMALE'},
-  ko:{name:'ko-KR-Chirp3-HD-Kore',gender:'FEMALE'}
+  ko:{name:'ko-KR-Chirp3-HD-Kore',gender:'FEMALE'},
+  de:{name:'de-DE-Chirp3-HD-Kore',gender:'FEMALE'}
 };
-const SELECTION_VERSION = 'kartech-2026-10-27';
+const SELECTION_VERSION = 'kartech-2026-10-30-de';
+const LEGACY_SELECTION_VERSION = 'kartech-2026-10-27';
 let createHandler, createChirpCatalogue, CHIRP_LOCALES, realFetch;
 before(async () => {
   realFetch = global.fetch;
@@ -40,7 +43,7 @@ before(async () => {
 });
 after(() => {global.fetch = realFetch;});
 const event = (params={}, origin='https://melunga.com', method='GET') => ({httpMethod:method,headers:{origin},queryStringParameters:params});
-const catalogEvent = () => event({catalog:'chirp3'});
+const catalogEvent = () => event({catalog:'chirp3',selectionVersion:SELECTION_VERSION});
 const providerVoice = (locale, suffix, gender) => ({name:locale+'-Chirp3-HD-'+suffix,languageCodes:[locale],ssmlGender:gender,naturalSampleRateHertz:24000});
 const providers = () => Object.values(LOCALES).flatMap(locale => [providerVoice(locale,'Puck','MALE'),providerVoice(locale,'Kore','FEMALE'),providerVoice(locale,'Charon','MALE'),providerVoice(locale,'Aoede','FEMALE')]);
 const reply = (payload,status=200) => new Response(JSON.stringify(payload),{status,headers:{'content-type':'application/json'}});
@@ -66,7 +69,7 @@ function noStore(result,status){const payload=jsonResult(result,status);assert.e
 function audioResult(result){assert.equal(result.statusCode,200);assert.equal(result.headers['content-type'],'audio/mpeg');assert.equal(result.isBase64Encoded,true);assert.equal(result.body,AUDIO);assert.equal(result.headers['cache-control'],'public, max-age=31536000, immutable');assert.equal(result.headers['netlify-cdn-cache-control'],'public, durable, max-age=31536000, stale-while-revalidate=86400');}
 async function silentErrors(fn){const original=console.error,logs=[];console.error=(...args)=>logs.push(args.map(String).join(' '));try{const value=await fn();assert.ok(logs.every(line=>!line.includes(KEY)&&!line.includes('provider-private-body')),'provider bodies and credentials never appear in logs');return value;}finally{console.error=original;}}
 
-test('fourteen historical WaveNet voices keep their exact synthesis fields and year-long cache, without listing voices',async()=>{
+test('the fourteen historical WaveNet voices and German A/B keep exact synthesis fields and cache, without listing voices',async()=>{
   const f=fixture();
   for(const [language,voices] of Object.entries(WAVENET))for(const [name,gender] of voices){
     const result=await f.handler(event({voice:name,lang:LOCALES[language],text:'  Phrase entière 我。 & ?  ',rate:'0.85'}));
@@ -83,7 +86,7 @@ test('fourteen historical WaveNet voices keep their exact synthesis fields and y
       'x-content-type-options':'nosniff'
     },'the complete historical WaveNet header object remains unchanged');
   }
-  assert.equal(f.synth().length,14);assert.equal(f.list().length,0);
+  assert.equal(f.synth().length,16);assert.equal(f.list().length,0);
 });
 
 test('WaveNet rate defaults, bounds and zero-pitch behavior remain identical',async()=>{
@@ -95,7 +98,7 @@ test('WaveNet rate defaults, bounds and zero-pitch behavior remain identical',as
   assert.equal(f.list().length,0);
 });
 
-test('catalogue lists exactly three provider-observed mixed-gender Chirp voices for each of the seven locales',async()=>{
+test('the new catalogue lists exactly three provider-observed mixed-gender Chirp voices for each of eight locales',async()=>{
   assert.deepEqual(Object.keys(CHIRP_LOCALES).sort(),Object.keys(LOCALES).sort());
   const f=fixture(),result=await f.handler(catalogEvent()),body=jsonResult(result,200);
   assert.equal(body.version,1);assert.equal(body.source,'google-voices-list');assert.equal(body.previewOnly,true);
@@ -111,7 +114,7 @@ test('catalogue lists exactly three provider-observed mixed-gender Chirp voices 
     assert.equal(new Set(item.chirp.map(v=>v.name)).size,3);assert.equal(new Set(item.chirp.map(v=>v.gender)).size,2);
     for(const voice of item.chirp){assert.deepEqual(Object.keys(voice).sort(),['name','languageCode','gender','engine','rateMode'].sort());assert.equal(voice.languageCode,locale);assert.equal(voice.engine,'chirp3');assert.equal(voice.rateMode,'client');assert.ok(f.voices.some(source=>source.name===voice.name&&source.ssmlGender===voice.gender&&source.languageCodes.includes(voice.languageCode)));count++;}
   }
-  assert.equal(count,21);assert.equal(f.list().length,1);assert.equal(f.synth().length,0);assert.ok(!result.body.includes(KEY));
+  assert.equal(count,24);assert.equal(f.list().length,1);assert.equal(f.synth().length,0);assert.ok(!result.body.includes(KEY));
 });
 
 test('catalogue fallbacks choose real mixed-gender candidates rather than inventing missing preferred IDs',async()=>{
@@ -144,10 +147,16 @@ test('malformed voices, wrong locales and conflicting duplicates cannot fill a m
   assert.equal(unavailable.available,false);assert.deepEqual(unavailable.chirp.map(v=>v.name),['es-ES-Chirp3-HD-Kore']);
 });
 
-test('the seven approved defaults are exact verified members, with one versioned cache URL and no free parameters',async()=>{
-  const f=fixture(),legacy=jsonResult(await f.handler(catalogEvent()),200);
+test('eight defaults are verified members and legacy URLs retain their exact seven-language contract',async()=>{
+  const f=fixture(),legacy=jsonResult(await f.handler(event({catalog:'chirp3'})),200);
+  const explicitLegacy=jsonResult(await f.handler(event({catalog:'chirp3',selectionVersion:LEGACY_SELECTION_VERSION})),200);
   const versioned=jsonResult(await f.handler(event({catalog:'chirp3',selectionVersion:SELECTION_VERSION})),200);
-  assert.deepEqual(versioned,legacy);assert.equal(versioned.selectionVersion,SELECTION_VERSION);assert.equal(f.list().length,1);
+  assert.deepEqual(explicitLegacy,legacy);assert.equal(legacy.selectionVersion,LEGACY_SELECTION_VERSION);
+  assert.deepEqual(Object.keys(legacy.languages),['fr','en','es','zh','it','ja','ko']);
+  assert.equal(Object.hasOwn(legacy.languages,'de'),false);
+  assert.equal(versioned.selectionVersion,SELECTION_VERSION);assert.equal(f.list().length,1);
+  for(const language of Object.keys(legacy.languages))assert.deepEqual(legacy.languages[language],versioned.languages[language]);
+  assert.equal(legacy.verifiedAt,versioned.verifiedAt);assert.equal(legacy.expiresAt,versioned.expiresAt);
   for(const [language,expected] of Object.entries(APPROVED)){
     const row=versioned.languages[language];
     assert.deepEqual(row.defaultVoice,{...expected,languageCode:LOCALES[language],engine:'chirp3',rateMode:'client'});
@@ -204,19 +213,19 @@ test('an approved default disappearing at expiry is not retained or replaced fro
   noStore(await f.handler(event({voice:APPROVED.it.name,lang:'it-IT',text:'Ciao.'})),400);assert.equal(f.synth().length,0);
 });
 
-test('all 21 selected Chirp voices synthesize MP3 only and explicitly leave playback speed to the client',async()=>{
+test('all 24 selected Chirp voices synthesize MP3 only and explicitly leave playback speed to the client',async()=>{
   const f=fixture(),body=jsonResult(await f.handler(catalogEvent()),200);
   for(const item of Object.values(body.languages))for(const voice of item.chirp)for(const rate of ['0.75','1']){
     const result=await f.handler(event({voice:voice.name,lang:voice.languageCode,text:'  Étude <speak>entière</speak> 我。  ',rate,pitch:'999',endpoint:'https://attacker.invalid/relay'}));
     audioResult(result);assert.equal(result.headers['x-melunga-applied-rate'],'1');assert.equal(result.headers['access-control-expose-headers'],'x-melunga-applied-rate');
     assert.deepEqual(f.synth().at(-1).body,{input:{text:'Étude <speak>entière</speak> 我。'},voice:{languageCode:voice.languageCode,name:voice.name},audioConfig:{audioEncoding:'MP3'}});
   }
-  assert.equal(f.synth().length,42);assert.equal(f.list().length,1);
+  assert.equal(f.synth().length,48);assert.equal(f.list().length,1);
 });
 
 test('a fourth real voice, unobserved IDs and cross-locale names are refused without synthesis',async()=>{
   const f=fixture();await f.handler(catalogEvent());
-  for(const [voice,lang] of [['es-ES-Chirp3-HD-Puck','es-ES'],['es-ES-Chirp3-HD-Invented','es-ES'],['es-ES-Chirp3-HD-Aoede','fr-FR'],['en-US-Chirp3-HD-Aoede','en-US'],['es-ES-Chirp3-HD-Aoede?key=bad','es-ES'],['es-ES-Wavenet-A','es-ES'],['https://attacker.invalid/relay','es-ES'],['__proto__','es-ES']])noStore(await f.handler(event({voice,lang,text:'Hola.'})),400);
+  for(const [voice,lang] of [['es-ES-Chirp3-HD-Puck','es-ES'],['es-ES-Chirp3-HD-Invented','es-ES'],['es-ES-Chirp3-HD-Aoede','fr-FR'],['en-US-Chirp3-HD-Aoede','en-US'],['es-ES-Chirp3-HD-Aoede?key=bad','es-ES'],['es-ES-Wavenet-A','es-ES'],['de-DE-Chirp3-HD-Puck','de-DE'],['de-DE-Chirp3-HD-Kore','fr-FR'],['de-DE-Chirp3-HD-Kore','de-AT'],['de-AT-Chirp3-HD-Kore','de-AT'],['de-DE-Wavenet-A','fr-FR'],['de-DE-Wavenet-C','de-DE'],['https://attacker.invalid/relay','es-ES'],['__proto__','es-ES']])noStore(await f.handler(event({voice,lang,text:'Hola.'})),400);
   assert.equal(f.synth().length,0);assert.equal(f.list().length,1);
 });
 

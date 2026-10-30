@@ -63,7 +63,7 @@
 
   const copy = {
   "fr": [
-    "7 LANGUES · DES PHRASES DU QUOTIDIEN",
+    "8 LANGUES · DES PHRASES DU QUOTIDIEN",
     "Apprends l’essentiel d’abord.<br><em>Prononce-le dans ta langue.</em>",
     "Des phrases utiles pour les situations de tous les jours. Lis la prononciation avec les repères de ta langue, puis écoute pour affiner les sons.",
     "Essayer gratuitement",
@@ -100,11 +100,11 @@
     "par an",
     "Méthode",
     "Audio indisponible pour le moment. Réessaie dans l’application.",
-    "Niveau 1 complet, 7 langues",
+    "Niveau 1 complet, 8 langues",
     "Phonétique dans ta langue + audio",
     "Révisions intelligentes",
     "Tous les niveaux, L1 à L10",
-    "Les 7 langues incluses",
+    "Les 8 langues incluses",
     "Accès 30 jours · sans reconduction",
     "Accès 1 an · sans reconduction",
     "Économise {pct}",
@@ -115,7 +115,7 @@
     "Lis la phonétique à voix haute."
   ],
   "en": [
-    "7 LANGUAGES · EVERYDAY PHRASES",
+    "8 LANGUAGES · EVERYDAY PHRASES",
     "Learn what matters first.<br><em>Pronounce it in your language.</em>",
     "Useful phrases for everyday situations. Read pronunciation using familiar sounds, then listen to refine how you say each phrase.",
     "Try for free",
@@ -152,11 +152,11 @@
     "per year",
     "Method",
     "Audio is unavailable. Try again in the application.",
-    "Full Level 1, 7 languages",
+    "Full Level 1, 8 languages",
     "Phonetics in your language + audio",
     "Smart reviews",
     "All levels, L1 to L10",
-    "All 7 languages included",
+    "All 8 languages included",
     "30-day access · no renewal",
     "1-year access · no renewal",
     "Save {pct}",
@@ -167,7 +167,7 @@
     "Read the French phonetic guide aloud."
   ],
   "es": [
-    "7 IDIOMAS · FRASES DEL DÍA A DÍA",
+    "8 IDIOMAS · FRASES DEL DÍA A DÍA",
     "Aprende primero lo esencial.<br><em>Pronúncialo en tu idioma.</em>",
     "Frases útiles para situaciones cotidianas. Lee la pronunciación con los sonidos de tu idioma y escucha para afinarla.",
     "Probar gratis",
@@ -204,11 +204,11 @@
     "al año",
     "Método",
     "Audio no disponible. Inténtalo en la aplicación.",
-    "Nivel 1 completo, 7 idiomas",
+    "Nivel 1 completo, 8 idiomas",
     "Fonética en tu idioma + audio",
     "Repasos inteligentes",
     "Todos los niveles, L1 a L10",
-    "Los 7 idiomas incluidos",
+    "Los 8 idiomas incluidos",
     "Acceso 30 días · sin renovación",
     "Acceso 1 año · sin renovación",
     "Ahorra {pct}",
@@ -219,7 +219,7 @@
     "Lee en voz alta la guía fonética francesa."
   ],
   "zh": [
-    "7 种语言 · 日常实用句子",
+    "8 种语言 · 日常实用句子",
     "先学最常用的，<br><em>用你的母语读出来。</em>",
     "从日常生活中实用的句子开始。借助母语中熟悉的声音读出发音提示，再听音频，逐步调整发音。",
     "免费体验",
@@ -256,11 +256,11 @@
     "每年",
     "方法",
     "音频暂不可用，请在应用中重试。",
-    "完整 L1 · 7 种语言",
+    "完整 L1 · 8 种语言",
     "母语注音 + 真人发音",
     "智能复习",
     "全部等级 L1–L10",
-    "包含全部 7 种语言",
+    "包含全部 8 种语言",
     "30 天权益 · 不自动续费",
     "1 年权益 · 不自动续费",
     "节省 {pct}",
@@ -271,7 +271,7 @@
     "大声读出法语发音提示。"
   ],
   "it": [
-    "7 LINGUE · FRASI DI OGNI GIORNO",
+    "8 LINGUE · FRASI DI OGNI GIORNO",
     "Impara prima l’essenziale.<br><em>Pronuncialo nella tua lingua.</em>",
     "Frasi utili per le situazioni di ogni giorno. Leggi la pronuncia con i suoni della tua lingua, poi ascolta per migliorarla.",
     "Prova gratis",
@@ -308,11 +308,11 @@
     "all’anno",
     "Metodo",
     "Audio non disponibile. Riprova nell’applicazione.",
-    "Livello 1 completo, 7 lingue",
+    "Livello 1 completo, 8 lingue",
     "Fonetica nella tua lingua + audio",
     "Ripassi intelligenti",
     "Tutti i livelli, da L1 a L10",
-    "Tutte le 7 lingue incluse",
+    "Tutte le 8 lingue incluse",
     "Accesso 30 giorni · senza rinnovo",
     "Accesso 1 anno · senza rinnovo",
     "Risparmia {pct}",
@@ -323,7 +323,7 @@
     "Leggi ad alta voce la guida fonetica francese."
   ],
   "ja": [
-    "7言語 · 毎日使える文",
+    "8言語 · 毎日使える文",
     "まずは本当に使う表現を。<br><em>発音は母語で読める。</em>",
     "毎日の場面で使える文から。母語でなじみのある音を手がかりに読み、音声を聞いて発音を確かめましょう。",
     "無料で試す",
@@ -360,11 +360,11 @@
     "年額",
     "学習方法",
     "音声は現在利用できません。アプリでお試しください。",
-    "レベル1すべて · 7言語",
+    "レベル1すべて · 8言語",
     "母語での発音表記 + 音声",
     "スマート復習",
     "全レベル L1〜L10",
-    "7言語すべて含む",
+    "8言語すべて含む",
     "30日間 · 自動更新なし",
     "1年間 · 自動更新なし",
     "{pct} お得",
@@ -375,7 +375,7 @@
     "フランス語話者向けの発音表記を声に出して読もう。"
   ],
   "ko": [
-    "7개 언어 · 일상에서 쓰는 문장",
+    "8개 언어 · 일상에서 쓰는 문장",
     "가장 많이 쓰는 표현부터.<br><em>발음은 모국어로 읽어요.</em>",
     "일상에서 쓰는 유용한 문장부터 배워요. 모국어의 익숙한 소리를 바탕으로 발음을 읽고, 음성을 들으며 다듬어 보세요.",
     "무료로 체험하기",
@@ -412,11 +412,11 @@
     "연간",
     "학습 방법",
     "지금은 음성을 사용할 수 없습니다. 앱에서 다시 시도하세요.",
-    "레벨 1 전체 · 7개 언어",
+    "레벨 1 전체 · 8개 언어",
     "모국어 발음 표기 + 음성",
     "스마트 복습",
     "모든 레벨 L1–L10",
-    "7개 언어 모두 포함",
+    "8개 언어 모두 포함",
     "30일 이용 · 자동 갱신 없음",
     "1년 이용 · 자동 갱신 없음",
     "{pct} 절약",
@@ -428,6 +428,7 @@
   ]
 };
   const languageNames = {fr:'Français',en:'English',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어'};
+  const studyLanguageNames = {...languageNames,de:'Deutsch'};
   const languageControlLabels = {
     fr:['Langue du site','Langue de l’exemple'],en:['Website language','Example language'],
     es:['Idioma del sitio','Idioma del ejemplo'],zh:['网站语言','示例语言'],
@@ -467,7 +468,7 @@
     <div class="dh-container">
       <section class="dh-hero" aria-labelledby="dh-title"><div><p class="dh-kicker">${tr(0)}</p><h1 class="dh-title" id="dh-title"></h1><p class="dh-intro">${tr(2)}</p><div class="dh-actions"><button class="dh-button dh-primary" data-dh-free>${tr(3)} <span aria-hidden="true">&rarr;</span></button><a class="dh-button dh-outline" href="#dh-method">${tr(4)}</a></div><p class="dh-fine"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10 3 3 7-7"/></svg>${tr(5)}</p></div>
       <aside class="dh-example"><div class="dh-example-top"><b>${tr(6)}</b><span>L1</span></div><div class="dh-tabs" role="group" aria-label="Langue de l’exemple"><button class="dh-tab" data-dh-example="en" aria-pressed="true">${flag('en')}<span data-dh-example-name="en">English</span></button><button class="dh-tab" data-dh-example="es" aria-pressed="false">${flag('es')}<span data-dh-example-name="es">Español</span></button><button class="dh-tab" data-dh-example="zh" aria-pressed="false">${flag('zh')}<span data-dh-example-name="zh">中文</span></button></div><div class="dh-card"><p class="dh-card-tag">${tr(7)}</p><p class="dh-phrase" lang="en"></p><div class="dh-phonetic-area"><p class="dh-trial-prompt"><span class="dh-action-step">1</span>${tr(49)}</p><div class="dh-phonetic-row"><p class="dh-phonetic" lang="fr"></p><button type="button" class="dh-ear" data-dh-listen aria-label="Écouter et comparer"><span aria-hidden="true">👂</span></button></div></div><p class="dh-translation" lang="fr"></p><button type="button" class="dh-listen" data-dh-listen><span class="dh-action-step">2</span>${tr(8)}</button></div><p class="dh-example-note" aria-live="polite">${tr(9)}</p></aside></section>
-      <div class="dh-languages" aria-label="7 languages">${Object.entries(languageNames).map(([code,name])=>`<span class="dh-language-tag">${flag(code)}${name}</span>`).join('')}</div>
+      <div class="dh-languages" aria-label="8 languages">${Object.entries(studyLanguageNames).map(([code,name])=>`<span class="dh-language-tag">${flag(code)}${name}</span>`).join('')}</div>
       <section class="dh-method" id="dh-method" aria-labelledby="dh-method-title"><p class="dh-section-label">${tr(10)}</p><h2 class="dh-section-title" id="dh-method-title">${tr(11)}</h2><div class="dh-steps">${[12,14,16].map((i,n)=>`<article class="dh-step"><span>0${n+1}</span><h3>${tr(i)}</h3><p>${tr(i+1)}</p></article>`).join('')}</div></section>
       <section class="dh-pricing-wrap" id="dh-pricing" aria-labelledby="dh-pricing-title">
         <div class="dh-pricing-head"><p class="dh-section-label">${tr(18)}</p><h2 class="dh-section-title" id="dh-pricing-title">${tr(19)}</h2><p class="dh-pricing-note">${tr(20)}</p></div>

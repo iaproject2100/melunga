@@ -323,6 +323,9 @@ body[data-view="done"] .mg-done{min-height:0;gap:12px;padding:12px 8px}
 
 /* Reuse the seven exact classic flags; no emoji font or remote asset is needed. */
 #mgLanguageFlag[data-language]{display:inline-block;width:30px;height:20px;border:1px solid rgba(21,43,60,.16);border-radius:3px;overflow:hidden;font-size:0;line-height:1}
+.mg-language-badge[data-language="de"],#mgLanguageFlag[data-language="de"]{
+  background: linear-gradient(#111 0 33.333%, #dd0000 33.333% 66.666%, #ffce00 66.666%);
+}
 .mg-language-badge[data-language="en"],#mgLanguageFlag[data-language="en"]{
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23012169'/%3E%3Cpath d='M0 0l60 40M60 0L0 40' stroke='%23fff' stroke-width='9'/%3E%3Cpath d='M0 0l60 40M60 0L0 40' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v40M0 20h60' stroke='%23fff' stroke-width='13'/%3E%3Cpath d='M30 0v40M0 20h60' stroke='%23C8102E' stroke-width='7'/%3E%3C/svg%3E");
 }
