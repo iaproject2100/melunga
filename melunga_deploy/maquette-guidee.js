@@ -49,6 +49,7 @@
   const courseAccess = window.MelungaCourseAccess;
   const nativeCourses = window.MelungaNativeCourses;
   const courseI18n = window.MelungaCourseI18n;
+  const pairFlag = pair => pair.studyLanguage === 'en' ? '🇺🇸' : pair.flag;
   const voiceSelection = window.MelungaVoiceSelection;
   voiceSelection?.preload().catch(() => {});
   const nativeCodes = ['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko', 'de'];
@@ -594,7 +595,7 @@
       button.className = 'mg-language-option'; button.dataset.pair = pair.id;
       button.setAttribute('aria-pressed', String(pair.id === state.pair.id));
       const badge = document.createElement('span'); badge.className = 'mg-language-badge';
-      badge.textContent = pair.flag; badge.dataset.language = pair.studyLanguage; badge.setAttribute('aria-hidden', 'true');
+      badge.textContent = pairFlag(pair); badge.dataset.language = pair.studyLanguage; badge.setAttribute('aria-hidden', 'true');
       const title = document.createElement('span'); title.className = 'mg-language-title';
       title.textContent = courseI18n.languageName(state.nativeLanguage, pair.studyLanguage);
       button.append(badge, title);
@@ -1463,7 +1464,7 @@
     ui.palette.title = tr('Changer d’ambiance');
     ui.menuTrigger.title = tr('Menu');
     ui.language.value = pair.id;
-    text(ui.flag, pair.flag);
+    text(ui.flag, pairFlag(pair));
     ui.flag.dataset.language = pair.studyLanguage;
     ui.language.title = pair.name;
     ui.languageTrigger.title = pair.name;
@@ -1992,7 +1993,7 @@
   }
 
   function renderLoadingContext(id, level = state.level) {
-    const flags = {fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪'};
+    const flags = {fr:'🇫🇷', en:'🇺🇸', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪'};
     if (!nativeCourses?.isPair(id) || id.split('-')[0] !== state.nativeLanguage || state.invalidPair) {
       text(ui.flag, '…'); delete ui.flag.dataset.language;
       delete document.body.dataset.loadingContext;
@@ -2070,7 +2071,7 @@
       ui.language.replaceChildren(...choices.map(pair => {
         const option = document.createElement('option');
         option.value = pair.id;
-        option.textContent = pair.flag + ' ' + courseI18n.languageName(state.nativeLanguage, pair.studyLanguage);
+        option.textContent = pairFlag(pair) + ' ' + courseI18n.languageName(state.nativeLanguage, pair.studyLanguage);
         return option;
       }));
       ui.language.disabled = false;

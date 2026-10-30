@@ -16,6 +16,8 @@ const VOICES = Object.freeze({
   'ja-JP-Wavenet-C': { languageCode: 'ja-JP', gender: 'MALE' },
   'ko-KR-Wavenet-A': { languageCode: 'ko-KR', gender: 'FEMALE' },
   'ko-KR-Wavenet-C': { languageCode: 'ko-KR', gender: 'MALE' },
+  'ar-XA-Wavenet-A': { languageCode: 'ar-XA', gender: 'FEMALE' },
+  'ar-XA-Wavenet-B': { languageCode: 'ar-XA', gender: 'MALE' },
   'de-DE-Wavenet-A': { languageCode: 'de-DE', gender: 'FEMALE' },
   'de-DE-Wavenet-B': { languageCode: 'de-DE', gender: 'MALE' }
 });

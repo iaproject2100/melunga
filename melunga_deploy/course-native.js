@@ -13,7 +13,7 @@
   const reviewed = new Set(reviewedPairIds), validPairs = new Set(pairIds);
   const cardCounts = Object.freeze({fr:4500, en:4502, es:4672, it:4509, zh:4903, ja:4509, ko:4520, de:4519});
   const basePairs = Object.freeze({fr:'zh-fr', en:'fr-en', es:'fr-es', it:'fr-it', zh:'fr-zh', ja:'fr-ja', ko:'fr-ko', de:null});
-  const flags = Object.freeze({fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪'});
+  const flags = Object.freeze({fr:'🇫🇷', en:'🇺🇸', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪'});
   const contentTypes = new Set(['utterance', 'vocabulary', 'number', 'incomplete', 'review']);
   let manifest = null, manifestPromise = null, germanMeanings = null;
   const eligibleByPair = new Map(), freeByPair = new Map(), bankCache = new Map(), modelCache = new Map();

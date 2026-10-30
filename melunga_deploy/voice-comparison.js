@@ -3,7 +3,7 @@
   'use strict';
   const samples = Object.freeze([
     {language:'fr',name:'Français',flag:'🇫🇷',text:'Vous pouvez parler plus lentement ?',meaning:'Vous pouvez parler plus lentement ?'},
-    {language:'en',name:'Anglais',flag:'🇬🇧',text:'Can you speak more slowly?',meaning:'Tu peux parler plus lentement ?'},
+    {language:'en',name:'Anglais',flag:'🇺🇸',text:'Can you speak more slowly?',meaning:'Tu peux parler plus lentement ?'},
     {language:'es',name:'Espagnol',flag:'🇪🇸',text:'Más despacio, por favor.',meaning:'Plus lentement, s’il vous plaît.'},
     {language:'zh',name:'Chinois',flag:'🇨🇳',text:'请慢慢说',meaning:'Parlez lentement, s’il vous plaît.'},
     {language:'it',name:'Italien',flag:'🇮🇹',text:'Più lentamente, per favore.',meaning:'Plus lentement, s’il vous plaît.'},
