@@ -6,7 +6,7 @@ const {execFileSync}=require('node:child_process');
 const {chromium}=require('playwright-core');
 const ROOT=path.resolve(__dirname,'../..'),WEB=path.join(ROOT,'melunga_deploy');
 const BASE='541afb7f67b499130af60211e72a8614bdaaf31d',ORIGIN='https://german-launch.test';
-const NATIVE=['fr','en','es','it','zh','ja','ko'],VERSION='kartech-2026-10-30-de';
+const NATIVE=['fr','en','es','it','zh','ja','ko'],VERSION='kartech-2026-10-30-en-us';
 const FIELDS={fr:'frm',en:'en',es:'esm',it:'itm',zh:'cn',ja:'jam',ko:'kom'},PHON={fr:'pf',en:'py',es:'ps',it:'pi',zh:'phon',ja:'py',ko:'py'};
 const KNOWN='melunga-guided-known-v1',REVIEW='melunga-guided-review-v1';
 const OUTDIR=process.env.GERMAN_LAUNCH_REPORT_DIR||'/workspace/work/german-launch-browser';

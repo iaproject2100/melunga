@@ -8,16 +8,16 @@ const vm = require('node:vm');
 const source = fs.readFileSync(path.join(__dirname, '../voice-selection.js'), 'utf8');
 const NOW = Date.parse('2026-10-27T12:00:00Z');
 const STORAGE_KEY = 'melunga-preview-voice-selection-v1';
-const SELECTION_VERSION = 'kartech-2026-10-30-de';
+const SELECTION_VERSION = 'kartech-2026-10-30-en-us';
 const CATALOGUE_PATH = '/.netlify/functions/tts?catalog=chirp3&selectionVersion='+SELECTION_VERSION;
 const approved = {
-  fr:['fr-FR-Chirp3-HD-Aoede','FEMALE'],en:['en-GB-Chirp3-HD-Kore','FEMALE'],
+  fr:['fr-FR-Chirp3-HD-Aoede','FEMALE'],en:['en-US-Chirp3-HD-Kore','FEMALE'],
   es:['es-ES-Chirp3-HD-Kore','FEMALE'],zh:['cmn-CN-Chirp3-HD-Kore','FEMALE'],
   it:['it-IT-Chirp3-HD-Charon','MALE'],ja:['ja-JP-Chirp3-HD-Kore','FEMALE'],ko:['ko-KR-Chirp3-HD-Kore','FEMALE'],
   de:['de-DE-Chirp3-HD-Kore','FEMALE']
 };
 const definitions = {
-  fr:['fr-FR','F'],en:['en-GB','C'],es:['es-ES','F'],zh:['cmn-CN','A'],
+  fr:['fr-FR','F'],en:['en-US','C'],es:['es-ES','F'],zh:['cmn-CN','A'],
   it:['it-IT','E'],ja:['ja-JP','B'],ko:['ko-KR','A'],de:['de-DE','A']
 };
 const copy = value => JSON.parse(JSON.stringify(value));

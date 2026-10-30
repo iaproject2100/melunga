@@ -4,7 +4,7 @@ Les requêtes des deux voix arabes WaveNet recevaient `invalid_voice`. Cette PR 
 
 Le serveur reçoit seulement deux lignes supplémentaires dans sa liste existante. Les seize voix WaveNet précédentes, les huit langues Chirp, les catalogues versionnés, le cache, CORS, la temporisation du catalogue et les erreurs sans données sensibles conservent leur implémentation actuelle. La clé reste fournie par `process.env.GOOGLE_TTS_API_KEY` ; aucune valeur réelle n’est incluse dans le code ou les tests.
 
-Les drapeaux anglais visibles deviennent américains dans l’interface classique, l’accueil, les leçons modernes et la comparaison de voix. Les SVG représentent les treize bandes et cinquante étoiles. Les métadonnées historiques validées restent inchangées : le contrôleur adapte uniquement leur affichage. Les voix anglaises gardent leur locale `en-GB` et les cartes anglaises conservent tous leurs champs.
+Les drapeaux anglais visibles deviennent américains dans l’interface classique, l’accueil, les leçons modernes et la comparaison de voix. Les SVG représentent les treize bandes et cinquante étoiles. Les métadonnées historiques validées restent inchangées : le contrôleur adapte uniquement leur affichage. À la demande finale de Kartech, les nouvelles pages utilisent désormais les voix américaines `en-US`. Les anciens clients `en-GB` restent compatibles. Les cartes anglaises conservent tous leurs champs.
 
 Le badge arabe fonctionne dans les styles classique et menu B ; le drapeau allemand du menu B reçoit ses bandes noir/rouge/or. Les cartes et l’architecture de navigation restent inchangées. L’app classique actuelle n’a pas de boutons `lAR` ou `lDE`, ni de reconstructions arabes dans `applyNat` : les styles et identifiants sont préparés sans ajouter de cours. Les essais visuels arabes utilisent explicitement des éléments DOM de test, pas un deck arabe intégré.
 
@@ -36,3 +36,10 @@ Le fichier arabe reçu et `ar_phon.py` sont restés identiques. Aucune phonétiq
 | Total déployé avant cette PR | 36 634 |
 
 Le deck arabe reçu (4 487 cartes) est uniquement relu dans cette PR ; il n’entre pas dans ce total et n’est pas publié par ce changement.
+
+
+## Publication autorisée : anglais américain
+
+Kartech a demandé `en-US` puis autorisé la publication. Le catalogue courant est versionné `kartech-2026-10-30-en-us` : voix Chirp Kore américaine par défaut, comparaison limitée aux candidates américaines observées chez Google, WaveNet C/D en repli. Les deux anciens contrats de catalogue (sept et huit langues) gardent leurs voix britanniques observées pour les pages mises en cache. Le navigateur du parcours anglais accepte uniquement une voix système `en-US`. L’exemple d’accueil et sa démonstration utilisent `en-US` ; les versions des scripts sont incrémentées. Les thèmes, cartes, présentation, droits et progression sont conservés.
+
+Contrôles supplémentaires : 70 tests audio/voix/badges et 16 contrôles d’intégration des applications réussis, six cas navigateur d’accueil réussis, 17 contrôles de conservation des sources réussis. Les tests utilisent des réponses simulées ; aucune disponibilité réelle de Google ou écoute en production n’est affirmée. La PR automatique reste bloquée par l’API GitHub ; la publication Git est autorisée explicitement par Kartech. La configuration des secrets Netlify et le test audio réel restent à effectuer avec les accès sécurisés.

@@ -9,8 +9,8 @@ const read=file=>fs.readFileSync(path.join(WEB,file),'utf8');
 const classic=read('app.html'),modern=read('maquette-guidee.js');
 const sha=value=>crypto.createHash('sha256').update(value).digest('hex');
 const LANGUAGES=['fr','en','es','it','zh','ja','ko','de'];
-const SELECTION_VERSION='kartech-2026-10-30-de';
-const APPROVED={fr:'fr-FR-Chirp3-HD-Aoede',en:'en-GB-Chirp3-HD-Kore',es:'es-ES-Chirp3-HD-Kore',it:'it-IT-Chirp3-HD-Charon',zh:'cmn-CN-Chirp3-HD-Kore',ja:'ja-JP-Chirp3-HD-Kore',ko:'ko-KR-Chirp3-HD-Kore',de:'de-DE-Chirp3-HD-Kore'};
+const SELECTION_VERSION='kartech-2026-10-30-en-us';
+const APPROVED={fr:'fr-FR-Chirp3-HD-Aoede',en:'en-US-Chirp3-HD-Kore',es:'es-ES-Chirp3-HD-Kore',it:'it-IT-Chirp3-HD-Charon',zh:'cmn-CN-Chirp3-HD-Kore',ja:'ja-JP-Chirp3-HD-Kore',ko:'ko-KR-Chirp3-HD-Kore',de:'de-DE-Chirp3-HD-Kore'};
 function fn(source,name){
  const match=new RegExp('\\b(?:async\\s+)?function\\s+'+name+'\\s*\\([^)]*\\)\\s*\\{').exec(source);assert.ok(match,name);
  let i=match.index+match[0].length-1,depth=0,quote=null,escape=false,line=false,block=false;
@@ -18,7 +18,7 @@ function fn(source,name){
  throw Error('Unclosed '+name);
 }
 function catalogue(){
- const codes={fr:'fr-FR',en:'en-GB',es:'es-ES',it:'it-IT',zh:'cmn-CN',ja:'ja-JP',ko:'ko-KR',de:'de-DE'};
+ const codes={fr:'fr-FR',en:'en-US',es:'es-ES',it:'it-IT',zh:'cmn-CN',ja:'ja-JP',ko:'ko-KR',de:'de-DE'};
  return{version:1,previewOnly:true,source:'google-voices-list',selectionVersion:SELECTION_VERSION,verifiedAt:new Date(Date.now()-1000).toISOString(),expiresAt:new Date(Date.now()+600000).toISOString(),languages:Object.fromEntries(LANGUAGES.map(language=>{
   const code=codes[language],names=language==='fr'?[['Kore','FEMALE'],['Charon','MALE'],['Aoede','FEMALE']]:[['Aoede','FEMALE'],['Charon','MALE'],['Kore','FEMALE']];
   const chirp=names.map(([name,gender])=>({name:code+'-Chirp3-HD-'+name,languageCode:code,gender,engine:'chirp3',rateMode:'client'}));
@@ -93,10 +93,10 @@ test('classic source literals, eight account/payment functions, rights and revie
 });
 
 test('both HTML shells load selection before the shared player and current controller; classic loads the same modules',()=>{
- for(const file of ['parcours-niveaux.html','maquette-guidee.html']){const source=read(file),selection=source.indexOf('voice-selection.js?v=3'),player=source.indexOf('lesson-audio.js?v=4'),controller=source.indexOf('maquette-guidee.js?v=44');assert.ok(selection>0&&selection<player&&player<controller);assert.match(source,/course-i18n\.js\?v=7/);assert.match(source,/course-native\.js\?v=5/);assert.match(source,/course-startup\.css\?v=1/);assert.match(source,/course-ambiences\.css\?v=1/);}
+ for(const file of ['parcours-niveaux.html','maquette-guidee.html']){const source=read(file),selection=source.indexOf('voice-selection.js?v=4'),player=source.indexOf('lesson-audio.js?v=5'),controller=source.indexOf('maquette-guidee.js?v=44');assert.ok(selection>0&&selection<player&&player<controller);assert.match(source,/course-i18n\.js\?v=7/);assert.match(source,/course-native\.js\?v=5/);assert.match(source,/course-startup\.css\?v=1/);assert.match(source,/course-ambiences\.css\?v=1/);}
  assert.match(classic,/course-i18n\.js\?v=7/);assert.match(classic,/native-speech\.js\?v=1/);assert.doesNotMatch(classic,/course-startup\.css/);
- assert.ok(classic.indexOf('voice-selection.js?v=3')<classic.indexOf('lesson-audio.js?v=4'));
- assert.ok(classic.indexOf('lesson-audio.js?v=4')<classic.indexOf('var DECKS = '));
+ assert.ok(classic.indexOf('voice-selection.js?v=4')<classic.indexOf('lesson-audio.js?v=5'));
+ assert.ok(classic.indexOf('lesson-audio.js?v=5')<classic.indexOf('var DECKS = '));
 });
 
 test('eight fresh profiles use the exact approved defaults synchronously in both apps without writing a local favourite',async t=>{

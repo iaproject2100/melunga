@@ -6,7 +6,7 @@
 
   const voices = Object.freeze({
     fr: Object.freeze({ locale: 'fr-FR', serverLanguage: 'fr-FR', female: 'fr-FR-Wavenet-F', male: 'fr-FR-Wavenet-G' }),
-    en: Object.freeze({ locale: 'en-GB', serverLanguage: 'en-GB', female: 'en-GB-Wavenet-C', male: 'en-GB-Wavenet-D' }),
+    en: Object.freeze({ locale: 'en-US', serverLanguage: 'en-US', female: 'en-US-Wavenet-C', male: 'en-US-Wavenet-D' }),
     es: Object.freeze({ locale: 'es-ES', serverLanguage: 'es-ES', female: 'es-ES-Wavenet-F', male: 'es-ES-Wavenet-E' }),
     zh: Object.freeze({ locale: 'zh-CN', serverLanguage: 'cmn-CN', female: 'cmn-CN-Wavenet-A', male: 'cmn-CN-Wavenet-B' }),
     it: Object.freeze({ locale: 'it-IT', serverLanguage: 'it-IT', female: 'it-IT-Wavenet-E', male: 'it-IT-Wavenet-F' }),
@@ -18,6 +18,7 @@
   function matchesLanguage(voice, language) {
     if (!voice || typeof voice.lang !== 'string') return false;
     const tag = normalizedLanguage(voice.lang), primary = tag.split('-')[0];
+    if (language === 'en') return tag === 'en-us';
     if (language !== 'zh') return primary === language;
     // The Chinese course teaches Mandarin. A Cantonese system voice must not
     // pronounce the same characters in another spoken language after failure.

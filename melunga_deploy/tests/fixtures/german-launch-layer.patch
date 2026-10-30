@@ -8,7 +8,7 @@ index 9f4e26f..3650148 100644
 -  function text() { return copy[typeof nat === 'string' ? nat : 'fr'] || copy.fr; }
 +  function text() { return copy[window.MelungaGermanAccountUI?.active ? 'de' : typeof nat === 'string' ? nat : 'fr'] || copy.fr; }
 diff --git a/melunga_deploy/app.html b/melunga_deploy/app.html
-index fe7b087..621b72c 100644
+index fe7b087..d9e77f8 100644
 --- a/melunga_deploy/app.html
 +++ b/melunga_deploy/app.html
 @@ -56,0 +57,6 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter','Noto Sans SC',sa
@@ -81,8 +81,8 @@ index fe7b087..621b72c 100644
 -<script src="voice-selection.js?v=2"></script>
 -<script src="lesson-audio.js?v=3"></script>
 +<script src="course-i18n.js?v=7"></script>
-+<script src="voice-selection.js?v=3"></script>
-+<script src="lesson-audio.js?v=4"></script>
++<script src="voice-selection.js?v=4"></script>
++<script src="lesson-audio.js?v=5"></script>
 @@ -3097 +3120 @@ var nat='zh'; // langue native de l'apprenant : 'zh' (défaut) ou 'en'
 -try{ var _sn=lsGet('ox_nat'); if(_sn) nat=_sn; }catch(e){}
 +try{ var _sn=lsGet('ox_nat'); if(_sn) nat=_sn==='de'?'fr':_sn; }catch(e){}
@@ -163,12 +163,12 @@ index fe7b087..621b72c 100644
 -<script src="account-ui.js"></script>
 +<script src="account-ui.js?v=1"></script>
 diff --git a/melunga_deploy/comparaison-voix.html b/melunga_deploy/comparaison-voix.html
-index 5167cd2..79e442b 100644
+index 5167cd2..04e42fa 100644
 --- a/melunga_deploy/comparaison-voix.html
 +++ b/melunga_deploy/comparaison-voix.html
 @@ -49 +49 @@
 -  <script src="voice-selection.js?v=2" defer></script>
-+  <script src="voice-selection.js?v=3" defer></script>
++  <script src="voice-selection.js?v=4" defer></script>
 diff --git a/melunga_deploy/content/course-locales/en.json b/melunga_deploy/content/course-locales/en.json
 index ce8b628..4e9f08b 100644
 --- a/melunga_deploy/content/course-locales/en.json
@@ -420,7 +420,7 @@ index 621af5b..0854414 100644
 -  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23012169'/%3E%3Cpath d='M0 0l60 40M60 0L0 40' stroke='%23fff' stroke-width='9'/%3E%3Cpath d='M0 0l60 40M60 0L0 40' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v40M0 20h60' stroke='%23fff' stroke-width='13'/%3E%3Cpath d='M30 0v40M0 20h60' stroke='%23C8102E' stroke-width='7'/%3E%3C/svg%3E");
 +  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2060%2040'%3E%3Crect%20width%3D'60'%20height%3D'40'%20fill%3D'white'%2F%3E%3Cpath%20d%3D'M0%201.538h60M0%207.692h60M0%2013.846h60M0%2020.000h60M0%2026.154h60M0%2032.308h60M0%2038.462h60'%20stroke%3D'%23B22234'%20stroke-width%3D'3.077'%2F%3E%3Crect%20width%3D'24'%20height%3D'21.538'%20fill%3D'%233C3B6E'%2F%3E%3Cdefs%3E%3Cpath%20id%3D's'%20d%3D'M0-.8.188-.259.761-.247.304.099.47.647%200%20.32-.47.647-.304.099-.761-.247-.188-.259Z'%20fill%3D'white'%2F%3E%3C%2Fdefs%3E%3Cuse%20href%3D'%23s'%20x%3D'2'%20y%3D'1.30'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'6'%20y%3D'1.30'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'10'%20y%3D'1.30'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'14'%20y%3D'1.30'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'18'%20y%3D'1.30'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'22'%20y%3D'1.30'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'4'%20y%3D'3.65'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'8'%20y%3D'3.65'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'12'%20y%3D'3.65'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'16'%20y%3D'3.65'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'20'%20y%3D'3.65'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'2'%20y%3D'6.00'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'6'%20y%3D'6.00'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'10'%20y%3D'6.00'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'14'%20y%3D'6.00'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'18'%20y%3D'6.00'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'22'%20y%3D'6.00'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'4'%20y%3D'8.35'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'8'%20y%3D'8.35'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'12'%20y%3D'8.35'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'16'%20y%3D'8.35'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'20'%20y%3D'8.35'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'2'%20y%3D'10.70'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'6'%20y%3D'10.70'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'10'%20y%3D'10.70'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'14'%20y%3D'10.70'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'18'%20y%3D'10.70'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'22'%20y%3D'10.70'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'4'%20y%3D'13.05'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'8'%20y%3D'13.05'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'12'%20y%3D'13.05'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'16'%20y%3D'13.05'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'20'%20y%3D'13.05'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'2'%20y%3D'15.40'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'6'%20y%3D'15.40'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'10'%20y%3D'15.40'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'14'%20y%3D'15.40'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'18'%20y%3D'15.40'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'22'%20y%3D'15.40'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'4'%20y%3D'17.75'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'8'%20y%3D'17.75'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'12'%20y%3D'17.75'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'16'%20y%3D'17.75'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'20'%20y%3D'17.75'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'2'%20y%3D'20.10'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'6'%20y%3D'20.10'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'10'%20y%3D'20.10'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'14'%20y%3D'20.10'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'18'%20y%3D'20.10'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'22'%20y%3D'20.10'%2F%3E%3C%2Fsvg%3E");
 diff --git a/melunga_deploy/desktop-home.js b/melunga_deploy/desktop-home.js
-index 97bccc1..24de3ed 100644
+index 97bccc1..857cb9c 100644
 --- a/melunga_deploy/desktop-home.js
 +++ b/melunga_deploy/desktop-home.js
 @@ -46,0 +47 @@
@@ -566,6 +566,9 @@ index 97bccc1..24de3ed 100644
 -      <div class="dh-languages" aria-label="7 languages">${Object.entries(languageNames).map(([code,name])=>`<span class="dh-language-tag">${flag(code)}${name}</span>`).join('')}</div>
 +      <aside class="dh-example"><div class="dh-example-top"><b>${tr(6)}</b><span>L1</span></div><div class="dh-tabs" role="group" aria-label="Langue de l’exemple"><button class="dh-tab" data-dh-example="en" aria-pressed="true">${flag('en')}<span data-dh-example-name="en">English</span></button><button class="dh-tab" data-dh-example="es" aria-pressed="false">${flag('es')}<span data-dh-example-name="es">Español</span></button><button class="dh-tab" data-dh-example="zh" aria-pressed="false">${flag('zh')}<span data-dh-example-name="zh">中文</span></button><button class="dh-tab" data-dh-example="de" aria-pressed="false">${flag('de')}<span data-dh-example-name="de">Deutsch</span></button><button class="dh-tab" data-dh-example="it" aria-pressed="false">${flag('it')}<span data-dh-example-name="it">Italiano</span></button><button class="dh-tab" data-dh-example="ja" aria-pressed="false">${flag('ja')}<span data-dh-example-name="ja">日本語</span></button><button class="dh-tab" data-dh-example="ko" aria-pressed="false">${flag('ko')}<span data-dh-example-name="ko">한국어</span></button></div><div class="dh-card"><p class="dh-card-tag">${tr(7)}</p><p class="dh-phrase" lang="en"></p><div class="dh-phonetic-area"><p class="dh-trial-prompt"><span class="dh-action-step">1</span>${tr(49)}</p><div class="dh-phonetic-row"><p class="dh-phonetic" lang="fr"></p><button type="button" class="dh-ear" data-dh-listen aria-label="Écouter et comparer"><span aria-hidden="true">👂</span></button></div></div><p class="dh-translation" lang="fr"></p><button type="button" class="dh-listen" data-dh-listen><span class="dh-action-step">2</span>${tr(8)}</button></div><p class="dh-example-note" aria-live="polite">${tr(9)}</p></aside></section>
 +      <div class="dh-languages" aria-label="8 languages">${Object.entries(studyLanguageNames).map(([code,name])=>`<span class="dh-language-tag">${flag(code)}${name}</span>`).join('')}</div>
+@@ -485 +542 @@
+-    en: {text:'Can you help me?',phonetic:'kan you HÈLP mi',fr:'Tu peux m’aider ?',voice:'en-GB-Wavenet-C',code:'en-GB'},
++    en: {text:'Can you help me?',phonetic:'kan you HÈLP mi',fr:'Tu peux m’aider ?',voice:'en-US-Wavenet-C',code:'en-US'},
 @@ -487 +544,9 @@
 -    zh: {text:'你能帮我吗？',phonetic:'ni neung bang ouo ma ?',fr:'Tu peux m’aider ?',voice:'cmn-CN-Wavenet-A',code:'cmn-CN'}
 +    zh: {text:'你能帮我吗？',phonetic:'ni neung bang ouo ma ?',fr:'Tu peux m’aider ?',voice:'cmn-CN-Wavenet-A',code:'cmn-CN'},
@@ -616,7 +619,7 @@ index b339d35..2d55959 100644
 @@ -51,0 +54 @@
 +          window.MelungaGermanAccountUI?.refresh();
 diff --git a/melunga_deploy/index.html b/melunga_deploy/index.html
-index 0df33aa..a11952a 100644
+index 0df33aa..fd49529 100644
 --- a/melunga_deploy/index.html
 +++ b/melunga_deploy/index.html
 @@ -22 +22 @@
@@ -718,24 +721,36 @@ index 0df33aa..a11952a 100644
 @@ -1063 +1084 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
 -      translatedPhrase.textContent='Je voudrais de l’eau.';
 +      translatedPhrase.textContent=sample.translation||'Je voudrais de l’eau.';
-@@ -1189,2 +1210,2 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
+@@ -1087 +1108 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
+-        utterance.lang='en-GB';
++        utterance.lang='en-US';
+@@ -1090 +1111,2 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
+-        utterance.voice=voices.find(voice=>voice.lang&&voice.lang.toLowerCase().startsWith('en-gb'))||voices.find(voice=>voice.lang&&voice.lang.toLowerCase().startsWith('en'))||null;
++        utterance.voice=voices.find(voice=>voice.lang&&voice.lang.toLowerCase().replace(/_/g,'-')==='en-us')||null;
++        if(!utterance.voice){button.textContent=homeText('🔊 Réessayer');button.removeAttribute('aria-busy');return;}
+@@ -1189,2 +1211,2 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
 -    const previousNative=/^(fr|en|es|it|zh|ja|ko)-(fr|en|es|it|zh|ja|ko)$/.test(previousCourse||'')&&previousCourse.split('-')[0]!==previousCourse.split('-')[1]?previousCourse.split('-')[0]:null;
 -    const initialAppLocale=[requestedHomeLanguage,savedHomeLanguage?.locale,legacyNative,previousNative,'fr'].find(locale=>homeLanguageCodes.includes(locale));
 +    const previousNative=previousCourse&&coursePair(...previousCourse.split('-'))===previousCourse?previousCourse.split('-')[0]:null;
 +    const initialAppLocale=[requestedHomeLanguage,savedHomeLanguage?.locale,legacyNative,previousNative,'fr'].find(homeAppLanguageAvailable);
-@@ -1196 +1217,3 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
+@@ -1196 +1218,3 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
 -  <script src="desktop-home.js?v=5"></script>
-+  <script src="voice-selection.js?v=3"></script>
-+  <script src="lesson-audio.js?v=4"></script>
-+  <script src="desktop-home.js?v=9"></script>
++  <script src="voice-selection.js?v=4"></script>
++  <script src="lesson-audio.js?v=5"></script>
++  <script src="desktop-home.js?v=10"></script>
 diff --git a/melunga_deploy/lesson-audio.js b/melunga_deploy/lesson-audio.js
-index c66f971..34346c9 100644
+index c66f971..fd3e55d 100644
 --- a/melunga_deploy/lesson-audio.js
 +++ b/melunga_deploy/lesson-audio.js
+@@ -9 +9 @@
+-    en: Object.freeze({ locale: 'en-GB', serverLanguage: 'en-GB', female: 'en-GB-Wavenet-C', male: 'en-GB-Wavenet-D' }),
++    en: Object.freeze({ locale: 'en-US', serverLanguage: 'en-US', female: 'en-US-Wavenet-C', male: 'en-US-Wavenet-D' }),
 @@ -14 +14,2 @@
 -    ko: Object.freeze({ locale: 'ko-KR', serverLanguage: 'ko-KR', female: 'ko-KR-Wavenet-A', male: 'ko-KR-Wavenet-C' })
 +    ko: Object.freeze({ locale: 'ko-KR', serverLanguage: 'ko-KR', female: 'ko-KR-Wavenet-A', male: 'ko-KR-Wavenet-C' }),
 +    de: Object.freeze({ locale: 'de-DE', serverLanguage: 'de-DE', female: 'de-DE-Wavenet-A', male: 'de-DE-Wavenet-B' })
+@@ -19,0 +21 @@
++    if (language === 'en') return tag === 'en-us';
 diff --git a/melunga_deploy/maquette-guidee.css b/melunga_deploy/maquette-guidee.css
 index dfe6b35..743fa0a 100644
 --- a/melunga_deploy/maquette-guidee.css
@@ -748,7 +763,7 @@ index dfe6b35..743fa0a 100644
 -  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23012169'/%3E%3Cpath d='M0 0l60 40M60 0L0 40' stroke='%23fff' stroke-width='9'/%3E%3Cpath d='M0 0l60 40M60 0L0 40' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v40M0 20h60' stroke='%23fff' stroke-width='13'/%3E%3Cpath d='M30 0v40M0 20h60' stroke='%23C8102E' stroke-width='7'/%3E%3C/svg%3E");
 +  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2060%2040'%3E%3Crect%20width%3D'60'%20height%3D'40'%20fill%3D'white'%2F%3E%3Cpath%20d%3D'M0%201.538h60M0%207.692h60M0%2013.846h60M0%2020.000h60M0%2026.154h60M0%2032.308h60M0%2038.462h60'%20stroke%3D'%23B22234'%20stroke-width%3D'3.077'%2F%3E%3Crect%20width%3D'24'%20height%3D'21.538'%20fill%3D'%233C3B6E'%2F%3E%3Cdefs%3E%3Cpath%20id%3D's'%20d%3D'M0-.8.188-.259.761-.247.304.099.47.647%200%20.32-.47.647-.304.099-.761-.247-.188-.259Z'%20fill%3D'white'%2F%3E%3C%2Fdefs%3E%3Cuse%20href%3D'%23s'%20x%3D'2'%20y%3D'1.30'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'6'%20y%3D'1.30'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'10'%20y%3D'1.30'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'14'%20y%3D'1.30'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'18'%20y%3D'1.30'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'22'%20y%3D'1.30'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'4'%20y%3D'3.65'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'8'%20y%3D'3.65'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'12'%20y%3D'3.65'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'16'%20y%3D'3.65'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'20'%20y%3D'3.65'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'2'%20y%3D'6.00'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'6'%20y%3D'6.00'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'10'%20y%3D'6.00'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'14'%20y%3D'6.00'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'18'%20y%3D'6.00'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'22'%20y%3D'6.00'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'4'%20y%3D'8.35'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'8'%20y%3D'8.35'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'12'%20y%3D'8.35'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'16'%20y%3D'8.35'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'20'%20y%3D'8.35'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'2'%20y%3D'10.70'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'6'%20y%3D'10.70'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'10'%20y%3D'10.70'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'14'%20y%3D'10.70'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'18'%20y%3D'10.70'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'22'%20y%3D'10.70'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'4'%20y%3D'13.05'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'8'%20y%3D'13.05'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'12'%20y%3D'13.05'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'16'%20y%3D'13.05'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'20'%20y%3D'13.05'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'2'%20y%3D'15.40'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'6'%20y%3D'15.40'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'10'%20y%3D'15.40'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'14'%20y%3D'15.40'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'18'%20y%3D'15.40'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'22'%20y%3D'15.40'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'4'%20y%3D'17.75'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'8'%20y%3D'17.75'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'12'%20y%3D'17.75'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'16'%20y%3D'17.75'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'20'%20y%3D'17.75'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'2'%20y%3D'20.10'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'6'%20y%3D'20.10'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'10'%20y%3D'20.10'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'14'%20y%3D'20.10'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'18'%20y%3D'20.10'%2F%3E%3Cuse%20href%3D'%23s'%20x%3D'22'%20y%3D'20.10'%2F%3E%3C%2Fsvg%3E");
 diff --git a/melunga_deploy/maquette-guidee.html b/melunga_deploy/maquette-guidee.html
-index 78b7139..9d537b4 100644
+index 78b7139..9ac1b19 100644
 --- a/melunga_deploy/maquette-guidee.html
 +++ b/melunga_deploy/maquette-guidee.html
 @@ -10 +10 @@
@@ -765,8 +780,8 @@ index 78b7139..9d537b4 100644
 -  <script src="lesson-audio.js?v=3"></script>
 -  <script src="maquette-guidee.js?v=42"></script>
 -  <script src="course-desktop.js?v=10"></script>
-+  <script src="voice-selection.js?v=3"></script>
-+  <script src="lesson-audio.js?v=4"></script>
++  <script src="voice-selection.js?v=4"></script>
++  <script src="lesson-audio.js?v=5"></script>
 +  <script src="maquette-guidee.js?v=44"></script>
 +  <script src="course-desktop.js?v=11"></script>
 diff --git a/melunga_deploy/maquette-guidee.js b/melunga_deploy/maquette-guidee.js
@@ -805,58 +820,92 @@ index 759ebd4..a8d0527 100644
 -      it: 'it-IT', ja: 'ja-JP', ko: 'ko-KR'
 +      it: 'it-IT', ja: 'ja-JP', ko: 'ko-KR', de: 'de-DE'
 diff --git a/melunga_deploy/netlify/functions/lib/chirp-catalog.mjs b/melunga_deploy/netlify/functions/lib/chirp-catalog.mjs
-index 4c38981..e0bb7ac 100644
+index 4c38981..e5513d1 100644
 --- a/melunga_deploy/netlify/functions/lib/chirp-catalog.mjs
 +++ b/melunga_deploy/netlify/functions/lib/chirp-catalog.mjs
 @@ -2 +2 @@
 - * The seven course languages and three choices per language are deliberately finite. */
 + * The eight studied languages and three choices per language are deliberately finite. */
+@@ -5 +5 @@ export const CHIRP_LOCALES = Object.freeze({
+-  en: Object.freeze({languageCodes:Object.freeze(['en-GB']), waveNet:'en-GB-Wavenet-C'}),
++  en: Object.freeze({languageCodes:Object.freeze(['en-US','en-GB']), waveNet:'en-US-Wavenet-C'}),
 @@ -10 +10,2 @@ export const CHIRP_LOCALES = Object.freeze({
 -  ko: Object.freeze({languageCodes:Object.freeze(['ko-KR']), waveNet:'ko-KR-Wavenet-A'})
 +  ko: Object.freeze({languageCodes:Object.freeze(['ko-KR']), waveNet:'ko-KR-Wavenet-A'}),
 +  de: Object.freeze({languageCodes:Object.freeze(['de-DE']), waveNet:'de-DE-Wavenet-A'})
-@@ -13 +14,3 @@ export const CHIRP_LOCALES = Object.freeze({
+@@ -13 +14,4 @@ export const CHIRP_LOCALES = Object.freeze({
 -export const APPROVED_SELECTION_VERSION = 'kartech-2026-10-27';
-+export const APPROVED_SELECTION_VERSION = 'kartech-2026-10-30-de';
++export const APPROVED_SELECTION_VERSION = 'kartech-2026-10-30-en-us';
++export const PREVIOUS_SELECTION_VERSION = 'kartech-2026-10-30-de';
 +export const LEGACY_SELECTION_VERSION = 'kartech-2026-10-27';
 +const LEGACY_LANGUAGES = Object.freeze(['fr', 'en', 'es', 'zh', 'it', 'ja', 'ko']);
-@@ -21 +24,2 @@ const APPROVED_DEFAULTS = Object.freeze({
+@@ -16 +20 @@ const APPROVED_DEFAULTS = Object.freeze({
+-  en:Object.freeze({name:'en-GB-Chirp3-HD-Kore', gender:'FEMALE'}),
++  en:Object.freeze({name:'en-US-Chirp3-HD-Kore', gender:'FEMALE'}),
+@@ -21 +25,2 @@ const APPROVED_DEFAULTS = Object.freeze({
 -  ko:Object.freeze({name:'ko-KR-Chirp3-HD-Kore', gender:'FEMALE'})
 +  ko:Object.freeze({name:'ko-KR-Chirp3-HD-Kore', gender:'FEMALE'}),
 +  de:Object.freeze({name:'de-DE-Chirp3-HD-Kore', gender:'FEMALE'})
-@@ -32,0 +37,7 @@ function freeze(value) {
+@@ -33 +38,13 @@ function freeze(value) {
+-function candidatesFor(language, definition, voices) {
 +// Cached seven-language clients require their exact version and row inventory.
 +// Both contracts share the same fresh provider observation and unchanged voices.
++const previousCatalogues = new WeakMap();
++export function previousChirpCatalogue(catalogue) {
++  return previousCatalogues.get(catalogue);
++}
 +export function legacyChirpCatalogue(catalogue) {
-+  return freeze({...catalogue, selectionVersion:LEGACY_SELECTION_VERSION,
-+    languages:Object.fromEntries(LEGACY_LANGUAGES.map(language => [language, catalogue.languages[language]]))});
++  const previous = previousChirpCatalogue(catalogue);
++  return freeze({...previous, selectionVersion:LEGACY_SELECTION_VERSION,
++    languages:Object.fromEntries(LEGACY_LANGUAGES.map(language => [language, previous.languages[language]]))});
 +}
 +
++function candidatesFor(language, definition, voices, approved = APPROVED_DEFAULTS[language]) {
+@@ -54 +70,0 @@ function candidatesFor(language, definition, voices) {
+-  const approved = APPROVED_DEFAULTS[language];
+@@ -90 +106 @@ export function createChirpCatalogue({fetchImpl=(...args) => fetch(...args), now
+-      return freeze({version:1, source:'google-voices-list', verifiedAt:new Date(verifiedAt).toISOString(),
++      const catalogue = freeze({version:1, source:'google-voices-list', verifiedAt:new Date(verifiedAt).toISOString(),
+@@ -94 +110,6 @@ export function createChirpCatalogue({fetchImpl=(...args) => fetch(...args), now
+-          [language, candidatesFor(language, definition, payload.voices)]))});
++          [language, candidatesFor(language, language === 'en' ? {...definition, languageCodes:['en-US']} : definition, payload.voices)]))});
++      const oldEnglish = candidatesFor('en', {languageCodes:['en-GB'], waveNet:'en-GB-Wavenet-C'},
++        payload.voices, {name:'en-GB-Chirp3-HD-Kore',gender:'FEMALE'});
++      previousCatalogues.set(catalogue, freeze({...catalogue, selectionVersion:PREVIOUS_SELECTION_VERSION,
++        languages:{...catalogue.languages,en:oldEnglish}}));
++      return catalogue;
 diff --git a/melunga_deploy/netlify/functions/tts.mjs b/melunga_deploy/netlify/functions/tts.mjs
-index b3713ca..3094663 100644
+index b3713ca..a1174f3 100644
 --- a/melunga_deploy/netlify/functions/tts.mjs
 +++ b/melunga_deploy/netlify/functions/tts.mjs
 @@ -1 +1,2 @@
 -import {createChirpCatalogue, CHIRP_LOCALES, APPROVED_SELECTION_VERSION} from './lib/chirp-catalog.mjs';
-+import {createChirpCatalogue, legacyChirpCatalogue, CHIRP_LOCALES,
-+  APPROVED_SELECTION_VERSION, LEGACY_SELECTION_VERSION} from './lib/chirp-catalog.mjs';
-@@ -17 +18,5 @@ const VOICES = Object.freeze({
++import {createChirpCatalogue, legacyChirpCatalogue, previousChirpCatalogue, CHIRP_LOCALES,
++  APPROVED_SELECTION_VERSION, PREVIOUS_SELECTION_VERSION, LEGACY_SELECTION_VERSION} from './lib/chirp-catalog.mjs';
+@@ -7,0 +9,2 @@ const VOICES = Object.freeze({
++  'en-US-Wavenet-C': { languageCode: 'en-US', gender: 'FEMALE' },
++  'en-US-Wavenet-D': { languageCode: 'en-US', gender: 'MALE' },
+@@ -17 +20,5 @@ const VOICES = Object.freeze({
 -  'ko-KR-Wavenet-C': { languageCode: 'ko-KR', gender: 'MALE' }
 +  'ko-KR-Wavenet-C': { languageCode: 'ko-KR', gender: 'MALE' },
 +  'ar-XA-Wavenet-A': { languageCode: 'ar-XA', gender: 'FEMALE' },
 +  'ar-XA-Wavenet-B': { languageCode: 'ar-XA', gender: 'MALE' },
 +  'de-DE-Wavenet-A': { languageCode: 'de-DE', gender: 'FEMALE' },
 +  'de-DE-Wavenet-B': { languageCode: 'de-DE', gender: 'MALE' }
-@@ -76 +81,2 @@ export function createHandler({fetchImpl=(...args) => fetch(...args), now=() =>
+@@ -76 +83,2 @@ export function createHandler({fetchImpl=(...args) => fetch(...args), now=() =>
 -        || Object.hasOwn(params,'selectionVersion') && params.selectionVersion !== APPROVED_SELECTION_VERSION) {
 +        || Object.hasOwn(params,'selectionVersion')
-+          && ![APPROVED_SELECTION_VERSION, LEGACY_SELECTION_VERSION].includes(params.selectionVersion)) {
-@@ -80 +86,2 @@ export function createHandler({fetchImpl=(...args) => fetch(...args), now=() =>
++          && ![APPROVED_SELECTION_VERSION, PREVIOUS_SELECTION_VERSION, LEGACY_SELECTION_VERSION].includes(params.selectionVersion)) {
+@@ -80 +88,3 @@ export function createHandler({fetchImpl=(...args) => fetch(...args), now=() =>
 -      const current = await catalogue.get(key);
 +      const complete = await catalogue.get(key);
-+      const current = params.selectionVersion === APPROVED_SELECTION_VERSION ? complete : legacyChirpCatalogue(complete);
++      const current = params.selectionVersion === APPROVED_SELECTION_VERSION ? complete
++        : params.selectionVersion === PREVIOUS_SELECTION_VERSION ? previousChirpCatalogue(complete) : legacyChirpCatalogue(complete);
+@@ -106 +116 @@ export function createHandler({fetchImpl=(...args) => fetch(...args), now=() =>
+-      const actual = Object.values(current.languages).flatMap(language => language.chirp)
++      const actual = [...Object.values(current.languages), ...Object.values(previousChirpCatalogue(current).languages)].flatMap(language => language.chirp)
 diff --git a/melunga_deploy/parcours-niveaux.html b/melunga_deploy/parcours-niveaux.html
-index cde4fd4..30ef9a1 100644
+index cde4fd4..3a15b67 100644
 --- a/melunga_deploy/parcours-niveaux.html
 +++ b/melunga_deploy/parcours-niveaux.html
 @@ -16 +16 @@
@@ -876,8 +925,8 @@ index cde4fd4..30ef9a1 100644
 -  <script src="lesson-audio.js?v=3"></script>
 -  <script src="maquette-guidee.js?v=42"></script>
 -  <script src="course-desktop.js?v=10"></script>
-+  <script src="voice-selection.js?v=3"></script>
-+  <script src="lesson-audio.js?v=4"></script>
++  <script src="voice-selection.js?v=4"></script>
++  <script src="lesson-audio.js?v=5"></script>
 +  <script src="maquette-guidee.js?v=44"></script>
 +  <script src="course-desktop.js?v=11"></script>
 diff --git a/melunga_deploy/tests/native-courses.test.cjs b/melunga_deploy/tests/native-courses.test.cjs
@@ -951,7 +1000,7 @@ index cc08b16..099b146 100644
 -    {language:'en',name:'Anglais',flag:'🇬🇧',text:'Can you speak more slowly?',meaning:'Tu peux parler plus lentement ?'},
 +    {language:'en',name:'Anglais',flag:'🇺🇸',text:'Can you speak more slowly?',meaning:'Tu peux parler plus lentement ?'},
 diff --git a/melunga_deploy/voice-selection.js b/melunga_deploy/voice-selection.js
-index 3713bc5..5c36dc4 100644
+index 3713bc5..09fd9b5 100644
 --- a/melunga_deploy/voice-selection.js
 +++ b/melunga_deploy/voice-selection.js
 @@ -5 +5 @@
@@ -959,11 +1008,16 @@ index 3713bc5..5c36dc4 100644
 +  const LANGUAGES = Object.freeze(['fr', 'en', 'es', 'zh', 'it', 'ja', 'ko', 'de']);
 @@ -7 +7 @@
 -  const SELECTION_VERSION = 'kartech-2026-10-27';
-+  const SELECTION_VERSION = 'kartech-2026-10-30-de';
++  const SELECTION_VERSION = 'kartech-2026-10-30-en-us';
+@@ -10 +10 @@
+-    en: Object.freeze({name:'en-GB-Chirp3-HD-Kore',gender:'FEMALE'}),
++    en: Object.freeze({name:'en-US-Chirp3-HD-Kore',gender:'FEMALE'}),
 @@ -15 +15,2 @@
 -    ko: Object.freeze({name:'ko-KR-Chirp3-HD-Kore',gender:'FEMALE'})
 +    ko: Object.freeze({name:'ko-KR-Chirp3-HD-Kore',gender:'FEMALE'}),
 +    de: Object.freeze({name:'de-DE-Chirp3-HD-Kore',gender:'FEMALE'})
+@@ -45,0 +47 @@
++    if (language === 'en') return tag === 'en-us' || tag.startsWith('en-us-');
 diff --git a/tools/maquette-guidee/build_course_i18n.cjs b/tools/maquette-guidee/build_course_i18n.cjs
 index c04625e..7928416 100644
 --- a/tools/maquette-guidee/build_course_i18n.cjs

@@ -8,21 +8,21 @@ const { test } = require('node:test');
 const source = fs.readFileSync(path.join(__dirname, '../lesson-audio.js'), 'utf8');
 const selectionSource = fs.readFileSync(path.join(__dirname, '../voice-selection.js'), 'utf8');
 const female = {
-  fr: ['fr-FR-Wavenet-F', 'fr-FR'], en: ['en-GB-Wavenet-C', 'en-GB'],
+  fr: ['fr-FR-Wavenet-F', 'fr-FR'], en: ['en-US-Wavenet-C', 'en-US'],
   es: ['es-ES-Wavenet-F', 'es-ES'], zh: ['cmn-CN-Wavenet-A', 'cmn-CN'],
   it: ['it-IT-Wavenet-E', 'it-IT'], ja: ['ja-JP-Wavenet-B', 'ja-JP'],
   ko: ['ko-KR-Wavenet-A', 'ko-KR'], de: ['de-DE-Wavenet-A', 'de-DE']
 };
-const male = { fr: 'fr-FR-Wavenet-G', en: 'en-GB-Wavenet-D', es: 'es-ES-Wavenet-E',
+const male = { fr: 'fr-FR-Wavenet-G', en: 'en-US-Wavenet-D', es: 'es-ES-Wavenet-E',
   zh: 'cmn-CN-Wavenet-B', it: 'it-IT-Wavenet-F', ja: 'ja-JP-Wavenet-C', ko: 'ko-KR-Wavenet-C', de: 'de-DE-Wavenet-B' };
-const approvedNames = {fr:'fr-FR-Chirp3-HD-Aoede',en:'en-GB-Chirp3-HD-Kore',es:'es-ES-Chirp3-HD-Kore',
+const approvedNames = {fr:'fr-FR-Chirp3-HD-Aoede',en:'en-US-Chirp3-HD-Kore',es:'es-ES-Chirp3-HD-Kore',
   zh:'cmn-CN-Chirp3-HD-Kore',it:'it-IT-Chirp3-HD-Charon',ja:'ja-JP-Chirp3-HD-Kore',ko:'ko-KR-Chirp3-HD-Kore',de:'de-DE-Chirp3-HD-Kore'};
 const voice = (lang, name = lang) => ({ lang, name, voiceURI: 'test:' + name });
 const deferred = () => { let resolve, reject; const promise = new Promise((a, b) => { resolve = a; reject = b; }); return { promise, resolve, reject }; };
 // Catalogue response fixtures exercise selection; their names do not assert
 // that a provider currently offers these candidates in a live deployment.
 function previewCatalogue() {
-  return {version:1,source:'google-voices-list',previewOnly:true,selectionVersion:'kartech-2026-10-30-de',
+  return {version:1,source:'google-voices-list',previewOnly:true,selectionVersion:'kartech-2026-10-30-en-us',
     verifiedAt:new Date().toISOString(),expiresAt:new Date(Date.now()+300000).toISOString(),
     languages:Object.fromEntries(Object.entries(female).map(([language,[name,locale]])=>{
       const chirp=[['Aoede','FEMALE'],['Kore','FEMALE'],['Charon','MALE']].map(([suffix,gender])=>({
@@ -60,6 +60,15 @@ function fixture(options = {}) {
   f.expire = () => { const pending = [...f.timers.values()]; f.timers.clear(); for (const fn of pending) fn(); };
   return f;
 }
+
+test('American English fallback never selects a British or default French voice',()=>{
+ for(const voices of [[voice('en-GB')],[voice('fr-FR')],[]]){
+  const f=fixture({voices});f.player.play({text:'Hello',language:'en'});f.last().onerror();
+  assert.equal(f.speech.length,0);assert.equal(f.unavailable,1);
+ }
+ const f=fixture({voices:[voice('en-GB'),voice('en-US')]});f.player.play({text:'Hello',language:'en'});f.last().onerror();
+ assert.equal(f.speech.length,1);assert.equal(f.speech[0].lang,'en-US');
+});
 
 test('all eight server voices preserve whole study text and apply each speed once, without needing a browser voice', () => {
   for (const [language, [name, locale]] of Object.entries(female)) for (const rate of [0.75, 0.85, 1]) {

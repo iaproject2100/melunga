@@ -21,9 +21,9 @@ const fingerprint = () => Object.fromEntries(['index.html','desktop-home.js','vo
   [file, crypto.createHash('sha256').update(fs.readFileSync(path.join(WEB,file))).digest('hex')]));
 
 function catalogue() {
-  const now=Date.now(), codes={fr:['fr-FR','F','Aoede'],en:['en-GB','C','Kore'],es:['es-ES','F','Kore'],
+  const now=Date.now(), codes={fr:['fr-FR','F','Aoede'],en:['en-US','C','Kore'],es:['es-ES','F','Kore'],
     it:['it-IT','E','Charon'],zh:['cmn-CN','A','Kore'],ja:['ja-JP','B','Kore'],ko:['ko-KR','A','Kore'],de:['de-DE','A','Kore']};
-  return {version:1, source:'google-voices-list', previewOnly:true, selectionVersion:'kartech-2026-10-30-de',
+  return {version:1, source:'google-voices-list', previewOnly:true, selectionVersion:'kartech-2026-10-30-en-us',
     verifiedAt:new Date(now-1000).toISOString(), expiresAt:new Date(now+240000).toISOString(),
     languages:Object.fromEntries(Object.entries(codes).map(([language,[languageCode,wave,approved]]) => {
       const chirp=[['Aoede','FEMALE'],['Kore','FEMALE'],['Charon','MALE']].map(([name,gender]) =>
@@ -70,7 +70,7 @@ async function fixture(locale='fr',width=1366,height=900) {
     }
     if(req.method()!=='GET'){report.unexpected.push(req.method()+' '+u.pathname);return route.abort();}
     if(u.pathname==='/.netlify/functions/tts'&&u.searchParams.get('catalog')==='chirp3'){
-      assert.equal(u.searchParams.get('selectionVersion'),'kartech-2026-10-30-de');requests.push('catalogue');
+      assert.equal(u.searchParams.get('selectionVersion'),'kartech-2026-10-30-en-us');requests.push('catalogue');
       return route.fulfill({json:catalogue()});
     }
     if(u.pathname==='/.netlify/functions/get-pricing')return route.fulfill({json:{country:'FR',monthlyDisplay:'7,90 €',annualDisplay:'42 €'}});
@@ -116,7 +116,7 @@ test('German stays fourth among seven homepage examples in all eight site langua
 });
 
 test('the three existing example cards and audio destinations remain unchanged',async () => {
-  const original={en:['Can you help me?','kan you HÈLP mi','Tu peux m’aider ?','en-GB-Wavenet-C'],
+  const original={en:['Can you help me?','kan you HÈLP mi','Tu peux m’aider ?','en-US-Wavenet-C'],
     es:['Necesito ayuda.','né-sé-SSI-to a-YOU-da','J’ai besoin d’aide.','es-ES-Wavenet-F'],
     zh:['你能帮我吗？','ni neung bang ouo ma ?','Tu peux m’aider ?','cmn-CN-Wavenet-A']};
   const f=await fixture();try{

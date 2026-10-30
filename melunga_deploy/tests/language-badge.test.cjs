@@ -34,13 +34,13 @@ test('the current modern bank inventory stays eight languages/36634 cards withou
   assert.equal(/<button\b[^>]*\bid=["']l(?:AR|DE)["']/i.test(app),false,'Arabic/German classic buttons are absent; browser additions are explicit fixtures');
 });
 
-test('English UI flags use the US while the English speech locale remains en-GB',()=>{
+test('English UI flags use the US while the English speech locale remains en-US',()=>{
   for(const file of UI_FILES)assert.ok(!read(file).includes('🇬🇧')&&!read(file).includes('🇸🇦'),'no old visible flag in '+file);
   for(const file of ['app.html','index.html','course-native.js','maquette-guidee.js','voice-comparison.js'])assert.ok(read(file).includes('🇺🇸'),'US English badge in '+file);
-  assert.match(read('voice-selection.js'),/en-GB/,'actual shared voice controller keeps the English GB locale');
+  assert.match(read('voice-selection.js'),/en-US/,'actual shared voice controller keeps the English GB locale');
   const tts=read('netlify/functions/tts.mjs');
-  for(const name of ['en-GB-Wavenet-C','en-GB-Wavenet-D'])assert.ok(tts.includes("'"+name+"': { languageCode: 'en-GB'"));
-  assert.ok(!tts.includes('en-US'),'badge work does not change the provider locale');
+  for(const name of ['en-US-Wavenet-C','en-US-Wavenet-D'])assert.ok(tts.includes("'"+name+"': { languageCode: 'en-US'"));
+  assert.ok(tts.includes('en-US-Wavenet-C') && tts.includes('en-US-Wavenet-D'),'American voices are supported');
 });
 
 test('Arabic/German future badges use known IDs, neutral letter CSS and the correct country colours',()=>{

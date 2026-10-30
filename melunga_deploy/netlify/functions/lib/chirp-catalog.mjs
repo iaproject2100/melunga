@@ -2,7 +2,7 @@
  * The eight studied languages and three choices per language are deliberately finite. */
 export const CHIRP_LOCALES = Object.freeze({
   fr: Object.freeze({languageCodes:Object.freeze(['fr-FR']), waveNet:'fr-FR-Wavenet-F'}),
-  en: Object.freeze({languageCodes:Object.freeze(['en-GB']), waveNet:'en-GB-Wavenet-C'}),
+  en: Object.freeze({languageCodes:Object.freeze(['en-US','en-GB']), waveNet:'en-US-Wavenet-C'}),
   es: Object.freeze({languageCodes:Object.freeze(['es-ES']), waveNet:'es-ES-Wavenet-F'}),
   zh: Object.freeze({languageCodes:Object.freeze(['cmn-CN','zh-CN']), waveNet:'cmn-CN-Wavenet-A'}),
   it: Object.freeze({languageCodes:Object.freeze(['it-IT']), waveNet:'it-IT-Wavenet-E'}),
@@ -11,12 +11,13 @@ export const CHIRP_LOCALES = Object.freeze({
   de: Object.freeze({languageCodes:Object.freeze(['de-DE']), waveNet:'de-DE-Wavenet-A'})
 });
 
-export const APPROVED_SELECTION_VERSION = 'kartech-2026-10-30-de';
+export const APPROVED_SELECTION_VERSION = 'kartech-2026-10-30-en-us';
+export const PREVIOUS_SELECTION_VERSION = 'kartech-2026-10-30-de';
 export const LEGACY_SELECTION_VERSION = 'kartech-2026-10-27';
 const LEGACY_LANGUAGES = Object.freeze(['fr', 'en', 'es', 'zh', 'it', 'ja', 'ko']);
 const APPROVED_DEFAULTS = Object.freeze({
   fr:Object.freeze({name:'fr-FR-Chirp3-HD-Aoede', gender:'FEMALE'}),
-  en:Object.freeze({name:'en-GB-Chirp3-HD-Kore', gender:'FEMALE'}),
+  en:Object.freeze({name:'en-US-Chirp3-HD-Kore', gender:'FEMALE'}),
   es:Object.freeze({name:'es-ES-Chirp3-HD-Kore', gender:'FEMALE'}),
   zh:Object.freeze({name:'cmn-CN-Chirp3-HD-Kore', gender:'FEMALE'}),
   it:Object.freeze({name:'it-IT-Chirp3-HD-Charon', gender:'MALE'}),
@@ -36,12 +37,17 @@ function freeze(value) {
 
 // Cached seven-language clients require their exact version and row inventory.
 // Both contracts share the same fresh provider observation and unchanged voices.
+const previousCatalogues = new WeakMap();
+export function previousChirpCatalogue(catalogue) {
+  return previousCatalogues.get(catalogue);
+}
 export function legacyChirpCatalogue(catalogue) {
-  return freeze({...catalogue, selectionVersion:LEGACY_SELECTION_VERSION,
-    languages:Object.fromEntries(LEGACY_LANGUAGES.map(language => [language, catalogue.languages[language]]))});
+  const previous = previousChirpCatalogue(catalogue);
+  return freeze({...previous, selectionVersion:LEGACY_SELECTION_VERSION,
+    languages:Object.fromEntries(LEGACY_LANGUAGES.map(language => [language, previous.languages[language]]))});
 }
 
-function candidatesFor(language, definition, voices) {
+function candidatesFor(language, definition, voices, approved = APPROVED_DEFAULTS[language]) {
   const records = new Map(), conflicts = new Set();
   for (const voice of voices) {
     if (!voice || typeof voice.name !== 'string' || !Array.isArray(voice.languageCodes)
@@ -62,7 +68,6 @@ function candidatesFor(language, definition, voices) {
   };
   const actual = [...records.values()].filter(voice => !conflicts.has(voice.name))
     .sort((a,b) => rank(a) - rank(b) || a.name.localeCompare(b.name, 'en'));
-  const approved = APPROVED_DEFAULTS[language];
   const defaultVoice = actual.find(voice => voice.name === approved.name && voice.gender === approved.gender) || null;
   const defaultReason = defaultVoice ? null : conflicts.has(approved.name) ? 'approved_voice_conflict'
     : records.has(approved.name) ? 'approved_voice_gender_mismatch' : 'approved_voice_unavailable';
@@ -98,11 +103,16 @@ export function createChirpCatalogue({fetchImpl=(...args) => fetch(...args), now
       const payload = await response.json();
       if (!payload || !Array.isArray(payload.voices)) throw new Error('invalid_voice_catalogue');
       const verifiedAt = now();
-      return freeze({version:1, source:'google-voices-list', verifiedAt:new Date(verifiedAt).toISOString(),
+      const catalogue = freeze({version:1, source:'google-voices-list', verifiedAt:new Date(verifiedAt).toISOString(),
         expiresAt:new Date(verifiedAt + ttlMs).toISOString(), previewOnly:true,
         selectionVersion:APPROVED_SELECTION_VERSION,
         languages:Object.fromEntries(Object.entries(CHIRP_LOCALES).map(([language,definition]) =>
-          [language, candidatesFor(language, definition, payload.voices)]))});
+          [language, candidatesFor(language, language === 'en' ? {...definition, languageCodes:['en-US']} : definition, payload.voices)]))});
+      const oldEnglish = candidatesFor('en', {languageCodes:['en-GB'], waveNet:'en-GB-Wavenet-C'},
+        payload.voices, {name:'en-GB-Chirp3-HD-Kore',gender:'FEMALE'});
+      previousCatalogues.set(catalogue, freeze({...catalogue, selectionVersion:PREVIOUS_SELECTION_VERSION,
+        languages:{...catalogue.languages,en:oldEnglish}}));
+      return catalogue;
     } finally {
       clearTimeout(timeout);
     }

@@ -37,7 +37,7 @@ async function fixture({locale='fr',width=390,height=700,local={},login='none'}=
    if(u.pathname.endsWith('/get-pricing')&&req.method()==='GET')return route.fulfill({json:{country:'FR',monthlyDisplay:'7,90 €',annualDisplay:'42 €'}});
    if(u.pathname==='/.netlify/functions/tts'&&req.method()==='GET'&&u.searchParams.get('catalog')==='chirp3'){
     assert.deepEqual([...u.searchParams.keys()].sort(),['catalog','selectionVersion']);
-    assert.equal(u.searchParams.get('selectionVersion'),'kartech-2026-10-30-de');
+    assert.equal(u.searchParams.get('selectionVersion'),'kartech-2026-10-30-en-us');
     return route.fulfill({status:503,json:{error:'fixture_voice_catalogue_unavailable'}});
    }
    if(u.pathname.endsWith('/login')&&req.method()==='POST'&&login!=='none'){

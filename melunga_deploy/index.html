@@ -1105,10 +1105,11 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
       try{
         speechSynthesis.cancel();
         const utterance=new SpeechSynthesisUtterance('I would like some water.');
-        utterance.lang='en-GB';
+        utterance.lang='en-US';
         utterance.rate=.82;
         const voices=speechSynthesis.getVoices();
-        utterance.voice=voices.find(voice=>voice.lang&&voice.lang.toLowerCase().startsWith('en-gb'))||voices.find(voice=>voice.lang&&voice.lang.toLowerCase().startsWith('en'))||null;
+        utterance.voice=voices.find(voice=>voice.lang&&voice.lang.toLowerCase().replace(/_/g,'-')==='en-us')||null;
+        if(!utterance.voice){button.textContent=homeText('🔊 Réessayer');button.removeAttribute('aria-busy');return;}
         utterance.onstart=()=>revealProofResult(button);
         utterance.onerror=()=>{button.textContent=homeText('🔊 Réessayer');button.removeAttribute('aria-busy');};
         speechSynthesis.speak(utterance);
@@ -1214,8 +1215,8 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
     detectPricingCountry();
   </script>
   <script src="store-billing.js"></script>
-  <script src="voice-selection.js?v=3"></script>
-  <script src="lesson-audio.js?v=4"></script>
-  <script src="desktop-home.js?v=9"></script>
+  <script src="voice-selection.js?v=4"></script>
+  <script src="lesson-audio.js?v=5"></script>
+  <script src="desktop-home.js?v=10"></script>
 </body>
 </html>

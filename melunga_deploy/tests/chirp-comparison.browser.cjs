@@ -17,12 +17,12 @@ const ANDROID = 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KH
 const STORAGE = 'melunga-preview-voice-selection-v1';
 const SELECTION_VERSION = 'kartech-2026-10-27';
 const APPROVED_DEFAULTS = Object.freeze({
-  fr: 'fr-FR-Chirp3-HD-Aoede', en: 'en-GB-Chirp3-HD-Kore', es: 'es-ES-Chirp3-HD-Kore',
+  fr: 'fr-FR-Chirp3-HD-Aoede', en: 'en-US-Chirp3-HD-Kore', es: 'es-ES-Chirp3-HD-Kore',
   zh: 'cmn-CN-Chirp3-HD-Kore', it: 'it-IT-Chirp3-HD-Charon', ja: 'ja-JP-Chirp3-HD-Kore', ko: 'ko-KR-Chirp3-HD-Kore'
 });
 const LANGUAGES = ['fr', 'en', 'es', 'zh', 'it', 'ja', 'ko'];
 const VOICES = {
-  fr: ['fr-FR', 'fr-FR-Wavenet-F'], en: ['en-GB', 'en-GB-Wavenet-C'],
+  fr: ['fr-FR', 'fr-FR-Wavenet-F'], en: ['en-US', 'en-US-Wavenet-C'],
   es: ['es-ES', 'es-ES-Wavenet-F'], zh: ['cmn-CN', 'cmn-CN-Wavenet-A'],
   it: ['it-IT', 'it-IT-Wavenet-E'], ja: ['ja-JP', 'ja-JP-Wavenet-B'], ko: ['ko-KR', 'ko-KR-Wavenet-A']
 };

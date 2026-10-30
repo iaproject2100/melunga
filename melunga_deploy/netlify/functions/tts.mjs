@@ -1,11 +1,13 @@
-import {createChirpCatalogue, legacyChirpCatalogue, CHIRP_LOCALES,
-  APPROVED_SELECTION_VERSION, LEGACY_SELECTION_VERSION} from './lib/chirp-catalog.mjs';
+import {createChirpCatalogue, legacyChirpCatalogue, previousChirpCatalogue, CHIRP_LOCALES,
+  APPROVED_SELECTION_VERSION, PREVIOUS_SELECTION_VERSION, LEGACY_SELECTION_VERSION} from './lib/chirp-catalog.mjs';
 
 const VOICES = Object.freeze({
   'fr-FR-Wavenet-F': { languageCode: 'fr-FR', gender: 'FEMALE' },
   'fr-FR-Wavenet-G': { languageCode: 'fr-FR', gender: 'MALE' },
   'en-GB-Wavenet-C': { languageCode: 'en-GB', gender: 'FEMALE' },
   'en-GB-Wavenet-D': { languageCode: 'en-GB', gender: 'MALE' },
+  'en-US-Wavenet-C': { languageCode: 'en-US', gender: 'FEMALE' },
+  'en-US-Wavenet-D': { languageCode: 'en-US', gender: 'MALE' },
   'es-ES-Wavenet-F': { languageCode: 'es-ES', gender: 'FEMALE' },
   'es-ES-Wavenet-E': { languageCode: 'es-ES', gender: 'MALE' },
   'cmn-CN-Wavenet-A': { languageCode: 'cmn-CN', gender: 'FEMALE' },
@@ -79,12 +81,13 @@ export function createHandler({fetchImpl=(...args) => fetch(...args), now=() => 
   if (Object.hasOwn(params, 'catalog')) {
     if (params.catalog !== 'chirp3' || Object.keys(params).some(name => !['catalog','selectionVersion'].includes(name))
         || Object.hasOwn(params,'selectionVersion')
-          && ![APPROVED_SELECTION_VERSION, LEGACY_SELECTION_VERSION].includes(params.selectionVersion)) {
+          && ![APPROVED_SELECTION_VERSION, PREVIOUS_SELECTION_VERSION, LEGACY_SELECTION_VERSION].includes(params.selectionVersion)) {
       return json(event, 400, { error:'invalid_catalogue' });
     }
     try {
       const complete = await catalogue.get(key);
-      const current = params.selectionVersion === APPROVED_SELECTION_VERSION ? complete : legacyChirpCatalogue(complete);
+      const current = params.selectionVersion === APPROVED_SELECTION_VERSION ? complete
+        : params.selectionVersion === PREVIOUS_SELECTION_VERSION ? previousChirpCatalogue(complete) : legacyChirpCatalogue(complete);
       const maxAge = Math.max(0, Math.min(300, Math.floor((Date.parse(current.expiresAt) - now()) / 1000)));
       const result = json(event, 200, current);
       result.headers['cache-control'] = 'public, max-age=' + maxAge;
@@ -110,7 +113,7 @@ export function createHandler({fetchImpl=(...args) => fetch(...args), now=() => 
     }
     try {
       const current = await catalogue.get(key);
-      const actual = Object.values(current.languages).flatMap(language => language.chirp)
+      const actual = [...Object.values(current.languages), ...Object.values(previousChirpCatalogue(current).languages)].flatMap(language => language.chirp)
         .find(voice => voice.name === voiceName && voice.languageCode === requestedLanguage);
       if (actual) {selected = {languageCode:actual.languageCode, gender:actual.gender}; isChirp = true;}
     } catch {

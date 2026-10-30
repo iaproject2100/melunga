@@ -539,7 +539,7 @@
   document.body.prepend(root);
   // Exemples tirés du deck (phrases complètes, phonétique « pf » réelle des cartes).
   const samples = {
-    en: {text:'Can you help me?',phonetic:'kan you HÈLP mi',fr:'Tu peux m’aider ?',voice:'en-GB-Wavenet-C',code:'en-GB'},
+    en: {text:'Can you help me?',phonetic:'kan you HÈLP mi',fr:'Tu peux m’aider ?',voice:'en-US-Wavenet-C',code:'en-US'},
     es: {text:'Necesito ayuda.',phonetic:'né-sé-SSI-to a-YOU-da',fr:'J’ai besoin d’aide.',voice:'es-ES-Wavenet-F',code:'es-ES'},
     zh: {text:'你能帮我吗？',phonetic:'ni neung bang ouo ma ?',fr:'Tu peux m’aider ?',voice:'cmn-CN-Wavenet-A',code:'cmn-CN'},
     // Reviewed fr-it L1 source card 13: t / pf / frm, unchanged.
