@@ -33,11 +33,17 @@ async function fixture(locale='fr',width=1366){const context=await browser.newCo
  const page=await context.newPage();page.on('pageerror',error=>report.errors.push(error.message));await page.goto(ORIGIN+'/index.html?country=FR');await page.locator('.desktop-home').waitFor();return{page,context,requests};
 }
 
-test('new examples copy complete reviewed source fields and preserve all four existing samples, CSS and audio handlers',()=>checked('reviewed-source-and-existing-behavior',async()=>{
+test('new examples copy complete reviewed source fields and preserve existing samples, audio handlers and CSS apart from the approved English badge',()=>checked('reviewed-source-and-existing-behavior',async()=>{
  const previous=expression(original,'samples');for(const code of ['en','es','zh','de'])assert.equal(JSON.stringify(samples[code]),JSON.stringify(previous[code]),code+' existing sample unchanged');
  assert.equal(samples.en.voice,'en-GB-Wavenet-C');assert.equal(samples.en.code,'en-GB');
  assert.equal(current.slice(current.indexOf("  let example = 'en'")),original.slice(original.indexOf("  let example = 'en'")),'existing renderer and audio handler remain byte exact');
- assert.equal(hash(read('desktop-home.css')),hash(execFileSync('git',['show',BASE+':melunga_deploy/desktop-home.css'],{cwd:ROOT})),'presentation CSS unchanged');
+ const oldCss=execFileSync('git',['show',BASE+':melunga_deploy/desktop-home.css'],{cwd:ROOT,encoding:'utf8'}),currentCss=read('desktop-home.css').toString();
+ const englishFlagRule=/\.home-flag-en \{\n  background-image: url\("(data:image\/svg\+xml,[^"]+)"\);\n\}/;
+ const oldFlag=oldCss.match(englishFlagRule),currentFlag=currentCss.match(englishFlagRule);assert(oldFlag&&currentFlag,'one bounded English flag background rule');
+ assert(decodeURIComponent(oldFlag[1]).includes('#012169'),'historical English flag is UK');
+ const usSvg=decodeURIComponent(currentFlag[1]);assert(usSvg.includes('#B22234')&&usSvg.includes('#3C3B6E'),'approved US stripe and canton colours');
+ assert.equal((usSvg.match(/<use /g)||[]).length,50,'fifty white US stars');assert.equal((usSvg.match(/M0 /g)||[]).length,7,'seven red stripes alternate with six white stripes');
+ assert.equal(currentCss.replace(currentFlag[0],oldFlag[0]),oldCss,'all presentation CSS outside the approved English badge stays byte exact');
  assert.match(read('index.html').toString(),/desktop-home\.js\?v=9/);
  for(const [code,reference]of Object.entries(NEW)){const bankPath='content/native-catalogue/'+code+'.json',reviewedPath='content/niveaux-progressifs/fr-'+code+'/L1.json',bank=json(bankPath),card=bank.cards[reference.index],level=json(reviewedPath),model=[...level.themes,...level.heldThemes].flatMap(theme=>theme.phrases).find(model=>model.id==='catalogue:'+code+':'+reference.index);assert(model);assert.equal(card.lv,1);assert.equal(model.editorialLevel,1);assert.equal(model.source.sourceIndex,reference.index);assert.equal(model.source.sourceSha256,reference.sourceSha256);assert.deepEqual(JSON.parse(JSON.stringify(samples[code])),{text:card.t,phonetic:card.pf,fr:card.frm,voice:reference.voice,code:reference.code});assert.equal(model.study,card.t);assert.equal(model.phon,card.pf);assert.equal(model.native,card.frm);report.sources[code]={id:model.id,bankPath,bankSha256:hash(read(bankPath)),reviewedPath,sourceSha256:reference.sourceSha256,fields:{t:card.t,pf:card.pf,frm:card.frm},voice:reference.voice};}
  for(const locale of LOCALES){assert(names[locale]);for(const code of CODES)assert(typeof names[locale][code]==='string'&&names[locale][code].trim(),locale+' '+code+' label');}
