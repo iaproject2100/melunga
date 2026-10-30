@@ -64,7 +64,7 @@
 
   const copy = {
   "de": [
-  "10 SPRACHEN · SÄTZE FÜR DEN ALLTAG",
+  "11 SPRACHEN · SÄTZE FÜR DEN ALLTAG",
   "Lerne zuerst das Wesentliche.<br><em>Sprich es mit den Lauten deiner Sprache aus.</em>",
   "Nützliche Sätze für alltägliche Situationen. Lies die Aussprache mit den vertrauten Lauten deiner Sprache und höre dann zu, um sie zu verfeinern.",
   "Kostenlos ausprobieren",
@@ -101,11 +101,11 @@
   "pro Jahr",
   "Methode",
   "Audio ist gerade nicht verfügbar. Versuch es in der App noch einmal.",
-  "Niveau 1 vollständig, 10 Sprachen",
+  "Niveau 1 vollständig, 11 Sprachen",
   "Aussprachehilfe in deiner Sprache + Audio",
   "Intelligente Wiederholungen",
   "Alle Niveaus, L1 bis L10",
-  "Alle 10 Sprachen enthalten",
+  "Alle 11 Sprachen enthalten",
   "30 Tage Zugang · ohne Verlängerung",
   "1 Jahr Zugang · ohne Verlängerung",
   "Spare {pct}",
@@ -116,7 +116,7 @@
   "Lies die Aussprachehilfe laut vor."
 ],
   "fr": [
-    "10 LANGUES · DES PHRASES DU QUOTIDIEN",
+    "11 LANGUES · DES PHRASES DU QUOTIDIEN",
     "Apprends l’essentiel d’abord.<br><em>Prononce-le dans ta langue.</em>",
     "Des phrases utiles pour les situations de tous les jours. Lis la prononciation avec les repères de ta langue, puis écoute pour affiner les sons.",
     "Essayer gratuitement",
@@ -153,11 +153,11 @@
     "par an",
     "Méthode",
     "Audio indisponible pour le moment. Réessaie dans l’application.",
-    "Niveau 1 complet, 10 langues",
+    "Niveau 1 complet, 11 langues",
     "Phonétique dans ta langue + audio",
     "Révisions intelligentes",
     "Tous les niveaux, L1 à L10",
-    "Les 10 langues incluses",
+    "Les 11 langues incluses",
     "Accès 30 jours · sans reconduction",
     "Accès 1 an · sans reconduction",
     "Économise {pct}",
@@ -168,7 +168,7 @@
     "Lis la phonétique à voix haute."
   ],
   "en": [
-    "10 LANGUAGES · EVERYDAY PHRASES",
+    "11 LANGUAGES · EVERYDAY PHRASES",
     "Learn what matters first.<br><em>Pronounce it in your language.</em>",
     "Useful phrases for everyday situations. Read pronunciation using familiar sounds, then listen to refine how you say each phrase.",
     "Try for free",
@@ -205,11 +205,11 @@
     "per year",
     "Method",
     "Audio is unavailable. Try again in the application.",
-    "Full Level 1, 10 languages",
+    "Full Level 1, 11 languages",
     "Phonetics in your language + audio",
     "Smart reviews",
     "All levels, L1 to L10",
-    "All 10 languages included",
+    "All 11 languages included",
     "30-day access · no renewal",
     "1-year access · no renewal",
     "Save {pct}",
@@ -220,7 +220,7 @@
     "Read the French phonetic guide aloud."
   ],
   "es": [
-    "10 IDIOMAS · FRASES DEL DÍA A DÍA",
+    "11 IDIOMAS · FRASES DEL DÍA A DÍA",
     "Aprende primero lo esencial.<br><em>Pronúncialo en tu idioma.</em>",
     "Frases útiles para situaciones cotidianas. Lee la pronunciación con los sonidos de tu idioma y escucha para afinarla.",
     "Probar gratis",
@@ -257,11 +257,11 @@
     "al año",
     "Método",
     "Audio no disponible. Inténtalo en la aplicación.",
-    "Nivel 1 completo, 10 idiomas",
+    "Nivel 1 completo, 11 idiomas",
     "Fonética en tu idioma + audio",
     "Repasos inteligentes",
     "Todos los niveles, L1 a L10",
-    "Los 10 idiomas incluidos",
+    "Los 11 idiomas incluidos",
     "Acceso 30 días · sin renovación",
     "Acceso 1 año · sin renovación",
     "Ahorra {pct}",
@@ -272,7 +272,7 @@
     "Lee en voz alta la guía fonética francesa."
   ],
   "zh": [
-    "10 种语言 · 日常实用句子",
+    "11 种语言 · 日常实用句子",
     "先学最常用的，<br><em>用你的母语读出来。</em>",
     "从日常生活中实用的句子开始。借助母语中熟悉的声音读出发音提示，再听音频，逐步调整发音。",
     "免费体验",
@@ -309,11 +309,11 @@
     "每年",
     "方法",
     "音频暂不可用，请在应用中重试。",
-    "完整 L1 · 10 种语言",
+    "完整 L1 · 11 种语言",
     "母语注音 + 真人发音",
     "智能复习",
     "全部等级 L1–L10",
-    "包含全部 10 种语言",
+    "包含全部 11 种语言",
     "30 天权益 · 不自动续费",
     "1 年权益 · 不自动续费",
     "节省 {pct}",
@@ -324,7 +324,7 @@
     "大声读出法语发音提示。"
   ],
   "it": [
-    "10 LINGUE · FRASI DI OGNI GIORNO",
+    "11 LINGUE · FRASI DI OGNI GIORNO",
     "Impara prima l’essenziale.<br><em>Pronuncialo nella tua lingua.</em>",
     "Frasi utili per le situazioni di ogni giorno. Leggi la pronuncia con i suoni della tua lingua, poi ascolta per migliorarla.",
     "Prova gratis",
@@ -361,11 +361,11 @@
     "all’anno",
     "Metodo",
     "Audio non disponibile. Riprova nell’applicazione.",
-    "Livello 1 completo, 10 lingue",
+    "Livello 1 completo, 11 lingue",
     "Fonetica nella tua lingua + audio",
     "Ripassi intelligenti",
     "Tutti i livelli, da L1 a L10",
-    "Tutte le 10 lingue incluse",
+    "Tutte le 11 lingue incluse",
     "Accesso 30 giorni · senza rinnovo",
     "Accesso 1 anno · senza rinnovo",
     "Risparmia {pct}",
@@ -376,7 +376,7 @@
     "Leggi ad alta voce la guida fonetica francese."
   ],
   "ja": [
-    "10言語 · 毎日使える文",
+    "11言語 · 毎日使える文",
     "まずは本当に使う表現を。<br><em>発音は母語で読める。</em>",
     "毎日の場面で使える文から。母語でなじみのある音を手がかりに読み、音声を聞いて発音を確かめましょう。",
     "無料で試す",
@@ -413,11 +413,11 @@
     "年額",
     "学習方法",
     "音声は現在利用できません。アプリでお試しください。",
-    "レベル1すべて · 10言語",
+    "レベル1すべて · 11言語",
     "母語での発音表記 + 音声",
     "スマート復習",
     "全レベル L1〜L10",
-    "10言語すべて含む",
+    "11言語すべて含む",
     "30日間 · 自動更新なし",
     "1年間 · 自動更新なし",
     "{pct} お得",
@@ -428,7 +428,7 @@
     "フランス語話者向けの発音表記を声に出して読もう。"
   ],
   "ko": [
-    "10개 언어 · 일상에서 쓰는 문장",
+    "11개 언어 · 일상에서 쓰는 문장",
     "가장 많이 쓰는 표현부터.<br><em>발음은 모국어로 읽어요.</em>",
     "일상에서 쓰는 유용한 문장부터 배워요. 모국어의 익숙한 소리를 바탕으로 발음을 읽고, 음성을 들으며 다듬어 보세요.",
     "무료로 체험하기",
@@ -465,11 +465,11 @@
     "연간",
     "학습 방법",
     "지금은 음성을 사용할 수 없습니다. 앱에서 다시 시도하세요.",
-    "레벨 1 전체 · 10개 언어",
+    "레벨 1 전체 · 11개 언어",
     "모국어 발음 표기 + 음성",
     "스마트 복습",
     "모든 레벨 L1–L10",
-    "10개 언어 모두 포함",
+    "11개 언어 모두 포함",
     "30일 이용 · 자동 갱신 없음",
     "1년 이용 · 자동 갱신 없음",
     "{pct} 절약",
@@ -481,7 +481,7 @@
   ]
 };
   const languageNames = {fr:'Français',en:'English',de:'Deutsch',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어'};
-  const studyLanguageNames = {...languageNames,hi:'हिन्दी',ru:'Русский'};
+  const studyLanguageNames = {...languageNames,hi:'हिन्दी',ru:'Русский',pt:'Português'};
   const appLanguageNames = Object.fromEntries(Object.entries(languageNames).filter(([code]) => typeof homeAppLanguageAvailable !== 'function' || homeAppLanguageAvailable(code)));
   const languageControlLabels = {
     fr:['Langue du site','Langue de l’exemple'],en:['Website language','Example language'],
@@ -491,11 +491,11 @@
     ko:['사이트 언어','예문 언어']
   };
   const exampleNames = {
-    de:{en:'Englisch',es:'Spanisch',zh:'Chinesisch',de:'Deutsch',it:"Italienisch",ja:"Japanisch",ko:"Koreanisch",hi:"Hindi",ru:"Russisch"},
-    fr:{en:'Anglais',es:'Espagnol',zh:'Chinois',de:'Allemand',it:"Italien",ja:"Japonais",ko:"Coréen",hi:"Hindi",ru:"Russe"},en:{en:'English',es:'Spanish',zh:'Chinese',de:'German',it:"Italian",ja:"Japanese",ko:"Korean",hi:"Hindi",ru:"Russian"},
-    es:{en:'Inglés',es:'Español',zh:'Chino',de:'Alemán',it:"Italiano",ja:"Japonés",ko:"Coreano",hi:"Hindi",ru:"Ruso"},zh:{en:'英语',es:'西班牙语',zh:'中文',de:'德语',it:"意大利语",ja:"日语",ko:"韩语",hi:"印地语",ru:"俄语"},
-    it:{en:'Inglese',es:'Spagnolo',zh:'Cinese',de:'Tedesco',it:"Italiano",ja:"Giapponese",ko:"Coreano",hi:"Hindi",ru:"Russo"},ja:{en:'英語',es:'スペイン語',zh:'中国語',de:'ドイツ語',it:"イタリア語",ja:"日本語",ko:"韓国語",hi:"ヒンディー語",ru:"ロシア語"},
-    ko:{en:'영어',es:'스페인어',zh:'중국어',de:'독일어',it:"이탈리아어",ja:"일본어",ko:"한국어",hi:"힌디어",ru:"러시아어"}
+    de:{en:'Englisch',es:'Spanisch',zh:'Chinesisch',de:'Deutsch',it:"Italienisch",ja:"Japanisch",ko:"Koreanisch",hi:"Hindi",ru:"Russisch",pt:"Portugiesisch (Brasilien)"},
+    fr:{en:'Anglais',es:'Espagnol',zh:'Chinois',de:'Allemand',it:"Italien",ja:"Japonais",ko:"Coréen",hi:"Hindi",ru:"Russe",pt:"Portugais (Brésil)"},en:{en:'English',es:'Spanish',zh:'Chinese',de:'German',it:"Italian",ja:"Japanese",ko:"Korean",hi:"Hindi",ru:"Russian",pt:"Portuguese (Brazil)"},
+    es:{en:'Inglés',es:'Español',zh:'Chino',de:'Alemán',it:"Italiano",ja:"Japonés",ko:"Coreano",hi:"Hindi",ru:"Ruso",pt:"Portugués (Brasil)"},zh:{en:'英语',es:'西班牙语',zh:'中文',de:'德语',it:"意大利语",ja:"日语",ko:"韩语",hi:"印地语",ru:"俄语",pt:"葡萄牙语（巴西）"},
+    it:{en:'Inglese',es:'Spagnolo',zh:'Cinese',de:'Tedesco',it:"Italiano",ja:"Giapponese",ko:"Coreano",hi:"Hindi",ru:"Russo",pt:"Portoghese (Brasile)"},ja:{en:'英語',es:'スペイン語',zh:'中国語',de:'ドイツ語',it:"イタリア語",ja:"日本語",ko:"韓国語",hi:"ヒンディー語",ru:"ロシア語",pt:"ポルトガル語（ブラジル）"},
+    ko:{en:'영어',es:'스페인어',zh:'중국어',de:'독일어',it:"이탈리아어",ja:"일본어",ko:"한국어",hi:"힌디어",ru:"러시아어",pt:"포르투갈어(브라질)"}
   };
   const flag = code => `<span class="home-flag home-flag-${code}" aria-hidden="true"></span>`;
   const root = document.createElement('main');
@@ -523,8 +523,8 @@
     <header class="dh-container dh-header"><a class="dh-brand" href="#"><img src="assets/melunga-logo.png" alt=""><span>Melunga<span class="melunga-brand-cn" lang="zh-Hans">梅 伦 加</span></span></a><nav class="dh-nav" aria-label="Melunga"><a href="#dh-method">${tr(35)}</a><a href="#dh-pricing">${tr(31)}</a><label class="dh-language-picker"><span class="home-flag home-flag-fr" data-dh-native-flag aria-hidden="true"></span><select class="dh-language" aria-label="Langue du site">${Object.entries(appLanguageNames).map(([code,name])=>`<option value="${code}">${name}</option>`).join('')}</select><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg></label><button type="button" class="dh-button dh-small dh-primary dh-header-free" data-dh-free>${tr(3)}</button><button class="dh-button dh-small dh-outline" data-go="signin">${tr(30)}</button></nav></header>
     <div class="dh-container">
       <section class="dh-hero" aria-labelledby="dh-title"><div><p class="dh-kicker">${tr(0)}</p><h1 class="dh-title" id="dh-title"></h1><p class="dh-intro">${tr(2)}</p><div class="dh-actions"><button class="dh-button dh-primary" data-dh-free>${tr(3)} <span aria-hidden="true">&rarr;</span></button><a class="dh-button dh-outline" href="#dh-method">${tr(4)}</a></div><p class="dh-fine"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10 3 3 7-7"/></svg>${tr(5)}</p></div>
-      <aside class="dh-example"><div class="dh-example-top"><b>${tr(6)}</b><span>L1</span></div><div class="dh-tabs" role="group" aria-label="Langue de l’exemple"><button class="dh-tab" data-dh-example="en" aria-pressed="true">${flag('en')}<span data-dh-example-name="en">English</span></button><button class="dh-tab" data-dh-example="es" aria-pressed="false">${flag('es')}<span data-dh-example-name="es">Español</span></button><button class="dh-tab" data-dh-example="zh" aria-pressed="false">${flag('zh')}<span data-dh-example-name="zh">中文</span></button><button class="dh-tab" data-dh-example="de" aria-pressed="false">${flag('de')}<span data-dh-example-name="de">Deutsch</span></button><button class="dh-tab" data-dh-example="it" aria-pressed="false">${flag('it')}<span data-dh-example-name="it">Italiano</span></button><button class="dh-tab" data-dh-example="ja" aria-pressed="false">${flag('ja')}<span data-dh-example-name="ja">日本語</span></button><button class="dh-tab" data-dh-example="ko" aria-pressed="false">${flag('ko')}<span data-dh-example-name="ko">한국어</span></button><button class="dh-tab" data-dh-example="hi" aria-pressed="false">${flag('hi')}<span data-dh-example-name="hi">हिन्दी</span></button><button class="dh-tab" data-dh-example="ru" aria-pressed="false">${flag('ru')}<span data-dh-example-name="ru">Русский</span></button></div><div class="dh-card"><p class="dh-card-tag">${tr(7)}</p><p class="dh-phrase" lang="en"></p><div class="dh-phonetic-area"><p class="dh-trial-prompt"><span class="dh-action-step">1</span>${tr(49)}</p><div class="dh-phonetic-row"><p class="dh-phonetic" lang="fr"></p><button type="button" class="dh-ear" data-dh-listen aria-label="Écouter et comparer"><span aria-hidden="true">👂</span></button></div></div><p class="dh-translation" lang="fr"></p><button type="button" class="dh-listen" data-dh-listen><span class="dh-action-step">2</span>${tr(8)}</button></div><p class="dh-example-note" aria-live="polite">${tr(9)}</p></aside></section>
-      <div class="dh-languages" aria-label="10 languages">${Object.entries(studyLanguageNames).map(([code,name])=>`<span class="dh-language-tag">${flag(code)}${name}</span>`).join('')}</div>
+      <aside class="dh-example"><div class="dh-example-top"><b>${tr(6)}</b><span>L1</span></div><div class="dh-tabs" role="group" aria-label="Langue de l’exemple"><button class="dh-tab" data-dh-example="en" aria-pressed="true">${flag('en')}<span data-dh-example-name="en">English</span></button><button class="dh-tab" data-dh-example="es" aria-pressed="false">${flag('es')}<span data-dh-example-name="es">Español</span></button><button class="dh-tab" data-dh-example="zh" aria-pressed="false">${flag('zh')}<span data-dh-example-name="zh">中文</span></button><button class="dh-tab" data-dh-example="de" aria-pressed="false">${flag('de')}<span data-dh-example-name="de">Deutsch</span></button><button class="dh-tab" data-dh-example="it" aria-pressed="false">${flag('it')}<span data-dh-example-name="it">Italiano</span></button><button class="dh-tab" data-dh-example="ja" aria-pressed="false">${flag('ja')}<span data-dh-example-name="ja">日本語</span></button><button class="dh-tab" data-dh-example="ko" aria-pressed="false">${flag('ko')}<span data-dh-example-name="ko">한국어</span></button><button class="dh-tab" data-dh-example="hi" aria-pressed="false">${flag('hi')}<span data-dh-example-name="hi">हिन्दी</span></button><button class="dh-tab" data-dh-example="ru" aria-pressed="false">${flag('ru')}<span data-dh-example-name="ru">Русский</span></button><button class="dh-tab" data-dh-example="pt" aria-pressed="false">${flag('pt')}<span data-dh-example-name="pt">Português</span></button></div><div class="dh-card"><p class="dh-card-tag">${tr(7)}</p><p class="dh-phrase" lang="en"></p><div class="dh-phonetic-area"><p class="dh-trial-prompt"><span class="dh-action-step">1</span>${tr(49)}</p><div class="dh-phonetic-row"><p class="dh-phonetic" lang="fr"></p><button type="button" class="dh-ear" data-dh-listen aria-label="Écouter et comparer"><span aria-hidden="true">👂</span></button></div></div><p class="dh-translation" lang="fr"></p><button type="button" class="dh-listen" data-dh-listen><span class="dh-action-step">2</span>${tr(8)}</button></div><p class="dh-example-note" aria-live="polite">${tr(9)}</p></aside></section>
+      <div class="dh-languages" aria-label="11 languages">${Object.entries(studyLanguageNames).map(([code,name])=>`<span class="dh-language-tag">${flag(code)}${name}</span>`).join('')}</div>
       <section class="dh-method" id="dh-method" aria-labelledby="dh-method-title"><p class="dh-section-label">${tr(10)}</p><h2 class="dh-section-title" id="dh-method-title">${tr(11)}</h2><div class="dh-steps">${[12,14,16].map((i,n)=>`<article class="dh-step"><span>0${n+1}</span><h3>${tr(i)}</h3><p>${tr(i+1)}</p></article>`).join('')}</div></section>
       <section class="dh-pricing-wrap" id="dh-pricing" aria-labelledby="dh-pricing-title">
         <div class="dh-pricing-head"><p class="dh-section-label">${tr(18)}</p><h2 class="dh-section-title" id="dh-pricing-title">${tr(19)}</h2><p class="dh-pricing-note">${tr(20)}</p></div>
@@ -551,7 +551,8 @@
     // Validated German v3.1 source card 278: t / pf / frm, unchanged.
     de: {text:'Können Sie mir helfen?',phonetic:'KEU-nenn zi mir HÈL-fenn',fr:"Pouvez-vous m'aider ?",voice:'de-DE-Wavenet-A',code:'de-DE'},
     hi:{"text":"क्या आप मेरी मदद कर सकते हैं?","phonetic":"kyâ âp MÉ-rî MA-dad kar SAK-té hèn","fr":"Pouvez-vous m'aider ?","voice":"hi-IN-Wavenet-C","code":"hi-IN"},
-    ru:{"text":"Вы можете мне помочь?","phonetic":"vy MO-jy-tiè mniè pa-MOTCH","fr":"Pouvez-vous m'aider ?","voice":"ru-RU-Wavenet-A","code":"ru-RU"}
+    ru:{"text":"Вы можете мне помочь?","phonetic":"vy MO-jy-tiè mniè pa-MOTCH","fr":"Pouvez-vous m'aider ?","voice":"ru-RU-Wavenet-A","code":"ru-RU"},
+    pt:{"text":"Você pode me ajudar?","phonetic":"vô-SÉ PO-dji mi a-jou-DARR","fr":"Pouvez-vous m'aider ?","voice":"pt-BR-Wavenet-A","code":"pt-BR"}
   };
   let example = 'en', audio = null, audioTimer = null, audioRun = 0, germanAudio = null;
   function stopAudio() {
@@ -625,13 +626,13 @@
     if (e.target.closest('[data-dh-listen]')) {
       stopAudio();
       const run = audioRun, s = samples[example];
-      if (example === 'de') {
+      if (example === 'de' || example === 'pt') {
         // The shared player keeps fallback speech in German and preserves the
         // synchronous user gesture; the other three examples retain their audio.
         if (!germanAudio && window.MelungaLessonAudio) germanAudio = window.MelungaLessonAudio.createPlayer({
           onUnavailable: () => { root.querySelector('.dh-example-note').textContent = (copy[currentAppLocale] || copy.fr)[36]; }
         });
-        if (germanAudio) germanAudio.play({text:s.text,language:'de',rate:0.85});
+        if (germanAudio) germanAudio.play({text:s.text,language:example,rate:0.85});
         else root.querySelector('.dh-example-note').textContent = (copy[currentAppLocale] || copy.fr)[36];
         return;
       }

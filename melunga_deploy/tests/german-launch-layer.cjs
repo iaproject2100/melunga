@@ -13,7 +13,7 @@ const {execFileSync} = require('node:child_process');
 const ROOT = path.resolve(__dirname, '../..');
 const BASE = '541afb7f67b499130af60211e72a8614bdaaf31d';
 const FIXTURE = 'melunga_deploy/tests/fixtures/german-launch-layer.json';
-const FIXTURE_SHA256 = 'c6ce92a2229355cd45e09b92a3e320908701e77ab8305b99ad957917658a07ec';
+const FIXTURE_SHA256 = 'fd05c1eb5256221682e220c55e28a389f713cd0a78c8e780b5952ad648157d5b';
 // BEGIN FINITE GERMAN PATHS — written by seal_german_launch_layer.cjs.
 const MODIFIED = Object.freeze([
   "melunga_deploy/account-ui.js",
@@ -56,6 +56,7 @@ const ADDED = Object.freeze([
   "melunga_deploy/content/native-catalogue/de-native-meanings.json",
   "melunga_deploy/content/native-catalogue/de.json",
   "melunga_deploy/content/native-catalogue/hi.json",
+  "melunga_deploy/content/native-catalogue/pt.json",
   "melunga_deploy/content/native-catalogue/ru.json",
   "melunga_deploy/german-account-ui.js",
   "tools/maquette-guidee/imported_target_catalogues.py",
@@ -64,6 +65,9 @@ const ADDED = Object.freeze([
   "tools/maquette-guidee/imports/de-themes-v1.json",
   "tools/maquette-guidee/imports/hi-deck-v1.json",
   "tools/maquette-guidee/imports/hi-themes-v1.json",
+  "tools/maquette-guidee/imports/pt-deck-v1.json",
+  "tools/maquette-guidee/imports/pt-themes-v1.json",
+  "tools/maquette-guidee/imports/pt-tr-map-v1.json",
   "tools/maquette-guidee/imports/ru-deck-v1.json",
   "tools/maquette-guidee/imports/ru-themes-v1.json"
 ]);

@@ -360,3 +360,8 @@ test('native recognition uses de-DE while preserving the seven existing language
     c.lang=language;await c.startRec();assert.equal(requests.at(-1).language,locale);
   }
 });
+
+test('Portuguese uses Brazilian voices and gender markers; Portugal is never a browser fallback',async()=>{
+ for(const [hint,suffix]of [['(male)','B'],['(female)','A'],['(to a male)','A']]){const f=fixture({preview:true});assert.equal(f.player.play({text:'Obrigado.',language:'pt',genderHint:hint}),true);const u=new URL(f.last().src,'https://fixture.test');assert.equal(u.searchParams.get('voice'),'pt-BR-Wavenet-'+suffix);assert.equal(u.searchParams.get('lang'),'pt-BR');assert.equal(u.searchParams.get('text'),'Obrigado.');f.player.stop();}
+ for(const tag of ['pt-PT','pt','fr-FR','pt-BR']){const f=fixture({preview:true,voices:[voice(tag)]});assert.equal(f.player.play({text:'Olá.',language:'pt'}),true);f.last().onerror();assert.equal(f.speech.length,tag==='pt-BR'?1:0);if(tag==='pt-BR')assert.equal(f.speech[0].lang,'pt-BR');f.player.stop();}
+});

@@ -1,20 +1,20 @@
 /* Source-verbatim native catalogue views. Reviewed pair bundles are never projected here. */
 (() => {
   'use strict';
-  const MANIFEST_SHA256 = 'e595b8929538f39b73343f159b062a0169f6d850ce83234c95544d0fc41fc2b1';
+  const MANIFEST_SHA256 = '028c5cd1e0f9a2f1a3e45d73e3af792e7151e1de327c5b7382a714e079d2081c';
   const ROOT = 'content/native-catalogue/';
   const originalLanguages = Object.freeze(['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko']);
   const languages = Object.freeze([...originalLanguages, 'de']);
-  const studyLanguages = Object.freeze([...languages,'hi','ru']);
-  const addedImports = Object.freeze({hi:{path:'tools/maquette-guidee/imports/hi-deck-v1.json',sha256:'5c0be1bed4d66bfecd56d4cb5f320756bb770e4e871931cbaefb7d9b547479c3'},ru:{path:'tools/maquette-guidee/imports/ru-deck-v1.json',sha256:'751f8774365882775f8b2b640980c872e9a91bb9f2bf985cd568427be0253ca8'}});
+  const studyLanguages = Object.freeze([...languages,'hi','ru','pt']);
+  const addedImports = Object.freeze({pt:{path:'tools/maquette-guidee/imports/pt-deck-v1.json',sha256:'3fb7a5ffea38e4444d4cf5b3fe44a0e6cb9758a3d95f5f60cafa9d0877fe914b'},hi:{path:'tools/maquette-guidee/imports/hi-deck-v1.json',sha256:'5c0be1bed4d66bfecd56d4cb5f320756bb770e4e871931cbaefb7d9b547479c3'},ru:{path:'tools/maquette-guidee/imports/ru-deck-v1.json',sha256:'751f8774365882775f8b2b640980c872e9a91bb9f2bf985cd568427be0253ca8'}});
   const GERMAN_SOURCE = 'tools/maquette-guidee/imports/de-deck-v3.1.json';
   const GERMAN_SOURCE_SHA256 = '49d6f1cd3b2a44b4ab4efcbae4c5f58988ebc7e142ebb74b1505d4ce9e39d789';
   const reviewedPairIds = Object.freeze(['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr']);
   const pairIds = Object.freeze(languages.flatMap(native => studyLanguages.filter(study => study !== native && !(native === 'de' && addedImports[study])).map(study => native + '-' + study)));
   const reviewed = new Set(reviewedPairIds), validPairs = new Set(pairIds);
-  const cardCounts = Object.freeze({fr:4500, en:4502, es:4672, it:4509, zh:4903, ja:4509, ko:4520, de:4519, hi:4487, ru:4488});
-  const basePairs = Object.freeze({fr:'zh-fr', en:'fr-en', es:'fr-es', it:'fr-it', zh:'fr-zh', ja:'fr-ja', ko:'fr-ko', de:null, hi:null, ru:null});
-  const flags = Object.freeze({fr:'🇫🇷', en:'🇺🇸', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪',hi:'🇮🇳',ru:'🇷🇺'});
+  const cardCounts = Object.freeze({fr:4500, en:4502, es:4672, it:4509, zh:4903, ja:4509, ko:4520, de:4519, hi:4487, ru:4488, pt:4487});
+  const basePairs = Object.freeze({fr:'zh-fr', en:'fr-en', es:'fr-es', it:'fr-it', zh:'fr-zh', ja:'fr-ja', ko:'fr-ko', de:null, hi:null, ru:null, pt:null});
+  const flags = Object.freeze({fr:'🇫🇷', en:'🇺🇸', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪',hi:'🇮🇳',ru:'🇷🇺',pt:'🇧🇷'});
   const contentTypes = new Set(['utterance', 'vocabulary', 'number', 'incomplete', 'review']);
   let manifest = null, manifestPromise = null, germanMeanings = null;
   const eligibleByPair = new Map(), freeByPair = new Map(), bankCache = new Map(), modelCache = new Map();
@@ -76,9 +76,9 @@
       && same(document.nativeLanguageIds, languages) && same(document.studyLanguageIds, studyLanguages)
       && same(document.reviewedPairIds, reviewedPairIds)
       && same(document.derivedPairIds, pairIds.filter(id => !reviewed.has(id)))
-      && Object.keys(document.pairs || {}).length === 70, 'invalid pair domain');
-    requireValue(document.sourceCardCount === 45609 && document.activeCatalogueCount === 44174
-      && document.reservedCatalogueCount === 1435 && document.excludedModernExtraCount === 1539
+      && Object.keys(document.pairs || {}).length === 77, 'invalid pair domain');
+    requireValue(document.sourceCardCount === 50096 && document.activeCatalogueCount === 48584
+      && document.reservedCatalogueCount === 1512 && document.excludedModernExtraCount === 1539
       && document.source?.reviewedHistoricalFreeIdsVerified === 2218
       && document.newTranslationsCreated === 15249 && document.newPhoneticsCreated === 0
       && document.reviewedRuntimeModified === false, 'invalid source inventory');
@@ -97,7 +97,7 @@
         && bank.importedSourcePath === GERMAN_SOURCE && bank.importedSourceSha256 === GERMAN_SOURCE_SHA256
         && bank.activeCatalogueCount === 4444 && bank.reservedCatalogueCount === 75, 'invalid German import policy');
       if (addedImports[study]) requireValue(policy.sourceType === 'provided-import'
-        && policy.eligibleCount === cardCounts[study] && policy.historicalFreeCount === (study === 'hi' ? 283 : 284)
+        && policy.eligibleCount === cardCounts[study] && policy.historicalFreeCount === (study === 'ru' ? 284 : 283)
         && bank.importedSourcePath === addedImports[study].path && bank.importedSourceSha256 === addedImports[study].sha256, 'invalid added import policy');
       if (native === 'de') requireValue(policy.sourceType === 'german-native-translation'
         && policy.meaningSourcePath === ROOT + 'de-native-meanings.json', 'invalid German native policy');

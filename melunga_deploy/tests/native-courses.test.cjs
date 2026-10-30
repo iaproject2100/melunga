@@ -20,7 +20,7 @@ const REVIEWED = ['fr-en','fr-es','fr-it','fr-zh','fr-ja','fr-ko','zh-fr'];
 const HISTORICAL_PAIRS = LANGUAGES.flatMap(native => LANGUAGES.filter(study => native !== study).map(study => native+'-'+study));
 const PAIRS = STUDY_LANGUAGES.flatMap(native => STUDY_LANGUAGES.filter(study => native !== study).map(study => native+'-'+study));
 const DERIVED = HISTORICAL_PAIRS.filter(pair => !REVIEWED.includes(pair));
-const CURRENT_PAIRS = STUDY_LANGUAGES.flatMap(native => [...STUDY_LANGUAGES,'hi','ru'].filter(study => native !== study && !(native==='de'&&['hi','ru'].includes(study))).map(study=>native+'-'+study));
+const CURRENT_PAIRS = STUDY_LANGUAGES.flatMap(native => [...STUDY_LANGUAGES,'hi','ru','pt'].filter(study => native !== study && !(native==='de'&&['hi','ru','pt'].includes(study))).map(study=>native+'-'+study));
 const NATIVE_PAIRS = PAIRS.filter(pair => !REVIEWED.includes(pair));
 const BASE_PAIR = Object.fromEntries(REVIEWED.map(pair => [pair.split('-')[1],pair]));
 const read = file => fs.readFileSync(path.join(WEB,file));
@@ -181,13 +181,13 @@ test('classic source functions, both literals, all 78 reviewed documents and his
 
 test('native domain has 56 target pairs and preserves the historical 42 directions',()=>{
   const {api}=fixture();
-  assert.deepEqual(plain(api.pairIds),CURRENT_PAIRS);assert.equal(CURRENT_PAIRS.length,70);assert.deepEqual(plain(api.reviewedPairIds),REVIEWED);
+  assert.deepEqual(plain(api.pairIds),CURRENT_PAIRS);assert.equal(CURRENT_PAIRS.length,77);assert.deepEqual(plain(api.reviewedPairIds),REVIEWED);
   assert.equal(PAIRS.length,56);assert.equal(HISTORICAL_PAIRS.length,42);assert.equal(DERIVED.length,35);
   assert.deepEqual(plain(api.pairIds).filter(pair=>PAIRS.includes(pair)&&!pair.endsWith('-de')&&!pair.startsWith('de-')),HISTORICAL_PAIRS);
   for(const native of LANGUAGES)assert.equal(api.isPair(native+'-'+native),false,'native cannot equal study');
   for(const pair of ['ar-fr','ar-en','de-de','xx-de','en','xx-zh','FR-en','en-en','en-fr-extra',null])assert.equal(api.isPair(pair),false);
   for(const pair of PAIRS){assert.equal(api.isPair(pair),true);assert.equal(api.isReviewed(pair),REVIEWED.includes(pair));}
-  const snapshot=JSON.stringify(reviewedManifest),allMetadata=plain(api.metadata(reviewedManifest)),metadata=allMetadata.filter(row=>PAIRS.includes(row.id));assert.equal(allMetadata.length,63);
+  const snapshot=JSON.stringify(reviewedManifest),allMetadata=plain(api.metadata(reviewedManifest)),metadata=allMetadata.filter(row=>PAIRS.includes(row.id));assert.equal(allMetadata.length,70);
   assert.deepEqual(metadata.map(row=>row.id),NATIVE_PAIRS);assert.equal(metadata.length,49);
   assert.deepEqual(metadata.filter(row=>row.studyLanguage!=='de'&&row.nativeLanguage!=='de').map(row=>row.id),DERIVED);
   for(const row of metadata){

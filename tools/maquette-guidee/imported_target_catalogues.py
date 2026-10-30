@@ -5,6 +5,7 @@ import json
 IMPORTS = {
     'hi': ('5c0be1bed4d66bfecd56d4cb5f320756bb770e4e871931cbaefb7d9b547479c3', 4487),
     'ru': ('751f8774365882775f8b2b640980c872e9a91bb9f2bf985cd568427be0253ca8', 4488),
+    'pt': ('3fb7a5ffea38e4444d4cf5b3fe44a0e6cb9758a3d95f5f60cafa9d0877fe914b', 4487),
 }
 FIELDS = {'t','py','pf','ps','pi','phon','cn','en','frm','esm','itm','jam','kom','lv','cat'}
 

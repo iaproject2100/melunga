@@ -3,8 +3,8 @@
 (() => {
   'use strict';
   const CATALOGUE_LANGUAGES = Object.freeze(['fr', 'en', 'es', 'zh', 'it', 'ja', 'ko', 'de']);
-  const LANGUAGES = Object.freeze([...CATALOGUE_LANGUAGES,'hi','ru']);
-  const configured = Object.freeze(Object.assign(Object.create(null),Object.fromEntries([['hi','hi-IN','C','B'],['ru','ru-RU','A','B']].map(([language,locale,female,male])=>[language,Object.freeze([[female,'FEMALE'],[male,'MALE']].map(([suffix,gender])=>Object.freeze({name:locale+'-Wavenet-'+suffix,languageCode:locale,gender,engine:'wavenet',rateMode:'server'})))]))));
+  const LANGUAGES = Object.freeze([...CATALOGUE_LANGUAGES,'hi','ru','pt']);
+  const configured = Object.freeze(Object.assign(Object.create(null),Object.fromEntries([['hi','hi-IN','C','B'],['ru','ru-RU','A','B'],['pt','pt-BR','A','B']].map(([language,locale,female,male])=>[language,Object.freeze([[female,'FEMALE'],[male,'MALE']].map(([suffix,gender])=>Object.freeze({name:locale+'-Wavenet-'+suffix,languageCode:locale,gender,engine:'wavenet',rateMode:'server'})))]))));
   const STORAGE_KEY = 'melunga-preview-voice-selection-v1';
   const SELECTION_VERSION = 'kartech-2026-10-30-en-us';
   const APPROVED_DEFAULTS = Object.freeze({

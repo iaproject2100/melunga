@@ -30,14 +30,14 @@ function fixture({baseline=false,paid=false}={}){
 async function checked(name,fn){try{await fn();report.cases.push(name);}catch(error){report.errors.push(name+': '+error.message);throw error;}}
 after(()=>{report.status=report.errors.length?'failed':'passed';if(process.env.GERMAN_NATIVE_UNIT_REPORT)fs.writeFileSync(process.env.GERMAN_NATIVE_UNIT_REPORT,JSON.stringify(report,null,2)+'\n');assert.deepEqual(report.errors,[]);});
 
-test('eight native languages expose 70 available directions and all previous banks remain byte-identical',()=>checked('source-domain-and-immutable-banks',async()=>{
+test('eight native languages expose 77 available directions and all previous banks remain byte-identical',()=>checked('source-domain-and-immutable-banks',async()=>{
  const manifest=json('content/native-catalogue/manifest.json'),f=fixture();
- assert.deepEqual(plain(f.api.pairIds),CODES.flatMap(native=>[...CODES,'hi','ru'].filter(study=>native!==study&&!(native==='de'&&['hi','ru'].includes(study))).map(study=>native+'-'+study)));
- assert.equal(f.api.pairIds.length,70);assert.deepEqual(manifest.nativeLanguageIds,CODES);assert.deepEqual(manifest.studyLanguageIds,[...CODES,'hi','ru']);
+ assert.deepEqual(plain(f.api.pairIds),CODES.flatMap(native=>[...CODES,'hi','ru','pt'].filter(study=>native!==study&&!(native==='de'&&['hi','ru','pt'].includes(study))).map(study=>native+'-'+study)));
+ assert.equal(f.api.pairIds.length,77);assert.deepEqual(manifest.nativeLanguageIds,CODES);assert.deepEqual(manifest.studyLanguageIds,[...CODES,'hi','ru','pt']);
  for(const code of CODES){assert.equal(f.api.isPair(code+'-'+code),false);assert.equal(hash(read('content/native-catalogue/'+code+'.json')),hash(old('content/native-catalogue/'+code+'.json')),code+' source bank bytes');}
  assert.equal(hash(read('content/course-access.json')),hash(old('content/course-access.json')),'historical account rights unchanged');
  assert.equal(hash(read('content/niveaux-progressifs/manifest.json')),hash(old('content/niveaux-progressifs/manifest.json')));
- report.sourceBankCount=8;report.nativePairCount=70;
+ report.sourceBankCount=8;report.nativePairCount=77;
 }));
 
 test('32,115 source identities resolve through the complete German translation sidecar without blank meanings',()=>checked('complete-german-meaning-sidecar',async()=>{
