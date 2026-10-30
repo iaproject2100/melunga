@@ -196,7 +196,7 @@
     @media (max-width:380px){.plan-grid{grid-template-columns:1fr}.cta-stack{padding-inline:4px}.primary,.secondary{font-size:16px;white-space:normal}.lang-pill{max-width:72vw;white-space:normal;line-height:1.15}.welcome-offer small{font-size:12px}.eyebrow{font-size:clamp(24px,8vw,29px)}}
     @media (max-height:560px){.proof-top{height:58px}.proof-slide{padding-top:16px}.proof-slide-logo{width:72px;height:72px;margin-bottom:12px}.proof-footer{padding-top:5px}.proof-next{min-height:50px}.proof-dots{margin-bottom:8px}}
   </style>
-  <link rel="stylesheet" href="desktop-home.css?v=2">
+  <link rel="stylesheet" href="desktop-home.css?v=3">
   <style>
   @media(max-width:959px){
 /* Isolated mobile welcome-page concepts. No production file imports this. */
@@ -341,9 +341,13 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
       html.melunga-web .screen[data-screen="language"].active .language-entry-options .option{min-height:90px;padding-block:14px}
     }
   </style>
+<style>
+/* Original Chinese brand signature, independent of the chosen interface language. */
+.melunga-brand-cn{display:block;margin-top:5px;padding-left:.3em;color:#f3c85b;font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-size:clamp(10px,.42em,18px);font-weight:750;line-height:1.25;letter-spacing:.3em;text-align:center;white-space:nowrap}
+</style>
 </head>
 <body>
-  <div id="welcomeBoot" class="welcome-boot" role="status" aria-live="polite"><img src="assets/melunga-logo.png" alt=""><strong>Melunga</strong><button id="welcomeBootRetry" type="button" hidden>Réessayer</button></div>
+  <div id="welcomeBoot" class="welcome-boot" role="status" aria-live="polite"><img src="assets/melunga-logo.png" alt=""><strong>Melunga<span class="melunga-brand-cn" lang="zh-Hans">梅 伦 加</span></strong><button id="welcomeBootRetry" type="button" hidden>Réessayer</button></div>
   <main class="stage">
     <section class="phone" aria-label="Melunga">
       <article class="screen night active" data-screen="welcome">
@@ -361,7 +365,7 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
           <span class="site-bubble" style="--x:94%;--s:26px;--d:25s;--delay:-19s;--drift:30px"></span>
         </div>
         <div class="topline"><span></span><button type="button" class="home-start" data-select-access="free" data-welcome-i18n="tryFree">Essayer gratuitement</button><button class="lang-pill" type="button" data-open-app-language aria-label="Choisir la langue de l’application" aria-haspopup="dialog" aria-controls="appLanguageMenu" aria-expanded="false"><span class="home-flag home-flag-fr" aria-hidden="true"></span><span>Français⌄</span></button></div>
-        <div class="brand"><img src="assets/melunga-logo.png" alt="Logo Melunga"><div class="brand-name">Melunga</div></div>
+        <div class="brand"><img src="assets/melunga-logo.png" alt="Logo Melunga"><div class="brand-name">Melunga<span class="melunga-brand-cn" lang="zh-Hans">梅 伦 加</span></div></div>
         <div class="welcome-copy">
           <div class="eyebrow" data-welcome-i18n="eyebrow">Apprends à parler naturellement</div>
         </div>
@@ -531,7 +535,7 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
       </article>
 
       <article class="screen" data-screen="language">
-        <div class="app-header"><button class="back" data-go="welcome">‹</button><div class="language-entry-brand"><img src="assets/melunga-logo.png" alt=""><strong>Melunga</strong></div><span class="step-label">UN SEUL CHOIX POUR COMMENCER</span></div>
+        <div class="app-header"><button class="back" data-go="welcome">‹</button><div class="language-entry-brand"><img src="assets/melunga-logo.png" alt=""><strong>Melunga<span class="melunga-brand-cn" lang="zh-Hans">梅 伦 加</span></strong></div><span class="step-label">UN SEUL CHOIX POUR COMMENCER</span></div>
         <div class="question" style="margin-top:20px"><h2>Quelle langue veux-tu parler ?</h2><p>Choisis une langue et commence immédiatement. Tu pourras changer plus tard.</p></div>
         <div class="options language-entry-options">
           <button class="option" data-study-language="fr" hidden style="display:none"><span class="flag">🇫🇷</span><span><strong>法语</strong><small>适合中文使用者</small></span></button>
@@ -1219,6 +1223,6 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
   <script src="store-billing.js"></script>
   <script src="voice-selection.js?v=5"></script>
   <script src="lesson-audio.js?v=6"></script>
-  <script src="desktop-home.js?v=11"></script>
+  <script src="desktop-home.js?v=12"></script>
 </body>
 </html>

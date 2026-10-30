@@ -76,12 +76,14 @@
     .mg-presentation-status{display:flex;align-items:center;gap:10px;max-width:100%;margin:0;padding:12px 18px;border:1px solid #ffffff66;border-radius:999px;background:#06283d80;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-size:14px;line-height:1.4;visibility:hidden}
     html.course-presentation-slow .mg-presentation-status{visibility:visible}
     @media(prefers-reduced-motion:reduce){.mg-presentation-mascot,.mg-presentation-artwork::before,.mg-presentation-bubble{animation:none}}
+    .mg-presentation-wordmark{visibility:hidden;font-size:30px;font-weight:800;text-align:center;line-height:1}
+    html.course-presentation-slow .mg-presentation-wordmark{visibility:visible}
     .mg-presentation-boot button{min-width:120px;min-height:48px;padding:10px 25px;border:1px solid #ffffff66;border-radius:999px;background:#06283d80;color:#f4fbff;font:700 16px "Segoe UI",sans-serif;cursor:pointer}
     .mg-presentation-boot button[hidden]{display:none}
   </style>
 
   <title>Melunga — parcours par thèmes et par niveaux</title>
-  <link rel="stylesheet" href="maquette-guidee.css?v=28">
+  <link rel="stylesheet" href="maquette-guidee.css?v=29">
   <link rel="stylesheet" href="course-ambiences.css?v=1">
   <link rel="stylesheet" href="course-startup.css?v=1">
   <link rel="stylesheet" href="course-desktop.css?v=18">
@@ -89,6 +91,7 @@
 <body data-ambience="dusk" data-view="loading">
   <div id="mgPresentationBoot" class="mg-presentation-boot" role="status" aria-live="polite">
     <div id="mgPresentationArtwork" class="mg-presentation-artwork" aria-hidden="true"><div class="mg-presentation-mascot"><img id="mgPresentationLogo" src="melunga-logo.png" width="128" height="128" alt="" decoding="async"></div><span class="mg-presentation-bubble"></span><span class="mg-presentation-bubble"></span><span class="mg-presentation-bubble"></span></div>
+    <div class="mg-presentation-wordmark">Melunga<span class="melunga-brand-cn" lang="zh-Hans">梅 伦 加</span></div>
     <p id="mgPresentationStatus" class="mg-presentation-status"><span id="mgPresentationText">Chargement…</span></p><button id="mgPresentationRetry" type="button" hidden>Réessayer</button>
   </div>
   <script>window.__initCoursePresentation();</script>
@@ -96,7 +99,7 @@
     <aside class="mg-sidebar" aria-label="Commandes">
       <a class="mg-brand" href="parcours-niveaux.html" aria-label="Melunga, revenir aux thèmes">
         <img class="mg-logo" src="melunga-logo.png" alt="">
-        <span class="mg-wordmark">Melunga</span>
+        <span class="mg-wordmark">Melunga<span class="melunga-brand-cn" lang="zh-Hans">梅 伦 加</span></span>
       </a>
       <div class="mg-controls">
         <button id="mgLevelTrigger" class="mg-round mg-level mg-level-control" type="button" title="Choisir un niveau" aria-label="Choisir un niveau" aria-haspopup="dialog" aria-controls="mgLevelDialog" aria-expanded="false" disabled><span id="mgLevelText" aria-hidden="true">…</span></button>
