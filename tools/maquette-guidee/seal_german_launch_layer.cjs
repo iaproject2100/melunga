@@ -14,7 +14,10 @@ const allowedModified=new Set([
  'comparaison-voix.html','voice-comparison.js','netlify/functions/tts.mjs','netlify/functions/lib/chirp-catalog.mjs',
  'content/native-catalogue/manifest.json','tests/native-courses.test.cjs',...['en','es','it','zh','ja','ko','supplements'].map(id=>'content/course-locales/'+id+'.json')
 ].map(file=>'melunga_deploy/'+file).concat(['tools/maquette-guidee/course-locale-keys.json','tools/maquette-guidee/export_native_catalogue.py']));
-const addedCandidates=['melunga_deploy/content/native-catalogue/de.json','tools/maquette-guidee/imports/de-deck-v3.1.json'];
+// The thematic metadata is an independently authored placement map. It never
+// replaces the validated German card import or changes any of its 15 fields.
+const addedCandidates=['melunga_deploy/content/native-catalogue/de.json','tools/maquette-guidee/imports/de-deck-v3.1.json',
+ 'tools/maquette-guidee/imports/de-themes-v1.json'];
 const sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const git=(args)=>execFileSync('git',args,{cwd:ROOT,maxBuffer:40*1024*1024});
 const changed=git(['diff','--name-only',BASE,'--','melunga_deploy','tools/maquette-guidee']).toString().trim().split('\n').filter(Boolean)
@@ -22,7 +25,7 @@ const changed=git(['diff','--name-only',BASE,'--','melunga_deploy','tools/maquet
 for(const file of changed)if(!allowedModified.has(file)&&!addedCandidates.includes(file))throw Error('German source delta outside explicit scope: '+file);
 const modified=changed.filter(file=>allowedModified.has(file)).sort();
 const added=addedCandidates.filter(file=>fs.existsSync(path.join(ROOT,file))).sort();
-if(added.length!==addedCandidates.length)throw Error('Both German source and runtime bank are required before sealing');
+if(added.length!==addedCandidates.length)throw Error('German validated source, thematic metadata and runtime bank are required before sealing');
 const patch=git(['diff','--binary','--no-ext-diff','--no-textconv','--unified=0',BASE,'--',...modified]);
 fs.writeFileSync(path.join(ROOT,PATCH),patch);
 const modifiedFiles=Object.fromEntries(modified.map(file=>[file,{beforeSha256:sha(git(['show',BASE+':'+file])),currentSha256:sha(fs.readFileSync(path.join(ROOT,file)))}]));

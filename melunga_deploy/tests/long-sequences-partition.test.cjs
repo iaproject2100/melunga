@@ -16,6 +16,7 @@ const WEB = path.join(ROOT, 'melunga_deploy');
 const BASE = 'f25250627f94334fd097a4eed0d4da814d65561f';
 const CONTROLLER = 'maquette-guidee.js';
 const GERMAN_SOURCE = 'tools/maquette-guidee/imports/de-deck-v3.1.json';
+const GERMAN_THEMES = 'tools/maquette-guidee/imports/de-themes-v1.json';
 const read = file => fs.readFileSync(path.join(WEB, file));
 const json = file => JSON.parse(read(file));
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
@@ -43,6 +44,7 @@ const inputFiles = [...new Set([...protectedFiles, ...nativeFiles, CONTROLLER, '
 const fingerprints = () => Object.fromEntries([
   ['melunga_deploy/tests/long-sequences-partition.test.cjs', sha(fs.readFileSync(__filename))],
   [GERMAN_SOURCE, sha(fs.readFileSync(path.join(ROOT, GERMAN_SOURCE)))],
+  [GERMAN_THEMES, sha(fs.readFileSync(path.join(ROOT, GERMAN_THEMES)))],
   ...inputFiles.map(file => ['melunga_deploy/' + file, sha(read(file))])
 ]);
 
@@ -126,8 +128,9 @@ function checkTheme(pairId, level, theme, kind, sourceModels) {
   if (level === 1 && theme === sourceModels.firstTheme) {
     const first = { pairId, level, themeId: theme.id, cards: ids.length, stages: chunks.length };
     if (kind === 'german') {
-      assert.equal(ids.length, 270, 'German L1 retains all original non-template cards');
-      assert.equal(chunks.length, 8, 'German L1 enters its first prepared stage');
+      assert.equal(theme.id, 'saluer');
+      assert.equal(ids.length, 31, 'German L1 begins with its focused greeting theme');
+      assert.equal(chunks.length, 1, 'German L1 enters its first lesson directly');
       germanFirstThemes.push(first);
     } else {
       assert.ok(ids.length <= 100, 'the first historical L1 theme remains compatible with direct lesson entry: ' + pairId);
@@ -253,38 +256,57 @@ test('all reviewed and actual generated historical native themes preserve groups
   assert.equal(maximumTechnicalGroupWeight, 5);
 }));
 
-test('all 70 German level views keep original active order and complete prepared stages, with templates reserved', { timeout: 120000 }, () => checked('german-70-level-content-conservation', async () => {
+test('all 70 German level views conserve every active card and original order within semantic themes', { timeout: 120000 }, () => checked('german-70-level-content-conservation', async () => {
   const current = nativeBuilder(false), natives = ['fr','en','es','it','zh','ja','ko'];
   const germanPairs = nativeManifest.derivedPairIds.filter(pairId => pairId.endsWith('-de'));
   assert.deepEqual(germanPairs, natives.map(native => native + '-de'));
   assert.equal(nativeManifest.pairIds.length, 49);
   assert.ok(nativeManifest.pairIds.every(pairId => !pairId.startsWith('de-')));
   const imported = JSON.parse(fs.readFileSync(path.join(ROOT, GERMAN_SOURCE)));
+  const editorial = JSON.parse(fs.readFileSync(path.join(ROOT, GERMAN_THEMES)));
   assert.equal(imported.length, 4519);
   const activeCounts = [270,532,661,589,704,423,422,398,223,222];
-  const stageCounts = [8,15,19,17,20,12,12,11,6,6];
+  const expectedLong = [];
+  for (let level = 1; level <= 10; level++) for (const domain of Object.keys(editorial.levelThemes[level])) {
+    const ids = editorial.placements.filter(placement => imported[placement.index].lv === level
+      && !placement.isTemplate && placement.domain === domain).map(placement => 'catalogue:de:' + placement.index);
+    if (ids.length > 100) expectedLong.push({level, domain, cards:ids.length});
+  }
   for (const pairId of germanPairs) {
     let active = 0, reserve = 0;
     for (let level = 1; level <= 10; level++) {
       const {pair, sourcePhraseMap} = await current.loadPair(pairId, level);
-      assert.equal(pair.themes.length, 1);assert.equal(sourcePhraseMap.size, 4519);
-      const theme = pair.themes[0], ids = theme.sequences.flatMap(group => group.phraseIds);
+      assert.ok(pair.themes.length >= 8);assert.equal(sourcePhraseMap.size, 4519);
+      const ids = pair.themes.flatMap(theme => theme.sequences.flatMap(group => group.phraseIds));
       const expected = imported.flatMap((card, index) => card.lv === level && card.cat !== 'template' ? ['catalogue:de:' + index] : []);
       assert.equal(ids.length, activeCounts[level - 1]);
-      assert.deepEqual(JSON.parse(JSON.stringify(ids)), expected, 'German active cards retain complete original source order');
+      assert.equal(new Set(ids).size, ids.length);
+      assert.deepEqual(JSON.parse(JSON.stringify(ids)).sort(), [...expected].sort(), 'German themed views conserve the complete active source set');
       assert.deepEqual(JSON.parse(JSON.stringify(pair.reserve.map(model => model.id))),
         imported.flatMap((card, index) => card.lv === level && card.cat === 'template' ? ['catalogue:de:' + index] : []));
       assert.ok(pair.reserve.every(model => model.isTemplate && !ids.includes(model.id)));
-      checkTheme(pairId, level, theme, 'german', {models:sourcePhraseMap, firstTheme:theme});
-      const chunks = partition(theme.sequences.map(group => group.phraseIds.length));
-      assert.equal(chunks.length, stageCounts[level - 1], pairId + '/L' + level + ' independent stage count');
+      for (const theme of pair.themes) {
+        const expectedTheme = editorial.placements.filter(placement => imported[placement.index].lv === level
+          && !placement.isTemplate && placement.domain === theme.domain).map(placement => 'catalogue:de:' + placement.index);
+        assert.deepEqual(JSON.parse(JSON.stringify(theme.phrases.map(model => model.id))), expectedTheme,
+          'German source order is retained within ' + pairId + '/L' + level + '/' + theme.id);
+        assert.deepEqual(JSON.parse(JSON.stringify(theme.sequences.flatMap(group => group.phraseIds))), expectedTheme);
+        checkTheme(pairId, level, theme, 'german', {models:sourcePhraseMap, firstTheme:pair.themes[0]});
+        const chunks = partition(theme.sequences.map(group => group.phraseIds.length));
+        assert.equal(chunks.length > 1, expectedTheme.length > 100, 'only themes over 100 cards acquire visible stages');
+      }
       active += ids.length;reserve += pair.reserve.length;
     }
     assert.equal(active, 4444);assert.equal(reserve, 75);
   }
-  assert.deepEqual(totals.german, {themes:70, cards:31108, guidedSteps:93324, chunks:882,
-    preparations:0, receivedSteps:0, receivedModels:0, templates:0,
-    reviewSteps:0, contextReuseSteps:0, duplicateIds:0});
+  const longCards = expectedLong.reduce((sum, theme) => sum + theme.cards, 0) * germanPairs.length;
+  assert.equal(totals.german.themes, expectedLong.length * germanPairs.length);
+  assert.equal(totals.german.cards, longCards);assert.equal(totals.german.guidedSteps, longCards * 3);
+  assert.equal(totals.german.chunks, rows.filter(row => germanPairs.includes(row.pairId))
+    .reduce((sum, row) => sum + row.partitionCards.length, 0));
+  for (const field of ['preparations','receivedSteps','receivedModels','templates','reviewSteps','contextReuseSteps','duplicateIds']) {
+    assert.equal(totals.german[field], 0, field);
+  }
 }));
 
 test('independent reference partitions and presentation ranges identify real Spanish, Chinese and Korean-native examples', () => checked('reference-partitions', () => {
@@ -304,13 +326,13 @@ test('independent reference partitions and presentation ranges identify real Spa
   }
 }));
 
-test('the first L1 themes of all 42 native/study pairs remain one unchanged direct-entry lesson', () => checked('first-theme-direct-entry', () => {
+test('the first L1 themes of all 42 existing pairs and seven German pairs enter their lesson directly', () => checked('first-theme-direct-entry', () => {
   assert.equal(firstThemes.length, 42);
   assert.deepEqual(new Set(firstThemes.map(row => row.pairId)), new Set(historicalNativeManifest.pairIds));
   assert.ok(firstThemes.every(row => row.cards > 0 && row.cards <= 100 && row.stages === 1));
   assert.equal(germanFirstThemes.length, 7);
   assert.deepEqual(new Set(germanFirstThemes.map(row => row.pairId)), new Set(['fr','en','es','it','zh','ja','ko'].map(native => native + '-de')));
-  assert.ok(germanFirstThemes.every(row => row.cards === 270 && row.stages === 8));
+  assert.ok(germanFirstThemes.every(row => row.themeId === 'saluer' && row.cards === 31 && row.stages === 1));
 }));
 
 test('short themes stay whole; invalid or impossible atomic inputs fail without splitting a group', () => checked('thresholds-and-atomic-errors', () => {

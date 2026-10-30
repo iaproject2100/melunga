@@ -1,7 +1,7 @@
 /* Source-verbatim native catalogue views. Reviewed pair bundles are never projected here. */
 (() => {
   'use strict';
-  const MANIFEST_SHA256 = '8fc121caefe58a6206f318006baafe262415f81ec5bdb4723ec68a45495f2e7a';
+  const MANIFEST_SHA256 = 'af539c9480efd309a6cfe3dd3dc8c3e015661b64fe4c4412b96a091bbe343813';
   const ROOT = 'content/native-catalogue/';
   const languages = Object.freeze(['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko']);
   const studyLanguages = Object.freeze([...languages, 'de']);
@@ -261,8 +261,7 @@
       if (!phrases.length) continue;
       const kinds = [...new Set(phrases.map(phrase => phrase.contentType))].sort();
       const concepts = new Set(phrases.map(phrase => phrase.lexicalConceptId || JSON.stringify([phrase.study, phrase.native])));
-      const theme = {...definition, title:study === 'de' && definition.titleSource === 'interface'
-        ? dictionary.t(native, definition.title) : dictionary.theme(native, definition.title), phrases,
+      const theme = {...definition, title:dictionary.theme(native, definition.title), phrases,
         contentType:kinds.length === 1 ? kinds[0] : 'mixed', totalPhrases:phrases.length,
         reviewReferences:[], contextReferences:[], newCount:phrases.length, reviewCount:0, reuseCount:0,
         presentedCount:phrases.length, pedagogicalConceptCount:concepts.size, densityStatus:'native-catalogue-source-view',

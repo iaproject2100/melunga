@@ -634,6 +634,7 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
                 <button class="drawer-choice" data-language-choice="Italien" data-language-flag="🇮🇹"><strong>🇮🇹 Italien</strong><span>Italiano</span></button>
                 <button class="drawer-choice" data-language-choice="Japonais" data-language-flag="🇯🇵"><strong>🇯🇵 Japonais</strong><span>日本語</span></button>
                 <button class="drawer-choice" data-language-choice="Coréen" data-language-flag="🇰🇷"><strong>🇰🇷 Coréen</strong><span>한국어</span></button>
+                <button class="drawer-choice" data-language-choice="Allemand" data-language-flag="🇩🇪"><strong>🇩🇪 Allemand</strong><span>Deutsch</span></button>
               </div>
             </section>
             <section class="menu-panel" data-menu-panel="levels">
@@ -733,7 +734,8 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
       Chinois:{target:'我想要一些水。',phonetic:'wo chiang yao i-ssié choué',pinyin:'wǒ xiǎng yào yìxiē shuǐ'},
       Italien:{target:'Vorrei dell’acqua.',phonetic:'voR-RÈÏ dél-LA-kwa'},
       Japonais:{target:'水をください。',phonetic:'mi-ZOU o kou-da-SAÏ'},
-      Coréen:{target:'물 좀 주세요.',phonetic:'moul djoûm djou-SÉ-yo'}
+      Coréen:{target:'물 좀 주세요.',phonetic:'moul djoûm djou-SÉ-yo'},
+      Allemand:{target:'Können Sie mir helfen?',phonetic:'KEU-nenn zi mir HÈL-fenn',translation:"Pouvez-vous m'aider ?"}
     };
     const welcomeTranslations={
       fr:{eyebrow:'Apprends à parler naturellement',note:'Toutes les langues incluses',create:'Voir un exemple',tryFree:'Essayer gratuitement',signin:'J’ai déjà un compte',languageTitle:'Langue de l’application'},
@@ -1062,7 +1064,7 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
       const sample=lessonSamples[language]||lessonSamples.Anglais;
       targetPhrase.textContent=sample.target;
       phoneticText.textContent=sample.phonetic;
-      translatedPhrase.textContent='Je voudrais de l’eau.';
+      translatedPhrase.textContent=sample.translation||'Je voudrais de l’eau.';
       const isChinese=language==='Chinois';
       pinyinControl.classList.toggle('show',isChinese);
       pinyinControl.classList.remove('active');
@@ -1195,6 +1197,8 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
     detectPricingCountry();
   </script>
   <script src="store-billing.js"></script>
-  <script src="desktop-home.js?v=6"></script>
+  <script src="voice-selection.js?v=3"></script>
+  <script src="lesson-audio.js?v=4"></script>
+  <script src="desktop-home.js?v=7"></script>
 </body>
 </html>

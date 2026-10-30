@@ -17,7 +17,8 @@ function changedRead(file,run) {
 test('current German release passes before the old edition is made available',()=>{
   const proof=layer.validate({force:true});
   assert.equal(proof.baseCommit,'541afb7f67b499130af60211e72a8614bdaaf31d');
-  assert.equal(proof.newFiles,2);assert.ok(proof.unchangedProductFiles>180);
+  assert.equal(proof.newFiles,3);assert.ok(proof.unchangedProductFiles>180);
+  assert.equal(proof.germanSourceCards,4519);
   assert.ok(proof.progressFunctions.includes('validateNextPhrase'));
   assert.equal(proof.classicAuthFunctions.length,8);
   const data='melunga_deploy/content/native-catalogue/de.json';

@@ -14,7 +14,7 @@ const report={status:'running',baseCommit:BASE,environment:'local Chromium, mobi
 const read=f=>fs.readFileSync(path.join(WEB,f)),json=f=>JSON.parse(read(f)),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 const oldCache=new Map();
 function old(file){if(!oldCache.has(file))oldCache.set(file,execFileSync('git',['show',BASE+':melunga_deploy/'+file],{cwd:ROOT,maxBuffer:40*1024*1024}));return oldCache.get(file);}
-function fingerprint(){const files=execFileSync('git',['ls-files','melunga_deploy'],{cwd:ROOT,encoding:'utf8'}).trim().split('\n').filter(p=>/\.(js|mjs|css|html|json)$/.test(p));files.push('melunga_deploy/content/native-catalogue/de.json');return Object.fromEntries([...new Set(files)].sort().map(p=>[p,hash(fs.readFileSync(path.join(ROOT,p)))]));}
+function fingerprint(){const files=execFileSync('git',['ls-files','melunga_deploy'],{cwd:ROOT,encoding:'utf8'}).trim().split('\n').filter(p=>/\.(js|mjs|css|html|json)$/.test(p));files.push('melunga_deploy/content/native-catalogue/de.json','tools/maquette-guidee/imports/de-deck-v3.1.json','tools/maquette-guidee/imports/de-themes-v1.json');return Object.fromEntries([...new Set(files)].sort().map(p=>[p,hash(fs.readFileSync(path.join(ROOT,p)))]));}
 function catalogue(legacy=false){
  const now=Date.now(),locales={fr:['fr-FR','F','Aoede'],en:['en-GB','C','Kore'],es:['es-ES','F','Kore'],zh:['cmn-CN','A','Kore'],it:['it-IT','E','Charon'],ja:['ja-JP','B','Kore'],ko:['ko-KR','A','Kore'],de:['de-DE','A','Kore']};
  return{version:1,source:'google-voices-list',previewOnly:true,selectionVersion:legacy?'kartech-2026-10-27':VERSION,verifiedAt:new Date(now-1000).toISOString(),expiresAt:new Date(now+240000).toISOString(),languages:Object.fromEntries((legacy?NATIVE:[...NATIVE,'de']).map(language=>{
@@ -64,7 +64,42 @@ function bank(){return json('content/native-catalogue/de.json');}
 function firstId(level=1){return bank().levels[level-1].themes[0].phraseIds[0];}
 function expected(id){return bank().cards[Number(id.split(':').at(-1))];}
 async function assertCard(p,native){const flag=p.locator('#mgLanguageFlag');assert.equal(await flag.getAttribute('data-language'),'de');const mark=await flag.evaluate(n=>({background:getComputedStyle(n).backgroundImage,width:n.getBoundingClientRect().width,height:n.getBoundingClientRect().height}));assert.match(mark.background,/linear-gradient/,'DE flag has a platform-independent painted mark');assert.ok(mark.width>=20&&mark.height>=15);const s=await state(p),raw=expected(s.phraseId);assert.equal(await p.locator('#mgPhrase').textContent(),raw.t);assert.equal(await p.locator('#mgTranslation').textContent(),raw[FIELDS[native]]);assert.equal(await p.locator('#mgPhon').textContent(),raw[PHON[native]]);assert.equal(await p.locator('#mgPhrase').getAttribute('lang'),'de');assert.equal(await p.locator('#mgTranslation').getAttribute('lang'),native);assert.equal(await p.locator('html').getAttribute('lang'),native);return s;}
-async function enterStage(p,pair,level=1){await ready(p,{pair,level});await p.locator('#mgThemeGrid .mg-theme:visible').first().click();await ready(p,{pair,level,screen:'sequences'});const plan=await p.evaluate(()=>window.MelungaMockup.visibleSequences());const ids=bank().levels[level-1].themes[0].phraseIds;assert.deepEqual(plan.flatMap(s=>s.phraseIds),ids);assert.ok(plan.every(s=>s.cards>=30&&s.cards<=40));assert.deepEqual(await known(p,pair),[]);await p.locator('#mgSequences .mg-sequence:visible').first().click();await ready(p,{pair,level,screen:'lesson'});return plan;}
+async function showThemeTile(p,themeId){
+ const tile=p.locator('#mgThemeGrid .mg-theme[data-theme-id="'+themeId+'"]');
+ if(p.viewportSize().width>=1101){
+  const previous=p.locator('.mg-desktop-page-previous'),next=p.locator('.mg-desktop-page-next');
+  while(!await tile.isVisible()&&!await previous.isDisabled()){await previous.click();await settled(p);}
+  while(!await tile.isVisible()&&!await next.isDisabled()){await next.click();await settled(p);}
+ }
+ assert.equal(await tile.isVisible(),true,'theme is reachable: '+themeId);await tile.scrollIntoViewIfNeeded();return tile;
+}
+async function enterTheme(p,pair,level=1,themeId=bank().levels[level-1].themes[0].id){
+ await ready(p,{pair,level});const theme=bank().levels[level-1].themes.find(row=>row.id===themeId);assert.ok(theme);
+ await (await showThemeTile(p,themeId)).click();let plan;
+ if(theme.phraseIds.length>100){
+  await ready(p,{pair,level,screen:'sequences'});plan=await p.evaluate(()=>window.MelungaMockup.visibleSequences());
+  assert.deepEqual(plan.flatMap(stage=>stage.phraseIds),theme.phraseIds);assert.ok(plan.length>1);
+  assert.ok(plan.every(stage=>stage.cards>=30&&stage.cards<=40));
+  await p.locator('#mgSequences .mg-sequence:visible').first().click();
+ }else{
+  await ready(p,{pair,level,screen:'lesson'});const current=await state(p);
+  assert.equal(current.lessonScope,'theme');assert.equal(current.visibleSequenceIndex,0);assert.equal(current.visibleSequenceCount,0);
+  assert.deepEqual(await p.evaluate(()=>window.MelungaMockup.visibleSequences()),[]);
+  assert.equal(await p.locator('#mgVisibleSequenceContext').isVisible(),false);
+  const prepared=await p.evaluate(async({pair,level,themeId})=>{
+   const loaded=await window.MelungaNativeCourses.loadPair(pair,level);return loaded.pair.themes.find(theme=>theme.id===themeId);
+  },{pair,level,themeId});
+  plan=[{cards:theme.phraseIds.length,phraseIds:theme.phraseIds,steps:prepared.sequences.flatMap(group=>group.steps)}];
+ }
+ await ready(p,{pair,level,screen:'lesson'});assert.equal((await state(p)).themeId,themeId);return{theme,plan};
+}
+async function photoSignature(photo){
+ await photo.waitFor({state:'visible'});await photo.locator('img').evaluate(image=>image.decode());
+ const box=await photo.boundingBox();assert.ok(box&&box.width>0&&box.height>0,'photo has visible bounds');
+ return photo.evaluate(node=>{const image=node.querySelector('img');if(!image?.naturalWidth)throw Error('photo did not decode');
+  return{visualId:node.dataset.themePhoto,src:image.getAttribute('src'),column:node.style.getPropertyValue('--mg-photo-column'),
+   row:node.style.getPropertyValue('--mg-photo-row'),columns:node.style.getPropertyValue('--mg-photo-columns'),rows:node.style.getPropertyValue('--mg-photo-rows')};});
+}
 async function geometry(p){return p.evaluate(()=>{const rect=id=>{const n=document.querySelector(id),r=n?.getBoundingClientRect();return n&&getComputedStyle(n).display!=='none'&&r.width&&r.height?{x:r.x,y:r.y,width:r.width,height:r.height}:null;};return{width:innerWidth,height:innerHeight,bodyWidth:document.body.scrollWidth,phrase:rect('#mgPhrase'),model:rect('#mgModel'),replay:rect('#mgReplay'),listen:rect('#mgListen'),next:rect('#mgContinue'),sidebar:rect('.mg-desktop-theme-sidebar'),dock:rect('.mg-mobile-dock'),phraseSize:getComputedStyle(document.getElementById('mgPhrase')).fontSize,photo:rect('.mg-theme-photo')};});}
 function functionSource(text,name){const re=new RegExp('^  function '+name+'\\([^]*?^  }','m'),m=text.match(re);assert.ok(m,'function '+name+' exists');return m[0];}
 const groups={
@@ -78,16 +113,96 @@ const groups={
  },
  'seven-native-german-home-entry':async()=>{
   for(const native of NATIVE){const width=['fr','it','ko'].includes(native)?1366:390,height=width===390?844:768,f=await fixture({width,height,native,start:'home'});try{
-   const p=f.page;await p.locator(width>=960?'.desktop-home':'[data-screen="welcome"].active').waitFor({state:'visible'});await p.locator('[data-dh-free]:visible,[data-select-access="free"]:visible').first().click();await p.locator('[data-screen="language"].active').waitFor();const choice=p.locator('[data-study-language="de"]');await choice.scrollIntoViewIfNeeded();assert.equal(await choice.isVisible(),true);assert.equal(await p.locator('[data-study-language]:visible').count(),7);assert.equal(await p.locator('[data-study-language="'+native+'"]:visible').count(),0);if(native==='fr')await shot(p,'home-language-de-'+width);await choice.click();await ready(p,{pair:native+'-de',screen:'sequences'});assert.equal(new URL(p.url()).searchParams.get('start'),null);assert.ok(!f.paths.includes('/app.html'));const plan=await p.evaluate(()=>window.MelungaMockup.visibleSequences());assert.ok(plan.length>1);assert.deepEqual(plan.flatMap(s=>s.phraseIds),bank().levels[0].themes[0].phraseIds);assert.ok(plan.every(s=>s.cards>=30&&s.cards<=40));assert.deepEqual(await known(p,native+'-de'),[]);await p.locator('#mgSequences .mg-sequence:visible').first().click();await ready(p,{pair:native+'-de',screen:'lesson'});assert.equal((await state(p)).phraseId,firstId());const current=await assertCard(p,native);assert.equal(current.access.paid,false);assert.equal(await p.evaluate(()=>window.__germanMedia.plays.length),0,'language choice never autoplays');if(native==='fr'){await p.locator('#mgLanguageTrigger').click();await p.locator('#mgLanguageDialog').waitFor({state:'visible'});const badge=p.locator('#mgLanguageChoices .mg-language-badge[data-language=\"de\"]');assert.equal(await badge.count(),1);assert.match(await badge.evaluate(n=>getComputedStyle(n).backgroundImage),/linear-gradient/,'German dialog choice has its painted flag');await p.keyboard.press('Escape');await p.locator('#mgLanguageDialog').waitFor({state:'hidden'});}const g=await geometry(p);assert.ok(g.bodyWidth<=width+1);assert.ok(g.phrase&&g.replay&&g.next&&g.listen);if(width>=1101){assert.ok(g.sidebar);assert.ok(g.replay.y>g.phrase.y&&g.next.y>g.phrase.y,'desktop commands below lesson');}else{assert.ok(g.dock);assert.ok(g.replay.x<g.next.x,'mobile thumb commands at opposed ends');}await shot(p,'german-'+native+'-'+width);report.cases.push({name:'native-home-direct-german-course',native,width,height,first:current.phraseId,stages:plan.length,geometry:g});console.log('German home '+native+' '+width+' PASS');
+   const p=f.page;await p.locator(width>=960?'.desktop-home':'[data-screen="welcome"].active').waitFor({state:'visible'});
+   await p.locator('[data-dh-free]:visible,[data-select-access="free"]:visible').first().click();await p.locator('[data-screen="language"].active').waitFor();
+   const choice=p.locator('[data-study-language="de"]');await choice.scrollIntoViewIfNeeded();assert.equal(await choice.isVisible(),true);
+   assert.equal(await p.locator('[data-study-language]:visible').count(),7);assert.equal(await p.locator('[data-study-language="'+native+'"]:visible').count(),0);
+   if(native==='fr')await shot(p,'home-language-de-'+width);await choice.click();await ready(p,{pair:native+'-de',screen:'lesson'});
+   assert.equal(new URL(p.url()).searchParams.get('start'),null);assert.ok(!f.paths.includes('/app.html'));
+   const current=await assertCard(p,native);assert.equal(current.phraseId,firstId());assert.equal(current.themeId,'saluer');
+   assert.equal(current.lessonScope,'theme');assert.equal(current.visibleSequenceCount,0);assert.equal(current.visibleSequenceIndex,0);
+   assert.equal(await p.locator('#mgVisibleSequenceContext').isVisible(),false);assert.deepEqual(await known(p,native+'-de'),[]);
+   assert.equal(current.access.paid,false);assert.equal(await p.evaluate(()=>window.__germanMedia.plays.length),0,'language choice never autoplays');
+   if(native==='fr'){await p.locator('#mgLanguageTrigger').click();await p.locator('#mgLanguageDialog').waitFor({state:'visible'});
+    const badge=p.locator('#mgLanguageChoices .mg-language-badge[data-language="de"]');assert.equal(await badge.count(),1);
+    assert.match(await badge.evaluate(n=>getComputedStyle(n).backgroundImage),/linear-gradient/,'German dialog choice has its painted flag');
+    await p.keyboard.press('Escape');await p.locator('#mgLanguageDialog').waitFor({state:'hidden'});}
+   const g=await geometry(p);assert.ok(g.bodyWidth<=width+1);assert.ok(g.phrase&&g.replay&&g.next&&g.listen);
+   if(width>=1101){assert.ok(g.sidebar);assert.ok(g.replay.y>g.phrase.y&&g.next.y>g.phrase.y,'desktop commands below lesson');}
+   else{assert.ok(g.dock);assert.ok(g.replay.x<g.next.x,'mobile thumb commands at opposed ends');}
+   await shot(p,'german-'+native+'-'+width);report.cases.push({name:'native-home-direct-german-course',native,width,height,first:current.phraseId,themeId:current.themeId,cards:31,stages:0,geometry:g});
+   console.log('German home '+native+' '+width+' PASS');
   }finally{await f.close();}}
  },
+ 'german-semantic-theme-photos-and-navigation':async()=>{
+  for(const width of[1366,390]){const pair='fr-de',f=await fixture({width,height:width===390?844:768});try{
+   const p=f.page;await ready(p,{pair});const themes=bank().levels[0].themes,seen=[];
+   assert.ok(themes.length>10);assert.equal(await p.locator('#mgThemeGrid .mg-theme').count(),themes.length);
+   if(width>=1101){const pages=Math.ceil(themes.length/4),pagination=p.locator('.mg-desktop-pagination');
+    assert.equal(Number(await pagination.getAttribute('data-pages')),pages);
+    for(let page=1;page<=pages;page++){assert.equal(Number(await pagination.getAttribute('data-page')),page);
+     const ids=await p.locator('#mgThemeGrid .mg-theme:visible').evaluateAll(nodes=>nodes.map(node=>node.dataset.themeId));
+     assert.ok(ids.length>0&&ids.length<=4);seen.push(...ids);if(page<pages){await p.locator('.mg-desktop-page-next').click();await settled(p);}}
+   }else{
+    seen.push(...await p.locator('#mgThemeGrid .mg-theme:visible').evaluateAll(nodes=>nodes.map(node=>node.dataset.themeId)));
+    const last=p.locator('#mgThemeGrid .mg-theme').last();await last.scrollIntoViewIfNeeded();await settled(p);
+    const box=await last.boundingBox();assert.ok(box&&box.y>=0&&box.y+box.height<=p.viewportSize().height+1,'last mobile theme can be reached');
+    assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),true,'theme catalogue has no horizontal overflow');
+    await shot(p,'german-themes-last-mobile');
+   }
+   assert.deepEqual(seen,themes.map(theme=>theme.id),'every semantic theme is reachable in catalogue order');
+   const photos=[];
+   for(const domain of['saluer','repas','deplacements']){
+    await p.reload();await ready(p,{pair});const theme=themes.find(theme=>theme.domain===domain);assert.ok(theme);
+    const tile=await showThemeTile(p,theme.id);assert.notEqual((await tile.locator('.mg-theme-title').textContent()).trim(),'Toutes les leçons');
+    const before=await photoSignature(tile.locator('.mg-theme-photo'));assert.equal(before.src,theme.photo.asset);
+    assert.equal(Number(before.column),theme.photo.column);assert.equal(Number(before.row),theme.photo.row);
+    await enterTheme(p,pair,1,theme.id);const header=p.locator(width>=1101?'.mg-desktop-theme-photo .mg-theme-photo':'.mg-mobile-theme-photo');
+    assert.deepEqual(await photoSignature(header),before,'lesson header keeps the selected tile photo');
+    const current=await assertCard(p,'fr');assert.ok(theme.phraseIds.includes(current.phraseId));
+    const {visualId,...scene}=before;photos.push(scene);await shot(p,'german-theme-'+domain+'-'+width);
+   }
+   assert.equal(new Set(photos.map(photo=>JSON.stringify(photo))).size,3,'greeting, restaurant and travel scenes differ');
+   report.cases.push({name:'semantic-photo-themes-reachable',width,themes:seen,photos});
+  }finally{await f.close();}}
+  const level=bank().levels.find(level=>level.themes.some(theme=>theme.phraseIds.length>100));assert.ok(level,'a genuine long German theme is covered');
+  const theme=level.themes.find(theme=>theme.phraseIds.length>100),f=await fixture({pair:'fr-de',level:level.level,paid:true});try{
+   const opened=await enterTheme(f.page,'fr-de',level.level,theme.id);assert.ok(opened.plan.length>1);
+   assert.equal((await state(f.page)).visibleSequenceCount,opened.plan.length);
+   report.cases.push({name:'only-long-german-theme-uses-stages',level:level.level,themeId:theme.id,cards:theme.phraseIds.length,stageCards:opened.plan.map(stage=>stage.cards)});
+  }finally{await f.close();}
+ },
  'german-next-review-listen-and-persistence':async()=>{
-  for(const width of[1366,390]){const pair='fr-de',f=await fixture({width,height:width===390?844:768});try{const p=f.page,plan=await enterStage(p,pair),id=firstId();assert.equal((await state(p)).phraseId,id);await assertCard(p,'fr');await p.locator('#mgListen').click();await settled(p);const media=await p.evaluate(()=>window.__germanMedia);assert.equal(media.plays.length,1);const audioUrl=new URL(media.plays[0].src,ORIGIN);assert.equal(audioUrl.searchParams.get('text'),expected(id).t);assert.equal(audioUrl.searchParams.get('lang'),'de-DE');assert.equal(audioUrl.searchParams.get('voice'),'de-DE-Chirp3-HD-Kore');assert.equal(audioUrl.searchParams.get('rate'),'1');assert.deepEqual(await known(p,pair),[]);assert.deepEqual(media.browser,[]);
-   const steps=plan[0].steps;let firstAcquired=false;for(let i=0;i<steps.length;i++){const s=await state(p);if(s.phraseId!==id)break;await next(p);firstAcquired=(await known(p,pair)).includes(id);}assert.equal(firstAcquired,true);assert.deepEqual(await known(p,pair),[id]);assert.equal((await state(p)).levelProgress.known,1);const deferred=(await state(p)).phraseId;assert.notEqual(deferred,id);await p.locator('#mgReplay').click();await settled(p);assert.deepEqual(await known(p,pair),[id]);assert.deepEqual((await reviews(p)).map(r=>r.id),[deferred]);await p.reload();await ready(p,{pair});assert.deepEqual(await known(p,pair),[id]);assert.deepEqual((await reviews(p)).map(r=>r.id),[deferred]);assert.equal((await state(p)).levelProgress.known,1);await p.locator('#mgThemeGrid .mg-theme:visible').first().click();await ready(p,{pair,screen:'sequences'});const stage=p.locator('#mgSequences .mg-sequence').first();assert.equal(await stage.getAttribute('data-known'),'1');assert.equal(Number(await stage.getAttribute('data-total')),plan[0].cards);await shot(p,'german-progress-'+width);report.cases.push({name:'next-review-audio-persistence',width,known:id,deferred,sourceAudio:audioUrl.pathname+audioUrl.search,stageCards:plan[0].cards});console.log('German progress '+width+' PASS');
+  for(const width of[1366,390]){const pair='fr-de',f=await fixture({width,height:width===390?844:768});try{
+   const p=f.page,{theme,plan}=await enterTheme(p,pair),id=firstId();assert.equal((await state(p)).phraseId,id);await assertCard(p,'fr');
+   await p.locator('#mgListen').click();await settled(p);const media=await p.evaluate(()=>window.__germanMedia);
+   assert.equal(media.plays.length,1);const audioUrl=new URL(media.plays[0].src,ORIGIN);
+   assert.equal(audioUrl.searchParams.get('text'),expected(id).t);assert.equal(audioUrl.searchParams.get('lang'),'de-DE');
+   assert.equal(audioUrl.searchParams.get('voice'),'de-DE-Chirp3-HD-Kore');assert.equal(audioUrl.searchParams.get('rate'),'1');
+   assert.deepEqual(await known(p,pair),[]);assert.deepEqual(media.browser,[]);
+   let firstAcquired=false;for(let i=0;i<plan[0].steps.length;i++){if((await state(p)).phraseId!==id)break;await next(p);firstAcquired=(await known(p,pair)).includes(id);}
+   assert.equal(firstAcquired,true);assert.deepEqual(await known(p,pair),[id]);assert.equal((await state(p)).levelProgress.known,1);
+   const deferred=(await state(p)).phraseId;assert.notEqual(deferred,id);await p.locator('#mgReplay').click();await settled(p);
+   assert.deepEqual(await known(p,pair),[id]);assert.deepEqual((await reviews(p)).map(row=>row.id),[deferred]);
+   await p.evaluate(key=>{const stored=JSON.parse(localStorage.getItem(key));stored.entries.forEach(entry=>entry.themeId='all-lessons');localStorage.setItem(key,JSON.stringify(stored));},REVIEW);
+   await p.reload();await ready(p,{pair});assert.deepEqual(await known(p,pair),[id]);assert.deepEqual((await reviews(p)).map(row=>row.id),[deferred]);
+   assert.equal((await state(p)).levelProgress.known,1);await enterTheme(p,pair);assert.equal((await state(p)).lessonScope,'theme');
+   assert.equal((await state(p)).levelProgress.known,1);assert.equal(await p.locator('#mgVisibleSequenceContext').isVisible(),false);
+   await shot(p,'german-progress-'+width);
+   await p.reload();await ready(p,{pair});
+   if(width>=1101)await p.locator('#mgDesktopNav [data-menu-item="À revoir"]').click();
+   else{await p.locator('#mgMenuTrigger').click();await p.locator('#mgMenuNav [data-menu-item="À revoir"]').click();}
+   await p.locator('#mgSavedReviewPanel').waitFor({state:'visible'});
+   await p.locator('#mgSavedReviewList [data-review-id="'+deferred+'"] [data-review-action="resume"]').click();
+   await p.waitForFunction(id=>{const s=window.MelungaMockup.state();return s.screen==='lesson'&&s.lessonScope==='saved-review'&&s.phraseId===id;},deferred);
+   await settled(p);assert.equal((await state(p)).themeId,theme.id);await assertCard(p,'fr');assert.deepEqual(await known(p,pair),[id]);
+   assert.deepEqual((await reviews(p)).map(row=>row.id),[deferred]);
+   report.cases.push({name:'next-review-audio-persistence-and-old-theme-review',width,known:id,deferred,sourceAudio:audioUrl.pathname+audioUrl.search,themeCards:theme.phraseIds.length});
+   console.log('German progress '+width+' PASS');
   }finally{await f.close();}}
  },
  'german-paid-access-and-native-rejection':async()=>{
-  for(const paid of[false,true]){const pair='fr-de',f=await fixture({pair,level:2,paid});try{const p=f.page;await ready(p,{pair,level:2});assert.equal((await state(p)).access.paid,paid);const tile=p.locator('#mgThemeGrid .mg-theme:visible').first();if(!paid){assert.equal(await tile.getAttribute('data-access'),'paid');await tile.click();await p.waitForURL(u=>u.pathname==='/app.html');const u=new URL(p.url());assert.equal(u.searchParams.get('courseReturn'),pair);assert.equal(u.searchParams.get('courseLevel'),'2');assert.deepEqual(await known(p,pair),[]);}else{await tile.click();await ready(p,{pair,level:2,screen:'sequences'});await p.locator('#mgSequences .mg-sequence:visible').first().click();await ready(p,{pair,level:2,screen:'lesson'});await assertCard(p,'fr');assert.equal((await state(p)).phraseId,firstId(2));}report.cases.push({name:'german-level2-rights',paid});}finally{await f.close();}}
+  for(const paid of[false,true]){const pair='fr-de',f=await fixture({pair,level:2,paid});try{const p=f.page;await ready(p,{pair,level:2});assert.equal((await state(p)).access.paid,paid);const tile=p.locator('#mgThemeGrid .mg-theme:visible').first();if(!paid){assert.equal(await tile.getAttribute('data-access'),'paid');await tile.click();await p.waitForURL(u=>u.pathname==='/app.html');const u=new URL(p.url());assert.equal(u.searchParams.get('courseReturn'),pair);assert.equal(u.searchParams.get('courseLevel'),'2');assert.deepEqual(await known(p,pair),[]);}else{await enterTheme(p,pair,2);await assertCard(p,'fr');assert.equal((await state(p)).phraseId,firstId(2));}report.cases.push({name:'german-level2-rights',paid});}finally{await f.close();}}
   for(const pair of['de-fr','de-de']){const f=await fixture({pair,native:'fr'});try{const p=f.page;await p.locator('#mgRetry').waitFor({state:'visible'});assert.equal((await state(p)).pairId,null);assert.equal(await p.locator('#mgRetry').textContent(),'Choisir mes langues');assert.deepEqual(await known(p,pair),[]);report.cases.push({name:'invalid-german-native-rejected',pair});}finally{await f.close();}}
  },
  'confirmed-german-login-return':async()=>{

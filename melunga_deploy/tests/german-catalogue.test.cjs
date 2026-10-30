@@ -12,6 +12,7 @@ const ROOT = path.resolve(__dirname, '../..');
 const WEB = path.join(ROOT, 'melunga_deploy');
 const BASE = '541afb7';
 const SOURCE = 'tools/maquette-guidee/imports/de-deck-v3.1.json';
+const THEMES = 'tools/maquette-guidee/imports/de-themes-v1.json';
 const SOURCE_SHA = '49d6f1cd3b2a44b4ab4efcbae4c5f58988ebc7e142ebb74b1505d4ce9e39d789';
 const NATIVES = ['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko'];
 const MEANING = {fr:'frm', en:'en', es:'esm', it:'itm', zh:'cn', ja:'jam', ko:'kom'};
@@ -23,6 +24,7 @@ const plain = value => JSON.parse(JSON.stringify(value));
 const historic = file => execFileSync('git', ['show', BASE + ':' + file], {cwd:ROOT, maxBuffer:40 * 1024 * 1024});
 const sourceBytes = read(SOURCE), original = JSON.parse(sourceBytes);
 const bank = json('melunga_deploy/content/native-catalogue/de.json');
+const editorial = json(THEMES);
 const manifest = json('melunga_deploy/content/native-catalogue/manifest.json');
 const oldManifest = JSON.parse(historic('melunga_deploy/content/native-catalogue/manifest.json'));
 const id = index => 'catalogue:de:' + index;
@@ -34,7 +36,7 @@ function fixture({hostname = 'melunga.com', paid = false, mutate} = {}) {
     location:{hostname, protocol:'https:', origin:'https://' + hostname},
     localStorage:{getItem:key => storage.get(key) ?? null, setItem:(key, value) => storage.set(key, String(value))},
     dispatchEvent:() => {}, addEventListener:() => {},
-    MelungaCourseI18n:{t:(locale, text) => locale + ':' + text, theme:() => {throw Error('German neutral title uses an existing UI key');},
+    MelungaCourseI18n:{t:(locale, text) => locale + ':' + text, theme:(locale, text) => locale + ':' + text,
       levelTitle:(locale, level) => locale + ':L' + level, languageName:(locale, study) => locale + ':' + study,
       format:(locale, key, values) => locale + ':' + key + ':' + values.n},
     fetch:async (file, options) => {
@@ -86,21 +88,91 @@ test('seven old banks, 78 reviewed runtime documents, rights and all old matrice
   for (const [key, value] of Object.entries(oldManifest.policies)) assert.deepEqual(manifest.policies[key], value, key);
 });
 
-test('one neutral rubric per original level preserves active order and all 75 template reserves', () => {
+test('semantic photo themes partition all source cards and retain original order within each theme', () => {
   const seen = [];
+  assert.equal(editorial.placements.length, 4519);
+  assert.deepEqual(editorial.placements.map(row => row.index), original.map((_, index) => index));
   for (let level = 1; level <= 10; level++) {
-    const row = bank.levels[level - 1];assert.equal(row.level, level);assert.equal(row.themes.length, 1);
-    const theme = row.themes[0];assert.equal(theme.title, 'Toutes les leçons');assert.equal(theme.titleSource, 'interface');
-    assert.equal(theme.photo.asset, 'assets/theme-scenes.webp');assert.ok(fs.existsSync(path.join(WEB, theme.photo.asset)));
-    assert.deepEqual(theme.phraseIds, original.flatMap((card, index) => card.lv === level && card.cat !== 'template' ? [id(index)] : []));
+    const row = bank.levels[level - 1];assert.equal(row.level, level);assert.ok(row.themes.length >= 8);
+    assert.equal(new Set(row.themes.map(theme => theme.id)).size, row.themes.length);
+    for (const theme of row.themes) {
+      assert.notEqual(theme.id, 'all-lessons');assert.notEqual(theme.title, 'Toutes les leçons');
+      assert.equal(theme.id, level === 1 && !theme.domain.startsWith('vocab-') && theme.domain !== 'nombres'
+        ? theme.domain : 'L' + level + '-' + theme.domain, 'theme identities follow the existing language catalogue');
+      assert.ok(theme.title.length > 0);assert.ok(fs.existsSync(path.join(WEB, theme.photo.asset)));
+      assert.ok(['situations', 'vocabulary'].includes(theme.section));
+      const wanted = editorial.placements.filter(placement => original[placement.index].lv === level
+        && !placement.isTemplate && placement.domain === theme.domain).map(placement => id(placement.index));
+      assert.ok(wanted.length > 0);assert.deepEqual(theme.phraseIds, wanted, 'original source order inside ' + theme.id);
+      assert.equal(theme.section, theme.domain.startsWith('vocab-') || theme.domain === 'nombres' ? 'vocabulary' : 'situations');
+      seen.push(...theme.phraseIds);
+    }
     assert.deepEqual(row.reserveIds, original.flatMap((card, index) => card.lv === level && card.cat === 'template' ? [id(index)] : []));
-    seen.push(...theme.phraseIds, ...row.reserveIds);
+    seen.push(...row.reserveIds);
   }
   assert.equal(new Set(seen).size, 4519);assert.equal(seen.length, 4519);
   original.forEach((card, index) => {
-    const reserved = card.cat === 'template', location = bank.locations[index];
-    assert.deepEqual(location, [card.lv, reserved ? null : 'all-lessons', reserved ? 'incomplete' : card.cat === 'vocab' ? 'vocabulary' : 'utterance', null, reserved, null]);
+    const placement = editorial.placements[index], reserved = card.cat === 'template';
+    const theme = bank.levels[card.lv - 1].themes.find(row => row.domain === placement.domain);
+    assert.equal(placement.isTemplate, reserved);
+    assert.deepEqual(bank.locations[index], [card.lv, reserved ? null : theme.id, placement.contentType,
+      placement.lexicalClass, reserved, null]);
   });
+  assert.equal(bank.levels[0].themes[0].id, 'saluer');
+  assert.equal(bank.levels[0].themes[0].phraseIds.length, 31, 'the first German lesson is a focused greeting theme');
+  const photos = ['saluer','repas','deplacements'].map(domain => {
+    const theme = bank.levels[0].themes.find(row => row.domain === domain);assert.ok(theme);
+    return JSON.stringify(theme.photo);
+  });
+  assert.equal(new Set(photos).size, 3, 'greetings, restaurant and travel use different photo scenes');
+});
+
+test('German meanings independently distinguish situations, lexical units, numbers and unfinished templates', () => {
+  const examples = [
+    ['Hallo!', 'saluer', 'utterance', null],
+    ['Ich verstehe nicht.', 'comprendre', 'utterance', null],
+    ['Die Rechnung, bitte.', 'repas', 'utterance', null],
+    ['Wo ist der Bahnhof?', 'deplacements', 'utterance', null],
+    ['Ich habe Hunger.', 'ressentis', 'utterance', null],
+    ['mein Vater', 'vocab-personnes', 'vocabulary', 'other'],
+    ['zwölf', 'nombres', 'number', null],
+    ['Der Film war gut; die Musik war aber zu laut.', 'decrire', 'utterance', null],
+    ['Ich möchte einen Tisch für zwei Personen reservieren.', 'repas', 'utterance', null],
+    ['Ich fahre morgen mit dem Zug nach Berlin.', 'deplacements', 'utterance', null],
+    ['Rufen Sie einen Krankenwagen!', 'ressentis', 'utterance', null],
+    ['Der Vertrag ist unterschriftsreif.', 'travail', 'utterance', null]
+  ];
+  for (const [german, domain, contentType, lexicalClass] of examples) {
+    const index = original.findIndex(card => card.t === german);assert.ok(index >= 0, german);
+    const card = original[index], theme = bank.levels[card.lv - 1].themes.find(row => row.phraseIds.includes(id(index)));
+    assert.ok(theme, german);assert.equal(theme.domain, domain, german);
+    assert.equal(bank.locations[index][2], contentType, german);assert.equal(bank.locations[index][3], lexicalClass, german);
+  }
+  assert.equal(original.find(card => card.t === 'Der Film war gut; die Musik war aber zu laut.').cat, 'vocab',
+    'a complete German utterance is classified by meaning even when its source category says vocab');
+  const index = original.findIndex(card => card.t === 'Es würde mich freuen, wenn …');assert.ok(index >= 0);
+  assert.deepEqual(bank.locations[index], [7, null, 'incomplete', null, true, null]);
+});
+
+test('all 240 German theme definitions resolve through the seven real interface dictionaries', () => {
+  const context = vm.createContext({});context.window = context;
+  vm.runInContext(read('melunga_deploy/course-i18n.js').toString(), context, {filename:'course-i18n.js'});
+  const dictionary = context.MelungaCourseI18n;
+  assert.deepEqual(plain(dictionary.locales), NATIVES);
+  let definitions = 0, translations = 0;
+  for (const [level, themes] of Object.entries(editorial.levelThemes)) for (const [domain, definition] of Object.entries(themes)) {
+    definitions++;
+    for (const native of NATIVES) {
+      const label = native + '/L' + level + '/' + domain;
+      let title;
+      assert.doesNotThrow(() => {title = dictionary.theme(native, definition.title);}, label);
+      assert.equal(typeof title, 'string', label);assert.ok(title.trim().length > 0, label);
+      if (native === 'fr') assert.doesNotMatch(title, /[\u3400-\u9fff]/, label + ' has a French title');
+      translations++;
+    }
+  }
+  assert.equal(definitions, 240, 'unused definitions are checked alongside populated themes');
+  assert.equal(translations, 1680);
 });
 
 test('German is a target for the seven existing native languages, with original L1 access only', async () => {
@@ -131,13 +203,14 @@ test('all 70 German level views project exact native meaning and phonetic fields
     for (let level = 1; level <= 10; level++) {
       const {pair, sourcePhraseMap, referenceMap} = await api.loadPair(native + '-de', level);
       assert.equal(sourcePhraseMap.size, 4519);assert.equal(referenceMap.size, 0);
-      assert.equal(pair.themes.length, 1);assert.equal(pair.themes[0].title, native + ':Toutes les leçons');
+      assert.equal(pair.themes.length, bank.levels[level - 1].themes.length);
       const expectedActive = original.flatMap((card, index) => card.lv === level && card.cat !== 'template' ? [id(index)] : []);
-      assert.deepEqual(plain(pair.themes[0].phrases.map(model => model.id)), expectedActive);
+      const activeModels = pair.themes.flatMap(theme => theme.phrases);
+      assert.deepEqual(plain(activeModels.map(model => model.id)).sort(), [...expectedActive].sort());
       assert.equal(pair.totalPhrases, expectedActive.length);
       assert.equal(pair.totalCanonicalPhrases, original.filter(card => card.lv === level).length);
       assert.equal(pair.reservedPhrases, original.filter(card => card.lv === level && card.cat === 'template').length);
-      const rows = [...pair.themes[0].phrases, ...pair.reserve];
+      const rows = [...activeModels, ...pair.reserve];
       for (const model of rows) {
         const index = Number(model.id.split(':')[2]), card = original[index];
         assert.equal(model.study, card.t);assert.equal(model.native, card[MEANING[native]]);
@@ -150,8 +223,16 @@ test('all 70 German level views project exact native meaning and phonetic fields
         assert.equal(model.phoneticMode, ['ja','ko'].includes(native) ? 'english-fallback' : 'native-source');
         assert.equal(Object.hasOwn(model.source, 'decksLiteralSha256'), false);
       }
-      const production = pair.themes[0].sequences.flatMap(sequence => sequence.phraseIds);
-      assert.deepEqual(plain(production), expectedActive);
+      const production = [];
+      for (const theme of pair.themes) {
+        const definition = bank.levels[level - 1].themes.find(row => row.id === theme.id);assert.ok(definition);
+        assert.equal(theme.title, native + ':' + definition.title);
+        assert.deepEqual(plain(theme.phrases.map(model => model.id)), definition.phraseIds);
+        const sequenceIds = theme.sequences.flatMap(sequence => sequence.phraseIds);
+        assert.deepEqual(plain(sequenceIds), definition.phraseIds, 'prepared groups keep original order inside ' + theme.id);
+        production.push(...sequenceIds);
+      }
+      assert.deepEqual(plain(production).sort(), [...expectedActive].sort());
       for (const model of pair.reserve) assert.equal(production.includes(model.id), false);
       active += pair.totalPhrases;reserved += pair.reservedPhrases;
     }
@@ -167,7 +248,7 @@ test('production, paid and preview access use the existing account contract and 
     await f.api.ensureRights();await access.initialize();
     for (const native of NATIVES) for (const level of [1,2]) {
       const {pair} = await f.api.loadPair(native + '-de', level);
-      assert(pair.themes[0].phrases.every(model => access.canLearn(pair.id, model, level) === (level === 1 || higherAllowed)));
+      assert(pair.themes.every(theme => theme.phrases.every(model => access.canLearn(pair.id, model, level) === (level === 1 || higherAllowed))));
       assert.equal(access.canLearn(pair.id, {...pair.themes[0].phrases[0], id:'catalogue:de:99999'}, level), false);
     }
     assert.equal(access.canLearn('de-fr', {id:'catalogue:fr:0', editorialLevel:1}, 1), false);

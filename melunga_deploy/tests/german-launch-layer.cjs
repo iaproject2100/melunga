@@ -1,4 +1,6 @@
 /* Exact German launch delta above the approved 541afb7 edition.
+ * The user-approved thematic follow-up adds placement metadata only; its
+ * accepted German card import remains independently pinned and verbatim.
  * A historical source view is available only after the complete current tuple,
  * unchanged product files, and live content/auth/progress invariants pass.
  * Functional tests load the current product files directly. */
@@ -11,7 +13,7 @@ const {execFileSync} = require('node:child_process');
 const ROOT = path.resolve(__dirname, '../..');
 const BASE = '541afb7f67b499130af60211e72a8614bdaaf31d';
 const FIXTURE = 'melunga_deploy/tests/fixtures/german-launch-layer.json';
-const FIXTURE_SHA256 = 'dbc9e4ec41d2c724b691afa8af0e96afdb0feedfd65cba5eb70fe6c67ac7b90a';
+const FIXTURE_SHA256 = '694320d6d55fa53c3145a4c4084972db59be5c0fe6eaf9ad199dc9446d37770f';
 // BEGIN FINITE GERMAN PATHS — written by seal_german_launch_layer.cjs.
 const MODIFIED = Object.freeze([
   "melunga_deploy/app.html",
@@ -44,7 +46,8 @@ const MODIFIED = Object.freeze([
 ]);
 const ADDED = Object.freeze([
   "melunga_deploy/content/native-catalogue/de.json",
-  "tools/maquette-guidee/imports/de-deck-v3.1.json"
+  "tools/maquette-guidee/imports/de-deck-v3.1.json",
+  "tools/maquette-guidee/imports/de-themes-v1.json"
 ]);
 // END FINITE GERMAN PATHS
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
@@ -104,6 +107,11 @@ function sourceFunction(source, name) {
   throw Error('Unclosed source function '+name);
 }
 function assertInvariants() {
+  const germanSource=actual('tools/maquette-guidee/imports/de-deck-v3.1.json');
+  assert.equal(sha(germanSource),'49d6f1cd3b2a44b4ab4efcbae4c5f58988ebc7e142ebb74b1505d4ce9e39d789','accepted German card import stays byte exact');
+  const germanCards=JSON.parse(germanSource);
+  assert.equal(germanCards.length,4519,'all accepted German cards are retained');
+  assert.deepEqual(JSON.parse(actual('melunga_deploy/content/native-catalogue/de.json')).cards,germanCards,'German thematic placement preserves every original card field and source order');
   const appPath='melunga_deploy/app.html', jsPath='melunga_deploy/maquette-guidee.js';
   const app=actual(appPath).toString(), oldApp=baseline(appPath).toString();
   for (const name of ['DECKS','PEDAGOGY_FAMILIES']) {
@@ -116,7 +124,7 @@ function assertInvariants() {
   const progress=['collectLevelProgressIds','levelProgress','loadKnownCards','saveKnownCard','saveCardDecision','markKnown','markForReview','validateNextPhrase'];
   const js=actual(jsPath).toString(), oldJs=baseline(jsPath).toString();
   for (const name of progress) assert.equal(sourceFunction(js,name),sourceFunction(oldJs,name),'actual progress function unchanged by German launch: '+name);
-  return {classicAuthFunctions:auth,progressFunctions:progress};
+  return {germanSourceCards:germanCards.length,classicAuthFunctions:auth,progressFunctions:progress};
 }
 function inputFiles() {
   const f=fixture();

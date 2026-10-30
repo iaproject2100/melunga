@@ -22,6 +22,8 @@ LANGUAGES = ('fr', 'en', 'es', 'it', 'zh', 'ja', 'ko')
 STUDY_LANGUAGES = LANGUAGES + ('de',)
 GERMAN_SOURCE = 'tools/maquette-guidee/imports/de-deck-v3.1.json'
 GERMAN_SOURCE_SHA256 = '49d6f1cd3b2a44b4ab4efcbae4c5f58988ebc7e142ebb74b1505d4ce9e39d789'
+GERMAN_PLACEMENTS = 'tools/maquette-guidee/imports/de-themes-v1.json'
+GERMAN_PLACEMENTS_SHA256 = '48d8125233e7159ad267550d2e61ccc2c99fb6d90fd78538bf54fcf74776a0cf'
 GERMAN_FIELDS = {'t', 'py', 'pf', 'ps', 'pi', 'phon', 'cn', 'en', 'frm', 'esm', 'itm', 'jam', 'kom', 'lv', 'cat'}
 REVIEWED = ('fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr')
 PAIRS = tuple(f'{native}-{study}' for native in LANGUAGES for study in STUDY_LANGUAGES if native != study)
@@ -99,11 +101,10 @@ def source_paths():
 
 
 def german_bank(root):
-    """Place the accepted import without inventing a semantic curriculum.
+    """Apply the reviewed thematic placements without changing accepted cards.
 
-    The source has levels and categories, but no theme assignments. One neutral
-    existing interface label per level preserves its complete active order.
-    Open templates remain in the canonical reserve, as for the existing banks.
+    Themes reuse the existing curriculum labels and photographs. Source IDs,
+    levels and whole card fields stay fixed; order is stable within each theme.
     """
     raw = (root / GERMAN_SOURCE).read_bytes()
     require(sha(raw) == GERMAN_SOURCE_SHA256, 'German v3.1 import fingerprint differs')
@@ -115,25 +116,54 @@ def german_bank(root):
                 and card['cat'] in ('core', 'vocab', 'template', 'basics', 'bonus')
                 and all(isinstance(value, str) and value.strip() for key, value in card.items() if key != 'lv'),
                 'invalid original German source block')
+    placement_raw = (root / GERMAN_PLACEMENTS).read_bytes()
+    require(sha(placement_raw) == GERMAN_PLACEMENTS_SHA256, 'German thematic placement fingerprint differs')
+    placement = json.loads(placement_raw)
+    require(placement.get('version') == 1 and placement.get('id') == 'german-reviewed-theme-placements'
+            and placement.get('sourcePath') == GERMAN_SOURCE and placement.get('sourceSha256') == GERMAN_SOURCE_SHA256,
+            'German thematic source differs')
+    rows = placement.get('placements')
+    require(isinstance(rows, list) and len(rows) == len(cards), 'German placements are not exhaustive')
+    definitions = placement.get('levelThemes')
+    require(isinstance(definitions, dict) and set(definitions) == {str(level) for level in range(1, 11)},
+            'German thematic levels differ')
     locations, levels = [], []
-    for card in cards:
-        reserve = card['cat'] == 'template'
-        kind = 'incomplete' if reserve else 'vocabulary' if card['cat'] == 'vocab' else 'utterance'
-        locations.append([card['lv'], None if reserve else 'all-lessons', kind, None, reserve, None])
+    classes = {'adjective', 'adverb', 'color', 'other', 'preposition', 'uncertain'}
+    for index, (card, row) in enumerate(zip(cards, rows)):
+        require(isinstance(row, dict) and set(row) == {'index', 'domain', 'contentType', 'lexicalClass', 'isTemplate'}
+                and type(row['index']) is int and row['index'] == index
+                and type(row['isTemplate']) is bool and row['isTemplate'] == (card['cat'] == 'template'),
+                'German placement identity or template differs')
+        domain, kind, lexical, reserve = row['domain'], row['contentType'], row['lexicalClass'], row['isTemplate']
+        require((reserve and domain is None and kind == 'incomplete' and lexical is None)
+                or (not reserve and isinstance(domain, str) and domain in definitions[str(card['lv'])]
+                    and kind in ('utterance', 'vocabulary', 'number')
+                    and (lexical in classes if kind == 'vocabulary' else lexical is None)),
+                'German thematic type or domain differs')
+        definition = None if reserve else definitions[str(card['lv'])][domain]
+        locations.append([card['lv'], None if reserve else definition['id'], kind, lexical, reserve, None])
     for level in range(1, 11):
-        active = [f'catalogue:de:{index}' for index, card in enumerate(cards)
-                  if card['lv'] == level and card['cat'] != 'template']
+        themes = []
+        for domain, definition in definitions[str(level)].items():
+            active = [f'catalogue:de:{index}' for index, card in enumerate(cards)
+                      if card['lv'] == level and rows[index]['domain'] == domain]
+            if not active:
+                continue
+            require(definition['domain'] == domain and isinstance(definition['title'], str)
+                    and definition['section'] in ('situations', 'vocabulary')
+                    and isinstance(definition['photo'], dict)
+                    and (root / 'melunga_deploy' / definition['photo']['asset']).is_file(),
+                    'German theme metadata or photograph differs')
+            themes.append({**definition, 'phraseIds': active})
         reserved = [f'catalogue:de:{index}' for index, card in enumerate(cards)
                     if card['lv'] == level and card['cat'] == 'template']
-        levels.append({'level': level, 'sourceTitle': 'L' + str(level), 'themes': [{
-            'id': 'all-lessons', 'title': 'Toutes les leçons', 'titleSource': 'interface',
-            'domain': 'conversation', 'section': 'situations', 'visualId': 'conversation',
-            'photo': {'asset': 'assets/theme-scenes.webp', 'column': 2, 'row': 2, 'columns': 3, 'rows': 4},
-            'optional': False, 'isTemplateCollection': False, 'phraseIds': active}], 'reserveIds': reserved})
+        require(len(themes) > 1, 'German level must expose meaningful thematic choices')
+        levels.append({'level': level, 'sourceTitle': 'L' + str(level), 'themes': themes, 'reserveIds': reserved})
     return {'version': 1, 'id': 'native-catalogue-de', 'studyLanguage': 'de', 'reviewedPairId': None,
             'sourceType': 'validated-import', 'importedSourcePath': GERMAN_SOURCE,
             'importedSourceSha256': GERMAN_SOURCE_SHA256, 'sourceDeckSha256': sha(canonical(cards)),
-            'placementPolicy': 'source-level-and-order; one neutral interface rubric; templates reserved',
+            'placementPolicy': placement['policy'], 'placementSourcePath': GERMAN_PLACEMENTS,
+            'placementSourceSha256': GERMAN_PLACEMENTS_SHA256,
             'cards': cards,
             'locationFields': ['editorialLevel', 'themeId', 'contentType', 'lexicalClass', 'isTemplate', 'lexicalConceptId'],
             'locations': locations, 'levels': levels}
@@ -269,7 +299,8 @@ def make(root):
         'bytes': len(outputs[imported_path]), 'sourceCardCount': len(cards),
         'activeCatalogueCount': len(cards) - reserved, 'reservedCatalogueCount': reserved,
         'excludedModernExtraCount': 0, 'reviewedPairId': None, 'sourceType': 'validated-import',
-        'importedSourcePath': GERMAN_SOURCE, 'importedSourceSha256': GERMAN_SOURCE_SHA256}
+        'importedSourcePath': GERMAN_SOURCE, 'importedSourceSha256': GERMAN_SOURCE_SHA256,
+        'placementSourcePath': GERMAN_PLACEMENTS, 'placementSourceSha256': GERMAN_PLACEMENTS_SHA256}
     eligible = list(range(len(cards)));free = [index for index, card in enumerate(cards) if card['lv'] == 1]
     for native in LANGUAGES:
         pair = native + '-de';primary = PHON_FIELDS[native]
