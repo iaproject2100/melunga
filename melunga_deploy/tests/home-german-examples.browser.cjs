@@ -87,11 +87,22 @@ async function fixture(locale='fr',width=1366,height=900) {
   return {page,context,requests};
 }
 
-test('German stays fourth among seven homepage examples in all eight site languages and reads the exact source card',async () => {
+test('Twelve homepage examples follow the requested order in all eight site languages and German keeps its exact source card',async () => {
   assert.equal(GERMAN.t,'Können Sie mir helfen?');
   for(const locale of Object.keys(NAMES)){
     const f=await fixture(locale);try{
-      const p=f.page;assert.deepEqual(await p.locator('[data-dh-example]').evaluateAll(ns=>ns.map(n=>n.dataset.dhExample)),['en','es','zh','de','it','ja','ko']);
+      const p=f.page;assert.deepEqual(await p.locator('[data-dh-example]').evaluateAll(ns=>ns.map(n=>n.dataset.dhExample)),["en","zh","ar","hi","ru","fr","es","pt","ja","ko","de","it"]);
+      const originalNote=await p.locator('.dh-example-note').textContent();
+      for (const code of ['en','zh','ar','hi','ru','fr','es','pt','ja','ko','de','it']) {
+        await p.locator('[data-dh-example="'+code+'"]').click();
+        assert.equal(await p.locator('.dh-phrase').getAttribute('lang'),code);
+        assert.ok((await p.locator('.dh-phrase').textContent()).trim());
+        assert.equal(await p.locator('.dh-phonetic-area').isVisible(),code!=='fr');
+      }
+      await p.locator('[data-dh-example="fr"]').click();
+      assert.equal(await p.locator('.dh-phrase').textContent(),'Merci.');
+      await p.locator('[data-dh-example="en"]').click();
+      assert.equal(await p.locator('.dh-example-note').textContent(),originalNote);
       assert.equal(await p.locator('[data-dh-example-name="de"]').textContent(),NAMES[locale]);
       assert.equal(await p.locator('.dh-language option[value="de"]').count(),1,'German remains available as the published site locale');
       assert.equal(await p.locator('.dh-languages .home-flag-de').count(),1);
@@ -143,6 +154,12 @@ test('mobile welcome keeps bubbles, green example and the existing single-Englis
     const legacy=await p.evaluate(()=>{applyLanguageSample('Allemand');return{phrase:document.querySelector('[data-target-phrase]').textContent,
       phon:document.querySelector('[data-phonetic-text]').textContent,meaning:document.querySelector('[data-translated-phrase]').textContent};});
     assert.deepEqual(legacy,{phrase:GERMAN.t,phon:GERMAN.pf,meaning:GERMAN.frm});
+    await p.evaluate(()=>go('language'));
+    await p.locator('[data-screen="language"].active').waitFor();
+    const order=['en','zh','ar','hi','ru','fr','es','pt','ja','ko','de','it'];
+    assert.deepEqual(await p.locator('[data-study-language]').evaluateAll(ns=>ns.map(n=>n.dataset.studyLanguage)),order);
+    assert.deepEqual(await p.locator('[data-study-language]:visible').evaluateAll(ns=>ns.map(n=>n.dataset.studyLanguage)),order.filter(c=>c!=='fr'));
+    const shot=path.join(OUT,'mobile-language-order.png');await p.screenshot({path:shot,animations:'disabled'});report.screenshots.push(shot);
     report.cases.push({name:'mobile-presentation-preserved',width:390,height:844});
   }finally{await f.context.close();}
 });

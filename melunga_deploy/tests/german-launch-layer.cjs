@@ -13,7 +13,7 @@ const {execFileSync} = require('node:child_process');
 const ROOT = path.resolve(__dirname, '../..');
 const BASE = '541afb7f67b499130af60211e72a8614bdaaf31d';
 const FIXTURE = 'melunga_deploy/tests/fixtures/german-launch-layer.json';
-const FIXTURE_SHA256 = '11805e28762817e66041b9da81a5aa64ea1ca4208f72ca7b39dea4871a4b2b50';
+const FIXTURE_SHA256 = 'b95fd70fc04ded0c58921bfcd342f9a78e8e408f072b904fe5c579f5d9f9b311';
 // BEGIN FINITE GERMAN PATHS — written by seal_german_launch_layer.cjs.
 const MODIFIED = Object.freeze([
   "melunga_deploy/account-ui.js",
