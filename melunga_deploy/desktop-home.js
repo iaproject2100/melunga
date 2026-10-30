@@ -491,11 +491,11 @@
     ko:['사이트 언어','예문 언어']
   };
   const exampleNames = {
-    de:{en:'Englisch',es:'Spanisch',zh:'Chinesisch',de:'Deutsch'},
-    fr:{en:'Anglais',es:'Espagnol',zh:'Chinois',de:'Allemand'},en:{en:'English',es:'Spanish',zh:'Chinese',de:'German'},
-    es:{en:'Inglés',es:'Español',zh:'Chino',de:'Alemán'},zh:{en:'英语',es:'西班牙语',zh:'中文',de:'德语'},
-    it:{en:'Inglese',es:'Spagnolo',zh:'Cinese',de:'Tedesco'},ja:{en:'英語',es:'スペイン語',zh:'中国語',de:'ドイツ語'},
-    ko:{en:'영어',es:'스페인어',zh:'중국어',de:'독일어'}
+    de:{en:'Englisch',es:'Spanisch',zh:'Chinesisch',de:'Deutsch',it:"Italienisch",ja:"Japanisch",ko:"Koreanisch"},
+    fr:{en:'Anglais',es:'Espagnol',zh:'Chinois',de:'Allemand',it:"Italien",ja:"Japonais",ko:"Coréen"},en:{en:'English',es:'Spanish',zh:'Chinese',de:'German',it:"Italian",ja:"Japanese",ko:"Korean"},
+    es:{en:'Inglés',es:'Español',zh:'Chino',de:'Alemán',it:"Italiano",ja:"Japonés",ko:"Coreano"},zh:{en:'英语',es:'西班牙语',zh:'中文',de:'德语',it:"意大利语",ja:"日语",ko:"韩语"},
+    it:{en:'Inglese',es:'Spagnolo',zh:'Cinese',de:'Tedesco',it:"Italiano",ja:"Giapponese",ko:"Coreano"},ja:{en:'英語',es:'スペイン語',zh:'中国語',de:'ドイツ語',it:"イタリア語",ja:"日本語",ko:"韓国語"},
+    ko:{en:'영어',es:'스페인어',zh:'중국어',de:'독일어',it:"이탈리아어",ja:"일본어",ko:"한국어"}
   };
   const flag = code => `<span class="home-flag home-flag-${code}" aria-hidden="true"></span>`;
   const root = document.createElement('main');
@@ -523,7 +523,7 @@
     <header class="dh-container dh-header"><a class="dh-brand" href="#"><img src="assets/melunga-logo.png" alt="">Melunga</a><nav class="dh-nav" aria-label="Melunga"><a href="#dh-method">${tr(35)}</a><a href="#dh-pricing">${tr(31)}</a><label class="dh-language-picker"><span class="home-flag home-flag-fr" data-dh-native-flag aria-hidden="true"></span><select class="dh-language" aria-label="Langue du site">${Object.entries(appLanguageNames).map(([code,name])=>`<option value="${code}">${name}</option>`).join('')}</select><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg></label><button type="button" class="dh-button dh-small dh-primary dh-header-free" data-dh-free>${tr(3)}</button><button class="dh-button dh-small dh-outline" data-go="signin">${tr(30)}</button></nav></header>
     <div class="dh-container">
       <section class="dh-hero" aria-labelledby="dh-title"><div><p class="dh-kicker">${tr(0)}</p><h1 class="dh-title" id="dh-title"></h1><p class="dh-intro">${tr(2)}</p><div class="dh-actions"><button class="dh-button dh-primary" data-dh-free>${tr(3)} <span aria-hidden="true">&rarr;</span></button><a class="dh-button dh-outline" href="#dh-method">${tr(4)}</a></div><p class="dh-fine"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10 3 3 7-7"/></svg>${tr(5)}</p></div>
-      <aside class="dh-example"><div class="dh-example-top"><b>${tr(6)}</b><span>L1</span></div><div class="dh-tabs" role="group" aria-label="Langue de l’exemple"><button class="dh-tab" data-dh-example="en" aria-pressed="true">${flag('en')}<span data-dh-example-name="en">English</span></button><button class="dh-tab" data-dh-example="es" aria-pressed="false">${flag('es')}<span data-dh-example-name="es">Español</span></button><button class="dh-tab" data-dh-example="zh" aria-pressed="false">${flag('zh')}<span data-dh-example-name="zh">中文</span></button><button class="dh-tab" data-dh-example="de" aria-pressed="false">${flag('de')}<span data-dh-example-name="de">Deutsch</span></button></div><div class="dh-card"><p class="dh-card-tag">${tr(7)}</p><p class="dh-phrase" lang="en"></p><div class="dh-phonetic-area"><p class="dh-trial-prompt"><span class="dh-action-step">1</span>${tr(49)}</p><div class="dh-phonetic-row"><p class="dh-phonetic" lang="fr"></p><button type="button" class="dh-ear" data-dh-listen aria-label="Écouter et comparer"><span aria-hidden="true">👂</span></button></div></div><p class="dh-translation" lang="fr"></p><button type="button" class="dh-listen" data-dh-listen><span class="dh-action-step">2</span>${tr(8)}</button></div><p class="dh-example-note" aria-live="polite">${tr(9)}</p></aside></section>
+      <aside class="dh-example"><div class="dh-example-top"><b>${tr(6)}</b><span>L1</span></div><div class="dh-tabs" role="group" aria-label="Langue de l’exemple"><button class="dh-tab" data-dh-example="en" aria-pressed="true">${flag('en')}<span data-dh-example-name="en">English</span></button><button class="dh-tab" data-dh-example="es" aria-pressed="false">${flag('es')}<span data-dh-example-name="es">Español</span></button><button class="dh-tab" data-dh-example="zh" aria-pressed="false">${flag('zh')}<span data-dh-example-name="zh">中文</span></button><button class="dh-tab" data-dh-example="de" aria-pressed="false">${flag('de')}<span data-dh-example-name="de">Deutsch</span></button><button class="dh-tab" data-dh-example="it" aria-pressed="false">${flag('it')}<span data-dh-example-name="it">Italiano</span></button><button class="dh-tab" data-dh-example="ja" aria-pressed="false">${flag('ja')}<span data-dh-example-name="ja">日本語</span></button><button class="dh-tab" data-dh-example="ko" aria-pressed="false">${flag('ko')}<span data-dh-example-name="ko">한국어</span></button></div><div class="dh-card"><p class="dh-card-tag">${tr(7)}</p><p class="dh-phrase" lang="en"></p><div class="dh-phonetic-area"><p class="dh-trial-prompt"><span class="dh-action-step">1</span>${tr(49)}</p><div class="dh-phonetic-row"><p class="dh-phonetic" lang="fr"></p><button type="button" class="dh-ear" data-dh-listen aria-label="Écouter et comparer"><span aria-hidden="true">👂</span></button></div></div><p class="dh-translation" lang="fr"></p><button type="button" class="dh-listen" data-dh-listen><span class="dh-action-step">2</span>${tr(8)}</button></div><p class="dh-example-note" aria-live="polite">${tr(9)}</p></aside></section>
       <div class="dh-languages" aria-label="8 languages">${Object.entries(studyLanguageNames).map(([code,name])=>`<span class="dh-language-tag">${flag(code)}${name}</span>`).join('')}</div>
       <section class="dh-method" id="dh-method" aria-labelledby="dh-method-title"><p class="dh-section-label">${tr(10)}</p><h2 class="dh-section-title" id="dh-method-title">${tr(11)}</h2><div class="dh-steps">${[12,14,16].map((i,n)=>`<article class="dh-step"><span>0${n+1}</span><h3>${tr(i)}</h3><p>${tr(i+1)}</p></article>`).join('')}</div></section>
       <section class="dh-pricing-wrap" id="dh-pricing" aria-labelledby="dh-pricing-title">
@@ -542,6 +542,12 @@
     en: {text:'Can you help me?',phonetic:'kan you HÈLP mi',fr:'Tu peux m’aider ?',voice:'en-GB-Wavenet-C',code:'en-GB'},
     es: {text:'Necesito ayuda.',phonetic:'né-sé-SSI-to a-YOU-da',fr:'J’ai besoin d’aide.',voice:'es-ES-Wavenet-F',code:'es-ES'},
     zh: {text:'你能帮我吗？',phonetic:'ni neung bang ouo ma ?',fr:'Tu peux m’aider ?',voice:'cmn-CN-Wavenet-A',code:'cmn-CN'},
+    // Reviewed fr-it L1 source card 13: t / pf / frm, unchanged.
+    it: {text:"Ho bisogno d'acqua.",phonetic:"o bi-zo-gno dac-coua",fr:"J'ai besoin d'eau.",voice:"it-IT-Wavenet-E",code:"it-IT"},
+    // Reviewed fr-ja L1 source card 18: t / pf / frm, unchanged.
+    ja: {text:"わかります。",phonetic:"oua-ka-ri-ma-sou",fr:"Je comprends.",voice:"ja-JP-Wavenet-B",code:"ja-JP"},
+    // Reviewed fr-ko L1 source card 11: t / pf / frm, unchanged.
+    ko: {text:"이해해요.",phonetic:"i-hè-hè-yo",fr:"Je comprends.",voice:"ko-KR-Wavenet-A",code:"ko-KR"},
     // Validated German v3.1 source card 278: t / pf / frm, unchanged.
     de: {text:'Können Sie mir helfen?',phonetic:'KEU-nenn zi mir HÈL-fenn',fr:"Pouvez-vous m'aider ?",voice:'de-DE-Wavenet-A',code:'de-DE'}
   };

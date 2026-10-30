@@ -11,7 +11,7 @@ const ROOT = path.resolve(__dirname, '../..');
 const WEB = path.join(ROOT, 'melunga_deploy');
 const ORIGIN = 'https://home-german-examples.test';
 const OUT = process.env.HOME_GERMAN_REPORT_DIR || '/workspace/work/home-german-examples';
-const NAMES = {fr:'Allemand', en:'German', es:'Alemán', it:'Tedesco', zh:'德语', ja:'ドイツ語', ko:'독일어'};
+const NAMES = {fr:'Allemand', en:'German', es:'Alemán', it:'Tedesco', zh:'德语', ja:'ドイツ語', ko:'독일어', de:'Deutsch'};
 const SOURCE = JSON.parse(fs.readFileSync(path.join(ROOT, 'tools/maquette-guidee/imports/de-deck-v3.1.json')));
 const GERMAN = SOURCE[278];
 const report = {status:'running', allRequestsLocal:true, realAudioPlayed:false,
@@ -87,13 +87,13 @@ async function fixture(locale='fr',width=1366,height=900) {
   return {page,context,requests};
 }
 
-test('German is a visible fourth homepage example in all seven site languages and reads the exact source card',async () => {
+test('German stays fourth among seven homepage examples in all eight site languages and reads the exact source card',async () => {
   assert.equal(GERMAN.t,'Können Sie mir helfen?');
   for(const locale of Object.keys(NAMES)){
     const f=await fixture(locale);try{
-      const p=f.page;assert.deepEqual(await p.locator('[data-dh-example]').evaluateAll(ns=>ns.map(n=>n.dataset.dhExample)),['en','es','zh','de']);
+      const p=f.page;assert.deepEqual(await p.locator('[data-dh-example]').evaluateAll(ns=>ns.map(n=>n.dataset.dhExample)),['en','es','zh','de','it','ja','ko']);
       assert.equal(await p.locator('[data-dh-example-name="de"]').textContent(),NAMES[locale]);
-      assert.equal(await p.locator('.dh-language option[value="de"]').count(),0,'German is not invented as a site locale');
+      assert.equal(await p.locator('.dh-language option[value="de"]').count(),1,'German remains available as the published site locale');
       assert.equal(await p.locator('.dh-languages .home-flag-de').count(),1);
       assert.deepEqual(f.requests,['catalogue'],'shared voice module preloads without playing audio');
       await p.locator('[data-dh-example="de"]').click();await p.waitForFunction(()=>window.MelungaVoiceSelection.state().status==='ready');
