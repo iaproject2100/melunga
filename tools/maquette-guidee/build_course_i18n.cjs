@@ -7,7 +7,7 @@ const directory=path.join(web,'content/course-locales');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const source=read(path.join(__dirname,'course-locale-keys.json'));
 const supplements=read(path.join(directory,'supplements.json'));
-const codes=['fr','en','es','it','zh','ja','ko','de'];
+const codes=['fr','en','es','it','zh','ja','ko','de','ru','pt','ar'];
 const sameKeys=(actual,expected,label)=>assert.deepEqual(Object.keys(actual),expected,label+' complete keys');
 const tags=s=>(s.match(/<[^>]*>/g)||[]).sort();
 const placeholders=s=>(s.match(/\{[a-zA-Z][\w]*\}/g)||[]).sort();
