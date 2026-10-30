@@ -13,7 +13,7 @@ const {execFileSync} = require('node:child_process');
 const ROOT = path.resolve(__dirname, '../..');
 const BASE = '541afb7f67b499130af60211e72a8614bdaaf31d';
 const FIXTURE = 'melunga_deploy/tests/fixtures/german-launch-layer.json';
-const FIXTURE_SHA256 = 'a7cfe97146e2bf8dbfd1423ae638b32b69dd8a20fce4457f1696982ca2adfc1b';
+const FIXTURE_SHA256 = '62a65bde922b22a4ccc8d919bf5d4b26953d975884920fae92865e0596776e0e';
 // BEGIN FINITE GERMAN PATHS — written by seal_german_launch_layer.cjs.
 const MODIFIED = Object.freeze([
   "melunga_deploy/account-ui.js",
@@ -44,6 +44,7 @@ const MODIFIED = Object.freeze([
   "melunga_deploy/netlify/functions/tts.mjs",
   "melunga_deploy/parcours-niveaux.html",
   "melunga_deploy/tests/native-courses.test.cjs",
+  "melunga_deploy/voice-comparison.js",
   "melunga_deploy/voice-selection.js",
   "tools/maquette-guidee/build_course_i18n.cjs",
   "tools/maquette-guidee/build_home_i18n.cjs",

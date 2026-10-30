@@ -94,7 +94,7 @@ test('all seven German-native courses preserve source text, phonetics, placement
  assert.equal(total.levels,70);report.germanNativeCoverage=total;
 }));
 
-test('all 49 previous source models and ten-level projections remain equal apart from the manifest fingerprint',()=>checked('all-prior-49-directions-preserved',async()=>{
+test('all 49 previous source models and ten-level projections retain all fields apart from the manifest fingerprint and approved English badge',()=>checked('all-prior-49-directions-preserved',async()=>{
  const previous=fixture({baseline:true}),current=fixture(),reviewed=JSON.parse(old('content/niveaux-progressifs/manifest.json'));
  const priorPairs=plain(previous.api.pairIds);assert.equal(priorPairs.length,49);let checkedPairs=0,checkedLevels=0,checkedModels=0;
  for(const pairId of priorPairs){
@@ -104,13 +104,19 @@ test('all 49 previous source models and ten-level projections remain equal apart
   for(let level=1;level<=10;level++){
    const before=await previous.api.loadPair(pairId,level),after=await current.api.loadPair(pairId,level);
    const clean=value=>{const result=plain(value);delete result.nativeCatalogueManifestSha256;return result;};
-   assert.deepEqual(clean(after.pair),clean(before.pair),pairId+' level '+level);
+   const oldPair=clean(before.pair),currentPair=clean(after.pair);
+   if(oldPair.studyLanguage==='en'){
+    assert.equal(oldPair.flag,'🇬🇧',pairId+' historical English badge');
+    assert.equal(currentPair.flag,'🇺🇸',pairId+' user-approved English badge');
+    oldPair.flag='🇺🇸';
+   }
+   assert.deepEqual(currentPair,oldPair,pairId+' level '+level);
    if(level===1){assert.deepEqual(plain([...after.sourcePhraseMap]),plain([...before.sourcePhraseMap]),pairId+' all canonical models');checkedModels+=after.sourcePhraseMap.size;}
    checkedLevels++;
   }
   checkedPairs++;
  }
- assert.equal(checkedPairs,49);report.previousModelsPreserved={pairs:checkedPairs,derivedLevels:checkedLevels,derivedModels:checkedModels,reviewedPairs:7};
+ assert.equal(checkedPairs,49);report.previousModelsPreserved={pairs:checkedPairs,derivedLevels:checkedLevels,derivedModels:checkedModels,reviewedPairs:7,approvedPresentationChange:'English badge UK to US only'};
 }));
 
 test('German rights accept all L1 models, preserve historical free IDs, and require server-confirmed access for other L2 models',()=>checked('german-native-free-and-paid-rights',async()=>{
