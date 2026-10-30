@@ -1,0 +1,600 @@
+# Réponse à la revue du deck arabe (568 constats) — Melunga
+
+Livrables : `ar_deck_complet.json` (deck corrigé, 4 487 cartes, même ordre, mêmes `lv` et `cat`), `ar_phon.py` v3.2 (générateur actualisé), `ar_tr_map.json` (translittérations d'entrée des 4 487 cartes, pour reproduction intégrale par `GA()`).
+
+SHA-256 : deck `d70df1ac7c05797c8040768cdf0fe4dd78a784d0d517810e22332623f39e8138`, générateur `36d898bf883c06ab1f9b1e2adb07f5d6c4fe945561b9745affa9450712082b90`.
+
+## Bilan
+
+| Décision | Constats |
+|---|---:|
+| Régénéré par le générateur corrigé (phonétique) | 301 |
+| Appliqué (traduction ou texte arabe) | 261 |
+| Conservé (rapprochement inter-niveaux, répétition pédagogique) | 6 |
+| **Total** | **568** |
+
+Les 85 points « à vérifier » ont tous été arbitrés : les propositions ont été retenues, sauf les 6 rapprochements, conservés comme réexposition voulue. Deux arbitrages de sens : **AR0474/0475** (سأصل بدقة) → ponctualité (texte `أرسل الموقع وسأصل في الموعد المحدد.`, traductions alignées) ; **AR0542** (حدثوا النظم وأبقوا القيم) → lecture au passé, conforme aux traductions, translittération et cinq aides régénérées. **AR0561** : le texte proposé `ضريبة القيمة المضافة` existait déjà en L4 (vocab), la carte L10 devient `ضريبة القيمة المضافة (الضريبة المضافة)` pour éviter le doublon.
+
+## Générateur `ar_phon.py` v3.2
+
+Diagnostic confirmé : la clé interne `J` (ج) et les codes `z` (ز, ذ, ظ), `h` (ح, ه), `v` (و) et `y` (ي) n'existaient pas dans la table de coda partagée avec l'allemand ; le secours vide supprimait la consonne en fin de syllabe. Corrections, toutes dans le générateur, sans aucune valeur saisie à la main :
+
+1. Tables de coda et d'attaque propres à l'arabe (`HCODA_AR`, `HLEAD_AR`) : ج → 吉, ز/ذ/ظ → 兹, ح/ه → 赫, و → 乌, ي → 伊, r → 尔.
+2. ظ passe de `ts` à `z` (il était rendu 茨 en attaque).
+3. Gémination en coda rendue une seule fois (حظ → 哈兹, non 哈兹兹) ; glides redondantes iy / uw ignorées.
+4. Emprunts : `v`, `p`, `g` tokenisés (برافو, ميغا, القير ne perdent plus leur consonne) ; `g` rendu gu/gh devant e/i en français, espagnol et italien.
+5. Accent espagnol/italien : jamais sur le `u` de gui/qui ni le `i` de cia/gio.
+
+Effet : les cinq champs des 4 487 cartes ont été régénérés à partir des translittérations d'entrée (`ar_tr_map.json`). 1 915 cartes ont au moins un champ phonétique modifié, presque toutes sur `phon` seulement ; les guides latins ne changent que là où la translittération source a été corrigée (25 cartes : voyelle u de أحجز, ما الذي → MAL-la-dhii, الأيدي → AY-dii, شقة → SHUQ-qa, ركن → RAKN, منفتحون, ديدي بي, تربى, عد, ضعت, المهملين, et les 41 textes arabes modifiés).
+
+Conservé volontairement : ع et hamza omis (la voyelle porte), ح et ه rendus « h », emphatiques simplifiées — approximations documentées en tête du générateur.
+
+## Réponse par constat
+- **AR0001** (L1, phonétique, #24) `أحتاج إلى مساعدة.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉伊拉穆萨阿达`
+- **AR0002** (L1, phonétique, #34) `أريد سيارة أجرة.` — Régénéré par ar_phon.py v3.2 → `pi` : `u-rìd sai-ià-rat ùg-ra` ; `phon` : `乌里特赛亚拉特乌吉拉`
+- **AR0003** (L1, phonétique, #35) `أحتاج إلى طبيب.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉伊拉塔比普`
+- **AR0004** (L1, phonétique, #37) `لدي حجز باسم مريم.` — Régénéré par ar_phon.py v3.2 → `phon` : `拉代亚哈吉兹比斯米马尔亚姆`
+- **AR0005** (L1, phonétique, #40) `أنا آسفة على الإزعاج.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿纳阿西法阿拉尔伊兹阿吉`
+- **AR0006** (L1, phonétique, #49) `لا أريد أن أزعجك.` — Régénéré par ar_phon.py v3.2 → `phon` : `拉乌里特安乌兹伊贾卡`
+- **AR0007** (L1, phonétique, #63) `أحتاج إلى بعض الوقت.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉伊拉巴迪尔瓦克特`
+- **AR0008** (L1, phonétique, #77) `هل أنت جاهز؟` — Régénéré par ar_phon.py v3.2 → `pi` : `hal àn-ta già-hiz` ; `phon` : `哈尔安塔贾希兹`
+- **AR0009** (L1, phonétique, #128) `أريد حجز غرفة.` — Régénéré par ar_phon.py v3.2 → `phon` : `乌里杜哈吉兹鲁尔法`
+- **AR0010** (L1, phonétique, #149) `أريد الماء دون ثلج.` — Régénéré par ar_phon.py v3.2 → `phon` : `乌里特阿尔马杜纳萨尔吉`
+- **AR0011** (L1, phonétique, #153) `أريد عصيرا طازجا.` — Régénéré par ar_phon.py v3.2 → `phon` : `乌里特阿西尔塔扎吉`
+- **AR0012** (L1, phonétique, #154) `أريد خبزا مع الوجبة.` — Régénéré par ar_phon.py v3.2 → `phon` : `乌里特胡普兹马阿尔瓦吉巴`
+- **AR0013** (L1, phonétique, #156) `أحتاج إلى ملعقة.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉伊拉米尔阿卡`
+- **AR0014** (L1, phonétique, #157) `أحتاج إلى منديل.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉伊拉明迪尔`
+- **AR0015** (L1, phonétique, #169) `نريد الجلوس في الخارج.` — Régénéré par ar_phon.py v3.2 → `phon` : `努里特阿尔朱卢斯菲尔哈里吉`
+- **AR0016** (L1, phonétique, #179) `شكرا، كانت الوجبة ممتازة.` — Régénéré par ar_phon.py v3.2 → `pi` : `sciùk-ran kà-nat al-ùag-ba mum-tà-za` ; `phon` : `舒克兰卡纳特阿尔瓦吉巴穆姆塔扎`
+- **AR0017** (L1, phonétique, #183) `أريد أن أرى هذا المنتج.` — Régénéré par ar_phon.py v3.2 → `phon` : `乌里特安阿拉哈扎尔蒙塔吉`
+- **AR0018** (L1, phonétique, #185) `أحتاج إلى مقاس أكبر.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉伊拉马卡斯阿克巴尔`
+- **AR0019** (L1, phonétique, #186) `أحتاج إلى مقاس أصغر.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉伊拉马卡斯阿斯拉尔`
+- **AR0020** (L1, phonétique, #190) `لا أريد هذا المنتج.` — Régénéré par ar_phon.py v3.2 → `phon` : `拉乌里特哈扎尔蒙塔吉`
+- **AR0021** (L1, phonétique, #194) `أحتاج إلى إيصال.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉伊拉伊萨尔`
+- **AR0022** (L1, phonétique, #196) `أحتاج إلى كيس.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉伊拉基斯`
+- **AR0023** (L1, phonétique, #198) `هذا المنتج لا يعمل.` — Régénéré par ar_phon.py v3.2 → `pi` : `hà-dal mùn-tag la ià-mal` ; `phon` : `哈扎尔蒙塔吉拉亚马尔`
+- **AR0024** (L1, phonétique, #199) `أريد استبدال هذا المنتج.` — Régénéré par ar_phon.py v3.2 → `phon` : `乌里特伊斯蒂普达尔哈扎尔蒙塔吉`
+- **AR0025** (L1, phonétique, #205) `كيف أذهب إلى وسط المدينة؟` — Régénéré par ar_phon.py v3.2 → `phon` : `凯法阿兹哈布伊拉瓦萨特阿尔马迪纳`
+- **AR0026** (L1, phonétique, #214) `هل هذا المقعد محجوز؟` — Régénéré par ar_phon.py v3.2 → `pi` : `hal hà-dal màc-ad mah-giùz` ; `phon` : `哈尔哈扎尔马克阿特马赫朱兹`
+- **AR0027** (L1, phonétique, #215) `هل هذا القطار يذهب إلى المدينة؟` — Régénéré par ar_phon.py v3.2 → `pi` : `hal hà-dal ci-tàr iàd-ha-bu i-làl ma-dì-na` ; `phon` : `哈尔哈扎尔基塔尔亚兹哈布伊拉尔马迪纳`
+- **AR0028** (L1, phonétique, #217) `أين أشتري التذكرة؟` — Régénéré par ar_phon.py v3.2 → `phon` : `艾纳阿什塔里阿特塔兹基拉`
+- **AR0029** (L1, phonétique, #218) `أريد تذكرة ذهاب وعودة.` — Régénéré par ar_phon.py v3.2 → `phon` : `乌里特塔兹基拉特扎哈普瓦奥达`
+- **AR0030** (L1, phonétique, #222) `أين المخرج؟` — Régénéré par ar_phon.py v3.2 → `phon` : `艾纳尔马赫拉吉`
+- **AR0031** (L1, traduction, #234) `تأخرت الحافلة.` — Appliqué → `kom` : `버스가 늦어요.`
+- **AR0032** (L1, phonétique, #240) `أحتاج إلى طبيبة.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉伊拉塔比巴`
+- **AR0033** (L1, phonétique, #248) `أحتاج إلى هذا الدواء.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉伊拉哈扎特达瓦`
+- **AR0034** (L1, phonétique, #254) `أحتاج إلى الراحة.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉伊拉尔拉哈`
+- **AR0035** (L1, phonétique, #268) `أحتاج إلى …` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉伊拉`
+- **AR0036** (L1, phonétique, #271) `كيف أذهب إلى …؟` — Régénéré par ar_phon.py v3.2 → `phon` : `凯法阿兹哈布伊拉`
+- **AR0037** (L1, phonétique, #273) `أود حجز …` — Régénéré par ar_phon.py v3.2 → `phon` : `阿瓦特哈吉兹`
+- **AR0038** (L2, phonétique, #288) `خذني إلى هذا العنوان.` — Régénéré par ar_phon.py v3.2 → `phon` : `胡兹尼伊拉哈扎尔温万`
+- **AR0039** (L2, phonétique, #289) `كم الأجرة؟` — Régénéré par ar_phon.py v3.2 → `phon` : `卡米尔乌吉拉`
+- **AR0040** (L2, phonétique, #290) `الطريق مزدحم.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿特塔里克穆兹达希姆`
+- **AR0041** (L2, phonétique, #295) `أريد الدجاج مع الأرز.` — Régénéré par ar_phon.py v3.2 → `pi` : `u-rì-dud da-giàg mà-al à-ruz` ; `phon` : `乌里杜特达贾吉马阿尔阿鲁兹`
+- **AR0042** (L2, phonétique, #310) `هذا طازج؟` — Régénéré par ar_phon.py v3.2 → `phon` : `哈扎塔齐吉`
+- **AR0043** (L2, phonétique, #322) `أخي يعمل في الخارج.` — Régénéré par ar_phon.py v3.2 → `pi` : `à-chi ià-ma-lu fil chà-rig` ; `phon` : `阿希亚马卢菲尔哈里吉`
+- **AR0044** (L2, phonétique, #344) `خذ مظلة معك.` — Régénéré par ar_phon.py v3.2 → `phon` : `胡兹米扎尔拉马阿克`
+- **AR0045** (L2, phonétique, #346) `أسكن في شقة صغيرة.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `AS-koo-noo fee SHUK-kah sah-GHEE-rah` ; `pf` : `AS-kou-nou fi CHOUK-ka sa-RI-ra` ; `ps` : `ás-ku-nu fi shúk-ka sa-gí-ra` ; `pi` : `às-ku-nu fi sciùc-ca sa-gì-ra` ; `phon` : `阿斯库努菲舒克卡萨里拉`
+- **AR0046** (L2, phonétique, #366) `خذ هذا الدواء مرتين في اليوم.` — Régénéré par ar_phon.py v3.2 → `pi` : `chùd hà-dad da-ùa mar-ra-tàin fil iàum` ; `phon` : `胡兹哈扎特达瓦马尔拉泰恩菲尔尤姆`
+- **AR0047** (L2, phonétique, #377) `سيارة الأجرة` — Régénéré par ar_phon.py v3.2 → `pi` : `sai-ià-ra-tul ùg-ra` ; `phon` : `赛亚拉图尔乌吉拉`
+- **AR0048** (L2, phonétique, #381) `الخبز` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔胡普兹`
+- **AR0049** (L2, traduction, #397) `بسبب...` — Appliqué → `esm` : `Debido a…` ; `jam` : `…が原因で`
+- **AR0050** (L2, traduction, #398) `على عيني وراسي.` — Appliqué → `jam` : `喜んで。（直訳：私の目と頭の上に）` ; `kom` : `기꺼이요. (직역: 내 눈과 머리 위에)`
+- **AR0051** (L2, phonétique, #406) `أسكن قريبا من المركز.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿斯库努卡里班米纳尔马尔卡兹`
+- **AR0052** (L2, phonétique, #409) `عندي اجتماع الساعة العاشرة.` — Régénéré par ar_phon.py v3.2 → `phon` : `因迪伊吉蒂马阿斯萨阿阿尔阿希拉`
+- **AR0053** (L2, phonétique, #419) `عندي حجز باسم مارتان.` — Régénéré par ar_phon.py v3.2 → `phon` : `因迪哈吉兹比斯米马尔坦`
+- **AR0054** (L2, phonétique, #425) `متى موعد الخروج؟` — Régénéré par ar_phon.py v3.2 → `phon` : `马塔毛伊杜尔胡鲁吉`
+- **AR0055** (L2, phonétique, #427) `احجز لي سيارة أجرة.` — Régénéré par ar_phon.py v3.2 → `pi` : `ih-gìz li sai-ià-ra-tal ùg-ra` ; `phon` : `伊赫吉兹利赛亚拉塔尔乌吉拉`
+- **AR0056** (L2, phonétique, #429) `اذهب مباشرة.` — Régénéré par ar_phon.py v3.2 → `phon` : `伊兹哈普穆巴沙拉坦`
+- **AR0057** (L2, phonétique, #436) `ضعت.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `dit` ; `pf` : `dit` ; `ps` : `dit` ; `pi` : `dit` ; `phon` : `迪特`
+- **AR0058** (L2, phonétique, #439) `اجلس من فضلك.` — Régénéré par ar_phon.py v3.2 → `phon` : `伊吉利斯明法特利克`
+- **AR0059** (L2, phonétique, #443) `العشاء جاهز.` — Régénéré par ar_phon.py v3.2 → `pi` : `al-a-scià già-hiz` ; `phon` : `阿尔阿沙贾希兹`
+- **AR0060** (L2, traduction, #446) `الأكل من يد أمي.` — Appliqué → `en` : `My mother made the food.`
+- **AR0061** (L2, traduction, #452) `هذا يفرحني.` — Appliqué → `kom` : `그게 저를 기쁘게 해요.`
+- **AR0062** (L2, phonétique, #454) `حظ سعيد!` — Régénéré par ar_phon.py v3.2 → `phon` : `哈兹萨伊特`
+- **AR0063** (L2, phonétique, #493) `أشاهد التلفاز مساء.` — Régénéré par ar_phon.py v3.2 → `pi` : `u-scià-hi-dut til-fàz ma-sà-an` ; `phon` : `乌沙希杜特蒂尔法兹马萨安`
+- **AR0064** (L2, phonétique, #496) `هل تلعب الشطرنج؟` — Régénéré par ar_phon.py v3.2 → `phon` : `哈尔塔尔阿布什沙特兰吉`
+- **AR0065** (L2, phonétique, #513) `أحتاج نظارات جديدة.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉纳兹扎拉特贾迪达`
+- **AR0066** (L2, phonétique, #518) `احتفظ بالباقي.` — Régénéré par ar_phon.py v3.2 → `phon` : `伊赫塔菲兹比尔巴基`
+- **AR0067** (L2, phonétique, #521) `النجدة!` — Régénéré par ar_phon.py v3.2 → `phon` : `安纳吉达`
+- **AR0068** (L2, phonétique, #528) `نحتاج بيضا وزبدة.` — Régénéré par ar_phon.py v3.2 → `phon` : `纳赫塔吉拜丹瓦祖普达`
+- **AR0069** (L2, phonétique, #529) `انتهى الخبز.` — Régénéré par ar_phon.py v3.2 → `phon` : `因塔哈尔胡普兹`
+- **AR0070** (L2, phonétique, #556) `أزرق` — Régénéré par ar_phon.py v3.2 → `phon` : `阿兹拉克`
+- **AR0071** (L2, phonétique, #561) `الأرز` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔阿鲁兹`
+- **AR0072** (L2, phonétique, #577) `أذهب إلى العمل بالسيارة.` — Régénéré par ar_phon.py v3.2 → `pi` : `àd-ha-bu i-làl à-mal bis-sai-ià-ra` ; `phon` : `阿兹哈布伊拉尔阿马尔比斯赛亚拉`
+- **AR0073** (L2, traduction, #580) `أنام مبكرا عادة.` — Appliqué → `en` : `I usually go to bed early.` ; `itm` : `Di solito vado a dormire presto.`
+- **AR0074** (L2, phonétique, #583) `البيت يحتاج تنظيفا.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔拜特亚赫塔吉坦齐凡`
+- **AR0075** (L2, phonétique, #599) `خذ نفسا عميقا.` — Régénéré par ar_phon.py v3.2 → `phon` : `胡兹纳法桑阿米坎`
+- **AR0076** (L2, phonétique, #616) `الحجز عبر الإنترنت أسهل.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔哈吉兹阿普拉尔因塔尔尼特阿斯哈尔`
+- **AR0077** (L2, rapprochement, #658) `الحمد لله.` — Conservé : répétition pédagogique voulue (réexposition inter-niveaux).
+- **AR0078** (L2, phonétique, #666) `جئت من أجلك.` — Régénéré par ar_phon.py v3.2 → `phon` : `吉图明阿吉利克`
+- **AR0079** (L2, traduction, #666) `جئت من أجلك.` — Appliqué → `kom` : `널 위해 왔어.`
+- **AR0080** (L2, phonétique, #667) `خذ راحتك.` — Régénéré par ar_phon.py v3.2 → `phon` : `胡兹拉哈塔克`
+- **AR0081** (L2, traduction, #689) `زرت صديقا قديما.` — Appliqué → `itm` : `Sono andato a trovare un vecchio amico.`
+- **AR0082** (L2, phonétique, #732) `يذهب` — Régénéré par ar_phon.py v3.2 → `pi` : `iàd-hab` ; `phon` : `亚兹哈普`
+- **AR0083** (L2, phonétique, #755) `يستيقظ` — Régénéré par ar_phon.py v3.2 → `phon` : `亚斯泰基兹`
+- **AR0084** (L2, rapprochement, #760) `ما شاء الله!` — Conservé : répétition pédagogique voulue (réexposition inter-niveaux).
+- **AR0085** (L2, phonétique, #771) `الليلة نأكل في الخارج.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔莱拉纳库卢菲尔哈里吉`
+- **AR0086** (L2, phonétique, #772) `المكان مزدحم.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔马坎穆兹达希姆`
+- **AR0087** (L2, phonétique, #775) `لنجلس في الخارج.` — Régénéré par ar_phon.py v3.2 → `phon` : `利纳吉利斯菲尔哈里吉`
+- **AR0088** (L2, phonétique, #789) `خذ هذا معك.` — Régénéré par ar_phon.py v3.2 → `phon` : `胡兹哈扎马阿克`
+- **AR0089** (L2, phonétique, #819) `عن إذنك.` — Régénéré par ar_phon.py v3.2 → `phon` : `安伊兹尼克`
+- **AR0090** (L2, traduction, #822) `أراك على خير.` — Appliqué → `en` : `See you soon. Take care.`
+- **AR0091** (L3, phonétique, #833) `أريد أن أحجز موعدا.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `oo-REE-doo an AH-joo-zah MOW-ee-dan` ; `pf` : `ou-RI-dou an AH-djou-za MAOU-i-dan` ; `ps` : `u-rí-du an áj-yu-za máu-i-dan` ; `pi` : `u-rì-du an àh-giu-za màu-i-dan` ; `phon` : `乌里杜安阿赫朱扎毛伊丹`
+- **AR0092** (L3, arabe, #881) `راتبي يوم الخامس.` — Appliqué → `t` : `أتقاضى راتبي في الخامس من كل شهر.` (cinq phonétiques régénérées)
+- **AR0093** (L3, traduction, #894) `أعرفه بالوجه فقط.` — Appliqué → `en` : `I only know him by sight.`
+- **AR0094** (L3, traduction, #957) `الممارسة أهم من الحفظ.` — Appliqué → `itm` : `La pratica conta più della memorizzazione.`
+- **AR0095** (L3, traduction, #963) `عندي زبائن كثيرون.` — Appliqué → `jam` : `お客さんが大勢います。` ; `kom` : `고객이 많아요.`
+- **AR0096** (L3, traduction, #974) `الطريق السريع مغلق.` — Appliqué → `kom` : `고속도로가 폐쇄됐어요.`
+- **AR0097** (L3, traduction, #980) `سهرنا حتى منتصف الليل.` — Appliqué → `itm` : `Siamo rimasti svegli fino a mezzanotte.`
+- **AR0098** (L3, traduction, #988) `نادرا ما أسهر.` — Appliqué → `kom` : `늦게까지 깨어 있는 일은 드물어요.`
+- **AR0099** (L3, traduction, #1058) `ادفع عند الاستلام.` — Appliqué → `kom` : `물건을 받을 때 대금을 지불하세요.`
+- **AR0100** (L3, traduction, #1079) `البس جيدا.` — Appliqué → `en` : `Wrap up warm.`
+- **AR0101** (L3, traduction, #1083) `عمي يزورنا غدا.` — Appliqué → `itm` : `Mio zio viene a trovarci domani.`
+- **AR0102** (L3, traduction, #1090) `الفرح كان كبيرا.` — Appliqué → `itm` : `Il matrimonio è stato celebrato in grande stile.`
+- **AR0103** (L3, traduction, #1116) `الظهيرة` — Appliqué → `en` : `noon`
+- **AR0104** (L3, traduction, #1118) `منتصف الليل` — Appliqué → `en` : `midnight` ; `frm` : `minuit`
+- **AR0105** (L3, phonétique, #1160) `احجز التذاكر عبر التطبيق.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `IH-joo-zit tah-DHAH-kir AB-rat tat-BEEK` ; `pf` : `IH-djou-zit ta-DHA-kir AB-rat tat-BIK` ; `ps` : `íj-yu-zit ta-dá-kir áb-rat tat-bík` ; `pi` : `ìh-giu-zit ta-dà-chir àb-rat tat-bìc` ; `phon` : `伊赫朱齐特塔扎基尔阿普拉特塔特比克`
+- **AR0106** (L3, traduction, #1166) `الصوت كان عاليا جدا.` — Appliqué → `en` : `The sound was very loud.` ; `frm` : `Le son était très fort.` ; `itm` : `Il volume era molto alto.` ; `jam` : `音がとても大きかったです。` ; `kom` : `소리가 아주 컸어요.`
+- **AR0107** (L3, traduction, #1173) `النوم المبكر يفيد.` — Appliqué → `en` : `Going to bed early is beneficial.`
+- **AR0108** (L3, phonétique, #1175) `منذ متى؟ برافو!` — Régénéré par ar_phon.py v3.2 → `py` : `MUN-dhoo MAH-tah BRAH-voo` ; `pf` : `MOUN-dhou MA-ta BRA-vou` ; `ps` : `mún-du má-ta brá-vu` ; `pi` : `mùn-du mà-ta brà-vu` ; `phon` : `蒙祖马塔布拉武`
+- **AR0109** (L3, traduction, #1198) `المدير` — Appliqué → `kom` : `관리자`
+- **AR0110** (L3, arabe, #1221) `خذ حزامك.` — Appliqué → `t` : `اربط حزام الأمان.` (cinq phonétiques régénérées)
+- **AR0111** (L3, arabe, #1238) `وزن لي هذه.` — Appliqué → `t` : `زن لي هذه.` (cinq phonétiques régénérées)
+- **AR0112** (L3, traduction, #1250) `البقاء لله.` — Appliqué → `en` : `Eternity belongs to God (condolences).`
+- **AR0113** (L3, arabe, #1295) `القهوة جاهزة حالا.` — Appliqué → `t` : `ستكون القهوة جاهزة حالا.` (cinq phonétiques régénérées)
+- **AR0114** (L3, traduction, #1295) `القهوة جاهزة حالا.` — Appliqué → `en` : `The coffee will be ready right away.` ; `esm` : `El café estará listo enseguida.` ; `itm` : `Il caffè sarà pronto subito.`
+- **AR0115** (L3, traduction, #1319) `الماء مقطوع في الحي.` — Appliqué → `en` : `The water supply has been shut off in the neighborhood.` ; `itm` : `L’erogazione dell’acqua è interrotta nel quartiere.`
+- **AR0116** (L3, traduction, #1339) `العطلة الرسمية` — Appliqué → `itm` : `il giorno festivo`
+- **AR0117** (L3, traduction, #1354) `سمعتك متقطعا.` — Appliqué → `frm` : `Ta voix était entrecoupée.`
+- **AR0118** (L3, arabe, #1370) `سلم يديك!` — Appliqué → `t` : `سلمت يداك!` (cinq phonétiques régénérées)
+- **AR0119** (L3, arabe, #1388) `حظا موفقا!` — Appliqué → `t` : `حظا سعيدا!` (cinq phonétiques régénérées)
+- **AR0120** (L3, traduction, #1425) `حسابنا صافي.` — Appliqué → `kom` : `이제 서로 빚진 게 없어요.`
+- **AR0121** (L3, traduction, #1427) `نقلل من المطاعم.` — Appliqué → `esm` : `Iremos menos a restaurantes.` ; `itm` : `Andremo meno al ristorante.`
+- **AR0122** (L3, traduction, #1437) `وأنا فوضوي بطبعي.` — Appliqué → `kom` : `전 원래 정리 정돈을 잘 못해요.`
+- **AR0123** (L4, traduction, #1525) `الموقف` — Appliqué → `en` : `the parking lot`
+- **AR0124** (L4, traduction, #1551) `نسيتها، لا تذكرها.` — Appliqué → `itm` : `Lascia perdere, non parlarne più.`
+- **AR0125** (L4, traduction, #1558) `ساعات إضافية كل يوم.` — Appliqué → `kom` : `매일 초과 근무예요.`
+- **AR0126** (L4, traduction, #1571) `الضريبة على المشتري.` — Appliqué → `esm` : `El impuesto corre a cargo del comprador.`
+- **AR0127** (L4, traduction, #1572) `خصم خمسة بالمئة للدفع الفوري.` — Appliqué → `esm` : `Cinco por ciento de descuento por pago inmediato.` ; `itm` : `Cinque per cento di sconto per pagamento immediato.`
+- **AR0128** (L4, traduction, #1574) `العرض ملزم حتى نهاية الشهر.` — Appliqué → `cn` : `报价在月底前具有约束力。` ; `jam` : `この見積もりは月末まで拘束力があります。` ; `kom` : `이 제안은 월말까지 구속력이 있어요.`
+- **AR0129** (L4, traduction, #1621) `العين بصيرة واليد قصيرة.` — Appliqué → `cn` : `心有余而力不足（有心却无力实现）。`
+- **AR0130** (L4, traduction, #1642) `سعر المتر هنا مرتفع.` — Appliqué → `en` : `The price per square meter here is high.` ; `esm` : `El precio por metro cuadrado aquí es alto.` ; `itm` : `Il prezzo al metro quadrato qui è alto.` ; `kom` : `여긴 제곱미터당 가격이 높아요.`
+- **AR0131** (L4, traduction, #1649) `العمولة على من؟` — Appliqué → `en` : `Who pays the commission?` ; `frm` : `Qui paie la commission ?` ; `esm` : `¿Quién corre con la comisión?`
+- **AR0132** (L4, traduction, #1651) `الفاتورة غير مدفوعة بعد.` — Appliqué → `en` : `The invoice has not been paid yet.`
+- **AR0133** (L4, traduction, #1656) `جواز السفر وتذكرتك من فضلك.` — Appliqué → `jam` : `パスポートと航空券をお願いします。`
+- **AR0134** (L4, arabe, #1670) `العدسات` — Appliqué → `t` : `العدسات اللاصقة` (cinq phonétiques régénérées)
+- **AR0135** (L4, traduction, #1690) `ماء فقط من فضلك.` — Appliqué → `cn` : `请给我水就好。`
+- **AR0136** (L4, traduction, #1702) `بشرط حجم مبيعات سنوي.` — Appliqué → `esm` : `A condición de alcanzar un volumen anual de ventas.` ; `itm` : `A condizione di raggiungere un volume annuo di vendite.`
+- **AR0137** (L4, traduction, #1709) `التعاون معكم مريح.` — Appliqué → `frm` : `C’est agréable de travailler avec vous.`
+- **AR0138** (L4, traduction, #1717) `المهم ألا تتكرر.` — Appliqué → `en` : `The main thing is that it doesn’t happen again.`
+- **AR0139** (L4, traduction, #1728) `اكتب قائمة قبل السوق.` — Appliqué → `en` : `- `en` : `Make a list before going to the market.`
+- **AR0140** (L4, traduction, #1733) `نستحق استراحة.` — Appliqué → `jam` : `そろそろ休憩してもいいよね。`
+- **AR0141** (L4, phonétique, #1769) `احجزوا لي تاكسي الفجر.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `IH-joo-zoo lee TAK-see al-FAJR` ; `pf` : `IH-djou-zou li TAK-si al-FADJR` ; `ps` : `íj-yu-zu li ták-si al-fáyr` ; `pi` : `ìh-giu-zu li tàk-si al-fàgr` ; `phon` : `伊赫朱祖利塔克西阿尔法吉尔`
+- **AR0142** (L4, traduction, #1787) `تعالوا نتغدى عندنا الجمعة.` — Appliqué → `esm` : `Vengan a almorzar a casa el viernes.`
+- **AR0143** (L4, arabe, #1798) `شد عضلاتك بعد التمرين.` — Appliqué → `t` : `مدد عضلاتك بعد التمرين.` (cinq phonétiques régénérées)
+- **AR0144** (L4, traduction, #1826) `اسأل مجرب ولا تسأل طبيب.` — Appliqué → `frm` : `Demande à quelqu’un qui a de l’expérience plutôt qu’à un médecin.`
+- **AR0145** (L4, traduction, #1840) `الملف ناقص ورقة.` — Appliqué → `en` : `One document is missing from the file.`
+- **AR0146** (L4, traduction, #1853) `وأخوه سريع الغضب.` — Appliqué → `cn` : `他的兄弟却很容易发脾气。` ; `jam` : `でも彼の兄弟は怒りっぽいです。` ; `kom` : `그런데 그의 형제는 화를 잘 내요.`
+- **AR0147** (L4, traduction, #1882) `المعيب` — Appliqué → `en` : `- `en` : `the defective item`
+- **AR0148** (L4, phonétique, #2037) `احجز لي موعدا مع المدير.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `IH-juz lee MOW-ee-dan MAH-al moo-DEER` ; `pf` : `IH-djouz li MAOU-i-dan MA-al mou-DIR` ; `ps` : `íj-yuz li máu-i-dan má-al mu-dír` ; `pi` : `ìh-giuz li màu-i-dan mà-al mu-dìr` ; `phon` : `伊赫朱兹利毛伊丹马阿尔穆迪尔`
+- **AR0149** (L4, traduction, #2042) `قطع الغيار` — Appliqué → `kom` : `교체용 부품`
+- **AR0150** (L5, phonétique, #2066) `الاجتماع الساعة العاشرة بالضبط.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔伊吉蒂马阿斯萨阿阿尔阿希拉比特达普特`
+- **AR0151** (L5, phonétique, #2071) `نؤجل هذه النقطة للاجتماع القادم.` — Régénéré par ar_phon.py v3.2 → `phon` : `努阿吉吉尔哈齐欣努克塔利尔伊吉蒂马阿尔卡迪姆`
+- **AR0152** (L5, phonétique, #2074) `نصوت برفع الأيدي.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `noo-sow-wit bee-RAF-il AY-dee` ; `pf` : `nou-saou-ouit bi-RAF-il AÏ-di` ; `ps` : `nu-sau-uit bi-ráf-il ái-di` ; `pi` : `nu-sau-uit bi-ràf-il ài-di` ; `phon` : `努绍维特比拉夫伊尔艾迪`
+- **AR0153** (L5, phonétique, #2075) `انتهى الاجتماع، شكرا للجميع.` — Régénéré par ar_phon.py v3.2 → `pi` : `in-tà-hal ig-ti-mà sciùk-ran lil-gia-mì` ; `phon` : `因塔哈尔伊吉蒂马舒克兰利尔贾米`
+- **AR0154** (L5, phonétique, #2079) `نحتاج خطة بديلة.` — Régénéré par ar_phon.py v3.2 → `phon` : `纳赫塔吉希特塔巴迪拉`
+- **AR0155** (L5, phonétique, #2081) `كل واحد مسؤول عن جزء.` — Régénéré par ar_phon.py v3.2 → `pi` : `kùl-lu ùa-hid mas-ùl an giùz` ; `phon` : `库尔卢瓦希特马斯乌尔安朱兹`
+- **AR0156** (L5, phonétique, #2082) `نجتمع كل اثنين للمتابعة.` — Régénéré par ar_phon.py v3.2 → `phon` : `纳吉塔米库尔拉伊斯奈恩利尔穆塔巴阿`
+- **AR0157** (L5, phonétique, #2083) `التقرير جاهز قبل نهاية الشهر.` — Régénéré par ar_phon.py v3.2 → `pi` : `at-tac-rìr già-hiz càb-la ni-hà-ia-tisc sciàhr` ; `phon` : `阿特塔克里尔贾希兹卡普拉尼哈亚蒂什沙赫尔`
+- **AR0158** (L5, phonétique, #2084) `أنجزنا ثمانين بالمئة.` — Régénéré par ar_phon.py v3.2 → `pi` : `an-giàz-na ta-ma-nìn bil-mì-a` ; `phon` : `安贾兹纳萨马宁比尔米阿`
+- **AR0159** (L5, phonétique, #2102) `الاجتماع الدوري` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔伊吉蒂马阿特道里`
+- **AR0160** (L5, phonétique, #2138) `خط الإنتاج يعمل على ثلاث ورديات.` — Régénéré par ar_phon.py v3.2 → `pi` : `chat al-in-tàg ià-mal a-la ta-làt uar-di-iàt` ; `phon` : `哈特阿尔因塔吉亚马尔阿拉萨拉斯瓦尔迪亚特`
+- **AR0161** (L5, phonétique, #2145) `متى يجهز قالب العينة؟` — Régénéré par ar_phon.py v3.2 → `pi` : `mà-ta iàg-haz cà-lib al-ài-ii-na` ; `phon` : `马塔亚吉哈兹卡利普阿尔艾伊纳`
+- **AR0162** (L5, phonétique, #2154) `خط الإنتاج` — Régénéré par ar_phon.py v3.2 → `phon` : `哈特阿尔因塔吉`
+- **AR0163** (L5, traduction, #2166) `اعمل لدنياك كأنك تعيش أبدا.` — Appliqué → `jam` : `永遠に生きるかのように、現世の生活のために励め。` ; `kom` : `영원히 살 것처럼 현세의 삶을 위해 힘써라.`
+- **AR0164** (L5, phonétique, #2172) `يحتاج تحاليل وأشعة.` — Régénéré par ar_phon.py v3.2 → `phon` : `亚赫塔吉塔哈利尔瓦阿希阿`
+- **AR0165** (L5, phonétique, #2173) `النتائج تظهر بعد ساعتين.` — Régénéré par ar_phon.py v3.2 → `phon` : `安纳塔伊吉塔兹哈尔巴达萨阿泰恩`
+- **AR0166** (L5, phonétique, #2185) `الصحة تاج على رؤوس الأصحاء.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿斯西赫哈塔吉阿拉鲁乌斯阿尔阿斯哈`
+- **AR0167** (L5, phonétique, #2186) `كل تجربة تعلمك درسا.` — Régénéré par ar_phon.py v3.2 → `phon` : `库尔卢塔吉里巴图阿尔利穆克达尔桑`
+- **AR0168** (L5, phonétique, #2215) `المجتمع` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔穆吉塔马`
+- **AR0169** (L5, phonétique, #2220) `ما إن وصلت حتى بدأ الاجتماع.` — Régénéré par ar_phon.py v3.2 → `phon` : `马因瓦萨尔特哈特塔巴达阿尔伊吉蒂马`
+- **AR0170** (L5, phonétique, #2232) `مئة ميغا، تكفي للعائلة.` — Régénéré par ar_phon.py v3.2 → `py` : `MEE-at MEE-gah TAK-fee lil-ah-EE-lah` ; `pf` : `MI-at MI-ga TAK-fi lil-a-I-la` ; `ps` : `mí-at mí-ga ták-fi lil-a-í-la` ; `pi` : `mì-at mì-ga tàk-fi lil-a-ì-la` ; `phon` : `米阿特米加塔克菲利尔阿伊拉`
+- **AR0171** (L5, phonétique, #2237) `الغسالة تهتز وتصدر صوتا.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔拉斯萨拉塔赫塔兹瓦图斯迪尔绍坦`
+- **AR0172** (L5, phonétique, #2239) `ربما يحتاج تعبئة غاز.` — Régénéré par ar_phon.py v3.2 → `phon` : `鲁普巴马亚赫塔吉塔比阿特拉兹`
+- **AR0173** (L5, traduction, #2245) `الدفع عند الاستلام متاح؟` — Appliqué → `kom` : `kom : 상품 대금을 배송받을 때 결제할 수 있나요?`
+- **AR0174** (L5, traduction, #2259) `الدفع عند الاستلام` — Appliqué → `kom` : `kom : 상품 수령 시 대금 결제`
+- **AR0175** (L5, phonétique, #2270) `تفضل كتالوج منتجاتنا.` — Régénéré par ar_phon.py v3.2 → `pi` : `ta-fad-dal ka-ta-lùg mun-ta-già-ti-na` ; `phon` : `塔法特达尔卡塔卢吉蒙塔贾蒂纳`
+- **AR0176** (L5, phonétique, #2284) `أحتاج تأشيرة عمل.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫塔吉塔希拉特阿马尔`
+- **AR0177** (L5, traduction, #2284) `أحتاج تأشيرة عمل.` — Appliqué → `cn` : `我需要工作签证。` ; `en` : `I need a work visa.` ; `frm` : `Il me faut un visa de travail.` ; `esm` : `Necesito un visado de trabajo.` ; `itm` : `Mi serve un visto di lavoro.` ; `jam` : `就労ビザが必要です。` ; `kom` : `취업 비자가 필요해요.`
+- **AR0178** (L5, phonétique, #2286) `احجز فندقا قرب مركز المعارض.` — Régénéré par ar_phon.py v3.2 → `phon` : `伊赫吉兹丰杜坎库尔普马尔卡兹阿尔马阿里特`
+- **AR0179** (L5, phonétique, #2288) `أحتاج فاتورة باسم الشركة.` — Régénéré par ar_phon.py v3.2 → `pi` : `ah-tàg fa-tù-ra bis-misc scià-ri-ka` ; `phon` : `阿赫塔吉法图拉比斯米什沙里卡`
+- **AR0180** (L5, traduction, #2288) `أحتاج فاتورة باسم الشركة.` — Appliqué → `jam` : `会社名義の請求書が必要です。` ; `kom` : `회사 명의의 청구서가 필요해요.`
+- **AR0181** (L5, phonétique, #2290) `برنامج الزيارة مزدحم.` — Régénéré par ar_phon.py v3.2 → `pi` : `bar-nà-mag az-zi-ià-ra mùz-da-him` ; `phon` : `巴尔纳马吉阿兹齐亚拉穆兹达希姆`
+- **AR0182** (L5, phonétique, #2321) `يقدم ساخنا مع الأرز.` — Régénéré par ar_phon.py v3.2 → `phon` : `尤卡特达姆萨希南马阿尔阿鲁兹`
+- **AR0183** (L5, phonétique, #2324) `قطفناها الفجر.` — Régénéré par ar_phon.py v3.2 → `phon` : `卡塔夫纳哈尔法吉尔`
+- **AR0184** (L5, phonétique, #2329) `بلدي، مذبوح صباحا.` — Régénéré par ar_phon.py v3.2 → `phon` : `巴拉迪马兹布赫萨巴汉`
+- **AR0185** (L5, phonétique, #2342) `الربيع أجمل فصل هنا.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔拉比阿吉马尔法斯尔胡纳`
+- **AR0186** (L5, phonétique, #2350) `الناضج` — Régénéré par ar_phon.py v3.2 → `phon` : `安纳迪吉`
+- **AR0187** (L5, phonétique, #2351) `الطازج` — Régénéré par ar_phon.py v3.2 → `phon` : `阿特塔扎吉`
+- **AR0188** (L5, phonétique, #2368) `ما قصدت إزعاجك.` — Régénéré par ar_phon.py v3.2 → `phon` : `马卡萨特特伊兹阿贾克`
+- **AR0189** (L5, traduction, #2372) `تستحق الأفضل دائما.` — Appliqué → `jam` : `jam : 君にはいつだって最高のものがふさわしい。`
+- **AR0190** (L5, phonétique, #2374) `تربى في عزكم.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `too-RAB-bah fee IZ-zee-kum` ; `pf` : `tou-RAB-ba fi IZ-zi-koum` ; `ps` : `tu-ráb-ba fi íz-zi-kum` ; `pi` : `tu-ràb-ba fi ìz-zi-kum` ; `phon` : `图拉普巴菲伊兹齐库姆`
+- **AR0191** (L5, traduction, #2374) `تربى في عزكم.` — Appliqué → `cn` : `愿孩子在你们的呵护下健康成长。` ; `en` : `May he grow up happy and well in your care.`
+- **AR0192** (L5, phonétique, #2380) `خذ وقتك في القرار.` — Régénéré par ar_phon.py v3.2 → `phon` : `胡兹瓦克塔克菲尔卡拉尔`
+- **AR0193** (L5, phonétique, #2391) `أحفظ عشر كلمات يوميا.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿赫法兹阿什尔卡利马特尤米扬`
+- **AR0194** (L5, traduction, #2393) `لغتي تتحسن بسرعة.` — Appliqué → `cn` : `我的语言水平提高得很快。` ; `frm` : `Mon niveau dans cette langue progresse vite.` ; `esm` : `Mi nivel en el idioma mejora rápido.` ; `itm` : `Le mie competenze linguistiche migliorano in fretta.`
+- **AR0195** (L5, phonétique, #2408) `الحفظ` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔希夫兹`
+- **AR0196** (L5, phonétique, #2413) `فعل حسابك برمز التحقق.` — Régénéré par ar_phon.py v3.2 → `phon` : `法伊尔希萨巴克比拉姆兹阿特塔哈克库克`
+- **AR0197** (L5, traduction, #2431) `الصراف خصم مرتين بالخطأ.` — Appliqué → `jam` : `ATMで誤って二重に引き落とされました。`
+- **AR0198** (L5, phonétique, #2437) `خذ التحويلة اليمنى.` — Régénéré par ar_phon.py v3.2 → `ps` : `júd at-taj-uí-la al-yúm-na` ; `pi` : `chùd at-tah-uì-la al-iùm-na` ; `phon` : `胡兹阿特塔赫维拉阿尔尤姆纳`
+- **AR0199** (L5, phonétique, #2443) `رمز التحقق` — Régénéré par ar_phon.py v3.2 → `phon` : `拉姆兹阿特塔哈克库克`
+- **AR0200** (L5, phonétique, #2463) `خذ لنا صورة جماعية.` — Régénéré par ar_phon.py v3.2 → `phon` : `胡兹拉纳苏拉贾马伊亚`
+- **AR0201** (L5, traduction, #2464) `رحلة سفاري في الصحراء.` — Appliqué → `cn` : `沙漠探险之旅。`
+- **AR0202** (L5, phonétique, #2468) `رتب غرفتك قبل الخروج.` — Régénéré par ar_phon.py v3.2 → `phon` : `拉特蒂普鲁尔法塔克卡普拉尔胡鲁吉`
+- **AR0203** (L5, phonétique, #2475) `ازرع النعناع في الشرفة.` — Régénéré par ar_phon.py v3.2 → `pi` : `ìz-ra an-na-nà fisc sciùr-fa` ; `phon` : `伊兹拉安纳纳菲什舒尔法`
+- **AR0204** (L5, phonétique, #2501) `التذكرة الإلكترونية` — Régénéré par ar_phon.py v3.2 → `phon` : `阿特塔兹卡拉阿尔伊利克特鲁尼亚`
+- **AR0205** (L5, phonétique, #2509) `فترة التجربة` — Régénéré par ar_phon.py v3.2 → `phon` : `法特拉特阿特塔吉里巴`
+- **AR0206** (L5, traduction, #2521) `نقبل، بشرط خصم إضافي.` — Appliqué → `en` : `We accept, on condition of an additional discount.`
+- **AR0207** (L5, traduction, #2526) `العيدية للأطفال أولا.` — Appliqué → `cn` : `节日礼金先给孩子们。` ; `frm` : `L’argent de l’Aïd, d’abord pour les enfants.` ; `esm` : `El dinero de regalo del Eid, primero para los niños.` ; `jam` : `イードのお祝いのお小遣いは、まず子どもたちに。`
+- **AR0208** (L5, phonétique, #2527) `القهوة العربية رمز الضيافة.` — Régénéré par ar_phon.py v3.2 → `pi` : `al-càh-ua al-a-ra-bìi-ia ràmz ad-di-ià-fa` ; `phon` : `阿尔卡赫瓦阿尔阿拉比亚拉姆兹阿特迪亚法`
+- **AR0209** (L5, phonétique, #2530) `المجلس مفتوح للجميع.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔马吉利斯马夫图赫利尔贾米`
+- **AR0210** (L5, phonétique, #2550) `المجلس` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔马吉利斯`
+- **AR0211** (L5, phonétique, #2558) `من وجهة نظري، الجودة أولا.` — Régénéré par ar_phon.py v3.2 → `pi` : `min ùug-hat nà-za-ri al-giàu-da àu-ua-lan` ; `phon` : `明武吉哈特纳扎里阿尔焦达奥瓦兰`
+- **AR0212** (L5, phonétique, #2580) `أكد الحجز برسالة.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿克基特阿尔哈吉兹比里萨拉`
+- **AR0213** (L5, phonétique, #2584) `وجهة النظر` — Régénéré par ar_phon.py v3.2 → `phon` : `武吉哈特安纳扎尔`
+- **AR0214** (L5, phonétique, #2594) `الإنجاز` — Régénéré par ar_phon.py v3.2 → `pi` : `al-in-giàz` ; `phon` : `阿尔因贾兹`
+- **AR0215** (L5, traduction, #2601) `تحية طيبة وبعد،` — Appliqué → `frm` : `Madame, Monsieur, (formule d’ouverture)` ; `itm` : `Gentili signori, (formula d’apertura)`
+- **AR0216** (L5, arabe, #2606) `وصلنا بريدكم، جار الدراسة.` — Appliqué → `t` : `وصلنا بريدكم، وهو قيد الدراسة.` (cinq phonétiques régénérées)
+- **AR0217** (L5, phonétique, #2611) `سأعرض النتائج في عشر دقائق.` — Régénéré par ar_phon.py v3.2 → `phon` : `萨阿里特安纳塔伊吉菲阿什尔达卡伊克`
+- **AR0218** (L5, phonétique, #2615) `سؤال ممتاز، سأجيب لاحقا.` — Régénéré par ar_phon.py v3.2 → `phon` : `苏阿尔穆姆塔兹萨乌吉普拉希坎`
+- **AR0219** (L5, traduction, #2644) `أرسلوا منشفتين إضافيتين.` — Appliqué → `cn` : `再送两条毛巾来。`
+- **AR0220** (L5, traduction, #2650) `فرق التوقيت خمس ساعات.` — Appliqué → `itm` : `La differenza di fuso orario è di cinque ore.`
+- **AR0221** (L5, arabe, #2651) `ذكرني بالاجتماع قبلها بساعة.` — Appliqué → `t` : `ذكرني بالاجتماع قبله بساعة.` (cinq phonétiques régénérées)
+- **AR0222** (L5, phonétique, #2651) `ذكرني بالاجتماع قبلها بساعة.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `DHAK-kir-nee bil-ij-tee-MAH KAB-lah-hoo bee-SAH-ah` ; `pf` : `DHAK-kir-ni bil-idj-ti-MA KAB-la-hou bi-SA-a` ; `ps` : `dák-kir-ni bil-iy-ti-má káb-la-ju bi-sá-a` ; `pi` : `dàk-chir-ni bil-ig-ti-mà càb-la-hu bi-sà-a` ; `phon` : `扎克基尔尼比尔伊吉蒂马卡普拉胡比萨阿`
+- **AR0223** (L5, phonétique, #2654) `أنجز الضروري أولا.` — Régénéré par ar_phon.py v3.2 → `phon` : `安吉兹阿特达鲁里奥瓦兰`
+- **AR0224** (L5, traduction, #2660) `البطاقة الممغنطة لا تقرأ.` — Appliqué → `esm` : `La tarjeta magnética no se puede leer.`
+- **AR0225** (L5, phonétique, #2662) `عندنا زوار من الخارج اليوم.` — Régénéré par ar_phon.py v3.2 → `pi` : `ìn-da-na zu-ùar mi-nal chà-rig al-iàum` ; `phon` : `因达纳祖瓦尔米纳尔哈里吉阿尔尤姆`
+- **AR0226** (L5, traduction, #2674) `فرق التوقيت` — Appliqué → `itm` : `la differenza di fuso orario`
+- **AR0227** (L5, phonétique, #2704) `الكذبة` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔基兹巴`
+- **AR0228** (L5, phonétique, #2716) `خذ إجازة واسترح قليلا.` — Régénéré par ar_phon.py v3.2 → `pi` : `chùd i-già-za uas-tà-rih ca-lì-lan` ; `phon` : `胡兹伊贾扎瓦斯塔里赫卡利兰`
+- **AR0229** (L5, phonétique, #2722) `وزنك نزل، ما سرك؟` — Régénéré par ar_phon.py v3.2 → `phon` : `瓦兹纳克纳扎尔马西尔拉克`
+- **AR0230** (L5, phonétique, #2733) `البنطال يحتاج تقصيرا.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔班塔隆亚赫塔吉塔克西兰`
+- **AR0231** (L5, phonétique, #2734) `جاهز بكرة العصر.` — Régénéré par ar_phon.py v3.2 → `pi` : `già-hiz bùk-ra al-asr` ; `phon` : `贾希兹布克拉阿尔阿斯尔`
+- **AR0232** (L6, traduction, #2759) `لا تشيل هم.` — Appliqué → `en` : `Don’t worry.`
+- **AR0233** (L6, phonétique, #2771) `القانون لا يحمي المهملين.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `al-kah-NOON lah YAH-mil MUH-mee-leen` ; `pf` : `al-ka-NOUN la YAH-mil MOUH-mi-lin` ; `ps` : `al-ka-nún la yáj-mil múj-mi-lin` ; `pi` : `al-ca-nùn la iàh-mil mùh-mi-lin` ; `phon` : `阿尔卡农拉亚赫米尔穆赫米林`
+- **AR0234** (L6, phonétique, #2778) `إلحاقا باجتماعنا…` — Régénéré par ar_phon.py v3.2 → `phon` : `伊尔哈坎比吉蒂马伊纳`
+- **AR0235** (L6, arabe, #2801) `أجلناها للأسبوع القادم؟` — Appliqué → `t` : `نؤجلها للأسبوع القادم؟` (cinq phonétiques régénérées)
+- **AR0236** (L6, phonétique, #2830) `نحتاج تقرير اختبار معتمد.` — Régénéré par ar_phon.py v3.2 → `phon` : `纳赫塔吉塔克里尔伊赫蒂巴尔穆塔马特`
+- **AR0237** (L6, phonétique, #2834) `اجتزنا التفتيش بنجاح.` — Régénéré par ar_phon.py v3.2 → `pi` : `ig-tàz-nat taf-tìsc bi-na-giàh` ; `phon` : `伊吉塔兹纳特塔夫蒂什比纳贾赫`
+- **AR0238** (L6, phonétique, #2835) `العلامة مسجلة في الخليج.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔阿拉马穆萨吉贾拉菲尔哈利吉`
+- **AR0239** (L6, arabe, #2850) `سلمها عني.` — Appliqué → `t` : `سلم عليها عني.` (cinq phonétiques régénérées)
+- **AR0240** (L6, phonétique, #2883) `أعاني من أرق مزمن.` — Régénéré par ar_phon.py v3.2 → `phon` : `乌阿尼明阿拉克穆兹明`
+- **AR0241** (L6, traduction, #2884) `قلل الشاشات قبل النوم.` — Appliqué → `en` : `Cut down on screen time before bed.`
+- **AR0242** (L6, arabe, #2907) `وصلني، جار القراءة.` — Appliqué → `t` : `وصلني، وأقرؤه الآن.` (cinq phonétiques régénérées)
+- **AR0243** (L6, phonétique, #2923) `المعاملة تحتاج ختما رسميا.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔穆阿马拉塔赫塔吉哈特曼拉斯米扬`
+- **AR0244** (L6, traduction, #2924) `وكلت أخي لإنهائها.` — Appliqué → `cn` : `我委托兄弟去办。` ; `jam` : `兄弟に任せて済ませました。` ; `kom` : `형제에게 맡겨서 처리했어요.`
+- **AR0245** (L6, phonétique, #2932) `ذاكر بتركيز، لا بكثرة.` — Régénéré par ar_phon.py v3.2 → `phon` : `扎基尔比塔尔基兹拉比卡斯拉`
+- **AR0246** (L6, phonétique, #2935) `تخرج بمرتبة الشرف.` — Régénéré par ar_phon.py v3.2 → `pi` : `ta-chàr-rag bi-màr-ta-bat asc-scià-raf` ; `phon` : `塔哈尔拉吉比马尔塔巴特阿什沙拉夫`
+- **AR0247** (L6, arabe, #2938) `اللحم مطهو بالكمية المطلوبة.` — Appliqué → `t` : `اللحم مطهو بالدرجة المطلوبة.` (cinq phonétiques régénérées)
+- **AR0248** (L6, phonétique, #2949) `جمعية الحي تجتمع الليلة.` — Régénéré par ar_phon.py v3.2 → `phon` : `贾姆伊亚特阿尔海伊塔吉塔米阿尔莱拉`
+- **AR0249** (L6, traduction, #2961) `مرتبة الشرف` — Appliqué → `cn` : `荣誉等级（优等）` ; `frm` : `la mention honorifique`
+- **AR0250** (L6, phonétique, #2962) `النموذج` — Régénéré par ar_phon.py v3.2 → `phon` : `安纳穆扎吉`
+- **AR0251** (L6, phonétique, #2969) `أعلنت النتائج صباح اليوم.` — Régénéré par ar_phon.py v3.2 → `pi` : `ù-li-na-tin na-tà-ig sa-bàh al-iàum` ; `phon` : `乌利纳廷纳塔伊吉萨巴赫阿尔尤姆`
+- **AR0252** (L6, traduction, #2976) `اتصلت بك مرتين بلا رد.` — Appliqué → `kom` : `두 번 걸었는데 안 받더라고요.`
+- **AR0253** (L6, phonétique, #2984) `أعطيك نسخة مجانية مع الجهاز.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿蒂克努斯哈马吉贾尼亚马阿尔吉哈兹`
+- **AR0254** (L6, traduction, #2984) `أعطيك نسخة مجانية مع الجهاز.` — Appliqué → `cn` : `我随设备免费送你一份。` ; `frm` : `Je t’offre un exemplaire gratuit avec l’appareil.`
+- **AR0255** (L6, arabe, #2992) `لا تكسر بخاطرك.` — Appliqué → `t` : `لا تفقد الأمل.` (cinq phonétiques régénérées)
+- **AR0256** (L6, arabe, #2996) `قمها بروح رياضية.` — Appliqué → `t` : `تقبلها بروح رياضية.` (cinq phonétiques régénérées)
+- **AR0257** (L6, traduction, #2999) `المهرجان يجذب ملايين الزوار.` — Appliqué → `cn` : `这个节庆活动吸引数百万游客。`
+- **AR0258** (L6, phonétique, #3001) `الأسواق مزدحمة قبل العيد.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔阿斯瓦克穆兹达希马卡普拉尔伊特`
+- **AR0259** (L6, traduction, #3004) `الذروة` — Appliqué → `esm` : `el pico (apogeo)`
+- **AR0260** (L6, phonétique, #3011) `مرر لي الملف الأزرق.` — Régénéré par ar_phon.py v3.2 → `phon` : `马尔里尔利尔马拉夫阿尔阿兹拉克`
+- **AR0261** (L6, traduction, #3012) `الطابعة علقت ورقة.` — Appliqué → `frm` : `Il y a un bourrage papier dans l’imprimante.` ; `itm` : `Si è inceppata la carta nella stampante.`
+- **AR0262** (L6, phonétique, #3014) `مددوا الاجتماع نصف ساعة.` — Régénéré par ar_phon.py v3.2 → `phon` : `马特达杜尔伊吉蒂马尼斯夫萨阿`
+- **AR0263** (L6, phonétique, #3018) `اليوم خرجت متأخرا ساعتين.` — Régénéré par ar_phon.py v3.2 → `pi` : `al-iàum cha-ràgt mu-ta-àch-chi-ran sa-a-tàin` ; `phon` : `阿尔尤姆哈拉吉特穆塔阿赫希兰萨阿泰恩`
+- **AR0264** (L6, traduction, #3021) `خدمة التوصيل السريع متوفرة؟` — Appliqué → `cn` : `有加急配送服务吗？` ; `jam` : `速達サービスはありますか？` ; `kom` : `빠른 배송 서비스가 있나요?`
+- **AR0265** (L6, arabe, #3027) `أفطر خفيفا وأغدى جيدا.` — Appliqué → `t` : `أفطر خفيفا وأتغدى جيدا.` (cinq phonétiques régénérées)
+- **AR0266** (L6, phonétique, #3036) `القير يتأخر في التعشيق.` — Régénéré par ar_phon.py v3.2 → `py` : `al-GEER yah-tah-AKH-khar fit ta-SHEEK` ; `pf` : `al-GUIR ya-ta-AKH-khar fit ta-CHIK` ; `ps` : `al-guír ya-ta-áj-jar fit ta-shík` ; `pi` : `al-ghìr ia-ta-àch-char fit ta-scìc` ; `phon` : `阿尔吉尔亚塔阿赫哈尔菲特塔希克`
+- **AR0267** (L6, phonétique, #3049) `القير` — Régénéré par ar_phon.py v3.2 → `py` : `al-GEER` ; `pf` : `al-GUIR` ; `ps` : `al-guír` ; `pi` : `al-ghìr` ; `phon` : `阿尔吉尔`
+- **AR0268** (L6, phonétique, #3057) `الرسوم تظهر في الكشف.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔鲁苏姆塔兹哈尔菲尔卡什夫`
+- **AR0269** (L6, phonétique, #3070) `يحتاج راحة تامة أسبوعا.` — Régénéré par ar_phon.py v3.2 → `phon` : `亚赫塔吉拉哈塔姆马乌斯布安`
+- **AR0270** (L6, arabe, #3072) `طمنونا على صحتك أولا بأول.` — Appliqué → `t` : `طمئنا على صحتك أولا بأول.` (cinq phonétiques régénérées)
+- **AR0271** (L6, phonétique, #3080) `كل شيء جاهز من طرفنا.` — Régénéré par ar_phon.py v3.2 → `pi` : `kùl-lu sciài già-hiz min tà-ra-fi-na` ; `phon` : `库尔卢沙伊贾希兹明塔拉菲纳`
+- **AR0272** (L6, traduction, #3085) `باختصار شديد: نجحنا.` — Appliqué → `esm` : `En pocas palabras: lo logramos.`
+- **AR0273** (L6, phonétique, #3106) `ما الذي تغير منذ أمس؟` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `MAL-lah-dhee tah-GHAY-yar MUN-dhoo AMS` ; `pf` : `MAL-la-dhi ta-RAÏ-yar MOUN-dhou AMS` ; `ps` : `mál-la-di ta-gái-yar mún-du áms` ; `pi` : `màl-la-di ta-gài-iar mùn-du àms` ; `phon` : `马尔拉齐塔赖亚尔蒙祖阿姆斯`
+- **AR0274** (L6, phonétique, #3115) `العزل الصوتي ممتاز.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔阿兹尔阿斯绍蒂穆姆塔兹`
+- **AR0275** (L6, traduction, #3116) `الصيانة على المالك حسب العقد.` — Appliqué → `esm` : `Según el contrato, el mantenimiento corre a cargo del propietario.`
+- **AR0276** (L6, phonétique, #3118) `الرحلة البرية تحتاج دفع رباعي.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔里赫拉阿尔巴尔里亚塔赫塔吉达夫鲁巴伊`
+- **AR0277** (L6, phonétique, #3120) `أخبر أحدا بوجهتك دائما.` — Régénéré par ar_phon.py v3.2 → `ps` : `áj-bir á-ja-dan bi-uíy-ja-tak dá-i-man` ; `pi` : `àch-bir à-ha-dan bi-uìg-ha-tak dà-i-man` ; `phon` : `阿赫比尔阿哈丹比维吉哈塔克达伊曼`
+- **AR0278** (L6, phonétique, #3121) `الإشارة تضعف خارج المدينة.` — Régénéré par ar_phon.py v3.2 → `pi` : `al-i-scià-ra tad-uf chà-rig al-ma-dì-na` ; `phon` : `阿尔伊沙拉塔特乌夫哈里吉阿尔马迪纳`
+- **AR0279** (L6, arabe, #3126) `عد العدة من الليلة.` — Appliqué → `t` : `أعد العدة من الليلة.` (cinq phonétiques régénérées)
+- **AR0280** (L6, phonétique, #3135) `التجربة خير برهان.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿特塔吉里巴海尔布尔汉`
+- **AR0281** (L6, phonétique, #3137) `العزل الصوتي` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔阿兹尔阿斯绍蒂`
+- **AR0282** (L6, phonétique, #3138) `درهم وقاية خير من قنطار علاج.` — Régénéré par ar_phon.py v3.2 → `phon` : `迪尔哈姆维卡亚海尔明金塔尔伊拉吉`
+- **AR0283** (L6, phonétique, #3145) `سجل الخروج من الأجهزة القديمة.` — Régénéré par ar_phon.py v3.2 → `phon` : `萨吉吉尔阿尔胡鲁吉米纳尔阿吉希扎阿尔卡迪马`
+- **AR0284** (L6, phonétique, #3148) `انتبه من الروابط المجهولة.` — Régénéré par ar_phon.py v3.2 → `phon` : `因塔比赫米纳尔拉瓦比特阿尔马吉胡拉`
+- **AR0285** (L6, arabe, #3151) `نسخ الاحتياط عادة أسبوعية.` — Appliqué → `t` : `النسخ الاحتياطي عادة أسبوعية.` (cinq phonétiques régénérées)
+- **AR0286** (L6, phonétique, #3153) `اضغطه أولا ليخف حجمه.` — Régénéré par ar_phon.py v3.2 → `phon` : `伊特拉特胡奥瓦兰利亚希夫哈吉穆赫`
+- **AR0287** (L6, phonétique, #3154) `الاجتماع عن بعد أوفر وقتا.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔伊吉蒂马安布特奥法尔瓦克坦`
+- **AR0288** (L6, phonétique, #3158) `سجلنا الاجتماع للغائبين.` — Régénéré par ar_phon.py v3.2 → `pi` : `sag-giàl-nal ig-ti-mà lil-ga-i-bìn` ; `phon` : `萨吉贾尔纳尔伊吉蒂马利尔拉伊宾`
+- **AR0289** (L6, phonétique, #3159) `أرسل الملخص بعد الاجتماع.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔西尔阿尔穆拉赫哈斯巴达尔伊吉蒂马`
+- **AR0290** (L6, traduction, #3167) `نلتقي على خير قريبا.` — Appliqué → `cn` : `愿我们早日平安再会。`
+- **AR0291** (L6, phonétique, #3168) `في حفظ الله.` — Régénéré par ar_phon.py v3.2 → `phon` : `菲希夫兹阿尔拉赫`
+- **AR0292** (L6, traduction, #3175) `البداية الصحيحة نصف الوصول.` — Appliqué → `en` : `Well begun is half done.` ; `itm` : `Chi ben comincia è a metà dell’opera.` ; `jam` : `よい始まりは成功の半分です。` ; `kom` : `시작이 좋으면 반은 이룬 셈이에요.`
+- **AR0293** (L6, phonétique, #3176) `حافظ على الإيقاع نفسه.` — Régénéré par ar_phon.py v3.2 → `phon` : `哈菲兹阿拉尔伊卡纳夫西赫`
+- **AR0294** (L7, phonétique, #3179) `كرتون مزدوج مقاوم للرطوبة.` — Régénéré par ar_phon.py v3.2 → `phon` : `卡尔通穆兹达瓦吉穆卡维姆利尔鲁图巴`
+- **AR0295** (L7, arabe, #3181) `أدرجوا الشحن في السعر؟` — Appliqué → `t` : `هل يمكنكم إدراج الشحن في السعر؟` (cinq phonétiques régénérées)
+- **AR0296** (L7, traduction, #3190) `كبر الخط قليلا.` — Appliqué → `en` : `Increase the font size a little.`
+- **AR0297** (L7, traduction, #3194) `أطعم الصغير عند الظهر.` — Appliqué → `jam` : `正午に小さな子にごはんをあげます。` ; `kom` : `정오에 어린아이에게 밥을 먹여요.`
+- **AR0298** (L7, phonétique, #3195) `تحتاج قيلولة وإلا تنزعج.` — Régénéré par ar_phon.py v3.2 → `phon` : `塔赫塔吉凯卢拉瓦伊尔拉坦扎伊吉`
+- **AR0299** (L7, phonétique, #3196) `تجلس مع الأطفال في العطلة.` — Régénéré par ar_phon.py v3.2 → `phon` : `塔吉利斯马阿尔阿特法尔菲尔乌特拉`
+- **AR0300** (L7, phonétique, #3200) `كان علينا الحجز مبكرا.` — Régénéré par ar_phon.py v3.2 → `phon` : `卡纳阿莱纳尔哈吉兹穆巴克基兰`
+- **AR0301** (L7, phonétique, #3208) `خذ المخرج الثاني يمينا.` — Régénéré par ar_phon.py v3.2 → `phon` : `胡兹阿尔马赫拉吉阿斯萨尼亚米南`
+- **AR0302** (L7, rapprochement, #3213) `على فكرة…` — Conservé : répétition pédagogique voulue (réexposition inter-niveaux).
+- **AR0303** (L7, phonétique, #3217) `التغليف المزدوج` — Régénéré par ar_phon.py v3.2 → `phon` : `阿特塔尔利夫阿尔穆兹达瓦吉`
+- **AR0304** (L7, phonétique, #3221) `المخرج` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔马赫拉吉`
+- **AR0305** (L7, phonétique, #3225) `وزن الحقيبة تجاوز الحد.` — Régénéré par ar_phon.py v3.2 → `pi` : `ùaz-nul ha-cì-ba ta-già-uaz al-hàd` ; `phon` : `瓦兹努尔哈基巴塔贾瓦兹阿尔哈特`
+- **AR0306** (L7, phonétique, #3229) `تزلجنا على البحيرة المتجمدة.` — Régénéré par ar_phon.py v3.2 → `pi` : `ta-zàl-lag-na a-lal bu-hài-ra al-mu-ta-giàm-mi-da` ; `phon` : `塔扎尔拉吉纳阿拉尔布海拉阿尔穆塔贾姆米达`
+- **AR0307** (L7, phonétique, #3230) `أول مرة أرى الثلج!` — Régénéré par ar_phon.py v3.2 → `phon` : `奥瓦尔马尔拉阿拉斯萨尔吉`
+- **AR0308** (L7, traduction, #3230) `أول مرة أرى الثلج!` — Appliqué → `en` : `It's the first time I've seen snow!`
+- **AR0309** (L7, phonétique, #3231) `تدحرجنا على المنحدر ضحكا.` — Régénéré par ar_phon.py v3.2 → `phon` : `塔达赫拉吉纳阿拉尔蒙哈达尔达希坎`
+- **AR0310** (L7, traduction, #3238) `وجدت صحبة طيبة أخيرا.` — Appliqué → `frm` : `J’ai enfin trouvé de bons compagnons.`
+- **AR0311** (L7, phonétique, #3242) `الزبدة: نحتاج أسبوعا إضافيا.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿兹祖普达纳赫塔吉乌斯布安伊达菲扬`
+- **AR0312** (L7, phonétique, #3244) `خذ المقاسات قبل الشراء.` — Régénéré par ar_phon.py v3.2 → `phon` : `胡兹阿尔马卡萨特卡普拉什希拉`
+- **AR0313** (L7, phonétique, #3245) `الجدار يحتاج طبقتين دهان.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔吉达尔亚赫塔吉塔普卡泰恩迪汉`
+- **AR0314** (L7, arabe, #3247) `اللون غامق عما توقعت.` — Appliqué → `t` : `اللون أغمق مما توقعت.` (cinq phonétiques régénérées)
+- **AR0315** (L7, phonétique, #3248) `افتح النوافذ للتهوية.` — Régénéré par ar_phon.py v3.2 → `ps` : `íf-taj an-na-úa-fid lit-taj-uí-ya` ; `pi` : `ìf-tah an-na-ùa-fid lit-tah-uì-ia` ; `phon` : `伊夫塔赫安纳瓦菲兹利特塔赫维亚`
+- **AR0316** (L7, phonétique, #3251) `المحتوى سليم لحسن الحظ.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔穆赫塔瓦萨利姆利胡斯尼尔哈兹`
+- **AR0317** (L7, traduction, #3252) `قدمنا ملاحظة للناقل.` — Appliqué → `en` : `We raised the issue with the carrier.` ; `itm` : `Abbiamo segnalato il problema al vettore.`
+- **AR0318** (L7, traduction, #3256) `الانتماء` — Appliqué → `en` : `belonging; a sense of belonging`
+- **AR0319** (L7, phonétique, #3266) `ما الذي يميزك عن غيرك؟` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `MAL-lah-dhee yoo-MAY-yee-zook an GHAY-rik` ; `pf` : `MAL-la-dhi you-MAÏ-yi-zouk an RAÏ-rik` ; `ps` : `mál-la-di yu-mái-yi-zuk an gái-rik` ; `pi` : `màl-la-di iu-mài-ii-zuk an gài-rik` ; `phon` : `马尔拉齐尤迈伊祖克安赖里克`
+- **AR0320** (L7, phonétique, #3267) `أتعلم بسرعة وأنجز تحت الضغط.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿塔阿尔拉姆比苏尔阿瓦温吉兹塔赫塔特达尔特`
+- **AR0321** (L7, traduction, #3267) `أتعلم بسرعة وأنجز تحت الضغط.` — Appliqué → `frm` : `J’apprends vite et je reste performant sous pression.`
+- **AR0322** (L7, traduction, #3277) `فرق السعر له سببه.` — Appliqué → `en` : `There’s a reason for the price difference.`
+- **AR0323** (L7, phonétique, #3281) `ثق بتجربتك أولا.` — Régénéré par ar_phon.py v3.2 → `phon` : `西克比塔吉里巴塔克奥瓦兰`
+- **AR0324** (L7, phonétique, #3283) `الرفرف يحتاج سمكرة ودهان.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔拉夫拉夫亚赫塔吉萨姆卡拉瓦迪汉`
+- **AR0325** (L7, phonétique, #3284) `كم يوما تحتاج الورشة؟` — Régénéré par ar_phon.py v3.2 → `pi` : `kam iàu-man tah-tàg al-ùar-scia` ; `phon` : `卡姆尤曼塔赫塔吉阿尔瓦尔沙`
+- **AR0326** (L7, traduction, #3291) `ناقش أطروحته بتفوق.` — Appliqué → `jam` : `彼は論文の口頭試問で優秀な成績を収めました。` ; `kom` : `그는 논문 심사를 훌륭하게 통과했어요.`
+- **AR0327** (L7, traduction, #3293) `المستودع يسلم بعد الواحدة.` — Appliqué → `en` : `The warehouse dispatches goods after one o’clock.`
+- **AR0328** (L7, traduction, #3304) `السمكرة` — Appliqué → `esm` : `la reparación de chapa`
+- **AR0329** (L7, traduction, #3312) `سجلني على قائمة الإلغاءات.` — Appliqué → `frm` : `Inscris-moi sur la liste d’attente en cas de désistement.`
+- **AR0330** (L7, traduction, #3313) `اتصلوا بي، موعد شاغر غدا.` — Appliqué → `en` : `They called me: a slot has opened up for tomorrow.` ; `frm` : `Ils m’ont appelé : un créneau s’est libéré pour demain.` ; `itm` : `Mi hanno chiamato: si è liberato un posto per domani.`
+- **AR0331** (L7, phonétique, #3315) `النتائج ترسل لطبيبك مباشرة.` — Régénéré par ar_phon.py v3.2 → `phon` : `安纳塔伊吉图尔萨尔利塔比巴克穆巴沙拉坦`
+- **AR0332** (L7, traduction, #3320) `طبق يستحق التكرار.` — Appliqué → `frm` : `Un plat à commander de nouveau.`
+- **AR0333** (L7, traduction, #3335) `النسبة المعيبة تجاوزت المسموح.` — Appliqué → `en` : `The defect rate exceeded the permitted limit.`
+- **AR0334** (L7, phonétique, #3351) `التحفظ` — Régénéré par ar_phon.py v3.2 → `phon` : `阿特塔哈夫夫兹`
+- **AR0335** (L7, phonétique, #3358) `أمطرت فجأة بلا مقدمات.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿姆塔拉特法吉阿坦比拉穆卡特迪马特`
+- **AR0336** (L7, phonétique, #3362) `خذ الأكبر واضبطه عند الخياط.` — Régénéré par ar_phon.py v3.2 → `pi` : `chùd al-àk-bar uad-bit-hu ìn-dal chai-iàt` ; `phon` : `胡兹阿尔阿克巴尔瓦特比特胡因达尔海亚特`
+- **AR0337** (L7, phonétique, #3364) `الأزرار تنقصها واحدة.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔阿兹拉尔坦库斯哈瓦希达`
+- **AR0338** (L7, phonétique, #3371) `بادج المتحدثين لونه مختلف.` — Régénéré par ar_phon.py v3.2 → `phon` : `巴特吉阿尔穆塔哈特迪辛劳努胡穆赫塔利夫`
+- **AR0339** (L7, traduction, #3375) `هل من عوائق نساعد فيها؟` — Appliqué → `cn` : `有什么障碍需要我们帮忙克服吗？` ; `frm` : `Y a-t-il des obstacles que nous pouvons vous aider à surmonter ?` ; `esm` : `¿Hay algún obstáculo que podamos ayudarles a superar?` ; `itm` : `Ci sono ostacoli che possiamo aiutarvi a superare?` ; `kom` : `저희가 해결을 도울 만한 문제가 있나요?`
+- **AR0340** (L7, traduction, #3378) `اللي ما له أول ما له تالي.` — Appliqué → `cn` : `没有过去，就没有未来。` ; `en` : `Whoever has no past has no future.` ; `frm` : `Qui n’a pas de passé n’a pas d’avenir.` ; `esm` : `Quien no tiene pasado no tiene futuro.` ; `itm` : `Chi non ha passato non ha futuro.` ; `jam` : `過去がなければ未来もない。` ; `kom` : `과거가 없으면 미래도 없어요.`
+- **AR0341** (L7, traduction, #3385) `سنحتفل بهذه المناسبة.` — Appliqué → `kom` : `이번 일을 축하할 거예요.`
+- **AR0342** (L7, arabe, #3398) `كنت واقفا في الطابور و إذ بصديق قديم أمامي.` — Appliqué → `t` : `كنت واقفا في الطابور وإذ بصديق قديم أمامي.` (cinq phonétiques régénérées)
+- **AR0343** (L7, phonétique, #3398) `كنت واقفا في الطابور و إذ بصديق قديم أمامي.` — Régénéré par ar_phon.py v3.2 → `phon` : `昆特瓦基凡菲特塔布尔瓦伊兹比萨迪克卡迪姆阿马米`
+- **AR0344** (L7, traduction, #3399) `لم نلتق منذ عشرين سنة!` — Appliqué → `esm` : `¡Llevábamos veinte años sin vernos!`
+- **AR0345** (L7, phonétique, #3401) `الدنيا تجمع ولا تفرق.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿特敦亚塔吉马瓦拉图法尔里克`
+- **AR0346** (L7, traduction, #3401) `الدنيا تجمع ولا تفرق.` — Appliqué → `en` : `The world brings people together rather than separating them.` ; `itm` : `Il mondo unisce, non divide.`
+- **AR0347** (L7, phonétique, #3406) `خرجنا بأخف الأضرار.` — Régénéré par ar_phon.py v3.2 → `phon` : `哈拉吉纳比阿哈夫菲尔阿特拉尔`
+- **AR0348** (L7, traduction, #3415) `أضفنا خصما اعتذاريا.` — Appliqué → `frm` : `Nous avons ajouté une remise en guise d’excuse.` ; `esm` : `Añadimos un descuento como disculpa.` ; `itm` : `Abbiamo aggiunto uno sconto per scusarci.`
+- **AR0349** (L7, traduction, #3417) `أضعت نظارتي في مكان ما.` — Appliqué → `kom` : `어딘가에서 안경을 잃어버렸어요.`
+- **AR0350** (L7, traduction, #3419) `كانت فوق رأسي طول الوقت!` — Appliqué → `en` : `They were on my head the whole time!`
+- **AR0351** (L7, traduction, #3420) `ضحكنا حتى الدموع.` — Appliqué → `en` : `We laughed until we cried.`
+- **AR0352** (L7, phonétique, #3421) `خذ إجازة من الشاشات.` — Régénéré par ar_phon.py v3.2 → `pi` : `chùd i-già-za mi-nasc scia-sciàt` ; `phon` : `胡兹伊贾扎米纳什沙沙特`
+- **AR0353** (L7, phonétique, #3433) `الجهاز رفض البطاقة.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔吉哈兹拉法特阿尔比塔卡`
+- **AR0354** (L7, traduction, #3434) `جرب تمريرها بدل اللمس.` — Appliqué → `frm` : `Essaie de la faire glisser au lieu d’utiliser le sans-contact.` ; `jam` : `タッチではなく、カードをスライドさせて試して。`
+- **AR0355** (L7, traduction, #3446) `خدمة ما بعد البيع رجحت الكفة.` — Appliqué → `itm` : `L’assistenza post-vendita ha fatto pendere la bilancia.` ; `kom` : `애프터서비스가 결정적인 역할을 했어요.`
+- **AR0356** (L7, phonétique, #3449) `نجحوا في الاختبار بامتياز.` — Régénéré par ar_phon.py v3.2 → `pi` : `nà-gia-hu fil ich-ti-bàr bim-ti-iàz` ; `phon` : `纳贾胡菲尔伊赫蒂巴尔比姆蒂亚兹`
+- **AR0357** (L7, phonétique, #3457) `تدرب على الركن الموازي.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `tah-DAR-rab ah-lar RAKN al-moo-WAH-zee` ; `pf` : `ta-DAR-rab a-lar RAKN al-mou-OUA-zi` ; `ps` : `ta-dár-rab a-lar rákn al-mu-úa-zi` ; `pi` : `ta-dàr-rab a-lar ràkn al-mu-ùa-zi` ; `phon` : `塔达尔拉普阿拉尔拉克恩阿尔穆瓦齐`
+- **AR0358** (L7, traduction, #3459) `نجح وعلق الرخصة في صدره!` — Appliqué → `itm` : `Ha superato l’esame e porta la patente come una medaglia!`
+- **AR0359** (L7, phonétique, #3471) `الركن الموازي` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `ar-RAKN al-moo-WAH-zee` ; `pf` : `ar-RAKN al-mou-OUA-zi` ; `ps` : `ar-rákn al-mu-úa-zi` ; `pi` : `ar-ràkn al-mu-ùa-zi` ; `phon` : `阿尔拉克恩阿尔穆瓦齐`
+- **AR0360** (L7, arabe, #3476) `الإضاءة الطبيعية أجمل النتائج.` — Appliqué → `t` : `تعطي الإضاءة الطبيعية أجمل النتائج.` (cinq phonétiques régénérées)
+- **AR0361** (L7, phonétique, #3476) `الإضاءة الطبيعية أجمل النتائج.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `TU-til ee-DAH-ah at-tah-bee-IY-yah AJ-mal an-nah-TAH-ij` ; `pf` : `TOU-til i-DA-a at-ta-bi-IY-ya ADJ-mal an-na-TA-idj` ; `ps` : `tú-til i-dá-a at-ta-bi-íy-ya áy-mal an-na-tá-iy` ; `pi` : `tù-til i-dà-a at-ta-bi-ìi-ia àg-mal an-na-tà-ig` ; `phon` : `图蒂尔伊达阿阿特塔比伊亚阿吉马尔安纳塔伊吉`
+- **AR0362** (L7, phonétique, #3478) `فاز بالمركز الثاني!` — Régénéré par ar_phon.py v3.2 → `phon` : `法扎比尔马尔卡兹阿斯萨尼`
+- **AR0363** (L7, phonétique, #3485) `أنجزت واجبك قبل اللعب؟` — Régénéré par ar_phon.py v3.2 → `pi` : `an-giàzt ùa-gi-bak càb-lal là-ib` ; `phon` : `安贾兹特瓦吉巴克卡普拉尔拉伊普`
+- **AR0364** (L7, arabe, #3492) `العقد سنة قابلة للتثبيت.` — Appliqué → `t` : `عقد لمدة سنة مع إمكانية التثبيت.` (cinq phonétiques régénérées)
+- **AR0365** (L7, phonétique, #3493) `الدوام مرن جزئيا.` — Régénéré par ar_phon.py v3.2 → `pi` : `ad-da-ùam mà-rin giùz-i-ian` ; `phon` : `阿特达瓦姆马林朱兹伊扬`
+- **AR0366** (L7, phonétique, #3501) `بداية شراكة مثمرة بإذن الله.` — Régénéré par ar_phon.py v3.2 → `phon` : `比达亚特沙拉卡穆斯米拉比伊兹尼尔拉赫`
+- **AR0367** (L7, traduction, #3505) `التثبيت (وظيفة)` — Appliqué → `en` : `conversion to permanent employment`
+- **AR0368** (L7, phonétique, #3508) `قهوتك مظبوطة كالعادة؟` — Régénéré par ar_phon.py v3.2 → `phon` : `卡赫瓦塔克马兹布塔卡尔阿达`
+- **AR0369** (L7, traduction, #3508) `قهوتك مظبوطة كالعادة؟` — Appliqué → `frm` : `Ton café moyennement sucré, comme d’habitude ?`
+- **AR0370** (L7, phonétique, #3509) `اليوم سادة، أحتاج تركيزا.` — Régénéré par ar_phon.py v3.2 → `pi` : `al-iàum sà-da ah-tàg tar-chì-zan` ; `phon` : `阿尔尤姆萨达阿赫塔吉塔尔基赞`
+- **AR0371** (L7, traduction, #3509) `اليوم سادة، أحتاج تركيزا.` — Appliqué → `en` : `Unsweetened today — I need to concentrate.` ; `esm` : `Hoy sin azúcar, necesito concentrarme.` ; `kom` : `오늘은 설탕 없이요, 집중해야 해서요.`
+- **AR0372** (L7, phonétique, #3511) `المزاج يتحسن مع أول رشفة.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔马扎吉亚塔哈斯桑马阿奥瓦尔拉什法`
+- **AR0373** (L7, traduction, #3517) `البداية المتواضعة لا تعيب.` — Appliqué → `cn` : `起步平凡并不丢人。`
+- **AR0374** (L7, traduction, #3521) `جربوه أمامي قبل مغادرتهم.` — Appliqué → `en` : `They tested it in front of me before leaving.`
+- **AR0375** (L7, phonétique, #3522) `خذ صورة للرقم التسلسلي.` — Régénéré par ar_phon.py v3.2 → `phon` : `胡兹苏拉利尔拉卡姆阿特塔萨尔苏利`
+- **AR0376** (L7, phonétique, #3523) `الجو مثالي لنزهة عائلية.` — Régénéré par ar_phon.py v3.2 → `pi` : `al-giàu mi-tà-li li-nùz-ha a-i-lìi-ia` ; `phon` : `阿尔焦米萨利利努兹哈阿伊利亚`
+- **AR0377** (L7, phonétique, #3524) `احجز طاولة الشواء مبكرا.` — Régénéré par ar_phon.py v3.2 → `phon` : `伊赫吉兹塔维拉特阿什沙瓦穆巴克基兰`
+- **AR0378** (L7, arabe, #3526) `عين عليهم بالتناوب.` — Appliqué → `t` : `راقبوهم بالتناوب.` (cinq phonétiques régénérées)
+- **AR0379** (L7, traduction, #3528) `الخط الساخن مشغول دائما.` — Appliqué → `itm` : `La linea di assistenza è sempre occupata.` ; `frm` : `La ligne d’assistance est toujours occupée.`
+- **AR0380** (L7, phonétique, #3531) `اطلب رقم المعاملة واحتفظ به.` — Régénéré par ar_phon.py v3.2 → `phon` : `乌特卢普拉卡姆阿尔穆阿马拉瓦赫塔菲兹比赫`
+- **AR0381** (L7, phonétique, #3539) `ارفعوا الأيدي للأسئلة.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `ir-FAH-ool AY-dee lil-as-EE-lah` ; `pf` : `ir-FA-oul AÏ-di lil-as-I-la` ; `ps` : `ir-fá-ul ái-di lil-as-í-la` ; `pi` : `ir-fà-ul ài-di lil-as-ì-la` ; `phon` : `伊尔法乌尔艾迪利尔阿斯伊拉`
+- **AR0382** (L7, traduction, #3554) `منطقة الرافعات ممنوعة للمشاة.` — Appliqué → `jam` : `クレーン区域は歩行者立入禁止です。`
+- **AR0383** (L7, phonétique, #3558) `سلامتكم قبل الإنتاج.` — Régénéré par ar_phon.py v3.2 → `phon` : `萨拉马图库姆卡普拉尔因塔吉`
+- **AR0384** (L7, phonétique, #3567) `الطلب جاهز للاستلام عند الكاشير.` — Régénéré par ar_phon.py v3.2 → `pi` : `at-ta-lab già-hiz lil-is-ti-làm ìn-dal ka-scìr` ; `phon` : `阿特塔拉普贾希兹利尔伊斯蒂拉姆因达尔卡希尔`
+- **AR0385** (L7, traduction, #3571) `باب الاقتراحات مفتوح.` — Appliqué → `en` : `We’re open to suggestions.` ; `itm` : `Siamo aperti ai suggerimenti.`
+- **AR0386** (L7, traduction, #3585) `سجلوا أسماءكم قبل الخميس.` — Appliqué → `itm` : `Iscrivetevi prima di giovedì.` ; `jam` : `木曜より前に登録してください。`
+- **AR0387** (L7, phonétique, #3588) `التذكير باكرا ينقذ الحضور.` — Régénéré par ar_phon.py v3.2 → `pi` : `at-tad-chìr bà-chi-ran iùn-cid al-hu-dùr` ; `phon` : `阿特塔兹基尔巴基兰云基兹阿尔胡杜尔`
+- **AR0388** (L7, traduction, #3588) `التذكير باكرا ينقذ الحضور.` — Appliqué → `en` : `Early reminders help ensure people attend.` ; `frm` : `Un rappel anticipé aide à assurer la participation.` ; `esm` : `Los recordatorios con antelación ayudan a asegurar la asistencia.` ; `itm` : `Un promemoria inviato in anticipo aiuta a garantire la partecipazione.`
+- **AR0389** (L7, phonétique, #3593) `ممنوع الهواتف داخل خط الإنتاج.` — Régénéré par ar_phon.py v3.2 → `phon` : `马姆努阿尔哈瓦蒂夫达希尔哈特阿尔因塔吉`
+- **AR0390** (L7, traduction, #3595) `ودعناهم حتى باب السيارة.` — Appliqué → `en` : `We saw them off at the car door.` ; `esm` : `Los acompañamos hasta el coche para despedirlos.`
+- **AR0391** (L7, traduction, #3596) `رحلة موفقة وإلى اللقاء قريبا.` — Appliqué → `en` : `Have a good trip, and see you soon.`
+- **AR0392** (L7, traduction, #3598) `الاحترافية تختصر الكلام.` — Appliqué → `en` : `Professionalism makes lengthy explanations unnecessary.` ; `esm` : `La profesionalidad ahorra explicaciones.`
+- **AR0393** (L7, phonétique, #3604) `احفظ عنوان الفندق بالعربية.` — Régénéré par ar_phon.py v3.2 → `phon` : `伊赫法兹温万阿尔丰杜克比尔阿拉比亚`
+- **AR0394** (L8, traduction, #3611) `نطالب ببادرة تجارية.` — Appliqué → `cn` : `我们要求对方给予商业补偿。` ; `en` : `We request a goodwill gesture.`
+- **AR0395** (L8, phonétique, #3621) `— جربت الطبق؟ — لذيذ بصراحة.` — Régénéré par ar_phon.py v3.2 → `phon` : `贾尔拉普特阿特塔巴克拉齐兹比萨拉哈`
+- **AR0396** (L8, phonétique, #3633) `خرجت مرتاح الضمير.` — Régénéré par ar_phon.py v3.2 → `phon` : `哈拉吉特穆尔塔赫阿特达米尔`
+- **AR0397** (L8, phonétique, #3636) `أطفئ الأنوار عند الخروج.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿特菲尔安瓦尔因达尔胡鲁吉`
+- **AR0398** (L8, phonétique, #3637) `أغلق الغاز قبل النوم.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔利克阿尔拉兹卡普兰瑙姆`
+- **AR0399** (L8, phonétique, #3639) `أبرز نقاط قوتي هي…` — Régénéré par ar_phon.py v3.2 → `phon` : `阿普拉兹尼卡特库瓦蒂希亚`
+- **AR0400** (L8, phonétique, #3640) `تجدر الإشارة إلى أن…` — Régénéré par ar_phon.py v3.2 → `pi` : `tàg-dur al-i-scià-ra i-là àn-na` ; `phon` : `塔吉杜尔阿尔伊沙拉伊拉安纳`
+- **AR0401** (L8, traduction, #3641) `البادرة التجارية` — Appliqué → `cn` : `商业补偿（以示诚意）` ; `en` : `a goodwill gesture`
+- **AR0402** (L8, phonétique, #3647) `الغاز المنزلي` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔拉兹阿尔曼齐利`
+- **AR0403** (L8, traduction, #3651) `يد في العسل ويد في الدبس.` — Appliqué → `itm` : `Una mano nel miele e una nella melassa. (avere la botte piena e la moglie ubriaca)`
+- **AR0404** (L8, traduction, #3656) `وضع النقاط على الحروف.` — Appliqué → `en` : `He made everything clear.`
+- **AR0405** (L8, traduction, #3657) `أمسكنا العصا من المنتصف.` — Appliqué → `en` : `We took a balanced position.`
+- **AR0406** (L8, phonétique, #3658) `— أين كنت؟ — علقت في اجتماع.` — Régénéré par ar_phon.py v3.2 → `phon` : `艾纳昆特阿利克特菲伊吉蒂马`
+- **AR0407** (L8, phonétique, #3659) `— ما رأيك بالعرض؟ — يحتاج تحسينا.` — Régénéré par ar_phon.py v3.2 → `phon` : `马拉尤克比尔阿尔特亚赫塔吉塔赫西南`
+- **AR0408** (L8, phonétique, #3661) `— السيارة جاهزة؟ — تحتاج يوما آخر.` — Régénéré par ar_phon.py v3.2 → `pi` : `as-sai-ià-ra già-hi-za  tah-tàg iàu-man à-char` ; `phon` : `阿斯赛亚拉贾希扎塔赫塔吉尤曼阿哈尔`
+- **AR0409** (L8, traduction, #3664) `شيئا فشيئا يكتمل البناء.` — Appliqué → `en` : `Little by little, the building takes shape.`
+- **AR0410** (L8, traduction, #3666) `القليل الدائم خير من الكثير المنقطع.` — Appliqué → `en` : `A little done consistently is better than a lot done sporadically.` ; `esm` : `Es mejor hacer poco de forma constante que mucho de manera intermitente.` ; `jam` : `少しずつでも続ける方が、一度にたくさんやって途切れるよりよい。` ; `kom` : `조금씩 꾸준히 하는 것이 많이 하다가 중단하는 것보다 나아요.`
+- **AR0411** (L8, phonétique, #3673) `الأجواء عائلية والأسعار معقولة.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔阿吉瓦阿伊利亚瓦尔阿斯阿尔马库拉`
+- **AR0412** (L8, traduction, #3674) `جرب عربة الحلويات هناك.` — Appliqué → `frm` : `Essaie le stand de douceurs là-bas.` ; `kom` : `저쪽 디저트 노점에 가 봐요.`
+- **AR0413** (L8, traduction, #3675) `سهرنا حتى أغلقوا.` — Appliqué → `jam` : `閉店までいました。`
+- **AR0414** (L8, phonétique, #3688) `الأجواء` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔阿吉瓦`
+- **AR0415** (L8, phonétique, #3703) `وزع مدخراتك، لا تركزها.` — Régénéré par ar_phon.py v3.2 → `phon` : `瓦兹齐穆达赫哈拉塔克拉图拉克基兹哈`
+- **AR0416** (L8, traduction, #3707) `— عندك بديل أرخص؟ — نفس المادة الفعالة.` — Appliqué → `kom` : `— 더 싼 대체약 있어요? — 유효 성분은 같아요.`
+- **AR0417** (L8, phonétique, #3710) `يحفظ بعيدا عن متناول الأطفال.` — Régénéré par ar_phon.py v3.2 → `pi` : `iùh-faz ba-ì-dan an mu-ta-nà-ual al-at-fàl` ; `phon` : `尤赫法兹巴伊丹安穆塔纳瓦尔阿尔阿特法尔`
+- **AR0418** (L8, traduction, #3712) `التمويل عبر البنك مباشرة.` — Appliqué → `kom` : `자금 조달은 은행을 통해 직접 진행해요.`
+- **AR0419** (L8, traduction, #3713) `الصيانة مجانية ثلاث سنوات.` — Appliqué → `kom` : `3년간 무상 정비예요.`
+- **AR0420** (L8, traduction, #3714) `القيمة تنخفض بعد أول سنة.` — Appliqué → `jam` : `最初の1年が過ぎると価値が下がります。`
+- **AR0421** (L8, traduction, #3715) `المستعمل الموثق خيار ذكي.` — Appliqué → `esm` : `Un coche usado certificado es una elección inteligente.` ; `kom` : `이력이 확인된 중고차가 현명한 선택이에요.`
+- **AR0422** (L8, phonétique, #3735) `التوقف كلفنا ساعتين إنتاج.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿特塔瓦克库夫卡尔拉法纳萨阿泰恩因塔吉`
+- **AR0423** (L8, traduction, #3740) `قل رقمك وأنا أقرب لك.` — Appliqué → `en` : `Name your price and I’ll try to get closer to it.`
+- **AR0424** (L8, traduction, #3743) `اتفقنا وبارك الله.` — Appliqué → `itm` : `Affare fatto, e che Dio lo benedica.`
+- **AR0425** (L8, phonétique, #3748) `احفظ بيتا واحدا وافهمه جيدا.` — Régénéré par ar_phon.py v3.2 → `pi` : `ih-faz bài-tan ùa-hi-dan uaf-hàm-hu giài-ii-dan` ; `phon` : `伊赫法兹拜坦瓦希丹瓦夫哈姆胡贾伊伊丹`
+- **AR0426** (L8, traduction, #3750) `أبلغنا اتحاد الملاك خطيا.` — Appliqué → `frm` : `Nous avons informé le syndicat des copropriétaires par écrit.`
+- **AR0427** (L8, phonétique, #3756) `الحارس أنقذ ركلة جزاء!` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔哈里斯安卡兹拉克拉特贾扎`
+- **AR0428** (L8, phonétique, #3758) `الموسم القادم لنا بإذن الله.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔毛西姆阿尔卡迪姆拉纳比伊兹尼尔拉赫`
+- **AR0429** (L8, phonétique, #3760) `كلامك وصل، أحتاج وقتا.` — Régénéré par ar_phon.py v3.2 → `phon` : `卡拉穆克瓦萨尔阿赫塔吉瓦克坦`
+- **AR0430** (L8, phonétique, #3762) `النية الطيبة تظهر في النبرة.` — Régénéré par ar_phon.py v3.2 → `phon` : `安尼亚阿特泰伊巴塔兹哈尔芬纳普拉`
+- **AR0431** (L8, traduction, #3769) `اتحاد الملاك` — Appliqué → `frm` : `le syndicat des copropriétaires`
+- **AR0432** (L8, traduction, #3779) `لغتك تتحسن بسرعة مدهشة.` — Appliqué → `en` : `Your language skills are improving at an amazing pace.` ; `frm` : `Ton niveau de langue progresse à une vitesse étonnante.` ; `esm` : `Tu dominio del idioma mejora a un ritmo asombroso.` ; `itm` : `La tua padronanza della lingua migliora a una velocità sorprendente.` ; `kom` : `언어 실력이 놀랄 만큼 빨리 늘어요.`
+- **AR0433** (L8, traduction, #3781) `الخطأ معلم مجاني.` — Appliqué → `jam` : `間違いは無料で教えてくれる先生です。`
+- **AR0434** (L8, arabe, #3783) `— السمك طازج؟ — من بحر اليوم.` — Appliqué → `t` : `— السمك طازج؟ — من صيد اليوم.` (cinq phonétiques régénérées)
+- **AR0435** (L8, phonétique, #3783) `— السمك طازج؟ — من بحر اليوم.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `as-SAH-mak TAH-zaj  min SAYD al-YOWM` ; `pf` : `as-SA-mak TA-zadj  min SAÏD al-YAOUM` ; `ps` : `as-sá-mak tá-zay  min sáid al-yáum` ; `pi` : `as-sà-mak tà-zag  min sàid al-iàum` ; `phon` : `阿斯萨马克塔扎吉明赛特阿尔尤姆`
+- **AR0436** (L8, traduction, #3783) `— السمك طازج؟ — من بحر اليوم.` — Appliqué → `en` : `— Is the fish fresh? — Caught today.` ; `frm` : `— Le poisson est frais ? — Pêché aujourd’hui.` ; `esm` : `— ¿El pescado es fresco? — Es de la pesca de hoy.` ; `itm` : `— Il pesce è fresco? — È pescato di oggi.`
+- **AR0437** (L8, phonétique, #3787) `الكيلو بكم والعظم مفصول؟` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔基卢比卡姆瓦尔阿兹姆马夫苏尔`
+- **AR0438** (L8, phonétique, #3788) `البيان الجمركي فيه خطأ وزن.` — Régénéré par ar_phon.py v3.2 → `pi` : `al-ba-iàn al-gium-rù-chi fì-hi chà-ta ùazn` ; `phon` : `阿尔巴扬阿尔朱姆鲁基菲希哈塔瓦兹恩`
+- **AR0439** (L8, phonétique, #3791) `خذ نسخة مختومة من البيان.` — Régénéré par ar_phon.py v3.2 → `pi` : `chùd nùs-cha mach-tù-ma mi-nal ba-iàn` ; `phon` : `胡兹努斯哈马赫图马米纳尔巴扬`
+- **AR0440** (L8, arabe, #3793) `جاري عملي لا أكثر.` — Appliqué → `t` : `زميل في العمل لا أكثر.` (cinq phonétiques régénérées)
+- **AR0441** (L8, traduction, #3795) `رقمي الشخصي للمقربين فقط.` — Appliqué → `en` : `My personal number is only for people I’m close to.`
+- **AR0442** (L8, phonétique, #3796) `خارج الدوام لا أرد على الشغل.` — Régénéré par ar_phon.py v3.2 → `pi` : `chà-rig ad-da-ùam la a-rùd a-lasc sciùgl` ; `phon` : `哈里吉阿特达瓦姆拉阿鲁特阿拉什舒尔尔`
+- **AR0443** (L8, traduction, #3796) `خارج الدوام لا أرد على الشغل.` — Appliqué → `en` : `Outside working hours, I don’t respond to work messages.` ; `esm` : `Fuera del horario laboral, no respondo a los mensajes de trabajo.` ; `itm` : `Fuori orario non rispondo ai messaggi di lavoro.`
+- **AR0444** (L8, traduction, #3798) `رسالة الجائزة هذه احتيال.` — Appliqué → `frm` : `Ce message annonçant un gain est une arnaque.` ; `itm` : `Questo messaggio che annuncia una vincita è una truffa.`
+- **AR0445** (L8, traduction, #3802) `حذرت الوالدين من هذه الحيل.` — Appliqué → `jam` : `両親にこの手口に気をつけるよう伝えました。`
+- **AR0446** (L8, phonétique, #3804) `العظم` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔阿兹姆`
+- **AR0447** (L8, phonétique, #3811) `الحجب` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔哈吉普`
+- **AR0448** (L8, traduction, #3813) `المقربون` — Appliqué → `en` : `those close to someone`
+- **AR0449** (L8, traduction, #3816) `الشد (نطق)` — Appliqué → `cn` : `辅音重叠（辅音延长）` ; `en` : `gemination (consonant lengthening)` ; `esm` : `la geminación (alargamiento de consonantes)` ; `jam` : `子音の長音化` ; `kom` : `자음의 장음화`
+- **AR0450** (L8, phonétique, #3819) `المنصة تحتاج ميكروفونين.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔米纳斯萨塔赫塔吉米克鲁夫奈恩`
+- **AR0451** (L8, traduction, #3821) `الضيف الرئيسي وصل المطار.` — Appliqué → `en` : `The guest of honor has arrived at the airport.`
+- **AR0452** (L8, arabe, #3824) `الشاشات بساعة واحدة يوميا.` — Appliqué → `t` : `وقت الشاشات محدد بساعة واحدة يوميا.` (cinq phonétiques régénérées)
+- **AR0453** (L8, phonétique, #3838) `فريقك محظوظ بك.` — Régénéré par ar_phon.py v3.2 → `phon` : `法里库克马赫祖兹比克`
+- **AR0454** (L8, phonétique, #3839) `على قولتهم: الصبر مفتاح الفرج.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿拉库尔塔胡姆阿斯萨普尔穆夫塔赫阿尔法拉吉`
+- **AR0455** (L8, traduction, #3839) `على قولتهم: الصبر مفتاح الفرج.` — Appliqué → `jam` : `よく言われるように、忍耐は解決の鍵です。`
+- **AR0456** (L8, traduction, #3841) `المكتوب ما منه مهروب.` — Appliqué → `en` : `You can’t escape your fate.`
+- **AR0457** (L8, traduction, #3843) `وعد الحر دين عليه.` — Appliqué → `jam` : `武士に二言はない。`
+- **AR0458** (L8, traduction, #3846) `الضيف الرئيسي` — Appliqué → `en` : `the guest of honor`
+- **AR0459** (L8, phonétique, #3851) `الفرج` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔法拉吉`
+- **AR0460** (L8, phonétique, #3855) `— جاهز للعرض؟ — أمهلني خمس دقائق.` — Régénéré par ar_phon.py v3.2 → `pi` : `già-hiz lil-ard  àm-hil-ni chàms da-cà-ic` ; `phon` : `贾希兹利尔阿尔特阿姆希尔尼哈姆斯达卡伊克`
+- **AR0461** (L8, phonétique, #3859) `خط الإنتاج يعمل بكامل طاقته.` — Régénéré par ar_phon.py v3.2 → `pi` : `chat al-in-tàg ià-mal bi-kà-mil tà-ca-tih` ; `phon` : `哈特阿尔因塔吉亚马尔比卡米尔塔卡蒂赫`
+- **AR0462** (L8, phonétique, #3860) `الدفعة الأولى تخرج الاثنين.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿特杜夫阿阿尔乌拉塔赫鲁吉阿尔伊斯奈恩`
+- **AR0463** (L8, traduction, #3863) `سنضغط الجدول قدر الممكن.` — Appliqué → `esm` : `Acortaremos los plazos todo lo posible.`
+- **AR0464** (L8, phonétique, #3865) `الحجز يذكر إطلالة بحرية.` — Régénéré par ar_phon.py v3.2 → `pi` : `al-hàgz iàd-kur it-là-la bah-rìi-ia` ; `phon` : `阿尔哈吉兹亚兹库尔伊特拉拉巴赫里亚`
+- **AR0465** (L8, traduction, #3877) `اتق شر من أحسنت إليه.` — Appliqué → `jam` : `恩を施した相手の悪意に用心せよ。` ; `kom` : `자신이 은혜를 베푼 사람의 악의를 경계하라.`
+- **AR0466** (L8, traduction, #3880) `النائب` — Appliqué → `jam` : `副責任者（代理）`
+- **AR0467** (L8, arabe, #3892) `— القهوة جاهزة؟ — تفضل، حذرة وساخنة.` — Appliqué → `t` : `— القهوة جاهزة؟ — تفضل، طازجة وساخنة.` (cinq phonétiques régénérées)
+- **AR0468** (L8, phonétique, #3894) `— نلغي الاجتماع؟ — نؤجله فقط.` — Régénéré par ar_phon.py v3.2 → `phon` : `努尔里尔伊吉蒂马努阿吉吉卢赫法卡特`
+- **AR0469** (L8, phonétique, #3898) `الفقرة الأخيرة تحتاج أمثلة.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔法克拉阿尔阿希拉塔赫塔吉阿姆西拉`
+- **AR0470** (L8, traduction, #3901) `نشرناه ولقي صدى واسعا.` — Appliqué → `en` : `We published it, and it attracted widespread attention.`
+- **AR0471** (L8, phonétique, #3905) `نرجع كل عيد لنجمع الشمل.` — Régénéré par ar_phon.py v3.2 → `pi` : `nàr-gia kùl-la ìd li-nàg-ma asc-sciàml` ; `phon` : `纳尔贾库尔拉伊特利纳吉马阿什沙姆尔`
+- **AR0472** (L8, phonétique, #3908) `البركة في الاجتماع.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔巴拉卡菲尔伊吉蒂马`
+- **AR0473** (L8, traduction, #3914) `— الموعد يناسبك؟ — مثالي تماما.` — Appliqué → `en` : `— Does the time suit you? — It’s perfect.` ; `frm` : `— L’horaire te convient ? — C’est parfait.` ; `esm` : `— ¿Te viene bien la hora? — Me viene perfecto.` ; `itm` : `— L’orario ti va bene? — È perfetto.`
+- **AR0474** (L8, arabe, #3915) `أرسل الموقع وسأصل بدقة.` — Appliqué → `t` : `أرسل الموقع وسأصل في الموعد المحدد.` (cinq phonétiques régénérées)
+- **AR0475** (L8, traduction, #3915) `أرسل الموقع وسأصل بدقة.` — Appliqué → `en` : `Send me the location and I'll be there on time.` ; `frm` : `Envoie la position, j'arriverai à l'heure.` ; `itm` : `Manda la posizione e arriverò puntuale.` ; `kom` : `위치 보내 줘요, 제시간에 도착할게요.`
+- **AR0476** (L8, phonétique, #3917) `خذ المترو وريح بالك.` — Régénéré par ar_phon.py v3.2 → `phon` : `胡兹阿尔米特鲁瓦赖伊赫巴拉克`
+- **AR0477** (L8, traduction, #3917) `خذ المترو وريح بالك.` — Appliqué → `en` : `Take the metro and save yourself the hassle.`
+- **AR0478** (L8, traduction, #3924) `— جربت التمر بالقهوة؟ — توأمان لا يفترقان.` — Appliqué → `cn` : `——试过椰枣配咖啡吗？——它们就像一对形影不离的双胞胎。`
+- **AR0479** (L8, phonétique, #3927) `كلامك أثلج صدري.` — Régénéré par ar_phon.py v3.2 → `phon` : `卡拉穆克阿斯拉吉萨特里`
+- **AR0480** (L8, phonétique, #3929) `حجزت الطاولة المعتادة.` — Régénéré par ar_phon.py v3.2 → `pi` : `ha-giàzt at-tà-ui-la al-mu-tà-da` ; `phon` : `哈贾兹特阿特塔维拉阿尔穆塔达`
+- **AR0481** (L8, traduction, #3932) `انتهت القائمة، أبدع كعادتك.` — Appliqué → `jam` : `リストは完成です。いつものように力を発揮してください。` ; `kom` : `목록은 끝났어요. 늘 하던 대로 멋지게 해내세요.`
+- **AR0482** (L8, traduction, #3946) `المشرف أثنى على تقريري.` — Appliqué → `jam` : `指導担当者が報告書を褒めてくれました。` ; `kom` : `지도 담당자가 제 보고서를 칭찬했어요.`
+- **AR0483** (L8, phonétique, #3947) `عرضوا علي عقدا بعد التخرج.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿拉杜阿莱亚阿克丹巴达特塔哈尔鲁吉`
+- **AR0484** (L8, phonétique, #3949) `— تشحنون للخارج؟ — لكل الخليج.` — Régénéré par ar_phon.py v3.2 → `phon` : `塔什哈农利尔哈里吉利库尔利尔哈利吉`
+- **AR0485** (L8, traduction, #3949) `— تشحنون للخارج؟ — لكل الخليج.` — Appliqué → `cn` : `——你们向国外发货吗？——发往整个海湾地区。`
+- **AR0486** (L8, phonétique, #3956) `الضحك علاج مجاني.` — Régénéré par ar_phon.py v3.2 → `pi` : `ad-dahk i-làg mag-già-ni` ; `phon` : `阿特达赫克伊拉吉马吉贾尼`
+- **AR0487** (L8, traduction, #3956) `الضحك علاج مجاني.` — Appliqué → `jam` : `笑いはお金のかからない薬です。`
+- **AR0488** (L8, phonétique, #3959) `الملاحظات تتحول لإجراءات.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔穆拉哈扎特塔塔豪瓦尔利伊吉拉阿特`
+- **AR0489** (L8, phonétique, #3962) `نظم ملفاتك تنجز أسرع.` — Régénéré par ar_phon.py v3.2 → `phon` : `纳兹齐姆马尔拉夫法塔克通吉兹阿斯拉`
+- **AR0490** (L8, phonétique, #3966) `القائمة القصيرة تنجز فعلا.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔卡伊马阿尔卡西拉通贾兹菲兰`
+- **AR0491** (L8, phonétique, #3977) `رائحة القهوة تجذب المارة.` — Régénéré par ar_phon.py v3.2 → `phon` : `拉伊哈特阿尔卡赫瓦塔吉齐普阿尔马尔拉`
+- **AR0492** (L8, phonétique, #3978) `التجربة المجانية تكسر التردد.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿特塔吉里巴阿尔马吉贾尼亚塔克西尔阿特塔拉特杜特`
+- **AR0493** (L8, traduction, #3980) `اكتب اسمه وتذكر طلبه.` — Appliqué → `cn` : `记下他的名字，并记住他的订单。`
+- **AR0494** (L8, phonétique, #3984) `نوزع جزءا على الفريق.` — Régénéré par ar_phon.py v3.2 → `pi` : `nu-ùaz-zi giùz-an a-lal fa-rìc` ; `phon` : `努瓦兹齐朱兹安阿拉尔法里克`
+- **AR0495** (L8, traduction, #3989) `— جاهزون للجرد؟ — المخزن مغلق لذلك.` — Appliqué → `jam` : `「棚卸しの準備は？」「そのため倉庫は閉めています」`
+- **AR0496** (L8, phonétique, #3990) `عد مرتين وسجل مرة.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `UDD mar-rah-TAYN wah-SAJ-jil MAR-rah` ; `pf` : `OUDD mar-ra-TAÏN oua-SADJ-djil MAR-ra` ; `ps` : `údd mar-ra-táin ua-sáy-yil már-ra` ; `pi` : `ùdd mar-ra-tàin ua-sàg-gil màr-ra` ; `phon` : `乌特马尔拉泰恩瓦萨吉吉尔马尔拉`
+- **AR0497** (L8, phonétique, #3991) `الفرق قطعتان فقط، ممتاز.` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔法尔克基特阿坦法卡特穆姆塔兹`
+- **AR0498** (L8, traduction, #3995) `— الفاتورة بالريال أم بالدولار؟ — بالريال محليا.` — Appliqué → `itm` : `— La fattura in riyal o in dollari? — In riyal per le operazioni locali.` ; `frm` : `clarification facultative En riyals pour les transactions locales.`
+- **AR0499** (L8, phonétique, #4004) `الله يجزيك خيرا.` — Régénéré par ar_phon.py v3.2 → `pi` : `al-làh iàg-zik chài-ran` ; `phon` : `阿尔拉赫亚吉齐克海兰`
+- **AR0500** (L8, traduction, #4007) `البيتزا علي والنتيجة علينا.` — Appliqué → `frm` : `La pizza, c’est moi qui l’offre` ; `esm` : `La pizza la pago yo` ; `itm` : `La pizza la offro io` ; `jam` : `ピザは私持ち、成果はみんなで出そう。`
+- **AR0501** (L9, traduction, #4010) `أرسلوا لنا عينات أولية رجاء.` — Appliqué → `frm` : `Pouvez-vous nous envoyer des échantillons préliminaires, s’il vous plaît ?`
+- **AR0502** (L9, traduction, #4011) `سنفحص قبل الشحن بأنفسنا.` — Appliqué → `en` : `We’ll inspect the goods ourselves before shipping.`
+- **AR0503** (L9, traduction, #4012) `أرسلوا صور خط الإنتاج.` — Appliqué → `frm` : `Pouvez-vous envoyer des photos de la ligne de production ?`
+- **AR0504** (L9, phonétique, #4031) `نعتذر عن الإزعاج الحاصل.` — Régénéré par ar_phon.py v3.2 → `phon` : `纳塔齐尔阿尼尔伊兹阿吉阿尔哈西尔`
+- **AR0505** (L9, traduction, #4034) `يبقى أن نجد الوقت.` — Appliqué → `jam` : `あとは時間を見つけるだけです。`
+- **AR0506** (L9, traduction, #4036) `بشرط ألا يمس الجودة.` — Appliqué → `en` : `Provided it doesn’t affect quality.`
+- **AR0507** (L9, traduction, #4059) `والسحب حسب الحاجة شهريا.` — Appliqué → `frm` : `Avec des appels de livraison mensuels selon les besoins.`
+- **AR0508** (L9, arabe, #4062) `نعقد نقطة متابعة نهاية الأسبوع.` — Appliqué → `t` : `سنعقد اجتماع متابعة في نهاية الأسبوع.` (cinq phonétiques régénérées)
+- **AR0509** (L9, traduction, #4062) `نعقد نقطة متابعة نهاية الأسبوع.` — Appliqué → `esm` : `- `esm` : `Hagamos una reunión de seguimiento a finales de la semana.`
+- **AR0510** (L9, phonétique, #4072) `— ما الذي أخرك هكذا؟ — زحام لا يوصف.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `MAL-lah-dhee akh-KHAH-rak HAH-kah-dhah  zee-HAHM lah YOO-saf` ; `pf` : `MAL-la-dhi akh-KHA-rak HA-ka-dha  zi-HAM la YOU-saf` ; `ps` : `mál-la-di aj-já-rak já-ka-da  zi-jám la yú-saf` ; `pi` : `màl-la-di ach-chà-rak hà-ka-da  zi-hàm la iù-saf` ; `phon` : `马尔拉齐阿赫哈拉克哈卡扎齐哈姆拉尤萨夫`
+- **AR0511** (L9, traduction, #4074) `كنت أود الحضور لكن العمل منعني.` — Appliqué → `en` : `I’d have loved to come, but work kept me away.`
+- **AR0512** (L9, traduction, #4075) `عوض الغياب بزيارة قريبة.` — Appliqué → `en` : `Make up for your absence by visiting soon.`
+- **AR0513** (L9, arabe, #4090) `نقطة المتابعة` — Appliqué → `t` : `اجتماع المتابعة` (cinq phonétiques régénérées)
+- **AR0514** (L9, phonétique, #4095) `التسليم ديدي بي مستودعكم.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `at-tas-LEEM dee-dee-BEE mus-TOW-dah-ah-kum` ; `pf` : `at-tas-LIM di-di-BI mous-TAOU-da-a-koum` ; `ps` : `at-tas-lím di-di-bí mus-táu-da-a-kum` ; `pi` : `at-tas-lìm di-di-bì mus-tàu-da-a-kum` ; `phon` : `阿特塔斯利姆迪迪比穆斯陶达阿库姆`
+- **AR0515** (L9, arabe, #4097) `التأمين يغطي القيمة زائد عشرة.` — Appliqué → `t` : `التأمين يغطي القيمة زائد عشرة بالمئة.` (cinq phonétiques régénérées)
+- **AR0516** (L9, traduction, #4101) `التدفق النقدي صحي هذا الربع.` — Appliqué → `frm` : `Le flux de trésorerie est sain ce trimestre.`
+- **AR0517** (L9, arabe, #4102) `نسدد الموردين في موعدهم.` — Appliqué → `t` : `نسدد مستحقات الموردين في موعدها.` (cinq phonétiques régénérées)
+- **AR0518** (L9, traduction, #4104) `فاوضنا على سقف ائتماني أعلى.` — Appliqué → `kom` : `더 높은 신용 한도를 협상했어요.`
+- **AR0519** (L9, traduction, #4117) `التدفق النقدي` — Appliqué → `frm` : `le flux de trésorerie`
+- **AR0520** (L9, traduction, #4122) `المدقق الخارجي` — Appliqué → `cn` : `外部审计师`
+- **AR0521** (L9, traduction, #4135) `نبحث عن وكيل في المنطقة الشرقية.` — Appliqué → `en` : `We seek an agent in the eastern region.`
+- **AR0522** (L9, traduction, #4143) `انطباع يرجح كفة التوقيع.` — Appliqué → `en` : `An impression that tips the balance toward signing.` ; `frm` : `Une impression qui fait pencher la balance en faveur de la signature.` ; `itm` : `Un’impressione che fa pendere la bilancia a favore della firma.`
+- **AR0523** (L9, traduction, #4144) `لا توقع تحت ضغط الاستعجال.` — Appliqué → `en` : `Don’t sign because you’re being rushed.` ; `esm` : `No firmes bajo la presión de las prisas.` ; `itm` : `Non firmare lasciandoti mettere fretta.`
+- **AR0524** (L9, arabe, #4150) `النجاح فيها يفتح العقد الكامل.` — Appliqué → `t` : `النجاح فيها يفتح الباب أمام إبرام العقد الكامل.` (cinq phonétiques régénérées)
+- **AR0525** (L9, traduction, #4150) `النجاح فيها يفتح العقد الكامل.` — Appliqué → `frm` : `Sa réussite ouvre la voie à la signature du contrat définitif.` ; `esm` : `Su éxito abre la puerta a la firma del contrato definitivo.` ; `itm` : `Il suo successo apre la strada alla firma del contratto definitivo.` ; `kom` : `성공하면 본계약 체결로 이어져요.`
+- **AR0526** (L9, traduction, #4162) `الأتعاب` — Appliqué → `jam` : `専門職への報酬`
+- **AR0527** (L9, traduction, #4202) `فوضنا الرئيس بالتنفيذ.` — Appliqué → `en` : `We authorized the president to implement the decision.`
+- **AR0528** (L9, traduction, #4205) `مبدأ إداري لا نحيد عنه.` — Appliqué → `en` : `A management principle we never deviate from.`
+- **AR0529** (L9, traduction, #4208) `ورثنا سمعة نظيفة فلنصنها.` — Appliqué → `frm` : `Nous avons hérité d’une réputation irréprochable, préservons-la.`
+- **AR0530** (L9, traduction, #4212) `كلمة شكر لكل اسم بالقائمة.` — Appliqué → `esm` : `Unas palabras de agradecimiento para cada persona de la lista.`
+- **AR0531** (L9, traduction, #4219) `أسندنا لكل جديد مرشدا.` — Appliqué → `esm` : `Asignamos un mentor a cada nuevo empleado.` ; `itm` : `Abbiamo assegnato un mentore a ogni nuovo arrivato.`
+- **AR0532** (L9, traduction, #4227) `كل مدير مر من الكاونتر.` — Appliqué → `en` : `Every manager has worked behind the counter.`
+- **AR0533** (L10, traduction, #4237) `خطتنا الخمسية جاهزة للنقاش.` — Appliqué → `kom` : `5개년 계획을 논의할 준비가 됐어요.`
+- **AR0534** (L10, traduction, #4258) `— والرئيس؟ — صوته يرجح عند التعادل.` — Appliqué → `cn` : `——那董事长呢？——平票时他的投票起决定作用。`
+- **AR0535** (L10, traduction, #4263) `مؤشر الأداء` — Appliqué → `en` : `the performance indicator`
+- **AR0536** (L10, traduction, #4276) `أيها الحضور الكريم، مساؤكم سعادة.` — Appliqué → `jam` : `ご列席の皆様、こんばんは。`
+- **AR0537** (L10, traduction, #4279) `وبكم اكتملت الفصول الجميلة.` — Appliqué → `en` : `- `en` : `And thanks to you, the beautiful chapters of our story were completed.`
+- **AR0538** (L10, traduction, #4283) `حجم الصفقة سبعة أرقام.` — Appliqué → `esm` : `El importe de la operación es de siete cifras.`
+- **AR0539** (L10, arabe, #4288) `البحر هادئ لا يصنع بحارة مهرة.` — Appliqué → `t` : `البحر الهادئ لا يصنع بحارة مهرة.` (cinq phonétiques régénérées)
+- **AR0540** (L10, traduction, #4300) `ازرع جميلا ولو في غير موضعه.` — Appliqué → `esm` : `Siembra el bien, incluso en terreno ingrato.`
+- **AR0541** (L10, traduction, #4320) `واصبر على سنوات الظل.` — Appliqué → `esm` : `Y ten paciencia durante los años en el anonimato.`
+- **AR0542** (L10, phonétique, #4326) `حدثوا النظم وأبقوا القيم.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `HAD-dah-thun NOO-zum wah-AB-kah-wul KEE-yam` ; `pf` : `HAD-da-thoun NOU-zoum oua-AB-ka-ououl KI-yam` ; `ps` : `jád-da-zun nú-zum ua-áb-ka-uul kí-yam` ; `pi` : `hàd-da-tun nù-zum ua-àb-ca-uul cì-iam` ; `phon` : `哈特达孙努祖姆瓦阿普卡武尔基亚姆`
+- **AR0543** (L10, traduction, #4330) `اللغة بيت ثان سكنته.` — Appliqué → `en` : `The language is a second home you’ve settled into.`
+- **AR0544** (L10, traduction, #4331) `تكلم بلا خوف من اليوم.` — Appliqué → `en` : `From today on, speak without fear.`
+- **AR0545** (L10, arabe, #4334) `الاستحواذ (عرض)` — Appliqué → `t` : `عرض الاستحواذ` (cinq phonétiques régénérées)
+- **AR0546** (L10, traduction, #4336) `سنوات الظل` — Appliqué → `esm` : `los años en el anonimato`
+- **AR0547** (L10, traduction, #4351) `القيم المؤسسية` — Appliqué → `kom` : `기업의 가치관`
+- **AR0548** (L10, traduction, #4356) `مكافحة الفساد` — Appliqué → `en` : `the fight against corruption`
+- **AR0549** (L10, traduction, #4358) `السرية المهنية` — Appliqué → `kom` : `직무상 비밀 유지`
+- **AR0550** (L10, arabe, #4359) `لنعقد نقطة متابعة قبل نهاية الأسبوع.` — Appliqué → `t` : `لنعقد اجتماع متابعة قبل نهاية الأسبوع.` (cinq phonétiques régénérées)
+- **AR0551** (L10, phonétique, #4363) `نعتذر عن أي إزعاج تسببنا به.` — Régénéré par ar_phon.py v3.2 → `phon` : `纳塔齐尔安艾伊兹阿吉塔萨普巴普纳比赫`
+- **AR0552** (L10, phonétique, #4365) `— ما الذي أخرك؟ — الزحام كان رهيبا.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `MAL-lah-dhee akh-KHAH-rak  az-zee-HAHM KAH-nah rah-HEE-ban` ; `pf` : `MAL-la-dhi akh-KHA-rak  az-zi-HAM KA-na ra-HI-ban` ; `ps` : `mál-la-di aj-já-rak  az-zi-jám ká-na ra-jí-ban` ; `pi` : `màl-la-di ach-chà-rak  az-zi-hàm kà-na ra-hì-ban` ; `phon` : `马尔拉齐阿赫哈拉克阿兹齐哈姆卡纳拉希班`
+- **AR0553** (L10, rapprochement, #4366) `— متأكد أنه يستحق؟ — جدا، لن تندم.` — Conservé : répétition pédagogique voulue (réexposition inter-niveaux).
+- **AR0554** (L10, rapprochement, #4367) `ما يهمنا هو المدى الطويل.` — Conservé : répétition pédagogique voulue (réexposition inter-niveaux).
+- **AR0555** (L10, traduction, #4375) `موعدنا الثلاثاء العاشرة صباحا.` — Appliqué → `frm` : `Rendez-vous mardi à dix heures du matin.` ; `esm` : `Quedamos el martes a las diez de la mañana.` ; `itm` : `Ci vediamo martedì alle dieci del mattino.`
+- **AR0556** (L10, traduction, #4382) `نلتقي على خير.` — Appliqué → `en` : `Until next time — all the best.` ; `frm` : `Au plaisir de vous revoir.` ; `esm` : `Hasta pronto, que vaya todo bien.` ; `itm` : `A presto, e che vada tutto bene.`
+- **AR0557** (L10, traduction, #4384) `الكلمة الأخيرة لكم دائما.` — Appliqué → `cn` : `最终决定权始终在各位手中。` ; `jam` : `最終的な判断はいつも皆様に委ねています。` ; `kom` : `최종 결정권은 언제나 여러분에게 있어요.`
+- **AR0558** (L10, arabe, #4385) `نقطة متابعة` — Appliqué → `t` : `اجتماع متابعة` (cinq phonétiques régénérées)
+- **AR0559** (L10, rapprochement, #4385) `نقطة متابعة` — Conservé : répétition pédagogique voulue (réexposition inter-niveaux).
+- **AR0560** (L10, phonétique, #4387) `الإزعاج` — Régénéré par ar_phon.py v3.2 → `phon` : `阿尔伊兹阿吉`
+- **AR0561** (L10, arabe, #4413) `الضريبة المضافة` — Appliqué → `t` : `ضريبة القيمة المضافة (الضريبة المضافة)` (cinq phonétiques régénérées)
+- **AR0562** (L10, traduction, #4426) `عدم التحايل` — Appliqué → `frm` : `le non-contournement`
+- **AR0563** (L10, traduction, #4435) `التعويض عن الضرر` — Appliqué → `en` : `compensation for damage`
+- **AR0564** (L10, traduction, #4444) `نعود إليكم خلال يومين.` — Appliqué → `esm` : `Les responderemos en un plazo de dos días.`
+- **AR0565** (L10, traduction, #4447) `وضعنا آلية تمنع تكراره.` — Appliqué → `en` : `We put a mechanism in place to prevent it from happening again.` ; `itm` : `Abbiamo predisposto un meccanismo per evitare che si ripeta.`
+- **AR0566** (L10, phonétique, #4451) `ما الذي يرضيكم بالضبط؟` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `MAL-lah-dhee YUR-dee-kum bid-dabt` ; `pf` : `MAL-la-dhi YOUR-di-koum bid-dabt` ; `ps` : `mál-la-di yúr-di-kum bid-dabt` ; `pi` : `màl-la-di iùr-di-kum bid-dabt` ; `phon` : `马尔拉齐尤尔迪库姆比特达普特`
+- **AR0567** (L10, phonétique, #4452) `نحن منفتحون على الاقتراحات.` — Régénéré par ar_phon.py v3.2 après correction de la translittération source → `py` : `NAH-noo mun-fah-tee-HOO-nah ah-lal ik-tee-rah-HAHT` ; `pf` : `NAH-nou moun-fa-ti-HOU-na a-lal ik-ti-ra-HAT` ; `ps` : `náj-nu mun-fa-ti-jú-na a-lal ik-ti-ra-ját` ; `pi` : `nàh-nu mun-fa-ti-hù-na a-lal ic-ti-ra-hàt` ; `phon` : `纳赫努蒙法蒂胡纳阿拉尔伊克蒂拉哈特`
+- **AR0568** (L10, traduction, #4462) `التعلم لا يتوقف عند سن.` — Appliqué → `jam` : `学びに年齢制限はありません。` ; `kom` : `배움에는 나이 제한이 없어요.`

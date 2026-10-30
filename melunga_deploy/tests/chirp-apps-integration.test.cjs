@@ -79,7 +79,7 @@ test('classic source literals, eight account/payment functions, rights and revie
  execFileSync('git',['diff','--exit-code',BASE,'--','melunga_deploy/content/niveaux-progressifs','melunga_deploy/content/course-access.json','melunga_deploy/store-billing.js'],{cwd:ROOT,stdio:'pipe'});
  const nativeRoot='melunga_deploy/content/native-catalogue/',nativeFiles=execFileSync('git',['ls-tree','-r','--name-only',BASE,'--',nativeRoot],{cwd:ROOT,encoding:'utf8'}).trim().split('\n');
  assert.equal(nativeFiles.length,8,'the seven historical banks and their manifest are independently inventoried');
- assert.deepEqual(fs.readdirSync(path.join(ROOT,nativeRoot)).sort(),[...nativeFiles.map(file=>path.basename(file)),'de.json','de-native-meanings.json','hi.json','ru.json','pt.json'].sort(),'German target/native meanings and the two pinned imports are the only added catalogue assets');
+ assert.deepEqual(fs.readdirSync(path.join(ROOT,nativeRoot)).sort(),[...nativeFiles.map(file=>path.basename(file)),'de.json','de-native-meanings.json','hi.json','ru.json','pt.json','ar.json'].sort(),'German target/native meanings and the two pinned imports are the only added catalogue assets');
  for(const file of nativeFiles){
   const before=execFileSync('git',['show',BASE+':'+file],{cwd:ROOT,maxBuffer:40*1024*1024});
   // Only the exact, separately verified German manifest extension has a
@@ -93,10 +93,10 @@ test('classic source literals, eight account/payment functions, rights and revie
 });
 
 test('both HTML shells load selection before the shared player and current controller; classic loads the same modules',()=>{
- for(const file of ['parcours-niveaux.html','maquette-guidee.html']){const source=read(file),selection=source.indexOf('voice-selection.js?v=6'),player=source.indexOf('lesson-audio.js?v=7'),controller=source.indexOf('maquette-guidee.js?v=46');assert.ok(selection>0&&selection<player&&player<controller);assert.match(source,/course-i18n\.js\?v=9/);assert.match(source,/course-native\.js\?v=7/);assert.match(source,/course-startup\.css\?v=1/);assert.match(source,/course-ambiences\.css\?v=1/);}
- assert.match(classic,/course-i18n\.js\?v=9/);assert.match(classic,/native-speech\.js\?v=3/);assert.doesNotMatch(classic,/course-startup\.css/);
- assert.ok(classic.indexOf('voice-selection.js?v=6')<classic.indexOf('lesson-audio.js?v=7'));
- assert.ok(classic.indexOf('lesson-audio.js?v=7')<classic.indexOf('var DECKS = '));
+ for(const file of ['parcours-niveaux.html','maquette-guidee.html']){const source=read(file),selection=source.indexOf('voice-selection.js?v=7'),player=source.indexOf('lesson-audio.js?v=8'),controller=source.indexOf('maquette-guidee.js?v=47');assert.ok(selection>0&&selection<player&&player<controller);assert.match(source,/course-i18n\.js\?v=10/);assert.match(source,/course-native\.js\?v=8/);assert.match(source,/course-startup\.css\?v=1/);assert.match(source,/course-ambiences\.css\?v=1/);}
+ assert.match(classic,/course-i18n\.js\?v=10/);assert.match(classic,/native-speech\.js\?v=4/);assert.doesNotMatch(classic,/course-startup\.css/);
+ assert.ok(classic.indexOf('voice-selection.js?v=7')<classic.indexOf('lesson-audio.js?v=8'));
+ assert.ok(classic.indexOf('lesson-audio.js?v=8')<classic.indexOf('var DECKS = '));
 });
 
 test('eight fresh profiles use the exact approved defaults synchronously in both apps without writing a local favourite',async t=>{

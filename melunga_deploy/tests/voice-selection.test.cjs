@@ -62,7 +62,7 @@ test('a fresh profile uses all eight exact approved defaults without writing loc
     assert.equal(snapshot.sourceMetadata.selectionVersion,SELECTION_VERSION);assert.equal(snapshot.sourceMetadata.choiceSource,'approved-default');
     assert.equal(snapshot.voice.engine,'chirp3');assert.equal(snapshot.voice.rateMode,'client');
   }
-  assert.deepEqual(f.writes,[]);assert.equal(f.api.getVoice('ar'),null);assert.equal(f.api.getChoices('__proto__').length,0);
+  assert.deepEqual(f.writes,[]);assert.equal(f.api.getVoice('xx'),null);assert.equal(f.api.getChoices('__proto__').length,0);
 });
 
 test('explicit local favourites are independent by language, survive reload and only accept current catalogue candidates',async()=>{

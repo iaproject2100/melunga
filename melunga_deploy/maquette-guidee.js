@@ -671,13 +671,13 @@
   function fillVoices() {
     const language = state.pair.studyLanguage;
     const snapshot = voiceSelection?.getSnapshot(language);
-    const chirp = (snapshot?.choices || []).filter(candidate => ['hi','ru','pt'].includes(language) || candidate.engine === 'chirp3');
+    const chirp = (snapshot?.choices || []).filter(candidate => ['hi','ru','pt','ar'].includes(language) || candidate.engine === 'chirp3');
     const choices = snapshot?.selected?.engine === 'wavenet' && !chirp.some(v=>v.name===snapshot.selected.name) ? [snapshot.selected, ...chirp] : chirp;
     const options = choices.map(candidate => {
       const number = candidate.engine === 'wavenet' ? candidate.name : tr('Voix ' + (chirp.indexOf(candidate) + 1));
       const name = candidate.name.replace(/^.*-(?:Chirp3-HD|Wavenet)-/, '');
       const gender = tr(candidate.gender === 'MALE' ? 'Voix masculine' : 'Voix féminine');
-      return new Option(['hi','ru','pt'].includes(language) ? gender : number + ' · ' + name + ' · ' + gender, candidate.name);
+      return new Option(['hi','ru','pt','ar'].includes(language) ? gender : number + ' · ' + name + ' · ' + gender, candidate.name);
     });
     if (!choices.length) options.push(new Option(tr(snapshot?.status === 'loading' || snapshot?.status === 'idle'
       ? 'Catalogue des voix en cours de chargement…' : 'Catalogue des voix indisponible. Réessaie.'), ''));
@@ -1442,7 +1442,7 @@
       setStatus('Audio indisponible. Réessaie.');
       return;
     }
-    if (!['hi','ru','pt'].includes(state.pair.studyLanguage) && ['idle', 'loading'].includes(voiceSelection.state().status)) {
+    if (!['hi','ru','pt','ar'].includes(state.pair.studyLanguage) && ['idle', 'loading'].includes(voiceSelection.state().status)) {
       setStatus('Catalogue des voix en cours de chargement…');
       return;
     }
@@ -1993,7 +1993,7 @@
   }
 
   function renderLoadingContext(id, level = state.level) {
-    const flags = {fr:'🇫🇷', en:'🇺🇸', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪',hi:'🇮🇳',ru:'🇷🇺',pt:'🇧🇷'};
+    const flags = {fr:'🇫🇷', en:'🇺🇸', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪',hi:'🇮🇳',ru:'🇷🇺',pt:'🇧🇷',ar:'ع'};
     if (!nativeCourses?.isPair(id) || id.split('-')[0] !== state.nativeLanguage || state.invalidPair) {
       text(ui.flag, '…'); delete ui.flag.dataset.language;
       delete document.body.dataset.loadingContext;

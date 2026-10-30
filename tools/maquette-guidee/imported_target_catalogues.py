@@ -6,6 +6,7 @@ IMPORTS = {
     'hi': ('5c0be1bed4d66bfecd56d4cb5f320756bb770e4e871931cbaefb7d9b547479c3', 4487),
     'ru': ('751f8774365882775f8b2b640980c872e9a91bb9f2bf985cd568427be0253ca8', 4488),
     'pt': ('3fb7a5ffea38e4444d4cf5b3fe44a0e6cb9758a3d95f5f60cafa9d0877fe914b', 4487),
+    'ar': ('fd566528f263b2a4a43d87292ba8f7150bf2652b7f23dcdfedbd9ce7195909d1', 4487),
 }
 FIELDS = {'t','py','pf','ps','pi','phon','cn','en','frm','esm','itm','jam','kom','lv','cat'}
 
@@ -19,7 +20,7 @@ def augment(root, outputs, manifest):
     native_codes = manifest['nativeLanguageIds']
     original_native_codes = [code for code in native_codes if code != 'de']
     for code, (fingerprint, count) in IMPORTS.items():
-        source_path = f'tools/maquette-guidee/imports/{code}-deck-v1.json'
+        source_path = f'tools/maquette-guidee/imports/{code}-deck-'+('v3.2' if code=='ar' else 'v1')+'.json'
         raw = (root/source_path).read_bytes()
         assert sha(raw) == fingerprint
         cards = json.loads(raw)

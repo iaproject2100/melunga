@@ -13,6 +13,7 @@
     ja: Object.freeze({ locale: 'ja-JP', serverLanguage: 'ja-JP', female: 'ja-JP-Wavenet-B', male: 'ja-JP-Wavenet-C' }),
     ko: Object.freeze({ locale: 'ko-KR', serverLanguage: 'ko-KR', female: 'ko-KR-Wavenet-A', male: 'ko-KR-Wavenet-C' }),
     hi: Object.freeze({ locale:'hi-IN', serverLanguage:'hi-IN', female:'hi-IN-Wavenet-C', male:'hi-IN-Wavenet-B' }),
+    ar: Object.freeze({locale:'ar-SA',serverLanguage:'ar-XA',female:'ar-XA-Wavenet-A',male:'ar-XA-Wavenet-B'}),
     pt: Object.freeze({locale:'pt-BR',serverLanguage:'pt-BR',female:'pt-BR-Wavenet-A',male:'pt-BR-Wavenet-B'}),
     ru: Object.freeze({ locale:'ru-RU', serverLanguage:'ru-RU', female:'ru-RU-Wavenet-A', male:'ru-RU-Wavenet-B' }),
     de: Object.freeze({ locale: 'de-DE', serverLanguage: 'de-DE', female: 'de-DE-Wavenet-A', male: 'de-DE-Wavenet-B' })
@@ -118,7 +119,7 @@
         onUnavailable();
         return false;
       }
-      const imported = ['hi','ru','pt'].includes(language);
+      const imported = ['hi','ru','pt','ar'].includes(language);
       const marker = imported && /\((male|female)\)/i.exec(genderHint);
       if (marker) voice = marker[1].toLowerCase();
       let candidate = null, provisional = false, browserOnly = false;

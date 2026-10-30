@@ -62,14 +62,14 @@ function fixture(options = {}) {
 }
 
 test('Hindi and Russian play configured voices before the eight-language Chirp catalogue is ready, with speaker gender markers',async()=>{
- for(const [language,locale,femaleVoice,maleVoice]of [['hi','hi-IN','C','B'],['ru','ru-RU','A','B']]){
+ for(const [language,locale,femaleVoice,maleVoice]of [['hi','hi-IN','C','B'],['ru','ru-RU','A','B'],['pt','pt-BR','A','B'],['ar','ar-XA','A','B']]){
   const f=fixture({preview:true});
   assert.equal(f.selection.getSnapshot(language).status,'ready');
   assert.equal(f.selection.getSnapshot(language).sourceMetadata.source,'configured-wavenet');
   assert.equal(f.selection.getChoices(language).length,2);
   assert(f.selection.setVoice(language,locale+'-Wavenet-'+femaleVoice));
   for(const [genderHint,suffix]of [['I am tired. (male)',maleVoice],['I am tired. (female)',femaleVoice]]){
-   const text=language==='hi'?'मैं थक गया हूँ।':'Я устал.';
+   const text=({hi:'मैं थक गया हूँ।',ru:'Я устал.',pt:'Estou cansado.',ar:'أنا متعب.'})[language];
    assert(f.player.play({text,language,genderHint,rate:.85}));
    const url=new URL(f.last().src,'https://lesson.test');
    assert.equal(url.searchParams.get('voice'),locale+'-Wavenet-'+suffix);assert.equal(url.searchParams.get('lang'),locale);
@@ -206,7 +206,7 @@ test('server callbacks saved before fallback cannot finish the active system utt
 });
 
 test('unsupported language, self-invented voice and invalid rate cannot choose a different server voice', () => {
-  for (const request of [{ text: ' ', language: 'es' }, { text: 'Text', language: 'ar' },
+  for (const request of [{ text: ' ', language: 'es' }, { text: 'Text', language: 'xx' },
     { text: 'Text', language: 'es', rate: 9 }, { text: 'Text', language: 'es', voice: 'fr-FR-Wavenet-F' }]) {
     const f = fixture(); assert.equal(f.player.play(request), false); assert.equal(f.audio.length, 0);
     assert.equal(f.speech.length, 0); assert.equal(f.unavailable, 1); assert.equal(f.playing, false);
@@ -365,3 +365,8 @@ test('Portuguese uses Brazilian voices and gender markers; Portugal is never a b
  for(const [hint,suffix]of [['(male)','B'],['(female)','A'],['(to a male)','A']]){const f=fixture({preview:true});assert.equal(f.player.play({text:'Obrigado.',language:'pt',genderHint:hint}),true);const u=new URL(f.last().src,'https://fixture.test');assert.equal(u.searchParams.get('voice'),'pt-BR-Wavenet-'+suffix);assert.equal(u.searchParams.get('lang'),'pt-BR');assert.equal(u.searchParams.get('text'),'Obrigado.');f.player.stop();}
  for(const tag of ['pt-PT','pt','fr-FR','pt-BR']){const f=fixture({preview:true,voices:[voice(tag)]});assert.equal(f.player.play({text:'Olá.',language:'pt'}),true);f.last().onerror();assert.equal(f.speech.length,tag==='pt-BR'?1:0);if(tag==='pt-BR')assert.equal(f.speech[0].lang,'pt-BR');f.player.stop();}
 });
+
+ test('Arabic fallback speaks only with an Arabic browser voice and uses a recognition-compatible locale',()=>{
+ for(const voices of [[],[voice('fr-FR')]]){const f=fixture({voices});f.player.play({text:'مرحبا.',language:'ar'});f.last().onerror();assert.equal(f.speech.length,0);assert.equal(f.unavailable,1);}
+ const f=fixture({voices:[voice('fr-FR'),voice('ar-SA')]});f.player.play({text:'مرحبا.',language:'ar'});f.last().onerror();assert.equal(f.speech[0].lang,'ar-SA');assert.equal(f.speech[0].text,'مرحبا.');
+ });
