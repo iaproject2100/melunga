@@ -51,7 +51,7 @@
   const courseI18n = window.MelungaCourseI18n;
   const voiceSelection = window.MelungaVoiceSelection;
   voiceSelection?.preload().catch(() => {});
-  const nativeCodes = ['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko'];
+  const nativeCodes = ['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko', 'de'];
   const routeParameters = new URL(window.location.href).searchParams;
   const explicitPair = routeParameters.get('pair');
   let savedPair = '', savedLevel = '1', preferredNative = 'fr';
@@ -91,7 +91,8 @@
     it: {stage:'Fase', stages:'fasi', cards:'schede', known:'apprese', unavailable:'Le fasi non sono disponibili. Riprova.'},
     zh: {stage:'阶段', stages:'个阶段', cards:'张卡片', known:'已掌握', unavailable:'学习阶段暂时不可用，请重试。'},
     ja: {stage:'ステップ', stages:'ステップ', cards:'枚のカード', known:'習得済み', unavailable:'ステップを表示できません。もう一度お試しください。'},
-    ko: {stage:'단계', stages:'단계', cards:'개 카드', known:'학습 완료', unavailable:'단계를 불러올 수 없습니다. 다시 시도해 주세요.'}
+    ko: {stage:'단계', stages:'단계', cards:'개 카드', known:'학습 완료', unavailable:'단계를 불러올 수 없습니다. 다시 시도해 주세요.'},
+    de: {stage:'Etappe', stages:'Etappen', cards:'Karten', known:'gelernt', unavailable:'Die Etappen sind nicht verfügbar. Bitte versuche es erneut.'}
   };
   const cardMotion = { gesture: null, suppressClickUntil: 0, animationTimer: 0, toastTimer: 0, fitFrame: 0 };
   state.savedReview = loadSavedReview();
@@ -497,7 +498,7 @@
     const labels = {
       fr: ['Conditions générales', 'Confidentialité'], en: ['Terms and Conditions', 'Privacy'],
       es: ['Términos', 'Privacidad'], zh: ['服务条款', '隐私政策'],
-      it: ['Termini', 'Privacy'], ja: ['利用規約', 'プライバシー'], ko: ['이용약관', '개인정보']
+      it: ['Termini', 'Privacy'], ja: ['利用規約', 'プライバシー'], ko: ['이용약관', '개인정보'], de: ['AGB', 'Datenschutz']
     };
     const native = state.nativeLanguage;
     const language = ['fr', 'en', 'es', 'zh'].includes(native) ? native : 'en';

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export 35 original native views plus seven views of the pinned German import.
+"""Export original native views, the German target, and German-native meanings.
 
 No reviewed runtime is rewritten. --check compares deterministic output bytes;
 only the DECKS/PEDAGOGY literals and relevant source functions pin app.html, so
@@ -20,13 +20,16 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCE_COMMIT = 'ef147deacf85b4a5631c1b05ff8050de7918ea1f'
 LANGUAGES = ('fr', 'en', 'es', 'it', 'zh', 'ja', 'ko')
 STUDY_LANGUAGES = LANGUAGES + ('de',)
+NATIVE_LANGUAGES = STUDY_LANGUAGES
 GERMAN_SOURCE = 'tools/maquette-guidee/imports/de-deck-v3.1.json'
 GERMAN_SOURCE_SHA256 = '49d6f1cd3b2a44b4ab4efcbae4c5f58988ebc7e142ebb74b1505d4ce9e39d789'
 GERMAN_PLACEMENTS = 'tools/maquette-guidee/imports/de-themes-v1.json'
 GERMAN_PLACEMENTS_SHA256 = '48d8125233e7159ad267550d2e61ccc2c99fb6d90fd78538bf54fcf74776a0cf'
 GERMAN_FIELDS = {'t', 'py', 'pf', 'ps', 'pi', 'phon', 'cn', 'en', 'frm', 'esm', 'itm', 'jam', 'kom', 'lv', 'cat'}
+GERMAN_MEANINGS = 'tools/maquette-guidee/imports/de-native-meanings-v1.json'
+GERMAN_MEANINGS_SHA256 = 'ebd452b242949aa77f066d0181c7536860b7a1d7456e78b4190b71e7bf29d0a8'
 REVIEWED = ('fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr')
-PAIRS = tuple(f'{native}-{study}' for native in LANGUAGES for study in STUDY_LANGUAGES if native != study)
+PAIRS = tuple(f'{native}-{study}' for native in NATIVE_LANGUAGES for study in STUDY_LANGUAGES if native != study)
 BASE_PAIRS = {pair.split('-')[1]: pair for pair in REVIEWED}
 APP = 'melunga_deploy/app.html'
 RUNTIME = 'melunga_deploy/content/niveaux-progressifs'
@@ -169,6 +172,44 @@ def german_bank(root):
             'locations': locations, 'levels': levels}
 
 
+def german_meanings(root, banks, outputs):
+    """German meanings are separate; the seven complete source banks stay exact."""
+    raw = (root / GERMAN_MEANINGS).read_bytes()
+    require(sha(raw) == GERMAN_MEANINGS_SHA256, 'German native meanings fingerprint differs')
+    source = json.loads(raw)
+    require(source.get('version') == 1 and source.get('id') == 'german-native-meanings-source'
+            and source.get('nativeLanguage') == 'de' and isinstance(source.get('concepts'), list)
+            and len(source['concepts']) == 15869 and set(source.get('banks', {})) == set(LANGUAGES),
+            'German native meanings inventory differs')
+    values = []
+    for index, concept in enumerate(source['concepts']):
+        require(concept.get('id') == index and all(isinstance(concept.get(key), str) and concept[key].strip()
+                for key in ('en', 'frm', 'de')), 'German native concept incomplete')
+        values.append(concept['de'])
+    references = {}
+    for study in LANGUAGES:
+        entry = source['banks'][study]
+        ids = entry.get('conceptIds')
+        require(entry.get('sourceBankSha256') == banks[study]['sha256'] and isinstance(ids, list)
+                and len(ids) == banks[study]['sourceCardCount']
+                and all(type(index) is int and 0 <= index < len(values) for index in ids),
+                'German meanings must cover an exact whole original source bank')
+        references[study] = {'sourceBankSha256': entry['sourceBankSha256'], 'conceptIds': ids}
+    require(sum(len(row['conceptIds']) for row in references.values()) == 32115,
+            'German native source coverage differs')
+    path = OUTPUT + '/de-native-meanings.json'
+    document = {'version': 1, 'id': 'german-native-meanings', 'nativeLanguage': 'de',
+                'sourcePath': GERMAN_MEANINGS, 'sourceSha256': GERMAN_MEANINGS_SHA256,
+                'sourceCardCount': 32115, 'conceptCount': len(values),
+                'newTranslationCount': 15249, 'reusedValidatedTranslationCount': 620,
+                'concepts': values, 'banks': references}
+    outputs[path] = encoded(document)
+    return {'path': path.removeprefix('melunga_deploy/'), 'sha256': sha(outputs[path]),
+            'sourcePath': GERMAN_MEANINGS, 'sourceSha256': GERMAN_MEANINGS_SHA256,
+            'sourceCardCount': 32115, 'conceptCount': len(values), 'newTranslationCount': 15249,
+            'reusedValidatedTranslationCount': 620}
+
+
 def make(root):
     app = (root / APP).read_bytes()
     original_app = git(root, APP)
@@ -203,7 +244,7 @@ def make(root):
         return keys[identity]
     for pair in PAIRS:
         native, study = pair.split('-')
-        if study == 'de':continue
+        if study == 'de' or native == 'de':continue
         cards = decks[study]
         translated = [i for i, card in enumerate(cards) if isinstance(card.get(MEANING_FIELDS[native]), str) and card[MEANING_FIELDS[native]].strip()]
         require(len(translated) == len(cards), 'a native meaning is missing: ' + pair)
@@ -321,8 +362,26 @@ def make(root):
             phoneticFallbackCount=len(fallback), missingAnyPhoneticCount=len(without_phon), historicalFreeOutsideEligibilityCount=0)
     policies['importedSourceEligibility'] = 'all original validated-import identities; same seven native meaning and phonetic selectors'
     policies['importedSourceFree'] = 'original imported source lv=1; no historical reviewed access IDs modified'
-    manifest = {'version': 1, 'id': 'native-catalogue-42-source-views', 'sourceSnapshotCommit': SOURCE_COMMIT,
-        'languageIds': list(LANGUAGES), 'nativeLanguageIds': list(LANGUAGES), 'studyLanguageIds': list(STUDY_LANGUAGES),
+    native_meanings = german_meanings(root, banks, outputs)
+    for study in LANGUAGES:
+        pair = 'de-' + study
+        # German has the same non-Chinese source eligibility as the existing
+        # English native view (Italian native for the English target itself).
+        donor = ('it' if study == 'en' else 'en') + '-' + study
+        prior = pair_policies[donor]
+        pair_policies[pair] = {**prior, 'nativeLanguage': 'de', 'sourceType': 'german-native-translation',
+                              'meaningSourcePath': native_meanings['path']}
+        eligible = eligibility_groups[prior['eligibilityGroup']]
+        bank = json.loads(outputs[OUTPUT + '/' + study + '.json'])
+        native_cards = bank['cards'];native_locations = bank['locations']
+        fallback = sum(bool(native_cards[index].get('py')) for index in eligible)
+        coverage[pair] = {key: pair_policies[pair][key] for key in ('classicActiveDeckCount', 'guidedPoolUniqueCount', 'guidedOnlyCount', 'eligibleCount', 'historicalFreeCount')}
+        coverage[pair].update(eligibleActiveCatalogueCount=sum(native_locations[index][1] is not None for index in eligible),
+            eligibleReservedCatalogueCount=sum(native_locations[index][1] is None for index in eligible),
+            missingAdaptedPhoneticCount=len(eligible), phoneticFallbackCount=fallback,
+            missingAnyPhoneticCount=len(eligible) - fallback, historicalFreeOutsideEligibilityCount=0)
+    manifest = {'version': 1, 'id': 'native-catalogue-49-source-views', 'sourceSnapshotCommit': SOURCE_COMMIT,
+        'languageIds': list(NATIVE_LANGUAGES), 'nativeLanguageIds': list(NATIVE_LANGUAGES), 'studyLanguageIds': list(STUDY_LANGUAGES),
         'pairIds': list(PAIRS), 'reviewedPairIds': list(REVIEWED),
         'derivedPairIds': [pair for pair in PAIRS if pair not in REVIEWED],
         'source': {'appPath': APP, 'decksLiteralSha256': sha(decks_raw), 'pedagogyLiteralSha256': sha(pedagogy_raw),
@@ -330,16 +389,16 @@ def make(root):
             'historicalAccessSha256': sha(rights_raw), 'reviewedHistoricalFreeIdsVerified': 2218,
             'importedSources': {'de': {'path': GERMAN_SOURCE, 'sha256': GERMAN_SOURCE_SHA256,
                 'sourceCardCount': len(cards), 'sourceDeckSha256': imported['sourceDeckSha256']}}},
-        'policies': policies, 'policiesSha256': sha(canonical(policies)),
+        'policies': policies, 'policiesSha256': sha(canonical(policies)), 'germanNativeMeanings': native_meanings,
         'eligibilityGroups': eligibility_groups, 'historicalFreeGroups': free_groups,
         'pairs': {pair: pair_policies[pair] for pair in PAIRS}, 'banks': banks,
         'coverageByPair': {pair: coverage[pair] for pair in PAIRS}, 'sourceCardCount': 36634,
         'activeCatalogueCount': sum(row['activeCatalogueCount'] for row in banks.values()),
         'reservedCatalogueCount': sum(row['reservedCatalogueCount'] for row in banks.values()),
         'excludedModernExtraCount': sum(row['excludedModernExtraCount'] for row in banks.values()),
-        'newTranslationsCreated': 0, 'newPhoneticsCreated': 0, 'reviewedRuntimeModified': False,
+        'newTranslationsCreated': 15249, 'newPhoneticsCreated': 0, 'reviewedRuntimeModified': False,
         'doesNotMeasureAcquisition': True}
-    require(len(manifest['derivedPairIds']) == 42 and manifest['activeCatalogueCount'] == 35353
+    require(len(manifest['derivedPairIds']) == 49 and manifest['activeCatalogueCount'] == 35353
             and manifest['reservedCatalogueCount'] == 1281 and manifest['excludedModernExtraCount'] == 1539, 'whole export inventory differs')
     outputs[OUTPUT + '/manifest.json'] = encoded(manifest)
     for path, checksum in input_hashes.items():require(sha((root / path).read_bytes()) == checksum, 'reviewed input changed during export: ' + path)
@@ -368,7 +427,7 @@ def main():
             (root / OUTPUT).mkdir(parents=True, exist_ok=True)
             for path, raw in outputs.items():(root / path).write_bytes(raw)
             if source != expected_loader:loader.write_text(expected_loader)
-        print(json.dumps({'status': 'checked' if args.check else 'exported', 'banks': 8, 'derivedPairs': 42,
+        print(json.dumps({'status': 'checked' if args.check else 'exported', 'banks': 8, 'derivedPairs': len(manifest['derivedPairIds']),
             'sourceCards': manifest['sourceCardCount'], 'activeCatalogue': manifest['activeCatalogueCount'],
             'reservedCatalogue': manifest['reservedCatalogueCount'], 'excludedModernExtras': manifest['excludedModernExtraCount'],
             'reviewedHistoricalFreeIdsVerified': 2218, 'manifestSha256': manifest_sha,

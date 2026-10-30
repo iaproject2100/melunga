@@ -50,7 +50,7 @@ function validate() {
   const currentRoot = fs.readdirSync(WEB, { withFileTypes: true }).filter(entry => entry.isFile() && /\.(?:js|css|html)$/.test(entry.name))
     .map(entry => 'melunga_deploy/' + entry.name).sort();
   const additionalRuntime = [MODULE, 'melunga_deploy/course-i18n.js', 'melunga_deploy/course-native.js'];
-  const chirpRuntime = chirpLayer.addedPaths.filter(file => /^melunga_deploy\/[^/]+\.(?:js|css|html)$/.test(file));
+  const chirpRuntime = [...chirpLayer.addedPaths, ...germanLayer.addedPaths].filter(file => /^melunga_deploy\/[^/]+\.(?:js|css|html)$/.test(file));
   assert.deepEqual(currentRoot, [...rootRuntime, ...additionalRuntime, ...chirpRuntime].sort(), 'no other runtime asset may be introduced or removed');
   const currentBackend = fs.readdirSync(path.join(WEB, 'netlify/functions')).filter(file => file.endsWith('.mjs'))
     .map(file => 'melunga_deploy/netlify/functions/' + file).sort();

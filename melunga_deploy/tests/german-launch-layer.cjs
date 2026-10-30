@@ -13,9 +13,10 @@ const {execFileSync} = require('node:child_process');
 const ROOT = path.resolve(__dirname, '../..');
 const BASE = '541afb7f67b499130af60211e72a8614bdaaf31d';
 const FIXTURE = 'melunga_deploy/tests/fixtures/german-launch-layer.json';
-const FIXTURE_SHA256 = '694320d6d55fa53c3145a4c4084972db59be5c0fe6eaf9ad199dc9446d37770f';
+const FIXTURE_SHA256 = '0ee84e8ceab561a26c83d9bd362983a7e3be0198d351e58cc58be7e855ad60ec';
 // BEGIN FINITE GERMAN PATHS — written by seal_german_launch_layer.cjs.
 const MODIFIED = Object.freeze([
+  "melunga_deploy/account-ui.js",
   "melunga_deploy/app.html",
   "melunga_deploy/comparaison-voix.html",
   "melunga_deploy/content/course-locales/en.json",
@@ -23,9 +24,12 @@ const MODIFIED = Object.freeze([
   "melunga_deploy/content/course-locales/it.json",
   "melunga_deploy/content/course-locales/ja.json",
   "melunga_deploy/content/course-locales/ko.json",
+  "melunga_deploy/content/course-locales/supplements.json",
   "melunga_deploy/content/course-locales/zh.json",
   "melunga_deploy/content/native-catalogue/manifest.json",
+  "melunga_deploy/course-desktop.js",
   "melunga_deploy/course-i18n.js",
+  "melunga_deploy/course-login.js",
   "melunga_deploy/course-native.js",
   "melunga_deploy/desktop-home.css",
   "melunga_deploy/desktop-home.js",
@@ -41,12 +45,18 @@ const MODIFIED = Object.freeze([
   "melunga_deploy/parcours-niveaux.html",
   "melunga_deploy/tests/native-courses.test.cjs",
   "melunga_deploy/voice-selection.js",
+  "tools/maquette-guidee/build_course_i18n.cjs",
+  "tools/maquette-guidee/build_home_i18n.cjs",
   "tools/maquette-guidee/course-locale-keys.json",
   "tools/maquette-guidee/export_native_catalogue.py"
 ]);
 const ADDED = Object.freeze([
+  "melunga_deploy/content/course-locales/de.json",
+  "melunga_deploy/content/native-catalogue/de-native-meanings.json",
   "melunga_deploy/content/native-catalogue/de.json",
+  "melunga_deploy/german-account-ui.js",
   "tools/maquette-guidee/imports/de-deck-v3.1.json",
+  "tools/maquette-guidee/imports/de-native-meanings-v1.json",
   "tools/maquette-guidee/imports/de-themes-v1.json"
 ]);
 // END FINITE GERMAN PATHS

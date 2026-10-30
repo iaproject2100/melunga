@@ -44,6 +44,7 @@
   const copy = {
     fr: ['Créer un compte', 'Se connecter', 'Commencer avec Melunga'],
     en: ['Create an account', 'Sign in', 'Start with Melunga'],
+    de: ['Konto erstellen', 'Anmelden', 'Mit Melunga starten'],
     es: ['Crear una cuenta', 'Iniciar sesión', 'Empezar con Melunga'],
     zh: ['创建账户', '登录', '开始使用 Melunga'],
     it: ['Crea un account', 'Accedi', 'Inizia con Melunga'],
@@ -62,6 +63,58 @@
 })();
 
   const copy = {
+  "de": [
+  "8 SPRACHEN · SÄTZE FÜR DEN ALLTAG",
+  "Lerne zuerst das Wesentliche.<br><em>Sprich es mit den Lauten deiner Sprache aus.</em>",
+  "Nützliche Sätze für alltägliche Situationen. Lies die Aussprache mit den vertrauten Lauten deiner Sprache und höre dann zu, um sie zu verfeinern.",
+  "Kostenlos ausprobieren",
+  "So funktioniert’s",
+  "Niveau 1 kostenlos · keine Zahlungskarte nötig",
+  "Ein Beispiel für die Methode",
+  "IM ALLTAG",
+  "Anhören und vergleichen",
+  "Dieses Beispiel verwendet eine französische Aussprachehilfe und Übersetzung.",
+  "SO FUNKTIONIERT’S",
+  "Anhören. Nachsprechen. Anwenden.",
+  "Anhören",
+  "Entdecke einen nützlichen Satz und höre dir seine Aussprache an.",
+  "Nachsprechen",
+  "Lies die Aussprachehilfe und sprich den Satz dann laut aus.",
+  "Anwenden",
+  "Wiederhole die Sätze in deinen Übungen, damit du sie dir einprägst.",
+  "WÄHLE DEINEN ZUGANG",
+  "Wähle den Zugang, der zu dir passt.",
+  "Auf der Website: einmalige Zahlung, ohne automatische Verlängerung.",
+  "Zum Entdecken",
+  "Niveau 1 kostenlos",
+  "Entdecke die Methode und beginne deine ersten Lektionen, ohne Zeitlimit.",
+  "Zum Weiterlernen",
+  "Alle Sprachen, L1 bis L10",
+  "Jahreszugang",
+  "Oder",
+  "für 30 Tage",
+  "Meinen Zugang wählen",
+  "Ich habe bereits ein Konto",
+  "Preise",
+  "Nutzungsbedingungen",
+  "Datenschutz",
+  "pro Jahr",
+  "Methode",
+  "Audio ist gerade nicht verfügbar. Versuch es in der App noch einmal.",
+  "Niveau 1 vollständig, 8 Sprachen",
+  "Aussprachehilfe in deiner Sprache + Audio",
+  "Intelligente Wiederholungen",
+  "Alle Niveaus, L1 bis L10",
+  "Alle 8 Sprachen enthalten",
+  "30 Tage Zugang · ohne Verlängerung",
+  "1 Jahr Zugang · ohne Verlängerung",
+  "Spare {pct}",
+  "Übe das ganze Jahr",
+  "entspricht {m} / {unit}",
+  "Jahreszugang wählen",
+  "Monatszugang wählen",
+  "Lies die Aussprachehilfe laut vor."
+],
   "fr": [
     "8 LANGUES · DES PHRASES DU QUOTIDIEN",
     "Apprends l’essentiel d’abord.<br><em>Prononce-le dans ta langue.</em>",
@@ -427,15 +480,18 @@
     "프랑스어 발음 안내를 소리 내어 읽어 보세요."
   ]
 };
-  const languageNames = {fr:'Français',en:'English',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어'};
-  const studyLanguageNames = {...languageNames,de:'Deutsch'};
+  const languageNames = {fr:'Français',en:'English',de:'Deutsch',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어'};
+  const studyLanguageNames = {...languageNames};
+  const appLanguageNames = Object.fromEntries(Object.entries(languageNames).filter(([code]) => typeof homeAppLanguageAvailable !== 'function' || homeAppLanguageAvailable(code)));
   const languageControlLabels = {
     fr:['Langue du site','Langue de l’exemple'],en:['Website language','Example language'],
+    de:['Sprache der Website','Sprache des Beispiels'],
     es:['Idioma del sitio','Idioma del ejemplo'],zh:['网站语言','示例语言'],
     it:['Lingua del sito','Lingua dell’esempio'],ja:['サイトの言語','例文の言語'],
     ko:['사이트 언어','예문 언어']
   };
   const exampleNames = {
+    de:{en:'Englisch',es:'Spanisch',zh:'Chinesisch',de:'Deutsch'},
     fr:{en:'Anglais',es:'Espagnol',zh:'Chinois',de:'Allemand'},en:{en:'English',es:'Spanish',zh:'Chinese',de:'German'},
     es:{en:'Inglés',es:'Español',zh:'Chino',de:'Alemán'},zh:{en:'英语',es:'西班牙语',zh:'中文',de:'德语'},
     it:{en:'Inglese',es:'Spagnolo',zh:'Cinese',de:'Tedesco'},ja:{en:'英語',es:'スペイン語',zh:'中国語',de:'ドイツ語'},
@@ -464,7 +520,7 @@
   });
   const tr = i => `<span data-dh-text="${i}"></span>`;
   root.innerHTML = `
-    <header class="dh-container dh-header"><a class="dh-brand" href="#"><img src="assets/melunga-logo.png" alt="">Melunga</a><nav class="dh-nav" aria-label="Melunga"><a href="#dh-method">${tr(35)}</a><a href="#dh-pricing">${tr(31)}</a><label class="dh-language-picker"><span class="home-flag home-flag-fr" data-dh-native-flag aria-hidden="true"></span><select class="dh-language" aria-label="Langue du site">${Object.entries(languageNames).map(([code,name])=>`<option value="${code}">${name}</option>`).join('')}</select><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg></label><button type="button" class="dh-button dh-small dh-primary dh-header-free" data-dh-free>${tr(3)}</button><button class="dh-button dh-small dh-outline" data-go="signin">${tr(30)}</button></nav></header>
+    <header class="dh-container dh-header"><a class="dh-brand" href="#"><img src="assets/melunga-logo.png" alt="">Melunga</a><nav class="dh-nav" aria-label="Melunga"><a href="#dh-method">${tr(35)}</a><a href="#dh-pricing">${tr(31)}</a><label class="dh-language-picker"><span class="home-flag home-flag-fr" data-dh-native-flag aria-hidden="true"></span><select class="dh-language" aria-label="Langue du site">${Object.entries(appLanguageNames).map(([code,name])=>`<option value="${code}">${name}</option>`).join('')}</select><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg></label><button type="button" class="dh-button dh-small dh-primary dh-header-free" data-dh-free>${tr(3)}</button><button class="dh-button dh-small dh-outline" data-go="signin">${tr(30)}</button></nav></header>
     <div class="dh-container">
       <section class="dh-hero" aria-labelledby="dh-title"><div><p class="dh-kicker">${tr(0)}</p><h1 class="dh-title" id="dh-title"></h1><p class="dh-intro">${tr(2)}</p><div class="dh-actions"><button class="dh-button dh-primary" data-dh-free>${tr(3)} <span aria-hidden="true">&rarr;</span></button><a class="dh-button dh-outline" href="#dh-method">${tr(4)}</a></div><p class="dh-fine"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10 3 3 7-7"/></svg>${tr(5)}</p></div>
       <aside class="dh-example"><div class="dh-example-top"><b>${tr(6)}</b><span>L1</span></div><div class="dh-tabs" role="group" aria-label="Langue de l’exemple"><button class="dh-tab" data-dh-example="en" aria-pressed="true">${flag('en')}<span data-dh-example-name="en">English</span></button><button class="dh-tab" data-dh-example="es" aria-pressed="false">${flag('es')}<span data-dh-example-name="es">Español</span></button><button class="dh-tab" data-dh-example="zh" aria-pressed="false">${flag('zh')}<span data-dh-example-name="zh">中文</span></button><button class="dh-tab" data-dh-example="de" aria-pressed="false">${flag('de')}<span data-dh-example-name="de">Deutsch</span></button></div><div class="dh-card"><p class="dh-card-tag">${tr(7)}</p><p class="dh-phrase" lang="en"></p><div class="dh-phonetic-area"><p class="dh-trial-prompt"><span class="dh-action-step">1</span>${tr(49)}</p><div class="dh-phonetic-row"><p class="dh-phonetic" lang="fr"></p><button type="button" class="dh-ear" data-dh-listen aria-label="Écouter et comparer"><span aria-hidden="true">👂</span></button></div></div><p class="dh-translation" lang="fr"></p><button type="button" class="dh-listen" data-dh-listen><span class="dh-action-step">2</span>${tr(8)}</button></div><p class="dh-example-note" aria-live="polite">${tr(9)}</p></aside></section>
@@ -523,7 +579,7 @@
     if (typeof currentPriceMarket !== 'undefined') {
       root.querySelector('[data-dh-annual]').textContent = currentPriceMarket.yearly;
       root.querySelector('[data-dh-monthly]').textContent = currentPriceMarket.monthly;
-      const unit = {fr:'mois',en:'month',es:'mes',zh:'月',it:'mese',ja:'月',ko:'월'}[locale] || 'mois';
+      const unit = {fr:'mois',en:'month',de:'Monat',es:'mes',zh:'月',it:'mese',ja:'月',ko:'월'}[locale] || 'mois';
       root.querySelector('[data-dh-equivalent]').textContent = currentPriceMarket.yearlyMonthly
         ? t[46].replace('{m}', currentPriceMarket.yearlyMonthly).replace('{unit}', unit) : '';
       const num = v => parseFloat(String(v).replace(/\s/g,'').replace(',','.').replace(/[^\d.]/g,''));

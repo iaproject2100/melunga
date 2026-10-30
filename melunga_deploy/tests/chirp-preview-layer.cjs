@@ -64,7 +64,7 @@ function inventory(directory, prefix, recursive = false) {
   return files.sort();
 }
 function assertInventories() {
-  const additions = ADDED.filter(f => /^melunga_deploy\/[^/]+\.(?:js|css|html|webmanifest)$/.test(f));
+  const additions = [...ADDED, ...germanLayer.addedPaths].filter(f => /^melunga_deploy\/[^/]+\.(?:js|css|html|webmanifest)$/.test(f));
   const current = inventory(WEB, 'melunga_deploy').filter(f => /\.(?:js|css|html|webmanifest)$/.test(f));
   assert.deepEqual(current, [...rootRuntime, ...additions].sort(), 'no other runtime asset may be introduced or removed');
   assert.deepEqual(inventory(path.join(WEB, 'netlify/functions'), 'melunga_deploy/netlify/functions', true),

@@ -7,7 +7,7 @@ const root=path.resolve(__dirname,'../..'),web=path.join(root,'melunga_deploy');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const source=read(path.join(__dirname,'course-locale-keys.json'));
 const supplements=read(path.join(web,'content/course-locales/supplements.json'));
-const codes=['fr','en','es','it','zh','ja','ko'];
+const codes=['fr','en','de','es','it','zh','ja','ko'];
 const proofStart=source.uiKeys.indexOf('PASSER');assert.ok(proofStart>0);
 const keys=[...new Set([...source.uiKeys.slice(proofStart),'Retour','Fermer',
  'UN SEUL CHOIX POUR COMMENCER','Quelle langue veux-tu parler ?',

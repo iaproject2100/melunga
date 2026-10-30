@@ -29,6 +29,7 @@
         else window.wlcLogin();
         var panel = document.getElementById('paywall');
         if (!panel || panel.style.display !== 'block') return;
+        window.MelungaGermanAccountUI?.refresh();
         window.__loginEntryReady = true;
         removeBootCover();
       } catch (_error) {}
@@ -50,6 +51,7 @@
           var checkoutWasOpen = paywall && paywall.style.display === 'block';
           if (typeof window.setLang === 'function') window.setLang(studyLanguage);
           if (checkoutWasOpen && typeof window.showPaywall === 'function') window.showPaywall();
+          window.MelungaGermanAccountUI?.refresh();
         } catch (_error) {}
       }, 700);
     }

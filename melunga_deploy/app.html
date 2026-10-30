@@ -2701,7 +2701,7 @@ body.immersif.pile-droite .stage {
 <link rel="stylesheet" href="lesson-pastilles.css">
 <link rel="stylesheet" href="account-ui.css">
 <link rel="stylesheet" href="course-login.css?v=1">
-<script src="course-login.js?v=2" defer></script>
+<script src="course-login.js?v=3" defer></script>
 <style>html.course-entry-redirect body{visibility:hidden!important}</style>
 <script>
 /* Web lessons default to the course. Account forms retain only a typed pair
@@ -2716,8 +2716,8 @@ body.immersif.pile-droite .stage {
     if(query.get('classic')==='1') return;
     var keys=['start','lang','study','level','courseLevel','courseReturn','classic','login','checkout'];
     if(keys.some(function(key){return query.getAll(key).length>1;})) return;
-    var codes=['fr','en','es','it','zh','ja','ko'];
-    var studyCodes=codes.concat(['de']);
+    var codes=['fr','en','de','es','it','zh','ja','ko'];
+    var studyCodes=codes.slice();
     function validLanguage(value){return codes.indexOf(value)>=0;}
     function validStudy(value){return studyCodes.indexOf(value)>=0;}
     function pairOf(value){
@@ -2756,7 +2756,7 @@ body.immersif.pile-droite .stage {
       || (saved && saved[0]===nativeLanguage ? saved[1] : null)
       || (legacyNative===nativeLanguage && validStudy(legacyStudy) && legacyStudy!==nativeLanguage ? legacyStudy : null);
     var hasStudy=!!studyLanguage;
-    if(!studyLanguage) studyLanguage=nativeLanguage==='fr' ? 'en' : 'fr';
+    if(!studyLanguage) studyLanguage=(nativeLanguage==='fr'||nativeLanguage==='de') ? 'en' : 'fr';
     if(nativeLanguage===studyLanguage) return;
     var pair=nativeLanguage+'-'+studyLanguage;
     var level=query.has('courseLevel') ? query.get('courseLevel') : query.has('level') ? query.get('level')
@@ -2815,8 +2815,8 @@ body.immersif.pile-droite .stage {
   var bridge=window.Capacitor;
   if(bridge && (typeof bridge.isNativePlatform==='function' ? bridge.isNativePlatform()
       : typeof bridge.getPlatform==='function' && bridge.getPlatform()!=='web')) return;
-  var codes=['fr','en','es','it','zh','ja','ko'];
-  var studyCodes=codes.concat(['de']);
+  var codes=['fr','en','de','es','it','zh','ja','ko'];
+  var studyCodes=codes.slice();
   var nativeLanguage=query.get('lang'), studyLanguage=query.get('study');
   if(codes.indexOf(nativeLanguage)<0 || studyCodes.indexOf(studyLanguage)<0 || nativeLanguage===studyLanguage) return;
   var pair=nativeLanguage+'-'+studyLanguage;
@@ -3031,7 +3031,7 @@ body.immersif.pile-droite .stage {
   </div>
 </div>
 
-<script src="course-i18n.js?v=6"></script>
+<script src="course-i18n.js?v=7"></script>
 <script src="voice-selection.js?v=3"></script>
 <script src="lesson-audio.js?v=4"></script>
 <script>
@@ -3097,7 +3097,7 @@ function sectorLabel(c){ return (SECTORLABELS[nat]&&SECTORLABELS[nat][c]) || c; 
 
 var lang='fr', gender='female';
 var nat='zh'; // langue native de l'apprenant : 'zh' (défaut) ou 'en'
-try{ var _sn=lsGet('ox_nat'); if(_sn) nat=_sn; }catch(e){}
+try{ var _sn=lsGet('ox_nat'); if(_sn) nat=_sn==='de'?'fr':_sn; }catch(e){}
 // libellés d'interface selon la langue native
 var UI={
   zh:{all:'全部',review:'🔁 复习',recall:'✍️ 回想',basics:'🔢 基础',vocab:'📒 词汇',trip:'🧳 游客',biz:'💼 商务',free:'免费',start:'开始',due:'待复习',recallSub:'默写练习',basicsSub:'数字颜色',vocabSub:'单词',tripSub:'实用',bizSub:'工作',sentences:'句',recallPh:'✍️ 凭记忆写出来…',check:'检查 ✓',listen:'🔊 听发音',speak:'🎤 说出来',normal:'🔊 正常',tag:'一门语言80%都在最常用的词里，我们只教这些',tagSub:'发音直接用你的母语标注 · 无需破译奇怪符号',days:'天连续学习',rubHead:'主题分类',lvHead:'进度等级',
@@ -3627,8 +3627,8 @@ function courseReturnIsNative(){
 }
 function validateCourseReturn(pair,level,nativeLanguage,studyLanguage){
   if(courseReturnIsNative() || typeof pair!=='string') return null;
-  var codes=['fr','en','es','it','zh','ja','ko'];
-  var studyCodes=codes.concat(['de']);
+  var codes=['fr','en','de','es','it','zh','ja','ko'];
+  var studyCodes=codes.slice();
   var languages=pair.split('-');
   if(languages.length!==2 || codes.indexOf(languages[0])<0 || studyCodes.indexOf(languages[1])<0 || languages[0]===languages[1]) return null;
   if(nativeLanguage!==languages[0] || studyLanguage && studyLanguage!==languages[1]) return null;
@@ -5200,6 +5200,7 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
     var c = new URLSearchParams(window.location.search).get('checkout');
     if(c!=='monthly' && c!=='annual') return;
     var lang = new URLSearchParams(window.location.search).get('lang') || 'fr';
+    if(lang==='de') lang='fr'; // The hidden classic lesson has seven native-language decks.
     function openCheckout(){
       try{
         // Configure la leçon gratuite en dessous (pour que fermer le paywall marche)
@@ -5233,6 +5234,7 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
     var q = new URLSearchParams(window.location.search);
     if(window.__courseStartRedirecting || q.get('start')!=='1' || q.has('login') || q.has('checkout')) return;
     var lang = q.get('lang') || 'fr';
+    if(lang==='de') lang='fr';
     function goLesson(){
       try{
         if(typeof wlcSetSite==='function') wlcSetSite(lang);
@@ -5251,11 +5253,12 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
 </script>
 <script src="store-billing.js"></script>
 <script src="native-speech.js?v=1"></script>
-<script src="entry-bridge.js?v=1"></script>
+<script src="german-account-ui.js?v=1"></script>
+<script src="entry-bridge.js?v=2"></script>
 <script src="desktop-lessons.js"></script>
 <script src="lesson-pickers.js"></script>
 <script src="lesson-controls.js"></script>
 <script src="lesson-pastilles.js"></script>
-<script src="account-ui.js"></script>
+<script src="account-ui.js?v=1"></script>
 </body>
 </html>

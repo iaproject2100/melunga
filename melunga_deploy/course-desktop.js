@@ -27,6 +27,7 @@
   const mobileSlots = new Map();
   const gridVisibility = new Map();
   const labels = {
+    de: {previous:'Zurück', next:'Weiter', pages:'Themenseiten', of:'von', phonetic:'Aussprachehilfe', terms:'Nutzungsbedingungen', privacy:'Datenschutz', legal:'Rechtliche Dokumente'},
     fr: {previous:'Précédents', next:'Suivants', pages:'Pages de thèmes', of:'sur', phonetic:'Phonétique', terms:'Conditions générales', privacy:'Confidentialité', legal:'Documents juridiques'},
     en: {previous:'Previous', next:'Next', pages:'Topic pages', of:'of', phonetic:'Phonetics', terms:'Terms and Conditions', privacy:'Privacy', legal:'Legal documents'},
     es: {previous:'Anteriores', next:'Siguientes', pages:'Páginas de temas', of:'de', phonetic:'Fonética', terms:'Términos', privacy:'Privacidad', legal:'Documentos legales'},
@@ -36,6 +37,7 @@
     ko: {previous:'이전', next:'다음', pages:'주제 페이지', of:'/', phonetic:'발음 표기', terms:'이용약관', privacy:'개인정보', legal:'법적 문서'}
   };
   const mobileLabels = {
+    de: {language:'Sprache', nextStep:'Weiter'},
     fr: {language:'Langue', nextStep:'Suivant'},
     en: {language:'Language', nextStep:'Next'},
     es: {language:'Idioma', nextStep:'Siguiente'},
@@ -45,6 +47,7 @@
     ko: {language:'언어', nextStep:'다음'}
   };
   const sidebarLabels = {
+    de: {themes:'Deine Themen', allThemes:'Alle Themen'},
     fr: {themes:'Tes thèmes', allThemes:'Tous les thèmes'},
     en: {themes:'Your topics', allThemes:'All topics'},
     es: {themes:'Tus temas', allThemes:'Todos los temas'},

@@ -5,6 +5,7 @@
   var copy = {
     fr: { login: 'Se connecter', create: 'Créer un compte', close: 'Fermer' },
     en: { login: 'Sign in', create: 'Create account', close: 'Close' },
+    de: { login: 'Anmelden', create: 'Konto erstellen', close: 'Schließen' },
     es: { login: 'Iniciar sesión', create: 'Crear cuenta', close: 'Cerrar' },
     zh: { login: '登录', create: '注册账号', close: '关闭' },
     it: { login: 'Accedi', create: 'Crea un account', close: 'Chiudi' },
@@ -28,7 +29,7 @@
   var inertElements = [];
 
   function visible() { return panel.style.display === 'block'; }
-  function text() { return copy[typeof nat === 'string' ? nat : 'fr'] || copy.fr; }
+  function text() { return copy[window.MelungaGermanAccountUI?.active ? 'de' : typeof nat === 'string' ? nat : 'fr'] || copy.fr; }
   function activePanel() {
     // Device replacement opens its code-confirmation dialog above this one.
     return Array.from(document.querySelectorAll('[role="dialog"][aria-modal="true"]')).reverse().find(function (dialog) {

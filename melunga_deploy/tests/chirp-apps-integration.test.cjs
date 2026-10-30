@@ -79,7 +79,7 @@ test('classic source literals, eight account/payment functions, rights and revie
  execFileSync('git',['diff','--exit-code',BASE,'--','melunga_deploy/content/niveaux-progressifs','melunga_deploy/content/course-access.json','melunga_deploy/store-billing.js'],{cwd:ROOT,stdio:'pipe'});
  const nativeRoot='melunga_deploy/content/native-catalogue/',nativeFiles=execFileSync('git',['ls-tree','-r','--name-only',BASE,'--',nativeRoot],{cwd:ROOT,encoding:'utf8'}).trim().split('\n');
  assert.equal(nativeFiles.length,8,'the seven historical banks and their manifest are independently inventoried');
- assert.deepEqual(fs.readdirSync(path.join(ROOT,nativeRoot)).sort(),[...nativeFiles.map(file=>path.basename(file)),'de.json'].sort(),'German is the only added native catalogue asset');
+ assert.deepEqual(fs.readdirSync(path.join(ROOT,nativeRoot)).sort(),[...nativeFiles.map(file=>path.basename(file)),'de.json','de-native-meanings.json'].sort(),'German target and native meanings are the only added native catalogue assets');
  for(const file of nativeFiles){
   const before=execFileSync('git',['show',BASE+':'+file],{cwd:ROOT,maxBuffer:40*1024*1024});
   // Only the exact, separately verified German manifest extension has a
@@ -93,8 +93,8 @@ test('classic source literals, eight account/payment functions, rights and revie
 });
 
 test('both HTML shells load selection before the shared player and current controller; classic loads the same modules',()=>{
- for(const file of ['parcours-niveaux.html','maquette-guidee.html']){const source=read(file),selection=source.indexOf('voice-selection.js?v=3'),player=source.indexOf('lesson-audio.js?v=4'),controller=source.indexOf('maquette-guidee.js?v=43');assert.ok(selection>0&&selection<player&&player<controller);assert.match(source,/course-i18n\.js\?v=6/);assert.match(source,/course-native\.js\?v=4/);assert.match(source,/course-startup\.css\?v=1/);assert.match(source,/course-ambiences\.css\?v=1/);}
- assert.match(classic,/course-i18n\.js\?v=6/);assert.match(classic,/native-speech\.js\?v=1/);assert.doesNotMatch(classic,/course-startup\.css/);
+ for(const file of ['parcours-niveaux.html','maquette-guidee.html']){const source=read(file),selection=source.indexOf('voice-selection.js?v=3'),player=source.indexOf('lesson-audio.js?v=4'),controller=source.indexOf('maquette-guidee.js?v=44');assert.ok(selection>0&&selection<player&&player<controller);assert.match(source,/course-i18n\.js\?v=7/);assert.match(source,/course-native\.js\?v=5/);assert.match(source,/course-startup\.css\?v=1/);assert.match(source,/course-ambiences\.css\?v=1/);}
+ assert.match(classic,/course-i18n\.js\?v=7/);assert.match(classic,/native-speech\.js\?v=1/);assert.doesNotMatch(classic,/course-startup\.css/);
  assert.ok(classic.indexOf('voice-selection.js?v=3')<classic.indexOf('lesson-audio.js?v=4'));
  assert.ok(classic.indexOf('lesson-audio.js?v=4')<classic.indexOf('var DECKS = '));
 });
