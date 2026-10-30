@@ -12,6 +12,8 @@
     it: Object.freeze({ locale: 'it-IT', serverLanguage: 'it-IT', female: 'it-IT-Wavenet-E', male: 'it-IT-Wavenet-F' }),
     ja: Object.freeze({ locale: 'ja-JP', serverLanguage: 'ja-JP', female: 'ja-JP-Wavenet-B', male: 'ja-JP-Wavenet-C' }),
     ko: Object.freeze({ locale: 'ko-KR', serverLanguage: 'ko-KR', female: 'ko-KR-Wavenet-A', male: 'ko-KR-Wavenet-C' }),
+    hi: Object.freeze({ locale:'hi-IN', serverLanguage:'hi-IN', female:'hi-IN-Wavenet-C', male:'hi-IN-Wavenet-B' }),
+    ru: Object.freeze({ locale:'ru-RU', serverLanguage:'ru-RU', female:'ru-RU-Wavenet-A', male:'ru-RU-Wavenet-B' }),
     de: Object.freeze({ locale: 'de-DE', serverLanguage: 'de-DE', female: 'de-DE-Wavenet-A', male: 'de-DE-Wavenet-B' })
   });
   const normalizedLanguage = value => String(value || '').toLowerCase().replace(/_/g, '-');
@@ -106,7 +108,7 @@
       } catch (_) { finish(request, true); }
     }
 
-    function play({ text, language, rate = 0.85, voice = 'female', voiceName } = {}) {
+    function play({ text, language, rate = 0.85, voice = 'female', genderHint = '', voiceName } = {}) {
       stop();
       const config = voices[language];
       if (!config || typeof text !== 'string' || !text.trim()
@@ -114,8 +116,11 @@
         onUnavailable();
         return false;
       }
+      const imported = ['hi','ru'].includes(language);
+      const marker = imported && /\((male|female)\)/i.exec(genderHint);
+      if (marker) voice = marker[1].toLowerCase();
       let candidate = null, provisional = false, browserOnly = false;
-      if (selection) {
+      if (selection && !imported) {
         const catalogueStatus = selection.state().status;
         candidate = voiceName === undefined ? selection.getVoice(language)
           : selection.getChoices(language).find(item => item.name === voiceName);
@@ -131,8 +136,14 @@
           } else { onUnavailable(); return false; }
         }
       } else {
-        if (voiceName !== undefined) { onUnavailable(); return false; }
-        candidate = {name: config[voice], languageCode: config.serverLanguage, engine: 'wavenet', rateMode: 'server'};
+        if (imported && selection && voiceName !== undefined) {
+          candidate = selection.getChoices(language).find(item => item.name === voiceName);
+          if (!candidate) { onUnavailable(); return false; }
+        } else {
+          if (voiceName !== undefined) { onUnavailable(); return false; }
+          candidate = imported && !marker && selection?.getVoice(language)
+            || {name: config[voice], languageCode: config.serverLanguage, engine:'wavenet', rateMode:'server'};
+        }
       }
       const clientRate = candidate?.rateMode === 'client';
       const request = { generation, text, language, rate, config, audio: null,

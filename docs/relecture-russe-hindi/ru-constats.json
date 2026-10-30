@@ -1,0 +1,302 @@
+[
+  {
+    "num": 255,
+    "lv": 1,
+    "t": "Занято.",
+    "fields": [
+      "kom"
+    ],
+    "issue": "자리 있어요 peut être compris comme « il y a une place » hors contexte, alors que la carte indique une place ou un équipement occupé.",
+    "proposal": "사용 중이에요. (si un équipement est occupé) / 자리가 찼어요. (si la place est prise)",
+    "certainty": "verify",
+    "current": {
+      "kom": "자리 있어요."
+    },
+    "id": "ru-L1-255",
+    "action": "editorial"
+  },
+  {
+    "num": 1385,
+    "lv": 3,
+    "t": "Я не успеваю позавтракать.",
+    "fields": [
+      "py",
+      "pf",
+      "ps",
+      "pi"
+    ],
+    "issue": "L’accent est placé sur la syllabe тра de позавтракать, alors que le verbe usuel est поза́втракать.",
+    "proposal": "Corriger l’accent de позавтракать dans l’entrée/générateur puis régénérer les quatre aides latines ; aucune valeur phonétique manuelle proposée.",
+    "certainty": "correct",
+    "current": {
+      "py": "yah nee oos-pee-VA-yoo pa-zaf-TRA-kat",
+      "pf": "ya ni ous-pi-VA-you pa-zaf-TRA-kat",
+      "ps": "ya ni us-pi-vá-yu pa-saf-trá-kat",
+      "pi": "ia ni us-pi-và-iu pa-saf-trà-cat"
+    },
+    "id": "ru-L3-1385",
+    "action": "regenerate"
+  },
+  {
+    "num": 1669,
+    "lv": 4,
+    "t": "Это фейк.",
+    "fields": [
+      "kom"
+    ],
+    "issue": "La traduction coréenne précise « fausse nouvelle », alors que фейк peut aussi désigner un faux objet ou un montage.",
+    "proposal": "그건 가짜예요. ; conserver 뉴스 seulement si le contexte vise explicitement une fausse nouvelle.",
+    "certainty": "verify",
+    "current": {
+      "kom": "그건 가짜 뉴스예요."
+    },
+    "id": "ru-L4-1669",
+    "action": "editorial"
+  },
+  {
+    "num": 2154,
+    "lv": 5,
+    "t": "Мне нужно отвлечься.",
+    "fields": [
+      "py",
+      "pf",
+      "ps",
+      "pi"
+    ],
+    "issue": "L’accent usuel tombe sur е, pas sur la syllabe finale ся.",
+    "proposal": "Corriger l’accent de отвлечься dans la source phonétique puis régénérer les quatre guides latins par le générateur ; pas de remplacement manuel.",
+    "certainty": "correct",
+    "current": {
+      "py": "mnyeh NOOZH-nah at-vlyech-SYAH",
+      "pf": "mniè NOUJ-na at-vliètch-SIA",
+      "ps": "mnie núzh-na at-vliech-siá",
+      "pi": "mnie nùj-na at-vlieci-sià"
+    },
+    "id": "ru-L5-2154",
+    "action": "regenerate"
+  },
+  {
+    "num": 2321,
+    "lv": 5,
+    "t": "выздороветь",
+    "fields": [
+      "py",
+      "pf",
+      "ps",
+      "pi"
+    ],
+    "issue": "L’accent normatif est вы́здороветь, pas выздо́роветь.",
+    "proposal": "Corriger l’accent de выздороветь dans la source phonétique puis régénérer les quatre guides latins par le générateur ; pas de remplacement manuel.",
+    "certainty": "correct",
+    "current": {
+      "py": "vihz-DO-ra-veet",
+      "pf": "vyz-DO-ra-vit",
+      "ps": "vis-dó-ra-vit",
+      "pi": "vis-dò-ra-vit"
+    },
+    "id": "ru-L5-2321",
+    "action": "regenerate"
+  },
+  {
+    "num": 2530,
+    "lv": 5,
+    "t": "Мы переезжаем в другой город.",
+    "fields": [
+      "py",
+      "pf",
+      "ps",
+      "pi"
+    ],
+    "issue": "La forme мы переезжа́ем porte l’accent sur жа, pas sur ез.",
+    "proposal": "Corriger l’accent de переезжаем dans la source phonétique puis régénérer les quatre guides latins par le générateur ; pas de remplacement manuel.",
+    "certainty": "correct",
+    "current": {
+      "py": "mih pee-ree-YEZH-zha-yem v droo-GOY GO-rat",
+      "pf": "my pi-ri-YÈJ-ja-yèm v drou-GOÏ GO-rat",
+      "ps": "mi pi-ri-yézh-zha-yem v dru-gói gó-rat",
+      "pi": "mi pi-ri-ièj-ja-iem v dru-gòi gò-rat"
+    },
+    "id": "ru-L5-2530",
+    "action": "regenerate"
+  },
+  {
+    "num": 2803,
+    "lv": 6,
+    "t": "Он вешает лапшу на уши.",
+    "fields": [
+      "en"
+    ],
+    "issue": "Pulling your leg implique souvent une plaisanterie ; вешать лапшу на уши peut décrire un mensonge destiné à tromper.",
+    "proposal": "Selon le contexte : He is feeding you lies. Garder la formulation actuelle seulement si la plaisanterie est voulue.",
+    "certainty": "verify",
+    "current": {
+      "en": "He's pulling your leg."
+    },
+    "id": "ru-L6-2803",
+    "action": "editorial"
+  },
+  {
+    "num": 2955,
+    "lv": 6,
+    "t": "Об этом пишут все газеты.",
+    "fields": [
+      "py",
+      "pf",
+      "ps",
+      "pi"
+    ],
+    "issue": "L’accent de пишут doit être sur и (пи́шут), pas sur у.",
+    "proposal": "Corriger l’accent dans la source puis régénérer les quatre aides latines.",
+    "certainty": "correct",
+    "current": {
+      "py": "ab E-tam pee-SHOOT fsyeh ga-ZYE-tih",
+      "pf": "ab È-tam pi-CHOUT fsiè ga-ZIÈ-ty",
+      "ps": "ab é-tam pi-shút fsie ga-sié-ti",
+      "pi": "ab è-tam pi-sciùt fsie ga-siè-ti"
+    },
+    "id": "ru-L6-2955",
+    "action": "regenerate"
+  },
+  {
+    "num": 3035,
+    "lv": 6,
+    "t": "Шайба!",
+    "fields": [
+      "t",
+      "en",
+      "frm",
+      "jam",
+      "kom"
+    ],
+    "issue": "Шайба désigne le palet ; l’exclamation culturelle habituelle Шайбу! réclame un but et ne signifie pas simplement « Goal! ».",
+    "proposal": "Confirmer l’intention : pour célébrer un but, employer Гол! (après contrôle d’unicité) ; pour désigner le palet, aligner les traductions sur cet objet.",
+    "certainty": "verify",
+    "current": {
+      "t": "Шайба!",
+      "en": "Goal! (hockey)",
+      "frm": "But ! (hockey)",
+      "jam": "ゴール！（ホッケー）",
+      "kom": "골! (하키)"
+    },
+    "id": "ru-L6-3035",
+    "action": "editorial"
+  },
+  {
+    "num": 3205,
+    "lv": 7,
+    "t": "Исследование длилось десять лет.",
+    "fields": [
+      "py",
+      "pf",
+      "ps",
+      "pi"
+    ],
+    "issue": "Исследование est accentué sur сле (иссле́дование), pas sur до.",
+    "proposal": "Corriger la syllabe tonique dans la source puis régénérer les quatre guides latins.",
+    "certainty": "correct",
+    "current": {
+      "py": "ees-slye-DO-va-nee-yeh DLEE-las DYE-seet lyet",
+      "pf": "is-sliè-DO-va-ni-yè DLI-las DIÈ-sit lièt",
+      "ps": "is-slie-dó-va-ni-ye dlí-las dié-sit liet",
+      "pi": "is-slie-dò-va-ni-ie dlì-las diè-sit liet"
+    },
+    "id": "ru-L7-3205",
+    "action": "regenerate"
+  },
+  {
+    "num": 3223,
+    "lv": 7,
+    "t": "исследование",
+    "fields": [
+      "py",
+      "pf",
+      "ps",
+      "pi"
+    ],
+    "issue": "Même accent erroné dans l’entrée lexicale исследование : accent attendu иссле́дование.",
+    "proposal": "Corriger la source phonétique commune et régénérer les guides latins.",
+    "certainty": "correct",
+    "current": {
+      "py": "ees-slye-DO-va-nee-yeh",
+      "pf": "is-sliè-DO-va-ni-yè",
+      "ps": "is-slie-dó-va-ni-ye",
+      "pi": "is-slie-dò-va-ni-ie"
+    },
+    "id": "ru-L7-3223",
+    "action": "regenerate"
+  },
+  {
+    "num": 3773,
+    "lv": 8,
+    "t": "Это вырвано из контекста.",
+    "fields": [
+      "kom"
+    ],
+    "issue": "La carte indique une citation arrachée à son contexte ; 맥락에서 벗어난 얘기 peut être compris comme un propos hors sujet.",
+    "proposal": "맥락을 무시하고 인용한 말이에요. / 문맥에서 떼어 낸 말이에요.",
+    "certainty": "correct",
+    "current": {
+      "kom": "그건 맥락에서 벗어난 얘기예요."
+    },
+    "id": "ru-L8-3773",
+    "action": "editorial"
+  },
+  {
+    "num": 4122,
+    "lv": 9,
+    "t": "Я сделал это не нарочно.",
+    "fields": [
+      "py",
+      "pf",
+      "ps",
+      "pi"
+    ],
+    "issue": "Dans нарочно, la prononciation usuelle du groupe чн est [шн] ; les guides font entendre une affriquée ч.",
+    "proposal": "Corriger ce traitement lexical dans la source ou le générateur puis régénérer les quatre guides latins, sans remplacement manuel.",
+    "certainty": "correct",
+    "current": {
+      "py": "yah ZDYE-lal E-tah nee na-ROCH-nah",
+      "pf": "ya ZDIÈ-lal È-ta ni na-ROTCH-na",
+      "ps": "ya sdié-lal é-ta ni na-róch-na",
+      "pi": "ia sdiè-lal è-ta ni na-ròci-na"
+    },
+    "id": "ru-L9-4122",
+    "action": "regenerate"
+  },
+  {
+    "num": 4195,
+    "lv": 9,
+    "t": "Появятся новые, о которых мы пока не знаем.",
+    "fields": [
+      "t",
+      "jam",
+      "kom"
+    ],
+    "issue": "Le russe dit seulement « de nouveaux apparaîtront » sans nom, mais les traductions japonaise et coréenne spécifient de nouveaux métiers.",
+    "proposal": "Confirmer le contexte des métiers ; si la carte doit être autonome, expliciter профессии dans le texte russe et aligner les sept traductions.",
+    "certainty": "verify",
+    "current": {
+      "t": "Появятся новые, о которых мы пока не знаем.",
+      "jam": "まだ知らない新しい職業が生まれるでしょう。",
+      "kom": "아직 모르는 새로운 직업이 생길 거예요."
+    },
+    "id": "ru-L9-4195",
+    "action": "editorial"
+  },
+  {
+    "num": 4330,
+    "lv": 10,
+    "t": "вспыльчивый",
+    "fields": [
+      "kom"
+    ],
+    "issue": "성급한 décrit surtout la précipitation ou l’impatience ; вспыльчивый décrit quelqu’un qui se met facilement en colère.",
+    "proposal": "쉽게 화를 내는 / 욱하는",
+    "certainty": "correct",
+    "current": {
+      "kom": "성급한"
+    },
+    "id": "ru-L10-4330",
+    "action": "editorial"
+  }
+]

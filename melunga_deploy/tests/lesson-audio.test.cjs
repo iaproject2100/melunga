@@ -61,6 +61,27 @@ function fixture(options = {}) {
   return f;
 }
 
+test('Hindi and Russian play configured voices before the eight-language Chirp catalogue is ready, with speaker gender markers',async()=>{
+ for(const [language,locale,femaleVoice,maleVoice]of [['hi','hi-IN','C','B'],['ru','ru-RU','A','B']]){
+  const f=fixture({preview:true});
+  assert.equal(f.selection.getSnapshot(language).status,'ready');
+  assert.equal(f.selection.getSnapshot(language).sourceMetadata.source,'configured-wavenet');
+  assert.equal(f.selection.getChoices(language).length,2);
+  assert(f.selection.setVoice(language,locale+'-Wavenet-'+femaleVoice));
+  for(const [genderHint,suffix]of [['I am tired. (male)',maleVoice],['I am tired. (female)',femaleVoice]]){
+   const text=language==='hi'?'मैं थक गया हूँ।':'Я устал.';
+   assert(f.player.play({text,language,genderHint,rate:.85}));
+   const url=new URL(f.last().src,'https://lesson.test');
+   assert.equal(url.searchParams.get('voice'),locale+'-Wavenet-'+suffix);assert.equal(url.searchParams.get('lang'),locale);
+   assert.equal(url.searchParams.get('text'),text);assert(!url.searchParams.has('genderHint'));assert.equal(f.last().playbackRate,1);
+  }
+  assert(f.selection.setVoice(language,locale+'-Wavenet-'+maleVoice));
+  f.player.play({text:'Hello',language,genderHint:'Are you tired? (to a female)'});
+  assert.equal(new URL(f.last().src,'https://lesson.test').searchParams.get('voice'),locale+'-Wavenet-'+maleVoice,'addressee is not the speaker');
+  await f.ready;
+ }
+});
+
 test('American English fallback never selects a British or default French voice',()=>{
  for(const voices of [[voice('en-GB')],[voice('fr-FR')],[]]){
   const f=fixture({voices});f.player.play({text:'Hello',language:'en'});f.last().onerror();

@@ -18,7 +18,9 @@ const allowedModified=new Set([
 // replaces the validated German card import or changes any of its 15 fields.
 const addedCandidates=['melunga_deploy/content/native-catalogue/de.json','tools/maquette-guidee/imports/de-deck-v3.1.json',
  'tools/maquette-guidee/imports/de-themes-v1.json','tools/maquette-guidee/imports/de-native-meanings-v1.json',
- 'melunga_deploy/content/native-catalogue/de-native-meanings.json','melunga_deploy/content/course-locales/de.json','melunga_deploy/german-account-ui.js'];
+ 'melunga_deploy/content/native-catalogue/de-native-meanings.json','melunga_deploy/content/course-locales/de.json','melunga_deploy/german-account-ui.js',
+ 'tools/maquette-guidee/imported_target_catalogues.py',
+ ...['hi','ru'].flatMap(code=>['melunga_deploy/content/native-catalogue/'+code+'.json','tools/maquette-guidee/imports/'+code+'-deck-v1.json','tools/maquette-guidee/imports/'+code+'-themes-v1.json'])];
 const sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const git=(args)=>execFileSync('git',args,{cwd:ROOT,maxBuffer:40*1024*1024});
 const changed=git(['diff','--name-only',BASE,'--','melunga_deploy','tools/maquette-guidee']).toString().trim().split('\n').filter(Boolean)

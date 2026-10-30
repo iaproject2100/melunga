@@ -2,7 +2,9 @@
  * personal choices stay on this device and take priority over those defaults. */
 (() => {
   'use strict';
-  const LANGUAGES = Object.freeze(['fr', 'en', 'es', 'zh', 'it', 'ja', 'ko', 'de']);
+  const CATALOGUE_LANGUAGES = Object.freeze(['fr', 'en', 'es', 'zh', 'it', 'ja', 'ko', 'de']);
+  const LANGUAGES = Object.freeze([...CATALOGUE_LANGUAGES,'hi','ru']);
+  const configured = Object.freeze(Object.assign(Object.create(null),Object.fromEntries([['hi','hi-IN','C','B'],['ru','ru-RU','A','B']].map(([language,locale,female,male])=>[language,Object.freeze([[female,'FEMALE'],[male,'MALE']].map(([suffix,gender])=>Object.freeze({name:locale+'-Wavenet-'+suffix,languageCode:locale,gender,engine:'wavenet',rateMode:'server'})))]))));
   const STORAGE_KEY = 'melunga-preview-voice-selection-v1';
   const SELECTION_VERSION = 'kartech-2026-10-30-en-us';
   const APPROVED_DEFAULTS = Object.freeze({
@@ -70,9 +72,9 @@
       || !data.languages || typeof data.languages !== 'object'
       || !Number.isFinite(Date.parse(data.verifiedAt)) || !Number.isFinite(Date.parse(data.expiresAt))
       || Date.parse(data.expiresAt) <= Date.now() || Date.parse(data.verifiedAt) > Date.parse(data.expiresAt)
-      || Object.keys(data.languages).length !== LANGUAGES.length) throw new Error('Invalid voice catalogue');
+      || Object.keys(data.languages).length !== CATALOGUE_LANGUAGES.length) throw new Error('Invalid voice catalogue');
     const languages = Object.create(null), names = new Set();
-    for (const language of LANGUAGES) {
+    for (const language of CATALOGUE_LANGUAGES) {
       const row = data.languages[language];
       if (!row || row.language !== language || typeof row.available !== 'boolean' || !Array.isArray(row.chirp)) {
         throw new Error('Invalid voice catalogue language');
@@ -136,6 +138,7 @@
     return pending;
   }
   function getChoices(language) {
+    if (configured[language]) return configured[language];
     if (!LANGUAGES.includes(language) || !fresh()) return Object.freeze([]);
     const row = catalogue.languages[language];
     return Object.freeze([row.waveNet, ...row.chirp]);
@@ -144,16 +147,17 @@
     return getChoices(language).find(candidate => candidate.name === selected[language]) || null;
   }
   function getVoice(language) {
+    if (configured[language]) return getSelected(language) || configured[language][0];
     if (!LANGUAGES.includes(language) || !fresh()) return null;
     return getSelected(language) || catalogue.languages[language].defaultVoice;
   }
   function getSnapshot(language) {
     const choice = getSelected(language), voice = getVoice(language);
-    const defaultVoice = LANGUAGES.includes(language) && fresh() ? catalogue.languages[language].defaultVoice : null;
-    const sourceMetadata = fresh() ? Object.freeze({source: catalogue.source,
+    const defaultVoice = configured[language]?.[0] || (CATALOGUE_LANGUAGES.includes(language) && fresh() ? catalogue.languages[language].defaultVoice : null);
+    const sourceMetadata = configured[language] ? Object.freeze({source:'configured-wavenet',selectionVersion:'configured-wavenet-v1',choiceSource:choice?'local':'configured-default'}) : fresh() ? Object.freeze({source: catalogue.source,
       selectionVersion: catalogue.selectionVersion, verifiedAt: catalogue.verifiedAt, expiresAt: catalogue.expiresAt,
       choiceSource: choice ? 'local' : defaultVoice ? 'approved-default' : null}) : null;
-    return Object.freeze({status: state().status, language, choices: getChoices(language),
+    return Object.freeze({status: configured[language] ? 'ready' : state().status, language, choices: getChoices(language),
       selected: choice, voice, provisional: false, defaultVoice,
       approvedDefault: defaultVoice,
       usesApprovedDefault: !!voice && !choice && voice.name === defaultVoice?.name, sourceMetadata});

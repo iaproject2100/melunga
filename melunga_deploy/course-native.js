@@ -1,19 +1,20 @@
 /* Source-verbatim native catalogue views. Reviewed pair bundles are never projected here. */
 (() => {
   'use strict';
-  const MANIFEST_SHA256 = '9dc7ed9f59a42d7d7ca32b5440737c76f55b5fb16afde0ab5816a4a32cf3a704';
+  const MANIFEST_SHA256 = 'e595b8929538f39b73343f159b062a0169f6d850ce83234c95544d0fc41fc2b1';
   const ROOT = 'content/native-catalogue/';
   const originalLanguages = Object.freeze(['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko']);
   const languages = Object.freeze([...originalLanguages, 'de']);
-  const studyLanguages = languages;
+  const studyLanguages = Object.freeze([...languages,'hi','ru']);
+  const addedImports = Object.freeze({hi:{path:'tools/maquette-guidee/imports/hi-deck-v1.json',sha256:'5c0be1bed4d66bfecd56d4cb5f320756bb770e4e871931cbaefb7d9b547479c3'},ru:{path:'tools/maquette-guidee/imports/ru-deck-v1.json',sha256:'751f8774365882775f8b2b640980c872e9a91bb9f2bf985cd568427be0253ca8'}});
   const GERMAN_SOURCE = 'tools/maquette-guidee/imports/de-deck-v3.1.json';
   const GERMAN_SOURCE_SHA256 = '49d6f1cd3b2a44b4ab4efcbae4c5f58988ebc7e142ebb74b1505d4ce9e39d789';
   const reviewedPairIds = Object.freeze(['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr']);
-  const pairIds = Object.freeze(languages.flatMap(native => studyLanguages.filter(study => study !== native).map(study => native + '-' + study)));
+  const pairIds = Object.freeze(languages.flatMap(native => studyLanguages.filter(study => study !== native && !(native === 'de' && addedImports[study])).map(study => native + '-' + study)));
   const reviewed = new Set(reviewedPairIds), validPairs = new Set(pairIds);
-  const cardCounts = Object.freeze({fr:4500, en:4502, es:4672, it:4509, zh:4903, ja:4509, ko:4520, de:4519});
-  const basePairs = Object.freeze({fr:'zh-fr', en:'fr-en', es:'fr-es', it:'fr-it', zh:'fr-zh', ja:'fr-ja', ko:'fr-ko', de:null});
-  const flags = Object.freeze({fr:'🇫🇷', en:'🇺🇸', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪'});
+  const cardCounts = Object.freeze({fr:4500, en:4502, es:4672, it:4509, zh:4903, ja:4509, ko:4520, de:4519, hi:4487, ru:4488});
+  const basePairs = Object.freeze({fr:'zh-fr', en:'fr-en', es:'fr-es', it:'fr-it', zh:'fr-zh', ja:'fr-ja', ko:'fr-ko', de:null, hi:null, ru:null});
+  const flags = Object.freeze({fr:'🇫🇷', en:'🇺🇸', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪',hi:'🇮🇳',ru:'🇷🇺'});
   const contentTypes = new Set(['utterance', 'vocabulary', 'number', 'incomplete', 'review']);
   let manifest = null, manifestPromise = null, germanMeanings = null;
   const eligibleByPair = new Map(), freeByPair = new Map(), bankCache = new Map(), modelCache = new Map();
@@ -69,15 +70,15 @@
     return new Set(values);
   }
   function validateManifest(document) {
-    requireValue(document?.version === 1 && document.id === 'native-catalogue-49-source-views'
+    requireValue(document?.version === 1 && document.id === 'native-catalogue-imported-source-views'
       && document.sourceSnapshotCommit === 'ef147deacf85b4a5631c1b05ff8050de7918ea1f'
       && same(document.languageIds, languages) && same(document.pairIds, pairIds)
       && same(document.nativeLanguageIds, languages) && same(document.studyLanguageIds, studyLanguages)
       && same(document.reviewedPairIds, reviewedPairIds)
       && same(document.derivedPairIds, pairIds.filter(id => !reviewed.has(id)))
-      && Object.keys(document.pairs || {}).length === 56, 'invalid pair domain');
-    requireValue(document.sourceCardCount === 36634 && document.activeCatalogueCount === 35353
-      && document.reservedCatalogueCount === 1281 && document.excludedModernExtraCount === 1539
+      && Object.keys(document.pairs || {}).length === 70, 'invalid pair domain');
+    requireValue(document.sourceCardCount === 45609 && document.activeCatalogueCount === 44174
+      && document.reservedCatalogueCount === 1435 && document.excludedModernExtraCount === 1539
       && document.source?.reviewedHistoricalFreeIdsVerified === 2218
       && document.newTranslationsCreated === 15249 && document.newPhoneticsCreated === 0
       && document.reviewedRuntimeModified === false, 'invalid source inventory');
@@ -95,6 +96,9 @@
         && policy.historicalFreeCount === 283 && bank.sourceType === 'validated-import'
         && bank.importedSourcePath === GERMAN_SOURCE && bank.importedSourceSha256 === GERMAN_SOURCE_SHA256
         && bank.activeCatalogueCount === 4444 && bank.reservedCatalogueCount === 75, 'invalid German import policy');
+      if (addedImports[study]) requireValue(policy.sourceType === 'provided-import'
+        && policy.eligibleCount === cardCounts[study] && policy.historicalFreeCount === (study === 'hi' ? 283 : 284)
+        && bank.importedSourcePath === addedImports[study].path && bank.importedSourceSha256 === addedImports[study].sha256, 'invalid added import policy');
       if (native === 'de') requireValue(policy.sourceType === 'german-native-translation'
         && policy.meaningSourcePath === ROOT + 'de-native-meanings.json', 'invalid German native policy');
       const allowed = indices(document.eligibilityGroups?.[policy.eligibilityGroup], cardCounts[study]);
@@ -142,6 +146,9 @@
       && (study === 'de' ? bank.sourceType === 'validated-import'
         && bank.importedSourcePath === GERMAN_SOURCE && bank.importedSourceSha256 === GERMAN_SOURCE_SHA256
         && bank.sourceDeckSha256 === source.importedSources.de.sourceDeckSha256
+        : addedImports[study] ? bank.sourceType === 'provided-import'
+        && bank.importedSourcePath === addedImports[study].path && bank.importedSourceSha256 === addedImports[study].sha256
+        && bank.sourceDeckSha256 === source.importedSources[study].sourceDeckSha256
         : bank.decksLiteralSha256 === source.decksLiteralSha256)
       && Array.isArray(bank.cards) && bank.cards.length === cardCounts[study]
       && Array.isArray(bank.locations) && bank.locations.length === bank.cards.length
@@ -164,7 +171,7 @@
           && Array.isArray(theme.phraseIds) && theme.phraseIds.length > 0, 'invalid source theme');
         themes.add(theme.id);
         for (const id of theme.phraseIds) {
-          const index = catalogueIndex(study === 'de' ? 'fr-de' : basePairs[study], id);
+          const index = catalogueIndex(study === 'de' || addedImports[study] ? 'fr-' + study : basePairs[study], id);
           requireValue(index !== null && !seen.has(index) && bank.locations[index][0] === level.level
             && bank.locations[index][1] === theme.id && bank.locations[index][4] === false
             && ['utterance', 'vocabulary', 'number'].includes(bank.locations[index][2]), 'invalid active source placement');
@@ -172,7 +179,7 @@
         }
       }
       for (const id of level.reserveIds) {
-        const index = catalogueIndex(study === 'de' ? 'fr-de' : basePairs[study], id);
+        const index = catalogueIndex(study === 'de' || addedImports[study] ? 'fr-' + study : basePairs[study], id);
         requireValue(index !== null && !seen.has(index) && bank.locations[index][0] === level.level
           && bank.locations[index][1] === null, 'invalid reserved source placement');
         seen.add(index);reserved += 1;
@@ -233,10 +240,10 @@
       const model = {id, study:raw.t, native:meaning, phon, reading:study === 'zh' ? raw.py || '' : '',
         speaker:'A', kind:'learner', isTemplate:location[4], contentType:location[2], editorialLevel:location[0],
         phoneticMode, phoneticSourceField:phoneticField, nativeCatalogue:true, nativeCatalogueReserved:location[1] === null,
-        source:{collection:study === 'de' ? 'validated-import.de' : 'DECKS.' + study, sourceIndex:index, sourceLevel:raw.lv,
+        source:{collection:study === 'de' ? 'validated-import.de' : addedImports[study] ? 'import.' + study : 'DECKS.' + study, sourceIndex:index, sourceLevel:raw.lv,
           fieldMap:{study:'t', native:nativeField, phon:phoneticField, ...(study === 'zh' ? {reading:'py'} : {})},
-          nativeCataloguePath:ROOT + study + '.json', ...(study === 'de' ? {
-            sourceType:'validated-import', importedSourcePath:GERMAN_SOURCE, importedSourceSha256:GERMAN_SOURCE_SHA256,
+          nativeCataloguePath:ROOT + study + '.json', ...(study === 'de' || addedImports[study] ? {
+            sourceType:study === 'de' ? 'validated-import' : 'provided-import', importedSourcePath:addedImports[study]?.path || GERMAN_SOURCE, importedSourceSha256:addedImports[study]?.sha256 || GERMAN_SOURCE_SHA256,
             sourceDeckSha256:bank.sourceDeckSha256, originalFields:raw
           } : {decksLiteralSha256:document.source.decksLiteralSha256, classicFields:raw}),
           ...(native === 'de' ? {nativeMeaningSource:{path:document.germanNativeMeanings.path,

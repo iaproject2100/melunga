@@ -15,6 +15,7 @@ from pathlib import Path
 import re
 import subprocess
 import sys
+from imported_target_catalogues import augment
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_COMMIT = 'ef147deacf85b4a5631c1b05ff8050de7918ea1f'
@@ -401,6 +402,7 @@ def make(root):
     require(len(manifest['derivedPairIds']) == 49 and manifest['activeCatalogueCount'] == 35353
             and manifest['reservedCatalogueCount'] == 1281 and manifest['excludedModernExtraCount'] == 1539, 'whole export inventory differs')
     outputs[OUTPUT + '/manifest.json'] = encoded(manifest)
+    augment(root, outputs, manifest)
     for path, checksum in input_hashes.items():require(sha((root / path).read_bytes()) == checksum, 'reviewed input changed during export: ' + path)
     require(literal((root / APP).read_bytes(), 'DECKS')[0] == decks_raw, 'DECKS changed during export')
     return outputs, manifest
@@ -427,7 +429,7 @@ def main():
             (root / OUTPUT).mkdir(parents=True, exist_ok=True)
             for path, raw in outputs.items():(root / path).write_bytes(raw)
             if source != expected_loader:loader.write_text(expected_loader)
-        print(json.dumps({'status': 'checked' if args.check else 'exported', 'banks': 8, 'derivedPairs': len(manifest['derivedPairIds']),
+        print(json.dumps({'status': 'checked' if args.check else 'exported', 'banks': len(manifest['banks']), 'derivedPairs': len(manifest['derivedPairIds']),
             'sourceCards': manifest['sourceCardCount'], 'activeCatalogue': manifest['activeCatalogueCount'],
             'reservedCatalogue': manifest['reservedCatalogueCount'], 'excludedModernExtras': manifest['excludedModernExtraCount'],
             'reviewedHistoricalFreeIdsVerified': 2218, 'manifestSha256': manifest_sha,
