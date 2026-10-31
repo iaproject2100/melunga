@@ -482,7 +482,9 @@
 };
   const languageNames = {fr:'Français',en:'English',de:'Deutsch',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어'};
   const studyLanguageNames = {...languageNames,hi:'हिन्दी',ru:'Русский',pt:'Português',ar:'العربية'};
-  const appLanguageNames = Object.fromEntries(Object.entries(languageNames).filter(([code]) => typeof homeAppLanguageAvailable !== 'function' || homeAppLanguageAvailable(code)));
+  const languageOrder = homeStudyLanguageCodes;
+  const orderedLanguages = names => languageOrder.filter(code => Object.hasOwn(names,code)).map(code => [code,names[code]]);
+  const appLanguageNames = Object.fromEntries(orderedLanguages(languageNames).filter(([code]) => typeof homeAppLanguageAvailable !== 'function' || homeAppLanguageAvailable(code)));
   const languageControlLabels = {
     fr:['Langue du site','Langue de l’exemple'],en:['Website language','Example language'],
     de:['Sprache der Website','Sprache des Beispiels'],
@@ -491,11 +493,11 @@
     ko:['사이트 언어','예문 언어']
   };
   const exampleNames = {
-    de:{en:'Englisch',es:'Spanisch',zh:'Chinesisch',de:'Deutsch',it:"Italienisch",ja:"Japanisch",ko:"Koreanisch",hi:"Hindi",ru:"Russisch",pt:"Portugiesisch (Brasilien)",ar:"Arabisch"},
-    fr:{en:'Anglais',es:'Espagnol',zh:'Chinois',de:'Allemand',it:"Italien",ja:"Japonais",ko:"Coréen",hi:"Hindi",ru:"Russe",pt:"Portugais (Brésil)",ar:"Arabe"},en:{en:'English',es:'Spanish',zh:'Chinese',de:'German',it:"Italian",ja:"Japanese",ko:"Korean",hi:"Hindi",ru:"Russian",pt:"Portuguese (Brazil)",ar:"Arabic"},
-    es:{en:'Inglés',es:'Español',zh:'Chino',de:'Alemán',it:"Italiano",ja:"Japonés",ko:"Coreano",hi:"Hindi",ru:"Ruso",pt:"Portugués (Brasil)",ar:"Árabe"},zh:{en:'英语',es:'西班牙语',zh:'中文',de:'德语',it:"意大利语",ja:"日语",ko:"韩语",hi:"印地语",ru:"俄语",pt:"葡萄牙语（巴西）",ar:"阿拉伯语"},
-    it:{en:'Inglese',es:'Spagnolo',zh:'Cinese',de:'Tedesco',it:"Italiano",ja:"Giapponese",ko:"Coreano",hi:"Hindi",ru:"Russo",pt:"Portoghese (Brasile)",ar:"Arabo"},ja:{en:'英語',es:'スペイン語',zh:'中国語',de:'ドイツ語',it:"イタリア語",ja:"日本語",ko:"韓国語",hi:"ヒンディー語",ru:"ロシア語",pt:"ポルトガル語（ブラジル）",ar:"アラビア語"},
-    ko:{en:'영어',es:'스페인어',zh:'중국어',de:'독일어',it:"이탈리아어",ja:"일본어",ko:"한국어",hi:"힌디어",ru:"러시아어",pt:"포르투갈어(브라질)",ar:"아랍어"}
+    de:{fr:"Französisch",en:'Englisch',es:'Spanisch',zh:'Chinesisch',de:'Deutsch',it:"Italienisch",ja:"Japanisch",ko:"Koreanisch",hi:"Hindi",ru:"Russisch",pt:"Portugiesisch (Brasilien)",ar:"Arabisch"},
+    fr:{fr:"Français",en:'Anglais',es:'Espagnol',zh:'Chinois',de:'Allemand',it:"Italien",ja:"Japonais",ko:"Coréen",hi:"Hindi",ru:"Russe",pt:"Portugais (Brésil)",ar:"Arabe"},en:{fr:"French",en:'English',es:'Spanish',zh:'Chinese',de:'German',it:"Italian",ja:"Japanese",ko:"Korean",hi:"Hindi",ru:"Russian",pt:"Portuguese (Brazil)",ar:"Arabic"},
+    es:{fr:"Francés",en:'Inglés',es:'Español',zh:'Chino',de:'Alemán',it:"Italiano",ja:"Japonés",ko:"Coreano",hi:"Hindi",ru:"Ruso",pt:"Portugués (Brasil)",ar:"Árabe"},zh:{fr:"法语",en:'英语',es:'西班牙语',zh:'中文',de:'德语',it:"意大利语",ja:"日语",ko:"韩语",hi:"印地语",ru:"俄语",pt:"葡萄牙语（巴西）",ar:"阿拉伯语"},
+    it:{fr:"Francese",en:'Inglese',es:'Spagnolo',zh:'Cinese',de:'Tedesco',it:"Italiano",ja:"Giapponese",ko:"Coreano",hi:"Hindi",ru:"Russo",pt:"Portoghese (Brasile)",ar:"Arabo"},ja:{fr:"フランス語",en:'英語',es:'スペイン語',zh:'中国語',de:'ドイツ語',it:"イタリア語",ja:"日本語",ko:"韓国語",hi:"ヒンディー語",ru:"ロシア語",pt:"ポルトガル語（ブラジル）",ar:"アラビア語"},
+    ko:{fr:"프랑스어",en:'영어',es:'스페인어',zh:'중국어',de:'독일어',it:"이탈리아어",ja:"일본어",ko:"한국어",hi:"힌디어",ru:"러시아어",pt:"포르투갈어(브라질)",ar:"아랍어"}
   };
   const flag = code => `<span class="home-flag home-flag-${code}" aria-hidden="true"></span>`;
   const root = document.createElement('main');
@@ -523,8 +525,8 @@
     <header class="dh-container dh-header"><a class="dh-brand" href="#"><img src="assets/melunga-logo.png" alt=""><span>Melunga<span class="melunga-brand-cn" lang="zh-Hans">梅 伦 加</span></span></a><nav class="dh-nav" aria-label="Melunga"><a href="#dh-method">${tr(35)}</a><a href="#dh-pricing">${tr(31)}</a><label class="dh-language-picker"><span class="home-flag home-flag-fr" data-dh-native-flag aria-hidden="true"></span><select class="dh-language" aria-label="Langue du site">${Object.entries(appLanguageNames).map(([code,name])=>`<option value="${code}">${name}</option>`).join('')}</select><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg></label><button type="button" class="dh-button dh-small dh-primary dh-header-free" data-dh-free>${tr(3)}</button><button class="dh-button dh-small dh-outline" data-go="signin">${tr(30)}</button></nav></header>
     <div class="dh-container">
       <section class="dh-hero" aria-labelledby="dh-title"><div><p class="dh-kicker">${tr(0)}</p><h1 class="dh-title" id="dh-title"></h1><p class="dh-intro">${tr(2)}</p><div class="dh-actions"><button class="dh-button dh-primary" data-dh-free>${tr(3)} <span aria-hidden="true">&rarr;</span></button><a class="dh-button dh-outline" href="#dh-method">${tr(4)}</a></div><p class="dh-fine"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10 3 3 7-7"/></svg>${tr(5)}</p></div>
-      <aside class="dh-example"><div class="dh-example-top"><b>${tr(6)}</b><span>L1</span></div><div class="dh-tabs" role="group" aria-label="Langue de l’exemple"><button class="dh-tab" data-dh-example="en" aria-pressed="true">${flag('en')}<span data-dh-example-name="en">English</span></button><button class="dh-tab" data-dh-example="es" aria-pressed="false">${flag('es')}<span data-dh-example-name="es">Español</span></button><button class="dh-tab" data-dh-example="zh" aria-pressed="false">${flag('zh')}<span data-dh-example-name="zh">中文</span></button><button class="dh-tab" data-dh-example="de" aria-pressed="false">${flag('de')}<span data-dh-example-name="de">Deutsch</span></button><button class="dh-tab" data-dh-example="it" aria-pressed="false">${flag('it')}<span data-dh-example-name="it">Italiano</span></button><button class="dh-tab" data-dh-example="ja" aria-pressed="false">${flag('ja')}<span data-dh-example-name="ja">日本語</span></button><button class="dh-tab" data-dh-example="ko" aria-pressed="false">${flag('ko')}<span data-dh-example-name="ko">한국어</span></button><button class="dh-tab" data-dh-example="hi" aria-pressed="false">${flag('hi')}<span data-dh-example-name="hi">हिन्दी</span></button><button class="dh-tab" data-dh-example="ru" aria-pressed="false">${flag('ru')}<span data-dh-example-name="ru">Русский</span></button><button class="dh-tab" data-dh-example="pt" aria-pressed="false">${flag('pt')}<span data-dh-example-name="pt">Português</span></button><button class="dh-tab" data-dh-example="ar" aria-pressed="false">${flag('ar')}<span data-dh-example-name="ar">العربية</span></button></div><div class="dh-card"><p class="dh-card-tag">${tr(7)}</p><p class="dh-phrase" dir="auto" lang="en"></p><div class="dh-phonetic-area"><p class="dh-trial-prompt"><span class="dh-action-step">1</span>${tr(49)}</p><div class="dh-phonetic-row"><p class="dh-phonetic" lang="fr"></p><button type="button" class="dh-ear" data-dh-listen aria-label="Écouter et comparer"><span aria-hidden="true">👂</span></button></div></div><p class="dh-translation" lang="fr"></p><button type="button" class="dh-listen" data-dh-listen><span class="dh-action-step">2</span>${tr(8)}</button></div><p class="dh-example-note" aria-live="polite">${tr(9)}</p></aside></section>
-      <div class="dh-languages" aria-label="12 languages">${Object.entries(studyLanguageNames).map(([code,name])=>`<span class="dh-language-tag">${flag(code)}${name}</span>`).join('')}</div>
+      <aside class="dh-example"><div class="dh-example-top"><b>${tr(6)}</b><span>L1</span></div><div class="dh-tabs" role="group" aria-label="Langue de l’exemple">${orderedLanguages(studyLanguageNames).map(([code,name])=>`<button class="dh-tab" data-dh-example="${code}" aria-pressed="${code==='en'}">${flag(code)}<span data-dh-example-name="${code}">${name}</span></button>`).join('')}</div><div class="dh-card"><p class="dh-card-tag">${tr(7)}</p><p class="dh-phrase" dir="auto" lang="en"></p><div class="dh-phonetic-area"><p class="dh-trial-prompt"><span class="dh-action-step">1</span>${tr(49)}</p><div class="dh-phonetic-row"><p class="dh-phonetic" lang="fr"></p><button type="button" class="dh-ear" data-dh-listen aria-label="Écouter et comparer"><span aria-hidden="true">👂</span></button></div></div><p class="dh-translation" lang="fr"></p><button type="button" class="dh-listen" data-dh-listen><span class="dh-action-step">2</span>${tr(8)}</button></div><p class="dh-example-note" aria-live="polite">${tr(9)}</p></aside></section>
+      <div class="dh-languages" aria-label="12 languages">${orderedLanguages(studyLanguageNames).map(([code,name])=>`<span class="dh-language-tag">${flag(code)}${name}</span>`).join('')}</div>
       <section class="dh-method" id="dh-method" aria-labelledby="dh-method-title"><p class="dh-section-label">${tr(10)}</p><h2 class="dh-section-title" id="dh-method-title">${tr(11)}</h2><div class="dh-steps">${[12,14,16].map((i,n)=>`<article class="dh-step"><span>0${n+1}</span><h3>${tr(i)}</h3><p>${tr(i+1)}</p></article>`).join('')}</div></section>
       <section class="dh-pricing-wrap" id="dh-pricing" aria-labelledby="dh-pricing-title">
         <div class="dh-pricing-head"><p class="dh-section-label">${tr(18)}</p><h2 class="dh-section-title" id="dh-pricing-title">${tr(19)}</h2><p class="dh-pricing-note">${tr(20)}</p></div>
@@ -539,6 +541,8 @@
   document.body.prepend(root);
   // Exemples tirés du deck (phrases complètes, phonétique « pf » réelle des cartes).
   const samples = {
+    // French L1 source card 2: exact original phrase; no French-adapted guide exists.
+    fr: {text:'Merci.',phonetic:null,fr:'Merci.',voice:'fr-FR-Wavenet-F',code:'fr-FR'},
     en: {text:'Can you help me?',phonetic:'kan you HÈLP mi',fr:'Tu peux m’aider ?',voice:'en-US-Wavenet-C',code:'en-US'},
     es: {text:'Necesito ayuda.',phonetic:'né-sé-SSI-to a-YOU-da',fr:'J’ai besoin d’aide.',voice:'es-ES-Wavenet-F',code:'es-ES'},
     zh: {text:'你能帮我吗？',phonetic:'ni neung bang ouo ma ?',fr:'Tu peux m’aider ?',voice:'cmn-CN-Wavenet-A',code:'cmn-CN'},
@@ -568,6 +572,8 @@
     root.querySelector('.dh-phrase').lang = example;
     root.querySelector('.dh-phonetic').textContent = samples[example].phonetic;
     root.querySelector('.dh-translation').textContent = samples[example].fr;
+    root.querySelector('.dh-phonetic-area').hidden = example === 'fr';
+    root.querySelector('.dh-translation').hidden = example === 'fr';
     root.querySelectorAll('[data-dh-example]').forEach(b => b.setAttribute('aria-pressed',String(b.dataset.dhExample === example)));
   }
   function render() {
@@ -583,6 +589,7 @@
     root.querySelector('[data-dh-native-flag]').className = 'home-flag home-flag-' + (languageNames[locale] ? locale : 'fr');
     root.querySelectorAll('[data-dh-example-name]').forEach(el => { el.textContent = (exampleNames[locale] || exampleNames.fr)[el.dataset.dhExampleName]; });
     root.querySelectorAll('[data-dh-listen]').forEach(el => { el.setAttribute('aria-label', t[8]); });
+    root.querySelector('.dh-example-note').textContent = example === 'fr' ? t[8] : t[9];
     const pt = (typeof premiumTranslations !== 'undefined' && premiumTranslations[locale]) || {};
     root.querySelector('[data-dh-yearly-label]').textContent = pt.yearly || 'Annuel';
     root.querySelector('[data-dh-monthly-label]').textContent = pt.monthly || 'Mensuel';
@@ -603,6 +610,25 @@
     const original = window[name];
     window[name] = function () { const result = original.apply(this, arguments); render(); return result; };
   }
+  // Reuse the existing accessible language dialog so flags remain visible on
+  // desktop systems whose native select popup cannot display flag graphics.
+  // Keep the select and its change event for native/programmatic fallback.
+  document.body.append(document.getElementById('appLanguageMenu'));
+  const languagePicker = root.querySelector('.dh-language');
+  languagePicker.setAttribute('aria-haspopup','dialog');
+  languagePicker.setAttribute('aria-controls','appLanguageMenu');
+  languagePicker.setAttribute('aria-expanded','false');
+  function openFlaggedLanguageMenu(event) {
+    event.preventDefault();
+    openAppLanguageMenu(languagePicker);
+  }
+  languagePicker.addEventListener('pointerdown', function (event) {
+    if (event.button === 0) event.preventDefault();
+  });
+  languagePicker.addEventListener('click', openFlaggedLanguageMenu);
+  languagePicker.addEventListener('keydown', function (event) {
+    if (['Enter',' ','ArrowDown','ArrowUp'].includes(event.key)) openFlaggedLanguageMenu(event);
+  });
   root.querySelector('.dh-language').addEventListener('change', function () {
     const option = document.querySelector(`[data-app-language="${this.value}"]`);
     applyAppLanguage(this.value, option ? option.dataset.appLanguageLabel : this.value);

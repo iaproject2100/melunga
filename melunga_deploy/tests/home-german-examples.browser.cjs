@@ -87,11 +87,22 @@ async function fixture(locale='fr',width=1366,height=900) {
   return {page,context,requests};
 }
 
-test('German stays fourth among seven homepage examples in all eight site languages and reads the exact source card',async () => {
+test('Twelve homepage examples follow the requested order in all eight site languages and German keeps its exact source card',async () => {
   assert.equal(GERMAN.t,'Können Sie mir helfen?');
   for(const locale of Object.keys(NAMES)){
     const f=await fixture(locale);try{
-      const p=f.page;assert.deepEqual(await p.locator('[data-dh-example]').evaluateAll(ns=>ns.map(n=>n.dataset.dhExample)),['en','es','zh','de','it','ja','ko']);
+      const p=f.page;assert.deepEqual(await p.locator('[data-dh-example]').evaluateAll(ns=>ns.map(n=>n.dataset.dhExample)),["en","zh","ar","hi","ru","fr","es","pt","ja","ko","de","it"]);
+      const originalNote=await p.locator('.dh-example-note').textContent();
+      for (const code of ['en','zh','ar','hi','ru','fr','es','pt','ja','ko','de','it']) {
+        await p.locator('[data-dh-example="'+code+'"]').click();
+        assert.equal(await p.locator('.dh-phrase').getAttribute('lang'),code);
+        assert.ok((await p.locator('.dh-phrase').textContent()).trim());
+        assert.equal(await p.locator('.dh-phonetic-area').isVisible(),code!=='fr');
+      }
+      await p.locator('[data-dh-example="fr"]').click();
+      assert.equal(await p.locator('.dh-phrase').textContent(),'Merci.');
+      await p.locator('[data-dh-example="en"]').click();
+      assert.equal(await p.locator('.dh-example-note').textContent(),originalNote);
       assert.equal(await p.locator('[data-dh-example-name="de"]').textContent(),NAMES[locale]);
       assert.equal(await p.locator('.dh-language option[value="de"]').count(),1,'German remains available as the published site locale');
       assert.equal(await p.locator('.dh-languages .home-flag-de').count(),1);
@@ -143,6 +154,46 @@ test('mobile welcome keeps bubbles, green example and the existing single-Englis
     const legacy=await p.evaluate(()=>{applyLanguageSample('Allemand');return{phrase:document.querySelector('[data-target-phrase]').textContent,
       phon:document.querySelector('[data-phonetic-text]').textContent,meaning:document.querySelector('[data-translated-phrase]').textContent};});
     assert.deepEqual(legacy,{phrase:GERMAN.t,phon:GERMAN.pf,meaning:GERMAN.frm});
+    await p.evaluate(()=>go('language'));
+    await p.locator('[data-screen="language"].active').waitFor();
+    const order=['en','zh','ar','hi','ru','fr','es','pt','ja','ko','de','it'];
+    assert.deepEqual(await p.locator('[data-study-language]').evaluateAll(ns=>ns.map(n=>n.dataset.studyLanguage)),order);
+    assert.deepEqual(await p.locator('[data-study-language]:visible').evaluateAll(ns=>ns.map(n=>n.dataset.studyLanguage)),order.filter(c=>c!=='fr'));
+    const shot=path.join(OUT,'mobile-language-order.png');await p.screenshot({path:shot,animations:'disabled'});report.screenshots.push(shot);
     report.cases.push({name:'mobile-presentation-preserved',width:390,height:844});
   }finally{await f.context.close();}
+});
+
+
+test('language picker shows CSS flags on desktop and mobile with keyboard and focus support',async () => {
+  const order=['en','zh','fr','es','ja','ko','de','it'];
+  for(const width of [1366,390]){
+    const f=await fixture('fr',width,900);try{
+      const p=f.page,trigger=p.locator(width>=960?'.dh-language':'[data-open-app-language]');
+      await trigger.click();await p.locator('#appLanguageMenu').waitFor({state:'visible'});
+      assert.equal(await trigger.getAttribute('aria-expanded'),'true');
+      assert.deepEqual(await p.locator('#appLanguageMenu [data-app-language]').evaluateAll(ns=>ns.map(n=>n.dataset.appLanguage)),order);
+      for(const code of order){
+        const icon=p.locator('[data-app-language="'+code+'"] .home-flag-'+code);
+        assert.equal(await icon.count(),1);
+        assert.equal(await icon.evaluate(n=>getComputedStyle(n).backgroundImage!=='none'),true);
+        const bounds=await icon.boundingBox();assert(bounds.width>0&&bounds.height>0);
+      }
+      await p.keyboard.press('Home');assert.equal(await p.evaluate(()=>document.activeElement.dataset.appLanguage),'en');
+      await p.keyboard.press('ArrowDown');assert.equal(await p.evaluate(()=>document.activeElement.dataset.appLanguage),'zh');
+      await p.keyboard.press('End');assert.equal(await p.evaluate(()=>document.activeElement.dataset.appLanguage),'it');
+      const shot=path.join(OUT,'language-flags-'+width+'.png');await p.screenshot({path:shot,animations:'disabled'});report.screenshots.push(shot);
+      await p.keyboard.press('Escape');await p.locator('#appLanguageMenu').waitFor({state:'hidden'});
+      assert.equal(await trigger.getAttribute('aria-expanded'),'false');
+      assert.equal(await trigger.evaluate(n=>n===document.activeElement),true);
+      if(width>=960){await trigger.press('ArrowDown');}else{await trigger.click();}
+      await p.locator('#appLanguageMenu').waitFor({state:'visible'});
+      await p.locator('[data-app-language="en"]').click();await p.locator('#appLanguageMenu').waitFor({state:'hidden'});
+      assert.equal(await p.locator('html').getAttribute('lang'),'en');
+      assert.equal(await p.locator(width>=960?'[data-dh-native-flag].home-flag-en':'[data-open-app-language] .home-flag-en').count(),1);
+      assert.equal(await trigger.evaluate(n=>n===document.activeElement),true);
+      assert.deepEqual(await p.evaluate(()=>window.__homeExampleMedia.plays),[]);
+      report.cases.push({name:'language-flags-dialog',width,keyboardAndFocus:true});
+    }finally{await f.context.close();}
+  }
 });
