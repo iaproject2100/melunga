@@ -84,6 +84,9 @@ async function fixture({width = 390, height = 700, savedLocale = null, local = {
         if (request.method() === 'GET' && url.pathname === '/api/geolocation') return await route.fulfill({json: {country: 'FR'}});
         if (request.method() === 'GET' && url.pathname === '/.netlify/functions/get-pricing') return await route.fulfill({json: {country: 'FR', monthlyDisplay: '7,90 €', annualDisplay: '42 €'}});
         if (request.method() === 'GET' && url.pathname === '/.netlify/functions/check-status') return await route.fulfill({json: {paid: false}});
+        // Shared voice selection preloads its catalogue; this carousel fixture
+        // deliberately exercises an unavailable catalogue without any real TTS.
+        if (request.method() === 'GET' && url.pathname === '/.netlify/functions/tts' && url.searchParams.get('catalog') === 'chirp3' && url.searchParams.get('selectionVersion') === 'kartech-2026-10-30-en-us') return await route.fulfill({status: 503, json: {error: 'Fixture: voice catalogue unavailable'}});
         report.unexpected.push(event); return await route.abort();
       }
       if (request.method() !== 'GET') {report.unexpected.push({path: url.pathname, method: request.method()}); return await route.abort();}

@@ -610,6 +610,25 @@
     const original = window[name];
     window[name] = function () { const result = original.apply(this, arguments); render(); return result; };
   }
+  // Reuse the existing accessible language dialog so flags remain visible on
+  // desktop systems whose native select popup cannot display flag graphics.
+  // Keep the select and its change event for native/programmatic fallback.
+  document.body.append(document.getElementById('appLanguageMenu'));
+  const languagePicker = root.querySelector('.dh-language');
+  languagePicker.setAttribute('aria-haspopup','dialog');
+  languagePicker.setAttribute('aria-controls','appLanguageMenu');
+  languagePicker.setAttribute('aria-expanded','false');
+  function openFlaggedLanguageMenu(event) {
+    event.preventDefault();
+    openAppLanguageMenu(languagePicker);
+  }
+  languagePicker.addEventListener('pointerdown', function (event) {
+    if (event.button === 0) event.preventDefault();
+  });
+  languagePicker.addEventListener('click', openFlaggedLanguageMenu);
+  languagePicker.addEventListener('keydown', function (event) {
+    if (['Enter',' ','ArrowDown','ArrowUp'].includes(event.key)) openFlaggedLanguageMenu(event);
+  });
   root.querySelector('.dh-language').addEventListener('change', function () {
     const option = document.querySelector(`[data-app-language="${this.value}"]`);
     applyAppLanguage(this.value, option ? option.dataset.appLanguageLabel : this.value);

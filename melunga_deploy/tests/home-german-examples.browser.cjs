@@ -163,3 +163,37 @@ test('mobile welcome keeps bubbles, green example and the existing single-Englis
     report.cases.push({name:'mobile-presentation-preserved',width:390,height:844});
   }finally{await f.context.close();}
 });
+
+
+test('language picker shows CSS flags on desktop and mobile with keyboard and focus support',async () => {
+  const order=['en','zh','fr','es','ja','ko','de','it'];
+  for(const width of [1366,390]){
+    const f=await fixture('fr',width,900);try{
+      const p=f.page,trigger=p.locator(width>=960?'.dh-language':'[data-open-app-language]');
+      await trigger.click();await p.locator('#appLanguageMenu').waitFor({state:'visible'});
+      assert.equal(await trigger.getAttribute('aria-expanded'),'true');
+      assert.deepEqual(await p.locator('#appLanguageMenu [data-app-language]').evaluateAll(ns=>ns.map(n=>n.dataset.appLanguage)),order);
+      for(const code of order){
+        const icon=p.locator('[data-app-language="'+code+'"] .home-flag-'+code);
+        assert.equal(await icon.count(),1);
+        assert.equal(await icon.evaluate(n=>getComputedStyle(n).backgroundImage!=='none'),true);
+        const bounds=await icon.boundingBox();assert(bounds.width>0&&bounds.height>0);
+      }
+      await p.keyboard.press('Home');assert.equal(await p.evaluate(()=>document.activeElement.dataset.appLanguage),'en');
+      await p.keyboard.press('ArrowDown');assert.equal(await p.evaluate(()=>document.activeElement.dataset.appLanguage),'zh');
+      await p.keyboard.press('End');assert.equal(await p.evaluate(()=>document.activeElement.dataset.appLanguage),'it');
+      const shot=path.join(OUT,'language-flags-'+width+'.png');await p.screenshot({path:shot,animations:'disabled'});report.screenshots.push(shot);
+      await p.keyboard.press('Escape');await p.locator('#appLanguageMenu').waitFor({state:'hidden'});
+      assert.equal(await trigger.getAttribute('aria-expanded'),'false');
+      assert.equal(await trigger.evaluate(n=>n===document.activeElement),true);
+      if(width>=960){await trigger.press('ArrowDown');}else{await trigger.click();}
+      await p.locator('#appLanguageMenu').waitFor({state:'visible'});
+      await p.locator('[data-app-language="en"]').click();await p.locator('#appLanguageMenu').waitFor({state:'hidden'});
+      assert.equal(await p.locator('html').getAttribute('lang'),'en');
+      assert.equal(await p.locator(width>=960?'[data-dh-native-flag].home-flag-en':'[data-open-app-language] .home-flag-en').count(),1);
+      assert.equal(await trigger.evaluate(n=>n===document.activeElement),true);
+      assert.deepEqual(await p.evaluate(()=>window.__homeExampleMedia.plays),[]);
+      report.cases.push({name:'language-flags-dialog',width,keyboardAndFocus:true});
+    }finally{await f.context.close();}
+  }
+});

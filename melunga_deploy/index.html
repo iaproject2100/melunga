@@ -381,14 +381,14 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
             <div class="drawer-handle"></div>
             <div class="app-language-head"><h3 id="appLanguageTitle" data-welcome-i18n="languageTitle">Langue de l’application</h3><button class="drawer-close" data-close-app-language aria-label="Fermer">×</button></div>
             <div class="app-language-grid">
-              <button class="app-language-choice" data-app-language="en" data-app-language-label="EN English"><b>🇺🇸</b>English</button>
-              <button class="app-language-choice" data-app-language="zh" data-app-language-label="CN 中文"><b>🇨🇳</b>中文</button>
-              <button class="app-language-choice selected" data-app-language="fr" data-app-language-label="FR Français"><b>🇫🇷</b>Français</button>
-              <button class="app-language-choice" data-app-language="es" data-app-language-label="ES Español"><b>🇪🇸</b>Español</button>
-              <button class="app-language-choice" data-app-language="ja" data-app-language-label="JP 日本語"><b>🇯🇵</b>日本語</button>
-              <button class="app-language-choice" data-app-language="ko" data-app-language-label="KR 한국어"><b>🇰🇷</b>한국어</button>
-              <button class="app-language-choice" data-app-language="de" data-app-language-label="DE Deutsch"><b>🇩🇪</b>Deutsch</button>
-              <button class="app-language-choice" data-app-language="it" data-app-language-label="IT Italiano"><b>🇮🇹</b>Italiano</button>
+              <button class="app-language-choice" data-app-language="en" data-app-language-label="EN English"><b aria-hidden="true"><span class="home-flag home-flag-en"></span></b>English</button>
+              <button class="app-language-choice" data-app-language="zh" data-app-language-label="CN 中文"><b aria-hidden="true"><span class="home-flag home-flag-zh"></span></b>中文</button>
+              <button class="app-language-choice selected" data-app-language="fr" data-app-language-label="FR Français"><b aria-hidden="true"><span class="home-flag home-flag-fr"></span></b>Français</button>
+              <button class="app-language-choice" data-app-language="es" data-app-language-label="ES Español"><b aria-hidden="true"><span class="home-flag home-flag-es"></span></b>Español</button>
+              <button class="app-language-choice" data-app-language="ja" data-app-language-label="JP 日本語"><b aria-hidden="true"><span class="home-flag home-flag-ja"></span></b>日本語</button>
+              <button class="app-language-choice" data-app-language="ko" data-app-language-label="KR 한국어"><b aria-hidden="true"><span class="home-flag home-flag-ko"></span></b>한국어</button>
+              <button class="app-language-choice" data-app-language="de" data-app-language-label="DE Deutsch"><b aria-hidden="true"><span class="home-flag home-flag-de"></span></b>Deutsch</button>
+              <button class="app-language-choice" data-app-language="it" data-app-language-label="IT Italiano"><b aria-hidden="true"><span class="home-flag home-flag-it"></span></b>Italiano</button>
             </div>
           </div>
         </dialog>
@@ -693,6 +693,7 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
     const proofNext=document.querySelector('[data-proof-next]');
     const appLanguageMenu=document.getElementById('appLanguageMenu');
     const appLanguageButton=document.querySelector('[data-open-app-language]');
+    let appLanguageOpener=appLanguageButton;
     const homeLanguageCodes=['fr','en','de','es','zh','it','ja','ko'];
     const homeStudyLanguageCodes=["en","zh","ar","hi","ru","fr","es","pt","ja","ko","de","it"];
     const homeLanguageNames={fr:'Français',en:'English',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어',de:'Deutsch'};
@@ -903,7 +904,7 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
       const viewport=window.visualViewport,bounds={left:viewport?.offsetLeft||0,top:viewport?.offsetTop||0,width:viewport?.width||innerWidth,height:viewport?.height||innerHeight},gutter=12;
       Object.assign(appLanguageMenu.style,{left:bounds.left+'px',top:bounds.top+'px',width:bounds.width+'px',height:bounds.height+'px'});
       const sheet=appLanguageMenu.querySelector('.app-language-sheet');sheet.style.maxHeight=Math.max(0,bounds.height-gutter*2)+'px';
-      const anchor=appLanguageButton.getBoundingClientRect(),rect=sheet.getBoundingClientRect();
+      const anchor=appLanguageOpener.getBoundingClientRect(),rect=sheet.getBoundingClientRect();
       sheet.style.left=Math.max(gutter,Math.min(anchor.right-bounds.left-rect.width,bounds.width-rect.width-gutter))+'px';
       sheet.style.top=Math.max(gutter,Math.min(anchor.bottom-bounds.top+8,bounds.height-rect.height-gutter))+'px';
     }
@@ -912,16 +913,18 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
       if(rect.top<bounds.top+4)list.scrollTop-=bounds.top+4-rect.top;
       else if(rect.bottom>bounds.bottom-8)list.scrollTop+=rect.bottom-bounds.bottom+8;
     }
-    function openAppLanguageMenu(){
-      appLanguageMenu.showModal();appLanguageMenu.classList.add('open');appLanguageButton.setAttribute('aria-expanded','true');
+    function openAppLanguageMenu(opener=appLanguageButton){
+      if(appLanguageMenu.open)return;
+      appLanguageOpener=opener;
+      appLanguageMenu.showModal();appLanguageMenu.classList.add('open');appLanguageButton.setAttribute('aria-expanded','true');appLanguageOpener.setAttribute('aria-expanded','true');
       const list=appLanguageMenu.querySelector('.app-language-grid');list.scrollTop=0;positionAppLanguageMenu();
       const choice=list.querySelector('.selected')||list.firstElementChild;choice?.focus({preventScroll:true});if(choice)revealAppLanguageChoice(choice);
     }
     function closeAppLanguageMenu(){
-      if(appLanguageMenu.open)appLanguageMenu.close();appLanguageMenu.classList.remove('open');appLanguageButton.setAttribute('aria-expanded','false');appLanguageButton.focus({preventScroll:true});
+      if(appLanguageMenu.open)appLanguageMenu.close();appLanguageMenu.classList.remove('open');appLanguageButton.setAttribute('aria-expanded','false');appLanguageOpener.setAttribute('aria-expanded','false');appLanguageOpener.focus({preventScroll:true});
     }
     appLanguageMenu.addEventListener('cancel',event=>{event.preventDefault();closeAppLanguageMenu();});
-    appLanguageMenu.addEventListener('close',()=>{if(appLanguageMenu.open)return;appLanguageMenu.classList.remove('open');appLanguageButton.setAttribute('aria-expanded','false');});
+    appLanguageMenu.addEventListener('close',()=>{if(appLanguageMenu.open)return;appLanguageMenu.classList.remove('open');appLanguageButton.setAttribute('aria-expanded','false');appLanguageOpener.setAttribute('aria-expanded','false');});
     appLanguageMenu.addEventListener('keydown',event=>{
       const choices=[...appLanguageMenu.querySelectorAll('[data-app-language]')].filter(choice=>!choice.hidden&&!choice.disabled),index=choices.indexOf(document.activeElement);
       if(index<0)return;const next=event.key==='Home'?0:event.key==='End'?choices.length-1:event.key==='ArrowUp'?Math.max(0,index-1):event.key==='ArrowDown'?Math.min(choices.length-1,index+1):-1;
@@ -1225,6 +1228,6 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
   <script src="store-billing.js"></script>
   <script src="voice-selection.js?v=7"></script>
   <script src="lesson-audio.js?v=8"></script>
-  <script src="desktop-home.js?v=15"></script>
+  <script src="desktop-home.js?v=16"></script>
 </body>
 </html>
