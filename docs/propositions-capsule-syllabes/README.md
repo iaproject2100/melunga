@@ -1,5 +1,7 @@
 # Cinq maquettes syllabiques — sans intégration
 
+![Comparer directement les cinq maquettes](comparatif-cinq-capsules.png)
+
 Ouvrir [la page HTML autonome](../../melunga_deploy/propositions-capsule-syllabes.html) après téléchargement, ou via le site s’il a été déployé. Aucun appel réseau, aucune clé et aucun branchement à l’application. Simulation visuelle sans son. **0 octet ajouté à app.html par cette proposition** ; HTML autonome d’environ 15 Ko.
 
 Chaque variante montre chinois/allemand × court/long × mobile/ordinateur : 40 aperçus. Les contrôles permettent lecture simulée, pause, vitesse, déplacement du curseur et absence de repères. Pause et fin éteignent l’éclairage ; l’absence de dates utilise la capsule entière. Les guides restent textuellement identiques à la source. Le minutage simulé de 9 secondes, commun aux exemples pour comparer les styles, ne prétend pas suivre un enregistrement.

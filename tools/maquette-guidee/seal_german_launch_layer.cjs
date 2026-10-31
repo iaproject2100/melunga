@@ -16,7 +16,7 @@ const allowedModified=new Set([
 ].map(file=>'melunga_deploy/'+file).concat(['tools/maquette-guidee/course-locale-keys.json','tools/maquette-guidee/export_native_catalogue.py','tools/maquette-guidee/build_course_i18n.cjs','tools/maquette-guidee/build_home_i18n.cjs']));
 // The thematic metadata is an independently authored placement map. It never
 // replaces the validated German card import or changes any of its 15 fields.
-const addedCandidates=['melunga_deploy/propositions-capsule-syllabes.html','melunga_deploy/content/native-catalogue/de.json','tools/maquette-guidee/imports/de-deck-v3.1.json',
+const addedCandidates=['melunga_deploy/propositions-selecteur-langues.html','melunga_deploy/propositions-capsule-syllabes.html','melunga_deploy/content/native-catalogue/de.json','tools/maquette-guidee/imports/de-deck-v3.1.json',
  'tools/maquette-guidee/imports/de-themes-v1.json','tools/maquette-guidee/imports/de-native-meanings-v1.json',
  'melunga_deploy/content/native-catalogue/de-native-meanings.json','melunga_deploy/content/course-locales/de.json','melunga_deploy/german-account-ui.js',
  'tools/maquette-guidee/imported_target_catalogues.py',

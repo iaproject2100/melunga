@@ -13,7 +13,7 @@ const {execFileSync} = require('node:child_process');
 const ROOT = path.resolve(__dirname, '../..');
 const BASE = '541afb7f67b499130af60211e72a8614bdaaf31d';
 const FIXTURE = 'melunga_deploy/tests/fixtures/german-launch-layer.json';
-const FIXTURE_SHA256 = 'b0a3d2f8eb988c8fd337b5562a6f5023b6b98db85ef419f6cf25986c59d14c81';
+const FIXTURE_SHA256 = 'c8d05afdc3e9b4e028fc8b96cedb086851303baa3e924471f7f6a50d984dac43';
 // BEGIN FINITE GERMAN PATHS — written by seal_german_launch_layer.cjs.
 const MODIFIED = Object.freeze([
   "melunga_deploy/account-ui.js",
@@ -72,6 +72,7 @@ const ADDED = Object.freeze([
   "melunga_deploy/course-theme-edition.js",
   "melunga_deploy/german-account-ui.js",
   "melunga_deploy/propositions-capsule-syllabes.html",
+  "melunga_deploy/propositions-selecteur-langues.html",
   "tools/maquette-guidee/imported_target_catalogues.py",
   "tools/maquette-guidee/imports/ar-deck-v3.2-received.json",
   "tools/maquette-guidee/imports/ar-deck-v3.2.json",
