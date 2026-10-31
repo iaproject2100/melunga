@@ -47,7 +47,7 @@
       const audio = request.audio;
       request.audio = null;
       if (!audio) return;
-      audio.onplaying = audio.onended = audio.onerror = audio.onwaiting = audio.onstalled = null;
+      audio.onplaying = audio.onpause = audio.onended = audio.onerror = audio.onwaiting = audio.onstalled = null;
       try { audio.pause(); } catch (_) {}
       try { audio.removeAttribute('src'); } catch (_) {}
       try { audio.load(); } catch (_) {}
@@ -56,7 +56,7 @@
       const utterance = request.utterance;
       request.utterance = null;
       if (!utterance) return;
-      utterance.onstart = utterance.onend = utterance.onerror = null;
+      utterance.onstart = utterance.onpause = utterance.onresume = utterance.onend = utterance.onerror = null;
       if (cancel) { try { window.speechSynthesis?.cancel(); } catch (_) {} }
     }
     function finish(request, unavailable = false) {
@@ -101,7 +101,8 @@
         utterance.rate = request.rate;
         utterance.volume = 1;
         const active = () => isCurrent(request) && request.utterance === utterance;
-        utterance.onstart = () => { if (active()) clearTimer(request); };
+        utterance.onstart = utterance.onresume = () => { if (active()) {clearTimer(request);onPlaying(true);} };
+        utterance.onpause = () => { if (active()) {clearTimer(request);onPlaying(false);} };
         utterance.onend = () => { if (active()) finish(request); };
         utterance.onerror = event => {
           if (active()) finish(request, !['canceled', 'interrupted'].includes(event?.error));
@@ -173,7 +174,8 @@
         // speakingRate on the server, so it must not also be slowed here.
         audio.playbackRate = clientRate ? rate : 1;
         if (clientRate) { audio.preservesPitch = true; audio.webkitPreservesPitch = true; }
-        audio.onplaying = () => { if (active()) clearTimer(request); };
+        audio.onplaying = () => { if (active()) {clearTimer(request);onPlaying(true);} };
+        audio.onpause = () => { if (active()) {clearTimer(request);onPlaying(false);} };
         audio.onended = () => { if (active()) finish(request); };
         audio.onerror = () => { if (active()) browserFallback(request); };
         audio.onwaiting = audio.onstalled = waitForAudio;

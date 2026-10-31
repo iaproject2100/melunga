@@ -10,7 +10,7 @@ const FIXTURE='melunga_deploy/tests/fixtures/german-launch-layer.json';
 const PATCH='melunga_deploy/tests/fixtures/german-launch-layer.patch';
 const allowedModified=new Set([
  'app.html','index.html','desktop-home.js','desktop-home.css','maquette-guidee.js','maquette-guidee.html','maquette-guidee.css','parcours-niveaux.html','entry-bridge.js',
- 'course-i18n.js','course-native.js','course-desktop.js','course-login.js','account-ui.js','voice-selection.js','lesson-audio.js','native-speech.js',
+ 'course-i18n.js','course-native.js','course-desktop.js','course-desktop.css','course-login.js','account-ui.js','voice-selection.js','lesson-audio.js','native-speech.js',
  'comparaison-voix.html','voice-comparison.js','netlify/functions/tts.mjs','netlify/functions/lib/chirp-catalog.mjs',
  'content/native-catalogue/manifest.json','tests/native-courses.test.cjs',...['en','es','it','zh','ja','ko','supplements'].map(id=>'content/course-locales/'+id+'.json')
 ].map(file=>'melunga_deploy/'+file).concat(['tools/maquette-guidee/course-locale-keys.json','tools/maquette-guidee/export_native_catalogue.py','tools/maquette-guidee/build_course_i18n.cjs','tools/maquette-guidee/build_home_i18n.cjs']));

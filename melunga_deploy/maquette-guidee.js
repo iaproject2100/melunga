@@ -776,6 +776,7 @@
   }
 
   function setAudioPlaying(playing) {
+    ui.phonrow?.classList.toggle('is-audio-playing', playing);
     for (const control of [ui.ear, ui.listen]) {
       if (!control) continue;
       control.classList.toggle('is-playing', playing);

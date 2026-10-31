@@ -409,3 +409,10 @@ body[data-view="done"] .mg-done{min-height:0;gap:12px;padding:12px 8px}
 .home-flag-ar,.mg-language-badge[data-language="ar"],#mgLanguageFlag[data-language="ar"]{position:relative;background:#0b6e4f!important;color:#fff;font-size:0;overflow:hidden}
 .home-flag-ar::after,.mg-language-badge[data-language="ar"]::after,#mgLanguageFlag[data-language="ar"]::after{content:"ع";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font:700 16px/1 Arial,sans-serif}
 #mgPhrase[lang="ar"],.dh-phrase[lang="ar"],#fr[lang="ar"]{font-family:"Noto Naskh Arabic","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;letter-spacing:0;line-height:1.5;unicode-bidi:isolate}
+
+/* Playback tint is a separate layer: text opacity and capsule geometry stay intact. */
+.mg-phonrow{isolation:isolate}
+.mg-phonrow::after{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;z-index:-1;background:rgba(45,125,84,.22);background:color-mix(in srgb,var(--ok,#2d7d54) 22%,transparent);box-shadow:inset 0 0 0 1px rgba(45,125,84,.55);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ok,#2d7d54) 55%,transparent);opacity:0;transition:opacity 150ms ease}
+.mg-phonrow.is-audio-playing::after{opacity:1}
+#mgListen.is-playing{background:var(--ok,#2d7d54);color:#fff;outline-color:var(--ok,#2d7d54)}
+@media(prefers-reduced-motion:reduce){.mg-phonrow::after{transition:none}}

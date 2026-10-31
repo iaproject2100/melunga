@@ -61,6 +61,23 @@ function fixture(options = {}) {
   return f;
 }
 
+test('real audio pause/resume, completion and stale events share the playback signal without a duration timer',()=>{
+ const f=fixture();assert(f.player.play({text:'Bonjour.',language:'fr',rate:1}));
+ const audio=f.last(),ended=audio.onended;audio.onplaying();assert.equal(f.timers.size,0);
+ f.expire();assert(f.playing,'a long started recording has no artificial end time');
+ audio.onpause();assert.equal(f.playing,false);audio.onplaying();assert(f.playing);
+ f.player.stop();assert.equal(f.playing,false);assert.equal(audio.onpause,null);
+ f.player.play({text:'Merci.',language:'fr',rate:.75});ended();assert(f.playing,'stale completion cannot clear the next recording');
+ f.last().onended();assert.equal(f.playing,false);
+});
+
+test('browser speech pause/resume/end and interruption also clear the shared playback signal',()=>{
+ const f=fixture({noAudio:true,voices:[voice('fr-FR')]});
+ f.player.play({text:'Bonjour.',language:'fr',rate:.75});const u=f.speech.at(-1);u.onstart();assert(f.playing);
+ u.onpause();assert.equal(f.playing,false);u.onresume();assert(f.playing);u.onend();assert.equal(f.playing,false);
+ f.player.play({text:'Merci.',language:'fr',rate:1});f.speech.at(-1).onerror({error:'interrupted'});assert.equal(f.playing,false);
+});
+
 test('Hindi and Russian play configured voices before the eight-language Chirp catalogue is ready, with speaker gender markers',async()=>{
  for(const [language,locale,femaleVoice,maleVoice]of [['hi','hi-IN','C','B'],['ru','ru-RU','A','B'],['pt','pt-BR','A','B'],['ar','ar-XA','A','B']]){
   const f=fixture({preview:true});
