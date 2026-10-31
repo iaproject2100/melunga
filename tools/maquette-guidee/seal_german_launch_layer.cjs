@@ -10,13 +10,13 @@ const FIXTURE='melunga_deploy/tests/fixtures/german-launch-layer.json';
 const PATCH='melunga_deploy/tests/fixtures/german-launch-layer.patch';
 const allowedModified=new Set([
  'app.html','index.html','desktop-home.js','desktop-home.css','maquette-guidee.js','maquette-guidee.html','maquette-guidee.css','parcours-niveaux.html','entry-bridge.js',
- 'course-i18n.js','course-native.js','course-desktop.js','course-login.js','account-ui.js','voice-selection.js','lesson-audio.js','native-speech.js',
+ 'course-i18n.js','course-native.js','course-desktop.js','course-desktop.css','course-login.js','account-ui.js','voice-selection.js','lesson-audio.js','native-speech.js',
  'comparaison-voix.html','voice-comparison.js','netlify/functions/tts.mjs','netlify/functions/lib/chirp-catalog.mjs',
  'content/native-catalogue/manifest.json','tests/native-courses.test.cjs',...['en','es','it','zh','ja','ko','supplements'].map(id=>'content/course-locales/'+id+'.json')
 ].map(file=>'melunga_deploy/'+file).concat(['tools/maquette-guidee/course-locale-keys.json','tools/maquette-guidee/export_native_catalogue.py','tools/maquette-guidee/build_course_i18n.cjs','tools/maquette-guidee/build_home_i18n.cjs']));
 // The thematic metadata is an independently authored placement map. It never
 // replaces the validated German card import or changes any of its 15 fields.
-const addedCandidates=['melunga_deploy/content/native-catalogue/de.json','tools/maquette-guidee/imports/de-deck-v3.1.json',
+const addedCandidates=['melunga_deploy/propositions-capsule-syllabes.html','melunga_deploy/content/native-catalogue/de.json','tools/maquette-guidee/imports/de-deck-v3.1.json',
  'tools/maquette-guidee/imports/de-themes-v1.json','tools/maquette-guidee/imports/de-native-meanings-v1.json',
  'melunga_deploy/content/native-catalogue/de-native-meanings.json','melunga_deploy/content/course-locales/de.json','melunga_deploy/german-account-ui.js',
  'tools/maquette-guidee/imported_target_catalogues.py',

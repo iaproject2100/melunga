@@ -13,7 +13,7 @@ const {execFileSync} = require('node:child_process');
 const ROOT = path.resolve(__dirname, '../..');
 const BASE = '541afb7f67b499130af60211e72a8614bdaaf31d';
 const FIXTURE = 'melunga_deploy/tests/fixtures/german-launch-layer.json';
-const FIXTURE_SHA256 = '0ad6fdfbf05b4e9599a6ed09af3aabb0cf9d7172f764dc677d2d1c71c5211249';
+const FIXTURE_SHA256 = '9dd66eced1fff4b47eaf555be4e2ff6f1c84b8ef271f17f728cc3ed2bb05e104';
 // BEGIN FINITE GERMAN PATHS — written by seal_german_launch_layer.cjs.
 const MODIFIED = Object.freeze([
   "melunga_deploy/account-ui.js",
@@ -27,6 +27,7 @@ const MODIFIED = Object.freeze([
   "melunga_deploy/content/course-locales/supplements.json",
   "melunga_deploy/content/course-locales/zh.json",
   "melunga_deploy/content/native-catalogue/manifest.json",
+  "melunga_deploy/course-desktop.css",
   "melunga_deploy/course-desktop.js",
   "melunga_deploy/course-i18n.js",
   "melunga_deploy/course-login.js",
@@ -71,6 +72,7 @@ const ADDED = Object.freeze([
   "melunga_deploy/content/native-catalogue/theme-placements.json",
   "melunga_deploy/course-theme-edition.js",
   "melunga_deploy/german-account-ui.js",
+  "melunga_deploy/propositions-capsule-syllabes.html",
   "tools/maquette-guidee/imported_target_catalogues.py",
   "tools/maquette-guidee/imports/ar-deck-v3.2-received.json",
   "tools/maquette-guidee/imports/ar-deck-v3.2.json",

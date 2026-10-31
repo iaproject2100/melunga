@@ -248,3 +248,6 @@ body[data-view="sequences"]:has(#mgSequenceView.mg-has-visible-sequences) .mg-pr
   .mg-visible-sequence-context:not([hidden]){min-height:28px;font-size:10px;padding:4px 5px}
   .mg-has-visible-sequences .mg-sequence{padding:12px 10px}
 }
+
+/* Use the listening green for the shared active audio state in every ambience. */
+body.mg-desktop-course #mgFooter>#mgListen.is-playing{background:var(--ok,#2d7d54);color:#fff}
