@@ -54,7 +54,7 @@ async function known(p,pair){return p.evaluate(pair=>JSON.parse(localStorage.get
 async function reviews(p){return p.evaluate(()=>JSON.parse(localStorage.getItem('melunga-guided-review-v1')||'{}').entries||[]);}
 async function capture(p,name){if(process.env.GERMAN_NATIVE_DEBUG)console.log('capture before',name,p.url());await p.waitForTimeout(300);await p.evaluate(()=>document.activeElement?.blur());await p.mouse.move(0,0);await p.evaluate(()=>document.fonts.ready);await p.locator('img').evaluateAll(nodes=>Promise.all(nodes.filter(n=>{const r=n.getBoundingClientRect();return r.width&&r.height&&r.bottom>0&&r.top<innerHeight&&getComputedStyle(n).visibility!=='hidden';}).map(n=>n.decode().catch(()=>{}))));await settle(p);const file=path.join(OUT,name+'.png');await p.screenshot({path:file,animations:'disabled'});report.screenshots.push(file);if(process.env.GERMAN_NATIVE_DEBUG)console.log('capture after',name);return fs.readFileSync(file);}
 
-test('all twelve study languages, three course ambiences and both layouts share one event-driven capsule without moving text',{timeout:180000},()=>checked('twelve-languages-three-ambiences-two-layouts',async()=>{
+test('all published study languages, three course ambiences and both layouts share one event-driven capsule without moving text',{timeout:180000},()=>checked('twelve-languages-three-ambiences-two-layouts',async()=>{
  let cells=0,plays=0;
  for(const width of [390,1366])for(const study of nativeManifest.studyLanguageIds){
   const pair=(study==='fr'?'zh':'fr')+'-'+study,f=await fixture({width,pair});try{
@@ -85,7 +85,7 @@ test('all twelve study languages, three course ambiences and both layouts share 
    assert.equal(ambiences.size,3);assert.equal(await p.evaluate(()=>localStorage.getItem('melunga-guided-known-v1')),knownBefore);
   }finally{await f.close();}
  }
- assert.equal(cells,72);assert.equal(plays,288);report.cases.push({courseThemeLayoutCells:cells,normalSlowSpeakerEarPlays:plays});
+ assert.equal(cells,nativeManifest.studyLanguageIds.length*6);assert.equal(plays,cells*4);report.cases.push({courseThemeLayoutCells:cells,normalSlowSpeakerEarPlays:plays});
 }));
 
 test('capsule fades in 150ms, survives long playback and browser-voice fallback, and clears on card changes and stale events',{timeout:60000},()=>checked('fade-fallback-card-change-and-stale-events',async()=>{
@@ -114,10 +114,10 @@ test('all classic ambience presets and available study decks support speaker, ea
   const f=await fixture({width});try{
    const p=f.page;await p.goto(ORIGIN+'/app.html?classic=1');await p.waitForFunction(()=>typeof window.playCurrent==='function'&&window.MelungaVoiceSelection?.state().status==='ready');
    const result=await p.evaluate(()=>{
-    document.querySelectorAll('.wlc-overlay,#welcome').forEach(n=>n.style.display='none');const source=Object.keys(DECKS),presets=Array.from({length:14},(_,index)=>index),failures=[];let cells=0;
-    const row=document.getElementById('phon').closest('.phonrow');
-    for(const preset of presets)for(const study of source){
-     window.cycleAmb();nat=study==='fr'?'zh':'fr';lang=study;pool=DECKS[study];idx=0;mode='listen';show();
+    document.querySelectorAll('.wlc-overlay,#welcome').forEach(n=>n.style.display='none');const source=Object.keys(DECKS),presets=[],failures=[];let cells=0;
+    const row=document.getElementById('phon').closest('.phonrow');const visited=new Set();for(let i=0;i<40;i++){window.cycleAmb();const key=localStorage.getItem('ox_ambidx');if(visited.has(key))break;visited.add(key);presets.push(key);}if(row.getBoundingClientRect().width===0||row.getBoundingClientRect().height===0)failures.push('classic capsule must be visible');
+    for(const preset of presets){window.cycleAmb();for(const study of source){
+     nat=study==='fr'?'zh':'fr';lang=study;pool=DECKS[study];idx=0;mode='listen';show();
      const rect=()=>{const r=row.getBoundingClientRect();return [r.x,r.y,r.width,r.height];};
      for(const trigger of ['listen','ear','normal','slow']){
       const before=rect();
@@ -131,7 +131,7 @@ test('all classic ambience presets and available study decks support speaker, ea
       audio.onended();if(row.classList.contains('is-audio-playing'))failures.push(study+' '+trigger+' end');
      }
      playCurrent(document.getElementById('listen'));show();if(row.classList.contains('is-audio-playing'))failures.push(study+' card change');cells++;
-    }
+    }}
     return{decks:source.length,presets:presets.length,cells,failures};
    });
    assert(result.presets>=14);assert(result.decks>=11);assert.equal(result.cells,result.decks*result.presets);assert.deepEqual(result.failures,[]);report.cases.push({classicWidth:width,...result});
