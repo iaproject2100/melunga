@@ -30,6 +30,10 @@ addedCandidates.push('tools/maquette-guidee/theme_placement_edition.py',
  'melunga_deploy/course-theme-edition.js','melunga_deploy/content/native-catalogue/theme-placements.json',
  'tools/maquette-guidee/imports/domain-edition-v1/edition.json',
  ...['fr','en','es','it','zh','ja','ko','de','hi','ru','pt','ar'].map(code=>'tools/maquette-guidee/imports/domain-edition-v1/'+code+'-themes-v1.json'));
+addedCandidates.push('tools/maquette-guidee/indonesian_catalogue.py','melunga_deploy/content/native-catalogue/id.json',
+ ...['id_deck.json','id_tr_map.json','id_phon.py','ru_phon.py','de_phon.py','BRIEF_CODEX_INDONESIEN.md',
+ 'id-deck-v1.json','id-tr-map-v1.json','editorial-corrections-v1.json','sample-review-v1.json','domain-review-v1.json','id-themes-v1.json']
+ .map(name=>'tools/maquette-guidee/imports/indonesian-v1/'+name));
 const sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const git=(args)=>execFileSync('git',args,{cwd:ROOT,maxBuffer:40*1024*1024});
 const changed=git(['diff','--name-only',BASE,'--','melunga_deploy','tools/maquette-guidee']).toString().trim().split('\n').filter(Boolean)

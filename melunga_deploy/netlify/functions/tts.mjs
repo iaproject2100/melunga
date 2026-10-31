@@ -1,4 +1,4 @@
-import {createChirpCatalogue, legacyChirpCatalogue, previousChirpCatalogue, CHIRP_LOCALES,
+import {createChirpCatalogue, legacyChirpCatalogue, previousChirpCatalogue, verifiedIndonesianVoice, CHIRP_LOCALES,
   APPROVED_SELECTION_VERSION, PREVIOUS_SELECTION_VERSION, LEGACY_SELECTION_VERSION} from './lib/chirp-catalog.mjs';
 
 const VOICES = Object.freeze({
@@ -24,6 +24,8 @@ const VOICES = Object.freeze({
   'pt-BR-Wavenet-B': {languageCode:'pt-BR',gender:'MALE'},
   'ru-RU-Wavenet-A': { languageCode:'ru-RU', gender:'FEMALE' },
   'ru-RU-Wavenet-B': { languageCode:'ru-RU', gender:'MALE' },
+  'id-ID-Wavenet-A': { languageCode:'id-ID', gender:'FEMALE' },
+  'id-ID-Wavenet-B': { languageCode:'id-ID', gender:'MALE' },
   'ar-XA-Wavenet-A': { languageCode: 'ar-XA', gender: 'FEMALE' },
   'ar-XA-Wavenet-B': { languageCode: 'ar-XA', gender: 'MALE' },
   'de-DE-Wavenet-A': { languageCode: 'de-DE', gender: 'FEMALE' },
@@ -128,6 +130,15 @@ export function createHandler({fetchImpl=(...args) => fetch(...args), now=() => 
   }
   if (!selected || selected.languageCode !== requestedLanguage) {
     return json(event, 400, { error: 'invalid_voice' });
+  }
+  if (requestedLanguage === 'id-ID') {
+    try {
+      if (!verifiedIndonesianVoice(await catalogue.get(key), voiceName, selected.gender)) {
+        return json(event, 400, {error:'voice_unavailable'});
+      }
+    } catch {
+      return json(event, 502, {error:'voice_catalogue_unavailable'});
+    }
   }
 
   const parsedRate = Number(params.rate);

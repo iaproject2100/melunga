@@ -16,20 +16,21 @@ function fixture(tamper){
 }
 test('new native meanings are supplied separately; all twelve studied banks and existing rights stay byte-exact',()=>{
  const baseline=JSON.parse(execFileSync('git',['show','08404a3:melunga_deploy/content/native-catalogue/manifest.json'],{cwd:ROOT,maxBuffer:5e6}));
- assert.equal(manifest.pairIds.length,128);assert.equal(new Set(manifest.pairIds).size,128);
- assert.deepEqual(manifest.banks,baseline.banks);assert.deepEqual(manifest.eligibilityGroups,baseline.eligibilityGroups);
- assert.deepEqual(manifest.historicalFreeGroups,baseline.historicalFreeGroups);
+ assert.equal(manifest.pairIds.length,135);assert.equal(new Set(manifest.pairIds).size,135);
+ for(const [k,v] of Object.entries(baseline.banks))assert.deepEqual(manifest.banks[k],v);
+ for(const [k,v] of Object.entries(baseline.eligibilityGroups))assert.deepEqual(manifest.eligibilityGroups[k],v);
+ for(const [k,v] of Object.entries(baseline.historicalFreeGroups))assert.deepEqual(manifest.historicalFreeGroups[k],v);
  for(const id of baseline.pairIds){assert.deepEqual(manifest.pairs[id],baseline.pairs[id]);assert.deepEqual(manifest.coverageByPair[id],baseline.coverageByPair[id]);}
- for(const code of manifest.studyLanguageIds){const name='content/native-catalogue/'+code+'.json';
+ for(const code of baseline.studyLanguageIds){const name='content/native-catalogue/'+code+'.json';
   assert(read(name).equals(execFileSync('git',['show','08404a3:melunga_deploy/'+name],{cwd:ROOT,maxBuffer:25e6})),code+' studied bank');}
  assert.equal(supplied.concepts.length,29077);
  for(const c of supplied.concepts)for(const native of natives)assert.equal(typeof c[native],'string');
 });
 test('all 440 new pair-levels show exact supplied native meanings and unchanged studied cards, with explicit source-guide fallback',async()=>{
- const api=fixture();await api.ensureRights();assert.equal(api.pairIds.length,128);
+ const api=fixture();await api.ensureRights();assert.equal(api.pairIds.length,135);
  for(const native of natives){
   assert(!api.isPair(native+'-'+native));
-  for(const study of manifest.studyLanguageIds.filter(code=>code!==native)){
+  for(const study of manifest.nativeLocaleMeanings[native].studyLanguageIds){
    const pair=native+'-'+study,bank=JSON.parse(read('content/native-catalogue/'+study+'.json'));
    assert(api.isPair(pair));const seen=new Set();
    for(let level=1;level<=10;level++){

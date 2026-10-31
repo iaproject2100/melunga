@@ -1,21 +1,21 @@
 /* Source-verbatim native catalogue views. Reviewed pair bundles are never projected here. */
 (() => {
   'use strict';
-  const MANIFEST_SHA256 = '727d43eb54c4839fe365e3e6e9a88062ad71bdd0a87d86469b90d4c1efb18066';
+  const MANIFEST_SHA256 = 'd145e07154585d87251bd69780375d307383f3b0f088abea3345087a66a7a93c';
   const ROOT = 'content/native-catalogue/';
   const originalLanguages = Object.freeze(['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko']);
   const nativeLocaleCodes = Object.freeze(['ru','pt','ar','hi']);
   const languages = Object.freeze([...originalLanguages, 'de', ...nativeLocaleCodes]);
-  const studyLanguages = Object.freeze([...originalLanguages,'de','hi','ru','pt','ar']);
-  const addedImports = Object.freeze({ar:{path:'tools/maquette-guidee/imports/ar-deck-v3.2.json',sha256:'fd566528f263b2a4a43d87292ba8f7150bf2652b7f23dcdfedbd9ce7195909d1'},pt:{path:'tools/maquette-guidee/imports/pt-deck-v1.json',sha256:'3fb7a5ffea38e4444d4cf5b3fe44a0e6cb9758a3d95f5f60cafa9d0877fe914b'},hi:{path:'tools/maquette-guidee/imports/hi-deck-v1.json',sha256:'5c0be1bed4d66bfecd56d4cb5f320756bb770e4e871931cbaefb7d9b547479c3'},ru:{path:'tools/maquette-guidee/imports/ru-deck-v1.json',sha256:'751f8774365882775f8b2b640980c872e9a91bb9f2bf985cd568427be0253ca8'}});
+  const studyLanguages = Object.freeze([...originalLanguages,'de','hi','ru','pt','ar','id']);
+  const addedImports = Object.freeze({id:{path:'tools/maquette-guidee/imports/indonesian-v1/id-deck-v1.json',sha256:'382e23fe0e4cd4328fb577f651416ef0afdedf9ccfca7fb1df781c7266cda391'},ar:{path:'tools/maquette-guidee/imports/ar-deck-v3.2.json',sha256:'fd566528f263b2a4a43d87292ba8f7150bf2652b7f23dcdfedbd9ce7195909d1'},pt:{path:'tools/maquette-guidee/imports/pt-deck-v1.json',sha256:'3fb7a5ffea38e4444d4cf5b3fe44a0e6cb9758a3d95f5f60cafa9d0877fe914b'},hi:{path:'tools/maquette-guidee/imports/hi-deck-v1.json',sha256:'5c0be1bed4d66bfecd56d4cb5f320756bb770e4e871931cbaefb7d9b547479c3'},ru:{path:'tools/maquette-guidee/imports/ru-deck-v1.json',sha256:'751f8774365882775f8b2b640980c872e9a91bb9f2bf985cd568427be0253ca8'}});
   const GERMAN_SOURCE = 'tools/maquette-guidee/imports/de-deck-v3.1.json';
   const GERMAN_SOURCE_SHA256 = '49d6f1cd3b2a44b4ab4efcbae4c5f58988ebc7e142ebb74b1505d4ce9e39d789';
   const reviewedPairIds = Object.freeze(['fr-en', 'fr-es', 'fr-it', 'fr-zh', 'fr-ja', 'fr-ko', 'zh-fr']);
-  const pairIds = Object.freeze(languages.flatMap(native => studyLanguages.filter(study => study !== native && !(native === 'de' && addedImports[study])).map(study => native + '-' + study)));
+  const pairIds = Object.freeze(languages.flatMap(native => studyLanguages.filter(study => study !== native && !(native === 'de' && addedImports[study]) && !(study === 'id' && !originalLanguages.includes(native))).map(study => native + '-' + study)));
   const reviewed = new Set(reviewedPairIds), validPairs = new Set(pairIds);
-  const cardCounts = Object.freeze({fr:4500, en:4502, es:4672, it:4509, zh:4903, ja:4509, ko:4520, de:4519, hi:4487, ru:4488, pt:4487, ar:4487});
-  const basePairs = Object.freeze({fr:'zh-fr', en:'fr-en', es:'fr-es', it:'fr-it', zh:'fr-zh', ja:'fr-ja', ko:'fr-ko', de:null, hi:null, ru:null, pt:null, ar:null});
-  const flags = Object.freeze({fr:'🇫🇷', en:'🇺🇸', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪',hi:'🇮🇳',ru:'🇷🇺',pt:'🇧🇷',ar:'ع'});
+  const cardCounts = Object.freeze({fr:4500, en:4502, es:4672, it:4509, zh:4903, ja:4509, ko:4520, de:4519, hi:4487, ru:4488, pt:4487, ar:4487, id:4487});
+  const basePairs = Object.freeze({fr:'zh-fr', en:'fr-en', es:'fr-es', it:'fr-it', zh:'fr-zh', ja:'fr-ja', ko:'fr-ko', de:null, hi:null, ru:null, pt:null, ar:null, id:null});
+  const flags = Object.freeze({fr:'🇫🇷', en:'🇺🇸', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪',hi:'🇮🇳',ru:'🇷🇺',pt:'🇧🇷',ar:'ع',id:'🇮🇩'});
   const contentTypes = new Set(['utterance', 'vocabulary', 'number', 'incomplete', 'review']);
   let manifest = null, manifestPromise = null, germanMeanings = null;
   let themeEditionPromise = null;
@@ -79,9 +79,9 @@
       && same(document.nativeLanguageIds, languages) && same(document.studyLanguageIds, studyLanguages)
       && same(document.reviewedPairIds, reviewedPairIds)
       && same(document.derivedPairIds, pairIds.filter(id => !reviewed.has(id)))
-      && Object.keys(document.pairs || {}).length === 128, 'invalid pair domain');
-    requireValue(document.sourceCardCount === 54583 && document.activeCatalogueCount === 52994
-      && document.reservedCatalogueCount === 1589 && document.excludedModernExtraCount === 1539
+      && Object.keys(document.pairs || {}).length === 135, 'invalid pair domain');
+    requireValue(document.sourceCardCount === 59070 && document.activeCatalogueCount === 57404
+      && document.reservedCatalogueCount === 1666 && document.excludedModernExtraCount === 1539
       && document.source?.reviewedHistoricalFreeIdsVerified === 2218
       && document.newTranslationsCreated === 15249 && document.newPhoneticsCreated === 0
       && document.reviewedRuntimeModified === false, 'invalid source inventory');
@@ -124,7 +124,7 @@
       requireValue(row.path === ROOT + native + '-native-meanings.json' && /^[a-f0-9]{64}$/.test(row.sha256)
         && row.sourcePath === 'tools/maquette-guidee/imports/native-meanings-ru-pt-ar-hi-v1.json'
         && /^[a-f0-9]{64}$/.test(row.sourceSha256) && Number.isSafeInteger(row.conceptCount) && row.conceptCount>0
-        && same(row.studyLanguageIds, studyLanguages.filter(study=>study!==native)), 'invalid native locale descriptor');
+        && same(row.studyLanguageIds, studyLanguages.filter(study=>study!==native&&study!=='id')), 'invalid native locale descriptor');
     }
     const edition = document.themePlacementEdition;
     requireValue(edition?.version === 1 && edition.id === 'reviewed-domain-placement-edition-v1'
@@ -144,10 +144,18 @@
   }
   async function applyThemeEdition(pair, {signal, referenceMap = new Map(), sourcePhraseMap = new Map()} = {}) {
     aborted(signal);
-    const document = await ensureRights(), helper = globalThis.MelungaThemeEdition;
+    const document = await ensureRights();
+    if (pair.studyLanguage === 'id') {
+      requireValue(isPair(pair.id) && pair.nativeCatalogue === true
+        && pair.nativeCatalogueManifestSha256 === MANIFEST_SHA256, 'unverified Indonesian source view');
+      aborted(signal);
+      if (pair.themePlacementEdition?.id === 'id-independent-domain-placements-v1') return pair;
+      return {...pair, themePlacementEdition:{id:'id-independent-domain-placements-v1', appliedMoves:0}};
+    }
+    const helper = globalThis.MelungaThemeEdition;
     requireValue(helper && typeof helper.validate === 'function' && typeof helper.apply === 'function', 'domain edition helper unavailable');
     if (!themeEditionPromise) themeEditionPromise = checkedJson(document.themePlacementEdition.path, document.themePlacementEdition.sha256)
-      .then(data => freeze(helper.validate(data, document)))
+      .then(data => freeze(helper.validate(data, {...document, studyLanguageIds:studyLanguages.filter(code=>code!=='id'), sourceCardCount:54583})))
       .catch(error => {themeEditionPromise = null;throw error;});
     const edition = await themeEditionPromise;
     aborted(signal);
@@ -356,6 +364,8 @@
         presentedCount:phrases.length, pedagogicalConceptCount:concepts.size, densityStatus:'native-catalogue-source-view',
         presentationOrder:'original-source-order-groups-of-five', nativeCatalogue:true,
         sequences:sequences(pairId, level, definition.id, phrases, dictionary, native)};
+      if (definition.skillSubtitle) theme.skillSubtitle = dictionary.theme(native, definition.skillSubtitle);
+      if (definition.skillSubtitleLevel) theme.skillSubtitle = dictionary.levelTitle(native, definition.skillSubtitleLevel);
       delete theme.phraseIds;
       if (kinds.length > 1) theme.contentTypes = kinds;
       themes.push(theme);

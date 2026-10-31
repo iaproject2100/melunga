@@ -38,6 +38,13 @@ function freeze(value) {
 // Cached seven-language clients require their exact version and row inventory.
 // Both contracts share the same fresh provider observation and unchanged voices.
 const previousCatalogues = new WeakMap();
+const observedIndonesianWaveNet = new WeakMap();
+// Indonesian voices are candidates until the same fresh provider list confirms
+// their exact identity, locale and gender. Existing catalogue rows are unchanged.
+export function verifiedIndonesianVoice(catalogue, name, gender) {
+  const records = (observedIndonesianWaveNet.get(catalogue) || []).filter(v => v.name === name);
+  return records.length > 0 && records.every(v => v.gender === gender && v.languageCodes.includes('id-ID'));
+}
 export function previousChirpCatalogue(catalogue) {
   return previousCatalogues.get(catalogue);
 }
@@ -110,6 +117,10 @@ export function createChirpCatalogue({fetchImpl=(...args) => fetch(...args), now
           [language, candidatesFor(language, language === 'en' ? {...definition, languageCodes:['en-US']} : definition, payload.voices)]))});
       const oldEnglish = candidatesFor('en', {languageCodes:['en-GB'], waveNet:'en-GB-Wavenet-C'},
         payload.voices, {name:'en-GB-Chirp3-HD-Kore',gender:'FEMALE'});
+      observedIndonesianWaveNet.set(catalogue, payload.voices
+        .filter(v => ['id-ID-Wavenet-A','id-ID-Wavenet-B'].includes(v?.name))
+        .map(v => ({name:v.name, gender:v.ssmlGender,
+          languageCodes:Array.isArray(v.languageCodes) ? [...v.languageCodes] : []})));
       previousCatalogues.set(catalogue, freeze({...catalogue, selectionVersion:PREVIOUS_SELECTION_VERSION,
         languages:{...catalogue.languages,en:oldEnglish}}));
       return catalogue;

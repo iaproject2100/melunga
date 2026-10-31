@@ -13,7 +13,7 @@ const {execFileSync} = require('node:child_process');
 const ROOT = path.resolve(__dirname, '../..');
 const BASE = '541afb7f67b499130af60211e72a8614bdaaf31d';
 const FIXTURE = 'melunga_deploy/tests/fixtures/german-launch-layer.json';
-const FIXTURE_SHA256 = 'c04e5970ffc4511687778880b0e8c4c2c7d968e80ce442781fa985c0edd33ada';
+const FIXTURE_SHA256 = '0ad6fdfbf05b4e9599a6ed09af3aabb0cf9d7172f764dc677d2d1c71c5211249';
 // BEGIN FINITE GERMAN PATHS — written by seal_german_launch_layer.cjs.
 const MODIFIED = Object.freeze([
   "melunga_deploy/account-ui.js",
@@ -63,6 +63,7 @@ const ADDED = Object.freeze([
   "melunga_deploy/content/native-catalogue/de.json",
   "melunga_deploy/content/native-catalogue/hi-native-meanings.json",
   "melunga_deploy/content/native-catalogue/hi.json",
+  "melunga_deploy/content/native-catalogue/id.json",
   "melunga_deploy/content/native-catalogue/pt-native-meanings.json",
   "melunga_deploy/content/native-catalogue/pt.json",
   "melunga_deploy/content/native-catalogue/ru-native-meanings.json",
@@ -94,6 +95,18 @@ const ADDED = Object.freeze([
   "tools/maquette-guidee/imports/domain-edition-v1/zh-themes-v1.json",
   "tools/maquette-guidee/imports/hi-deck-v1.json",
   "tools/maquette-guidee/imports/hi-themes-v1.json",
+  "tools/maquette-guidee/imports/indonesian-v1/BRIEF_CODEX_INDONESIEN.md",
+  "tools/maquette-guidee/imports/indonesian-v1/de_phon.py",
+  "tools/maquette-guidee/imports/indonesian-v1/domain-review-v1.json",
+  "tools/maquette-guidee/imports/indonesian-v1/editorial-corrections-v1.json",
+  "tools/maquette-guidee/imports/indonesian-v1/id-deck-v1.json",
+  "tools/maquette-guidee/imports/indonesian-v1/id-themes-v1.json",
+  "tools/maquette-guidee/imports/indonesian-v1/id-tr-map-v1.json",
+  "tools/maquette-guidee/imports/indonesian-v1/id_deck.json",
+  "tools/maquette-guidee/imports/indonesian-v1/id_phon.py",
+  "tools/maquette-guidee/imports/indonesian-v1/id_tr_map.json",
+  "tools/maquette-guidee/imports/indonesian-v1/ru_phon.py",
+  "tools/maquette-guidee/imports/indonesian-v1/sample-review-v1.json",
   "tools/maquette-guidee/imports/native-interface-copy-v1.json",
   "tools/maquette-guidee/imports/native-meanings-ru-pt-ar-hi-v1.json",
   "tools/maquette-guidee/imports/pt-deck-v1.json",
@@ -101,6 +114,7 @@ const ADDED = Object.freeze([
   "tools/maquette-guidee/imports/pt-tr-map-v1.json",
   "tools/maquette-guidee/imports/ru-deck-v1.json",
   "tools/maquette-guidee/imports/ru-themes-v1.json",
+  "tools/maquette-guidee/indonesian_catalogue.py",
   "tools/maquette-guidee/native_locale_catalogues.py",
   "tools/maquette-guidee/theme_placement_edition.py"
 ]);

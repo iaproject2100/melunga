@@ -20,7 +20,7 @@ function fixture(tamper){
 test('all 54,583 explicit placements match the supplied decisions; uncertain, absent, scene, template and reserve positions stay fixed',()=>{
  const baseline=json('tools/maquette-guidee/imports/domain-edition-v1/edition.json');let total=0,changed=0;
  for(const [p,hash] of Object.entries(baseline.reviewedRuntimeSha256ByPath))assert.equal(sha(read(p)),hash,p);
- for(const study of manifest.studyLanguageIds){
+ for(const study of Object.keys(baseline.sourceBanks)){
   const bank=JSON.parse(web(manifest.banks[study].path));assert.equal(sha(web(manifest.banks[study].path)),baseline.sourceBanks[study]);
   const source=json('tools/maquette-guidee/imports/domain-edition-v1/'+study+'-themes-v1.json');
   assert.equal(source.placements.length,bank.cards.length);
@@ -34,7 +34,7 @@ test('all 54,583 explicit placements match the supplied decisions; uncertain, ab
  assert.equal(total,54583);assert.equal(changed,10343);
  assert.equal(receipts.flatMap(r=>r.uncertain).length,4582);assert.equal(receipts.flatMap(r=>r.targetAbsent).length,775);
 });
-test('all 1,280 available pair-levels retain exact card/activity objects, preparations, photos and rights while applying every eligible reviewed move',async()=>{
+test('all 1,350 available pair-levels retain exact card/activity objects, preparations, photos and rights while applying every eligible reviewed move',async()=>{
  const ctx=fixture(),api=ctx.MelungaNativeCourses;await api.ensureRights();let cells=0,applied=0,steps=0,longThemes=0;
  for(const pairId of api.pairIds){
   const reviewed=api.isReviewed(pairId),references=reviewed?new Map(JSON.parse(web('content/niveaux-progressifs/repertoires/'+pairId+'.json')).phrases.map(p=>[p.id,p])):new Map();
@@ -84,7 +84,7 @@ test('all 1,280 available pair-levels retain exact card/activity objects, prepar
    assert.equal(await api.applyThemeEdition(view),view,'idempotent');cells++;steps+=now.length;
   }
  }
- assert.equal(cells,1280);assert(applied>90000);assert(steps>1e6);
+ assert.equal(cells,1350);assert(applied>90000);assert(steps>1e6);
  console.log(JSON.stringify({pairLevels:cells,eligiblePresentationMoves:applied,unchangedPracticeSteps:steps,longThemesPartitioned:longThemes}));
 });
 test('the 31 previously corrected presentations are kept when their topic changes',async()=>{

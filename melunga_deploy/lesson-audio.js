@@ -16,6 +16,7 @@
     ar: Object.freeze({locale:'ar-SA',serverLanguage:'ar-XA',female:'ar-XA-Wavenet-A',male:'ar-XA-Wavenet-B'}),
     pt: Object.freeze({locale:'pt-BR',serverLanguage:'pt-BR',female:'pt-BR-Wavenet-A',male:'pt-BR-Wavenet-B'}),
     ru: Object.freeze({ locale:'ru-RU', serverLanguage:'ru-RU', female:'ru-RU-Wavenet-A', male:'ru-RU-Wavenet-B' }),
+    id: Object.freeze({ locale:'id-ID', serverLanguage:'id-ID', female:'id-ID-Wavenet-A', male:'id-ID-Wavenet-B' }),
     de: Object.freeze({ locale: 'de-DE', serverLanguage: 'de-DE', female: 'de-DE-Wavenet-A', male: 'de-DE-Wavenet-B' })
   });
   const normalizedLanguage = value => String(value || '').toLowerCase().replace(/_/g, '-');
@@ -119,7 +120,7 @@
         onUnavailable();
         return false;
       }
-      const imported = ['hi','ru','pt','ar'].includes(language);
+      const imported = ['hi','ru','pt','ar','id'].includes(language);
       const marker = imported && /\((male|female)\)/i.exec(genderHint);
       if (marker) voice = marker[1].toLowerCase();
       let candidate = null, provisional = false, browserOnly = false;
