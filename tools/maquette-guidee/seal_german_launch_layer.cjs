@@ -34,6 +34,11 @@ addedCandidates.push('tools/maquette-guidee/indonesian_catalogue.py','melunga_de
  ...['id_deck.json','id_tr_map.json','id_phon.py','ru_phon.py','de_phon.py','BRIEF_CODEX_INDONESIEN.md',
  'id-deck-v1.json','id-tr-map-v1.json','editorial-corrections-v1.json','sample-review-v1.json','domain-review-v1.json','id-themes-v1.json']
  .map(name=>'tools/maquette-guidee/imports/indonesian-v1/'+name));
+// Five standalone typography proposals and their unmodified OFL font receipts.
+addedCandidates.push('melunga_deploy/propositions-typographie-lecon.html',
+ ...['manrope.ttf','cormorant-garamond.ttf','nunito-sans.ttf','lora.ttf','lora-italic.ttf','outfit.ttf',
+ 'manrope-OFL.txt','cormorantgaramond-OFL.txt','nunitosans-OFL.txt','lora-OFL.txt','outfit-OFL.txt','manifest.json']
+ .map(file=>'melunga_deploy/assets/typographie-propositions/'+file));
 const sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const git=(args)=>execFileSync('git',args,{cwd:ROOT,maxBuffer:40*1024*1024});
 const changed=git(['diff','--name-only',BASE,'--','melunga_deploy','tools/maquette-guidee']).toString().trim().split('\n').filter(Boolean)

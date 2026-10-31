@@ -13,7 +13,7 @@ const {execFileSync} = require('node:child_process');
 const ROOT = path.resolve(__dirname, '../..');
 const BASE = '541afb7f67b499130af60211e72a8614bdaaf31d';
 const FIXTURE = 'melunga_deploy/tests/fixtures/german-launch-layer.json';
-const FIXTURE_SHA256 = 'c98f2940d0fa1968fcc155f427194645dd2179ca5a7afacfe63e15337b4daedf';
+const FIXTURE_SHA256 = 'a83c7cc92305f8ba4ffc3c2a60a488a9d79684db645bb0a85d2467489d3247b6';
 // BEGIN FINITE GERMAN PATHS — written by seal_german_launch_layer.cjs.
 const MODIFIED = Object.freeze([
   "melunga_deploy/account-ui.js",
@@ -53,6 +53,18 @@ const MODIFIED = Object.freeze([
   "tools/maquette-guidee/export_native_catalogue.py"
 ]);
 const ADDED = Object.freeze([
+  "melunga_deploy/assets/typographie-propositions/cormorant-garamond.ttf",
+  "melunga_deploy/assets/typographie-propositions/cormorantgaramond-OFL.txt",
+  "melunga_deploy/assets/typographie-propositions/lora-OFL.txt",
+  "melunga_deploy/assets/typographie-propositions/lora-italic.ttf",
+  "melunga_deploy/assets/typographie-propositions/lora.ttf",
+  "melunga_deploy/assets/typographie-propositions/manifest.json",
+  "melunga_deploy/assets/typographie-propositions/manrope-OFL.txt",
+  "melunga_deploy/assets/typographie-propositions/manrope.ttf",
+  "melunga_deploy/assets/typographie-propositions/nunito-sans.ttf",
+  "melunga_deploy/assets/typographie-propositions/nunitosans-OFL.txt",
+  "melunga_deploy/assets/typographie-propositions/outfit-OFL.txt",
+  "melunga_deploy/assets/typographie-propositions/outfit.ttf",
   "melunga_deploy/content/course-locales/ar.json",
   "melunga_deploy/content/course-locales/de.json",
   "melunga_deploy/content/course-locales/hi.json",
@@ -74,6 +86,7 @@ const ADDED = Object.freeze([
   "melunga_deploy/german-account-ui.js",
   "melunga_deploy/propositions-capsule-syllabes.html",
   "melunga_deploy/propositions-selecteur-langues.html",
+  "melunga_deploy/propositions-typographie-lecon.html",
   "tools/maquette-guidee/imported_target_catalogues.py",
   "tools/maquette-guidee/imports/ar-deck-v3.2-received.json",
   "tools/maquette-guidee/imports/ar-deck-v3.2.json",
