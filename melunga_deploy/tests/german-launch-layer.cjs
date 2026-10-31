@@ -13,7 +13,7 @@ const {execFileSync} = require('node:child_process');
 const ROOT = path.resolve(__dirname, '../..');
 const BASE = '541afb7f67b499130af60211e72a8614bdaaf31d';
 const FIXTURE = 'melunga_deploy/tests/fixtures/german-launch-layer.json';
-const FIXTURE_SHA256 = '4362414bf8d20cfbc69712d0e9d5a4adf1c6e8cebcfc1e2101228eaaf060bcf2';
+const FIXTURE_SHA256 = 'c04e5970ffc4511687778880b0e8c4c2c7d968e80ce442781fa985c0edd33ada';
 // BEGIN FINITE GERMAN PATHS — written by seal_german_launch_layer.cjs.
 const MODIFIED = Object.freeze([
   "melunga_deploy/account-ui.js",
@@ -67,6 +67,8 @@ const ADDED = Object.freeze([
   "melunga_deploy/content/native-catalogue/pt.json",
   "melunga_deploy/content/native-catalogue/ru-native-meanings.json",
   "melunga_deploy/content/native-catalogue/ru.json",
+  "melunga_deploy/content/native-catalogue/theme-placements.json",
+  "melunga_deploy/course-theme-edition.js",
   "melunga_deploy/german-account-ui.js",
   "tools/maquette-guidee/imported_target_catalogues.py",
   "tools/maquette-guidee/imports/ar-deck-v3.2-received.json",
@@ -77,6 +79,19 @@ const ADDED = Object.freeze([
   "tools/maquette-guidee/imports/de-deck-v3.1.json",
   "tools/maquette-guidee/imports/de-native-meanings-v1.json",
   "tools/maquette-guidee/imports/de-themes-v1.json",
+  "tools/maquette-guidee/imports/domain-edition-v1/ar-themes-v1.json",
+  "tools/maquette-guidee/imports/domain-edition-v1/de-themes-v1.json",
+  "tools/maquette-guidee/imports/domain-edition-v1/edition.json",
+  "tools/maquette-guidee/imports/domain-edition-v1/en-themes-v1.json",
+  "tools/maquette-guidee/imports/domain-edition-v1/es-themes-v1.json",
+  "tools/maquette-guidee/imports/domain-edition-v1/fr-themes-v1.json",
+  "tools/maquette-guidee/imports/domain-edition-v1/hi-themes-v1.json",
+  "tools/maquette-guidee/imports/domain-edition-v1/it-themes-v1.json",
+  "tools/maquette-guidee/imports/domain-edition-v1/ja-themes-v1.json",
+  "tools/maquette-guidee/imports/domain-edition-v1/ko-themes-v1.json",
+  "tools/maquette-guidee/imports/domain-edition-v1/pt-themes-v1.json",
+  "tools/maquette-guidee/imports/domain-edition-v1/ru-themes-v1.json",
+  "tools/maquette-guidee/imports/domain-edition-v1/zh-themes-v1.json",
   "tools/maquette-guidee/imports/hi-deck-v1.json",
   "tools/maquette-guidee/imports/hi-themes-v1.json",
   "tools/maquette-guidee/imports/native-interface-copy-v1.json",
@@ -86,7 +101,8 @@ const ADDED = Object.freeze([
   "tools/maquette-guidee/imports/pt-tr-map-v1.json",
   "tools/maquette-guidee/imports/ru-deck-v1.json",
   "tools/maquette-guidee/imports/ru-themes-v1.json",
-  "tools/maquette-guidee/native_locale_catalogues.py"
+  "tools/maquette-guidee/native_locale_catalogues.py",
+  "tools/maquette-guidee/theme_placement_edition.py"
 ]);
 // END FINITE GERMAN PATHS
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');

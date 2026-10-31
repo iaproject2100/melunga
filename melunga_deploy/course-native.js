@@ -1,7 +1,7 @@
 /* Source-verbatim native catalogue views. Reviewed pair bundles are never projected here. */
 (() => {
   'use strict';
-  const MANIFEST_SHA256 = 'e9d294633ef87c97738b90379c9929a609acbf81b5e2596a0e376607ef63759c';
+  const MANIFEST_SHA256 = '727d43eb54c4839fe365e3e6e9a88062ad71bdd0a87d86469b90d4c1efb18066';
   const ROOT = 'content/native-catalogue/';
   const originalLanguages = Object.freeze(['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko']);
   const nativeLocaleCodes = Object.freeze(['ru','pt','ar','hi']);
@@ -18,6 +18,7 @@
   const flags = Object.freeze({fr:'🇫🇷', en:'🇺🇸', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪',hi:'🇮🇳',ru:'🇷🇺',pt:'🇧🇷',ar:'ع'});
   const contentTypes = new Set(['utterance', 'vocabulary', 'number', 'incomplete', 'review']);
   let manifest = null, manifestPromise = null, germanMeanings = null;
+  let themeEditionPromise = null;
   const localeMeanings = new Map();
   const eligibleByPair = new Map(), freeByPair = new Map(), bankCache = new Map(), modelCache = new Map();
 
@@ -125,6 +126,12 @@
         && /^[a-f0-9]{64}$/.test(row.sourceSha256) && Number.isSafeInteger(row.conceptCount) && row.conceptCount>0
         && same(row.studyLanguageIds, studyLanguages.filter(study=>study!==native)), 'invalid native locale descriptor');
     }
+    const edition = document.themePlacementEdition;
+    requireValue(edition?.version === 1 && edition.id === 'reviewed-domain-placement-edition-v1'
+      && edition.path === ROOT + 'theme-placements.json' && /^[a-f0-9]{64}$/.test(edition.sha256)
+      && edition.sourceCardCount === 54583 && edition.moves === 10343
+      && edition.uncertainKept === 4582 && edition.absentTargetsKept === 775
+      && Object.keys(edition.sourceMaps || {}).length === 13, 'invalid domain edition descriptor');
     for (const pair of pairIds) {eligibleByPair.set(pair, eligibility.get(pair)); freeByPair.set(pair, historical.get(pair));}
     return freeze(document);
   }
@@ -134,6 +141,20 @@
       .then(document => {manifest = validateManifest(document); return manifest;})
       .catch(error => {manifestPromise = null; throw error;});
     return manifestPromise;
+  }
+  async function applyThemeEdition(pair, {signal, referenceMap = new Map(), sourcePhraseMap = new Map()} = {}) {
+    aborted(signal);
+    const document = await ensureRights(), helper = globalThis.MelungaThemeEdition;
+    requireValue(helper && typeof helper.validate === 'function' && typeof helper.apply === 'function', 'domain edition helper unavailable');
+    if (!themeEditionPromise) themeEditionPromise = checkedJson(document.themePlacementEdition.path, document.themePlacementEdition.sha256)
+      .then(data => freeze(helper.validate(data, document)))
+      .catch(error => {themeEditionPromise = null;throw error;});
+    const edition = await themeEditionPromise;
+    aborted(signal);
+    return helper.apply(pair, edition, {isEligible:id => isEligible(pair.id, id),
+      sequenceTitle:n => i18n().format(pair.nativeLanguage, 'sequence', {n}),
+      themeTitle:title => i18n().theme(pair.nativeLanguage, title),
+      lookupModel:id => sourcePhraseMap.get(id) || referenceMap.get(id)});
   }
   function i18n() {
     const language = globalThis.MelungaCourseI18n;
@@ -351,5 +372,5 @@
     return {pair, referenceMap:new Map(), sourcePhraseMap:new Map(models)};
   }
   Object.defineProperty(globalThis, 'MelungaNativeCourses', {value:Object.freeze({pairIds, reviewedPairIds,
-    isPair, isReviewed, metadata, loadPair, isEligible, isHistoricalFree, ensureRights, manifestSha256:MANIFEST_SHA256}), writable:false, configurable:false});
+    isPair, isReviewed, metadata, loadPair, applyThemeEdition, isEligible, isHistoricalFree, ensureRights, manifestSha256:MANIFEST_SHA256}), writable:false, configurable:false});
 })();

@@ -17,6 +17,7 @@ import subprocess
 import sys
 from imported_target_catalogues import augment
 from native_locale_catalogues import augment_native_locales
+from theme_placement_edition import augment_theme_placement_edition
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_COMMIT = 'ef147deacf85b4a5631c1b05ff8050de7918ea1f'
@@ -405,6 +406,7 @@ def make(root):
     outputs[OUTPUT + '/manifest.json'] = encoded(manifest)
     augment(root, outputs, manifest)
     augment_native_locales(root, outputs, manifest)
+    augment_theme_placement_edition(root, outputs, manifest)
     for path, checksum in input_hashes.items():require(sha((root / path).read_bytes()) == checksum, 'reviewed input changed during export: ' + path)
     require(literal((root / APP).read_bytes(), 'DECKS')[0] == decks_raw, 'DECKS changed during export')
     return outputs, manifest

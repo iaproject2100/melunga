@@ -453,7 +453,7 @@
     if (!phrase || phrase.isTemplate || phrase.kind === 'received' || phrase.speaker === 'B') {
       showThemes(); setStatus('Ce contenu a été actualisé. Tu peux le retrouver dans les thèmes.'); return;
     }
-    if (operation?.op === 'move' && (entry.level !== targetLevel || entry.themeId !== theme.id)) {
+    if (entry.level !== targetLevel || entry.themeId !== theme.id) {
       saveReviewEntries(state.savedReview.map(item => item.pairId === entry.pairId && item.id === entry.id
         ? { ...item, level: targetLevel, themeId: theme.id, study: phrase.study, native: phrase.native } : item));
     }
@@ -1511,8 +1511,10 @@
     try {
       if (metadata.nativeCatalogue) {
         const loaded = await nativeCourses.loadPair(id, entry.level, {signal:request.signal});
+        const presented = await nativeCourses.applyThemeEdition(loaded.pair, {signal:request.signal,
+          referenceMap:loaded.referenceMap, sourcePhraseMap:loaded.sourcePhraseMap});
         if (generation !== state.loadGeneration) return;
-        installPairView(loaded.pair, loaded.referenceMap, loaded.sourcePhraseMap);
+        installPairView(presented, loaded.referenceMap, loaded.sourcePhraseMap);
         return;
       }
       const key = id + ':' + entry.level;
@@ -1556,7 +1558,9 @@
       state.levelCache.delete(key);
       state.levelCache.set(key, pair);
       while (state.levelCache.size > 4) state.levelCache.delete(state.levelCache.keys().next().value);
-      installPairView(pair, references);
+      const presented = await nativeCourses.applyThemeEdition(pair, {signal:request.signal, referenceMap:references});
+      if (generation !== state.loadGeneration) return;
+      installPairView(presented, references);
     } catch (error) {
       if (generation !== state.loadGeneration || error.name === 'AbortError') return;
       showLoadingError('Les thèmes n’ont pas pu se charger.');

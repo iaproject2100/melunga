@@ -14,7 +14,7 @@ const nativeInput=JSON.parse(fs.readFileSync(path.join(ROOT,'tools/maquette-guid
 const nativeCopy=JSON.parse(fs.readFileSync(path.join(ROOT,'tools/maquette-guidee/imports/native-interface-copy-v1.json'))).locales;
 const report={status:'running',baseCommit:BASE,allResponsesLocal:true,actualProviderCalled:false,physicalDeviceTested:false,touchEmulated:true,actualAudioPlayed:false,cases:[],errors:[],unexpected:[],screenshots:[]};
 let browser,initial;
-function fingerprint(){const reviewed=json('content/niveaux-progressifs/manifest.json');const files=[...fs.readdirSync(WEB).filter(f=>/\.(html|js|css)$/.test(f)),'content/native-catalogue/manifest.json',nativeManifest.germanNativeMeanings.path,...nativeLocaleCodes.map(code=>nativeManifest.nativeLocaleMeanings[code].path),'content/course-access.json','content/niveaux-progressifs/manifest.json',...CODES.map(c=>'content/native-catalogue/'+c+'.json'),...CODES.filter(c=>c!=='fr').map(c=>'content/course-locales/'+c+'.json'),'content/course-locales/supplements.json',...reviewed.pairs.flatMap(p=>[p.repertoirePath,...p.levels.map(l=>l.dataPath)])];return Object.fromEntries(files.sort().map(file=>[file,hash(raw(file))]));}
+function fingerprint(){const reviewed=json('content/niveaux-progressifs/manifest.json');const files=[...fs.readdirSync(WEB).filter(f=>/\.(html|js|css)$/.test(f)),'content/native-catalogue/manifest.json',nativeManifest.themePlacementEdition.path,nativeManifest.germanNativeMeanings.path,...nativeLocaleCodes.map(code=>nativeManifest.nativeLocaleMeanings[code].path),'content/course-access.json','content/niveaux-progressifs/manifest.json',...CODES.map(c=>'content/native-catalogue/'+c+'.json'),...CODES.filter(c=>c!=='fr').map(c=>'content/course-locales/'+c+'.json'),'content/course-locales/supplements.json',...reviewed.pairs.flatMap(p=>[p.repertoirePath,...p.levels.map(l=>l.dataPath)])];return Object.fromEntries(files.sort().map(file=>[file,hash(raw(file))]));}
 function catalogue(){const now=Date.now(),voiceCodes={fr:'fr-FR',en:'en-US',es:'es-ES',it:'it-IT',zh:'cmn-CN',ja:'ja-JP',ko:'ko-KR',de:'de-DE'};return{version:1,source:'google-voices-list',previewOnly:true,selectionVersion:'kartech-2026-10-30-en-us',verifiedAt:new Date(now-1000).toISOString(),expiresAt:new Date(now+240000).toISOString(),languages:Object.fromEntries(CODES.map(language=>{const languageCode=voiceCodes[language],chirp=[['Aoede','FEMALE'],['Kore','FEMALE'],['Charon','MALE']].map(([name,gender])=>({name:languageCode+'-Chirp3-HD-'+name,languageCode,gender,engine:'chirp3',rateMode:'client'})),approved=language==='fr'?'Aoede':language==='it'?'Charon':'Kore';return[language,{language,available:true,chirp,defaultVoice:chirp.find(v=>v.name.endsWith('-'+approved)),waveNet:{name:languageCode+'-Wavenet-A',languageCode,gender:'FEMALE',engine:'wavenet',rateMode:'server'}}];}))};}
 before(async()=>{fs.mkdirSync(OUT,{recursive:true});initial=fingerprint();browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});});
 after(async()=>{await browser?.close();report.inputsStable=JSON.stringify(initial)===JSON.stringify(fingerprint());report.status=!report.errors.length&&!report.unexpected.length&&report.inputsStable?'passed':'failed';report.inputSha256=initial;fs.writeFileSync(path.join(OUT,'acceptance.json'),JSON.stringify(report,null,2)+'\n');assert.equal(report.inputsStable,true,'accepted sources remain frozen');assert.deepEqual(report.errors,[]);assert.deepEqual(report.unexpected,[]);});
@@ -69,7 +69,7 @@ test('classic recognition passes the exact Hindi/Russian/Portuguese locale',{tim
 }));
 
 test('long new themes retain every card in visible stages and persist completed stages',{timeout:120000},()=>checked('new-long-stages',async()=>{
- for(const study of ['hi','ru','pt','ar']){const pair='fr-'+study,f=await fixture({width:1366,pair});try{const p=f.page;await goCourse(f,pair,2);const longTheme=banks[study].levels[1].themes.find(t=>t.phraseIds.length>100);assert(longTheme);let tile=p.locator('#mgThemeGrid .mg-theme[data-theme-id="'+longTheme.id+'"]');for(let page=0;page<30&&!await tile.isVisible();page++){await tap(p,'.mg-desktop-page-next');await settle(p);}await tile.click();await ready(p,pair,2,'sequences');const seqs=await p.evaluate(()=>window.MelungaMockup.visibleSequences());assert(seqs.length>1);const source=longTheme.phraseIds;assert.deepEqual(seqs.flatMap(s=>s.phraseIds),source);assert(seqs.every(s=>s.cards>=30&&s.cards<=40));await tap(p,'#mgSequences .mg-sequence');for(const id of seqs[0].phraseIds){assert.equal((await state(p)).phraseId,id);await tap(p,'#mgContinue');}await ready(p,pair,2,'done');assert.equal((await known(p,pair)).length,seqs[0].cards);await p.reload();await ready(p,pair,2);assert.equal((await known(p,pair)).length,seqs[0].cards);}finally{await f.close();}}
+ for(const study of ['hi','ru','pt','ar']){const pair='fr-'+study,f=await fixture({width:1366,pair});try{const p=f.page;await goCourse(f,pair,2);const view=await p.evaluate(async pair=>{const loaded=await MelungaNativeCourses.loadPair(pair,2);return MelungaNativeCourses.applyThemeEdition(loaded.pair,loaded);},pair);const longTheme=view.themes.find(t=>t.phrases.length>100);assert(longTheme);let tile=p.locator('#mgThemeGrid .mg-theme[data-theme-id="'+longTheme.id+'"]');for(let page=0;page<30&&!await tile.isVisible();page++){await tap(p,'.mg-desktop-page-next');await settle(p);}await tile.click();await ready(p,pair,2,'sequences');const seqs=await p.evaluate(()=>window.MelungaMockup.visibleSequences());assert(seqs.length>1);const source=longTheme.phrases.map(p=>p.id);assert.deepEqual(seqs.flatMap(s=>s.phraseIds),source);assert(seqs.every(s=>s.cards>=30&&s.cards<=40));await tap(p,'#mgSequences .mg-sequence');for(const id of seqs[0].phraseIds){assert.equal((await state(p)).phraseId,id);await tap(p,'#mgContinue');}await ready(p,pair,2,'done');assert.equal((await known(p,pair)).length,seqs[0].cards);await p.reload();await ready(p,pair,2);assert.equal((await known(p,pair)).length,seqs[0].cards);}finally{await f.close();}}
 }));
 
 
@@ -147,4 +147,58 @@ test('four native locales preserve unpaid L2 locks and localized account validat
       await tap(p,'#courseLoginBack');await ready(p,pair,2);assert.equal((await state(p)).access.paid,false);
     }finally{await f.close();}
   }
+}));
+
+test('reviewed thematic edition loads every study language on desktop and mobile with updated counts and original photographs',{timeout:180000},()=>checked('domain-edition-all-languages',async()=>{
+ for(const width of [390,1366])for(const study of nativeManifest.studyLanguageIds){
+  const pair=(study==='fr'?'zh':'fr')+'-'+study,f=await fixture({width,pair,level:6});
+  try{
+   const p=f.page;await goCourse(f,pair,6);
+   const expected=await p.evaluate(async pair=>{
+    const api=MelungaNativeCourses;
+    const loaded=api.isReviewed(pair)?{pair:await (await fetch('content/niveaux-progressifs/'+pair+'/L6.json')).json()}:await api.loadPair(pair,6);
+    if(api.isReviewed(pair))loaded.referenceMap=new Map((await (await fetch('content/niveaux-progressifs/repertoires/'+pair+'.json')).json()).phrases.map(p=>[p.id,p]));
+    const view=await api.applyThemeEdition(loaded.pair,loaded);
+    return view.themes.map(t=>({id:t.id,presentedCount:t.presentedCount}));
+   },pair);
+   const actual=await p.locator('#mgThemeGrid .mg-theme').evaluateAll(nodes=>nodes.map(n=>({id:n.dataset.themeId,count:n.querySelector('.mg-theme-count').textContent})));
+   assert.deepEqual(actual.map(t=>t.id),expected.map(t=>t.id));
+   actual.forEach((t,i)=>assert.equal(Number(t.count.match(/\d+/)[0]),expected[i].presentedCount,pair+' '+t.id));
+   await photo(p);await fit(p);
+   if(['hi','pt'].includes(study))await capture(p,'themes-L6-'+study+'-'+width);
+  }finally{await f.close();}
+ }
+}));
+
+test('a saved review using its previous theme follows the same card ID without resetting known cards',{timeout:90000},()=>checked('domain-edition-saved-review-migration',async()=>{
+ const audit=JSON.parse(fs.readFileSync(path.join(ROOT,'docs/livraison-claude-2026-10-31/audit_L4-L6.json')));
+ const row=audit.proposals.find(r=>r.language==='hi'&&r.level===6),id=row.id,pair='fr-hi';
+ for(const width of [390,1366]){
+  const f=await fixture({width,pair,level:6});try{
+   await f.context.addInitScript(({id,pair,row,card})=>{
+    if(sessionStorage.getItem('__domainSeed'))return;
+    localStorage.setItem('melunga-guided-known-v1',JSON.stringify({version:1,pairs:{[pair]:[id]}}));
+    localStorage.setItem('melunga-guided-review-v1',JSON.stringify({version:1,entries:[{id,pairId:pair,level:6,themeId:row.currentTheme,study:card.t,native:card.frm,addedAt:1}]}));
+    sessionStorage.setItem('__domainSeed','1');
+   },{id,pair,row,card:banks.hi.cards[row.sourceIndex]});
+   const p=f.page;await goCourse(f,pair,6);assert((await known(p,pair)).includes(id));
+   const total=(await state(p)).levelProgress;assert.equal(total.known,1);
+   await menu(p,'À revoir');await tap(p,'#mgSavedReviewList [data-review-action="resume"]');await ready(p,pair,6,'lesson');
+   assert.equal((await state(p)).phraseId,id);assert.equal((await state(p)).themeId,row.proposedTheme);
+   assert.equal((await reviews(p))[0].themeId,row.proposedTheme);assert((await known(p,pair)).includes(id));
+   await p.reload();await ready(p,pair,6);assert((await known(p,pair)).includes(id));
+   assert.equal((await state(p)).levelProgress.known,1);assert.equal((await state(p)).levelProgress.total,total.total);
+  }finally{await f.close();}
+ }
+}));
+
+test('a failed edition download shows retry and never installs the preceding classification',{timeout:60000},()=>checked('domain-edition-integrity-and-retry',async()=>{
+ const pair='fr-hi',f=await fixture({pair,level:6});try{
+  const p=f.page,pattern='**/content/native-catalogue/theme-placements.json';
+  await f.context.route(pattern,route=>route.fulfill({contentType:'application/json',body:Buffer.concat([raw('content/native-catalogue/theme-placements.json'),Buffer.from(' ')] )}));
+  await p.goto(ORIGIN+'/parcours-niveaux.html?pair='+pair+'&level=6',{waitUntil:'domcontentloaded'});
+  await p.locator('#mgRetry').waitFor({state:'visible'});assert.equal((await state(p)).screen,'loading');
+  assert.equal(await p.locator('#mgThemeGrid .mg-theme:visible').count(),0);
+  await f.context.unroute(pattern);await tap(p,'#mgRetry');await ready(p,pair,6);await photo(p);
+ }finally{await f.close();}
 }));
