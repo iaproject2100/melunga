@@ -182,10 +182,25 @@
     .lesson-menu-backdrop{position:absolute;inset:0;z-index:20;background:rgba(2,18,29,.58);opacity:0;pointer-events:none;transition:.25s opacity;display:flex;align-items:flex-end}.lesson-menu-backdrop.open{opacity:1;pointer-events:auto}.lesson-drawer{width:100%;max-height:82%;overflow:auto;background:#f7fbfd;color:var(--ink);border-radius:30px 30px 0 0;padding:14px 18px calc(20px + env(safe-area-inset-bottom));transform:translateY(100%);transition:.3s transform}.lesson-menu-backdrop.open .lesson-drawer{transform:none}.drawer-handle{width:52px;height:5px;background:#cbd8df;border-radius:99px;margin:0 auto 13px}.drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.drawer-head h3{font-size:22px;margin:0}.drawer-close{border:0;width:42px;height:42px;border-radius:15px;background:#e9f0f4;font-size:20px;cursor:pointer}.menu-panel{display:none}.menu-panel.active{display:block}.menu-language{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#eaf7fd;border:1px solid #cae8f7;border-radius:18px;padding:12px 14px;margin-bottom:13px}.menu-language select{border:0;background:transparent;color:var(--navy);font-weight:900;max-width:170px}.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.menu-tile{border:1px solid var(--line);background:white;border-radius:19px;padding:15px 6px;display:grid;gap:7px;place-items:center;color:var(--ink);font-weight:900;font-size:12px;cursor:pointer}.menu-tile b{font-size:28px}.menu-wide{grid-column:span 2}.panel-back{border:0;background:transparent;color:var(--blue);font-weight:900;padding:6px 0 14px;cursor:pointer}.drawer-list{display:grid;gap:9px}.drawer-choice{width:100%;border:1px solid var(--line);background:white;border-radius:17px;padding:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;font-weight:900;color:var(--ink);cursor:pointer}.drawer-choice span{color:var(--soft);font-size:12px}.review-summary{background:linear-gradient(145deg,var(--navy),var(--navy-2));color:white;border-radius:22px;padding:18px;margin-bottom:13px}.review-summary strong{font-size:26px;display:block}.review-summary span{font-size:13px;color:rgba(255,255,255,.7)}.theme-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.theme-choice{border:2px solid transparent;background:white;border-radius:18px;padding:8px;text-align:left;font-weight:900;color:var(--ink);cursor:pointer}.theme-choice.selected{border-color:var(--blue)}.theme-swatch{height:51px;border-radius:12px;margin-bottom:7px}.swatch-gamified{background:radial-gradient(120% 80% at 50% 30%,#FFF9EC,#EDE1C9)}.swatch-zen{background:linear-gradient(180deg,#FFD98E,#FF9E7A 55%,#C77DBB)}.swatch-premium{background:radial-gradient(120% 80% at 50% 30%,#20252F,#0A0C11)}.swatch-sunset{background:linear-gradient(180deg,#833AB4,#FD1D1D 55%,#FCB045)}.swatch-neon{background:linear-gradient(180deg,#7303C0,#EC38BC 50%,#03001E)}.swatch-ocean{background:linear-gradient(180deg,#1CB5E0,#000851)}.swatch-forest{background:linear-gradient(180deg,#134E5E,#71B280)}.swatch-spotify{background:linear-gradient(180deg,#1DB954,#0A0A0A 60%)}.swatch-plum{background:linear-gradient(180deg,#FFE9F0,#F6A8C8 45%,#9C5B9E)}.swatch-lantern{background:linear-gradient(180deg,#3D0000,#8E0E00 55%,#D4A017 120%)}.swatch-aurora{background:linear-gradient(180deg,#001510,#003D2E 40%,#0E7B5A 75%,#5B2A86 115%)}.swatch-cafe{background:linear-gradient(180deg,#F2E5D0,#D9BE9C 55%,#8A6242)}.swatch-insta{background:linear-gradient(135deg,#4F5BD5 0%,#962FBF 28%,#D62976 55%,#FA7E1E 80%,#FEDA75 105%)}.swatch-bordeaux{background:linear-gradient(160deg,#8A3550,#5B2340 55%,#3C1830)}
     .lesson-context{display:flex;align-items:center;justify-content:center;gap:8px;margin:5px 0 6px}.lesson-context-btn{border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.1);color:inherit;padding:8px 12px;border-radius:999px;font:inherit;font-size:13px;font-weight:900;cursor:pointer;white-space:nowrap}.lesson-context-btn:active{transform:scale(.97)}.lesson-topic{text-align:center;min-height:18px;margin:0 0 9px;color:rgba(255,255,255,.7);font-size:11px;font-weight:850;letter-spacing:.3px}.lesson.theme-light .lesson-context-btn{background:rgba(255,255,255,.35);border-color:rgba(35,38,43,.15)}.lesson.theme-light .lesson-topic{color:rgba(35,38,43,.62)}.drawer-choice.selected,.level-choice.selected{border-color:var(--blue);background:#eaf7fd;color:var(--navy)}.level-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.level-choice{border:1px solid var(--line);background:white;border-radius:18px;padding:15px 10px;color:var(--ink);font-size:16px;font-weight:950;cursor:pointer}.level-choice small{display:block;color:var(--soft);font-size:10px;margin-top:4px;font-weight:750}.app-language-backdrop{position:fixed;inset:auto;margin:0;border:0;max-width:none;max-height:none;width:100vw;height:100dvh;padding:0;overflow:hidden;color:var(--ink);background:rgba(2,18,29,.34)}
     .app-language-backdrop:not([open]){display:none}.app-language-backdrop::backdrop{background:transparent}
-    .app-language-sheet{position:absolute;left:12px;top:12px;display:flex;flex-direction:column;min-height:0;width:min(310px,calc(100% - 24px));max-height:calc(100% - 24px);overflow:hidden;background:rgba(248,251,253,.98);color:var(--ink);border:1px solid rgba(255,255,255,.75);border-radius:23px;padding:11px 13px max(14px,env(safe-area-inset-bottom));box-shadow:0 20px 55px rgba(2,18,29,.28)}
+    .app-language-sheet{position:absolute;left:12px;top:12px;display:flex;flex-direction:column;min-height:0;width:min(288px,calc(100% - 32px));max-height:min(640px,calc(100% - 32px));overflow:hidden;background:rgba(248,251,253,.78);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);color:var(--ink);border:1px solid rgba(255,255,255,.75);border-radius:23px;padding:11px 13px max(14px,env(safe-area-inset-bottom));box-shadow:0 20px 55px rgba(2,18,29,.28)}
     .app-language-sheet .drawer-handle{display:none}.app-language-head{display:flex;flex:0 0 auto;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}.app-language-head h3{min-width:0;font-size:17px;margin:0}.app-language-head .drawer-close{flex:0 0 44px;width:44px;height:44px;border-radius:12px;font-size:18px}
-    .app-language-grid{display:flex;flex:1 1 auto;flex-direction:column;gap:4px;min-height:0;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y;padding:4px 2px 8px;scroll-padding-block:8px;scrollbar-width:thin;scrollbar-color:#b8cad4 transparent}
+    .app-language-grid{display:flex;flex:1 1 auto;flex-direction:column;gap:4px;min-height:0;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y;padding:4px 2px 8px;scroll-padding-block:8px;scrollbar-width:none;padding-right:17px}
     .app-language-choice{flex:0 0 auto;width:100%;min-height:51px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);border-radius:13px;padding:8px 11px;display:flex;align-items:center;gap:11px;text-align:left;font-size:14px;font-weight:900;cursor:pointer}.app-language-choice b{font-size:21px}.app-language-choice:after{content:'✓';margin-left:auto;color:var(--blue);font-size:17px;opacity:0}.app-language-choice.selected{background:#eaf7fd;color:var(--navy)}.app-language-choice.selected:after{opacity:1}.app-language-choice:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+    .app-language-scroll{position:relative;display:flex;flex:1 1 auto;min-height:0}
+    .app-language-grid::-webkit-scrollbar{display:none}
+    .app-language-track{position:absolute;right:1px;top:4px;bottom:8px;width:8px;border-radius:12px;background:rgba(11,108,148,.15);touch-action:none}
+    .app-language-thumb{position:absolute;inset:0 1px auto;height:36px;border-radius:10px;background:#137c9b;cursor:grab;touch-action:none}
+    .app-language-thumb:active{cursor:grabbing}
+    .app-language-scroll-nav{display:flex;flex:0 0 auto;align-items:center;gap:9px;border-top:1px solid rgba(18,74,97,.16);padding-top:9px;margin-top:4px}
+    .app-language-range{font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums;color:#365d70}
+    .app-language-more{flex:1;min-height:42px;padding:7px 9px;border:1px solid rgba(19,124,155,.3);border-radius:11px;background:rgba(102,196,230,.16);color:#174b60;font:700 12px/1.3 Inter,"Segoe UI",sans-serif;cursor:pointer}
+    .app-language-more:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+    .app-indonesian-shortcut{flex:0 0 auto;border-top:1px solid rgba(18,74,97,.16);padding-top:8px;margin-top:9px}
+    .app-indonesian-shortcut[hidden]{display:none}
+    .app-indonesian-shortcut small{display:block;font-size:11px;font-weight:700;color:#365d70;margin-bottom:4px}
+    .app-indonesian-shortcut button{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;padding:8px 9px;border:1px solid rgba(19,124,155,.3);border-radius:11px;background:rgba(102,196,230,.16);color:#174b60;font:700 13px/1.3 Inter,"Segoe UI",sans-serif;text-align:left;cursor:pointer}
+    .app-indonesian-shortcut button>span:last-child{margin-left:auto}
+    .app-indonesian-shortcut button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
     .screen[data-screen="language"]>*{flex-shrink:0}.screen[data-screen="language"] .sticky-action{position:static;flex:none;margin-top:auto;padding-top:16px;padding-bottom:max(4px,env(safe-area-inset-bottom));background:none}.screen[data-screen="language"] [data-study-language][hidden]{display:none!important}
     .demo-note{position:fixed;right:16px;bottom:16px;background:#122b3a;color:white;padding:10px 13px;border-radius:12px;font-size:12px;box-shadow:var(--shadow)}
     @media(max-width:520px){.stage{padding:0;min-height:100vh;min-height:100dvh;align-items:start}.phone{width:100%;height:100vh;height:100dvh;min-height:0;border-radius:0}.screen{padding-inline:max(22px,env(safe-area-inset-left)) max(22px,env(safe-area-inset-right))}.screen>*{max-width:100%}.proof-slide{justify-content:flex-start;padding-top:clamp(22px,7vh,58px);padding-bottom:26px}.demo-note{display:none}}
@@ -250,8 +265,7 @@ html.melunga-web .hc-secondary > .hc-link {
 /* 1 — independent capsules: one clear primary action, two quiet choices. */
 html.melunga-web .hc-capsules { grid-template-columns: 1fr 1fr; }
 html.melunga-web .hc-capsules > .hc-trial { grid-column: 1 / -1; min-height: 58px; }
-/* Preserve the real native-language dialog, opening upward near the trigger. */
-html.melunga-web .app-language-sheet { left: 12px !important; right: 12px; top: auto !important; bottom: 12px; width: auto; max-height: calc(100% - 24px); }
+/* The native-language dialog keeps its compact width and viewport-clamped anchor on every screen. */
 @media(max-height: 640px) {
   html.melunga-web .hc-welcome { padding-top: 14px; }
   html.melunga-web .hc-welcome .brand { margin-top: 4px; }
@@ -389,7 +403,7 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
           <div class="app-language-sheet">
             <div class="drawer-handle"></div>
             <div class="app-language-head"><h3 id="appLanguageTitle" data-welcome-i18n="languageTitle">Langue de l’application</h3><button class="drawer-close" data-close-app-language aria-label="Fermer">×</button></div>
-            <div class="app-language-grid">
+            <div class="app-language-scroll"><div class="app-language-grid">
               <button class="app-language-choice" data-app-language="en" data-app-language-label="EN English"><b aria-hidden="true"><span class="home-flag home-flag-en"></span></b>English</button>
               <button class="app-language-choice" data-app-language="zh" data-app-language-label="CN 中文"><b aria-hidden="true"><span class="home-flag home-flag-zh"></span></b>中文</button>
               <button class="app-language-choice" data-app-language="ar" data-app-language-label="AR العربية"><b aria-hidden="true"><span class="home-flag home-flag-ar"></span></b>العربية</button>
@@ -402,7 +416,9 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
               <button class="app-language-choice" data-app-language="ko" data-app-language-label="KR 한국어"><b aria-hidden="true"><span class="home-flag home-flag-ko"></span></b>한국어</button>
               <button class="app-language-choice" data-app-language="de" data-app-language-label="DE Deutsch"><b aria-hidden="true"><span class="home-flag home-flag-de"></span></b>Deutsch</button>
               <button class="app-language-choice" data-app-language="it" data-app-language-label="IT Italiano"><b aria-hidden="true"><span class="home-flag home-flag-it"></span></b>Italiano</button>
-            </div>
+            </div><div class="app-language-track" aria-hidden="true"><span class="app-language-thumb"></span></div></div>
+            <div class="app-language-scroll-nav"><output class="app-language-range" aria-labelledby="appLanguageTitle"></output><button type="button" class="app-language-more">Autres langues ↓</button></div>
+            <div class="app-indonesian-shortcut"><small data-indonesian-intro>À apprendre</small><button type="button" data-learn-indonesian><span class="home-flag home-flag-id" aria-hidden="true"></span><span>Bahasa Indonesia</span><span aria-hidden="true">→</span></button></div>
           </div>
         </dialog>
       </article>
@@ -921,11 +937,35 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
       if(!appLanguageMenu.open)return;
       const viewport=window.visualViewport,bounds={left:viewport?.offsetLeft||0,top:viewport?.offsetTop||0,width:viewport?.width||innerWidth,height:viewport?.height||innerHeight},gutter=12;
       Object.assign(appLanguageMenu.style,{left:bounds.left+'px',top:bounds.top+'px',width:bounds.width+'px',height:bounds.height+'px'});
-      const sheet=appLanguageMenu.querySelector('.app-language-sheet');sheet.style.maxHeight=Math.max(0,bounds.height-gutter*2)+'px';
+      const sheet=appLanguageMenu.querySelector('.app-language-sheet');sheet.style.maxHeight=Math.max(0,Math.min(640,bounds.height-gutter*2))+'px';
       const anchor=appLanguageOpener.getBoundingClientRect(),rect=sheet.getBoundingClientRect();
       sheet.style.left=Math.max(gutter,Math.min(anchor.right-bounds.left-rect.width,bounds.width-rect.width-gutter))+'px';
       sheet.style.top=Math.max(gutter,Math.min(anchor.bottom-bounds.top+8,bounds.height-rect.height-gutter))+'px';
+      updateAppLanguageScroll();
     }
+    const appLanguageList=appLanguageMenu.querySelector('.app-language-grid'),appLanguageTrack=appLanguageMenu.querySelector('.app-language-track'),appLanguageThumb=appLanguageMenu.querySelector('.app-language-thumb');
+    const appLanguageScrollCopy={fr:['Autres langues','Haut de la liste'],en:['More languages','Back to top'],es:['Más idiomas','Volver arriba'],it:['Altre lingue','Torna all’inizio'],de:['Weitere Sprachen','Zurück nach oben'],zh:['更多语言','回到顶部'],ja:['ほかの言語','先頭に戻る'],ko:['다른 언어','맨 위로'],ru:['Другие языки','Наверх'],pt:['Mais idiomas','Voltar ao topo'],ar:['لغات أخرى','العودة إلى الأعلى'],hi:['अन्य भाषाएँ','ऊपर जाएँ']};
+    function updateAppLanguageScroll(){
+      if(!appLanguageMenu.open)return;
+      const range=appLanguageList.scrollHeight-appLanguageList.clientHeight,height=appLanguageTrack.clientHeight,thumbHeight=Math.min(height,Math.max(32,height*appLanguageList.clientHeight/Math.max(1,appLanguageList.scrollHeight)));
+      appLanguageTrack.hidden=range<2;appLanguageThumb.style.height=thumbHeight+'px';appLanguageThumb.style.transform='translateY('+(range>0?appLanguageList.scrollTop/range*(height-thumbHeight):0)+'px)';
+      const bounds=appLanguageList.getBoundingClientRect(),choices=[...appLanguageList.querySelectorAll('[data-app-language]')].filter(n=>!n.hidden&&getComputedStyle(n).display!=='none');
+      const visible=choices.map((n,i)=>({i,r:n.getBoundingClientRect()})).filter(({r})=>r.bottom>bounds.top+3&&r.top<bounds.bottom-3);
+      appLanguageMenu.querySelector('.app-language-range').textContent=visible.length?(visible[0].i+1)+'–'+(visible.at(-1).i+1)+' / '+choices.length:'0 / '+choices.length;
+      const atBottom=appLanguageList.scrollTop>=range-2,copy=appLanguageScrollCopy[currentAppLocale]||appLanguageScrollCopy.fr,button=appLanguageMenu.querySelector('.app-language-more');
+      button.hidden=range<2;button.textContent=copy[atBottom?1:0]+' '+(atBottom?'↑':'↓');
+    }
+    appLanguageList.addEventListener('scroll',updateAppLanguageScroll,{passive:true});
+    new ResizeObserver(updateAppLanguageScroll).observe(appLanguageList);
+    appLanguageMenu.querySelector('.app-language-more').addEventListener('click',()=>{
+      const atBottom=appLanguageList.scrollTop>=appLanguageList.scrollHeight-appLanguageList.clientHeight-2;
+      appLanguageList.scrollTo({top:atBottom?0:appLanguageList.scrollTop+Math.max(60,appLanguageList.clientHeight-52),behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
+    });
+    let appLanguageDrag=null;
+    appLanguageThumb.addEventListener('pointerdown',event=>{event.preventDefault();appLanguageThumb.setPointerCapture(event.pointerId);appLanguageDrag={y:event.clientY,top:appLanguageList.scrollTop};});
+    appLanguageThumb.addEventListener('pointermove',event=>{if(!appLanguageDrag)return;const travel=Math.max(1,appLanguageTrack.clientHeight-appLanguageThumb.offsetHeight);appLanguageList.scrollTop=appLanguageDrag.top+(event.clientY-appLanguageDrag.y)/travel*(appLanguageList.scrollHeight-appLanguageList.clientHeight);});
+    appLanguageThumb.addEventListener('pointerup',()=>appLanguageDrag=null);appLanguageThumb.addEventListener('pointercancel',()=>appLanguageDrag=null);
+    appLanguageTrack.addEventListener('pointerdown',event=>{if(event.target===appLanguageThumb)return;const travel=Math.max(1,appLanguageTrack.clientHeight-appLanguageThumb.offsetHeight);appLanguageList.scrollTop=(event.clientY-appLanguageTrack.getBoundingClientRect().top-appLanguageThumb.offsetHeight/2)/travel*(appLanguageList.scrollHeight-appLanguageList.clientHeight);});
     function revealAppLanguageChoice(choice){
       const list=appLanguageMenu.querySelector('.app-language-grid'),bounds=list.getBoundingClientRect(),rect=choice.getBoundingClientRect();
       if(rect.top<bounds.top+4)list.scrollTop-=bounds.top+4-rect.top;
@@ -936,7 +976,7 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
       appLanguageOpener=opener;
       appLanguageMenu.showModal();appLanguageMenu.classList.add('open');appLanguageButton.setAttribute('aria-expanded','true');appLanguageOpener.setAttribute('aria-expanded','true');
       const list=appLanguageMenu.querySelector('.app-language-grid');list.scrollTop=0;positionAppLanguageMenu();
-      const choice=list.querySelector('.selected')||list.firstElementChild;choice?.focus({preventScroll:true});if(choice)revealAppLanguageChoice(choice);
+      const choice=list.querySelector('.selected')||list.firstElementChild;choice?.focus({preventScroll:true});if(choice)revealAppLanguageChoice(choice);updateAppLanguageScroll();
     }
     function closeAppLanguageMenu(){
       if(appLanguageMenu.open)appLanguageMenu.close();appLanguageMenu.classList.remove('open');appLanguageButton.setAttribute('aria-expanded','false');appLanguageOpener.setAttribute('aria-expanded','false');appLanguageOpener.focus({preventScroll:true});
@@ -1095,6 +1135,9 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
       });
       document.querySelectorAll('[data-app-language]').forEach(choice=>{const available=homeAppLanguageAvailable(choice.dataset.appLanguage);choice.hidden=!available;choice.style.display=available?'':'none';const selected=choice.dataset.appLanguage===locale;choice.classList.toggle('selected',selected);choice.setAttribute('aria-pressed',String(selected));});
       document.querySelectorAll('[data-welcome-i18n]').forEach(element=>{const value=texts[element.dataset.welcomeI18n];if(value!==undefined)element.innerHTML=value;});
+      const indonesianShortcut=document.querySelector('.app-indonesian-shortcut');
+      indonesianShortcut.hidden=!coursePair(locale,'id');
+      indonesianShortcut.querySelector('[data-indonesian-intro]').textContent=({fr:'À apprendre',en:'Learn a language',es:'Para aprender',it:'Da imparare',zh:'学习语言',ja:'学ぶ言語',ko:'학습할 언어'})[locale]||'';
       document.documentElement.lang=locale;
       const flag=document.createElement('span');flag.className='home-flag home-flag-'+locale;flag.setAttribute('aria-hidden','true');
       const name=document.createElement('span');name.textContent=homeLanguageNames[locale]+'⌄';appLanguageButton.replaceChildren(flag,name);
@@ -1170,6 +1213,10 @@ html.melunga-web .hc-welcome .hc-example { margin: 32px 0 0; flex-shrink: 0; }
     document.addEventListener('click',e=>{
       if(e.target.closest('[data-open-app-language]')){openAppLanguageMenu();return;}
       if(e.target.closest('[data-close-app-language]')||e.target===appLanguageMenu){closeAppLanguageMenu();return;}
+      if(e.target.closest('[data-learn-indonesian]')){
+        if(!coursePair(currentAppLocale,'id'))return;
+        selectedAccess='free';go('language');document.querySelector('[data-study-language="id"]').click();return;
+      }
       const appLanguageChoice=e.target.closest('[data-app-language]');if(appLanguageChoice){
         document.querySelectorAll('[data-app-language]').forEach(item=>item.classList.toggle('selected',item===appLanguageChoice));
         applyAppLanguage(appLanguageChoice.dataset.appLanguage,appLanguageChoice.dataset.appLanguageLabel);
