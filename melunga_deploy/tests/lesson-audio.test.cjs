@@ -387,3 +387,14 @@ test('Portuguese uses Brazilian voices and gender markers; Portugal is never a b
  for(const voices of [[],[voice('fr-FR')]]){const f=fixture({voices});f.player.play({text:'مرحبا.',language:'ar'});f.last().onerror();assert.equal(f.speech.length,0);assert.equal(f.unavailable,1);}
  const f=fixture({voices:[voice('fr-FR'),voice('ar-SA')]});f.player.play({text:'مرحبا.',language:'ar'});f.last().onerror();assert.equal(f.speech[0].lang,'ar-SA');assert.equal(f.speech[0].text,'مرحبا.');
  });
+
+test('Indonesian keeps both WaveNet genders and uses only a compatible browser fallback at either speed',async()=>{
+ for(const rate of [1,.75])for(const suffix of ['A','B']){
+  const f=fixture({preview:true,voices:[voice('fr-FR'),voice('id-ID')]});await f.ready;
+  assert.equal(f.selection.setVoice('id','id-ID-Wavenet-'+suffix),true);
+  assert.equal(f.player.play({text:'Bisa bantu saya?',language:'id',rate}),true);
+  const url=new URL(f.last().src,'https://fixture.test');assert.equal(url.searchParams.get('voice'),'id-ID-Wavenet-'+suffix);assert.equal(url.searchParams.get('lang'),'id-ID');assert.equal(url.searchParams.get('rate'),String(rate));
+  f.last().onerror();assert.equal(f.speech.at(-1).lang,'id-ID');assert.equal(f.speech.at(-1).rate,rate);assert.equal(f.speech.at(-1).text,'Bisa bantu saya?');assert.equal(f.playing,true);f.speech.at(-1).onend();assert.equal(f.playing,false);
+ }
+ const f=fixture({preview:true,voices:[voice('fr-FR')]});await f.ready;f.player.play({text:'Halo.',language:'id'});f.last().onerror();assert.equal(f.speech.length,0);assert.equal(f.unavailable,1);
+});
